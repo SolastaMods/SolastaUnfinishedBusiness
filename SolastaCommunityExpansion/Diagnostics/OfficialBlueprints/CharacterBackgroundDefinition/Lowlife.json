@@ -13,15 +13,12 @@
   ],
   "equipmentRows": [
     {
-      "$id": "1",
       "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
       "equipmentColumns": [
         {
-          "$id": "2",
           "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
           "equipmentOptions": [
             {
-              "$id": "3",
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
               "optionType": "Armor",
               "itemReference": "Definition:ClothesCommon:2d37f478395d1014ebcb56b9f4fb3003",
@@ -29,7 +26,6 @@
               "number": 1
             },
             {
-              "$id": "4",
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
               "optionType": "Tool",
               "itemReference": "Definition:ThievesTool:91bc47b45dfb1f540a7c0672d95af251",
@@ -44,19 +40,16 @@
   ],
   "staticPersonalityFlags": [
     {
-      "$id": "5",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 30,
       "personalityFlag": "Bg_Mean"
     },
     {
-      "$id": "6",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 30,
       "personalityFlag": "Slang"
     },
     {
-      "$id": "7",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 5,
       "personalityFlag": "Normal"
@@ -64,25 +57,21 @@
   ],
   "optionalPersonalityFlags": [
     {
-      "$id": "8",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 8,
       "personalityFlag": "Greed"
     },
     {
-      "$id": "9",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 8,
       "personalityFlag": "Selfishness"
     },
     {
-      "$id": "10",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 8,
       "personalityFlag": "Self-Preservation"
     },
     {
-      "$id": "11",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 8,
       "personalityFlag": "Friendliness"
@@ -94,20 +83,17 @@
   ],
   "forbiddenAlignments": [],
   "guiPresentation": {
-    "$id": "12",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Background/&LowLifeTitle",
     "description": "Background/&LowlifeDescription",
     "spriteReference": {
-      "$id": "13",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "fb6650d9f2c03d1479d0878d9a618e7b",
       "m_SubObjectName": "Urchin",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "14",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

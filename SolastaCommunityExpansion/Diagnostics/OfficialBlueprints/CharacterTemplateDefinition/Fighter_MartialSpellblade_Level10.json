@@ -94,19 +94,16 @@
   "facePath": "",
   "wieldedItemsConfigurations": [
     {
-      "$id": "1",
       "$type": "WieldedItemsConfiguration, Assembly-CSharp",
       "mainHandItemDefinition": "Definition:Longsword+1:b666bb2f12d1f15439fa61f3cfd9cc31",
       "offHandItemDefinition": null
     },
     {
-      "$id": "2",
       "$type": "WieldedItemsConfiguration, Assembly-CSharp",
       "mainHandItemDefinition": "Definition:LightCrossbow:84f6376eb9753124298bb9cceafe3da7",
       "offHandItemDefinition": null
     },
     {
-      "$id": "3",
       "$type": "WieldedItemsConfiguration, Assembly-CSharp",
       "mainHandItemDefinition": null,
       "offHandItemDefinition": "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994"
@@ -114,20 +111,17 @@
   ],
   "voiceId": "MAL1",
   "guiPresentation": {
-    "$id": "4",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "CharacterTemplate/&GarradTitle",
     "description": "CharacterTemplate/&GarradDescription",
     "spriteReference": {
-      "$id": "5",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "725202a2765bd7f47aa048ff3ea17a87",
       "m_SubObjectName": "Fighter_MartialSpellblade_Level10",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "6",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

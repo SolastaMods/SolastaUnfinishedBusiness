@@ -2,14 +2,12 @@
   "$type": "TreasureTableDefinition, Assembly-CSharp",
   "treasureOptions": [
     {
-      "$id": "1",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 5,
       "itemDefinition": "Definition:20_GP_Amethyst:8f7795d6772e6584c856e1240ce99fdb",
       "amount": 1
     },
     {
-      "$id": "2",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 1,
       "itemDefinition": "Definition:Ingredient_Enchant_TrollHeart:81af6b3ca1292564a8e9138572b44b81",
@@ -17,20 +15,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "3",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "TreasureTable/&GemsTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "4",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "5",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

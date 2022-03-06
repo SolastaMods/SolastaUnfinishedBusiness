@@ -27,13 +27,11 @@
   "conditionOperations": [],
   "addLightSource": false,
   "lightSourceForm": {
-    "$id": "1",
     "$type": "LightSourceForm, Assembly-CSharp",
     "lightSourceType": "Basic",
     "brightRange": 4,
     "dimAdditionalRange": 4,
     "color": {
-      "$id": "2",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,
@@ -41,7 +39,6 @@
       "a": 1.0
     },
     "graphicsPrefabReference": {
-      "$id": "3",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -50,7 +47,6 @@
     "applyToSelf": false
   },
   "impactParticleReference": {
-    "$id": "4",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
     "m_SubObjectName": "",
@@ -58,35 +54,30 @@
   },
   "particlesBasedOnAncestryDamageType": false,
   "acidImpactParticleReference": {
-    "$id": "5",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "coldImpactParticleReference": {
-    "$id": "6",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "fireImpactParticleReference": {
-    "$id": "7",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "lightningImpactParticleReference": {
-    "$id": "8",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "poisonImpactParticleReference": {
-    "$id": "9",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
     "m_SubObjectName": "",
@@ -94,20 +85,17 @@
   },
   "computeDescription": false,
   "guiPresentation": {
-    "$id": "10",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&AdditionalDamageHunterColossusSlayerTitle",
     "description": "Feature/&AdditionalDamageHunterColossusSlayerDescription",
     "spriteReference": {
-      "$id": "11",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "12",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

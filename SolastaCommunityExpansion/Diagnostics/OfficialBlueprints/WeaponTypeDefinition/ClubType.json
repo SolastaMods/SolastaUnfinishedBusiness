@@ -7,10 +7,8 @@
   "animationTag": "Mace",
   "secondaryAnimationTag": "NoWeapon",
   "soundEffectDescription": {
-    "$id": "1",
     "$type": "SoundEffectDescription, Assembly-CSharp",
     "startEvent": {
-      "$id": "2",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -20,7 +18,6 @@
       }
     },
     "stopEvent": {
-      "$id": "3",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -30,13 +27,10 @@
       }
     },
     "startSwitch": {
-      "$id": "4",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": {
-        "$id": "5",
         "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
         "WwiseSwitchGroupReference": {
-          "$id": "6",
           "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
           "objectName": "Switch_Weapon",
           "id": 3974273212,
@@ -60,13 +54,15 @@
       }
     },
     "stopSwitch": {
-      "$id": "7",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": {
-        "$id": "8",
         "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
         "WwiseSwitchGroupReference": {
-          "$ref": "6"
+          "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+          "objectName": "Switch_Weapon",
+          "id": 3974273212,
+          "guid": "D2D6B922-8A9A-4873-B9AF-27E992B18419",
+          "name": "D2D6B922-8A9A-4873-B9AF-27E992B18419"
         },
         "objectName": "Unarmed",
         "id": 1123359481,
@@ -85,7 +81,6 @@
       }
     },
     "guiStoreBody": {
-      "$id": "9",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -95,7 +90,6 @@
       }
     },
     "guiPickBody": {
-      "$id": "10",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -105,7 +99,6 @@
       }
     },
     "guiStoreOther": {
-      "$id": "11",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -115,7 +108,6 @@
       }
     },
     "guiPickOther": {
-      "$id": "12",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -126,16 +118,12 @@
     }
   },
   "soundEffectOnHitDescription": {
-    "$id": "13",
     "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
     "switchOnHit": {
-      "$id": "14",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": {
-        "$id": "15",
         "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
         "WwiseSwitchGroupReference": {
-          "$id": "16",
           "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
           "objectName": "Switch_Damage",
           "id": 1103537035,
@@ -160,48 +148,41 @@
     }
   },
   "meleeAttackerParticleReference": {
-    "$id": "17",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "079b036bd2ecc304fb2cff9c770c1f1c",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "meleeImpactParticleReference": {
-    "$id": "18",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "76c811886edea934288f847cb91939bb",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "throwAttackerParticleReference": {
-    "$id": "19",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "throwImpactParticleReference": {
-    "$id": "20",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "guiPresentation": {
-    "$id": "21",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&ClubTypeTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "22",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "23",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

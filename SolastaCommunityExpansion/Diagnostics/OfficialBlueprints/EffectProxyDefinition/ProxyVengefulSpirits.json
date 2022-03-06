@@ -18,14 +18,12 @@
     "Definition:MoveModeFly6:017c6a5ac95be2841bea36b7dac041fe"
   ],
   "attackParticle": {
-    "$id": "1",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "attackImpactParticle": {
-    "$id": "2",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
     "m_SubObjectName": "",
@@ -33,13 +31,11 @@
   },
   "addLightSource": false,
   "lightSourceForm": {
-    "$id": "3",
     "$type": "LightSourceForm, Assembly-CSharp",
     "lightSourceType": "Basic",
     "brightRange": 4,
     "dimAdditionalRange": 4,
     "color": {
-      "$id": "4",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.945098042,
       "g": 0.360026062,
@@ -47,7 +43,6 @@
       "a": 1.0
     },
     "graphicsPrefabReference": {
-      "$id": "5",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "382beb45afcab144c934e4a1f34b619d",
       "m_SubObjectName": "",
@@ -56,7 +51,6 @@
     "applyToSelf": false
   },
   "lightSourceOffset": {
-    "$id": "6",
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
     "x": 0.0,
     "y": 0.5,
@@ -66,7 +60,6 @@
   "maxSpellLevelImmunity": 1,
   "hasPresentation": true,
   "prefabReference": {
-    "$id": "7",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "d3e8cb1c8d2beca40bc20c00fab3814c",
     "m_SubObjectName": "",
@@ -77,17 +70,14 @@
   "showWorldLocationFeedbacks": true,
   "hasPortrait": true,
   "portraitSpriteReference": {
-    "$id": "8",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
     "m_AssetGUID": "1416149cf8aa6104d870f0b1cb17dea4",
     "m_SubObjectName": "ProxyVengefulSpirits",
     "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
   },
   "startEvent": {
-    "$id": "9",
     "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
     "WwiseObjectReference": {
-      "$id": "10",
       "$type": "WwiseEventReference, AK.Wwise.Unity.API.WwiseTypes",
       "objectName": "Play_Vfx_SORC_VengefulSpirit_Proxy_Loop",
       "id": 2282066264,
@@ -101,10 +91,8 @@
     }
   },
   "stopEvent": {
-    "$id": "11",
     "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
     "WwiseObjectReference": {
-      "$id": "12",
       "$type": "WwiseEventReference, AK.Wwise.Unity.API.WwiseTypes",
       "objectName": "Stop_Vfx_SORC_VengefulSpirit_Proxy_Loop",
       "id": 2824675486,
@@ -118,16 +106,12 @@
     }
   },
   "soundEffectOnHitDescription": {
-    "$id": "13",
     "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
     "switchOnHit": {
-      "$id": "14",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": {
-        "$id": "15",
         "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
         "WwiseSwitchGroupReference": {
-          "$id": "16",
           "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
           "objectName": "Switch_Damage",
           "id": 1103537035,
@@ -152,20 +136,17 @@
     }
   },
   "guiPresentation": {
-    "$id": "17",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&SorcerousHauntedSoulVengefulSpiritsTitle",
     "description": "EffectProxy/&ProxyHauntedSoulVengefulSpiritsDescription",
     "spriteReference": {
-      "$id": "18",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "1416149cf8aa6104d870f0b1cb17dea4",
       "m_SubObjectName": "ProxyVengefulSpirits",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "19",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

@@ -12,31 +12,26 @@
   "equipmentRows": [],
   "staticPersonalityFlags": [
     {
-      "$id": "1",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 10,
       "personalityFlag": "Friendliness"
     },
     {
-      "$id": "2",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 30,
       "personalityFlag": "Bg_Logical"
     },
     {
-      "$id": "3",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 30,
       "personalityFlag": "Formal"
     },
     {
-      "$id": "4",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 5,
       "personalityFlag": "Normal"
     },
     {
-      "$id": "5",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 30,
       "personalityFlag": "Bg_Nosy"
@@ -46,20 +41,17 @@
   "defaultOptionalPersonalityFlags": [],
   "forbiddenAlignments": [],
   "guiPresentation": {
-    "$id": "6",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Background/&PhilosopherTitle",
     "description": "Background/&KS_VioletGoodCheerBackground_Description",
     "spriteReference": {
-      "$id": "7",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "49d1872eda3c86343894d08b9135f34e",
       "m_SubObjectName": "Philosopher",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "8",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

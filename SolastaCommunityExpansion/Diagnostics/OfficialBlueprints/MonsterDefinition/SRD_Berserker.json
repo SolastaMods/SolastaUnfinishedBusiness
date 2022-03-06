@@ -31,29 +31,22 @@
   "legendaryActionOptions": [],
   "defaultBattleDecisionPackage": "Definition:OrcCombatDecisions:5e478ad7e5464ed4c90395176a4fb1e6",
   "threatEvaluatorDefinition": {
-    "$id": "1",
     "$type": "TA.AI.ThreatEvaluatorDefinition, Assembly-CSharp",
     "threatEvaluator": {
-      "$id": "2",
       "$type": "TA.AI.ThreatEvaluator, Assembly-CSharp",
       "hateResponse": {
-        "$id": "3",
         "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
       },
       "woundRatioResponse": {
-        "$id": "4",
         "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
       },
       "maxHPResponse": {
-        "$id": "5",
         "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
       },
       "attackersCountResponse": {
-        "$id": "6",
         "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
       },
       "meleeVsRangedResponse": {
-        "$id": "7",
         "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
       },
       "previousTargetRelatedMalus": 0.1
@@ -78,7 +71,6 @@
   ],
   "attackIterations": [
     {
-      "$id": "8",
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
       "monsterAttackDefinition": "Definition:Attack_Berserker_Greataxe:0f61ea52e4105234a91895e363301a87"
@@ -100,7 +92,6 @@
   "bestiaryEntry": "Full",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
-    "$id": "9",
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
     "x": 0.0,
     "y": 7.0,
@@ -108,14 +99,12 @@
   },
   "alwaysHideStats": false,
   "bestiarySpriteReference": {
-    "$id": "10",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
     "m_AssetGUID": "2a7bf2c8ddcccbe40898cda8d5ccaa0d",
     "m_SubObjectName": "SRD_Berserker",
     "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
   },
   "monsterPresentation": {
-    "$id": "11",
     "$type": "MonsterPresentation, Assembly-CSharp",
     "hasUniqueName": false,
     "uniqueNameTitle": "",
@@ -125,14 +114,12 @@
     "useCustomMaterials": false,
     "customMaterials": [],
     "customShaderReference": {
-      "$id": "12",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "mutantFleshDirection": {
-      "$id": "13",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": -1.0,
@@ -140,7 +127,6 @@
     },
     "overrideCharacterShaderColors": false,
     "firstCharacterShaderColor": {
-      "$id": "14",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -148,7 +134,6 @@
       "a": 0.0
     },
     "secondCharacterShaderColor": {
-      "$id": "15",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -157,14 +142,12 @@
     },
     "hasPhantomDistortion": true,
     "attachedParticlesReference": {
-      "$id": "16",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "bestiaryAttachedParticlesReference": {
-      "$id": "17",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -173,7 +156,6 @@
     "hasPrefabVariants": false,
     "monsterPresentationDefinitions": [],
     "malePrefabReference": {
-      "$id": "18",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "190c5890818bb754fa701852cfc8777a",
       "m_SubObjectName": "",
@@ -181,7 +163,6 @@
     },
     "maleModelScale": 0.74,
     "femalePrefabReference": {
-      "$id": "19",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "190c5890818bb754fa701852cfc8777a",
       "m_SubObjectName": "",
@@ -196,21 +177,18 @@
     "needMerchantPortrait": false,
     "hasMonsterPortraitBackground": true,
     "portraitCameraFollowOffset": {
-      "$id": "20",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": -0.5,
       "z": -5.0
     },
     "portraitCameraLookAtScreenOffset": {
-      "$id": "21",
       "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
       "x": 0.5,
       "y": 0.4
     },
     "portraitCameraFOV": 40.0,
     "portraitCameraLightingOffset": {
-      "$id": "22",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": 0.0,
@@ -225,20 +203,17 @@
   "isUnique": false,
   "uniqueNameId": "",
   "guiPresentation": {
-    "$id": "23",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Monster/&Berserker_Title",
     "description": "Monster/&Berserker_Description",
     "spriteReference": {
-      "$id": "24",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "25",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

@@ -1,49 +1,42 @@
 {
   "$type": "DieStyleDefinition, Assembly-CSharp",
   "d4MaterialReference": {
-    "$id": "1",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "f694afd9fc5ea414491087d0b48f3dbb",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "d6MaterialReference": {
-    "$id": "2",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "1cd5f6f909ecd6e418d4730c35eccf87",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "d8MaterialReference": {
-    "$id": "3",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "0fc1ad7e6082e93458656bf1ad72ef64",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "d10MaterialReference": {
-    "$id": "4",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "3a7657c9c9f9d894eaee174d17c3c917",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "d12MaterialReference": {
-    "$id": "5",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "b5c6c39d74051ad498872dd44cd9db8c",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "d20MaterialReference": {
-    "$id": "6",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "b698ed3c1b1f79145aa2785807a7d11e",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "particlePrefabReference": {
-    "$id": "7",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
     "m_SubObjectName": "",
@@ -51,20 +44,17 @@
   },
   "useMetallicLayer": false,
   "guiPresentation": {
-    "$id": "8",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "DieStyle/&DieStyleIvoryTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "9",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "49e3e5f749d1e3c439f506fcb2197cf1",
       "m_SubObjectName": "DieStyleIvory",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "10",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

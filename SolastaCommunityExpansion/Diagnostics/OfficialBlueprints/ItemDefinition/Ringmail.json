@@ -38,7 +38,6 @@
   "itemRarity": "Common",
   "staticProperties": [
     {
-      "$id": "1",
       "$type": "ItemPropertyDescription, Assembly-CSharp",
       "appliesOnItemOnly": false,
       "type": "Feature",
@@ -49,7 +48,6 @@
   ],
   "isArmor": true,
   "armorDefinition": {
-    "$id": "2",
     "$type": "ArmorDescription, Assembly-CSharp",
     "armorType": "RingMailType",
     "armorClassValue": 14,
@@ -73,10 +71,8 @@
   "isFactionRelic": false,
   "personalityFlagOccurences": [],
   "soundEffectDescriptionOverride": {
-    "$id": "3",
     "$type": "SoundEffectDescription, Assembly-CSharp",
     "startEvent": {
-      "$id": "4",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -86,7 +82,6 @@
       }
     },
     "stopEvent": {
-      "$id": "5",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -96,7 +91,6 @@
       }
     },
     "startSwitch": {
-      "$id": "6",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -111,7 +105,6 @@
       }
     },
     "stopSwitch": {
-      "$id": "7",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -126,7 +119,6 @@
       }
     },
     "guiStoreBody": {
-      "$id": "8",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -136,7 +128,6 @@
       }
     },
     "guiPickBody": {
-      "$id": "9",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -146,7 +137,6 @@
       }
     },
     "guiStoreOther": {
-      "$id": "10",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -156,7 +146,6 @@
       }
     },
     "guiPickOther": {
-      "$id": "11",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -167,10 +156,8 @@
     }
   },
   "soundEffectOnHitDescriptionOverride": {
-    "$id": "12",
     "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
     "switchOnHit": {
-      "$id": "13",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -186,13 +173,11 @@
     }
   },
   "itemPresentation": {
-    "$id": "14",
     "$type": "ItemPresentation, Assembly-CSharp",
     "unidentifiedTitle": "",
     "unidentifiedDescription": "",
     "overrideSubtype": "None",
     "assetReference": {
-      "$id": "15",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -223,20 +208,17 @@
     "serializedVersion": 1
   },
   "guiPresentation": {
-    "$id": "16",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Equipment/&Armor_RingMailTitle",
     "description": "Equipment/&Armor_RingMailDescription",
     "spriteReference": {
-      "$id": "17",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "38af4f12f6e63694ab132b7d324a9ecb",
       "m_SubObjectName": "ChainMail",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "18",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

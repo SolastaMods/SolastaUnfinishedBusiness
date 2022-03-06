@@ -3,7 +3,6 @@
   "useControllerAbilityChecks": false,
   "affinityGroups": [
     {
-      "$id": "1",
       "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
       "abilityScoreName": "Intelligence",
       "proficiencyName": "Arcana",
@@ -14,7 +13,6 @@
       "lightingContext": "Irrelevant"
     },
     {
-      "$id": "2",
       "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
       "abilityScoreName": "Intelligence",
       "proficiencyName": "History",
@@ -25,7 +23,6 @@
       "lightingContext": "Irrelevant"
     },
     {
-      "$id": "3",
       "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
       "abilityScoreName": "Intelligence",
       "proficiencyName": "Nature",
@@ -39,20 +36,17 @@
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
-    "$id": "4",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&DomainInsightDivineIntuitionTitle",
     "description": "Feature/&DomainInsightDivineIntuitionDescription",
     "spriteReference": {
-      "$id": "5",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "6",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

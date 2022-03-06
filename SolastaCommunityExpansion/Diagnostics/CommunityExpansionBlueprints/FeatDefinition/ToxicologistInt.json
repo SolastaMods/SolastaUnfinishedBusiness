@@ -15,20 +15,17 @@
     "Definition:CraftyNature:7399b06a-bfda-4e60-8366-17e0d6cec0d0"
   ],
   "guiPresentation": {
-    "$id": "1",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "CraftyFeats/&ToxicologistIntFeatTitle",
     "description": "CraftyFeats/&ToxicologistIntFeatDescription",
     "spriteReference": {
-      "$id": "2",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
     "color": {
-      "$id": "3",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

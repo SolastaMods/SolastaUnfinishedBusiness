@@ -7,7 +7,6 @@
   "toolTypeDefinition": "Definition:ArtisanToolSmithToolsType:b28d62b91f1361f4f8b0d45fc28dbd14",
   "ingredients": [
     {
-      "$id": "1",
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
       "amount": 1,
       "itemDefinition": "Definition:Art_Item_25_GP_EngraveBoneDice:28a34361e0d67b74a9ecdb523215d9a5"
@@ -15,20 +14,17 @@
   ],
   "spellDefinition": null,
   "guiPresentation": {
-    "$id": "2",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&BoneKeep_Magic_Rune_Title",
     "description": "Equipment/&BoneKeep_Magic_Rune_Description",
     "spriteReference": {
-      "$id": "3",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "a1ea0ca830b2bb14e95ac60567cbf3a8",
       "m_SubObjectName": "BONEKEEP_MagicRune",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "4",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

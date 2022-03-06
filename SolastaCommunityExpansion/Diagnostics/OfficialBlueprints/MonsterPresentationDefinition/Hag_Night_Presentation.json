@@ -1,7 +1,6 @@
 {
   "$type": "MonsterPresentationDefinition, Assembly-CSharp",
   "prefabReference": {
-    "$id": "1",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "5452896007bc29e478e998d46d72337c",
     "m_SubObjectName": "",
@@ -12,14 +11,12 @@
   "useCustomMaterials": true,
   "customMaterials": [
     {
-      "$id": "2",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "90d5e27a1575313468d13b801e4067e7",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     {
-      "$id": "3",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "5dbba555048bf5b46ba6b97e88454026",
       "m_SubObjectName": "",
@@ -27,20 +24,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "4",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "",
     "description": "",
     "spriteReference": {
-      "$id": "5",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "6",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

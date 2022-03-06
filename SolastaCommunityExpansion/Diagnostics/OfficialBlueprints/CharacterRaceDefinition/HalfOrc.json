@@ -9,49 +9,41 @@
   "baseWeight": 120,
   "featureUnlocks": [
     {
-      "$id": "1",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
       "level": 1
     },
     {
-      "$id": "2",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetHalfOrcAbilityScoreIncrease:8c8136a6d48e5604c8ef003e500d1e0d",
       "level": 1
     },
     {
-      "$id": "3",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
       "level": 1
     },
     {
-      "$id": "4",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:SenseDarkvision12:b7ab84f45ce51764ca9c430f745a6b4e",
       "level": 1
     },
     {
-      "$id": "5",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencyHalfOrcMenacing:3173eb62c1711bc4ba72f1ddae7a0c8a",
       "level": 1
     },
     {
-      "$id": "6",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:DamageAffinityHalfOrcRelentlessEndurance:883c6fa6fd742fa4cbb82666ffe6dfc8",
       "level": 1
     },
     {
-      "$id": "7",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AdditionalDamageHalfOrcSavageAttacks:7b00c67d27fadfb41b864b007e6e3454",
       "level": 1
     },
     {
-      "$id": "8",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencyHalfOrcStaticLanguages:7d93ec92bf7dabc419d2bfbccaa47543",
       "level": 1
@@ -61,7 +53,6 @@
   "inventoryDefinition": "Definition:HumanoidInventory:2a836ff45f2eb274eb079425509421ac",
   "personalityFlagOccurences": [
     {
-      "$id": "9",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 30,
       "personalityFlag": "HalforcFlag"
@@ -76,7 +67,6 @@
   "audioSwitches": [],
   "audioRaceRTPCValue": 6.0,
   "racePresentation": {
-    "$id": "10",
     "$type": "RacePresentation, Assembly-CSharp",
     "bodyAssetPrefix": "Human",
     "morphotypeAssetPrefix": "Human",
@@ -118,31 +108,26 @@
     "useBeardBlendShape": true,
     "beardBlendShapes": [
       {
-        "$id": "11",
         "$type": "RacePresentation+BeardBlendShape, Assembly-CSharp",
         "faceShapeName": "FaceShape_HO_A",
         "blendShapeIndex": 0
       },
       {
-        "$id": "12",
         "$type": "RacePresentation+BeardBlendShape, Assembly-CSharp",
         "faceShapeName": "FaceShape_HO_B",
         "blendShapeIndex": 1
       },
       {
-        "$id": "13",
         "$type": "RacePresentation+BeardBlendShape, Assembly-CSharp",
         "faceShapeName": "FaceShape_HO_C",
         "blendShapeIndex": 2
       },
       {
-        "$id": "14",
         "$type": "RacePresentation+BeardBlendShape, Assembly-CSharp",
         "faceShapeName": "FaceShape_HO_D",
         "blendShapeIndex": 3
       },
       {
-        "$id": "15",
         "$type": "RacePresentation+BeardBlendShape, Assembly-CSharp",
         "faceShapeName": "FaceShape_HO_E",
         "blendShapeIndex": 4
@@ -226,40 +211,34 @@
     "maleVoiceDefinition": "MAL1",
     "femaleVoiceDefinition": "FEM2",
     "portraitShieldOffset": {
-      "$id": "16",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.02,
       "y": 0.0,
       "z": 0.0
     },
     "preferedSkinColors": {
-      "$id": "17",
       "$type": "TA.RangedInt, Assembly-CSharp",
       "minValue": 28,
       "maxValue": 48
     },
     "preferedHairColors": {
-      "$id": "18",
       "$type": "TA.RangedInt, Assembly-CSharp",
       "minValue": 0,
       "maxValue": 24
     }
   },
   "guiPresentation": {
-    "$id": "19",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Race/&HalfOrcTitle",
     "description": "Race/&HalfOrcDescription",
     "spriteReference": {
-      "$id": "20",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "65e9296f0abfdf14f9c31c2c89fac81e",
       "m_SubObjectName": "HalfOrc",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "21",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

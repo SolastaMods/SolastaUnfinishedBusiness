@@ -4,7 +4,6 @@
   "lootSpawnMode": "ItemList",
   "itemOccurencesList": [
     {
-      "$id": "1",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 3,
       "diceType": "D1",
@@ -14,7 +13,6 @@
       "treasureTableDefinition": "Definition:RandomTreasureTableB_Consumables:bcfabde319a2a4442818ccdf89636537"
     },
     {
-      "$id": "2",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 2,
       "diceType": "D1",
@@ -24,7 +22,6 @@
       "treasureTableDefinition": "Definition:RandomTreasureTableI_Poisons:3df5be1a314f25e42af1efad10339968"
     },
     {
-      "$id": "3",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 1,
       "diceType": "D1",
@@ -37,20 +34,17 @@
   "lootMagnitudeMode": "Individual",
   "lootChallengeMode": "ByPartyLevel",
   "guiPresentation": {
-    "$id": "4",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "5",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "6",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

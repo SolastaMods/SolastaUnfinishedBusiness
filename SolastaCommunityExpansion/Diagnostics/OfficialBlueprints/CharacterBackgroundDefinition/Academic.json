@@ -13,15 +13,12 @@
   ],
   "equipmentRows": [
     {
-      "$id": "1",
       "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
       "equipmentColumns": [
         {
-          "$id": "2",
           "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
           "equipmentOptions": [
             {
-              "$id": "3",
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
               "optionType": "GenericItem",
               "itemReference": "Definition:Background_Academic_Notebook:843236a5cb4aa8a4884d28d36197da14",
@@ -29,7 +26,6 @@
               "number": 1
             },
             {
-              "$id": "4",
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
               "optionType": "WealthPile",
               "itemReference": "Definition:StartingWealth_15GP:1904baa701816e04ab2000fcc7345ab6",
@@ -37,7 +33,6 @@
               "number": 1
             },
             {
-              "$id": "5",
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
               "optionType": "Armor",
               "itemReference": "Definition:ClothesCommon:2d37f478395d1014ebcb56b9f4fb3003",
@@ -52,19 +47,16 @@
   ],
   "staticPersonalityFlags": [
     {
-      "$id": "6",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 30,
       "personalityFlag": "Bg_Nosy"
     },
     {
-      "$id": "7",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 30,
       "personalityFlag": "Formal"
     },
     {
-      "$id": "8",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 5,
       "personalityFlag": "Normal"
@@ -72,25 +64,21 @@
   ],
   "optionalPersonalityFlags": [
     {
-      "$id": "9",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 8,
       "personalityFlag": "Pragmatism"
     },
     {
-      "$id": "10",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 8,
       "personalityFlag": "Lawfulness"
     },
     {
-      "$id": "11",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 8,
       "personalityFlag": "Greed"
     },
     {
-      "$id": "12",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 8,
       "personalityFlag": "Selfishness"
@@ -102,20 +90,17 @@
   ],
   "forbiddenAlignments": [],
   "guiPresentation": {
-    "$id": "13",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Background/&AcademicTitle",
     "description": "Background/&AcademicDescription",
     "spriteReference": {
-      "$id": "14",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "8dc3a0ee75153b042892f85d9c24dfa2",
       "m_SubObjectName": "Academic",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "15",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

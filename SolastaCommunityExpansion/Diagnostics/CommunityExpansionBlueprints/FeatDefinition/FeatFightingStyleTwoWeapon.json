@@ -13,20 +13,17 @@
     "Definition:FeatFightingStyleTwoWeaponProficiency:880a6b75-8657-5b28-9cb3-3556eb9f73df"
   ],
   "guiPresentation": {
-    "$id": "1",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feat/&FightingStyleTwoWeaponTitle",
     "description": "Feat/&FightingStyleTwoWeaponDescription",
     "spriteReference": {
-      "$id": "2",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
     "color": {
-      "$id": "3",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

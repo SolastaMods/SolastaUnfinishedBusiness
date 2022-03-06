@@ -2,7 +2,6 @@
   "$type": "GadgetBlueprint, Assembly-CSharp",
   "parameters": [
     {
-      "$id": "1",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "Character",
       "type": "Npc",
@@ -18,7 +17,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "2",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "MultiLine",
       "type": "GenericBool",
@@ -34,7 +32,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "3",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "Banter",
       "type": "Speech",
@@ -50,7 +47,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "4",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "RandomPlay",
       "type": "GenericBool",
@@ -66,7 +62,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "5",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "BanterLines",
       "type": "SpeechList",
@@ -82,7 +77,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "6",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "EncounterGroup",
       "type": "GenericBool",
@@ -98,7 +92,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "7",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "GroupIndex",
       "type": "EncounterIndex",
@@ -114,7 +107,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "8",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "AutoSpawn",
       "type": "GenericBool",
@@ -132,10 +124,8 @@
   ],
   "interactionNodes": [
     {
-      "$id": "9",
       "$type": "InteractionNodeDescription, Assembly-CSharp",
       "position": {
-        "$id": "10",
         "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
         "x": -0.3,
         "y": -0.3
@@ -146,11 +136,9 @@
   "canBeActivated": true,
   "customizableDimensions": false,
   "minCustomizableDimensions": {
-    "$id": "11",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "maxCustomizableDimensions": {
-    "$id": "12",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "campaignOnly": false,
@@ -165,16 +153,13 @@
   "lightSources": [],
   "category": "Encounter",
   "dimensions": {
-    "$id": "13",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "prefabsByEnvironment": [
     {
-      "$id": "14",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "",
       "prefabReference": {
-        "$id": "15",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "9811ce7f25a4a744d87f215ba614c2c9",
         "m_SubObjectName": "",
@@ -183,20 +168,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "16",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Gadget/&NpcBanterTitle",
     "description": "Gadget/&NpcBanterDescription",
     "spriteReference": {
-      "$id": "17",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "2b60acf7ffe9640439872117531a17e7",
       "m_SubObjectName": "NpcBanter",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "18",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

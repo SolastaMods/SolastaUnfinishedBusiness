@@ -6,20 +6,16 @@
   "registeredVariables": [],
   "sceneFilePath": "",
   "sceneReference": {
-    "$id": "1",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "a4add2f8bf1bb4542925f0285b328e2c",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "audioState": {
-    "$id": "2",
     "$type": "AK.Wwise.State, AK.Wwise.Unity.API.WwiseTypes",
     "WwiseObjectReference": {
-      "$id": "3",
       "$type": "WwiseStateReference, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseStateGroupReference": {
-        "$id": "4",
         "$type": "WwiseStateGroupReference, AK.Wwise.Unity.API.WwiseTypes",
         "objectName": "State_LocationName",
         "id": 598649695,
@@ -43,11 +39,9 @@
     }
   },
   "renderSettingsSceneProfile": {
-    "$id": "5",
     "$type": "RenderSettingsSceneProfile, Assembly-CSharp",
     "useSkybox": false,
     "backgroundColor": {
-      "$id": "6",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -56,7 +50,6 @@
     },
     "skyboxMaterial": null,
     "ambientLight": {
-      "$id": "7",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.1,
       "g": 0.140000015,
@@ -65,7 +58,6 @@
     },
     "fog": false,
     "fogColor": {
-      "$id": "8",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,
@@ -76,7 +68,6 @@
     "fogDensity": 0.0638,
     "excludeSkybox": false,
     "auraBaseSettings": {
-      "$id": "9",
       "$type": "Aura2API.AuraBaseSettings, Aura2_Core",
       "useDensity": true,
       "density": 0.01,
@@ -86,7 +77,6 @@
       "ambientLightingStrength": 1.0,
       "useColor": true,
       "color": {
-        "$id": "10",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.1598547,
         "g": 0.108694404,
@@ -96,7 +86,6 @@
       "colorStrength": 1.0,
       "useTint": false,
       "tint": {
-        "$id": "11",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 1.0,
         "g": 0.921568632,
@@ -117,7 +106,6 @@
     "name": "DLC1_Valley_Underground_Caves_RenderSettings"
   },
   "locationPresentation": {
-    "$id": "12",
     "$type": "LocationPresentation, Assembly-CSharp",
     "unchartedTitle": "Map/&Location_Uncharted_Title_Valley",
     "unchartedDescription": "Map/&Location_Uncharted_Description_Valley",
@@ -136,20 +124,17 @@
   "hasPriorityForTeleporter": false,
   "canAttackNonHostileCharacters": false,
   "guiPresentation": {
-    "$id": "13",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Map/&Location_Presentation_Title_Valley",
     "description": "Map/&Location_Presentation_Description_Valley",
     "spriteReference": {
-      "$id": "14",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "da886207ccf0c6a47a149ba32d03bfdf",
       "m_SubObjectName": "DLC1_Valley_Underground",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "15",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

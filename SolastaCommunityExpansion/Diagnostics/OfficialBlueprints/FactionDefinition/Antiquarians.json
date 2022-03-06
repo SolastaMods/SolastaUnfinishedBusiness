@@ -11,27 +11,23 @@
     "Definition:Halman_Summer:fda8753ac2e43de4f99ed0af88f39400"
   ],
   "smallSpriteReference": {
-    "$id": "1",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
     "m_AssetGUID": "8a606a89205bee643af696b8007114ac",
     "m_SubObjectName": "AntiquariansFlagSmall",
     "m_SubObjectType": ""
   },
   "guiPresentation": {
-    "$id": "2",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Faction/&AntiquariansTitle",
     "description": "Faction/&AntiquariansDescription",
     "spriteReference": {
-      "$id": "3",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "7dcb23c0a9b362b4eb26bd67190b4c82",
       "m_SubObjectName": "AntiquariansFlag",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "4",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

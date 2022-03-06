@@ -26,7 +26,6 @@
   "damageSaveAffinity": "None",
   "conditionOperations": [
     {
-      "$id": "1",
       "$type": "ConditionOperationDescription, Assembly-CSharp",
       "hasSavingThrow": false,
       "operation": "Add",
@@ -48,20 +47,17 @@
   "poisonImpactParticleReference": null,
   "computeDescription": false,
   "guiPresentation": {
-    "$id": "2",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Subclass/&AttackModifierArtificerBlindingWeaponTitle",
     "description": "Subclass/&AttackModifierArtificerBlindingWeaponDescription",
     "spriteReference": {
-      "$id": "3",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "7e8c5d4d891953345b54b82e51c6d884",
       "m_SubObjectName": "ConditionPositive",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "4",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

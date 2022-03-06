@@ -10,7 +10,6 @@
   "propPlacement": false,
   "lightSources": [
     {
-      "$id": "1",
       "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
       "x": 0.0,
       "y": 0.0
@@ -18,16 +17,13 @@
   ],
   "category": "Lighting",
   "dimensions": {
-    "$id": "2",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "prefabsByEnvironment": [
     {
-      "$id": "3",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "LavaCaves",
       "prefabReference": {
-        "$id": "4",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "fc2ec66e415d7f4439cd61d9c6586a33",
         "m_SubObjectName": "",
@@ -35,11 +31,9 @@
       }
     },
     {
-      "$id": "5",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "Catacombs",
       "prefabReference": {
-        "$id": "6",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "08b87ce99a745c341aff6bfaa0f0b7b5",
         "m_SubObjectName": "",
@@ -48,20 +42,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "7",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Prop/&BraseroTitle",
     "description": "",
     "spriteReference": {
-      "$id": "8",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "f6178a30c7fcb844492a50e6efc75b07",
       "m_SubObjectName": "FireBasin",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "9",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

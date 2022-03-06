@@ -30,20 +30,28 @@
   "additionalConditionDurationParameter": 1,
   "additionalConditionTurnOccurenceType": "StartOfTurn",
   "conditionStartParticleReference": {
-    "$id": "1",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
     "m_SubObjectName": null,
     "m_SubObjectType": null
   },
   "conditionParticleReference": {
-    "$ref": "1"
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
   },
   "conditionEndParticleReference": {
-    "$ref": "1"
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
   },
   "characterShaderReference": {
-    "$ref": "1"
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
   },
   "particlesBasedOnAncestryDamageType": false,
   "acidParticleParameters": null,
@@ -53,7 +61,6 @@
   "poisonParticleParameters": null,
   "overrideCharacterShaderColors": false,
   "firstCharacterShaderColor": {
-    "$id": "2",
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.0,
     "g": 0.0,
@@ -61,7 +68,6 @@
     "a": 0.0
   },
   "secondCharacterShaderColor": {
-    "$id": "3",
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.0,
     "g": 0.0,
@@ -89,10 +95,8 @@
   "followSourcePosition": false,
   "disolveCharacterOnDeath": false,
   "disolveParameters": {
-    "$id": "4",
     "$type": "GraphicsCharacterDefinitions+DisolveParameters, Assembly-CSharp",
     "color": {
-      "$id": "5",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -104,27 +108,23 @@
     "hueScale": 0.0,
     "vertexOffset": 0.0,
     "curve": {
-      "$id": "6",
       "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
     },
     "startAfterDeathAnimation": false,
     "duration": 0.0
   },
   "guiPresentation": {
-    "$id": "7",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "8",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
     "color": {
-      "$id": "9",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

@@ -2,7 +2,6 @@
   "$type": "GadgetBlueprint, Assembly-CSharp",
   "parameters": [
     {
-      "$id": "1",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "DestroyedEncounterIndex",
       "type": "EncounterIndex",
@@ -20,10 +19,8 @@
   ],
   "interactionNodes": [
     {
-      "$id": "2",
       "$type": "InteractionNodeDescription, Assembly-CSharp",
       "position": {
-        "$id": "3",
         "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
         "x": 0.0,
         "y": -1.0
@@ -34,11 +31,9 @@
   "canBeActivated": true,
   "customizableDimensions": false,
   "minCustomizableDimensions": {
-    "$id": "4",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "maxCustomizableDimensions": {
-    "$id": "5",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "campaignOnly": false,
@@ -53,16 +48,13 @@
   "lightSources": [],
   "category": "Encounter",
   "dimensions": {
-    "$id": "6",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "prefabsByEnvironment": [
     {
-      "$id": "7",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "",
       "prefabReference": {
-        "$id": "8",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "f9e899c5fe84a6a4ebda917e4eb091a7",
         "m_SubObjectName": "",
@@ -71,20 +63,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "9",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Gadget/&CreatureDestroyerTitle",
     "description": "Gadget/&CreatureDestroyerDescription",
     "spriteReference": {
-      "$id": "10",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "d32e2cc3ead9578479b92faed1862838",
       "m_SubObjectName": "DestroyerByTag",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "11",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

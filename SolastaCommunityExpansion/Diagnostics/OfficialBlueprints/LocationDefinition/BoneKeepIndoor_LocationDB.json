@@ -5,7 +5,6 @@
   "registeredFactions": [],
   "registeredVariables": [
     {
-      "$id": "1",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "IsAngry_Lizzaria_BoneKeep",
       "type": "Bool",
@@ -14,7 +13,6 @@
       "stringValue": ""
     },
     {
-      "$id": "2",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "IsFighting_Lizzaria_BoneKeep",
       "type": "Bool",
@@ -23,7 +21,6 @@
       "stringValue": ""
     },
     {
-      "$id": "3",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "IsFriend_Lizzaria_BoneKeep",
       "type": "Bool",
@@ -32,7 +29,6 @@
       "stringValue": ""
     },
     {
-      "$id": "4",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "IsKnown_Lizzaria_BoneKeep",
       "type": "Bool",
@@ -41,7 +37,6 @@
       "stringValue": ""
     },
     {
-      "$id": "5",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "IsAngry_Aksha_BoneKeep",
       "type": "Bool",
@@ -50,7 +45,6 @@
       "stringValue": ""
     },
     {
-      "$id": "6",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "IsFighting_Aksha_BoneKeep",
       "type": "Bool",
@@ -59,7 +53,6 @@
       "stringValue": ""
     },
     {
-      "$id": "7",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "IsFriend_Aksha_BoneKeep",
       "type": "Bool",
@@ -68,7 +61,6 @@
       "stringValue": ""
     },
     {
-      "$id": "8",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "IsKnown_Aksha_BoneKeep",
       "type": "Bool",
@@ -77,7 +69,6 @@
       "stringValue": ""
     },
     {
-      "$id": "9",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "IsAngry_Mardracht_BoneKeep",
       "type": "Bool",
@@ -86,7 +77,6 @@
       "stringValue": ""
     },
     {
-      "$id": "10",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "IsFighting_Mardracht_BoneKeep",
       "type": "Bool",
@@ -95,7 +85,6 @@
       "stringValue": ""
     },
     {
-      "$id": "11",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "IsFriend_Mardracht_BoneKeep",
       "type": "Bool",
@@ -104,7 +93,6 @@
       "stringValue": ""
     },
     {
-      "$id": "12",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "IsKnown_Mardracht_BoneKeep",
       "type": "Bool",
@@ -113,7 +101,6 @@
       "stringValue": ""
     },
     {
-      "$id": "13",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "SpokeToAksha",
       "type": "Bool",
@@ -122,7 +109,6 @@
       "stringValue": ""
     },
     {
-      "$id": "14",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "SpokeToLizzaria",
       "type": "Bool",
@@ -131,7 +117,6 @@
       "stringValue": ""
     },
     {
-      "$id": "15",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "SpokeToMardracht",
       "type": "Bool",
@@ -142,20 +127,16 @@
   ],
   "sceneFilePath": "",
   "sceneReference": {
-    "$id": "16",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "aa64e1277ad941f4d938c0a6ec46607c",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "audioState": {
-    "$id": "17",
     "$type": "AK.Wwise.State, AK.Wwise.Unity.API.WwiseTypes",
     "WwiseObjectReference": {
-      "$id": "18",
       "$type": "WwiseStateReference, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseStateGroupReference": {
-        "$id": "19",
         "$type": "WwiseStateGroupReference, AK.Wwise.Unity.API.WwiseTypes",
         "objectName": "State_LocationName",
         "id": 598649695,
@@ -179,11 +160,9 @@
     }
   },
   "renderSettingsSceneProfile": {
-    "$id": "20",
     "$type": "RenderSettingsSceneProfile, Assembly-CSharp",
     "useSkybox": false,
     "backgroundColor": {
-      "$id": "21",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -192,7 +171,6 @@
     },
     "skyboxMaterial": null,
     "ambientLight": {
-      "$id": "22",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -201,7 +179,6 @@
     },
     "fog": false,
     "fogColor": {
-      "$id": "23",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,
@@ -212,7 +189,6 @@
     "fogDensity": 0.0638,
     "excludeSkybox": false,
     "auraBaseSettings": {
-      "$id": "24",
       "$type": "Aura2API.AuraBaseSettings, Aura2_Core",
       "useDensity": true,
       "density": 0.001,
@@ -222,7 +198,6 @@
       "ambientLightingStrength": 1.0,
       "useColor": false,
       "color": {
-        "$id": "25",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.0,
         "g": 0.5,
@@ -232,7 +207,6 @@
       "colorStrength": 1.0,
       "useTint": false,
       "tint": {
-        "$id": "26",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 1.0,
         "g": 0.921568632,
@@ -253,7 +227,6 @@
     "name": "BoneKeepIndoor_RenderSettings"
   },
   "locationPresentation": {
-    "$id": "27",
     "$type": "LocationPresentation, Assembly-CSharp",
     "unchartedTitle": "Map/&Location_BoneKeep_UnvisitedTitle",
     "unchartedDescription": "Map/&Location_BoneKeep_UnchartedDescription",
@@ -272,20 +245,17 @@
   "hasPriorityForTeleporter": true,
   "canAttackNonHostileCharacters": false,
   "guiPresentation": {
-    "$id": "28",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Location/&Bone_Keep_Scene_Title",
     "description": "Location/&Bone_Keep_Scene_Description",
     "spriteReference": {
-      "$id": "29",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "ac4654f4427b90e4e9f048fc1291d911",
       "m_SubObjectName": "BoneKeep",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "30",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

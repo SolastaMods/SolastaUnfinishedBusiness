@@ -36,7 +36,6 @@
   "itemRarity": "Legendary",
   "staticProperties": [
     {
-      "$id": "1",
       "$type": "ItemPropertyDescription, Assembly-CSharp",
       "appliesOnItemOnly": false,
       "type": "Feature",
@@ -45,7 +44,6 @@
       "knowledgeAffinity": "ActiveAndVisible"
     },
     {
-      "$id": "2",
       "$type": "ItemPropertyDescription, Assembly-CSharp",
       "appliesOnItemOnly": false,
       "type": "Feature",
@@ -54,7 +52,6 @@
       "knowledgeAffinity": "ActiveAndVisible"
     },
     {
-      "$id": "3",
       "$type": "ItemPropertyDescription, Assembly-CSharp",
       "appliesOnItemOnly": false,
       "type": "Feature",
@@ -63,7 +60,6 @@
       "knowledgeAffinity": "ActiveAndVisible"
     },
     {
-      "$id": "4",
       "$type": "ItemPropertyDescription, Assembly-CSharp",
       "appliesOnItemOnly": false,
       "type": "Feature",
@@ -72,7 +68,6 @@
       "knowledgeAffinity": "ActiveAndVisible"
     },
     {
-      "$id": "5",
       "$type": "ItemPropertyDescription, Assembly-CSharp",
       "appliesOnItemOnly": false,
       "type": "Feature",
@@ -81,7 +76,6 @@
       "knowledgeAffinity": "ActiveAndVisible"
     },
     {
-      "$id": "6",
       "$type": "ItemPropertyDescription, Assembly-CSharp",
       "appliesOnItemOnly": false,
       "type": "Feature",
@@ -90,7 +84,6 @@
       "knowledgeAffinity": "ActiveAndVisible"
     },
     {
-      "$id": "7",
       "$type": "ItemPropertyDescription, Assembly-CSharp",
       "appliesOnItemOnly": false,
       "type": "Feature",
@@ -104,7 +97,6 @@
   "isAmmunition": false,
   "isUsableDevice": true,
   "usableDeviceDescription": {
-    "$id": "8",
     "$type": "UsableDeviceDescription, Assembly-CSharp",
     "usage": "Charges",
     "chargesCapital": "Fixed",
@@ -120,7 +112,6 @@
     "saveDC": 10,
     "deviceFunctions": [
       {
-        "$id": "9",
         "$type": "DeviceFunctionDescription, Assembly-CSharp",
         "parentUsage": "Charges",
         "useAffinity": "ChargeCost",
@@ -133,7 +124,6 @@
         "featureDefinitionPower": null
       },
       {
-        "$id": "10",
         "$type": "DeviceFunctionDescription, Assembly-CSharp",
         "parentUsage": "Charges",
         "useAffinity": "ChargeCost",
@@ -148,7 +138,6 @@
     ],
     "usableDeviceTags": [],
     "onUseParticle": {
-      "$id": "11",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -167,17 +156,14 @@
   "isFactionRelic": false,
   "personalityFlagOccurences": [
     {
-      "$id": "12",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 50,
       "personalityFlag": "CrownBearer"
     }
   ],
   "soundEffectDescriptionOverride": {
-    "$id": "13",
     "$type": "SoundEffectDescription, Assembly-CSharp",
     "startEvent": {
-      "$id": "14",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -187,7 +173,6 @@
       }
     },
     "stopEvent": {
-      "$id": "15",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -197,7 +182,6 @@
       }
     },
     "startSwitch": {
-      "$id": "16",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -212,7 +196,6 @@
       }
     },
     "stopSwitch": {
-      "$id": "17",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -227,7 +210,6 @@
       }
     },
     "guiStoreBody": {
-      "$id": "18",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -237,7 +219,6 @@
       }
     },
     "guiPickBody": {
-      "$id": "19",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -247,7 +228,6 @@
       }
     },
     "guiStoreOther": {
-      "$id": "20",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -257,7 +237,6 @@
       }
     },
     "guiPickOther": {
-      "$id": "21",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -268,10 +247,8 @@
     }
   },
   "soundEffectOnHitDescriptionOverride": {
-    "$id": "22",
     "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
     "switchOnHit": {
-      "$id": "23",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -287,13 +264,11 @@
     }
   },
   "itemPresentation": {
-    "$id": "24",
     "$type": "ItemPresentation, Assembly-CSharp",
     "unidentifiedTitle": "Equipment/&Enchanted_Crown_Of_The_Magister_Item_Title",
     "unidentifiedDescription": "Equipment/&Enchanted_Crown_Of_The_Magister_Item_Description",
     "overrideSubtype": "None",
     "assetReference": {
-      "$id": "25",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -324,20 +299,17 @@
     "serializedVersion": 1
   },
   "guiPresentation": {
-    "$id": "26",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&Enchanted_Crown_Of_The_Magister_Item_Identified_Title",
     "description": "Equipment/&Crown_Of_The_Magister_Item_01_Description",
     "spriteReference": {
-      "$id": "27",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "eff52d8ee7d805c40b4d5e5b20dca878",
       "m_SubObjectName": "CrownOfTheMagister",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "28",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

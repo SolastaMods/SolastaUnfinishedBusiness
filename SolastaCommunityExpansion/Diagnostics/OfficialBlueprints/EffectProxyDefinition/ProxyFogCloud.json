@@ -15,14 +15,12 @@
   "impactsPlacement": false,
   "additionalFeatures": [],
   "attackParticle": {
-    "$id": "1",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "attackImpactParticle": {
-    "$id": "2",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
     "m_SubObjectName": "",
@@ -30,13 +28,11 @@
   },
   "addLightSource": false,
   "lightSourceForm": {
-    "$id": "3",
     "$type": "LightSourceForm, Assembly-CSharp",
     "lightSourceType": "Basic",
     "brightRange": 4,
     "dimAdditionalRange": 4,
     "color": {
-      "$id": "4",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,
@@ -44,7 +40,6 @@
       "a": 1.0
     },
     "graphicsPrefabReference": {
-      "$id": "5",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -53,7 +48,6 @@
     "applyToSelf": false
   },
   "lightSourceOffset": {
-    "$id": "6",
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
     "x": 0.0,
     "y": 0.0,
@@ -63,7 +57,6 @@
   "maxSpellLevelImmunity": 1,
   "hasPresentation": true,
   "prefabReference": {
-    "$id": "7",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "58aff54afb62c3a43be06958596b2bf2",
     "m_SubObjectName": "",
@@ -74,17 +67,14 @@
   "showWorldLocationFeedbacks": false,
   "hasPortrait": false,
   "portraitSpriteReference": {
-    "$id": "8",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
     "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "startEvent": {
-    "$id": "9",
     "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
     "WwiseObjectReference": {
-      "$id": "10",
       "$type": "WwiseEventReference, AK.Wwise.Unity.API.WwiseTypes",
       "objectName": "Play_Vfx_CONJ_FogCloud_Cell_Start",
       "id": 2516141801,
@@ -98,7 +88,6 @@
     }
   },
   "stopEvent": {
-    "$id": "11",
     "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
     "WwiseObjectReference": null,
     "idInternal": 0,
@@ -108,10 +97,8 @@
     }
   },
   "soundEffectOnHitDescription": {
-    "$id": "12",
     "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
     "switchOnHit": {
-      "$id": "13",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -127,20 +114,17 @@
     }
   },
   "guiPresentation": {
-    "$id": "14",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Spell/&FogCloudTitle",
     "description": "EffectProxy/&ProxyFogCloudDescription",
     "spriteReference": {
-      "$id": "15",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "d4b9527a97d9c044ca90f03aaa804278",
       "m_SubObjectName": "FogCloud",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "16",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

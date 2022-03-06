@@ -2,105 +2,90 @@
   "$type": "TreasureTableDefinition, Assembly-CSharp",
   "treasureOptions": [
     {
-      "$id": "1",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 10,
       "itemDefinition": "Definition:Food_Ration:59973b7c0f7bd2f4089ec4406628b941",
       "amount": 1
     },
     {
-      "$id": "2",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 1,
       "itemDefinition": "Definition:PotionRemedy:1ac685f6f87c5c247ad4332f6b4d08b7",
       "amount": 1
     },
     {
-      "$id": "3",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 1,
       "itemDefinition": "Definition:PotionOfHealing:5afaa2c317ec2374fab78be504014255",
       "amount": 1
     },
     {
-      "$id": "4",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 1,
       "itemDefinition": "Definition:50_GP_Sapphire:94593fce05b78ec4aa7d55125259126e",
       "amount": 1
     },
     {
-      "$id": "5",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 2,
       "itemDefinition": "Definition:Candle:f32994a2227137f4684c54cb148faff5",
       "amount": 1
     },
     {
-      "$id": "6",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 3,
       "itemDefinition": "Definition:ClothesCommon:2d37f478395d1014ebcb56b9f4fb3003",
       "amount": 1
     },
     {
-      "$id": "7",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 4,
       "itemDefinition": "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994",
       "amount": 1
     },
     {
-      "$id": "8",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 5,
       "itemDefinition": "Definition:Bolt:ad0fe02755fdb754193b60214585d74e",
       "amount": 1
     },
     {
-      "$id": "9",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 4,
       "itemDefinition": "Definition:ClothesCommon:2d37f478395d1014ebcb56b9f4fb3003",
       "amount": 1
     },
     {
-      "$id": "10",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 2,
       "itemDefinition": "Definition:ScrollIdentify:0d401a88655da224193b17adeae3cd0a",
       "amount": 1
     },
     {
-      "$id": "11",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 2,
       "itemDefinition": "Definition:Poison_Basic:b5b96717da1f5114abfa3b097bc1db7d",
       "amount": 1
     },
     {
-      "$id": "12",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 2,
       "itemDefinition": "Definition:ScrollRevivify:67a2c72f62b599946923a0a95a85e45c",
       "amount": 1
     },
     {
-      "$id": "13",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 8,
       "itemDefinition": "Definition:Ingredient_Sorak_Poison_Spine:722f1d60a6f3c7c4b981471769b15721",
       "amount": 1
     },
     {
-      "$id": "14",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 1,
       "itemDefinition": "Definition:Arrow_Alchemy_Corrosive:e95eb550001865d48af02485df97237d",
       "amount": 10
     },
     {
-      "$id": "15",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 1,
       "itemDefinition": "Definition:Bolt_Alchemy_Corrosive:e8c098a009ec5d846b56f72bf3296b26",
@@ -108,20 +93,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "16",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "17",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "18",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

@@ -8,168 +8,144 @@
   "canUseWhileCautious": false,
   "eventVariants": [
     {
-      "$id": "1",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&Cynical1_Critical_Hit_Given_Self",
       "list": "Cynical",
       "mode": "Self"
     },
     {
-      "$id": "2",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&Cynical2_Critical_Hit_Given_Self",
       "list": "Cynical",
       "mode": "Self"
     },
     {
-      "$id": "3",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&Cynical3_Critical_Hit_Given_Self",
       "list": "Cynical",
       "mode": "Self"
     },
     {
-      "$id": "4",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&Cynical1_Critical_Hit_Given_Other",
       "list": "Cynical",
       "mode": "Other"
     },
     {
-      "$id": "5",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&Cynical2_Critical_Hit_Given_Other",
       "list": "Cynical",
       "mode": "Other"
     },
     {
-      "$id": "6",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&Cynical3_Critical_Hit_Given_Other",
       "list": "Cynical",
       "mode": "Other"
     },
     {
-      "$id": "7",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&Serious1_Critical_Hit_Given_Self",
       "list": "Serious",
       "mode": "Self"
     },
     {
-      "$id": "8",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&Serious2_Critical_Hit_Given_Self",
       "list": "Serious",
       "mode": "Self"
     },
     {
-      "$id": "9",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&Serious3_Critical_Hit_Given_Self",
       "list": "Serious",
       "mode": "Self"
     },
     {
-      "$id": "10",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&Serious1_Critical_Hit_Given_Other",
       "list": "Serious",
       "mode": "Other"
     },
     {
-      "$id": "11",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&Serious2_Critical_Hit_Given_Other",
       "list": "Serious",
       "mode": "Other"
     },
     {
-      "$id": "12",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&Serious3_Critical_Hit_Given_Other",
       "list": "Serious",
       "mode": "Other"
     },
     {
-      "$id": "13",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&Heroic1_Critical_Hit_Given_Self",
       "list": "Heroic",
       "mode": "Self"
     },
     {
-      "$id": "14",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&Heroic2_Critical_Hit_Given_Self",
       "list": "Heroic",
       "mode": "Self"
     },
     {
-      "$id": "15",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&Heroic3_Critical_Hit_Given_Self",
       "list": "Heroic",
       "mode": "Self"
     },
     {
-      "$id": "16",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&Heroic1_Critical_Hit_Given_Other",
       "list": "Heroic",
       "mode": "Other"
     },
     {
-      "$id": "17",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&Heroic2_Critical_Hit_Given_Other",
       "list": "Heroic",
       "mode": "Other"
     },
     {
-      "$id": "18",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&Heroic3_Critical_Hit_Given_Other",
       "list": "Heroic",
       "mode": "Other"
     },
     {
-      "$id": "19",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&Formal1_Critical_Hit_Given_Self",
       "list": "Formal",
       "mode": "Self"
     },
     {
-      "$id": "20",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&Formal2_Critical_Hit_Given_Self",
       "list": "Formal",
       "mode": "Self"
     },
     {
-      "$id": "21",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&Formal3_Critical_Hit_Given_Self",
       "list": "Formal",
       "mode": "Self"
     },
     {
-      "$id": "22",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&Formal1_Critical_Hit_Given_Other",
       "list": "Formal",
       "mode": "Other"
     },
     {
-      "$id": "23",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&Formal2_Critical_Hit_Given_Other",
       "list": "Formal",
       "mode": "Other"
     },
     {
-      "$id": "24",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&Formal3_Critical_Hit_Given_Other",
       "list": "Formal",
@@ -177,20 +153,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "25",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "",
     "description": "",
     "spriteReference": {
-      "$id": "26",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "27",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

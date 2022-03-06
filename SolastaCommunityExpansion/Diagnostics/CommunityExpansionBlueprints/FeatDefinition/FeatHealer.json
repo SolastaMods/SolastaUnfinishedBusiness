@@ -16,20 +16,17 @@
     "Definition:PowerStabilizeHealerFeat:61228eda-6b7e-5766-ab11-2912cead53b7"
   ],
   "guiPresentation": {
-    "$id": "1",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feat/&HealerTitle",
     "description": "Feat/&HealerDescription",
     "spriteReference": {
-      "$id": "2",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "f1bdcecf239f83b43950f6ebed06e530",
       "m_SubObjectName": "UseGoodBerries",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "3",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

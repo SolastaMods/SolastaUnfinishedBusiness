@@ -5,20 +5,17 @@
   "dependency": "Max",
   "dependencyNoneEntry": "",
   "guiPresentation": {
-    "$id": "1",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Stage/&IdentityMorphotypeHairShapeHeader",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "2",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "28bdc19a080f2de42a73de6c48572a2b",
       "m_SubObjectName": "MorphotypeHairShape",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "3",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

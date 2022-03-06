@@ -45,17 +45,14 @@
   "isSpellbook": false,
   "isDocument": true,
   "documentDescription": {
-    "$id": "1",
     "$type": "DocumentDescription, Assembly-CSharp",
     "format": "Tome",
     "contentFragments": [
       {
-        "$id": "2",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Annotation",
         "text": "Equipment/&Necromancy_AngbisJournal_Content01",
         "spriteReference": {
-          "$id": "3",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "",
           "m_SubObjectName": "",
@@ -63,12 +60,10 @@
         }
       },
       {
-        "$id": "4",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
         "text": "Equipment/&Necromancy_AngbisJournal_Content02",
         "spriteReference": {
-          "$id": "5",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "",
           "m_SubObjectName": "",
@@ -76,12 +71,10 @@
         }
       },
       {
-        "$id": "6",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
         "text": "Equipment/&Necromancy_AngbisJournal_Content03",
         "spriteReference": {
-          "$id": "7",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "",
           "m_SubObjectName": "",
@@ -89,12 +82,10 @@
         }
       },
       {
-        "$id": "8",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
         "text": "Equipment/&Necromancy_AngbisJournal_Content04",
         "spriteReference": {
-          "$id": "9",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "",
           "m_SubObjectName": "",
@@ -102,12 +93,10 @@
         }
       },
       {
-        "$id": "10",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
         "text": "Equipment/&Necromancy_AngbisJournal_Content05",
         "spriteReference": {
-          "$id": "11",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "",
           "m_SubObjectName": "",
@@ -115,12 +104,10 @@
         }
       },
       {
-        "$id": "12",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
         "text": "Equipment/&Necromancy_AngbisJournal_Content06",
         "spriteReference": {
-          "$id": "13",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "",
           "m_SubObjectName": "",
@@ -128,12 +115,10 @@
         }
       },
       {
-        "$id": "14",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
         "text": "Equipment/&Necromancy_AngbisJournal_Content07",
         "spriteReference": {
-          "$id": "15",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "",
           "m_SubObjectName": "",
@@ -141,12 +126,10 @@
         }
       },
       {
-        "$id": "16",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
         "text": "Equipment/&Necromancy_AngbisJournal_Content08",
         "spriteReference": {
-          "$id": "17",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "",
           "m_SubObjectName": "",
@@ -154,12 +137,10 @@
         }
       },
       {
-        "$id": "18",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
         "text": "Equipment/&Necromancy_AngbisJournal_Content09",
         "spriteReference": {
-          "$id": "19",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "",
           "m_SubObjectName": "",
@@ -167,12 +148,10 @@
         }
       },
       {
-        "$id": "20",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
         "text": "Equipment/&Necromancy_AngbisJournal_Content10",
         "spriteReference": {
-          "$id": "21",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "",
           "m_SubObjectName": "",
@@ -193,10 +172,8 @@
   "isFactionRelic": false,
   "personalityFlagOccurences": [],
   "soundEffectDescriptionOverride": {
-    "$id": "22",
     "$type": "SoundEffectDescription, Assembly-CSharp",
     "startEvent": {
-      "$id": "23",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -206,7 +183,6 @@
       }
     },
     "stopEvent": {
-      "$id": "24",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -216,7 +192,6 @@
       }
     },
     "startSwitch": {
-      "$id": "25",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -231,7 +206,6 @@
       }
     },
     "stopSwitch": {
-      "$id": "26",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -246,7 +220,6 @@
       }
     },
     "guiStoreBody": {
-      "$id": "27",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -256,7 +229,6 @@
       }
     },
     "guiPickBody": {
-      "$id": "28",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -266,7 +238,6 @@
       }
     },
     "guiStoreOther": {
-      "$id": "29",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -276,7 +247,6 @@
       }
     },
     "guiPickOther": {
-      "$id": "30",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -287,10 +257,8 @@
     }
   },
   "soundEffectOnHitDescriptionOverride": {
-    "$id": "31",
     "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
     "switchOnHit": {
-      "$id": "32",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -306,13 +274,11 @@
     }
   },
   "itemPresentation": {
-    "$id": "33",
     "$type": "ItemPresentation, Assembly-CSharp",
     "unidentifiedTitle": "",
     "unidentifiedDescription": "",
     "overrideSubtype": "None",
     "assetReference": {
-      "$id": "34",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -332,20 +298,17 @@
     "serializedVersion": 1
   },
   "guiPresentation": {
-    "$id": "35",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&Necromancy_AngbisJournal_Title",
     "description": "Equipment/&Necromancy_AngbisJournal_Description",
     "spriteReference": {
-      "$id": "36",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "850e808f09db33745be80473fb9d0679",
       "m_SubObjectName": "AngbiJournal",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "37",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

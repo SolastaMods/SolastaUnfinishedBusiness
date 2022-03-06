@@ -1,49 +1,42 @@
 {
   "$type": "DieStyleDefinition, Assembly-CSharp",
   "d4MaterialReference": {
-    "$id": "1",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "afaedc86eadfa39449ebbdce2bf72e3e",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "d6MaterialReference": {
-    "$id": "2",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "a413faf3cdf018d4caf0ae1478f7e032",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "d8MaterialReference": {
-    "$id": "3",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "0d9aac46504bc0247b1244e7510f3648",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "d10MaterialReference": {
-    "$id": "4",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "aafc08faefa817c4093333cad1caf8e9",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "d12MaterialReference": {
-    "$id": "5",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "fea655ed5b51c7f48b37adaba001f800",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "d20MaterialReference": {
-    "$id": "6",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "96a73e50fb23d7341a231e7f8340f997",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "particlePrefabReference": {
-    "$id": "7",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "b8103703c6508a747be96d27b070ac68",
     "m_SubObjectName": "",
@@ -51,20 +44,17 @@
   },
   "useMetallicLayer": false,
   "guiPresentation": {
-    "$id": "8",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "DieStyle/&DieStyleLightningTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "9",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "5bd2d857ff2250a428c11948a9c7813f",
       "m_SubObjectName": "DieStyleLightning",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "10",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 0.9640484,

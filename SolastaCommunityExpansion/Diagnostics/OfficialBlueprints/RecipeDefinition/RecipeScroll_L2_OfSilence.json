@@ -7,7 +7,6 @@
   "toolTypeDefinition": "Definition:ScrollKitType:33c029d33932a7a46a67d5279d181179",
   "ingredients": [
     {
-      "$id": "1",
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
       "amount": 2,
       "itemDefinition": "Definition:Ingredient_GoblinHairFungus:80cf95eb060947a4eadc3aa64dcd59c2"
@@ -15,20 +14,17 @@
   ],
   "spellDefinition": "Definition:Silence:2bdf5914091beca4ab1da6383af0feac",
   "guiPresentation": {
-    "$id": "2",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&ScrollSilenceTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "3",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "4",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

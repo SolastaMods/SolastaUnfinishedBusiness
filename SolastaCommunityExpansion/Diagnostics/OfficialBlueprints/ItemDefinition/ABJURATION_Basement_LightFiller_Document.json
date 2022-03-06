@@ -45,17 +45,14 @@
   "isSpellbook": false,
   "isDocument": true,
   "documentDescription": {
-    "$id": "1",
     "$type": "DocumentDescription, Assembly-CSharp",
     "format": "Tome",
     "contentFragments": [
       {
-        "$id": "2",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Header",
         "text": "Document/&Lightfiller_01_Title",
         "spriteReference": {
-          "$id": "3",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "b55d112837e5e19469eb13492d2af89e",
           "m_SubObjectName": "ABJURATION_Basement_LightFiller_Document_Illustration_PH2",
@@ -63,12 +60,10 @@
         }
       },
       {
-        "$id": "4",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
         "text": "Document/&Lightfiller_01_Content",
         "spriteReference": {
-          "$id": "5",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "b55d112837e5e19469eb13492d2af89e",
           "m_SubObjectName": "ABJURATION_Basement_LightFiller_Document_Illustration_PH2",
@@ -76,12 +71,10 @@
         }
       },
       {
-        "$id": "6",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Illustration",
         "text": "Equipment/&CaerLem_Document_MasterSmith_Description",
         "spriteReference": {
-          "$id": "7",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "4d692336fb96c1c4ea4f2bb0482953d0",
           "m_SubObjectName": "ABJURATION_Basement_LightFiller_Document_Illustration_1_SecretRoom",
@@ -89,12 +82,10 @@
         }
       },
       {
-        "$id": "8",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "NewPage",
         "text": "Equipment/&CaerLem_Document_MasterSmith_Description",
         "spriteReference": {
-          "$id": "9",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "b55d112837e5e19469eb13492d2af89e",
           "m_SubObjectName": "test2",
@@ -102,12 +93,10 @@
         }
       },
       {
-        "$id": "10",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Header",
         "text": "Document/&Lightfiller_02_Title",
         "spriteReference": {
-          "$id": "11",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "b55d112837e5e19469eb13492d2af89e",
           "m_SubObjectName": "ABJURATION_Basement_LightFiller_Document_Illustration_PH2",
@@ -115,12 +104,10 @@
         }
       },
       {
-        "$id": "12",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
         "text": "Document/&Lightfiller_02_Content",
         "spriteReference": {
-          "$id": "13",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "b55d112837e5e19469eb13492d2af89e",
           "m_SubObjectName": "ABJURATION_Basement_LightFiller_Document_Illustration_PH2",
@@ -128,12 +115,10 @@
         }
       },
       {
-        "$id": "14",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Illustration",
         "text": "Equipment/&CaerLem_Document_MasterSmith_Description",
         "spriteReference": {
-          "$id": "15",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "b55d112837e5e19469eb13492d2af89e",
           "m_SubObjectName": "ABJURATION_Basement_LightFiller_Document_Illustration_2_HiddenCell",
@@ -154,10 +139,8 @@
   "isFactionRelic": false,
   "personalityFlagOccurences": [],
   "soundEffectDescriptionOverride": {
-    "$id": "16",
     "$type": "SoundEffectDescription, Assembly-CSharp",
     "startEvent": {
-      "$id": "17",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -167,7 +150,6 @@
       }
     },
     "stopEvent": {
-      "$id": "18",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -177,7 +159,6 @@
       }
     },
     "startSwitch": {
-      "$id": "19",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -192,7 +173,6 @@
       }
     },
     "stopSwitch": {
-      "$id": "20",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -207,7 +187,6 @@
       }
     },
     "guiStoreBody": {
-      "$id": "21",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -217,7 +196,6 @@
       }
     },
     "guiPickBody": {
-      "$id": "22",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -227,7 +205,6 @@
       }
     },
     "guiStoreOther": {
-      "$id": "23",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -237,7 +214,6 @@
       }
     },
     "guiPickOther": {
-      "$id": "24",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -248,10 +224,8 @@
     }
   },
   "soundEffectOnHitDescriptionOverride": {
-    "$id": "25",
     "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
     "switchOnHit": {
-      "$id": "26",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -267,13 +241,11 @@
     }
   },
   "itemPresentation": {
-    "$id": "27",
     "$type": "ItemPresentation, Assembly-CSharp",
     "unidentifiedTitle": "",
     "unidentifiedDescription": "",
     "overrideSubtype": "None",
     "assetReference": {
-      "$id": "28",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -293,20 +265,17 @@
     "serializedVersion": 1
   },
   "guiPresentation": {
-    "$id": "29",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&Coparann_Lightfiller_Document_Title",
     "description": "Equipment/&Coparann_Lightfiller_Document_Description",
     "spriteReference": {
-      "$id": "30",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "e1eca34357d720b439dd1f1398d4386f",
       "m_SubObjectName": "Telema_Notebook",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "31",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

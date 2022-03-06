@@ -81,7 +81,6 @@
   "replacedSpells": [],
   "slotsPerLevels": [
     {
-      "$id": "1",
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 1,
       "slots": [
@@ -94,7 +93,6 @@
       ]
     },
     {
-      "$id": "2",
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 2,
       "slots": [
@@ -107,7 +105,6 @@
       ]
     },
     {
-      "$id": "3",
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 3,
       "slots": [
@@ -120,7 +117,6 @@
       ]
     },
     {
-      "$id": "4",
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 4,
       "slots": [
@@ -133,7 +129,6 @@
       ]
     },
     {
-      "$id": "5",
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 5,
       "slots": [
@@ -146,7 +141,6 @@
       ]
     },
     {
-      "$id": "6",
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 6,
       "slots": [
@@ -159,7 +153,6 @@
       ]
     },
     {
-      "$id": "7",
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 7,
       "slots": [
@@ -172,7 +165,6 @@
       ]
     },
     {
-      "$id": "8",
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 8,
       "slots": [
@@ -185,7 +177,6 @@
       ]
     },
     {
-      "$id": "9",
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 9,
       "slots": [
@@ -198,7 +189,6 @@
       ]
     },
     {
-      "$id": "10",
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 10,
       "slots": [
@@ -211,7 +201,6 @@
       ]
     },
     {
-      "$id": "11",
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 11,
       "slots": [
@@ -224,7 +213,6 @@
       ]
     },
     {
-      "$id": "12",
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 12,
       "slots": [
@@ -237,7 +225,6 @@
       ]
     },
     {
-      "$id": "13",
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 13,
       "slots": [
@@ -250,7 +237,6 @@
       ]
     },
     {
-      "$id": "14",
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 14,
       "slots": [
@@ -263,7 +249,6 @@
       ]
     },
     {
-      "$id": "15",
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 15,
       "slots": [
@@ -276,7 +261,6 @@
       ]
     },
     {
-      "$id": "16",
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 16,
       "slots": [
@@ -289,7 +273,6 @@
       ]
     },
     {
-      "$id": "17",
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 17,
       "slots": [
@@ -302,7 +285,6 @@
       ]
     },
     {
-      "$id": "18",
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 18,
       "slots": [
@@ -315,7 +297,6 @@
       ]
     },
     {
-      "$id": "19",
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 19,
       "slots": [
@@ -328,7 +309,6 @@
       ]
     },
     {
-      "$id": "20",
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 20,
       "slots": [
@@ -343,20 +323,17 @@
   ],
   "focusType": "Arcane",
   "guiPresentation": {
-    "$id": "21",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Subclass/&ArtificerSpellcastingTitle",
     "description": "Subclass/&ArtificerSpellcastingDescription",
     "spriteReference": {
-      "$id": "22",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
     "color": {
-      "$id": "23",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

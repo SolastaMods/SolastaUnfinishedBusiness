@@ -5,20 +5,17 @@
   "dependency": "Max",
   "dependencyNoneEntry": "",
   "guiPresentation": {
-    "$id": "1",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Stage/&IdentityMorphotypeEyeColorHeader",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "2",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "51244788d6c2c4840b0ed1fbdcd74114",
       "m_SubObjectName": "MorphotypeEyeColor",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "3",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

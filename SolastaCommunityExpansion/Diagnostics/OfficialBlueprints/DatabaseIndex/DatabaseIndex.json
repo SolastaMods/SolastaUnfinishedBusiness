@@ -2,573 +2,478 @@
   "$type": "DatabaseIndex, Assembly-CSharp",
   "databaseIndexSlots": [
     {
-      "$id": "1",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/SmartAttributes",
       "className": "SmartAttributeDefinition"
     },
     {
-      "$id": "2",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Classes",
       "className": "CharacterClassDefinition"
     },
     {
-      "$id": "3",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Classes",
       "className": "CharacterSubclassDefinition"
     },
     {
-      "$id": "4",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Races",
       "className": "CharacterRaceDefinition"
     },
     {
-      "$id": "5",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Deities",
       "className": "DeityDefinition"
     },
     {
-      "$id": "6",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Backgrounds",
       "className": "CharacterBackgroundDefinition"
     },
     {
-      "$id": "7",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/MorphotypeCategories",
       "className": "MorphotypeCategoryDefinition"
     },
     {
-      "$id": "8",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/MorphotypeElements",
       "className": "MorphotypeElementDefinition"
     },
     {
-      "$id": "9",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Alignments",
       "className": "AlignmentDefinition"
     },
     {
-      "$id": "10",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Damages",
       "className": "DamageDefinition"
     },
     {
-      "$id": "11",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Conditions",
       "className": "ConditionDefinition"
     },
     {
-      "$id": "12",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Features",
       "className": "FeatureDefinition"
     },
     {
-      "$id": "13",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Equipment/ArmorCategories",
       "className": "ArmorCategoryDefinition"
     },
     {
-      "$id": "14",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Equipment/ArmorTypes",
       "className": "ArmorTypeDefinition"
     },
     {
-      "$id": "15",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Equipment/WeaponCategories",
       "className": "WeaponCategoryDefinition"
     },
     {
-      "$id": "16",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Equipment/WeaponTypes",
       "className": "WeaponTypeDefinition"
     },
     {
-      "$id": "17",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Equipment/AmmunitionTypes",
       "className": "AmmunitionTypeDefinition"
     },
     {
-      "$id": "18",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Equipment/ToolCategories",
       "className": "ToolCategoryDefinition"
     },
     {
-      "$id": "19",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Equipment/ToolTypes",
       "className": "ToolTypeDefinition"
     },
     {
-      "$id": "20",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Equipment",
       "className": "ItemDefinition"
     },
     {
-      "$id": "21",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Equipment/Currencies",
       "className": "CurrencyDefinition"
     },
     {
-      "$id": "22",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Equipment/SlotTypes",
       "className": "SlotTypeDefinition"
     },
     {
-      "$id": "23",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Equipment/Inventories",
       "className": "InventoryDefinition"
     },
     {
-      "$id": "24",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Equipment/Merchants",
       "className": "MerchantDefinition"
     },
     {
-      "$id": "25",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Equipment/MerchantCategories",
       "className": "MerchantCategoryDefinition"
     },
     {
-      "$id": "26",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/FightingStyles",
       "className": "FightingStyleDefinition"
     },
     {
-      "$id": "27",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Skills",
       "className": "SkillDefinition"
     },
     {
-      "$id": "28",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Feats",
       "className": "FeatDefinition"
     },
     {
-      "$id": "29",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/SchoolsOfMagic",
       "className": "SchoolOfMagicDefinition"
     },
     {
-      "$id": "30",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Spells",
       "className": "SpellDefinition"
     },
     {
-      "$id": "31",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/SpellLists",
       "className": "SpellListDefinition"
     },
     {
-      "$id": "32",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Languages",
       "className": "LanguageDefinition"
     },
     {
-      "$id": "33",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/CharacterFamilies",
       "className": "CharacterFamilyDefinition"
     },
     {
-      "$id": "34",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/ActionTypes",
       "className": "ActionTypeDefinition"
     },
     {
-      "$id": "35",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Actions",
       "className": "ActionDefinition"
     },
     {
-      "$id": "36",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Reactions",
       "className": "ReactionDefinition"
     },
     {
-      "$id": "37",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Monsters",
       "className": "MonsterDefinition"
     },
     {
-      "$id": "38",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/MonsterAttacks",
       "className": "MonsterAttackDefinition"
     },
     {
-      "$id": "39",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/CharacterTemplates",
       "className": "CharacterTemplateDefinition"
     },
     {
-      "$id": "40",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Calendars",
       "className": "CalendarDefinition"
     },
     {
-      "$id": "41",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Campaigns",
       "className": "CampaignDefinition"
     },
     {
-      "$id": "42",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Locations",
       "className": "LocationDefinition"
     },
     {
-      "$id": "43",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/LocationTypes",
       "className": "LocationTypeDefinition"
     },
     {
-      "$id": "44",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Formations",
       "className": "FormationDefinition"
     },
     {
-      "$id": "45",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/LootPacks",
       "className": "LootPackDefinition"
     },
     {
-      "$id": "46",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/TreasureTable",
       "className": "TreasureTableDefinition"
     },
     {
-      "$id": "47",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/EnvironmentEffects",
       "className": "EnvironmentEffectDefinition"
     },
     {
-      "$id": "48",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Quests",
       "className": "QuestTreeDefinition"
     },
     {
-      "$id": "49",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/QuestStatuses",
       "className": "QuestStatusDefinition"
     },
     {
-      "$id": "50",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/PersonalityFlags",
       "className": "PersonalityFlagDefinition"
     },
     {
-      "$id": "51",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/TutorialSteps",
       "className": "TutorialStepDefinition"
     },
     {
-      "$id": "52",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/LegalSteps",
       "className": "LegalStepDefinition"
     },
     {
-      "$id": "53",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Voice",
       "className": "VoiceDefinition"
     },
     {
-      "$id": "54",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/AI/DecisionPackages",
       "className": "TA.AI.DecisionPackageDefinition"
     },
     {
-      "$id": "55",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Audio",
       "className": "SoundbanksDefinition"
     },
     {
-      "$id": "56",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Factions",
       "className": "FactionDefinition"
     },
     {
-      "$id": "57",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/FactionStatusess",
       "className": "FactionStatusDefinition"
     },
     {
-      "$id": "58",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/RestActivities",
       "className": "RestActivityDefinition"
     },
     {
-      "$id": "59",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Biomes",
       "className": "BiomeDefinition"
     },
     {
-      "$id": "60",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/CampaignNodeTypes",
       "className": "CampaignNodeTypeDefinition"
     },
     {
-      "$id": "61",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Travel/TravelPaces",
       "className": "TravelPaceDefinition"
     },
     {
-      "$id": "62",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Travel/TravelActivities",
       "className": "TravelActivityDefinition"
     },
     {
-      "$id": "63",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Travel/TravelEvents",
       "className": "TravelEventDefinition"
     },
     {
-      "$id": "64",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/EncounterTables",
       "className": "EncounterTableDefinition"
     },
     {
-      "$id": "65",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/TerrainTypes",
       "className": "TerrainTypeDefinition"
     },
     {
-      "$id": "66",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/KnowledgeLevels",
       "className": "KnowledgeLevelDefinition"
     },
     {
-      "$id": "67",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Recipes",
       "className": "RecipeDefinition"
     },
     {
-      "$id": "68",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Travel/NarrativeTables",
       "className": "NarrativeEventTableDefinition"
     },
     {
-      "$id": "69",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Notifications",
       "className": "NotificationDefinition"
     },
     {
-      "$id": "70",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/HumanoidMonsterPresentationDefinition",
       "className": "HumanoidMonsterPresentationDefinition"
     },
     {
-      "$id": "71",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Gadgets",
       "className": "GadgetDefinition"
     },
     {
-      "$id": "72",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Encounters",
       "className": "EncounterDefinition"
     },
     {
-      "$id": "73",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/LootableContainers",
       "className": "LootableContainerDefinition"
     },
     {
-      "$id": "74",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/BanterEvents",
       "className": "BanterEventDefinition"
     },
     {
-      "$id": "75",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/RecordTables",
       "className": "RecordTableDefinition"
     },
     {
-      "$id": "76",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/NarrativeTrees",
       "className": "NarrativeTreeDefinition"
     },
     {
-      "$id": "77",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Dice",
       "className": "DieTypeDefinition"
     },
     {
-      "$id": "78",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Dice",
       "className": "DieStyleDefinition"
     },
     {
-      "$id": "79",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/AI/Decisions",
       "className": "TA.AI.DecisionDefinition"
     },
     {
-      "$id": "80",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/EffectProxies",
       "className": "EffectProxyDefinition"
     },
     {
-      "$id": "81",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/DifficultyPresets",
       "className": "DifficultyPresetDefinition"
     },
     {
-      "$id": "82",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Blueprint/Rooms",
       "className": "RoomBlueprint"
     },
     {
-      "$id": "83",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Blueprint/Gadgets",
       "className": "GadgetBlueprint"
     },
     {
-      "$id": "84",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Blueprint/Props",
       "className": "PropBlueprint"
     },
     {
-      "$id": "85",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Blueprint/Environments",
       "className": "EnvironmentDefinition"
     },
     {
-      "$id": "86",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Blueprint/MusicalStates",
       "className": "MusicalStateDefinition"
     },
     {
-      "$id": "87",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Blueprint/Categories",
       "className": "BlueprintCategory"
     },
     {
-      "$id": "88",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Blueprint/VisualMoods",
       "className": "VisualMoodDefinition"
     },
     {
-      "$id": "89",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/CharacterInteractionDefinitions",
       "className": "CharacterInteractionDefinition"
     },
     {
-      "$id": "90",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/DateTime",
       "className": "DateTimeDefinition"
     },
     {
-      "$id": "91",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/MapWaypointDefinitions",
       "className": "MapWaypointDefinition"
     },
     {
-      "$id": "92",
       "$type": "DatabaseIndex+IndexSlot, Assembly-CSharp",
       "path": "Database/Features/Power",
       "className": "FeatureDefinitionPower"
     }
   ],
   "guiPresentation": {
-    "$id": "93",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "",
     "description": "",
     "spriteReference": {
-      "$id": "94",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "95",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

@@ -45,17 +45,14 @@
   "isSpellbook": false,
   "isDocument": true,
   "documentDescription": {
-    "$id": "1",
     "$type": "DocumentDescription, Assembly-CSharp",
     "format": "Tome",
     "contentFragments": [
       {
-        "$id": "2",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
         "text": "Equipment/&BoneKeep_Document_AkshasJournal_text1",
         "spriteReference": {
-          "$id": "3",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "",
           "m_SubObjectName": "",
@@ -63,12 +60,10 @@
         }
       },
       {
-        "$id": "4",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
         "text": "Equipment/&BoneKeep_Document_AkshasJournal_text2",
         "spriteReference": {
-          "$id": "5",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "",
           "m_SubObjectName": "",
@@ -76,12 +71,10 @@
         }
       },
       {
-        "$id": "6",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
         "text": "Equipment/&BoneKeep_Document_AkshasJournal_text3",
         "spriteReference": {
-          "$id": "7",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "",
           "m_SubObjectName": "",
@@ -101,7 +94,6 @@
   "isFood": false,
   "isFactionRelic": true,
   "factionRelicDescription": {
-    "$id": "8",
     "$type": "FactionRelicDescription, Assembly-CSharp",
     "loreValue": 5,
     "interestedFactions": [
@@ -120,10 +112,8 @@
   },
   "personalityFlagOccurences": [],
   "soundEffectDescriptionOverride": {
-    "$id": "9",
     "$type": "SoundEffectDescription, Assembly-CSharp",
     "startEvent": {
-      "$id": "10",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -133,7 +123,6 @@
       }
     },
     "stopEvent": {
-      "$id": "11",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -143,7 +132,6 @@
       }
     },
     "startSwitch": {
-      "$id": "12",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -158,7 +146,6 @@
       }
     },
     "stopSwitch": {
-      "$id": "13",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -173,7 +160,6 @@
       }
     },
     "guiStoreBody": {
-      "$id": "14",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -183,7 +169,6 @@
       }
     },
     "guiPickBody": {
-      "$id": "15",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -193,7 +178,6 @@
       }
     },
     "guiStoreOther": {
-      "$id": "16",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -203,7 +187,6 @@
       }
     },
     "guiPickOther": {
-      "$id": "17",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -214,10 +197,8 @@
     }
   },
   "soundEffectOnHitDescriptionOverride": {
-    "$id": "18",
     "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
     "switchOnHit": {
-      "$id": "19",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -233,13 +214,11 @@
     }
   },
   "itemPresentation": {
-    "$id": "20",
     "$type": "ItemPresentation, Assembly-CSharp",
     "unidentifiedTitle": "",
     "unidentifiedDescription": "",
     "overrideSubtype": "None",
     "assetReference": {
-      "$id": "21",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -259,20 +238,17 @@
     "serializedVersion": 1
   },
   "guiPresentation": {
-    "$id": "22",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&BoneKeep_Document_AkshasJournal_Title",
     "description": "Equipment/&BoneKeep_Document_AkshasJournal_Description",
     "spriteReference": {
-      "$id": "23",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "d74573c961c69454a916b27d46e5f8e4",
       "m_SubObjectName": "AkshasJournal",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "24",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

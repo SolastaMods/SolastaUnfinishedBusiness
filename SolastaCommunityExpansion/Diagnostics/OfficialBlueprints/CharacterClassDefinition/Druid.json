@@ -2,15 +2,12 @@
   "$type": "CharacterClassDefinition, Assembly-CSharp",
   "equipmentRows": [
     {
-      "$id": "1",
       "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
       "equipmentColumns": [
         {
-          "$id": "2",
           "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
           "equipmentOptions": [
             {
-              "$id": "3",
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
               "optionType": "Armor",
               "itemReference": "Definition:Shield_Wooden:3630e54c4b26db945a804382ea120406",
@@ -20,11 +17,9 @@
           ]
         },
         {
-          "$id": "4",
           "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
           "equipmentOptions": [
             {
-              "$id": "5",
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
               "optionType": "WeaponSimpleChoice",
               "itemReference": null,
@@ -37,15 +32,12 @@
       "defaultColumn": 0
     },
     {
-      "$id": "6",
       "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
       "equipmentColumns": [
         {
-          "$id": "7",
           "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
           "equipmentOptions": [
             {
-              "$id": "8",
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
               "optionType": "Weapon",
               "itemReference": "Definition:Scimitar:12289d60dd3a4144fa8308ffc2a6e80d",
@@ -55,11 +47,9 @@
           ]
         },
         {
-          "$id": "9",
           "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
           "equipmentOptions": [
             {
-              "$id": "10",
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
               "optionType": "WeaponSimpleMeleeChoice",
               "itemReference": null,
@@ -72,15 +62,12 @@
       "defaultColumn": 0
     },
     {
-      "$id": "11",
       "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
       "equipmentColumns": [
         {
-          "$id": "12",
           "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
           "equipmentOptions": [
             {
-              "$id": "13",
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
               "optionType": "Armor",
               "itemReference": "Definition:LeatherDruid:35cc1b0e7bc264d42a1ab5eb4329166a",
@@ -88,7 +75,6 @@
               "number": 1
             },
             {
-              "$id": "14",
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
               "optionType": "StarterPack",
               "itemReference": "Definition:ExplorerPack:03fbaf29ed08637449084486fe78a3c8",
@@ -96,7 +82,6 @@
               "number": 1
             },
             {
-              "$id": "15",
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
               "optionType": "Focus",
               "itemReference": "Definition:DruidicFocus:518483ab9093af04d97387aefd0bad2a",
@@ -121,79 +106,66 @@
   ],
   "featureUnlocks": [
     {
-      "$id": "16",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencyDruidSavingThrow:767234f7d5f79054bb941960f304108d",
       "level": 1
     },
     {
-      "$id": "17",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencyDruidWeapon:feaeb6e5b71abce44a8b106116356e32",
       "level": 1
     },
     {
-      "$id": "18",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencyDruidArmor:a42d9252dcdb2aa4b91f39e839f90240",
       "level": 1
     },
     {
-      "$id": "19",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PointPoolDruidSkillPoints:19e6b56cbea23144daba63c85ad5bc0f",
       "level": 1
     },
     {
-      "$id": "20",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencyDruidLanguage:b11e2d649629dba48afc166b30601be7",
       "level": 1
     },
     {
-      "$id": "21",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:CastSpellDruid:117201265b662d349b3b7c7f67e15ef6",
       "level": 1
     },
     {
-      "$id": "22",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetDruidRitualCasting:16a0bc81771c47447ba8f59113b082eb",
       "level": 1
     },
     {
-      "$id": "23",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerDruidWildShape:5b4f6371d0bdffb4194ab22c82ff17a3",
       "level": 2
     },
     {
-      "$id": "24",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:SubclassChoiceDruidCircle:7ab4232a7f4caed43b9a2ec805ca5579",
       "level": 2
     },
     {
-      "$id": "25",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
       "level": 4
     },
     {
-      "$id": "26",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
       "level": 8
     },
     {
-      "$id": "27",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
       "level": 12
     },
     {
-      "$id": "28",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
       "level": 16
@@ -201,43 +173,36 @@
   ],
   "personalityFlagOccurences": [
     {
-      "$id": "29",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 3,
       "personalityFlag": "Normal"
     },
     {
-      "$id": "30",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 3,
       "personalityFlag": "Selfishness"
     },
     {
-      "$id": "31",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 3,
       "personalityFlag": "Friendliness"
     },
     {
-      "$id": "32",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 4,
       "personalityFlag": "GpSpellcaster"
     },
     {
-      "$id": "33",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 1,
       "personalityFlag": "GpExplorer"
     },
     {
-      "$id": "34",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 1,
       "personalityFlag": "GpStealth"
     },
     {
-      "$id": "35",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 30,
       "personalityFlag": "ClassDruidFlag"
@@ -264,7 +229,6 @@
   "metamagicAutolearnPreference": [],
   "ingredientGatheringOdds": 10,
   "classPictogramReference": {
-    "$id": "36",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
     "m_AssetGUID": "f4c4169c434b2d64a9dbaba1bbf82d87",
     "m_SubObjectName": "class_druid",
@@ -274,20 +238,17 @@
   "classAnimationId": "Cleric",
   "vocalSpellSemeClass": "Natura",
   "guiPresentation": {
-    "$id": "37",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Class/&DruidTitle",
     "description": "Class/&DruidDescription",
     "spriteReference": {
-      "$id": "38",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "4d49d18da4e36344b9c76da7f4d3f47e",
       "m_SubObjectName": "Druid",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "39",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

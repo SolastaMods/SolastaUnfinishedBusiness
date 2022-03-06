@@ -2,20 +2,17 @@
   "$type": "MerchantCategoryDefinition, Assembly-CSharp",
   "assignableToItem": true,
   "guiPresentation": {
-    "$id": "1",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "MerchantCategory/&AdventuringTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "2",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "efc6aa5b045fff2498ddbca9ffe46d67",
       "m_SubObjectName": "CategoryAdventuring",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "3",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

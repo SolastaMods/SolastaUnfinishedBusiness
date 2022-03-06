@@ -2,7 +2,6 @@
   "$type": "GadgetBlueprint, Assembly-CSharp",
   "parameters": [
     {
-      "$id": "1",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "Reveal_DC",
       "type": "DifficultyClass",
@@ -20,10 +19,8 @@
   ],
   "interactionNodes": [
     {
-      "$id": "2",
       "$type": "InteractionNodeDescription, Assembly-CSharp",
       "position": {
-        "$id": "3",
         "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
         "x": -0.5,
         "y": -1.0
@@ -31,10 +28,8 @@
       "orientation": "North"
     },
     {
-      "$id": "4",
       "$type": "InteractionNodeDescription, Assembly-CSharp",
       "position": {
-        "$id": "5",
         "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
         "x": 0.5,
         "y": 1.0
@@ -45,11 +40,9 @@
   "canBeActivated": true,
   "customizableDimensions": false,
   "minCustomizableDimensions": {
-    "$id": "6",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "maxCustomizableDimensions": {
-    "$id": "7",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "campaignOnly": false,
@@ -64,16 +57,13 @@
   "lightSources": [],
   "category": "Openings",
   "dimensions": {
-    "$id": "8",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "prefabsByEnvironment": [
     {
-      "$id": "9",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "Necropolis",
       "prefabReference": {
-        "$id": "10",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "effa012264cb47842b60852798e7c923",
         "m_SubObjectName": "",
@@ -81,11 +71,9 @@
       }
     },
     {
-      "$id": "11",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "Stronghold",
       "prefabReference": {
-        "$id": "12",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "89ab937591562d5469e8b75096fdc465",
         "m_SubObjectName": "",
@@ -93,11 +81,9 @@
       }
     },
     {
-      "$id": "13",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "ElvenPalace",
       "prefabReference": {
-        "$id": "14",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "7d4f4ae5119de1e4085940ebb71d4af7",
         "m_SubObjectName": "",
@@ -105,11 +91,9 @@
       }
     },
     {
-      "$id": "15",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "LavaCaves",
       "prefabReference": {
-        "$id": "16",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "f3690a277f97fb24189b6dbe6054c074",
         "m_SubObjectName": "",
@@ -117,11 +101,9 @@
       }
     },
     {
-      "$id": "17",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "Sewers",
       "prefabReference": {
-        "$id": "18",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "7c2027ca88b397d48a8b12ac16ede02c",
         "m_SubObjectName": "",
@@ -129,11 +111,9 @@
       }
     },
     {
-      "$id": "19",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "Catacombs",
       "prefabReference": {
-        "$id": "20",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "3c09c9f8c80a66a4482c8f04972d820e",
         "m_SubObjectName": "",
@@ -142,20 +122,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "21",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Gadget/&HiddenDoorTitle",
     "description": "Gadget/&HiddenDoorDescription",
     "spriteReference": {
-      "$id": "22",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "ec3e873e4d6637248ae17765856b67ba",
       "m_SubObjectName": "HiddenDoor",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "23",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

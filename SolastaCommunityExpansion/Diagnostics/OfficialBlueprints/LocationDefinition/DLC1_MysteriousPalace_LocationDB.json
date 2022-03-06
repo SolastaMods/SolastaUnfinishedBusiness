@@ -6,20 +6,16 @@
   "registeredVariables": [],
   "sceneFilePath": "",
   "sceneReference": {
-    "$id": "1",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "52804f95172e79842a9940ad8140bca3",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "audioState": {
-    "$id": "2",
     "$type": "AK.Wwise.State, AK.Wwise.Unity.API.WwiseTypes",
     "WwiseObjectReference": {
-      "$id": "3",
       "$type": "WwiseStateReference, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseStateGroupReference": {
-        "$id": "4",
         "$type": "WwiseStateGroupReference, AK.Wwise.Unity.API.WwiseTypes",
         "objectName": "State_LocationName",
         "id": 598649695,
@@ -43,11 +39,9 @@
     }
   },
   "renderSettingsSceneProfile": {
-    "$id": "5",
     "$type": "RenderSettingsSceneProfile, Assembly-CSharp",
     "useSkybox": true,
     "backgroundColor": {
-      "$id": "6",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -56,7 +50,6 @@
     },
     "skyboxMaterial": null,
     "ambientLight": {
-      "$id": "7",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.5188679,
       "g": 0.5188679,
@@ -65,7 +58,6 @@
     },
     "fog": false,
     "fogColor": {
-      "$id": "8",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,
@@ -76,7 +68,6 @@
     "fogDensity": 0.0638,
     "excludeSkybox": false,
     "auraBaseSettings": {
-      "$id": "9",
       "$type": "Aura2API.AuraBaseSettings, Aura2_Core",
       "useDensity": true,
       "density": 0.02,
@@ -86,7 +77,6 @@
       "ambientLightingStrength": 1.0,
       "useColor": true,
       "color": {
-        "$id": "10",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.0297653973,
         "g": 0.5,
@@ -96,7 +86,6 @@
       "colorStrength": 1.0,
       "useTint": false,
       "tint": {
-        "$id": "11",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.999999,
         "g": 0.9215677,
@@ -114,10 +103,8 @@
     "userDungeonAuraVolumeNoise": false,
     "userDungeonAuraVolumeNoiseScale": 3.0,
     "dayCycleProfile": {
-      "$id": "12",
       "$type": "GraphicsDayCycleProfile, Assembly-CSharp",
       "noonColor": {
-        "$id": "13",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.8396226,
         "g": 0.8396226,
@@ -125,7 +112,6 @@
         "a": 1.0
       },
       "sunriseColor": {
-        "$id": "14",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.8301887,
         "g": 0.7941427,
@@ -133,7 +119,6 @@
         "a": 1.0
       },
       "sunsetColor": {
-        "$id": "15",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.9056604,
         "g": 0.814607561,
@@ -144,7 +129,6 @@
       "sunDirection": -55.0,
       "sunTilt": 50.0,
       "moonLightColor": {
-        "$id": "16",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.538447857,
         "g": 0.72206825,
@@ -158,7 +142,6 @@
       "moonBaseAngle": 20.0,
       "globalMoonIntensity": 0.8,
       "ambientSunriseColor": {
-        "$id": "17",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.8018868,
         "g": 0.8018868,
@@ -166,7 +149,6 @@
         "a": 1.0
       },
       "ambientNoonColor": {
-        "$id": "18",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.8396226,
         "g": 0.7879594,
@@ -174,7 +156,6 @@
         "a": 1.0
       },
       "ambientSunsetColor": {
-        "$id": "19",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.7169812,
         "g": 0.58367455,
@@ -182,7 +163,6 @@
         "a": 1.0
       },
       "ambientNightColor": {
-        "$id": "20",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.414515883,
         "g": 0.6023795,
@@ -197,7 +177,6 @@
     "name": "Library_RenderSettings"
   },
   "locationPresentation": {
-    "$id": "21",
     "$type": "LocationPresentation, Assembly-CSharp",
     "unchartedTitle": "Map/&Location_Known_Title_Mysterious",
     "unchartedDescription": "Map/&Location_Known_Description_Mysterious",
@@ -216,20 +195,17 @@
   "hasPriorityForTeleporter": false,
   "canAttackNonHostileCharacters": false,
   "guiPresentation": {
-    "$id": "22",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Map/&Location_Presentation_Title_Mysterious",
     "description": "Map/&Location_Presentation_Description_Mysterious",
     "spriteReference": {
-      "$id": "23",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "bbb4beb82de0f854b89035d83a387c5f",
       "m_SubObjectName": "Ruins_Telema_Loading",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "24",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

@@ -36,7 +36,6 @@
   "itemRarity": "VeryRare",
   "staticProperties": [
     {
-      "$id": "1",
       "$type": "ItemPropertyDescription, Assembly-CSharp",
       "appliesOnItemOnly": false,
       "type": "Feature",
@@ -45,7 +44,6 @@
       "knowledgeAffinity": "InactiveAndHidden"
     },
     {
-      "$id": "2",
       "$type": "ItemPropertyDescription, Assembly-CSharp",
       "appliesOnItemOnly": false,
       "type": "Feature",
@@ -54,7 +52,6 @@
       "knowledgeAffinity": "InactiveAndHidden"
     },
     {
-      "$id": "3",
       "$type": "ItemPropertyDescription, Assembly-CSharp",
       "appliesOnItemOnly": false,
       "type": "Feature",
@@ -68,7 +65,6 @@
   "isAmmunition": false,
   "isUsableDevice": true,
   "usableDeviceDescription": {
-    "$id": "4",
     "$type": "UsableDeviceDescription, Assembly-CSharp",
     "usage": "Charges",
     "chargesCapital": "Fixed",
@@ -84,7 +80,6 @@
     "saveDC": 10,
     "deviceFunctions": [
       {
-        "$id": "5",
         "$type": "DeviceFunctionDescription, Assembly-CSharp",
         "parentUsage": "Charges",
         "useAffinity": "ChargeCost",
@@ -99,7 +94,6 @@
     ],
     "usableDeviceTags": [],
     "onUseParticle": {
-      "$id": "6",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -118,10 +112,8 @@
   "isFactionRelic": false,
   "personalityFlagOccurences": [],
   "soundEffectDescriptionOverride": {
-    "$id": "7",
     "$type": "SoundEffectDescription, Assembly-CSharp",
     "startEvent": {
-      "$id": "8",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -131,7 +123,6 @@
       }
     },
     "stopEvent": {
-      "$id": "9",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -141,7 +132,6 @@
       }
     },
     "startSwitch": {
-      "$id": "10",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -156,7 +146,6 @@
       }
     },
     "stopSwitch": {
-      "$id": "11",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -171,7 +160,6 @@
       }
     },
     "guiStoreBody": {
-      "$id": "12",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -181,7 +169,6 @@
       }
     },
     "guiPickBody": {
-      "$id": "13",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -191,7 +178,6 @@
       }
     },
     "guiStoreOther": {
-      "$id": "14",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -201,7 +187,6 @@
       }
     },
     "guiPickOther": {
-      "$id": "15",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -212,10 +197,8 @@
     }
   },
   "soundEffectOnHitDescriptionOverride": {
-    "$id": "16",
     "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
     "switchOnHit": {
-      "$id": "17",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -231,13 +214,11 @@
     }
   },
   "itemPresentation": {
-    "$id": "18",
     "$type": "ItemPresentation, Assembly-CSharp",
     "unidentifiedTitle": "Equipment/&CloakOfArachnida_Unidentified_Title",
     "unidentifiedDescription": "Equipment/&CloakOfArachnida_Unidentified_Description",
     "overrideSubtype": "None",
     "assetReference": {
-      "$id": "19",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -257,20 +238,17 @@
     "serializedVersion": 1
   },
   "guiPresentation": {
-    "$id": "20",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&CloakOfArachnida_Title",
     "description": "Equipment/&CloakOfArachnida_Description",
     "spriteReference": {
-      "$id": "21",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "0c180a9c92e9bf44b8aa91b430b0b430",
       "m_SubObjectName": "CloakOfArachnida",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "22",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

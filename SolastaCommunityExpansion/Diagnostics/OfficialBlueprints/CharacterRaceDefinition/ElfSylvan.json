@@ -9,31 +9,26 @@
   "baseWeight": 100,
   "featureUnlocks": [
     {
-      "$id": "1",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:MoveModeElfSylvanMoveSpeed:fbc81596519eb0040a411d697eaef7a6",
       "level": 1
     },
     {
-      "$id": "2",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AttributeModifierElfSylvanAbilityScoreIncrease:2780a01d36231c343b7453a2715f52db",
       "level": 1
     },
     {
-      "$id": "3",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencyElfWeaponTraining:d834d84ae89d67846af1a9262e0f62ff",
       "level": 1
     },
     {
-      "$id": "4",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencyElfSylvanSurvival:520175d245459b34080378dbcf19564e",
       "level": 1
     },
     {
-      "$id": "5",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetElfSylvanLanguages:01dc3c08b4f35e647a5593d87623f040",
       "level": 1
@@ -46,7 +41,6 @@
   "audioSwitches": [],
   "audioRaceRTPCValue": 3.0,
   "racePresentation": {
-    "$id": "6",
     "$type": "RacePresentation, Assembly-CSharp",
     "bodyAssetPrefix": "",
     "morphotypeAssetPrefix": "",
@@ -102,40 +96,34 @@
     "maleVoiceDefinition": "MAL1",
     "femaleVoiceDefinition": "FEM2",
     "portraitShieldOffset": {
-      "$id": "7",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.02,
       "y": 0.0,
       "z": 0.0
     },
     "preferedSkinColors": {
-      "$id": "8",
       "$type": "TA.RangedInt, Assembly-CSharp",
       "minValue": 1,
       "maxValue": 15
     },
     "preferedHairColors": {
-      "$id": "9",
       "$type": "TA.RangedInt, Assembly-CSharp",
       "minValue": 0,
       "maxValue": 24
     }
   },
   "guiPresentation": {
-    "$id": "10",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Race/&ElfSylvanTitle",
     "description": "Race/&ElfSylvanDescription",
     "spriteReference": {
-      "$id": "11",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "4b4b5a8a740fc404db0aeb46ed1b1300",
       "m_SubObjectName": "SylvanElf",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "12",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

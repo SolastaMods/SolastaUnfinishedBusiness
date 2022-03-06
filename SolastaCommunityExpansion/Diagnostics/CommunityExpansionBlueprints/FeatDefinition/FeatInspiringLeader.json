@@ -13,20 +13,17 @@
     "Definition:PowerInspiringLeaderFeat:4c92757e-27bd-5efc-bfac-d4055e875ee8"
   ],
   "guiPresentation": {
-    "$id": "1",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feat/&InspiringLeaderTitle",
     "description": "Feat/&InspiringLeaderDescription",
     "spriteReference": {
-      "$id": "2",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "baf1a359fedb47a439598aa6cde022b9",
       "m_SubObjectName": "GoldenSpeech",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "3",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

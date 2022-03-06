@@ -1,7 +1,6 @@
 {
   "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
-    "$id": "1",
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Self",
     "rangeParameter": 0,
@@ -58,7 +57,6 @@
     "effectPoolAmount": 60,
     "effectForms": [],
     "effectAdvancement": {
-      "$id": "2",
       "$type": "EffectAdvancement, Assembly-CSharp",
       "effectIncrementMethod": "None",
       "incrementMultiplier": 1,
@@ -80,7 +78,6 @@
     "offsetImpactTimeBasedOnDistanceFactor": 0.1,
     "offsetImpactTimePerTarget": 0.0,
     "effectParticleParameters": {
-      "$id": "3",
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": null,
       "casterSelfParticleReference": null,
@@ -109,7 +106,6 @@
       "conditionEndParticleReference": null,
       "applyEmissionColorOnWeapons": false,
       "emissionColor": {
-        "$id": "4",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.0,
         "g": 0.0,
@@ -120,7 +116,6 @@
       "emissionColorFadeOutDuration": 0.0
     },
     "effectAIParameters": {
-      "$id": "5",
       "$type": "EffectAIParameters, Assembly-CSharp",
       "aoeScoreMultiplier": 1.0,
       "cooldownForCaster": 0,
@@ -158,20 +153,17 @@
   "includeBaseDescription": false,
   "magical": true,
   "guiPresentation": {
-    "$id": "6",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Subclass/&HealingPoolLifeTransmuterListTitle",
     "description": "Subclass/&HealingPoolLifeTransmuterListDescription",
     "spriteReference": {
-      "$id": "7",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
     "color": {
-      "$id": "8",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

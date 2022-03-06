@@ -186,7 +186,6 @@
   "facePath": "",
   "wieldedItemsConfigurations": [
     {
-      "$id": "1",
       "$type": "WieldedItemsConfiguration, Assembly-CSharp",
       "mainHandItemDefinition": "Definition:Quarterstaff:e02fa6fe6682b034ea74a6c48c9ee134",
       "offHandItemDefinition": null
@@ -194,20 +193,17 @@
   ],
   "voiceId": "FEM2",
   "guiPresentation": {
-    "$id": "2",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "CharacterTemplate/&VioletTitle",
     "description": "CharacterTemplate/&VioletDescription",
     "spriteReference": {
-      "$id": "3",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "0401a8f2fd15d9e4c9eb98afc65c6b8c",
       "m_SubObjectName": "Wizard_GreenMage_Level10",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "4",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

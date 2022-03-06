@@ -6,20 +6,16 @@
   "registeredVariables": [],
   "sceneFilePath": "",
   "sceneReference": {
-    "$id": "1",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "e0c790d82a2ecd6499c23cf701b13849",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "audioState": {
-    "$id": "2",
     "$type": "AK.Wwise.State, AK.Wwise.Unity.API.WwiseTypes",
     "WwiseObjectReference": {
-      "$id": "3",
       "$type": "WwiseStateReference, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseStateGroupReference": {
-        "$id": "4",
         "$type": "WwiseStateGroupReference, AK.Wwise.Unity.API.WwiseTypes",
         "objectName": "State_LocationName",
         "id": 598649695,
@@ -43,11 +39,9 @@
     }
   },
   "renderSettingsSceneProfile": {
-    "$id": "5",
     "$type": "RenderSettingsSceneProfile, Assembly-CSharp",
     "useSkybox": true,
     "backgroundColor": {
-      "$id": "6",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -55,12 +49,10 @@
       "a": 1.0
     },
     "skyboxMaterial": {
-      "$id": "7",
       "$type": "UnityEngine.Material, UnityEngine.CoreModule",
       "name": "Default_Skybox"
     },
     "ambientLight": {
-      "$id": "8",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.6132076,
       "g": 0.6132076,
@@ -69,7 +61,6 @@
     },
     "fog": true,
     "fogColor": {
-      "$id": "9",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.498039216,
       "g": 0.5520674,
@@ -86,10 +77,8 @@
     "userDungeonAuraVolumeNoise": false,
     "userDungeonAuraVolumeNoiseScale": 3.0,
     "dayCycleProfile": {
-      "$id": "10",
       "$type": "GraphicsDayCycleProfile, Assembly-CSharp",
       "noonColor": {
-        "$id": "11",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.8113208,
         "g": 0.733567655,
@@ -97,7 +86,6 @@
         "a": 1.0
       },
       "sunriseColor": {
-        "$id": "12",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.8962264,
         "g": 0.6984592,
@@ -105,7 +93,6 @@
         "a": 1.0
       },
       "sunsetColor": {
-        "$id": "13",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 1.0,
         "g": 0.48294118,
@@ -116,7 +103,6 @@
       "sunDirection": -90.0,
       "sunTilt": 0.01,
       "moonLightColor": {
-        "$id": "14",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.339088678,
         "g": 0.454161435,
@@ -130,7 +116,6 @@
       "moonBaseAngle": 0.0,
       "globalMoonIntensity": 0.63,
       "ambientSunriseColor": {
-        "$id": "15",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.6174878,
         "g": 0.623529434,
@@ -138,7 +123,6 @@
         "a": 1.0
       },
       "ambientNoonColor": {
-        "$id": "16",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.6320754,
         "g": 0.498254329,
@@ -146,7 +130,6 @@
         "a": 1.0
       },
       "ambientSunsetColor": {
-        "$id": "17",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.360849082,
         "g": 0.479876757,
@@ -154,7 +137,6 @@
         "a": 1.0
       },
       "ambientNightColor": {
-        "$id": "18",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.388082922,
         "g": 0.4094619,
@@ -169,7 +151,6 @@
     "name": "RuinsTelemaScene_RenderSettings"
   },
   "locationPresentation": {
-    "$id": "19",
     "$type": "LocationPresentation, Assembly-CSharp",
     "unchartedTitle": "Location/&Ruins_Telema_Title",
     "unchartedDescription": "Quest/&Kickstarter_Loading_Text",
@@ -188,20 +169,17 @@
   "hasPriorityForTeleporter": false,
   "canAttackNonHostileCharacters": false,
   "guiPresentation": {
-    "$id": "20",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Location/&Ruins_Telema_Title",
     "description": "Quest/&Kickstarter_Loading_Text",
     "spriteReference": {
-      "$id": "21",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "bbb4beb82de0f854b89035d83a387c5f",
       "m_SubObjectName": "Ruins_Telema_Loading",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "22",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

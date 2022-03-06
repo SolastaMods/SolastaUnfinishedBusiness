@@ -88,19 +88,16 @@
   "facePath": "",
   "wieldedItemsConfigurations": [
     {
-      "$id": "1",
       "$type": "WieldedItemsConfiguration, Assembly-CSharp",
       "mainHandItemDefinition": "Definition:Shortsword:5d0f8d61d53786448920cad0485b77b7",
       "offHandItemDefinition": "Definition:Shortsword:5d0f8d61d53786448920cad0485b77b7"
     },
     {
-      "$id": "2",
       "$type": "WieldedItemsConfiguration, Assembly-CSharp",
       "mainHandItemDefinition": "Definition:Longbow:8e188e12f1f0daa40a78a6cd72b030e4",
       "offHandItemDefinition": null
     },
     {
-      "$id": "3",
       "$type": "WieldedItemsConfiguration, Assembly-CSharp",
       "mainHandItemDefinition": null,
       "offHandItemDefinition": "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994"
@@ -108,20 +105,17 @@
   ],
   "voiceId": "MAL1",
   "guiPresentation": {
-    "$id": "4",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "CharacterTemplate/&GarradTitle",
     "description": "CharacterTemplate/&GarradDescription",
     "spriteReference": {
-      "$id": "5",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "4c371c374df7ac54ba709b87758ed8e9",
       "m_SubObjectName": "Level1_Ranger_Miles_Hawke",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "6",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

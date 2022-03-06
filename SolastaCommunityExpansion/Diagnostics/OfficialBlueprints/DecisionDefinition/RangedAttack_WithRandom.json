@@ -1,28 +1,21 @@
 {
   "$type": "TA.AI.DecisionDefinition, Assembly-CSharp",
   "decision": {
-    "$id": "1",
     "$type": "TA.AI.DecisionDescription, Assembly-CSharp",
     "description": "Aims a target that's close, has high threat, and is not in cover.\nForbid attacking if we have an enemy in melee range. Random occurence.",
     "scorer": {
-      "$id": "2",
       "$type": "TA.AI.ActivityScorerDefinition, Assembly-CSharp",
       "scorer": {
-        "$id": "3",
         "$type": "TA.AI.ActivityScorer, Assembly-CSharp",
         "considerations": [
           {
-            "$id": "4",
             "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
             "consideration": {
-              "$id": "5",
               "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
               "consideration": {
-                "$id": "6",
                 "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
                 "considerationType": "Random",
                 "curve": {
-                  "$id": "7",
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
                 "stringParameter": "",
@@ -38,17 +31,13 @@
             "weight": 1.0
           },
           {
-            "$id": "8",
             "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
             "consideration": {
-              "$id": "9",
               "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
               "consideration": {
-                "$id": "10",
                 "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
                 "considerationType": "DistanceFromMe",
                 "curve": {
-                  "$id": "11",
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
                 "stringParameter": "",
@@ -64,17 +53,13 @@
             "weight": 1.0
           },
           {
-            "$id": "12",
             "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
             "consideration": {
-              "$id": "13",
               "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
               "consideration": {
-                "$id": "14",
                 "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
                 "considerationType": "CanAttack",
                 "curve": {
-                  "$id": "15",
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
                 "stringParameter": "",
@@ -90,17 +75,13 @@
             "weight": 1.0
           },
           {
-            "$id": "16",
             "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
             "consideration": {
-              "$id": "17",
               "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
               "consideration": {
-                "$id": "18",
                 "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
                 "considerationType": "TargetThreat",
                 "curve": {
-                  "$id": "19",
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
                 "stringParameter": "",
@@ -116,17 +97,13 @@
             "weight": 1.0
           },
           {
-            "$id": "20",
             "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
             "consideration": {
-              "$id": "21",
               "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
               "consideration": {
-                "$id": "22",
                 "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
                 "considerationType": "TargetCover",
                 "curve": {
-                  "$id": "23",
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
                 "stringParameter": "",
@@ -154,20 +131,17 @@
     "enumParameter": 2
   },
   "guiPresentation": {
-    "$id": "24",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "",
     "description": "",
     "spriteReference": {
-      "$id": "25",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "26",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

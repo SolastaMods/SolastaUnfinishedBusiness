@@ -3,7 +3,6 @@
   "useControllerAbilityChecks": false,
   "affinityGroups": [
     {
-      "$id": "1",
       "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
       "abilityScoreName": "Strength",
       "proficiencyName": null,
@@ -17,20 +16,17 @@
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
-    "$id": "2",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Subclass/&PowerInfuseArmorMagicalStrengthTitle",
     "description": "Subclass/&PowerInfuseArmorMagicalStrengthDescription",
     "spriteReference": {
-      "$id": "3",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "7e058de2206b3f74881faf121820130b",
       "m_SubObjectName": "ConditionEnhancedAbility",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "4",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

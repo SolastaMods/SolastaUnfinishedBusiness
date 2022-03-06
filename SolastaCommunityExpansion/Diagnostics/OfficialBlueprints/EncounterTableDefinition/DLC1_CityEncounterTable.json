@@ -2,177 +2,148 @@
   "$type": "EncounterTableDefinition, Assembly-CSharp",
   "encounterOccurences": [
     {
-      "$id": "1",
       "$type": "EncounterOccurenceDescription, Assembly-CSharp",
       "weight": 1,
       "encounterDefinition": "Definition:CR3_DLC1_Scouts_BanditCaptain_x2_x1:eb2ba7871ec5b074cbece08998dfd305"
     },
     {
-      "$id": "2",
       "$type": "EncounterOccurenceDescription, Assembly-CSharp",
       "weight": 1,
       "encounterDefinition": "Definition:CR3_DLC1_Bandit_BlBear_BanditCap_x2_x1_x1_x2:b3c516d7390ac5f468dbcf2c53491ee7"
     },
     {
-      "$id": "3",
       "$type": "EncounterOccurenceDescription, Assembly-CSharp",
       "weight": 1,
       "encounterDefinition": "Definition:CR3_DLC1_Veteran_x1:f4dbcbb7c8f098e458f3bbe5d8240d12"
     },
     {
-      "$id": "4",
       "$type": "EncounterOccurenceDescription, Assembly-CSharp",
       "weight": 1,
       "encounterDefinition": "Definition:CR3_DLC1_Priest_Thugs_x1_x2:6f50a5e7b16d6a047850decc6aed5340"
     },
     {
-      "$id": "5",
       "$type": "EncounterOccurenceDescription, Assembly-CSharp",
       "weight": 1,
       "encounterDefinition": "Definition:CR3_DLC1_NecroAcolyte_Highwayman_x1_x2:15b9a633ac86c534bb84cbcd40b9bfdb"
     },
     {
-      "$id": "6",
       "$type": "EncounterOccurenceDescription, Assembly-CSharp",
       "weight": 1,
       "encounterDefinition": "Definition:CR4_DLC1_BadlandsHunter_x1:e80c66eb237d138428bbcb7b2c342b63"
     },
     {
-      "$id": "7",
       "$type": "EncounterOccurenceDescription, Assembly-CSharp",
       "weight": 1,
       "encounterDefinition": "Definition:CR4_DLC1_CultFanatics_x1_x1:d028092c006fc354a9e108ea2faaac0e"
     },
     {
-      "$id": "8",
       "$type": "EncounterOccurenceDescription, Assembly-CSharp",
       "weight": 1,
       "encounterDefinition": "Definition:CR4_DLC1_Bear_Berserker_Crow_x1_x1_x1:442e9e17094aaaf44b600689230ebbbc"
     },
     {
-      "$id": "9",
       "$type": "EncounterOccurenceDescription, Assembly-CSharp",
       "weight": 1,
       "encounterDefinition": "Definition:CR4_DLC1_Minotaur_BrownBear_x1_x1:87c3fbdf958c66a4c9760fbaaca0f286"
     },
     {
-      "$id": "10",
       "$type": "EncounterOccurenceDescription, Assembly-CSharp",
       "weight": 1,
       "encounterDefinition": "Definition:CR4_DLC1_NecromancerAcolyte_Skeletons_x1_x2_x2_x2:f65abf94b204061469390f051852233e"
     },
     {
-      "$id": "11",
       "$type": "EncounterOccurenceDescription, Assembly-CSharp",
       "weight": 1,
       "encounterDefinition": "Definition:CR5_DLC1_Priest_CultFanatic_Thug_x1_x1_x2:869af9d8a4a04b948bfeb4a001d7c64d"
     },
     {
-      "$id": "12",
       "$type": "EncounterOccurenceDescription, Assembly-CSharp",
       "weight": 1,
       "encounterDefinition": "Definition:CR5_DLC1_Werewolf_DireWolf_Wolf_x1_x1_x4:90431c22733e15640880f5be1f3f3318"
     },
     {
-      "$id": "13",
       "$type": "EncounterOccurenceDescription, Assembly-CSharp",
       "weight": 1,
       "encounterDefinition": "Definition:CR5_DLC1_Veteran_Acolyte_Bandit_BanditCap_x1_x1_x2_x2:df01575387260f4438cddad2f12fb771"
     },
     {
-      "$id": "14",
       "$type": "EncounterOccurenceDescription, Assembly-CSharp",
       "weight": 1,
       "encounterDefinition": "Definition:CR5_DLC1_Darkweaver_x1:61a9bde7dfeb1c94f906bed4cbb14015"
     },
     {
-      "$id": "15",
       "$type": "EncounterOccurenceDescription, Assembly-CSharp",
       "weight": 1,
       "encounterDefinition": "Definition:CR5_DLC1_Minotaur_Spy_Bandit_x1_x1_x2_x2:c30fb659eee0c9f499b752cac06a6c0a"
     },
     {
-      "$id": "16",
       "$type": "EncounterOccurenceDescription, Assembly-CSharp",
       "weight": 1,
       "encounterDefinition": "Definition:CR6_DLC1_Archmage_x1:07e892a730d0313478966d2c2373526e"
     },
     {
-      "$id": "17",
       "$type": "EncounterOccurenceDescription, Assembly-CSharp",
       "weight": 1,
       "encounterDefinition": "Definition:CR6_DLC1_CrimsonSpider_BadlandsSpider_x1_x2:388af06ca326b654f939d013e32627f4"
     },
     {
-      "$id": "18",
       "$type": "EncounterOccurenceDescription, Assembly-CSharp",
       "weight": 1,
       "encounterDefinition": "Definition:CR6_DLC1_Necromancer_x1:bcef438b8a0bcc24da076343be51819a"
     },
     {
-      "$id": "19",
       "$type": "EncounterOccurenceDescription, Assembly-CSharp",
       "weight": 1,
       "encounterDefinition": "Definition:CR7_DLC1_Darkweaver_Spies_x1_x1_x1:30b761a82b9304c42a2b33d42881932e"
     },
     {
-      "$id": "20",
       "$type": "EncounterOccurenceDescription, Assembly-CSharp",
       "weight": 1,
       "encounterDefinition": "Definition:CR7_DLC1_Necromancer_Zombies_x1_x4:018994cedde0f5647a6f09573518c4b5"
     },
     {
-      "$id": "21",
       "$type": "EncounterOccurenceDescription, Assembly-CSharp",
       "weight": 1,
       "encounterDefinition": "Definition:CR7_DLC1_BadlandsHunters_WinterWolf_x1_x1:9ee82f9c946b96e4e9f983d68f559dbf"
     },
     {
-      "$id": "22",
       "$type": "EncounterOccurenceDescription, Assembly-CSharp",
       "weight": 1,
       "encounterDefinition": "Definition:CR8_DLC1_Dryads_Veterans_x1_x1_x1_x1:a132a624a7b0086499fb51720a76fd52"
     },
     {
-      "$id": "23",
       "$type": "EncounterOccurenceDescription, Assembly-CSharp",
       "weight": 1,
       "encounterDefinition": "Definition:CR8_DLC1_GiantApe_Bandits_x1_x3_x3:e8a563f8103593d43b9946e7d0946fea"
     },
     {
-      "$id": "24",
       "$type": "EncounterOccurenceDescription, Assembly-CSharp",
       "weight": 1,
       "encounterDefinition": "Definition:CR8_DLC1_EliteMinotaur_Minotaur_x1_x1:bd40b117fd8390e4b9d9258088474167"
     },
     {
-      "$id": "25",
       "$type": "EncounterOccurenceDescription, Assembly-CSharp",
       "weight": 1,
       "encounterDefinition": "Definition:CR8_DLC1_Archmage_Highwayman_Bandits_x1_x2_x2_x2:9e32d567ed01aa34ea8d9588dc1f8581"
     },
     {
-      "$id": "26",
       "$type": "EncounterOccurenceDescription, Assembly-CSharp",
       "weight": 1,
       "encounterDefinition": "Definition:CR8_DLC1_Warlord_Bandit_Highwayman_x1_x4_x1:dd58ac47fb6b71f47ba6400bb082f701"
     }
   ],
   "guiPresentation": {
-    "$id": "27",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "",
     "description": "",
     "spriteReference": {
-      "$id": "28",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "29",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

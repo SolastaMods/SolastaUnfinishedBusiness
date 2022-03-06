@@ -26,14 +26,12 @@
   "targetParameter": 1,
   "matchingCondition": "",
   "particlePrefab": {
-    "$id": "1",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "soundEvent": {
-    "$id": "2",
     "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
     "WwiseObjectReference": null,
     "idInternal": 0,
@@ -43,20 +41,17 @@
     }
   },
   "guiPresentation": {
-    "$id": "3",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feat/&TakeAimTitle",
     "description": "Feat/&TakeAimDescription",
     "spriteReference": {
-      "$id": "4",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "2882167e58b2e35419badfdde9f5f0a7",
       "m_SubObjectName": "AssignTarget",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "5",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

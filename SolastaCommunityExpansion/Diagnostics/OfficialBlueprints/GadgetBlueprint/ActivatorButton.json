@@ -2,7 +2,6 @@
   "$type": "GadgetBlueprint, Assembly-CSharp",
   "parameters": [
     {
-      "$id": "1",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "Operation",
       "type": "Operation",
@@ -18,7 +17,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "2",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "TargetGadgets",
       "type": "GadgetList",
@@ -34,7 +32,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "3",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "Param_DefaultAsActivated",
       "type": "GenericBool",
@@ -50,7 +47,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "4",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "Param_DefaultAsEnabled",
       "type": "GenericBool",
@@ -68,10 +64,8 @@
   ],
   "interactionNodes": [
     {
-      "$id": "5",
       "$type": "InteractionNodeDescription, Assembly-CSharp",
       "position": {
-        "$id": "6",
         "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
         "x": 0.0,
         "y": -1.0
@@ -82,11 +76,9 @@
   "canBeActivated": true,
   "customizableDimensions": false,
   "minCustomizableDimensions": {
-    "$id": "7",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "maxCustomizableDimensions": {
-    "$id": "8",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "campaignOnly": false,
@@ -101,16 +93,13 @@
   "lightSources": [],
   "category": "Activators",
   "dimensions": {
-    "$id": "9",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "prefabsByEnvironment": [
     {
-      "$id": "10",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "Necropolis",
       "prefabReference": {
-        "$id": "11",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "c10896dfbf46425438e2b9dd52e88c17",
         "m_SubObjectName": "",
@@ -118,11 +107,9 @@
       }
     },
     {
-      "$id": "12",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "Stronghold",
       "prefabReference": {
-        "$id": "13",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "8a0288b80a9b43945a07ed5c521d9e88",
         "m_SubObjectName": "",
@@ -130,11 +117,9 @@
       }
     },
     {
-      "$id": "14",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "ElvenPalace",
       "prefabReference": {
-        "$id": "15",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "8fc5eebe21189374095fd3c2b8587630",
         "m_SubObjectName": "",
@@ -142,11 +127,9 @@
       }
     },
     {
-      "$id": "16",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "Sewers",
       "prefabReference": {
-        "$id": "17",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "adc12965bf7a3de4385162b4e6aa5904",
         "m_SubObjectName": "",
@@ -154,11 +137,9 @@
       }
     },
     {
-      "$id": "18",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "Catacombs",
       "prefabReference": {
-        "$id": "19",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "ddd7d16aeb0496142b4f100288e9fe25",
         "m_SubObjectName": "",
@@ -166,11 +147,9 @@
       }
     },
     {
-      "$id": "20",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "TownInterior",
       "prefabReference": {
-        "$id": "21",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "098e299ef29c93349917f37b821ea2d4",
         "m_SubObjectName": "",
@@ -179,20 +158,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "22",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Gadget/&ActivatorButtonTitle",
     "description": "Gadget/&ActivatorButtonDescription",
     "spriteReference": {
-      "$id": "23",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "a13505c7ed5ef964284e3ac98639228c",
       "m_SubObjectName": "ActivatorButton",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "24",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

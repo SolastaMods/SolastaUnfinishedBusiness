@@ -2,7 +2,6 @@
   "$type": "GadgetBlueprint, Assembly-CSharp",
   "parameters": [
     {
-      "$id": "1",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "Operation",
       "type": "Operation",
@@ -18,7 +17,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "2",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "TargetGadgets",
       "type": "GadgetList",
@@ -34,7 +32,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "3",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "Param_DefaultAsEnabled",
       "type": "GenericBool",
@@ -50,7 +47,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "4",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "Variable",
       "type": "Variable",
@@ -66,7 +62,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "5",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "VariableTestScalar",
       "type": "VariableTestTypeScalar",
@@ -82,7 +77,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "6",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "VariableTestLogical",
       "type": "VariableTestTypeLogical",
@@ -98,7 +92,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "7",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "VariableValueInt",
       "type": "VariableValueInt",
@@ -114,7 +107,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "8",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "VariableValueBool",
       "type": "VariableValueBool",
@@ -130,7 +122,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "9",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "VariableValueString",
       "type": "VariableValueString",
@@ -150,11 +141,9 @@
   "canBeActivated": true,
   "customizableDimensions": false,
   "minCustomizableDimensions": {
-    "$id": "10",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "maxCustomizableDimensions": {
-    "$id": "11",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "campaignOnly": true,
@@ -169,16 +158,13 @@
   "lightSources": [],
   "category": "Activators",
   "dimensions": {
-    "$id": "12",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "prefabsByEnvironment": [
     {
-      "$id": "13",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "",
       "prefabReference": {
-        "$id": "14",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "550b29ca90ec949479eaa6399d390128",
         "m_SubObjectName": "",
@@ -187,20 +173,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "15",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Gadget/&ActivatorVariableChangedTitle",
     "description": "Gadget/&ActivatorVariableChangedDescription",
     "spriteReference": {
-      "$id": "16",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "7a293e6f716bfc545ae6e2694e7a2526",
       "m_SubObjectName": "ActivatorVariableChanged",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "17",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

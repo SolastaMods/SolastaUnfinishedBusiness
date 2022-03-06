@@ -3,10 +3,8 @@
   "parameters": [],
   "interactionNodes": [
     {
-      "$id": "1",
       "$type": "InteractionNodeDescription, Assembly-CSharp",
       "position": {
-        "$id": "2",
         "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
         "x": 0.0,
         "y": -1.0
@@ -17,11 +15,9 @@
   "canBeActivated": false,
   "customizableDimensions": false,
   "minCustomizableDimensions": {
-    "$id": "3",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "maxCustomizableDimensions": {
-    "$id": "4",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "campaignOnly": false,
@@ -36,16 +32,13 @@
   "lightSources": [],
   "category": "Harvestable",
   "dimensions": {
-    "$id": "5",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "prefabsByEnvironment": [
     {
-      "$id": "6",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "LavaCaves",
       "prefabReference": {
-        "$id": "7",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "a8b2e909576102043abaa8c971bb2d45",
         "m_SubObjectName": "",
@@ -54,20 +47,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "8",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&ContainerHarvestable_BrownPatch_Title",
     "description": "Equipment/&ContainerHarvestable_BrownPatch_Description",
     "spriteReference": {
-      "$id": "9",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "54da9389884c5604f998f5f2fa503824",
       "m_SubObjectName": "HarvestableB",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "10",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

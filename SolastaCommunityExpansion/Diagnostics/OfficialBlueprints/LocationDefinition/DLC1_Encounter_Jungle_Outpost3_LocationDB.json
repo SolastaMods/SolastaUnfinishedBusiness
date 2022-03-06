@@ -6,20 +6,16 @@
   "registeredVariables": [],
   "sceneFilePath": "",
   "sceneReference": {
-    "$id": "1",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "b8847ad4eeac08d42be76a13a986e4ea",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "audioState": {
-    "$id": "2",
     "$type": "AK.Wwise.State, AK.Wwise.Unity.API.WwiseTypes",
     "WwiseObjectReference": {
-      "$id": "3",
       "$type": "WwiseStateReference, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseStateGroupReference": {
-        "$id": "4",
         "$type": "WwiseStateGroupReference, AK.Wwise.Unity.API.WwiseTypes",
         "objectName": "State_LocationName",
         "id": 598649695,
@@ -43,11 +39,9 @@
     }
   },
   "renderSettingsSceneProfile": {
-    "$id": "5",
     "$type": "RenderSettingsSceneProfile, Assembly-CSharp",
     "useSkybox": true,
     "backgroundColor": {
-      "$id": "6",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -55,12 +49,10 @@
       "a": 1.0
     },
     "skyboxMaterial": {
-      "$id": "7",
       "$type": "UnityEngine.Material, UnityEngine.CoreModule",
       "name": "Default_Skybox"
     },
     "ambientLight": {
-      "$id": "8",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.5660378,
       "g": 0.509968,
@@ -69,7 +61,6 @@
     },
     "fog": false,
     "fogColor": {
-      "$id": "9",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,
@@ -80,7 +71,6 @@
     "fogDensity": 0.0638,
     "excludeSkybox": false,
     "auraBaseSettings": {
-      "$id": "10",
       "$type": "Aura2API.AuraBaseSettings, Aura2_Core",
       "useDensity": true,
       "density": 0.06,
@@ -90,7 +80,6 @@
       "ambientLightingStrength": 1.0,
       "useColor": false,
       "color": {
-        "$id": "11",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.0,
         "g": 0.5,
@@ -100,7 +89,6 @@
       "colorStrength": 1.0,
       "useTint": false,
       "tint": {
-        "$id": "12",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 1.0,
         "g": 0.921568632,
@@ -118,10 +106,8 @@
     "userDungeonAuraVolumeNoise": false,
     "userDungeonAuraVolumeNoiseScale": 3.0,
     "dayCycleProfile": {
-      "$id": "13",
       "$type": "GraphicsDayCycleProfile, Assembly-CSharp",
       "noonColor": {
-        "$id": "14",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.6886792,
         "g": 0.623136163,
@@ -129,7 +115,6 @@
         "a": 1.0
       },
       "sunriseColor": {
-        "$id": "15",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.8962264,
         "g": 0.6984592,
@@ -137,7 +122,6 @@
         "a": 1.0
       },
       "sunsetColor": {
-        "$id": "16",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 1.0,
         "g": 0.3648698,
@@ -148,7 +132,6 @@
       "sunDirection": -90.0,
       "sunTilt": 0.01,
       "moonLightColor": {
-        "$id": "17",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.108134575,
         "g": 0.481081933,
@@ -162,7 +145,6 @@
       "moonBaseAngle": 0.0,
       "globalMoonIntensity": 0.7,
       "ambientSunriseColor": {
-        "$id": "18",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.8490566,
         "g": 0.8490566,
@@ -170,7 +152,6 @@
         "a": 1.0
       },
       "ambientNoonColor": {
-        "$id": "19",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.522249937,
         "g": 0.605980754,
@@ -178,7 +159,6 @@
         "a": 1.0
       },
       "ambientSunsetColor": {
-        "$id": "20",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.461107165,
         "g": 0.5300958,
@@ -186,7 +166,6 @@
         "a": 1.0
       },
       "ambientNightColor": {
-        "$id": "21",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.219829112,
         "g": 0.381397873,
@@ -201,7 +180,6 @@
     "name": "DLC_Encounter_Jungle_ForestOutpost_RenderSettings"
   },
   "locationPresentation": {
-    "$id": "22",
     "$type": "LocationPresentation, Assembly-CSharp",
     "unchartedTitle": "LocationType/&Encounter_Jungle_Outpost_Title",
     "unchartedDescription": "Feature/&Emptystring",
@@ -220,20 +198,17 @@
   "hasPriorityForTeleporter": false,
   "canAttackNonHostileCharacters": true,
   "guiPresentation": {
-    "$id": "23",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "LocationType/&Encounter_Jungle_Outpost3_Title",
     "description": "LocationType/&Encounter_Jungle_Outpost_Description",
     "spriteReference": {
-      "$id": "24",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "431f8ac424359354d84dc433fb93c79e",
       "m_SubObjectName": "RandomEncounter_DLC1_Outpost",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "25",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

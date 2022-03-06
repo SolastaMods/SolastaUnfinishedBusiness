@@ -18,28 +18,24 @@
   "randomBehaviorDie": "D10",
   "randomBehaviourOptions": [
     {
-      "$id": "1",
       "$type": "BehaviorModeDescription, Assembly-CSharp",
       "weight": 1,
       "behaviour": "ConditionDuringTurn",
       "condition": "Definition:ConditionConfusedMove:be4c73f30e7c27b48baa9bf1f5ce2130"
     },
     {
-      "$id": "2",
       "$type": "BehaviorModeDescription, Assembly-CSharp",
       "weight": 5,
       "behaviour": "ConditionDuringTurn",
       "condition": "Definition:ConditionConfusedIncapacitated:5080467181c250c4c9c2b899f661fac4"
     },
     {
-      "$id": "3",
       "$type": "BehaviorModeDescription, Assembly-CSharp",
       "weight": 2,
       "behaviour": "ConditionDuringTurn",
       "condition": "Definition:ConditionConfusedAttack:5abe994a151fff24f92ef7a490cb35b2"
     },
     {
-      "$id": "4",
       "$type": "BehaviorModeDescription, Assembly-CSharp",
       "weight": 2,
       "behaviour": "None",
@@ -47,20 +43,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "5",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "6",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "7",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

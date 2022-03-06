@@ -26,17 +26,14 @@
   "targetParameter": 1,
   "matchingCondition": "",
   "particlePrefab": {
-    "$id": "1",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "8781d1e5a482f9345b7c97e75bc89dbb",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "soundEvent": {
-    "$id": "2",
     "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
     "WwiseObjectReference": {
-      "$id": "3",
       "$type": "WwiseEventReference, AK.Wwise.Unity.API.WwiseTypes",
       "objectName": "Play_WP_Hit_Shoved",
       "id": 3449356009,
@@ -50,20 +47,17 @@
     }
   },
   "guiPresentation": {
-    "$id": "4",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&MartialCommanderCoordinatedDefenseTitle",
     "description": "Feature/&MartialCommanderCoordinatedDefenseDescription",
     "spriteReference": {
-      "$id": "5",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "669dd4dd3f129f844bbe57d3420ed03f",
       "m_SubObjectName": "CoordinatedDefense",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "6",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

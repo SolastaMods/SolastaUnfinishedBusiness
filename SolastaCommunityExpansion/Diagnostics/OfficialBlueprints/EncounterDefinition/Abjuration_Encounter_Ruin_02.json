@@ -5,20 +5,17 @@
   "locationOverride": "Definition:Encounter_Ruin_LocationDB:ca604025ce05341418bad84e91e4fde3",
   "monsterOccurences": [],
   "guiPresentation": {
-    "$id": "1",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Encounter/&Abjuration_Ruins02_EncounterTitle",
     "description": "Encounter/&Abjuration_Ruins02_EncounterDescription",
     "spriteReference": {
-      "$id": "2",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "3",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

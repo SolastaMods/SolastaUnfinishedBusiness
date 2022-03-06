@@ -26,19 +26,16 @@
   ],
   "savingThrowScores": [
     {
-      "$id": "1",
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Wisdom",
       "bonus": 9
     },
     {
-      "$id": "2",
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Charisma",
       "bonus": 9
     },
     {
-      "$id": "3",
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Intelligence",
       "bonus": 10
@@ -46,7 +43,6 @@
   ],
   "skillScores": [
     {
-      "$id": "4",
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "Perception",
       "bonus": 9
@@ -58,7 +54,6 @@
   "differentActionEachTurn": false,
   "legendaryActionOptions": [
     {
-      "$id": "5",
       "$type": "LegendaryActionDescription, Assembly-CSharp",
       "cost": 1,
       "subaction": "MonsterAttack",
@@ -74,7 +69,6 @@
       "decisionPackage": "Definition:LegendarySorakAttack_TouchOfDarkness:100f4dcc57544ad4e9f5c049ea47874f"
     },
     {
-      "$id": "6",
       "$type": "LegendaryActionDescription, Assembly-CSharp",
       "cost": 1,
       "subaction": "Power",
@@ -90,7 +84,6 @@
       "decisionPackage": "Definition:LegendarySorakAoE_Debuff:51b6057aa6e5e5e4bbe22ebfb325ff45"
     },
     {
-      "$id": "7",
       "$type": "LegendaryActionDescription, Assembly-CSharp",
       "cost": 1,
       "subaction": "Spell",
@@ -143,13 +136,11 @@
   ],
   "attackIterations": [
     {
-      "$id": "8",
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 3,
       "monsterAttackDefinition": "Definition:Attack_Sorr-Akkath_Shikkath_Shrieker:94df458deebe51745a01f9afc74b6b13"
     },
     {
-      "$id": "9",
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 3,
       "monsterAttackDefinition": "Definition:Attack_Sorr-Akkath_Shikkath_Poisoned_Spine:8738e00e9ec2b4f448e3aefb63f1f1a7"
@@ -171,7 +162,6 @@
   "bestiaryEntry": "None",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
-    "$id": "10",
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
     "x": 0.0,
     "y": 7.0,
@@ -179,14 +169,12 @@
   },
   "alwaysHideStats": false,
   "bestiarySpriteReference": {
-    "$id": "11",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
     "m_AssetGUID": "3b9405b0ea5044a49ac747bdd1d7af35",
     "m_SubObjectName": "Sorr-Akkath_Shikkath",
     "m_SubObjectType": ""
   },
   "monsterPresentation": {
-    "$id": "12",
     "$type": "MonsterPresentation, Assembly-CSharp",
     "hasUniqueName": false,
     "uniqueNameTitle": "",
@@ -194,14 +182,12 @@
     "useCustomMaterials": false,
     "customMaterials": [],
     "customShaderReference": {
-      "$id": "13",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "mutantFleshDirection": {
-      "$id": "14",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": -1.0,
@@ -209,7 +195,6 @@
     },
     "overrideCharacterShaderColors": false,
     "firstCharacterShaderColor": {
-      "$id": "15",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -217,7 +202,6 @@
       "a": 0.0
     },
     "secondCharacterShaderColor": {
-      "$id": "16",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -226,14 +210,12 @@
     },
     "hasPhantomDistortion": true,
     "attachedParticlesReference": {
-      "$id": "17",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "2be282a4842dfe74fb589294ac8d04ee",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "bestiaryAttachedParticlesReference": {
-      "$id": "18",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -242,7 +224,6 @@
     "hasPrefabVariants": false,
     "monsterPresentationDefinitions": [],
     "malePrefabReference": {
-      "$id": "19",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "6ad3bfe546446b040b860cc8b65043ae",
       "m_SubObjectName": "",
@@ -250,7 +231,6 @@
     },
     "maleModelScale": 0.5,
     "femalePrefabReference": {
-      "$id": "20",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "6ad3bfe546446b040b860cc8b65043ae",
       "m_SubObjectName": "",
@@ -265,21 +245,18 @@
     "needMerchantPortrait": false,
     "hasMonsterPortraitBackground": true,
     "portraitCameraFollowOffset": {
-      "$id": "21",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": -0.5,
       "z": -5.0
     },
     "portraitCameraLookAtScreenOffset": {
-      "$id": "22",
       "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
       "x": 0.5,
       "y": 0.4
     },
     "portraitCameraFOV": 40.0,
     "portraitCameraLightingOffset": {
-      "$id": "23",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": 0.0,
@@ -294,20 +271,17 @@
   "isUnique": false,
   "uniqueNameId": "",
   "guiPresentation": {
-    "$id": "24",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Monster/&Sorak_Tshar_Boss_Title",
     "description": "Monster/&Sorak_Tshar_Boss_Description",
     "spriteReference": {
-      "$id": "25",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "8cf335397c3114543afc18fb083685e4",
       "m_SubObjectName": "CustomPortrait_Sorr-Akkath_Tshar_Boss",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "26",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

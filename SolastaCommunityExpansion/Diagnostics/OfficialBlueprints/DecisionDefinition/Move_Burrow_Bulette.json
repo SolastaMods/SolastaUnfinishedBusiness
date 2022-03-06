@@ -1,28 +1,21 @@
 {
   "$type": "TA.AI.DecisionDefinition, Assembly-CSharp",
   "decision": {
-    "$id": "1",
     "$type": "TA.AI.DecisionDescription, Assembly-CSharp",
     "description": "Burrow towards the enemies. Will only burrow to consume dash to get close to enemies.",
     "scorer": {
-      "$id": "2",
       "$type": "TA.AI.ActivityScorerDefinition, Assembly-CSharp",
       "scorer": {
-        "$id": "3",
         "$type": "TA.AI.ActivityScorer, Assembly-CSharp",
         "considerations": [
           {
-            "$id": "4",
             "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
             "consideration": {
-              "$id": "5",
               "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
               "consideration": {
-                "$id": "6",
                 "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
                 "considerationType": "RemainingMoveStatus",
                 "curve": {
-                  "$id": "7",
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
                 "stringParameter": "",
@@ -38,17 +31,13 @@
             "weight": 1.0
           },
           {
-            "$id": "8",
             "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
             "consideration": {
-              "$id": "9",
               "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
               "consideration": {
-                "$id": "10",
                 "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
                 "considerationType": "IsValidSpecialMoveDestination",
                 "curve": {
-                  "$id": "11",
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
                 "stringParameter": "",
@@ -64,17 +53,13 @@
             "weight": 1.0
           },
           {
-            "$id": "12",
             "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
             "consideration": {
-              "$id": "13",
               "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
               "consideration": {
-                "$id": "14",
                 "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
                 "considerationType": "IsDashDistance",
                 "curve": {
-                  "$id": "15",
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
                 "stringParameter": "",
@@ -90,17 +75,13 @@
             "weight": 1.0
           },
           {
-            "$id": "16",
             "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
             "consideration": {
-              "$id": "17",
               "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
               "consideration": {
-                "$id": "18",
                 "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
                 "considerationType": "CanMoveToAnyEnemyInOneTurn",
                 "curve": {
-                  "$id": "19",
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
                 "stringParameter": "",
@@ -116,17 +97,13 @@
             "weight": 1.0
           },
           {
-            "$id": "20",
             "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
             "consideration": {
-              "$id": "21",
               "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
               "consideration": {
-                "$id": "22",
                 "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
                 "considerationType": "DistanceFromMe",
                 "curve": {
-                  "$id": "23",
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
                 "stringParameter": "",
@@ -142,17 +119,13 @@
             "weight": 1.0
           },
           {
-            "$id": "24",
             "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
             "consideration": {
-              "$id": "25",
               "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
               "consideration": {
-                "$id": "26",
                 "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
                 "considerationType": "HasEnemiesInMeleeRange",
                 "curve": {
-                  "$id": "27",
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
                 "stringParameter": "",
@@ -168,17 +141,13 @@
             "weight": 1.0
           },
           {
-            "$id": "28",
             "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
             "consideration": {
-              "$id": "29",
               "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
               "consideration": {
-                "$id": "30",
                 "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
                 "considerationType": "IsDangerousPosition",
                 "curve": {
-                  "$id": "31",
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
                 "stringParameter": "",
@@ -194,17 +163,13 @@
             "weight": 1.0
           },
           {
-            "$id": "32",
             "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
             "consideration": {
-              "$id": "33",
               "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
               "consideration": {
-                "$id": "34",
                 "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
                 "considerationType": "InfluenceEnemyProximity",
                 "curve": {
-                  "$id": "35",
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
                 "stringParameter": "",
@@ -220,17 +185,13 @@
             "weight": 1.0
           },
           {
-            "$id": "36",
             "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
             "consideration": {
-              "$id": "37",
               "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
               "consideration": {
-                "$id": "38",
                 "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
                 "considerationType": "InfluenceEnemyProximity",
                 "curve": {
-                  "$id": "39",
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
                 "stringParameter": "",
@@ -246,17 +207,13 @@
             "weight": 1.0
           },
           {
-            "$id": "40",
             "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
             "consideration": {
-              "$id": "41",
               "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
               "consideration": {
-                "$id": "42",
                 "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
                 "considerationType": "InfluenceEnemyProximity",
                 "curve": {
-                  "$id": "43",
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
                 "stringParameter": "",
@@ -272,17 +229,13 @@
             "weight": 1.0
           },
           {
-            "$id": "44",
             "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
             "consideration": {
-              "$id": "45",
               "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
               "consideration": {
-                "$id": "46",
                 "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
                 "considerationType": "CanStandOnCell",
                 "curve": {
-                  "$id": "47",
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
                 "stringParameter": "",
@@ -298,17 +251,13 @@
             "weight": 1.0
           },
           {
-            "$id": "48",
             "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
             "consideration": {
-              "$id": "49",
               "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
               "consideration": {
-                "$id": "50",
                 "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
                 "considerationType": "IsBurrowPosition",
                 "curve": {
-                  "$id": "51",
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
                 "stringParameter": "",
@@ -336,20 +285,17 @@
     "enumParameter": 1
   },
   "guiPresentation": {
-    "$id": "52",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "",
     "description": "",
     "spriteReference": {
-      "$id": "53",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "54",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

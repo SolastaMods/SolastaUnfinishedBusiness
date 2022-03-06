@@ -9,31 +9,26 @@
   "baseWeight": 90,
   "featureUnlocks": [
     {
-      "$id": "1",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
       "level": 1
     },
     {
-      "$id": "2",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AttributeModifierElfHighAbilityScoreIncrease:73c548582398b1f4cba312925b63348b",
       "level": 1
     },
     {
-      "$id": "3",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencyElfWeaponTraining:d834d84ae89d67846af1a9262e0f62ff",
       "level": 1
     },
     {
-      "$id": "4",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:CastSpellElfHigh:af29de11ba0046743bc46559b557e32a",
       "level": 1
     },
     {
-      "$id": "5",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetElfHighLanguages:752c07b8faab19c43af3b28543d9f15d",
       "level": 1
@@ -43,7 +38,6 @@
   "inventoryDefinition": null,
   "personalityFlagOccurences": [
     {
-      "$id": "6",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 2,
       "personalityFlag": "GpSpellcaster"
@@ -53,7 +47,6 @@
   "audioSwitches": [],
   "audioRaceRTPCValue": 3.0,
   "racePresentation": {
-    "$id": "7",
     "$type": "RacePresentation, Assembly-CSharp",
     "bodyAssetPrefix": "",
     "morphotypeAssetPrefix": "",
@@ -123,40 +116,34 @@
     "maleVoiceDefinition": "MAL1",
     "femaleVoiceDefinition": "FEM2",
     "portraitShieldOffset": {
-      "$id": "8",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.02,
       "y": 0.0,
       "z": 0.0
     },
     "preferedSkinColors": {
-      "$id": "9",
       "$type": "TA.RangedInt, Assembly-CSharp",
       "minValue": 1,
       "maxValue": 15
     },
     "preferedHairColors": {
-      "$id": "10",
       "$type": "TA.RangedInt, Assembly-CSharp",
       "minValue": 0,
       "maxValue": 24
     }
   },
   "guiPresentation": {
-    "$id": "11",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Race/&ElfHighTitle",
     "description": "Race/&ElfHighDescription",
     "spriteReference": {
-      "$id": "12",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "366bd85cddeb50740858c0b15593b4cd",
       "m_SubObjectName": "HighElf",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "13",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

@@ -6,20 +6,16 @@
   "registeredVariables": [],
   "sceneFilePath": "",
   "sceneReference": {
-    "$id": "1",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "348fe687ccd40c2439cadce7f87e3ca9",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "audioState": {
-    "$id": "2",
     "$type": "AK.Wwise.State, AK.Wwise.Unity.API.WwiseTypes",
     "WwiseObjectReference": {
-      "$id": "3",
       "$type": "WwiseStateReference, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseStateGroupReference": {
-        "$id": "4",
         "$type": "WwiseStateGroupReference, AK.Wwise.Unity.API.WwiseTypes",
         "objectName": "State_LocationName",
         "id": 598649695,
@@ -43,11 +39,9 @@
     }
   },
   "renderSettingsSceneProfile": {
-    "$id": "5",
     "$type": "RenderSettingsSceneProfile, Assembly-CSharp",
     "useSkybox": true,
     "backgroundColor": {
-      "$id": "6",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -56,7 +50,6 @@
     },
     "skyboxMaterial": null,
     "ambientLight": {
-      "$id": "7",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.2924528,
       "g": 0.2924528,
@@ -65,7 +58,6 @@
     },
     "fog": false,
     "fogColor": {
-      "$id": "8",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,
@@ -76,7 +68,6 @@
     "fogDensity": 0.0638,
     "excludeSkybox": false,
     "auraBaseSettings": {
-      "$id": "9",
       "$type": "Aura2API.AuraBaseSettings, Aura2_Core",
       "useDensity": true,
       "density": 0.001,
@@ -86,7 +77,6 @@
       "ambientLightingStrength": 1.0,
       "useColor": false,
       "color": {
-        "$id": "10",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.0,
         "g": 0.5,
@@ -96,7 +86,6 @@
       "colorStrength": 1.0,
       "useTint": false,
       "tint": {
-        "$id": "11",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 1.0,
         "g": 0.921568632,
@@ -114,10 +103,8 @@
     "userDungeonAuraVolumeNoise": false,
     "userDungeonAuraVolumeNoiseScale": 3.0,
     "dayCycleProfile": {
-      "$id": "12",
       "$type": "GraphicsDayCycleProfile, Assembly-CSharp",
       "noonColor": {
-        "$id": "13",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.6698113,
         "g": 0.629200339,
@@ -125,7 +112,6 @@
         "a": 1.0
       },
       "sunriseColor": {
-        "$id": "14",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.7830189,
         "g": 0.682673454,
@@ -133,7 +119,6 @@
         "a": 1.0
       },
       "sunsetColor": {
-        "$id": "15",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.8113208,
         "g": 0.492625326,
@@ -144,7 +129,6 @@
       "sunDirection": -60.0,
       "sunTilt": 0.01,
       "moonLightColor": {
-        "$id": "16",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.3445621,
         "g": 0.5835921,
@@ -158,7 +142,6 @@
       "moonBaseAngle": 0.0,
       "globalMoonIntensity": 1.56,
       "ambientSunriseColor": {
-        "$id": "17",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.6886792,
         "g": 0.6886792,
@@ -166,7 +149,6 @@
         "a": 1.0
       },
       "ambientNoonColor": {
-        "$id": "18",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.5524653,
         "g": 0.585873544,
@@ -174,7 +156,6 @@
         "a": 1.0
       },
       "ambientSunsetColor": {
-        "$id": "19",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.454031646,
         "g": 0.488738269,
@@ -182,7 +163,6 @@
         "a": 1.0
       },
       "ambientNightColor": {
-        "$id": "20",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.220274121,
         "g": 0.4704877,
@@ -197,7 +177,6 @@
     "name": "WizardTowerBasement_RenderSettings_Scene"
   },
   "locationPresentation": {
-    "$id": "21",
     "$type": "LocationPresentation, Assembly-CSharp",
     "unchartedTitle": "Map/&Location_AbjurationWizardTower_Teleport_Title",
     "unchartedDescription": "Map/&Location_AbjurationWizardTower_Title",
@@ -216,20 +195,17 @@
   "hasPriorityForTeleporter": true,
   "canAttackNonHostileCharacters": false,
   "guiPresentation": {
-    "$id": "22",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Map/&Location_AbjurationWizardTower_Title",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "23",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "8234e7a0b6c229d449e9cd02ffb1345c",
       "m_SubObjectName": "WizardTowerBasement",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "24",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

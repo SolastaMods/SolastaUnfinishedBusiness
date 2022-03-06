@@ -35,12 +35,10 @@
   "isTool": false,
   "isStarterPack": true,
   "starterPackDefinition": {
-    "$id": "1",
     "$type": "StarterPackDescription, Assembly-CSharp",
     "containerItem": "Backpack",
     "itemOccurencesList": [
       {
-        "$id": "2",
         "$type": "ItemOccurence, Assembly-CSharp",
         "diceNumber": 5,
         "diceType": "D1",
@@ -50,7 +48,6 @@
         "treasureTableDefinition": null
       },
       {
-        "$id": "3",
         "$type": "ItemOccurence, Assembly-CSharp",
         "diceNumber": 1,
         "diceType": "D1",
@@ -60,7 +57,6 @@
         "treasureTableDefinition": null
       },
       {
-        "$id": "4",
         "$type": "ItemOccurence, Assembly-CSharp",
         "diceNumber": 1,
         "diceType": "D1",
@@ -70,7 +66,6 @@
         "treasureTableDefinition": null
       },
       {
-        "$id": "5",
         "$type": "ItemOccurence, Assembly-CSharp",
         "diceNumber": 1,
         "diceType": "D1",
@@ -80,7 +75,6 @@
         "treasureTableDefinition": null
       },
       {
-        "$id": "6",
         "$type": "ItemOccurence, Assembly-CSharp",
         "diceNumber": 1,
         "diceType": "D1",
@@ -101,10 +95,8 @@
   "isFactionRelic": false,
   "personalityFlagOccurences": [],
   "soundEffectDescriptionOverride": {
-    "$id": "7",
     "$type": "SoundEffectDescription, Assembly-CSharp",
     "startEvent": {
-      "$id": "8",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -114,7 +106,6 @@
       }
     },
     "stopEvent": {
-      "$id": "9",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -124,7 +115,6 @@
       }
     },
     "startSwitch": {
-      "$id": "10",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -139,7 +129,6 @@
       }
     },
     "stopSwitch": {
-      "$id": "11",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -154,7 +143,6 @@
       }
     },
     "guiStoreBody": {
-      "$id": "12",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -164,7 +152,6 @@
       }
     },
     "guiPickBody": {
-      "$id": "13",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -174,7 +161,6 @@
       }
     },
     "guiStoreOther": {
-      "$id": "14",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -184,7 +170,6 @@
       }
     },
     "guiPickOther": {
-      "$id": "15",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -195,10 +180,8 @@
     }
   },
   "soundEffectOnHitDescriptionOverride": {
-    "$id": "16",
     "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
     "switchOnHit": {
-      "$id": "17",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -214,13 +197,11 @@
     }
   },
   "itemPresentation": {
-    "$id": "18",
     "$type": "ItemPresentation, Assembly-CSharp",
     "unidentifiedTitle": "",
     "unidentifiedDescription": "",
     "overrideSubtype": "None",
     "assetReference": {
-      "$id": "19",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -240,20 +221,17 @@
     "serializedVersion": 1
   },
   "guiPresentation": {
-    "$id": "20",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&ExplorerPackTitle",
     "description": "Equipment/&StarterPackGeneralDescription",
     "spriteReference": {
-      "$id": "21",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "40955e092523b04418ecedd0c6205ac5",
       "m_SubObjectName": "StandardBackpack",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "22",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

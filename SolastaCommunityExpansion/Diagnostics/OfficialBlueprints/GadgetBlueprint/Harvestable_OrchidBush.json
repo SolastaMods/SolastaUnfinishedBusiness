@@ -3,10 +3,8 @@
   "parameters": [],
   "interactionNodes": [
     {
-      "$id": "1",
       "$type": "InteractionNodeDescription, Assembly-CSharp",
       "position": {
-        "$id": "2",
         "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
         "x": 0.0,
         "y": -1.0
@@ -17,11 +15,9 @@
   "canBeActivated": false,
   "customizableDimensions": false,
   "minCustomizableDimensions": {
-    "$id": "3",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "maxCustomizableDimensions": {
-    "$id": "4",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "campaignOnly": false,
@@ -36,16 +32,13 @@
   "lightSources": [],
   "category": "Harvestable",
   "dimensions": {
-    "$id": "5",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "prefabsByEnvironment": [
     {
-      "$id": "6",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "WoodLand",
       "prefabReference": {
-        "$id": "7",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "ee76005ea8f202f4b95a2d82cf91c148",
         "m_SubObjectName": "",
@@ -53,11 +46,9 @@
       }
     },
     {
-      "$id": "8",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "Town",
       "prefabReference": {
-        "$id": "9",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "cc0229f7112f24842854ed748d0394a5",
         "m_SubObjectName": "",
@@ -66,20 +57,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "10",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&ContainerHarvestable_OrchidBush_Title",
     "description": "Equipment/&ContainerHarvestable_OrchidBush_Description",
     "spriteReference": {
-      "$id": "11",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "cb906af9cbf0a484faeae27f724a2825",
       "m_SubObjectName": "HarvestableA",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "12",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

@@ -15,14 +15,12 @@
   "impactsPlacement": true,
   "additionalFeatures": [],
   "attackParticle": {
-    "$id": "1",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "0c377c592e1ca2e4d90de06ee11f1fdd",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "attackImpactParticle": {
-    "$id": "2",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "f400cc400bdb9ce4b939e7522bbf619f",
     "m_SubObjectName": "",
@@ -30,13 +28,11 @@
   },
   "addLightSource": false,
   "lightSourceForm": {
-    "$id": "3",
     "$type": "LightSourceForm, Assembly-CSharp",
     "lightSourceType": "Basic",
     "brightRange": 4,
     "dimAdditionalRange": 4,
     "color": {
-      "$id": "4",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,
@@ -44,7 +40,6 @@
       "a": 1.0
     },
     "graphicsPrefabReference": {
-      "$id": "5",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -53,7 +48,6 @@
     "applyToSelf": false
   },
   "lightSourceOffset": {
-    "$id": "6",
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
     "x": 0.0,
     "y": 0.0,
@@ -63,7 +57,6 @@
   "maxSpellLevelImmunity": 1,
   "hasPresentation": true,
   "prefabReference": {
-    "$id": "7",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "6be835cb9befdf343a6c49344af09e62",
     "m_SubObjectName": "",
@@ -74,14 +67,12 @@
   "showWorldLocationFeedbacks": true,
   "hasPortrait": false,
   "portraitSpriteReference": {
-    "$id": "8",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
     "m_AssetGUID": "f4e17315dd7a28b488efbdcc3dbbb032",
     "m_SubObjectName": "ProxySpiritualWeapon",
     "m_SubObjectType": ""
   },
   "startEvent": {
-    "$id": "9",
     "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
     "WwiseObjectReference": null,
     "idInternal": 0,
@@ -91,7 +82,6 @@
     }
   },
   "stopEvent": {
-    "$id": "10",
     "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
     "WwiseObjectReference": null,
     "idInternal": 0,
@@ -101,10 +91,8 @@
     }
   },
   "soundEffectOnHitDescription": {
-    "$id": "11",
     "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
     "switchOnHit": {
-      "$id": "12",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -120,20 +108,17 @@
     }
   },
   "guiPresentation": {
-    "$id": "13",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Spell/&GuardianOfFaithTitle",
     "description": "EffectProxy/&ProxyGuardianOfFaithDescription",
     "spriteReference": {
-      "$id": "14",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "23bb29fe1f3b236489c43b5c34375679",
       "m_SubObjectName": "GuardianOfFaith",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "15",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

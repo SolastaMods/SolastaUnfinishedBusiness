@@ -4,7 +4,6 @@
   "lootSpawnMode": "ItemList",
   "itemOccurencesList": [
     {
-      "$id": "1",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 1,
       "diceType": "D1",
@@ -14,7 +13,6 @@
       "treasureTableDefinition": null
     },
     {
-      "$id": "2",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 1,
       "diceType": "D1",
@@ -24,7 +22,6 @@
       "treasureTableDefinition": null
     },
     {
-      "$id": "3",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 1,
       "diceType": "D1",
@@ -34,7 +31,6 @@
       "treasureTableDefinition": null
     },
     {
-      "$id": "4",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 1,
       "diceType": "D1",
@@ -44,7 +40,6 @@
       "treasureTableDefinition": null
     },
     {
-      "$id": "5",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 1,
       "diceType": "D1",
@@ -54,7 +49,6 @@
       "treasureTableDefinition": null
     },
     {
-      "$id": "6",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 1,
       "diceType": "D1",
@@ -64,7 +58,6 @@
       "treasureTableDefinition": null
     },
     {
-      "$id": "7",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 1,
       "diceType": "D1",
@@ -74,7 +67,6 @@
       "treasureTableDefinition": null
     },
     {
-      "$id": "8",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 1,
       "diceType": "D1",
@@ -84,7 +76,6 @@
       "treasureTableDefinition": null
     },
     {
-      "$id": "9",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 8,
       "diceType": "D1",
@@ -94,7 +85,6 @@
       "treasureTableDefinition": null
     },
     {
-      "$id": "10",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 1,
       "diceType": "D1",
@@ -104,7 +94,6 @@
       "treasureTableDefinition": null
     },
     {
-      "$id": "11",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 1,
       "diceType": "D1",
@@ -114,7 +103,6 @@
       "treasureTableDefinition": null
     },
     {
-      "$id": "12",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 1,
       "diceType": "D1",
@@ -124,7 +112,6 @@
       "treasureTableDefinition": null
     },
     {
-      "$id": "13",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 1,
       "diceType": "D1",
@@ -134,7 +121,6 @@
       "treasureTableDefinition": null
     },
     {
-      "$id": "14",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 1,
       "diceType": "D1",
@@ -144,7 +130,6 @@
       "treasureTableDefinition": null
     },
     {
-      "$id": "15",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 1,
       "diceType": "D1",
@@ -154,7 +139,6 @@
       "treasureTableDefinition": null
     },
     {
-      "$id": "16",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 1,
       "diceType": "D1",
@@ -164,7 +148,6 @@
       "treasureTableDefinition": null
     },
     {
-      "$id": "17",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 1,
       "diceType": "D1",
@@ -174,7 +157,6 @@
       "treasureTableDefinition": null
     },
     {
-      "$id": "18",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 1,
       "diceType": "D1",
@@ -184,7 +166,6 @@
       "treasureTableDefinition": null
     },
     {
-      "$id": "19",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 1,
       "diceType": "D1",
@@ -194,7 +175,6 @@
       "treasureTableDefinition": null
     },
     {
-      "$id": "20",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 1,
       "diceType": "D1",
@@ -204,7 +184,6 @@
       "treasureTableDefinition": null
     },
     {
-      "$id": "21",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 4,
       "diceType": "D1",
@@ -214,7 +193,6 @@
       "treasureTableDefinition": null
     },
     {
-      "$id": "22",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 4,
       "diceType": "D1",
@@ -227,20 +205,17 @@
   "lootMagnitudeMode": "Individual",
   "lootChallengeMode": "ByPartyLevel",
   "guiPresentation": {
-    "$id": "23",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "24",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "25",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

@@ -2,26 +2,22 @@
   "$type": "NotificationDefinition, Assembly-CSharp",
   "displayType": "None",
   "contextualImageSize": {
-    "$id": "1",
     "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
     "x": 78.0,
     "y": 78.0
   },
   "guiPresentation": {
-    "$id": "2",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Notification/&LocationRevealedTitle",
     "description": "Notification/&LocationRevealedDescription",
     "spriteReference": {
-      "$id": "3",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "2f928b0a3ab2810448fee98890b467ea",
       "m_SubObjectName": "LocationTypeTown",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "4",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.9607844,
       "g": 0.7058824,

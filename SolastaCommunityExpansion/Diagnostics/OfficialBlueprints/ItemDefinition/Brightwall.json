@@ -36,7 +36,6 @@
   "itemRarity": "VeryRare",
   "staticProperties": [
     {
-      "$id": "1",
       "$type": "ItemPropertyDescription, Assembly-CSharp",
       "appliesOnItemOnly": true,
       "type": "Feature",
@@ -47,7 +46,6 @@
   ],
   "isArmor": true,
   "armorDefinition": {
-    "$id": "2",
     "$type": "ArmorDescription, Assembly-CSharp",
     "armorType": "ShieldType",
     "armorClassValue": 2,
@@ -60,7 +58,6 @@
   "isAmmunition": false,
   "isUsableDevice": true,
   "usableDeviceDescription": {
-    "$id": "3",
     "$type": "UsableDeviceDescription, Assembly-CSharp",
     "usage": "ByFunction",
     "chargesCapital": "Fixed",
@@ -76,7 +73,6 @@
     "saveDC": 15,
     "deviceFunctions": [
       {
-        "$id": "4",
         "$type": "DeviceFunctionDescription, Assembly-CSharp",
         "parentUsage": "ByFunction",
         "useAffinity": "AtWill",
@@ -89,7 +85,6 @@
         "featureDefinitionPower": null
       },
       {
-        "$id": "5",
         "$type": "DeviceFunctionDescription, Assembly-CSharp",
         "parentUsage": "ByFunction",
         "useAffinity": "RechargeDuration",
@@ -104,7 +99,6 @@
     ],
     "usableDeviceTags": [],
     "onUseParticle": {
-      "$id": "6",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -123,10 +117,8 @@
   "isFactionRelic": false,
   "personalityFlagOccurences": [],
   "soundEffectDescriptionOverride": {
-    "$id": "7",
     "$type": "SoundEffectDescription, Assembly-CSharp",
     "startEvent": {
-      "$id": "8",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -136,7 +128,6 @@
       }
     },
     "stopEvent": {
-      "$id": "9",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -146,7 +137,6 @@
       }
     },
     "startSwitch": {
-      "$id": "10",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -161,7 +151,6 @@
       }
     },
     "stopSwitch": {
-      "$id": "11",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -176,7 +165,6 @@
       }
     },
     "guiStoreBody": {
-      "$id": "12",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -186,7 +174,6 @@
       }
     },
     "guiPickBody": {
-      "$id": "13",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -196,7 +183,6 @@
       }
     },
     "guiStoreOther": {
-      "$id": "14",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -206,7 +192,6 @@
       }
     },
     "guiPickOther": {
-      "$id": "15",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -217,10 +202,8 @@
     }
   },
   "soundEffectOnHitDescriptionOverride": {
-    "$id": "16",
     "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
     "switchOnHit": {
-      "$id": "17",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -236,13 +219,11 @@
     }
   },
   "itemPresentation": {
-    "$id": "18",
     "$type": "ItemPresentation, Assembly-CSharp",
     "unidentifiedTitle": "Equipment/&Shield_plus_1_Unidentified_Title",
     "unidentifiedDescription": "Equipment/&Shield_plus_1_Unidentified_Title",
     "overrideSubtype": "None",
     "assetReference": {
-      "$id": "19",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "a01da3cedb3c50a49aa11de445d1bb0b",
       "m_SubObjectName": "",
@@ -262,20 +243,17 @@
     "serializedVersion": 1
   },
   "guiPresentation": {
-    "$id": "20",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&Brightwall_Title",
     "description": "Equipment/&Brightwall_Description",
     "spriteReference": {
-      "$id": "21",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "196a851aa3325cb4b8f6008ceac8063f",
       "m_SubObjectName": "BrightWall",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "22",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,
