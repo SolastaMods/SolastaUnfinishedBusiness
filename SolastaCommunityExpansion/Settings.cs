@@ -199,7 +199,6 @@ namespace SolastaCommunityExpansion
         public bool EnableUpcastConjureElementalAndFey { get; set; }
         public bool FullyControlConjurations { get; set; }
         public bool OnlyShowMostPowerfulUpcastConjuredElementalOrFey { get; set; }
-        public bool UseCylinderForSpikeGrowth { get; set; }
         public bool UseHeightOneCylinderEffect { get; set; }
 
         // House
