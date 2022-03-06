@@ -32,7 +32,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
             CharacterSubclassDefinitionBuilder
                 .Create("DHWarlockSubclassRiftWalker", CENamespaceGuid)
-                .SetGuiPresentation(Category.Subclass)
+                .SetGuiPresentation(Category.Subclass, DatabaseHelper.CharacterSubclassDefinitions.PathMagebane.GuiPresentation.SpriteReference)
                 .AddFeatureAtLevel(RiftWalkerMagicAffinity, 1)
                 .AddFeatureAtLevel(RiftWalk, 1)
                 .AddFeatureAtLevel(RiftBlink, 1)
