@@ -228,32 +228,34 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
 
                 UI.Label("");
-                UI.Label(". Enables all merchant's stock to restock over time except for Manuals and Tomes. Note that some items can take up to 7 game days to restock");
+                UI.Label("Override defaults to force all of a merchant's stock to restock over time (excluding Manuals and Tomes).");
+                UI.Label("Note that some items can take up to 7 game days to restock.");
+                UI.Label("Note requires restart to restore defaults.");
                 UI.Label("");
 
                 toggle = Main.Settings.RestockAntiquarians;
-                if (UI.Toggle("Restock Antiquarians " + "[Halman Summer]".italic().yellow(), ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Restock Antiquarians " + "[Halman Summer] ".italic().yellow() + RequiresRestart, ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.RestockAntiquarians = toggle;
                     ItemOptionsContext.SwitchRestockAntiquarian();
                 }
 
                 toggle = Main.Settings.RestockArcaneum;
-                if (UI.Toggle("Restock Arcaneum " + "[Heddlon Surespell]".italic().yellow(), ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Restock Arcaneum " + "[Heddlon Surespell] ".italic().yellow() + RequiresRestart, ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.RestockArcaneum = toggle;
                     ItemOptionsContext.SwitchRestockArcaneum();
                 }
 
                 toggle = Main.Settings.RestockCircleOfDanantar;
-                if (UI.Toggle("Restock Circle of Danantar " + "[Joriel Foxeye]".italic().yellow(), ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Restock Circle of Danantar " + "[Joriel Foxeye] ".italic().yellow() + RequiresRestart, ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.RestockCircleOfDanantar = toggle;
                     ItemOptionsContext.SwitchRestockCircleOfDanantar();
                 }
 
                 toggle = Main.Settings.RestockTowerOfKnowledge;
-                if (UI.Toggle("Restock Tower of Knowledge " + "[Maddy Greenisle]".italic().yellow(), ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Restock Tower of Knowledge " + "[Maddy Greenisle] ".italic().yellow() + RequiresRestart, ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.RestockTowerOfKnowledge = toggle;
                     ItemOptionsContext.SwitchRestockTowerOfKnowledge();
