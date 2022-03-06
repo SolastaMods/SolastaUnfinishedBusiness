@@ -12,15 +12,12 @@
   ],
   "equipmentRows": [
     {
-      "$id": "1",
       "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
       "equipmentColumns": [
         {
-          "$id": "2",
           "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
           "equipmentOptions": [
             {
-              "$id": "3",
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
               "optionType": "GenericItem",
               "itemReference": "Definition:CraftingStarterPack:9a568dd5f63486a44b5f8607441b3b36",
@@ -28,7 +25,6 @@
               "number": 1
             },
             {
-              "$id": "4",
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
               "optionType": "WealthPile",
               "itemReference": "Definition:StartingWealth_15GP:1904baa701816e04ab2000fcc7345ab6",
@@ -36,7 +32,6 @@
               "number": 1
             },
             {
-              "$id": "5",
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
               "optionType": "Armor",
               "itemReference": "Definition:ClothesCommon:2d37f478395d1014ebcb56b9f4fb3003",
@@ -44,7 +39,6 @@
               "number": 1
             },
             {
-              "$id": "6",
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
               "optionType": "Tool",
               "itemReference": "Definition:HerbalismKit:074f1654b516bab49b8cf7bd96ecfe9e",
@@ -59,19 +53,16 @@
   ],
   "staticPersonalityFlags": [
     {
-      "$id": "7",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 30,
       "personalityFlag": "Bg_Preachy"
     },
     {
-      "$id": "8",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 5,
       "personalityFlag": "Normal"
     },
     {
-      "$id": "9",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 5,
       "personalityFlag": "Bg_Judgmental"
@@ -79,25 +70,21 @@
   ],
   "optionalPersonalityFlags": [
     {
-      "$id": "10",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 8,
       "personalityFlag": "Lawfulness"
     },
     {
-      "$id": "11",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 8,
       "personalityFlag": "Helpfulness"
     },
     {
-      "$id": "12",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 8,
       "personalityFlag": "Self-Preservation"
     },
     {
-      "$id": "13",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 8,
       "personalityFlag": "Violence"
@@ -109,20 +96,17 @@
   ],
   "forbiddenAlignments": [],
   "guiPresentation": {
-    "$id": "14",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Background/&AcolyteTitle",
     "description": "Background/&AcolyteDescription",
     "spriteReference": {
-      "$id": "15",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "77f3ae75bbaf39740b2f19ec4e66df20",
       "m_SubObjectName": "Acolyte",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "16",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

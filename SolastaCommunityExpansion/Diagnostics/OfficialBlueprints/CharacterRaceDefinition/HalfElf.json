@@ -9,43 +9,36 @@
   "baseWeight": 110,
   "featureUnlocks": [
     {
-      "$id": "1",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
       "level": 1
     },
     {
-      "$id": "2",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetHalfElfAbilityScoreIncrease:38424c7fca90b024cb6fb8355d62b61d",
       "level": 1
     },
     {
-      "$id": "3",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
       "level": 1
     },
     {
-      "$id": "4",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PointPoolHalfElfSkillPool:7699f71e45129ba42889fef788f1a5e7",
       "level": 1
     },
     {
-      "$id": "5",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
       "level": 1
     },
     {
-      "$id": "6",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetElfFeyAncestry:c123d2bc2667e7641a5b5bc9fdd94512",
       "level": 1
     },
     {
-      "$id": "7",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetHalfElfLanguages:3219c863ddf6e214dafa891d17e97375",
       "level": 1
@@ -55,7 +48,6 @@
   "inventoryDefinition": "Definition:HumanoidInventory:2a836ff45f2eb274eb079425509421ac",
   "personalityFlagOccurences": [
     {
-      "$id": "8",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 15,
       "personalityFlag": "ElfFlag"
@@ -70,7 +62,6 @@
   "audioSwitches": [],
   "audioRaceRTPCValue": 4.0,
   "racePresentation": {
-    "$id": "9",
     "$type": "RacePresentation, Assembly-CSharp",
     "bodyAssetPrefix": "Elf",
     "morphotypeAssetPrefix": "Elf",
@@ -213,40 +204,34 @@
     "maleVoiceDefinition": "MAL1",
     "femaleVoiceDefinition": "FEM2",
     "portraitShieldOffset": {
-      "$id": "10",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.02,
       "y": 0.0,
       "z": 0.0
     },
     "preferedSkinColors": {
-      "$id": "11",
       "$type": "TA.RangedInt, Assembly-CSharp",
       "minValue": 1,
       "maxValue": 15
     },
     "preferedHairColors": {
-      "$id": "12",
       "$type": "TA.RangedInt, Assembly-CSharp",
       "minValue": 0,
       "maxValue": 24
     }
   },
   "guiPresentation": {
-    "$id": "13",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Race/&HalfElfTitle",
     "description": "Race/&HalfElfDescription",
     "spriteReference": {
-      "$id": "14",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "f6ed8390cddc06c44a89163464942fe1",
       "m_SubObjectName": "HalfElf",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "15",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

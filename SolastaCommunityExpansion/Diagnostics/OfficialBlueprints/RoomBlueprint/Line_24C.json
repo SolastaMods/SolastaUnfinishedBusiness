@@ -967,28 +967,24 @@
     0
   ],
   "wallAndOpeningSpriteReference": {
-    "$id": "1",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
     "m_AssetGUID": "7ba8792f6723b7142acd3cc637641321",
     "m_SubObjectName": "Line_24C_WallOpening",
     "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
   },
   "wallSpriteReference": {
-    "$id": "2",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
     "m_AssetGUID": "1b319c033068d2946b74020d76628f82",
     "m_SubObjectName": "Line_24C_Wall",
     "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
   },
   "groundElevationSpriteReference": {
-    "$id": "3",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
     "m_AssetGUID": "2697edb1a7f8d2147add67b450bf8af5",
     "m_SubObjectName": "Line_24C_GroundElevation",
     "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
   },
   "groundMaskSpriteReference": {
-    "$id": "4",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
     "m_AssetGUID": "52d8c3b8ee3824042b7910c98998c825",
     "m_SubObjectName": "Line_24C_GroundMask",
@@ -996,16 +992,13 @@
   },
   "category": "EmptyRooms",
   "dimensions": {
-    "$id": "5",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "prefabsByEnvironment": [
     {
-      "$id": "6",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "Necropolis",
       "prefabReference": {
-        "$id": "7",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "8734893711f4a4749b7bb5b2fc222a3e",
         "m_SubObjectName": "",
@@ -1013,11 +1006,9 @@
       }
     },
     {
-      "$id": "8",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "Stronghold",
       "prefabReference": {
-        "$id": "9",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "2b675b8f1de957a42bf0de3e2e6a7161",
         "m_SubObjectName": "",
@@ -1025,11 +1016,9 @@
       }
     },
     {
-      "$id": "10",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "ElvenPalace",
       "prefabReference": {
-        "$id": "11",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "8ddbe55aca7613c49b09a558aeb65a13",
         "m_SubObjectName": "",
@@ -1037,11 +1026,9 @@
       }
     },
     {
-      "$id": "12",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "Sewers",
       "prefabReference": {
-        "$id": "13",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "8868d8e113f5f8a4ab2ecc04c4fe2734",
         "m_SubObjectName": "",
@@ -1050,20 +1037,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "14",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Room/&Line_24CTitle",
     "description": "",
     "spriteReference": {
-      "$id": "15",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "283590e4b5b8dd74ea4b821326a82d1d",
       "m_SubObjectName": "Line_12C",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "16",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

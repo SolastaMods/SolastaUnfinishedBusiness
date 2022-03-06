@@ -12,37 +12,31 @@
   "equipmentRows": [],
   "staticPersonalityFlags": [
     {
-      "$id": "1",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 30,
       "personalityFlag": "Bg_Wisecracker"
     },
     {
-      "$id": "2",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 8,
       "personalityFlag": "Greed"
     },
     {
-      "$id": "3",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 8,
       "personalityFlag": "Pragmatism"
     },
     {
-      "$id": "4",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 10,
       "personalityFlag": "Selfishness"
     },
     {
-      "$id": "5",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 10,
       "personalityFlag": "Self-Preservation"
     },
     {
-      "$id": "6",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 5,
       "personalityFlag": "Normal"
@@ -52,20 +46,17 @@
   "defaultOptionalPersonalityFlags": [],
   "forbiddenAlignments": [],
   "guiPresentation": {
-    "$id": "7",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Background/&SpyTitle",
     "description": "Background/&KS_RhuadSwiftHandBackground_Description",
     "spriteReference": {
-      "$id": "8",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "e01dcdb94f45ae64e9b7d584bf81c8cf",
       "m_SubObjectName": "Spy",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "9",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

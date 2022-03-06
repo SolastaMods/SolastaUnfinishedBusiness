@@ -1,0 +1,121 @@
+{
+  "$type": "TreasureTableDefinition, Assembly-CSharp",
+  "treasureOptions": [
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Art_Item_25_GP_BronzeStatuette:af02ae2a4b9317b459d2db55c1335c0f",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Art_Item_25_GP_EngraveBoneDice:28a34361e0d67b74a9ecdb523215d9a5",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Art_Item_25_GP_GoldBracelet:b5eb965df15a17e4fb9fb75ae0069c44",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Art_Item_25_GP_GoldLocket:fbf29c0c18c788d4b8a662ae9377ec79",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Art_Item_25_GP_Mirror:3bb92fecf1ea7e24983e745cb2af446a",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Art_Item_25_GP_SilkScarf:59d02f829c147b54ea6f4f525d3cd031",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Art_Item_25_GP_SilverBrooch:b0ae9ad3c2268434da513d75bf340628",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Art_Item_25_GP_SilverChalice:a9707c20b22715a489559045256ab383",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Art_Item_25_GP_SilverComb:28d8a4421d21c8648949ef1ec438b620",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Art_Item_25_GP_VelvetMask:dc6b48e28ceb98f48b3a9225a3fcc61d",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:1_Gold_Coin:57c20fc9e4b72724da48c916f89925c6",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 30,
+      "itemDefinition": "Definition:1D6_Copper_Coins:294c5f98752753b4c905c3992c1d6431",
+      "amount": 3
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 20,
+      "itemDefinition": "Definition:Ingredient_AbyssMoss:b066ff3c236988e4a9520cf44b555395",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 20,
+      "itemDefinition": "Definition:Ingredient_DeepRootLichen:95b954de7fac7c94b8a5888e53c3097b",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 20,
+      "itemDefinition": "Definition:Ingredient_GoblinHairFungus:80cf95eb060947a4eadc3aa64dcd59c2",
+      "amount": 1
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "f1bbd8e5-3e05-48da-9c70-2db676a280b4",
+  "contentPack": "BaseGame",
+  "name": "PickPocketTableC"
+}

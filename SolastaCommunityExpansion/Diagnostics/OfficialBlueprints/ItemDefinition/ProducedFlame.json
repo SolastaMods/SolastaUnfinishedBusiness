@@ -46,13 +46,11 @@
   "isContainerItem": false,
   "isLightSourceItem": true,
   "lightSourceItemDefinition": {
-    "$id": "1",
     "$type": "LightSourceItemDescription, Assembly-CSharp",
     "lightSourceType": "Basic",
     "brightRange": 2,
     "dimAdditionalRange": 2,
     "color": {
-      "$id": "2",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.8897059,
       "g": 0.7193444,
@@ -62,7 +60,6 @@
     "durationType": "Minute",
     "durationValue": 10,
     "activeSpriteReference": {
-      "$id": "3",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "e6c8d18dc2c854d49afb36f654a86e88",
       "m_SubObjectName": "ProducedFlame",
@@ -77,13 +74,10 @@
   "isFactionRelic": false,
   "personalityFlagOccurences": [],
   "soundEffectDescriptionOverride": {
-    "$id": "4",
     "$type": "SoundEffectDescription, Assembly-CSharp",
     "startEvent": {
-      "$id": "5",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": {
-        "$id": "6",
         "$type": "WwiseEventReference, AK.Wwise.Unity.API.WwiseTypes",
         "objectName": "Play_Vfx_CONJ_ProduceFlame_Light_loop",
         "id": 476878667,
@@ -97,10 +91,8 @@
       }
     },
     "stopEvent": {
-      "$id": "7",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": {
-        "$id": "8",
         "$type": "WwiseEventReference, AK.Wwise.Unity.API.WwiseTypes",
         "objectName": "Stop_Vfx_CONJ_ProduceFlame_Light_loop",
         "id": 1053422733,
@@ -114,7 +106,6 @@
       }
     },
     "startSwitch": {
-      "$id": "9",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -129,7 +120,6 @@
       }
     },
     "stopSwitch": {
-      "$id": "10",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -144,7 +134,6 @@
       }
     },
     "guiStoreBody": {
-      "$id": "11",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -154,7 +143,6 @@
       }
     },
     "guiPickBody": {
-      "$id": "12",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -164,7 +152,6 @@
       }
     },
     "guiStoreOther": {
-      "$id": "13",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -174,7 +161,6 @@
       }
     },
     "guiPickOther": {
-      "$id": "14",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -185,10 +171,8 @@
     }
   },
   "soundEffectOnHitDescriptionOverride": {
-    "$id": "15",
     "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
     "switchOnHit": {
-      "$id": "16",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -204,13 +188,11 @@
     }
   },
   "itemPresentation": {
-    "$id": "17",
     "$type": "ItemPresentation, Assembly-CSharp",
     "unidentifiedTitle": "",
     "unidentifiedDescription": "",
     "overrideSubtype": "None",
     "assetReference": {
-      "$id": "18",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "d5f88f9ed5b395e4a90db1af91596f0e",
       "m_SubObjectName": "",
@@ -230,20 +212,17 @@
     "serializedVersion": 1
   },
   "guiPresentation": {
-    "$id": "19",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&TorchTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "20",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "e6c8d18dc2c854d49afb36f654a86e88",
       "m_SubObjectName": "ProducedFlame",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "21",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

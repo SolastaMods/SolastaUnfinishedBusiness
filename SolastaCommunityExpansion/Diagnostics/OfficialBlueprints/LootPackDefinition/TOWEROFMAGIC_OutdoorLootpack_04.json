@@ -4,7 +4,6 @@
   "lootSpawnMode": "ItemList",
   "itemOccurencesList": [
     {
-      "$id": "1",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 1,
       "diceType": "D2",
@@ -14,7 +13,6 @@
       "treasureTableDefinition": "Definition:RandomTreasureTableF_Mundane_Gear:80a88ba5af49ea54d865c8bd7280b524"
     },
     {
-      "$id": "2",
       "$type": "ItemOccurence, Assembly-CSharp",
       "diceNumber": 1,
       "diceType": "D2",
@@ -27,20 +25,17 @@
   "lootMagnitudeMode": "Individual",
   "lootChallengeMode": "ByPartyLevel",
   "guiPresentation": {
-    "$id": "3",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "4",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "5",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

@@ -2,7 +2,6 @@
   "$type": "GadgetBlueprint, Assembly-CSharp",
   "parameters": [
     {
-      "$id": "1",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "DestinationLocation",
       "type": "UserLocation",
@@ -18,7 +17,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "2",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "EntranceIndex",
       "type": "EntranceIndex",
@@ -34,7 +32,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "3",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "ExitLore",
       "type": "Speech",
@@ -50,7 +47,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "4",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "Param_Enabled",
       "type": "GenericBool",
@@ -68,10 +64,8 @@
   ],
   "interactionNodes": [
     {
-      "$id": "5",
       "$type": "InteractionNodeDescription, Assembly-CSharp",
       "position": {
-        "$id": "6",
         "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
         "x": 0.0,
         "y": -1.0
@@ -79,10 +73,8 @@
       "orientation": "North"
     },
     {
-      "$id": "7",
       "$type": "InteractionNodeDescription, Assembly-CSharp",
       "position": {
-        "$id": "8",
         "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
         "x": 0.0,
         "y": 1.0
@@ -90,10 +82,8 @@
       "orientation": "South"
     },
     {
-      "$id": "9",
       "$type": "InteractionNodeDescription, Assembly-CSharp",
       "position": {
-        "$id": "10",
         "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
         "x": 1.0,
         "y": 0.0
@@ -101,10 +91,8 @@
       "orientation": "West"
     },
     {
-      "$id": "11",
       "$type": "InteractionNodeDescription, Assembly-CSharp",
       "position": {
-        "$id": "12",
         "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
         "x": -1.0,
         "y": 0.0
@@ -115,11 +103,9 @@
   "canBeActivated": true,
   "customizableDimensions": false,
   "minCustomizableDimensions": {
-    "$id": "13",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "maxCustomizableDimensions": {
-    "$id": "14",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "campaignOnly": false,
@@ -134,16 +120,13 @@
   "lightSources": [],
   "category": "Adventuring",
   "dimensions": {
-    "$id": "15",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "prefabsByEnvironment": [
     {
-      "$id": "16",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "",
       "prefabReference": {
-        "$id": "17",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "97367feb69455794e97a4380f9ed90a0",
         "m_SubObjectName": "",
@@ -152,20 +135,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "18",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Gadget/&ManholeCoverTitle",
     "description": "Gadget/&ManholeCoverDescription",
     "spriteReference": {
-      "$id": "19",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "75d62776fde359846b7181327449e43d",
       "m_SubObjectName": "TrapDoor",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "20",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

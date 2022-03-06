@@ -8,28 +8,24 @@
   "canUseWhileCautious": false,
   "eventVariants": [
     {
-      "$id": "1",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&None1_Thief_Detected_Self",
       "list": "None",
       "mode": "Self"
     },
     {
-      "$id": "2",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&None2_Thief_Detected_Self",
       "list": "None",
       "mode": "Self"
     },
     {
-      "$id": "3",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&None3_Thief_Detected_Self",
       "list": "None",
       "mode": "Self"
     },
     {
-      "$id": "4",
       "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
       "localizationKey": "PartyBanter/&None4_Thief_Detected_Self",
       "list": "None",
@@ -37,20 +33,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "5",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "",
     "description": "",
     "spriteReference": {
-      "$id": "6",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "7",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

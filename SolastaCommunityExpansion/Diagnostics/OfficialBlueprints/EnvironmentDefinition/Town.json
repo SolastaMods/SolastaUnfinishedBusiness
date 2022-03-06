@@ -2,27 +2,23 @@
   "$type": "EnvironmentDefinition, Assembly-CSharp",
   "outdoor": true,
   "sceneReferenceOverride": {
-    "$id": "1",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "dd61f0dfc1f8e0f41a551cf71c59b10b",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "guiPresentation": {
-    "$id": "2",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Environment/&TownTitle",
     "description": "Environment/&TownDescription",
     "spriteReference": {
-      "$id": "3",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "d48a8c16b4130d746b1523ba82b57b67",
       "m_SubObjectName": "caer_cyflen_town_v02 (1)",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "4",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

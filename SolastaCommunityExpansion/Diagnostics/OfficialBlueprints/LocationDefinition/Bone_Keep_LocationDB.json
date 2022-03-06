@@ -5,7 +5,6 @@
   "registeredFactions": [],
   "registeredVariables": [
     {
-      "$id": "1",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "IsFighting_Adam_BoneKeep",
       "type": "Bool",
@@ -14,7 +13,6 @@
       "stringValue": ""
     },
     {
-      "$id": "2",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "IsFighting_Talbut_BoneKeep",
       "type": "Bool",
@@ -23,7 +21,6 @@
       "stringValue": ""
     },
     {
-      "$id": "3",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "IsKnown_Talbut_BoneKeep",
       "type": "Bool",
@@ -32,7 +29,6 @@
       "stringValue": ""
     },
     {
-      "$id": "4",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "IsAngry_Angbi_BoneKeep",
       "type": "Bool",
@@ -41,7 +37,6 @@
       "stringValue": ""
     },
     {
-      "$id": "5",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "IsFighting_Angbi_BoneKeep",
       "type": "Bool",
@@ -52,20 +47,16 @@
   ],
   "sceneFilePath": "",
   "sceneReference": {
-    "$id": "6",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "5ac8bf58b2c3faf42ae1d14cabc1814a",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "audioState": {
-    "$id": "7",
     "$type": "AK.Wwise.State, AK.Wwise.Unity.API.WwiseTypes",
     "WwiseObjectReference": {
-      "$id": "8",
       "$type": "WwiseStateReference, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseStateGroupReference": {
-        "$id": "9",
         "$type": "WwiseStateGroupReference, AK.Wwise.Unity.API.WwiseTypes",
         "objectName": "State_LocationName",
         "id": 598649695,
@@ -89,11 +80,9 @@
     }
   },
   "renderSettingsSceneProfile": {
-    "$id": "10",
     "$type": "RenderSettingsSceneProfile, Assembly-CSharp",
     "useSkybox": true,
     "backgroundColor": {
-      "$id": "11",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -101,12 +90,10 @@
       "a": 1.0
     },
     "skyboxMaterial": {
-      "$id": "12",
       "$type": "UnityEngine.Material, UnityEngine.CoreModule",
       "name": "BoneKeep_Skybox"
     },
     "ambientLight": {
-      "$id": "13",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -115,7 +102,6 @@
     },
     "fog": false,
     "fogColor": {
-      "$id": "14",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,
@@ -126,7 +112,6 @@
     "fogDensity": 0.0,
     "excludeSkybox": false,
     "auraBaseSettings": {
-      "$id": "15",
       "$type": "Aura2API.AuraBaseSettings, Aura2_Core",
       "useDensity": true,
       "density": 0.02,
@@ -136,7 +121,6 @@
       "ambientLightingStrength": 1.0,
       "useColor": false,
       "color": {
-        "$id": "16",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 5.066395E-07,
         "g": 0.5,
@@ -146,7 +130,6 @@
       "colorStrength": 1.0,
       "useTint": false,
       "tint": {
-        "$id": "17",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.8210449,
         "g": 0.999999,
@@ -164,10 +147,8 @@
     "userDungeonAuraVolumeNoise": false,
     "userDungeonAuraVolumeNoiseScale": 3.0,
     "dayCycleProfile": {
-      "$id": "18",
       "$type": "GraphicsDayCycleProfile, Assembly-CSharp",
       "noonColor": {
-        "$id": "19",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.8113208,
         "g": 0.8113208,
@@ -175,7 +156,6 @@
         "a": 1.0
       },
       "sunriseColor": {
-        "$id": "20",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.7735849,
         "g": 0.7498665,
@@ -183,7 +163,6 @@
         "a": 1.0
       },
       "sunsetColor": {
-        "$id": "21",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.6896582,
         "g": 0.746067941,
@@ -194,7 +173,6 @@
       "sunDirection": 12.01,
       "sunTilt": 48.74,
       "moonLightColor": {
-        "$id": "22",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.214845151,
         "g": 0.43102172,
@@ -208,7 +186,6 @@
       "moonBaseAngle": 0.0,
       "globalMoonIntensity": 0.4,
       "ambientSunriseColor": {
-        "$id": "23",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.0,
         "g": 0.0,
@@ -216,7 +193,6 @@
         "a": 1.0
       },
       "ambientNoonColor": {
-        "$id": "24",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.0,
         "g": 0.0,
@@ -224,7 +200,6 @@
         "a": 1.0
       },
       "ambientSunsetColor": {
-        "$id": "25",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.13443397,
         "g": 0.1672956,
@@ -232,7 +207,6 @@
         "a": 1.0
       },
       "ambientNightColor": {
-        "$id": "26",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.0,
         "g": 0.0,
@@ -247,7 +221,6 @@
     "name": "BoneKeep_RenderSettingsScene"
   },
   "locationPresentation": {
-    "$id": "27",
     "$type": "LocationPresentation, Assembly-CSharp",
     "unchartedTitle": "Map/&Location_BoneKeep_UnchartedTitle",
     "unchartedDescription": "Map/&Location_BoneKeep_UnchartedDescription",
@@ -266,20 +239,17 @@
   "hasPriorityForTeleporter": false,
   "canAttackNonHostileCharacters": false,
   "guiPresentation": {
-    "$id": "28",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Map/&Location_BoneKeep_UnvisitedTitle",
     "description": "Location/&Bone_Keep_Scene_Description",
     "spriteReference": {
-      "$id": "29",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "ac4654f4427b90e4e9f048fc1291d911",
       "m_SubObjectName": "BoneKeep",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "30",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

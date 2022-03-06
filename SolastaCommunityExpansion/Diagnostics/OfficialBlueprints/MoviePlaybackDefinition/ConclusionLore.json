@@ -3,42 +3,36 @@
   "movieFilename": "CotmConclusion.mp4",
   "subtitleOccurences": [
     {
-      "$id": "1",
       "$type": "SubtitleOccurenceDescription, Assembly-CSharp",
       "startSecond": 26.23,
       "endSecond": 28.1,
       "locKey": "Narration/&EndingCinematic_01"
     },
     {
-      "$id": "2",
       "$type": "SubtitleOccurenceDescription, Assembly-CSharp",
       "startSecond": 30.05,
       "endSecond": 38.0,
       "locKey": "Narration/&EndingCinematic_02"
     },
     {
-      "$id": "3",
       "$type": "SubtitleOccurenceDescription, Assembly-CSharp",
       "startSecond": 39.5,
       "endSecond": 46.0,
       "locKey": "Narration/&EndingCinematic_03"
     },
     {
-      "$id": "4",
       "$type": "SubtitleOccurenceDescription, Assembly-CSharp",
       "startSecond": 48.0,
       "endSecond": 52.0,
       "locKey": "Narration/&EndingCinematic_04"
     },
     {
-      "$id": "5",
       "$type": "SubtitleOccurenceDescription, Assembly-CSharp",
       "startSecond": 55.0,
       "endSecond": 57.0,
       "locKey": "Narration/&EndingCinematic_05"
     },
     {
-      "$id": "6",
       "$type": "SubtitleOccurenceDescription, Assembly-CSharp",
       "startSecond": 59.0,
       "endSecond": 65.0,
@@ -48,10 +42,8 @@
   "fallbackImages": [],
   "totalFallbackDuration": -1.0,
   "audioEvent": {
-    "$id": "7",
     "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
     "WwiseObjectReference": {
-      "$id": "8",
       "$type": "WwiseEventReference, AK.Wwise.Unity.API.WwiseTypes",
       "objectName": "Play_CotmConclusion",
       "id": 4257199552,
@@ -65,20 +57,17 @@
     }
   },
   "guiPresentation": {
-    "$id": "9",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "",
     "description": "",
     "spriteReference": {
-      "$id": "10",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "11",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

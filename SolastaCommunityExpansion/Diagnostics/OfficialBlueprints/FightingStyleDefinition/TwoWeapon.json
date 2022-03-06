@@ -5,20 +5,17 @@
   ],
   "condition": "TwoMeleeWeaponsWielded",
   "guiPresentation": {
-    "$id": "1",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "FightingStyle/&TwoWeaponTitle",
     "description": "FightingStyle/&TwoWeaponDescription",
     "spriteReference": {
-      "$id": "2",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "e10b549bb899c694d85c7cc09d7387db",
       "m_SubObjectName": "TwoWeapon",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "3",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

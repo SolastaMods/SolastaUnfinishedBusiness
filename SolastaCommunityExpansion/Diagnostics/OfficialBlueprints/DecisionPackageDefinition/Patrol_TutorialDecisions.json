@@ -1,11 +1,9 @@
 {
   "$type": "TA.AI.DecisionPackageDefinition, Assembly-CSharp",
   "package": {
-    "$id": "1",
     "$type": "TA.AI.DecisionPackageDescription, Assembly-CSharp",
     "weightedDecisions": [
       {
-        "$id": "2",
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
         "decision": "Definition:TriggerDefeat:4d798ccb442f1284291902dd545e3cbc",
         "weight": 9.0,
@@ -13,7 +11,6 @@
         "dynamicCooldown": false
       },
       {
-        "$id": "3",
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
         "decision": "Definition:Intercept:ccd15f0cc25a58f418693a83e88ea839",
         "weight": 5.0,
@@ -21,7 +18,6 @@
         "dynamicCooldown": false
       },
       {
-        "$id": "4",
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
         "decision": "Definition:Patrol_MoveToNextNode:c5a221406c7d7eb4b84ff107eb6d551c",
         "weight": 1.0,
@@ -31,20 +27,17 @@
     ]
   },
   "guiPresentation": {
-    "$id": "5",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "",
     "description": "",
     "spriteReference": {
-      "$id": "6",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "7",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

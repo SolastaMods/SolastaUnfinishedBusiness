@@ -5,7 +5,6 @@
   "registeredFactions": [],
   "registeredVariables": [
     {
-      "$id": "1",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "ScavengerBusinessOn",
       "type": "Bool",
@@ -14,7 +13,6 @@
       "stringValue": ""
     },
     {
-      "$id": "2",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "Benice",
       "type": "Bool",
@@ -23,7 +21,6 @@
       "stringValue": ""
     },
     {
-      "$id": "3",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "StartAcademicQuest",
       "type": "Int",
@@ -32,7 +29,6 @@
       "stringValue": ""
     },
     {
-      "$id": "4",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "StartLowlifeQuest",
       "type": "Int",
@@ -41,7 +37,6 @@
       "stringValue": ""
     },
     {
-      "$id": "5",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "StartSellswordQuest",
       "type": "Int",
@@ -50,7 +45,6 @@
       "stringValue": ""
     },
     {
-      "$id": "6",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "SleptAtInn_Surespell_CaerCyflen-C",
       "type": "Bool",
@@ -59,7 +53,6 @@
       "stringValue": ""
     },
     {
-      "$id": "7",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "ReadyToUnlockScavengers",
       "type": "Bool",
@@ -68,7 +61,6 @@
       "stringValue": ""
     },
     {
-      "$id": "8",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "TalkWithGarth",
       "type": "Int",
@@ -77,7 +69,6 @@
       "stringValue": ""
     },
     {
-      "$id": "9",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "CanUseBench",
       "type": "Bool",
@@ -86,7 +77,6 @@
       "stringValue": ""
     },
     {
-      "$id": "10",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "TakeCrownAway-C",
       "type": "Bool",
@@ -97,20 +87,16 @@
   ],
   "sceneFilePath": "",
   "sceneReference": {
-    "$id": "11",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "2b11e3a7e89b0f74fb2b3200a610356e",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "audioState": {
-    "$id": "12",
     "$type": "AK.Wwise.State, AK.Wwise.Unity.API.WwiseTypes",
     "WwiseObjectReference": {
-      "$id": "13",
       "$type": "WwiseStateReference, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseStateGroupReference": {
-        "$id": "14",
         "$type": "WwiseStateGroupReference, AK.Wwise.Unity.API.WwiseTypes",
         "objectName": "State_LocationName",
         "id": 598649695,
@@ -134,11 +120,9 @@
     }
   },
   "renderSettingsSceneProfile": {
-    "$id": "15",
     "$type": "RenderSettingsSceneProfile, Assembly-CSharp",
     "useSkybox": true,
     "backgroundColor": {
-      "$id": "16",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -146,12 +130,10 @@
       "a": 1.0
     },
     "skyboxMaterial": {
-      "$id": "17",
       "$type": "UnityEngine.Material, UnityEngine.CoreModule",
       "name": "Default_Skybox"
     },
     "ambientLight": {
-      "$id": "18",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.5,
       "g": 0.5,
@@ -160,7 +142,6 @@
     },
     "fog": false,
     "fogColor": {
-      "$id": "19",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.6117647,
       "g": 0.6117647,
@@ -171,7 +152,6 @@
     "fogDensity": 0.01,
     "excludeSkybox": true,
     "auraBaseSettings": {
-      "$id": "20",
       "$type": "Aura2API.AuraBaseSettings, Aura2_Core",
       "useDensity": true,
       "density": 0.003,
@@ -181,7 +161,6 @@
       "ambientLightingStrength": 1.0,
       "useColor": true,
       "color": {
-        "$id": "21",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.5,
         "g": 0.4999995,
@@ -191,7 +170,6 @@
       "colorStrength": 1.0,
       "useTint": false,
       "tint": {
-        "$id": "22",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 1.0,
         "g": 0.921568632,
@@ -209,10 +187,8 @@
     "userDungeonAuraVolumeNoise": false,
     "userDungeonAuraVolumeNoiseScale": 3.0,
     "dayCycleProfile": {
-      "$id": "23",
       "$type": "GraphicsDayCycleProfile, Assembly-CSharp",
       "noonColor": {
-        "$id": "24",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.8018868,
         "g": 0.7195127,
@@ -220,7 +196,6 @@
         "a": 1.0
       },
       "sunriseColor": {
-        "$id": "25",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.8962264,
         "g": 0.6984592,
@@ -228,7 +203,6 @@
         "a": 1.0
       },
       "sunsetColor": {
-        "$id": "26",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 1.0,
         "g": 0.48294118,
@@ -239,7 +213,6 @@
       "sunDirection": -36.5,
       "sunTilt": 0.01,
       "moonLightColor": {
-        "$id": "27",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.2956123,
         "g": 0.492145777,
@@ -253,7 +226,6 @@
       "moonBaseAngle": 0.0,
       "globalMoonIntensity": 0.63,
       "ambientSunriseColor": {
-        "$id": "28",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.7527145,
         "g": 0.775544465,
@@ -261,7 +233,6 @@
         "a": 1.0
       },
       "ambientNoonColor": {
-        "$id": "29",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.58873266,
         "g": 0.6269432,
@@ -269,7 +240,6 @@
         "a": 1.0
       },
       "ambientSunsetColor": {
-        "$id": "30",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.6574849,
         "g": 0.6788657,
@@ -277,7 +247,6 @@
         "a": 1.0
       },
       "ambientNightColor": {
-        "$id": "31",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.379004985,
         "g": 0.393594563,
@@ -292,7 +261,6 @@
     "name": "CaerCyflen_RenderSettings"
   },
   "locationPresentation": {
-    "$id": "32",
     "$type": "LocationPresentation, Assembly-CSharp",
     "unchartedTitle": "Map/&Location_CapitalCity_UnchartedTitle",
     "unchartedDescription": "Map/&Location_CapitalCity_UnchartedDescription",
@@ -311,20 +279,17 @@
   "hasPriorityForTeleporter": false,
   "canAttackNonHostileCharacters": false,
   "guiPresentation": {
-    "$id": "33",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Location/&Caer_Cyflen_Title",
     "description": "Location/&Caer_Cyflen_Description",
     "spriteReference": {
-      "$id": "34",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "5889741c23ded3649893d394f42b5278",
       "m_SubObjectName": "CaerCyflen",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "35",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

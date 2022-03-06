@@ -89,19 +89,16 @@
   "facePath": "",
   "wieldedItemsConfigurations": [
     {
-      "$id": "1",
       "$type": "WieldedItemsConfiguration, Assembly-CSharp",
       "mainHandItemDefinition": "Definition:Dagger:a6eba377e5a35ad43a0e27441766735e",
       "offHandItemDefinition": "Definition:Dagger:a6eba377e5a35ad43a0e27441766735e"
     },
     {
-      "$id": "2",
       "$type": "WieldedItemsConfiguration, Assembly-CSharp",
       "mainHandItemDefinition": "Definition:LightCrossbow:84f6376eb9753124298bb9cceafe3da7",
       "offHandItemDefinition": null
     },
     {
-      "$id": "3",
       "$type": "WieldedItemsConfiguration, Assembly-CSharp",
       "mainHandItemDefinition": null,
       "offHandItemDefinition": "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994"
@@ -109,20 +106,17 @@
   ],
   "voiceId": "MAL1",
   "guiPresentation": {
-    "$id": "4",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Race/&HumanSurName14Title",
     "description": "Race/&HumanSurName3Title",
     "spriteReference": {
-      "$id": "5",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "3b5272914a5d5ab4bbe21d27124428ca",
       "m_SubObjectName": "HectorRos",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "6",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

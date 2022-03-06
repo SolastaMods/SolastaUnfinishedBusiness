@@ -24,25 +24,21 @@
   ],
   "savingThrowScores": [
     {
-      "$id": "1",
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Constitution",
       "bonus": 8
     },
     {
-      "$id": "2",
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Intelligence",
       "bonus": 5
     },
     {
-      "$id": "3",
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Wisdom",
       "bonus": 9
     },
     {
-      "$id": "4",
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Charisma",
       "bonus": 8
@@ -50,13 +46,11 @@
   ],
   "skillScores": [
     {
-      "$id": "5",
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "History",
       "bonus": 5
     },
     {
-      "$id": "6",
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "Religion",
       "bonus": 5
@@ -68,7 +62,6 @@
   "differentActionEachTurn": false,
   "legendaryActionOptions": [
     {
-      "$id": "7",
       "$type": "LegendaryActionDescription, Assembly-CSharp",
       "cost": 1,
       "subaction": "MonsterAttack",
@@ -84,7 +77,6 @@
       "decisionPackage": "Definition:LegendaryMummyLordAttack_Default:15ed7f17f3fab3a4eae6a7d8d13ede71"
     },
     {
-      "$id": "8",
       "$type": "LegendaryActionDescription, Assembly-CSharp",
       "cost": 1,
       "subaction": "Power",
@@ -100,7 +92,6 @@
       "decisionPackage": "Definition:LegendaryMummyLordCast_Debuff:938b79a36747dea4bacc8a07cde2f606"
     },
     {
-      "$id": "9",
       "$type": "LegendaryActionDescription, Assembly-CSharp",
       "cost": 1,
       "subaction": "Power",
@@ -116,7 +107,6 @@
       "decisionPackage": "Definition:LegendaryMummyLordAoE_Debuff_BlindingDust:4649dd23e398b7248b37fa86fdf2141f"
     },
     {
-      "$id": "10",
       "$type": "LegendaryActionDescription, Assembly-CSharp",
       "cost": 2,
       "subaction": "Power",
@@ -132,7 +122,6 @@
       "decisionPackage": "Definition:LegendaryMummyLordAoE_Debuff_BlasphemousWord:66dae2e7cf77fc240b58d05d63169329"
     },
     {
-      "$id": "11",
       "$type": "LegendaryActionDescription, Assembly-CSharp",
       "cost": 2,
       "subaction": "Power",
@@ -148,7 +137,6 @@
       "decisionPackage": "Definition:LegendaryMummyLordAoE_Debuff_ChannelNegativeEnergy:bab9eea0a5798c74eb04491806856a09"
     },
     {
-      "$id": "12",
       "$type": "LegendaryActionDescription, Assembly-CSharp",
       "cost": 2,
       "subaction": "Power",
@@ -201,7 +189,6 @@
   ],
   "attackIterations": [
     {
-      "$id": "13",
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
       "monsterAttackDefinition": "Definition:Attack_MummyLord_RottingFist:3bb91e22330c6cd45ac82f3560415ab6"
@@ -223,7 +210,6 @@
   "bestiaryEntry": "Full",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
-    "$id": "14",
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
     "x": 0.0,
     "y": 7.0,
@@ -231,14 +217,12 @@
   },
   "alwaysHideStats": false,
   "bestiarySpriteReference": {
-    "$id": "15",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
     "m_AssetGUID": "14d5d357765c0b54baacbe64857368f6",
     "m_SubObjectName": "MummyLord",
     "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
   },
   "monsterPresentation": {
-    "$id": "16",
     "$type": "MonsterPresentation, Assembly-CSharp",
     "hasUniqueName": false,
     "uniqueNameTitle": "",
@@ -246,14 +230,12 @@
     "useCustomMaterials": false,
     "customMaterials": [],
     "customShaderReference": {
-      "$id": "17",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "mutantFleshDirection": {
-      "$id": "18",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": -1.0,
@@ -261,7 +243,6 @@
     },
     "overrideCharacterShaderColors": false,
     "firstCharacterShaderColor": {
-      "$id": "19",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -269,7 +250,6 @@
       "a": 0.0
     },
     "secondCharacterShaderColor": {
-      "$id": "20",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -278,14 +258,12 @@
     },
     "hasPhantomDistortion": true,
     "attachedParticlesReference": {
-      "$id": "21",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "bestiaryAttachedParticlesReference": {
-      "$id": "22",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -294,7 +272,6 @@
     "hasPrefabVariants": false,
     "monsterPresentationDefinitions": [],
     "malePrefabReference": {
-      "$id": "23",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "b3b99f5299bde874394001b226e5066e",
       "m_SubObjectName": "",
@@ -302,7 +279,6 @@
     },
     "maleModelScale": 0.66,
     "femalePrefabReference": {
-      "$id": "24",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "b3b99f5299bde874394001b226e5066e",
       "m_SubObjectName": "",
@@ -317,21 +293,18 @@
     "needMerchantPortrait": false,
     "hasMonsterPortraitBackground": true,
     "portraitCameraFollowOffset": {
-      "$id": "25",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": -0.5,
       "z": -5.0
     },
     "portraitCameraLookAtScreenOffset": {
-      "$id": "26",
       "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
       "x": 0.5,
       "y": 0.4
     },
     "portraitCameraFOV": 40.0,
     "portraitCameraLightingOffset": {
-      "$id": "27",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": 0.0,
@@ -346,20 +319,17 @@
   "isUnique": true,
   "uniqueNameId": "Hendeolas",
   "guiPresentation": {
-    "$id": "28",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "NPC/&NPC_Hendeolas_Title",
     "description": "NPC/&NPC_Hendeolas_Description",
     "spriteReference": {
-      "$id": "29",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "f82a4739a5c3dce4abed674d22220314",
       "m_SubObjectName": "CustomPortrait_MummyLord",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "30",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

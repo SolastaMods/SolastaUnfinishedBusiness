@@ -27,20 +27,17 @@
     "Definition:ShadowTouchedAutoPrepClassTinkerer:9b04bd07-5abe-5c39-b0e6-1e05b39afcb4"
   ],
   "guiPresentation": {
-    "$id": "1",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feat/&FeatShadowTouchedWisTitle",
     "description": "Feat/&FeatShadowTouchedWisDescription",
     "spriteReference": {
-      "$id": "2",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
     "color": {
-      "$id": "3",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

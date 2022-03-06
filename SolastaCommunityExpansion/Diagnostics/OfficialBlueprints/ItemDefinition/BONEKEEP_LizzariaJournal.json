@@ -45,17 +45,14 @@
   "isSpellbook": false,
   "isDocument": true,
   "documentDescription": {
-    "$id": "1",
     "$type": "DocumentDescription, Assembly-CSharp",
     "format": "Tome",
     "contentFragments": [
       {
-        "$id": "2",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
         "text": "Equipment/&Necromancy_LizzariasJournal_Content01",
         "spriteReference": {
-          "$id": "3",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "",
           "m_SubObjectName": "",
@@ -63,12 +60,10 @@
         }
       },
       {
-        "$id": "4",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
         "text": "Equipment/&Necromancy_LizzariasJournal_Content02",
         "spriteReference": {
-          "$id": "5",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "",
           "m_SubObjectName": "",
@@ -76,12 +71,10 @@
         }
       },
       {
-        "$id": "6",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
         "text": "Equipment/&Necromancy_LizzariasJournal_Content03",
         "spriteReference": {
-          "$id": "7",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "",
           "m_SubObjectName": "",
@@ -89,12 +82,10 @@
         }
       },
       {
-        "$id": "8",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
         "text": "Equipment/&Necromancy_LizzariasJournal_Content04",
         "spriteReference": {
-          "$id": "9",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "",
           "m_SubObjectName": "",
@@ -102,12 +93,10 @@
         }
       },
       {
-        "$id": "10",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
         "text": "Equipment/&Necromancy_LizzariasJournal_Content05",
         "spriteReference": {
-          "$id": "11",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "",
           "m_SubObjectName": "",
@@ -115,12 +104,10 @@
         }
       },
       {
-        "$id": "12",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
         "text": "Equipment/&Necromancy_LizzariasJournal_Content06",
         "spriteReference": {
-          "$id": "13",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "",
           "m_SubObjectName": "",
@@ -141,10 +128,8 @@
   "isFactionRelic": false,
   "personalityFlagOccurences": [],
   "soundEffectDescriptionOverride": {
-    "$id": "14",
     "$type": "SoundEffectDescription, Assembly-CSharp",
     "startEvent": {
-      "$id": "15",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -154,7 +139,6 @@
       }
     },
     "stopEvent": {
-      "$id": "16",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -164,7 +148,6 @@
       }
     },
     "startSwitch": {
-      "$id": "17",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -179,7 +162,6 @@
       }
     },
     "stopSwitch": {
-      "$id": "18",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -194,7 +176,6 @@
       }
     },
     "guiStoreBody": {
-      "$id": "19",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -204,7 +185,6 @@
       }
     },
     "guiPickBody": {
-      "$id": "20",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -214,7 +194,6 @@
       }
     },
     "guiStoreOther": {
-      "$id": "21",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -224,7 +203,6 @@
       }
     },
     "guiPickOther": {
-      "$id": "22",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -235,10 +213,8 @@
     }
   },
   "soundEffectOnHitDescriptionOverride": {
-    "$id": "23",
     "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
     "switchOnHit": {
-      "$id": "24",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -254,13 +230,11 @@
     }
   },
   "itemPresentation": {
-    "$id": "25",
     "$type": "ItemPresentation, Assembly-CSharp",
     "unidentifiedTitle": "",
     "unidentifiedDescription": "",
     "overrideSubtype": "None",
     "assetReference": {
-      "$id": "26",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -280,20 +254,17 @@
     "serializedVersion": 1
   },
   "guiPresentation": {
-    "$id": "27",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&Necromancy_LizzariasJournal_Title",
     "description": "Equipment/&Necromancy_LizzariasJournal_Description",
     "spriteReference": {
-      "$id": "28",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "4c1c8b508e0b40341b4e8f2fc0cd754c",
       "m_SubObjectName": "LizzariaJournal",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "29",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

@@ -4,7 +4,6 @@
   "maxSpellLevel": 6,
   "spellsByLevel": [
     {
-      "$id": "1",
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 0,
       "spells": [
@@ -14,7 +13,6 @@
       ]
     },
     {
-      "$id": "2",
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 1,
       "spells": [
@@ -24,7 +22,6 @@
       ]
     },
     {
-      "$id": "3",
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 2,
       "spells": [
@@ -36,7 +33,6 @@
       ]
     },
     {
-      "$id": "4",
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 3,
       "spells": [
@@ -47,7 +43,6 @@
       ]
     },
     {
-      "$id": "5",
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 4,
       "spells": [
@@ -59,7 +54,6 @@
       ]
     },
     {
-      "$id": "6",
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 5,
       "spells": [
@@ -72,7 +66,6 @@
       ]
     },
     {
-      "$id": "7",
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 6,
       "spells": [
@@ -84,20 +77,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "8",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "9",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "10",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

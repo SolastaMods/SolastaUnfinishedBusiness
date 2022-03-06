@@ -2,181 +2,145 @@
   "$type": "RoomBlueprint, Assembly-CSharp",
   "embeddedProps": [
     {
-      "$id": "1",
       "$type": "EmbeddedPropDescription, Assembly-CSharp",
       "propBlueprint": "Definition:Wall_Blocker_A:7d2648a305507c24d974bcb29ce37ce0",
       "position": {
-        "$id": "2",
         "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
       },
       "orientation": "North"
     },
     {
-      "$id": "3",
       "$type": "EmbeddedPropDescription, Assembly-CSharp",
       "propBlueprint": "Definition:Mausoleum:77ee82b9649bc0e44bce5de974b6064e",
       "position": {
-        "$id": "4",
         "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
       },
       "orientation": "North"
     },
     {
-      "$id": "5",
       "$type": "EmbeddedPropDescription, Assembly-CSharp",
       "propBlueprint": "Definition:Vase_A:34af563c7fd8adb41a28ce95bb26f99b",
       "position": {
-        "$id": "6",
         "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
       },
       "orientation": "South"
     },
     {
-      "$id": "7",
       "$type": "EmbeddedPropDescription, Assembly-CSharp",
       "propBlueprint": "Definition:Vase_A:34af563c7fd8adb41a28ce95bb26f99b",
       "position": {
-        "$id": "8",
         "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
       },
       "orientation": "East"
     },
     {
-      "$id": "9",
       "$type": "EmbeddedPropDescription, Assembly-CSharp",
       "propBlueprint": "Definition:Column_A:5559a59b175a0ea46943169249babd82",
       "position": {
-        "$id": "10",
         "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
       },
       "orientation": "North"
     },
     {
-      "$id": "11",
       "$type": "EmbeddedPropDescription, Assembly-CSharp",
       "propBlueprint": "Definition:Column_A:5559a59b175a0ea46943169249babd82",
       "position": {
-        "$id": "12",
         "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
       },
       "orientation": "South"
     },
     {
-      "$id": "13",
       "$type": "EmbeddedPropDescription, Assembly-CSharp",
       "propBlueprint": "Definition:Guardrail_Straight_A:d0e09026e7a761b4980b12d0d12a36ae",
       "position": {
-        "$id": "14",
         "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
       },
       "orientation": "South"
     },
     {
-      "$id": "15",
       "$type": "EmbeddedPropDescription, Assembly-CSharp",
       "propBlueprint": "Definition:Guardrail_Straight_A:d0e09026e7a761b4980b12d0d12a36ae",
       "position": {
-        "$id": "16",
         "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
       },
       "orientation": "South"
     },
     {
-      "$id": "17",
       "$type": "EmbeddedPropDescription, Assembly-CSharp",
       "propBlueprint": "Definition:Guardrail_Straight_A:d0e09026e7a761b4980b12d0d12a36ae",
       "position": {
-        "$id": "18",
         "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
       },
       "orientation": "South"
     },
     {
-      "$id": "19",
       "$type": "EmbeddedPropDescription, Assembly-CSharp",
       "propBlueprint": "Definition:Guardrail_Straight_A:d0e09026e7a761b4980b12d0d12a36ae",
       "position": {
-        "$id": "20",
         "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
       },
       "orientation": "South"
     },
     {
-      "$id": "21",
       "$type": "EmbeddedPropDescription, Assembly-CSharp",
       "propBlueprint": "Definition:Guardrail_Link:2fb1c11c49569dd458f2bb9757430f3a",
       "position": {
-        "$id": "22",
         "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
       },
       "orientation": "North"
     },
     {
-      "$id": "23",
       "$type": "EmbeddedPropDescription, Assembly-CSharp",
       "propBlueprint": "Definition:Guardrail_Link:2fb1c11c49569dd458f2bb9757430f3a",
       "position": {
-        "$id": "24",
         "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
       },
       "orientation": "South"
     },
     {
-      "$id": "25",
       "$type": "EmbeddedPropDescription, Assembly-CSharp",
       "propBlueprint": "Definition:Statue_A:c684c7a4369cd284c976d9c6657a2711",
       "position": {
-        "$id": "26",
         "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
       },
       "orientation": "North"
     },
     {
-      "$id": "27",
       "$type": "EmbeddedPropDescription, Assembly-CSharp",
       "propBlueprint": "Definition:Statue_B:522a1164073cf5549a234bd538cf92ed",
       "position": {
-        "$id": "28",
         "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
       },
       "orientation": "North"
     },
     {
-      "$id": "29",
       "$type": "EmbeddedPropDescription, Assembly-CSharp",
       "propBlueprint": "Definition:WallTorch:0d54391939cd3034fa0b81134a0e90ea",
       "position": {
-        "$id": "30",
         "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
       },
       "orientation": "East"
     },
     {
-      "$id": "31",
       "$type": "EmbeddedPropDescription, Assembly-CSharp",
       "propBlueprint": "Definition:WallTorch:0d54391939cd3034fa0b81134a0e90ea",
       "position": {
-        "$id": "32",
         "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
       },
       "orientation": "West"
     },
     {
-      "$id": "33",
       "$type": "EmbeddedPropDescription, Assembly-CSharp",
       "propBlueprint": "Definition:WallTorch:0d54391939cd3034fa0b81134a0e90ea",
       "position": {
-        "$id": "34",
         "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
       },
       "orientation": "East"
     },
     {
-      "$id": "35",
       "$type": "EmbeddedPropDescription, Assembly-CSharp",
       "propBlueprint": "Definition:WallTorch:0d54391939cd3034fa0b81134a0e90ea",
       "position": {
-        "$id": "36",
         "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
       },
       "orientation": "West"
@@ -668,28 +632,24 @@
     0
   ],
   "wallAndOpeningSpriteReference": {
-    "$id": "37",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
     "m_AssetGUID": "d2b241719bd45b842a8df0bbf9c88eb2",
     "m_SubObjectName": "Line_Mausoleum_12C_WallOpening",
     "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
   },
   "wallSpriteReference": {
-    "$id": "38",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
     "m_AssetGUID": "bc58ef21d74c123429fbfd268f6de848",
     "m_SubObjectName": "Line_Mausoleum_12C_Wall",
     "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
   },
   "groundElevationSpriteReference": {
-    "$id": "39",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
     "m_AssetGUID": "b3cb87999f36bcf4ca6442b306f166c2",
     "m_SubObjectName": "Line_Mausoleum_12C_GroundElevation",
     "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
   },
   "groundMaskSpriteReference": {
-    "$id": "40",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
     "m_AssetGUID": "c2864f96398a49e4eab22d8cc981a608",
     "m_SubObjectName": "Line_Mausoleum_12C_GroundMask",
@@ -697,16 +657,13 @@
   },
   "category": "FurnishedRooms",
   "dimensions": {
-    "$id": "41",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "prefabsByEnvironment": [
     {
-      "$id": "42",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "Necropolis",
       "prefabReference": {
-        "$id": "43",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "f1b45598506b74744a07c0c76b27d563",
         "m_SubObjectName": "",
@@ -715,20 +672,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "44",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Room/&Line_12CTitle",
     "description": "",
     "spriteReference": {
-      "$id": "45",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "283590e4b5b8dd74ea4b821326a82d1d",
       "m_SubObjectName": "Line_12C",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "46",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

@@ -2,43 +2,36 @@
   "$type": "CharacterSubclassDefinition, Assembly-CSharp",
   "featureUnlocks": [
     {
-      "$id": "1",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AutoPreparedSpellsDomainElemental:ca56c9b9c8913784991e465e7697d664",
       "level": 1
     },
     {
-      "$id": "2",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:DamageAffinityDomainElementaLightningPrimalHarmony:1cf46254ceecccb459949478e1cd60bf",
       "level": 1
     },
     {
-      "$id": "3",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:BonusCantripsDomainElementaLightning:579caec52e7e5af4d9c80e8459a0c286",
       "level": 1
     },
     {
-      "$id": "4",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerDomainElementalLightningBlade:b50055bcf061a6f4eb1cf61a1c95c199",
       "level": 2
     },
     {
-      "$id": "5",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerDomainElementalDiscipleOfTheElementsLightning:6db8604c053748448826ae1a22b16c65",
       "level": 6
     },
     {
-      "$id": "6",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerDomainElementalHeraldOfTheElementsThunder:5750ff606d4d9d449909e3463c18deae",
       "level": 8
     },
     {
-      "$id": "7",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerClericDivineInterventionWizard:0b20466699780a74e801804f86af806b",
       "level": 10
@@ -47,20 +40,17 @@
   "personalityFlagOccurences": [],
   "morphotypeSubclassFilterTag": "Default",
   "guiPresentation": {
-    "$id": "8",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Subclass/&DomainElementalLightningTitle",
     "description": "Subclass/&DomainElementalLightningDescription",
     "spriteReference": {
-      "$id": "9",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "2e87609ff921809408f223c91150a5f8",
       "m_SubObjectName": "Cleric_Storm",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "10",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

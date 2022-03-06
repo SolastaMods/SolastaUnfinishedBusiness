@@ -2,26 +2,22 @@
   "$type": "NotificationDefinition, Assembly-CSharp",
   "displayType": "Gauge",
   "contextualImageSize": {
-    "$id": "1",
     "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
     "x": 39.0,
     "y": 78.0
   },
   "guiPresentation": {
-    "$id": "2",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Notification/&FactionRelationIncreaseTitle",
     "description": "Notification/&FactionRelationIncreaseDescription",
     "spriteReference": {
-      "$id": "3",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "2f8b29495db82f34aab54add3105637c",
       "m_SubObjectName": "ArrowUp",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "4",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.360784322,
       "g": 0.709803939,

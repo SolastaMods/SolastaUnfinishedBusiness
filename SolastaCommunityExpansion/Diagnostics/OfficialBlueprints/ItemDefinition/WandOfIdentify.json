@@ -44,7 +44,6 @@
   "isAmmunition": false,
   "isUsableDevice": true,
   "usableDeviceDescription": {
-    "$id": "1",
     "$type": "UsableDeviceDescription, Assembly-CSharp",
     "usage": "Charges",
     "chargesCapital": "Fixed",
@@ -60,7 +59,6 @@
     "saveDC": 13,
     "deviceFunctions": [
       {
-        "$id": "2",
         "$type": "DeviceFunctionDescription, Assembly-CSharp",
         "parentUsage": "Charges",
         "useAffinity": "ChargeCost",
@@ -75,7 +73,6 @@
     ],
     "usableDeviceTags": [],
     "onUseParticle": {
-      "$id": "3",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -88,7 +85,6 @@
   "isLightSourceItem": false,
   "isFocusItem": true,
   "focusItemDefinition": {
-    "$id": "4",
     "$type": "FocusItemDescription, Assembly-CSharp",
     "focusType": "Universal",
     "shownAsFocus": true
@@ -100,10 +96,8 @@
   "isFactionRelic": false,
   "personalityFlagOccurences": [],
   "soundEffectDescriptionOverride": {
-    "$id": "5",
     "$type": "SoundEffectDescription, Assembly-CSharp",
     "startEvent": {
-      "$id": "6",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -113,7 +107,6 @@
       }
     },
     "stopEvent": {
-      "$id": "7",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -123,7 +116,6 @@
       }
     },
     "startSwitch": {
-      "$id": "8",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -138,7 +130,6 @@
       }
     },
     "stopSwitch": {
-      "$id": "9",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -153,7 +144,6 @@
       }
     },
     "guiStoreBody": {
-      "$id": "10",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -163,7 +153,6 @@
       }
     },
     "guiPickBody": {
-      "$id": "11",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -173,7 +162,6 @@
       }
     },
     "guiStoreOther": {
-      "$id": "12",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -183,7 +171,6 @@
       }
     },
     "guiPickOther": {
-      "$id": "13",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -194,10 +181,8 @@
     }
   },
   "soundEffectOnHitDescriptionOverride": {
-    "$id": "14",
     "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
     "switchOnHit": {
-      "$id": "15",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -213,13 +198,11 @@
     }
   },
   "itemPresentation": {
-    "$id": "16",
     "$type": "ItemPresentation, Assembly-CSharp",
     "unidentifiedTitle": "Equipment/&WandSpecialTitle",
     "unidentifiedDescription": "Equipment/&WandSpecialDescription",
     "overrideSubtype": "None",
     "assetReference": {
-      "$id": "17",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -239,20 +222,17 @@
     "serializedVersion": 1
   },
   "guiPresentation": {
-    "$id": "18",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&WandOfIdentifyTitle",
     "description": "Equipment/&WandOfIdentifyDescription",
     "spriteReference": {
-      "$id": "19",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "b0f6ef3b7a1e2564992bc5e38f678a11",
       "m_SubObjectName": "WandOfIdentify",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "20",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

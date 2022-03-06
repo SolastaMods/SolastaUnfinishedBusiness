@@ -11,7 +11,6 @@
   "identifyCostGp": 50,
   "stockUnitDescriptions": [
     {
-      "$id": "1",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:PotionOfComprehendLanguages:383788b95771f2a429d5265af012fc99",
@@ -26,7 +25,6 @@
       "factionStatus": "Indifference"
     },
     {
-      "$id": "2",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollComprehendLanguages:0554b2cd7e104534c891bf46126c9b3b",
@@ -41,7 +39,6 @@
       "factionStatus": "Indifference"
     },
     {
-      "$id": "3",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Potion_Antitoxin:dec4d1e55662531448c0ce56861e0fa3",
@@ -56,7 +53,6 @@
       "factionStatus": "Indifference"
     },
     {
-      "$id": "4",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:PotionRemedy:1ac685f6f87c5c247ad4332f6b4d08b7",
@@ -71,7 +67,6 @@
       "factionStatus": "Indifference"
     },
     {
-      "$id": "5",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:PotionOfHealing:5afaa2c317ec2374fab78be504014255",
@@ -86,7 +81,6 @@
       "factionStatus": "Sympathy"
     },
     {
-      "$id": "6",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:PotionOfGreaterHealing:cf9b569943609d048a6a0d1843e861d0",
@@ -101,7 +95,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "7",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:PotionOfSuperiorHealing:0b66baca2c0c01441a65465be8179ee2",
@@ -116,7 +109,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "8",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollRevivify:67a2c72f62b599946923a0a95a85e45c",
@@ -131,7 +123,6 @@
       "factionStatus": "Indifference"
     },
     {
-      "$id": "9",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollRaiseDead:c1d6f26b1782eed42aee7f4168d2c73e",
@@ -146,7 +137,6 @@
       "factionStatus": "Sympathy"
     },
     {
-      "$id": "10",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:ScrollLesserRestoration:6303af2ee40a6c74ca25c490f9e2cacf",
@@ -161,7 +151,6 @@
       "factionStatus": "Sympathy"
     },
     {
-      "$id": "11",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:HolySymbolAmulet:8c3c56e926a899447abdff0c6fee3ff3",
@@ -176,7 +165,6 @@
       "factionStatus": "Indifference"
     },
     {
-      "$id": "12",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:HolySymbolCape:cf6a4d4d0f153704ca4168641322da9f",
@@ -191,7 +179,6 @@
       "factionStatus": "Indifference"
     },
     {
-      "$id": "13",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:HolySymbolBelt:e596afb7cb62cf049a9ecc2f171233a8",
@@ -206,7 +193,6 @@
       "factionStatus": "Indifference"
     },
     {
-      "$id": "14",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:HolySymbolCrown:81ab33a4033da5b4dbb93991e4a4e555",
@@ -221,7 +207,6 @@
       "factionStatus": "Indifference"
     },
     {
-      "$id": "15",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:PrimedRing:50e54915f8a5a3341ac5d7b6f7fbbb5c",
@@ -236,7 +221,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "16",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Primed ScaleMail:0e6f613ab318293469a43b8310e5021a",
@@ -251,7 +235,6 @@
       "factionStatus": "Brotherhood"
     },
     {
-      "$id": "17",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Primed Mace:ec264d1ff88a6454bb25187ee2e77a54",
@@ -266,7 +249,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "18",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Ingredient_Enchant_Stardust:663984af5fefd934c990dd856d28fda2",
@@ -281,7 +263,6 @@
       "factionStatus": "Alliance"
     },
     {
-      "$id": "19",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Ingredient_PrimordialLavaStones:7d79576058568e54296eca2ebd5b405a",
@@ -296,7 +277,6 @@
       "factionStatus": "Brotherhood"
     },
     {
-      "$id": "20",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:PendantOfTheHealer:91b1b9d828c6904449dc61505d3f9659",
@@ -311,7 +291,6 @@
       "factionStatus": "Brotherhood"
     },
     {
-      "$id": "21",
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:PendantOfTheHealer:91b1b9d828c6904449dc61505d3f9659",
@@ -327,20 +306,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "22",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "NPC/&NPC_Store_Reya",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "23",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "ad699c358afae844a8917a1f8da946bc",
       "m_SubObjectName": "DLC1_NPC_ThePeople_Reya_MerchantPhoto",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "24",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

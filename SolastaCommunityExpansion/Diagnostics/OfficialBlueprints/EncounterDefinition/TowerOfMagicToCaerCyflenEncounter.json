@@ -5,20 +5,17 @@
   "locationOverride": "Definition:Tower_Of_Magic_Leaving_LocationDB:66216c14b57cd494ab2fdd875d35c426",
   "monsterOccurences": [],
   "guiPresentation": {
-    "$id": "1",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Travel/&TravelEventCrownAttunedTitle",
     "description": "Travel/&TravelEventCrownAttunedDescription",
     "spriteReference": {
-      "$id": "2",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "3",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

@@ -5,7 +5,6 @@
   "registeredFactions": [],
   "registeredVariables": [
     {
-      "$id": "1",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "Coparann_Mines_ManaBuld_On_Count",
       "type": "Int",
@@ -14,7 +13,6 @@
       "stringValue": "East"
     },
     {
-      "$id": "2",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "Coparann_Mines_Hideout_Candelabra_On",
       "type": "Int",
@@ -23,7 +21,6 @@
       "stringValue": "East"
     },
     {
-      "$id": "3",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "Coparann_Mines_Hideout_Candelabra_Off",
       "type": "Int",
@@ -32,7 +29,6 @@
       "stringValue": "East"
     },
     {
-      "$id": "4",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "Coparann_Mines_Hideout_Open_HiddenDoors",
       "type": "Bool",
@@ -41,7 +37,6 @@
       "stringValue": "East"
     },
     {
-      "$id": "5",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "Coparann_Mines_Hideout_Open_AurocDied",
       "type": "Bool",
@@ -50,7 +45,6 @@
       "stringValue": "East"
     },
     {
-      "$id": "6",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "AurocSwitchesSides",
       "type": "Bool",
@@ -59,7 +53,6 @@
       "stringValue": "East"
     },
     {
-      "$id": "7",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "Coparann_Mines_Wagon_Moving",
       "type": "Bool",
@@ -68,7 +61,6 @@
       "stringValue": "East"
     },
     {
-      "$id": "8",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "Coparann_Mines_Wagon_East",
       "type": "Bool",
@@ -77,7 +69,6 @@
       "stringValue": "East"
     },
     {
-      "$id": "9",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "Coparann_Mines_Wagon_West",
       "type": "Bool",
@@ -86,7 +77,6 @@
       "stringValue": "East"
     },
     {
-      "$id": "10",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "Coparann_Mines_Wagon_North",
       "type": "Bool",
@@ -97,20 +87,16 @@
   ],
   "sceneFilePath": "",
   "sceneReference": {
-    "$id": "11",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "e4184e67622918541ab1453a49cf43f4",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "audioState": {
-    "$id": "12",
     "$type": "AK.Wwise.State, AK.Wwise.Unity.API.WwiseTypes",
     "WwiseObjectReference": {
-      "$id": "13",
       "$type": "WwiseStateReference, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseStateGroupReference": {
-        "$id": "14",
         "$type": "WwiseStateGroupReference, AK.Wwise.Unity.API.WwiseTypes",
         "objectName": "State_LocationName",
         "id": 598649695,
@@ -134,11 +120,9 @@
     }
   },
   "renderSettingsSceneProfile": {
-    "$id": "15",
     "$type": "RenderSettingsSceneProfile, Assembly-CSharp",
     "useSkybox": true,
     "backgroundColor": {
-      "$id": "16",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -146,12 +130,10 @@
       "a": 1.0
     },
     "skyboxMaterial": {
-      "$id": "17",
       "$type": "UnityEngine.Material, UnityEngine.CoreModule",
       "name": "Default_Skybox"
     },
     "ambientLight": {
-      "$id": "18",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -160,7 +142,6 @@
     },
     "fog": true,
     "fogColor": {
-      "$id": "19",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.160377383,
       "g": 0.142977953,
@@ -171,7 +152,6 @@
     "fogDensity": 0.1,
     "excludeSkybox": true,
     "auraBaseSettings": {
-      "$id": "20",
       "$type": "Aura2API.AuraBaseSettings, Aura2_Core",
       "useDensity": true,
       "density": 0.0,
@@ -181,7 +161,6 @@
       "ambientLightingStrength": 1.0,
       "useColor": false,
       "color": {
-        "$id": "21",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.5,
         "g": 0.4999995,
@@ -191,7 +170,6 @@
       "colorStrength": 1.0,
       "useTint": false,
       "tint": {
-        "$id": "22",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.999999,
         "g": 0.9215677,
@@ -209,10 +187,8 @@
     "userDungeonAuraVolumeNoise": false,
     "userDungeonAuraVolumeNoiseScale": 3.0,
     "dayCycleProfile": {
-      "$id": "23",
       "$type": "GraphicsDayCycleProfile, Assembly-CSharp",
       "noonColor": {
-        "$id": "24",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.6886792,
         "g": 0.623136163,
@@ -220,7 +196,6 @@
         "a": 1.0
       },
       "sunriseColor": {
-        "$id": "25",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.8962264,
         "g": 0.6984592,
@@ -228,7 +203,6 @@
         "a": 1.0
       },
       "sunsetColor": {
-        "$id": "26",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 1.0,
         "g": 0.3648698,
@@ -239,7 +213,6 @@
       "sunDirection": -90.0,
       "sunTilt": 0.01,
       "moonLightColor": {
-        "$id": "27",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.0,
         "g": 0.5026455,
@@ -253,7 +226,6 @@
       "moonBaseAngle": 0.0,
       "globalMoonIntensity": 0.7,
       "ambientSunriseColor": {
-        "$id": "28",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.8490566,
         "g": 0.8490566,
@@ -261,7 +233,6 @@
         "a": 1.0
       },
       "ambientNoonColor": {
-        "$id": "29",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.522249937,
         "g": 0.605980754,
@@ -269,7 +240,6 @@
         "a": 1.0
       },
       "ambientSunsetColor": {
-        "$id": "30",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.461107165,
         "g": 0.5300958,
@@ -277,7 +247,6 @@
         "a": 1.0
       },
       "ambientNightColor": {
-        "$id": "31",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.214222133,
         "g": 0.412060648,
@@ -292,7 +261,6 @@
     "name": "Coparann_Mines_Scene_RenderSettings"
   },
   "locationPresentation": {
-    "$id": "32",
     "$type": "LocationPresentation, Assembly-CSharp",
     "unchartedTitle": "Location/&Coparann_Mines_Title",
     "unchartedDescription": "Location/&Coparann_Mines_Description",
@@ -311,20 +279,17 @@
   "hasPriorityForTeleporter": false,
   "canAttackNonHostileCharacters": false,
   "guiPresentation": {
-    "$id": "33",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Location/&Coparann_Mines_Title",
     "description": "Location/&Coparann_Mines_Description",
     "spriteReference": {
-      "$id": "34",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "e7a47b85ac162c1429d0a7fe493106b7",
       "m_SubObjectName": "Coparran_Mines",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "35",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

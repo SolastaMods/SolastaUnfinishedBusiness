@@ -2,42 +2,36 @@
   "$type": "TreasureTableDefinition, Assembly-CSharp",
   "treasureOptions": [
     {
-      "$id": "1",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 5,
       "itemDefinition": "Definition:Arrow:0b2e8c437ac65034b8055735aa5da873",
       "amount": 5
     },
     {
-      "$id": "2",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 1,
       "itemDefinition": "Definition:Art_Item_25_GP_EngraveBoneDice:28a34361e0d67b74a9ecdb523215d9a5",
       "amount": 1
     },
     {
-      "$id": "3",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 1,
       "itemDefinition": "Definition:Art_Item_25_GP_GoldLocket:fbf29c0c18c788d4b8a662ae9377ec79",
       "amount": 1
     },
     {
-      "$id": "4",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 1,
       "itemDefinition": "Definition:Art_Item_25_GP_SilverComb:28d8a4421d21c8648949ef1ec438b620",
       "amount": 1
     },
     {
-      "$id": "5",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 1,
       "itemDefinition": "Definition:Art_Item_25_GP_SilverBrooch:b0ae9ad3c2268434da513d75bf340628",
       "amount": 1
     },
     {
-      "$id": "6",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 1,
       "itemDefinition": "Definition:Art_Item_50_GP_GemBracelet:1949072872cf96548a149b43e4f3bdcd",
@@ -45,20 +39,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "7",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "8",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "9",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

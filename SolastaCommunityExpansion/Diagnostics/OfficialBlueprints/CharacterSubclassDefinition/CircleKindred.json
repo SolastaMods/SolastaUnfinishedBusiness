@@ -2,31 +2,26 @@
   "$type": "CharacterSubclassDefinition, Assembly-CSharp",
   "featureUnlocks": [
     {
-      "$id": "1",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetKindredSpiritChoice:91b02b6c3f9c3ed468e1b76d8abe69a4",
       "level": 2
     },
     {
-      "$id": "2",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetKindredSpiritCall:27924be768b10fd468075820a1ad3caa",
       "level": 2
     },
     {
-      "$id": "3",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetKindredSpiritBond:09a4626f1b957284bb1e8bcc40917b3e",
       "level": 2
     },
     {
-      "$id": "4",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetKindredSpiritMagicalSpirit:e7278c8fe46f88442948432753587154",
       "level": 6
     },
     {
-      "$id": "5",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetKindredSpiritSharedPain:7d1ea347e3c86c24db9960e7e83f9e46",
       "level": 10
@@ -34,7 +29,6 @@
   ],
   "personalityFlagOccurences": [
     {
-      "$id": "6",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 5,
       "personalityFlag": "Friendliness"
@@ -42,20 +36,17 @@
   ],
   "morphotypeSubclassFilterTag": "Default",
   "guiPresentation": {
-    "$id": "7",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Subclass/&CircleKindredTitle",
     "description": "Subclass/&CircleKindredDescription",
     "spriteReference": {
-      "$id": "8",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "7530a60cdc861e74e8d6ec48e4021e05",
       "m_SubObjectName": "Druid_Circle_Kindred",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "9",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

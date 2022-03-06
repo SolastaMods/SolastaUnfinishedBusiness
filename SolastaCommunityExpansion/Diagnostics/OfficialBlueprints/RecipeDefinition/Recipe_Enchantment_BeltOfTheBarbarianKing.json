@@ -7,25 +7,21 @@
   "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
   "ingredients": [
     {
-      "$id": "1",
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
       "amount": 2,
       "itemDefinition": "Definition:Ingredient_DireWolf_Pelt:b11fb659733a86d4389b6fab47e5c90f"
     },
     {
-      "$id": "2",
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
       "amount": 2,
       "itemDefinition": "Definition:Ingredient_GiantBeetleElytron:8a0bfadddf8efa34bbc4cc89008ac922"
     },
     {
-      "$id": "3",
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
       "amount": 2,
       "itemDefinition": "Definition:100_GP_Pearl:c3663c5d326ae1747aa410838f075c83"
     },
     {
-      "$id": "4",
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
       "amount": 1,
       "itemDefinition": "Definition:50_GP_Sapphire:94593fce05b78ec4aa7d55125259126e"
@@ -33,20 +29,17 @@
   ],
   "spellDefinition": null,
   "guiPresentation": {
-    "$id": "5",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&DLC1_Item_BeltOfTheBarbarianKing_Title",
     "description": "Equipment/&DLC1_Item_BeltOfTheBarbarianKing_Description",
     "spriteReference": {
-      "$id": "6",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "7",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

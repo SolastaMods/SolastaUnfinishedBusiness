@@ -3,10 +3,8 @@
   "parameters": [],
   "interactionNodes": [
     {
-      "$id": "1",
       "$type": "InteractionNodeDescription, Assembly-CSharp",
       "position": {
-        "$id": "2",
         "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
         "x": 0.0,
         "y": -1.5
@@ -14,10 +12,8 @@
       "orientation": "North"
     },
     {
-      "$id": "3",
       "$type": "InteractionNodeDescription, Assembly-CSharp",
       "position": {
-        "$id": "4",
         "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
         "x": 1.0,
         "y": 0.0
@@ -25,10 +21,8 @@
       "orientation": "West"
     },
     {
-      "$id": "5",
       "$type": "InteractionNodeDescription, Assembly-CSharp",
       "position": {
-        "$id": "6",
         "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
         "x": 0.0,
         "y": 1.5
@@ -36,10 +30,8 @@
       "orientation": "South"
     },
     {
-      "$id": "7",
       "$type": "InteractionNodeDescription, Assembly-CSharp",
       "position": {
-        "$id": "8",
         "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
         "x": -1.0,
         "y": 0.0
@@ -50,11 +42,9 @@
   "canBeActivated": false,
   "customizableDimensions": false,
   "minCustomizableDimensions": {
-    "$id": "9",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "maxCustomizableDimensions": {
-    "$id": "10",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "campaignOnly": false,
@@ -69,16 +59,13 @@
   "lightSources": [],
   "category": "Adventuring",
   "dimensions": {
-    "$id": "11",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "prefabsByEnvironment": [
     {
-      "$id": "12",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "ElvenPalace",
       "prefabReference": {
-        "$id": "13",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "313be60f50d9ca546a234076aa23892c",
         "m_SubObjectName": "",
@@ -86,11 +73,9 @@
       }
     },
     {
-      "$id": "14",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "TownInterior",
       "prefabReference": {
-        "$id": "15",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "313be60f50d9ca546a234076aa23892c",
         "m_SubObjectName": "",
@@ -99,20 +84,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "16",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Gadget/&CampBedTitle",
     "description": "Gadget/&CampBedDescription",
     "spriteReference": {
-      "$id": "17",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "bb02577e086cc64489dc7fe8c2781e93",
       "m_SubObjectName": "Campfire",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "18",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

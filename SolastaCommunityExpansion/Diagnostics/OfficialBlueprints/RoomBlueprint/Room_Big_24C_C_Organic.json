@@ -2887,28 +2887,24 @@
     0
   ],
   "wallAndOpeningSpriteReference": {
-    "$id": "1",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
     "m_AssetGUID": "a12b5cdb3db01bf40ba679d9c631299e",
     "m_SubObjectName": "Room_Big_24C_C_Organic_WallOpening",
     "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
   },
   "wallSpriteReference": {
-    "$id": "2",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
     "m_AssetGUID": "2222fc7303cbda043be30d0802f82a9a",
     "m_SubObjectName": "Room_Big_24C_C_Organic_Wall",
     "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
   },
   "groundElevationSpriteReference": {
-    "$id": "3",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
     "m_AssetGUID": "ea5fb77f1c4c57740b7eca64953b78a5",
     "m_SubObjectName": "Room_Big_24C_C_Organic_GroundElevation",
     "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
   },
   "groundMaskSpriteReference": {
-    "$id": "4",
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
     "m_AssetGUID": "498a792674b0c164896c3b20edeefcf2",
     "m_SubObjectName": "Room_Big_24C_C_Organic_GroundMask",
@@ -2916,16 +2912,13 @@
   },
   "category": "EmptyRooms",
   "dimensions": {
-    "$id": "5",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "prefabsByEnvironment": [
     {
-      "$id": "6",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "LavaCaves",
       "prefabReference": {
-        "$id": "7",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "e57483acdfde0174c88779701215b427",
         "m_SubObjectName": "",
@@ -2934,20 +2927,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "8",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Room/&Room_Big_24CTitle",
     "description": "",
     "spriteReference": {
-      "$id": "9",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "4c328cca7a2c9644aaa5bcf1bbe05a50",
       "m_SubObjectName": "Room_Big_24C",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "10",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

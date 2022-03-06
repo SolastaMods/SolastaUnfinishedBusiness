@@ -102,19 +102,16 @@
   "facePath": "",
   "wieldedItemsConfigurations": [
     {
-      "$id": "1",
       "$type": "WieldedItemsConfiguration, Assembly-CSharp",
       "mainHandItemDefinition": "Definition:Shortbow:127ccd4869d66bb48aa8e800a6f1d9d8",
       "offHandItemDefinition": null
     },
     {
-      "$id": "2",
       "$type": "WieldedItemsConfiguration, Assembly-CSharp",
       "mainHandItemDefinition": "Definition:Shortsword:5d0f8d61d53786448920cad0485b77b7",
       "offHandItemDefinition": "Definition:Dagger:a6eba377e5a35ad43a0e27441766735e"
     },
     {
-      "$id": "3",
       "$type": "WieldedItemsConfiguration, Assembly-CSharp",
       "mainHandItemDefinition": null,
       "offHandItemDefinition": "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994"
@@ -122,20 +119,17 @@
   ],
   "voiceId": "MAL2",
   "guiPresentation": {
-    "$id": "4",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "CharacterTemplate/&VioletTitle",
     "description": "CharacterTemplate/&VioletDescription",
     "spriteReference": {
-      "$id": "5",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "97888ce2a459a814dac7b4424b73160a",
       "m_SubObjectName": "Rogue_RoguishShadowCaster_Level10",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "6",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

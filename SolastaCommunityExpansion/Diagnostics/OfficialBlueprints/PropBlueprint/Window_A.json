@@ -10,7 +10,6 @@
   "propPlacement": true,
   "lightSources": [
     {
-      "$id": "1",
       "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
       "x": -0.001,
       "y": -0.593999863
@@ -18,16 +17,13 @@
   ],
   "category": "Ornaments",
   "dimensions": {
-    "$id": "2",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "prefabsByEnvironment": [
     {
-      "$id": "3",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "ElvenPalace",
       "prefabReference": {
-        "$id": "4",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "f1dba4b2ddd3377469e23df6ed384a9d",
         "m_SubObjectName": "",
@@ -36,20 +32,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "5",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Prop/&WindowTitle",
     "description": "",
     "spriteReference": {
-      "$id": "6",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "f6178a30c7fcb844492a50e6efc75b07",
       "m_SubObjectName": "FireBasin",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "7",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

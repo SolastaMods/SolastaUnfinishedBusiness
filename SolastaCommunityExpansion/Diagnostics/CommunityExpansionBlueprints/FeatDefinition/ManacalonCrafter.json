@@ -15,20 +15,17 @@
     "Definition:CraftyArcana:44a54666-80ba-475c-90b1-774e86f1a69a"
   ],
   "guiPresentation": {
-    "$id": "1",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "CraftyFeats/&ManacalonCrafterFeatTitle",
     "description": "CraftyFeats/&ManacalonCrafterFeatDescription",
     "spriteReference": {
-      "$id": "2",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
     "color": {
-      "$id": "3",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

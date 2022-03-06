@@ -6,14 +6,12 @@
   "registeredVariables": [],
   "sceneFilePath": "",
   "sceneReference": {
-    "$id": "1",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "e8bdef11e33d1f540a700bd858a56bf7",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "audioState": {
-    "$id": "2",
     "$type": "AK.Wwise.State, AK.Wwise.Unity.API.WwiseTypes",
     "WwiseObjectReference": null,
     "groupIdInternal": 0,
@@ -29,7 +27,6 @@
   },
   "renderSettingsSceneProfile": null,
   "locationPresentation": {
-    "$id": "3",
     "$type": "LocationPresentation, Assembly-CSharp",
     "unchartedTitle": "",
     "unchartedDescription": "",
@@ -48,20 +45,17 @@
   "hasPriorityForTeleporter": false,
   "canAttackNonHostileCharacters": false,
   "guiPresentation": {
-    "$id": "4",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Title",
     "description": "Description",
     "spriteReference": {
-      "$id": "5",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "a5f8f319b8aaa694b894c487dc4cc501",
       "m_SubObjectName": "KeyArt_Forsplashscreen",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "6",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

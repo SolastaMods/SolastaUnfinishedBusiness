@@ -2,56 +2,48 @@
   "$type": "TreasureTableDefinition, Assembly-CSharp",
   "treasureOptions": [
     {
-      "$id": "1",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 20,
       "itemDefinition": "Definition:Shield+2:6bf62399e308acf42a0191b635f61297",
       "amount": 1
     },
     {
-      "$id": "2",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 15,
       "itemDefinition": "Definition:WizardClothes_Alternate:2cd3a9c1d81fbf743855802fd150b47c",
       "amount": 1
     },
     {
-      "$id": "3",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 15,
       "itemDefinition": "Definition:ElvenChain:0f07e4fa0b5cd3a44a97424255da2fb2",
       "amount": 1
     },
     {
-      "$id": "4",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 15,
       "itemDefinition": "Definition:StuddedLeather_plus_two:be102df2cfc0aa84f809a7c2c3a30edf",
       "amount": 1
     },
     {
-      "$id": "5",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 8,
       "itemDefinition": "Definition:HideArmor_plus_two:1d8f516b18668d849a398bdb2d49f2ac",
       "amount": 1
     },
     {
-      "$id": "6",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 10,
       "itemDefinition": "Definition:GreenmageArmor:af66d467009328349a9a407b1666d19b",
       "amount": 1
     },
     {
-      "$id": "7",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 9,
       "itemDefinition": "Definition:AdamantinePlateArmor:b41bb06ce6c50e541bd663d17186eba2",
       "amount": 1
     },
     {
-      "$id": "8",
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 8,
       "itemDefinition": "Definition:Dwarven_Plate:0565960734f09e1479e7de29d8149d64",
@@ -59,20 +51,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "9",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "TreasureTable/&Wondrous_ItemsTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
-      "$id": "10",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "11",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

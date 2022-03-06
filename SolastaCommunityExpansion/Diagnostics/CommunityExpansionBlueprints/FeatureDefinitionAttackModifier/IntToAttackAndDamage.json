@@ -18,7 +18,6 @@
   "damageDieReplacement": "None",
   "replacedDieType": "D8",
   "impactParticleReference": {
-    "$id": "1",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "c6f38dde8ef440348bf5a95bc045aaba",
     "m_SubObjectName": "",
@@ -27,20 +26,17 @@
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
-    "$id": "2",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feat/&IntToAttackAndDamageTitle",
     "description": "Feat/&IntToAttackAndDamageDescription",
     "spriteReference": {
-      "$id": "3",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "0f3dce44a4275884c8da8280637876c7",
       "m_SubObjectName": "PropertyShillelagh",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "4",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

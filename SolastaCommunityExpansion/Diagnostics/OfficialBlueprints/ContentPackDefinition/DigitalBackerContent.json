@@ -2,20 +2,17 @@
   "$type": "ContentPackDefinition, Assembly-CSharp",
   "hideWhenUnavailable": true,
   "guiPresentation": {
-    "$id": "1",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "ContentPack/&DigitalBackerContentTitle",
     "description": "ContentPack/&DigitalBackerContentDescription",
     "spriteReference": {
-      "$id": "2",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "b1bb2b39ce6c01f4dbb00cc55bc1d1be",
       "m_SubObjectName": "DigitalBackerContent",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "3",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

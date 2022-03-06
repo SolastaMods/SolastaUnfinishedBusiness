@@ -46,17 +46,14 @@
   "isSpellbook": false,
   "isDocument": true,
   "documentDescription": {
-    "$id": "1",
     "$type": "DocumentDescription, Assembly-CSharp",
     "format": "Tome",
     "contentFragments": [
       {
-        "$id": "2",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
         "text": "Equipment/&Abjuration_MonasteryJournal_Content",
         "spriteReference": {
-          "$id": "3",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "",
           "m_SubObjectName": "",
@@ -64,12 +61,10 @@
         }
       },
       {
-        "$id": "4",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "NewPage",
         "text": "Equipment/&Abjuration_MonasteryJournal_Content2",
         "spriteReference": {
-          "$id": "5",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "",
           "m_SubObjectName": "",
@@ -77,12 +72,10 @@
         }
       },
       {
-        "$id": "6",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
         "text": "Equipment/&Abjuration_MonasteryJournal_Content2",
         "spriteReference": {
-          "$id": "7",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "",
           "m_SubObjectName": "",
@@ -90,12 +83,10 @@
         }
       },
       {
-        "$id": "8",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "NewPage",
         "text": "Equipment/&Abjuration_MonasteryJournal_Content3",
         "spriteReference": {
-          "$id": "9",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "",
           "m_SubObjectName": "",
@@ -103,12 +94,10 @@
         }
       },
       {
-        "$id": "10",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
         "text": "Equipment/&Abjuration_MonasteryJournal_Content3",
         "spriteReference": {
-          "$id": "11",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "",
           "m_SubObjectName": "",
@@ -129,10 +118,8 @@
   "isFactionRelic": false,
   "personalityFlagOccurences": [],
   "soundEffectDescriptionOverride": {
-    "$id": "12",
     "$type": "SoundEffectDescription, Assembly-CSharp",
     "startEvent": {
-      "$id": "13",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -142,7 +129,6 @@
       }
     },
     "stopEvent": {
-      "$id": "14",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -152,7 +138,6 @@
       }
     },
     "startSwitch": {
-      "$id": "15",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -167,7 +152,6 @@
       }
     },
     "stopSwitch": {
-      "$id": "16",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -182,7 +166,6 @@
       }
     },
     "guiStoreBody": {
-      "$id": "17",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -192,7 +175,6 @@
       }
     },
     "guiPickBody": {
-      "$id": "18",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -202,7 +184,6 @@
       }
     },
     "guiStoreOther": {
-      "$id": "19",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -212,7 +193,6 @@
       }
     },
     "guiPickOther": {
-      "$id": "20",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -223,10 +203,8 @@
     }
   },
   "soundEffectOnHitDescriptionOverride": {
-    "$id": "21",
     "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
     "switchOnHit": {
-      "$id": "22",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -242,13 +220,11 @@
     }
   },
   "itemPresentation": {
-    "$id": "23",
     "$type": "ItemPresentation, Assembly-CSharp",
     "unidentifiedTitle": "",
     "unidentifiedDescription": "",
     "overrideSubtype": "None",
     "assetReference": {
-      "$id": "24",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -268,20 +244,17 @@
     "serializedVersion": 1
   },
   "guiPresentation": {
-    "$id": "25",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&Abjuration_MonasteryJournal_Title",
     "description": "Equipment/&Abjuration_MonasteryJournal_Description",
     "spriteReference": {
-      "$id": "26",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "e1eca34357d720b439dd1f1398d4386f",
       "m_SubObjectName": "Telema_Notebook",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "27",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

@@ -46,7 +46,6 @@
   "isSpellbook": false,
   "isDocument": true,
   "documentDescription": {
-    "$id": "1",
     "$type": "DocumentDescription, Assembly-CSharp",
     "format": "Tome",
     "contentFragments": [],
@@ -58,43 +57,36 @@
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [
       {
-        "$id": "2",
         "$type": "MonsterKnowledgeDescription, Assembly-CSharp",
         "monsterDefinition": "Definition:Sorr-Akkath_Warrior:8b150ec99b2f2f04bb9a136296903ceb",
         "knowledgeLevel": "Mastered4"
       },
       {
-        "$id": "3",
         "$type": "MonsterKnowledgeDescription, Assembly-CSharp",
         "monsterDefinition": "Definition:Sorr-Akkath_Skirmisher:f68a7a00b3d553d4c92a1ced5bd3ea1e",
         "knowledgeLevel": "Mastered4"
       },
       {
-        "$id": "4",
         "$type": "MonsterKnowledgeDescription, Assembly-CSharp",
         "monsterDefinition": "Definition:Sorr-Akkath_Saboteur:3a3de4e622ed5f34d9b941e1d33ff5aa",
         "knowledgeLevel": "Known3"
       },
       {
-        "$id": "5",
         "$type": "MonsterKnowledgeDescription, Assembly-CSharp",
         "monsterDefinition": "Definition:Sorr-Akkath_Acolyte_of_Sorr-Tarr:42a7d5d78cd593549bdc58619f6fa79e",
         "knowledgeLevel": "Known3"
       },
       {
-        "$id": "6",
         "$type": "MonsterKnowledgeDescription, Assembly-CSharp",
         "monsterDefinition": "Definition:Sorr-Akkath_Assassin:d1fca5bca23d2a04c8b5e1e12a294568",
         "knowledgeLevel": "Known3"
       },
       {
-        "$id": "7",
         "$type": "MonsterKnowledgeDescription, Assembly-CSharp",
         "monsterDefinition": "Definition:Sorr-Akkath_Abomination:33d203ab6a1b5944785e5cbe2b1d3980",
         "knowledgeLevel": "Studied2"
       },
       {
-        "$id": "8",
         "$type": "MonsterKnowledgeDescription, Assembly-CSharp",
         "monsterDefinition": "Definition:Sorr-Akkath_Shikkath:de59cb16776e20647a7ed74ba95d2f90",
         "knowledgeLevel": "Observed1"
@@ -106,10 +98,8 @@
   "isFactionRelic": false,
   "personalityFlagOccurences": [],
   "soundEffectDescriptionOverride": {
-    "$id": "9",
     "$type": "SoundEffectDescription, Assembly-CSharp",
     "startEvent": {
-      "$id": "10",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -119,7 +109,6 @@
       }
     },
     "stopEvent": {
-      "$id": "11",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -129,7 +118,6 @@
       }
     },
     "startSwitch": {
-      "$id": "12",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -144,7 +132,6 @@
       }
     },
     "stopSwitch": {
-      "$id": "13",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -159,7 +146,6 @@
       }
     },
     "guiStoreBody": {
-      "$id": "14",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -169,7 +155,6 @@
       }
     },
     "guiPickBody": {
-      "$id": "15",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -179,7 +164,6 @@
       }
     },
     "guiStoreOther": {
-      "$id": "16",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -189,7 +173,6 @@
       }
     },
     "guiPickOther": {
-      "$id": "17",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -200,10 +183,8 @@
     }
   },
   "soundEffectOnHitDescriptionOverride": {
-    "$id": "18",
     "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
     "switchOnHit": {
-      "$id": "19",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -219,13 +200,11 @@
     }
   },
   "itemPresentation": {
-    "$id": "20",
     "$type": "ItemPresentation, Assembly-CSharp",
     "unidentifiedTitle": "",
     "unidentifiedDescription": "",
     "overrideSubtype": "None",
     "assetReference": {
-      "$id": "21",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -247,20 +226,17 @@
     "serializedVersion": 1
   },
   "guiPresentation": {
-    "$id": "22",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&PickupQuest_Item_ChroniclesOfTheInquisition_Title",
     "description": "Equipment/&PickupQuest_Item_ChroniclesOfTheInquisition_Description",
     "spriteReference": {
-      "$id": "23",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "36708b082162a084ebddba841ae3730f",
       "m_SubObjectName": "PickupQuest_Chronicles",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "24",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

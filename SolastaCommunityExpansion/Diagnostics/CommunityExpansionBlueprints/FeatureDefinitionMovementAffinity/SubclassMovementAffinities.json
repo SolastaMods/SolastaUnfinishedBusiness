@@ -24,14 +24,12 @@
   "situationalContext": "None",
   "additionalDashTag": null,
   "guiPresentation": {
-    "$id": "1",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feat/&SubclassMovementTitle",
     "description": "Feat/&SubclassMovementDescription",
     "spriteReference": null,
     "color": {
-      "$id": "2",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

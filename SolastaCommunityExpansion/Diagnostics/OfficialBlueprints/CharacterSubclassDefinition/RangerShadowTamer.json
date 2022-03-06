@@ -2,31 +2,26 @@
   "$type": "CharacterSubclassDefinition, Assembly-CSharp",
   "featureUnlocks": [
     {
-      "$id": "1",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:SavingThrowAffinityShadowTamerTunnelWisdom:c4d2fd151623f844ca143b0da76fbaba",
       "level": 3
     },
     {
-      "$id": "2",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetShadowTamerDarkSlayer:c1c96f0fa8eab884bbcdecc603d8f573",
       "level": 3
     },
     {
-      "$id": "3",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerShadowTamerRopeGrapple:c271ebfe10e4fe848aacdf2d982ad5e6",
       "level": 7
     },
     {
-      "$id": "4",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetShadowTamerKnowDarkness:b09848b9f5aac9640857de648e0e530c",
       "level": 7
     },
     {
-      "$id": "5",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ActionAffinityShadowTamerSwiftRetaliation:ee2724b6cb6fa8340b422498336376ec",
       "level": 11
@@ -35,20 +30,17 @@
   "personalityFlagOccurences": [],
   "morphotypeSubclassFilterTag": "Default",
   "guiPresentation": {
-    "$id": "6",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Subclass/&RangerShadowTamerTitle",
     "description": "Subclass/&RangerShadowTamerDescription",
     "spriteReference": {
-      "$id": "7",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "e2e75a8dfa5339a4486b00747f23310e",
       "m_SubObjectName": "Ranger_Shadow_Tamer",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "8",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

@@ -12,15 +12,12 @@
   ],
   "equipmentRows": [
     {
-      "$id": "1",
       "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
       "equipmentColumns": [
         {
-          "$id": "2",
           "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
           "equipmentOptions": [
             {
-              "$id": "3",
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
               "optionType": "GenericItem",
               "itemReference": "Definition:Background_Lawkeeper_Badge:004cf076703602c49a089b333587231d",
@@ -28,7 +25,6 @@
               "number": 1
             },
             {
-              "$id": "4",
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
               "optionType": "WealthPile",
               "itemReference": "Definition:StartingWealth_10GP:1e47663441f2b71469c67e49b32966bc",
@@ -36,7 +32,6 @@
               "number": 1
             },
             {
-              "$id": "5",
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
               "optionType": "Armor",
               "itemReference": "Definition:ClothesCommon:2d37f478395d1014ebcb56b9f4fb3003",
@@ -51,13 +46,11 @@
   ],
   "staticPersonalityFlags": [
     {
-      "$id": "6",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 30,
       "personalityFlag": "Bg_Judgmental"
     },
     {
-      "$id": "7",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 5,
       "personalityFlag": "Normal"
@@ -65,25 +58,21 @@
   ],
   "optionalPersonalityFlags": [
     {
-      "$id": "8",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 8,
       "personalityFlag": "Authority"
     },
     {
-      "$id": "9",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 8,
       "personalityFlag": "Violence"
     },
     {
-      "$id": "10",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 8,
       "personalityFlag": "Lawfulness"
     },
     {
-      "$id": "11",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 8,
       "personalityFlag": "Pragmatism"
@@ -99,20 +88,17 @@
     "ChaoticGood"
   ],
   "guiPresentation": {
-    "$id": "12",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Background/&LawkeeperTitle",
     "description": "Background/&LawkeeperDescription",
     "spriteReference": {
-      "$id": "13",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "82cb2efd976693c4bbc2deabbf548ca5",
       "m_SubObjectName": "LawKeeper",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "14",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

@@ -2,7 +2,6 @@
   "$type": "GadgetBlueprint, Assembly-CSharp",
   "parameters": [
     {
-      "$id": "1",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "Param_Locked",
       "type": "GenericBool",
@@ -18,7 +17,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "2",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "Param_HardLocked",
       "type": "GenericBool",
@@ -34,7 +32,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "3",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "Lockpick_DC",
       "type": "DifficultyClass",
@@ -50,7 +47,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "4",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "KeyItem",
       "type": "Item",
@@ -66,7 +62,6 @@
       "gadgetExecutionFilter": ""
     },
     {
-      "$id": "5",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "Param_DefaultAsOpened",
       "type": "GenericBool",
@@ -84,10 +79,8 @@
   ],
   "interactionNodes": [
     {
-      "$id": "6",
       "$type": "InteractionNodeDescription, Assembly-CSharp",
       "position": {
-        "$id": "7",
         "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
         "x": -0.5000001,
         "y": -0.99999994
@@ -95,10 +88,8 @@
       "orientation": "North"
     },
     {
-      "$id": "8",
       "$type": "InteractionNodeDescription, Assembly-CSharp",
       "position": {
-        "$id": "9",
         "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
         "x": 0.5000003,
         "y": 1.00000024
@@ -109,11 +100,9 @@
   "canBeActivated": true,
   "customizableDimensions": false,
   "minCustomizableDimensions": {
-    "$id": "10",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "maxCustomizableDimensions": {
-    "$id": "11",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "campaignOnly": false,
@@ -128,16 +117,13 @@
   "lightSources": [],
   "category": "Openings",
   "dimensions": {
-    "$id": "12",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "prefabsByEnvironment": [
     {
-      "$id": "13",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "TownInterior",
       "prefabReference": {
-        "$id": "14",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "d0acc52181373314fb9bfc7b52068e28",
         "m_SubObjectName": "",
@@ -146,20 +132,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "15",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Gadget/&SimpleThinDoorTitle",
     "description": "Gadget/&SimpleThinDoorDescription",
     "spriteReference": {
-      "$id": "16",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "f58974c77564f3149971228c3847b75e",
       "m_SubObjectName": "DoubleDoor",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "17",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

@@ -2,7 +2,6 @@
   "$type": "GadgetBlueprint, Assembly-CSharp",
   "parameters": [
     {
-      "$id": "1",
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "Param_DefaultAsLit",
       "type": "GenericBool",
@@ -20,10 +19,8 @@
   ],
   "interactionNodes": [
     {
-      "$id": "2",
       "$type": "InteractionNodeDescription, Assembly-CSharp",
       "position": {
-        "$id": "3",
         "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
         "x": 0.0,
         "y": -1.0
@@ -31,10 +28,8 @@
       "orientation": "North"
     },
     {
-      "$id": "4",
       "$type": "InteractionNodeDescription, Assembly-CSharp",
       "position": {
-        "$id": "5",
         "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
         "x": 1.0,
         "y": 0.0
@@ -42,10 +37,8 @@
       "orientation": "West"
     },
     {
-      "$id": "6",
       "$type": "InteractionNodeDescription, Assembly-CSharp",
       "position": {
-        "$id": "7",
         "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
         "x": 0.0,
         "y": 1.0
@@ -53,10 +46,8 @@
       "orientation": "South"
     },
     {
-      "$id": "8",
       "$type": "InteractionNodeDescription, Assembly-CSharp",
       "position": {
-        "$id": "9",
         "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
         "x": -1.0,
         "y": 0.0
@@ -67,11 +58,9 @@
   "canBeActivated": false,
   "customizableDimensions": false,
   "minCustomizableDimensions": {
-    "$id": "10",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "maxCustomizableDimensions": {
-    "$id": "11",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "campaignOnly": false,
@@ -85,7 +74,6 @@
   "propPlacement": false,
   "lightSources": [
     {
-      "$id": "12",
       "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
       "x": -0.113999993,
       "y": -0.0230000019
@@ -93,16 +81,13 @@
   ],
   "category": "Lighting",
   "dimensions": {
-    "$id": "13",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "prefabsByEnvironment": [
     {
-      "$id": "14",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "LavaCaves",
       "prefabReference": {
-        "$id": "15",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "f0cf7ba73c7ed604aae01a68c169b560",
         "m_SubObjectName": "",
@@ -110,11 +95,9 @@
       }
     },
     {
-      "$id": "16",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "WoodLand",
       "prefabReference": {
-        "$id": "17",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "9a4dd17b8282ce24cbeb8df5a63033a3",
         "m_SubObjectName": "",
@@ -122,11 +105,9 @@
       }
     },
     {
-      "$id": "18",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "Catacombs",
       "prefabReference": {
-        "$id": "19",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "cf4de3013f93f8b4983e3527a1ac45b8",
         "m_SubObjectName": "",
@@ -134,11 +115,9 @@
       }
     },
     {
-      "$id": "20",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "Town",
       "prefabReference": {
-        "$id": "21",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "fa95cd8d27835714786acce9ebfd7664",
         "m_SubObjectName": "",
@@ -147,20 +126,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "22",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Gadget/&TorchPikeTitle",
     "description": "",
     "spriteReference": {
-      "$id": "23",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "d76db49e68b65294ca18cd31933fb275",
       "m_SubObjectName": "InteractiveTorch",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "24",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

@@ -147,7 +147,7 @@ namespace SolastaCommunityExpansion.DataMiner
                 {
                     // Don't put this outside the loop or it caches objects already serialized and then outputs a reference instead 
                     // of the whole object.
-                    var serializer = JsonSerializer.Create(JsonUtil.CreateSettings(PreserveReferencesHandling.Objects));
+                    var serializer = JsonSerializer.Create(JsonUtil.CreateSettings(PreserveReferencesHandling.None));
 
                     using StreamWriter sw = new StreamWriter(fullname);
                     using JsonWriter writer = new JsonTextWriter(sw);

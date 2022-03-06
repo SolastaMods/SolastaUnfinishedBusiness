@@ -9,37 +9,31 @@
   "baseWeight": 0,
   "featureUnlocks": [
     {
-      "$id": "1",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:MoveModeMove5:39236d1a5cbaf114d96e2709eb817529",
       "level": 1
     },
     {
-      "$id": "2",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AttributeModifierDwarfAbilityScoreIncrease:a8185578e248d504584061f2ef4b8cd3",
       "level": 1
     },
     {
-      "$id": "3",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:DamageAffinityDwarfResilience:33adf87f49e8adb4fb1a75f89972ec54",
       "level": 1
     },
     {
-      "$id": "4",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencyDwarfWeaponTraining:a1e827cb544cb494daebb6c9084c4bb4",
       "level": 1
     },
     {
-      "$id": "5",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
       "level": 1
     },
     {
-      "$id": "6",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:MovementAffinityHeavyArmorImmunity:77421596eaccd5b4087a4c64e675d1e6",
       "level": 1
@@ -52,7 +46,6 @@
   "inventoryDefinition": "Definition:HumanoidInventory:2a836ff45f2eb274eb079425509421ac",
   "personalityFlagOccurences": [
     {
-      "$id": "7",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 10,
       "personalityFlag": "Carver"
@@ -66,7 +59,6 @@
   "audioSwitches": [],
   "audioRaceRTPCValue": 2.0,
   "racePresentation": {
-    "$id": "8",
     "$type": "RacePresentation, Assembly-CSharp",
     "bodyAssetPrefix": "Dwarf",
     "morphotypeAssetPrefix": "Dwarf",
@@ -106,61 +98,51 @@
     "useBeardBlendShape": true,
     "beardBlendShapes": [
       {
-        "$id": "9",
         "$type": "RacePresentation+BeardBlendShape, Assembly-CSharp",
         "faceShapeName": "FaceShape_B",
         "blendShapeIndex": 0
       },
       {
-        "$id": "10",
         "$type": "RacePresentation+BeardBlendShape, Assembly-CSharp",
         "faceShapeName": "FaceShape_C",
         "blendShapeIndex": 1
       },
       {
-        "$id": "11",
         "$type": "RacePresentation+BeardBlendShape, Assembly-CSharp",
         "faceShapeName": "FaceShape_D",
         "blendShapeIndex": 2
       },
       {
-        "$id": "12",
         "$type": "RacePresentation+BeardBlendShape, Assembly-CSharp",
         "faceShapeName": "FaceShape_E",
         "blendShapeIndex": 3
       },
       {
-        "$id": "13",
         "$type": "RacePresentation+BeardBlendShape, Assembly-CSharp",
         "faceShapeName": "FaceShape_F",
         "blendShapeIndex": 4
       },
       {
-        "$id": "14",
         "$type": "RacePresentation+BeardBlendShape, Assembly-CSharp",
         "faceShapeName": "FaceShape_NPC_Ceannard",
         "blendShapeIndex": 5
       },
       {
-        "$id": "15",
         "$type": "RacePresentation+BeardBlendShape, Assembly-CSharp",
         "faceShapeName": "FaceShape_NPC_Galar_Goldentongue",
         "blendShapeIndex": 6
       },
       {
-        "$id": "16",
         "$type": "RacePresentation+BeardBlendShape, Assembly-CSharp",
         "faceShapeName": "FaceShape_NPC_Gromnir_Stonefist",
         "blendShapeIndex": 7
       },
       {
-        "$id": "17",
         "$type": "RacePresentation+BeardBlendShape, Assembly-CSharp",
         "faceShapeName": "FaceShape_NPC_Joris_Nikannen",
         "blendShapeIndex": 8
       },
       {
-        "$id": "18",
         "$type": "RacePresentation+BeardBlendShape, Assembly-CSharp",
         "faceShapeName": "FaceShape_NPC_Priest_of_Arun",
         "blendShapeIndex": 9
@@ -274,40 +256,34 @@
     "maleVoiceDefinition": "MAL2",
     "femaleVoiceDefinition": "FEM1",
     "portraitShieldOffset": {
-      "$id": "19",
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": 0.0,
       "z": 0.0
     },
     "preferedSkinColors": {
-      "$id": "20",
       "$type": "TA.RangedInt, Assembly-CSharp",
       "minValue": 1,
       "maxValue": 15
     },
     "preferedHairColors": {
-      "$id": "21",
       "$type": "TA.RangedInt, Assembly-CSharp",
       "minValue": 0,
       "maxValue": 24
     }
   },
   "guiPresentation": {
-    "$id": "22",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Race/&DwarfTitle",
     "description": "Race/&DwarfDescription",
     "spriteReference": {
-      "$id": "23",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "addfbe4efa4f44e4ba1b07d397b00a92",
       "m_SubObjectName": "HillDwarf",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "24",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

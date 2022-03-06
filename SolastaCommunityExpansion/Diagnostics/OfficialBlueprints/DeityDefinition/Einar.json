@@ -8,25 +8,21 @@
   "selectableByPlayer": true,
   "personalityFlagOccurences": [
     {
-      "$id": "1",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 30,
       "personalityFlag": "ReligionEinar"
     },
     {
-      "$id": "2",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 3,
       "personalityFlag": "Authority"
     },
     {
-      "$id": "3",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 3,
       "personalityFlag": "Lawfulness"
     },
     {
-      "$id": "4",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 3,
       "personalityFlag": "Violence"
@@ -34,20 +30,17 @@
   ],
   "vocalSpellSemeClass": "Einar",
   "guiPresentation": {
-    "$id": "5",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Deity/&EinarTitle",
     "description": "Deity/&EinarDescription",
     "spriteReference": {
-      "$id": "6",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "d6e37fff7ec30ac40928a397fe49d741",
       "m_SubObjectName": "DeityEinar",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "7",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

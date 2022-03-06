@@ -5,7 +5,6 @@
   "registeredFactions": [],
   "registeredVariables": [
     {
-      "$id": "1",
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "Tower_Of_Magic_Return_Scenario_Init",
       "type": "Bool",
@@ -16,20 +15,16 @@
   ],
   "sceneFilePath": "",
   "sceneReference": {
-    "$id": "2",
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "280a778d98c1efd4b95b32c4072312ab",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "audioState": {
-    "$id": "3",
     "$type": "AK.Wwise.State, AK.Wwise.Unity.API.WwiseTypes",
     "WwiseObjectReference": {
-      "$id": "4",
       "$type": "WwiseStateReference, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseStateGroupReference": {
-        "$id": "5",
         "$type": "WwiseStateGroupReference, AK.Wwise.Unity.API.WwiseTypes",
         "objectName": "State_LocationName",
         "id": 598649695,
@@ -53,11 +48,9 @@
     }
   },
   "renderSettingsSceneProfile": {
-    "$id": "6",
     "$type": "RenderSettingsSceneProfile, Assembly-CSharp",
     "useSkybox": true,
     "backgroundColor": {
-      "$id": "7",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.0,
       "g": 0.0,
@@ -65,12 +58,10 @@
       "a": 1.0
     },
     "skyboxMaterial": {
-      "$id": "8",
       "$type": "UnityEngine.Material, UnityEngine.CoreModule",
       "name": "Default_Skybox"
     },
     "ambientLight": {
-      "$id": "9",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.6132076,
       "g": 0.6132076,
@@ -79,7 +70,6 @@
     },
     "fog": true,
     "fogColor": {
-      "$id": "10",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 0.498039216,
       "g": 0.5520674,
@@ -90,7 +80,6 @@
     "fogDensity": 0.02,
     "excludeSkybox": true,
     "auraBaseSettings": {
-      "$id": "11",
       "$type": "Aura2API.AuraBaseSettings, Aura2_Core",
       "useDensity": true,
       "density": 0.006,
@@ -100,7 +89,6 @@
       "ambientLightingStrength": 1.0,
       "useColor": false,
       "color": {
-        "$id": "12",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.0,
         "g": 0.5,
@@ -110,7 +98,6 @@
       "colorStrength": 1.0,
       "useTint": false,
       "tint": {
-        "$id": "13",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.999999,
         "g": 0.999999,
@@ -128,10 +115,8 @@
     "userDungeonAuraVolumeNoise": false,
     "userDungeonAuraVolumeNoiseScale": 3.0,
     "dayCycleProfile": {
-      "$id": "14",
       "$type": "GraphicsDayCycleProfile, Assembly-CSharp",
       "noonColor": {
-        "$id": "15",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.6886792,
         "g": 0.623136163,
@@ -139,7 +124,6 @@
         "a": 1.0
       },
       "sunriseColor": {
-        "$id": "16",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.8962264,
         "g": 0.6984592,
@@ -147,7 +131,6 @@
         "a": 1.0
       },
       "sunsetColor": {
-        "$id": "17",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 1.0,
         "g": 0.48294118,
@@ -158,7 +141,6 @@
       "sunDirection": -90.0,
       "sunTilt": 0.01,
       "moonLightColor": {
-        "$id": "18",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.0688412338,
         "g": 0.4636659,
@@ -172,7 +154,6 @@
       "moonBaseAngle": 0.0,
       "globalMoonIntensity": 0.8,
       "ambientSunriseColor": {
-        "$id": "19",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.3524386,
         "g": 0.399048984,
@@ -180,7 +161,6 @@
         "a": 1.0
       },
       "ambientNoonColor": {
-        "$id": "20",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.397160918,
         "g": 0.441945553,
@@ -188,7 +168,6 @@
         "a": 1.0
       },
       "ambientSunsetColor": {
-        "$id": "21",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.191082239,
         "g": 0.2625796,
@@ -196,7 +175,6 @@
         "a": 1.0
       },
       "ambientNightColor": {
-        "$id": "22",
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.285955846,
         "g": 0.301486939,
@@ -211,7 +189,6 @@
     "name": "TowerOfMagicScene_RenderSettings"
   },
   "locationPresentation": {
-    "$id": "23",
     "$type": "LocationPresentation, Assembly-CSharp",
     "unchartedTitle": "Map/&Location_TowerOfMagic_UnchartedTitle",
     "unchartedDescription": "Map/&Location_TowerOfMagic_UnchartedDescription",
@@ -230,20 +207,17 @@
   "hasPriorityForTeleporter": false,
   "canAttackNonHostileCharacters": false,
   "guiPresentation": {
-    "$id": "24",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Location/&Tower_Of_Magic_Title",
     "description": "Location/&Tower_Of_Magic_Description",
     "spriteReference": {
-      "$id": "25",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "f3eb3c827da7f2b44a75ba1e32ee1942",
       "m_SubObjectName": "TowerOfMagic",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "26",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

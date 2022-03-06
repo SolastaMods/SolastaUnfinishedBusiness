@@ -2,19 +2,16 @@
   "$type": "CharacterSubclassDefinition, Assembly-CSharp",
   "featureUnlocks": [
     {
-      "$id": "1",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerBerserkerFrenzy:28c7303e7742ef94fb6a3780c3033759",
       "level": 3
     },
     {
-      "$id": "2",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerBerserkerMindlessRage:192598156a60fe1438e3758a2ba9b547",
       "level": 6
     },
     {
-      "$id": "3",
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerBerserkerIntimidatingPresence:9bf7234f42f0eb74c883e33bbf3fda40",
       "level": 10
@@ -22,7 +19,6 @@
   ],
   "personalityFlagOccurences": [
     {
-      "$id": "4",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 6,
       "personalityFlag": "Violence"
@@ -30,20 +26,17 @@
   ],
   "morphotypeSubclassFilterTag": "Default",
   "guiPresentation": {
-    "$id": "5",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Subclass/&PathBerserkerTitle",
     "description": "Subclass/&PathBerserkerDescription",
     "spriteReference": {
-      "$id": "6",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "aa99d934a7dfe064191c9a18e4822595",
       "m_SubObjectName": "Barbarian_Path_Berserker",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "7",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

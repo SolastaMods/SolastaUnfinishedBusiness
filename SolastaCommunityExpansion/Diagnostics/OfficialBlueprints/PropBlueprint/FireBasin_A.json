@@ -10,7 +10,6 @@
   "propPlacement": false,
   "lightSources": [
     {
-      "$id": "1",
       "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
       "x": 0.0,
       "y": 0.0
@@ -18,16 +17,13 @@
   ],
   "category": "Lighting",
   "dimensions": {
-    "$id": "2",
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "prefabsByEnvironment": [
     {
-      "$id": "3",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "Necropolis",
       "prefabReference": {
-        "$id": "4",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "2b0e3679c57f0fa41bb7af67b58c196e",
         "m_SubObjectName": "",
@@ -35,11 +31,9 @@
       }
     },
     {
-      "$id": "5",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "LavaCaves",
       "prefabReference": {
-        "$id": "6",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "921586581c875174eb6012ae9d5990c9",
         "m_SubObjectName": "",
@@ -47,11 +41,9 @@
       }
     },
     {
-      "$id": "7",
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
       "environment": "Catacombs",
       "prefabReference": {
-        "$id": "8",
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "902e8d8f5c0d4304e9cc58f5c9b67bdd",
         "m_SubObjectName": "",
@@ -60,20 +52,17 @@
     }
   ],
   "guiPresentation": {
-    "$id": "9",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Prop/&FireBasinTitle",
     "description": "",
     "spriteReference": {
-      "$id": "10",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "f6178a30c7fcb844492a50e6efc75b07",
       "m_SubObjectName": "FireBasin",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "11",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

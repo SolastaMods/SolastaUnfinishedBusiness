@@ -10,20 +10,17 @@
   "lockedInBattle": false,
   "hasDefaultVisual": false,
   "guiPresentation": {
-    "$id": "1",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "SlotType/&ShouldersSlotTitle",
     "description": "SlotType/&ShouldersSlotDescription",
     "spriteReference": {
-      "$id": "2",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "0929460cc3091f44bb32911c3e02cb61",
       "m_SubObjectName": "ShouldersSlot",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "3",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

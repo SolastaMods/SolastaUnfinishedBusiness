@@ -13,15 +13,12 @@
   ],
   "equipmentRows": [
     {
-      "$id": "1",
       "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
       "equipmentColumns": [
         {
-          "$id": "2",
           "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
           "equipmentOptions": [
             {
-              "$id": "3",
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
               "optionType": "Armor",
               "itemReference": "Definition:ClothesNoble:45dc7b5b15f5bbe41ad1e84e9e9b83bc",
@@ -29,7 +26,6 @@
               "number": 1
             },
             {
-              "$id": "4",
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
               "optionType": "WealthPile",
               "itemReference": "Definition:StartingWealth_25GP:250e1e9f425252b47b6620c2f5a75a9c",
@@ -37,7 +33,6 @@
               "number": 1
             },
             {
-              "$id": "5",
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
               "optionType": "Tool",
               "itemReference": "Definition:PoisonersKit:baf065854a7ae414fbb415d7b3d88fec",
@@ -45,7 +40,6 @@
               "number": 1
             },
             {
-              "$id": "6",
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
               "optionType": "Tool",
               "itemReference": "Definition:CraftingManualBasicPoison:91e80fbd5f8088f4b9ddc13290f4c0cb",
@@ -53,7 +47,6 @@
               "number": 1
             },
             {
-              "$id": "7",
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
               "optionType": "Tool",
               "itemReference": "Definition:ThievesTool:91bc47b45dfb1f540a7c0672d95af251",
@@ -68,13 +61,11 @@
   ],
   "staticPersonalityFlags": [
     {
-      "$id": "8",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 30,
       "personalityFlag": "Bg_Wisecracker"
     },
     {
-      "$id": "9",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 5,
       "personalityFlag": "Normal"
@@ -82,25 +73,21 @@
   ],
   "optionalPersonalityFlags": [
     {
-      "$id": "10",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 8,
       "personalityFlag": "Self-Preservation"
     },
     {
-      "$id": "11",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 8,
       "personalityFlag": "Cynicism"
     },
     {
-      "$id": "12",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 8,
       "personalityFlag": "Pragmatism"
     },
     {
-      "$id": "13",
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 8,
       "personalityFlag": "Greed"
@@ -112,20 +99,17 @@
   ],
   "forbiddenAlignments": [],
   "guiPresentation": {
-    "$id": "14",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Background/&SpyTitle",
     "description": "Background/&SpyDescription",
     "spriteReference": {
-      "$id": "15",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "e01dcdb94f45ae64e9b7d584bf81c8cf",
       "m_SubObjectName": "Spy",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "16",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

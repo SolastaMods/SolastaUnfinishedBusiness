@@ -45,17 +45,14 @@
   "isSpellbook": false,
   "isDocument": true,
   "documentDescription": {
-    "$id": "1",
     "$type": "DocumentDescription, Assembly-CSharp",
     "format": "Tome",
     "contentFragments": [
       {
-        "$id": "2",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Header",
         "text": "Equipment/&Legendary_Document_Content00",
         "spriteReference": {
-          "$id": "3",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "",
           "m_SubObjectName": "",
@@ -63,12 +60,10 @@
         }
       },
       {
-        "$id": "4",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Illustration",
         "text": "Equipment/&Legendary_Document_Content01",
         "spriteReference": {
-          "$id": "5",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "fc87c1df1a72dca4bae286277df10d66",
           "m_SubObjectName": "Legendary_Rune_01",
@@ -76,12 +71,10 @@
         }
       },
       {
-        "$id": "6",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "NewPage",
         "text": "Equipment/&Legendary_Document_Content05",
         "spriteReference": {
-          "$id": "7",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "eedfcd34658f1764683bf73d13d07fa3",
           "m_SubObjectName": "Legendary_Rune_06",
@@ -89,12 +82,10 @@
         }
       },
       {
-        "$id": "8",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
         "text": "Equipment/&Legendary_Document_Content01",
         "spriteReference": {
-          "$id": "9",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "",
           "m_SubObjectName": "",
@@ -102,12 +93,10 @@
         }
       },
       {
-        "$id": "10",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Illustration",
         "text": "Equipment/&Legendary_Document_Content01",
         "spriteReference": {
-          "$id": "11",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "ea386b465660df441be97924d1f0c912",
           "m_SubObjectName": "Legendary_Rune_02",
@@ -115,12 +104,10 @@
         }
       },
       {
-        "$id": "12",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "NewPage",
         "text": "Equipment/&Legendary_Document_Content05",
         "spriteReference": {
-          "$id": "13",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "eedfcd34658f1764683bf73d13d07fa3",
           "m_SubObjectName": "Legendary_Rune_06",
@@ -128,12 +115,10 @@
         }
       },
       {
-        "$id": "14",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
         "text": "Equipment/&Legendary_Document_Content02",
         "spriteReference": {
-          "$id": "15",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "",
           "m_SubObjectName": "",
@@ -141,12 +126,10 @@
         }
       },
       {
-        "$id": "16",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Illustration",
         "text": "Equipment/&Legendary_Document_Content02",
         "spriteReference": {
-          "$id": "17",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "660bee1b20ed2844e97f6616e3f11d41",
           "m_SubObjectName": "Legendary_Rune_03",
@@ -154,12 +137,10 @@
         }
       },
       {
-        "$id": "18",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "NewPage",
         "text": "Equipment/&Legendary_Document_Content05",
         "spriteReference": {
-          "$id": "19",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "eedfcd34658f1764683bf73d13d07fa3",
           "m_SubObjectName": "Legendary_Rune_06",
@@ -167,12 +148,10 @@
         }
       },
       {
-        "$id": "20",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
         "text": "Equipment/&Legendary_Document_Content03",
         "spriteReference": {
-          "$id": "21",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "660bee1b20ed2844e97f6616e3f11d41",
           "m_SubObjectName": "Legendary_Rune_03",
@@ -180,12 +159,10 @@
         }
       },
       {
-        "$id": "22",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Illustration",
         "text": "Equipment/&Legendary_Document_Content03",
         "spriteReference": {
-          "$id": "23",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "eed802823541519419d22843c778dae9",
           "m_SubObjectName": "Legendary_Rune_04",
@@ -193,12 +170,10 @@
         }
       },
       {
-        "$id": "24",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
         "text": "Equipment/&Legendary_Document_Content04",
         "spriteReference": {
-          "$id": "25",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "eed802823541519419d22843c778dae9",
           "m_SubObjectName": "Legendary_Rune_04",
@@ -206,12 +181,10 @@
         }
       },
       {
-        "$id": "26",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Illustration",
         "text": "Equipment/&Legendary_Document_Content04",
         "spriteReference": {
-          "$id": "27",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "1214262567c19534783fe88b3302e6bf",
           "m_SubObjectName": "Legendary_Rune_05",
@@ -219,12 +192,10 @@
         }
       },
       {
-        "$id": "28",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
         "text": "Equipment/&Legendary_Document_Content05",
         "spriteReference": {
-          "$id": "29",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "1214262567c19534783fe88b3302e6bf",
           "m_SubObjectName": "Legendary_Rune_05",
@@ -232,12 +203,10 @@
         }
       },
       {
-        "$id": "30",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Illustration",
         "text": "Equipment/&Legendary_Document_Content05",
         "spriteReference": {
-          "$id": "31",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "eedfcd34658f1764683bf73d13d07fa3",
           "m_SubObjectName": "Legendary_Rune_06",
@@ -245,12 +214,10 @@
         }
       },
       {
-        "$id": "32",
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
         "text": "Equipment/&Legendary_Document_Content06",
         "spriteReference": {
-          "$id": "33",
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "eedfcd34658f1764683bf73d13d07fa3",
           "m_SubObjectName": "Legendary_Rune_06",
@@ -270,7 +237,6 @@
   "isFood": false,
   "isFactionRelic": true,
   "factionRelicDescription": {
-    "$id": "34",
     "$type": "FactionRelicDescription, Assembly-CSharp",
     "loreValue": 12,
     "interestedFactions": [
@@ -288,10 +254,8 @@
   },
   "personalityFlagOccurences": [],
   "soundEffectDescriptionOverride": {
-    "$id": "35",
     "$type": "SoundEffectDescription, Assembly-CSharp",
     "startEvent": {
-      "$id": "36",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -301,7 +265,6 @@
       }
     },
     "stopEvent": {
-      "$id": "37",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -311,7 +274,6 @@
       }
     },
     "startSwitch": {
-      "$id": "38",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -326,7 +288,6 @@
       }
     },
     "stopSwitch": {
-      "$id": "39",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -341,7 +302,6 @@
       }
     },
     "guiStoreBody": {
-      "$id": "40",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -351,7 +311,6 @@
       }
     },
     "guiPickBody": {
-      "$id": "41",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -361,7 +320,6 @@
       }
     },
     "guiStoreOther": {
-      "$id": "42",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -371,7 +329,6 @@
       }
     },
     "guiPickOther": {
-      "$id": "43",
       "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "idInternal": 0,
@@ -382,10 +339,8 @@
     }
   },
   "soundEffectOnHitDescriptionOverride": {
-    "$id": "44",
     "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
     "switchOnHit": {
-      "$id": "45",
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
       "WwiseObjectReference": null,
       "groupIdInternal": 0,
@@ -401,13 +356,11 @@
     }
   },
   "itemPresentation": {
-    "$id": "46",
     "$type": "ItemPresentation, Assembly-CSharp",
     "unidentifiedTitle": "",
     "unidentifiedDescription": "",
     "overrideSubtype": "None",
     "assetReference": {
-      "$id": "47",
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
@@ -427,20 +380,17 @@
     "serializedVersion": 1
   },
   "guiPresentation": {
-    "$id": "48",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&Legendary_Document_Title",
     "description": "Equipment/&Legendary_Document_Description",
     "spriteReference": {
-      "$id": "49",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "9410a505b22f24f40b1a56c0ea38fa21",
       "m_SubObjectName": "PickupQuest_CrownNotes",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
-      "$id": "50",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,

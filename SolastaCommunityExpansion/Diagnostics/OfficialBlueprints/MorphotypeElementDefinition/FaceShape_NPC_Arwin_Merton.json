@@ -3,7 +3,6 @@
   "playerSelectable": false,
   "category": "FaceShape",
   "mainColor": {
-    "$id": "1",
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 1.0,
     "g": 1.0,
@@ -11,7 +10,6 @@
     "a": 1.0
   },
   "secondColor": {
-    "$id": "2",
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 1.0,
     "g": 1.0,
@@ -19,7 +17,6 @@
     "a": 1.0
   },
   "thirdColor": {
-    "$id": "3",
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 1.0,
     "g": 1.0,
@@ -30,7 +27,6 @@
   "bodyDecorationType": "Tattoo",
   "bodyDecorationBlendFactor": 1.0,
   "minMaxValue": {
-    "$id": "4",
     "$type": "TA.RangedFloat, Assembly-CSharp",
     "minValue": 0.0,
     "maxValue": 100.0
@@ -38,20 +34,17 @@
   "originAllowed": [],
   "subClassFilterMask": "All",
   "guiPresentation": {
-    "$id": "5",
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Arwin_Merton",
     "description": "Arwin_Merton",
     "spriteReference": {
-      "$id": "6",
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "color": {
-      "$id": "7",
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
       "g": 1.0,
