@@ -27,6 +27,8 @@ namespace SolastaCommunityExpansion
         // Diagnostics
         //
 
+        public bool EnableHandleEventsLog { get; set; }
+
         // very large or not very useful definitions
         public string[] ExcludeFromExport = new string[]
         {

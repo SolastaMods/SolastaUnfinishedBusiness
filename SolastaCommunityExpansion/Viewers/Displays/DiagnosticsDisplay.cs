@@ -15,6 +15,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
         internal static void DisplayModdingTools()
         {
+            bool toggle;
+
             UI.Label("");
 
             using (UI.HorizontalScope())
@@ -29,6 +31,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }, UI.Width(200));
 
                 DisplayDumpDescription();
+            }
+
+            UI.Label("");
+            toggle = Main.Settings.EnableHandleEventsLog;
+            if (UI.Toggle("Enable Battle Service handle events log", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableHandleEventsLog = toggle;
             }
 
             UI.Label("");

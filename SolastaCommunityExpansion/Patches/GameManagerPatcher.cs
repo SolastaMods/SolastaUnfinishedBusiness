@@ -24,6 +24,9 @@ namespace SolastaCommunityExpansion.Patches
             // Cache TA definitions for diagnostics and export
             DiagnosticsContext.CacheTADefinitions();
 
+            // Enable battle handler logs / handler delegates
+            BattleHandleEventContext.Load();
+
             AdditionalNamesContext.Load();
             AsiAndFeatContext.Load();
             BugFixContext.Load();
