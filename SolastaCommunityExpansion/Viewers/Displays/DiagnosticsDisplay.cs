@@ -4,8 +4,11 @@ using System.Text;
 using ModKit;
 using SolastaCommunityExpansion.DataMiner;
 using SolastaCommunityExpansion.Models;
+#if DEBUG
 using SolastaCommunityExpansion.Patches.Diagnostic;
+#endif
 using static SolastaCommunityExpansion.Viewers.Displays.CreditsDisplay;
+using static SolastaCommunityExpansion.Viewers.Displays.Shared;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
 {
@@ -34,10 +37,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
 
             UI.Label("");
-            toggle = Main.Settings.EnableHandleEventsLog;
-            if (UI.Toggle("Enable Battle Service handle events log", ref toggle, UI.AutoWidth()))
+            toggle = Main.Settings.EnableBattleServiceEventLogs;
+            if (UI.Toggle("Enable Battle Service handle events log " + RequiresRestart, ref toggle, UI.AutoWidth()))
             {
-                Main.Settings.EnableHandleEventsLog = toggle;
+                Main.Settings.EnableBattleServiceEventLogs = toggle;
             }
 
             UI.Label("");
