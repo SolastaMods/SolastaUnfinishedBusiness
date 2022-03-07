@@ -27,7 +27,7 @@ namespace SolastaCommunityExpansion
         // Diagnostics
         //
 
-        public bool EnableHandleEventsLog { get; set; }
+        public bool EnableBattleServiceEventLogs { get; set; } = true;
 
         // very large or not very useful definitions
         public string[] ExcludeFromExport = new string[]
@@ -88,6 +88,7 @@ namespace SolastaCommunityExpansion
         public bool BugFixConjuredUnitsTeleportWithParty { get; set; } = true;
         public bool BugFixExpandColorTables { get; set; } = true;
         public bool BugFixNullRecipesOnGameSerialization { get; set; } = true;
+        public bool EnableActionsEnumeratorContext { get; set; } = true;
         public bool EnableDungeonMakerPro { get; set; } = true;
         public bool EnableDungeonMakerRotationHotkeys { get; set; } = true;
         public bool EnableFirstLevelCasterFeats { get; set; } = true;
