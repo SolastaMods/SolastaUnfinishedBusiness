@@ -3,6 +3,7 @@ using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
+using TA;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Models
@@ -23,6 +24,11 @@ namespace SolastaCommunityExpansion.Models
 
         private static readonly Dictionary<string, System.Action<Object, System.Type>> EnumeratorMethodsScope = new()
         {
+            //{ "CharacterActionMagicEffect.MagicEffectExecuteOnZone", InvokeMagicEffectExecuteOnZone },
+            //{ "CharacterActionMagicEffect.MagicEffectExecuteOnTargets", InvokeMagicEffectExecuteOnTargets },
+            //{ "CharacterActionMagicEffect.MagicEffectExecuteOnPositions", InvokeMagicEffectExecuteOnPositions },
+            { "CharacterActionMagicEffect.ExecuteMagicAttack", InvokeExecuteMagicAttack },
+
             { "GameLocationBattleManager.HandleCharacterAttack", InvokeHandleCharacterAttack },
             { "GameLocationBattleManager.HandleRangeAttack", InvokeHandleRangeAttack },
             { "GameLocationBattleManager.HandleCharacterAttackHit", InvokeHandleCharacterAttackHit },
@@ -39,6 +45,41 @@ namespace SolastaCommunityExpansion.Models
         // Current delegates implementation. These can be used to change the object as in a PREFIX or simply get a context
         //
 
+        // CharacterActionMagicEffect delegates
+        //public static MagicEffectExecuteOnZone MagicEffectExecuteOnZoneHandler { get; set; }
+        //public static MagicEffectExecuteOnTargets MagicEffectExecuteOnTargetsHandler { get; set; }
+        //public static MagicEffectExecuteOnPositions MagicEffectExecuteOnPositionsHandler { get; set; }
+        public static ExecuteMagicAttack ExecuteMagicAttackHandler { get; set; }
+
+        //public delegate void MagicEffectExecuteOnZone(
+        //    ref List<GameLocationCharacter> targets,
+        //    ref List<ActionModifier> actionModifiers,
+        //    ref Vector3 castingPoint,
+        //    ref Vector3 impactPoint,
+        //    ref Vector3 impactPlanePoint);
+
+        //public delegate void MagicEffectExecuteOnTargets(
+        //    ref List<GameLocationCharacter> targets,
+        //    ref List<ActionModifier> actionModifiers,
+        //    ref Vector3 castingPoint,
+        //    ref Vector3 impactPoint,
+        //    ref Vector3 impactPlanePoint);
+
+        //public delegate void MagicEffectExecuteOnPositions(
+        //    ref List<int3> positions,
+        //    ref Vector3 castingPoint,
+        //    ref Vector3 impactPoint,
+        //    ref Vector3 impactPlanePoint);
+
+        public delegate void ExecuteMagicAttack(
+            RulesetEffect activeEffect,
+            GameLocationCharacter target,
+            ActionModifier attackModifier,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool checkMagicalAttackDamage);
+
+        // GameLocationBattleManager delegates
         public static HandleCharacterAttack HandleCharacterAttackHandler { get; set; }
         public static HandleRangeAttack HandleRangeAttackHandler { get; set; }
         public static HandleCharacterAttackHit HandleCharacterAttackHitHandler { get; set; }
@@ -49,10 +90,6 @@ namespace SolastaCommunityExpansion.Models
         public static HandleSpellCast HandleSpellCastHandler { get; set; }
         public static HandleSpellTargeted HandleSpellTargetedHandler { get; set; }
         public static HandleFailedSavingThrowAgainstEffect HandleFailedSavingThrowAgainstEffectHandler { get; set; }
-
-        //
-        //
-        //
 
         public delegate void HandleCharacterAttack(
             ref GameLocationCharacter attacker,
@@ -128,6 +165,98 @@ namespace SolastaCommunityExpansion.Models
         // Current "Invoke" implementations. They get all the relevant object parameters and pass them as ref to the delegates
         // This allows 2 scenarios: change these objects before they are yielded back (executed) or get these objects context
         //
+
+        //public static void InvokeMagicEffectExecuteOnZone(Object obj, System.Type type)
+        //{
+        //    if (MagicEffectExecuteOnZoneHandler == null)
+        //    {
+        //        return;
+        //    }
+
+        //    var targets = (List<GameLocationCharacter>)AccessTools.Field(type, "targets").GetValue(obj);
+        //    var actionModifiers = (List<ActionModifier>)AccessTools.Field(type, "actionModifiers").GetValue(obj);
+        //    var castingPoint = (Vector3)AccessTools.Field(type, "castingPoint").GetValue(obj);
+        //    var impactPoint = (Vector3)AccessTools.Field(type, "impactPoint").GetValue(obj);
+        //    var impactPlanePoint = (Vector3)AccessTools.Field(type, "impactPlanePoint").GetValue(obj);
+
+        //    MagicEffectExecuteOnZoneHandler
+        //        .Invoke(ref targets, ref actionModifiers, castingPoint, impactPoint, impactPlanePoint);
+
+        //    AccessTools.Field(type, "targets").SetValue(obj, targets);
+        //    AccessTools.Field(type, "actionModifiers").SetValue(obj, actionModifiers);
+        //    AccessTools.Field(type, "castingPoint").SetValue(obj, castingPoint);
+        //    AccessTools.Field(type, "impactPoint").SetValue(obj, impactPoint);
+        //    AccessTools.Field(type, "impactPlanePoint").SetValue(obj, impactPlanePoint);
+        //}
+
+        //public static void InvokeMagicEffectExecuteOnTargets(Object obj, System.Type type)
+        //{
+        //    if (MagicEffectExecuteOnTargetsHandler == null)
+        //    {
+        //        return;
+        //    }
+
+        //    var targets = (List<GameLocationCharacter>)AccessTools.Field(type, "targets").GetValue(obj);
+        //    var actionModifiers = (List<ActionModifier>)AccessTools.Field(type, "actionModifiers").GetValue(obj);
+        //    var castingPoint = (Vector3)AccessTools.Field(type, "castingPoint").GetValue(obj);
+        //    var impactPoint = (Vector3)AccessTools.Field(type, "impactPoint").GetValue(obj);
+        //    var impactPlanePoint = (Vector3)AccessTools.Field(type, "impactPlanePoint").GetValue(obj);
+
+        //    MagicEffectExecuteOnTargetsHandler
+        //        .Invoke(targets, actionModifiers, castingPoint, impactPoint, impactPlanePoint);
+
+        //    AccessTools.Field(type, "targets").SetValue(obj, targets);
+        //    AccessTools.Field(type, "actionModifiers").SetValue(obj, actionModifiers);
+        //    AccessTools.Field(type, "castingPoint").SetValue(obj, castingPoint);
+        //    AccessTools.Field(type, "impactPoint").SetValue(obj, impactPoint);
+        //    AccessTools.Field(type, "impactPlanePoint").SetValue(obj, impactPlanePoint);
+        //}
+
+        //public static void InvokeMagicEffectExecuteOnPositions(Object obj, System.Type type)
+        //{
+        //    if (MagicEffectExecuteOnPositionsHandler == null)
+        //    {
+        //        return;
+        //    }
+
+        //    var positions = (List<int3>)AccessTools.Field(type, "positions").GetValue(obj);
+        //    var castingPoint = (Vector3)AccessTools.Field(type, "castingPoint").GetValue(obj);
+        //    var impactPoint = (Vector3)AccessTools.Field(type, "impactPoint").GetValue(obj);
+        //    var impactPlanePoint = (Vector3)AccessTools.Field(type, "impactPlanePoint").GetValue(obj);
+
+        //    MagicEffectExecuteOnPositionsHandler
+        //        .Invoke(positions, castingPoint, impactPoint, impactPlanePoint);
+
+        //    AccessTools.Field(type, "positions").SetValue(obj, positions);
+        //    AccessTools.Field(type, "castingPoint").SetValue(obj, castingPoint);
+        //    AccessTools.Field(type, "impactPoint").SetValue(obj, impactPoint);
+        //    AccessTools.Field(type, "impactPlanePoint").SetValue(obj, impactPlanePoint);
+        //}
+
+        public static void InvokeExecuteMagicAttack(Object obj, System.Type type)
+        {
+            if (ExecuteMagicAttackHandler == null)
+            {
+                return;
+            }
+
+            var activeEffect = (RulesetEffect)AccessTools.Field(type, "activeEffect").GetValue(obj);
+            var target = (GameLocationCharacter)AccessTools.Field(type, "target").GetValue(obj);
+            var attackModifier = (ActionModifier)AccessTools.Field(type, "attackModifier").GetValue(obj);
+            var actualEffectForms = (List<EffectForm>)AccessTools.Field(type, "actualEffectForms").GetValue(obj);
+            var firstTarget = (bool)AccessTools.Field(type, "firstTarget").GetValue(obj);
+            var checkMagicalAttackDamage = (bool)AccessTools.Field(type, "checkMagicalAttackDamage").GetValue(obj);
+
+            ExecuteMagicAttackHandler
+                .Invoke(activeEffect, target, attackModifier, actualEffectForms, firstTarget, checkMagicalAttackDamage);
+
+            AccessTools.Field(type, "activeEffect").SetValue(obj, activeEffect);
+            AccessTools.Field(type, "target").SetValue(obj, target);
+            AccessTools.Field(type, "attackModifier").SetValue(obj, attackModifier);
+            AccessTools.Field(type, "actualEffectForms").SetValue(obj, actualEffectForms);
+            AccessTools.Field(type, "firstTarget").SetValue(obj, firstTarget);
+            AccessTools.Field(type, "checkMagicalAttackDamage").SetValue(obj, checkMagicalAttackDamage);
+        }
 
         private static void InvokeHandleCharacterAttack(Object obj, System.Type type)
         {
