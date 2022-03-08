@@ -30,22 +30,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     Main.Settings.UseOfficialAdvantageDisadvantageRules = toggle;
                 }
 
-                toggle = Main.Settings.UseOfficialCombatSurpriseRules;
-                if (UI.Toggle("Use official combat surprise rules", ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.UseOfficialCombatSurpriseRules = toggle;
-                    Main.Settings.RollDifferentStealthChecksForEachCharacterPair = toggle; // makes many rolls default
-                }
-
-                if (Main.Settings.UseOfficialCombatSurpriseRules)
-                {
-                    toggle = Main.Settings.RollDifferentStealthChecksForEachCharacterPair;
-                    if (UI.Toggle("+ Roll different ".italic() + "Stealth".italic().orange() + " checks for each surprised / surprising character pairs".italic(), ref toggle, UI.AutoWidth()))
-                    {
-                        Main.Settings.RollDifferentStealthChecksForEachCharacterPair = toggle;
-                    }
-                }
-
                 UI.Label("");
 
                 toggle = Main.Settings.AddBleedingToLesserRestoration;
