@@ -1,23 +1,12 @@
 {
   "$type": "EncounterDefinition, Assembly-CSharp",
   "type": "Battle",
-  "challengeRating": 13,
+  "challengeRating": 12,
   "locationOverride": null,
   "monsterOccurences": [
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:Generic_HighPriest:c11ee81fdf46aa746aac3bd8b74584aa",
-      "number": 1,
-      "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall:a51ae7a702e42f84c93bbcb330605b3e",
-      "creatureSex": "Male",
-      "presentationDefinitionIndex": 0,
-      "randomHumanoidPresentation": false,
-      "overrideFaction": false,
-      "factionName": ""
-    },
-    {
-      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
-      "monsterDefinition": "Definition:SRD_Acolyte:9ede667e39b3bfa4fbf1b232ce2a0b48",
       "number": 2,
       "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall:a51ae7a702e42f84c93bbcb330605b3e",
       "creatureSex": "Male",
@@ -28,8 +17,19 @@
     },
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
-      "monsterDefinition": "Definition:SRD_Veteran:97d21070354567849b2d5e0a5a34a0ba",
+      "monsterDefinition": "Definition:SRD_Acolyte:9ede667e39b3bfa4fbf1b232ce2a0b48",
       "number": 4,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall:a51ae7a702e42f84c93bbcb330605b3e",
+      "creatureSex": "Male",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": false,
+      "overrideFaction": false,
+      "factionName": ""
+    },
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:SRD_Veteran:97d21070354567849b2d5e0a5a34a0ba",
+      "number": 3,
       "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall:a51ae7a702e42f84c93bbcb330605b3e",
       "creatureSex": "Male",
       "presentationDefinitionIndex": 0,

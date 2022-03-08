@@ -1,13 +1,13 @@
 {
   "$type": "EncounterDefinition, Assembly-CSharp",
   "type": "Battle",
-  "challengeRating": 14,
+  "challengeRating": 12,
   "locationOverride": null,
   "monsterOccurences": [
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:Troll:29949a3f8848b7a4898f9276248ec952",
-      "number": 3,
+      "number": 5,
       "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall_PenalizeAltitude:c80d21582cba9af45af18c8b417c2af3",
       "creatureSex": "Male",
       "presentationDefinitionIndex": 0,

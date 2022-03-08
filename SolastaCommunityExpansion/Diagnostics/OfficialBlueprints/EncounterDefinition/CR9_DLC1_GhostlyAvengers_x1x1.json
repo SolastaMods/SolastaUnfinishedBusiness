@@ -6,8 +6,8 @@
   "monsterOccurences": [
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
-      "monsterDefinition": "Definition:Ghost:30434138da6acb14186bbeeb238311ae",
-      "number": 1,
+      "monsterDefinition": "Definition:Wraith:ff1c16cf5877afc42a99287b7277084e",
+      "number": 2,
       "encounterPlacementDecision": "Definition:EncounterSpawn_Spread:4fbd444af01e4f94e8155bc494305192",
       "creatureSex": "Male",
       "presentationDefinitionIndex": 0,
@@ -17,7 +17,7 @@
     },
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
-      "monsterDefinition": "Definition:Wraith:ff1c16cf5877afc42a99287b7277084e",
+      "monsterDefinition": "Definition:Ghost:30434138da6acb14186bbeeb238311ae",
       "number": 1,
       "encounterPlacementDecision": "Definition:EncounterSpawn_Spread:4fbd444af01e4f94e8155bc494305192",
       "creatureSex": "Male",

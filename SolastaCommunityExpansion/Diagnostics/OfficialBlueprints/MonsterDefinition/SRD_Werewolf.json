@@ -78,7 +78,7 @@
       },
       "previousTargetRelatedMalus": 0.1
     },
-    "name": "PrioritizeNoone"
+    "name": "PrioritizeFragileHurtDamageDealers_Ranged"
   },
   "languages": [
     "Language_Common"

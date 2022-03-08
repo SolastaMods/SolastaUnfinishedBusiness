@@ -103,8 +103,6 @@
       "Race/&ElfSurName17Title"
     ],
     "needBeard": false,
-    "useBeardBlendShape": false,
-    "beardBlendShapes": [],
     "canModifyMusculature": true,
     "originOptions": [],
     "maleFaceShapeOptions": [],

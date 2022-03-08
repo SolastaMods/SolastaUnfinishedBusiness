@@ -70,8 +70,6 @@
     "surNameTitle": "Race/&ElfSurNameTitle",
     "surNameOptions": [],
     "needBeard": false,
-    "useBeardBlendShape": false,
-    "beardBlendShapes": [],
     "canModifyMusculature": true,
     "originOptions": [
       "Origin_NonHuman"

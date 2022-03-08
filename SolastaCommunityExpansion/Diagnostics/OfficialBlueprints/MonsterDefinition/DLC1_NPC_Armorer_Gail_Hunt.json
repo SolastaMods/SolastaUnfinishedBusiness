@@ -217,7 +217,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "NPC/&NPC_DLC_Armorer",
-    "description": "NPC/&NPC_DLC_Armorer",
+    "description": "Merchant/&CaerCyflenWeaponsmith2Title",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "90abe5a0f2c8f204fab04ffa294e4c8c",
