@@ -28,7 +28,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
             {
                 var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
 
-                caster = characterBuildingService.HeroCharacter;
+                caster = characterBuildingService.CurrentLocalHeroCharacter;
             }
 
             // Collect all the auto prepared spells.

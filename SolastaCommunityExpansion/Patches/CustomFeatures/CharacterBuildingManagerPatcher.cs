@@ -14,7 +14,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
 
         internal static void Prefix(CharacterBuildingManager __instance, List<FeatureDefinition> grantedFeatures)
         {
-            Models.CustomFeaturesContext.RecursiveGrantCustomFeatures(__instance.HeroCharacter, grantedFeatures);
+            Models.CustomFeaturesContext.RecursiveGrantCustomFeatures(__instance.CurrentLocalHeroCharacter, grantedFeatures);
         }
     }
 }

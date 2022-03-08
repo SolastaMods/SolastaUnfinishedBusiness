@@ -57,6 +57,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetFastTravelFromSameSectorOnly<T>(this T entity, System.Boolean value)
+            where T : MapWaypointDefinition
+        {
+            entity.SetField("fastTravelFromSameSectorOnly", value);
+            return entity;
+        }
+
         public static T SetForceCameraOrientation<T>(this T entity, System.Boolean value)
             where T : MapWaypointDefinition
         {

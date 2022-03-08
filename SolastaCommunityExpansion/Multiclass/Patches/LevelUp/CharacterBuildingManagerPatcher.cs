@@ -160,7 +160,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
 
                 __instance.GetField<CharacterBuildingManager, List<FeatureDefinition>>("matchingFeatures").Clear();
 
-                foreach (var spellRepertoire in __instance.HeroCharacter.SpellRepertoires)
+                foreach (var spellRepertoire in __instance.CurrentLocalHeroCharacter.SpellRepertoires)
                 {
                     var isRepertoireFromSelectedClassSubclass = CacheSpellsContext.IsRepertoireFromSelectedClassSubclass(spellRepertoire);
 
@@ -227,7 +227,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                 // PATCH: don't allow scribed spells to be re-learned
                 var foundSpellbooks = new List<RulesetItemSpellbook>();
 
-                __instance.HeroCharacter.CharacterInventory.BrowseAllCarriedItems<RulesetItemSpellbook>(foundSpellbooks);
+                __instance.CurrentLocalHeroCharacter.CharacterInventory.BrowseAllCarriedItems<RulesetItemSpellbook>(foundSpellbooks);
                 foreach (var foundSpellbook in foundSpellbooks)
                 {
                     foreach (var spell in foundSpellbook.ScribedSpells)
@@ -365,78 +365,82 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
             }
         }
 
-        // ensures the level up process only offers slots from the leveling up class
-        [HarmonyPatch(typeof(CharacterBuildingManager), "UpgradeSpellPointPools")]
-        internal static class CharacterBuildingManagerUpgradeSpellPointPools
-        {
-            internal static bool Prefix(
-                CharacterBuildingManager __instance,
-                ref int ___tempAcquiredCantripsNumber,
-                ref int ___tempAcquiredSpellsNumber,
-                ref int ___tempUnlearnedSpellsNumber)
-            {
-                if (!Main.Settings.EnableMulticlass)
-                {
-                    return true;
-                }
+        //
+        // TO BE FIXED LATER
+        //
 
-                if (!(LevelUpContext.LevelingUp && LevelUpContext.IsMulticlass))
-                {
-                    return true;
-                }
+        //// ensures the level up process only offers slots from the leveling up class
+        //[HarmonyPatch(typeof(CharacterBuildingManager), "UpgradeSpellPointPools")]
+        //internal static class CharacterBuildingManagerUpgradeSpellPointPools
+        //{
+        //    internal static bool Prefix(
+        //        CharacterBuildingManager __instance,
+        //        ref int ___tempAcquiredCantripsNumber,
+        //        ref int ___tempAcquiredSpellsNumber,
+        //        ref int ___tempUnlearnedSpellsNumber)
+        //    {
+        //        if (!Main.Settings.EnableMulticlass)
+        //        {
+        //            return true;
+        //        }
 
-                foreach (var spellRepertoire in __instance.HeroCharacter.SpellRepertoires)
-                {
-                    var poolName = string.Empty;
-                    var maxPoints = 0;
+        //        if (!(LevelUpContext.LevelingUp && LevelUpContext.IsMulticlass))
+        //        {
+        //            return true;
+        //        }
 
-                    if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Class)
-                    {
-                        // PATCH: short circuit if the feature is for another class (change from native code)
-                        if (spellRepertoire.SpellCastingClass != LevelUpContext.SelectedClass)
-                        {
-                            continue;
-                        }
+        //        foreach (var spellRepertoire in __instance.CurrentLocalHeroCharacter.SpellRepertoires)
+        //        {
+        //            var poolName = string.Empty;
+        //            var maxPoints = 0;
 
-                        poolName = AttributeDefinitions.GetClassTag(LevelUpContext.SelectedClass, LevelUpContext.SelectedClassLevel); // SelectedClassLevel ???
-                    }
-                    else if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Subclass)
-                    {
-                        // PATCH: short circuit if the feature is for another subclass (change from native code)
-                        if (spellRepertoire.SpellCastingSubclass != LevelUpContext.SelectedSubclass)
-                        {
-                            continue;
-                        }
+        //            if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Class)
+        //            {
+        //                // PATCH: short circuit if the feature is for another class (change from native code)
+        //                if (spellRepertoire.SpellCastingClass != LevelUpContext.SelectedClass)
+        //                {
+        //                    continue;
+        //                }
 
-                        poolName = AttributeDefinitions.GetSubclassTag(LevelUpContext.SelectedClass, LevelUpContext.SelectedClassLevel, LevelUpContext.SelectedSubclass); // SelectedClassLevel ???
-                    }
-                    else if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Race)
-                    {
-                        poolName = "02Race";
-                    }
+        //                poolName = AttributeDefinitions.GetClassTag(LevelUpContext.SelectedClass, LevelUpContext.SelectedClassLevel); // SelectedClassLevel ???
+        //            }
+        //            else if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Subclass)
+        //            {
+        //                // PATCH: short circuit if the feature is for another subclass (change from native code)
+        //                if (spellRepertoire.SpellCastingSubclass != LevelUpContext.SelectedSubclass)
+        //                {
+        //                    continue;
+        //                }
 
-                    var characterBuildingManagerType = typeof(CharacterBuildingManager);
-                    var applyFeatureCastSpellMethod = characterBuildingManagerType.GetMethod("ApplyFeatureCastSpell", BindingFlags.NonPublic | BindingFlags.Instance);
-                    var setPointPoolMethod = characterBuildingManagerType.GetMethod("SetPointPool", BindingFlags.NonPublic | BindingFlags.Instance);
+        //                poolName = AttributeDefinitions.GetSubclassTag(LevelUpContext.SelectedClass, LevelUpContext.SelectedClassLevel, LevelUpContext.SelectedSubclass); // SelectedClassLevel ???
+        //            }
+        //            else if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Race)
+        //            {
+        //                poolName = "02Race";
+        //            }
 
-                    ___tempAcquiredCantripsNumber = 0;
-                    ___tempAcquiredSpellsNumber = 0;
-                    ___tempUnlearnedSpellsNumber = 0;
+        //            var characterBuildingManagerType = typeof(CharacterBuildingManager);
+        //            var applyFeatureCastSpellMethod = characterBuildingManagerType.GetMethod("ApplyFeatureCastSpell", BindingFlags.NonPublic | BindingFlags.Instance);
+        //            var setPointPoolMethod = characterBuildingManagerType.GetMethod("SetPointPool", BindingFlags.NonPublic | BindingFlags.Instance);
 
-                    applyFeatureCastSpellMethod.Invoke(__instance, new object[] { spellRepertoire.SpellCastingFeature });
+        //            ___tempAcquiredCantripsNumber = 0;
+        //            ___tempAcquiredSpellsNumber = 0;
+        //            ___tempUnlearnedSpellsNumber = 0;
 
-                    if (__instance.HasAnyActivePoolOfType(HeroDefinitions.PointsPoolType.Cantrip) && __instance.PointPoolStacks[HeroDefinitions.PointsPoolType.Cantrip].ActivePools.ContainsKey(poolName))
-                    {
-                        maxPoints = __instance.PointPoolStacks[HeroDefinitions.PointsPoolType.Cantrip].ActivePools[poolName].MaxPoints;
-                    }
+        //            applyFeatureCastSpellMethod.Invoke(__instance, new object[] { spellRepertoire.SpellCastingFeature });
 
-                    setPointPoolMethod.Invoke(__instance, new object[] { HeroDefinitions.PointsPoolType.Cantrip, poolName, ___tempAcquiredCantripsNumber + maxPoints });
-                    setPointPoolMethod.Invoke(__instance, new object[] { HeroDefinitions.PointsPoolType.Spell, poolName, ___tempAcquiredSpellsNumber });
-                    setPointPoolMethod.Invoke(__instance, new object[] { HeroDefinitions.PointsPoolType.SpellUnlearn, poolName, ___tempUnlearnedSpellsNumber });
-                }
+        //            if (__instance.HasAnyActivePoolOfType(HeroDefinitions.PointsPoolType.Cantrip) && __instance.PointPoolStacks[HeroDefinitions.PointsPoolType.Cantrip].ActivePools.ContainsKey(poolName))
+        //            {
+        //                maxPoints = __instance.PointPoolStacks[HeroDefinitions.PointsPoolType.Cantrip].ActivePools[poolName].MaxPoints;
+        //            }
 
-                return false;
-            }
-        }
+        //            setPointPoolMethod.Invoke(__instance, new object[] { HeroDefinitions.PointsPoolType.Cantrip, poolName, ___tempAcquiredCantripsNumber + maxPoints });
+        //            setPointPoolMethod.Invoke(__instance, new object[] { HeroDefinitions.PointsPoolType.Spell, poolName, ___tempAcquiredSpellsNumber });
+        //            setPointPoolMethod.Invoke(__instance, new object[] { HeroDefinitions.PointsPoolType.SpellUnlearn, poolName, ___tempUnlearnedSpellsNumber });
+        //        }
+
+        //        return false;
+        //    }
+        //}
     }
 }

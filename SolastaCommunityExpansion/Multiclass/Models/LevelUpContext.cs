@@ -562,10 +562,10 @@ namespace SolastaCommunityExpansion.Multiclass.Models
                 lastClassDefinition = null;
                 level = 0;
 
-                if (characterBuildingService.HeroCharacter.ClassesHistory.Count > 0)
+                if (characterBuildingService.CurrentLocalHeroCharacter.ClassesHistory.Count > 0)
                 {
-                    lastClassDefinition = characterBuildingService.HeroCharacter.ClassesHistory[characterBuildingService.HeroCharacter.ClassesHistory.Count - 1];
-                    level = characterBuildingService.HeroCharacter.ClassesAndLevels[lastClassDefinition];
+                    lastClassDefinition = characterBuildingService.CurrentLocalHeroCharacter.ClassesHistory[characterBuildingService.CurrentLocalHeroCharacter.ClassesHistory.Count - 1];
+                    level = characterBuildingService.CurrentLocalHeroCharacter.ClassesAndLevels[lastClassDefinition];
                 }
             }
         }
