@@ -1,13 +1,13 @@
 {
   "$type": "EncounterDefinition, Assembly-CSharp",
   "type": "Battle",
-  "challengeRating": 2,
+  "challengeRating": 3,
   "locationOverride": null,
   "monsterOccurences": [
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:Tiger_Drake:38cc0f56805dd8a44a25432990696848",
-      "number": 2,
+      "number": 3,
       "encounterPlacementDecision": "Definition:EncounterSpawn_Skirmisher:0d019499ee5d57b4b88dd9a23f926141",
       "creatureSex": "Male",
       "presentationDefinitionIndex": 0,

@@ -18,7 +18,7 @@
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:SRD_DLC_Thug:0c94b41f3e61f0a4c8cbb7537cc1ceaa",
-      "number": 2,
+      "number": 4,
       "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall:a51ae7a702e42f84c93bbcb330605b3e",
       "creatureSex": "Male",
       "presentationDefinitionIndex": 0,

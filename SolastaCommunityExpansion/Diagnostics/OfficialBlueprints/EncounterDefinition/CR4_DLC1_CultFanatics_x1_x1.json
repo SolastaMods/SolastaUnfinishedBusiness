@@ -7,7 +7,7 @@
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:SRD_Cult_Fanatic:c3e3a508caec93c429c10c660a498995",
-      "number": 1,
+      "number": 3,
       "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall:a51ae7a702e42f84c93bbcb330605b3e",
       "creatureSex": "Male",
       "presentationDefinitionIndex": 0,
@@ -17,8 +17,8 @@
     },
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
-      "monsterDefinition": "Definition:SRD_Cult_Fanatic:c3e3a508caec93c429c10c660a498995",
-      "number": 1,
+      "monsterDefinition": "Definition:Zombie:93c5df77b00f3344289f89c66c62e888",
+      "number": 5,
       "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall:a51ae7a702e42f84c93bbcb330605b3e",
       "creatureSex": "Male",
       "presentationDefinitionIndex": 0,

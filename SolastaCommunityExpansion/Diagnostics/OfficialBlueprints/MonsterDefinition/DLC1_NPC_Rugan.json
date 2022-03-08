@@ -4,7 +4,7 @@
   "overrideSpawnDecision": null,
   "characterFamily": "Giant",
   "creatureTags": [],
-  "defaultFaction": "NeutralMonsters",
+  "defaultFaction": "DLC1_Faction_Giant",
   "fullyControlledWhenAllied": true,
   "sizeDefinition": "Definition:Huge:5b85854ce261190429aabf462c72ea0d",
   "alignment": "ChaoticNeutral",

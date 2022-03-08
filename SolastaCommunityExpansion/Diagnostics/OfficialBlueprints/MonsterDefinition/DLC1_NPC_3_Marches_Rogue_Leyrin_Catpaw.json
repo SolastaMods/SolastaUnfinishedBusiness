@@ -209,7 +209,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "NPC/&NPC_Marches_03_Title",
-    "description": "NPC/&NPC_Marches_03_Description",
+    "description": "Class/&RogueTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

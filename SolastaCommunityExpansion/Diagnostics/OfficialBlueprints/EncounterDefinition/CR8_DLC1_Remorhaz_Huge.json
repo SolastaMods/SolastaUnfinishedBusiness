@@ -1,0 +1,56 @@
+{
+  "$type": "EncounterDefinition, Assembly-CSharp",
+  "type": "Battle",
+  "challengeRating": 8,
+  "locationOverride": "Definition:DLC1_Encounter_Jungle_Road_LocationDB:d805c113000390f4c8b4a12603068534",
+  "monsterOccurences": [
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Remorhaz:b1d9f09845585014f96d66348b24144c",
+      "number": 1,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall_PenalizeAltitude:c80d21582cba9af45af18c8b417c2af3",
+      "creatureSex": "Male",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": false,
+      "overrideFaction": false,
+      "factionName": ""
+    },
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Young_Remorhaz:86368b4999f34f349b477aecd56db5a1",
+      "number": 2,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall_PenalizeAltitude:c80d21582cba9af45af18c8b417c2af3",
+      "creatureSex": "Male",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": false,
+      "overrideFaction": false,
+      "factionName": ""
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "CR8_Remorhaz_Huge_Title",
+    "description": "CR8_Remorhaz_Huge_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "6944ef6938248d74483d8fcc31011600",
+  "contentPack": "LostValley",
+  "name": "CR8_DLC1_Remorhaz_Huge"
+}

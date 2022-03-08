@@ -73,7 +73,7 @@
     "auraBaseSettings": {
       "$type": "Aura2API.AuraBaseSettings, Aura2_Core",
       "useDensity": true,
-      "density": 0.1,
+      "density": 0.05,
       "useScattering": true,
       "scattering": 0.5,
       "useAmbientLighting": true,

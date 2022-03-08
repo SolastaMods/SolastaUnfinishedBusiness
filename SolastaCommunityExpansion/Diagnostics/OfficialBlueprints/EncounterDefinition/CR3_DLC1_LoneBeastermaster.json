@@ -1,0 +1,56 @@
+{
+  "$type": "EncounterDefinition, Assembly-CSharp",
+  "type": "Battle",
+  "challengeRating": 3,
+  "locationOverride": null,
+  "monsterOccurences": [
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Winter_Wolf:355dd21d6b2867a41a2855dc09f2897c",
+      "number": 1,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall_PenalizeAltitude:c80d21582cba9af45af18c8b417c2af3",
+      "creatureSex": "Male",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": false,
+      "overrideFaction": false,
+      "factionName": ""
+    },
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Orc_Beastmaster:5885ead7a49fdfa408a1fe5112c8a6d1",
+      "number": 1,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall_PenalizeAltitude:c80d21582cba9af45af18c8b417c2af3",
+      "creatureSex": "Male",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": false,
+      "overrideFaction": false,
+      "factionName": ""
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "CR3_LoneBeastermaster_Title",
+    "description": "CR3_LoneBeastermaster_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "935cbc9b124a4ca478f3ccb2ce646147",
+  "contentPack": "LostValley",
+  "name": "CR3_DLC1_LoneBeastermaster"
+}

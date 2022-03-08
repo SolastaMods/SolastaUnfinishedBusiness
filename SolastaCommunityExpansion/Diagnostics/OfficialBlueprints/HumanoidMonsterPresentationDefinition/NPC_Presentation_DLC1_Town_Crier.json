@@ -58,8 +58,8 @@
     "description": "NPC/&NPC_DLC_TownCrier_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "5e042b5e4017cf9488c8e7a63d9569cf",
-      "m_SubObjectName": "NPC_Presentation_DLC1_City_Guard_Male_01",
+      "m_AssetGUID": "3c2c0d10c41763b488f9135d4e6049c9",
+      "m_SubObjectName": "CustomPortrait_DLC1_TownCrier",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

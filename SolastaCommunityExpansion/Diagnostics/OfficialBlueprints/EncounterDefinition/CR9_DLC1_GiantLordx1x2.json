@@ -6,8 +6,8 @@
   "monsterOccurences": [
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
-      "monsterDefinition": "Definition:Giant_Hill:e0f8dfa38e5fbfb4ca1fd639c1477d5f",
-      "number": 1,
+      "monsterDefinition": "Definition:Ogre:b421de8bacffa2d4ba3ee516bc145a08",
+      "number": 4,
       "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall_PenalizeAltitude:c80d21582cba9af45af18c8b417c2af3",
       "creatureSex": "Male",
       "presentationDefinitionIndex": 0,
@@ -17,8 +17,19 @@
     },
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
-      "monsterDefinition": "Definition:Ogre:b421de8bacffa2d4ba3ee516bc145a08",
-      "number": 2,
+      "monsterDefinition": "Definition:Goblin_Skirmisher:eb7bbfdae2a13504281402bdbce75722",
+      "number": 5,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall_PenalizeAltitude:c80d21582cba9af45af18c8b417c2af3",
+      "creatureSex": "Male",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": false,
+      "overrideFaction": false,
+      "factionName": ""
+    },
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Giant_Hill:e0f8dfa38e5fbfb4ca1fd639c1477d5f",
+      "number": 1,
       "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall_PenalizeAltitude:c80d21582cba9af45af18c8b417c2af3",
       "creatureSex": "Male",
       "presentationDefinitionIndex": 0,

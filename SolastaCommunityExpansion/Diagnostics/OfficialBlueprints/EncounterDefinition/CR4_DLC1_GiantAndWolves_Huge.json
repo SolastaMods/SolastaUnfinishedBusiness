@@ -1,0 +1,56 @@
+{
+  "$type": "EncounterDefinition, Assembly-CSharp",
+  "type": "Battle",
+  "challengeRating": 4,
+  "locationOverride": "Definition:DLC1_Encounter_Jungle_Road_LocationDB:d805c113000390f4c8b4a12603068534",
+  "monsterOccurences": [
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Wolf:639e87dee33292e4a8e8a88e1e414a7d",
+      "number": 4,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall_PenalizeAltitude:c80d21582cba9af45af18c8b417c2af3",
+      "creatureSex": "Male",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": false,
+      "overrideFaction": false,
+      "factionName": ""
+    },
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Giant_Hill:e0f8dfa38e5fbfb4ca1fd639c1477d5f",
+      "number": 1,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall_PenalizeAltitude:c80d21582cba9af45af18c8b417c2af3",
+      "creatureSex": "Male",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": false,
+      "overrideFaction": false,
+      "factionName": ""
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "CR4_GiantAndWolves_Huge_Title",
+    "description": "CR4_GiantAndWolves_Huge_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "f4b8282344657cd4f8eef4ecd7430c2b",
+  "contentPack": "LostValley",
+  "name": "CR4_DLC1_GiantAndWolves_Huge"
+}

@@ -228,7 +228,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "NPC/&NPC_Marches_04_Title",
-    "description": "NPC/&NPC_Marches_04_Description",
+    "description": "Background/&KS_GarradMilesBackground_Title",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "db620bbec1af27149bf69db7efce0196",

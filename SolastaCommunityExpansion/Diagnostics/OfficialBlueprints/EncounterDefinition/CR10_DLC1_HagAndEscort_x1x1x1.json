@@ -7,7 +7,7 @@
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:Green_Hag:4c677be14f7cba643980d4d66bb3edf4",
-      "number": 1,
+      "number": 2,
       "encounterPlacementDecision": "Definition:EncounterSpawn_Spread:4fbd444af01e4f94e8155bc494305192",
       "creatureSex": "Male",
       "presentationDefinitionIndex": 0,
@@ -17,7 +17,7 @@
     },
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
-      "monsterDefinition": "Definition:Ogre:b421de8bacffa2d4ba3ee516bc145a08",
+      "monsterDefinition": "Definition:Swamp_Hag:e86535414f918c741a8c0693c47396cd",
       "number": 1,
       "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall_PenalizeAltitude:c80d21582cba9af45af18c8b417c2af3",
       "creatureSex": "Male",
@@ -29,7 +29,7 @@
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:Minotaur:e85f3e35b43edfa489df948fb9b480e3",
-      "number": 1,
+      "number": 3,
       "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall_PenalizeAltitude:c80d21582cba9af45af18c8b417c2af3",
       "creatureSex": "Male",
       "presentationDefinitionIndex": 0,

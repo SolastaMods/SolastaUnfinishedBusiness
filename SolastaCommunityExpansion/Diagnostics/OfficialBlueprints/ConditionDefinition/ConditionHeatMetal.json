@@ -7,7 +7,7 @@
     "Definition:CombatAffinityHeatMetal:bf565482c67acc9428c3981c5f3fa2d5",
     "Definition:AbilityCheckAffinityHeatMetal:5c220517aac110c4283b7d29dd3ca3de"
   ],
-  "allowMultipleInstances": true,
+  "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
   "terminateWhenRemoved": true,

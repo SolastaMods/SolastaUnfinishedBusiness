@@ -4,46 +4,30 @@
   "overrideSpawnDecision": null,
   "characterFamily": "Humanoid",
   "creatureTags": [],
-  "defaultFaction": "DLC1_Faction_Orenitis",
+  "defaultFaction": "DLC1_Faction_HyfrydNobility",
   "fullyControlledWhenAllied": false,
   "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
   "alignment": "Neutral",
-  "armorClass": 16,
-  "armor": "Breastplate",
-  "hitDice": 5,
-  "hitDiceType": "D10",
-  "hitPointsBonus": 15,
-  "standardHitPoints": 42,
+  "armorClass": 10,
+  "armor": "ClothesNoble",
+  "hitDice": 1,
+  "hitDiceType": "D4",
+  "hitPointsBonus": 0,
+  "standardHitPoints": 1,
   "abilityScores": [
-    16,
     10,
-    16,
+    10,
+    10,
     10,
     10,
     10
   ],
-  "savingThrowScores": [
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Strength",
-      "bonus": 5
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Constitution",
-      "bonus": 5
-    }
-  ],
+  "savingThrowScores": [],
   "skillScores": [
     {
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "Perception",
       "bonus": 2
-    },
-    {
-      "$type": "MonsterSkillProficiency, Assembly-CSharp",
-      "skillName": "Athletics",
-      "bonus": 5
     }
   ],
   "legendaryCreature": false,
@@ -60,7 +44,7 @@
   "audioSwitches": [],
   "audioSwitchesOnHands": [],
   "audioRaceRTPCValue": 3.0,
-  "challengeRating": 2.0,
+  "challengeRating": 0.25,
   "noExperienceGain": true,
   "droppedLootDefinition": null,
   "stealableLootDefinition": null,
@@ -70,9 +54,7 @@
     "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
     "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
     "Definition:ConditionAffinityElfFeyAncestryCharm:fd5a2310e4752064c89dbc160c531b65",
-    "Definition:ConditionAffinityElfFeyAncestrySleep:404060024724e934ab81c8c33398cd57",
-    "Definition:PowerFighterActionSurge:f0303fb750e20564ebea8c51e8f20394",
-    "Definition:PowerFighterSecondWind_DLC1_5:762521b6cc2309e4dbf6ffc20ef70b3b"
+    "Definition:ConditionAffinityElfFeyAncestrySleep:404060024724e934ab81c8c33398cd57"
   ],
   "attackIterations": [],
   "sneakStance": "Stealth",

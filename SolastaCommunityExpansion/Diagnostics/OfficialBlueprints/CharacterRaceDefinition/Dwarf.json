@@ -95,59 +95,6 @@
       "Race/&DwarfSurName7Title"
     ],
     "needBeard": true,
-    "useBeardBlendShape": true,
-    "beardBlendShapes": [
-      {
-        "$type": "RacePresentation+BeardBlendShape, Assembly-CSharp",
-        "faceShapeName": "FaceShape_B",
-        "blendShapeIndex": 0
-      },
-      {
-        "$type": "RacePresentation+BeardBlendShape, Assembly-CSharp",
-        "faceShapeName": "FaceShape_C",
-        "blendShapeIndex": 1
-      },
-      {
-        "$type": "RacePresentation+BeardBlendShape, Assembly-CSharp",
-        "faceShapeName": "FaceShape_D",
-        "blendShapeIndex": 2
-      },
-      {
-        "$type": "RacePresentation+BeardBlendShape, Assembly-CSharp",
-        "faceShapeName": "FaceShape_E",
-        "blendShapeIndex": 3
-      },
-      {
-        "$type": "RacePresentation+BeardBlendShape, Assembly-CSharp",
-        "faceShapeName": "FaceShape_F",
-        "blendShapeIndex": 4
-      },
-      {
-        "$type": "RacePresentation+BeardBlendShape, Assembly-CSharp",
-        "faceShapeName": "FaceShape_NPC_Ceannard",
-        "blendShapeIndex": 5
-      },
-      {
-        "$type": "RacePresentation+BeardBlendShape, Assembly-CSharp",
-        "faceShapeName": "FaceShape_NPC_Galar_Goldentongue",
-        "blendShapeIndex": 6
-      },
-      {
-        "$type": "RacePresentation+BeardBlendShape, Assembly-CSharp",
-        "faceShapeName": "FaceShape_NPC_Gromnir_Stonefist",
-        "blendShapeIndex": 7
-      },
-      {
-        "$type": "RacePresentation+BeardBlendShape, Assembly-CSharp",
-        "faceShapeName": "FaceShape_NPC_Joris_Nikannen",
-        "blendShapeIndex": 8
-      },
-      {
-        "$type": "RacePresentation+BeardBlendShape, Assembly-CSharp",
-        "faceShapeName": "FaceShape_NPC_Priest_of_Arun",
-        "blendShapeIndex": 9
-      }
-    ],
     "canModifyMusculature": false,
     "originOptions": [
       "Origin_NonHuman"

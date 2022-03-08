@@ -18,7 +18,7 @@
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:SRD_Acolyte:9ede667e39b3bfa4fbf1b232ce2a0b48",
-      "number": 2,
+      "number": 7,
       "encounterPlacementDecision": "Definition:EncounterSpawn_Skirmisher:0d019499ee5d57b4b88dd9a23f926141",
       "creatureSex": "Male",
       "presentationDefinitionIndex": 0,

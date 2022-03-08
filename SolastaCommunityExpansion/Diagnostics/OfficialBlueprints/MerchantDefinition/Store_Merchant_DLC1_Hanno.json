@@ -877,6 +877,20 @@
       "reassortRateValue": 1,
       "requiredFaction": "DLC1_Faction_Forge",
       "factionStatus": "Brotherhood"
+    },
+    {
+      "$type": "StockUnitDescription, Assembly-CSharp",
+      "initialized": true,
+      "itemDefinition": "Definition:Spellbook:8fba4fb82a318ea4ab1076b0b607c9a9",
+      "stackCount": 1,
+      "initialAmount": 2,
+      "minAmount": 0,
+      "maxAmount": 2,
+      "reassortAmount": 0,
+      "reassortRateType": "Day",
+      "reassortRateValue": 1,
+      "requiredFaction": "DLC1_Faction_Forge",
+      "factionStatus": "Indifference"
     }
   ],
   "guiPresentation": {

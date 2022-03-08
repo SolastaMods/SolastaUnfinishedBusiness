@@ -23,7 +23,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ActionAffinityRangerMarksmanFastAim_Deprecated:4746079c3d167bd4e80e30079e5821ec",
+      "featureDefinition": "Definition:ActionAffinityRangerMarksmanFastAim:4746079c3d167bd4e80e30079e5821ec",
       "level": 11
     }
   ],
