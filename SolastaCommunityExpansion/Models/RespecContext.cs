@@ -153,7 +153,7 @@ namespace SolastaCommunityExpansion.Models
                 var characterCreationScreen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
                 var restModalScreen = Gui.GuiService.GetScreen<RestModal>();
 
-                restModalScreen.KeepCurrentstate = true;
+                restModalScreen.KeepCurrentState = true;
                 restModalScreen.Hide(true);
                 characterCreationScreen.OriginScreen = restModalScreen;
                 characterCreationScreen.Show();
