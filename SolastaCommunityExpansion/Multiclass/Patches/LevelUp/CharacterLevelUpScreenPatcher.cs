@@ -7,36 +7,40 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
 {
     internal static class CharacterLevelUpScreenPatcher
     {
-        // add the class selection stage panel to the level up screen
-        [HarmonyPatch(typeof(CharacterLevelUpScreen), "LoadStagePanels")]
-        internal static class CharacterLevelUpScreenLoadStagePanels
-        {
-            internal static void Postfix(CharacterLevelUpScreen __instance)
-            {
-                if (!Main.Settings.EnableMulticlass)
-                {
-                    return;
-                }
+        //
+        // WILL FIX THIS LATER
+        //
 
-                var characterCreationScreen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
-                var stagePanelPrefabs = characterCreationScreen.GetField<CharacterCreationScreen, GameObject[]>("stagePanelPrefabs");
-                var classSelectionPanel = Gui.GetPrefabFromPool(stagePanelPrefabs[1], __instance.StagesPanelContainer).GetComponent<CharacterStagePanel>();
-                var deitySelectionPanel = Gui.GetPrefabFromPool(stagePanelPrefabs[2], __instance.StagesPanelContainer).GetComponent<CharacterStagePanel>();
-                var stagePanelsByName = __instance.GetField<CharacterLevelUpScreen, Dictionary<string, CharacterStagePanel>>("stagePanelsByName");
+        //// add the class selection stage panel to the level up screen
+        //[HarmonyPatch(typeof(CharacterLevelUpScreen), "LoadStagePanels")]
+        //internal static class CharacterLevelUpScreenLoadStagePanels
+        //{
+        //    internal static void Postfix(CharacterLevelUpScreen __instance)
+        //    {
+        //        if (!Main.Settings.EnableMulticlass)
+        //        {
+        //            return;
+        //        }
 
-                __instance.SetField("stagePanelsByName", new Dictionary<string, CharacterStagePanel>
-                {
-                    { "ClassSelection", classSelectionPanel },
-                    { "LevelGains", stagePanelsByName["LevelGains"] },
-                    { "DeitySelection", deitySelectionPanel },
-                    { "SubclassSelection", stagePanelsByName["SubclassSelection"] },
-                    { "AbilityScores", stagePanelsByName["AbilityScores"] },
-                    { "FightingStyleSelection", stagePanelsByName["FightingStyleSelection"] },
-                    { "ProficiencySelection", stagePanelsByName["ProficiencySelection"] },
-                    { "", stagePanelsByName[""] }
-                });
-            }
-        }
+        //        var characterCreationScreen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
+        //        var stagePanelPrefabs = characterCreationScreen.GetField<CharacterCreationScreen, GameObject[]>("stagePanelPrefabs");
+        //        var classSelectionPanel = Gui.GetPrefabFromPool(stagePanelPrefabs[1], __instance.StagesPanelContainer).GetComponent<CharacterStagePanel>();
+        //        var deitySelectionPanel = Gui.GetPrefabFromPool(stagePanelPrefabs[2], __instance.StagesPanelContainer).GetComponent<CharacterStagePanel>();
+        //        var stagePanelsByName = __instance.GetField<CharacterLevelUpScreen, Dictionary<string, CharacterStagePanel>>("stagePanelsByName");
+
+        //        __instance.SetField("stagePanelsByName", new Dictionary<string, CharacterStagePanel>
+        //        {
+        //            { "ClassSelection", classSelectionPanel },
+        //            { "LevelGains", stagePanelsByName["LevelGains"] },
+        //            { "DeitySelection", deitySelectionPanel },
+        //            { "SubclassSelection", stagePanelsByName["SubclassSelection"] },
+        //            { "AbilityScores", stagePanelsByName["AbilityScores"] },
+        //            { "FightingStyleSelection", stagePanelsByName["FightingStyleSelection"] },
+        //            { "ProficiencySelection", stagePanelsByName["ProficiencySelection"] },
+        //            { "", stagePanelsByName[""] }
+        //        });
+        //    }
+        //}
 
         // binds the hero
         [HarmonyPatch(typeof(CharacterLevelUpScreen), "OnBeginShow")]
