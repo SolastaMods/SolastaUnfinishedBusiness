@@ -167,6 +167,12 @@ namespace SolastaCommunityExpansion.Builders
             return This();
         }
 
+        public TBuilder SetPossessive(bool value)
+        {
+            Definition.SetPossessive(value);
+            return This();
+        }
+
         public TBuilder SetSpecialInterruptions(params RuleDefinitions.ConditionInterruption[] value)
         {
             Definition.SetSpecialInterruptions(value);
