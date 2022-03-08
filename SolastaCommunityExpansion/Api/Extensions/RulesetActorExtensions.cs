@@ -348,6 +348,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetImmuneToIncomingDamageNotified<T>(this T entity, RulesetActor.IncomingDamageNotifiedHandler value)
+            where T : RulesetActor
+        {
+            entity.SetField("<ImmuneToIncomingDamageNotified>k__BackingField", value);
+            return entity;
+        }
+
         public static T SetImmuneToSpell<T>(this T entity, RulesetActor.ImmuneToSpellHandler value)
             where T : RulesetActor
         {
