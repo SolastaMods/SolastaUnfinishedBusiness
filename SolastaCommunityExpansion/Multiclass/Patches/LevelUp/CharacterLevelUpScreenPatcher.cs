@@ -49,7 +49,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                     return;
                 }
 
-                Models.LevelUpContext.SelectedHero = __instance.CharacterBuildingService.HeroCharacter;
+                Models.LevelUpContext.SelectedHero = __instance.CharacterBuildingService.CurrentLocalHeroCharacter;
             }
         }
 

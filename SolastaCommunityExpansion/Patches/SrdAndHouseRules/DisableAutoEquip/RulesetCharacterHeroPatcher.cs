@@ -13,7 +13,10 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.DisableAutoEquip
             {
                 var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
 
-                tryToEquip = characterBuildingService?.HeroCharacter != null;
+                if (characterBuildingService != null)
+                {
+                    tryToEquip = characterBuildingService.CurrentLocalHeroCharacter != null;
+                }
             }
         }
     }

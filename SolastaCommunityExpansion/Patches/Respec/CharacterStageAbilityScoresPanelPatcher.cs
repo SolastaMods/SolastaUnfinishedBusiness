@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.Patches.Respec
     {
         internal static void Postfix(CharacterStageIdentityDefinitionPanel __instance, ref bool __result)
         {
-            if (Main.Settings.EnableRespec && Models.RespecContext.FunctorRespec.IsRespecing && !string.IsNullOrEmpty(__instance.CharacterBuildingService.HeroCharacter.Name))
+            if (Main.Settings.EnableRespec && Models.RespecContext.FunctorRespec.IsRespecing && !string.IsNullOrEmpty(__instance.CharacterBuildingService.CurrentLocalHeroCharacter.Name))
             {
                 __result = true;
             }

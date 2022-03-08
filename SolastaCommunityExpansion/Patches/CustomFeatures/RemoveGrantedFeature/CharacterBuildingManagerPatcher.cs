@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.RemoveGrantedFeature
     {
         internal static void Prefix(CharacterBuildingManager __instance)
         {
-            var activeFeatures = __instance.HeroCharacter.ActiveFeatures;
+            var activeFeatures = __instance.CurrentLocalHeroCharacter.ActiveFeatures;
             var removeGrantedFeatures = activeFeatures.SelectMany(x => x.Value.OfType<FeatureDefinitionRemoveGrantedFeature>());
 
             foreach (FeatureDefinitionRemoveGrantedFeature removeGrantedFeature in removeGrantedFeatures)

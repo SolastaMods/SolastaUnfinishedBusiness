@@ -160,7 +160,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
 
                 __instance.GetField<CharacterBuildingManager, List<FeatureDefinition>>("matchingFeatures").Clear();
 
-                foreach (var spellRepertoire in __instance.HeroCharacter.SpellRepertoires)
+                foreach (var spellRepertoire in __instance.CurrentLocalHeroCharacter.SpellRepertoires)
                 {
                     var isRepertoireFromSelectedClassSubclass = CacheSpellsContext.IsRepertoireFromSelectedClassSubclass(spellRepertoire);
 
@@ -227,7 +227,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                 // PATCH: don't allow scribed spells to be re-learned
                 var foundSpellbooks = new List<RulesetItemSpellbook>();
 
-                __instance.HeroCharacter.CharacterInventory.BrowseAllCarriedItems<RulesetItemSpellbook>(foundSpellbooks);
+                __instance.CurrentLocalHeroCharacter.CharacterInventory.BrowseAllCarriedItems<RulesetItemSpellbook>(foundSpellbooks);
                 foreach (var foundSpellbook in foundSpellbooks)
                 {
                     foreach (var spell in foundSpellbook.ScribedSpells)
@@ -385,7 +385,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                     return true;
                 }
 
-                foreach (var spellRepertoire in __instance.HeroCharacter.SpellRepertoires)
+                foreach (var spellRepertoire in __instance.CurrentLocalHeroCharacter.SpellRepertoires)
                 {
                     var poolName = string.Empty;
                     var maxPoints = 0;

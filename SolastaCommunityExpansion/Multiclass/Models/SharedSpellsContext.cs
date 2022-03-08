@@ -162,9 +162,9 @@ namespace SolastaCommunityExpansion.Multiclass.Models
 
             var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
 
-            if (characterBuildingService != null && characterBuildingService.HeroCharacter != null)
+            if (characterBuildingService != null && characterBuildingService.CurrentLocalHeroCharacter != null)
             {
-                return characterBuildingService.HeroCharacter;
+                return characterBuildingService.CurrentLocalHeroCharacter;
             }
 
             return InspectionPanelContext.SelectedHero;

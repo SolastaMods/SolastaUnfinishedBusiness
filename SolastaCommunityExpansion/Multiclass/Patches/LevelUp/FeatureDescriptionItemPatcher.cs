@@ -15,7 +15,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
             public static void DisableDropdownIfMulticlass(FeatureDescriptionItem featureDescriptionItem)
             {
                 var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
-                var hero = characterBuildingService.HeroCharacter;
+                var hero = characterBuildingService.CurrentLocalHeroCharacter;
                 var choiceDropdown = featureDescriptionItem.GetField<FeatureDescriptionItem, GuiDropdown>("choiceDropdown");
 
                 if (Models.LevelUpContext.LevelingUp && Models.LevelUpContext.DisplayingClassPanel && hero.ClassesAndLevels.ContainsKey(Models.LevelUpContext.SelectedClass))
@@ -23,7 +23,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                     var featureDefinitionFeatureSet = featureDescriptionItem.Feature as FeatureDefinitionFeatureSet;
                     var featureDefinitions = new List<FeatureDefinition>();
 
-                    foreach (var activeFeature in characterBuildingService.HeroCharacter.ActiveFeatures.Where(x => x.Key.StartsWith(AttributeDefinitions.TagClass)))
+                    foreach (var activeFeature in characterBuildingService.CurrentLocalHeroCharacter.ActiveFeatures.Where(x => x.Key.StartsWith(AttributeDefinitions.TagClass)))
                     {
                         featureDefinitions.AddRange(activeFeature.Value);
                     }
