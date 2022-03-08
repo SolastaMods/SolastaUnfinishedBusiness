@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using System.Reflection;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Multiclass.Models;
@@ -105,8 +104,6 @@ namespace SolastaCommunityExpansion.Patches
 
         private static void DisplayWelcomeMessage()
         {
-            var assemblyVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-
             if (!Main.Settings.DisplayWelcomeMessage)
             {
                 return;
