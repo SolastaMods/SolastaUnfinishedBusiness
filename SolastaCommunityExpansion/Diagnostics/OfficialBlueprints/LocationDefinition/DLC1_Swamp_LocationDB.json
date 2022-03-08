@@ -194,7 +194,7 @@
   "ignoredByScavengers": false,
   "useNewSectorCullingAlgorithm": true,
   "keepSectorCullingResultsWhenInactive": false,
-  "setCurrentCampaignNodeWhenLeaving": false,
+  "setCurrentCampaignNodeWhenLeaving": true,
   "hasPriorityForTeleporter": false,
   "canAttackNonHostileCharacters": true,
   "guiPresentation": {

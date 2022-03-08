@@ -7,7 +7,7 @@
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:Ghast:bf42ed6dd01a7634285cbc7301c0548c",
-      "number": 3,
+      "number": 7,
       "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall:a51ae7a702e42f84c93bbcb330605b3e",
       "creatureSex": "Male",
       "presentationDefinitionIndex": 0,

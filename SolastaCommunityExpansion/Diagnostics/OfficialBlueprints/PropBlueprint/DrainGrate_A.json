@@ -36,10 +36,30 @@
     },
     {
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
-      "environment": "Sewers",
+      "environment": "Town",
       "prefabReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "e56f56875b59ffa4a99441b5f0a0c7eb",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "ValleyPalace",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "4df4304f98486cb4f98dd2f230c5dbfa",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "Jungle",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "7727fc86301c2b74994dc6729e81f7fb",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       }

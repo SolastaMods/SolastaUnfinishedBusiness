@@ -1,0 +1,45 @@
+{
+  "$type": "EncounterDefinition, Assembly-CSharp",
+  "type": "Battle",
+  "challengeRating": 7,
+  "locationOverride": "Definition:DLC1_Encounter_Jungle_Road_LocationDB:d805c113000390f4c8b4a12603068534",
+  "monsterOccurences": [
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:BlackBear:6c10eb2c039b5634786b530cac315baf",
+      "number": 4,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall_PenalizeAltitude:c80d21582cba9af45af18c8b417c2af3",
+      "creatureSex": "Male",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": false,
+      "overrideFaction": false,
+      "factionName": ""
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "CR7_RedeemerDuo_Title",
+    "description": "CR7_RedeemerDuo_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "e07c1c3b45accbe45ad9c1ae4e5ebf24",
+  "contentPack": "LostValley",
+  "name": "CR7_DLC1_RedeemerDuo_Huge_VAR"
+}

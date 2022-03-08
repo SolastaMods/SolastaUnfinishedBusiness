@@ -7,7 +7,7 @@
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:SRD_Thug:dbff3f4717861784d83383112efcfb8e",
-      "number": 5,
+      "number": 10,
       "encounterPlacementDecision": "Definition:EncounterSpawn_PackMedium:e31ffe17fd246524babea266f9755888",
       "creatureSex": "Male",
       "presentationDefinitionIndex": 0,

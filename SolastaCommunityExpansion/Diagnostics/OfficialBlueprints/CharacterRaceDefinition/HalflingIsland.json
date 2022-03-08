@@ -45,8 +45,6 @@
     "surNameTitle": "",
     "surNameOptions": [],
     "needBeard": false,
-    "useBeardBlendShape": false,
-    "beardBlendShapes": [],
     "canModifyMusculature": false,
     "originOptions": [],
     "maleFaceShapeOptions": [],

@@ -7,7 +7,7 @@
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:SRD_Berserker:5096901eb01033a4fbe3855df4cf8210",
-      "number": 2,
+      "number": 3,
       "encounterPlacementDecision": "Definition:EncounterSpawn_Skirmisher:0d019499ee5d57b4b88dd9a23f926141",
       "creatureSex": "Male",
       "presentationDefinitionIndex": 0,

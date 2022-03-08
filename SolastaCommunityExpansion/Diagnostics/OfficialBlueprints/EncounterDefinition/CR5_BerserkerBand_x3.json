@@ -7,7 +7,18 @@
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:SRD_Berserker:5096901eb01033a4fbe3855df4cf8210",
-      "number": 3,
+      "number": 4,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall:a51ae7a702e42f84c93bbcb330605b3e",
+      "creatureSex": "Male",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": true,
+      "overrideFaction": false,
+      "factionName": "<None>"
+    },
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Direwolf:46c6fa42b8fefb64882af182eff3aba4",
+      "number": 4,
       "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall_PenalizeAltitude:c80d21582cba9af45af18c8b417c2af3",
       "creatureSex": "Male",
       "presentationDefinitionIndex": 0,

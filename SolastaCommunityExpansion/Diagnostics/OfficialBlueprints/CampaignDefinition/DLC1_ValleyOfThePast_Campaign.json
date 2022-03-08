@@ -1653,6 +1653,22 @@
       "boolValue": false,
       "intValue": 0,
       "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "Know_ScavengerBusiness_Campaign_DLC1_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "HasMet_Hasdrubal_Campaign_DLC1_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
     }
   ],
   "knownRecipes": [

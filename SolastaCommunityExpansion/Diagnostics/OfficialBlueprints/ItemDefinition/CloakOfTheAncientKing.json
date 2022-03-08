@@ -202,8 +202,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Equipment/&DLC1_Item_CloakOfTheDandy_Title",
-    "description": "Equipment/&DLC1_Item_CloakOfTheDandy_Description",
+    "title": "Equipment/&DLC1_Item_CloakOfTheAncientKing_Title",
+    "description": "Equipment/&DLC1_Item_CloakOfTheAncientKing_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "44fe3d5cc1ff55641b4d5b607817537f",

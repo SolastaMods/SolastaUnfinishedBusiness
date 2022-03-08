@@ -6,8 +6,8 @@
   "monsterOccurences": [
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
-      "monsterDefinition": "Definition:Fire_Elemental:44b59c2dcbef6774fb1e37f0d8650ace",
-      "number": 1,
+      "monsterDefinition": "Definition:Earth_Elemental:28c6739d88058b540abaf6894b2f7969",
+      "number": 3,
       "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall_PenalizeAltitude:c80d21582cba9af45af18c8b417c2af3",
       "creatureSex": "Male",
       "presentationDefinitionIndex": 0,

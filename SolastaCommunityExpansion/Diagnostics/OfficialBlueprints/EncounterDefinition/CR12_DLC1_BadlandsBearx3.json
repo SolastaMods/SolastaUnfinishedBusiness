@@ -7,7 +7,7 @@
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:BadlandsBear:843f4159ae816a640bda56d8d85b43ca",
-      "number": 3,
+      "number": 7,
       "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall_PenalizeAltitude:c80d21582cba9af45af18c8b417c2af3",
       "creatureSex": "Male",
       "presentationDefinitionIndex": 0,

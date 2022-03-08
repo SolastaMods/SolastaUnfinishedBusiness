@@ -1,13 +1,13 @@
 {
   "$type": "EncounterDefinition, Assembly-CSharp",
   "type": "Battle",
-  "challengeRating": 1,
+  "challengeRating": 2,
   "locationOverride": null,
   "monsterOccurences": [
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:SRD_Bandit_Ranged:52c43641e25280e4e9afb0d73682f93b",
-      "number": 2,
+      "number": 1,
       "encounterPlacementDecision": "Definition:EncounterSpawn_Spread:4fbd444af01e4f94e8155bc494305192",
       "creatureSex": "Male",
       "presentationDefinitionIndex": 0,
@@ -29,7 +29,7 @@
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:SRD_DLC_Thug:0c94b41f3e61f0a4c8cbb7537cc1ceaa",
-      "number": 1,
+      "number": 3,
       "encounterPlacementDecision": "Definition:EncounterSpawn_Skirmisher:0d019499ee5d57b4b88dd9a23f926141",
       "creatureSex": "Male",
       "presentationDefinitionIndex": 0,

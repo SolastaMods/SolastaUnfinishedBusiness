@@ -25,6 +25,17 @@
       "randomHumanoidPresentation": true,
       "overrideFaction": false,
       "factionName": ""
+    },
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Generic_Warlord:0d28e3132df4a054bb63f56086e32362",
+      "number": 1,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall:a51ae7a702e42f84c93bbcb330605b3e",
+      "creatureSex": "Male",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": true,
+      "overrideFaction": false,
+      "factionName": ""
     }
   ],
   "guiPresentation": {

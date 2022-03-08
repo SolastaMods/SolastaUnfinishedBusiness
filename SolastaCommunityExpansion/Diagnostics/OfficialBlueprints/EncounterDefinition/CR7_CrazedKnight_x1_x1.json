@@ -17,7 +17,7 @@
     },
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
-      "monsterDefinition": "Definition:SRD_Priest:80cb39a25cc72f54080e9be4bd55b341",
+      "monsterDefinition": "Definition:Generic_HighPriest:c11ee81fdf46aa746aac3bd8b74584aa",
       "number": 1,
       "encounterPlacementDecision": "Definition:EncounterSpawn_Skirmisher:0d019499ee5d57b4b88dd9a23f926141",
       "creatureSex": "Male",

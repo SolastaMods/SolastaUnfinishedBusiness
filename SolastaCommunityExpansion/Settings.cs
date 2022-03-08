@@ -190,8 +190,6 @@ namespace SolastaCommunityExpansion
 
         // SRD
         public bool UseOfficialAdvantageDisadvantageRules { get; set; }
-        public bool UseOfficialCombatSurpriseRules { get; set; }
-        public bool RollDifferentStealthChecksForEachCharacterPair { get; set; }
         public bool EnablePowerAid { get; set; }
         public bool AddBleedingToLesserRestoration { get; set; }
         public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }

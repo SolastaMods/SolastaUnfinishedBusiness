@@ -105,34 +105,6 @@
       "Race/&HalfOrcSurName5Title"
     ],
     "needBeard": false,
-    "useBeardBlendShape": true,
-    "beardBlendShapes": [
-      {
-        "$type": "RacePresentation+BeardBlendShape, Assembly-CSharp",
-        "faceShapeName": "FaceShape_HO_A",
-        "blendShapeIndex": 0
-      },
-      {
-        "$type": "RacePresentation+BeardBlendShape, Assembly-CSharp",
-        "faceShapeName": "FaceShape_HO_B",
-        "blendShapeIndex": 1
-      },
-      {
-        "$type": "RacePresentation+BeardBlendShape, Assembly-CSharp",
-        "faceShapeName": "FaceShape_HO_C",
-        "blendShapeIndex": 2
-      },
-      {
-        "$type": "RacePresentation+BeardBlendShape, Assembly-CSharp",
-        "faceShapeName": "FaceShape_HO_D",
-        "blendShapeIndex": 3
-      },
-      {
-        "$type": "RacePresentation+BeardBlendShape, Assembly-CSharp",
-        "faceShapeName": "FaceShape_HO_E",
-        "blendShapeIndex": 4
-      }
-    ],
     "canModifyMusculature": true,
     "originOptions": [
       "Origin_HO"

@@ -88,8 +88,6 @@
       "Race/&HumanSurName13Title"
     ],
     "needBeard": false,
-    "useBeardBlendShape": false,
-    "beardBlendShapes": [],
     "canModifyMusculature": true,
     "originOptions": [
       "Origin_CA",

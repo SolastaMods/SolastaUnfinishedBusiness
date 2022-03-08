@@ -7,7 +7,7 @@
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:Zombie:93c5df77b00f3344289f89c66c62e888",
-      "number": 3,
+      "number": 4,
       "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall_PenalizeAltitude:c80d21582cba9af45af18c8b417c2af3",
       "creatureSex": "Male",
       "presentationDefinitionIndex": 0,

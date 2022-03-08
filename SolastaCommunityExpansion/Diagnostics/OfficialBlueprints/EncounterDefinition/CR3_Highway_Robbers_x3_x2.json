@@ -25,6 +25,17 @@
       "randomHumanoidPresentation": true,
       "overrideFaction": false,
       "factionName": ""
+    },
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:SRD_Bandit_Ranged:52c43641e25280e4e9afb0d73682f93b",
+      "number": 5,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_Skirmisher:0d019499ee5d57b4b88dd9a23f926141",
+      "creatureSex": "Male",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": true,
+      "overrideFaction": false,
+      "factionName": ""
     }
   ],
   "guiPresentation": {

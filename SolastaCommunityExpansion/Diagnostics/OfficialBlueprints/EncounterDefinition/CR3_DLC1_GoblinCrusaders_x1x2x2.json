@@ -29,7 +29,7 @@
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:Goblin:6385eddb59bc18a4b8dd19bffdd279a8",
-      "number": 2,
+      "number": 4,
       "encounterPlacementDecision": "Definition:EncounterSpawn_Spread:4fbd444af01e4f94e8155bc494305192",
       "creatureSex": "Male",
       "presentationDefinitionIndex": 0,

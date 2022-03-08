@@ -7,7 +7,7 @@
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:Giant_Hill:e0f8dfa38e5fbfb4ca1fd639c1477d5f",
-      "number": 1,
+      "number": 2,
       "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall_PenalizeAltitude:c80d21582cba9af45af18c8b417c2af3",
       "creatureSex": "Male",
       "presentationDefinitionIndex": 0,

@@ -224,7 +224,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "NPC/&NPC_Marches_01_Title",
-    "description": "NPC/&NPC_Marches_01_Description",
+    "description": "NPC/&DLC1_NPC_Nobleman_ThePeople03_Title",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

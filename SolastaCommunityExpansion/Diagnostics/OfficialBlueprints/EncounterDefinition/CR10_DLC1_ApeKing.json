@@ -18,7 +18,18 @@
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:Badlands_Ape_MonsterDefinition:030b5598974660d42a0206f0f7f814d6",
-      "number": 3,
+      "number": 4,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall_PenalizeAltitude:c80d21582cba9af45af18c8b417c2af3",
+      "creatureSex": "Male",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": false,
+      "overrideFaction": false,
+      "factionName": ""
+    },
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Ape_Range_MonsterDefinition:1261ff5d990bb2a4eafcc95e0b6a0135",
+      "number": 5,
       "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall_PenalizeAltitude:c80d21582cba9af45af18c8b417c2af3",
       "creatureSex": "Male",
       "presentationDefinitionIndex": 0,
