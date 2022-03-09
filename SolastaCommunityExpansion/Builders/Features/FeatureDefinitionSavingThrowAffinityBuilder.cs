@@ -32,28 +32,6 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
         #endregion
 
-        #region Factory methods
-        public static FeatureDefinitionSavingThrowAffinityBuilder Create(string name, string guid)
-        {
-            return new FeatureDefinitionSavingThrowAffinityBuilder(name, guid);
-        }
-
-        public static FeatureDefinitionSavingThrowAffinityBuilder Create(string name, Guid namespaceGuid)
-        {
-            return new FeatureDefinitionSavingThrowAffinityBuilder(name, namespaceGuid);
-        }
-
-        public static FeatureDefinitionSavingThrowAffinityBuilder Create(FeatureDefinitionSavingThrowAffinity original, string name, string guid)
-        {
-            return new FeatureDefinitionSavingThrowAffinityBuilder(original, name, guid);
-        }
-
-        public static FeatureDefinitionSavingThrowAffinityBuilder Create(FeatureDefinitionSavingThrowAffinity original, string name, Guid namespaceGuid)
-        {
-            return new FeatureDefinitionSavingThrowAffinityBuilder(original, name, namespaceGuid);
-        }
-        #endregion
-
         public FeatureDefinitionSavingThrowAffinityBuilder SetAffinities(RuleDefinitions.CharacterSavingThrowAffinity affinityType, bool againstMagic, params string[] abilityScores)
         {
             return SetAffinities(affinityType, againstMagic, abilityScores.AsEnumerable());

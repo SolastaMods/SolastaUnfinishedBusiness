@@ -28,26 +28,6 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        public static FeatureDefinitionSummoningAffinityBuilder Create(FeatureDefinitionSummoningAffinity original, string name, Guid namespaceGuid)
-        {
-            return new FeatureDefinitionSummoningAffinityBuilder(original, name, namespaceGuid);
-        }
-
-        public static FeatureDefinitionSummoningAffinityBuilder Create(string name, string guid)
-        {
-            return new FeatureDefinitionSummoningAffinityBuilder(name, guid);
-        }
-
-        public static FeatureDefinitionSummoningAffinityBuilder Create(string name, Guid namespaceGuid)
-        {
-            return new FeatureDefinitionSummoningAffinityBuilder(name, namespaceGuid);
-        }
-
-        public static FeatureDefinitionSummoningAffinityBuilder Create(FeatureDefinitionSummoningAffinity original, string name, string guid)
-        {
-            return new FeatureDefinitionSummoningAffinityBuilder(original, name, guid);
-        }
-
         public FeatureDefinitionSummoningAffinityBuilder ClearEffectForms()
         {
             Definition.ClearEffectForms();

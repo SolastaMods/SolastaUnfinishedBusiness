@@ -17,16 +17,6 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        public static FeatureDefinitionPointPoolBuilder Create(string name, Guid namespaceGuid)
-        {
-            return new FeatureDefinitionPointPoolBuilder(name, namespaceGuid);
-        }
-
-        public static FeatureDefinitionPointPoolBuilder Create(string name, string guid)
-        {
-            return new FeatureDefinitionPointPoolBuilder(name, guid);
-        }
-
         public FeatureDefinitionPointPoolBuilder SetPool(HeroDefinitions.PointsPoolType poolType, int poolAmount)
         {
             Definition.SetPoolType(poolType);

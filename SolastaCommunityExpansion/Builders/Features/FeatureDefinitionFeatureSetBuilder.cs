@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
@@ -105,26 +104,6 @@ namespace SolastaCommunityExpansion.Builders.Features
         protected FeatureDefinitionFeatureSetBuilder(FeatureDefinitionFeatureSet original, string name, Guid namespaceGuid)
             : base(original, name, namespaceGuid)
         {
-        }
-
-        public static FeatureDefinitionFeatureSetBuilder Create(string name, string guid)
-        {
-            return new FeatureDefinitionFeatureSetBuilder(name, guid);
-        }
-
-        public static FeatureDefinitionFeatureSetBuilder Create(string name, Guid namespaceGuid)
-        {
-            return new FeatureDefinitionFeatureSetBuilder(name, namespaceGuid);
-        }
-
-        public static FeatureDefinitionFeatureSetBuilder Create(FeatureDefinitionFeatureSet original, string name, string guid)
-        {
-            return new FeatureDefinitionFeatureSetBuilder(original, name, guid);
-        }
-
-        public static FeatureDefinitionFeatureSetBuilder Create(FeatureDefinitionFeatureSet original, string name, Guid namespaceGuid)
-        {
-            return new FeatureDefinitionFeatureSetBuilder(original, name, namespaceGuid);
         }
     }
 }

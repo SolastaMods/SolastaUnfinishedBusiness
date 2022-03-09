@@ -23,21 +23,6 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        public static FeatDefinitionBuilder Create(FeatDefinition original, string name, string guid)
-        {
-            return new FeatDefinitionBuilder(original, name, guid);
-        }
-
-        public static FeatDefinitionBuilder Create(FeatDefinition original, string name, Guid namespaceGuid)
-        {
-            return new FeatDefinitionBuilder(original, name, namespaceGuid);
-        }
-
-        public static FeatDefinitionBuilder Create(string name, Guid namespaceGuid)
-        {
-            return new FeatDefinitionBuilder(name, namespaceGuid);
-        }
-
         public FeatDefinitionBuilder SetFeatures(params FeatureDefinition[] features)
         {
             return SetFeatures(features.AsEnumerable());

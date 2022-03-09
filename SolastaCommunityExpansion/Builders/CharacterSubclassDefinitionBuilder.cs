@@ -4,46 +4,26 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public sealed class CharacterSubclassDefinitionBuilder : DefinitionBuilder<CharacterSubclassDefinition, CharacterSubclassDefinitionBuilder>
+    public class CharacterSubclassDefinitionBuilder : DefinitionBuilder<CharacterSubclassDefinition, CharacterSubclassDefinitionBuilder>
     {
-        private CharacterSubclassDefinitionBuilder(string name, string guid)
+        protected CharacterSubclassDefinitionBuilder(string name, string guid)
             : base(name, guid)
         {
         }
 
-        private CharacterSubclassDefinitionBuilder(string name, Guid namespaceGuid)
+        protected CharacterSubclassDefinitionBuilder(string name, Guid namespaceGuid)
             : base(name, namespaceGuid)
         {
         }
 
-        private CharacterSubclassDefinitionBuilder(CharacterSubclassDefinition original, string name, string guid)
+        protected CharacterSubclassDefinitionBuilder(CharacterSubclassDefinition original, string name, string guid)
             : base(original, name, guid)
         {
         }
 
-        private CharacterSubclassDefinitionBuilder(CharacterSubclassDefinition original, string name, Guid namespaceGuid)
+        protected CharacterSubclassDefinitionBuilder(CharacterSubclassDefinition original, string name, Guid namespaceGuid)
             : base(original, name, namespaceGuid)
         {
-        }
-
-        public static CharacterSubclassDefinitionBuilder Create(string name, string guid)
-        {
-            return new CharacterSubclassDefinitionBuilder(name, guid);
-        }
-
-        public static CharacterSubclassDefinitionBuilder Create(string name, Guid namespaceGuid)
-        {
-            return new CharacterSubclassDefinitionBuilder(name, namespaceGuid);
-        }
-
-        public static CharacterSubclassDefinitionBuilder Create(CharacterSubclassDefinition original, string name, string guid)
-        {
-            return new CharacterSubclassDefinitionBuilder(original, name, guid);
-        }
-
-        public static CharacterSubclassDefinitionBuilder Create(CharacterSubclassDefinition original, string name, Guid namespaceGuid)
-        {
-            return new CharacterSubclassDefinitionBuilder(original, name, namespaceGuid);
         }
 
         public CharacterSubclassDefinitionBuilder AddPersonality(PersonalityFlagDefinition personalityType, int weight)

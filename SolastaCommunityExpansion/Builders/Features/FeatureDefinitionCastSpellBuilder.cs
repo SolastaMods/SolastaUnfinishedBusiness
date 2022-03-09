@@ -7,7 +7,7 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public sealed class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<FeatureDefinitionCastSpell, FeatureDefinitionCastSpellBuilder>
+    public class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<FeatureDefinitionCastSpell, FeatureDefinitionCastSpellBuilder>
     {
         public enum CasterProgression
         {
@@ -16,25 +16,15 @@ namespace SolastaCommunityExpansion.Builders.Features
             THIRD_CASTER
         }
 
-        private FeatureDefinitionCastSpellBuilder(string name, Guid namespaceGuid)
+        protected FeatureDefinitionCastSpellBuilder(string name, Guid namespaceGuid)
             : base(name, namespaceGuid)
         {
             InitializeFields();
         }
 
-        private FeatureDefinitionCastSpellBuilder(FeatureDefinitionCastSpell original, string name, Guid namespaceGuid)
+        protected FeatureDefinitionCastSpellBuilder(FeatureDefinitionCastSpell original, string name, Guid namespaceGuid)
             : base(original, name, namespaceGuid)
         {
-        }
-
-        public static FeatureDefinitionCastSpellBuilder Create(FeatureDefinitionCastSpell original, string name, Guid namespaceGuid)
-        {
-            return new FeatureDefinitionCastSpellBuilder(original, name, namespaceGuid);
-        }
-
-        public static FeatureDefinitionCastSpellBuilder Create(string name, Guid namespaceGuid)
-        {
-            return new FeatureDefinitionCastSpellBuilder(name, namespaceGuid);
         }
 
         private void InitializeFields()

@@ -49,16 +49,11 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
         }
     }
 
-    internal sealed class FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder
+    internal class FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder
         : FeatureDefinitionBuilder<FeatureDefinitionAttackDisadvantageAgainstNonSource, FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder>
     {
-        private FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        protected FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
-        }
-
-        public static FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder Create(string name, Guid namespaceGuid)
-        {
-            return new FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder(name, namespaceGuid);
         }
 
         public FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder SetConditionName(string conditionName)

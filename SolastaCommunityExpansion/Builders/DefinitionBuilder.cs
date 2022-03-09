@@ -519,6 +519,55 @@ namespace SolastaCommunityExpansion.Builders
         private protected DefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid) { }
         private protected DefinitionBuilder(TDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid) { }
 
+        private static TBuilder CreateImpl(params object[] parameters)
+        {
+            var parameterTypes = parameters.Select(p => p.GetType()).ToArray();
+
+            var ctor = typeof(TBuilder).GetConstructor(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public, null, parameterTypes, null);
+
+            if (ctor == null)
+            {
+                throw new SolastaModApiException($"No constructor found on {typeof(TBuilder).Name} with argument types {string.Join(",", parameterTypes.Select(t => t.Name))}");
+            }
+
+            return (TBuilder)ctor.Invoke(parameters);
+        }
+
+        internal static TBuilder Create(TDefinition original)
+        {
+            return CreateImpl(original);
+        }
+
+        internal static TBuilder Create(string name, Guid namespaceGuid)
+        {
+            return CreateImpl(name, namespaceGuid);
+        }
+
+        internal static TBuilder Create(string name, string definitionGuid)
+        {
+            return CreateImpl(name, definitionGuid);
+        }
+
+        internal static TBuilder Create(string name, bool createGuiPresentation = true)
+        {
+            return CreateImpl(name, createGuiPresentation);
+        }
+
+        internal static TBuilder Create(TDefinition original, string name, bool createGuiPresentation = true)
+        {
+            return CreateImpl(original, name, createGuiPresentation);
+        }
+
+        internal static TBuilder Create(TDefinition original, string name, Guid namespaceGuid)
+        {
+            return CreateImpl(original, name, namespaceGuid);
+        }
+
+        internal static TBuilder Create(TDefinition original, string name, string definitionGuid)
+        {
+            return CreateImpl(original, name, definitionGuid);
+        }
+
         internal TBuilder This()
         {
 #if DEBUG

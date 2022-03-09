@@ -29,26 +29,6 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        public static ItemDefinitionBuilder Create(ItemDefinition original, string name, Guid namespaceGuid)
-        {
-            return new ItemDefinitionBuilder(original, name, namespaceGuid);
-        }
-
-        public static ItemDefinitionBuilder Create(string name, string guid)
-        {
-            return new ItemDefinitionBuilder(name, guid);
-        }
-
-        public static ItemDefinitionBuilder Create(string name, Guid namespaceGuid)
-        {
-            return new ItemDefinitionBuilder(name, namespaceGuid);
-        }
-
-        public static ItemDefinitionBuilder Create(ItemDefinition original, string name, string guid)
-        {
-            return new ItemDefinitionBuilder(original, name, guid);
-        }
-
         public ItemDefinitionBuilder SetDocumentInformation(RecipeDefinition recipeDefinition, params ContentFragmentDescription[] contentFragments)
         {
             SetDocumentInformation(recipeDefinition, contentFragments.AsEnumerable());

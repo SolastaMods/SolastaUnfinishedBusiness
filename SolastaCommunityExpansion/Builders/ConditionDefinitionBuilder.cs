@@ -210,25 +210,5 @@ namespace SolastaCommunityExpansion.Builders
             : base(original, name, guidNamespace)
         {
         }
-
-        public static ConditionDefinitionBuilder Create(string name, string guid)
-        {
-            return new ConditionDefinitionBuilder(name, guid);
-        }
-
-        public static ConditionDefinitionBuilder Create(string name, Guid guidNamespace)
-        {
-            return new ConditionDefinitionBuilder(name, guidNamespace);
-        }
-
-        public static ConditionDefinitionBuilder Create(ConditionDefinition original, string name, Guid guidNamespace)
-        {
-            return new ConditionDefinitionBuilder(original, name, guidNamespace);
-        }
-
-        public static ConditionDefinitionBuilder Create(ConditionDefinition original, string name, string guid)
-        {
-            return new ConditionDefinitionBuilder(original, name, guid);
-        }
     }
 }

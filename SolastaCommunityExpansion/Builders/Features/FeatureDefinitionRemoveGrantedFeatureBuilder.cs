@@ -12,14 +12,9 @@ namespace SolastaCommunityExpansion.Builders.Features
     // Replace a class feature - We need to inform the feature to be removed, the level and the class
     // Replace a subclass feature - We need to inform the feature to be removed, the level, the class and the subclass
     //
-    public sealed class FeatureDefinitionRemoveGrantedFeatureBuilder : FeatureDefinitionBuilder<FeatureDefinitionRemoveGrantedFeature, FeatureDefinitionRemoveGrantedFeatureBuilder>
+    public class FeatureDefinitionRemoveGrantedFeatureBuilder : FeatureDefinitionBuilder<FeatureDefinitionRemoveGrantedFeature, FeatureDefinitionRemoveGrantedFeatureBuilder>
     {
-        private FeatureDefinitionRemoveGrantedFeatureBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid) { }
-
-        public static FeatureDefinitionRemoveGrantedFeatureBuilder Create(string name, Guid namespaceGuid)
-        {
-            return new FeatureDefinitionRemoveGrantedFeatureBuilder(name, namespaceGuid);
-        }
+        protected FeatureDefinitionRemoveGrantedFeatureBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid) { }
 
         public FeatureDefinitionRemoveGrantedFeatureBuilder SetFeatureInfo(FeatureDefinition featureToRemove, int classLevel, CharacterClassDefinition characterClass, CharacterSubclassDefinition characterSubclass = null)
         {

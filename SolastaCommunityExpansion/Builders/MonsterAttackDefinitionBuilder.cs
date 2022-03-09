@@ -41,10 +41,5 @@ namespace SolastaCommunityExpansion.Builders
             form?.DamageForm.SetBonusDamage(value);
             return this;
         }
-
-        public static MonsterAttackDefinitionBuilder Create(MonsterAttackDefinition original, string name, Guid namespaceGuid) 
-        {
-            return new MonsterAttackDefinitionBuilder(original, name, namespaceGuid);
-        }
     }
 }
