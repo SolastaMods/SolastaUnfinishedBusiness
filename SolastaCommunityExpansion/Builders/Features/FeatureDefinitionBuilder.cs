@@ -41,24 +41,32 @@ namespace SolastaCommunityExpansion.Builders.Features
 
     public class FeatureDefinitionBuilder : FeatureDefinitionBuilder<FeatureDefinition, FeatureDefinitionBuilder>
     {
-        #region Standard constructors
-        protected FeatureDefinitionBuilder(string name, string guid)
-            : base(name, guid)
+        #region Constructors
+        protected FeatureDefinitionBuilder(FeatureDefinition original) : base(original)
         {
         }
 
-        protected FeatureDefinitionBuilder(string name, Guid namespaceGuid)
-            : base(name, namespaceGuid)
+        protected FeatureDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
-        protected FeatureDefinitionBuilder(FeatureDefinition original, string name, string guid)
-            : base(original, name, guid)
+        protected FeatureDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
         {
         }
 
-        protected FeatureDefinitionBuilder(FeatureDefinition original, string name, Guid namespaceGuid)
-            : base(original, name, namespaceGuid)
+        protected FeatureDefinitionBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
+        {
+        }
+
+        protected FeatureDefinitionBuilder(FeatureDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
+        {
+        }
+
+        protected FeatureDefinitionBuilder(FeatureDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionBuilder(FeatureDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
         {
         }
         #endregion
