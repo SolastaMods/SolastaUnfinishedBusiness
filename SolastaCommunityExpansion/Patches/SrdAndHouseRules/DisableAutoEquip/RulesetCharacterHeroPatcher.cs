@@ -1,4 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.DisableAutoEquip
@@ -7,18 +7,18 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.DisableAutoEquip
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetCharacterHero_GrantItem
     {
-        public static void Prefix(RulesetCharacterHero __instance, ref bool tryToEquip)
+        internal static void Prefix(RulesetCharacterHero __instance, ref bool tryToEquip)
         {
-            if (Main.Settings.DisableAutoEquip && tryToEquip && __instance != null)
+            if (!Main.Settings.DisableAutoEquip || !tryToEquip)
             {
-                var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
-
-                tryToEquip = characterBuildingService == null
-                    // if not building character, disable as per setting
-                    ? false 
-                    // if building this character leave enabled, otherwise disable as per setting
-                    : characterBuildingService.CurrentLocalHeroCharacter == __instance;
+                return;
             }
+
+            var buildingDataByHero = typeof(CharacterHeroBuildingData)
+                .GetField("buildingDataByHero", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic)
+                .GetValue(null) as Dictionary<RulesetCharacterHero, CharacterHeroBuildingData>;
+
+            tryToEquip = buildingDataByHero.Keys.Any(x => x.Name == __instance.Name);
         }
     }
 }
