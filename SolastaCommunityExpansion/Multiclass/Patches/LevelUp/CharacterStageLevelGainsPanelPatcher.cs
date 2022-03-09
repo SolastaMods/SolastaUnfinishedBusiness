@@ -6,42 +6,38 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
 {
     internal static class CharacterStageLevelGainsPanelPatcher
     {
-        //
-        // WILL FIX THIS LATER
-        //
+        // patches the method to get my own class and level for level up
+        [HarmonyPatch(typeof(CharacterStageLevelGainsPanel), "EnterStage")]
+        internal static class CharacterStageLevelGainsPanelEnterStage
+        {
+            internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+            {
+                if (!Main.Settings.EnableMulticlass)
+                {
+                    foreach (var instruction in instructions)
+                    {
+                        yield return instruction;
+                    }
 
-        //// patches the method to get my own class and level for level up
-        //[HarmonyPatch(typeof(CharacterStageLevelGainsPanel), "EnterStage")]
-        //internal static class CharacterStageLevelGainsPanelEnterStage
-        //{
-        //    internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
-        //    {
-        //        if (!Main.Settings.EnableMulticlass)
-        //        {
-        //            foreach (var instruction in instructions)
-        //            {
-        //                yield return instruction;
-        //            }
+                    yield break;
+                }
 
-        //            yield break;
-        //        }
+                var getLastAssignedClassAndLevelMethod = typeof(ICharacterBuildingService).GetMethod("GetLastAssignedClassAndLevel");
+                var getLastAssignedClassAndLevelCustomMethod = typeof(Models.LevelUpContext).GetMethod("GetLastAssignedClassAndLevel");
 
-        //        var getLastAssignedClassAndLevelMethod = typeof(ICharacterBuildingService).GetMethod("GetLastAssignedClassAndLevel");
-        //        var getLastAssignedClassAndLevelCustomMethod = typeof(Models.LevelUpContext).GetMethod("GetLastAssignedClassAndLevel");
-
-        //        foreach (var instruction in instructions)
-        //        {
-        //            if (instruction.Calls(getLastAssignedClassAndLevelMethod))
-        //            {
-        //                yield return new CodeInstruction(OpCodes.Call, getLastAssignedClassAndLevelCustomMethod);
-        //            }
-        //            else
-        //            {
-        //                yield return instruction;
-        //            }
-        //        }
-        //    }
-        //}
+                foreach (var instruction in instructions)
+                {
+                    if (instruction.Calls(getLastAssignedClassAndLevelMethod))
+                    {
+                        yield return new CodeInstruction(OpCodes.Call, getLastAssignedClassAndLevelCustomMethod);
+                    }
+                    else
+                    {
+                        yield return instruction;
+                    }
+                }
+            }
+        }
 
         // only displays spell casting features from the current class
         [HarmonyPatch(typeof(CharacterStageLevelGainsPanel), "RefreshSpellcastingFeatures")]

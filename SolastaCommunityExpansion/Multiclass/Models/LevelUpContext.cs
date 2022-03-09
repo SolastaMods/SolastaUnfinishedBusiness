@@ -194,6 +194,13 @@ namespace SolastaCommunityExpansion.Multiclass.Models
 
         internal static void Load()
         {
+            var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
+
+            characterBuildingService.CharacterLevelUpStarted += (RulesetCharacterHero hero) => 
+            {
+                Models.LevelUpContext.SelectedHero = hero;
+            };
+
             _ = ArmorProficiencyMulticlassBuilder.BarbarianArmorProficiencyMulticlass;
             _ = ArmorProficiencyMulticlassBuilder.FighterArmorProficiencyMulticlass;
             _ = ArmorProficiencyMulticlassBuilder.PaladinArmorProficiencyMulticlass;
@@ -548,8 +555,9 @@ namespace SolastaCommunityExpansion.Multiclass.Models
         }
 
         // used on transpiler CharacterStageLevelGainsPanel.EnterStage
-        public static void GetLastAssignedClassAndLevel(ICharacterBuildingService characterBuildingService, out CharacterClassDefinition lastClassDefinition, out int level)
+        public static void GetLastAssignedClassAndLevel(ICharacterBuildingService _, RulesetCharacterHero hero, out CharacterClassDefinition lastClassDefinition, out int level)
         {
+
             if (levelingUp)
             {
                 GrantItemsIfRequired();
@@ -562,10 +570,10 @@ namespace SolastaCommunityExpansion.Multiclass.Models
                 lastClassDefinition = null;
                 level = 0;
 
-                if (characterBuildingService.CurrentLocalHeroCharacter.ClassesHistory.Count > 0)
+                if (hero.ClassesHistory.Count > 0)
                 {
-                    lastClassDefinition = characterBuildingService.CurrentLocalHeroCharacter.ClassesHistory[characterBuildingService.CurrentLocalHeroCharacter.ClassesHistory.Count - 1];
-                    level = characterBuildingService.CurrentLocalHeroCharacter.ClassesAndLevels[lastClassDefinition];
+                    lastClassDefinition = hero.ClassesHistory[hero.ClassesHistory.Count - 1];
+                    level = hero.ClassesAndLevels[lastClassDefinition];
                 }
             }
         }

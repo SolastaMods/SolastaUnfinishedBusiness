@@ -20,7 +20,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.Cantrips
 
                 CasterLevel = 0;
 
-                if (!(__instance?.Caster is RulesetCharacterHero heroWithSpellRepertoire))
+                if (__instance?.Caster is not RulesetCharacterHero heroWithSpellRepertoire)
                 {
                     return;
                 }

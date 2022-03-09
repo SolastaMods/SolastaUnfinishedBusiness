@@ -5,6 +5,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
 {
     internal static class RulesetCharacterHeroPatcher
     {
+        // ensures we only add the dice max value on level 1
         [HarmonyPatch(typeof(RulesetCharacterHero), "AddClassLevel")]
         internal static class RulesetCharacterHeroAddClassLevel
         {
