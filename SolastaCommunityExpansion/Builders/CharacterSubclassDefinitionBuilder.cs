@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 
@@ -37,7 +38,13 @@ namespace SolastaCommunityExpansion.Builders
 
         public CharacterSubclassDefinitionBuilder AddFeatureAtLevel(FeatureDefinition feature, int level)
         {
-            Definition.FeatureUnlocks.Add(new FeatureUnlockByLevel(feature, level));
+            Definition.AddFeatureUnlocks(new FeatureUnlockByLevel(feature, level));
+            return this;
+        }
+
+        public CharacterSubclassDefinitionBuilder AddFeaturesAtLevel(int level, params FeatureDefinition[] features)
+        {
+            Definition.AddFeatureUnlocks(features.Select(f => new FeatureUnlockByLevel(f, level)));
             return this;
         }
     }

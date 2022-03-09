@@ -1,4 +1,5 @@
 ﻿using System;
+using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
@@ -34,5 +35,19 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
         #endregion
+
+        public FeatureDefinitionAttackModifierBuilder SetAbilityScoreReplacement(RuleDefinitions.AbilityScoreReplacement replacement)
+        {
+            Definition.SetAbilityScoreReplacement(replacement);
+
+            return This();
+        }
+
+        public FeatureDefinitionAttackModifierBuilder SetAdditionalAttackTag(string tag)
+        {
+            Definition.SetAdditionalAttackTag(tag);
+
+            return This();
+        }
     }
 }

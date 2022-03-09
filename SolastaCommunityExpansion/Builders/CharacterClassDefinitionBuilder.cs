@@ -270,7 +270,7 @@ namespace SolastaCommunityExpansion.Builders
 
         public CharacterClassDefinitionBuilder AddFeaturesAtLevel(int level, params FeatureDefinition[] features)
         {
-            Definition.FeatureUnlocks.AddRange(features.Select(f => new FeatureUnlockByLevel(f, level)));
+            Definition.AddFeatureUnlocks(features.Select(f => new FeatureUnlockByLevel(f, level)));
             return this;
         }
     }
