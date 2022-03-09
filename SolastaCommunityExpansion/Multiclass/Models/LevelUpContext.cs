@@ -194,6 +194,13 @@ namespace SolastaCommunityExpansion.Multiclass.Models
 
         internal static void Load()
         {
+            var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
+
+            characterBuildingService.CharacterLevelUpStarted += (RulesetCharacterHero hero) => 
+            {
+                Models.LevelUpContext.SelectedHero = hero;
+            };
+
             _ = ArmorProficiencyMulticlassBuilder.BarbarianArmorProficiencyMulticlass;
             _ = ArmorProficiencyMulticlassBuilder.FighterArmorProficiencyMulticlass;
             _ = ArmorProficiencyMulticlassBuilder.PaladinArmorProficiencyMulticlass;
