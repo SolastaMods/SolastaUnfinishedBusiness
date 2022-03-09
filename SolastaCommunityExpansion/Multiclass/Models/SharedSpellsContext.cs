@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using HarmonyLib;
+using SolastaModApi.Infrastructure;
 using static FeatureDefinitionCastSpell;
 
 namespace SolastaCommunityExpansion.Multiclass.Models
@@ -160,11 +162,15 @@ namespace SolastaCommunityExpansion.Multiclass.Models
                 return gameCampaignCharacter.RulesetCharacter as RulesetCharacterHero;
             }
 
-            var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
+            var buildingDataByHero = (Dictionary<RulesetCharacterHero, CharacterHeroBuildingData>)typeof(CharacterHeroBuildingData)
+                .GetField("buildingDataByHero", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic)
+                .GetValue(null);
 
-            if (characterBuildingService != null && characterBuildingService.CurrentLocalHeroCharacter != null)
+            var hero = buildingDataByHero.Keys.FirstOrDefault(x => x.Name == name);
+
+            if (hero != null)
             {
-                return characterBuildingService.CurrentLocalHeroCharacter;
+                return hero;
             }
 
             return InspectionPanelContext.SelectedHero;

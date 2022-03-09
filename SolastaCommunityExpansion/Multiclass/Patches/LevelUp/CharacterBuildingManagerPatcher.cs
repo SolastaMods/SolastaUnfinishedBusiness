@@ -320,6 +320,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                     return true;
                 }
 
+                var hero = LevelUpContext.SelectedHero;
                 var localTag = tag;
 
                 __result = null;
@@ -334,7 +335,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                 }
 
                 // PATCH
-                foreach (var activeFeature in __instance.CurrentLocalHeroCharacter.ActiveFeatures.Where(x => x.Key.StartsWith(localTag)))
+                foreach (var activeFeature in hero.ActiveFeatures.Where(x => x.Key.StartsWith(localTag)))
                 {
                     foreach (var featureDefinition in activeFeature.Value)
                     {
@@ -354,7 +355,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                 localTag = AttributeDefinitions.TagClass + LevelUpContext.SelectedClass.Name;
 
                 // PATCH
-                foreach (var activeFeature in __instance.CurrentLocalHeroCharacter.ActiveFeatures.Where(x => x.Key.StartsWith(localTag)))
+                foreach (var activeFeature in hero.ActiveFeatures.Where(x => x.Key.StartsWith(localTag)))
                 {
                     foreach (var featureDefinition in activeFeature.Value)
                     {
