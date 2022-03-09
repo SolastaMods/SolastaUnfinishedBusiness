@@ -7,16 +7,17 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.DisableAutoEquip
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetCharacterHero_GrantItem
     {
-        public static void Prefix(ref bool tryToEquip)
+        public static void Prefix(RulesetCharacterHero __instance, ref bool tryToEquip)
         {
-            if (Main.Settings.DisableAutoEquip)
+            if (Main.Settings.DisableAutoEquip && tryToEquip && __instance != null)
             {
                 var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
 
-                if (characterBuildingService != null)
-                {
-                    tryToEquip = characterBuildingService.CurrentLocalHeroCharacter != null;
-                }
+                tryToEquip = characterBuildingService == null
+                    // if not building character, disable as per setting
+                    ? false 
+                    // if building this character leave enabled, otherwise disable as per setting
+                    : characterBuildingService.CurrentLocalHeroCharacter == __instance;
             }
         }
     }
