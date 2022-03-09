@@ -14,7 +14,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
 
         private static int selectedClass { get; set; }
 
-        private static readonly List<string> classesWithDeity = new() { RuleDefinitions.ClericClass, RuleDefinitions.PaladinClass };
+        private static readonly HashSet<string> classesWithDeity = new() { RuleDefinitions.ClericClass, RuleDefinitions.PaladinClass };
 
         internal static RulesetCharacterHero SelectedHero
         {
@@ -98,11 +98,11 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             }
         }
 
-        private static List<FightingStyleDefinition> GetTrainedFightingStyles()
+        private static HashSet<FightingStyleDefinition> GetTrainedFightingStyles()
         {
             var fightingStyleIdx = 0;
             var classLevelFightingStyle = new Dictionary<string, FightingStyleDefinition>();
-            var classBadges = new List<FightingStyleDefinition>();
+            var classBadges = new HashSet<FightingStyleDefinition>();
 
             foreach (var activeFeature in selectedHero.ActiveFeatures.Where(x => x.Key.Contains(AttributeDefinitions.TagClass)))
             {
