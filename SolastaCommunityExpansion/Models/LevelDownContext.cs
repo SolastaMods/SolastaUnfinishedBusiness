@@ -5,6 +5,7 @@ using HarmonyLib;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Multiclass.Models;
 using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 using static SolastaModApi.DatabaseHelper.RestActivityDefinitions;
 
 namespace SolastaCommunityExpansion.Models
@@ -171,7 +172,7 @@ namespace SolastaCommunityExpansion.Models
         {
             var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
 
-            AccessTools.Field(characterBuildingService.GetType(), "heroCharacter").SetValue(characterBuildingService, rulesetCharacterHero);
+            characterBuildingService.SetField("currentLocalHeroCharacter", rulesetCharacterHero);
             LevelUpContext.SelectedHero = rulesetCharacterHero;
             LevelUpContext.SelectedClass = characterClassDefinition;
             LevelUpContext.SelectedSubclass = characterSubclassDefinition;
