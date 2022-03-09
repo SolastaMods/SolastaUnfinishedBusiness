@@ -533,6 +533,7 @@ namespace SolastaCommunityExpansion.Builders
             return (TBuilder)ctor.Invoke(parameters);
         }
 
+        // TODO: replace all ctors with a default ctor and put functionality into Create methods
         internal static TBuilder Create(TDefinition original)
         {
             return CreateImpl(original);
