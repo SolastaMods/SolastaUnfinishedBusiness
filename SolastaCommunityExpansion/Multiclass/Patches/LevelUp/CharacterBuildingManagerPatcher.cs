@@ -144,7 +144,11 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
         [HarmonyPatch(typeof(CharacterBuildingManager), "EnumerateKnownAndAcquiredSpells")]
         internal static class CharacterBuildingManagerEnumerateKnownAndAcquiredSpells
         {
-            internal static bool Prefix(CharacterBuildingManager __instance, string tagToIgnore, ref List<SpellDefinition> __result)
+            internal static bool Prefix(
+                CharacterBuildingManager __instance, 
+                CharacterHeroBuildingData heroBuildingData, 
+                string tagToIgnore, 
+                ref List<SpellDefinition> __result)
             {
                 if (!Main.Settings.EnableMulticlass)
                 {
@@ -156,10 +160,10 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                     return true;
                 }
 
-                var hero = __instance.CurrentLocalHeroCharacter;
+                var hero = heroBuildingData.HeroCharacter;
                 var spellDefinitionList = new List<SpellDefinition>();
 
-                __instance.GetField<CharacterBuildingManager, List<FeatureDefinition>>("matchingFeatures").Clear();
+                heroBuildingData.MatchingFeatures.Clear();
 
                 foreach (var spellRepertoire in hero.SpellRepertoires)
                 {
@@ -228,7 +232,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                 // PATCH: don't allow scribed spells to be re-learned
                 var foundSpellbooks = new List<RulesetItemSpellbook>();
 
-                __instance.CurrentLocalHeroCharacter.CharacterInventory.BrowseAllCarriedItems<RulesetItemSpellbook>(foundSpellbooks);
+                hero.CharacterInventory.BrowseAllCarriedItems<RulesetItemSpellbook>(foundSpellbooks);
                 foreach (var foundSpellbook in foundSpellbooks)
                 {
                     foreach (var spell in foundSpellbook.ScribedSpells)
@@ -387,7 +391,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                     return true;
                 }
 
-                foreach (var spellRepertoire in __instance.CurrentLocalHeroCharacter.SpellRepertoires)
+                foreach (var spellRepertoire in heroBuildingData.HeroCharacter.SpellRepertoires)
                 {
                     var poolName = string.Empty;
                     var maxPoints = 0;
