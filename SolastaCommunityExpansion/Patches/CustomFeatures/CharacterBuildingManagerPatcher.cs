@@ -12,9 +12,9 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
          * When a character is being granted features, this patch will apply the effect of custom features.
          */
 
-        internal static void Prefix(CharacterBuildingManager __instance, List<FeatureDefinition> grantedFeatures)
+        internal static void Prefix(RulesetCharacterHero hero, List<FeatureDefinition> grantedFeatures)
         {
-            Models.CustomFeaturesContext.RecursiveGrantCustomFeatures(__instance.CurrentLocalHeroCharacter, grantedFeatures);
+            Models.CustomFeaturesContext.RecursiveGrantCustomFeatures(hero, grantedFeatures);
         }
     }
 }
