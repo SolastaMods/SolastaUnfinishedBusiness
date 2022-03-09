@@ -8,9 +8,9 @@ namespace SolastaCommunityExpansion.Patches.Respec
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterStageIdentityDefinitionPanel_CanProceedToNextStage
     {
-        internal static void Postfix(CharacterStageIdentityDefinitionPanel __instance, ref bool __result)
+        internal static void Postfix(RulesetCharacterHero ___currentHero, ref bool __result)
         {
-            if (Main.Settings.EnableRespec && Models.RespecContext.FunctorRespec.IsRespecing && !string.IsNullOrEmpty(__instance.CharacterBuildingService.CurrentLocalHeroCharacter.Name))
+            if (Main.Settings.EnableRespec && Models.RespecContext.FunctorRespec.IsRespecing && !string.IsNullOrEmpty(___currentHero.Name))
             {
                 __result = true;
             }
