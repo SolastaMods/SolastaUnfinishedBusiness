@@ -53,11 +53,6 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
             __result = result;
 
             return false;
-
-            static int ComputeRoundsDuration(DurationType type, int value)
-            {
-                return RuleDefinitions.ComputeRoundsDuration(type, value);
-            }
         }
     }
 
