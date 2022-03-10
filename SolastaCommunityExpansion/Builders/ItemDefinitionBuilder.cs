@@ -9,25 +9,35 @@ namespace SolastaCommunityExpansion.Builders
 {
     public class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDefinitionBuilder>
     {
-        protected ItemDefinitionBuilder(string name, string guid)
-            : base(name, guid)
+        #region Constructors
+        protected ItemDefinitionBuilder(ItemDefinition original) : base(original)
         {
         }
 
-        protected ItemDefinitionBuilder(string name, Guid namespaceGuid)
-            : base(name, namespaceGuid)
+        protected ItemDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
-        protected ItemDefinitionBuilder(ItemDefinition original, string name, string guid)
-            : base(original, name, guid)
+        protected ItemDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
         {
         }
 
-        protected ItemDefinitionBuilder(ItemDefinition original, string name, Guid namespaceGuid)
-            : base(original, name, namespaceGuid)
+        protected ItemDefinitionBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
         {
         }
+
+        protected ItemDefinitionBuilder(ItemDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
+        {
+        }
+
+        protected ItemDefinitionBuilder(ItemDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected ItemDefinitionBuilder(ItemDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+        #endregion
 
         public ItemDefinitionBuilder SetDocumentInformation(RecipeDefinition recipeDefinition, params ContentFragmentDescription[] contentFragments)
         {

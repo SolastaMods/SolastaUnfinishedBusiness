@@ -5,21 +5,33 @@ namespace SolastaCommunityExpansion.Builders
 {
     public class RecipeDefinitionBuilder : DefinitionBuilder<RecipeDefinition, RecipeDefinitionBuilder>
     {
-        public RecipeDefinitionBuilder(string name, string guid) : base(name, guid)
+        #region Constructors
+        protected RecipeDefinitionBuilder(RecipeDefinition original) : base(original)
         {
         }
 
-        public RecipeDefinitionBuilder(string name, Guid namespaceGuid)
-            : base(name, namespaceGuid)
+        protected RecipeDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
-        public RecipeDefinitionBuilder(RecipeDefinition original, string name, string guid) : base(original, name, guid)
+        protected RecipeDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
         {
         }
 
-        public RecipeDefinitionBuilder(RecipeDefinition original, string name, Guid namespaceGuid)
-            : base(original, name, namespaceGuid)
+        protected RecipeDefinitionBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
+        {
+        }
+
+        protected RecipeDefinitionBuilder(RecipeDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
+        {
+        }
+
+        protected RecipeDefinitionBuilder(RecipeDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+        #endregion
+
+        protected RecipeDefinitionBuilder(RecipeDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
         {
         }
 

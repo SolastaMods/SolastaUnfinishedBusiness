@@ -14,7 +14,35 @@ namespace SolastaCommunityExpansion.Builders.Features
     //
     public class FeatureDefinitionRemoveGrantedFeatureBuilder : FeatureDefinitionBuilder<FeatureDefinitionRemoveGrantedFeature, FeatureDefinitionRemoveGrantedFeatureBuilder>
     {
-        protected FeatureDefinitionRemoveGrantedFeatureBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid) { }
+        #region Constructors
+        protected FeatureDefinitionRemoveGrantedFeatureBuilder(FeatureDefinitionRemoveGrantedFeature original) : base(original)
+        {
+        }
+
+        protected FeatureDefinitionRemoveGrantedFeatureBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionRemoveGrantedFeatureBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        protected FeatureDefinitionRemoveGrantedFeatureBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
+        {
+        }
+
+        protected FeatureDefinitionRemoveGrantedFeatureBuilder(FeatureDefinitionRemoveGrantedFeature original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
+        {
+        }
+
+        protected FeatureDefinitionRemoveGrantedFeatureBuilder(FeatureDefinitionRemoveGrantedFeature original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionRemoveGrantedFeatureBuilder(FeatureDefinitionRemoveGrantedFeature original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+        #endregion
 
         public FeatureDefinitionRemoveGrantedFeatureBuilder SetFeatureInfo(FeatureDefinition featureToRemove, int classLevel, CharacterClassDefinition characterClass, CharacterSubclassDefinition characterSubclass = null)
         {

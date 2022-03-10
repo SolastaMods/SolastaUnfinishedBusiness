@@ -86,24 +86,35 @@ namespace SolastaCommunityExpansion.Builders.Features
 
     public class FeatureDefinitionFeatureSetBuilder : FeatureDefinitionFeatureSetBuilder<FeatureDefinitionFeatureSet, FeatureDefinitionFeatureSetBuilder>
     {
-        protected FeatureDefinitionFeatureSetBuilder(string name, string guid)
-            : base(name, guid)
+        #region Constructors
+
+        protected FeatureDefinitionFeatureSetBuilder(FeatureDefinitionFeatureSet original) : base(original)
         {
         }
 
-        protected FeatureDefinitionFeatureSetBuilder(string name, Guid namespaceGuid)
-            : base(name, namespaceGuid)
+        protected FeatureDefinitionFeatureSetBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
-        protected FeatureDefinitionFeatureSetBuilder(FeatureDefinitionFeatureSet original, string name, string guid)
-            : base(original, name, guid)
+        protected FeatureDefinitionFeatureSetBuilder(string name, string definitionGuid) : base(name, definitionGuid)
         {
         }
 
-        protected FeatureDefinitionFeatureSetBuilder(FeatureDefinitionFeatureSet original, string name, Guid namespaceGuid)
-            : base(original, name, namespaceGuid)
+        protected FeatureDefinitionFeatureSetBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
         {
         }
+
+        protected FeatureDefinitionFeatureSetBuilder(FeatureDefinitionFeatureSet original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
+        {
+        }
+
+        protected FeatureDefinitionFeatureSetBuilder(FeatureDefinitionFeatureSet original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionFeatureSetBuilder(FeatureDefinitionFeatureSet original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+        #endregion
     }
 }

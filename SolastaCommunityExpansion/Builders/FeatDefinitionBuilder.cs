@@ -8,20 +8,35 @@ namespace SolastaCommunityExpansion.Builders
 {
     public class FeatDefinitionBuilder : DefinitionBuilder<FeatDefinition, FeatDefinitionBuilder>
     {
-        protected FeatDefinitionBuilder(string name, Guid namespaceGuid)
-            : base(name, namespaceGuid)
+        #region Constructors
+        protected FeatDefinitionBuilder(FeatDefinition original) : base(original)
         {
         }
 
-        protected FeatDefinitionBuilder(FeatDefinition original, string name, string guid)
-            : base(original, name, guid)
+        protected FeatDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
-        protected FeatDefinitionBuilder(FeatDefinition original, string name, Guid namespaceGuid)
-            : base(original, name, namespaceGuid)
+        protected FeatDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
         {
         }
+
+        protected FeatDefinitionBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
+        {
+        }
+
+        protected FeatDefinitionBuilder(FeatDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
+        {
+        }
+
+        protected FeatDefinitionBuilder(FeatDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected FeatDefinitionBuilder(FeatDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+        #endregion
 
         public FeatDefinitionBuilder SetFeatures(params FeatureDefinition[] features)
         {

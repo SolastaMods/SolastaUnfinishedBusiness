@@ -13,6 +13,7 @@ namespace SolastaCommunityExpansion.Builders
 {
     public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, MonsterDefinitionBuilder>
     {
+        #region Constructors
         protected MonsterDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
@@ -40,6 +41,7 @@ namespace SolastaCommunityExpansion.Builders
         protected MonsterDefinitionBuilder(MonsterDefinition original) : base(original)
         {
         }
+        #endregion
 
         public MonsterDefinitionBuilder SetAlignment(string alignment)
         {

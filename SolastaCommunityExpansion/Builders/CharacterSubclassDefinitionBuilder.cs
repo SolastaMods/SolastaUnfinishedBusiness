@@ -7,25 +7,35 @@ namespace SolastaCommunityExpansion.Builders
 {
     public class CharacterSubclassDefinitionBuilder : DefinitionBuilder<CharacterSubclassDefinition, CharacterSubclassDefinitionBuilder>
     {
-        protected CharacterSubclassDefinitionBuilder(string name, string guid)
-            : base(name, guid)
+        #region Constructors
+        protected CharacterSubclassDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
-        protected CharacterSubclassDefinitionBuilder(string name, Guid namespaceGuid)
-            : base(name, namespaceGuid)
+        protected CharacterSubclassDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
         {
         }
 
-        protected CharacterSubclassDefinitionBuilder(CharacterSubclassDefinition original, string name, string guid)
-            : base(original, name, guid)
+        protected CharacterSubclassDefinitionBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
         {
         }
 
-        protected CharacterSubclassDefinitionBuilder(CharacterSubclassDefinition original, string name, Guid namespaceGuid)
-            : base(original, name, namespaceGuid)
+        protected CharacterSubclassDefinitionBuilder(CharacterSubclassDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
         }
+
+        protected CharacterSubclassDefinitionBuilder(CharacterSubclassDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected CharacterSubclassDefinitionBuilder(CharacterSubclassDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+
+        protected CharacterSubclassDefinitionBuilder(CharacterSubclassDefinition original) : base(original)
+        {
+        }
+        #endregion
 
         public CharacterSubclassDefinitionBuilder AddPersonality(PersonalityFlagDefinition personalityType, int weight)
         {

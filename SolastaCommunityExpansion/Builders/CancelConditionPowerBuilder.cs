@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi.Extensions;
 
@@ -6,6 +7,37 @@ namespace SolastaCommunityExpansion.Builders
 {
     internal class CancelConditionPowerBuilder : FeatureDefinitionPowerBuilder<FeatureDefinitionPower, CancelConditionPowerBuilder>
     {
+        #region Constructors
+        protected CancelConditionPowerBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        protected CancelConditionPowerBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        protected CancelConditionPowerBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
+        {
+        }
+
+        protected CancelConditionPowerBuilder(FeatureDefinitionPower original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
+        {
+        }
+
+        protected CancelConditionPowerBuilder(FeatureDefinitionPower original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected CancelConditionPowerBuilder(FeatureDefinitionPower original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+
+        protected CancelConditionPowerBuilder(FeatureDefinitionPower original) : base(original)
+        {
+        }
+        #endregion
+
+        // TODO: replace with methods or remove and make helper method
         public CancelConditionPowerBuilder(string name, string guid, GuiPresentation presentation, ConditionDefinition condition) : base(name, guid)
         {
             Definition.GuiPresentation = presentation;
