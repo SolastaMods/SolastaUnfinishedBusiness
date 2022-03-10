@@ -5,6 +5,7 @@ using HarmonyLib;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Multiclass.Models;
 using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 using static SolastaModApi.DatabaseHelper.RestActivityDefinitions;
 
 namespace SolastaCommunityExpansion.Models
@@ -108,7 +109,10 @@ namespace SolastaCommunityExpansion.Models
                 subclassTag = AttributeDefinitions.GetSubclassTag(characterClassDefinition, classLevel, characterSubclassDefinition);
             }
 
-            SetContext(hero, characterClassDefinition, characterSubclassDefinition);
+            CharacterHeroBuildingData.GetAvailableBuildingDataPool(hero);
+            LevelUpContext.SelectedHero = hero;
+            LevelUpContext.SelectedClass = characterClassDefinition;
+            LevelUpContext.SelectedSubclass = characterSubclassDefinition;
 
             if (subclassTag != string.Empty)
             {
@@ -144,7 +148,8 @@ namespace SolastaCommunityExpansion.Models
             hero.RefreshUsableDeviceFunctions();
             hero.ComputeHitPoints(true);
 
-            SetContext(null);
+            CharacterHeroBuildingData.ReleaseCharacterHeroBuildingData(hero);
+            LevelUpContext.SelectedHero = null;
 
             // saves hero if not in game
             if (Gui.Game == null)
@@ -165,16 +170,6 @@ namespace SolastaCommunityExpansion.Models
             }
 
             return Gui.Format("Message/&ZSLevelDownConfirmationDescription");
-        }
-
-        private static void SetContext(RulesetCharacterHero rulesetCharacterHero, CharacterClassDefinition characterClassDefinition = null, CharacterSubclassDefinition characterSubclassDefinition = null)
-        {
-            var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
-
-            AccessTools.Field(characterBuildingService.GetType(), "heroCharacter").SetValue(characterBuildingService, rulesetCharacterHero);
-            LevelUpContext.SelectedHero = rulesetCharacterHero;
-            LevelUpContext.SelectedClass = characterClassDefinition;
-            LevelUpContext.SelectedSubclass = characterSubclassDefinition;
         }
 
         private static void RemoveFeatureDefinitionPointPool(RulesetCharacterHero hero, RulesetSpellRepertoire heroRepertoire, FeatureDefinitionPointPool featureDefinitionPointPool)

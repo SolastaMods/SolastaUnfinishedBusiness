@@ -14,16 +14,23 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
         {
             public static void DisableDropdownIfMulticlass(FeatureDescriptionItem featureDescriptionItem)
             {
-                var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
-                var hero = characterBuildingService.CurrentLocalHeroCharacter;
                 var choiceDropdown = featureDescriptionItem.GetField<FeatureDescriptionItem, GuiDropdown>("choiceDropdown");
+
+                if (!(Models.LevelUpContext.LevelingUp && Models.LevelUpContext.DisplayingClassPanel))
+                {
+                    choiceDropdown.interactable = true;
+
+                    return;
+                }
+
+                var hero = Models.LevelUpContext.SelectedHero;
 
                 if (Models.LevelUpContext.LevelingUp && Models.LevelUpContext.DisplayingClassPanel && hero.ClassesAndLevels.ContainsKey(Models.LevelUpContext.SelectedClass))
                 {
                     var featureDefinitionFeatureSet = featureDescriptionItem.Feature as FeatureDefinitionFeatureSet;
                     var featureDefinitions = new List<FeatureDefinition>();
 
-                    foreach (var activeFeature in characterBuildingService.CurrentLocalHeroCharacter.ActiveFeatures.Where(x => x.Key.StartsWith(AttributeDefinitions.TagClass)))
+                    foreach (var activeFeature in hero.ActiveFeatures.Where(x => x.Key.StartsWith(AttributeDefinitions.TagClass)))
                     {
                         featureDefinitions.AddRange(activeFeature.Value);
                     }

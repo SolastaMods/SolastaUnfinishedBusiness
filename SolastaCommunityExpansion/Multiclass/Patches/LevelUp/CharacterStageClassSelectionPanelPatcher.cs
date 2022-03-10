@@ -45,93 +45,85 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
             }
         }
 
-        //
-        // WILL FIX THIS LATER
-        //
+        // patches the method to get my own classLevel
+        [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "FillClassFeatures")]
+        internal static class CharacterStageClassSelectionPanelFillClassFeatures
+        {
+            internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+            {
+                if (!Main.Settings.EnableMulticlass)
+                {
+                    foreach (var instruction in instructions)
+                    {
+                        yield return instruction;
+                    }
 
-        //// patches the method to get my own classLevel
-        //[HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "FillClassFeatures")]
-        //internal static class CharacterStageClassSelectionPanelFillClassFeatures
-        //{
-        //    internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
-        //    {
-        //        if (!Main.Settings.EnableMulticlass)
-        //        {
-        //            foreach (var instruction in instructions)
-        //            {
-        //                yield return instruction;
-        //            }
+                    yield break;
+                }
 
-        //            yield break;
-        //        }
+                var classesAndLevelsMethod = typeof(RulesetCharacterHero).GetMethod("get_ClassesAndLevels");
+                var getClassLevelMethod = typeof(Models.LevelUpContext).GetMethod("GetClassLevel");
+                var instructionsToBypass = 0;
 
-        //        var getHeroCharacterMethod = typeof(ICharacterBuildingService).GetMethod("get_HeroCharacter");
-        //        var getClassLevelMethod = typeof(Models.LevelUpContext).GetMethod("GetClassLevel");
-        //        var instructionsToBypass = 0;
+                foreach (var instruction in instructions)
+                {
+                    if (instructionsToBypass > 0)
+                    {
+                        instructionsToBypass--;
+                    }
+                    else if (instruction.Calls(classesAndLevelsMethod))
+                    {
+                        yield return instruction;
+                        yield return new CodeInstruction(OpCodes.Call, getClassLevelMethod);
+                        instructionsToBypass = 2;
+                    }
+                    else
+                    {
+                        yield return instruction;
+                    }
+                }
+            }
+        }
 
-        //        foreach (var instruction in instructions)
-        //        {
-        //            if (instructionsToBypass > 0)
-        //            {
-        //                instructionsToBypass--;
-        //            }
-        //            else if (instruction.Calls(getHeroCharacterMethod))
-        //            {
-        //                yield return instruction;
-        //                yield return new CodeInstruction(OpCodes.Call, getClassLevelMethod);
-        //                instructionsToBypass = 3;
-        //            }
-        //            else
-        //            {
-        //                yield return instruction;
-        //            }
-        //        }
-        //    }
-        //}
+        // patches the method to get my own classLevel
+        [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "RefreshCharacter")]
+        internal static class CharacterStageClassSelectionPanelRefreshCharacter
+        {
+            internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+            {
+                if (!Main.Settings.EnableMulticlass)
+                {
+                    foreach (var instruction in instructions)
+                    {
+                        yield return instruction;
+                    }
 
-        //
-        // WILL FIX THIS LATER
-        //
+                    yield break;
+                }
 
-        //// patches the method to get my own classLevel
-        //[HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "RefreshCharacter")]
-        //internal static class CharacterStageClassSelectionPanelRefreshCharacter
-        //{
-        //    internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
-        //    {
-        //        if (!Main.Settings.EnableMulticlass)
-        //        {
-        //            foreach (var instruction in instructions)
-        //            {
-        //                yield return instruction;
-        //            }
+                var classesAndLevelsMethod = typeof(RulesetCharacterHero).GetMethod("get_ClassesAndLevels");
+                var getClassLevelMethod = typeof(Models.LevelUpContext).GetMethod("GetClassLevel");
+                var instructionsToBypass = 0;
 
-        //            yield break;
-        //        }
-
-        //        var getHeroCharacterMethod = typeof(ICharacterBuildingService).GetMethod("get_HeroCharacter");
-        //        var getClassLevelMethod = typeof(Models.LevelUpContext).GetMethod("GetClassLevel");
-        //        var instructionsToBypass = 0;
-
-        //        foreach (var instruction in instructions)
-        //        {
-        //            if (instructionsToBypass > 0)
-        //            {
-        //                instructionsToBypass--;
-        //            }
-        //            else if (instruction.Calls(getHeroCharacterMethod))
-        //            {
-        //                yield return instruction;
-        //                yield return new CodeInstruction(OpCodes.Call, getClassLevelMethod);
-        //                instructionsToBypass = 3;
-        //            }
-        //            else
-        //            {
-        //                yield return instruction;
-        //            }
-        //        }
-        //    }
-        //}
+                foreach (var instruction in instructions)
+                {
+                    if (instructionsToBypass > 0)
+                    {
+                        instructionsToBypass--;
+                    }
+                    else if (instruction.Calls(classesAndLevelsMethod))
+                    {
+                        yield return instruction;
+                        yield return new CodeInstruction(OpCodes.Call, getClassLevelMethod);
+                        instructionsToBypass = 2;
+                    }
+                    else
+                    {
+                        yield return instruction;
+                    }
+                }
+            }
+        }
 
         // hides the equipment panel group on level up
         [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "Refresh")]
