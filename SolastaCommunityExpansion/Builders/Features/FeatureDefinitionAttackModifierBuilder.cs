@@ -1,4 +1,5 @@
 ﻿using System;
+using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
@@ -40,6 +41,20 @@ namespace SolastaCommunityExpansion.Builders.Features
         public static FeatureDefinitionAttackModifierBuilder Create(string name, Guid namespaceGuid)
         {
             return new FeatureDefinitionAttackModifierBuilder(name, namespaceGuid);
+        }
+
+        public FeatureDefinitionAttackModifierBuilder SetAbilityScoreReplacement(RuleDefinitions.AbilityScoreReplacement replacement)
+        {
+            Definition.SetAbilityScoreReplacement(replacement);
+
+            return This();
+        }
+
+        public FeatureDefinitionAttackModifierBuilder SetAdditionalAttackTag(string tag)
+        {
+            Definition.SetAdditionalAttackTag(tag);
+
+            return This();
         }
     }
 }
