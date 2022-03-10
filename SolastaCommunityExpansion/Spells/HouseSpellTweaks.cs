@@ -11,6 +11,27 @@ namespace SolastaCommunityExpansion.Spells
         {
             AddBleedingToRestoration();
             UseHeightOneCylinderEffect();
+            MinorFixes();
+        }
+
+        internal static void MinorFixes()
+        {
+            // Shows Concentration tag in UI
+            BladeBarrier.SetRequiresConcentration(true);
+
+            // Stops upcasting assigning non-SRD durations
+            ClearAlteredDuration(ProtectionFromEnergy);
+            ClearAlteredDuration(ProtectionFromEnergyAcid);
+            ClearAlteredDuration(ProtectionFromEnergyCold);
+            ClearAlteredDuration(ProtectionFromEnergyFire);
+            ClearAlteredDuration(ProtectionFromEnergyLightning);
+            ClearAlteredDuration(ProtectionFromEnergyThunder);
+            ClearAlteredDuration(ProtectionFromPoison);
+
+            static void ClearAlteredDuration(SpellDefinition spell)
+            {
+                spell.EffectDescription.EffectAdvancement.SetAlteredDuration(RuleDefinitions.AdvancementDuration.None);
+            }
         }
 
         internal static void UseHeightOneCylinderEffect()
