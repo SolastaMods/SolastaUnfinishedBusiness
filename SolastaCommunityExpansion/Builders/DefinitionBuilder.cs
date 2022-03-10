@@ -248,7 +248,7 @@ namespace SolastaCommunityExpansion.Builders
                 }
 
                 // create guid from namespace+name
-                Definition.SetField("guid", CreateGuid(namespaceGuid, name));
+                Definition.SetUserContentGUID(CreateGuid(namespaceGuid, name));
 
                 LogDefinition($"New-Creating definition: ({name}, namespace={namespaceGuid}, guid={Definition.GUID})");
             }
@@ -260,7 +260,7 @@ namespace SolastaCommunityExpansion.Builders
                 }
 
                 // assign guid
-                Definition.SetField("guid", definitionGuid);
+                Definition.SetUserContentGUID(definitionGuid);
 
                 LogDefinition($"New-Creating definition: ({name}, guid={Definition.GUID})");
             }
@@ -313,14 +313,14 @@ namespace SolastaCommunityExpansion.Builders
                 }
 
                 // create guid from namespace+name
-                Definition.SetField("guid", CreateGuid(namespaceGuid, name));
+                Definition.SetUserContentGUID(CreateGuid(namespaceGuid, name));
 
                 LogDefinition($"New-Cloning definition: original({originalName}, {originalGuid}) => ({name}, namespace={namespaceGuid}, {Definition.GUID})");
             }
             else
             {
                 // directly assign guid
-                Definition.SetField("guid", definitionGuid);
+                Definition.SetUserContentGUID(definitionGuid);
 
                 LogDefinition($"New-Cloning definition: original({originalName}, {originalGuid}) => ({name}, {Definition.GUID})");
             }
@@ -357,6 +357,9 @@ namespace SolastaCommunityExpansion.Builders
             }
 
             VerifyGuiPresentation();
+
+            Definition.SetField("contentCopyright", BaseDefinition.Copyright.UserContent);
+            //            Definition.SetField("contentPack", (GamingPlatformDefinitions.ContentPack)(-1));
 
             // Get all base types for the target definition.  The definition needs to be added to all matching databases.
             // e.g. ConditionAffinityBlindnessImmunity is added to dbs: FeatureDefinitionConditionAffinity, FeatureDefinitionAffinity, FeatureDefinition

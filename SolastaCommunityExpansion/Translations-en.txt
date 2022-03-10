@@ -1197,6 +1197,8 @@ Subclass/&WitchSubclassPathDescription	Your knowledge of magic has culminated in
 Subclass/&WitchSubclassPathTitle	Witch Covens
 Tooltip/&Tag9000Title	Custom Effect
 Tooltip/&TagMaledictionTitle	Malediction
+Tooltip/&TagCommunityExpansionTitle	Community Expansion
+Tooltip/&TagOtherModContentTitle From mod
 Tooltip/&TagScoutSentinelWeaponTitle	Uses Int for attack & damage
 Message/&MessageModWelcomeTitle Community Expansion Mod
 Message/&MessageModWelcomeDescription   The Community Expansion Mod is packed full of exciting features, but by default none are enabled. Press <color=yellow>Ctrl-F10</color> to open the Unity Mod Manager UI [UMM], then click on the settings icon next to 'Community Expansion' to open the settings pages.\n\n  Explore the options and select the ones you like. The UMM UI will now open.
