@@ -14,7 +14,7 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
                 return true;
             }
 
-            // Bestow Curse does not need concentration for slot level 5 or above.
+            // Per SRD - Bestow Curse does not need concentration when cast with slot level 5 or above.
             // If the active spell is a sub-spell of Bestow Curse and the slot level is >= 5 don't run StartConcentrationAsNeeded.
             return
                 !__instance.ActiveSpell.SpellDefinition.IsSubSpellOf(SolastaModApi.DatabaseHelper.SpellDefinitions.BestowCurse)
