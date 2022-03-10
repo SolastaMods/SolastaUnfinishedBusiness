@@ -119,6 +119,17 @@ namespace SolastaCommunityExpansion.Builders
             return This();
         }
 
+        public TBuilder SetAdditionalDamageData(RuleDefinitions.DieType dieType, int numberOfDie, ConditionDefinition.DamageQuantity damageQuantity, bool additionalDamageWhenHit)
+        {
+            Definition
+                .SetAdditionalDamageWhenHit(additionalDamageWhenHit)
+                .SetAdditionalDamageDieType(dieType)
+                .SetAdditionalDamageDieNumber(numberOfDie)
+                .SetAdditionalDamageQuantity(damageQuantity);
+            
+            return This();
+        }
+
         public TBuilder SetParentCondition(ConditionDefinition value)
         {
             Definition.SetParentCondition(value);
@@ -153,6 +164,12 @@ namespace SolastaCommunityExpansion.Builders
         public TBuilder SetSpecialDuration(bool value)
         {
             Definition.SetSpecialDuration(value);
+            return This();
+        }
+
+        public TBuilder SetPossessive(bool value)
+        {
+            Definition.SetPossessive(value);
             return This();
         }
 
