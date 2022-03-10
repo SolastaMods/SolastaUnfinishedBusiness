@@ -9,6 +9,11 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
     {
         public static bool Prefix(CharacterActionCastSpell __instance)
         {
+            if (!Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove)
+            {
+                return true;
+            }
+
             // Bestow Curse does not need concentration for slot level 5 or above.
             // If the active spell is a sub-spell of Bestow Curse and the slot level is >= 5 don't run StartConcentrationAsNeeded.
             return

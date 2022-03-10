@@ -199,6 +199,7 @@ namespace SolastaCommunityExpansion
         public bool FullyControlConjurations { get; set; }
         public bool OnlyShowMostPowerfulUpcastConjuredElementalOrFey { get; set; }
         public bool UseHeightOneCylinderEffect { get; set; }
+        public bool BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove { get; set; }
 
         // House
         public bool AllowAnyClassToWearSylvanArmor { get; set; }
