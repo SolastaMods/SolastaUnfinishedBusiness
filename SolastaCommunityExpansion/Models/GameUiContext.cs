@@ -32,6 +32,9 @@ namespace SolastaCommunityExpansion.Models
         {
             var inputService = ServiceRepository.GetService<IInputService>();
 
+            // Dungeon Maker
+            inputService.RegisterCommand(InputCommands.Id.EditorRotate, 114, (int)KeyCode.LeftShift, -1, -1, -1, -1);
+
             // HUD
             inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_C, (int)KeyCode.C, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
             inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_L, (int)KeyCode.L, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
