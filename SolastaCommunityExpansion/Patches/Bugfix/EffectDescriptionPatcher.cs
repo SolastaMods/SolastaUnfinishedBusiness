@@ -4,7 +4,7 @@ using static RuleDefinitions;
 
 namespace SolastaCommunityExpansion.Patches.Bugfix
 {
-    [HarmonyPatch(typeof(Functor), "ComputeRoundsDuration")]
+    [HarmonyPatch(typeof(EffectDescription), "ComputeRoundsDuration")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal class EffectDescription_ComputeRoundsDuration
     {
