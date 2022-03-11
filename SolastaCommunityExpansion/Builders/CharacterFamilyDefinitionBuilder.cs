@@ -33,7 +33,5 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
         #endregion
-
-        // TODO: add Create methods
     }
 }

@@ -181,17 +181,18 @@
   },
   "locationPresentation": {
     "$type": "LocationPresentation, Assembly-CSharp",
-    "unchartedTitle": "Feature/&Emptystring",
-    "unchartedDescription": "Feature/&Emptystring",
-    "knownTitle": "Feature/&Emptystring",
-    "knownDescription": "Feature/&Emptystring",
-    "exploredTitle": "Map/&Encounter_Jungle_Village_Title",
-    "exploredDescription": "Map/&Encounter_Jungle_Village_Description"
+    "unchartedTitle": "LocationType/&Encounter_Mines_Title",
+    "unchartedDescription": "LocationType/&Encounter_Mines_Description",
+    "knownTitle": "LocationType/&Encounter_Mines_Title",
+    "knownDescription": "LocationType/&Encounter_Mines_Description",
+    "exploredTitle": "LocationType/&Encounter_Mines_Title",
+    "exploredDescription": "LocationType/&Encounter_Mines_Description"
   },
   "challengeRating": -1,
   "focusWhenRevealed": false,
   "startsWithScavengerCamp": false,
   "ignoredByScavengers": false,
+  "useDirectionalLightInCutscene": true,
   "useNewSectorCullingAlgorithm": true,
   "keepSectorCullingResultsWhenInactive": false,
   "setCurrentCampaignNodeWhenLeaving": false,
@@ -200,8 +201,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "LocationType/&Encounter_Bridge_Title",
-    "description": "LocationType/&Encounter_Bridge_Description",
+    "title": "LocationType/&Encounter_Mines_Title",
+    "description": "LocationType/&Encounter_Mines_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "279bd3d6b6df9584a9154d2c503e3630",

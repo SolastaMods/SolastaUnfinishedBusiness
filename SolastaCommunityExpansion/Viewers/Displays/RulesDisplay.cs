@@ -46,6 +46,12 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     SrdAndHouseRulesContext.ApplyConditionBlindedShouldNotAllowOpportunityAttack();
                 }
 
+                toggle = Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove;
+                if (UI.Toggle("Bestow Curse".orange() + " does not require concentration when cast with L5+ spell slot", ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove = toggle;
+                }
+
                 UI.Label("");
 
                 toggle = Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell;

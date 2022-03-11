@@ -8,45 +8,35 @@ namespace SolastaCommunityExpansion.Builders.Features
     public class FeatureDefinitionSummoningAffinityBuilder
         : FeatureDefinitionAffinityBuilder<FeatureDefinitionSummoningAffinity, FeatureDefinitionSummoningAffinityBuilder>
     {
-        protected FeatureDefinitionSummoningAffinityBuilder(string name, string guid)
-            : base(name, guid)
+        #region Constructors
+        protected FeatureDefinitionSummoningAffinityBuilder(FeatureDefinitionSummoningAffinity original) : base(original)
         {
         }
 
-        protected FeatureDefinitionSummoningAffinityBuilder(string name, Guid namespaceGuid)
-            : base(name, namespaceGuid)
+        protected FeatureDefinitionSummoningAffinityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
-        protected FeatureDefinitionSummoningAffinityBuilder(FeatureDefinitionSummoningAffinity original, string name, string guid)
-            : base(original, name, guid)
+        protected FeatureDefinitionSummoningAffinityBuilder(string name, string definitionGuid) : base(name, definitionGuid)
         {
         }
 
-        protected FeatureDefinitionSummoningAffinityBuilder(FeatureDefinitionSummoningAffinity original, string name, Guid namespaceGuid)
-            : base(original, name, namespaceGuid)
+        protected FeatureDefinitionSummoningAffinityBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
         {
         }
 
-        public static FeatureDefinitionSummoningAffinityBuilder Create(FeatureDefinitionSummoningAffinity original, string name, Guid namespaceGuid)
+        protected FeatureDefinitionSummoningAffinityBuilder(FeatureDefinitionSummoningAffinity original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
-            return new FeatureDefinitionSummoningAffinityBuilder(original, name, namespaceGuid);
         }
 
-        public static FeatureDefinitionSummoningAffinityBuilder Create(string name, string guid)
+        protected FeatureDefinitionSummoningAffinityBuilder(FeatureDefinitionSummoningAffinity original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
         {
-            return new FeatureDefinitionSummoningAffinityBuilder(name, guid);
         }
 
-        public static FeatureDefinitionSummoningAffinityBuilder Create(string name, Guid namespaceGuid)
+        protected FeatureDefinitionSummoningAffinityBuilder(FeatureDefinitionSummoningAffinity original, string name, string definitionGuid) : base(original, name, definitionGuid)
         {
-            return new FeatureDefinitionSummoningAffinityBuilder(name, namespaceGuid);
         }
-
-        public static FeatureDefinitionSummoningAffinityBuilder Create(FeatureDefinitionSummoningAffinity original, string name, string guid)
-        {
-            return new FeatureDefinitionSummoningAffinityBuilder(original, name, guid);
-        }
+        #endregion
 
         public FeatureDefinitionSummoningAffinityBuilder ClearEffectForms()
         {

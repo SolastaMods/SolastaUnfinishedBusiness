@@ -7,25 +7,35 @@ namespace SolastaCommunityExpansion.Builders.Features
 {
     public class FeatureDefinitionPointPoolBuilder : FeatureDefinitionBuilder<FeatureDefinitionPointPool, FeatureDefinitionPointPoolBuilder>
     {
-        protected FeatureDefinitionPointPoolBuilder(string name, string guid)
-            : base(name, guid)
+        #region Constructors
+        protected FeatureDefinitionPointPoolBuilder(FeatureDefinitionPointPool original) : base(original)
         {
         }
 
-        protected FeatureDefinitionPointPoolBuilder(string name, Guid namespaceGuid)
-            : base(name, namespaceGuid)
+        protected FeatureDefinitionPointPoolBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
-        public static FeatureDefinitionPointPoolBuilder Create(string name, Guid namespaceGuid)
+        protected FeatureDefinitionPointPoolBuilder(string name, string definitionGuid) : base(name, definitionGuid)
         {
-            return new FeatureDefinitionPointPoolBuilder(name, namespaceGuid);
         }
 
-        public static FeatureDefinitionPointPoolBuilder Create(string name, string guid)
+        protected FeatureDefinitionPointPoolBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
         {
-            return new FeatureDefinitionPointPoolBuilder(name, guid);
         }
+
+        protected FeatureDefinitionPointPoolBuilder(FeatureDefinitionPointPool original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
+        {
+        }
+
+        protected FeatureDefinitionPointPoolBuilder(FeatureDefinitionPointPool original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionPointPoolBuilder(FeatureDefinitionPointPool original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+        #endregion
 
         public FeatureDefinitionPointPoolBuilder SetPool(HeroDefinitions.PointsPoolType poolType, int poolAmount)
         {

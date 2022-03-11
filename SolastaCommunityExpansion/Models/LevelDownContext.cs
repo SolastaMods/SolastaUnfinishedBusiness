@@ -109,7 +109,8 @@ namespace SolastaCommunityExpansion.Models
                 subclassTag = AttributeDefinitions.GetSubclassTag(characterClassDefinition, classLevel, characterSubclassDefinition);
             }
 
-            CharacterHeroBuildingData.GetAvailableBuildingDataPool(hero);
+            // Doesn't exist in 1.3.21
+            //            CharacterHeroBuildingData.GetAvailableBuildingDataPool(hero);
             LevelUpContext.SelectedHero = hero;
             LevelUpContext.SelectedClass = characterClassDefinition;
             LevelUpContext.SelectedSubclass = characterSubclassDefinition;
@@ -148,7 +149,8 @@ namespace SolastaCommunityExpansion.Models
             hero.RefreshUsableDeviceFunctions();
             hero.ComputeHitPoints(true);
 
-            CharacterHeroBuildingData.ReleaseCharacterHeroBuildingData(hero);
+            // Doesn't exist in 1.3.21
+            //            CharacterHeroBuildingData.ReleaseCharacterHeroBuildingData(hero);
             LevelUpContext.SelectedHero = null;
 
             // saves hero if not in game

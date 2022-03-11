@@ -38,11 +38,6 @@ namespace SolastaCommunityExpansion.Builders
         }
         #endregion
 
-        public static SpellListDefinitionBuilder Create(SpellListDefinition original, string name, Guid guidNamespace)
-        {
-            return new SpellListDefinitionBuilder(original, name, guidNamespace);
-        }
-
         public SpellListDefinitionBuilder ClearSpells()
         {
             Definition.SpellsByLevel.ForEach(s => s.Spells.Clear());

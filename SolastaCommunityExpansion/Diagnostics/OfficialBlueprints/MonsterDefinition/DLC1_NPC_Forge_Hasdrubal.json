@@ -117,13 +117,13 @@
   "attackIterations": [
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
-      "number": 2,
-      "monsterAttackDefinition": "Definition:Attack_BadlandHunter_Longbow:6f7553cfd8ca4f3428f0fd55657f8e19"
+      "number": 3,
+      "monsterAttackDefinition": "Definition:Attack_BadlandHunter_Shortsword:1796c3bfd6fefed4583652558a5c5e64"
     },
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
-      "number": 3,
-      "monsterAttackDefinition": "Definition:Attack_BadlandHunter_Shortsword:1796c3bfd6fefed4583652558a5c5e64"
+      "number": 2,
+      "monsterAttackDefinition": "Definition:Attack_BadlandHunter_Longbow:6f7553cfd8ca4f3428f0fd55657f8e19"
     }
   ],
   "sneakStance": "Stealth",
