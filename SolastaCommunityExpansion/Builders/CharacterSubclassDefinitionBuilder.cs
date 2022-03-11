@@ -5,47 +5,37 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public sealed class CharacterSubclassDefinitionBuilder : DefinitionBuilder<CharacterSubclassDefinition, CharacterSubclassDefinitionBuilder>
+    public class CharacterSubclassDefinitionBuilder : DefinitionBuilder<CharacterSubclassDefinition, CharacterSubclassDefinitionBuilder>
     {
-        private CharacterSubclassDefinitionBuilder(string name, string guid)
-            : base(name, guid)
+        #region Constructors
+        protected CharacterSubclassDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
-        private CharacterSubclassDefinitionBuilder(string name, Guid namespaceGuid)
-            : base(name, namespaceGuid)
+        protected CharacterSubclassDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
         {
         }
 
-        private CharacterSubclassDefinitionBuilder(CharacterSubclassDefinition original, string name, string guid)
-            : base(original, name, guid)
+        protected CharacterSubclassDefinitionBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
         {
         }
 
-        private CharacterSubclassDefinitionBuilder(CharacterSubclassDefinition original, string name, Guid namespaceGuid)
-            : base(original, name, namespaceGuid)
+        protected CharacterSubclassDefinitionBuilder(CharacterSubclassDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
         }
 
-        public static CharacterSubclassDefinitionBuilder Create(string name, string guid)
+        protected CharacterSubclassDefinitionBuilder(CharacterSubclassDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
         {
-            return new CharacterSubclassDefinitionBuilder(name, guid);
         }
 
-        public static CharacterSubclassDefinitionBuilder Create(string name, Guid namespaceGuid)
+        protected CharacterSubclassDefinitionBuilder(CharacterSubclassDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
         {
-            return new CharacterSubclassDefinitionBuilder(name, namespaceGuid);
         }
 
-        public static CharacterSubclassDefinitionBuilder Create(CharacterSubclassDefinition original, string name, string guid)
+        protected CharacterSubclassDefinitionBuilder(CharacterSubclassDefinition original) : base(original)
         {
-            return new CharacterSubclassDefinitionBuilder(original, name, guid);
         }
-
-        public static CharacterSubclassDefinitionBuilder Create(CharacterSubclassDefinition original, string name, Guid namespaceGuid)
-        {
-            return new CharacterSubclassDefinitionBuilder(original, name, namespaceGuid);
-        }
+        #endregion
 
         public CharacterSubclassDefinitionBuilder AddPersonality(PersonalityFlagDefinition personalityType, int weight)
         {

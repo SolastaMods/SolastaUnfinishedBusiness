@@ -35,12 +35,6 @@ namespace SolastaCommunityExpansion.Builders
         }
         #endregion
 
-        // Create methods
-        internal static RestActivityDefinitionBuilder Create(string name, Guid namespaceGuid)
-        {
-            return new RestActivityDefinitionBuilder(name, namespaceGuid);
-        }
-
         internal RestActivityDefinitionBuilder SetRestData(
             RestDefinitions.RestStage restStage, RuleDefinitions.RestType restType,
             RestActivityDefinition.ActivityCondition condition, string functor, string stringParameter)

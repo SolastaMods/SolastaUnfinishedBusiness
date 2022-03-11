@@ -200,17 +200,5 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
         #endregion
-
-        // Add other standard Create methods and constructors as required.
-
-        public static FeatureDefinitionAdditionalDamageBuilder Create(FeatureDefinitionAdditionalDamage original, string name, Guid namespaceGuid)
-        {
-            return new FeatureDefinitionAdditionalDamageBuilder(original, name, namespaceGuid);
-        }
-
-        public static FeatureDefinitionAdditionalDamageBuilder Create(string name, Guid namespaceGuid)
-        {
-            return new FeatureDefinitionAdditionalDamageBuilder(name, namespaceGuid);
-        }
     }
 }

@@ -36,13 +36,6 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
         #endregion
 
-        // Add other standard Create methods and constructors as required.
-
-        public static FeatureDefinitionAttackModifierBuilder Create(string name, Guid namespaceGuid)
-        {
-            return new FeatureDefinitionAttackModifierBuilder(name, namespaceGuid);
-        }
-
         public FeatureDefinitionAttackModifierBuilder SetAbilityScoreReplacement(RuleDefinitions.AbilityScoreReplacement replacement)
         {
             Definition.SetAbilityScoreReplacement(replacement);

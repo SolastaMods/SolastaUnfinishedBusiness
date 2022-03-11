@@ -80,27 +80,5 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
         #endregion
-
-        #region Factory methods (create builder)
-        public static FeatureDefinitionCombatAffinityBuilder Create(string name, string guid)
-        {
-            return new FeatureDefinitionCombatAffinityBuilder(name, guid);
-        }
-
-        public static FeatureDefinitionCombatAffinityBuilder Create(string name, Guid namespaceGuid)
-        {
-            return new FeatureDefinitionCombatAffinityBuilder(name, namespaceGuid);
-        }
-
-        public static FeatureDefinitionCombatAffinityBuilder Create(FeatureDefinitionCombatAffinity original, string name, string guid)
-        {
-            return new FeatureDefinitionCombatAffinityBuilder(original, name, guid);
-        }
-
-        public static FeatureDefinitionCombatAffinityBuilder Create(FeatureDefinitionCombatAffinity original, string name, Guid namespaceGuid)
-        {
-            return new FeatureDefinitionCombatAffinityBuilder(original, name, namespaceGuid);
-        }
-        #endregion
     }
 }
