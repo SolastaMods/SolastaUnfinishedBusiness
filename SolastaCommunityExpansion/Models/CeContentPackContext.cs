@@ -15,7 +15,7 @@ namespace SolastaCommunityExpansion.Models
         private static ContentPackDefinition CreateContentPackDefinition()
         {
             return ContentPackDefinitionBuilder
-                .Create(SupporterPack, "CommunityExpansionPack", DefinitionBuilder.CENamespaceGuid)
+                .Create("CommunityExpansionPack", DefinitionBuilder.CENamespaceGuid)
                 // TODO: need our own sprite
                 .SetGuiPresentation(Category.ContentPack, SupporterPack.GuiPresentation.SpriteReference)
                 .AddToDB();
@@ -34,7 +34,7 @@ namespace SolastaCommunityExpansion.Models
         private class ContentPackDefinitionBuilder : DefinitionBuilder<ContentPackDefinition, ContentPackDefinitionBuilder>
         {
             #region Constructors
-            protected ContentPackDefinitionBuilder(ContentPackDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+            protected ContentPackDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
             {
             }
             #endregion 
