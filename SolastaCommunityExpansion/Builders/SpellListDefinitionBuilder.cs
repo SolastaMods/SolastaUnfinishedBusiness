@@ -56,10 +56,7 @@ namespace SolastaCommunityExpansion.Builders
                 throw new ArgumentException($"Spell level {level} is not supported.");
             }
 
-            Definition.SpellsByLevel[level].Spells.SetRange(
-                spellsByLevel
-                    .Where(s => s.Implemented)
-                    .Where(s => s.ContentPack == GamingPlatformDefinitions.ContentPack.BaseGame));
+            Definition.SpellsByLevel[level].Spells.SetRange(spellsByLevel.Where(s => s.Implemented));
 
             return this;
         }
@@ -70,24 +67,5 @@ namespace SolastaCommunityExpansion.Builders
             Definition.SetHasCantrips(hasCantrips);
             return this;
         }
-
-        /*        public SpellListDefinitionBuilder SetSpellsByLevel(params IEnumerable<SpellDefinition>[] spellsByLevel)
-                {
-                    for (int i = 0; i < Definition.SpellsByLevel.Count; i++)
-                    {
-                        Definition.SpellsByLevel[i].Spells.Clear();
-
-                        if (spellsByLevel.Length > i)
-                        {
-                            Definition.SpellsByLevel[i].Spells.AddRange(
-                                spellsByLevel[i]
-                                    .Where(s => s.Implemented)
-                                    .Where(s => s.ContentPack == GamingPlatformDefinitions.ContentPack.BaseGame));
-                        }
-                    }
-
-                    return this;
-                }
-        */
     }
 }
