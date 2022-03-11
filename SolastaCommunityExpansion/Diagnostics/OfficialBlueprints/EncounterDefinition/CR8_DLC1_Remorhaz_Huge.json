@@ -17,7 +17,7 @@
     },
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
-      "monsterDefinition": "Definition:Young_Remorhaz:86368b4999f34f349b477aecd56db5a1",
+      "monsterDefinition": "Definition:Giant_Beetle:56bf7a3f578751446b53a5d6c97daab6",
       "number": 2,
       "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall_PenalizeAltitude:c80d21582cba9af45af18c8b417c2af3",
       "creatureSex": "Male",
