@@ -218,6 +218,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetUseDirectionalLightInCutscene<T>(this T entity, System.Boolean value)
+            where T : LocationDefinition
+        {
+            entity.SetField("useDirectionalLightInCutscene", value);
+            return entity;
+        }
+
         public static T SetUseNewSectorCullingAlgorithm<T>(this T entity, System.Boolean value)
             where T : LocationDefinition
         {

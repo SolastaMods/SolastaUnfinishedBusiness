@@ -97,6 +97,12 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static GraphicsSettingsDefinition SetLightingCutsceneShadows(this GraphicsSettingsDefinition entity, System.Boolean value)
+        {
+            entity.SetField("lightingCutsceneShadows", value);
+            return entity;
+        }
+
         public static GraphicsSettingsDefinition SetLocationAuraQualitySettings(this GraphicsSettingsDefinition entity, Aura2API.AuraQualitySettings[] value)
         {
             entity.SetField("locationAuraQualitySettings", value);
@@ -148,6 +154,12 @@ namespace SolastaModApi.Extensions
         public static GraphicsSettingsDefinition SetTextureQuality(this GraphicsSettingsDefinition entity, GraphicsDefinitions.TextureQuality value)
         {
             entity.TextureQuality = value;
+            return entity;
+        }
+
+        public static GraphicsSettingsDefinition SetUseDirectionalLightInCutscene(this GraphicsSettingsDefinition entity, System.Boolean value)
+        {
+            entity.SetField("useDirectionalLightInCutscene", value);
             return entity;
         }
 

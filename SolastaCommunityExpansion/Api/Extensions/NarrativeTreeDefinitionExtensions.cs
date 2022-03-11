@@ -169,6 +169,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetHideHuskCharacters<T>(this T entity, System.Boolean value)
+            where T : NarrativeTreeDefinition
+        {
+            entity.HideHuskCharacters = value;
+            return entity;
+        }
+
         public static T SetIsUserDialog<T>(this T entity, System.Boolean value)
             where T : NarrativeTreeDefinition
         {
