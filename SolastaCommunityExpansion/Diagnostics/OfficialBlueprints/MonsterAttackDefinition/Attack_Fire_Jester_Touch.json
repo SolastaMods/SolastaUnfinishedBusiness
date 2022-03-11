@@ -335,10 +335,10 @@
           "guid": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A",
           "name": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A"
         },
-        "objectName": "Spell",
-        "id": 523506649,
-        "guid": "225A6C3B-22D3-4B63-9E92-62510CD541D1",
-        "name": "225A6C3B-22D3-4B63-9E92-62510CD541D1"
+        "objectName": "Spell_Fire",
+        "id": 4129757120,
+        "guid": "E39E9FEE-A6AC-4CAC-89C1-39D06DD3B11D",
+        "name": "E39E9FEE-A6AC-4CAC-89C1-39D06DD3B11D"
       },
       "groupIdInternal": 0,
       "groupGuidInternal": {

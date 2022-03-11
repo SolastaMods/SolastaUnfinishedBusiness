@@ -201,6 +201,7 @@
   "focusWhenRevealed": false,
   "startsWithScavengerCamp": false,
   "ignoredByScavengers": true,
+  "useDirectionalLightInCutscene": true,
   "useNewSectorCullingAlgorithm": true,
   "keepSectorCullingResultsWhenInactive": false,
   "setCurrentCampaignNodeWhenLeaving": true,

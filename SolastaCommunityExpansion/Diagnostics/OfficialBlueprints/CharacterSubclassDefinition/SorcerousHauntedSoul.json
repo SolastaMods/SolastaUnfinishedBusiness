@@ -29,7 +29,7 @@
       "personalityFlag": "Selfishness"
     }
   ],
-  "morphotypeSubclassFilterTag": "SorcererChildRift",
+  "morphotypeSubclassFilterTag": "SorcererHauntedSoul",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

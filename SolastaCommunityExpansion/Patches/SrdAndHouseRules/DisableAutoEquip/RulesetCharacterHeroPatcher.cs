@@ -16,11 +16,13 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.DisableAutoEquip
                 return;
             }
 
-            var buildingDataByHero = typeof(CharacterHeroBuildingData)
-                .GetField("buildingDataByHero", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic)
-                .GetValue(null) as Dictionary<RulesetCharacterHero, CharacterHeroBuildingData>;
+            // Comment out.
 
-            tryToEquip = buildingDataByHero.Keys.Any(x => x.Name == __instance.Name);
+            //var buildingDataByHero = typeof(CharacterHeroBuildingData)
+            //    .GetField("buildingDataByHero", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic)
+            //    .GetValue(null) as Dictionary<RulesetCharacterHero, CharacterHeroBuildingData>;
+
+            //tryToEquip = buildingDataByHero.Keys.Any(x => x.Name == __instance.Name);
         }
     }
 }

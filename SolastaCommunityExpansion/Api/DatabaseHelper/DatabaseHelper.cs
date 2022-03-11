@@ -1012,6 +1012,8 @@ namespace SolastaModApi
             public static DateTimeDefinition Abjuration_Monastery_DateTime { get; } = GetDefinition<DateTimeDefinition>("Abjuration_Monastery_DateTime", "3aa8a256ea3b9514b82d3964a8acff27");
             public static DateTimeDefinition Abjuration_WizardTower_DateTime_01h00 { get; } = GetDefinition<DateTimeDefinition>("Abjuration_WizardTower_DateTime_01h00", "b3f9ec04e7d654f4d8844104ae71a587");
             public static DateTimeDefinition Abjuration_WizardTower_DateTime_17h30 { get; } = GetDefinition<DateTimeDefinition>("Abjuration_WizardTower_DateTime_17h30", "9e1a2627cb240b540af22fb61797035f");
+            public static DateTimeDefinition DLC1_Scenario_Campaign_FunctorEnding_Cutscene_Marches_1_SetTime { get; } = GetDefinition<DateTimeDefinition>("DLC1_Scenario_Campaign_FunctorEnding_Cutscene_Marches_1_SetTime", "3160ab0b1e660b447ac4d9919d3157ba");
+            public static DateTimeDefinition DLC1_Scenario_Campaign_FunctorEnding_Cutscene_Marches_2_SetTime { get; } = GetDefinition<DateTimeDefinition>("DLC1_Scenario_Campaign_FunctorEnding_Cutscene_Marches_2_SetTime", "0b11a5a6cd7251e40a22cf6ba6e1d5a4");
             public static DateTimeDefinition Tutorial_00_Tavern_DateTime_Restore { get; } = GetDefinition<DateTimeDefinition>("Tutorial_00_Tavern_DateTime_Restore", "7260c0548acab56429ea810f6c4b91e6");
             public static DateTimeDefinition Tutorial_00_Tavern_DateTime_Restore10h30 { get; } = GetDefinition<DateTimeDefinition>("Tutorial_00_Tavern_DateTime_Restore10h30", "25dbf92ab3d8dbb4e85d0255b317e936");
             public static DateTimeDefinition Tutorial_00_Tavern_DateTime_Restore11h00 { get; } = GetDefinition<DateTimeDefinition>("Tutorial_00_Tavern_DateTime_Restore11h00", "9e585a64a1ba90a4a9b70b65aac68637");
@@ -1502,12 +1504,14 @@ namespace SolastaModApi
         public static class EnvironmentDefinitions
         {
             public static EnvironmentDefinition Catacombs { get; } = GetDefinition<EnvironmentDefinition>("Catacombs", "8d84a43758d1fff4c91bcf70459fe666");
+            public static EnvironmentDefinition CityValley { get; } = GetDefinition<EnvironmentDefinition>("CityValley", "ee643af6bba4936469039a9b2449c223");
             public static EnvironmentDefinition ElvenPalace { get; } = GetDefinition<EnvironmentDefinition>("ElvenPalace", "680e216a12492a44e973e780c1a66439");
             public static EnvironmentDefinition Jungle { get; } = GetDefinition<EnvironmentDefinition>("Jungle", "96062eae980fff6439c6d673771ac577");
             public static EnvironmentDefinition LavaCaves { get; } = GetDefinition<EnvironmentDefinition>("LavaCaves", "fc7c481ade1b78240b369477734e6180");
             public static EnvironmentDefinition Necropolis { get; } = GetDefinition<EnvironmentDefinition>("Necropolis", "60d0508fddb55344eb9bbbdaf5b2d233");
             public static EnvironmentDefinition Sewers { get; } = GetDefinition<EnvironmentDefinition>("Sewers", "0438ca15e978f344ab3b972e95cc48d1");
             public static EnvironmentDefinition Stronghold { get; } = GetDefinition<EnvironmentDefinition>("Stronghold", "3d54e8d62157afa44ba8d716a3ae543a");
+            public static EnvironmentDefinition Swamp { get; } = GetDefinition<EnvironmentDefinition>("Swamp", "89e97a3205c92da4faac23cd18ed0732");
             public static EnvironmentDefinition Town { get; } = GetDefinition<EnvironmentDefinition>("Town", "b1a8d560731c84241bd22157a7a36a38");
             public static EnvironmentDefinition TownInterior { get; } = GetDefinition<EnvironmentDefinition>("TownInterior", "de43917cc10ce5e46929a29be4f6ca3c");
             public static EnvironmentDefinition ValleyPalace { get; } = GetDefinition<EnvironmentDefinition>("ValleyPalace", "bb69fe2bc78743843928d12b3194b384");
@@ -7016,6 +7020,7 @@ namespace SolastaModApi
             public static MorphotypeElementDefinition BodyDecoration_None { get; } = GetDefinition<MorphotypeElementDefinition>("BodyDecoration_None", "042683c126c49e044993600bca076c05");
             public static MorphotypeElementDefinition BodyDecoration_SorcererChildOfTheRift { get; } = GetDefinition<MorphotypeElementDefinition>("BodyDecoration_SorcererChildOfTheRift", "bd0bae16761094a4089966a718ded4bc");
             public static MorphotypeElementDefinition BodyDecoration_SorcererDraconic { get; } = GetDefinition<MorphotypeElementDefinition>("BodyDecoration_SorcererDraconic", "70fae0b3ed56e81408afad95addaf91f");
+            public static MorphotypeElementDefinition BodyDecoration_SorcererHauntedSoul { get; } = GetDefinition<MorphotypeElementDefinition>("BodyDecoration_SorcererHauntedSoul", "6d643172518131d4e84fb88fb2ac0031");
             public static MorphotypeElementDefinition BodyDecoration_SorcererManaPainter { get; } = GetDefinition<MorphotypeElementDefinition>("BodyDecoration_SorcererManaPainter", "5845bca3adf96ce4a820fcd3d5a106c3");
             public static MorphotypeElementDefinition BodyDecoration_Tattoo_01 { get; } = GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Tattoo_01", "4ee6cde705254484fb5487fcb626a01a");
             public static MorphotypeElementDefinition BodyDecoration_Tattoo_02 { get; } = GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Tattoo_02", "ee593b01c8b9224418db6170ae2503f1");
@@ -7048,6 +7053,22 @@ namespace SolastaModApi
             public static MorphotypeElementDefinition BodyDecorationColor_Default_13 { get; } = GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_Default_13", "58a5feda1cdfd4a41a40bec2a71c8715");
             public static MorphotypeElementDefinition BodyDecorationColor_Default_14 { get; } = GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_Default_14", "924ae8a0b15b72147bfd10a147885ee3");
             public static MorphotypeElementDefinition BodyDecorationColor_Default_15 { get; } = GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_Default_15", "0c4b962c4b0edc441a245f0b506d7bc8");
+            public static MorphotypeElementDefinition BodyDecorationColor_SorcererHauntedSoul_00 { get; } = GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererHauntedSoul_00", "ea528d563c081fc4881b43d828aeecbf");
+            public static MorphotypeElementDefinition BodyDecorationColor_SorcererHauntedSoul_01 { get; } = GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererHauntedSoul_01", "99346ca4465d83c4e8759854203945ea");
+            public static MorphotypeElementDefinition BodyDecorationColor_SorcererHauntedSoul_02 { get; } = GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererHauntedSoul_02", "d8fbbae8893d277408e3193e62bf641a");
+            public static MorphotypeElementDefinition BodyDecorationColor_SorcererHauntedSoul_03 { get; } = GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererHauntedSoul_03", "6a840ff18916fc0428ea5ebc9b20879c");
+            public static MorphotypeElementDefinition BodyDecorationColor_SorcererHauntedSoul_04 { get; } = GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererHauntedSoul_04", "4b7c85d7ba5fe8440ae597189029fef9");
+            public static MorphotypeElementDefinition BodyDecorationColor_SorcererHauntedSoul_05 { get; } = GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererHauntedSoul_05", "5d27e55b31a477b4396f9066b36e541a");
+            public static MorphotypeElementDefinition BodyDecorationColor_SorcererHauntedSoul_06 { get; } = GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererHauntedSoul_06", "d88b9e93ea25d6b448f62e2af63b2b9f");
+            public static MorphotypeElementDefinition BodyDecorationColor_SorcererHauntedSoul_07 { get; } = GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererHauntedSoul_07", "3c35990fdd1227c4b8a6a6462a0aeaf1");
+            public static MorphotypeElementDefinition BodyDecorationColor_SorcererHauntedSoul_08 { get; } = GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererHauntedSoul_08", "a8b60e348b5d9fb46935c3a2e0cc4a84");
+            public static MorphotypeElementDefinition BodyDecorationColor_SorcererHauntedSoul_09 { get; } = GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererHauntedSoul_09", "f3c763686a7947f41b978d7387deeeda");
+            public static MorphotypeElementDefinition BodyDecorationColor_SorcererHauntedSoul_10 { get; } = GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererHauntedSoul_10", "955635cb777611244b7eea0c264a69ee");
+            public static MorphotypeElementDefinition BodyDecorationColor_SorcererHauntedSoul_11 { get; } = GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererHauntedSoul_11", "e61b1c1c71cb8c54bb6cacf8cb264dd5");
+            public static MorphotypeElementDefinition BodyDecorationColor_SorcererHauntedSoul_12 { get; } = GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererHauntedSoul_12", "6f4e3e1eb03ace64bae292f442ac7200");
+            public static MorphotypeElementDefinition BodyDecorationColor_SorcererHauntedSoul_13 { get; } = GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererHauntedSoul_13", "65e585ea1ae48134794e8e8037be05c5");
+            public static MorphotypeElementDefinition BodyDecorationColor_SorcererHauntedSoul_14 { get; } = GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererHauntedSoul_14", "13d8ba3f7515e974291b4a657b76b8fe");
+            public static MorphotypeElementDefinition BodyDecorationColor_SorcererHauntedSoul_15 { get; } = GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererHauntedSoul_15", "f03e876df71ecbc4ea3c82c380b11bcf");
             public static MorphotypeElementDefinition BodyDecorationColor_SorcererManaPainter_00 { get; } = GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererManaPainter_00", "b306571e047211b4cb70a85687b01dee");
             public static MorphotypeElementDefinition BodyDecorationColor_SorcererManaPainter_01 { get; } = GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererManaPainter_01", "17d2bba654f04134fa24800f5e10a838");
             public static MorphotypeElementDefinition BodyDecorationColor_SorcererManaPainter_02 { get; } = GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererManaPainter_02", "840d5657df8e1bd41af8136c02d1bb9e");
@@ -8163,6 +8184,7 @@ namespace SolastaModApi
             public static PropBlueprint Block_A { get; } = GetDefinition<PropBlueprint>("Block_A", "cf7a83f12a794294cb5d18a333825c5a");
             public static PropBlueprint Block_B { get; } = GetDefinition<PropBlueprint>("Block_B", "3bdbd64a265c073478b5d207babc163a");
             public static PropBlueprint Block_D { get; } = GetDefinition<PropBlueprint>("Block_D", "41a584a4bda7ad243a8dc3e43d8bbeb7");
+            public static PropBlueprint Boat_A { get; } = GetDefinition<PropBlueprint>("Boat_A", "aaa820663a01e3b4ba807306cafa6424");
             public static PropBlueprint Bookshelf_A { get; } = GetDefinition<PropBlueprint>("Bookshelf_A", "1f9bcb763bcdce343a9bf6b140e7ac6d");
             public static PropBlueprint Bookshelf_A_Covered { get; } = GetDefinition<PropBlueprint>("Bookshelf_A_Covered", "ea059f0673de09d4a9160e184857d389");
             public static PropBlueprint Bookshelf_B { get; } = GetDefinition<PropBlueprint>("Bookshelf_B", "58553b86c6beb0a4ca3f1f815921a7c4");
@@ -8295,6 +8317,8 @@ namespace SolastaModApi
             public static PropBlueprint Creeper_A { get; } = GetDefinition<PropBlueprint>("Creeper_A", "dc85e4dde71868a4fa7bdaadbb8c1d23");
             public static PropBlueprint Creeper_B { get; } = GetDefinition<PropBlueprint>("Creeper_B", "99e63510e0feae046a06a0d119fc17ec");
             public static PropBlueprint Creeper_C { get; } = GetDefinition<PropBlueprint>("Creeper_C", "9ca1e4eadcae0e44c98657dc2f0eab1d");
+            public static PropBlueprint Creeper_D { get; } = GetDefinition<PropBlueprint>("Creeper_D", "8978b7d4c64f7f242980f9353ee25806");
+            public static PropBlueprint Creeper_E { get; } = GetDefinition<PropBlueprint>("Creeper_E", "facbf51ff73362e4481370b84852cfbd");
             public static PropBlueprint Cushions_A { get; } = GetDefinition<PropBlueprint>("Cushions_A", "e888cfb60714ce54cb7265be83c97003");
             public static PropBlueprint Cushions_B { get; } = GetDefinition<PropBlueprint>("Cushions_B", "2a4ece4fea9fff84ba7c878fa41d13b8");
             public static PropBlueprint Dam_A { get; } = GetDefinition<PropBlueprint>("Dam_A", "438cb9e9f3152e94fb41248ef831beb6");
@@ -8399,6 +8423,7 @@ namespace SolastaModApi
             public static PropBlueprint House_G { get; } = GetDefinition<PropBlueprint>("House_G", "8af38c4aa83f7b644a66a2851a10181d");
             public static PropBlueprint House_H { get; } = GetDefinition<PropBlueprint>("House_H", "1e214c3879b924b4386813f340b1734e");
             public static PropBlueprint Hut { get; } = GetDefinition<PropBlueprint>("Hut", "262e6ea65495c7a4fad4a2d34de8c596");
+            public static PropBlueprint HutWitch { get; } = GetDefinition<PropBlueprint>("HutWitch", "a1f97e50285ecd44d92b6f2cb8347556");
             public static PropBlueprint Information_Board_A { get; } = GetDefinition<PropBlueprint>("Information_Board_A", "0d365330d2e009743a6bf45659be4376");
             public static PropBlueprint Information_Board_B { get; } = GetDefinition<PropBlueprint>("Information_Board_B", "187cac2d96728f14aac92646d3f82ae2");
             public static PropBlueprint IntWall_A { get; } = GetDefinition<PropBlueprint>("IntWall_A", "2ee92d0fdb0a66f44925bc9e874c8816");
@@ -8428,6 +8453,8 @@ namespace SolastaModApi
             public static PropBlueprint IntWall_Y_Separator { get; } = GetDefinition<PropBlueprint>("IntWall_Y_Separator", "4bb95d32e4ad22a4daf7d5910a7074fc");
             public static PropBlueprint JuniperGround_A { get; } = GetDefinition<PropBlueprint>("JuniperGround_A", "563eabf554061094780c304b7e740942");
             public static PropBlueprint Ladder { get; } = GetDefinition<PropBlueprint>("Ladder", "07251eab51ed1b741bfdd8d3dff90925");
+            public static PropBlueprint Lake_A { get; } = GetDefinition<PropBlueprint>("Lake_A", "0081d038dc2b489468702d9448920196");
+            public static PropBlueprint Lake_B { get; } = GetDefinition<PropBlueprint>("Lake_B", "04035006f3dedde40bc92ab0629c289f");
             public static PropBlueprint LavaBasin_A { get; } = GetDefinition<PropBlueprint>("LavaBasin_A", "e6fe2507df617094db67f73334041165");
             public static PropBlueprint LavaBasin_B { get; } = GetDefinition<PropBlueprint>("LavaBasin_B", "bff1527bff271684a92a7785df527277");
             public static PropBlueprint LavaBasin_C { get; } = GetDefinition<PropBlueprint>("LavaBasin_C", "9d94753a539b3fb41b12f64a3c5f5bd3");
@@ -8451,6 +8478,7 @@ namespace SolastaModApi
             public static PropBlueprint Monument_A { get; } = GetDefinition<PropBlueprint>("Monument_A", "8bfc150196a8b2b43a1ce1cad9e11a29");
             public static PropBlueprint Mushrooms_A { get; } = GetDefinition<PropBlueprint>("Mushrooms_A", "ff27bbca27740ba498b12249d3d4279c");
             public static PropBlueprint Mushrooms_B { get; } = GetDefinition<PropBlueprint>("Mushrooms_B", "c331e0aa93e50aa47bfa9a715f77a661");
+            public static PropBlueprint NestGiant { get; } = GetDefinition<PropBlueprint>("NestGiant", "c1754ebc4c91efb4284777e9f43d428b");
             public static PropBlueprint NightStand_A { get; } = GetDefinition<PropBlueprint>("NightStand_A", "c0563e2069c119f48b672bfa9a91c380");
             public static PropBlueprint NightStand_B { get; } = GetDefinition<PropBlueprint>("NightStand_B", "2f98f766fb5fffb41a4dfc142f32ee38");
             public static PropBlueprint NightStand_C { get; } = GetDefinition<PropBlueprint>("NightStand_C", "5afbc49171573d044be9be4fa8421686");
@@ -8505,6 +8533,8 @@ namespace SolastaModApi
             public static PropBlueprint PrisonFence_Straight_B { get; } = GetDefinition<PropBlueprint>("PrisonFence_Straight_B", "7706995fa267d3c48b7f49fa822ccead");
             public static PropBlueprint PrisonFence_Straight_LowGround_A { get; } = GetDefinition<PropBlueprint>("PrisonFence_Straight_LowGround_A", "382815d29c6aa3141be4015bc84edd4e");
             public static PropBlueprint PrisonFence_Straight_LowGround_B { get; } = GetDefinition<PropBlueprint>("PrisonFence_Straight_LowGround_B", "c94b1361d74974940b305d757b049bd5");
+            public static PropBlueprint Puddle_A { get; } = GetDefinition<PropBlueprint>("Puddle_A", "d5c43deacb679244fa0a5b0d76d8b403");
+            public static PropBlueprint Puddle_B { get; } = GetDefinition<PropBlueprint>("Puddle_B", "d53f63cd03ed0b7479bf5039054484eb");
             public static PropBlueprint ReadingDesk_A { get; } = GetDefinition<PropBlueprint>("ReadingDesk_A", "87617bb544b77a74e9727accb94805e8");
             public static PropBlueprint ReadingDesk_B { get; } = GetDefinition<PropBlueprint>("ReadingDesk_B", "fa5d0f8c643f42d4d94851f6519d8b3e");
             public static PropBlueprint RitualStone_A { get; } = GetDefinition<PropBlueprint>("RitualStone_A", "ef7664ba25dd28c4faf2dc808f83018d");
@@ -8659,6 +8689,8 @@ namespace SolastaModApi
             public static PropBlueprint Structure_A { get; } = GetDefinition<PropBlueprint>("Structure_A", "4ed9786a6e7367544a1514461e753340");
             public static PropBlueprint Structure_B { get; } = GetDefinition<PropBlueprint>("Structure_B", "36304c02204e1c547bc32e9daf1e5e3a");
             public static PropBlueprint Structure_C { get; } = GetDefinition<PropBlueprint>("Structure_C", "d3c01e0478fc8c045926a53fe90d3fc3");
+            public static PropBlueprint Structure_D { get; } = GetDefinition<PropBlueprint>("Structure_D", "043ef04c93c67b94bb28b3b63a154283");
+            public static PropBlueprint Structure_E { get; } = GetDefinition<PropBlueprint>("Structure_E", "0014a14dda8fb6640b80eacf110a6e66");
             public static PropBlueprint Stump_A { get; } = GetDefinition<PropBlueprint>("Stump_A", "6677f4eff13281e42af1f2770f7103f4");
             public static PropBlueprint Stump_B { get; } = GetDefinition<PropBlueprint>("Stump_B", "6d360d87533c4e4438ec4e1aa74c6050");
             public static PropBlueprint Stump_C { get; } = GetDefinition<PropBlueprint>("Stump_C", "17738a5dceb36d946b0edf6944d198a0");
@@ -8749,8 +8781,14 @@ namespace SolastaModApi
             public static PropBlueprint WoodenFence_Link { get; } = GetDefinition<PropBlueprint>("WoodenFence_Link", "822822a27281f1340bfcf8e49f49d8c3");
             public static PropBlueprint WoodenFence_Straight_A { get; } = GetDefinition<PropBlueprint>("WoodenFence_Straight_A", "d7d95c196542a3d4196ce8424e98aa0b");
             public static PropBlueprint WoodenFence_Straight_B { get; } = GetDefinition<PropBlueprint>("WoodenFence_Straight_B", "ee8df3ba58319e44baa28e725ffd6c7c");
+            public static PropBlueprint WoodenHouse_A { get; } = GetDefinition<PropBlueprint>("WoodenHouse_A", "ff6aa2d0325490942a743390b411c17c");
+            public static PropBlueprint WoodenHouse_B { get; } = GetDefinition<PropBlueprint>("WoodenHouse_B", "2773ffaa2d5bf484eb664ca0fb3416a7");
+            public static PropBlueprint WoodenHouse_C { get; } = GetDefinition<PropBlueprint>("WoodenHouse_C", "335b9d842ae5ede4ab716d4cac47d7dc");
+            public static PropBlueprint WoodenHouse_D { get; } = GetDefinition<PropBlueprint>("WoodenHouse_D", "174137f7be26c054cb011b7aa5c20e01");
             public static PropBlueprint WoodenPlatform_A { get; } = GetDefinition<PropBlueprint>("WoodenPlatform_A", "d9c0248e9391399439c8797a52a9c341");
             public static PropBlueprint WoodenPlatform_B { get; } = GetDefinition<PropBlueprint>("WoodenPlatform_B", "5ca3226d96dfd7240bc5ee36a50f0f20");
+            public static PropBlueprint WoodenPlatform_C { get; } = GetDefinition<PropBlueprint>("WoodenPlatform_C", "2d520f20d0441044eb8156553bcdc36b");
+            public static PropBlueprint WoodenPlatform_D { get; } = GetDefinition<PropBlueprint>("WoodenPlatform_D", "222482c0d842c38488855fa4645213f7");
             public static PropBlueprint WoodLog_A { get; } = GetDefinition<PropBlueprint>("WoodLog_A", "c5fefade6d85a5e419131332737fb04e");
             public static PropBlueprint WoodLog_B { get; } = GetDefinition<PropBlueprint>("WoodLog_B", "a945f7f1f8f428547b1d469730390845");
             public static PropBlueprint WoodLog_C { get; } = GetDefinition<PropBlueprint>("WoodLog_C", "5248cb676220d7642b49b8007de48448");
@@ -9383,6 +9421,12 @@ namespace SolastaModApi
             public static RoomBlueprint Drain_Small_24C { get; } = GetDefinition<RoomBlueprint>("Drain_Small_24C", "af71bac8ad20baf4f841dacedb9c7b37");
             public static RoomBlueprint Drain_Turn_12C { get; } = GetDefinition<RoomBlueprint>("Drain_Turn_12C", "f23e7a61e526d7f40ba889ef67a9f2c5");
             public static RoomBlueprint Hallway_12C { get; } = GetDefinition<RoomBlueprint>("Hallway_12C", "ea82ea52ae247664b89b6068a4276845");
+            public static RoomBlueprint Lake_Large_24C_A { get; } = GetDefinition<RoomBlueprint>("Lake_Large_24C_A", "a91e6d96c4404fc4cb93741e6d46d552");
+            public static RoomBlueprint Lake_Large_24C_B { get; } = GetDefinition<RoomBlueprint>("Lake_Large_24C_B", "301f3f99266db2e40a539fbea6cc1d85");
+            public static RoomBlueprint Lake_Large_WoodenBridge_24C_A { get; } = GetDefinition<RoomBlueprint>("Lake_Large_WoodenBridge_24C_A", "9a970f1e8a3f53047ba20ca7902abb15");
+            public static RoomBlueprint Lake_Large_WoodenBridge_24C_B { get; } = GetDefinition<RoomBlueprint>("Lake_Large_WoodenBridge_24C_B", "d4ae9d8c6a9f1a945990df9358a81aff");
+            public static RoomBlueprint Lake_Small_12C { get; } = GetDefinition<RoomBlueprint>("Lake_Small_12C", "701018d18b9efc94986abb3860892816");
+            public static RoomBlueprint Lake_Small_WoodenBridge_12C { get; } = GetDefinition<RoomBlueprint>("Lake_Small_WoodenBridge_12C", "7b8705a801f4c4d4dac26b88e0624fdf");
             public static RoomBlueprint Line_12C { get; } = GetDefinition<RoomBlueprint>("Line_12C", "2f03de410cac6ba489f690c3b3cf6e36");
             public static RoomBlueprint Line_24C { get; } = GetDefinition<RoomBlueprint>("Line_24C", "416dda25ff8bca7448cf34acc0b8d961");
             public static RoomBlueprint Line_Mausoleum_12C { get; } = GetDefinition<RoomBlueprint>("Line_Mausoleum_12C", "f80e2e8fd54915d46b910fd7af76b37c");

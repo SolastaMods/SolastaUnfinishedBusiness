@@ -74,7 +74,35 @@
     "Language_Common"
   ],
   "audioSwitches": [],
-  "audioSwitchesOnHands": [],
+  "audioSwitchesOnHands": [
+    {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": {
+        "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
+        "WwiseSwitchGroupReference": {
+          "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+          "objectName": "Switch_Weapon",
+          "id": 3974273212,
+          "guid": "D2D6B922-8A9A-4873-B9AF-27E992B18419",
+          "name": "D2D6B922-8A9A-4873-B9AF-27E992B18419"
+        },
+        "objectName": "FlameBlade",
+        "id": 2637755668,
+        "guid": "50251AAB-DC26-4BB2-A5BF-D5154A13539F",
+        "name": "50251AAB-DC26-4BB2-A5BF-D5154A13539F"
+      },
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  ],
   "audioRaceRTPCValue": 10.0,
   "challengeRating": 1.0,
   "noExperienceGain": true,

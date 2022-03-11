@@ -4,8 +4,8 @@
   "weaponProximity": "Melee",
   "isBow": false,
   "isAttachedToBone": "Prop1",
-  "animationTag": "Quarterstaff",
-  "secondaryAnimationTag": "NoWeapon",
+  "animationTag": "Spear",
+  "secondaryAnimationTag": "Javelin",
   "soundEffectDescription": {
     "$type": "SoundEffectDescription, Assembly-CSharp",
     "startEvent": {
