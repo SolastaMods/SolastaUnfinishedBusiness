@@ -359,7 +359,7 @@ namespace SolastaCommunityExpansion.Builders
             VerifyGuiPresentation();
 
             Definition.SetField("contentCopyright", BaseDefinition.Copyright.UserContent);
-            //            Definition.SetField("contentPack", (GamingPlatformDefinitions.ContentPack)(-1));
+            Definition.SetField("contentPack", CeContentPackContext.CeContentPack);
 
             // Get all base types for the target definition.  The definition needs to be added to all matching databases.
             // e.g. ConditionAffinityBlindnessImmunity is added to dbs: FeatureDefinitionConditionAffinity, FeatureDefinitionAffinity, FeatureDefinition

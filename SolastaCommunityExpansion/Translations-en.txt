@@ -89,6 +89,8 @@ Condition/&HelpActionDescription	This creature has been distracted.
 Condition/&HelpActionTitle	Distracted
 Condition/&RuinedDescription	This creature's defence is reduced.
 Condition/&RuinedTitle	Ruined
+ContentPack/&CommunityExpansionPackTitle Community Expansion (TODO)
+ContentPack/&CommunityExpansionPackDescription Community Expansion (TODO)
 CraftyFeats/&ApothecaryIntFeatDescription	+1 Intelligence, Proficiency or Expertise with Herbalism Kit and Arcana
 CraftyFeats/&ApothecaryIntFeatTitle	Apothecary (Intelligence)
 CraftyFeats/&ApothecaryWisFeatDescription	+1 Wisdom, Proficiency or Expertise with Herbalism Kit and Medicine
