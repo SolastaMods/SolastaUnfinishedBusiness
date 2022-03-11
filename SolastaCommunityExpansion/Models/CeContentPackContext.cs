@@ -38,11 +38,6 @@ namespace SolastaCommunityExpansion.Models
             {
             }
             #endregion 
-
-            public static ContentPackDefinitionBuilder Create(ContentPackDefinition original, string name, Guid namespaceGuid)
-            {
-                return new ContentPackDefinitionBuilder(original, name, namespaceGuid);
-            }
         }
     }
 }
