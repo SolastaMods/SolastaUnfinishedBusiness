@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Reflection.Emit;
 using HarmonyLib;
+using SolastaCommunityExpansion.Multiclass.Models;
 
 namespace SolastaCommunityExpansion.Multiclass.Patches.HeroInspection
 {
@@ -44,6 +45,52 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.HeroInspection
                     else if (instruction.Calls(enumerateClassBadgesMethod))
                     {
                         yield return new CodeInstruction(OpCodes.Call, myEnumerateClassBadgesMethod);
+                    }
+                    else
+                    {
+                        yield return instruction;
+                    }
+                }
+            }
+        }
+
+        // filter active features
+        [HarmonyPatch(typeof(CharacterInformationPanel), "TryFindChoiceFeature")]
+        internal static class CharacterInformationPanelTryFindChoiceFeature
+        {
+            internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+            {
+                if (!Main.Settings.EnableMulticlass)
+                {
+                    foreach (var instruction in instructions)
+                    {
+                        yield return instruction;
+                    }
+
+                    yield break;
+                }
+
+                var classFeatureUnlocksMethod = typeof(CharacterClassDefinition).GetMethod("get_FeatureUnlocks");
+                var classFilteredFeatureUnlocksMethod = typeof(LevelUpContext).GetMethod("ClassFilteredFeatureUnlocks");
+
+                var subclassFeatureUnlocksMethod = typeof(CharacterSubclassDefinition).GetMethod("get_FeatureUnlocks");
+                var subclassFilteredFeatureUnlocksMethod = typeof(LevelUpContext).GetMethod("SubclassFilteredFeatureUnlocks");
+
+                var inspectedCharacterMethod = typeof(CharacterInformationPanel).GetMethod("get_InspectedCharacter");
+
+                foreach (var instruction in instructions)
+                {
+                    if (instruction.Calls(classFeatureUnlocksMethod))
+                    {
+                        yield return new CodeInstruction(OpCodes.Ldarg_0);
+                        yield return new CodeInstruction(OpCodes.Call, inspectedCharacterMethod);
+                        yield return new CodeInstruction(OpCodes.Call, classFilteredFeatureUnlocksMethod);
+                    }
+                    else if (instruction.Calls(subclassFeatureUnlocksMethod))
+                    {
+                        yield return new CodeInstruction(OpCodes.Ldarg_0);
+                        yield return new CodeInstruction(OpCodes.Call, inspectedCharacterMethod);
+                        yield return new CodeInstruction(OpCodes.Call, subclassFilteredFeatureUnlocksMethod);
                     }
                     else
                     {
