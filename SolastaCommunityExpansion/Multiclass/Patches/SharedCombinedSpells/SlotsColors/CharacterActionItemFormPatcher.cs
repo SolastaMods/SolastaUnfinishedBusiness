@@ -1,5 +1,5 @@
 ﻿// keep this around if we need to support Warlock again
-#if false
+#if WARLOCK_PACT_MAGIC
 using HarmonyLib;
 using SolastaModApi.Infrastructure;
 using UnityEngine;

@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
     {
 
         // only need this patch in case we need to support Warlock Pact Magic
-#if false
+#if WARLOCK_PACT_MAGIC
         [HarmonyPatch(typeof(RulesetCharacter), "ApplyRest")]
         internal static class RulesetCharacterApplyRest
         {
@@ -24,8 +24,10 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
 
                 Models.SharedSpellsContext.RestType = restType;
 
+                return;
+
                 // keep this around in case we ever need to support ModHelpers again
-#if false
+
                 //
                 // default game code from here. had to use a bool Prefix here to bypass ModHelpers transpiler on this method...
                 //
@@ -127,7 +129,6 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
                 }
 
                 return false;
-#endif
             }
         }
 #endif
