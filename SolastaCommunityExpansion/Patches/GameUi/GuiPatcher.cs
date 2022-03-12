@@ -43,7 +43,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi
     // custom resources enablement patch
     //
 
-    [HarmonyPatch]
+    //[HarmonyPatch]
     internal static class Gui_LoadAssetAsync
     {
         internal static MethodBase TargetMethod()
@@ -73,7 +73,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi
     // custom resources enablement patch
     //
 
-    [HarmonyPatch(typeof(Gui), "ReleaseAddressableAsset")]
+    //[HarmonyPatch(typeof(Gui), "ReleaseAddressableAsset")]
     internal static class Gui_ReleaseAddressableAsset
     {
         internal static bool Prefix(UnityEngine.Object asset)
