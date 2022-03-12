@@ -14,6 +14,7 @@
         Class,
         CommunityExpansion,
         Condition,
+        ContentPack,
         CraftyFeats,
         DamageAffinity,
         Equipment,
