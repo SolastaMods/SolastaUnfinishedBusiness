@@ -89,8 +89,8 @@ Condition/&HelpActionDescription	This creature has been distracted.
 Condition/&HelpActionTitle	Distracted
 Condition/&RuinedDescription	This creature's defence is reduced.
 Condition/&RuinedTitle	Ruined
-ContentPack/&CommunityExpansionPackTitle Community Expansion
-ContentPack/&CommunityExpansionPackDescription The Community Expansion pack adds new classes, new spells, higher level cap, multi-class, QOL features, bug fixes and more...
+ContentPack/&CommunityExpansionPackTitle Community Expansion Pack
+ContentPack/&CommunityExpansionPackDescription The Community Expansion pack adds new classes, sub-classes, feats and spells.  There's a higher level cap, multi-class, QOL features, bug fixes and more. It's a veritable Horn of Plenty (TM)... 
 CraftyFeats/&ApothecaryIntFeatDescription	+1 Intelligence, Proficiency or Expertise with Herbalism Kit and Arcana
 CraftyFeats/&ApothecaryIntFeatTitle	Apothecary (Intelligence)
 CraftyFeats/&ApothecaryWisFeatDescription	+1 Wisdom, Proficiency or Expertise with Herbalism Kit and Medicine

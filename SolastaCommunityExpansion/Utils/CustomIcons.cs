@@ -12,10 +12,11 @@ namespace SolastaCommunityExpansion.Utils
     // Loosely based on https://forum.unity.com/threads/generating-sprites-dynamically-from-png-or-jpeg-files-in-c.343735/
     internal static class CustomIcons
     {
-        private const string CUSTOM_ICON_PREFIX = "CUSTOM_ICON_PREFIX_";
+        //private const string CUSTOM_ICON_PREFIX = "CUSTOM_ICON_PREFIX_";
 
-        internal static readonly Dictionary<string, Sprite> LoadedIcons = new();
+        //internal static readonly Dictionary<string, Sprite> LoadedIcons = new();
         internal static readonly Dictionary<Bitmap, Sprite> SpriteFromBitmap = new();
+        internal static readonly HashSet<Sprite> CachedSprites = new HashSet<Sprite>();
 
         internal static Sprite ImageToSprite(string filePath, int sizeX, int sizeY)
         {
@@ -165,34 +166,34 @@ namespace SolastaCommunityExpansion.Utils
             baseImage.Save(finalImageFilename);
         }
 
-        internal static AssetReferenceSprite StoreCustomIcon(string name, string filePath, int sizeX, int sizeY)
-        {
-            var sprite = ImageToSprite(filePath, sizeX, sizeY);
+        /*        internal static AssetReferenceSprite StoreCustomIcon(string name, string filePath, int sizeX, int sizeY)
+                {
+                    var sprite = ImageToSprite(filePath, sizeX, sizeY);
 
-            LoadedIcons.Add(CUSTOM_ICON_PREFIX + name, sprite);
+                    LoadedIcons.Add(CUSTOM_ICON_PREFIX + name, sprite);
 
-            return new AssetReferenceSprite(CUSTOM_ICON_PREFIX + name);
-        }
+                    return new AssetReferenceSprite(CUSTOM_ICON_PREFIX + name);
+                }
 
-        internal static Sprite LoadStoredCustomIcon(string guid)
-        {
-            if (!LoadedIcons.ContainsKey(guid))
-            {
-                return null;
-            }
+                internal static Sprite LoadStoredCustomIcon(string guid)
+                {
+                    if (!LoadedIcons.ContainsKey(guid))
+                    {
+                        return null;
+                    }
 
-            return LoadedIcons[guid];
-        }
+                    return LoadedIcons[guid];
+                }
 
-        internal static bool IsCustomIcon(Sprite sprite)
-        {
-            if (sprite == null)
-            {
-                return false;
-            }
+                internal static bool IsCustomIcon(Sprite sprite)
+                {
+                    if (sprite == null)
+                    {
+                        return false;
+                    }
 
-            return LoadedIcons.ContainsValue(sprite);
-        }
+                    return LoadedIcons.ContainsValue(sprite);
+                }*/
 
         /// <summary>
         /// Convert a bitmap stored as an embedded resource to a Sprite.
@@ -206,9 +207,23 @@ namespace SolastaCommunityExpansion.Utils
                 texture.LoadImage((byte[])new ImageConverter().ConvertTo(bitmap, typeof(byte[])));
                 sprite = Sprite.Create(texture, new Rect(0, 0, size, size), new Vector2(0, 0));
                 SpriteFromBitmap[bitmap] = sprite;
+
+                // TODO: provide name?
+                sprite.name = "CE sprite from bitmap";
+                CachedSprites.Add(sprite);
             }
 
             return sprite;
+        }
+
+        internal static bool IsCachedSprite(Sprite sprite)
+        {
+            if(sprite == null)
+            {
+                return false;
+            }
+
+            return CachedSprites.Contains(sprite);
         }
     }
 }
