@@ -240,6 +240,25 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
             }
         }
 
+        // ensures this doesn't get executed if leveling up and multiclass
+        [HarmonyPatch(typeof(CharacterBuildingManager), "GrantBaseEquipment")]
+        internal static class CharacterBuildingManagerGrantEquipment
+        {
+            internal static bool Prefix(CharacterHeroBuildingData heroBuildingData)
+            {
+                if (!Main.Settings.EnableMulticlass)
+                {
+                    return true;
+                }
+
+                var hero = heroBuildingData.HeroCharacter;
+                var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
+                var isMulticlass = LevelUpContext.IsClassSelectionStage(hero);
+
+                return !(isLevelingUp && isMulticlass);
+            }
+        }
+
         // ensures this doesn't get executed in the class panel level up screen
         [HarmonyPatch(typeof(CharacterBuildingManager), "GrantFeatures")]
         internal static class CharacterBuildingManagerGrantFeatures
@@ -258,7 +277,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
             }
         }
 
-        // ensures this doesn't get executed in the class panel level up screen
+        // ensures this doesn't get executed if leveling up and multiclass
         [HarmonyPatch(typeof(CharacterBuildingManager), "RemoveBaseEquipment")]
         internal static class CharacterBuildingManagerRemoveBaseEquipment
         {
@@ -271,9 +290,9 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
 
                 var hero = heroBuildingData.HeroCharacter;
                 var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
-                var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
+                var isMulticlass = LevelUpContext.IsClassSelectionStage(hero);
 
-                return !(isLevelingUp && isClassSelectionStage);
+                return !(isLevelingUp && isMulticlass);
             }
         }
 
@@ -443,6 +462,23 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                     }
 
                     // PATCH: don't allow spells to be re-learned
+                    foreach (var spell in spellRepertoire.KnownSpells)
+                    {
+                        if (!spellDefinitionList.Contains(spell) &&
+                            (
+                                isRepertoireFromSelectedClassSubclass ||
+                                (!Main.Settings.EnableRelearnSpells && CacheSpellsContext.IsSpellOfferedBySelectedClassSubclass(hero, spell))
+                            ))
+                        {
+                            spellDefinitionList.Add(spell);
+                        }
+                    }
+
+                    //
+                    // this if wasn't in original code
+                    //
+
+                    // PATCH: don't allow spells from whole lists to be re-learned
                     if (spellRepertoire.SpellCastingFeature.SpellKnowledge == RuleDefinitions.SpellKnowledge.WholeList)
                     {
                         var classSpellLevel = SharedSpellsContext.GetClassSpellLevel(hero, spellRepertoire.SpellCastingClass, spellRepertoire.SpellCastingSubclass);
@@ -462,32 +498,11 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                             }
                         }
                     }
-                    else
-                    {
-                        foreach (var spell in spellRepertoire.KnownSpells)
-                        {
-                            if (!spellDefinitionList.Contains(spell) &&
-                                (
-                                    isRepertoireFromSelectedClassSubclass ||
-                                    (!Main.Settings.EnableRelearnSpells && CacheSpellsContext.IsSpellOfferedBySelectedClassSubclass(hero, spell))
-                                ))
-                            {
-                                spellDefinitionList.Add(spell);
-                            }
-                        }
-                        foreach (var spell in spellRepertoire.PreparedSpells)
-                        {
-                            if (!spellDefinitionList.Contains(spell) &&
-                                (
-                                    isRepertoireFromSelectedClassSubclass ||
-                                    (!Main.Settings.EnableRelearnSpells && CacheSpellsContext.IsSpellOfferedBySelectedClassSubclass(hero, spell))
-                                ))
-                            {
-                                spellDefinitionList.Add(spell);
-                            }
-                        }
-                    }
                 }
+
+                //
+                // this is the modified code from EnumerateAvailableScribedSpells()
+                //
 
                 // PATCH: don't allow scribed spells to be re-learned
                 var foundSpellbooks = new List<RulesetItemSpellbook>();
@@ -510,9 +525,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
 
                 // GAME CODE FROM HERE
 
-                var bonusCantrips = __instance.GetField<CharacterBuildingManager, Dictionary<string, List<SpellDefinition>>>("bonusCantrips");
-
-                foreach (var bonusCantrip in bonusCantrips)
+                foreach (var bonusCantrip in heroBuildingData.BonusCantrips)
                 {
                     if (bonusCantrip.Key != tagToIgnore)
                     {
@@ -526,9 +539,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                     }
                 }
 
-                var acquiredCantrips = __instance.GetField<CharacterBuildingManager, Dictionary<string, List<SpellDefinition>>>("acquiredCantrips");
-
-                foreach (var acquiredCantrip in acquiredCantrips)
+                foreach (var acquiredCantrip in heroBuildingData.AcquiredCantrips)
                 {
                     if (acquiredCantrip.Key != tagToIgnore)
                     {
@@ -542,9 +553,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                     }
                 }
 
-                var acquiredSpells = __instance.GetField<CharacterBuildingManager, Dictionary<string, List<SpellDefinition>>>("acquiredSpells");
-
-                foreach (var acquiredSpell in acquiredSpells)
+                foreach (var acquiredSpell in heroBuildingData.AcquiredSpells)
                 {
                     if (acquiredSpell.Key != tagToIgnore)
                     {
