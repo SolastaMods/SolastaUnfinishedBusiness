@@ -9,6 +9,9 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
 {
     internal static class RulesetCharacterPatcher
     {
+
+        // only need this patch in case we need to support Warlock Pact Magic
+#if false
         [HarmonyPatch(typeof(RulesetCharacter), "ApplyRest")]
         internal static class RulesetCharacterApplyRest
         {
@@ -127,6 +130,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
 #endif
             }
         }
+#endif
 
         // use caster level instead of character level on multiclassed heroes
         [HarmonyPatch(typeof(RulesetCharacter), "GetSpellcastingLevel")]
