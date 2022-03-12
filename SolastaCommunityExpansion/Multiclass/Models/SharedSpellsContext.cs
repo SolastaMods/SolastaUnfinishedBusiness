@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using HarmonyLib;
-using SolastaModApi.Infrastructure;
 using static FeatureDefinitionCastSpell;
 
 namespace SolastaCommunityExpansion.Multiclass.Models
@@ -149,30 +147,28 @@ namespace SolastaCommunityExpansion.Multiclass.Models
 
         internal static RulesetCharacterHero GetHero(string name)
         {
+            // try to get hero from game campaign
             var gameCampaign = Gui.GameCampaign;
-            GameCampaignCharacter gameCampaignCharacter = null;
 
             if (gameCampaign != null)
             {
-                gameCampaignCharacter = gameCampaign.Party.CharactersList.Find(x => x.RulesetCharacter.Name == name);
+                var gameCampaignCharacter = gameCampaign.Party.CharactersList.Find(x => x.RulesetCharacter.Name == name);
+
+                if (gameCampaignCharacter != null)
+                {
+                    return gameCampaignCharacter.RulesetCharacter as RulesetCharacterHero;
+                }
             }
 
-            if (gameCampaignCharacter != null)
-            {
-                return gameCampaignCharacter.RulesetCharacter as RulesetCharacterHero;
-            }
-
-            var buildingDataByHero = (Dictionary<RulesetCharacterHero, CharacterHeroBuildingData>)typeof(CharacterHeroBuildingData)
-                .GetField("buildingDataByHero", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic)
-                .GetValue(null);
-
-            var hero = buildingDataByHero.Keys.FirstOrDefault(x => x.Name == name);
+            // otherwise gets hero from level up context
+            var hero = LevelUpContext.GetHero(name);
 
             if (hero != null)
             {
                 return hero;
             }
 
+            // finally falls back to inspection
             return InspectionPanelContext.SelectedHero;
         }
 

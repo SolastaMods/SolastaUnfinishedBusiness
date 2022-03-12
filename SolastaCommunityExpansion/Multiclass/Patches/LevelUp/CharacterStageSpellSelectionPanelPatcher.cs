@@ -10,39 +10,38 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
         [HarmonyPatch(typeof(CharacterStageSpellSelectionPanel), "Refresh")]
         internal static class CharacterStageSpellSelectionPanelRefresh
         {
-            internal static void Postfix(CharacterStageSpellSelectionPanel __instance)
+            internal static void Postfix(CharacterStageSpellSelectionPanel __instance, RulesetCharacterHero ___currentHero)
             {
                 if (!Main.Settings.EnableMulticlass)
                 {
                     return;
                 }
 
-                if (!Models.LevelUpContext.LevelingUp)
+                if (!Models.LevelUpContext.IsLevelingUp(___currentHero))
                 {
                     return;
                 }
 
-                var heroWithSpellRepertoire = Models.LevelUpContext.SelectedHero;
-                var spellCastingClass = Models.LevelUpContext.SelectedClass;
-                var spellCastingSubclass = Models.LevelUpContext.SelectedSubclass;
+                var spellCastingClass = Models.LevelUpContext.GetSelectedClass(___currentHero);
+                var spellCastingSubclass = Models.LevelUpContext.GetSelectedSubclass(___currentHero); ;
 
                 // determines the display context
                 int slotLevel;
-                var classSpellLevel = Models.SharedSpellsContext.GetClassSpellLevel(heroWithSpellRepertoire, spellCastingClass, spellCastingSubclass);
+                var classSpellLevel = Models.SharedSpellsContext.GetClassSpellLevel(___currentHero, spellCastingClass, spellCastingSubclass);
 
                 if (Models.SharedSpellsContext.IsEnabled)
                 {
                     if (Models.SharedSpellsContext.IsCombined)
                     {
-                        slotLevel = Models.SharedSpellsContext.GetCombinedSpellLevel(heroWithSpellRepertoire);
+                        slotLevel = Models.SharedSpellsContext.GetCombinedSpellLevel(___currentHero);
                     }
                     else if (Models.SharedSpellsContext.IsWarlock(spellCastingClass))
                     {
-                        slotLevel = Models.SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
+                        slotLevel = Models.SharedSpellsContext.GetWarlockSpellLevel(___currentHero);
                     }
                     else
                     {
-                        slotLevel = Models.SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire);
+                        slotLevel = Models.SharedSpellsContext.GetSharedSpellLevel(___currentHero);
                     }
                 }
                 else

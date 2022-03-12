@@ -20,10 +20,10 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.HeroInspection
                 Models.InspectionPanelContext.SelectedHero = heroCharacter;
                 CharacterInspectionScreenHandleInput.CharacterTabActive = true;
 
+                // get more real state for the toggles on top
                 var characterPlate = __instance.GetField<CharacterInspectionScreen, CharacterPlateDetailed>("characterPlate");
                 var toggleGroup = __instance.GetField<CharacterInspectionScreen, ToggleGroup>("toggleGroup");
 
-                characterPlate.ClassLabel.TMP_Text.fontSize = Models.MulticlassGameUiContext.GetFontSize(heroCharacter.ClassesAndLevels.Count);
                 toggleGroup.transform.position = new UnityEngine.Vector3(characterPlate.transform.position.x / 2f, toggleGroup.transform.position.y, 0);
             }
         }

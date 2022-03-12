@@ -5,7 +5,6 @@ using HarmonyLib;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Multiclass.Models;
 using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
 using static SolastaModApi.DatabaseHelper.RestActivityDefinitions;
 
 namespace SolastaCommunityExpansion.Models
@@ -109,11 +108,11 @@ namespace SolastaCommunityExpansion.Models
                 subclassTag = AttributeDefinitions.GetSubclassTag(characterClassDefinition, classLevel, characterSubclassDefinition);
             }
 
-            // Doesn't exist in 1.3.21
-            //            CharacterHeroBuildingData.GetAvailableBuildingDataPool(hero);
-            LevelUpContext.SelectedHero = hero;
-            LevelUpContext.SelectedClass = characterClassDefinition;
-            LevelUpContext.SelectedSubclass = characterSubclassDefinition;
+            // required as CacheSpellContext used here relies on LevelUpContext
+            hero.GetOrCreateHeroBuildingData();
+            LevelUpContext.RegisterHero(hero);
+            LevelUpContext.SetSelectedClass(hero, characterClassDefinition);
+            LevelUpContext.SetSelectedSubclass(hero, characterSubclassDefinition);
 
             if (subclassTag != string.Empty)
             {
@@ -149,9 +148,9 @@ namespace SolastaCommunityExpansion.Models
             hero.RefreshUsableDeviceFunctions();
             hero.ComputeHitPoints(true);
 
-            // Doesn't exist in 1.3.21
-            //            CharacterHeroBuildingData.ReleaseCharacterHeroBuildingData(hero);
-            LevelUpContext.SelectedHero = null;
+            // remove building context
+            hero.CleanHeroBuildingData();
+            LevelUpContext.UnregisterHero(hero);
 
             // saves hero if not in game
             if (Gui.Game == null)
@@ -268,7 +267,7 @@ namespace SolastaCommunityExpansion.Models
 
         private static void UnlearnSpells(RulesetCharacterHero hero, int indexLevel)
         {
-            var heroRepertoire = hero.SpellRepertoires.FirstOrDefault(x => CacheSpellsContext.IsRepertoireFromSelectedClassSubclass(x));
+            var heroRepertoire = hero.SpellRepertoires.FirstOrDefault(x => CacheSpellsContext.IsRepertoireFromSelectedClassSubclass(hero, x));
 
             if (heroRepertoire == null)
             {
@@ -324,7 +323,7 @@ namespace SolastaCommunityExpansion.Models
             }
 
             var classLevel = hero.ClassesAndLevels[characterClassDefinition];
-            var heroRepertoire = hero.SpellRepertoires.FirstOrDefault(x => CacheSpellsContext.IsRepertoireFromSelectedClassSubclass(x));
+            var heroRepertoire = hero.SpellRepertoires.FirstOrDefault(x => CacheSpellsContext.IsRepertoireFromSelectedClassSubclass(hero, x));
 
             foreach (var featureDefinition in hero.ActiveFeatures[tag])
             {
