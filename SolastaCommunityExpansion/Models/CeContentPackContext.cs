@@ -45,6 +45,9 @@ namespace SolastaCommunityExpansion.Models
         }
     }
 
+
+    // TODO: move to appropriate place(s)
+
     // Works in conjuction with 2 patches below
     class CEAssetReferenceSprite : AssetReferenceSprite
     {
