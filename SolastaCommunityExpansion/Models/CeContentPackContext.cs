@@ -10,29 +10,13 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class CeContentPackContext
     {
-        // Works in conjuction with "custom resources enablement patch" (patches are marked with this comment)
-        internal class CEAssetReferenceSprite : AssetReferenceSprite
-        {
-            public CEAssetReferenceSprite(Sprite sprite) : base(string.Empty)
-            {
-                Sprite = sprite;
-            }
-
-            public Sprite Sprite { get; }
-            public override UnityEngine.Object Asset => Sprite;
-            public override bool RuntimeKeyIsValid()
-            {
-                return true;
-            }
-        }
-
         internal const GamingPlatformDefinitions.ContentPack CeContentPack = (GamingPlatformDefinitions.ContentPack)9999;
 
         internal static ContentPackDefinition ContentPackDefinition = CreateContentPackDefinition();
 
         private static ContentPackDefinition CreateContentPackDefinition()
         {
-            var sprite = new CEAssetReferenceSprite(CustomIcons.CreateSpriteFromResource(Properties.Resources.ContentPack, 128));
+            var sprite = CustomIcons.CreateAssetReferenceSpriteFromResource(Properties.Resources.ContentPack, 128);
 
             return ContentPackDefinitionBuilder
                 .Create("CommunityExpansionPack", DefinitionBuilder.CENamespaceGuid)

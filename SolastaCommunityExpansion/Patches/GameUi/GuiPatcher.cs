@@ -54,12 +54,12 @@ namespace SolastaCommunityExpansion.Patches.GameUi
         internal static bool Prefix(AssetReference asset)
         {
             // If it's a CEAssetReferenceSprite prevent async load
-            return asset is not CeContentPackContext.CEAssetReferenceSprite;
+            return asset is not CEAssetReferenceSprite;
         }
 
         internal static void Postfix(AssetReference asset, ref Sprite __result)
         {
-            if (asset is CeContentPackContext.CEAssetReferenceSprite reference)
+            if (asset is CEAssetReferenceSprite reference)
             {
                 Main.Log($"Providing sprite {reference.Sprite.name}");
 
