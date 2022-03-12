@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using HarmonyLib;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Utils;
-using UnityEngine;
-using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Models
 {
