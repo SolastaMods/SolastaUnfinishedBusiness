@@ -25,6 +25,17 @@
       "randomHumanoidPresentation": true,
       "overrideFaction": false,
       "factionName": "<None>"
+    },
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Generic_BadlandHunter:d95d2ae9a98a5ac43970c2784fc894d0",
+      "number": 1,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_Skirmisher:0d019499ee5d57b4b88dd9a23f926141",
+      "creatureSex": "Male",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": true,
+      "overrideFaction": false,
+      "factionName": "<None>"
     }
   ],
   "guiPresentation": {

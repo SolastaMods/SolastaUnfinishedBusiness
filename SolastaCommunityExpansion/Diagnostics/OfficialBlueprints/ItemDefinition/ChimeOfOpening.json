@@ -216,7 +216,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&ChimeOfOpening_Title",
-    "description": "Equipment/&ChimeOfOpening_Description",
+    "description": "Equipment/&ChimeOfOpening_Function_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "ed8d82fcd8047ca43956fdd4fb771edf",

@@ -88,7 +88,11 @@ namespace SolastaCommunityExpansion
         public bool BugFixConjuredUnitsTeleportWithParty { get; set; } = true;
         public bool BugFixExpandColorTables { get; set; } = true;
         public bool BugFixNullRecipesOnGameSerialization { get; set; } = true;
+<<<<<<< HEAD
         public bool EnableActionsEnumeratorContext { get; set; } = true;
+=======
+        public bool BugFixSpellDurations { get; set; } = true;
+>>>>>>> Beta
         public bool EnableDungeonMakerPro { get; set; } = true;
         public bool EnableDungeonMakerRotationHotkeys { get; set; } = true;
         public bool EnableFirstLevelCasterFeats { get; set; } = true;
@@ -192,8 +196,6 @@ namespace SolastaCommunityExpansion
 
         // SRD
         public bool UseOfficialAdvantageDisadvantageRules { get; set; }
-        public bool UseOfficialCombatSurpriseRules { get; set; }
-        public bool RollDifferentStealthChecksForEachCharacterPair { get; set; }
         public bool EnablePowerAid { get; set; }
         public bool AddBleedingToLesserRestoration { get; set; }
         public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
@@ -203,6 +205,7 @@ namespace SolastaCommunityExpansion
         public bool FullyControlConjurations { get; set; }
         public bool OnlyShowMostPowerfulUpcastConjuredElementalOrFey { get; set; }
         public bool UseHeightOneCylinderEffect { get; set; }
+        public bool BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove { get; set; }
 
         // House
         public bool AllowAnyClassToWearSylvanArmor { get; set; }

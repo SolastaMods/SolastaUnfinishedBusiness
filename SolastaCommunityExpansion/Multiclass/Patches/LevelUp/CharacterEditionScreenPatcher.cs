@@ -5,15 +5,20 @@ using UnityEngine;
 
 namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
 {
-    internal static class CharacterLevelUpScreenPatcher
+    internal static class CharacterEditionScreenPatcher
     {
         // add the class selection stage panel to the level up screen
-        [HarmonyPatch(typeof(CharacterLevelUpScreen), "LoadStagePanels")]
+        [HarmonyPatch(typeof(CharacterEditionScreen), "LoadStagePanels")]
         internal static class CharacterLevelUpScreenLoadStagePanels
         {
-            internal static void Postfix(CharacterLevelUpScreen __instance)
+            internal static void Postfix(CharacterEditionScreen __instance)
             {
                 if (!Main.Settings.EnableMulticlass)
+                {
+                    return;
+                }
+
+                if (__instance is not CharacterLevelUpScreen characterLevelUpScreen)
                 {
                     return;
                 }
@@ -22,7 +27,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                 var stagePanelPrefabs = characterCreationScreen.GetField<CharacterCreationScreen, GameObject[]>("stagePanelPrefabs");
                 var classSelectionPanel = Gui.GetPrefabFromPool(stagePanelPrefabs[1], __instance.StagesPanelContainer).GetComponent<CharacterStagePanel>();
                 var deitySelectionPanel = Gui.GetPrefabFromPool(stagePanelPrefabs[2], __instance.StagesPanelContainer).GetComponent<CharacterStagePanel>();
-                var stagePanelsByName = __instance.GetField<CharacterLevelUpScreen, Dictionary<string, CharacterStagePanel>>("stagePanelsByName");
+                var stagePanelsByName = characterLevelUpScreen.GetField<CharacterLevelUpScreen, Dictionary<string, CharacterStagePanel>>("stagePanelsByName");
 
                 __instance.SetField("stagePanelsByName", new Dictionary<string, CharacterStagePanel>
                 {
@@ -35,36 +40,6 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                     { "ProficiencySelection", stagePanelsByName["ProficiencySelection"] },
                     { "", stagePanelsByName[""] }
                 });
-            }
-        }
-
-        // binds the hero
-        [HarmonyPatch(typeof(CharacterLevelUpScreen), "OnBeginShow")]
-        internal static class CharacterLevelUpScreenOnBeginShow
-        {
-            internal static void Postfix(CharacterLevelUpScreen __instance)
-            {
-                if (!Main.Settings.EnableMulticlass)
-                {
-                    return;
-                }
-
-                Models.LevelUpContext.SelectedHero = __instance.CharacterBuildingService.HeroCharacter;
-            }
-        }
-
-        // unbinds the hero
-        [HarmonyPatch(typeof(CharacterLevelUpScreen), "OnBeginHide")]
-        internal static class CharacterLevelUpScreenOnBeginHide
-        {
-            internal static void Postfix()
-            {
-                if (!Main.Settings.EnableMulticlass)
-                {
-                    return;
-                }
-
-                Models.LevelUpContext.SelectedHero = null;
             }
         }
     }

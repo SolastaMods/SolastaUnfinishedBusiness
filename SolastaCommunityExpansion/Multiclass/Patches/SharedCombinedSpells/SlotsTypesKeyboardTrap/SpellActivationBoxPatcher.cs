@@ -1,4 +1,6 @@
-﻿using HarmonyLib;
+﻿// keep this around if we need to support Warlock again
+#if WARLOCK_PACT_MAGIC
+using HarmonyLib;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells.SlotsTypesKeyboardTrap
@@ -21,3 +23,4 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells.Slot
         }
     }
 }
+#endif

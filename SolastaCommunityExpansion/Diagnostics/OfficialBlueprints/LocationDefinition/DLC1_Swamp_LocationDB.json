@@ -192,9 +192,10 @@
   "focusWhenRevealed": false,
   "startsWithScavengerCamp": false,
   "ignoredByScavengers": false,
+  "useDirectionalLightInCutscene": true,
   "useNewSectorCullingAlgorithm": true,
   "keepSectorCullingResultsWhenInactive": false,
-  "setCurrentCampaignNodeWhenLeaving": false,
+  "setCurrentCampaignNodeWhenLeaving": true,
   "hasPriorityForTeleporter": false,
   "canAttackNonHostileCharacters": true,
   "guiPresentation": {

@@ -1,4 +1,5 @@
 ﻿using System;
+using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
@@ -35,11 +36,18 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
         #endregion
 
-        // Add other standard Create methods and constructors as required.
-
-        public static FeatureDefinitionAttackModifierBuilder Create(string name, Guid namespaceGuid)
+        public FeatureDefinitionAttackModifierBuilder SetAbilityScoreReplacement(RuleDefinitions.AbilityScoreReplacement replacement)
         {
-            return new FeatureDefinitionAttackModifierBuilder(name, namespaceGuid);
+            Definition.SetAbilityScoreReplacement(replacement);
+
+            return This();
+        }
+
+        public FeatureDefinitionAttackModifierBuilder SetAdditionalAttackTag(string tag)
+        {
+            Definition.SetAdditionalAttackTag(tag);
+
+            return This();
         }
     }
 }

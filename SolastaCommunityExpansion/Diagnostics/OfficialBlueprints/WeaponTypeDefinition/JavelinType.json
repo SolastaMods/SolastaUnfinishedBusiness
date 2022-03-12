@@ -4,7 +4,7 @@
   "weaponProximity": "Melee",
   "isBow": false,
   "isAttachedToBone": "Prop1",
-  "animationTag": "Rapier",
+  "animationTag": "Spear",
   "secondaryAnimationTag": "Javelin",
   "soundEffectDescription": {
     "$type": "SoundEffectDescription, Assembly-CSharp",

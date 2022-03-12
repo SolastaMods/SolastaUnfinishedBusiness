@@ -1,8 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using HarmonyLib;
+using SolastaCommunityExpansion.Models;
+using SolastaCommunityExpansion.Utils;
+using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Patches.GameUi
 {
@@ -30,6 +36,57 @@ namespace SolastaCommunityExpansion.Patches.GameUi
                 .TrimStart();
 
             return false;
+        }
+    }
+
+    //
+    // custom resources enablement patch
+    //
+
+    [HarmonyPatch]
+    internal static class Gui_LoadAssetAsync
+    {
+        internal static MethodBase TargetMethod()
+        {
+            return AccessTools.Method(typeof(Gui), "LoadAssetSync", new Type[] { typeof(AssetReference) }, new Type[] { typeof(Sprite) });
+        }
+
+        internal static bool Prefix(AssetReference asset)
+        {
+            // If it's a CEAssetReferenceSprite prevent async load
+            return asset is not CEAssetReferenceSprite;
+        }
+
+        internal static void Postfix(AssetReference asset, ref Sprite __result)
+        {
+            if (asset is CEAssetReferenceSprite reference)
+            {
+                Main.Log($"Providing sprite {reference.Sprite.name}");
+
+                // Return our sprite
+                __result = reference.Sprite;
+            }
+        }
+    }
+
+    //
+    // custom resources enablement patch
+    //
+
+    [HarmonyPatch(typeof(Gui), "ReleaseAddressableAsset")]
+    internal static class Gui_ReleaseAddressableAsset
+    {
+        internal static bool Prefix(UnityEngine.Object asset)
+        {
+            // If it's a CE provided sprite stop it being unloaded
+            bool retval = !CustomIcons.IsCachedSprite(asset as Sprite);
+
+            if (!retval)
+            {
+                Main.Log($"Not releasing {asset.name}");
+            }
+
+            return retval;
         }
     }
 }

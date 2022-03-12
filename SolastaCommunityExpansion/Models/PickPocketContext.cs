@@ -141,7 +141,7 @@ namespace SolastaCommunityExpansion.Models
             treasure_amethyst.SetAmount(1);
 
             TreasureTableDefinition pick_pocket_table = TreasureTableDefinitionBuilder
-                .CreateCopyFrom(DatabaseHelper.TreasureTableDefinitions.RandomTreasureTableG_25_GP_Art_Items, "PickPocketTable", "79cac3e5-0f00-4062-b263-adbc854223d7")
+                .Create(DatabaseHelper.TreasureTableDefinitions.RandomTreasureTableG_25_GP_Art_Items, "PickPocketTable", "79cac3e5-0f00-4062-b263-adbc854223d7")
                 .SetGuiPresentationNoContent()
                 .AddToDB();
 
@@ -159,9 +159,8 @@ namespace SolastaCommunityExpansion.Models
             pick_pocket_table.TreasureOptions.Add(treasure_acid);
             pick_pocket_table.TreasureOptions.Add(treasure_amethyst);
 
-            // TODO: more refactoring
             TreasureTableDefinition pick_pocket_table_undead = TreasureTableDefinitionBuilder
-                .CreateCopyFrom(DatabaseHelper.TreasureTableDefinitions.RandomTreasureTableG_25_GP_Art_Items, "PickPocketTableC", "f1bbd8e5-3e05-48da-9c70-2db676a280b4")
+                .Create(DatabaseHelper.TreasureTableDefinitions.RandomTreasureTableG_25_GP_Art_Items, "PickPocketTableC", "f1bbd8e5-3e05-48da-9c70-2db676a280b4")
                 .SetGuiPresentationNoContent()
                 .AddTreasureOptions(treasure_copper, treasure_abyss_moss, treasure_deeproot_lichen, treasure_goblinhair_fungus)
                 .AddToDB();

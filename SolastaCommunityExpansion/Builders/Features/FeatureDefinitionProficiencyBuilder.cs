@@ -37,16 +37,6 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
         #endregion
 
-        public static FeatureDefinitionProficiencyBuilder Create(FeatureDefinitionProficiency original, string name, string guid)
-        {
-            return new FeatureDefinitionProficiencyBuilder(original, name, guid);
-        }
-
-        public static FeatureDefinitionProficiencyBuilder Create(string name, Guid namespaceGuid)
-        {
-            return new FeatureDefinitionProficiencyBuilder(name, namespaceGuid);
-        }
-
         public FeatureDefinitionProficiencyBuilder SetProficiencies(RuleDefinitions.ProficiencyType type, params string[] proficiencies)
         {
             return SetProficiencies(type, proficiencies.AsEnumerable());

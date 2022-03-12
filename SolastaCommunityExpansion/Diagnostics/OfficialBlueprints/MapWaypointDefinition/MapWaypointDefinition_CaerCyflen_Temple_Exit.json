@@ -5,6 +5,7 @@
   "longRestAvailable": false,
   "forceCameraOrientation": true,
   "cameraAngle": -90.0,
+  "fastTravelFromSameSectorOnly": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

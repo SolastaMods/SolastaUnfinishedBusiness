@@ -126,7 +126,8 @@
     "Definition:PowerDragonFrightfulPresence:afa9d44eb9c7a1b479e4caa0bb92111c",
     "Definition:PowerDragonBreath_Fire:ae53f3fda5bff924f8c7414ac9a2af27",
     "Definition:ConditionAffinityFrightenedImmunity:561b7a96b31b8064e85df039829c050b",
-    "Definition:ConditionAffinityProneImmunity:abedf907fa238ce4c91865e7ab06c78d"
+    "Definition:ConditionAffinityProneImmunity:abedf907fa238ce4c91865e7ab06c78d",
+    "Definition:DamageAffinityFireImmunity:6f4ede3c34539284e941dd084eaf4429"
   ],
   "attackIterations": [
     {

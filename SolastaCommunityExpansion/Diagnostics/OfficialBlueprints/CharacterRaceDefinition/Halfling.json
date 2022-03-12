@@ -91,14 +91,6 @@
       "Race/&HalflingSurName6Title"
     ],
     "needBeard": false,
-    "useBeardBlendShape": true,
-    "beardBlendShapes": [
-      {
-        "$type": "RacePresentation+BeardBlendShape, Assembly-CSharp",
-        "faceShapeName": "FaceShape_NPC_Hanno_Mudstrider",
-        "blendShapeIndex": 0
-      }
-    ],
     "canModifyMusculature": false,
     "originOptions": [
       "Origin_NonHuman"

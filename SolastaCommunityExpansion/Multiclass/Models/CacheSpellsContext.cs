@@ -7,8 +7,8 @@ namespace SolastaCommunityExpansion.Multiclass.Models
 {
     internal static class CacheSpellsContext
     {
-        public static readonly Dictionary<string, Dictionary<int, List<SpellDefinition>>> classSpellList = new();
-        public static readonly Dictionary<string, Dictionary<int, List<SpellDefinition>>> subclassSpellList = new();
+        private static readonly Dictionary<string, Dictionary<int, HashSet<SpellDefinition>>> classSpellList = new();
+        private static readonly Dictionary<string, Dictionary<int, HashSet<SpellDefinition>>> subclassSpellList = new();
 
         private static int GetLowestCasterLevelFromSpellLevel(string name, int spellLevel, bool isSubclass = false)
         {
@@ -54,12 +54,12 @@ namespace SolastaCommunityExpansion.Multiclass.Models
 
                 if (!record.ContainsKey(name))
                 {
-                    record.Add(name, new Dictionary<int, List<SpellDefinition>>());
+                    record.Add(name, new Dictionary<int, HashSet<SpellDefinition>>());
                 }
 
                 if (!record[name].ContainsKey(level))
                 {
-                    record[name].Add(level, new List<SpellDefinition>());
+                    record[name].Add(level, new HashSet<SpellDefinition>());
                 }
 
                 foreach (var spell in spellList)
@@ -138,6 +138,11 @@ namespace SolastaCommunityExpansion.Multiclass.Models
 
         internal static void Load()
         {
+            if (!(Main.Settings.EnableMulticlass || Main.Settings.EnableRespec))
+            {
+                return;
+            }
+
             foreach (var characterClassDefinition in DatabaseRepository.GetDatabase<CharacterClassDefinition>())
             {
                 var className = characterClassDefinition.Name;
@@ -155,35 +160,48 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             }
         }
 
-        internal static bool IsRepertoireFromSelectedClassSubclass(RulesetSpellRepertoire rulesetSpellRepertoire)
+        internal static bool IsRepertoireFromSelectedClassSubclass(RulesetCharacterHero rulesetCharacterHero, RulesetSpellRepertoire rulesetSpellRepertoire)
         {
-            var selectedClass = LevelUpContext.SelectedClass;
-            var selectedSubclass = LevelUpContext.SelectedSubclass;
+            var selectedClass = LevelUpContext.GetSelectedClass(rulesetCharacterHero);
+            var selectedSubclass = LevelUpContext.GetSelectedSubclass(rulesetCharacterHero);
 
             return
-                (rulesetSpellRepertoire.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Class && rulesetSpellRepertoire.SpellCastingClass == selectedClass) ||
-                (rulesetSpellRepertoire.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Subclass && rulesetSpellRepertoire.SpellCastingSubclass == selectedSubclass);
+                (rulesetSpellRepertoire.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Class
+                && rulesetSpellRepertoire.SpellCastingClass == selectedClass) ||
+                (rulesetSpellRepertoire.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Subclass
+                && rulesetSpellRepertoire.SpellCastingSubclass == selectedSubclass);
         }
 
-        internal static bool IsSpellKnownBySelectedClassSubclass(SpellDefinition spellDefinition)
+        internal static bool IsSpellKnownBySelectedClassSubclass(RulesetCharacterHero rulesetCharacterHero, SpellDefinition spellDefinition)
         {
-            var selectedHero = LevelUpContext.SelectedHero;
-            var selectedClass = LevelUpContext.SelectedClass;
-            var selectedSubclass = LevelUpContext.SelectedSubclass;
-            var spellRepertoire = selectedHero.SpellRepertoires.Find(sr =>
-                (sr.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Class && sr.SpellCastingClass == selectedClass) ||
-                (sr.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Subclass && sr.SpellCastingSubclass == selectedSubclass));
+            var selectedClass = LevelUpContext.GetSelectedClass(rulesetCharacterHero);
+            var selectedSubclass = LevelUpContext.GetSelectedSubclass(rulesetCharacterHero);
 
-            return spellRepertoire?.HasKnowledgeOfSpell(spellDefinition) == true;
+            var spellRepertoire = rulesetCharacterHero.SpellRepertoires.Find(sr =>
+                (sr.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Class
+                && sr.SpellCastingClass == selectedClass) ||
+                (sr.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Subclass
+                && sr.SpellCastingSubclass == selectedSubclass));
+
+            if (spellRepertoire == null)
+            {
+                return false;
+            }
+
+            return spellRepertoire.HasKnowledgeOfSpell(spellDefinition);
         }
 
-        internal static bool IsSpellOfferedBySelectedClassSubclass(SpellDefinition spellDefinition, bool onlyCurrentLevel = false)
+        internal static bool IsSpellOfferedBySelectedClassSubclass(RulesetCharacterHero rulesetCharacterHero, SpellDefinition spellDefinition, bool onlyCurrentLevel = false)
         {
-            var classLevel = LevelUpContext.GetClassLevel();
+            var classLevel = LevelUpContext.GetClassLevel(rulesetCharacterHero);
+            var selectedClass = LevelUpContext.GetSelectedClass(rulesetCharacterHero);
+            var selectedSubclass = LevelUpContext.GetSelectedSubclass(rulesetCharacterHero);
+
             // NOTE: don't use SelectedClass?. which bypasses Unity object lifetime check
-            var className = LevelUpContext.SelectedClass ? LevelUpContext.SelectedClass.Name : null;
+            var className = selectedClass ? selectedClass.Name : null;
+
             // NOTE: don't use SelectedSubclass?. which bypasses Unity object lifetime check
-            var subClassName = LevelUpContext.SelectedSubclass ? LevelUpContext.SelectedSubclass.Name : null;
+            var subClassName = selectedSubclass ? selectedSubclass.Name : null;
 
             if (className != null && classSpellList.ContainsKey(className))
             {

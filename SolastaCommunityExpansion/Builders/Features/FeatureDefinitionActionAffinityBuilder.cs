@@ -35,11 +35,6 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
         #endregion
 
-        public static FeatureDefinitionActionAffinityBuilder Create(FeatureDefinitionActionAffinity original, string name, Guid namespaceGuid)
-        {
-            return new FeatureDefinitionActionAffinityBuilder(original, name, namespaceGuid);
-        }
-
         public FeatureDefinitionActionAffinityBuilder SetAuthorizedActions(params ActionDefinitions.Id[] actions)
         {
             Definition.SetAuthorizedActions(actions);

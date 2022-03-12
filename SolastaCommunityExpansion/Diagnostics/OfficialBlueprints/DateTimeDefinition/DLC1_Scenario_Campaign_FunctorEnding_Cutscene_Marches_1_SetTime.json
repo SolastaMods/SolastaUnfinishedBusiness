@@ -1,0 +1,35 @@
+{
+  "$type": "DateTimeDefinition, Assembly-CSharp",
+  "year": 1024,
+  "month": 6,
+  "day": 10,
+  "hour": 13,
+  "minute": 0,
+  "seconds": 0,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "3160ab0b1e660b447ac4d9919d3157ba",
+  "contentPack": "BaseGame",
+  "name": "DLC1_Scenario_Campaign_FunctorEnding_Cutscene_Marches_1_SetTime"
+}

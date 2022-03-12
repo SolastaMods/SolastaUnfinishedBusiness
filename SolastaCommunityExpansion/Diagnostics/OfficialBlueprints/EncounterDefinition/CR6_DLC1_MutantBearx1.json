@@ -6,19 +6,8 @@
   "monsterOccurences": [
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
-      "monsterDefinition": "Definition:Mutant_Bear:91d56b92ad5316c458307a5d4fbf43f3",
-      "number": 1,
-      "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall_PenalizeAltitude:c80d21582cba9af45af18c8b417c2af3",
-      "creatureSex": "Male",
-      "presentationDefinitionIndex": 0,
-      "randomHumanoidPresentation": false,
-      "overrideFaction": false,
-      "factionName": ""
-    },
-    {
-      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:BlackBear:6c10eb2c039b5634786b530cac315baf",
-      "number": 2,
+      "number": 5,
       "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall_PenalizeAltitude:c80d21582cba9af45af18c8b417c2af3",
       "creatureSex": "Male",
       "presentationDefinitionIndex": 0,

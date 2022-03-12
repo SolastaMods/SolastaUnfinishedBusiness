@@ -147,26 +147,28 @@ namespace SolastaCommunityExpansion.Multiclass.Models
 
         internal static RulesetCharacterHero GetHero(string name)
         {
+            // try to get hero from game campaign
             var gameCampaign = Gui.GameCampaign;
-            GameCampaignCharacter gameCampaignCharacter = null;
 
             if (gameCampaign != null)
             {
-                gameCampaignCharacter = gameCampaign.Party.CharactersList.Find(x => x.RulesetCharacter.Name == name);
+                var gameCampaignCharacter = gameCampaign.Party.CharactersList.Find(x => x.RulesetCharacter.Name == name);
+
+                if (gameCampaignCharacter != null)
+                {
+                    return gameCampaignCharacter.RulesetCharacter as RulesetCharacterHero;
+                }
             }
 
-            if (gameCampaignCharacter != null)
+            // otherwise gets hero from level up context
+            var hero = LevelUpContext.GetHero(name);
+
+            if (hero != null)
             {
-                return gameCampaignCharacter.RulesetCharacter as RulesetCharacterHero;
+                return hero;
             }
 
-            var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
-
-            if (characterBuildingService != null && characterBuildingService.HeroCharacter != null)
-            {
-                return characterBuildingService.HeroCharacter;
-            }
-
+            // finally falls back to inspection
             return InspectionPanelContext.SelectedHero;
         }
 

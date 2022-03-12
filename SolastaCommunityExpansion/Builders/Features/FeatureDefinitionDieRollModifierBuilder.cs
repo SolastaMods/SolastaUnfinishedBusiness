@@ -3,20 +3,38 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public sealed class FeatureDefinitionDieRollModifierBuilder
+    public class FeatureDefinitionDieRollModifierBuilder
         : FeatureDefinitionAffinityBuilder<FeatureDefinitionDieRollModifier, FeatureDefinitionDieRollModifierBuilder>
     {
-        private FeatureDefinitionDieRollModifierBuilder(string name, Guid namespaceGuid)
-            : base(name, namespaceGuid)
+        #region Constructors
+        protected FeatureDefinitionDieRollModifierBuilder(FeatureDefinitionDieRollModifier original) : base(original)
         {
         }
 
-        // Add other standard Create methods and constructors as required.
-
-        public static FeatureDefinitionDieRollModifierBuilder Create(string name, Guid namespaceGuid)
+        protected FeatureDefinitionDieRollModifierBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
-            return new FeatureDefinitionDieRollModifierBuilder(name, namespaceGuid);
         }
+
+        protected FeatureDefinitionDieRollModifierBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        protected FeatureDefinitionDieRollModifierBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
+        {
+        }
+
+        protected FeatureDefinitionDieRollModifierBuilder(FeatureDefinitionDieRollModifier original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
+        {
+        }
+
+        protected FeatureDefinitionDieRollModifierBuilder(FeatureDefinitionDieRollModifier original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionDieRollModifierBuilder(FeatureDefinitionDieRollModifier original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+        #endregion
 
         public FeatureDefinitionDieRollModifierBuilder SetModifiers(
             RuleDefinitions.RollContext context, int rerollCount, int minRerollValue, string consoleLocalizationKey)

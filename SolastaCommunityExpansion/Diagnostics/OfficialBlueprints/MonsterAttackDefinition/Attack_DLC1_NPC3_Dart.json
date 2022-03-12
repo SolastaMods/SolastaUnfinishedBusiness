@@ -9,8 +9,8 @@
   "maxUses": -1,
   "proximity": "Range",
   "reachRange": 1,
-  "closeRange": 20,
-  "maxRange": 40,
+  "closeRange": 4,
+  "maxRange": 8,
   "magical": false,
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",

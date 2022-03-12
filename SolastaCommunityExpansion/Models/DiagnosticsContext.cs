@@ -19,6 +19,7 @@ namespace SolastaCommunityExpansion.Models
         private static BaseDefinition[] TABaseDefinitions;
         private static Dictionary<Type, BaseDefinition[]> TABaseDefinitionsMap;
         private static BaseDefinition[] CEBaseDefinitions;
+        private static HashSet<BaseDefinition> CEBaseDefinitions2;
         private static Dictionary<Type, BaseDefinition[]> CEBaseDefinitionsMap;
 
         internal const string GAME_FOLDER = ".";
@@ -122,6 +123,7 @@ namespace SolastaCommunityExpansion.Models
                 .OrderBy(x => x.Name)
                 .ThenBy(x => x.GetType().Name)
                 .ToArray();
+            CEBaseDefinitions2 = CEBaseDefinitions.ToHashSet();
 
             Main.Log($"Cached {CEBaseDefinitions.Length} CE definitions");
         }
@@ -210,5 +212,10 @@ namespace SolastaCommunityExpansion.Models
         {
             "SummonProtectorConstruct"
         };
+
+        internal static bool IsCeDefinition(BaseDefinition definition)
+        {
+            return CEBaseDefinitions2.Contains(definition);
+        }
     }
 }

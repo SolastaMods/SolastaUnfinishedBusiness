@@ -96,7 +96,7 @@
   "maxCustomizableDimensions": {
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
-  "campaignOnly": false,
+  "campaignOnly": true,
   "groundPlacement": true,
   "groundLowPlacement": true,
   "groundHighPlacement": true,

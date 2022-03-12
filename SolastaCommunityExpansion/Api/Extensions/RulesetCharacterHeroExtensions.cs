@@ -715,6 +715,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetBuildingData<T>(this T entity, CharacterHeroBuildingData value)
+            where T : RulesetCharacterHero
+        {
+            entity.SetField("buildingData", value);
+            return entity;
+        }
+
         public static T SetBuiltIn<T>(this T entity, System.Boolean value)
             where T : RulesetCharacterHero
         {

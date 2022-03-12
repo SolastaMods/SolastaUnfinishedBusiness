@@ -6,31 +6,37 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public sealed class FeatureDefinitionAdditionalActionBuilder : FeatureDefinitionBuilder<FeatureDefinitionAdditionalAction, FeatureDefinitionAdditionalActionBuilder>
+    public class FeatureDefinitionAdditionalActionBuilder : FeatureDefinitionBuilder<FeatureDefinitionAdditionalAction, FeatureDefinitionAdditionalActionBuilder>
     {
-        private FeatureDefinitionAdditionalActionBuilder(string name, Guid namespaceGuid)
-            : base(name, namespaceGuid)
+        #region Constructors
+        protected FeatureDefinitionAdditionalActionBuilder(FeatureDefinitionAdditionalAction original) : base(original)
         {
         }
 
-        private FeatureDefinitionAdditionalActionBuilder(FeatureDefinitionAdditionalAction original, string name, Guid namespaceGuid)
-            : base(original, name, namespaceGuid)
+        protected FeatureDefinitionAdditionalActionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
-        // Add other standard Create methods and constructors as required.
-
-        public static FeatureDefinitionAdditionalActionBuilder Create(
-            string name, Guid namespaceGuid)
+        protected FeatureDefinitionAdditionalActionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
         {
-            return new FeatureDefinitionAdditionalActionBuilder(name, namespaceGuid);
         }
 
-        public static FeatureDefinitionAdditionalActionBuilder Create(
-            FeatureDefinitionAdditionalAction original, string name, Guid namespaceGuid)
+        protected FeatureDefinitionAdditionalActionBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
         {
-            return new FeatureDefinitionAdditionalActionBuilder(original, name, namespaceGuid);
         }
+
+        protected FeatureDefinitionAdditionalActionBuilder(FeatureDefinitionAdditionalAction original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
+        {
+        }
+
+        protected FeatureDefinitionAdditionalActionBuilder(FeatureDefinitionAdditionalAction original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionAdditionalActionBuilder(FeatureDefinitionAdditionalAction original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+        #endregion
 
         public FeatureDefinitionAdditionalActionBuilder SetActionType(ActionDefinitions.ActionType actionType)
         {

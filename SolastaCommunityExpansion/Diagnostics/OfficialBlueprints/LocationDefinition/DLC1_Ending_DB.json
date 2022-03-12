@@ -118,7 +118,20 @@
   },
   "audioState": {
     "$type": "AK.Wwise.State, AK.Wwise.Unity.API.WwiseTypes",
-    "WwiseObjectReference": null,
+    "WwiseObjectReference": {
+      "$type": "WwiseStateReference, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseStateGroupReference": {
+        "$type": "WwiseStateGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+        "objectName": "State_LocationName",
+        "id": 598649695,
+        "guid": "0785F1BC-DEE8-4D0A-A678-33E4912B6ACE",
+        "name": "0785F1BC-DEE8-4D0A-A678-33E4912B6ACE"
+      },
+      "objectName": "DLC1_Ending",
+      "id": 1972058385,
+      "guid": "D3D28761-6AAD-40D6-AE16-33B1216A2393",
+      "name": "D3D28761-6AAD-40D6-AE16-33B1216A2393"
+    },
     "groupIdInternal": 0,
     "groupGuidInternal": {
       "$type": "System.Byte[], mscorlib",
@@ -284,6 +297,7 @@
   "focusWhenRevealed": false,
   "startsWithScavengerCamp": false,
   "ignoredByScavengers": false,
+  "useDirectionalLightInCutscene": true,
   "useNewSectorCullingAlgorithm": true,
   "keepSectorCullingResultsWhenInactive": false,
   "setCurrentCampaignNodeWhenLeaving": false,

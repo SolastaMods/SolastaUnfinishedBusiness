@@ -212,7 +212,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "NPC/&NPC_Marches_02_Title",
-    "description": "NPC/&NPC_Marches_02_Description",
+    "description": "Background/&KS_VigdisKaikonnenBackground_Title",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

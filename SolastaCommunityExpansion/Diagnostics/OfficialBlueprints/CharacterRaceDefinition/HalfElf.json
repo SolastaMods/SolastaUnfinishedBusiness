@@ -102,8 +102,6 @@
       "Race/&HalfElfSurName13Title"
     ],
     "needBeard": false,
-    "useBeardBlendShape": false,
-    "beardBlendShapes": [],
     "canModifyMusculature": true,
     "originOptions": [
       "Origin_NonHuman"

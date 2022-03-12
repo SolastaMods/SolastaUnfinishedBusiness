@@ -260,7 +260,7 @@ namespace SolastaModApi.Extensions
         public static T SetCurrentHitPoints<T>(this T entity, System.Int32 value)
             where T : RulesetActor
         {
-            entity.SetProperty("CurrentHitPoints", value);
+            entity.SetField("currentHitPoints", value);
             return entity;
         }
 
@@ -348,6 +348,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetImmuneToIncomingDamageNotified<T>(this T entity, RulesetActor.IncomingDamageNotifiedHandler value)
+            where T : RulesetActor
+        {
+            entity.SetField("<ImmuneToIncomingDamageNotified>k__BackingField", value);
+            return entity;
+        }
+
         public static T SetImmuneToSpell<T>(this T entity, RulesetActor.ImmuneToSpellHandler value)
             where T : RulesetActor
         {
@@ -387,13 +394,6 @@ namespace SolastaModApi.Extensions
             where T : RulesetActor
         {
             entity.SetField("matchingInterruption", value);
-            return entity;
-        }
-
-        public static T SetMaxExtentY<T>(this T entity, System.Int32 value)
-            where T : RulesetActor
-        {
-            entity.SetProperty("MaxExtentY", value);
             return entity;
         }
 

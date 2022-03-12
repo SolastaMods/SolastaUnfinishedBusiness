@@ -232,13 +232,6 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetBeardBlendShapes<T>(this T entity, RacePresentation.BeardBlendShape[] value)
-            where T : RacePresentation
-        {
-            entity.SetField("beardBlendShapes", value);
-            return entity;
-        }
-
         public static T SetBodyAssetPrefix<T>(this T entity, System.String value)
             where T : RacePresentation
         {
@@ -446,13 +439,6 @@ namespace SolastaModApi.Extensions
             where T : RacePresentation
         {
             entity.SetField("surNameTitle", value);
-            return entity;
-        }
-
-        public static T SetUseBeardBlendShape<T>(this T entity, System.Boolean value)
-            where T : RacePresentation
-        {
-            entity.SetField("useBeardBlendShape", value);
             return entity;
         }
     }

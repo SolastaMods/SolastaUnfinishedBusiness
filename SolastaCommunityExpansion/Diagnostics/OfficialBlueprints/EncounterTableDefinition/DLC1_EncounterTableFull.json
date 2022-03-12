@@ -625,6 +625,126 @@
       "$type": "EncounterOccurenceDescription, Assembly-CSharp",
       "weight": 1,
       "encounterDefinition": "Definition:CR13_GuardedHighPriest_x1_x2_x4:9166e22acfde9a94495ccc8a071b12ba"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR4_DLC1_WanderingHag:38827e1eeb0f1794586a44db842b0fc8"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR3_DLC1_LoneBeastermaster:935cbc9b124a4ca478f3ccb2ce646147"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR5_DLC1_RedeemerScout:e5c15e6dfc68dfc43b180e9f71433fe8"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR7_DLC1_RedeemerDuo:23a158858efd0154f9a5d95bc6a5cb46"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR3_DLC1_LoneBulette:6e3e7e61e24fc1144b4c8926ad6f8b10"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR10_DLC1_BuletteAndFlyers:147cdf8a427273b42bd45347b1ce5d44"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR4_DLC1_GiantAndWolves_Huge:f4b8282344657cd4f8eef4ecd7430c2b"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR10_DLC1_ElementalTrio:e3153a3074cdf6344b6d1931eba3f5b6"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR9_DLC1_GiantsAndWinterWolves_Huge:5ee1937cdb857374e8f7a3b9fab6d08c"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR10_DLC1_FeyIncursion:c63c38f4a2d772e4d8d9245f12c6b533"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR4_DLC1_LoneShambling:54c8d7320f7036c4bb3c02f4dc369507"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR6_DLC1_ShamblingDuo:e4189386617bd3c4dbeb5863d914f612"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR10_DLC1_ShamblingTrio:3f350be8e6d369141aca45cf074a151c"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR7_DLC1_StalkerDuo:a43b0b20f3e6b634e836ef845ddaf8da"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR7_DLC1_HagWithGuards:6bf93752ef648e543b241f2a7be679ba"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR8_DLC1_HagDuoWithGuards:ee4649f45d71852458b62404ebbf70e7"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR11_DLC1_HagCircleWithBulette:1d90f11f5e68ae94f9ad38d80d04c96a"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR8_DLC1_GiantAndOrcs_Huge:dfa3e97afe74cc74696a2d7ec32cc6de"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR6_DLC1_LoneGiant_Huge:c640aabc2d2ae2c46bab7857bd54e7e0"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR11_DLC1_IronGolem:410dac26527c68348a560a8e47d38927"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR8_DLC1_Remorhaz_Huge:6944ef6938248d74483d8fcc31011600"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR7_DLC1_StoneGolem:ccf8b9206324a1e4c8d80a91fd325535"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR6_DLC1_ClayGolem:259d53ebd5f0b834189b902b14de5da5"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR10_DLC1_DragonDuo_Huge:049cb6257c8a6f142bc3b2661c2a5351"
     }
   ],
   "guiPresentation": {
