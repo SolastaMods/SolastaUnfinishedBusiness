@@ -6,6 +6,8 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
 {
     internal static class RulesetSpellRepertoirePatcher
     {
+        // only need this patch in case we need to support Warlock Pact Magic
+#if WARLOCK_PACT_MAGIC
         // handles all different scenarios to determine max slots numbers
         [HarmonyPatch(typeof(RulesetSpellRepertoire), "GetMaxSlotsNumberOfAllLevels")]
         internal static class RulesetSpellRepertoireGetMaxSlotsNumberOfAllLevels
@@ -24,26 +26,22 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
                     return true;
                 }
 
-                if (Models.SharedSpellsContext.IsWarlock(__instance.SpellCastingClass))
+                if (!Models.SharedSpellsContext.IsWarlock(__instance.SpellCastingClass))
                 {
-                    if (Models.SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire))
-                    {
-                        if (Models.SharedSpellsContext.IsCombined)
-                        {
-                            // handles MC Warlock with combined system
-                            return true;
-                        }
-                        else
-                        {
-                            // handles MC Warlock without combined system
-                            __result = Models.SharedSpellsContext.GetWarlockMaxSlots(heroWithSpellRepertoire);
+                    // handles SC non Warlock and MC non Warlock
+                    return true;
+                }
 
-                            return false;
-                        }
+                if (Models.SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire))
+                {
+                    if (Models.SharedSpellsContext.IsCombined)
+                    {
+                        // handles MC Warlock with combined system
+                        return true;
                     }
                     else
                     {
-                        // handles SC Warlock
+                        // handles MC Warlock without combined system
                         __result = Models.SharedSpellsContext.GetWarlockMaxSlots(heroWithSpellRepertoire);
 
                         return false;
@@ -51,12 +49,17 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
                 }
                 else
                 {
-                    // handles SC non Warlock and MC non Warlock
-                    return true;
+                    // handles SC Warlock
+                    __result = Models.SharedSpellsContext.GetWarlockMaxSlots(heroWithSpellRepertoire);
+
+                    return false;
                 }
             }
         }
+#endif
 
+// only need this patch in case we need to support Warlock Pact Magic
+#if WARLOCK_PACT_MAGIC
         // handles all different scenarios to determine remaining slots numbers
         [HarmonyPatch(typeof(RulesetSpellRepertoire), "GetRemainingSlotsNumberOfAllLevels")]
         internal static class RulesetSpellRepertoireGetRemainingSlotsNumberOfAllLevels
@@ -75,31 +78,24 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
                     return true;
                 }
 
+                if (!Models.SharedSpellsContext.IsWarlock(__instance.SpellCastingClass))
+                {
+                    // handles SC non Warlock and MC non Warlock
+                    return true;
+                }
+
                 var usedSpellsSlots = __instance.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots");
 
-                if (Models.SharedSpellsContext.IsWarlock(__instance.SpellCastingClass))
+                if (Models.SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire))
                 {
-                    if (Models.SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire))
+                    if (Models.SharedSpellsContext.IsCombined)
                     {
-                        if (Models.SharedSpellsContext.IsCombined)
-                        {
-                            // handles MC Warlock with combined system
-                            return true;
-                        }
-                        else
-                        {
-                            // handles MC Warlock without combined system
-                            var max = Models.SharedSpellsContext.GetWarlockMaxSlots(heroWithSpellRepertoire);
-
-                            usedSpellsSlots.TryGetValue(-1, out var used);
-                            __result = max - used;
-
-                            return false;
-                        }
+                        // handles MC Warlock with combined system
+                        return true;
                     }
                     else
                     {
-                        // handles SC Warlock
+                        // handles MC Warlock without combined system
                         var max = Models.SharedSpellsContext.GetWarlockMaxSlots(heroWithSpellRepertoire);
 
                         usedSpellsSlots.TryGetValue(-1, out var used);
@@ -110,12 +106,20 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
                 }
                 else
                 {
-                    // handles SC non Warlock and MC non Warlock
-                    return true;
+                    // handles SC Warlock
+                    var max = Models.SharedSpellsContext.GetWarlockMaxSlots(heroWithSpellRepertoire);
+
+                    usedSpellsSlots.TryGetValue(-1, out var used);
+                    __result = max - used;
+
+                    return false;
                 }
             }
         }
+#endif
 
+// only need this patch in case we need to support Warlock Pact Magic
+#if WARLOCK_PACT_MAGIC
         // handles all different scenarios to determine slots numbers
         [HarmonyPatch(typeof(RulesetSpellRepertoire), "GetSlotsNumber")]
         internal static class RulesetSpellRepertoireGetSlotsNumber
@@ -134,46 +138,30 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
                     return true;
                 }
 
+                if (!Models.SharedSpellsContext.IsWarlock(__instance.SpellCastingClass))
+                {
+                    // handles SC non Warlock and MC non Warlock
+                    return true;
+                }
+
                 max = 0;
                 remaining = 0;
 
                 var usedSpellsSlots = __instance.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots");
                 var spellsSlotCapacities = __instance.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("spellsSlotCapacities");
 
-                if (Models.SharedSpellsContext.IsWarlock(__instance.SpellCastingClass))
+                if (Models.SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire))
                 {
-                    if (Models.SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire))
+                    if (Models.SharedSpellsContext.IsCombined)
                     {
-                        if (Models.SharedSpellsContext.IsCombined)
-                        {
-                            // handles MC Warlock with combined system
-                            spellsSlotCapacities.TryGetValue(spellLevel, out max);
-                            usedSpellsSlots.TryGetValue(spellLevel, out var used);
-                            remaining = max - used;
-                        }
-                        else
-                        {
-                            // handles MC Warlock without combined system
-                            if (spellLevel <= __instance.MaxSpellLevelOfSpellCastingLevel)
-                            {
-                                if (spellLevel <= Models.SharedSpellsContext.WARLOCK_MAX_PACT_MAGIC_SPELL_LEVEL)
-                                {
-                                    max = Models.SharedSpellsContext.GetWarlockMaxSlots(heroWithSpellRepertoire);
-                                    usedSpellsSlots.TryGetValue(-1, out var used);
-                                    remaining = max - used;
-                                }
-                                else
-                                {
-                                    max = 1;
-                                    usedSpellsSlots.TryGetValue(spellLevel, out var used);
-                                    remaining = max - used;
-                                }
-                            }
-                        }
+                        // handles MC Warlock with combined system
+                        spellsSlotCapacities.TryGetValue(spellLevel, out max);
+                        usedSpellsSlots.TryGetValue(spellLevel, out var used);
+                        remaining = max - used;
                     }
                     else
                     {
-                        // handles SC Warlock
+                        // handles MC Warlock without combined system
                         if (spellLevel <= __instance.MaxSpellLevelOfSpellCastingLevel)
                         {
                             if (spellLevel <= Models.SharedSpellsContext.WARLOCK_MAX_PACT_MAGIC_SPELL_LEVEL)
@@ -193,15 +181,28 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
                 }
                 else
                 {
-                    // handles SC non Warlock and MC non Warlock
-                    spellsSlotCapacities.TryGetValue(spellLevel, out max);
-                    usedSpellsSlots.TryGetValue(spellLevel, out var used);
-                    remaining = max - used;
+                    // handles SC Warlock
+                    if (spellLevel <= __instance.MaxSpellLevelOfSpellCastingLevel)
+                    {
+                        if (spellLevel <= Models.SharedSpellsContext.WARLOCK_MAX_PACT_MAGIC_SPELL_LEVEL)
+                        {
+                            max = Models.SharedSpellsContext.GetWarlockMaxSlots(heroWithSpellRepertoire);
+                            usedSpellsSlots.TryGetValue(-1, out var used);
+                            remaining = max - used;
+                        }
+                        else
+                        {
+                            max = 1;
+                            usedSpellsSlots.TryGetValue(spellLevel, out var used);
+                            remaining = max - used;
+                        }
+                    }
                 }
 
                 return false;
             }
         }
+#endif
 
         // handles all different scenarios to determine max spell level (must be a postfix)
         [HarmonyPatch(typeof(RulesetSpellRepertoire), "MaxSpellLevelOfSpellCastingLevel", MethodType.Getter)]
@@ -297,6 +298,8 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
             }
         }
 
+        // only need this patch in case we need to support Warlock Pact Magic
+#if WARLOCK_PACT_MAGIC
         // handles Warlock short rest spells recovery
         [HarmonyPatch(typeof(RulesetSpellRepertoire), "RestoreAllSpellSlots")]
         internal static class RulesetSpellRepertoireRestoreAllSpellSlots
@@ -360,6 +363,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
                 return false;
             }
         }
+#endif
 
         // handles all different scenarios of spell slots consumption (casts, smites, point buys)
         [HarmonyPatch(typeof(RulesetSpellRepertoire), "SpendSpellSlot")]

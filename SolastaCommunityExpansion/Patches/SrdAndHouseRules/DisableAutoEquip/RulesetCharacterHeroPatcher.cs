@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
+﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.DisableAutoEquip
@@ -16,13 +14,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.DisableAutoEquip
                 return;
             }
 
-            // Comment out.
-
-            //var buildingDataByHero = typeof(CharacterHeroBuildingData)
-            //    .GetField("buildingDataByHero", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic)
-            //    .GetValue(null) as Dictionary<RulesetCharacterHero, CharacterHeroBuildingData>;
-
-            //tryToEquip = buildingDataByHero.Keys.Any(x => x.Name == __instance.Name);
+            tryToEquip = __instance.TryGetHeroBuildingData(out var _);
         }
     }
 }

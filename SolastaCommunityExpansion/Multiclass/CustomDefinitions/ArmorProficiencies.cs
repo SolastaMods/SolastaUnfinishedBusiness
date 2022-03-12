@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using SolastaCommunityExpansion.Builders.Features;
+﻿using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi.Infrastructure;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionProficiencys;
 
@@ -19,41 +18,41 @@ namespace SolastaCommunityExpansion.Multiclass.CustomDefinitions
         private const string WardenArmorProficiencyMulticlassName = "WardenArmorProficiencyMulticlass";
         private const string WardenArmorProficiencyMulticlassGuid = "19666e846975401b819d1ae72c5d27ac";
 
-        private ArmorProficiencyMulticlassBuilder(string name, string guid, string title, List<string> proficienciesToReplace) : base(ProficiencyFighterArmor, name, guid)
+        private ArmorProficiencyMulticlassBuilder(string name, string guid, string title, params string[] proficienciesToReplace) : base(ProficiencyFighterArmor, name, guid)
         {
             Definition.Proficiencies.SetRange(proficienciesToReplace);
             Definition.GuiPresentation.Title = title;
         }
 
-        private static FeatureDefinitionProficiency CreateAndAddToDB(string name, string guid, string title, List<string> proficienciesToReplace)
+        private static FeatureDefinitionProficiency CreateAndAddToDB(string name, string guid, string title, params string[] proficienciesToReplace)
         {
             return new ArmorProficiencyMulticlassBuilder(name, guid, title, proficienciesToReplace).AddToDB();
         }
 
         internal static readonly FeatureDefinitionProficiency BarbarianArmorProficiencyMulticlass =
-            CreateAndAddToDB(BarbarianArmorProficiencyMulticlassName, BarbarianArmorProficiencyMulticlassGuid, "Feature/&BarbarianArmorProficiencyTitle", new List<string> {
+            CreateAndAddToDB(BarbarianArmorProficiencyMulticlassName, BarbarianArmorProficiencyMulticlassGuid, "Feature/&BarbarianArmorProficiencyTitle",
                 EquipmentDefinitions.ShieldCategory
-            });
+            );
 
         internal static readonly FeatureDefinitionProficiency FighterArmorProficiencyMulticlass =
-            CreateAndAddToDB(FighterArmorProficiencyMulticlassName, FighterArmorProficiencyMulticlassGuid, "Feature/&FighterArmorProficiencyTitle", new List<string> {
+            CreateAndAddToDB(FighterArmorProficiencyMulticlassName, FighterArmorProficiencyMulticlassGuid, "Feature/&FighterArmorProficiencyTitle",
                 EquipmentDefinitions.LightArmorCategory,
                 EquipmentDefinitions.MediumArmorCategory,
                 EquipmentDefinitions.ShieldCategory
-            });
+            );
 
         internal static readonly FeatureDefinitionProficiency PaladinArmorProficiencyMulticlass =
-            CreateAndAddToDB(PaladinArmorProficiencyMulticlassName, PaladinArmorProficiencyMulticlassGuid, "Feature/&PaladinArmorProficiencyTitle", new List<string> {
+            CreateAndAddToDB(PaladinArmorProficiencyMulticlassName, PaladinArmorProficiencyMulticlassGuid, "Feature/&PaladinArmorProficiencyTitle",
                 EquipmentDefinitions.LightArmorCategory,
                 EquipmentDefinitions.MediumArmorCategory,
                 EquipmentDefinitions.ShieldCategory
-            });
+            );
 
         internal static readonly FeatureDefinitionProficiency WardenArmorProficiencyMulticlass =
-            CreateAndAddToDB(WardenArmorProficiencyMulticlassName, WardenArmorProficiencyMulticlassGuid, "Feature/&WardenArmorProficiencyTitle", new List<string> {
+            CreateAndAddToDB(WardenArmorProficiencyMulticlassName, WardenArmorProficiencyMulticlassGuid, "Feature/&WardenArmorProficiencyTitle",
                 EquipmentDefinitions.LightArmorCategory,
                 EquipmentDefinitions.MediumArmorCategory,
                 EquipmentDefinitions.ShieldCategory
-            });
+            );
     }
 }
