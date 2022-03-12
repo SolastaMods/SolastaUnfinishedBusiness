@@ -1,4 +1,6 @@
-﻿using System;
+﻿// keep this around if we need to support Warlock again
+#if false
+using System;
 using System.Collections.Generic;
 using HarmonyLib;
 using SolastaModApi.Infrastructure;
@@ -115,3 +117,4 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells.Slot
         }
     }
 }
+#endif

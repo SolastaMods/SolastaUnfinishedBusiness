@@ -1,4 +1,6 @@
-﻿using HarmonyLib;
+﻿// keep this around if we need to support Warlock again
+#if false
+using HarmonyLib;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
 using UnityEngine.UI;
@@ -31,3 +33,4 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells.Slot
         }
     }
 }
+#endif

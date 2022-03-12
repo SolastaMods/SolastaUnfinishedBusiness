@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaModApi.Infrastructure;
@@ -13,19 +12,17 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
         [HarmonyPatch(typeof(RulesetCharacter), "ApplyRest")]
         internal static class RulesetCharacterApplyRest
         {
-            internal static bool Prefix(
-                RulesetCharacter __instance,
-                RuleDefinitions.RestType restType,
-                bool simulate,
-                TimeInfo restStartTime)
+            internal static void Prefix(RuleDefinitions.RestType restType)
             {
                 if (!Main.Settings.EnableMulticlass)
                 {
-                    return true;
+                    return;
                 }
 
                 Models.SharedSpellsContext.RestType = restType;
 
+                // keep this around in case we ever need to support ModHelpers again
+#if false
                 //
                 // default game code from here. had to use a bool Prefix here to bypass ModHelpers transpiler on this method...
                 //
@@ -127,6 +124,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
                 }
 
                 return false;
+#endif
             }
         }
 
