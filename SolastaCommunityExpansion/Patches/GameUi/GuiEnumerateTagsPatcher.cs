@@ -4,6 +4,10 @@ using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.GameUi
 {
+    //
+    // custom resources enablement patch
+    //
+
     [HarmonyPatch(typeof(GuiSpellDefinition), "EnumerateTags")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GuiSpellDefinition_EnumerateTags
@@ -24,6 +28,10 @@ namespace SolastaCommunityExpansion.Patches.GameUi
             }
         }
     }
+
+    //
+    // custom resources enablement patch
+    //
 
     [HarmonyPatch(typeof(GuiPowerDefinition), "EnumerateTags")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
