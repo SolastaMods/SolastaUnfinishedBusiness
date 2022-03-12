@@ -3,6 +3,7 @@ using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Multiclass.Models;
 using UnityModManagerNet;
+
 #if DEBUG
 using SolastaCommunityExpansion.Patches.Diagnostic;
 #endif
@@ -23,6 +24,9 @@ namespace SolastaCommunityExpansion.Patches
 
             // Cache TA definitions for diagnostics and export
             DiagnosticsContext.CacheTADefinitions();
+
+            // Mod interface to get / change game context and some useful logging for modders
+            ActionEnumeratorsContext.Load();
 
             AdditionalNamesContext.Load();
             AsiAndFeatContext.Load();
