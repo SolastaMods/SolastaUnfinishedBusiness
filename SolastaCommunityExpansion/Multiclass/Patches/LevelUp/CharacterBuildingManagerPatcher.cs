@@ -11,7 +11,338 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
 {
     internal static class CharacterBuildingManagerPatcher
     {
+        //
+        // context registration / unregistration patches
+        //
+
+        // register the hero leveling up
+        [HarmonyPatch(typeof(CharacterBuildingManager), "LevelUpCharacter")]
+        internal static class CharacterBuildingManagerLevelUpCharacter
+        {
+            internal static void Prefix(RulesetCharacterHero hero)
+            {
+                if (!Main.Settings.EnableMulticlass)
+                {
+                    return;
+                }
+
+                LevelUpContext.RegisterHero(hero);
+            }
+        }
+
+        // unregister the hero leveling up
+        [HarmonyPatch(typeof(CharacterBuildingManager), "ReleaseCharacter")]
+        internal static class CharacterBuildingManagerReleaseCharacter
+        {
+            internal static void Prefix(RulesetCharacterHero hero)
+            {
+                if (!Main.Settings.EnableMulticlass)
+                {
+                    return;
+                }
+
+                LevelUpContext.UnregisterHero(hero);
+            }
+        }
+
+        // captures the desired class and ensures this doesn't get executed in the class panel level up screen
+        [HarmonyPatch(typeof(CharacterBuildingManager), "AssignClassLevel")]
+        internal static class CharacterBuildingManagerAssignClassLevel
+        {
+            internal static bool Prefix(CharacterHeroBuildingData heroBuildingData, CharacterClassDefinition classDefinition)
+            {
+                if (!Main.Settings.EnableMulticlass)
+                {
+                    return true;
+                }
+
+                var hero = heroBuildingData.HeroCharacter;
+                var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
+                var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
+
+                if (isLevelingUp && isClassSelectionStage)
+                {
+                    LevelUpContext.SetSelectedClass(hero, classDefinition);
+                }
+
+                return !(isLevelingUp && isClassSelectionStage);
+            }
+        }
+
+        // captures the desired sub class
+        [HarmonyPatch(typeof(CharacterBuildingManager), "AssignSubclass")]
+        internal static class CharacterBuildingManagerAssignSubclass
+        {
+            internal static void Prefix(RulesetCharacterHero hero, CharacterSubclassDefinition subclassDefinition)
+            {
+                if (!Main.Settings.EnableMulticlass)
+                {
+                    return;
+                }
+
+                LevelUpContext.SetSelectedSubclass(hero, subclassDefinition);
+            }
+        }
+
+        //
+        // filter FeatureUnlocks patches
+        //
+
+        // no template character are multiclass ones. leaving this here in case we ever need to support this use case
+#if false
         // filter active features
+        [HarmonyPatch(typeof(CharacterBuildingManager), "CreateCharacterFromTemplate")]
+        internal static class CharacterBuildingManagerCreateCharacterFromTemplate
+        {
+            internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+            {
+                if (!Main.Settings.EnableMulticlass)
+                {
+                    foreach (var instruction in instructions)
+                    {
+                        yield return instruction;
+                    }
+
+                    yield break;
+                }
+
+                var classFeatureUnlocksMethod = typeof(CharacterClassDefinition).GetMethod("get_FeatureUnlocks");
+                var classFilteredFeatureUnlocksMethod = typeof(LevelUpContext).GetMethod("ClassFilteredFeatureUnlocks");
+
+                var subclassFeatureUnlocksMethod = typeof(CharacterSubclassDefinition).GetMethod("get_FeatureUnlocks");
+                var subclassFilteredFeatureUnlocksMethod = typeof(LevelUpContext).GetMethod("SubclassFilteredFeatureUnlocks");
+
+                foreach (var instruction in instructions)
+                {
+                    if (instruction.Calls(classFeatureUnlocksMethod))
+                    {
+                        yield return new CodeInstruction(OpCodes.Ldloc_1);
+                        yield return new CodeInstruction(OpCodes.Call, classFilteredFeatureUnlocksMethod);
+                    }
+                    else if (instruction.Calls(subclassFeatureUnlocksMethod))
+                    {
+                        yield return new CodeInstruction(OpCodes.Ldloc_1);
+                        yield return new CodeInstruction(OpCodes.Call, subclassFilteredFeatureUnlocksMethod);
+                    }
+                    else
+                    {
+                        yield return instruction;
+                    }
+                }
+            }
+        }
+#endif
+
+        // filter active features
+        [HarmonyPatch(typeof(CharacterBuildingManager), "FinalizeCharacter")]
+        internal static class CharacterBuildingManagerFinalizeCharacter
+        {
+            internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+            {
+                if (!Main.Settings.EnableMulticlass)
+                {
+                    foreach (var instruction in instructions)
+                    {
+                        yield return instruction;
+                    }
+
+                    yield break;
+                }
+
+                var classFeatureUnlocksMethod = typeof(CharacterClassDefinition).GetMethod("get_FeatureUnlocks");
+                var classFilteredFeatureUnlocksMethod = typeof(LevelUpContext).GetMethod("ClassFilteredFeatureUnlocks");
+
+                var subclassFeatureUnlocksMethod = typeof(CharacterSubclassDefinition).GetMethod("get_FeatureUnlocks");
+                var subclassFilteredFeatureUnlocksMethod = typeof(LevelUpContext).GetMethod("SubclassFilteredFeatureUnlocks");
+
+                foreach (var instruction in instructions)
+                {
+                    if (instruction.Calls(classFeatureUnlocksMethod))
+                    {
+                        yield return new CodeInstruction(OpCodes.Ldarg_1);
+                        yield return new CodeInstruction(OpCodes.Call, classFilteredFeatureUnlocksMethod);
+                    }
+                    else if (instruction.Calls(subclassFeatureUnlocksMethod))
+                    {
+                        yield return new CodeInstruction(OpCodes.Ldarg_1);
+                        yield return new CodeInstruction(OpCodes.Call, subclassFilteredFeatureUnlocksMethod);
+                    }
+                    else
+                    {
+                        yield return instruction;
+                    }
+                }
+            }
+        }
+
+        // filter active features
+        [HarmonyPatch(typeof(CharacterBuildingManager), "RepairSubclass")]
+        internal static class CharacterBuildingManagerRepairSubclass
+        {
+            internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+            {
+                if (!Main.Settings.EnableMulticlass)
+                {
+                    foreach (var instruction in instructions)
+                    {
+                        yield return instruction;
+                    }
+
+                    yield break;
+                }
+
+                var classFeatureUnlocksMethod = typeof(CharacterClassDefinition).GetMethod("get_FeatureUnlocks");
+                var classFilteredFeatureUnlocksMethod = typeof(LevelUpContext).GetMethod("ClassFilteredFeatureUnlocks");
+
+                var subclassFeatureUnlocksMethod = typeof(CharacterSubclassDefinition).GetMethod("get_FeatureUnlocks");
+                var subclassFilteredFeatureUnlocksMethod = typeof(LevelUpContext).GetMethod("SubclassFilteredFeatureUnlocks");
+
+                foreach (var instruction in instructions)
+                {
+                    if (instruction.Calls(classFeatureUnlocksMethod))
+                    {
+                        yield return new CodeInstruction(OpCodes.Ldarg_1);
+                        yield return new CodeInstruction(OpCodes.Call, classFilteredFeatureUnlocksMethod);
+                    }
+                    else if (instruction.Calls(subclassFeatureUnlocksMethod))
+                    {
+                        yield return new CodeInstruction(OpCodes.Ldarg_1);
+                        yield return new CodeInstruction(OpCodes.Call, subclassFilteredFeatureUnlocksMethod);
+                    }
+                    else
+                    {
+                        yield return instruction;
+                    }
+                }
+            }
+        }
+
+        //
+        // disabling method call patches
+        //
+
+        // ensures this doesn't get executed in the class panel level up screen
+        [HarmonyPatch(typeof(CharacterBuildingManager), "ClearWieldedConfigurations")]
+        internal static class CharacterBuildingManagerClearWieldedConfigurations
+        {
+            internal static bool Prefix(CharacterHeroBuildingData heroBuildingData)
+            {
+                if (!Main.Settings.EnableMulticlass)
+                {
+                    return true;
+                }
+
+                var hero = heroBuildingData.HeroCharacter;
+                var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
+                var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
+
+                return !(isLevelingUp && isClassSelectionStage);
+            }
+        }
+
+        // ensures this doesn't get executed in the class panel level up screen
+        [HarmonyPatch(typeof(CharacterBuildingManager), "GrantFeatures")]
+        internal static class CharacterBuildingManagerGrantFeatures
+        {
+            internal static bool Prefix(RulesetCharacterHero hero)
+            {
+                if (!Main.Settings.EnableMulticlass)
+                {
+                    return true;
+                }
+
+                var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
+                var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
+
+                return !(isLevelingUp && isClassSelectionStage);
+            }
+        }
+
+        // ensures this doesn't get executed in the class panel level up screen
+        [HarmonyPatch(typeof(CharacterBuildingManager), "RemoveBaseEquipment")]
+        internal static class CharacterBuildingManagerRemoveBaseEquipment
+        {
+            internal static bool Prefix(CharacterHeroBuildingData heroBuildingData)
+            {
+                if (!Main.Settings.EnableMulticlass)
+                {
+                    return true;
+                }
+
+                var hero = heroBuildingData.HeroCharacter;
+                var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
+                var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
+
+                return !(isLevelingUp && isClassSelectionStage);
+            }
+        }
+
+        // ensures this doesn't get executed in the class panel level up screen
+        [HarmonyPatch(typeof(CharacterBuildingManager), "TransferOrSpawnWieldedItem")]
+        internal static class CharacterBuildingManagerTransferOrSpawnWieldedItem
+        {
+            internal static bool Prefix(CharacterHeroBuildingData heroBuildingData)
+            {
+                if (!Main.Settings.EnableMulticlass)
+                {
+                    return true;
+                }
+
+                var hero = heroBuildingData.HeroCharacter;
+                var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
+                var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
+
+                return !(isLevelingUp && isClassSelectionStage);
+            }
+        }
+
+        // ensures this doesn't get executed in the class panel level up screen
+        [HarmonyPatch(typeof(CharacterBuildingManager), "UnassignEquipment")]
+        internal static class CharacterBuildingManagerUnassignEquipment
+        {
+            internal static bool Prefix(CharacterHeroBuildingData heroBuildingData)
+            {
+                if (!Main.Settings.EnableMulticlass)
+                {
+                    return true;
+                }
+
+                var hero = heroBuildingData.HeroCharacter;
+                var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
+                var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
+
+                return !(isLevelingUp && isClassSelectionStage);
+            }
+        }
+
+        // ensures this doesn't get executed in the class panel level up screen
+        [HarmonyPatch(typeof(CharacterBuildingManager), "UnassignLastClassLevel")]
+        internal static class CharacterBuildingManagerUnassignLastClassLevel
+        {
+            internal static bool Prefix(RulesetCharacterHero hero)
+            {
+                if (!Main.Settings.EnableMulticlass)
+                {
+                    return true;
+                }
+
+                var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
+                var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
+
+                if (isLevelingUp && isClassSelectionStage)
+                {
+                    LevelUpContext.UngrantItemsIfRequired(hero);
+                }
+
+                return !(isLevelingUp && isClassSelectionStage);
+            }
+        }
+
+        //
+        // SPELLS
+        //
+
+        // correctly computes the highest spell level when auto acquiring spells
         [HarmonyPatch(typeof(CharacterBuildingManager), "AutoAcquireSpells")]
         internal static class CharacterBuildingManagerAutoAcquireSpells
         {
@@ -64,322 +395,6 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                 }
             }
         }
-
-        // captures the desired class and ensures this doesn't get executed in the class panel level up screen
-        [HarmonyPatch(typeof(CharacterBuildingManager), "AssignClassLevel")]
-        internal static class CharacterBuildingManagerAssignClassLevel
-        {
-            internal static bool Prefix(CharacterHeroBuildingData heroBuildingData, CharacterClassDefinition classDefinition)
-            {
-                if (!Main.Settings.EnableMulticlass)
-                {
-                    return true;
-                }
-
-                var hero = heroBuildingData.HeroCharacter;
-                var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
-                var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
-
-                if (isLevelingUp && isClassSelectionStage)
-                {
-                    LevelUpContext.SetSelectedClass(hero, classDefinition);
-                }
-
-                return !(isLevelingUp && isClassSelectionStage);
-            }
-        }
-
-        // captures the desired sub class
-        [HarmonyPatch(typeof(CharacterBuildingManager), "AssignSubclass")]
-        internal static class CharacterBuildingManagerAssignSubclass
-        {
-            internal static void Prefix(RulesetCharacterHero hero, CharacterSubclassDefinition subclassDefinition)
-            {
-                if (!Main.Settings.EnableMulticlass)
-                {
-                    return;
-                }
-
-                LevelUpContext.SetSelectedSubclass(hero, subclassDefinition);
-            }
-        }
-
-        // ensures this doesn't get executed in the class panel level up screen
-        [HarmonyPatch(typeof(CharacterBuildingManager), "ClearWieldedConfigurations")]
-        internal static class CharacterBuildingManagerClearWieldedConfigurations
-        {
-            internal static bool Prefix(CharacterHeroBuildingData heroBuildingData)
-            {
-                if (!Main.Settings.EnableMulticlass)
-                {
-                    return true;
-                }
-
-                var hero = heroBuildingData.HeroCharacter;
-                var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
-                var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
-
-                return !(isLevelingUp && isClassSelectionStage);
-            }
-        }
-
-        // filter active features
-        [HarmonyPatch(typeof(CharacterBuildingManager), "CreateCharacterFromTemplate")]
-        internal static class CharacterBuildingManagerCreateCharacterFromTemplate
-        {
-            internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
-            {
-                if (!Main.Settings.EnableMulticlass)
-                {
-                    foreach (var instruction in instructions)
-                    {
-                        yield return instruction;
-                    }
-
-                    yield break;
-                }
-
-                var classFeatureUnlocksMethod = typeof(CharacterClassDefinition).GetMethod("get_FeatureUnlocks");
-                var classFilteredFeatureUnlocksMethod = typeof(LevelUpContext).GetMethod("ClassFilteredFeatureUnlocks");
-
-                var subclassFeatureUnlocksMethod = typeof(CharacterSubclassDefinition).GetMethod("get_FeatureUnlocks");
-                var subclassFilteredFeatureUnlocksMethod = typeof(LevelUpContext).GetMethod("SubclassFilteredFeatureUnlocks");
-
-                foreach (var instruction in instructions)
-                {
-                    if (instruction.Calls(classFeatureUnlocksMethod))
-                    {
-                        yield return new CodeInstruction(OpCodes.Ldloc_1);
-                        yield return new CodeInstruction(OpCodes.Call, classFilteredFeatureUnlocksMethod);
-                    }
-                    else if (instruction.Calls(subclassFeatureUnlocksMethod))
-                    {
-                        yield return new CodeInstruction(OpCodes.Ldloc_1);
-                        yield return new CodeInstruction(OpCodes.Call, subclassFilteredFeatureUnlocksMethod);
-                    }
-                    else
-                    {
-                        yield return instruction;
-                    }
-                }
-            }
-        }
-
-        // filter active features
-        [HarmonyPatch(typeof(CharacterBuildingManager), "FinalizeCharacter")]
-        internal static class CharacterBuildingManagerFinalizeCharacter
-        {
-            internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
-            {
-                if (!Main.Settings.EnableMulticlass)
-                {
-                    foreach (var instruction in instructions)
-                    {
-                        yield return instruction;
-                    }
-
-                    yield break;
-                }
-
-                var classFeatureUnlocksMethod = typeof(CharacterClassDefinition).GetMethod("get_FeatureUnlocks");
-                var classFilteredFeatureUnlocksMethod = typeof(LevelUpContext).GetMethod("ClassFilteredFeatureUnlocks");
-
-                var subclassFeatureUnlocksMethod = typeof(CharacterSubclassDefinition).GetMethod("get_FeatureUnlocks");
-                var subclassFilteredFeatureUnlocksMethod = typeof(LevelUpContext).GetMethod("SubclassFilteredFeatureUnlocks");
-
-                foreach (var instruction in instructions)
-                {
-                    if (instruction.Calls(classFeatureUnlocksMethod))
-                    {
-                        yield return new CodeInstruction(OpCodes.Ldarg_1);
-                        yield return new CodeInstruction(OpCodes.Call, classFilteredFeatureUnlocksMethod);
-                    }
-                    else if (instruction.Calls(subclassFeatureUnlocksMethod))
-                    {
-                        yield return new CodeInstruction(OpCodes.Ldarg_1);
-                        yield return new CodeInstruction(OpCodes.Call, subclassFilteredFeatureUnlocksMethod);
-                    }
-                    else
-                    {
-                        yield return instruction;
-                    }
-                }
-            }
-        }
-
-        // ensures this doesn't get executed in the class panel level up screen
-        [HarmonyPatch(typeof(CharacterBuildingManager), "GrantBaseEquipment")]
-        internal static class CharacterBuildingManagerGrantBaseEquipment
-        {
-            internal static bool Prefix(CharacterHeroBuildingData heroBuildingData)
-            {
-                if (!Main.Settings.EnableMulticlass)
-                {
-                    return true;
-                }
-
-                var hero = heroBuildingData.HeroCharacter;
-                var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
-                var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
-
-                return !(isLevelingUp & isClassSelectionStage);
-            }
-        }
-
-        // ensures this doesn't get executed in the class panel level up screen
-        [HarmonyPatch(typeof(CharacterBuildingManager), "GrantFeatures")]
-        internal static class CharacterBuildingManagerGrantFeatures
-        {
-            internal static bool Prefix(RulesetCharacterHero hero)
-            {
-                if (!Main.Settings.EnableMulticlass)
-                {
-                    return true;
-                }
-
-                var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
-                var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
-
-                return !(isLevelingUp && isClassSelectionStage);
-            }
-        }
-
-        // register the hero leveling up
-        [HarmonyPatch(typeof(CharacterBuildingManager), "LevelUpCharacter")]
-        internal static class CharacterBuildingManagerLevelUpCharacter
-        {
-            internal static void Prefix(RulesetCharacterHero hero)
-            {
-                if (!Main.Settings.EnableMulticlass)
-                {
-                    return;
-                }
-
-                LevelUpContext.RegisterHero(hero);
-            }
-        }
-
-        // unregister the hero leveling up
-        [HarmonyPatch(typeof(CharacterBuildingManager), "ReleaseCharacter")]
-        internal static class CharacterBuildingManagerReleaseCharacter
-        {
-            internal static void Prefix(RulesetCharacterHero hero)
-            {
-                if (!Main.Settings.EnableMulticlass)
-                {
-                    return;
-                }
-
-                LevelUpContext.UnregisterHero(hero);
-            }
-        }
-
-        // ensures this doesn't get executed in the class panel level up screen
-        [HarmonyPatch(typeof(CharacterBuildingManager), "RemoveBaseEquipment")]
-        internal static class CharacterBuildingManagerRemoveBaseEquipment
-        {
-            internal static bool Prefix(CharacterHeroBuildingData heroBuildingData)
-            {
-                if (!Main.Settings.EnableMulticlass)
-                {
-                    return true;
-                }
-
-                var hero = heroBuildingData.HeroCharacter;
-                var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
-                var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
-
-                return !(isLevelingUp && isClassSelectionStage);
-            }
-        }
-
-        // filter active features
-        [HarmonyPatch(typeof(CharacterBuildingManager), "RepairSubclass")]
-        internal static class CharacterBuildingManagerRepairSubclass
-        {
-            internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
-            {
-                if (!Main.Settings.EnableMulticlass)
-                {
-                    foreach (var instruction in instructions)
-                    {
-                        yield return instruction;
-                    }
-
-                    yield break;
-                }
-
-                var classFeatureUnlocksMethod = typeof(CharacterClassDefinition).GetMethod("get_FeatureUnlocks");
-                var classFilteredFeatureUnlocksMethod = typeof(LevelUpContext).GetMethod("ClassFilteredFeatureUnlocks");
-
-                var subclassFeatureUnlocksMethod = typeof(CharacterSubclassDefinition).GetMethod("get_FeatureUnlocks");
-                var subclassFilteredFeatureUnlocksMethod = typeof(LevelUpContext).GetMethod("SubclassFilteredFeatureUnlocks");
-
-                foreach (var instruction in instructions)
-                {
-                    if (instruction.Calls(classFeatureUnlocksMethod))
-                    {
-                        yield return new CodeInstruction(OpCodes.Ldarg_1);
-                        yield return new CodeInstruction(OpCodes.Call, classFilteredFeatureUnlocksMethod);
-                    }
-                    else if (instruction.Calls(subclassFeatureUnlocksMethod))
-                    {
-                        yield return new CodeInstruction(OpCodes.Ldarg_1);
-                        yield return new CodeInstruction(OpCodes.Call, subclassFilteredFeatureUnlocksMethod);
-                    }
-                    else
-                    {
-                        yield return instruction;
-                    }
-                }
-            }
-        }
-
-        // ensures this doesn't get executed in the class panel level up screen
-        [HarmonyPatch(typeof(CharacterBuildingManager), "TransferOrSpawnWieldedItem")]
-        internal static class CharacterBuildingManagerTransferOrSpawnWieldedItem
-        {
-            internal static bool Prefix(CharacterHeroBuildingData heroBuildingData)
-            {
-                if (!Main.Settings.EnableMulticlass)
-                {
-                    return true;
-                }
-
-                var hero = heroBuildingData.HeroCharacter;
-                var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
-                var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
-
-                return !(isLevelingUp && isClassSelectionStage);
-            }
-        }
-
-        // ensures this doesn't get executed in the class panel level up screen
-        [HarmonyPatch(typeof(CharacterBuildingManager), "UnassignLastClassLevel")]
-        internal static class CharacterBuildingManagerUnassignLastClassLevel
-        {
-            internal static bool Prefix(RulesetCharacterHero hero)
-            {
-                if (!Main.Settings.EnableMulticlass)
-                {
-                    return true;
-                }
-
-                var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
-                var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
-
-                if (isLevelingUp && isClassSelectionStage)
-                {
-                    LevelUpContext.UngrantItemsIfRequired(hero);
-                }
-
-                return !(isLevelingUp && isClassSelectionStage);
-            }
-        }
-
-        //
-        // SPELLS
-        //
 
         // ensures the level up process only presents / offers spells based on all different mod settings
         [HarmonyPatch(typeof(CharacterBuildingManager), "EnumerateKnownAndAcquiredSpells")]
