@@ -15,8 +15,11 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
          * spells are shown to the user during level up. For the inspection/spell preparation binding a different method to collect the auto
          * prepared spells is used which works properly.
          */
-        internal static void Prefix(SpellsByLevelGroup __instance, RulesetCharacter caster,
-            ref List<SpellDefinition> allSpells, ref List<SpellDefinition> auToPreparedSpells)
+        internal static void Prefix(
+            SpellsByLevelGroup __instance, 
+            RulesetCharacter caster,
+            ref List<SpellDefinition> allSpells, 
+            ref List<SpellDefinition> auToPreparedSpells)
         {
             if (!Main.Settings.ShowAllAutoPreparedSpells)
             {
@@ -26,8 +29,9 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
             // Wait what? Yes, during level up no caster is bound. This is techncially fine, but we need one to collect the spells.
             if (caster == null)
             {
+                // it looks like it's ok to use CurrentLocalHeroCharacter on this context as this is an UI only patch
                 var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
-
+                
                 caster = characterBuildingService.CurrentLocalHeroCharacter;
             }
 
