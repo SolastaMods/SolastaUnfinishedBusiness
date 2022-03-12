@@ -11,7 +11,6 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
     internal static class SpellSelectionPanelPatcher
     {
         private static readonly List<RectTransform> spellLineTables = new();
-        private static readonly GameObject spellLineHolder = new();
 
         // second line bind
         [HarmonyPatch(typeof(SpellSelectionPanel), "Bind")]
@@ -24,22 +23,27 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
                 {
                     return;
                 }
+
                 List<SpellRepertoireLine> spellRepertoireLines = __instance.GetField<List<SpellRepertoireLine>>("spellRepertoireLines");
                 SpellRepertoireLine spellRepertoireSecondaryLine = __instance.GetField<SpellRepertoireLine>("spellRepertoireSecondaryLine");
                 RectTransform spellRepertoireLinesTable = __instance.GetField<RectTransform>("spellRepertoireLinesTable");
                 SlotAdvancementPanel slotAdvancementPanel = __instance.GetField<SlotAdvancementPanel>("slotAdvancementPanel");
+
                 foreach (SpellRepertoireLine spellRepertoireLine in spellRepertoireLines)
                 {
                     spellRepertoireLine.Unbind();
                 }
+
                 spellRepertoireLines.Clear();
                 Gui.ReleaseChildrenToPool(spellRepertoireLinesTable);
                 spellRepertoireSecondaryLine.Unbind();
                 spellRepertoireSecondaryLine.gameObject.SetActive(false);
 
-                if (spellLineHolder.GetComponent<VerticalLayoutGroup>() == null)
+                if (spellRepertoireLinesTable.parent.GetComponent<VerticalLayoutGroup>() == null)
                 {
+                    GameObject spellLineHolder = new();
                     VerticalLayoutGroup vertGroup = spellLineHolder.AddComponent<VerticalLayoutGroup>();
+                    
                     vertGroup.spacing = 10;
                     spellLineHolder.AddComponent<ContentSizeFitter>();
                     spellLineHolder.transform.SetParent(spellRepertoireLinesTable.parent, true);
@@ -55,16 +59,18 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
                 int indexOfLine = 0;
                 int spellLevelsOnLine = 0;
                 RectTransform curTable = spellRepertoireLinesTable;
+
                 for (int repertoireIndex = 0; repertoireIndex < spellRepertoires.Count; repertoireIndex++)
                 {
                     RulesetSpellRepertoire rulesetSpellRepertoire = spellRepertoires[repertoireIndex];
-
                     int startLevel = 0;
+
                     for (int level = startLevel; level <= rulesetSpellRepertoire.MaxSpellLevelOfSpellCastingLevel; level++)
                     {
                         if (IsLevelActive(rulesetSpellRepertoire, level, actionType))
                         {
                             spellLevelsOnLine++;
+
                             if (spellLevelsOnLine >= Main.Settings.MaxSpellLevelsPerLine)
                             {
                                 curTable = AddActiveSpellsToLine(__instance, caster, spellCastEngaged, actionType, cantripOnly, spellRepertoireLines, curTable, slotAdvancementPanel, spellRepertoires, needNewLine, lineIndex, indexOfLine, rulesetSpellRepertoire, startLevel, level);
@@ -76,6 +82,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
                             }
                         }
                     }
+
                     if (spellLevelsOnLine != 0)
                     {
                         curTable = AddActiveSpellsToLine(__instance, caster, spellCastEngaged, actionType, cantripOnly, spellRepertoireLines, curTable, slotAdvancementPanel, spellRepertoires, needNewLine, lineIndex, indexOfLine, rulesetSpellRepertoire, startLevel, rulesetSpellRepertoire.MaxSpellLevelOfSpellCastingLevel);
@@ -119,6 +126,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
             private static SpellRepertoireLine SetUpNewLine(int index, RectTransform spellRepertoireLinesTable, List<SpellRepertoireLine> spellRepertoireLines, SpellSelectionPanel __instance)
             {
                 GameObject newLine;
+
                 if (spellRepertoireLinesTable.childCount <= index)
                 {
                     newLine = Gui.GetPrefabFromPool(__instance.GetField<GameObject>("spellRepertoireLinePrefab"),
@@ -128,6 +136,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
                 {
                     newLine = spellRepertoireLinesTable.GetChild(index).gameObject;
                 }
+
                 newLine.SetActive(true);
                 SpellRepertoireLine component = newLine.GetComponent<SpellRepertoireLine>();
                 spellRepertoireLines.Add(component);
