@@ -19,6 +19,7 @@ namespace SolastaCommunityExpansion.Patches
             ItemDefinitionVerification.Load();
             EffectFormVerification.Load();
 #endif
+            ResourceLocatorContext.Load();
             CeContentPackContext.Load();
 
             // Cache TA definitions for diagnostics and export

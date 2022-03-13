@@ -127,6 +127,10 @@
       <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="Unity.Unity.ResourceManager">
+      <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\Unity.ResourceManager.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
     <Reference Include="UnityEngine.TextRenderingModule">
       <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
       <Private>false</Private>
@@ -226,6 +230,6 @@
     </None>
     <None Update="Names-en.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None> 
+    </None>
   </ItemGroup>
 </Project>

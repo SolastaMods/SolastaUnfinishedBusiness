@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Utils
     internal static class CustomIcons
     {
         internal static readonly Dictionary<Bitmap, Sprite> SpriteFromBitmap = new();
-        internal static readonly HashSet<Sprite> CachedSprites = new();
+        //internal static readonly HashSet<Sprite> CachedSprites = new();
 
         internal static Sprite ImageToSprite(string filePath, int sizeX, int sizeY)
         {
@@ -176,9 +176,9 @@ namespace SolastaCommunityExpansion.Utils
                 sprite = Sprite.Create(texture, new Rect(0, 0, size, size), new Vector2(0, 0));
                 SpriteFromBitmap[bitmap] = sprite;
 
-                // TODO: provide name?
+                // TODO: provide name - use asset reference guid
                 sprite.name = "CE sprite from bitmap";
-                CachedSprites.Add(sprite);
+                //CachedSprites.Add(sprite);
             }
 
             return sprite;
@@ -190,21 +190,21 @@ namespace SolastaCommunityExpansion.Utils
             return new CEAssetReferenceSprite(CreateSpriteFromResource(bitmap, size));
         }
 
-        internal static bool IsCachedSprite(Sprite sprite)
-        {
-            if (sprite == null)
-            {
-                return false;
-            }
+        //internal static bool IsCachedSprite(Sprite sprite)
+        //{
+        //    if (sprite == null)
+        //    {
+        //        return false;
+        //    }
 
-            return CachedSprites.Contains(sprite);
-        }
+        //    return CachedSprites.Contains(sprite);
+        //}
     }
 
-    // Works in conjuction with "custom resources enablement patch" (patches are marked with this comment)
+    // TODO: eliminate and just use AssetReferenceSprite
     internal class CEAssetReferenceSprite : AssetReferenceSprite
     {
-        public CEAssetReferenceSprite(Sprite sprite) : base(string.Empty)
+        public CEAssetReferenceSprite(Sprite sprite) : base("ce-test")
         {
             Sprite = sprite;
         }
