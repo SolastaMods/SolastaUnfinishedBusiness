@@ -86,7 +86,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                     RuleDefinitions.RechargeRate.LongRest, false, false, AttributeDefinitions.Intelligence, bonusRecoveryEffectDescription, false)
                 .AddToDB();
 
-            UpdateRecoveryLimited();
+            UpdateBonusRecovery();
 
             // Make Spell Master subclass
             var spellMaster = CharacterSubclassDefinitionBuilder
@@ -112,7 +112,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             Subclass = spellMaster;
         }
 
-        internal static void UpdateRecoveryLimited()
+        internal static void UpdateBonusRecovery()
         {
             if (Main.Settings.EnableUnlimitedArcaneRecoveryOnWizardSpellMaster)
             {
