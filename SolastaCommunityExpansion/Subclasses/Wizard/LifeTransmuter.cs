@@ -17,6 +17,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
         {
             return FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
         }
+
         internal override CharacterSubclassDefinition GetSubclass()
         {
             return Subclass;
@@ -141,7 +142,8 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 .AddFeatureAtLevel(powerHeal, 10)
                 .AddFeatureAtLevel(powerRevive, 10)
                 .AddFeatureAtLevel(transmuteForceExtraBonus, 14)
-                .AddFeatureAtLevel(FeatureDefinitionDamageAffinitys.DamageAffinityNecroticResistance, 14).AddToDB();
+                .AddFeatureAtLevel(FeatureDefinitionDamageAffinitys.DamageAffinityNecroticResistance, 14)
+                .AddToDB();
         }
 
         private static ConditionDefinitionBuilder BuildCondition(RuleDefinitions.DurationType durationType, int durationParameter,
