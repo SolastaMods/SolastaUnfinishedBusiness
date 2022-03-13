@@ -15,26 +15,25 @@ namespace SolastaCommunityExpansion.Models
         public static void Load()
         {
             // Add our resource provider - no public API?
-            Addressables.ResourceManager.GetField<IList<IResourceProvider>>("m_ResourceProviders").TryAdd(new CeSpriteResourceProvider());
+            Addressables.ResourceManager
+                .GetField<IList<IResourceProvider>>("m_ResourceProviders")
+                .TryAdd(SpriteResourceProvider.Instance);
 
             // Add our resource locator - there is a public API.
-            Addressables.AddResourceLocator(new CeSpriteResourceLocator());
-
-            // Test 
-            //var sprite = Gui.LoadAssetSync<Sprite>(new AssetReferenceSprite("ce-test"));
-
-            //Main.Log($"Loaded sprite: {sprite.name ?? "NULL"}");
+            Addressables.AddResourceLocator(SpriteResourceLocator.Instance);
         }
     }
 
     // Provider provides resource given location - TODO: support other resource types if required
-    class CeSpriteResourceProvider : ResourceProviderBase
+    internal class SpriteResourceProvider : ResourceProviderBase
     {
+        public static SpriteResourceProvider Instance { get; } = new SpriteResourceProvider();
+
         public override void Provide(ProvideHandle provideHandle)
         {
-            var location = (CeSpriteResourceLocation)provideHandle.Location;
+            var location = (SpriteResourceLocation)provideHandle.Location;
 
-            Main.Log($"CeSpriteResourceProvider.Provide: {location.InternalId}, {location.ProviderId}, {location.PrimaryKey}, {location.Sprite.name}");
+            Main.Log($"SpriteResourceProvider.Provide: {location.InternalId}, {location.ProviderId}, {location.PrimaryKey}, {location.Sprite.name}");
 
             provideHandle.Complete(location.Sprite, true, null);
         }
@@ -42,7 +41,7 @@ namespace SolastaCommunityExpansion.Models
         public override bool CanProvide(Type t, IResourceLocation location)
         {
             var canProvide = base.CanProvide(t, location);
-            Main.Log($"CeSpriteResourceProvider.CanProvide: {t.Name}, {location.InternalId}, {canProvide}");
+            Main.Log($"SpriteResourceProvider.CanProvide: {t.Name}, {location.InternalId}, {canProvide}");
             return canProvide;
         }
 
@@ -53,19 +52,19 @@ namespace SolastaCommunityExpansion.Models
     }
 
     // Locator returns location of resource - TODO: support other resource types if required
-    class CeSpriteResourceLocator : IResourceLocator
+    internal class SpriteResourceLocator : IResourceLocator
     {
-        private static List<IResourceLocation> locations = new()
-        {
-            new CeSpriteResourceLocation(CustomIcons.GetOrCreateSprite("ContentPack", Properties.Resources.ContentPack, 128), "ce-test", "ce-test")
-        };
+        private static readonly Dictionary<string, SpriteResourceLocation> locationsCache = new ();
+        private static readonly List<IResourceLocation> emptyList = new();
+
+        public static SpriteResourceLocator Instance { get; } = new SpriteResourceLocator();
 
         public string LocatorId
         {
             get
             {
-                Main.Log($"CeSpriteResourceLocator - get LocatorId");
-                return "CE sprite locator";
+                Main.Log($"SpriteResourceLocator - get LocatorId");
+                return "_CE_SpriteResourceLocator";
             }
         }
 
@@ -73,22 +72,32 @@ namespace SolastaCommunityExpansion.Models
 
         public bool Locate(object key, Type type, out IList<IResourceLocation> locations)
         {
-            if ((string)key == "ce-test")
+            var id = key.ToString();
+            var sprite = CustomIcons.GetSpriteById(id);
+
+            if(sprite != null)
             {
-                Main.Log($"CeSpriteResourceLocator.Location: {key}, {type}");
-                locations = CeSpriteResourceLocator.locations;
+                Main.Log($"SpriteResourceLocator.Locate: {key}, {type}");
+
+                if(!locationsCache.TryGetValue(id, out var location))
+                {
+                    location = new SpriteResourceLocation(sprite, sprite.name, sprite.name);
+                    locationsCache.Add(id, location);
+                }
+
+                locations = new List<IResourceLocation> { location };
                 return true;
             }
             else
             {
-                locations = new List<IResourceLocation>();
+                locations = emptyList;
                 return false;
             }
         }
     }
 
     // Location of sprite used by ResourceProvider.  We're using it to directly hold the sprite.
-    class CeSpriteResourceLocation : ResourceLocationBase
+    internal class SpriteResourceLocation : ResourceLocationBase
     {
         private Sprite sprite;
 
@@ -96,7 +105,7 @@ namespace SolastaCommunityExpansion.Models
         {
             get
             {
-                Main.Log($"CeSpriteResourceLocation.GetSprite: {sprite.name}");
+                Main.Log($"SpriteResourceLocation.GetSprite: {sprite.name}");
 
                 return sprite;
             }
@@ -106,7 +115,7 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        public CeSpriteResourceLocation(Sprite sprite, string name, string id) : base(name, id, typeof(CeSpriteResourceProvider).FullName, typeof(Sprite))
+        public SpriteResourceLocation(Sprite sprite, string name, string id) : base(name, id, typeof(SpriteResourceProvider).FullName, typeof(Sprite))
         {
             Sprite = sprite;
         }

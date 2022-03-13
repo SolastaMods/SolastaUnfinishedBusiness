@@ -218,25 +218,25 @@ namespace SolastaCommunityExpansion.Utils
             return $"_CE_{name}[{x},{y}]";
         }
 
-        internal static CEAssetReferenceSprite CreateAssetReferenceSprite(string name, Bitmap bitmap, int size)
+        internal static AssetReferenceSprite CreateAssetReferenceSprite(string name, Bitmap bitmap, int size)
         {
-            return new CEAssetReferenceSprite(GetOrCreateSprite(name, bitmap, size));
-        }
-    }
-
-    // TODO: eliminate and just use AssetReferenceSprite
-    internal class CEAssetReferenceSprite : AssetReferenceSprite
-    {
-        public CEAssetReferenceSprite(Sprite sprite) : base("ce-test")
-        {
-            Sprite = sprite;
+            var sprite = GetOrCreateSprite(name, bitmap, size);
+            return new CEAssetReferenceSprite(sprite);
         }
 
-        public Sprite Sprite { get; }
-        public override UnityEngine.Object Asset => Sprite;
-        public override bool RuntimeKeyIsValid()
+        class CEAssetReferenceSprite : AssetReferenceSprite
         {
-            return true;
+            public CEAssetReferenceSprite(Sprite sprite) : base(sprite.name)
+            {
+                Sprite = sprite;
+            }
+
+            public Sprite Sprite { get; }
+            public override UnityEngine.Object Asset => Sprite;
+            public override bool RuntimeKeyIsValid()
+            {
+                return true;
+            }
         }
     }
 }
