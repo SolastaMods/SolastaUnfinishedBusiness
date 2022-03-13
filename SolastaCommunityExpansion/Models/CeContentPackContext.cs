@@ -14,8 +14,7 @@ namespace SolastaCommunityExpansion.Models
 
         private static ContentPackDefinition CreateContentPackDefinition()
         {
-            var sprite = CustomIcons.CreateAssetReferenceSpriteFromResource(Properties.Resources.ContentPack, 128);
-            //var sprite = SolastaModApi.DatabaseHelper.ContentPackDefinitions.SupporterPack.GuiPresentation.SpriteReference;
+            var sprite = CustomIcons.CreateAssetReferenceSprite("ContentPack", Properties.Resources.ContentPack, 128);
 
             return ContentPackDefinitionBuilder
                 .Create("CommunityExpansionPack", DefinitionBuilder.CENamespaceGuid)

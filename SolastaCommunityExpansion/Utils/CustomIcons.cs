@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using SolastaModApi.Diagnostics;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using Graphics = System.Drawing.Graphics;
@@ -12,9 +13,9 @@ namespace SolastaCommunityExpansion.Utils
     // Loosely based on https://forum.unity.com/threads/generating-sprites-dynamically-from-png-or-jpeg-files-in-c.343735/
     internal static class CustomIcons
     {
-        internal static readonly Dictionary<Bitmap, Sprite> SpriteFromBitmap = new();
-        //internal static readonly HashSet<Sprite> CachedSprites = new();
+        internal static readonly Dictionary<string, Sprite> SpriteCache = new();
 
+        #region Helpers
         internal static Sprite ImageToSprite(string filePath, int sizeX, int sizeY)
         {
             var bytes = File.ReadAllBytes(filePath);
@@ -162,43 +163,65 @@ namespace SolastaCommunityExpansion.Utils
 
             baseImage.Save(finalImageFilename);
         }
+        #endregion
 
         /// <summary>
         /// Convert a bitmap stored as an embedded resource to a Sprite.
-        /// NOTE: must be a square bitmap.  Update method to handle non-square.
         /// </summary>
-        internal static Sprite CreateSpriteFromResource(Bitmap bitmap, int size)
+        internal static Sprite GetOrCreateSprite(string name, Bitmap bitmap, int size, bool throwIfAlreadyExists = false)
         {
-            if (!SpriteFromBitmap.TryGetValue(bitmap, out var sprite))
-            {
-                var texture = new Texture2D(size, size, TextureFormat.DXT5, false);
-                texture.LoadImage((byte[])new ImageConverter().ConvertTo(bitmap, typeof(byte[])));
-                sprite = Sprite.Create(texture, new Rect(0, 0, size, size), new Vector2(0, 0));
-                SpriteFromBitmap[bitmap] = sprite;
+            return GetOrCreateSprite(name, bitmap, size, size, throwIfAlreadyExists);
+        }
 
-                // TODO: provide name - use asset reference guid
-                sprite.name = "CE sprite from bitmap";
-                //CachedSprites.Add(sprite);
+        internal static Sprite GetOrCreateSprite(string name, Bitmap bitmap, int sizex, int sizey, bool throwIfAlreadyExists = false)
+        {
+            var id = GetSpriteId(name, sizex, sizey);
+
+            if (SpriteCache.TryGetValue(id, out var sprite))
+            {
+                if (throwIfAlreadyExists)
+                {
+                    throw new SolastaModApiException($"A sprite with name {name} and size [{sizex},{sizey}] already exists.");
+                }
+                else
+                {
+                    return sprite;
+                }
             }
+
+            var texture = new Texture2D(sizex, sizey, TextureFormat.DXT5, false);
+            texture.LoadImage((byte[])new ImageConverter().ConvertTo(bitmap, typeof(byte[])));
+            sprite = Sprite.Create(texture, new Rect(0, 0, sizex, sizey), new Vector2(0, 0));
+            SpriteCache[id] = sprite;
+
+            sprite.name = id;
+
+            Main.Log($"Created sprite- {id}.");
 
             return sprite;
         }
 
-        // TODO: add more overloads if required to create from .png on disk etc
-        internal static CEAssetReferenceSprite CreateAssetReferenceSpriteFromResource(Bitmap bitmap, int size)
+        internal static Sprite GetSpriteById(string id)
         {
-            return new CEAssetReferenceSprite(CreateSpriteFromResource(bitmap, size));
+            return SpriteCache.TryGetValue(id, out var sprite) ? sprite : null;
         }
 
-        //internal static bool IsCachedSprite(Sprite sprite)
-        //{
-        //    if (sprite == null)
-        //    {
-        //        return false;
-        //    }
+        /// <summary>
+        /// Create a unique Id to serve as id of a sprite in our internal cache and as the guid for AssetReference
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        private static string GetSpriteId(string name, int x, int y)
+        {
+            return $"_CE_{name}[{x},{y}]";
+        }
 
-        //    return CachedSprites.Contains(sprite);
-        //}
+        internal static CEAssetReferenceSprite CreateAssetReferenceSprite(string name, Bitmap bitmap, int size)
+        {
+            return new CEAssetReferenceSprite(GetOrCreateSprite(name, bitmap, size));
+        }
     }
 
     // TODO: eliminate and just use AssetReferenceSprite

@@ -55,7 +55,11 @@ namespace SolastaCommunityExpansion.Models
     // Locator returns location of resource - TODO: support other resource types if required
     class CeSpriteResourceLocator : IResourceLocator
     {
-        private static List<IResourceLocation> _locations = new() { new CeSpriteResourceLocation(CustomIcons.CreateSpriteFromResource(Properties.Resources.ContentPack, 128), "ce-test", "ce-test") };
+        private static List<IResourceLocation> locations = new()
+        {
+            new CeSpriteResourceLocation(CustomIcons.GetOrCreateSprite("ContentPack", Properties.Resources.ContentPack, 128), "ce-test", "ce-test")
+        };
+
         public string LocatorId
         {
             get
@@ -72,7 +76,7 @@ namespace SolastaCommunityExpansion.Models
             if ((string)key == "ce-test")
             {
                 Main.Log($"CeSpriteResourceLocator.Location: {key}, {type}");
-                locations = _locations;
+                locations = CeSpriteResourceLocator.locations;
                 return true;
             }
             else
