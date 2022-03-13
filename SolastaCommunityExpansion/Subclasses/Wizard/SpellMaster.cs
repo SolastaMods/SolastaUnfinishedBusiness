@@ -13,29 +13,13 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
         private static readonly Guid SubclassNamespace = new("9f322734-1498-4f65-ace5-e6072b1d99be");
         private readonly CharacterSubclassDefinition Subclass;
 
-        #region Spell recovery gui
-        private static GuiPresentation _spellRecoveryGui;
-        internal static GuiPresentation SpellRecoveryGui
-        {
-            get
-            {
-                return _spellRecoveryGui ??= GuiPresentationBuilder
-                    .Build("MagicAffinitySpellMasterRecovery", Category.Subclass, PowerWizardArcaneRecovery.GuiPresentation.SpriteReference);
-            }
-        }
-        #endregion
-
-        #region Bonus recovery
-        private static FeatureDefinitionPower _bonusRecovery;
-        internal static FeatureDefinitionPower BonusRecovery => _bonusRecovery ??= BuildSpellFormPower(
-                        1 /* usePerRecharge */, RuleDefinitions.UsesDetermination.Fixed, RuleDefinitions.ActivationTime.Rest,
-                        1 /* cost */, RuleDefinitions.RechargeRate.LongRest, "PowerSpellMasterBonusRecovery", SpellRecoveryGui);
-        #endregion
+        internal static FeatureDefinitionPower BonusRecovery { get; private set; }
 
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
         {
             return FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
         }
+
         internal override CharacterSubclassDefinition GetSubclass()
         {
             return Subclass;
@@ -88,6 +72,22 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 )
                 .AddToDB();
 
+            var bonusRecoveryEffectDescription = EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Self, 0, 0, 0, 0, ActionDefinitions.ItemSelectionType.None)
+                .SetCreatedByCharacter()
+                .AddEffectForm(EffectFormBuilder.Create().SetSpellForm(9).Build())
+                .SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None, 1, 0, 0, 0, 0, 0, 0, 0, 0, RuleDefinitions.AdvancementDuration.None)
+                .SetParticleEffectParameters(PowerWizardArcaneRecovery.EffectDescription.EffectParticleParameters.Copy())
+                .Build();
+
+            BonusRecovery = FeatureDefinitionPowerBuilder.Create("PowerSpellMasterBonusRecovery", SubclassNamespace)
+                .Configure(1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, RuleDefinitions.ActivationTime.Rest, 1,
+                    RuleDefinitions.RechargeRate.LongRest, false, false, AttributeDefinitions.Intelligence, bonusRecoveryEffectDescription, false)
+                .AddToDB();
+
+            UpdateRecoveryLimited();
+
             // Make Spell Master subclass
             var spellMaster = CharacterSubclassDefinitionBuilder
                 .Create("SpellMaster", SubclassNamespace)
@@ -101,61 +101,32 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 .AddFeatureAtLevel(spellResistance, 14)
                 .AddToDB();
 
-            UpdateRecoveryLimited();
-
             RestActivityDefinitionBuilder
                 .Create("ArcaneDepth", SubclassNamespace)
                 .SetRestData(
                     RestDefinitions.RestStage.AfterRest, RuleDefinitions.RestType.ShortRest,
                     RestActivityDefinition.ActivityCondition.CanUsePower, "UsePower", BonusRecovery.Name)
-                .SetGuiPresentation(SpellRecoveryGui)
+                .SetGuiPresentation("MagicAffinitySpellMasterRecovery", Category.Subclass, PowerWizardArcaneRecovery.GuiPresentation.SpriteReference)
                 .AddToDB();
 
             Subclass = spellMaster;
-        }
-
-        private static FeatureDefinitionPower BuildSpellFormPower(int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination,
-            RuleDefinitions.ActivationTime activationTime, int costPerUse, RuleDefinitions.RechargeRate recharge, string name, GuiPresentation guiPresentation)
-        {
-            EffectDescriptionBuilder effectDescriptionBuilder = new EffectDescriptionBuilder();
-            effectDescriptionBuilder.SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Self, 0, 0, 0, 0, ActionDefinitions.ItemSelectionType.None);
-            effectDescriptionBuilder.SetCreatedByCharacter();
-
-            EffectFormBuilder effectFormBuilder = new EffectFormBuilder();
-            effectFormBuilder.SetSpellForm(9);
-            effectDescriptionBuilder.AddEffectForm(effectFormBuilder.Build());
-            effectDescriptionBuilder.SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None, 1, 0, 0, 0, 0, 0, 0, 0, 0, RuleDefinitions.AdvancementDuration.None);
-
-            EffectParticleParameters particleParams = new EffectParticleParameters();
-            particleParams.Copy(PowerWizardArcaneRecovery.EffectDescription.EffectParticleParameters);
-            effectDescriptionBuilder.SetParticleEffectParameters(particleParams);
-
-            return FeatureDefinitionPowerBuilder.Create(name, SubclassNamespace)
-                .SetGuiPresentation(guiPresentation)
-                .Configure(usesPerRecharge, usesDetermination, AttributeDefinitions.Intelligence, activationTime, costPerUse,
-                    recharge, false, false, AttributeDefinitions.Intelligence, effectDescriptionBuilder.Build(), false)
-                .AddToDB();
         }
 
         internal static void UpdateRecoveryLimited()
         {
             if (Main.Settings.EnableUnlimitedArcaneRecoveryOnWizardSpellMaster)
             {
-                BonusRecovery.SetGuiPresentation(
-                    GuiPresentationBuilder.Build(
-                        "MagicAffinitySpellMasterRecoveryUnlimited",
-                        Category.Subclass, PowerWizardArcaneRecovery.GuiPresentation.SpriteReference));
-                BonusRecovery.SetCostPerUse(0);
-                BonusRecovery.SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
+                BonusRecovery
+                    .SetGuiPresentation("MagicAffinitySpellMasterRecoveryUnlimited", Category.Subclass, PowerWizardArcaneRecovery.GuiPresentation.SpriteReference)
+                    .SetCostPerUse(0)
+                    .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
             }
             else
             {
-                BonusRecovery.SetGuiPresentation(
-                    GuiPresentationBuilder.Build(
-                        "MagicAffinitySpellMasterRecovery",
-                        Category.Subclass, PowerWizardArcaneRecovery.GuiPresentation.SpriteReference));
-                BonusRecovery.SetCostPerUse(1);
-                BonusRecovery.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
+                BonusRecovery
+                    .SetGuiPresentation("MagicAffinitySpellMasterRecovery", Category.Subclass, PowerWizardArcaneRecovery.GuiPresentation.SpriteReference)
+                    .SetCostPerUse(1)
+                    .SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
             }
         }
     }
