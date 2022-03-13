@@ -62,30 +62,23 @@ namespace SolastaCommunityExpansion.Models
         private static readonly List<IResourceLocation> emptyList = new();
 
         public static SpriteResourceLocator Instance { get; } = new SpriteResourceLocator();
-
-        public string LocatorId
-        {
-            get
-            {
-                Main.Log($"SpriteResourceLocator - get LocatorId");
-                return "_CE_SpriteResourceLocator";
-            }
-        }
-
-        public IEnumerable<object> Keys => new List<string> { "ce-test" };
+        
+        // These two properties don't seem to be used
+        public string LocatorId => GetType().FullName;
+        public IEnumerable<object> Keys => locationsCache.Keys;
 
         public bool Locate(object key, Type type, out IList<IResourceLocation> locations)
         {
             var id = key.ToString();
-            var sprite = CustomIcons.GetSpriteById(id);
+            var sprite = CustomIcons.GetSpriteByGuid(id);
 
             if (sprite != null)
             {
-                Main.Log($"SpriteResourceLocator.Locate: {key}, {type}");
+                Main.Log($"SpriteResourceLocator.Locate: key={key}, type={type}, sprite={sprite.name}");
 
                 if (!locationsCache.TryGetValue(id, out var location))
                 {
-                    location = new SpriteResourceLocation(sprite, sprite.name, sprite.name);
+                    location = new SpriteResourceLocation(sprite, sprite.name, id);
                     locationsCache.Add(id, location);
                 }
 

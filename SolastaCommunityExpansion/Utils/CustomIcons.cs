@@ -15,7 +15,7 @@ namespace SolastaCommunityExpansion.Utils
     // Loosely based on https://forum.unity.com/threads/generating-sprites-dynamically-from-png-or-jpeg-files-in-c.343735/
     internal static class CustomIcons
     {
-        internal static readonly Dictionary<string, Sprite> SpriteCache = new();
+        internal static readonly Dictionary<string, Sprite> SpritesByGuid = new();
 
         #region Helpers
         internal static Sprite ImageToSprite(string filePath, int sizeX, int sizeY)
@@ -177,10 +177,9 @@ namespace SolastaCommunityExpansion.Utils
 
         internal static Sprite GetOrCreateSprite(string name, Bitmap bitmap, int sizex, int sizey, bool throwIfAlreadyExists = false)
         {
-            var ids = GetSpriteId(name, sizex, sizey);
-            var id = ids.id;
+            var (id, guid) = GetSpriteIds(name, sizex, sizey);
 
-            if (SpriteCache.TryGetValue(id, out var sprite))
+            if (SpritesByGuid.TryGetValue(guid, out var sprite))
             {
                 if (throwIfAlreadyExists)
                 {
@@ -188,6 +187,13 @@ namespace SolastaCommunityExpansion.Utils
                 }
                 else
                 {
+#if DEBUG
+                    if(id != sprite.name)
+                    {
+                        throw new SolastaModApiException($"Unexpected: id={id}, sprite.name={sprite.name}.");
+                    }
+#endif
+                    Main.Log($"Returned existing sprite, id={sprite.name}, guid={guid}.");
                     return sprite;
                 }
             }
@@ -195,18 +201,18 @@ namespace SolastaCommunityExpansion.Utils
             var texture = new Texture2D(sizex, sizey, TextureFormat.DXT5, false);
             texture.LoadImage((byte[])new ImageConverter().ConvertTo(bitmap, typeof(byte[])));
             sprite = Sprite.Create(texture, new Rect(0, 0, sizex, sizey), new Vector2(0, 0));
-            SpriteCache[id] = sprite;
 
+            SpritesByGuid[guid] = sprite;
             sprite.name = id;
 
-            Main.Log($"Created sprite, id={id}, guid={ids.guid}.");
+            Main.Log($"Created sprite, id={id}, guid={guid}.");
 
             return sprite;
         }
 
-        internal static Sprite GetSpriteById(string id)
+        internal static Sprite GetSpriteByGuid(string guid)
         {
-            return SpriteCache.TryGetValue(id, out var sprite) ? sprite : null;
+            return SpritesByGuid.TryGetValue(guid, out var sprite) ? sprite : null;
         }
 
         /// <summary>
@@ -216,30 +222,27 @@ namespace SolastaCommunityExpansion.Utils
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
-        private static (string id, string guid) GetSpriteId(string name, int x, int y)
+        private static (string id, string guid) GetSpriteIds(string name, int x, int y)
         {
             var id = $"_CE_{name}[{x},{y}]";
 
-            return (id, GuidHelper.Create(DefinitionBuilder.CENamespaceGuid, id).ToString("n"));
+            return (id, GetSpriteGuid(id));
+        }
+
+        private static string GetSpriteGuid(string id)
+        {
+            return GuidHelper.Create(DefinitionBuilder.CENamespaceGuid, id).ToString("n");
         }
 
         internal static AssetReferenceSprite CreateAssetReferenceSprite(string name, Bitmap bitmap, int size)
         {
-            var sprite = GetOrCreateSprite(name, bitmap, size);
-            return new CEAssetReferenceSprite(sprite);
+            return CreateAssetReferenceSprite(name, bitmap, size, size);
         }
 
-        class CEAssetReferenceSprite : AssetReferenceSprite
+        internal static AssetReferenceSprite CreateAssetReferenceSprite(string name, Bitmap bitmap, int sizex, int sizey)
         {
-            public CEAssetReferenceSprite(Sprite sprite) : base(sprite.name)
-            {
-            }
-
-            // Need to make runtime key a guid in order to eliminate CEAssetReferenceSprite
-            public override bool RuntimeKeyIsValid()
-            {
-                return true;
-            }
+            var sprite = GetOrCreateSprite(name, bitmap, sizex, sizey);
+            return new AssetReferenceSprite(GetSpriteGuid(sprite.name));
         }
     }
 }
