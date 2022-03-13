@@ -24,7 +24,7 @@ namespace SolastaCommunityExpansion.Models
         }
     }
 
-    // Provider provides resource given location - TODO: support other resource types if required
+    // ResourceProvider provides the resource given the resource location
     internal class SpriteResourceProvider : ResourceProviderBase
     {
         public static SpriteResourceProvider Instance { get; } = new SpriteResourceProvider();
@@ -33,7 +33,7 @@ namespace SolastaCommunityExpansion.Models
         {
             var location = (SpriteResourceLocation)provideHandle.Location;
 
-            Main.Log($"SpriteResourceProvider.Provide: {location.InternalId}, {location.ProviderId}, {location.PrimaryKey}, {location.Sprite.name}");
+            Main.Log($"SpriteResourceProvider.Provide: InternalId='{location.InternalId}', ProviderId='{location.ProviderId}', PrimaryKey='{location.PrimaryKey}', SpriteName='{location.Sprite.name}'.");
 
             provideHandle.Complete(location.Sprite, true, null);
         }
@@ -41,7 +41,9 @@ namespace SolastaCommunityExpansion.Models
         public override bool CanProvide(Type t, IResourceLocation location)
         {
             var canProvide = base.CanProvide(t, location);
-            Main.Log($"SpriteResourceProvider.CanProvide: {t.Name}, {location.InternalId}, {canProvide}");
+
+            Main.Log($"SpriteResourceProvider.CanProvide: TypeName='{t.Name}', InternalId='{location.InternalId}', CanProvide={canProvide}");
+
             return canProvide;
         }
 
@@ -49,12 +51,14 @@ namespace SolastaCommunityExpansion.Models
         {
             return typeof(Sprite);
         }
+
+        protected SpriteResourceProvider() { }
     }
 
-    // Locator returns location of resource - TODO: support other resource types if required
+    // ResourceLocator returns location of resource
     internal class SpriteResourceLocator : IResourceLocator
     {
-        private static readonly Dictionary<string, SpriteResourceLocation> locationsCache = new ();
+        private static readonly Dictionary<string, SpriteResourceLocation> locationsCache = new();
         private static readonly List<IResourceLocation> emptyList = new();
 
         public static SpriteResourceLocator Instance { get; } = new SpriteResourceLocator();
@@ -75,11 +79,11 @@ namespace SolastaCommunityExpansion.Models
             var id = key.ToString();
             var sprite = CustomIcons.GetSpriteById(id);
 
-            if(sprite != null)
+            if (sprite != null)
             {
                 Main.Log($"SpriteResourceLocator.Locate: {key}, {type}");
 
-                if(!locationsCache.TryGetValue(id, out var location))
+                if (!locationsCache.TryGetValue(id, out var location))
                 {
                     location = new SpriteResourceLocation(sprite, sprite.name, sprite.name);
                     locationsCache.Add(id, location);
@@ -94,9 +98,11 @@ namespace SolastaCommunityExpansion.Models
                 return false;
             }
         }
+
+        protected SpriteResourceLocator() { }
     }
 
-    // Location of sprite used by ResourceProvider.  We're using it to directly hold the sprite.
+    // ResourceLocation of sprite used by ResourceProvider.  We're using it to directly hold the sprite.
     internal class SpriteResourceLocation : ResourceLocationBase
     {
         private Sprite sprite;
@@ -115,7 +121,8 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        public SpriteResourceLocation(Sprite sprite, string name, string id) : base(name, id, typeof(SpriteResourceProvider).FullName, typeof(Sprite))
+        public SpriteResourceLocation(Sprite sprite, string name, string id) 
+            : base(name, id, typeof(SpriteResourceProvider).FullName, typeof(Sprite))
         {
             Sprite = sprite;
         }

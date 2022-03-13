@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using SolastaCommunityExpansion.Builders;
+using SolastaModApi;
 using SolastaModApi.Diagnostics;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -175,7 +177,8 @@ namespace SolastaCommunityExpansion.Utils
 
         internal static Sprite GetOrCreateSprite(string name, Bitmap bitmap, int sizex, int sizey, bool throwIfAlreadyExists = false)
         {
-            var id = GetSpriteId(name, sizex, sizey);
+            var ids = GetSpriteId(name, sizex, sizey);
+            var id = ids.id;
 
             if (SpriteCache.TryGetValue(id, out var sprite))
             {
@@ -196,7 +199,7 @@ namespace SolastaCommunityExpansion.Utils
 
             sprite.name = id;
 
-            Main.Log($"Created sprite- {id}.");
+            Main.Log($"Created sprite, id={id}, guid={ids.guid}.");
 
             return sprite;
         }
@@ -213,9 +216,11 @@ namespace SolastaCommunityExpansion.Utils
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
-        private static string GetSpriteId(string name, int x, int y)
+        private static (string id, string guid) GetSpriteId(string name, int x, int y)
         {
-            return $"_CE_{name}[{x},{y}]";
+            var id = $"_CE_{name}[{x},{y}]";
+
+            return (id, GuidHelper.Create(DefinitionBuilder.CENamespaceGuid, id).ToString("n"));
         }
 
         internal static AssetReferenceSprite CreateAssetReferenceSprite(string name, Bitmap bitmap, int size)
@@ -228,11 +233,9 @@ namespace SolastaCommunityExpansion.Utils
         {
             public CEAssetReferenceSprite(Sprite sprite) : base(sprite.name)
             {
-                Sprite = sprite;
             }
 
-            public Sprite Sprite { get; }
-            public override UnityEngine.Object Asset => Sprite;
+            // Need to make runtime key a guid in order to eliminate CEAssetReferenceSprite
             public override bool RuntimeKeyIsValid()
             {
                 return true;
