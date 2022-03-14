@@ -380,7 +380,7 @@ namespace SolastaCommunityExpansion.Builders
 
             if (contentPack.HasValue)
             {
-                Definition.SetField("contentPack", contentPack);
+                Definition.SetField("contentPack", contentPack.Value);
             }
 
             // Get all base types for the target definition.  The definition needs to be added to all matching databases.
