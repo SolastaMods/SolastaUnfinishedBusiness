@@ -184,13 +184,15 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             artificerBuilder.AddFeatureAtLevel(1, saveProf);
 
             // skill point pool (1)
-            FeatureDefinitionPointPool skillPoints = FeatureHelpers.BuildPointPool(HeroDefinitions.PointsPoolType.Skill, 2,
-                new List<string>() { SkillDefinitions.Arcana, SkillDefinitions.History, SkillDefinitions.Investigation, SkillDefinitions.Medecine,
-                    SkillDefinitions.Nature, SkillDefinitions.Perception, SkillDefinitions.SleightOfHand },
-                "PointPoolTinkererSkillPoints",
-                new GuiPresentationBuilder(
-                    "Feature/&TinkererSkillPointsTitle",
-                    "Feature/&TinkererSkillGainChoicesPluralDescription").Build());
+            var skillPoints = FeatureDefinitionPointPoolBuilder
+                .Create("PointPoolTinkererSkillPoints", GuidNamespace)
+                .Configure(HeroDefinitions.PointsPoolType.Skill, 2, false,
+                    SkillDefinitions.Arcana, SkillDefinitions.History,
+                    SkillDefinitions.Investigation, SkillDefinitions.Medecine,
+                    SkillDefinitions.Nature, SkillDefinitions.Perception, SkillDefinitions.SleightOfHand)
+                .SetGuiPresentation("Feature/&TinkererSkillPointsTitle", "Feature/&TinkererSkillGainChoicesPluralDescription")
+                .AddToDB();
+
             artificerBuilder.AddFeatureAtLevel(1, skillPoints);
 
             SpellListDefinition spellList = TinkererSpellList.BuildAndAddToDB();

@@ -37,6 +37,17 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
         #endregion
 
+        public FeatureDefinitionPointPoolBuilder Configure(HeroDefinitions.PointsPoolType poolType, int poolAmount,
+            bool uniqueChoices, params string[] choices)
+        {
+            Definition.SetPoolType(poolType);
+            Definition.SetPoolAmount(poolAmount);
+            Definition.RestrictedChoices.AddRange(choices);
+            Definition.SetUniqueChoices(uniqueChoices);
+
+            return this;
+        }
+
         public FeatureDefinitionPointPoolBuilder SetPool(HeroDefinitions.PointsPoolType poolType, int poolAmount)
         {
             Definition.SetPoolType(poolType);

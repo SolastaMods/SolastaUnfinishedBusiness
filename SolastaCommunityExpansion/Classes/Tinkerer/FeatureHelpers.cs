@@ -136,25 +136,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             }
         }
 
-        public class FeatureDefinitionPointPoolBuilder : Builders.Features.FeatureDefinitionPointPoolBuilder
-        {
-            public FeatureDefinitionPointPoolBuilder(string name, string guid, HeroDefinitions.PointsPoolType poolType, int poolAmount,
-                bool uniqueChoices, GuiPresentation guiPresentation, params string[] choices) :
-                this(name, guid, poolType, poolAmount, uniqueChoices, guiPresentation, choices.AsEnumerable())
-            {
-            }
-
-            public FeatureDefinitionPointPoolBuilder(string name, string guid, HeroDefinitions.PointsPoolType poolType, int poolAmount,
-                bool uniqueChoices, GuiPresentation guiPresentation, IEnumerable<string> choices) : base(name, guid)
-            {
-                Definition.SetPoolType(poolType);
-                Definition.SetPoolAmount(poolAmount);
-                Definition.RestrictedChoices.AddRange(choices);
-                Definition.SetUniqueChoices(uniqueChoices);
-                Definition.SetGuiPresentation(guiPresentation);
-            }
-        }
-
         public class ConditionDefinitionBuilder : Builders.ConditionDefinitionBuilder
         {
             public ConditionDefinitionBuilder(string name, string guid, RuleDefinitions.DurationType durationType, int durationParameter,
@@ -312,17 +293,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             }
         }
 
-        public class FeatureDefinitionEquipmentAffinityBuilder : Builders.Features.FeatureDefinitionEquipmentAffinityBuilder
-        {
-            public FeatureDefinitionEquipmentAffinityBuilder(string name, string guid, float carryingCapacityMultiplier,
-                float additionalCarryingCapacity, GuiPresentation guiPresentation) : base(name, guid)
-            {
-                Definition.SetCarryingCapacityMultiplier(carryingCapacityMultiplier);
-                Definition.SetAdditionalCarryingCapacity(additionalCarryingCapacity);
-                Definition.SetGuiPresentation(guiPresentation);
-            }
-        }
-
         public class FeatureDefinitionAdditionalDamageBuilder : Builders.Features.FeatureDefinitionAdditionalDamageBuilder
         {
             public FeatureDefinitionAdditionalDamageBuilder(string name, string guid, string notificationTag, RuleDefinitions.FeatureLimitedUsage limitedUsage,
@@ -476,17 +446,13 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 abilityProficiencyPairs, diceNumber, dieType, affinityType, guiPresentation).AddToDB();
         }
 
-        public static FeatureDefinitionPointPool BuildPointPool(HeroDefinitions.PointsPoolType poolType, int poolAmount,
-            IEnumerable<string> choices, string name, GuiPresentation guiPresentation)
-        {
-            return new FeatureDefinitionPointPoolBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
-                poolType, poolAmount, false, guiPresentation, choices).AddToDB();
-        }
-
         public static FeatureDefinitionEquipmentAffinity BuildEquipmentAffinity(float carryingCapacityMultiplier, float additionalCarryingCapacity, string name, GuiPresentation guiPresentation)
         {
-            return new FeatureDefinitionEquipmentAffinityBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
-                carryingCapacityMultiplier, additionalCarryingCapacity, guiPresentation).AddToDB();
+            return Builders.Features.FeatureDefinitionEquipmentAffinityBuilder
+                .Create(name, TinkererClass.GuidNamespace)
+                .SetGuiPresentation(guiPresentation)
+                .SetCarryingCapacityMultiplier(carryingCapacityMultiplier, additionalCarryingCapacity)
+                .AddToDB();
         }
 
         public static FeatureDefinitionMagicAffinity BuildMagicAffinityConcentration(RuleDefinitions.ConcentrationAffinity concentrationAffinity,
