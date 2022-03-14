@@ -224,8 +224,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContentModified",
+  "contentCopyright": "UserContent",
   "guid": "b1cb2fe4-85ff-53cb-9a48-2cc21af31946",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "Enchanted_Shield_Wooden_Survival"
 }

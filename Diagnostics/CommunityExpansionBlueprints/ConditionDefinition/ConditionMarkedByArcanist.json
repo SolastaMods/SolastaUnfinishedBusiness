@@ -235,8 +235,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContentModified",
+  "contentCopyright": "UserContent",
   "guid": "2c45ce76-761a-5335-83ce-f380422be675",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ConditionMarkedByArcanist"
 }

@@ -216,8 +216,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContentModified",
+  "contentCopyright": "UserContent",
   "guid": "4fed5c29-b113-5a91-9504-40affcd8c427",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "Enchanted_Shield_Wooden_Robustness"
 }

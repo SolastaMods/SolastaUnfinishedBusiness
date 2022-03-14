@@ -62,8 +62,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "5ce848d6-8b6c-5397-b26d-eec335220f2c",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "MagicAffinityWarCasterFeat"
 }

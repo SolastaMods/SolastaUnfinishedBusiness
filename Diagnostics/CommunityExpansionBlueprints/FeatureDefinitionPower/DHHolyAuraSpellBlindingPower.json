@@ -317,8 +317,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "40366ca2-00a0-471a-b370-8c81f6283ce1",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "DHHolyAuraSpellBlindingPower"
 }

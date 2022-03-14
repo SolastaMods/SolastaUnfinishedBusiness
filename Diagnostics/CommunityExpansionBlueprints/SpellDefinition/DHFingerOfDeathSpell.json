@@ -317,8 +317,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "cd6d2db3-a3af-5542-9972-053ce0bd2fd6",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "DHFingerOfDeathSpell"
 }

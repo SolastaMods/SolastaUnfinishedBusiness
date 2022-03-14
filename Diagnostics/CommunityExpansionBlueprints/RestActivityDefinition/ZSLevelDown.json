@@ -27,8 +27,8 @@
     "sortOrder": 10,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "fdb4d86eaef942d1a22dbf1fb5a7299f",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ZSLevelDown"
 }

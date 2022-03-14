@@ -27,8 +27,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "86558227b0cd4771b42978a60dc610db",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "BarbarianArmorProficiencyMulticlass"
 }

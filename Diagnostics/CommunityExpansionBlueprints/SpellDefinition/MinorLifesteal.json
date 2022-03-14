@@ -351,8 +351,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContentModified",
+  "contentCopyright": "UserContent",
   "guid": "708ff12c-4747-534c-955b-5f9438eb58ac",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "MinorLifesteal"
 }

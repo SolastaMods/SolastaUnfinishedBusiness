@@ -530,8 +530,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "6860470d-4c92-5a44-b112-0898d0a46da6",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "Enchanted_Javelin_Souldrinker"
 }

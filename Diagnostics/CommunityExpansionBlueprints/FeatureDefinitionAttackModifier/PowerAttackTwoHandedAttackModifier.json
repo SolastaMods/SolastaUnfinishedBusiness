@@ -47,8 +47,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "b1b05940-7558-4f03-98d1-01f616b5ae25",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "PowerAttackTwoHandedAttackModifier"
 }

@@ -26,8 +26,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "4fbe576a-23d7-5ba2-9590-bec6db5c7a8e",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "PointPool6BonusFeats"
 }

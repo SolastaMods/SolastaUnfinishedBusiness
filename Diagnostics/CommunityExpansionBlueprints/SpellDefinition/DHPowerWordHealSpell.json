@@ -348,8 +348,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "facf3d32-f858-5cd4-8f01-bf4c22c568c3",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "DHPowerWordHealSpell"
 }

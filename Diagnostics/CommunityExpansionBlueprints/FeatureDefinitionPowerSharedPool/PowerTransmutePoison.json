@@ -314,8 +314,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "394c3455-693e-5b31-85d5-fef1ff038a90",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "PowerTransmutePoison"
 }

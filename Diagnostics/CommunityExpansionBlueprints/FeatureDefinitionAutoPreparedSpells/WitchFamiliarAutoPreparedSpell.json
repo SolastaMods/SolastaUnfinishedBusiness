@@ -34,8 +34,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "b9f22d00-1229-5b96-af99-f80ec94c3583",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "WitchFamiliarAutoPreparedSpell"
 }

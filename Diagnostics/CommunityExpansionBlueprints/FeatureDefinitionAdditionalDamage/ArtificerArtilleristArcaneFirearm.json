@@ -57,8 +57,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "f5c4af73-6c3e-5a10-b818-b8d4d3be1029",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ArtificerArtilleristArcaneFirearm"
 }

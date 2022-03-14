@@ -314,8 +314,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "5b9e8153-844f-50ed-8c48-0ed480059748",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "PowerInfuseHeadbandOfIntellect"
 }

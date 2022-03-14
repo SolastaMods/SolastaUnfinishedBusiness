@@ -26,8 +26,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "27ab1eaf-5a4e-54d9-966d-d480035d104c",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "PointPool3BonusFeats"
 }

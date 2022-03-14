@@ -341,8 +341,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "a75f8a39-7eba-552b-8681-1d7f4f3fc983",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "DHFeeblemindSpell"
 }

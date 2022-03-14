@@ -500,8 +500,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "9c60ee10-3a11-5640-9062-7f823f043c2f",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "Enchanted_LightCrossbow_Sharpshooting"
 }

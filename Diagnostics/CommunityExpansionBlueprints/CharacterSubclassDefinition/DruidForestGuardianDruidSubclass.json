@@ -61,8 +61,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "45a7595b-5d5f-4351-b7f1-cb78c9d0a136",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "DruidForestGuardianDruidSubclass"
 }

@@ -135,8 +135,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "d7f66413-6f21-57c0-ad11-78cfabb68cf9",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "PathOfTheLightIlluminatedByBurstCondition"
 }

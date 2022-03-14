@@ -336,8 +336,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "04b52ec8-fb06-5e97-973a-eced177266b1",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "DruidForestGuardianBarkWard"
 }

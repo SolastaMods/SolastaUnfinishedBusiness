@@ -34,8 +34,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "8a5682f7-8563-52f3-936b-138645322366",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "FeyTeleportationAutoPrepMistyBarbarian"
 }

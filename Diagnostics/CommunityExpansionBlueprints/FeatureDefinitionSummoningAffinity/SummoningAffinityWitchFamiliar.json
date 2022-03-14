@@ -35,8 +35,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "2bf54dd0-7800-5fd8-a1e4-be86105d2761",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "SummoningAffinityWitchFamiliar"
 }

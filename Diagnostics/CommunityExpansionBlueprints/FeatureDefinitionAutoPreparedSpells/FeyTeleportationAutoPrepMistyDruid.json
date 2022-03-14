@@ -34,8 +34,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "c3c6eac2-6450-5f65-a5bd-33e5d2fdf6af",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "FeyTeleportationAutoPrepMistyDruid"
 }

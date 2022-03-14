@@ -30,8 +30,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "c9a6bd92-bebc-5e6d-a0e8-a0f9896b9ebc",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "PathOfTheLightPierceTheDarkness"
 }

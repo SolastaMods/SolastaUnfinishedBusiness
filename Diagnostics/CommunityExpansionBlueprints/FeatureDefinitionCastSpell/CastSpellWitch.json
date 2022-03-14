@@ -445,8 +445,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "73c40446-6b19-5203-9a7d-31c3926289b6",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "CastSpellWitch"
 }

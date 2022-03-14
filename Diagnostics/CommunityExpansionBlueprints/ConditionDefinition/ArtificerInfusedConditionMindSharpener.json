@@ -137,8 +137,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "dc11676a-c33c-5cdf-b48a-de622db583f3",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ArtificerInfusedConditionMindSharpener"
 }

@@ -26,8 +26,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "a0df0cb6-640f-494e-b752-b746fa79bede",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "BlindFightingStlye"
 }

@@ -311,8 +311,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "0da01d12-5145-5b63-a558-c1d11f5ac1ae",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "DHMazeSpell"
 }

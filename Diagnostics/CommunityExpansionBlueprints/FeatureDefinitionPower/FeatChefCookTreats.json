@@ -317,8 +317,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "14888452-6cdf-53d6-bfb6-cdd5648f9956",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "FeatChefCookTreats"
 }

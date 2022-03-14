@@ -27,8 +27,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "a2a16bda-e7b1-4a87-9f0e-3e4c21870fd8",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "DHFeeblemindIntSpellAttributeModifier"
 }

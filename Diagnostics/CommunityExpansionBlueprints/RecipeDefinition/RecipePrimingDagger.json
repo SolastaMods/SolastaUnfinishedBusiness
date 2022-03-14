@@ -35,8 +35,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "149a0a21-9f66-59aa-8cb2-aa433cc728d2",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "RecipePrimingDagger"
 }

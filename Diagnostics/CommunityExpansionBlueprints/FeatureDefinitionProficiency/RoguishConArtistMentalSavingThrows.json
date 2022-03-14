@@ -28,8 +28,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "f2be4d53-1cc4-5146-a822-1c94456266f2",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "RoguishConArtistMentalSavingThrows"
 }

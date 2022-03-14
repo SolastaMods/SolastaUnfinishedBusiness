@@ -311,8 +311,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "f939c074-87fc-5688-9394-46a0976947dd",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "PowerResuscitateHealerFeat"
 }

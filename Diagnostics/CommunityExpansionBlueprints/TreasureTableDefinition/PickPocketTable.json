@@ -168,8 +168,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "79cac3e5-0f00-4062-b263-adbc854223d7",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "PickPocketTable"
 }

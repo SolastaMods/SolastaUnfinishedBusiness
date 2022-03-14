@@ -317,8 +317,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "cabe94a7-7e51-4231-ae6d-e8e6e3954611",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "RallyingCryPower"
 }

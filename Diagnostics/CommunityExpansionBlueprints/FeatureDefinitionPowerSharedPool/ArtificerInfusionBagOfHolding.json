@@ -314,8 +314,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "269fb5c5-2ce1-5847-976d-52a98d54f459",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ArtificerInfusionBagOfHolding"
 }

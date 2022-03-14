@@ -240,8 +240,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContentModified",
+  "contentCopyright": "UserContent",
   "guid": "b9f07c91-f494-57d9-95fe-dc9f3a990e2f",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ConditionPox"
 }

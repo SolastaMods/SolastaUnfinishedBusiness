@@ -35,8 +35,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "3f5097d9-eeb6-5f6d-9fe0-ca1aa3f4ab27",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "RecipeForgeryCAERLEM_Daliat_Document"
 }

@@ -531,8 +531,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "bf6a07c1-d0e3-5111-bc19-c6590621b1dc",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "Enchanted_Handaxe_Souldrinker"
 }

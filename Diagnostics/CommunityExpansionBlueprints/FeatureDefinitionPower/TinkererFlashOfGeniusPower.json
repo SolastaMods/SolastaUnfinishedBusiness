@@ -348,8 +348,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "2b8dd57f-8d77-5355-801a-4be5e103afaa",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "TinkererFlashOfGeniusPower"
 }

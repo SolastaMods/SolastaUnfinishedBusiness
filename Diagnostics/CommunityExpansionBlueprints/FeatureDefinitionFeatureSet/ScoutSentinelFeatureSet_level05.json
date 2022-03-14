@@ -30,8 +30,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "a881c02a-7add-426b-a2d4-1f3994d12fa9",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ScoutSentinelFeatureSet_level05"
 }

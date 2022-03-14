@@ -36,8 +36,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "fec426bf-10ad-549d-be14-8d456873d35a",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "FeatChefCon"
 }

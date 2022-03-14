@@ -43,8 +43,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "ad73a087-d666-522b-8bbd-03d700f3004b",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "SaveAffinityInfusionMagicalStrength"
 }

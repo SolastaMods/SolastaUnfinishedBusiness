@@ -35,8 +35,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "b409e0ad-fcf4-5f74-9da2-c44406879a06",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "RecipePrimingLeatherDruid"
 }

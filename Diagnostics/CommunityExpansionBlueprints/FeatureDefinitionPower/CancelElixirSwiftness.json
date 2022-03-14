@@ -314,8 +314,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "86888f66-c8b2-49db-910a-bde389dd69df",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "CancelElixirSwiftness"
 }

@@ -326,8 +326,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "68db5cab-6fc9-4795-88a6-f89d81b0e4ef",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "SelfRepair"
 }

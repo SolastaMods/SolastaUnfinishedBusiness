@@ -47,8 +47,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "2795e1ef-0e6d-5765-ba7a-dd1b6b2665a1",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "TinkererLevel10InfusionChoice"
 }

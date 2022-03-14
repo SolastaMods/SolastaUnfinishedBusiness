@@ -66,8 +66,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "9d32577d-d3ec-4859-b66d-451d071bb117",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "TacticianFighter"
 }

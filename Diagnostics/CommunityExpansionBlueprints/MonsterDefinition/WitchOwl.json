@@ -219,8 +219,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContentModified",
+  "contentCopyright": "UserContent",
   "guid": "e1248fb5-f611-5f42-8643-d6defb1768be",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "WitchOwl"
 }

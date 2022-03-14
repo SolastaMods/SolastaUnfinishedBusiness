@@ -508,8 +508,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "0f6e0971-fff1-59df-b7de-79f1efcf9461",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "Enchanted_Warhammer_Power"
 }

@@ -314,8 +314,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "e2f39f8b-7d89-5860-a6fd-d84adfdc2025",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "PowerMedKitHealerFeat"
 }

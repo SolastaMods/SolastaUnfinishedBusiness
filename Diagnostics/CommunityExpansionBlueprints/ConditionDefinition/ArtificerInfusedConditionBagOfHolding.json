@@ -137,8 +137,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "9c6e21de-0caf-5cc7-b64f-773ee3c1865e",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ArtificerInfusedConditionBagOfHolding"
 }

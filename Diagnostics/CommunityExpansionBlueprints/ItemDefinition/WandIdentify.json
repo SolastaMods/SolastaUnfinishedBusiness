@@ -241,8 +241,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContentModified",
+  "contentCopyright": "UserContent",
   "guid": "46ae7624-4d24-455a-98f9-d41403b0ae19",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "WandIdentify"
 }

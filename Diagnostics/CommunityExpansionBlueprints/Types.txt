@@ -4,6 +4,7 @@ CharacterClassDefinition
 CharacterFamilyDefinition
 CharacterSubclassDefinition
 ConditionDefinition
+ContentPackDefinition
 EffectProxyDefinition
 FeatDefinition
 FeatureDefinition

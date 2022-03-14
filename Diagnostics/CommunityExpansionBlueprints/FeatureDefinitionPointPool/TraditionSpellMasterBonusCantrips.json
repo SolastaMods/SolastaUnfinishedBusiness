@@ -26,8 +26,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "367307e8-0f6a-5ef1-8d6d-2ee36a74cfef",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "TraditionSpellMasterBonusCantrips"
 }

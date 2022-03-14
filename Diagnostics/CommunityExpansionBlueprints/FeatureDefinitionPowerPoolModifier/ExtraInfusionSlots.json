@@ -169,8 +169,8 @@
     "sortOrder": 1,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "350902fd-cf99-48e4-8edc-115c82886bdb",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ExtraInfusionSlots"
 }

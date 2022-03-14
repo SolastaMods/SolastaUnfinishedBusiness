@@ -67,8 +67,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "4ced2165-f8e5-545b-af7c-34cbd0f4d7ff",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ForestGuardianAutoPreparedSpells"
 }

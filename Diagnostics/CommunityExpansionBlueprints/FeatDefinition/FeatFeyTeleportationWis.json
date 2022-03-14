@@ -47,8 +47,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "895c215f-f407-5f05-8af1-c3ac84d5a82c",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "FeatFeyTeleportationWis"
 }

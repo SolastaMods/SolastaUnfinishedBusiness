@@ -30,8 +30,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "0d91c46c-4ba7-5d8b-86d6-5ebe8e893a0c",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "WitchFeatureSetVisionsCurse"
 }

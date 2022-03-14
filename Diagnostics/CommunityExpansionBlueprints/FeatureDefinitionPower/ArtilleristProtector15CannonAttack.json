@@ -322,8 +322,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "55c5ede6-b20a-5053-ae1b-c5e3e07c0d95",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ArtilleristProtector15CannonAttack"
 }

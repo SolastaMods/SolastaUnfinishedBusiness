@@ -139,8 +139,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "2be6d208-f746-5db9-9133-a87baa1b5fac",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "PathOfTheLightIlluminatingStrikeInitiatorCondition"
 }

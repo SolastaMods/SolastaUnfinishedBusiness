@@ -600,8 +600,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "c2ebf9a1-5c45-4f70-ba6c-c791cd607ea7",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ImprovedScoutSuitWeapon"
 }

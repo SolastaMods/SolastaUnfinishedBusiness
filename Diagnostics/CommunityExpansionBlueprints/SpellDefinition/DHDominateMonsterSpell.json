@@ -311,8 +311,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "011eca3e-7987-5c46-9f1a-968e0c1a935d",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "DHDominateMonsterSpell"
 }

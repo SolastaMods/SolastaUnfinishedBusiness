@@ -62,8 +62,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "c4706d4e-3794-5cd6-92ce-c1afd810f954",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "CraftingTinkererMagicItemAdept"
 }

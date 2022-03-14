@@ -215,8 +215,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContentModified",
+  "contentCopyright": "UserContent",
   "guid": "91cc706f-97b7-47d9-a46e-89b251fd5efe",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ForceArtilleryConstruct"
 }

@@ -138,8 +138,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "78bd3798-0c44-5642-8836-03eb6a7d3bf5",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "AlchemistFlyElixirCondition"
 }

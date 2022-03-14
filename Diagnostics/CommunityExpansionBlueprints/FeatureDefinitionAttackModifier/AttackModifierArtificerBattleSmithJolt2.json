@@ -42,8 +42,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "3a017fa3-7e9a-5a6f-b134-15d75b4dec90",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "AttackModifierArtificerBattleSmithJolt2"
 }

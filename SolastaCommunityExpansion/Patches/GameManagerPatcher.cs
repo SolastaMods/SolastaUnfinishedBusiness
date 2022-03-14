@@ -20,10 +20,12 @@ namespace SolastaCommunityExpansion.Patches
             EffectFormVerification.Load();
 #endif
             ResourceLocatorContext.Load();
-            CeContentPackContext.Load();
 
             // Cache TA definitions for diagnostics and export
             DiagnosticsContext.CacheTADefinitions();
+
+            // Needs to be after CacheTADefinitions
+            CeContentPackContext.Load();
 
             AdditionalNamesContext.Load();
             AsiAndFeatContext.Load();

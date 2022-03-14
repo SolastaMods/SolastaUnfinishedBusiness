@@ -68,8 +68,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContentModified",
+  "contentCopyright": "UserContent",
   "guid": "c5f03caa-7078-4da7-b166-00f292fcebfc",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "SubclassAutopreparedSpells"
 }

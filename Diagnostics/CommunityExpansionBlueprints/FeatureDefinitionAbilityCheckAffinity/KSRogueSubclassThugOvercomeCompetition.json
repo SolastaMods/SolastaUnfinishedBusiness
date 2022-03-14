@@ -37,8 +37,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "9c18b1ce-c277-5d4d-a60c-0cc69cf8b32a",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "KSRogueSubclassThugOvercomeCompetition"
 }

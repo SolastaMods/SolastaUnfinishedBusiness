@@ -27,8 +27,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "b14f91dc-8706-498b-a9a0-d583b7b00d09",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "PugilistFightingStlye"
 }

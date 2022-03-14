@@ -236,8 +236,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "660de524-1d51-5d22-9d34-e2f57c47a51e",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "Enchanted_StuddedLeather_FlameDancing"
 }

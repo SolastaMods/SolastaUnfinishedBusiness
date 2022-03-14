@@ -135,8 +135,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "0dc8c753-f57f-5d96-a479-bc34b9ea7ee7",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ProxyProtectThreshold"
 }

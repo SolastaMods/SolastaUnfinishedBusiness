@@ -174,8 +174,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "e8c74332-f157-5c73-acad-aea3a0d8e88a",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "AttributeModiferArtilleryPoolIncrease"
 }

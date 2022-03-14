@@ -241,8 +241,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContentModified",
+  "contentCopyright": "UserContent",
   "guid": "f00e592f-61c3-4cbf-a800-97596e83028d",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "DHTimeStopSpellCondition"
 }

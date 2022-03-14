@@ -330,8 +330,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "f3b60c5a-2914-527b-b996-e1940bcac31c",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "PowerAlchemistRestorativeElixirs"
 }

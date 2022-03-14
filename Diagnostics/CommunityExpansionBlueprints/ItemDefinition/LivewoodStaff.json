@@ -497,8 +497,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "ff3ec29c-734f-4ef6-8d6e-ceb961d9a8a0",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "LivewoodStaff"
 }

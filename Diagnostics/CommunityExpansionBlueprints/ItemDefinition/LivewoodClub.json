@@ -497,8 +497,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "dd27119b-01e0-4a47-a043-98b89dc930a1",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "LivewoodClub"
 }

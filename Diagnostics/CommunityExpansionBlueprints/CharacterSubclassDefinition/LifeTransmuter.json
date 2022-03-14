@@ -81,8 +81,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "3534a182-2fa7-58c0-bb6b-e07d1e23a5a4",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "LifeTransmuter"
 }

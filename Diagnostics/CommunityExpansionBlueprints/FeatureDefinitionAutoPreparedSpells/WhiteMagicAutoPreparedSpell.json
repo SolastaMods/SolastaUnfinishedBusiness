@@ -67,8 +67,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "790e347d-b2eb-5188-9c71-fc69c56b9d95",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "WhiteMagicAutoPreparedSpell"
 }

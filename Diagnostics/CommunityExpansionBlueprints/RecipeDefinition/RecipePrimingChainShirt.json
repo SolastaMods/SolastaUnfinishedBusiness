@@ -35,8 +35,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "1b6a2d00-86cc-5c83-bee0-166753d421b4",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "RecipePrimingChainShirt"
 }

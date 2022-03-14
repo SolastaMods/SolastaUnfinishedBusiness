@@ -239,8 +239,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContentModified",
+  "contentCopyright": "UserContent",
   "guid": "6af55055-ba7b-504a-8a18-c904eeae27ea",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ConditionDisorient"
 }

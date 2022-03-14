@@ -25,8 +25,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "b0b009b4-8f5a-5294-a142-f923422df65e",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ArtificerAlchemistShotsSpellPrep"
 }

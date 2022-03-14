@@ -530,8 +530,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "5e37e8c8-18b8-5422-9d13-d2504b2f2aad",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "Enchanted_Javelin_Frostburn"
 }

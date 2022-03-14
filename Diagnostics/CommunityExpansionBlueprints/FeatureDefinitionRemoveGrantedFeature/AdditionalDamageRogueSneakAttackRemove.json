@@ -22,8 +22,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "2efd04da-a069-50c4-be1e-44f2432d7404",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "AdditionalDamageRogueSneakAttackRemove"
 }

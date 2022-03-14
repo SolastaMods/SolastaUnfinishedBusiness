@@ -314,8 +314,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "1b8d7f3b-af58-5ff4-bf85-e3ba5a060baf",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "PowerInfuseCloakOfElvenKind"
 }

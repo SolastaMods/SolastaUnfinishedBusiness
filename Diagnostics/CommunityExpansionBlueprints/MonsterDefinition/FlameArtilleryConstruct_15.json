@@ -213,8 +213,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContentModified",
+  "contentCopyright": "UserContent",
   "guid": "8c4ff931-4a17-4de4-8571-6c94e8327e8e",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "FlameArtilleryConstruct_15"
 }

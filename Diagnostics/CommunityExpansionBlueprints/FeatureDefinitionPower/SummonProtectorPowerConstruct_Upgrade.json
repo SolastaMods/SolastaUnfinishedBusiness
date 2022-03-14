@@ -327,8 +327,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "34c307e9-5883-438c-9130-1f286b9cdafc",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "SummonProtectorPowerConstruct_Upgrade"
 }

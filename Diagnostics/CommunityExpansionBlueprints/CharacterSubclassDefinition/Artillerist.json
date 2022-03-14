@@ -66,8 +66,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "6a2ac050-eb4b-50c3-83de-05e8430f78f9",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "Artillerist"
 }

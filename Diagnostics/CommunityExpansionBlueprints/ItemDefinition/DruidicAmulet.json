@@ -204,8 +204,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "3487d3b2-1058-4c0f-8009-9e4f525cb0e0",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "DruidicAmulet"
 }

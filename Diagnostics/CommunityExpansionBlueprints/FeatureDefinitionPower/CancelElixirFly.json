@@ -314,8 +314,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "64385214-7b0f-4372-a12f-8346b2b33884",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "CancelElixirFly"
 }

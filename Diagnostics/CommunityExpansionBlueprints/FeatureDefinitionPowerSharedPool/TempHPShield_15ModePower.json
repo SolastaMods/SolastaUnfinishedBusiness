@@ -317,8 +317,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "82a01793-c5a4-4b87-a079-de79b7638c4f",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "TempHPShield_15ModePower"
 }

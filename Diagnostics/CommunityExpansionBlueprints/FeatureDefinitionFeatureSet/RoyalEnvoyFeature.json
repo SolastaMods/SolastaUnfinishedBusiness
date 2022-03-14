@@ -31,8 +31,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "c8299685-d806-4e20-aff0-ca3dd4000e05",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "RoyalEnvoyFeature"
 }
