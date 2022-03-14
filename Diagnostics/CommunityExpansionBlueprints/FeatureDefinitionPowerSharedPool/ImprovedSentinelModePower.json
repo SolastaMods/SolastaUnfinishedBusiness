@@ -357,8 +357,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "b216988a-5905-47fd-9359-093cd77d41f9",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ImprovedSentinelModePower"
 }

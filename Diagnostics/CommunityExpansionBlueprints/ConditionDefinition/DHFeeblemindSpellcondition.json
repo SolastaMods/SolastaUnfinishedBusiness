@@ -243,8 +243,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "965a09b2-cb22-452b-b93c-2bccdcda4871",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "DHFeeblemindSpellcondition"
 }

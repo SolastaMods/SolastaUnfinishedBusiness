@@ -35,8 +35,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "9e64d428-4866-5453-8803-286a413f8c7d",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "RecipeForgeryABJURATION_TOWER_Poem"
 }

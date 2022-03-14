@@ -322,8 +322,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "83c00463-e193-5b37-8983-2dafeb789772",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "PowerFalseLifeFromFeat"
 }

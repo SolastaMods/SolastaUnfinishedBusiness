@@ -62,8 +62,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "1edd7942-b88d-54e6-b7f1-65adb8009def",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "DruidForestGuardianSylvanWarMagic"
 }

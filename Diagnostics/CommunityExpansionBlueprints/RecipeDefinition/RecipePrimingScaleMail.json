@@ -35,8 +35,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "66cd715b-d047-57e6-9b6c-7100ad68fc9f",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "RecipePrimingScaleMail"
 }

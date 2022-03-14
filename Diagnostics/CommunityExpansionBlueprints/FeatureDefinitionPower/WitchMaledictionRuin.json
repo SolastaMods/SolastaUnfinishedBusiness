@@ -314,8 +314,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "8a607c9a-8ed5-50f5-8206-f62c2db0ab52",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "WitchMaledictionRuin"
 }

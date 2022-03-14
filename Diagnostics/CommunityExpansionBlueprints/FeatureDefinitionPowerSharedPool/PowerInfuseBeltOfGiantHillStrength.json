@@ -314,8 +314,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "d07c8835-3401-59dc-bab6-eab86e6570a2",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "PowerInfuseBeltOfGiantHillStrength"
 }

@@ -550,8 +550,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "9dbadadf-9f15-528f-a433-54df7a9cc423",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "Enchanted_Quarterstaff_Dragonblade"
 }

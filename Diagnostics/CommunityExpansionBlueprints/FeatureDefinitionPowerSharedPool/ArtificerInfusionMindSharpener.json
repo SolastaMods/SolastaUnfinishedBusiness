@@ -314,8 +314,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "9235b3d1-9d88-5252-a64b-cf177e136e37",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ArtificerInfusionMindSharpener"
 }

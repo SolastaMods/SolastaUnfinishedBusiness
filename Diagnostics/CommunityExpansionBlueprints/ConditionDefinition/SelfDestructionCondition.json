@@ -257,8 +257,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContentModified",
+  "contentCopyright": "UserContent",
   "guid": "c96984f4-0370-4775-ab8b-3ee6db0c8806",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "SelfDestructionCondition"
 }

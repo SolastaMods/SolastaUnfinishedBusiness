@@ -499,8 +499,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "2ef3d46f-c96d-5483-9b5b-1df3d0b57411",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "Enchanted_Maul_Acuteness"
 }

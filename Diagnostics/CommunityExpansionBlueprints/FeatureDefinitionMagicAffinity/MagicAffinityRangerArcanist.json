@@ -62,8 +62,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "63372bfb-ca38-554c-a8ee-3476a34fc7b6",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "MagicAffinityRangerArcanist"
 }

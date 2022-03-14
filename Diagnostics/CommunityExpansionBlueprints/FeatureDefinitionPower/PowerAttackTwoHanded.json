@@ -314,8 +314,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "TacticalAdventuresContent",
+  "contentCopyright": "UserContent",
   "guid": "b45b8467-7caa-428e-b4b5-ba3c4a153f07",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "PowerAttackTwoHanded"
 }

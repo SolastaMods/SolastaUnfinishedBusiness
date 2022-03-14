@@ -344,8 +344,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "f3ad4df7-6d49-50de-a311-639719c9bcd0",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ArcanePulseUpgrade"
 }

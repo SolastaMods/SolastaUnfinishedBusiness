@@ -61,8 +61,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "5ef3ec64-fc58-5cc7-abaf-2a79c88f1d2d",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "SpellMaster"
 }

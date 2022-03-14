@@ -27,8 +27,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "afd1de94-ce76-575c-922a-19fea5a8d5ce",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "AttributeModifierDruidForestGuardianSylvanDurability"
 }

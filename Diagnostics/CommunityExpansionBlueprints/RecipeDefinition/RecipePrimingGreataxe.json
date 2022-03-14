@@ -35,8 +35,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "9d146e29-d232-5c6e-af5b-ac960aa18e11",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "RecipePrimingGreataxe"
 }

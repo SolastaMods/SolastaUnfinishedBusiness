@@ -152,8 +152,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "5f26ef4a-30cc-56f9-9d31-ad3ecce7d2fe",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "SpellListTinkerer"
 }

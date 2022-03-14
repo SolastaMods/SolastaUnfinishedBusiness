@@ -531,8 +531,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "b375bd6f-b1b4-59d0-bf3f-b7ac22ad3527",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "Enchanted_Scimitar_Frostburn"
 }

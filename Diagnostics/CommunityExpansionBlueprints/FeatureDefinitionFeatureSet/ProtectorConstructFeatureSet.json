@@ -32,8 +32,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "9b699719-0d02-4949-ad94-cff6a05f36c7",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ProtectorConstructFeatureSet"
 }

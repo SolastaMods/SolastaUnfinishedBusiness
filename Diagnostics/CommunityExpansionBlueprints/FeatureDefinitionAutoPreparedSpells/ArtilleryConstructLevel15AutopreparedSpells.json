@@ -34,8 +34,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "841d72b7-2570-56d1-acfd-77fa34d2e4db",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ArtilleryConstructLevel15AutopreparedSpells"
 }

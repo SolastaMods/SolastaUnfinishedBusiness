@@ -535,8 +535,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "d18a66f4-792b-5200-9497-258fd367460d",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "Enchanted_Quarterstaff_Souldrinker"
 }

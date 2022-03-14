@@ -32,8 +32,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "a1e9557c-c1a9-4912-9fea-1a16c4124331",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ArtilleryConstructlevel09FeatureSet"
 }

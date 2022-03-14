@@ -29,8 +29,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "97ba0501-5963-5642-96f4-2bc368f298af",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ProficiencyWitchTool"
 }

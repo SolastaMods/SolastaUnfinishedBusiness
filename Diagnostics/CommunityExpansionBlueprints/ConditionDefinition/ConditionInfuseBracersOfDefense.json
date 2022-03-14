@@ -137,8 +137,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "2beac2dc-dc11-5589-9d57-4e43e4622883",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ConditionInfuseBracersOfDefense"
 }

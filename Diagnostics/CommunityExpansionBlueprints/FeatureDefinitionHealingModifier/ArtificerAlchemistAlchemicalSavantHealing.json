@@ -39,8 +39,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "2889a2bc-93e0-5c1a-9259-72ddb9b81b18",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ArtificerAlchemistAlchemicalSavantHealing"
 }

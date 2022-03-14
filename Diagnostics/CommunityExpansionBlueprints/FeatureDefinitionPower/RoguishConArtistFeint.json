@@ -314,8 +314,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "0f085afa-c18b-574f-b1d4-e7e933410b1a",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "RoguishConArtistFeint"
 }

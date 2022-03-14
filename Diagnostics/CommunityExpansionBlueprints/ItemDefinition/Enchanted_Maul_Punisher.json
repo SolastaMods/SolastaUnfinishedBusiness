@@ -529,8 +529,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "841cdcee-834d-5122-8731-b26fad5ccecf",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "Enchanted_Maul_Punisher"
 }

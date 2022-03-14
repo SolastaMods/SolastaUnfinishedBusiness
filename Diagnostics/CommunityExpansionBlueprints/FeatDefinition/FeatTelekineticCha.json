@@ -36,8 +36,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "fd7c8d77-b047-51e9-8829-ec45e5bf8e07",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "FeatTelekineticCha"
 }

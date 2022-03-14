@@ -36,8 +36,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "c9c22360-c603-50cd-90c5-1ac7532dc66c",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ShadowTouchedAutoPrepPaladin"
 }

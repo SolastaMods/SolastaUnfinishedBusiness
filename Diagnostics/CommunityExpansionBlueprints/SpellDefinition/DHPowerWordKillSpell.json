@@ -308,8 +308,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "c67eb2c8-b97f-5dbf-81a6-59ef36771413",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "DHPowerWordKillSpell"
 }

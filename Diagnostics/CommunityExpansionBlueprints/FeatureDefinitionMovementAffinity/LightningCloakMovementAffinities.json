@@ -45,8 +45,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "9a098f7c-0286-4a04-ba42-23b7dfc45e7b",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "LightningCloakMovementAffinities"
 }

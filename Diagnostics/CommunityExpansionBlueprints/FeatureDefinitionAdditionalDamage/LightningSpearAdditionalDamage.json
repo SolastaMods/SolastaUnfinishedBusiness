@@ -106,8 +106,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "52d19882-ca63-422d-aece-d80f806859a8",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "LightningSpearAdditionalDamage"
 }

@@ -67,8 +67,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "6308a746-d075-55e7-ae6a-ee06d559a151",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "GreenMagicAutoPreparedSpell"
 }

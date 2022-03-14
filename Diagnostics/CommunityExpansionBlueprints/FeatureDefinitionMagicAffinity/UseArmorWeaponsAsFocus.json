@@ -62,8 +62,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "55a4d71f-2b9d-4df6-abf1-c0cc6682eb9d",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "UseArmorWeaponsAsFocus"
 }

@@ -530,8 +530,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "a3c52b07-c03a-57bc-810c-48194623e008",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "Enchanted_Warhammer_Lightbringer"
 }

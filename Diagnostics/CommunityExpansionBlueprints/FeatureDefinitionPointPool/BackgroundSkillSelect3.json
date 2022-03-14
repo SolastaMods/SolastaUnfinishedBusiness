@@ -26,8 +26,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "e6f2ed65-a44e-4314-b38c-393abb4ad900",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "BackgroundSkillSelect3"
 }

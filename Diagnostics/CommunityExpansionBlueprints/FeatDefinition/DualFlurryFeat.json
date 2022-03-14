@@ -34,8 +34,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "4e75dbb0-5fdb-5866-bd2b-05113ddd7bf8",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "DualFlurryFeat"
 }

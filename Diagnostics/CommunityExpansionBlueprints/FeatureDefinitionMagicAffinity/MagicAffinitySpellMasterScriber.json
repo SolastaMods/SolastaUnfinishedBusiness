@@ -62,8 +62,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "ef6ff56a-f5cc-5167-b428-8b6f38dcb721",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "MagicAffinitySpellMasterScriber"
 }

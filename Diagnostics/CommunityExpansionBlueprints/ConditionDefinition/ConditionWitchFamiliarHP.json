@@ -237,8 +237,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "36c0810d-0136-5cf0-b31f-9249bf87e282",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ConditionWitchFamiliarHP"
 }

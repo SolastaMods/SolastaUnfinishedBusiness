@@ -31,8 +31,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "f0a88a03-8a49-56d4-8453-76da268e0252",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "GreenWitch"
 }

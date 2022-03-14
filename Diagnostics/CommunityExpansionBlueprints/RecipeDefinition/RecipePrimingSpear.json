@@ -35,8 +35,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "affcd06f-8a22-52d5-bf49-595e4173c282",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "RecipePrimingSpear"
 }

@@ -324,8 +324,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "a407f233-c724-562b-b877-e9f3147e33f6",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "DHConjureCelestialSpell"
 }

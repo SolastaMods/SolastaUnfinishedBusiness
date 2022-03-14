@@ -535,8 +535,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "6472ff2a-420b-5f2a-b782-36544ef23f5f",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "Enchanted_Quarterstaff_Frostburn"
 }

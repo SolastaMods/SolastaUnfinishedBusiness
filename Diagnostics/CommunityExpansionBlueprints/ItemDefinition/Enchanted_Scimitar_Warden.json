@@ -545,8 +545,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "bab94f36-c0ec-5ff2-b035-afcf769a56a1",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "Enchanted_Scimitar_Warden"
 }

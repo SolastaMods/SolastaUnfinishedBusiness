@@ -22,8 +22,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "baf864a5-d9d9-5e5f-aa36-a65360b41cf3",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "FeatureDualFlurry"
 }

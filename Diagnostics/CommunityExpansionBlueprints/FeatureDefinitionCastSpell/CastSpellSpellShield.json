@@ -349,8 +349,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "09aac17f-37c6-5456-adf1-6578251f8359",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "CastSpellSpellShield"
 }

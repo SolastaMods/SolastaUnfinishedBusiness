@@ -228,8 +228,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "5328a4d9-60a6-52b0-972a-2cb917716ae9",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "Enchanted_StuddedLeather_Sturdiness"
 }

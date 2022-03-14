@@ -24,8 +24,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContentModified",
+  "contentCopyright": "UserContent",
   "guid": "ab9d8ea6-3cc2-4c36-939a-b9a43bad023e",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "TinkererConstruct"
 }

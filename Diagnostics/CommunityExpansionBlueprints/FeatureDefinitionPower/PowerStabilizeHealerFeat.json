@@ -327,8 +327,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "61228eda-6b7e-5766-ab11-2912cead53b7",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "PowerStabilizeHealerFeat"
 }

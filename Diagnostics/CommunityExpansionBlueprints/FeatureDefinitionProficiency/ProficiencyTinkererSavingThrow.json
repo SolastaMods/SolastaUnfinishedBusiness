@@ -28,8 +28,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "e835f607-1d21-5e9c-868c-40b9093ee6eb",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ProficiencyTinkererSavingThrow"
 }

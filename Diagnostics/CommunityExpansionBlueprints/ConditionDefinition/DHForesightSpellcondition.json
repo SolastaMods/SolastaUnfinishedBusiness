@@ -246,8 +246,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "4615c639-95f2-4c04-b904-e79f5b916b68",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "DHForesightSpellcondition"
 }

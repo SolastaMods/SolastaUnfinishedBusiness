@@ -137,8 +137,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "88e5ac08-cc10-530c-94f2-e28a41d5bf85",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ConditionPowerTransmuteDarkvision"
 }

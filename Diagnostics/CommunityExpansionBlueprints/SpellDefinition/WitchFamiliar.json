@@ -314,8 +314,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContentModified",
+  "contentCopyright": "UserContent",
   "guid": "07e56c1a-9211-5f6d-add9-e85a5321d2e9",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "WitchFamiliar"
 }

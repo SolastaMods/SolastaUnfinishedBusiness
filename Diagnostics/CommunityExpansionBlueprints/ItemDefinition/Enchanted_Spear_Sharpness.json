@@ -502,8 +502,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "a0b82ac3-9ff1-53d0-8547-caad93e658d7",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "Enchanted_Spear_Sharpness"
 }

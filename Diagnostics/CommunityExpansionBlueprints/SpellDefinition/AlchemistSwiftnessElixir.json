@@ -343,8 +343,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "3e69d4ce-0f48-5c80-aabc-6ea1fd822ef1",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "AlchemistSwiftnessElixir"
 }

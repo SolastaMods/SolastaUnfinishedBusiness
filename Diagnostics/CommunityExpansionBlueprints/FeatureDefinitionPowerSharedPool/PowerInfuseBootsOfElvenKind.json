@@ -314,8 +314,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "fd14fb70-587a-5976-8f4c-537e51f666d1",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "PowerInfuseBootsOfElvenKind"
 }

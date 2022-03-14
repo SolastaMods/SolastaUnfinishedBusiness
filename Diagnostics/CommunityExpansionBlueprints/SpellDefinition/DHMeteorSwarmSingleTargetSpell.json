@@ -357,8 +357,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "bb8f1362-c35f-581d-86df-c3930fc3dabc",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "DHMeteorSwarmSingleTargetSpell"
 }

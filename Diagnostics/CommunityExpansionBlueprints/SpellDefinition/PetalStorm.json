@@ -374,8 +374,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "016e3598-5a09-5249-a225-746d5e038c79",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "PetalStorm"
 }

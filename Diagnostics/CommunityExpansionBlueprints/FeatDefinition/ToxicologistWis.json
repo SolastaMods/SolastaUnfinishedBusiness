@@ -36,8 +36,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "1bb4acbd-1890-48ae-9f86-46c2cb95cb79",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ToxicologistWis"
 }

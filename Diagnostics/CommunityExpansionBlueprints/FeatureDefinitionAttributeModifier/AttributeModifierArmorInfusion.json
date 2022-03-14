@@ -27,8 +27,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "e19c224b-dcb8-525f-b0f4-c38580d7bbdd",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "AttributeModifierArmorInfusion"
 }

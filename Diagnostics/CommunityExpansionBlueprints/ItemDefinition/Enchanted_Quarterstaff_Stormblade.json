@@ -535,8 +535,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "e1bc93f4-306e-51ad-86e9-be6a907767d9",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "Enchanted_Quarterstaff_Stormblade"
 }

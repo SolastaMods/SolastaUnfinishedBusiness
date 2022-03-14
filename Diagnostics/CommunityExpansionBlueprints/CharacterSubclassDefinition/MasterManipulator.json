@@ -46,8 +46,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "4d428614-7b2b-5789-8b59-755c90b981b0",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "MasterManipulator"
 }

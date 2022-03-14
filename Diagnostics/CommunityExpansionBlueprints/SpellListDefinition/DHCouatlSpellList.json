@@ -77,8 +77,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "9c861b19-ef70-5207-b1b4-d779a6c0d1aa",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "DHCouatlSpellList"
 }

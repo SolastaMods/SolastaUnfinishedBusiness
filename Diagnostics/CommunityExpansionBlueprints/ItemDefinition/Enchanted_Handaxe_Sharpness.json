@@ -501,8 +501,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "b440ad2e-c860-5a1f-8a77-e6c40bae78be",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "Enchanted_Handaxe_Sharpness"
 }

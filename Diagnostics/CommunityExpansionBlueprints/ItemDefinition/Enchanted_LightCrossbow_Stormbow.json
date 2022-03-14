@@ -530,8 +530,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "fa95695e-7847-5952-b808-60883f3eff45",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "Enchanted_LightCrossbow_Stormbow"
 }

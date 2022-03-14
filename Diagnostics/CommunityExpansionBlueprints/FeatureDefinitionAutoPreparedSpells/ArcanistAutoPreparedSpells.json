@@ -62,8 +62,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "ef85a838-7fb5-5133-bc27-78ccbe2af98a",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ArcanistAutoPreparedSpells"
 }

@@ -35,8 +35,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "4460b2b5-13e3-51f4-abbe-a674446ab294",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "RecipePrimingPlate"
 }

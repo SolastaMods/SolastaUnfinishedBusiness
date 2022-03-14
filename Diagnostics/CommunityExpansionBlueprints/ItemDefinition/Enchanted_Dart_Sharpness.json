@@ -500,8 +500,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "b1d0205b-ea85-5ac8-a4cb-6b289f53e40a",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "Enchanted_Dart_Sharpness"
 }

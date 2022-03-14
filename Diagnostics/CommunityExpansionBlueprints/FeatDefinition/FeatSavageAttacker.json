@@ -35,8 +35,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "ba77f65b-bec8-5530-afc0-5be71abcb959",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "FeatSavageAttacker"
 }

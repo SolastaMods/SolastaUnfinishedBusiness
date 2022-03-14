@@ -27,8 +27,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "d2209a77-7ae2-5e9f-a7b1-5c7eab76e9cf",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "FeatIntIncrement"
 }

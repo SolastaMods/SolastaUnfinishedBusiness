@@ -312,8 +312,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "8d829bd7-85c7-59a9-a0e6-c27a7469c73c",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "PowerAlchemistSpellBonusRecovery"
 }

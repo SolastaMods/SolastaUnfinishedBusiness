@@ -34,8 +34,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "6bd5b9ee-5b24-570f-9ec8-adc93c73e509",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "FeyTeleportationAutoPrepMistyFighter"
 }

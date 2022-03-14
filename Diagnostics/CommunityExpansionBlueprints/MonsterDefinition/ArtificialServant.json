@@ -272,8 +272,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "TacticalAdventuresContentHidden",
+  "contentCopyright": "UserContent",
   "guid": "fce9181c-f62c-4b33-b0df-fff4fe3ceab2",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ArtificialServant"
 }

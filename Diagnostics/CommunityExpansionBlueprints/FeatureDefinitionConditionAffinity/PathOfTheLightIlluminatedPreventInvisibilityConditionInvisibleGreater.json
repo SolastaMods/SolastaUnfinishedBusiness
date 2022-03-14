@@ -30,8 +30,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "491a91f9-ed95-535a-8c74-715220691fb1",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "PathOfTheLightIlluminatedPreventInvisibilityConditionInvisibleGreater"
 }

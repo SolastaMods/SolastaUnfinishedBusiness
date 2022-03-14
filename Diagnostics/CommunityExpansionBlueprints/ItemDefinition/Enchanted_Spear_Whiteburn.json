@@ -532,8 +532,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "f3e1efb5-bda5-51db-966d-dfcd75f29ba9",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "Enchanted_Spear_Whiteburn"
 }

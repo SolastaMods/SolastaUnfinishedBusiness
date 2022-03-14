@@ -314,8 +314,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "c4a238c6-dbf1-5ecc-8afc-f6bbcc939d15",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "PowerTransmuteConstitution"
 }

@@ -138,8 +138,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "1ebd7a50-c687-53e3-b917-b3f7127d8fba",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "AlchemistResilienceElixirCondition"
 }

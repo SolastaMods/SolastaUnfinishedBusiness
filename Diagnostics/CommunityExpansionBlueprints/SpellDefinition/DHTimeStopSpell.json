@@ -311,8 +311,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "0ab6cde6-d23d-565c-8c7c-6df0006078e8",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "DHTimeStopSpell"
 }

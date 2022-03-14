@@ -27,8 +27,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "ee4d920b-23c1-54e4-b968-1370a6da457c",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "AttributeModifierDruidForestGuardianExtraAttack"
 }

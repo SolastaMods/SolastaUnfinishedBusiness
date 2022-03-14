@@ -236,8 +236,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "f3861818-e9d8-513f-aef4-48f14b0c1812",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "Enchanted_StuddedLeather_FrostWalking"
 }

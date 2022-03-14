@@ -331,8 +331,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "aa36ab1b-1080-5340-910f-4a4a59a5012b",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "DHReverseGravitySpell"
 }

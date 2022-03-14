@@ -35,8 +35,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "4ef552f9-17ca-5956-84c4-828466e3fb90",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "FeatLightArmor"
 }

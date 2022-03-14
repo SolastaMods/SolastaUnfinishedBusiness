@@ -500,8 +500,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "ac3dbe10-c420-5ecf-9f52-21479701812f",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "Enchanted_Javelin_Sharpness"
 }

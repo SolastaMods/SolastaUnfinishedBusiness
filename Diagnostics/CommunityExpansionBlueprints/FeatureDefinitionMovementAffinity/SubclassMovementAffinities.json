@@ -40,8 +40,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "14ef799a-edc6-4749-866b-9a6afc26d4fa",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "SubclassMovementAffinities"
 }

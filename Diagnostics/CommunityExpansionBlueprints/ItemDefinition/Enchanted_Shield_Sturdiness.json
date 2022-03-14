@@ -217,8 +217,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContentModified",
+  "contentCopyright": "UserContent",
   "guid": "71f1b3a5-0e02-5b9c-971c-29cd05d2f709",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "Enchanted_Shield_Sturdiness"
 }

@@ -33,8 +33,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "50c91d16-1a84-494a-ba72-dd4879955f2f",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ArtilleryConstructlevel15FeatureSet"
 }

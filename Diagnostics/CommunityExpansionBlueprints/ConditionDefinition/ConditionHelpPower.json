@@ -239,8 +239,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContentModified",
+  "contentCopyright": "UserContent",
   "guid": "cbc0e166-7927-5321-9fff-f78c8d7d7e0d",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ConditionHelpPower"
 }

@@ -117,8 +117,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "4240bb3c-8a2d-5ab9-bd2d-c8fc7d79ded5",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "AdditionalDamageArcanistMark"
 }

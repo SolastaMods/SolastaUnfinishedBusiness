@@ -31,8 +31,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "ac0f43fd-914a-507e-8048-59a63a1f913e",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "WitchFeatureSetRitualCasting"
 }

@@ -48,8 +48,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "6a478a0c-16bd-5723-a033-569bc6f51b65",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "FeatShadowTouchedWis"
 }

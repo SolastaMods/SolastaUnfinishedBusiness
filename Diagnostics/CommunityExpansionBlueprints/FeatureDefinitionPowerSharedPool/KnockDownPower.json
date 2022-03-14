@@ -340,8 +340,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "90dd5e81-40d7-4824-89b4-45bcf4c05218",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "KnockDownPower"
 }

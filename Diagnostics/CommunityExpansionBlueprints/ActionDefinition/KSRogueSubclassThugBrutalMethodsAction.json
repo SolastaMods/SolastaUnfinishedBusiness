@@ -68,8 +68,8 @@
     "sortOrder": 30,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContentModified",
+  "contentCopyright": "UserContent",
   "guid": "4887ed85-b6fb-5542-9f1b-79a279736a86",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "KSRogueSubclassThugBrutalMethodsAction"
 }

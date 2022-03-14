@@ -35,8 +35,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "0ee945bf-a1fb-53d5-83d1-7ecec61f8272",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "RecipePrimingGreatsword"
 }

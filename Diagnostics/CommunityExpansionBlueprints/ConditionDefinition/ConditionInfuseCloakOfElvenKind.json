@@ -137,8 +137,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "c5489c27-218a-583d-a676-8c0ccd636ed6",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ConditionInfuseCloakOfElvenKind"
 }
