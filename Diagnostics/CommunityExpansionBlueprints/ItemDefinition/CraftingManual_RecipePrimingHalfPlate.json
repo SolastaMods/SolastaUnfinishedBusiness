@@ -221,8 +221,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "faab1dba-9c84-5ec2-9954-1152b4a34a45",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "CraftingManual_RecipePrimingHalfPlate"
 }

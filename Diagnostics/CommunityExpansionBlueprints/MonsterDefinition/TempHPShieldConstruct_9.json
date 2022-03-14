@@ -211,8 +211,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContentModified",
+  "contentCopyright": "UserContent",
   "guid": "75f8541a-65c3-4226-9c42-a80dd76b04cd",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "TempHPShieldConstruct_9"
 }

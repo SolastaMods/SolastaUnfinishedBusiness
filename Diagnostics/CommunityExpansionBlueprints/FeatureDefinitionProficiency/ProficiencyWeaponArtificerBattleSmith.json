@@ -27,8 +27,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "2dfc30c6-e1d5-5dfc-bdd5-38a874762850",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ProficiencyWeaponArtificerBattleSmith"
 }

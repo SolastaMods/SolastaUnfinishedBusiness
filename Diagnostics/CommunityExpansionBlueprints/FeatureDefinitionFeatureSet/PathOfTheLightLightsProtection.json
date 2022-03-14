@@ -30,8 +30,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "d9ff8401-7b25-5e78-8bdb-1b6c0ee3fa51",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "PathOfTheLightLightsProtection"
 }

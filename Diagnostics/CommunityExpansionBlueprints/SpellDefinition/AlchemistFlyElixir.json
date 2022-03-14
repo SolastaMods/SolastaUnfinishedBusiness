@@ -321,8 +321,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "d5484ca8-7cb5-5ef8-9c68-024346d83f26",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "AlchemistFlyElixir"
 }

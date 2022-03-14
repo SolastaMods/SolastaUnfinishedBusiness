@@ -221,8 +221,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "8e2e2475-28e9-5ab6-934b-fcce2891cc56",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "CraftingManual_RecipePrimingMorningstar"
 }

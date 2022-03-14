@@ -34,8 +34,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "bfe25d15-aeb0-55b8-9768-d1f2d0d6c91d",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "FeatFightingStyleTwoWeapon"
 }

@@ -138,8 +138,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "57b6a0d6-5505-5fd7-9348-1a88d4c1cba4",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ConditionInfuseBracesrOfArchery"
 }

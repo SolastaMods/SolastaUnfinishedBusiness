@@ -34,8 +34,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "9678de01-8f42-5b66-b014-84deec4d177a",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "FeatFightingStyleGreatWeapon"
 }

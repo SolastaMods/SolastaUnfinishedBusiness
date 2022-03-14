@@ -312,8 +312,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "167cf9ce-de8f-5e22-8652-39cb247dad4f",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "PowerSpellMasterBonusRecovery"
 }

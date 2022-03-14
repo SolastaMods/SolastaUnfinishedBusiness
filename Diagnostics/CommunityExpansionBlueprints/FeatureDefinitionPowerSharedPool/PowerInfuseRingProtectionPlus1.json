@@ -314,8 +314,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "f43fdc59-0b1a-5d49-94a3-46d9c670d2d5",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "PowerInfuseRingProtectionPlus1"
 }

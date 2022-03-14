@@ -68,8 +68,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "6c19f349-ca91-5bbf-967b-f0ac74cab6a6",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "AdditionalDamageRadiantWeapon"
 }

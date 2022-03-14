@@ -34,8 +34,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "9476f170-0f88-5c05-b62d-9df90ee9b951",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "FeyTeleportationAutoPrepMistyPaladin"
 }

@@ -56,8 +56,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "781e7978-cae9-51b0-9d07-44b249c19ac6",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ArcaneFighter"
 }

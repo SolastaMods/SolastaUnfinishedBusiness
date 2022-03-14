@@ -437,8 +437,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "b30b1971-6ad6-4ea2-af5b-998043415f04",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ForceArtilleryProjectile"
 }

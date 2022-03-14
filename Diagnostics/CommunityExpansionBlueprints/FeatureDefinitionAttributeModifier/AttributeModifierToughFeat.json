@@ -27,8 +27,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "b9e60c25-e3d1-5c77-ac00-7afdccad09d9",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "AttributeModifierToughFeat"
 }

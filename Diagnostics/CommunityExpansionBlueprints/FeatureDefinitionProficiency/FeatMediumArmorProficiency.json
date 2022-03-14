@@ -28,8 +28,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "db8a30f1-72a3-55ae-b8dd-ff9aa8a21f1c",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "FeatMediumArmorProficiency"
 }

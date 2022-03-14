@@ -324,8 +324,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContentModified",
+  "contentCopyright": "UserContent",
   "guid": "c584b73c-9fa8-453f-90ad-944b8d1b5b05",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "SummonForceArtilleryConstruct"
 }

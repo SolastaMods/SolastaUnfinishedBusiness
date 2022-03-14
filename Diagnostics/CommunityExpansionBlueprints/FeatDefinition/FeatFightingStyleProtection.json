@@ -34,8 +34,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "e71cd0dd-0ad1-56a0-bb8d-d32d59f5700a",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "FeatFightingStyleProtection"
 }

@@ -75,8 +75,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "af0d6b9d-6b6c-562e-a515-ced5b24ab1c2",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "MagicAffinityControlHeightened"
 }

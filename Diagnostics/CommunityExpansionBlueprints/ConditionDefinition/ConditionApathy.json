@@ -241,8 +241,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContentModified",
+  "contentCopyright": "UserContent",
   "guid": "04423dbb-9940-5f93-8475-717645b130a9",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ConditionApathy"
 }

@@ -27,8 +27,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "1ac54869-a8ce-4a51-a858-1f7e34680b96",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "CraftyMedicine"
 }

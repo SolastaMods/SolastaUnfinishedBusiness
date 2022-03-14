@@ -62,8 +62,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "e309fa24-5044-55dd-89f1-420adc5b30ca",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "MagicAffinityRoguishConArtistDC"
 }

@@ -47,8 +47,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "7031c704-d9c6-5b05-8c50-b21a9420e070",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "FeatFeyTeleportationCha"
 }

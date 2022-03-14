@@ -27,8 +27,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "623b9915-7fa4-596b-bbdb-387a7cb9bf3d",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "FeatChefConIncrement"
 }

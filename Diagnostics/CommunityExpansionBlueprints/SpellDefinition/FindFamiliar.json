@@ -324,8 +324,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContentModified",
+  "contentCopyright": "UserContent",
   "guid": "7c7a9c9f-2fda-5acc-acb7-eebfb2b4e064",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "FindFamiliar"
 }

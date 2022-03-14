@@ -530,8 +530,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "51a7cb5f-9aa8-52b0-8a45-b3d2f6328060",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "Enchanted_Dart_Souldrinker"
 }

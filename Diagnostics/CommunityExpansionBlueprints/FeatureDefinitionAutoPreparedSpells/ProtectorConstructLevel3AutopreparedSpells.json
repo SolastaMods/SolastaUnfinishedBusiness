@@ -67,8 +67,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContentModified",
+  "contentCopyright": "UserContent",
   "guid": "25403813-58eb-47f4-b5ee-b7956cc02ccf",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ProtectorConstructLevel3AutopreparedSpells"
 }

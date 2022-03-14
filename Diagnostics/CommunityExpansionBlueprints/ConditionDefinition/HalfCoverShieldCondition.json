@@ -237,8 +237,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "TacticalAdventuresContent",
+  "contentCopyright": "UserContent",
   "guid": "c160a20e-4714-478a-8bbb-6df5526728a9",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "HalfCoverShieldCondition"
 }

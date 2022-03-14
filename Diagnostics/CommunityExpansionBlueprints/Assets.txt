@@ -91,6 +91,7 @@ SuperiorBarkWard	ConditionDefinition	ConditionDefinition	8f1e0ae3-208d-5562-8b88
 ThunderStruck	ConditionDefinition	ConditionDefinition	63e2091c-4186-43d5-a099-7c8ca97224d6
 ThunderStruckBalancingAdvantage	ConditionDefinition	ConditionDefinition	0b2b4bee-21b0-46c7-9504-1374bd226cb0
 TinkererFlashOfGeniusCondition	ConditionDefinition	ConditionDefinition	6ef5eb28-632b-5842-b751-c977426bc2ef
+CommunityExpansionPack	ContentPackDefinition	ContentPackDefinition	b8ad2866-708d-51d8-bbf0-924337a11207
 ProxyPetalStorm	EffectProxyDefinition	EffectProxyDefinition	b3fceeec-0b05-5485-b388-65b1af31a5f8
 ProxyProtectThreshold	EffectProxyDefinition	EffectProxyDefinition	0dc8c753-f57f-5d96-a479-bc34b9ea7ee7
 ApothecaryInt	FeatDefinition	FeatDefinition	ef387249-45e0-4899-aadd-44810f8aeb6d

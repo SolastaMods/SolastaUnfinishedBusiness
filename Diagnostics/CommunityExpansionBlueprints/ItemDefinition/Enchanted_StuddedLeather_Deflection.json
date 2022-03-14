@@ -236,8 +236,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "127bec6b-26d8-54fb-b272-762e794d9d9a",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "Enchanted_StuddedLeather_Deflection"
 }

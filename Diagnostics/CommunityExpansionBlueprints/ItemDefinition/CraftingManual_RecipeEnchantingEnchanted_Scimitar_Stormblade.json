@@ -221,8 +221,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "4b751398-7f4d-5569-8f49-519cfb7da627",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingEnchanted_Scimitar_Stormblade"
 }

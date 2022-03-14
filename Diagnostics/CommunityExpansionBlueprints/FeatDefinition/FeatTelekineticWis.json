@@ -36,8 +36,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "d96de6eb-65fe-5f9c-9360-50a926d698fe",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "FeatTelekineticWis"
 }

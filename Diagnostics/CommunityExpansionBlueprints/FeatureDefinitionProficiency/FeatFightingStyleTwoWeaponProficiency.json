@@ -27,8 +27,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "880a6b75-8657-5b28-9cb3-3556eb9f73df",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "FeatFightingStyleTwoWeaponProficiency"
 }

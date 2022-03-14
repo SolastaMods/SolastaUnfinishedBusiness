@@ -221,8 +221,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "8f9f79a1-f9d4-5c19-93c8-06d1696437e9",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingEnchanted_Javelin_Frostburn"
 }

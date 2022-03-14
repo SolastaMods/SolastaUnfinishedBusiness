@@ -239,8 +239,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContentModified",
+  "contentCopyright": "UserContent",
   "guid": "00927056-4bb0-51dc-8cad-65c3e17275b2",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ConditionAbate"
 }

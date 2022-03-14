@@ -27,8 +27,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "1794c14b-322c-560a-a025-d3e34d2cd58b",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "FeatWisIncrement"
 }

@@ -36,8 +36,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "946ce523-a0af-533b-98e6-adcd5b029192",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "FeatHeavyArmorMasterClass"
 }

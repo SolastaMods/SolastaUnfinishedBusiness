@@ -374,8 +374,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "dad5a3f6-3b44-4476-85fc-d5235b9ad9cd",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ProtectorConstructAttacks"
 }

@@ -324,8 +324,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContentModified",
+  "contentCopyright": "UserContent",
   "guid": "68aba04a-07c5-4b83-bda7-db08cec2dec8",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "SummonFlameArtilleryConstruct_15"
 }

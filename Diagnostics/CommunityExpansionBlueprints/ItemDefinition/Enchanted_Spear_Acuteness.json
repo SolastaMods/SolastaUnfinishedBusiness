@@ -502,8 +502,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "565dd6d3-7f65-58f9-ad51-ab131a79fc95",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "Enchanted_Spear_Acuteness"
 }

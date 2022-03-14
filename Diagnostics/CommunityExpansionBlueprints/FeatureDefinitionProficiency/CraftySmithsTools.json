@@ -27,8 +27,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "48905450-4b35-480f-9868-f340c7902920",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "CraftySmithsTools"
 }

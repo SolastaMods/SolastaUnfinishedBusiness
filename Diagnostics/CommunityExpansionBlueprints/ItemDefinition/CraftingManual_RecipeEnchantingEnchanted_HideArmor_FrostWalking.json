@@ -221,8 +221,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "a08ec240-38ae-5848-ba7a-a156fc2509c2",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "CraftingManual_RecipeEnchantingEnchanted_HideArmor_FrostWalking"
 }

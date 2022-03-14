@@ -236,8 +236,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "b4f0d32b-353f-5138-99cf-c1c17af7c7ae",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "Enchanted_StuddedLeather_Survival"
 }

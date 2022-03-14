@@ -27,8 +27,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "66525b26-9796-563b-9896-ec7d61d38526",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "FeatChefWisIncrement"
 }

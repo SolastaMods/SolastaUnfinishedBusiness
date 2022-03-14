@@ -40,8 +40,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "16295d42-aa3c-56cc-bbe3-8aa284b380c0",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "RecipeEnchantingEnchanted_Warhammer_Bearclaw"
 }

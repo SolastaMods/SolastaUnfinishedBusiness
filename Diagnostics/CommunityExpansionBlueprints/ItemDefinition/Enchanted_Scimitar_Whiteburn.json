@@ -531,8 +531,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "72ac0c50-e6ec-50b5-8c5e-4de435a7e3f2",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "Enchanted_Scimitar_Whiteburn"
 }

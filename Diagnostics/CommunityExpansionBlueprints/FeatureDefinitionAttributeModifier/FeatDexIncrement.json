@@ -27,8 +27,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "820204d3-28c7-5073-b88e-cb1bead386b0",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "FeatDexIncrement"
 }

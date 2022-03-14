@@ -40,8 +40,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "80902853-1035-52a4-b6e0-ad81ac16e571",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "RecipeEnchantingEnchanted_StuddedLeather_FrostWalking"
 }

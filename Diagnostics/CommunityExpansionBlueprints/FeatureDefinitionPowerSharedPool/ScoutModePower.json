@@ -357,8 +357,8 @@
     "sortOrder": 1,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "ff6b9eb1-01ad-4100-ab12-7d6dc38ccc70",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ScoutModePower"
 }

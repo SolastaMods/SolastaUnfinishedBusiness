@@ -394,8 +394,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "ee8d355e-db32-5d06-aa6a-cd1ef06926b7",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ProtectThreshold"
 }

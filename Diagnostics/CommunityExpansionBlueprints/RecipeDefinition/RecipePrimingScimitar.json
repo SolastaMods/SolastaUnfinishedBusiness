@@ -35,8 +35,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "13753606-9cae-5b6f-8a92-c9322952e24e",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "RecipePrimingScimitar"
 }

@@ -34,8 +34,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "a4e13108-4b9d-5f73-96da-9340d0fba050",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "FeyTeleportationAutoPrepMistyClassWitch"
 }

@@ -531,8 +531,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "17833c32-55a2-5c3c-98aa-1034cd281d6d",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "Enchanted_Scimitar_Stormblade"
 }

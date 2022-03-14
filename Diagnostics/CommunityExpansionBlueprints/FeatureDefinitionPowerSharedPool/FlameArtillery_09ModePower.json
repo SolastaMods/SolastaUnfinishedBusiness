@@ -317,8 +317,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "d841a2aa-efc0-4ccc-b50a-ed0d8e4d68e1",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "FlameArtillery_09ModePower"
 }

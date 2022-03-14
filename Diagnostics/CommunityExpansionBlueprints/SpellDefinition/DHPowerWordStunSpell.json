@@ -311,8 +311,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "93a6661d-3f8e-51f6-aa6b-4d23f1e22b48",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "DHPowerWordStunSpell"
 }

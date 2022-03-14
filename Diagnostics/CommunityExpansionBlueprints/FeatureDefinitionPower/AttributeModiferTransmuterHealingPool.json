@@ -174,8 +174,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "05db2be3-bf2e-5443-92f7-a15b4241dc02",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "AttributeModiferTransmuterHealingPool"
 }

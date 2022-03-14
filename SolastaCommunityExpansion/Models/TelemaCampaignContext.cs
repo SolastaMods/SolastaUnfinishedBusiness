@@ -20,7 +20,7 @@ namespace SolastaCommunityExpansion.Models
 
             private static CampaignDefinition CreateAndAddToDB(string name, string guid)
             {
-                return new TelemaCampaignUnleashedBuilder(name, guid).AddToDB();
+                return new TelemaCampaignUnleashedBuilder(name, guid).AddToDB(true, null, null);
             }
 
             public static readonly CampaignDefinition TelemaDemoUnleashed = CreateAndAddToDB(TelemaDemoUnleashedName, TelemaDemoUnleashedGuid);

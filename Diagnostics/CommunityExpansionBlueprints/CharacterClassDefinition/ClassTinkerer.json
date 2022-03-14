@@ -405,8 +405,8 @@
     "sortOrder": 1,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "0bd993c5-be32-535c-96b5-70db46ed2ca8",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ClassTinkerer"
 }

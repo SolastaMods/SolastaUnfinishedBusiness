@@ -27,8 +27,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "9869843a-9947-506b-b1cb-2d63424e2481",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ProficiencyWeaponTinkerer"
 }

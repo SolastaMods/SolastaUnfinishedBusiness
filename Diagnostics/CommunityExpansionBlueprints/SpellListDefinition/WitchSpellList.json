@@ -166,8 +166,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "2c02f236-7ebc-5063-84ac-0ea562968319",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "WitchSpellList"
 }

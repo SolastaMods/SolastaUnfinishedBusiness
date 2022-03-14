@@ -174,8 +174,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "97e8a72f-7e4e-592b-abd0-8bb58456de9c",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "AttributeModiferArtificerBattleSmithInfusionHealingPool"
 }

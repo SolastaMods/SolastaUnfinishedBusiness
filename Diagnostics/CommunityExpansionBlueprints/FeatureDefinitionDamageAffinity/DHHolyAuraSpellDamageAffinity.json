@@ -43,8 +43,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "c83aceae-e4c4-4a9c-a83d-58ffebe92007",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "DHHolyAuraSpellDamageAffinity"
 }

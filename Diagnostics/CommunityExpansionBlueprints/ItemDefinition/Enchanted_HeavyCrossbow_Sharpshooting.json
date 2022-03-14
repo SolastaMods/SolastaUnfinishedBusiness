@@ -501,8 +501,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "f5c9a4f0-6c63-572f-b2ce-92c3c2b41f2b",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "Enchanted_HeavyCrossbow_Sharpshooting"
 }

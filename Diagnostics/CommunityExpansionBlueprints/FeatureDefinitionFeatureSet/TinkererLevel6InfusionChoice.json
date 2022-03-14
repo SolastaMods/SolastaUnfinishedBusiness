@@ -42,8 +42,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "3e8ad160-b206-5d8b-992c-74e2c52edc49",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "TinkererLevel6InfusionChoice"
 }

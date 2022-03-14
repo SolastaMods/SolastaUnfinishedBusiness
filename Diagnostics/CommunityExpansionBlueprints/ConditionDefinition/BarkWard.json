@@ -235,8 +235,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContentModified",
+  "contentCopyright": "UserContent",
   "guid": "2d27674c-26d3-5d01-b35b-8595f0f7eb52",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "BarkWard"
 }

@@ -327,8 +327,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContentModified",
+  "contentCopyright": "UserContent",
   "guid": "0db30b08-c8f6-5dd7-a248-eb9cae787a17",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "EldritchOrb"
 }

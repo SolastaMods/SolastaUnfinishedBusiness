@@ -34,8 +34,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "d847d40b-d55c-5841-95ff-b09e1f5b1975",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ArtificerArtillerstDetonationSpellPrepared"
 }

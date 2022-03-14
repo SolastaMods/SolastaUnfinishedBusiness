@@ -35,8 +35,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "f6190176-ad98-5cee-b476-e0a7a9c15078",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "RecipePrimingMace"
 }

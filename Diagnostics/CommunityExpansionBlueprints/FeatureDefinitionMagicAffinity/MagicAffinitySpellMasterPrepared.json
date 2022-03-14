@@ -62,8 +62,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "7364c3f5-399d-561b-ab0a-8599385f3876",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "MagicAffinitySpellMasterPrepared"
 }

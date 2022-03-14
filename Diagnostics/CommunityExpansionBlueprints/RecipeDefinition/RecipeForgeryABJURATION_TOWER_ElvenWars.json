@@ -35,8 +35,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "757b8255-fae6-53c3-b480-1894f9ce5e6c",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "RecipeForgeryABJURATION_TOWER_ElvenWars"
 }

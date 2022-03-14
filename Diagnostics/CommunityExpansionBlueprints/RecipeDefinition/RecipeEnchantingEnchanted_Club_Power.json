@@ -40,8 +40,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "5582cb73-47b9-5ecd-a493-5c09e3b9fa3c",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "RecipeEnchantingEnchanted_Club_Power"
 }

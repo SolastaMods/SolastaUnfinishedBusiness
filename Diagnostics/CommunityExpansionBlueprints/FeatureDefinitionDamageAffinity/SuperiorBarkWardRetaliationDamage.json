@@ -43,8 +43,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "0d2a60bf-1b4c-5ad9-8c22-a732541f29c4",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "SuperiorBarkWardRetaliationDamage"
 }

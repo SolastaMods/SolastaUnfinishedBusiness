@@ -26,8 +26,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "de391321-0c71-520d-8a0a-f939c0f78b3a",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "PointPool4BonusFeats"
 }

@@ -137,8 +137,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "326a8383-d424-5f8a-9193-9d218a4e2227",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ArtificerImprovedInfusedFocus"
 }

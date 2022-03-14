@@ -317,8 +317,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "d321d6f8-079e-58b9-b921-99a38fbf54bc",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "summonArtificialServantPower"
 }

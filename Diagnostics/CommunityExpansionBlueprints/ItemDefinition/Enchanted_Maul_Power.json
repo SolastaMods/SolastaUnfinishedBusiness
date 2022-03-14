@@ -507,8 +507,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "e6bdf2e3-7c18-5a8d-9966-16c111ed2c2c",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "Enchanted_Maul_Power"
 }

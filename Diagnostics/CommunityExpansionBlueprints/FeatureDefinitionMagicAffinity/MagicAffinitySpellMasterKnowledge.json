@@ -62,8 +62,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "a7b6b1bb-68f5-5a65-aae8-3e8466d2d271",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "MagicAffinitySpellMasterKnowledge"
 }

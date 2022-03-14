@@ -47,8 +47,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "87286627-3e62-459d-8781-ceac1c3462e6",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "PowerAttackAttackModifier"
 }

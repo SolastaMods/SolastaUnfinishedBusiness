@@ -250,8 +250,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContentModified",
+  "contentCopyright": "UserContent",
   "guid": "c6f711d8-9b83-497f-8e90-6440776cf644",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ProtectorConstruct_Upgrade"
 }

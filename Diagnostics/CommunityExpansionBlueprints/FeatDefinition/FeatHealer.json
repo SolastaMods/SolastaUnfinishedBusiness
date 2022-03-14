@@ -37,8 +37,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "a8641fac-c059-54fa-aaaf-b8bcac89e267",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "FeatHealer"
 }

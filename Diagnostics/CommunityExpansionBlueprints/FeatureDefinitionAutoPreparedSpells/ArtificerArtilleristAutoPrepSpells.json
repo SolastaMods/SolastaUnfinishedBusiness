@@ -67,8 +67,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "daf30a35-d9ee-5419-b5a4-21a568d7bfc6",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ArtificerArtilleristAutoPrepSpells"
 }

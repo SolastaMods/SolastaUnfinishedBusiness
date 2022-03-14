@@ -162,8 +162,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "b2ea8a6c-cac0-5ba3-af0a-735ed8fcd8ee",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "SpellShieldSpellResistance"
 }

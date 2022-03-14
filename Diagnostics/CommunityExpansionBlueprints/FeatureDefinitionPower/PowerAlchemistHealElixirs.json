@@ -358,8 +358,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "f01c6a22-bfd0-5cbe-b338-4ce1e1e6294c",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "PowerAlchemistHealElixirs"
 }

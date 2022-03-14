@@ -530,8 +530,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "6b7f5419-aa96-54a0-8122-cc9b76e29f79",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "Enchanted_LightCrossbow_Medusa"
 }

@@ -505,8 +505,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "6c703444-b83e-529e-8e0f-e15a450e1f04",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "Enchanted_Quarterstaff_Acuteness"
 }

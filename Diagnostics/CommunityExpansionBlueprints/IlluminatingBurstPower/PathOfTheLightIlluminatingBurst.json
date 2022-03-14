@@ -389,8 +389,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "afeb14b1-308c-56e6-9680-5942aca31ee5",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "PathOfTheLightIlluminatingBurst"
 }

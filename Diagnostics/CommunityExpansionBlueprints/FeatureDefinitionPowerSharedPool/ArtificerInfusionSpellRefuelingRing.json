@@ -312,8 +312,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "11db5224-48f2-58ad-bc8f-028b6ad08cd3",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ArtificerInfusionSpellRefuelingRing"
 }

@@ -326,8 +326,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "c6cf9af7-960e-55f8-bc35-95fc08ce1ec3",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "PowerManipulatorDominatePerson"
 }

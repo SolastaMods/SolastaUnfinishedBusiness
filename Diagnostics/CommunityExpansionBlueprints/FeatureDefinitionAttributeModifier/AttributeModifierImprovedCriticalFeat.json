@@ -27,8 +27,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "ac76c410-bc5f-5d8c-9eb4-f82b470b8862",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "AttributeModifierImprovedCriticalFeat"
 }

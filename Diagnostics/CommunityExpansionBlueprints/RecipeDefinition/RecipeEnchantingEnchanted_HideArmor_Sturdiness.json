@@ -40,8 +40,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "454349d4-53db-5214-9907-ca44b5300fed",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "RecipeEnchantingEnchanted_HideArmor_Sturdiness"
 }

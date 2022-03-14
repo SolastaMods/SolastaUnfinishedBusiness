@@ -314,8 +314,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "f53945c2-dfa4-53a4-844e-a46c0dc04659",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "WitchMaledictionPox"
 }

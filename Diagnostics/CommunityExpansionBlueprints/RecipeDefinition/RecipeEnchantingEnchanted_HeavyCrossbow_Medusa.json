@@ -40,8 +40,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "677f2e74-dc2e-5bef-a559-41129446aed6",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "RecipeEnchantingEnchanted_HeavyCrossbow_Medusa"
 }

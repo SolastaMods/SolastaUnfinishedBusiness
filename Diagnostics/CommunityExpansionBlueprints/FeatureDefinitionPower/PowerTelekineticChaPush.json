@@ -310,8 +310,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "c421d0a5-6f51-5513-a173-cf8d6575c416",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "PowerTelekineticChaPush"
 }

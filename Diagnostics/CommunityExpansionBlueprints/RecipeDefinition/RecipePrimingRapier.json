@@ -35,8 +35,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "d3f76fa2-f030-5df5-8a00-759cded57fc0",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "RecipePrimingRapier"
 }

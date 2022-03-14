@@ -327,8 +327,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "a4f82831-ebed-5da7-9042-822a20b76ce7",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "PowerTransmuteHeal"
 }

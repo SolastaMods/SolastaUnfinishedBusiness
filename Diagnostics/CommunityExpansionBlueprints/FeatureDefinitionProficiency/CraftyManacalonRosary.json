@@ -27,8 +27,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "0685a944-76cd-423a-81a1-9ceec507d69a",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "CraftyManacalonRosary"
 }

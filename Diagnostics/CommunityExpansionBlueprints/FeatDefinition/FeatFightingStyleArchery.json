@@ -34,8 +34,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "66b04bb8-2ce7-5d73-aaf9-184bac8dacd7",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "FeatFightingStyleArchery"
 }

@@ -27,8 +27,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "90578516-004f-5fed-be23-24a2b8656621",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "FeatStrengthIncrement"
 }

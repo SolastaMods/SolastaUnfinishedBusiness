@@ -327,8 +327,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "b01c40ca-685a-4d5d-9ee4-ed47d39cb5b9",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "ForceArtilleryModePower"
 }

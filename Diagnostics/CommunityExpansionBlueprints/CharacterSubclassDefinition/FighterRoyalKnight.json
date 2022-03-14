@@ -41,8 +41,8 @@
     "sortOrder": 0,
     "unusedInSolastaCOTM": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "fd064807-2040-5f01-b407-0414ca005ebc",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "FighterRoyalKnight"
 }
