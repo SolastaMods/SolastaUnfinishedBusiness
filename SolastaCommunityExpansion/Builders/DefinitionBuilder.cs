@@ -342,10 +342,25 @@ namespace SolastaCommunityExpansion.Builders
         /// <summary>
         /// Add the TDefinition to every compatible database
         /// </summary>
+        /// <remarks>
+        /// By default AddToDB will set the copyright to 'User Content' and the content pack to 'Community Expansion'.
+        /// To set your own values use the AddToDB(true|false, copyright, contentpack) overload.
+        /// </remarks>
         /// <param name="assertIfDuplicate"></param>
         /// <returns></returns>
         /// <exception cref="SolastaModApiException"></exception>
         public TDefinition AddToDB(bool assertIfDuplicate = true)
+        {
+            return AddToDB(assertIfDuplicate, BaseDefinition.Copyright.UserContent, CeContentPackContext.CeContentPack);
+        }
+
+        /// <summary>
+        /// Add the TDefinition to every compatible database
+        /// </summary>
+        /// <param name="assertIfDuplicate"></param>
+        /// <returns></returns>
+        /// <exception cref="SolastaModApiException"></exception>
+        public TDefinition AddToDB(bool assertIfDuplicate, BaseDefinition.Copyright? copyright, GamingPlatformDefinitions.ContentPack? contentPack)
         {
             Preconditions.IsNotNull(Definition, nameof(Definition));
             Preconditions.IsNotNullOrWhiteSpace(Definition.Name, nameof(Definition.Name));
@@ -358,8 +373,15 @@ namespace SolastaCommunityExpansion.Builders
 
             VerifyGuiPresentation();
 
-            Definition.SetField("contentCopyright", BaseDefinition.Copyright.UserContent);
-            Definition.SetField("contentPack", CeContentPackContext.CeContentPack);
+            if (copyright.HasValue)
+            {
+                Definition.SetField("contentCopyright", copyright.Value);
+            }
+
+            if (contentPack.HasValue)
+            {
+                Definition.SetField("contentPack", contentPack);
+            }
 
             // Get all base types for the target definition.  The definition needs to be added to all matching databases.
             // e.g. ConditionAffinityBlindnessImmunity is added to dbs: FeatureDefinitionConditionAffinity, FeatureDefinitionAffinity, FeatureDefinition
