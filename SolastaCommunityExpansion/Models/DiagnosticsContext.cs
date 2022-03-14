@@ -34,7 +34,7 @@ namespace SolastaCommunityExpansion.Models
 
         private static string GetDiagnosticsFolder()
         {
-            var path = Path.Combine(ProjectFolder ?? GAME_FOLDER, @"SolastaCommunityExpansion\Diagnostics");
+            var path = Path.Combine(ProjectFolder ?? GAME_FOLDER, @"Diagnostics");
 
             EnsureFolderExists(path);
 
