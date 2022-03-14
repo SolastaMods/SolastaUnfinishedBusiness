@@ -143,14 +143,14 @@ namespace SolastaCommunityExpansion.Builders.Features
 
     public class FeatureDefinitionAdditionalDamageBuilder : FeatureDefinitionAdditionalDamageBuilder<FeatureDefinitionAdditionalDamage, FeatureDefinitionAdditionalDamageBuilder>
     {
-        // TODO: remove this ctor (replace with smaller methods)
-        public FeatureDefinitionAdditionalDamageBuilder(string name, string guid,
+        // Can we give this a specific name? ConfigureXXX.
+        // Or move into ArcaneFighter.
+        public FeatureDefinitionAdditionalDamageBuilder Configure(
             string notificationTag, RuleDefinitions.FeatureLimitedUsage limitedUsage,
             RuleDefinitions.AdditionalDamageValueDetermination damageValueDetermination,
             RuleDefinitions.AdditionalDamageTriggerCondition triggerCondition, RuleDefinitions.AdditionalDamageRequiredProperty requiredProperty,
             bool attackModeOnly, RuleDefinitions.DieType damageDieType, int damageDiceNumber, RuleDefinitions.AdditionalDamageType additionalDamageType,
-            string specificDamageType, RuleDefinitions.AdditionalDamageAdvancement damageAdvancement, List<DiceByRank> diceByRankTable,
-            GuiPresentation guiPresentation) : base(name, guid)
+            string specificDamageType, RuleDefinitions.AdditionalDamageAdvancement damageAdvancement, List<DiceByRank> diceByRankTable)
         {
             Definition.SetNotificationTag(notificationTag);
             Definition.SetLimitedUsage(limitedUsage);
@@ -168,7 +168,8 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetDamageAdvancement(damageAdvancement);
             Definition.DiceByRankTable.SetRange(diceByRankTable);
             Definition.SetDamageDieType(damageDieType);
-            Definition.SetGuiPresentation(guiPresentation);
+
+            return This();
         }
 
         #region Constructors

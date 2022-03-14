@@ -176,6 +176,18 @@ namespace SolastaCommunityExpansion.Builders.Features
             return This();
         }
 
+        public TBuilder SetAbilityScore(string abilityScoreName)
+        {
+            Definition.SetAbilityScore(abilityScoreName);
+            return This();
+        }
+
+        public TBuilder SetUsesAbilityScoreName(string abilityScoreName)
+        {
+            Definition.SetUsesAbilityScoreName(abilityScoreName);
+            return This();
+        }
+
         public TBuilder SetUsesAbility(int fixedUses, string attribute)
         {
             Definition.SetFixedUsesPerRecharge(fixedUses);
