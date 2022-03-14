@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
+using static SpellListDefinition;
 
 namespace SolastaCommunityExpansion.Builders
 {
@@ -49,14 +50,29 @@ namespace SolastaCommunityExpansion.Builders
             return SetSpellsByLevel(level, spellsByLevel.AsEnumerable());
         }
 
-        public SpellListDefinitionBuilder SetSpellsByLevel(int level, IEnumerable<SpellDefinition> spellsByLevel)
+        public SpellListDefinitionBuilder SetSpellsByLevel(int level, IEnumerable<SpellDefinition> spells)
         {
-            if (level >= Definition.SpellsByLevel.Count)
+            if (level > 9 || level < 0)
             {
                 throw new ArgumentException($"Spell level {level} is not supported.");
             }
 
-            Definition.SpellsByLevel[level].Spells.SetRange(spellsByLevel.Where(s => s.Implemented));
+            var spellsByLevel = Definition.SpellsByLevel;
+
+            for (int i = 0; i <= level; i++)
+            {
+                if (i >= spellsByLevel.Count)
+                {
+                    spellsByLevel.Add(new SpellsByLevelDuplet { Level = level });
+                }
+                else if (spellsByLevel[i] == null)
+                {
+                    spellsByLevel[i] = new SpellsByLevelDuplet { Level = level };
+                }
+            }
+
+            spellsByLevel[level].Spells ??= new();
+            spellsByLevel[level].Spells.SetRange(spells.Where(s => s.Implemented));
 
             return this;
         }
