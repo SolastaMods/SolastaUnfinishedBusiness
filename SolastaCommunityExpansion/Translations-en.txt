@@ -1130,7 +1130,7 @@ Subclass/&PowerTransmuteConstitutionTitle	Constitution Saves
 Subclass/&PowerTransmuteDarkvisionDescription	Use your Transmute Force to grant Superior Darkvision until the next long rest.
 Subclass/&PowerTransmuteDarkvisionTitle	Superior Darkvision
 Subclass/&PowerTransmuteElementalResistanceDescription	Use your Transmute Force to grant resistance to Acid, Cold, Fire, Lightning, Necrotic, Thunder, and Poison until the next long rest.
-Subclass/&PowerTransmuteElemnetalResistanceTitle	Elemental Resistance
+Subclass/&PowerTransmuteElementalResistanceTitle	Elemental Resistance
 Subclass/&PowerTransmuteFlyDescription	Use your Transmute Force to grant the ability of flight.
 Subclass/&PowerTransmuteFlyTitle	Fly
 Subclass/&PowerTransmuteHealDescription	Use your Transmute Force to heal up to 6 targets.

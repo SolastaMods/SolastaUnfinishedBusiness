@@ -1,4 +1,5 @@
-﻿using SolastaCommunityExpansion.Builders;
+﻿using System;
+using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi.Extensions;
 
@@ -14,20 +15,12 @@ namespace SolastaCommunityExpansion.Builders.Features
             RuleDefinitions.UsesDetermination usesDetermination, string usesAbilityScoreName,
             RuleDefinitions.RechargeRate recharge, GuiPresentation guiPresentation) : base(name, guid)
         {
-            Definition.SetFixedUsesPerRecharge(usesPerRecharge);
-            Definition.SetUsesDetermination(usesDetermination);
-            Definition.SetUsesAbilityScoreName(usesAbilityScoreName);
-            // This is just an activation time that won't allow activation in the UI.
-            Definition.SetActivationTime(RuleDefinitions.ActivationTime.Permanent);
-            // Math for usage gets weird if this isn't 1.
-            Definition.SetCostPerUse(1);
-            Definition.SetRechargeRate(recharge);
-            // The game throws an exception if there is no effect description.
-            Definition.SetEffectDescription(new EffectDescription());
-            Definition.SetOverriddenPower(Definition);
+            Configure(usesPerRecharge, usesDetermination, usesAbilityScoreName, recharge);
+
             Definition.SetGuiPresentation(guiPresentation);
         }
 
+        // TODO: move this to FeatureDefinitionPowerBuilder as ConfigurePowerPool()?
         public FeatureDefinitionPowerPoolBuilder Configure(int usesPerRecharge,
             RuleDefinitions.UsesDetermination usesDetermination, string usesAbilityScoreName,
             RuleDefinitions.RechargeRate recharge)
@@ -46,54 +39,36 @@ namespace SolastaCommunityExpansion.Builders.Features
 
             return This();
         }
-    }
 
-    /**
-     * Note this is based on FeatureDefinitionPower so that you can take advantage of power usage calculations
-     * like proficiency or ability score usage. However in order to do that the game needs to add a power to
-     * the hero and only one power for a given name+guid is added. Which means if you want to add a +1 modifier
-     * at 4 different character levels you need to create 4 different FeatureDefinitionPowerPoolModifier.
-     */
-    public class FeatureDefinitionPowerPoolModifierBuilder : FeatureDefinitionPowerBuilder<FeatureDefinitionPowerPoolModifier, FeatureDefinitionPowerPoolModifierBuilder>
-    {
-        public FeatureDefinitionPowerPoolModifierBuilder(string name, string guid,
-            int powerPoolModifier, RuleDefinitions.UsesDetermination usesDetermination,
-            string usesAbilityScoreName, FeatureDefinitionPower poolPower, GuiPresentation guiPresentation) : base(name, guid)
+        #region Constructors
+        public FeatureDefinitionPowerPoolBuilder(FeatureDefinitionPower original) : base(original)
         {
-            Definition.SetFixedUsesPerRecharge(powerPoolModifier);
-            Definition.SetUsesDetermination(usesDetermination);
-            Definition.SetUsesAbilityScoreName(usesAbilityScoreName);
-            // This is just an activation time that should not be shown in the UI.
-            Definition.SetActivationTime(RuleDefinitions.ActivationTime.Permanent);
-            // Math for usage gets weird if this isn't 1.
-            Definition.SetCostPerUse(1);
-            // The game throws an exception if there is no effect description.
-            Definition.SetEffectDescription(new EffectDescription());
-            Definition.SetOverriddenPower(Definition);
-            Definition.SetGuiPresentation(guiPresentation);
-
-            Definition.PoolPower = poolPower;
         }
 
-        public FeatureDefinitionPowerPoolModifierBuilder Configure(
-            int powerPoolModifier, RuleDefinitions.UsesDetermination usesDetermination,
-            string usesAbilityScoreName, FeatureDefinitionPower poolPower) 
+        public FeatureDefinitionPowerPoolBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
-            Definition.SetFixedUsesPerRecharge(powerPoolModifier);
-            Definition.SetUsesDetermination(usesDetermination);
-            Definition.SetUsesAbilityScoreName(usesAbilityScoreName);
-            // This is just an activation time that should not be shown in the UI.
-            Definition.SetActivationTime(RuleDefinitions.ActivationTime.Permanent);
-            // Math for usage gets weird if this isn't 1.
-            Definition.SetCostPerUse(1);
-            // The game throws an exception if there is no effect description.
-            Definition.SetEffectDescription(new EffectDescription());
-            Definition.SetOverriddenPower(Definition);
-
-            Definition.PoolPower = poolPower;
-
-            return This();
         }
+
+        public FeatureDefinitionPowerPoolBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        public FeatureDefinitionPowerPoolBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
+        {
+        }
+
+        public FeatureDefinitionPowerPoolBuilder(FeatureDefinitionPower original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
+        {
+        }
+
+        public FeatureDefinitionPowerPoolBuilder(FeatureDefinitionPower original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        public FeatureDefinitionPowerPoolBuilder(FeatureDefinitionPower original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+        #endregion
     }
 
     public class FeatureDefinitionPowerSharedPoolBuilder : FeatureDefinitionPowerBuilder<FeatureDefinitionPowerSharedPool, FeatureDefinitionPowerSharedPoolBuilder>
@@ -104,19 +79,9 @@ namespace SolastaCommunityExpansion.Builders.Features
             bool proficiencyBonusToAttack, bool abilityScoreBonusToAttack, string abilityScore,
             EffectDescription effectDescription, GuiPresentation guiPresentation, bool uniqueInstance) : base(name, guid)
         {
-            // We set uses determination to fixed because the code handling updates needs that.
-            Definition.SetUsesDetermination(RuleDefinitions.UsesDetermination.Fixed);
-            // Recharge rate probably shouldn't be in here, but for now leave it be because there is already usage outside of this mod.
-            Definition.SetRechargeRate(recharge);
-            Definition.SetActivationTime(activationTime);
-            Definition.SetCostPerUse(costPerUse);
-            Definition.SetProficiencyBonusToAttack(proficiencyBonusToAttack);
-            Definition.SetAbilityScoreBonusToAttack(abilityScoreBonusToAttack);
-            Definition.SetAbilityScore(abilityScore);
-            Definition.SetEffectDescription(effectDescription);
+            Configure(poolPower, recharge, activationTime, costPerUse, proficiencyBonusToAttack, abilityScoreBonusToAttack, abilityScore, effectDescription, uniqueInstance);
+
             Definition.SetGuiPresentation(guiPresentation);
-            Definition.SetUniqueInstance(uniqueInstance);
-            Definition.SharedPool = poolPower;
         }
 
         public FeatureDefinitionPowerSharedPoolBuilder Configure(FeatureDefinitionPower poolPower,
@@ -138,5 +103,35 @@ namespace SolastaCommunityExpansion.Builders.Features
 
             return This();
         }
+
+        #region Constructors
+        public FeatureDefinitionPowerSharedPoolBuilder(FeatureDefinitionPowerSharedPool original) : base(original)
+        {
+        }
+
+        public FeatureDefinitionPowerSharedPoolBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        public FeatureDefinitionPowerSharedPoolBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        public FeatureDefinitionPowerSharedPoolBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
+        {
+        }
+
+        public FeatureDefinitionPowerSharedPoolBuilder(FeatureDefinitionPowerSharedPool original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
+        {
+        }
+
+        public FeatureDefinitionPowerSharedPoolBuilder(FeatureDefinitionPowerSharedPool original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        public FeatureDefinitionPowerSharedPoolBuilder(FeatureDefinitionPowerSharedPool original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+        #endregion
     }
 }

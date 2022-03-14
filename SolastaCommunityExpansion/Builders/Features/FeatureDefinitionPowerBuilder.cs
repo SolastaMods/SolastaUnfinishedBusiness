@@ -72,6 +72,7 @@ namespace SolastaCommunityExpansion.Builders.Features
 
         // Over specific method?
         // TODO: split into smaller methods
+        // Or is this a specific type of configuration.  Call it ConfigureXXXPower?
         public TBuilder Configure(
             int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination, string usesAbilityScoreName,
             RuleDefinitions.ActivationTime activationTime, int costPerUse, RuleDefinitions.RechargeRate recharge,

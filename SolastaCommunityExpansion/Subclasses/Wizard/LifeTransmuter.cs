@@ -78,7 +78,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                     RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RangeType.Touch, 2,
                     RuleDefinitions.TargetType.Individuals, ActionDefinitions.ItemSelectionType.None, RuleDefinitions.DurationType.UntilLongRest, 1,
                     RuleDefinitions.TurnOccurenceType.EndOfTurn, AttributeDefinitions.Intelligence, poisonResistance, "PowerTransmutePoison")
-                .SetGuiPresentation("PowerTransmuteElemnetalResistance", Category.Subclass, FeatureDefinitionPowers.PowerDomainElementalFireBurst.GuiPresentation.SpriteReference)
+                .SetGuiPresentation("PowerTransmuteElementalResistance", Category.Subclass, FeatureDefinitionPowers.PowerDomainElementalFireBurst.GuiPresentation.SpriteReference)
                 .AddToDB();
 
             // Make a power that gives proficiency to constitution saves

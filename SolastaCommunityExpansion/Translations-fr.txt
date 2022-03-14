@@ -1128,7 +1128,7 @@ Subclass/&PowerTransmuteConstitutionTitle	La Constitution sauve
 Subclass/&PowerTransmuteDarkvisionDescription	Utilisez votre Force de transmutation pour conférer une vision dans le noir supérieure jusqu'au prochain repos long.
 Subclass/&PowerTransmuteDarkvisionTitle	Vision dans le noir supérieure
 Subclass/&PowerTransmuteElementalResistanceDescription	Utilisez votre force de transmutation pour conférer une résistance à l'acide, au froid, au feu, à la foudre, à la nécrotique, au tonnerre et au poison jusqu'au prochain repos long.
-Subclass/&PowerTransmuteElemnetalResistanceTitle	Résistance élémentaire
+Subclass/&PowerTransmuteElementalResistanceTitle	Résistance élémentaire
 Subclass/&PowerTransmuteFlyDescription	Utilisez votre force de transmutation pour accorder la capacité de vol.
 Subclass/&PowerTransmuteFlyTitle	Voler
 Subclass/&PowerTransmuteHealDescription	Utilisez votre Force de transmutation pour soigner jusqu'à 6 cibles.
