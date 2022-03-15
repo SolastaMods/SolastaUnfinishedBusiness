@@ -1,6 +1,7 @@
 ﻿using System;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
@@ -12,10 +13,20 @@ namespace SolastaCommunityExpansion.Builders.Features
      */
     public class FeatureDefinitionPowerPoolModifierBuilder : FeatureDefinitionPowerBuilder<FeatureDefinitionPowerPoolModifier, FeatureDefinitionPowerPoolModifierBuilder>
     {
+        internal override void Validate()
+        {
+            base.Validate();
+
+            Preconditions.IsNotNull(Definition.PoolPower, $"{GetType().Name}[{Definition.Name}].PoolPower is null.");
+            // TODO: more validation?
+        }
+
         public FeatureDefinitionPowerPoolModifierBuilder Configure(
             int powerPoolModifier, RuleDefinitions.UsesDetermination usesDetermination,
             string usesAbilityScoreName, FeatureDefinitionPower poolPower)
         {
+            Preconditions.IsNotNull(poolPower, $"{GetType().Name}[{Definition.Name}] poolPower is null.");
+
             Definition.SetFixedUsesPerRecharge(powerPoolModifier);
             Definition.SetUsesDetermination(usesDetermination);
             Definition.SetUsesAbilityScoreName(usesAbilityScoreName);
