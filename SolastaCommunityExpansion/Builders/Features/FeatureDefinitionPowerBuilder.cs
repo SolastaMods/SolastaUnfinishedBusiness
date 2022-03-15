@@ -79,6 +79,15 @@ namespace SolastaCommunityExpansion.Builders.Features
                 // The game throws an exception if there is no effect description.
                 Definition.SetEffectDescription(new EffectDescription());
             }
+
+            if (IsNew)
+            {
+                // This is just an activation time that should not be shown in the UI.
+                Definition.SetActivationTime(RuleDefinitions.ActivationTime.Permanent);
+
+                // Math for usage gets weird if this isn't 1.
+                Definition.SetCostPerUse(1);
+            }
         }
 
         public TBuilder Configure(int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination,

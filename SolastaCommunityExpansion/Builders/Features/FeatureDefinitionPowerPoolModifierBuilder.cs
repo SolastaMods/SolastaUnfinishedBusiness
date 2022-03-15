@@ -12,19 +12,6 @@ namespace SolastaCommunityExpansion.Builders.Features
      */
     public class FeatureDefinitionPowerPoolModifierBuilder : FeatureDefinitionPowerBuilder<FeatureDefinitionPowerPoolModifier, FeatureDefinitionPowerPoolModifierBuilder>
     {
-        protected override void Initialise()
-        {
-            base.Initialise();
-
-            if (IsNew)
-            {
-                // This is just an activation time that should not be shown in the UI.
-                Definition.SetActivationTime(RuleDefinitions.ActivationTime.Permanent);
-                // Math for usage gets weird if this isn't 1.
-                Definition.SetCostPerUse(1);
-            }
-        }
-
         public FeatureDefinitionPowerPoolModifierBuilder Configure(
             int powerPoolModifier, RuleDefinitions.UsesDetermination usesDetermination,
             string usesAbilityScoreName, FeatureDefinitionPower poolPower)
