@@ -11,6 +11,18 @@ namespace SolastaCommunityExpansion.Builders.Features
      */
     public class FeatureDefinitionPowerPoolBuilder : FeatureDefinitionPowerBuilder<FeatureDefinitionPower, FeatureDefinitionPowerPoolBuilder>
     {
+        protected override void Initialise()
+        {
+            base.Initialise();
+
+            // This is just an activation time that won't allow activation in the UI.
+            Definition.SetActivationTime(RuleDefinitions.ActivationTime.Permanent);
+            // Math for usage gets weird if this isn't 1.
+            Definition.SetCostPerUse(1);
+            // The game throws an exception if there is no effect description.
+            Definition.SetEffectDescription(new EffectDescription());
+        }
+
         public FeatureDefinitionPowerPoolBuilder(string name, string guid, int usesPerRecharge,
             RuleDefinitions.UsesDetermination usesDetermination, string usesAbilityScoreName,
             RuleDefinitions.RechargeRate recharge, GuiPresentation guiPresentation) : base(name, guid)
@@ -20,7 +32,6 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetGuiPresentation(guiPresentation);
         }
 
-        // TODO: move this to FeatureDefinitionPowerBuilder as ConfigurePowerPool()?
         public FeatureDefinitionPowerPoolBuilder Configure(int usesPerRecharge,
             RuleDefinitions.UsesDetermination usesDetermination, string usesAbilityScoreName,
             RuleDefinitions.RechargeRate recharge)
@@ -28,13 +39,7 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetFixedUsesPerRecharge(usesPerRecharge);
             Definition.SetUsesDetermination(usesDetermination);
             Definition.SetUsesAbilityScoreName(usesAbilityScoreName);
-            // This is just an activation time that won't allow activation in the UI.
-            Definition.SetActivationTime(RuleDefinitions.ActivationTime.Permanent);
-            // Math for usage gets weird if this isn't 1.
-            Definition.SetCostPerUse(1);
             Definition.SetRechargeRate(recharge);
-            // The game throws an exception if there is no effect description.
-            Definition.SetEffectDescription(new EffectDescription());
             Definition.SetOverriddenPower(Definition);
 
             return This();
