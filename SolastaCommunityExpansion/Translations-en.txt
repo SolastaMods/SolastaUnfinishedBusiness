@@ -1208,3 +1208,9 @@ Feat/&FeatFightingSurgeStrengthDescription	You master your martial prowess, gain
 Feat/&FeatFightingSurgeStrengthTitle	Fighting Surge (Strength)
 Feat/&FeatFightingSurgeDexterityDescription	You master your martial prowess, gaining the following benefits:\n\nIncrease your Dexterity by 1, to a maximum of 20.\n\nOn your turn, you can take one additional action on top of your regular action and a possible bonus action. Once you use this feature, you must finish a long rest before you can use it again.
 Feat/&FeatFightingSurgeDexterityTitle	Fighting Surge (Dexterity)
+Feat/&PointPoolFeatShadyExpertiseTitle  Shady Expertise
+Feat/&PointPoolFeatShadyExpertiseDescription Gain expertise to one skill you're already proficient.
+Feat/&AdditionalDamageFeatShadySneakAttackTitle Shady Sneak Attack
+Feat/&AdditionalDamageFeatShadySneakAttackDescription You know how to strike subtly and exploit a foe's distraction. Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack that meets Rogue's Sneak Attack. At 5th level this damage increases to 2d6. This can stack with Rogue Sneak Attack.
+Feat/&FeatShadyTitle Shady
+Feat/&FeatShadyDescription You sneak by your foes to strike with deadly force. You gain the following benefits:\n\nIncrease your Dexterity by 1, to a maximum of 20.\n\nGain expertise to one skill you're already proficient.\n\nYou know how to strike subtly and exploit a foe's distraction. Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack that meets Rogue's Sneak Attack. At 5th level this damage increases to 2d6. This can stack with Rogue Sneak Attack.

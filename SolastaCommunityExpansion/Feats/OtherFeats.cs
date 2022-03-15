@@ -5,7 +5,9 @@ using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi.Infrastructure;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions.RollContext;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionAttributeModifiers;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionPointPools;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaCommunityExpansion.Feats
@@ -65,6 +67,10 @@ namespace SolastaCommunityExpansion.Feats
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 
+            //
+            // Zappa Feats
+            //
+
             // Fighting Surge (Dexterity)
             var fightingSurgeDexterity = FeatDefinitionBuilder
                 .Create("FeatFightingSurgeDexterity", OtherFeatNamespace)
@@ -87,7 +93,27 @@ namespace SolastaCommunityExpansion.Feats
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 
-            feats.AddRange(savageAttacker, tough, warCaster, improvedCritical, fightingSurgeDexterity, fightingSurgeStrength);
+            // Shady
+            var shady = FeatDefinitionBuilder
+                .Create("FeatShady", OtherFeatNamespace)
+                .SetFeatures(
+                    AttributeModifierCreed_Of_Misaye,
+                     FeatureDefinitionAdditionalDamageBuilder
+                        .Create(AdditionalDamageRogueSneakAttack, "AdditionalDamageFeatShadySneakAttack", OtherFeatNamespace)
+                        .SetGuiPresentation("AdditionalDamageFeatShadySneakAttack", Category.Feature)
+                        .SetDiceByRank((1,1), (5,2))
+                        .AddToDB(),
+                     FeatureDefinitionPointPoolBuilder
+                        .Create("PointPoolFeatShadyExpertise")
+                        .SetPool(HeroDefinitions.PointsPoolType.Expertise, 1)
+                        .AddToDB()
+
+                )
+                .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
+                .SetGuiPresentation(Category.Feat)
+                .AddToDB();
+
+            feats.AddRange(savageAttacker, tough, warCaster, improvedCritical, fightingSurgeDexterity, fightingSurgeStrength, shady);
         }
 
         private static FeatureDefinitionDieRollModifier BuildDieRollModifier(string name,
