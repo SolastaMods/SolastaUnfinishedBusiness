@@ -70,6 +70,17 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
         #endregion
 
+        protected override void Initialise()
+        {
+            base.Initialise();
+
+            if (Definition.EffectDescription == null)
+            {
+                // The game throws an exception if there is no effect description.
+                Definition.SetEffectDescription(new EffectDescription());
+            }
+        }
+
         public TBuilder Configure(int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination,
             string usesAbilityScoreName, RuleDefinitions.ActivationTime activationTime, int costPerUse, RuleDefinitions.RechargeRate recharge,
             bool proficiencyBonusToAttack, bool abilityScoreBonusToAttack, string abilityScore,
@@ -102,26 +113,16 @@ namespace SolastaCommunityExpansion.Builders.Features
             return This();
         }
 
-        // Over specific method?
-        // TODO: split into smaller methods
-        // Or is this a specific type of configuration.  Call it ConfigureXXXPower?
-        public TBuilder Configure(
-            int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination, string usesAbilityScoreName,
-            RuleDefinitions.ActivationTime activationTime, int costPerUse, RuleDefinitions.RechargeRate recharge,
+        public TBuilder Configure(int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination,
+            string usesAbilityScoreName, RuleDefinitions.ActivationTime activationTime, int costPerUse, RuleDefinitions.RechargeRate recharge,
             bool proficiencyBonusToAttack, bool abilityScoreBonusToAttack, string abilityScore,
             EffectDescription effectDescription, bool uniqueInstance)
         {
-            Definition.SetFixedUsesPerRecharge(usesPerRecharge);
-            Definition.SetUsesDetermination(usesDetermination);
-            Definition.SetUsesAbilityScoreName(usesAbilityScoreName);
-            Definition.SetActivationTime(activationTime);
-            Definition.SetCostPerUse(costPerUse);
-            Definition.SetRechargeRate(recharge);
-            Definition.SetProficiencyBonusToAttack(proficiencyBonusToAttack);
-            Definition.SetAbilityScoreBonusToAttack(abilityScoreBonusToAttack);
-            Definition.SetAbilityScore(abilityScore);
-            Definition.SetEffectDescription(effectDescription);
+            Configure(usesPerRecharge, usesDetermination, usesAbilityScoreName, activationTime, costPerUse,
+                recharge, proficiencyBonusToAttack, abilityScoreBonusToAttack, abilityScore, effectDescription);
+
             Definition.SetUniqueInstance(uniqueInstance);
+
             return This();
         }
 
@@ -188,7 +189,7 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetRechargeRate(rate);
             return This();
         }
-        
+
         public TBuilder SetSpellCastingFeature(FeatureDefinitionCastSpell spellFeature)
         {
             Definition.SetSpellcastingFeature(spellFeature);

@@ -4,6 +4,8 @@ using JetBrains.Annotations;
 
 namespace SolastaModApi.Infrastructure
 {
+    // TODO: rename IsNotNull -> ArgumentIsNotNull etc
+    // TODO: remove Assert.IsNotNull which duplicates Preconditions.IsNotNull
     public static class Preconditions
     {
         [ContractAnnotation("halt <= paramValue : null")]

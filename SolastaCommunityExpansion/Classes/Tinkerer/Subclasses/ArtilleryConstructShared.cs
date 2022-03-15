@@ -118,18 +118,11 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 
         private static FeatureDefinitionPower CreateArtilleryModePool()
         {
-            GuiPresentation guiPresentationArtilleryMode = new GuiPresentation();
-            guiPresentationArtilleryMode.SetDescription("Feat/&ArtilleryModePoolDescription");
-            guiPresentationArtilleryMode.SetTitle("Feat/&ArtilleryModePoolTitle");
-
-            return new FeatureDefinitionPowerPoolBuilder(
-                "ArtilleryModePool",
-                "89d9c1f5-75e9-4b25-b7e8-a24f30d1befb",
-                1,
-                RuleDefinitions.UsesDetermination.Fixed,
-                AttributeDefinitions.Intelligence,
-                RuleDefinitions.RechargeRate.ShortRest,
-                guiPresentationArtilleryMode).AddToDB();
+            return FeatureDefinitionPowerPoolBuilder
+                .Create("ArtilleryModePool", "89d9c1f5-75e9-4b25-b7e8-a24f30d1befb")
+                .Configure(1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, RuleDefinitions.RechargeRate.ShortRest)
+                .SetGuiPresentation(Category.Feat)
+                .AddToDB();
         }
 
         private ArtilleryConstructlevel03FeatureSetBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, guid)

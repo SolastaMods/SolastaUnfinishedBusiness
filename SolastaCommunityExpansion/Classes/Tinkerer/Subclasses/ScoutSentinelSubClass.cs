@@ -115,19 +115,10 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 
         private static FeatureDefinitionPower CreateArmorModePool()
         {
-            GuiPresentation guiPresentationArmorMode = new GuiPresentation();
-            guiPresentationArmorMode.SetDescription("Feat/&ArmorModePoolDescription");
-            guiPresentationArmorMode.SetTitle("Feat/&ArmorModePoolTitle");
-
-            return new FeatureDefinitionPowerPoolBuilder(
-                    "ArmorModePool",
-                    "fd0567d8-a728-4459-8569-273f3ead3f73",
-                    1,
-                    RuleDefinitions.UsesDetermination.Fixed,
-                    AttributeDefinitions.Intelligence,
-                    RuleDefinitions.RechargeRate.ShortRest,
-                    guiPresentationArmorMode
-                )
+            return FeatureDefinitionPowerPoolBuilder
+                .Create("ArmorModePool", "fd0567d8-a728-4459-8569-273f3ead3f73")
+                .Configure(1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, RuleDefinitions.RechargeRate.ShortRest)
+                .SetGuiPresentation(Category.Feat)
                 .AddToDB();
         }
 

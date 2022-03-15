@@ -14,11 +14,11 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
     {
         public static readonly Guid GuidNamespace = new("7aee1270-7a61-48d9-8670-cf087c551c16");
 
-        public static readonly FeatureDefinitionPower InfusionPool = new FeatureDefinitionPowerPoolBuilder("AttributeModiferArtificerInfusionHealingPool",
-            GuidHelper.Create(GuidNamespace, "AttributeModiferArtificerInfusionHealingPool").ToString(),
-                2, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, RuleDefinitions.RechargeRate.LongRest,
-                new GuiPresentationBuilder("Subclass/&HealingPoolArtificerInfusionsTitle",
-                "Subclass/&HealingPoolArtificerInfusionsDescription").Build()).AddToDB();
+        public static readonly FeatureDefinitionPower InfusionPool = FeatureDefinitionPowerPoolBuilder
+            .Create("AttributeModiferArtificerInfusionHealingPool", GuidNamespace)
+            .Configure(2, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, RuleDefinitions.RechargeRate.LongRest)
+            .SetGuiPresentation("HealingPoolArtificerInfusions", Category.Subclass)
+            .AddToDB();
 
         private static readonly List<string> AbilityScores = new()
         {
