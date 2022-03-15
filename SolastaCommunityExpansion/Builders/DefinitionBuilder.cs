@@ -536,6 +536,8 @@ namespace SolastaCommunityExpansion.Builders
         where TDefinition : BaseDefinition
         where TBuilder : DefinitionBuilder<TDefinition, TBuilder>
     {
+        protected virtual void Initialise() { }
+
         private protected DefinitionBuilder(TDefinition original) : base(original) { }
         private protected DefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid) { }
         private protected DefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid) { }
@@ -555,10 +557,17 @@ namespace SolastaCommunityExpansion.Builders
                 throw new SolastaModApiException($"No constructor found on {typeof(TBuilder).Name} with argument types {string.Join(",", parameterTypes.Select(t => t.Name))}");
             }
 
-            return (TBuilder)ctor.Invoke(parameters);
+            TBuilder builder = (TBuilder)ctor.Invoke(parameters);
+
+            builder.Initialise();
+
+            return builder;
         }
 
-        // TODO: replace all ctors with a default ctor and put functionality into Create methods
+        // TODO:
+        // remove ctors from all derived builders
+        // make ctors private
+        // use private ctors in Create methods
         internal static TBuilder Create(TDefinition original)
         {
             return CreateImpl(original);
