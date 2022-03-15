@@ -8,14 +8,19 @@ using UnityEngine;
 using SolastaModApi.Extensions;
 using SolastaCommunityExpansion.Builders.Features;
 
+
+//******************************************************************************************
+//  DO NOT REFACTOR OR CHANGE WITHOUT TESTING OR TAKING RESPOSBILITY FOR CODE GOING FORWARD
+//******************************************************************************************
+
 namespace SolastaCommunityExpansion.Classes.Warlock.Features
 {
-    internal class AHWarlockClassPactBoonSetBuilder : FeatureDefinitionFeatureSetBuilder
+    internal class WarlockClassPactBoonSetBuilder : FeatureDefinitionFeatureSetBuilder
     {
-        const string AHWarlockClassPactBoonSetName = "AHWarlockClassPactBoonSet";
-        private static readonly string AHWarlockClassPactBoonSetGuid = GuidHelper.Create(new Guid(Settings.GUID), AHWarlockClassPactBoonSetName).ToString();
+        const string WarlockClassPactBoonSetName = "WarlockClassPactBoonSet";
+        private static readonly string WarlockClassPactBoonSetGuid = GuidHelper.Create(new Guid(Settings.GUID), WarlockClassPactBoonSetName).ToString();
 
-        protected AHWarlockClassPactBoonSetBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetHunterHuntersPrey, name, guid)
+        protected WarlockClassPactBoonSetBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetHunterHuntersPrey, name, guid)
         {
             Definition.GuiPresentation.Title = "Feature/&AHWarlockClassPactBoonSetTitle";
             Definition.GuiPresentation.Description = "Feature/&AHWarlockClassPactBoonSetDescription";
@@ -29,9 +34,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         }
 
         public static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)
-            => new AHWarlockClassPactBoonSetBuilder(name, guid).AddToDB();
+            => new WarlockClassPactBoonSetBuilder(name, guid).AddToDB();
 
-        public static FeatureDefinitionFeatureSet AHWarlockClassPactBoonSet = CreateAndAddToDB(AHWarlockClassPactBoonSetName, AHWarlockClassPactBoonSetGuid);
+        public static FeatureDefinitionFeatureSet WarlockClassPactBoonSet = CreateAndAddToDB(WarlockClassPactBoonSetName, WarlockClassPactBoonSetGuid);
     }
 
     internal class AHWarlockClassPactOfTheBladeSetBuilder : FeatureDefinitionFeatureSetBuilder
@@ -64,7 +69,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
         protected DHWarlockClassPactOfTheChainFeatureSetBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, guid)
         {
-            Definition.GuiPresentation.Title = "Feature/&DHWarlockClassPactOfTheChainFeatureSetTitle";
+            Definition.GuiPresentation.Title =       "Feature/&DHWarlockClassPactOfTheChainFeatureSetTitle";
             Definition.GuiPresentation.Description = "Feature/&DHWarlockClassPactOfTheChainFeatureSetDescription";
 
             Definition.FeatureSet.Clear();

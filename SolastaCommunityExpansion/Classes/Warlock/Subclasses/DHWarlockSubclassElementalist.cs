@@ -7,6 +7,11 @@ using UnityEngine.AddressableAssets;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
+using static RuleDefinitions;
+
+//******************************************************************************************
+//  DO NOT REFACTOR OR CHANGE WITHOUT TESTING OR TAKING RESPOSBILITY FOR CODE GOING FORWARD
+//******************************************************************************************
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 {
@@ -14,7 +19,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
     {
         public const string Name = "DHWarlockSubclassElementalPatron";
         private static readonly string Guid = GuidHelper.Create(new Guid(Settings.GUID), Name).ToString();
-
+        
         public static Dictionary<string, string> Dictionaryof_Elemental_Damage = new()
         {
             { "Shadow", RuleDefinitions.DamageTypeNecrotic },
@@ -24,7 +29,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             { "Earth", RuleDefinitions.DamageTypeBludgeoning },
             { "Ice", RuleDefinitions.DamageTypeCold },
             { "Air", RuleDefinitions.DamageTypeThunder }
-        };
+        }; 
         public static FeatureDefinitionPower ElementalFormPool;
         public static Dictionary<string, FeatureDefinitionPower> DictionaryOfElementalFormPowers = new();
         public static Dictionary<string, FeatureDefinitionPower> DictionaryOfEnhancedElementalFormPowers = new();
@@ -35,7 +40,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
         public static FeatureDefinitionMagicAffinity ElementalistMagicAffinity;
 
 
-        public static void Build()
+        public static CharacterSubclassDefinition Build()
         {
 
             GuiPresentation blank = new GuiPresentationBuilder("Feature/&NoContentTitle", "Feature/&NoContentTitle").Build();
@@ -58,8 +63,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
 
             GuiPresentation guiFeatureSet_Level01 = new GuiPresentationBuilder(
-                "Feature/&ElementalPatronFeatureSet_Level01Description",
-                "Feature/&ElementalPatronFeatureSet_Level01Title")
+                "Feature/&ElementalPatronFeatureSet_Level01Title",
+                "Feature/&ElementalPatronFeatureSet_Level01Description")
                 .Build();
 
             var FeatureSet_Level01Builder = FeatureDefinitionFeatureSetBuilder
@@ -85,8 +90,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
 
             GuiPresentation guiFeatureSet_Level06 = new GuiPresentationBuilder(
-                "Feature/&ElementalPatronFeatureSet_Level06Description",
-                "Feature/&ElementalPatronFeatureSet_Level06Title")
+                "Feature/&ElementalPatronFeatureSet_Level06Title",
+                "Feature/&ElementalPatronFeatureSet_Level06Description")
                 .Build();
             var FeatureSet_Level06Builder = FeatureDefinitionFeatureSetBuilder
                 .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, "ElementalPatronFeatureSet_Level06", GuidHelper.Create(new Guid(Settings.GUID), "ElementalPatronFeatureSet_Level06").ToString())
@@ -116,8 +121,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             EnhancedElementalForms();
 
             GuiPresentation guiFeatureSet_Level10 = new GuiPresentationBuilder(
-                "Feature/&ElementalPatronFeatureSet_Level10Description",
-                "Feature/&ElementalPatronFeatureSet_Level10Title")
+                "Feature/&ElementalPatronFeatureSet_Level10Title",
+                "Feature/&ElementalPatronFeatureSet_Level10Description")
                 .Build();
             var FeatureSet_Level10Builder = FeatureDefinitionFeatureSetBuilder.Create(
                 DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest,
@@ -145,13 +150,13 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
 
             var subclassGuiPresentation = new GuiPresentationBuilder(
-                    "Subclass/&DHWarlockSubclassElementalPatronDescription",
-                    "Subclass/&DHWarlockSubclassElementalPatronTitle")
+                    "Subclass/&DHWarlockSubclassElementalPatronTitle",
+                    "Subclass/&DHWarlockSubclassElementalPatronDescription")
                     .SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.TraditionLoremaster.GuiPresentation.SpriteReference)
                     .Build();
 
-            var Elementalist = CharacterSubclassDefinitionBuilder.Create(Name, Guid);
-            Elementalist.SetGuiPresentation(subclassGuiPresentation)
+            return CharacterSubclassDefinitionBuilder.Create(Name, Guid)
+                        .SetGuiPresentation(subclassGuiPresentation)
                         .AddFeatureAtLevel(FeatureSet_Level01, 1)
                         .AddFeatureAtLevel(FeatureSet_Level06, 6)
                         .AddFeatureAtLevel(FeatureSet_Level10, 10)
@@ -206,8 +211,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 string damagetype = entry.Value.Substring(6);
 
                 var guiPresentationElementalFormDamage = new GuiPresentationBuilder(
-                    "When channeling the elemental " + text + " Plane, additional " + damagetype + " damage, equal to your Proficiency Bonus, is added to the total",
-                    "Elemental Damage : " + text + " Plane")
+                     "Elemental Damage : " + text + " Plane",
+                     "When channeling the elemental " + text + " Plane, additional " + damagetype + " damage, equal to your Proficiency Bonus, is added to the total"
+                   )
                     .Build();
 
                 FeatureDefinitionAdditionalDamage additionalDamage = new FeatureDefinitionAdditionalDamageBuilder(
@@ -230,8 +236,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
 
                 var guiPresentationElementalFormCondition = new GuiPresentationBuilder(
-                    "When channeling the elemental  " + text + " Plane, you gain resistence to " + damagetype + " damage and once per turn, apply damage of the same type to your attack",
-                    "Elemental Form : " + text + " Plane" + " Condition")
+                     "Elemental Form : " + text + " Plane" + " Condition",
+                     "When channeling the elemental  " + text + " Plane, you gain resistence to " + damagetype + " damage and once per turn, apply damage of the same type to your attack"
+                   )
                     .Build();
 
                 ConditionDefinition ElementalFormCondtion = new Tinkerer.FeatureHelpers.ConditionDefinitionBuilder(
@@ -253,8 +260,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
 
                 var guiPresentationElementalForm = new GuiPresentationBuilder(
-                     "When channeling the elemental  " + text + " Plane, you gain resistence to " + damagetype + " damage and once per turn, apply damage of the same type to your attack",
-                     "Elemental Form : " + text + " Plane")
+                     "Elemental Form : " + text + " Plane",
+                     "When channeling the elemental  " + text + " Plane, you gain resistence to " + damagetype + " damage and once per turn, apply damage of the same type to your attack"
+                     )
                      .SetSpriteReference(Dictionaryof_Elemental_Forms_Sprites[entry.Key])
                      .Build();
 
@@ -320,11 +328,11 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             {
                 { "Shadow",  DatabaseHelper.ConditionDefinitions.ConditionSorcererChildRiftDeflection.GetField<AssetReference>("characterShaderReference")},
                 { "Astral",  DatabaseHelper.MonsterDefinitions.WightLord.MonsterPresentation.GetField<AssetReference>("attachedParticlesReference") },// backup kindredspirits bear - spectral spider
-                { "Ethereal",DatabaseHelper.MonsterDefinitions.Ghost.MonsterPresentation.GetField<AssetReference>("AttachedParticlesReference") },      // backup fey bear - sorr boss
-                { "Fire",    DatabaseHelper.MonsterDefinitions.Fire_Jester.MonsterPresentation.GetField<AssetReference>("AttachedParticlesReference")}, // fire jester
-                { "Earth",   DatabaseHelper.MonsterDefinitions.Earth_Elemental.MonsterPresentation.GetField<AssetReference>("AttachedParticlesReference")}, // or stone barbarian's ConditionStoneResilience.conditionParticleReference
-                { "Ice",     DatabaseHelper.MonsterDefinitions.WindSnake.MonsterPresentation.GetField<AssetReference>("AttachedParticlesReference")},// skarn ghoul
-                { "Air",     DatabaseHelper.MonsterDefinitions.Air_Elemental.MonsterPresentation.GetField<AssetReference>("AttachedParticlesReference")}
+                { "Ethereal",DatabaseHelper.MonsterDefinitions.Ghost.MonsterPresentation.GetField<AssetReference>("attachedParticlesReference") },      // backup fey bear - sorr boss
+                { "Fire",    DatabaseHelper.MonsterDefinitions.Fire_Jester.MonsterPresentation.GetField<AssetReference>("attachedParticlesReference")}, // fire jester
+                { "Earth",   DatabaseHelper.MonsterDefinitions.Earth_Elemental.MonsterPresentation.GetField<AssetReference>("attachedParticlesReference")}, // or stone barbarian's ConditionStoneResilience.conditionParticleReference
+                { "Ice",     DatabaseHelper.MonsterDefinitions.WindSnake.MonsterPresentation.GetField<AssetReference>("attachedParticlesReference")},// skarn ghoul
+                { "Air",     DatabaseHelper.MonsterDefinitions.Air_Elemental.MonsterPresentation.GetField<AssetReference>("attachedParticlesReference")}
             };
 
             Dictionary<string, AssetReference> Dictionaryof_Elemental_Forms_EffectsShaders = new Dictionary<string, AssetReference>
@@ -361,16 +369,17 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 string damagetype = entry.Value.Substring(6);
 
                 var guiPresentationEnhancedElementalFormCondition = new GuiPresentationBuilder(
-                    "When channeling the elemental  " + text + " Plane, you gain Immunity to " + damagetype + " damage and once per turn, apply damage of the same type to your attack",
-                    "Elemental Form : " + text + " Plane" + " Condition")
+                    "Elemental Form : " + text + " Plane" + " Condition",
+                    "When channeling the elemental  " + text + " Plane, you gain Immunity to " + damagetype + " damage and once per turn, apply damage of the same type to your attack"                    )
                     .Build();
 
-                ConditionDefinition EnhancedElementalFormCondtion = new Tinkerer.FeatureHelpers.ConditionDefinitionBuilder(
-                    "DH_EnhancedElementalForm_" + text + "Condition", GuidHelper.Create(new Guid(Settings.GUID), "DH_EnhancedElementalForm_" + text + "Condition").ToString(),
-                   RuleDefinitions.DurationType.Minute, 1, false, guiPresentationEnhancedElementalFormCondition,
-                    Dictionaryof_Elemental_damageImmunitiess[entry.Key],
-                        DictionaryOfElementaladditionalDamage[entry.Key]
-                    ).AddToDB();
+                ConditionDefinition EnhancedElementalFormCondtion =  ConditionDefinitionBuilder.Create(
+                    "DH_EnhancedElementalForm_" + text + "Condition", GuidHelper.Create(new Guid(Settings.GUID), "DH_EnhancedElementalForm_" + text + "Condition").ToString())
+                   .SetDuration(RuleDefinitions.DurationType.Minute,1)
+                    .SetSilent(Silent.None) 
+                    .SetGuiPresentation(guiPresentationEnhancedElementalFormCondition)
+                    .AddFeatures(Dictionaryof_Elemental_damageImmunitiess[entry.Key],DictionaryOfElementaladditionalDamage[entry.Key])
+                    .AddToDB();
 
 
                 // particles for first form / shader for upgrade
@@ -385,8 +394,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
 
                 var guiPresentationEnhancedElementalForm = new GuiPresentationBuilder(
-                     "When channeling the elemental  " + text + " Plane, you gain Immunity to " + damagetype + " damage and once per turn, apply damage of the same type to your attack",
-                     "Elemental Form : " + text + " Plane")
+                     "Elemental Form : " + text + " Plane",
+                     "When channeling the elemental  " + text + " Plane, you gain Immunity to " + damagetype + " damage and once per turn, apply damage of the same type to your attack"
+                     )
                      .SetSpriteReference(Dictionaryof_Elemental_Forms_Sprites[entry.Key])
                      .Build();
 
@@ -433,7 +443,10 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 DatabaseHelper.FeatureDefinitionBonusCantripss.BonusCantripsDomainOblivion,
                  "DHConjureMinorElementalsBonusCantrip",
                  GuidHelper.Create(new System.Guid(Settings.GUID), "DHAtWillConjureMinorElementalsBonusCantrip").ToString())
-                .SetGuiPresentation(new GuiPresentationBuilder("Feature/&DHConjureMinorElementalsBonusCantripDescription", "Feature/&DHConjureMinorElementalsBonusCantripTitle").Build());
+                .SetGuiPresentation(new GuiPresentationBuilder(
+                    "Feature/&DHConjureMinorElementalsBonusCantripTitle",
+                    "Feature/&DHConjureMinorElementalsBonusCantripDescription")
+                .Build());
 
             MinorElementalBonusCantripBuilder.ClearBonusCantrips();
             MinorElementalBonusCantripBuilder.AddBonusCantrip(AtWillCantripConjureMinorElementals);
@@ -448,7 +461,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
         {
             SpellListDefinition ElementalistSpellList = SpellListDefinitionBuilder
                 .Create(
-                    DatabaseHelper.SpellListDefinitions.SpellListSkeletonKnight,
+                    DatabaseHelper.SpellListDefinitions.SpellListPaladin,
                     "ElementalistSpellsList",
                     GuidHelper.Create(new Guid(Settings.GUID), "ElementalistSpellsList").ToString())
                 .SetGuiPresentation("ElementalistSpellsList", Category.SpellList)
@@ -458,13 +471,13 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             ElementalistSpellList.SpellsByLevel.Clear();
             ElementalistSpellList.SpellsByLevel.AddRange(new List<SpellListDefinition.SpellsByLevelDuplet>()
             {
-                new SpellListDefinition.SpellsByLevelDuplet
-                {
-                    Level =0,
-                    Spells = new List<SpellDefinition>
-                    {
-                    }
-                },
+              //  new SpellListDefinition.SpellsByLevelDuplet
+              //  {
+              //      Level =0,
+              //      Spells = new List<SpellDefinition>
+              //      {
+              //      }
+              //  },
                 new SpellListDefinition.SpellsByLevelDuplet
                 {
                     Level =1,
@@ -520,8 +533,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .Create("ElementalistSpellsMagicAffinity", GuidHelper.Create(new Guid(Settings.GUID), "ElementalistSpellsMagicAffinity").ToString())
                 .SetGuiPresentation(
                          new GuiPresentationBuilder(
-                         "Feature/&ElementalistSpellsMagicAffinityDescription",
-                         "Feature/&ElementalistSpellsMagicAffinityTitle"
+                         "Feature/&ElementalistSpellsMagicAffinityTitle",
+                         "Feature/&ElementalistSpellsMagicAffinityDescription"
                          ).Build()
 
                      );

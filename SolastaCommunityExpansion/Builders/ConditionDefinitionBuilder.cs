@@ -162,9 +162,31 @@ namespace SolastaCommunityExpansion.Builders
             return This();
         }
 
+        public TBuilder SetInterruptionDamageThreshold(int value)
+        {
+            Definition.SetInterruptionDamageThreshold(value);
+            return This();
+        }
+
         public TBuilder ClearRecurrentEffectForms()
         {
             Definition.ClearRecurrentEffectForms();
+            return This();
+        }
+        public TBuilder AddRecurrentEffectForm(EffectForm effect)
+        {
+            Definition.RecurrentEffectForms.Add(effect);
+            return This();
+        }
+
+        public TBuilder SetConditionParticleReference(AssetReference asset)
+        {
+            Definition.SetConditionParticleReference(asset);
+            return This();
+        }
+        public TBuilder SetCharacterShaderReference(AssetReference asset)
+        {
+            Definition.SetCharacterShaderReference(asset);
             return This();
         }
 

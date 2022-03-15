@@ -7,6 +7,11 @@ using static SolastaCommunityExpansion.Builders.DefinitionBuilder;
 using static SolastaCommunityExpansion.Classes.Warlock.Features.DHEldritchInvocationsBuilder;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionFeatureSets;
 
+
+//******************************************************************************************
+//  DO NOT REFACTOR OR CHANGE WITHOUT TESTING OR TAKING RESPOSBILITY FOR CODE GOING FORWARD
+//******************************************************************************************
+
 namespace SolastaCommunityExpansion.Classes.Warlock.Features
 {
     internal partial class WarlockFeatures
@@ -51,7 +56,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             .SetGuiPresentation(Category.Feature)
             /*
                 EI that might need a bit more work
-                One with Shadows - PowerSorakAssassinShadowMurder(copy but remove second effect) or covert invisibility spell effects (buffed because cant limit to dim light/darkness without patch)
                 Sign of Ill Omen - create a feature set that adds converted versions of the subspells
                 Tomb of Levistus - add tempHP and then apply incapcitated or stunned status
                 Undying Servitude - summon a a skeleton or zombie
@@ -77,6 +81,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             Definition.GuiPresentation.Title = "Feature/&ClassWarlockEldritchInvocationSetLevelTitle";
             Definition.GuiPresentation.Description = "Feature/&ClassWarlockEldritchInvocationSetLevelDescription";
 
+
+            Definition.FeatureSet.Add(DictionaryofEIAttributeModifers["OneWithShadows"]);
             Definition.FeatureSet.Add(DHEldritchInvocationsBuilder.DictionaryofEIPowers["DreadfulWord"]);
             Definition.FeatureSet.Add(DHEldritchInvocationsBuilder.DictionaryofEIPowers["Trickster'sEscape"]);
             Definition.SetUniqueChoices(false);

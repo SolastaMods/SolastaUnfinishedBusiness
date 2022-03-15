@@ -61,9 +61,21 @@ namespace SolastaCommunityExpansion.Builders
 
         public SpellListDefinitionBuilder SetSpellsByLevel(int level, IEnumerable<SpellDefinition> spellsByLevel)
         {
-            if (level >= Definition.SpellsByLevel.Count)
+            if (level > 9 || level < 0)
             {
                 throw new ArgumentException($"Spell level {level} is not supported.");
+            }
+
+            for (int i = 0; i < level; i++)
+            {
+                if (i >= Definition.SpellsByLevel.Count)
+                {
+                    Definition.SpellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet());
+                }
+                else if (Definition.SpellsByLevel[i] == null)
+                {
+                    Definition.SpellsByLevel[i] = new SpellListDefinition.SpellsByLevelDuplet();
+                }
             }
 
             Definition.SpellsByLevel[level].Spells.SetRange(

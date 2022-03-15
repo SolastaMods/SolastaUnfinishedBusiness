@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Classes.Warlock.Features;
+using SolastaCommunityExpansion.Classes.Warlock.Subclasses;
+using SolastaCommunityExpansion.Classes.Warlock.AHSpells;
 using SolastaModApi;
 using static EquipmentDefinitions;
 using static SolastaModApi.DatabaseHelper;
@@ -10,6 +12,12 @@ using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaModApi.DatabaseHelper.ToolTypeDefinitions;
 using static SolastaCommunityExpansion.Builders.EquipmentOptionsBuilder;
 using static SolastaCommunityExpansion.Classes.Warlock.Features.WarlockFeatures;
+
+
+//******************************************************************************************
+//  DO NOT REFACTOR OR CHANGE WITHOUT TESTING OR TAKING RESPOSBILITY FOR CODE GOING FORWARD
+//******************************************************************************************
+
 
 namespace SolastaCommunityExpansion.Classes.Warlock
 {
@@ -65,7 +73,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                 BuildProficiency("ClassWarlockArmorProficiency", RuleDefinitions.ProficiencyType.Armor, LightArmorCategory);
 
             FeatureDefinitionProficiencyWeapon =
-                BuildProficiency("ClassWarlockWeaponProficiency", RuleDefinitions.ProficiencyType.Armor, SimpleWeaponCategory);
+                BuildProficiency("ClassWarlockWeaponProficiency", RuleDefinitions.ProficiencyType.Weapon, SimpleWeaponCategory);
 
             FeatureDefinitionProficiencyTool =
                 BuildProficiency("ClassWarlockToolsProficiency", RuleDefinitions.ProficiencyType.Tool, EnchantingToolType.Name, HerbalismKitType.Name);
@@ -92,15 +100,15 @@ namespace SolastaCommunityExpansion.Classes.Warlock
         private static void BuildSpells()
         {
             var castSpellName = "ClassWarlockCastSpell";
-            var castSpellGuid = GuidHelper.Create(new Guid(Settings.GUID), castSpellName).ToString();
-            var classWarlockCastSpell = FeatureDefinitionCastSpellBuilder.Create(castSpellName, castSpellGuid);
+            //var castSpellGuid = GuidHelper.Create(new Guid(Settings.GUID), castSpellName).ToString();
+            var classWarlockCastSpell = FeatureDefinitionCastSpellBuilder.Create(DatabaseHelper.FeatureDefinitionCastSpells.CastSpellSorcerer,castSpellName, DefinitionBuilder.CENamespaceGuid);
 
-            // TODO: can't find ClassWarlockSpellListBuilder
-            /*
-            ClassWarlockSpellListBuilder.Build();
-            var classWarlockSpellList = ClassWarlockSpellListBuilder.ClassWarlockSpellList;
+            ClassWarlockSpellList.Build();
+            SpellListDefinition classWarlockSpellList = ClassWarlockSpellList.WarlockSpellList;
 
-            classWarlockCastSpell.SetGuiPresentation(new GuiPresentationBuilder("Feature/&ClassWarlockSpellcastingDescription", "Feature/&ClassWarlockSpellcastingTitle").Build());
+            classWarlockCastSpell.SetGuiPresentation(new GuiPresentationBuilder(
+                "Feature/&ClassWarlockSpellcastingTitle",
+                "Feature/&ClassWarlockSpellcastingDescription").Build());
             classWarlockCastSpell.SetKnownCantrips(new List<int>
             {
                 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4
@@ -111,7 +119,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock
             });
 
             // TODO: 
-            //classWarlockCastSpell.SetSlotsPerLevel(Models.SharedSpellsContext.WarlockCastingSlots);
+            classWarlockCastSpell.SetSlotsPerLevel(Multiclass.Models.SharedSpellsContext.WarlockCastingSlots);
             classWarlockCastSpell.SetSlotsRecharge(RuleDefinitions.RechargeRate.ShortRest);
             classWarlockCastSpell.SetSpellCastingAbility(AttributeDefinitions.Charisma);
             classWarlockCastSpell.SetSpellCastingLevel(5);
@@ -122,26 +130,28 @@ namespace SolastaCommunityExpansion.Classes.Warlock
             classWarlockCastSpell.SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown);
 
             FeatureDefinitionClassWarlockCastSpell = classWarlockCastSpell.AddToDB();
-            */
+            
         }
 
-        private static void BuildSubclasses(CharacterClassDefinitionBuilder classWarlockBuilder)
-        {
-            var subClassChoiceName = "ClassWarlockSubclassChoice";
-            var subClassChoiceGuid = GuidHelper.Create(new Guid(Settings.GUID), subClassChoiceName).ToString();
-            var classWarlockPatronPresentationBuilder = new GuiPresentationBuilder("Subclass/&ClassWarlockPatronDescription", "Subclass/&ClassWarlockPatronTitle");
-
-            // TODO
-            //var subclassChoices = classWarlockBuilder.BuildSubclassChoice(1, "Patron", false, subClassChoiceName, classWarlockPatronPresentationBuilder.Build(), subClassChoiceGuid);
-
-            //DHWarlockSubclassRiftWalker.Build();
-            //subclassChoices.Subclasses.Add(DHWarlockSubclassRiftWalker.Name);
-            //DHWarlockSubclassElementalPatron.Build();
-            //subclassChoices.Subclasses.Add(DHWarlockSubclassElementalPatron.Name);
-        }
 
         private static void BuildProgression(CharacterClassDefinitionBuilder classWarlockBuilder)
         {
+            FeatureDefinitionSubclassChoice subclassChoices = FeatureDefinitionSubclassChoiceBuilder
+                .Create("ClassWarlockSubclassChoice", GuidHelper.Create(new Guid(Settings.GUID), "ClassWarlockSubclassChoice").ToString())
+                .SetGuiPresentation("ClassWarlockPatron", Category.Subclass)
+                .SetSubclassSuffix("Patron")
+                .SetFilterByDeity(false)
+                .SetSubclasses(
+                    AHWarlockSubclassSoulBladePact.Build(),
+                    DHWarlockSubclassAncientForestPatron.Build(),
+                    DHWarlockSubclassElementalPatron.Build(),
+                    DHWarlockSubclassMoonLitPatron.Build(),
+                    DHWarlockSubclassRiftWalkerPatron.Build(),
+                    //   DHWarlockSubclassUrPriestPatron.Build(),   // needs more work and verification before release, autoprepared spells cant just be reused because they specific cleric class, battle domain divine Fortitude (wrath in code) also didnt work
+                    DHWarlockSubclassToadKingPatron.Build()
+                    )
+                .AddToDB();
+
             classWarlockBuilder
                 .AddFeaturesAtLevel(1,
                     FeatureDefinitionProficiencySavingThrow,
@@ -149,34 +159,33 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                     FeatureDefinitionProficiencyWeapon,
                     FeatureDefinitionProficiencyTool,
                     FeatureDefinitionSkillPoints,
-                    FeatureDefinitionClassWarlockCastSpell)
-                //TODO? level 1 - subclass feature
-                .AddFeaturesAtLevel(2,
-                    WarlockEldritchInvocationSetLevel2,
-                    WarlockEldritchInvocationSetLevel2, // TODO: should this be here twice?
-                    AHWarlockClassPactBoonSetBuilder.AHWarlockClassPactBoonSet,
-                    FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice,
-                    WarlockEldritchInvocationSetLevel5) // TODO: should this be at level 2 or 5?
+                    FeatureDefinitionClassWarlockCastSpell,
+                    subclassChoices) 
+                .AddFeaturesAtLevel(2, WarlockEldritchInvocationSetLevel2)
+                .AddFeaturesAtLevel(2, WarlockEldritchInvocationSetLevel2)
+                .AddFeaturesAtLevel(3, WarlockClassPactBoonSetBuilder.WarlockClassPactBoonSet)
+                .AddFeaturesAtLevel(4, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
+                .AddFeaturesAtLevel(5, WarlockEldritchInvocationSetLevel5) // no idea why this was changed to level 2, leave it at level 5
                 //level 6 - subclass feature
                 .AddFeatureAtLevel(7, WarlockEldritchInvocationSetBuilderLevel7.WarlockEldritchInvocationSetLevel7)
                 .AddFeatureAtLevel(8, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
                 .AddFeatureAtLevel(9, WarlockEldritchInvocationSetBuilderLevel9.WarlockEldritchInvocationSetLevel9)
                 //level 10 - subclass feature
-                .AddFeatureAtLevel(11, WarlockMysticArcanumSets.WarlockMysticArcanumSetLevel11)
+           //     .AddFeatureAtLevel(11, WarlockMysticArcanumSets.WarlockMysticArcanumSetLevel11)
                 .AddFeatureAtLevel(12, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
                 .AddFeatureAtLevel(12, WarlockEldritchInvocationSetBuilderLevel12.WarlockEldritchInvocationSetLevel12)
-                .AddFeatureAtLevel(13, WarlockMysticArcanumSets.WarlockMysticArcanumSetLevel13)
+          //      .AddFeatureAtLevel(13, WarlockMysticArcanumSets.WarlockMysticArcanumSetLevel13)
                 //level 14 - subclass feature
-                .AddFeatureAtLevel(15, WarlockMysticArcanumSets.WarlockMysticArcanumSetLevel15)
+          //      .AddFeatureAtLevel(15, WarlockMysticArcanumSets.WarlockMysticArcanumSetLevel15)
                 .AddFeatureAtLevel(15, WarlockEldritchInvocationSetBuilderLevel15.WarlockEldritchInvocationSetLevel15)
                 .AddFeatureAtLevel(16, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
-                .AddFeatureAtLevel(17, WarlockMysticArcanumSets.WarlockMysticArcanumSetLevel17)
+          //      .AddFeatureAtLevel(17, WarlockMysticArcanumSets.WarlockMysticArcanumSetLevel17)
                 .AddFeatureAtLevel(18, WarlockEldritchInvocationSetBuilderLevel18.WarlockEldritchInvocationSetLevel18)
                 .AddFeatureAtLevel(19, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
                 .AddFeatureAtLevel(20, WarlockEldritchMasterPower);
         }
 
-        internal static void BuildWarlockClass()
+        internal static CharacterClassDefinition BuildWarlockClass()
         {
             // TODO: is this required?
             //classWarlockGuiPresentationBuilder.SetHidden(!Main.Settings.EnableClassWarlock);
@@ -219,7 +228,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock
             BuildProficiencies();
             BuildSpells();
             BuildProgression(classWarlockBuilder);
-            BuildSubclasses(classWarlockBuilder);
 
             ClassWarlock = classWarlockBuilder.AddToDB();
 
@@ -235,6 +243,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock
             {
                 item.RequiredAttunementClasses.Add(ClassWarlock);
             };
+
+            return ClassWarlock;
         }
     }
 }

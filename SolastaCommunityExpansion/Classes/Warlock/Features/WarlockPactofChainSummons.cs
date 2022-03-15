@@ -8,6 +8,11 @@ using SolastaCommunityExpansion.Builders.Features;
 using UnityEngine.AddressableAssets;
 using UnityEngine;
 
+//******************************************************************************************
+//  DO NOT REFACTOR OR CHANGE WITHOUT TESTING OR TAKING RESPOSBILITY FOR CODE GOING FORWARD
+//******************************************************************************************
+
+
 namespace SolastaCommunityExpansion.Classes.Warlock.Features
 {
 

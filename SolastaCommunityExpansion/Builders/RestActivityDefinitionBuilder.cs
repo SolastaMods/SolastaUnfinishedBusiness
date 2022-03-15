@@ -1,4 +1,5 @@
 ﻿using System;
+using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders
 {
@@ -9,7 +10,7 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        protected RestActivityDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        public RestActivityDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
@@ -33,7 +34,25 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
         #endregion
+ //       public static RestActivityDefinitionBuilder Create(string name, Guid namespaceGuid)
+ //       {
+ //           return new RestActivityDefinitionBuilder(name, namespaceGuid);
+ //       }
 
         // TODO: add Create methods
+
+
+        public RestActivityDefinitionBuilder Configure ( RestDefinitions.RestStage restStage, RuleDefinitions.RestType restType,
+        RestActivityDefinition.ActivityCondition condition, string functor, string stringParameter, GuiPresentation guiPresentation)
+        {
+            Definition.SetRestStage(restStage);
+            Definition.SetRestType(restType);
+            Definition.SetCondition(condition);
+            Definition.SetFunctor(functor);
+            Definition.SetStringParameter(stringParameter);
+            Definition.SetGuiPresentation(guiPresentation);
+            return This();
+        }
+
     }
 }

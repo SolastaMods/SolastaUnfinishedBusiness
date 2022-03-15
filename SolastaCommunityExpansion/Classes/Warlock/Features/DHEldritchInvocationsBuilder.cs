@@ -6,6 +6,11 @@ using SolastaCommunityExpansion.Builders;
 using UnityEngine;
 using SolastaCommunityExpansion.Builders.Features;
 
+
+//******************************************************************************************
+//  DO NOT REFACTOR OR CHANGE WITHOUT TESTING OR TAKING RESPOSBILITY FOR CODE GOING FORWARD
+//******************************************************************************************
+
 namespace SolastaCommunityExpansion.Classes.Warlock.Features
 {
     public class DHEldritchInvocationsBuilder
@@ -87,8 +92,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
 
                 var guiPresentationEIPseudoCantrips = new GuiPresentationBuilder(
-                    "Cast " + entry.Value.name + " at will",  //entry.Value.GuiPresentation.Description,// textPseudoCantrips + "Description",
-                    "Feature/&" + entry.Key + "Title")         //                    entry.Value.GuiPresentation.title) // textPseudoCantrips + "Title")
+                    "Feature/&" + entry.Key + "Title",         //                    entry.Value.GuiPresentation.title) // textPseudoCantrips + "Title")
+                    "Cast " + entry.Value.name + " at will")  //entry.Value.GuiPresentation.Description,// textPseudoCantrips + "Description",
                      .SetSpriteReference(entry.Value.GuiPresentation.SpriteReference)
                      .Build();
 
@@ -127,8 +132,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 string textPseudoSpells = "DHEldritchInvocation" + entry.Value.name;
 
                 var guiPresentationEIPseudoSpells = new GuiPresentationBuilder(
-                    "Cast " + entry.Value.name + " once per day",                   // entry.Value.GuiPresentation.Description,  //textPseudoSpells + "Description",
-                    "Feature/&" + entry.Key + "Title")                   // entry.Value.GuiPresentation.title)        //textPseudoSpells + "Title")
+                    "Feature/&" + entry.Key + "Title",                   // entry.Value.GuiPresentation.title)        //textPseudoSpells + "Title")
+                    "Cast " + entry.Value.name + " once per day")                   // entry.Value.GuiPresentation.Description,  //textPseudoSpells + "Description",
                     .SetSpriteReference(entry.Value.GuiPresentation.SpriteReference)
                     .Build();
                 var EIPowerBuilder = FeatureDefinitionPowerBuilder
@@ -163,8 +168,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         {
 
             GuiPresentationBuilder EldritchBlastGui = new GuiPresentationBuilder(
-            "Spell/&EldritchBlastDescription",
-            "Spell/&EldritchBlastTitle");
+            "Spell/&EldritchBlastTitle",
+            "Spell/&EldritchBlastDescription");
             EldritchBlastGui.SetSpriteReference(DatabaseHelper.SpellDefinitions.MagicMissile.GuiPresentation.SpriteReference);
 
             EffectDescription EldritchBlastEffect = new EffectDescriptionBuilder()
@@ -242,8 +247,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                     .Create(textEBImprovements, GuidHelper.Create(new Guid(Settings.GUID), textEBImprovements).ToString())
                 .SetGuiPresentation(new GuiPresentationBuilder
                     (
-                    "Spell/&" + entry + "Description",
-                    "Spell/&" + entry + "Title"
+                    "Spell/&" + entry + "Title",
+                    "Spell/&" + entry + "Description"
                     )
                     .SetSpriteReference(DatabaseHelper.SpellDefinitions.MagicMissile.GuiPresentation.SpriteReference).Build()
                     )
@@ -257,7 +262,10 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 SpellDefinition EIcantrip = EIcantripBuilder.AddToDB();
 
 
-                GuiPresentation guiPresentationEBImprovements = new GuiPresentationBuilder("Feature/&" + entry + "MagicAffinityDescription", "Feature/&" + entry + "MagicAffinityTitle").Build();
+                GuiPresentation guiPresentationEBImprovements = new GuiPresentationBuilder(
+                    "Feature/&" + entry + "MagicAffinityTitle", 
+                    "Feature/&" + entry + "MagicAffinityDescription")
+                    .Build();
 
                 FeatureDefinitionBonusCantrips BonusCantrip = FeatureDefinitionBonusCantripsBuilder
                     .Create(DatabaseHelper.FeatureDefinitionBonusCantripss.BonusCantripsDomainOblivion, textEBImprovements + "BonusCantrip", GuidHelper.Create(new Guid(Settings.GUID), textEBImprovements + "BonusCantrip").ToString())
@@ -297,7 +305,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             EldritchBlastAncestry.SetDamageType(RuleDefinitions.DamageTypeForce);
             EldritchBlastAncestry.name = "AgonizingBlastForceAncestry";
             EldritchBlastAncestry.SetGuid(GuidHelper.Create(new Guid(Settings.GUID), "AgonizingBlastForceAncestry").ToString());
-            EldritchBlastAncestry.GuiPresentation = new GuiPresentationBuilder("Feature/&NoContentTitle", "Feature/&NoContentTitle").Build();
+            EldritchBlastAncestry.GuiPresentation = new GuiPresentationBuilder(
+                "Feature/&NoContentTitle", "Feature/&NoContentTitle").Build();
 
             FeatureDefinitionAdditionalDamage AdditionalDamageAgonizingBlast = new FeatureDefinitionAdditionalDamageBuilder(
                      "AdditionalDamageAgonizingBlast",
@@ -314,12 +323,18 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                      RuleDefinitions.DamageTypeForce,
                      RuleDefinitions.AdditionalDamageAdvancement.None,
                      new List<DiceByRank>(),
-                     new GuiPresentationBuilder("Feature/&AdditionalDamageAgonizingBlastDescription", "Feature/&AdditionalDamageAgonizingBlastTitle").Build()
+                     new GuiPresentationBuilder(
+                         "Feature/&AdditionalDamageAgonizingBlastTitle",
+                         "Feature/&AdditionalDamageAgonizingBlastDescription"
+                         ).Build()
                 ).AddToDB();
 
             AgonizingBlastFeatureSet = FeatureDefinitionFeatureSetBuilder
                 .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, "AgonizingBlastFeatureSet", GuidHelper.Create(new Guid(Settings.GUID), "AgonizingBlastFeatureSet").ToString())
-                .SetGuiPresentation(new GuiPresentationBuilder("Feature/&AgonizingBlastFeatureSetDescription", "Feature/&AgonizingBlastFeatureSetTitle").Build())
+                .SetGuiPresentation(new GuiPresentationBuilder(
+                    "Feature/&AgonizingBlastFeatureSetTitle",
+                    "Feature/&AgonizingBlastFeatureSetDescription")
+                .Build())
                .ClearFeatureSet()
                .AddFeatureSet(EldritchBlastAncestry)
                .AddFeatureSet(AdditionalDamageAgonizingBlast)
@@ -347,14 +362,20 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                      RuleDefinitions.DamageTypeForce,
                      RuleDefinitions.AdditionalDamageAdvancement.None,
                      new List<DiceByRank>(),
-                     new GuiPresentationBuilder("Feature/&AdditionalDamageHinderingBlastDescription", "Feature/&AdditionalDamageHinderingBlastTitle").Build()
+                     new GuiPresentationBuilder(
+                         "Feature/&AdditionalDamageHinderingBlastTitle",
+                         "Feature/&AdditionalDamageHinderingBlastDescription")
+                     .Build()
                 )
                 .SetConditionOperations(new List<ConditionOperationDescription> { hinderingConditionOperation })
                 .AddToDB();
 
             HinderingBlastFeatureSet = FeatureDefinitionFeatureSetBuilder
                 .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, "HinderingBlastFeatureSet", GuidHelper.Create(new Guid(Settings.GUID), "HinderingBlastFeatureSet").ToString())
-               .SetGuiPresentation(new GuiPresentationBuilder("Feature/&HinderingBlastFeatureSetDescription", "Feature/&HinderingBlastFeatureSetTitle").Build())
+               .SetGuiPresentation(new GuiPresentationBuilder(
+                   "Feature/&HinderingBlastFeatureSetTitle",
+                   "Feature/&HinderingBlastFeatureSetDescription"
+                   ).Build())
                .ClearFeatureSet()
                .AddFeatureSet(EldritchBlastAncestry)
                .AddFeatureSet(AdditionalDamageHinderingBlast)
@@ -377,8 +398,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                     "ThirstingBlade",                // DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierFighterExtraAttack);
                     "GiftoftheProtectors",           // DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityHalfOrcRelentlessEndurance);
                     "BondoftheTalisman",             // DatabaseHelper.FeatureDefinitionPowers.PowerSorakShadowEscape);
-                    "WitchSight"                     // DatabaseHelper.FeatureDefinitionSenses.SenseSeeInvisible12;
-
+                    "WitchSight",                    // DatabaseHelper.FeatureDefinitionSenses.SenseSeeInvisible12;
+                    "OneWithShadows"
                     //   "Lifedrinker",                   // similar to AdditionalDamageDomainOblivionStrikeOblivion +damageValueDetermination = RuleDefinitions.AdditionalDamageValueDetermination.SpellcastingBonus;
                     //"Devil'sSight",                // DatabaseHelper.FeatureDefinitionSenses.SenseDarkvision24 or maybe similar to ConditionAffinityVeilImmunity needs to cover multiple darkness conditions ConditionDarkness ConditionVeil
                     //"GazeofTwoMinds",              //
@@ -387,7 +408,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                     //"VoiceoftheChainMaster",       //
                     //"CloakofFlies",                //
                     //"MaddeningHex",                //
-                    //"OnewithShadows",              //
                     //"TombofLevistus",              //
                     //"GhostlyGaze",                 //
                     //"ProtectionoftheTalisman",     //
@@ -403,8 +423,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
 
                 GuiPresentation guiFeatureSetEldritchInvocations = new GuiPresentationBuilder(
-                 "Feature/&" + entry + "Description",
-                "Feature/&" + entry + "Title")
+                 "Feature/&" + entry + "Title",
+                "Feature/&" + entry + "Description")
                 .Build();
                 var FeatureSetEldritchInvocationsBuilder = FeatureDefinitionFeatureSetBuilder
                     .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, textEIAttributeModifers, GuidHelper.Create(new Guid(Settings.GUID), textEIAttributeModifers).ToString())
@@ -438,6 +458,28 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             DictionaryofEIAttributeModifers["BondoftheTalisman"].FeatureSet.Add(DatabaseHelper.FeatureDefinitionPowers.PowerSorakShadowEscape);
             //  DictionaryofEIAttributeModifers["Lifedrinker"].FeatureSet.Add();
             DictionaryofEIAttributeModifers["WitchSight"].FeatureSet.Add(DatabaseHelper.FeatureDefinitionSenses.SenseSeeInvisible12);
+
+
+            var Unlit = new FeatureDefinitionLightAffinity.LightingEffectAndCondition();
+            Unlit.lightingState = LocationDefinitions.LightingState.Unlit;
+            Unlit.condition = DatabaseHelper.ConditionDefinitions.ConditionInvisible;
+            var Dim = new FeatureDefinitionLightAffinity.LightingEffectAndCondition();
+            Dim.lightingState = LocationDefinitions.LightingState.Dim;
+            Dim.condition = DatabaseHelper.ConditionDefinitions.ConditionInvisible;
+            var Darkness = new FeatureDefinitionLightAffinity.LightingEffectAndCondition();
+            Darkness.lightingState = LocationDefinitions.LightingState.Darkness;
+            Darkness.condition = DatabaseHelper.ConditionDefinitions.ConditionInvisible;
+
+            FeatureDefinitionLightAffinity OneWithShadowsLightAffinity = FeatureDefinitionLightAffinityBuilder
+                .Create("OneWithShadowsLightAffinity", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation("OneWithShadowsLightAffinity", Category.Feature)
+                .AddLightingEffectAndCondition(Unlit)
+                .AddLightingEffectAndCondition(Dim)
+                .AddLightingEffectAndCondition(Darkness)
+                .AddToDB();
+
+            DictionaryofEIAttributeModifers["OneWithShadows"].FeatureSet.Add(OneWithShadowsLightAffinity);
+
 
         }
     }

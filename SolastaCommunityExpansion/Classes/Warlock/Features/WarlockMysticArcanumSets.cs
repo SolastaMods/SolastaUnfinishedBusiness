@@ -3,7 +3,7 @@ using System.Linq;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi.Extensions;
-using static SolastaCommunityExpansion.Classes.Warlock.WarlockSpellList;
+using static SolastaCommunityExpansion.Classes.Warlock.ClassWarlockSpellList;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionFeatureSets;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Features
@@ -32,7 +32,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
         private static IEnumerable<SpellDefinition> GetSpells(params int[] levels)
         {
-            return levels.SelectMany(level => ClassWarlockSpellList.SpellsByLevel[level].Spells);
+            return levels.SelectMany(level => ClassWarlockSpellList.WarlockSpellList.SpellsByLevel[level].Spells);
         }
 
         private static FeatureDefinitionFeatureSet Create(int setLevel, params int[] spellLevels)

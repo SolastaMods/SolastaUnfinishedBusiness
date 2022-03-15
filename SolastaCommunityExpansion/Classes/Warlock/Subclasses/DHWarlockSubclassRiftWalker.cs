@@ -2,24 +2,29 @@
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi.Extensions;
+using System.Collections.Generic;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 using static SolastaCommunityExpansion.Builders.DefinitionBuilder;
 
+//******************************************************************************************
+//  DO NOT REFACTOR OR CHANGE WITHOUT TESTING OR TAKING RESPOSBILITY FOR CODE GOING FORWARD
+//******************************************************************************************
+
 namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 {
-    public static class DHWarlockSubclassRiftWalker
+    public static class DHWarlockSubclassRiftWalkerPatron
     {
         private static FeatureDefinitionPower RiftWalk;
         private static FeatureDefinitionDamageAffinity FadeIntoTheVoid;
         private static FeatureDefinitionPower RiftBlink;
         private static FeatureDefinitionPower RiftStrike;
         private static FeatureDefinitionPower RiftJump;
-        private static FeatureDefinitionPower RiftCloak;
+        private static FeatureDefinitionConditionAffinity RiftCloak;
         private static SpellDefinition AtWillCantripWardingBond;
         private static FeatureDefinitionBonusCantrips WardingBondBonusCantrip;
         private static FeatureDefinitionMagicAffinity RiftWalkerMagicAffinity;
 
-        public static void Build()
+        public static CharacterSubclassDefinition Build()
         {
             RiftStepBuilder();
             RiftBlinkBuilder();
@@ -27,16 +32,16 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             RiftStrikeBuilder();
             RiftJumpBuilder();
             FadeIntoTheVoidBuilder();
-            // RiftCloakBuilder();
+            RiftCloakBuilder();
             AtWillWardingBond();
 
-            CharacterSubclassDefinitionBuilder
+         return   CharacterSubclassDefinitionBuilder
                 .Create("DHWarlockSubclassRiftWalker", CENamespaceGuid)
                 .SetGuiPresentation(Category.Subclass, DatabaseHelper.CharacterSubclassDefinitions.PathMagebane.GuiPresentation.SpriteReference)
                 .AddFeatureAtLevel(RiftWalkerMagicAffinity, 1)
                 .AddFeatureAtLevel(RiftWalk, 1)
                 .AddFeatureAtLevel(RiftBlink, 1)
-                .AddFeatureAtLevel(DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityRestrainedmmunity, 6)
+                .AddFeatureAtLevel(RiftCloak, 6)
                 .AddFeatureAtLevel(RiftStrike, 6)
                 .AddFeatureAtLevel(RiftJump, 10)
                 .AddFeatureAtLevel(FadeIntoTheVoid, 10)
@@ -145,23 +150,13 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
         public static void RiftCloakBuilder()
         {
-            RiftCloak = FeatureDefinitionPowerBuilder
-                .Create("DH_RiftCloak", CENamespaceGuid)
-                .SetGuiPresentation(Category.Feature, DimensionDoor.GuiPresentation.SpriteReference)
-                .SetUniqueInstance(true)
-                .Configure(
-                       1,
-                       RuleDefinitions.UsesDetermination.ProficiencyBonus,
-                       AttributeDefinitions.Charisma,
-                       RuleDefinitions.ActivationTime.BonusAction,
-                       1,
-                       RuleDefinitions.RechargeRate.AtWill,
-                       false,
-                       false,
-                       AttributeDefinitions.Charisma,
-                       WardingBond.EffectDescription,
-                       true)
-                .AddToDB();
+
+            RiftCloak =  FeatureDefinitionConditionAffinityBuilder
+             .Create(DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityRestrainedmmunity, "RiftWalkerMovementAffinityRestrainedImmunity", DefinitionBuilder.CENamespaceGuid)
+             .AddToDB();
+            RiftCloak.GuiPresentation.SetTitle("Feature/&RiftWalkerRestrainedImmunityTitle");
+
+
         }
 
         public static void AtWillWardingBond()
@@ -181,21 +176,82 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
         public static void RiftWalkerSpells()
         {
-            var riftWalkerSpellList = SpellListDefinitionBuilder
-                .Create(DatabaseHelper.SpellListDefinitions.SpellListSkeletonKnight, "RiftWalkerSpellsList", CENamespaceGuid)
-                .SetGuiPresentation("RiftWalkerSpellsList", Category.SpellList)
-                .ClearSpells()
-                .SetSpellsAtLevel(1, Jump, Longstrider)
-                .SetSpellsAtLevel(2, Blur, PassWithoutTrace)
-                .SetSpellsAtLevel(3, Haste, Slow)
-                .SetSpellsAtLevel(4, FreedomOfMovement, GreaterInvisibility)
-                .SetSpellsAtLevel(5, MindTwist, DispelEvilAndGood)
-                .AddToDB();
+            SpellListDefinition RiftWalkerSpellList = SpellListDefinitionBuilder
+                   .Create(DatabaseHelper.SpellListDefinitions.SpellListPaladin, "RiftWalkerSpellsList", CENamespaceGuid)
+                   .SetGuiPresentation("RiftWalkerSpellsList", Category.SpellList)
+                   .ClearSpells()
+                 
+                //   .SetSpellsAtLevel(1, Jump, Longstrider)
+                //   .SetSpellsAtLevel(2, Blur, PassWithoutTrace)
+                //   .SetSpellsAtLevel(3, Haste, Slow)
+                //   .SetSpellsAtLevel(4, FreedomOfMovement, GreaterInvisibility)
+                //   .SetSpellsAtLevel(5, MindTwist, DispelEvilAndGood)
+                   .SetMaxSpellLevel(5, false)
+                   .AddToDB();
+            RiftWalkerSpellList.ClearSpellsByLevel();
+            RiftWalkerSpellList.SpellsByLevel.AddRange(new List<SpellListDefinition.SpellsByLevelDuplet>()
+             {
+                // new SpellListDefinition.SpellsByLevelDuplet
+                // {
+                //     Level =0,
+                //     Spells = new List<SpellDefinition>
+                //     {
+                //     }
+                // },
+                 new SpellListDefinition.SpellsByLevelDuplet
+                 {
+                     Level =1,
+                     Spells = new List<SpellDefinition>
+                     {
+                         DatabaseHelper.SpellDefinitions.Jump,
+                         DatabaseHelper.SpellDefinitions.Longstrider
+                     }
+                 },
+                 new SpellListDefinition.SpellsByLevelDuplet
+                 {
+                     Level =2,
+                     Spells = new List<SpellDefinition>
+                     {
+                         DatabaseHelper.SpellDefinitions.Blur,
+                         DatabaseHelper.SpellDefinitions.PassWithoutTrace
+                     }
+                 },
+                 new SpellListDefinition.SpellsByLevelDuplet
+                 {
+                     Level =3,
+                     Spells = new List<SpellDefinition>
+                     {
+                         DatabaseHelper.SpellDefinitions.Haste,
+                         DatabaseHelper.SpellDefinitions.Slow
+                     }
+                 },
+                 new SpellListDefinition.SpellsByLevelDuplet
+                 {
+                     Level =4,
+                     Spells = new List<SpellDefinition>
+                     {
+                         DatabaseHelper.SpellDefinitions.FreedomOfMovement,
+                         DatabaseHelper.SpellDefinitions.GreaterInvisibility
+                     }
+                 },
+                 new SpellListDefinition.SpellsByLevelDuplet
+                 {
+                     Level =5,
+                     Spells = new List<SpellDefinition>
+                     {
+                         DatabaseHelper.SpellDefinitions.MindTwist,
+                         DatabaseHelper.SpellDefinitions.DispelEvilAndGood
+                     }
+                 },
+
+             });
+         
+            
 
             RiftWalkerMagicAffinity = FeatureDefinitionMagicAffinityBuilder
                 .Create("RiftWalkerSpellsMagicAffinity", CENamespaceGuid)
                 .SetGuiPresentation(Category.Feature)
-                .SetExtendedSpellList(riftWalkerSpellList)
+                .SetExtendedSpellList(RiftWalkerSpellList)
                 .AddToDB();
         }
     }

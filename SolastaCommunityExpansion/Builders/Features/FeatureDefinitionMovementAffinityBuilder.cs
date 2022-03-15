@@ -26,7 +26,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        protected FeatureDefinitionMovementAffinityBuilder(FeatureDefinitionMovementAffinity original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        internal FeatureDefinitionMovementAffinityBuilder(FeatureDefinitionMovementAffinity original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
         {
         }
 
