@@ -270,12 +270,11 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                     "Feature/&TinkererToolsExpertisePluralShortDescription").Build());
             artificerBuilder.AddFeatureAtLevel(6, toolExpertise);
 
-            GuiPresentationBuilder InfusionPoolIncreaseGui = new GuiPresentationBuilder(
-                "Subclass/&HealingPoolArtificerInfusionsIncreaseTitle",
-                "Subclass/&HealingPoolArtificerInfusionsIncreaseDescription");
-            FeatureDefinitionPowerPoolModifier InfusionPoolIncrease = new FeatureDefinitionPowerPoolModifierBuilder("AttributeModiferArtificerInfusionIncreaseHealingPool",
-                GuidHelper.Create(GuidNamespace, "AttributeModiferArtificerInfusionIncreaseHealingPool").ToString(),
-                1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, InfusionPool, InfusionPoolIncreaseGui.Build()).AddToDB();
+            FeatureDefinitionPowerPoolModifier InfusionPoolIncrease = FeatureDefinitionPowerPoolModifierBuilder
+                .Create("AttributeModiferArtificerInfusionIncreaseHealingPool", GuidNamespace)
+                .Configure(1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, InfusionPool)
+                .SetGuiPresentation("HealingPoolArtificerInfusionsIncrease", Category.Subclass)
+                .AddToDB();
             artificerBuilder.AddFeatureAtLevel(6, InfusionPoolIncrease);
 
             FeatureDefinitionFeatureSet level6Infusions = new FeatureHelpers.FeatureDefinitionFeatureSetBuilder("TinkererLevel6InfusionChoice",
@@ -349,9 +348,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 }, 0.25f, true, CraftingTinkererMagicItemAdeptPresentation.Build()).AddToDB();
             artificerBuilder.AddFeatureAtLevel(10, craftingAffinity);
             // boost to infusions (many of the +1s become +2s)
-            FeatureDefinitionPowerPoolModifier InfusionPoolIncrease10 = new FeatureDefinitionPowerPoolModifierBuilder("AttributeModiferArtificerInfusionIncreaseHealingPool10",
-                GuidHelper.Create(GuidNamespace, "AttributeModiferArtificerInfusionIncreaseHealingPool10").ToString(),
-                1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, InfusionPool, InfusionPoolIncreaseGui.Build()).AddToDB();
+
+            FeatureDefinitionPowerPoolModifier InfusionPoolIncrease10 = FeatureDefinitionPowerPoolModifierBuilder
+                .Create("AttributeModiferArtificerInfusionIncreaseHealingPool10", GuidNamespace)
+                .Configure(1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, InfusionPool)
+                .SetGuiPresentation("HealingPoolArtificerInfusionsIncrease", Category.Subclass)
+                .AddToDB();
             artificerBuilder.AddFeatureAtLevel(10, InfusionPoolIncrease10);
 
             FeatureDefinitionFeatureSet level10Infusions = new FeatureHelpers.FeatureDefinitionFeatureSetBuilder("TinkererLevel10InfusionChoice",
@@ -387,9 +389,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
             // 14- magic item savant another attunement slot and ignore requirements on magic items
             // also another infusion slot
-            FeatureDefinitionPowerPoolModifier InfusionPoolIncrease14 = new FeatureDefinitionPowerPoolModifierBuilder("AttributeModiferArtificerInfusionIncreaseHealingPool14",
-                GuidHelper.Create(GuidNamespace, "AttributeModiferArtificerInfusionIncreaseHealingPool14").ToString(),
-                1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, InfusionPool, InfusionPoolIncreaseGui.Build()).AddToDB();
+            FeatureDefinitionPowerPoolModifier InfusionPoolIncrease14 = FeatureDefinitionPowerPoolModifierBuilder
+                .Create("AttributeModiferArtificerInfusionIncreaseHealingPool14", GuidNamespace)
+                .SetGuiPresentation("HealingPoolArtificerInfusionsIncrease", Category.Subclass)
+                .Configure(1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, InfusionPool)
+                .AddToDB();
+
             artificerBuilder.AddFeatureAtLevel(14, InfusionPoolIncrease14);
             FeatureDefinitionFeatureSet level14Infusions = new FeatureHelpers.FeatureDefinitionFeatureSetBuilder("TinkererLevel14InfusionChoice",
                 GuidHelper.Create(GuidNamespace, "TinkererLevel14InfusionChoice").ToString(), Level14InfusionList,
@@ -403,9 +408,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
             // 18 - magic item master another attunement slot
             // also another infusion slot
-            FeatureDefinitionPowerPoolModifier InfusionPoolIncrease18 = new FeatureDefinitionPowerPoolModifierBuilder("AttributeModiferArtificerInfusionIncreaseHealingPool18",
-                GuidHelper.Create(GuidNamespace, "AttributeModiferArtificerInfusionIncreaseHealingPool18").ToString(),
-                1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, InfusionPool, InfusionPoolIncreaseGui.Build()).AddToDB();
+            FeatureDefinitionPowerPoolModifier InfusionPoolIncrease18 = FeatureDefinitionPowerPoolModifierBuilder
+                .Create("AttributeModiferArtificerInfusionIncreaseHealingPool18", GuidNamespace)
+                .Configure(1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, InfusionPool)
+                .SetGuiPresentation("HealingPoolArtificerInfusionsIncrease", Category.Subclass)
+                .AddToDB();
+
             artificerBuilder.AddFeatureAtLevel(18, InfusionPoolIncrease18);
             artificerBuilder.AddFeatureAtLevel(18, level14Infusions, 2);
 

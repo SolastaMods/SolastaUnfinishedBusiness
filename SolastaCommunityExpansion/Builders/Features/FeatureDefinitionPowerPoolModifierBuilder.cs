@@ -1,5 +1,4 @@
 ﻿using System;
-using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi.Extensions;
 
@@ -13,13 +12,17 @@ namespace SolastaCommunityExpansion.Builders.Features
      */
     public class FeatureDefinitionPowerPoolModifierBuilder : FeatureDefinitionPowerBuilder<FeatureDefinitionPowerPoolModifier, FeatureDefinitionPowerPoolModifierBuilder>
     {
-        public FeatureDefinitionPowerPoolModifierBuilder(string name, string guid,
-            int powerPoolModifier, RuleDefinitions.UsesDetermination usesDetermination,
-            string usesAbilityScoreName, FeatureDefinitionPower poolPower, GuiPresentation guiPresentation) : base(name, guid)
+        protected override void Initialise()
         {
-            Configure(powerPoolModifier, usesDetermination, usesAbilityScoreName, poolPower);
+            base.Initialise();
 
-            Definition.SetGuiPresentation(guiPresentation);
+            if (IsNew)
+            {
+                // This is just an activation time that should not be shown in the UI.
+                Definition.SetActivationTime(RuleDefinitions.ActivationTime.Permanent);
+                // Math for usage gets weird if this isn't 1.
+                Definition.SetCostPerUse(1);
+            }
         }
 
         public FeatureDefinitionPowerPoolModifierBuilder Configure(
@@ -29,12 +32,6 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetFixedUsesPerRecharge(powerPoolModifier);
             Definition.SetUsesDetermination(usesDetermination);
             Definition.SetUsesAbilityScoreName(usesAbilityScoreName);
-            // This is just an activation time that should not be shown in the UI.
-            Definition.SetActivationTime(RuleDefinitions.ActivationTime.Permanent);
-            // Math for usage gets weird if this isn't 1.
-            Definition.SetCostPerUse(1);
-            // The game throws an exception if there is no effect description.
-            Definition.SetEffectDescription(new EffectDescription());
             Definition.SetOverriddenPower(Definition);
 
             Definition.PoolPower = poolPower;

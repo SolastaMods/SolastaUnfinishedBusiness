@@ -195,19 +195,11 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             Definition.GuiPresentation.Title = "Feat/&ScoutSentinelFeatureSet_level09Title";
             Definition.GuiPresentation.Description = "Feat/&ScoutSentinelFeatureSet_level09Description";
 
-            GuiPresentation guiPresentation = new GuiPresentation();
-            guiPresentation.SetDescription("Feat/&ExtraInfusionSlotsTitle");
-            guiPresentation.SetTitle("Feat/&ExtraInfusionSlotsDescription");
-            guiPresentation.SetSortOrder(1);
-
-            FeatureDefinitionPowerPoolModifier ExtraInfusionSlots = new FeatureDefinitionPowerPoolModifierBuilder(
-                "ExtraInfusionSlots",
-                "350902fd-cf99-48e4-8edc-115c82886bdb",
-                2,
-                RuleDefinitions.UsesDetermination.Fixed,
-                AttributeDefinitions.Intelligence,
-                TinkererClass.InfusionPool, guiPresentation
-                ).AddToDB();
+            FeatureDefinitionPowerPoolModifier ExtraInfusionSlots = FeatureDefinitionPowerPoolModifierBuilder
+                .Create("ExtraInfusionSlots", "350902fd-cf99-48e4-8edc-115c82886bdb")
+                .Configure(2, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, TinkererClass.InfusionPool)
+                .SetGuiPresentation(Category.Feat, null, 1)
+                .AddToDB();
 
             Definition.FeatureSet.Clear();
             Definition.FeatureSet.Add(ExtraInfusionSlots);

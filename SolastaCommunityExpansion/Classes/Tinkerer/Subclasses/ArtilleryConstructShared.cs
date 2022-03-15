@@ -402,19 +402,11 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             Definition.GuiPresentation.Title = "Feat/&SummonArtilleryConstructlevel15Title";
             Definition.GuiPresentation.Description = "Feat/&SummonArtilleryConstructlevel15Description";
 
-            GuiPresentationBuilder artilleryPoolIncreaseGui = new GuiPresentationBuilder(
-                "Subclass/&HArtilleryIncreaseTitle",
-                "Subclass/&HArtilleryIncreaseDescription");
-
-            FeatureDefinitionPowerPoolModifier artilleryPoolIncrease = new FeatureDefinitionPowerPoolModifierBuilder(
-                "AttributeModiferArtilleryPoolIncrease",
-                GuidHelper.Create(TinkererClass.GuidNamespace, "AttributeModiferArtilleryPoolIncrease").ToString(),
-                1,
-                RuleDefinitions.UsesDetermination.Fixed,
-                AttributeDefinitions.Intelligence,
-                ArtilleryConstructlevel03FeatureSetBuilder.ArtilleryModePool,
-                artilleryPoolIncreaseGui.Build()
-                ).AddToDB();
+            FeatureDefinitionPowerPoolModifier artilleryPoolIncrease = FeatureDefinitionPowerPoolModifierBuilder
+                .Create("AttributeModiferArtilleryPoolIncrease", TinkererClass.GuidNamespace)
+                .Configure(1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, ArtilleryConstructlevel03FeatureSetBuilder.ArtilleryModePool)
+                .SetGuiPresentation("HArtilleryIncrease", Category.Subclass)
+                .AddToDB();
 
             Definition.FeatureSet.Clear();
             Definition.FeatureSet.Add(artilleryPoolIncrease);

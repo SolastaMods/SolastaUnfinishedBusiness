@@ -192,9 +192,10 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
 
         public static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
         {
-            return new FeatureDefinitionPowerPoolModifierBuilder(name, guid,
-                           1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Dexterity, TacticianFighterSubclassBuilder.GambitResourcePool,
-                           new GuiPresentationBuilder("Feature/&GambitResourcePoolAddTitle", "Feature/&GambitResourcePoolAddDescription").Build()).AddToDB();
+            return FeatureDefinitionPowerPoolModifierBuilder.Create(name, guid)
+                .Configure(1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Dexterity, TacticianFighterSubclassBuilder.GambitResourcePool)
+                .SetGuiPresentation(new GuiPresentationBuilder("Feature/&GambitResourcePoolAddTitle", "Feature/&GambitResourcePoolAddDescription").Build())
+                .AddToDB();
         }
 
         public static FeatureDefinitionPower GambitResourcePoolAdd()
