@@ -5,6 +5,8 @@ using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi.Infrastructure;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions.RollContext;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionAttributeModifiers;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaCommunityExpansion.Feats
 {
@@ -63,7 +65,17 @@ namespace SolastaCommunityExpansion.Feats
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 
-            feats.AddRange(savageAttacker, tough, warCaster, improvedCritical);
+            // Fighting Surge
+            var fightingSurge = FeatDefinitionBuilder
+                .Create("FeatFightingSurge", OtherFeatNamespace)
+                .SetFeatures(
+                    AttributeModifierCreed_Of_Misaye,
+                    PowerFighterActionSurge
+                )
+                .SetGuiPresentation(Category.Feat)
+                .AddToDB();
+
+            feats.AddRange(savageAttacker, tough, warCaster, improvedCritical, fightingSurge);
         }
 
         private static FeatureDefinitionDieRollModifier BuildDieRollModifier(string name,
