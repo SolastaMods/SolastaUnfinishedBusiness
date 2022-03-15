@@ -36,6 +36,22 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
         #endregion
 
+        public FeatureDefinitionAttackModifierBuilder Configure(RuleDefinitions.AttackModifierMethod attackRollModifierMethod,
+            int attackRollModifier, string attackRollAbilityScore, RuleDefinitions.AttackModifierMethod damageRollModifierMethod,
+            int damageRollModifier, string damageRollAbilityScore, bool canAddAbilityBonusToSecondary, string additionalAttackTag)
+        {
+            Definition.SetAttackRollModifierMethod(attackRollModifierMethod);
+            Definition.SetAttackRollModifier(attackRollModifier);
+            Definition.SetAttackRollAbilityScore(attackRollAbilityScore);
+            Definition.SetDamageRollModifierMethod(damageRollModifierMethod);
+            Definition.SetDamageRollModifier(damageRollModifier);
+            Definition.SetDamageRollAbilityScore(damageRollAbilityScore);
+            Definition.SetCanAddAbilityBonusToSecondary(canAddAbilityBonusToSecondary);
+            Definition.SetAdditionalAttackTag(additionalAttackTag);
+
+            return This();
+        }
+
         public FeatureDefinitionAttackModifierBuilder SetAbilityScoreReplacement(RuleDefinitions.AbilityScoreReplacement replacement)
         {
             Definition.SetAbilityScoreReplacement(replacement);

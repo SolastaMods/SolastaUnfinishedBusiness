@@ -15,7 +15,6 @@ namespace SolastaCommunityExpansion.Builders
         WhenAddedOrRemoved = WhenAdded | WhenRemoved
     }
 
-
     /// <summary>
     /// Abstract ConditionDefinitionBuilder that allows creating builders for custom ConditionDefinition types.
     /// </summary>
@@ -207,10 +206,28 @@ namespace SolastaCommunityExpansion.Builders
             Definition.SetDurationParameter(duration);
             Definition.SetDurationType(type);
 
-            return (TBuilder)this;
+            return This();
         }
 
-        // TODO: add more methods as required (and that aren't delegating property setters to add value)
+        public TBuilder Configure(RuleDefinitions.DurationType durationType, int durationParameter,
+            bool silent, IEnumerable<FeatureDefinition> conditionFeatures)
+        {
+            Definition.Features.AddRange(conditionFeatures);
+            Definition.SetConditionType(RuleDefinitions.ConditionType.Beneficial);
+            Definition.SetAllowMultipleInstances(false);
+            Definition.SetDurationType(durationType);
+            Definition.SetDurationParameter(durationParameter);
+            Definition.SetConditionStartParticleReference(new AssetReference());
+            Definition.SetConditionParticleReference(new AssetReference());
+            Definition.SetConditionEndParticleReference(new AssetReference());
+            Definition.SetCharacterShaderReference(new AssetReference());
+            if (silent)
+            {
+                Definition.SetSilentWhenAdded(true);
+                Definition.SetSilentWhenRemoved(true);
+            }
+            return This();
+        }
     }
 
     /// <summary>

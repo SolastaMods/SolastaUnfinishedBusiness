@@ -5,8 +5,8 @@ using SolastaCommunityExpansion.Builders;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
-using UnityEngine.AddressableAssets;
 using static FeatureDefinitionAttributeModifier;
+using static SolastaModApi.DatabaseHelper.SchoolOfMagicDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
@@ -20,16 +20,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 bool proficiencyBonusToAttack, bool abilityScoreBonusToAttack, string abilityScore,
                 EffectDescription effectDescription, GuiPresentation guiPresentation) : base(name, guid)
             {
-                Definition.SetFixedUsesPerRecharge(usesPerRecharge);
-                Definition.SetUsesDetermination(usesDetermination);
-                Definition.SetUsesAbilityScoreName(usesAbilityScoreName);
-                Definition.SetActivationTime(activationTime);
-                Definition.SetCostPerUse(costPerUse);
-                Definition.SetRechargeRate(recharge);
-                Definition.SetProficiencyBonusToAttack(proficiencyBonusToAttack);
-                Definition.SetAbilityScoreBonusToAttack(abilityScoreBonusToAttack);
-                Definition.SetAbilityScore(abilityScore);
-                Definition.SetEffectDescription(effectDescription);
+                Configure(usesPerRecharge, usesDetermination, usesAbilityScoreName, activationTime, costPerUse,
+                    recharge, proficiencyBonusToAttack, abilityScoreBonusToAttack, abilityScore, effectDescription);
+
                 Definition.SetGuiPresentation(guiPresentation);
             }
 
@@ -68,14 +61,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 int damageRollModifier, string damageRollAbilityScore, bool canAddAbilityBonusToSecondary, string additionalAttackTag,
                 GuiPresentation guiPresentation) : base(name, guid)
             {
-                Definition.SetAttackRollModifierMethod(attackRollModifierMethod);
-                Definition.SetAttackRollModifier(attackRollModifier);
-                Definition.SetAttackRollAbilityScore(attackRollAbilityScore);
-                Definition.SetDamageRollModifierMethod(damageRollModifierMethod);
-                Definition.SetDamageRollModifier(damageRollModifier);
-                Definition.SetDamageRollAbilityScore(damageRollAbilityScore);
-                Definition.SetCanAddAbilityBonusToSecondary(canAddAbilityBonusToSecondary);
-                Definition.SetAdditionalAttackTag(additionalAttackTag);
+                Configure(attackRollModifierMethod, attackRollModifier, attackRollAbilityScore, damageRollModifierMethod,
+                    damageRollModifier, damageRollAbilityScore, canAddAbilityBonusToSecondary, additionalAttackTag);
 
                 Definition.SetGuiPresentation(guiPresentation);
             }
@@ -147,20 +134,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             public ConditionDefinitionBuilder(string name, string guid, RuleDefinitions.DurationType durationType, int durationParameter,
                 bool silent, GuiPresentation guiPresentation, IEnumerable<FeatureDefinition> conditionFeatures) : base(name, guid)
             {
-                Definition.Features.AddRange(conditionFeatures);
-                Definition.SetConditionType(RuleDefinitions.ConditionType.Beneficial);
-                Definition.SetAllowMultipleInstances(false);
-                Definition.SetDurationType(durationType);
-                Definition.SetDurationParameter(durationParameter);
-                Definition.SetConditionStartParticleReference(new AssetReference());
-                Definition.SetConditionParticleReference(new AssetReference());
-                Definition.SetConditionEndParticleReference(new AssetReference());
-                Definition.SetCharacterShaderReference(new AssetReference());
-                if (silent)
-                {
-                    Definition.SetSilentWhenAdded(true);
-                    Definition.SetSilentWhenRemoved(true);
-                }
+                Configure(durationType, durationParameter, silent, conditionFeatures);
 
                 Definition.SetGuiPresentation(guiPresentation);
             }
@@ -185,14 +159,15 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                     };
                     if (againstMagic)
                     {
-                        group.restrictedSchools.Add(DatabaseHelper.SchoolOfMagicDefinitions.SchoolAbjuration.Name);
-                        group.restrictedSchools.Add(DatabaseHelper.SchoolOfMagicDefinitions.SchoolConjuration.Name);
-                        group.restrictedSchools.Add(DatabaseHelper.SchoolOfMagicDefinitions.SchoolDivination.Name);
-                        group.restrictedSchools.Add(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEnchantment.Name);
-                        group.restrictedSchools.Add(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation.Name);
-                        group.restrictedSchools.Add(DatabaseHelper.SchoolOfMagicDefinitions.SchoolIllusion.Name);
-                        group.restrictedSchools.Add(DatabaseHelper.SchoolOfMagicDefinitions.SchoolNecromancy.Name);
-                        group.restrictedSchools.Add(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation.Name);
+                        group.restrictedSchools.AddRange(
+                            SchoolAbjuration.Name,
+                            SchoolConjuration.Name,
+                            SchoolDivination.Name,
+                            SchoolEnchantment.Name,
+                            SchoolEvocation.Name,
+                            SchoolIllusion.Name,
+                            SchoolNecromancy.Name,
+                            SchoolTransmutation.Name);
                     }
                     Definition.AffinityGroups.Add(group);
                 }

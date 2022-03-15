@@ -70,6 +70,38 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
         #endregion
 
+        public TBuilder Configure(int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination,
+            string usesAbilityScoreName, RuleDefinitions.ActivationTime activationTime, int costPerUse, RuleDefinitions.RechargeRate recharge,
+            bool proficiencyBonusToAttack, bool abilityScoreBonusToAttack, string abilityScore,
+            EffectDescription effectDescription)
+        {
+            Definition.SetFixedUsesPerRecharge(usesPerRecharge);
+            Definition.SetUsesDetermination(usesDetermination);
+            Definition.SetUsesAbilityScoreName(usesAbilityScoreName);
+            Definition.SetActivationTime(activationTime);
+            Definition.SetCostPerUse(costPerUse);
+            Definition.SetRechargeRate(recharge);
+            Definition.SetProficiencyBonusToAttack(proficiencyBonusToAttack);
+            Definition.SetAbilityScoreBonusToAttack(abilityScoreBonusToAttack);
+            Definition.SetAbilityScore(abilityScore);
+            Definition.SetEffectDescription(effectDescription);
+
+            return This();
+        }
+
+        public TBuilder Configure(int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination,
+            string usesAbilityScoreName, RuleDefinitions.ActivationTime activationTime, int costPerUse, RuleDefinitions.RechargeRate recharge,
+            bool proficiencyBonusToAttack, bool abilityScoreBonusToAttack, string abilityScore,
+            EffectDescription effectDescription, FeatureDefinitionPower overridenPower)
+        {
+            Configure(usesPerRecharge, usesDetermination, usesAbilityScoreName, activationTime, costPerUse,
+                recharge, proficiencyBonusToAttack, abilityScoreBonusToAttack, abilityScore, effectDescription);
+
+            Definition.SetOverriddenPower(overridenPower);
+
+            return This();
+        }
+
         // Over specific method?
         // TODO: split into smaller methods
         // Or is this a specific type of configuration.  Call it ConfigureXXXPower?
