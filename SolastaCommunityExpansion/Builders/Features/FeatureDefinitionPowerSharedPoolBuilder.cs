@@ -8,6 +8,15 @@ namespace SolastaCommunityExpansion.Builders.Features
 {
     public class FeatureDefinitionPowerSharedPoolBuilder : FeatureDefinitionPowerBuilder<FeatureDefinitionPowerSharedPool, FeatureDefinitionPowerSharedPoolBuilder>
     {
+        protected override void Initialise()
+        {
+            base.Initialise();
+
+            // We set uses determination to fixed because the code handling updates needs that.
+            Definition.SetUsesDetermination(RuleDefinitions.UsesDetermination.Fixed);
+            // Recharge rate probably shouldn't be in here, but for now leave it be because there is already usage outside of this mod.
+        }
+
         internal override void Validate()
         {
             base.Validate();
@@ -34,9 +43,6 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
             Preconditions.IsNotNull(poolPower, $"FeatureDefinitionPowerSharedPoolBuilder[{Definition.Name}] poolPower is null.");
 
-            // We set uses determination to fixed because the code handling updates needs that.
-            Definition.SetUsesDetermination(RuleDefinitions.UsesDetermination.Fixed);
-            // Recharge rate probably shouldn't be in here, but for now leave it be because there is already usage outside of this mod.
             Definition.SetRechargeRate(recharge);
             Definition.SetActivationTime(activationTime);
             Definition.SetCostPerUse(costPerUse);
