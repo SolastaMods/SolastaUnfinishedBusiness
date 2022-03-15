@@ -65,17 +65,29 @@ namespace SolastaCommunityExpansion.Feats
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 
-            // Fighting Surge
-            var fightingSurge = FeatDefinitionBuilder
-                .Create("FeatFightingSurge", OtherFeatNamespace)
+            // Fighting Surge (Dexterity)
+            var fightingSurgeDexterity = FeatDefinitionBuilder
+                .Create("FeatFightingSurgeDexterity", OtherFeatNamespace)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Misaye,
                     PowerFighterActionSurge
                 )
+                .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 
-            feats.AddRange(savageAttacker, tough, warCaster, improvedCritical, fightingSurge);
+            // Fighting Surge (Strength)
+            var fightingSurgeStrength = FeatDefinitionBuilder
+                .Create("FeatFightingSurgeStrength", OtherFeatNamespace)
+                .SetFeatures(
+                    AttributeModifierCreed_Of_Einar,
+                    PowerFighterActionSurge
+                )
+                .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
+                .SetGuiPresentation(Category.Feat)
+                .AddToDB();
+
+            feats.AddRange(savageAttacker, tough, warCaster, improvedCritical, fightingSurgeDexterity, fightingSurgeStrength);
         }
 
         private static FeatureDefinitionDieRollModifier BuildDieRollModifier(string name,
