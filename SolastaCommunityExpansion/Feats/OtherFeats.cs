@@ -8,6 +8,7 @@ using static RuleDefinitions.RollContext;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionAttributeModifiers;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionPointPools;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaCommunityExpansion.Feats
@@ -93,6 +94,43 @@ namespace SolastaCommunityExpansion.Feats
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 
+            //
+            // WIP: metamagic selection happens before feat. need to find a patch first
+            //
+#if false
+
+//Feat/&FeatMetamagicAdeptCharismaTitle	Metamagic Adept (Charisma)
+//Feat/&FeatMetamagicAdeptCharismaDescription	You've learned how to exert your will on your spells to alter how they function. You gain the following benefits:\n\nIncrease your Charisma score by 1, to a maximum of 20.\n\nLearn 2 Metamagic options of your choice from the Sorcerer Class.\n\nGain 2 Sorcerer Points. These can stack with points from other sources.
+//Feat/&FeatMetamagicAdeptConstitutionTitle	Metamagic Adept (Constitution)
+//Feat/&FeatMetamagicAdeptConstitutionDescription	You've learned how to exert your will on your spells to alter how they function. You gain the following benefits:\n\nIncrease your Charisma score by 1, to a maximum of 20.\n\nLearn 2 Metamagic options of your choice from the Sorcerer Class.\n\nGain 2 Sorcerer Points. These can stack with points from other sources.
+
+            // Metamagic Adept (Charisma)
+            var metamagicAdeptCharisma = FeatDefinitionBuilder
+                .Create("FeatMetamagicAdeptCharisma", OtherFeatNamespace)
+                .SetFeatures(
+                     AttributeModifierCreed_Of_Solasta,
+                    // TODO: FeatureDefinitionAttributeModifierBuilder not working. Need to create a new based on this and change set to add                   
+                    AttributeModifierSorcererSorceryPointsBase,
+                    PointPoolSorcererMetamagic
+                 )
+                .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
+                .SetGuiPresentation(Category.Feat)
+                .AddToDB();
+
+            // Metamagic Adept (Constitution)
+            var metamagicAdeptConstitution = FeatDefinitionBuilder
+                .Create("FeatMetamagicAdeptConstitution", OtherFeatNamespace)
+                .SetFeatures(
+                    AttributeModifierCreed_Of_Arun,
+                    // TODO: FeatureDefinitionAttributeModifierBuilder not working. Need to create a new based on this and change set to add                   
+                    AttributeModifierSorcererSorceryPointsBase,
+                    PointPoolSorcererMetamagic
+                 )
+                .SetAbilityScorePrerequisite(AttributeDefinitions.Constitution, 13)
+                .SetGuiPresentation(Category.Feat)
+                .AddToDB();
+#endif
+
             // Practiced Expert Features
             var pointPoolFeatPracticedExpertSkill = FeatureDefinitionPointPoolBuilder
                .Create("PointPoolFeatPracticedExpertSkill")
@@ -133,7 +171,6 @@ namespace SolastaCommunityExpansion.Feats
                 .Create("FeatPrimalConstitution", OtherFeatNamespace)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Arun,
-                    AttributeModifierBarbarianUnarmoredDefense,
                     ActionAffinityBarbarianRage,
                     AttributeModifierBarbarianRagePointsAdd,
                     AttributeModifierBarbarianRageDamageAdd,
@@ -148,7 +185,6 @@ namespace SolastaCommunityExpansion.Feats
                 .Create("FeatPrimalStrength", OtherFeatNamespace)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Einar,
-                    AttributeModifierBarbarianUnarmoredDefense,
                     ActionAffinityBarbarianRage,
                     AttributeModifierBarbarianRagePointsAdd,
                     AttributeModifierBarbarianRageDamageAdd,
@@ -177,6 +213,37 @@ namespace SolastaCommunityExpansion.Feats
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 
+            // Unarmored Defense (Constitution)
+            var unarmoredDefenseConstitution = FeatDefinitionBuilder
+                .Create("FeatUnarmoredDefenseConstitution", OtherFeatNamespace)
+                .SetFeatures(
+                    AttributeModifierCreed_Of_Arun,
+                    AttributeModifierBarbarianUnarmoredDefense
+                )
+                .SetAbilityScorePrerequisite(AttributeDefinitions.Constitution, 13)
+                .SetGuiPresentation(Category.Feat)
+                .AddToDB();
+
+            // Unarmmored Defense (Charisma)
+
+            //
+            // TODO: fix below after Imp checks why AttrModBuilder isn't working
+            //
+            var attributeModifierCharismaUnarmoredDefense = UnityEngine.Object.Instantiate(AttributeModifierBarbarianUnarmoredDefense);
+
+            attributeModifierCharismaUnarmoredDefense.SetField("name", "AttributeModifierCharismaUnarmoredDefense");
+            attributeModifierCharismaUnarmoredDefense.SetField("modifierAbilityScore", AttributeDefinitions.Charisma);
+
+            var unarmoredDefenseCharisma = FeatDefinitionBuilder
+                .Create("FeatUnarmoredDefenseCharisma", OtherFeatNamespace)
+                .SetFeatures(
+                    AttributeModifierCreed_Of_Einar,
+                    attributeModifierCharismaUnarmoredDefense
+                )
+                .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
+                .SetGuiPresentation(Category.Feat)
+                .AddToDB();
+
             //
             // set feats to be registered in mod settings
             //
@@ -184,10 +251,14 @@ namespace SolastaCommunityExpansion.Feats
             feats.AddRange(
                 savageAttacker, 
                 tough, 
-                warCaster, 
+                warCaster,
+
                 improvedCritical, 
+
                 fightingSurgeDexterity, 
                 fightingSurgeStrength,
+                unarmoredDefenseCharisma,
+                unarmoredDefenseConstitution,
                 practicedExpertIntelligence,
                 practicedExpertWisdom,
                 primalConstitution,
