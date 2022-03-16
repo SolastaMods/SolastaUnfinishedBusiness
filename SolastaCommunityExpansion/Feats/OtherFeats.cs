@@ -5,9 +5,10 @@ using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi.Infrastructure;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions.RollContext;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionAttributeModifiers;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionPointPools;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaCommunityExpansion.Feats
@@ -93,6 +94,36 @@ namespace SolastaCommunityExpansion.Feats
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 
+            // Primal (Constitution)
+            var primalConstitution = FeatDefinitionBuilder
+                .Create("FeatPrimalConstitution", OtherFeatNamespace)
+                .SetFeatures(
+                    AttributeModifierCreed_Of_Arun,
+                    AttributeModifierBarbarianUnarmoredDefense,
+                    ActionAffinityBarbarianRage,
+                    AttributeModifierBarbarianRagePointsAdd,
+                    AttributeModifierBarbarianRageDamageAdd,
+                    PowerBarbarianRageStart
+                )
+                .SetAbilityScorePrerequisite(AttributeDefinitions.Constitution, 13)
+                .SetGuiPresentation(Category.Feat)
+                .AddToDB();
+
+            // Primal (Strength)
+            var primalStrength = FeatDefinitionBuilder
+                .Create("FeatPrimalStrength", OtherFeatNamespace)
+                .SetFeatures(
+                    AttributeModifierCreed_Of_Einar,
+                    AttributeModifierBarbarianUnarmoredDefense,
+                    ActionAffinityBarbarianRage,
+                    AttributeModifierBarbarianRagePointsAdd,
+                    AttributeModifierBarbarianRageDamageAdd,
+                    PowerBarbarianRageStart
+                )
+                .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
+                .SetGuiPresentation(Category.Feat)
+                .AddToDB();
+
             // Shady
             var shady = FeatDefinitionBuilder
                 .Create("FeatShady", OtherFeatNamespace)
@@ -113,7 +144,16 @@ namespace SolastaCommunityExpansion.Feats
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 
-            feats.AddRange(savageAttacker, tough, warCaster, improvedCritical, fightingSurgeDexterity, fightingSurgeStrength, shady);
+            feats.AddRange(
+                savageAttacker, 
+                tough, 
+                warCaster, 
+                improvedCritical, 
+                fightingSurgeDexterity, 
+                fightingSurgeStrength,
+                primalConstitution,
+                primalStrength,
+                shady);
         }
 
         private static FeatureDefinitionDieRollModifier BuildDieRollModifier(string name,
