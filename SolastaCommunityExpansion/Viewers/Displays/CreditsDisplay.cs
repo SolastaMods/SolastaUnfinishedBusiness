@@ -8,7 +8,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
         internal static readonly Dictionary<string, string> CreditsTable = new()
         {
             { "ChrisJohnDigital".orange().bold(), "head developer, crafting, faction relations, feats, fighting styles, items, subclasses, progression" },
-            { "Zappastuff", "multiclass, level 20, respec, encounters, dungeon maker editor & pro, inventory sorting, adventure log, epic points, surprise rules, teleport, mod UI & integration, fighting surge and shady feats" },
+            { "Zappastuff", "multiclass, level 20, respec, encounters, dungeon maker editor & pro, inventory sorting, adventure log, epic points, surprise rules, teleport, mod UI & integration, fighting surge, practiced expert, primal and shady feats" },
             { "ImpPhil", "adv/dis rules, conjurations control, auto-equip, location rotation in DM, monster's health, pause UI, sorting, stocks prices, no attunement, xp scaling, character export, save by location, combat camera, diagnostics" },
             { "DubhHerder", "High level spells, Crafty Feats migration, bug models replacement" },
             { "View619", "Darkvision, Superior Dark Vision" },

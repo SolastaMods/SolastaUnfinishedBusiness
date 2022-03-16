@@ -94,6 +94,23 @@ namespace SolastaCommunityExpansion.Feats
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 
+            // Practiced Expert
+            var practicedExpert = FeatDefinitionBuilder
+                .Create("FeatPracticedExpert", OtherFeatNamespace)
+                .SetFeatures(
+                    AttributeModifierHumanAbilityScoreIncrease,
+                     FeatureDefinitionPointPoolBuilder
+                        .Create("PointPoolFeatPracticedExpertSkill")
+                        .SetPool(HeroDefinitions.PointsPoolType.Skill, 1)
+                        .AddToDB(),
+                     FeatureDefinitionPointPoolBuilder
+                        .Create("PointPoolFeatPracticedExpertExpertise")
+                        .SetPool(HeroDefinitions.PointsPoolType.Expertise, 1)
+                        .AddToDB()
+                )
+                .SetGuiPresentation(Category.Feat)
+                .AddToDB();
+
             // Primal (Constitution)
             var primalConstitution = FeatDefinitionBuilder
                 .Create("FeatPrimalConstitution", OtherFeatNamespace)
@@ -138,7 +155,6 @@ namespace SolastaCommunityExpansion.Feats
                         .Create("PointPoolFeatShadyExpertise")
                         .SetPool(HeroDefinitions.PointsPoolType.Expertise, 1)
                         .AddToDB()
-
                 )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
                 .SetGuiPresentation(Category.Feat)
@@ -151,6 +167,7 @@ namespace SolastaCommunityExpansion.Feats
                 improvedCritical, 
                 fightingSurgeDexterity, 
                 fightingSurgeStrength,
+                practicedExpert,
                 primalConstitution,
                 primalStrength,
                 shady);
