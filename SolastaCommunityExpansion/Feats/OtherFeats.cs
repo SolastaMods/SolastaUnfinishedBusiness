@@ -8,7 +8,6 @@ using static RuleDefinitions.RollContext;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionAttributeModifiers;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaCommunityExpansion.Feats
@@ -94,21 +93,39 @@ namespace SolastaCommunityExpansion.Feats
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 
-            // Practiced Expert
-            var practicedExpert = FeatDefinitionBuilder
-                .Create("FeatPracticedExpert", OtherFeatNamespace)
+            // Practiced Expert Features
+            var pointPoolFeatPracticedExpertSkill = FeatureDefinitionPointPoolBuilder
+               .Create("PointPoolFeatPracticedExpertSkill")
+               .SetPool(HeroDefinitions.PointsPoolType.Skill, 1)
+               .AddToDB();
+
+            var pointPoolFeatPracticedExpertExpertise = FeatureDefinitionPointPoolBuilder
+                .Create("PointPoolFeatPracticedExpertExpertise")
+                .SetPool(HeroDefinitions.PointsPoolType.Expertise, 1)
+                .AddToDB();
+
+            // Practiced Expert (Ingelligence)
+            var practicedExpertIntelligence = FeatDefinitionBuilder
+                .Create("FeatPracticedExpertIntelligence", OtherFeatNamespace)
                 .SetFeatures(
-                    AttributeModifierHumanAbilityScoreIncrease,
-                     FeatureDefinitionPointPoolBuilder
-                        .Create("PointPoolFeatPracticedExpertSkill")
-                        .SetPool(HeroDefinitions.PointsPoolType.Skill, 1)
-                        .AddToDB(),
-                     FeatureDefinitionPointPoolBuilder
-                        .Create("PointPoolFeatPracticedExpertExpertise")
-                        .SetPool(HeroDefinitions.PointsPoolType.Expertise, 1)
-                        .AddToDB()
+                    AttributeModifierCreed_Of_Pakri,
+                    pointPoolFeatPracticedExpertSkill,
+                    pointPoolFeatPracticedExpertExpertise
                 )
                 .SetGuiPresentation(Category.Feat)
+                .SetAbilityScorePrerequisite(AttributeDefinitions.Intelligence, 13)
+                .AddToDB();
+
+            // Practiced Expert (Wisdom)
+            var practicedExpertWisdom = FeatDefinitionBuilder
+                .Create("FeatPracticedExpertWisdom", OtherFeatNamespace)
+                .SetFeatures(
+                    AttributeModifierCreed_Of_Maraike,
+                    pointPoolFeatPracticedExpertSkill,
+                    pointPoolFeatPracticedExpertExpertise
+                )
+                .SetGuiPresentation(Category.Feat)
+                .SetAbilityScorePrerequisite(AttributeDefinitions.Wisdom, 13)
                 .AddToDB();
 
             // Primal (Constitution)
@@ -160,6 +177,10 @@ namespace SolastaCommunityExpansion.Feats
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 
+            //
+            // set feats to be registered in mod settings
+            //
+
             feats.AddRange(
                 savageAttacker, 
                 tough, 
@@ -167,7 +188,8 @@ namespace SolastaCommunityExpansion.Feats
                 improvedCritical, 
                 fightingSurgeDexterity, 
                 fightingSurgeStrength,
-                practicedExpert,
+                practicedExpertIntelligence,
+                practicedExpertWisdom,
                 primalConstitution,
                 primalStrength,
                 shady);

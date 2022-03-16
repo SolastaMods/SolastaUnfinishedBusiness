@@ -1215,12 +1215,14 @@ Feat/&AdditionalDamageFeatShadySneakAttackDescription	You know how to strike sub
 Feat/&FeatShadyTitle	Shady
 Feat/&FeatShadyDescription	You sneak by your foes to strike with deadly force. You gain the following benefits:\n\nIncrease your Dexterity by 1, to a maximum of 20.\n\nGain expertise to one skill you're already proficient.\n\nYou know how to strike subtly and exploit a foe's distraction. Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack that meets Rogue's Sneak Attack. At 5th level this damage increases to 2d6. This can stack with Rogue Sneak Attack.
 Feat/&FeatPrimalConstitutionTitle	Primal (Constitution)
-Feat/&FeatPrimalConstitutionDescription	You have harness your ferocity, gaining the following benefits:\n\nIncrease your Constitution by 1, to a maximum of 20. While you are not wearing any armor, your AC equals 12 + your Constitution modifier. You can enter a rage as a bonus action as defined in the barbarian's Rage class feature. Once you have raged this way you must finish a long rest before using this feature again.
+Feat/&FeatPrimalConstitutionDescription	You have harness your ferocity, gaining the following benefits:\n\nIncrease your Constitution by 1, to a maximum of 20.\n\nWhile you are not wearing any armor, your AC equals 12 + your Constitution modifier.\n\nYou can enter a rage as a bonus action as defined in the barbarian's Rage class feature. Once you have raged this way you must finish a long rest before using this feature again.
 Feat/&FeatPrimalStrengthTitle	Primal (Strength)
 Feat/&FeatPrimalStrengthDescription	You have harness your ferocity, gaining the following benefits:\n\nIncrease your Strength by 1, to a maximum of 20.\n\nWhile you are not wearing any armor, your AC equals 12 + your Constitution modifier.\n\nYou can enter a rage as a bonus action as defined in the barbarian's Rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way you must finish a long rest before using this feature again.
 Feat/&PointPoolFeatPracticedExpertSkillTitle	Practiced Expert Skill
 Feat/&PointPoolFeatPracticedExpertSkillDescription	Learn one skill of your choice.
 Feat/&PointPoolFeatPracticedExpertExpertiseTitle	Practiced Expert Expertise
 Feat/&PointPoolFeatPracticedExpertExpertiseDescription	Gain expertise to one skill you're already proficient.
-Feat/&FeatPracticedExpertTitle	Practiced Expert
-Feat/&FeatPracticedExpertDescription	You have honed your proficiency with particular skills or tools, gaining the following benefits:\n\nIncrease one ability score of your choice by 1, to a maximum of 20.\n\nYou gain proficiency with one skill or tool of your choice.\n\nYou gain expertise with one skill or tool of your choice.
+Feat/&FeatPracticedExpertIntelligenceTitle	Practiced Expert (Intelligence)
+Feat/&FeatPracticedExpertIntelligenceDescription	You have honed your proficiency with particular skills or tools, gaining the following benefits:\n\nIncrease your Wisdom score by 1, to a maximum of 20.\n\nYou gain proficiency with one skill or tool of your choice.\n\nYou gain expertise with one skill or tool of your choice.
+Feat/&FeatPracticedExpertWisdomTitle	Practiced Expert (Wisdom)
+Feat/&FeatPracticedExpertWisdomDescription	You have honed your proficiency with particular skills or tools, gaining the following benefits:\n\nIncrease your Intelligence score by 1, to a maximum of 20.\n\nYou gain proficiency with one skill or tool of your choice.\n\nYou gain expertise with one skill or tool of your choice.
