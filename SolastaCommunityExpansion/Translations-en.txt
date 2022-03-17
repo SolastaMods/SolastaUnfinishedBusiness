@@ -1204,3 +1204,15 @@ Tooltip/&TagOtherModContentTitle From mod
 Tooltip/&TagScoutSentinelWeaponTitle	Uses Int for attack & damage
 Message/&MessageModWelcomeTitle Community Expansion Mod
 Message/&MessageModWelcomeDescription   The Community Expansion Mod is packed full of exciting features, but by default none are enabled. Press <color=yellow>Ctrl-F10</color> to open the Unity Mod Manager UI [UMM], then click on the settings icon next to 'Community Expansion' to open the settings pages.\n\n  Explore the options and select the ones you like. The UMM UI will now open.
+Feat/&AdditionalDamageFeatShadySneakAttackDescription	Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack that meets Rogue's Sneak Attack. At 7th level this damage increases to 2d6 and at 14th level to 3d6. This can stack with Rogue's Sneak Attack.
+Feat/&AdditionalDamageFeatShadySneakAttackTitle	Shady Sneak Attack
+Feat/&FeatFightingSurgeDexterityDescription	Increase your Dexterity by 1, to a maximum of 20.\nOn your turn, you can take one additional action on top of your regular action and a possible bonus action. Once you use this feature, you must finish a long rest before you can use it again.
+Feat/&FeatFightingSurgeDexterityTitle	Fighting Surge (Dexterity)
+Feat/&FeatFightingSurgeStrengthDescription	Increase your Strength by 1, to a maximum of 20.\nOn your turn, you can take one additional action on top of your regular action and a possible bonus action. Once you use this feature, you must finish a long rest before you can use it again.
+Feat/&FeatFightingSurgeStrengthTitle	Fighting Surge (Strength)
+Feat/&FeatPrimalConstitutionDescription	Increase your Constitution by 1, to a maximum of 20.\nYou can enter a rage as a bonus action as defined in the Barbarian's rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way you must finish a long rest before using this feature again.\nWhile you are not wearing any armor, your AC equals 12 + your Constitution modifier.
+Feat/&FeatPrimalConstitutionTitle	Primal Rage (Constitution)
+Feat/&FeatPrimalStrengthDescription	Increase your Strength by 1, to a maximum of 20.\nYou can enter a rage as a bonus action as defined in the Barbarian's rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way you must finish a long rest before using this feature again.\nWhile you are not wearing any armor, your AC equals 12 + your Constitution modifier.
+Feat/&FeatPrimalStrengthTitle	Primal Rage (Strength)
+Feat/&FeatShadyDescription	Increase your Dexterity by 1, to a maximum of 20. Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack that meets Rogue's Sneak Attack. At 7th level this damage increases to 2d6 and at 14th level to 3d6. This can stack with Rogue's Sneak Attack.
+Feat/&FeatShadyTitle	Shady
