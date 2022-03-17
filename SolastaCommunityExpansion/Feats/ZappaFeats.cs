@@ -97,7 +97,7 @@ namespace SolastaCommunityExpansion.Feats
                         .Create(AdditionalDamageRogueSneakAttack, "AdditionalDamageFeatShadySneakAttack", ZappaFeatNamespace)
                         .SetGuiPresentation("AdditionalDamageFeatShadySneakAttack", Category.Feature)
                         .SetDamageDice(RuleDefinitions.DieType.D6, 1)
-                        .SetDiceByRank(
+                        .SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement.ClassLevel,
                             (1, 1),
                             (2, 1),
                             (3, 1),
