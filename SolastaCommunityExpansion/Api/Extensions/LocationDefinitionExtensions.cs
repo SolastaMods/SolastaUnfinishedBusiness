@@ -120,6 +120,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetForceNoEncounterPrespawn<T>(this T entity, System.Boolean value)
+            where T : LocationDefinition
+        {
+            entity.SetField("forceNoEncounterPrespawn", value);
+            return entity;
+        }
+
         public static T SetHasPriorityForTeleporter<T>(this T entity, System.Boolean value)
             where T : LocationDefinition
         {
