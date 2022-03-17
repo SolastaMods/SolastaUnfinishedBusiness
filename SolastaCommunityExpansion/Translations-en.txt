@@ -1204,29 +1204,19 @@ Tooltip/&TagOtherModContentTitle From mod
 Tooltip/&TagScoutSentinelWeaponTitle	Uses Int for attack & damage
 Message/&MessageModWelcomeTitle Community Expansion Mod
 Message/&MessageModWelcomeDescription   The Community Expansion Mod is packed full of exciting features, but by default none are enabled. Press <color=yellow>Ctrl-F10</color> to open the Unity Mod Manager UI [UMM], then click on the settings icon next to 'Community Expansion' to open the settings pages.\n\n  Explore the options and select the ones you like. The UMM UI will now open.
-Feat/&AdditionalDamageFeatShadySneakAttackDescription	You know how to strike subtly and exploit a foe's distraction. Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack that meets Rogue's Sneak Attack. At 5th level this damage increases to 2d6. This can stack with Rogue Sneak Attack.
+Feat/&AdditionalDamageFeatShadySneakAttackDescription	Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack that meets Rogue's Sneak Attack. At 7th level this damage increases to 2d6 and at 14th level to 3d6. This can stack with Rogue's Sneak Attack.
 Feat/&AdditionalDamageFeatShadySneakAttackTitle	Shady Sneak Attack
-Feat/&FeatFightingSurgeDexterityDescription	You master your martial prowess, gaining the following benefits:\n\nIncrease your Dexterity by 1, to a maximum of 20.\n\nOn your turn, you can take one additional action on top of your regular action and a possible bonus action. Once you use this feature, you must finish a long rest before you can use it again.
+Feat/&FeatFightingSurgeDexterityDescription	Increase your Dexterity by 1, to a maximum of 20. On your turn, you can take one additional action on top of your regular action and a possible bonus action. Once you use this feature, you must finish a long rest before you can use it again.
 Feat/&FeatFightingSurgeDexterityTitle	Fighting Surge (Dexterity)
-Feat/&FeatFightingSurgeStrengthDescription	You master your martial prowess, gaining the following benefits:\n\nIncrease your Strength by 1, to a maximum of 20.\n\nOn your turn, you can take one additional action on top of your regular action and a possible bonus action. Once you use this feature, you must finish a long rest before you can use it again.
+Feat/&FeatFightingSurgeStrengthDescription	Increase your Strength by 1, to a maximum of 20. On your turn, you can take one additional action on top of your regular action and a possible bonus action. Once you use this feature, you must finish a long rest before you can use it again.
 Feat/&FeatFightingSurgeStrengthTitle	Fighting Surge (Strength)
-Feat/&FeatPracticedExpertIntelligenceDescription	You have honed your proficiency with particular skills or tools, gaining the following benefits:\n\nIncrease your Wisdom score by 1, to a maximum of 20.\n\nYou gain proficiency with one skill or tool of your choice.\n\nYou gain expertise with one skill or tool of your choice.
-Feat/&FeatPracticedExpertIntelligenceTitle	Practiced Expert (Intelligence)
-Feat/&FeatPracticedExpertWisdomDescription	You have honed your proficiency with particular skills or tools, gaining the following benefits:\n\nIncrease your Intelligence score by 1, to a maximum of 20.\n\nYou gain proficiency with one skill or tool of your choice.\n\nYou gain expertise with one skill or tool of your choice.
-Feat/&FeatPracticedExpertWisdomTitle	Practiced Expert (Wisdom)
-Feat/&FeatPrimalConstitutionDescription	You have harness your ferocity, gaining the following benefits:\n\nIncrease your Constitution by 1, to a maximum of 20.\n\nYou can enter a rage as a bonus action as defined in the barbarian's Rage class feature. Once you have raged this way you must finish a long rest before using this feature again.
-Feat/&FeatPrimalConstitutionTitle	Primal (Constitution)
-Feat/&FeatPrimalStrengthDescription	You have harness your ferocity, gaining the following benefits:\n\nIncrease your Strength by 1, to a maximum of 20.\n\nYou can enter a rage as a bonus action as defined in the barbarian's Rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way you must finish a long rest before using this feature again.
-Feat/&FeatPrimalStrengthTitle	Primal (Strength)
-Feat/&FeatShadyDescription	You sneak by your foes to strike with deadly force. You gain the following benefits:\n\nIncrease your Dexterity by 1, to a maximum of 20.\n\nGain expertise to one skill you're already proficient.\n\nYou know how to strike subtly and exploit a foe's distraction. Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack that meets Rogue's Sneak Attack. At 5th level this damage increases to 2d6. This can stack with Rogue Sneak Attack.
+Feat/&FeatPrimalDefenseConstitutionDescription	Increase your Constitution by 1, to a maximum of 20. While you are not wearing any armor, your AC equals 12 + your Constitution modifier.
+Feat/&FeatPrimalDefenseConstitutionTitle	Primal Defense (Constitution)
+Feat/&FeatPrimalDefenseStrengthDescription	Increase your Strength by 1, to a maximum of 20. While you are not wearing any armor, your AC equals 12 + your Constitution modifier.
+Feat/&FeatPrimalDefenseStrengthTitle	Primal Defense (Strength)
+Feat/&FeatPrimalRageConstitutionDescription	Increase your Constitution by 1, to a maximum of 20. You can enter a rage as a bonus action as defined in the Barbarian's rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way you must finish a long rest before using this feature again.
+Feat/&FeatPrimalRageConstitutionTitle	Primal Rage (Constitution)
+Feat/&FeatPrimalRageStrengthDescription	Increase your Strength by 1, to a maximum of 20. You can enter a rage as a bonus action as defined in the Barbarian's rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way you must finish a long rest before using this feature again.
+Feat/&FeatPrimalRageStrengthTitle	Primal Rage (Strength)
+Feat/&FeatShadyDescription	Increase your Dexterity by 1, to a maximum of 20. Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack that meets Rogue's Sneak Attack. At 7th level this damage increases to 2d6 and at 14th level to 3d6. This can stack with Rogue's Sneak Attack.
 Feat/&FeatShadyTitle	Shady
-Feat/&FeatUnarmoredDefenseCharismaDescription	You have harness your attractiveness, gaining the following benefits:\n\nIncrease your Charisma by 1, to a maximum of 20.\n\nWhile you are not wearing any armor, your AC equals 12 + your Charisma modifier.
-Feat/&FeatUnarmoredDefenseCharismaTitle	Unarmored Defense (Charisma)
-Feat/&FeatUnarmoredDefenseConstitutionDescription	You have harness your ferocity, gaining the following benefits:\n\nIncrease your Constitution by 1, to a maximum of 20.\n\nWhile you are not wearing any armor, your AC equals 12 + your Constitution modifier.
-Feat/&FeatUnarmoredDefenseConstitutionTitle	Unarmored Defense (Constitution)
-Feat/&PointPoolFeatPracticedExpertExpertiseDescription	Gain expertise to one skill you're already proficient.
-Feat/&PointPoolFeatPracticedExpertExpertiseTitle	Practiced Expert Expertise
-Feat/&PointPoolFeatPracticedExpertSkillDescription	Learn one skill of your choice.
-Feat/&PointPoolFeatPracticedExpertSkillTitle	Practiced Expert Skill
-Feat/&PointPoolFeatShadyExpertiseDescription	Gain expertise to one skill you're already proficient.
-Feat/&PointPoolFeatShadyExpertiseTitle	Shady Expertise
