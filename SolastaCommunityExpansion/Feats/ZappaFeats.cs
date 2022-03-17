@@ -38,51 +38,33 @@ namespace SolastaCommunityExpansion.Feats
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 
-            // Primal Defense (Constitution)
-            var primalDefenseConstitution = FeatDefinitionBuilder
-                .Create("FeatPrimalDefenseConstitution", ZappaFeatNamespace)
-                .SetFeatures(
-                    AttributeModifierCreed_Of_Arun,
-                    AttributeModifierBarbarianUnarmoredDefense  
-                )
-                .SetAbilityScorePrerequisite(AttributeDefinitions.Constitution, 13)
-                .SetGuiPresentation(Category.Feat)
-                .AddToDB();
-
-            // Primal Defense (Strength)
-            var primalDefenseStrength = FeatDefinitionBuilder
-                .Create("FeatPrimalDefenseStrength", ZappaFeatNamespace)
-                .SetFeatures(
-                    AttributeModifierCreed_Of_Einar,
-                    AttributeModifierBarbarianUnarmoredDefense
-                )
-                .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
-                .SetGuiPresentation(Category.Feat)
-                .AddToDB();
-
-            // Primal Rage (Constitution)
-            var primalRageConstitution = FeatDefinitionBuilder
-                .Create("FeatPrimalRageConstitution", ZappaFeatNamespace)
+            // Primal (Constitution)
+            var primalConstitution = FeatDefinitionBuilder
+                .Create("FeatPrimalConstitution", ZappaFeatNamespace)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Arun,
                     ActionAffinityBarbarianRage,
                     AttributeModifierBarbarianRagePointsAdd,
+                    AttributeModifierBarbarianRageDamageAdd, // not a dup. I use add to allow compatibility with Barb class. 2 adds for +2 damage
                     AttributeModifierBarbarianRageDamageAdd,
-                    PowerBarbarianRageStart
+                    PowerBarbarianRageStart,
+                    AttributeModifierBarbarianUnarmoredDefense
                 )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Constitution, 13)
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 
             // Primal Rage (Strength)
-            var primalRageStrength = FeatDefinitionBuilder
-                .Create("FeatPrimalRageStrength", ZappaFeatNamespace)
+            var primalStrength = FeatDefinitionBuilder
+                .Create("FeatPrimalStrength", ZappaFeatNamespace)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Einar,
                     ActionAffinityBarbarianRage,
                     AttributeModifierBarbarianRagePointsAdd,
+                    AttributeModifierBarbarianRageDamageAdd, // not a dup. I use add to allow compatibility with Barb class. 2 adds for +2 damage
                     AttributeModifierBarbarianRageDamageAdd,
-                    PowerBarbarianRageStart
+                    PowerBarbarianRageStart,
+                    AttributeModifierBarbarianUnarmoredDefense
                 )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
                 .SetGuiPresentation(Category.Feat)
@@ -135,10 +117,8 @@ namespace SolastaCommunityExpansion.Feats
             feats.AddRange(
                 fightingSurgeDexterity,
                 fightingSurgeStrength,
-                primalRageConstitution,
-                primalRageStrength,
-                primalDefenseConstitution,
-                primalDefenseStrength,
+                primalConstitution,
+                primalStrength,
                 shady);
         }
     }
