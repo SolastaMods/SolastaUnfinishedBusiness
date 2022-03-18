@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
@@ -36,14 +33,5 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
         #endregion
-
-        #region Create
-        // Add further Create methods as required
-        public static FeatureDefinitionSenseBuilder Create(FeatureDefinitionSense original, string name, Guid namespaceGuid)
-        {
-            return new FeatureDefinitionSenseBuilder(original, name, namespaceGuid);
-        }
-        #endregion
-
     }
 }

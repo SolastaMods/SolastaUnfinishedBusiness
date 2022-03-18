@@ -34,10 +34,5 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
         #endregion
-
-        public static FeatureDefinitionMovementAffinityBuilder Create(FeatureDefinitionMovementAffinity original, string name, Guid namespaceGuid)
-        {
-            return new FeatureDefinitionMovementAffinityBuilder(original, name, namespaceGuid);
-        }        
     }
 }
