@@ -19,6 +19,21 @@ namespace SolastaCommunityExpansion.Feats
 
         public static void CreateFeats(List<FeatDefinition> feats)
         {
+            // Charismatic Defense
+            var charismaticDefense = FeatDefinitionBuilder
+                .Create("FeatCharismaticDefense", ZappaFeatNamespace)
+                .SetFeatures(
+                    AttributeModifierCreed_Of_Solasta,
+                    FeatureDefinitionAttributeModifierBuilder
+                        .Create(AttributeModifierBarbarianUnarmoredDefense, "AttributeModifierFeatCharismaticDefense", ZappaFeatNamespace)
+                        .SetGuiPresentationNoContent()
+                        .SetModifierAbilityScore(AttributeDefinitions.Charisma)
+                        .AddToDB()
+                )
+                .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
+                .SetGuiPresentation(Category.Feat)
+                .AddToDB();
+
             // Fighting Surge (Dexterity)
             var fightingSurgeDexterity = FeatDefinitionBuilder
                 .Create("FeatFightingSurgeDexterity", ZappaFeatNamespace)
@@ -179,11 +194,27 @@ namespace SolastaCommunityExpansion.Feats
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 
+            // Wise Defense
+            var wiseDefense = FeatDefinitionBuilder
+                .Create("FeatWiseDefense", ZappaFeatNamespace)
+                .SetFeatures(
+                    AttributeModifierCreed_Of_Solasta,
+                    FeatureDefinitionAttributeModifierBuilder
+                        .Create(AttributeModifierBarbarianUnarmoredDefense, "AttributeModifierFeatWiseDefense", ZappaFeatNamespace)
+                        .SetGuiPresentationNoContent()
+                        .SetModifierAbilityScore(AttributeDefinitions.Wisdom)
+                        .AddToDB()
+                )
+                .SetAbilityScorePrerequisite(AttributeDefinitions.Wisdom, 13)
+                .SetGuiPresentation(Category.Feat)
+                .AddToDB();
+
             //
             // set feats to be registered in mod settings
             //
 
             feats.AddRange(
+                charismaticDefense,
                 fightingSurgeDexterity,
                 fightingSurgeStrength,
                 metamagicAdeptCareful,
@@ -194,7 +225,8 @@ namespace SolastaCommunityExpansion.Feats
                 metamagicAdeptTwinned,
                 primalConstitution,
                 primalStrength,
-                shady);
+                shady,
+                wiseDefense);
         }
     }
 
@@ -264,7 +296,7 @@ namespace SolastaCommunityExpansion.Feats
 
             if (!hero.ClassesAndLevels.ContainsKey(Sorcerer))
             {
-                hero.GetAttribute(AttributeDefinitions.SorceryPoints).BaseValue = 3;
+                hero.GetAttribute(AttributeDefinitions.SorceryPoints).BaseValue = 2;
             }
 
             hero.RefreshAll();
