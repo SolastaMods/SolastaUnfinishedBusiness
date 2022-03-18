@@ -25,7 +25,12 @@ namespace SolastaCommunityExpansion.Feats
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
                     FeatureDefinitionAttributeModifierBuilder
-                        .Create(AttributeModifierBarbarianUnarmoredDefense, "AttributeModifierFeatCharismaticDefense", ZappaFeatNamespace)
+                        .Create(AttributeModifierMageArmor, "AttributeModifierFeatCharismaticDefenseSet", ZappaFeatNamespace)
+                        .SetGuiPresentationNoContent()
+                        .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set, AttributeDefinitions.ArmorClass, 12)
+                        .AddToDB(),
+                    FeatureDefinitionAttributeModifierBuilder
+                        .Create(AttributeModifierBarbarianUnarmoredDefense, "AttributeModifierFeatCharismaticDefenseAdd", ZappaFeatNamespace)
                         .SetGuiPresentationNoContent()
                         .SetModifierAbilityScore(AttributeDefinitions.Charisma)
                         .AddToDB()
@@ -200,7 +205,12 @@ namespace SolastaCommunityExpansion.Feats
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
                     FeatureDefinitionAttributeModifierBuilder
-                        .Create(AttributeModifierBarbarianUnarmoredDefense, "AttributeModifierFeatWiseDefense", ZappaFeatNamespace)
+                        .Create(AttributeModifierMageArmor, "AttributeModifierFeatWiseDefenseSet", ZappaFeatNamespace)
+                        .SetGuiPresentationNoContent()
+                        .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set, AttributeDefinitions.ArmorClass, 12)
+                        .AddToDB(),
+                    FeatureDefinitionAttributeModifierBuilder
+                        .Create(AttributeModifierBarbarianUnarmoredDefense, "AttributeModifierFeatWiseDefenseAdd", ZappaFeatNamespace)
                         .SetGuiPresentationNoContent()
                         .SetModifierAbilityScore(AttributeDefinitions.Wisdom)
                         .AddToDB()
