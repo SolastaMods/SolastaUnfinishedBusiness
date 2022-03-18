@@ -37,15 +37,6 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
         #endregion
 
-        protected FeatureDefinitionPointPoolBuilder(FeatureDefinitionPointPool original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
-        {
-        }
-
-        protected FeatureDefinitionPointPoolBuilder(FeatureDefinitionPointPool original, string name, string definitionGuid) : base(original, name, definitionGuid)
-        {
-        }
-        #endregion
-
         public FeatureDefinitionPointPoolBuilder SetPool(HeroDefinitions.PointsPoolType poolType, int poolAmount)
         {
             Definition.SetPoolType(poolType);

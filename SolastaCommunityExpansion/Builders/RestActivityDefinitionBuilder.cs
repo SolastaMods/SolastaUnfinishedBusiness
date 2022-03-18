@@ -47,19 +47,5 @@ namespace SolastaCommunityExpansion.Builders
 
             return This();
         }
-
-        [Obsolete("Use .Create().Configure()")]
-        public RestActivityDefinitionBuilder Configure ( RestDefinitions.RestStage restStage, RuleDefinitions.RestType restType,
-            RestActivityDefinition.ActivityCondition condition, string functor, string stringParameter, GuiPresentation guiPresentation)
-        {
-            Definition.SetRestStage(restStage);
-            Definition.SetRestType(restType);
-            Definition.SetCondition(condition);
-            Definition.SetFunctor(functor);
-            Definition.SetStringParameter(stringParameter);
-            Definition.SetGuiPresentation(guiPresentation);
-            return This();
-        }
-
     }
 }

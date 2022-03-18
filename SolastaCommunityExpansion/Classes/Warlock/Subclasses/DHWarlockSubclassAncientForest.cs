@@ -33,12 +33,12 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetGuiPresentation("AncientForestExpandedSpelllist", Category.Feature)
                 .SetGuiPresentationNoContent()
                 .ClearSpells()
-               // .SetSpellsAtLevel(1, Goodberry, Entangle)
-               // .SetSpellsAtLevel(2, Barkskin, SpikeGrowth)
-               // .SetSpellsAtLevel(3, MassHealingWord,VampiricTouch )
-               // .SetSpellsAtLevel(4, Blight, GreaterRestoration)
-               // .SetSpellsAtLevel(5, Contagion,RaiseDead )
-               // .SetMaxSpellLevel(5, false)
+                // .SetSpellsAtLevel(1, Goodberry, Entangle)
+                // .SetSpellsAtLevel(2, Barkskin, SpikeGrowth)
+                // .SetSpellsAtLevel(3, MassHealingWord,VampiricTouch )
+                // .SetSpellsAtLevel(4, Blight, GreaterRestoration)
+                // .SetSpellsAtLevel(5, Contagion,RaiseDead )
+                // .SetMaxSpellLevel(5, false)
                 .AddToDB();
             AncientForestSpelllist.ClearSpellsByLevel();
             AncientForestSpelllist.SpellsByLevel.AddRange(new List<SpellListDefinition.SpellsByLevelDuplet>()
@@ -180,7 +180,7 @@ Different Archfey, e.g. Winter-themed
 
             FeatureDefinitionPower LifeSap = FeatureDefinitionPowerBuilder
                 .Create("AncientForestLifeSap", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(Category.Power)                
+                .SetGuiPresentation(Category.Power)
                 .Configure(
                        1,
                        RuleDefinitions.UsesDetermination.ProficiencyBonus,
@@ -204,7 +204,7 @@ Different Archfey, e.g. Winter-themed
                                     new List<RuleDefinitions.TrendInfo>())
                                 .SetBonusMode(AddBonusMode.AbilityBonus)
                                 .Build())
-                            .SetTargetFiltering(TargetFilteringMethod.CharacterOnly,TargetFilteringTag.UnderHalfHitPoints,0,DieType.D1)
+                            .SetTargetFiltering(TargetFilteringMethod.CharacterOnly, TargetFilteringTag.UnderHalfHitPoints, 0, DieType.D1)
                             .SetTargetingData(
                                     RuleDefinitions.Side.Enemy,
                                     RuleDefinitions.RangeType.Distance,
@@ -219,7 +219,7 @@ Different Archfey, e.g. Winter-themed
                 .AddToDB();
 
             FeatureDefinitionPower Regrowth = FeatureDefinitionPowerBuilder
-                .Create(PowerPaladinLayOnHands,"AncientForestRegrowth", DefinitionBuilder.CENamespaceGuid)
+                .Create(PowerPaladinLayOnHands, "AncientForestRegrowth", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Feature)
                 .AddToDB();
             Regrowth.GuiPresentation.SetSpriteReference(PowerFunctionGoodberryHealing.GuiPresentation.SpriteReference);
@@ -251,11 +251,11 @@ Different Archfey, e.g. Winter-themed
 
             Dictionary<string, FeatureDefinitionDamageAffinity> ResistentBrewsDamageAffinitys = new()
             {
-                { "ResistentToRadiant" , DamageAffinityRadiantResistance },
+                { "ResistentToRadiant", DamageAffinityRadiantResistance },
                 { "ResistentToNecrotic", DamageAffinityNecroticResistance },
-                { "ResistentToPoison"  , DamageAffinityPoisonResistance },
-                { "ResistentToAcid"    , DamageAffinityAcidResistance },
-                { "ResistentToLightning"    , DamageAffinityLightningResistance},
+                { "ResistentToPoison", DamageAffinityPoisonResistance },
+                { "ResistentToAcid", DamageAffinityAcidResistance },
+                { "ResistentToLightning", DamageAffinityLightningResistance },
             };
 
             List<FeatureDefinitionPower> ResistentBrews = new();
@@ -287,7 +287,7 @@ Different Archfey, e.g. Winter-themed
 
 
                 FeatureDefinitionPower PotionFunction = FeatureDefinitionPowerBuilder
-                    .Create("AncientForestPotionFunction"+ entry.Key, DefinitionBuilder.CENamespaceGuid)
+                    .Create("AncientForestPotionFunction" + entry.Key, DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation(guiPresentationResistentBrewsItem)
                     .Configure(
                            1,
@@ -304,8 +304,8 @@ Different Archfey, e.g. Winter-themed
                                     new EffectFormBuilder().SetConditionForm(
                                         ResistentBrewsCondition,
                                         ConditionForm.ConditionOperation.Add,
-                                        true, 
-                                        true, 
+                                        true,
+                                        true,
                                         new List<ConditionDefinition>()).Build())
                                 .SetDurationData(DurationType.Hour, 1)
                                 .SetTargetingData(
@@ -322,7 +322,7 @@ Different Archfey, e.g. Winter-themed
                     .AddToDB();
 
                 ItemDefinition Potion = ItemDefinitionBuilder.Create(
-                    PotionOfInvisibility, "AncientForestPotionOf" + entry.Key+"Resistance", DefinitionBuilder.CENamespaceGuid)
+                    PotionOfInvisibility, "AncientForestPotionOf" + entry.Key + "Resistance", DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation(guiPresentationResistentBrewsItem)
                     .MakeMagical()
                     .SetUsableDeviceDescription(PotionFunction)
@@ -396,7 +396,7 @@ Different Archfey, e.g. Winter-themed
                                         )
                                     .SetBonusMode(AddBonusMode.DoubleProficiency)
                                     .Build())
-                                .SetDurationData(DurationType.UntilLongRest,0)//, 1)
+                                .SetDurationData(DurationType.UntilLongRest, 0)//, 1)
                                 .SetTargetingData(
                                         RuleDefinitions.Side.Ally,
                                         RuleDefinitions.RangeType.Self,
@@ -416,40 +416,40 @@ Different Archfey, e.g. Winter-themed
 
                 ResistentBrews.Add(HerbalBrewFortifying);
 
-                RestActivityDefinition BrewingFortify = new RestActivityDefinitionBuilder(
-                    "AncientForestRestActivityBrewingFortify" + entry.Key + "Resistance", DefinitionBuilder.CENamespaceGuid)
-                    .Configure(
+                RestActivityDefinition BrewingFortify = RestActivityDefinitionBuilder
+                    .Create("AncientForestRestActivityBrewingFortify" + entry.Key + "Resistance", DefinitionBuilder.CENamespaceGuid)
+                    .SetRestData(
                         RestDefinitions.RestStage.AfterRest,
                         RestType.LongRest,
                         RestActivityDefinition.ActivityCondition.CanUsePower,
                         "UsePower",
-                        HerbalBrewFortifying.name,
-                        new GuiPresentationBuilder(HerbalBrewFortifying.GuiPresentation.Title, HerbalBrewFortifying.GuiPresentation.Description).Build())
+                        HerbalBrewFortifying.name)
+                    .SetGuiPresentation(HerbalBrewFortifying.GuiPresentation.Title, HerbalBrewFortifying.GuiPresentation.Description)
                     .AddToDB();
             }
 
 
-        //   need to create shared pool for herbal brewing
+            //   need to create shared pool for herbal brewing
 
-         //         var HerbalBrewBuilder = new FeatureDefinitionPowerSharedPoolBuilder(
-         //              "DHHerbalBrew" + text,
-         //              GuidHelper.Create(new Guid(Settings.GUID), "DHHerbalBrew" + text).ToString(),
-         //              HerbalBrewPool,
-         //              RuleDefinitions.RechargeRate.LongRest,
-         //              RuleDefinitions.ActivationTime.BonusAction,
-         //              1,
-         //              false,
-         //              false,
-         //              AttributeDefinitions.Charisma,
-         //              effectDescription.Build(),
-         //              guiPresentationHerbalBrew,
-         //              true
-         //              );
-         //   FeatureDefinitionPowerSharedPool HerbalBrewPower = HerbalBrewBuilder.AddToDB();
+            //         var HerbalBrewBuilder = new FeatureDefinitionPowerSharedPoolBuilder(
+            //              "DHHerbalBrew" + text,
+            //              GuidHelper.Create(new Guid(Settings.GUID), "DHHerbalBrew" + text).ToString(),
+            //              HerbalBrewPool,
+            //              RuleDefinitions.RechargeRate.LongRest,
+            //              RuleDefinitions.ActivationTime.BonusAction,
+            //              1,
+            //              false,
+            //              false,
+            //              AttributeDefinitions.Charisma,
+            //              effectDescription.Build(),
+            //              guiPresentationHerbalBrew,
+            //              true
+            //              );
+            //   FeatureDefinitionPowerSharedPool HerbalBrewPower = HerbalBrewBuilder.AddToDB();
 
 
             ItemDefinition HealingBrew = ItemDefinitionBuilder.Create(
-                PotionOfHealing, "AncientForestPotionOfHealing", DefinitionBuilder.CENamespaceGuid)                
+                PotionOfHealing, "AncientForestPotionOfHealing", DefinitionBuilder.CENamespaceGuid)
                 .AddToDB();
             HealingBrew.SetIsFood(true);
             HealingBrew.SetFoodDescription(new FoodDescription().SetNutritiveCapacity(0).SetPerishable(true));
@@ -495,61 +495,61 @@ Different Archfey, e.g. Winter-themed
                .Build(),
                    false
                    ).AddToDB();
-            
+
             // Herbal Brew (Quickening) : Potion of Healing
 
-/*
-            FeatureDefinitionPower HerbalBrewQuickening = FeatureDefinitionPowerBuilder
-                .Create("AncientForestHerbalBrewQuickening", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(Category.Power)
-                .Configure(
-                       1,
-                       RuleDefinitions.UsesDetermination.ProficiencyBonus,
-                       AttributeDefinitions.Charisma,
-                       RuleDefinitions.ActivationTime.Rest,
-                       1,
-                       RuleDefinitions.RechargeRate.LongRest,
-                       false,
-                       false,
-                       AttributeDefinitions.Charisma,
-                       new EffectDescriptionBuilder()
-                            .AddEffectForm(
-                                new EffectFormBuilder().SetSummonForm(
-                                    SummonForm.Type.InventoryItem,
-                                    HealingBrew,
-                                    1,
-                                    Wolf.name,
-                                    null,
-                                    true,
-                                    null,
-                                    ScriptableObject.CreateInstance<EffectProxyDefinition>()
-                                    )
-                                .SetBonusMode(AddBonusMode.DoubleProficiency)
-                                .Build())
-                            .SetDurationData(DurationType.UntilLongRest,0)
-                            .SetTargetingData(
-                                    RuleDefinitions.Side.Ally,
-                                    RuleDefinitions.RangeType.Self,
-                                    1,
-                                    RuleDefinitions.TargetType.Self,
-                                    1,
-                                    1,
-                                    ActionDefinitions.ItemSelectionType.Equiped)
-                            .Build()
-                       ,
-                       true)
-                .AddToDB();
-*/
+            /*
+                        FeatureDefinitionPower HerbalBrewQuickening = FeatureDefinitionPowerBuilder
+                            .Create("AncientForestHerbalBrewQuickening", DefinitionBuilder.CENamespaceGuid)
+                            .SetGuiPresentation(Category.Power)
+                            .Configure(
+                                   1,
+                                   RuleDefinitions.UsesDetermination.ProficiencyBonus,
+                                   AttributeDefinitions.Charisma,
+                                   RuleDefinitions.ActivationTime.Rest,
+                                   1,
+                                   RuleDefinitions.RechargeRate.LongRest,
+                                   false,
+                                   false,
+                                   AttributeDefinitions.Charisma,
+                                   new EffectDescriptionBuilder()
+                                        .AddEffectForm(
+                                            new EffectFormBuilder().SetSummonForm(
+                                                SummonForm.Type.InventoryItem,
+                                                HealingBrew,
+                                                1,
+                                                Wolf.name,
+                                                null,
+                                                true,
+                                                null,
+                                                ScriptableObject.CreateInstance<EffectProxyDefinition>()
+                                                )
+                                            .SetBonusMode(AddBonusMode.DoubleProficiency)
+                                            .Build())
+                                        .SetDurationData(DurationType.UntilLongRest,0)
+                                        .SetTargetingData(
+                                                RuleDefinitions.Side.Ally,
+                                                RuleDefinitions.RangeType.Self,
+                                                1,
+                                                RuleDefinitions.TargetType.Self,
+                                                1,
+                                                1,
+                                                ActionDefinitions.ItemSelectionType.Equiped)
+                                        .Build()
+                                   ,
+                                   true)
+                            .AddToDB();
+            */
 
-            RestActivityDefinition HerbalBrewQuickeningRestActivity = new RestActivityDefinitionBuilder(
-                "AncientForestQuickeningRestActivity", DefinitionBuilder.CENamespaceGuid)
-                .Configure(
+            RestActivityDefinition HerbalBrewQuickeningRestActivity = RestActivityDefinitionBuilder
+                .Create("AncientForestQuickeningRestActivity", DefinitionBuilder.CENamespaceGuid)
+                .SetRestData(
                     RestDefinitions.RestStage.AfterRest,
                     RestType.LongRest,
                     RestActivityDefinition.ActivityCondition.CanUsePower,
                     "UsePower",
-                    HerbalBrewQuickening.name,
-                    new GuiPresentationBuilder(HerbalBrewQuickening.GuiPresentation.Title, HerbalBrewQuickening.GuiPresentation.Description).Build())
+                    HerbalBrewQuickening.name)
+                .SetGuiPresentation(HerbalBrewQuickening.GuiPresentation.Title, HerbalBrewQuickening.GuiPresentation.Description)
                 .AddToDB();
 
             ItemDefinition ToxicBrew = ItemDefinitionBuilder.Create(
@@ -600,60 +600,60 @@ Different Archfey, e.g. Winter-themed
                  false
                  ).AddToDB();
 
-/*
-            FeatureDefinitionPower HerbalBrewToxifying = FeatureDefinitionPowerBuilder
-                .Create("AncientForestHerbalBrewToxifying", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(Category.Power)
-                .Configure(
-                       1,
-                       RuleDefinitions.UsesDetermination.ProficiencyBonus,
-                       AttributeDefinitions.Charisma,
-                       RuleDefinitions.ActivationTime.Rest,
-                       1,
-                       RuleDefinitions.RechargeRate.LongRest,
-                       false,
-                       false,
-                       AttributeDefinitions.Charisma,
-                       new EffectDescriptionBuilder()
-                            .AddEffectForm(
-                                new EffectFormBuilder().SetSummonForm(
-                                    SummonForm.Type.InventoryItem,
-                                    ToxicBrew,
-                                    1,
-                                    Wolf.name,
-                                    null,
-                                    true,
-                                    null,
-                                    ScriptableObject.CreateInstance<EffectProxyDefinition>()
-                                    )
-                                .SetBonusMode(AddBonusMode.DoubleProficiency)
-                                .Build())
-                            .SetDurationData(DurationType.UntilLongRest, 0)
-                            .SetTargetingData(
-                                    RuleDefinitions.Side.Ally,
-                                    RuleDefinitions.RangeType.Self,
-                                    1,
-                                    RuleDefinitions.TargetType.Self,
-                                    1,
-                                    1,
-                                    ActionDefinitions.ItemSelectionType.Equiped)
-                            .Build()
-                       ,
-                       true)
-                .AddToDB();
-*/
+            /*
+                        FeatureDefinitionPower HerbalBrewToxifying = FeatureDefinitionPowerBuilder
+                            .Create("AncientForestHerbalBrewToxifying", DefinitionBuilder.CENamespaceGuid)
+                            .SetGuiPresentation(Category.Power)
+                            .Configure(
+                                   1,
+                                   RuleDefinitions.UsesDetermination.ProficiencyBonus,
+                                   AttributeDefinitions.Charisma,
+                                   RuleDefinitions.ActivationTime.Rest,
+                                   1,
+                                   RuleDefinitions.RechargeRate.LongRest,
+                                   false,
+                                   false,
+                                   AttributeDefinitions.Charisma,
+                                   new EffectDescriptionBuilder()
+                                        .AddEffectForm(
+                                            new EffectFormBuilder().SetSummonForm(
+                                                SummonForm.Type.InventoryItem,
+                                                ToxicBrew,
+                                                1,
+                                                Wolf.name,
+                                                null,
+                                                true,
+                                                null,
+                                                ScriptableObject.CreateInstance<EffectProxyDefinition>()
+                                                )
+                                            .SetBonusMode(AddBonusMode.DoubleProficiency)
+                                            .Build())
+                                        .SetDurationData(DurationType.UntilLongRest, 0)
+                                        .SetTargetingData(
+                                                RuleDefinitions.Side.Ally,
+                                                RuleDefinitions.RangeType.Self,
+                                                1,
+                                                RuleDefinitions.TargetType.Self,
+                                                1,
+                                                1,
+                                                ActionDefinitions.ItemSelectionType.Equiped)
+                                        .Build()
+                                   ,
+                                   true)
+                            .AddToDB();
+            */
 
 
 
-            RestActivityDefinition HerbalBrewToxifyingRestActivity = new RestActivityDefinitionBuilder(
-                "AncientForestToxifyingRestActivity", DefinitionBuilder.CENamespaceGuid)
-                .Configure(
+            RestActivityDefinition HerbalBrewToxifyingRestActivity = RestActivityDefinitionBuilder
+                .Create("AncientForestToxifyingRestActivity", DefinitionBuilder.CENamespaceGuid)
+                .SetRestData(
                     RestDefinitions.RestStage.AfterRest,
                     RestType.LongRest,
                     RestActivityDefinition.ActivityCondition.CanUsePower,
                     "UsePower",
-                    HerbalBrewToxifying.name,
-                    new GuiPresentationBuilder(HerbalBrewToxifying.GuiPresentation.Title, HerbalBrewToxifying.GuiPresentation.Description).Build())
+                    HerbalBrewToxifying.name)
+                .SetGuiPresentation(HerbalBrewToxifying.GuiPresentation.Title, HerbalBrewToxifying.GuiPresentation.Description)
                 .AddToDB();
 
 
@@ -662,7 +662,7 @@ Different Archfey, e.g. Winter-themed
                 .SetGuiPresentation(Category.Feature)
                 .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                 .SetUniqueChoices(false)
-                .AddFeatureSet(HerbalBrewPool,HerbalBrewToxifying, HerbalBrewQuickening)
+                .AddFeatureSet(HerbalBrewPool, HerbalBrewToxifying, HerbalBrewQuickening)
                 .AddFeatureSet(ResistentBrews)
                 .AddFeatureSet(DatabaseHelper.FeatureDefinitionPointPools.ProficiencyMarksmanToolChoice)
                 .AddToDB();
@@ -779,22 +779,22 @@ Different Archfey, e.g. Winter-themed
 
             foreach (SpellDefinition spell in ThornSpells)
             {
-             //   FeatureDefinitionPower WallofThornsPower = FeatureDefinitionPowerBuilder
-             //       .Create("AncientForest" + spell.name, DefinitionBuilder.CENamespaceGuid)
-             //       .SetGuiPresentation(spell.GuiPresentation)
-             //       .Configure(
-             //           1,
-             //           RuleDefinitions.UsesDetermination.Fixed,
-             //           AttributeDefinitions.Charisma,
-             //           spell.ActivationTime,
-             //           1,
-             //           RuleDefinitions.RechargeRate.LongRest,
-             //           false,
-             //           false,
-             //           AttributeDefinitions.Charisma,
-             //           spell.EffectDescription,
-             //           true)
-             //       .AddToDB();
+                //   FeatureDefinitionPower WallofThornsPower = FeatureDefinitionPowerBuilder
+                //       .Create("AncientForest" + spell.name, DefinitionBuilder.CENamespaceGuid)
+                //       .SetGuiPresentation(spell.GuiPresentation)
+                //       .Configure(
+                //           1,
+                //           RuleDefinitions.UsesDetermination.Fixed,
+                //           AttributeDefinitions.Charisma,
+                //           spell.ActivationTime,
+                //           1,
+                //           RuleDefinitions.RechargeRate.LongRest,
+                //           false,
+                //           false,
+                //           AttributeDefinitions.Charisma,
+                //           spell.EffectDescription,
+                //           true)
+                //       .AddToDB();
 
                 FeatureDefinitionPower WallofThornsPower = new FeatureDefinitionPowerSharedPoolBuilder(
                      "AncientForest" + spell.name,
@@ -817,16 +817,16 @@ Different Archfey, e.g. Winter-themed
             // should Use features sets so character saves don't break
 
 
-           FeatureDefinitionAttributeModifier AncientForestAttributeModiferRegrowth =  FeatureDefinitionAttributeModifierBuilder
-                 .Create(AttributeModifierPaladinHealingPoolBase, "AncientForestAttributeModiferRegrowth", DefinitionBuilder.CENamespaceGuid)
-                 .SetGuiPresentationNoContent(true)
-                 .AddToDB();
+            FeatureDefinitionAttributeModifier AncientForestAttributeModiferRegrowth = FeatureDefinitionAttributeModifierBuilder
+                  .Create(AttributeModifierPaladinHealingPoolBase, "AncientForestAttributeModiferRegrowth", DefinitionBuilder.CENamespaceGuid)
+                  .SetGuiPresentationNoContent(true)
+                  .AddToDB();
 
             FeatureDefinitionAttributeModifier AncientForestAttributeModiferRegrowthMultiplier = FeatureDefinitionAttributeModifierBuilder
                 .Create(AttributeModifierPaladinHealingPoolMultiplier, "AncientForestAttributeModiferRegrowthMultiplier", DefinitionBuilder.CENamespaceGuid)
                 .AddToDB();
 
-            
+
 
 
             return CharacterSubclassDefinitionBuilder
@@ -836,7 +836,7 @@ Different Archfey, e.g. Winter-themed
                 .AddFeatureAtLevel(AncientForestAttributeModiferRegrowth, 1)
                 .AddFeatureAtLevel(AncientForestAttributeModiferRegrowthMultiplier, 1)
                 .AddFeatureAtLevel(Regrowth, 1)
-                .AddFeatureAtLevel(AncientForestBonusCantrip,1)
+                .AddFeatureAtLevel(AncientForestBonusCantrip, 1)
                 .AddFeatureAtLevel(HerbalBrewFeatureSet, 6)
                 .AddFeatureAtLevel(LifeSap, 6)
                 .AddFeatureAtLevel(AncientForestLightAffinity, 10)
