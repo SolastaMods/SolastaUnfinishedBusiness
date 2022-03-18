@@ -1,5 +1,6 @@
 ﻿using System;
 using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
@@ -9,7 +10,27 @@ namespace SolastaCommunityExpansion.Builders.Features
      */
     public class FeatureDefinitionPowerPoolBuilder : FeatureDefinitionPowerBuilder<FeatureDefinitionPower, FeatureDefinitionPowerPoolBuilder>
     {
-        // TODO: can we move this down into FeatureDefinitionPowerBuilder?  Call it ConfigurePowerPool?
+        protected override void Initialise()
+        {
+            base.Initialise();
+
+            if (IsNew)
+            {
+                // This is just an activation time that should not be shown in the UI.
+                Definition.SetActivationTime(RuleDefinitions.ActivationTime.Permanent);
+
+                // Math for usage gets weird if this isn't 1.
+                Definition.SetCostPerUse(1);
+            }
+        }
+
+        internal override void Validate()
+        {
+            base.Validate();
+
+            Preconditions.AreEqual(Definition.CostPerUse, 1, $"{GetType().Name}[{Definition.Name}].CostPerUse must be set to 1.");
+        }
+
         public FeatureDefinitionPowerPoolBuilder Configure(int usesPerRecharge,
             RuleDefinitions.UsesDetermination usesDetermination, string usesAbilityScoreName,
             RuleDefinitions.RechargeRate recharge)

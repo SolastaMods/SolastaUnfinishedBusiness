@@ -24,15 +24,38 @@ namespace SolastaCommunityExpansion.Builders
         where TDefinition : ConditionDefinition
         where TBuilder : ConditionDefinitionBuilder<TDefinition, TBuilder>
     {
+        protected override void Initialise()
+        {
+            base.Initialise();
+
+            // NOTE: if a constructor is used Initialise won't get called from the DefinitionBuilder base
+            ClearParticleReferences();
+        }
+
         private void ClearParticleReferences()
         {
             var assetReference = new AssetReference();
 
-            Definition
-                .SetConditionStartParticleReference(assetReference)
-                .SetConditionParticleReference(assetReference)
-                .SetConditionEndParticleReference(assetReference)
-                .SetCharacterShaderReference(assetReference);
+            // TODO: add initializer in extension generation
+            if (Definition.GetField<AssetReference>("conditionStartParticleReference") == null)
+            {
+                Definition.SetConditionStartParticleReference(assetReference);
+            }
+
+            if (Definition.GetField<AssetReference>("conditionParticleReference") == null)
+            {
+                Definition.SetConditionParticleReference(assetReference);
+            }
+
+            if (Definition.GetField<AssetReference>("conditionEndParticleReference") == null)
+            {
+                Definition.SetConditionEndParticleReference(assetReference);
+            }
+
+            if (Definition.GetField<AssetReference>("characterShaderReference") == null)
+            {
+                Definition.SetCharacterShaderReference(assetReference);
+            }
         }
 
         #region Constructors
@@ -136,7 +159,7 @@ namespace SolastaCommunityExpansion.Builders
                 .SetAdditionalDamageDieType(dieType)
                 .SetAdditionalDamageDieNumber(numberOfDie)
                 .SetAdditionalDamageQuantity(damageQuantity);
-            
+
             return This();
         }
 
@@ -217,10 +240,6 @@ namespace SolastaCommunityExpansion.Builders
             Definition.SetAllowMultipleInstances(false);
             Definition.SetDurationType(durationType);
             Definition.SetDurationParameter(durationParameter);
-            Definition.SetConditionStartParticleReference(new AssetReference());
-            Definition.SetConditionParticleReference(new AssetReference());
-            Definition.SetConditionEndParticleReference(new AssetReference());
-            Definition.SetCharacterShaderReference(new AssetReference());
             if (silent)
             {
                 Definition.SetSilentWhenAdded(true);

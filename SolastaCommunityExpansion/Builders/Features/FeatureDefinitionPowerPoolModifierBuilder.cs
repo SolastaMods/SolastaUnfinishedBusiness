@@ -13,12 +13,26 @@ namespace SolastaCommunityExpansion.Builders.Features
      */
     public class FeatureDefinitionPowerPoolModifierBuilder : FeatureDefinitionPowerBuilder<FeatureDefinitionPowerPoolModifier, FeatureDefinitionPowerPoolModifierBuilder>
     {
+        protected override void Initialise()
+        {
+            base.Initialise();
+
+            if (IsNew)
+            {
+                // This is just an activation time that should not be shown in the UI.
+                Definition.SetActivationTime(RuleDefinitions.ActivationTime.Permanent);
+
+                // Math for usage gets weird if this isn't 1.
+                Definition.SetCostPerUse(1);
+            }
+        }
+
         internal override void Validate()
         {
             base.Validate();
 
             Preconditions.IsNotNull(Definition.PoolPower, $"{GetType().Name}[{Definition.Name}].PoolPower is null.");
-            // TODO: more validation?
+            Preconditions.AreEqual(Definition.CostPerUse, 1, $"{GetType().Name}[{Definition.Name}].CostPerUse must be set to 1.");
         }
 
         public FeatureDefinitionPowerPoolModifierBuilder Configure(
