@@ -8,8 +8,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
         internal static readonly Dictionary<string, string> CreditsTable = new()
         {
             { "ChrisJohnDigital".orange().bold(), "head developer, crafting, faction relations, feats, fighting styles, items, subclasses, progression" },
-            { "Zappastuff", "multiclass, level 20, respec, encounters, dungeon maker editor & pro, inventory sorting, adventure log, epic points, teleport, mod UI, diagnostics, integration, charismatic defense, fighting surge, metamagic, primal, shady and wise defense feats" },
-            { "ImpPhil", "adv/dis rules, conjurations control, auto-equip, location rotation in DM, monster's health, pause UI, sorting, stocks prices, no attunement, xp scaling, character export, save by location, combat camera, diagnostics, custom icons, refactor" },
+            { "Zappastuff", "multiclass, level 20, respec, level down, encounters, dungeon maker editor & pro, party size, screen map, inventory sorting, adventure log, epic points, teleport, mod UI, diagnostics, integration, charismatic defense, fighting surge, metamagic, primal, shady and wise defense feats" },
+            { "ImpPhil", "adv/dis rules, conjurations control, auto-equip, location rotation in DM, monster's health, pause UI, sorting, stocks prices, no attunement, xp scaling, character export, save by location, combat camera, diagnostics, custom icons, refactor, screen map" },
             { "DubhHerder", "High level spells, Crafty Feats migration, bug models replacement" },
             { "View619", "Darkvision, Superior Dark Vision" },
             { "SilverGriffon", "PickPocket, lore friendly names, crafty feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants" },
