@@ -42,7 +42,11 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
         #endregion
-
+        public MonsterDefinitionBuilder SetSpriteReference(AssetReferenceSprite sprite)
+        {
+            Definition.GuiPresentation.SetSpriteReference(sprite);
+            return this;
+        }
         public MonsterDefinitionBuilder SetAlignment(string alignment)
         {
             Definition.SetAlignment(alignment);
@@ -503,5 +507,25 @@ namespace SolastaCommunityExpansion.Builders
             Definition.MonsterPresentation.SetFemalePrefabReference(assetReference);
             return this;
         }
+        public MonsterDefinitionBuilder SetHasPrefabVariants(bool value)
+        {
+            Definition.MonsterPresentation.SetHasPrefabVariants(value);
+            return this;
+        }
+
+
+        public MonsterDefinitionBuilder SetUseCustomMaterials(bool value)
+        {
+            Definition.MonsterPresentation.SetUseCustomMaterials(value);
+            return this;
+        }
+        public MonsterDefinitionBuilder SetCustomMaterials(AssetReference[] assetReference)
+        {
+            Definition.MonsterPresentation.SetCustomMaterials(assetReference);
+            return this;
+        }
+
+
+
     }
 }
