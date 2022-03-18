@@ -34,21 +34,6 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
         #endregion
-
-        public static FeatureDefinitionPowerBuilder Create(string name, string guid)
-        {
-            return new FeatureDefinitionPowerBuilder(name, guid);
-        }
-
-        public static FeatureDefinitionPowerBuilder Create(string name, Guid namespaceGuid)
-        {
-            return new FeatureDefinitionPowerBuilder(name, namespaceGuid);
-        }
-
-        public static FeatureDefinitionPowerBuilder Create(FeatureDefinitionPower original, string name, Guid namespaceGuid)
-        {
-            return new FeatureDefinitionPowerBuilder(original, name, namespaceGuid);
-        }
     }
 
     public abstract class FeatureDefinitionPowerBuilder<TDefinition, TBuilder> : FeatureDefinitionBuilder<TDefinition, TBuilder>

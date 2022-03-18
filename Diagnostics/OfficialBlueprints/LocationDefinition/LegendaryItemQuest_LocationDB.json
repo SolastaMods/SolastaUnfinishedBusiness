@@ -1,0 +1,292 @@
+{
+  "$type": "LocationDefinition, Assembly-CSharp",
+  "isUserLocation": false,
+  "alwaysHidden": false,
+  "registeredFactions": [],
+  "registeredVariables": [
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "Rune01",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "Rune02",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "Rune03",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "Rune04",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "Rune05",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "Rune06",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "Reset_All",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "Merton_In_Party",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    }
+  ],
+  "sceneFilePath": "",
+  "sceneReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "8d257d4870508c04f9c182113f3bb6c3",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "audioState": {
+    "$type": "AK.Wwise.State, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": {
+      "$type": "WwiseStateReference, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseStateGroupReference": {
+        "$type": "WwiseStateGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+        "objectName": "State_LocationName",
+        "id": 598649695,
+        "guid": "0785F1BC-DEE8-4D0A-A678-33E4912B6ACE",
+        "name": "0785F1BC-DEE8-4D0A-A678-33E4912B6ACE"
+      },
+      "objectName": "LegendaryQuest",
+      "id": 1740711754,
+      "guid": "08DA8B82-589F-468A-83DF-C5DE3B6896BD",
+      "name": "08DA8B82-589F-468A-83DF-C5DE3B6896BD"
+    },
+    "groupIdInternal": 0,
+    "groupGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    },
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "renderSettingsSceneProfile": {
+    "$type": "RenderSettingsSceneProfile, Assembly-CSharp",
+    "useSkybox": true,
+    "backgroundColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 1.0
+    },
+    "skyboxMaterial": {
+      "$type": "UnityEngine.Material, UnityEngine.CoreModule",
+      "name": "Default_Skybox"
+    },
+    "ambientLight": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.103551082,
+      "g": 0.107222319,
+      "b": 0.122641504,
+      "a": 1.0
+    },
+    "fog": false,
+    "fogColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "fogMode": "Exponential",
+    "fogDensity": 0.1,
+    "excludeSkybox": false,
+    "auraBaseSettings": {
+      "$type": "Aura2API.AuraBaseSettings, Aura2_Core",
+      "useDensity": true,
+      "density": 0.02,
+      "useScattering": true,
+      "scattering": 0.5,
+      "useAmbientLighting": true,
+      "ambientLightingStrength": 1.0,
+      "useColor": false,
+      "color": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.0,
+        "g": 0.5,
+        "b": 0.5,
+        "a": 0.5
+      },
+      "colorStrength": 1.0,
+      "useTint": false,
+      "tint": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 1.0,
+        "g": 0.921568632,
+        "b": 0.0156862754,
+        "a": 1.0
+      },
+      "tintStrength": 1.0,
+      "useExtinction": false,
+      "extinction": 0.75,
+      "name": "LegendaryItemQuest_AuraBaseParameters"
+    },
+    "userDungeonAuraVolumeDensity": 0.2,
+    "userDungeonAuraVolumeFogType": "Height",
+    "userDungeonAuraVolumeHeight": 3.0,
+    "userDungeonAuraVolumeNoise": false,
+    "userDungeonAuraVolumeNoiseScale": 3.0,
+    "dayCycleProfile": {
+      "$type": "GraphicsDayCycleProfile, Assembly-CSharp",
+      "noonColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.8018868,
+        "g": 0.7195127,
+        "b": 0.616545,
+        "a": 1.0
+      },
+      "sunriseColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.8962264,
+        "g": 0.6984592,
+        "b": 0.477705568,
+        "a": 1.0
+      },
+      "sunsetColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 1.0,
+        "g": 0.48294118,
+        "b": 0.108490586,
+        "a": 1.0
+      },
+      "globalSunIntensity": 1.3,
+      "sunDirection": -36.5,
+      "sunTilt": 0.01,
+      "moonLightColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.2956123,
+        "g": 0.492145777,
+        "b": 0.6886792,
+        "a": 1.0
+      },
+      "moonLightFadeOffset": 0.1,
+      "moonLightFadeMinIntensity": 1.0,
+      "moonLightFadeDuration": 0.25,
+      "moonSpeedFactor": 1.0,
+      "moonBaseAngle": 0.0,
+      "globalMoonIntensity": 0.63,
+      "ambientSunriseColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.7527145,
+        "g": 0.775544465,
+        "b": 0.8018868,
+        "a": 1.0
+      },
+      "ambientNoonColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.58873266,
+        "g": 0.6269432,
+        "b": 0.6603774,
+        "a": 1.0
+      },
+      "ambientSunsetColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.6574849,
+        "g": 0.6788657,
+        "b": 0.7075472,
+        "a": 1.0
+      },
+      "ambientNightColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.379004985,
+        "g": 0.393594563,
+        "b": 0.4811321,
+        "a": 1.0
+      },
+      "ambientFadeDuration": 1.0,
+      "dayAtmosphereThickness": 1.2,
+      "nightAtmosphereThickness": 0.5,
+      "name": "legendary_Location_DayCycleProfile"
+    },
+    "name": "LegendaryItemQuest_RenderSettings"
+  },
+  "locationPresentation": {
+    "$type": "LocationPresentation, Assembly-CSharp",
+    "unchartedTitle": "Map/&Location_Legendary_UnvisitedTitle",
+    "unchartedDescription": "Map/&Location_Legendary_UnvisitedDescription",
+    "knownTitle": "Map/&Location_Legendary_UnvisitedTitle",
+    "knownDescription": "Map/&Location_Legendary_UnvisitedDescription",
+    "exploredTitle": "Map/&Location_Legendary_UnvisitedTitle",
+    "exploredDescription": "Map/&Location_Legendary_visitedDescription"
+  },
+  "challengeRating": 10,
+  "focusWhenRevealed": false,
+  "startsWithScavengerCamp": false,
+  "ignoredByScavengers": false,
+  "useDirectionalLightInCutscene": false,
+  "useNewSectorCullingAlgorithm": false,
+  "keepSectorCullingResultsWhenInactive": false,
+  "setCurrentCampaignNodeWhenLeaving": true,
+  "hasPriorityForTeleporter": false,
+  "canAttackNonHostileCharacters": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Map/&Location_Legendary_UnvisitedTitle",
+    "description": "Map/&Location_Legendary_UnvisitedDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "a09f10585f638c44cbf7f88c654ce5ee",
+      "m_SubObjectName": "Legendary_Quest_LoadingScreen",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "61790aaa9d329af41b2853ab2137947c",
+  "contentPack": "BaseGame",
+  "name": "LegendaryItemQuest_LocationDB"
+}

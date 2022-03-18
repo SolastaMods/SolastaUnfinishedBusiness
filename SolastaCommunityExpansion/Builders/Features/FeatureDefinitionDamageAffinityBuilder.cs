@@ -93,15 +93,5 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
         #endregion
-
-        public static FeatureDefinitionDamageAffinityBuilder Create(FeatureDefinitionDamageAffinity original, string name, Guid namespaceGuid)
-        {
-            return new FeatureDefinitionDamageAffinityBuilder(original, name, namespaceGuid);
-        }
-
-        public static FeatureDefinitionDamageAffinityBuilder Create(FeatureDefinitionDamageAffinity original, string name, string guid)
-        {
-            return new FeatureDefinitionDamageAffinityBuilder(original, name, guid);
-        }
     }
 }

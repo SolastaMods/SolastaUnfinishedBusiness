@@ -319,15 +319,10 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             }
         }
 
-        private sealed class IlluminatedConditionDefinitionBuilder
+        private class IlluminatedConditionDefinitionBuilder
             : ConditionDefinitionBuilder<IlluminatedConditionDefinition, IlluminatedConditionDefinitionBuilder>
         {
-            private IlluminatedConditionDefinitionBuilder(string name, Guid guidNamespace) : base(name, guidNamespace) { }
-
-            public static IlluminatedConditionDefinitionBuilder Create(string name, Guid guidNamespace)
-            {
-                return new IlluminatedConditionDefinitionBuilder(name, guidNamespace);
-            }
+            protected IlluminatedConditionDefinitionBuilder(string name, Guid guidNamespace) : base(name, guidNamespace) { }
         }
 
         private sealed class IlluminatedByBurstConditionDefinition : ConditionDefinition, INotifyConditionRemoval
@@ -343,15 +338,10 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             }
         }
 
-        private sealed class IlluminatedByBurstConditionDefinitionBuilder
+        private class IlluminatedByBurstConditionDefinitionBuilder
             : ConditionDefinitionBuilder<IlluminatedByBurstConditionDefinition, IlluminatedByBurstConditionDefinitionBuilder>
         {
-            private IlluminatedByBurstConditionDefinitionBuilder(string name, Guid guidNamespace) : base(name, guidNamespace) { }
-
-            public static IlluminatedByBurstConditionDefinitionBuilder Create(string name, Guid guidNamespace)
-            {
-                return new IlluminatedByBurstConditionDefinitionBuilder(name, guidNamespace);
-            }
+            protected IlluminatedByBurstConditionDefinitionBuilder(string name, Guid guidNamespace) : base(name, guidNamespace) { }
         }
 
         private sealed class IlluminatingStrikeAdditionalDamage : FeatureDefinitionAdditionalDamage, IClassHoldingFeature

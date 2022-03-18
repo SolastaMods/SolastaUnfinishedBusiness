@@ -34,16 +34,23 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
         #endregion
- //       public static RestActivityDefinitionBuilder Create(string name, Guid namespaceGuid)
- //       {
- //           return new RestActivityDefinitionBuilder(name, namespaceGuid);
- //       }
 
-        // TODO: add Create methods
+        internal RestActivityDefinitionBuilder SetRestData(
+            RestDefinitions.RestStage restStage, RuleDefinitions.RestType restType,
+            RestActivityDefinition.ActivityCondition condition, string functor, string stringParameter)
+        {
+            Definition.SetRestStage(restStage);
+            Definition.SetRestType(restType);
+            Definition.SetCondition(condition);
+            Definition.SetFunctor(functor);
+            Definition.SetStringParameter(stringParameter);
 
+            return This();
+        }
 
+        [Obsolete("Use .Create().Configure()")]
         public RestActivityDefinitionBuilder Configure ( RestDefinitions.RestStage restStage, RuleDefinitions.RestType restType,
-        RestActivityDefinition.ActivityCondition condition, string functor, string stringParameter, GuiPresentation guiPresentation)
+            RestActivityDefinition.ActivityCondition condition, string functor, string stringParameter, GuiPresentation guiPresentation)
         {
             Definition.SetRestStage(restStage);
             Definition.SetRestType(restType);

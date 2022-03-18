@@ -105,7 +105,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
 
             RestActivityDefinitionBuilder
                 .Create("ArcaneDepth", SubclassNamespace)
-                .Configure(
+                .SetRestData(
                     RestDefinitions.RestStage.AfterRest, RuleDefinitions.RestType.ShortRest,
                     RestActivityDefinition.ActivityCondition.CanUsePower, "UsePower", BonusRecovery.Name)
                 .SetGuiPresentation(SpellRecoveryGui)
@@ -156,31 +156,6 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                         Category.Subclass, PowerWizardArcaneRecovery.GuiPresentation.SpriteReference));
                 BonusRecovery.SetCostPerUse(1);
                 BonusRecovery.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
-            }
-        }
-
-        private sealed class RestActivityDefinitionBuilder : Builders.RestActivityDefinitionBuilder
-        {
-            private RestActivityDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-            {
-            }
-
-            internal static RestActivityDefinitionBuilder Create(string name, Guid namespaceGuid)
-            {
-                return new RestActivityDefinitionBuilder(name, namespaceGuid);
-            }
-
-            internal RestActivityDefinitionBuilder Configure(
-                RestDefinitions.RestStage restStage, RuleDefinitions.RestType restType,
-                RestActivityDefinition.ActivityCondition condition, string functor, string stringParameter)
-            {
-                Definition.SetRestStage(restStage);
-                Definition.SetRestType(restType);
-                Definition.SetCondition(condition);
-                Definition.SetFunctor(functor);
-                Definition.SetStringParameter(stringParameter);
-
-                return this;
             }
         }
     }

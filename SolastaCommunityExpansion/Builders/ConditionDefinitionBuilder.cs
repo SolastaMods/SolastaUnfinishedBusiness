@@ -36,27 +36,38 @@ namespace SolastaCommunityExpansion.Builders
                 .SetCharacterShaderReference(assetReference);
         }
 
-        protected ConditionDefinitionBuilder(string name, string guid)
-            : base(name, guid)
+        #region Constructors
+        protected ConditionDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
             ClearParticleReferences();
         }
 
-        protected ConditionDefinitionBuilder(string name, Guid guidNamespace)
-            : base(name, guidNamespace)
+        protected ConditionDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
         {
             ClearParticleReferences();
         }
 
-        protected ConditionDefinitionBuilder(TDefinition original, string name, Guid guidNamespace)
-            : base(original, name, guidNamespace)
+        protected ConditionDefinitionBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
+        {
+            ClearParticleReferences();
+        }
+
+        protected ConditionDefinitionBuilder(TDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
         }
 
-        protected ConditionDefinitionBuilder(TDefinition original, string name, string guid)
-            : base(original, name, guid)
+        protected ConditionDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
         {
         }
+
+        protected ConditionDefinitionBuilder(TDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+
+        protected ConditionDefinitionBuilder(TDefinition original) : base(original)
+        {
+        }
+        #endregion
 
         // Setters delegating to Definition
         public TBuilder SetAllowMultipleInstances(bool value)
@@ -119,6 +130,17 @@ namespace SolastaCommunityExpansion.Builders
             return This();
         }
 
+        public TBuilder SetAdditionalDamageData(RuleDefinitions.DieType dieType, int numberOfDie, ConditionDefinition.DamageQuantity damageQuantity, bool additionalDamageWhenHit)
+        {
+            Definition
+                .SetAdditionalDamageWhenHit(additionalDamageWhenHit)
+                .SetAdditionalDamageDieType(dieType)
+                .SetAdditionalDamageDieNumber(numberOfDie)
+                .SetAdditionalDamageQuantity(damageQuantity);
+            
+            return This();
+        }
+
         public TBuilder SetParentCondition(ConditionDefinition value)
         {
             Definition.SetParentCondition(value);
@@ -153,6 +175,12 @@ namespace SolastaCommunityExpansion.Builders
         public TBuilder SetSpecialDuration(bool value)
         {
             Definition.SetSpecialDuration(value);
+            return This();
+        }
+
+        public TBuilder SetPossessive(bool value)
+        {
+            Definition.SetPossessive(value);
             return This();
         }
 
@@ -213,44 +241,34 @@ namespace SolastaCommunityExpansion.Builders
     public class ConditionDefinitionBuilder :
         ConditionDefinitionBuilder<ConditionDefinition, ConditionDefinitionBuilder>
     {
-        protected ConditionDefinitionBuilder(string name, string guid)
-            : base(name, guid)
+        #region Constructors
+        protected ConditionDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
-        protected ConditionDefinitionBuilder(string name, Guid guidNamespace)
-            : base(name, guidNamespace)
+        protected ConditionDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
         {
         }
 
-        protected ConditionDefinitionBuilder(ConditionDefinition original, string name, string guid)
-            : base(original, name, guid)
+        protected ConditionDefinitionBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
         {
         }
 
-        protected ConditionDefinitionBuilder(ConditionDefinition original, string name, Guid guidNamespace)
-            : base(original, name, guidNamespace)
+        protected ConditionDefinitionBuilder(ConditionDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
         }
 
-        public static ConditionDefinitionBuilder Create(string name, string guid)
+        protected ConditionDefinitionBuilder(ConditionDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
         {
-            return new ConditionDefinitionBuilder(name, guid);
         }
 
-        public static ConditionDefinitionBuilder Create(string name, Guid guidNamespace)
+        protected ConditionDefinitionBuilder(ConditionDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
         {
-            return new ConditionDefinitionBuilder(name, guidNamespace);
         }
 
-        public static ConditionDefinitionBuilder Create(ConditionDefinition original, string name, Guid guidNamespace)
+        protected ConditionDefinitionBuilder(ConditionDefinition original) : base(original)
         {
-            return new ConditionDefinitionBuilder(original, name, guidNamespace);
         }
-
-        public static ConditionDefinitionBuilder Create(ConditionDefinition original, string name, string guid)
-        {
-            return new ConditionDefinitionBuilder(original, name, guid);
-        }
+        #endregion
     }
 }

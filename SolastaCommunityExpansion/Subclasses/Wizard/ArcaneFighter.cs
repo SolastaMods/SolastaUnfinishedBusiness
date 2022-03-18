@@ -18,6 +18,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
         {
             return FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
         }
+
         internal override CharacterSubclassDefinition GetSubclass()
         {
             return Subclass;
@@ -26,34 +27,24 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
         internal ArcaneFighter()
         {
             // Make Melee Wizard subclass
-            CharacterSubclassDefinitionBuilder meleeWizard = CharacterSubclassDefinitionBuilder
-                .Create("ArcaneFighter", SubclassNamespace)
-                .SetGuiPresentation("TraditionArcaneFighter", Category.Subclass, MartialSpellblade.GuiPresentation.SpriteReference);
 
-            GuiPresentationBuilder weaponProfPresentation = new GuiPresentationBuilder(
-                "Subclass/&WeaponProfArcaneFighterTitle",
-                "Subclass/&WeaponProfArcaneFighterDescription");
-            FeatureDefinitionProficiency weaponProf = BuildProficiency(RuleDefinitions.ProficiencyType.Weapon,
-                new List<string>() { EquipmentDefinitions.SimpleWeaponCategory, EquipmentDefinitions.MartialWeaponCategory },
-                "ProficiencyWeaponArcaneFighter", weaponProfPresentation.Build());
-            meleeWizard.AddFeatureAtLevel(weaponProf, 2);
+            FeatureDefinitionProficiency weaponProf = FeatureDefinitionProficiencyBuilder
+                .Create("ProficiencyWeaponArcaneFighter", SubclassNamespace)
+                .SetGuiPresentation("WeaponProfArcaneFighter", Category.Subclass)
+                .SetProficiencies(RuleDefinitions.ProficiencyType.Weapon, EquipmentDefinitions.SimpleWeaponCategory, EquipmentDefinitions.MartialWeaponCategory)
+                .AddToDB();
 
-            meleeWizard.AddFeatureAtLevel(EnchantWeapon, 2);
+            FeatureDefinitionMagicAffinity concentrationAffinity = FeatureDefinitionMagicAffinityBuilder
+               .Create("MagicAffinityMeleeWizardConcentration", SubclassNamespace)
+               .SetGuiPresentation(Category.Subclass)
+               .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage, -1)
+               .AddToDB();
 
-            GuiPresentationBuilder concentrationAffinityGui = new GuiPresentationBuilder(
-                "Subclass/&MagicAffinityMeleeWizardConcentrationTitle",
-                "Subclass/&MagicAffinityMeleeWizardConcentrationDescription");
-            FeatureDefinitionMagicAffinity concentrationAffinity = BuildMagicAffinityConcentration(RuleDefinitions.ConcentrationAffinity.Advantage, -1,
-                "MagicAffinityMeleeWizardConcentration", concentrationAffinityGui.Build());
-            meleeWizard.AddFeatureAtLevel(concentrationAffinity, 2);
-
-            GuiPresentationBuilder extraAttackGui = new GuiPresentationBuilder(
-                "Subclass/&AttributeModifierMeleeWizardExtraAttackTitle",
-                "Subclass/&AttributeModifierMeleeWizardExtraAttackDescription");
-            FeatureDefinitionAttributeModifier extraAttack = BuildAttributeModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                AttributeDefinitions.AttacksNumber, 1,
-                "AttributeModifierMeleeWizardExtraAttack", extraAttackGui.Build());
-            meleeWizard.AddFeatureAtLevel(extraAttack, 6);
+            FeatureDefinitionAttributeModifier extraAttack = FeatureDefinitionAttributeModifierBuilder
+                .Create("AttributeModifierMeleeWizardExtraAttack", SubclassNamespace)
+                .SetGuiPresentation(Category.Subclass)
+                .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, AttributeDefinitions.AttacksNumber, 1)
+                .AddToDB();
 
             FeatureDefinitionAdditionalAction bonusSpell = FeatureDefinitionAdditionalActionBuilder
                 .Create("ArcaneFighterAdditionalAction", SubclassNamespace)
@@ -64,44 +55,63 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 .SetTriggerCondition(RuleDefinitions.AdditionalActionTriggerCondition.HasDownedAnEnemy)
                 .AddToDB();
 
-            meleeWizard.AddFeatureAtLevel(bonusSpell, 10);
-
             GuiPresentationBuilder bonusWeaponDamageGui = new GuiPresentationBuilder(
                 "Subclass/&ArcaneFighterBonusWeaponDamageTitle",
                 "Subclass/&ArcaneFighterBonusWeaponDamageDescription");
+            // TODO: refactor large ctor
             FeatureDefinitionAdditionalDamage bonusWeaponDamage = new FeatureDefinitionAdditionalDamageBuilder("ArcaneFighterBonusWeaponDamage",
                 GuidHelper.Create(SubclassNamespace, "ArcaneFighterBonusWeaponDamage").ToString(),
                 "ArcaneFighterBonusWeaponDamage",
                 RuleDefinitions.FeatureLimitedUsage.OncePerTurn, RuleDefinitions.AdditionalDamageValueDetermination.Die,
                 RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive, RuleDefinitions.AdditionalDamageRequiredProperty.None,
                 true /* attack only */, RuleDefinitions.DieType.D8, 1 /* dice number */, RuleDefinitions.AdditionalDamageType.SameAsBaseDamage, "",
-                RuleDefinitions.AdditionalDamageAdvancement.None, new List<DiceByRank>(), bonusWeaponDamageGui.Build()).AddToDB();
-            meleeWizard.AddFeatureAtLevel(bonusWeaponDamage, 14);
+                RuleDefinitions.AdditionalDamageAdvancement.None, new List<DiceByRank>(), bonusWeaponDamageGui.Build())
+                .AddToDB();
 
-            Subclass = meleeWizard.AddToDB();
+            Subclass = CharacterSubclassDefinitionBuilder
+                .Create("ArcaneFighter", SubclassNamespace)
+                .SetGuiPresentation("TraditionArcaneFighter", Category.Subclass, MartialSpellblade.GuiPresentation.SpriteReference)
+                .AddFeaturesAtLevel(2, weaponProf, EnchantWeapon)
+                .AddFeatureAtLevel(concentrationAffinity, 2)
+                .AddFeatureAtLevel(extraAttack, 6)
+                .AddFeatureAtLevel(bonusSpell, 10)
+                .AddFeatureAtLevel(bonusWeaponDamage, 14)
+                .AddToDB();
         }
 
         private static FeatureDefinitionPower _enchantWeapon;
 
+        internal static FeatureDefinitionPower EnchantWeapon => _enchantWeapon ??= BuildEnchantWeapon();
+
         private static FeatureDefinitionPower BuildEnchantWeapon()
         {
-            GuiPresentationBuilder attackModGui = new GuiPresentationBuilder(
-                "Subclass/&AttackModifierMeleeWizardArcaneWeaponTitle",
-                "Subclass/&AttackModifierMeleeWizardArcaneWeaponDescription");
-            attackModGui.SetSpriteReference(FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference);
-            GuiPresentationBuilder arcaneWeaponGui = new GuiPresentationBuilder(
-                   "Subclass/&AttackModifierMeleeWizardArcaneWeaponTitle",
-                   "Subclass/&AttackModifierMeleeWizardArcaneWeaponDescription");
-            arcaneWeaponGui.SetSpriteReference(FeatureDefinitionPowers.PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference);
-            FeatureDefinitionAttackModifier weaponUseIntModifier = new FeatureDefinitionAttackModifierBuilder("AttackModifierMeleeWizard",
-                 GuidHelper.Create(SubclassNamespace, "AttackModifierMeleeWizard").ToString(),
-                 RuleDefinitions.AbilityScoreReplacement.SpellcastingAbility, TagsDefinitions.Magical, attackModGui.Build()).AddToDB();
-            return BuildActionItemPower(0 /* fixed uses*/, RuleDefinitions.UsesDetermination.ProficiencyBonus, AttributeDefinitions.Intelligence,
-                RuleDefinitions.ActivationTime.BonusAction, 1 /* use cost */, RuleDefinitions.RechargeRate.LongRest, RuleDefinitions.RangeType.Touch, 1 /* range */, ActionDefinitions.ItemSelectionType.Weapon,
-                RuleDefinitions.DurationType.Minute, 10 /* duration */, RuleDefinitions.TurnOccurenceType.EndOfTurn,
-                weaponUseIntModifier, "PowerMeleeWizardArcaneWeapon", arcaneWeaponGui.Build());
+            var weaponUseIntModifier = FeatureDefinitionAttackModifierBuilder
+                .Create("AttackModifierMeleeWizard", SubclassNamespace)
+                .SetGuiPresentation("AttackModifierMeleeWizardArcaneWeapon", Category.Subclass, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference)
+                .SetAbilityScoreReplacement(RuleDefinitions.AbilityScoreReplacement.SpellcastingAbility)
+                .SetAdditionalAttackTag(TagsDefinitions.Magical)
+                .AddToDB();
+
+            var effect = EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Touch, 1 /* range */, RuleDefinitions.TargetType.Item, 1, 2, ActionDefinitions.ItemSelectionType.Weapon)
+                .SetCreatedByCharacter()
+                .SetDurationData(RuleDefinitions.DurationType.Minute, 10 /* duration */, RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                .AddEffectForm(
+                    EffectFormBuilder
+                        .Create()
+                        .SetItemPropertyForm(RuleDefinitions.ItemPropertyUsage.Unlimited, 0, new FeatureUnlockByLevel(weaponUseIntModifier, 0))
+                        .Build()
+                    )
+                .Build();
+
+            return FeatureDefinitionPowerBuilder
+                .Create("PowerMeleeWizardArcaneWeapon", SubclassNamespace)
+                .SetGuiPresentation("AttackModifierMeleeWizardArcaneWeapon", Category.Subclass, FeatureDefinitionPowers.PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference)
+                .Configure(0, RuleDefinitions.UsesDetermination.ProficiencyBonus, AttributeDefinitions.Intelligence, RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RechargeRate.LongRest, false, false,
+                    AttributeDefinitions.Intelligence, effect, false /* unique instance */)
+                .AddToDB();
         }
-        internal static FeatureDefinitionPower EnchantWeapon => _enchantWeapon ??= BuildEnchantWeapon();
 
         public static void UpdateEnchantWeapon()
         {
@@ -112,70 +122,6 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             else
             {
                 EnchantWeapon.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
-            }
-        }
-
-        private static FeatureDefinitionProficiency BuildProficiency(RuleDefinitions.ProficiencyType type,
-            IEnumerable<string> proficiencies, string name, GuiPresentation guiPresentation)
-        {
-            return FeatureDefinitionProficiencyBuilder
-                .Create(name, SubclassNamespace)
-                .SetProficiencies(type, proficiencies)
-                .SetGuiPresentation(guiPresentation).AddToDB();
-        }
-
-        private static FeatureDefinitionAttributeModifier BuildAttributeModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation modifierType,
-            string attribute, int amount, string name, GuiPresentation guiPresentation)
-        {
-            return FeatureDefinitionAttributeModifierBuilder
-                .Create(name, SubclassNamespace)
-                .SetGuiPresentation(guiPresentation)
-                .SetModifier(modifierType, attribute, amount)
-                .AddToDB();
-        }
-
-        public static FeatureDefinitionMagicAffinity BuildMagicAffinityConcentration(RuleDefinitions.ConcentrationAffinity concentrationAffinity, int threshold, string name, GuiPresentation guiPresentation)
-        {
-            return FeatureDefinitionMagicAffinityBuilder
-                .Create(name, SubclassNamespace)
-                .SetGuiPresentation(guiPresentation)
-                .SetConcentrationModifiers(concentrationAffinity, threshold)
-                .AddToDB();
-        }
-
-        private static FeatureDefinitionPower BuildActionItemPower(int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination,
-            string usesAbilityScoreName,
-            RuleDefinitions.ActivationTime activationTime, int costPerUse, RuleDefinitions.RechargeRate recharge,
-            RuleDefinitions.RangeType rangeType, int rangeParameter, ActionDefinitions.ItemSelectionType itemSelectionType,
-            RuleDefinitions.DurationType durationType, int durationParameter, RuleDefinitions.TurnOccurenceType endOfEffect,
-            FeatureDefinition itemFeature,
-            string name, GuiPresentation guiPresentation)
-        {
-            EffectDescriptionBuilder effectBuilder = new EffectDescriptionBuilder();
-            effectBuilder.SetTargetingData(RuleDefinitions.Side.Ally, rangeType, rangeParameter, RuleDefinitions.TargetType.Item, 1, 2, itemSelectionType);
-            effectBuilder.SetCreatedByCharacter();
-            effectBuilder.SetDurationData(durationType, durationParameter, endOfEffect);
-            effectBuilder.AddEffectForm(new EffectFormBuilder().SetItemPropertyForm(new List<FeatureUnlockByLevel>()
-            {
-                new FeatureUnlockByLevel(itemFeature, 0),
-            }, RuleDefinitions.ItemPropertyUsage.Unlimited, 0).Build());
-
-            return FeatureDefinitionPowerBuilder
-                .Create(name, SubclassNamespace)
-                .SetGuiPresentation(guiPresentation)
-                .Configure(usesPerRecharge, usesDetermination, usesAbilityScoreName, activationTime, costPerUse, recharge, false, false,
-                    AttributeDefinitions.Intelligence, effectBuilder.Build(), false /* unique instance */).AddToDB();
-        }
-
-        private sealed class FeatureDefinitionAttackModifierBuilder : Builders.Features.FeatureDefinitionAttackModifierBuilder
-        {
-            public FeatureDefinitionAttackModifierBuilder(string name, string guid,
-                RuleDefinitions.AbilityScoreReplacement abilityReplacement, string additionalAttackTag,
-                GuiPresentation guiPresentation) : base(name, guid)
-            {
-                Definition.SetAbilityScoreReplacement(abilityReplacement);
-                Definition.SetAdditionalAttackTag(additionalAttackTag);
-                Definition.SetGuiPresentation(guiPresentation);
             }
         }
     }

@@ -9,45 +9,35 @@ namespace SolastaCommunityExpansion.Builders
 {
     public class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDefinitionBuilder>
     {
-        protected ItemDefinitionBuilder(string name, string guid)
-            : base(name, guid)
+        #region Constructors
+        protected ItemDefinitionBuilder(ItemDefinition original) : base(original)
         {
         }
 
-        protected ItemDefinitionBuilder(string name, Guid namespaceGuid)
-            : base(name, namespaceGuid)
+        protected ItemDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
-        protected ItemDefinitionBuilder(ItemDefinition original, string name, string guid)
-            : base(original, name, guid)
+        protected ItemDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
         {
         }
 
-        protected ItemDefinitionBuilder(ItemDefinition original, string name, Guid namespaceGuid)
-            : base(original, name, namespaceGuid)
+        protected ItemDefinitionBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
         {
         }
 
-        public static ItemDefinitionBuilder Create(ItemDefinition original, string name, Guid namespaceGuid)
+        protected ItemDefinitionBuilder(ItemDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
-            return new ItemDefinitionBuilder(original, name, namespaceGuid);
         }
 
-        public static ItemDefinitionBuilder Create(string name, string guid)
+        protected ItemDefinitionBuilder(ItemDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
         {
-            return new ItemDefinitionBuilder(name, guid);
         }
 
-        public static ItemDefinitionBuilder Create(string name, Guid namespaceGuid)
+        protected ItemDefinitionBuilder(ItemDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
         {
-            return new ItemDefinitionBuilder(name, namespaceGuid);
         }
-
-        public static ItemDefinitionBuilder Create(ItemDefinition original, string name, string guid)
-        {
-            return new ItemDefinitionBuilder(original, name, guid);
-        }
+        #endregion
 
         public ItemDefinitionBuilder SetDocumentInformation(RecipeDefinition recipeDefinition, params ContentFragmentDescription[] contentFragments)
         {

@@ -74,10 +74,10 @@ namespace SolastaCommunityExpansion.Builders.Features
             return SetAdvancement(advancement, diceByRank.Select(d => DiceByRankBuilder.BuildDiceByRank(d.rank, d.dice)));
         }
 
-        public TBuilder SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement advancement, params DiceByRank[] diceByRanks)
-        {
-            return SetAdvancement(advancement, diceByRanks.AsEnumerable());
-        }
+        //public TBuilder SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement advancement, params DiceByRank[] diceByRanks)
+        //{
+        //    return SetAdvancement(advancement, diceByRanks.AsEnumerable());
+        //}
 
         public TBuilder SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement advancement, IEnumerable<DiceByRank> diceByRanks)
         {
@@ -206,17 +206,5 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
         #endregion
-
-        // Add other standard Create methods and constructors as required.
-
-        public static FeatureDefinitionAdditionalDamageBuilder Create(FeatureDefinitionAdditionalDamage original, string name, Guid namespaceGuid)
-        {
-            return new FeatureDefinitionAdditionalDamageBuilder(original, name, namespaceGuid);
-        }
-
-        public static FeatureDefinitionAdditionalDamageBuilder Create(string name, Guid namespaceGuid)
-        {
-            return new FeatureDefinitionAdditionalDamageBuilder(name, namespaceGuid);
-        }
     }
 }

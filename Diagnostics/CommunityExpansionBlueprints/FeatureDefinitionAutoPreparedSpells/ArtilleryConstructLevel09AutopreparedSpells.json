@@ -1,0 +1,41 @@
+{
+  "$type": "FeatureDefinitionAutoPreparedSpells, Assembly-CSharp",
+  "autopreparedTag": "Domain",
+  "autoPreparedSpellsGroups": [
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 1,
+      "spellsList": [
+        "Definition:SummonArtillerySpellConstruct_9:9ad29b43-5207-46e8-bbc9-7b8138b2912f"
+      ]
+    }
+  ],
+  "spellcastingClass": "Definition:ClassTinkerer:0bd993c5-be32-535c-96b5-70db46ed2ca8",
+  "affinityRace": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feat/&ArtilleryConstructLevel09AutopreparedSpellsTitle",
+    "description": "Feat/&ArtilleryConstructLevel09AutopreparedSpellsDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "ecbbbfe6-4ff6-5c55-b9da-919b09896938",
+  "contentPack": 9999,
+  "name": "ArtilleryConstructLevel09AutopreparedSpells"
+}

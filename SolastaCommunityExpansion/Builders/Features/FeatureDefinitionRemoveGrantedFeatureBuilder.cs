@@ -12,14 +12,37 @@ namespace SolastaCommunityExpansion.Builders.Features
     // Replace a class feature - We need to inform the feature to be removed, the level and the class
     // Replace a subclass feature - We need to inform the feature to be removed, the level, the class and the subclass
     //
-    public sealed class FeatureDefinitionRemoveGrantedFeatureBuilder : FeatureDefinitionBuilder<FeatureDefinitionRemoveGrantedFeature, FeatureDefinitionRemoveGrantedFeatureBuilder>
+    public class FeatureDefinitionRemoveGrantedFeatureBuilder : FeatureDefinitionBuilder<FeatureDefinitionRemoveGrantedFeature, FeatureDefinitionRemoveGrantedFeatureBuilder>
     {
-        private FeatureDefinitionRemoveGrantedFeatureBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid) { }
-
-        public static FeatureDefinitionRemoveGrantedFeatureBuilder Create(string name, Guid namespaceGuid)
+        #region Constructors
+        protected FeatureDefinitionRemoveGrantedFeatureBuilder(FeatureDefinitionRemoveGrantedFeature original) : base(original)
         {
-            return new FeatureDefinitionRemoveGrantedFeatureBuilder(name, namespaceGuid);
         }
+
+        protected FeatureDefinitionRemoveGrantedFeatureBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionRemoveGrantedFeatureBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        protected FeatureDefinitionRemoveGrantedFeatureBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
+        {
+        }
+
+        protected FeatureDefinitionRemoveGrantedFeatureBuilder(FeatureDefinitionRemoveGrantedFeature original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
+        {
+        }
+
+        protected FeatureDefinitionRemoveGrantedFeatureBuilder(FeatureDefinitionRemoveGrantedFeature original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionRemoveGrantedFeatureBuilder(FeatureDefinitionRemoveGrantedFeature original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+        #endregion
 
         public FeatureDefinitionRemoveGrantedFeatureBuilder SetFeatureInfo(FeatureDefinition featureToRemove, int classLevel, CharacterClassDefinition characterClass, CharacterSubclassDefinition characterSubclass = null)
         {

@@ -31,28 +31,6 @@ namespace SolastaCommunityExpansion.Builders
         }
         #endregion
 
-        #region Factory methods
-        public static SpellDefinitionBuilder Create(string name, string guid)
-        {
-            return new SpellDefinitionBuilder(name, guid);
-        }
-
-        public static SpellDefinitionBuilder Create(string name, Guid guidNamespace)
-        {
-            return new SpellDefinitionBuilder(name, guidNamespace);
-        }
-
-        public static SpellDefinitionBuilder Create(SpellDefinition original, string name, string guid)
-        {
-            return new SpellDefinitionBuilder(original, name, guid);
-        }
-
-        public static SpellDefinitionBuilder Create(SpellDefinition original, string name, Guid guidNamespace)
-        {
-            return new SpellDefinitionBuilder(original, name, guidNamespace);
-        }
-        #endregion
-
         private void InitializeFields()
         {
             Definition.SetImplemented(true);

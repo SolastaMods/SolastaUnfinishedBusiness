@@ -9,9 +9,9 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.RemoveGrantedFeature
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterBuildingManager_FinalizeCharacter
     {
-        internal static void Prefix(CharacterBuildingManager __instance)
+        internal static void Prefix(RulesetCharacterHero hero)
         {
-            var activeFeatures = __instance.CurrentLocalHeroCharacter.ActiveFeatures;
+            var activeFeatures = hero.ActiveFeatures;
             var removeGrantedFeatures = activeFeatures.SelectMany(x => x.Value.OfType<FeatureDefinitionRemoveGrantedFeature>());
 
             foreach (FeatureDefinitionRemoveGrantedFeature removeGrantedFeature in removeGrantedFeatures)

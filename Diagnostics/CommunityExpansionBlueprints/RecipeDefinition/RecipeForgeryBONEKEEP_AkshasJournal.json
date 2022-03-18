@@ -1,0 +1,42 @@
+{
+  "$type": "RecipeDefinition, Assembly-CSharp",
+  "craftedItem": "Definition:BONEKEEP_AkshasJournal:c4d2e751357d4564994f81a973ee4964",
+  "stackCount": 1,
+  "craftingHours": 16,
+  "craftingDC": 16,
+  "toolTypeDefinition": "Definition:ScrollKitType:33c029d33932a7a46a67d5279d181179",
+  "ingredients": [
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_AngryViolet:0ea316a14e9d7d344a648184b7b09af0"
+    }
+  ],
+  "spellDefinition": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&BoneKeep_Document_AkshasJournal_Title",
+    "description": "Equipment/&BoneKeep_Document_AkshasJournal_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "d74573c961c69454a916b27d46e5f8e4",
+      "m_SubObjectName": "AkshasJournal",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "5379ee73-5b96-5770-b917-a6b6ea19fdff",
+  "contentPack": 9999,
+  "name": "RecipeForgeryBONEKEEP_AkshasJournal"
+}

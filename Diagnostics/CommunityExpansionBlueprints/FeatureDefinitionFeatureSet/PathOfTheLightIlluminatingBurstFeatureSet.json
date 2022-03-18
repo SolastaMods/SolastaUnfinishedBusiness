@@ -1,0 +1,39 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PathOfTheLightIlluminatingBurstInitiator:e8ad8505-17d7-57fe-8684-258798a382b6",
+    "Definition:PathOfTheLightIlluminatingBurst:afeb14b1-308c-56e6-9680-5942aca31ee5",
+    "Definition:PathOfTheLightIlluminatingBurstSuppressor:3f300372-fc36-5d56-b8dd-8642ac03d24e"
+  ],
+  "mode": "Union",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&BarbarianPathOfTheLightIlluminatingBurstTitle",
+    "description": "Subclass/&BarbarianPathOfTheLightIlluminatingBurstDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "5ca3e3fc-f90d-5998-8bc3-dec3f0221e9d",
+  "contentPack": 9999,
+  "name": "PathOfTheLightIlluminatingBurstFeatureSet"
+}

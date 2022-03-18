@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using HarmonyLib;
+using SolastaCommunityExpansion.Multiclass.Models;
 
 namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
 {
@@ -16,18 +17,31 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                     return;
                 }
 
-                if (!(Models.LevelUpContext.LevelingUp && Models.LevelUpContext.IsMulticlass))
+                // it looks like it's ok to use CurrentLocalHeroCharacter on this context as this is an UI only patch
+                var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
+                var hero = characterBuildingService.CurrentLocalHeroCharacter;
+
+                // it should only apply when leveling up
+                if (hero == null)
+                {
+                    return;
+                }
+
+                var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
+                var isMulticlass = LevelUpContext.IsMulticlass(hero);
+
+                if (!(isLevelingUp && isMulticlass))
                 {
                     return;
                 }
 
                 if (bindMode == SpellBox.BindMode.Learning && !Main.Settings.EnableDisplayAllKnownSpellsOnLevelUp)
                 {
-                    allSpells.RemoveAll(s => !Models.CacheSpellsContext.IsSpellOfferedBySelectedClassSubclass(s));
+                    allSpells.RemoveAll(s => !CacheSpellsContext.IsSpellOfferedBySelectedClassSubclass(hero, s));
                 }
                 else if (bindMode == SpellBox.BindMode.Unlearn)
                 {
-                    allSpells.RemoveAll(s => !Models.CacheSpellsContext.IsSpellOfferedBySelectedClassSubclass(s) || !Models.CacheSpellsContext.IsSpellKnownBySelectedClassSubclass(s));
+                    allSpells.RemoveAll(s => !CacheSpellsContext.IsSpellOfferedBySelectedClassSubclass(hero, s) || !CacheSpellsContext.IsSpellKnownBySelectedClassSubclass(hero, s));
                 }
             }
         }

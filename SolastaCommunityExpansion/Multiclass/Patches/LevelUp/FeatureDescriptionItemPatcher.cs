@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
+using SolastaCommunityExpansion.Multiclass.Models;
 using SolastaModApi.Infrastructure;
 using TMPro;
 
@@ -14,16 +15,33 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
         {
             public static void DisableDropdownIfMulticlass(FeatureDescriptionItem featureDescriptionItem)
             {
+                // it looks like it's ok to use CurrentLocalHeroCharacter on this context as this is an UI only patch
                 var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
                 var hero = characterBuildingService.CurrentLocalHeroCharacter;
-                var choiceDropdown = featureDescriptionItem.GetField<FeatureDescriptionItem, GuiDropdown>("choiceDropdown");
 
-                if (Models.LevelUpContext.LevelingUp && Models.LevelUpContext.DisplayingClassPanel && hero.ClassesAndLevels.ContainsKey(Models.LevelUpContext.SelectedClass))
+                // it should only apply when leveling up
+                if (hero == null)
+                {
+                    return;
+                }
+
+                var choiceDropdown = featureDescriptionItem.GetField<FeatureDescriptionItem, GuiDropdown>("choiceDropdown");
+                var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
+                var isMulticlass = LevelUpContext.IsMulticlass(hero);
+
+                if (!(isLevelingUp && isMulticlass))
+                {
+                    choiceDropdown.interactable = true;
+
+                    return;
+                }
+
+                if (LevelUpContext.IsClassSelectionStage(hero) && hero.ClassesAndLevels.ContainsKey(LevelUpContext.GetSelectedClass(hero)))
                 {
                     var featureDefinitionFeatureSet = featureDescriptionItem.Feature as FeatureDefinitionFeatureSet;
                     var featureDefinitions = new List<FeatureDefinition>();
 
-                    foreach (var activeFeature in characterBuildingService.CurrentLocalHeroCharacter.ActiveFeatures.Where(x => x.Key.StartsWith(AttributeDefinitions.TagClass)))
+                    foreach (var activeFeature in hero.ActiveFeatures.Where(x => x.Key.StartsWith(AttributeDefinitions.TagClass)))
                     {
                         featureDefinitions.AddRange(activeFeature.Value);
                     }

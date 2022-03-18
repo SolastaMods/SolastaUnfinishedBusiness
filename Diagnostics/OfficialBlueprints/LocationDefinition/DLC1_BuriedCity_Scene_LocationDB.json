@@ -1,0 +1,324 @@
+{
+  "$type": "LocationDefinition, Assembly-CSharp",
+  "isUserLocation": false,
+  "alwaysHidden": false,
+  "registeredFactions": [],
+  "registeredVariables": [
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "TorchA",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "TorchB",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "TorchC",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "AccessWild_BuriedCity_Available",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "AccessWild_Palace_Available",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "EllariaAwayToBoss",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "EllariaAwayToBattle",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "OpenEmergencyDoor",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "StartInvasionBattle",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "QG_Is_Closed",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "Renno_At_Door",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "AccessTomb_BuriedCity_Available",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    }
+  ],
+  "sceneFilePath": "",
+  "sceneReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "e0bbb91bb1563364087ebbebdcaa24b6",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "audioState": {
+    "$type": "AK.Wwise.State, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": {
+      "$type": "WwiseStateReference, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseStateGroupReference": {
+        "$type": "WwiseStateGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+        "objectName": "State_LocationName",
+        "id": 598649695,
+        "guid": "0785F1BC-DEE8-4D0A-A678-33E4912B6ACE",
+        "name": "0785F1BC-DEE8-4D0A-A678-33E4912B6ACE"
+      },
+      "objectName": "DLC1_BuriedCity",
+      "id": 2747848754,
+      "guid": "A030C574-5FDF-4B85-BA37-D34BFF0BC0E1",
+      "name": "A030C574-5FDF-4B85-BA37-D34BFF0BC0E1"
+    },
+    "groupIdInternal": 0,
+    "groupGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    },
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "renderSettingsSceneProfile": {
+    "$type": "RenderSettingsSceneProfile, Assembly-CSharp",
+    "useSkybox": true,
+    "backgroundColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 1.0
+    },
+    "skyboxMaterial": {
+      "$type": "UnityEngine.Material, UnityEngine.CoreModule",
+      "name": "Default_Skybox"
+    },
+    "ambientLight": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 0.9627973,
+      "b": 0.8254717,
+      "a": 1.0
+    },
+    "fog": false,
+    "fogColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "fogMode": "Exponential",
+    "fogDensity": 0.0638,
+    "excludeSkybox": false,
+    "auraBaseSettings": {
+      "$type": "Aura2API.AuraBaseSettings, Aura2_Core",
+      "useDensity": true,
+      "density": 0.025,
+      "useScattering": false,
+      "scattering": 1.0,
+      "useAmbientLighting": true,
+      "ambientLightingStrength": 1.0,
+      "useColor": true,
+      "color": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.5,
+        "g": 0.2651332,
+        "b": 0.404484451,
+        "a": 1.0
+      },
+      "colorStrength": 1.0,
+      "useTint": false,
+      "tint": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.999999,
+        "g": 0.748079062,
+        "b": 0.3809202,
+        "a": 1.0
+      },
+      "tintStrength": 1.0,
+      "useExtinction": false,
+      "extinction": 0.75,
+      "name": "DLC1_BuriedCity_Scene_AuraBaseParameters"
+    },
+    "userDungeonAuraVolumeDensity": 0.2,
+    "userDungeonAuraVolumeFogType": "Height",
+    "userDungeonAuraVolumeHeight": 3.0,
+    "userDungeonAuraVolumeNoise": false,
+    "userDungeonAuraVolumeNoiseScale": 3.0,
+    "dayCycleProfile": {
+      "$type": "GraphicsDayCycleProfile, Assembly-CSharp",
+      "noonColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.8509804,
+        "g": 0.802975059,
+        "b": 0.595686257,
+        "a": 1.0
+      },
+      "sunriseColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 1.0,
+        "g": 0.917647,
+        "b": 0.6,
+        "a": 1.0
+      },
+      "sunsetColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.8,
+        "g": 0.6463415,
+        "b": 0.440000027,
+        "a": 1.0
+      },
+      "globalSunIntensity": 2.0,
+      "sunDirection": 146.0,
+      "sunTilt": 50.0,
+      "moonLightColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.389083982,
+        "g": 0.657159567,
+        "b": 0.844000041,
+        "a": 1.0
+      },
+      "moonLightFadeOffset": 1.0,
+      "moonLightFadeMinIntensity": 1.0,
+      "moonLightFadeDuration": 0.25,
+      "moonSpeedFactor": 0.2,
+      "moonBaseAngle": 20.0,
+      "globalMoonIntensity": 1.5,
+      "ambientSunriseColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.5,
+        "g": 0.4877451,
+        "b": 0.399509817,
+        "a": 1.0
+      },
+      "ambientNoonColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.601,
+        "g": 0.5726333,
+        "b": 0.5409,
+        "a": 1.0
+      },
+      "ambientSunsetColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.549019635,
+        "g": 0.4977778,
+        "b": 0.43921572,
+        "a": 1.0
+      },
+      "ambientNightColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.199999988,
+        "g": 0.3829268,
+        "b": 0.5,
+        "a": 1.0
+      },
+      "ambientFadeDuration": 1.0,
+      "dayAtmosphereThickness": 1.1,
+      "nightAtmosphereThickness": 0.5,
+      "name": "BuriedCity_Location_DayCycleProfile"
+    },
+    "name": "DLC1_BuriedCity_Scene_RenderSettings"
+  },
+  "locationPresentation": {
+    "$type": "LocationPresentation, Assembly-CSharp",
+    "unchartedTitle": "Map/&Location_Uncharted_Title_BuriedCity",
+    "unchartedDescription": "Map/&Location_Uncharted_Description_BuriedCity",
+    "knownTitle": "Map/&Location_Known_Title_BuriedCity",
+    "knownDescription": "Map/&Location_Known_Description_BuriedCity",
+    "exploredTitle": "Map/&Location_Explored_Title_BuriedCity",
+    "exploredDescription": "Map/&Location_Explored_Description_BuriedCity"
+  },
+  "challengeRating": 7,
+  "focusWhenRevealed": true,
+  "startsWithScavengerCamp": false,
+  "ignoredByScavengers": false,
+  "useDirectionalLightInCutscene": true,
+  "useNewSectorCullingAlgorithm": true,
+  "keepSectorCullingResultsWhenInactive": false,
+  "setCurrentCampaignNodeWhenLeaving": true,
+  "hasPriorityForTeleporter": false,
+  "canAttackNonHostileCharacters": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Map/&Location_Presentation_Title_BuriedCity",
+    "description": "Map/&Location_Presentation_Description_BuriedCity",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "8758737018948bd46bcb07abc7b9fdf8",
+      "m_SubObjectName": "DLC1_City",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "b0a6798a8fe045749943b52008642703",
+  "contentPack": "LostValley",
+  "name": "DLC1_BuriedCity_Scene_LocationDB"
+}

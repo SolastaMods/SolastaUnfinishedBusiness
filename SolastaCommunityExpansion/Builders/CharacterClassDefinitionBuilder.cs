@@ -32,27 +32,6 @@ namespace SolastaCommunityExpansion.Builders
         }
         #endregion
 
-        #region Factory methods
-        public static CharacterClassDefinitionBuilder Create(string name, string guid)
-        {
-            return new CharacterClassDefinitionBuilder(name, guid);
-        }
-
-        public static CharacterClassDefinitionBuilder Create(string name, Guid namespaceGuid)
-        {
-            return new CharacterClassDefinitionBuilder(name, namespaceGuid);
-        }
-        public static CharacterClassDefinitionBuilder Create(CharacterClassDefinition original, string name, string guid)
-        {
-            return new CharacterClassDefinitionBuilder(original, name, guid);
-        }
-
-        public static CharacterClassDefinitionBuilder Create(CharacterClassDefinition original, string name, Guid namespaceGuid)
-        {
-            return new CharacterClassDefinitionBuilder(original, name, namespaceGuid);
-        }
-        #endregion
-
         public CharacterClassDefinitionBuilder SetHitDice(RuleDefinitions.DieType die)
         {
             Definition.SetHitDice(die);
@@ -303,7 +282,7 @@ namespace SolastaCommunityExpansion.Builders
 
         public CharacterClassDefinitionBuilder AddFeaturesAtLevel(int level, params FeatureDefinition[] features)
         {
-            Definition.FeatureUnlocks.AddRange(features.Select(f => new FeatureUnlockByLevel(f, level)));
+            Definition.AddFeatureUnlocks(features.Select(f => new FeatureUnlockByLevel(f, level)));
             return this;
         }
     }

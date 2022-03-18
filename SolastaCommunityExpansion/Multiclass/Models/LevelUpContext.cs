@@ -8,7 +8,30 @@ namespace SolastaCommunityExpansion.Multiclass.Models
 {
     internal static class LevelUpContext
     {
-        private static readonly Dictionary<string, Dictionary<string, string>> featuresToReplace = new()
+        // keeps the multiclass level up context
+        private class LevelUpData
+        {
+            public CharacterClassDefinition SelectedClass;
+            public CharacterSubclassDefinition SelectedSubclass;
+            public bool IsClassSelectionStage { get; set; }
+            public bool RequiresDeity { get; set; }
+            public bool RequiresHolySymbol { get; set; }
+            public bool RequiresClothesWizard { get; set; }
+            public bool RequiresComponentPouch { get; set; }
+            public bool RequiresDruidicFocus { get; set; }
+            public bool RequiresSpellbook { get; set; }
+            public bool HasHolySymbolGranted { get; set; }
+            public bool HasComponentPouchGranted { get; set; }
+            public bool HasDruidicFocusGranted { get; set; }
+            public bool HasClothesWizardGranted { get; set; }
+            public bool HasSpellbookGranted { get; set; }
+        }
+
+        // keeps a tab on all heroes leveling up
+        private static readonly Dictionary<RulesetCharacterHero, LevelUpData> LevelUpTab = new();
+
+        // these features will be replaced to comply to SRD multiclass rules
+        private static readonly Dictionary<string, Dictionary<string, string>> FeaturesToReplace = new()
         {
             {
                 RuleDefinitions.BarbarianClass,
@@ -53,7 +76,8 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             },
         };
 
-        private static readonly Dictionary<string, List<string>> featuresToExclude = new()
+        // these features will be removed to comply with SRD multiclass rules
+        private static readonly Dictionary<string, List<string>> FeaturesToExclude = new()
         {
             {
                 RuleDefinitions.BarbarianClass,
@@ -176,22 +200,7 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             },
         };
 
-        private static bool levelingUp { get; set; }
-        private static bool requiresDeity { get; set; }
-        private static bool requiresHolySymbol { get; set; }
-        private static bool requiresClothesWizard { get; set; }
-        private static bool requiresComponentPouch { get; set; }
-        private static bool requiresDruidicFocus { get; set; }
-        private static bool requiresSpellbook { get; set; }
-        private static bool hasHolySymbolGranted { get; set; }
-        private static bool hasComponentPouchGranted { get; set; }
-        private static bool hasDruidicFocusGranted { get; set; }
-        private static bool hasClothesWizardGranted { get; set; }
-        private static bool hasSpellbookGranted { get; set; }
-        private static RulesetCharacterHero selectedHero { get; set; }
-        private static CharacterClassDefinition selectedClass { get; set; }
-        private static CharacterSubclassDefinition selectedSubclass { get; set; }
-
+        // always load the custom definitions even when multiclass is disabled to avoid errors parsing MC heroes during startup
         internal static void Load()
         {
             _ = ArmorProficiencyMulticlassBuilder.BarbarianArmorProficiencyMulticlass;
@@ -203,163 +212,369 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             _ = SkillProficiencyPointPoolSkills.PointPoolRogueSkillPointsMulticlass;
         }
 
-        internal static RulesetCharacterHero SelectedHero
+        internal static RulesetCharacterHero GetHero(string name)
         {
-            get => selectedHero;
-            set
-            {
-                selectedHero = value;
-                selectedClass = null;
-                selectedSubclass = null;
-                levelingUp = value != null;
-                requiresDeity = false;
-                requiresHolySymbol = false;
-                requiresClothesWizard = false;
-                requiresComponentPouch = false;
-                requiresDruidicFocus = false;
-                requiresSpellbook = false;
-                hasHolySymbolGranted = false;
-                hasComponentPouchGranted = false;
-                hasDruidicFocusGranted = false;
-                hasClothesWizardGranted = false;
-                hasSpellbookGranted = false;
-            }
+            var kvp = LevelUpTab.FirstOrDefault(x => x.Key.Name == name);
+
+            return kvp.Key ?? null;
         }
 
-        internal static CharacterClassDefinition SelectedClass
+        internal static void RegisterHero(RulesetCharacterHero rulesetCharacterHero)
         {
-            get => selectedClass;
-            set
-            {
-                selectedClass = value;
-                selectedSubclass = null;
-
-                if (selectedClass == null)
-                {
-                    return;
-                }
-
-                var classesAndLevels = selectedHero.ClassesAndLevels;
-
-                selectedHero.ClassesAndSubclasses.TryGetValue(selectedClass, out var subclass);
-
-                selectedSubclass = subclass;
-
-                requiresDeity =
-                    (selectedClass == Cleric && !classesAndLevels.ContainsKey(Cleric)) || (selectedClass == Paladin && selectedHero.DeityDefinition == null);
-
-                requiresHolySymbol =
-                    !(classesAndLevels.ContainsKey(Cleric) || classesAndLevels.ContainsKey(Paladin)) && (selectedClass == Cleric || selectedClass == Paladin);
-
-                requiresClothesWizard =
-                    !classesAndLevels.ContainsKey(Wizard) && selectedClass == Wizard;
-
-                requiresComponentPouch =
-                    (
-                        selectedClass == Ranger ||
-                        selectedClass == Sorcerer ||
-                        selectedClass == Wizard ||
-                        selectedClass == TinkererClass ||
-                        selectedClass == AlchemistClass ||
-                        selectedClass == BardClass ||
-                        selectedClass == WarlockClass ||
-                        selectedClass == WitchClass
-                    ) &&
-                    !(
-                        classesAndLevels.ContainsKey(Ranger) ||
-                        classesAndLevels.ContainsKey(Sorcerer) ||
-                        classesAndLevels.ContainsKey(Wizard) ||
-                        classesAndLevels.ContainsKey(TinkererClass) ||
-                        classesAndLevels.ContainsKey(AlchemistClass) ||
-                        classesAndLevels.ContainsKey(BardClass) ||
-                        classesAndLevels.ContainsKey(WarlockClass) ||
-                        classesAndLevels.ContainsKey(WitchClass)
-                    );
-
-                requiresDruidicFocus = (selectedClass == Druid) && !classesAndLevels.ContainsKey(Druid);
-
-                requiresSpellbook =
-                    !classesAndLevels.ContainsKey(Wizard) && selectedClass == Wizard;
-            }
+            LevelUpTab.Add(rulesetCharacterHero, new LevelUpData());
         }
 
-        internal static CharacterSubclassDefinition SelectedSubclass { get => selectedSubclass; set => selectedSubclass = value; }
-
-        internal static int SelectedHeroLevel => (selectedHero?.ClassesHistory.Count) ?? 0;
-
-        internal static int SelectedClassLevel
+        internal static void UnregisterHero(RulesetCharacterHero rulesetCharacterHero)
         {
-            get
+            LevelUpTab.Remove(rulesetCharacterHero);
+        }
+
+        internal static CharacterClassDefinition GetSelectedClass(RulesetCharacterHero rulesetCharacterHero)
+        {
+            return LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData)
+                ? levelUpData.SelectedClass
+                : null;
+        }
+
+        internal static void SetSelectedClass(RulesetCharacterHero rulesetCharacterHero, CharacterClassDefinition characterClassDefinition)
+        {
+            if (!LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData))
             {
-                var classLevel = 1;
+                return;
+            }
 
-                if (selectedHero != null && selectedClass != null)
-                {
-                    selectedHero.ClassesAndLevels.TryGetValue(selectedClass, out classLevel);
-                }
+            levelUpData.SelectedClass = characterClassDefinition;
+            levelUpData.SelectedSubclass = null;
 
+            if (characterClassDefinition == null)
+            {
+                return;
+            }
+
+            var classesAndLevels = rulesetCharacterHero.ClassesAndLevels;
+
+            rulesetCharacterHero.ClassesAndSubclasses.TryGetValue(levelUpData.SelectedClass, out var subclass);
+
+            levelUpData.SelectedSubclass = subclass;
+
+            levelUpData.RequiresDeity =
+                (levelUpData.SelectedClass == Cleric && !classesAndLevels.ContainsKey(Cleric))
+                || (levelUpData.SelectedClass == Paladin && rulesetCharacterHero.DeityDefinition == null);
+
+            levelUpData.RequiresHolySymbol =
+                !(classesAndLevels.ContainsKey(Cleric)
+                || classesAndLevels.ContainsKey(Paladin)) && (levelUpData.SelectedClass == Cleric || levelUpData.SelectedClass == Paladin);
+
+            levelUpData.RequiresClothesWizard =
+                !classesAndLevels.ContainsKey(Wizard) && levelUpData.SelectedClass == Wizard;
+
+            levelUpData.RequiresComponentPouch =
+                (
+                    levelUpData.SelectedClass == Ranger ||
+                    levelUpData.SelectedClass == Sorcerer ||
+                    levelUpData.SelectedClass == Wizard ||
+                    levelUpData.SelectedClass == TinkererClass ||
+                    levelUpData.SelectedClass == AlchemistClass ||
+                    levelUpData.SelectedClass == BardClass ||
+                    levelUpData.SelectedClass == WarlockClass ||
+                    levelUpData.SelectedClass == WitchClass
+                ) &&
+                !(
+                    classesAndLevels.ContainsKey(Ranger) ||
+                    classesAndLevels.ContainsKey(Sorcerer) ||
+                    classesAndLevels.ContainsKey(Wizard) ||
+                    classesAndLevels.ContainsKey(TinkererClass) ||
+                    classesAndLevels.ContainsKey(AlchemistClass) ||
+                    classesAndLevels.ContainsKey(BardClass) ||
+                    classesAndLevels.ContainsKey(WarlockClass) ||
+                    classesAndLevels.ContainsKey(WitchClass)
+                );
+
+            levelUpData.RequiresDruidicFocus =
+                (levelUpData.SelectedClass == Druid) && !classesAndLevels.ContainsKey(Druid);
+
+            levelUpData.RequiresSpellbook =
+                !classesAndLevels.ContainsKey(Wizard) && levelUpData.SelectedClass == Wizard;
+        }
+
+        internal static CharacterSubclassDefinition GetSelectedSubclass(RulesetCharacterHero rulesetCharacterHero)
+        {
+            return LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData)
+                ? levelUpData.SelectedSubclass
+                : null;
+        }
+
+        internal static void SetSelectedSubclass(RulesetCharacterHero rulesetCharacterHero, CharacterSubclassDefinition characterSubclassDefinition)
+        {
+            if (!LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData))
+            {
+                return;
+            }
+
+            levelUpData.SelectedSubclass = characterSubclassDefinition;
+        }
+
+        internal static bool IsClassSelectionStage(RulesetCharacterHero rulesetCharacterHero)
+        {
+            return LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData) && levelUpData.IsClassSelectionStage;
+        }
+
+        internal static void SetIsClassSelectionStage(RulesetCharacterHero rulesetCharacterHero, bool isClassSelectionStage)
+        {
+            if (!LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData))
+            {
+                return;
+            }
+
+            levelUpData.IsClassSelectionStage = isClassSelectionStage;
+        }
+
+        internal static bool RequiresDeity(RulesetCharacterHero rulesetCharacterHero)
+        {
+            return LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData) && levelUpData.RequiresDeity;
+        }
+
+        internal static int SelectedClassLevel(RulesetCharacterHero rulesetCharacterHero)
+        {
+            if (LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData)
+                && levelUpData.SelectedClass != null
+                && rulesetCharacterHero.ClassesAndLevels.TryGetValue(levelUpData.SelectedClass, out var classLevel))
+            {
                 return classLevel;
             }
+
+            return 1;
         }
 
-        internal static bool DisplayingClassPanel { get; set; }
-
-        internal static bool LevelingUp => levelingUp;
-
-        internal static bool RequiresDeity => requiresDeity;
-
-        internal static bool IsMulticlass => selectedHero?.ClassesAndLevels?.Count > 1 || (selectedHero?.ClassesAndLevels.Count > 0 && selectedHero?.ClassesAndLevels.ContainsKey(selectedClass) != true);
-
-        internal static List<FeatureUnlockByLevel> FilteredFeaturesUnlocks(List<FeatureUnlockByLevel> featureUnlockByLevels)
+        internal static bool IsLevelingUp(RulesetCharacterHero rulesetCharacterHero)
         {
-            var dbFeatureDefinition = DatabaseRepository.GetDatabase<FeatureDefinition>();
-            var filteredFeatureUnlockByLevels = new List<FeatureUnlockByLevel>();
-            var firstClassName = selectedHero.ClassesHistory[0].Name;
-            var selectedClassName = selectedClass.Name;
-            var attacksNumber = selectedHero.GetAttribute(AttributeDefinitions.AttacksNumber);
+            return LevelUpTab.TryGetValue(rulesetCharacterHero, out var _);
+        }
 
-            featuresToExclude.TryGetValue(selectedClassName, out var featureNamesToExclude);
-            featuresToReplace.TryGetValue(selectedClassName, out var featureNamesToReplace);
-
-            foreach (var featureUnlock in featureUnlockByLevels)
+        internal static bool IsMulticlass(RulesetCharacterHero rulesetCharacterHero)
+        {
+            if (LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData))
             {
-                var featureDefinition = featureUnlock.FeatureDefinition;
-                var foundFeatureToExclude = false;
-                var foundFeatureToReplace = false;
-                var foundExtraAttackToExclude = false;
+                return
+                    rulesetCharacterHero?.ClassesAndLevels.Count > 1
+                    || (rulesetCharacterHero?.ClassesAndLevels.Count > 0 && rulesetCharacterHero?.ClassesAndLevels.ContainsKey(levelUpData.SelectedClass) != true);
+            }
 
-                if (firstClassName != selectedClassName)
-                {
-                    // check if proficiencies should be replaced
-                    if (featureNamesToReplace != null)
-                    {
-                        foreach (var featureNameToReplace in featureNamesToReplace.Where(x => x.Key == featureDefinition.Name))
-                        {
-                            var newFeatureDefinition = dbFeatureDefinition.GetElement(featureNameToReplace.Value);
+            return false;
+        }
 
-                            filteredFeatureUnlockByLevels.Add(new FeatureUnlockByLevel(newFeatureDefinition, featureUnlock.Level));
-                            foundFeatureToReplace = true;
-                        }
-                    }
+        //
+        // need to grant some additional items depending on the new class
+        //
 
-                    // check if proficiencies should be excluded
-                    if (featureNamesToExclude != null)
-                    {
-                        foundFeatureToExclude = featureNamesToExclude.Exists(x => x == featureDefinition.Name);
-                    }
-                }
+        internal static void GrantItemsIfRequired(RulesetCharacterHero rulesetCharacterHero)
+        {
+            if (!LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData))
+            {
+                return;
+            }
 
-                // check if extra attacks should be excluded
-                foundExtraAttackToExclude = attacksNumber.ActiveModifiers.Count > 0
-                    && featureDefinition is FeatureDefinitionAttributeModifier featureDefinitionAttributeModifier
+            if (Main.Settings.EnableGrantHolySymbol)
+            {
+                GrantHolySymbol(rulesetCharacterHero, levelUpData);
+            }
+
+            if (Main.Settings.EnableGrantCLothesWizard)
+            {
+                GrantClothesWizard(rulesetCharacterHero, levelUpData);
+            }
+
+            if (Main.Settings.EnableGrantComponentPouch)
+            {
+                GrantComponentPouch(rulesetCharacterHero, levelUpData);
+            }
+
+            if (Main.Settings.EnableGrantDruidicFocus)
+            {
+                GrantDruidicFocus(rulesetCharacterHero, levelUpData);
+            }
+
+            GrantSpellbook(rulesetCharacterHero, levelUpData);
+        }
+
+        internal static void UngrantItemsIfRequired(RulesetCharacterHero rulesetCharacterHero)
+        {
+            if (!LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData))
+            {
+                return;
+            }
+
+            UngrantHolySymbol(rulesetCharacterHero, levelUpData);
+            UngrantClothesWizard(rulesetCharacterHero, levelUpData);
+            UngrantComponentPouch(rulesetCharacterHero, levelUpData);
+            UngrantDruidicFocus(rulesetCharacterHero, levelUpData);
+            UngrantSpellbook(rulesetCharacterHero, levelUpData);
+        }
+
+        private static void GrantHolySymbol(RulesetCharacterHero rulesetCharacterHero, LevelUpData levelUpData)
+        {
+            if (levelUpData.RequiresHolySymbol && !levelUpData.HasHolySymbolGranted)
+            {
+                var holySymbolAmulet = new RulesetItemSpellbook(SolastaModApi.DatabaseHelper.ItemDefinitions.HolySymbolAmulet);
+
+                rulesetCharacterHero.GrantItem(holySymbolAmulet, true);
+                levelUpData.HasHolySymbolGranted = true;
+            }
+        }
+
+        private static void UngrantHolySymbol(RulesetCharacterHero rulesetCharacterHero, LevelUpData levelUpData)
+        {
+            if (levelUpData.HasHolySymbolGranted)
+            {
+                var holySymbolAmulet = new RulesetItemSpellbook(SolastaModApi.DatabaseHelper.ItemDefinitions.HolySymbolAmulet);
+
+                rulesetCharacterHero.LoseItem(holySymbolAmulet);
+                levelUpData.HasHolySymbolGranted = false;
+            }
+        }
+
+        private static void GrantClothesWizard(RulesetCharacterHero rulesetCharacterHero, LevelUpData levelUpData)
+        {
+            if (levelUpData.RequiresClothesWizard && !levelUpData.HasClothesWizardGranted)
+            {
+                var clothesWizard = new RulesetItemSpellbook(SolastaModApi.DatabaseHelper.ItemDefinitions.ClothesWizard);
+
+                rulesetCharacterHero.GrantItem(clothesWizard, false);
+                levelUpData.HasClothesWizardGranted = true;
+            }
+        }
+
+        private static void UngrantClothesWizard(RulesetCharacterHero rulesetCharacterHero, LevelUpData levelUpData)
+        {
+            if (levelUpData.HasClothesWizardGranted)
+            {
+                var clothesWizard = new RulesetItemSpellbook(SolastaModApi.DatabaseHelper.ItemDefinitions.ClothesWizard);
+
+                rulesetCharacterHero.LoseItem(clothesWizard);
+                levelUpData.HasClothesWizardGranted = false;
+            }
+        }
+
+        private static void GrantComponentPouch(RulesetCharacterHero rulesetCharacterHero, LevelUpData levelUpData)
+        {
+            if (levelUpData.RequiresComponentPouch && !levelUpData.HasComponentPouchGranted)
+            {
+                var componentPouch = new RulesetItemSpellbook(SolastaModApi.DatabaseHelper.ItemDefinitions.ComponentPouch);
+
+                rulesetCharacterHero.GrantItem(componentPouch, true);
+                levelUpData.HasComponentPouchGranted = true;
+            }
+        }
+
+        private static void UngrantComponentPouch(RulesetCharacterHero rulesetCharacterHero, LevelUpData levelUpData)
+        {
+            if (levelUpData.HasComponentPouchGranted)
+            {
+                var componentPouch = new RulesetItemSpellbook(SolastaModApi.DatabaseHelper.ItemDefinitions.ComponentPouch);
+
+                rulesetCharacterHero.LoseItem(componentPouch);
+                levelUpData.HasComponentPouchGranted = false;
+            }
+        }
+
+        private static void GrantDruidicFocus(RulesetCharacterHero rulesetCharacterHero, LevelUpData levelUpData)
+        {
+            if (levelUpData.RequiresDruidicFocus && !levelUpData.HasDruidicFocusGranted)
+            {
+                var druidicFocus = new RulesetItemSpellbook(SolastaModApi.DatabaseHelper.ItemDefinitions.DruidicFocus);
+
+                rulesetCharacterHero.GrantItem(druidicFocus, true);
+                levelUpData.HasDruidicFocusGranted = true;
+            }
+        }
+
+        private static void UngrantDruidicFocus(RulesetCharacterHero rulesetCharacterHero, LevelUpData levelUpData)
+        {
+            if (levelUpData.HasDruidicFocusGranted)
+            {
+                var druidicFocus = new RulesetItemSpellbook(SolastaModApi.DatabaseHelper.ItemDefinitions.DruidicFocus);
+
+                rulesetCharacterHero.LoseItem(druidicFocus);
+                levelUpData.HasDruidicFocusGranted = false;
+            }
+        }
+
+        private static void GrantSpellbook(RulesetCharacterHero rulesetCharacterHero, LevelUpData levelUpData)
+        {
+            if (levelUpData.RequiresSpellbook && !levelUpData.HasSpellbookGranted)
+            {
+                var spellbook = new RulesetItemSpellbook(SolastaModApi.DatabaseHelper.ItemDefinitions.Spellbook);
+
+                rulesetCharacterHero.GrantItem(spellbook, false);
+                levelUpData.HasSpellbookGranted = true;
+            }
+        }
+
+        private static void UngrantSpellbook(RulesetCharacterHero rulesetCharacterHero, LevelUpData levelUpData)
+        {
+            if (levelUpData.HasSpellbookGranted)
+            {
+                var spellbook = new RulesetItemSpellbook(SolastaModApi.DatabaseHelper.ItemDefinitions.Spellbook);
+
+                rulesetCharacterHero.LoseItem(spellbook);
+                levelUpData.HasSpellbookGranted = false;
+            }
+        }
+
+        //
+        // transpilers support
+        //
+
+        // used on many transpilers (20+) to support class filtered feature unlocks
+        public static List<FeatureUnlockByLevel> ClassFilteredFeatureUnlocks(CharacterClassDefinition characterClassDefinition, RulesetCharacterHero rulesetCharacterHero)
+        {
+            var firstClass = rulesetCharacterHero.ClassesHistory[0];
+            var selectedClass = IsLevelingUp(rulesetCharacterHero) ? GetSelectedClass(rulesetCharacterHero) : characterClassDefinition;
+
+            if (!IsMulticlass(rulesetCharacterHero) || firstClass == selectedClass)
+            {
+                return characterClassDefinition.FeatureUnlocks;
+            }
+
+            var className = selectedClass.Name;
+            var dbFeatureDefinition = DatabaseRepository.GetDatabase<FeatureDefinition>();
+            var filteredFeatureUnlockByLevels = selectedClass.FeatureUnlocks.ToList();
+
+            // remove any extra attacks except on fighter progression
+            var attacksNumber = rulesetCharacterHero.GetAttribute(AttributeDefinitions.AttacksNumber);
+
+            if (attacksNumber.ActiveModifiers.Count > 0)
+            {
+                filteredFeatureUnlockByLevels.RemoveAll(x =>
+                    x.FeatureDefinition is FeatureDefinitionAttributeModifier featureDefinitionAttributeModifier
                     && featureDefinitionAttributeModifier.ModifiedAttribute == AttributeDefinitions.AttacksNumber
-                    && !(selectedClass == Fighter && SelectedClassLevel >= 11);
+                    && !(selectedClass == Fighter && SelectedClassLevel(rulesetCharacterHero) >= 11));
+            }
 
-                // only add if not supposed to be excluded, replaced or an invalid extra attack
-                if (!foundFeatureToExclude && !foundFeatureToReplace && !foundExtraAttackToExclude)
+            // replace features per mc rules
+            FeaturesToReplace.TryGetValue(className, out var featureNamesToReplace);
+
+            if (featureNamesToReplace != null)
+            {
+                foreach (var featureNameToReplace in featureNamesToReplace)
                 {
-                    filteredFeatureUnlockByLevels.Add(featureUnlock);
+                    var count = filteredFeatureUnlockByLevels.RemoveAll(x => x.FeatureDefinition.Name == featureNameToReplace.Key);
+
+                    if (count > 0)
+                    {
+                        var newFeatureDefinition = dbFeatureDefinition.GetElement(featureNameToReplace.Value);
+
+                        filteredFeatureUnlockByLevels.Add(new FeatureUnlockByLevel(newFeatureDefinition, 1));
+                    }
                 }
+            }
+
+            // exclude features per mc rules
+            FeaturesToExclude.TryGetValue(className, out var featureNamesToExclude);
+
+            if (featureNamesToExclude != null)
+            {
+                filteredFeatureUnlockByLevels.RemoveAll(x => featureNamesToExclude.Contains(x.FeatureDefinition.Name));
             }
 
             // sort back results
@@ -378,196 +593,39 @@ namespace SolastaCommunityExpansion.Multiclass.Models
             return filteredFeatureUnlockByLevels;
         }
 
-        //
-        // need to grant some additional items depending on the new class
-        //
-
-        internal static void GrantItemsIfRequired()
+        // used on many transpilers (20+) to support subclass filtered feature unlocks
+        public static List<FeatureUnlockByLevel> SubclassFilteredFeatureUnlocks(CharacterSubclassDefinition characterSublassDefinition, RulesetCharacterHero rulesetCharacterHero)
         {
-            if (Main.Settings.EnableGrantHolySymbol)
+            if (!IsMulticlass(rulesetCharacterHero))
             {
-                GrantHolySymbol();
+                return characterSublassDefinition.FeatureUnlocks;
             }
 
-            if (Main.Settings.EnableGrantCLothesWizard)
+            var attacksNumber = rulesetCharacterHero.GetAttribute(AttributeDefinitions.AttacksNumber);
+
+            if (attacksNumber.ActiveModifiers.Count == 0)
             {
-                GrantClothesWizard();
+                return characterSublassDefinition.FeatureUnlocks;
             }
 
-            if (Main.Settings.EnableGrantComponentPouch)
-            {
-                GrantComponentPouch();
-            }
+            // remove any extra attacks from sub classes if the hero already has at least one
+            var filteredFeatureUnlockByLevels = characterSublassDefinition.FeatureUnlocks.ToList();
 
-            if (Main.Settings.EnableGrantDruidicFocus)
-            {
-                GrantDruidicFocus();
-            }
+            filteredFeatureUnlockByLevels.RemoveAll(x =>
+                x.FeatureDefinition is FeatureDefinitionAttributeModifier featureDefinitionAttributeModifier
+                && featureDefinitionAttributeModifier.ModifiedAttribute == AttributeDefinitions.AttacksNumber);
 
-            GrantSpellbook();
+            return filteredFeatureUnlockByLevels;
         }
 
-        internal static void UngrantItemsIfRequired()
+        // used on transpilers CharacterStageClassSelectionPanel.FillClassFeatures and CharacterStageClassSelectionPanel.RefreshCharacter
+        public static int GetClassLevel(RulesetCharacterHero rulesetCharacterHero)
         {
-            UngrantHolySymbol();
-            UngrantClothesWizard();
-            UngrantComponentPouch();
-            UngrantDruidicFocus();
-            UngrantSpellbook();
-        }
+            var selectedClass = GetSelectedClass(rulesetCharacterHero);
 
-        internal static void GrantHolySymbol()
-        {
-            if (requiresHolySymbol && !hasHolySymbolGranted)
-            {
-                var holySymbolAmulet = new RulesetItemSpellbook(SolastaModApi.DatabaseHelper.ItemDefinitions.HolySymbolAmulet);
-
-                selectedHero.GrantItem(holySymbolAmulet, true);
-                hasHolySymbolGranted = true;
-            }
-        }
-
-        internal static void UngrantHolySymbol()
-        {
-            if (selectedHero != null && hasHolySymbolGranted)
-            {
-                var holySymbolAmulet = new RulesetItemSpellbook(SolastaModApi.DatabaseHelper.ItemDefinitions.HolySymbolAmulet);
-
-                selectedHero.LoseItem(holySymbolAmulet);
-                hasHolySymbolGranted = false;
-            }
-        }
-
-        internal static void GrantClothesWizard()
-        {
-            if (requiresClothesWizard && !hasClothesWizardGranted)
-            {
-                var clothesWizard = new RulesetItemSpellbook(SolastaModApi.DatabaseHelper.ItemDefinitions.ClothesWizard);
-
-                selectedHero.GrantItem(clothesWizard, false);
-                hasClothesWizardGranted = true;
-            }
-        }
-
-        internal static void UngrantClothesWizard()
-        {
-            if (selectedHero != null && hasClothesWizardGranted)
-            {
-                var clothesWizard = new RulesetItemSpellbook(SolastaModApi.DatabaseHelper.ItemDefinitions.ClothesWizard);
-
-                selectedHero.LoseItem(clothesWizard);
-                hasClothesWizardGranted = false;
-            }
-        }
-
-        internal static void GrantComponentPouch()
-        {
-            if (requiresComponentPouch && !hasComponentPouchGranted)
-            {
-                var componentPouch = new RulesetItemSpellbook(SolastaModApi.DatabaseHelper.ItemDefinitions.ComponentPouch);
-
-                selectedHero.GrantItem(componentPouch, true);
-                hasComponentPouchGranted = true;
-            }
-        }
-
-        internal static void UngrantComponentPouch()
-        {
-            if (selectedHero != null && hasComponentPouchGranted)
-            {
-                var componentPouch = new RulesetItemSpellbook(SolastaModApi.DatabaseHelper.ItemDefinitions.ComponentPouch);
-
-                selectedHero.LoseItem(componentPouch);
-                hasComponentPouchGranted = false;
-            }
-        }
-
-        internal static void GrantDruidicFocus()
-        {
-            if (requiresDruidicFocus && !hasDruidicFocusGranted)
-            {
-                var druidicFocus = new RulesetItemSpellbook(SolastaModApi.DatabaseHelper.ItemDefinitions.DruidicFocus);
-
-                selectedHero.GrantItem(druidicFocus, true);
-                hasDruidicFocusGranted = true;
-            }
-        }
-
-        internal static void UngrantDruidicFocus()
-        {
-            if (selectedHero != null && hasDruidicFocusGranted)
-            {
-                var druidicFocus = new RulesetItemSpellbook(SolastaModApi.DatabaseHelper.ItemDefinitions.DruidicFocus);
-
-                selectedHero.LoseItem(druidicFocus);
-                hasDruidicFocusGranted = false;
-            }
-        }
-
-        internal static void GrantSpellbook()
-        {
-            if (requiresSpellbook && !hasSpellbookGranted)
-            {
-                var spellbook = new RulesetItemSpellbook(SolastaModApi.DatabaseHelper.ItemDefinitions.Spellbook);
-
-                selectedHero.GrantItem(spellbook, false);
-                hasSpellbookGranted = true;
-            }
-        }
-
-        internal static void UngrantSpellbook()
-        {
-            if (selectedHero != null && hasSpellbookGranted)
-            {
-                var spellbook = new RulesetItemSpellbook(SolastaModApi.DatabaseHelper.ItemDefinitions.Spellbook);
-
-                selectedHero.LoseItem(spellbook);
-                hasSpellbookGranted = false;
-            }
-        }
-
-        // used on transpiler CharacterStageClassSelectionPanel.FillClassFeatures and CharacterStageClassSelectionPanel.RefreshCharacter
-        public static int GetClassLevel(RulesetCharacterHero _ = null)
-        {
-            return selectedHero == null || selectedClass == null || !selectedHero.ClassesAndLevels.ContainsKey(selectedClass) ? 1 : selectedHero.ClassesAndLevels[selectedClass];
-        }
-
-        // used on transpiler CharacterStageLevelGainsPanel.RefreshSpellcastingFeatures
-        public static List<RulesetSpellRepertoire> SpellRepertoires(RulesetCharacter rulesetCharacter)
-        {
-            if (levelingUp && IsMulticlass)
-            {
-                var result = new List<RulesetSpellRepertoire>();
-
-                result.AddRange(rulesetCharacter.SpellRepertoires.Where(x => CacheSpellsContext.IsRepertoireFromSelectedClassSubclass(x)));
-
-                return result;
-            }
-
-            return rulesetCharacter.SpellRepertoires;
-        }
-
-        // used on transpiler CharacterStageLevelGainsPanel.EnterStage
-        public static void GetLastAssignedClassAndLevel(ICharacterBuildingService characterBuildingService, out CharacterClassDefinition lastClassDefinition, out int level)
-        {
-            if (levelingUp)
-            {
-                GrantItemsIfRequired();
-                DisplayingClassPanel = false;
-                lastClassDefinition = selectedClass;
-                level = selectedHero.ClassesHistory.Count;
-            }
-            else
-            {
-                lastClassDefinition = null;
-                level = 0;
-
-                if (characterBuildingService.CurrentLocalHeroCharacter.ClassesHistory.Count > 0)
-                {
-                    lastClassDefinition = characterBuildingService.CurrentLocalHeroCharacter.ClassesHistory[characterBuildingService.CurrentLocalHeroCharacter.ClassesHistory.Count - 1];
-                    level = characterBuildingService.CurrentLocalHeroCharacter.ClassesAndLevels[lastClassDefinition];
-                }
-            }
+            return
+                selectedClass == null
+                || !rulesetCharacterHero.ClassesAndLevels.ContainsKey(selectedClass) ? 1 : rulesetCharacterHero.ClassesAndLevels[selectedClass];
         }
     }
 }

@@ -26,25 +26,19 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
 
         internal LifeTransmuter()
         {
-            CharacterSubclassDefinitionBuilder lifeTransmuter = CharacterSubclassDefinitionBuilder
-                .Create("LifeTransmuter", SubclassNamespace)
-                .SetGuiPresentation("TraditionLifeTransmuter", Category.Subclass, RoguishDarkweaver.GuiPresentation.SpriteReference);
-
-            GuiPresentationBuilder LifeTransmuterAffinityGui = new GuiPresentationBuilder(
-                "Subclass/&MagicAffinityLifeTransmuterListTitle",
-                "Subclass/&MagicAffinityLifeTransmuterListDescription");
-            FeatureDefinitionMagicAffinity LifeTransmuterAffinity = BuildMagicAffinityHeightenedList(new List<string>() {
-                SpellDefinitions.FalseLife.Name, // necromancy
-                SpellDefinitions.MagicWeapon.Name, // transmutation
-                SpellDefinitions.Blindness.Name, // necromancy
-                SpellDefinitions.Fly.Name, // transmutation
-                SpellDefinitions.BestowCurse.Name, // necromancy
-                SpellDefinitions.VampiricTouch.Name, // necromancy
-                SpellDefinitions.Blight.Name, // necromancy
-                SpellDefinitions.CloudKill.Name, // conjuration
-            }, 2,
-                "MagicAffinityLifeTransmuterHeightened", LifeTransmuterAffinityGui.Build());
-            lifeTransmuter.AddFeatureAtLevel(LifeTransmuterAffinity, 2);
+            var LifeTransmuterAffinity = FeatureDefinitionMagicAffinityBuilder
+                .Create("MagicAffinityLifeTransmuterHeightened", SubclassNamespace)
+                .SetGuiPresentation("MagicAffinityLifeTransmuterList", Category.Subclass)
+                .SetWarList(2,
+                    SpellDefinitions.FalseLife.Name, // necromancy
+                    SpellDefinitions.MagicWeapon.Name, // transmutation
+                    SpellDefinitions.Blindness.Name, // necromancy
+                    SpellDefinitions.Fly.Name, // transmutation
+                    SpellDefinitions.BestowCurse.Name, // necromancy
+                    SpellDefinitions.VampiricTouch.Name, // necromancy
+                    SpellDefinitions.Blight.Name, // necromancy
+                    SpellDefinitions.CloudKill.Name) // conjuration)
+                .AddToDB();
 
             // Add tranmsuter stone like abilities.
             GuiPresentationBuilder LifeTransmuterDivintyGui = new GuiPresentationBuilder(
@@ -55,7 +49,6 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 GuidHelper.Create(SubclassNamespace, "AttributeModiferTransmuterHealingPool").ToString(),
                 2, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, RuleDefinitions.RechargeRate.LongRest,
                 LifeTransmuterDivintyGui.Build()).AddToDB();
-            lifeTransmuter.AddFeatureAtLevel(TransmuteForce, 6);
 
             // Make a power that grants darkvision
             GuiPresentationBuilder TransmuteDarkvision = new GuiPresentationBuilder(
@@ -72,7 +65,6 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RangeType.Touch, 2,
                 RuleDefinitions.TargetType.Individuals, ActionDefinitions.ItemSelectionType.None, RuleDefinitions.DurationType.UntilLongRest, 1,
                 RuleDefinitions.TurnOccurenceType.EndOfTurn, AttributeDefinitions.Intelligence, superiorDarkvision, "PowerTransmuteDarkvision", TransmuteDarkvision.Build());
-            lifeTransmuter.AddFeatureAtLevel(PowerDarkvision, 6);
 
             // Make a power that gives resistance to an elemental damage
             GuiPresentationBuilder TransmutePoison = new GuiPresentationBuilder(
@@ -97,7 +89,6 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RangeType.Touch, 2,
                 RuleDefinitions.TargetType.Individuals, ActionDefinitions.ItemSelectionType.None, RuleDefinitions.DurationType.UntilLongRest, 1,
                 RuleDefinitions.TurnOccurenceType.EndOfTurn, AttributeDefinitions.Intelligence, PoisonResistance, "PowerTransmutePoison", TransmutePoison.Build());
-            lifeTransmuter.AddFeatureAtLevel(PowerPoison, 6);
             // Make a power that gives proficiency to constitution saves
             GuiPresentationBuilder TransmuteConstitution = new GuiPresentationBuilder(
                 "Subclass/&PowerTransmuteConstitutionTitle",
@@ -113,7 +104,6 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RangeType.Touch, 2,
                 RuleDefinitions.TargetType.Individuals, ActionDefinitions.ItemSelectionType.None, RuleDefinitions.DurationType.UntilLongRest, 1,
                 RuleDefinitions.TurnOccurenceType.EndOfTurn, AttributeDefinitions.Intelligence, ConstitutionProf, "PowerTransmuteConstitution", TransmuteConstitution.Build());
-            lifeTransmuter.AddFeatureAtLevel(PowerConstitution, 6);
 
             GuiPresentationBuilder LifeTransmuterExtraPoolGui = new GuiPresentationBuilder(
                 "Subclass/&HealingPoolLifeTransmuterBonusTitle",
@@ -121,7 +111,6 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             FeatureDefinitionPowerPoolModifier TransmuteForceExtra = new FeatureDefinitionPowerPoolModifierBuilder("AttributeModiferTransmuterHealingPoolExtra",
                 GuidHelper.Create(SubclassNamespace, "AttributeModiferTransmuterHealingPoolExtra").ToString(),
                 2, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, TransmuteForce, LifeTransmuterExtraPoolGui.Build()).AddToDB();
-            lifeTransmuter.AddFeatureAtLevel(TransmuteForceExtra, 10);
 
             GuiPresentationBuilder TransmuteFly = new GuiPresentationBuilder(
                 "Subclass/&PowerTransmuteFlyTitle",
@@ -131,7 +120,6 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RangeType.Touch, 2,
                 RuleDefinitions.TargetType.Individuals, ActionDefinitions.ItemSelectionType.None, RuleDefinitions.DurationType.UntilLongRest, 1,
                 RuleDefinitions.TurnOccurenceType.EndOfTurn, AttributeDefinitions.Intelligence, ConditionDefinitions.ConditionFlying, "PowerTransmuteFly", TransmuteFly.Build());
-            lifeTransmuter.AddFeatureAtLevel(PowerFly, 10);
 
             GuiPresentationBuilder TransmuteHeal = new GuiPresentationBuilder(
                 "Subclass/&PowerTransmuteHealTitle",
@@ -140,7 +128,6 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             FeatureDefinitionPowerSharedPool PowerHeal = new FeatureDefinitionPowerSharedPoolBuilder("PowerTransmuteHeal", GuidHelper.Create(SubclassNamespace, "PowerTransmuteHeal").ToString(),
                 TransmuteForce, RuleDefinitions.RechargeRate.LongRest, RuleDefinitions.ActivationTime.BonusAction, 1, false, false, AttributeDefinitions.Intelligence,
                 SpellDefinitions.MassHealingWord.EffectDescription, TransmuteHeal.Build(), false /* unique instance */).AddToDB();
-            lifeTransmuter.AddFeatureAtLevel(PowerHeal, 10);
 
             GuiPresentationBuilder TransmuteRevive = new GuiPresentationBuilder(
                 "Subclass/&PowerTransmuteReviveTitle",
@@ -149,7 +136,6 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             FeatureDefinitionPowerSharedPool PowerRevive = new FeatureDefinitionPowerSharedPoolBuilder("PowerTransmuteRevive", GuidHelper.Create(SubclassNamespace, "PowerTransmuteRevive").ToString(),
                 TransmuteForce, RuleDefinitions.RechargeRate.LongRest, RuleDefinitions.ActivationTime.BonusAction, 1, false, false, AttributeDefinitions.Intelligence,
                 SpellDefinitions.Revivify.EffectDescription, TransmuteRevive.Build(), false /* unique instance */).AddToDB();
-            lifeTransmuter.AddFeatureAtLevel(PowerRevive, 10);
 
             GuiPresentationBuilder LifeTransmuterExtraPoolBonusGui = new GuiPresentationBuilder(
                 "Subclass/&HealingPoolLifeTransmuterBonusExtraTitle",
@@ -157,20 +143,21 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             FeatureDefinitionPowerPoolModifier TransmuteForceExtraBonus = new FeatureDefinitionPowerPoolModifierBuilder("AttributeModiferTransmuterHealingPoolBonus",
                 GuidHelper.Create(SubclassNamespace, "AttributeModiferTransmuterHealingPoolBonus").ToString(),
                 4, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, TransmuteForce, LifeTransmuterExtraPoolBonusGui.Build()).AddToDB();
-            lifeTransmuter.AddFeatureAtLevel(TransmuteForceExtraBonus, 14);
 
-            lifeTransmuter.AddFeatureAtLevel(FeatureDefinitionDamageAffinitys.DamageAffinityNecroticResistance, 14);
-
-            Subclass = lifeTransmuter.AddToDB();
-        }
-
-        private static FeatureDefinitionMagicAffinity BuildMagicAffinityHeightenedList(List<string> spellNames, int levelBonus, string name, GuiPresentation guiPresentation)
-        {
-            return FeatureDefinitionMagicAffinityBuilder
-                .Create(name, SubclassNamespace)
-                .SetGuiPresentation(guiPresentation)
-                .SetWarList(levelBonus, spellNames)
-                .AddToDB();
+            Subclass = CharacterSubclassDefinitionBuilder
+                .Create("LifeTransmuter", SubclassNamespace)
+                .SetGuiPresentation("TraditionLifeTransmuter", Category.Subclass, RoguishDarkweaver.GuiPresentation.SpriteReference)
+                .AddFeatureAtLevel(LifeTransmuterAffinity, 2)
+                .AddFeatureAtLevel(TransmuteForce, 6)
+                .AddFeatureAtLevel(PowerDarkvision, 6)
+                .AddFeatureAtLevel(PowerPoison, 6)
+                .AddFeatureAtLevel(PowerConstitution, 6)
+                .AddFeatureAtLevel(TransmuteForceExtra, 10)
+                .AddFeatureAtLevel(PowerFly, 10)
+                .AddFeatureAtLevel(PowerHeal, 10)
+                .AddFeatureAtLevel(PowerRevive, 10)
+                .AddFeatureAtLevel(TransmuteForceExtraBonus, 14)
+                .AddFeatureAtLevel(FeatureDefinitionDamageAffinitys.DamageAffinityNecroticResistance, 14).AddToDB();
         }
 
         private static ConditionDefinition BuildCondition(IEnumerable<FeatureDefinition> conditionFeatures, RuleDefinitions.DurationType durationType,

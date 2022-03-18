@@ -39,6 +39,7 @@ namespace SolastaCommunityExpansion.Models
             PickPocketContext.CreateFeats(feats);
             CraftyFeats.CreateFeats(feats);
             ElAntoniousFeats.CreateFeats(feats);
+            ZappaFeats.CreateFeats(feats);
 
             // Use the list of all unofficial feats to get the settings and ui set up
             foreach (FeatDefinition feat in GetAllUnofficialFeats())

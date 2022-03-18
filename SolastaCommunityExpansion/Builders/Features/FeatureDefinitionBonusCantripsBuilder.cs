@@ -37,18 +37,6 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
         #endregion
 
-        // Add other standard Create methods and constructors as required.
-
-        public static FeatureDefinitionBonusCantripsBuilder Create(FeatureDefinitionBonusCantrips original, string name, Guid namespaceGuid)
-        {
-            return new FeatureDefinitionBonusCantripsBuilder(original, name, namespaceGuid);
-        }
-
-        public static FeatureDefinitionBonusCantripsBuilder Create(FeatureDefinitionBonusCantrips original, string name, string guid)
-        {
-            return new FeatureDefinitionBonusCantripsBuilder(original, name, guid);
-        }
-
         public FeatureDefinitionBonusCantripsBuilder ClearBonusCantrips()
         {
             Definition.BonusCantrips.Clear();

@@ -1,0 +1,39 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:TempHPShield_09ModePower:feac61d2-d2af-43a8-8136-dce6df168d73",
+    "Definition:FlameArtillery_09ModePower:d841a2aa-efc0-4ccc-b50a-ed0d8e4d68e1",
+    "Definition:ForceArtillery_09ModePower:367fe374-e902-4ce9-9dc8-78d43c277faf"
+  ],
+  "mode": "Union",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feat/&SummonArtilleryConstructlevel09Title",
+    "description": "Feat/&SummonArtilleryConstructlevel09Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "a1e9557c-c1a9-4912-9fea-1a16c4124331",
+  "contentPack": 9999,
+  "name": "ArtilleryConstructlevel09FeatureSet"
+}

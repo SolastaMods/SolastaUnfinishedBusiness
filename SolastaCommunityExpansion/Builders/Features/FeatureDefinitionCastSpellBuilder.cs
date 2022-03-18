@@ -7,45 +7,46 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public sealed class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<FeatureDefinitionCastSpell, FeatureDefinitionCastSpellBuilder>
+    public class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<FeatureDefinitionCastSpell, FeatureDefinitionCastSpellBuilder>
     {
+        #region Constructors
+        protected FeatureDefinitionCastSpellBuilder(FeatureDefinitionCastSpell original) : base(original)
+        {
+        }
+
+        protected FeatureDefinitionCastSpellBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+            InitializeFields();
+        }
+
+        protected FeatureDefinitionCastSpellBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+            InitializeFields();
+        }
+
+        protected FeatureDefinitionCastSpellBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
+        {
+            InitializeFields();
+        }
+
+        protected FeatureDefinitionCastSpellBuilder(FeatureDefinitionCastSpell original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
+        {
+        }
+
+        protected FeatureDefinitionCastSpellBuilder(FeatureDefinitionCastSpell original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionCastSpellBuilder(FeatureDefinitionCastSpell original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+        #endregion
+
         public enum CasterProgression
         {
             FULL_CASTER,
             HALF_CASTER,
             THIRD_CASTER
-        }
-
-        private FeatureDefinitionCastSpellBuilder(string name, string guid)
-            : base(name, guid)
-        {
-            InitializeFields();
-        }
-
-        private FeatureDefinitionCastSpellBuilder(string name, Guid namespaceGuid)
-            : base(name, namespaceGuid)
-        {
-            InitializeFields();
-        }
-
-        private FeatureDefinitionCastSpellBuilder(FeatureDefinitionCastSpell original, string name, Guid namespaceGuid)
-            : base(original, name, namespaceGuid)
-        {
-        }
-
-        public static FeatureDefinitionCastSpellBuilder Create(FeatureDefinitionCastSpell original, string name, Guid namespaceGuid)
-        {
-            return new FeatureDefinitionCastSpellBuilder(original, name, namespaceGuid);
-        }
-
-        public static FeatureDefinitionCastSpellBuilder Create(string name, Guid namespaceGuid)
-        {
-            return new FeatureDefinitionCastSpellBuilder(name, namespaceGuid);
-        }
-
-        public static FeatureDefinitionCastSpellBuilder Create(string name, string guid)
-        {
-            return new FeatureDefinitionCastSpellBuilder(name, guid);
         }
 
         private void InitializeFields()

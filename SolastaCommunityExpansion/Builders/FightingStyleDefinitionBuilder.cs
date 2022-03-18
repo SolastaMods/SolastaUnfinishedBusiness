@@ -9,6 +9,7 @@ namespace SolastaCommunityExpansion.Builders
         where TDefinition : FightingStyleDefinition
         where TBuilder : FightingStyleDefinitionBuilder<TDefinition, TBuilder>
     {
+        #region Constructors
         protected FightingStyleDefinitionBuilder(TDefinition original) : base(original)
         {
         }
@@ -36,6 +37,7 @@ namespace SolastaCommunityExpansion.Builders
         protected FightingStyleDefinitionBuilder(TDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
         {
         }
+        #endregion
 
         public TBuilder SetFeatures(IEnumerable<FeatureDefinition> features)
         {

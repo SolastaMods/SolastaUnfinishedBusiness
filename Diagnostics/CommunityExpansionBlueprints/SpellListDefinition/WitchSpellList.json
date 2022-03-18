@@ -1,0 +1,173 @@
+{
+  "$type": "SpellListDefinition, Assembly-CSharp",
+  "hasCantrips": true,
+  "maxSpellLevel": 7,
+  "spellsByLevel": [
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 0,
+      "spells": [
+        "Definition:AcidSplash:98ea9fff39f7c054ba171c32b00a90e6",
+        "Definition:ChillTouch:2dffe98ad497e4b418abc947f6077fb7",
+        "Definition:DancingLights:ca63de70121df1b46ae3c1f8c183f941",
+        "Definition:ProduceFlame:99a59d41bc8a00a458199a4c2e7d9571",
+        "Definition:Resistance:384dce9da39ad4e4b82106fa7829c17c",
+        "Definition:SpareTheDying:4f1e3d9c88278a94fbc457664ab8d6bf",
+        "Definition:TrueStrike:8adca77af0c221445af40629f3743ec8",
+        "Definition:EldritchOrb:0db30b08-c8f6-5dd7-a248-eb9cae787a17",
+        "Definition:MinorLifesteal:708ff12c-4747-534c-955b-5f9438eb58ac"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 1,
+      "spells": [
+        "Definition:AnimalFriendship:5f03823791376fd48b1868183b041cb3",
+        "Definition:Bane:2e60d6f650100a84f917bd5d0e69b356",
+        "Definition:CharmPerson:9c98e5cba0f8b1649b3217a97cbc111b",
+        "Definition:ComprehendLanguages:78c2b416e515641468aa1c384db23535",
+        "Definition:DetectMagic:a00ea7ca05339cb42a49056d722b6680",
+        "Definition:ExpeditiousRetreat:3713ff85f9f53f2459ae8d7a976a24b8",
+        "Definition:FaerieFire:72b2d8c811efbb04e8d70c0a41f5d963",
+        "Definition:HideousLaughter:8773ef52f0dd71e4a8dbe8a2814b3cf4",
+        "Definition:ProtectionFromEvilGood:b8a59d1a01529b04893e0c440cecee39",
+        "Definition:Sleep:9bfc9d5dc54cc2c4ab7e4baade97bf64",
+        "Definition:Thunderwave:6c670662de0366842bca44119e9104da",
+        "Definition:FindFamiliar:7c7a9c9f-2fda-5acc-acb7-eebfb2b4e064"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 2,
+      "spells": [
+        "Definition:Blindness:3470e52d7a8b472498ee397e2532db04",
+        "Definition:CalmEmotions:a879080b607fd75458e0eca2dea58e8a",
+        "Definition:Darkness:b8d5ac9f43f55be479da08cd37744584",
+        "Definition:Darkvision:346361c8cc5708f4fb70d42c31fe4823",
+        "Definition:HoldPerson:cbc582b44f08e7f4b8ea69077471bc64",
+        "Definition:Invisibility:191eaa38bdc35ea429f843cc00e7e559",
+        "Definition:Knock:7b59b8af31053a843a006d0e375dbd89",
+        "Definition:Levitate:ad416e5b882b3974c929eb75863f0e84",
+        "Definition:MistyStep:f4619f117544fe148aae6952202da5e3",
+        "Definition:RayOfEnfeeblement:b617f68e7f041b74bb018ce5bf9a1c5c",
+        "Definition:SeeInvisibility:10c15ca8321632e42825254149dfb885",
+        "Definition:Shatter:acb96b651384a47428da7c0c32ab359e",
+        "Definition:SpiderClimb:1ba4092482a450c4da60e17cbe4577df",
+        "Definition:PetalStorm:016e3598-5a09-5249-a225-746d5e038c79",
+        "Definition:ProtectThreshold:ee8d355e-db32-5d06-aa6a-cd1ef06926b7"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 3,
+      "spells": [
+        "Definition:BestowCurse:c7af146d2e243eb42910adbddec1d7d3",
+        "Definition:Counterspell:699759f98dacad84fb2d7323e0788179",
+        "Definition:DispelMagic:296e789b353c0324b804bee2c16a419a",
+        "Definition:Fear:cff391ef9dd8106448ed464270dcc9c4",
+        "Definition:Fly:6c13f5461f5047645a8c165cc0f43f83",
+        "Definition:HypnoticPattern:363c0134112bc864b871f0fef729be6b",
+        "Definition:RemoveCurse:ecabaf5104767c04b9a6549866fccfa0",
+        "Definition:Slow:ee93dd5046aabe14e90ba99da310fbb4",
+        "Definition:StinkingCloud:b62f452e6a757124da5eef6ca9fd46e9",
+        "Definition:Tongues:fa71b90885b308f4b8998d433c9e41e8"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 4,
+      "spells": [
+        "Definition:Banishment:5f6a4b43068dbdc448632b9d43022eb8",
+        "Definition:BlackTentacles:3ed042e75b44763479efbc4b9680dd3a",
+        "Definition:Confusion:206eb2e0497fe014595e99aa7d4fae5e",
+        "Definition:DimensionDoor:c85120485a4cc914eb81b7b75e9e7bbc",
+        "Definition:DominateBeast:c3d07b9ef913f2d4ab8682c01ce7a3e1",
+        "Definition:GreaterInvisibility:463d00efd5590394ab707875f866dfe7",
+        "Definition:PhantasmalKiller:d132436fd5250d34f973848ca4ac985f"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 5,
+      "spells": [
+        "Definition:Contagion:13567fa6f3f984347b5b6c4347fac6e8",
+        "Definition:DispelEvilAndGood:e901e74132f97ac458cc80e09da39c88",
+        "Definition:DominatePerson:89e34ee9a6361c040abb36971b697031",
+        "Definition:HoldMonster:1c8a63324f25814408ca250ba5ec2d16"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 6,
+      "spells": [
+        "Definition:Eyebite:ea9050011d6bef2419be7b2d59750659",
+        "Definition:TrueSeeing:16c9f67d4a89cbf47baad67ecadafaa5",
+        "Definition:Frenzy:74c02289-00b5-5b12-906d-56cff4687601"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 7,
+      "spells": [
+        "Definition:CJDivineWord:18ecba41-a8ac-4048-979e-2139e66934a7",
+        "Definition:DHFingerOfDeathSpell:cd6d2db3-a3af-5542-9972-053ce0bd2fd6",
+        "Definition:DHReverseGravitySpell:aa36ab1b-1080-5340-910f-4a4a59a5012b",
+        "Definition:DHConjureCelestialSpell:a407f233-c724-562b-b877-e9f3147e33f6"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 8,
+      "spells": [
+        "Definition:DHDominateMonsterSpell:011eca3e-7987-5c46-9f1a-968e0c1a935d",
+        "Definition:DHFeeblemindSpell:a75f8a39-7eba-552b-8681-1d7f4f3fc983",
+        "Definition:DHHolyAuraSpell:392c7802-2319-5c41-8207-39039d922d71",
+        "Definition:DHIncendiaryCloudSpell:6a90b597-e2a3-5824-95b3-abbfbf78b0d4",
+        "Definition:DHMazeSpell:0da01d12-5145-5b63-a558-c1d11f5ac1ae",
+        "Definition:DHMindBlankSpell:36dcb2b5-fca0-5860-ad7a-80547847ff25",
+        "Definition:DHPowerWordStunSpell:93a6661d-3f8e-51f6-aa6b-4d23f1e22b48",
+        "Definition:DHSunBurstSpell:654cb89e-ab87-5da8-a79c-5c24ee854885"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 9,
+      "spells": [
+        "Definition:DHForesightSpell:9841d601-258a-51f8-bbd9-8402b69625c4",
+        "Definition:DHMassHealSpell:2b7a8065-c4dc-55c8-b35e-59bdc2514e28",
+        "Definition:DHMeteorSwarmSingleTargetSpell:bb8f1362-c35f-581d-86df-c3930fc3dabc",
+        "Definition:DHPowerWordHealSpell:facf3d32-f858-5cd4-8f01-bf4c22c568c3",
+        "Definition:DHPowerWordKillSpell:c67eb2c8-b97f-5dbf-81a6-59ef36771413",
+        "Definition:DHTimeStopSpell:0ab6cde6-d23d-565c-8c7c-6df0006078e8",
+        "Definition:DHShapechangeSpell:a9c23ef5-d971-5cf1-b979-06f9871b4cc0",
+        "Definition:DHWeirdSpell:b77c5b1b-902e-5957-83c1-4a496bf10f0b"
+      ]
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "2c02f236-7ebc-5063-84ac-0ea562968319",
+  "contentPack": 9999,
+  "name": "WitchSpellList"
+}

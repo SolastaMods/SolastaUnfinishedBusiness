@@ -50,16 +50,11 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
         }
     }
 
-    internal sealed class FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionBuilder
+    internal class FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionBuilder
         : FeatureDefinitionBuilder<FeatureDefinitionOpportunityAttackImmunityIfAttackerHasCondition, FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionBuilder>
     {
-        private FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        protected FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
-        }
-
-        public static FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionBuilder Create(string name, Guid namespaceGuid)
-        {
-            return new FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionBuilder(name, namespaceGuid);
         }
 
         public FeatureDefinitionOpportunityAttackImmunityIfAttackerHasConditionBuilder SetConditionName(string conditionName)

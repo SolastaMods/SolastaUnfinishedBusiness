@@ -37,14 +37,6 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
         #endregion
 
-        #region Create
-        // Add further Create methods as required
-        public static FeatureDefinitionFightingStyleChoiceBuilder Create(FeatureDefinitionFightingStyleChoice original, string name, Guid namespaceGuid)
-        {
-            return new FeatureDefinitionFightingStyleChoiceBuilder(original, name, namespaceGuid);
-        }
-        #endregion
-
         public FeatureDefinitionFightingStyleChoiceBuilder ClearFightingStyles()
         {
             Definition.ClearFightingStyles();

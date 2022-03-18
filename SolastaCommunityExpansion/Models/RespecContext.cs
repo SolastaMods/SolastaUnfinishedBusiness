@@ -117,11 +117,8 @@ namespace SolastaCommunityExpansion.Models
                 }
 
                 var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
-
-                characterBuildingService.CreateNewCharacter();
-
                 var oldHero = functorParameters.RestingHero;
-                var newHero = characterBuildingService.CurrentLocalHeroCharacter;
+                var newHero = characterBuildingService.CreateNewCharacter().HeroCharacter;
 
                 DropSpellbooksIfRequired(oldHero);
 

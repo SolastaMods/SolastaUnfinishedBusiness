@@ -1,0 +1,34 @@
+{
+  "$type": "RestActivityDefinition, Assembly-CSharp",
+  "restStage": "AfterRest",
+  "restType": "ShortRest",
+  "condition": "CanUsePower",
+  "functor": "UsePower",
+  "stringParameter": "PowerAlchemistSpellBonusRecovery",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&MagicAffinityAlchemistSpellRecoveryTitle",
+    "description": "Subclass/&MagicAffinityAlchemistSpellRecoveryDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "2bf0219b0c22319438c2677f84818891",
+      "m_SubObjectName": "ArcaneRecovery",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "b0602d7f-3e35-57ad-8ee6-a6055aa9e75f",
+  "contentPack": 9999,
+  "name": "AlcemicalPreparationRestAction"
+}

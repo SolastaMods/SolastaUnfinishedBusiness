@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
+using static SpellListDefinition;
 
 namespace SolastaCommunityExpansion.Builders
 {
@@ -38,16 +39,6 @@ namespace SolastaCommunityExpansion.Builders
         }
         #endregion
 
-        public static SpellListDefinitionBuilder Create(SpellListDefinition original, string name, Guid guidNamespace)
-        {
-            return new SpellListDefinitionBuilder(original, name, guidNamespace);
-        }
-
-        public static SpellListDefinitionBuilder Create(SpellListDefinition original, string name, string guid)
-        {
-            return new SpellListDefinitionBuilder(original, name, guid);
-        }
-
         public SpellListDefinitionBuilder ClearSpells()
         {
             Definition.SpellsByLevel.ForEach(s => s.Spells.Clear());
@@ -59,29 +50,29 @@ namespace SolastaCommunityExpansion.Builders
             return SetSpellsByLevel(level, spellsByLevel.AsEnumerable());
         }
 
-        public SpellListDefinitionBuilder SetSpellsByLevel(int level, IEnumerable<SpellDefinition> spellsByLevel)
+        public SpellListDefinitionBuilder SetSpellsByLevel(int level, IEnumerable<SpellDefinition> spells)
         {
             if (level > 9 || level < 0)
             {
                 throw new ArgumentException($"Spell level {level} is not supported.");
             }
 
-            for (int i = 0; i < level; i++)
+            var spellsByLevel = Definition.SpellsByLevel;
+
+            for (int i = 0; i <= level; i++)
             {
-                if (i >= Definition.SpellsByLevel.Count)
+                if (i >= spellsByLevel.Count)
                 {
-                    Definition.SpellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet());
+                    spellsByLevel.Add(new SpellsByLevelDuplet { Level = level });
                 }
-                else if (Definition.SpellsByLevel[i] == null)
+                else if (spellsByLevel[i] == null)
                 {
-                    Definition.SpellsByLevel[i] = new SpellListDefinition.SpellsByLevelDuplet();
+                    spellsByLevel[i] = new SpellsByLevelDuplet { Level = level };
                 }
             }
 
-            Definition.SpellsByLevel[level].Spells.SetRange(
-                spellsByLevel
-                    .Where(s => s.Implemented)
-                    .Where(s => s.ContentPack == GamingPlatformDefinitions.ContentPack.BaseGame));
+            spellsByLevel[level].Spells ??= new();
+            spellsByLevel[level].Spells.SetRange(spells.Where(s => s.Implemented));
 
             return this;
         }
@@ -92,24 +83,5 @@ namespace SolastaCommunityExpansion.Builders
             Definition.SetHasCantrips(hasCantrips);
             return this;
         }
-
-        /*        public SpellListDefinitionBuilder SetSpellsByLevel(params IEnumerable<SpellDefinition>[] spellsByLevel)
-                {
-                    for (int i = 0; i < Definition.SpellsByLevel.Count; i++)
-                    {
-                        Definition.SpellsByLevel[i].Spells.Clear();
-
-                        if (spellsByLevel.Length > i)
-                        {
-                            Definition.SpellsByLevel[i].Spells.AddRange(
-                                spellsByLevel[i]
-                                    .Where(s => s.Implemented)
-                                    .Where(s => s.ContentPack == GamingPlatformDefinitions.ContentPack.BaseGame));
-                        }
-                    }
-
-                    return this;
-                }
-        */
     }
 }

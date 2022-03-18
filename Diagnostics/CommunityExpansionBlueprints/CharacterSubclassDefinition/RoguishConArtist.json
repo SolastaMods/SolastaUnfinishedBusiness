@@ -1,0 +1,58 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AbilityAffinityRogueConArtist:955c0ca4-3428-5bd8-8eee-be4ebdd85731",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:CastSpellConArtist:20a1a155-6992-5137-98aa-17ad091038bc",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:RoguishConArtistFeint:0f085afa-c18b-574f-b1d4-e7e933410b1a",
+      "level": 9
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MagicAffinityRoguishConArtistDC:e309fa24-5044-55dd-89f1-420adc5b30ca",
+      "level": 13
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:RoguishConArtistMentalSavingThrows:f2be4d53-1cc4-5146-a822-1c94456266f2",
+      "level": 17
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&RoguishConArtistTitle",
+    "description": "Subclass/&RoguishConArtistDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "e20d6cdf94ce68f4b8c0dfbeb0a3bbb6",
+      "m_SubObjectName": "Archetype_Cleric_Insight",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "4ecda6fe-699e-549a-8a53-8ca394062b66",
+  "contentPack": 9999,
+  "name": "RoguishConArtist"
+}
