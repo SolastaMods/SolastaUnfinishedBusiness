@@ -1,0 +1,34 @@
+{
+  "$type": "LootableContainerDefinition, Assembly-CSharp",
+  "minSlotsNumber": 1,
+  "contentAlwaysKnown": false,
+  "forbidDrop": false,
+  "ignoredByScavengers": false,
+  "restrictedItems": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&ContainerLibraryTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "39f74be82660b0744aa4622ff3765baa",
+  "contentPack": "BaseGame",
+  "name": "Library"
+}

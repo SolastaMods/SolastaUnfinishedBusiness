@@ -1,0 +1,301 @@
+{
+  "$type": "EncounterTableDefinition, Assembly-CSharp",
+  "encounterOccurences": [
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 3,
+      "encounterDefinition": "Definition:CR2_ApprenticeNecromancer_x1_x3:962a6bfd1b19f21459a728e005394053"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 3,
+      "encounterDefinition": "Definition:CR2_BanditThug_x4_x1:4331555c8bc9e1b449956944f7a5b3cf"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 3,
+      "encounterDefinition": "Definition:CR2_GoblinScouts_x2_x1_x1:6598c4f5c309c0f4cad9e47c47a4bb5b"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 3,
+      "encounterDefinition": "Definition:CR2_GoblinWarParty_x2_x4:c83e1e05ac51e3b4d9d1e734c42fad0f"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 3,
+      "encounterDefinition": "Definition:CR2_LoneOgre_x1:b066a610821f4c741a27d1043e200d37"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 3,
+      "encounterDefinition": "Definition:CR2_OrcBand_x2_x2:618b06e216bf7394eb8a76500e3ca5f9"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 3,
+      "encounterDefinition": "Definition:CR2_RoamingFanatics_x1_x2:5808d86719f3b9144aa7b19d4952ea6c"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 3,
+      "encounterDefinition": "Definition:CR2_RoamingUndead_x5:be8db888f1b1f8f468749e0429fa7f88"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 3,
+      "encounterDefinition": "Definition:CR2_SmallBanditBand_x5:9e780ef0771a10b4bb4fd96018c3d74f"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 3,
+      "encounterDefinition": "Definition:CR2_SpectralSpiders_x2:44844bd82d7ba4b4f8fcc62786334cd2"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 3,
+      "encounterDefinition": "Definition:CR2_SpiesOnTheRun:383e4432b0e59314181fff5e35c6214a"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 3,
+      "encounterDefinition": "Definition:CR2_TigerDrake_x2:e8c6de8be732a4842834578b77f9e104"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR3_ApprenticeNecromancer_x1_x1:77238ff3a3bce74479be7264fd795930"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR3_BadlandsSpiders_x5:d81c233822f5cbb4fb689ff3bc19e25e"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR3_Bandits_x8:8970fba48a406d4429e234b4a830b0d9"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR3_DeathSquad_x2_x2_x1:2ca5d49461aba7041acb4f80a784f4ac"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR3_EvilEvangelists_x1_x2_x1:4ffc522ebe70b4a489e747229cbf622a"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR3_GhoulCouple_x2:2b386de2453c30f4e9a7aecc45e9314e"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR3_GiantEagleCouple_x2:90227f25a66156049b2d68298fcaf3ac"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR3_GoblinHunters_x2_x4_x2:81c7522252cd3c34a9eea66a9f807538"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR3_GoblinWolfBand_x1_x1_x2_x1:a27be80645760b242b10c603969eb17e"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR3_Highway_Robbers_x3_x2:23a4c25ccfd5bda45b9e92d5c375722e"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR3_LoneMinotaur_x1:12830c81e440d2e4d9d4237b15915cc4"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR3_LoneVeteran_x1:ff746a0342a4c8e4dbcf217a929443e2"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR3_LoneWight_x1:7cecdd3ff1eb33249bf381c326a72f73"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR3_PhaseSpider_x1:89848214e2fdc554aaaa0a105896be27"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR3_ScoutingParty_x3_x1:85c41563b0c6a9c46907b1e9e7635040"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR3_SpectralParty_x3:369c58194bbacce4ba0759442e34cfd3"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR3_WolfPack_x1_x3:f7c57fa74729ae8439dfd9bf5a2a4b0d"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR4_BanditBand_x2_x2_x1:df751f04cf7025643b9a8f76fdd340d3"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR4_BerserkerBrothers_x2:7d2f4c4ede7476a488b972a0121be061"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR4_DireWolfPack_x3:e5032a19f959448468466c7a521d079a"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR4_FanaticCouple_x1_x1:f00ae219d21050d4c8f8f63163ffb170"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR4_GoblinCrusaders_x1_x4:855ac4631a9db0d429c52b26661779a7"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR4_MisayeEvangelists_x1_x2:7d75d1f20f18c664d9e2f84fe941ef19"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR4_OrcHunters_x1_x2:7634a8055dfd256408f4f59cc4d5baf8"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR4_RoamingGhouls_x3:9ac1ac39d53e490449d8b8dbca1ad588"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR4_SpectralSpiders_x4:e2ddd92cee5f334489e34e070052852f"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR4_StainedHunter_x1:72212ebd1874d0e46bf4e4bd5b734124"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR4_TigerDrake_x4:d06cc0adfeffc9e4d867ce6fa56fe95c"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR5_BerserkerBand_x3:d2fd359bd708e534faa80c78ce607160"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR5_GhastBand_x3:3bcb961c7d53ce34eb388c432a701902"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR5_GhoulPack_x3_x1:45218249b4cce4c4ebf711a333b71faa"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR5_Goblin_Cutthroats:639e7ea44be953a4aa28d1f63d72938d"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR5_GoblinWolfShaman_x1_x3:b2d43a7e08991e54790c6e78375d9367"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR5_OgreBand_x3:5f38b37b9268130489c067fb57339dd0"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR5_OgreEscort_x1_x2_x1_x1:63b7cf00d9b1b624c86e268d2c7040de"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR5_SmallFanaticGroup_x3:957b93ead8c831a41afb3d0e35de5e70"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR5_SpectralParty_x1_x1:96e0b0278e6baa044948be71e053cb4e"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR5_SmallVeteranGroup_x2_x1:98a72096c2ebedc43b56a6c26fb798bb"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR5_WanderingWights_x2:2799ac001e794d142958a8e71f643da9"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR5_WinterWolfPack_x1_x4:c65996d7d01984c43b7ba6d0f722bebc"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR5_ZombieHorde_x2_x4:fa24ebb0a44b81d46b703a80e261a059"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR4_Skarn_Ghouls_x2:0fe463705212f1e409e187fe79777fc0"
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "40878c3916d9bef4f8586edfb6f6741e",
+  "contentPack": "BaseGame",
+  "name": "MarchesBadlandsEncounter"
+}

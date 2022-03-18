@@ -1,0 +1,30 @@
+{
+  "$type": "SmartAttributeDefinition, Assembly-CSharp",
+  "modifiedAttributes": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Attribute/&WisdomTitle",
+    "description": "Attribute/&WisdomDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 4,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "632c5c4d66bdced418701396d96b078c",
+  "contentPack": "BaseGame",
+  "name": "Wisdom"
+}

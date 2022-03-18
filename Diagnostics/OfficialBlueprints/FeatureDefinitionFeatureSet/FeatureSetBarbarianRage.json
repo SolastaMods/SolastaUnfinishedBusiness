@@ -1,0 +1,40 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:ActionAffinityBarbarianRage:5ad2d2b8a7e2501409720849c9f886c3",
+    "Definition:AttributeModifierBarbarianRagePointsBase:d458f3a545b69d647be3694660d1e75b",
+    "Definition:AttributeModifierBarbarianRageDamageBase:f6292dfe85ad4b44f835882e065d9c63",
+    "Definition:PowerBarbarianRageStart:e7a28acc3db191643891258016ef8779"
+  ],
+  "mode": "Union",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetRageTitle",
+    "description": "Feature/&FeatureSetRageDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "441371b715de6db4b9813628803d7fa6",
+  "contentPack": "BaseGame",
+  "name": "FeatureSetBarbarianRage"
+}

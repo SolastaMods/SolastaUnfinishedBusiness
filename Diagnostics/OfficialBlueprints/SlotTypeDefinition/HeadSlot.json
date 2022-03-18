@@ -1,0 +1,38 @@
+{
+  "$type": "SlotTypeDefinition, Assembly-CSharp",
+  "canStack": false,
+  "canDisplayArmor": true,
+  "canDisplayArmorForPhoto": true,
+  "displayArmorSortingIndex": 4,
+  "canDisplayLight": true,
+  "bodySlot": true,
+  "alwaysLocked": false,
+  "lockedInBattle": false,
+  "hasDefaultVisual": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "SlotType/&HeadSlotTitle",
+    "description": "SlotType/&HeadSlotDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "2451ded00037d0541b93f8c6de00b9fa",
+      "m_SubObjectName": "HeadSlot",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 7,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "ab3ef8eca34646345b8864793089fc83",
+  "contentPack": "BaseGame",
+  "name": "HeadSlot"
+}

@@ -1,0 +1,39 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:ConditionAffinityFreedomOfMovementParalyzed:832cbcb29d024fd48a6356762a37bf68",
+    "Definition:ConditionAffinityFreedomOfMovementRestrained:ded05463bca9c77408cbe1eba0401020",
+    "Definition:MovementAffinityFreedomOfMovement:097ce72cf88822243afb196bbddc360c"
+  ],
+  "mode": "Union",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetWindUnfetteredTitle",
+    "description": "Feature/&FeatureSetWindUnfetteredDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "7f788cdb537fac24da5935626c968a09",
+  "contentPack": "BaseGame",
+  "name": "FeatureSetWindUnfettered"
+}

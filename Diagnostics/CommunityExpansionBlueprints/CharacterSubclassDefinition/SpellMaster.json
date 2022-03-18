@@ -1,0 +1,68 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerSpellMasterBonusRecovery:167cf9ce-de8f-5e22-8652-39cb247dad4f",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MagicAffinitySpellMasterPrepared:7364c3f5-399d-561b-ab0a-8599385f3876",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MagicAffinitySpellMasterKnowledge:a7b6b1bb-68f5-5a65-aae8-3e8466d2d271",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:TraditionSpellMasterBonusCantrips:367307e8-0f6a-5ef1-8d6d-2ee36a74cfef",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MagicAffinitySpellMasterScriber:ef6ff56a-f5cc-5167-b428-8b6f38dcb721",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MagicAffinitySpellMasterExtraPrepared:e28c01fd-5251-5634-b023-63a84474dec6",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:TraditionSpellMasterSpellResistance:b26e83cf-eef2-5ae5-ac8c-fd49c42fa7d6",
+      "level": 14
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&TraditionSpellMasterTitle",
+    "description": "Subclass/&TraditionSpellMasterDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "e20d6cdf94ce68f4b8c0dfbeb0a3bbb6",
+      "m_SubObjectName": "Archetype_Cleric_Insight",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "5ef3ec64-fc58-5cc7-abaf-2a79c88f1d2d",
+  "contentPack": 9999,
+  "name": "SpellMaster"
+}

@@ -1,0 +1,37 @@
+{
+  "$type": "ToolTypeDefinition, Assembly-CSharp",
+  "hasParentCategory": false,
+  "toolCategory": "ArtisanToolCategory",
+  "mainAbilityScore": "Intelligence",
+  "requiredProficiencyOptions": [
+    "PoisonersKitType",
+    "Medecine",
+    "Nature"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&PoisonersKitToolTypeTitle",
+    "description": "Equipment/&PoisonersKitToolTypeDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "52444d04cf6603c428eefe78107b44f4",
+      "m_SubObjectName": "PoisonersKit",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "2dd58398fc1262f45942184f61a81dd9",
+  "contentPack": "BaseGame",
+  "name": "PoisonersKitType"
+}

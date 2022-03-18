@@ -1,0 +1,33 @@
+{
+  "$type": "FactionStatusDefinition, Assembly-CSharp",
+  "ceiling": 50,
+  "combatSide": "Ally",
+  "explorationSide": "Ally",
+  "merchantRebatePercent": 10,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "FactionStatus/&AllianceTitle",
+    "description": "FactionStatus/&AllianceDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 4,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "3be1c393d1dcf004e9e8aa7af1841a9d",
+  "contentPack": "BaseGame",
+  "name": "Alliance"
+}

@@ -1,4 +1,5 @@
 ﻿using System;
+using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders
 {
@@ -34,6 +35,17 @@ namespace SolastaCommunityExpansion.Builders
         }
         #endregion
 
-        // TODO: add Create methods
+        internal RestActivityDefinitionBuilder SetRestData(
+            RestDefinitions.RestStage restStage, RuleDefinitions.RestType restType,
+            RestActivityDefinition.ActivityCondition condition, string functor, string stringParameter)
+        {
+            Definition.SetRestStage(restStage);
+            Definition.SetRestType(restType);
+            Definition.SetCondition(condition);
+            Definition.SetFunctor(functor);
+            Definition.SetStringParameter(stringParameter);
+
+            return This();
+        }
     }
 }

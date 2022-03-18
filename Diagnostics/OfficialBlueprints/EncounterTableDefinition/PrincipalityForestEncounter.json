@@ -1,0 +1,131 @@
+{
+  "$type": "EncounterTableDefinition, Assembly-CSharp",
+  "encounterOccurences": [
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 4,
+      "encounterDefinition": "Definition:CR1_ApprenticeNecromancer_x1_x2:9f0418bfa88a86e4297de157acf0b1a9"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 6,
+      "encounterDefinition": "Definition:CR1_EagleNest_x3:d0052328bb9f6b0469295cea1ca72bd0"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 6,
+      "encounterDefinition": "Definition:CR1_FlyingSnakes_x6:a242a8064fb6b3c4799599159150017e"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 6,
+      "encounterDefinition": "Definition:CR1_HungryWolves_x4:e5b7860240afe37479fd7b80ca82675c"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 3,
+      "encounterDefinition": "Definition:CR2_GoblinScouts_x2_x1_x1:6598c4f5c309c0f4cad9e47c47a4bb5b"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 3,
+      "encounterDefinition": "Definition:CR2_GoblinWarParty_x2_x4:c83e1e05ac51e3b4d9d1e734c42fad0f"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 3,
+      "encounterDefinition": "Definition:CR2_OrcBand_x2_x2:618b06e216bf7394eb8a76500e3ca5f9"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 3,
+      "encounterDefinition": "Definition:CR2_RoamingFanatics_x1_x2:5808d86719f3b9144aa7b19d4952ea6c"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 3,
+      "encounterDefinition": "Definition:CR2_RoamingUndead_x5:be8db888f1b1f8f468749e0429fa7f88"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 3,
+      "encounterDefinition": "Definition:CR2_RoamingWolves_x5:d5f00a91cd7ba884299cbe08447c6626"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 3,
+      "encounterDefinition": "Definition:CR2_SmallBanditBand_x5:9e780ef0771a10b4bb4fd96018c3d74f"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR3_Bandits_x8:8970fba48a406d4429e234b4a830b0d9"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR3_Highway_Robbers_x3_x2:23a4c25ccfd5bda45b9e92d5c375722e"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR3_ScoutingParty_x3_x1:85c41563b0c6a9c46907b1e9e7635040"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR3_WolfPack_x1_x3:f7c57fa74729ae8439dfd9bf5a2a4b0d"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR4_DireWolfPack_x3:e5032a19f959448468466c7a521d079a"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR4_GoblinCrusaders_x1_x4:855ac4631a9db0d429c52b26661779a7"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 6,
+      "encounterDefinition": "Definition:CR4_MisayeEvangelists_x1_x2:7d75d1f20f18c664d9e2f84fe941ef19"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR4_WildMan_x1_x3:0eb89bdb9412b114cb165e1f83aef0fb"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR4_WightEscort_x1_x2:858687272966e1641b32a322cf3ce421"
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "b060fe3c9e643a644ba2d806f6691705",
+  "contentPack": "BaseGame",
+  "name": "PrincipalityForestEncounter"
+}

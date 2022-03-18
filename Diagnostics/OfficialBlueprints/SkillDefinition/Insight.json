@@ -1,0 +1,32 @@
+{
+  "$type": "SkillDefinition, Assembly-CSharp",
+  "abilityScore": "Wisdom",
+  "personalityFlag": true,
+  "personalityAdditiveBase": 10,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Skill/&InsightTitle",
+    "description": "Skill/&InsightDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 6,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "dcd4db17379f1ff46b3e64ccea4d08e9",
+  "contentPack": "BaseGame",
+  "name": "Insight"
+}

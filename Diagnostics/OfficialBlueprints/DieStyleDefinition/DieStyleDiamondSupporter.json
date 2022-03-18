@@ -1,0 +1,72 @@
+{
+  "$type": "DieStyleDefinition, Assembly-CSharp",
+  "d4MaterialReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "8c3ac249758c0274f9322868c1185483",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "d6MaterialReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "83cf75433be07b741a8e29a50f81788d",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "d8MaterialReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "ea485dbcce59e9b4da616b8c470edf47",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "d10MaterialReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "079c99a01b06efa4aa5fa6eb3e66a716",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "d12MaterialReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "4f12b82dda8e4ed47bac0bf8bee1bdb3",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "d20MaterialReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "7c88cb9ac7832e44b83163fcab9a546d",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "particlePrefabReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "useMetallicLayer": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "DieStyle/&DieStyleDiamondSupporterTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "b416cba43a02a8c4bb54ee0704670141",
+      "m_SubObjectName": "DieStyleDiamond",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 9,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "3b350586841df08428cce4be1b15d177",
+  "contentPack": "SupporterPack",
+  "name": "DieStyleDiamondSupporter"
+}

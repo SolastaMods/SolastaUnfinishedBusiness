@@ -1,0 +1,268 @@
+{
+  "$type": "MoviePlaybackDefinition, Assembly-CSharp",
+  "movieFilename": "CotmIntroduction.mp4",
+  "subtitleOccurences": [
+    {
+      "$type": "SubtitleOccurenceDescription, Assembly-CSharp",
+      "startSecond": 2.06,
+      "endSecond": 7.38,
+      "locKey": "Narration/&LoreTrailer01"
+    },
+    {
+      "$type": "SubtitleOccurenceDescription, Assembly-CSharp",
+      "startSecond": 9.08,
+      "endSecond": 11.76,
+      "locKey": "Narration/&LoreTrailer02"
+    },
+    {
+      "$type": "SubtitleOccurenceDescription, Assembly-CSharp",
+      "startSecond": 15.98,
+      "endSecond": 19.04,
+      "locKey": "Narration/&LoreTrailer03"
+    },
+    {
+      "$type": "SubtitleOccurenceDescription, Assembly-CSharp",
+      "startSecond": 19.34,
+      "endSecond": 21.9,
+      "locKey": "Narration/&LoreTrailer04"
+    },
+    {
+      "$type": "SubtitleOccurenceDescription, Assembly-CSharp",
+      "startSecond": 23.54,
+      "endSecond": 25.46,
+      "locKey": "Narration/&LoreTrailer05"
+    },
+    {
+      "$type": "SubtitleOccurenceDescription, Assembly-CSharp",
+      "startSecond": 26.5,
+      "endSecond": 27.96,
+      "locKey": "Narration/&LoreTrailer06"
+    },
+    {
+      "$type": "SubtitleOccurenceDescription, Assembly-CSharp",
+      "startSecond": 28.86,
+      "endSecond": 33.92,
+      "locKey": "Narration/&LoreTrailer07"
+    },
+    {
+      "$type": "SubtitleOccurenceDescription, Assembly-CSharp",
+      "startSecond": 33.92,
+      "endSecond": 36.26,
+      "locKey": "Narration/&LoreTrailer08"
+    },
+    {
+      "$type": "SubtitleOccurenceDescription, Assembly-CSharp",
+      "startSecond": 36.26,
+      "endSecond": 40.8,
+      "locKey": "Narration/&LoreTrailer09"
+    },
+    {
+      "$type": "SubtitleOccurenceDescription, Assembly-CSharp",
+      "startSecond": 43.7,
+      "endSecond": 50.92,
+      "locKey": "Narration/&LoreTrailer10"
+    },
+    {
+      "$type": "SubtitleOccurenceDescription, Assembly-CSharp",
+      "startSecond": 52.8,
+      "endSecond": 56.42,
+      "locKey": "Narration/&LoreTrailer11"
+    },
+    {
+      "$type": "SubtitleOccurenceDescription, Assembly-CSharp",
+      "startSecond": 59.76,
+      "endSecond": 60.96,
+      "locKey": "Narration/&LoreTrailer12"
+    },
+    {
+      "$type": "SubtitleOccurenceDescription, Assembly-CSharp",
+      "startSecond": 61.42,
+      "endSecond": 63.28,
+      "locKey": "Narration/&LoreTrailer13"
+    }
+  ],
+  "fallbackImages": [
+    {
+      "$type": "FallbackImageDescription, Assembly-CSharp",
+      "startSecond": 0.0,
+      "fallbackReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "e13705ca76e88074fb5b23df16991d72",
+        "m_SubObjectName": "IntroFallback_01",
+        "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      }
+    },
+    {
+      "$type": "FallbackImageDescription, Assembly-CSharp",
+      "startSecond": 7.0,
+      "fallbackReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "b0468a385119c544e96053adc4504f00",
+        "m_SubObjectName": "IntroFallback_02",
+        "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      }
+    },
+    {
+      "$type": "FallbackImageDescription, Assembly-CSharp",
+      "startSecond": 12.0,
+      "fallbackReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "8f56ed3ea27342346a6edb192f4ee335",
+        "m_SubObjectName": "IntroFallback_03",
+        "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      }
+    },
+    {
+      "$type": "FallbackImageDescription, Assembly-CSharp",
+      "startSecond": 17.0,
+      "fallbackReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "367a5d204a05c7944a93b6fb944c29ca",
+        "m_SubObjectName": "IntroFallback_04",
+        "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      }
+    },
+    {
+      "$type": "FallbackImageDescription, Assembly-CSharp",
+      "startSecond": 21.0,
+      "fallbackReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "0fde2eb3a71ddfe4cba374a05a206985",
+        "m_SubObjectName": "IntroFallback_05",
+        "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      }
+    },
+    {
+      "$type": "FallbackImageDescription, Assembly-CSharp",
+      "startSecond": 23.0,
+      "fallbackReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "aa12fccb87fc8764e9d57f4e2b6e20f0",
+        "m_SubObjectName": "IntroFallback_06",
+        "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      }
+    },
+    {
+      "$type": "FallbackImageDescription, Assembly-CSharp",
+      "startSecond": 25.0,
+      "fallbackReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "d2546d1e153dcb44e9f124715b1a5c8d",
+        "m_SubObjectName": "IntroFallback_07",
+        "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      }
+    },
+    {
+      "$type": "FallbackImageDescription, Assembly-CSharp",
+      "startSecond": 29.0,
+      "fallbackReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "57162c216da348e4fb051f4d54ac8de5",
+        "m_SubObjectName": "IntroFallback_08",
+        "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      }
+    },
+    {
+      "$type": "FallbackImageDescription, Assembly-CSharp",
+      "startSecond": 34.0,
+      "fallbackReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "1cb696333972fe44ebe0027209729743",
+        "m_SubObjectName": "IntroFallback_09",
+        "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      }
+    },
+    {
+      "$type": "FallbackImageDescription, Assembly-CSharp",
+      "startSecond": 38.0,
+      "fallbackReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "28c9e2cf1a3061543ab9db987d55dd16",
+        "m_SubObjectName": "IntroFallback_10",
+        "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      }
+    },
+    {
+      "$type": "FallbackImageDescription, Assembly-CSharp",
+      "startSecond": 43.0,
+      "fallbackReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "52113d76fe0659d45ac69bd7204a7985",
+        "m_SubObjectName": "IntroFallback_11",
+        "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      }
+    },
+    {
+      "$type": "FallbackImageDescription, Assembly-CSharp",
+      "startSecond": 48.0,
+      "fallbackReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "256bb2613e49c59408f6441309019add",
+        "m_SubObjectName": "IntroFallback_12",
+        "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      }
+    },
+    {
+      "$type": "FallbackImageDescription, Assembly-CSharp",
+      "startSecond": 54.0,
+      "fallbackReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "4623d3892309c8143bae757f4e84810c",
+        "m_SubObjectName": "IntroFallback_13",
+        "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      }
+    },
+    {
+      "$type": "FallbackImageDescription, Assembly-CSharp",
+      "startSecond": 59.0,
+      "fallbackReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "942314224673eb84f8302f13b6d4472a",
+        "m_SubObjectName": "IntroFallback_14",
+        "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      }
+    }
+  ],
+  "totalFallbackDuration": 64.0,
+  "audioEvent": {
+    "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": {
+      "$type": "WwiseEventReference, AK.Wwise.Unity.API.WwiseTypes",
+      "objectName": "Play_CotmIntroduction",
+      "id": 894225925,
+      "guid": "EE61C329-81FF-4745-93B6-9729897B8226",
+      "name": "EE61C329-81FF-4745-93B6-9729897B8226"
+    },
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "50801a943e4e02d4b9210d1ae2b66dce",
+  "contentPack": "BaseGame",
+  "name": "IntroLore"
+}

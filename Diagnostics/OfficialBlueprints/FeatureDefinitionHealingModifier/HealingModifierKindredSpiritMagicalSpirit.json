@@ -1,0 +1,51 @@
+{
+  "$type": "FeatureDefinitionHealingModifier, Assembly-CSharp",
+  "healingBonusDiceNumber": 0,
+  "healingBonusDiceType": "D1",
+  "addLevel": "None",
+  "healsSelfWhenCastingHealingSpell": false,
+  "selfHealingDiceNumber": 2,
+  "selfHealingDiceType": "D1",
+  "selfHealingAddLevel": "EffectLevel",
+  "addsConditionWhenCastingHealingSpell": null,
+  "addedConditionOccurenceType": "StartOfTurn",
+  "cannotGainHitPoints": false,
+  "advantageOnHitDieSpending": false,
+  "maximizeReceivedHealing": false,
+  "hitDiceHealsKindred": true,
+  "healSelfHealsKindred": true,
+  "healingReceivedParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "e5e16a7b1900ded4991bc26fb1385f97",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "ec91e81346228284f9106f0127331899",
+  "contentPack": "BaseGame",
+  "name": "HealingModifierKindredSpiritMagicalSpirit"
+}

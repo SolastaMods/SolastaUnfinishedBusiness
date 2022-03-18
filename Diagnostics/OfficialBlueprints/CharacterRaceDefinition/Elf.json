@@ -1,0 +1,219 @@
+{
+  "$type": "CharacterRaceDefinition, Assembly-CSharp",
+  "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
+  "defaultAlignement": "ChaoticGood",
+  "dualSex": true,
+  "minimalAge": 100,
+  "maximalAge": 750,
+  "baseHeight": 0,
+  "baseWeight": 0,
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierElfAbilityScoreIncrease:122e862ec1d88c649b2d784db05233cd",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetElfFeyAncestry:c123d2bc2667e7641a5b5bc9fdd94512",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyElfKeenSenses:531f0b2fe59517a45a4c0cd65cd7acda",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:CampAffinityElfTrance:02e0f7bc4afeb2b43ab60ec0a048f5ae",
+      "level": 1
+    }
+  ],
+  "subRaces": [
+    "Definition:ElfHigh:4e42d1b55900cff4ab62dbfbd88f9b24",
+    "Definition:ElfSylvan:1b0e27feb0a8d6944b907d5afaf28e0a"
+  ],
+  "inventoryDefinition": "Definition:HumanoidInventory:2a836ff45f2eb274eb079425509421ac",
+  "personalityFlagOccurences": [
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 30,
+      "personalityFlag": "ElfFlag"
+    }
+  ],
+  "languageAutolearnPreference": [
+    "Language_Dwarvish",
+    "Language_Halfling",
+    "Language_Orc",
+    "Language_Goblin",
+    "Language_Goblin"
+  ],
+  "audioSwitches": [],
+  "audioRaceRTPCValue": 3.0,
+  "racePresentation": {
+    "$type": "RacePresentation, Assembly-CSharp",
+    "bodyAssetPrefix": "Elf",
+    "morphotypeAssetPrefix": "Elf",
+    "maleNameOptions": [],
+    "femaleNameOptions": [],
+    "hasSurName": true,
+    "surNameTitle": "Race/&ElfSurNameTitle",
+    "surNameOptions": [],
+    "needBeard": false,
+    "canModifyMusculature": true,
+    "originOptions": [
+      "Origin_NonHuman"
+    ],
+    "maleFaceShapeOptions": [
+      "FaceShape_D",
+      "FaceShape_E",
+      "FaceShape_F",
+      "FaceShape_A",
+      "FaceShape_B",
+      "FaceShape_C",
+      "FaceShape_NPC_Daliat_Sunbird",
+      "FaceShape_NPC_Ilastar_Keenmind_Airgetine",
+      "FaceShape_NPC_Iolair_Faisech",
+      "FaceShape_NPC_Llygath_Steelmind",
+      "FaceShape_NPC_Mardracht",
+      "FaceShape_NPC_Medwal_Strongfire",
+      "FaceShape_NPC_Nobleman",
+      "FaceShape_NPC_Orenetis",
+      "FaceShape_NPC_Serafiel_Anfarel",
+      "FaceShape_NPC_Lysantir",
+      "FaceShape_NPC_Esfalad_Graymas",
+      "FaceShape_NPC_Telerien_Purevoice"
+    ],
+    "femaleFaceShapeOptions": [
+      "FaceShape_D",
+      "FaceShape_E",
+      "FaceShape_F",
+      "FaceShape_A",
+      "FaceShape_B",
+      "FaceShape_C",
+      "FaceShape_NPC_Ceiwad_Silverflower",
+      "FaceShape_NPC_Adrasteia_Epimeles_Aspis",
+      "FaceShape_NPC_Idriel_Fair_Brow",
+      "FaceShape_NPC_Joriel_Fox_Eye",
+      "FaceShape_NPC_Kiaradth_BrightSpark",
+      "FaceShape_NPC_Kythaela_Wildspring",
+      "FaceShape_NPC_Lizzaria_of_Grimhold",
+      "FaceShape_NPC_Ellaria_Anfarel",
+      "FaceShape_NPC_Finaliel_SharpMind",
+      "FaceShape_NPC_Malariel_Brogarad",
+      "FaceShape_NPC_Samko_Flint"
+    ],
+    "maleHairShapeOptions": [
+      "HairShape_A",
+      "HairShape_B",
+      "HairShape_C",
+      "HairShape_E",
+      "HairShape_K",
+      "HairShape_L",
+      "HairShape_M",
+      "HairShape_H",
+      "HairShape_I",
+      "HairShape_J",
+      "HairShape_N",
+      "HairShape_P",
+      "HairShape_O",
+      "HairShape_Q",
+      "HairShape_R",
+      "HairShape_S",
+      "HairShape_U",
+      "HairShape_V",
+      "HairShape_W",
+      "HairShape_X",
+      "HairShape_Y",
+      "HairShape_Z",
+      "HairShape_F",
+      "HairShape_G",
+      "HairShape_AA",
+      "HairShape_None"
+    ],
+    "femaleHairShapeOptions": [
+      "HairShape_A",
+      "HairShape_B",
+      "HairShape_C",
+      "HairShape_D",
+      "HairShape_E",
+      "HairShape_F",
+      "HairShape_K",
+      "HairShape_L",
+      "HairShape_M",
+      "HairShape_H",
+      "HairShape_I",
+      "HairShape_J",
+      "HairShape_N",
+      "HairShape_O",
+      "HairShape_P",
+      "HairShape_Q",
+      "HairShape_R",
+      "HairShape_S",
+      "HairShape_U",
+      "HairShape_V",
+      "HairShape_W",
+      "HairShape_Y",
+      "HairShape_Z",
+      "HairShape_AA",
+      "HairShape_G",
+      "HairShape_None"
+    ],
+    "maleBeardShapeOptions": [],
+    "equipmentLayoutPath": "Gui/Prefabs/Equipment/MediumHeroEquipmentLayout",
+    "maleVoiceDefinition": "MAL1",
+    "femaleVoiceDefinition": "FEM2",
+    "portraitShieldOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.02,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "preferedSkinColors": {
+      "$type": "TA.RangedInt, Assembly-CSharp",
+      "minValue": 1,
+      "maxValue": 15
+    },
+    "preferedHairColors": {
+      "$type": "TA.RangedInt, Assembly-CSharp",
+      "minValue": 0,
+      "maxValue": 24
+    }
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Race/&ElfTitle",
+    "description": "Race/&ElfDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "366bd85cddeb50740858c0b15593b4cd",
+      "m_SubObjectName": "HighElf",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 2,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "143998b174becf84682ae849dfe9d757",
+  "contentPack": "BaseGame",
+  "name": "Elf"
+}

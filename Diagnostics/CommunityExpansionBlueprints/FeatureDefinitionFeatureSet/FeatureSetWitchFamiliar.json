@@ -1,0 +1,38 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:WitchFamiliarAutoPreparedSpell:b9f22d00-1229-5b96-af99-f80ec94c3583",
+    "Definition:SummoningAffinityWitchFamiliar:2bf54dd0-7800-5fd8-a1e4-be86105d2761"
+  ],
+  "mode": "Union",
+  "defaultSelection": 0,
+  "uniqueChoices": true,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Class/&WitchFamiliarPowerTitle",
+    "description": "Class/&WitchFamiliarPowerDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "d80020a5-f150-567a-948c-40bf8969233a",
+  "contentPack": 9999,
+  "name": "FeatureSetWitchFamiliar"
+}

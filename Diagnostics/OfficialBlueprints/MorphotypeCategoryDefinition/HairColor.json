@@ -1,0 +1,33 @@
+{
+  "$type": "MorphotypeCategoryDefinition, Assembly-CSharp",
+  "choiceForm": "Color",
+  "hasDependency": false,
+  "dependency": "Max",
+  "dependencyNoneEntry": "",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Stage/&IdentityMorphotypeHairColorHeader",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "c4ea80ac7510dcd4abb93e533976459d",
+      "m_SubObjectName": "MorphotypeHairColor",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "54e0381c6698d9043b98b1909480480b",
+  "contentPack": "BaseGame",
+  "name": "HairColor"
+}

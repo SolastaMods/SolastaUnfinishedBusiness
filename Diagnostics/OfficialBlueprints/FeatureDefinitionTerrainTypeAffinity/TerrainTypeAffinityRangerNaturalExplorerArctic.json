@@ -1,0 +1,36 @@
+{
+  "$type": "FeatureDefinitionTerrainTypeAffinity, Assembly-CSharp",
+  "terrainType": "Arctic",
+  "travelSpeedMultiplier": 1.25,
+  "foodYieldMultiplier": 2.0,
+  "ingredientYieldMultiplier": 2.0,
+  "ignoreTravelPacePerceptionMalus": true,
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&RangerNaturalExplorerByTypeTitle",
+    "description": "Feature/&RangerNaturalExplorerByTypeDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": true
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "5edf9710b4c795c4090893efa887cdc9",
+  "contentPack": "BaseGame",
+  "name": "TerrainTypeAffinityRangerNaturalExplorerArctic"
+}

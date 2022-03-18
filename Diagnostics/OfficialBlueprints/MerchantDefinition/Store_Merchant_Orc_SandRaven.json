@@ -1,0 +1,82 @@
+{
+  "$type": "MerchantDefinition, Assembly-CSharp",
+  "inDungeonEditor": false,
+  "overchargePercent": 10,
+  "buyBackPercent": 1,
+  "factionAffinity": "Evocation_Suncloud_Clan",
+  "exposeFaction": false,
+  "canDetectMagic": false,
+  "detectMagicCostGp": 100,
+  "canIdentify": false,
+  "identifyCostGp": 100,
+  "stockUnitDescriptions": [
+    {
+      "$type": "StockUnitDescription, Assembly-CSharp",
+      "initialized": true,
+      "itemDefinition": "Definition:Arrow:0b2e8c437ac65034b8055735aa5da873",
+      "stackCount": 99,
+      "initialAmount": 99,
+      "minAmount": 0,
+      "maxAmount": 3,
+      "reassortAmount": 10,
+      "reassortRateType": "Hour",
+      "reassortRateValue": 2,
+      "requiredFaction": "",
+      "factionStatus": "Alliance"
+    },
+    {
+      "$type": "StockUnitDescription, Assembly-CSharp",
+      "initialized": true,
+      "itemDefinition": "Definition:Bolt:ad0fe02755fdb754193b60214585d74e",
+      "stackCount": 99,
+      "initialAmount": 99,
+      "minAmount": 0,
+      "maxAmount": 10,
+      "reassortAmount": 10,
+      "reassortRateType": "Hour",
+      "reassortRateValue": 2,
+      "requiredFaction": "",
+      "factionStatus": "Alliance"
+    },
+    {
+      "$type": "StockUnitDescription, Assembly-CSharp",
+      "initialized": true,
+      "itemDefinition": "Definition:Food_Ration:59973b7c0f7bd2f4089ec4406628b941",
+      "stackCount": 1,
+      "initialAmount": 99,
+      "minAmount": 0,
+      "maxAmount": 50,
+      "reassortAmount": 10,
+      "reassortRateType": "Hour",
+      "reassortRateValue": 1,
+      "requiredFaction": "",
+      "factionStatus": "Alliance"
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Monster/&OrcMerchantTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "bd9c9f768bf93e441beb114595525a07",
+      "m_SubObjectName": "Merchant_SandRaven",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "db073586a1249db41bf82b6e2bdff366",
+  "contentPack": "BaseGame",
+  "name": "Store_Merchant_Orc_SandRaven"
+}

@@ -1,0 +1,50 @@
+{
+  "$type": "FeatureDefinitionSavingThrowAffinity, Assembly-CSharp",
+  "useControllerSavingThrows": false,
+  "priorityAbilityScore": "",
+  "affinityGroups": [
+    {
+      "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Constitution",
+      "affinity": "None",
+      "savingThrowModifierType": "AddDice",
+      "savingThrowModifierDiceNumber": 2,
+      "savingThrowModifierDieType": "D1",
+      "restrictedForms": [],
+      "restrictedSchools": [],
+      "restrictedSpells": [],
+      "restrictedPowers": [],
+      "savingThrowContext": "None"
+    }
+  ],
+  "indomitableSavingThrows": 0,
+  "canBorrowLuck": false,
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&DwarfSnowEnduranceTitle",
+    "description": "Feature/&DwarfSnowEnduranceDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "1c2193d0dfb68564b8862bdc84c6df9f",
+  "contentPack": "BaseGame",
+  "name": "SavingThrowAffinitySnowDwarfEndurance"
+}

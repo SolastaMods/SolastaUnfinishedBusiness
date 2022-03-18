@@ -2,7 +2,10 @@
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Multiclass.Models;
+using UnityModManagerNet;
+#if DEBUG
 using SolastaCommunityExpansion.Patches.Diagnostic;
+#endif
 
 namespace SolastaCommunityExpansion.Patches
 {
@@ -16,9 +19,13 @@ namespace SolastaCommunityExpansion.Patches
             ItemDefinitionVerification.Load();
             EffectFormVerification.Load();
 #endif
+            ResourceLocatorContext.Load();
 
             // Cache TA definitions for diagnostics and export
             DiagnosticsContext.CacheTADefinitions();
+
+            // Needs to be after CacheTADefinitions
+            CeContentPackContext.Load();
 
             AdditionalNamesContext.Load();
             AsiAndFeatContext.Load();
@@ -94,7 +101,28 @@ namespace SolastaCommunityExpansion.Patches
 
                 Main.Enabled = true;
                 Main.Logger.Log("Enabled.");
+
+                DisplayWelcomeMessage();
             };
+        }
+
+        private static void DisplayWelcomeMessage()
+        {
+            if (!Main.Settings.DisplayWelcomeMessage)
+            {
+                return;
+            }
+
+            Main.Settings.DisplayWelcomeMessage = false;
+
+            Gui.GuiService.ShowMessage(
+                MessageModal.Severity.Informative1,
+                "Message/&MessageModWelcomeTitle",
+                "Message/&MessageModWelcomeDescription",
+                "Message/&MessageOkTitle",
+                string.Empty,
+                () => UnityModManager.UI.Instance.ToggleWindow(),
+                null);
         }
     }
 }

@@ -1,0 +1,35 @@
+{
+  "$type": "MapWaypointDefinition, Assembly-CSharp",
+  "allowFastTravel": false,
+  "locationExit": false,
+  "longRestAvailable": false,
+  "forceCameraOrientation": false,
+  "cameraAngle": 0.0,
+  "fastTravelFromSameSectorOnly": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Map/&Location_BoneKeep_Laboratory_Title",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "384b4c776e6e49a4bb9e44b82118cccf",
+  "contentPack": "BaseGame",
+  "name": "MapWaypointDefinition_BoneKeep_Laboratory"
+}

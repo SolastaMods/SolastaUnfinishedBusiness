@@ -1,0 +1,40 @@
+{
+  "$type": "TravelEventDefinition, Assembly-CSharp",
+  "eventType": "CastFoodSpell",
+  "eventPeriodicity": "Unlimited",
+  "cooldownValue": 8,
+  "recordedInAdventureLog": false,
+  "dumpsAdventureLog": false,
+  "successLogEntries": [
+    "Travel/&TravelEventCastFoodSpellTitle"
+  ],
+  "failureLogEntries": [],
+  "otherLogEntries": [],
+  "ingredientGatheringProficiencies": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "dad6c597035353f4092d3f67c1094497",
+      "m_SubObjectName": "FoodHarvest",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "fbf2fa8f48794bb4ea81243432f679ae",
+  "contentPack": "BaseGame",
+  "name": "TravelEventCastFoodSpell"
+}

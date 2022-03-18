@@ -1,0 +1,33 @@
+{
+  "$type": "FightingStyleDefinition, Assembly-CSharp",
+  "features": [
+    "Definition:DieRollModifierFightingStyleGreatWeapon:3ae18874ff75d95478c32afeb9ca144e"
+  ],
+  "condition": "TwoHandedMeleeWeapon",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "FightingStyle/&GreatWeaponTitle",
+    "description": "FightingStyle/&GreatWeaponDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "1219ae912ec913e4fac04ff4b0249bc0",
+      "m_SubObjectName": "GreatWeapon",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 3,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "ab94d90f7226c7b4ca82f1829e495d02",
+  "contentPack": "BaseGame",
+  "name": "GreatWeapon"
+}

@@ -1,0 +1,35 @@
+{
+  "$type": "MapWaypointDefinition, Assembly-CSharp",
+  "allowFastTravel": true,
+  "locationExit": false,
+  "longRestAvailable": false,
+  "forceCameraOrientation": true,
+  "cameraAngle": -90.0,
+  "fastTravelFromSameSectorOnly": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Map/&Location_CCyflen_Temple_Misaye_Title",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "f6782cd6c105f9844aaf6e3948abcb7a",
+  "contentPack": "BaseGame",
+  "name": "MapWaypointDefinition_CaerCyflen_Temple_Misaye"
+}

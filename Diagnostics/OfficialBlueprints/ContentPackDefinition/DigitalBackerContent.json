@@ -1,0 +1,30 @@
+{
+  "$type": "ContentPackDefinition, Assembly-CSharp",
+  "hideWhenUnavailable": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "ContentPack/&DigitalBackerContentTitle",
+    "description": "ContentPack/&DigitalBackerContentDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "b1bb2b39ce6c01f4dbb00cc55bc1d1be",
+      "m_SubObjectName": "DigitalBackerContent",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 1,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "d90bd9484f5fc294fac26b21abacee4f",
+  "contentPack": "DigitalBackerContent",
+  "name": "DigitalBackerContent"
+}

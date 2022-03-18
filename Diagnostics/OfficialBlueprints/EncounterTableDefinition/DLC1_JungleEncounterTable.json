@@ -1,0 +1,186 @@
+{
+  "$type": "EncounterTableDefinition, Assembly-CSharp",
+  "encounterOccurences": [
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR8_DLC1_Dryads_Veterans_x1_x1_x1_x1:a132a624a7b0086499fb51720a76fd52"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR8_DLC1_SpectralMinotaur_x1:23603b4a9e4b9e34a9d7125d1b149f90"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR8_DLC1_MutantBears_x1_x2:9a55bdfa9333db4429aa5cd1e5923648"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR8_DLC1_CrimsonPhaseSpiders_x1_x1:e145e7467e880fc4490e9d018a237b82"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR9_DLC1_Beetles_CrimsonSpider_x1_x1_x1:37efcc5b988168240bb48c7e3a96bf13"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR9_DLC1_Mummy_Beetle_Skeletons_x1_x2_x2_x2:ed975aba8a29f9e42a58cbf30f08a2e7"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR10_DLC1_GiantApe_Apes_x1_x2_x1:279bf80685ad74943baddd35455cd783"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR10_DLC1_CrimsonBadlandsPhaseSpiders_x1_x2_x1_x2:7064a38bc0475204b93ac757233c5700"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR10_DLC1_MutantGiantApe_x1:f23b374f0fdaf1b47888c0f55240e56b"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR10_DLC1_Trolls_x1_x1:9607efac9cea4df46b93e905a13c515a"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR11_DLC1_Dryad_Bear_MutantBear_x1_x3_x1_x2:e12ec3df86dfaa749b5258bd03475321"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR11_DLC1_SpectralMino_Mummy_x1_x1:dc4c2cb794c2b0c46848a1dd1c11c848"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR12_DLC1_YoungRemorhaz_x1_x1:a5126390c1b88eb41972b42c0c612970"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR12_DLC1_TigerDrake_MutBlkBear_x2_x1_x1:b49b30ae605cb3840a92eb18bbfd8a54"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR12_DLC1_DeepCrimsonSpider_Dryad_x1_x1_x1_x1:e25b0f95fb2022948abf5cb5a3befc17"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR12_DLC1_GiantApe_Ape_x1_x3_x2:0b67f4755de2de1498816cb697de24eb"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR13_DLC1_MutBlkBear_MutDireWolf_x1_x1_x1:3d7f0c3053273834e933d0729961faaf"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR13_DLC1_ShamblingMounds_GiantCrows_x1_x1_x3:345ad4fdd8b549a47884f69b2601626d"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR13_DLC1_Troll_GhostWolf_x1_x2:1eb95c1499579424aa0b9d64b37b0838"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR13_DLC1_WightLord_Wight_Skeleton_x1_x2_x4:06cee3b383d441c4eb832fc1d35f3d89"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR14_DLC1_BadlandsHunter_DireWolf_ShockArca_FireJest_x1_x1_x1_x2:ac1c52996efc5b34b95a2d73b492a4ad"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR14_DLC1_Mutants_BlkBear_BwnBear_Dryad_x1_x1_x1_x1:e87cd022bb7bcd247baeb942f807d879"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR14_DLC1_Mutants_Bulette_BlkBear_Apes_x1_x1_x3:8fd3b3c952e4db3499f5dcd57c25094d"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR14_DLC1_StoneGiant_Troll_BrownBear_x1_x1_x2:32cf8c2f3259d414abe4ca810eeb6207"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR15_DLC1_BadlandsCrimsonPhaseSpiders_x4_x1_x1_x1:1dd44ed4160ed534c97cabecf0e088da"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR15_DLC1_CrimsonSpiders_x1_x1_x1:7de1b9fff7138e24f8b0ca475b66f881"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR15_DLC1_GiantApes_Ape_x1_x1_x1:5687b52b756c3b34390b825e25e56cbe"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR15_DLC1_GiantApes_Ape_x1_x1_x1:5687b52b756c3b34390b825e25e56cbe"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR15_DLC1_Mummy_Beetle_PhaseSpectralSpiders_x2_x2_x1_x2:89171dd75f5e0c246a6aac036328a5bb"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR15_DLC1_Mutants_GiantApe_Ape_x1_x3_x2:31a77c7b3d844eb4eb84d85e3105238d"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR15_DLC1_Trolls_MutBulette_x1_x1_x1:7f8b7974d053e8f43a829f843c9ffe1a"
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "ad742b09f6d7e854e86e33cef38d5bc9",
+  "contentPack": "BaseGame",
+  "name": "DLC1_JungleEncounterTable"
+}

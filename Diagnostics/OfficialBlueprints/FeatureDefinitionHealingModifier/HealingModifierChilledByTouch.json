@@ -1,0 +1,51 @@
+{
+  "$type": "FeatureDefinitionHealingModifier, Assembly-CSharp",
+  "healingBonusDiceNumber": 0,
+  "healingBonusDiceType": "D1",
+  "addLevel": "None",
+  "healsSelfWhenCastingHealingSpell": false,
+  "selfHealingDiceNumber": 2,
+  "selfHealingDiceType": "D1",
+  "selfHealingAddLevel": "EffectLevel",
+  "addsConditionWhenCastingHealingSpell": null,
+  "addedConditionOccurenceType": "StartOfTurn",
+  "cannotGainHitPoints": true,
+  "advantageOnHitDieSpending": false,
+  "maximizeReceivedHealing": false,
+  "hitDiceHealsKindred": false,
+  "healSelfHealsKindred": false,
+  "healingReceivedParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&HealingModifierNotHitPointGainDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "3ae4d007e0b9e314ab90c7099b6ecd5e",
+  "contentPack": "BaseGame",
+  "name": "HealingModifierChilledByTouch"
+}

@@ -1,0 +1,70 @@
+{
+  "$type": "SpellListDefinition, Assembly-CSharp",
+  "hasCantrips": true,
+  "maxSpellLevel": 3,
+  "spellsByLevel": [
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 0,
+      "spells": [
+        "Definition:ShadowDagger:3402c51b9ccb99b48bb7cb62eaa5dcab",
+        "Definition:ShockingGrasp:0bcfc5c29da450c4bb0f27df027616eb"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 1,
+      "spells": [
+        "Definition:ColorSpray:72939f681f479494e97e0025f67726fe",
+        "Definition:Sleep:9bfc9d5dc54cc2c4ab7e4baade97bf64",
+        "Definition:HideousLaughter:8773ef52f0dd71e4a8dbe8a2814b3cf4",
+        "Definition:Invisibility:191eaa38bdc35ea429f843cc00e7e559"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 2,
+      "spells": [
+        "Definition:Blur:277b11af157a3c84292024790e6173b3",
+        "Definition:HoldPerson:cbc582b44f08e7f4b8ea69077471bc64",
+        "Definition:MistyStep:f4619f117544fe148aae6952202da5e3",
+        "Definition:PrayerOfHealing:f560b05d2587f5e4894220356a589968"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 3,
+      "spells": [
+        "Definition:Counterspell:699759f98dacad84fb2d7323e0788179",
+        "Definition:HypnoticPattern:363c0134112bc864b871f0fef729be6b",
+        "Definition:Slow:ee93dd5046aabe14e90ba99da310fbb4"
+      ]
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "9f909327942d1104882e138af98fb49b",
+  "contentPack": "BaseGame",
+  "name": "SpellList_DLC1_Cafrain"
+}

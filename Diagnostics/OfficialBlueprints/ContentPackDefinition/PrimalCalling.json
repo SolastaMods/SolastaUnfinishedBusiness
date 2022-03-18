@@ -1,0 +1,30 @@
+{
+  "$type": "ContentPackDefinition, Assembly-CSharp",
+  "hideWhenUnavailable": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "ContentPack/&PrimalCallingTitle",
+    "description": "ContentPack/&PrimalCallingDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "4825c5e8388147249ac418bf27133eef",
+      "m_SubObjectName": "PrimalCalling",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 5,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "12290a8abc15d7445a22edd295ad30c1",
+  "contentPack": "PrimalCalling",
+  "name": "PrimalCalling"
+}

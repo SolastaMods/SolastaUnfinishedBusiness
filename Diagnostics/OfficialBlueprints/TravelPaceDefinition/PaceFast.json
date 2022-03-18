@@ -1,0 +1,31 @@
+{
+  "$type": "TravelPaceDefinition, Assembly-CSharp",
+  "travelDistancePerHour": 4.5,
+  "perceptionModifier": -5,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Travel/&PaceFastTitle",
+    "description": "Travel/&PaceFastDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 1,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "01d56b6779bdb064a98153edf6b30ff5",
+  "contentPack": "BaseGame",
+  "name": "PaceFast"
+}

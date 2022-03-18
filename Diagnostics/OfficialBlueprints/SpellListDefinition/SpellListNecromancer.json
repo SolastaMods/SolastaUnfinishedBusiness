@@ -1,0 +1,83 @@
+{
+  "$type": "SpellListDefinition, Assembly-CSharp",
+  "hasCantrips": true,
+  "maxSpellLevel": 5,
+  "spellsByLevel": [
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 0,
+      "spells": [
+        "Definition:ChillTouch:2dffe98ad497e4b418abc947f6077fb7"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 1,
+      "spells": [
+        "Definition:FalseLife:97d70ac4c94f31540aa7b7e1555b7a49"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 2,
+      "spells": [
+        "Definition:RayOfEnfeeblement:b617f68e7f041b74bb018ce5bf9a1c5c",
+        "Definition:Blindness:3470e52d7a8b472498ee397e2532db04",
+        "Definition:Darkness:b8d5ac9f43f55be479da08cd37744584",
+        "Definition:MistyStep:f4619f117544fe148aae6952202da5e3"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 3,
+      "spells": [
+        "Definition:VampiricTouch:149a2d0a835fda54b99a710e0dabfd53",
+        "Definition:BestowCurseAbilityStrength:736bfff6c69eac849851fa33129c6175"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 4,
+      "spells": [
+        "Definition:Blight:bd131ed580e31734abb8189ab7e17a10"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 5,
+      "spells": [
+        "Definition:ContagionFleshRot:80e942c3d5df81142b3465cd91a65c9f",
+        "Definition:ContagionBlindingSickness:95ebcecc68b07f74594e9bb612b8af6f",
+        "Definition:ContagionMindfire:6ffd4e8a6c8d9ce46a4a30975fa42d59",
+        "Definition:ContagionSeizure:1a78279ca24b51e47896fda724d5d0a8",
+        "Definition:ContagionSlimyDoom:b638a002e8fbad245bc051fa9c7fabc1"
+      ]
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "08936ed319481bd4a84a33222f3aad3d",
+  "contentPack": "BaseGame",
+  "name": "SpellListNecromancer"
+}

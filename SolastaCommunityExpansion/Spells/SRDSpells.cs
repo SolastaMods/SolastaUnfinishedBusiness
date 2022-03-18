@@ -4,6 +4,7 @@ using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaCommunityExpansion.Models;
+using SolastaCommunityExpansion.Patches.Bugfix;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -748,7 +749,8 @@ namespace SolastaCommunityExpansion.Spells
 
             effectDescription.Copy(DominatePerson.EffectDescription);
             effectDescription.RestrictedCreatureFamilies.Clear();
-            effectDescription.SetDurationType(RuleDefinitions.DurationType.Hour);
+            effectDescription.SetDuration(RuleDefinitions.DurationType.Hour, 1);
+            effectDescription.EffectAdvancement.SetAlteredDuration((RuleDefinitions.AdvancementDuration)AdvancementDurationEx.DominateMonster);
 
             return SpellDefinitionBuilder
                 .Create("DHDominateMonsterSpell", DhBaseGuid)
@@ -766,50 +768,50 @@ namespace SolastaCommunityExpansion.Spells
         private static SpellDefinition BuildFeeblemind()
         {
             EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
-            .SetDurationData(
-                RuleDefinitions.DurationType.Dispelled,
-                1,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn)
-            .SetTargetingData(
-                RuleDefinitions.Side.Enemy,
-                RuleDefinitions.RangeType.Distance,
-                30,
-                RuleDefinitions.TargetType.Individuals,
-                1,
-                1,
-                ActionDefinitions.ItemSelectionType.None)
-            .SetSavingThrowData(
-                true,
-                false,
-                SmartAttributeDefinitions.Intelligence.name,
-                true,
-                RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                SmartAttributeDefinitions.Intelligence.name,
-                20,
-                false,
-                new List<SaveAffinityBySenseDescription>()
-                )
-            .AddEffectForm(new EffectFormBuilder()
-                .SetConditionForm(
-                    FeeblemindConditionBuilder.FeeblemindCondition,
-                    ConditionForm.ConditionOperation.Add,
+                .SetDurationData(
+                    RuleDefinitions.DurationType.Dispelled,
+                    1,
+                    RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                .SetTargetingData(
+                    RuleDefinitions.Side.Enemy,
+                    RuleDefinitions.RangeType.Distance,
+                    30,
+                    RuleDefinitions.TargetType.Individuals,
+                    1,
+                    1,
+                    ActionDefinitions.ItemSelectionType.None)
+                .SetSavingThrowData(
+                    true,
                     false,
+                    SmartAttributeDefinitions.Intelligence.name,
+                    true,
+                    RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                    SmartAttributeDefinitions.Intelligence.name,
+                    20,
                     false,
-                    new List<ConditionDefinition>())
-                .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.Negates)
-                .Build())
-            .AddEffectForm(new EffectFormBuilder()
-                .SetDamageForm(
-                    false,
-                    RuleDefinitions.DieType.D6,
-                    RuleDefinitions.DamageTypePsychic,
-                    0,
-                    RuleDefinitions.DieType.D6,
-                    4,
-                    RuleDefinitions.HealFromInflictedDamage.Never,
-                    new List<RuleDefinitions.TrendInfo>()
+                    new List<SaveAffinityBySenseDescription>()
                     )
-                .Build());
+                .AddEffectForm(new EffectFormBuilder()
+                    .SetConditionForm(
+                        FeeblemindConditionBuilder.FeeblemindCondition,
+                        ConditionForm.ConditionOperation.Add,
+                        false,
+                        false,
+                        new List<ConditionDefinition>())
+                    .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.Negates)
+                    .Build())
+                .AddEffectForm(new EffectFormBuilder()
+                    .SetDamageForm(
+                        false,
+                        RuleDefinitions.DieType.D6,
+                        RuleDefinitions.DamageTypePsychic,
+                        0,
+                        RuleDefinitions.DieType.D6,
+                        4,
+                        RuleDefinitions.HealFromInflictedDamage.Never,
+                        new List<RuleDefinitions.TrendInfo>()
+                        )
+                    .Build());
 
             GreaterRestoration.EffectDescription.EffectForms[0].ConditionForm.ConditionsList.Add(FeeblemindConditionBuilder.FeeblemindCondition);
 

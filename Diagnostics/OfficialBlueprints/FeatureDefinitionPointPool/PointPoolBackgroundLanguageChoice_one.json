@@ -1,0 +1,43 @@
+{
+  "$type": "FeatureDefinitionPointPool, Assembly-CSharp",
+  "poolType": "Language",
+  "poolAmount": 1,
+  "restrictedChoices": [
+    "Language_Dwarvish",
+    "Language_Halfling",
+    "Language_Orc",
+    "Language_Goblin",
+    "Language_Giant",
+    "Language_Terran",
+    "Language_Tirmarian",
+    "Language_Elvish",
+    "Language_Draconic"
+  ],
+  "uniqueChoices": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&BackgroundLanguages",
+    "description": "Feature/&Background01LanguagesTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "c6ab6f54fa4248243a511ad3151b117c",
+  "contentPack": "BaseGame",
+  "name": "PointPoolBackgroundLanguageChoice_one"
+}

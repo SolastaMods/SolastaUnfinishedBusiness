@@ -40,15 +40,6 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
         #endregion
 
-        #region Create
-        
-        public static FeatureDefinitionAutoPreparedSpellsBuilder Create(string name, Guid namespaceGuid)
-        {
-            return new FeatureDefinitionAutoPreparedSpellsBuilder(name, namespaceGuid);
-        }
-        
-        #endregion
-
         public FeatureDefinitionAutoPreparedSpellsBuilder SetPreparedSpellGroups(params AutoPreparedSpellsGroup[] autospelllists)
         {
             return SetPreparedSpellGroups(autospelllists.AsEnumerable());

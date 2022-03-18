@@ -30,22 +30,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     Main.Settings.UseOfficialAdvantageDisadvantageRules = toggle;
                 }
 
-                toggle = Main.Settings.UseOfficialCombatSurpriseRules;
-                if (UI.Toggle("Use official combat surprise rules", ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.UseOfficialCombatSurpriseRules = toggle;
-                    Main.Settings.RollDifferentStealthChecksForEachCharacterPair = toggle; // makes many rolls default
-                }
-
-                if (Main.Settings.UseOfficialCombatSurpriseRules)
-                {
-                    toggle = Main.Settings.RollDifferentStealthChecksForEachCharacterPair;
-                    if (UI.Toggle("+ Roll different ".italic() + "Stealth".italic().orange() + " checks for each surprised / surprising character pairs".italic(), ref toggle, UI.AutoWidth()))
-                    {
-                        Main.Settings.RollDifferentStealthChecksForEachCharacterPair = toggle;
-                    }
-                }
-
                 UI.Label("");
 
                 toggle = Main.Settings.AddBleedingToLesserRestoration;
@@ -60,6 +44,12 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 {
                     Main.Settings.BlindedConditionDontAllowAttackOfOpportunity = toggle;
                     SrdAndHouseRulesContext.ApplyConditionBlindedShouldNotAllowOpportunityAttack();
+                }
+
+                toggle = Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove;
+                if (UI.Toggle("Bestow Curse".orange() + " does not require concentration when cast with L5+ spell slot", ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove = toggle;
                 }
 
                 UI.Label("");
@@ -98,30 +88,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     if (UI.Toggle("+ Only show the most powerful creatures in the conjuration list".italic(), ref toggle, UI.AutoWidth()))
                     {
                         Main.Settings.OnlyShowMostPowerfulUpcastConjuredElementalOrFey = toggle;
-                    }
-                }
-
-                toggle = Main.Settings.SpikeGrowthDoesNotAffectFlyingCreatures;
-                if (UI.Toggle("Spike Growth".orange() + " does not affect flying creatures flying higher than 1 cell", ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.SpikeGrowthDoesNotAffectFlyingCreatures = toggle;
-                    HouseSpellTweaks.SpikeGrowthDoesNotAffectFlyingCreatures();
-                }
-
-                toggle = Main.Settings.SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures;
-                if (UI.Toggle("Black Tentacles, Entangle, Grease".orange() + " do not affect flying creatures flying higher than 1 cell", ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures = toggle;
-                    HouseSpellTweaks.SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures();
-                }
-
-                if (Main.Settings.SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures)
-                {
-                    toggle = Main.Settings.EnableTargetTypeSquareCylinder;
-                    if (UI.Toggle("+ Use a square area of effect for these spells ".italic() + "[A circular area requires less code changes but is non-SRD]".yellow().italic(), ref toggle, UI.AutoWidth()))
-                    {
-                        Main.Settings.EnableTargetTypeSquareCylinder = toggle;
-                        HouseSpellTweaks.SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures();
                     }
                 }
             }
@@ -179,6 +145,14 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 if (UI.Toggle("Quick cast light cantrip uses head or torso worn items first", ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.QuickCastLightCantripOnWornItemsFirst = toggle;
+                }
+
+                toggle = Main.Settings.UseHeightOneCylinderEffect;
+                if (UI.Toggle("Display a height 1 cylinder effect when casting " + "Black Tentacles, Entangle, Grease ".orange() +
+                    " (square cylinder), ".yellow() + "Spike Growth".orange() + " (round cylinder).".yellow(), ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.UseHeightOneCylinderEffect = toggle;
+                    HouseSpellTweaks.UseHeightOneCylinderEffect();
                 }
 
                 UI.Label("");

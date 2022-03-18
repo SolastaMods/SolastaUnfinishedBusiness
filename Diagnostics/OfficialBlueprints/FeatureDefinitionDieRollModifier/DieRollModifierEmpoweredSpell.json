@@ -1,0 +1,39 @@
+{
+  "$type": "FeatureDefinitionDieRollModifier, Assembly-CSharp",
+  "minRollValue": 0,
+  "maxRollValue": 0,
+  "minRerollValue": 2,
+  "rerollCount": 1,
+  "rerollLocalizationKey": "Feature/&MetamagicOptionEmpoweredSpellRerollDescription",
+  "forcedMinimalHalfDamageOnDice": false,
+  "validityContext": "MagicDamageValueRoll",
+  "requireProficiency": false,
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "4f1ded0678f0d6e4eb6f1ed237699a99",
+  "contentPack": "BaseGame",
+  "name": "DieRollModifierEmpoweredSpell"
+}

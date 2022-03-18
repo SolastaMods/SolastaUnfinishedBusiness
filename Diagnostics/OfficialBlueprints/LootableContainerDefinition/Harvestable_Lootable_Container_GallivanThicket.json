@@ -1,0 +1,34 @@
+{
+  "$type": "LootableContainerDefinition, Assembly-CSharp",
+  "minSlotsNumber": 3,
+  "contentAlwaysKnown": false,
+  "forbidDrop": true,
+  "ignoredByScavengers": false,
+  "restrictedItems": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&ContainerHarvestable_GallivanThicket_Title",
+    "description": "Equipment/&ContainerHarvestable_GallivanThicket_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "b69cb00e0f2c8e04fb297cb23bf56e38",
+  "contentPack": "BaseGame",
+  "name": "Harvestable_Lootable_Container_GallivanThicket"
+}

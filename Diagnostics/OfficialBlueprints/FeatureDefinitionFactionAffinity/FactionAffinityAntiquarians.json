@@ -1,0 +1,37 @@
+{
+  "$type": "FeatureDefinitionFactionAffinity, Assembly-CSharp",
+  "operation": {
+    "$type": "FactionOperationDescription, Assembly-CSharp",
+    "operation": "Increase",
+    "factionName": "Antiquarians",
+    "value": 15,
+    "statusName": "",
+    "prominentMember": null
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&AcademicFeatureTitle",
+    "description": "Feature/&AcademicFeatureDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "c32fe5a697f0a4a4b9790d01eaece3e8",
+  "contentPack": "BaseGame",
+  "name": "FactionAffinityAntiquarians"
+}

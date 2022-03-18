@@ -1,0 +1,33 @@
+{
+  "$type": "EncounterDefinition, Assembly-CSharp",
+  "type": "Event",
+  "challengeRating": 2,
+  "locationOverride": "Definition:Tower_Of_Magic_Leaving_LocationDB:66216c14b57cd494ab2fdd875d35c426",
+  "monsterOccurences": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Travel/&TravelEventCrownAttunedTitle",
+    "description": "Travel/&TravelEventCrownAttunedDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "03eb69a5238a1b048abf229247ce7ce3",
+  "contentPack": "BaseGame",
+  "name": "TowerOfMagicToCaerCyflenEncounter"
+}

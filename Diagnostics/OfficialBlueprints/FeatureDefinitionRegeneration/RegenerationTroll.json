@@ -1,0 +1,46 @@
+{
+  "$type": "FeatureDefinitionRegeneration, Assembly-CSharp",
+  "diceNumber": 10,
+  "dieType": "D1",
+  "bonus": 0,
+  "tickType": "Round",
+  "tickNumber": 1,
+  "preventingDamages": [
+    "DamageAcid",
+    "DamageFire"
+  ],
+  "particlePrefab": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "f0d2a21e8abd2904e864344466211740",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Monster/&Troll_Regeneration_Title",
+    "description": "Monster/&Troll_Regeneration_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "cfeea454e6de2b940a6132741a2fee41",
+  "contentPack": "BaseGame",
+  "name": "RegenerationTroll"
+}

@@ -1,0 +1,37 @@
+{
+  "$type": "FeatureDefinitionSubclassChoice, Assembly-CSharp",
+  "subclasses": [
+    "OathOfDevotion",
+    "OathOfTheMotherland",
+    "OathOfTirmar",
+    "OathOfJugement"
+  ],
+  "filterByDeity": false,
+  "subclassSuffix": "Oath",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&PaladinSacredOathTitle",
+    "description": "Feature/&PaladinSacredOathDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "1e2db957bbd51d342af5b952c6c5176b",
+  "contentPack": "BaseGame",
+  "name": "SubclassChoicePaladinSacredOaths"
+}

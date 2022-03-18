@@ -1,0 +1,33 @@
+{
+  "$type": "FeatureDefinitionSense, Assembly-CSharp",
+  "senseType": "SuperiorDarkvision",
+  "senseRange": 16,
+  "stealthBreakerRange": 6,
+  "revealsHiddenObjects": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&VisionSuperiorDarkvisionTitle",
+    "description": "Feature/&VisionSuperiorDarkvisionDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 1,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "388ca3fa81ee8a84c831be14214fd1c0",
+  "contentPack": "BaseGame",
+  "name": "SenseSuperiorDarkvision"
+}

@@ -2,11 +2,6 @@
 
 namespace SolastaCommunityExpansion.CustomFeatureDefinitions
 {
-    public interface ICustomFightingStyle
-    {
-        bool IsActive(RulesetCharacterHero character);
-    }
-
     public delegate bool IsActiveFightingStyleDelegate(RulesetCharacterHero character);
 
     public class CustomizableFightingStyleDefinition : FightingStyleDefinition, ICustomFightingStyle
@@ -24,15 +19,10 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
         }
     }
 
-    public sealed class CustomizableFightingStyleBuilder : FightingStyleDefinitionBuilder<CustomizableFightingStyleDefinition, CustomizableFightingStyleBuilder>
+    public class CustomizableFightingStyleBuilder : FightingStyleDefinitionBuilder<CustomizableFightingStyleDefinition, CustomizableFightingStyleBuilder>
     {
-        private CustomizableFightingStyleBuilder(string name, string guid) : base(name, guid)
+        protected CustomizableFightingStyleBuilder(string name, string guid) : base(name, guid)
         {
-        }
-
-        public static CustomizableFightingStyleBuilder Create(string name, string guid)
-        {
-            return new CustomizableFightingStyleBuilder(name, guid);
         }
 
         public CustomizableFightingStyleBuilder SetIsActive(IsActiveFightingStyleDelegate del)

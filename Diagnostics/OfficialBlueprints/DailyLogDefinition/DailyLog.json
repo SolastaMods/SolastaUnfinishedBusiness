@@ -1,0 +1,40 @@
+{
+  "$type": "DailyLogDefinition, Assembly-CSharp",
+  "headerHeight": 54,
+  "tableBottomMargin": 11,
+  "subItemHeight": 24,
+  "subItemSpacing": 11,
+  "areaWidth": 298.0,
+  "spacing": 0.0,
+  "maxEntries": -1,
+  "maxSerializedEntries": -1,
+  "layout": "VerticalList",
+  "offsetX": 2.0,
+  "offsetY": 2.0,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "2064dd2be5662774b9ba9baf73b2b8d4",
+  "contentPack": "BaseGame",
+  "name": "DailyLog"
+}

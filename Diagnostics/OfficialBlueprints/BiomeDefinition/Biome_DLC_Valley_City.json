@@ -1,0 +1,68 @@
+{
+  "$type": "BiomeDefinition, Assembly-CSharp",
+  "terrainType": "Forest",
+  "encounterTable": "Definition:DLC1_EncounterTableFull:7f0d2ac20b75e4143829ba379f6be73e",
+  "narrativeEventBasicLines": [
+    "Travel/&DLC1_StandardRandomEvents1",
+    "Travel/&DLC1_StandardRandomEvents2",
+    "Travel/&DLC1_StandardRandomEvents3",
+    "Travel/&DLC1_StandardRandomEvents4",
+    "Travel/&DLC1_StandardRandomEvents5",
+    "Travel/&DLC1_StandardRandomEvents6",
+    "Travel/&DLC1_StandardRandomEvents7",
+    "Travel/&DLC1_StandardRandomEvents8",
+    "Travel/&DLC1_StandardRandomEvents9",
+    "Travel/&DLC1_StandardRandomEvents10",
+    "Travel/&DLC1_StandardRandomEvents11",
+    "Travel/&DLC1_StandardRandomEvents12",
+    "Travel/&DLC1_StandardRandomEvents13",
+    "Travel/&DLC1_StandardRandomEvents14",
+    "Travel/&DLC1_StandardRandomEvents15",
+    "Travel/&DLC1_StandardRandomEvents21",
+    "Travel/&DLC1_StandardRandomEvents22",
+    "Travel/&DLC1_StandardRandomEvents23",
+    "Travel/&DLC1_StandardRandomEvents24",
+    "Travel/&DLC1_StandardRandomEvents25",
+    "Travel/&StandardRandomEvents1Title",
+    "Travel/&StandardRandomEvents11Title",
+    "Travel/&StandardRandomEvents7Title",
+    "Travel/&StandardRandomEvents8Title",
+    "Travel/&StandardRandomEvents9Title"
+  ],
+  "encounterLocations": [
+    "Definition:DLC1_Encounter_Jungle_River_LocationDB:37a12bdacdb526c41abebe05a5cf2359",
+    "Definition:DLC1_Encounter_Jungle_Ruin_LocationDB:aaff8b2e23eb7794da24e12827427454",
+    "Definition:DLC1_Encounter_Jungle_Village_LocationDB:3e811de9356099c4db4a7dc291711eec",
+    "Definition:DLC1_Encounter_Bridge_LocationDB:65d167a73f6102a4e925e8cd4974792c",
+    "Definition:DLC1_Encounter_Mines_LocationDB:756c643c07a7edd4685c4ad3fae33001",
+    "Definition:DLC1_Encounter_Cave_LocationDB:307cfe0d1a2fdfe4ca4f2252a5ec735a",
+    "Definition:DLC1_Encounter_Jungle_Road_LocationDB:d805c113000390f4c8b4a12603068534",
+    "Definition:DLC1_Encounter_Stonehenge_LocationDB:6f36ad76bfa3d764a8e1e80ebe274845"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "613aad43b73624c499d99ebe3c736150",
+  "contentPack": "BaseGame",
+  "name": "Biome_DLC_Valley_City"
+}

@@ -82,15 +82,5 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
         #endregion
-
-        public static FeatureDefinitionConditionAffinityBuilder Create(string name, Guid namespaceGuid)
-        {
-            return new FeatureDefinitionConditionAffinityBuilder(name, namespaceGuid);
-        }
-
-        public static FeatureDefinitionConditionAffinityBuilder Create(FeatureDefinitionConditionAffinity original, string name, Guid namespaceGuid)
-        {
-            return new FeatureDefinitionConditionAffinityBuilder(original, name, namespaceGuid);
-        }
     }
 }

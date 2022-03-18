@@ -1,0 +1,54 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:summonArtificialServantPower:d321d6f8-079e-58b9-b921-99a38fbf54bc",
+    "Definition:ArtificerInfusionEnhancedArmor:982235c8-0db8-5434-9e98-735e9270f271",
+    "Definition:ArtificerInfusionBagOfHolding:269fb5c5-2ce1-5847-976d-52a98d54f459",
+    "Definition:PowerInfuseDarkvision:22179db3-5388-51b3-877d-767775c0c600",
+    "Definition:ArtificerInfusionEnhancedFocus:47b9e913-683a-5a89-86d5-4d5ab3c4be2f",
+    "Definition:ArtificerInfusionEnhancedWeapon:2e54572b-87bb-5aca-8e97-085229100b71",
+    "Definition:ArtificerInfusionMindSharpener:9235b3d1-9d88-5252-a64b-cf177e136e37",
+    "Definition:ArtificerInfusionArmorMagicalStrength:402dc3fd-b077-5b36-9ab4-75bce2f185f8",
+    "Definition:ArtificerInfusionResistantArmor:f1cf1453-6880-5d61-afca-ba3e8e04a50f",
+    "Definition:ArtificerInfusionSpellRefuelingRing:11db5224-48f2-58ad-bc8f-028b6ad08cd3",
+    "Definition:ArtificerInfusionBlindingWeapon:b966dade-2f9b-5fa2-9c69-62f907b594d5",
+    "Definition:PowerInfuseBootsOfElvenKind:fd14fb70-587a-5976-8f4c-537e51f666d1",
+    "Definition:PowerInfuseCloakOfElvenKind:1b8d7f3b-af58-5ff4-bf85-e3ba5a060baf",
+    "Definition:PowerInfuseBracesrOfArchery:5deca2d1-c86b-588a-92d9-f2e09aa5a092",
+    "Definition:PowerInfuseCloakOfProtection:ec761e6a-4e51-515c-943f-2474090dac2d",
+    "Definition:PowerInfuseGauntletsOfOgrePower:271dc4fe-5311-581b-bc53-f0a3c4f387d4",
+    "Definition:PowerInfuseHeadbandOfIntellect:5b9e8153-844f-50ed-8c48-0ed480059748",
+    "Definition:PowerInfuseSlippersOfSpiderClimbing:c38b716b-69b4-511c-8081-1b5cc8a54f8a"
+  ],
+  "mode": "Exclusion",
+  "defaultSelection": 0,
+  "uniqueChoices": true,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&TinkererInfusionChoiceTitle",
+    "description": "Subclass/&TinkererInfusionChoiceDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "2795e1ef-0e6d-5765-ba7a-dd1b6b2665a1",
+  "contentPack": 9999,
+  "name": "TinkererLevel10InfusionChoice"
+}

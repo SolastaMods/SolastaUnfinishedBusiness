@@ -1,0 +1,37 @@
+{
+  "$type": "FeatureDefinitionSubclassChoice, Assembly-CSharp",
+  "subclasses": [
+    "SorcerousDraconicBloodline",
+    "SorcerousManaPainter",
+    "SorcerousChildRift",
+    "SorcerousHauntedSoul"
+  ],
+  "filterByDeity": false,
+  "subclassSuffix": "Sorcerous",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&SorcererSorcerousOriginTitle",
+    "description": "Feature/&SorcererSorcerousOriginDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "9245ee52f3a8e0d4b8261797ea459062",
+  "contentPack": "BaseGame",
+  "name": "SubclassChoiceSorcerousOrigin"
+}

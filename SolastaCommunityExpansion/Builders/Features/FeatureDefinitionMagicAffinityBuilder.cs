@@ -29,28 +29,6 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
         #endregion
 
-        #region Factory methods
-        public static FeatureDefinitionMagicAffinityBuilder Create(string name, string guid)
-        {
-            return new FeatureDefinitionMagicAffinityBuilder(name, guid);
-        }
-
-        public static FeatureDefinitionMagicAffinityBuilder Create(string name, Guid namespaceGuid)
-        {
-            return new FeatureDefinitionMagicAffinityBuilder(name, namespaceGuid);
-        }
-
-        public static FeatureDefinitionMagicAffinityBuilder Create(FeatureDefinitionMagicAffinity original, string name, string guid)
-        {
-            return new FeatureDefinitionMagicAffinityBuilder(original, name, guid);
-        }
-
-        public static FeatureDefinitionMagicAffinityBuilder Create(FeatureDefinitionMagicAffinity original, string name, Guid namespaceGuid)
-        {
-            return new FeatureDefinitionMagicAffinityBuilder(original, name, namespaceGuid);
-        }
-        #endregion
-
         public FeatureDefinitionMagicAffinityBuilder SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity concentrationAffinity,
                int threshold)
         {

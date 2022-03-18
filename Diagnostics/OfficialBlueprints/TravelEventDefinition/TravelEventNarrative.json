@@ -1,0 +1,38 @@
+{
+  "$type": "TravelEventDefinition, Assembly-CSharp",
+  "eventType": "Narrative",
+  "eventPeriodicity": "CooldownHours",
+  "cooldownValue": 1,
+  "recordedInAdventureLog": true,
+  "dumpsAdventureLog": false,
+  "successLogEntries": [],
+  "failureLogEntries": [],
+  "otherLogEntries": [],
+  "ingredientGatheringProficiencies": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "879840824f3300f4d93f13dc592ff172",
+      "m_SubObjectName": "Narrative",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "bf2b4d417c915844f8c1edcee329a58b",
+  "contentPack": "BaseGame",
+  "name": "TravelEventNarrative"
+}

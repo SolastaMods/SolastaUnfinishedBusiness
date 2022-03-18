@@ -1,0 +1,72 @@
+{
+  "$type": "DieStyleDefinition, Assembly-CSharp",
+  "d4MaterialReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "afaedc86eadfa39449ebbdce2bf72e3e",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "d6MaterialReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "a413faf3cdf018d4caf0ae1478f7e032",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "d8MaterialReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "0d9aac46504bc0247b1244e7510f3648",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "d10MaterialReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "aafc08faefa817c4093333cad1caf8e9",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "d12MaterialReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "fea655ed5b51c7f48b37adaba001f800",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "d20MaterialReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "96a73e50fb23d7341a231e7f8340f997",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "particlePrefabReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "b8103703c6508a747be96d27b070ac68",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "useMetallicLayer": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "DieStyle/&DieStyleLightningTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "5bd2d857ff2250a428c11948a9c7813f",
+      "m_SubObjectName": "DieStyleLightning",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 0.9640484,
+      "b": 0.3443396,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 12,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "47e8a61e81e2ed94ea357ca6741f446d",
+  "contentPack": "SupporterPack",
+  "name": "DieStyleLightning"
+}

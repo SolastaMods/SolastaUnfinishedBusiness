@@ -117,11 +117,8 @@ namespace SolastaCommunityExpansion.Models
                 }
 
                 var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
-
-                characterBuildingService.CreateNewCharacter();
-
                 var oldHero = functorParameters.RestingHero;
-                var newHero = characterBuildingService.HeroCharacter;
+                var newHero = characterBuildingService.CreateNewCharacter().HeroCharacter;
 
                 DropSpellbooksIfRequired(oldHero);
 
@@ -153,7 +150,7 @@ namespace SolastaCommunityExpansion.Models
                 var characterCreationScreen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
                 var restModalScreen = Gui.GuiService.GetScreen<RestModal>();
 
-                restModalScreen.KeepCurrentstate = true;
+                restModalScreen.KeepCurrentState = true;
                 restModalScreen.Hide(true);
                 characterCreationScreen.OriginScreen = restModalScreen;
                 characterCreationScreen.Show();

@@ -31,10 +31,6 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
         internal MasterManipulator()
         {
             // Make Control Master subclass
-            CharacterSubclassDefinitionBuilder controlMaster = CharacterSubclassDefinitionBuilder
-                .Create("MasterManipulator", SubclassNamespace)
-                .SetGuiPresentation("TraditionMasterManipulator", Category.Subclass, RoguishShadowCaster.GuiPresentation.SpriteReference);
-
             var arcaneControlAffinity = FeatureDefinitionMagicAffinityBuilder
                 .Create("MagicAffinityControlHeightened", SubclassNamespace)
                 .SetWarList(1,
@@ -52,16 +48,12 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                     SpellDefinitions.HoldMonster.Name) // Enchantment           
                 .SetGuiPresentation("MagicAffinityMasterManipulatorList", Category.Subclass)
                 .AddToDB();
-            controlMaster.AddFeatureAtLevel(arcaneControlAffinity, 2);
-            controlMaster.AddFeatureAtLevel(DcIncreaseAffinity, 6);
 
             FeatureDefinitionProficiency proficiency = FeatureDefinitionProficiencyBuilder
                 .Create("ManipulatorMentalSavingThrows", SubclassNamespace)
                 .SetGuiPresentation(Category.Subclass)
                 .SetProficiencies(RuleDefinitions.ProficiencyType.SavingThrow, AttributeDefinitions.Charisma, AttributeDefinitions.Constitution)
                 .AddToDB();
-
-            controlMaster.AddFeatureAtLevel(proficiency, 10);
 
             FeatureDefinitionPower powerDominate = FeatureDefinitionPowerBuilder
                 .Create("PowerManipulatorDominatePerson", SubclassNamespace)
@@ -75,9 +67,13 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                     SpellDefinitions.DominatePerson.EffectDescription, false /* unique instance */)
                 .AddToDB();
 
-            controlMaster.AddFeatureAtLevel(powerDominate, 14);
-
-            Subclass = controlMaster.AddToDB();
+            Subclass = CharacterSubclassDefinitionBuilder
+                .Create("MasterManipulator", SubclassNamespace)
+                .SetGuiPresentation("TraditionMasterManipulator", Category.Subclass, RoguishShadowCaster.GuiPresentation.SpriteReference)
+                .AddFeatureAtLevel(arcaneControlAffinity, 2)
+                .AddFeatureAtLevel(DcIncreaseAffinity, 6)
+                .AddFeatureAtLevel(proficiency, 10)
+                .AddFeatureAtLevel(powerDominate, 14).AddToDB();
         }
 
         private static GuiPresentationBuilder GetSpellDCPresentation()

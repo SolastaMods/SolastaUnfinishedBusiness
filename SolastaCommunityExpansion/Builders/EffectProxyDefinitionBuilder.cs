@@ -26,26 +26,6 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        public static EffectProxyDefinitionBuilder Create(string name, string guid)
-        {
-            return new EffectProxyDefinitionBuilder(name, guid);
-        }
-
-        public static EffectProxyDefinitionBuilder Create(string name, Guid namespaceGuid)
-        {
-            return new EffectProxyDefinitionBuilder(name, namespaceGuid);
-        }
-
-        public static EffectProxyDefinitionBuilder Create(EffectProxyDefinition original, string name, string guid)
-        {
-            return new EffectProxyDefinitionBuilder(original, name, guid);
-        }
-
-        public static EffectProxyDefinitionBuilder Create(EffectProxyDefinition original, string name, Guid namespaceGuid)
-        {
-            return new EffectProxyDefinitionBuilder(original, name, namespaceGuid);
-        }
-
         public EffectProxyDefinitionBuilder SetAttack(bool canAttack, RuleDefinitions.ProxyAttackMethod attackMethod,
             RuleDefinitions.DieType damageDie, string damageType)
         {

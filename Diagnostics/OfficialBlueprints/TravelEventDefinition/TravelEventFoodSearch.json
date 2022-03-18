@@ -1,0 +1,49 @@
+{
+  "$type": "TravelEventDefinition, Assembly-CSharp",
+  "eventType": "FoodSearch",
+  "eventPeriodicity": "OncePerDay",
+  "cooldownValue": 8,
+  "recordedInAdventureLog": true,
+  "dumpsAdventureLog": false,
+  "successLogEntries": [
+    "Travel/&TravelEventFoodSearchSuccess1Title",
+    "Travel/&TravelEventFoodSearchSuccess2Title",
+    "Travel/&TravelEventFoodSearchSuccess3Title",
+    "Travel/&TravelEventFoodSearchSuccess4Title",
+    "Travel/&TravelEventFoodSearchSuccess5Title",
+    "Travel/&TravelEventFoodSearchSuccess6Title",
+    "Travel/&TravelEventFoodSearchSuccess7Title",
+    "Travel/&TravelEventFoodSearchSuccess8Title"
+  ],
+  "failureLogEntries": [
+    "Travel/&TravelEventFoodSearchFailure1Title"
+  ],
+  "otherLogEntries": [],
+  "ingredientGatheringProficiencies": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "dad6c597035353f4092d3f67c1094497",
+      "m_SubObjectName": "FoodHarvest",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "631bfc8bb77557e4c85363977ee18a83",
+  "contentPack": "BaseGame",
+  "name": "TravelEventFoodSearch"
+}

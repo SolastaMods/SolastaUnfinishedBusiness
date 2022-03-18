@@ -5,31 +5,35 @@ namespace SolastaCommunityExpansion.Builders
 {
     public class MonsterAttackDefinitionBuilder : DefinitionBuilder<MonsterAttackDefinition, MonsterAttackDefinitionBuilder>
     {
-        public MonsterAttackDefinitionBuilder(string name, string guid) :
-            base(name, guid)
+        #region Constructors
+        protected MonsterAttackDefinitionBuilder(MonsterAttackDefinition original) : base(original)
         {
         }
 
-        public MonsterAttackDefinitionBuilder(string name, Guid namespaceGuid) :
-            base(name, namespaceGuid)
+        protected MonsterAttackDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
-        public MonsterAttackDefinitionBuilder(MonsterAttackDefinition original, string name, string guid) :
-            base(original, name, guid)
+        protected MonsterAttackDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
         {
         }
 
-        public MonsterAttackDefinitionBuilder(MonsterAttackDefinition original, string name, Guid namespaceGuid) :
-            base(original, name, namespaceGuid)
+        protected MonsterAttackDefinitionBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
         {
         }
 
-        public MonsterAttackDefinitionBuilder SetToHitBonus(int value)
+        protected MonsterAttackDefinitionBuilder(MonsterAttackDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
-            Definition.SetToHitBonus(value);
-            return this;
         }
+
+        protected MonsterAttackDefinitionBuilder(MonsterAttackDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected MonsterAttackDefinitionBuilder(MonsterAttackDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+        #endregion
 
         public MonsterAttackDefinitionBuilder SetDamageBonusOfFirstDamageForm(int value)
         {

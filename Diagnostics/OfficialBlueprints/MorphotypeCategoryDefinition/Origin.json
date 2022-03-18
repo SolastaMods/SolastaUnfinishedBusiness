@@ -1,0 +1,33 @@
+{
+  "$type": "MorphotypeCategoryDefinition, Assembly-CSharp",
+  "choiceForm": "Image",
+  "hasDependency": false,
+  "dependency": "Max",
+  "dependencyNoneEntry": "",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Stage/&IdentityMorphotypeOriginHeader",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "94f7b1b5d18cfa14bbad6147c41837f9",
+      "m_SubObjectName": "MorphotypeOrigin",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "1f2ce85f636c5954a94d99a319ae9288",
+  "contentPack": "BaseGame",
+  "name": "Origin"
+}

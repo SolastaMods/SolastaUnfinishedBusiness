@@ -1,0 +1,30 @@
+{
+  "$type": "SmartAttributeDefinition, Assembly-CSharp",
+  "modifiedAttributes": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Attribute/&CriticalThresholdTitle",
+    "description": "Attribute/&CriticalThresholdDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "d69397fd334370642b9d01ed7b67d41b",
+  "contentPack": "BaseGame",
+  "name": "CriticalThreshold"
+}

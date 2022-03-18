@@ -1,0 +1,64 @@
+{
+  "$type": "VoiceDefinition, Assembly-CSharp",
+  "sex": "Male",
+  "individualName": "homer",
+  "amplitude": 0.5,
+  "speechSpeed": 1.0,
+  "wavePrefix": "MAL2",
+  "wavePath": "Voices/",
+  "wwiseSuffix": "_M2",
+  "wwiseSwitch": {
+    "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": {
+      "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseSwitchGroupReference": {
+        "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+        "objectName": "Switch_VoiceBarks",
+        "id": 2399735075,
+        "guid": "DE1F7659-53C9-4C44-B92C-831E6C72E0E8",
+        "name": "DE1F7659-53C9-4C44-B92C-831E6C72E0E8"
+      },
+      "objectName": "M2",
+      "id": 1685527108,
+      "guid": "6E00ABFD-CFE2-4527-B995-7756C866369E",
+      "name": "6E00ABFD-CFE2-4527-B995-7756C866369E"
+    },
+    "groupIdInternal": 0,
+    "groupGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    },
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "availableInCharacterCreation": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Voice/&Voice1Title",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "59f0def61240042a9ac0e2492f8771ca",
+  "contentPack": "BaseGame",
+  "name": "MAL1"
+}

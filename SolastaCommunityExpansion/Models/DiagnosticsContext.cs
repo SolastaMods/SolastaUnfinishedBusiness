@@ -15,14 +15,17 @@ namespace SolastaCommunityExpansion.Models
         private const string OFFICIAL_BP_FOLDER = "OfficialBlueprints";
         private const string COMMUNITY_EXPANSION_BP_FOLDER = "CommunityExpansionBlueprints";
 
+        private static Dictionary<BaseDefinition, BaseDefinition> TABaseDefinitionAndCopy;
         private static BaseDefinition[] TABaseDefinitions;
         private static Dictionary<Type, BaseDefinition[]> TABaseDefinitionsMap;
         private static BaseDefinition[] CEBaseDefinitions;
+        private static HashSet<BaseDefinition> CEBaseDefinitions2;
         private static Dictionary<Type, BaseDefinition[]> CEBaseDefinitionsMap;
 
         internal const string GAME_FOLDER = ".";
         internal const int TA = 0;
         internal const int CE = 1;
+        internal const int TA2 = 2;
         internal const string ProjectEnvironmentVariable = "SolastaCEProjectDir";
 
         internal static readonly string ProjectFolder = Environment.GetEnvironmentVariable(ProjectEnvironmentVariable, EnvironmentVariableTarget.Machine);
@@ -31,7 +34,7 @@ namespace SolastaCommunityExpansion.Models
 
         private static string GetDiagnosticsFolder()
         {
-            var path = Path.Combine(ProjectFolder ?? GAME_FOLDER, @"SolastaCommunityExpansion\Diagnostics");
+            var path = Path.Combine(ProjectFolder ?? GAME_FOLDER, @"Diagnostics");
 
             EnsureFolderExists(path);
 
@@ -62,7 +65,10 @@ namespace SolastaCommunityExpansion.Models
                 definitions.Add(db.Key, arr);
             }
 
-            TABaseDefinitionsMap = definitions.OrderBy(db => db.Key.FullName).ToDictionary(v => v.Key, v => v.Value);
+            TABaseDefinitionsMap = definitions
+                .OrderBy(db => db.Key.FullName)
+                .ToDictionary(v => v.Key, v => v.Value);
+
             TABaseDefinitions = TABaseDefinitionsMap.Values
                 .SelectMany(v => v)
                 .Where(x => Array.IndexOf(Main.Settings.ExcludeFromExport, x.GetType().Name) < 0)
@@ -70,6 +76,15 @@ namespace SolastaCommunityExpansion.Models
                 .OrderBy(x => x.Name)
                 .ThenBy(x => x.GetType().Name)
                 .ToArray();
+
+            // Get a copy of definitions so we can export the originals.
+            // Note not copying the excluded definitions to save memory.
+            TABaseDefinitionAndCopy = TABaseDefinitions
+                .ToDictionary(x => x, x => { 
+                    var copy = UnityEngine.Object.Instantiate(x); 
+                    copy.name = x.Name;
+                    return copy;
+                });
 
             Main.Log($"Cached {TABaseDefinitions.Length} TA definitions");
         }
@@ -108,6 +123,7 @@ namespace SolastaCommunityExpansion.Models
                 .OrderBy(x => x.Name)
                 .ThenBy(x => x.GetType().Name)
                 .ToArray();
+            CEBaseDefinitions2 = CEBaseDefinitions.ToHashSet();
 
             Main.Log($"Cached {CEBaseDefinitions.Length} CE definitions");
         }
@@ -162,14 +178,24 @@ namespace SolastaCommunityExpansion.Models
         {
             var path = Path.Combine(DiagnosticsFolder, OFFICIAL_BP_FOLDER);
 
-            BlueprintExporter.ExportBlueprints(TA, TABaseDefinitions, TABaseDefinitionsMap, path);
+            BlueprintExporter.ExportBlueprints(TA, TABaseDefinitions, TABaseDefinitionsMap, TABaseDefinitionAndCopy, true, path);
+        }
+
+        /// <summary>
+        /// Export all TA definitions with any modifications made by CE.
+        /// </summary>
+        internal static void ExportTADefinitionsAfterCELoaded()
+        {
+            var path = Path.Combine(DiagnosticsFolder, OFFICIAL_BP_FOLDER);
+
+            BlueprintExporter.ExportBlueprints(TA2, TABaseDefinitions, TABaseDefinitionsMap, TABaseDefinitionAndCopy, false, path);
         }
 
         internal static void ExportCEDefinitions()
         {
             var path = Path.Combine(DiagnosticsFolder, COMMUNITY_EXPANSION_BP_FOLDER);
 
-            BlueprintExporter.ExportBlueprints(CE, CEBaseDefinitions, CEBaseDefinitionsMap, path);
+            BlueprintExporter.ExportBlueprints(CE, CEBaseDefinitions, CEBaseDefinitionsMap, null, false, path);
         }
 
         internal static void CreateTADefinitionDiagnostics()
@@ -186,5 +212,10 @@ namespace SolastaCommunityExpansion.Models
         {
             "SummonProtectorConstruct"
         };
+
+        internal static bool IsCeDefinition(BaseDefinition definition)
+        {
+            return CEBaseDefinitions2.Contains(definition);
+        }
     }
 }

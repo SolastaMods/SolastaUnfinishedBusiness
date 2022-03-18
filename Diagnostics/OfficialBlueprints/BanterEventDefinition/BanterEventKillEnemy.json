@@ -1,0 +1,229 @@
+{
+  "$type": "BanterEventDefinition, Assembly-CSharp",
+  "eventTrigger": "KillEnemy",
+  "searchKey": "Kill_Enemy",
+  "eventProbability": 0.8,
+  "selfProbability": 0.6,
+  "playbackDelay": 0.7,
+  "canUseWhileCautious": false,
+  "eventVariants": [
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Cynical1_Kill_Enemy_Self",
+      "list": "Cynical",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Cynical2_Kill_Enemy_Self",
+      "list": "Cynical",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Cynical3_Kill_Enemy_Self",
+      "list": "Cynical",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Cynical4_Kill_Enemy_Self",
+      "list": "Cynical",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Cynical5_Kill_Enemy_Self",
+      "list": "Cynical",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Cynical1_Kill_Enemy_Other",
+      "list": "Cynical",
+      "mode": "Other"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Cynical2_Kill_Enemy_Other",
+      "list": "Cynical",
+      "mode": "Other"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Cynical3_Kill_Enemy_Other",
+      "list": "Cynical",
+      "mode": "Other"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Serious1_Kill_Enemy_Self",
+      "list": "Serious",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Serious2_Kill_Enemy_Self",
+      "list": "Serious",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Serious3_Kill_Enemy_Self",
+      "list": "Serious",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Serious4_Kill_Enemy_Self",
+      "list": "Serious",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Serious5_Kill_Enemy_Self",
+      "list": "Serious",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Serious1_Kill_Enemy_Other",
+      "list": "Serious",
+      "mode": "Other"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Serious2_Kill_Enemy_Other",
+      "list": "Serious",
+      "mode": "Other"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Serious3_Kill_Enemy_Other",
+      "list": "Serious",
+      "mode": "Other"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Heroic1_Kill_Enemy_Self",
+      "list": "Heroic",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Heroic2_Kill_Enemy_Self",
+      "list": "Heroic",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Heroic3_Kill_Enemy_Self",
+      "list": "Heroic",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Heroic4_Kill_Enemy_Self",
+      "list": "Heroic",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Heroic5_Kill_Enemy_Self",
+      "list": "Heroic",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Heroic1_Kill_Enemy_Other",
+      "list": "Heroic",
+      "mode": "Other"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Heroic2_Kill_Enemy_Other",
+      "list": "Heroic",
+      "mode": "Other"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Heroic3_Kill_Enemy_Other",
+      "list": "Heroic",
+      "mode": "Other"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Formal1_Kill_Enemy_Self",
+      "list": "Formal",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Formal2_Kill_Enemy_Self",
+      "list": "Formal",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Formal3_Kill_Enemy_Self",
+      "list": "Formal",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Formal4_Kill_Enemy_Self",
+      "list": "Formal",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Formal5_Kill_Enemy_Self",
+      "list": "Formal",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Formal1_Kill_Enemy_Other",
+      "list": "Formal",
+      "mode": "Other"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Formal2_Kill_Enemy_Other",
+      "list": "Formal",
+      "mode": "Other"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Formal3_Kill_Enemy_Other",
+      "list": "Formal",
+      "mode": "Other"
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "f2018a2c6575e5f4ab1df48c3d6d31ad",
+  "contentPack": "BaseGame",
+  "name": "BanterEventKillEnemy"
+}

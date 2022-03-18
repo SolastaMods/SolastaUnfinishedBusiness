@@ -1,0 +1,47 @@
+{
+  "$type": "CalendarDefinition, Assembly-CSharp",
+  "daysPerMonth": 30,
+  "monthsPerYear": 12,
+  "monthsNames": [
+    "Calendar/&SolastanMonth1Title",
+    "Calendar/&SolastanMonth2Title",
+    "Calendar/&SolastanMonth3Title",
+    "Calendar/&SolastanMonth4Title",
+    "Calendar/&SolastanMonth5Title",
+    "Calendar/&SolastanMonth6Title",
+    "Calendar/&SolastanMonth7Title",
+    "Calendar/&SolastanMonth8Title",
+    "Calendar/&SolastanMonth9Title",
+    "Calendar/&SolastanMonth10Title",
+    "Calendar/&SolastanMonth11Title",
+    "Calendar/&SolastanMonth12Title"
+  ],
+  "yearFormat": "Calendar/&SolastanYearFormat",
+  "yearTags": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Calendar/&SolastanCalendarTitle",
+    "description": "Calendar/&SolastanCalendarDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "59113df69a4ea89479030146cc95b63d",
+  "contentPack": "BaseGame",
+  "name": "SolastanCalendar"
+}

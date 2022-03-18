@@ -1,0 +1,128 @@
+{
+  "$type": "CharacterTemplateDefinition, Assembly-CSharp",
+  "editorOnly": true,
+  "firstName": "Bronn2",
+  "surName": "Fight2",
+  "abilityScores": [
+    17,
+    9,
+    14,
+    10,
+    9,
+    12
+  ],
+  "automateAbilityScoreIncreases": true,
+  "mainRace": "Definition:Human:d844f80cc9ab3cb4d95630e35163eedd",
+  "subRace": null,
+  "originMorphotype": "Origin_CA",
+  "skinMorphotype": "FaceAndSkinFair",
+  "musculatureMorphotypeValue": 100.0,
+  "ageMorphotypeValue": 0.0,
+  "faceShapeMorphotype": "FaceShape_CA_A",
+  "hairShapeMorphotype": "HairShape_C",
+  "hairColorMorphotype": "HairColorBlack",
+  "beardShapeMorphotype": "BeardShape_None",
+  "eyeColorMorphotype": "EyeColorBlack",
+  "eyeMorphotype": "Eye_Default",
+  "bodyDecorationMorphotype": "BodyDecoration_None",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "",
+  "mainClass": "Definition:Fighter:5d0445b8e44872d4c900ebe861ae4b6f",
+  "subClass": null,
+  "deity": null,
+  "background": "Definition:Lowlife_Sellsword_QA_Background:c7b5de46a96ce3047b15bc2814b10cfa",
+  "backgroundPersonalityFlag1": "Greed",
+  "backgroundPersonalityFlag2": "Self-Preservation",
+  "alignment": "NeutralEvil",
+  "alignmentPersonalityFlag1": "Greed",
+  "alignmentPersonalityFlag2": "Violence",
+  "fightingStyle": "Definition:Dueling:3d1ab1fec7fa40040ad8493abfd6cf1b",
+  "equipment": [
+    "Definition:Backpack:9548f1e58e784c34aaee1a179c7ff3d5",
+    "Definition:Longsword:3f0e49932d0ebf444a5039c5df05a02d",
+    "Definition:Shield:28e1f623fc28c7242a89072ee116a1dc",
+    "Definition:LightCrossbow:84f6376eb9753124298bb9cceafe3da7",
+    "Definition:Bolt:ad0fe02755fdb754193b60214585d74e",
+    "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994",
+    "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994",
+    "Definition:HalfPlate:f9e3efa11a2605b418144ca32808ca44",
+    "Definition:Food_Ration:59973b7c0f7bd2f4089ec4406628b941",
+    "Definition:Poison_ArunsLight:d11d22644d6806d459dd51d21d01ff47",
+    "Definition:Poison_SpiderQueensBlood:b8a4aee64e8f6a246967334eda6bfbac"
+  ],
+  "startingMoney": [
+    0,
+    63,
+    0,
+    0,
+    0
+  ],
+  "skillsOverride": [
+    "Perception",
+    "Survival",
+    "Athletics",
+    "Intimidation"
+  ],
+  "toolsOverride": [],
+  "featsOverride": [],
+  "expertisesOverride": [],
+  "languagesOverride": [],
+  "metamagicOverride": [],
+  "characterLevel": 2,
+  "knownRaceCantrips": [],
+  "knownClassCantrips": [],
+  "knownSubclassCantrips": [],
+  "knownRaceSpells": [],
+  "knownClassSpells": [],
+  "knownSubclassSpells": [],
+  "preparedClassSpells": [],
+  "preparedSubclassSpells": [],
+  "sex": "Male",
+  "pronoun": "Male",
+  "age": 22,
+  "facePath": "",
+  "wieldedItemsConfigurations": [
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:Longsword:3f0e49932d0ebf444a5039c5df05a02d",
+      "offHandItemDefinition": "Definition:Shield:28e1f623fc28c7242a89072ee116a1dc"
+    },
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:LightCrossbow:84f6376eb9753124298bb9cceafe3da7",
+      "offHandItemDefinition": null
+    },
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": null,
+      "offHandItemDefinition": "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994"
+    }
+  ],
+  "voiceId": "MAL1",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "CharacterTemplate/&GarradTitle",
+    "description": "CharacterTemplate/&GarradDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "7cce7bcb1620dbf418105fcd478b4e1c",
+      "m_SubObjectName": "BronnFighter2_QA",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "84093fcfcf76d5545b95e0ab8796fefe",
+  "contentPack": "BaseGame",
+  "name": "BronnFighter2_QA"
+}

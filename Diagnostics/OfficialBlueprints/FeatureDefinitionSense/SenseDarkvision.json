@@ -1,0 +1,33 @@
+{
+  "$type": "FeatureDefinitionSense, Assembly-CSharp",
+  "senseType": "Darkvision",
+  "senseRange": 12,
+  "stealthBreakerRange": 6,
+  "revealsHiddenObjects": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&VisionDarkvisionTitle",
+    "description": "Feature/&VisionDarkvisionDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 1,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "446f786482b07db45b6f4a0854be3056",
+  "contentPack": "BaseGame",
+  "name": "SenseDarkvision"
+}

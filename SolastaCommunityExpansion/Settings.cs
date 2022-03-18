@@ -18,6 +18,12 @@ namespace SolastaCommunityExpansion
         internal const string GUID = "b1ffaca74824486ea74a68d45e6b1925";
 
         //
+        // Welcome Message
+        //
+
+        public bool DisplayWelcomeMessage { get; set; } = true;
+
+        //
         // Diagnostics
         //
 
@@ -80,6 +86,7 @@ namespace SolastaCommunityExpansion
         public bool BugFixConjuredUnitsTeleportWithParty { get; set; } = true;
         public bool BugFixExpandColorTables { get; set; } = true;
         public bool BugFixNullRecipesOnGameSerialization { get; set; } = true;
+        public bool BugFixSpellDurations { get; set; } = true;
         public bool EnableDungeonMakerPro { get; set; } = true;
         public bool EnableDungeonMakerRotationHotkeys { get; set; } = true;
         public bool EnableFirstLevelCasterFeats { get; set; } = true;
@@ -183,8 +190,6 @@ namespace SolastaCommunityExpansion
 
         // SRD
         public bool UseOfficialAdvantageDisadvantageRules { get; set; }
-        public bool UseOfficialCombatSurpriseRules { get; set; }
-        public bool RollDifferentStealthChecksForEachCharacterPair { get; set; }
         public bool EnablePowerAid { get; set; }
         public bool AddBleedingToLesserRestoration { get; set; }
         public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
@@ -193,9 +198,8 @@ namespace SolastaCommunityExpansion
         public bool EnableUpcastConjureElementalAndFey { get; set; }
         public bool FullyControlConjurations { get; set; }
         public bool OnlyShowMostPowerfulUpcastConjuredElementalOrFey { get; set; }
-        public bool SpikeGrowthDoesNotAffectFlyingCreatures { get; set; }
-        public bool SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures { get; set; }
-        public bool EnableTargetTypeSquareCylinder { get; set; }
+        public bool UseHeightOneCylinderEffect { get; set; }
+        public bool BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove { get; set; }
 
         // House
         public bool AllowAnyClassToWearSylvanArmor { get; set; }

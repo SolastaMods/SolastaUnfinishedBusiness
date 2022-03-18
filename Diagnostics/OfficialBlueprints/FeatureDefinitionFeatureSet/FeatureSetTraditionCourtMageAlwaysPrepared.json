@@ -1,0 +1,38 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:ProficiencyTraditionCourtMageAlwaysPreparedShield:a3bf6d29d6b471145b7e129c89933b3f",
+    "Definition:ProficiencyTraditionCourtMageAlwaysPreparedProtection:2151377f6a56c5f49a26aad131827fd8"
+  ],
+  "mode": "Union",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&TraditionCourtMageAlwaysPreparedTitle",
+    "description": "Feature/&TraditionCourtMageAlwaysPreparedDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "25374fc677439c2409d0569eee4efb23",
+  "contentPack": "LostValley",
+  "name": "FeatureSetTraditionCourtMageAlwaysPrepared"
+}

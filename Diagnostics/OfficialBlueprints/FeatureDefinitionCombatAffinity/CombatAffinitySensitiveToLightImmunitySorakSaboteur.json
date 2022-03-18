@@ -1,0 +1,53 @@
+{
+  "$type": "FeatureDefinitionCombatAffinity, Assembly-CSharp",
+  "initiativeAffinity": "None",
+  "canRageToOvercomeSurprise": false,
+  "attackOfOpportunityImmunity": false,
+  "attackOfOpportunityOnMeAdvantageType": "None",
+  "attackOnMeAdvantage": "None",
+  "attackOnMeCountLimit": -1,
+  "autoCritical": false,
+  "criticalHitImmunity": false,
+  "myAttackAffinityFilter": "Always",
+  "myAttackAdvantage": "None",
+  "ignoreCover": false,
+  "ignoreRangeAdvantage": false,
+  "myAttackModifierValueDetermination": "None",
+  "myAttackModifierSign": "Add",
+  "myAttackModifierDiceNumber": 1,
+  "myAttackModifierDieType": "D4",
+  "myAttackDamageMultiplier": 1.0,
+  "situationalContext": "None",
+  "requiredCondition": null,
+  "nullifiedBySenses": [],
+  "multiAttackAffinity": false,
+  "multiAttackDefenseValue": 0,
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&Sorak_Saboteur_Immunity_Title",
+    "description": "Feature/&Sorak_Saboteur_Immunity_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "cd10433f24101be46898ed600f8c537b",
+      "m_SubObjectName": "ConditionLightSensitiveSaboteur",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "ccc8f421296fa02499dac58f44cc246e",
+  "contentPack": "BaseGame",
+  "name": "CombatAffinitySensitiveToLightImmunitySorakSaboteur"
+}

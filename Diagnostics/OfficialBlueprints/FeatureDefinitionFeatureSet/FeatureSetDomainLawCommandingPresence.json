@@ -1,0 +1,38 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:ProficiencyDomainLawCommandingPresenceIntimidation:3bc36e36aae76ee4ca2140705d451f4a",
+    "Definition:AbilityCheckAffinityDomainLawCommandingPresenceIntimidationAdvantage:3cf1970ddc20f054bb0a50b522cfc24c"
+  ],
+  "mode": "Union",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&DomainLawCommandingPresenceTitle",
+    "description": "Feature/&DomainLawCommandingPresenceDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "b3e77cd19c947d64e980c0adff724b2d",
+  "contentPack": "BaseGame",
+  "name": "FeatureSetDomainLawCommandingPresence"
+}

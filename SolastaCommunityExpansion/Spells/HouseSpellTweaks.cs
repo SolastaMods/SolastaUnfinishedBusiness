@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using SolastaCommunityExpansion.Patches.Bugfix;
 using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
@@ -10,43 +11,59 @@ namespace SolastaCommunityExpansion.Spells
         public static void Register()
         {
             AddBleedingToRestoration();
-            SpikeGrowthDoesNotAffectFlyingCreatures();
-            SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures();
+            UseHeightOneCylinderEffect();
+            MinorFixes();
         }
 
-        internal static void SpikeGrowthDoesNotAffectFlyingCreatures()
+        internal static void MinorFixes()
         {
+            // Shows Concentration tag in UI
+            BladeBarrier.SetRequiresConcentration(true);
+
+            if (Main.Settings.BugFixSpellDurations)
+            {
+                // Use our logic to calculate duration for DominatePerson/Beast/Monster
+                DominateBeast.EffectDescription.EffectAdvancement.SetAlteredDuration((RuleDefinitions.AdvancementDuration) AdvancementDurationEx.DominateBeast);
+                DominatePerson.EffectDescription.EffectAdvancement.SetAlteredDuration((RuleDefinitions.AdvancementDuration) AdvancementDurationEx.DominatePerson);
+
+                // Stops upcasting assigning non-SRD durations
+                ClearAlteredDuration(ProtectionFromEnergy);
+                ClearAlteredDuration(ProtectionFromEnergyAcid);
+                ClearAlteredDuration(ProtectionFromEnergyCold);
+                ClearAlteredDuration(ProtectionFromEnergyFire);
+                ClearAlteredDuration(ProtectionFromEnergyLightning);
+                ClearAlteredDuration(ProtectionFromEnergyThunder);
+                ClearAlteredDuration(ProtectionFromPoison);
+            }
+
+            static void ClearAlteredDuration(SpellDefinition spell)
+            {
+                spell.EffectDescription.EffectAdvancement.SetAlteredDuration(RuleDefinitions.AdvancementDuration.None);
+            }
+        }
+
+        internal static void UseHeightOneCylinderEffect()
+        {
+            // always applicable
+            ClearTargetParameter2ForTargetTypeCube();
+
+            ///////////////////////////////////////////////////////////
+            // Change SpikeGrowth to be height 1 round cylinder/sphere
             var spikeGrowthEffect = SpikeGrowth.EffectDescription;
             spikeGrowthEffect.SetTargetParameter(4);
 
-            if (Main.Settings.SpikeGrowthDoesNotAffectFlyingCreatures)
+            if (Main.Settings.UseHeightOneCylinderEffect)
             {
                 // Set to Cylinder radius 4, height 1
-                spikeGrowthEffect.EffectForms
-                    .Where(ef => ef.FormType == EffectForm.EffectFormType.Topology)
-                    .ToList()
-                    .ForEach(ef => ef.TopologyForm.SetImpactsFlyingCharacters(false));
-
                 spikeGrowthEffect.SetTargetType(RuleDefinitions.TargetType.Cylinder);
                 spikeGrowthEffect.SetTargetParameter2(1);
             }
             else
             {
                 // Restore default of Sphere radius 4
-                spikeGrowthEffect.EffectForms
-                    .Where(ef => ef.FormType == EffectForm.EffectFormType.Topology)
-                    .ToList()
-                    .ForEach(ef => ef.TopologyForm.SetImpactsFlyingCharacters(true));
-
                 spikeGrowthEffect.SetTargetType(RuleDefinitions.TargetType.Sphere);
                 spikeGrowthEffect.SetTargetParameter2(0);
             }
-        }
-
-        internal static void SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures()
-        {
-            // always applicable
-            ClearTargetParameter2ForTargetTypeCube();
 
             // Spells with TargetType.Cube and defaults values of (tp, tp2)
             // Note that tp2 should be 0 for Cube and is ignored in game.
@@ -59,54 +76,26 @@ namespace SolastaCommunityExpansion.Spells
             // PetalStorm: (3, 2)
             // Slow: (8, 2)
 
-            if (!Main.Settings.SquareAreaOfEffectSpellsDoNotAffectFlyingCreatures)
+            ///////////////////////////////////////////////////////////
+            // Change Black Tentacles, Entangle, Grease to be height 1 square cylinder/cube
+            if (Main.Settings.UseHeightOneCylinderEffect)
             {
-                RestoreDefinition(BlackTentacles);
-                RestoreDefinition(Entangle);
-                RestoreDefinition(Grease);
-                return;
+                // Setting height switches to square cylinder (if originally cube)
+                SetHeight(BlackTentacles, 1);
+                SetHeight(Entangle, 1);
+                SetHeight(Grease, 1);
+            }
+            else
+            {
+                // Setting height to 0 restores original behaviour
+                SetHeight(BlackTentacles, 0);
+                SetHeight(Entangle, 0);
+                SetHeight(Grease, 0);
             }
 
-            SetHeight(BlackTentacles);
-            SetHeight(Entangle);
-            SetHeight(Grease);
-
-            static void SetHeight(SpellDefinition sd, int height = 1)
+            static void SetHeight(SpellDefinition sd, int height)
             {
-                var effect = sd.EffectDescription;
-
-                effect.EffectForms
-                    .Where(ef => ef.FormType == EffectForm.EffectFormType.Topology)
-                    .ToList()
-                    .ForEach(ef => ef.TopologyForm.SetImpactsFlyingCharacters(false));
-
-                if (Main.Settings.EnableTargetTypeSquareCylinder)
-                {
-                    Main.Log($"Changing {sd.Name} to target type=Cube");
-                    effect.SetTargetType(RuleDefinitions.TargetType.Cube);
-                }
-                else
-                {
-                    Main.Log($"Changing {sd.Name} to target type=CylinderWithDiameter");
-                    effect.SetTargetType(RuleDefinitions.TargetType.CylinderWithDiameter);
-                }
-
-                effect.SetTargetParameter2(height);
-            }
-
-            static void RestoreDefinition(SpellDefinition sd)
-            {
-                var effect = sd.EffectDescription;
-
-                // Topology forms have ImpactsFlyingCharacters = true as default
-                effect.EffectForms
-                    .Where(ef => ef.FormType == EffectForm.EffectFormType.Topology)
-                    .ToList()
-                    .ForEach(ef => ef.TopologyForm.SetImpactsFlyingCharacters(true));
-
-                Main.Log($"Restoring {sd.Name} to target type=Cube");
-                effect.SetTargetType(RuleDefinitions.TargetType.Cube);
-                effect.SetTargetParameter2(0);
+                sd.EffectDescription.SetTargetParameter2(height);
             }
 
             static void ClearTargetParameter2ForTargetTypeCube()

@@ -31,28 +31,6 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
         #endregion
 
-        #region Factory methods
-        public static FeatureDefinitionSubclassChoiceBuilder Create(string name, string guid)
-        {
-            return new FeatureDefinitionSubclassChoiceBuilder(name, guid);
-        }
-
-        public static FeatureDefinitionSubclassChoiceBuilder Create(string name, Guid namespaceGuid)
-        {
-            return new FeatureDefinitionSubclassChoiceBuilder(name, namespaceGuid);
-        }
-
-        public static FeatureDefinitionSubclassChoiceBuilder Create(FeatureDefinitionSubclassChoice original, string name, string guid)
-        {
-            return new FeatureDefinitionSubclassChoiceBuilder(original, name, guid);
-        }
-        #endregion
-
-        public static FeatureDefinitionSubclassChoiceBuilder Create(FeatureDefinitionSubclassChoice original, string name, Guid namespaceGuid)
-        {
-            return new FeatureDefinitionSubclassChoiceBuilder(original, name, namespaceGuid);
-        }
-
         public FeatureDefinitionSubclassChoiceBuilder SetFilterByDeity(bool requireDeity)
         {
             Definition.SetFilterByDeity(requireDeity);

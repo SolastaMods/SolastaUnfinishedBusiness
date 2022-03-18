@@ -1,0 +1,32 @@
+{
+  "$type": "SkillDefinition, Assembly-CSharp",
+  "abilityScore": "Charisma",
+  "personalityFlag": true,
+  "personalityAdditiveBase": 10,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Skill/&IntimidationTitle",
+    "description": "Skill/&IntimidationDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 7,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "b03ea0d36f705ff4686c0ead98c8e69f",
+  "contentPack": "BaseGame",
+  "name": "Intimidation"
+}

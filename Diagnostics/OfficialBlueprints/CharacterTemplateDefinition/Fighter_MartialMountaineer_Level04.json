@@ -1,0 +1,140 @@
+{
+  "$type": "CharacterTemplateDefinition, Assembly-CSharp",
+  "editorOnly": true,
+  "firstName": "Mountaineer4",
+  "surName": "Fighter",
+  "abilityScores": [
+    18,
+    10,
+    14,
+    10,
+    9,
+    12
+  ],
+  "automateAbilityScoreIncreases": true,
+  "mainRace": "Definition:Human:d844f80cc9ab3cb4d95630e35163eedd",
+  "subRace": null,
+  "originMorphotype": "Origin_CA",
+  "skinMorphotype": "FaceAndSkinFair",
+  "musculatureMorphotypeValue": 100.0,
+  "ageMorphotypeValue": 0.0,
+  "faceShapeMorphotype": "FaceShape_CA_A",
+  "hairShapeMorphotype": "HairShape_C",
+  "hairColorMorphotype": "HairColorBlack",
+  "beardShapeMorphotype": "BeardShape_None",
+  "eyeColorMorphotype": "EyeColorBlack",
+  "eyeMorphotype": "Eye_Default",
+  "bodyDecorationMorphotype": "BodyDecoration_None",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "",
+  "mainClass": "Definition:Fighter:5d0445b8e44872d4c900ebe861ae4b6f",
+  "subClass": "Definition:MartialMountaineer:97e6b322adf8ab24f850900f2c363e1f",
+  "deity": null,
+  "background": "Definition:Lawkeeper:d2e9d45498eb56f4d91ea6c451c7b482",
+  "backgroundPersonalityFlag1": "Authority",
+  "backgroundPersonalityFlag2": "Lawfulness",
+  "alignment": "LawfulNeutral",
+  "alignmentPersonalityFlag1": "Lawfulness",
+  "alignmentPersonalityFlag2": "Authority",
+  "fightingStyle": "Definition:Protection:4635efbbee6b09047ad0d19c8366be64",
+  "equipment": [
+    "Definition:Backpack:9548f1e58e784c34aaee1a179c7ff3d5",
+    "Definition:Enchanted_Longsword_Warden:65237de716d9d2347a79ea2c9ec9c22a",
+    "Definition:LightCrossbow:84f6376eb9753124298bb9cceafe3da7",
+    "Definition:Bolt:ad0fe02755fdb754193b60214585d74e",
+    "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994",
+    "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994",
+    "Definition:HalfPlate+1:04465d122ec83904fbf030c8fb8abfda",
+    "Definition:Food_Ration:59973b7c0f7bd2f4089ec4406628b941",
+    "Definition:Food_Ration:59973b7c0f7bd2f4089ec4406628b941",
+    "Definition:Food_Ration:59973b7c0f7bd2f4089ec4406628b941",
+    "Definition:Food_Ration:59973b7c0f7bd2f4089ec4406628b941",
+    "Definition:Enchanted_Longsword_of_Acuteness:c0c0c04fc4ad29f4f856deb456bc5413",
+    "Definition:Enchanted_Longsword_Stormblade:a6bd8a97a661afe4f866391dd92e3fce",
+    "Definition:Enchanted_Longsword_Dragonblade:1773844ab133123428a0b572b161d8a8",
+    "Definition:Ingredient_Projectile_Parts:1d2354616922cfd4484960a2ab0affc1",
+    "Definition:ArtisanToolSmithTools:46c6058109cc8c8419c546419a74281b"
+  ],
+  "startingMoney": [
+    0,
+    600,
+    0,
+    0,
+    0
+  ],
+  "skillsOverride": [
+    "Perception",
+    "Survival",
+    "Athletics",
+    "Intimidation",
+    "Nature"
+  ],
+  "toolsOverride": [
+    "ArtisanToolSmithToolsType"
+  ],
+  "featsOverride": [
+    "Robust"
+  ],
+  "expertisesOverride": [],
+  "languagesOverride": [
+    "Language_Orc"
+  ],
+  "metamagicOverride": [],
+  "characterLevel": 4,
+  "knownRaceCantrips": [],
+  "knownClassCantrips": [],
+  "knownSubclassCantrips": [],
+  "knownRaceSpells": [],
+  "knownClassSpells": [],
+  "knownSubclassSpells": [],
+  "preparedClassSpells": [],
+  "preparedSubclassSpells": [],
+  "sex": "Male",
+  "pronoun": "Male",
+  "age": 22,
+  "facePath": "",
+  "wieldedItemsConfigurations": [
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:Longsword+1:b666bb2f12d1f15439fa61f3cfd9cc31",
+      "offHandItemDefinition": null
+    },
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:LightCrossbow:84f6376eb9753124298bb9cceafe3da7",
+      "offHandItemDefinition": null
+    },
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": null,
+      "offHandItemDefinition": "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994"
+    }
+  ],
+  "voiceId": "MAL1",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "CharacterTemplate/&GarradTitle",
+    "description": "CharacterTemplate/&GarradDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "8e0f5b65a37f65745a8cba46df9c7d9d",
+      "m_SubObjectName": "Fighter_MartialMountaineer_Level04",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "1eec6cad271c2544fb31abb3adf4ff15",
+  "contentPack": "BaseGame",
+  "name": "Fighter_MartialMountaineer_Level04"
+}

@@ -1,0 +1,30 @@
+{
+  "$type": "SmartAttributeDefinition, Assembly-CSharp",
+  "modifiedAttributes": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Attribute/&HitPointBonusPerLevelTitle",
+    "description": "Attribute/&HitPointBonusPerLevelDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "4f3ed19e8663b4141bebcbfdb47a8ab1",
+  "contentPack": "BaseGame",
+  "name": "HitPointBonusPerLevel"
+}

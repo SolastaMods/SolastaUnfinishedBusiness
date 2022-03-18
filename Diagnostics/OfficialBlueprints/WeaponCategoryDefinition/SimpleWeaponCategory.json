@@ -1,0 +1,30 @@
+{
+  "$type": "WeaponCategoryDefinition, Assembly-CSharp",
+  "categoryChoice": "Simple",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&SimpleWeaponCategoryTitle",
+    "description": "Equipment/&SimpleWeaponCategoryDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "6bdea64fa27d4f942a25dc8255ac152f",
+  "contentPack": "BaseGame",
+  "name": "SimpleWeaponCategory"
+}

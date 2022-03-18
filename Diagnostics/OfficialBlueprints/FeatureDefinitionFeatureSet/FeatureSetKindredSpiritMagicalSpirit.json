@@ -1,0 +1,38 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:SummoningAffinityKindredSpiritMagicalSpirit:fa9ef2b690c8ad040943465d9d691c43",
+    "Definition:HealingModifierKindredSpiritMagicalSpirit:ec91e81346228284f9106f0127331899"
+  ],
+  "mode": "Union",
+  "defaultSelection": 1,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetMagicalSpiritTitle",
+    "description": "Feature/&FeatureSetMagicalSpiritDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "e7278c8fe46f88442948432753587154",
+  "contentPack": "BaseGame",
+  "name": "FeatureSetKindredSpiritMagicalSpirit"
+}

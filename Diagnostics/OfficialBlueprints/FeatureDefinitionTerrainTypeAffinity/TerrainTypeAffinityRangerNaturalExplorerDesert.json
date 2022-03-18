@@ -1,0 +1,36 @@
+{
+  "$type": "FeatureDefinitionTerrainTypeAffinity, Assembly-CSharp",
+  "terrainType": "Desert",
+  "travelSpeedMultiplier": 1.25,
+  "foodYieldMultiplier": 2.0,
+  "ingredientYieldMultiplier": 2.0,
+  "ignoreTravelPacePerceptionMalus": true,
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&RangerNaturalExplorerByTypeTitle",
+    "description": "Feature/&RangerNaturalExplorerByTypeDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "1abddd96b95466545b9ca5e5cf0be0f8",
+  "contentPack": "BaseGame",
+  "name": "TerrainTypeAffinityRangerNaturalExplorerDesert"
+}

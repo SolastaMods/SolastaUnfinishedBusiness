@@ -89,7 +89,7 @@ namespace SolastaCommunityExpansion.Builders
             typeof(DatabaseRepository).GetMethod("GetDatabase", BindingFlags.Public | BindingFlags.Static);
 
         protected const string CENamePrefix = "_CE_";
-        protected static readonly Guid CENamespaceGuid = new("4ce4cabe-0d35-4419-86ef-13ce1bef32fd");
+        protected internal static readonly Guid CENamespaceGuid = new(Settings.GUID);
     }
 
     // Used to allow extension methods in other mods to set GuiPresentation 
@@ -248,7 +248,7 @@ namespace SolastaCommunityExpansion.Builders
                 }
 
                 // create guid from namespace+name
-                Definition.SetField("guid", CreateGuid(namespaceGuid, name));
+                Definition.SetUserContentGUID(CreateGuid(namespaceGuid, name));
 
                 LogDefinition($"New-Creating definition: ({name}, namespace={namespaceGuid}, guid={Definition.GUID})");
             }
@@ -260,7 +260,7 @@ namespace SolastaCommunityExpansion.Builders
                 }
 
                 // assign guid
-                Definition.SetField("guid", definitionGuid);
+                Definition.SetUserContentGUID(definitionGuid);
 
                 LogDefinition($"New-Creating definition: ({name}, guid={Definition.GUID})");
             }
@@ -313,14 +313,14 @@ namespace SolastaCommunityExpansion.Builders
                 }
 
                 // create guid from namespace+name
-                Definition.SetField("guid", CreateGuid(namespaceGuid, name));
+                Definition.SetUserContentGUID(CreateGuid(namespaceGuid, name));
 
                 LogDefinition($"New-Cloning definition: original({originalName}, {originalGuid}) => ({name}, namespace={namespaceGuid}, {Definition.GUID})");
             }
             else
             {
                 // directly assign guid
-                Definition.SetField("guid", definitionGuid);
+                Definition.SetUserContentGUID(definitionGuid);
 
                 LogDefinition($"New-Cloning definition: original({originalName}, {originalGuid}) => ({name}, {Definition.GUID})");
             }
@@ -342,10 +342,25 @@ namespace SolastaCommunityExpansion.Builders
         /// <summary>
         /// Add the TDefinition to every compatible database
         /// </summary>
+        /// <remarks>
+        /// By default AddToDB will set the copyright to 'User Content' and the content pack to 'Community Expansion'.
+        /// To set your own values use the AddToDB(true|false, copyright, contentpack) overload.
+        /// </remarks>
         /// <param name="assertIfDuplicate"></param>
         /// <returns></returns>
         /// <exception cref="SolastaModApiException"></exception>
         public TDefinition AddToDB(bool assertIfDuplicate = true)
+        {
+            return AddToDB(assertIfDuplicate, BaseDefinition.Copyright.UserContent, CeContentPackContext.CeContentPack);
+        }
+
+        /// <summary>
+        /// Add the TDefinition to every compatible database
+        /// </summary>
+        /// <param name="assertIfDuplicate"></param>
+        /// <returns></returns>
+        /// <exception cref="SolastaModApiException"></exception>
+        public TDefinition AddToDB(bool assertIfDuplicate, BaseDefinition.Copyright? copyright, GamingPlatformDefinitions.ContentPack? contentPack)
         {
             Preconditions.IsNotNull(Definition, nameof(Definition));
             Preconditions.IsNotNullOrWhiteSpace(Definition.Name, nameof(Definition.Name));
@@ -357,6 +372,16 @@ namespace SolastaCommunityExpansion.Builders
             }
 
             VerifyGuiPresentation();
+
+            if (copyright.HasValue)
+            {
+                Definition.SetField("contentCopyright", copyright.Value);
+            }
+
+            if (contentPack.HasValue)
+            {
+                Definition.SetField("contentPack", contentPack.Value);
+            }
 
             // Get all base types for the target definition.  The definition needs to be added to all matching databases.
             // e.g. ConditionAffinityBlindnessImmunity is added to dbs: FeatureDefinitionConditionAffinity, FeatureDefinitionAffinity, FeatureDefinition
@@ -518,6 +543,56 @@ namespace SolastaCommunityExpansion.Builders
         private protected DefinitionBuilder(TDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation) { }
         private protected DefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid) { }
         private protected DefinitionBuilder(TDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid) { }
+
+        private static TBuilder CreateImpl(params object[] parameters)
+        {
+            var parameterTypes = parameters.Select(p => p.GetType()).ToArray();
+
+            var ctor = typeof(TBuilder).GetConstructor(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public, null, parameterTypes, null);
+
+            if (ctor == null)
+            {
+                throw new SolastaModApiException($"No constructor found on {typeof(TBuilder).Name} with argument types {string.Join(",", parameterTypes.Select(t => t.Name))}");
+            }
+
+            return (TBuilder)ctor.Invoke(parameters);
+        }
+
+        // TODO: replace all ctors with a default ctor and put functionality into Create methods
+        internal static TBuilder Create(TDefinition original)
+        {
+            return CreateImpl(original);
+        }
+
+        internal static TBuilder Create(string name, Guid namespaceGuid)
+        {
+            return CreateImpl(name, namespaceGuid);
+        }
+
+        internal static TBuilder Create(string name, string definitionGuid)
+        {
+            return CreateImpl(name, definitionGuid);
+        }
+
+        internal static TBuilder Create(string name, bool createGuiPresentation = true)
+        {
+            return CreateImpl(name, createGuiPresentation);
+        }
+
+        internal static TBuilder Create(TDefinition original, string name, bool createGuiPresentation = true)
+        {
+            return CreateImpl(original, name, createGuiPresentation);
+        }
+
+        internal static TBuilder Create(TDefinition original, string name, Guid namespaceGuid)
+        {
+            return CreateImpl(original, name, namespaceGuid);
+        }
+
+        internal static TBuilder Create(TDefinition original, string name, string definitionGuid)
+        {
+            return CreateImpl(original, name, definitionGuid);
+        }
 
         internal TBuilder This()
         {

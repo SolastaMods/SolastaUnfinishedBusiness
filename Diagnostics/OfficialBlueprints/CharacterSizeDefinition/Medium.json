@@ -1,0 +1,45 @@
+{
+  "$type": "CharacterSizeDefinition, Assembly-CSharp",
+  "wieldingSize": "Medium",
+  "carryingSize": "Medium",
+  "minExtent": {
+    "$type": "TA.int3, Assembly-CSharp",
+    "x": 0,
+    "y": 0,
+    "z": 0
+  },
+  "maxExtent": {
+    "$type": "TA.int3, Assembly-CSharp",
+    "x": 0,
+    "y": 0,
+    "z": 0
+  },
+  "visionHeightFactor": 0.93,
+  "bestiaryScaleFactor": 0.7,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Size/&MediumTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 2,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "eef4b35a8a6793147af905a8f26e4c60",
+  "contentPack": "BaseGame",
+  "name": "Medium"
+}

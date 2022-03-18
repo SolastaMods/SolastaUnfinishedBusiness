@@ -1,0 +1,42 @@
+{
+  "$type": "FeatDefinition, Assembly-CSharp",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Strength",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "knownFeatsPrerequisite": [],
+  "features": [
+    "Definition:PowerAttack:0a3e6a7d-4628-4189-b91d-d7146d774bb6",
+    "Definition:PowerAttackTwoHanded:b45b8467-7caa-428e-b4b5-ba3c4a153f07"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feat/&PowerAttackFeatTitle",
+    "description": "You learned to trade accuracy to lander deadlier/harder blows.  You can choose to take a -3 penalty to your to hit in order to do more damage (+3 damage for one handed weapons, +6 damage for two handed weapons).  Lasts for the whole turn once activated.  Works with melee and ranged weapons.",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "88f1fb27-66af-49c6-b038-a38142b1083e",
+  "contentPack": 9999,
+  "name": "PowerAttackFeat"
+}

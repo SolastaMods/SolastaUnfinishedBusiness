@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaCommunityExpansion.Multiclass.Models;
 using SolastaModApi.Infrastructure;
@@ -10,23 +11,61 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
 {
     internal static class CharacterBuildingManagerPatcher
     {
+        //
+        // context registration / unregistration patches
+        //
+
+        // register the hero leveling up
+        [HarmonyPatch(typeof(CharacterBuildingManager), "LevelUpCharacter")]
+        internal static class CharacterBuildingManagerLevelUpCharacter
+        {
+            internal static void Prefix(RulesetCharacterHero hero)
+            {
+                if (!Main.Settings.EnableMulticlass)
+                {
+                    return;
+                }
+
+                LevelUpContext.RegisterHero(hero);
+            }
+        }
+
+        // unregister the hero leveling up
+        [HarmonyPatch(typeof(CharacterBuildingManager), "ReleaseCharacter")]
+        internal static class CharacterBuildingManagerReleaseCharacter
+        {
+            internal static void Prefix(RulesetCharacterHero hero)
+            {
+                if (!Main.Settings.EnableMulticlass)
+                {
+                    return;
+                }
+
+                LevelUpContext.UnregisterHero(hero);
+            }
+        }
+
         // captures the desired class and ensures this doesn't get executed in the class panel level up screen
         [HarmonyPatch(typeof(CharacterBuildingManager), "AssignClassLevel")]
         internal static class CharacterBuildingManagerAssignClassLevel
         {
-            internal static bool Prefix(CharacterClassDefinition classDefinition)
+            internal static bool Prefix(CharacterHeroBuildingData heroBuildingData, CharacterClassDefinition classDefinition)
             {
                 if (!Main.Settings.EnableMulticlass)
                 {
                     return true;
                 }
 
-                if (LevelUpContext.LevelingUp && LevelUpContext.DisplayingClassPanel)
+                var hero = heroBuildingData.HeroCharacter;
+                var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
+                var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
+
+                if (isLevelingUp && isClassSelectionStage)
                 {
-                    LevelUpContext.SelectedClass = classDefinition;
+                    LevelUpContext.SetSelectedClass(hero, classDefinition);
                 }
 
-                return !(LevelUpContext.LevelingUp && LevelUpContext.DisplayingClassPanel);
+                return !(isLevelingUp && isClassSelectionStage);
             }
         }
 
@@ -34,44 +73,189 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
         [HarmonyPatch(typeof(CharacterBuildingManager), "AssignSubclass")]
         internal static class CharacterBuildingManagerAssignSubclass
         {
-            internal static void Prefix(CharacterSubclassDefinition subclassDefinition)
+            internal static void Prefix(RulesetCharacterHero hero, CharacterSubclassDefinition subclassDefinition)
             {
                 if (!Main.Settings.EnableMulticlass)
                 {
                     return;
                 }
 
-                LevelUpContext.SelectedSubclass = subclassDefinition;
+                LevelUpContext.SetSelectedSubclass(hero, subclassDefinition);
             }
         }
+
+        //
+        // filter FeatureUnlocks patches
+        //
+
+        // no template character are multiclass ones. leaving this here in case we ever need to support this use case
+#if false
+        // filter active features
+        [HarmonyPatch(typeof(CharacterBuildingManager), "CreateCharacterFromTemplate")]
+        internal static class CharacterBuildingManagerCreateCharacterFromTemplate
+        {
+            internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+            {
+                if (!Main.Settings.EnableMulticlass)
+                {
+                    foreach (var instruction in instructions)
+                    {
+                        yield return instruction;
+                    }
+
+                    yield break;
+                }
+
+                var classFeatureUnlocksMethod = typeof(CharacterClassDefinition).GetMethod("get_FeatureUnlocks");
+                var classFilteredFeatureUnlocksMethod = typeof(LevelUpContext).GetMethod("ClassFilteredFeatureUnlocks");
+
+                var subclassFeatureUnlocksMethod = typeof(CharacterSubclassDefinition).GetMethod("get_FeatureUnlocks");
+                var subclassFilteredFeatureUnlocksMethod = typeof(LevelUpContext).GetMethod("SubclassFilteredFeatureUnlocks");
+
+                foreach (var instruction in instructions)
+                {
+                    if (instruction.Calls(classFeatureUnlocksMethod))
+                    {
+                        yield return new CodeInstruction(OpCodes.Ldloc_1);
+                        yield return new CodeInstruction(OpCodes.Call, classFilteredFeatureUnlocksMethod);
+                    }
+                    else if (instruction.Calls(subclassFeatureUnlocksMethod))
+                    {
+                        yield return new CodeInstruction(OpCodes.Ldloc_1);
+                        yield return new CodeInstruction(OpCodes.Call, subclassFilteredFeatureUnlocksMethod);
+                    }
+                    else
+                    {
+                        yield return instruction;
+                    }
+                }
+            }
+        }
+#endif
+
+        // filter active features
+        [HarmonyPatch(typeof(CharacterBuildingManager), "FinalizeCharacter")]
+        internal static class CharacterBuildingManagerFinalizeCharacter
+        {
+            internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+            {
+                if (!Main.Settings.EnableMulticlass)
+                {
+                    foreach (var instruction in instructions)
+                    {
+                        yield return instruction;
+                    }
+
+                    yield break;
+                }
+
+                var classFeatureUnlocksMethod = typeof(CharacterClassDefinition).GetMethod("get_FeatureUnlocks");
+                var classFilteredFeatureUnlocksMethod = typeof(LevelUpContext).GetMethod("ClassFilteredFeatureUnlocks");
+
+                var subclassFeatureUnlocksMethod = typeof(CharacterSubclassDefinition).GetMethod("get_FeatureUnlocks");
+                var subclassFilteredFeatureUnlocksMethod = typeof(LevelUpContext).GetMethod("SubclassFilteredFeatureUnlocks");
+
+                foreach (var instruction in instructions)
+                {
+                    if (instruction.Calls(classFeatureUnlocksMethod))
+                    {
+                        yield return new CodeInstruction(OpCodes.Ldarg_1);
+                        yield return new CodeInstruction(OpCodes.Call, classFilteredFeatureUnlocksMethod);
+                    }
+                    else if (instruction.Calls(subclassFeatureUnlocksMethod))
+                    {
+                        yield return new CodeInstruction(OpCodes.Ldarg_1);
+                        yield return new CodeInstruction(OpCodes.Call, subclassFilteredFeatureUnlocksMethod);
+                    }
+                    else
+                    {
+                        yield return instruction;
+                    }
+                }
+            }
+        }
+
+        // filter active features
+        [HarmonyPatch(typeof(CharacterBuildingManager), "RepairSubclass")]
+        internal static class CharacterBuildingManagerRepairSubclass
+        {
+            internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+            {
+                if (!Main.Settings.EnableMulticlass)
+                {
+                    foreach (var instruction in instructions)
+                    {
+                        yield return instruction;
+                    }
+
+                    yield break;
+                }
+
+                var classFeatureUnlocksMethod = typeof(CharacterClassDefinition).GetMethod("get_FeatureUnlocks");
+                var classFilteredFeatureUnlocksMethod = typeof(LevelUpContext).GetMethod("ClassFilteredFeatureUnlocks");
+
+                var subclassFeatureUnlocksMethod = typeof(CharacterSubclassDefinition).GetMethod("get_FeatureUnlocks");
+                var subclassFilteredFeatureUnlocksMethod = typeof(LevelUpContext).GetMethod("SubclassFilteredFeatureUnlocks");
+
+                foreach (var instruction in instructions)
+                {
+                    if (instruction.Calls(classFeatureUnlocksMethod))
+                    {
+                        yield return new CodeInstruction(OpCodes.Ldarg_1);
+                        yield return new CodeInstruction(OpCodes.Call, classFilteredFeatureUnlocksMethod);
+                    }
+                    else if (instruction.Calls(subclassFeatureUnlocksMethod))
+                    {
+                        yield return new CodeInstruction(OpCodes.Ldarg_1);
+                        yield return new CodeInstruction(OpCodes.Call, subclassFilteredFeatureUnlocksMethod);
+                    }
+                    else
+                    {
+                        yield return instruction;
+                    }
+                }
+            }
+        }
+
+        //
+        // disabling method call patches
+        //
 
         // ensures this doesn't get executed in the class panel level up screen
         [HarmonyPatch(typeof(CharacterBuildingManager), "ClearWieldedConfigurations")]
         internal static class CharacterBuildingManagerClearWieldedConfigurations
         {
-            internal static bool Prefix()
+            internal static bool Prefix(CharacterHeroBuildingData heroBuildingData)
             {
                 if (!Main.Settings.EnableMulticlass)
                 {
                     return true;
                 }
 
-                return !(LevelUpContext.LevelingUp && LevelUpContext.DisplayingClassPanel);
+                var hero = heroBuildingData.HeroCharacter;
+                var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
+                var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
+
+                return !(isLevelingUp && isClassSelectionStage);
             }
         }
 
-        // ensures this doesn't get executed in the class panel level up screen
+        // ensures this doesn't get executed if leveling up and multiclass
         [HarmonyPatch(typeof(CharacterBuildingManager), "GrantBaseEquipment")]
-        internal static class CharacterBuildingManagerGrantBaseEquipment
+        internal static class CharacterBuildingManagerGrantEquipment
         {
-            internal static bool Prefix()
+            internal static bool Prefix(CharacterHeroBuildingData heroBuildingData)
             {
                 if (!Main.Settings.EnableMulticlass)
                 {
                     return true;
                 }
 
-                return !(LevelUpContext.LevelingUp && LevelUpContext.DisplayingClassPanel);
+                var hero = heroBuildingData.HeroCharacter;
+                var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
+                var isMulticlass = LevelUpContext.IsClassSelectionStage(hero);
+
+                return !(isLevelingUp && isMulticlass);
             }
         }
 
@@ -79,29 +263,36 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
         [HarmonyPatch(typeof(CharacterBuildingManager), "GrantFeatures")]
         internal static class CharacterBuildingManagerGrantFeatures
         {
-            internal static bool Prefix()
+            internal static bool Prefix(RulesetCharacterHero hero)
             {
                 if (!Main.Settings.EnableMulticlass)
                 {
                     return true;
                 }
 
-                return !(LevelUpContext.LevelingUp && LevelUpContext.DisplayingClassPanel);
+                var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
+                var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
+
+                return !(isLevelingUp && isClassSelectionStage);
             }
         }
 
-        // ensures this doesn't get executed in the class panel level up screen
+        // ensures this doesn't get executed if leveling up and multiclass
         [HarmonyPatch(typeof(CharacterBuildingManager), "RemoveBaseEquipment")]
         internal static class CharacterBuildingManagerRemoveBaseEquipment
         {
-            internal static bool Prefix()
+            internal static bool Prefix(CharacterHeroBuildingData heroBuildingData)
             {
                 if (!Main.Settings.EnableMulticlass)
                 {
                     return true;
                 }
 
-                return !(LevelUpContext.LevelingUp && LevelUpContext.DisplayingClassPanel);
+                var hero = heroBuildingData.HeroCharacter;
+                var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
+                var isMulticlass = LevelUpContext.IsClassSelectionStage(hero);
+
+                return !(isLevelingUp && isMulticlass);
             }
         }
 
@@ -109,14 +300,37 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
         [HarmonyPatch(typeof(CharacterBuildingManager), "TransferOrSpawnWieldedItem")]
         internal static class CharacterBuildingManagerTransferOrSpawnWieldedItem
         {
-            internal static bool Prefix()
+            internal static bool Prefix(CharacterHeroBuildingData heroBuildingData)
             {
                 if (!Main.Settings.EnableMulticlass)
                 {
                     return true;
                 }
 
-                return !(LevelUpContext.LevelingUp && LevelUpContext.DisplayingClassPanel);
+                var hero = heroBuildingData.HeroCharacter;
+                var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
+                var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
+
+                return !(isLevelingUp && isClassSelectionStage);
+            }
+        }
+
+        // ensures this doesn't get executed in the class panel level up screen
+        [HarmonyPatch(typeof(CharacterBuildingManager), "UnassignEquipment")]
+        internal static class CharacterBuildingManagerUnassignEquipment
+        {
+            internal static bool Prefix(CharacterHeroBuildingData heroBuildingData)
+            {
+                if (!Main.Settings.EnableMulticlass)
+                {
+                    return true;
+                }
+
+                var hero = heroBuildingData.HeroCharacter;
+                var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
+                var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
+
+                return !(isLevelingUp && isClassSelectionStage);
             }
         }
 
@@ -124,19 +338,80 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
         [HarmonyPatch(typeof(CharacterBuildingManager), "UnassignLastClassLevel")]
         internal static class CharacterBuildingManagerUnassignLastClassLevel
         {
-            internal static bool Prefix()
+            internal static bool Prefix(RulesetCharacterHero hero)
             {
                 if (!Main.Settings.EnableMulticlass)
                 {
                     return true;
                 }
 
-                if (LevelUpContext.LevelingUp && LevelUpContext.DisplayingClassPanel)
+                var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
+                var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
+
+                if (isLevelingUp && isClassSelectionStage)
                 {
-                    LevelUpContext.UngrantItemsIfRequired();
+                    LevelUpContext.UngrantItemsIfRequired(hero);
                 }
 
-                return !(LevelUpContext.LevelingUp && LevelUpContext.DisplayingClassPanel);
+                return !(isLevelingUp && isClassSelectionStage);
+            }
+        }
+
+        //
+        // SPELLS
+        //
+
+        // correctly computes the highest spell level when auto acquiring spells
+        [HarmonyPatch(typeof(CharacterBuildingManager), "AutoAcquireSpells")]
+        internal static class CharacterBuildingManagerAutoAcquireSpells
+        {
+            public static int ComputeHighestSpellLevel(FeatureDefinitionCastSpell featureDefinitionCastSpell, int classLevel, CharacterHeroBuildingData heroBuildingData)
+            {
+                var hero = heroBuildingData.HeroCharacter;
+                var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
+                var isMulticlass = LevelUpContext.IsMulticlass(hero);
+
+                if (isLevelingUp && isMulticlass)
+                {
+                    var selectedClass = LevelUpContext.GetSelectedClass(hero);
+                    var selectedSubclass = LevelUpContext.GetSelectedSubclass(hero);
+
+                    return SharedSpellsContext.GetClassSpellLevel(
+                        hero,
+                        selectedClass,
+                        selectedSubclass);
+                }
+
+                return featureDefinitionCastSpell.ComputeHighestSpellLevel(classLevel);
+            }
+
+            internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+            {
+                if (!Main.Settings.EnableMulticlass)
+                {
+                    foreach (var instruction in instructions)
+                    {
+                        yield return instruction;
+                    }
+
+                    yield break;
+                }
+
+                var computeHighesteSpellMethod = typeof(FeatureDefinitionCastSpell).GetMethod("ComputeHighestSpellLevel");
+                var customComputeHighestSpellMethod = typeof(CharacterBuildingManagerAutoAcquireSpells).GetMethod("ComputeHighestSpellLevel");
+
+                foreach (var instruction in instructions)
+                {
+                    if (instruction.Calls(computeHighesteSpellMethod))
+                    {
+                        yield return new CodeInstruction(OpCodes.Ldarg_1);
+                        yield return new CodeInstruction(OpCodes.Call, customComputeHighestSpellMethod);
+                    }
+                    else
+                    {
+                        yield return instruction;
+                    }
+                }
             }
         }
 
@@ -144,25 +419,34 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
         [HarmonyPatch(typeof(CharacterBuildingManager), "EnumerateKnownAndAcquiredSpells")]
         internal static class CharacterBuildingManagerEnumerateKnownAndAcquiredSpells
         {
-            internal static bool Prefix(CharacterBuildingManager __instance, string tagToIgnore, ref List<SpellDefinition> __result)
+            internal static bool Prefix(
+                CharacterBuildingManager __instance,
+                CharacterHeroBuildingData heroBuildingData,
+                string tagToIgnore,
+                ref List<SpellDefinition> __result)
             {
                 if (!Main.Settings.EnableMulticlass)
                 {
                     return true;
                 }
 
-                if (!(LevelUpContext.LevelingUp && LevelUpContext.IsMulticlass))
+                var hero = heroBuildingData.HeroCharacter;
+                var isMulticlass = LevelUpContext.IsMulticlass(hero);
+                var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
+
+                if (!(isLevelingUp && isMulticlass))
                 {
                     return true;
                 }
 
+                var selectedClass = LevelUpContext.GetSelectedClass(hero);
                 var spellDefinitionList = new List<SpellDefinition>();
 
-                __instance.GetField<CharacterBuildingManager, List<FeatureDefinition>>("matchingFeatures").Clear();
+                heroBuildingData.MatchingFeatures.Clear();
 
-                foreach (var spellRepertoire in __instance.HeroCharacter.SpellRepertoires)
+                foreach (var spellRepertoire in hero.SpellRepertoires)
                 {
-                    var isRepertoireFromSelectedClassSubclass = CacheSpellsContext.IsRepertoireFromSelectedClassSubclass(spellRepertoire);
+                    var isRepertoireFromSelectedClassSubclass = CacheSpellsContext.IsRepertoireFromSelectedClassSubclass(hero, spellRepertoire);
 
                     // PATCH: don't allow cantrips to be re-learned
                     foreach (var spell in spellRepertoire.KnownCantrips)
@@ -170,7 +454,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                         if (!spellDefinitionList.Contains(spell) &&
                             (
                                 isRepertoireFromSelectedClassSubclass ||
-                                (!Main.Settings.EnableRelearnSpells && CacheSpellsContext.IsSpellOfferedBySelectedClassSubclass(spell))
+                                (!Main.Settings.EnableRelearnSpells && CacheSpellsContext.IsSpellOfferedBySelectedClassSubclass(hero, spell))
                             ))
                         {
                             spellDefinitionList.Add(spell);
@@ -178,9 +462,26 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                     }
 
                     // PATCH: don't allow spells to be re-learned
+                    foreach (var spell in spellRepertoire.KnownSpells)
+                    {
+                        if (!spellDefinitionList.Contains(spell) &&
+                            (
+                                isRepertoireFromSelectedClassSubclass ||
+                                (!Main.Settings.EnableRelearnSpells && CacheSpellsContext.IsSpellOfferedBySelectedClassSubclass(hero, spell))
+                            ))
+                        {
+                            spellDefinitionList.Add(spell);
+                        }
+                    }
+
+                    //
+                    // this if wasn't in original code
+                    //
+
+                    // PATCH: don't allow spells from whole lists to be re-learned
                     if (spellRepertoire.SpellCastingFeature.SpellKnowledge == RuleDefinitions.SpellKnowledge.WholeList)
                     {
-                        var classSpellLevel = SharedSpellsContext.GetClassSpellLevel(LevelUpContext.SelectedHero, spellRepertoire.SpellCastingClass, spellRepertoire.SpellCastingSubclass);
+                        var classSpellLevel = SharedSpellsContext.GetClassSpellLevel(hero, spellRepertoire.SpellCastingClass, spellRepertoire.SpellCastingSubclass);
 
                         for (var spellLevel = 1; spellLevel <= classSpellLevel; spellLevel++)
                         {
@@ -189,7 +490,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                                 if (!spellDefinitionList.Contains(spell) &&
                                     (
                                         isRepertoireFromSelectedClassSubclass ||
-                                        (!Main.Settings.EnableRelearnSpells && CacheSpellsContext.IsSpellOfferedBySelectedClassSubclass(spell))
+                                        (!Main.Settings.EnableRelearnSpells && CacheSpellsContext.IsSpellOfferedBySelectedClassSubclass(hero, spell))
                                     ))
                                 {
                                     spellDefinitionList.Add(spell);
@@ -197,45 +498,24 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                             }
                         }
                     }
-                    else
-                    {
-                        foreach (var spell in spellRepertoire.KnownSpells)
-                        {
-                            if (!spellDefinitionList.Contains(spell) &&
-                                (
-                                    isRepertoireFromSelectedClassSubclass ||
-                                    (!Main.Settings.EnableRelearnSpells && CacheSpellsContext.IsSpellOfferedBySelectedClassSubclass(spell))
-                                ))
-                            {
-                                spellDefinitionList.Add(spell);
-                            }
-                        }
-                        foreach (var spell in spellRepertoire.PreparedSpells)
-                        {
-                            if (!spellDefinitionList.Contains(spell) &&
-                                (
-                                    isRepertoireFromSelectedClassSubclass ||
-                                    (!Main.Settings.EnableRelearnSpells && CacheSpellsContext.IsSpellOfferedBySelectedClassSubclass(spell))
-                                ))
-                            {
-                                spellDefinitionList.Add(spell);
-                            }
-                        }
-                    }
                 }
+
+                //
+                // this is the modified code from EnumerateAvailableScribedSpells()
+                //
 
                 // PATCH: don't allow scribed spells to be re-learned
                 var foundSpellbooks = new List<RulesetItemSpellbook>();
 
-                __instance.HeroCharacter.CharacterInventory.BrowseAllCarriedItems<RulesetItemSpellbook>(foundSpellbooks);
+                hero.CharacterInventory.BrowseAllCarriedItems<RulesetItemSpellbook>(foundSpellbooks);
                 foreach (var foundSpellbook in foundSpellbooks)
                 {
                     foreach (var spell in foundSpellbook.ScribedSpells)
                     {
                         if (!spellDefinitionList.Contains(spell) &&
                             (
-                                LevelUpContext.SelectedClass == Wizard ||
-                                (!Main.Settings.EnableRelearnSpells && CacheSpellsContext.IsSpellOfferedBySelectedClassSubclass(spell))
+                                selectedClass == Wizard ||
+                                (!Main.Settings.EnableRelearnSpells && CacheSpellsContext.IsSpellOfferedBySelectedClassSubclass(hero, spell))
                             ))
                         {
                             spellDefinitionList.Add(spell);
@@ -245,9 +525,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
 
                 // GAME CODE FROM HERE
 
-                var bonusCantrips = __instance.GetField<CharacterBuildingManager, Dictionary<string, List<SpellDefinition>>>("bonusCantrips");
-
-                foreach (var bonusCantrip in bonusCantrips)
+                foreach (var bonusCantrip in heroBuildingData.BonusCantrips)
                 {
                     if (bonusCantrip.Key != tagToIgnore)
                     {
@@ -261,9 +539,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                     }
                 }
 
-                var acquiredCantrips = __instance.GetField<CharacterBuildingManager, Dictionary<string, List<SpellDefinition>>>("acquiredCantrips");
-
-                foreach (var acquiredCantrip in acquiredCantrips)
+                foreach (var acquiredCantrip in heroBuildingData.AcquiredCantrips)
                 {
                     if (acquiredCantrip.Key != tagToIgnore)
                     {
@@ -277,9 +553,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                     }
                 }
 
-                var acquiredSpells = __instance.GetField<CharacterBuildingManager, Dictionary<string, List<SpellDefinition>>>("acquiredSpells");
-
-                foreach (var acquiredSpell in acquiredSpells)
+                foreach (var acquiredSpell in heroBuildingData.AcquiredSpells)
                 {
                     if (acquiredSpell.Key != tagToIgnore)
                     {
@@ -303,17 +577,27 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
         [HarmonyPatch(typeof(CharacterBuildingManager), "GetSpellFeature")]
         internal static class CharacterBuildingManagerGetSpellFeature
         {
-            internal static bool Prefix(string tag, ref FeatureDefinitionCastSpell __result)
+            internal static bool Prefix(
+                CharacterHeroBuildingData heroBuildingData,
+                string tag,
+                ref FeatureDefinitionCastSpell __result)
             {
                 if (!Main.Settings.EnableMulticlass)
                 {
                     return true;
                 }
 
-                if (!(LevelUpContext.LevelingUp && LevelUpContext.IsMulticlass))
+                var hero = heroBuildingData.HeroCharacter;
+                var isMulticlass = LevelUpContext.IsMulticlass(hero);
+                var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
+
+                if (!(isLevelingUp && isMulticlass))
                 {
                     return true;
                 }
+
+                var selectedClass = LevelUpContext.GetSelectedClass(hero);
+                var selectedSubclass = LevelUpContext.GetSelectedSubclass(hero);
 
                 var localTag = tag;
 
@@ -321,15 +605,15 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
 
                 if (localTag.StartsWith(AttributeDefinitions.TagClass))
                 {
-                    localTag = AttributeDefinitions.TagClass + LevelUpContext.SelectedClass.Name;
+                    localTag = AttributeDefinitions.TagClass + selectedClass.Name;
                 }
                 else if (localTag.StartsWith(AttributeDefinitions.TagSubclass))
                 {
-                    localTag = AttributeDefinitions.TagSubclass + LevelUpContext.SelectedClass.Name;
+                    localTag = AttributeDefinitions.TagSubclass + selectedClass.Name;
                 }
 
                 // PATCH
-                foreach (var activeFeature in LevelUpContext.SelectedHero.ActiveFeatures.Where(x => x.Key.StartsWith(localTag)))
+                foreach (var activeFeature in hero.ActiveFeatures.Where(x => x.Key.StartsWith(localTag)))
                 {
                     foreach (var featureDefinition in activeFeature.Value)
                     {
@@ -346,10 +630,10 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                     return false;
                 }
 
-                localTag = AttributeDefinitions.TagClass + LevelUpContext.SelectedClass.Name;
+                localTag = AttributeDefinitions.TagClass + selectedClass.Name;
 
                 // PATCH
-                foreach (var activeFeature in LevelUpContext.SelectedHero.ActiveFeatures.Where(x => x.Key.StartsWith(localTag)))
+                foreach (var activeFeature in hero.ActiveFeatures.Where(x => x.Key.StartsWith(localTag)))
                 {
                     foreach (var featureDefinition in activeFeature.Value)
                     {
@@ -371,21 +655,27 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
         {
             internal static bool Prefix(
                 CharacterBuildingManager __instance,
-                ref int ___tempAcquiredCantripsNumber,
-                ref int ___tempAcquiredSpellsNumber,
-                ref int ___tempUnlearnedSpellsNumber)
+                CharacterHeroBuildingData heroBuildingData)
             {
                 if (!Main.Settings.EnableMulticlass)
                 {
                     return true;
                 }
 
-                if (!(LevelUpContext.LevelingUp && LevelUpContext.IsMulticlass))
+                var hero = heroBuildingData.HeroCharacter;
+                var isMulticlass = LevelUpContext.IsMulticlass(hero);
+                var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
+
+                if (!(isLevelingUp && isMulticlass))
                 {
                     return true;
                 }
 
-                foreach (var spellRepertoire in __instance.HeroCharacter.SpellRepertoires)
+                var selectedClass = LevelUpContext.GetSelectedClass(hero);
+                var selectedSubclass = LevelUpContext.GetSelectedSubclass(hero);
+                var selectedClassLevel = LevelUpContext.SelectedClassLevel(hero);
+
+                foreach (RulesetSpellRepertoire spellRepertoire in hero.SpellRepertoires)
                 {
                     var poolName = string.Empty;
                     var maxPoints = 0;
@@ -393,46 +683,47 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                     if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Class)
                     {
                         // PATCH: short circuit if the feature is for another class (change from native code)
-                        if (spellRepertoire.SpellCastingClass != LevelUpContext.SelectedClass)
+                        if (spellRepertoire.SpellCastingClass != selectedClass)
                         {
                             continue;
                         }
 
-                        poolName = AttributeDefinitions.GetClassTag(LevelUpContext.SelectedClass, LevelUpContext.SelectedClassLevel); // SelectedClassLevel ???
+                        poolName = AttributeDefinitions.GetClassTag(selectedClass, selectedClassLevel);
                     }
                     else if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Subclass)
                     {
                         // PATCH: short circuit if the feature is for another subclass (change from native code)
-                        if (spellRepertoire.SpellCastingSubclass != LevelUpContext.SelectedSubclass)
+                        if (spellRepertoire.SpellCastingSubclass != selectedSubclass)
                         {
                             continue;
                         }
 
-                        poolName = AttributeDefinitions.GetSubclassTag(LevelUpContext.SelectedClass, LevelUpContext.SelectedClassLevel, LevelUpContext.SelectedSubclass); // SelectedClassLevel ???
+                        poolName = AttributeDefinitions.GetSubclassTag(selectedClass, selectedClassLevel, selectedSubclass);
                     }
                     else if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Race)
                     {
                         poolName = "02Race";
                     }
 
+                    if (__instance.HasAnyActivePoolOfType(heroBuildingData, HeroDefinitions.PointsPoolType.Cantrip)
+                        && heroBuildingData.PointPoolStacks[HeroDefinitions.PointsPoolType.Cantrip].ActivePools.ContainsKey(poolName))
+                    {
+                        maxPoints = heroBuildingData.PointPoolStacks[HeroDefinitions.PointsPoolType.Cantrip].ActivePools[poolName].MaxPoints;
+                    }
+
+                    heroBuildingData.TempAcquiredCantripsNumber = 0;
+                    heroBuildingData.TempAcquiredSpellsNumber = 0;
+                    heroBuildingData.TempUnlearnedSpellsNumber = 0;
+
                     var characterBuildingManagerType = typeof(CharacterBuildingManager);
                     var applyFeatureCastSpellMethod = characterBuildingManagerType.GetMethod("ApplyFeatureCastSpell", BindingFlags.NonPublic | BindingFlags.Instance);
                     var setPointPoolMethod = characterBuildingManagerType.GetMethod("SetPointPool", BindingFlags.NonPublic | BindingFlags.Instance);
 
-                    ___tempAcquiredCantripsNumber = 0;
-                    ___tempAcquiredSpellsNumber = 0;
-                    ___tempUnlearnedSpellsNumber = 0;
+                    applyFeatureCastSpellMethod.Invoke(__instance, new object[] { heroBuildingData, spellRepertoire.SpellCastingFeature });
 
-                    applyFeatureCastSpellMethod.Invoke(__instance, new object[] { spellRepertoire.SpellCastingFeature });
-
-                    if (__instance.HasAnyActivePoolOfType(HeroDefinitions.PointsPoolType.Cantrip) && __instance.PointPoolStacks[HeroDefinitions.PointsPoolType.Cantrip].ActivePools.ContainsKey(poolName))
-                    {
-                        maxPoints = __instance.PointPoolStacks[HeroDefinitions.PointsPoolType.Cantrip].ActivePools[poolName].MaxPoints;
-                    }
-
-                    setPointPoolMethod.Invoke(__instance, new object[] { HeroDefinitions.PointsPoolType.Cantrip, poolName, ___tempAcquiredCantripsNumber + maxPoints });
-                    setPointPoolMethod.Invoke(__instance, new object[] { HeroDefinitions.PointsPoolType.Spell, poolName, ___tempAcquiredSpellsNumber });
-                    setPointPoolMethod.Invoke(__instance, new object[] { HeroDefinitions.PointsPoolType.SpellUnlearn, poolName, ___tempUnlearnedSpellsNumber });
+                    setPointPoolMethod.Invoke(__instance, new object[] { heroBuildingData, HeroDefinitions.PointsPoolType.Cantrip, poolName, heroBuildingData.TempAcquiredCantripsNumber + maxPoints });
+                    setPointPoolMethod.Invoke(__instance, new object[] { heroBuildingData, HeroDefinitions.PointsPoolType.Spell, poolName, heroBuildingData.TempAcquiredSpellsNumber });
+                    setPointPoolMethod.Invoke(__instance, new object[] { heroBuildingData, HeroDefinitions.PointsPoolType.SpellUnlearn, poolName, heroBuildingData.TempUnlearnedSpellsNumber });
                 }
 
                 return false;

@@ -1,0 +1,31 @@
+{
+  "$type": "FeatureDefinitionMoveMode, Assembly-CSharp",
+  "moveMode": "Walk",
+  "speed": 5,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&MoveTitle",
+    "description": "Feature/&MoveWalkDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "39236d1a5cbaf114d96e2709eb817529",
+  "contentPack": "BaseGame",
+  "name": "MoveModeMove5"
+}

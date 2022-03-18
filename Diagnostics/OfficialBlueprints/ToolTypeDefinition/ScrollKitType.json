@@ -1,0 +1,36 @@
+{
+  "$type": "ToolTypeDefinition, Assembly-CSharp",
+  "hasParentCategory": false,
+  "toolCategory": "ArtisanToolCategory",
+  "mainAbilityScore": "Intelligence",
+  "requiredProficiencyOptions": [
+    "ScrollKitType",
+    "Arcana"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&ScrollKitToolTypeTitle",
+    "description": "Equipment/&ScrollKitToolTypeDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "6ae14cfcb09eae5408f7740beb5b6bee",
+      "m_SubObjectName": "ScrollKit",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "33c029d33932a7a46a67d5279d181179",
+  "contentPack": "BaseGame",
+  "name": "ScrollKitType"
+}

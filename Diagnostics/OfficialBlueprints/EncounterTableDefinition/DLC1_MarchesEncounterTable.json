@@ -1,0 +1,116 @@
+{
+  "$type": "EncounterTableDefinition, Assembly-CSharp",
+  "encounterOccurences": [
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR1_DLC1_Bandit_Thug_x2_x2_x1:5f2d79a00002d8e48907f4ce5c59b29a"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR2_DLC1_Hunters_and_Scavengers_x4_x1_x1:2a005caf8600d0e4d94211b49a198b1b"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR3_DLC1_DireWolf_OrcWarrior_Archer_x1_x2_x2:5f9e0f008fc3e0a4f8f9316316f6bbf4"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR3_DLC1_Dryad_Bear_x2_x1_x1:4dd71fbdd353cb5408dbfda12633da04"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR3_DLC1_GiantCrows_x1_x1_x1:646a4dbf8ddaac14cb08e1008db55b1c"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR3_DLC1_Gorillas_x2_x1:7194c47d97289ed40bad1222fcab86ef"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR3_DLC1_Minotaur_x1:6ae8407f275256647915ede648a69a85"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR4_DLC1_GiantBeetle_x1_x1:4a76af486e64a8941a41244f7b1afb9a"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR4_DLC1_GoblinShaman_OrcShaman_OrcWarrior_x1_x1_x2:2d01271bfcb8ade42b9a082d2f11c9db"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR4_DLC1_Minotaur_Dryad_x1_x1:e5f59cef06ea5894290ce0919fc25607"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR4_DLC1_TigerDrakes_x1_x1:9f8c5842bec9e804ba689cdb165ff931"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR4_DLC1_WinterWolf_Wolf_x1_x2_x2:5fd401ff6c0f4974b8a771125f5bff0c"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR5_DLC1_Dryad_ApeGorilla_BrownBear_x2_x1_x2:b0331a4171b9a6c4b936e5affad5beb4"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR5_DLC1_GhostWolf_Wolf_x1_x2_x2:ad2863791b1b9364f9638251e1b5b333"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR5_DLC1_OrcBerserker_BrownBear_x1_x1_x1:76d928903d8e5da45a983ef3674aab33"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR5_DLC1_Pilgrim_BadlandsSpider_X1_x1_x1:3c79fcda582a6c340afb86dfb42c93bc"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR5_DLC1_Pilgrim_OrcShaman_x1_x1:66753867a2c73fd43bf6d325db55e0e2"
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "698bc81860c731f46bda1a62ffa16bd6",
+  "contentPack": "BaseGame",
+  "name": "DLC1_MarchesEncounterTable"
+}

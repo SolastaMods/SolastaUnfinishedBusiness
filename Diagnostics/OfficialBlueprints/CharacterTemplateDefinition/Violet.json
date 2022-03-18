@@ -1,0 +1,140 @@
+{
+  "$type": "CharacterTemplateDefinition, Assembly-CSharp",
+  "editorOnly": true,
+  "firstName": "Violet",
+  "surName": "Goodcheer",
+  "abilityScores": [
+    11,
+    12,
+    13,
+    18,
+    11,
+    14
+  ],
+  "automateAbilityScoreIncreases": true,
+  "mainRace": "Definition:Halfling:d6a9a559998c0974abd8077d7012ef84",
+  "subRace": "Definition:HalflingMarsh:7d54ea787abc11642a15214c750157f3",
+  "originMorphotype": "Origin_NonHuman",
+  "skinMorphotype": "FaceAndSkinBronze",
+  "musculatureMorphotypeValue": 0.0,
+  "ageMorphotypeValue": 0.0,
+  "faceShapeMorphotype": "FaceShape_A",
+  "hairShapeMorphotype": "HairShape_A",
+  "hairColorMorphotype": "HairColorBrown",
+  "beardShapeMorphotype": "",
+  "eyeColorMorphotype": "EyeColorBlack",
+  "eyeMorphotype": "Eye_Default",
+  "bodyDecorationMorphotype": "BodyDecoration_None",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "",
+  "mainClass": "Definition:Wizard:a279003a65f95a64eb58fcc71463c734",
+  "subClass": "Definition:TraditionShockArcanist:6f400ff2620a4c14cabd9f8fd450eee1",
+  "deity": null,
+  "background": "Definition:KS_VioletGoodcheer:1d8ef0065aa974948919000890d6581d",
+  "backgroundPersonalityFlag1": "",
+  "backgroundPersonalityFlag2": "",
+  "alignment": "NeutralGood",
+  "alignmentPersonalityFlag1": "Pragmatism",
+  "alignmentPersonalityFlag2": "Self-Preservation",
+  "fightingStyle": null,
+  "equipment": [
+    "Definition:Backpack:9548f1e58e784c34aaee1a179c7ff3d5",
+    "Definition:Quarterstaff:e02fa6fe6682b034ea74a6c48c9ee134",
+    "Definition:ClothesWizard:b4665400531663847b34d9df971d3e78",
+    "Definition:Spellbook:8fba4fb82a318ea4ab1076b0b607c9a9",
+    "Definition:HerbalismKit:074f1654b516bab49b8cf7bd96ecfe9e",
+    "Definition:ScrollFireball:2ad557deb8c93284eac3916e7b808f84"
+  ],
+  "startingMoney": [
+    0,
+    37,
+    0,
+    10,
+    0
+  ],
+  "skillsOverride": [
+    "Arcana",
+    "History",
+    "Investigation",
+    "Medecine"
+  ],
+  "toolsOverride": [
+    "HerbalismKitType",
+    "ScrollKitType"
+  ],
+  "featsOverride": [],
+  "expertisesOverride": [],
+  "languagesOverride": [],
+  "metamagicOverride": [],
+  "characterLevel": 3,
+  "knownRaceCantrips": [],
+  "knownClassCantrips": [
+    "Definition:ShockingGrasp:0bcfc5c29da450c4bb0f27df027616eb",
+    "Definition:Light:c1d0bf7d6cd76e543a665bd1cb3aa01c",
+    "Definition:FireBolt:fac7c06d87f301d4ca3798b4c18d86c8"
+  ],
+  "knownSubclassCantrips": [],
+  "knownRaceSpells": [],
+  "knownClassSpells": [
+    "Definition:BurningHands:a2c42e38e03448e438a2abfc3252352a",
+    "Definition:ColorSpray:72939f681f479494e97e0025f67726fe",
+    "Definition:DetectMagic:a00ea7ca05339cb42a49056d722b6680",
+    "Definition:FeatherFall:4e3a52bac403e3246bb7c4c12f520245",
+    "Definition:Identify:e398d34493329f147bae4902122057c2",
+    "Definition:MageArmor:4772a21b455a76149adcc38d58267a10",
+    "Definition:MagicMissile:2b2b43fb6eeb735479a21209286db382",
+    "Definition:Shield:f69bd9c9375fc074a90043c42f9868fe",
+    "Definition:Thunderwave:6c670662de0366842bca44119e9104da",
+    "Definition:Invisibility:191eaa38bdc35ea429f843cc00e7e559",
+    "Definition:ScorchingRay:2196d4d1af65ab8469bcb2b382014a58"
+  ],
+  "knownSubclassSpells": [],
+  "preparedClassSpells": [
+    "Definition:BurningHands:a2c42e38e03448e438a2abfc3252352a",
+    "Definition:ColorSpray:72939f681f479494e97e0025f67726fe",
+    "Definition:MagicMissile:2b2b43fb6eeb735479a21209286db382",
+    "Definition:Shield:f69bd9c9375fc074a90043c42f9868fe",
+    "Definition:FeatherFall:4e3a52bac403e3246bb7c4c12f520245",
+    "Definition:Invisibility:191eaa38bdc35ea429f843cc00e7e559",
+    "Definition:ScorchingRay:2196d4d1af65ab8469bcb2b382014a58"
+  ],
+  "preparedSubclassSpells": [],
+  "sex": "Female",
+  "pronoun": "Female",
+  "age": 20,
+  "facePath": "",
+  "wieldedItemsConfigurations": [
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:Quarterstaff:e02fa6fe6682b034ea74a6c48c9ee134",
+      "offHandItemDefinition": null
+    }
+  ],
+  "voiceId": "TEL_F2",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "CharacterTemplate/&VioletTitle",
+    "description": "CharacterTemplate/&VioletDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "017a52f4363f74942a23ce24e7119734",
+      "m_SubObjectName": "Violet",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "6c892d74e24cb9748ad1e549c9d1a4b5",
+  "contentPack": "BaseGame",
+  "name": "Violet"
+}

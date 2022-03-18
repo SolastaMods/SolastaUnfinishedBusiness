@@ -1,0 +1,42 @@
+{
+  "$type": "BiomeDefinition, Assembly-CSharp",
+  "terrainType": "Forest",
+  "encounterTable": "Definition:PrincipalityForestEncounter:b060fe3c9e643a644ba2d806f6691705",
+  "narrativeEventBasicLines": [
+    "Travel/&StandardRandomEvents1Title",
+    "Travel/&StandardRandomEvents2Title",
+    "Travel/&StandardRandomEvents3Title",
+    "Travel/&StandardRandomEvents4Title"
+  ],
+  "encounterLocations": [
+    "Definition:Encounter_Forest_LocationDB:e9890128da1ec5245a25c869d2b4e94a",
+    "Definition:EncounterHamlet_LocationDB:b824d2fd019f0f84681289b5c5d16c9c",
+    "Definition:EncounterWaterfall_LocationDB:d8798cdee1aaf304d93e9cfc4bb0d6b9"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "0a8f0b7657a991141a344a374b289466",
+  "contentPack": "BaseGame",
+  "name": "Biome_Principality_Forest"
+}

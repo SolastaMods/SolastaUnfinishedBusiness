@@ -1,0 +1,35 @@
+{
+  "$type": "NotificationDefinition, Assembly-CSharp",
+  "displayType": "Gauge",
+  "contextualImageSize": {
+    "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+    "x": 39.0,
+    "y": 78.0
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Notification/&FactionRelationIncreaseTitle",
+    "description": "Notification/&FactionRelationIncreaseDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "2f8b29495db82f34aab54add3105637c",
+      "m_SubObjectName": "ArrowUp",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.360784322,
+      "g": 0.709803939,
+      "b": 0.6039216,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "aab3db9ed45ce3546ac119a11ecffe5e",
+  "contentPack": "BaseGame",
+  "name": "FactionRelationIncrease"
+}

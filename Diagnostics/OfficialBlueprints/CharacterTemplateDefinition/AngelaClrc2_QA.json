@@ -1,0 +1,142 @@
+{
+  "$type": "CharacterTemplateDefinition, Assembly-CSharp",
+  "editorOnly": true,
+  "firstName": "Angela2",
+  "surName": "Cleric2",
+  "abilityScores": [
+    13,
+    9,
+    13,
+    10,
+    18,
+    10
+  ],
+  "automateAbilityScoreIncreases": true,
+  "mainRace": "Definition:Dwarf:2e3395f10bfa00e4487d852ec3b20154",
+  "subRace": "Definition:DwarfSnow:a826525c554ef754ca0e841c8d072749",
+  "originMorphotype": "Origin_NonHuman",
+  "skinMorphotype": "FaceAndSkinFair",
+  "musculatureMorphotypeValue": 0.0,
+  "ageMorphotypeValue": 0.0,
+  "faceShapeMorphotype": "FaceShape_A",
+  "hairShapeMorphotype": "HairShape_C",
+  "hairColorMorphotype": "HairColorBlond",
+  "beardShapeMorphotype": "",
+  "eyeColorMorphotype": "EyeColorBlack",
+  "eyeMorphotype": "Eye_Default",
+  "bodyDecorationMorphotype": "BodyDecoration_None",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "",
+  "mainClass": "Definition:Cleric:ae0f550f733a7e04aa225da694b2827c",
+  "subClass": "Definition:DomainBattle:bf3c54c59b182fd4a84e5df0656c161c",
+  "deity": "Definition:Einar:ba8feffc3aa81ea42bbf641959d7259b",
+  "background": "Definition:Acolyte_Lawkeeper_QA_Background:1296466bbd77cf0449cfae202df0c177",
+  "backgroundPersonalityFlag1": "Lawfulness",
+  "backgroundPersonalityFlag2": "Helpfulness",
+  "alignment": "LawfulGood",
+  "alignmentPersonalityFlag1": "Authority",
+  "alignmentPersonalityFlag2": "Lawfulness",
+  "fightingStyle": null,
+  "equipment": [
+    "Definition:Backpack:9548f1e58e784c34aaee1a179c7ff3d5",
+    "Definition:Mace:639725eb1a28ef242851668eb3d5b2e7",
+    "Definition:Shield:28e1f623fc28c7242a89072ee116a1dc",
+    "Definition:LightCrossbow:84f6376eb9753124298bb9cceafe3da7",
+    "Definition:ScaleMail:c0c731016e162ca449b006881935a1cf",
+    "Definition:HolySymbolAmulet:8c3c56e926a899447abdff0c6fee3ff3",
+    "Definition:Candle:f32994a2227137f4684c54cb148faff5",
+    "Definition:Candle:f32994a2227137f4684c54cb148faff5",
+    "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994",
+    "Definition:Bolt:ad0fe02755fdb754193b60214585d74e",
+    "Definition:Food_Ration:59973b7c0f7bd2f4089ec4406628b941"
+  ],
+  "startingMoney": [
+    0,
+    98,
+    0,
+    0,
+    0
+  ],
+  "skillsOverride": [
+    "Insight",
+    "Religion",
+    "Perception",
+    "Persuasion"
+  ],
+  "toolsOverride": [
+    "GamingSetDiceType"
+  ],
+  "featsOverride": [],
+  "expertisesOverride": [],
+  "languagesOverride": [],
+  "metamagicOverride": [],
+  "characterLevel": 2,
+  "knownRaceCantrips": [],
+  "knownClassCantrips": [
+    "Definition:Light:c1d0bf7d6cd76e543a665bd1cb3aa01c",
+    "Definition:SpareTheDying:4f1e3d9c88278a94fbc457664ab8d6bf",
+    "Definition:SacredFlame:e49182bcdd6632e428a185bd55ef8355",
+    "Definition:Shine:5581bdee6e264364cb9b10558010dddf",
+    "Definition:Sparkle:ac43e07871656cd4db792bdbdc77ac44"
+  ],
+  "knownSubclassCantrips": [],
+  "knownRaceSpells": [],
+  "knownClassSpells": [],
+  "knownSubclassSpells": [],
+  "preparedClassSpells": [
+    "Definition:Bane:2e60d6f650100a84f917bd5d0e69b356",
+    "Definition:CureWounds:c401c5cf11ac8274f98a0dc809ff5863",
+    "Definition:GuidingBolt:97277a5063bcd6d48af24984618dc218",
+    "Definition:HealingWord:0d615e01b2fdf5f42815342ea1e0a26f",
+    "Definition:InflictWounds:473bbe804543d0f4ebe68ba6db675a49"
+  ],
+  "preparedSubclassSpells": [],
+  "sex": "Female",
+  "pronoun": "Female",
+  "age": 47,
+  "facePath": "",
+  "wieldedItemsConfigurations": [
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:Mace:639725eb1a28ef242851668eb3d5b2e7",
+      "offHandItemDefinition": "Definition:Shield:28e1f623fc28c7242a89072ee116a1dc"
+    },
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:LightCrossbow:84f6376eb9753124298bb9cceafe3da7",
+      "offHandItemDefinition": null
+    },
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": null,
+      "offHandItemDefinition": "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994"
+    }
+  ],
+  "voiceId": "FEM1",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "CharacterTemplate/&GarradTitle",
+    "description": "CharacterTemplate/&GarradDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "c866cb6dc82f77c45adcd558fc6e38d9",
+      "m_SubObjectName": "AngelaClrc2_QA",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "b713ad90887a9d54dadcb46d8352b888",
+  "contentPack": "BaseGame",
+  "name": "AngelaClrc2_QA"
+}

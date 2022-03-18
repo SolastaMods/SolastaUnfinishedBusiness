@@ -1,0 +1,80 @@
+{
+  "$type": "HumanoidMonsterPresentationDefinition, Assembly-CSharp",
+  "raceDefinition": "Definition:Human:d844f80cc9ab3cb4d95630e35163eedd",
+  "subRaceDefinition": null,
+  "sex": "Male",
+  "originMorphotype": "Origin_AF",
+  "skinMorphotype": "FaceAndSkin_31",
+  "musculatureMorphotypeValue": 30.7099934,
+  "ageMorphotypeValue": 52.3207245,
+  "faceShapeMorphotype": "FaceShape_AF_B",
+  "hairShapeMorphotype": "HairShape_I",
+  "hairColorMorphotype": "HairColor_36",
+  "beardShapeMorphotype": "BeardShape_I",
+  "eyeMorphotype": "Eye_Default",
+  "eyeColorMorphotype": "EyeColor_013",
+  "bodyDecorationMorphotype": "BodyDecoration_Tattoo_07",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "Scars_10",
+  "armorDefinition": "ClothesCommon_Valley",
+  "helmetDefinition": "",
+  "tabardDefinition": "",
+  "showHelmet": false,
+  "firstColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.990565956,
+    "g": 0.7284364,
+    "b": 0.08877707,
+    "a": 1.0
+  },
+  "secondColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.141509354,
+    "g": 0.141361028,
+    "b": 0.139506847,
+    "a": 1.0
+  },
+  "thirdColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.179245234,
+    "g": 0.1616233,
+    "b": 0.151343822,
+    "a": 1.0
+  },
+  "fourthColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.990565956,
+    "g": 0.791308045,
+    "b": 0.0,
+    "a": 1.0
+  },
+  "overrideWieldedItems": false,
+  "itemDefinitionMainHand": null,
+  "itemDefinitionOffHand": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "NPC/&NPC_DLC_Mask_Spy_Title",
+    "description": "NPC/&NPC_DLC_Mask_Spy_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "3c644d3d0a1d13a44af7477154a203be",
+      "m_SubObjectName": "NPC_Presentation_DLC1_Mask_Spy_Male_03",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "eb606720a2a42f84abde9945c7400ef4",
+  "contentPack": "LostValley",
+  "name": "NPC_Presentation_DLC1_Mask_Spy_Male_03"
+}

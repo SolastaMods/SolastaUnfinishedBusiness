@@ -1,0 +1,33 @@
+{
+  "$type": "SmartAttributeDefinition, Assembly-CSharp",
+  "modifiedAttributes": [
+    "ArmorClass",
+    "Initiative"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Attribute/&DexterityTitle",
+    "description": "Attribute/&DexterityDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 1,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "81c4589c5bf411f4eb126389f41c9e2f",
+  "contentPack": "BaseGame",
+  "name": "Dexterity"
+}

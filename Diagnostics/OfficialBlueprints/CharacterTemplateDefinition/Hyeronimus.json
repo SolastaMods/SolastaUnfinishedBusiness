@@ -1,0 +1,131 @@
+{
+  "$type": "CharacterTemplateDefinition, Assembly-CSharp",
+  "editorOnly": true,
+  "firstName": "Hyeronimus",
+  "surName": "Bash",
+  "abilityScores": [
+    20,
+    16,
+    18,
+    14,
+    18,
+    20
+  ],
+  "automateAbilityScoreIncreases": false,
+  "mainRace": "Definition:Human:d844f80cc9ab3cb4d95630e35163eedd",
+  "subRace": null,
+  "originMorphotype": "Origin_CA",
+  "skinMorphotype": "FaceAndSkinFair",
+  "musculatureMorphotypeValue": 100.0,
+  "ageMorphotypeValue": 0.0,
+  "faceShapeMorphotype": "FaceShape_CA_A",
+  "hairShapeMorphotype": "HairShape_C",
+  "hairColorMorphotype": "HairColorBlack",
+  "beardShapeMorphotype": "BeardShape_None",
+  "eyeColorMorphotype": "EyeColorBlack",
+  "eyeMorphotype": "",
+  "bodyDecorationMorphotype": "",
+  "bodyDecorationColorMorphotype": "",
+  "scarsMorphotype": "",
+  "mainClass": "Definition:Paladin:b2e60f3a15ee5de40a14cce2d16f02ba",
+  "subClass": "Definition:OathOfTirmar:c14f1d650aaf1994eae74f2c6063bb63",
+  "deity": "Definition:Pakri:4fc11f376c1b755439fe6d9fd37fa352",
+  "background": "Definition:Lawkeeper:d2e9d45498eb56f4d91ea6c451c7b482",
+  "backgroundPersonalityFlag1": "Violence",
+  "backgroundPersonalityFlag2": "Authority",
+  "alignment": "LawfulNeutral",
+  "alignmentPersonalityFlag1": "Lawfulness",
+  "alignmentPersonalityFlag2": "Authority",
+  "fightingStyle": "Definition:GreatWeapon:ab94d90f7226c7b4ca82f1829e495d02",
+  "equipment": [
+    "Definition:Backpack:9548f1e58e784c34aaee1a179c7ff3d5",
+    "Definition:Greatsword:f8a7ceac8de8c1a4497b55c8b8bd1de6",
+    "Definition:Plate:c235e621241816a4e8648d5fad95ad68",
+    "Definition:LightCrossbow:84f6376eb9753124298bb9cceafe3da7",
+    "Definition:Bolt:ad0fe02755fdb754193b60214585d74e",
+    "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994",
+    "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994",
+    "Definition:HolySymbolAmulet:8c3c56e926a899447abdff0c6fee3ff3"
+  ],
+  "startingMoney": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "skillsOverride": [
+    "Perception",
+    "Survival",
+    "Athletics",
+    "Insight",
+    "Religion",
+    "Intimidation"
+  ],
+  "toolsOverride": [],
+  "featsOverride": [],
+  "expertisesOverride": [],
+  "languagesOverride": [],
+  "metamagicOverride": [],
+  "characterLevel": 10,
+  "knownRaceCantrips": [],
+  "knownClassCantrips": [],
+  "knownSubclassCantrips": [],
+  "knownRaceSpells": [],
+  "knownClassSpells": [],
+  "knownSubclassSpells": [],
+  "preparedClassSpells": [
+    "Definition:BrandingSmite:1da57f03be1764642968c141460fe859",
+    "Definition:LesserRestoration:5da149e59ebb042419041382af919aea",
+    "Definition:Heroism:05578696fa5d08c4cacde7fcaa7ef9cb"
+  ],
+  "preparedSubclassSpells": [],
+  "sex": "Male",
+  "pronoun": "Undefined",
+  "age": 30,
+  "facePath": "",
+  "wieldedItemsConfigurations": [
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:Greatsword:f8a7ceac8de8c1a4497b55c8b8bd1de6",
+      "offHandItemDefinition": null
+    },
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:LightCrossbow:84f6376eb9753124298bb9cceafe3da7",
+      "offHandItemDefinition": null
+    },
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": null,
+      "offHandItemDefinition": "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994"
+    }
+  ],
+  "voiceId": "MAL1",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "NPC/&NPC_Hieronymus",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "e4a8ca584a05bde42945e5ffef7d8fee",
+      "m_SubObjectName": "Hyeronimus",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "99aa2705d7792124b913452c1a5314aa",
+  "contentPack": "BaseGame",
+  "name": "Hyeronimus"
+}

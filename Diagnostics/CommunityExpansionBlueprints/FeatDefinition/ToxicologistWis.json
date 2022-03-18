@@ -1,0 +1,43 @@
+{
+  "$type": "FeatDefinition, Assembly-CSharp",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Strength",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "knownFeatsPrerequisite": [],
+  "features": [
+    "Definition:AttributeModifierFeatCraftyWis:23f944c7-2359-43cc-8bdc-71833bf35302",
+    "Definition:CraftyPoisonersKit:32ddae84-66e7-4b56-b5ec-0ec91a713e2e",
+    "Definition:CraftyMedicine:1ac54869-a8ce-4a51-a858-1f7e34680b96"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "CraftyFeats/&ToxicologistWisFeatTitle",
+    "description": "CraftyFeats/&ToxicologistWisFeatDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "1bb4acbd-1890-48ae-9f86-46c2cb95cb79",
+  "contentPack": 9999,
+  "name": "ToxicologistWis"
+}

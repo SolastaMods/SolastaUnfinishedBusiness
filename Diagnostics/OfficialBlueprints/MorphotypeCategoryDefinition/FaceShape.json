@@ -1,0 +1,33 @@
+{
+  "$type": "MorphotypeCategoryDefinition, Assembly-CSharp",
+  "choiceForm": "Selector",
+  "hasDependency": false,
+  "dependency": "Max",
+  "dependencyNoneEntry": "",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Stage/&IdentityMorphotypeFaceShapeHeader",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "68b252a4c1758b449a1d66e88986919c",
+      "m_SubObjectName": "MorphotypeFaceShape",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "9c1f900fc95d98f42b82ff14c33e58a3",
+  "contentPack": "BaseGame",
+  "name": "FaceShape"
+}

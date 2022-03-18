@@ -1,0 +1,166 @@
+{
+  "$type": "EncounterTableDefinition, Assembly-CSharp",
+  "encounterOccurences": [
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR1_ApprenticeNecromancer_x1_x2:9f0418bfa88a86e4297de157acf0b1a9"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR1_DeathGang_x2_x2:a3ddf0f86b1842f40bb1b1b5e87d66af"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR1_HungryWolves_x4:e5b7860240afe37479fd7b80ca82675c"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR1_EagleNest_x3:d0052328bb9f6b0469295cea1ca72bd0"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR1_AmateurBandits_x3_x1:3e15fac56ddf51042bf06c2d2bad9b79"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR2_ApprenticeNecromancer_x1_x3:962a6bfd1b19f21459a728e005394053"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR2_RoamingWolves_x5:d5f00a91cd7ba884299cbe08447c6626"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR2_BanditThug_x4_x1:4331555c8bc9e1b449956944f7a5b3cf"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR2_SmallBanditBand_x5:9e780ef0771a10b4bb4fd96018c3d74f"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR2_RoamingFanatics_x1_x2:5808d86719f3b9144aa7b19d4952ea6c"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR2_SpiesOnTheRun:383e4432b0e59314181fff5e35c6214a"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR3_LoneVeteran_x1:ff746a0342a4c8e4dbcf217a929443e2"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR3_WolfPack_x1_x3:f7c57fa74729ae8439dfd9bf5a2a4b0d"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR3_ScoutingParty_x3_x1:85c41563b0c6a9c46907b1e9e7635040"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR3_Highway_Robbers_x3_x2:23a4c25ccfd5bda45b9e92d5c375722e"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR3_ApprenticeNecromancer_x1_x1:77238ff3a3bce74479be7264fd795930"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR3_DeathSquad_x2_x2_x1:2ca5d49461aba7041acb4f80a784f4ac"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 2,
+      "encounterDefinition": "Definition:CR3_LoneVeteran_x1:ff746a0342a4c8e4dbcf217a929443e2"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR4_BanditBand_x2_x2_x1:df751f04cf7025643b9a8f76fdd340d3"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR4_WanderingThugs_x5:636ac592fc3608e4ca546fdb7e17b384"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR4_MisayeEvangelists_x1_x2:7d75d1f20f18c664d9e2f84fe941ef19"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR5_SmallFanaticGroup_x3:957b93ead8c831a41afb3d0e35de5e70"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR5_SmallVeteranGroup_x2_x1:98a72096c2ebedc43b56a6c26fb798bb"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR6_CrazedFanatics_x2_x1:c9e6a7deccf6f844183c6f23b533665d"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR2_LoneOgre_x1:b066a610821f4c741a27d1043e200d37"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR1_FlyingSnakes_x6:a242a8064fb6b3c4799599159150017e"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR2_SpectralSpiders_x2:44844bd82d7ba4b4f8fcc62786334cd2"
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "cc45ccd29f868874fb58992a55cc3fe2",
+  "contentPack": "BaseGame",
+  "name": "PrincipalityGrasslandEncounter"
+}

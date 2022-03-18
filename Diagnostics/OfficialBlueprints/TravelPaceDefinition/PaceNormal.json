@@ -1,0 +1,31 @@
+{
+  "$type": "TravelPaceDefinition, Assembly-CSharp",
+  "travelDistancePerHour": 3.0,
+  "perceptionModifier": 0,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Travel/&PaceNormalTitle",
+    "description": "Travel/&PaceNormalDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "07401dcde35ad4d4a8c656cc96eae78d",
+  "contentPack": "BaseGame",
+  "name": "PaceNormal"
+}

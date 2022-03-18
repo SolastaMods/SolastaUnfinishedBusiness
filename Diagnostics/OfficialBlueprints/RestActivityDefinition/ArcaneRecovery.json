@@ -1,0 +1,34 @@
+{
+  "$type": "RestActivityDefinition, Assembly-CSharp",
+  "restStage": "AfterRest",
+  "restType": "ShortRest",
+  "condition": "CanUsePower",
+  "functor": "UsePower",
+  "stringParameter": "PowerWizardArcaneRecovery",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "RestActivity/&ArcaneRecoveryTitle",
+    "description": "RestActivity/&ArcaneRecoveryDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "5a7021989bb44814b81dd7de32bf8300",
+  "contentPack": "BaseGame",
+  "name": "ArcaneRecovery"
+}

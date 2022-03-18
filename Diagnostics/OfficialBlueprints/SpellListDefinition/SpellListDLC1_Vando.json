@@ -1,0 +1,105 @@
+{
+  "$type": "SpellListDefinition, Assembly-CSharp",
+  "hasCantrips": true,
+  "maxSpellLevel": 6,
+  "spellsByLevel": [
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 0,
+      "spells": [
+        "Definition:Dazzle:dc9e69f2397e0d541a8821fe4e4cf6ba",
+        "Definition:AnnoyingBee:d380ed36cd287394d8ddc88115fd8fa1",
+        "Definition:ShadowDagger:3402c51b9ccb99b48bb7cb62eaa5dcab"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 1,
+      "spells": [
+        "Definition:CureWounds:c401c5cf11ac8274f98a0dc809ff5863",
+        "Definition:GuidingBolt:97277a5063bcd6d48af24984618dc218",
+        "Definition:Sleep:9bfc9d5dc54cc2c4ab7e4baade97bf64"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 2,
+      "spells": [
+        "Definition:Blur:277b11af157a3c84292024790e6173b3",
+        "Definition:HoldPerson:cbc582b44f08e7f4b8ea69077471bc64",
+        "Definition:MirrorImage:5c2d6ee9e5e53e742974baf0e543224c",
+        "Definition:MistyStep:f4619f117544fe148aae6952202da5e3",
+        "Definition:Silence:2bdf5914091beca4ab1da6383af0feac"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 3,
+      "spells": [
+        "Definition:Revivify:16e7fb95186cf9b41806d15fbacd81af",
+        "Definition:MassHealingWord:1b13f79192a474947a2c0138ded903b3",
+        "Definition:Haste:134efafc59c7c58438b711271fb2c785",
+        "Definition:Counterspell:699759f98dacad84fb2d7323e0788179"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 4,
+      "spells": [
+        "Definition:Blight:bd131ed580e31734abb8189ab7e17a10",
+        "Definition:GreaterInvisibility:463d00efd5590394ab707875f866dfe7",
+        "Definition:PhantasmalKiller:d132436fd5250d34f973848ca4ac985f",
+        "Definition:Stoneskin:9040c4fcd7301184f8772720f716a837",
+        "Definition:Confusion:206eb2e0497fe014595e99aa7d4fae5e"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 5,
+      "spells": [
+        "Definition:MassCureWounds:31c98fc81cea919499357f8b2cc26bee",
+        "Definition:MindTwist:88c5c5e07eb13684998c75c11492fdd5",
+        "Definition:InsectPlague:f74938dd8dd25294b97663330c8e293e",
+        "Definition:FlameStrike:e165a70c93c4985449e51d32117c2ddf",
+        "Definition:GreaterRestoration:6131d7d4650604b44ad3c74b21cc3eb2",
+        "Definition:DominatePerson:89e34ee9a6361c040abb36971b697031"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 6,
+      "spells": [
+        "Definition:CircleOfDeath:0fd4c89f6c07713499242fe6529aa816",
+        "Definition:FreezingSphere:981aa235259bf274da28bd3e913902ad",
+        "Definition:Harm:78d4369a08495d74f9a681f5f508c477",
+        "Definition:Heal:daa623d899a2bed43963b3bf60f731eb"
+      ]
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "eb3e7da3378b55d488a45c5b4a7b2277",
+  "contentPack": "BaseGame",
+  "name": "SpellListDLC1_Vando"
+}
