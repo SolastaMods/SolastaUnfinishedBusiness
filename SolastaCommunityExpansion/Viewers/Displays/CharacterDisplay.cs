@@ -157,7 +157,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
 
                 toggle = Main.Settings.OfferAdditionalLoreFriendlyNames;
-                if (UI.Toggle("Offer additional lore friendly names on character creation " + RequiresRestart, ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("Offer additional lore friendly names on character creation", ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.OfferAdditionalLoreFriendlyNames = toggle;
                 }

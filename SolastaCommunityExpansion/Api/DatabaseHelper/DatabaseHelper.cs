@@ -1012,6 +1012,7 @@ namespace SolastaModApi
             public static DateTimeDefinition Abjuration_Monastery_DateTime { get; } = GetDefinition<DateTimeDefinition>("Abjuration_Monastery_DateTime", "3aa8a256ea3b9514b82d3964a8acff27");
             public static DateTimeDefinition Abjuration_WizardTower_DateTime_01h00 { get; } = GetDefinition<DateTimeDefinition>("Abjuration_WizardTower_DateTime_01h00", "b3f9ec04e7d654f4d8844104ae71a587");
             public static DateTimeDefinition Abjuration_WizardTower_DateTime_17h30 { get; } = GetDefinition<DateTimeDefinition>("Abjuration_WizardTower_DateTime_17h30", "9e1a2627cb240b540af22fb61797035f");
+            public static DateTimeDefinition DLC1_Scenario_Campaign_FunctorEnding_Cutscene_Complex_SetTime { get; } = GetDefinition<DateTimeDefinition>("DLC1_Scenario_Campaign_FunctorEnding_Cutscene_Complex_SetTime", "5c16753bd80ea904294d14861dda8f18");
             public static DateTimeDefinition DLC1_Scenario_Campaign_FunctorEnding_Cutscene_Marches_1_SetTime { get; } = GetDefinition<DateTimeDefinition>("DLC1_Scenario_Campaign_FunctorEnding_Cutscene_Marches_1_SetTime", "3160ab0b1e660b447ac4d9919d3157ba");
             public static DateTimeDefinition DLC1_Scenario_Campaign_FunctorEnding_Cutscene_Marches_2_SetTime { get; } = GetDefinition<DateTimeDefinition>("DLC1_Scenario_Campaign_FunctorEnding_Cutscene_Marches_2_SetTime", "0b11a5a6cd7251e40a22cf6ba6e1d5a4");
             public static DateTimeDefinition Tutorial_00_Tavern_DateTime_Restore { get; } = GetDefinition<DateTimeDefinition>("Tutorial_00_Tavern_DateTime_Restore", "7260c0548acab56429ea810f6c4b91e6");
@@ -4375,6 +4376,7 @@ namespace SolastaModApi
             public static ItemDefinition DLC1_Ingredient_GiantCrow_Feather { get; } = GetDefinition<ItemDefinition>("DLC1_Ingredient_GiantCrow_Feather", "26739f18af1af154ab543c04bcb78653");
             public static ItemDefinition DLC1_Ingredient_Sewing_Thread_Ball { get; } = GetDefinition<ItemDefinition>("DLC1_Ingredient_Sewing_Thread_Ball", "a5b22c0ec44075f4182355567e8eeb95");
             public static ItemDefinition DLC1_Item_Charmer_Ring { get; } = GetDefinition<ItemDefinition>("DLC1_Item_Charmer_Ring", "e1aad7b894ec44047a31125e7d979eae");
+            public static ItemDefinition DLC1_Item_Stolen_Officer_NonQuest { get; } = GetDefinition<ItemDefinition>("DLC1_Item_Stolen_Officer_NonQuest", "5beca1b9e8c926243b7b9b2e048869c2");
             public static ItemDefinition DLC1_Item_Stolen_Officer_Ring { get; } = GetDefinition<ItemDefinition>("DLC1_Item_Stolen_Officer_Ring", "4c38e1a0892d93e4d98d8fc709cfe62a");
             public static ItemDefinition Document_HalmanSummer_Conspiration_Docs { get; } = GetDefinition<ItemDefinition>("Document_HalmanSummer_Conspiration_Docs", "20e49c5b2547f18458d47fdae5a23350");
             public static ItemDefinition Document_HalmanSummer_Letter { get; } = GetDefinition<ItemDefinition>("Document_HalmanSummer_Letter", "ee6f487646be0fb4ea12aa79fe8fc44b");
@@ -5581,6 +5583,7 @@ namespace SolastaModApi
             public static LootPackDefinition DLC1_NPC_Outpost_05_MASK_06_Spy_loot_drop { get; } = GetDefinition<LootPackDefinition>("DLC1_NPC_Outpost_05_MASK_06_Spy_loot_drop", "41a70012e3e437f4ebb3730fd0ed80e9");
             public static LootPackDefinition DLC1_NPC_Outpost_05_MASK_06_Veteran_Loot_Drop { get; } = GetDefinition<LootPackDefinition>("DLC1_NPC_Outpost_05_MASK_06_Veteran_Loot_Drop", "608d955e41202364ca0bbf195b472c5c");
             public static LootPackDefinition DLC1_Orc_Shaman_Leader_loot_drop { get; } = GetDefinition<LootPackDefinition>("DLC1_Orc_Shaman_Leader_loot_drop", "0c5f8b7a7a588834cbdd997406a5db44");
+            public static LootPackDefinition DLC1_PeopleHideoutChest { get; } = GetDefinition<LootPackDefinition>("DLC1_PeopleHideoutChest", "dab3db793f79f494aaa1f0e92b1445d1");
             public static LootPackDefinition DLC1_Reya_Loot_Drop { get; } = GetDefinition<LootPackDefinition>("DLC1_Reya_Loot_Drop", "d6cb68440c1caac43b6fa5168d5a7131");
             public static LootPackDefinition DLC1_SpiderNest_Lootpack_01 { get; } = GetDefinition<LootPackDefinition>("DLC1_SpiderNest_Lootpack_01", "300cf216918dd5649a7c166017273a31");
             public static LootPackDefinition DLC1_SpiderNest_Lootpack_02 { get; } = GetDefinition<LootPackDefinition>("DLC1_SpiderNest_Lootpack_02", "77feff14ed5343548b4cfb348143a982");
@@ -7681,7 +7684,7 @@ namespace SolastaModApi
             public static NarrativeTreeDefinition DLC1_NarrativeTree_Ending_03B_ComplexUnderground { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_NarrativeTree_Ending_03B_ComplexUnderground", "b2ba2c612935b934db34b8e4ddf18010");
             public static NarrativeTreeDefinition DLC1_NarrativeTree_Ending_04A_CyflenCouncil { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_NarrativeTree_Ending_04A_CyflenCouncil", "ff46f391002724a4d9f5a837a8347823");
             public static NarrativeTreeDefinition DLC1_NarrativeTree_Ending_04B_MisayeTemple { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_NarrativeTree_Ending_04B_MisayeTemple", "6dd37a53af9ab5b4694fc4ec49d5438f");
-            public static NarrativeTreeDefinition DLC1_NarrativeTree_Ending_04C_MarchesCamp { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_NarrativeTree_Ending_04C_MarchesCamp", "47dacc62dc4fbaa40b10629b0a9041cd");
+            public static NarrativeTreeDefinition DLC1_NarrativeTree_Ending_04C_MarchesCamp { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_NarrativeTree_Ending_04C_MarchesCamp", "d8d00077c1d6e5145b1cdb476219a5b9");
             public static NarrativeTreeDefinition DLC1_NarrativeTree_Ending_04D_MarinVingHideout { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_NarrativeTree_Ending_04D_MarinVingHideout", "23b6342115b77a04e8868a9d738a223f");
             public static NarrativeTreeDefinition DLC1_NarrativeTree_Forge_CS_Quest01_Meet_Telerien { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_NarrativeTree_Forge_CS_Quest01_Meet_Telerien", "d2a4749a15095014280e6de66417f97a");
             public static NarrativeTreeDefinition DLC1_NarrativeTree_Forge_CS_Quest02_Start { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_NarrativeTree_Forge_CS_Quest02_Start", "f06c230901dc2694b9c1e9d102fd9cd5");
@@ -7957,6 +7960,7 @@ namespace SolastaModApi
             public static NarrativeTreeDefinition Level_01_CaerLem_Caves_Bridge_01 { get; } = GetDefinition<NarrativeTreeDefinition>("Level_01_CaerLem_Caves_Bridge_01", "2365b4d57f587084da6534b90f866182");
             public static NarrativeTreeDefinition Level_01_CaerLem_Caves_Bridge_02 { get; } = GetDefinition<NarrativeTreeDefinition>("Level_01_CaerLem_Caves_Bridge_02", "4d8b4391ded8cb142a8d1237b686821e");
             public static NarrativeTreeDefinition Level_01_CaerLem_TP { get; } = GetDefinition<NarrativeTreeDefinition>("Level_01_CaerLem_TP", "0a48df60f8a7a3d458ce69f9cbb445d8");
+            public static NarrativeTreeDefinition Lost_Valley___Ending_Cutscene_for_Lost_Valley { get; } = GetDefinition<NarrativeTreeDefinition>("Lost Valley - Ending Cutscene for Lost Valley", "47dacc62dc4fbaa40b10629b0a9041cd");
             public static NarrativeTreeDefinition Merton_0 { get; } = GetDefinition<NarrativeTreeDefinition>("Merton_0", "a025a74be89c53645917cbcfe1cc7d82");
             public static NarrativeTreeDefinition Merton_01_FirstScavenger { get; } = GetDefinition<NarrativeTreeDefinition>("Merton_01_FirstScavenger", "8219eb92a20aa264497c176f5bd6b313");
             public static NarrativeTreeDefinition Merton_02_AfterCouncil05 { get; } = GetDefinition<NarrativeTreeDefinition>("Merton_02_AfterCouncil05", "79655dfc56962ef47b89d6a32b1ba01a");
@@ -8325,6 +8329,7 @@ namespace SolastaModApi
             public static PropBlueprint Debris_A { get; } = GetDefinition<PropBlueprint>("Debris_A", "86c9bc1ee7e0a9f498c01fd255139a41");
             public static PropBlueprint Debris_B { get; } = GetDefinition<PropBlueprint>("Debris_B", "65450803769700e43879bec175f36a07");
             public static PropBlueprint Debris_C { get; } = GetDefinition<PropBlueprint>("Debris_C", "7846fc840e5b0734599df5283ba11eb5");
+            public static PropBlueprint Decorative_House_A { get; } = GetDefinition<PropBlueprint>("Decorative_House_A", "cc4323236853f6f449c8d3e8ccc0c209");
             public static PropBlueprint Decorative_House_B { get; } = GetDefinition<PropBlueprint>("Decorative_House_B", "cc3a0a5b887e30341983ca8ded401cfe");
             public static PropBlueprint Desk_A { get; } = GetDefinition<PropBlueprint>("Desk_A", "aff1f5032cbffc347a4c1576ea54fbdb");
             public static PropBlueprint DestroyedStuff_A { get; } = GetDefinition<PropBlueprint>("DestroyedStuff_A", "cced513370bc60e48bf249b2d8165cb7");
@@ -9462,6 +9467,7 @@ namespace SolastaModApi
             public static RoomBlueprint Ruin_Small_12C { get; } = GetDefinition<RoomBlueprint>("Ruin_Small_12C", "bc3114baf413bda47a112ffc0a7605de");
             public static RoomBlueprint Town_Corner_12C { get; } = GetDefinition<RoomBlueprint>("Town_Corner_12C", "2685f7b522d02764c95c3fba6523755f");
             public static RoomBlueprint Town_Entrance_24C { get; } = GetDefinition<RoomBlueprint>("Town_Entrance_24C", "fecb0280d708ada48aab9e16eace7afd");
+            public static RoomBlueprint Town_Houses_A_12C { get; } = GetDefinition<RoomBlueprint>("Town_Houses_A_12C", "487330473edd6264c9caca94167ed3d2");
             public static RoomBlueprint Town_Large_24C { get; } = GetDefinition<RoomBlueprint>("Town_Large_24C", "6052441570674fb4cbc8c6e2c7aa806e");
             public static RoomBlueprint Town_Medium_12C { get; } = GetDefinition<RoomBlueprint>("Town_Medium_12C", "769f736d883bd60498c24c68b478348b");
             public static RoomBlueprint Town_Medium_Exterior_A_12C { get; } = GetDefinition<RoomBlueprint>("Town_Medium_Exterior_A_12C", "b61286a7ea273934fbf23981b145f987");
