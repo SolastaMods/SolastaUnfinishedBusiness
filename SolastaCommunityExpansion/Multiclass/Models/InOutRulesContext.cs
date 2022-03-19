@@ -170,11 +170,11 @@ namespace SolastaCommunityExpansion.Multiclass.Models
                 case RuleDefinitions.WizardClass:
                 case IntegrationContext.CLASS_TINKERER:
                 case IntegrationContext.CLASS_WARDEN:
+                case IntegrationContext.CLASS_WARLOCK:
                 case IntegrationContext.CLASS_WITCH:
                 // case IntegrationContext.CLASS_ALCHEMIST:
                 // case IntegrationContext.CLASS_BARD:
                 // case IntegrationContext.CLASS_MONK:
-                // case IntegrationContext.CLASS_WARLOCK:
                     return true;
 
                 default:

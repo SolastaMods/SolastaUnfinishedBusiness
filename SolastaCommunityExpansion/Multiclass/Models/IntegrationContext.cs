@@ -9,11 +9,11 @@ namespace SolastaCommunityExpansion.Multiclass.Models
     {
         public const string CLASS_TINKERER = "ClassTinkerer";
         public const string CLASS_WARDEN = "ClassWarden";
+        public const string CLASS_WARLOCK = "ClassWarlock";
         public const string CLASS_WITCH = "ClassWitch";
         public const string CLASS_ALCHEMIST = "AlchemistClass";
         public const string CLASS_BARD = "BardClass";
         public const string CLASS_MONK = "MonkClass";
-        public const string CLASS_WARLOCK = "ClassWarlock";
 
         internal static CharacterClassDefinition DummyClass { get; private set; }
         internal static CharacterClassDefinition TinkererClass { get; private set; }

@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
     {
 
         // only need this patch in case we need to support Warlock Pact Magic
-#if WARLOCK_PACT_MAGIC
+#if !WARLOCK_PACT_MAGIC
         [HarmonyPatch(typeof(RulesetCharacter), "ApplyRest")]
         internal static class RulesetCharacterApplyRest
         {
@@ -32,103 +32,103 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
                 // default game code from here. had to use a bool Prefix here to bypass ModHelpers transpiler on this method...
                 //
 
-                __instance.RecoveredFeatures.Clear();
+                //__instance.RecoveredFeatures.Clear();
 
-                foreach (var usablePower in __instance.UsablePowers)
-                {
-                    if (((usablePower.PowerDefinition.RechargeRate == RuleDefinitions.RechargeRate.ShortRest && (restType == RuleDefinitions.RestType.ShortRest || restType == RuleDefinitions.RestType.LongRest)) || (usablePower.PowerDefinition.RechargeRate == RuleDefinitions.RechargeRate.LongRest && restType == RuleDefinitions.RestType.LongRest)) && usablePower.RemainingUses < usablePower.MaxUses)
-                    {
-                        if (!simulate)
-                        {
-                            usablePower.Recharge();
-                        }
+                //foreach (var usablePower in __instance.UsablePowers)
+                //{
+                //    if (((usablePower.PowerDefinition.RechargeRate == RuleDefinitions.RechargeRate.ShortRest && (restType == RuleDefinitions.RestType.ShortRest || restType == RuleDefinitions.RestType.LongRest)) || (usablePower.PowerDefinition.RechargeRate == RuleDefinitions.RechargeRate.LongRest && restType == RuleDefinitions.RestType.LongRest)) && usablePower.RemainingUses < usablePower.MaxUses)
+                //    {
+                //        if (!simulate)
+                //        {
+                //            usablePower.Recharge();
+                //        }
 
-                        __instance.RecoveredFeatures.Add(usablePower.PowerDefinition);
-                    }
-                }
+                //        __instance.RecoveredFeatures.Add(usablePower.PowerDefinition);
+                //    }
+                //}
 
-                if (__instance.TryGetAttributeValue(AttributeDefinitions.ChannelDivinityNumber) > 0 && __instance.UsedChannelDivinity > 0)
-                {
-                    if (!simulate)
-                    {
-                        __instance.SetField("usedChannelDivinity", 0);
-                    }
+                //if (__instance.TryGetAttributeValue(AttributeDefinitions.ChannelDivinityNumber) > 0 && __instance.UsedChannelDivinity > 0)
+                //{
+                //    if (!simulate)
+                //    {
+                //        __instance.SetField("usedChannelDivinity", 0);
+                //    }
 
-                    __instance.EnumerateFeaturesToBrowse<FeatureDefinitionAttributeModifier>(__instance.FeaturesToBrowse);
+                //    __instance.EnumerateFeaturesToBrowse<FeatureDefinitionAttributeModifier>(__instance.FeaturesToBrowse);
 
-                    foreach (var featureDefinition in __instance.FeaturesToBrowse)
-                    {
-                        var attributeModifier = featureDefinition as FeatureDefinitionAttributeModifier;
+                //    foreach (var featureDefinition in __instance.FeaturesToBrowse)
+                //    {
+                //        var attributeModifier = featureDefinition as FeatureDefinitionAttributeModifier;
 
-                        if (attributeModifier.ModifiedAttribute == AttributeDefinitions.ChannelDivinityNumber)
-                        {
-                            __instance.RecoveredFeatures.Add(attributeModifier);
-                            break;
-                        }
-                    }
-                }
+                //        if (attributeModifier.ModifiedAttribute == AttributeDefinitions.ChannelDivinityNumber)
+                //        {
+                //            __instance.RecoveredFeatures.Add(attributeModifier);
+                //            break;
+                //        }
+                //    }
+                //}
 
-                if (restType == RuleDefinitions.RestType.LongRest && __instance.TryGetAttributeValue(AttributeDefinitions.HealingPool) > 0 && (__instance.UsedHealingPool > 0 && !simulate))
-                {
-                    __instance.SetField("usedHealingPool", 0);
-                }
+                //if (restType == RuleDefinitions.RestType.LongRest && __instance.TryGetAttributeValue(AttributeDefinitions.HealingPool) > 0 && (__instance.UsedHealingPool > 0 && !simulate))
+                //{
+                //    __instance.SetField("usedHealingPool", 0);
+                //}
 
-                if (restType == RuleDefinitions.RestType.LongRest && __instance.TryGetAttributeValue(AttributeDefinitions.SorceryPoints) > 0 && (__instance.UsedSorceryPoints > 0 && !simulate))
-                {
-                    __instance.SetField("usedSorceryPoints", 0);
-                }
+                //if (restType == RuleDefinitions.RestType.LongRest && __instance.TryGetAttributeValue(AttributeDefinitions.SorceryPoints) > 0 && (__instance.UsedSorceryPoints > 0 && !simulate))
+                //{
+                //    __instance.SetField("usedSorceryPoints", 0);
+                //}
 
-                if (restType == RuleDefinitions.RestType.LongRest && __instance.TryGetAttributeValue(AttributeDefinitions.RagePoints) > 0 && (__instance.UsedRagePoints > 0 && !simulate))
-                {
-                    __instance.SetField("usedRagePoints", 0);
-                }
+                //if (restType == RuleDefinitions.RestType.LongRest && __instance.TryGetAttributeValue(AttributeDefinitions.RagePoints) > 0 && (__instance.UsedRagePoints > 0 && !simulate))
+                //{
+                //    __instance.SetField("usedRagePoints", 0);
+                //}
 
-                if (restType == RuleDefinitions.RestType.LongRest && __instance.TryGetAttributeValue(AttributeDefinitions.IndomitableResistances) > 0 && (__instance.UsedIndomitableResistances > 0 && !simulate))
-                {
-                    __instance.SetField("usedIndomitableResistances", 0);
-                }
+                //if (restType == RuleDefinitions.RestType.LongRest && __instance.TryGetAttributeValue(AttributeDefinitions.IndomitableResistances) > 0 && (__instance.UsedIndomitableResistances > 0 && !simulate))
+                //{
+                //    __instance.SetField("usedIndomitableResistances", 0);
+                //}
 
-                if (!simulate && __instance.TryGetAttribute(AttributeDefinitions.RelentlessRageDC, out var rulesetAttribute))
-                {
-                    rulesetAttribute.RemoveModifiersByTags(AttributeDefinitions.TagHealth);
-                    rulesetAttribute.Refresh();
-                }
+                //if (!simulate && __instance.TryGetAttribute(AttributeDefinitions.RelentlessRageDC, out var rulesetAttribute))
+                //{
+                //    rulesetAttribute.RemoveModifiersByTags(AttributeDefinitions.TagHealth);
+                //    rulesetAttribute.Refresh();
+                //}
 
-                if (!simulate && __instance.TryGetAttribute(AttributeDefinitions.FrenzyExhaustionDC, out var rulesetAttribute1))
-                {
-                    rulesetAttribute1.RemoveModifiersByTags(AttributeDefinitions.TagHealth);
-                    rulesetAttribute1.Refresh();
-                }
+                //if (!simulate && __instance.TryGetAttribute(AttributeDefinitions.FrenzyExhaustionDC, out var rulesetAttribute1))
+                //{
+                //    rulesetAttribute1.RemoveModifiersByTags(AttributeDefinitions.TagHealth);
+                //    rulesetAttribute1.Refresh();
+                //}
 
-                foreach (RulesetSpellRepertoire spellRepertoire in __instance.SpellRepertoires)
-                {
-                    if ((spellRepertoire.SpellCastingFeature.SlotsRecharge == RuleDefinitions.RechargeRate.ShortRest && (restType == RuleDefinitions.RestType.ShortRest || restType == RuleDefinitions.RestType.LongRest)) || (spellRepertoire.SpellCastingFeature.SlotsRecharge == RuleDefinitions.RechargeRate.LongRest && restType == RuleDefinitions.RestType.LongRest))
-                    {
-                        if (!simulate)
-                        {
-                            spellRepertoire.RestoreAllSpellSlots();
-                        }
+                //foreach (RulesetSpellRepertoire spellRepertoire in __instance.SpellRepertoires)
+                //{
+                //    if ((spellRepertoire.SpellCastingFeature.SlotsRecharge == RuleDefinitions.RechargeRate.ShortRest && (restType == RuleDefinitions.RestType.ShortRest || restType == RuleDefinitions.RestType.LongRest)) || (spellRepertoire.SpellCastingFeature.SlotsRecharge == RuleDefinitions.RechargeRate.LongRest && restType == RuleDefinitions.RestType.LongRest))
+                //    {
+                //        if (!simulate)
+                //        {
+                //            spellRepertoire.RestoreAllSpellSlots();
+                //        }
 
-                        __instance.RecoveredFeatures.Add(spellRepertoire.SpellCastingFeature);
-                    }
-                }
+                //        __instance.RecoveredFeatures.Add(spellRepertoire.SpellCastingFeature);
+                //    }
+                //}
 
-                var rulesetCharacterType = typeof(RulesetCharacter);
+                //var rulesetCharacterType = typeof(RulesetCharacter);
 
-                if (restType == RuleDefinitions.RestType.ShortRest)
-                {
-                    var applyShortRestMethod = rulesetCharacterType.GetMethod("ApplyShortRest", BindingFlags.NonPublic | BindingFlags.Instance);
+                //if (restType == RuleDefinitions.RestType.ShortRest)
+                //{
+                //    var applyShortRestMethod = rulesetCharacterType.GetMethod("ApplyShortRest", BindingFlags.NonPublic | BindingFlags.Instance);
 
-                    applyShortRestMethod.Invoke(__instance, new object[] { simulate });
-                }
-                else if (restType == RuleDefinitions.RestType.LongRest)
-                {
-                    var applyLongRestMethod = rulesetCharacterType.GetMethod("ApplyLongRest", BindingFlags.NonPublic | BindingFlags.Instance);
+                //    applyShortRestMethod.Invoke(__instance, new object[] { simulate });
+                //}
+                //else if (restType == RuleDefinitions.RestType.LongRest)
+                //{
+                //    var applyLongRestMethod = rulesetCharacterType.GetMethod("ApplyLongRest", BindingFlags.NonPublic | BindingFlags.Instance);
 
-                    applyLongRestMethod.Invoke(__instance, new object[] { simulate, restStartTime });
-                }
+                //    applyLongRestMethod.Invoke(__instance, new object[] { simulate, restStartTime });
+                //}
 
-                return false;
+                //return false;
             }
         }
 #endif

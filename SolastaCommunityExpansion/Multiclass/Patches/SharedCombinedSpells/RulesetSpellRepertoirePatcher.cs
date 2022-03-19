@@ -7,7 +7,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
     internal static class RulesetSpellRepertoirePatcher
     {
         // only need this patch in case we need to support Warlock Pact Magic
-#if WARLOCK_PACT_MAGIC
+#if !WARLOCK_PACT_MAGIC
         // handles all different scenarios to determine max slots numbers
         [HarmonyPatch(typeof(RulesetSpellRepertoire), "GetMaxSlotsNumberOfAllLevels")]
         internal static class RulesetSpellRepertoireGetMaxSlotsNumberOfAllLevels
@@ -59,7 +59,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
 #endif
 
 // only need this patch in case we need to support Warlock Pact Magic
-#if WARLOCK_PACT_MAGIC
+#if !WARLOCK_PACT_MAGIC
         // handles all different scenarios to determine remaining slots numbers
         [HarmonyPatch(typeof(RulesetSpellRepertoire), "GetRemainingSlotsNumberOfAllLevels")]
         internal static class RulesetSpellRepertoireGetRemainingSlotsNumberOfAllLevels
@@ -119,7 +119,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
 #endif
 
 // only need this patch in case we need to support Warlock Pact Magic
-#if WARLOCK_PACT_MAGIC
+#if !WARLOCK_PACT_MAGIC
         // handles all different scenarios to determine slots numbers
         [HarmonyPatch(typeof(RulesetSpellRepertoire), "GetSlotsNumber")]
         internal static class RulesetSpellRepertoireGetSlotsNumber
@@ -299,7 +299,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
         }
 
         // only need this patch in case we need to support Warlock Pact Magic
-#if WARLOCK_PACT_MAGIC
+#if !WARLOCK_PACT_MAGIC
         // handles Warlock short rest spells recovery
         [HarmonyPatch(typeof(RulesetSpellRepertoire), "RestoreAllSpellSlots")]
         internal static class RulesetSpellRepertoireRestoreAllSpellSlots
