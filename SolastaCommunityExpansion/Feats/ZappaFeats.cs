@@ -24,8 +24,13 @@ namespace SolastaCommunityExpansion.Feats
                 .Create("FeatCharismaticDefense", ZappaFeatNamespace)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
+                    //FeatureDefinitionAttributeModifierBuilder
+                    //    .Create(AttributeModifierMageArmor, "AttributeModifierFeatCharismaticDefenseSet", ZappaFeatNamespace)
+                    //    .SetGuiPresentationNoContent()
+                    //    .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set, AttributeDefinitions.ArmorClass, 12)
+                    //    .AddToDB(),
                     FeatureDefinitionAttributeModifierBuilder
-                        .Create(AttributeModifierBarbarianUnarmoredDefense, "AttributeModifierFeatCharismaticDefense", ZappaFeatNamespace)
+                        .Create(AttributeModifierBarbarianUnarmoredDefense, "AttributeModifierFeatCharismaticDefenseAdd", ZappaFeatNamespace)
                         .SetGuiPresentationNoContent()
                         .SetModifierAbilityScore(AttributeDefinitions.Charisma)
                         .AddToDB()
@@ -199,8 +204,13 @@ namespace SolastaCommunityExpansion.Feats
                 .Create("FeatWiseDefense", ZappaFeatNamespace)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
+                    //FeatureDefinitionAttributeModifierBuilder
+                    //    .Create(AttributeModifierMageArmor, "AttributeModifierFeatWiseDefenseSet", ZappaFeatNamespace)
+                    //    .SetGuiPresentationNoContent()
+                    //    .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set, AttributeDefinitions.ArmorClass, 12)
+                    //    .AddToDB(),
                     FeatureDefinitionAttributeModifierBuilder
-                        .Create(AttributeModifierBarbarianUnarmoredDefense, "AttributeModifierFeatWiseDefense", ZappaFeatNamespace)
+                        .Create(AttributeModifierBarbarianUnarmoredDefense, "AttributeModifierFeatWiseDefenseAdd", ZappaFeatNamespace)
                         .SetGuiPresentationNoContent()
                         .SetModifierAbilityScore(AttributeDefinitions.Wisdom)
                         .AddToDB()
