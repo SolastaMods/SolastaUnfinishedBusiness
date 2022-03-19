@@ -25,9 +25,9 @@
     "description": "Equipment/&Enchanted_Shield_Wooden_Robustness_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "e7f6a7c4a756e7f4d823388674b2e6a2",
+      "m_SubObjectName": "Standard_Shield_Wooden",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

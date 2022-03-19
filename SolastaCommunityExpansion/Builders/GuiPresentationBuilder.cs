@@ -74,25 +74,37 @@ namespace SolastaCommunityExpansion.Builders
             return guiPresentation;
         }
 
-        public static GuiPresentation Build(string title, string description, AssetReferenceSprite sprite = null, int sortOrder = 0, bool hidden = false)
+        public static GuiPresentation Build(string title, string description, AssetReferenceSprite sprite = null, int? sortOrder = null, bool? hidden = null)
         {
-            return new GuiPresentationBuilder(title, description, sprite)
-                .SetSortOrder(sortOrder)
-                .SetHidden(hidden)
-                .Build();
+            return Build(null, title, description, sprite, sortOrder, hidden);
         }
 
-        public static GuiPresentation Build(string name, Category category, AssetReferenceSprite sprite = null, int sortOrder = 0, bool hidden = false)
+        public static GuiPresentation Build(GuiPresentation reference, string title, string description, AssetReferenceSprite sprite = null, int? sortOrder = null, bool? hidden = null)
         {
-            return new GuiPresentationBuilder(CreateTitleKey(name, category), CreateDescriptionKey(name, category), sprite)
-                .SetSortOrder(sortOrder)
-                .SetHidden(hidden)
-                .Build();
+            var guip = reference == null ? new GuiPresentation() : new GuiPresentation(reference);
+
+            guip.Title = title;
+            guip.Description = description;
+
+            return guip
+                .SetSpriteReference(sprite ?? reference?.SpriteReference ?? EmptySprite)
+                .SetSortOrder(sortOrder ?? reference?.SortOrder ?? 0)
+                .SetHidden(hidden ?? reference?.Hidden ?? false);
+        }
+
+        public static GuiPresentation Build(string name, Category category, AssetReferenceSprite sprite = null, int? sortOrder = null, bool? hidden = null)
+        {
+            return Build(null, name, category, sprite, sortOrder, hidden);
+        }
+
+        public static GuiPresentation Build(GuiPresentation reference, string name, Category category, AssetReferenceSprite sprite = null, int? sortOrder = null, bool? hidden = null)
+        {
+            return Build(reference, CreateTitleKey(name, category), CreateDescriptionKey(name, category), sprite, sortOrder, hidden);
         }
 
         public static readonly string NoContentTitle = "Feature/&NoContentTitle";
         public static readonly string EmptyString = "Feature/&Emptystring";
-        public static readonly AssetReferenceSprite EmptySprite = new (string.Empty);
+        public static readonly AssetReferenceSprite EmptySprite = new(string.Empty);
 
         /// <summary>
         /// GuiPresentation representing 'No content title and description'
@@ -119,7 +131,9 @@ namespace SolastaCommunityExpansion.Builders
         public static TBuilder SetGuiPresentation<TBuilder>(this TBuilder builder, string title, string description, AssetReferenceSprite sprite = null)
             where TBuilder : IDefinitionBuilder
         {
-            return SetGuiPresentation(builder, GuiPresentationBuilder.Build(title, description, sprite));
+            var guip = ((IDefinitionBuilder)builder).GetGuiPresentation();
+
+            return SetGuiPresentation(builder, GuiPresentationBuilder.Build(guip, title, description, sprite));
         }
 
         /// <summary>
@@ -131,7 +145,9 @@ namespace SolastaCommunityExpansion.Builders
                 string name, Category category, AssetReferenceSprite sprite = null, int sortOrder = 0)
             where TBuilder : IDefinitionBuilder
         {
-            return SetGuiPresentation(builder, GuiPresentationBuilder.Build(name, category, sprite, sortOrder));
+            var guip = ((IDefinitionBuilder)builder).GetGuiPresentation();
+
+            return SetGuiPresentation(builder, GuiPresentationBuilder.Build(guip, name, category, sprite, sortOrder));
         }
 
         /// <summary>
@@ -144,8 +160,10 @@ namespace SolastaCommunityExpansion.Builders
                 Category category, AssetReferenceSprite sprite = null, int sortOrder = 0)
             where TBuilder : IDefinitionBuilder
         {
-            return SetGuiPresentation(builder,
-                GuiPresentationBuilder.Build(((IDefinitionBuilder)builder).Name, category, sprite, sortOrder));
+            var guip = ((IDefinitionBuilder)builder).GetGuiPresentation();
+            var definitionName = ((IDefinitionBuilder)builder).Name;
+
+            return SetGuiPresentation(builder, GuiPresentationBuilder.Build(guip, definitionName, category, sprite, sortOrder));
         }
 
         // TODO: More SetGuiPresentation/Generate(...) overloads as required

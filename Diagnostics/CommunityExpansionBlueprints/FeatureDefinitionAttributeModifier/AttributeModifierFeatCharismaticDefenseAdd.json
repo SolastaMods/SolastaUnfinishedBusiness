@@ -1,0 +1,34 @@
+{
+  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
+  "modifierType2": "AddAbilityScoreBonus",
+  "modifiedAttribute": "ArmorClass",
+  "modifierValue": 2,
+  "modifierAbilityScore": "Charisma",
+  "situationalContext": "NotWearingArmorOrMageArmor",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "72ae3470-45b9-513c-a114-d089a154c64c",
+  "contentPack": 9999,
+  "name": "AttributeModifierFeatCharismaticDefenseAdd"
+}
