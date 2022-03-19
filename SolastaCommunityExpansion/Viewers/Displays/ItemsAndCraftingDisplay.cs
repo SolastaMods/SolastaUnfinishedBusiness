@@ -228,9 +228,9 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
 
                 UI.Label("");
-                UI.Label("Override defaults to force all of a merchant's stock to restock over time (excluding Manuals and Tomes).");
-                UI.Label("Note that some items can take up to 7 game days to restock.");
-                UI.Label("Note " + RequiresRestart + " to restore default values when disabled, but not to apply when enabled.");
+                UI.Label(". Override defaults to force all of a merchant's stock to restock over time (excluding Manuals and Tomes).");
+                UI.Label(". Note that some items can take up to 7 game days to restock.");
+                UI.Label(". Note " + RequiresRestart + " to restore default values when disabled, but not to apply when enabled.");
                 UI.Label("");
 
                 toggle = Main.Settings.RestockAntiquarians;
