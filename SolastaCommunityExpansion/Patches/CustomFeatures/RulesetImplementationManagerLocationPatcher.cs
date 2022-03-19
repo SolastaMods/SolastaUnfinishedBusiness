@@ -56,6 +56,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
 
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
+            var addedConditionPos = Main.IsDebugBuild ? 35 : 26;
             var found = 0;
             var inflictConditionMethod = typeof(RulesetActor).GetMethod("InflictCondition");
             var extendInflictConditionMethod = typeof(RulesetImplementationManagerLocation_ApplySummonForm).GetMethod("ExtendInflictCondition");
@@ -64,11 +65,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
             {
                 if (instruction.Calls(inflictConditionMethod) && ++found == 3)
                 {
-                    //
-                    // WARNING: review parameter value 35 before release
-                    //
                     yield return new CodeInstruction(OpCodes.Ldarg_2); // formsParam
-                    yield return new CodeInstruction(OpCodes.Ldloc_S, 35); // addedCondition local from for loop
+                    yield return new CodeInstruction(OpCodes.Ldloc_S, addedConditionPos); // addedCondition
                     yield return new CodeInstruction(OpCodes.Call, extendInflictConditionMethod);
                 }
                 else
