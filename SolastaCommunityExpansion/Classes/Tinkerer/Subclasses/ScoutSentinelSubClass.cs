@@ -665,6 +665,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             newEffectDescription.SetTargetProximityDistance(12);
             newEffectDescription.SetCanBePlacedOnCharacter(true);
             newEffectDescription.SetRangeType(RuleDefinitions.RangeType.Self);
+            newEffectDescription.SetTargetFilteringTag(RuleDefinitions.TargetFilteringTag.No);
 
             newEffectDescription.SetEffectParticleParameters(Shield.EffectDescription.EffectParticleParameters);
 

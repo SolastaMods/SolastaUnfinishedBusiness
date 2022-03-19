@@ -43,10 +43,25 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(FeatureDefinitionDamageAffinity)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class FeatureDefinitionDamageAffinityExtensions
     {
-        public static System.Collections.Generic.List<System.String> GetTagsIgnoringAffinity<T>(this T entity)
+        public static T AddTagsIgnoringAffinity<T>(this T entity,  params  System . String [ ]  value)
             where T : FeatureDefinitionDamageAffinity
         {
-            return entity.GetField<System.Collections.Generic.List<System.String>>("tagsIgnoringAffinity");
+            AddTagsIgnoringAffinity(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddTagsIgnoringAffinity<T>(this T entity, IEnumerable<System.String> value)
+            where T : FeatureDefinitionDamageAffinity
+        {
+            entity.TagsIgnoringAffinity.AddRange(value);
+            return entity;
+        }
+
+        public static T ClearTagsIgnoringAffinity<T>(this T entity)
+            where T : FeatureDefinitionDamageAffinity
+        {
+            entity.TagsIgnoringAffinity.Clear();
+            return entity;
         }
 
         public static T SetAncestryDefinesDamageType<T>(this T entity, System.Boolean value)
@@ -172,6 +187,20 @@ namespace SolastaModApi.Extensions
             where T : FeatureDefinitionDamageAffinity
         {
             entity.SetField("situationalContext", value);
+            return entity;
+        }
+
+        public static T SetTagsIgnoringAffinity<T>(this T entity,  params  System . String [ ]  value)
+            where T : FeatureDefinitionDamageAffinity
+        {
+            SetTagsIgnoringAffinity(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetTagsIgnoringAffinity<T>(this T entity, IEnumerable<System.String> value)
+            where T : FeatureDefinitionDamageAffinity
+        {
+            entity.TagsIgnoringAffinity.SetRange(value);
             return entity;
         }
     }

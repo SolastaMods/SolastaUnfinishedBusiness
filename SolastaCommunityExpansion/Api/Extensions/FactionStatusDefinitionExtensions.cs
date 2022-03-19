@@ -43,6 +43,20 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(FactionStatusDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class FactionStatusDefinitionExtensions
     {
+        public static T SetAutomaticallyFailsFactionQuests<T>(this T entity, System.Boolean value)
+            where T : FactionStatusDefinition
+        {
+            entity.SetField("automaticallyFailsFactionQuests", value);
+            return entity;
+        }
+
+        public static T SetAutomaticallyFailThreshold<T>(this T entity, System.Int32 value)
+            where T : FactionStatusDefinition
+        {
+            entity.SetField("automaticallyFailThreshold", value);
+            return entity;
+        }
+
         public static T SetCeiling<T>(this T entity, System.Int32 value)
             where T : FactionStatusDefinition
         {

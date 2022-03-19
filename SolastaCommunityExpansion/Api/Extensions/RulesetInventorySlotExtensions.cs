@@ -71,6 +71,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetDirtyForUI<T>(this T entity, System.Boolean value)
+            where T : RulesetInventorySlot
+        {
+            entity.SetField("<DirtyForUI>k__BackingField", value);
+            return entity;
+        }
+
         public static T SetDisabled<T>(this T entity, System.Boolean value)
             where T : RulesetInventorySlot
         {
