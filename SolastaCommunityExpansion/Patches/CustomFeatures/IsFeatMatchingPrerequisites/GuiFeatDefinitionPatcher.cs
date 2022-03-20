@@ -7,7 +7,7 @@ using HarmonyLib;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi.Extensions;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.IsFeatMatchingPrerequisites
 {
     [HarmonyPatch(typeof(GuiFeatDefinition), "IsFeatMacthingPrerequisites")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
