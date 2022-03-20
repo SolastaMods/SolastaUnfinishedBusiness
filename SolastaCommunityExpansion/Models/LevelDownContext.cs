@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaCommunityExpansion.Multiclass.Models;
 using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.RestActivityDefinitions;
@@ -372,6 +373,10 @@ namespace SolastaCommunityExpansion.Models
                             RemoveFeatureDefinitionPointPool(hero, heroRepertoire, featureDefinitionPointPool1);
                         }
                     }
+                }
+                else if (featureDefinition is FeatureDefinitionCustomCode featureDefinitionCustomCode)
+                {
+                    featureDefinitionCustomCode.RemoveFeature(hero);
                 }
                 else if (featureDefinitionTypeName == "NegativeFeatureDefinition")
                 {
