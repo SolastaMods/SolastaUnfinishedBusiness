@@ -761,9 +761,9 @@ Feedback/&ExtraDamageTitle	Lightning Spear extra damage
 Feedback/&LightningSpearAdditionalDamageDescription	lightning damage 1D6 extra once per turn
 Feedback/&LightningSpearAdditionalDamageTitle	Lightning Spear extra damage
 FightingStyle/&BlindFightingDescription	You have blindsight with a range of 10 feet.
-FightingStyle/&BlindFightingTitle	Blind Fighting
+FightingStyle/&BlindFightingTitle	Fighting Style: Blind Fighting
 FightingStyle/&PugilistFightingDescription	While you are completely unarmed, your unarmed strikes deal an additional d8 of damage and you can punch with your offhand as a bonus action.
-FightingStyle/&PugilistFightingTitle	Pugilist
+FightingStyle/&PugilistFightingTitle	Fighting Style: Pugilist
 FlexibleBackgrounds/&BackgroundSkillSelect2Description	Select 2 skill proficiencies
 FlexibleBackgrounds/&BackgroundSkillSelect2Title	Skills
 FlexibleBackgrounds/&BackgroundSkillSelect3Description	Select 3 skill proficiencies
