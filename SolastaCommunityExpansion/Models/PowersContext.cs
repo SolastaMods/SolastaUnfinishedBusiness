@@ -58,7 +58,7 @@ namespace SolastaCommunityExpansion.Models
 
             var helpPowerCondition = ConditionDefinitionBuilder
                 .Create(DatabaseHelper.ConditionDefinitions.ConditionTrueStrike, "ConditionHelpPower", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation("HelpAction", Category.Condition)
+                .SetOrUpdateGuiPresentation("HelpAction", Category.Condition)
                 .AddToDB();
 
             effectDescription.EffectForms[0].ConditionForm.ConditionDefinition = helpPowerCondition;
