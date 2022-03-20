@@ -93,4 +93,18 @@ namespace SolastaModApi.Extensions
         SourceCharacterLevel = 9001,
         SourceClassLevel = 9002
     }
+
+    public enum ExtraAttributeModifierOperation
+    {
+        Set = 0,
+        Additive= 1,
+        Multiplicative= 2,
+        MultiplyByClassLevel = 3,
+        MultiplyByCharacterLevel= 4,
+        Force = 5,
+        AddAbilityScoreBonus = 6,
+        ConditionAmount = 7,
+        SurroundingEnemies = 8,
+        AdditiveAtEnd = 9000
+    }
 }
