@@ -4,6 +4,9 @@ using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures
 {
+    //
+    // ASI or FEAT, CustomFightingStyles and FeatureDefinitionCustomCode features
+    //
     [HarmonyPatch(typeof(CharacterBuildingManager), "GrantFeatures")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterBuildingManager_GrantFeatures

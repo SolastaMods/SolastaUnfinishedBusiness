@@ -4,65 +4,10 @@ using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaCommunityExpansion.Models;
-using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
 {
-    //
-    // Extra Ritual Casting
-    //
-    [HarmonyPatch(typeof(RulesetCharacterHero), "EnumerateUsableRitualSpells")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetCharacterHero_EnumerateUsableRitualSpells
-    {
-        internal static void Postfix(RulesetCharacterHero __instance, RuleDefinitions.RitualCasting ritualType, List<SpellDefinition> ritualSpells)
-        {
-            if ((ExtraRitualCasting)ritualType != ExtraRitualCasting.Known)
-            {
-                return;
-            }
-
-            var spellRepertoire = __instance.SpellRepertoires
-                .Where(r => r.SpellCastingFeature.SpellReadyness == RuleDefinitions.SpellReadyness.AllKnown)
-                .FirstOrDefault(r => r.SpellCastingFeature.SpellKnowledge == RuleDefinitions.SpellKnowledge.Selection);
-
-            if (spellRepertoire == null)
-            {
-                return;
-            }
-
-            ritualSpells.AddRange(spellRepertoire.KnownSpells
-                .Where(s => s.Ritual)
-                .Where(s => spellRepertoire.MaxSpellLevelOfSpellCastingLevel >= s.SpellLevel));
-
-            if (spellRepertoire.AutoPreparedSpells == null)
-            {
-                return;
-            }
-
-            ritualSpells.AddRange(spellRepertoire.AutoPreparedSpells
-                .Where(s => s.Ritual)
-                .Where(s => spellRepertoire.MaxSpellLevelOfSpellCastingLevel >= s.SpellLevel));
-        }
-    }
-
-    //
-    // FeatureDefinitionCustomCode & CustomFightingStyle
-    //
-    [HarmonyPatch(typeof(RulesetCharacterHero), "TrainFeats")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetCharacterHero_TrainFeats
-    {
-        internal static void Postfix(RulesetCharacterHero __instance, List<FeatDefinition> feats)
-        {
-            foreach (FeatDefinition feat in feats)
-            {
-                CustomFeaturesContext.RecursiveGrantCustomFeatures(__instance, feat.Features);
-            }
-        }
-    }
-
     //
     // Dynamic Powers
     //
