@@ -4,6 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
+using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
@@ -12,6 +13,24 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GuiFeatDefinition_IsFeatMacthingPrerequisites
     {
+        internal static void Postfix(
+            ref bool __result,
+            FeatDefinition feat,
+            RulesetCharacterHero hero,
+            ref string prerequisiteOutput)
+        {
+            foreach (var featureDefinition in feat.Features.OfType<IValidateFeatPrerequisites>())
+            {
+                
+                var result = featureDefinition.IsFeatMacthingPrerequisites(feat, hero, ref prerequisiteOutput);
+
+                if (__result)
+                {
+                    __result = result;
+                }
+            }
+        }
+
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var codes = instructions.ToList();
