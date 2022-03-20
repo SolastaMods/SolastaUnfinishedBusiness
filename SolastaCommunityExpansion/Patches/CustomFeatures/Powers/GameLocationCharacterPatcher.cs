@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
 {
     // Yes the actual game typos this it is "OnPower" and not the expected "OnePower"
     //

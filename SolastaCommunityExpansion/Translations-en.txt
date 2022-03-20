@@ -761,9 +761,9 @@ Feedback/&ExtraDamageTitle	Lightning Spear extra damage
 Feedback/&LightningSpearAdditionalDamageDescription	lightning damage 1D6 extra once per turn
 Feedback/&LightningSpearAdditionalDamageTitle	Lightning Spear extra damage
 FightingStyle/&BlindFightingDescription	You have blindsight with a range of 10 feet.
-FightingStyle/&BlindFightingTitle	Blind Fighting
+FightingStyle/&BlindFightingTitle	Fighting Style: Blind Fighting
 FightingStyle/&PugilistFightingDescription	While you are completely unarmed, your unarmed strikes deal an additional d8 of damage and you can punch with your offhand as a bonus action.
-FightingStyle/&PugilistFightingTitle	Pugilist
+FightingStyle/&PugilistFightingTitle	Fighting Style: Pugilist
 FlexibleBackgrounds/&BackgroundSkillSelect2Description	Select 2 skill proficiencies
 FlexibleBackgrounds/&BackgroundSkillSelect2Title	Skills
 FlexibleBackgrounds/&BackgroundSkillSelect3Description	Select 3 skill proficiencies
@@ -1210,9 +1210,9 @@ Feat/&FeatFightingSurgeDexterityDescription	Increase your Dexterity by 1, to a m
 Feat/&FeatFightingSurgeDexterityTitle	Fighting Surge (Dexterity)
 Feat/&FeatFightingSurgeStrengthDescription	Increase your Strength by 1, to a maximum of 20.\nOn your turn, you can take one additional action on top of your regular action and a possible bonus action. Once you use this feature, you must finish a long rest before you can use it again.
 Feat/&FeatFightingSurgeStrengthTitle	Fighting Surge (Strength)
-Feat/&FeatPrimalConstitutionDescription	Increase your Constitution by 1, to a maximum of 20.\nYou can enter a rage as a bonus action as defined in the Barbarian's rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way you must finish a long rest before using this feature again.\nWhile you are not wearing any armor, your AC equals 12 + your Constitution modifier.
+Feat/&FeatPrimalConstitutionDescription	Increase your Constitution by 1, to a maximum of 20.\nYou can enter a rage as a bonus action as defined in the Barbarian's rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way you must finish a long rest before using this feature again.\nWhile you are not wearing any armor, your AC equals 10 + your Constitution modifier.
 Feat/&FeatPrimalConstitutionTitle	Primal Rage (Constitution)
-Feat/&FeatPrimalStrengthDescription	Increase your Strength by 1, to a maximum of 20.\nYou can enter a rage as a bonus action as defined in the Barbarian's rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way you must finish a long rest before using this feature again.\nWhile you are not wearing any armor, your AC equals 12 + your Constitution modifier.
+Feat/&FeatPrimalStrengthDescription	Increase your Strength by 1, to a maximum of 20.\nYou can enter a rage as a bonus action as defined in the Barbarian's rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way you must finish a long rest before using this feature again.\nWhile you are not wearing any armor, your AC equals 10 + your Constitution modifier.
 Feat/&FeatPrimalStrengthTitle	Primal Rage (Strength)
 Feat/&FeatShadyDescription	Increase your Dexterity by 1, to a maximum of 20.\nOnce per turn, you can deal an extra 1d6 damage to one creature you hit with an attack that meets Rogue's Sneak Attack. At 7th level this damage increases to 2d6 and at 14th level to 3d6. This can stack with Rogue's Sneak Attack.
 Feat/&FeatShadyTitle	Shady
@@ -1229,8 +1229,9 @@ Feat/&FeatMetamagicAdeptQuickenedDescription	Increase your Charisma by 1, to a m
 Feat/&FeatMetamagicAdeptTwinnedTitle	Metamagic: Twinned
 Feat/&FeatMetamagicAdeptTwinnedDescription	Increase your Charisma by 1, to a maximum of 20.\nYou learn the Twinned metamagic and gain 2 sorcery points (points gain only if not a Sorcerer).
 Feat/&FeatCharismaticDefenseTitle	Charismatic Defense
-Feat/&FeatCharismaticDefenseDescription	Increase your Charisma by 1, to a maximum of 20.\nWhile you are not wearing any armor, your AC equals 12 + your Charisma modifier.
+Feat/&FeatCharismaticDefenseDescription	Increase your Charisma by 1, to a maximum of 20.\nWhile you are not wearing any armor, your AC equals 10 + your Charisma modifier.
 Feat/&FeatWiseDefenseTitle	Wise Defense
+Feat/&FeatWiseDefenseDescription	Increase your Wisdom by 1, to a maximum of 20.\nWhile you are not wearing any armor, your AC equals 10 + your Wisdom modifier.
 Feat/&FeatWiseDefenseDescription	Increase your Wisdom by 1, to a maximum of 20.\nWhile you are not wearing any armor, your AC equals 12 + your Wisdom modifier.
 Monster/&DH_Custom_AncientBlackDragon_Title <color=#ff0000ff>Ancient Black Dragon</color>
 Monster/&DH_Custom_AirTitan_Description When summoned, these elder elementals manifest as beings of apocalyptic capability, entities whose mere existence promises destruction.
