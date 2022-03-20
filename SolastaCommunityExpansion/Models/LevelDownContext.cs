@@ -378,13 +378,6 @@ namespace SolastaCommunityExpansion.Models
                 {
                     featureDefinitionCustomCode.RemoveFeature(hero);
                 }
-                else if (featureDefinitionTypeName == "NegativeFeatureDefinition")
-                {
-                    var tagToAdd = AccessTools.Field(featureDefinition.GetType(), "Tag").GetValue(featureDefinition) as string;
-                    var featureToAdd = AccessTools.Field(featureDefinition.GetType(), "FeatureToRemove").GetValue(featureDefinition) as FeatureDefinition;
-
-                    hero.ActiveFeatures[tagToAdd].Add(featureToAdd);
-                }
             }
         }
     }
