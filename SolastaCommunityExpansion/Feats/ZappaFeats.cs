@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
+using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
-using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionProficiencys;
 using static SolastaModApi.DatabaseHelper.MetamagicOptionDefinitions;
 
 namespace SolastaCommunityExpansion.Feats
@@ -19,16 +20,27 @@ namespace SolastaCommunityExpansion.Feats
 
         public static void CreateFeats(List<FeatDefinition> feats)
         {
+            // Brutal Thug
+            var additionalDamageRogueSneakAttackRemove = DatabaseRepository.GetDatabase<FeatureDefinition>().GetElement(AdditionalDamageRogueSneakAttack.Name + "Remove");
+            var polivalentSneakAttack = DatabaseRepository.GetDatabase<FeatureDefinition>().GetElement("KSRogueSubclassThugExploitVulnerabilities");
+            
+            var brutalThug = FeatDefinitionBuilder
+                .Create("FeatBrutalThug", ZappaFeatNamespace)
+                .SetFeatures(
+                    additionalDamageRogueSneakAttackRemove,
+                    polivalentSneakAttack,
+                    ProficiencyFighterWeapon
+                )
+                .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
+                .SetClassPrerequisite("Rogue")
+                .SetGuiPresentation(Category.Feat)
+                .AddToDB();
+
             // Charismatic Defense
             var charismaticDefense = FeatDefinitionBuilder
                 .Create("FeatCharismaticDefense", ZappaFeatNamespace)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
-                    //FeatureDefinitionAttributeModifierBuilder
-                    //    .Create(AttributeModifierMageArmor, "AttributeModifierFeatCharismaticDefenseSet", ZappaFeatNamespace)
-                    //    .SetGuiPresentationNoContent()
-                    //    .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set, AttributeDefinitions.ArmorClass, 12)
-                    //    .AddToDB(),
                     FeatureDefinitionAttributeModifierBuilder
                         .Create(AttributeModifierBarbarianUnarmoredDefense, "AttributeModifierFeatCharismaticDefenseAdd", ZappaFeatNamespace)
                         .SetGuiPresentationNoContent()
@@ -61,14 +73,24 @@ namespace SolastaCommunityExpansion.Feats
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 
+            // Metamagic Sorcery Points Feature
+            var attributeModifierSorcererSorceryPointsAdd2 = FeatureDefinitionAttributeModifierBuilder
+                .Create(AttributeModifierSorcererSorceryPointsBase, "AttributeModifierSorcererSorceryPointsBonus2", ZappaFeatNamespace)              
+                .SetGuiPresentationNoContent(true)
+                .SetModifier((FeatureDefinitionAttributeModifier.AttributeModifierOperation)ExtraAttributeModifierOperation.AdditiveAtEnd, AttributeDefinitions.SorceryPoints, 2)
+                .AddToDB();
+
             // Metamagic Adept (Careful)
             var metamagicAdeptCareful = FeatDefinitionBuilder
                 .Create("FeatMetamagicAdeptCareful", ZappaFeatNamespace)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
-                    FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnCareful
+                    FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnCareful,
+                    attributeModifierSorcererSorceryPointsAdd2,
+                    FeatureDefinitionFeatPrereqLevel.Level4
                  )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
+                .SetMustCastSpellsPrerequisite()
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 
@@ -77,9 +99,12 @@ namespace SolastaCommunityExpansion.Feats
                 .Create("FeatMetamagicAdeptDistant", ZappaFeatNamespace)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
-                    FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnDistant
+                    FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnDistant,
+                    attributeModifierSorcererSorceryPointsAdd2,
+                    FeatureDefinitionFeatPrereqLevel.Level4
                  )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
+                .SetMustCastSpellsPrerequisite()
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 
@@ -88,9 +113,12 @@ namespace SolastaCommunityExpansion.Feats
                 .Create("FeatMetamagicAdeptEmpowered", ZappaFeatNamespace)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
-                    FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnEmpowered
+                    FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnEmpowered,
+                    attributeModifierSorcererSorceryPointsAdd2,
+                    FeatureDefinitionFeatPrereqLevel.Level4
                  )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
+                .SetMustCastSpellsPrerequisite()
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 
@@ -99,9 +127,26 @@ namespace SolastaCommunityExpansion.Feats
                 .Create("FeatMetamagicAdeptExtended", ZappaFeatNamespace)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
-                    FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnExtended
+                    FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnExtended,
+                    attributeModifierSorcererSorceryPointsAdd2,
+                    FeatureDefinitionFeatPrereqLevel.Level4
                  )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
+                .SetMustCastSpellsPrerequisite()
+                .SetGuiPresentation(Category.Feat)
+                .AddToDB();
+
+            // Metamagic Adept (Heightened)
+            var metamagicAdeptHeightened = FeatDefinitionBuilder
+                .Create("FeatMetamagicAdeptHeightened", ZappaFeatNamespace)
+                .SetFeatures(
+                    FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnHeightened,
+                    attributeModifierSorcererSorceryPointsAdd2,
+                    attributeModifierSorcererSorceryPointsAdd2, // not a dup. adding 4 points
+                    FeatureDefinitionFeatPrereqLevel.Level8
+                 )
+                .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
+                .SetMustCastSpellsPrerequisite()
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 
@@ -110,9 +155,12 @@ namespace SolastaCommunityExpansion.Feats
                 .Create("FeatMetamagicAdeptQuickened", ZappaFeatNamespace)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
-                    FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnQuickened
+                    FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnQuickened,
+                    attributeModifierSorcererSorceryPointsAdd2,
+                    FeatureDefinitionFeatPrereqLevel.Level4
                  )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
+                .SetMustCastSpellsPrerequisite()
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 
@@ -121,9 +169,12 @@ namespace SolastaCommunityExpansion.Feats
                 .Create("FeatMetamagicAdeptTwinned", ZappaFeatNamespace)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
-                    FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnTwinned
+                    FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnTwinned,
+                    attributeModifierSorcererSorceryPointsAdd2,
+                    FeatureDefinitionFeatPrereqLevel.Level4
                  )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
+                .SetMustCastSpellsPrerequisite()
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 
@@ -134,8 +185,8 @@ namespace SolastaCommunityExpansion.Feats
                     AttributeModifierCreed_Of_Arun,
                     ActionAffinityBarbarianRage,
                     AttributeModifierBarbarianRagePointsAdd,
+                    AttributeModifierBarbarianRageDamageAdd, 
                     AttributeModifierBarbarianRageDamageAdd, // not a dup. I use add to allow compatibility with Barb class. 2 adds for +2 damage
-                    AttributeModifierBarbarianRageDamageAdd,
                     PowerBarbarianRageStart,
                     AttributeModifierBarbarianUnarmoredDefense
                 )
@@ -143,7 +194,7 @@ namespace SolastaCommunityExpansion.Feats
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 
-            // Primal Rage (Strength)
+            // Primal (Strength)
             var primalStrength = FeatDefinitionBuilder
                 .Create("FeatPrimalStrength", ZappaFeatNamespace)
                 .SetFeatures(
@@ -164,30 +215,31 @@ namespace SolastaCommunityExpansion.Feats
                 .Create("FeatShady", ZappaFeatNamespace)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Misaye,
+                    FeatureDefinitionFeatPrereqLevel.Level4,
                     FeatureDefinitionAdditionalDamageBuilder
                         .Create(AdditionalDamageRogueSneakAttack, "AdditionalDamageFeatShadySneakAttack", ZappaFeatNamespace)
                         .SetGuiPresentation("AdditionalDamageFeatShadySneakAttack", Category.Feature)
                         .SetDamageDice(RuleDefinitions.DieType.D6, 1)
                         .SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement.ClassLevel,
-                            (1, 1),
-                            (2, 1),
-                            (3, 1),
+                            (1, 0),
+                            (2, 0),
+                            (3, 0),
                             (4, 1),
                             (5, 1),
                             (6, 1),
-                            (7, 2),
-                            (8, 2),
-                            (9, 2),
-                            (10, 2),
-                            (11, 2),
+                            (7, 1),
+                            (8, 1),
+                            (9, 1),
+                            (10, 1),
+                            (11, 1),
                             (12, 2),
-                            (13, 3),
-                            (14, 3),
-                            (15, 3),
-                            (16, 3),
-                            (17, 3),
-                            (18, 3),
-                            (19, 4),
+                            (13, 2),
+                            (14, 2),
+                            (15, 2),
+                            (16, 2),
+                            (17, 2),
+                            (18, 2),
+                            (19, 2),
                             (20, 4)
                         )
                         .SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage.OncePerTurn)
@@ -224,6 +276,7 @@ namespace SolastaCommunityExpansion.Feats
             //
 
             feats.AddRange(
+                brutalThug,
                 charismaticDefense,
                 fightingSurgeDexterity,
                 fightingSurgeStrength,
@@ -231,6 +284,7 @@ namespace SolastaCommunityExpansion.Feats
                 metamagicAdeptDistant,
                 metamagicAdeptEmpowered,
                 metamagicAdeptExtended,
+                metamagicAdeptHeightened,
                 metamagicAdeptQuickened,
                 metamagicAdeptTwinned,
                 primalConstitution,
@@ -240,6 +294,35 @@ namespace SolastaCommunityExpansion.Feats
         }
     }
 
+    internal class FeatureDefinitionFeatPrereqLevel : FeatureDefinition, IValidateFeatPrerequisites
+    {
+        public int Level { get; set; }
+
+        internal static readonly FeatureDefinitionFeatPrereqLevel Level4 = new() { Level = 4 };
+
+        internal static readonly FeatureDefinitionFeatPrereqLevel Level8 = new() { Level = 8 };
+
+        public bool IsFeatMacthingPrerequisites(
+            FeatDefinition feat,
+            RulesetCharacterHero hero,
+            ref string prerequisiteOutput)
+        {
+            if (hero.ClassesHistory.Count < Level)
+            {
+                if (prerequisiteOutput != string.Empty)
+                {
+                    prerequisiteOutput += "\n";
+                }
+
+                prerequisiteOutput += Gui.Format("Tooltip/&FeatPrerequisiteLevelFormat", Gui.Colorize(Level.ToString(), "EA7171"));
+
+                return false;
+            }
+
+            return true;
+        }
+    }
+    
     internal sealed class FeatureDefinitionMetamagicOptionBuilder : FeatureDefinitionCustomCodeBuilder<FeatureDefinitionMetamagicOption, FeatureDefinitionMetamagicOptionBuilder>
     {
         private const string MetamagicLearnCarefulName = "MetamagicLearnCareful";
@@ -253,6 +336,9 @@ namespace SolastaCommunityExpansion.Feats
 
         private const string MetamagicLearnExtendedName = "MetamagicLearnExtended";
         private const string MetamagicLearnExtendedGuid = "944b8533-3821-496d-a200-ae5e5a0a82a9";
+
+        private const string MetamagicLearnHeightenedName = "MetamagicLearnHeightened";
+        private const string MetamagicLearnHeightenedGuid = "8a74dca9-b0a7-4519-aa84-d682a0272e7c";
 
         private const string MetamagicLearnQuickenedName = "MetamagicLearnQuickened";
         private const string MetamagicLearnQuickenedGuid = "f1f2a8b9-e290-4ba9-9118-83c2ca19622a";
@@ -282,6 +368,9 @@ namespace SolastaCommunityExpansion.Feats
         internal static readonly FeatureDefinitionMetamagicOption MetamagicLearnExtended =
             CreateAndAddToDB(MetamagicLearnExtendedName, MetamagicLearnExtendedGuid, MetamagicExtendedSpell);
 
+        internal static readonly FeatureDefinitionMetamagicOption MetamagicLearnHeightened =
+            CreateAndAddToDB(MetamagicLearnHeightenedName, MetamagicLearnHeightenedGuid, MetamagicHeightenedSpell);
+
         internal static readonly FeatureDefinitionMetamagicOption MetamagicLearnQuickened =
             CreateAndAddToDB(MetamagicLearnQuickenedName, MetamagicLearnQuickenedGuid, MetamagicQuickenedSpell);
 
@@ -303,13 +392,6 @@ namespace SolastaCommunityExpansion.Feats
 
                 MetamagicTrained = true;
             }
-
-            if (!hero.ClassesAndLevels.ContainsKey(Sorcerer))
-            {
-                hero.GetAttribute(AttributeDefinitions.SorceryPoints).BaseValue = 2;
-            }
-
-            hero.RefreshAll();
         }
 
         public override void RemoveFeature(RulesetCharacterHero hero)
@@ -317,14 +399,8 @@ namespace SolastaCommunityExpansion.Feats
             if (MetamagicTrained)
             {
                 hero.MetamagicFeatures.Remove(MetamagicOption);
-                hero.RefreshAll();
 
                 MetamagicTrained = false;
-            }
-
-            if (!hero.ClassesAndLevels.ContainsKey(Sorcerer))
-            {
-                hero.GetAttribute(AttributeDefinitions.SorceryPoints).BaseValue = 0;
             }
         }
     }
