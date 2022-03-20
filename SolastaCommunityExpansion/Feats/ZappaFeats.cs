@@ -256,11 +256,6 @@ namespace SolastaCommunityExpansion.Feats
                 .Create("FeatWiseDefense", ZappaFeatNamespace)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
-                    //FeatureDefinitionAttributeModifierBuilder
-                    //    .Create(AttributeModifierMageArmor, "AttributeModifierFeatWiseDefenseSet", ZappaFeatNamespace)
-                    //    .SetGuiPresentationNoContent()
-                    //    .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set, AttributeDefinitions.ArmorClass, 12)
-                    //    .AddToDB(),
                     FeatureDefinitionAttributeModifierBuilder
                         .Create(AttributeModifierBarbarianUnarmoredDefense, "AttributeModifierFeatWiseDefenseAdd", ZappaFeatNamespace)
                         .SetGuiPresentationNoContent()
@@ -307,19 +302,19 @@ namespace SolastaCommunityExpansion.Feats
             RulesetCharacterHero hero,
             ref string prerequisiteOutput)
         {
-            if (hero.ClassesHistory.Count < Level)
+            if (hero.ClassesHistory.Count >= Level)
             {
-                if (prerequisiteOutput != string.Empty)
-                {
-                    prerequisiteOutput += "\n";
-                }
-
-                prerequisiteOutput += Gui.Format("Tooltip/&FeatPrerequisiteLevelFormat", Gui.Colorize(Level.ToString(), "EA7171"));
-
-                return false;
+                return true;
             }
 
-            return true;
+            if (prerequisiteOutput != string.Empty)
+            {
+                prerequisiteOutput += "\n";
+            }
+
+            prerequisiteOutput += Gui.Format("Tooltip/&FeatPrerequisiteLevelFormat", Gui.Colorize(Level.ToString(), "EA7171"));
+
+            return false;
         }
     }
     

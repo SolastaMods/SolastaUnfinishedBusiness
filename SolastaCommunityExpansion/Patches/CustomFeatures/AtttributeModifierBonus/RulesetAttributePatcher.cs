@@ -11,7 +11,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.AtttributeModifierBon
     {
         internal static void Postfix(RulesetAttribute __instance, ref int ___currentValue)
         {
-
             var activeModifiers = __instance.ActiveModifiers;
 
             foreach (var activeModifier in activeModifiers
