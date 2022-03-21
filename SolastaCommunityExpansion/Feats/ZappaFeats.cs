@@ -166,7 +166,7 @@ namespace SolastaCommunityExpansion.Feats
                     AttributeModifierCreed_Of_Misaye,
                     FeatureDefinitionAdditionalDamageBuilder
                         .Create(AdditionalDamageRogueSneakAttack, "AdditionalDamageFeatShadySneakAttack", ZappaFeatNamespace)
-                        .SetGuiPresentation("AdditionalDamageFeatShadySneakAttack", Category.Feature)
+                        .SetGuiPresentation("AdditionalDamageFeatShadySneakAttack", Category.Feat)
                         .SetDamageDice(RuleDefinitions.DieType.D6, 1)
                         .SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement.ClassLevel,
                             (1, 1),
