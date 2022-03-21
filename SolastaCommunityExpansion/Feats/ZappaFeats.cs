@@ -17,9 +17,47 @@ namespace SolastaCommunityExpansion.Feats
 {
     internal static class ZappaFeats
     {
-        public static readonly Guid ZappaFeatNamespace = new("514f14e3-db8e-47b3-950a-350e8cae37d6");
+        private static readonly Guid ZappaFeatNamespace = new("514f14e3-db8e-47b3-950a-350e8cae37d6");
 
-        public static void CreateFeats(List<FeatDefinition> feats)
+        private static bool ValidateMinLevel4(
+            FeatDefinition feat,
+            RulesetCharacterHero hero,
+            ref string prerequisiteOutput)
+        {
+            var isLevelValid = hero.ClassesHistory.Count >= 4;
+
+            if (prerequisiteOutput != string.Empty)
+            {
+                prerequisiteOutput += "\n";
+            }
+
+            var levelText = isLevelValid ? "4" : Gui.Colorize("4", "EA7171");
+
+            prerequisiteOutput += Gui.Format("Tooltip/&FeatPrerequisiteLevelFormat", levelText);
+
+            return isLevelValid;
+        }
+
+        private static bool ValidateMinLevel8(
+            FeatDefinition feat,
+            RulesetCharacterHero hero,
+            ref string prerequisiteOutput)
+        {
+            var isLevelValid = hero.ClassesHistory.Count >= 4;
+
+            if (prerequisiteOutput != string.Empty)
+            {
+                prerequisiteOutput += "\n";
+            }
+
+            var levelText = isLevelValid ? "4" : Gui.Colorize("4", "EA7171");
+
+            prerequisiteOutput += Gui.Format("Tooltip/&FeatPrerequisiteLevelFormat", levelText);
+
+            return isLevelValid;
+        }
+
+        internal static void CreateFeats(List<FeatDefinition> feats)
         {
             // Arcane Defense
             var arcaneDefense = FeatDefinitionBuilder
@@ -173,101 +211,101 @@ namespace SolastaCommunityExpansion.Feats
                 .AddToDB();
 
             // Metamagic Adept (Careful)
-            var metamagicAdeptCareful = FeatDefinitionBuilder
+            var metamagicAdeptCareful = FeatDefinitionWithPrereqsBuilder
                 .Create("FeatMetamagicAdeptCareful", ZappaFeatNamespace)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
                     FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnCareful,
-                    attributeModifierSorcererSorceryPointsAdd2,
-                    FeatureDefinitionFeatPrereqLevel.Level4
+                    attributeModifierSorcererSorceryPointsAdd2
                  )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
                 .SetGuiPresentation(Category.Feat)
+                .SetValidationDelegate(ValidateMinLevel4)
                 .AddToDB();
 
             // Metamagic Adept (Distant)
-            var metamagicAdeptDistant = FeatDefinitionBuilder
+            var metamagicAdeptDistant = FeatDefinitionWithPrereqsBuilder
                 .Create("FeatMetamagicAdeptDistant", ZappaFeatNamespace)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
                     FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnDistant,
-                    attributeModifierSorcererSorceryPointsAdd2,
-                    FeatureDefinitionFeatPrereqLevel.Level4
+                    attributeModifierSorcererSorceryPointsAdd2
                  )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
                 .SetGuiPresentation(Category.Feat)
+                .SetValidationDelegate(ValidateMinLevel4)
                 .AddToDB();
 
             // Metamagic Adept (Empowered)
-            var metamagicAdeptEmpowered = FeatDefinitionBuilder
+            var metamagicAdeptEmpowered = FeatDefinitionWithPrereqsBuilder
                 .Create("FeatMetamagicAdeptEmpowered", ZappaFeatNamespace)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
                     FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnEmpowered,
-                    attributeModifierSorcererSorceryPointsAdd2,
-                    FeatureDefinitionFeatPrereqLevel.Level4
+                    attributeModifierSorcererSorceryPointsAdd2
                  )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
                 .SetGuiPresentation(Category.Feat)
+                .SetValidationDelegate(ValidateMinLevel4)
                 .AddToDB();
 
             // Metamagic Adept (Extended)
-            var metamagicAdeptExtended = FeatDefinitionBuilder
+            var metamagicAdeptExtended = FeatDefinitionWithPrereqsBuilder
                 .Create("FeatMetamagicAdeptExtended", ZappaFeatNamespace)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
                     FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnExtended,
-                    attributeModifierSorcererSorceryPointsAdd2,
-                    FeatureDefinitionFeatPrereqLevel.Level4
+                    attributeModifierSorcererSorceryPointsAdd2
                  )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
                 .SetGuiPresentation(Category.Feat)
+                .SetValidationDelegate(ValidateMinLevel4)
                 .AddToDB();
 
             // Metamagic Adept (Heightened)
-            var metamagicAdeptHeightened = FeatDefinitionBuilder
+            var metamagicAdeptHeightened = FeatDefinitionWithPrereqsBuilder
                 .Create("FeatMetamagicAdeptHeightened", ZappaFeatNamespace)
                 .SetFeatures(
                     FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnHeightened,
                     attributeModifierSorcererSorceryPointsAdd2,
-                    attributeModifierSorcererSorceryPointsAdd2, // not a dup. adding 4 points
-                    FeatureDefinitionFeatPrereqLevel.Level8
+                    attributeModifierSorcererSorceryPointsAdd2 // not a dup. adding 4 points
                  )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
                 .SetGuiPresentation(Category.Feat)
+                .SetValidationDelegate(ValidateMinLevel8)
                 .AddToDB();
 
             // Metamagic Adept (Quickened)
-            var metamagicAdeptQuickened = FeatDefinitionBuilder
+            var metamagicAdeptQuickened = FeatDefinitionWithPrereqsBuilder
                 .Create("FeatMetamagicAdeptQuickened", ZappaFeatNamespace)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
                     FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnQuickened,
-                    attributeModifierSorcererSorceryPointsAdd2,
-                    FeatureDefinitionFeatPrereqLevel.Level4
+                    attributeModifierSorcererSorceryPointsAdd2
                  )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
                 .SetGuiPresentation(Category.Feat)
+                .SetValidationDelegate(ValidateMinLevel4)
                 .AddToDB();
 
             // Metamagic Adept (Twinned)
-            var metamagicAdeptTwinned = FeatDefinitionBuilder
+            var metamagicAdeptTwinned = FeatDefinitionWithPrereqsBuilder
                 .Create("FeatMetamagicAdeptTwinned", ZappaFeatNamespace)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
                     FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnTwinned,
-                    attributeModifierSorcererSorceryPointsAdd2,
-                    FeatureDefinitionFeatPrereqLevel.Level4
+                    attributeModifierSorcererSorceryPointsAdd2
                  )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
                 .SetGuiPresentation(Category.Feat)
+                .SetValidationDelegate(ValidateMinLevel4)
                 .AddToDB();
 
             // Primal (Constitution)
@@ -303,11 +341,10 @@ namespace SolastaCommunityExpansion.Feats
                 .AddToDB();
 
             // Shady
-            var shady = FeatDefinitionBuilder
+            var shady = FeatDefinitionWithPrereqsBuilder
                 .Create("FeatShady", ZappaFeatNamespace)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Misaye,
-                    FeatureDefinitionFeatPrereqLevel.Level4,
                     FeatureDefinitionAdditionalDamageBuilder
                         .Create(AdditionalDamageRogueSneakAttack, "AdditionalDamageFeatShadySneakAttack", ZappaFeatNamespace)
                         .SetGuiPresentation("AdditionalDamageFeatShadySneakAttack", Category.Feature)
@@ -341,6 +378,7 @@ namespace SolastaCommunityExpansion.Feats
                 )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
                 .SetGuiPresentation(Category.Feat)
+                .SetValidationDelegate(ValidateMinLevel4)
                 .AddToDB();
 
             // Wise Defense
@@ -419,34 +457,6 @@ namespace SolastaCommunityExpansion.Feats
                 shady,
                 wiseDefense,
                 wisePrecision);
-        }
-    }
-
-    internal class FeatureDefinitionFeatPrereqLevel : FeatureDefinition, IValidateFeatPrerequisites
-    {
-        public int Level { get; set; }
-
-        internal static readonly FeatureDefinitionFeatPrereqLevel Level4 = new() { Level = 4 };
-
-        internal static readonly FeatureDefinitionFeatPrereqLevel Level8 = new() { Level = 8 };
-
-        public bool IsFeatMacthingPrerequisites(
-            FeatDefinition feat,
-            RulesetCharacterHero hero,
-            ref string prerequisiteOutput)
-        {
-            var isLevelValid = hero.ClassesHistory.Count >= Level;
-
-            if (prerequisiteOutput != string.Empty)
-            {
-                prerequisiteOutput += "\n";
-            }
-
-            var levelText = isLevelValid ? Level.ToString() : Gui.Colorize(Level.ToString(), "EA7171");
-
-            prerequisiteOutput += Gui.Format("Tooltip/&FeatPrerequisiteLevelFormat", levelText);
-
-            return isLevelValid;
         }
     }
     

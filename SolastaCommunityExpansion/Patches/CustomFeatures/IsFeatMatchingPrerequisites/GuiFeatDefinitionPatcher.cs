@@ -4,7 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
-using SolastaCommunityExpansion.CustomFeatureDefinitions;
+using SolastaCommunityExpansion.Builders;
 using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.IsFeatMatchingPrerequisites
@@ -19,10 +19,9 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.IsFeatMatchingPrerequ
             RulesetCharacterHero hero,
             ref string prerequisiteOutput)
         {
-            foreach (var featureDefinition in feat.Features.OfType<IValidateFeatPrerequisites>())
+            if (feat is FeatDefinitionWithPrereqs featDefinitionWithPrereqs && featDefinitionWithPrereqs.IsFeatMacthingPrerequisites != null)
             {
-                
-                var result = featureDefinition.IsFeatMacthingPrerequisites(feat, hero, ref prerequisiteOutput);
+                var result = featDefinitionWithPrereqs.IsFeatMacthingPrerequisites.Invoke(feat, hero, ref prerequisiteOutput);
 
                 if (__result)
                 {
