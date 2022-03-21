@@ -1,7 +1,7 @@
 ﻿using SolastaModApi;
 using SolastaModApi.Extensions;
-using SolastaCommunityExpansion.Models;
 using UnityEngine;
+using SolastaCommunityExpansion.Builders;
 //******************************************************************************************
 // BY DEFINITION, REFACTORING REQUIRES CONFIRMING EXTERNAL BEHAVIOUR DOES NOT CHANGE
 // "REFACTORING WITHOUT TESTS IS JUST CHANGING STUFF"
@@ -328,24 +328,18 @@ namespace SolastaCommunityExpansion.Monsters
         }
         public static SpellDefinition BuildNewSpell(string name, SpellDefinition baseSpell, string guid, string title, string description)
         {
-            SpellDefinition unit = MonsterContext.CopyAndCreateNewBlueprint<SpellDefinition>.CreateCopy(name,
-                                                                             guid,
-                                                                             title,
-                                                                             description,
-                                                                             baseSpell
-                                                                             );
-            return unit;
+            return SpellDefinitionBuilder
+                .Create(baseSpell, name, guid)
+                .SetOrUpdateGuiPresentation(title, description)
+                .AddToDB();
         }
 
         public static ConditionDefinition BuildNewCondition(string name, ConditionDefinition baseCondition, string guid, string title, string description)
         {
-            ConditionDefinition unit = MonsterContext.CopyAndCreateNewBlueprint<ConditionDefinition>.CreateCopy(name,
-                                                                             guid,
-                                                                             title,
-                                                                             description,
-                                                                             baseCondition
-                                                                             );
-            return unit;
+            return ConditionDefinitionBuilder
+                .Create(baseCondition, name, guid)
+                .SetOrUpdateGuiPresentation(title, description)
+                .AddToDB();
         }
 
     }
