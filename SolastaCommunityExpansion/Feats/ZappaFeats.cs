@@ -310,7 +310,7 @@ namespace SolastaCommunityExpansion.Feats
                     FeatureDefinitionFeatPrereqLevel.Level4,
                     FeatureDefinitionAdditionalDamageBuilder
                         .Create(AdditionalDamageRogueSneakAttack, "AdditionalDamageFeatShadySneakAttack", ZappaFeatNamespace)
-                        .SetGuiPresentation("AdditionalDamageFeatShadySneakAttack", Category.Feat)
+                        .SetGuiPresentation("AdditionalDamageFeatShadySneakAttack", Category.Feature)
                         .SetDamageDice(RuleDefinitions.DieType.D6, 1)
                         .SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement.ClassLevel,
                             (1, 0),
