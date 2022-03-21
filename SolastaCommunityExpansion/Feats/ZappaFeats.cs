@@ -435,19 +435,18 @@ namespace SolastaCommunityExpansion.Feats
             RulesetCharacterHero hero,
             ref string prerequisiteOutput)
         {
-            if (hero.ClassesHistory.Count >= Level)
-            {
-                return true;
-            }
+            var isLevelValid = hero.ClassesHistory.Count >= Level;
 
             if (prerequisiteOutput != string.Empty)
             {
                 prerequisiteOutput += "\n";
             }
 
-            prerequisiteOutput += Gui.Format("Tooltip/&FeatPrerequisiteLevelFormat", Gui.Colorize(Level.ToString(), "EA7171"));
+            var levelText = isLevelValid ? Level.ToString() : Gui.Colorize(Level.ToString(), "EA7171");
 
-            return false;
+            prerequisiteOutput += Gui.Format("Tooltip/&FeatPrerequisiteLevelFormat", levelText);
+
+            return isLevelValid;
         }
     }
     
