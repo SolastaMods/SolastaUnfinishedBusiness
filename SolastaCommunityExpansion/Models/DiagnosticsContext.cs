@@ -119,6 +119,7 @@ namespace SolastaCommunityExpansion.Models
             CEBaseDefinitions = CEBaseDefinitionsMap.Values
                 .SelectMany(v => v)
                 .Where(x => Array.IndexOf(Main.Settings.ExcludeFromExport, x.GetType().Name) < 0)
+                .Where(x => Array.IndexOf(Main.Settings.ExcludeFromCEExport, x.GetType().Name) < 0)
                 .Distinct()
                 .OrderBy(x => x.Name)
                 .ThenBy(x => x.GetType().Name)
