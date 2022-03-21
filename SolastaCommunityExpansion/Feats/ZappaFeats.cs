@@ -5,6 +5,7 @@ using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
+using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionAttributeModifiers;
@@ -20,6 +21,59 @@ namespace SolastaCommunityExpansion.Feats
 
         public static void CreateFeats(List<FeatDefinition> feats)
         {
+            // Arcane Defense
+            var arcaneDefense = FeatDefinitionBuilder
+                .Create("FeatArcaneDefense", ZappaFeatNamespace)
+                .SetFeatures(
+                    AttributeModifierCreed_Of_Pakri,
+                    FeatureDefinitionAttributeModifierBuilder
+                        .Create(AttributeModifierBarbarianUnarmoredDefense, "AttributeModifierFeatArcaneDefenseAdd", ZappaFeatNamespace)
+                        .SetGuiPresentationNoContent()
+                        .SetModifierAbilityScore(AttributeDefinitions.Intelligence)
+                        .AddToDB()
+                )
+                .SetAbilityScorePrerequisite(AttributeDefinitions.Intelligence, 13)
+                .SetGuiPresentation(Category.Feat)
+                .AddToDB();
+
+            // Arcane Precision
+            var attackModifierArcanePrecision = FeatureDefinitionAttackModifierBuilder
+                .Create("FeatureAttackModifierArcanePrecision", ZappaFeatNamespace)
+                .SetGuiPresentation("FeatArcanePrecision", Category.Feat, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference)
+                .SetAbilityScoreReplacement(RuleDefinitions.AbilityScoreReplacement.SpellcastingAbility)
+                .SetAdditionalAttackTag(TagsDefinitions.Magical)
+                .AddToDB();
+
+            var effectArcanePrecision = EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Touch, 1 /* range */, RuleDefinitions.TargetType.Item, 1, 2, ActionDefinitions.ItemSelectionType.Weapon)
+                .SetCreatedByCharacter()
+                .SetDurationData(RuleDefinitions.DurationType.Minute, 1 /* duration */, RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                .AddEffectForm(
+                    EffectFormBuilder
+                        .Create()
+                        .SetItemPropertyForm(RuleDefinitions.ItemPropertyUsage.Unlimited, 0, new FeatureUnlockByLevel(attackModifierArcanePrecision, 0))
+                        .Build()
+                    )
+                .Build();
+
+            var arcanePrecisionPower = FeatureDefinitionPowerBuilder
+                .Create("PowerArcanePrecision", ZappaFeatNamespace)
+                .SetGuiPresentation("FeatArcanePrecision", Category.Feat, FeatureDefinitionPowers.PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference)
+                .Configure(2, RuleDefinitions.UsesDetermination.ProficiencyBonus, AttributeDefinitions.Intelligence, RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RechargeRate.LongRest, false, false,
+                    AttributeDefinitions.Intelligence, effectArcanePrecision, false /* unique instance */)
+                .AddToDB();
+
+            var arcanePrecision = FeatDefinitionBuilder
+                .Create("FeatArcanePrecision", ZappaFeatNamespace)
+                .SetFeatures(
+                    AttributeModifierCreed_Of_Pakri,
+                    arcanePrecisionPower
+                )
+                .SetAbilityScorePrerequisite(AttributeDefinitions.Intelligence, 13)
+                .SetGuiPresentation(Category.Feat)
+                .AddToDB();
+
             // Brutal Thug
             var additionalDamageRogueSneakAttackRemove = DatabaseRepository.GetDatabase<FeatureDefinition>().GetElement(AdditionalDamageRogueSneakAttack.Name + "Remove");
             var polivalentSneakAttack = DatabaseRepository.GetDatabase<FeatureDefinition>().GetElement("KSRogueSubclassThugExploitVulnerabilities");
@@ -46,6 +100,44 @@ namespace SolastaCommunityExpansion.Feats
                         .SetGuiPresentationNoContent()
                         .SetModifierAbilityScore(AttributeDefinitions.Charisma)
                         .AddToDB()
+                )
+                .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
+                .SetGuiPresentation(Category.Feat)
+                .AddToDB();
+
+            // Charismatic Precision
+            var attackModifierCharismaticPrecision = FeatureDefinitionAttackModifierBuilder
+                .Create("FeatureAttackModifierCharismaticPrecision", ZappaFeatNamespace)
+                .SetGuiPresentation("FeatCharismaticPrecision", Category.Feat, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference)
+                .SetAbilityScoreReplacement(RuleDefinitions.AbilityScoreReplacement.SpellcastingAbility)
+                .SetAdditionalAttackTag(TagsDefinitions.Magical)
+                .AddToDB();
+
+            var effectCharismaticPrecision = EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Touch, 1 /* range */, RuleDefinitions.TargetType.Item, 1, 2, ActionDefinitions.ItemSelectionType.Weapon)
+                .SetCreatedByCharacter()
+                .SetDurationData(RuleDefinitions.DurationType.Minute, 1 /* duration */, RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                .AddEffectForm(
+                    EffectFormBuilder
+                        .Create()
+                        .SetItemPropertyForm(RuleDefinitions.ItemPropertyUsage.Unlimited, 0, new FeatureUnlockByLevel(attackModifierCharismaticPrecision, 0))
+                        .Build()
+                    )
+                .Build();
+
+            var charismaticPrecisionPower = FeatureDefinitionPowerBuilder
+                .Create("PowerCharismaticPrecision", ZappaFeatNamespace)
+                .SetGuiPresentation("FeatCharismaticPrecision", Category.Feat, FeatureDefinitionPowers.PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference)
+                .Configure(2, RuleDefinitions.UsesDetermination.ProficiencyBonus, AttributeDefinitions.Intelligence, RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RechargeRate.LongRest, false, false,
+                    AttributeDefinitions.Charisma, effectCharismaticPrecision, false /* unique instance */)
+                .AddToDB();
+
+            var charismaticPrecision = FeatDefinitionBuilder
+                .Create("FeatCharismaticPrecision", ZappaFeatNamespace)
+                .SetFeatures(
+                    AttributeModifierCreed_Of_Solasta,
+                    charismaticPrecisionPower
                 )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetGuiPresentation(Category.Feat)
@@ -266,13 +358,53 @@ namespace SolastaCommunityExpansion.Feats
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 
+            // Wise Precision
+            var attackModifierWisePrecision = FeatureDefinitionAttackModifierBuilder
+                .Create("AttackModifierWisePrecision", ZappaFeatNamespace)
+                .SetGuiPresentation("FeatWisePrecision", Category.Feat, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference)
+                .SetAbilityScoreReplacement(RuleDefinitions.AbilityScoreReplacement.SpellcastingAbility)
+                .SetAdditionalAttackTag(TagsDefinitions.Magical)
+                .AddToDB();
+
+            var effectWisePrecision = EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Touch, 1 /* range */, RuleDefinitions.TargetType.Item, 1, 2, ActionDefinitions.ItemSelectionType.Weapon)
+                .SetCreatedByCharacter()
+                .SetDurationData(RuleDefinitions.DurationType.Minute, 1 /* duration */, RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                .AddEffectForm(
+                    EffectFormBuilder
+                        .Create()
+                        .SetItemPropertyForm(RuleDefinitions.ItemPropertyUsage.Unlimited, 0, new FeatureUnlockByLevel(attackModifierWisePrecision, 0))
+                        .Build()
+                    )
+                .Build();
+
+            var wisePrecisionPower = FeatureDefinitionPowerBuilder
+                .Create("PowerWisePrecision", ZappaFeatNamespace)
+                .SetGuiPresentation("FeatWisePrecision", Category.Feat, FeatureDefinitionPowers.PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference)
+                .Configure(2, RuleDefinitions.UsesDetermination.ProficiencyBonus, AttributeDefinitions.Intelligence, RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RechargeRate.LongRest, false, true,
+                    AttributeDefinitions.Intelligence, effectWisePrecision, false /* unique instance */)
+                .AddToDB();
+
+            var wisePrecision = FeatDefinitionBuilder
+                .Create("FeatWisePrecision", ZappaFeatNamespace)
+                .SetFeatures(
+                    wisePrecisionPower
+                )
+                .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
+                .SetGuiPresentation(Category.Feat)
+                .AddToDB();
+
             //
             // set feats to be registered in mod settings
             //
 
             feats.AddRange(
+                arcaneDefense,
+                arcanePrecision,
                 brutalThug,
                 charismaticDefense,
+                charismaticPrecision,
                 fightingSurgeDexterity,
                 fightingSurgeStrength,
                 metamagicAdeptCareful,
@@ -285,7 +417,8 @@ namespace SolastaCommunityExpansion.Feats
                 primalConstitution,
                 primalStrength,
                 shady,
-                wiseDefense);
+                wiseDefense,
+                wisePrecision);
         }
     }
 
