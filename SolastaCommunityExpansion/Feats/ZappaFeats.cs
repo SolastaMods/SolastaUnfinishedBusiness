@@ -310,7 +310,7 @@ namespace SolastaCommunityExpansion.Feats
                     FeatureDefinitionFeatPrereqLevel.Level4,
                     FeatureDefinitionAdditionalDamageBuilder
                         .Create(AdditionalDamageRogueSneakAttack, "AdditionalDamageFeatShadySneakAttack", ZappaFeatNamespace)
-                        .SetGuiPresentation("AdditionalDamageFeatShadySneakAttack", Category.Feature)
+                        .SetGuiPresentation("AdditionalDamageFeatShadySneakAttack", Category.Feat)
                         .SetDamageDice(RuleDefinitions.DieType.D6, 1)
                         .SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement.ClassLevel,
                             (1, 0),
@@ -480,7 +480,9 @@ namespace SolastaCommunityExpansion.Feats
 
         private static FeatureDefinitionMetamagicOption CreateAndAddToDB(string name, string guid, MetamagicOptionDefinition metamagicOption)
         {
-            return new FeatureDefinitionMetamagicOptionBuilder(name, guid, metamagicOption).AddToDB();
+            return new FeatureDefinitionMetamagicOptionBuilder(name, guid, metamagicOption)
+                .SetGuiPresentationNoContent()
+                .AddToDB();
         }
 
         internal static readonly FeatureDefinitionMetamagicOption MetamagicLearnCareful =
