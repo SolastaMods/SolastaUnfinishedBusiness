@@ -25,9 +25,9 @@
     "description": "Equipment/&Enchanted_HeavyCrossbow_Medusa_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "a5d7ccd2eae6b7346b595a27d5a2a441",
+      "m_SubObjectName": "StandardHeavyCrossbow",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

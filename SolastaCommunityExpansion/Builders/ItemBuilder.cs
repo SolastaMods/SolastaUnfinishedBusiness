@@ -24,7 +24,7 @@ namespace SolastaCommunityExpansion.Builders
 
             ItemDefinitionBuilder builder = ItemDefinitionBuilder
                 .Create(original, itemName, collectionGuid)
-                .SetGuiPresentation(itemName + "_", Category.Equipment)
+                .SetOrUpdateGuiPresentation(itemName + "_", Category.Equipment)
                 // Set is magical
                 // Remove "Standard" from item tags
                 .MakeMagical()
@@ -56,7 +56,7 @@ namespace SolastaCommunityExpansion.Builders
 
             ItemDefinitionBuilder builder = ItemDefinitionBuilder
                 .Create(original, itemName, collectionGuid)
-                .SetGuiPresentation(itemName + "_", Category.Equipment)
+                .SetOrUpdateGuiPresentation(itemName + "_", Category.Equipment)
                 // Set is magical
                 // Remove "Standard" from item tags
                 .MakeMagical()

@@ -201,7 +201,7 @@ namespace SolastaCommunityExpansion.Spells
 
             var conditionDefinition = ConditionDefinitionBuilder
                 .Create(ConditionConfused, "ConditionFrenzied", BAZOU_SPELLS_BASE_GUID)
-                .SetGuiPresentation("Frenzied", Category.Condition)
+                .SetOrUpdateGuiPresentation("Frenzied", Category.Condition)
                 .AddToDB();
 
             // Some methods are missing like SetField or Copy
@@ -363,7 +363,7 @@ namespace SolastaCommunityExpansion.Spells
 
             EffectProxyDefinitionBuilder
                 .Create(EffectProxyDefinitions.ProxySpikeGrowth, proxyProtectThreshold, BAZOU_SPELLS_BASE_GUID)
-                .SetGuiPresentation("ProtectThreshold", Category.Spell)
+                .SetOrUpdateGuiPresentation("ProtectThreshold", Category.Spell)
                 .AddToDB();
 
             spell.EffectDescription.EffectForms[0].SummonForm.SetEffectProxyDefinitionName(proxyProtectThreshold);

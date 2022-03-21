@@ -406,7 +406,7 @@ namespace SolastaCommunityExpansion.Spells
             private static ConditionDefinition CreateAndAddToDB(string name, string guid)
             {
                 return new ReverseGravityConditionBuilder(name, guid)
-                    .SetGuiPresentation("DHReverseGravitySpell", Category.Condition)
+                    .SetOrUpdateGuiPresentation("DHReverseGravitySpell", Category.Condition)
                     .AddToDB();
             }
 
