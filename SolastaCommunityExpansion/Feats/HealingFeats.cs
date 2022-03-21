@@ -98,7 +98,7 @@ namespace SolastaCommunityExpansion.Feats
             // define treats
             var treat = ItemDefinitionBuilder
                 .Create(DatabaseHelper.ItemDefinitions.Berry_Ration, "ChefSnackTreat", HealingFeatNamespace)
-                .SetGuiPresentation("ProfChefTreat", Category.Feat)
+                .SetOrUpdateGuiPresentation("ProfChefTreat", Category.Feat)
                 .SetUsableDeviceDescription(treatPower)
                 .AddToDB();
 

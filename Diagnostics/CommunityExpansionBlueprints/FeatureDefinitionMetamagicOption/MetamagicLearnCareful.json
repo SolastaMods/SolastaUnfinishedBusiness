@@ -1,0 +1,24 @@
+{
+  "$type": "SolastaCommunityExpansion.Feats.FeatureDefinitionMetamagicOption, SolastaCommunityExpansion",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": null,
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "820a900b-a5f6-47d7-8860-b0d0605722b0",
+  "contentPack": 9999,
+  "name": "MetamagicLearnCareful"
+}
