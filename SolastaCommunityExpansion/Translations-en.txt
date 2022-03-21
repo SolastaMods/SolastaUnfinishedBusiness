@@ -764,10 +764,10 @@ FightingStyle/&BlindFightingDescription	You have blindsight with a range of 10 f
 FightingStyle/&BlindFightingTitle	Blind Fighting
 FightingStyle/&PugilistFightingDescription	While you are completely unarmed, your unarmed strikes deal an additional d8 of damage and you can punch with your offhand as a bonus action.
 FightingStyle/&PugilistFightingTitle	Pugilist
-Feat/&FeatBlindFightingStyleDescription	You have blindsight with a range of 10 feet.
-Feat/&FeatBlindFightingStyleTitle	Fighting Style: Blind Fighting
-Feat/&FeatPugilistFightingStyleDescription	While you are completely unarmed, your unarmed strikes deal an additional d8 of damage and you can punch with your offhand as a bonus action.
-Feat/&FeatPugilistFightingStyleTitle	Fighting Style: Pugilist
+Feat/&FeatBlindFightingStlyeDescription	You have blindsight with a range of 10 feet.
+Feat/&FeatBlindFightingStlyeTitle	Fighting Style: Blind Fighting
+Feat/&FeatPugilistFightingStlyeDescription	While you are completely unarmed, your unarmed strikes deal an additional d8 of damage and you can punch with your offhand as a bonus action.
+Feat/&FeatPugilistFightingStlyeTitle	Fighting Style: Pugilist
 FlexibleBackgrounds/&BackgroundSkillSelect2Description	Select 2 skill proficiencies
 FlexibleBackgrounds/&BackgroundSkillSelect2Title	Skills
 FlexibleBackgrounds/&BackgroundSkillSelect3Description	Select 3 skill proficiencies
