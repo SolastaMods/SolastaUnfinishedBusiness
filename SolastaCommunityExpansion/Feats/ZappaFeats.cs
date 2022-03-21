@@ -267,7 +267,9 @@ namespace SolastaCommunityExpansion.Feats
 
         private static FeatureDefinitionMetamagicOption CreateAndAddToDB(string name, string guid, MetamagicOptionDefinition metamagicOption)
         {
-            return new FeatureDefinitionMetamagicOptionBuilder(name, guid, metamagicOption).AddToDB();
+            return new FeatureDefinitionMetamagicOptionBuilder(name, guid, metamagicOption)
+                .SetGuiPresentationNoContent()
+                .AddToDB();
         }
 
         internal static readonly FeatureDefinitionMetamagicOption MetamagicLearnCareful =
