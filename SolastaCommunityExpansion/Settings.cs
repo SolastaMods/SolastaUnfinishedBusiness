@@ -28,7 +28,7 @@ namespace SolastaCommunityExpansion
         //
 
         // very large or not very useful definitions
-        public string[] ExcludeFromExport = new string[]
+        public string[] ExcludeFromExport = new []
         {
             "AdventureLogDefinition",
             "ConsoleTableDefinition",
@@ -46,6 +46,14 @@ namespace SolastaCommunityExpansion
             "TutorialTocDefinition",
             "TutorialTableDefinition",
             "QuestTreeDefinition",
+        };
+
+        public string[] ExcludeFromCEExport = new []
+        {
+            "BlueprintCategory",
+            "GadgetBlueprint",
+            "RoomBlueprint",
+            "PropBlueprint"
         };
 
         //
