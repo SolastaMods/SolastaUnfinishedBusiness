@@ -382,7 +382,7 @@ namespace SolastaCommunityExpansion.Feats
             var wisePrecisionPower = FeatureDefinitionPowerBuilder
                 .Create("PowerWisePrecision", ZappaFeatNamespace)
                 .SetGuiPresentation("FeatWisePrecision", Category.Feat, FeatureDefinitionPowers.PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference)
-                .Configure(2, RuleDefinitions.UsesDetermination.ProficiencyBonus, AttributeDefinitions.Intelligence, RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RechargeRate.LongRest, false, true,
+                .Configure(2, RuleDefinitions.UsesDetermination.ProficiencyBonus, AttributeDefinitions.Wisdom, RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RechargeRate.LongRest, false, true,
                     AttributeDefinitions.Intelligence, effectWisePrecision, false /* unique instance */)
                 .AddToDB();
 
@@ -391,7 +391,7 @@ namespace SolastaCommunityExpansion.Feats
                 .SetFeatures(
                     wisePrecisionPower
                 )
-                .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
+                .SetAbilityScorePrerequisite(AttributeDefinitions.Wisdom, 13)
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 
