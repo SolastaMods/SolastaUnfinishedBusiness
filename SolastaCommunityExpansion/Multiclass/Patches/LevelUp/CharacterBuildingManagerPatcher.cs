@@ -49,13 +49,14 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
         [HarmonyPatch(typeof(CharacterBuildingManager), "AssignClassLevel")]
         internal static class CharacterBuildingManagerAssignClassLevel
         {
-            internal static bool Prefix(RulesetCharacterHero hero, CharacterClassDefinition classDefinition)
+            internal static bool Prefix(CharacterHeroBuildingData heroBuildingData, CharacterClassDefinition classDefinition)
             {
                 if (!Main.Settings.EnableMulticlass)
                 {
                     return true;
                 }
 
+                var hero = heroBuildingData.HeroCharacter;
                 var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
                 var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
 
@@ -573,7 +574,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
         }
 
         // removes any levels from the tag otherwise it'll have a hard time finding it if multiclassed
-        //[HarmonyPatch(typeof(CharacterBuildingManager), "GetSpellFeature")]
+        [HarmonyPatch(typeof(CharacterBuildingManager), "GetSpellFeature")]
         internal static class CharacterBuildingManagerGetSpellFeature
         {
             internal static bool Prefix(
