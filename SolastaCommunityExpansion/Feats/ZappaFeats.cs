@@ -5,6 +5,7 @@ using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
+using static SolastaCommunityExpansion.Feats.FeatsValidations;
 using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionAdditionalDamages;
@@ -18,44 +19,6 @@ namespace SolastaCommunityExpansion.Feats
     internal static class ZappaFeats
     {
         private static readonly Guid ZappaFeatNamespace = new("514f14e3-db8e-47b3-950a-350e8cae37d6");
-
-        private static bool ValidateMinLevel4(
-            FeatDefinition feat,
-            RulesetCharacterHero hero,
-            ref string prerequisiteOutput)
-        {
-            var isLevelValid = hero.ClassesHistory.Count >= 4;
-
-            if (prerequisiteOutput != string.Empty)
-            {
-                prerequisiteOutput += "\n";
-            }
-
-            var levelText = isLevelValid ? "4" : Gui.Colorize("4", "EA7171");
-
-            prerequisiteOutput += Gui.Format("Tooltip/&FeatPrerequisiteLevelFormat", levelText);
-
-            return isLevelValid;
-        }
-
-        private static bool ValidateMinLevel8(
-            FeatDefinition feat,
-            RulesetCharacterHero hero,
-            ref string prerequisiteOutput)
-        {
-            var isLevelValid = hero.ClassesHistory.Count >= 4;
-
-            if (prerequisiteOutput != string.Empty)
-            {
-                prerequisiteOutput += "\n";
-            }
-
-            var levelText = isLevelValid ? "4" : Gui.Colorize("4", "EA7171");
-
-            prerequisiteOutput += Gui.Format("Tooltip/&FeatPrerequisiteLevelFormat", levelText);
-
-            return isLevelValid;
-        }
 
         internal static void CreateFeats(List<FeatDefinition> feats)
         {
@@ -116,7 +79,7 @@ namespace SolastaCommunityExpansion.Feats
             var additionalDamageRogueSneakAttackRemove = DatabaseRepository.GetDatabase<FeatureDefinition>().GetElement(AdditionalDamageRogueSneakAttack.Name + "Remove");
             var polivalentSneakAttack = DatabaseRepository.GetDatabase<FeatureDefinition>().GetElement("KSRogueSubclassThugExploitVulnerabilities");
             
-            var brutalThug = FeatDefinitionBuilder
+            var brutalThug = FeatDefinitionWithPrereqsBuilder
                 .Create("FeatBrutalThug", ZappaFeatNamespace)
                 .SetFeatures(
                     additionalDamageRogueSneakAttackRemove,
@@ -126,6 +89,7 @@ namespace SolastaCommunityExpansion.Feats
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
                 .SetClassPrerequisite("Rogue")
                 .SetGuiPresentation(Category.Feat)
+                .SetValidations(ValidateMinCharacterLevel4)
                 .AddToDB();
 
             // Charismatic Defense
@@ -182,7 +146,7 @@ namespace SolastaCommunityExpansion.Feats
                 .AddToDB();
 
             // Fighting Surge (Dexterity)
-            var fightingSurgeDexterity = FeatDefinitionBuilder
+            var fightingSurgeDexterity = FeatDefinitionWithPrereqsBuilder
                 .Create("FeatFightingSurgeDexterity", ZappaFeatNamespace)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Misaye,
@@ -190,10 +154,11 @@ namespace SolastaCommunityExpansion.Feats
                 )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
                 .SetGuiPresentation(Category.Feat)
+                .SetValidations(ValidateNotFighter)
                 .AddToDB();
 
             // Fighting Surge (Strength)
-            var fightingSurgeStrength = FeatDefinitionBuilder
+            var fightingSurgeStrength = FeatDefinitionWithPrereqsBuilder
                 .Create("FeatFightingSurgeStrength", ZappaFeatNamespace)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Einar,
@@ -201,6 +166,7 @@ namespace SolastaCommunityExpansion.Feats
                 )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
                 .SetGuiPresentation(Category.Feat)
+                .SetValidations(ValidateNotFighter)
                 .AddToDB();
 
             // Metamagic Sorcery Points Feature
@@ -221,7 +187,7 @@ namespace SolastaCommunityExpansion.Feats
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
                 .SetGuiPresentation(Category.Feat)
-                .SetValidationDelegate(ValidateMinLevel4)
+                .SetValidations(ValidateMinCharacterLevel4)
                 .AddToDB();
 
             // Metamagic Adept (Distant)
@@ -235,7 +201,7 @@ namespace SolastaCommunityExpansion.Feats
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
                 .SetGuiPresentation(Category.Feat)
-                .SetValidationDelegate(ValidateMinLevel4)
+                .SetValidations(ValidateMinCharacterLevel4)
                 .AddToDB();
 
             // Metamagic Adept (Empowered)
@@ -249,7 +215,7 @@ namespace SolastaCommunityExpansion.Feats
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
                 .SetGuiPresentation(Category.Feat)
-                .SetValidationDelegate(ValidateMinLevel4)
+                .SetValidations(ValidateMinCharacterLevel4)
                 .AddToDB();
 
             // Metamagic Adept (Extended)
@@ -263,7 +229,7 @@ namespace SolastaCommunityExpansion.Feats
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
                 .SetGuiPresentation(Category.Feat)
-                .SetValidationDelegate(ValidateMinLevel4)
+                .SetValidations(ValidateMinCharacterLevel4)
                 .AddToDB();
 
             // Metamagic Adept (Heightened)
@@ -277,7 +243,7 @@ namespace SolastaCommunityExpansion.Feats
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
                 .SetGuiPresentation(Category.Feat)
-                .SetValidationDelegate(ValidateMinLevel8)
+                .SetValidations(ValidateMinCharacterLevel8)
                 .AddToDB();
 
             // Metamagic Adept (Quickened)
@@ -291,7 +257,7 @@ namespace SolastaCommunityExpansion.Feats
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
                 .SetGuiPresentation(Category.Feat)
-                .SetValidationDelegate(ValidateMinLevel4)
+                .SetValidations(ValidateMinCharacterLevel4)
                 .AddToDB();
 
             // Metamagic Adept (Twinned)
@@ -305,11 +271,11 @@ namespace SolastaCommunityExpansion.Feats
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
                 .SetGuiPresentation(Category.Feat)
-                .SetValidationDelegate(ValidateMinLevel4)
+                .SetValidations(ValidateMinCharacterLevel4)
                 .AddToDB();
 
             // Primal (Constitution)
-            var primalConstitution = FeatDefinitionBuilder
+            var primalConstitution = FeatDefinitionWithPrereqsBuilder
                 .Create("FeatPrimalConstitution", ZappaFeatNamespace)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Arun,
@@ -322,10 +288,11 @@ namespace SolastaCommunityExpansion.Feats
                 )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Constitution, 13)
                 .SetGuiPresentation(Category.Feat)
+                .SetValidations(ValidateNotBarbarian)
                 .AddToDB();
 
             // Primal (Strength)
-            var primalStrength = FeatDefinitionBuilder
+            var primalStrength = FeatDefinitionWithPrereqsBuilder
                 .Create("FeatPrimalStrength", ZappaFeatNamespace)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Einar,
@@ -338,6 +305,7 @@ namespace SolastaCommunityExpansion.Feats
                 )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
                 .SetGuiPresentation(Category.Feat)
+                .SetValidations(ValidateNotBarbarian)
                 .AddToDB();
 
             // Shady
@@ -378,7 +346,7 @@ namespace SolastaCommunityExpansion.Feats
                 )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
                 .SetGuiPresentation(Category.Feat)
-                .SetValidationDelegate(ValidateMinLevel4)
+                .SetValidations(ValidateMinCharacterLevel4, ValidateNotRogue)
                 .AddToDB();
 
             // Wise Defense

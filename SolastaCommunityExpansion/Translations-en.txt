@@ -1477,9 +1477,11 @@ Subclass/&WhiteWitchMagicTitle	White Magic
 Subclass/&WhiteWitchTitle	White Witch
 Subclass/&WitchSubclassPathDescription	Your knowledge of magic has culminated in joining a Coven, an innate circle of Witches who delve down a specific path of witchdom and curses.
 Subclass/&WitchSubclassPathTitle	Witch Covens
+Tooltip/&FeatPrerequisiteIsNotBarbarian	Isn't a Barbarian
+Tooltip/&FeatPrerequisiteIsNotFighter	Isn't a Fighter
+Tooltip/&FeatPrerequisiteIsNotRogue Int Isn't a Rogue
 Tooltip/&FeatPrerequisiteLevelFormat	Min Character Level {0}
 Tooltip/&Tag9000Title	Custom Effect
 Tooltip/&TagCommunityExpansionTitle	Community Expansion
 Tooltip/&TagMaledictionTitle	Malediction
 Tooltip/&TagOtherModContentTitle From mod
-Tooltip/&TagScoutSentinelWeaponTitle	Uses Int for attack & damage
