@@ -5,13 +5,12 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaCommunityExpansion.Builders;
-using SolastaModApi.Extensions;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures.FeatsPrerequisites
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.FeatWithPrerequisites
 {
-    [HarmonyPatch(typeof(GuiFeatDefinition), "IsFeatMatchingPrerequisites")]
+    [HarmonyPatch(typeof(GuiFeatDefinition), "IsFeatMacthingPrerequisites")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class GuiFeatDefinition_IsFeatMatchingPrerequisites
+    internal  class GuiFeatDefinition_IsFeatMatchingPrerequisites
     {
         internal static void Postfix(
             ref bool __result,
@@ -19,20 +18,15 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.FeatsPrerequisites
             RulesetCharacterHero hero,
             ref string prerequisiteOutput)
         {
-            if (feat is not FeatDefinitionCustom FeatDefinitionCustom || FeatDefinitionCustom.IsFeatMatchingPrerequisites == null)
+            if (feat is not FeatDefinitionWithPrerequisites featDefinitionWithPrerequisites || featDefinitionWithPrerequisites.Validators.Count == 0)
             {
                 return;
             }
-            
-            foreach (IsFeatMatchingPrerequisites IsFeatMatchingPrerequisites in FeatDefinitionCustom.IsFeatMatchingPrerequisites.GetInvocationList())
-            {     
-                var result = IsFeatMatchingPrerequisites.Invoke(feat, hero, ref prerequisiteOutput);
 
-                if (__result)
-                {
-                    __result = result;
-                }
-            }           
+            var (result, output) = featDefinitionWithPrerequisites.Validate(feat, hero);
+
+            __result &= result;
+            prerequisiteOutput += "\n" + output;
         }
 
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
@@ -56,9 +50,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.FeatsPrerequisites
         private static int CanCastSpells(RulesetCharacterHero hero)
         {
             return Main.Settings.EnableFirstLevelCasterFeats
-                // Replace call to RulesetCharacterHero.SpellRepertores.Count with Count list of FeatureCastSpell 
-                // which are registered before feat selection at lvl 1
-                ? hero.EnumerateFeaturesToBrowse<FeatureDefinitionCastSpell>().Count
+                ? 1
                 : hero.SpellRepertoires.Count;
         }
     }
