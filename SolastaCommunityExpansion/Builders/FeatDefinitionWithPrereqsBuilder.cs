@@ -44,9 +44,12 @@ namespace SolastaCommunityExpansion.Builders
         }
         #endregion
 
-        public FeatDefinitionWithPrereqsBuilder SetValidationDelegate(IsFeatMacthingPrerequisites isFeatMacthingPrerequisites)
+        public FeatDefinitionWithPrereqsBuilder SetValidations(params IsFeatMacthingPrerequisites[] validations)
         {
-            Definition.IsFeatMacthingPrerequisites = isFeatMacthingPrerequisites;
+            foreach(var isFeatMacthingPrerequisites in validations)
+            {
+                Definition.IsFeatMacthingPrerequisites += isFeatMacthingPrerequisites;
+            }
 
             return this;
         }
