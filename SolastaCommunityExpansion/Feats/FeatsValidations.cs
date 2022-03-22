@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Feats
         // validation routines for FeatDefinitionCustomBuilder
         //
 
-        internal static IsFeatMacthingPrerequisites ValidateMinCharLevel(int minCharLevel)
+        internal static IsFeatMatchingPrerequisites ValidateMinCharLevel(int minCharLevel)
         {
             return (FeatDefinition _, RulesetCharacterHero hero, ref string prerequisiteOutput) =>
             {
@@ -35,7 +35,7 @@ namespace SolastaCommunityExpansion.Feats
             };
         }
 
-        internal static IsFeatMacthingPrerequisites ValidateNotClass(CharacterClassDefinition characterClassDefinition)
+        internal static IsFeatMatchingPrerequisites ValidateNotClass(CharacterClassDefinition characterClassDefinition)
         {
             var className = characterClassDefinition.Name;
 

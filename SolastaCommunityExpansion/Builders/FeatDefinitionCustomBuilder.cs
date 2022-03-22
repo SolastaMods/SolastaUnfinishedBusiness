@@ -2,14 +2,14 @@
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public delegate bool IsFeatMacthingPrerequisites(
+    public delegate bool IsFeatMatchingPrerequisites(
           FeatDefinition feat,
           RulesetCharacterHero hero,
           ref string prerequisiteOutput);
 
     public class FeatDefinitionCustom : FeatDefinition
     {
-        public IsFeatMacthingPrerequisites IsFeatMacthingPrerequisites;
+        public IsFeatMatchingPrerequisites IsFeatMatchingPrerequisites;
     }
 
     public class FeatDefinitionCustomBuilder : FeatDefinitionBuilder<FeatDefinitionCustom, FeatDefinitionCustomBuilder>
@@ -44,11 +44,11 @@ namespace SolastaCommunityExpansion.Builders
         }
         #endregion
 
-        public FeatDefinitionCustomBuilder SetValidations(params IsFeatMacthingPrerequisites[] validations)
+        public FeatDefinitionCustomBuilder SetValidations(params IsFeatMatchingPrerequisites[] validations)
         {
-            foreach(var isFeatMacthingPrerequisites in validations)
+            foreach(var IsFeatMatchingPrerequisites in validations)
             {
-                Definition.IsFeatMacthingPrerequisites += isFeatMacthingPrerequisites;
+                Definition.IsFeatMatchingPrerequisites += IsFeatMatchingPrerequisites;
             }
 
             return this;

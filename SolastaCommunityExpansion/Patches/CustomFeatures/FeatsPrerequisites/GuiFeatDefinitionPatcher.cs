@@ -9,9 +9,9 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.FeatsPrerequisites
 {
-    [HarmonyPatch(typeof(GuiFeatDefinition), "IsFeatMacthingPrerequisites")]
+    [HarmonyPatch(typeof(GuiFeatDefinition), "IsFeatMatchingPrerequisites")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class GuiFeatDefinition_IsFeatMacthingPrerequisites
+    internal static class GuiFeatDefinition_IsFeatMatchingPrerequisites
     {
         internal static void Postfix(
             ref bool __result,
@@ -19,14 +19,14 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.FeatsPrerequisites
             RulesetCharacterHero hero,
             ref string prerequisiteOutput)
         {
-            if (feat is not FeatDefinitionCustom FeatDefinitionCustom || FeatDefinitionCustom.IsFeatMacthingPrerequisites == null)
+            if (feat is not FeatDefinitionCustom FeatDefinitionCustom || FeatDefinitionCustom.IsFeatMatchingPrerequisites == null)
             {
                 return;
             }
             
-            foreach (IsFeatMacthingPrerequisites isFeatMacthingPrerequisites in FeatDefinitionCustom.IsFeatMacthingPrerequisites.GetInvocationList())
+            foreach (IsFeatMatchingPrerequisites IsFeatMatchingPrerequisites in FeatDefinitionCustom.IsFeatMatchingPrerequisites.GetInvocationList())
             {     
-                var result = isFeatMacthingPrerequisites.Invoke(feat, hero, ref prerequisiteOutput);
+                var result = IsFeatMatchingPrerequisites.Invoke(feat, hero, ref prerequisiteOutput);
 
                 if (__result)
                 {
@@ -47,7 +47,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.FeatsPrerequisites
             }
             else
             {
-                Main.Log("GuiFeatDefinition_IsFeatMacthingPrerequisites transpiler: Unable to find 'get_SpellRepertoires'");
+                Main.Log("GuiFeatDefinition_IsFeatMatchingPrerequisites transpiler: Unable to find 'get_SpellRepertoires'");
             }
 
             return codes;
