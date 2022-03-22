@@ -21,11 +21,14 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.FeatsPrerequisites
         {
             if (feat is FeatDefinitionWithPrereqs featDefinitionWithPrereqs && featDefinitionWithPrereqs.IsFeatMacthingPrerequisites != null)
             {
-                var result = featDefinitionWithPrereqs.IsFeatMacthingPrerequisites.Invoke(feat, hero, ref prerequisiteOutput);
+                foreach (IsFeatMacthingPrerequisites isFeatMacthingPrerequisites in featDefinitionWithPrereqs.IsFeatMacthingPrerequisites.GetInvocationList())
+                {     
+                    var result = isFeatMacthingPrerequisites.Invoke(feat, hero, ref prerequisiteOutput);
 
-                if (__result)
-                {
-                    __result = result;
+                    if (__result)
+                    {
+                        __result = result;
+                    }
                 }
             }
         }
