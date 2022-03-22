@@ -97,7 +97,6 @@ namespace SolastaCommunityExpansion
         public bool BugFixSpellDurations { get; set; } = true;
         public bool EnableDungeonMakerPro { get; set; } = true;
         public bool EnableDungeonMakerRotationHotkeys { get; set; } = true;
-        public bool EnableFirstLevelCasterFeats { get; set; } = true;
         public bool EnableMultiLinePowerPanel { get; set; } = true;
         public bool EnableMultiLineSpellPanel { get; set; } = true;
         public bool EnableSortingClasses { get; set; } = true;
@@ -206,7 +205,6 @@ namespace SolastaCommunityExpansion
         public bool EnableUpcastConjureElementalAndFey { get; set; }
         public bool FullyControlConjurations { get; set; }
         public bool OnlyShowMostPowerfulUpcastConjuredElementalOrFey { get; set; }
-        public bool UseHeightOneCylinderEffect { get; set; }
         public bool BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove { get; set; }
 
         // House
@@ -215,10 +213,12 @@ namespace SolastaCommunityExpansion
         public bool DisableAutoEquip { get; set; }
         public bool MakeAllMagicStaveArcaneFoci { get; set; }
         public bool IncreaseSenseNormalVision { get; set; }
+        public bool EnableFirstLevelCasterFeats { get; set; } = true;
+        public bool QuickCastLightCantripOnWornItemsFirst { get; set; }
+        public bool UseHeightOneCylinderEffect { get; set; }
         public bool AddPickpocketableLoot { get; set; }
         public bool AllowStackedMaterialComponent { get; set; }
         public bool ScaleMerchantPricesCorrectly { get; set; }
-        public bool QuickCastLightCantripOnWornItemsFirst { get; set; }
         public int MultiplyTheExperienceGainedBy { get; set; } = 100;
 
         //

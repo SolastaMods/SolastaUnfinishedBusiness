@@ -141,6 +141,12 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
                 UI.Label("");
 
+                toggle = Main.Settings.EnableFirstLevelCasterFeats;
+                if (UI.Toggle("Always enable first level caster feats even if requirements aren't match", ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.EnableFirstLevelCasterFeats = toggle;
+                }
+
                 toggle = Main.Settings.QuickCastLightCantripOnWornItemsFirst;
                 if (UI.Toggle("Quick cast light cantrip uses head or torso worn items first", ref toggle, UI.AutoWidth()))
                 {
