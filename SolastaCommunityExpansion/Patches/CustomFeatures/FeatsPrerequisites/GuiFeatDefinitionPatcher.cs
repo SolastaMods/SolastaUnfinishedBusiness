@@ -19,18 +19,20 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.FeatsPrerequisites
             RulesetCharacterHero hero,
             ref string prerequisiteOutput)
         {
-            if (feat is FeatDefinitionWithPrereqs featDefinitionWithPrereqs && featDefinitionWithPrereqs.IsFeatMacthingPrerequisites != null)
+            if (feat is not FeatDefinitionWithPrereqs featDefinitionWithPrereqs || featDefinitionWithPrereqs.IsFeatMacthingPrerequisites == null)
             {
-                foreach (IsFeatMacthingPrerequisites isFeatMacthingPrerequisites in featDefinitionWithPrereqs.IsFeatMacthingPrerequisites.GetInvocationList())
-                {     
-                    var result = isFeatMacthingPrerequisites.Invoke(feat, hero, ref prerequisiteOutput);
-
-                    if (__result)
-                    {
-                        __result = result;
-                    }
-                }
+                return;
             }
+            
+            foreach (IsFeatMacthingPrerequisites isFeatMacthingPrerequisites in featDefinitionWithPrereqs.IsFeatMacthingPrerequisites.GetInvocationList())
+            {     
+                var result = isFeatMacthingPrerequisites.Invoke(feat, hero, ref prerequisiteOutput);
+
+                if (__result)
+                {
+                    __result = result;
+                }
+            }           
         }
 
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
