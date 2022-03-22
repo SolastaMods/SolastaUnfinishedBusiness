@@ -53,9 +53,9 @@ namespace SolastaCommunityExpansion.Builders
         }
         #endregion
 
-        public FeatDefinitionWithPrerequisitesBuilder SetValidators(params Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)>[] validations)
+        public FeatDefinitionWithPrerequisitesBuilder SetValidators(params Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)>[] validators)
         {
-            Definition.Validators.AddRange(validations);
+            Definition.Validators.AddRange(validators);
 
             return this;
         }

@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.FeatWithPrerequisites
 {
     [HarmonyPatch(typeof(GuiFeatDefinition), "IsFeatMacthingPrerequisites")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal  class GuiFeatDefinition_IsFeatMatchingPrerequisites
+    internal static class GuiFeatDefinition_IsFeatMatchingPrerequisites
     {
         internal static void Postfix(
             ref bool __result,
