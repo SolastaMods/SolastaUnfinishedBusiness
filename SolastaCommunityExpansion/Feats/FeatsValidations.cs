@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SolastaCommunityExpansion.Builders;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 
 namespace SolastaCommunityExpansion.Feats
@@ -10,42 +11,54 @@ namespace SolastaCommunityExpansion.Feats
         // validation routines for FeatDefinitionCustomBuilder
         //
 
-        internal static bool ValidateMinCharacterLevel4(
-            FeatDefinition _,
-            RulesetCharacterHero hero,
-            ref string prerequisiteOutput)
+        internal static IsFeatMacthingPrerequisites ValidateMinCharLevel(int minCharLevel)
         {
-            var isLevelValid = hero.ClassesHistory.Count >= 4;
-
-            if (prerequisiteOutput != string.Empty)
+            return (FeatDefinition _, RulesetCharacterHero hero, ref string prerequisiteOutput) =>
             {
-                prerequisiteOutput += "\n";
-            }
+                var isLevelValid = hero.ClassesHistory.Count >= 4;
 
-            var levelText = isLevelValid ? "4" : Gui.Colorize("4", "EA7171");
+                if (prerequisiteOutput != string.Empty)
+                {
+                    prerequisiteOutput += "\n";
+                }
 
-            prerequisiteOutput += Gui.Format("Tooltip/&FeatPrerequisiteLevelFormat", levelText);
+                if (isLevelValid)
+                {
+                    prerequisiteOutput += Gui.Format("Tooltip/&FeatPrerequisiteLevelFormat", minCharLevel.ToString());
+                }
+                else
+                {
+                    prerequisiteOutput += Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteLevelFormat", minCharLevel.ToString()), "EA7171");
+                }
 
-            return isLevelValid;
+                return isLevelValid;
+            };
         }
 
-        internal static bool ValidateMinCharacterLevel8(
-            FeatDefinition _,
-            RulesetCharacterHero hero,
-            ref string prerequisiteOutput)
+        internal static IsFeatMacthingPrerequisites ValidateNotClass(CharacterClassDefinition characterClassDefinition)
         {
-            var isLevelValid = hero.ClassesHistory.Count >= 4;
+            var className = characterClassDefinition.Name;
 
-            if (prerequisiteOutput != string.Empty)
+            return (FeatDefinition _, RulesetCharacterHero hero, ref string prerequisiteOutput) =>
             {
-                prerequisiteOutput += "\n";
-            }
+                var isNotClass = !hero.ClassesAndLevels.ContainsKey(characterClassDefinition);
 
-            var levelText = isLevelValid ? "8" : Gui.Colorize("8", "EA7171");
+                if (prerequisiteOutput != string.Empty)
+                {
+                    prerequisiteOutput += "\n";
+                }
 
-            prerequisiteOutput += Gui.Format("Tooltip/&FeatPrerequisiteLevelFormat", levelText);
+                if (isNotClass)
+                {
+                    prerequisiteOutput += Gui.Format($"Tooltip/&FeatPrerequisiteIsNot{className}");
+                }
+                else
+                {
+                    prerequisiteOutput += Gui.Colorize(Gui.Format($"Tooltip/&FeatPrerequisiteIsNot{className}"), "EA7171");
+                }
 
-            return isLevelValid;
+                return isNotClass;
+            };
         }
 
         internal static bool ValidateHasStealthAttack(
@@ -75,78 +88,6 @@ namespace SolastaCommunityExpansion.Feats
             }
 
             return hasStealthAttack;
-        }
-
-        internal static bool ValidateNotBarbarian(
-            FeatDefinition _,
-            RulesetCharacterHero hero,
-            ref string prerequisiteOutput)
-        {
-            var isNotBarbarian = !hero.ClassesAndLevels.ContainsKey(Barbarian);
-
-            if (prerequisiteOutput != string.Empty)
-            {
-                prerequisiteOutput += "\n";
-            }
-
-            if (isNotBarbarian)
-            {
-                prerequisiteOutput += Gui.Format("Tooltip/&FeatPrerequisiteIsNotBarbarian");
-            }
-            else
-            {
-                prerequisiteOutput += Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteIsNotBarbarian"), "EA7171");
-            }
-
-            return isNotBarbarian;
-        }
-
-        internal static bool ValidateNotFighter(
-            FeatDefinition _,
-            RulesetCharacterHero hero,
-            ref string prerequisiteOutput)
-        {
-            var isNotFighter = !hero.ClassesAndLevels.ContainsKey(Fighter);
-
-            if (prerequisiteOutput != string.Empty)
-            {
-                prerequisiteOutput += "\n";
-            }
-
-            if (isNotFighter)
-            {
-                prerequisiteOutput += Gui.Format("Tooltip/&FeatPrerequisiteIsNotFighter");
-            }
-            else
-            {
-                prerequisiteOutput += Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteIsNotFighter"), "EA7171");
-            }
-
-            return isNotFighter;
-        }
-
-        internal static bool ValidateNotRogue(
-            FeatDefinition _,
-            RulesetCharacterHero hero,
-            ref string prerequisiteOutput)
-        {
-            var isNotRogue = !hero.ClassesAndLevels.ContainsKey(Rogue);
-
-            if (prerequisiteOutput != string.Empty)
-            {
-                prerequisiteOutput += "\n";
-            }
-
-            if (isNotRogue)
-            {
-                prerequisiteOutput += Gui.Format("Tooltip/&FeatPrerequisiteIsNotRogue");
-            }
-            else
-            {
-                Gui.Colorize(prerequisiteOutput += Gui.Format("Tooltip/&FeatPrerequisiteIsNotRogue"), "EA7171");
-            }
-
-            return isNotRogue;
         }
     }
 }

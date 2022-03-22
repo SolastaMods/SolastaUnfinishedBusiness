@@ -7,6 +7,7 @@ using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using static SolastaCommunityExpansion.Feats.FeatsValidations;
 using static SolastaModApi.DatabaseHelper;
+using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionAttributeModifiers;
@@ -88,7 +89,7 @@ namespace SolastaCommunityExpansion.Feats
                 )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
                 .SetGuiPresentation(Category.Feat)
-                .SetValidations(ValidateMinCharacterLevel4, ValidateHasStealthAttack)
+                .SetValidations(ValidateMinCharLevel(4), ValidateHasStealthAttack)
                 .AddToDB();
 
             // Charismatic Defense
@@ -153,7 +154,7 @@ namespace SolastaCommunityExpansion.Feats
                 )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
                 .SetGuiPresentation(Category.Feat)
-                .SetValidations(ValidateNotFighter)
+                .SetValidations(ValidateNotClass(Fighter))
                 .AddToDB();
 
             // Fighting Surge (Strength)
@@ -165,7 +166,7 @@ namespace SolastaCommunityExpansion.Feats
                 )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
                 .SetGuiPresentation(Category.Feat)
-                .SetValidations(ValidateNotFighter)
+                .SetValidations(ValidateNotClass(Fighter))
                 .AddToDB();
 
             // Metamagic Sorcery Points Feature
@@ -186,7 +187,7 @@ namespace SolastaCommunityExpansion.Feats
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
                 .SetGuiPresentation(Category.Feat)
-                .SetValidations(ValidateMinCharacterLevel4)
+                .SetValidations(ValidateMinCharLevel(4))
                 .AddToDB();
 
             // Metamagic Adept (Distant)
@@ -200,7 +201,7 @@ namespace SolastaCommunityExpansion.Feats
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
                 .SetGuiPresentation(Category.Feat)
-                .SetValidations(ValidateMinCharacterLevel4)
+                .SetValidations(ValidateMinCharLevel(4))
                 .AddToDB();
 
             // Metamagic Adept (Empowered)
@@ -214,7 +215,7 @@ namespace SolastaCommunityExpansion.Feats
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
                 .SetGuiPresentation(Category.Feat)
-                .SetValidations(ValidateMinCharacterLevel4)
+                .SetValidations(ValidateMinCharLevel(4))
                 .AddToDB();
 
             // Metamagic Adept (Extended)
@@ -228,7 +229,7 @@ namespace SolastaCommunityExpansion.Feats
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
                 .SetGuiPresentation(Category.Feat)
-                .SetValidations(ValidateMinCharacterLevel4)
+                .SetValidations(ValidateMinCharLevel(4))
                 .AddToDB();
 
             // Metamagic Adept (Heightened)
@@ -242,7 +243,7 @@ namespace SolastaCommunityExpansion.Feats
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
                 .SetGuiPresentation(Category.Feat)
-                .SetValidations(ValidateMinCharacterLevel8)
+                .SetValidations(ValidateMinCharLevel(8))
                 .AddToDB();
 
             // Metamagic Adept (Quickened)
@@ -256,7 +257,7 @@ namespace SolastaCommunityExpansion.Feats
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
                 .SetGuiPresentation(Category.Feat)
-                .SetValidations(ValidateMinCharacterLevel4)
+                .SetValidations(ValidateMinCharLevel(4))
                 .AddToDB();
 
             // Metamagic Adept (Twinned)
@@ -270,7 +271,7 @@ namespace SolastaCommunityExpansion.Feats
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
                 .SetGuiPresentation(Category.Feat)
-                .SetValidations(ValidateMinCharacterLevel4)
+                .SetValidations(ValidateMinCharLevel(4))
                 .AddToDB();
 
             // Primal (Constitution)
@@ -287,7 +288,7 @@ namespace SolastaCommunityExpansion.Feats
                 )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Constitution, 13)
                 .SetGuiPresentation(Category.Feat)
-                .SetValidations(ValidateNotBarbarian)
+                .SetValidations(ValidateNotClass(Barbarian))
                 .AddToDB();
 
             // Primal (Strength)
@@ -304,7 +305,7 @@ namespace SolastaCommunityExpansion.Feats
                 )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
                 .SetGuiPresentation(Category.Feat)
-                .SetValidations(ValidateNotBarbarian)
+                .SetValidations(ValidateNotClass(Barbarian))
                 .AddToDB();
 
             // Shady
@@ -345,7 +346,7 @@ namespace SolastaCommunityExpansion.Feats
                 )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
                 .SetGuiPresentation(Category.Feat)
-                .SetValidations(ValidateMinCharacterLevel4, ValidateNotRogue)
+                .SetValidations(ValidateNotClass(Rogue))
                 .AddToDB();
 
             // Wise Defense
