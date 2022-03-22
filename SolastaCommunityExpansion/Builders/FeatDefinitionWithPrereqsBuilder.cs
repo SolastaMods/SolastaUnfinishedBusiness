@@ -7,44 +7,44 @@ namespace SolastaCommunityExpansion.Builders
           RulesetCharacterHero hero,
           ref string prerequisiteOutput);
 
-    public class FeatDefinitionWithPrereqs : FeatDefinition
+    public class FeatDefinitionCustom : FeatDefinition
     {
         public IsFeatMacthingPrerequisites IsFeatMacthingPrerequisites;
     }
 
-    public class FeatDefinitionWithPrereqsBuilder : FeatDefinitionBuilder<FeatDefinitionWithPrereqs, FeatDefinitionWithPrereqsBuilder>
+    public class FeatDefinitionCustomBuilder : FeatDefinitionBuilder<FeatDefinitionCustom, FeatDefinitionCustomBuilder>
     {
         #region Constructors
-        protected FeatDefinitionWithPrereqsBuilder(FeatDefinitionWithPrereqs original) : base(original)
+        protected FeatDefinitionCustomBuilder(FeatDefinitionCustom original) : base(original)
         {
         }
 
-        protected FeatDefinitionWithPrereqsBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        protected FeatDefinitionCustomBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
-        protected FeatDefinitionWithPrereqsBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        protected FeatDefinitionCustomBuilder(string name, string definitionGuid) : base(name, definitionGuid)
         {
         }
 
-        protected FeatDefinitionWithPrereqsBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
+        protected FeatDefinitionCustomBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
         {
         }
 
-        protected FeatDefinitionWithPrereqsBuilder(FeatDefinitionWithPrereqs original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
+        protected FeatDefinitionCustomBuilder(FeatDefinitionCustom original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
         }
 
-        protected FeatDefinitionWithPrereqsBuilder(FeatDefinitionWithPrereqs original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        protected FeatDefinitionCustomBuilder(FeatDefinitionCustom original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
         {
         }
 
-        protected FeatDefinitionWithPrereqsBuilder(FeatDefinitionWithPrereqs original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        protected FeatDefinitionCustomBuilder(FeatDefinitionCustom original, string name, string definitionGuid) : base(original, name, definitionGuid)
         {
         }
         #endregion
 
-        public FeatDefinitionWithPrereqsBuilder SetValidations(params IsFeatMacthingPrerequisites[] validations)
+        public FeatDefinitionCustomBuilder SetValidations(params IsFeatMacthingPrerequisites[] validations)
         {
             foreach(var isFeatMacthingPrerequisites in validations)
             {

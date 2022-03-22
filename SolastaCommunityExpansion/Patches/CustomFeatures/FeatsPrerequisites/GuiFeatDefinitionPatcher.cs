@@ -19,12 +19,12 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.FeatsPrerequisites
             RulesetCharacterHero hero,
             ref string prerequisiteOutput)
         {
-            if (feat is not FeatDefinitionWithPrereqs featDefinitionWithPrereqs || featDefinitionWithPrereqs.IsFeatMacthingPrerequisites == null)
+            if (feat is not FeatDefinitionCustom FeatDefinitionCustom || FeatDefinitionCustom.IsFeatMacthingPrerequisites == null)
             {
                 return;
             }
             
-            foreach (IsFeatMacthingPrerequisites isFeatMacthingPrerequisites in featDefinitionWithPrereqs.IsFeatMacthingPrerequisites.GetInvocationList())
+            foreach (IsFeatMacthingPrerequisites isFeatMacthingPrerequisites in FeatDefinitionCustom.IsFeatMacthingPrerequisites.GetInvocationList())
             {     
                 var result = isFeatMacthingPrerequisites.Invoke(feat, hero, ref prerequisiteOutput);
 

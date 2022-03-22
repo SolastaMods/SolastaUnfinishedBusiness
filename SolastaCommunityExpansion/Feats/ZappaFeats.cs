@@ -79,7 +79,7 @@ namespace SolastaCommunityExpansion.Feats
             var additionalDamageRogueSneakAttackRemove = DatabaseRepository.GetDatabase<FeatureDefinition>().GetElement(AdditionalDamageRogueSneakAttack.Name + "Remove");
             var polivalentSneakAttack = DatabaseRepository.GetDatabase<FeatureDefinition>().GetElement("KSRogueSubclassThugExploitVulnerabilities");
             
-            var brutalThug = FeatDefinitionWithPrereqsBuilder
+            var brutalThug = FeatDefinitionCustomBuilder
                 .Create("FeatBrutalThug", ZappaFeatNamespace)
                 .SetFeatures(
                     additionalDamageRogueSneakAttackRemove,
@@ -87,9 +87,8 @@ namespace SolastaCommunityExpansion.Feats
                     ProficiencyFighterWeapon
                 )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
-                .SetClassPrerequisite("Rogue")
                 .SetGuiPresentation(Category.Feat)
-                .SetValidations(ValidateMinCharacterLevel4)
+                .SetValidations(ValidateMinCharacterLevel4, ValidateHasStealthAttack)
                 .AddToDB();
 
             // Charismatic Defense
@@ -146,7 +145,7 @@ namespace SolastaCommunityExpansion.Feats
                 .AddToDB();
 
             // Fighting Surge (Dexterity)
-            var fightingSurgeDexterity = FeatDefinitionWithPrereqsBuilder
+            var fightingSurgeDexterity = FeatDefinitionCustomBuilder
                 .Create("FeatFightingSurgeDexterity", ZappaFeatNamespace)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Misaye,
@@ -158,7 +157,7 @@ namespace SolastaCommunityExpansion.Feats
                 .AddToDB();
 
             // Fighting Surge (Strength)
-            var fightingSurgeStrength = FeatDefinitionWithPrereqsBuilder
+            var fightingSurgeStrength = FeatDefinitionCustomBuilder
                 .Create("FeatFightingSurgeStrength", ZappaFeatNamespace)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Einar,
@@ -177,7 +176,7 @@ namespace SolastaCommunityExpansion.Feats
                 .AddToDB();
 
             // Metamagic Adept (Careful)
-            var metamagicAdeptCareful = FeatDefinitionWithPrereqsBuilder
+            var metamagicAdeptCareful = FeatDefinitionCustomBuilder
                 .Create("FeatMetamagicAdeptCareful", ZappaFeatNamespace)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
@@ -191,7 +190,7 @@ namespace SolastaCommunityExpansion.Feats
                 .AddToDB();
 
             // Metamagic Adept (Distant)
-            var metamagicAdeptDistant = FeatDefinitionWithPrereqsBuilder
+            var metamagicAdeptDistant = FeatDefinitionCustomBuilder
                 .Create("FeatMetamagicAdeptDistant", ZappaFeatNamespace)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
@@ -205,7 +204,7 @@ namespace SolastaCommunityExpansion.Feats
                 .AddToDB();
 
             // Metamagic Adept (Empowered)
-            var metamagicAdeptEmpowered = FeatDefinitionWithPrereqsBuilder
+            var metamagicAdeptEmpowered = FeatDefinitionCustomBuilder
                 .Create("FeatMetamagicAdeptEmpowered", ZappaFeatNamespace)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
@@ -219,7 +218,7 @@ namespace SolastaCommunityExpansion.Feats
                 .AddToDB();
 
             // Metamagic Adept (Extended)
-            var metamagicAdeptExtended = FeatDefinitionWithPrereqsBuilder
+            var metamagicAdeptExtended = FeatDefinitionCustomBuilder
                 .Create("FeatMetamagicAdeptExtended", ZappaFeatNamespace)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
@@ -233,7 +232,7 @@ namespace SolastaCommunityExpansion.Feats
                 .AddToDB();
 
             // Metamagic Adept (Heightened)
-            var metamagicAdeptHeightened = FeatDefinitionWithPrereqsBuilder
+            var metamagicAdeptHeightened = FeatDefinitionCustomBuilder
                 .Create("FeatMetamagicAdeptHeightened", ZappaFeatNamespace)
                 .SetFeatures(
                     FeatureDefinitionMetamagicOptionBuilder.MetamagicLearnHeightened,
@@ -247,7 +246,7 @@ namespace SolastaCommunityExpansion.Feats
                 .AddToDB();
 
             // Metamagic Adept (Quickened)
-            var metamagicAdeptQuickened = FeatDefinitionWithPrereqsBuilder
+            var metamagicAdeptQuickened = FeatDefinitionCustomBuilder
                 .Create("FeatMetamagicAdeptQuickened", ZappaFeatNamespace)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
@@ -261,7 +260,7 @@ namespace SolastaCommunityExpansion.Feats
                 .AddToDB();
 
             // Metamagic Adept (Twinned)
-            var metamagicAdeptTwinned = FeatDefinitionWithPrereqsBuilder
+            var metamagicAdeptTwinned = FeatDefinitionCustomBuilder
                 .Create("FeatMetamagicAdeptTwinned", ZappaFeatNamespace)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Solasta,
@@ -275,7 +274,7 @@ namespace SolastaCommunityExpansion.Feats
                 .AddToDB();
 
             // Primal (Constitution)
-            var primalConstitution = FeatDefinitionWithPrereqsBuilder
+            var primalConstitution = FeatDefinitionCustomBuilder
                 .Create("FeatPrimalConstitution", ZappaFeatNamespace)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Arun,
@@ -292,7 +291,7 @@ namespace SolastaCommunityExpansion.Feats
                 .AddToDB();
 
             // Primal (Strength)
-            var primalStrength = FeatDefinitionWithPrereqsBuilder
+            var primalStrength = FeatDefinitionCustomBuilder
                 .Create("FeatPrimalStrength", ZappaFeatNamespace)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Einar,
@@ -309,7 +308,7 @@ namespace SolastaCommunityExpansion.Feats
                 .AddToDB();
 
             // Shady
-            var shady = FeatDefinitionWithPrereqsBuilder
+            var shady = FeatDefinitionCustomBuilder
                 .Create("FeatShady", ZappaFeatNamespace)
                 .SetFeatures(
                     AttributeModifierCreed_Of_Misaye,

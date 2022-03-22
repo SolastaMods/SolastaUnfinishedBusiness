@@ -1,11 +1,13 @@
-﻿using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
+﻿using System.Collections.Generic;
+using System.Linq;
+using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 
 namespace SolastaCommunityExpansion.Feats
 {
     internal static class FeatsValidations
     {
         //
-        // validation routines for FeatDefinitionWithPrereqsBuilder
+        // validation routines for FeatDefinitionCustomBuilder
         //
 
         internal static bool ValidateMinCharacterLevel4(
@@ -44,6 +46,35 @@ namespace SolastaCommunityExpansion.Feats
             prerequisiteOutput += Gui.Format("Tooltip/&FeatPrerequisiteLevelFormat", levelText);
 
             return isLevelValid;
+        }
+
+        internal static bool ValidateHasStealthAttack(
+            FeatDefinition _,
+            RulesetCharacterHero hero,
+            ref string prerequisiteOutput)
+        {
+            var features = new List<FeatureDefinition>();
+
+            hero.EnumerateFeaturesToBrowse<FeatureDefinitionDamageAffinity>(features);
+
+            var hasStealthAttack = hero.ClassesAndLevels.ContainsKey(Rogue) || features.Any(x => x.Name == "AdditionalDamageFeatShadySneakAttack");
+
+
+            if (prerequisiteOutput != string.Empty)
+            {
+                prerequisiteOutput += "\n";
+            }
+
+            if (hasStealthAttack)
+            {
+                prerequisiteOutput += Gui.Format("Tooltip/&FeatPrerequisiteHasStealthAttack");
+            }
+            else
+            {
+                prerequisiteOutput += Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteHasStealthAttack"), "EA7171");
+            }
+
+            return hasStealthAttack;
         }
 
         internal static bool ValidateNotBarbarian(
