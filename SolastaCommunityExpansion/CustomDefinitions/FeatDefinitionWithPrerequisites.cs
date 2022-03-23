@@ -7,7 +7,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 {
     public class FeatDefinitionWithPrerequisites : FeatDefinitionCustomCode
     {
-        public new List<Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)>> Validators { get; } = new();
+        public override List<Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)>> Validators { get; } = new();
 
         public override (bool result, string output) Validate(FeatDefinition feat, RulesetCharacterHero hero)
         {

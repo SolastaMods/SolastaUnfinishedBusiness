@@ -6,7 +6,7 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomDefinitions;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures.FeatWithPrerequisites
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.FeatDefinitionCustomCode
 {
     [HarmonyPatch(typeof(GuiFeatDefinition), "IsFeatMacthingPrerequisites")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -18,7 +18,9 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.FeatWithPrerequisites
             RulesetCharacterHero hero,
             ref string prerequisiteOutput)
         {
-            if (feat is not FeatDefinitionWithPrerequisites featDefinitionWithPrerequisites || featDefinitionWithPrerequisites.Validators.Count == 0)
+            if (feat is not FeatDefinitionWithPrerequisites featDefinitionWithPrerequisites 
+                || featDefinitionWithPrerequisites.Validators == null
+                || featDefinitionWithPrerequisites.Validators.Count == 0)
             {
                 return;
             }

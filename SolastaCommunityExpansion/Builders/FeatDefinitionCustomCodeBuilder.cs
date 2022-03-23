@@ -5,7 +5,7 @@ namespace SolastaCommunityExpansion.Builders
 {
     public abstract class FeatDefinitionCustomCode : FeatDefinition
     {
-        public List<Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)>> Validators { get; }
+        public abstract List<Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)>> Validators { get; }
 
         public abstract (bool result, string output) Validate(FeatDefinition feat, RulesetCharacterHero hero);
     }
