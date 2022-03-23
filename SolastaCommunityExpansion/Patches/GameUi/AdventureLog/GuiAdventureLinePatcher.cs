@@ -46,7 +46,8 @@ namespace SolastaCommunityExpansion.Patches.GameUi.AdventureLog
                     var child = ___conversationFragmentsContainer.GetChild(i);
 
                     child.gameObject.SetActive(true);
-                    child.GetComponent<GuiTextFragment>().Bind(___totalFragments[i]);
+                    // Commented out for 1.3.27
+                    //child.GetComponent<GuiTextFragment>().Bind(___totalFragments[i]);
                 }
 
                 for (int i = ___totalFragments.Count; i < ___conversationFragmentsContainer.childCount; ++i)
