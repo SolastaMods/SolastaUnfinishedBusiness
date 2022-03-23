@@ -63,14 +63,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             {
                 UI.Label("");
 
-                toggle = Main.Settings.EnableAdventureLogDocuments;
-                if (UI.Toggle("Record read documents and notes " + "[This setting only works in custom campaigns or locations]".yellow().italic(), ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.EnableAdventureLogDocuments = toggle;
-                }
-
-                UI.Label("");
-
                 toggle = Main.Settings.EnableAdditionalIconsOnLevelMap;
                 if (UI.Toggle("Enable additional icons for camps, exits and teleporters on level map", ref toggle, UI.AutoWidth()))
                 {

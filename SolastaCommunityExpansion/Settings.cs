@@ -317,7 +317,6 @@ namespace SolastaCommunityExpansion
         public bool AutoPauseOnVictory { get; set; }
 
         // Campaigns and Locations
-        public bool EnableAdventureLogDocuments { get; set; }
         public bool EnableAdditionalIconsOnLevelMap { get; set; }
         public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
         public bool HideExitAndTeleporterGizmosIfNotDiscovered { get; set; }
