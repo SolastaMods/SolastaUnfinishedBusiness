@@ -49,14 +49,13 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
         [HarmonyPatch(typeof(CharacterBuildingManager), "AssignClassLevel")]
         internal static class CharacterBuildingManagerAssignClassLevel
         {
-            internal static bool Prefix(CharacterHeroBuildingData heroBuildingData, CharacterClassDefinition classDefinition)
+            internal static bool Prefix(RulesetCharacterHero hero, CharacterClassDefinition classDefinition)
             {
                 if (!Main.Settings.EnableMulticlass)
                 {
                     return true;
                 }
 
-                var hero = heroBuildingData.HeroCharacter;
                 var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
                 var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
 
@@ -87,51 +86,6 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
         //
         // filter FeatureUnlocks patches
         //
-
-        // no template character are multiclass ones. leaving this here in case we ever need to support this use case
-#if false
-        // filter active features
-        [HarmonyPatch(typeof(CharacterBuildingManager), "CreateCharacterFromTemplate")]
-        internal static class CharacterBuildingManagerCreateCharacterFromTemplate
-        {
-            internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
-            {
-                if (!Main.Settings.EnableMulticlass)
-                {
-                    foreach (var instruction in instructions)
-                    {
-                        yield return instruction;
-                    }
-
-                    yield break;
-                }
-
-                var classFeatureUnlocksMethod = typeof(CharacterClassDefinition).GetMethod("get_FeatureUnlocks");
-                var classFilteredFeatureUnlocksMethod = typeof(LevelUpContext).GetMethod("ClassFilteredFeatureUnlocks");
-
-                var subclassFeatureUnlocksMethod = typeof(CharacterSubclassDefinition).GetMethod("get_FeatureUnlocks");
-                var subclassFilteredFeatureUnlocksMethod = typeof(LevelUpContext).GetMethod("SubclassFilteredFeatureUnlocks");
-
-                foreach (var instruction in instructions)
-                {
-                    if (instruction.Calls(classFeatureUnlocksMethod))
-                    {
-                        yield return new CodeInstruction(OpCodes.Ldloc_1);
-                        yield return new CodeInstruction(OpCodes.Call, classFilteredFeatureUnlocksMethod);
-                    }
-                    else if (instruction.Calls(subclassFeatureUnlocksMethod))
-                    {
-                        yield return new CodeInstruction(OpCodes.Ldloc_1);
-                        yield return new CodeInstruction(OpCodes.Call, subclassFilteredFeatureUnlocksMethod);
-                    }
-                    else
-                    {
-                        yield return instruction;
-                    }
-                }
-            }
-        }
-#endif
 
         // filter active features
         [HarmonyPatch(typeof(CharacterBuildingManager), "FinalizeCharacter")]
@@ -568,82 +522,6 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.LevelUp
                 }
 
                 __result = spellDefinitionList;
-
-                return false;
-            }
-        }
-
-        // removes any levels from the tag otherwise it'll have a hard time finding it if multiclassed
-        [HarmonyPatch(typeof(CharacterBuildingManager), "GetSpellFeature")]
-        internal static class CharacterBuildingManagerGetSpellFeature
-        {
-            internal static bool Prefix(
-                CharacterHeroBuildingData heroBuildingData,
-                string tag,
-                ref FeatureDefinitionCastSpell __result)
-            {
-                if (!Main.Settings.EnableMulticlass)
-                {
-                    return true;
-                }
-
-                var hero = heroBuildingData.HeroCharacter;
-                var isMulticlass = LevelUpContext.IsMulticlass(hero);
-                var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
-
-                if (!(isLevelingUp && isMulticlass))
-                {
-                    return true;
-                }
-
-                var selectedClass = LevelUpContext.GetSelectedClass(hero);
-                var selectedSubclass = LevelUpContext.GetSelectedSubclass(hero);
-
-                var localTag = tag;
-
-                __result = null;
-
-                if (localTag.StartsWith(AttributeDefinitions.TagClass))
-                {
-                    localTag = AttributeDefinitions.TagClass + selectedClass.Name;
-                }
-                else if (localTag.StartsWith(AttributeDefinitions.TagSubclass))
-                {
-                    localTag = AttributeDefinitions.TagSubclass + selectedClass.Name;
-                }
-
-                // PATCH
-                foreach (var activeFeature in hero.ActiveFeatures.Where(x => x.Key.StartsWith(localTag)))
-                {
-                    foreach (var featureDefinition in activeFeature.Value)
-                    {
-                        if (featureDefinition is FeatureDefinitionCastSpell)
-                        {
-                            __result = featureDefinition as FeatureDefinitionCastSpell;
-                            return false;
-                        }
-                    }
-                }
-
-                if (!localTag.StartsWith(AttributeDefinitions.TagSubclass))
-                {
-                    return false;
-                }
-
-                localTag = AttributeDefinitions.TagClass + selectedClass.Name;
-
-                // PATCH
-                foreach (var activeFeature in hero.ActiveFeatures.Where(x => x.Key.StartsWith(localTag)))
-                {
-                    foreach (var featureDefinition in activeFeature.Value)
-                    {
-                        if (featureDefinition is FeatureDefinitionCastSpell)
-                        {
-                            __result = featureDefinition as FeatureDefinitionCastSpell;
-                            return false;
-                        }
-                    }
-                }
 
                 return false;
             }

@@ -1,12 +1,12 @@
-﻿using System.Linq;
-using HarmonyLib;
+﻿using HarmonyLib;
+using SolastaCommunityExpansion.Multiclass.Models;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaCommunityExpansion.Multiclass.Patches.PowersAndPools
 {
     internal static class RulesetCharacterPatcher
     {
-        // ensures that original character power pools are in sync with substitute 
+        // ensures that original character rage pool is in sync with substitute
         [HarmonyPatch(typeof(RulesetCharacter), "UsePower")]
         internal static class RulesetCharacterUsePower
         {
@@ -17,30 +17,50 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.PowersAndPools
                     return;
                 }
 
-                if (__instance is RulesetCharacterMonster monster && monster.IsSubstitute && usablePower.PowerDefinition == PowerBarbarianRageStart)
+                if (usablePower.PowerDefinition != PowerBarbarianRageStart)
                 {
-                    var rulesetHero = Gui.GameCampaign.Party.CharactersList.Find(x => x.RulesetCharacter.Name == __instance.Name)?.RulesetCharacter;
-
-                    rulesetHero?.SpendRagePoint();
+                    return;
+                } 
+                
+                if (WildshapeContext.GetHero(__instance) is RulesetCharacterHero hero && hero != __instance)
+                {
+                    hero.SpendRagePoint();
                 }
             }
         }
 
-        [HarmonyPatch(typeof(RulesetCharacter), "FindSpellRepertoireOfPower")]
-        internal static class RulesetCharacterFindSpellRepertoireOfPower
+        // ensures that original character sorcery point pool is in sync with substitute 
+        [HarmonyPatch(typeof(RulesetCharacter), "CreateSorceryPoints")]
+        internal static class RulesetCharacterCreateSorceryPoints
         {
-            internal static void Postfix(RulesetCharacter __instance, ref RulesetSpellRepertoire __result, RulesetUsablePower usablePower)
+            internal static void Postfix(RulesetCharacter __instance, int slotLevel, RulesetSpellRepertoire repertoire)
             {
                 if (!Main.Settings.EnableMulticlass)
                 {
                     return;
                 }
 
-                if (__result == null && __instance is RulesetCharacterMonster rulesetCharacterMonster && rulesetCharacterMonster.IsSubstitute)
+                if (WildshapeContext.GetHero(__instance) is RulesetCharacterHero hero && hero != __instance)
                 {
-                    var rulesetHero = Gui.GameCampaign.Party.CharactersList.Find(x => x.RulesetCharacter.Name == __instance.Name)?.RulesetCharacter;
+                    hero.CreateSorceryPoints(slotLevel, repertoire);
+                }
+            }
+        }
 
-                    __result = rulesetHero?.SpellRepertoires.FirstOrDefault(x => x.SpellCastingFeature == usablePower.PowerDefinition.SpellcastingFeature);
+        // ensures that original character sorcery point pool is in sync with substitute
+        [HarmonyPatch(typeof(RulesetCharacter), "GainSorceryPoints")]
+        internal static class RulesetCharacterGainSorceryPoints
+        {
+            internal static void Postfix(RulesetCharacter __instance, int sorceryPointsGain)
+            {
+                if (!Main.Settings.EnableMulticlass)
+                {
+                    return;
+                }
+
+                if (WildshapeContext.GetHero(__instance) is RulesetCharacterHero hero && hero != __instance)
+                {
+                    hero.GainSorceryPoints(sorceryPointsGain);
                 }
             }
         }
