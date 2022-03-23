@@ -27,6 +27,8 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.Pro
             }
 
             var found = 0;
+            var roomTransformPos = Main.IsDebugBuild ? 8 : 4;
+            var userRoomPos = Main.IsDebugBuild ? 4 : 2;
             var setLocalPositionMethod = typeof(Transform).GetMethod("set_localPosition");
             var getTemplateVegetationMaskAreaMethod = typeof(Models.DmProRendererContext).GetMethod("GetTemplateVegetationMaskArea");
             var setupLocationTerrainMethod = typeof(Models.DmProRendererContext).GetMethod("SetupLocationTerrain");
@@ -45,20 +47,14 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.Pro
             {
                 if (instruction.Calls(setLocalPositionMethod) && ++found == 1)
                 {
-                    //
-                    // WARNING: review parameters values 4 and 2 before release
-                    //
-                    yield return new CodeInstruction(OpCodes.Ldloc_S, 8); // roomTransform 4
-                    yield return new CodeInstruction(OpCodes.Ldloc_S, 4); // userRoom 2
+                    yield return new CodeInstruction(OpCodes.Ldloc_S, roomTransformPos);
+                    yield return new CodeInstruction(OpCodes.Ldloc_S, userRoomPos);
                     yield return new CodeInstruction(OpCodes.Call, addVegetationMaskAreaMethod);
 
                     yield return instruction;
 
-                    //
-                    // WARNING: review parameters values 4 and 2 before release
-                    //
-                    yield return new CodeInstruction(OpCodes.Ldloc_S, 8); // roomTransform 4
-                    yield return new CodeInstruction(OpCodes.Ldloc_S, 4); // userRoom 2
+                    yield return new CodeInstruction(OpCodes.Ldloc_S, roomTransformPos);
+                    yield return new CodeInstruction(OpCodes.Ldloc_S, userRoomPos);
                     yield return new CodeInstruction(OpCodes.Call, setupFlatRoomsMethod);
                 }
                 else if (instruction.opcode == OpCodes.Ret)

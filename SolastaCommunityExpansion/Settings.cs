@@ -28,7 +28,7 @@ namespace SolastaCommunityExpansion
         //
 
         // very large or not very useful definitions
-        public string[] ExcludeFromExport = new string[]
+        public string[] ExcludeFromExport = new []
         {
             "AdventureLogDefinition",
             "ConsoleTableDefinition",
@@ -46,6 +46,14 @@ namespace SolastaCommunityExpansion
             "TutorialTocDefinition",
             "TutorialTableDefinition",
             "QuestTreeDefinition",
+        };
+
+        public string[] ExcludeFromCEExport = new []
+        {
+            "BlueprintCategory",
+            "GadgetBlueprint",
+            "RoomBlueprint",
+            "PropBlueprint"
         };
 
         //
@@ -298,7 +306,7 @@ namespace SolastaCommunityExpansion
         public bool UnleashNpcAsEnemy { get; set; }
         public bool UnleashEnemyAsNpc { get; set; }
         public bool EnableDungeonMakerModdedContent { get; set; }
-
+        public bool EnableExtraHighLevelMonsters { get; set; }
         //
         // Interface - Game UI
         //

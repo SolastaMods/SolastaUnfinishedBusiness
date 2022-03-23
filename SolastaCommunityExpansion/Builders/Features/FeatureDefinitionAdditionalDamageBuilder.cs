@@ -74,10 +74,10 @@ namespace SolastaCommunityExpansion.Builders.Features
             return SetAdvancement(advancement, diceByRank.Select(d => DiceByRankBuilder.BuildDiceByRank(d.rank, d.dice)));
         }
 
-        public TBuilder SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement advancement, params DiceByRank[] diceByRanks)
-        {
-            return SetAdvancement(advancement, diceByRanks.AsEnumerable());
-        }
+        //public TBuilder SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement advancement, params DiceByRank[] diceByRanks)
+        //{
+        //    return SetAdvancement(advancement, diceByRanks.AsEnumerable());
+        //}
 
         public TBuilder SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement advancement, IEnumerable<DiceByRank> diceByRanks)
         {

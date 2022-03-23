@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaCommunityExpansion.Multiclass.Models;
 using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.RestActivityDefinitions;
@@ -373,12 +374,9 @@ namespace SolastaCommunityExpansion.Models
                         }
                     }
                 }
-                else if (featureDefinitionTypeName == "NegativeFeatureDefinition")
+                else if (featureDefinition is FeatureDefinitionCustomCode featureDefinitionCustomCode)
                 {
-                    var tagToAdd = AccessTools.Field(featureDefinition.GetType(), "Tag").GetValue(featureDefinition) as string;
-                    var featureToAdd = AccessTools.Field(featureDefinition.GetType(), "FeatureToRemove").GetValue(featureDefinition) as FeatureDefinition;
-
-                    hero.ActiveFeatures[tagToAdd].Add(featureToAdd);
+                    featureDefinitionCustomCode.RemoveFeature(hero);
                 }
             }
         }

@@ -98,6 +98,7 @@ namespace SolastaCommunityExpansion.Builders
     internal interface IDefinitionBuilder
     {
         void SetGuiPresentation(GuiPresentation presentation);
+        GuiPresentation GetGuiPresentation();
         string Name { get; }
     }
 
@@ -113,6 +114,11 @@ namespace SolastaCommunityExpansion.Builders
         void IDefinitionBuilder.SetGuiPresentation(GuiPresentation presentation)
         {
             Definition.GuiPresentation = presentation;
+        }
+
+        GuiPresentation IDefinitionBuilder.GetGuiPresentation()
+        {
+            return Definition.GuiPresentation;
         }
 
         // NOTE: don't use Definition?. which bypasses Unity object lifetime check

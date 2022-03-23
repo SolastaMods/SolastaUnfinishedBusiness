@@ -68,6 +68,8 @@ namespace SolastaCommunityExpansion.Patches
             // Subclasses may rely on classes being loaded (as well as spells and powers) in order to properly refer back to the class.
             SubclassesContext.Load();
 
+            MonsterContext.AddNewMonsters();
+
             ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += (_) =>
             {
                 // Both are late initialized to allow feats and races from other mods
