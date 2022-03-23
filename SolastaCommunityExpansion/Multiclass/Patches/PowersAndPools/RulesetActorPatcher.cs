@@ -1,61 +1,79 @@
-﻿using System.Linq;
-using HarmonyLib;
+﻿using HarmonyLib;
+using SolastaCommunityExpansion.Multiclass.Models;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 
 namespace SolastaCommunityExpansion.Multiclass.Patches.PowersAndPools
 {
     internal static class RulesetActorPatcher
     {
+        // enforce sorcery points and healing pool to correctly calculate class level
         [HarmonyPatch(typeof(RulesetActor), "RefreshAttributes")]
         internal static class RulesetActorRefreshAttributes
         {
-            internal static void Postfix(RulesetActor __instance)
+            public static int GetClassOrCharacterLevel(int characterLevel, RulesetCharacter rulesetCharacter, string attribute)
+            {
+                // enforce class level on Sorcerer Sorcery Points
+                if (attribute == AttributeDefinitions.SorceryPoints)
+                {
+                    if (WildshapeContext.GetHero(rulesetCharacter) is RulesetCharacterHero hero 
+                        && hero.ClassesAndLevels.TryGetValue(Sorcerer, out int classLevel))
+                    {
+                        return classLevel;
+                    }
+                }
+
+                // enforce class level on Paladin Healing Pool
+                else if (attribute == AttributeDefinitions.HealingPool)
+                {
+                    if (WildshapeContext.GetHero(rulesetCharacter) is RulesetCharacterHero hero
+                        && hero.ClassesAndLevels.TryGetValue(Paladin, out int classLevel))
+                    {
+                        return classLevel;
+                    }
+                }
+
+                return characterLevel;
+            }
+
+            internal static bool Prefix(RulesetActor __instance)
             {
                 if (!Main.Settings.EnableMulticlass)
                 {
-                    return;
+                    return true;
                 }
 
-                if (__instance is not RulesetCharacterHero hero)
+                if (__instance is not RulesetCharacter rulesetCharacter)
                 {
-                    return;
+                    return true;
                 }
 
-                // fixes the Paladin pool to use the class level instead
-                if (hero.ClassesAndLevels.ContainsKey(Paladin))
-                {
-                    var healingPoolAttribute = hero.GetAttribute(AttributeDefinitions.HealingPool, true);
+                var characterLevel = 1;
+                var characterLevelAttribute = rulesetCharacter.GetAttribute(AttributeDefinitions.CharacterLevel, true);
 
-                    if (healingPoolAttribute != null)
+                if (characterLevelAttribute != null)
+                {
+                    characterLevelAttribute.Refresh();
+                    characterLevel = characterLevelAttribute.CurrentValue;
+                }
+
+                foreach (var attribute in __instance.Attributes)
+                {
+                    foreach (RulesetAttributeModifier activeModifier in attribute.Value.ActiveModifiers)
                     {
-                        foreach (var activeModifier in healingPoolAttribute.ActiveModifiers
-                            .Where(x => x.Operation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.MultiplyByCharacterLevel
-                                        || x.Operation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.MultiplyByClassLevel))
+                        if (activeModifier.Operation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.MultiplyByCharacterLevel)
                         {
-                            activeModifier.Value = hero.ClassesAndLevels[Paladin];
+                            activeModifier.Value = (float)characterLevel;
                         }
-
-                        healingPoolAttribute.Refresh();
+                        else if (activeModifier.Operation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.MultiplyByClassLevel)
+                        {
+                            activeModifier.Value = GetClassOrCharacterLevel(characterLevel, rulesetCharacter, attribute.Key);
+                        }
                     }
+
+                    attribute.Value.Refresh();
                 }
 
-                // fixes the Sorcerer pool to use the class level instead
-                if (hero.ClassesAndLevels.ContainsKey(Sorcerer))
-                {
-                    var sorceryPointsAttributes = hero.GetAttribute(AttributeDefinitions.SorceryPoints, true);
-
-                    if (sorceryPointsAttributes != null)
-                    {
-                        foreach (var activeModifier in sorceryPointsAttributes.ActiveModifiers
-                            .Where(x => x.Operation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.MultiplyByCharacterLevel
-                                        || x.Operation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.MultiplyByClassLevel))
-                        {
-                            activeModifier.Value = hero.ClassesAndLevels[Sorcerer];
-                        }
-
-                        sorceryPointsAttributes.Refresh();
-                    }
-                }
+                return false;
             }
         }
     }
