@@ -117,14 +117,14 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             if (Main.Settings.EnableUnlimitedArcaneRecoveryOnWizardSpellMaster)
             {
                 BonusRecovery
-                    .SetGuiPresentation("MagicAffinitySpellMasterRecoveryUnlimited", Category.Subclass, PowerWizardArcaneRecovery.GuiPresentation.SpriteReference)
+                    .SetGuiPresentation(GuiPresentationBuilder.Build("MagicAffinitySpellMasterRecoveryUnlimited", Category.Subclass, PowerWizardArcaneRecovery.GuiPresentation.SpriteReference))
                     .SetCostPerUse(0)
                     .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
             }
             else
             {
                 BonusRecovery
-                    .SetGuiPresentation("MagicAffinitySpellMasterRecovery", Category.Subclass, PowerWizardArcaneRecovery.GuiPresentation.SpriteReference)
+                    .SetGuiPresentation(GuiPresentationBuilder.Build("MagicAffinitySpellMasterRecovery", Category.Subclass, PowerWizardArcaneRecovery.GuiPresentation.SpriteReference))
                     .SetCostPerUse(1)
                     .SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
             }
