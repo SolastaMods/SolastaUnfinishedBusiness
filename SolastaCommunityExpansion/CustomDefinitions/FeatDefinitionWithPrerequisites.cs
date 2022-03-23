@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SolastaCommunityExpansion.Builders;
 
-namespace SolastaCommunityExpansion.CustomFeatureDefinitions
+namespace SolastaCommunityExpansion.CustomDefinitions
 {
     public class FeatDefinitionWithPrerequisites : FeatDefinitionCustomCode
     {
