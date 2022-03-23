@@ -43,6 +43,13 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(RestActivityDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class RestActivityDefinitionExtensions
     {
+        public static T SetCheckConsciousness<T>(this T entity, System.Boolean value)
+            where T : RestActivityDefinition
+        {
+            entity.SetField("checkConsciousness", value);
+            return entity;
+        }
+
         public static T SetCondition<T>(this T entity, RestActivityDefinition.ActivityCondition value)
             where T : RestActivityDefinition
         {
