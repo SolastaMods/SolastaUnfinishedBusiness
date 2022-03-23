@@ -3,7 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.RitualAndAutoPreparedSpells
 {
     [HarmonyPatch(typeof(SpellsByLevelGroup), "CommonBind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
