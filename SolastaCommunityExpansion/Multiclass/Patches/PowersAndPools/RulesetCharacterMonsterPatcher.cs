@@ -1,16 +1,39 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
-using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
+using SolastaCommunityExpansion.Multiclass.Models;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaCommunityExpansion.Multiclass.Patches.PowersAndPools
 {
-    internal static class RulesetCharacterMonsterPatcher
+    public static class RulesetCharacterMonsterPatcher
     {
-        // ensures that wildshapes get all original character pools and current powers states
+        // ensures any spell related power can be used while in wildshape
+        [HarmonyPatch(typeof(RulesetCharacterMonster), "SpellRepertoires", MethodType.Getter)]
+        internal static class RulesetCharacterMonsterSpellRepertoires
+        {
+            internal static bool Prefix(RulesetCharacterMonster __instance, ref List<RulesetSpellRepertoire> __result)
+            {
+                if (!Main.Settings.EnableMulticlass)
+                {
+                    return true;
+                }
+
+                if (WildshapeContext.GetHero(__instance) is not RulesetCharacterHero hero)
+                {
+                    return true;
+                }
+
+                __result = hero.SpellRepertoires;
+
+                return false;
+            }
+        }
+
+        // ensures that wildshape get all original character pools and current powers states
         [HarmonyPatch(typeof(RulesetCharacterMonster), "FinalizeMonster")]
-        internal static class RulesetCharacterMonsterRefreshAttributes
+        internal static class RulesetCharacterMonsterFinalizeMonster
         {
             // remaining pools must be added beforehand to avoid a null pointer exception
             internal static void Prefix(RulesetCharacterMonster __instance)
@@ -20,12 +43,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.PowersAndPools
                     return;
                 }
 
-                if (!__instance.IsSubstitute)
-                {
-                    return;
-                }
-
-                if (Gui.GameCampaign.Party.CharactersList.Find(x => x.RulesetCharacter.Name == __instance.Name)?.RulesetCharacter is not RulesetCharacterHero hero)
+                if (WildshapeContext.GetHero(__instance) is not RulesetCharacterHero hero)
                 {
                     return;
                 }
@@ -44,12 +62,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.PowersAndPools
                     return;
                 }
 
-                if (__instance?.IsSubstitute == false)
-                {
-                    return;
-                }
-
-                if (Gui.GameCampaign.Party.CharactersList.Find(x => x.RulesetCharacter.Name == __instance.Name)?.RulesetCharacter is not RulesetCharacterHero hero)
+                if (WildshapeContext.GetHero(__instance) is not RulesetCharacterHero hero)
                 {
                     return;
                 }
@@ -60,6 +73,7 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.PowersAndPools
                 {
                     __instance.UsablePowers.Add(usablePower);
 
+                    // ensures that original character rage pool is in sync with substitute
                     if (usablePower.PowerDefinition == PowerBarbarianRageStart)
                     {
                         var count = hero.UsedRagePoints;
@@ -73,21 +87,17 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.PowersAndPools
                     __instance.RefreshUsablePower(usablePower);
                 }
 
-                // adds additional AC from Unarmored Defense
+                // adds additional AC from class features or feat features
                 var modifier = 0;
+                var features = new List<FeatureDefinition>();
 
-                if (hero.ClassesAndLevels.ContainsKey(Models.IntegrationContext.MonkClass))
+                hero.EnumerateFeaturesToBrowse<FeatureDefinitionAttributeModifier>(features);
+
+                foreach (var feature in features
+                    .OfType<FeatureDefinitionAttributeModifier>()
+                    .Where(x => x.ModifiedAttribute == AttributeDefinitions.ArmorClass))
                 {
-                    var wisdomModifier = AttributeDefinitions.ComputeAbilityScoreModifier(hero.GetAttribute(AttributeDefinitions.Wisdom).CurrentValue);
-
-                    modifier = Math.Max(wisdomModifier, modifier);
-                }
-
-                if (hero.ClassesAndLevels.ContainsKey(Barbarian))
-                {
-                    var constitutionModifier = AttributeDefinitions.ComputeAbilityScoreModifier(hero.GetAttribute(AttributeDefinitions.Constitution).CurrentValue);
-
-                    modifier = Math.Max(constitutionModifier, modifier);
+                    modifier = Math.Max(feature.ModifierValue, modifier);
                 }
 
                 __instance.GetAttribute(AttributeDefinitions.ArmorClass).BaseValue += modifier;
