@@ -4,7 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
-using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.CustomFeatureDefinitions;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.FeatWithPrerequisites
 {

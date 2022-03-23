@@ -8,7 +8,7 @@ namespace SolastaCommunityExpansion.Feats
     internal static class FeatsValidations
     {
         //
-        // validation routines for FeatDefinitionWithPrerequisitesBuilder
+        // validation routines for FeatDefinitionCustomCodeBuilder
         //
 
         internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateMinCharLevel(int minCharLevel)
