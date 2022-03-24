@@ -1,8 +1,9 @@
 ﻿using SolastaModApi;
 using SolastaModApi.Extensions;
 using System.Collections.Generic;
-using SolastaCommunityExpansion.Models;
 using UnityEngine;
+using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.Builders;
 //******************************************************************************************
 // BY DEFINITION, REFACTORING REQUIRES CONFIRMING EXTERNAL BEHAVIOUR DOES NOT CHANGE
 // "REFACTORING WITHOUT TESTS IS JUST CHANGING STUFF"
@@ -1038,13 +1039,10 @@ namespace SolastaCommunityExpansion.Monsters
 
         public static FeatureDefinitionPower BuildNewPower(string name, FeatureDefinitionPower basePower, string guid, string title, string description)
         {
-            FeatureDefinitionPower unit = MonsterContext.CopyAndCreateNewBlueprint<FeatureDefinitionPower>.CreateCopy(name,
-                                                                             guid,
-                                                                             title,
-                                                                             description,
-                                                                             basePower
-                                                                             );
-            return unit;
+            return FeatureDefinitionPowerBuilder
+                .Create(basePower, name, guid)
+                .SetOrUpdateGuiPresentation(title, description)
+                .AddToDB();
         }
     }
 }

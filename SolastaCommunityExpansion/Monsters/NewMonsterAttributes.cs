@@ -2,12 +2,10 @@
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
-using SolastaCommunityExpansion.Models;
 using UnityEngine;
-//******************************************************************************************
-// BY DEFINITION, REFACTORING REQUIRES CONFIRMING EXTERNAL BEHAVIOUR DOES NOT CHANGE
-// "REFACTORING WITHOUT TESTS IS JUST CHANGING STUFF"
-//******************************************************************************************
+using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.Builders;
+
 namespace SolastaCommunityExpansion.Monsters
 {
     public class NewMonsterAttributes
@@ -1669,81 +1667,60 @@ namespace SolastaCommunityExpansion.Monsters
         //-------------------------------------------------------------------------------------------------------------------------------------------
         public static FeatureDefinitionCastSpell BuildNewCaster(string name, FeatureDefinitionCastSpell baseCaster, string guid, string title, string description)
         {
-            FeatureDefinitionCastSpell unit = MonsterContext.CopyAndCreateNewBlueprint<FeatureDefinitionCastSpell>.CreateCopy(name,
-                                                                                        guid,
-                                                                                        title,
-                                                                                        description,
-                                                                                        baseCaster
-                                                                                        );
-            return unit;
+            return FeatureDefinitionCastSpellBuilder
+                .Create(baseCaster, name, guid)
+                .SetOrUpdateGuiPresentation(title, description)
+                .AddToDB();
         }
 
         public static FeatureDefinitionDamageAffinity BuildNewDamageAffinity(string name, FeatureDefinitionDamageAffinity baseDamageAffinity, string guid, string title, string description)
         {
-            FeatureDefinitionDamageAffinity unit = MonsterContext.CopyAndCreateNewBlueprint<FeatureDefinitionDamageAffinity>.CreateCopy(name,
-                                                                                            guid,
-                                                                                            title,
-                                                                                            description,
-                                                                                            baseDamageAffinity
-                                                                                            );
-            return unit;
+            return FeatureDefinitionDamageAffinityBuilder
+                .Create(baseDamageAffinity, name, guid)
+                .SetOrUpdateGuiPresentation(title, description)
+                .AddToDB();
         }
 
 
         public static TA.AI.DecisionPackageDefinition BuildNewDecisionPackageDefinition(string name, TA.AI.DecisionPackageDefinition baseDecisionPackageDefinition, string guid, string title, string description)
         {
-            TA.AI.DecisionPackageDefinition unit = MonsterContext.CopyAndCreateNewBlueprint<TA.AI.DecisionPackageDefinition>.CreateCopy(name,
-                                                                                            guid,
-                                                                                            title,
-                                                                                            description,
-                                                                                            baseDecisionPackageDefinition
-                                                                                            );
-            return unit;
+            return DecisionPackageDefinitionBuilder
+                .Create(baseDecisionPackageDefinition, name, guid)
+                .SetOrUpdateGuiPresentation(title, description)
+                .AddToDB();
         }
 
         public static TA.AI.DecisionDefinition BuildNewDecisionDefinition(string name, TA.AI.DecisionDefinition baseDecisionDefinition, string guid, string title, string description)
         {
-            TA.AI.DecisionDefinition unit = MonsterContext.CopyAndCreateNewBlueprint<TA.AI.DecisionDefinition>.CreateCopy(name,
-                                                                             guid,
-                                                                             title,
-                                                                             description,
-                                                                             baseDecisionDefinition
-                                                                             );
-            return unit;
+            return DecisionDefinitionBuilder
+                .Create(baseDecisionDefinition, name, guid)
+                .SetOrUpdateGuiPresentation(title, description)
+                .AddToDB();
         }
 
         public static MonsterPresentationDefinition BuildNewMonsterPresentation(string name, MonsterPresentationDefinition baseMonsterPresentation, string guid, string title, string description)
         {
-            MonsterPresentationDefinition unit = MonsterContext.CopyAndCreateNewBlueprint<MonsterPresentationDefinition>.CreateCopy(name,
-                                                                             guid,
-                                                                             title,
-                                                                             description,
-                                                                             baseMonsterPresentation
-                                                                             );
-            return unit;
+            return MonsterPresentationDefinitionBuilder
+                .Create(baseMonsterPresentation, name, guid)
+                .SetOrUpdateGuiPresentation(title, description)
+                .AddToDB();
         }
 
         public static FeatureDefinitionMagicAffinity BuildNewMagicAffinity(string name, FeatureDefinitionMagicAffinity baseMagicAffinity, string guid, string title, string description)
         {
-            FeatureDefinitionMagicAffinity unit = MonsterContext.CopyAndCreateNewBlueprint<FeatureDefinitionMagicAffinity>.CreateCopy(name,
-                                                                             guid,
-                                                                             title,
-                                                                             description,
-                                                                             baseMagicAffinity
-                                                                             );
-            return unit;
+            return FeatureDefinitionMagicAffinityBuilder
+                .Create(baseMagicAffinity, name, guid)
+                .SetOrUpdateGuiPresentation(title, description)
+                .AddToDB();
         }
 
 
         public static SpellListDefinition BuildNewSpelllist(string name, SpellListDefinition baseSpellList, string guid, string title, string description)
         {
-            SpellListDefinition unit = MonsterContext.CopyAndCreateNewBlueprint<SpellListDefinition>.CreateCopy(name,
-                                                                             guid,
-                                                                             title,
-                                                                             description,
-                                                                             baseSpellList
-                                                                             );
-            return unit;
+            return SpellListDefinitionBuilder
+                .Create(baseSpellList, name, guid)
+                .SetOrUpdateGuiPresentation(title, description)
+                .AddToDB();
         }
 
 

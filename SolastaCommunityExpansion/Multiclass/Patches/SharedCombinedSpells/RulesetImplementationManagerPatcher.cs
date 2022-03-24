@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using HarmonyLib;
+using SolastaCommunityExpansion.Multiclass.Models;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 
 namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
@@ -65,27 +66,27 @@ namespace SolastaCommunityExpansion.Multiclass.Patches.SharedCombinedSpells
                 }
                 else if (spellSlotsForm.Type == SpellSlotsForm.EffectType.CreateSpellSlot || spellSlotsForm.Type == SpellSlotsForm.EffectType.CreateSorceryPoints)
                 {
-                    HeroWithSpellRepertoire = formsParams.sourceCharacter as RulesetCharacterHero;
+                    HeroWithSpellRepertoire = WildshapeContext.GetHero(formsParams.sourceCharacter) as RulesetCharacterHero;
                     SpellRepertoire = HeroWithSpellRepertoire.SpellRepertoires.Find(sr => sr.SpellCastingClass == Sorcerer);
 
-                    Gui.GuiService.GetScreen<FlexibleCastingModal>().ShowFlexibleCasting(HeroWithSpellRepertoire, SpellRepertoire, spellSlotsForm.Type == SpellSlotsForm.EffectType.CreateSpellSlot);
+                    Gui.GuiService.GetScreen<FlexibleCastingModal>().ShowFlexibleCasting(formsParams.sourceCharacter, SpellRepertoire, spellSlotsForm.Type == SpellSlotsForm.EffectType.CreateSpellSlot);
                 }
                 else if (spellSlotsForm.Type == SpellSlotsForm.EffectType.GainSorceryPoints)
                 {
-                    HeroWithSpellRepertoire = formsParams.sourceCharacter as RulesetCharacterHero;
+                    HeroWithSpellRepertoire = WildshapeContext.GetHero(formsParams.sourceCharacter) as RulesetCharacterHero;
                     SpellRepertoire = HeroWithSpellRepertoire.SpellRepertoires.Find(sr => sr.SpellCastingClass == Sorcerer);
 
-                    HeroWithSpellRepertoire.GainSorceryPoints(spellSlotsForm.SorceryPointsGain);
+                    formsParams.sourceCharacter.GainSorceryPoints(spellSlotsForm.SorceryPointsGain);
                 }
                 else if (spellSlotsForm.Type == SpellSlotsForm.EffectType.RecovererSorceryHalfLevelUp)
                 {
-                    HeroWithSpellRepertoire = formsParams.sourceCharacter as RulesetCharacterHero;
+                    HeroWithSpellRepertoire = WildshapeContext.GetHero(formsParams.sourceCharacter) as RulesetCharacterHero;
                     SpellRepertoire = HeroWithSpellRepertoire.SpellRepertoires.Find(sr => sr.SpellCastingClass == Sorcerer);
 
                     var currentValue = HeroWithSpellRepertoire.ClassesAndLevels[Sorcerer];
                     var sorceryPointsGain = currentValue % 2 == 0 ? currentValue / 2 : (currentValue + 1) / 2;
 
-                    HeroWithSpellRepertoire.GainSorceryPoints(sorceryPointsGain);
+                    formsParams.sourceCharacter.GainSorceryPoints(sorceryPointsGain);
                 }
 
                 return false;
