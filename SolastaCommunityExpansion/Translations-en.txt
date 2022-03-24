@@ -832,10 +832,6 @@ FlexibleRaces/&PointPoolAbilityScore3Description	Use three boosts on ability sco
 FlexibleRaces/&PointPoolAbilityScore3Title	Ability Score Increase
 FlexibleRaces/&PointPoolAbilityScore4Description	Use four boosts on ability scores in any combination of your choosing.
 FlexibleRaces/&PointPoolAbilityScore4Title	Ability Score Increase
-Format/&LevelAndExperienceFormat	Level: {0}\nExperience: {1}\n{2} points required to reach level {3}
-Format/&LevelAndExperienceMaxedFormat	Level: {0}\nExperience: {1}\nmax level reached.
-MainMenu/&ExportPdfDescription	Level down the selected character
-MainMenu/&ExportPdfTitle	Level Down
 Message/&CharacterExportDuplicateNameErrorDescription	Export Cancelled:\n\nA hero with this name already exists in the pool.\nPlease try a different name.
 Message/&CharacterExportEmptyNameErrorDescription	Export Cancelled:\n\nPlease try a non empty name.
 Message/&CharacterExportModalContentDescription	Enter the hero name to export:
@@ -846,9 +842,6 @@ Message/&SpawnCustomEncounterDescription	Spawn encounter at coordinates ({0}, {1
 Message/&SpawnCustomEncounterTitle	Encounter
 Message/&TeleportPartyDescription	Teleport party to coordinates ({0}, {1})?\nYou might break quests or maps if you teleport to an undiscovered place
 Message/&TeleportPartyTitle	Teleport
-Message/&ZSLevelDownConfirmationDescription	Level down this Hero?
-Message/&ZSLevelDownConfirmationTitle	Level Down
-Message/&ZSLevelDownWarnedConfirmationDescription	Class {0} still in beta support. Level down this Hero?
 Modifier/&DisorientDescription	-1d6 to attack rolls
 Modifier/&DisorientTitle	Disoriented
 Modifier/&RuinedDescription	-3 to Armor Class
@@ -1108,8 +1101,6 @@ Reaction/&UseZSPowerRangerFoeSlayerAttackDescription	Add your Wisdom modifier to
 Reaction/&UseZSPowerRangerFoeSlayerAttackReactTitle	Foe Slayer
 Reaction/&UseZSPowerRangerFoeSlayerAttackTitle	Foe Slayer
 Reaction/&UseZSPowerRangerFoeSlayerDamageReactDescription	Add your Wisdom modifier to your attack roll.
-RestActivity/&ZSLevelDownDescription	Level down this Hero
-RestActivity/&ZSLevelDownTitle	Level Down
 RestActivity/&ZSRespecDescription	Respec this Hero
 RestActivity/&ZSRespecTitle	Respec
 RestActivity/&ZSSorcerousRestorationDescription	Regain 4 sorcery points during a short rest.
@@ -1140,9 +1131,6 @@ Screen/&FeyTeleportSpellDescription	This Fey spell is always prepared.
 Screen/&FeyTeleportSpellTitle	Fey
 Screen/&ShadowTouchedSpellDescription	This Shadow spell is always prepared.
 Screen/&ShadowTouchedSpellTitle	Shadow
-Screen/&SpellSlotsUsedLongDescription	You have expended {0} long-rest slot(s) of this level.
-Screen/&SpellSlotsUsedShortDescription	You have expended {0} short-rest slot(s) of this level.
-Screen/&SpellSlotsUsedShortLongDescription	You have expended {0} short-rest slot(s) and {1} long-rest slot(s) of this level.
 Screen/&WitchSpellDescription	Spell known as a Witch
 Screen/&WitchSpellHeader	Witch
 Screen/&WitchSpellTitle	Witch
