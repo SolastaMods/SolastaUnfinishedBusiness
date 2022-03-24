@@ -5,6 +5,7 @@
   "condition": -1002,
   "functor": "ZSLevelDown",
   "stringParameter": "",
+  "checkConsciousness": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

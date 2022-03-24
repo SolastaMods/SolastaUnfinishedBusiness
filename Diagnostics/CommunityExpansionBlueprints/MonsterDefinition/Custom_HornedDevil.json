@@ -101,7 +101,7 @@
   "challengeRating": 11.0,
   "noExperienceGain": false,
   "droppedLootDefinition": "Definition:Sorr-Akkath_Assassin_loot_drop:c0282cf7785e7784294e3999e32ece20",
-  "stealableLootDefinition": null,
+  "stealableLootDefinition": "Definition:PickPocketLoot:30c308db-1ad7-4f93-9431-43ce32358493",
   "bestiaryLootOptions": [],
   "features": [
     "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",

@@ -104,7 +104,7 @@
   "challengeRating": 12.0,
   "noExperienceGain": false,
   "droppedLootDefinition": "Definition:SRD_Mage_loot_drop:8f6ba6146567bda43b05003a96d5f409",
-  "stealableLootDefinition": null,
+  "stealableLootDefinition": "Definition:PickPocketLoot:30c308db-1ad7-4f93-9431-43ce32358493",
   "bestiaryLootOptions": [],
   "features": [
     "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
