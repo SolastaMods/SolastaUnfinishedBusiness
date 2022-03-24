@@ -63,7 +63,7 @@ namespace SolastaModApi
         /// <param name="original">The definition being copied.</param>
         /// <param name="name">The name assigned to the definition (mandatory).</param>
         /// <param name="definitionGuid">The guid for this definition (mandatory).</param>
-      //  [Obsolete("Legacy support only.  Please use BaseDefinitionBuilder(original, 'name') for future development.")]
+        [Obsolete("Legacy support only.  Please use BaseDefinitionBuilder(original, 'name') for future development.")]
         protected BaseDefinitionBuilder(TDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid) { }
 
         /// <summary>
