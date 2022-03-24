@@ -6,11 +6,11 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaModApi.Extensions;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
+namespace SolastaCommunityExpansion.Patches.Bugfix
 {
     [HarmonyPatch(typeof(GuiFeatDefinition), "IsFeatMacthingPrerequisites")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class GuiFeatDefinition_IsFeatMacthingPrerequisites
+    internal static class GuiFeatDefinition_IsFeatMatchingPrerequisites
     {
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
@@ -24,7 +24,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
             }
             else
             {
-                Main.Log("GuiFeatDefinition_IsFeatMacthingPrerequisites transpiler: Unable to find 'get_SpellRepertoires'");
+                Main.Log("GuiFeatDefinition_IsFeatMatchingPrerequisites transpiler: Unable to find 'get_SpellRepertoires'");
             }
 
             return codes;
