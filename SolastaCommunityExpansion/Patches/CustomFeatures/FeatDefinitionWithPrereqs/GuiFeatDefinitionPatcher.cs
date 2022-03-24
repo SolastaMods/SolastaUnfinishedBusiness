@@ -21,7 +21,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.FeatDefinitionWithPre
 
             var (result, output) = featDefinitionWithPrerequisites.Validate(featDefinitionWithPrerequisites, hero);
 
-            __result &= result;
+            __result =  __result && result;
             prerequisiteOutput += "\n" + output;
         }
     }

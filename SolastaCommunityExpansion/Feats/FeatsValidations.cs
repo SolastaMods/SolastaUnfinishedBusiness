@@ -15,7 +15,7 @@ namespace SolastaCommunityExpansion.Feats
         {
             return (FeatDefinition _, RulesetCharacterHero hero) =>
             {
-                var isLevelValid = hero.ClassesHistory.Count >= 4;
+                var isLevelValid = hero.ClassesHistory.Count >= minCharLevel;
 
                 if (isLevelValid)
                 {
