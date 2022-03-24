@@ -12,13 +12,6 @@ namespace SolastaCommunityExpansion.Patches.Respec
         {
             if (Main.Settings.EnableRespec)
             {
-                var characterLevel = __instance.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
-
-                if (characterLevel > 1)
-                {
-                    __instance.AfterRestActions.Add(Models.LevelDownContext.RestActivityLevelDownBuilder.RestActivityLevelDown);
-                }
-
                 __instance.AfterRestActions.Add(Models.RespecContext.RestActivityRespecBuilder.RestActivityRespec);
             }
         }

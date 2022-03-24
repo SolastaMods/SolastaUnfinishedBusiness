@@ -5,6 +5,7 @@
   "condition": -1001,
   "functor": "ZSRespec",
   "stringParameter": "",
+  "checkConsciousness": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
