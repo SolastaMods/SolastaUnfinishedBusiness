@@ -5,7 +5,7 @@
   "characterFamily": "Elemental",
   "creatureTags": [],
   "defaultFaction": "HostileMonsters",
-  "fullyControlledWhenAllied": false,
+  "fullyControlledWhenAllied": true,
   "sizeDefinition": "Definition:Gargantuan:7c516e825cf3b0b4d964afb80bada697",
   "alignment": "Neutral",
   "armorClass": 16,
