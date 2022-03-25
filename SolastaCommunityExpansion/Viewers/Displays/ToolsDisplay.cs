@@ -15,7 +15,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = Main.Settings.EnableRespec;
-            if (UI.Toggle("Enable RESPEC and Level Down", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enable RESPEC", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableRespec = toggle;
             }
