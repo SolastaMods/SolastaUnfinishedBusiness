@@ -1,0 +1,34 @@
+{
+  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
+  "modifierType2": 9000,
+  "modifiedAttribute": "SorceryPoints",
+  "modifierValue": 2,
+  "modifierAbilityScore": "Constitution",
+  "situationalContext": "None",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "94de12b7-820d-5d74-ab92-813d409a29c0",
+  "contentPack": 9999,
+  "name": "AttributeModifierSorcererSorceryPointsBonus2"
+}

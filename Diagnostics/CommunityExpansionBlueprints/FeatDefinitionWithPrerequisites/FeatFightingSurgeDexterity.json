@@ -1,22 +1,23 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaCommunityExpansion",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
-  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScorePrerequisite": true,
   "minimalAbilityScoreValue": 13,
-  "minimalAbilityScoreName": "Strength",
+  "minimalAbilityScoreName": "Dexterity",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:FeatBlindFightingStlyeProficiency:734d3996-7003-500d-95bd-4cae42c76422"
+    "Definition:AttributeModifierCreed_Of_Misaye:74d55f601f8ad8246b18a19766524280",
+    "Definition:PowerFighterActionSurge:f0303fb750e20564ebea8c51e8f20394"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feat/&FeatBlindFightingStlyeTitle",
-    "description": "Feat/&FeatBlindFightingStlyeDescription",
+    "hidden": true,
+    "title": "Feat/&FeatFightingSurgeDexterityTitle",
+    "description": "Feat/&FeatFightingSurgeDexterityDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -35,7 +36,7 @@
     "unusedInSolastaCOTM": false
   },
   "contentCopyright": "UserContent",
-  "guid": "87491eaf-8074-57ca-96c8-c64f4dd5f0c5",
+  "guid": "19403f8f-87c3-55eb-99ce-3b15f880d4c8",
   "contentPack": 9999,
-  "name": "FeatBlindFightingStlye"
+  "name": "FeatFightingSurgeDexterity"
 }

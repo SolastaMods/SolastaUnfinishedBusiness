@@ -3,20 +3,20 @@
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
-  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScorePrerequisite": true,
   "minimalAbilityScoreValue": 13,
-  "minimalAbilityScoreName": "Strength",
+  "minimalAbilityScoreName": "Wisdom",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:FeatBlindFightingStlyeProficiency:734d3996-7003-500d-95bd-4cae42c76422"
+    "Definition:PowerWisePrecision:0684f40d-2985-5d8c-996a-bfaf338c8a02"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feat/&FeatBlindFightingStlyeTitle",
-    "description": "Feat/&FeatBlindFightingStlyeDescription",
+    "hidden": true,
+    "title": "Feat/&FeatWisePrecisionTitle",
+    "description": "Feat/&FeatWisePrecisionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -35,7 +35,7 @@
     "unusedInSolastaCOTM": false
   },
   "contentCopyright": "UserContent",
-  "guid": "87491eaf-8074-57ca-96c8-c64f4dd5f0c5",
+  "guid": "376a7edf-2601-5425-8e57-89df5c4fec67",
   "contentPack": 9999,
-  "name": "FeatBlindFightingStlye"
+  "name": "FeatWisePrecision"
 }
