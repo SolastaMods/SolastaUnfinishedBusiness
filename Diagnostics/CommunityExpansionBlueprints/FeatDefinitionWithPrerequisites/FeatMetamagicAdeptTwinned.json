@@ -1,22 +1,24 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaCommunityExpansion",
   "compatibleClassesPrerequisite": [],
-  "mustCastSpellsPrerequisite": false,
+  "mustCastSpellsPrerequisite": true,
   "compatibleRacesPrerequisite": [],
-  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScorePrerequisite": true,
   "minimalAbilityScoreValue": 13,
-  "minimalAbilityScoreName": "Strength",
+  "minimalAbilityScoreName": "Charisma",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:FeatBlindFightingStlyeProficiency:734d3996-7003-500d-95bd-4cae42c76422"
+    "Definition:AttributeModifierCreed_Of_Solasta:330246532ae609848887c37e44b7f7e4",
+    "Definition:MetamagicLearnTwinned:84572060-3187-41f7-abad-30ad4a217511",
+    "Definition:AttributeModifierSorcererSorceryPointsBonus2:94de12b7-820d-5d74-ab92-813d409a29c0"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feat/&FeatBlindFightingStlyeTitle",
-    "description": "Feat/&FeatBlindFightingStlyeDescription",
+    "hidden": true,
+    "title": "Feat/&FeatMetamagicAdeptTwinnedTitle",
+    "description": "Feat/&FeatMetamagicAdeptTwinnedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -35,7 +37,7 @@
     "unusedInSolastaCOTM": false
   },
   "contentCopyright": "UserContent",
-  "guid": "87491eaf-8074-57ca-96c8-c64f4dd5f0c5",
+  "guid": "73389655-933c-5da2-b224-32e96bbf4863",
   "contentPack": 9999,
-  "name": "FeatBlindFightingStlye"
+  "name": "FeatMetamagicAdeptTwinned"
 }
