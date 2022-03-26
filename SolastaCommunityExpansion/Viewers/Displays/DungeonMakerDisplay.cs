@@ -63,10 +63,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 Main.Settings.EnableDungeonMakerModdedContent = toggle;
             }
 
-            UI.Label("");
-
             toggle = Main.Settings.EnableExtraHighLevelMonsters;
-            if (UI.Toggle("Enable additional high level monsters (+20 CR) for tier 3 and 4 campaigns" + "[MODDED CONTENT] ".italic().yellow() + RequiresRestart, ref toggle))
+            if (UI.Toggle("Enable additional high level monsters (+20 CR) for tier 3 and 4 campaigns " + "[MODDED CONTENT] ".italic().yellow() + RequiresRestart, ref toggle))
             {
                 Main.Settings.EnableExtraHighLevelMonsters = toggle;
             }
