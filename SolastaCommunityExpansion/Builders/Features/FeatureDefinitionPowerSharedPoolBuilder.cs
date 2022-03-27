@@ -21,6 +21,7 @@ namespace SolastaCommunityExpansion.Builders.Features
             base.Validate();
 
             Preconditions.IsNotNull(Definition.SharedPool, $"FeatureDefinitionPowerSharedPoolBuilder[{Definition.Name}].SharedPool is null.");
+            Preconditions.AreEqual(Definition.UsesDetermination, RuleDefinitions.UsesDetermination.Fixed, $"FeatureDefinitionPowerSharedPoolBuilder[{Definition.Name}].UsesDetermination must be set to Fixed.");
         }
 
         public FeatureDefinitionPowerSharedPoolBuilder(string name, string guid,

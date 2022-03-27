@@ -28,50 +28,28 @@ namespace SolastaCommunityExpansion.Builders
         {
             base.Initialise();
 
-            // NOTE: if a constructor is used Initialise won't get called from the DefinitionBuilder base
-            ClearParticleReferences();
+            SetEmptyParticleReferencesWhereNull();
         }
 
-        private void ClearParticleReferences()
+        private void SetEmptyParticleReferencesWhereNull()
         {
-            var assetReference = new AssetReference();
-
-            // TODO: add initializer in extension generation
-            if (Definition.GetField<AssetReference>("conditionStartParticleReference") == null)
-            {
-                Definition.SetConditionStartParticleReference(assetReference);
-            }
-
-            if (Definition.GetField<AssetReference>("conditionParticleReference") == null)
-            {
-                Definition.SetConditionParticleReference(assetReference);
-            }
-
-            if (Definition.GetField<AssetReference>("conditionEndParticleReference") == null)
-            {
-                Definition.SetConditionEndParticleReference(assetReference);
-            }
-
-            if (Definition.GetField<AssetReference>("characterShaderReference") == null)
-            {
-                Definition.SetCharacterShaderReference(assetReference);
-            }
+            Definition.SetEmptyParticleReferencesWhereNull();
         }
 
         #region Constructors
         protected ConditionDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
-            ClearParticleReferences();
+            SetEmptyParticleReferencesWhereNull();
         }
 
         protected ConditionDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
         {
-            ClearParticleReferences();
+            SetEmptyParticleReferencesWhereNull();
         }
 
         protected ConditionDefinitionBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
         {
-            ClearParticleReferences();
+            SetEmptyParticleReferencesWhereNull();
         }
 
         protected ConditionDefinitionBuilder(TDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
