@@ -1,4 +1,5 @@
 ﻿using System;
+using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
@@ -68,5 +69,27 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
         #endregion
+
+        public FeatureDefinitionDamageAffinityBuilder SetDamageType(string damageType)
+        {
+            Definition.DamageType = damageType;
+
+            return This();
+        }
+
+        public FeatureDefinitionDamageAffinityBuilder SetDamageAffinityType(RuleDefinitions.DamageAffinityType damageAffinityType)
+        {
+            Definition.DamageAffinityType = damageAffinityType;
+
+            return This();
+        }
+
+        public FeatureDefinitionDamageAffinityBuilder SetRetaliate(FeatureDefinitionPower featureDefinitionPower, int rangeCells)
+        {
+            Definition.SetField("retaliatePower", featureDefinitionPower);
+            Definition.SetField("retaliateRangeCells", rangeCells);
+
+            return This();
+        }
     }
 }
