@@ -68,20 +68,10 @@ namespace SolastaCommunityExpansion
         // SETTINGS UI TOGGLES
         //
 
-        public bool DisplayInitialChoicesToggle { get; set; }
-        public bool DisplayProgressionToggle { get; set; }
-        public bool DisplayVisualsToggle { get; set; }
         public bool DisplayClassesToggle { get; set; }
         public bool DisplaySubclassesToggle { get; set; }
         public bool DisplayFeatsToggle { get; set; }
         public bool DisplayFightingStylesToggle { get; set; }
-        public bool DisplaySrdRulesToggle { get; set; }
-        public bool DisplayHouseRulesToggle { get; set; }
-        public bool DisplayBattleToggle { get; set; }
-        public bool DisplayCampaignToggle { get; set; }
-        public bool DisplayItemToggle { get; set; }
-        public bool DisplayMonsterToggle { get; set; }
-        public bool DisplaySpellToggle { get; set; }
         public bool DisplayCraftingToggle { get; set; }
         public bool DisplayMerchantsToggle { get; set; }
 
