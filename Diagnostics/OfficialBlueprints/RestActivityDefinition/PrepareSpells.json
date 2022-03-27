@@ -5,6 +5,7 @@
   "condition": "CanPrepareSpells",
   "functor": "PrepareSpells",
   "stringParameter": "",
+  "checkConsciousness": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

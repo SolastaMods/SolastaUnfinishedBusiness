@@ -8,21 +8,32 @@
   "fullyControlledWhenAllied": false,
   "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
   "alignment": "Neutral",
-  "armorClass": 16,
-  "armor": "Breastplate",
-  "hitDice": 5,
+  "armorClass": 20,
+  "armor": "Plate",
+  "hitDice": 9,
   "hitDiceType": "D10",
-  "hitPointsBonus": 15,
-  "standardHitPoints": 42,
+  "hitPointsBonus": 36,
+  "standardHitPoints": 85,
   "abilityScores": [
-    16,
+    18,
+    12,
+    18,
     10,
-    16,
     10,
-    10,
-    10
+    12
   ],
-  "savingThrowScores": [],
+  "savingThrowScores": [
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Strength",
+      "bonus": 6
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Constitution",
+      "bonus": 6
+    }
+  ],
   "skillScores": [
     {
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
@@ -49,13 +60,13 @@
   "audioSwitches": [],
   "audioSwitchesOnHands": [],
   "audioRaceRTPCValue": 3.0,
-  "challengeRating": 2.0,
+  "challengeRating": 3.0,
   "noExperienceGain": false,
   "droppedLootDefinition": "Definition:Dropped_Gear_DLC1_City_Guard:c6536d9e1312192418e76cd20091bc42",
   "stealableLootDefinition": "Definition:Pickpocket_DLC1_City_Guard:d50e6f4c498960441ab3fc8f6404d3a8",
   "bestiaryLootOptions": [],
   "features": [
-    "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
+    "Definition:MoveModeMove7:2f5a9a22928893b4bb75beb84106a543",
     "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
     "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
     "Definition:ConditionAffinityElfFeyAncestryCharm:fd5a2310e4752064c89dbc160c531b65",
@@ -67,12 +78,12 @@
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 2,
-      "monsterAttackDefinition": "Definition:Attack_DLC1_CityGuard_Longsword:f07de1a77bd2ebd489ed6c30fc28b8b0"
+      "monsterAttackDefinition": "Definition:Attack_DLC1_Anfarel_Guard_Morningstar+1:06cff91a208af3841bea15f5174031f1"
     },
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
-      "number": 1,
-      "monsterAttackDefinition": "Definition:Attack_DLC1_CityGuard_Dagger:02f4d961aad301a4db7199bea0250cb5"
+      "number": 2,
+      "monsterAttackDefinition": "Definition:Attack_DLC1_Anfarel_Guard_Dagger:5978ba624e97ea542854574bab3bbd93"
     }
   ],
   "sneakStance": "Stealth",
@@ -108,14 +119,10 @@
     "hasUniqueName": false,
     "uniqueNameTitle": "",
     "humanoidMonsterPresentationDefinitions": [
-      "Definition:NPC_Presentation_DLC1_City_Guard_Male_01:1d04b764195070847a564e20ff2cd8ee",
-      "Definition:NPC_Presentation_DLC1_City_Guard_Male_02:139dc73b1c6a9eb4caf38f69b8b95db3",
-      "Definition:NPC_Presentation_DLC1_City_Guard_Male_03:e097d6a3f091df24e93a435c61dff347",
-      "Definition:NPC_Presentation_DLC1_City_Guard_Male_04:763e4a6b15b82ff42b9676dcfcc80e9c",
-      "Definition:NPC_Presentation_DLC1_City_Guard_Female_05:842259138c8d4474fbb37c5e1816ee87",
-      "Definition:NPC_Presentation_DLC1_City_Guard_Female_06:f12976d4517e470438ff6d49895c52a8",
-      "Definition:NPC_Presentation_DLC1_City_Guard_Female_07:eeb8fe8741c80244e8f3b7f2f29eb13f",
-      "Definition:NPC_Presentation_DLC1_City_Guard_Female_08:6699c6b48f61b5441a355570a9a0b7de"
+      "Definition:NPC_Presentation_DLC1_Anfarel_Guard_01:0d5e86961ff49b44d9443b7f77780b43",
+      "Definition:NPC_Presentation_DLC1_Anfarel_Guard_02:f246a54c03659eb4b867cbd3f0092db0",
+      "Definition:NPC_Presentation_DLC1_Anfarel_Guard_03:18b5c25185314d24ab7a311205dc7e99",
+      "Definition:NPC_Presentation_DLC1_Anfarel_Guard_04:32b9bf0dc00f3c74cb4b58da8e45d8b7"
     ],
     "useCustomMaterials": false,
     "customMaterials": [],

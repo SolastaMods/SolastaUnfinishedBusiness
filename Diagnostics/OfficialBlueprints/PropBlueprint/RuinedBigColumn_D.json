@@ -26,10 +26,10 @@
     },
     {
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
-      "environment": "Jungle",
+      "environment": "Swamp",
       "prefabReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "93d791cd309d86e49b3e39a769101be2",
+        "m_AssetGUID": "9bf2adcffa3cc734e8d93d4fa87383a4",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       }

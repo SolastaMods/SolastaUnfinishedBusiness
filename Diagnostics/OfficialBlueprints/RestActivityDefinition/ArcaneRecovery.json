@@ -5,6 +5,7 @@
   "condition": "CanUsePower",
   "functor": "UsePower",
   "stringParameter": "PowerWizardArcaneRecovery",
+  "checkConsciousness": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

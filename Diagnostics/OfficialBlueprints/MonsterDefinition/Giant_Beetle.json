@@ -48,7 +48,7 @@
   "audioRaceRTPCValue": 30.0,
   "challengeRating": 2.0,
   "noExperienceGain": false,
-  "droppedLootDefinition": null,
+  "droppedLootDefinition": "Definition:DLC1_GiantBeetle_Loot_Drop:ed6a1d696b41c344597cf4a58183a3d3",
   "stealableLootDefinition": null,
   "bestiaryLootOptions": [],
   "features": [

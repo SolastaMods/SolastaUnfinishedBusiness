@@ -2,7 +2,7 @@
   "$type": "MapWaypointDefinition, Assembly-CSharp",
   "allowFastTravel": true,
   "locationExit": false,
-  "longRestAvailable": true,
+  "longRestAvailable": false,
   "forceCameraOrientation": false,
   "cameraAngle": 0.0,
   "fastTravelFromSameSectorOnly": false,

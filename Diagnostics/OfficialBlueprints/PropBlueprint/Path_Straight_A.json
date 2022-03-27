@@ -7,7 +7,7 @@
   "openingPlacement": false,
   "openingLowPlacement": false,
   "openingHighPlacement": false,
-  "propPlacement": false,
+  "propPlacement": true,
   "lightSources": [],
   "category": "Partitions",
   "dimensions": {
@@ -20,6 +20,26 @@
       "prefabReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "c1f0a956de4963b4c93c7cfbf5c74521",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "Swamp",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "e397e5efbb72c3c43b89b32c6ed500b3",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "Jungle",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "57cbeac01eb800f43bc0a181df61b53f",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       }

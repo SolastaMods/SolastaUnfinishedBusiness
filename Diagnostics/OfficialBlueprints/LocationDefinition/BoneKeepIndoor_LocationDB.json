@@ -245,6 +245,7 @@
   "setCurrentCampaignNodeWhenLeaving": true,
   "hasPriorityForTeleporter": true,
   "canAttackNonHostileCharacters": false,
+  "forceNoEncounterPrespawn": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

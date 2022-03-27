@@ -294,7 +294,7 @@
   },
   "projectile": "Arrow",
   "projectileBone": "Prop1",
-  "itemDefinitionMainHand": null,
+  "itemDefinitionMainHand": "Definition:Ogre_Mace:6b84b4923806dad4784621270f924bfd",
   "itemDefinitionOffHand": null,
   "useAnimationTag": false,
   "animationTag": "NoWeapon",

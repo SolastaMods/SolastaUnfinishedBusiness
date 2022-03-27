@@ -38,7 +38,7 @@
       "conditionalDisplay": true,
       "conditionalParameter": "EncounterGroup",
       "conditionalMatch": true,
-      "intDefaultValue": 1,
+      "intDefaultValue": -1,
       "intMinValue": 0,
       "intMaxValue": 0,
       "boolDefaultValue": false,

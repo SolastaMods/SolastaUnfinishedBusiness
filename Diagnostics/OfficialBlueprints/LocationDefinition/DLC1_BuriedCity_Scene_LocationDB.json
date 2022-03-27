@@ -295,6 +295,7 @@
   "setCurrentCampaignNodeWhenLeaving": true,
   "hasPriorityForTeleporter": false,
   "canAttackNonHostileCharacters": true,
+  "forceNoEncounterPrespawn": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -302,8 +303,8 @@
     "description": "Map/&Location_Presentation_Description_BuriedCity",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "8758737018948bd46bcb07abc7b9fdf8",
-      "m_SubObjectName": "DLC1_City",
+      "m_AssetGUID": "57f446f80e23c0f47961c79f74464d95",
+      "m_SubObjectName": "DLC1_BuriedCity",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
