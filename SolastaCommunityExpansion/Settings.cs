@@ -100,6 +100,8 @@ namespace SolastaCommunityExpansion
         public bool EnableFirstLevelCasterFeats { get; set; } = true;
         public bool EnableMultiLinePowerPanel { get; set; } = true;
         public bool EnableMultiLineSpellPanel { get; set; } = true;
+        public bool EnableNonStackingDefenseFromAttributeModifiers { get; set; } = true;
+
         public bool EnableSortingClasses { get; set; } = true;
         public bool EnableSortingDeities { get; set; } = true;
         public bool EnableSortingDungeonMakerAssets { get; set; } = true;
