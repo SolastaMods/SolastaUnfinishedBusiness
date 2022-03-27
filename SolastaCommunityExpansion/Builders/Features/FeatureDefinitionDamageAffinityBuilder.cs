@@ -1,5 +1,5 @@
 ﻿using System;
-using SolastaModApi.Infrastructure;
+using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
@@ -86,8 +86,8 @@ namespace SolastaCommunityExpansion.Builders.Features
 
         public FeatureDefinitionDamageAffinityBuilder SetRetaliate(FeatureDefinitionPower featureDefinitionPower, int rangeCells)
         {
-            Definition.SetField("retaliatePower", featureDefinitionPower);
-            Definition.SetField("retaliateRangeCells", rangeCells);
+            Definition.SetRetaliatePower(featureDefinitionPower);
+            Definition.SetRetaliateRangeCells(rangeCells);
 
             return This();
         }
