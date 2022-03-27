@@ -9,7 +9,7 @@
       "diceType": "D1",
       "additiveModifier": 0,
       "itemMode": "Explicit",
-      "itemDefinition": "Definition:Breastplate:8e317e5414a4f134093731c2ec923580",
+      "itemDefinition": "Definition:Plate:c235e621241816a4e8648d5fad95ad68",
       "treasureTableDefinition": "Definition:Random_BrimstoneViper_Table:64810a6a0bb85904f8b5579306cb2c2a"
     },
     {
@@ -18,7 +18,7 @@
       "diceType": "D1",
       "additiveModifier": 0,
       "itemMode": "Explicit",
-      "itemDefinition": "Definition:Longsword:3f0e49932d0ebf444a5039c5df05a02d",
+      "itemDefinition": "Definition:Morningstar+1:765d5d65a4025534a8877141b7710242",
       "treasureTableDefinition": "Definition:Random_BrimstoneViper_Table:64810a6a0bb85904f8b5579306cb2c2a"
     },
     {

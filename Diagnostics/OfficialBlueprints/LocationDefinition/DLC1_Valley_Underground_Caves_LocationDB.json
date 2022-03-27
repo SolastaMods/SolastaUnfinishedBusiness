@@ -124,6 +124,7 @@
   "setCurrentCampaignNodeWhenLeaving": false,
   "hasPriorityForTeleporter": false,
   "canAttackNonHostileCharacters": false,
+  "forceNoEncounterPrespawn": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -131,8 +132,8 @@
     "description": "Map/&Location_Presentation_Description_Valley",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "da886207ccf0c6a47a149ba32d03bfdf",
-      "m_SubObjectName": "DLC1_Valley_Underground",
+      "m_AssetGUID": "b362ce25b354a4544b700685f437c3ee",
+      "m_SubObjectName": "DLC1_Valley_Underground_Caves",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

@@ -770,7 +770,7 @@
       "environment": "Jungle",
       "prefabReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "55126a53061939e4395ff0e6f92b1799",
+        "m_AssetGUID": "6dfb91566a29dc748880dba5e8e47138",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       }

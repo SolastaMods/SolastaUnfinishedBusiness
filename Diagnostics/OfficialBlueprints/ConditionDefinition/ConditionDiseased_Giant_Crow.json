@@ -3,7 +3,9 @@
   "inDungeonEditor": false,
   "parentCondition": "Definition:ConditionDiseased:8aa3c57f0e1674d43a912da83b7d6adb",
   "conditionType": "Detrimental",
-  "features": [],
+  "features": [
+    "Definition:AttributeModifierLifeDrained:1df87241987a91f46a0fed245bde9858"
+  ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,

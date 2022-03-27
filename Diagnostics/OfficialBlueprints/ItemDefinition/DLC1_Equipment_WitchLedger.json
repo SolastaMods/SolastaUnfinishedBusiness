@@ -47,7 +47,19 @@
   "documentDescription": {
     "$type": "DocumentDescription, Assembly-CSharp",
     "format": "Parchment",
-    "contentFragments": [],
+    "contentFragments": [
+      {
+        "$type": "ContentFragmentDescription, Assembly-CSharp",
+        "type": "Body",
+        "text": "Equipment/&DLC1_Equipment_Document_WitchLedger_Description",
+        "spriteReference": {
+          "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        }
+      }
+    ],
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "MonsterKnowledge",

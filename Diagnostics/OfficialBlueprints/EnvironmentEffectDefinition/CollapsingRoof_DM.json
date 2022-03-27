@@ -294,10 +294,10 @@
           "guid": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A",
           "name": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A"
         },
-        "objectName": "Environment_Heavy",
-        "id": 1484600784,
-        "guid": "F2E04AD3-7E82-4DA4-8D2F-0331FD6A56A1",
-        "name": "F2E04AD3-7E82-4DA4-8D2F-0331FD6A56A1"
+        "objectName": "Environment_Light",
+        "id": 2000190821,
+        "guid": "323B9FB2-74BF-424D-B003-F771F4992383",
+        "name": "323B9FB2-74BF-424D-B003-F771F4992383"
       },
       "groupIdInternal": 0,
       "groupGuidInternal": {

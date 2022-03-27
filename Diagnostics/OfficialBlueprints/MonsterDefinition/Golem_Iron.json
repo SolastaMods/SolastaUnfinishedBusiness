@@ -29,7 +29,7 @@
   "maxLegendaryActionPoints": 3,
   "differentActionEachTurn": false,
   "legendaryActionOptions": [],
-  "defaultBattleDecisionPackage": "Definition:DefaultMeleeWithBackupRangeDecisions:36bb3688d84582249bf0f1c85064ad10",
+  "defaultBattleDecisionPackage": "Definition:IronGolemDecisions:a0b688cbc94296047b7b8dfd2c9a4cf8",
   "threatEvaluatorDefinition": null,
   "languages": [],
   "audioSwitches": [],

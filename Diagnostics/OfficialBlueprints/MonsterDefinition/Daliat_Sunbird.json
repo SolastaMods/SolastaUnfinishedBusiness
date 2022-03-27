@@ -242,8 +242,8 @@
   "forceNoFlyAnimation": false,
   "followFloorAngle": false,
   "groupAttacks": false,
-  "isUnique": false,
-  "uniqueNameId": "",
+  "isUnique": true,
+  "uniqueNameId": "Daliat",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

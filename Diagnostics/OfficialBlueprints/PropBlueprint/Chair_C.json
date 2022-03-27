@@ -19,7 +19,7 @@
       "environment": "Stronghold",
       "prefabReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "7e9bc5685b9fec44da746c6d6704a33e",
+        "m_AssetGUID": "607b599634683d142942270b54101197",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       }
@@ -29,7 +29,7 @@
       "environment": "ElvenPalace",
       "prefabReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "a79d01aa8525bb24fbf8ab0e48836f1c",
+        "m_AssetGUID": "1991658aa34fa6944b1be5d7bed4d131",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       }
@@ -40,6 +40,16 @@
       "prefabReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "ab08bfb60cd831a42b3dd5cc9fc9b6bb",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "CityValley",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "41382445cb505c146ab95c35e1fc15d7",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       }

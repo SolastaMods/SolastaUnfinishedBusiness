@@ -5,6 +5,7 @@
   "condition": "CanUsePower",
   "functor": "UsePower",
   "stringParameter": "PowerMarksmanRecycler",
+  "checkConsciousness": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
