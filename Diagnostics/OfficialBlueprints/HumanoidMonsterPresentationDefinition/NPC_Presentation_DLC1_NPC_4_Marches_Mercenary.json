@@ -16,37 +16,37 @@
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
   "scarsMorphotype": "Scars_10",
-  "armorDefinition": "StuddedLeather",
+  "armorDefinition": "StuddedLeather_plus_one",
   "helmetDefinition": "",
   "tabardDefinition": "",
   "showHelmet": true,
   "firstColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.8396226,
+    "r": 0.0,
     "g": 0.0,
     "b": 0.0,
-    "a": 1.0
+    "a": 0.0
   },
   "secondColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.7075471,
-    "g": 0.0975929,
+    "r": 0.0,
+    "g": 0.0,
     "b": 0.0,
-    "a": 1.0
+    "a": 0.0
   },
   "thirdColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 1.0,
-    "g": 0.398247957,
-    "b": 0.0141509175,
-    "a": 1.0
+    "r": 0.0,
+    "g": 0.0,
+    "b": 0.0,
+    "a": 0.0
   },
   "fourthColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 1.0,
-    "g": 0.5356132,
-    "b": 0.155660361,
-    "a": 1.0
+    "r": 0.0,
+    "g": 0.0,
+    "b": 0.0,
+    "a": 0.0
   },
   "overrideWieldedItems": false,
   "itemDefinitionMainHand": null,

@@ -148,8 +148,7 @@
     "hasUniqueName": false,
     "uniqueNameTitle": "",
     "humanoidMonsterPresentationDefinitions": [
-      "Definition:NPC_Presentation_DLC1_Sitenero:1bd92bb7862ab3d479b23e1581df7fa2",
-      "Definition:NPC_Presentation_DLC1_Sitenero_Fusioned:24da2c542e03a7c498fa328cb9954c4c"
+      "Definition:NPC_Presentation_DLC1_Sitenero:1bd92bb7862ab3d479b23e1581df7fa2"
     ],
     "useCustomMaterials": false,
     "customMaterials": [],

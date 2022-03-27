@@ -3,7 +3,7 @@
   "outdoor": true,
   "sceneReferenceOverride": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "e9532acee44c53748ba1b07e703d9099",
+    "m_AssetGUID": "5387ebc395c240546a0fd4ad2e003a3f",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -14,8 +14,8 @@
     "description": "Environment/&JungleDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "91539d8e5b4079e458dea3690871608a",
-      "m_SubObjectName": "EnvironmentJungle",
+      "m_AssetGUID": "96539c090fc72574cab61a2a99a685c0",
+      "m_SubObjectName": "RandomEncounter_DLC1_Jungle_River",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

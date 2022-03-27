@@ -51,7 +51,18 @@
       {
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
-        "text": "Equipment/&DLC1_Equipment_Document_ForgeDryadThreatReport_Description",
+        "text": "Equipment/&DLC1_Equipment_Document_ForgeDryadThreatReport_DescriptionA",
+        "spriteReference": {
+          "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        }
+      },
+      {
+        "$type": "ContentFragmentDescription, Assembly-CSharp",
+        "type": "Body",
+        "text": "Equipment/&DLC1_Equipment_Document_ForgeDryadThreatReport_DescriptionB",
         "spriteReference": {
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "",

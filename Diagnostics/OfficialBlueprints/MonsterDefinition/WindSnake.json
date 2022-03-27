@@ -77,7 +77,8 @@
     "Definition:DamageAffinityBludgeoningResistance:956f9745b15c6904d87322861723d5c7",
     "Definition:DamageAffinitySlashingResistance:2345f12303c12854fad8b09556da53d6",
     "Definition:DamageAffinityPiercingResistance:b6c93ec66a0ec9747b5c02f9db3091ff",
-    "Definition:MoveModeFly8:d7d73f75fe686914f998f3c7b3f83e28"
+    "Definition:MoveModeFly8:d7d73f75fe686914f998f3c7b3f83e28",
+    "Definition:CombatAffinityPackTactics:d220eabb22f6ae84f8aeea2c68077a93"
   ],
   "attackIterations": [
     {

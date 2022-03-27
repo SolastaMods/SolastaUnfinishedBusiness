@@ -198,6 +198,7 @@
   "setCurrentCampaignNodeWhenLeaving": false,
   "hasPriorityForTeleporter": false,
   "canAttackNonHostileCharacters": false,
+  "forceNoEncounterPrespawn": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -205,8 +206,8 @@
     "description": "LocationType/&Encounter_Bridge_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "ef39648ad3c7ea6458e360efa21cbbed",
-      "m_SubObjectName": "RandomEncounter_DLC1_Bridge",
+      "m_AssetGUID": "0337e46d6931f3c4d8bcef9c757249aa",
+      "m_SubObjectName": "DLC1_Swamp_Wood",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

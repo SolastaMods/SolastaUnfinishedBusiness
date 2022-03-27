@@ -49,5 +49,11 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetModifierAbilityScore(abilityScore);
             return this;
         }
+
+        public FeatureDefinitionAttributeModifierBuilder SetSituationalContext(RuleDefinitions.SituationalContext situationalContext)
+        {
+            Definition.SetSituationalContext(situationalContext);
+            return this;
+        }
     }
 }

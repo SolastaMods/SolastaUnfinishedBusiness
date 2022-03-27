@@ -32,6 +32,7 @@ namespace SolastaCommunityExpansion.Feats
                     FeatureDefinitionAttributeModifierBuilder
                         .Create(AttributeModifierBarbarianUnarmoredDefense, "AttributeModifierFeatArcaneDefenseAdd", ZappaFeatNamespace)
                         .SetGuiPresentationNoContent()
+                        .SetSituationalContext(RuleDefinitions.SituationalContext.NotWearingArmorOrMageArmor)
                         .SetModifierAbilityScore(AttributeDefinitions.Intelligence)
                         .AddToDB()
                 )
@@ -101,6 +102,7 @@ namespace SolastaCommunityExpansion.Feats
                     FeatureDefinitionAttributeModifierBuilder
                         .Create(AttributeModifierBarbarianUnarmoredDefense, "AttributeModifierFeatCharismaticDefenseAdd", ZappaFeatNamespace)
                         .SetGuiPresentationNoContent()
+                        .SetSituationalContext(RuleDefinitions.SituationalContext.NotWearingArmorOrMageArmor)
                         .SetModifierAbilityScore(AttributeDefinitions.Charisma)
                         .AddToDB()
                 )
@@ -358,6 +360,7 @@ namespace SolastaCommunityExpansion.Feats
                     FeatureDefinitionAttributeModifierBuilder
                         .Create(AttributeModifierBarbarianUnarmoredDefense, "AttributeModifierFeatWiseDefenseAdd", ZappaFeatNamespace)
                         .SetGuiPresentationNoContent()
+                        .SetSituationalContext(RuleDefinitions.SituationalContext.NotWearingArmorOrMageArmor)
                         .SetModifierAbilityScore(AttributeDefinitions.Wisdom)
                         .AddToDB()
                 )

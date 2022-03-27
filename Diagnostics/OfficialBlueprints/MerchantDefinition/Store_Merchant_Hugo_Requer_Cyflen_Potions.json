@@ -877,6 +877,20 @@
       "reassortRateValue": 7,
       "requiredFaction": "",
       "factionStatus": "Indifference"
+    },
+    {
+      "$type": "StockUnitDescription, Assembly-CSharp",
+      "initialized": true,
+      "itemDefinition": "Definition:PeriaptOfTheMasterEnchanter:d666948e1ef633144a0d089a7c53bdfa",
+      "stackCount": 1,
+      "initialAmount": 1,
+      "minAmount": 0,
+      "maxAmount": 1,
+      "reassortAmount": 0,
+      "reassortRateType": "Day",
+      "reassortRateValue": 7,
+      "requiredFaction": "",
+      "factionStatus": "Indifference"
     }
   ],
   "guiPresentation": {
