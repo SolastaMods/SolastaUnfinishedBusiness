@@ -184,6 +184,7 @@ namespace SolastaCommunityExpansion.Builders
         private protected DefinitionBuilder(string name, Guid namespaceGuid) :
             this(name, null, namespaceGuid, true)
         {
+            IsNew = true;
         }
 
         /// <summary>
@@ -196,6 +197,7 @@ namespace SolastaCommunityExpansion.Builders
             this(name, definitionGuid, Guid.Empty, false)
         {
             Preconditions.IsNotNullOrWhiteSpace(definitionGuid, nameof(definitionGuid));
+            IsNew = true;
         }
 
         /// <summary>
@@ -214,6 +216,7 @@ namespace SolastaCommunityExpansion.Builders
             if (createGuiPresentation)
             {
                 Definition.GuiPresentation = GuiPresentationBuilder.Build(name, Category.CommunityExpansion);
+                IsNew = true;
             }
         }
 
@@ -343,6 +346,17 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         #endregion
+
+        /// <summary>
+        /// Indicates if 'true' it's a brand new definition, 'false' it's a copy of an existing definition.
+        /// </summary>
+        protected bool IsNew { get; }
+
+        /// <summary>
+        /// Implement in derived builders to enforce any require preconditions, values etc, e.g.
+        /// <code>Definition.EffectDescription = new ();</code>
+        /// </summary>
+        protected virtual void Initialise() { }
 
         /// <summary>
         /// Called before the definition is added to the databases.
@@ -552,29 +566,22 @@ namespace SolastaCommunityExpansion.Builders
     {
         // TODO: merge with base class?
 
-        /// <summary>
-        /// Indicates if 'true' it's a brand new definition, 'false' it's a copy of an existing definition.
-        /// </summary>
-        protected bool IsNew { get; }
-
-        /// <summary>
-        /// Implement in derived builders to enforce any require preconditions, values etc, e.g.
-        /// <code>Definition.EffectDescription = new ();</code>
-        /// </summary>
-        protected virtual void Initialise() { }
-
         // TODO: deprecate/remove this ctor
         private protected DefinitionBuilder(TDefinition original) : base(original) { }
 
-        // These three ctors IsNew = true
-        private protected DefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid) { IsNew = true; }
-        private protected DefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid) { IsNew = true; }
-        private protected DefinitionBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation) { IsNew = true; }
+        private protected DefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid) { }
+        private protected DefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid) { }
+        private protected DefinitionBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation) { }
 
-        // These three ctors IsNew = false
         private protected DefinitionBuilder(TDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation) { }
         private protected DefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid) { }
         private protected DefinitionBuilder(TDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid) { }
+
+        /// <summary>
+        /// Override this in a derived builder (and set to true) to disable the standard set of Create methods.
+        /// You must then provide your own specialized constructor and/or Create method.
+        /// </summary>
+        protected virtual bool DisableStandardCreateMethods => false;
 
         private static TBuilder CreateImpl(params object[] parameters)
         {
@@ -588,6 +595,11 @@ namespace SolastaCommunityExpansion.Builders
             }
 
             TBuilder builder = (TBuilder)ctor.Invoke(parameters);
+
+            if (builder.DisableStandardCreateMethods)
+            {
+                throw new SolastaModApiException($"Standard Create methods are disabled for builder {typeof(TBuilder).Name}.  Please use a specialized constructor or Create method.");
+            }
 
             builder.Initialise();
 
