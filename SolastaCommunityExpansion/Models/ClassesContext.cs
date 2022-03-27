@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text;
 using SolastaCommunityExpansion.Classes.Tinkerer;
+using SolastaCommunityExpansion.Classes.Warlock;
 using SolastaCommunityExpansion.Classes.Witch;
 using SolastaModApi.Extensions;
 
@@ -34,6 +35,7 @@ namespace SolastaCommunityExpansion.Models
         internal static void Load()
         {
             LoadClass(TinkererClass.BuildTinkererClass());
+            LoadClass(Warlock.BuildWarlockClass());
             LoadClass(Witch.Instance);
 
             if (Main.Settings.EnableSortingFutureFeatures)
