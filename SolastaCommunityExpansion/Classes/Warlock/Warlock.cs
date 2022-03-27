@@ -13,12 +13,6 @@ using static SolastaModApi.DatabaseHelper.ToolTypeDefinitions;
 using static SolastaCommunityExpansion.Builders.EquipmentOptionsBuilder;
 using static SolastaCommunityExpansion.Classes.Warlock.Features.WarlockFeatures;
 
-
-//******************************************************************************************
-//  DO NOT REFACTOR OR CHANGE WITHOUT TESTING OR TAKING RESPOSBILITY FOR CODE GOING FORWARD
-//******************************************************************************************
-
-
 namespace SolastaCommunityExpansion.Classes.Warlock
 {
     public static class Warlock
@@ -109,17 +103,18 @@ namespace SolastaCommunityExpansion.Classes.Warlock
             classWarlockCastSpell.SetGuiPresentation(new GuiPresentationBuilder(
                 "Feature/&ClassWarlockSpellcastingTitle",
                 "Feature/&ClassWarlockSpellcastingDescription").Build());
+
             classWarlockCastSpell.SetKnownCantrips(new List<int>
             {
                 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4
             });
+
             classWarlockCastSpell.SetKnownSpells(new List<int>
             {
                 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15
             });
 
-            // TODO: 
-            //classWarlockCastSpell.SetSlotsPerLevel(Multiclass.Models.SharedSpellsContext.WarlockCastingSlots);
+            classWarlockCastSpell.SetSlotsPerLevel(ClassWarlockSpellList.WarlockCastingSlots);
             classWarlockCastSpell.SetSlotsRecharge(RuleDefinitions.RechargeRate.ShortRest);
             classWarlockCastSpell.SetSpellCastingAbility(AttributeDefinitions.Charisma);
             classWarlockCastSpell.SetSpellCastingLevel(5);
@@ -129,8 +124,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock
             classWarlockCastSpell.SetSpellPreparationCount(RuleDefinitions.SpellPreparationCount.AbilityBonusPlusLevel);
             classWarlockCastSpell.SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown);
 
-            FeatureDefinitionClassWarlockCastSpell = classWarlockCastSpell.AddToDB();
-            
+            FeatureDefinitionClassWarlockCastSpell = classWarlockCastSpell.AddToDB();         
         }
 
 

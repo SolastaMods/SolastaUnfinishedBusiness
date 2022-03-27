@@ -3,18 +3,37 @@ using SolastaModApi.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Classes.Warlock.AHSpells;
 using System.Collections.Generic;
-using SolastaCommunityExpansion.Spells;
-
-
-//******************************************************************************************
-//  DO NOT REFACTOR OR CHANGE WITHOUT TESTING OR TAKING RESPOSBILITY FOR CODE GOING FORWARD
-//******************************************************************************************
+using static FeatureDefinitionCastSpell;
 
 namespace SolastaCommunityExpansion.Classes.Warlock
 {
     internal static class ClassWarlockSpellList
     {
-        public static SpellListDefinition WarlockSpellList;//{ get; private set; }
+        internal static readonly List<SlotsByLevelDuplet> WarlockCastingSlots = new()
+        {
+            new() { Slots = new List<int> { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, Level = 01 },
+            new() { Slots = new List<int> { 2, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, Level = 02 },
+            new() { Slots = new List<int> { 2, 2, 0, 0, 0, 0, 0, 0, 0, 0 }, Level = 03 },
+            new() { Slots = new List<int> { 2, 2, 0, 0, 0, 0, 0, 0, 0, 0 }, Level = 04 },
+            new() { Slots = new List<int> { 2, 2, 2, 0, 0, 0, 0, 0, 0, 0 }, Level = 05 },
+            new() { Slots = new List<int> { 2, 2, 2, 0, 0, 0, 0, 0, 0, 0 }, Level = 06 },
+            new() { Slots = new List<int> { 2, 2, 2, 2, 0, 0, 0, 0, 0, 0 }, Level = 07 },
+            new() { Slots = new List<int> { 2, 2, 2, 2, 0, 0, 0, 0, 0, 0 }, Level = 08 },
+            new() { Slots = new List<int> { 2, 2, 2, 2, 2, 0, 0, 0, 0, 0 }, Level = 09 },
+            new() { Slots = new List<int> { 2, 2, 2, 2, 2, 0, 0, 0, 0, 0 }, Level = 10 },
+            new() { Slots = new List<int> { 3, 3, 3, 3, 3, 1, 0, 0, 0, 0 }, Level = 11 },
+            new() { Slots = new List<int> { 3, 3, 3, 3, 3, 1, 0, 0, 0, 0 }, Level = 12 },
+            new() { Slots = new List<int> { 3, 3, 3, 3, 3, 1, 1, 0, 0, 0 }, Level = 13 },
+            new() { Slots = new List<int> { 3, 3, 3, 3, 3, 1, 1, 0, 0, 0 }, Level = 14 },
+            new() { Slots = new List<int> { 3, 3, 3, 3, 3, 1, 1, 1, 0, 0 }, Level = 15 },
+            new() { Slots = new List<int> { 3, 3, 3, 3, 3, 1, 1, 1, 0, 0 }, Level = 16 },
+            new() { Slots = new List<int> { 4, 4, 4, 4, 4, 1, 1, 1, 1, 0 }, Level = 17 },
+            new() { Slots = new List<int> { 4, 4, 4, 4, 4, 1, 1, 1, 1, 0 }, Level = 18 },
+            new() { Slots = new List<int> { 4, 4, 4, 4, 4, 1, 1, 1, 1, 0 }, Level = 19 },
+            new() { Slots = new List<int> { 4, 4, 4, 4, 4, 1, 1, 1, 1, 0 }, Level = 20 },
+        };
+
+        public static SpellListDefinition WarlockSpellList;
 
         public static void Build()
         {
@@ -156,9 +175,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock
             foreach (KeyValuePair<SpellDefinition, int> entry in dictionaryofSpells)
             {
                 if (entry.Key != null) WarlockSpellList.SpellsByLevel[entry.Value].Spells.Add(entry.Key);
-             }
-
-
+            }
         }
     }
 }
