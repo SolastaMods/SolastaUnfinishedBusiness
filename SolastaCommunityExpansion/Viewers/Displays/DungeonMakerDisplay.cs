@@ -11,7 +11,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             #region DungeonMaker
             UI.Label("");
-            UI.Label(". These 4 settings are safe to use as they don't require a player to have this mod installed");
+            UI.Label("Basic:".yellow());
+            UI.Label("");
+
+            UI.Label(". These 4 settings won't require the player to have this mod installed");
             UI.Label("");
 
             toggle = Main.Settings.AllowDungeonsMaxLevel20;
@@ -50,23 +53,27 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 return;
             }
 
-            UI.Label("ATTENTION:".bold().yellow());
-            UI.Label(". Any modded content used on a location will force the player to install this mod");
-            UI.Label(". Can be easily identified in the editor as asset labels are " + "yellow".yellow());
-            UI.Label(". Include flat rooms, 150x150 & 200x200 dungeon sizes and no frills mixing assets from all environments");
-            UI.Label(". You must have at least one outdoor room if you pick an outdoor environment");
+            UI.Label("Advanced:".yellow());
+
+            UI.Label("");
+            UI.Label(". ATTENTION:".bold().red() + " These 2 settings will require the player to have this mod installed");
             UI.Label("");
 
             toggle = Main.Settings.EnableDungeonMakerModdedContent;
-            if (UI.Toggle("Enable Dungeon Maker Pro " + "[MODDED CONTENT] ".italic().yellow() + RequiresRestart, ref toggle))
+            if (UI.Toggle("Enable Dungeon Maker Pro " 
+                + RequiresRestart
+                + "\n\ninclude flat rooms, 150x150 & 200x200 dungeon sizes and no frills mixing assets from all environments"
+                + "\nyou must have at least one outdoor room if you pick an outdoor environment", ref toggle))
             {
                 Main.Settings.EnableDungeonMakerModdedContent = toggle;
             }
 
             UI.Label("");
+            UI.Label("");
+            UI.Label("");
 
             toggle = Main.Settings.EnableExtraHighLevelMonsters;
-            if (UI.Toggle("Enable additional high level monsters (+20 CR) for tier 3 and 4 campaigns" + "[MODDED CONTENT] ".italic().yellow() + RequiresRestart, ref toggle))
+            if (UI.Toggle("Enable additional high level monsters (+20 CR) for tier 3 and 4 campaigns " + RequiresRestart, ref toggle))
             {
                 Main.Settings.EnableExtraHighLevelMonsters = toggle;
             }
