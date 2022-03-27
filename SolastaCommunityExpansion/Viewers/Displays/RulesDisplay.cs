@@ -40,12 +40,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 SrdAndHouseRulesContext.ApplyConditionBlindedShouldNotAllowOpportunityAttack();
             }
 
-            toggle = Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove;
-            if (UI.Toggle("Bestow Curse".orange() + " does not require concentration when cast with L5+ spell slot", ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove = toggle;
-            }
-
             UI.Label("");
 
             toggle = Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell;
@@ -55,17 +49,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 SrdAndHouseRulesContext.AllowTargetingSelectionWhenCastingChainLightningSpell();
             }
 
-            toggle = Main.Settings.FixSorcererTwinnedLogic;
-            if (UI.Toggle("Fix " + "Sorcerer".orange() + " twinned metamagic use " + "[a spell must be incapable of targeting more than one creature at the spell's current level]".italic().yellow(), ref toggle, UI.AutoWidth()))
+            toggle = Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove;
+            if (UI.Toggle("Bestow Curse".orange() + " does not require concentration when cast with L5+ spell slot", ref toggle, UI.AutoWidth()))
             {
-                Main.Settings.FixSorcererTwinnedLogic = toggle;
-            }
-
-            toggle = Main.Settings.FullyControlConjurations;
-            if (UI.Toggle("Fully control conjurations " + "[animals, elementals, etc]".italic().yellow(), ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.FullyControlConjurations = toggle;
-                ConjurationsContext.Load();
+                Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove = toggle;
             }
 
             toggle = Main.Settings.EnableUpcastConjureElementalAndFey;
@@ -83,6 +70,19 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 {
                     Main.Settings.OnlyShowMostPowerfulUpcastConjuredElementalOrFey = toggle;
                 }
+            }
+
+            toggle = Main.Settings.FixSorcererTwinnedLogic;
+            if (UI.Toggle("Fix " + "Sorcerer".orange() + " twinned metamagic use " + "[a spell must be incapable of targeting more than one creature at the spell's current level]".italic().yellow(), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.FixSorcererTwinnedLogic = toggle;
+            }
+
+            toggle = Main.Settings.FullyControlConjurations;
+            if (UI.Toggle("Fully control conjurations " + "[animals, elementals, etc]".italic().yellow(), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.FullyControlConjurations = toggle;
+                ConjurationsContext.Load();
             }
 
             UI.Label("");
