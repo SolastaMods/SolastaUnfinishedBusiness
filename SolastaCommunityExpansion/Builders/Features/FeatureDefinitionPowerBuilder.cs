@@ -70,13 +70,21 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
         #endregion
 
-        // Over specific method?
-        // TODO: split into smaller methods
-        public TBuilder Configure(
-            int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination, string usesAbilityScoreName,
-            RuleDefinitions.ActivationTime activationTime, int costPerUse, RuleDefinitions.RechargeRate recharge,
+        protected override void Initialise()
+        {
+            base.Initialise();
+
+            if (Definition.EffectDescription == null)
+            {
+                // The game throws an exception if there is no effect description.
+                Definition.SetEffectDescription(new EffectDescription());
+            }
+        }
+
+        public TBuilder Configure(int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination,
+            string usesAbilityScoreName, RuleDefinitions.ActivationTime activationTime, int costPerUse, RuleDefinitions.RechargeRate recharge,
             bool proficiencyBonusToAttack, bool abilityScoreBonusToAttack, string abilityScore,
-            EffectDescription effectDescription, bool uniqueInstance)
+            EffectDescription effectDescription)
         {
             Definition.SetFixedUsesPerRecharge(usesPerRecharge);
             Definition.SetUsesDetermination(usesDetermination);
@@ -88,7 +96,33 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetAbilityScoreBonusToAttack(abilityScoreBonusToAttack);
             Definition.SetAbilityScore(abilityScore);
             Definition.SetEffectDescription(effectDescription);
+
+            return This();
+        }
+
+        public TBuilder Configure(int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination,
+            string usesAbilityScoreName, RuleDefinitions.ActivationTime activationTime, int costPerUse, RuleDefinitions.RechargeRate recharge,
+            bool proficiencyBonusToAttack, bool abilityScoreBonusToAttack, string abilityScore,
+            EffectDescription effectDescription, FeatureDefinitionPower overridenPower)
+        {
+            Configure(usesPerRecharge, usesDetermination, usesAbilityScoreName, activationTime, costPerUse,
+                recharge, proficiencyBonusToAttack, abilityScoreBonusToAttack, abilityScore, effectDescription);
+
+            Definition.SetOverriddenPower(overridenPower);
+
+            return This();
+        }
+
+        public TBuilder Configure(int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination,
+            string usesAbilityScoreName, RuleDefinitions.ActivationTime activationTime, int costPerUse, RuleDefinitions.RechargeRate recharge,
+            bool proficiencyBonusToAttack, bool abilityScoreBonusToAttack, string abilityScore,
+            EffectDescription effectDescription, bool uniqueInstance)
+        {
+            Configure(usesPerRecharge, usesDetermination, usesAbilityScoreName, activationTime, costPerUse,
+                recharge, proficiencyBonusToAttack, abilityScoreBonusToAttack, abilityScore, effectDescription);
+
             Definition.SetUniqueInstance(uniqueInstance);
+
             return This();
         }
 
@@ -155,7 +189,7 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetRechargeRate(rate);
             return This();
         }
-        
+
         public TBuilder SetSpellCastingFeature(FeatureDefinitionCastSpell spellFeature)
         {
             Definition.SetSpellcastingFeature(spellFeature);
@@ -172,6 +206,18 @@ namespace SolastaCommunityExpansion.Builders.Features
         public TBuilder SetUsesProficiency()
         {
             Definition.SetUsesDetermination(RuleDefinitions.UsesDetermination.ProficiencyBonus);
+            return This();
+        }
+
+        public TBuilder SetAbilityScore(string abilityScoreName)
+        {
+            Definition.SetAbilityScore(abilityScoreName);
+            return This();
+        }
+
+        public TBuilder SetUsesAbilityScoreName(string abilityScoreName)
+        {
+            Definition.SetUsesAbilityScoreName(abilityScoreName);
             return This();
         }
 

@@ -182,6 +182,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 "Subclass/&EquipmentModifierArtificerBagOfHolderTitle",
                 "Subclass/&EquipmentModifierArtificerBagOfHolderDescription");
             bagOfHoldingConditionGui.SetSpriteReference(ConditionDefinitions.ConditionBullsStrength.GuiPresentation.SpriteReference);
+
             ConditionDefinition bagOfHoldingCondition = BuildCondition(new List<FeatureDefinition>() {
                     BuildEquipmentAffinity(1.0f, 500.0f, "InfusionBagOfHolding", bagOfHoldingConditionGui.Build())
                     }, RuleDefinitions.DurationType.UntilLongRest, 1, false, "ArtificerInfusedConditionBagOfHolding", bagOfHoldingConditionGui.Build());
