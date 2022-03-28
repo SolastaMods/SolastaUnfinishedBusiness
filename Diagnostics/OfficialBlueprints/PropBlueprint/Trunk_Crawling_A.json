@@ -29,7 +29,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Prop/&Trunk_CrawlingTitle",
-    "description": "",
+    "description": "Prop/&Trunk_CrawlingDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "2de36dfb73aee454c8c88ad3fc7f81ae",

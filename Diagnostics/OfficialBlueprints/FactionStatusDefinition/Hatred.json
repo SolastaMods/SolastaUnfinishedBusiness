@@ -4,6 +4,8 @@
   "combatSide": "Enemy",
   "explorationSide": "Enemy",
   "merchantRebatePercent": 0,
+  "automaticallyFailsFactionQuests": true,
+  "automaticallyFailThreshold": -69,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

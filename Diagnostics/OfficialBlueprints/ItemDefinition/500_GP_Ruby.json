@@ -181,8 +181,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Equipment/&GemDiamondTitle",
-    "description": "Equipment/&Gem500GPDiamongDescription",
+    "title": "Equipment/&RawBlueDiamond_Title",
+    "description": "Equipment/&RawBlueDiamond_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "943c41817c765634abb911067647dbba",

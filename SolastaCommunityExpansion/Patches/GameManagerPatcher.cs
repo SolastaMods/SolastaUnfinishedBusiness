@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
-using SolastaCommunityExpansion.Multiclass.Models;
 using UnityModManagerNet;
 #if DEBUG
 using SolastaCommunityExpansion.Patches.Diagnostic;
@@ -53,7 +52,6 @@ namespace SolastaCommunityExpansion.Patches
 
             RemoveBugVisualModelsContext.Load();
             RemoveIdentificationContext.Load();
-            LevelDownContext.Load();
             RespecContext.Load();
 
             // There are spells that rely on new monster definitions with powers loaded during the PowersContext. So spells should get added to db after powers.
@@ -67,6 +65,8 @@ namespace SolastaCommunityExpansion.Patches
 
             // Subclasses may rely on classes being loaded (as well as spells and powers) in order to properly refer back to the class.
             SubclassesContext.Load();
+
+            MonsterContext.AddNewMonsters();
 
             ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += (_) =>
             {
@@ -82,13 +82,6 @@ namespace SolastaCommunityExpansion.Patches
 
                 // Spells context needs character classes (specifically spell lists) in the db in order to do it's work.
                 SpellsContext.Load();
-
-                // Multiclass
-                CacheSpellsContext.Load();
-                IntegrationContext.Load();
-                InspectionPanelContext.Load();
-                LevelUpContext.Load();
-                SharedSpellsContext.Load();
 
                 // Save by location initialization depends on services to be ready
                 SaveByLocationContext.Load();

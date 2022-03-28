@@ -136,7 +136,7 @@
                 "boolSecParameter": false,
                 "boolTerParameter": false
               },
-              "name": "PenalizeDangerousCell"
+              "name": "PenalizeDangerousCellStrongly"
             },
             "weight": 1.0
           },

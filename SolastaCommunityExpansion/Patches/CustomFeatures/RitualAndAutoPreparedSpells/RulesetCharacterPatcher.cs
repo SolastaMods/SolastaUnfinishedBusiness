@@ -1,8 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
-using SolastaCommunityExpansion.CustomFeatureDefinitions;
-using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.RitualAndAutoPreparedSpells
 {

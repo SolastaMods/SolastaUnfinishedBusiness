@@ -5,6 +5,7 @@
   "condition": "HasAttunableItem",
   "functor": "AttuneItem",
   "stringParameter": "",
+  "checkConsciousness": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

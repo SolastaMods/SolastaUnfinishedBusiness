@@ -28,7 +28,7 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:DLC1_Equipment_Quest_Valley_Beetle_Key_01:a58df407c4d8ff14c8bb28afbde98eee",
-      "treasureTableDefinition": "Definition:RandomTreasureTableB_Consumables:bcfabde319a2a4442818ccdf89636537"
+      "treasureTableDefinition": "Definition:RandomTreasureTableC_MagicWeapons_01:899f27adade34fa4292b5be64d74f2e2"
     },
     {
       "$type": "ItemOccurence, Assembly-CSharp",

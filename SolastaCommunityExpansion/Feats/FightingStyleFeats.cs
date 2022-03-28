@@ -54,7 +54,7 @@ namespace SolastaCommunityExpansion.Feats
                         .SetGuiPresentation(fightingStyle.GuiPresentation)
                         .AddToDB()
             )
-            .SetGuiPresentation(fightingStyle.GuiPresentation)
+            .SetGuiPresentation(Category.Feat)
             .AddToDB();
         }
     }

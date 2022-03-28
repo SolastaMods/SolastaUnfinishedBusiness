@@ -67,6 +67,10 @@ Condition/&ConditionMarkedByArcanistDescription	Afligido pela Marca do Arcanista
 Condition/&ConditionMarkedByArcanistTitle	Marca do Arcanista
 Condition/&ConditionSuperiorBarkWardDescription	Os espíritos da floresta garantem imunidade a venenos e causam 3d8 de dano perfurante a atacantes corpo a corpo.
 Condition/&ConditionSuperiorBarkWardTitle	Ala do Latido Superior
+Condition/&DH_ReverseGravity_Spell_Description	Gravidade reversa
+Condition/&DH_ReverseGravity_Spell_Title	Gravidade reversa
+Condition/&DH_TimeStop_Spell_Description	Congelado por Parada de Tempo
+Condition/&DH_TimeStop_Spell_Title	Congelado por Parada de Tempo
 Condition/&DHFeeblemindSpellDescription	Os valores de Inteligência e Carisma da criatura se tornam 1. A criatura não pode lançar feitiços, ativar itens mágicos, entender linguagem ou se comunicar de qualquer maneira inteligível
 Condition/&DHFeeblemindSpellTitle	Mente fraca
 Condition/&DHForesightSpellDescription	vantagem em jogadas de ataque, testes de habilidade e testes de resistência. Além disso, outras criaturas têm desvantagem nas jogadas de ataque
@@ -89,6 +93,8 @@ Condition/&HelpActionDescription	Esta criatura foi distraída.
 Condition/&HelpActionTitle	Distraído
 Condition/&RuinedDescription	A defesa desta criatura é reduzida.
 Condition/&RuinedTitle	Arruinado
+ContentPack/&CommunityExpansionPackDescription	O pacote de expansão da comunidade adiciona novas classes, subclasses, talentos e feitiços. Há um limite de nível mais alto, multiclasse, recursos de QOL, correções de bugs e muito mais. É um verdadeiro Horn of Plenty (TM)...
+ContentPack/&CommunityExpansionPackTitle	Pacote de Expansão da Comunidade
 CraftyFeats/&ApothecaryIntFeatDescription	+1 de Inteligência, Proficiência ou Perícia com Kit de Herbalismo e Arcana
 CraftyFeats/&ApothecaryIntFeatTitle	Boticário (Inteligência)
 CraftyFeats/&ApothecaryWisFeatDescription	+1 Sabedoria, Proficiência ou Perícia com Kit de Herbalismo e Medicina
@@ -355,10 +361,10 @@ Feat/&ArtilleristSubclassSpellsTitle	Aprenda feitiços de blaster
 Feat/&ArtilleryConstructDescription	Pode danificar ou proteger aliados
 Feat/&ArtilleryConstructLevel03AutopreparedSpellsDescription	Truques: Construir Remendar, Construir Dispensar\nNível 1: Retomar Construto de Artilharia
 Feat/&ArtilleryConstructLevel03AutopreparedSpellsTitle	Construir Feitiços
-Feat/&ArtilleryConstructLevel09AutopreparedSpellsDescription	VAZIO
-Feat/&ArtilleryConstructLevel09AutopreparedSpellsTitle	VAZIO
-Feat/&ArtilleryConstructLevel15AutopreparedSpellsDescription	VAZIO
-Feat/&ArtilleryConstructLevel15AutopreparedSpellsTitle	VAZIO
+Feat/&ArtilleryConstructLevel09AutopreparedSpellsDescription	
+Feat/&ArtilleryConstructLevel09AutopreparedSpellsTitle	
+Feat/&ArtilleryConstructLevel15AutopreparedSpellsDescription	
+Feat/&ArtilleryConstructLevel15AutopreparedSpellsTitle	
 Feat/&ArtilleryConstructTitle	Construção de Artilharia
 Feat/&ArtilleryConstructTitle_3	Construção de Artilharia
 Feat/&ArtilleryConstructTitle_5	Construção de Artilharia
@@ -372,11 +378,11 @@ Feat/&BattleSmithSubclassSpellsDescription	Nível 3: Escudo, Heroísmo, Marca do
 Feat/&BattleSmithSubclassSpellsTitle	Aprenda feitiços de ferreiro de arma
 Feat/&CancelFlyingConditionDescription	Acabar com a condição de voo para permitir saltar e rastejar.
 Feat/&CancelFlyingConditionTitle	Cancelar voo
-Feat/&ChefConDescription	Você ganha +1 em Constituição. Gaste 1 hora para cozinhar uma refeição para curar você e seus companheiros 1d8. Uma vez por dia você pode gastar uma hora para cozinhar guloseimas que fornecem HP temporário quando comidas.
+Feat/&ChefConDescription	Você ganha +1 em Constituição. Gaste 1 hora para cozinhar uma refeição para curar você e seus companheiros 1d8. Uma vez por dia, você pode gastar uma hora para cozinhar guloseimas que fornecem HP temporário quando ingeridas.
 Feat/&ChefConTitle	Chefe (Constituição)
 Feat/&ChefShortRestFeastDescription	Gaste 1 hora para preparar uma refeição que ajude a curar você e seus companheiros 1d8.
 Feat/&ChefShortRestFeastTitle	Refeição de Descanso Curto
-Feat/&ChefWisDescription	Você ganha +1 em Sabedoria. Gaste 1 hora para cozinhar uma refeição para curar você e seus companheiros. Uma vez por dia você pode gastar uma hora para cozinhar guloseimas que fornecem HP temporário quando comidas.
+Feat/&ChefWisDescription	Você ganha +1 em Sabedoria. Gaste 1 hora para cozinhar uma refeição para curar você e seus companheiros. Uma vez por dia, você pode gastar uma hora para cozinhar guloseimas que fornecem HP temporário quando ingeridas.
 Feat/&ChefWisTitle	Chef (Sabedoria)
 Feat/&ConstructSelectingPoolDescription	Selecione o modo para o seu Construct
 Feat/&ConstructSelectingPoolTitle	Modo Artilharia
@@ -386,8 +392,20 @@ Feat/&DualFlurryDescription	Você é um mestre da luta com armas emparelhadas. E
 Feat/&DualFlurryTitle	Dupla rajada
 Feat/&ExtraInfusionSlotsDescription	Você ganha slots de infusão extras, deve ser usado em armaduras/armas
 Feat/&ExtraInfusionSlotsTitle	Infusões extras
+Feat/&FeatArcaneDefenseDescription	Aumente sua Inteligência em 1, até um máximo de 20.\nEnquanto você não estiver usando nenhuma armadura, sua CA é igual a 10 + seu modificador de Inteligência.
+Feat/&FeatArcaneDefenseTitle	Defesa Arcana
+Feat/&FeatArcanePrecisionDescription	Quando ativo em uma arma, seus ataques contam como Mágicos e você usa sua inteligência para suas jogadas de ataque e dano. Tem duração de 1 minuto e pode ser usado duas vezes antes de um descanso longo.
+Feat/&FeatArcanePrecisionTitle	Precisão Arcana
+Feat/&FeatBlindFightingStlyeDescription	Você tem visão às cegas com alcance de 3 metros.
+Feat/&FeatBlindFightingStlyeTitle	Estilo de luta: Luta às cegas
+Feat/&FeatBrutalThugDescription	Você acerta golpes poderosos nos lugares certos.\nVocê pode atacar furtivamente com armas marciais e obter mais proficiência em armas.
+Feat/&FeatBrutalThugTitle	bandido brutal
 Feat/&FeatChaIncrementDescription	+1 Carisma
 Feat/&FeatChaIncrementTitle	Aumento do Atributo Carisma
+Feat/&FeatCharismaticDefenseDescription	Aumente seu Carisma em 1, até um máximo de 20.\nEnquanto você não estiver usando nenhuma armadura, sua CA é igual a 10 + seu modificador de Carisma.
+Feat/&FeatCharismaticDefenseTitle	Defesa Carismática
+Feat/&FeatCharismaticPrecisionDescription	Quando ativo em uma arma, seus ataques contam como Mágicos e você usa seu carisma para suas jogadas de ataque e dano. Tem duração de 1 minuto e pode ser usado duas vezes antes de um descanso longo.
+Feat/&FeatCharismaticPrecisionTitle	Precisão Carismática
 Feat/&FeatChefConIncrementDescription	+1 Constituição
 Feat/&FeatChefConIncrementTitle	Aumento de atributo
 Feat/&FeatChefWisIncrementDescription	+1 Sabedoria
@@ -400,6 +418,10 @@ Feat/&FeatFeyTeleportationIntDescription	Aumente o atributo Inteligência em 1. 
 Feat/&FeatFeyTeleportationIntTitle	Teletransporte Fey (Inteligência)
 Feat/&FeatFeyTeleportationWisDescription	Aumente o atributo Sabedoria em 1. Ganhe a habilidade de Passo Nebuloso uma vez por descanso curto e aprenda o feitiço. Ganhe proficiência em Tirmarian.
 Feat/&FeatFeyTeleportationWisTitle	Teletransporte Fey (Sabedoria)
+Feat/&FeatFightingSurgeDexterityDescription	Aumente sua Destreza em 1, até um máximo de 20.\nNo seu turno, você pode realizar uma ação adicional além da sua ação normal e uma possível ação bônus. Depois de usar esse recurso, você deve terminar um descanso longo antes de poder usá-lo novamente.
+Feat/&FeatFightingSurgeDexterityTitle	Surto de Combate (Destreza)
+Feat/&FeatFightingSurgeStrengthDescription	Aumente sua Força em 1, até um máximo de 20.\nNo seu turno, você pode realizar uma ação adicional além da sua ação normal e uma possível ação bônus. Depois de usar esse recurso, você deve terminar um descanso longo antes de poder usá-lo novamente.
+Feat/&FeatFightingSurgeStrengthTitle	Surto de Combate (Força)
 Feat/&FeatHeavyArmorMasterClassDescription	Resistência a dano de Concussão, Corte e Perfuração.
 Feat/&FeatHeavyArmorMasterClassTitle	Maestria em Defesa Pesada
 Feat/&FeatImprovedCriticalDescription	Seus ataques são acertos críticos em uma rolagem de 19 ou 20.
@@ -416,6 +438,26 @@ Feat/&FeatMediumArmorProficiencyDescription	Ganhe proficiência com armaduras e 
 Feat/&FeatMediumArmorProficiencyTitle	Armadura Média
 Feat/&FeatMediumArmorStrengthDescription	Ganhe proficiência com armadura e escudos médios e +1 de força
 Feat/&FeatMediumArmorStrengthTitle	Armadura Média (Força)
+Feat/&FeatMetamagicAdeptCarefulDescription	Aumente seu Carisma em 1, até um máximo de 20.\nVocê aprende a metamágica Cuidadosa e ganha 2 pontos de feitiçaria.
+Feat/&FeatMetamagicAdeptCarefulTitle	Metamágica: Cuidado
+Feat/&FeatMetamagicAdeptDistantDescription	Aumente seu Carisma em 1, até um máximo de 20.\nVocê aprende a metamágica Distante e ganha 2 pontos de feitiçaria.
+Feat/&FeatMetamagicAdeptDistantTitle	Metamágica: Distante
+Feat/&FeatMetamagicAdeptEmpoweredDescription	Aumente seu Carisma em 1, até um máximo de 20.\nVocê aprende a metamágica Emporewed e ganha 2 pontos de feitiçaria.
+Feat/&FeatMetamagicAdeptEmpoweredTitle	Metamágica: Empoderada
+Feat/&FeatMetamagicAdeptExtendedDescription	Aumente seu Carisma em 1, até um máximo de 20.\nVocê aprende a metamagia Estendida e ganha 2 pontos de feitiçaria.
+Feat/&FeatMetamagicAdeptExtendedTitle	Metamágica: Estendida
+Feat/&FeatMetamagicAdeptHeightenedDescription	Você aprende a metamágica Aprimorada e ganha 4 pontos de feitiçaria.
+Feat/&FeatMetamagicAdeptHeightenedTitle	Metamágica: Aumentada
+Feat/&FeatMetamagicAdeptQuickenedDescription	Aumente seu Carisma em 1, até um máximo de 20.\nVocê aprende a metamágica Quickned e ganha 2 pontos de feitiçaria.
+Feat/&FeatMetamagicAdeptQuickenedTitle	Metamágica: Acelerada
+Feat/&FeatMetamagicAdeptTwinnedDescription	Aumente seu Carisma em 1, até um máximo de 20.\nVocê aprende a metamágica Geminada e ganha 2 pontos de feitiçaria.
+Feat/&FeatMetamagicAdeptTwinnedTitle	Metamágica: Geminada
+Feat/&FeatPrimalConstitutionDescription	Aumente sua Constituição em 1, até um máximo de 20.\nVocê pode inserir uma fúria como uma ação bônus conforme definido na característica de classe de fúria do Bárbaro com +1 de dano de fúria que pode acumular com a fúria do Bárbaro. Uma vez que você se enfureça dessa maneira, você deve terminar um descanso longo antes de usar esse recurso novamente.\nEnquanto você não estiver usando nenhuma armadura, sua CA é igual a 10 + seu modificador de Constituição.
+Feat/&FeatPrimalConstitutionTitle	Fúria Primal (Constituição)
+Feat/&FeatPrimalStrengthDescription	Aumente sua Força em 1, até um máximo de 20.\nVocê pode inserir uma fúria como uma ação bônus conforme definido na característica de classe de fúria do Bárbaro com +1 de dano de fúria que pode acumular com a fúria do Bárbaro. Uma vez que você se enfureça dessa maneira, você deve terminar um descanso longo antes de usar esse recurso novamente.\nEnquanto você não estiver usando nenhuma armadura, sua CA é igual a 10 + seu modificador de Constituição.
+Feat/&FeatPrimalStrengthTitle	Fúria Primal (Força)
+Feat/&FeatPugilistFightingStlyeDescription	Enquanto você estiver completamente desarmado, seus ataques desarmados causam um d8 adicional de dano e você pode socar com sua mão secundária como uma ação bônus.
+Feat/&FeatPugilistFightingStlyeTitle	Estilo de luta: Pugilista
 Feat/&FeatSavageAttackerDescription	Rerrole os dados de dano de arma e feitiço quando rolam 1 (não rola novamente todas as fontes de dano, por exemplo, exclui Ataque Furtivo e Golpear).
 Feat/&FeatSavageAttackerReroll	Por ser um Atacante Selvagem, {0} rola novamente o dado {1} de um {2} para um {3}
 Feat/&FeatSavageAttackerTitle	Atacante Selvagem
@@ -425,6 +467,8 @@ Feat/&FeatShadowTouchedIntDescription	Aumente o atributo Inteligência em 1. Gan
 Feat/&FeatShadowTouchedIntTitle	Sombra Tocada (Inteligência)
 Feat/&FeatShadowTouchedWisDescription	Aumente o atributo Sabedoria em 1. Ganhe a habilidade de lançar Invisibilidade, Infligir Ferimentos e Vida Falsa uma vez por descanso longo e aprenda os feitiços.
 Feat/&FeatShadowTouchedWisTitle	Sombra Tocada (Sabedoria)
+Feat/&FeatShadyDescription	Aumente sua Destreza em 1, até um máximo de 20.\nUma vez por turno, você pode causar 1d6 de dano extra a uma criatura que você acertar com um ataque que atenda ao Ataque Furtivo do Ladino. No 12º nível este dano aumenta para 2d6 e no 20º nível para 4d6. Isso pode acumular com o ataque furtivo de Rogue.
+Feat/&FeatShadyTitle	Sombrio
 Feat/&FeatStrengthIncrementDescription	+1 Força
 Feat/&FeatStrengthIncrementTitle	Aumento de atributo
 Feat/&FeatTelekineticChaDescription	Aumente o atributo Carisma em 1. Ganhe uma habilidade de ação bônus para empurrar ou puxar criaturas.
@@ -449,6 +493,10 @@ Feat/&FeatToughDescription	Seu máximo de pontos de vida aumenta em uma quantida
 Feat/&FeatToughTitle	Difícil
 Feat/&FeatWarCasterDescription	Você ganha vantagem em testes para manter a concentração. Você ganha a habilidade de realizar o componente somático de feitiços mesmo com as mãos cheias. Você ganha +2 nas jogadas de ataque de magia.
 Feat/&FeatWarCasterTitle	Conjurador de Guerra
+Feat/&FeatWiseDefenseDescription	Aumente sua Sabedoria em 1, até um máximo de 20.\nEnquanto você não estiver usando nenhuma armadura, sua CA é igual a 10 + seu modificador de Sabedoria.
+Feat/&FeatWiseDefenseTitle	Defesa Sábia
+Feat/&FeatWisePrecisionDescription	Quando ativo em uma arma, seus ataques contam como Mágicos e você usa sua sabedoria para suas jogadas de ataque e dano. Tem duração de 1 minuto e pode ser usado duas vezes antes de um descanso longo.
+Feat/&FeatWisePrecisionTitle	Sábia Precisão
 Feat/&FeatWisIncrementDescription	+1 Sabedoria
 Feat/&FeatWisIncrementTitle	Aumento de Atributo de Sabedoria
 Feat/&FeyTeleportationLanguageTirmarianDescription	Ganhe proficiência em Tirmarian.
@@ -480,7 +528,7 @@ Feat/&ForceArtillery_2Description	3D8 Dano de força e empurra o alvo 5 pés
 Feat/&ForceArtillery_2Title	Artilharia da Força (Aprimorado)
 Feat/&ForceArtilleryAdditionalDamageDescription	A construção atualizada causa 1D8 a mais de dano por acerto
 Feat/&ForceArtilleryConstructDescription	Causa 2D8 de dano de força e empurra o inimigo 1,5 metro para longe do Constructo.
-Feat/&ForceArtilleryConstructDescription_3	Causa 3D8 de dano de força e empurra o inimigo 1,5 metro para longe do Constructo.
+Feat/&ForceArtilleryConstructDescription_3	Causa 3D8 de dano de força e empurra o inimigo 5 pés para longe do Construct.
 Feat/&ForceArtilleryConstructTitle	Força Artilharia Construída
 Feat/&ForceArtilleryConstructTitle_3	Força Artilharia Construída
 Feat/&ForceArtilleryConstructTitle_5	Força Artilharia Construída
@@ -552,13 +600,13 @@ Feat/&ResummonArtilleryConstructDescription	Este feitiço permite que o funileir
 Feat/&RetributionDescription	Dano de construção 1D4 + Int quando atacado
 Feat/&RetributionTitle	Retribuição
 Feat/&ScoutSentinelFeatureSet_level03Description	<size=17><color=#add8e6ff>Aprenda os Feitiços de Sentinela de Escoteiro</color></size>\nNível 3: Míssil Mágico, Thunderwave\nNível 5: Blur, Shatter\nNível 9: Relâmpago, Padrão Hipnótico\nNível 13: Escudo de Fogo, Maior Invisibilidade\nNível 17: Porta Dimensional, Muralha de Vento, Muralha de Fogo\n\n<size=17><color=#add8e6ff>Várias funções de armadura</color></size>\nVocê pode alternar entre os modos de função uma vez por dia criando e usando armas temporárias\n\n<size=17><color=#add8e6ff>Modo Sentinela</color></size>\nGanhe um número limitado de HP temporário com base no nível. Impor desvantagem em inimigos atacando aliados\n\n<size=17><color=#add8e6ff>Modo Explorador</color></size>\nGanhe movimento aumentado, vantagem furtiva e um ataque à distância que causa um dado extra de dano uma vez por turno.\n\n<size=17><color=#add8e6ff>Recursos</color></size>\nVocê pode usar as armas da armadura como um foco de conjuração para seus feitiços\nArmadura Pesada não tem um requisito de força\nVocê ganha proficiência em ferramentas de ferreiro e armaduras pesadas
-Feat/&ScoutSentinelFeatureSet_level03Title	VAZIO
+Feat/&ScoutSentinelFeatureSet_level03Title	
 Feat/&ScoutSentinelFeatureSet_level05Description	<size=17><color=#add8e6ff>Ataque Extra</color></size>\nVocê pode atacar mais uma vez, por turno de combate, quando usar as ações de ataque ou empurrão
-Feat/&ScoutSentinelFeatureSet_level05Title	VAZIO
+Feat/&ScoutSentinelFeatureSet_level05Title	
 Feat/&ScoutSentinelFeatureSet_level09Description	<size=17><color=#add8e6ff>Slots de infusão extra</color></size>\nVocê ganha slots de infusão extras, deve ser usado em armaduras
-Feat/&ScoutSentinelFeatureSet_level09Title	VAZIO
+Feat/&ScoutSentinelFeatureSet_level09Title	
 Feat/&ScoutSentinelFeatureSet_level15Description	<size=17><color=#add8e6ff>Modo Sentinela Aprimorado</color></size>\nAgora pode puxar os inimigos para o alcance corpo a corpo com uma ação bônus e causar 1D8 de dano trovejante através do poder Gauntlet Grapple\n\n<size=17><color=#add8e6ff>Modo Explorador Aprimorado</color></size>\nAgora pode criar vantagem para aliados e desvantagem para inimigos com um único ataque
-Feat/&ScoutSentinelFeatureSet_level15Title	VAZIO
+Feat/&ScoutSentinelFeatureSet_level15Title	
 Feat/&SelfDestructDescription	Autodestruir e forçar um teste de resistência de Dex para 3D8 de dano de força dentro de 10 pés
 Feat/&SelfDestructTitle	Auto-destruição
 Feat/&SelfRepairDescription	Cure 2D8 HP, 3 vezes por dia
@@ -594,6 +642,8 @@ Feat/&UsingitemPowerDescription	Permite que o poder da arma seja usado na ação
 Feat/&UsingitemPowerTitle	Usar o poder da arma
 Feature/&AdditionalActionDualFlurryDescription	Você pode fazer um ataque adicional com a mão inábil.
 Feature/&AdditionalActionDualFlurryTitle	Turbilhão duplo!
+Feature/&AdditionalDamageFeatShadySneakAttackDescription	Uma vez por turno, você pode causar 1d6 de dano extra a uma criatura que você acertar com um ataque que atenda ao Ataque Furtivo do Ladino. No 7º nível este dano aumenta para 2d6 e no 14º nível para 3d6. Isso pode acumular com o ataque furtivo de Rogue.
+Feature/&AdditionalDamageFeatShadySneakAttackTitle	Ataque sorrateiro
 Feature/&AlwaysBeardDescription	{0}% de chances de crescer uma barba gloriosa!
 Feature/&ArcaneDetonationDescription	Quando você atinge uma criatura que tem sua Marca do Arcanista com um ataque com arma, a marca detona, causando 1d6 de dano de força e destruindo a marca.
 Feature/&ArcaneDetonationTitle	Detonação Arcana
@@ -612,6 +662,16 @@ Feature/&BarbarianIndomitableMightTitle	Força Indomável
 Feature/&BardSkillsTitle	Habilidades de Bardo
 Feature/&CounterStrikePowerDescription	Gaste um dado de jogada e faça um Counter Strike no inimigo, se você acertar, cause 1d6+2 de dano de concussão adicional.
 Feature/&CounterStrikePowerTitle	Contra-ataque
+Feature/&DH_AirTitan_LightningStorm_Custom_Power_Description	6d8 Raio em área ampla
+Feature/&DH_AirTitan_LightningStorm_Custom_Power_Title	Tempestade Relâmpago
+Feature/&DH_AtWill_Fireball_Power_Description	Bola de fogo à vontade
+Feature/&DH_AtWill_Fireball_Power_Title	Bola fogo
+Feature/&DH_AtWill_HoldMonster_Power_Description	3 usos por dia
+Feature/&DH_AtWill_HoldMonster_Power_Title	Segure Monstro
+Feature/&DH_AtWill_Invisibility_Power_Description	Invisibilidade à vontade
+Feature/&DH_AtWill_Invisibility_Power_Title	Invisibilidade
+Feature/&DH_Generic_Lightning_Attack_Custom_Power_Description	12D8
+Feature/&DH_Generic_Lightning_Attack_Custom_Power_Title	Relâmpago
 Feature/&DHHolyAuraBlindingPowerDescription	Quando um demônio ou um morto-vivo atinge uma criatura afetada com um ataque corpo a corpo, a aura pisca com uma luz brilhante. O atacante deve ter sucesso em um teste de resistência de Constituição ou ficará cego até que a magia termine
 Feature/&DHHolyAuraBlindingPowerTitle	Retaliação da Aura Sagrada
 Feature/&DruidForestGuardianBarkWardDescription	Você ganha a habilidade de invocar um Bark Ward para protegê-lo. Como uma ação bônus, você pode gastar o uso de sua Forma Selvagem para ganhar 5 pontos de vida temporários para cada nível que você possui nesta classe. Esses pontos de vida temporários duram 10 minutos ou até você usar sua Forma Selvagem novamente.
@@ -723,7 +783,7 @@ Feature/&SentinelModePowerDescription	Ganhe um número limitado de TempHP com ba
 Feature/&SentinelModePowerTitle	Modo Sentinela
 Feature/&TempHPShield_09ModePowerDescription	Evoca uma construção que dura 1 hora.\nProtecting Dome: Concede 1D8 + 4 HP temporário para aliados dentro de 10 pés.\nAutodestruição: causa 3D8 de dano de força em uma falha na resistência e destrói a unidade.
 Feature/&TempHPShield_09ModePowerTitle	Invocar Construção de Cúpula Protetora
-Feature/&TempHPShield_15ModePowerDescription	Evoca uma construção que dura 1 hora.\nProtecting Dome: Concede 1D8 + 4 HP temporário para aliados dentro de 10 pés.\nAutodestruição: causa 3D8 de dano de força em uma falha na resistência e destrói a unidade.\n Meia Cobertura Dome: Fornece meia cobertura aos aliados dentro de 10 pés.
+Feature/&TempHPShield_15ModePowerDescription	Evoca uma construção que dura 1 hora.\nProtecting Dome: Concede 1D8 + 4 HP temporário para aliados dentro de 10 pés.\nAutodestruição: causa 3D8 de dano de força em uma falha na resistência e destrói a unidade.\n Meia Cobertura Dome : Fornece meia cobertura aos aliados dentro de 10 pés.
 Feature/&TempHPShield_15ModePowerTitle	Invocar Construção de Cúpula Protetora
 Feature/&TempHPShieldModePowerDescription	Evoca uma construção que dura 1 hora.\nProtecting Dome: Concede 1D8 + 4 HP temporário para aliados dentro de 10 pés.
 Feature/&TempHPShieldModePowerTitle	Invocar Construção de Cúpula Protetora
@@ -772,33 +832,234 @@ FlexibleRaces/&PointPoolAbilityScore3Description	Use três reforços nos valores
 FlexibleRaces/&PointPoolAbilityScore3Title	Aumento de pontuação de habilidade
 FlexibleRaces/&PointPoolAbilityScore4Description	Use quatro reforços nos valores de habilidade em qualquer combinação de sua escolha.
 FlexibleRaces/&PointPoolAbilityScore4Title	Aumento de pontuação de habilidade
-Format/&LevelAndExperienceFormat	Nível: {0}\nExperiência: {1}\n{2} pontos necessários para atingir o nível {3}
-Format/&LevelAndExperienceMaxedFormat	Nível: {0}\nExperiência: {1}\nnível máximo atingido.
-MainMenu/&ExportPdfDescription	Nivele o personagem selecionado
-MainMenu/&ExportPdfTitle	Nível baixo
 Message/&CharacterExportDuplicateNameErrorDescription	Exportação cancelada:\n\nUm herói com esse nome já existe no pool.\nPor favor, tente um nome diferente.
-Message/&CharacterExportEmptyNameErrorDescription	Exportação cancelada:\n\nTente um nome não vazio.
+Message/&CharacterExportEmptyNameErrorDescription	Exportação cancelada:\n\nTente um nome não .
 Message/&CharacterExportModalContentDescription	Digite o nome do herói para exportar:
 Message/&CharacterExportModalTitleDescription	Exportação de caracteres
+Message/&MessageModWelcomeDescription	O Community Expansion Mod está repleto de recursos interessantes, mas, por padrão, nenhum está ativado. Pressione <color=yellow>Ctrl-F10</color> para abrir a interface do usuário do Unity Mod Manager [UMM] e clique no ícone de configurações ao lado de 'Expansão da comunidade' para abrir as páginas de configurações.\n\n  Explore as opções e selecione as que você gosta. A interface do usuário do UMM será aberta agora.
+Message/&MessageModWelcomeTitle	Módulo de expansão da comunidade
 Message/&SpawnCustomEncounterDescription	Gerar encontro nas coordenadas ({0}, {1})?
 Message/&SpawnCustomEncounterTitle	Encontro
 Message/&TeleportPartyDescription	Teletransportar o grupo para as coordenadas ({0}, {1})?\nVocê pode quebrar missões ou mapas se se teletransportar para um lugar desconhecido
 Message/&TeleportPartyTitle	teleporte
-Message/&ZSLevelDownConfirmationDescription	Reduzir o nível deste Herói?
-Message/&ZSLevelDownConfirmationTitle	Nível baixo
-Message/&ZSLevelDownWarnedConfirmationDescription	Classe {0} ainda em suporte beta. Reduzir o nível deste Herói?
 Modifier/&DisorientDescription	-1d6 nas jogadas de ataque
 Modifier/&DisorientTitle	Desorientado
 Modifier/&RuinedDescription	-3 para Classe de Armadura
 Modifier/&RuinedTitle	Arruinado
+Monster/&DH_Custom_AirTitan_Description	Quando convocados, esses elementais anciões se manifestam como seres de capacidade apocalíptica, entidades cuja mera existência promete destruição.
+Monster/&DH_Custom_AirTitan_Title	<color=#ff0000ff>Titã do Ar Primordial</color>
+Monster/&DH_Custom_AncientBlackDragon_Description	O mais mal-humorado e vil dos dragões cromáticos, os dragões negros coletam os destroços e tesouros dos povos caídos. Esses dragões detestam ver os fracos prosperarem e se deleitam com o colapso dos reinos humanóides. Eles fazem suas casas em pântanos fétidos e ruínas em ruínas onde reinos antes existiam.
+Monster/&DH_Custom_AncientBlackDragon_Title	<color=#ff0000ff>Dragão Negro Antigo</color>
+Monster/&DH_Custom_AncientBlueDragon_Description	Vaidosos e territoriais, os dragões azuis voam pelos céus sobre os desertos, atacando caravanas e saqueando rebanhos e assentamentos nas terras verdejantes além do alcance do deserto. Esses dragões também podem ser encontrados em estepes secas, ermos escaldantes e costas rochosas. Eles guardam seus territórios contra todos os concorrentes em potencial, especialmente dragões de latão.
+Monster/&DH_Custom_AncientBlueDragon_Title	<color=#ff0000ff>Dragão Azul Antigo</color>
+Monster/&DH_Custom_AncientGreenDragon_Description	O mais astuto e traiçoeiro dos dragões verdadeiros, os dragões verdes usam desorientação e truques para obter vantagem contra seus inimigos. De temperamento desagradável e completamente maus, eles têm um prazer especial em subverter e corromper os de bom coração. Nas florestas antigas que vagam, os dragões verdes demonstram uma agressão que muitas vezes é menos sobre território do que sobre ganhar poder e riqueza com o mínimo de esforço possível.
+Monster/&DH_Custom_AncientGreenDragon_Title	<color=#ff0000ff>Dragão Verde Antigo</color>
+Monster/&DH_Custom_AncientRedDragon_Description	Os mais cobiçosos dos verdadeiros dragões, os dragões vermelhos procuram incansavelmente aumentar seus tesouros. Eles são excepcionalmente vaidosos, mesmo para dragões, e sua presunção se reflete em seu porte orgulhoso e seu desdém por outras criaturas.
+Monster/&DH_Custom_AncientRedDragon_Title	<color=#ff0000ff>Dragão Vermelho Antigo</color>
+Monster/&DH_Custom_AncientWhiteDragon_Description	O menor, menos inteligente e mais animalesco dos dragões cromáticos, os dragões brancos habitam climas gélidos, favorecendo áreas árticas ou montanhas geladas. Eles são répteis cruéis e cruéis movidos pela fome e ganância.
+Monster/&DH_Custom_AncientWhiteDragon_Title	<color=#ff0000ff>Dragão Branco Antigo</color>
+Monster/&DH_Custom_Archmage_Description	Arquimagos são poderosos (e geralmente bastante antigos) conjuradores dedicados ao estudo das artes arcanas. Os benevolentes aconselham reis e rainhas, enquanto os maus governam como tiranos e perseguem o lichdom. Aqueles que não são nem bons nem maus se refugiam em torres remotas para praticar sua magia sem interrupção.
+Monster/&DH_Custom_Archmage_Title	<color=#ff0000ff>Arquimago</color>
+Monster/&DH_Custom_Balor_Description	Figuras do mal antigo e terrível, balors governam como generais sobre exércitos demoníacos, ansiando por tomar o poder enquanto destroem quaisquer criaturas que se oponham a eles.
+Monster/&DH_Custom_Balor_Title	<color=#ff0000ff>Balo</color>
+Monster/&DH_Custom_ConstructTitan_Description	Construções maciças construídas para a guerra e feitas de metal pesado. Um rolo compressor imparável, existe para seguir as ordens de seu criador e protege ou ataca conforme o criador exige.
+Monster/&DH_Custom_ConstructTitan_Title	<color=#ff0000ff>Construção Mecânica Titã</color>
+Monster/&DH_Custom_Deva_Description	Devas são anjos que atuam como mensageiros ou agentes divinos para o Plano Material,
+Monster/&DH_Custom_Deva_Title	<color=#ff0000ff>Deva</color>
+Monster/&DH_Custom_Djinni_Description	Gênios orgulhosos do Plano Elemental do Ar, Mestres do ar, os djinn montam poderosos redemoinhos que eles criam e dirigem por capricho, e que podem até transportar passageiros.
+Monster/&DH_Custom_Djinni_Title	<color=#ff0000ff>Djinni</color>
+Monster/&DH_Custom_EarthTitan_Description	Quando convocados, esses elementais anciões se manifestam como seres de capacidade apocalíptica, entidades cuja mera existência promete destruição.
+Monster/&DH_Custom_EarthTitan_Title	<color=#ff0000ff>Titã da Terra Primordial</color>
+Monster/&DH_Custom_Efreeti_Description	Gênios gigantes do Plano Elemental do Fogo, os efreet são mestres do fogo, imunes ao fogo e capazes de criá-lo por capricho.
+Monster/&DH_Custom_Efreeti_Title	<color=#ff0000ff>Efreeti</color>
+Monster/&DH_Custom_Erinyes_Description	as erínias são guerreiras ferozes e disciplinadas. Varrendo dos céus, eles trazem morte rápida para criaturas que prejudicaram seus mestres
+Monster/&DH_Custom_Erinyes_Title	<color=#ff0000ff>Erínias</color>
+Monster/&DH_Custom_FireTitan_Description	Quando convocados, esses elementais anciões se manifestam como seres de capacidade apocalíptica, entidades cuja mera existência promete destruição.
+Monster/&DH_Custom_FireTitan_Title	<color=#ff0000ff>Titã do Fogo Primordial</color>
+Monster/&DH_Custom_GuardianNaga_Description	Sábias e boas, as belas nagas guardiãs protegem lugares sagrados e itens de poder mágico de cair nas mãos do mal. Em seus redutos ocultos, eles pesquisam feitiços e criam tramas complicadas para frustrar os desígnios malignos de seus inimigos.
+Monster/&DH_Custom_GuardianNaga_Title	<color=#ff0000ff>Guardião Naga</color>
+Monster/&DH_Custom_HornedDevil_Description	A infantaria voadora das legiões infernais, os diabos com chifres seguem as ordens ao pé da letra.
+Monster/&DH_Custom_HornedDevil_Title	<color=#ff0000ff>Diabo Chifrudo</color>
+Monster/&DH_Custom_IceDevil_Description	Cobiçando o poder de seus superiores, os demônios do gelo trabalham incessantemente para a promoção, massacrando os inimigos dos Nove Infernos e reivindicando o máximo de almas que puderem para seus mestres arquidiabos.
+Monster/&DH_Custom_IceDevil_Title	<color=#ff0000ff>Demônio de Gelo</color>
+Monster/&DH_Custom_Lich_Description	Liches são os restos de grandes magos que abraçam a morte-viva como meio de se preservarem. Eles promovem seu próprio poder a qualquer custo, não tendo nenhum interesse nos assuntos dos vivos, exceto quando esses assuntos interferem nos seus. Ardilosos e insanos, eles anseiam por conhecimentos há muito esquecidos e pelos mais terríveis segredos.
+Monster/&DH_Custom_Lich_Title	<color=#ff0000ff>Lich</color>
+Monster/&DH_Custom_Nalfeshnee_Description	O nalfeshnee é um dos demônios mais grotescos - uma zombaria corpulenta de macaco e javali com o dobro da altura de um humano, com asas emplumadas que parecem pequenas demais para seu corpo inchado. Essas feições brutais escondem uma notável inteligência e astúcia.
+Monster/&DH_Custom_Nalfeshnee_Title	<color=#ff0000ff>Nalfeshnee</color>
+Monster/&DH_Custom_PitFiend_Description	Os senhores indiscutíveis da maioria dos outros demônios, os demônios das profundezas atendem aos arquiduques e arquiduquesas dos Nove Infernos e realizam seus desejos. Esses demônios poderosos são os generais dos Nove Infernos, liderando suas legiões infernais na batalha.
+Monster/&DH_Custom_PitFiend_Title	<color=#ff0000ff>Pit Fiend</color>
+Monster/&DH_Custom_Planetar_Description	Os planetários atuam como as armas dos deuses que servem, apresentando uma representação tangível do poder de suas divindades.
+Monster/&DH_Custom_Planetar_Title	<color=#ff0000ff>Planeta</color>
+Monster/&DH_Custom_Roc_Description	Rocs são criaturas solitárias que podem viver por séculos. Eles se abrigam em ninhos feitos de árvores, tendas, navios quebrados e restos de caravanas que carregam, colocando esses emaranhados maciços em fendas nas montanhas fora do alcance de criaturas menores.
+Monster/&DH_Custom_Roc_Title	<color=#ff0000ff>Roca</color>
+Monster/&DH_Custom_Solar_Description	No campo de batalha, a espada do solar voa para a briga por conta própria, e uma única flecha do arco de um solar pode atingir um alvo morto em contato. Tão grande é o poder celestial de um solar que até mesmo os príncipes demoníacos encolhem em seus comandos ressonantes.
+Monster/&DH_Custom_Solar_Title	<color=#ff0000ff>Solar</color>
+Monster/&DH_Custom_StormGiant_Description	Gigantes da tempestade são videntes contemplativos que vivem em lugares distantes da civilização mortal. A maioria tem pele e cabelos púrpura-acinzentados pálidos e olhos esmeralda brilhantes.
+Monster/&DH_Custom_StormGiant_Title	<color=#ff0000ff>Gigante da Tempestade</color>
+Monster/&DH_Custom_Tarrasque_Description	O lendário tarrasque é possivelmente o monstro mais temido do Plano Material. Acredita-se que apenas uma dessas criaturas existe, embora ninguém possa prever onde e quando ela atacará. Um bípede escamoso, o tarrasque tem quinze metros de altura e setenta metros de comprimento, pesando centenas de toneladas
+Monster/&DH_Custom_Tarrasque_Title	<color=#ff0000ff>Tarrasco</color>
+Monster/&DH_Custom_Vampire_Description	Despertados para uma noite sem fim, os vampiros anseiam pela vida que perderam e saciam essa fome bebendo o sangue dos vivos. Os vampiros abominam a luz do sol, pois seu toque os queima. Eles nunca projetam sombras ou reflexos, e qualquer vampiro que deseje passar despercebido entre os vivos mantém-se na escuridão e longe de superfícies reflexivas.
+Monster/&DH_Custom_Vampire_Title	<color=#ff0000ff>Vampiro</color>
 Monster/&DHCustomCouatlDescription	Couatls são seres serpentinos benevolentes de grande intelecto e discernimento. Suas asas brilhantemente coloridas e maneiras gentis falam de suas origens celestiais.
 Monster/&DHCustomCouatlTitle	Couatl
 Monster/&OwlFamiliarDescription	Coruja familiar
 Monster/&OwlFamiliarTitle	Coruja
 Monster/&WitchOwlFamiliarDescription	Coruja familiar
 Monster/&WitchOwlFamiliarTitle	Coruja
+MonsterAttack/&DH_AirBlast_Attack_Description	5d6 trovão e empurra 2 células
+MonsterAttack/&DH_AirBlast_Attack_Title	Jato de ar
+MonsterAttack/&DH_AirTitan_Slam_Attack_Descriptiond	4d6+6 Concussão e 4d6 Trovão
+MonsterAttack/&DH_AirTitan_Slam_Attack_Title	Batida Trovejante
+MonsterAttack/&DH_AncientDragon_Tail_Attack_Description	2D8+8 Concussão
+MonsterAttack/&DH_AncientDragon_Tail_Attack_Title	Ataque de cauda
+MonsterAttack/&DH_Balor_Longsword_Attack_Description	3D8+8 Corte e 3D8 Relâmpago
+MonsterAttack/&DH_Balor_Longsword_Attack_Title	Ataque de espada longa
+MonsterAttack/&DH_Balor_Whip_Attack_Description	2D6+8 Corte e 3D6 Fogo
+MonsterAttack/&DH_Balor_Whip_Attack_Title	Ataque de Chicote
+MonsterAttack/&DH_ConstructTitan_ForceCannon_Attack_Description	4D8 Dano da Força e o alvo é derrubado
+MonsterAttack/&DH_ConstructTitan_ForceCannon_Attack_Title	Canhão de Força
+MonsterAttack/&DH_ConstructTitan_Slam_Attack_Description	3D12+8 Dano de concussão e o alvo é empurrado 6 metros
+MonsterAttack/&DH_ConstructTitan_Slam_Attack_Title	bater
+MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Description	Não pode agir e sofre 16d6 de dano de ácido a cada turno. 60 de dano em um único ataque podem forçar o engolidor a regurgitar.
+MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Title	engolido
+MonsterAttack/&DH_Custom_TarrasqueSwallowingcondition_Description	60 de dano em um único ataque pode forçá-lo a regurgitar.
+MonsterAttack/&DH_Custom_TarrasqueSwallowingcondition_Title	Engolir criatura
+MonsterAttack/&DH_DamageAcid_Bite_Attack_Description	2D10+9 Perfuração e 2D8 Dano Ácido
+MonsterAttack/&DH_DamageAcid_Bite_Attack_Title	Ataque de mordida ácida
+MonsterAttack/&DH_DamageCold_Bite_Attack_Description	2D10+9 Perfuração e 2D8 Dano de Gelo
+MonsterAttack/&DH_DamageCold_Bite_Attack_Title	Ataque de mordida de gelo
+MonsterAttack/&DH_DamageFire_Bite_Attack_Description	2D10+9 Perfuração e 4D6 Dano de Fogo
+MonsterAttack/&DH_DamageFire_Bite_Attack_Title	Ataque de mordida de fogo
+MonsterAttack/&DH_DamageLightning_Bite_Attack_Description	2D10+9 Perfuração e 2D10 Dano de Raio
+MonsterAttack/&DH_DamageLightning_Bite_Attack_Title	Ataque de Relâmpago
+MonsterAttack/&DH_DamagePoison_Bite_Attack_Description	2D10+9 Perfuração e 3D6 Dano de Veneno
+MonsterAttack/&DH_DamagePoison_Bite_Attack_Title	Ataque de mordida de veneno
+MonsterAttack/&DH_EarthTitan_Boulder_Attack_Description	7D10+8 Concussão
+MonsterAttack/&DH_EarthTitan_Boulder_Attack_Title	Pedregulho
+MonsterAttack/&DH_EarthTitan_Slam_Attack_Description	4D10+8 Concussão
+MonsterAttack/&DH_EarthTitan_Slam_Attack_Title	Batida de chão
+MonsterAttack/&DH_FireScimatar_Attack_Description	2d6+6 cortante e 2d6 fogo
+MonsterAttack/&DH_FireScimatar_Attack_Title	Cimatar
+MonsterAttack/&DH_FireTitan_Slam_Attack_Description	3d6+5 Concussão + 10d6 Fogo
+MonsterAttack/&DH_FireTitan_Slam_Attack_Title	Batida Calcinante
+MonsterAttack/&DH_Fork_Attack_Description	2D8 +6 Perfuração
+MonsterAttack/&DH_Fork_Attack_Title	Ataque de garfo
+MonsterAttack/&DH_Generic_Bite_Attack_No_ExtraDamage_Description	2d10 + 6 de Dano Perfurante
+MonsterAttack/&DH_Generic_Bite_Attack_No_ExtraDamage_Title	Ataque de mordida
+MonsterAttack/&DH_Generic_Claw_Attack_Description	2D6 + 9 Dano Cortante
+MonsterAttack/&DH_Generic_Claw_Attack_Title	Ataque de garra
+MonsterAttack/&DH_Generic_Stronger_Bite_Attack_No_ExtraDamage_Description	2D10+9
+MonsterAttack/&DH_Generic_Stronger_Bite_Attack_No_ExtraDamage_Title	Ataque de mordida
+MonsterAttack/&DH_HornedDevilTail_Attack_Description	1D8 +6 Perfuração , inflige a condição Ferida Sangrando
+MonsterAttack/&DH_HornedDevilTail_Attack_Title	Ataque de cauda
+MonsterAttack/&DH_HornedDevilTail_Attackcondition_Description	3D6 Necrótico, salve para cancelar
+MonsterAttack/&DH_HornedDevilTail_Attackcondition_Title	Ferida Sangrando
+MonsterAttack/&DH_HurlFlame_Attack_Description	5d6 Fogo
+MonsterAttack/&DH_HurlFlame_Attack_Title	Lançar Chama
+MonsterAttack/&DH_Ice_Bite_Attack_Description	2d6+5 Perfuração e 3d6 Frio
+MonsterAttack/&DH_Ice_Bite_Attack_Title	Picada de Gelo
+MonsterAttack/&DH_Lich_ParalyzingTouch_Attack_Description	3D6 Frio e inflige condição de Paralisado
+MonsterAttack/&DH_Lich_ParalyzingTouch_Attack_Title	Toque Paralisante
+MonsterAttack/&DH_LightningScimatar_Attack_Description	2d6+5 cortantes e 2d6 raios
+MonsterAttack/&DH_LightningScimatar_Attack_Title	Cimatar
+MonsterAttack/&DH_NagaBite_Attack_Description	1d8+4 Perfuração e 15 CD Con Salvar para metade 10d8 Veneno
+MonsterAttack/&DH_NagaBite_Attack_Title	Pau Venenoso
+MonsterAttack/&DH_NagaSpit_Attack_Description	15 DC Con Save para metade 10d8 Poison
+MonsterAttack/&DH_NagaSpit_Attack_Title	Cuspir veneno
+MonsterAttack/&DH_PitFiend_Bite_Attack_Description	2d6+7 Veneno, Inflige condição de veneno
+MonsterAttack/&DH_PitFiend_Bite_Attack_Title	Ataque de mordida
+MonsterAttack/&DH_PitFiend_Bite_Attackcondition_Description	6D6 Posição recorrente
+MonsterAttack/&DH_PitFiend_Bite_Attackcondition_Title	envenenado
+MonsterAttack/&DH_PitFiend_Mace_Attack_Description	2D6+8 Concussão e 6D6 Fogo
+MonsterAttack/&DH_PitFiend_Mace_Attack_Title	Ataque de maça
+MonsterAttack/&DH_PoisonLongbow_Attack_Description	Arco longo com flechas envenenadas
+MonsterAttack/&DH_PoisonLongbow_Attack_Title	Arco Longo Venenoso
+MonsterAttack/&DH_PoisonLongsword_Attack_Description	1d10+4 Corte e 3d8 Veneno
+MonsterAttack/&DH_PoisonLongsword_Attack_Title	Espada Longa Venenosa
+MonsterAttack/&DH_RadiantLongbow_Attack_Description	2D6+8 Perfurante e 6D8 Radiante
+MonsterAttack/&DH_RadiantLongbow_Attack_Title	Matando o Arco Longo.
+MonsterAttack/&DH_RadiantLongsword_Attack_Description	4D6+8 Cortante e 6D8 Radiante
+MonsterAttack/&DH_RadiantLongsword_Attack_Title	Espada Grande Radiante
+MonsterAttack/&DH_Roc_Beak_Attack_Description	4d8+9 Perfuração
+MonsterAttack/&DH_Roc_Beak_Attack_Title	Bico
+MonsterAttack/&DH_Roc_Talons_Attack_Description	4d6+9 Cortando e o alvo é agarrado e impedido por Roc
+MonsterAttack/&DH_Roc_Talons_Attack_Title	calcanhares
+MonsterAttack/&DH_Tarrasque_Bite_Description	4d12 + 10 de dano perfurante e o alvo deve ser bem sucedido em um teste de Destreza ou será agarrado (CD 20 para escapar).
+MonsterAttack/&DH_Tarrasque_Bite_Title	Morder
+MonsterAttack/&DH_Tarrasque_BiteCondition_Description	Até que este agarrão termine, o alvo está impedido.
+MonsterAttack/&DH_Tarrasque_BiteCondition_Title	Apanhado por Tarrasque
+MonsterAttack/&DH_Tarrasque_Claw_Description	4d8 + 10 de dano cortante
+MonsterAttack/&DH_Tarrasque_Claw_Title	Garra
+MonsterAttack/&DH_Tarrasque_Horn_Description	4d10 + 10) dano perfurante
+MonsterAttack/&DH_Tarrasque_Horn_Title	chifre
+MonsterAttack/&DH_Tarrasque_Tail_Description	4d6 + 10 de dano de concussão. Se o alvo for uma criatura, ele deve ser bem sucedido em um teste de resistência de Força CD 20 ou será derrubado
+MonsterAttack/&DH_Tarrasque_Tail_Title	Cauda
 MonsterAttack/&DHCouatlBiteAttackDescription	Dano perfurante e o alvo deve ser bem sucedido em um teste de resistência de Constituição CD 13 ou ficará envenenado por 24 horas. Até que este veneno termine, o alvo está inconsciente.
 MonsterAttack/&DHCouatlBiteAttackTitle	Morder
+MonsterPower/&DH_AirTitan_Gale_Power_Description	4D10 Thunder e empurrado no salvamento com falha
+MonsterPower/&DH_AirTitan_Gale_Power_Title	Galera Gritante
+MonsterPower/&DH_AirTitan_Lightning_Power_Description	3D10 Relâmpagos na área
+MonsterPower/&DH_AirTitan_Lightning_Power_Title	Relâmpago
+MonsterPower/&DH_AncientDragon_Wing_Power_Description	Os dragões podem bater suas asas para produzir vento suficiente para empurrar a maioria dos humanóides para longe e derrubá-los.
+MonsterPower/&DH_AncientDragon_Wing_Power_Title	Ataque de asa
+MonsterPower/&DH_Balor_FireAura_Power_Description	3D6 Fogo
+MonsterPower/&DH_Balor_FireAura_Power_Title	Aura de Fogo
+MonsterPower/&DH_BlindingGaze_Power_Description	CD15 Constituição Salvar ou ficar cego até que uma restauração menor seja usada
+MonsterPower/&DH_BlindingGaze_Power_Title	Olhar Cegante
+MonsterPower/&DH_DamageAcid_Breath_Power_Description	Ácido 15D8
+MonsterPower/&DH_DamageAcid_Breath_Power_Title	Hálito ácido
+MonsterPower/&DH_DamageCold_Breath_Power_Description	16D8 Frio
+MonsterPower/&DH_DamageCold_Breath_Power_Title	Sopro de Gelo
+MonsterPower/&DH_DamageFire_Breath_Power_Description	26D6 Fogo
+MonsterPower/&DH_DamageFire_Breath_Power_Title	Sopro de Fogo
+MonsterPower/&DH_DamageLightning_Breath_Power_Description	16D10 Relâmpago
+MonsterPower/&DH_DamageLightning_Breath_Power_Title	Sopro Relâmpago
+MonsterPower/&DH_DamagePoison_Breath_Power_Description	22D6 Veneno
+MonsterPower/&DH_DamagePoison_Breath_Power_Title	Sopro Venenoso
+MonsterPower/&DH_DisintegratingBeam_Power_Description	6D10 Dano Radiante e o alvo é desintegrado com 0 HP
+MonsterPower/&DH_DisintegratingBeam_Power_Title	Feixe de Desintegração
+MonsterPower/&DH_EarthTitan_Earthquake_Power_Description	4D10 Concussão
+MonsterPower/&DH_EarthTitan_Earthquake_Power_Title	Tremor de terra
+MonsterPower/&DH_ErinyesParry_Power_Description	+3 CA
+MonsterPower/&DH_ErinyesParry_Power_Title	desviar-se
+MonsterPower/&DH_FireTitan_Aura_Power_Description	cada criatura a até 9 metros dela sofre 35 (10d6) de dano de fogo, e objetos inflamáveis ​​na aura que não estão sendo vestidos ou carregados se inflamam.
+MonsterPower/&DH_FireTitan_Aura_Power_Title	Aura do Titã do Fogo
+MonsterPower/&DH_FireTitan_Retaliate_DamageAffinity_Description	Uma criatura sofre 35 (10d6) de dano de fogo ao tocar Maegera ou ao acertá-la com um ataque corpo a corpo enquanto estiver a 3 metros dela.
+MonsterPower/&DH_FireTitan_Retaliate_DamageAffinity_Title	Retaliação do Titã do Fogo
+MonsterPower/&DH_FireTitan_Retaliate_Power_Description	Uma criatura sofre 35 (10d6) de dano de fogo ao tocar Maegera ou ao acertá-la com um ataque corpo a corpo enquanto estiver a 3 metros dela.
+MonsterPower/&DH_FireTitan_Retaliate_Power_Title	Retaliação do Titã do Fogo
+MonsterPower/&DH_IlluminatingCrystals_Power_Description	Qualquer criatura na área quando a magia é lançada também é delineada em luz. Pela duração, objetos e criaturas afetadas emitem penumbra em um raio de 3 metros.
+MonsterPower/&DH_IlluminatingCrystals_Power_Title	Cristais Iluminadores
+MonsterPower/&DH_IncreasedGravityZone_Attack_Description	O Titan focaliza a zona dentro de 20 pés dele. Qualquer criatura em um cilindro de 6 metros de raio e 6 metros de altura centrado neste ponto deve ser bem sucedido em um teste de resistência de Destreza CD 26 ou sofrerá 33 (6d10) de dano de concussão e cairá e ficará impedido por uma rodada.
+MonsterPower/&DH_IncreasedGravityZone_Attack_Title	Zona de gravidade aumentada
+MonsterPower/&DH_Lich_DisruptLife_Power_Description	6D6 Necrótico
+MonsterPower/&DH_Lich_DisruptLife_Power_Title	Interromper a vida
+MonsterPower/&DH_SearingBurst_Power_Description	4D6 Fogo e 4D6 Radiante
+MonsterPower/&DH_SearingBurst_Power_Title	Explosão Calcinante
+MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Description	Invoca 1 Elemental do Ar
+MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Title	Invocar Elemental Maior
+MonsterPower/&DH_SummonCreature_Earth_Elemental_Power_Description	Invoca 1 Elemental da Terra
+MonsterPower/&DH_SummonCreature_Earth_Elemental_Power_Title	Invocar Elemental Maior
+MonsterPower/&DH_SummonCreature_Erinyes_Power_Description	Um Erinyes é chamado para lutar
+MonsterPower/&DH_SummonCreature_Erinyes_Power_Title	Invocação Minion: Erinyes
+MonsterPower/&DH_SummonCreature_Fire_Elemental_Power_Description	Invoca 1 Elemental do Fogo
+MonsterPower/&DH_SummonCreature_Fire_Elemental_Power_Title	Invocar Elemental Maior
+MonsterPower/&DH_SummonCreature_Fire_Jester_Power_Description	Invoca 2 Bobos de Fogo
+MonsterPower/&DH_SummonCreature_Fire_Jester_Power_Title	Invocar Elementais Menores
+MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Description	Um Nalfeshnee é chamado para lutar
+MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Title	Servo de Invocação: Nalfeshnee
+MonsterPower/&DH_SummonCreature_SkarnGhoul_Power_Description	Evoca 1 Skarn Ghoul
+MonsterPower/&DH_SummonCreature_SkarnGhoul_Power_Title	Invocar Elemental Menor
+MonsterPower/&DH_SummonCreature_WindSnake_Power_Description	Invoca 4 Cobras do Vento
+MonsterPower/&DH_SummonCreature_WindSnake_Power_Title	Invocar Elementais Menores
+MonsterPower/&DH_SummonCreature_Wolves_Power_Description	O vampiro magicamente chama 3d6 lobos
+MonsterPower/&DH_SummonCreature_Wolves_Power_Title	Crianças da noite
+MonsterPower/&DH_TarrasqueReflectiveCarapace_Immunity_Description	Sempre que o tarrasque for alvo de um feitiço de mísseis mágicos, um feitiço de linha ou um feitiço que exija uma jogada de ataque à distância, o tarrasque não é afetado
+MonsterPower/&DH_TarrasqueReflectiveCarapace_Immunity_Title	Carapaça Refletiva
+MonsterPower/&DH_TarrasqueSwallowPower_Description	O tarrasque faz um ataque de mordida contra uma criatura Grande ou menor que esteja agarrando. Se o ataque acertar, o alvo é engolido e o agarrão termina.
+MonsterPower/&DH_TarrasqueSwallowPower_Title	Engolir
+MonsterPower/&DH_VampireCharmPower_Description	O vampiro tem como alvo um humanóide que ele possa ver a até 9 metros dele. O alvo deve ser bem sucedido em um teste de resistência de Sabedoria CD 17 contra esta magia ou será enfeitiçado pelo vampiro.
+MonsterPower/&DH_VampireCharmPower_Title	Charme
 Power/&HelpActionDescription	Você pode ajudar uma criatura amiga a atacar uma criatura a até 1,5 metro de você. Você finta, distrai o alvo ou de alguma outra forma se une para tornar o ataque do seu aliado mais eficaz. Se seu aliado atacar o alvo antes do seu próximo turno, a primeira jogada de ataque é feita com vantagem.
 Power/&HelpActionTitle	Ajuda
 Pugilist	Dano do Pugilista
@@ -840,8 +1101,6 @@ Reaction/&UseZSPowerRangerFoeSlayerAttackDescription	Adicione seu modificador de
 Reaction/&UseZSPowerRangerFoeSlayerAttackReactTitle	Matador de Inimigos
 Reaction/&UseZSPowerRangerFoeSlayerAttackTitle	Matador de Inimigos
 Reaction/&UseZSPowerRangerFoeSlayerDamageReactDescription	Adicione seu modificador de Sabedoria à sua jogada de ataque.
-RestActivity/&ZSLevelDownDescription	Desça o nível deste herói
-RestActivity/&ZSLevelDownTitle	Nível baixo
 RestActivity/&ZSRespecDescription	Respeite este herói
 RestActivity/&ZSRespecTitle	Respeito
 RestActivity/&ZSSorcerousRestorationDescription	Recupere 4 pontos de feitiçaria durante um descanso curto.
@@ -872,9 +1131,6 @@ Screen/&FeyTeleportSpellDescription	Este feitiço Fey está sempre preparado.
 Screen/&FeyTeleportSpellTitle	feérico
 Screen/&ShadowTouchedSpellDescription	Este feitiço de Sombra está sempre preparado.
 Screen/&ShadowTouchedSpellTitle	Sombra
-Screen/&SpellSlotsUsedLongDescription	Você gastou {0} slot(s) de descanso longo deste nível.
-Screen/&SpellSlotsUsedShortDescription	Você gastou {0} slot(s) de descanso curto deste nível.
-Screen/&SpellSlotsUsedShortLongDescription	Você gastou {0} slot(s) de descanso curto e {1} slot(s) de descanso longo deste nível.
 Screen/&WitchSpellDescription	Feitiço conhecido como Bruxa
 Screen/&WitchSpellHeader	Bruxa
 Screen/&WitchSpellTitle	Bruxa
@@ -882,6 +1138,20 @@ Sorceror/&ZSSorcerousRestorationDescription	Recupere 4 pontos de feitiçaria dur
 Sorceror/&ZSSorcerousRestorationTitle	Restauração Feiticeira
 Spell/&CJDivineWordDescription	Você pronuncia uma palavra divina, imbuída do poder que moldou o mundo no início da criação. Escolha qualquer número de criaturas que você possa ver dentro do alcance. Cada criatura que pode ouvir você deve fazer um teste de resistência de Carisma. Em uma falha na resistência, uma criatura sofre um efeito baseado em seus pontos de vida atuais:\n50 pontos de vida ou menos: surdo por 1 minuto\n40 pontos de vida ou menos: surdo e cego por 10 minutos\n30 pontos de vida ou menos: cego, surdo e atordoado por 1 hora\n20 pontos de vida ou menos: morto instantaneamente\nIndependentemente de seus pontos de vida atuais, um celestial, um elemental, uma fada ou um demônio que falhe no teste de resistência é forçado a voltar ao seu plano de origem (se já não estiver lá) e não pode retornar ao seu plano atual por 24 horas por qualquer meio que não seja um feitiço de desejo.
 Spell/&CJDivineWordTitle	Palavra Divina
+Spell/&DH_CastSpell_Lich_Description	Habilidade de Conjuração de Lich
+Spell/&DH_CastSpell_Lich_Title	Habilidade de Conjuração de Lich
+Spell/&DH_DominateMonster_Spell_Description	Você tenta seduzir uma criatura que você pode ver dentro do alcance. Ele deve ser bem sucedido em um teste de resistência de Sabedoria ou ficará enfeitiçado por você pela duração.
+Spell/&DH_DominateMonster_Spell_Title	Dominar Monstro
+Spell/&DH_FingerOfDeath_Spell_Description	O alvo deve fazer um teste de resistência de Constituição. Ele sofre 7d8 + 30 de dano necrótico se falhar na resistência, ou metade desse dano se obtiver sucesso.
+Spell/&DH_FingerOfDeath_Spell_Title	Dedo da Morte
+Spell/&DH_PowerWordKill_Spell_Description	Você pronuncia uma palavra de poder que pode obrigar uma criatura que você possa ver dentro do alcance a morrer instantaneamente. Se a criatura que você escolher tiver 100 pontos de vida ou menos, ela morre. Caso contrário, a magia não tem efeito.
+Spell/&DH_PowerWordKill_Spell_Title	Matar palavras de poder
+Spell/&DH_PowerWordStun_Spell_Description	Você fala uma palavra de poder que pode sobrecarregar a mente de uma criatura que você possa ver dentro do alcance, deixando-a estupefata. Se o alvo tiver 150 pontos de vida ou menos, ele fica atordoado. Caso contrário, a magia não tem efeito.
+Spell/&DH_PowerWordStun_Spell_Title	Atordoamento da Palavra de Poder
+Spell/&DH_ReverseGravity_Spell_Description	Este feitiço reverte a gravidade em um cilindro de 15 metros de raio e 30 metros de altura centrado em um ponto dentro do alcance.
+Spell/&DH_ReverseGravity_Spell_Title	Gravidade reversa
+Spell/&DH_TimeStop_Spell_Description	Você interrompe brevemente o fluxo do tempo para todos, menos para você. Nenhum tempo passa para outras criaturas, enquanto você realiza 1d4 + 1 turnos seguidos, durante os quais você pode usar ações e se mover normalmente.
+Spell/&DH_TimeStop_Spell_Title	Parar o tempo
 Spell/&DHAnimalShapesSpellDescription	Escolha qualquer número de criaturas voluntárias que você possa ver dentro do alcance. Você transforma cada alvo na forma de uma besta Grande ou menor com nível de desafio 4 ou menor.
 Spell/&DHAnimalShapesSpellTitle	Formas de animais
 Spell/&DHConjureCelestialSpellDescription	Você invoca um celestial de nível de desafio 4 ou inferior, que aparece em um espaço desocupado que você pode ver dentro do alcance. O celestial desaparece quando chega a 0 pontos de vida ou quando a magia termina. O celestial é amigável com você e seus companheiros pela duração.
@@ -1128,7 +1398,7 @@ Subclass/&PowerTransmuteConstitutionTitle	Salvamentos de Constituição
 Subclass/&PowerTransmuteDarkvisionDescription	Use sua Força de Transmutação para conceder Visão no Escuro Superior até o próximo descanso longo.
 Subclass/&PowerTransmuteDarkvisionTitle	Visão no escuro superior
 Subclass/&PowerTransmuteElementalResistanceDescription	Use sua Força de Transmutação para conceder resistência a Ácido, Frio, Fogo, Relâmpago, Necrótico, Trovão e Veneno até o próximo descanso longo.
-Subclass/&PowerTransmuteElemnetalResistanceTitle	Resistência Elementar
+Subclass/&PowerTransmuteElementalResistanceTitle	Resistência Elementar
 Subclass/&PowerTransmuteFlyDescription	Use sua Força de Transmutação para conceder a habilidade de voar.
 Subclass/&PowerTransmuteFlyTitle	Mosca
 Subclass/&PowerTransmuteHealDescription	Use sua Força de Transmutação para curar até 6 alvos.
@@ -1163,7 +1433,7 @@ Subclass/&TactitionFighterSubclassDescription	O Estrategista usa seu conheciment
 Subclass/&TactitionFighterSubclassTitle	O Estrategista
 Subclass/&TinkererFlashOfGeniusConditionDescription	Inspirado por um lampejo de gênio para ter um bônus em testes de habilidade e testes de resistência
 Subclass/&TinkererFlashOfGeniusConditionTitle	Flash de Gênio
-Subclass/&TinkererFlashOfGeniusPowerDescription	Você pode usar seu gênio para inspirar a si mesmo e aos outros em testes de habilidade e testes de resistência
+Subclass/&TinkererFlashOfGeniusPowerDescription	Você pode usar sua genialidade para inspirar a si mesmo e aos outros em testes de habilidade e testes de resistência
 Subclass/&TinkererFlashOfGeniusPowerTitle	Flash de Gênio
 Subclass/&TinkererInfusionChoiceDescription	Selecione as infusões que você terá disponíveis para uso. Observe que você só pode ter uma infusão ativa uma vez. Ativá-lo uma segunda vez cancelará a primeira.
 Subclass/&TinkererInfusionChoiceTitle	Escolha de infusão
@@ -1195,6 +1465,12 @@ Subclass/&WhiteWitchMagicTitle	Magia branca
 Subclass/&WhiteWitchTitle	bruxa branca
 Subclass/&WitchSubclassPathDescription	Seu conhecimento de magia culminou em se juntar a um Coven, um círculo inato de bruxas que se aprofundam em um caminho específico de bruxaria e maldições.
 Subclass/&WitchSubclassPathTitle	Covens de bruxas
+Tooltip/&FeatPrerequisiteHasStealthAttack	Tem ataque furtivo
+Tooltip/&FeatPrerequisiteIsNotBarbarian	Não é um bárbaro
+Tooltip/&FeatPrerequisiteIsNotFighter	Não é um lutador
+Tooltip/&FeatPrerequisiteIsNotRogue	Não é um vagabundo
+Tooltip/&FeatPrerequisiteLevelFormat	Nível mínimo de caractere {0}
 Tooltip/&Tag9000Title	Efeito personalizado
+Tooltip/&TagCommunityExpansionTitle	Expansão da comunidade
 Tooltip/&TagMaledictionTitle	Maldição
-Tooltip/&TagScoutSentinelWeaponTitle	Usa Int para ataque e dano
+Tooltip/&TagOtherModContentTitle	Do modo

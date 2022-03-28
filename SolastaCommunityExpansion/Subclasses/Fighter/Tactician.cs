@@ -176,19 +176,6 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
         }
     }
 
-    internal static class GambitResourcePoolBuilder
-    {
-        private const string GambitResourcePoolName = "GambitResourcePool";
-        private const string GambitResourcePoolNameGuid = "00da2b27-139a-4ca0-a285-aaa70d108bc8";
-
-        public static FeatureDefinitionPower CreateAndAddToDB()
-        {
-            return new FeatureDefinitionPowerPoolBuilder(GambitResourcePoolName, GambitResourcePoolNameGuid,
-                           4, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Dexterity, RuleDefinitions.RechargeRate.ShortRest,
-                           new GuiPresentationBuilder("Feature/&GambitResourcePoolTitle", "Feature/&GambitResourcePoolDescription").Build()).AddToDB();
-        }
-    }
-
     internal static class GambitResourcePoolAddBuilder
     {
         private const string GambitResourcePoolAddName = "GambitResourcePoolAdd";
@@ -205,9 +192,10 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
 
         public static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
         {
-            return new FeatureDefinitionPowerPoolModifierBuilder(name, guid,
-                           1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Dexterity, TacticianFighterSubclassBuilder.GambitResourcePool,
-                           new GuiPresentationBuilder("Feature/&GambitResourcePoolAddTitle", "Feature/&GambitResourcePoolAddDescription").Build()).AddToDB();
+            return FeatureDefinitionPowerPoolModifierBuilder.Create(name, guid)
+                .Configure(1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Dexterity, TacticianFighterSubclassBuilder.GambitResourcePool)
+                .SetGuiPresentation(new GuiPresentationBuilder("Feature/&GambitResourcePoolAddTitle", "Feature/&GambitResourcePoolAddDescription").Build())
+                .AddToDB();
         }
 
         public static FeatureDefinitionPower GambitResourcePoolAdd()
@@ -252,7 +240,12 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                 .AddToDB();
         }
 
-        public static readonly FeatureDefinitionPower GambitResourcePool = GambitResourcePoolBuilder.CreateAndAddToDB();
+        public static FeatureDefinitionPower GambitResourcePool { get; } = FeatureDefinitionPowerPoolBuilder
+            .Create("GambitResourcePool", "00da2b27-139a-4ca0-a285-aaa70d108bc8")
+            .Configure(4, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Dexterity, RuleDefinitions.RechargeRate.ShortRest)
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
         public static readonly FeatureDefinitionPower GambitResourcePoolAdd = GambitResourcePoolAddBuilder.GambitResourcePoolAdd();
         public static readonly FeatureDefinitionPower GambitResourcePoolAdd10 = GambitResourcePoolAddBuilder.GambitResourcePoolAdd10();
         public static readonly FeatureDefinitionPower GambitResourcePoolAdd15 = GambitResourcePoolAddBuilder.GambitResourcePoolAdd15();

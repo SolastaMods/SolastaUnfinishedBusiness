@@ -10,8 +10,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "swamp",
-    "description": "Environment/&JungleDescription",
+    "title": "Environment/&SwampTitle",
+    "description": "Environment/&SwampDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "bf72e354644e4cd4494b52610d74bc5f",

@@ -1,0 +1,43 @@
+{
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaCommunityExpansion",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": true,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Dexterity",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "knownFeatsPrerequisite": [],
+  "features": [
+    "Definition:AdditionalDamageRogueSneakAttackRemove:2efd04da-a069-50c4-be1e-44f2432d7404",
+    "Definition:KSRogueSubclassThugExploitVulnerabilities:d4f67d9f-f5db-54ff-b215-243ff983becb",
+    "Definition:ProficiencyFighterWeapon:b042ddec31ba7f04bbc4e0676716c76f"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feat/&FeatBrutalThugTitle",
+    "description": "Feat/&FeatBrutalThugDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "704503a7-e892-5f9c-9685-41a5140dfa15",
+  "contentPack": 9999,
+  "name": "FeatBrutalThug"
+}

@@ -28,7 +28,7 @@ namespace SolastaCommunityExpansion
         //
 
         // very large or not very useful definitions
-        public string[] ExcludeFromExport = new string[]
+        public string[] ExcludeFromExport = new []
         {
             "AdventureLogDefinition",
             "ConsoleTableDefinition",
@@ -48,6 +48,14 @@ namespace SolastaCommunityExpansion
             "QuestTreeDefinition",
         };
 
+        public string[] ExcludeFromCEExport = new []
+        {
+            "BlueprintCategory",
+            "GadgetBlueprint",
+            "RoomBlueprint",
+            "PropBlueprint"
+        };
+
         //
         // Blueprints Viewer UI
         //
@@ -60,20 +68,10 @@ namespace SolastaCommunityExpansion
         // SETTINGS UI TOGGLES
         //
 
-        public bool DisplayInitialChoicesToggle { get; set; }
-        public bool DisplayProgressionToggle { get; set; }
-        public bool DisplayVisualsToggle { get; set; }
         public bool DisplayClassesToggle { get; set; }
         public bool DisplaySubclassesToggle { get; set; }
         public bool DisplayFeatsToggle { get; set; }
         public bool DisplayFightingStylesToggle { get; set; }
-        public bool DisplaySrdRulesToggle { get; set; }
-        public bool DisplayHouseRulesToggle { get; set; }
-        public bool DisplayBattleToggle { get; set; }
-        public bool DisplayCampaignToggle { get; set; }
-        public bool DisplayItemToggle { get; set; }
-        public bool DisplayMonsterToggle { get; set; }
-        public bool DisplaySpellToggle { get; set; }
         public bool DisplayCraftingToggle { get; set; }
         public bool DisplayMerchantsToggle { get; set; }
 
@@ -270,26 +268,6 @@ namespace SolastaCommunityExpansion
         // Faction Relations
 
         //
-        // MULTICLASS
-        //
-
-        public bool EnableMulticlass { get; set; }
-
-        public int MaxAllowedClasses { get; set; } = 3;
-
-        public bool EnableMinInOutAttributes { get; set; } = true;
-        public bool EnableSharedSpellCasting { get; set; } = true;
-        public bool EnableCombinedSpellCasting { get; set; } = true;
-
-        public bool EnableGrantHolySymbol { get; set; } = true;
-        public bool EnableGrantComponentPouch { get; set; } = true;
-        public bool EnableGrantDruidicFocus { get; set; } = true;
-        public bool EnableGrantCLothesWizard { get; set; }
-
-        public bool EnableRelearnSpells { get; set; }
-        public bool EnableDisplayAllKnownSpellsOnLevelUp { get; set; } = true;
-
-        //
         // Interface - Dungeon Maker
         //
 
@@ -298,7 +276,7 @@ namespace SolastaCommunityExpansion
         public bool UnleashNpcAsEnemy { get; set; }
         public bool UnleashEnemyAsNpc { get; set; }
         public bool EnableDungeonMakerModdedContent { get; set; }
-
+        public bool EnableExtraHighLevelMonsters { get; set; }
         //
         // Interface - Game UI
         //
@@ -309,7 +287,6 @@ namespace SolastaCommunityExpansion
         public bool AutoPauseOnVictory { get; set; }
 
         // Campaigns and Locations
-        public bool EnableAdventureLogDocuments { get; set; }
         public bool EnableAdditionalIconsOnLevelMap { get; set; }
         public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
         public bool HideExitAndTeleporterGizmosIfNotDiscovered { get; set; }

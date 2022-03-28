@@ -61,6 +61,7 @@ namespace SolastaCommunityExpansion.Feats
                         .SetHandsFullCastingModifiers(true, true, true)
                         .AddToDB())
                 .SetGuiPresentation(Category.Feat)
+                .SetMustCastSpellsPrerequisite()
                 .AddToDB();
 
             feats.AddRange(savageAttacker, tough, warCaster, improvedCritical);

@@ -15,7 +15,6 @@ namespace SolastaCommunityExpansion.Builders
         WhenAddedOrRemoved = WhenAdded | WhenRemoved
     }
 
-
     /// <summary>
     /// Abstract ConditionDefinitionBuilder that allows creating builders for custom ConditionDefinition types.
     /// </summary>
@@ -25,31 +24,32 @@ namespace SolastaCommunityExpansion.Builders
         where TDefinition : ConditionDefinition
         where TBuilder : ConditionDefinitionBuilder<TDefinition, TBuilder>
     {
-        private void ClearParticleReferences()
+        protected override void Initialise()
         {
-            var assetReference = new AssetReference();
+            base.Initialise();
 
-            Definition
-                .SetConditionStartParticleReference(assetReference)
-                .SetConditionParticleReference(assetReference)
-                .SetConditionEndParticleReference(assetReference)
-                .SetCharacterShaderReference(assetReference);
+            SetEmptyParticleReferencesWhereNull();
+        }
+
+        private void SetEmptyParticleReferencesWhereNull()
+        {
+            Definition.SetEmptyParticleReferencesWhereNull();
         }
 
         #region Constructors
         protected ConditionDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
-            ClearParticleReferences();
+            SetEmptyParticleReferencesWhereNull();
         }
 
         protected ConditionDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
         {
-            ClearParticleReferences();
+            SetEmptyParticleReferencesWhereNull();
         }
 
         protected ConditionDefinitionBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
         {
-            ClearParticleReferences();
+            SetEmptyParticleReferencesWhereNull();
         }
 
         protected ConditionDefinitionBuilder(TDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
@@ -137,7 +137,7 @@ namespace SolastaCommunityExpansion.Builders
                 .SetAdditionalDamageDieType(dieType)
                 .SetAdditionalDamageDieNumber(numberOfDie)
                 .SetAdditionalDamageQuantity(damageQuantity);
-            
+
             return This();
         }
 
@@ -190,6 +190,30 @@ namespace SolastaCommunityExpansion.Builders
             return This();
         }
 
+        public TBuilder SetCharacterShaderReference(AssetReference assetReference)
+        {
+            Definition.SetCharacterShaderReference(assetReference);
+            return This();
+        }
+
+        public TBuilder SetInterruptionDamageThreshold(int value)
+        {
+            Definition.SetInterruptionDamageThreshold(value);
+            return This();
+        }
+
+        public TBuilder SetConditionParticleReference(AssetReference assetReference)
+        {
+            Definition.SetConditionParticleReference(assetReference);
+            return This();
+        }
+
+        public TBuilder AddRecurrentEffectForm(EffectForm effect)
+        {
+            Definition.RecurrentEffectForms.Add(effect);
+            return This();
+        }
+
         public TBuilder ClearRecurrentEffectForms()
         {
             Definition.ClearRecurrentEffectForms();
@@ -207,10 +231,24 @@ namespace SolastaCommunityExpansion.Builders
             Definition.SetDurationParameter(duration);
             Definition.SetDurationType(type);
 
-            return (TBuilder)this;
+            return This();
         }
 
-        // TODO: add more methods as required (and that aren't delegating property setters to add value)
+        public TBuilder Configure(RuleDefinitions.DurationType durationType, int durationParameter,
+            bool silent, IEnumerable<FeatureDefinition> conditionFeatures)
+        {
+            Definition.Features.AddRange(conditionFeatures);
+            Definition.SetConditionType(RuleDefinitions.ConditionType.Beneficial);
+            Definition.SetAllowMultipleInstances(false);
+            Definition.SetDurationType(durationType);
+            Definition.SetDurationParameter(durationParameter);
+            if (silent)
+            {
+                Definition.SetSilentWhenAdded(true);
+                Definition.SetSilentWhenRemoved(true);
+            }
+            return This();
+        }
     }
 
     /// <summary>

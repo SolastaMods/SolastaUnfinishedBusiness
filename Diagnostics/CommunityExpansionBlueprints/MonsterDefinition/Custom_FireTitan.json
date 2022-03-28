@@ -1,0 +1,339 @@
+{
+  "$type": "MonsterDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": "Monster",
+  "overrideSpawnDecision": null,
+  "characterFamily": "Elemental",
+  "creatureTags": [],
+  "defaultFaction": "HostileMonsters",
+  "fullyControlledWhenAllied": true,
+  "sizeDefinition": "Definition:Gargantuan:7c516e825cf3b0b4d964afb80bada697",
+  "alignment": "Neutral",
+  "armorClass": 16,
+  "armor": "",
+  "hitDice": 22,
+  "hitDiceType": "D20",
+  "hitPointsBonus": 110,
+  "standardHitPoints": 241,
+  "abilityScores": [
+    21,
+    22,
+    20,
+    2,
+    10,
+    19
+  ],
+  "savingThrowScores": [
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Strength",
+      "bonus": 0
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Dexterity",
+      "bonus": 0
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Constitution",
+      "bonus": 12
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Intelligence",
+      "bonus": 0
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Wisdom",
+      "bonus": 7
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Charisma",
+      "bonus": 11
+    }
+  ],
+  "skillScores": [],
+  "legendaryCreature": true,
+  "maxLegendaryResistances": 3,
+  "maxLegendaryActionPoints": 3,
+  "differentActionEachTurn": false,
+  "legendaryActionOptions": [
+    {
+      "$type": "LegendaryActionDescription, Assembly-CSharp",
+      "cost": 1,
+      "subaction": "Spell",
+      "monsterAttackDefinition": null,
+      "featureDefinitionPower": null,
+      "spellDefinition": "Definition:WallOfFireRing_Outer:f434773a335e41548b26edc520fc39c4",
+      "magicAttackBonus": 5,
+      "saveDC": 13,
+      "magicAbilityBonus": 3,
+      "canMove": false,
+      "moveMode": null,
+      "noOpportunityAttack": false,
+      "decisionPackage": "Definition:LegendaryAoE_DpS:1ea764dc8a5f3f248a7beafb49ab8fcf"
+    },
+    {
+      "$type": "LegendaryActionDescription, Assembly-CSharp",
+      "cost": 1,
+      "subaction": "Power",
+      "monsterAttackDefinition": null,
+      "featureDefinitionPower": "Definition:AtWillAOE_Fireball_Power_DH_Custom:86122d93-9504-5d9e-8931-8ccdcd2d75c8",
+      "spellDefinition": null,
+      "magicAttackBonus": 5,
+      "saveDC": 13,
+      "magicAbilityBonus": 3,
+      "canMove": false,
+      "moveMode": null,
+      "noOpportunityAttack": false,
+      "decisionPackage": "Definition:LegendaryDefilerAoE_DpS:895bae81310359f40b3edb66d9c93229"
+    }
+  ],
+  "defaultBattleDecisionPackage": "Definition:DH_Custom_Titan_CombatDecisions:a516f082-2cf2-58d5-86ab-5f141b36c327",
+  "threatEvaluatorDefinition": {
+    "$type": "TA.AI.ThreatEvaluatorDefinition, Assembly-CSharp",
+    "threatEvaluator": {
+      "$type": "TA.AI.ThreatEvaluator, Assembly-CSharp",
+      "hateResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "woundRatioResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "maxHPResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "attackersCountResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "meleeVsRangedResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "previousTargetRelatedMalus": 0.1
+    },
+    "name": "PrioritizeDamageDealers"
+  },
+  "languages": [],
+  "audioSwitches": [],
+  "audioSwitchesOnHands": [
+    {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": {
+        "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
+        "WwiseSwitchGroupReference": {
+          "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+          "objectName": "Switch_Weapon",
+          "id": 3974273212,
+          "guid": "D2D6B922-8A9A-4873-B9AF-27E992B18419",
+          "name": "D2D6B922-8A9A-4873-B9AF-27E992B18419"
+        },
+        "objectName": "Elem_Fire",
+        "id": 4185372447,
+        "guid": "851DAFB0-267F-4898-BEB8-6EABB6F31BB6",
+        "name": "851DAFB0-267F-4898-BEB8-6EABB6F31BB6"
+      },
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  ],
+  "audioRaceRTPCValue": 37.0,
+  "challengeRating": 23.0,
+  "noExperienceGain": false,
+  "droppedLootDefinition": "Definition:Fire_Elemental_loot_drop:8ed9c711b958734468837f34dc052b98",
+  "stealableLootDefinition": null,
+  "bestiaryLootOptions": [],
+  "features": [
+    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+    "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+    "Definition:SenseTremorsense16:0c4195ea1bc8d6a48b516f82161efbae",
+    "Definition:SenseBlindSight2:f6e92e044ad5c9945b1c01d9891bf49d",
+    "Definition:MoveModeMove10:998d8b8df7417a940829ff6548ba5ca7",
+    "Definition:MoveModeFly6:017c6a5ac95be2841bea36b7dac041fe",
+    "Definition:DamageAffinityPoisonImmunity:7f47b64e57ec7b247acaa220a510b131",
+    "Definition:DamageAffinityFireImmunity:6f4ede3c34539284e941dd084eaf4429",
+    "Definition:ConditionAffinityPoisonImmunity:558b2de37dbf89341ab0ed6c445873a6",
+    "Definition:ConditionAffinityRestrainedmmunity:76af0d7e11d8bf6488233fd523d0616b",
+    "Definition:ConditionAffinityProneImmunity:abedf907fa238ce4c91865e7ab06c78d",
+    "Definition:ConditionAffinityParalyzedmmunity:fb168e0f7aeed9c479746505d1df5da7",
+    "Definition:ConditionAffinityGrappledImmunity:c71d4f4faab7c754fbe9d52fa8ca428b",
+    "Definition:ConditionAffinityPetrifiedImmunity:7661e50eda0f67540b4bf452c5764ba1",
+    "Definition:ConditionAffinityExhaustionImmunity:9e9405220f0bbc24ca6cafa5fb2d6858",
+    "Definition:ConditionAffinityUnconsciousImmunity:006c19a6f1d0e4044a7b435026bc426c",
+    "Definition:LightSourceFireElemental:47375c71428eb8d408e4b3acdc7b6777",
+    "Definition:DamageAffinityBludgeoningResistance:956f9745b15c6904d87322861723d5c7",
+    "Definition:DamageAffinitySlashingResistance:2345f12303c12854fad8b09556da53d6",
+    "Definition:DamageAffinityPiercingResistance:b6c93ec66a0ec9747b5c02f9db3091ff",
+    "Definition:AttackModifierMartialSpellBladeMagicWeapon:9de1d9539d9b72048acf914d292e95ad",
+    "Definition:SummonCreature_Fire_Elemental_Power:e5ea2d4e-b1f1-51d8-b2b9-7718af70974f",
+    "Definition:SummonCreature_Fire_Jester_Power:45ff25b5-03f5-5d5b-9d37-9d381862107f",
+    "Definition:DH_Custom_FireTitan_Retaliate_DamageAffinity:be2dd3d0-84b9-50f0-82a7-d7efbbcae335",
+    "Definition:DH_Custom_FireTitan_Aura_Power:56bdc470-78c1-5f89-8df7-5288b96416c6"
+  ],
+  "attackIterations": [
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 3,
+      "monsterAttackDefinition": "Definition:DH_Custom_FireTitan_Slam_Attack:1bf28018-3589-5fd6-96a6-ff0eb1bcd246"
+    }
+  ],
+  "sneakStance": "Stealth",
+  "patrolStance": "SlowWalk",
+  "interceptStance": "Run",
+  "dualSex": true,
+  "minimalAge": 20,
+  "maximalAge": 100,
+  "height": 2,
+  "weight": 120,
+  "isHusk": false,
+  "isPet": false,
+  "forbidFastTravel": false,
+  "forceHasComplexActions": false,
+  "forcePersistentBody": false,
+  "bestiaryEntry": "None",
+  "bestiaryReference": null,
+  "bestiaryCameraOffset": {
+    "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+    "x": 0.0,
+    "y": 7.0,
+    "z": -52.0
+  },
+  "alwaysHideStats": false,
+  "bestiarySpriteReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "bca20e29910d5be41a2a05e73a3f11cb",
+    "m_SubObjectName": "Fire_Elemental",
+    "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+  },
+  "monsterPresentation": {
+    "$type": "MonsterPresentation, Assembly-CSharp",
+    "hasUniqueName": false,
+    "uniqueNameTitle": "",
+    "humanoidMonsterPresentationDefinitions": [],
+    "useCustomMaterials": false,
+    "customMaterials": [],
+    "customShaderReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "a008bb3ffbadf594ca935988fcf2456a",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "mutantFleshDirection": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": -1.0,
+      "z": 0.0
+    },
+    "overrideCharacterShaderColors": false,
+    "firstCharacterShaderColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "secondCharacterShaderColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "hasPhantomDistortion": true,
+    "attachedParticlesReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "5d249b514baa99040874880ba8d35295",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "bestiaryAttachedParticlesReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "hasPrefabVariants": false,
+    "monsterPresentationDefinitions": [],
+    "malePrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "0829dcc3d2af9764582f0c4f3b70c914",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "maleModelScale": 2.0,
+    "femalePrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "0829dcc3d2af9764582f0c4f3b70c914",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "femaleModelScale": 2.0,
+    "wieldedItemsScale": 1.0,
+    "hideWieldedItemsWhenPassive": false,
+    "hideDuringCutscene": false,
+    "hasLightingCutscene": true,
+    "canGeneratePortrait": true,
+    "needMerchantPortrait": false,
+    "hasMonsterPortraitBackground": true,
+    "portraitCameraFollowOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": -1.0,
+      "y": -0.5,
+      "z": -5.0
+    },
+    "portraitCameraLookAtScreenOffset": {
+      "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+      "x": 0.5,
+      "y": 0.4
+    },
+    "portraitCameraFOV": 40.0,
+    "portraitCameraLightingOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    }
+  },
+  "forceCombatStartsAnimation": false,
+  "hasLookAt": false,
+  "forceNoFlyAnimation": false,
+  "followFloorAngle": false,
+  "groupAttacks": false,
+  "isUnique": false,
+  "uniqueNameId": "",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Monster/&DH_Custom_FireTitan_Title",
+    "description": "Monster/&DH_Custom_FireTitan_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "61656f8d235e1c643bff8b1d8642a12e",
+      "m_SubObjectName": "CustomPortrait_Fire_Elemental",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "d532ba6a-3820-59d2-855d-350e1019f602",
+  "contentPack": 9999,
+  "name": "Custom_FireTitan"
+}

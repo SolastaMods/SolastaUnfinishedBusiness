@@ -1,4 +1,5 @@
 ﻿using System;
+using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
@@ -34,5 +35,17 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
         #endregion
+
+        public FeatureDefinitionEquipmentAffinityBuilder SetCarryingCapacityMultiplier(float carryingCapacityMultiplier, float? additionalCarryingCapacity)
+        {
+            Definition.SetCarryingCapacityMultiplier(carryingCapacityMultiplier);
+
+            if(additionalCarryingCapacity != null)
+            {
+                Definition.SetAdditionalCarryingCapacity(additionalCarryingCapacity.Value);
+            }
+
+            return This();
+        }
     }
 }

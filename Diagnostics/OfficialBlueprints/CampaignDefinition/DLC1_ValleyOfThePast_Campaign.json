@@ -1669,6 +1669,54 @@
       "boolValue": false,
       "intValue": 0,
       "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "NPC_Finaliel_Sharpmind_Campaign_DLC1_Status",
+      "type": "String",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "KareliaJoke-C",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "Key_Complex_01_Campaign_DLC1_Status",
+      "type": "String",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "Key_Complex_02_Campaign_DLC1_Status",
+      "type": "String",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "Key_Complex_03_Campaign_DLC1_Status",
+      "type": "String",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "Key_Complex_04_Campaign_DLC1_Status",
+      "type": "String",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
     }
   ],
   "knownRecipes": [

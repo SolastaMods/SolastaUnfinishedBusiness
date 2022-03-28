@@ -88,5 +88,12 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetRitualCasting(ritualCasting);
             return this;
         }
+
+
+        public FeatureDefinitionMagicAffinityBuilder SetExtendedSpellList(SpellListDefinition spellListDefinition)
+        {
+            Definition.SetExtendedSpellList(spellListDefinition);
+            return this;
+        }
     }
 }

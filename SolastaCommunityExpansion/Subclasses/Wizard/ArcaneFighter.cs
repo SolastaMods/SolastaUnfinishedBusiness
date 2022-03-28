@@ -55,17 +55,15 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 .SetTriggerCondition(RuleDefinitions.AdditionalActionTriggerCondition.HasDownedAnEnemy)
                 .AddToDB();
 
-            GuiPresentationBuilder bonusWeaponDamageGui = new GuiPresentationBuilder(
-                "Subclass/&ArcaneFighterBonusWeaponDamageTitle",
-                "Subclass/&ArcaneFighterBonusWeaponDamageDescription");
-            // TODO: refactor large ctor
-            FeatureDefinitionAdditionalDamage bonusWeaponDamage = new FeatureDefinitionAdditionalDamageBuilder("ArcaneFighterBonusWeaponDamage",
-                GuidHelper.Create(SubclassNamespace, "ArcaneFighterBonusWeaponDamage").ToString(),
-                "ArcaneFighterBonusWeaponDamage",
-                RuleDefinitions.FeatureLimitedUsage.OncePerTurn, RuleDefinitions.AdditionalDamageValueDetermination.Die,
-                RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive, RuleDefinitions.AdditionalDamageRequiredProperty.None,
-                true /* attack only */, RuleDefinitions.DieType.D8, 1 /* dice number */, RuleDefinitions.AdditionalDamageType.SameAsBaseDamage, "",
-                RuleDefinitions.AdditionalDamageAdvancement.None, new List<DiceByRank>(), bonusWeaponDamageGui.Build())
+            FeatureDefinitionAdditionalDamage bonusWeaponDamage = FeatureDefinitionAdditionalDamageBuilder
+                .Create("ArcaneFighterBonusWeaponDamage", SubclassNamespace)
+                .Configure(
+                    "ArcaneFighterBonusWeaponDamage",
+                    RuleDefinitions.FeatureLimitedUsage.OncePerTurn, RuleDefinitions.AdditionalDamageValueDetermination.Die,
+                    RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive, RuleDefinitions.AdditionalDamageRequiredProperty.None,
+                    true /* attack only */, RuleDefinitions.DieType.D8, 1 /* dice number */, RuleDefinitions.AdditionalDamageType.SameAsBaseDamage, "",
+                    RuleDefinitions.AdditionalDamageAdvancement.None, new List<DiceByRank>())
+                .SetGuiPresentation(Category.Subclass)
                 .AddToDB();
 
             Subclass = CharacterSubclassDefinitionBuilder

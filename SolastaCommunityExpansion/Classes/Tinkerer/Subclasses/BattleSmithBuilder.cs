@@ -43,12 +43,11 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
                 "ProficiencyWeaponArtificerBattleSmith", weaponProfPresentation.Build());
             battleSmith.AddFeatureAtLevel(weaponProf, 3);
 
-            GuiPresentationBuilder InfusionPoolIncreaseGui = new GuiPresentationBuilder(
-                "Subclass/&HealingPoolArtificerBattleSmithInfusionsIncreaseTitle",
-                "Subclass/&HealingPoolArtificerBattleSmithInfusionsIncreaseDescription");
-            FeatureDefinitionPowerPoolModifier InfusionPoolIncrease = new FeatureDefinitionPowerPoolModifierBuilder("AttributeModiferArtificerBattleSmithInfusionHealingPool",
-                GuidHelper.Create(TinkererClass.GuidNamespace, "AttributeModiferArtificerBattleSmithInfusionHealingPool").ToString(),
-                2, UsesDetermination.Fixed, AttributeDefinitions.Intelligence, TinkererClass.InfusionPool, InfusionPoolIncreaseGui.Build()).AddToDB();
+            FeatureDefinitionPowerPoolModifier InfusionPoolIncrease = FeatureDefinitionPowerPoolModifierBuilder
+                .Create("AttributeModiferArtificerBattleSmithInfusionHealingPool", TinkererClass.GuidNamespace)
+                .Configure(2, UsesDetermination.Fixed, AttributeDefinitions.Intelligence, TinkererClass.InfusionPool)
+                .SetGuiPresentation("HealingPoolArtificerBattleSmithInfusionsIncrease", Category.Subclass)
+                .AddToDB();
             battleSmith.AddFeatureAtLevel(InfusionPoolIncrease, 3);
 
             GuiPresentationBuilder attackModGui = new GuiPresentationBuilder(

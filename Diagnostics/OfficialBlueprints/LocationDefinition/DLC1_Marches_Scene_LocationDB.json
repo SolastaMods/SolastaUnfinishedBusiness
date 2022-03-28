@@ -207,6 +207,7 @@
   "setCurrentCampaignNodeWhenLeaving": true,
   "hasPriorityForTeleporter": false,
   "canAttackNonHostileCharacters": false,
+  "forceNoEncounterPrespawn": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -214,7 +215,7 @@
     "description": "Map/&Location_Presentation_Description_Marches",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "cc20c225f657e064c95e5335b1fa10ec",
+      "m_AssetGUID": "89e3250eebc2bad47b760cc0ee0d9d74",
       "m_SubObjectName": "DLC1_Marches",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },

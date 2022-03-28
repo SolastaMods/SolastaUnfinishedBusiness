@@ -14,8 +14,8 @@
     "description": "Environment/&ValleyPalaceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "71c55e16f557100418d084a1d5575310",
-      "m_SubObjectName": "EnvironmentElvenPalace",
+      "m_AssetGUID": "4652c7dcf76cb7840855e3595f1e15fc",
+      "m_SubObjectName": "DLC1_BuriedCity_Palace",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

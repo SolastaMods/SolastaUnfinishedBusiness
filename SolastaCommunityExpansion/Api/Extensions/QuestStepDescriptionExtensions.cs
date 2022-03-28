@@ -141,6 +141,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetOptionalEntranceId<T>(this T entity, System.Int32 value)
+            where T : QuestStepDescription
+        {
+            entity.OptionalEntranceId = value;
+            return entity;
+        }
+
         public static T SetOutcomesTable<T>(this T entity,  params  QuestOutcomeDescription [ ]  value)
             where T : QuestStepDescription
         {
@@ -187,6 +194,13 @@ namespace SolastaModApi.Extensions
             where T : QuestStepDescription
         {
             entity.Type = value;
+            return entity;
+        }
+
+        public static T SetUseEntranceId<T>(this T entity, System.Boolean value)
+            where T : QuestStepDescription
+        {
+            entity.UseEntranceId = value;
             return entity;
         }
     }
