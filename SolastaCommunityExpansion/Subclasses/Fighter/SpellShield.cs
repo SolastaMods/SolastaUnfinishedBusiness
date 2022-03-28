@@ -25,11 +25,6 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
 
         internal SpellShield()
         {
-            // Make Spell Shield subclass
-            CharacterSubclassDefinitionBuilder spellShield = CharacterSubclassDefinitionBuilder
-                .Create("FighterSpellShield", SubclassNamespace)
-                .SetGuiPresentation(Category.Subclass, DomainBattle.GuiPresentation.SpriteReference);
-
             FeatureDefinitionMagicAffinity magicAffinity = FeatureDefinitionMagicAffinityBuilder
                 .Create("MagicAffinityFighterSpellShield", SubclassNamespace)
                 .SetGuiPresentation(Category.Subclass)
@@ -37,7 +32,6 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                 .SetHandsFullCastingModifiers(true, true, true)
                 .SetCastingModifiers(0, 0, true, false, false)
                 .AddToDB();
-            spellShield.AddFeatureAtLevel(magicAffinity, 3);
 
             FeatureDefinitionCastSpellBuilder spellCasting = FeatureDefinitionCastSpellBuilder
                 .Create("CastSpellSpellShield", SubclassNamespace)
@@ -56,8 +50,6 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                 .SetKnownSpells(4, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER)
                 .SetSlotsPerLevel(3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER);
 
-            spellShield.AddFeatureAtLevel(spellCasting.AddToDB(), 3);
-
             FeatureDefinitionSavingThrowAffinity spellShieldResistance = FeatureDefinitionSavingThrowAffinityBuilder
                 .Create("SpellShieldSpellResistance", SubclassNamespace)
                 .SetGuiPresentation("FighterSpellShieldSpellResistance", Category.Subclass)
@@ -70,7 +62,6 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                     AttributeDefinitions.Charisma)
                 .AddToDB();
 
-            spellShield.AddFeatureAtLevel(spellShieldResistance, 7);
             // or maybe some boost to the spell shield spells?
 
             FeatureDefinitionAdditionalAction bonusSpell = FeatureDefinitionAdditionalActionBuilder
@@ -81,10 +72,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                 .SetMaxAttacksNumber(-1)
                 .SetTriggerCondition(RuleDefinitions.AdditionalActionTriggerCondition.HasDownedAnEnemy)
                 .AddToDB();
-            spellShield.AddFeatureAtLevel(bonusSpell, 10);
 
-            EffectDescriptionBuilder arcaneDeflection = new EffectDescriptionBuilder();
-            arcaneDeflection.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1, RuleDefinitions.TargetType.Self, 1, 0, ActionDefinitions.ItemSelectionType.None);
             ConditionDefinition deflectionCondition = ConditionDefinitionBuilder
                 .Create("ConditionSpellShieldArcaneDeflection", SubclassNamespace)
                 .SetGuiPresentation(Category.Subclass)
@@ -98,27 +86,40 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                 .SetDuration(RuleDefinitions.DurationType.Round, 1)
                 .AddToDB();
 
-            arcaneDeflection.AddEffectForm(new EffectFormBuilder().CreatedByCharacter().SetConditionForm(deflectionCondition, ConditionForm.ConditionOperation.Add,
-                true, true, new List<ConditionDefinition>()).Build());
+            var arcaneDeflection = EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1, RuleDefinitions.TargetType.Self, 1, 0, ActionDefinitions.ItemSelectionType.None)
+                .AddEffectForm(EffectFormBuilder
+                    .Create()
+                    .CreatedByCharacter()
+                    .SetConditionForm(deflectionCondition, ConditionForm.ConditionOperation.Add, true, true)
+                    .Build())
+                .Build();
 
             FeatureDefinitionPower arcaneDeflectionPower = FeatureDefinitionPowerBuilder
                 .Create("PowerSpellShieldArcaneDeflection", SubclassNamespace)
                 .SetGuiPresentation(Category.Subclass, ConditionShielded.GuiPresentation.SpriteReference)
                 .Configure(
                     0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, RuleDefinitions.ActivationTime.Reaction, 0, RuleDefinitions.RechargeRate.AtWill,
-                    false, false, AttributeDefinitions.Intelligence, arcaneDeflection.Build(), false /* unique instance */)
+                    false, false, AttributeDefinitions.Intelligence, arcaneDeflection, false /* unique instance */)
                 .AddToDB();
 
-            spellShield.AddFeatureAtLevel(arcaneDeflectionPower, 15);
+            var actionAffinitySpellShieldRangedDefense = FeatureDefinitionActionAffinityBuilder
+                .Create(FeatureDefinitionActionAffinitys.ActionAffinityTraditionGreenMageLeafScales, "ActionAffinitySpellShieldRangedDefense", SubclassNamespace)
+                .SetGuiPresentation("PowerSpellShieldRangedDeflection", Category.Subclass)
+                .AddToDB();
 
-            spellShield.AddFeatureAtLevel(
-                FeatureDefinitionActionAffinityBuilder
-                    .Create(FeatureDefinitionActionAffinitys.ActionAffinityTraditionGreenMageLeafScales, "ActionAffinitySpellShieldRangedDefense", SubclassNamespace)
-                    .SetGuiPresentation("PowerSpellShieldRangedDeflection", Category.Subclass)
-                    .AddToDB(),
-                18);
+            // Make Spell Shield subclass
 
-            Subclass = spellShield.AddToDB();
+            Subclass = CharacterSubclassDefinitionBuilder
+                .Create("FighterSpellShield", SubclassNamespace)
+                .SetGuiPresentation(Category.Subclass, DomainBattle.GuiPresentation.SpriteReference)
+                .AddFeatureAtLevel(magicAffinity, 3)
+                .AddFeatureAtLevel(spellCasting.AddToDB(), 3)
+                .AddFeatureAtLevel(spellShieldResistance, 7)
+                .AddFeatureAtLevel(bonusSpell, 10)
+                .AddFeatureAtLevel(arcaneDeflectionPower, 15)
+                .AddFeatureAtLevel(actionAffinitySpellShieldRangedDefense, 18).AddToDB();
         }
     }
 }

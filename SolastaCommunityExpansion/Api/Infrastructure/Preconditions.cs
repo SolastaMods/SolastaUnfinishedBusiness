@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Diagnostics;
 using JetBrains.Annotations;
+using SolastaModApi.Diagnostics;
 
 namespace SolastaModApi.Infrastructure
 {
+    // TODO: rename IsNotNull -> ArgumentIsNotNull etc
+    // TODO: remove Assert.IsNotNull which duplicates Preconditions.IsNotNull
     public static class Preconditions
     {
         [ContractAnnotation("halt <= paramValue : null")]
@@ -53,6 +56,16 @@ namespace SolastaModApi.Infrastructure
                 {
                     throw new ArgumentException($"Duration={duration}. A duration value is not expected for duration type {type}.", nameof(duration));
                 }
+            }
+        }
+
+        [Conditional("DEBUG")]
+        [AssertionMethod]
+        internal static void AreEqual<T>(T left, T right, string message)
+        {
+            if (!left.Equals(right))
+            {
+                throw new SolastaModApiException(message);
             }
         }
     }

@@ -157,7 +157,12 @@
     "hidden": false,
     "title": "Feat/&ArmorModePoolTitle",
     "description": "Feat/&ArmorModePoolDescription",
-    "spriteReference": null,
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
