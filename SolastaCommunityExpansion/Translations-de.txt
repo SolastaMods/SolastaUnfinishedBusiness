@@ -1398,7 +1398,7 @@ Subclass/&PowerTransmuteConstitutionTitle	Verfassung speichert
 Subclass/&PowerTransmuteDarkvisionDescription	Nutze deine Transmutierungskraft, um bis zur nächsten langen Pause überlegene Dunkelsicht zu gewähren.
 Subclass/&PowerTransmuteDarkvisionTitle	Überlegene Dunkelsicht
 Subclass/&PowerTransmuteElementalResistanceDescription	Nutze deine Transmutierungskraft, um bis zur nächsten langen Pause Widerstand gegen Säure, Kälte, Feuer, Blitz, Nekrotik, Donner und Gift zu gewähren.
-Subclass/&PowerTransmuteElemnetalResistanceTitle	Elementarer Widerstand
+Subclass/&PowerTransmuteElementalResistanceTitle	Elementarer Widerstand
 Subclass/&PowerTransmuteFlyDescription	Benutze deine Transmutierungskraft, um die Fähigkeit zu fliegen zu gewähren.
 Subclass/&PowerTransmuteFlyTitle	Fliegen
 Subclass/&PowerTransmuteHealDescription	Nutze deine Transmutierungskraft, um bis zu 6 Ziele zu heilen.

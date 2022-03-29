@@ -1398,7 +1398,7 @@ Subclass/&PowerTransmuteConstitutionTitle	Salvamentos de Constituição
 Subclass/&PowerTransmuteDarkvisionDescription	Use sua Força de Transmutação para conceder Visão no Escuro Superior até o próximo descanso longo.
 Subclass/&PowerTransmuteDarkvisionTitle	Visão no escuro superior
 Subclass/&PowerTransmuteElementalResistanceDescription	Use sua Força de Transmutação para conceder resistência a Ácido, Frio, Fogo, Relâmpago, Necrótico, Trovão e Veneno até o próximo descanso longo.
-Subclass/&PowerTransmuteElemnetalResistanceTitle	Resistência Elementar
+Subclass/&PowerTransmuteElementalResistanceTitle	Resistência Elementar
 Subclass/&PowerTransmuteFlyDescription	Use sua Força de Transmutação para conceder a habilidade de voar.
 Subclass/&PowerTransmuteFlyTitle	Mosca
 Subclass/&PowerTransmuteHealDescription	Use sua Força de Transmutação para curar até 6 alvos.

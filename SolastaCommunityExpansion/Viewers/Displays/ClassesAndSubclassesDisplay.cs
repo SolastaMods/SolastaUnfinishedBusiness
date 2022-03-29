@@ -126,7 +126,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 if (UI.Toggle("Enable unlimited ".white() + "Arcane Recovery".orange() + " on " + "Wizard".orange() + " Spell Master\n".white() + "Must be enabled when the ability has available uses (or before character creation)".italic().yellow(), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableUnlimitedArcaneRecoveryOnWizardSpellMaster = toggle;
-                    SpellMaster.UpdateRecoveryLimited();
+                    SpellMaster.UpdateBonusRecovery();
                 }
 
                 UI.Label("");
