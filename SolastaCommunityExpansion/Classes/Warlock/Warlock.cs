@@ -115,6 +115,11 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15
             });
 
+            classWarlockCastSpell.SetReplacedSpells(new List<int> 
+            {
+                0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0
+            });
+
             classWarlockCastSpell.SetSlotsPerLevel(ClassWarlockSpellList.WarlockCastingSlots);
             classWarlockCastSpell.SetSlotsRecharge(RuleDefinitions.RechargeRate.ShortRest);
             classWarlockCastSpell.SetSpellCastingAbility(AttributeDefinitions.Charisma);
