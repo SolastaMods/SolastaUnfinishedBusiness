@@ -180,14 +180,14 @@ namespace SolastaModApi.Testing
             }
         }
 
-        private class TestObj
+        private sealed class TestObj
         {
             public TestObj(string testValue)
             {
                 TestProp = testValue;
             }
 
-            protected string TestProp { get; set; }
+            internal string TestProp { get; set; }
         }
 
         internal static void CheckHelpers()

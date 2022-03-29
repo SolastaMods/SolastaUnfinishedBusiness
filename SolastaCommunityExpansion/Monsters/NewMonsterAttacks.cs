@@ -9,7 +9,7 @@ using SolastaCommunityExpansion.Builders;
 //******************************************************************************************
 namespace SolastaCommunityExpansion.Monsters
 {
-    public class NewMonsterAttacks
+    public static class NewMonsterAttacks
     {
         public static MonsterAttackDefinition FireScimatar_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
         public static MonsterAttackDefinition LightningScimatar_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();

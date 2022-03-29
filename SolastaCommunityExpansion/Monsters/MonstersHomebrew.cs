@@ -393,7 +393,7 @@ namespace SolastaCommunityExpansion.Monsters
                         legendaryActionDescription_2,
                         legendaryActionDescription_3
                     });
-                };
+                }
 
                 if (Definitions[i].MonsterName == "Earth Titan")
                 {
@@ -449,7 +449,7 @@ namespace SolastaCommunityExpansion.Monsters
 
                     NewMonster.SetUseCustomMaterials(true);
                     NewMonster.SetCustomMaterials(DatabaseHelper.MonsterPresentationDefinitions.Golem_Clay_Presentation.CustomMaterials);
-                };
+                }
 
                 if (Definitions[i].MonsterName == "Fire Titan")
                 {
@@ -490,7 +490,7 @@ namespace SolastaCommunityExpansion.Monsters
                         legendaryActionDescription_2,
                         legendaryActionDescription
                     });
-                };
+                }
 
                 if (Definitions[i].MonsterName == "Construct Titan")
                 {
@@ -541,7 +541,7 @@ namespace SolastaCommunityExpansion.Monsters
 
                     // monster powres, AI and combat needs work, too repetitive at the moment as some powers/attacks are not triggering
                     NewMonster.SetInDungeonEditor(false);
-                };
+                }
 
                 NewMonster.SetNoExperienceGain(false);
                 NewMonster.SetHasMonsterPortraitBackground(true);

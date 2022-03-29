@@ -10,8 +10,7 @@ using UnityEngine;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Features
 {
-
-    internal class WarlockPactOfTheChainSummons
+    internal static class WarlockPactOfTheChainSummons
     {
         public static FeatureDefinitionPower PactofChainFamiliarInvisibilityPower;
         public static FeatureDefinitionPower PactofChainFamiliarSpellResistencePower;

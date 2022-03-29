@@ -8,7 +8,7 @@ using SolastaCommunityExpansion.Builders;
 
 namespace SolastaCommunityExpansion.Monsters
 {
-    public class NewMonsterAttributes
+    public static class NewMonsterAttributes
     {
         public static SpellListDefinition Archmage_spelllist = ScriptableObject.CreateInstance<SpellListDefinition>();
         public static FeatureDefinitionCastSpell CastSpell_ArchMage = ScriptableObject.CreateInstance<FeatureDefinitionCastSpell>();
@@ -123,7 +123,7 @@ namespace SolastaCommunityExpansion.Monsters
                 {
                     TarrasqueReflectiveCarapace.SpellImmunities.Add(spell.Name);
                 }
-            };
+            }
 
         }
         public static void BuildNew_TarrasqueSwallow_Decision()

@@ -5,7 +5,7 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
 {
     [HarmonyPatch(typeof(CharacterActionCastSpell), "StartConcentrationAsNeeded")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal class CharacterActionCastSpell_StartConcentrationAsNeeded
+    internal static class CharacterActionCastSpell_StartConcentrationAsNeeded
     {
         public static bool Prefix(CharacterActionCastSpell __instance)
         {

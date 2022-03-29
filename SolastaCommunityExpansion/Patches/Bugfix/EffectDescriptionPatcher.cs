@@ -6,7 +6,7 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
 {
     [HarmonyPatch(typeof(EffectDescription), "ComputeRoundsDuration")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal class EffectDescription_ComputeRoundsDuration
+    internal static class EffectDescription_ComputeRoundsDuration
     {
         public static bool Prefix(EffectDescription __instance, int slotLevel, ref int __result)
         {
