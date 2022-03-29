@@ -778,7 +778,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             PactChainImp.MonsterPresentation.SetMaleModelScale(0.2f);
             PactChainImp.MonsterPresentation.SetFemaleModelScale(0.2f);
             PactChainImp.MonsterPresentation.SetMalePrefabReference(DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.GetField<AssetReference>("malePrefabReference"));
-            PactChainImp.MonsterPresentation.SetFemalePrefabReference(DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.GetField<AssetReference>("mMalePrefabReference"));
+            PactChainImp.MonsterPresentation.SetFemalePrefabReference(DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.GetField<AssetReference>("femalePrefabReference"));
 
             PactChainImp.SetFullyControlledWhenAllied(true);
 
