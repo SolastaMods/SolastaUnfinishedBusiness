@@ -6,27 +6,35 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public sealed class FeatureDefinitionSubclassChoiceBuilder
+    public class FeatureDefinitionSubclassChoiceBuilder
         : FeatureDefinitionBuilder<FeatureDefinitionSubclassChoice, FeatureDefinitionSubclassChoiceBuilder>
     {
         #region Constructors
-        private FeatureDefinitionSubclassChoiceBuilder(string name, string guid)
-            : base(name, guid)
+        protected FeatureDefinitionSubclassChoiceBuilder(FeatureDefinitionSubclassChoice original) : base(original)
         {
         }
 
-        private FeatureDefinitionSubclassChoiceBuilder(string name, Guid namespaceGuid)
-            : base(name, namespaceGuid)
+        protected FeatureDefinitionSubclassChoiceBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
-        private FeatureDefinitionSubclassChoiceBuilder(FeatureDefinitionSubclassChoice original, string name, string guid)
-            : base(original, name, guid)
+        protected FeatureDefinitionSubclassChoiceBuilder(string name, string definitionGuid) : base(name, definitionGuid)
         {
         }
 
-        private FeatureDefinitionSubclassChoiceBuilder(FeatureDefinitionSubclassChoice original, string name, Guid namespaceGuid)
-            : base(original, name, namespaceGuid)
+        protected FeatureDefinitionSubclassChoiceBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
+        {
+        }
+
+        protected FeatureDefinitionSubclassChoiceBuilder(FeatureDefinitionSubclassChoice original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
+        {
+        }
+
+        protected FeatureDefinitionSubclassChoiceBuilder(FeatureDefinitionSubclassChoice original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionSubclassChoiceBuilder(FeatureDefinitionSubclassChoice original, string name, string definitionGuid) : base(original, name, definitionGuid)
         {
         }
         #endregion

@@ -10,7 +10,7 @@ using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Monsters
 {
-    public class MonstersAttributes
+    public static class MonstersAttributes
     {
 
         public static MonsterAttackIteration BlackDragonBiteAttackIteration = new MonsterAttackIteration();
@@ -103,7 +103,7 @@ namespace SolastaCommunityExpansion.Monsters
 
         public static LegendaryActionDescription VampirelegendaryActionDescription = new LegendaryActionDescription();
         public static LegendaryActionDescription VampirelegendaryActionDescription_2 = new LegendaryActionDescription();
-        static public  LegendaryActionDescription VampirelegendaryActionDescription_3 = new LegendaryActionDescription();
+        public static  LegendaryActionDescription VampirelegendaryActionDescription_3 = new LegendaryActionDescription();
         //public static LegendaryActionDescription VampirelegendaryActionDescription_4 = new LegendaryActionDescription();
         public static MonsterSkillProficiency VampiremonsterSkillProficiency_1 = new MonsterSkillProficiency();
         public static MonsterSkillProficiency VampiremonsterSkillProficiency_2 = new MonsterSkillProficiency();

@@ -319,10 +319,10 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             }
         }
 
-        private class IlluminatedConditionDefinitionBuilder
+        private sealed class IlluminatedConditionDefinitionBuilder
             : ConditionDefinitionBuilder<IlluminatedConditionDefinition, IlluminatedConditionDefinitionBuilder>
         {
-            protected IlluminatedConditionDefinitionBuilder(string name, Guid guidNamespace) : base(name, guidNamespace) { }
+            internal IlluminatedConditionDefinitionBuilder(string name, Guid guidNamespace) : base(name, guidNamespace) { }
         }
 
         private sealed class IlluminatedByBurstConditionDefinition : ConditionDefinition, INotifyConditionRemoval
@@ -338,10 +338,10 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             }
         }
 
-        private class IlluminatedByBurstConditionDefinitionBuilder
+        private sealed class IlluminatedByBurstConditionDefinitionBuilder
             : ConditionDefinitionBuilder<IlluminatedByBurstConditionDefinition, IlluminatedByBurstConditionDefinitionBuilder>
         {
-            protected IlluminatedByBurstConditionDefinitionBuilder(string name, Guid guidNamespace) : base(name, guidNamespace) { }
+            internal IlluminatedByBurstConditionDefinitionBuilder(string name, Guid guidNamespace) : base(name, guidNamespace) { }
         }
 
         private sealed class IlluminatingStrikeAdditionalDamage : FeatureDefinitionAdditionalDamage, IClassHoldingFeature

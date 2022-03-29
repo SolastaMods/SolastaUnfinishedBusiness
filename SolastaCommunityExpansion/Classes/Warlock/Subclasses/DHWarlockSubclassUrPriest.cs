@@ -64,7 +64,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                     if (FeatureUnlockByLevel.Level==1)
                     {
                         Domainlevel1Features.FeatureSet.Add(FeatureUnlockByLevel.FeatureDefinition);
-                    };
+                    }
                 }
 
 

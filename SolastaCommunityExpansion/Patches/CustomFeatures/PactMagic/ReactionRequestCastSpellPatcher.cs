@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class ReactionRequestCastSpell_BuildSlotSubOptions
     {
-        static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var maxSpellLevelOfSpellCastingLevelMethod = typeof(RulesetSpellRepertoire).GetMethod("get_MaxSpellLevelOfSpellCastingLevel");
             var myMaxSpellLevelOfSpellCastingLevelMethod = typeof(ReactionRequestCastSpell_BuildSlotSubOptions).GetMethod("MaxSpellLevelOfSpellCastingLevel");
