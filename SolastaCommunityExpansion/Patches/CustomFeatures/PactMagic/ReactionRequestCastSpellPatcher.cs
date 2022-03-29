@@ -7,11 +7,12 @@ using static SolastaCommunityExpansion.Classes.Warlock.Warlock;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
 {
+    // ensures Mystic Arcanum slots cannot be used on slots based reaction panels
     [HarmonyPatch(typeof(ReactionRequestCastSpell), "BuildSlotSubOptions")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class ReactionRequestCastSpell_BuildSlotSubOptions
     {
-        static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var maxSpellLevelOfSpellCastingLevelMethod = typeof(RulesetSpellRepertoire).GetMethod("get_MaxSpellLevelOfSpellCastingLevel");
             var myMaxSpellLevelOfSpellCastingLevelMethod = typeof(ReactionRequestCastSpell_BuildSlotSubOptions).GetMethod("MaxSpellLevelOfSpellCastingLevel");
