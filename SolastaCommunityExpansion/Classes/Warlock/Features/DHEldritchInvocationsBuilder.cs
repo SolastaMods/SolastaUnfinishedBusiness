@@ -303,26 +303,18 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             EldritchBlastAncestry.GuiPresentation = new GuiPresentationBuilder(
                 "Feature/&NoContentTitle", "Feature/&NoContentTitle").Build();
 
-            FeatureDefinitionAdditionalDamage AdditionalDamageAgonizingBlast = new FeatureDefinitionAdditionalDamageBuilder(
-                     "AdditionalDamageAgonizingBlast",
-                     GuidHelper.Create(new Guid(Settings.GUID), "AdditionalDamageAgonizingBlast").ToString(),
-                     "Agonizing_Blast",
-                     RuleDefinitions.FeatureLimitedUsage.None,
-                     RuleDefinitions.AdditionalDamageValueDetermination.SpellcastingBonus,
-                     RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamageMatchesSourceAncestry,
-                     RuleDefinitions.AdditionalDamageRequiredProperty.None,
-                     false,
-                     RuleDefinitions.DieType.D4,
-                     1,
-                     RuleDefinitions.AdditionalDamageType.AncestryDamageType,
-                     RuleDefinitions.DamageTypeForce,
-                     RuleDefinitions.AdditionalDamageAdvancement.None,
-                     new List<DiceByRank>(),
-                     new GuiPresentationBuilder(
-                         "Feature/&AdditionalDamageAgonizingBlastTitle",
-                         "Feature/&AdditionalDamageAgonizingBlastDescription"
-                         ).Build()
-                ).AddToDB();
+            FeatureDefinitionAdditionalDamage AdditionalDamageAgonizingBlast = FeatureDefinitionAdditionalDamageBuilder
+                .Create(
+                    "AdditionalDamageAgonizingBlast",
+                     GuidHelper.Create(new Guid(Settings.GUID), "AdditionalDamageAgonizingBlast").ToString())
+                .Configure(
+                    "Agonizing_Blast",
+                    RuleDefinitions.FeatureLimitedUsage.None, RuleDefinitions.AdditionalDamageValueDetermination.SpellcastingBonus,
+                    RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamageMatchesSourceAncestry, RuleDefinitions.AdditionalDamageRequiredProperty.None,
+                    false /* attack only */, RuleDefinitions.DieType.D4, 1 /* dice number */, RuleDefinitions.AdditionalDamageType.AncestryDamageType, RuleDefinitions.DamageTypeForce,
+                    RuleDefinitions.AdditionalDamageAdvancement.None, new List<DiceByRank>())
+                .SetGuiPresentation(Category.Feature)
+                .AddToDB();
 
             AgonizingBlastFeatureSet = FeatureDefinitionFeatureSetBuilder
                 .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, "AgonizingBlastFeatureSet", GuidHelper.Create(new Guid(Settings.GUID), "AgonizingBlastFeatureSet").ToString())
@@ -342,26 +334,17 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             hinderingConditionOperation.SetConditionDefinition(DatabaseHelper.ConditionDefinitions.ConditionHindered_By_Frost);
             hinderingConditionOperation.SetConditionName(DatabaseHelper.ConditionDefinitions.ConditionHindered.name);
 
-            FeatureDefinitionAdditionalDamage AdditionalDamageHinderingBlast = new FeatureDefinitionAdditionalDamageBuilder(
-                     "AdditionalDamageHinderingBlast",
-                     GuidHelper.Create(new Guid(Settings.GUID), "AdditionalDamageHinderingBlast").ToString(),
-                     "Hindering Blast",
-                     RuleDefinitions.FeatureLimitedUsage.OncePerTurn,
-                     RuleDefinitions.AdditionalDamageValueDetermination.Die,
-                     RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamageMatchesSourceAncestry,
-                     RuleDefinitions.AdditionalDamageRequiredProperty.None,
-                     false,
-                     RuleDefinitions.DieType.D1,
-                     0,
-                     RuleDefinitions.AdditionalDamageType.AncestryDamageType,
-                     RuleDefinitions.DamageTypeForce,
-                     RuleDefinitions.AdditionalDamageAdvancement.None,
-                     new List<DiceByRank>(),
-                     new GuiPresentationBuilder(
-                         "Feature/&AdditionalDamageHinderingBlastTitle",
-                         "Feature/&AdditionalDamageHinderingBlastDescription")
-                     .Build()
-                )
+            FeatureDefinitionAdditionalDamage AdditionalDamageHinderingBlast = FeatureDefinitionAdditionalDamageBuilder
+                .Create(
+                    "AdditionalDamageHinderingBlast",
+                     GuidHelper.Create(new Guid(Settings.GUID), "AdditionalDamageHinderingBlast").ToString())
+                .Configure(
+                    "Hindering Blast",
+                    RuleDefinitions.FeatureLimitedUsage.OncePerTurn, RuleDefinitions.AdditionalDamageValueDetermination.Die,
+                    RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamageMatchesSourceAncestry, RuleDefinitions.AdditionalDamageRequiredProperty.None,
+                    false /* attack only */, RuleDefinitions.DieType.D1, 0 /* dice number */, RuleDefinitions.AdditionalDamageType.AncestryDamageType, RuleDefinitions.DamageTypeForce,
+                    RuleDefinitions.AdditionalDamageAdvancement.None, new List<DiceByRank>())
+                .SetGuiPresentation(Category.Feature)
                 .SetConditionOperations(new List<ConditionOperationDescription> { hinderingConditionOperation })
                 .AddToDB();
 

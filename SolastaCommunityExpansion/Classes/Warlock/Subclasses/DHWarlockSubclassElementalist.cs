@@ -204,24 +204,19 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                    )
                     .Build();
 
-                FeatureDefinitionAdditionalDamage additionalDamage = new FeatureDefinitionAdditionalDamageBuilder(
-                     "DH_ElementalForm_" + text + "additionalDamage",
-                     GuidHelper.Create(new Guid(Settings.GUID), "DH_ElementalForm_" + text + "additionalDamage").ToString(),
-                     "ElementalDamage",
-                     RuleDefinitions.FeatureLimitedUsage.OncePerTurn,
-                     RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonus,
-                     RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive,
-                     RuleDefinitions.AdditionalDamageRequiredProperty.MeleeWeapon,
-                     false,
-                     RuleDefinitions.DieType.D4,
-                     1,
-                     RuleDefinitions.AdditionalDamageType.Specific,
-                     entry.Value,
-                     RuleDefinitions.AdditionalDamageAdvancement.None,
-                     new List<DiceByRank>(),
-                     guiPresentationElementalFormDamage
-                    ).AddToDB();
 
+                FeatureDefinitionAdditionalDamage additionalDamage = FeatureDefinitionAdditionalDamageBuilder
+                    .Create(
+                        "DH_ElementalForm_" + text + "additionalDamage",
+                        GuidHelper.Create(new Guid(Settings.GUID), "DH_ElementalForm_" + text + "additionalDamage").ToString())
+                    .Configure(
+                        "ElementalDamage",
+                        RuleDefinitions.FeatureLimitedUsage.OncePerTurn, RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonus,
+                        RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive, RuleDefinitions.AdditionalDamageRequiredProperty.MeleeWeapon,
+                        false /* attack only */, RuleDefinitions.DieType.D4, 1 /* dice number */, RuleDefinitions.AdditionalDamageType.Specific, entry.Value,
+                        RuleDefinitions.AdditionalDamageAdvancement.None, new List<DiceByRank>())
+                    .SetGuiPresentation(guiPresentationElementalFormDamage)
+                    .AddToDB();
 
                 var guiPresentationElementalFormCondition = new GuiPresentationBuilder(
                      "Elemental Form : " + text + " Plane" + " Condition",
