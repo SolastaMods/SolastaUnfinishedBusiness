@@ -7,11 +7,6 @@ using UnityEngine.AddressableAssets;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
-using static RuleDefinitions;
-
-//******************************************************************************************
-//  DO NOT REFACTOR OR CHANGE WITHOUT TESTING OR TAKING RESPOSBILITY FOR CODE GOING FORWARD
-//******************************************************************************************
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 {

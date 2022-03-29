@@ -162,14 +162,16 @@ namespace SolastaCommunityExpansion.Classes.Warlock
             SpellDefinition PowerWordKill = DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("DHPowerWordKillSpell", GuidHelper.Create(new System.Guid("05c1b1dbae144731b4505c1232fdc37e"), "DHPowerWordKillSpell").ToString());
             //            SpellDefinition = DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("DH", GuidHelper.Create(new System.Guid("05c1b1dbae144731b4505c1232fdc37e"), "DH").ToString());
 
-            var dictionaryofSpells = new Dictionary<SpellDefinition, int>();
-            dictionaryofSpells.Add(FingerOfDeath, 7);
-            dictionaryofSpells.Add(DominateMonster, 8);
-            dictionaryofSpells.Add(Feeblemind, 8);
-            dictionaryofSpells.Add(PowerWordStun, 8);
-            dictionaryofSpells.Add(Weird, 9);
-            dictionaryofSpells.Add(Foresight, 9);
-            dictionaryofSpells.Add(PowerWordKill, 9);
+            var dictionaryofSpells = new Dictionary<SpellDefinition, int>
+            {
+                { FingerOfDeath, 7 },
+                { DominateMonster, 8 },
+                { Feeblemind, 8 },
+                { PowerWordStun, 8 },
+                { Weird, 9 },
+                { Foresight, 9 },
+                { PowerWordKill, 9 }
+            };
 
 
             foreach (KeyValuePair<SpellDefinition, int> entry in dictionaryofSpells)

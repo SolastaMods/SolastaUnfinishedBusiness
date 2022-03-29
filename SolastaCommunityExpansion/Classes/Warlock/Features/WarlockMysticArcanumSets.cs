@@ -3,7 +3,6 @@ using System.Linq;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi.Extensions;
-using static SolastaCommunityExpansion.Classes.Warlock.ClassWarlockSpellList;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionFeatureSets;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Features

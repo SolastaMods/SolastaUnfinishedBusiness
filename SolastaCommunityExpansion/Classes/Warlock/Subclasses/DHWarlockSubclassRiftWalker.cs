@@ -6,10 +6,6 @@ using System.Collections.Generic;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 using static SolastaCommunityExpansion.Builders.DefinitionBuilder;
 
-//******************************************************************************************
-//  DO NOT REFACTOR OR CHANGE WITHOUT TESTING OR TAKING RESPOSBILITY FOR CODE GOING FORWARD
-//******************************************************************************************
-
 namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 {
     public static class DHWarlockSubclassRiftWalkerPatron

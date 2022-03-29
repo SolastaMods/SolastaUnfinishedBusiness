@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using SolastaModApi;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
@@ -16,11 +15,6 @@ using static SolastaModApi.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionMoveModes;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionConditionAffinitys;
 using UnityEngine.AddressableAssets;
-
-
-//******************************************************************************************
-//  DO NOT REFACTOR OR CHANGE WITHOUT TESTING OR TAKING RESPOSBILITY FOR CODE GOING FORWARD
-//******************************************************************************************
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 {

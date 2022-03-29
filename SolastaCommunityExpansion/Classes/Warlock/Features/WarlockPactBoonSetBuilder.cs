@@ -1,17 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using SolastaModApi;
 using SolastaCommunityExpansion.Builders;
-
-
 using UnityEngine;
 using SolastaModApi.Extensions;
 using SolastaCommunityExpansion.Builders.Features;
-
-
-//******************************************************************************************
-//  DO NOT REFACTOR OR CHANGE WITHOUT TESTING OR TAKING RESPOSBILITY FOR CODE GOING FORWARD
-//******************************************************************************************
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Features
 {

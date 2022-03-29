@@ -6,11 +6,6 @@ using SolastaCommunityExpansion.Builders;
 using UnityEngine;
 using SolastaCommunityExpansion.Builders.Features;
 
-
-//******************************************************************************************
-//  DO NOT REFACTOR OR CHANGE WITHOUT TESTING OR TAKING RESPOSBILITY FOR CODE GOING FORWARD
-//******************************************************************************************
-
 namespace SolastaCommunityExpansion.Classes.Warlock.Features
 {
     public class DHEldritchInvocationsBuilder

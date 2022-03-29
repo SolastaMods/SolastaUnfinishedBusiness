@@ -4,7 +4,6 @@ using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Classes.Warlock.Features;
 using SolastaCommunityExpansion.Classes.Warlock.Subclasses;
-using SolastaCommunityExpansion.Classes.Warlock.AHSpells;
 using SolastaModApi;
 using static EquipmentDefinitions;
 using static SolastaModApi.DatabaseHelper;

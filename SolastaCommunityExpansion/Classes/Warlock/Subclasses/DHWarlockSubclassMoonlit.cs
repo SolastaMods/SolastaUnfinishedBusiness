@@ -1,24 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using SolastaModApi;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi.Extensions;
 using static RuleDefinitions;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionConditionAffinitys;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionSenses;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionMovementAffinitys;
 using static SolastaModApi.DatabaseHelper.SpellListDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionMoveModes;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionBonusCantripss;
-
-
-//******************************************************************************************
-//  DO NOT REFACTOR OR CHANGE WITHOUT TESTING OR TAKING RESPOSBILITY FOR CODE GOING FORWARD
-//******************************************************************************************
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 {

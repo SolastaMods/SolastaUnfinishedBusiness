@@ -7,11 +7,6 @@ using static SolastaCommunityExpansion.Builders.DefinitionBuilder;
 using static SolastaCommunityExpansion.Classes.Warlock.Features.DHEldritchInvocationsBuilder;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionFeatureSets;
 
-
-//******************************************************************************************
-//  DO NOT REFACTOR OR CHANGE WITHOUT TESTING OR TAKING RESPOSBILITY FOR CODE GOING FORWARD
-//******************************************************************************************
-
 namespace SolastaCommunityExpansion.Classes.Warlock.Features
 {
     internal partial class WarlockFeatures

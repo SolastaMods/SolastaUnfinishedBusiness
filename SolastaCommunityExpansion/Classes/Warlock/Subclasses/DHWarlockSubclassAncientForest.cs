@@ -4,7 +4,6 @@ using UnityEngine;
 using SolastaModApi;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi.Extensions;
 using static RuleDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionAttributeModifiers;
@@ -15,11 +14,6 @@ using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 using static SolastaModApi.DatabaseHelper.MonsterDefinitions;
 using static SolastaModApi.DatabaseHelper.SpellListDefinitions;
 using static SolastaModApi.DatabaseHelper.ItemDefinitions;
-using SolastaModApi.Infrastructure;
-
-//******************************************************************************************
-//  DO NOT REFACTOR OR CHANGE WITHOUT TESTING OR TAKING RESPOSBILITY FOR CODE GOING FORWARD
-//******************************************************************************************
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 {
