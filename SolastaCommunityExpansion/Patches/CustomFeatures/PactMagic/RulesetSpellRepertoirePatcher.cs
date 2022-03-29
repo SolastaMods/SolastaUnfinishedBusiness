@@ -6,9 +6,7 @@ using static SolastaCommunityExpansion.Classes.Warlock.Warlock;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
 {
-    //
     // this is a Warlock only patch. Multiclass doesn't handle this case. Ensures we don't offer Mystic Arcanum slots on upcasting
-    //
     [HarmonyPatch(typeof(RulesetSpellRepertoire), "CanUpcastSpell")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetSpellRepertoire_CanUpcastSpell_Patch
@@ -126,7 +124,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
         }
     }
 
-    // ensure all slot levels are consumed on Warlock
+    // ensures all slot levels are consumed on Warlock Pact Magic / Mystic Arcanum scenarios
     [HarmonyPatch(typeof(RulesetSpellRepertoire), "SpendSpellSlot")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetSpellRepertoire_SpendSpellSlot

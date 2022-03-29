@@ -37,7 +37,18 @@ namespace SolastaCommunityExpansion.Classes.Warlock
 
         public static void Build()
         {
-             WarlockSpellList = SpellListDefinitionBuilder
+            // 7th
+            SpellDefinition FingerOfDeath = DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("DHFingerOfDeathSpell", GuidHelper.Create(new System.Guid("05c1b1dbae144731b4505c1232fdc37e"), "DHFingerOfDeathSpell").ToString());
+            // 8th
+            SpellDefinition DominateMonster = DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("DHDominateMonsterSpell", GuidHelper.Create(new System.Guid("05c1b1dbae144731b4505c1232fdc37e"), "DHDominateMonsterSpell").ToString());
+            SpellDefinition Feeblemind = DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("DHFeeblemindSpell", GuidHelper.Create(new System.Guid("05c1b1dbae144731b4505c1232fdc37e"), "DHFeeblemindSpell").ToString());
+            SpellDefinition PowerWordStun = DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("DHPowerWordStunSpell", GuidHelper.Create(new System.Guid("05c1b1dbae144731b4505c1232fdc37e"), "DHPowerWordStunSpell").ToString());
+            // 9th
+            SpellDefinition Weird = DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("DHWeirdSpell", GuidHelper.Create(new System.Guid("05c1b1dbae144731b4505c1232fdc37e"), "DHWeirdSpell").ToString());
+            SpellDefinition Foresight = DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("DHForesightSpell", GuidHelper.Create(new System.Guid("05c1b1dbae144731b4505c1232fdc37e"), "DHForesightSpell").ToString());
+            SpellDefinition PowerWordKill = DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("DHPowerWordKillSpell", GuidHelper.Create(new System.Guid("05c1b1dbae144731b4505c1232fdc37e"), "DHPowerWordKillSpell").ToString());
+
+            WarlockSpellList = SpellListDefinitionBuilder
                 .Create(DatabaseHelper.SpellListDefinitions.SpellListWizard, "SpellListClassWarlock", DefinitionBuilder.CENamespaceGuid)
 
                 .SetGuiPresentation(Category.SpellList)
@@ -48,8 +59,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock
             {
                 new SpellListDefinition.SpellsByLevelDuplet
                 {
-                    Level =0,
-                     Spells = new List<SpellDefinition>
+                    Level = 0,
+                    Spells = new()
                     {
                         Features.DHEldritchInvocationsBuilder.EldritchBlast,
                         DatabaseHelper.SpellDefinitions.AnnoyingBee,
@@ -61,22 +72,22 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                 },
                 new SpellListDefinition.SpellsByLevelDuplet
                 {
-                    Level =1,
-                     Spells = new List<SpellDefinition>
+                    Level = 1,
+                    Spells = new()
                     {
                         DatabaseHelper.SpellDefinitions.CharmPerson,
                         DatabaseHelper.SpellDefinitions.ComprehendLanguages,
                         DatabaseHelper.SpellDefinitions.ExpeditiousRetreat,
                         DatabaseHelper.SpellDefinitions.ProtectionFromEvilGood,
-                        // seems like it must be unfinished?
+                        // seems like it is unfinished?
                         // HellishRebukeSpellBuilder.HellishRebukeSpell,
                         PactMarkSpellBuilder.PactMarkSpell
                     }
                 },
                 new SpellListDefinition.SpellsByLevelDuplet
                 {
-                    Level =2,
-                     Spells =new List<SpellDefinition>
+                    Level = 2,
+                    Spells = new()
                     {
                         DatabaseHelper.SpellDefinitions.Darkness,
                         DatabaseHelper.SpellDefinitions.HoldPerson,
@@ -89,8 +100,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                 },
                 new SpellListDefinition.SpellsByLevelDuplet
                 {
-                    Level =3,
-                     Spells =new List<SpellDefinition>
+                    Level = 3,
+                    Spells = new()
                     {
                         DatabaseHelper.SpellDefinitions.Counterspell,
                         DatabaseHelper.SpellDefinitions.DispelMagic,
@@ -104,8 +115,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                 },
                 new SpellListDefinition.SpellsByLevelDuplet
                 {
-                    Level =4,
-                     Spells =  new List<SpellDefinition>
+                    Level = 4,
+                    Spells =  new List<SpellDefinition>
                     {
                         DatabaseHelper.SpellDefinitions.Banishment,
                         DatabaseHelper.SpellDefinitions.Blight,
@@ -114,70 +125,53 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                 },
                 new SpellListDefinition.SpellsByLevelDuplet
                 {
-                    Level =5,
-                     Spells = new List<SpellDefinition>
-                   {
-                       DatabaseHelper.SpellDefinitions.HoldMonster,
-                       DatabaseHelper.SpellDefinitions.MindTwist
-                   }
+                    Level = 5,
+                    Spells = new()
+                    {
+                        DatabaseHelper.SpellDefinitions.HoldMonster,
+                        DatabaseHelper.SpellDefinitions.MindTwist
+                    }
                 },
                 new SpellListDefinition.SpellsByLevelDuplet
                 {
-                    Level =6,
-                     Spells = new List<SpellDefinition>
-                   {
-                       DatabaseHelper.SpellDefinitions.CircleOfDeath,
-                       DatabaseHelper.SpellDefinitions.Eyebite,
-                       DatabaseHelper.SpellDefinitions.ConjureFey,
-                       DatabaseHelper.SpellDefinitions.TrueSeeing,
-                   }
+                    Level = 6,
+                    Spells = new()
+                    {
+                        DatabaseHelper.SpellDefinitions.CircleOfDeath,
+                        DatabaseHelper.SpellDefinitions.Eyebite,
+                        DatabaseHelper.SpellDefinitions.ConjureFey,
+                        DatabaseHelper.SpellDefinitions.TrueSeeing,
+                    }
                 },
                 new SpellListDefinition.SpellsByLevelDuplet
                 {
-                    Level =7,
-                     Spells =  new List<SpellDefinition>{}
+                    Level = 7,
+                    Spells = new()
+                    {
+                        FingerOfDeath,
+                    }
                 },
                 new SpellListDefinition.SpellsByLevelDuplet
                 {
-                    Level =8,
-                     Spells =new List<SpellDefinition>{}
+                    Level = 8,
+                    Spells = new()
+                    {
+                        DominateMonster,
+                        Feeblemind,
+                        PowerWordStun,
+                    }
                 },
                 new SpellListDefinition.SpellsByLevelDuplet
                 {
-                    Level =9,
-                     Spells =new List<SpellDefinition>{}
+                    Level = 9,
+                    Spells = new()
+                    {
+                        Weird,
+                        Foresight,
+                        PowerWordKill,
+                    }
                 }
             });
-
-
-            // 7th
-            SpellDefinition FingerOfDeath = DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("DHFingerOfDeathSpell", GuidHelper.Create(new System.Guid("05c1b1dbae144731b4505c1232fdc37e"), "DHFingerOfDeathSpell").ToString());
-            // 8th
-            SpellDefinition DominateMonster = DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("DHDominateMonsterSpell", GuidHelper.Create(new System.Guid("05c1b1dbae144731b4505c1232fdc37e"), "DHDominateMonsterSpell").ToString());
-            SpellDefinition Feeblemind = DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("DHFeeblemindSpell", GuidHelper.Create(new System.Guid("05c1b1dbae144731b4505c1232fdc37e"), "DHFeeblemindSpell").ToString());
-            SpellDefinition PowerWordStun = DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("DHPowerWordStunSpell", GuidHelper.Create(new System.Guid("05c1b1dbae144731b4505c1232fdc37e"), "DHPowerWordStunSpell").ToString());
-            // 9th
-            SpellDefinition Weird = DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("DHWeirdSpell", GuidHelper.Create(new System.Guid("05c1b1dbae144731b4505c1232fdc37e"), "DHWeirdSpell").ToString());
-            SpellDefinition Foresight = DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("DHForesightSpell", GuidHelper.Create(new System.Guid("05c1b1dbae144731b4505c1232fdc37e"), "DHForesightSpell").ToString());
-            SpellDefinition PowerWordKill = DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("DHPowerWordKillSpell", GuidHelper.Create(new System.Guid("05c1b1dbae144731b4505c1232fdc37e"), "DHPowerWordKillSpell").ToString());
-            //            SpellDefinition = DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("DH", GuidHelper.Create(new System.Guid("05c1b1dbae144731b4505c1232fdc37e"), "DH").ToString());
-
-            var dictionaryofSpells = new Dictionary<SpellDefinition, int>
-            {
-                { FingerOfDeath, 7 },
-                { DominateMonster, 8 },
-                { Feeblemind, 8 },
-                { PowerWordStun, 8 },
-                { Weird, 9 },
-                { Foresight, 9 },
-                { PowerWordKill, 9 }
-            };
-
-
-            foreach (KeyValuePair<SpellDefinition, int> entry in dictionaryofSpells)
-            {
-                if (entry.Key != null) WarlockSpellList.SpellsByLevel[entry.Value].Spells.Add(entry.Key);
-            }
         }
     }
 }
