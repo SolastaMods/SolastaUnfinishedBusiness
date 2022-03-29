@@ -51,7 +51,7 @@ namespace SolastaCommunityExpansion.Monsters
                     // guipresentation title is mislabeled as a green dragon
                     monster.GuiPresentation.SetTitle(monster.Name);
                 }
-            };
+            }
         }
     }
 }

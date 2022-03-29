@@ -135,17 +135,6 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         /// <summary>
-        /// Either update an existing GuiPresentation with the provided provided title, description and optional AssetReferenceSprite, else create and set a new GuiPresentation.
-        /// </summary>
-        public static TBuilder SetOrUpdateGuiPresentation<TBuilder>(this TBuilder builder, string title, string description, AssetReferenceSprite sprite = null)
-            where TBuilder : IDefinitionBuilder
-        {
-            var guip = ((IDefinitionBuilder)builder).GetGuiPresentation();
-
-            return SetGuiPresentation(builder, GuiPresentationBuilder.Build(guip, title, description, sprite));
-        }
-
-        /// <summary>
         /// Create and set a GuiPresentation from the provided name, category and AssetReferenceSprite.<br/>
         /// The Title is generated as "{category}/&amp;{name}Title".<br/>
         /// The Description is generated as "{category}/&amp;{name}Description".<br/>
@@ -154,20 +143,6 @@ namespace SolastaCommunityExpansion.Builders
             where TBuilder : IDefinitionBuilder
         {
             return SetGuiPresentation(builder, GuiPresentationBuilder.Build(null, name, category, sprite, sortOrder));
-        }
-
-        /// <summary>
-        /// Either update an existing GuiPresentation or 
-        /// create and set a new GuiPresentation using the provided name, category, optional AssetReferenceSprite and optional sortOrder.<br/>
-        /// The Title is generated as "{category}/&amp;{name}Title".<br/>
-        /// The Description is generated as "{category}/&amp;{name}Description".<br/>
-        /// </summary>
-        public static TBuilder SetOrUpdateGuiPresentation<TBuilder>(this TBuilder builder, string name, Category category, AssetReferenceSprite sprite = null, int sortOrder = 0)
-            where TBuilder : IDefinitionBuilder
-        {
-            var guip = ((IDefinitionBuilder)builder).GetGuiPresentation();
-
-            return SetGuiPresentation(builder, GuiPresentationBuilder.Build(guip, name, category, sprite, sortOrder));
         }
 
         /// <summary>
@@ -182,6 +157,31 @@ namespace SolastaCommunityExpansion.Builders
             var definitionName = ((IDefinitionBuilder)builder).Name;
 
             return SetGuiPresentation(builder, GuiPresentationBuilder.Build(null, definitionName, category, sprite, sortOrder));
+        }
+
+        /// <summary>
+        /// Either update an existing GuiPresentation with the provided provided title, description and optional AssetReferenceSprite, else create and set a new GuiPresentation.
+        /// </summary>
+        public static TBuilder SetOrUpdateGuiPresentation<TBuilder>(this TBuilder builder, string title, string description, AssetReferenceSprite sprite = null)
+            where TBuilder : IDefinitionBuilder
+        {
+            var guip = ((IDefinitionBuilder)builder).GetGuiPresentation();
+
+            return SetGuiPresentation(builder, GuiPresentationBuilder.Build(guip, title, description, sprite));
+        }
+
+        /// <summary>
+        /// Either update an existing GuiPresentation or 
+        /// create and set a new GuiPresentation using the provided name, category, optional AssetReferenceSprite and optional sortOrder.<br/>
+        /// The Title is generated as "{category}/&amp;{name}Title".<br/>
+        /// The Description is generated as "{category}/&amp;{name}Description".<br/>
+        /// </summary>
+        public static TBuilder SetOrUpdateGuiPresentation<TBuilder>(this TBuilder builder, string name, Category category, AssetReferenceSprite sprite = null, int sortOrder = 0)
+            where TBuilder : IDefinitionBuilder
+        {
+            var guip = ((IDefinitionBuilder)builder).GetGuiPresentation();
+
+            return SetGuiPresentation(builder, GuiPresentationBuilder.Build(guip, name, category, sprite, sortOrder));
         }
 
         /// <summary>

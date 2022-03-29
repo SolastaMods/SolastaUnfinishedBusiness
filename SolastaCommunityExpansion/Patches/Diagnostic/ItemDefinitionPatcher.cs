@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
@@ -81,6 +82,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
         }
 
         [HarmonyPatch(typeof(ItemDefinition), "ArmorDescription", MethodType.Getter)]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class ItemDefinitionPatch_ArmorDescription
         {
             public static void Postfix(ItemDefinition __instance, ref ArmorDescription __result)
@@ -90,6 +92,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
         }
 
         [HarmonyPatch(typeof(ItemDefinition), "WeaponDescription", MethodType.Getter)]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class ItemDefinitionPatch_WeaponDescription
         {
             public static void Postfix(ItemDefinition __instance, ref WeaponDescription __result)
@@ -99,6 +102,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
         }
 
         [HarmonyPatch(typeof(ItemDefinition), "AmmunitionDescription", MethodType.Getter)]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class ItemDefinitionPatch_AmmunitionDescription
         {
             public static void Postfix(ItemDefinition __instance, ref AmmunitionDescription __result)
@@ -108,6 +112,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
         }
 
         [HarmonyPatch(typeof(ItemDefinition), "UsableDeviceDescription", MethodType.Getter)]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class ItemDefinitionPatch_UsableDeviceDescription
         {
             public static void Postfix(ItemDefinition __instance, ref UsableDeviceDescription __result)
@@ -117,6 +122,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
         }
 
         [HarmonyPatch(typeof(ItemDefinition), "ToolDescription", MethodType.Getter)]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class ItemDefinitionPatch_ToolDescription
         {
             public static void Postfix(ItemDefinition __instance, ref ToolDescription __result)
@@ -126,6 +132,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
         }
 
         [HarmonyPatch(typeof(ItemDefinition), "StarterPackDescription", MethodType.Getter)]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class ItemDefinitionPatch_StarterPackDescription
         {
             public static void Postfix(ItemDefinition __instance, ref StarterPackDescription __result)
@@ -135,6 +142,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
         }
 
         [HarmonyPatch(typeof(ItemDefinition), "ContainerItemDescription", MethodType.Getter)]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class ItemDefinitionPatch_ContainerItemDescription
         {
             public static void Postfix(ItemDefinition __instance, ref ContainerItemDescription __result)
@@ -144,6 +152,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
         }
 
         [HarmonyPatch(typeof(ItemDefinition), "LightSourceItemDescription", MethodType.Getter)]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class ItemDefinitionPatch_LightSourceItemDescription
         {
             public static void Postfix(ItemDefinition __instance, ref LightSourceItemDescription __result)
@@ -153,6 +162,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
         }
 
         [HarmonyPatch(typeof(ItemDefinition), "FocusItemDescription", MethodType.Getter)]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class ItemDefinitionPatch_FocusItemDescription
         {
             public static void Postfix(ItemDefinition __instance, ref FocusItemDescription __result)
@@ -162,6 +172,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
         }
 
         [HarmonyPatch(typeof(ItemDefinition), "WealthPileDescription", MethodType.Getter)]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class ItemDefinitionPatch_WealthPileDescription
         {
             public static void Postfix(ItemDefinition __instance, ref WealthPileDescription __result)
@@ -171,6 +182,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
         }
 
         [HarmonyPatch(typeof(ItemDefinition), "SpellbookDescription", MethodType.Getter)]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class ItemDefinitionPatch_SpellbookDescription
         {
             public static void Postfix(ItemDefinition __instance, ref SpellbookDescription __result)
@@ -180,6 +192,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
         }
 
         [HarmonyPatch(typeof(ItemDefinition), "FoodDescription", MethodType.Getter)]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class ItemDefinitionPatch_FoodDescription
         {
             public static void Postfix(ItemDefinition __instance, ref FoodDescription __result)
@@ -189,6 +202,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
         }
 
         [HarmonyPatch(typeof(ItemDefinition), "FactionRelicDescription", MethodType.Getter)]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class ItemDefinitionPatch_FactionRelicDescription
         {
             public static void Postfix(ItemDefinition __instance, ref FactionRelicDescription __result)
@@ -198,6 +212,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
         }
 
         [HarmonyPatch(typeof(ItemDefinition), "DocumentDescription", MethodType.Getter)]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class ItemDefinitionPatch_DocumentDescription
         {
             public static void Postfix(ItemDefinition __instance, ref DocumentDescription __result)

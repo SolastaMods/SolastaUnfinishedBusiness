@@ -10,7 +10,7 @@ using SolastaCommunityExpansion.Builders;
 //******************************************************************************************
 namespace SolastaCommunityExpansion.Monsters
 {
-    public class NewMonsterPowers
+    public static class NewMonsterPowers
     {
         public static FeatureDefinitionPower Generic_Lightning_Attack_Power = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
         public static FeatureDefinitionPower Balor_FireAura_Power = ScriptableObject.CreateInstance<FeatureDefinitionPower>();

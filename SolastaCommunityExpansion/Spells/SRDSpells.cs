@@ -71,29 +71,29 @@ namespace SolastaCommunityExpansion.Spells
         {
             // 7th level
             SpellsContext.RegisterSpell(DivineWord, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListCleric");
-            SpellsContext.RegisterSpell(FingerOfDeath, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListWizard", "SpellListSorcerer");
+            SpellsContext.RegisterSpell(FingerOfDeath, isFromOtherMod: false, "SpellListClassWarlock", "SpellListWizard", "SpellListSorcerer");
             SpellsContext.RegisterSpell(ReverseGravity, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListDruid", "SpellListWizard", "SpellListSorcerer");
             SpellsContext.RegisterSpell(ConjureCelestial, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListCleric");
 
             // 8th level
-            SpellsContext.RegisterSpell(DominateMonster, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListWizard", "SpellListSorcerer", "WitchSpellList");
-            SpellsContext.RegisterSpell(Feeblemind, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListWizard", "SpellListDruid", "WitchSpellList");
+            SpellsContext.RegisterSpell(DominateMonster, isFromOtherMod: false, "SpellListClassWarlock", "SpellListWizard", "SpellListSorcerer", "WitchSpellList");
+            SpellsContext.RegisterSpell(Feeblemind, isFromOtherMod: false, "SpellListClassWarlock", "SpellListWizard", "SpellListDruid", "WitchSpellList");
             SpellsContext.RegisterSpell(HolyAura, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListCleric");
             SpellsContext.RegisterSpell(IncendiaryCloud, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListWizard", "SpellListSorcerer");
             SpellsContext.RegisterSpell(Maze, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListWizard");
             SpellsContext.RegisterSpell(MindBlank, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListWizard", "WitchSpellList");
-            SpellsContext.RegisterSpell(PowerWordStun, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListWizard", "SpellListSorcerer", "WitchSpellList");
+            SpellsContext.RegisterSpell(PowerWordStun, isFromOtherMod: false, "SpellListClassWarlock", "SpellListWizard", "SpellListSorcerer", "WitchSpellList");
             SpellsContext.RegisterSpell(SunBurst, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListDruid", "SpellListWizard", "SpellListSorcerer");
 
             // 9th level
-            SpellsContext.RegisterSpell(Foresight, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListDruid", "SpellListWizard", "WitchSpellList");
+            SpellsContext.RegisterSpell(Foresight, isFromOtherMod: false, "SpellListClassWarlock", "SpellListDruid", "SpellListWizard", "WitchSpellList");
             SpellsContext.RegisterSpell(MassHeal, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListCleric");
             SpellsContext.RegisterSpell(MeteorSwarmSingleTarget, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListWizard", "SpellListSorcerer");
             SpellsContext.RegisterSpell(PowerWordHeal, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListCleric");
-            SpellsContext.RegisterSpell(PowerWordKill, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListWizard", "SpellListSorcerer");
+            SpellsContext.RegisterSpell(PowerWordKill, isFromOtherMod: false, "SpellListClassWarlock", "SpellListWizard", "SpellListSorcerer");
             SpellsContext.RegisterSpell(TimeStop, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListWizard", "SpellListSorcerer");
             SpellsContext.RegisterSpell(Shapechange, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListDruid", "SpellListWizard");
-            SpellsContext.RegisterSpell(Weird, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListWizard", "WitchSpellList");
+            SpellsContext.RegisterSpell(Weird, isFromOtherMod: false, "SpellListClassWarlock", "SpellListWizard", "WitchSpellList");
         }
 
         //
