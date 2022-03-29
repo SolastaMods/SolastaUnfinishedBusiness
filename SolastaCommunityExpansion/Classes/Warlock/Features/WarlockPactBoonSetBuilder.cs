@@ -82,8 +82,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             effectDescriptionPseudodragon.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, WarlockPactOfTheChainSummons.PactChainPseudodragon.name, DatabaseHelper.ConditionDefinitions.ConditionFlyingBootsWinged, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
             effectDescriptionPseudodragon.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ConjureElementalAir.EffectDescription.EffectParticleParameters);
 
-
-
             GuiPresentationBuilder FindFamiliarPsuedodragonGui = new GuiPresentationBuilder(
                 "Spell/&FindFamiliarPsuedodragonDescription",
                 "Spell/&FindFamiliarPsuedodragonTitle");
@@ -208,7 +206,10 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             Definition.SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union);
         }
 
-        public static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid) => Create(name, guid).AddToDB();
+        public static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)
+        {
+            return new DHWarlockClassPactOfTheChainFeatureSetBuilder(name, guid).AddToDB();
+        }
 
         public static FeatureDefinitionFeatureSet DHWarlockClassPactOfTheChainFeatureSet = CreateAndAddToDB(DHWarlockClassPactOfTheChainFeatureSetName, DHWarlockClassPactOfTheChainFeatureSetGuid);
     }
@@ -237,7 +238,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
         public static FeatureDefinitionFeatureSet DHPactOfTheTomeFeatureSet = CreateAndAddToDB(DHPactOfTheTomeFeatureSetName, DHPactOfTheTomeFeatureSetGuid);
     }
-    internal class DHPactOfTheTomeBonusCantripsBuilder : Builders.Features.FeatureDefinitionPointPoolBuilder
+
+    internal class DHPactOfTheTomeBonusCantripsBuilder : FeatureDefinitionPointPoolBuilder
     {
         private const string PactOfTheTomeBonusCantripsName = "DHPactOfTheTomeBonusCantrips";
         private static readonly string PactOfTheTomeBonusCantripsGuid = GuidHelper.Create(new Guid(Settings.GUID), PactOfTheTomeBonusCantripsName).ToString();
