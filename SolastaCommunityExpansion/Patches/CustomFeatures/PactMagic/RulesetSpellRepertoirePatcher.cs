@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
         //
         public static bool IsMulticlassInstalled { get; set; }
 
-        // handles all different scenarios to determine max slots numbers
+        // use slot 1 to keep a tab on Warlock slots
         [HarmonyPatch(typeof(RulesetSpellRepertoire), "GetMaxSlotsNumberOfAllLevels")]
         internal static class RulesetSpellRepertoireGetMaxSlotsNumberOfAllLevels
         {
@@ -31,7 +31,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
             }
         }
 
-        // handles all different scenarios to determine remaining slots numbers
+        // use slot 1 to keep a tab on Warlock slots
         [HarmonyPatch(typeof(RulesetSpellRepertoire), "GetRemainingSlotsNumberOfAllLevels")]
         internal static class RulesetSpellRepertoireGetRemainingSlotsNumberOfAllLevels
         {
@@ -54,7 +54,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
             }
         }
 
-        // handles all different scenarios to determine slots numbers
+        // use slot 1 to keep a tab on Warlock slots
         [HarmonyPatch(typeof(RulesetSpellRepertoire), "GetSlotsNumber")]
         internal static class RulesetSpellRepertoireGetSlotsNumber
         {
@@ -76,18 +76,16 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
 
                 if (spellLevel <= __instance.MaxSpellLevelOfSpellCastingLevel)
                 {
-                    {
-                        ___spellsSlotCapacities.TryGetValue(1, out max);
-                        ___usedSpellsSlots.TryGetValue(1, out var used);
-                        remaining = max - used;
-                    }
+                    ___spellsSlotCapacities.TryGetValue(1, out max);
+                    ___usedSpellsSlots.TryGetValue(1, out var used);
+                    remaining = max - used;
                 }
 
                 return false;
             }
         }
  
-        // handles all different scenarios of spell slots consumption (casts, smites, point buys)
+        // ensure all slot levels are consumed on Warlock
         [HarmonyPatch(typeof(RulesetSpellRepertoire), "SpendSpellSlot")]
         internal static class RulesetSpellRepertoireSpendSpellSlot
         {
