@@ -227,21 +227,13 @@ Different Archfey, e.g. Winter-themed
                 .AddBonusCantrip(ChillTouch)
                 .AddToDB();
 
-
-            GuiPresentation blank = new GuiPresentationBuilder("Feature/&NoContentTitle", "Feature/&NoContentTitle").Build();
-            //  blank.hidden = true;
-
-            FeatureDefinitionPower HerbalBrewPool = new FeatureDefinitionPowerPoolBuilder
-            (
-                "DH_HerbalBrewPool",
-                GuidHelper.Create(new Guid(Settings.GUID), "DH_HerbalBrewPool").ToString(),
-                1,
-                RuleDefinitions.UsesDetermination.ProficiencyBonus,
-                AttributeDefinitions.Charisma,
-                RuleDefinitions.RechargeRate.LongRest,
-                blank
-            ).AddToDB();
-
+            FeatureDefinitionPower HerbalBrewPool = FeatureDefinitionPowerPoolBuilder
+                 .Create("DH_HerbalBrewPool", GuidHelper.Create(new Guid(Settings.GUID), "DH_HerbalBrewPool").ToString())
+                .SetGuiPresentationNoContent()
+                .SetUsesProficiency()
+                .SetUsesAbility(1, AttributeDefinitions.Charisma)
+                .SetRechargeRate(RechargeRate.LongRest)
+                .AddToDB();
 
             Dictionary<string, FeatureDefinitionDamageAffinity> ResistentBrewsDamageAffinitys = new()
             {
@@ -745,17 +737,13 @@ Different Archfey, e.g. Winter-themed
 
             RootedPower.GuiPresentation.SetSpriteReference(PowerRangerHideInPlainSight.GuiPresentation.SpriteReference);
 
-            FeatureDefinitionPower AncientForestWallofThornsPool = new FeatureDefinitionPowerPoolBuilder
-            (
-                "DHAncientForestWallofThornsPool",
-                GuidHelper.Create(new Guid(Settings.GUID), "DHAncientForestWallofThornsPool").ToString(),
-                1,
-                RuleDefinitions.UsesDetermination.ProficiencyBonus,
-                AttributeDefinitions.Charisma,
-                RuleDefinitions.RechargeRate.LongRest,
-                blank
-            ).AddToDB();
-
+            FeatureDefinitionPower AncientForestWallofThornsPool = FeatureDefinitionPowerPoolBuilder
+                .Create("DHAncientForestWallofThornsPool", GuidHelper.Create(new Guid(Settings.GUID), "DHAncientForestWallofThornsPool").ToString())
+                .SetGuiPresentationNoContent()
+                .SetUsesProficiency()
+                .SetUsesAbility(1, AttributeDefinitions.Charisma)
+                .SetRechargeRate(RechargeRate.LongRest)
+                .AddToDB();
 
             FeatureDefinitionFeatureSet WallofThornsFeatureSet = FeatureDefinitionFeatureSetBuilder.Create(
                 "WallofThornsFeatureSet", DefinitionBuilder.CENamespaceGuid)

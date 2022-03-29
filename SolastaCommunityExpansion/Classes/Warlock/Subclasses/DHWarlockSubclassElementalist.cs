@@ -7,6 +7,7 @@ using UnityEngine.AddressableAssets;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
+using static RuleDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 {
@@ -37,21 +38,13 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
         public static CharacterSubclassDefinition Build()
         {
-
-            GuiPresentation blank = new GuiPresentationBuilder("Feature/&NoContentTitle", "Feature/&NoContentTitle").Build();
-            //  blank.hidden = true;
-
-            ElementalFormPool = new FeatureDefinitionPowerPoolBuilder
-            (
-                "DH_ElementalFormPool",
-                GuidHelper.Create(new Guid(Settings.GUID), "DH_ElementalFormPool").ToString(),
-                1,
-                RuleDefinitions.UsesDetermination.ProficiencyBonus,
-                AttributeDefinitions.Charisma,
-                RuleDefinitions.RechargeRate.LongRest,
-                blank
-            ).AddToDB();
-
+            ElementalFormPool = FeatureDefinitionPowerPoolBuilder
+                 .Create("DH_ElementalFormPool", GuidHelper.Create(new Guid(Settings.GUID), "DH_ElementalFormPool").ToString())
+                .SetGuiPresentationNoContent()
+                .SetUsesProficiency()
+                .SetUsesAbility(1, AttributeDefinitions.Charisma)
+                .SetRechargeRate(RechargeRate.LongRest)
+                .AddToDB();
 
             ElementalForms();
             ElementalistSpells();
