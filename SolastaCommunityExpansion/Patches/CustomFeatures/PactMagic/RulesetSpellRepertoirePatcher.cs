@@ -6,6 +6,34 @@ using static SolastaCommunityExpansion.Classes.Warlock.Warlock;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
 {
+    [HarmonyPatch(typeof(RulesetSpellRepertoire), "CanUpcastSpell")]
+    internal static class RulesetSpellRepertoire_CanUpcastSpell_Patch
+    {
+        internal static void Postfix(
+            RulesetSpellRepertoire __instance,
+            ref bool __result,
+            SpellDefinition spellDefinition, 
+            List<int> availableSlotLevels)
+        {
+            if (__instance.SpellCastingClass != ClassWarlock || !__result)
+            {
+                return;
+            }
+
+            availableSlotLevels?.RemoveAll(s => s >= MYSTIC_ARCANUM_SPELL_LEVEL);
+
+            if (spellDefinition.SpellLevel + 1 < MYSTIC_ARCANUM_SPELL_LEVEL)
+            {
+                __instance.GetSlotsNumber(1, out var remaining, out var max);
+                __result = remaining > 0;
+            }
+            else
+            {
+                __result = false;
+            }
+        }
+    }
+
     // use slot 1 to keep a tab on Warlock slots
     [HarmonyPatch(typeof(RulesetSpellRepertoire), "GetMaxSlotsNumberOfAllLevels")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
