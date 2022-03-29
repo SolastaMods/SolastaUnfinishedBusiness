@@ -16,6 +16,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock
 {
     public static class Warlock
     {
+        public const int MYSTIC_ARCANUM_SPELL_LEVEL = 6;
+
         public static CharacterClassDefinition ClassWarlock { get; private set; }
 
         private static FeatureDefinitionProficiency FeatureDefinitionProficiencyArmor { get; set; }

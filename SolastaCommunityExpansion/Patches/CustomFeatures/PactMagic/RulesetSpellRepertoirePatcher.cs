@@ -1,122 +1,143 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using static SolastaCommunityExpansion.Classes.Warlock.Warlock;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
 {
-    public static class RulesetSpellRepertoirePatcher
+    // use slot 1 to keep a tab on Warlock slots
+    [HarmonyPatch(typeof(RulesetSpellRepertoire), "GetMaxSlotsNumberOfAllLevels")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RulesetSpellRepertoire_GetMaxSlotsNumberOfAllLevels
     {
-        //
-        // TODO: move this over to a proper place once merge is done (otherwise it'll be a pain to merge settings or main...)
-        //
-        public static bool IsMulticlassInstalled { get; set; }
-
-        // use slot 1 to keep a tab on Warlock slots
-        [HarmonyPatch(typeof(RulesetSpellRepertoire), "GetMaxSlotsNumberOfAllLevels")]
-        internal static class RulesetSpellRepertoireGetMaxSlotsNumberOfAllLevels
+        internal static bool Prefix(
+            RulesetSpellRepertoire __instance,
+            ref int __result,
+            Dictionary<int, int> ___spellsSlotCapacities)
         {
-            internal static bool Prefix(
-                RulesetSpellRepertoire __instance,
-                ref int __result,
-                Dictionary<int, int> ___spellsSlotCapacities)
+            if (Main.IsMulticlassInstalled || __instance.SpellCastingClass != ClassWarlock)
             {
-                if (IsMulticlassInstalled || __instance.SpellCastingClass != ClassWarlock)
-                {
-                    return true;
-                }
-
-                ___spellsSlotCapacities.TryGetValue(1, out __result);
-
-                return false;
+                return true;
             }
+
+            ___spellsSlotCapacities.TryGetValue(1, out __result);
+
+            return false;
         }
+    }
 
-        // use slot 1 to keep a tab on Warlock slots
-        [HarmonyPatch(typeof(RulesetSpellRepertoire), "GetRemainingSlotsNumberOfAllLevels")]
-        internal static class RulesetSpellRepertoireGetRemainingSlotsNumberOfAllLevels
+    // use slot 1 to keep a tab on Warlock slots
+    [HarmonyPatch(typeof(RulesetSpellRepertoire), "GetRemainingSlotsNumberOfAllLevels")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RulesetSpellRepertoire_GetRemainingSlotsNumberOfAllLevels
+    {
+        internal static bool Prefix(
+            RulesetSpellRepertoire __instance,
+            ref int __result,
+            Dictionary<int, int> ___usedSpellsSlots,
+            Dictionary<int, int> ___spellsSlotCapacities)
         {
-            internal static bool Prefix(
-                RulesetSpellRepertoire __instance, 
-                ref int __result, 
-                Dictionary<int, int> ___usedSpellsSlots,
-                Dictionary<int, int> ___spellsSlotCapacities)
+            if (Main.IsMulticlassInstalled || __instance.SpellCastingClass != ClassWarlock)
             {
-                if (IsMulticlassInstalled || __instance.SpellCastingClass != ClassWarlock)
-                {
-                    return true;
-                }
-
-                ___spellsSlotCapacities.TryGetValue(1, out var max);
-                ___usedSpellsSlots.TryGetValue(1, out var used);
-                __result = max - used;
-
-                return false;
+                return true;
             }
+
+            ___spellsSlotCapacities.TryGetValue(1, out var max);
+            ___usedSpellsSlots.TryGetValue(1, out var used);
+            __result = max - used;
+
+            return false;
         }
+    }
 
-        // use slot 1 to keep a tab on Warlock slots
-        [HarmonyPatch(typeof(RulesetSpellRepertoire), "GetSlotsNumber")]
-        internal static class RulesetSpellRepertoireGetSlotsNumber
+    // use slot 1 to keep a tab on Warlock slots
+    [HarmonyPatch(typeof(RulesetSpellRepertoire), "GetSlotsNumber")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RulesetSpellRepertoire_GetSlotsNumber
+    {
+        internal static bool Prefix(
+            RulesetSpellRepertoire __instance,
+            Dictionary<int, int> ___usedSpellsSlots,
+            Dictionary<int, int> ___spellsSlotCapacities,
+            int spellLevel,
+            ref int remaining,
+            ref int max)
         {
-            internal static bool Prefix(
-                RulesetSpellRepertoire __instance,
-                Dictionary<int, int> ___usedSpellsSlots,
-                Dictionary<int, int> ___spellsSlotCapacities,
-                int spellLevel, 
-                ref int remaining, 
-                ref int max)
+            if (Main.IsMulticlassInstalled || __instance.SpellCastingClass != ClassWarlock)
             {
-                if (IsMulticlassInstalled || __instance.SpellCastingClass != ClassWarlock)
-                {
-                    return true;
-                }
+                return true;
+            }
 
-                max = 0;
-                remaining = 0;
+            max = 0;
+            remaining = 0;
 
-                if (spellLevel <= __instance.MaxSpellLevelOfSpellCastingLevel)
+            if (spellLevel <= __instance.MaxSpellLevelOfSpellCastingLevel)
+            {
+                // PACT MAGIC
+                if (spellLevel < MYSTIC_ARCANUM_SPELL_LEVEL)
                 {
                     ___spellsSlotCapacities.TryGetValue(1, out max);
-                    ___usedSpellsSlots.TryGetValue(1, out var used);
+                    ___usedSpellsSlots.TryGetValue(-1, out var used);
                     remaining = max - used;
                 }
-
-                return false;
-            }
-        }
- 
-        // ensure all slot levels are consumed on Warlock
-        [HarmonyPatch(typeof(RulesetSpellRepertoire), "SpendSpellSlot")]
-        internal static class RulesetSpellRepertoireSpendSpellSlot
-        {
-            internal static bool Prefix(RulesetSpellRepertoire __instance, Dictionary<int, int> ___usedSpellsSlots, int slotLevel)
-            {
-                if (IsMulticlassInstalled || slotLevel == 0 || __instance.SpellCastingClass != ClassWarlock)
+                // MYSTIC ARCANUM
+                else
                 {
-                    return true;
+                    max = 1;
+                    ___usedSpellsSlots.TryGetValue(spellLevel, out var used);
+                    remaining = max - used;
                 }
+            }
 
-                var maxSpellLevel = __instance.MaxSpellLevelOfSpellCastingLevel;
+            return false;
+        }
+    }
 
-                for (var i = 1; i <= maxSpellLevel; i++)
+    // ensure all slot levels are consumed on Warlock
+    [HarmonyPatch(typeof(RulesetSpellRepertoire), "SpendSpellSlot")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RulesetSpellRepertoire_SpendSpellSlot
+    {
+        internal static bool Prefix(RulesetSpellRepertoire __instance, Dictionary<int, int> ___usedSpellsSlots, int slotLevel)
+        {
+            if (Main.IsMulticlassInstalled || slotLevel == 0 || __instance.SpellCastingClass != ClassWarlock)
+            {
+                return true;
+            }
+
+            var warlockSpellLevel = __instance.MaxSpellLevelOfSpellCastingLevel;
+
+            // PACT MAGIC: consumes a slot from each level 1 to 5
+            if (slotLevel < MYSTIC_ARCANUM_SPELL_LEVEL)
+            {
+                var limit = Math.Min(MYSTIC_ARCANUM_SPELL_LEVEL - 1, warlockSpellLevel);
+
+                for (var i = 1; i <= limit; i++)
                 {
-                    if (i == 0)
-                    {
-                        continue;
-                    }
-
                     if (!___usedSpellsSlots.ContainsKey(i))
                     {
-                    ___usedSpellsSlots.Add(i, 0);
+                        ___usedSpellsSlots.Add(i, 0);
                     }
 
                     ___usedSpellsSlots[i]++;
                 }
-                
-                __instance.RepertoireRefreshed?.Invoke(__instance);
-
-                return false;
             }
+            // MYSTIC ARCANUM: consumes a slot from each level 6 to 9
+            else
+            {
+                for (var i = MYSTIC_ARCANUM_SPELL_LEVEL; i <= warlockSpellLevel; i++)
+                {
+                    if (!___usedSpellsSlots.ContainsKey(i))
+                    {
+                        ___usedSpellsSlots.Add(i, 0);
+                    }
+
+                    ___usedSpellsSlots[i]++;
+                }
+            }
+
+            return false;
         }
     }
 }
