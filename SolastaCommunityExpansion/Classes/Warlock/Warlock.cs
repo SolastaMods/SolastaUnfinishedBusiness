@@ -241,7 +241,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock
             foreach (ItemDefinition item in itemlist)
             {
                 item.RequiredAttunementClasses.Add(ClassWarlock);
-            };
+            }
 
             return ClassWarlock;
         }

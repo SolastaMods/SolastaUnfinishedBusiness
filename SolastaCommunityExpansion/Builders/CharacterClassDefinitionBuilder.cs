@@ -10,24 +10,34 @@ using static CharacterClassDefinition;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public sealed class CharacterClassDefinitionBuilder : DefinitionBuilder<CharacterClassDefinition, CharacterClassDefinitionBuilder>
+    public class CharacterClassDefinitionBuilder : DefinitionBuilder<CharacterClassDefinition, CharacterClassDefinitionBuilder>
     {
         #region Constructors
-        private CharacterClassDefinitionBuilder(string name, string guid) : base(name, guid)
+        protected CharacterClassDefinitionBuilder(CharacterClassDefinition original) : base(original)
         {
         }
 
-        private CharacterClassDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        protected CharacterClassDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
-        private CharacterClassDefinitionBuilder(CharacterClassDefinition original, string name, string guid)
-            : base(original, name, guid)
+        protected CharacterClassDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
         {
         }
 
-        private CharacterClassDefinitionBuilder(CharacterClassDefinition original, string name, Guid namespaceGuid)
-            : base(original, name, namespaceGuid)
+        protected CharacterClassDefinitionBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
+        {
+        }
+
+        protected CharacterClassDefinitionBuilder(CharacterClassDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
+        {
+        }
+
+        protected CharacterClassDefinitionBuilder(CharacterClassDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected CharacterClassDefinitionBuilder(CharacterClassDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
         {
         }
         #endregion

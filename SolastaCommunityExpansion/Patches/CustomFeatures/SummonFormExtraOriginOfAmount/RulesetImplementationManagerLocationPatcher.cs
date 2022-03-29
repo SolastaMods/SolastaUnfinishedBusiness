@@ -40,13 +40,11 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.SummonFormExtraOrigin
                     var sourceCharacter = (RulesetCharacterHero)formsParams.sourceCharacter;
                     // Find a better place to put this in?
                     string classType = addedCondition.AdditionalDamageType;
-                    if (DatabaseRepository.GetDatabase<CharacterClassDefinition>().TryGetElement(classType, out CharacterClassDefinition characterClassDefinition))
+                    if (DatabaseRepository.GetDatabase<CharacterClassDefinition>().TryGetElement(classType, out CharacterClassDefinition characterClassDefinition)
+                        && sourceCharacter.ClassesAndLevels != null
+                        && sourceCharacter.ClassesAndLevels.TryGetValue(characterClassDefinition, out int classLevel))
                     {
-                        if (sourceCharacter.ClassesAndLevels != null
-                            && sourceCharacter.ClassesAndLevels.TryGetValue(characterClassDefinition, out int classLevel))
-                        {
-                            sourceAmount = classLevel;
-                        }
+                        sourceAmount = classLevel;
                     }
                     break;
             }

@@ -2,7 +2,7 @@
 
 namespace SolastaCommunityExpansion.Patches.Level20
 {
-    class RulesetSpellRepertoirePatcher
+    internal static class RulesetSpellRepertoirePatcher
     {
         // handles all different scenarios to determine max spell level (must be a postfix)
         [HarmonyPatch(typeof(RulesetSpellRepertoire), "MaxSpellLevelOfSpellCastingLevel", MethodType.Getter)]

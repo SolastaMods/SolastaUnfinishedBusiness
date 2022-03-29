@@ -8,7 +8,7 @@ using SolastaCommunityExpansion.Builders.Features;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Features
 {
-    public class DHEldritchInvocationsBuilder
+    public static class DHEldritchInvocationsBuilder
     {
         public static readonly Dictionary<string, SpellDefinition> DictionaryofEIPseudoCantrips = new();
         public static readonly Dictionary<string, SpellDefinition> DictionaryofEIPseudoSpells = new();

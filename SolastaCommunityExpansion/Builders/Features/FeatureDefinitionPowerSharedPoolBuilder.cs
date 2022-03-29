@@ -24,19 +24,6 @@ namespace SolastaCommunityExpansion.Builders.Features
             Preconditions.AreEqual(Definition.UsesDetermination, RuleDefinitions.UsesDetermination.Fixed, $"FeatureDefinitionPowerSharedPoolBuilder[{Definition.Name}].UsesDetermination must be set to Fixed.");
         }
 
-        public FeatureDefinitionPowerSharedPoolBuilder(string name, string guid,
-            FeatureDefinitionPower poolPower,
-            RuleDefinitions.RechargeRate recharge, RuleDefinitions.ActivationTime activationTime, int costPerUse,
-            bool proficiencyBonusToAttack, bool abilityScoreBonusToAttack, string abilityScore, EffectDescription effectDescription,
-            GuiPresentation guiPresentation, bool uniqueInstance) : base(name, guid)
-        {
-            Preconditions.IsNotNull(poolPower, $"FeatureDefinitionPowerSharedPoolBuilder[{name}] poolPower is null.");
-
-            Configure(poolPower, recharge, activationTime, costPerUse, proficiencyBonusToAttack, abilityScoreBonusToAttack, abilityScore, effectDescription, uniqueInstance);
-
-            Definition.SetGuiPresentation(guiPresentation);
-        }
-
         public FeatureDefinitionPowerSharedPoolBuilder Configure(FeatureDefinitionPower poolPower,
             RuleDefinitions.RechargeRate recharge, RuleDefinitions.ActivationTime activationTime, int costPerUse,
             bool proficiencyBonusToAttack, bool abilityScoreBonusToAttack, string abilityScore, EffectDescription effectDescription, bool uniqueInstance)
@@ -55,6 +42,19 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SharedPool = poolPower;
 
             return This();
+        }
+
+        public FeatureDefinitionPowerSharedPoolBuilder(string name, string guid,
+            FeatureDefinitionPower poolPower,
+            RuleDefinitions.RechargeRate recharge, RuleDefinitions.ActivationTime activationTime, int costPerUse,
+            bool proficiencyBonusToAttack, bool abilityScoreBonusToAttack, string abilityScore, EffectDescription effectDescription,
+            GuiPresentation guiPresentation, bool uniqueInstance) : base(name, guid)
+        {
+            Preconditions.IsNotNull(poolPower, $"FeatureDefinitionPowerSharedPoolBuilder[{name}] poolPower is null.");
+
+            Configure(poolPower, recharge, activationTime, costPerUse, proficiencyBonusToAttack, abilityScoreBonusToAttack, abilityScore, effectDescription, uniqueInstance);
+
+            Definition.SetGuiPresentation(guiPresentation);
         }
 
         #region Constructors

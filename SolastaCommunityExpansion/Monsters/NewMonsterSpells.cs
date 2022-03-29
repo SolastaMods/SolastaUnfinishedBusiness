@@ -8,7 +8,7 @@ using SolastaCommunityExpansion.Builders;
 //******************************************************************************************
 namespace SolastaCommunityExpansion.Monsters
 {
-    public class NewMonsterSpells
+    public static class NewMonsterSpells
     {
         public static SpellDefinition DominateMonster_Spell = ScriptableObject.CreateInstance<SpellDefinition>();
         public static SpellDefinition PowerWordKill_Spell = ScriptableObject.CreateInstance<SpellDefinition>();
