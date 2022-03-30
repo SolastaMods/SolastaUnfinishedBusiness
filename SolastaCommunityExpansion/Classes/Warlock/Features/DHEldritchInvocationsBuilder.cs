@@ -15,15 +15,13 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
         public static readonly Dictionary<string, FeatureDefinitionPower> DictionaryofEIPowers = new();
 
-        // TODO: use a builder
-        public static SpellDefinition EldritchBlast = ScriptableObject.CreateInstance<SpellDefinition>();
+        public static SpellDefinition EldritchBlast { get; set; }
         public static readonly List<string> ListofEBImprovements = new();
         public static readonly Dictionary<string, FeatureDefinitionBonusCantrips> DictionaryofEBInvocations = new();
-
         public static readonly List<string> ListofEIAttributeModifers = new();
         public static readonly Dictionary<string, FeatureDefinitionFeatureSet> DictionaryofEIAttributeModifers = new();
-        public static FeatureDefinitionFeatureSet AgonizingBlastFeatureSet;
-        public static FeatureDefinitionFeatureSet HinderingBlastFeatureSet;
+        public static FeatureDefinitionFeatureSet AgonizingBlastFeatureSet { get; set; }
+        public static FeatureDefinitionFeatureSet HinderingBlastFeatureSet { get; set; }  
 
         public static void Build()
         {
@@ -34,9 +32,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
         private static void SpellsToCantripsForEldritchInvocations()
         {
-
-
-
             var castSpellName = "SpellsToCantripsForEldritchInvocations";
             var castSpellGuid = GuidHelper.Create(new Guid(Settings.GUID), castSpellName).ToString();
 
