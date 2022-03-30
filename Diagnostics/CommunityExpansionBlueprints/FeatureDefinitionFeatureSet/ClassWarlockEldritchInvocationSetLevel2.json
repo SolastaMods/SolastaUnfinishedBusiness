@@ -1,0 +1,50 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:AgonizingBlastFeatureSet:6d83380b-f696-5fdf-bcc6-0fdc7ac1d574",
+    "Definition:HinderingBlastFeatureSet:8ea2f2bf-a10a-54c1-9e2b-680b999f0040",
+    "Definition:DHEldritchBlastRepellingBlastBonusCantrip:6e462069-31d0-567f-b4c8-332c35cc555a",
+    "Definition:DHEldritchBlastGraspingHandBonusCantrip:8ca78192-af9c-5928-940a-4f421418374a",
+    "Definition:DHEldritchInvocationMageArmor:31a1f1ef-f74e-5328-9f70-971b1cab7aec",
+    "Definition:DHEldritchInvocationDetectMagic:bf1387de-a961-51b4-9434-53ef844bcffe",
+    "Definition:DHEldritchInvocationFalseLife:ca031f8e-8dbc-55f1-844e-8b10f8593578",
+    "Definition:DHEldritchInvocationBane:4e20a399-554c-591b-8a9a-0c8eeeb78482",
+    "Definition:DHEIAttributeModifersAspectoftheMoon:d25c99c2-c975-52ca-ae68-9aecf48a3111",
+    "Definition:DHEIAttributeModifersBeguilingInfluence:46ab7dfd-f65e-529f-b964-a01e750b9469",
+    "Definition:DHEIAttributeModifersEldritchMind:d946faf2-6a45-59f1-bbef-c12e447470bd",
+    "Definition:DHEIAttributeModifersEyesoftheRuneKeeper:5deea2a9-e13c-5b01-bc4d-c99e5496cea8",
+    "Definition:DHEIAttributeModifersGiftoftheEver-LivingOnes:d56f241d-1362-53af-8fdb-3ad761439c6e",
+    "Definition:DHEIAttributeModifersImprovedPactWeapon:70fc406d-0103-50fc-8fbc-03290d0b8550"
+  ],
+  "mode": "Exclusion",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&ClassWarlockEldritchInvocationSetLevel2Title",
+    "description": "Feature/&ClassWarlockEldritchInvocationSetLevel2Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "95f9ed72-ffa1-52d8-8a3f-ef94e1b7d81a",
+  "contentPack": 9999,
+  "name": "ClassWarlockEldritchInvocationSetLevel2"
+}

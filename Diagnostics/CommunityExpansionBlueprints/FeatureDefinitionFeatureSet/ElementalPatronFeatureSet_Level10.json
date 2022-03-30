@@ -1,0 +1,43 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:DH_EnhancedElementalForm_Shadow:35acaf9c-99aa-5f85-bb53-f1c8da85b38e",
+    "Definition:DH_EnhancedElementalForm_Astral:fb296f80-4ffb-5ee0-bbba-3cf1fff68246",
+    "Definition:DH_EnhancedElementalForm_Ethereal:a088b235-8a05-5a6a-8f75-d2b69a2fa766",
+    "Definition:DH_EnhancedElementalForm_Fire:f2e6c06e-7346-5fbc-b34e-dd30748ff904",
+    "Definition:DH_EnhancedElementalForm_Earth:4b626b40-458c-508a-990c-b836e7c02fff",
+    "Definition:DH_EnhancedElementalForm_Ice:626505ed-27fe-5917-85e2-0e3e27538af6",
+    "Definition:DH_EnhancedElementalForm_Air:33a8c51e-7c6d-5e43-938e-935cc6fcec14"
+  ],
+  "mode": "Union",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&ElementalPatronFeatureSet_Level10Title",
+    "description": "Feature/&ElementalPatronFeatureSet_Level10Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "e811200d-aa23-50f1-8be2-19f44a85d994",
+  "contentPack": 9999,
+  "name": "ElementalPatronFeatureSet_Level10"
+}

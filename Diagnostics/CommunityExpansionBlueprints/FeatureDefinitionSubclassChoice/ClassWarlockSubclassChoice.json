@@ -1,0 +1,39 @@
+{
+  "$type": "FeatureDefinitionSubclassChoice, Assembly-CSharp",
+  "subclasses": [
+    "AHWarlockSubclassSoulBladePact",
+    "AncientForest",
+    "DHWarlockSubclassElementalPatron",
+    "MoonLit",
+    "DHWarlockSubclassRiftWalker",
+    "ToadKing"
+  ],
+  "filterByDeity": false,
+  "subclassSuffix": "Patron",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&ClassWarlockPatronTitle",
+    "description": "Subclass/&ClassWarlockPatronDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "ddcae779-e75e-5d00-8b87-8d0defd80f16",
+  "contentPack": 9999,
+  "name": "ClassWarlockSubclassChoice"
+}
