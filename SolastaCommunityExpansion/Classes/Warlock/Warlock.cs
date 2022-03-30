@@ -96,8 +96,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock
             //var castSpellGuid = GuidHelper.Create(new Guid(Settings.GUID), castSpellName).ToString();
             var classWarlockCastSpell = FeatureDefinitionCastSpellBuilder.Create(DatabaseHelper.FeatureDefinitionCastSpells.CastSpellSorcerer,castSpellName, DefinitionBuilder.CENamespaceGuid);
 
-            ClassWarlockSpellList.Build();
-            SpellListDefinition classWarlockSpellList = ClassWarlockSpellList.WarlockSpellList;
+            WarlockSpells.Build();
+            SpellListDefinition classWarlockSpellList = WarlockSpells.WarlockSpellList;
 
             classWarlockCastSpell.SetGuiPresentation(new GuiPresentationBuilder(
                 "Feature/&ClassWarlockSpellcastingTitle",
@@ -115,10 +115,10 @@ namespace SolastaCommunityExpansion.Classes.Warlock
 
             classWarlockCastSpell.SetReplacedSpells(new List<int> 
             {
-                0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0
+                0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0
             });
 
-            classWarlockCastSpell.SetSlotsPerLevel(ClassWarlockSpellList.WarlockCastingSlots);
+            classWarlockCastSpell.SetSlotsPerLevel(WarlockSpells.WarlockCastingSlots);
             classWarlockCastSpell.SetSlotsRecharge(RuleDefinitions.RechargeRate.ShortRest);
             classWarlockCastSpell.SetSpellCastingAbility(AttributeDefinitions.Charisma);
             classWarlockCastSpell.SetSpellCastingLevel(5);

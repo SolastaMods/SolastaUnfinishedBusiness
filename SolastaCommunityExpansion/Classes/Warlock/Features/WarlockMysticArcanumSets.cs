@@ -31,7 +31,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
         private static IEnumerable<SpellDefinition> GetSpells(params int[] levels)
         {
-            return levels.SelectMany(level => ClassWarlockSpellList.WarlockSpellList.SpellsByLevel[level].Spells);
+            return levels.SelectMany(level => WarlockSpells.WarlockSpellList.SpellsByLevel[level].Spells);
         }
 
         private static FeatureDefinitionFeatureSet Create(int setLevel, params int[] spellLevels)
