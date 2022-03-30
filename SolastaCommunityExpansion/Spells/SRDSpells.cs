@@ -22,26 +22,26 @@ namespace SolastaCommunityExpansion.Spells
     {
         internal static readonly Guid DhBaseGuid = new("05c1b1dbae144731b4505c1232fdc37e");
 
-        private static readonly SpellDefinition DivineWord = BuildDivineWord();
-        private static readonly SpellDefinition FingerOfDeath = BuildFingerOfDeath();
-        private static readonly SpellDefinition ReverseGravity = BuildReverseGravity();
-        private static readonly SpellDefinition ConjureCelestial = BuildConjureCelestial();
-        private static readonly SpellDefinition DominateMonster = BuildDominateMonster();
-        private static readonly SpellDefinition Feeblemind = BuildFeeblemind();
-        private static readonly SpellDefinition HolyAura = BuildHolyAura();
-        private static readonly SpellDefinition IncendiaryCloud = BuildIncendiaryCloud();
-        private static readonly SpellDefinition Maze = BuildMaze();
-        private static readonly SpellDefinition MindBlank = BuildMindBlank();
-        private static readonly SpellDefinition PowerWordStun = BuildPowerWordStun();
-        private static readonly SpellDefinition SunBurst = BuildSunBurst();
-        private static readonly SpellDefinition Foresight = BuildForesight();
-        private static readonly SpellDefinition MassHeal = BuildMassHeal();
-        private static readonly SpellDefinition MeteorSwarmSingleTarget = BuildMeteorSwarmSingleTarget();
-        private static readonly SpellDefinition PowerWordHeal = BuildPowerWordHeal();
-        private static readonly SpellDefinition PowerWordKill = BuildPowerWordKill();
-        private static readonly SpellDefinition TimeStop = BuildTimeStop();
-        private static readonly SpellDefinition Shapechange = BuildShapechange();
-        private static readonly SpellDefinition Weird = BuildWeird();
+        internal static readonly SpellDefinition DivineWord = BuildDivineWord();
+        internal static readonly SpellDefinition FingerOfDeath = BuildFingerOfDeath();
+        internal static readonly SpellDefinition ReverseGravity = BuildReverseGravity();
+        internal static readonly SpellDefinition ConjureCelestial = BuildConjureCelestial();
+        internal static readonly SpellDefinition DominateMonster = BuildDominateMonster();
+        internal static readonly SpellDefinition Feeblemind = BuildFeeblemind();
+        internal static readonly SpellDefinition HolyAura = BuildHolyAura();
+        internal static readonly SpellDefinition IncendiaryCloud = BuildIncendiaryCloud();
+        internal static readonly SpellDefinition Maze = BuildMaze();
+        internal static readonly SpellDefinition MindBlank = BuildMindBlank();
+        internal static readonly SpellDefinition PowerWordStun = BuildPowerWordStun();
+        internal static readonly SpellDefinition SunBurst = BuildSunBurst();
+        internal static readonly SpellDefinition Foresight = BuildForesight();
+        internal static readonly SpellDefinition MassHeal = BuildMassHeal();
+        internal static readonly SpellDefinition MeteorSwarmSingleTarget = BuildMeteorSwarmSingleTarget();
+        internal static readonly SpellDefinition PowerWordHeal = BuildPowerWordHeal();
+        internal static readonly SpellDefinition PowerWordKill = BuildPowerWordKill();
+        internal static readonly SpellDefinition TimeStop = BuildTimeStop();
+        internal static readonly SpellDefinition Shapechange = BuildShapechange();
+        internal static readonly SpellDefinition Weird = BuildWeird();
 
         internal static void AddToDB()
         {

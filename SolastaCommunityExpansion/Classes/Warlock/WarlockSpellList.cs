@@ -3,13 +3,16 @@ using SolastaModApi.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Classes.Warlock.AHSpells;
 using System.Collections.Generic;
+using static SolastaCommunityExpansion.Spells.SrdSpells;
 using static FeatureDefinitionCastSpell;
 
 namespace SolastaCommunityExpansion.Classes.Warlock
 {
-    internal static class ClassWarlockSpellList
+    // keep public as CE:MC depends on it
+    public static class WarlockSpells
     {
-        internal static readonly List<SlotsByLevelDuplet> WarlockCastingSlots = new()
+        // referenced by by CE:MC
+        public static readonly List<SlotsByLevelDuplet> WarlockCastingSlots = new()
         {
             new() { Slots = new List<int> { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, Level = 01 },
             new() { Slots = new List<int> { 2, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, Level = 02 },
@@ -21,36 +24,24 @@ namespace SolastaCommunityExpansion.Classes.Warlock
             new() { Slots = new List<int> { 2, 2, 2, 2, 0, 0, 0, 0, 0, 0 }, Level = 08 },
             new() { Slots = new List<int> { 2, 2, 2, 2, 2, 0, 0, 0, 0, 0 }, Level = 09 },
             new() { Slots = new List<int> { 2, 2, 2, 2, 2, 0, 0, 0, 0, 0 }, Level = 10 },
-            new() { Slots = new List<int> { 3, 3, 3, 3, 3, 1, 0, 0, 0, 0 }, Level = 11 },
-            new() { Slots = new List<int> { 3, 3, 3, 3, 3, 1, 0, 0, 0, 0 }, Level = 12 },
-            new() { Slots = new List<int> { 3, 3, 3, 3, 3, 1, 1, 0, 0, 0 }, Level = 13 },
-            new() { Slots = new List<int> { 3, 3, 3, 3, 3, 1, 1, 0, 0, 0 }, Level = 14 },
-            new() { Slots = new List<int> { 3, 3, 3, 3, 3, 1, 1, 1, 0, 0 }, Level = 15 },
-            new() { Slots = new List<int> { 3, 3, 3, 3, 3, 1, 1, 1, 0, 0 }, Level = 16 },
-            new() { Slots = new List<int> { 4, 4, 4, 4, 4, 1, 1, 1, 1, 0 }, Level = 17 },
-            new() { Slots = new List<int> { 4, 4, 4, 4, 4, 1, 1, 1, 1, 0 }, Level = 18 },
-            new() { Slots = new List<int> { 4, 4, 4, 4, 4, 1, 1, 1, 1, 0 }, Level = 19 },
-            new() { Slots = new List<int> { 4, 4, 4, 4, 4, 1, 1, 1, 1, 0 }, Level = 20 },
+            new() { Slots = new List<int> { 3, 3, 3, 3, 3, 0, 0, 0, 0, 0 }, Level = 11 },
+            new() { Slots = new List<int> { 3, 3, 3, 3, 3, 0, 0, 0, 0, 0 }, Level = 12 },
+            new() { Slots = new List<int> { 3, 3, 3, 3, 3, 0, 0, 0, 0, 0 }, Level = 13 },
+            new() { Slots = new List<int> { 3, 3, 3, 3, 3, 0, 0, 0, 0, 0 }, Level = 14 },
+            new() { Slots = new List<int> { 3, 3, 3, 3, 3, 0, 0, 0, 0, 0 }, Level = 15 },
+            new() { Slots = new List<int> { 3, 3, 3, 3, 3, 0, 0, 0, 0, 0 }, Level = 16 },
+            new() { Slots = new List<int> { 4, 4, 4, 4, 4, 0, 0, 0, 0, 0 }, Level = 17 },
+            new() { Slots = new List<int> { 4, 4, 4, 4, 4, 0, 0, 0, 0, 0 }, Level = 18 },
+            new() { Slots = new List<int> { 4, 4, 4, 4, 4, 0, 0, 0, 0, 0 }, Level = 19 },
+            new() { Slots = new List<int> { 4, 4, 4, 4, 4, 0, 0, 0, 0, 0 }, Level = 20 },
         };
 
-        public static SpellListDefinition WarlockSpellList;
+        internal static SpellListDefinition WarlockSpellList;
 
-        public static void Build()
+        internal static void Build()
         {
-            // 7th
-            SpellDefinition FingerOfDeath = DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("DHFingerOfDeathSpell", GuidHelper.Create(new System.Guid("05c1b1dbae144731b4505c1232fdc37e"), "DHFingerOfDeathSpell").ToString());
-            // 8th
-            SpellDefinition DominateMonster = DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("DHDominateMonsterSpell", GuidHelper.Create(new System.Guid("05c1b1dbae144731b4505c1232fdc37e"), "DHDominateMonsterSpell").ToString());
-            SpellDefinition Feeblemind = DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("DHFeeblemindSpell", GuidHelper.Create(new System.Guid("05c1b1dbae144731b4505c1232fdc37e"), "DHFeeblemindSpell").ToString());
-            SpellDefinition PowerWordStun = DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("DHPowerWordStunSpell", GuidHelper.Create(new System.Guid("05c1b1dbae144731b4505c1232fdc37e"), "DHPowerWordStunSpell").ToString());
-            // 9th
-            SpellDefinition Weird = DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("DHWeirdSpell", GuidHelper.Create(new System.Guid("05c1b1dbae144731b4505c1232fdc37e"), "DHWeirdSpell").ToString());
-            SpellDefinition Foresight = DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("DHForesightSpell", GuidHelper.Create(new System.Guid("05c1b1dbae144731b4505c1232fdc37e"), "DHForesightSpell").ToString());
-            SpellDefinition PowerWordKill = DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement("DHPowerWordKillSpell", GuidHelper.Create(new System.Guid("05c1b1dbae144731b4505c1232fdc37e"), "DHPowerWordKillSpell").ToString());
-
             WarlockSpellList = SpellListDefinitionBuilder
-                .Create(DatabaseHelper.SpellListDefinitions.SpellListWizard, "SpellListClassWarlock", DefinitionBuilder.CENamespaceGuid)
-
+                .Create(DatabaseHelper.SpellListDefinitions.SpellListWizard, "ClassWarlockSpellList", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.SpellList)
                 .SetMaxSpellLevel(9, true)
                 .AddToDB();
