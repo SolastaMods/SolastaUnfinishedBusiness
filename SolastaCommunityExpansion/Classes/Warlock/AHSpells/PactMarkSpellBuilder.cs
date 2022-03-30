@@ -59,7 +59,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.AHSpells
             return new PactMarkSpellBuilder(name, guid).AddToDB();
         }
 
-        public static SpellDefinition PactMarkSpell = CreateAndAddToDB(PactMarkSpellName, PactMarkSpellNameGuid);
+        public static readonly SpellDefinition PactMarkSpell = CreateAndAddToDB(PactMarkSpellName, PactMarkSpellNameGuid);
     }
 
 
@@ -83,7 +83,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.AHSpells
             return new PactMarkPactMarkConditionBuilder(name, guid).AddToDB();
         }
 
-        public static ConditionDefinition PactMarkCondition = CreateAndAddToDB(PactMarkPactMarkConditionName, PactMarkPactMarkConditionGuid);
+        public static readonly ConditionDefinition PactMarkCondition = CreateAndAddToDB(PactMarkPactMarkConditionName, PactMarkPactMarkConditionGuid);
     }
 
 
@@ -104,7 +104,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.AHSpells
             return new PactMarkMarkedByPactConditionBuilder(name, guid).AddToDB();
         }
 
-        public static ConditionDefinition MarkedByPactCondition = CreateAndAddToDB(PactMarkMarkedByPactConditionName, PactMarkMarkedByPactConditionGuid);
+        public static readonly ConditionDefinition MarkedByPactCondition = CreateAndAddToDB(PactMarkMarkedByPactConditionName, PactMarkMarkedByPactConditionGuid);
     }
 
 
@@ -127,9 +127,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.AHSpells
             return new PactMarkAdditionalDamageBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionAdditionalDamage PactMarkAdditionalDamage = CreateAndAddToDB(PactMarkAdditionalDamageBuilderName, PactMarkAdditionalDamageGuid);
+        public static readonly FeatureDefinitionAdditionalDamage PactMarkAdditionalDamage = CreateAndAddToDB(PactMarkAdditionalDamageBuilderName, PactMarkAdditionalDamageGuid);
     }
-
-
-
 }
