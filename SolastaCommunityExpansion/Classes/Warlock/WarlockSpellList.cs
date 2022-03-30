@@ -8,7 +8,7 @@ using static FeatureDefinitionCastSpell;
 
 namespace SolastaCommunityExpansion.Classes.Warlock
 {
-    internal static class ClassWarlockSpellList
+    public static class WarlockSpells
     {
         public static readonly List<SlotsByLevelDuplet> WarlockCastingSlots = new()
         {
