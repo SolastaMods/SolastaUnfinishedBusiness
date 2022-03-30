@@ -15,7 +15,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             { "SilverGriffon", "PickPocket, lore friendly names, crafty feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants" },
             { "Bazou", "Witch class" },
             { "Boofat", "alwaysAlt" },
-            { "AceHigh", "original Warlock class, Tactician subclass, Power Attack and Reckless Fury feats, no identification" },
+            { "AceHigh", "original Warlock class, original multiclass idea, Tactician subclass, Power Attack and Reckless Fury feats, no identification" },
             { "ElAntonious", "Arcanist subclass, Torchbearer and Dual Flurry feats" },
             { "Scarlex", "Royal Knight subclass" },
             { "RedOrca", "Path of the Light subclass, Indomitable Might" },
@@ -23,7 +23,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             { "Dreadmaker", "Circle of the Forest Guardian subclass" },
             { "Narria", "modKit creator, developer" },
             { "Spacehamster", "dataminer" },
-            { "Holic75", "pact magic slots idea" },
+            { "Holic75", "pact magic slots idea, Warlock class sprite" },
             { "sinai-dev", "Unity Explorer UI standalone" }
         };
 

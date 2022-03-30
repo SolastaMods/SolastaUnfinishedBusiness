@@ -185,9 +185,11 @@ namespace SolastaCommunityExpansion.Classes.Warlock
 
         internal static CharacterClassDefinition BuildWarlockClass()
         {
+            var warlockSpriteReference = Utils.CustomIcons.CreateAssetReferenceSprite("Warlock", Properties.Resources.Warlock, 1024, 576);
+
             var classWarlockBuilder = CharacterClassDefinitionBuilder
                 .Create("ClassWarlock", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(Category.Class, Cleric.GuiPresentation.SpriteReference, 1 /*hidden=true/false?*/)
+                .SetGuiPresentation(Category.Class, warlockSpriteReference, 1 /*hidden=true/false?*/)
                 .AddFeatPreferences(FeatDefinitions.PowerfulCantrip, FeatDefinitions.FlawlessConcentration, FeatDefinitions.Robust)
                 .AddPersonality(PersonalityFlagDefinitions.Violence, 3)
                 .AddPersonality(PersonalityFlagDefinitions.Self_Preservation, 3)
