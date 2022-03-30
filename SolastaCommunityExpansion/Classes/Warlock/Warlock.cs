@@ -115,7 +115,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock
 
             classWarlockCastSpell.SetReplacedSpells(new List<int> 
             {
-                0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+                0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0
             });
 
             classWarlockCastSpell.SetSlotsPerLevel(ClassWarlockSpellList.WarlockCastingSlots);
