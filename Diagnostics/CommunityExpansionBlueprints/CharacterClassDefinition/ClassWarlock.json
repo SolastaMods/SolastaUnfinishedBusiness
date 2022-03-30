@@ -196,6 +196,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWarlockMysticArcanumSetLevel11:a03cfc9b-c0dd-5b03-aaa3-403a543885c7",
+      "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
       "level": 12
     },
@@ -206,13 +211,28 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWarlockMysticArcanumSetLevel13:411adda1-f080-51e3-b970-d4d0aec54e91",
+      "level": 13
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ClassWarlockEldritchInvocationSetLevel15:81f03c5e-c4f4-514b-8315-2b06dfc229dd",
+      "level": 15
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWarlockMysticArcanumSetLevel15:56a460da-8126-560b-b494-53da73306ed6",
       "level": 15
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
       "level": 16
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWarlockMysticArcanumSetLevel17:25155ac2-842e-5b5a-aa35-b621293d6f0e",
+      "level": 17
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
@@ -295,9 +315,9 @@
     "description": "Class/&ClassWarlockDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "d88e54c63c045a44b959e14231c4f5af",
-      "m_SubObjectName": "Cleric",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "bd27ed147b1350a299b618b74970c1fd",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
