@@ -96,7 +96,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock
             //var castSpellGuid = GuidHelper.Create(new Guid(Settings.GUID), castSpellName).ToString();
             var classWarlockCastSpell = FeatureDefinitionCastSpellBuilder.Create(DatabaseHelper.FeatureDefinitionCastSpells.CastSpellSorcerer,castSpellName, DefinitionBuilder.CENamespaceGuid);
 
-            WarlockSpells.Build();
             SpellListDefinition classWarlockSpellList = WarlockSpells.WarlockSpellList;
 
             classWarlockCastSpell.SetGuiPresentation(new GuiPresentationBuilder(
