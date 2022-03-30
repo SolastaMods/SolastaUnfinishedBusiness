@@ -1,0 +1,38 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:CampAffinityElfTrance:02e0f7bc4afeb2b43ab60ec0a048f5ae",
+    "Definition:CampAffinityDomainOblivionPeacefulRest:82674c4f25c7fdb4a901085c44341f0a"
+  ],
+  "mode": "Union",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&AspectoftheMoonTitle",
+    "description": "Feature/&AspectoftheMoonDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "d25c99c2-c975-52ca-ae68-9aecf48a3111",
+  "contentPack": 9999,
+  "name": "DHEIAttributeModifersAspectoftheMoon"
+}

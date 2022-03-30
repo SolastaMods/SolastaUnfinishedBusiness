@@ -16,7 +16,10 @@
     "AcidArrow",
     "ScorchingRay",
     "LightningBolt",
-    "Sunbeam"
+    "Sunbeam",
+    "DHEldritchBlast",
+    "DHEldritchBlastRepellingBlast",
+    "DHEldritchBlastGraspingHand"
   ],
   "maxSpellLevelImmunity": -1,
   "concentrationAffinity": "None",

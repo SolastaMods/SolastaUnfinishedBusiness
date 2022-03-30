@@ -1,0 +1,35 @@
+{
+  "$type": "RestActivityDefinition, Assembly-CSharp",
+  "restStage": "AfterRest",
+  "restType": "LongRest",
+  "condition": "CanUsePower",
+  "functor": "UsePower",
+  "stringParameter": "AncientForestHerbalBrewFortifyingResistentToPoisonResistance",
+  "checkConsciousness": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "This herbal brew grants resistence to Poison damage for one hour",
+    "description": "Herbal Brew : Potion of Poison resistence",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "e8750b8e-c0ba-5ec9-b527-207f1588e6aa",
+  "contentPack": 9999,
+  "name": "AncientForestRestActivityBrewingFortifyResistentToPoisonResistance"
+}

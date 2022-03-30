@@ -1,0 +1,40 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:FindFamiliarPseudodragonPower:a4c185ba-3b40-5c9e-9ef7-6ac8eb7f8e06",
+    "Definition:FindFamiliarSpritePower:2e889454-3330-591f-92ba-383c63fce2c7",
+    "Definition:FindFamiliarImpPower:ea53a7c2-bfa1-54f1-aa07-2dc19fc28613",
+    "Definition:FindFamiliarQuasitPower:4e4b5286-6158-594e-869a-5ef4f9e124d8"
+  ],
+  "mode": "Union",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&DHWarlockClassPactOfTheChainFeatureSetTitle",
+    "description": "Feature/&DHWarlockClassPactOfTheChainFeatureSetDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "93a39bda-f6dd-5380-ad2f-bebc4c794247",
+  "contentPack": 9999,
+  "name": "DHWarlockClassPactOfTheChainFeatureSet"
+}

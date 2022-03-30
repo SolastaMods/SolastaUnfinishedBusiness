@@ -1,0 +1,40 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:AdditionalDamageRangerFavoredEnemyElemental:9f36ca7f1b0b26c4d806fbdb759cfb42",
+    "Definition:CombatAffinityProtectedFromEvil:671e2e203ec78ac4f9949bb2e21ecec9",
+    "Definition:ConditionAffinityCircleLandNaturesWardCharmed:c6cd23ef73a13d54fb6e617c096fff65",
+    "Definition:ConditionAffinityCircleLandNaturesWardFrightened:8f4f2975675544842ae22d6b74175657"
+  ],
+  "mode": "Union",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&ElementalPatronFeatureSet_Level06Title",
+    "description": "Feature/&ElementalPatronFeatureSet_Level06Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "2795a6c8-2673-5c34-a18c-d278c2ad06df",
+  "contentPack": 9999,
+  "name": "ElementalPatronFeatureSet_Level06"
+}

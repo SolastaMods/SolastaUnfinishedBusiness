@@ -23,7 +23,8 @@
     "Definition:FeyTeleportationAutoPrepMistySorcerer:b2ec4b3e-2fe9-560a-af5d-7c24872747e5",
     "Definition:FeyTeleportationAutoPrepMistyWizard:2c2c8f9d-8420-5041-b238-509aec321a2a",
     "Definition:FeyTeleportationAutoPrepMistyClassWitch:a4e13108-4b9d-5f73-96da-9340d0fba050",
-    "Definition:FeyTeleportationAutoPrepMistyClassTinkerer:5902baac-de33-5c7d-ac6d-0c07a57b56f2"
+    "Definition:FeyTeleportationAutoPrepMistyClassTinkerer:5902baac-de33-5c7d-ac6d-0c07a57b56f2",
+    "Definition:FeyTeleportationAutoPrepMistyClassWarlock:66d409a0-4428-5b16-9f5a-31ee2b0ba874"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

@@ -1,0 +1,88 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ToadKingCroak:8cbe866a-1e48-5814-85d8-137cc9040671",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ToadKingExpandedSpelllistAfinity:75e80fd4-040d-59cb-9e50-5fd7cc6e3461",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ToadKingBasicToxin:5f61bc99-d0e9-5411-933b-28820be8dd64",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyRoguishDarkweaver:a0db1027558e45e4391e04fda7b1bb93",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ToadKingHallucinogenicToxinAffinty:580f7045-038d-5948-a67c-61b05b80bcc7",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ToadKingConditionAffinityPoisonImmunity:0f55f5e6-0f4b-5e9c-ac1b-b898a3d2ad4c",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ToadKingMovementAffinityJump:5da3d10b-fd2c-5ca3-8740-8e7d245118f1",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ToadKingDamageAffinityPoisonImmunity:059169c7-1151-5aa3-8fc6-547c37b8beeb",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ToadKingMovementAffinitySpiderClimb:5ce98828-53eb-59eb-a277-705b2d2a7b46",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ToadKingGraspingTongue:7b8dd8ff-0f72-571d-a176-c5700ce1904d",
+      "level": 14
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ToadKingSwallow:3d8621f3-3a37-5704-9ff3-e930d987ebcb",
+      "level": 14
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&WarlockToadKingTitle",
+    "description": "Subclass/&WarlockToadKingDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "927ebfae5abe6664b882dd8ee980e94d",
+      "m_SubObjectName": "Sorcerer_DraconicBloodline",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "aa8866ec-b950-5c40-9e3d-0926052282a5",
+  "contentPack": 9999,
+  "name": "ToadKing"
+}
