@@ -8,8 +8,10 @@ using static FeatureDefinitionCastSpell;
 
 namespace SolastaCommunityExpansion.Classes.Warlock
 {
+    // keep public as CE:MC depends on it
     public static class WarlockSpells
     {
+        // referenced by by CE:MC
         public static readonly List<SlotsByLevelDuplet> WarlockCastingSlots = new()
         {
             new() { Slots = new List<int> { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, Level = 01 },
@@ -34,9 +36,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock
             new() { Slots = new List<int> { 4, 4, 4, 4, 4, 0, 0, 0, 0, 0 }, Level = 20 },
         };
 
-        public static SpellListDefinition WarlockSpellList;
+        internal static SpellListDefinition WarlockSpellList;
 
-        public static void Build()
+        internal static void Build()
         {
             WarlockSpellList = SpellListDefinitionBuilder
                 .Create(DatabaseHelper.SpellListDefinitions.SpellListWizard, "ClassWarlockSpellList", DefinitionBuilder.CENamespaceGuid)
