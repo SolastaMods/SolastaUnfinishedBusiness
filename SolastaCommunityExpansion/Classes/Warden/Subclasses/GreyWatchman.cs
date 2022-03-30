@@ -5,6 +5,7 @@ using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi;
 using SolastaModApi.Extensions;
+using static RuleDefinitions;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.DamageDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
@@ -24,18 +25,19 @@ namespace SolastaCommunityExpansion.Classes.Warden.Subclasses
             return Subclass ??= BuildAndAddSubclass(wardenClass);
         }
 
+        //
+        // @BAZOU: please review below change
+        // 
         private static void BuildBattleTacticsPool()
         {
-            FeatureDefinitionPowerBattleTactics = new FeatureDefinitionPowerPoolBuilder(
-                "BattleTacticsPool",
-                GuidHelper.Create(Namespace, "BattleTacticsPool").ToString(),
-                2,
-                RuleDefinitions.UsesDetermination.Fixed, 
-                AttributeDefinitions.Strength, 
-                RuleDefinitions.RechargeRate.ShortRest,
-                new GuiPresentationBuilder(
+            FeatureDefinitionPowerBattleTactics = FeatureDefinitionPowerPoolBuilder
+                .Create("BattleTacticsPool", GuidHelper.Create(Namespace, "BattleTacticsPool").ToString())
+                .SetGuiPresentation(new GuiPresentationBuilder(
                     "Feature/&BattleTacticsPoolDescription",
                     "Feature/&BattleTacticsPoolTitle").Build())
+                .SetAbilityScore(AttributeDefinitions.Strength)
+                .SetUsesFixed(2)
+                .SetRechargeRate(RuleDefinitions.RechargeRate.ShortRest)
                 .AddToDB();
         }
 
