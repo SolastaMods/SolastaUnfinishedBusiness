@@ -26,6 +26,23 @@ namespace SolastaMulticlass.Patches.Wildshape
             }
         }
 
+        [HarmonyPatch(typeof(RulesetCharacter), "FindClassHoldingFeature")]
+        internal static class RulesetCharacterFindClassHoldingFeature
+        {
+            internal static void Postfix(RulesetCharacter __instance, ref CharacterClassDefinition __result, FeatureDefinition featureDefinition)
+            {
+                if (!Main.Settings.EnableMulticlass)
+                {
+                    return;
+                }
+
+                if (WildshapeContext.GetHero(__instance) is RulesetCharacterHero hero && hero != __instance)
+                {
+                    __result = hero.FindClassHoldingFeature(featureDefinition);
+                }
+            }
+        }
+
         // ensures that the wildshape hero has access to spell repertoires for calculating slot related features
         [HarmonyPatch(typeof(RulesetCharacter), "SpellRepertoires", MethodType.Getter)]
         internal static class RulesetCharacterSpellRepertoires

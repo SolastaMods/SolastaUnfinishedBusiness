@@ -68,9 +68,6 @@ namespace SolastaMulticlass.Patches.LevelUp
                 var classFeatureUnlocksMethod = typeof(CharacterClassDefinition).GetMethod("get_FeatureUnlocks");
                 var classFilteredFeatureUnlocksMethod = typeof(LevelUpContext).GetMethod("ClassFilteredFeatureUnlocks");
 
-                var subclassFeatureUnlocksMethod = typeof(CharacterSubclassDefinition).GetMethod("get_FeatureUnlocks");
-                var subclassFilteredFeatureUnlocksMethod = typeof(LevelUpContext).GetMethod("SubclassFilteredFeatureUnlocks");
-
                 var currentHeroField = typeof(CharacterStageClassSelectionPanel).GetField("currentHero", BindingFlags.Instance | BindingFlags.NonPublic);
 
                 foreach (var instruction in instructions)
@@ -80,12 +77,6 @@ namespace SolastaMulticlass.Patches.LevelUp
                         yield return new CodeInstruction(OpCodes.Ldarg_0);
                         yield return new CodeInstruction(OpCodes.Ldfld, currentHeroField);
                         yield return new CodeInstruction(OpCodes.Call, classFilteredFeatureUnlocksMethod);
-                    }
-                    else if (instruction.Calls(subclassFeatureUnlocksMethod))
-                    {
-                        yield return new CodeInstruction(OpCodes.Ldarg_0);
-                        yield return new CodeInstruction(OpCodes.Ldfld, currentHeroField);
-                        yield return new CodeInstruction(OpCodes.Call, subclassFilteredFeatureUnlocksMethod);
                     }
                     else
                     {
@@ -114,9 +105,6 @@ namespace SolastaMulticlass.Patches.LevelUp
                 var classFeatureUnlocksMethod = typeof(CharacterClassDefinition).GetMethod("get_FeatureUnlocks");
                 var classFilteredFeatureUnlocksMethod = typeof(LevelUpContext).GetMethod("ClassFilteredFeatureUnlocks");
 
-                var subclassFeatureUnlocksMethod = typeof(CharacterSubclassDefinition).GetMethod("get_FeatureUnlocks");
-                var subclassFilteredFeatureUnlocksMethod = typeof(LevelUpContext).GetMethod("SubclassFilteredFeatureUnlocks");
-
                 var currentHeroField = typeof(CharacterStageClassSelectionPanel).GetField("currentHero", BindingFlags.Instance | BindingFlags.NonPublic);
 
                 foreach (var instruction in instructions)
@@ -126,12 +114,6 @@ namespace SolastaMulticlass.Patches.LevelUp
                         yield return new CodeInstruction(OpCodes.Ldarg_0);
                         yield return new CodeInstruction(OpCodes.Ldfld, currentHeroField);
                         yield return new CodeInstruction(OpCodes.Call, classFilteredFeatureUnlocksMethod);
-                    }
-                    else if (instruction.Calls(subclassFeatureUnlocksMethod))
-                    {
-                        yield return new CodeInstruction(OpCodes.Ldarg_0);
-                        yield return new CodeInstruction(OpCodes.Ldfld, currentHeroField);
-                        yield return new CodeInstruction(OpCodes.Call, subclassFilteredFeatureUnlocksMethod);
                     }
                     else
                     {
@@ -160,9 +142,6 @@ namespace SolastaMulticlass.Patches.LevelUp
                 var classFeatureUnlocksMethod = typeof(CharacterClassDefinition).GetMethod("get_FeatureUnlocks");
                 var classFilteredFeatureUnlocksMethod = typeof(LevelUpContext).GetMethod("ClassFilteredFeatureUnlocks");
 
-                var subclassFeatureUnlocksMethod = typeof(CharacterSubclassDefinition).GetMethod("get_FeatureUnlocks");
-                var subclassFilteredFeatureUnlocksMethod = typeof(LevelUpContext).GetMethod("SubclassFilteredFeatureUnlocks");
-
                 var currentHeroField = typeof(CharacterStageClassSelectionPanel).GetField("currentHero", BindingFlags.Instance | BindingFlags.NonPublic);
 
                 var classesAndLevelsMethod = typeof(RulesetCharacterHero).GetMethod("get_ClassesAndLevels");
@@ -187,12 +166,6 @@ namespace SolastaMulticlass.Patches.LevelUp
                         yield return new CodeInstruction(OpCodes.Ldarg_0);
                         yield return new CodeInstruction(OpCodes.Ldfld, currentHeroField);
                         yield return new CodeInstruction(OpCodes.Call, classFilteredFeatureUnlocksMethod);
-                    }
-                    else if (instruction.Calls(subclassFeatureUnlocksMethod))
-                    {
-                        yield return new CodeInstruction(OpCodes.Ldarg_0);
-                        yield return new CodeInstruction(OpCodes.Ldfld, currentHeroField);
-                        yield return new CodeInstruction(OpCodes.Call, subclassFilteredFeatureUnlocksMethod);
                     }
                     else
                     {

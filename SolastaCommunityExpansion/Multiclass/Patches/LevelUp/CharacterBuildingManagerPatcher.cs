@@ -145,20 +145,12 @@ namespace SolastaMulticlass.Patches.LevelUp
                     yield break;
                 }
 
-                var classFeatureUnlocksMethod = typeof(CharacterClassDefinition).GetMethod("get_FeatureUnlocks");
-                var classFilteredFeatureUnlocksMethod = typeof(LevelUpContext).GetMethod("ClassFilteredFeatureUnlocks");
-
                 var subclassFeatureUnlocksMethod = typeof(CharacterSubclassDefinition).GetMethod("get_FeatureUnlocks");
                 var subclassFilteredFeatureUnlocksMethod = typeof(LevelUpContext).GetMethod("SubclassFilteredFeatureUnlocks");
 
                 foreach (var instruction in instructions)
                 {
-                    if (instruction.Calls(classFeatureUnlocksMethod))
-                    {
-                        yield return new CodeInstruction(OpCodes.Ldarg_1);
-                        yield return new CodeInstruction(OpCodes.Call, classFilteredFeatureUnlocksMethod);
-                    }
-                    else if (instruction.Calls(subclassFeatureUnlocksMethod))
+                    if (instruction.Calls(subclassFeatureUnlocksMethod))
                     {
                         yield return new CodeInstruction(OpCodes.Ldarg_1);
                         yield return new CodeInstruction(OpCodes.Call, subclassFilteredFeatureUnlocksMethod);

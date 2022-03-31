@@ -6,6 +6,7 @@ using HarmonyLib;
 using SolastaCommunityExpansion;
 using SolastaModApi.Infrastructure;
 using SolastaMulticlass.Models;
+using static SolastaCommunityExpansion.Level20.SpellsHelper;
 
 namespace SolastaMulticlass.Patches.SlotsSpells
 {
@@ -158,6 +159,7 @@ namespace SolastaMulticlass.Patches.SlotsSpells
                 }
 
                 // calculates shared slots system across all repertoires except for Race and Warlock
+                var isSharedCaster = SharedSpellsContext.IsSharedcaster(heroWithSpellRepertoire);
                 var sharedCasterLevel = SharedSpellsContext.GetSharedCasterLevel(heroWithSpellRepertoire);
                 var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire);
 
@@ -167,14 +169,14 @@ namespace SolastaMulticlass.Patches.SlotsSpells
                     var spellsSlotCapacities = spellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("spellsSlotCapacities");
 
                     // replaces standard caster slots with shared slots system
-                    if (SharedSpellsContext.IsSharedcaster(heroWithSpellRepertoire))
+                    if (isSharedCaster)
                     {
                         spellsSlotCapacities.Clear();
 
                         // adds shared slots
                         for (var i = 1; i <= sharedSpellLevel; i++)
                         {
-                            spellsSlotCapacities[i] = SharedSpellsContext.FullCastingSlots[sharedCasterLevel - 1].Slots[i - 1];
+                            spellsSlotCapacities[i] = FullCastingSlots[sharedCasterLevel - 1].Slots[i - 1];
                         }
                     }
 

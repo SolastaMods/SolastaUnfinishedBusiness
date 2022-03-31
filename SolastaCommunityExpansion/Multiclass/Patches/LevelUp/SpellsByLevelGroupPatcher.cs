@@ -18,6 +18,11 @@ namespace SolastaMulticlass.Patches.LevelUp
                     return;
                 }
 
+                if (__instance.SpellRepertoire == null)
+                {
+                    return;
+                }
+
                 var hero = LevelUpContext.GetHero(__instance.SpellRepertoire.CharacterName);
 
                 if (hero == null)
