@@ -9,9 +9,16 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class UserContent_CheckContentPackAvailability
     {
-        public static bool Prefix(BaseDefinition baseDefinition)
+        public static bool Prefix(BaseDefinition baseDefinition, ref bool __result)
         {
-            return baseDefinition.ContentPack != CeContentPackContext.CeContentPack;
+            if (baseDefinition.ContentPack == CeContentPackContext.CeContentPack)
+            {
+                __result = true;
+
+                return false;
+            }
+
+            return true;
         }
     }
 }
