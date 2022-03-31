@@ -236,7 +236,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&DLC1_Item_VestmentOak_Title",
-    "description": "Equipment/&DLC1_Item_VestmentOak_Description",
+    "description": "Equipment/&DLC1_Item_ArmorForest_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "8510fcf5eaac32141b16a69c0618731a",
@@ -252,7 +252,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "OpenGameContent",
   "guid": "ade371c226a745a408339cf929f89c68",

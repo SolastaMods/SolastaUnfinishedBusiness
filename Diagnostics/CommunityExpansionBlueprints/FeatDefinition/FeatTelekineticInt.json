@@ -16,7 +16,7 @@
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Feat/&FeatTelekineticIntTitle",
     "description": "Feat/&FeatTelekineticIntDescription",
     "spriteReference": {
@@ -34,7 +34,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "aa6fc0e3-a160-5337-8e86-35a88741d0a5",

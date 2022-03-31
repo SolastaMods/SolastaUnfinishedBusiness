@@ -1,6 +1,6 @@
 {
   "$type": "PropBlueprint, Assembly-CSharp",
-  "groundPlacement": true,
+  "groundPlacement": false,
   "groundLowPlacement": false,
   "groundHighPlacement": false,
   "wallPlacement": true,
@@ -45,7 +45,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "OpenGameContent",
   "guid": "e63b600c7428806478d5aa6e9386c81a",

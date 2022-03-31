@@ -1,0 +1,92 @@
+{
+  "$type": "GadgetBlueprint, Assembly-CSharp",
+  "parameters": [
+    {
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "Dialog",
+      "type": "Dialog",
+      "conditionalDisplay": false,
+      "conditionalParameter": "",
+      "conditionalMatch": true,
+      "intDefaultValue": 0,
+      "intMinValue": 0,
+      "intMaxValue": 0,
+      "boolDefaultValue": false,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": true,
+      "gadgetExecutionFilter": ""
+    }
+  ],
+  "interactionNodes": [
+    {
+      "$type": "InteractionNodeDescription, Assembly-CSharp",
+      "position": {
+        "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+        "x": 0.0,
+        "y": -1.0
+      },
+      "orientation": "North"
+    }
+  ],
+  "canBeActivated": false,
+  "customizableDimensions": false,
+  "minCustomizableDimensions": {
+    "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
+  },
+  "maxCustomizableDimensions": {
+    "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
+  },
+  "campaignOnly": true,
+  "groundPlacement": true,
+  "groundLowPlacement": true,
+  "groundHighPlacement": true,
+  "wallPlacement": false,
+  "openingPlacement": false,
+  "openingLowPlacement": false,
+  "openingHighPlacement": false,
+  "propPlacement": true,
+  "lightSources": [],
+  "category": "Encounter",
+  "dimensions": {
+    "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
+  },
+  "prefabsByEnvironment": [
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "0d4fdf26de84f1d459cd9998b5e8d4a3",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Gadget/&VirtualDialogTitle",
+    "description": "Gadget/&VirtualDialogDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "4b79557a4a24a0947b2feb345b677feb",
+      "m_SubObjectName": "VirtualDialog",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 8,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "9fc6b10fe15b8d24fa4df9afaec7fb9f",
+  "contentPack": "BaseGame",
+  "name": "VirtualDialog"
+}

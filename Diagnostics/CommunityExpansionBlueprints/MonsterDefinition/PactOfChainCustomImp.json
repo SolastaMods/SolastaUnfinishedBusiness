@@ -116,7 +116,7 @@
   "challengeRating": 1.0,
   "noExperienceGain": false,
   "droppedLootDefinition": "Definition:Goblin_loot_drop:e1798a35ed0332b4cbb3d2e9d14e5f3b",
-  "stealableLootDefinition": "Definition:PickPocketLoot:30c308db-1ad7-4f93-9431-43ce32358493",
+  "stealableLootDefinition": null,
   "bestiaryLootOptions": [],
   "features": [
     "Definition:MoveModeFly8:d7d73f75fe686914f998f3c7b3f83e28",
@@ -296,7 +296,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "f75a0c77-9c04-5462-a50c-7cb1ae5e0c3d",

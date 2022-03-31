@@ -16,7 +16,7 @@
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Feat/&FeatHeavyArmorMasterClassTitle",
     "description": "Feat/&FeatHeavyArmorMasterClassDescription",
     "spriteReference": {
@@ -34,7 +34,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "946ce523-a0af-533b-98e6-adcd5b029192",

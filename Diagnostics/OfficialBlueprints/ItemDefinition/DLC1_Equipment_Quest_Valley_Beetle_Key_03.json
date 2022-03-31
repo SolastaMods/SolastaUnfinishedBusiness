@@ -2,7 +2,7 @@
   "$type": "ItemDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "merchantCategory": "Ingredient",
-  "weight": 6.0,
+  "weight": 0.1,
   "slotTypes": [
     "ContainerSlot"
   ],
@@ -196,7 +196,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "TacticalAdventuresContent",
   "guid": "8a61e86f40c124847967fb76ff8ee3b8",

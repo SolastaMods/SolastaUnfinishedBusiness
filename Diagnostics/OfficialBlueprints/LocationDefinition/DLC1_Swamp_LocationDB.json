@@ -50,7 +50,7 @@
     },
     "skyboxMaterial": {
       "$type": "UnityEngine.Material, UnityEngine.CoreModule",
-      "name": "Default_Skybox"
+      "name": "Dark_Skybox swamp"
     },
     "ambientLight": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -219,7 +219,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "OpenGameContent",
   "guid": "e144146a9e3b8a74481b4362f0346e9f",

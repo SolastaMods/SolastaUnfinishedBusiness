@@ -118,12 +118,12 @@
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 3,
-      "monsterAttackDefinition": "Definition:Attack_BadlandHunter_Shortsword:1796c3bfd6fefed4583652558a5c5e64"
+      "monsterAttackDefinition": "Definition:Attack_Hasdrubal_Shortsword:754cd246d9ac282448c7a233dfa32f4f"
     },
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 2,
-      "monsterAttackDefinition": "Definition:Attack_BadlandHunter_Longbow:6f7553cfd8ca4f3428f0fd55657f8e19"
+      "monsterAttackDefinition": "Definition:Attack_Hasdrubal_Longbow:56cb583f6d4635744978f1c9e510ea52"
     }
   ],
   "sneakStance": "Stealth",
@@ -272,7 +272,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "TacticalAdventuresContent",
   "guid": "674d3a1f5712e084eaf0fdb970e6a2aa",

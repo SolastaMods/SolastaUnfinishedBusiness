@@ -345,12 +345,7 @@
   "isStarterPack": false,
   "isContainerItem": false,
   "isLightSourceItem": false,
-  "isFocusItem": true,
-  "focusItemDefinition": {
-    "$type": "FocusItemDescription, Assembly-CSharp",
-    "focusType": "Arcane",
-    "shownAsFocus": true
-  },
+  "isFocusItem": false,
   "isWealthPile": false,
   "isSpellbook": false,
   "isDocument": false,
@@ -503,7 +498,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "6c703444-b83e-529e-8e0f-e15a450e1f04",

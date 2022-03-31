@@ -2,7 +2,7 @@
   "$type": "EffectProxyDefinition, Assembly-CSharp",
   "canMove": true,
   "canRotate": false,
-  "canMoveOnCharacters": false,
+  "canMoveOnCharacters": true,
   "canAttack": false,
   "actionId": "ProxyVengefulSpirits",
   "freeActionId": "NoAction",
@@ -155,7 +155,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "OpenGameContent",
   "guid": "85910ba92b2800e41940d0b011df53b4",

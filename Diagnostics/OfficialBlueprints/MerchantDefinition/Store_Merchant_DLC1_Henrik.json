@@ -700,8 +700,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Merchant/&CaerCyflen_Gorim_Ironsoot_StoreTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Narration/&CS_Title_ThePeople02",
+    "description": "Merchant/&CaerCyflen_Gorim_Ironsoot_StoreTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "b0a59e3a31054e945b408107ae19ba8e",
@@ -717,7 +717,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "OpenGameContent",
   "guid": "de9a1ac7a2b6c7f44b1166d946a329cb",

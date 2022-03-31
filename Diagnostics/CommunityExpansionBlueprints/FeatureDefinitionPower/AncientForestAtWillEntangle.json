@@ -9,7 +9,7 @@
     "targetType": "Cube",
     "itemSelectionType": "Equiped",
     "targetParameter": 4,
-    "targetParameter2": 1,
+    "targetParameter2": 0,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
@@ -369,7 +369,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "8222f422-6486-574d-9892-adc4ca8a0322",

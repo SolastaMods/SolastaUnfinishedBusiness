@@ -260,7 +260,7 @@ namespace SolastaModApi.Extensions
         public static T SetCurrentHitPoints<T>(this T entity, System.Int32 value)
             where T : RulesetActor
         {
-            entity.SetField("currentHitPoints", value);
+            entity.SetProperty("CurrentHitPoints", value);
             return entity;
         }
 
@@ -394,6 +394,13 @@ namespace SolastaModApi.Extensions
             where T : RulesetActor
         {
             entity.SetField("matchingInterruption", value);
+            return entity;
+        }
+
+        public static T SetMaxExtentY<T>(this T entity, System.Int32 value)
+            where T : RulesetActor
+        {
+            entity.SetProperty("MaxExtentY", value);
             return entity;
         }
 

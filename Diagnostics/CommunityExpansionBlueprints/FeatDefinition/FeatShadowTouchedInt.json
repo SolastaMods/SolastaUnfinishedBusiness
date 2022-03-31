@@ -29,7 +29,7 @@
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Feat/&FeatShadowTouchedIntTitle",
     "description": "Feat/&FeatShadowTouchedIntDescription",
     "spriteReference": {
@@ -47,7 +47,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "7310a904-1260-5094-a47e-55e9f6dcaa13",

@@ -7,7 +7,7 @@
   "openingPlacement": false,
   "openingLowPlacement": false,
   "openingHighPlacement": false,
-  "propPlacement": true,
+  "propPlacement": false,
   "lightSources": [],
   "category": "Furniture",
   "dimensions": {
@@ -95,7 +95,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "OpenGameContent",
   "guid": "4cc3a6b2586d43346b6e94b3c1f534fc",

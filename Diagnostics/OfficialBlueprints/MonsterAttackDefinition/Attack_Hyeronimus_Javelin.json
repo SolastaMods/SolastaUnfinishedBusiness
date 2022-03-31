@@ -3,7 +3,7 @@
   "displayedInEditor": true,
   "methodName": "",
   "actionType": "Main",
-  "toHitBonus": 5,
+  "toHitBonus": 9,
   "afterChargeOnly": false,
   "limitedUse": true,
   "maxUses": 8,
@@ -11,7 +11,7 @@
   "reachRange": 1,
   "closeRange": 6,
   "maxRange": 24,
-  "magical": false,
+  "magical": true,
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Self",
@@ -88,7 +88,7 @@
           "diceNumber": 1,
           "dieType": "D6",
           "versatileDieType": "D1",
-          "bonusDamage": 3,
+          "bonusDamage": 4,
           "damageType": "DamagePiercing",
           "healFromInflictedDamage": "Never",
           "hitPointsFloor": 0,
@@ -372,7 +372,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "OpenGameContent",
   "guid": "bc5c005ce7910a04fb899ea8f3750a9f",

@@ -310,7 +310,7 @@
   "vocalSpellSemeClass": "None",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Class/&ClassWarlockTitle",
     "description": "Class/&ClassWarlockDescription",
     "spriteReference": {
@@ -328,7 +328,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 1,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "22677dd9-ffe8-58ad-8dd2-bacb9dd9da2e",

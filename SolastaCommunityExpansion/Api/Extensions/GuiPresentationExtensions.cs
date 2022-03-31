@@ -103,5 +103,12 @@ namespace SolastaModApi.Extensions
             entity.SetField("unusedInSolastaCOTM", value);
             return entity;
         }
+
+        public static T SetUsedInValleyDLC<T>(this T entity, System.Boolean value)
+            where T : GuiPresentation
+        {
+            entity.SetField("usedInValleyDLC", value);
+            return entity;
+        }
     }
 }

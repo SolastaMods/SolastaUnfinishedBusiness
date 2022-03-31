@@ -16,7 +16,7 @@
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Feat/&ChefWisTitle",
     "description": "Feat/&ChefWisDescription",
     "spriteReference": {
@@ -34,7 +34,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "dcd8761b-ce46-56e6-a636-38fbd9902f6b",

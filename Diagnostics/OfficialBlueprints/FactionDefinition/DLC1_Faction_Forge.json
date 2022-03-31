@@ -13,6 +13,8 @@
     "m_SubObjectName": "DLC1_Faction_Flag_Forge_Small",
     "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
   },
+  "failsQuestOnLowRelation": true,
+  "questFailThreshold": -70,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -33,7 +35,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "TacticalAdventuresContent",
   "guid": "72118ca0d51a56e42bf220d8d3d7218d",
