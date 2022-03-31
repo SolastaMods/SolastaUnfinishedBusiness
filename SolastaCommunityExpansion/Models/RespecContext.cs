@@ -43,28 +43,7 @@ namespace SolastaCommunityExpansion.Models
 
         public class FunctorRespec : Functor
         {
-            private const int RESPEC_STATE_NORESPEC = 0;
-            private const int RESPEC_STATE_RESPECING = 1;
-            private const int RESPEC_STATE_ABORTED = 2;
-
-            private static int RespecState { get; set; }
-
-            internal static bool IsRespecing => RespecState == RESPEC_STATE_RESPECING;
-
-            internal static void AbortRespec()
-            {
-                RespecState = RESPEC_STATE_ABORTED;
-            }
-
-            internal static void StartRespec()
-            {
-                RespecState = RESPEC_STATE_RESPECING;
-            }
-
-            internal static void StopRespec()
-            {
-                RespecState = RESPEC_STATE_NORESPEC;
-            }
+            internal static bool IsRespecing { get; set; }
 
             private static readonly List<RulesetItemSpellbook> rulesetItemSpellbooks = new();
 
@@ -105,8 +84,6 @@ namespace SolastaCommunityExpansion.Models
                 // NOTE: don't use gameLocationScreenExploration?. which bypasses Unity object lifetime check
                 var gameLocationscreenExplorationVisible = gameLocationScreenExploration && gameLocationScreenExploration.Visible;
 
-                StartRespec();
-
                 guiConsoleScreen.Hide(true);
                 gameCampaignScreen.Hide(true);
 
@@ -120,9 +97,11 @@ namespace SolastaCommunityExpansion.Models
                 var oldHero = functorParameters.RestingHero;
                 var newHero = characterBuildingService.CreateNewCharacter().HeroCharacter;
 
+                IsRespecing = true;
+
                 DropSpellbooksIfRequired(oldHero);
 
-                yield return StartCharacterCreationWizard();
+                yield return StartCharacterCreationWizard(newHero);
 
                 if (IsRespecing)
                 {
@@ -141,11 +120,9 @@ namespace SolastaCommunityExpansion.Models
                 {
                     gameLocationScreenExploration.Show(true);
                 }
-
-                StopRespec();
             }
 
-            internal static IEnumerator StartCharacterCreationWizard()
+            internal static IEnumerator StartCharacterCreationWizard(RulesetCharacterHero hero)
             {
                 var characterCreationScreen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
                 var restModalScreen = Gui.GuiService.GetScreen<RestModal>();
@@ -153,12 +130,16 @@ namespace SolastaCommunityExpansion.Models
                 restModalScreen.KeepCurrentState = true;
                 restModalScreen.Hide(true);
                 characterCreationScreen.OriginScreen = restModalScreen;
+                characterCreationScreen.CurrentHero = hero;
                 characterCreationScreen.Show();
 
                 while (characterCreationScreen.isActiveAndEnabled)
                 {
                     yield return null;
                 }
+
+                // if there is hero building data still then respec was aborted
+                IsRespecing = !hero.TryGetHeroBuildingData(out var _);
             }
 
             internal static void FinalizeRespec(RulesetCharacterHero oldHero, RulesetCharacterHero newHero)
@@ -195,6 +176,8 @@ namespace SolastaCommunityExpansion.Models
                 }
 
                 gameLocationCharacterService.SetField("dirtyParty", true);
+
+                IsRespecing = false;
             }
 
             internal static void CopyInventoryOver(RulesetCharacterHero oldHero, RulesetCharacterHero newHero)
