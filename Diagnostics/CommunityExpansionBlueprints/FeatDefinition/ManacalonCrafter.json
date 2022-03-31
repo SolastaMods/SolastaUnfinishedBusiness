@@ -16,7 +16,7 @@
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "CraftyFeats/&ManacalonCrafterFeatTitle",
     "description": "CraftyFeats/&ManacalonCrafterFeatDescription",
     "spriteReference": {
@@ -34,7 +34,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "290f73c8-201c-489e-bdcb-7a39ab40915c",

@@ -178,8 +178,8 @@
     "description": "Equipment/&DLC1_Mutated_Bulette_Teeth_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "7a50b5bd21eecc34b81aaa52c7c5984b",
-      "m_SubObjectName": "DireWolfPelt",
+      "m_AssetGUID": "a367a5be278c92f449adafc447f18ca2",
+      "m_SubObjectName": "DLC1_Equipment_Bulette_Teeth",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -191,7 +191,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "TacticalAdventuresContent",
   "guid": "fb61e9237f5768d41825f7485ce400dc",

@@ -14,7 +14,7 @@
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Feat/&FeatPugilistFightingStlyeTitle",
     "description": "Feat/&FeatPugilistFightingStlyeDescription",
     "spriteReference": {
@@ -32,7 +32,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "31c72ed2-ae38-54e5-94ff-66cc4cc364d9",

@@ -38,7 +38,7 @@
   "isArmor": true,
   "armorDefinition": {
     "$type": "ArmorDescription, Assembly-CSharp",
-    "armorType": "ClothesType",
+    "armorType": "LeatherType",
     "armorClassValue": 10,
     "isBaseArmorClass": true,
     "maxDexterityBonus": -1,
@@ -181,15 +181,15 @@
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
     "maleBodyPartBehaviours": [
-      "Shape",
-      "Shape",
-      "Shape",
-      "Shape",
-      "Shape",
-      "Shape",
-      "Shape",
-      "Shape",
-      "Shape",
+      "Keep",
+      "Keep",
+      "Keep",
+      "Keep",
+      "Keep",
+      "Keep",
+      "Keep",
+      "Keep",
+      "Keep",
       "Armor"
     ],
     "femaleBodyPartBehaviours": [
@@ -226,7 +226,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "OpenGameContentModified",
   "guid": "2d225d0f114e5a94a9d043e972acdb82",

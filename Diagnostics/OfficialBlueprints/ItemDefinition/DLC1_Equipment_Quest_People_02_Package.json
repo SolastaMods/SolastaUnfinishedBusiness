@@ -22,7 +22,6 @@
     0
   ],
   "itemTags": [
-    "Standard",
     "Quest"
   ],
   "activeTags": [],
@@ -196,7 +195,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "TacticalAdventuresContent",
   "guid": "5a820cf85556803429f04e6732786eea",

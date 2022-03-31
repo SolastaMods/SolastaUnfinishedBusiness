@@ -321,20 +321,6 @@
     {
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
-      "itemDefinition": "Definition:ScrollCommand:29866102003676e438b34d4db2d787cc",
-      "stackCount": 1,
-      "initialAmount": 1,
-      "minAmount": 0,
-      "maxAmount": 1,
-      "reassortAmount": 1,
-      "reassortRateType": "Day",
-      "reassortRateValue": 7,
-      "requiredFaction": "Arcaneum",
-      "factionStatus": "Alliance"
-    },
-    {
-      "$type": "StockUnitDescription, Assembly-CSharp",
-      "initialized": true,
       "itemDefinition": "Definition:ScrollComprehendLanguages:0554b2cd7e104534c891bf46126c9b3b",
       "stackCount": 1,
       "initialAmount": 1,
@@ -797,20 +783,6 @@
     {
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
-      "itemDefinition": "Definition:ScrollWardingBond:0de5c22d64e8aa64d999804498095508",
-      "stackCount": 1,
-      "initialAmount": 1,
-      "minAmount": 0,
-      "maxAmount": 1,
-      "reassortAmount": 1,
-      "reassortRateType": "Day",
-      "reassortRateValue": 7,
-      "requiredFaction": "Arcaneum",
-      "factionStatus": "Brotherhood"
-    },
-    {
-      "$type": "StockUnitDescription, Assembly-CSharp",
-      "initialized": true,
       "itemDefinition": "Definition:ScrollCounterspell:dc527f2042df22a4e95caa97af02175d",
       "stackCount": 1,
       "initialAmount": 1,
@@ -1053,7 +1025,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "OpenGameContent",
   "guid": "1a1c4e249b8b7234faa4cd98e6ac57c7",

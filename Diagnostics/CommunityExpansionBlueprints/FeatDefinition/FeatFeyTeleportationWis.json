@@ -28,7 +28,7 @@
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Feat/&FeatFeyTeleportationWisTitle",
     "description": "Feat/&FeatFeyTeleportationWisDescription",
     "spriteReference": {
@@ -46,7 +46,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "895c215f-f407-5f05-8af1-c3ac84d5a82c",

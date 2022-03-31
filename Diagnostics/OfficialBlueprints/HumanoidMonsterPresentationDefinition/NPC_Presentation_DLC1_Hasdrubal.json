@@ -6,11 +6,11 @@
   "originMorphotype": "Origin_NonHuman",
   "skinMorphotype": "FaceAndSkinCopperish",
   "musculatureMorphotypeValue": 35.5880547,
-  "ageMorphotypeValue": 22.928112,
+  "ageMorphotypeValue": 5.0,
   "faceShapeMorphotype": "FaceShape_HalfElf_NPC_Hasdrubal_Swiftmind",
   "hairShapeMorphotype": "HairShape_F",
   "hairColorMorphotype": "HairColor_33",
-  "beardShapeMorphotype": "BeardShape_J",
+  "beardShapeMorphotype": "BeardShape_None",
   "eyeMorphotype": "Eye_Default",
   "eyeColorMorphotype": "EyeColor_020",
   "bodyDecorationMorphotype": "BodyDecoration_None",
@@ -22,31 +22,31 @@
   "showHelmet": true,
   "firstColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 1.0,
-    "g": 1.0,
-    "b": 1.0,
+    "r": 0.7075471,
+    "g": 0.5780878,
+    "b": 0.483935535,
     "a": 1.0
   },
   "secondColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.9339623,
-    "g": 0.9339623,
-    "b": 0.9339623,
+    "r": 0.9056604,
+    "g": 0.8913714,
+    "b": 0.6450694,
     "a": 1.0
   },
   "thirdColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.452830136,
-    "g": 0.452830136,
-    "b": 0.452830136,
+    "r": 0.735849,
+    "g": 0.558280647,
+    "b": 0.454699159,
     "a": 1.0
   },
   "fourthColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 1.0,
-    "g": 1.0,
-    "b": 1.0,
-    "a": 0.0
+    "g": 0.6930277,
+    "b": 0.438679129,
+    "a": 1.0
   },
   "overrideWieldedItems": false,
   "itemDefinitionMainHand": null,
@@ -71,7 +71,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "TacticalAdventuresContentHidden",
   "guid": "fc1361d20c15950488c47284a0dd4d8e",

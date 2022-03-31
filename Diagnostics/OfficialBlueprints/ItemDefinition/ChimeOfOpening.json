@@ -46,7 +46,7 @@
     "chargesCapitalNumber": 10,
     "chargesCapitalDie": "D1",
     "chargesCapitalBonus": 0,
-    "rechargeRate": "Dawn",
+    "rechargeRate": "None",
     "rechargeNumber": 1,
     "rechargeDie": "D1",
     "rechargeBonus": 0,
@@ -232,7 +232,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "OpenGameContentModified",
   "guid": "51cb6dc3bd9131f48ab0191557b73c59",

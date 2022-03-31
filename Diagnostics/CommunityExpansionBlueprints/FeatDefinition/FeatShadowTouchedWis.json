@@ -29,7 +29,7 @@
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Feat/&FeatShadowTouchedWisTitle",
     "description": "Feat/&FeatShadowTouchedWisDescription",
     "spriteReference": {
@@ -47,7 +47,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "6a478a0c-16bd-5723-a033-569bc6f51b65",

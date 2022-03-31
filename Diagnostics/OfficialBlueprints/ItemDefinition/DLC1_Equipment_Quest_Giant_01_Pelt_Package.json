@@ -170,7 +170,9 @@
     "sameBehavioursForMaleAndFemale": true,
     "maleBodyPartBehaviours": [],
     "femaleBodyPartBehaviours": [],
-    "itemFlags": [],
+    "itemFlags": [
+      "Definition:ItemFlagQuest:316eb03c4817bde459759480ab0dcbce"
+    ],
     "serializedVersion": 1
   },
   "guiPresentation": {
@@ -180,8 +182,8 @@
     "description": "Equipment/&Pelt_Package_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "98a4adf58f2512b41a144d460b0a4a58",
-      "m_SubObjectName": "DLC1_Giant_02_Package",
+      "m_AssetGUID": "7a50b5bd21eecc34b81aaa52c7c5984b",
+      "m_SubObjectName": "DireWolfPelt",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -193,7 +195,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "TacticalAdventuresContent",
   "guid": "10ae7efdcf5797c4b8ff81ffe7133e91",

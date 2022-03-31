@@ -8,9 +8,9 @@
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
-  "specialDuration": false,
-  "durationType": "Round",
-  "durationParameterDie": "D4",
+  "specialDuration": true,
+  "durationType": "Minute",
+  "durationParameterDie": "D1",
   "durationParameter": 1,
   "turnOccurence": "EndOfTurn",
   "specialInterruptions": [],
@@ -233,7 +233,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "OpenGameContentModified",
   "guid": "87d8f6b2414c45148b20ea0df049908e",

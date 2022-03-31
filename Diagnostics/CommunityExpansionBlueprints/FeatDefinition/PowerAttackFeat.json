@@ -15,7 +15,7 @@
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Feat/&PowerAttackFeatTitle",
     "description": "You learned to trade accuracy to lander deadlier/harder blows.  You can choose to take a -3 penalty to your to hit in order to do more damage (+3 damage for one handed weapons, +6 damage for two handed weapons).  Lasts for the whole turn once activated.  Works with melee and ranged weapons.",
     "spriteReference": {
@@ -33,7 +33,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "88f1fb27-66af-49c6-b038-a38142b1083e",

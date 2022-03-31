@@ -23,10 +23,10 @@
   "hairColorMorphotype": "HairColorBlack",
   "beardShapeMorphotype": "BeardShape_None",
   "eyeColorMorphotype": "EyeColorBlack",
-  "eyeMorphotype": "",
-  "bodyDecorationMorphotype": "",
-  "bodyDecorationColorMorphotype": "",
-  "scarsMorphotype": "",
+  "eyeMorphotype": "Eye_Default",
+  "bodyDecorationMorphotype": "BodyDecoration_None",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "Scars_None",
   "mainClass": "Definition:Paladin:b2e60f3a15ee5de40a14cce2d16f02ba",
   "subClass": "Definition:OathOfTirmar:c14f1d650aaf1994eae74f2c6063bb63",
   "deity": "Definition:Pakri:4fc11f376c1b755439fe6d9fd37fa352",
@@ -81,7 +81,7 @@
   ],
   "preparedSubclassSpells": [],
   "sex": "Male",
-  "pronoun": "Undefined",
+  "pronoun": "Male",
   "age": 30,
   "facePath": "",
   "wieldedItemsConfigurations": [
@@ -122,7 +122,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "OpenGameContent",
   "guid": "99aa2705d7792124b913452c1a5314aa",

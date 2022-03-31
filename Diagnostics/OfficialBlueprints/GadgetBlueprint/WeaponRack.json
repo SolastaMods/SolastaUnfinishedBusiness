@@ -203,7 +203,7 @@
   },
   "campaignOnly": false,
   "groundPlacement": true,
-  "groundLowPlacement": false,
+  "groundLowPlacement": true,
   "groundHighPlacement": true,
   "wallPlacement": false,
   "openingPlacement": true,
@@ -247,7 +247,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "OpenGameContent",
   "guid": "0189c900c32e18845b1e1790ebbd7bef",

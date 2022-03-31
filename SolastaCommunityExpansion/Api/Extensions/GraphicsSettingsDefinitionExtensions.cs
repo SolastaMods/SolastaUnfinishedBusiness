@@ -79,6 +79,24 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static GraphicsSettingsDefinition SetEnablePCSSForDirectional(this GraphicsSettingsDefinition entity, System.Boolean value)
+        {
+            entity.SetField("enablePCSSForDirectional", value);
+            return entity;
+        }
+
+        public static GraphicsSettingsDefinition SetExplorationNgssPointSamplingFilter(this GraphicsSettingsDefinition entity, System.Int32 value)
+        {
+            entity.SetField("explorationNgssPointSamplingFilter", value);
+            return entity;
+        }
+
+        public static GraphicsSettingsDefinition SetExplorationNgssPointSamplingTest(this GraphicsSettingsDefinition entity, System.Int32 value)
+        {
+            entity.SetField("explorationNgssPointSamplingTest", value);
+            return entity;
+        }
+
         public static GraphicsSettingsDefinition SetExplorationShadowDistances(this GraphicsSettingsDefinition entity, System.Single[] value)
         {
             entity.SetField("explorationShadowDistances", value);
@@ -127,9 +145,45 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static GraphicsSettingsDefinition SetNgssDirectionalSamplingFilter(this GraphicsSettingsDefinition entity, System.Int32 value)
+        {
+            entity.SetField("ngssDirectionalSamplingFilter", value);
+            return entity;
+        }
+
+        public static GraphicsSettingsDefinition SetNgssDirectionalSamplingTest(this GraphicsSettingsDefinition entity, System.Int32 value)
+        {
+            entity.SetField("ngssDirectionalSamplingTest", value);
+            return entity;
+        }
+
+        public static GraphicsSettingsDefinition SetNgssPointSamplingFilter(this GraphicsSettingsDefinition entity, System.Int32 value)
+        {
+            entity.SetField("ngssPointSamplingFilter", value);
+            return entity;
+        }
+
+        public static GraphicsSettingsDefinition SetNgssPointSamplingTest(this GraphicsSettingsDefinition entity, System.Int32 value)
+        {
+            entity.SetField("ngssPointSamplingTest", value);
+            return entity;
+        }
+
         public static GraphicsSettingsDefinition SetParticleRaycastBudget(this GraphicsSettingsDefinition entity, System.Int32 value)
         {
             entity.SetField("particleRaycastBudget", value);
+            return entity;
+        }
+
+        public static GraphicsSettingsDefinition SetShadowCastingLightsInPartyLimit(this GraphicsSettingsDefinition entity, System.Int32 value)
+        {
+            entity.SetField("shadowCastingLightsInPartyLimit", value);
+            return entity;
+        }
+
+        public static GraphicsSettingsDefinition SetShadowCastingLightsPerCharacterLimit(this GraphicsSettingsDefinition entity, System.Int32 value)
+        {
+            entity.SetField("shadowCastingLightsPerCharacterLimit", value);
             return entity;
         }
 

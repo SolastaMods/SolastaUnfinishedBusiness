@@ -7,7 +7,7 @@
   "openingPlacement": true,
   "openingLowPlacement": false,
   "openingHighPlacement": false,
-  "propPlacement": true,
+  "propPlacement": false,
   "lightSources": [],
   "category": "Obstacle",
   "dimensions": {
@@ -75,7 +75,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 2,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "OpenGameContent",
   "guid": "ee187e9acc8028547b0909f42f44278c",

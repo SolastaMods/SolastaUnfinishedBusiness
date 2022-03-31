@@ -13,7 +13,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ActionAffinityMartialCommanderCoordinatedDefense:ced5b6c17d6c61e408b9156cb70eb10a",
+      "featureDefinition": "Definition:FeatureSetCommanderCoordinatedDefense:604760b88b0f1474a9d9495a3a8d0d67",
       "level": 7
     },
     {
@@ -50,7 +50,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 3,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "OpenGameContent",
   "guid": "68aa1945f2ab5b4428bf96f9793a1b1a",

@@ -3,7 +3,7 @@
   "displayedInEditor": true,
   "methodName": "",
   "actionType": "Main",
-  "toHitBonus": 8,
+  "toHitBonus": 11,
   "afterChargeOnly": false,
   "limitedUse": false,
   "maxUses": -1,
@@ -402,7 +402,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "OpenGameContent",
   "guid": "1ccbfbf82b1d9b244a2b2d2689c141a1",

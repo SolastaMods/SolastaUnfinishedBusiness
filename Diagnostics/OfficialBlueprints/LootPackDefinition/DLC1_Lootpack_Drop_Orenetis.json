@@ -18,15 +18,6 @@
       "diceType": "D1",
       "additiveModifier": 0,
       "itemMode": "Explicit",
-      "itemDefinition": "Definition:DLC_Equipment_City_ScepterOfRedeemerControl:bd3b78c2ef5adce4cb2fb8119fcd0324",
-      "treasureTableDefinition": "Definition:RandomTreasureTableB_Consumables:bcfabde319a2a4442818ccdf89636537"
-    },
-    {
-      "$type": "ItemOccurence, Assembly-CSharp",
-      "diceNumber": 1,
-      "diceType": "D1",
-      "additiveModifier": 0,
-      "itemMode": "Explicit",
       "itemDefinition": "Definition:RingProtection+1:4a51b5654f7506d48818645f3024d4ea",
       "treasureTableDefinition": "Definition:RandomTreasureTableB_Consumables:bcfabde319a2a4442818ccdf89636537"
     },
@@ -71,7 +62,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "TacticalAdventuresContent",
   "guid": "2673f5f655ff240429a9c99f142f656d",

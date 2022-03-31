@@ -78,6 +78,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetFailsQuestOnLowRelation<T>(this T entity, System.Boolean value)
+            where T : FactionDefinition
+        {
+            entity.SetField("failsQuestOnLowRelation", value);
+            return entity;
+        }
+
         public static T SetKillingPenalty<T>(this T entity, System.Int32 value)
             where T : FactionDefinition
         {
@@ -110,6 +117,13 @@ namespace SolastaModApi.Extensions
             where T : FactionDefinition
         {
             entity.ProminentMembers.SetRange(value);
+            return entity;
+        }
+
+        public static T SetQuestFailThreshold<T>(this T entity, System.Int32 value)
+            where T : FactionDefinition
+        {
+            entity.SetField("questFailThreshold", value);
             return entity;
         }
 

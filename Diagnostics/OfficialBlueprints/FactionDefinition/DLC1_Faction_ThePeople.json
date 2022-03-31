@@ -13,6 +13,8 @@
     "m_SubObjectName": "DLC1_Faction_Flag_ThePeople_Small",
     "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
   },
+  "failsQuestOnLowRelation": true,
+  "questFailThreshold": -30,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -33,7 +35,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "TacticalAdventuresContent",
   "guid": "b3c8946dcd983ab41bb61d5da112f8f2",

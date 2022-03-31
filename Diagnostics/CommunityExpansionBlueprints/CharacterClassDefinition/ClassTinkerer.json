@@ -385,7 +385,7 @@
   "vocalSpellSemeClass": "None",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Class/&TinkererTitle",
     "description": "Class/&TinkererDescription",
     "spriteReference": {
@@ -403,7 +403,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 1,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "0bd993c5-be32-535c-96b5-70db46ed2ca8",

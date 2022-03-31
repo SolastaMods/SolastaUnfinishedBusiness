@@ -65,7 +65,20 @@
   "stealableLootDefinition": null,
   "bestiaryLootOptions": [],
   "features": [
-    "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430"
+    "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
+    "Definition:DamageAffinityAcidImmunity:2aee6491b5f11104ca5c7964578c54b0",
+    "Definition:DamageAffinityBludgeoningImmunity:a260a40c93a840444894b813253ee9fb",
+    "Definition:DamageAffinityColdImmunity:de8ec1fc795a48a41b7cece77d95bc1c",
+    "Definition:DamageAffinityFireImmunity:6f4ede3c34539284e941dd084eaf4429",
+    "Definition:DamageAffinityForceImmunity:c2b9dd6f6f3dd6647af35a7545cd3b28",
+    "Definition:DamageAffinityLightningImmunity:9acb6e13145079c40a27012146696746",
+    "Definition:DamageAffinityNecroticImmunity:0c4d40bf6e1946143bae2746a57972b3",
+    "Definition:DamageAffinityPiercingImmunity:0dac0e2db280cd746983da9c107b7070",
+    "Definition:DamageAffinityPoisonImmunity:7f47b64e57ec7b247acaa220a510b131",
+    "Definition:DamageAffinityPsychicImmunity:b52cfcbb789ae27428958d10a45529ac",
+    "Definition:DamageAffinityRadiantImmunity:55818f63395e8b4429fc9f168f24e79c",
+    "Definition:DamageAffinitySlashingImmunity:235a98fe76c970a43b74ec1a401517b5",
+    "Definition:DamageAffinityThunderImmunity:5835d7e62c97afc4eaeae24ed7873d58"
   ],
   "attackIterations": [],
   "sneakStance": "Stealth",
@@ -217,7 +230,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "TacticalAdventuresContent",
   "guid": "10f0c22a87b9b2a408c8962c01b584ce",

@@ -84,8 +84,7 @@
             "Definition:ConditionCursed:ab888be75dd70924f8160897bd11cb91",
             "Definition:ConditionLifeDrained:ce10be38f182d7046bca13becd0e6bf6",
             "Definition:ConditionPetrified:e45613adea09c0e4cb33633ffe469282",
-            "Definition:DHFeeblemindSpellcondition:965a09b2-cb22-452b-b93c-2bccdcda4871",
-            "Definition:ConditionBleeding:41cc47e6108652246905e39381332cc5"
+            "Definition:DHFeeblemindSpellcondition:965a09b2-cb22-452b-b93c-2bccdcda4871"
           ],
           "applyToSelf": false,
           "forceOnSelf": false
@@ -333,7 +332,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "faeba33f-a073-5c99-aa06-dbb68f4c6c8f",

@@ -14,7 +14,7 @@
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Feat/&FightingStyleGreatWeaponTitle",
     "description": "Feat/&FightingStyleGreatWeaponDescription",
     "spriteReference": {
@@ -32,7 +32,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "9678de01-8f42-5b66-b014-84deec4d177a",

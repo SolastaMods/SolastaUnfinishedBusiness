@@ -167,12 +167,12 @@
     },
     "name": "Campaign_DLC1_Valley_RenderSettingsSceneProfile"
   },
-  "introMovieDefinition": null,
+  "introMovieDefinition": "Definition:IntroDLC1:699c45e6824aef04b85900409f8d9a9f",
   "conclusionMovieDefinition": null,
   "introductionCaptions": [
-    "Campaign/&DLC1_Introduction_1",
-    "Campaign/&DLC1_Introduction_2",
-    "Campaign/&DLC1_Introduction_3"
+    "Campaign/&DLC1_Introduction_1b",
+    "Campaign/&DLC1_Introduction_2b",
+    "Campaign/&DLC1_Introduction_3b"
   ],
   "initialPartyPosition": "DLC1_Marches_Scene_LocationDB",
   "insideLocation": "DLC1_Marches_Scene_LocationDB",
@@ -1714,6 +1714,14 @@
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "Key_Complex_04_Campaign_DLC1_Status",
       "type": "String",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "Met-Hasdrubal-C",
+      "type": "Bool",
       "boolValue": false,
       "intValue": 0,
       "stringValue": "Init"
@@ -3327,7 +3335,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "TacticalAdventuresContent",
   "guid": "9341c27ba88906a4ab7461ec8d47db17",

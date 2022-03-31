@@ -22,7 +22,8 @@
     0
   ],
   "itemTags": [
-    "Standard"
+    "Standard",
+    "Quest"
   ],
   "activeTags": [],
   "inactiveTags": [],
@@ -170,7 +171,9 @@
     "sameBehavioursForMaleAndFemale": true,
     "maleBodyPartBehaviours": [],
     "femaleBodyPartBehaviours": [],
-    "itemFlags": [],
+    "itemFlags": [
+      "Definition:ItemFlagQuest:316eb03c4817bde459759480ab0dcbce"
+    ],
     "serializedVersion": 1
   },
   "guiPresentation": {
@@ -193,7 +196,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "TacticalAdventuresContent",
   "guid": "085aabdd9530689448b8133ba09efa4b",

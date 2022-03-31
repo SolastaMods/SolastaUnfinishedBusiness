@@ -170,7 +170,9 @@
     "sameBehavioursForMaleAndFemale": true,
     "maleBodyPartBehaviours": [],
     "femaleBodyPartBehaviours": [],
-    "itemFlags": [],
+    "itemFlags": [
+      "Definition:ItemFlagQuest:316eb03c4817bde459759480ab0dcbce"
+    ],
     "serializedVersion": 1
   },
   "guiPresentation": {
@@ -193,7 +195,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "TacticalAdventuresContent",
   "guid": "08c5a1f1504ec194ba2dbe75ae6e6cfc",

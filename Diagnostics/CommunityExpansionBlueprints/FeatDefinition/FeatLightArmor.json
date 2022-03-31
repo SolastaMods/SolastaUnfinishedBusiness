@@ -15,7 +15,7 @@
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Feat/&FeatLightArmorTitle",
     "description": "Feat/&FeatLightArmorDescription",
     "spriteReference": {
@@ -33,7 +33,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "4ef552f9-17ca-5956-84c4-828466e3fb90",

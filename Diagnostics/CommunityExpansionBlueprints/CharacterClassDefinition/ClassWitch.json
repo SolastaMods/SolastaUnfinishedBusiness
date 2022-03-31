@@ -301,7 +301,7 @@
   "vocalSpellSemeClass": "None",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Class/&WitchTitle",
     "description": "Class/&WitchDescription",
     "spriteReference": {
@@ -319,7 +319,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "dedb5cef-3036-5d46-92b7-d1fbbfa265f1",

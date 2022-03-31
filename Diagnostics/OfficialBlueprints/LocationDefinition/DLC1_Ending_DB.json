@@ -54,6 +54,14 @@
     },
     {
       "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC1_ComplexIsRunning",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
       "name": "DLC1_ComplexIsLocked",
       "type": "Bool",
       "boolValue": false,
@@ -324,7 +332,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "OpenGameContent",
   "guid": "56718ee14c3c2a14facde9b73b130911",

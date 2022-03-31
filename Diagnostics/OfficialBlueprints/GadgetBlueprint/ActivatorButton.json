@@ -165,16 +165,6 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       }
-    },
-    {
-      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
-      "environment": "ValleyPalace",
-      "prefabReference": {
-        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "e2cc1ace3fd22b64f8ad71af4421556e",
-        "m_SubObjectName": "",
-        "m_SubObjectType": ""
-      }
     }
   ],
   "guiPresentation": {
@@ -197,7 +187,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "OpenGameContent",
   "guid": "d7dfcf937a6259a4d8df2b0697c96e56",

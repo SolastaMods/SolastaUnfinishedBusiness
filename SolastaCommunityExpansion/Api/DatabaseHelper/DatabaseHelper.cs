@@ -509,6 +509,7 @@ namespace SolastaModApi
             public static CharacterTemplateDefinition Cleric_DomainLife_Level08 { get; } = GetDefinition<CharacterTemplateDefinition>("Cleric_DomainLife_Level08", "d38a1b76d30e7a24d9364e854ae52700");
             public static CharacterTemplateDefinition Cleric_DomainMischief_Level04 { get; } = GetDefinition<CharacterTemplateDefinition>("Cleric_DomainMischief_Level04", "d15cc282e892e2d4eb6cc2168b6b235b");
             public static CharacterTemplateDefinition Cleric_DomainMischief_Level08 { get; } = GetDefinition<CharacterTemplateDefinition>("Cleric_DomainMischief_Level08", "de5ad3f1cc53c2d48a61e8654947eace");
+            public static CharacterTemplateDefinition Cleric_DomainMischief_Level13 { get; } = GetDefinition<CharacterTemplateDefinition>("Cleric_DomainMischief_Level13", "33ed3b52979dd8647bdb1c5459c8aa8e");
             public static CharacterTemplateDefinition Cleric_DomainOblivion_Level08 { get; } = GetDefinition<CharacterTemplateDefinition>("Cleric_DomainOblivion_Level08", "a36a16d4ce3ca7f40adbf8590f108055");
             public static CharacterTemplateDefinition Cleric_DomainSun_Level08 { get; } = GetDefinition<CharacterTemplateDefinition>("Cleric_DomainSun_Level08", "9fec9c8df27465747a660134eb57232a");
             public static CharacterTemplateDefinition Cleric_elementalCold_Level8 { get; } = GetDefinition<CharacterTemplateDefinition>("Cleric_elementalCold_Level8", "30ed2bfa80ef87e4589b21ddab286944");
@@ -2430,6 +2431,7 @@ namespace SolastaModApi
             public static FeatureDefinitionFeatureSet FeatureSetCircleLandLandsStride { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetCircleLandLandsStride", "fa722d8d4ce783941a25840b04fa990e");
             public static FeatureDefinitionFeatureSet FeatureSetCircleLandNaturesWard { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetCircleLandNaturesWard", "0355dd29eeae17a4e8b685f83166c928");
             public static FeatureDefinitionFeatureSet FeatureSetClericRitualCasting { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetClericRitualCasting", "b5f687fa97a0be94a95197f0929ee304");
+            public static FeatureDefinitionFeatureSet FeatureSetCommanderCoordinatedDefense { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetCommanderCoordinatedDefense", "604760b88b0f1474a9d9495a3a8d0d67");
             public static FeatureDefinitionFeatureSet FeatureSetDomainInsightDivineLore { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetDomainInsightDivineLore", "efc24872d78b34c418368e1e46dac6a5");
             public static FeatureDefinitionFeatureSet FeatureSetDomainLawCommandingPresence { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetDomainLawCommandingPresence", "b3e77cd19c947d64e980c0adff724b2d");
             public static FeatureDefinitionFeatureSet FeatureSetDomainLawUnyieldingEnforcer { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetDomainLawUnyieldingEnforcer", "877d7444fad748343be83f208ea292bb");
@@ -2804,6 +2806,7 @@ namespace SolastaModApi
             public static FeatureDefinitionPower PowerLaetharParalyzingGaze { get; } = GetDefinition<FeatureDefinitionPower>("PowerLaetharParalyzingGaze", "03b2852b0ff272445b288a3b356ea883");
             public static FeatureDefinitionPower PowerMagebaneWarcry { get; } = GetDefinition<FeatureDefinitionPower>("PowerMagebaneWarcry", "9693f4628374e854aa96a2a6e9bc0633");
             public static FeatureDefinitionPower PowerMarksmanRecycler { get; } = GetDefinition<FeatureDefinitionPower>("PowerMarksmanRecycler", "7e52d1de7ba71c242ad840e3cdec1cab");
+            public static FeatureDefinitionPower PowerMartialCommanderCoordinatedDefense { get; } = GetDefinition<FeatureDefinitionPower>("PowerMartialCommanderCoordinatedDefense", "1db8bd5a73378824a91b63a2a2128eef");
             public static FeatureDefinitionPower PowerMartialCommanderInvigoratingShout { get; } = GetDefinition<FeatureDefinitionPower>("PowerMartialCommanderInvigoratingShout", "f890378a453b6f349a2cb591434a6908");
             public static FeatureDefinitionPower PowerMartialCommanderRousingShout { get; } = GetDefinition<FeatureDefinitionPower>("PowerMartialCommanderRousingShout", "fd14034ff3094f944891c9bb8ebb2462");
             public static FeatureDefinitionPower PowerMountaineerCloseQuarters { get; } = GetDefinition<FeatureDefinitionPower>("PowerMountaineerCloseQuarters", "a976c9590645d4742a40ae28ddd6c7a4");
@@ -3264,6 +3267,7 @@ namespace SolastaModApi
             public static GadgetBlueprint Trap { get; } = GetDefinition<GadgetBlueprint>("Trap", "e0db37ccf45fd604fb6070282e0b0a7e");
             public static GadgetBlueprint TrapDoor { get; } = GetDefinition<GadgetBlueprint>("TrapDoor", "23998e631cb28774c886207fe8112d00");
             public static GadgetBlueprint VariableOperation { get; } = GetDefinition<GadgetBlueprint>("VariableOperation", "8c5a9123221da374ab450eb3e77a9dad");
+            public static GadgetBlueprint VirtualDialog { get; } = GetDefinition<GadgetBlueprint>("VirtualDialog", "9fc6b10fe15b8d24fa4df9afaec7fb9f");
             public static GadgetBlueprint VirtualExit { get; } = GetDefinition<GadgetBlueprint>("VirtualExit", "218b3796157ae7445b3767aff9833d12");
             public static GadgetBlueprint VirtualExitMultiple { get; } = GetDefinition<GadgetBlueprint>("VirtualExitMultiple", "c3346b3f696c4534dabbd8ef76bd4598");
             public static GadgetBlueprint VirtualLoot { get; } = GetDefinition<GadgetBlueprint>("VirtualLoot", "23a9e02c994c3ef4f8171f456bf40d3f");
@@ -6301,6 +6305,8 @@ namespace SolastaModApi
             public static MonsterAttackDefinition Attack_Green_Dragon_Tail { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Green_Dragon_Tail", "8b9e1f1692bd40f43904b14a03e6e1e3");
             public static MonsterAttackDefinition Attack_Green_Hag_Claw_MonsterAttack { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Green_Hag_Claw_MonsterAttack", "c5f09b0360beac14680947c69a9be966");
             public static MonsterAttackDefinition Attack_Gromnir_Stonefist_Hammer { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Gromnir_Stonefist_Hammer", "44e8fc1b400b767498be75adad94d47e");
+            public static MonsterAttackDefinition Attack_Hasdrubal_Longbow { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Hasdrubal_Longbow", "56cb583f6d4635744978f1c9e510ea52");
+            public static MonsterAttackDefinition Attack_Hasdrubal_Shortsword { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Hasdrubal_Shortsword", "754cd246d9ac282448c7a233dfa32f4f");
             public static MonsterAttackDefinition Attack_HighPriest_Morningstar { get; } = GetDefinition<MonsterAttackDefinition>("Attack_HighPriest_Morningstar", "5be8ec56093c00b4b8b0fde7d93c6280");
             public static MonsterAttackDefinition Attack_Hyeronimus_Greatsword { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Hyeronimus_Greatsword", "1ccbfbf82b1d9b244a2b2d2689c141a1");
             public static MonsterAttackDefinition Attack_Hyeronimus_Javelin { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Hyeronimus_Javelin", "bc5c005ce7910a04fb899ea8f3750a9f");
@@ -6575,6 +6581,7 @@ namespace SolastaModApi
             public static MonsterDefinition DLC1_Albino_Minotaur { get; } = GetDefinition<MonsterDefinition>("DLC1_Albino_Minotaur", "0448ccb41e6256d4ea60b1dee77d195e");
             public static MonsterDefinition DLC1_Complex_NPC_Guard_Captain { get; } = GetDefinition<MonsterDefinition>("DLC1_Complex_NPC_Guard_Captain", "575792f35e5e7ff4399576b73d9a797a");
             public static MonsterDefinition DLC1_Complex_NPC_Guard_Elite { get; } = GetDefinition<MonsterDefinition>("DLC1_Complex_NPC_Guard_Elite", "bc795568c5555e9409784895d2723f9a");
+            public static MonsterDefinition DLC1_Complex_NPC_Guard_Elite_01 { get; } = GetDefinition<MonsterDefinition>("DLC1_Complex_NPC_Guard_Elite_01", "d419515c76638674a97728a433c1dd7a");
             public static MonsterDefinition DLC1_Complex_NPC_Guard_Recruit { get; } = GetDefinition<MonsterDefinition>("DLC1_Complex_NPC_Guard_Recruit", "f0d083cc79537a842936e4f4c07a04e7");
             public static MonsterDefinition DLC1_Complex_NPC_Guard_Trainer { get; } = GetDefinition<MonsterDefinition>("DLC1_Complex_NPC_Guard_Trainer", "c10f9db7dc7ce1540a08102a5477bde6");
             public static MonsterDefinition DLC1_Complex_NPC_Guard_Watcher { get; } = GetDefinition<MonsterDefinition>("DLC1_Complex_NPC_Guard_Watcher", "ea343754cabc4b841a3710f680285935");
@@ -7429,6 +7436,7 @@ namespace SolastaModApi
         public static class MoviePlaybackDefinitions
         {
             public static MoviePlaybackDefinition ConclusionLore { get; } = GetDefinition<MoviePlaybackDefinition>("ConclusionLore", "979ebe89cd3b1a64b92747c022c601df");
+            public static MoviePlaybackDefinition IntroDLC1 { get; } = GetDefinition<MoviePlaybackDefinition>("IntroDLC1", "699c45e6824aef04b85900409f8d9a9f");
             public static MoviePlaybackDefinition IntroLore { get; } = GetDefinition<MoviePlaybackDefinition>("IntroLore", "50801a943e4e02d4b9210d1ae2b66dce");
         }
         public static class MusicalStateDefinitions
@@ -9050,7 +9058,7 @@ namespace SolastaModApi
             public static QuestTreeDefinition DLC1_Secondary_Quest_Valley_Mask_01 { get; } = GetDefinition<QuestTreeDefinition>("DLC1_Secondary_Quest_Valley_Mask_01", "cf02ef489c3b41d47955e6ca12f25922");
             public static QuestTreeDefinition DLC1_Secondary_Quest_Valley_Mask_02 { get; } = GetDefinition<QuestTreeDefinition>("DLC1_Secondary_Quest_Valley_Mask_02", "d703c777b4525314daedcf8d58887848");
             public static QuestTreeDefinition DLC1_Secondary_Quest_Valley_Mask_03 { get; } = GetDefinition<QuestTreeDefinition>("DLC1_Secondary_Quest_Valley_Mask_03", "4ef9f2036fbb41c4183d4b5bac53eb72");
-            public static QuestTreeDefinition DLC1_Secondary_Quest_Valley_Mask_11 { get; } = GetDefinition<QuestTreeDefinition>("DLC1_Secondary_Quest_Valley_Mask_11", "7ae1ac73738f29b439615e82ae69a9e4");
+            public static QuestTreeDefinition DLC1_Secondary_Quest_Valley_Mask_11 { get; } = GetDefinition<QuestTreeDefinition>("DLC1_Secondary_Quest_Valley_Mask_11", "15c151657723f1343ab8e5020f06b76d");
             public static QuestTreeDefinition DLC1_Secondary_Quest_Valley_Underground_Ruins { get; } = GetDefinition<QuestTreeDefinition>("DLC1_Secondary_Quest_Valley_Underground_Ruins", "0694cc6d51cf180428400ccbcfd85363");
             public static QuestTreeDefinition DLC1_SUB_Scenario_City_Backup_PLAN_B { get; } = GetDefinition<QuestTreeDefinition>("DLC1_SUB_Scenario_City_Backup_PLAN_B", "94a4bfc936250ec4fa7faf27d46f96b1");
             public static QuestTreeDefinition DLC1_SUB_Scenario_City_Backup_PLAN_C { get; } = GetDefinition<QuestTreeDefinition>("DLC1_SUB_Scenario_City_Backup_PLAN_C", "c0b3383365560054587dddfa6aa1d34c");

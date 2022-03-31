@@ -14,7 +14,7 @@
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Feat/&FightingStyleDuelingTitle",
     "description": "Feat/&FightingStyleDuelingDescription",
     "spriteReference": {
@@ -32,7 +32,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "67cf4e9a-b2eb-5a87-b263-e6a73f6b9cb8",

@@ -181,15 +181,15 @@
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
     "maleBodyPartBehaviours": [
-      "Shape",
-      "Shape",
-      "Shape",
-      "Shape",
-      "Shape",
-      "Shape",
-      "Shape",
-      "Shape",
-      "Shape",
+      "Keep",
+      "Keep",
+      "Keep",
+      "Keep",
+      "Keep",
+      "Keep",
+      "Keep",
+      "Keep",
+      "Keep",
       "Armor"
     ],
     "femaleBodyPartBehaviours": [
@@ -226,7 +226,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "OpenGameContentModified",
   "guid": "26b62433499fda548846e760d80932bc",
