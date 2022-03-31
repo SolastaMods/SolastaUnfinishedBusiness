@@ -186,6 +186,14 @@ namespace SolastaCommunityExpansion
         // Gameplay - Rules
         //
 
+        // Multiclass
+        public bool EnableLevelDown { get; set; }
+        public bool EnableMulticlass { get; set; } = true;
+        public int MaxAllowedClasses { get; set; } = 3;
+        public bool EnableMinInOutAttributes { get; set; } = true;
+        public bool EnableRelearnSpells { get; set; }
+        public bool EnableDisplayAllKnownSpellsOnLevelUp { get; set; } = true;
+
         // SRD
         public bool UseOfficialAdvantageDisadvantageRules { get; set; }
         public bool EnablePowerAid { get; set; }

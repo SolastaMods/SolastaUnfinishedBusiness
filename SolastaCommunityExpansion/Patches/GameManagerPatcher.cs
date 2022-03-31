@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
+using SolastaMulticlass.Models;
 using UnityModManagerNet;
 #if DEBUG
 using SolastaCommunityExpansion.Patches.Diagnostic;
@@ -12,6 +13,7 @@ namespace SolastaCommunityExpansion.Patches
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameManager_BindPostDatabase
     {
+        [System.Obsolete]
         internal static void Postfix()
         {
 #if DEBUG
@@ -96,6 +98,32 @@ namespace SolastaCommunityExpansion.Patches
                 Main.Logger.Log("Enabled.");
 
                 DisplayWelcomeMessage();
+            };
+
+            ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += (_) =>
+            {
+                // always load custom definitions even when multiclass is disabled to avoid errors parsing MC heroes during startup
+                LevelUpContext.Load();
+
+                if (!(Main.Settings.EnableMulticlass || Main.Settings.EnableLevelDown))
+                {
+                    return;
+                }
+
+                CacheSpellsContext.Load();
+
+                if (!Main.Settings.EnableMulticlass)
+                {
+                    return;
+                }
+
+                IntegrationContext.Load();
+                InspectionPanelContext.Load();
+                LevelDownContext.Load();
+                SharedSpellsContext.Load();
+
+                // tells CE that MC is in the building and will handle pact magic from now on
+                Main.IsMulticlassInstalled = Main.Settings.EnableMulticlass;
             };
         }
 
