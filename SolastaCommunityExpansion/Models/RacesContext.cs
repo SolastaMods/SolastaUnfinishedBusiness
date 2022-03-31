@@ -1,21 +1,14 @@
 ﻿using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi.Extensions;
-using System.Reflection;
+using SolastaModApi.Infrastructure;
 using static SolastaModApi.DatabaseHelper;
 
 namespace SolastaCommunityExpansion.Models
 {
-    public class RacesContext
+    internal static class RacesContext
     {
         internal static CharacterRaceDefinition GnomeRace { get; private set; } = BuildGnome();
-
-        private static T MemberwiseClone<T>(T base_object)
-        {
-            MethodInfo memberwiseCloneMethod = typeof(T).GetMethod("MemberwiseClone", BindingFlags.Instance | BindingFlags.NonPublic);
-            var copy = (T)memberwiseCloneMethod.Invoke(base_object, null);
-            return copy;
-        }
 
         internal static void Load()
         {
@@ -82,7 +75,7 @@ namespace SolastaCommunityExpansion.Models
                 .SetProficiencies(RuleDefinitions.ProficiencyType.Language, "Language_Common", languageGnomish.Name)
                 .AddToDB();
 
-            var gnomeRacePresentation = MemberwiseClone(CharacterRaceDefinitions.Halfling.RacePresentation);
+            var gnomeRacePresentation = CharacterRaceDefinitions.Halfling.RacePresentation.Copy();
 
             gnomeRacePresentation.SetBodyAssetPrefix(CharacterRaceDefinitions.Elf.RacePresentation.BodyAssetPrefix);
             gnomeRacePresentation.SetMorphotypeAssetPrefix(CharacterRaceDefinitions.Elf.RacePresentation.MorphotypeAssetPrefix);
