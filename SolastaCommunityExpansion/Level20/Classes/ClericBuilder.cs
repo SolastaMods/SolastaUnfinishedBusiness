@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 using static SolastaCommunityExpansion.Level20.Features.PowerClericDivineInterventionImprovementBuilder;
 using static SolastaCommunityExpansion.Level20.Features.PowerClericTurnUndeadBuilder;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
@@ -25,11 +26,9 @@ namespace SolastaCommunityExpansion.Level20.Classes
 
             CastSpellCleric.SetSpellCastingLevel(9);
 
-            CastSpellCleric.SlotsPerLevels.Clear();
-            CastSpellCleric.SlotsPerLevels.AddRange(SpellsHelper.FullCastingSlots);
+            CastSpellCleric.SlotsPerLevels.SetRange(SpellsHelper.FullCastingSlots);
 
-            CastSpellCleric.ReplacedSpells.Clear();
-            CastSpellCleric.ReplacedSpells.AddRange(SpellsHelper.EmptyReplacedSpells);
+            CastSpellCleric.ReplacedSpells.SetRange(SpellsHelper.EmptyReplacedSpells);
 
             DomainBattle.FeatureUnlocks.Add(new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementPaladin, 20));
             DomainElementalCold.FeatureUnlocks.Add(new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementWizard, 20));

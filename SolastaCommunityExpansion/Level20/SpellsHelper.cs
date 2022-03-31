@@ -1,39 +1,11 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using SolastaModApi.Extensions;
 using static FeatureDefinitionCastSpell;
-using static SolastaCommunityExpansion.Models.Level20Context;
 
 namespace SolastaCommunityExpansion.Level20
 {
     internal static class SpellsHelper
     {
-        internal static void FixCastSpellTables()
-        {
-            var dbFeatureDefinitionCastSpell = DatabaseRepository.GetDatabase<FeatureDefinitionCastSpell>();
-
-            foreach (var featureDefinitionCastSpell in dbFeatureDefinitionCastSpell
-                .Where(x => x.SpellCastingOrigin != CastingOrigin.Monster))
-            {
-                while (featureDefinitionCastSpell.KnownCantrips.Count < MOD_MAX_LEVEL + 1)
-                {
-                    featureDefinitionCastSpell.KnownCantrips.Add(0);
-                }
-                while (featureDefinitionCastSpell.KnownSpells.Count < MOD_MAX_LEVEL + 1)
-                {
-                    featureDefinitionCastSpell.KnownSpells.Add(0);
-                }
-                while (featureDefinitionCastSpell.ScribedSpells.Count < MOD_MAX_LEVEL + 1)
-                {
-                    featureDefinitionCastSpell.ScribedSpells.Add(0);
-                }
-                while (featureDefinitionCastSpell.ReplacedSpells.Count < MOD_MAX_LEVEL + 1)
-                {
-                    featureDefinitionCastSpell.ReplacedSpells.Add(0);
-                }
-            }
-        }
-
         internal static void UpdateSpellLists()
         {
             var dbSpellListDefinition = DatabaseRepository.GetDatabase<SpellListDefinition>();

@@ -63,7 +63,6 @@ namespace SolastaCommunityExpansion.Level20.Classes
                     ClassLevel = 17,
                     SpellsList = new List<SpellDefinition>
                     {
-                        //WallOfThorns // This is a 6th level spell, Paladins can't cast that
                         FlameStrike
                     }
                 });
@@ -93,11 +92,9 @@ namespace SolastaCommunityExpansion.Level20.Classes
 
             CastSpellPaladin.SetSpellCastingLevel(5);
 
-            CastSpellPaladin.SlotsPerLevels.Clear();
-            CastSpellPaladin.SlotsPerLevels.AddRange(SpellsHelper.HalfCastingSlots);
+            CastSpellPaladin.SlotsPerLevels.SetRange(SpellsHelper.HalfCastingSlots);
 
-            CastSpellPaladin.ReplacedSpells.Clear();
-            CastSpellPaladin.ReplacedSpells.AddRange(SpellsHelper.EmptyReplacedSpells);
+            CastSpellPaladin.ReplacedSpells.SetRange(SpellsHelper.EmptyReplacedSpells);
         }
     }
 }

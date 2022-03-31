@@ -1,4 +1,5 @@
 ﻿using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionCastSpells;
 
 namespace SolastaCommunityExpansion.Level20.SubClasses
@@ -9,11 +10,9 @@ namespace SolastaCommunityExpansion.Level20.SubClasses
         {
             CastSpellShadowcaster.SetSpellCastingLevel(4);
 
-            CastSpellShadowcaster.SlotsPerLevels.Clear();
-            CastSpellShadowcaster.SlotsPerLevels.AddRange(SpellsHelper.OneThirdCastingSlots);
+            CastSpellShadowcaster.SlotsPerLevels.SetRange(SpellsHelper.OneThirdCastingSlots);
 
-            CastSpellShadowcaster.ReplacedSpells.Clear();
-            CastSpellShadowcaster.ReplacedSpells.AddRange(SpellsHelper.OneThirdCasterReplacedSpells);
+            CastSpellShadowcaster.ReplacedSpells.SetRange(SpellsHelper.OneThirdCasterReplacedSpells);
         }
     }
 }
