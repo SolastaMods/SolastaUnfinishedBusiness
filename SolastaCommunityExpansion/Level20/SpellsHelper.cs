@@ -4,7 +4,8 @@ using static FeatureDefinitionCastSpell;
 
 namespace SolastaCommunityExpansion.Level20
 {
-    internal static class SpellsHelper
+    // keep public as CE:MC depends on it 
+    public static class SpellsHelper
     {
         internal static void UpdateSpellLists()
         {
@@ -46,8 +47,9 @@ namespace SolastaCommunityExpansion.Level20
             { "SpellListWizardGreenmage", 9 },
         };
 
+        // keep public as CE:MC depends on it
         // game uses IndexOf(0) on these sub lists reason why the last 0 there
-        internal static readonly List<SlotsByLevelDuplet> FullCastingSlots = new()
+        public static readonly List<SlotsByLevelDuplet> FullCastingSlots = new()
         {
             new SlotsByLevelDuplet() { Slots = new List<int> { 2, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, Level = 01 },
             new SlotsByLevelDuplet() { Slots = new List<int> { 3, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, Level = 02 },
