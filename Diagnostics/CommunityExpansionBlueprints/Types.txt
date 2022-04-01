@@ -2,6 +2,7 @@ ActionDefinition
 CampaignDefinition
 CharacterClassDefinition
 CharacterFamilyDefinition
+CharacterRaceDefinition
 CharacterSubclassDefinition
 ConditionDefinition
 ContentPackDefinition
@@ -35,6 +36,7 @@ FeatureDefinitionSavingThrowAffinity
 FeatureDefinitionSubclassChoice
 FeatureDefinitionSummoningAffinity
 ItemDefinition
+LanguageDefinition
 MonsterAttackDefinition
 MonsterDefinition
 RecipeDefinition
