@@ -121,5 +121,17 @@ namespace SolastaCommunityExpansion.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Gnome
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("Gnome", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

@@ -24,6 +24,7 @@
         FlexibleBackgrounds,
         FlexibleRaces,
         Item,
+        Language,
         Modifier,
         Monster,
         Power,

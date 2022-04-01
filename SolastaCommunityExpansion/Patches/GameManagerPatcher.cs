@@ -60,6 +60,9 @@ namespace SolastaCommunityExpansion.Patches
             TelemaCampaignContext.Load();
             VisionContext.Load();
 
+            // Races may rely on spells and powers being in the DB before they can properly load.
+            RacesContext.Load();
+
             // Classes may rely on spells and powers being in the DB before they can properly load.
             ClassesContext.Load();
 

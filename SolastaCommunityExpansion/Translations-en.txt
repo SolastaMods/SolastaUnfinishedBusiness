@@ -1799,3 +1799,15 @@ Feature/&AncientForestRegrowthDescription	A pool of healing power - 5 points per
 Feature/&AncientForestRegrowthTitle	Regrowth
 Feature/&WallofThornsFeatureSetTitle	Forest Barrier
 Feature/&WallofThornsFeatureSetDescription	Cast Wall of Thorns once a day
+Feature/&AttributeModifierGnomeAbilityScoreSetTitle	Attribute Increase
+Feature/&AttributeModifierGnomeAbilityScoreSetDescription	Intelligence +2, Dexterity +1
+Feature/&GnomeCunningFeatureTitle	Cunning
+Feature/&GnomeCunningFeatureDescription	You have advantage on all Intelligence, Wisdom, and Charisma saves against magic.
+Feature/&GnomeNaturalIllusionistTitle	Natural Magic
+Feature/&GnomeNaturalIllusionistDescription	You know the Annoying Bee cantrip. Intelligence is your spellcasting modifier for it.
+Feature/&ProficiencyGnomishLanguagesDescription	Common, Gnomish
+Feature/&ProficiencyGnomishLanguagesTitle	Languages
+Language/&GnomishDescription	An old Solastan language, preserved by gnomes living in deep forests of Solasta, it has survived the Cataclysm.
+Language/&GnomishTitle	Gnomish
+Race/&ForestGnomeTitle	Woodland Gnome
+Race/&ForestGnomeDescription	A constant hum of busy activity pervades the warrens and neighborhoods where gnomes form their close-knit communities. Louder sounds punctuate the hum: a crunch of grinding gears here, a minor explosion there, a yelp of surprise or triumph, and especially bursts of laughter. Gnomes take delight in life, enjoying every moment of invention, exploration, investigation, creation, and play.
