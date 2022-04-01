@@ -21,86 +21,25 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
     {
         public static CharacterSubclassDefinition Build()
         {
-
-            SpellListDefinition AncientForestSpelllist = SpellListDefinitionBuilder
+            var ancientForestSpelllist = SpellListDefinitionBuilder
                 .Create(SpellListPaladin, "AncientForestExpandedSpelllist", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation("AncientForestExpandedSpelllist", Category.Feature)
+                .SetGuiPresentation(Category.Feature)
                 .SetGuiPresentationNoContent()
                 .ClearSpells()
-                // .SetSpellsAtLevel(1, Goodberry, Entangle)
-                // .SetSpellsAtLevel(2, Barkskin, SpikeGrowth)
-                // .SetSpellsAtLevel(3, MassHealingWord,VampiricTouch )
-                // .SetSpellsAtLevel(4, Blight, GreaterRestoration)
-                // .SetSpellsAtLevel(5, Contagion,RaiseDead )
-                // .SetMaxSpellLevel(5, false)
+                .SetSpellsAtLevel(1, Goodberry, Entangle)
+                .SetSpellsAtLevel(2, Barkskin, SpikeGrowth)
+                .SetSpellsAtLevel(3, MassHealingWord, VampiricTouch)
+                .SetSpellsAtLevel(4, Blight, GreaterRestoration)
+                .SetSpellsAtLevel(5, Contagion, RaiseDead)
+                .SetMaxSpellLevel(5, false)
                 .AddToDB();
-            AncientForestSpelllist.ClearSpellsByLevel();
-            AncientForestSpelllist.SpellsByLevel.AddRange(new List<SpellListDefinition.SpellsByLevelDuplet>()
-             {
-                // new SpellListDefinition.SpellsByLevelDuplet
-                // {
-                //     Level =0,
-                //     Spells = new List<SpellDefinition>
-                //     {
-                //     }
-                // },
-                 new SpellListDefinition.SpellsByLevelDuplet
-                 {
-                     Level =1,
-                     Spells = new List<SpellDefinition>
-                     {
-                         DatabaseHelper.SpellDefinitions.Goodberry,
-                         DatabaseHelper.SpellDefinitions.Entangle
-                     }
-                 },
-                 new SpellListDefinition.SpellsByLevelDuplet
-                 {
-                     Level =2,
-                     Spells = new List<SpellDefinition>
-                     {
-                         DatabaseHelper.SpellDefinitions.Barkskin,
-                         DatabaseHelper.SpellDefinitions.SpikeGrowth
-                     }
-                 },
-                 new SpellListDefinition.SpellsByLevelDuplet
-                 {
-                     Level =3,
-                     Spells = new List<SpellDefinition>
-                     {
-                         DatabaseHelper.SpellDefinitions.MassHealingWord,
-                         DatabaseHelper.SpellDefinitions.VampiricTouch
-                     }
-                 },
-                 new SpellListDefinition.SpellsByLevelDuplet
-                 {
-                     Level =4,
-                     Spells = new List<SpellDefinition>
-                     {
-                         DatabaseHelper.SpellDefinitions.Blight,
-                         DatabaseHelper.SpellDefinitions.GreaterRestoration
-                     }
-                 },
-                 new SpellListDefinition.SpellsByLevelDuplet
-                 {
-                     Level =5,
-                     Spells = new List<SpellDefinition>
-                     {
-                         DatabaseHelper.SpellDefinitions.Contagion,
-                         DatabaseHelper.SpellDefinitions.RaiseDead
-                     }
-                 },
-
-             });
-
-
 
             //    necrotic and healing
 
-
-            FeatureDefinitionMagicAffinity AncientForestExpandedSpelllistAfinity = FeatureDefinitionMagicAffinityBuilder
+            FeatureDefinitionMagicAffinity ancientForestExpandedSpellListAffinity = FeatureDefinitionMagicAffinityBuilder
                 .Create("AncientForestExpandedSpelllistAfinity", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation("AncientForestExpandedSpelllistAfinity", Category.Feature)
-                .SetExtendedSpellList(AncientForestSpelllist)
+                .SetGuiPresentation(Category.Feature)
+                .SetExtendedSpellList(ancientForestSpelllist)
                 .AddToDB();
 
             /*
@@ -402,7 +341,7 @@ Different Archfey, e.g. Winter-themed
 
                 ResistentBrews.Add(HerbalBrewFortifying);
 
-                RestActivityDefinition BrewingFortify = RestActivityDefinitionBuilder
+/*                RestActivityDefinition BrewingFortify = RestActivityDefinitionBuilder
                     .Create("AncientForestRestActivityBrewingFortify" + entry.Key + "Resistance", DefinitionBuilder.CENamespaceGuid)
                     .SetRestData(
                         RestDefinitions.RestStage.AfterRest,
@@ -411,7 +350,7 @@ Different Archfey, e.g. Winter-themed
                         "UsePower",
                         HerbalBrewFortifying.name)
                     .SetGuiPresentation(HerbalBrewFortifying.GuiPresentation.Title, HerbalBrewFortifying.GuiPresentation.Description)
-                    .AddToDB();
+                    .AddToDB();*/
             }
 
 
@@ -527,7 +466,7 @@ Different Archfey, e.g. Winter-themed
                             .AddToDB();
             */
 
-            RestActivityDefinition HerbalBrewQuickeningRestActivity = RestActivityDefinitionBuilder
+/*            RestActivityDefinition HerbalBrewQuickeningRestActivity = RestActivityDefinitionBuilder
                 .Create("AncientForestQuickeningRestActivity", DefinitionBuilder.CENamespaceGuid)
                 .SetRestData(
                     RestDefinitions.RestStage.AfterRest,
@@ -537,7 +476,7 @@ Different Archfey, e.g. Winter-themed
                     HerbalBrewQuickening.name)
                 .SetGuiPresentation(HerbalBrewQuickening.GuiPresentation.Title, HerbalBrewQuickening.GuiPresentation.Description)
                 .AddToDB();
-
+*/
             ItemDefinition ToxicBrew = ItemDefinitionBuilder.Create(
                 Poison_Basic, "AncientForestToxicBrew", DefinitionBuilder.CENamespaceGuid)
                 .AddToDB();
@@ -631,7 +570,7 @@ Different Archfey, e.g. Winter-themed
 
 
 
-            RestActivityDefinition HerbalBrewToxifyingRestActivity = RestActivityDefinitionBuilder
+/*            RestActivityDefinition HerbalBrewToxifyingRestActivity = RestActivityDefinitionBuilder
                 .Create("AncientForestToxifyingRestActivity", DefinitionBuilder.CENamespaceGuid)
                 .SetRestData(
                     RestDefinitions.RestStage.AfterRest,
@@ -640,7 +579,7 @@ Different Archfey, e.g. Winter-themed
                     "UsePower",
                     HerbalBrewToxifying.name)
                 .SetGuiPresentation(HerbalBrewToxifying.GuiPresentation.Title, HerbalBrewToxifying.GuiPresentation.Description)
-                .AddToDB();
+                .AddToDB();*/
 
 
             FeatureDefinitionFeatureSet HerbalBrewFeatureSet = FeatureDefinitionFeatureSetBuilder.Create(
@@ -661,16 +600,14 @@ Different Archfey, e.g. Winter-themed
                 .AddFeatures(DatabaseHelper.FeatureDefinitionRegenerations.RegenerationRing)
                 .AddToDB();
 
-
-            var Bright = new FeatureDefinitionLightAffinity.LightingEffectAndCondition();
-            Bright.lightingState = LocationDefinitions.LightingState.Bright;
-            Bright.condition = Photosynthesis;
-
-
             FeatureDefinitionLightAffinity AncientForestLightAffinity = FeatureDefinitionLightAffinityBuilder
                 .Create("AncientForestLightAffinity", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation("AncientForestLightAffinity", Category.Feature)
-                .AddLightingEffectAndCondition(Bright)
+                .AddLightingEffectAndCondition(new FeatureDefinitionLightAffinity.LightingEffectAndCondition
+                {
+                    lightingState = LocationDefinitions.LightingState.Bright,
+                    condition = Photosynthesis
+                })
                 .AddToDB();
 
             FeatureDefinitionPower AtWillEntanglePower = FeatureDefinitionPowerBuilder
@@ -814,7 +751,7 @@ Different Archfey, e.g. Winter-themed
             return CharacterSubclassDefinitionBuilder
                 .Create("AncientForest", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation("WarlockAncientForest", Category.Subclass, TraditionGreenmage.GuiPresentation.SpriteReference)
-                .AddFeatureAtLevel(AncientForestExpandedSpelllistAfinity, 1)
+                .AddFeatureAtLevel(ancientForestExpandedSpellListAffinity, 1)
                 .AddFeatureAtLevel(AncientForestAttributeModiferRegrowth, 1)
                 .AddFeatureAtLevel(AncientForestAttributeModiferRegrowthMultiplier, 1)
                 .AddFeatureAtLevel(Regrowth, 1)
@@ -827,6 +764,5 @@ Different Archfey, e.g. Winter-themed
                 .AddFeatureAtLevel(WallofThornsFeatureSet, 14)
                 .AddToDB();
         }
-
     }
 }
