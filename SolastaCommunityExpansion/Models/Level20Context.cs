@@ -17,7 +17,6 @@ namespace SolastaCommunityExpansion.Models
         {
             if (Main.Settings.EnableLevel20)
             {
-                FixCastSpellTables();
                 UpdateSpellLists();
 
                 ElfHighBuilder.Load();
