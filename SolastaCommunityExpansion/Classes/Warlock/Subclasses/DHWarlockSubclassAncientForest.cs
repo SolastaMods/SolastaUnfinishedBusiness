@@ -31,7 +31,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetSpellsAtLevel(3, MassHealingWord, VampiricTouch)
                 .SetSpellsAtLevel(4, Blight, GreaterRestoration)
                 .SetSpellsAtLevel(5, Contagion, RaiseDead)
-                .SetMaxSpellLevel(5, false)
+                .SetMaxSpellLevel()
                 .AddToDB();
 
             //    necrotic and healing
@@ -116,11 +116,11 @@ Different Archfey, e.g. Winter-themed
                 .SetGuiPresentation(Category.Power)
                 .Configure(
                        1,
-                       RuleDefinitions.UsesDetermination.ProficiencyBonus,
+                       UsesDetermination.ProficiencyBonus,
                        AttributeDefinitions.Charisma,
-                       RuleDefinitions.ActivationTime.OnAttackSpellHitAutomatic,
+                       ActivationTime.OnAttackSpellHitAutomatic,
                        1,
-                       RuleDefinitions.RechargeRate.AtWill,
+                       RechargeRate.AtWill,
                        false,
                        false,
                        AttributeDefinitions.Charisma,
@@ -133,16 +133,16 @@ Different Archfey, e.g. Winter-themed
                                     0,
                                     DieType.D1,
                                     0,
-                                    RuleDefinitions.HealFromInflictedDamage.Half,
+                                    HealFromInflictedDamage.Half,
                                     new List<RuleDefinitions.TrendInfo>())
                                 .SetBonusMode(AddBonusMode.AbilityBonus)
                                 .Build())
                             .SetTargetFiltering(TargetFilteringMethod.CharacterOnly, TargetFilteringTag.UnderHalfHitPoints, 0, DieType.D1)
                             .SetTargetingData(
-                                    RuleDefinitions.Side.Enemy,
-                                    RuleDefinitions.RangeType.Distance,
+                                    Side.Enemy,
+                                    RangeType.Distance,
                                     1,
-                                    RuleDefinitions.TargetType.Individuals,
+                                    TargetType.Individuals,
                                     1,
                                     1,
                                     ActionDefinitions.ItemSelectionType.None)
@@ -198,7 +198,7 @@ Different Archfey, e.g. Winter-themed
 
                 ConditionDefinition ResistentBrewsCondition = ConditionDefinitionBuilder.Create(
                     "DH_ResistentBrews_" + text + "Condition", GuidHelper.Create(new Guid(Settings.GUID), "DH_ResistentBrews_" + text + "Condition").ToString())
-                    .SetDuration(RuleDefinitions.DurationType.Hour, 1)
+                    .SetDuration(DurationType.Hour, 1)
                     .SetSilent(Silent.None)
                     .SetGuiPresentation(guiPresentationResistentBrewsCondition)
                     .AddFeatures(ResistentBrewsDamageAffinitys[entry.Key])
@@ -216,11 +216,11 @@ Different Archfey, e.g. Winter-themed
                     .SetGuiPresentation(guiPresentationResistentBrewsItem)
                     .Configure(
                            1,
-                           RuleDefinitions.UsesDetermination.Fixed,
+                           UsesDetermination.Fixed,
                            AttributeDefinitions.Charisma,
-                           RuleDefinitions.ActivationTime.Action,
+                           ActivationTime.Action,
                            1,
-                           RuleDefinitions.RechargeRate.AtWill,
+                           RechargeRate.AtWill,
                            false,
                            false,
                            AttributeDefinitions.Charisma,
@@ -234,10 +234,10 @@ Different Archfey, e.g. Winter-themed
                                         new List<ConditionDefinition>()).Build())
                                 .SetDurationData(DurationType.Hour, 1)
                                 .SetTargetingData(
-                                        RuleDefinitions.Side.Ally,
-                                        RuleDefinitions.RangeType.Self,
+                                        Side.Ally,
+                                        RangeType.Self,
                                         1,
-                                        RuleDefinitions.TargetType.Self,
+                                        TargetType.Self,
                                         1,
                                         1,
                                         ActionDefinitions.ItemSelectionType.None)
@@ -301,8 +301,8 @@ Different Archfey, e.g. Winter-themed
                        "AncientForestHerbalBrewFortifying" + entry.Key + "Resistance",
                        GuidHelper.Create(new Guid(Settings.GUID), "AncientForestHerbalBrewFortifying" + entry.Key + "Resistance").ToString(),
                        HerbalBrewPool,
-                       RuleDefinitions.RechargeRate.LongRest,
-                       RuleDefinitions.ActivationTime.Rest,
+                       RechargeRate.LongRest,
+                       ActivationTime.Rest,
                        1,
                        false,
                        false,
@@ -323,10 +323,10 @@ Different Archfey, e.g. Winter-themed
                                     .Build())
                                 .SetDurationData(DurationType.UntilLongRest, 0)//, 1)
                                 .SetTargetingData(
-                                        RuleDefinitions.Side.Ally,
-                                        RuleDefinitions.RangeType.Self,
+                                        Side.Ally,
+                                        RangeType.Self,
                                         1,
-                                        RuleDefinitions.TargetType.Self,
+                                        TargetType.Self,
                                         1,
                                         1,
                                         ActionDefinitions.ItemSelectionType.Equiped)
@@ -341,7 +341,7 @@ Different Archfey, e.g. Winter-themed
 
                 ResistentBrews.Add(HerbalBrewFortifying);
 
-/*                RestActivityDefinition BrewingFortify = RestActivityDefinitionBuilder
+                RestActivityDefinitionBuilder
                     .Create("AncientForestRestActivityBrewingFortify" + entry.Key + "Resistance", DefinitionBuilder.CENamespaceGuid)
                     .SetRestData(
                         RestDefinitions.RestStage.AfterRest,
@@ -350,7 +350,7 @@ Different Archfey, e.g. Winter-themed
                         "UsePower",
                         HerbalBrewFortifying.name)
                     .SetGuiPresentation(HerbalBrewFortifying.GuiPresentation.Title, HerbalBrewFortifying.GuiPresentation.Description)
-                    .AddToDB();*/
+                    .AddToDB();
             }
 
 
@@ -384,8 +384,8 @@ Different Archfey, e.g. Winter-themed
                    "AncientForestHerbalBrewQuickening",
                    GuidHelper.Create(new Guid(Settings.GUID), "AncientForestHerbalBrewQuickening").ToString(),
                    HerbalBrewPool,
-                   RuleDefinitions.RechargeRate.LongRest,
-                   RuleDefinitions.ActivationTime.Rest,
+                   RechargeRate.LongRest,
+                   ActivationTime.Rest,
                    1,
                    false,
                    false,
@@ -406,10 +406,10 @@ Different Archfey, e.g. Winter-themed
                                 .Build())
                             .SetDurationData(DurationType.UntilLongRest, 0)
                             .SetTargetingData(
-                                    RuleDefinitions.Side.Ally,
-                                    RuleDefinitions.RangeType.Self,
+                                    Side.Ally,
+                                    RangeType.Self,
                                     1,
-                                    RuleDefinitions.TargetType.Self,
+                                    TargetType.Self,
                                     1,
                                     1,
                                     ActionDefinitions.ItemSelectionType.Equiped)
@@ -466,7 +466,7 @@ Different Archfey, e.g. Winter-themed
                             .AddToDB();
             */
 
-/*            RestActivityDefinition HerbalBrewQuickeningRestActivity = RestActivityDefinitionBuilder
+            RestActivityDefinitionBuilder
                 .Create("AncientForestQuickeningRestActivity", DefinitionBuilder.CENamespaceGuid)
                 .SetRestData(
                     RestDefinitions.RestStage.AfterRest,
@@ -476,7 +476,7 @@ Different Archfey, e.g. Winter-themed
                     HerbalBrewQuickening.name)
                 .SetGuiPresentation(HerbalBrewQuickening.GuiPresentation.Title, HerbalBrewQuickening.GuiPresentation.Description)
                 .AddToDB();
-*/
+
             ItemDefinition ToxicBrew = ItemDefinitionBuilder.Create(
                 Poison_Basic, "AncientForestToxicBrew", DefinitionBuilder.CENamespaceGuid)
                 .AddToDB();
@@ -488,8 +488,8 @@ Different Archfey, e.g. Winter-themed
                  "AncientForestHerbalBrewToxifying",
                  GuidHelper.Create(new Guid(Settings.GUID), "AncientForestHerbalBrewToxifying").ToString(),
                  HerbalBrewPool,
-                 RuleDefinitions.RechargeRate.LongRest,
-                 RuleDefinitions.ActivationTime.Rest,
+                 RechargeRate.LongRest,
+                 ActivationTime.Rest,
                  1,
                  false,
                  false,
@@ -510,10 +510,10 @@ Different Archfey, e.g. Winter-themed
                               .Build())
                           .SetDurationData(DurationType.UntilLongRest, 0)
                           .SetTargetingData(
-                                  RuleDefinitions.Side.Ally,
-                                  RuleDefinitions.RangeType.Self,
+                                  Side.Ally,
+                                  RangeType.Self,
                                   1,
-                                  RuleDefinitions.TargetType.Self,
+                                  TargetType.Self,
                                   1,
                                   1,
                                   ActionDefinitions.ItemSelectionType.Equiped)
@@ -569,8 +569,7 @@ Different Archfey, e.g. Winter-themed
             */
 
 
-
-/*            RestActivityDefinition HerbalBrewToxifyingRestActivity = RestActivityDefinitionBuilder
+            RestActivityDefinitionBuilder
                 .Create("AncientForestToxifyingRestActivity", DefinitionBuilder.CENamespaceGuid)
                 .SetRestData(
                     RestDefinitions.RestStage.AfterRest,
@@ -579,8 +578,7 @@ Different Archfey, e.g. Winter-themed
                     "UsePower",
                     HerbalBrewToxifying.name)
                 .SetGuiPresentation(HerbalBrewToxifying.GuiPresentation.Title, HerbalBrewToxifying.GuiPresentation.Description)
-                .AddToDB();*/
-
+                .AddToDB();
 
             FeatureDefinitionFeatureSet HerbalBrewFeatureSet = FeatureDefinitionFeatureSetBuilder.Create(
                 "HerbalBrewFeatureSet", DefinitionBuilder.CENamespaceGuid)
@@ -615,11 +613,11 @@ Different Archfey, e.g. Winter-themed
             .SetGuiPresentation(Entangle.GuiPresentation)
             .Configure(
                    1,
-                   RuleDefinitions.UsesDetermination.Fixed,
+                   UsesDetermination.Fixed,
                    AttributeDefinitions.Charisma,
-                   RuleDefinitions.ActivationTime.Action,
+                   ActivationTime.Action,
                    1,
-                   RuleDefinitions.RechargeRate.AtWill,
+                   RechargeRate.AtWill,
                    false,
                    false,
                    AttributeDefinitions.Charisma,
@@ -642,11 +640,11 @@ Different Archfey, e.g. Winter-themed
                 .SetGuiPresentation(Category.Power)
                 .Configure(
                        1,
-                       RuleDefinitions.UsesDetermination.Fixed,
+                       UsesDetermination.Fixed,
                        AttributeDefinitions.Charisma,
-                       RuleDefinitions.ActivationTime.Action,
+                       ActivationTime.Action,
                        1,
-                       RuleDefinitions.RechargeRate.LongRest,
+                       RechargeRate.LongRest,
                        false,
                        false,
                        AttributeDefinitions.Charisma,
@@ -660,10 +658,10 @@ Different Archfey, e.g. Winter-themed
                                         new List<ConditionDefinition>()).Build())
                                 .SetDurationData(DurationType.Minute, 1)
                                 .SetTargetingData(
-                                        RuleDefinitions.Side.Ally,
-                                        RuleDefinitions.RangeType.Self,
+                                        Side.Ally,
+                                        RangeType.Self,
                                         1,
-                                        RuleDefinitions.TargetType.Self,
+                                        TargetType.Self,
                                         1,
                                         1,
                                         ActionDefinitions.ItemSelectionType.None)
@@ -719,8 +717,8 @@ Different Archfey, e.g. Winter-themed
                      "AncientForest" + spell.name,
                      GuidHelper.Create(new Guid(Settings.GUID), "AncientForest" + spell.name).ToString(),
                      AncientForestWallofThornsPool,
-                     RuleDefinitions.RechargeRate.LongRest,
-                     RuleDefinitions.ActivationTime.Rest,
+                     RechargeRate.LongRest,
+                     ActivationTime.Rest,
                      1,
                      false,
                      false,
@@ -744,9 +742,6 @@ Different Archfey, e.g. Winter-themed
             FeatureDefinitionAttributeModifier AncientForestAttributeModiferRegrowthMultiplier = FeatureDefinitionAttributeModifierBuilder
                 .Create(AttributeModifierPaladinHealingPoolMultiplier, "AncientForestAttributeModiferRegrowthMultiplier", DefinitionBuilder.CENamespaceGuid)
                 .AddToDB();
-
-
-
 
             return CharacterSubclassDefinitionBuilder
                 .Create("AncientForest", DefinitionBuilder.CENamespaceGuid)
