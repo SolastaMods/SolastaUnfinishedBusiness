@@ -138,7 +138,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                 .SetSubclassSuffix("Patron")
                 .SetFilterByDeity(false)
                 .SetSubclasses(
-                    AHWarlockSubclassSoulBladePact.Build(),
+                    AHWarlockSubclassSoulBladePact.Instance,
                     DHWarlockSubclassAncientForestPatron.Build(),
                     DHWarlockSubclassElementalPatron.Build(),
                     DHWarlockSubclassMoonLitPatron.Build(),
