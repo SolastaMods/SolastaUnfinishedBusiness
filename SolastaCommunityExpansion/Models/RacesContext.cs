@@ -75,7 +75,7 @@ namespace SolastaCommunityExpansion.Models
                 .SetProficiencies(RuleDefinitions.ProficiencyType.Language, "Language_Common", languageGnomish.Name)
                 .AddToDB();
 
-            var gnomeRacePresentation = CharacterRaceDefinitions.Halfling.RacePresentation.Copy();
+            var gnomeRacePresentation = CharacterRaceDefinitions.Halfling.RacePresentation.DeepCopy();
 
             gnomeRacePresentation.SetBodyAssetPrefix(CharacterRaceDefinitions.Elf.RacePresentation.BodyAssetPrefix);
             gnomeRacePresentation.SetMorphotypeAssetPrefix(CharacterRaceDefinitions.Elf.RacePresentation.MorphotypeAssetPrefix);

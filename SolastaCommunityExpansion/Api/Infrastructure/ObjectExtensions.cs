@@ -14,7 +14,7 @@ namespace SolastaModApi.Infrastructure
             return (type.IsValueType & type.IsPrimitive);
         }
 
-        public static Object Copy(this Object originalObject)
+        public static Object DeepCopy(this Object originalObject)
         {
             return InternalCopy(originalObject, new Dictionary<Object, Object>(new ReferenceEqualityComparer()));
         }
@@ -62,9 +62,14 @@ namespace SolastaModApi.Infrastructure
                 fieldInfo.SetValue(cloneObject, clonedFieldValue);
             }
         }
-        public static T Copy<T>(this T original)
+        public static T DeepCopy<T>(this T original)
         {
-            return (T)Copy((Object)original);
+            if (original is UnityEngine.Object)
+            {
+                throw new Exception("use Object.Instantiate on Unity objects");
+            }
+
+            return (T)DeepCopy((Object)original);
         }
     }
 
