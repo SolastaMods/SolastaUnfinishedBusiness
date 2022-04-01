@@ -4,16 +4,12 @@ using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
-//******************************************************************************************
-// BY DEFINITION, REFACTORING REQUIRES CONFIRMING EXTERNAL BEHAVIOUR DOES NOT CHANGE
-// "REFACTORING WITHOUT TESTS IS JUST CHANGING STUFF"
-//******************************************************************************************
+
 namespace SolastaCommunityExpansion.Monsters
 {
     internal static class MonstersHomebrew
     {
-
-        public static List<Models.MonsterContext.CustomMonster> Definitions = new List<Models.MonsterContext.CustomMonster>()
+        public static readonly List<Models.MonsterContext.CustomMonster> Definitions = new()
         {
             new Models.MonsterContext.CustomMonster()
             {
@@ -397,9 +393,9 @@ namespace SolastaCommunityExpansion.Monsters
 
                 if (Definitions[i].MonsterName == "Earth Titan")
                 {
-                   //AssetReference assetReference = new AssetReference();
-                   //assetReference.SetField("m_AssetGUID", "aad57f1f96869a3409a5c064473c454d");
-                   //NewMonster.SetPrefabReference(assetReference);
+                    //AssetReference assetReference = new AssetReference();
+                    //assetReference.SetField("m_AssetGUID", "aad57f1f96869a3409a5c064473c454d");
+                    //NewMonster.SetPrefabReference(assetReference);
 
                     NewMonster.AddFeatures(new List<FeatureDefinition>
                     {
@@ -519,7 +515,7 @@ namespace SolastaCommunityExpansion.Monsters
                     legendaryActionDescription2.SetFeatureDefinitionPower(NewMonsterPowers.DisintegratingBeam_Power);
                     legendaryActionDescription2.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.LegendaryLaetharCast_Debuff);
 
-                    NewMonster.AddLegendaryActionOptions(new List<LegendaryActionDescription> { legendaryActionDescription , legendaryActionDescription2 });
+                    NewMonster.AddLegendaryActionOptions(legendaryActionDescription, legendaryActionDescription2);
 
                     NewMonster.AddFeatures(new List<FeatureDefinition>
                     {
@@ -551,7 +547,7 @@ namespace SolastaCommunityExpansion.Monsters
 
 
 
-                    Models.MonsterContext.ModdedMonsters.Add(NewMonster.AddToDB());
+                Models.MonsterContext.ModdedMonsters.Add(NewMonster.AddToDB());
             }
         }
     }

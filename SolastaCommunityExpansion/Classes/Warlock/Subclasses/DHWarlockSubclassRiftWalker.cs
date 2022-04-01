@@ -16,7 +16,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
         private static FeatureDefinitionPower RiftStrike;
         private static FeatureDefinitionPower RiftJump;
         private static FeatureDefinitionConditionAffinity RiftCloak;
-        private static SpellDefinition AtWillCantripWardingBond;
         private static FeatureDefinitionBonusCantrips WardingBondBonusCantrip;
         private static FeatureDefinitionMagicAffinity RiftWalkerMagicAffinity;
 
@@ -157,16 +156,14 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
         public static void AtWillWardingBond()
         {
-            AtWillCantripWardingBond = SpellDefinitionBuilder
-                .Create(WardingBond, "DHAtWillWardingBond", CENamespaceGuid)
-                .SetSpellLevel(0)
-                .AddToDB();
-
             WardingBondBonusCantrip = FeatureDefinitionBonusCantripsBuilder
                 .Create(DatabaseHelper.FeatureDefinitionBonusCantripss.BonusCantripsDomainOblivion, "DHWardingBondBonusCantrip", CENamespaceGuid)
                 .SetGuiPresentation(Category.Feature)
                 .ClearBonusCantrips()
-                .AddBonusCantrip(AtWillCantripWardingBond)
+                .AddBonusCantrip(SpellDefinitionBuilder
+                    .Create(WardingBond, "DHAtWillWardingBond", CENamespaceGuid)
+                    .SetSpellLevel(0)
+                    .AddToDB())
                 .AddToDB();
         }
 

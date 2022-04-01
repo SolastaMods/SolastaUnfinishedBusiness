@@ -27,6 +27,7 @@ namespace SolastaCommunityExpansion
         // Diagnostics
         //
 
+#pragma warning disable S1104 // Fields should not have public accessibility
         // very large or not very useful definitions
         public string[] ExcludeFromExport = new []
         {
@@ -55,6 +56,7 @@ namespace SolastaCommunityExpansion
             "RoomBlueprint",
             "PropBlueprint"
         };
+#pragma warning restore S1104 // Fields should not have public accessibility
 
         //
         // Blueprints Viewer UI

@@ -28,7 +28,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         public static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)
             => new WarlockClassPactBoonSetBuilder(name, guid).AddToDB();
 
-        public static FeatureDefinitionFeatureSet WarlockClassPactBoonSet = CreateAndAddToDB(WarlockClassPactBoonSetName, WarlockClassPactBoonSetGuid);
+        public static readonly FeatureDefinitionFeatureSet WarlockClassPactBoonSet = CreateAndAddToDB(WarlockClassPactBoonSetName, WarlockClassPactBoonSetGuid);
     }
 
     internal class AHWarlockClassPactOfTheBladeSetBuilder : FeatureDefinitionFeatureSetBuilder
@@ -51,7 +51,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         public static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)
             => new AHWarlockClassPactOfTheBladeSetBuilder(name, guid).AddToDB();
 
-        public static FeatureDefinitionFeatureSet AHWarlockClassPactOfTheBladeSet = CreateAndAddToDB(AHWarlockClassPactOfTheBladeSetName, AHWarlockClassPactOfTheBladeSetGuid);
+        public static readonly FeatureDefinitionFeatureSet AHWarlockClassPactOfTheBladeSet = CreateAndAddToDB(AHWarlockClassPactOfTheBladeSetName, AHWarlockClassPactOfTheBladeSetGuid);
     }
 
     internal class DHWarlockClassPactOfTheChainFeatureSetBuilder : FeatureDefinitionFeatureSetBuilder
@@ -211,7 +211,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             return new DHWarlockClassPactOfTheChainFeatureSetBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionFeatureSet DHWarlockClassPactOfTheChainFeatureSet = CreateAndAddToDB(DHWarlockClassPactOfTheChainFeatureSetName, DHWarlockClassPactOfTheChainFeatureSetGuid);
+        public static readonly FeatureDefinitionFeatureSet DHWarlockClassPactOfTheChainFeatureSet = CreateAndAddToDB(DHWarlockClassPactOfTheChainFeatureSetName, DHWarlockClassPactOfTheChainFeatureSetGuid);
     }
 
 
@@ -236,7 +236,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             return new DHPactOfTheTomeFeatureSetBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionFeatureSet DHPactOfTheTomeFeatureSet = CreateAndAddToDB(DHPactOfTheTomeFeatureSetName, DHPactOfTheTomeFeatureSetGuid);
+        public static readonly FeatureDefinitionFeatureSet DHPactOfTheTomeFeatureSet = CreateAndAddToDB(DHPactOfTheTomeFeatureSetName, DHPactOfTheTomeFeatureSetGuid);
     }
 
     internal class DHPactOfTheTomeBonusCantripsBuilder : FeatureDefinitionPointPoolBuilder
@@ -259,7 +259,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             return new DHPactOfTheTomeBonusCantripsBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionPointPool DHPactOfTheTomeBonusCantrips = CreateAndAddToDB(PactOfTheTomeBonusCantripsName, PactOfTheTomeBonusCantripsGuid);
+        public static readonly FeatureDefinitionPointPool DHPactOfTheTomeBonusCantrips = CreateAndAddToDB(PactOfTheTomeBonusCantripsName, PactOfTheTomeBonusCantripsGuid);
     }
 
 
@@ -287,7 +287,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             return new DHPactOfTheTomeSpellListBuilder(name, guid).AddToDB();
         }
 
-        public static SpellListDefinition DHPactOfTheTomeSpellList = CreateAndAddToDB(PactOfTheTomeSpellListName, PactOfTheTomeSpellListGuid);
+        public static readonly SpellListDefinition DHPactOfTheTomeSpellList = CreateAndAddToDB(PactOfTheTomeSpellListName, PactOfTheTomeSpellListGuid);
     }
 
 
@@ -309,9 +309,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             return new DHPactOfTheTomeMagicAffinityBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionMagicAffinity DHPactOfTheTomeMagicAffinity = CreateAndAddToDB(PactOfTheTomeMagicAffinityName, PactOfTheTomeMagicAffinityGuid);
+        public static readonly FeatureDefinitionMagicAffinity DHPactOfTheTomeMagicAffinity = CreateAndAddToDB(PactOfTheTomeMagicAffinityName, PactOfTheTomeMagicAffinityGuid);
     }
-
-
-
 }
