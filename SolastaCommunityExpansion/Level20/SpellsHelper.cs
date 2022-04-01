@@ -49,7 +49,7 @@ namespace SolastaCommunityExpansion.Level20
 
         // keep public as CE:MC depends on it
         // game uses IndexOf(0) on these sub lists reason why the last 0 there
-        public static readonly List<SlotsByLevelDuplet> FullCastingSlots = new()
+        public static List<SlotsByLevelDuplet> FullCastingSlots { get; private set; } = new()
         {
             new SlotsByLevelDuplet() { Slots = new List<int> { 2, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, Level = 01 },
             new SlotsByLevelDuplet() { Slots = new List<int> { 3, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, Level = 02 },
@@ -74,7 +74,7 @@ namespace SolastaCommunityExpansion.Level20
         };
 
         // game uses IndexOf(0) on these sub lists reason why the last 0 there
-        internal static readonly List<SlotsByLevelDuplet> HalfCastingSlots = new()
+        internal static List<SlotsByLevelDuplet> HalfCastingSlots { get; private set; } = new()
         {
             new SlotsByLevelDuplet() { Slots = new List<int> { 0, 0, 0, 0, 0, 0 }, Level = 1 },
             new SlotsByLevelDuplet() { Slots = new List<int> { 2, 0, 0, 0, 0, 0 }, Level = 2 },
@@ -99,7 +99,7 @@ namespace SolastaCommunityExpansion.Level20
         };
 
         // game uses IndexOf(0) on these sub lists reason why the last 0 there
-        internal static readonly List<SlotsByLevelDuplet> ArtificerCastingSlots = new()
+        internal static List<SlotsByLevelDuplet> ArtificerCastingSlots { get; private set; } = new()
         {
             new SlotsByLevelDuplet() { Slots = new List<int> { 2, 0, 0, 0, 0, 0 }, Level = 1 },
             new SlotsByLevelDuplet() { Slots = new List<int> { 2, 0, 0, 0, 0, 0 }, Level = 2 },
@@ -124,7 +124,7 @@ namespace SolastaCommunityExpansion.Level20
         };
 
         // game uses IndexOf(0) on these sub lists reason why the last 0 there
-        internal static readonly List<SlotsByLevelDuplet> OneThirdCastingSlots = new()
+        internal static List<SlotsByLevelDuplet> OneThirdCastingSlots { get; private set; } = new()
         {
             new SlotsByLevelDuplet() { Slots = new List<int> { 0, 0, 0, 0, 0 }, Level = 1 },
             new SlotsByLevelDuplet() { Slots = new List<int> { 0, 0, 0, 0, 0 }, Level = 2 },
@@ -148,7 +148,7 @@ namespace SolastaCommunityExpansion.Level20
             new SlotsByLevelDuplet() { Slots = new List<int> { 4, 3, 3, 1, 0 }, Level = 20 },
         };
 
-        internal static readonly List<int> EmptyReplacedSpells = new()
+        internal static List<int> EmptyReplacedSpells { get; private set; } = new()
         {
             0,
             0,
@@ -172,7 +172,7 @@ namespace SolastaCommunityExpansion.Level20
             0,
         };
 
-        internal static readonly List<int> FullCasterReplacedSpells = new()
+        internal static List<int> FullCasterReplacedSpells { get; private set; } = new()
         {
             0,
             1,
@@ -196,7 +196,7 @@ namespace SolastaCommunityExpansion.Level20
             1,
         };
 
-        internal static readonly List<int> HalfCasterReplacedSpells = new()
+        internal static List<int> HalfCasterReplacedSpells { get; private set; } = new()
         {
             0,
             0,
@@ -220,7 +220,7 @@ namespace SolastaCommunityExpansion.Level20
             1,
         };
 
-        internal static readonly List<int> OneThirdCasterReplacedSpells = new()
+        internal static List<int> OneThirdCasterReplacedSpells { get; private set; } = new()
         {
             0,
             0,
@@ -244,7 +244,7 @@ namespace SolastaCommunityExpansion.Level20
             1,
         };
 
-        internal static readonly List<int> SorcererKnownSpells = new()
+        internal static List<int> SorcererKnownSpells { get; private set; } = new()
         {
             2,
             3,
