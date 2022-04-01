@@ -15,8 +15,9 @@ namespace SolastaModApi.Infrastructure
 
     internal class ArrayTraverse
     {
-        public int[] Position;
-        private int[] maxLengths;
+        public int[] Position { get; private set; }
+
+        private readonly int[] maxLengths;
 
         public ArrayTraverse(Array array)
         {

@@ -11,29 +11,30 @@ using static RuleDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 {
-    public static class DHWarlockSubclassElementalPatron
+    internal static class DHWarlockSubclassElementalPatron
     {
         public const string Name = "DHWarlockSubclassElementalPatron";
         private static readonly string Guid = GuidHelper.Create(new Guid(Settings.GUID), Name).ToString();
-        
-        public static Dictionary<string, string> Dictionaryof_Elemental_Damage = new()
+
+        private static readonly Dictionary<string, string> Dictionaryof_Elemental_Damage = new()
         {
-            { "Shadow", RuleDefinitions.DamageTypeNecrotic },
-            { "Astral", RuleDefinitions.DamageTypePsychic },
-            { "Ethereal", RuleDefinitions.DamageTypeForce },
-            { "Fire", RuleDefinitions.DamageTypeFire },
-            { "Earth", RuleDefinitions.DamageTypeBludgeoning },
-            { "Ice", RuleDefinitions.DamageTypeCold },
-            { "Air", RuleDefinitions.DamageTypeThunder }
-        }; 
-        public static FeatureDefinitionPower ElementalFormPool;
-        public static Dictionary<string, FeatureDefinitionPower> DictionaryOfElementalFormPowers = new();
-        public static Dictionary<string, FeatureDefinitionPower> DictionaryOfEnhancedElementalFormPowers = new();
-        public static SpellDefinition AtWillCantripConjureMinorElementals;
-        public static FeatureDefinitionBonusCantrips MinorElementalBonusCantrip;
-        public static Dictionary<string, FeatureDefinitionAdditionalDamage> DictionaryOfElementaladditionalDamage = new();
-        public static Dictionary<string, ConditionDefinition> DictionaryOfElementalConditions = new();
-        public static FeatureDefinitionMagicAffinity ElementalistMagicAffinity;
+            { "Shadow", DamageTypeNecrotic },
+            { "Astral", DamageTypePsychic },
+            { "Ethereal", DamageTypeForce },
+            { "Fire", DamageTypeFire },
+            { "Earth", DamageTypeBludgeoning },
+            { "Ice", DamageTypeCold },
+            { "Air", DamageTypeThunder }
+        };
+
+        private static FeatureDefinitionPower ElementalFormPool { get; set; }
+
+        private static readonly Dictionary<string, FeatureDefinitionPower> DictionaryOfElementalFormPowers = new();
+        private static readonly Dictionary<string, FeatureDefinitionPower> DictionaryOfEnhancedElementalFormPowers = new();
+        private static FeatureDefinitionBonusCantrips MinorElementalBonusCantrip { get; set; }
+        private static readonly Dictionary<string, FeatureDefinitionAdditionalDamage> DictionaryOfElementaladditionalDamage = new();
+        private static readonly Dictionary<string, ConditionDefinition> DictionaryOfElementalConditions = new();
+        private static FeatureDefinitionMagicAffinity ElementalistMagicAffinity { get; set; }
 
 
         public static CharacterSubclassDefinition Build()
@@ -211,10 +212,10 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                         GuidHelper.Create(new Guid(Settings.GUID), "DH_ElementalForm_" + text + "additionalDamage").ToString())
                     .Configure(
                         "ElementalDamage",
-                        RuleDefinitions.FeatureLimitedUsage.OncePerTurn, RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonus,
-                        RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive, RuleDefinitions.AdditionalDamageRequiredProperty.MeleeWeapon,
-                        false /* attack only */, RuleDefinitions.DieType.D4, 1 /* dice number */, RuleDefinitions.AdditionalDamageType.Specific, entry.Value,
-                        RuleDefinitions.AdditionalDamageAdvancement.None, new List<DiceByRank>())
+                        FeatureLimitedUsage.OncePerTurn, AdditionalDamageValueDetermination.ProficiencyBonus,
+                        AdditionalDamageTriggerCondition.AlwaysActive, AdditionalDamageRequiredProperty.MeleeWeapon,
+                        false /* attack only */, DieType.D4, 1 /* dice number */, AdditionalDamageType.Specific, entry.Value,
+                        AdditionalDamageAdvancement.None, new List<DiceByRank>())
                     .SetGuiPresentation(guiPresentationElementalFormDamage)
                     .AddToDB();
 
@@ -226,7 +227,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
                 ConditionDefinition ElementalFormCondtion = new Tinkerer.FeatureHelpers.ConditionDefinitionBuilder(
                     "DH_ElementalForm_" + text + "Condition", GuidHelper.Create(new Guid(Settings.GUID), "DH_ElementalForm_" + text + "Condition").ToString(),
-                    RuleDefinitions.DurationType.Minute, 1, false, guiPresentationElementalFormCondition,
+                    DurationType.Minute, 1, false, guiPresentationElementalFormCondition,
                     Dictionaryof_Elemental_damageResistances[entry.Key],
                         additionalDamage
                     ).AddToDB();
@@ -237,8 +238,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
 
                 EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder();
-                effectDescription.SetDurationData(RuleDefinitions.DurationType.Minute, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
-                effectDescription.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1, RuleDefinitions.TargetType.Self, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
+                effectDescription.SetDurationData(DurationType.Minute, 1, TurnOccurenceType.EndOfTurn);
+                effectDescription.SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
                 effectDescription.AddEffectForm(new EffectFormBuilder().SetConditionForm(ElementalFormCondtion, ConditionForm.ConditionOperation.Add, true, true, new List<ConditionDefinition>()).Build());
 
 
@@ -255,8 +256,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                        "DH_ElementalForm_" + text,
                        GuidHelper.Create(new Guid(Settings.GUID), "DH_ElementalForm_" + text).ToString(),
                        ElementalFormPool,
-                       RuleDefinitions.RechargeRate.LongRest,
-                       RuleDefinitions.ActivationTime.BonusAction,
+                       RechargeRate.LongRest,
+                       ActivationTime.BonusAction,
                        1,
                        false,
                        false,
@@ -340,11 +341,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 { "Air",     DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalHeraldOfTheElementsThunder.GuiPresentation.SpriteReference},
             };
 
-            GuiPresentation blank = new GuiPresentationBuilder("Feature/&NoContentTitle", "Feature/&NoContentTitle").Build();
-            //  blank.hidden = true;
-
-
-
             foreach (KeyValuePair<string, string> entry in Dictionaryof_Elemental_Damage)
             {
 
@@ -353,15 +349,15 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
                 var guiPresentationEnhancedElementalFormCondition = new GuiPresentationBuilder(
                     "Elemental Form : " + text + " Plane" + " Condition",
-                    "When channeling the elemental  " + text + " Plane, you gain Immunity to " + damagetype + " damage and once per turn, apply damage of the same type to your attack"                    )
+                    "When channeling the elemental  " + text + " Plane, you gain Immunity to " + damagetype + " damage and once per turn, apply damage of the same type to your attack")
                     .Build();
 
-                ConditionDefinition EnhancedElementalFormCondtion =  ConditionDefinitionBuilder.Create(
+                ConditionDefinition EnhancedElementalFormCondtion = ConditionDefinitionBuilder.Create(
                     "DH_EnhancedElementalForm_" + text + "Condition", GuidHelper.Create(new Guid(Settings.GUID), "DH_EnhancedElementalForm_" + text + "Condition").ToString())
-                   .SetDuration(RuleDefinitions.DurationType.Minute,1)
-                    .SetSilent(Silent.None) 
+                   .SetDuration(DurationType.Minute, 1)
+                    .SetSilent(Silent.None)
                     .SetGuiPresentation(guiPresentationEnhancedElementalFormCondition)
-                    .AddFeatures(Dictionaryof_Elemental_damageImmunitiess[entry.Key],DictionaryOfElementaladditionalDamage[entry.Key])
+                    .AddFeatures(Dictionaryof_Elemental_damageImmunitiess[entry.Key], DictionaryOfElementaladditionalDamage[entry.Key])
                     .AddToDB();
 
 
@@ -371,8 +367,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
 
                 EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder();
-                effectDescription.SetDurationData(RuleDefinitions.DurationType.Minute, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
-                effectDescription.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1, RuleDefinitions.TargetType.Self, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
+                effectDescription.SetDurationData(DurationType.Minute, 1, TurnOccurenceType.EndOfTurn);
+                effectDescription.SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
                 effectDescription.AddEffectForm(new EffectFormBuilder().SetConditionForm(EnhancedElementalFormCondtion, ConditionForm.ConditionOperation.Add, true, true, new List<ConditionDefinition>()).Build());
 
 
@@ -389,8 +385,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                        "DH_EnhancedElementalForm_" + text,
                        GuidHelper.Create(new Guid(Settings.GUID), "DH_EnhancedElementalForm_" + text).ToString(),
                        ElementalFormPool,
-                       RuleDefinitions.RechargeRate.LongRest,
-                       RuleDefinitions.ActivationTime.BonusAction,
+                       RechargeRate.LongRest,
+                       ActivationTime.BonusAction,
                        1,
                        false,
                        false,
@@ -416,11 +412,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
         public static void AtWillConjureMinorElementals()
         {
-
             SpellDefinitionBuilder AtWillConjureMinorElementalsBuilder = SpellDefinitionBuilder
-                .Create(DatabaseHelper.SpellDefinitions.ConjureMinorElementals, "DHAtWillConjureMinorElementals", GuidHelper.Create(new System.Guid(Settings.GUID), "DHAtWillConjureMinorElementals").ToString());
+                    .Create(DatabaseHelper.SpellDefinitions.ConjureMinorElementals, "DHAtWillConjureMinorElementals", GuidHelper.Create(new System.Guid(Settings.GUID), "DHAtWillConjureMinorElementals").ToString());
             AtWillConjureMinorElementalsBuilder.SetSpellLevel(0);
-            AtWillCantripConjureMinorElementals = AtWillConjureMinorElementalsBuilder.AddToDB();
 
             FeatureDefinitionBonusCantripsBuilder MinorElementalBonusCantripBuilder = FeatureDefinitionBonusCantripsBuilder.Create(
                 DatabaseHelper.FeatureDefinitionBonusCantripss.BonusCantripsDomainOblivion,
@@ -432,11 +426,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .Build());
 
             MinorElementalBonusCantripBuilder.ClearBonusCantrips();
-            MinorElementalBonusCantripBuilder.AddBonusCantrip(AtWillCantripConjureMinorElementals);
+            MinorElementalBonusCantripBuilder.AddBonusCantrip(AtWillConjureMinorElementalsBuilder.AddToDB());
             MinorElementalBonusCantrip = MinorElementalBonusCantripBuilder.AddToDB();
-
-
-
         }
 
 

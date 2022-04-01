@@ -83,17 +83,27 @@
     {
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 7,
-      "spells": []
+      "spells": [
+        "Definition:DHFingerOfDeathSpell:cd6d2db3-a3af-5542-9972-053ce0bd2fd6"
+      ]
     },
     {
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 8,
-      "spells": []
+      "spells": [
+        "Definition:DHDominateMonsterSpell:011eca3e-7987-5c46-9f1a-968e0c1a935d",
+        "Definition:DHFeeblemindSpell:a75f8a39-7eba-552b-8681-1d7f4f3fc983",
+        "Definition:DHPowerWordStunSpell:93a6661d-3f8e-51f6-aa6b-4d23f1e22b48"
+      ]
     },
     {
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 9,
-      "spells": []
+      "spells": [
+        "Definition:DHWeirdSpell:b77c5b1b-902e-5957-83c1-4a496bf10f0b",
+        "Definition:DHForesightSpell:9841d601-258a-51f8-bbd9-8402b69625c4",
+        "Definition:DHPowerWordKillSpell:c67eb2c8-b97f-5dbf-81a6-59ef36771413"
+      ]
     }
   ],
   "guiPresentation": {

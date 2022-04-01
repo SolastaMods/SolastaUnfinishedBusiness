@@ -108,7 +108,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
         public static SpellListDefinition CreateAndAddToDB(string name, string guid)
             => new AHWarlockSoulBladePactSpellListBuilder(name, guid).AddToDB();
 
-        public static SpellListDefinition AHWarlockSoulBladePactSpellList = CreateAndAddToDB(AHWarlockSoulBladePactSpellListName, AHWarlockSoulBladePactSpellListGuid);
+        public static readonly SpellListDefinition AHWarlockSoulBladePactSpellList = CreateAndAddToDB(AHWarlockSoulBladePactSpellListName, AHWarlockSoulBladePactSpellListGuid);
     }
 
     internal class AHWarlockSoulBladePactExtendedSpellListMagicAffinityBuilder : FeatureDefinitionMagicAffinityBuilder
@@ -126,7 +126,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
         public static FeatureDefinitionMagicAffinity CreateAndAddToDB(string name, string guid)
             => new AHWarlockSoulBladePactExtendedSpellListMagicAffinityBuilder(name, guid).AddToDB();
 
-        public static FeatureDefinitionMagicAffinity AHSoulBladeSpellList = CreateAndAddToDB(Name, Guid);
+        public static readonly FeatureDefinitionMagicAffinity AHSoulBladeSpellList = CreateAndAddToDB(Name, Guid);
     }
 
 
@@ -147,12 +147,15 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             Definition.SetActivationTime(RuleDefinitions.ActivationTime.BonusAction);
 
             //Create additional charisma attack item property
-            var conditionForm = new ConditionForm();
-            conditionForm.ConditionDefinition = AHSoulBladeEmpowerWeaponConditionBuilder.AHSoulBladeEmpowerWeaponCondition;
-            conditionForm.SetForceOnSelf(true);
-            var conditionEffect = new EffectForm();
-            conditionEffect.FormType = EffectForm.EffectFormType.Condition;
-            conditionEffect.ConditionForm = conditionForm;
+            var conditionEffect = new EffectForm
+            {
+                FormType = EffectForm.EffectFormType.Condition,
+                ConditionForm = new ConditionForm
+                {
+                    ConditionDefinition = AHSoulBladeEmpowerWeaponConditionBuilder.AHSoulBladeEmpowerWeaponCondition
+                }
+            };
+            conditionEffect.ConditionForm.SetForceOnSelf(true);
 
             //Add the damage to the same effect of sacred weapon gives +cha to hit and damage
             EffectDescription newEffectDescription = new EffectDescription();
@@ -169,7 +172,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
         public static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
             => new AHWarlockSoulBladePactEmpowerWeaponPowerBuilder(name, guid).AddToDB();
 
-        public static FeatureDefinitionPower AHWarlockSoulBladePactEmpowerWeaponPower = CreateAndAddToDB(AHWarlockSoulBladePactEmpowerWeaponPowerName, AHWarlockSoulBladePactEmpowerWeaponPowerGuid);
+        public static readonly FeatureDefinitionPower AHWarlockSoulBladePactEmpowerWeaponPower = CreateAndAddToDB(AHWarlockSoulBladePactEmpowerWeaponPowerName, AHWarlockSoulBladePactEmpowerWeaponPowerGuid);
     }
 
     internal class AHSoulBladeEmpowerWeaponDamageBonusBuilder : FeatureDefinitionAdditionalDamageBuilder
@@ -191,7 +194,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
         public static FeatureDefinitionAdditionalDamage CreateAndAddToDB(string name, string guid)
             => new AHSoulBladeEmpowerWeaponDamageBonusBuilder(name, guid).AddToDB();
 
-        public static FeatureDefinitionAdditionalDamage EmpowerWeaponDamageBonus
+        public static readonly FeatureDefinitionAdditionalDamage EmpowerWeaponDamageBonus
             = CreateAndAddToDB(AHSoulBladeEmpowerWeaponAttackAndDamageBonusName, AHSoulBladeEmpowerWeaponAttackAndDamageBonusGuid);
     }
 
@@ -217,7 +220,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
         public static ConditionDefinition CreateAndAddToDB(string name, string guid)
             => new AHSoulBladeEmpowerWeaponConditionBuilder(name, guid).AddToDB();
 
-        public static ConditionDefinition AHSoulBladeEmpowerWeaponCondition
+        public static readonly ConditionDefinition AHSoulBladeEmpowerWeaponCondition
             = CreateAndAddToDB(AHSoulBladeEmpowerWeaponConditionName, AHSoulBladeEmpowerWeaponConditionNameGuid);
     }
 
@@ -238,11 +241,15 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             Definition.SetAbilityScore("Charisma");
 
             //Create the temp hp effect
-            EffectForm tempHPEffect = new EffectForm();
-            tempHPEffect.FormType = EffectForm.EffectFormType.TemporaryHitPoints;
-            var tempHPForm = new TemporaryHitPointsForm();
-            tempHPForm.DieType = RuleDefinitions.DieType.D1;
-            tempHPForm.BonusHitPoints = -1;
+            var tempHPForm = new TemporaryHitPointsForm
+            {
+                DieType = RuleDefinitions.DieType.D1,
+                BonusHitPoints = -1
+            };
+            EffectForm tempHPEffect = new EffectForm
+            {
+                FormType = EffectForm.EffectFormType.TemporaryHitPoints
+            };
             tempHPEffect.SetTemporaryHitPointsForm(tempHPForm);
             tempHPEffect.SetApplyLevel(EffectForm.LevelApplianceType.AddBonus);
             tempHPEffect.SetAddBonusMode(RuleDefinitions.AddBonusMode.AbilityBonus);
@@ -260,7 +267,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
         public static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
             => new AHWarlockSoulBladePactSoulShieldPowerBuilder(name, guid).AddToDB();
 
-        public static FeatureDefinitionPower AHWarlockSoulBladePactSoulShieldPower = CreateAndAddToDB(AHWarlockSoulBladePactSoulShieldPowerName, AHWarlockSoulBladePactSoulShieldPowerGuid);
+        public static readonly FeatureDefinitionPower AHWarlockSoulBladePactSoulShieldPower = CreateAndAddToDB(AHWarlockSoulBladePactSoulShieldPowerName, AHWarlockSoulBladePactSoulShieldPowerGuid);
     }
 
 
@@ -284,7 +291,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             return new SoulBladeSummonPactWeaponPowerBuilder(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionPower SummonPactWeaponPower = CreateAndAddToDB(SoulBladeSummonPactWeaponPowerName, SoulBladeSummonPactWeaponPowerGuid);
+        public static readonly FeatureDefinitionPower SummonPactWeaponPower = CreateAndAddToDB(SoulBladeSummonPactWeaponPowerName, SoulBladeSummonPactWeaponPowerGuid);
     }
 
 }

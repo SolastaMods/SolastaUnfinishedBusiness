@@ -2,9 +2,9 @@
 using SolastaModApi;
 using SolastaModApi.Extensions;
 
+    /*
 namespace SolastaCommunityExpansion.Classes.Warlock.AHSpells
 {
-    /*
     internal class HellishRebukeSpellBuilder : BaseDefinitionBuilder<SpellDefinition>
     {
         private const string HellishRebukeSpellName = "AHHellishRebukeSpell";
@@ -61,5 +61,5 @@ namespace SolastaCommunityExpansion.Classes.Warlock.AHSpells
 
         public static SpellDefinition HellishRebukeSpell = CreateAndAddToDB(HellishRebukeSpellName, HellishRebukeSpellNameGuid);
     }
-*/
 }
+*/

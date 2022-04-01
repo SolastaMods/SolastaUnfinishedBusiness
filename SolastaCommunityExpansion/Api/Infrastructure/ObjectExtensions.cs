@@ -6,19 +6,17 @@ namespace SolastaModApi.Infrastructure
 {
     public static class ObjectExtensions
     {
-        private static readonly MethodInfo CloneMethod = typeof(Object).GetMethod("MemberwiseClone", BindingFlags.NonPublic | BindingFlags.Instance);
+#pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
+        private static readonly MethodInfo CloneMethod = typeof(object).GetMethod("MemberwiseClone", BindingFlags.NonPublic | BindingFlags.Instance);
+#pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
 
         public static bool IsPrimitive(this Type type)
         {
-            if (type == typeof(String)) return true;
-            return (type.IsValueType & type.IsPrimitive);
+            if (type == typeof(string)) return true;
+            return type.IsValueType && type.IsPrimitive;
         }
 
-        public static Object DeepCopy(this Object originalObject)
-        {
-            return InternalCopy(originalObject, new Dictionary<Object, Object>(new ReferenceEqualityComparer()));
-        }
-        private static Object InternalCopy(Object originalObject, IDictionary<Object, Object> visited)
+        private static object InternalCopy(object originalObject, IDictionary<object, object> visited)
         {
             if (originalObject == null) return null;
             var typeToReflect = originalObject.GetType();
@@ -29,7 +27,7 @@ namespace SolastaModApi.Infrastructure
             if (typeToReflect.IsArray)
             {
                 var arrayType = typeToReflect.GetElementType();
-                if (IsPrimitive(arrayType) == false)
+                if (IsPrimitive(arrayType))
                 {
                     Array clonedArray = (Array)cloneObject;
                     clonedArray.ForEach((array, indices) => array.SetValue(InternalCopy(clonedArray.GetValue(indices), visited), indices));
@@ -47,38 +45,50 @@ namespace SolastaModApi.Infrastructure
             if (typeToReflect.BaseType != null)
             {
                 RecursiveCopyBaseTypePrivateFields(originalObject, visited, cloneObject, typeToReflect.BaseType);
+#pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
                 CopyFields(originalObject, visited, cloneObject, typeToReflect.BaseType, BindingFlags.Instance | BindingFlags.NonPublic, info => info.IsPrivate);
+#pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
             }
         }
 
-        private static void CopyFields(object originalObject, IDictionary<object, object> visited, object cloneObject, Type typeToReflect, BindingFlags bindingFlags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.FlattenHierarchy, Func<FieldInfo, bool> filter = null)
+        private static void CopyFields(object originalObject, IDictionary<object, object> visited, object cloneObject, Type typeToReflect,
+#pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
+            BindingFlags bindingFlags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.FlattenHierarchy, Func<FieldInfo, bool> filter = null)
+#pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
         {
             foreach (FieldInfo fieldInfo in typeToReflect.GetFields(bindingFlags))
             {
-                if (filter != null && filter(fieldInfo) == false) continue;
+                if (filter != null && !filter(fieldInfo)) continue;
                 if (IsPrimitive(fieldInfo.FieldType)) continue;
                 var originalFieldValue = fieldInfo.GetValue(originalObject);
                 var clonedFieldValue = InternalCopy(originalFieldValue, visited);
                 fieldInfo.SetValue(cloneObject, clonedFieldValue);
             }
         }
+
+        public static object DeepCopy(this object originalObject)
+        {
+            return InternalCopy(originalObject, new Dictionary<object, object>(new ReferenceEqualityComparer()));
+        }
+
         public static T DeepCopy<T>(this T original)
         {
             if (original is UnityEngine.Object)
             {
-                throw new Exception("use Object.Instantiate on Unity objects");
+                throw new ArgumentException("The object being copied is a UnityEngine.Object. Use Object.Instantiate to copy Unity objects.", nameof(original));
             }
 
-            return (T)DeepCopy((Object)original);
+            return (T)DeepCopy((object)original);
         }
     }
 
-    public class ReferenceEqualityComparer : EqualityComparer<Object>
+    public class ReferenceEqualityComparer : EqualityComparer<object>
     {
         public override bool Equals(object x, object y)
         {
             return ReferenceEquals(x, y);
         }
+
         public override int GetHashCode(object obj)
         {
             if (obj == null) return 0;

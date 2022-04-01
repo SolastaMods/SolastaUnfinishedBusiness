@@ -4,16 +4,14 @@ using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
-//******************************************************************************************
-// BY DEFINITION, REFACTORING REQUIRES CONFIRMING EXTERNAL BEHAVIOUR DOES NOT CHANGE
-// "REFACTORING WITHOUT TESTS IS JUST CHANGING STUFF"
-//******************************************************************************************
+
 namespace SolastaCommunityExpansion.Monsters
 {
+#pragma warning disable S101 // Types should be named in PascalCase
     internal static class MonstersSRD
+#pragma warning restore S101 // Types should be named in PascalCase
     {
-
-        public static List<Models.MonsterContext.CustomMonster> Definitions = new List<Models.MonsterContext.CustomMonster>()
+        public static readonly List<Models.MonsterContext.CustomMonster> Definitions = new()
         {
             new Models.MonsterContext.CustomMonster()
             {
