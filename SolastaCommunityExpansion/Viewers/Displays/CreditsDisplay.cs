@@ -23,8 +23,9 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             { "Dreadmaker", "Circle of the Forest Guardian subclass" },
             { "Narria", "modKit creator, developer" },
             { "Spacehamster", "dataminer" },
-            { "Holic75", "pact magic slots idea, Warlock class sprite, Gnome race sprite" },
-            { "sinai-dev", "Unity Explorer UI standalone" }
+            { "Holic75", "pact magic slots, Warlock class sprite, Gnome race" },
+            { "sinai-dev", "Unity Explorer UI standalone" },
+            { "Burtsev-Alexey", "deep copy algorithm" }
         };
 
         internal static void DisplayCredits()

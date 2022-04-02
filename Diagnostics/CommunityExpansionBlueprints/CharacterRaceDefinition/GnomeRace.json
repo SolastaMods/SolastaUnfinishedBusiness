@@ -1,0 +1,248 @@
+{
+  "$type": "CharacterRaceDefinition, Assembly-CSharp",
+  "sizeDefinition": "Definition:Small:79feb0e022c48a7419b88b88e49218d2",
+  "defaultAlignement": "Neutral",
+  "dualSex": true,
+  "minimalAge": 350,
+  "maximalAge": 99,
+  "baseHeight": 47,
+  "baseWeight": 35,
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MoveModeMove5:39236d1a5cbaf114d96e2709eb817529",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierGnomeAbilityScoreSet:b239a9b0-f964-48b4-8958-a631ee3d6178",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:GnomeCunningFeature:8804963d-8214-480a-be62-98a5652f69e5",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:GnomeNaturalIllusionist:bfb1b55f-dbce-49b7-b76d-5b5b3c4fe992",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyGnomishLanguages:c497f363-c5d9-4255-9549-2db054976361",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierGnomeAbilityScoreIncrease:b1475c33-f9ba-4224-b4b1-a55621f4dcd1",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierForestGnomeAbilityScoreIncrease:b7f18e2f-532f-46bf-96d2-f3612026295f",
+      "level": 1
+    }
+  ],
+  "subRaces": [],
+  "inventoryDefinition": "Definition:HumanoidInventory:2a836ff45f2eb274eb079425509421ac",
+  "personalityFlagOccurences": [
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 30,
+      "personalityFlag": "HumanFlag"
+    }
+  ],
+  "languageAutolearnPreference": [
+    "Language_Dwarvish",
+    "Language_Halfling",
+    "Language_Elvish"
+  ],
+  "audioSwitches": [],
+  "audioRaceRTPCValue": 6.0,
+  "racePresentation": {
+    "$type": "RacePresentation, Assembly-CSharp",
+    "bodyAssetPrefix": "Elf",
+    "morphotypeAssetPrefix": "Elf",
+    "maleNameOptions": [
+      "Race/&HalflingMaleName1Title",
+      "Race/&HalflingMaleName2Title",
+      "Race/&HalflingMaleName3Title",
+      "Race/&HalflingMaleName4Title",
+      "Race/&HalflingMaleName5Title",
+      "Race/&HalflingMaleName6Title"
+    ],
+    "femaleNameOptions": [
+      "Race/&HalflingFemaleName1Title",
+      "Race/&HalflingFemaleName2Title",
+      "Race/&HalflingFemaleName3Title",
+      "Race/&HalflingFemaleName4Title",
+      "Race/&HalflingFemaleName5Title",
+      "Race/&HalflingFemaleName6Title",
+      "Race/&HalflingFemaleName7Title"
+    ],
+    "hasSurName": true,
+    "surNameTitle": "Race/&HalflingSurNameTitle",
+    "surNameOptions": [
+      "Race/&HalflingSurName1Title",
+      "Race/&HalflingSurName2Title",
+      "Race/&HalflingSurName3Title",
+      "Race/&HalflingSurName4Title",
+      "Race/&HalflingSurName5Title",
+      "Race/&HalflingSurName6Title"
+    ],
+    "needBeard": false,
+    "canModifyMusculature": false,
+    "originOptions": [
+      "Origin_NonHuman"
+    ],
+    "maleFaceShapeOptions": [
+      "FaceShape_D",
+      "FaceShape_E",
+      "FaceShape_F",
+      "FaceShape_A",
+      "FaceShape_B",
+      "FaceShape_C",
+      "FaceShape_NPC_Priest_of_Maraike",
+      "FaceShape_NPC_Wilf_Warmhearth",
+      "FaceShape_NPC_Renno_Highwater",
+      "FaceShape_NPC_Hanno_Mudstrider",
+      "FaceShape_NPC_Krim_Sunsail"
+    ],
+    "femaleFaceShapeOptions": [
+      "FaceShape_D",
+      "FaceShape_E",
+      "FaceShape_F",
+      "FaceShape_A",
+      "FaceShape_B",
+      "FaceShape_C",
+      "FaceShape_NPC_Annie_Bagmordah",
+      "FaceShape_NPC_Mildred_Warmhearth",
+      "FaceShape_NPC_Maddy_Greenisle",
+      "FaceShape_NPC_Rose_Fairwind"
+    ],
+    "maleHairShapeOptions": [
+      "HairShape_A",
+      "HairShape_B",
+      "HairShape_C",
+      "HairShape_E",
+      "HairShape_K",
+      "HairShape_L",
+      "HairShape_M",
+      "HairShape_H",
+      "HairShape_I",
+      "HairShape_J",
+      "HairShape_N",
+      "HairShape_P",
+      "HairShape_O",
+      "HairShape_Q",
+      "HairShape_R",
+      "HairShape_S",
+      "HairShape_U",
+      "HairShape_V",
+      "HairShape_W",
+      "HairShape_X",
+      "HairShape_Y",
+      "HairShape_Z",
+      "HairShape_AA",
+      "HairShape_F",
+      "HairShape_G",
+      "HairShape_None"
+    ],
+    "femaleHairShapeOptions": [
+      "HairShape_A",
+      "HairShape_B",
+      "HairShape_C",
+      "HairShape_D",
+      "HairShape_E",
+      "HairShape_F",
+      "HairShape_K",
+      "HairShape_L",
+      "HairShape_M",
+      "HairShape_H",
+      "HairShape_I",
+      "HairShape_J",
+      "HairShape_N",
+      "HairShape_O",
+      "HairShape_P",
+      "HairShape_Q",
+      "HairShape_R",
+      "HairShape_S",
+      "HairShape_U",
+      "HairShape_V",
+      "HairShape_W",
+      "HairShape_Y",
+      "HairShape_Z",
+      "HairShape_AA",
+      "HairShape_G",
+      "HairShape_None"
+    ],
+    "maleBeardShapeOptions": [
+      "BeardShape_None",
+      "BeardShape_C",
+      "BeardShape_H",
+      "BeardShape_I",
+      "BeardShape_J",
+      "BeardShape_K",
+      "BeardShape_L",
+      "BeardShape_O",
+      "BeardShape_P"
+    ],
+    "equipmentLayoutPath": "Gui/Prefabs/Equipment/MediumHeroEquipmentLayout",
+    "maleVoiceDefinition": "NEUTRAL1",
+    "femaleVoiceDefinition": "FEM2",
+    "portraitShieldOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.02,
+      "y": 0.08,
+      "z": 0.0
+    },
+    "preferedSkinColors": {
+      "$type": "TA.RangedInt, Assembly-CSharp",
+      "minValue": 1,
+      "maxValue": 15
+    },
+    "preferedHairColors": {
+      "$type": "TA.RangedInt, Assembly-CSharp",
+      "minValue": 26,
+      "maxValue": 47
+    }
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Race/&ForestGnomeTitle",
+    "description": "Race/&ForestGnomeDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "e7e3229e8053586ab3051c307493582a",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "ce63140e-c018-4f83-8e6e-bc7bbc815a17",
+  "contentPack": 9999,
+  "name": "GnomeRace"
+}
