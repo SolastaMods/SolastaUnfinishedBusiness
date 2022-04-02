@@ -7,43 +7,35 @@ using static SolastaCommunityExpansion.Models.CharacterExportContext;
 namespace SolastaCommunityExpansion.Patches.CharacterExport
 {
     // uses this patch to offer an input field when in the context of character export which is set if message content equals to \n\n\n
-
-    [HarmonyPatch(typeof(MessageModal), "Show")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class MessageModal_Show
-    {
-        internal static void Postfix(string content, GuiLabel ___contentLabel)
-        {
-            if (Main.Settings.EnableCharacterExport && content == INPUT_MODAL_MARK)
-            {
-                // add this check here to avoid a restart required on this UI toggle
-                if (InputField == null)
-                {
-                    Load();
-                }
-
-                InputField.gameObject.SetActive(true);
-                InputField.ActivateInputField();
-                InputField.text = string.Empty;
-                ___contentLabel.TMP_Text.alignment = TextAlignmentOptions.BottomLeft;
-            }
-            else if (InputField != null)
-            {
-                InputField.gameObject.SetActive(false);
-            }
-        }
-    }
-
     [HarmonyPatch(typeof(MessageModal), "OnEndShow")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class MessageModal_OnEndShow
     {
-        internal static void Postfix()
+        internal static void Postfix(GuiLabel ___contentLabel)
         {
-            if (Main.Settings.EnableCharacterExport && InputField != null && InputField.IsActive())
+            if (!Main.Settings.EnableCharacterExport || ___contentLabel.Text != INPUT_MODAL_MARK)
             {
-                EventSystem.current.SetSelectedGameObject(InputField.gameObject);
+                if (InputField != null)
+                {
+                    InputField.gameObject.SetActive(false);
+                }
+
+                return;
             }
+
+            // add this check here to avoid a restart required on this UI toggle
+            if (InputField == null)
+            {
+                Load();
+            }
+
+            ___contentLabel.TMP_Text.alignment = TextAlignmentOptions.BottomLeft;
+
+            InputField.gameObject.SetActive(true);
+            InputField.ActivateInputField();
+            InputField.text = string.Empty;
+
+            EventSystem.current.SetSelectedGameObject(InputField.gameObject);
         }
     }
 }

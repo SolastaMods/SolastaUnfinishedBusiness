@@ -34,13 +34,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = Main.Settings.UnleashNpcAsEnemy;
-            if (UI.Toggle("Unleash NPCs as enemies " + "[press ".italic().yellow() + "CTRL".italic().cyan() + " while clicking Select on gadget panel]".italic().yellow(), ref toggle))
+            if (UI.Toggle("Allow NPCs to be selected on monster gadgets " + "[press ".italic().yellow() + "CTRL".italic().cyan() + " while clicking Select on gadget panel]".italic().yellow(), ref toggle))
             {
                 Main.Settings.UnleashNpcAsEnemy = toggle;
             }
 
             toggle = Main.Settings.UnleashEnemyAsNpc;
-            if (UI.Toggle("Unleash enemies as NPCs " + "[press ".italic().yellow() + "CTRL".italic().cyan() + " while clicking Select on gadget panel]".italic().yellow(), ref toggle))
+            if (UI.Toggle("Allow Monsters to be selected on NPC gadgets " + "[press ".italic().yellow() + "CTRL".italic().cyan() + " while clicking Select on gadget panel]".italic().yellow(), ref toggle))
             {
                 Main.Settings.UnleashEnemyAsNpc = toggle;
             }

@@ -261,6 +261,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     ItemOptionsContext.SwitchRestockTowerOfKnowledge();
                 }
             }
+
+            UI.Label("");
         }
     }
 }

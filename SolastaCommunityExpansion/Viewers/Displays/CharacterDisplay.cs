@@ -116,7 +116,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = Main.Settings.EnableAdditionalBackstoryDisplay;
-            if (UI.Toggle("Enable additional backstory display in the chararacter inspection panel", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enable additional backstory display in the character inspection panel", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableAdditionalBackstoryDisplay = toggle;
             }
