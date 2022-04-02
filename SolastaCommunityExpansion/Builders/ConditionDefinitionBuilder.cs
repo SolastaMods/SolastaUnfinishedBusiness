@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
@@ -126,8 +127,7 @@ namespace SolastaCommunityExpansion.Builders
 
         public TBuilder SetFeatures(params FeatureDefinition[] value)
         {
-            Definition.SetFeatures(value);
-            return This();
+            return SetFeatures(value.AsEnumerable());
         }
 
         public TBuilder SetAdditionalDamageData(RuleDefinitions.DieType dieType, int numberOfDie, ConditionDefinition.DamageQuantity damageQuantity, bool additionalDamageWhenHit)

@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Reflection;
+using System.Linq;
 using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders
@@ -76,7 +76,8 @@ namespace SolastaCommunityExpansion.Builders
         {
             Definition.FeatureUnlocks.Clear();
 
-            foreach (var (featureDefinition, level) in featuresByLevel)
+            // sort to add to list in determistic order
+            foreach (var (featureDefinition, level) in featuresByLevel.OrderBy(f => f.featureDefinition.Name))
             {
                 Definition.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureDefinition, level));
             }

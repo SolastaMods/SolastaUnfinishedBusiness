@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionProficiencys;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 {
@@ -13,8 +14,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             .Create("AHWarlockSubclassSoulBladePact", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Subclass, DatabaseHelper.CharacterSubclassDefinitions.OathOfTheMotherland.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(AHWarlockSoulBladePactExtendedSpellListMagicAffinityBuilder.AHSoulBladeSpellList, 1) // Extra Soulblade spells
-            .AddFeatureAtLevel(DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyFighterWeapon, 1) // Martial weapons
-            .AddFeatureAtLevel(DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyClericArmor, 1) // Medium armor and shield
+            .AddFeatureAtLevel(ProficiencyFighterWeapon, 1) // Martial weapons
+            .AddFeatureAtLevel(ProficiencyClericArmor, 1) // Medium armor and shield
             .AddFeatureAtLevel(AHWarlockSoulBladePactEmpowerWeaponPowerBuilder.AHWarlockSoulBladePactEmpowerWeaponPower, 1) //Feature to rival hexblade curse
             .AddFeatureAtLevel(SoulBladeSummonPactWeaponPowerBuilder.SummonPactWeaponPower, 6)
             .AddFeatureAtLevel(AHWarlockSoulBladePactSoulShieldPowerBuilder.AHWarlockSoulBladePactSoulShieldPower, 10)
@@ -32,7 +33,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             Definition.GuiPresentation.Description = "Feature/&AHWarlockSoulBladePactSpellListDescription";
             Definition.SpellsByLevel.Clear();
             Definition.SetMaxSpellLevel(5);
-
 
             //Seems to need a blank cantrip list?
             Definition.SpellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet()
