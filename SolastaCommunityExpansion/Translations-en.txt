@@ -697,7 +697,7 @@ Feature/&AHWarlockFiendPactDarkOnesBlessingPowerDescription	Starting at 1st leve
 Feature/&AHWarlockFiendPactDarkOnesBlessingPowerTitle	Dark one's blessing
 Feature/&AHWarlockFiendPactDarkOnesOwnLuckDescription	You gain an indomitable use once per day (Choice to re-roll saving throw if you fail). (Doesn't match SRD but would require a whole new reaction ability to emulate the SRD).
 Feature/&AHWarlockFiendPactDarkOnesOwnLuckTitle	Dark One's Own Luck
-Feature/&AHWarlockFiendPactExtendedSpellListDescription	The Fiend lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you. \n1st Burning hands, Bane \n2nd Blindness, Scorching Ray\n3rd Fireball, Stinking Cloud \n4th Fire Shield, Wall of Fire \n5th Flame Strike, Conjure Elemental Fire
+Feature/&AHWarlockFiendPactExtendedSpellListDescription	The Fiend lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you. \nLevel 1: Burning hands, Bane \nLevel 2: Blindness, Scorching Ray\nLevel 3: Fireball, Stinking Cloud \nLevel 4: Fire Shield, Wall of Fire \nLevel 5: Flame Strike, Conjure Elemental Fire
 Feature/&AHWarlockFiendPactExtendedSpellListTitle	Fiend expanded spell list
 Feature/&AHWarlockFiendPactFiendishResilienceDescription	You gain resistance to fire damage. (Not same as SRD - I believe the proper implementation would require a power for every damage type with a shared resource pool as there doesn't seem to be a way to group power choices like spells right now).
 Feature/&AHWarlockFiendPactFiendishResilienceTitle	Fiendish Resilience
@@ -705,11 +705,11 @@ Feature/&AHWarlockFiendPactSpellListDescription	The Fiend lets you choose from a
 Feature/&AHWarlockFiendPactSpellListTitle	Fiend expanded spell list
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerDescription	Once per short rest you can empower a weapon with the power of souls for one minute, your weapon lights up for 20ft of bright light and 20ft of dim light and you add your charisma to your to hit. Additionally all your attacks add your proficiency bonus in damage for the duration.
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle	Soul Empower
-Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	The Soul blade lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you. \n1st Shield, False life\n2nd Blur, Branding Smite \n3rd Haste, Slow \n4th Phantasmal Killer, Black Tentacles \n5th Cone of Cold, Mind Twist
+Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	The Soul blade lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you. \nLevel 1: Shield, False life\nLevel 2: Blur, Branding Smite \nLevel 3: Haste, Slow \nLevel 4: Phantasmal Killer, Black Tentacles \nLevel 5: Cone of Cold, Mind Twist
 Feature/&AHWarlockSoulBladePactExtendedSpellListTitle	Soulblade Spells
 Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Once per short rest you use the power of souls to defend yourself. Using a bonus action you gain temp hp equal to your level + charisma modifier.
 Feature/&AHWarlockSoulBladePactSoulShieldPowerTitle	Soul shield
-Feature/&AHWarlockSoulBladePactSpellListDescription	The Soul blade lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you. \n1st Shield, False life\n2nd Blur, Branding Smite \n3rd Haste, Slow \n4th Phantasmal Killer, Black Tentacles \n5th Cone of Cold, Mind Twist
+Feature/&AHWarlockSoulBladePactSpellListDescription	The Soul blade lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you. \nLevel 1: Shield, False life\nLevel 2: Blur, Branding Smite \nLevel 3: Haste, Slow \nLevel 4: Phantasmal Killer, Black Tentacles \nLevel 5: Cone of Cold, Mind Twist
 Feature/&AHWarlockSoulBladePactSpellListTitle	Soul blade expanded spell list
 Feature/&AlwaysBeardDescription	{0}% chances to grow a glorious beard!
 Feature/&AncientForestExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: \n Level 1: Goodberry, Entangle \n Level 2: Barkskin, Spike Growth\n Level 3: Mass Healing Word,Vampiric Touch \n Level 4: Blight, Greater Restoration \n Level 5: Contagion,Raise Dead
@@ -1604,7 +1604,7 @@ Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription	Can perceiv
 Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionTitle	Invisibility Sight
 Subclass/&BarbarianPathOfTheLightTitle	Path of the Light
 Subclass/&BloodWitchDescription	Forbidden by most witch covens, blood magic centers on the use of dark spells and mortal hexes that draw from the spellcaster's very essence. It is fundamentally more perilous than other witch crafts, but its many risks come with copious rewards.
-Subclass/&BloodWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known. \n\nLevel Spells\n1st Entangle, Goodberry\n2nd Barkskin, Protection from Poison\n3rd Conjure Animals, Create Food\n4th Giant Insect, Stoneskin\n5th Dispel Evil and Good, Insect Plague
+Subclass/&BloodWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known. \n\nLevel Spells\nLevel 1: Entangle, Goodberry\nLevel 2: Barkskin, Protection from Poison\nLevel 3: Conjure Animals, Create Food\nLevel 4: Giant Insect, Stoneskin\nLevel 5: Dispel Evil and Good, Insect Plague
 Subclass/&BloodWitchMagicTitle	Blood Magic
 Subclass/&BloodWitchTitle	Blood Witch
 Subclass/&CancelCancelElixirFlyDescription	End the Fly condition from the Potion Maker Elixir.
@@ -1642,7 +1642,7 @@ Subclass/&FighterSpellShieldSpellResistanceDescription	Your experience with spel
 Subclass/&FighterSpellShieldSpellResistanceTitle	Spell Resistance
 Subclass/&FighterSpellShieldTitle	Spell Shield
 Subclass/&GreenWitchDescription	Plants, nature, and things that grow are the domain of green magic. Normally a type of arcana championed by druids, some witches have a close tie to the powers of green magic, and can coax plants and animals into their bidding.
-Subclass/&GreenWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known. \n\nLevel Spells\n1st Entangle, Goodberry\n2nd Barkskin, Protection from Poison\n3rd Conjure Animals, Create Food\n4th Giant Insect, Stoneskin\n5th Dispel Evil and Good, Insect Plague
+Subclass/&GreenWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known. \n\nLevel Spells\nLevel 1: Entangle, Goodberry\nLevel 2: Barkskin, Protection from Poison\nLevel 3: Conjure Animals, Create Food\nLevel 4: Giant Insect, Stoneskin\nLevel 5: Dispel Evil and Good, Insect Plague
 Subclass/&GreenWitchMagicTitle	Green Magic
 Subclass/&GreenWitchTitle	Green Witch
 Subclass/&HArtilleryIncreaseDescription	ArtilleryPool Increase
@@ -1735,13 +1735,13 @@ Subclass/&PowerTransmuteHealTitle	Heal
 Subclass/&PowerTransmuteReviveDescription	Use your Transmute Force to revive a character (within 1 minute of them dying).
 Subclass/&PowerTransmuteReviveTitle	Revive
 Subclass/&PurpleWitchDescription	Purple magic holds sway over the domains of illusions and enchantments that take hold over people's minds, and anything that is not quite as it seems. Practitioners of this form of magic are puppet masters, shaping the apparent reality of those around them to their advantage.
-Subclass/&PurpleWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known. \n\nLevel Spells\n1st Entangle, Goodberry\n2nd Barkskin, Protection from Poison\n3rd Conjure Animals, Create Food\n4th Giant Insect, Stoneskin\n5th Dispel Evil and Good, Insect Plague
+Subclass/&PurpleWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known. \n\nLevel Spells\nLevel 1: Entangle, Goodberry\nLevel 2: Barkskin, Protection from Poison\nLevel 3: Conjure Animals, Create Food\nLevel 4: Giant Insect, Stoneskin\nLevel 5: Dispel Evil and Good, Insect Plague
 Subclass/&PurpleWitchMagicTitle	Purple Magic
 Subclass/&PurpleWitchTitle	Purple Witch
 Subclass/&RangerArcanistRangerSubclassDescription	The Ranger Arcanist melds their ranger skills with arcane abilities. Their weapons can afflict their opponents with the Arcanist's Mark, and have learned how to cast some Wizard spells as part of their Ranger spell repertoire.
 Subclass/&RangerArcanistRangerSubclassTitle	Ranger Arcanist
 Subclass/&RedWitchDescription	Arcane magic tied to channeling the elements is deemed red magic, and is extremely hazardous when used. Witches that specialize in red magic are among the deadliest spellcasters in existence, channeling their curse into unhindered arcane wrath.
-Subclass/&RedWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known. \n\nLevel Spells\n1st Burning Hands, Magic Missile\n2nd Acid Arrow, Scorching Ray\n3rd Fireball, Protection From Energy\n4th Ice Storm, Wall of Fire\n5th Cone of Cold, Mind Twist
+Subclass/&RedWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known. \n\nLevel Spells\nLevel 1: Burning Hands, Magic Missile\nLevel 2: Acid Arrow, Scorching Ray\nLevel 3: Fireball, Protection From Energy\nLevel 4: Ice Storm, Wall of Fire\nLevel 5: Cone of Cold, Mind Twist
 Subclass/&RedWitchMagicTitle	Red Magic
 Subclass/&RedWitchTitle	Red Witch
 Subclass/&RoguishConArtistDescription	Con Artists are rogues that specialize in deception and tricking others. They use magic to aid their natural manipulative abilities.
@@ -1797,7 +1797,7 @@ Subclass/&WeaponProfArcaneFighterTitle	Weapon Training
 Subclass/&WeaponProfArtificerBattleSmithDescription	Experience in combat has given the Weapon Smith training in Martial Weapons
 Subclass/&WeaponProfArtificerBattleSmithTitle	Weapon Training
 Subclass/&WhiteWitchDescription	White magic is fundamentally good and benevolent for all living things. Witches that adopt this craft, in spite of the hateful curse that infects them, often dedicate themselves to healing and caretaking, with the intent of bettering the world.
-Subclass/&WhiteWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known. \n\nLevel Spells\n1st Bless, Cure Wounds\n2nd Lesser Restoration, Prayer of Healing\n3rd Beacon of Hope, Revivify\n4th Death Ward, Guardian of Faith\n5th Mass Cure Wounds, Raise Dead
+Subclass/&WhiteWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known. \n\nLevel Spells\nLevel 1: Bless, Cure Wounds\nLevel 2: Lesser Restoration, Prayer of Healing\nLevel 3: Beacon of Hope, Revivify\nLevel 4: Death Ward, Guardian of Faith\nLevel 5: Mass Cure Wounds, Raise Dead
 Subclass/&WhiteWitchMagicTitle	White Magic
 Subclass/&WhiteWitchTitle	White Witch
 Subclass/&WitchSubclassPathDescription	Your knowledge of magic has culminated in joining a Coven, an innate circle of Witches who delve down a specific path of witchdom and curses.
