@@ -5,18 +5,23 @@
   "spellsByLevel": [
     {
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 0,
+      "spells": []
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 1,
       "spells": [
-        "Definition:Thunderwave:6c670662de0366842bca44119e9104da",
-        "Definition:FogCloud:c0914cf3ec2124242b9f64d267e94c17"
+        "Definition:FogCloud:c0914cf3ec2124242b9f64d267e94c17",
+        "Definition:Thunderwave:6c670662de0366842bca44119e9104da"
       ]
     },
     {
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 2,
       "spells": [
-        "Definition:SpikeGrowth:489c8aa040535444da10a267213ee7dc",
-        "Definition:ScorchingRay:2196d4d1af65ab8469bcb2b382014a58"
+        "Definition:ScorchingRay:2196d4d1af65ab8469bcb2b382014a58",
+        "Definition:SpikeGrowth:489c8aa040535444da10a267213ee7dc"
       ]
     },
     {
@@ -31,9 +36,9 @@
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 4,
       "spells": [
-        "Definition:Stoneskin:9040c4fcd7301184f8772720f716a837",
+        "Definition:ConjureMinorElementals:d90fff57665a51c4faf587eb54f3e001",
         "Definition:IceStorm:433fb934e19f1b5409b89bfa7fed3e3d",
-        "Definition:ConjureMinorElementals:d90fff57665a51c4faf587eb54f3e001"
+        "Definition:Stoneskin:9040c4fcd7301184f8772720f716a837"
       ]
     },
     {
@@ -41,9 +46,29 @@
       "level": 5,
       "spells": [
         "Definition:ConeOfCold:4014172b09c7b0347911d81077d7ba0c",
-        "Definition:FlameStrike:e165a70c93c4985449e51d32117c2ddf",
-        "Definition:ConjureElemental:7b1c584f8e18f6a4194eba7bc80d3643"
+        "Definition:ConjureElemental:7b1c584f8e18f6a4194eba7bc80d3643",
+        "Definition:FlameStrike:e165a70c93c4985449e51d32117c2ddf"
       ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 6,
+      "spells": []
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 7,
+      "spells": []
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 8,
+      "spells": []
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 9,
+      "spells": []
     }
   ],
   "guiPresentation": {

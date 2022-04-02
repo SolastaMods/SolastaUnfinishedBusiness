@@ -3,22 +3,22 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ToadKingCroak:8cbe866a-1e48-5814-85d8-137cc9040671",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ToadKingExpandedSpelllistAfinity:75e80fd4-040d-59cb-9e50-5fd7cc6e3461",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ToadKingBasicToxin:5f61bc99-d0e9-5411-933b-28820be8dd64",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencyRoguishDarkweaver:a0db1027558e45e4391e04fda7b1bb93",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ToadKingCroak:8cbe866a-1e48-5814-85d8-137cc9040671",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ToadKingExpandedSpelllistAfinity:75e80fd4-040d-59cb-9e50-5fd7cc6e3461",
       "level": 1
     },
     {

@@ -7,10 +7,10 @@
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 0,
       "spells": [
-        "Definition:DHEldritchBlast:e8267b9e-2d34-5ffd-ab0d-9a79caea538e",
         "Definition:AnnoyingBee:d380ed36cd287394d8ddc88115fd8fa1",
         "Definition:ChillTouch:2dffe98ad497e4b418abc947f6077fb7",
         "Definition:DancingLights:ca63de70121df1b46ae3c1f8c183f941",
+        "Definition:DHEldritchBlast:e8267b9e-2d34-5ffd-ab0d-9a79caea538e",
         "Definition:PoisonSpray:d3aec91794deb6646b41c246e57a1f1e",
         "Definition:TrueStrike:8adca77af0c221445af40629f3743ec8"
       ]
@@ -22,8 +22,8 @@
         "Definition:CharmPerson:9c98e5cba0f8b1649b3217a97cbc111b",
         "Definition:ComprehendLanguages:78c2b416e515641468aa1c384db23535",
         "Definition:ExpeditiousRetreat:3713ff85f9f53f2459ae8d7a976a24b8",
-        "Definition:ProtectionFromEvilGood:b8a59d1a01529b04893e0c440cecee39",
-        "Definition:AHPactMarkSpellBuilder:ef9a57d2-4f91-5129-830f-44a15a4e2697"
+        "Definition:AHPactMarkSpellBuilder:ef9a57d2-4f91-5129-830f-44a15a4e2697",
+        "Definition:ProtectionFromEvilGood:b8a59d1a01529b04893e0c440cecee39"
       ]
     },
     {
@@ -75,8 +75,8 @@
       "level": 6,
       "spells": [
         "Definition:CircleOfDeath:0fd4c89f6c07713499242fe6529aa816",
-        "Definition:Eyebite:ea9050011d6bef2419be7b2d59750659",
         "Definition:ConjureFey:83cdb7051d75bfe4c9a09008b28b1a91",
+        "Definition:Eyebite:ea9050011d6bef2419be7b2d59750659",
         "Definition:TrueSeeing:16c9f67d4a89cbf47baad67ecadafaa5"
       ]
     },
@@ -100,9 +100,9 @@
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 9,
       "spells": [
-        "Definition:DHWeirdSpell:b77c5b1b-902e-5957-83c1-4a496bf10f0b",
         "Definition:DHForesightSpell:9841d601-258a-51f8-bbd9-8402b69625c4",
-        "Definition:DHPowerWordKillSpell:c67eb2c8-b97f-5dbf-81a6-59ef36771413"
+        "Definition:DHPowerWordKillSpell:c67eb2c8-b97f-5dbf-81a6-59ef36771413",
+        "Definition:DHWeirdSpell:b77c5b1b-902e-5957-83c1-4a496bf10f0b"
       ]
     }
   ],

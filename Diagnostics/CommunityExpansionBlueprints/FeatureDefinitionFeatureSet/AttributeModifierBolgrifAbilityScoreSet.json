@@ -1,21 +1,19 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:DH_MysticArcanum11_CircleOfDeath:5ed16d9b-677f-55d5-b310-1d9a48513977",
-    "Definition:DH_MysticArcanum11_ConjureFey:be124fe7-4278-54d9-8785-8c85837bb9b1",
-    "Definition:DH_MysticArcanum11_Eyebite:c484f1b5-5859-51f3-a17d-8db1b366f4d2",
-    "Definition:DH_MysticArcanum11_TrueSeeing:47f712cb-4127-580c-a220-450d893d860f"
+    "Definition:AttributeModifierBolgrifWisdomAbilityScoreIncrease:4099c645-fc05-4ba1-833f-eabb94b865d0",
+    "Definition:AttributeModifierBolgrifStrengthAbilityScoreIncrease:7b8d459b-c1f2-4373-bc4d-5e29ea4851f3"
   ],
-  "mode": "Exclusion",
+  "mode": "Union",
   "defaultSelection": 0,
-  "uniqueChoices": true,
+  "uniqueChoices": false,
   "enumerateInDescription": false,
   "hasRacialAffinity": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&ClassWarlockMysticArcanumSetTitle",
-    "description": "Feature/&ClassWarlockMysticArcanumSetDescription",
+    "title": "Feature/&AttributeModifierBolgrifAbilityScoreSetTitle",
+    "description": "Feature/&AttributeModifierBolgrifAbilityScoreSetDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -35,7 +33,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a03cfc9b-c0dd-5b03-aaa3-403a543885c7",
+  "guid": "0a6efe74-ebcf-455c-9eb3-31741d22d3bd",
   "contentPack": 9999,
-  "name": "ClassWarlockMysticArcanumSetLevel11"
+  "name": "AttributeModifierBolgrifAbilityScoreSet"
 }

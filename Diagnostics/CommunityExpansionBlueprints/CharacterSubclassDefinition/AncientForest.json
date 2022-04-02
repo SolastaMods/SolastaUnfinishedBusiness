@@ -28,12 +28,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AncientForestLifeSap:60405a9f-11b0-542c-86a4-0809c28b54cf",
+      "featureDefinition": "Definition:HerbalBrewFeatureSet:2c043b37-b917-5e32-a5a3-9a58cb343dd5",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:HerbalBrewFeatureSet:2c043b37-b917-5e32-a5a3-9a58cb343dd5",
+      "featureDefinition": "Definition:AncientForestLifeSap:60405a9f-11b0-542c-86a4-0809c28b54cf",
       "level": 6
     },
     {

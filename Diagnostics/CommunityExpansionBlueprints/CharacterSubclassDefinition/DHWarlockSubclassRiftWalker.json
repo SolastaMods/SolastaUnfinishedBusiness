@@ -8,12 +8,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:DH_RiftWalk:f282f345-ddc3-5d4f-9b05-4151caab7e26",
+      "featureDefinition": "Definition:RiftWalkerSpellsMagicAffinity:3b445597-4773-5175-a546-7da0b2fed5fb",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:RiftWalkerSpellsMagicAffinity:3b445597-4773-5175-a546-7da0b2fed5fb",
+      "featureDefinition": "Definition:DH_RiftWalk:f282f345-ddc3-5d4f-9b05-4151caab7e26",
       "level": 1
     },
     {
@@ -28,12 +28,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:DH_RiftControl:84fe358f-4719-5e86-99b1-58995b79ac5f",
+      "featureDefinition": "Definition:DH_FadeIntoTheVoid:62be4831-2c55-514b-ac3a-371ac7a7da1f",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:DH_FadeIntoTheVoid:62be4831-2c55-514b-ac3a-371ac7a7da1f",
+      "featureDefinition": "Definition:DH_RiftControl:84fe358f-4719-5e86-99b1-58995b79ac5f",
       "level": 10
     },
     {
