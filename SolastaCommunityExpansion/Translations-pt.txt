@@ -379,10 +379,10 @@ Feat/&ArtilleristSubclassSpellsTitle	Aprenda feitiços de blaster
 Feat/&ArtilleryConstructDescription	Pode danificar ou proteger aliados
 Feat/&ArtilleryConstructLevel03AutopreparedSpellsDescription	Truques: Construir Remendar, Construir Dispensar\nNível 1: Retomar Construto de Artilharia
 Feat/&ArtilleryConstructLevel03AutopreparedSpellsTitle	Construir Feitiços
-Feat/&ArtilleryConstructLevel09AutopreparedSpellsDescription\t 
-Feat/&ArtilleryConstructLevel09AutopreparedSpellsTitle\t 
-Feat/&ArtilleryConstructLevel15AutopreparedSpellsDescription\t 
-Feat/&ArtilleryConstructLevel15AutopreparedSpellsTitle\t 
+Feat/&ArtilleryConstructLevel09AutopreparedSpellsDescription	Construir Feitiços
+Feat/&ArtilleryConstructLevel09AutopreparedSpellsTitle	Construir Feitiços
+Feat/&ArtilleryConstructLevel15AutopreparedSpellsDescription	Construir Feitiços
+Feat/&ArtilleryConstructLevel15AutopreparedSpellsTitle	Construir Feitiços
 Feat/&ArtilleryConstructTitle	Construção de Artilharia
 Feat/&ArtilleryConstructTitle_3	Construção de Artilharia
 Feat/&ArtilleryConstructTitle_5	Construção de Artilharia
@@ -628,13 +628,13 @@ Feat/&ResummonArtilleryConstructDescription	Este feitiço permite que o funileir
 Feat/&RetributionDescription	Dano de construção 1D4 + Int quando atacado
 Feat/&RetributionTitle	Retribuição
 Feat/&ScoutSentinelFeatureSet_level03Description	<size=17><color=#add8e6ff>Aprenda os Feitiços de Sentinela de Escoteiro</color></size>\nNível 3: Míssil Mágico, Thunderwave\nNível 5: Blur, Shatter\nNível 9: Relâmpago, Padrão Hipnótico\nNível 13: Escudo de Fogo, Maior Invisibilidade\nNível 17: Porta Dimensional, Muralha de Vento, Muralha de Fogo\n\n<size=17><color=#add8e6ff>Várias funções de armadura</color></size>\nVocê pode alternar entre os modos de função uma vez por dia criando e usando armas temporárias\n\n<size=17><color=#add8e6ff>Modo Sentinela</color></size>\nGanhe um número limitado de HP temporário com base no nível. Impor desvantagem em inimigos atacando aliados\n\n<size=17><color=#add8e6ff>Modo Explorador</color></size>\nGanhe movimento aumentado, vantagem furtiva e um ataque à distância que causa um dado extra de dano uma vez por turno.\n\n<size=17><color=#add8e6ff>Recursos</color></size>\nVocê pode usar as armas da armadura como um foco de conjuração para seus feitiços\nArmadura Pesada não tem um requisito de força\nVocê ganha proficiência em ferramentas de ferreiro e armaduras pesadas
-Feat/&ScoutSentinelFeatureSet_level03Title\t 
+Feat/&ScoutSentinelFeatureSet_level03Title	Sentinela Escoteira
 Feat/&ScoutSentinelFeatureSet_level05Description	<size=17><color=#add8e6ff>Ataque Extra</color></size>\nVocê pode atacar mais uma vez, por turno de combate, quando usar as ações de ataque ou empurrão
-Feat/&ScoutSentinelFeatureSet_level05Title\t 
+Feat/&ScoutSentinelFeatureSet_level05Title	Sentinela Escoteira
 Feat/&ScoutSentinelFeatureSet_level09Description	<size=17><color=#add8e6ff>Slots de infusão extra</color></size>\nVocê ganha slots de infusão extras, deve ser usado em armaduras
-Feat/&ScoutSentinelFeatureSet_level09Title\t 
+Feat/&ScoutSentinelFeatureSet_level09Title	Sentinela Escoteira
 Feat/&ScoutSentinelFeatureSet_level15Description	<size=17><color=#add8e6ff>Modo Sentinela Aprimorado</color></size>\nAgora pode puxar os inimigos para o alcance corpo a corpo com uma ação bônus e causar 1D8 de dano trovejante através do poder Gauntlet Grapple\n\n<size=17><color=#add8e6ff>Modo Explorador Aprimorado</color></size>\nAgora pode criar vantagem para aliados e desvantagem para inimigos com um único ataque
-Feat/&ScoutSentinelFeatureSet_level15Title\t 
+Feat/&ScoutSentinelFeatureSet_level15Title	Sentinela Escoteira
 Feat/&SelfDestructDescription	Autodestruir e forçar um teste de resistência de Dex para 3D8 de dano de força dentro de 10 pés
 Feat/&SelfDestructTitle	Auto-destruição
 Feat/&SelfRepairDescription	Cure 2D8 HP, 3 vezes por dia
@@ -697,22 +697,22 @@ Feature/&AHWarlockFiendPactDarkOnesBlessingPowerDescription	A partir do 1º nív
 Feature/&AHWarlockFiendPactDarkOnesBlessingPowerTitle	A bênção do escuro
 Feature/&AHWarlockFiendPactDarkOnesOwnLuckDescription	Você ganha um uso indomável uma vez por dia (escolha rolar novamente o teste de resistência se você falhar). (Não corresponde ao SRD, mas exigiria uma capacidade de reação totalmente nova para emular o SRD).
 Feature/&AHWarlockFiendPactDarkOnesOwnLuckTitle	A própria sorte das trevas
-Feature/&AHWarlockFiendPactExtendedSpellListDescription	The Fiend permite que você escolha de uma lista expandida de feitiços quando você aprende um feitiço de feiticeiro. As seguintes magias são adicionadas à lista de magias de bruxo para você.\n1ª Mãos ardentes, Bane\n2ª Cegueira, Raio Ardente\n3ª Bola de Fogo, Nuvem Fedorenta\n4º Escudo de Fogo, Muralha de Fogo\n5º Golpe Flamejante, Conjurar Fogo Elemental
+Feature/&AHWarlockFiendPactExtendedSpellListDescription	The Fiend permite que você escolha de uma lista expandida de feitiços quando você aprende um feitiço de feiticeiro. As seguintes magias são adicionadas à lista de magias de bruxo para você.\nNível 1: Mãos ardentes, Bane\nNível 2: Cegueira, Raio Escaldante\nNível 3: Bola de Fogo, Nuvem Fedorenta\nNível 4: Escudo de Fogo, Muralha de Fogo\nNível 5: Golpe Flamejante, Conjurar Fogo Elemental
 Feature/&AHWarlockFiendPactExtendedSpellListTitle	Lista de feitiços expandida do Demônio
 Feature/&AHWarlockFiendPactFiendishResilienceDescription	Você ganha resistência a dano de fogo. (Não é o mesmo que SRD - acredito que a implementação adequada exigiria um poder para cada tipo de dano com um pool de recursos compartilhado, pois não parece haver uma maneira de agrupar opções de poder como feitiços agora).
 Feature/&AHWarlockFiendPactFiendishResilienceTitle	Resiliência Diabólica
-Feature/&AHWarlockFiendPactSpellListDescription	The Fiend permite que você escolha de uma lista expandida de feitiços quando você aprende um feitiço de feiticeiro. As seguintes magias são adicionadas à lista de magias de bruxo para você.\n1ª Mãos ardentes, Bane\n2ª Cegueira, Raio Ardente\n3ª Bola de Fogo, Nuvem Fedorenta\n4º Escudo de Fogo, Muralha de Fogo\n5º Golpe Flamejante, Conjurar Fogo Elemental
+Feature/&AHWarlockFiendPactSpellListDescription	The Fiend permite que você escolha de uma lista expandida de feitiços quando você aprende um feitiço de feiticeiro. As seguintes magias são adicionadas à lista de magias de bruxo para você.\nNível 1: Mãos ardentes, Bane\nNível 2: Cegueira, Raio Escaldante\nNível 3: Bola de Fogo, Nuvem Fedorenta\nNível 4: Escudo de Fogo, Muralha de Fogo\nNível 5: Golpe Flamejante, Conjurar Fogo Elemental
 Feature/&AHWarlockFiendPactSpellListTitle	Lista de feitiços expandida do Demônio
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerDescription	Uma vez por descanso curto, você pode fortalecer uma arma com o poder das almas por um minuto, sua arma acende por 6 metros de luz brilhante e 6 metros de luz fraca e você adiciona seu carisma ao seu golpe. Além disso, todos os seus ataques adicionam seu bônus de proficiência em dano pela duração.
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle	Capacitação da alma
-Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	A lâmina da alma permite que você escolha de uma lista expandida de feitiços quando você aprende um feitiço de feiticeiro. As seguintes magias são adicionadas à lista de magias de bruxo para você.\n1º Escudo, Vida Falsa\n2º Desfoque, Golpe de Marca\n3º Aceleração, Lento\n4º Assassino Fantasma, Tentáculos Negros\n5º Cone de Frio, Torção da Mente
+Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	A lâmina da alma permite que você escolha de uma lista expandida de feitiços quando você aprende um feitiço de feiticeiro. As seguintes magias são adicionadas à lista de magias de bruxo para você.\nNível 1: Escudo, Vida Falsa\nNível 2: Desfoque, Golpe de Marca\nNível 3: Rapidez, Lento\nNível 4: Assassino Fantasma, Tentáculos Negros\nNível 5: Cone de Frio, Torção da Mente
 Feature/&AHWarlockSoulBladePactExtendedSpellListTitle	Feitiços de lâmina da alma
 Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Uma vez por descanso curto você usa o poder das almas para se defender. Usando uma ação bônus, você ganha HP temporário igual ao seu nível + modificador de carisma.
 Feature/&AHWarlockSoulBladePactSoulShieldPowerTitle	Escudo da alma
-Feature/&AHWarlockSoulBladePactSpellListDescription	A lâmina da alma permite que você escolha de uma lista expandida de feitiços quando você aprende um feitiço de feiticeiro. As seguintes magias são adicionadas à lista de magias de bruxo para você.\n1º Escudo, Vida Falsa\n2º Desfoque, Golpe de Marca\n3º Aceleração, Lento\n4º Assassino Fantasma, Tentáculos Negros\n5º Cone de Frio, Torção da Mente
+Feature/&AHWarlockSoulBladePactSpellListDescription	A lâmina da alma permite que você escolha de uma lista expandida de feitiços quando você aprende um feitiço de feiticeiro. As seguintes magias são adicionadas à lista de magias de bruxo para você.\nNível 1: Escudo, Vida Falsa\nNível 2: Desfoque, Golpe de Marca\nNível 3: Rapidez, Lento\nNível 4: Assassino Fantasma, Tentáculos Negros\nNível 5: Cone de Frio, Torção da Mente
 Feature/&AHWarlockSoulBladePactSpellListTitle	Lista de feitiços expandida da lâmina da alma
 Feature/&AlwaysBeardDescription	{0}% de chances de crescer uma barba gloriosa!
-Feature/&AncientForestExpandedSpelllistAfinityDescription	Você escolhe a partir de uma lista expandida de magias quando aprende uma magia de bruxo. Os seguintes feitiços são adicionados à lista de feitiços de bruxo para você:\n 1º: Goodberry, Emaranhado\n 2º: Barkskin, Spike Growth\n 3º: Palavra de Cura em Massa, Toque Vampírico\n 4º: Praga, Restauração Maior\n 5º: Contágio, Ressuscitar Mortos
+Feature/&AncientForestExpandedSpelllistAfinityDescription	Você escolhe a partir de uma lista expandida de magias quando aprende uma magia de bruxo. Os seguintes feitiços são adicionados à lista de feitiços de bruxo para você:\n Nível 1: Goodberry, Emaranhado\n Nível 2: Barkskin, Spike Growth\n Nível 3: Palavra de cura em massa, toque vampírico\n Nível 4: Praga, Restauração Maior\n Nível 5: Contágio, Ressuscitar Mortos
 Feature/&AncientForestExpandedSpelllistAfinityTitle	Feitiços da Floresta Antiga
 Feature/&AncientForestLightAffinityDescription	Você pode absorver energia da luz solar. Enquanto você estiver sob luz direta, você ganha 2 HP por rodada
 Feature/&AncientForestLightAffinityTitle	Fotossíntese
@@ -734,6 +734,8 @@ Feature/&ArtificerSpecialistArchetypesTitle	Especializações de Tinker
 Feature/&AscendantStepTitle	Passo Ascendente
 Feature/&AspectoftheMoonDescription	Você não precisa mais dormir e pode ficar de vigia, diminuindo as chances de ataque e garantindo que você esteja acordado se o acampamento for atacado.
 Feature/&AspectoftheMoonTitle	Aspecto da Lua
+Feature/&AttributeModifierBolgrifAbilityScoreSetDescription	Sabedoria +2, Força +1
+Feature/&AttributeModifierBolgrifAbilityScoreSetTitle	Aumento de atributo
 Feature/&AttributeModifierGnomeAbilityScoreSetDescription	Inteligência +2, Destreza +1
 Feature/&AttributeModifierGnomeAbilityScoreSetTitle	Aumento de atributo
 Feature/&BarbarianIndomitableMightDescription	Se seu total para um teste de Força for menor que seu valor de Força, você pode usar esse valor no lugar do total.
@@ -844,17 +846,23 @@ Feature/&EldritchMindTitle	Mente sobrenatural
 Feature/&EldritchSightTitle	Visão sobrenatural
 Feature/&EldritchSmiteDescription	Uma vez por turno, quando você acertar uma criatura com sua arma do pacto, você pode gastar um espaço de magia de bruxo para causar 1d8 de dano de força extra ao alvo, mais 1d8 por nível do espaço de magia,
 Feature/&EldritchSmiteTitle	Golpe Mágico
-Feature/&ElementalistSpellsMagicAffinityDescription	Você escolhe a partir de uma lista expandida de magias quando aprende uma magia de bruxo. Os seguintes feitiços são adicionados à lista de feitiços de bruxo para você:\n 1º: Thunderwave, Nuvem de Névoa\n 2º: Espiga de Crescimento, Raio Escaldante\n 3º: Bola de Fogo, Relâmpago\n 4º: Pele de Pedra, Tempestade de Gelo\n 5º: Cone de Frio, Golpe Flamejante
+Feature/&ElementalistSpellsMagicAffinityDescription	Você escolhe a partir de uma lista expandida de magias quando aprende uma magia de bruxo. Os seguintes feitiços são adicionados à lista de feitiços de bruxo para você:\n Nível 1: Thunderwave, Nuvem de Névoa\n Nível 2: Espiga de Crescimento, Raio Escaldante\n Nível 3: Bola de Fogo, Relâmpago\n Nível 4: Pele de Pedra, Tempestade de Gelo\n Nível 5: Cone de Frio, Golpe Flamejante
 Feature/&ElementalistSpellsMagicAffinityTitle	Feitiços Elementalistas
 Feature/&ElementalPatronFeatureSet_Level01Description	<size=17><color=#add8e6ff>Aprenda Feitiços Elementalistas</color></size>\nNível 1: Nuvem de Névoa, Onda do Trovão\nNível 2: Espiga de Crescimento, Raio Escaldante\nNível 3: Relâmpago, Bola de Fogo\nNível 4: Pele de Pedra, Tempestade de Gelo\nNível 5: Cone de Frio, Golpe Flamejante\n\n<size=17><color=#add8e6ff>Formas Elementares</color></size>\nVocê pode alternar entre formas elementais várias vezes (igual ao seu Bônus de Proficiência) por dia canalizando energia elemental. Você pode resistir ao dano relevante e, uma vez por turno, aplicar dano do mesmo tipo aos seus ataques. Os formulários duram 1 minuto.
-Feature/&ElementalPatronFeatureSet_Level01Title	<size=1><color=#808080ff> \t</color></size>
+Feature/&ElementalPatronFeatureSet_Level01Title	Elementalista
 Feature/&ElementalPatronFeatureSet_Level06Description	<size=17><color=#add8e6ff>Conhecimento elementar</color></size>\nSeu conhecimento sobre elementais aumentou a ponto de você agora ganhar vantagem em testes de habilidade contra elementais e causar dano adicional contra elementais igual ao seu nível de conhecimento. Você não pode mais ficar encantado ou assustado por elementais
-Feature/&ElementalPatronFeatureSet_Level06Title	<size=1><color=#808080ff> \t</color></size>
+Feature/&ElementalPatronFeatureSet_Level06Title	Elementalista
 Feature/&ElementalPatronFeatureSet_Level10Description	<size=17><color=#add8e6ff>Formas Elementais Aprimoradas</color></size>\nSuas formas elementais agora concedem imunidade a danos quando ativas
-Feature/&ElementalPatronFeatureSet_Level10Title	<size=1><color=#808080ff> \t</color></size>
+Feature/&ElementalPatronFeatureSet_Level10Title	Elementalista
 Feature/&EyesoftheRuneKeeperDescription	Você pode ler toda a escrita.
 Feature/&EyesoftheRuneKeeperTitle	Olhos do Guardião das Runas
 Feature/&FiendishVigorTitle	Vigor Diabólico
+Feature/&BolgrifDruidicMagicDescription	Você conhece um truque de sua escolha da lista de magias de druida. Sabedoria é sua habilidade de conjuração para isso.
+Feature/&BolgrifDruidicMagicTitle	Magia Druídica
+Feature/&BolgrifInvisibilityPowerDescription	Como uma ação bônus, você pode ficar invisível magicamente por 1 rodada. Esta invisibilidade quebra se você tomar qualquer ação ofensiva. Depois de usar essa habilidade, você não pode usá-la novamente até terminar um descanso curto ou longo.
+Feature/&BolgrifInvisibilityPowerTitle	Desaparecer
+Feature/&BolgrifPowerfulBuildDescription	Você conta seu tamanho como Grande ao determinar sua capacidade de carga.
+Feature/&BolgrifPowerfulBuildTitle	Construção poderosa
 Feature/&FlameArtillery_09ModePowerDescription	Evoca uma construção que dura 1 hora.\nArtilharia Flamejante: Cria um cone de fogo que causa 3D8 de dano se falhar na resistência.\nAutodestruição: causa 3D8 de dano de força em uma falha na resistência e destrói a unidade.
 Feature/&FlameArtillery_09ModePowerTitle	Evocar Construto de Artilharia Flamejante
 Feature/&FlameArtillery_15ModePowerDescription	Evoca uma construção que dura 1 hora.\nArtilharia Flamejante: Cria um cone de fogo que causa 3D8 de dano se falhar na resistência.\nAutodestruição: causa 3D8 de dano de força em uma falha na resistência e destrói a unidade.\n Meia Cobertura Dome: fornece meia cobertura aos aliados dentro de 10 pés.
@@ -916,7 +924,7 @@ Feature/&KSRogueSubclassThugProficienciesTitle	Equipamento Pesado
 Feature/&MiretheMindTitle	Mire a mente
 Feature/&MoonLitDarknessImmunityDescription	Você é imune à condição de escuridão
 Feature/&MoonLitDarknessImmunityTitle	Escuridão da Lua
-Feature/&MoonLitExpandedSpelllistAfinityDescription	Você escolhe a partir de uma lista expandida de magias quando aprende uma magia de bruxo. Os seguintes feitiços são adicionados à lista de feitiços de bruxo para você:\n 1º: Fogo das Fadas, Sono\n 2º: Raio Lunar, Veja Invisibilidade\n 3º: Luz do dia, padrão hipnótico\n 4º: Invisibilidade Maior, Dominar Besta\n 5º: Dominar Pessoa, Golpe Flamejante
+Feature/&MoonLitExpandedSpelllistAfinityDescription	Você escolhe a partir de uma lista expandida de magias quando aprende uma magia de bruxo. Os seguintes feitiços são adicionados à lista de feitiços de bruxo para você:\n Nível 1: Fogo das Fadas, Sono\n Nível 2: Raio Lunar, Veja Invisibilidade\n Nível 3: Luz do dia, padrão hipnótico\n Nível 4: Maior Invisibilidade, Dominar Besta\n Nível 5: Dominar Pessoa, Golpe Flamejante
 Feature/&MoonLitExpandedSpelllistAfinityTitle	Lista de feitiços ao luar
 Feature/&MoonLitLightAffinityDescription	Você pode se tornar invisível na penumbra ou na escuridão natural
 Feature/&MoonLitLightAffinityTitle	Manto Umbral
@@ -943,6 +951,8 @@ Feature/&PowerTorchbearerDescription	Tente incendiar um alvo corpo a corpo!
 Feature/&PowerTorchbearerTitle	Portador da tocha
 Feature/&PrimalChampionDescription	No 20º nível, você incorpora o poder da selva. Seus valores de Força e Constituição aumentam em 4
 Feature/&PrimalChampionTitle	Campeão Primal
+Feature/&ProficiencyBolgrifLanguagesDescription	Comum, Élfico e Gigante
+Feature/&ProficiencyBolgrifLanguagesTitle	Linguagem
 Feature/&ProficiencyGnomishLanguagesDescription	Comum, Gnômico
 Feature/&ProficiencyGnomishLanguagesTitle	línguas
 Feature/&ProficiencyRogueBlindSenseDescription	A partir do 14º nível, se você for capaz de ouvir, estará ciente da localização de qualquer criatura oculta ou invisível a até 3 metros de você.
@@ -971,7 +981,7 @@ Feature/&RangerVanishActionTitle	Desaparecer
 Feature/&RepellingBlastMagicAffinityDescription	Quando você atinge uma criatura com rajada mística, você pode empurrar a criatura até 3 metros de distância de você em linha reta.
 Feature/&RepellingBlastMagicAffinityTitle	Explosão Repelente
 Feature/&RiftWalkerRestrainedImmunityTitle	Passo fugaz
-Feature/&RiftWalkerSpellsMagicAffinityDescription	Você escolhe a partir de uma lista expandida de magias quando aprende uma magia de bruxo. Os seguintes feitiços são adicionados à lista de feitiços de bruxo para você:\n 1º: Salto, Longstrider\n 2º: Desfoque, Passe Sem Rastro\n 3º: Apressado, Lento\n 4º: Liberdade de Movimento, Maior Invisibilidade\n 5º: Mind Twist, Dissipar o Mal e o Bem
+Feature/&RiftWalkerSpellsMagicAffinityDescription	Você escolhe a partir de uma lista expandida de magias quando aprende uma magia de bruxo. Os seguintes feitiços são adicionados à lista de feitiços de bruxo para você:\n Nível 1: Salto, Longstrider\n Nível 2: Desfoque, Passe Sem Rastro\n Nível 3: Rapidez, Lento\n Nível 4: Liberdade de Movimento, Maior Invisibilidade\n Nível 5: Mind Twist, Dissipar o Mal e o Bem
 Feature/&RiftWalkerSpellsMagicAffinityTitle	Aprenda os Feitiços do Rift Walker
 Feature/&RoyalEnvoyFeatureDescription	Adicione metade do seu bônus de proficiência (arredondado para cima) a qualquer teste de Carisma que você fizer que ainda não use seu bônus de proficiência. Além disso, você se torna proficiente em testes de resistência de Carisma.
 Feature/&RoyalEnvoyFeatureTitle	enviado real
@@ -1004,7 +1014,7 @@ Feature/&TinkererToolsProficiencyTitle	Proficiências em Ferramentas
 Feature/&TinkererWeaponProficiencyTitle	Proficiências com Armas do Tinkerer
 Feature/&TinkererWeaponTrainingShortDescription	Proficiência com armas simples
 Feature/&ToadKingBasicToxinTitle	Toxina Básica
-Feature/&ToadKingExpandedSpelllistAfinityDescription	Você escolhe a partir de uma lista expandida de magias quando aprende uma magia de bruxo. Os seguintes feitiços são adicionados à lista de feitiços de bruxo para você:\n 1º: Graxa, Detectar Veneno e Doença\n 2º: AcidArrow, Spider Climb\n 3º: Nuvem lenta e fedorenta\n 4º: Tentáculos Negros, Liberdade de Movimento\n 5º: Contágio, Praga de Insetos
+Feature/&ToadKingExpandedSpelllistAfinityDescription	Você escolhe a partir de uma lista expandida de magias quando aprende uma magia de bruxo. Os seguintes feitiços são adicionados à lista de feitiços de bruxo para você:\n Nível 1: Graxa, Detectar Veneno e Doença\n Nível 2: AcidArrow, Spider Climb\n Nível 3: nuvem lenta e fedorenta\n Nível 4: Tentáculos Negros, Liberdade de Movimento\n Nível 5: Contágio, Praga de Insetos
 Feature/&ToadKingExpandedSpelllistAfinityTitle	Feitiços do Rei Sapo
 Feature/&ToadKingHallucinogenicToxinAffintyDescription	Seu corpo mudou para se tornar resistente a toxinas e produzir uma toxina defensiva quando atacado em alcance corpo a corpo (até PB vezes por dia). se o atacante falhar em um teste de Con, eles se tornam toxina lucinogênica até serem atacados ou interrompidos de outra forma.
 Feature/&ToadKingHallucinogenicToxinAffintyTitle	Toxina Alucinógena
@@ -1071,7 +1081,7 @@ Message/&CharacterExportDuplicateNameErrorDescription	Exportação cancelada:\n\
 Message/&CharacterExportEmptyNameErrorDescription	Exportação cancelada:\n\nTente um nome não vazio.
 Message/&CharacterExportModalContentDescription	Digite o nome do herói para exportar:
 Message/&CharacterExportModalTitleDescription	Exportação de caracteres
-Message/&MessageModWelcomeDescription	O Community Expansion Mod está repleto de recursos interessantes, mas, por padrão, nenhum está ativado. Pressione <color=yellow>Ctrl-F10</color> para abrir a interface do usuário do Unity Mod Manager [UMM] e clique no ícone de configurações ao lado de 'Expansão da comunidade' para abrir as páginas de configurações.\n\n  Explore as opções e selecione as que você gosta. A interface do usuário do UMM será aberta agora.
+Message/&MessageModWelcomeDescription	O Community Expansion Mod está repleto de recursos interessantes, mas, por padrão, nenhum está ativado. Pressione <color=yellow>Ctrl-F10</color> para abrir a interface do usuário do Unity Mod Manager [UMM] e clique no ícone de configurações ao lado de 'Expansão da comunidade' para abrir as páginas de configurações.\n\n Explore as opções e selecione as que você gosta. A interface do usuário do UMM será aberta agora.
 Message/&MessageModWelcomeTitle	Módulo de expansão da comunidade
 Message/&SpawnCustomEncounterDescription	Gerar encontro nas coordenadas ({0}, {1})?
 Message/&SpawnCustomEncounterTitle	Encontro
@@ -1342,8 +1352,10 @@ Power/&UrPriestRadiantWardTitle	Ala Radiante
 Power/&UrPriestSpellSiphonDescription	você aprende a explorar uma fonte maior de magia em combinação com sua reserva normal de poder. Com uma ação, você pode gastar um Canalizar Divindade para recuperar um uso gasto de seu Arcano Místico de 6º nível.
 Power/&UrPriestSpellSiphonTitle	Sifão de Feitiços
 Pugilist	Dano do Pugilista
-Race/&ForestGnomeDescription	Um zumbido constante de atividade movimentada permeia as tocas e bairros onde os gnomos formam suas comunidades unidas. Sons mais altos pontuam o zumbido: um ranger de engrenagens rangendo aqui, uma pequena explosão ali, um grito de surpresa ou triunfo e, especialmente, gargalhadas. Os gnomos se deleitam com a vida, aproveitando cada momento de invenção, exploração, investigação, criação e jogo.
-Race/&ForestGnomeTitle	Gnomo da Floresta
+Race/&BolgrifRaceDescription Bolgrifs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, bolgrifs demonstrate formidable skills with weapons and nature magic.
+Race/&BolgrifRaceTitle	Bolgrif
+Race/&GnomeRaceDescription	Um zumbido constante de atividade movimentada permeia as tocas e bairros onde os gnomos formam suas comunidades unidas. Sons mais altos pontuam o zumbido: um ranger de engrenagens rangendo aqui, uma pequena explosão ali, um grito de surpresa ou triunfo e, especialmente, gargalhadas. Os gnomos se deleitam com a vida, aproveitando cada momento de invenção, exploração, investigação, criação e jogo.
+Race/&GnomeRaceTitle	Gnomo da Floresta
 Race/&PointPoolSelect10FeatsDescription	Selecione 10 talentos adicionais para o seu personagem.
 Race/&PointPoolSelect10FeatsTitle	10 Talentos Bônus
 Race/&PointPoolSelect11FeatsDescription	Selecione 11 talentos adicionais para seu personagem.
@@ -1604,7 +1616,7 @@ Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription	Pode perceb
 Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionTitle	Visão de Invisibilidade
 Subclass/&BarbarianPathOfTheLightTitle	Caminho da Luz
 Subclass/&BloodWitchDescription	Proibida pela maioria dos covens de bruxas, a magia do sangue se concentra no uso de feitiços sombrios e feitiços mortais que extraem da própria essência do conjurador. É fundamentalmente mais perigoso do que outros ofícios de bruxaria, mas seus muitos riscos vêm com recompensas copiosas.
-Subclass/&BloodWitchMagicDescription	Você ganha as seguintes magias. Esses feitiços contam como feitiços de Bruxa para você e não contam para o número total de feitiços conhecidos.\n\nFeitiços de Nível\n1º Emaranhado, Goodberry\n2º Barkkin, Proteção contra Veneno\n3º Conjurar Animais, Criar Comida\n4º Inseto Gigante, Pele de Pedra\n5º Dissipar o Mal e o Bem, Praga de Insetos
+Subclass/&BloodWitchMagicDescription	Você ganha as seguintes magias. Esses feitiços contam como feitiços de Bruxa para você e não contam para o número total de feitiços conhecidos.\n\nFeitiços de Nível\nNível 1: Emaranhado, Goodberry\nNível 2: Barkkin, proteção contra veneno\nNível 3: Conjurar Animais, Criar Comida\nNível 4: Inseto Gigante, Pele de Pedra\nNível 5: Dissipar o Mal e o Bem, Praga de Insetos
 Subclass/&BloodWitchMagicTitle	Magia de Sangue
 Subclass/&BloodWitchTitle	Bruxa de Sangue
 Subclass/&CancelCancelElixirFlyDescription	Termine a condição Fly do Potion Maker Elixir.
@@ -1642,7 +1654,7 @@ Subclass/&FighterSpellShieldSpellResistanceDescription	Sua experiência com feit
 Subclass/&FighterSpellShieldSpellResistanceTitle	Resistência à Magia
 Subclass/&FighterSpellShieldTitle	Escudo de Feitiço
 Subclass/&GreenWitchDescription	Plantas, natureza e coisas que crescem são o domínio da magia verde. Normalmente um tipo de arcana defendido por druidas, algumas bruxas têm uma ligação estreita com os poderes da magia verde, e podem persuadir plantas e animais em suas ordens.
-Subclass/&GreenWitchMagicDescription	Você ganha as seguintes magias. Esses feitiços contam como feitiços de Bruxa para você e não contam para o número total de feitiços conhecidos.\n\nFeitiços de Nível\n1º Emaranhado, Goodberry\n2º Barkkin, Proteção contra Veneno\n3º Conjurar Animais, Criar Comida\n4º Inseto Gigante, Pele de Pedra\n5º Dissipar o Mal e o Bem, Praga de Insetos
+Subclass/&GreenWitchMagicDescription	Você ganha as seguintes magias. Esses feitiços contam como feitiços de Bruxa para você e não contam para o número total de feitiços conhecidos.\n\nFeitiços de Nível\nNível 1: Emaranhado, Goodberry\nNível 2: Barkkin, proteção contra veneno\nNível 3: Conjurar Animais, Criar Comida\nNível 4: Inseto Gigante, Pele de Pedra\nNível 5: Dissipar o Mal e o Bem, Praga de Insetos
 Subclass/&GreenWitchMagicTitle	Magia Verde
 Subclass/&GreenWitchTitle	Bruxa Verde
 Subclass/&HArtilleryIncreaseDescription	Aumento da Artilharia
@@ -1735,13 +1747,13 @@ Subclass/&PowerTransmuteHealTitle	Curar
 Subclass/&PowerTransmuteReviveDescription	Use sua Força de Transmutação para reviver um personagem (dentro de 1 minuto de sua morte).
 Subclass/&PowerTransmuteReviveTitle	Reviver
 Subclass/&PurpleWitchDescription	A magia púrpura domina os domínios das ilusões e encantamentos que dominam a mente das pessoas, e qualquer coisa que não seja exatamente o que parece. Os praticantes desta forma de magia são mestres de marionetes, moldando a realidade aparente daqueles ao seu redor a seu favor.
-Subclass/&PurpleWitchMagicDescription	Você ganha as seguintes magias. Esses feitiços contam como feitiços de Bruxa para você e não contam para o número total de feitiços conhecidos.\n\nFeitiços de Nível\n1º Emaranhado, Goodberry\n2º Barkkin, Proteção contra Veneno\n3º Conjurar Animais, Criar Comida\n4º Inseto Gigante, Pele de Pedra\n5º Dissipar o Mal e o Bem, Praga de Insetos
+Subclass/&PurpleWitchMagicDescription	Você ganha as seguintes magias. Esses feitiços contam como feitiços de Bruxa para você e não contam para o número total de feitiços conhecidos.\n\nFeitiços de Nível\nNível 1: Emaranhado, Goodberry\nNível 2: Barkkin, proteção contra veneno\nNível 3: Conjurar Animais, Criar Comida\nNível 4: Inseto Gigante, Pele de Pedra\nNível 5: Dissipar o Mal e o Bem, Praga de Insetos
 Subclass/&PurpleWitchMagicTitle	Magia Roxa
 Subclass/&PurpleWitchTitle	Bruxa Púrpura
 Subclass/&RangerArcanistRangerSubclassDescription	O Arcanista Ranger combina suas habilidades de ranger com habilidades arcanas. Suas armas podem afligir seus oponentes com a Marca do Arcanista, e aprenderam a lançar alguns feitiços de Mago como parte de seu repertório de feitiços de Ranger.
 Subclass/&RangerArcanistRangerSubclassTitle	Arcanista Ranger
 Subclass/&RedWitchDescription	A magia arcana ligada à canalização dos elementos é considerada magia vermelha e é extremamente perigosa quando usada. Bruxas que se especializam em magia vermelha estão entre os conjuradores mais mortais que existem, canalizando sua maldição em ira arcana desimpedida.
-Subclass/&RedWitchMagicDescription	Você ganha as seguintes magias. Esses feitiços contam como feitiços de Bruxa para você e não contam para o número total de feitiços conhecidos.\n\nFeitiços de Nível\n1ª Mãos Ardentes, Míssil Mágico\n2ª Flecha Ácida, Raio Escaldante\n3ª Bola de Fogo, Proteção Contra Energia\n4ª Tempestade de Gelo, Muralha de Fogo\n5º Cone de Frio, Torção da Mente
+Subclass/&RedWitchMagicDescription	Você ganha as seguintes magias. Esses feitiços contam como feitiços de Bruxa para você e não contam para o número total de feitiços conhecidos.\n\nFeitiços de Nível\nNível 1: Mãos Ardentes, Míssil Mágico\nNível 2: Flecha Ácida, Raio Escaldante\nNível 3: Bola de fogo, proteção contra energia\nNível 4: Tempestade de Gelo, Muralha de Fogo\nNível 5: Cone de Frio, Torção da Mente
 Subclass/&RedWitchMagicTitle	Magia Vermelha
 Subclass/&RedWitchTitle	Bruxa Vermelha
 Subclass/&RoguishConArtistDescription	Vigaristas são ladinos que se especializam em enganar e enganar os outros. Eles usam magia para ajudar suas habilidades naturais de manipulação.
@@ -1797,7 +1809,7 @@ Subclass/&WeaponProfArcaneFighterTitle	Treinamento de Armas
 Subclass/&WeaponProfArtificerBattleSmithDescription	A experiência em combate deu ao Weapon Smith treinamento em Armas Marciais
 Subclass/&WeaponProfArtificerBattleSmithTitle	Treinamento de Armas
 Subclass/&WhiteWitchDescription	A magia branca é fundamentalmente boa e benevolente para todas as coisas vivas. As bruxas que adotam esse ofício, apesar da odiosa maldição que as infecta, muitas vezes se dedicam à cura e ao cuidado, com a intenção de melhorar o mundo.
-Subclass/&WhiteWitchMagicDescription	Você ganha as seguintes magias. Esses feitiços contam como feitiços de Bruxa para você e não contam para o número total de feitiços conhecidos.\n\nFeitiços de Nível\n1º Abençoe, Cure Feridas\n2ª Restauração Menor, Oração de Cura\n3º Farol da Esperança, Revivificar\n4ª Ala da Morte, Guardiã da Fé\n5º Curar Ferimentos em Massa, Ressuscitar Mortos
+Subclass/&WhiteWitchMagicDescription	Você ganha as seguintes magias. Esses feitiços contam como feitiços de Bruxa para você e não contam para o número total de feitiços conhecidos.\n\nFeitiços de Nível\nNível 1: Abençoe, Cure Feridas\nNível 2: Restauração Menor, Oração de Cura\nNível 3: Farol da Esperança, Revivificar\nNível 4: Proteção da Morte, Guardião da Fé\nNível 5: Curar Ferimentos em Massa, Ressuscitar Mortos
 Subclass/&WhiteWitchMagicTitle	Magia branca
 Subclass/&WhiteWitchTitle	bruxa branca
 Subclass/&WitchSubclassPathDescription	Seu conhecimento de magia culminou em se juntar a um Coven, um círculo inato de bruxas que se aprofundam em um caminho específico de bruxaria e maldições.

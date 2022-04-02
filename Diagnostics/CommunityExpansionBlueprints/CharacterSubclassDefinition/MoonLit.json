@@ -3,11 +3,6 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MoonLitLightAffinity:8c689719-51c6-56c2-904f-d5a3d52bd434",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:MoonLitDarknessImmunity:43ec861e-e795-5948-808c-07ab3209c935",
       "level": 1
     },
@@ -19,6 +14,11 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:SenseSuperiorDarkvision:388ca3fa81ee8a84c831be14214fd1c0",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MoonLitLightAffinity:8c689719-51c6-56c2-904f-d5a3d52bd434",
       "level": 1
     },
     {

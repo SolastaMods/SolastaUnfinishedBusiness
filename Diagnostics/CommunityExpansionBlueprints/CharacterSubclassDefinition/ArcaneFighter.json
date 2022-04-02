@@ -3,17 +3,17 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyWeaponArcaneFighter:5450b412-3f29-549a-ae04-7eca337d58d1",
-      "level": 2
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerMeleeWizardArcaneWeapon:a42e34d9-f1c2-519d-9e9d-b3365cd92547",
       "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:MagicAffinityMeleeWizardConcentration:391e082e-73e0-5768-bc4a-79e56ca6e23a",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyWeaponArcaneFighter:5450b412-3f29-549a-ae04-7eca337d58d1",
       "level": 2
     },
     {
