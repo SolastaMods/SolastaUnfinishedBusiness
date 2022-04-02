@@ -11,7 +11,6 @@ namespace SolastaCommunityExpansion.Patches.GameUiLocation
     internal static class SpellSelectionPanelPatcher
     {
         private static readonly List<RectTransform> spellLineTables = new List<RectTransform>();
-        private static readonly GameObject spellLineHolder = new GameObject();
 
         // second line bind
         [HarmonyPatch(typeof(SpellSelectionPanel), "Bind")]
@@ -37,8 +36,9 @@ namespace SolastaCommunityExpansion.Patches.GameUiLocation
                 spellRepertoireSecondaryLine.Unbind();
                 spellRepertoireSecondaryLine.gameObject.SetActive(false);
 
-                if (spellLineHolder.GetComponent<VerticalLayoutGroup>() == null)
+                if (spellRepertoireLinesTable.parent.GetComponent<VerticalLayoutGroup>() == null)
                 {
+                    GameObject spellLineHolder = new GameObject();
                     VerticalLayoutGroup vertGroup = spellLineHolder.AddComponent<VerticalLayoutGroup>();
                     vertGroup.spacing = 10;
                     spellLineHolder.AddComponent<ContentSizeFitter>();
