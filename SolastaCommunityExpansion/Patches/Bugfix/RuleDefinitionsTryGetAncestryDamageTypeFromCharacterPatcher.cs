@@ -7,13 +7,15 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
     [HarmonyPatch(typeof(RuleDefinitions), "TryGetAncestryDamageTypeFromCharacter")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RuleDefinitions_TryGetAncestryDamageTypeFromCharacter
+    {
+        internal static void Postfix(ref bool __result, string ancestryDamageType)
         {
-            internal static void Postfix(ref bool __result, string ancestryDamageType)
+            if (!Main.Settings.BugFixAncestryDamageTypeResolution)
             {
-                if (ancestryDamageType == "DamageForce")
-                {
-                    __result = false;
-                }
+                return;
             }
+
+            __result = __result && ancestryDamageType != "DamageForce";
         }
+    }
 }
