@@ -9,30 +9,16 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 {
     public static class AHWarlockSubclassSoulBladePact
     {
-
-        public const string AHWarlockSubclassSoulBladePactName = "AHWarlockSubclassSoulBladePact";
-        private static readonly string AHWarlockSubclassSoulBladePactNameGuid = GuidHelper.Create(new Guid(Settings.GUID), AHWarlockSubclassSoulBladePactName).ToString();
-
-        public static CharacterSubclassDefinition Build()
-        {
-            var subclassGuiPresentation = new GuiPresentationBuilder(
-                            "Subclass/&AHWarlockSubclassSoulBladePactTitle",
-                            "Subclass/&AHWarlockSubclassSoulBladePactDescription"            )
-                    .SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.OathOfTheMotherland.GuiPresentation.SpriteReference)
-                    .Build();
-
-            CharacterSubclassDefinition definition = CharacterSubclassDefinitionBuilder.Create(AHWarlockSubclassSoulBladePactName, AHWarlockSubclassSoulBladePactNameGuid)
-                    .SetGuiPresentation(subclassGuiPresentation)
-                    .AddFeatureAtLevel(AHWarlockSoulBladePactExtendedSpellListMagicAffinityBuilder.AHSoulBladeSpellList, 1) // Extra Soulblade spells
-                    .AddFeatureAtLevel(DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyFighterWeapon, 1) // Martial weapons
-                    .AddFeatureAtLevel(DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyClericArmor, 1) // Medium armor and shield
-                    .AddFeatureAtLevel(AHWarlockSoulBladePactEmpowerWeaponPowerBuilder.AHWarlockSoulBladePactEmpowerWeaponPower, 1) //Feature to rival hexblade curse
-                    .AddFeatureAtLevel(SoulBladeSummonPactWeaponPowerBuilder.SummonPactWeaponPower, 6)
-                    .AddFeatureAtLevel(AHWarlockSoulBladePactSoulShieldPowerBuilder.AHWarlockSoulBladePactSoulShieldPower, 10)
-                    .AddToDB();
-
-            return definition;
-        }
+        public static CharacterSubclassDefinition Instance { get; } = CharacterSubclassDefinitionBuilder
+            .Create("AHWarlockSubclassSoulBladePact", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(Category.Subclass, DatabaseHelper.CharacterSubclassDefinitions.OathOfTheMotherland.GuiPresentation.SpriteReference)
+            .AddFeatureAtLevel(AHWarlockSoulBladePactExtendedSpellListMagicAffinityBuilder.AHSoulBladeSpellList, 1) // Extra Soulblade spells
+            .AddFeatureAtLevel(DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyFighterWeapon, 1) // Martial weapons
+            .AddFeatureAtLevel(DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyClericArmor, 1) // Medium armor and shield
+            .AddFeatureAtLevel(AHWarlockSoulBladePactEmpowerWeaponPowerBuilder.AHWarlockSoulBladePactEmpowerWeaponPower, 1) //Feature to rival hexblade curse
+            .AddFeatureAtLevel(SoulBladeSummonPactWeaponPowerBuilder.SummonPactWeaponPower, 6)
+            .AddFeatureAtLevel(AHWarlockSoulBladePactSoulShieldPowerBuilder.AHWarlockSoulBladePactSoulShieldPower, 10)
+            .AddToDB();
     }
 
     internal class AHWarlockSoulBladePactSpellListBuilder : SpellListDefinitionBuilder
@@ -271,14 +257,14 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
     }
 
 
-    public class SoulBladeSummonPactWeaponPowerBuilder : FeatureDefinitionPowerBuilder 
+    public class SoulBladeSummonPactWeaponPowerBuilder : FeatureDefinitionPowerBuilder
     {
         private const string SoulBladeSummonPactWeaponPowerName = "AHSoulBladeSummonPactWeaponPower";
         private static readonly string SoulBladeSummonPactWeaponPowerGuid = GuidHelper.Create(new Guid(Settings.GUID), SoulBladeSummonPactWeaponPowerName).ToString();
 
         protected SoulBladeSummonPactWeaponPowerBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionPowers.PowerTraditionShockArcanistArcaneFury, name, guid)
         {
-            Definition.GuiPresentation.Title =       "Feature/&AHSoulBladeSummonPactWeaponPowerTitle";
+            Definition.GuiPresentation.Title = "Feature/&AHSoulBladeSummonPactWeaponPowerTitle";
             Definition.GuiPresentation.Description = "Feature/&AHSoulBladeSummonPactWeaponPowerDescription";
             Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.SpiritualWeapon.GuiPresentation.SpriteReference);
             Definition.SetEffectDescription(DatabaseHelper.SpellDefinitions.SpiritualWeapon.EffectDescription);

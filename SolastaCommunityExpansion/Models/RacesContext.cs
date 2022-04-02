@@ -56,6 +56,7 @@ namespace SolastaCommunityExpansion.Models
                 .Create(SpellListDefinitions.SpellListWizard, "NaturalIllusionistSpellList", "ead60aeb-3a72-4296-af36-2e14b110bb0b")
                 .SetGuiPresentationNoContent()
                 .SetSpellsAtLevel(0, SpellDefinitions.AnnoyingBee)
+                .FinalizeSpells()
                 .AddToDB();
 
             var gnomeNaturalIllusionist = FeatureDefinitionCastSpellBuilder
