@@ -47,9 +47,6 @@ namespace SolastaCommunityExpansion.Patches
             Level20Context.Load();
             PickPocketContext.Load();
 
-            // Powers needs to be added to db before spells because of summoned creatures that have new powers defined here.
-            PowersContext.AddToDB();
-
             RemoveBugVisualModelsContext.Load();
             RemoveIdentificationContext.Load();
             RespecContext.Load();
@@ -79,9 +76,6 @@ namespace SolastaCommunityExpansion.Patches
 
                 // There are feats that need all character classes loaded before they can properly be setup.
                 FeatsContext.Load();
-
-                // Generally available powers need all classes in the db before they are initialized here.
-                PowersContext.Switch();
 
                 // Spells context needs character classes (specifically spell lists) in the db in order to do it's work.
                 SpellsContext.Load();
