@@ -92,42 +92,23 @@ namespace SolastaCommunityExpansion.Classes.Warlock
 
         private static void BuildSpells()
         {
-            var castSpellName = "ClassWarlockCastSpell";
-            //var castSpellGuid = GuidHelper.Create(new Guid(Settings.GUID), castSpellName).ToString();
-            var classWarlockCastSpell = FeatureDefinitionCastSpellBuilder.Create(DatabaseHelper.FeatureDefinitionCastSpells.CastSpellSorcerer,castSpellName, DefinitionBuilder.CENamespaceGuid);
+            var classWarlockCastSpell = FeatureDefinitionCastSpellBuilder
+                .Create(FeatureDefinitionCastSpells.CastSpellSorcerer, "ClassWarlockCastSpell", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation("ClassWarlockSpellcasting", Category.Feature)
+                .SetKnownCantrips(2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4)
+                .SetKnownSpells(2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15)
+                .SetReplacedSpells(0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0)
+                .SetSlotsPerLevel(WarlockSpells.WarlockCastingSlots)
+                .SetSlotsRecharge(RuleDefinitions.RechargeRate.ShortRest)
+                .SetSpellCastingAbility(AttributeDefinitions.Charisma)
+                .SetSpellCastingLevel(5)
+                .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Class)
+                .SetSpellList(WarlockSpells.WarlockSpellList)
+                .SetSpellKnowledge(RuleDefinitions.SpellKnowledge.Selection)
+                .SetSpellPreparationCount(RuleDefinitions.SpellPreparationCount.AbilityBonusPlusLevel)
+                .SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown);
 
-            SpellListDefinition classWarlockSpellList = WarlockSpells.WarlockSpellList;
-
-            classWarlockCastSpell.SetGuiPresentation(new GuiPresentationBuilder(
-                "Feature/&ClassWarlockSpellcastingTitle",
-                "Feature/&ClassWarlockSpellcastingDescription").Build());
-
-            classWarlockCastSpell.SetKnownCantrips(new List<int>
-            {
-                2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4
-            });
-
-            classWarlockCastSpell.SetKnownSpells(new List<int>
-            {
-                2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15
-            });
-
-            classWarlockCastSpell.SetReplacedSpells(new List<int> 
-            {
-                0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0
-            });
-
-            classWarlockCastSpell.SetSlotsPerLevel(WarlockSpells.WarlockCastingSlots);
-            classWarlockCastSpell.SetSlotsRecharge(RuleDefinitions.RechargeRate.ShortRest);
-            classWarlockCastSpell.SetSpellCastingAbility(AttributeDefinitions.Charisma);
-            classWarlockCastSpell.SetSpellCastingLevel(5);
-            classWarlockCastSpell.SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Class);
-            classWarlockCastSpell.SetSpellList(classWarlockSpellList);
-            classWarlockCastSpell.SetSpellKnowledge(RuleDefinitions.SpellKnowledge.Selection);
-            classWarlockCastSpell.SetSpellPreparationCount(RuleDefinitions.SpellPreparationCount.AbilityBonusPlusLevel);
-            classWarlockCastSpell.SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown);
-
-            FeatureDefinitionClassWarlockCastSpell = classWarlockCastSpell.AddToDB();         
+            FeatureDefinitionClassWarlockCastSpell = classWarlockCastSpell.AddToDB();
         }
 
         private static void BuildProgression(CharacterClassDefinitionBuilder classWarlockBuilder)
@@ -188,7 +169,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock
 
             var classWarlockBuilder = CharacterClassDefinitionBuilder
                 .Create("ClassWarlock", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(Category.Class, warlockSpriteReference, 1 /*hidden=true/false?*/)
+                .SetGuiPresentation(Category.Class, warlockSpriteReference, 1)
                 .AddFeatPreferences(FeatDefinitions.PowerfulCantrip, FeatDefinitions.FlawlessConcentration, FeatDefinitions.Robust)
                 .AddPersonality(PersonalityFlagDefinitions.Violence, 3)
                 .AddPersonality(PersonalityFlagDefinitions.Self_Preservation, 3)
