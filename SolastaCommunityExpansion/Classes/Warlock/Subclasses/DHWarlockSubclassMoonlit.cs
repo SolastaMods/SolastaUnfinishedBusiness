@@ -46,8 +46,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                      Level =1,
                      Spells = new List<SpellDefinition>
                      {
-                         DatabaseHelper.SpellDefinitions.Sleep,
-                         DatabaseHelper.SpellDefinitions.FaerieFire
+                         Sleep,
+                         FaerieFire
                      }
                  },
                  new SpellListDefinition.SpellsByLevelDuplet
@@ -55,8 +55,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                      Level =2,
                      Spells = new List<SpellDefinition>
                      {
-                         DatabaseHelper.SpellDefinitions.MoonBeam,
-                         DatabaseHelper.SpellDefinitions.SeeInvisibility
+                         MoonBeam,
+                         SeeInvisibility
                      }
                  },
                  new SpellListDefinition.SpellsByLevelDuplet
@@ -64,8 +64,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                      Level =3,
                      Spells = new List<SpellDefinition>
                      {
-                         DatabaseHelper.SpellDefinitions.Daylight,
-                         DatabaseHelper.SpellDefinitions.HypnoticPattern
+                         Daylight,
+                         HypnoticPattern
                      }
                  },
                  new SpellListDefinition.SpellsByLevelDuplet
@@ -73,8 +73,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                      Level =4,
                      Spells = new List<SpellDefinition>
                      {
-                         DatabaseHelper.SpellDefinitions.DominateBeast,
-                         DatabaseHelper.SpellDefinitions.GreaterInvisibility
+                         DominateBeast,
+                         GreaterInvisibility
                      }
                  },
                  new SpellListDefinition.SpellsByLevelDuplet
@@ -82,8 +82,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                      Level =5,
                      Spells = new List<SpellDefinition>
                      {
-                         DatabaseHelper.SpellDefinitions.DominatePerson,
-                         DatabaseHelper.SpellDefinitions.FlameStrike
+                         DominatePerson,
+                         FlameStrike
                      }
                  },
 
@@ -128,11 +128,11 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetGuiPresentation(Category.Power)
                 .Configure(
                        1,
-                       RuleDefinitions.UsesDetermination.ProficiencyBonus,
+                       UsesDetermination.ProficiencyBonus,
                        AttributeDefinitions.Charisma,
-                       RuleDefinitions.ActivationTime.Action,
+                       ActivationTime.Action,
                        1,
-                       RuleDefinitions.RechargeRate.LongRest,
+                       RechargeRate.LongRest,
                        false,
                        false,
                        AttributeDefinitions.Charisma,
@@ -145,11 +145,11 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetGuiPresentation(Category.Power)
                 .Configure(
                        1,
-                       RuleDefinitions.UsesDetermination.ProficiencyBonus,
+                       UsesDetermination.ProficiencyBonus,
                        AttributeDefinitions.Charisma,
-                       RuleDefinitions.ActivationTime.Action,
+                       ActivationTime.Action,
                        1,
-                       RuleDefinitions.RechargeRate.LongRest,
+                       RechargeRate.LongRest,
                        false,
                        false,
                        AttributeDefinitions.Charisma,
@@ -163,11 +163,11 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetGuiPresentation(Category.Power)
                 .Configure(
                        1,
-                       RuleDefinitions.UsesDetermination.Fixed,
+                       UsesDetermination.Fixed,
                        AttributeDefinitions.Charisma,
-                       RuleDefinitions.ActivationTime.Action,
+                       ActivationTime.Action,
                        1,
-                       RuleDefinitions.RechargeRate.LongRest,
+                       RechargeRate.LongRest,
                        false,
                        false,
                        AttributeDefinitions.Charisma,
@@ -189,24 +189,24 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetGuiPresentation(Category.Power)
                 .Configure(
                        1,
-                       RuleDefinitions.UsesDetermination.Fixed,
+                       UsesDetermination.Fixed,
                        AttributeDefinitions.Charisma,
-                       RuleDefinitions.ActivationTime.Action,
+                       ActivationTime.Action,
                        1,
-                       RuleDefinitions.RechargeRate.LongRest,
+                       RechargeRate.LongRest,
                        false,
                        false,
                        AttributeDefinitions.Charisma,
                         new EffectDescriptionBuilder()
                                 .SetDurationData(
-                                     RuleDefinitions.DurationType.Minute,
+                                     DurationType.Minute,
                                      1,
-                                     RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                                     TurnOccurenceType.EndOfTurn)
                                 .SetTargetingData(
-                                    RuleDefinitions.Side.All,
-                                    RuleDefinitions.RangeType.Distance,
+                                    Side.All,
+                                    RangeType.Distance,
                                     12,
-                                    RuleDefinitions.TargetType.Cylinder,
+                                    TargetType.Cylinder,
                                     10,
                                     10,
                                     ActionDefinitions.ItemSelectionType.None)
@@ -215,7 +215,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                                     false,
                                     AttributeDefinitions.Dexterity,
                                     true,
-                                    RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                                     AttributeDefinitions.Dexterity,
                                     20,
                                     false,
@@ -227,13 +227,13 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                                         false,
                                         false,
                                         new List<ConditionDefinition>())
-                                        .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.Negates)
+                                        .HasSavingThrow(EffectSavingThrowType.Negates)
                                     .Build())
                                 .AddEffectForm(new EffectFormBuilder()
                                     .SetMotionForm(
                                         MotionForm.MotionType.Levitate,
                                         10)
-                                    .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.Negates)
+                                    .HasSavingThrow(EffectSavingThrowType.Negates)
                                     .Build())
                                 .SetRecurrentEffect(Entangle.EffectDescription.RecurrentEffect)
                                 .Build()
