@@ -170,76 +170,76 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
         public static void RiftWalkerSpells()
         {
             SpellListDefinition RiftWalkerSpellList = SpellListDefinitionBuilder
-                   .Create(DatabaseHelper.SpellListDefinitions.SpellListPaladin, "RiftWalkerSpellsList", CENamespaceGuid)
-                   .SetGuiPresentation("RiftWalkerSpellsList", Category.SpellList)
-                   .ClearSpells()
-                 
-                //   .SetSpellsAtLevel(1, Jump, Longstrider)
-                //   .SetSpellsAtLevel(2, Blur, PassWithoutTrace)
-                //   .SetSpellsAtLevel(3, Haste, Slow)
-                //   .SetSpellsAtLevel(4, FreedomOfMovement, GreaterInvisibility)
-                //   .SetSpellsAtLevel(5, MindTwist, DispelEvilAndGood)
-                   .SetMaxSpellLevel(5, false)
-                   .AddToDB();
+                .Create(DatabaseHelper.SpellListDefinitions.SpellListPaladin, "RiftWalkerSpellsList", CENamespaceGuid)
+                .SetGuiPresentation("RiftWalkerSpellsList", Category.SpellList)
+                //.ClearSpells()
+                //.SetSpellsAtLevel(0) // Warlock class has Cantrips so if we don't add this the spell list gets screwed
+                //.SetSpellsAtLevel(1, Jump, Longstrider)
+                //.SetSpellsAtLevel(2, Blur, PassWithoutTrace)
+                //.SetSpellsAtLevel(3, Haste, Slow)
+                //.SetSpellsAtLevel(4, FreedomOfMovement, GreaterInvisibility)
+                //.SetSpellsAtLevel(5, MindTwist, DispelEvilAndGood)
+                //.SetMaxSpellLevel()
+                .AddToDB();
             RiftWalkerSpellList.ClearSpellsByLevel();
             RiftWalkerSpellList.SpellsByLevel.AddRange(new List<SpellListDefinition.SpellsByLevelDuplet>()
              {
-                // new SpellListDefinition.SpellsByLevelDuplet
-                // {
-                //     Level =0,
-                //     Spells = new List<SpellDefinition>
-                //     {
-                //     }
-                // },
                  new SpellListDefinition.SpellsByLevelDuplet
                  {
-                     Level =1,
+                     Level =0,
                      Spells = new List<SpellDefinition>
                      {
-                         DatabaseHelper.SpellDefinitions.Jump,
-                         DatabaseHelper.SpellDefinitions.Longstrider
                      }
                  },
                  new SpellListDefinition.SpellsByLevelDuplet
                  {
-                     Level =2,
+                     Level = 1,
                      Spells = new List<SpellDefinition>
                      {
-                         DatabaseHelper.SpellDefinitions.Blur,
-                         DatabaseHelper.SpellDefinitions.PassWithoutTrace
+                         Jump,
+                         Longstrider
                      }
                  },
                  new SpellListDefinition.SpellsByLevelDuplet
                  {
-                     Level =3,
+                     Level = 2,
                      Spells = new List<SpellDefinition>
                      {
-                         DatabaseHelper.SpellDefinitions.Haste,
-                         DatabaseHelper.SpellDefinitions.Slow
+                         Blur,
+                         PassWithoutTrace
                      }
                  },
                  new SpellListDefinition.SpellsByLevelDuplet
                  {
-                     Level =4,
+                     Level = 3,
                      Spells = new List<SpellDefinition>
                      {
-                         DatabaseHelper.SpellDefinitions.FreedomOfMovement,
-                         DatabaseHelper.SpellDefinitions.GreaterInvisibility
+                         Haste,
+                         Slow
                      }
                  },
                  new SpellListDefinition.SpellsByLevelDuplet
                  {
-                     Level =5,
+                     Level = 4,
                      Spells = new List<SpellDefinition>
                      {
-                         DatabaseHelper.SpellDefinitions.MindTwist,
-                         DatabaseHelper.SpellDefinitions.DispelEvilAndGood
+                         FreedomOfMovement,
+                         GreaterInvisibility
+                     }
+                 },
+                 new SpellListDefinition.SpellsByLevelDuplet
+                 {
+                     Level = 5,
+                     Spells = new List<SpellDefinition>
+                     {
+                         MindTwist,
+                         DispelEvilAndGood
                      }
                  },
 
              });
-         
-            
+
+
 
             RiftWalkerMagicAffinity = FeatureDefinitionMagicAffinityBuilder
                 .Create("RiftWalkerSpellsMagicAffinity", CENamespaceGuid)

@@ -26,13 +26,73 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetGuiPresentation(Category.Feature)
                 .SetGuiPresentationNoContent()
                 .ClearSpells()
-                .SetSpellsAtLevel(1, Goodberry, Entangle)
-                .SetSpellsAtLevel(2, Barkskin, SpikeGrowth)
-                .SetSpellsAtLevel(3, MassHealingWord, VampiricTouch)
-                .SetSpellsAtLevel(4, Blight, GreaterRestoration)
-                .SetSpellsAtLevel(5, Contagion, RaiseDead)
-                .SetMaxSpellLevel()
+                //.SetSpellsAtLevel(0) // Warlock class has Cantrips so if we don't add this the spell list gets screwed
+                //.SetSpellsAtLevel(1, Goodberry, Entangle)
+                //.SetSpellsAtLevel(2, Barkskin, SpikeGrowth)
+                //.SetSpellsAtLevel(3, MassHealingWord, VampiricTouch)
+                //.SetSpellsAtLevel(4, Blight, GreaterRestoration)
+                //.SetSpellsAtLevel(5, Contagion, RaiseDead)
+                //.SetMaxSpellLevel()
                 .AddToDB();
+
+            ancientForestSpelllist.ClearSpellsByLevel();
+            ancientForestSpelllist.SpellsByLevel.AddRange(new List<SpellListDefinition.SpellsByLevelDuplet>()
+             {
+                 new SpellListDefinition.SpellsByLevelDuplet
+                 {
+                     Level = 0,
+                     Spells = new List<SpellDefinition>
+                     {
+                     }
+                 },
+                 new SpellListDefinition.SpellsByLevelDuplet
+                 {
+                     Level = 1,
+                     Spells = new List<SpellDefinition>
+                     {
+                         Goodberry,
+                         Entangle
+                     }
+                 },
+                 new SpellListDefinition.SpellsByLevelDuplet
+                 {
+                     Level = 2,
+                     Spells = new List<SpellDefinition>
+                     {
+                         Barkskin,
+                         SpikeGrowth
+                     }
+                 },
+                 new SpellListDefinition.SpellsByLevelDuplet
+                 {
+                     Level = 3,
+                     Spells = new List<SpellDefinition>
+                     {
+                         MassHealingWord,
+                         VampiricTouch
+                     }
+                 },
+                 new SpellListDefinition.SpellsByLevelDuplet
+                 {
+                     Level = 4,
+                     Spells = new List<SpellDefinition>
+                     {
+                         Contagion,
+                         RaiseDead
+                     }
+                 },
+                 new SpellListDefinition.SpellsByLevelDuplet
+                 {
+                     Level = 5,
+                     Spells = new List<SpellDefinition>
+                     {
+                         DominatePerson,
+                         FlameStrike
+                     }
+                 },
+
+             });
+
 
             //    necrotic and healing
 

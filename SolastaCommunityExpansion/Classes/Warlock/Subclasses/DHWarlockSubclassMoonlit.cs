@@ -23,67 +23,67 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .Create(SpellListPaladin, "MoonLitExpandedSpelllist", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation("MoonLitExpandedSpelllist", Category.Feature)
                 .SetGuiPresentationNoContent()
-                .ClearSpells()
-               // .SetSpellsAtLevel(1, FaerieFire, Sleep)
-               // .SetSpellsAtLevel(2, MoonBeam, SeeInvisibility)
-               // .SetSpellsAtLevel(3, Daylight, HypnoticPattern)
-               // .SetSpellsAtLevel(4, GreaterInvisibility, DominateBeast)
-               // .SetSpellsAtLevel(5, DominatePerson, FlameStrike)
-                .SetMaxSpellLevel(5, false)
+                //.ClearSpells()
+                //.SetSpellsAtLevel(1, FaerieFire, Sleep)
+                //.SetSpellsAtLevel(2, MoonBeam, SeeInvisibility)
+                //.SetSpellsAtLevel(3, Daylight, HypnoticPattern)
+                //.SetSpellsAtLevel(4, GreaterInvisibility, DominateBeast)
+                //.SetSpellsAtLevel(5, DominatePerson, FlameStrike)
+                //.SetMaxSpellLevel()
                 .AddToDB();
             MoonLitExpandedSpelllist.ClearSpellsByLevel();
             MoonLitExpandedSpelllist.SpellsByLevel.AddRange(new List<SpellListDefinition.SpellsByLevelDuplet>()
              {
-                // new SpellListDefinition.SpellsByLevelDuplet
-                // {
-                //     Level =0,
-                //     Spells = new List<SpellDefinition>
-                //     {
-                //     }
-                // },
                  new SpellListDefinition.SpellsByLevelDuplet
                  {
-                     Level =1,
+                     Level = 0,
                      Spells = new List<SpellDefinition>
                      {
-                         DatabaseHelper.SpellDefinitions.Sleep,
-                         DatabaseHelper.SpellDefinitions.FaerieFire
                      }
                  },
                  new SpellListDefinition.SpellsByLevelDuplet
                  {
-                     Level =2,
+                     Level = 1,
                      Spells = new List<SpellDefinition>
                      {
-                         DatabaseHelper.SpellDefinitions.MoonBeam,
-                         DatabaseHelper.SpellDefinitions.SeeInvisibility
+                         Sleep,
+                         FaerieFire
                      }
                  },
                  new SpellListDefinition.SpellsByLevelDuplet
                  {
-                     Level =3,
+                     Level = 2,
                      Spells = new List<SpellDefinition>
                      {
-                         DatabaseHelper.SpellDefinitions.Daylight,
-                         DatabaseHelper.SpellDefinitions.HypnoticPattern
+                         MoonBeam,
+                         SeeInvisibility
                      }
                  },
                  new SpellListDefinition.SpellsByLevelDuplet
                  {
-                     Level =4,
+                     Level = 3,
                      Spells = new List<SpellDefinition>
                      {
-                         DatabaseHelper.SpellDefinitions.DominateBeast,
-                         DatabaseHelper.SpellDefinitions.GreaterInvisibility
+                         Daylight,
+                         HypnoticPattern
                      }
                  },
                  new SpellListDefinition.SpellsByLevelDuplet
                  {
-                     Level =5,
+                     Level = 4,
                      Spells = new List<SpellDefinition>
                      {
-                         DatabaseHelper.SpellDefinitions.DominatePerson,
-                         DatabaseHelper.SpellDefinitions.FlameStrike
+                         DominateBeast,
+                         GreaterInvisibility
+                     }
+                 },
+                 new SpellListDefinition.SpellsByLevelDuplet
+                 {
+                     Level = 5,
+                     Spells = new List<SpellDefinition>
+                     {
+                         DominatePerson,
+                         FlameStrike
                      }
                  },
 

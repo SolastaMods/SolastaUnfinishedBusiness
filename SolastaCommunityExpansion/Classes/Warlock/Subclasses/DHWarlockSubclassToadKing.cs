@@ -9,6 +9,7 @@ using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
+using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 using static SolastaModApi.DatabaseHelper.SpellListDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionProficiencys;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionMovementAffinitys;
@@ -24,67 +25,68 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .Create(SpellListPaladin, "ToadKingExpandedSpelllist", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation("ToadKingExpandedSpelllist", Category.Feature)
                 .SetGuiPresentationNoContent()
-                .ClearSpells()
-               // .SetSpellsAtLevel(1, Grease, DetectPoisonAndDisease)
-               // .SetSpellsAtLevel(2, AcidArrow, SpiderClimb)
-               // .SetSpellsAtLevel(3, Slow, StinkingCloud)
-               // .SetSpellsAtLevel(4, BlackTentacles,FreedomOfMovement)
-               // .SetSpellsAtLevel(5, Contagion,InsectPlague)
-                .SetMaxSpellLevel(5, false)
+                //.ClearSpells()
+                //.SetSpellsAtLevel(0) // Warlock class has Cantrips so if we don't add this the spell list gets screwed
+                //.SetSpellsAtLevel(1, Longstrider, DetectPoisonAndDisease)
+                //.SetSpellsAtLevel(2, AcidArrow, SpiderClimb)
+                //.SetSpellsAtLevel(3, Slow, StinkingCloud)
+                //.SetSpellsAtLevel(4, BlackTentacles, FreedomOfMovement)
+                //.SetSpellsAtLevel(5, Contagion, InsectPlague)
+                //.SetMaxSpellLevel()
                 .AddToDB();
             ToadKingExpandedSpelllist.ClearSpellsByLevel();
             ToadKingExpandedSpelllist.SpellsByLevel.AddRange(new List<SpellListDefinition.SpellsByLevelDuplet>()
              {
-               //  new SpellListDefinition.SpellsByLevelDuplet
-               //  {
-               //      Level =0,
-               //      Spells = new List<SpellDefinition>
-               //      {
-               //      }
-               //  },
                  new SpellListDefinition.SpellsByLevelDuplet
                  {
-                     Level =1,
+                     Level = 0,
                      Spells = new List<SpellDefinition>
                      {
-                         DatabaseHelper.SpellDefinitions.DetectPoisonAndDisease,
-                         DatabaseHelper.SpellDefinitions.Longstrider
                      }
                  },
                  new SpellListDefinition.SpellsByLevelDuplet
                  {
-                     Level =2,
+                     Level = 1,
                      Spells = new List<SpellDefinition>
                      {
-                         DatabaseHelper.SpellDefinitions.AcidArrow,
-                         DatabaseHelper.SpellDefinitions.SpiderClimb
+                         DetectPoisonAndDisease,
+                         Longstrider
                      }
                  },
                  new SpellListDefinition.SpellsByLevelDuplet
                  {
-                     Level =3,
+                     Level = 2,
                      Spells = new List<SpellDefinition>
                      {
-                         DatabaseHelper.SpellDefinitions.StinkingCloud,
-                         DatabaseHelper.SpellDefinitions.Slow
+                         AcidArrow,
+                         SpiderClimb
                      }
                  },
                  new SpellListDefinition.SpellsByLevelDuplet
                  {
-                     Level =4,
+                     Level = 3,
                      Spells = new List<SpellDefinition>
                      {
-                         DatabaseHelper.SpellDefinitions.FreedomOfMovement,
-                         DatabaseHelper.SpellDefinitions.BlackTentacles
+                         StinkingCloud,
+                         Slow
                      }
                  },
                  new SpellListDefinition.SpellsByLevelDuplet
                  {
-                     Level =5,
+                     Level = 4,
                      Spells = new List<SpellDefinition>
                      {
-                         DatabaseHelper.SpellDefinitions.Contagion,
-                         DatabaseHelper.SpellDefinitions.InsectPlague
+                         FreedomOfMovement,
+                         BlackTentacles
+                     }
+                 },
+                 new SpellListDefinition.SpellsByLevelDuplet
+                 {
+                     Level = 5,
+                     Spells = new List<SpellDefinition>
+                     {
+                         Contagion,
+                         InsectPlague
                      }
                  },
 
@@ -163,7 +165,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                                 0,
                                 RuleDefinitions.AdvancementDuration.None
                                 )
-                            .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.Thunderwave.EffectDescription.EffectParticleParameters)
+                            .SetParticleEffectParameters(Thunderwave.EffectDescription.EffectParticleParameters)
                             .Build()
                        ,
                        true)
