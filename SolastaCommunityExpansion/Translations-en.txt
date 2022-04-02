@@ -701,7 +701,7 @@ Feature/&AHWarlockFiendPactExtendedSpellListDescription	The Fiend lets you choos
 Feature/&AHWarlockFiendPactExtendedSpellListTitle	Fiend expanded spell list
 Feature/&AHWarlockFiendPactFiendishResilienceDescription	You gain resistance to fire damage. (Not same as SRD - I believe the proper implementation would require a power for every damage type with a shared resource pool as there doesn't seem to be a way to group power choices like spells right now).
 Feature/&AHWarlockFiendPactFiendishResilienceTitle	Fiendish Resilience
-Feature/&AHWarlockFiendPactSpellListDescription	The Fiend lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you. \n1st Burning hands, Bane \n2nd Blindness, Scorching Ray \n3rd Fireball, Stinking Cloud \n4th Fire Shield, Wall of Fire \n5th  Flame Strike, Conjure Elemental Fire
+Feature/&AHWarlockFiendPactSpellListDescription	The Fiend lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you. \nLevel 1: Burning hands, Bane \nLevel 2: Blindness, Scorching Ray \nLevel 3: Fireball, Stinking Cloud \nLevel 4: Fire Shield, Wall of Fire \nLevel 5: Flame Strike, Conjure Elemental Fire
 Feature/&AHWarlockFiendPactSpellListTitle	Fiend expanded spell list
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerDescription	Once per short rest you can empower a weapon with the power of souls for one minute, your weapon lights up for 20ft of bright light and 20ft of dim light and you add your charisma to your to hit. Additionally all your attacks add your proficiency bonus in damage for the duration.
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle	Soul Empower
@@ -712,7 +712,7 @@ Feature/&AHWarlockSoulBladePactSoulShieldPowerTitle	Soul shield
 Feature/&AHWarlockSoulBladePactSpellListDescription	The Soul blade lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you. \n1st Shield, False life\n2nd Blur, Branding Smite \n3rd Haste, Slow \n4th Phantasmal Killer, Black Tentacles \n5th Cone of Cold, Mind Twist
 Feature/&AHWarlockSoulBladePactSpellListTitle	Soul blade expanded spell list
 Feature/&AlwaysBeardDescription	{0}% chances to grow a glorious beard!
-Feature/&AncientForestExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: \n 1st: Goodberry, Entangle \n 2nd:  Barkskin, Spike Growth\n 3rd: Mass Healing Word,Vampiric Touch \n 4th: Blight, Greater Restoration \n 5th: Contagion,Raise Dead
+Feature/&AncientForestExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: \n Level 1: Goodberry, Entangle \n Level 2: Barkskin, Spike Growth\n Level 3: Mass Healing Word,Vampiric Touch \n Level 4: Blight, Greater Restoration \n Level 5: Contagion,Raise Dead
 Feature/&AncientForestExpandedSpelllistAfinityTitle	Ancient Forest Spells
 Feature/&AncientForestLightAffinityDescription	You can absorb energy from sunlight. While you are in direct bright light, you gain 2 HP per round
 Feature/&AncientForestLightAffinityTitle	Photosynthesis
@@ -776,7 +776,7 @@ Feature/&DH_AtWill_HoldMonster_Power_Description	3 Uses per Day
 Feature/&DH_AtWill_HoldMonster_Power_Title	Hold Monster
 Feature/&DH_AtWill_Invisibility_Power_Description	At-will Invisibility
 Feature/&DH_AtWill_Invisibility_Power_Title	Invisibility
-Feature/&DH_BlinkDescription	As a bonus action, you  vanish from your current plane of existence, preventing all damage. At the start of your next turn,  you return to the space you vanished from.
+Feature/&DH_BlinkDescription	As a bonus action, you vanish from your current plane of existence, preventing all damage. At the start of your next turn, you return to the space you vanished from.
 Feature/&DH_BlinkTitle	Blink
 Feature/&DH_FadeIntoTheVoidDescription	When you are reduced to 0 hit points but not killed outright, you drop to 1 hit point instead as you briefly fade into the void to lessen the damage. You can't use this feature again until you finish a long rest.
 Feature/&DH_FadeIntoTheVoidTitle	Fade Into The Void
@@ -844,7 +844,7 @@ Feature/&EldritchMindTitle	Eldritch Mind
 Feature/&EldritchSightTitle	Eldritch Sight
 Feature/&EldritchSmiteDescription	Once per turn when you hit a creature with your pact weapon, you can expend a warlock spell slot to deal an extra 1d8 force damage to the target, plus another 1d8 per level of the spell slot,
 Feature/&EldritchSmiteTitle	Eldritch Smite
-Feature/&ElementalistSpellsMagicAffinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: \n 1st: Thunderwave, Fog Cloud \n 2nd: Spike Growth, Scorching Ray \n 3rd: Fireball, Lightning Bolt \n 4th: Stoneskin, Icestorm \n 5th: Cone of Cold, Flame Strike
+Feature/&ElementalistSpellsMagicAffinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: \n Level 1: Thunderwave, Fog Cloud \n Level 2: Spike Growth, Scorching Ray \n Level 3: Fireball, Lightning Bolt \n Level 4: Stoneskin, Icestorm \n Level 5: Cone of Cold, Flame Strike
 Feature/&ElementalistSpellsMagicAffinityTitle	Elementalist Spells
 Feature/&ElementalPatronFeatureSet_Level01Description	<size=17><color=#add8e6ff>Learn Elementalist Spells</color></size>\nLevel 1: Fog Cloud, Thunderwave\nLevel 2: Spike Growth, Scorching Ray\nLevel 3: Lightning Bolt, Fireball \nLevel 4: Stoneskin, Icestorm\nLevel 5: Cone of Cold, Flame Strike\n\n<size=17><color=#add8e6ff>Elemental Forms</color></size>\nYou can switch between elemental forms a number of times (equal to your Proficiency Bonus) per day by channeling elemental energy. You can resistence to the relevant damage and and once per turn, apply damage of the same type to your attacks. The forms last for 1 minute.
 Feature/&ElementalPatronFeatureSet_Level01Title	Elementalist
@@ -916,7 +916,7 @@ Feature/&KSRogueSubclassThugProficienciesTitle	Heavy Gear
 Feature/&MiretheMindTitle	Mire the Mind
 Feature/&MoonLitDarknessImmunityDescription	You are Immune to the Darkness condition
 Feature/&MoonLitDarknessImmunityTitle	MoonLit Darkness
-Feature/&MoonLitExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: \n 1st: Faerie Fire, Sleep \n 2nd: Moon Beam, See Invisibility \n 3rd: Daylight, Hypnotic Pattern \n 4th: Greater Invisibility, Dominate Beast \n 5th: Dominate Person, Flame Strike
+Feature/&MoonLitExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: \n Level 1: Faerie Fire, Sleep \n Level 2: Moon Beam, See Invisibility \n Level 3: Daylight, Hypnotic Pattern \n Level 4: Greater Invisibility, Dominate Beast \n Level 5: Dominate Person, Flame Strike
 Feature/&MoonLitExpandedSpelllistAfinityTitle	MoonLit Spelllist
 Feature/&MoonLitLightAffinityDescription	You can become invisible in dim light or natural darkness
 Feature/&MoonLitLightAffinityTitle	Umbral Cloak
@@ -971,7 +971,7 @@ Feature/&RangerVanishActionTitle	Vanish
 Feature/&RepellingBlastMagicAffinityDescription	When you hit a creature with eldritch blast, you can push the creature up to 10 feet away from you in a straight line.
 Feature/&RepellingBlastMagicAffinityTitle	Repelling Blast
 Feature/&RiftWalkerRestrainedImmunityTitle	Fleeting Step
-Feature/&RiftWalkerSpellsMagicAffinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: \n 1st: Jump, Longstrider \n 2nd: Blur, Pass Without Trace \n 3rd: Haste, Slow \n 4th: Freedom Of Movement, Greater Invisibility \n 5th: Mind Twist, Dispel Evil And Good
+Feature/&RiftWalkerSpellsMagicAffinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: \n Level 1: Jump, Longstrider \n Level 2: Blur, Pass Without Trace \n Level 3: Haste, Slow \n Level 4: Freedom Of Movement, Greater Invisibility \n Level 5: Mind Twist, Dispel Evil And Good
 Feature/&RiftWalkerSpellsMagicAffinityTitle	Learn Rift Walker Spells
 Feature/&RoyalEnvoyFeatureDescription	Add half of your proficiency bonus (round up) to any Charisma check you make that doesn't already use your proficiency bonus. In addition, you become proficient with Charisma saving throws.
 Feature/&RoyalEnvoyFeatureTitle	Royal Envoy
@@ -1004,9 +1004,9 @@ Feature/&TinkererToolsProficiencyTitle	Tool Proficiencies
 Feature/&TinkererWeaponProficiencyTitle	Tinkerer Weapon Proficiencies
 Feature/&TinkererWeaponTrainingShortDescription	Proficiency with simple weapons
 Feature/&ToadKingBasicToxinTitle	Basic Toxin
-Feature/&ToadKingExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: \n 1st: Grease, Detect Poison And Disease \n 2nd: AcidArrow, Spider Climb \n 3rd: Slow, Stinking Cloud \n 4th: Black Tentacles,Freedom Of Movement \n 5th: Contagion,Insect Plague
+Feature/&ToadKingExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: \n Level 1: Grease, Detect Poison And Disease \n Level 2: AcidArrow, Spider Climb \n Level 3: Slow, Stinking Cloud \n Level 4: Black Tentacles,Freedom Of Movement \n Level 5: Contagion,Insect Plague
 Feature/&ToadKingExpandedSpelllistAfinityTitle	Toad King Spells
-Feature/&ToadKingHallucinogenicToxinAffintyDescription	Your body has changed to become resistent to toxins and to produce a defensive toxin when attacked in melee range (up to PB times per day). if the attacker fails a Con save, they become lucinogenic toxin  until they are attacked or otherwise interrupted.
+Feature/&ToadKingHallucinogenicToxinAffintyDescription	Your body has changed to become resistent to toxins and to produce a defensive toxin when attacked in melee range (up to PB times per day). if the attacker fails a Con save, they become lucinogenic toxin until they are attacked or otherwise interrupted.
 Feature/&ToadKingHallucinogenicToxinAffintyTitle	Hallucinogenic Toxin
 Feature/&ToadKingJumpTitle	Jump
 Feature/&ToadKingPoisonConditionAffinityTitle	Immune to Poison Condition
@@ -1071,7 +1071,7 @@ Message/&CharacterExportDuplicateNameErrorDescription	Export Cancelled:\n\nA her
 Message/&CharacterExportEmptyNameErrorDescription	Export Cancelled:\n\nPlease try a non empty name.
 Message/&CharacterExportModalContentDescription	Enter the hero name to export:
 Message/&CharacterExportModalTitleDescription	Character Export
-Message/&MessageModWelcomeDescription	The Community Expansion Mod is packed full of exciting features, but by default none are enabled. Press <color=yellow>Ctrl-F10</color> to open the Unity Mod Manager UI [UMM], then click on the settings icon next to 'Community Expansion' to open the settings pages.\n\n  Explore the options and select the ones you like. The UMM UI will now open.
+Message/&MessageModWelcomeDescription	The Community Expansion Mod is packed full of exciting features, but by default none are enabled. Press <color=yellow>Ctrl-F10</color> to open the Unity Mod Manager UI [UMM], then click on the settings icon next to 'Community Expansion' to open the settings pages.\n\n Explore the options and select the ones you like. The UMM UI will now open.
 Message/&MessageModWelcomeTitle	Community Expansion Mod
 Message/&SpawnCustomEncounterDescription	Spawn encounter at coordinates ({0}, {1})?
 Message/&SpawnCustomEncounterTitle	Encounter
@@ -1207,7 +1207,7 @@ MonsterAttack/&DH_Lich_ParalyzingTouch_Attack_Description	3D6 Cold and inflicts 
 MonsterAttack/&DH_Lich_ParalyzingTouch_Attack_Title	Paralyzing Touch
 MonsterAttack/&DH_LightningScimatar_Attack_Description	2d6+5 slashing & 2d6 lightning
 MonsterAttack/&DH_LightningScimatar_Attack_Title	Scimatar
-MonsterAttack/&DH_NagaBite_Attack_Description	1d8+4 Piercing &  15 DC Con Save to half 10d8 Poison
+MonsterAttack/&DH_NagaBite_Attack_Description	1d8+4 Piercing & 15 DC Con Save to half 10d8 Poison
 MonsterAttack/&DH_NagaBite_Attack_Title	Poison Bite
 MonsterAttack/&DH_NagaSpit_Attack_Description	15 DC Con Save to half 10d8 Poison
 MonsterAttack/&DH_NagaSpit_Attack_Title	Spit Poison
@@ -1275,9 +1275,9 @@ MonsterPower/&DH_ErinyesParry_Power_Description	+3 AC
 MonsterPower/&DH_ErinyesParry_Power_Title	Parry
 MonsterPower/&DH_FireTitan_Aura_Power_Description	each creature within 30 feet of it takes 35 (10d6) fire damage, and flammable objects in the aura that aren't being worn or carried ignite.
 MonsterPower/&DH_FireTitan_Aura_Power_Title	Fire Titan Aura
-MonsterPower/&DH_FireTitan_Retaliate_DamageAffinity_Description	A creature  takes 35 (10d6) fire damage from touching Maegera or from hitting it with a melee attack while within 10 feet of it
+MonsterPower/&DH_FireTitan_Retaliate_DamageAffinity_Description	A creature takes 35 (10d6) fire damage from touching Maegera or from hitting it with a melee attack while within 10 feet of it
 MonsterPower/&DH_FireTitan_Retaliate_DamageAffinity_Title	Fire Titan Retaliate
-MonsterPower/&DH_FireTitan_Retaliate_Power_Description	A creature  takes 35 (10d6) fire damage from touching Maegera or from hitting it with a melee attack while within 10 feet of it
+MonsterPower/&DH_FireTitan_Retaliate_Power_Description	A creature takes 35 (10d6) fire damage from touching Maegera or from hitting it with a melee attack while within 10 feet of it
 MonsterPower/&DH_FireTitan_Retaliate_Power_Title	Fire Titan Retaliate
 MonsterPower/&DH_IlluminatingCrystals_Power_Description	Any creature in the area when the spell is cast is also outlined in light. For the duration, objects and affected creatures shed dim light in a 10-foot radius.
 MonsterPower/&DH_IlluminatingCrystals_Power_Title	Illuminating Crystals
@@ -1329,7 +1329,7 @@ Power/&ToadKingCroakDescription	Emit a wave of sound that causes damage and push
 Power/&ToadKingCroakTitle	Croak
 Power/&ToadKingGraspingTongueDescription	Pull enemies towards yourself
 Power/&ToadKingGraspingTongueTitle	Grasping Tongue
-Power/&ToadKingHallucinogenicToxinPowerDescription	Your body has changed to become resistent to toxins and to produce a defensive toxin when attacked in melee range (up to PB times per day). if the attacker fails a Con save, they become lucinogenic toxin  until they are attacked or otherwise interrupted.
+Power/&ToadKingHallucinogenicToxinPowerDescription	Your body has changed to become resistent to toxins and to produce a defensive toxin when attacked in melee range (up to PB times per day). if the attacker fails a Con save, they become lucinogenic toxin until they are attacked or otherwise interrupted.
 Power/&ToadKingHallucinogenicToxinPowerTitle	Hallucinogenic Toxin
 Power/&ToadKingSwallowDescription	Attempt to swallow a medium or smaller enemy. On a failed Str save, the monster is swallowed and receives 3D6 acid damage per round. Ends if the toad warlock is hit with 15 or more damage in single attack
 Power/&ToadKingSwallowTitle	Swallow
