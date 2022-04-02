@@ -53,18 +53,18 @@ namespace SolastaCommunityExpansion.Builders
         private void EnsureSpellListsConfigured()
         {
             // should be levels 0..9 in that order
-            for(int level=0; level<10; level++)
+            for (int level = 0; level < 10; level++)
             {
-                if(Definition.SpellsByLevel.Count < level + 1)
+                if (Definition.SpellsByLevel.Count < level + 1)
                 {
                     // Add new duplet
-                    Definition.SpellsByLevel.Add(new SpellsByLevelDuplet { Level=level, Spells = new() });
+                    Definition.SpellsByLevel.Add(new SpellsByLevelDuplet { Level = level, Spells = new() });
                 }
 
                 // Check this level matches
                 var spells = Definition.SpellsByLevel[level];
 
-                if(spells.Level != level)
+                if (spells.Level != level)
                 {
                     throw new InvalidOperationException($"Spell list not configured correctly for level={level}");
                 }
@@ -96,14 +96,15 @@ namespace SolastaCommunityExpansion.Builders
             EnsureSpellListsConfigured();
 
 #if DEBUG
-            if(spells.GroupBy(s => s.GUID).Any(g => g.Count() > 1))
+            if (spells.GroupBy(s => s.GUID).Any(g => g.Count() > 1))
             {
                 throw new ArgumentException($"{Definition.Name}. There are duplicate spells in the supplied level {level} spell list.");
             }
 #endif
 
-            // Set the spells
-            Definition.SpellsByLevel[level].Spells.SetRange(spells.Where(s => s.Implemented).Distinct());
+            // Set the spells - remove duplicates - sort by localized name
+            Definition.SpellsByLevel[level].Spells.SetRange(
+                spells.Where(s => s.Implemented).Distinct().OrderBy(s => Gui.Format(s.GuiPresentation.Title)));
 
             return this;
         }
@@ -118,12 +119,12 @@ namespace SolastaCommunityExpansion.Builders
             // Will throw if anything incorrect
             EnsureSpellListsConfigured();
 
-            var maxLevel = 
+            var maxLevel =
                 Definition.SpellsByLevel.Where(s => s.Spells.Any()).Max(s => s.Level);
 
-            var hasCantrips = 
+            var hasCantrips =
                 Definition.SpellsByLevel.Where(s => s.Spells.Any()).Any(s => s.Level == 0);
-            
+
             SetMaxSpellLevel(maxLevel, hasCantrips);
 
             return this;

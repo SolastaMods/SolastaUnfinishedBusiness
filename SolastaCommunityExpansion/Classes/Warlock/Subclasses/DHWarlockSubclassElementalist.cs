@@ -8,6 +8,7 @@ using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using static RuleDefinitions;
+using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 {
@@ -40,7 +41,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
         public static CharacterSubclassDefinition Build()
         {
             ElementalFormPool = FeatureDefinitionPowerPoolBuilder
-                 .Create("DH_ElementalFormPool", GuidHelper.Create(new Guid(Settings.GUID), "DH_ElementalFormPool").ToString())
+                .Create("DH_ElementalFormPool", GuidHelper.Create(new Guid(Settings.GUID), "DH_ElementalFormPool").ToString())
                 .SetGuiPresentationNoContent()
                 .SetUsesProficiency()
                 .SetUsesAbility(1, AttributeDefinitions.Charisma)
@@ -413,7 +414,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
         public static void AtWillConjureMinorElementals()
         {
             SpellDefinitionBuilder AtWillConjureMinorElementalsBuilder = SpellDefinitionBuilder
-                    .Create(DatabaseHelper.SpellDefinitions.ConjureMinorElementals, "DHAtWillConjureMinorElementals", GuidHelper.Create(new System.Guid(Settings.GUID), "DHAtWillConjureMinorElementals").ToString());
+                    .Create(ConjureMinorElementals, "DHAtWillConjureMinorElementals", GuidHelper.Create(new System.Guid(Settings.GUID), "DHAtWillConjureMinorElementals").ToString());
             AtWillConjureMinorElementalsBuilder.SetSpellLevel(0);
 
             FeatureDefinitionBonusCantripsBuilder MinorElementalBonusCantripBuilder = FeatureDefinitionBonusCantripsBuilder.Create(
@@ -440,68 +441,13 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                     GuidHelper.Create(new Guid(Settings.GUID), "ElementalistSpellsList").ToString())
                 .SetGuiPresentation("ElementalistSpellsList", Category.SpellList)
                 .ClearSpells()
-            .AddToDB();
-
-            ElementalistSpellList.SpellsByLevel.Clear();
-            ElementalistSpellList.SpellsByLevel.AddRange(new List<SpellListDefinition.SpellsByLevelDuplet>()
-            {
-              //  new SpellListDefinition.SpellsByLevelDuplet
-              //  {
-              //      Level =0,
-              //      Spells = new List<SpellDefinition>
-              //      {
-              //      }
-              //  },
-                new SpellListDefinition.SpellsByLevelDuplet
-                {
-                    Level =1,
-                    Spells = new List<SpellDefinition>
-                    {
-                        DatabaseHelper.SpellDefinitions.Thunderwave,
-                        DatabaseHelper.SpellDefinitions.FogCloud
-                    }
-                },
-                new SpellListDefinition.SpellsByLevelDuplet
-                {
-                    Level =2,
-                    Spells = new List<SpellDefinition>
-                    {
-                        DatabaseHelper.SpellDefinitions.SpikeGrowth,
-                        DatabaseHelper.SpellDefinitions.ScorchingRay
-                    }
-                },
-                new SpellListDefinition.SpellsByLevelDuplet
-                {
-                    Level =3,
-                    Spells = new List<SpellDefinition>
-                    {
-                        DatabaseHelper.SpellDefinitions.Fireball,
-                        DatabaseHelper.SpellDefinitions.LightningBolt
-                    }
-                },
-                new SpellListDefinition.SpellsByLevelDuplet
-                {
-                    Level =4,
-                    Spells = new List<SpellDefinition>
-                    {
-                        DatabaseHelper.SpellDefinitions.Stoneskin,
-                        DatabaseHelper.SpellDefinitions.IceStorm,
-                        DatabaseHelper.SpellDefinitions.ConjureMinorElementals
-                    }
-                },
-                new SpellListDefinition.SpellsByLevelDuplet
-                {
-                    Level =5,
-                    Spells = new List<SpellDefinition>
-                    {
-                        DatabaseHelper.SpellDefinitions.ConeOfCold,
-                        DatabaseHelper.SpellDefinitions.FlameStrike,
-                        DatabaseHelper.SpellDefinitions.ConjureElemental
-                    }
-                },
-
-            });
-
+                .SetSpellsAtLevel(1, Thunderwave, FogCloud)
+                .SetSpellsAtLevel(2, SpikeGrowth, ScorchingRay)
+                .SetSpellsAtLevel(3, Fireball, LightningBolt)
+                .SetSpellsAtLevel(4, Stoneskin, IceStorm, ConjureMinorElementals)
+                .SetSpellsAtLevel(5, ConeOfCold, FlameStrike, ConjureElemental)
+                .FinalizeSpells()
+                .AddToDB();
 
             var ElementalistMagicAffintyBuilder = FeatureDefinitionMagicAffinityBuilder
                 .Create("ElementalistSpellsMagicAffinity", GuidHelper.Create(new Guid(Settings.GUID), "ElementalistSpellsMagicAffinity").ToString())
@@ -512,14 +458,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                          ).Build()
 
                      );
+
             ElementalistMagicAffinity = ElementalistMagicAffintyBuilder.AddToDB();
-
             ElementalistMagicAffinity.SetExtendedSpellList(ElementalistSpellList);
-
         }
-
     }
-
-
-
 }
