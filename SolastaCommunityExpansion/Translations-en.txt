@@ -96,18 +96,18 @@ Condition/&DisorientTitle	Disoriented
 Condition/&Frenzied	This creature is frenzied and will attack the closest creature.
 Condition/&FrenziedTitle	Frenzied
 Condition/&HalfLifeConditionDescription	You take necrotic energy into yourself and hang between life and death and are temporarily possessed by your own ghost, gaining flying, and the same condition immunities and damage resistenances as other ghosts.
-Condition/&HalfLifeConditionTitle	HalfLife 
+Condition/&HalfLifeConditionTitle	HalfLife
 Condition/&HelpActionDescription	This creature has been distracted.
 Condition/&HelpActionTitle	Distracted
 Condition/&MoonTouchedConditionDescription	Your gravity is negated
-Condition/&MoonTouchedConditionTitle	Moon Touched 
+Condition/&MoonTouchedConditionTitle	Moon Touched
 Condition/&RuinedDescription	This creature's defence is reduced.
 Condition/&RuinedTitle	Ruined
 Condition/&SwallowedByToadConditionDescription	Takes 3D6 acid damage per round. Ends if the toad warlock is hit with 15 or more damage in single attack
-Condition/&SwallowedByToadConditionTitle	Swallowed By Toad 
+Condition/&SwallowedByToadConditionTitle	Swallowed By Toad
 Condition/&SwallowingToadConditionDescription	Ends if the toad warlock is hit with 15 or more damage in single attack
-Condition/&SwallowingToadConditionTitle	Swallowing Toad 
-ContentPack/&CommunityExpansionPackDescription	The Community Expansion pack adds new classes, sub-classes, feats and spells.  There's a higher level cap, multi-class, QOL features, bug fixes and more. It's a veritable Horn of Plenty (TM)... 
+Condition/&SwallowingToadConditionTitle	Swallowing Toad
+ContentPack/&CommunityExpansionPackDescription	The Community Expansion pack adds new classes, sub-classes, feats and spells. There's a higher level cap, multi-class, QOL features, bug fixes and more. It's a veritable Horn of Plenty (TM)...
 ContentPack/&CommunityExpansionPackTitle	Community Expansion Pack
 CraftyFeats/&ApothecaryIntFeatDescription	+1 Intelligence, Proficiency or Expertise with Herbalism Kit and Arcana
 CraftyFeats/&ApothecaryIntFeatTitle	Apothecary (Intelligence)
@@ -379,15 +379,15 @@ Feat/&ArtilleristSubclassSpellsTitle	Learn Blaster Spells
 Feat/&ArtilleryConstructDescription	Can damage or protect allies
 Feat/&ArtilleryConstructLevel03AutopreparedSpellsDescription	Cantrips:Mending Construct, Dismiss Construct \nLevel 1: Resummon Artillery Construct
 Feat/&ArtilleryConstructLevel03AutopreparedSpellsTitle	Construct Spells
-Feat/&ArtilleryConstructLevel09AutopreparedSpellsDescription	
-Feat/&ArtilleryConstructLevel09AutopreparedSpellsTitle	
-Feat/&ArtilleryConstructLevel15AutopreparedSpellsDescription	
-Feat/&ArtilleryConstructLevel15AutopreparedSpellsTitle	
+Feat/&ArtilleryConstructLevel09AutopreparedSpellsDescription
+Feat/&ArtilleryConstructLevel09AutopreparedSpellsTitle
+Feat/&ArtilleryConstructLevel15AutopreparedSpellsDescription
+Feat/&ArtilleryConstructLevel15AutopreparedSpellsTitle
 Feat/&ArtilleryConstructTitle	Artillery Construct
 Feat/&ArtilleryConstructTitle_3	Artillery Construct
 Feat/&ArtilleryConstructTitle_5	Artillery Construct
-Feat/&ArtilleryModePoolDescription	Choose your Artillery Mode 
-Feat/&ArtilleryModePoolTitle	Artillery Mode 
+Feat/&ArtilleryModePoolDescription	Choose your Artillery Mode
+Feat/&ArtilleryModePoolTitle	Artillery Mode
 Feat/&AttackModifierArtificerBattleSmithJolt2Description	Your weapon attacks deal 3 additional damage
 Feat/&AttackModifierArtificerBattleSmithJolt2Title	Improved Weapon Attack Jolt
 Feat/&AttackModifierArtificerBattleSmithJoltDescription	Your weapon attacks deal 3 additional damage
@@ -396,7 +396,7 @@ Feat/&AutoPreparedSpellsDescription	Level 3 Magic Missile, Thunderwave\nLevel 5 
 Feat/&AutoPreparedSpellsTitle	Learn Scout Sentinel spells
 Feat/&BattleSmithSubclassSpellsDescription	Level 3: Shield, Heroism, Hunter's Mark\nLevel 5: Branding Smite, Spiritual Weapon\nLevel 9: Remove Curse, Beacon of Hope\nLevel 13: Fire Shield, Death Ward Level\n17: Mass Cure Wounds, Wall of Force
 Feat/&BattleSmithSubclassSpellsTitle	Learn Weapon Smith Spells
-Feat/&CancelFlyingConditionDescription	End flying condtion to allow jumping and crawling. 
+Feat/&CancelFlyingConditionDescription	End flying condtion to allow jumping and crawling.
 Feat/&CancelFlyingConditionTitle	Cancel Fly
 Feat/&ChefConDescription	You gain +1 to Constitution. Spend 1 hour to cook a meal to heal yourself and your companions 1d8. Once a day you may spend an hour to cook treats that provide temporary HP when eaten.
 Feat/&ChefConTitle	Chef (Constitution)
@@ -432,11 +432,11 @@ Feat/&FeatChefWisIncrementDescription	+1 Wisdom
 Feat/&FeatChefWisIncrementTitle	Attribute Increase
 Feat/&FeatDexIncrementDescription	+1 Dexterity
 Feat/&FeatDexIncrementTitle	Attribute Increase
-Feat/&FeatFeyTeleportationChaDescription	Increase Charisma attribute by 1. Gain the ability to Misty Step once per short rest and learn the spell.  Gain proficiency in Tirmarian.
+Feat/&FeatFeyTeleportationChaDescription	Increase Charisma attribute by 1. Gain the ability to Misty Step once per short rest and learn the spell. Gain proficiency in Tirmarian.
 Feat/&FeatFeyTeleportationChaTitle	Fey Teleportation (Charisma)
 Feat/&FeatFeyTeleportationIntDescription	Increase Intelligence attribute by 1. Gain the ability to Misty Step once per short rest and learn the spell. Gain proficiency in Tirmarian.
 Feat/&FeatFeyTeleportationIntTitle	Fey Teleportation (Intelligence)
-Feat/&FeatFeyTeleportationWisDescription	Increase Wisdom attribute by 1. Gain the ability to Misty Step once per short rest and learn the spell.  Gain proficiency in Tirmarian.
+Feat/&FeatFeyTeleportationWisDescription	Increase Wisdom attribute by 1. Gain the ability to Misty Step once per short rest and learn the spell. Gain proficiency in Tirmarian.
 Feat/&FeatFeyTeleportationWisTitle	Fey Teleportation (Wisdom)
 Feat/&FeatFightingSurgeDexterityDescription	Increase your Dexterity by 1, to a maximum of 20.\nOn your turn, you can take one additional action on top of your regular action and a possible bonus action. Once you use this feature, you must finish a long rest before you can use it again.
 Feat/&FeatFightingSurgeDexterityTitle	Fighting Surge (Dexterity)
@@ -589,7 +589,7 @@ Feat/&PowerAlchemistHealElixirsDescription	Once per day you can cast Heal
 Feat/&PowerAlchemistHealElixirsTitle	Heal
 Feat/&PowerAlchemistRestorativeElixirsDescription	You can cast Lesser Rotation without expending a spell slot. You can do this a number of times per long rest equal to your intelligence modifier
 Feat/&PowerAlchemistRestorativeElixirsTitle	Restorative Elixirs
-Feat/&PowerAttackFeatDescription	You learned to trade accuracy to lander deadlier/harder blows.  You can choose to take a -{0} penalty to your to hit in order to do more damage (+{0} damage for one handed weapons, +{1} damage for two handed weapons).  Lasts for the whole turn once activated.  Works with melee and ranged weapons.
+Feat/&PowerAttackFeatDescription	You learned to trade accuracy to lander deadlier/harder blows. You can choose to take a -{0} penalty to your to hit in order to do more damage (+{0} damage for one handed weapons, +{1} damage for two handed weapons). Lasts for the whole turn once activated. Works with melee and ranged weapons.
 Feat/&PowerAttackFeatTitle	Power attack
 Feat/&PowerFalseLifeFromFeatDescription	Bolstering yourself with a necromantic facsimile of life, you gain 1d4+4 Temporary Hit Points for the Duration.
 Feat/&PowerFalseLifeFromFeatTitle	False Life
@@ -687,7 +687,7 @@ Feature/&AHSoulBladeEmpowerDamageBonusTitle	Soul Empowered
 Feature/&AHSoulBladeEmpowerDamageBonusTitleDescription	You are empowered and do a damage bonus equal to your proficiency on all your attacks.
 Feature/&AHSoulBladeEmpowerWeaponConditionDescription	You are empowered and do a damage bonus equal to your proficiency on all your attacks.
 Feature/&AHSoulBladeEmpowerWeaponConditionTitle	Soul Empowered
-Feature/&AHSoulBladeSummonPactWeaponPowerDescription	Once per short rest you can summon forth a spiritual form of a weapon from your pact as a free action.  As a bonus action you can direct the weapon as desired to attack your foes.  The weapon moves up to 20ft each time before striking.
+Feature/&AHSoulBladeSummonPactWeaponPowerDescription	Once per short rest you can summon forth a spiritual form of a weapon from your pact as a free action. As a bonus action you can direct the weapon as desired to attack your foes. The weapon moves up to 20ft each time before striking.
 Feature/&AHSoulBladeSummonPactWeaponPowerTitle	Spiritual pact weapon
 Feature/&AHWarlockClassPactBoonSetDescription	At 3rd level, your otherworldly patron bestows a gift upon you for your loyal service. You can choose between:
 Feature/&AHWarlockClassPactBoonSetTitle	Pact boon
@@ -695,24 +695,24 @@ Feature/&AHWarlockClassPactOfTheBladeSetDescription	You become proficient with a
 Feature/&AHWarlockClassPactOfTheBladeSetTitle	Pact of the Blade
 Feature/&AHWarlockFiendPactDarkOnesBlessingPowerDescription	Starting at 1st level, when you reduce a hostile creature to 0 hit points***, you gain temporary hit points equal to your Charisma modifier + your warlock level (minimum of 1). \n*** Mod note - This adds a free at will power to add these Temp HP that you will have to manually use when you down/kill an enemy.
 Feature/&AHWarlockFiendPactDarkOnesBlessingPowerTitle	Dark one's blessing
-Feature/&AHWarlockFiendPactDarkOnesOwnLuckDescription	You gain an indomitable use once per day (Choice to re-roll saving throw if you fail).  (Doesn't match SRD but would require a whole new reaction ability to emulate the SRD).
+Feature/&AHWarlockFiendPactDarkOnesOwnLuckDescription	You gain an indomitable use once per day (Choice to re-roll saving throw if you fail). (Doesn't match SRD but would require a whole new reaction ability to emulate the SRD).
 Feature/&AHWarlockFiendPactDarkOnesOwnLuckTitle	Dark One's Own Luck
-Feature/&AHWarlockFiendPactExtendedSpellListDescription	The Fiend lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.  \n1st Burning hands, Bane \n2nd Blindness, Scorching Ray\n3rd Fireball, Stinking Cloud \n4th Fire Shield, Wall of Fire \n5th Flame Strike, Conjure Elemental Fire
+Feature/&AHWarlockFiendPactExtendedSpellListDescription	The Fiend lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you. \n1st Burning hands, Bane \n2nd Blindness, Scorching Ray\n3rd Fireball, Stinking Cloud \n4th Fire Shield, Wall of Fire \n5th Flame Strike, Conjure Elemental Fire
 Feature/&AHWarlockFiendPactExtendedSpellListTitle	Fiend expanded spell list
-Feature/&AHWarlockFiendPactFiendishResilienceDescription	You gain resistance to fire damage.  (Not same as SRD - I believe the proper implementation would require a power for every damage type with a shared resource pool as there doesn't seem to be a way to group power choices like spells right now).
+Feature/&AHWarlockFiendPactFiendishResilienceDescription	You gain resistance to fire damage. (Not same as SRD - I believe the proper implementation would require a power for every damage type with a shared resource pool as there doesn't seem to be a way to group power choices like spells right now).
 Feature/&AHWarlockFiendPactFiendishResilienceTitle	Fiendish Resilience
-Feature/&AHWarlockFiendPactSpellListDescription	The Fiend lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.  \n1st Burning hands, Bane \n2nd Blindness, Scorching Ray \n3rd Fireball, Stinking Cloud \n4th Fire Shield, Wall of Fire \n5th  Flame Strike, Conjure Elemental Fire
+Feature/&AHWarlockFiendPactSpellListDescription	The Fiend lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you. \n1st Burning hands, Bane \n2nd Blindness, Scorching Ray \n3rd Fireball, Stinking Cloud \n4th Fire Shield, Wall of Fire \n5th  Flame Strike, Conjure Elemental Fire
 Feature/&AHWarlockFiendPactSpellListTitle	Fiend expanded spell list
-Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerDescription	Once per short rest you can empower a weapon with the power of souls for one minute, your weapon lights up for 20ft of bright light and 20ft of dim light and you add your charisma to your to hit.  Additionally all your attacks add your proficiency bonus in damage for the duration.
+Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerDescription	Once per short rest you can empower a weapon with the power of souls for one minute, your weapon lights up for 20ft of bright light and 20ft of dim light and you add your charisma to your to hit. Additionally all your attacks add your proficiency bonus in damage for the duration.
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle	Soul Empower
-Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	The Soul blade lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.  \n1st Shield, False life\n2nd Blur, Branding Smite \n3rd Haste, Slow \n4th Phantasmal Killer, Black Tentacles \n5th Cone of Cold, Mind Twist
+Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	The Soul blade lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you. \n1st Shield, False life\n2nd Blur, Branding Smite \n3rd Haste, Slow \n4th Phantasmal Killer, Black Tentacles \n5th Cone of Cold, Mind Twist
 Feature/&AHWarlockSoulBladePactExtendedSpellListTitle	Soulblade Spells
-Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Once per short rest you use the power of souls to defend yourself.  Using a bonus action you gain temp hp equal to your level + charisma modifier.
+Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Once per short rest you use the power of souls to defend yourself. Using a bonus action you gain temp hp equal to your level + charisma modifier.
 Feature/&AHWarlockSoulBladePactSoulShieldPowerTitle	Soul shield
-Feature/&AHWarlockSoulBladePactSpellListDescription	The Soul blade lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.  \n1st Shield, False life\n2nd Blur, Branding Smite \n3rd Haste, Slow \n4th Phantasmal Killer, Black Tentacles \n5th Cone of Cold, Mind Twist
+Feature/&AHWarlockSoulBladePactSpellListDescription	The Soul blade lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you. \n1st Shield, False life\n2nd Blur, Branding Smite \n3rd Haste, Slow \n4th Phantasmal Killer, Black Tentacles \n5th Cone of Cold, Mind Twist
 Feature/&AHWarlockSoulBladePactSpellListTitle	Soul blade expanded spell list
 Feature/&AlwaysBeardDescription	{0}% chances to grow a glorious beard!
-Feature/&AncientForestExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: \n 1st: Goodberry, Entangle \n 2nd:   Barkskin, Spike Growth\n 3rd:  Mass Healing Word,Vampiric Touch \n 4th: Blight, Greater Restoration \n 5th: Contagion,Raise Dead
+Feature/&AncientForestExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: \n 1st: Goodberry, Entangle \n 2nd:  Barkskin, Spike Growth\n 3rd: Mass Healing Word,Vampiric Touch \n 4th: Blight, Greater Restoration \n 5th: Contagion,Raise Dead
 Feature/&AncientForestExpandedSpelllistAfinityTitle	Ancient Forest Spells
 Feature/&AncientForestLightAffinityDescription	You can absorb energy from sunlight. While you are in direct bright light, you gain 2 HP per round
 Feature/&AncientForestLightAffinityTitle	Photosynthesis
@@ -790,7 +790,7 @@ Feature/&DH_RiftStrikeDescription	Once per day when damaged in melee, you can us
 Feature/&DH_RiftStrikeTitle	Rift Strike
 Feature/&DH_RiftWalkDescription	Briefly surrounded by the energy of the void between worlds, you teleport up to 30 feet to an unoccupied space that you can see.
 Feature/&DH_RiftWalkTitle	Rift Step
-Feature/&DHAncientForestBonusCantripDescription	Your patron shares secrets on the nature of how natural magic and life energy are connected. Your learn Shillelagh and Chill Touch 
+Feature/&DHAncientForestBonusCantripDescription	Your patron shares secrets on the nature of how natural magic and life energy are connected. Your learn Shillelagh and Chill Touch
 Feature/&DHAncientForestBonusCantripTitle	Ancient Forest Bonus Cantrips
 Feature/&DHConjureMinorElementalsBonusCantripDescription	Your control of elemental energies has increased to the point than you now have dominion over weaker elementals. You can cast conjure minor elemental at will.
 Feature/&DHConjureMinorElementalsBonusCantripTitle	Elemental Minions
@@ -871,7 +871,7 @@ Feature/&ForceArtilleryModePowerTitle	Summon Force Artillery Construct
 Feature/&ForceArtilleryTitle	Force Artillery
 Feature/&GambitResourcePoolAddDescription	Adds an additional gambit die.
 Feature/&GambitResourcePoolAddTitle	Additional Gambit die.
-Feature/&GambitResourcePoolDescription	Pool of gambit dice that can be spent on gambits.  Starts with 4 they recharge on short rest.
+Feature/&GambitResourcePoolDescription	Pool of gambit dice that can be spent on gambits. Starts with 4 they recharge on short rest.
 Feature/&GambitResourcePoolTitle	Gambit dice pool.
 Feature/&GiftoftheEver-LivingOnesDescription	Regains the maximum number of hit points possible from any healing.
 Feature/&GiftoftheEver-LivingOnesTitle	Gift of the Ever-Living Ones
@@ -915,9 +915,9 @@ Feature/&KSRogueSubclassThugProficienciesDescription	Proficient with medium armo
 Feature/&KSRogueSubclassThugProficienciesTitle	Heavy Gear
 Feature/&MiretheMindTitle	Mire the Mind
 Feature/&MoonLitDarknessImmunityDescription	You are Immune to the Darkness condition
-Feature/&MoonLitDarknessImmunityTitle	MoonLit Darkness 
+Feature/&MoonLitDarknessImmunityTitle	MoonLit Darkness
 Feature/&MoonLitExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: \n 1st: Faerie Fire, Sleep \n 2nd: Moon Beam, See Invisibility \n 3rd: Daylight, Hypnotic Pattern \n 4th: Greater Invisibility, Dominate Beast \n 5th: Dominate Person, Flame Strike
-Feature/&MoonLitExpandedSpelllistAfinityTitle	MoonLit Spelllist 
+Feature/&MoonLitExpandedSpelllistAfinityTitle	MoonLit Spelllist
 Feature/&MoonLitLightAffinityDescription	You can become invisible in dim light or natural darkness
 Feature/&MoonLitLightAffinityTitle	Umbral Cloak
 Feature/&OneWithShadowsDescription	When you are in an area of dim light or darkness, you become invisible until you move or take an action or a reaction.
@@ -929,11 +929,11 @@ Feature/&PowerAttackConditionDescription	Take a -{0} to hit penalty to your atta
 Feature/&PowerAttackConditionTitle	One handed power attack
 Feature/&PowerAttackPowerDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged.
 Feature/&PowerAttackPowerTitle	One handed power attack
-Feature/&PowerAttackTwoHandedAttackModifierDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes.  Only to be used when attacking with two hands, melee or ranged.
+Feature/&PowerAttackTwoHandedAttackModifierDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes. Only to be used when attacking with two hands, melee or ranged.
 Feature/&PowerAttackTwoHandedAttackModifierTitle	Two Handed power attack
-Feature/&PowerAttackTwoHandedConditionDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes.  Only to be used when attacking with two hands, melee or ranged.
+Feature/&PowerAttackTwoHandedConditionDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes. Only to be used when attacking with two hands, melee or ranged.
 Feature/&PowerAttackTwoHandedConditionTitle	Two Handed power attack
-Feature/&PowerAttackTwoHandedPowerDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes.  Only to be used when attacking with two hands, melee or ranged.
+Feature/&PowerAttackTwoHandedPowerDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes. Only to be used when attacking with two hands, melee or ranged.
 Feature/&PowerAttackTwoHandedPowerTitle	Two Handed power attack
 Feature/&PowerPaladinAuraOfCourage18Description	Grant a saving throw bonus to allies withing 30ft.
 Feature/&PowerPaladinAuraOfCourage18Title	Improved Aura of Courage
@@ -1004,9 +1004,9 @@ Feature/&TinkererToolsProficiencyTitle	Tool Proficiencies
 Feature/&TinkererWeaponProficiencyTitle	Tinkerer Weapon Proficiencies
 Feature/&TinkererWeaponTrainingShortDescription	Proficiency with simple weapons
 Feature/&ToadKingBasicToxinTitle	Basic Toxin
-Feature/&ToadKingExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: \n 1st: Grease, Detect Poison And Disease \n 2nd:  AcidArrow, Spider Climb \n 3rd: Slow, Stinking Cloud \n 4th:  Black Tentacles,Freedom Of Movement \n 5th:  Contagion,Insect Plague
+Feature/&ToadKingExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: \n 1st: Grease, Detect Poison And Disease \n 2nd: AcidArrow, Spider Climb \n 3rd: Slow, Stinking Cloud \n 4th: Black Tentacles,Freedom Of Movement \n 5th: Contagion,Insect Plague
 Feature/&ToadKingExpandedSpelllistAfinityTitle	Toad King Spells
-Feature/&ToadKingHallucinogenicToxinAffintyDescription	Your body has changed to become resistent to toxins and to produce a defensive toxin when attacked in melee range (up to PB times per day). if the attacker fails a Con save, they become lucinogenic toxin  until they are attacked or otherwise interrupted. 
+Feature/&ToadKingHallucinogenicToxinAffintyDescription	Your body has changed to become resistent to toxins and to produce a defensive toxin when attacked in melee range (up to PB times per day). if the attacker fails a Con save, they become lucinogenic toxin  until they are attacked or otherwise interrupted.
 Feature/&ToadKingHallucinogenicToxinAffintyTitle	Hallucinogenic Toxin
 Feature/&ToadKingJumpTitle	Jump
 Feature/&ToadKingPoisonConditionAffinityTitle	Immune to Poison Condition
@@ -1163,7 +1163,7 @@ MonsterAttack/&DH_ConstructTitan_ForceCannon_Attack_Description	4D8 Force damage
 MonsterAttack/&DH_ConstructTitan_ForceCannon_Attack_Title	Force Cannon
 MonsterAttack/&DH_ConstructTitan_Slam_Attack_Description	3D12+8 bludgeoning Damage and target is pushed 20 ft
 MonsterAttack/&DH_ConstructTitan_Slam_Attack_Title	Slam
-MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Description	Cannot act and takes 16d6 acid damage each turn.  60 damage in a single attack can force the swallower to regurgitate.
+MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Description	Cannot act and takes 16d6 acid damage each turn. 60 damage in a single attack can force the swallower to regurgitate.
 MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Title	Swallowed
 MonsterAttack/&DH_Custom_TarrasqueSwallowingcondition_Description	60 damage in a single attack can force it to regurgitate.
 MonsterAttack/&DH_Custom_TarrasqueSwallowingcondition_Title	Swallowing creature
@@ -1311,7 +1311,7 @@ MonsterPower/&DH_TarrasqueSwallowPower_Description	The tarrasque makes one bite 
 MonsterPower/&DH_TarrasqueSwallowPower_Title	Swallow
 MonsterPower/&DH_VampireCharmPower_Description	The vampire targets one humanoid it can see within 30 feet of it. The target must succeed on a DC 17 Wisdom saving throw against this magic or be charmed by the vampire.
 MonsterPower/&DH_VampireCharmPower_Title	Charm
-Power/&AncientForestLifeSapDescription	When you hit an enemy with an attack roll spell up (PB times per day), You inflict your Cha Modifer in damage and heal half of that amount if under half of your hitpoints. 
+Power/&AncientForestLifeSapDescription	When you hit an enemy with an attack roll spell up (PB times per day), You inflict your Cha Modifer in damage and heal half of that amount if under half of your hitpoints.
 Power/&AncientForestLifeSapTitle	Life Sap
 Power/&AncientForestRootedPowerDescription	Arboreal tendrils grow from your feet and dig into the ground. Your speed becomes 0, and you gain advantage on any saving throws to push you, pull you, or knock you prone.You can cast entangle at will
 Power/&AncientForestRootedPowerTitle	Rooted
@@ -1329,15 +1329,15 @@ Power/&ToadKingCroakDescription	Emit a wave of sound that causes damage and push
 Power/&ToadKingCroakTitle	Croak
 Power/&ToadKingGraspingTongueDescription	Pull enemies towards yourself
 Power/&ToadKingGraspingTongueTitle	Grasping Tongue
-Power/&ToadKingHallucinogenicToxinPowerDescription	Your body has changed to become resistent to toxins and to produce a defensive toxin when attacked in melee range (up to PB times per day). if the attacker fails a Con save, they become lucinogenic toxin  until they are attacked or otherwise interrupted. 
+Power/&ToadKingHallucinogenicToxinPowerDescription	Your body has changed to become resistent to toxins and to produce a defensive toxin when attacked in melee range (up to PB times per day). if the attacker fails a Con save, they become lucinogenic toxin  until they are attacked or otherwise interrupted.
 Power/&ToadKingHallucinogenicToxinPowerTitle	Hallucinogenic Toxin
 Power/&ToadKingSwallowDescription	Attempt to swallow a medium or smaller enemy. On a failed Str save, the monster is swallowed and receives 3D6 acid damage per round. Ends if the toad warlock is hit with 15 or more damage in single attack
 Power/&ToadKingSwallowTitle	Swallow
-Power/&UrPriestControlUndeadDescription	As an action, you target one undead creature you can see within 30 feet of you. The target must make a Wisdom saving throw. On a failed save, the target must obey your commands 
+Power/&UrPriestControlUndeadDescription	As an action, you target one undead creature you can see within 30 feet of you. The target must make a Wisdom saving throw. On a failed save, the target must obey your commands
 Power/&UrPriestControlUndeadTitle	Control Undead
 Power/&UrPriestHalfLifeDescription	You take necrotic energy into yourself and hang between life and death and are temporarily possessed by your own ghost, gaining flying, and the same condition immunities and damage resistenances as other ghosts.
 Power/&UrPriestHalfLifeTitle	Half Life
-Power/&UrPriestRadiantWardDescription	As an action, you gain a number of temporary hit points equal to twice your warlock level. 
+Power/&UrPriestRadiantWardDescription	As an action, you gain a number of temporary hit points equal to twice your warlock level.
 Power/&UrPriestRadiantWardTitle	Radiant Ward
 Power/&UrPriestSpellSiphonDescription	you learn how to tap into a greater source of magic in combination with your normal reserve of power. As an action, you can expend a Channel Divinity to regain an expended use of your 6th-level Mystic Arcanum.
 Power/&UrPriestSpellSiphonTitle	Spell Siphon
@@ -1399,8 +1399,8 @@ Rules/&HalfCoverShieldConditionDescription	+2AC
 Rules/&HalfCoverShieldConditionTitle	Protected by Dome
 Rules/&LightningSpearPowerDescription	Lightning Damage 1D6 + 1D6
 Rules/&LightningSpearPowerTitle	Lightning Spear
-Rules/&SelfDestructionConditionDescription	Self Destruction 
-Rules/&SelfDestructionConditionTitle	Self Destruction 
+Rules/&SelfDestructionConditionDescription	Self Destruction
+Rules/&SelfDestructionConditionTitle	Self Destruction
 Rules/&ThunderStruckBalancingAdvantageDescription	Balancing thunderstruck to only work for allies
 Rules/&ThunderStruckBalancingAdvantageTitle	Taunted
 Rules/&ThunderStruckDescription	Disadvantage to attack Scout Sentinel's allies
@@ -1425,7 +1425,7 @@ Spell/&AHPactMarkMarkedByPactConditionDescription	This creature has been marked 
 Spell/&AHPactMarkMarkedByPactConditionTitle	Marked by pact
 Spell/&AHPactMarkPactMarkConditionDescription	You can mark other creatures with a pact mark and do an addition 1d6 damage to them with physical or spell attacks.
 Spell/&AHPactMarkPactMarkConditionTitle	Pact Mark
-Spell/&AHPactMarkSpellDescription	You place a mark form your pact onto a creature you can see within 90ft.  It becomes vulnerable to you and takes an additional 1d6 damage whenever you hit it with an attack (physical or spell attack).  This damage is the same type as the attack that hits.
+Spell/&AHPactMarkSpellDescription	You place a mark form your pact onto a creature you can see within 90ft. It becomes vulnerable to you and takes an additional 1d6 damage whenever you hit it with an attack (physical or spell attack). This damage is the same type as the attack that hits.
 Spell/&AHPactMarkSpellTitle	Pact Mark
 Spell/&CJDivineWordDescription	You utter a divine word, imbued with the power that shaped the world at the dawn of creation. Choose any number of creatures you can see within range. Each creature that can hear you must make a Charisma saving throw. On a failed save, a creature suffers an effect based on its current hit points:\n50 hit points or fewer: deafened for 1 minute\n40 hit points or fewer: deafened and blinded for 10 minutes\n30 hit points or fewer: blinded, deafened, and stunned for 1 hour\n20 hit points or fewer: killed instantly\nRegardless of its current hit points, a celestial, an elemental, a fey, or a fiend that fails its save is forced back to its plane of origin (if it isn’t there already) and can’t return to your current plane for 24 hours by any means short of a wish spell.\n
 Spell/&CJDivineWordTitle	Divine Word
@@ -1518,8 +1518,8 @@ SpellList/&ElementalistSpellsListDescription	Elementalist SpellsList Description
 SpellList/&ElementalistSpellsListTitle	Elementalist SpellsList
 SpellList/&RiftWalkerSpellsListDescription	RiftWalker SpellsList Description
 SpellList/&RiftWalkerSpellsListTitle	Rift Walker SpellsList
-SpellList/&SpellListClassWarlockDescription	Warlock SpellList 
-SpellList/&SpellListClassWarlockTitle	Warlock SpellList 
+SpellList/&SpellListClassWarlockDescription	Warlock SpellList
+SpellList/&SpellListClassWarlockTitle	Warlock SpellList
 SpellList/&SpellListTinkererTitle	Spell list for the Tinkerer class.
 Stage/&IdentityMorphotypeEyeHeader	Eye Style
 Stage/&SubclassSelectionStageCovenDescription	Coven
@@ -1758,7 +1758,7 @@ Subclass/&ScoutSentinelTinkererSubclassDescription	A Scout Sentinel tinkerer mod
 Subclass/&ScoutSentinelTinkererSubclassTitle	Scout Sentinel
 Subclass/&SpellShieldAdditionalActionDescription	You can cast a spell after defeating an enemy with your weapon attacks.
 Subclass/&SpellShieldAdditionalActionTitle	Spell Fighting
-Subclass/&TactitionFighterSubclassDescription	The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed.  They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes.  Mod note - This class re-uses channel divinity for these features.
+Subclass/&TactitionFighterSubclassDescription	The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed. They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes. Mod note - This class re-uses channel divinity for these features.
 Subclass/&TactitionFighterSubclassTitle	The Tactician
 Subclass/&TinkererFlashOfGeniusConditionDescription	Inspired by a flash of genius to have a bonus on ability checks and saving throws
 Subclass/&TinkererFlashOfGeniusConditionTitle	Flash of Genius
@@ -1784,11 +1784,11 @@ Subclass/&TraditionSpellMasterPreparedTitle	Be Prepared
 Subclass/&TraditionSpellMasterSpellResistanceDescription	Your training with magic gives you advantage on saving throws against spells.
 Subclass/&TraditionSpellMasterSpellResistanceTitle	Spell Resistance
 Subclass/&TraditionSpellMasterTitle	Spell Master
-Subclass/&WarlockAncientForestDescription	You have forged a relationship with a powerful nature entity: Ancient Dryads, Archdruids , Manifestations of the Feywild bleeding into the material plane, Forgotten gods from a primal age. Your patron may wish for you to protect the natural world, travel to far off lands that it cannot, or it may have another motive that seems inscrutable to short-lived mortals. 
+Subclass/&WarlockAncientForestDescription	You have forged a relationship with a powerful nature entity: Ancient Dryads, Archdruids , Manifestations of the Feywild bleeding into the material plane, Forgotten gods from a primal age. Your patron may wish for you to protect the natural world, travel to far off lands that it cannot, or it may have another motive that seems inscrutable to short-lived mortals.
 Subclass/&WarlockAncientForestTitle	Ancient Forest Pact
-Subclass/&WarlockMoonLitDescription	Your patron is a spirit of the moon, an entity that embodies the cyclical nature of light and darkness. These spirits seek to maintain the power of the moon over the night sky while keeping profane powers that stalk the darkness at bay and task their warlocks with the same, granting them command over the powers of the moon and its effects. 
+Subclass/&WarlockMoonLitDescription	Your patron is a spirit of the moon, an entity that embodies the cyclical nature of light and darkness. These spirits seek to maintain the power of the moon over the night sky while keeping profane powers that stalk the darkness at bay and task their warlocks with the same, granting them command over the powers of the moon and its effects.
 Subclass/&WarlockMoonLitTitle	MoonLit Pact
-Subclass/&WarlockToadKingDescription	Fey, demon or abberation caused by the Cataclysm, the true nature of the Toad King is not known, but it is known that the Toad King rules a large area of swamps and marshes within the Badlands and offers power to those willing to serve. 
+Subclass/&WarlockToadKingDescription	Fey, demon or abberation caused by the Cataclysm, the true nature of the Toad King is not known, but it is known that the Toad King rules a large area of swamps and marshes within the Badlands and offers power to those willing to serve.
 Subclass/&WarlockToadKingTitle	Toad King Pact
 Subclass/&WarlockUrPriestDescription	While the vast majority of divine spellcasters gain their powers from a deity, there are those who despise the gods. Those who call themselves Ur-priests have learned to siphon off the divine energies granted by gods to their divine spellcasters, using it for their own needs without giving even lip-service to any god. As an Ur-priest, you differ from most warlocks, lacking a patron who grants you your power. Eldritch Invocations you uncover are warped forms of magic the gods might grant their patrons, while Pact Boons are likely divine artefacts you have managed to steal.
 Subclass/&WarlockUrPriestTitle	UrPriest Pact
