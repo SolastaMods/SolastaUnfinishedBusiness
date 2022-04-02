@@ -96,15 +96,21 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetExtendedSpellList(MoonLitExpandedSpelllist)
                 .AddToDB();
 
-            var Unlit = new FeatureDefinitionLightAffinity.LightingEffectAndCondition();
-            Unlit.lightingState = LocationDefinitions.LightingState.Unlit;
-            Unlit.condition = DatabaseHelper.ConditionDefinitions.ConditionInvisible;
-            var Dim = new FeatureDefinitionLightAffinity.LightingEffectAndCondition();
-            Dim.lightingState = LocationDefinitions.LightingState.Dim;
-            Dim.condition = DatabaseHelper.ConditionDefinitions.ConditionInvisible;
-            var Darkness = new FeatureDefinitionLightAffinity.LightingEffectAndCondition();
-            Darkness.lightingState = LocationDefinitions.LightingState.Darkness;
-            Darkness.condition = DatabaseHelper.ConditionDefinitions.ConditionInvisible;
+            var Unlit = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
+            {
+                lightingState = LocationDefinitions.LightingState.Unlit,
+                condition = DatabaseHelper.ConditionDefinitions.ConditionInvisible
+            };
+            var Dim = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
+            {
+                lightingState = LocationDefinitions.LightingState.Dim,
+                condition = DatabaseHelper.ConditionDefinitions.ConditionInvisible
+            };
+            var Darkness = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
+            {
+                lightingState = LocationDefinitions.LightingState.Darkness,
+                condition = DatabaseHelper.ConditionDefinitions.ConditionInvisible
+            };
 
 
             FeatureDefinitionLightAffinity MoonLitLightAffinity = FeatureDefinitionLightAffinityBuilder

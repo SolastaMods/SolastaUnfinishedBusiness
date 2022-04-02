@@ -422,7 +422,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetSpellsAtLevel(1, Bless, CureWounds, DetectEvilAndGood, DetectMagic, Shield)
                 .SetSpellsAtLevel(2, LesserRestoration, ProtectionFromPoison)
                 .SetSpellsAtLevel(5, GreaterRestoration)
-                .SetMaxSpellLevel(5, false)
+                .FinalizeSpells()
                 .AddToDB();
 
             FeatureDefinitionCastSpell castSpellCouatl = FeatureDefinitionCastSpellBuilder

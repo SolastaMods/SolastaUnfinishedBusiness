@@ -31,7 +31,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetSpellsAtLevel(3, MassHealingWord, VampiricTouch)
                 .SetSpellsAtLevel(4, Blight, GreaterRestoration)
                 .SetSpellsAtLevel(5, Contagion, RaiseDead)
-                .SetMaxSpellLevel()
+                .FinalizeSpells()
                 .AddToDB();
 
             //    necrotic and healing
