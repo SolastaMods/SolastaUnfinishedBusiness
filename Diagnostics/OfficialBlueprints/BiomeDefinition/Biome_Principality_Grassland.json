@@ -1,0 +1,51 @@
+{
+  "$type": "BiomeDefinition, Assembly-CSharp",
+  "terrainType": "Grassland",
+  "encounterTable": "Definition:PrincipalityGrasslandEncounter:cc45ccd29f868874fb58992a55cc3fe2",
+  "narrativeEventBasicLines": [
+    "Travel/&StandardRandomEvents1Title",
+    "Travel/&StandardRandomEvents2Title",
+    "Travel/&StandardRandomEvents3Title",
+    "Travel/&StandardRandomEvents4Title",
+    "Travel/&StandardRandomEvents5Title",
+    "Travel/&StandardRandomEvents6Title",
+    "Travel/&StandardRandomEvents7Title",
+    "Travel/&StandardRandomEvents8Title",
+    "Travel/&StandardRandomEvents9Title",
+    "Travel/&StandardRandomEvents10Title",
+    "Travel/&StandardRandomEvents11Title"
+  ],
+  "encounterLocations": [
+    "Definition:Encounter_Forest_LocationDB:e9890128da1ec5245a25c869d2b4e94a",
+    "Definition:EncounterHamlet_LocationDB:b824d2fd019f0f84681289b5c5d16c9c",
+    "Definition:EncounterCrossroads_LocationDB:a1b9f35b7028fe24184b3a5b92265a74",
+    "Definition:EncounterWaterfall_LocationDB:d8798cdee1aaf304d93e9cfc4bb0d6b9"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "b84ea0f3658212645a6cf38e7a92adb7",
+  "contentPack": "BaseGame",
+  "name": "Biome_Principality_Grassland"
+}

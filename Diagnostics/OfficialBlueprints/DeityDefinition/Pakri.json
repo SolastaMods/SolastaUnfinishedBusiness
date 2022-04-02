@@ -1,0 +1,54 @@
+{
+  "$type": "DeityDefinition, Assembly-CSharp",
+  "alignment": "LawfulNeutral",
+  "subclasses": [
+    "DomainLaw",
+    "DomainInsight"
+  ],
+  "selectableByPlayer": true,
+  "personalityFlagOccurences": [
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 30,
+      "personalityFlag": "ReligionPakri"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 3,
+      "personalityFlag": "Lawfulness"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 3,
+      "personalityFlag": "Pragmatism"
+    }
+  ],
+  "vocalSpellSemeClass": "Pakri",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Deity/&PakriTitle",
+    "description": "Deity/&PakriDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "38302e275a655254aa90fe0e038e613b",
+      "m_SubObjectName": "DeityPakri",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 4,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "4fc11f376c1b755439fe6d9fd37fa352",
+  "contentPack": "BaseGame",
+  "name": "Pakri"
+}

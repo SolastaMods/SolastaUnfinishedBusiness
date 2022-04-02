@@ -1,6 +1,7 @@
 ﻿using System.Linq;
+using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
-using SolastaModApi.BuilderHelpers;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -15,17 +16,21 @@ namespace SolastaCommunityExpansion.Models
         internal static void Load()
         {
             // keep this outside loop for backward compatibility
-            _ = new FeatureDefinitionPointPoolBuilder("PointPool2BonusFeats", "dbec86c7-468f-4569-917b-2d96d21f9ddf", HeroDefinitions.PointsPoolType.Feat, 2,
-                    new GuiPresentationBuilder("Race/&PointPoolSelect2FeatsDescription", "Race/&PointPoolSelect2FeatsTitle").Build()).AddToDB(true);
+            _ = FeatureDefinitionPointPoolBuilder
+                .Create("PointPool2BonusFeats", "dbec86c7-468f-4569-917b-2d96d21f9ddf")
+                .SetGuiPresentation("PointPoolSelect2Feats", Category.Race)
+                .SetPool(HeroDefinitions.PointsPoolType.Feat, 2)
+                .AddToDB();
+
+            var guid = new System.Guid(Settings.GUID);
 
             // 11 here as need to count the Alternate Human Feat
             for (var i = 3; i <= 11; i++)
             {
-                var name = $"PointPool{i}BonusFeats";
-                var guid = GuidHelper.Create(new System.Guid(Settings.GUID), name).ToString();
-
-                _ = new FeatureDefinitionPointPoolBuilder(name, guid, HeroDefinitions.PointsPoolType.Feat, i,
-                        new GuiPresentationBuilder($"Race/&PointPoolSelect{i}FeatsDescription", $"Race/&PointPoolSelect{i}FeatsTitle").Build()).AddToDB(true);
+                _ = FeatureDefinitionPointPoolBuilder.Create($"PointPool{i}BonusFeats", guid)
+                    .SetGuiPresentation($"PointPoolSelect{i}Feats", Category.Race)
+                    .SetPool(HeroDefinitions.PointsPoolType.Feat, i)
+                    .AddToDB();
             }
         }
 
@@ -122,7 +127,6 @@ namespace SolastaCommunityExpansion.Models
             var human = DatabaseHelper.CharacterRaceDefinitions.Human;
 
             BuildFeatureUnlocks(initialFeats, alternateHuman, out FeatureUnlockByLevel featureUnlockByLevelNonHuman, out FeatureUnlockByLevel featureUnlockByLevelHuman);
-
 
             foreach (var characterRaceDefinition in DatabaseRepository.GetDatabase<CharacterRaceDefinition>().GetAllElements())
             {

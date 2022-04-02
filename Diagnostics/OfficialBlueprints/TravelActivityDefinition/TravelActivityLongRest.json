@@ -1,0 +1,66 @@
+{
+  "$type": "TravelActivityDefinition, Assembly-CSharp",
+  "isDynamic": false,
+  "standardStartHour": 0,
+  "standardDurationHours": 8,
+  "fatigueImpactPerHour": 0.0,
+  "randomEvents": [
+    {
+      "$type": "TravelEventProbabilityDescription, Assembly-CSharp",
+      "eventDefinition": "Definition:TravelEventEncounter:8f968f3bb1d825442bdd6954aaca90e1",
+      "basePercent": 5,
+      "incremental": false
+    }
+  ],
+  "fixedEvents": [
+    {
+      "$type": "TravelEventFixedOccurenceDescription, Assembly-CSharp",
+      "eventDefinition": "Definition:TravelEventCastFoodSpell:fbf2fa8f48794bb4ea81243432f679ae",
+      "fixedOccurence": "FirstHour"
+    },
+    {
+      "$type": "TravelEventFixedOccurenceDescription, Assembly-CSharp",
+      "eventDefinition": "Definition:TravelEventLongRestStart:fcb0c51c57e2a3141ac458a51924b69f",
+      "fixedOccurence": "FirstHour"
+    },
+    {
+      "$type": "TravelEventFixedOccurenceDescription, Assembly-CSharp",
+      "eventDefinition": "Definition:TravelEventCrafting:46af7553e2d43d24685f6e6f9ba3aa3e",
+      "fixedOccurence": "EveryHour"
+    },
+    {
+      "$type": "TravelEventFixedOccurenceDescription, Assembly-CSharp",
+      "eventDefinition": "Definition:TravelEventLongRestComplete:ce044c8c6b746a04aa0b17a049db056d",
+      "fixedOccurence": "LastHour"
+    }
+  ],
+  "navigationActivity": false,
+  "restActivity": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Travel/&TravelActivityLongRestTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "88f4709b2bc625f4bb610597c5cd827c",
+  "contentPack": "BaseGame",
+  "name": "TravelActivityLongRest"
+}

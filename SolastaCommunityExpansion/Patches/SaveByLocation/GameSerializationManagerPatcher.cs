@@ -1,6 +1,6 @@
-﻿using HarmonyLib;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches.SaveByLocation
 {
@@ -17,7 +17,7 @@ namespace SolastaCommunityExpansion.Patches.SaveByLocation
 
             // Enable/disable the 'load' button in the load save panel
 
-            __result = !___saving && !___loading && ___loadDisabledTokens.Count <= 0;
+            __result = !___saving && !___loading && ___loadDisabledTokens.Count == 0;
 
             return false;
         }

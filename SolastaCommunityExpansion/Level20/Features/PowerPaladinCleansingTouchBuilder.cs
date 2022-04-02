@@ -1,15 +1,16 @@
-﻿using SolastaModApi;
-using SolastaModApi.BuilderHelpers;
+﻿using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Builders.Features;
+using SolastaModApi;
 using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Level20.Features
 {
-    internal class PowerPaladinCleansingTouchBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
+    internal sealed class PowerPaladinCleansingTouchBuilder : FeatureDefinitionPowerBuilder
     {
         private const string PowerPaladinCleansingTouchName = "ZSPowerPaladinCleansingTouch";
         private const string PowerPaladinCleansingTouchGuid = "71861ca1-61ed-4344-bb26-ef21232adddd";
 
-        protected PowerPaladinCleansingTouchBuilder(string name, string guid) : base(name, guid)
+        private PowerPaladinCleansingTouchBuilder(string name, string guid) : base(name, guid)
         {
             Definition.SetFixedUsesPerRecharge(0);
             Definition.SetUsesDetermination(RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed);
@@ -25,13 +26,15 @@ namespace SolastaCommunityExpansion.Level20.Features
             cleansingTouch.AddEffectForm(new EffectFormBuilder().CreatedByCharacter().SetCounterForm(CounterForm.CounterType.DissipateSpells, 9, 10, true, true).Build());
             cleansingTouch.AddEffectForm(new EffectFormBuilder().CreatedByCharacter().SetAlterationForm(AlterationForm.Type.DissipateSpell).Build());
             Definition.SetEffectDescription(cleansingTouch.Build());
-            GuiPresentationBuilder cleansingGui = new GuiPresentationBuilder("Feature/&ZSPowerPaladinCleansingTouchDescription", "Feature/&ZSPowerPaladinCleansingTouchTitle");
+            GuiPresentationBuilder cleansingGui = new GuiPresentationBuilder("Feature/&ZSPowerPaladinCleansingTouchTitle", "Feature/&ZSPowerPaladinCleansingTouchDescription");
             cleansingGui.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerPaladinLayOnHands.GuiPresentation.SpriteReference);
             Definition.SetGuiPresentation(cleansingGui.Build());
         }
 
         private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
-            => new PowerPaladinCleansingTouchBuilder(name, guid).AddToDB();
+        {
+            return new PowerPaladinCleansingTouchBuilder(name, guid).AddToDB();
+        }
 
         internal static readonly FeatureDefinitionPower PowerPaladinCleansingTouch =
             CreateAndAddToDB(PowerPaladinCleansingTouchName, PowerPaladinCleansingTouchGuid);

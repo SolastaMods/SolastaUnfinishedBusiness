@@ -1,0 +1,74 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:DH_Blink:0ed881be-2754-55a1-ab0d-6a99da33ce04",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:DH_RiftWalk:f282f345-ddc3-5d4f-9b05-4151caab7e26",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:RiftWalkerSpellsMagicAffinity:3b445597-4773-5175-a546-7da0b2fed5fb",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:RiftWalkerMovementAffinityRestrainedImmunity:048c5a60-f9c8-57ad-bfba-b6c31aea6aab",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:DH_RiftStrike:cb82cab9-4db1-58a7-992c-8883ca356539",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:DH_RiftControl:84fe358f-4719-5e86-99b1-58995b79ac5f",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:DH_FadeIntoTheVoid:62be4831-2c55-514b-ac3a-371ac7a7da1f",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:DHWardingBondBonusCantrip:859e6d65-6061-519f-b2fc-155daca9f481",
+      "level": 14
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&DHWarlockSubclassRiftWalkerTitle",
+    "description": "Subclass/&DHWarlockSubclassRiftWalkerDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "41f600f15c0f69149b5d8c2cff9a44bb",
+      "m_SubObjectName": "Barbarian_Path_Magebane",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "3880ef69-b019-53b8-99ba-d1dd9b2c0a0a",
+  "contentPack": 9999,
+  "name": "DHWarlockSubclassRiftWalker"
+}

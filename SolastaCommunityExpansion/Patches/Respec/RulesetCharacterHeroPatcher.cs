@@ -1,6 +1,5 @@
-﻿using HarmonyLib;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
+using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches.Respec
 {
@@ -9,17 +8,11 @@ namespace SolastaCommunityExpansion.Patches.Respec
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetCharacterHero_EnumerateAfterRestActions
     {
-        internal static void Postfix(List<RestActivityDefinition> ___afterRestActions)
+        internal static void Postfix(RulesetCharacterHero __instance)
         {
             if (Main.Settings.EnableRespec)
             {
-                foreach (var restActivityDefinition in DatabaseRepository.GetDatabase<RestActivityDefinition>().GetAllElements())
-                {
-                    if (restActivityDefinition.Condition == Models.RespecContext.ActivityConditionCanRespec)
-                    {
-                        ___afterRestActions.Add(restActivityDefinition);
-                    }
-                }
+                __instance.AfterRestActions.Add(Models.RespecContext.RestActivityRespecBuilder.RestActivityRespec);
             }
         }
     }

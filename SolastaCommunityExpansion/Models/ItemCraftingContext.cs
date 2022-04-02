@@ -1,9 +1,9 @@
-﻿using SolastaCommunityExpansion.ItemCrafting;
-using SolastaModApi;
-using SolastaModApi.Extensions;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using SolastaCommunityExpansion.ItemCrafting;
+using SolastaModApi;
+using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -11,14 +11,14 @@ namespace SolastaCommunityExpansion.Models
     {
         public static Dictionary<string, List<ItemDefinition>> RecipeBooks { get; } = new Dictionary<string, List<ItemDefinition>>();
 
-        public static readonly List<string> BASE_GAME_ITEMS_CATEGORIES = new List<string>()
+        public static readonly List<string> BASE_GAME_ITEMS_CATEGORIES = new()
         {
             "PrimedItems",
             "EnchantingIngredients",
             "RelicForgeries",
         };
 
-        public static readonly Dictionary<string, string> RecipeTitles = new Dictionary<string, string>
+        public static readonly Dictionary<string, string> RecipeTitles = new()
         {
             { "PrimedItems", "Primed Items" },
             { "EnchantingIngredients", "Enchanting Ingredients" },

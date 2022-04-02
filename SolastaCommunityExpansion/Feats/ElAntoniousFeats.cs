@@ -1,9 +1,10 @@
-﻿using SolastaCommunityExpansion.CustomFeatureDefinitions;
-using SolastaModApi;
-using SolastaModApi.BuilderHelpers;
-using SolastaModApi.Extensions;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Builders.Features;
+using SolastaModApi;
+using SolastaModApi.Extensions;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionAdditionalActions;
 
 namespace SolastaCommunityExpansion.Feats
 {
@@ -16,35 +17,37 @@ namespace SolastaCommunityExpansion.Feats
         }
     }
 
-    internal class DualFlurryFeatBuilder : BaseDefinitionBuilder<FeatDefinition>
+    internal sealed class DualFlurryFeatBuilder : FeatDefinitionBuilder
     {
-        public static readonly Guid DualFlurryGuid = new Guid("03C523EB-91B9-4F1B-A697-804D1BC2D6DD");
+        public static readonly Guid DualFlurryGuid = new("03C523EB-91B9-4F1B-A697-804D1BC2D6DD");
         private const string DualFlurryFeatName = "DualFlurryFeat";
         private static readonly string DualFlurryFeatNameGuid = GuidHelper.Create(DualFlurryGuid, DualFlurryFeatName).ToString();
 
-        protected DualFlurryFeatBuilder(string name, string guid) : base(DatabaseHelper.FeatDefinitions.Ambidextrous, name, guid)
+        private DualFlurryFeatBuilder(string name, string guid) : base(DatabaseHelper.FeatDefinitions.Ambidextrous, name, guid)
         {
             Definition.GuiPresentation.Title = "Feat/&DualFlurryTitle";
             Definition.GuiPresentation.Description = "Feat/&DualFlurryDescription";
 
             Definition.Features.Clear();
-            Definition.Features.Add(buildFeatureDualFlurry());
+            Definition.Features.Add(BuildFeatureDualFlurry());
 
             Definition.SetMinimalAbilityScorePrerequisite(false);
         }
 
-        public static FeatDefinition CreateAndAddToDB(string name, string guid)
-            => new DualFlurryFeatBuilder(name, guid).AddToDB();
+        private static FeatDefinition CreateAndAddToDB(string name, string guid)
+        {
+            return new DualFlurryFeatBuilder(name, guid).AddToDB();
+        }
 
         public static readonly FeatDefinition DualFlurryFeat = CreateAndAddToDB(DualFlurryFeatName, DualFlurryFeatNameGuid);
 
-        private static FeatureDefinition buildFeatureDualFlurry()
+        private static FeatureDefinition BuildFeatureDualFlurry()
         {
-            FeatureDefinitionOnAttackHitEffectBuilder builder = new FeatureDefinitionOnAttackHitEffectBuilder(
-                "FeatureDualFlurry", GuidHelper.Create(DualFlurryGuid, "FeatureDualFlurry").ToString(),
-                OnAttackHit, new GuiPresentationBuilder("Feature/&DualFlurryDescription", "Feature/&DualFlurryTitle").Build());
-
-            return builder.AddToDB();
+            return FeatureDefinitionOnAttackHitEffectBuilder
+                .Create("FeatureDualFlurry", DualFlurryGuid)
+                .SetGuiPresentation("DualFlurry", Category.Feature)
+                .SetOnAttackHitDelegate(OnAttackHit)
+                .AddToDB();
         }
 
         private static void OnAttackHit(GameLocationCharacter attacker,
@@ -71,9 +74,9 @@ namespace SolastaCommunityExpansion.Feats
         }
     }
 
-    internal class ConditionDualFlurryApplyBuilder : BaseDefinitionBuilder<ConditionDefinition>
+    internal sealed class ConditionDualFlurryApplyBuilder : ConditionDefinitionBuilder
     {
-        protected ConditionDualFlurryApplyBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionSurged, name, guid)
+        private ConditionDualFlurryApplyBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionSurged, name, guid)
         {
             Definition.GuiPresentation.Title = "Condition/&ConditionDualFlurryApplyTitle";
             Definition.GuiPresentation.Description = "Condition/&ConditionDualFlurryApplyDescription";
@@ -89,19 +92,22 @@ namespace SolastaCommunityExpansion.Feats
             Definition.Features.Clear();
         }
 
-        public static ConditionDefinition CreateAndAddToDB()
-            => new ConditionDualFlurryApplyBuilder("ConditionDualFlurryApply", GuidHelper.Create(DualFlurryFeatBuilder.DualFlurryGuid, "ConditionDualFlurryApply").ToString()).AddToDB();
+        private static ConditionDefinition CreateAndAddToDB()
+        {
+            return new ConditionDualFlurryApplyBuilder("ConditionDualFlurryApply", GuidHelper.Create(DualFlurryFeatBuilder.DualFlurryGuid, "ConditionDualFlurryApply").ToString()).AddToDB();
+        }
 
-        public static ConditionDefinition GetOrAdd()
+        // TODO: eliminate
+        internal static ConditionDefinition GetOrAdd()
         {
             var db = DatabaseRepository.GetDatabase<ConditionDefinition>();
             return db.TryGetElement("ConditionDualFlurryApply", GuidHelper.Create(DualFlurryFeatBuilder.DualFlurryGuid, "ConditionDualFlurryApply").ToString()) ?? CreateAndAddToDB();
         }
     }
 
-    internal class ConditionDualFlurryGrantBuilder : BaseDefinitionBuilder<ConditionDefinition>
+    internal sealed class ConditionDualFlurryGrantBuilder : ConditionDefinitionBuilder
     {
-        protected ConditionDualFlurryGrantBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionSurged, name, guid)
+        private ConditionDualFlurryGrantBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionSurged, name, guid)
         {
             Definition.GuiPresentation.Title = "Condition/&ConditionDualFlurryGrantTitle";
             Definition.GuiPresentation.Description = "Condition/&ConditionDualFlurryGrantDescription";
@@ -119,54 +125,54 @@ namespace SolastaCommunityExpansion.Feats
             Definition.Features.Add(BuildAdditionalActionDualFlurry());
         }
 
-        public static ConditionDefinition CreateAndAddToDB()
-            => new ConditionDualFlurryGrantBuilder("ConditionDualFlurryGrant", GuidHelper.Create(DualFlurryFeatBuilder.DualFlurryGuid, "ConditionDualFlurryGrant").ToString()).AddToDB();
+        private static ConditionDefinition CreateAndAddToDB()
+        {
+            return new ConditionDualFlurryGrantBuilder("ConditionDualFlurryGrant", GuidHelper.Create(DualFlurryFeatBuilder.DualFlurryGuid, "ConditionDualFlurryGrant").ToString()).AddToDB();
+        }
 
-        public static ConditionDefinition GetOrAdd()
+        // TODO: eliminate
+        internal static ConditionDefinition GetOrAdd()
         {
             var db = DatabaseRepository.GetDatabase<ConditionDefinition>();
             return db.TryGetElement("ConditionDualFlurryGrant", GuidHelper.Create(DualFlurryFeatBuilder.DualFlurryGuid, "ConditionDualFlurryGrant").ToString()) ?? CreateAndAddToDB();
         }
+
         private static FeatureDefinition BuildAdditionalActionDualFlurry()
         {
-            GuiPresentationBuilder guiBuilder = new GuiPresentationBuilder("Feature/&AdditionalActionDualFlurryDescription",
-                "Feature/&AdditionalActionDualFlurryTitle")
-                .SetSpriteReference(DatabaseHelper.FeatureDefinitionAdditionalActions.AdditionalActionSurgedMain.GuiPresentation.SpriteReference);
-            FeatureDefinitionAdditionalActionBuilder flurryBuilder = new FeatureDefinitionAdditionalActionBuilder(
-                DatabaseHelper.FeatureDefinitionAdditionalActions.AdditionalActionSurgedMain, "AdditionalActionDualFlurry",
-                GuidHelper.Create(DualFlurryFeatBuilder.DualFlurryGuid, "AdditionalActionDualFlurry").ToString())
-                .SetGuiPresentation(guiBuilder.Build())
+            return FeatureDefinitionAdditionalActionBuilder
+                .Create(AdditionalActionSurgedMain, "AdditionalActionDualFlurry", DualFlurryFeatBuilder.DualFlurryGuid)
+                .SetGuiPresentation(Category.Feature, AdditionalActionSurgedMain.GuiPresentation.SpriteReference)
                 .SetActionType(ActionDefinitions.ActionType.Bonus)
-                .SetAuthorizedActions(new List<ActionDefinitions.Id>())
-                .SetForbiddenActions(new List<ActionDefinitions.Id>())
-                .SetRestrictedActions(new List<ActionDefinitions.Id>() { ActionDefinitions.Id.AttackOff });
-            return flurryBuilder.AddToDB();
+                .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
+                .AddToDB();
         }
     }
 
-    internal class TorchbearerFeatBuilder : BaseDefinitionBuilder<FeatDefinition>
+    internal sealed class TorchbearerFeatBuilder : FeatDefinitionBuilder
     {
-        private static readonly Guid TorchbearerGuid = new Guid("03C523EB-91B9-4F1B-A697-804D1BC2D6DD");
+        private static readonly Guid TorchbearerGuid = new("03C523EB-91B9-4F1B-A697-804D1BC2D6DD");
         private const string TorchbearerFeatName = "TorchbearerFeat";
         private static readonly string TorchbearerFeatNameGuid = GuidHelper.Create(TorchbearerGuid, TorchbearerFeatName).ToString();
 
-        protected TorchbearerFeatBuilder(string name, string guid) : base(DatabaseHelper.FeatDefinitions.Ambidextrous, name, guid)
+        private TorchbearerFeatBuilder(string name, string guid) : base(DatabaseHelper.FeatDefinitions.Ambidextrous, name, guid)
         {
             Definition.GuiPresentation.Title = "Feat/&TorchbearerTitle";
             Definition.GuiPresentation.Description = "Feat/&TorchbearerDescription";
 
             Definition.Features.Clear();
-            Definition.Features.Add(buildFeatureTorchbearer());
+            Definition.Features.Add(BuildFeatureTorchbearer());
 
             Definition.SetMinimalAbilityScorePrerequisite(false);
         }
 
-        public static FeatDefinition CreateAndAddToDB(string name, string guid)
-            => new TorchbearerFeatBuilder(name, guid).AddToDB();
+        private static FeatDefinition CreateAndAddToDB(string name, string guid)
+        {
+            return new TorchbearerFeatBuilder(name, guid).AddToDB();
+        }
 
         public static readonly FeatDefinition TorchbearerFeat = CreateAndAddToDB(TorchbearerFeatName, TorchbearerFeatNameGuid);
 
-        private static FeatureDefinition buildFeatureTorchbearer()
+        private static FeatureDefinition BuildFeatureTorchbearer()
         {
             var burn_effect = new EffectForm();
             burn_effect.SetFormType(EffectForm.EffectFormType.Condition);
@@ -195,17 +201,15 @@ namespace SolastaCommunityExpansion.Feats
             burn_description.EffectForms.Clear();
             burn_description.EffectForms.Add(burn_effect);
 
-            FeatureDefinitionConditionalPowerBuilder powerFeature = new FeatureDefinitionConditionalPowerBuilder("PowerTorchbearer",
-                GuidHelper.Create(TorchbearerGuid, "PowerTorchbearer").ToString(),
-                new GuiPresentationBuilder("Feature/&PowerTorchbearerDescription", "Feature/&PowerTorchbearerTitle").Build());
-            powerFeature.SetActivation(RuleDefinitions.ActivationTime.BonusAction, 0);
-            powerFeature.SetEffect(burn_description);
-            powerFeature.SetUsesFixed(1);
-            powerFeature.SetRecharge(RuleDefinitions.RechargeRate.AtWill);
-            powerFeature.SetShowCasting(false);
-            powerFeature.SetIsActive(IsActive);
-
-            return powerFeature.AddToDB();
+            return FeatureDefinitionConditionalPowerBuilder
+                .Create("PowerTorchbearer", TorchbearerGuid)
+                .SetGuiPresentation(Category.Feature)
+                .SetActivation(RuleDefinitions.ActivationTime.BonusAction, 0)
+                .SetEffectDescription(burn_description)
+                .SetUsesFixed(1)
+                .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
+                .SetShowCasting(false)
+                .SetIsActive(IsActive).AddToDB();
         }
 
         private static bool IsActive(RulesetCharacterHero hero)
@@ -216,7 +220,7 @@ namespace SolastaCommunityExpansion.Feats
             }
             RulesetItem off_item = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem;
 
-            return (off_item != null && off_item.ItemDefinition != null && off_item.ItemDefinition.IsLightSourceItem);
+            return off_item != null && off_item.ItemDefinition != null && off_item.ItemDefinition.IsLightSourceItem;
         }
     }
 }

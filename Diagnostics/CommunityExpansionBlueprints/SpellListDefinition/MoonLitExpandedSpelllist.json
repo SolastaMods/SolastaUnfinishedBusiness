@@ -1,0 +1,74 @@
+{
+  "$type": "SpellListDefinition, Assembly-CSharp",
+  "hasCantrips": false,
+  "maxSpellLevel": 5,
+  "spellsByLevel": [
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 1,
+      "spells": [
+        "Definition:Sleep:9bfc9d5dc54cc2c4ab7e4baade97bf64",
+        "Definition:FaerieFire:72b2d8c811efbb04e8d70c0a41f5d963"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 2,
+      "spells": [
+        "Definition:MoonBeam:2888ca7e95be24447b669a33ccf80e9b",
+        "Definition:SeeInvisibility:10c15ca8321632e42825254149dfb885"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 3,
+      "spells": [
+        "Definition:Daylight:73762817061cfec47b824d2f3a9fc3f6",
+        "Definition:HypnoticPattern:363c0134112bc864b871f0fef729be6b"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 4,
+      "spells": [
+        "Definition:DominateBeast:c3d07b9ef913f2d4ab8682c01ce7a3e1",
+        "Definition:GreaterInvisibility:463d00efd5590394ab707875f866dfe7"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 5,
+      "spells": [
+        "Definition:DominatePerson:89e34ee9a6361c040abb36971b697031",
+        "Definition:FlameStrike:e165a70c93c4985449e51d32117c2ddf"
+      ]
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "b3725667-e904-5e98-bb01-d5580c15dab3",
+  "contentPack": 9999,
+  "name": "MoonLitExpandedSpelllist"
+}

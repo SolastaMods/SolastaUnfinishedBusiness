@@ -1,0 +1,44 @@
+{
+  "$type": "ActionTypeDefinition, Assembly-CSharp",
+  "color": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.4600995,
+    "g": 0.8455882,
+    "b": 0.63822186,
+    "a": 1.0
+  },
+  "unavailableColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.5,
+    "g": 0.5,
+    "b": 0.5,
+    "a": 1.0
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Action/&ActionTypeMoveTitle",
+    "description": "Action/&ActionTypeMoveDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 1,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "a63124f5c304cc64093c92f1c97398e5",
+  "contentPack": "BaseGame",
+  "name": "ActionTypeMove"
+}

@@ -63,6 +63,16 @@ namespace SolastaCommunityExpansion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap ContentPack {
+            get {
+                object obj = ResourceManager.GetObject("ContentPack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Destination {
             get {
                 object obj = ResourceManager.GetObject("Destination", resourceCulture);
@@ -96,6 +106,30 @@ namespace SolastaCommunityExpansion.Properties {
         public static System.Drawing.Bitmap Teleport {
             get {
                 object obj = ResourceManager.GetObject("Teleport", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Warlock
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("Warlock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Gnome
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("Gnome", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

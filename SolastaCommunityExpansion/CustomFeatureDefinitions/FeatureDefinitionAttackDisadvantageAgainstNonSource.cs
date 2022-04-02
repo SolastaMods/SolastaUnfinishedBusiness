@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using SolastaCommunityExpansion.Builders.Features;
 
 namespace SolastaCommunityExpansion.CustomFeatureDefinitions
 {
@@ -13,7 +15,7 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
         public bool CanRageToOvercomeSurprise => false;
         public bool AutoCritical => false;
         public bool CriticalHitImmunity => false;
-        public ConditionDefinition RequiredTargetCondition => null;
+        public ConditionDefinition RequiredCondition => null;
         public bool IgnoreCover => false;
 
         public void ComputeAttackModifier(RulesetCharacter myself, RulesetCharacter defender, RulesetAttackMode attackMode, ActionModifier attackModifier, RuleDefinitions.FeatureOrigin featureOrigin)
@@ -44,6 +46,20 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
         public bool IsImmuneToOpportunityAttack(RulesetCharacter myself, RulesetCharacter attacker)
         {
             return false;
+        }
+    }
+
+    internal class FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder
+        : FeatureDefinitionBuilder<FeatureDefinitionAttackDisadvantageAgainstNonSource, FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder>
+    {
+        protected FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        public FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder SetConditionName(string conditionName)
+        {
+            Definition.ConditionName = conditionName;
+            return this;
         }
     }
 }

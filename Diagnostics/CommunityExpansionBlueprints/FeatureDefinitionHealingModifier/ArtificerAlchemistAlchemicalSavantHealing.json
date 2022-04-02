@@ -1,0 +1,47 @@
+{
+  "$type": "FeatureDefinitionHealingModifier, Assembly-CSharp",
+  "healingBonusDiceNumber": 1,
+  "healingBonusDiceType": "D4",
+  "addLevel": "CharacterLevel",
+  "healsSelfWhenCastingHealingSpell": false,
+  "selfHealingDiceNumber": 2,
+  "selfHealingDiceType": "D1",
+  "selfHealingAddLevel": "None",
+  "addsConditionWhenCastingHealingSpell": null,
+  "addedConditionOccurenceType": "StartOfTurn",
+  "cannotGainHitPoints": false,
+  "advantageOnHitDieSpending": false,
+  "maximizeReceivedHealing": false,
+  "hitDiceHealsKindred": false,
+  "healSelfHealsKindred": false,
+  "healingReceivedParticleReference": null,
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feat/&ArtificerAlchemistAlchemicalSavantTitle",
+    "description": "Feat/&ArtificerAlchemistAlchemicalSavantDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "2889a2bc-93e0-5c1a-9259-72ddb9b81b18",
+  "contentPack": 9999,
+  "name": "ArtificerAlchemistAlchemicalSavantHealing"
+}

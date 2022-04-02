@@ -1,0 +1,33 @@
+{
+  "$type": "SkillDefinition, Assembly-CSharp",
+  "abilityScore": "Strength",
+  "personalityFlag": false,
+  "personalityAdditiveBase": 10,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Skill/&AthleticsTitle",
+    "description": "Skill/&AthleticsDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 3,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "733f78d6085c0ca49b4bd9c8f6ea053b",
+  "contentPack": "BaseGame",
+  "name": "Athletics"
+}

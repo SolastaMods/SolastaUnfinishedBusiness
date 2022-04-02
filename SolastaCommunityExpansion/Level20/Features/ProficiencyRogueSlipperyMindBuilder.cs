@@ -1,14 +1,14 @@
-﻿using SolastaModApi;
+﻿using SolastaCommunityExpansion.Builders.Features;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionProficiencys;
 
 namespace SolastaCommunityExpansion.Level20.Features
 {
-    internal class ProficiencyRogueSlipperyMindBuilder : BaseDefinitionBuilder<FeatureDefinitionProficiency>
+    internal sealed class ProficiencyRogueSlipperyMindBuilder : FeatureDefinitionProficiencyBuilder
     {
         private const string ProficiencyRogueSlipperyMindName = "ZSProficiencyRogueSlipperyMind";
         private const string ProficiencyRogueSlipperyMindGuid = "b7eb00f96e13495ea4af1389fafca546";
 
-        protected ProficiencyRogueSlipperyMindBuilder(string name, string guid) : base(ProficiencyRogueSavingThrow, name, guid)
+        private ProficiencyRogueSlipperyMindBuilder(string name, string guid) : base(ProficiencyRogueSavingThrow, name, guid)
         {
             Definition.GuiPresentation.Title = "Feature/&ProficiencyRogueSlipperyMindTitle";
             Definition.GuiPresentation.Description = "Feature/&ProficiencyRogueSlipperyMindDescription";
@@ -16,7 +16,9 @@ namespace SolastaCommunityExpansion.Level20.Features
         }
 
         private static FeatureDefinitionProficiency CreateAndAddToDB(string name, string guid)
-            => new ProficiencyRogueSlipperyMindBuilder(name, guid).AddToDB();
+        {
+            return new ProficiencyRogueSlipperyMindBuilder(name, guid).AddToDB();
+        }
 
         internal static readonly FeatureDefinitionProficiency ProficiencyRogueSlipperyMind
             = CreateAndAddToDB(ProficiencyRogueSlipperyMindName, ProficiencyRogueSlipperyMindGuid);

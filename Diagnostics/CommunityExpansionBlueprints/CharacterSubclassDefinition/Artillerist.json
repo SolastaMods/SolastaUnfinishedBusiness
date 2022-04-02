@@ -1,0 +1,74 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ArtilleryConstructLevel03AutopreparedSpells:5557726c-5245-55ba-916e-d2dcb1464d12",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ArtificerArtilleristAutoPrepSpells:daf30a35-d9ee-5419-b5a4-21a568d7bfc6",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ArtilleryConstructlevel03FeatureSet:59f857e6-7b06-4c2b-a241-b73c42d64c23",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ArtificerArtilleristArcaneFirearm:f5c4af73-6c3e-5a10-b818-b8d4d3be1029",
+      "level": 5
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ArtilleryConstructLevel09AutopreparedSpells:ecbbbfe6-4ff6-5c55-b9da-919b09896938",
+      "level": 9
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ArtilleryConstructlevel09FeatureSet:a1e9557c-c1a9-4912-9fea-1a16c4124331",
+      "level": 9
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ArtilleryConstructLevel15AutopreparedSpells:841d72b7-2570-56d1-acfd-77fa34d2e4db",
+      "level": 15
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ArtilleryConstructlevel15FeatureSet:50c91d16-1a84-494a-ba72-dd4879955f2f",
+      "level": 15
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&ArtificerArtilleristTitle",
+    "description": "Subclass/&ArtificerArtilleristDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "85d76c7cb86d43d4d8986efa486bf78f",
+      "m_SubObjectName": "Wizard_Shock_Arcanist",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "6a2ac050-eb4b-50c3-83de-05e8430f78f9",
+  "contentPack": 9999,
+  "name": "Artillerist"
+}

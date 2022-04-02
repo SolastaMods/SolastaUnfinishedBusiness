@@ -1,0 +1,30 @@
+{
+  "$type": "CurrencyDefinition, Assembly-CSharp",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&CurrencyCopperTitle",
+    "description": "Equipment/&CurrencyCopperDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "f8949201f6c7aa64cb65c7c07ca1850b",
+      "m_SubObjectName": "CurrencyCopper",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.7647059,
+      "g": 0.6156863,
+      "b": 0.3882353,
+      "a": 1.0
+    },
+    "symbolChar": "25EF",
+    "sortOrder": 4,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "bb1e53e934960c04eb0039593d958670",
+  "contentPack": "BaseGame",
+  "name": "CurrencyCopper"
+}

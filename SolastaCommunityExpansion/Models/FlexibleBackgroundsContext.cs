@@ -1,6 +1,6 @@
-﻿using SolastaModApi;
-using SolastaModApi.BuilderHelpers;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Builders.Features;
 using static SolastaModApi.DatabaseHelper.CharacterBackgroundDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionProficiencys;
 
@@ -8,28 +8,25 @@ namespace SolastaCommunityExpansion.Models
 {
     public static class FlexibleBackgroundsContext
     {
-        private static readonly GuiPresentationBuilder skillThreeGui = new GuiPresentationBuilder(
-            "FlexibleBackgrounds/&BackgroundSkillSelect3Description",
-            "FlexibleBackgrounds/&BackgroundSkillSelect3Title");
+        private static readonly FeatureDefinition skillThree = FeatureDefinitionPointPoolBuilder
+            .Create("BackgroundSkillSelect3", "e6f2ed65-a44e-4314-b38c-393abb4ad900")
+            .SetGuiPresentation(Category.FlexibleBackgrounds)
+            .SetPool(HeroDefinitions.PointsPoolType.Skill, 3)
+            .AddToDB();
 
-        private static readonly FeatureDefinition skillThree = new FeatureDefinitionPointPoolBuilder("BackgroundSkillSelect3",
-            "e6f2ed65-a44e-4314-b38c-393abb4ad900", HeroDefinitions.PointsPoolType.Skill, 3, skillThreeGui.Build()).AddToDB();
+        private static readonly FeatureDefinition skillTwo = FeatureDefinitionPointPoolBuilder
+            .Create("BackgroundSkillSelect2", "77d6eb2c-d99f-4256-9bb6-c6395e440629")
+            .SetGuiPresentation(Category.FlexibleBackgrounds)
+            .SetPool(HeroDefinitions.PointsPoolType.Skill, 2)
+            .AddToDB();
 
-        private static readonly GuiPresentationBuilder skillTwoGui = new GuiPresentationBuilder(
-            "FlexibleBackgrounds/&BackgroundSkillSelect2Description",
-            "FlexibleBackgrounds/&BackgroundSkillSelect2Title");
+        private static readonly FeatureDefinition toolChoice = FeatureDefinitionPointPoolBuilder
+            .Create("BackgroundToolSelect", "989ddb03-b915-42cc-9612-bc8be96b7476")
+            .SetGuiPresentation(Category.FlexibleBackgrounds)
+            .SetPool(HeroDefinitions.PointsPoolType.Tool, 1)
+            .AddToDB();
 
-        private static readonly FeatureDefinition skillTwo = new FeatureDefinitionPointPoolBuilder("BackgroundSkillSelect2",
-            "77d6eb2c-d99f-4256-9bb6-c6395e440629", HeroDefinitions.PointsPoolType.Skill, 2, skillTwoGui.Build()).AddToDB();
-
-        private static readonly GuiPresentationBuilder toolGui = new GuiPresentationBuilder(
-            "FlexibleBackgrounds/&BackgroundToolSelectDescription",
-            "FlexibleBackgrounds/&BackgroundToolSelectTitle");
-
-        private static readonly FeatureDefinition toolChoice = new FeatureDefinitionPointPoolBuilder("BackgroundToolSelect",
-            "989ddb03-b915-42cc-9612-bc8be96b7476", HeroDefinitions.PointsPoolType.Tool, 1, toolGui.Build()).AddToDB();
-
-        private static readonly Dictionary<CharacterBackgroundDefinition, List<FeatureDefinition>> addedFeatures = new Dictionary<CharacterBackgroundDefinition, List<FeatureDefinition>>
+        private static readonly Dictionary<CharacterBackgroundDefinition, List<FeatureDefinition>> addedFeatures = new()
         {
             { Academic, new List<FeatureDefinition> { skillThree, toolChoice } },
             { Acolyte, new List<FeatureDefinition> { skillThree, toolChoice } },
@@ -42,7 +39,7 @@ namespace SolastaCommunityExpansion.Models
             { Wanderer, new List<FeatureDefinition> { skillThree, toolChoice } },
         };
 
-        private static readonly Dictionary<CharacterBackgroundDefinition, List<FeatureDefinition>> removedFeatures = new Dictionary<CharacterBackgroundDefinition, List<FeatureDefinition>>
+        private static readonly Dictionary<CharacterBackgroundDefinition, List<FeatureDefinition>> removedFeatures = new()
         {
             { Academic, new List<FeatureDefinition> { ProficiencyAcademicSkills, ProficiencyAcademicSkillsTool } },
             { Acolyte, new List<FeatureDefinition> { ProficiencyAcolyteSkills, ProficiencyAcolyteToolsSkills } },

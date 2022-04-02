@@ -1,0 +1,64 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AHWarlockSoulBladePactEmpowerWeaponPower:d0d7af4a-2c48-5b13-9f11-6d9c79c9ec25",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AHWarlockSoulBladePactExtendedSpellList:0bc3b531-1713-591b-af44-3e4cd68cb166",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyClericArmor:aaad0b8f6c298014ab5597ba052e3de6",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyFighterWeapon:b042ddec31ba7f04bbc4e0676716c76f",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AHSoulBladeSummonPactWeaponPower:fe762ad3-38c8-5bcd-bfcb-8039628dff5c",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AHWarlockSoulBladePactSoulShieldPower:d8541d6d-d655-5518-b945-9c26a3de556c",
+      "level": 10
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&AHWarlockSubclassSoulBladePactTitle",
+    "description": "Subclass/&AHWarlockSubclassSoulBladePactDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "0850c648d07d8b44b8a07c6562372816",
+      "m_SubObjectName": "Paladin_Oath_Of_The_Motherland",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "6ed2789f-dcc8-558f-a478-2a6082903ca2",
+  "contentPack": 9999,
+  "name": "AHWarlockSubclassSoulBladePact"
+}

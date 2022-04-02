@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+using System.Diagnostics.CodeAnalysis;
 using SolastaModApi.Infrastructure;
 using TA;
-using TMPro;
 using UnityEngine;
 using static SolastaModApi.DatabaseHelper.GadgetBlueprints;
 
@@ -33,6 +31,9 @@ namespace SolastaCommunityExpansion.Models
         internal static void Load()
         {
             var inputService = ServiceRepository.GetService<IInputService>();
+
+            // Dungeon Maker
+            inputService.RegisterCommand(InputCommands.Id.EditorRotate, (int)KeyCode.R, (int)KeyCode.LeftShift, -1, -1, -1, -1);
 
             // HUD
             inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_C, (int)KeyCode.C, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
@@ -104,21 +105,16 @@ namespace SolastaCommunityExpansion.Models
 
             void ToggleZoomCamera()
             {
-                IViewService viewService = ServiceRepository.GetService<IViewService>();
                 ICameraService cameraService = ServiceRepository.GetService<ICameraService>();
 
-                if (viewService == null || cameraService == null)
-                {
-                    EnableDebugCamera = false;
-                }
-                else
+                if (cameraService != null)
                 {
                     EnableDebugCamera = !EnableDebugCamera;
+                    cameraService.DebugCameraEnabled = EnableDebugCamera;
                 }
-
-                cameraService.DebugCameraEnabled = EnableDebugCamera;
             }
 
+            [SuppressMessage("Minor Code Smell", "IDE0066:Use switch expression", Justification = "Prefer switch here")]
             GuiPanel GetInitiativeOrPartyPanel()
             {
                 switch (gameLocationBaseScreen)
@@ -132,6 +128,7 @@ namespace SolastaCommunityExpansion.Models
                 }
             }
 
+            [SuppressMessage("Minor Code Smell", "IDE0066:Use switch expression", Justification = "Prefer switch here")]
             TimeAndNavigationPanel GetTimeAndNavigationPanel()
             {
                 switch (gameLocationBaseScreen)
@@ -254,28 +251,5 @@ namespace SolastaCommunityExpansion.Models
                 }
             }
         }
-        internal static class RemoveInvalidFilenameChars
-            {
-                private static readonly HashSet<char> InvalidFilenameChars = new HashSet<char>(Path.GetInvalidFileNameChars());
-
-                public static bool Invoke(TMP_InputField textField)
-                {
-                    if (textField != null)
-                    {
-                        // Solasta original code disallows invalid filename chars and an additional list of illegal chars.
-                        // We're disallowing invalid filename chars only.
-                        // We're trimming whitespace from start only as per original method.
-                        // This allows the users to create a name with spaces inside, but also allows trailing space.
-                        textField.text = new string(
-                            textField.text
-                                .Where(n => !InvalidFilenameChars.Contains(n))
-                                .ToArray()).TrimStart();
-
-                        return false;
-                    }
-
-                    return true;
-                }
-            }
-        }
+    }
 }

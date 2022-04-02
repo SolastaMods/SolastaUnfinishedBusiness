@@ -1,9 +1,9 @@
-﻿using SolastaCommunityExpansion.Feats;
-using SolastaModApi.Extensions;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using SolastaCommunityExpansion.Feats;
+using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -33,12 +33,13 @@ namespace SolastaCommunityExpansion.Models
             AcehighFeats.CreateFeats(feats);
             ArmorFeats.CreateArmorFeats(feats);
             CasterFeats.CreateFeats(feats);
-            FightingStlyeFeats.CreateFeats(feats);
+            FightingStyleFeats.CreateFeats(feats);
             OtherFeats.CreateFeats(feats);
             HealingFeats.CreateFeats(feats);
             PickPocketContext.CreateFeats(feats);
             CraftyFeats.CreateFeats(feats);
             ElAntoniousFeats.CreateFeats(feats);
+            ZappaFeats.CreateFeats(feats);
 
             // Use the list of all unofficial feats to get the settings and ui set up
             foreach (FeatDefinition feat in GetAllUnofficialFeats())

@@ -1,0 +1,52 @@
+{
+  "$type": "FeatureDefinitionHealingModifier, Assembly-CSharp",
+  "healingBonusDiceNumber": 0,
+  "healingBonusDiceType": "D1",
+  "addLevel": "None",
+  "healsSelfWhenCastingHealingSpell": false,
+  "selfHealingDiceNumber": 2,
+  "selfHealingDiceType": "D1",
+  "selfHealingAddLevel": "EffectLevel",
+  "addsConditionWhenCastingHealingSpell": "Definition:ConditionCircleBalanceGiftOfLife:140f784ed9eea0248970c0083f0f2937",
+  "addedConditionOccurenceType": "StartOfTurn",
+  "cannotGainHitPoints": false,
+  "advantageOnHitDieSpending": false,
+  "maximizeReceivedHealing": false,
+  "hitDiceHealsKindred": false,
+  "healSelfHealsKindred": false,
+  "healingReceivedParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&CircleBalanceGiftOfLifeTitle",
+    "description": "Feature/&CircleBalanceGiftOfLifeDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "f864f2400a8405743b079771c0f33ac1",
+  "contentPack": "LostValley",
+  "name": "HealingModifierCircleBalanceGiftOfLife"
+}

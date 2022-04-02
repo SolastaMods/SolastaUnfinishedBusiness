@@ -1,0 +1,44 @@
+{
+  "$type": "DeityDefinition, Assembly-CSharp",
+  "alignment": "ChaoticNeutral",
+  "subclasses": [
+    "DomainMischief",
+    "DomainBattle"
+  ],
+  "selectableByPlayer": true,
+  "personalityFlagOccurences": [
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 15,
+      "personalityFlag": "ReligionMisaye"
+    }
+  ],
+  "vocalSpellSemeClass": "Misaye",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Deity/&MisayeTitle",
+    "description": "Deity/&MisayeDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "0642d500e537ac64c8eecfe876db1d46",
+      "m_SubObjectName": "DeityMisaye",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 3,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "b8c053c69bbb8c642b19272d9e066cf1",
+  "contentPack": "LostValley",
+  "name": "Misaye"
+}

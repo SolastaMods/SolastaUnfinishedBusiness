@@ -1,7 +1,7 @@
-﻿using SolastaCommunityExpansion.FightingStyles;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using SolastaCommunityExpansion.FightingStyles;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -92,4 +92,3 @@ namespace SolastaCommunityExpansion.Models
         }
     }
 }
-

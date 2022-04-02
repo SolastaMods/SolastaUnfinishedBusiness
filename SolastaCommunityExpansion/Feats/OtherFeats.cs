@@ -1,104 +1,80 @@
-﻿using SolastaCommunityExpansion.Features;
-using SolastaModApi;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Builders.Features;
+using SolastaModApi.Infrastructure;
+using static FeatureDefinitionAttributeModifier;
+using static RuleDefinitions.RollContext;
 
 namespace SolastaCommunityExpansion.Feats
 {
     internal static class OtherFeats
     {
-        public static readonly Guid OtherFeatNamespace = new Guid("655e8588-4d6e-42f3-9564-69e7345d5620");
+        public static readonly Guid OtherFeatNamespace = new("655e8588-4d6e-42f3-9564-69e7345d5620");
 
         public static void CreateFeats(List<FeatDefinition> feats)
         {
             // Savage Attacker
-            GuiPresentationBuilder savageAttackerPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatSavageAttackerDescription",
-                "Feat/&FeatSavageAttackerTitle");
+            var savageAttacker = FeatDefinitionBuilder
+                .Create("FeatSavageAttacker", OtherFeatNamespace)
+                .SetFeatures(
+                    BuildDieRollModifier("DieRollModifierFeatSavageAttacker",
+                        AttackDamageValueRoll, 1 /* reroll count */, 1 /* reroll min value */ ),
+                    BuildDieRollModifier("DieRollModifierFeatSavageMagicAttacker",
+                        MagicDamageValueRoll, 1 /* reroll count */, 1 /* reroll min value */ ))
+                .SetGuiPresentation(Category.Feat)
+                .AddToDB();
 
-            string rerollKey = "Feat/&FeatSavageAttackerReroll";
-            FeatureDefinitionDieRollModifier savageAttackDieRoll = BuildDieRollModifier(RuleDefinitions.RollContext.AttackDamageValueRoll,
-                1 /* reroll count */, 1 /* reroll min value */, rerollKey, "DieRollModifierFeatSavageAttacker",
-                savageAttackerPresentation.Build());
-            FeatureDefinitionDieRollModifier savageMagicDieRoll = BuildDieRollModifier(RuleDefinitions.RollContext.MagicDamageValueRoll,
-                1 /* reroll count */, 1 /* reroll min value */, rerollKey, "DieRollModifierFeatSavageMagicAttacker",
-                savageAttackerPresentation.Build());
-            
-            FeatDefinitionBuilder savageAttacker = new FeatDefinitionBuilder("FeatSavageAttacker", GuidHelper.Create(OtherFeatNamespace, "FeatSavageAttacker").ToString(), new List<FeatureDefinition>()
-            {
-                savageAttackDieRoll,
-                savageMagicDieRoll,
-            }, savageAttackerPresentation.Build());
-            feats.Add(savageAttacker.AddToDB());
-
-            GuiPresentationBuilder improvedCriticalPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatimprovedCriticalDescription",
-                "Feat/&FeatimprovedCriticalTitle");
-
-            FeatureDefinitionAttributeModifier improvedCriticalThresholdIncrease = BuildAttributeModifier(
-                FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set,
-                AttributeDefinitions.CriticalThreshold,
-                19,
-                "AttributeModifierImprovedCriticalFeat", improvedCriticalPresentation.Build());
-
-            FeatDefinitionBuilder improvedCritical = new FeatDefinitionBuilder("FeatImprovedCritical", GuidHelper.Create(OtherFeatNamespace, "FeatImprovedCritical").ToString(), new List<FeatureDefinition>()
-            {
-                improvedCriticalThresholdIncrease,
-            }, improvedCriticalPresentation.Build());
-            feats.Add(improvedCritical.AddToDB());
+            // Improved critical
+            var improvedCritical = FeatDefinitionBuilder
+                .Create("FeatImprovedCritical", OtherFeatNamespace)
+                .SetGuiPresentation(Category.Feat)
+                .SetFeatures(
+                    FeatureDefinitionAttributeModifierBuilder
+                        .Create("AttributeModifierImprovedCriticalFeat", OtherFeatNamespace)
+                        .SetGuiPresentation("FeatImprovedCritical", Category.Feat)
+                        .SetModifier(AttributeModifierOperation.Set, AttributeDefinitions.CriticalThreshold, 19)
+                        .AddToDB())
+                .AddToDB();
 
             // Tough
-            GuiPresentationBuilder toughPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatToughDescription",
-                "Feat/&FeatToughTitle");
-
-            FeatureDefinitionAttributeModifier toughModifier = BuildAttributeModifier(
-                FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, AttributeDefinitions.HitPointBonusPerLevel,
-                2, "AttributeModifierToughFeat", toughPresentation.Build());
-
-            FeatDefinitionBuilder tough = new FeatDefinitionBuilder("FeatTough", GuidHelper.Create(OtherFeatNamespace, "FeatTough").ToString(),
-                new List<FeatureDefinition>()
-            {
-                toughModifier,
-            }, toughPresentation.Build());
-            feats.Add(tough.AddToDB());
+            var tough = FeatDefinitionBuilder
+                .Create("FeatTough", OtherFeatNamespace)
+                .SetFeatures(
+                    FeatureDefinitionAttributeModifierBuilder
+                        .Create("AttributeModifierToughFeat", OtherFeatNamespace)
+                        .SetGuiPresentation("FeatTough", Category.Feat)
+                        .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.HitPointBonusPerLevel, 2)
+                        .AddToDB())
+                .SetGuiPresentation(Category.Feat)
+                .AddToDB();
 
             // War Caster
-            GuiPresentationBuilder warCasterPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatWarCasterDescription",
-                "Feat/&FeatWarCasterTitle");
+            var warCaster = FeatDefinitionBuilder
+                .Create("FeatWarCaster", OtherFeatNamespace)
+                .SetFeatures(
+                    FeatureDefinitionMagicAffinityBuilder
+                        .Create("MagicAffinityWarCasterFeat", OtherFeatNamespace)
+                        .SetGuiPresentation("FeatWarCaster", Category.Feat)
+                        .SetCastingModifiers(2, 0, true, false, false)
+                        .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage, 0)
+                        .SetHandsFullCastingModifiers(true, true, true)
+                        .AddToDB())
+                .SetGuiPresentation(Category.Feat)
+                .SetMustCastSpellsPrerequisite()
+                .AddToDB();
 
-            FeatureDefinitionMagicAffinity warCasterModifier = BuildMagicAffinityWarCaster("MagicAffinityWarCasterFeat",
-                warCasterPresentation.Build());
-
-            FeatDefinitionBuilder warCaster = new FeatDefinitionBuilder("FeatWarCaster", GuidHelper.Create(OtherFeatNamespace, "FeatWarCaster").ToString(),
-                new List<FeatureDefinition>()
-            {
-                warCasterModifier,
-            }, warCasterPresentation.Build());
-            feats.Add(warCaster.AddToDB());
+            feats.AddRange(savageAttacker, tough, warCaster, improvedCritical);
         }
 
-        private static FeatureDefinitionMagicAffinity BuildMagicAffinityWarCaster(string name, GuiPresentation guiPresentation)
+        private static FeatureDefinitionDieRollModifier BuildDieRollModifier(string name,
+            RuleDefinitions.RollContext context, int rerollCount, int minRerollValue)
         {
-            FeatureDefinitionMagicAffinityBuilder builder = new FeatureDefinitionMagicAffinityBuilder(name, GuidHelper.Create(OtherFeatNamespace, name).ToString(),
-                guiPresentation).SetCastingModifiers(2, 0, true, false, false).SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage, 0).SetHandsFullCastingModifiers(true, true, true);
-            return builder.AddToDB();
-        }
-
-        private static FeatureDefinitionDieRollModifier BuildDieRollModifier(RuleDefinitions.RollContext context, int rerollCount, int minRerollValue, string consoleLocalizationKey, string name, GuiPresentation guiPresentation)
-        {
-            FeatureDefinitionDieRollModifierBuilder builder = new FeatureDefinitionDieRollModifierBuilder(name, GuidHelper.Create(OtherFeatNamespace, name).ToString(),
-                context, rerollCount, minRerollValue, consoleLocalizationKey, guiPresentation);
-            return builder.AddToDB();
-        }
-
-        public static FeatureDefinitionAttributeModifier BuildAttributeModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation modifierType,
-            string attribute, int amount, string name, GuiPresentation guiPresentation)
-        {
-            FeatureDefinitionAttributeModifierBuilder builder = new FeatureDefinitionAttributeModifierBuilder(name, GuidHelper.Create(OtherFeatNamespace, name).ToString(),
-                modifierType, attribute, amount, guiPresentation);
-            return builder.AddToDB();
+            return FeatureDefinitionDieRollModifierBuilder
+                .Create(name, OtherFeatNamespace)
+                .SetModifiers(context, rerollCount, minRerollValue, "Feat/&FeatSavageAttackerReroll")
+                .SetGuiPresentation("FeatSavageAttacker", Category.Feat)
+                .AddToDB();
         }
     }
 }
