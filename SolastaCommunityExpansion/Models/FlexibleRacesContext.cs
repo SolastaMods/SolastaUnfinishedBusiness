@@ -30,7 +30,7 @@ namespace SolastaCommunityExpansion.Models
             { "HalfElf", attributeChoiceFour },
             { "HalfOrc", attributeChoiceThree },
             // unofficial races
-            { "FirbolgRace", attributeChoiceThree },
+            { "BolgrifRace", attributeChoiceThree },
             { "GnomeRace", attributeChoiceThree }
         };
 
@@ -48,7 +48,7 @@ namespace SolastaCommunityExpansion.Models
             { "HalflingMarsh", new List<string> { "AttributeModifierHalflingMarshAbilityScoreIncrease" } },
             { "HalfOrc", new List<string> { "FeatureSetHalfOrcAbilityScoreIncrease" } },
             // unofficial races
-            { "FirbolgRace", new List<string> { "AttributeModifierFirbolgStrengthAbilityScoreIncrease", "AttributeModifierFirbolgWisdomAbilityScoreIncrease" } },
+            { "BolgrifRace", new List<string> { "AttributeModifierBolgrifStrengthAbilityScoreIncrease", "AttributeModifierBolgrifWisdomAbilityScoreIncrease" } },
             { "GnomeRace", new List<string> { "AttributeModifierGnomeAbilityScoreIncrease", "AttributeModifierForestGnomeAbilityScoreIncrease" } }
         };
 
