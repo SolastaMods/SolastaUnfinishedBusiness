@@ -19,10 +19,10 @@
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 1,
       "spells": [
+        "Definition:AHPactMarkSpellBuilder:ef9a57d2-4f91-5129-830f-44a15a4e2697",
         "Definition:CharmPerson:9c98e5cba0f8b1649b3217a97cbc111b",
         "Definition:ComprehendLanguages:78c2b416e515641468aa1c384db23535",
         "Definition:ExpeditiousRetreat:3713ff85f9f53f2459ae8d7a976a24b8",
-        "Definition:AHPactMarkSpellBuilder:ef9a57d2-4f91-5129-830f-44a15a4e2697",
         "Definition:ProtectionFromEvilGood:b8a59d1a01529b04893e0c440cecee39"
       ]
     },

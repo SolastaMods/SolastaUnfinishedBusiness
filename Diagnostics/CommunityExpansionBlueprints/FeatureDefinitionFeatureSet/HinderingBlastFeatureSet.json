@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:AgonizingBlastForceAncestry:8a0a21e0-d4d9-5c8f-9d68-22b7fca74e32",
-    "Definition:AdditionalDamageHinderingBlast:c9d9bc9f-6454-540b-ad75-8d4bf291eee8"
+    "Definition:AdditionalDamageHinderingBlast:c9d9bc9f-6454-540b-ad75-8d4bf291eee8",
+    "Definition:AgonizingBlastForceAncestry:8a0a21e0-d4d9-5c8f-9d68-22b7fca74e32"
   ],
   "mode": "Union",
   "defaultSelection": 0,

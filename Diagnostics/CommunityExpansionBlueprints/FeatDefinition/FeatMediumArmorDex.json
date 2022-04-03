@@ -10,8 +10,8 @@
   "armorProficiencyCategory": "LightArmorCategory",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:FeatMediumArmorProficiency:db8a30f1-72a3-55ae-b8dd-ff9aa8a21f1c",
-    "Definition:FeatDexIncrement:820204d3-28c7-5073-b88e-cb1bead386b0"
+    "Definition:FeatDexIncrement:820204d3-28c7-5073-b88e-cb1bead386b0",
+    "Definition:FeatMediumArmorProficiency:db8a30f1-72a3-55ae-b8dd-ff9aa8a21f1c"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

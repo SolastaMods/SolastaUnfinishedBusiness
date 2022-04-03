@@ -1,9 +1,9 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:DHEldritchInvocationSlow:3fa3c649-2ada-5bee-926f-15434a36e09b",
     "Definition:DHEIAttributeModifersEldritchSmite:d2858f08-7bcc-534c-b254-0004bf4ce3b9",
     "Definition:DHEIAttributeModifersThirstingBlade:c26debc7-fe9b-5037-a380-a1cfc4945428",
+    "Definition:DHEldritchInvocationSlow:3fa3c649-2ada-5bee-926f-15434a36e09b",
     "Definition:DHEIAttributeModifersOneWithShadows:b8af4564-6fd3-5b6d-80ed-974c531e699e",
     "Definition:DHEldritchInvocationConfusion:f4575abd-8823-5cc8-8f70-93b4d038857c",
     "Definition:DHEldritchInvocationFreedomOfMovement:a770f899-614b-5226-994d-bd457f91369c"

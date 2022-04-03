@@ -15,21 +15,22 @@ using static SolastaModApi.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionMoveModes;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionConditionAffinitys;
 using UnityEngine.AddressableAssets;
+using System.Linq;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 {
+    // NOTE: not currently used
     public static class DHWarlockSubclassUrPriestPatron
     {
         public static CharacterSubclassDefinition Build()
         {
-
-            FeatureDefinitionMagicAffinity UrPriestExpandedSpelllistAfinity = FeatureDefinitionMagicAffinityBuilder
+            var urPriestExpandedSpelllistAfinity = FeatureDefinitionMagicAffinityBuilder
                 .Create("UrPriestExpandedSpelllistAfinity", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation("UrPriestExpandedSpelllistAfinity", Category.Feature)
+                .SetGuiPresentation(Category.Feature)
                 .SetExtendedSpellList(SpellListCleric)
                 .AddToDB();
 
-            List<CharacterSubclassDefinition> ListofClericDomains = new List<CharacterSubclassDefinition> {
+            var listofClericDomains = new [] {
                 DomainBattle,
                 DomainElementalCold,
                 DomainElementalFire,
@@ -42,45 +43,32 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 DomainSun
             };
 
-            FeatureDefinitionFeatureSet UrPriestDomainTheft = FeatureDefinitionFeatureSetBuilder
+            FeatureDefinitionFeatureSet urPriestDomainTheft = FeatureDefinitionFeatureSetBuilder
                 .Create("UrPriestDomainTheft", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation("UrPriestDomainTheft", Category.Feature)
+                .SetGuiPresentation(Category.Feature)
                 .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
                 .SetUniqueChoices(true)
+                .AddFeatureSet(
+                    listofClericDomains.Select(subclass => FeatureDefinitionFeatureSetBuilder
+                        .Create(subclass.name + "level1Features", DefinitionBuilder.CENamespaceGuid)
+                        .SetGuiPresentation(subclass.name + "Domainlevel1Features", Category.Feature)
+                        .SetEnumerateInDescription(true)
+                        .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+                        .AddFeatureSet(subclass.FeatureUnlocks.Where(fu => fu.Level == 1).Select(fu => fu.FeatureDefinition))
+                        .AddToDB()
+                ))
                 .AddToDB();
 
-            foreach (CharacterSubclassDefinition subclass in ListofClericDomains)
-            {
-
-                FeatureDefinitionFeatureSet Domainlevel1Features = FeatureDefinitionFeatureSetBuilder
-                    .Create(subclass.name+"level1Features", DefinitionBuilder.CENamespaceGuid)
-                    .SetGuiPresentation(subclass.name + "Domainlevel1Features", Category.Feature)
-                    .SetEnumerateInDescription(true)
-                    .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-                    .AddToDB();
-
-                foreach (FeatureUnlockByLevel FeatureUnlockByLevel in subclass.FeatureUnlocks)
-                {
-                    if (FeatureUnlockByLevel.Level==1)
-                    {
-                        Domainlevel1Features.FeatureSet.Add(FeatureUnlockByLevel.FeatureDefinition);
-                    }
-                }
-
-
-                UrPriestDomainTheft.FeatureSet.Add(Domainlevel1Features);
-            }
-
-            FeatureDefinitionPower ControlUndead = FeatureDefinitionPowerBuilder
+            FeatureDefinitionPower controlUndead = FeatureDefinitionPowerBuilder
                 .Create("UrPriestControlUndead", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Power)
                 .Configure(
                        1,
-                       RuleDefinitions.UsesDetermination.Fixed,
+                       UsesDetermination.Fixed,
                        AttributeDefinitions.Charisma,
-                       RuleDefinitions.ActivationTime.Action,
+                       ActivationTime.Action,
                        1,
-                       RuleDefinitions.RechargeRate.ChannelDivinity,
+                       RechargeRate.ChannelDivinity,
                        false,
                        false,
                        AttributeDefinitions.Charisma,
@@ -102,16 +90,16 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                                 false,
                                 DatabaseHelper.SmartAttributeDefinitions.Wisdom.name,
                                 true,
-                                RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                                EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                                 DatabaseHelper.SmartAttributeDefinitions.Wisdom.name,
                                 20,
                                 false,
                                 new List<SaveAffinityBySenseDescription>())
                             .SetTargetingData(
-                                    RuleDefinitions.Side.Enemy,
-                                    RuleDefinitions.RangeType.Distance,
+                                    Side.Enemy,
+                                    RangeType.Distance,
                                     1,
-                                    RuleDefinitions.TargetType.Individuals,
+                                    TargetType.Individuals,
                                     1,
                                     1,
                                     ActionDefinitions.ItemSelectionType.None)
@@ -122,16 +110,16 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                        true)
                 .AddToDB();
 
-            FeatureDefinitionPower RadiantWard = FeatureDefinitionPowerBuilder
+            FeatureDefinitionPower radiantWard = FeatureDefinitionPowerBuilder
                 .Create("UrPriestRadiantWard", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Power)
                 .Configure(
                        1,
-                       RuleDefinitions.UsesDetermination.Fixed,
+                       UsesDetermination.Fixed,
                        AttributeDefinitions.Charisma,
-                       RuleDefinitions.ActivationTime.Action,
+                       ActivationTime.Action,
                        1,
-                       RuleDefinitions.RechargeRate.ChannelDivinity,
+                       RechargeRate.ChannelDivinity,
                        false,
                        false,
                        AttributeDefinitions.Charisma,
@@ -148,10 +136,10 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                                 .SetLevelMultiplier(2)
                                 )
                             .SetTargetingData(
-                                    RuleDefinitions.Side.All,
-                                    RuleDefinitions.RangeType.Self,
+                                    Side.All,
+                                    RangeType.Self,
                                     1,
-                                    RuleDefinitions.TargetType.Self,
+                                    TargetType.Self,
                                     1,
                                     1,
                                     ActionDefinitions.ItemSelectionType.None)
@@ -161,17 +149,16 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                        true)
                 .AddToDB();
 
-
-            FeatureDefinitionPower SpellSiphon = FeatureDefinitionPowerBuilder
+            FeatureDefinitionPower spellSiphon = FeatureDefinitionPowerBuilder
                 .Create("UrPriestSpellSiphon", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Power)
                 .Configure(
                        1,
-                       RuleDefinitions.UsesDetermination.Fixed,
+                       UsesDetermination.Fixed,
                        AttributeDefinitions.Charisma,
-                       RuleDefinitions.ActivationTime.Action,
+                       ActivationTime.Action,
                        1,
-                       RuleDefinitions.RechargeRate.ChannelDivinity,
+                       RechargeRate.ChannelDivinity,
                        false,
                        false,
                        AttributeDefinitions.Charisma,
@@ -186,10 +173,10 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                                 .SetLevelMultiplier(2)
                                 )
                             .SetTargetingData(
-                                    RuleDefinitions.Side.All,
-                                    RuleDefinitions.RangeType.Self,
+                                    Side.All,
+                                    RangeType.Self,
                                     1,
-                                    RuleDefinitions.TargetType.Self,
+                                    TargetType.Self,
                                     1,
                                     1,
                                     ActionDefinitions.ItemSelectionType.None)
@@ -199,69 +186,65 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                        true)
                 .AddToDB();
 
+            ConditionDefinition halfLifeCondition = ConditionDefinitionBuilder
+                .Create("HalfLifeCondition", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(Category.Condition)
+                .SetCharacterShaderReference(DatabaseHelper.MonsterDefinitions.Ghost.MonsterPresentation.CustomShaderReference)
+                .SetConditionParticleReference(new AssetReference("62a22b407b0619549997a357f6344630"))
+                .SetFeatures(
+                    MoveModeFly8,
+                    ConditionAffinityCharmImmunity,
+                    ConditionAffinityExhaustionImmunity,
+                    ConditionAffinityPoisonImmunity,
+                    ConditionAffinityProneImmunity,
+                    ConditionAffinityHinderedByFrostImmunity,
+                    ConditionAffinityFrightenedImmunity,
+                    ConditionAffinityGrappledImmunity,
+                    ConditionAffinityParalyzedmmunity,
+                    ConditionAffinityPetrifiedImmunity,
+                    ConditionAffinityRestrainedmmunity,
+                    DamageAffinitySlashingResistance,
+                    DamageAffinityNecroticImmunity,
+                    DamageAffinityPoisonImmunity,
+                    DamageAffinityColdImmunity,
+                    DamageAffinityBludgeoningResistance,
+                    DamageAffinityPiercingResistance,
+                    DamageAffinityLightningResistance,
+                    DamageAffinityFireResistance,
+                    DamageAffinityAcidResistance,
+                    DamageAffinityThunderResistance
+                )
+                .AddToDB();
 
-            ConditionDefinition HalfLifeCondition = ConditionDefinitionBuilder
-            .Create("HalfLifeCondition", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Condition)
-            .SetCharacterShaderReference(DatabaseHelper.MonsterDefinitions.Ghost.MonsterPresentation.CustomShaderReference)
-            .SetConditionParticleReference(new AssetReference("62a22b407b0619549997a357f6344630"))
-            .SetFeatures(new List<FeatureDefinition>()
-            {
-                MoveModeFly8,
-                ConditionAffinityCharmImmunity,
-                ConditionAffinityExhaustionImmunity,
-                ConditionAffinityPoisonImmunity,
-                ConditionAffinityProneImmunity,
-                ConditionAffinityHinderedByFrostImmunity,
-                ConditionAffinityFrightenedImmunity,
-                ConditionAffinityGrappledImmunity,
-                ConditionAffinityParalyzedmmunity,
-                ConditionAffinityPetrifiedImmunity,
-                ConditionAffinityRestrainedmmunity,
-                
-                DamageAffinitySlashingResistance,
-                DamageAffinityNecroticImmunity,
-                DamageAffinityPoisonImmunity,
-                DamageAffinityColdImmunity,
-                DamageAffinityBludgeoningResistance,
-                DamageAffinityPiercingResistance,
-                DamageAffinityLightningResistance,
-                DamageAffinityFireResistance,
-                DamageAffinityAcidResistance,
-                DamageAffinityThunderResistance,
-            })
-            .AddToDB();
-
-
-            FeatureDefinitionPower HalfLife = FeatureDefinitionPowerBuilder
+            FeatureDefinitionPower halfLife = FeatureDefinitionPowerBuilder
                 .Create("UrPriestHalfLife", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Power)
                 .Configure(
                        1,
-                       RuleDefinitions.UsesDetermination.ProficiencyBonus,
+                       UsesDetermination.ProficiencyBonus,
                        AttributeDefinitions.Charisma,
-                       RuleDefinitions.ActivationTime.Action,
+                       ActivationTime.Action,
                        1,
-                       RuleDefinitions.RechargeRate.ChannelDivinity,
+                       RechargeRate.ChannelDivinity,
                        false,
                        false,
                        AttributeDefinitions.Charisma,
                        new EffectDescriptionBuilder()
                             .SetDurationData(
                                 DurationType.Minute,
-                                1,  
+                                1,
                                 TurnOccurenceType.EndOfTurn)
                             .SetTargetingData(
-                                    RuleDefinitions.Side.All,
-                                    RuleDefinitions.RangeType.Self,
+                                    Side.All,
+                                    RangeType.Self,
                                     1,
-                                    RuleDefinitions.TargetType.Self,
+                                    TargetType.Self,
                                     1,
                                     1,
                                     ActionDefinitions.ItemSelectionType.None)
                             .AddEffectForm(
                                 new EffectFormBuilder().SetConditionForm(
-                                    HalfLifeCondition,
+                                    halfLifeCondition,
                                     ConditionForm.ConditionOperation.Add,
                                     false,
                                     false,
@@ -275,20 +258,14 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                        true)
                 .AddToDB();
 
-
             return CharacterSubclassDefinitionBuilder
                 .Create("UrPriest", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation("WarlockUrPriest", Category.Subclass, SorcerousChildRift.GuiPresentation.SpriteReference)
-                .AddFeatureAtLevel(UrPriestExpandedSpelllistAfinity, 1)
-                .AddFeatureAtLevel(UrPriestDomainTheft, 1)
-                .AddFeatureAtLevel(AttributeModifierClericChannelDivinity, 6)
-                .AddFeatureAtLevel(ControlUndead, 6)
-                .AddFeatureAtLevel(RadiantWard, 6)
-                 .AddFeatureAtLevel(SavingThrowAffinitySpellResistance, 10)
-                 .AddFeatureAtLevel(SpellSiphon, 14)
-                .AddFeatureAtLevel(HalfLife,14)
+                .AddFeaturesAtLevel(1, urPriestDomainTheft, urPriestExpandedSpelllistAfinity)
+                .AddFeaturesAtLevel(6, controlUndead, radiantWard, AttributeModifierClericChannelDivinity)
+                .AddFeaturesAtLevel(10, SavingThrowAffinitySpellResistance)
+                .AddFeaturesAtLevel(14, halfLife, spellSiphon)
                 .AddToDB();
         }
-
     }
 }

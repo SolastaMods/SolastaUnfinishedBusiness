@@ -59,6 +59,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         public FeatureDefinitionSubclassChoiceBuilder SetSubclasses(IEnumerable<CharacterSubclassDefinition> subclasses)
         {
             Definition.Subclasses.SetRange(subclasses.Select(sc => sc.Name));
+            Definition.Subclasses.Sort();
             return this;
         }
     }

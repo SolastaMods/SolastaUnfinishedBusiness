@@ -11,8 +11,8 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:DamageAffinityBludgeoningResistance:956f9745b15c6904d87322861723d5c7",
-    "Definition:DamageAffinitySlashingResistance:2345f12303c12854fad8b09556da53d6",
-    "Definition:DamageAffinityPiercingResistance:b6c93ec66a0ec9747b5c02f9db3091ff"
+    "Definition:DamageAffinityPiercingResistance:b6c93ec66a0ec9747b5c02f9db3091ff",
+    "Definition:DamageAffinitySlashingResistance:2345f12303c12854fad8b09556da53d6"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

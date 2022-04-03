@@ -29,14 +29,14 @@
   "additionalScribedSpells": 0,
   "additionalKnownSpellsCount": 0,
   "warListSpells": [
-    "FalseLife",
-    "MagicWeapon",
-    "Blindness",
-    "Fly",
     "BestowCurse",
-    "VampiricTouch",
     "Blight",
-    "CloudKill"
+    "Blindness",
+    "CloudKill",
+    "FalseLife",
+    "Fly",
+    "MagicWeapon",
+    "VampiricTouch"
   ],
   "counterspellAffinity": "None",
   "spellsCounterAffinity": "None",

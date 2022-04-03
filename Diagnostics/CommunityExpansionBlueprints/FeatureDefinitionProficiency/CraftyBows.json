@@ -2,10 +2,10 @@
   "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
   "proficiencyType": "Weapon",
   "proficiencies": [
-    "ShortbowType",
-    "LongbowType",
+    "HeavyCrossbowType",
     "LightCrossbowType",
-    "HeavyCrossbowType"
+    "LongbowType",
+    "ShortbowType"
   ],
   "forbiddenItemTags": [],
   "guiPresentation": {

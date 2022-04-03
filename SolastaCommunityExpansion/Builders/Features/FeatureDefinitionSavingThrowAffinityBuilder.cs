@@ -39,6 +39,8 @@ namespace SolastaCommunityExpansion.Builders.Features
 
         public FeatureDefinitionSavingThrowAffinityBuilder SetAffinities(RuleDefinitions.CharacterSavingThrowAffinity affinityType, bool againstMagic, IEnumerable<string> abilityScores)
         {
+            // TODO: this isn't a set, it's an Add
+
             foreach (string ability in abilityScores)
             {
                 var group = new SavingThrowAffinityGroup
@@ -63,6 +65,7 @@ namespace SolastaCommunityExpansion.Builders.Features
                 Definition.AffinityGroups.Add(group);
             }
 
+            Definition.AffinityGroups.Sort(Sorting.Compare);
             return this;
         }
     }

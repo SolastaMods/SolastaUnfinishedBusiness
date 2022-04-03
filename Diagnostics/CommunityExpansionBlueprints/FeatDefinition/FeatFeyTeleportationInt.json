@@ -11,9 +11,10 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:FeatIntIncrement:d2209a77-7ae2-5e9f-a7b1-5c7eab76e9cf",
-    "Definition:FeyTeleportationLanguageTirmarian:a2c603ae-7c49-5207-865e-6ffecb60182e",
-    "Definition:PowerMistyStepFromFeat:825e4d2f-6946-582e-9c10-bacf0da37b83",
     "Definition:FeyTeleportationAutoPrepMistyBarbarian:8a5682f7-8563-52f3-936b-138645322366",
+    "Definition:FeyTeleportationAutoPrepMistyClassTinkerer:5902baac-de33-5c7d-ac6d-0c07a57b56f2",
+    "Definition:FeyTeleportationAutoPrepMistyClassWarlock:66d409a0-4428-5b16-9f5a-31ee2b0ba874",
+    "Definition:FeyTeleportationAutoPrepMistyClassWitch:a4e13108-4b9d-5f73-96da-9340d0fba050",
     "Definition:FeyTeleportationAutoPrepMistyCleric:d2d8e5bf-c09a-58fb-b7fb-91a52b4a6db2",
     "Definition:FeyTeleportationAutoPrepMistyDruid:c3c6eac2-6450-5f65-a5bd-33e5d2fdf6af",
     "Definition:FeyTeleportationAutoPrepMistyFighter:6bd5b9ee-5b24-570f-9ec8-adc93c73e509",
@@ -22,9 +23,8 @@
     "Definition:FeyTeleportationAutoPrepMistyRogue:97143a76-c009-50f9-90d7-679c2c892b4a",
     "Definition:FeyTeleportationAutoPrepMistySorcerer:b2ec4b3e-2fe9-560a-af5d-7c24872747e5",
     "Definition:FeyTeleportationAutoPrepMistyWizard:2c2c8f9d-8420-5041-b238-509aec321a2a",
-    "Definition:FeyTeleportationAutoPrepMistyClassWitch:a4e13108-4b9d-5f73-96da-9340d0fba050",
-    "Definition:FeyTeleportationAutoPrepMistyClassTinkerer:5902baac-de33-5c7d-ac6d-0c07a57b56f2",
-    "Definition:FeyTeleportationAutoPrepMistyClassWarlock:66d409a0-4428-5b16-9f5a-31ee2b0ba874"
+    "Definition:FeyTeleportationLanguageTirmarian:a2c603ae-7c49-5207-865e-6ffecb60182e",
+    "Definition:PowerMistyStepFromFeat:825e4d2f-6946-582e-9c10-bacf0da37b83"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

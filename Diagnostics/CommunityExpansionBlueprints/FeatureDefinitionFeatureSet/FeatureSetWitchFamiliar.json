@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:WitchFamiliarAutoPreparedSpell:b9f22d00-1229-5b96-af99-f80ec94c3583",
-    "Definition:SummoningAffinityWitchFamiliar:2bf54dd0-7800-5fd8-a1e4-be86105d2761"
+    "Definition:SummoningAffinityWitchFamiliar:2bf54dd0-7800-5fd8-a1e4-be86105d2761",
+    "Definition:WitchFamiliarAutoPreparedSpell:b9f22d00-1229-5b96-af99-f80ec94c3583"
   ],
   "mode": "Union",
   "defaultSelection": 0,

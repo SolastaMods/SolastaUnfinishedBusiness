@@ -66,6 +66,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         public TBuilder SetAffinityGroups(IEnumerable<AbilityCheckAffinityGroup> affinityGroups)
         {
             Definition.SetAffinityGroups(affinityGroups);
+            Definition.AffinityGroups.Sort(Sorting.Compare);
             return This();
         }
 

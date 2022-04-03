@@ -46,6 +46,8 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
             Definition.SetProficiencyType(type);
             Definition.SetProficiencies(proficiencies);
+            Definition.Proficiencies.Sort();
+
             return this;
         }
     }
