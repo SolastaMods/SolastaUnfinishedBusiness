@@ -70,12 +70,10 @@ namespace SolastaCommunityExpansion
                 Translations.Load(MOD_FOLDER);
 
                 // load multiclass
-                var multiclassFilename = Path.Combine(MOD_FOLDER, "SolastaMulticlass.dll");
-
                 if (IsMulticlassInstalled && Main.Settings.EnableMulticlass)
                 {
-                    var multiclassAssembly = Assembly.LoadFile(multiclassFilename);
-                    var harmony = new Harmony("SolastaMulticlass");
+                    var multiclassAssembly = Assembly.LoadFile(MulticlassFilename);
+                    var harmony = new Harmony(multiclassAssembly.FullName.Substring(0, 17));
 
                     harmony.PatchAll(multiclassAssembly);
                 }
