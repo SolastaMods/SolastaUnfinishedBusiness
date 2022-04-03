@@ -15,12 +15,6 @@ namespace SolastaCommunityExpansion.Viewers
 
             UI.Label("");
 
-            toggle = Main.Settings.EnableLevelDown;
-            if (UI.Toggle("Enable the Level Down after rest action", ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnableLevelDown = toggle;
-            }
-
             toggle = Main.Settings.EnableMulticlass;
             if (UI.Toggle("Enable Multiclass " + "[requires restart]".italic().red(), ref toggle, UI.AutoWidth()))
             {
@@ -73,6 +67,15 @@ namespace SolastaCommunityExpansion.Viewers
             if (UI.Toggle("Display known spells from all classes during level up", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableDisplayAllKnownSpellsOnLevelUp = toggle;
+            }
+
+            UI.Label("");
+
+
+            toggle = Main.Settings.EnableLevelDown;
+            if (UI.Toggle("Enable the Level Down after rest action", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableLevelDown = toggle;
             }
 
             UI.Label("");

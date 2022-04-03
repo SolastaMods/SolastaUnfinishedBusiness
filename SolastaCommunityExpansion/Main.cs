@@ -16,10 +16,8 @@ namespace SolastaCommunityExpansion
         internal static bool Enabled { get; set; }
 
         internal static readonly string MOD_FOLDER = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-        
-        internal static readonly string MulticlassFilename = Path.Combine(MOD_FOLDER, "SolastaMulticlass.dll");
-
-        internal static readonly bool IsMulticlassInstalled = File.Exists(MulticlassFilename);
+        private static string MulticlassFilename { get; set; } = Path.Combine(MOD_FOLDER, "SolastaMulticlass.dll");
+        internal static bool IsMulticlassInstalled { get; private set; } = File.Exists(MulticlassFilename);
 
         // need to be public for MC sidecar
         [Conditional("DEBUG")]

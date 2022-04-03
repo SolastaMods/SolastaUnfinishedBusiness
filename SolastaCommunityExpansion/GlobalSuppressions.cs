@@ -11,7 +11,6 @@ using System.Diagnostics.CodeAnalysis;
 
 // namespaces
 [assembly: SuppressMessage("", "IDE0130", Justification = "3rd party source", Scope = "namespaceanddescendants", Target = "~N:ModKit")]
-[assembly: SuppressMessage("", "IDE0130", Justification = "3rd party source", Scope = "namespaceanddescendants", Target = "~N:SolastaMulticlass")]
 [assembly: SuppressMessage("", "IDE0130", Justification = "3rd party source", Scope = "namespaceanddescendants", Target = "~N:SolastaModApi")]
 
 // modkit
