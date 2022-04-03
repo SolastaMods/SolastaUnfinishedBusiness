@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.Models;
 using UnityModManagerNet;
 #if DEBUG
@@ -56,6 +57,9 @@ namespace SolastaCommunityExpansion.Patches
             SrdAndHouseRulesContext.Load();
             TelemaCampaignContext.Load();
             VisionContext.Load();
+
+            // Always load multiclass blueprints to avoid issues loading heroes from files
+            MulticlassContext.Load();
 
             // Races may rely on spells and powers being in the DB before they can properly load.
             RacesContext.Load();
