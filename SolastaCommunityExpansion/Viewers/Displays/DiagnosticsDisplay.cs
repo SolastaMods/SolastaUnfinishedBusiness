@@ -146,7 +146,11 @@ namespace SolastaCommunityExpansion.Viewers.Displays
         private const string ModDescription = @"
 [size=5][b][i]Solasta Community Expansion[/i][/b][/size]
 
-This is a collection of work from the Solasta modding community. It includes races, classes, subclasses, feats, fighting styles, items, crafting recipes, gameplay options, UI improvements, and more. The general philosophy is everything is optional to enable, so you can install the mod and then enable the pieces you want. There are some minor bug fixes that are enabled by default.
+This is a collection of work from the Solasta modding community. It includes multiclass, races, classes, subclasses, feats, fighting styles, items, crafting recipes, gameplay options, UI improvements, Dungeon Maker improvements and more. The general philosophy is everything is optional to enable, so you can install the mod and then enable the pieces you want. There are some minor bug fixes that are enabled by default.
+
+[b]ATTENTION[/b]
+
+This is now a standalone mod. Please uninstall any other mod from your mods folder including: SolastaModApi, SolastaCommunityExpansionMulticlass and SolastaDungeonMakerPro.
 
 [size=4][b]Credits[/b][/size]
 
