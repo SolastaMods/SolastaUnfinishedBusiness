@@ -304,9 +304,10 @@ namespace SolastaCommunityExpansion.Models
             return suggestedSpellLists.All(x => selectedSpellLists.Contains(x));
         }
 
+#if DEBUG
         public static string GenerateSpellsDescription()
         {
-            var outString = new StringBuilder("[heading]Spells[/heading]");
+            var outString = new StringBuilder("[size=3][b]Spells[/b][/size]\n");
 
             outString.Append("\n[list]");
 
@@ -322,5 +323,6 @@ namespace SolastaCommunityExpansion.Models
 
             return outString.ToString();
         }
+#endif
     }
 }
