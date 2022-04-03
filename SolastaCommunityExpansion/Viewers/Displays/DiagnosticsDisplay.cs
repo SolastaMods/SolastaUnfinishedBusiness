@@ -196,7 +196,7 @@ All settings start disabled by default. On first start the mod will display an w
 [line]
 [img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/14-Encounters-Pool.png?raw=true[/img]
 [line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/15-CreditsTroubleshooting-Credits.png?raw=true[/img]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/15-CreditsDiagnostics-Credits.png?raw=true[/img]
 [line]
 [img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/16-Multiclass.png?raw=true[/img]
 [line]

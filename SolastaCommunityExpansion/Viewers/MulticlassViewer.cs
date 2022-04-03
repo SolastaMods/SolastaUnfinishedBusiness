@@ -83,7 +83,7 @@ namespace SolastaCommunityExpansion.Viewers
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
-            UI.Label("Welcome to Solasta Community Expansion - Multiclass".yellow().bold());
+            UI.Label("Welcome to Solasta Community Expansion".yellow().bold());
             UI.Div();
 
             if (Main.Enabled)
