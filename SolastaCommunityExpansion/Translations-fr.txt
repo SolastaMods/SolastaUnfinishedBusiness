@@ -379,10 +379,10 @@ Feat/&ArtilleristSubclassSpellsTitle	Apprenez des sorts de blaster
 Feat/&ArtilleryConstructDescription	Peut endommager ou protéger les alliés
 Feat/&ArtilleryConstructLevel03AutopreparedSpellsDescription	Sorts mineurs : construction de réparation, construction de congédiement\nNiveau 1 : Resummon Artillery Construct
 Feat/&ArtilleryConstructLevel03AutopreparedSpellsTitle	Construire des sorts
-Feat/&ArtilleryConstructLevel09AutopreparedSpellsDescription	 
-Feat/&ArtilleryConstructLevel09AutopreparedSpellsTitle	 
-Feat/&ArtilleryConstructLevel15AutopreparedSpellsDescription	 
-Feat/&ArtilleryConstructLevel15AutopreparedSpellsTitle	 
+Feat/&ArtilleryConstructLevel09AutopreparedSpellsDescription	Construire des sorts
+Feat/&ArtilleryConstructLevel09AutopreparedSpellsTitle	Construire des sorts
+Feat/&ArtilleryConstructLevel15AutopreparedSpellsDescription	Construire des sorts
+Feat/&ArtilleryConstructLevel15AutopreparedSpellsTitle	Construire des sorts
 Feat/&ArtilleryConstructTitle	Construction d'artillerie
 Feat/&ArtilleryConstructTitle_3	Construction d'artillerie
 Feat/&ArtilleryConstructTitle_5	Construction d'artillerie
@@ -628,13 +628,13 @@ Feat/&ResummonArtilleryConstructDescription	Ce sort permet au bricoleur de réin
 Feat/&RetributionDescription	Construire des dégâts 1D4 + Int lorsqu'il est attaqué
 Feat/&RetributionTitle	Châtiment
 Feat/&ScoutSentinelFeatureSet_level03Description	<size=17><color=#add8e6ff>Apprenez les sorts de sentinelle scoute</color></size>\nNiveau 3 : Missile magique, Thunderwave\nNiveau 5 : Flou, Briser\nNiveau 9 : éclair, motif hypnotique\nNiveau 13 : Bouclier de feu, plus grande invisibilité\nNiveau 17 : Porte dimensionnelle, Mur de vent, Mur de feu\n\n<size=17><color=#add8e6ff>Fonctions d'armure multiples</color></size>\nVous pouvez basculer entre les modes de fonction une fois par jour en créant et en utilisant des armes temporaires\n\n<size=17><color=#add8e6ff>Mode sentinelle</color></size>\nGagnez un nombre limité de HP temporaires en fonction du niveau. Imposer un désavantage aux ennemis attaquant les alliés\n\n<size=17><color=#add8e6ff>Mode éclaireur</color></size>\nBénéficiez d'un mouvement accru, d'un avantage furtif et d'une attaque à distance qui inflige un dé de dégâts supplémentaire une fois par tour.\n\n<size=17><color=#add8e6ff>Caractéristiques</color></size>\nVous pouvez utiliser les armes de l'armure comme focus de lancement de sorts pour vos sorts\nL'armure lourde n'a pas d'exigence de force\nVous maîtrisez les outils de forgeron et les armures lourdes
-Feat/&ScoutSentinelFeatureSet_level03Title	 
+Feat/&ScoutSentinelFeatureSet_level03Title	Sentinelle éclaireuse
 Feat/&ScoutSentinelFeatureSet_level05Description	<size=17><color=#add8e6ff>Attaque supplémentaire</color></size>\nVous pouvez attaquer une fois de plus, par tour de combat, lorsque vous utilisez les actions d'attaque ou de bousculade
-Feat/&ScoutSentinelFeatureSet_level05Title	 
+Feat/&ScoutSentinelFeatureSet_level05Title	Sentinelle éclaireuse
 Feat/&ScoutSentinelFeatureSet_level09Description	<size=17><color=#add8e6ff>Emplacements de perfusion supplémentaires</color></size>\nVous gagnez des emplacements d'infusion supplémentaires, à utiliser sur l'armure
-Feat/&ScoutSentinelFeatureSet_level09Title	 
+Feat/&ScoutSentinelFeatureSet_level09Title	Sentinelle éclaireuse
 Feat/&ScoutSentinelFeatureSet_level15Description	<size=17><color=#add8e6ff>Mode sentinelle amélioré</color></size>\nPeut désormais attirer les ennemis au corps à corps avec une action bonus et infliger 1D8 dégâts de tonnerre via le pouvoir Gauntlet Grapple\n\n<size=17><color=#add8e6ff>Mode Scout amélioré</color></size>\nPeut désormais créer un avantage pour les alliés et un désavantage pour les ennemis avec une seule attaque
-Feat/&ScoutSentinelFeatureSet_level15Title	 
+Feat/&ScoutSentinelFeatureSet_level15Title	Sentinelle éclaireuse
 Feat/&SelfDestructDescription	Autodestruction et forcer un jet de sauvegarde Dex pour 3D8 dégâts de force dans un rayon de 10 pieds
 Feat/&SelfDestructTitle	Auto-destruction
 Feat/&SelfRepairDescription	Soignez 2D8 PV, 3 fois par jour
@@ -697,22 +697,22 @@ Feature/&AHWarlockFiendPactDarkOnesBlessingPowerDescription	À partir du niveau 
 Feature/&AHWarlockFiendPactDarkOnesBlessingPowerTitle	La bénédiction des ténèbres
 Feature/&AHWarlockFiendPactDarkOnesOwnLuckDescription	Vous gagnez une utilisation indomptable une fois par jour (choix de relancer le jet de sauvegarde si vous échouez). (Ne correspond pas au SRD mais nécessiterait une toute nouvelle capacité de réaction pour émuler le SRD).
 Feature/&AHWarlockFiendPactDarkOnesOwnLuckTitle	La propre chance du ténébreux
-Feature/&AHWarlockFiendPactExtendedSpellListDescription	Le Fiend vous permet de choisir parmi une liste étendue de sorts lorsque vous apprenez un sort de démoniste. Les sorts suivants sont ajoutés à la liste des sorts de démoniste pour vous.\n1er Mains brûlantes, Bane\n2ème Cécité, Rayon Brûlant\n3e boule de feu, nuage puant\n4ème Bouclier de Feu, Mur de Feu\n5e Frappe de flammes, Conjuration de feu élémentaire
+Feature/&AHWarlockFiendPactExtendedSpellListDescription	Le Fiend vous permet de choisir parmi une liste étendue de sorts lorsque vous apprenez un sort de démoniste. Les sorts suivants sont ajoutés à la liste des sorts de démoniste pour vous.\nNiveau 1 : Mains brûlantes, Fléau\nNiveau 2 : Cécité, Rayon brûlant\nNiveau 3 : Boule de feu, nuage puant\nNiveau 4 : Bouclier de feu, Mur de feu\nNiveau 5 : Frappe de flammes, Conjuration de feu élémentaire
 Feature/&AHWarlockFiendPactExtendedSpellListTitle	Fiend liste de sorts étendue
 Feature/&AHWarlockFiendPactFiendishResilienceDescription	Vous gagnez en résistance aux dégâts de feu. (Pas la même chose que SRD - je pense que la bonne implémentation nécessiterait un pouvoir pour chaque type de dégâts avec un pool de ressources partagé car il ne semble pas y avoir de moyen de regrouper les choix de puissance comme des sorts pour le moment).
 Feature/&AHWarlockFiendPactFiendishResilienceTitle	Résilience diabolique
-Feature/&AHWarlockFiendPactSpellListDescription	Le Fiend vous permet de choisir parmi une liste étendue de sorts lorsque vous apprenez un sort de démoniste. Les sorts suivants sont ajoutés à la liste des sorts de démoniste pour vous.\n1er Mains brûlantes, Bane\n2ème Cécité, Rayon Brûlant\n3e boule de feu, nuage puant\n4ème Bouclier de Feu, Mur de Feu\n5e Frappe de flammes, Conjuration de feu élémentaire
+Feature/&AHWarlockFiendPactSpellListDescription	Le Fiend vous permet de choisir parmi une liste étendue de sorts lorsque vous apprenez un sort de démoniste. Les sorts suivants sont ajoutés à la liste des sorts de démoniste pour vous.\nNiveau 1 : Mains brûlantes, Fléau\nNiveau 2 : Cécité, Rayon brûlant\nNiveau 3 : Boule de feu, nuage puant\nNiveau 4 : Bouclier de feu, Mur de feu\nNiveau 5 : Frappe de flammes, Conjuration de feu élémentaire
 Feature/&AHWarlockFiendPactSpellListTitle	Fiend liste de sorts étendue
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerDescription	Une fois par repos court, vous pouvez donner à une arme le pouvoir des âmes pendant une minute, votre arme s'allume pendant 20 pieds de lumière vive et 20 pieds de lumière tamisée et vous ajoutez votre charisme à votre frappe. De plus, toutes vos attaques ajoutent votre bonus de compétence en dégâts pour la durée.
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle	Autonomisation de l'âme
-Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	La lame Soul vous permet de choisir parmi une liste étendue de sorts lorsque vous apprenez un sort de démoniste. Les sorts suivants sont ajoutés à la liste des sorts de démoniste pour vous.\n1er Bouclier, Fausse vie\n2ème Flou, Branding Smite\n3ème hâte, lente\n4e tueur fantasmatique, tentacules noires\n5ème Cône de Froid, Mind Twist
+Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	La lame Soul vous permet de choisir parmi une liste étendue de sorts lorsque vous apprenez un sort de démoniste. Les sorts suivants sont ajoutés à la liste des sorts de démoniste pour vous.\nNiveau 1 : Bouclier, Fausse vie\nNiveau 2 : Flou, Branding Smite\nNiveau 3 : Hâte, Lent\nNiveau 4 : Tueur Phantasmal, Tentacules Noirs\nNiveau 5 : Cône de froid, Mind Twist
 Feature/&AHWarlockSoulBladePactExtendedSpellListTitle	Sorts d'âmelame
 Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Une fois par repos court, vous utilisez le pouvoir des âmes pour vous défendre. En utilisant une action bonus, vous gagnez des PV temporaires égaux à votre modificateur de niveau + charisme.
 Feature/&AHWarlockSoulBladePactSoulShieldPowerTitle	Bouclier d'âme
-Feature/&AHWarlockSoulBladePactSpellListDescription	La lame Soul vous permet de choisir parmi une liste étendue de sorts lorsque vous apprenez un sort de démoniste. Les sorts suivants sont ajoutés à la liste des sorts de démoniste pour vous.\n1er Bouclier, Fausse vie\n2ème Flou, Branding Smite\n3ème hâte, lente\n4e tueur fantasmatique, tentacules noires\n5ème Cône de Froid, Mind Twist
+Feature/&AHWarlockSoulBladePactSpellListDescription	La lame Soul vous permet de choisir parmi une liste étendue de sorts lorsque vous apprenez un sort de démoniste. Les sorts suivants sont ajoutés à la liste des sorts de démoniste pour vous.\nNiveau 1 : Bouclier, Fausse vie\nNiveau 2 : Flou, Branding Smite\nNiveau 3 : Hâte, Lent\nNiveau 4 : Tueur Phantasmal, Tentacules Noirs\nNiveau 5 : Cône de froid, Mind Twist
 Feature/&AHWarlockSoulBladePactSpellListTitle	Liste de sorts étendue de la lame d'âme
 Feature/&AlwaysBeardDescription	{0} % de chances de faire pousser une magnifique barbe !
-Feature/&AncientForestExpandedSpelllistAfinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de sorcier. Les sorts suivants sont ajoutés à la liste des sorts de démoniste pour vous :\n 1er : Goodberry, Enchevêtrement\n 2ème : Écorce, Croissance des épis\n 3ème : Mot de guérison de masse, Toucher vampirique\n 4ème : Fléau, Restauration Supérieure\n 5ème : Contagion, Raise Dead
+Feature/&AncientForestExpandedSpelllistAfinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de sorcier. Les sorts suivants sont ajoutés à la liste des sorts de démoniste pour vous :\n Niveau 1 : Goodberry, Enchevêtrement\n Niveau 2 : Écorce, Croissance des pointes\n Niveau 3 : Mot de guérison de masse, Toucher vampirique\n Niveau 4 : Fléau, Restauration supérieure\n Niveau 5 : Contagion, Raise Dead
 Feature/&AncientForestExpandedSpelllistAfinityTitle	Sorts de la forêt ancienne
 Feature/&AncientForestLightAffinityDescription	Vous pouvez absorber l'énergie du soleil. Tant que vous êtes en pleine lumière directe, vous gagnez 2 HP par tour
 Feature/&AncientForestLightAffinityTitle	Photosynthèse
@@ -734,6 +734,8 @@ Feature/&ArtificerSpecialistArchetypesTitle	Spécialisations de bricoleur
 Feature/&AscendantStepTitle	Étape ascendante
 Feature/&AspectoftheMoonDescription	Vous n'avez plus besoin de dormir et pouvez surveiller, ce qui réduit les risques d'attaque et vous assure d'être éveillé si le camp est attaqué.
 Feature/&AspectoftheMoonTitle	Aspect de la Lune
+Feature/&AttributeModifierBolgrifAbilityScoreSetDescription	Sagesse +2, Force +1
+Feature/&AttributeModifierBolgrifAbilityScoreSetTitle	Augmentation d'attribut
 Feature/&AttributeModifierGnomeAbilityScoreSetDescription	Intelligence +2, Dextérité +1
 Feature/&AttributeModifierGnomeAbilityScoreSetTitle	Augmentation d'attribut
 Feature/&BarbarianIndomitableMightDescription	Si votre total pour un test de Force est inférieur à votre score de Force, vous pouvez utiliser ce score à la place du total.
@@ -844,17 +846,23 @@ Feature/&EldritchMindTitle	Esprit Eldritch
 Feature/&EldritchSightTitle	Vue occulte
 Feature/&EldritchSmiteDescription	Une fois par tour, lorsque vous touchez une créature avec votre arme du pacte, vous pouvez dépenser un emplacement de sort de sorcier pour infliger 1d8 dégâts de force supplémentaires à la cible, plus 1d8 supplémentaires par niveau de l'emplacement de sort,
 Feature/&EldritchSmiteTitle	Châtiment occulte
-Feature/&ElementalistSpellsMagicAffinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de sorcier. Les sorts suivants sont ajoutés à la liste des sorts de démoniste pour vous :\n 1er : Thunderwave, nuage de brouillard\n 2ème : Croissance des pointes, Rayon brûlant\n 3ème : Boule de feu, éclair\n 4e : Peau de pierre, Tempête de glace\n 5ème : Cône de froid, Frappe de flammes
+Feature/&ElementalistSpellsMagicAffinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de sorcier. Les sorts suivants sont ajoutés à la liste des sorts de démoniste pour vous :\n Niveau 1 : Thunderwave, nuage de brouillard\n Niveau 2 : Croissance des pointes, Rayon brûlant\n Niveau 3 : Boule de feu, éclair\n Niveau 4 : Peau de pierre, Tempête de glace\n Niveau 5 : Cône de froid, Frappe de flammes
 Feature/&ElementalistSpellsMagicAffinityTitle	Sorts d'élémentaliste
 Feature/&ElementalPatronFeatureSet_Level01Description	<size=17><color=#add8e6ff>Apprenez les sorts d'élémentaliste</color></size>\nNiveau 1 : Nuage de brouillard, Thunderwave\nNiveau 2 : Croissance des pointes, Rayon brûlant\nNiveau 3 : éclair, boule de feu\nNiveau 4 : Peau de pierre, Tempête de glace\nNiveau 5 : Cône de froid, Frappe de flammes\n\n<size=17><color=#add8e6ff>Formes élémentaires</color></size>\nVous pouvez basculer entre les formes élémentaires un certain nombre de fois (égal à votre bonus de compétence) par jour en canalisant l'énergie élémentaire. Vous pouvez résister aux dégâts concernés et, une fois par tour, appliquer des dégâts du même type à vos attaques. Les formulaires durent 1 minute.
-Feature/&ElementalPatronFeatureSet_Level01Title	<size=1><color=#808080ff> \t</color></size>
+Feature/&ElementalPatronFeatureSet_Level01Title	Elémentaliste
 Feature/&ElementalPatronFeatureSet_Level06Description	<size=17><color=#add8e6ff>Connaissance élémentaire</color></size>\nVotre connaissance des élémentaires a augmenté au point que vous bénéficiez désormais d'un avantage sur les tests de capacité envers les élémentaires et que vous infligez des dégâts supplémentaires contre les élémentaires égaux à votre niveau de connaissances. Vous ne pouvez plus être charmé ou effrayé par les élémentaires
-Feature/&ElementalPatronFeatureSet_Level06Title	<size=1><color=#808080ff> \t</color></size>
+Feature/&ElementalPatronFeatureSet_Level06Title	Elémentaliste
 Feature/&ElementalPatronFeatureSet_Level10Description	<size=17><color=#add8e6ff>Formes élémentaires améliorées</color></size>\nVos formes élémentaires confèrent désormais une immunité aux dégâts lorsqu'elles sont actives
-Feature/&ElementalPatronFeatureSet_Level10Title	<size=1><color=#808080ff> \t</color></size>
+Feature/&ElementalPatronFeatureSet_Level10Title	Elémentaliste
 Feature/&EyesoftheRuneKeeperDescription	Vous pouvez lire tous les écrits.
 Feature/&EyesoftheRuneKeeperTitle	Les yeux du gardien des runes
 Feature/&FiendishVigorTitle	Vigueur diabolique
+Feature/&BolgrifDruidicMagicDescription	Vous connaissez un sort mineur de votre choix dans la liste des sorts du druide. La sagesse est votre capacité d'incantation pour cela.
+Feature/&BolgrifDruidicMagicTitle	Magie druidique
+Feature/&BolgrifInvisibilityPowerDescription	Par une action bonus, vous pouvez devenir magiquement invisible pendant 1 round. Cette invisibilité se brise si vous entreprenez une action offensive. Une fois que vous avez utilisé cette capacité, vous ne pouvez plus l'utiliser tant que vous n'avez pas terminé un repos court ou long.
+Feature/&BolgrifInvisibilityPowerTitle	Disparaître
+Feature/&BolgrifPowerfulBuildDescription	Vous comptez votre taille comme grande lors de la détermination de votre capacité de charge.
+Feature/&BolgrifPowerfulBuildTitle	Construction puissante
 Feature/&FlameArtillery_09ModePowerDescription	Invoque une construction qui dure 1 heure.\nFlame Artillery : Crée un cône de feu qui inflige 3D8 dégâts en cas d'échec.\nAutodestruction : inflige 3D8 dégâts de force en cas d'échec de sauvegarde et détruit l'unité.
 Feature/&FlameArtillery_09ModePowerTitle	Invoquer une construction d'artillerie de flammes
 Feature/&FlameArtillery_15ModePowerDescription	Invoque une construction qui dure 1 heure.\nFlame Artillery : Crée un cône de feu qui inflige 3D8 dégâts en cas d'échec.\nAutodestruction : inflige 3D8 dégâts de force en cas d'échec de sauvegarde et détruit l'unité.\n Half Cover Dome : fournit une demi-couverture aux alliés à moins de 10 pieds.
@@ -916,7 +924,7 @@ Feature/&KSRogueSubclassThugProficienciesTitle	Équipement lourd
 Feature/&MiretheMindTitle	Mire l'esprit
 Feature/&MoonLitDarknessImmunityDescription	Vous êtes immunisé contre la condition Obscurité
 Feature/&MoonLitDarknessImmunityTitle	Ténèbres au clair de lune
-Feature/&MoonLitExpandedSpelllistAfinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de sorcier. Les sorts suivants sont ajoutés à la liste des sorts de démoniste pour vous :\n 1er : feu féerique, sommeil\n 2ème : Rayon de lune, voir l'invisibilité\n 3ème : lumière du jour, motif hypnotique\n 4ème : Invisibilité supérieure, domination de la bête\n 5ème : Domination de la personne, Frappe de flammes
+Feature/&MoonLitExpandedSpelllistAfinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de sorcier. Les sorts suivants sont ajoutés à la liste des sorts de démoniste pour vous :\n Niveau 1 : feu féerique, sommeil\n Niveau 2 : Rayon de lune, voir l'invisibilité\n Niveau 3 : lumière du jour, motif hypnotique\n Niveau 4 : Invisibilité supérieure, domination de la bête\n Niveau 5 : personne dominante, frappe de flammes
 Feature/&MoonLitExpandedSpelllistAfinityTitle	Liste de sorts au clair de lune
 Feature/&MoonLitLightAffinityDescription	Vous pouvez devenir invisible dans la pénombre ou dans l'obscurité naturelle
 Feature/&MoonLitLightAffinityTitle	Cape ombrale
@@ -943,6 +951,8 @@ Feature/&PowerTorchbearerDescription	Essayez de mettre le feu à une cible de m�
 Feature/&PowerTorchbearerTitle	Porte-flambeau
 Feature/&PrimalChampionDescription	Au niveau 20, vous incarnez le pouvoir de la nature. Vos scores de Force et de Constitution augmentent de 4
 Feature/&PrimalChampionTitle	Champion primordial
+Feature/&ProficiencyBolgrifLanguagesDescription	Commun, Elfique et Géant
+Feature/&ProficiencyBolgrifLanguagesTitle	Langue
 Feature/&ProficiencyGnomishLanguagesDescription	Commun, Gnome
 Feature/&ProficiencyGnomishLanguagesTitle	Langues
 Feature/&ProficiencyRogueBlindSenseDescription	À partir du niveau 14, si vous êtes capable d'entendre, vous êtes conscient de l'emplacement de toute créature cachée ou invisible à moins de 3 mètres de vous.
@@ -971,7 +981,7 @@ Feature/&RangerVanishActionTitle	Disparaître
 Feature/&RepellingBlastMagicAffinityDescription	Lorsque vous touchez une créature avec un souffle eldritch, vous pouvez repousser la créature jusqu'à 3 mètres de vous en ligne droite.
 Feature/&RepellingBlastMagicAffinityTitle	Explosion répulsive
 Feature/&RiftWalkerRestrainedImmunityTitle	Pas fugace
-Feature/&RiftWalkerSpellsMagicAffinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de sorcier. Les sorts suivants sont ajoutés à la liste des sorts de démoniste pour vous :\n 1er : saut, grand pas\n 2ème : Flou, Passe sans trace\n 3ème : Hâte, Lent\n 4ème : Liberté de mouvement, plus grande invisibilité\n 5ème : Mind Twist, dissipation du mal et du bien
+Feature/&RiftWalkerSpellsMagicAffinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de sorcier. Les sorts suivants sont ajoutés à la liste des sorts de démoniste pour vous :\n Niveau 1 : Sauter, Longstrider\n Niveau 2 : flou, passe sans trace\n Niveau 3 : Hâte, Lent\n Niveau 4 : Liberté de mouvement, plus grande invisibilité\n Niveau 5 : Mind Twist, dissipation du mal et du bien
 Feature/&RiftWalkerSpellsMagicAffinityTitle	Apprendre les sorts de Rift Walker
 Feature/&RoyalEnvoyFeatureDescription	Ajoutez la moitié de votre bonus de maîtrise (arrondi au supérieur) à tout test de Charisme que vous effectuez et qui n'utilise pas déjà votre bonus de maîtrise. De plus, vous maîtrisez les jets de sauvegarde de Charisme.
 Feature/&RoyalEnvoyFeatureTitle	Envoyé royal
@@ -1004,7 +1014,7 @@ Feature/&TinkererToolsProficiencyTitle	Maîtrise des outils
 Feature/&TinkererWeaponProficiencyTitle	Maîtrise des armes du bricoleur
 Feature/&TinkererWeaponTrainingShortDescription	Maîtrise des armes simples
 Feature/&ToadKingBasicToxinTitle	Toxine de base
-Feature/&ToadKingExpandedSpelllistAfinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de sorcier. Les sorts suivants sont ajoutés à la liste des sorts de démoniste pour vous :\n 1er : Graisser, détecter le poison et la maladie\n 2ème : AcidArrow, Spider Climb\n 3ème : Nuage lent et puant\n 4ème : tentacules noires, liberté de mouvement\n 5ème : Contagion, peste d'insectes
+Feature/&ToadKingExpandedSpelllistAfinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de sorcier. Les sorts suivants sont ajoutés à la liste des sorts de démoniste pour vous :\n Niveau 1 : Graisser, détecter le poison et la maladie\n Niveau 2 : AcidArrow, Spider Climb\n Niveau 3 : Nuage lent et puant\n Niveau 4 : tentacules noires, liberté de mouvement\n Niveau 5 : Contagion, peste d'insectes
 Feature/&ToadKingExpandedSpelllistAfinityTitle	Sorts du roi crapaud
 Feature/&ToadKingHallucinogenicToxinAffintyDescription	Votre corps a changé pour devenir résistant aux toxines et pour produire une toxine défensive lorsqu'il est attaqué au corps à corps (jusqu'à PB fois par jour). si l'attaquant échoue à une sauvegarde de Con, il devient une toxine lucinogène jusqu'à ce qu'il soit attaqué ou autrement interrompu.
 Feature/&ToadKingHallucinogenicToxinAffintyTitle	Toxine hallucinogène
@@ -1071,7 +1081,7 @@ Message/&CharacterExportDuplicateNameErrorDescription	Exportation annulée :\n\
 Message/&CharacterExportEmptyNameErrorDescription	Exportation annulée :\n\nVeuillez essayer un nom non vide.
 Message/&CharacterExportModalContentDescription	Saisissez le nom du héros à exporter :
 Message/&CharacterExportModalTitleDescription	Exportation de caractères
-Message/&MessageModWelcomeDescription	Le Community Expansion Mod regorge de fonctionnalités intéressantes, mais par défaut, aucune n'est activée. Appuyez sur <color=yellow>Ctrl-F10</color> pour ouvrir l'interface utilisateur de Unity Mod Manager [UMM], puis cliquez sur l'icône des paramètres à côté de "Community Expansion" pour ouvrir les pages de paramètres.\n\n  Explorez les options et sélectionnez celles que vous aimez. L'interface utilisateur UMM va maintenant s'ouvrir.
+Message/&MessageModWelcomeDescription	Le Community Expansion Mod regorge de fonctionnalités intéressantes, mais par défaut, aucune n'est activée. Appuyez sur <color=yellow>Ctrl-F10</color> pour ouvrir l'interface utilisateur de Unity Mod Manager [UMM], puis cliquez sur l'icône des paramètres à côté de "Community Expansion" pour ouvrir les pages de paramètres.\n\n Explorez les options et sélectionnez celles que vous aimez. L'interface utilisateur UMM va maintenant s'ouvrir.
 Message/&MessageModWelcomeTitle	Mod d'expansion de la communauté
 Message/&SpawnCustomEncounterDescription	Générer une rencontre aux coordonnées ({0}, {1}) ?
 Message/&SpawnCustomEncounterTitle	Rencontrer
@@ -1342,8 +1352,10 @@ Power/&UrPriestRadiantWardTitle	Service radieux
 Power/&UrPriestSpellSiphonDescription	vous apprenez à puiser dans une plus grande source de magie en combinaison avec votre réserve de puissance normale. Par une action, vous pouvez dépenser une Divinité canalisée pour retrouver une utilisation dépensée de votre arcane mystique de niveau 6.
 Power/&UrPriestSpellSiphonTitle	Siphon de sorts
 Pugilist	Dégâts de pugiliste
-Race/&ForestGnomeDescription	Un bourdonnement constant d'activités animées imprègne les dédales et les quartiers où les gnomes forment leurs communautés très unies. Des sons plus forts ponctuent le bourdonnement : ici un craquement d'engrenages grinçants, là une petite explosion, un cri de surprise ou de triomphe, et surtout des éclats de rire. Les gnomes prennent plaisir à la vie, profitant de chaque instant d'invention, d'exploration, d'investigation, de création et de jeu.
-Race/&ForestGnomeTitle	Nain des bois
+Race/&BolgrifRaceDescription Bolgrifs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, bolgrifs demonstrate formidable skills with weapons and nature magic.
+Race/&BolgrifRaceTitle	Bolgrif
+Race/&GnomeRaceDescription	Un bourdonnement constant d'activités animées imprègne les dédales et les quartiers où les gnomes forment leurs communautés très unies. Des sons plus forts ponctuent le bourdonnement : ici un craquement d'engrenages grinçants, là une petite explosion, un cri de surprise ou de triomphe, et surtout des éclats de rire. Les gnomes prennent plaisir à la vie, profitant de chaque instant d'invention, d'exploration, d'investigation, de création et de jeu.
+Race/&GnomeRaceTitle	Nain des bois
 Race/&PointPoolSelect10FeatsDescription	Sélectionnez 10 exploits supplémentaires pour votre personnage.
 Race/&PointPoolSelect10FeatsTitle	10 exploits bonus
 Race/&PointPoolSelect11FeatsDescription	Sélectionnez 11 exploits supplémentaires pour votre personnage.
@@ -1604,7 +1616,7 @@ Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription	Peut percev
 Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionTitle	Vue d'invisibilité
 Subclass/&BarbarianPathOfTheLightTitle	Chemin de la Lumière
 Subclass/&BloodWitchDescription	Interdite par la plupart des covens de sorcières, la magie du sang se concentre sur l'utilisation de sorts sombres et de maléfices mortels qui puisent dans l'essence même du lanceur de sorts. Il est fondamentalement plus périlleux que les autres métiers de la sorcellerie, mais ses nombreux risques s'accompagnent de nombreuses récompenses.
-Subclass/&BloodWitchMagicDescription	Vous gagnez les sorts suivants. Ces sorts comptent pour vous comme des sorts de Sorcière et ne comptent pas dans votre nombre total de sorts connus.\n\nSorts de niveau\n1er enchevêtrement, Goodberry\n2ème Ecorce, Protection contre le Poison\n3e conjurer des animaux, créer de la nourriture\n4e insecte géant, Stoneskin\n5ème dissipation du mal et du bien, peste d'insectes
+Subclass/&BloodWitchMagicDescription	Vous gagnez les sorts suivants. Ces sorts comptent pour vous comme des sorts de Sorcière et ne comptent pas dans votre nombre total de sorts connus.\n\nSorts de niveau\nNiveau 1 : Enchevêtrement, Goodberry\nNiveau 2 : Écorce, Protection contre le Poison\nNiveau 3 : Conjurer des animaux, créer de la nourriture\nNiveau 4 : Insecte géant, Peau de pierre\nNiveau 5 : Dissipation du mal et du bien, peste d'insectes
 Subclass/&BloodWitchMagicTitle	Magie du sang
 Subclass/&BloodWitchTitle	Sorcière de sang
 Subclass/&CancelCancelElixirFlyDescription	Mettez fin à la condition Fly de l'élixir Potion Maker.
@@ -1642,7 +1654,7 @@ Subclass/&FighterSpellShieldSpellResistanceDescription	Votre expérience des sor
 Subclass/&FighterSpellShieldSpellResistanceTitle	Résistance aux sorts
 Subclass/&FighterSpellShieldTitle	Bouclier anti-sort
 Subclass/&GreenWitchDescription	Les plantes, la nature et les choses qui poussent sont le domaine de la magie verte. Normalement un type d'arcane défendu par les druides, certaines sorcières ont un lien étroit avec les pouvoirs de la magie verte et peuvent amadouer les plantes et les animaux dans leur volonté.
-Subclass/&GreenWitchMagicDescription	Vous gagnez les sorts suivants. Ces sorts comptent pour vous comme des sorts de Sorcière et ne comptent pas dans votre nombre total de sorts connus.\n\nSorts de niveau\n1er enchevêtrement, Goodberry\n2ème Ecorce, Protection contre le Poison\n3e conjurer des animaux, créer de la nourriture\n4e insecte géant, Stoneskin\n5ème dissipation du mal et du bien, peste d'insectes
+Subclass/&GreenWitchMagicDescription	Vous gagnez les sorts suivants. Ces sorts comptent pour vous comme des sorts de Sorcière et ne comptent pas dans votre nombre total de sorts connus.\n\nSorts de niveau\nNiveau 1 : Enchevêtrement, Goodberry\nNiveau 2 : Écorce, Protection contre le Poison\nNiveau 3 : Conjurer des animaux, créer de la nourriture\nNiveau 4 : Insecte géant, Peau de pierre\nNiveau 5 : Dissipation du mal et du bien, peste d'insectes
 Subclass/&GreenWitchMagicTitle	Magie verte
 Subclass/&GreenWitchTitle	Sorcière verte
 Subclass/&HArtilleryIncreaseDescription	Augmentation du pool d'artillerie
@@ -1735,13 +1747,13 @@ Subclass/&PowerTransmuteHealTitle	Guérir
 Subclass/&PowerTransmuteReviveDescription	Utilisez votre Force de transmutation pour faire revivre un personnage (dans la minute qui suit sa mort).
 Subclass/&PowerTransmuteReviveTitle	Relancer
 Subclass/&PurpleWitchDescription	La magie pourpre règne sur les domaines des illusions et des enchantements qui s'emparent de l'esprit des gens, et de tout ce qui n'est pas tout à fait ce qu'il paraît. Les praticiens de cette forme de magie sont des marionnettistes, façonnant la réalité apparente de ceux qui les entourent à leur avantage.
-Subclass/&PurpleWitchMagicDescription	Vous gagnez les sorts suivants. Ces sorts comptent pour vous comme des sorts de Sorcière et ne comptent pas dans votre nombre total de sorts connus.\n\nSorts de niveau\n1er enchevêtrement, Goodberry\n2ème Ecorce, Protection contre le Poison\n3e conjurer des animaux, créer de la nourriture\n4e insecte géant, Stoneskin\n5ème dissipation du mal et du bien, peste d'insectes
+Subclass/&PurpleWitchMagicDescription	Vous gagnez les sorts suivants. Ces sorts comptent pour vous comme des sorts de Sorcière et ne comptent pas dans votre nombre total de sorts connus.\n\nSorts de niveau\nNiveau 1 : Enchevêtrement, Goodberry\nNiveau 2 : Écorce, Protection contre le Poison\nNiveau 3 : Conjurer des animaux, créer de la nourriture\nNiveau 4 : Insecte géant, Peau de pierre\nNiveau 5 : Dissipation du mal et du bien, peste d'insectes
 Subclass/&PurpleWitchMagicTitle	Magie violette
 Subclass/&PurpleWitchTitle	Sorcière violette
 Subclass/&RangerArcanistRangerSubclassDescription	Le Ranger Arcanist fusionne ses compétences de ranger avec des capacités arcaniques. Leurs armes peuvent affliger leurs adversaires avec la marque de l'arcaniste et ont appris à lancer des sorts de magicien dans le cadre de leur répertoire de sorts de Ranger.
 Subclass/&RangerArcanistRangerSubclassTitle	Arcaniste Rôdeur
 Subclass/&RedWitchDescription	La magie arcanique liée à la canalisation des éléments est considérée comme de la magie rouge et est extrêmement dangereuse lorsqu'elle est utilisée. Les sorcières spécialisées dans la magie rouge sont parmi les lanceurs de sorts les plus meurtriers qui existent, canalisant leur malédiction en une colère arcanique sans entrave.
-Subclass/&RedWitchMagicDescription	Vous gagnez les sorts suivants. Ces sorts comptent pour vous comme des sorts de Sorcière et ne comptent pas dans votre nombre total de sorts connus.\n\nSorts de niveau\n1ère Mains Brûlantes, Missile Magique\n2e flèche acide, rayon brûlant\n3e boule de feu, protection contre l'énergie\n4e tempête de verglas, mur de feu\n5ème Cône de Froid, Mind Twist
+Subclass/&RedWitchMagicDescription	Vous gagnez les sorts suivants. Ces sorts comptent pour vous comme des sorts de Sorcière et ne comptent pas dans votre nombre total de sorts connus.\n\nSorts de niveau\nNiveau 1 : Mains brûlantes, Missile magique\nNiveau 2 : Flèche acide, Rayon brûlant\nNiveau 3 : Boule de feu, protection contre l'énergie\nNiveau 4 : Tempête de verglas, Mur de feu\nNiveau 5 : Cône de froid, Mind Twist
 Subclass/&RedWitchMagicTitle	Magie rouge
 Subclass/&RedWitchTitle	Sorcière rouge
 Subclass/&RoguishConArtistDescription	Les escrocs sont des voleurs qui se spécialisent dans la tromperie et la tromperie des autres. Ils utilisent la magie pour aider leurs capacités de manipulation naturelles.
@@ -1797,7 +1809,7 @@ Subclass/&WeaponProfArcaneFighterTitle	Entraînement aux armes
 Subclass/&WeaponProfArtificerBattleSmithDescription	L'expérience au combat a donné à l'Arme Smith une formation en Armes Martiales
 Subclass/&WeaponProfArtificerBattleSmithTitle	Entraînement aux armes
 Subclass/&WhiteWitchDescription	La magie blanche est fondamentalement bonne et bienveillante pour tous les êtres vivants. Les sorcières qui adoptent ce métier, malgré la malédiction haineuse qui les infecte, se consacrent souvent à la guérison et aux soins, dans le but d'améliorer le monde.
-Subclass/&WhiteWitchMagicDescription	Vous gagnez les sorts suivants. Ces sorts comptent pour vous comme des sorts de Sorcière et ne comptent pas dans votre nombre total de sorts connus.\n\nSorts de niveau\n1ère bénédiction, guérison des blessures\n2e restauration mineure, prière de guérison\n3e phare d'espoir, Revivifier\n4e quartier de la mort, gardien de la foi\n5e Mass Cure Wounds, Raise Dead
+Subclass/&WhiteWitchMagicDescription	Vous gagnez les sorts suivants. Ces sorts comptent pour vous comme des sorts de Sorcière et ne comptent pas dans votre nombre total de sorts connus.\n\nSorts de niveau\nNiveau 1 : Bénir, Guérir les Blessures\nNiveau 2 : Restauration mineure, Prière de guérison\nNiveau 3 : Phare d'espoir, Revivifier\nNiveau 4 : Quartier de la mort, Gardien de la foi\nNiveau 5 : Guérir en masse les blessures, ressusciter les morts
 Subclass/&WhiteWitchMagicTitle	Magie blanche
 Subclass/&WhiteWitchTitle	Sorcière blanche
 Subclass/&WitchSubclassPathDescription	Votre connaissance de la magie a culminé en rejoignant un Coven, un cercle inné de sorcières qui explorent un chemin spécifique de sorcellerie et de malédictions.

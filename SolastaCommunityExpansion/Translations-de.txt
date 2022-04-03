@@ -379,10 +379,10 @@ Feat/&ArtilleristSubclassSpellsTitle	Lerne Blaster-Zauber
 Feat/&ArtilleryConstructDescription	Kann Verbündete beschädigen oder schützen
 Feat/&ArtilleryConstructLevel03AutopreparedSpellsDescription	Cantrips: Ausbesserungskonstrukt, Entlassungskonstrukt\nLevel 1: Artilleriekonstrukt wiederbeschwören
 Feat/&ArtilleryConstructLevel03AutopreparedSpellsTitle	Zauber konstruieren
-Feat/&ArtilleryConstructLevel09AutopreparedSpellsDescription	 
-Feat/&ArtilleryConstructLevel09AutopreparedSpellsTitle	 
-Feat/&ArtilleryConstructLevel15AutopreparedSpellsDescription	 
-Feat/&ArtilleryConstructLevel15AutopreparedSpellsTitle	 
+Feat/&ArtilleryConstructLevel09AutopreparedSpellsDescription	Zauber konstruieren
+Feat/&ArtilleryConstructLevel09AutopreparedSpellsTitle	Zauber konstruieren
+Feat/&ArtilleryConstructLevel15AutopreparedSpellsDescription	Zauber konstruieren
+Feat/&ArtilleryConstructLevel15AutopreparedSpellsTitle	Zauber konstruieren
 Feat/&ArtilleryConstructTitle	Artillerie-Konstrukt
 Feat/&ArtilleryConstructTitle_3	Artillerie-Konstrukt
 Feat/&ArtilleryConstructTitle_5	Artillerie-Konstrukt
@@ -628,13 +628,13 @@ Feat/&ResummonArtilleryConstructDescription	Dieser Zauber erlaubt es dem Bastler
 Feat/&RetributionDescription	Konstrukt beschädigt 1W4 + Int, wenn es angegriffen wird
 Feat/&RetributionTitle	Vergeltung
 Feat/&ScoutSentinelFeatureSet_level03Description	<size=17><color=#add8e6ff>Lerne Scout-Sentinel-Zauber</color></size>\nStufe 3: Magische Rakete, Donnerwelle\nStufe 5: Unschärfe, Zertrümmerung\nLevel 9: Lightning Bolt, Hypnotisches Muster\nLevel 13: Feuerschild, größere Unsichtbarkeit\nLevel 17: Dimensionstür, Windwand, Feuerwand\n\n<size=17><color=#add8e6ff>Mehrere Rüstungsfunktionen</color></size>\nSie können einmal pro Tag zwischen den Funktionsmodi wechseln, indem Sie temporäre Waffen erstellen und verwenden\n\n<size=17><color=#add8e6ff>Wächtermodus</color></size>\nErhalten Sie eine begrenzte Anzahl temporärer HP, basierend auf dem Level. Benachteiligen Sie Feinde, die Verbündete angreifen\n\n<size=17><color=#add8e6ff>Scout-Modus</color></size>\nErhalte mehr Bewegungsfreiheit, Tarnvorteil und einen Fernkampfangriff, der einmal pro Runde einen zusätzlichen Schadenswürfel verursacht.\n\n<size=17><color=#add8e6ff>Funktionen</color></size>\nDu kannst die Waffen der Rüstung als Zauberfokus für deine Zauber verwenden\nSchwere Rüstung hat keine Stärkeanforderungen\nDu lernst Schmiedewerkzeuge und schwere Rüstungen
-Feat/&ScoutSentinelFeatureSet_level03Title	 
+Feat/&ScoutSentinelFeatureSet_level03Title	Scout-Wächter
 Feat/&ScoutSentinelFeatureSet_level05Description	<size=17><color=#add8e6ff>Extra-Angriff</color></size>\nDu kannst ein weiteres Mal pro Kampfzug angreifen, wenn du die Angriffs- oder Schubs-Aktionen verwendest
-Feat/&ScoutSentinelFeatureSet_level05Title	 
+Feat/&ScoutSentinelFeatureSet_level05Title	Scout-Wächter
 Feat/&ScoutSentinelFeatureSet_level09Description	<size=17><color=#add8e6ff>Zusätzliche Infusionsplätze</color></size>\nSie erhalten zusätzliche Infusionsplätze, die für Rüstungen verwendet werden sollten
-Feat/&ScoutSentinelFeatureSet_level09Title	 
+Feat/&ScoutSentinelFeatureSet_level09Title	Scout-Wächter
 Feat/&ScoutSentinelFeatureSet_level15Description	<size=17><color=#add8e6ff>Verbesserter Sentinel-Modus</color></size>\nKann jetzt Feinde mit einer Bonusaktion in Nahkampfreichweite ziehen und über die Kraft Gauntlet Grapple 1W8 Donnerschaden zufügen\n\n<size=17><color=#add8e6ff>Verbesserter Scout-Modus</color></size>\nKann jetzt mit einem einzigen Angriff Vorteile für Verbündete und Nachteile für Feinde schaffen
-Feat/&ScoutSentinelFeatureSet_level15Title	 
+Feat/&ScoutSentinelFeatureSet_level15Title	Scout-Wächter
 Feat/&SelfDestructDescription	Selbstzerstörung und erzwinge einen GE-Rettungswurf für 3W8 Gewaltschaden innerhalb von 10 Fuß
 Feat/&SelfDestructTitle	Selbstzerstörung
 Feat/&SelfRepairDescription	Heile dreimal täglich 2W8 HP
@@ -697,22 +697,22 @@ Feature/&AHWarlockFiendPactDarkOnesBlessingPowerDescription	Ab der 1. Stufe erh�
 Feature/&AHWarlockFiendPactDarkOnesBlessingPowerTitle	Segen der Dunklen
 Feature/&AHWarlockFiendPactDarkOnesOwnLuckDescription	Du erhältst einmal pro Tag einen unbezwingbaren Nutzen (Wahl, Rettungswurf zu wiederholen, wenn du misslingt). (Entspricht nicht SRD, würde aber eine ganz neue Reaktionsfähigkeit erfordern, um die SRD zu emulieren).
 Feature/&AHWarlockFiendPactDarkOnesOwnLuckTitle	Das eigene Glück des Dunklen
-Feature/&AHWarlockFiendPactExtendedSpellListDescription	The Fiend lässt dich aus einer erweiterten Liste von Zaubersprüchen wählen, wenn du einen Hexenmeisterzauber lernst. Die folgenden Zauber werden für Sie zur Hexenmeister-Zauberliste hinzugefügt.\n1. Brennende Hände, Bane\n2. Blindheit, sengender Strahl\n3. Feuerball, stinkende Wolke\n4. Feuerschild, Feuerwand\n5. Flammenschlag, Elementarfeuer beschwören
+Feature/&AHWarlockFiendPactExtendedSpellListDescription	The Fiend lässt dich aus einer erweiterten Liste von Zaubersprüchen wählen, wenn du einen Hexenmeisterzauber lernst. Die folgenden Zauber werden für Sie zur Hexenmeister-Zauberliste hinzugefügt.\nLevel 1: Brennende Hände, Bane\nLevel 2: Blindheit, Sengender Strahl\nLevel 3: Feuerball, stinkende Wolke\nStufe 4: Feuerschild, Feuerwand\nLevel 5: Flammenschlag, Elementarfeuer beschwören
 Feature/&AHWarlockFiendPactExtendedSpellListTitle	Fiend erweiterte Zauberliste
 Feature/&AHWarlockFiendPactFiendishResilienceDescription	Du erhältst Resistenz gegen Feuerschaden. (Nicht dasselbe wie SRD – ich glaube, die richtige Implementierung würde eine Kraft für jeden Schadenstyp mit einem gemeinsamen Ressourcenpool erfordern, da es derzeit keine Möglichkeit zu geben scheint, Kraftentscheidungen wie Zaubersprüche zu gruppieren).
 Feature/&AHWarlockFiendPactFiendishResilienceTitle	Teuflische Resilienz
-Feature/&AHWarlockFiendPactSpellListDescription	The Fiend lässt dich aus einer erweiterten Liste von Zaubersprüchen wählen, wenn du einen Hexenmeisterzauber lernst. Die folgenden Zauber werden für Sie zur Hexenmeister-Zauberliste hinzugefügt.\n1. Brennende Hände, Bane\n2. Blindheit, sengender Strahl\n3. Feuerball, stinkende Wolke\n4. Feuerschild, Feuerwand\n5. Flammenschlag, Elementarfeuer beschwören
+Feature/&AHWarlockFiendPactSpellListDescription	The Fiend lässt dich aus einer erweiterten Liste von Zaubersprüchen wählen, wenn du einen Hexenmeisterzauber lernst. Die folgenden Zauber werden für Sie zur Hexenmeister-Zauberliste hinzugefügt.\nLevel 1: Brennende Hände, Bane\nLevel 2: Blindheit, Sengender Strahl\nLevel 3: Feuerball, stinkende Wolke\nStufe 4: Feuerschild, Feuerwand\nLevel 5: Flammenschlag, Elementarfeuer beschwören
 Feature/&AHWarlockFiendPactSpellListTitle	Fiend erweiterte Zauberliste
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerDescription	Einmal pro kurzer Pause können Sie eine Waffe eine Minute lang mit der Kraft der Seelen stärken, Ihre Waffe leuchtet für 20 Fuß helles Licht und 20 Fuß schwaches Licht und Sie fügen Ihr Charisma zu Ihrer Trefferquote hinzu. Zusätzlich fügen alle deine Angriffe für die Dauer deinen Fertigkeitsbonus an Schaden hinzu.
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle	Seelenstärke
-Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	Mit der Seelenklinge kannst du aus einer erweiterten Liste von Zaubersprüchen wählen, wenn du einen Hexenmeisterzauber lernst. Die folgenden Zauber werden für Sie zur Hexenmeister-Zauberliste hinzugefügt.\n1. Schild, falsches Leben\n2. Blur, Branding Smite\n3. Eile, langsam\n4. Phantasmal Killer, Schwarze Tentakel\n5. Kältekegel, Mind Twist
+Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	Mit der Seelenklinge kannst du aus einer erweiterten Liste von Zaubersprüchen wählen, wenn du einen Hexenmeisterzauber lernst. Die folgenden Zauber werden für Sie zur Hexenmeister-Zauberliste hinzugefügt.\nStufe 1: Schild, falsches Leben\nLevel 2: Blur, Branding Smite\nStufe 3: Hast, Langsam\nLevel 4: Phantasmal Killer, Schwarze Tentakel\nLevel 5: Kältekegel, Mind Twist
 Feature/&AHWarlockSoulBladePactExtendedSpellListTitle	Seelenklingenzauber
 Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Einmal pro kurzer Rast nutzt du die Kraft der Seelen, um dich zu verteidigen. Mit einer Bonusaktion erhältst du temporäre HP in Höhe deiner Stufe + Charisma-Modifikator.
 Feature/&AHWarlockSoulBladePactSoulShieldPowerTitle	Seelenschild
-Feature/&AHWarlockSoulBladePactSpellListDescription	Mit der Seelenklinge kannst du aus einer erweiterten Liste von Zaubersprüchen wählen, wenn du einen Hexenmeisterzauber lernst. Die folgenden Zauber werden für Sie zur Hexenmeister-Zauberliste hinzugefügt.\n1. Schild, falsches Leben\n2. Blur, Branding Smite\n3. Eile, langsam\n4. Phantasmal Killer, Schwarze Tentakel\n5. Kältekegel, Mind Twist
+Feature/&AHWarlockSoulBladePactSpellListDescription	Mit der Seelenklinge kannst du aus einer erweiterten Liste von Zaubersprüchen wählen, wenn du einen Hexenmeisterzauber lernst. Die folgenden Zauber werden für Sie zur Hexenmeister-Zauberliste hinzugefügt.\nStufe 1: Schild, falsches Leben\nLevel 2: Blur, Branding Smite\nStufe 3: Hast, Langsam\nLevel 4: Phantasmal Killer, Schwarze Tentakel\nLevel 5: Kältekegel, Mind Twist
 Feature/&AHWarlockSoulBladePactSpellListTitle	Erweiterte Zauberliste der Seelenklinge
 Feature/&AlwaysBeardDescription	{0} % Chancen, einen herrlichen Bart wachsen zu lassen!
-Feature/&AncientForestExpandedSpelllistAfinityDescription	Du wählst aus einer erweiterten Liste von Zaubersprüchen, wenn du einen Hexenmeisterzauber lernst. Die folgenden Zauber werden der Hexenmeister-Zauberliste für Sie hinzugefügt:\n 1.: Goodberry, verstricken\n 2.: Rindenhaut, Stachelwachstum\n 3.: Massenheilungswort, vampirische Berührung\n 4.: Fäulnis, größere Wiederherstellung\n 5.: Ansteckung, Tote erwecken
+Feature/&AncientForestExpandedSpelllistAfinityDescription	Du wählst aus einer erweiterten Liste von Zaubersprüchen, wenn du einen Hexenmeisterzauber lernst. Die folgenden Zauber werden der Hexenmeister-Zauberliste für Sie hinzugefügt:\n Stufe 1: Goodberry, Verstricken\n Stufe 2: Rindenhaut, Stachelwachstum\n Stufe 3: Massenheilungswort, vampirische Berührung\n Level 4: Blight, Great Restoration\n Stufe 5: Ansteckung, Erwecke Tote
 Feature/&AncientForestExpandedSpelllistAfinityTitle	Alte Waldzauber
 Feature/&AncientForestLightAffinityDescription	Sie können Energie aus Sonnenlicht absorbieren. Während Sie sich in direktem hellem Licht befinden, erhalten Sie 2 HP pro Runde
 Feature/&AncientForestLightAffinityTitle	Photosynthese
@@ -734,6 +734,8 @@ Feature/&ArtificerSpecialistArchetypesTitle	Tüftler-Spezialisierungen
 Feature/&AscendantStepTitle	Aszendentenschritt
 Feature/&AspectoftheMoonDescription	Sie müssen nicht mehr schlafen und können Wache halten, was die Wahrscheinlichkeit eines Angriffs verringert und sicherstellt, dass Sie wach sind, wenn das Lager angegriffen wird.
 Feature/&AspectoftheMoonTitle	Aspekt des Mondes
+Feature/&AttributeModifierBolgrifAbilityScoreSetDescription	Weisheit +2, Stärke +1
+Feature/&AttributeModifierBolgrifAbilityScoreSetTitle	Attributerhöhung
 Feature/&AttributeModifierGnomeAbilityScoreSetDescription	Intelligenz +2, Geschicklichkeit +1
 Feature/&AttributeModifierGnomeAbilityScoreSetTitle	Attributerhöhung
 Feature/&BarbarianIndomitableMightDescription	Wenn Ihr Gesamtwert für einen Stärkewurf geringer ist als Ihr Stärkewert, können Sie diesen Wert anstelle des Gesamtwerts verwenden.
@@ -844,17 +846,23 @@ Feature/&EldritchMindTitle	Eldritch-Geist
 Feature/&EldritchSightTitle	Unheimlicher Anblick
 Feature/&EldritchSmiteDescription	Einmal pro Runde, wenn du eine Kreatur mit deiner Paktwaffe triffst, kannst du einen Hexenmeister-Zauberplatz aufwenden, um dem Ziel 1W8 zusätzlichen Machtschaden zuzufügen, plus weitere 1W8 pro Stufe des Zauberplatzes.
 Feature/&EldritchSmiteTitle	Eldritch Smite
-Feature/&ElementalistSpellsMagicAffinityDescription	Du wählst aus einer erweiterten Liste von Zaubersprüchen, wenn du einen Hexenmeisterzauber lernst. Die folgenden Zauber werden der Hexenmeister-Zauberliste für Sie hinzugefügt:\n 1.: Donnerwelle, Nebelwolke\n 2.: Spike Growth, Sengender Strahl\n 3.: Feuerball, Blitzschlag\n 4.: Steinhaut, Eissturm\n 5.: Kältekegel, Flammenstoß
+Feature/&ElementalistSpellsMagicAffinityDescription	Du wählst aus einer erweiterten Liste von Zaubersprüchen, wenn du einen Hexenmeisterzauber lernst. Die folgenden Zauber werden der Hexenmeister-Zauberliste für Sie hinzugefügt:\n Stufe 1: Donnerwelle, Nebelwolke\n Level 2: Spike Growth, Sengender Strahl\n Stufe 3: Feuerball, Blitzschlag\n Stufe 4: Steinhaut, Eissturm\n Stufe 5: Kältekegel, Flammenschlag
 Feature/&ElementalistSpellsMagicAffinityTitle	Elementarmagier-Zauber
 Feature/&ElementalPatronFeatureSet_Level01Description	<size=17><color=#add8e6ff>Lerne Elementarmagier-Zauber</color></size>\nStufe 1: Nebelwolke, Donnerwelle\nLevel 2: Spike Growth, Sengender Strahl\nLevel 3: Blitz, Feuerball\nStufe 4: Steinhaut, Eissturm\nStufe 5: Kältekegel, Flammenschlag\n\n<size=17><color=#add8e6ff>Elementarformen</color></size>\nDu kannst mehrmals täglich (in Höhe deines Fähigkeitsbonus) zwischen elementaren Formen wechseln, indem du elementare Energie kanalisierst. Du kannst dem entsprechenden Schaden widerstehen und einmal pro Zug Schaden der gleichen Art auf deine Angriffe anwenden. Die Formulare dauern 1 Minute.
-Feature/&ElementalPatronFeatureSet_Level01Title	<size=1><color=#808080ff> \t</color></size>
+Feature/&ElementalPatronFeatureSet_Level01Title	Elementarmagier
 Feature/&ElementalPatronFeatureSet_Level06Description	<size=17><color=#add8e6ff>Elementarwissen</color></size>\nDein Wissen über Elementare hat sich so weit verbessert, dass du jetzt einen Vorteil bei Fähigkeitsprüfungen gegenüber Elementaren hast und Elementaren zusätzlichen Schaden in Höhe deines Wissensstands zufügst. Du kannst nicht länger von Elementaren bezaubert oder verängstigt werden
-Feature/&ElementalPatronFeatureSet_Level06Title	<size=1><color=#808080ff> \t</color></size>
+Feature/&ElementalPatronFeatureSet_Level06Title	Elementarmagier
 Feature/&ElementalPatronFeatureSet_Level10Description	<size=17><color=#add8e6ff>Verbesserte elementare Formen</color></size>\nIhre Elementarformen gewähren jetzt Schadensimmunität, wenn sie aktiv sind
-Feature/&ElementalPatronFeatureSet_Level10Title	<size=1><color=#808080ff> \t</color></size>
+Feature/&ElementalPatronFeatureSet_Level10Title	Elementarmagier
 Feature/&EyesoftheRuneKeeperDescription	Sie können alle Schriften lesen.
 Feature/&EyesoftheRuneKeeperTitle	Augen des Runenhüters
 Feature/&FiendishVigorTitle	Teuflische Kraft
+Feature/&BolgrifDruidicMagicDescription	Du kennst einen Cantrip deiner Wahl aus der Zauberliste der Druiden. Weisheit ist deine Zauberfähigkeit dafür.
+Feature/&BolgrifDruidicMagicTitle	Druidische Magie
+Feature/&BolgrifInvisibilityPowerDescription	Als Bonusaktion kannst du dich auf magische Weise für 1 Runde unsichtbar machen. Diese Unsichtbarkeit wird unterbrochen, wenn Sie anstößig handeln. Sobald Sie diese Fähigkeit verwendet haben, können Sie sie nicht erneut verwenden, bis Sie eine kurze oder lange Pause beendet haben.
+Feature/&BolgrifInvisibilityPowerTitle	Verschwinden
+Feature/&BolgrifPowerfulBuildDescription	Sie zählen Ihre Größe als Large, wenn Sie Ihre Tragfähigkeit bestimmen.
+Feature/&BolgrifPowerfulBuildTitle	Leistungsstarker Aufbau
 Feature/&FlameArtillery_09ModePowerDescription	Beschwört ein Konstrukt, das 1 Stunde hält.\nFlammenartillerie: Erzeugt einen Feuerkegel, der bei einem fehlgeschlagenen Rettungswurf 3W8 Schaden verursacht.\nSelbstzerstörung: Verursacht 3W8 Machtschaden bei einem fehlgeschlagenen Rettungswurf und zerstört die Einheit.
 Feature/&FlameArtillery_09ModePowerTitle	Flammenartillerie-Konstrukt beschwören
 Feature/&FlameArtillery_15ModePowerDescription	Beschwört ein Konstrukt, das 1 Stunde hält.\nFlammenartillerie: Erzeugt einen Feuerkegel, der bei einem fehlgeschlagenen Rettungswurf 3W8 Schaden verursacht.\nSelbstzerstörung: Verursacht 3W8 Machtschaden bei einem fehlgeschlagenen Rettungswurf und zerstört die Einheit.\n Half Cover Dome: Bietet Verbündeten innerhalb von 10 Fuß halbe Deckung.
@@ -916,7 +924,7 @@ Feature/&KSRogueSubclassThugProficienciesTitle	Schweres Getriebe
 Feature/&MiretheMindTitle	Beschmutze den Geist
 Feature/&MoonLitDarknessImmunityDescription	Du bist immun gegen den Dunkelheitszustand
 Feature/&MoonLitDarknessImmunityTitle	Mondhelle Dunkelheit
-Feature/&MoonLitExpandedSpelllistAfinityDescription	Du wählst aus einer erweiterten Liste von Zaubersprüchen, wenn du einen Hexenmeisterzauber lernst. Die folgenden Zauber werden der Hexenmeister-Zauberliste für Sie hinzugefügt:\n 1.: Feenfeuer, Schlaf\n 2.: Mondstrahl, siehe Unsichtbarkeit\n 3.: Tageslicht, hypnotisches Muster\n 4.: Größere Unsichtbarkeit, Bestie beherrschen\n 5.: Person beherrschen, Flammenstoß
+Feature/&MoonLitExpandedSpelllistAfinityDescription	Du wählst aus einer erweiterten Liste von Zaubersprüchen, wenn du einen Hexenmeisterzauber lernst. Die folgenden Zauber werden der Hexenmeister-Zauberliste für Sie hinzugefügt:\n Stufe 1: Feenfeuer, Schlaf\n Level 2: Mondstrahl, Siehe Unsichtbarkeit\n Stufe 3: Tageslicht, hypnotisches Muster\n Level 4: Größere Unsichtbarkeit, Bestie beherrschen\n Level 5: Person beherrschen, Flammenschlag
 Feature/&MoonLitExpandedSpelllistAfinityTitle	MoonLit-Zauberliste
 Feature/&MoonLitLightAffinityDescription	Sie können bei schwachem Licht oder natürlicher Dunkelheit unsichtbar werden
 Feature/&MoonLitLightAffinityTitle	Umbraler Umhang
@@ -943,6 +951,8 @@ Feature/&PowerTorchbearerDescription	Versuchen Sie, ein Nahkampfziel in Brand zu
 Feature/&PowerTorchbearerTitle	Fackelträger
 Feature/&PrimalChampionDescription	Auf Stufe 20 verkörperst du die Macht der Wildnis. Ihre Stärke- und Konstitutionswerte erhöhen sich um 4
 Feature/&PrimalChampionTitle	Erster Champion
+Feature/&ProficiencyBolgrifLanguagesDescription	Gewöhnlich, Elbisch und Riese
+Feature/&ProficiencyBolgrifLanguagesTitle	Sprache
 Feature/&ProficiencyGnomishLanguagesDescription	Gewöhnlich, gnomisch
 Feature/&ProficiencyGnomishLanguagesTitle	Sprachen
 Feature/&ProficiencyRogueBlindSenseDescription	Wenn du ab der 14. Stufe hören kannst, weißt du, wo sich versteckte oder unsichtbare Kreaturen innerhalb von 10 Fuß von dir befinden.
@@ -971,7 +981,7 @@ Feature/&RangerVanishActionTitle	Verschwinden
 Feature/&RepellingBlastMagicAffinityDescription	Wenn Sie eine Kreatur mit einer unheimlichen Explosion treffen, können Sie die Kreatur in einer geraden Linie bis zu 3 m von sich wegschieben.
 Feature/&RepellingBlastMagicAffinityTitle	Abstoßende Explosion
 Feature/&RiftWalkerRestrainedImmunityTitle	Flüchtiger Schritt
-Feature/&RiftWalkerSpellsMagicAffinityDescription	Du wählst aus einer erweiterten Liste von Zaubersprüchen, wenn du einen Hexenmeisterzauber lernst. Die folgenden Zauber werden der Hexenmeister-Zauberliste für Sie hinzugefügt:\n 1.: Sprung, Langläufer\n 2.: Unschärfe, spurlos passieren\n 3.: Eile, langsam\n 4.: Bewegungsfreiheit, größere Unsichtbarkeit\n 5.: Mind Twist, vertreibe Böses und Gutes
+Feature/&RiftWalkerSpellsMagicAffinityDescription	Du wählst aus einer erweiterten Liste von Zaubersprüchen, wenn du einen Hexenmeisterzauber lernst. Die folgenden Zauber werden der Hexenmeister-Zauberliste für Sie hinzugefügt:\n Level 1: Springen, Langläufer\n Stufe 2: Unschärfe, spurlos passieren\n Stufe 3: Hast, Langsam\n Stufe 4: Bewegungsfreiheit, größere Unsichtbarkeit\n Level 5: Mind Twist, Böses und Gutes vertreiben
 Feature/&RiftWalkerSpellsMagicAffinityTitle	Lernen Sie Rift Walker-Zauber
 Feature/&RoyalEnvoyFeatureDescription	Addiere die Hälfte deines Kompetenzbonus (aufgerundet) zu jedem Charisma-Check, den du machst, der deinen Kompetenzbonus nicht bereits nutzt. Außerdem werden Sie mit Charisma-Rettungswürfen vertraut.
 Feature/&RoyalEnvoyFeatureTitle	Königlicher Gesandter
@@ -1004,7 +1014,7 @@ Feature/&TinkererToolsProficiencyTitle	Werkzeugkenntnisse
 Feature/&TinkererWeaponProficiencyTitle	Tüftler-Waffenkenntnisse
 Feature/&TinkererWeaponTrainingShortDescription	Umgang mit einfachen Waffen
 Feature/&ToadKingBasicToxinTitle	Basisches Toxin
-Feature/&ToadKingExpandedSpelllistAfinityDescription	Du wählst aus einer erweiterten Liste von Zaubersprüchen, wenn du einen Hexenmeisterzauber lernst. Die folgenden Zauber werden der Hexenmeister-Zauberliste für Sie hinzugefügt:\n 1.: Schmieren, Gift und Krankheit erkennen\n 2.: AcidArrow, Spider Climb\n 3.: Langsame, stinkende Wolke\n 4.: Schwarze Tentakel, Bewegungsfreiheit\n 5.: Ansteckung, Insektenplage
+Feature/&ToadKingExpandedSpelllistAfinityDescription	Du wählst aus einer erweiterten Liste von Zaubersprüchen, wenn du einen Hexenmeisterzauber lernst. Die folgenden Zauber werden der Hexenmeister-Zauberliste für Sie hinzugefügt:\n Level 1: Schmieren, Gift und Krankheit erkennen\n Level 2: AcidArrow, Spinnenklettern\n Level 3: Langsame, stinkende Wolke\n Stufe 4: Schwarze Tentakel, Bewegungsfreiheit\n Stufe 5: Ansteckung, Insektenplage
 Feature/&ToadKingExpandedSpelllistAfinityTitle	Krötenkönig-Zauber
 Feature/&ToadKingHallucinogenicToxinAffintyDescription	Ihr Körper hat sich verändert, um gegenüber Toxinen resistent zu werden und ein Abwehrgift zu produzieren, wenn er im Nahkampf angegriffen wird (bis zu PB-mal pro Tag). Wenn dem Angreifer ein Con-Rettungswurf misslingt, werden sie zu luzinogenem Toxin, bis sie angegriffen oder anderweitig unterbrochen werden.
 Feature/&ToadKingHallucinogenicToxinAffintyTitle	Halluzinogenes Toxin
@@ -1071,7 +1081,7 @@ Message/&CharacterExportDuplicateNameErrorDescription	Export abgebrochen:\n\nEin
 Message/&CharacterExportEmptyNameErrorDescription	Export abgebrochen:\n\nBitte versuchen Sie es mit einem nicht leeren Namen.
 Message/&CharacterExportModalContentDescription	Geben Sie den zu exportierenden Heldennamen ein:
 Message/&CharacterExportModalTitleDescription	Zeichenexport
-Message/&MessageModWelcomeDescription	Der Community Expansion Mod ist vollgepackt mit aufregenden Funktionen, aber standardmäßig sind keine aktiviert. Drücken Sie <color=yellow>Strg-F10</color>, um die Unity Mod Manager-Benutzeroberfläche [UMM] zu öffnen, und klicken Sie dann auf das Einstellungssymbol neben „Community-Erweiterung“, um die Einstellungsseiten zu öffnen.\n\n  Erkunden Sie die Optionen und wählen Sie diejenigen aus, die Ihnen gefallen. Die UMM-Benutzeroberfläche wird nun geöffnet.
+Message/&MessageModWelcomeDescription	Der Community Expansion Mod ist vollgepackt mit aufregenden Funktionen, aber standardmäßig sind keine aktiviert. Drücken Sie <color=yellow>Strg-F10</color>, um die Unity Mod Manager-Benutzeroberfläche [UMM] zu öffnen, und klicken Sie dann auf das Einstellungssymbol neben „Community-Erweiterung“, um die Einstellungsseiten zu öffnen.\n\n Erkunden Sie die Optionen und wählen Sie diejenigen aus, die Ihnen gefallen. Die UMM-Benutzeroberfläche wird nun geöffnet.
 Message/&MessageModWelcomeTitle	Community-Erweiterungs-Mod
 Message/&SpawnCustomEncounterDescription	Spawn-Begegnung an den Koordinaten ({0}, {1})?
 Message/&SpawnCustomEncounterTitle	Begegnen
@@ -1342,8 +1352,10 @@ Power/&UrPriestRadiantWardTitle	Strahlende Station
 Power/&UrPriestSpellSiphonDescription	Sie lernen, wie Sie in Kombination mit Ihrer normalen Kraftreserve eine größere Quelle der Magie anzapfen können. Als Aktion kannst du eine Göttlichkeit kanalisieren, um eine verbrauchte Nutzung deines mystischen Arkanums der 6. Stufe wiederzuerlangen.
 Power/&UrPriestSpellSiphonTitle	Siphon buchstabieren
 Pugilist	Faustkämpfer-Schaden
-Race/&ForestGnomeDescription	Ein ständiges Summen geschäftiger Aktivität durchdringt die Gehege und Nachbarschaften, in denen Gnome ihre eng verbundenen Gemeinschaften bilden. Lautere Geräusche unterstreichen das Summen: ein Knirschen knirschender Zahnräder hier, eine kleine Explosion dort, ein überraschter oder triumphierender Aufschrei und vor allem schallendes Gelächter. Gnome erfreuen sich am Leben und genießen jeden Moment des Erfindens, Erkundens, Erforschens, Schaffens und Spielens.
-Race/&ForestGnomeTitle	Waldzwerg
+Race/&BolgrifRaceDescription Bolgrifs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, bolgrifs demonstrate formidable skills with weapons and nature magic.
+Race/&BolgrifRaceTitle	Bolgrif
+Race/&GnomeRaceDescription	Ein ständiges Summen geschäftiger Aktivität durchdringt die Gehege und Nachbarschaften, in denen Gnome ihre eng verbundenen Gemeinschaften bilden. Lautere Geräusche unterstreichen das Summen: ein Knirschen knirschender Zahnräder hier, eine kleine Explosion dort, ein überraschter oder triumphierender Aufschrei und vor allem schallendes Gelächter. Gnome erfreuen sich am Leben und genießen jeden Moment des Erfindens, Erkundens, Erforschens, Schaffens und Spielens.
+Race/&GnomeRaceTitle	Waldzwerg
 Race/&PointPoolSelect10FeatsDescription	Wähle 10 zusätzliche Talente für deinen Charakter aus.
 Race/&PointPoolSelect10FeatsTitle	10 Bonusfeats
 Race/&PointPoolSelect11FeatsDescription	Wähle 11 zusätzliche Talente für deinen Charakter aus.
@@ -1604,7 +1616,7 @@ Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription	Kann unsich
 Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionTitle	Unsichtbarkeit
 Subclass/&BarbarianPathOfTheLightTitle	Pfad des Lichts
 Subclass/&BloodWitchDescription	Blutmagie, die von den meisten Hexenzirkeln verboten ist, konzentriert sich auf die Verwendung von dunklen Zaubersprüchen und tödlichen Flüchen, die aus der Essenz des Zauberkundigen schöpfen. Es ist grundsätzlich gefährlicher als andere Hexenhandwerke, aber seine vielen Risiken sind mit reichlich Belohnungen verbunden.
-Subclass/&BloodWitchMagicDescription	Du erhältst die folgenden Zauber. Diese Zauber zählen für dich als Hexenzauber und zählen nicht zu deiner Gesamtzahl bekannter Zauber.\n\nLevel-Zauber\n1. Verschränkung, Goodberry\n2. Rindenhaut, Schutz vor Gift\n3. Tiere beschwören, Nahrung herstellen\n4. Rieseninsekt, Steinhaut\n5. Böses und Gutes vertreiben, Insektenplage
+Subclass/&BloodWitchMagicDescription	Du erhältst die folgenden Zauber. Diese Zauber zählen für dich als Hexenzauber und zählen nicht zu deiner Gesamtzahl bekannter Zauber.\n\nLevel-Zauber\nLevel 1: Verstricken, Goodberry\nStufe 2: Rindenhaut, Schutz vor Gift\nLevel 3: Tiere beschwören, Nahrung herstellen\nStufe 4: Rieseninsekt, Steinhaut\nLevel 5: Böses und Gutes vertreiben, Insektenplage
 Subclass/&BloodWitchMagicTitle	Die Blutmagie
 Subclass/&BloodWitchTitle	Blut Hexe
 Subclass/&CancelCancelElixirFlyDescription	Beende die Fliegen-Bedingung durch das Trankmacher-Elixier.
@@ -1642,7 +1654,7 @@ Subclass/&FighterSpellShieldSpellResistanceDescription	Deine Erfahrung mit Zaube
 Subclass/&FighterSpellShieldSpellResistanceTitle	Zauberwiderstand
 Subclass/&FighterSpellShieldTitle	Zauberschild
 Subclass/&GreenWitchDescription	Pflanzen, Natur und Dinge, die wachsen, sind die Domäne der grünen Magie. Normalerweise eine Art von Arkana, die von Druiden verfochten wird, haben einige Hexen eine enge Verbindung zu den Kräften der grünen Magie und können Pflanzen und Tiere dazu bringen, ihr Gebot abzugeben.
-Subclass/&GreenWitchMagicDescription	Du erhältst die folgenden Zauber. Diese Zauber zählen für dich als Hexenzauber und zählen nicht zu deiner Gesamtzahl bekannter Zauber.\n\nLevel-Zauber\n1. Verschränkung, Goodberry\n2. Rindenhaut, Schutz vor Gift\n3. Tiere beschwören, Nahrung herstellen\n4. Rieseninsekt, Steinhaut\n5. Böses und Gutes vertreiben, Insektenplage
+Subclass/&GreenWitchMagicDescription	Du erhältst die folgenden Zauber. Diese Zauber zählen für dich als Hexenzauber und zählen nicht zu deiner Gesamtzahl bekannter Zauber.\n\nLevel-Zauber\nLevel 1: Verstricken, Goodberry\nStufe 2: Rindenhaut, Schutz vor Gift\nLevel 3: Tiere beschwören, Nahrung herstellen\nStufe 4: Rieseninsekt, Steinhaut\nLevel 5: Böses und Gutes vertreiben, Insektenplage
 Subclass/&GreenWitchMagicTitle	Grüne Magie
 Subclass/&GreenWitchTitle	Grüne Hexe
 Subclass/&HArtilleryIncreaseDescription	Erhöhung des Artilleriepools
@@ -1735,13 +1747,13 @@ Subclass/&PowerTransmuteHealTitle	Heilen
 Subclass/&PowerTransmuteReviveDescription	Verwenden Sie Ihre Transmute Force, um einen Charakter wiederzubeleben (innerhalb von 1 Minute nach seinem Tod).
 Subclass/&PowerTransmuteReviveTitle	Beleben
 Subclass/&PurpleWitchDescription	Lila Magie herrscht über die Bereiche der Illusionen und Verzauberungen, die den Geist der Menschen beherrschen, und über alles, was nicht ganz so ist, wie es scheint. Praktizierende dieser Form der Magie sind Puppenspieler, die die scheinbare Realität ihrer Umgebung zu ihrem Vorteil gestalten.
-Subclass/&PurpleWitchMagicDescription	Du erhältst die folgenden Zauber. Diese Zauber zählen für dich als Hexenzauber und zählen nicht zu deiner Gesamtzahl bekannter Zauber.\n\nLevel-Zauber\n1. Verschränkung, Goodberry\n2. Rindenhaut, Schutz vor Gift\n3. Tiere beschwören, Nahrung herstellen\n4. Rieseninsekt, Steinhaut\n5. Böses und Gutes vertreiben, Insektenplage
+Subclass/&PurpleWitchMagicDescription	Du erhältst die folgenden Zauber. Diese Zauber zählen für dich als Hexenzauber und zählen nicht zu deiner Gesamtzahl bekannter Zauber.\n\nLevel-Zauber\nLevel 1: Verstricken, Goodberry\nStufe 2: Rindenhaut, Schutz vor Gift\nLevel 3: Tiere beschwören, Nahrung herstellen\nStufe 4: Rieseninsekt, Steinhaut\nLevel 5: Böses und Gutes vertreiben, Insektenplage
 Subclass/&PurpleWitchMagicTitle	Lila Magie
 Subclass/&PurpleWitchTitle	Lila Hexe
 Subclass/&RangerArcanistRangerSubclassDescription	Der Waldläufer-Arkanist verschmilzt seine Waldläuferfähigkeiten mit arkanen Fähigkeiten. Ihre Waffen können ihre Gegner mit dem Zeichen des Arkanisten belegen, und sie haben gelernt, einige Zaubersprüche als Teil ihres Zauberrepertoires für Waldläufer zu wirken.
 Subclass/&RangerArcanistRangerSubclassTitle	Ranger-Arkanist
 Subclass/&RedWitchDescription	Arkane Magie, die mit dem Kanalisieren der Elemente verbunden ist, gilt als rote Magie und ist bei Verwendung äußerst gefährlich. Hexen, die sich auf rote Magie spezialisiert haben, gehören zu den tödlichsten Zauberkundigen, die es gibt, und kanalisieren ihren Fluch ungehindert in arkanen Zorn.
-Subclass/&RedWitchMagicDescription	Du erhältst die folgenden Zauber. Diese Zauber zählen für dich als Hexenzauber und zählen nicht zu deiner Gesamtzahl bekannter Zauber.\n\nLevel-Zauber\n1. Brennende Hände, Magische Rakete\n2. Säurepfeil, Sengender Strahl\n3. Feuerball, Schutz vor Energie\n4. Eissturm, Feuerwand\n5. Kältekegel, Mind Twist
+Subclass/&RedWitchMagicDescription	Du erhältst die folgenden Zauber. Diese Zauber zählen für dich als Hexenzauber und zählen nicht zu deiner Gesamtzahl bekannter Zauber.\n\nLevel-Zauber\nStufe 1: Brennende Hände, Magische Rakete\nLevel 2: Säurepfeil, Sengender Strahl\nStufe 3: Feuerball, Schutz vor Energie\nLevel 4: Eissturm, Feuerwand\nLevel 5: Kältekegel, Mind Twist
 Subclass/&RedWitchMagicTitle	Rote Magie
 Subclass/&RedWitchTitle	Rote Hexe
 Subclass/&RoguishConArtistDescription	Betrüger sind Schurken, die sich darauf spezialisiert haben, andere zu täuschen und auszutricksen. Sie verwenden Magie, um ihre natürlichen manipulativen Fähigkeiten zu unterstützen.
@@ -1797,7 +1809,7 @@ Subclass/&WeaponProfArcaneFighterTitle	Waffentraining
 Subclass/&WeaponProfArtificerBattleSmithDescription	Die Erfahrung im Kampf hat dem Waffenschmied eine Ausbildung in Kampfwaffen gegeben
 Subclass/&WeaponProfArtificerBattleSmithTitle	Waffentraining
 Subclass/&WhiteWitchDescription	Weiße Magie ist grundsätzlich gut und wohlwollend für alle Lebewesen. Hexen, die dieses Handwerk anwenden, widmen sich trotz des hasserfüllten Fluchs, der sie infiziert, oft der Heilung und Pflege, mit der Absicht, die Welt zu verbessern.
-Subclass/&WhiteWitchMagicDescription	Du erhältst die folgenden Zauber. Diese Zauber zählen für dich als Hexenzauber und zählen nicht zu deiner Gesamtzahl bekannter Zauber.\n\nLevel-Zauber\n1. Segne, heile Wunden\n2. Kleine Wiederherstellung, Gebet der Heilung\n3. Leuchtfeuer der Hoffnung, Wiederbelebung\n4. Death Ward, Wächter des Glaubens\n5. Masse Wunden heilen, Tote erwecken
+Subclass/&WhiteWitchMagicDescription	Du erhältst die folgenden Zauber. Diese Zauber zählen für dich als Hexenzauber und zählen nicht zu deiner Gesamtzahl bekannter Zauber.\n\nLevel-Zauber\nStufe 1: Segnen, Wunden heilen\nStufe 2: Kleinere Wiederherstellung, Gebet der Heilung\nStufe 3: Leuchtfeuer der Hoffnung, Wiederbelebung\nLevel 4: Death Ward, Wächter des Glaubens\nLevel 5: Massenheilung von Wunden, Erweckung von Toten
 Subclass/&WhiteWitchMagicTitle	Weiße Magie
 Subclass/&WhiteWitchTitle	weiße Hexe
 Subclass/&WitchSubclassPathDescription	Dein Wissen über Magie hat seinen Höhepunkt erreicht, indem du einem Coven beigetreten bist, einem angeborenen Kreis von Hexen, die einen bestimmten Pfad der Hexerei und der Flüche beschreiten.

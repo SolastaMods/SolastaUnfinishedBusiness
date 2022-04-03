@@ -379,10 +379,10 @@ Feat/&ArtilleristSubclassSpellsTitle	Learn Blaster Spells
 Feat/&ArtilleryConstructDescription	Can damage or protect allies
 Feat/&ArtilleryConstructLevel03AutopreparedSpellsDescription	Cantrips:Mending Construct, Dismiss Construct \nLevel 1: Resummon Artillery Construct
 Feat/&ArtilleryConstructLevel03AutopreparedSpellsTitle	Construct Spells
-Feat/&ArtilleryConstructLevel09AutopreparedSpellsDescription
-Feat/&ArtilleryConstructLevel09AutopreparedSpellsTitle
-Feat/&ArtilleryConstructLevel15AutopreparedSpellsDescription
-Feat/&ArtilleryConstructLevel15AutopreparedSpellsTitle
+Feat/&ArtilleryConstructLevel09AutopreparedSpellsDescription	Construct Spells
+Feat/&ArtilleryConstructLevel09AutopreparedSpellsTitle	Construct Spells
+Feat/&ArtilleryConstructLevel15AutopreparedSpellsDescription	Construct Spells
+Feat/&ArtilleryConstructLevel15AutopreparedSpellsTitle	Construct Spells
 Feat/&ArtilleryConstructTitle	Artillery Construct
 Feat/&ArtilleryConstructTitle_3	Artillery Construct
 Feat/&ArtilleryConstructTitle_5	Artillery Construct
@@ -734,6 +734,8 @@ Feature/&ArtificerSpecialistArchetypesTitle	Tinkerer Specializations
 Feature/&AscendantStepTitle	Ascendant Step
 Feature/&AspectoftheMoonDescription	You no longer need to sleep and can keep watch, lowering the chances of attack and ensuring you are awake if camp is attacked.
 Feature/&AspectoftheMoonTitle	Aspect of the Moon
+Feature/&AttributeModifierBolgrifAbilityScoreSetDescription	Wisdom +2, Strength +1
+Feature/&AttributeModifierBolgrifAbilityScoreSetTitle	Attribute Increase
 Feature/&AttributeModifierGnomeAbilityScoreSetDescription	Intelligence +2, Dexterity +1
 Feature/&AttributeModifierGnomeAbilityScoreSetTitle	Attribute Increase
 Feature/&BarbarianIndomitableMightDescription	If your total for a Strength check is less than your Strength score, you can use that score in place of the total.
@@ -855,6 +857,12 @@ Feature/&ElementalPatronFeatureSet_Level10Title	Elementalist
 Feature/&EyesoftheRuneKeeperDescription	You can read all writing.
 Feature/&EyesoftheRuneKeeperTitle	Eyes of the RuneKeeper
 Feature/&FiendishVigorTitle	Fiendish Vigor
+Feature/&BolgrifDruidicMagicDescription	You know one cantrip of your choice from the druid spell list. Wisdom is your spellcasting ability for it.
+Feature/&BolgrifDruidicMagicTitle	Druidic Magic
+Feature/&BolgrifInvisibilityPowerDescription	As a bonus action, you can magically turn invisible for 1 round. This invisibility breaks if you take any offensive action. Once you use this ability, you can't use it again until you finish a short or long rest.
+Feature/&BolgrifInvisibilityPowerTitle	Vanish
+Feature/&BolgrifPowerfulBuildDescription	You count your size as Large when determining your carrying capacity.
+Feature/&BolgrifPowerfulBuildTitle	Powerful Build
 Feature/&FlameArtillery_09ModePowerDescription	Summons a construct that lasts 1 hour. \nFlame Artillery : Creates a cone of fire that deals 3D8 damage on a failed save. \nSelf-Destruct : deals 3D8 force damage on a failed save and destroys the unit.
 Feature/&FlameArtillery_09ModePowerTitle	Summon Flame Artillery Construct
 Feature/&FlameArtillery_15ModePowerDescription	Summons a construct that lasts 1 hour. \nFlame Artillery : Creates a cone of fire that deals 3D8 damage on a failed save. \nSelf-Destruct : deals 3D8 force damage on a failed save and destroys the unit. \n Half Cover Dome : provides half cover to allies within 10ft.
@@ -943,6 +951,8 @@ Feature/&PowerTorchbearerDescription	Attempt to set a melee target on fire!
 Feature/&PowerTorchbearerTitle	Torchbearer
 Feature/&PrimalChampionDescription	At 20th level, you embody the power of the wilds. Your Strength and Constitution scores increase by 4
 Feature/&PrimalChampionTitle	Primal Champion
+Feature/&ProficiencyBolgrifLanguagesDescription	Common, Elvish and Giant
+Feature/&ProficiencyBolgrifLanguagesTitle	Language
 Feature/&ProficiencyGnomishLanguagesDescription	Common, Gnomish
 Feature/&ProficiencyGnomishLanguagesTitle	Languages
 Feature/&ProficiencyRogueBlindSenseDescription	Starting at 14th level, if you are able to hear, you are aware of the location of any hidden or invisible creature within 10 feet of you.
@@ -1342,8 +1352,10 @@ Power/&UrPriestRadiantWardTitle	Radiant Ward
 Power/&UrPriestSpellSiphonDescription	you learn how to tap into a greater source of magic in combination with your normal reserve of power. As an action, you can expend a Channel Divinity to regain an expended use of your 6th-level Mystic Arcanum.
 Power/&UrPriestSpellSiphonTitle	Spell Siphon
 Pugilist	Pugilist Damage
-Race/&ForestGnomeDescription	A constant hum of busy activity pervades the warrens and neighborhoods where gnomes form their close-knit communities. Louder sounds punctuate the hum: a crunch of grinding gears here, a minor explosion there, a yelp of surprise or triumph, and especially bursts of laughter. Gnomes take delight in life, enjoying every moment of invention, exploration, investigation, creation, and play.
-Race/&ForestGnomeTitle	Woodland Gnome
+Race/&BolgrifRaceDescription Bolgrifs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, bolgrifs demonstrate formidable skills with weapons and nature magic.
+Race/&BolgrifRaceTitle	Bolgrif
+Race/&GnomeRaceDescription	A constant hum of busy activity pervades the warrens and neighborhoods where gnomes form their close-knit communities. Louder sounds punctuate the hum: a crunch of grinding gears here, a minor explosion there, a yelp of surprise or triumph, and especially bursts of laughter. Gnomes take delight in life, enjoying every moment of invention, exploration, investigation, creation, and play.
+Race/&GnomeRaceTitle	Woodland Gnome
 Race/&PointPoolSelect10FeatsDescription	Select 10 additional feats for your character.
 Race/&PointPoolSelect10FeatsTitle	10 Bonus Feats
 Race/&PointPoolSelect11FeatsDescription	Select 11 additional feats for your character.
