@@ -168,37 +168,37 @@ This is a collection of work from the Solasta modding community. It includes rac
 
 All settings start disabled by default. On first start the mod will display an welcome message and open the UMM Mod UI settings again. Multiplayer support is still in beta. We recommend all players to share the same mod [b]Settings.xml[/b] file before a session.
 
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/Beta/Media/01-Character-General.png?raw=true[/img]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/01-Character-General.png?raw=true[/img]
 [line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/Beta/Media/02-Character-ClassesSubclasses.png?raw=true[/img]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/02-Character-ClassesSubclasses.png?raw=true[/img]
 [line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/Beta/Media/03-Character-FeatsFightingStyles.png?raw=true[/img]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/03-Character-FeatsFightingStyles.png?raw=true[/img]
 [line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/Beta/Media/04-Character-Spells.png?raw=true[/img]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/04-Character-Spells.png?raw=true[/img]
 [line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/Beta/Media/05-Gameplay-Rules.png?raw=true[/img]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/05-Gameplay-Rules.png?raw=true[/img]
 [line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/Beta/Media/06-Gameplay-CampaignsLocations.png?raw=true[/img]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/06-Gameplay-CampaignsLocations.png?raw=true[/img]
 [line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/Beta/Media/07-Gameplay-ItemsCraftingMerchants.png?raw=true[/img]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/07-Gameplay-ItemsCraftingMerchants.png?raw=true[/img]
 [line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/Beta/Media/08-Gameplay-Tools.png?raw=true[/img]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/08-Gameplay-Tools.png?raw=true[/img]
 [line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/Beta/Media/09-Interface-DungeonMaker.png?raw=true[/img]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/09-Interface-DungeonMaker.png?raw=true[/img]
 [line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/Beta/Media/10-Interface-GameUi.png?raw=true[/img]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/10-Interface-GameUi.png?raw=true[/img]
 [line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/Beta/Media/11-Interface-KeyboardMouse.png?raw=true[/img]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/11-Interface-KeyboardMouse.png?raw=true[/img]
 [line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/Beta/Media/12-Encounters-General.png?raw=true[/img]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/12-Encounters-General.png?raw=true[/img]
 [line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/Beta/Media/13-Encounters-Bestiary.png?raw=true[/img]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/13-Encounters-Bestiary.png?raw=true[/img]
 [line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/Beta/Media/14-Encounters-Pool.png?raw=true[/img]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/14-Encounters-Pool.png?raw=true[/img]
 [line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/Beta/Media/15-CreditsTroubleshooting-Credits.png?raw=true[/img]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/15-CreditsTroubleshooting-Credits.png?raw=true[/img]
 [line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/Beta/Media/16-Multiclass.png?raw=true[/img]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/16-Multiclass.png?raw=true[/img]
 [line]
 
 {1}
@@ -213,6 +213,7 @@ All settings start disabled by default. On first start the mod will display an w
 
 {6}
 ";
+
         internal static void DisplayDumpDescription()
         {
             UI.ActionButton("Dump Nexus Description", () =>
