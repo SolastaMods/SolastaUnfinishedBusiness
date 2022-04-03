@@ -1823,3 +1823,11 @@ Tooltip/&Tag9000Title	Custom Effect
 Tooltip/&TagCommunityExpansionTitle	Community Expansion
 Tooltip/&TagMaledictionTitle	Malediction
 Tooltip/&TagOtherModContentTitle	From mod
+Screen/&SpellSlotsUsedLongDescription	You have expended {0} long-rest slot(s) of this level.
+Screen/&SpellSlotsUsedShortDescription	You have expended {0} short-rest slot(s) of this level.
+Screen/&SpellSlotsUsedShortLongDescription	You have expended {0} short-rest slot(s) and {1} long-rest slot(s) of this level.
+Format/&LevelAndExperienceFormat	Level: {0}\nExperience: {1}\n{2} points required to reach level {3}
+Format/&LevelAndExperienceMaxedFormat	Level: {0}\nExperience: {1}\nmax level reached.
+MainMenu/&ExportPdfTitle	Level Down
+MainMenu/&ExportPdfDescription	Level down this Hero
+Message/&LevelDownConfirmationDescription	Level down this Hero?
