@@ -59,7 +59,6 @@ namespace SolastaCommunityExpansion.Builders
         public TBuilder AddFeatures(IEnumerable<FeatureDefinition> features)
         {
             Definition.Features.AddRange(features);
-            Definition.Features.SetRange(Definition.Features);
             return This();
         }
 
