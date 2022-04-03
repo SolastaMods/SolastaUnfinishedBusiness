@@ -11,8 +11,8 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierFeatCraftyWis:23f944c7-2359-43cc-8bdc-71833bf35302",
-    "Definition:CraftyPoisonersKit:32ddae84-66e7-4b56-b5ec-0ec91a713e2e",
-    "Definition:CraftyMedicine:1ac54869-a8ce-4a51-a858-1f7e34680b96"
+    "Definition:CraftyMedicine:1ac54869-a8ce-4a51-a858-1f7e34680b96",
+    "Definition:CraftyPoisonersKit:32ddae84-66e7-4b56-b5ec-0ec91a713e2e"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

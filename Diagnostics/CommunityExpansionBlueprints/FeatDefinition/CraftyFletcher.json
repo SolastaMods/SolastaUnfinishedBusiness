@@ -11,8 +11,8 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierFeatCraftyDex:4db12466-67da-47a4-8d96-a9bf9cf3a251",
-    "Definition:CraftySmithsTools:48905450-4b35-480f-9868-f340c7902920",
-    "Definition:CraftyBows:62a71277-b62d-41e6-9546-19f6faa2b5a7"
+    "Definition:CraftyBows:62a71277-b62d-41e6-9546-19f6faa2b5a7",
+    "Definition:CraftySmithsTools:48905450-4b35-480f-9868-f340c7902920"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

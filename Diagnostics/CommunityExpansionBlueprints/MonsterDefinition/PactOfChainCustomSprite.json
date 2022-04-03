@@ -25,12 +25,7 @@
   "savingThrowScores": [
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Strength",
-      "bonus": 0
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Dexterity",
+      "abilityScoreName": "Charisma",
       "bonus": 0
     },
     {
@@ -40,17 +35,22 @@
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Dexterity",
+      "bonus": 0
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Intelligence",
       "bonus": 0
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Wisdom",
+      "abilityScoreName": "Strength",
       "bonus": 0
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Charisma",
+      "abilityScoreName": "Wisdom",
       "bonus": 0
     }
   ],
@@ -113,12 +113,12 @@
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
-      "monsterAttackDefinition": "Definition:Attack_Mage_Dagger:711167f70938ce846aa5be08bd918fbb"
+      "monsterAttackDefinition": "Definition:Attack_Goblin_PebbleThrow:c485f2e952abc3d47b571b0e5ca63732"
     },
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
-      "monsterAttackDefinition": "Definition:Attack_Goblin_PebbleThrow:c485f2e952abc3d47b571b0e5ca63732"
+      "monsterAttackDefinition": "Definition:Attack_Mage_Dagger:711167f70938ce846aa5be08bd918fbb"
     }
   ],
   "sneakStance": "Stealth",

@@ -1,16 +1,33 @@
-﻿namespace SolastaCommunityExpansion.Builders
+﻿using static FeatureDefinitionAbilityCheckAffinity;
+using static FeatureDefinitionSavingThrowAffinity;
+
+namespace SolastaCommunityExpansion.Builders
 {
     internal static class Sorting
     {
-        internal static int Compare(FeatureDefinition x, FeatureDefinition y)
+        internal static int Compare(BaseDefinition x, BaseDefinition y)
         {
             return x.Name.CompareTo(y.Name);
+        }
+
+        internal static int Compare(SavingThrowAffinityGroup x, SavingThrowAffinityGroup y)
+        {
+            var result = x.abilityScoreName.CompareTo(y.abilityScoreName);
+            if(result == 0) { return x.affinity.CompareTo(y.affinity); }
+            return result;
+        }
+
+        internal static int Compare(AbilityCheckAffinityGroup x, AbilityCheckAffinityGroup y)
+        {
+            var result = x.abilityScoreName.CompareTo(y.abilityScoreName);
+            if(result == 0) { return x.proficiencyName.CompareTo(y.proficiencyName); }
+            return result;
         }
 
         internal static int Compare(FeatureUnlockByLevel x, FeatureUnlockByLevel y)
         {
             var result = x.Level.CompareTo(y.Level);
-            if(result != 0) { return x.FeatureDefinition.Name.CompareTo(y.FeatureDefinition.Name); }
+            if(result == 0) { return x.FeatureDefinition.Name.CompareTo(y.FeatureDefinition.Name); }
             return result;
         }
 

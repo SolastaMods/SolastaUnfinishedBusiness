@@ -2,8 +2,8 @@
   "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
   "proficiencyType": "Language",
   "proficiencies": [
-    "Language_Common",
-    "GnomishLanguage"
+    "GnomishLanguage",
+    "Language_Common"
   ],
   "forbiddenItemTags": [],
   "guiPresentation": {

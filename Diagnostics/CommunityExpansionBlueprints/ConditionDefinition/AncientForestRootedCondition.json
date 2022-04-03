@@ -4,10 +4,10 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:MovementAffinityConditionRestrained:ed9d9d5986e47f845819579f936ee8cc",
+    "Definition:AncientForestAtWillEntangle:8222f422-6486-574d-9892-adc4ca8a0322",
     "Definition:ConditionAffinityProneImmunity:abedf907fa238ce4c91865e7ab06c78d",
-    "Definition:SavingThrowAffinityConditionRaging:d692712ba0fdb1740b75f7d847059771",
-    "Definition:AncientForestAtWillEntangle:8222f422-6486-574d-9892-adc4ca8a0322"
+    "Definition:MovementAffinityConditionRestrained:ed9d9d5986e47f845819579f936ee8cc",
+    "Definition:SavingThrowAffinityConditionRaging:d692712ba0fdb1740b75f7d847059771"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,

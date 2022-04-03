@@ -5,29 +5,7 @@
   "affinityGroups": [
     {
       "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
-      "abilityScoreName": "Strength",
-      "affinity": "Advantage",
-      "savingThrowModifierType": "AddDice",
-      "savingThrowModifierDiceNumber": 0,
-      "savingThrowModifierDieType": "D1",
-      "restrictedForms": [],
-      "restrictedSchools": [
-        "SchoolAbjuration",
-        "SchoolConjuration",
-        "SchoolDivination",
-        "SchoolEnchantment",
-        "SchoolEvocation",
-        "SchoolIllusion",
-        "SchoolNecromancy",
-        "SchoolTransmutation"
-      ],
-      "restrictedSpells": [],
-      "restrictedPowers": [],
-      "savingThrowContext": "None"
-    },
-    {
-      "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
-      "abilityScoreName": "Dexterity",
+      "abilityScoreName": "Charisma",
       "affinity": "Advantage",
       "savingThrowModifierType": "AddDice",
       "savingThrowModifierDiceNumber": 0,
@@ -71,7 +49,7 @@
     },
     {
       "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
-      "abilityScoreName": "Wisdom",
+      "abilityScoreName": "Dexterity",
       "affinity": "Advantage",
       "savingThrowModifierType": "AddDice",
       "savingThrowModifierDiceNumber": 0,
@@ -115,7 +93,29 @@
     },
     {
       "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
-      "abilityScoreName": "Charisma",
+      "abilityScoreName": "Strength",
+      "affinity": "Advantage",
+      "savingThrowModifierType": "AddDice",
+      "savingThrowModifierDiceNumber": 0,
+      "savingThrowModifierDieType": "D1",
+      "restrictedForms": [],
+      "restrictedSchools": [
+        "SchoolAbjuration",
+        "SchoolConjuration",
+        "SchoolDivination",
+        "SchoolEnchantment",
+        "SchoolEvocation",
+        "SchoolIllusion",
+        "SchoolNecromancy",
+        "SchoolTransmutation"
+      ],
+      "restrictedSpells": [],
+      "restrictedPowers": [],
+      "savingThrowContext": "None"
+    },
+    {
+      "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Wisdom",
       "affinity": "Advantage",
       "savingThrowModifierType": "AddDice",
       "savingThrowModifierDiceNumber": 0,

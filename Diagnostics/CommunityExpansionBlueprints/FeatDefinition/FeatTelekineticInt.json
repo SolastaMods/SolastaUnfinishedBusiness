@@ -10,9 +10,9 @@
   "armorProficiencyCategory": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:PowerTelekineticIntPush:b5710ff2-d652-5915-9a1e-d574795c480c",
+    "Definition:FeatIntIncrement:d2209a77-7ae2-5e9f-a7b1-5c7eab76e9cf",
     "Definition:PowerTelekineticIntPull:0c4769e1-7785-5615-946c-999fa27b1408",
-    "Definition:FeatIntIncrement:d2209a77-7ae2-5e9f-a7b1-5c7eab76e9cf"
+    "Definition:PowerTelekineticIntPush:b5710ff2-d652-5915-9a1e-d574795c480c"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

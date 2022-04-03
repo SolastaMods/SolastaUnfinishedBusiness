@@ -59,6 +59,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         public FeatureDefinitionSummoningAffinityBuilder SetAddedConditions(IEnumerable<ConditionDefinition> value)
         {
             Definition.SetAddedConditions(value);
+            Definition.AddedConditions.Sort(Sorting.Compare);
             return this;
         }
     }

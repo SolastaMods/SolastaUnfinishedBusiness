@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionBonusCantrips, Assembly-CSharp",
   "bonusCantrips": [
-    "Definition:MoonlitAtWillMoonbeam:ad45f7b4-9125-542f-ae40-c1046355961d",
-    "Definition:MoonlitAtWillFaerieFire:2fb35a3d-82dc-5f89-9fc5-1df93619ef35"
+    "Definition:MoonlitAtWillFaerieFire:2fb35a3d-82dc-5f89-9fc5-1df93619ef35",
+    "Definition:MoonlitAtWillMoonbeam:ad45f7b4-9125-542f-ae40-c1046355961d"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

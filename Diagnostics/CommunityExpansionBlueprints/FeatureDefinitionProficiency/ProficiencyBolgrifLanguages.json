@@ -3,8 +3,8 @@
   "proficiencyType": "Language",
   "proficiencies": [
     "Language_Common",
-    "Language_Giant",
-    "Language_Elvish"
+    "Language_Elvish",
+    "Language_Giant"
   ],
   "forbiddenItemTags": [],
   "guiPresentation": {

@@ -67,6 +67,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         public FeatureDefinitionAdditionalActionBuilder SetForbiddenActions(IEnumerable<ActionDefinitions.Id> forbiddenActions)
         {
             Definition.ForbiddenActions.SetRange(forbiddenActions);
+            Definition.ForbiddenActions.Sort();
             return this;
         }
 
@@ -81,6 +82,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         public FeatureDefinitionAdditionalActionBuilder SetAuthorizedActions(IEnumerable<ActionDefinitions.Id> authorizedActions)
         {
             Definition.AuthorizedActions.SetRange(authorizedActions);
+            Definition.AuthorizedActions.Sort();
             return this;
         }
 
@@ -95,6 +97,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         public FeatureDefinitionAdditionalActionBuilder SetRestrictedActions(IEnumerable<ActionDefinitions.Id> restrictedActions)
         {
             Definition.RestrictedActions.SetRange(restrictedActions);
+            Definition.RestrictedActions.Sort();
             return this;
         }
     }

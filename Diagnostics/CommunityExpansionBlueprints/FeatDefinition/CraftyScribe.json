@@ -11,8 +11,8 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierFeatCraftyInt:b23c3b73-7690-42ba-aa49-7ca3451daa05",
-    "Definition:CraftyScrollKit:5309bd7f-b533-40ff-ae95-d977e02d61fe",
-    "Definition:CraftyArcana:44a54666-80ba-475c-90b1-774e86f1a69a"
+    "Definition:CraftyArcana:44a54666-80ba-475c-90b1-774e86f1a69a",
+    "Definition:CraftyScrollKit:5309bd7f-b533-40ff-ae95-d977e02d61fe"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

@@ -253,8 +253,18 @@
   "personalityFlagOccurences": [
     {
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 1,
+      "personalityFlag": "GpExplorer"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 5,
+      "personalityFlag": "GpSpellcaster"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 3,
-      "personalityFlag": "Violence"
+      "personalityFlag": "Normal"
     },
     {
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
@@ -264,28 +274,18 @@
     {
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 3,
-      "personalityFlag": "Normal"
-    },
-    {
-      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
-      "weight": 5,
-      "personalityFlag": "GpSpellcaster"
-    },
-    {
-      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
-      "weight": 1,
-      "personalityFlag": "GpExplorer"
+      "personalityFlag": "Violence"
     }
   ],
   "skillAutolearnPreference": [
-    "Deception",
-    "Intimidation",
     "Arcana",
+    "Deception",
     "History",
+    "Intimidation",
     "Investigation",
-    "Religion",
     "Nature",
-    "Persuasion"
+    "Persuasion",
+    "Religion"
   ],
   "toolAutolearnPreference": [
     "EnchantingToolType",
@@ -293,8 +293,8 @@
   ],
   "expertiseAutolearnPreference": [],
   "featAutolearnPreference": [
-    "PowerfulCantrip",
     "FlawlessConcentration",
+    "PowerfulCantrip",
     "Robust"
   ],
   "metamagicAutolearnPreference": [],
