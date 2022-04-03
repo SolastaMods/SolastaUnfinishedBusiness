@@ -49,12 +49,21 @@ namespace SolastaCommunityExpansion.Builders
         public CharacterSubclassDefinitionBuilder AddFeatureAtLevel(FeatureDefinition feature, int level)
         {
             Definition.AddFeatureUnlocks(new FeatureUnlockByLevel(feature, level));
+            Definition.SetFeatureUnlocks(Definition.FeatureUnlocks.OrderBy(f => f.Level).ThenBy(f => f.FeatureDefinition.Name));
             return this;
         }
 
         public CharacterSubclassDefinitionBuilder AddFeaturesAtLevel(int level, params FeatureDefinition[] features)
         {
             Definition.AddFeatureUnlocks(features.Select(f => new FeatureUnlockByLevel(f, level)));
+            Definition.SetFeatureUnlocks(Definition.FeatureUnlocks.OrderBy(f => f.Level).ThenBy(f => f.FeatureDefinition.Name));
+            return this;
+        }
+
+        public CharacterSubclassDefinitionBuilder SetFeaturesAtLevel(int level, params FeatureDefinition[] features)
+        {
+            Definition.SetFeatureUnlocks(
+                features.Select(f => new FeatureUnlockByLevel(f, level)).OrderBy(f => f.Level).ThenBy(f => f.FeatureDefinition.Name));
             return this;
         }
     }

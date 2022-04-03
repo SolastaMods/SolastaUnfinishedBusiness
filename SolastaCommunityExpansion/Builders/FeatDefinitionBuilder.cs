@@ -47,7 +47,7 @@ namespace SolastaCommunityExpansion.Builders
 
         public TBuilder SetFeatures(IEnumerable<FeatureDefinition> features)
         {
-            Definition.Features.SetRange(features);
+            Definition.Features.SetRange(features.OrderBy(f => f.Name));
             return This();
         }
 
@@ -59,6 +59,7 @@ namespace SolastaCommunityExpansion.Builders
         public TBuilder AddFeatures(IEnumerable<FeatureDefinition> features)
         {
             Definition.Features.AddRange(features);
+            Definition.Features.SetRange(Definition.Features);
             return This();
         }
 
@@ -83,7 +84,7 @@ namespace SolastaCommunityExpansion.Builders
 
         public TBuilder SetClassPrerequisite(IEnumerable<string> classes)
         {
-            Definition.CompatibleClassesPrerequisite.SetRange(classes);
+            Definition.CompatibleClassesPrerequisite.SetRange(classes.OrderBy(c => c));
             return This();
         }
 
@@ -94,7 +95,7 @@ namespace SolastaCommunityExpansion.Builders
 
         public TBuilder SetRacePrerequisite(IEnumerable<string> races)
         {
-            Definition.CompatibleRacesPrerequisite.SetRange(races);
+            Definition.CompatibleRacesPrerequisite.SetRange(races.OrderBy(r => r));
             return This();
         }
 
@@ -105,7 +106,7 @@ namespace SolastaCommunityExpansion.Builders
 
         public TBuilder SetFeatPrerequisite(IEnumerable<string> feats)
         {
-            Definition.KnownFeatsPrerequisite.SetRange(feats);
+            Definition.KnownFeatsPrerequisite.SetRange(feats.OrderBy(f => f));
             return This();
         }
 
