@@ -102,9 +102,8 @@ namespace SolastaCommunityExpansion.Builders
             }
 #endif
 
-            // Set the spells - remove duplicates - sort by localized name
-            Definition.SpellsByLevel[level].Spells.SetRange(
-                spells.Where(s => s.Implemented).Distinct().OrderBy(s => Gui.Format(s.GuiPresentation.Title)));
+            // Set the spells - remove duplicates - sort to add to list in determistic order
+            Definition.SpellsByLevel[level].Spells.SetRange(spells.Where(s => s.Implemented).OrderBy(s => s.Name).Distinct());
 
             return this;
         }

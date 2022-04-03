@@ -329,11 +329,6 @@
   "personalityFlagOccurences": [
     {
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
-      "weight": 2,
-      "personalityFlag": "GpSpellcaster"
-    },
-    {
-      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 3,
       "personalityFlag": "GpCombat"
     },
@@ -344,26 +339,31 @@
     },
     {
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 2,
+      "personalityFlag": "GpSpellcaster"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 3,
       "personalityFlag": "Normal"
     }
   ],
   "skillAutolearnPreference": [
-    "Investigation",
     "Arcana",
-    "History",
-    "Perception",
-    "Stealth",
-    "SleightOfHand",
     "Athletics",
+    "History",
     "Insight",
+    "Investigation",
+    "Nature",
+    "Perception",
     "Persuasion",
-    "Nature"
+    "SleightOfHand",
+    "Stealth"
   ],
   "toolAutolearnPreference": [
+    "ArtisanToolSmithToolsType",
     "EnchantingToolType",
     "ScrollKitType",
-    "ArtisanToolSmithToolsType",
     "ThievesToolsType"
   ],
   "expertiseAutolearnPreference": [],

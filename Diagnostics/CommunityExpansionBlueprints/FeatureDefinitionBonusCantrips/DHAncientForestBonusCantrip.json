@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionBonusCantrips, Assembly-CSharp",
   "bonusCantrips": [
-    "Definition:Shillelagh:2143d3cd84db2c540b80fe022d0adf1d",
-    "Definition:ChillTouch:2dffe98ad497e4b418abc947f6077fb7"
+    "Definition:ChillTouch:2dffe98ad497e4b418abc947f6077fb7",
+    "Definition:Shillelagh:2143d3cd84db2c540b80fe022d0adf1d"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

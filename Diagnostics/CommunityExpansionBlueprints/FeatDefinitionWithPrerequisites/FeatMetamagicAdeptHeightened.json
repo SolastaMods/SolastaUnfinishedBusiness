@@ -10,9 +10,9 @@
   "armorProficiencyCategory": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:MetamagicLearnHeightened:8a74dca9-b0a7-4519-aa84-d682a0272e7c",
     "Definition:AttributeModifierSorcererSorceryPointsBonus2:94de12b7-820d-5d74-ab92-813d409a29c0",
-    "Definition:AttributeModifierSorcererSorceryPointsBonus2:94de12b7-820d-5d74-ab92-813d409a29c0"
+    "Definition:AttributeModifierSorcererSorceryPointsBonus2:94de12b7-820d-5d74-ab92-813d409a29c0",
+    "Definition:MetamagicLearnHeightened:8a74dca9-b0a7-4519-aa84-d682a0272e7c"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

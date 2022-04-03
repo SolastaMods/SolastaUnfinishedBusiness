@@ -3,11 +3,11 @@
   "requiredMonsterTag": "WitchFamiliar",
   "addedConditions": [
     "Definition:ConditionWitchFamiliarAC:3a684474-c7e0-5c6b-896b-20a34127211b",
-    "Definition:ConditionWitchFamiliarST:ed5e56d0-fed9-59a4-a129-68bdfd2810e7",
     "Definition:ConditionWitchFamiliarDamage:6df5fa51-a8fc-5517-9a87-5a95f2e77d2d",
     "Definition:ConditionWitchFamiliarHit:c64608d5-3fe5-5d4c-97b9-66a3bf20a591",
     "Definition:ConditionWitchFamiliarHP:36c0810d-0136-5cf0-b31f-9249bf87e282",
-    "Definition:ConditionWitchFamiliarHP:36c0810d-0136-5cf0-b31f-9249bf87e282"
+    "Definition:ConditionWitchFamiliarHP:36c0810d-0136-5cf0-b31f-9249bf87e282",
+    "Definition:ConditionWitchFamiliarST:ed5e56d0-fed9-59a4-a129-68bdfd2810e7"
   ],
   "effectOnConjuredDeath": true,
   "effectForms": [],

@@ -68,6 +68,7 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetUsesWarList(true);
             Definition.SetWarListSlotBonus(levelBonus);
             Definition.WarListSpells.AddRange(spellNames);
+            Definition.WarListSpells.Sort();
             return this;
         }
 

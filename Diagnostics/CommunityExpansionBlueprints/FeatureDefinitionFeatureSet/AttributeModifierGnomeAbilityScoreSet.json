@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:AttributeModifierGnomeAbilityScoreIncrease:b1475c33-f9ba-4224-b4b1-a55621f4dcd1",
-    "Definition:AttributeModifierForestGnomeAbilityScoreIncrease:b7f18e2f-532f-46bf-96d2-f3612026295f"
+    "Definition:AttributeModifierForestGnomeAbilityScoreIncrease:b7f18e2f-532f-46bf-96d2-f3612026295f",
+    "Definition:AttributeModifierGnomeAbilityScoreIncrease:b1475c33-f9ba-4224-b4b1-a55621f4dcd1"
   ],
   "mode": "Union",
   "defaultSelection": 0,

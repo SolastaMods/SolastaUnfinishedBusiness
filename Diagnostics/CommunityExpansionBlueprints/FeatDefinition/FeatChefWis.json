@@ -10,9 +10,9 @@
   "armorProficiencyCategory": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:FeatChefWisIncrement:66525b26-9796-563b-9896-ec7d61d38526",
+    "Definition:FeatChefCookTreats:14888452-6cdf-53d6-bfb6-cdd5648f9956",
     "Definition:FeatChefShortRestFeast:a2c52704-5388-503d-b1bb-0d1a1e21c8be",
-    "Definition:FeatChefCookTreats:14888452-6cdf-53d6-bfb6-cdd5648f9956"
+    "Definition:FeatChefWisIncrement:66525b26-9796-563b-9896-ec7d61d38526"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

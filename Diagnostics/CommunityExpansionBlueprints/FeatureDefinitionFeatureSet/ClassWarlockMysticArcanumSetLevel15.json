@@ -1,12 +1,12 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:DH_MysticArcanum15_DHDominateMonsterSpell:7ceb63f3-7301-59a0-b24d-2f5e194d82e6",
-    "Definition:DH_MysticArcanum15_DHFeeblemindSpell:0aa88b2e-9f04-5ed9-88a4-b4ca20fdeb2c",
-    "Definition:DH_MysticArcanum15_DHPowerWordStunSpell:2729d2ee-46e9-5ecc-8312-7ec418a75b03",
-    "Definition:DH_MysticArcanum15_DHFingerOfDeathSpell:ca939469-1d31-510c-8f77-fd97b588d56c",
     "Definition:DH_MysticArcanum15_CircleOfDeath:9ed65c0f-1dbe-595a-b5cb-f67ddf1edee8",
     "Definition:DH_MysticArcanum15_ConjureFey:caa35c42-1deb-5f97-9755-113806350e75",
+    "Definition:DH_MysticArcanum15_DHDominateMonsterSpell:7ceb63f3-7301-59a0-b24d-2f5e194d82e6",
+    "Definition:DH_MysticArcanum15_DHFeeblemindSpell:0aa88b2e-9f04-5ed9-88a4-b4ca20fdeb2c",
+    "Definition:DH_MysticArcanum15_DHFingerOfDeathSpell:ca939469-1d31-510c-8f77-fd97b588d56c",
+    "Definition:DH_MysticArcanum15_DHPowerWordStunSpell:2729d2ee-46e9-5ecc-8312-7ec418a75b03",
     "Definition:DH_MysticArcanum15_Eyebite:b41a0738-7de1-592b-92d3-49eddde93470",
     "Definition:DH_MysticArcanum15_TrueSeeing:8ef266aa-53a5-5a27-a3d4-fb36b6076780"
   ],

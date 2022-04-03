@@ -60,6 +60,9 @@ namespace SolastaCommunityExpansion.Builders
               new PersonalityFlagOccurence(DatabaseHelper.CharacterClassDefinitions.Fighter.PersonalityFlagOccurences[0])
                 .SetWeight(weight)
                 .SetPersonalityFlag(personalityType.Name));
+
+            Definition.PersonalityFlagOccurences.Sort((x, y) => x.PersonalityFlag.CompareTo(y.PersonalityFlag));
+
             return this;
         }
 
@@ -67,6 +70,7 @@ namespace SolastaCommunityExpansion.Builders
         public CharacterClassDefinitionBuilder AddToolPreference(ToolTypeDefinition toolType)
         {
             Definition.ToolAutolearnPreference.Add(toolType.Name);
+            Definition.ToolAutolearnPreference.Sort();
             return this;
         }
 
@@ -78,10 +82,8 @@ namespace SolastaCommunityExpansion.Builders
 
         public CharacterClassDefinitionBuilder AddToolPreferences(IEnumerable<ToolTypeDefinition> toolTypes)
         {
-            foreach (var toolType in toolTypes)
-            {
-                Definition.ToolAutolearnPreference.Add(toolType.Name);
-            }
+            Definition.ToolAutolearnPreference.AddRange(toolTypes.Select(tt => tt.Name));
+            Definition.ToolAutolearnPreference.Sort();
             return this;
         }
         #endregion
@@ -90,6 +92,7 @@ namespace SolastaCommunityExpansion.Builders
         public CharacterClassDefinitionBuilder AddSkillPreference(SkillDefinition skillType)
         {
             Definition.SkillAutolearnPreference.Add(skillType.Name);
+            Definition.SkillAutolearnPreference.Sort();
             return this;
         }
 
@@ -101,10 +104,8 @@ namespace SolastaCommunityExpansion.Builders
 
         public CharacterClassDefinitionBuilder AddSkillPreferences(IEnumerable<SkillDefinition> skillTypes)
         {
-            foreach (var skillType in skillTypes)
-            {
-                Definition.SkillAutolearnPreference.Add(skillType.Name);
-            }
+            Definition.SkillAutolearnPreference.AddRange(skillTypes.Select(st => st.Name));
+            Definition.SkillAutolearnPreference.Sort();
             return this;
         }
         #endregion
@@ -114,12 +115,14 @@ namespace SolastaCommunityExpansion.Builders
         public CharacterClassDefinitionBuilder AddExpertisePreference(SkillDefinition skillType)
         {
             Definition.ExpertiseAutolearnPreference.Add(skillType.Name);
+            Definition.ExpertiseAutolearnPreference.Sort();
             return this;
         }
 
         public CharacterClassDefinitionBuilder AddExpertisePreference(ToolTypeDefinition toolType)
         {
             Definition.ExpertiseAutolearnPreference.Add(toolType.Name);
+            Definition.ExpertiseAutolearnPreference.Sort();
             return this;
         }
         public CharacterClassDefinitionBuilder AddExpertisePreferences(params SkillDefinition[] skillTypes)
@@ -136,19 +139,15 @@ namespace SolastaCommunityExpansion.Builders
 
         public CharacterClassDefinitionBuilder AddExpertisePreferences(IEnumerable<SkillDefinition> skillTypes)
         {
-            foreach (var skillType in skillTypes)
-            {
-                Definition.ExpertiseAutolearnPreference.Add(skillType.Name);
-            }
+            Definition.ExpertiseAutolearnPreference.AddRange(skillTypes.Select(st => st.Name));
+            Definition.ExpertiseAutolearnPreference.Sort();
             return this;
         }
 
         public CharacterClassDefinitionBuilder AddExpertisePreferences(IEnumerable<ToolTypeDefinition> toolTypes)
         {
-            foreach (var toolType in toolTypes)
-            {
-                Definition.ExpertiseAutolearnPreference.Add(toolType.Name);
-            }
+            Definition.ExpertiseAutolearnPreference.AddRange(toolTypes.Select(tt => tt.Name));
+            Definition.ExpertiseAutolearnPreference.Sort();
             return this;
         }
 
@@ -159,6 +158,7 @@ namespace SolastaCommunityExpansion.Builders
         public CharacterClassDefinitionBuilder AddFeatPreference(FeatDefinition featType)
         {
             Definition.FeatAutolearnPreference.Add(featType.Name);
+            Definition.FeatAutolearnPreference.Sort();
             return this;
         }
 
@@ -170,10 +170,8 @@ namespace SolastaCommunityExpansion.Builders
 
         public CharacterClassDefinitionBuilder AddFeatPreferences(IEnumerable<FeatDefinition> featTypes)
         {
-            foreach (var featType in featTypes)
-            {
-                Definition.FeatAutolearnPreference.Add(featType.Name);
-            }
+            Definition.FeatAutolearnPreference.AddRange(featTypes.Select(ft => ft.Name));
+            Definition.FeatAutolearnPreference.Sort();
             return this;
         }
 
@@ -184,6 +182,7 @@ namespace SolastaCommunityExpansion.Builders
         public CharacterClassDefinitionBuilder AddMetamagicPreference(MetamagicOptionDefinition option)
         {
             Definition.MetamagicAutolearnPreference.Add(option.Name);
+            Definition.MetamagicAutolearnPreference.Sort();
             return this;
         }
 
@@ -195,10 +194,8 @@ namespace SolastaCommunityExpansion.Builders
 
         public CharacterClassDefinitionBuilder AddMetamagicPreferences(IEnumerable<MetamagicOptionDefinition> options)
         {
-            foreach (var option in options)
-            {
-                Definition.FeatAutolearnPreference.Add(option.Name);
-            }
+            Definition.FeatAutolearnPreference.AddRange(options.Select(o => o.Name));
+            Definition.MetamagicAutolearnPreference.Sort();
             return this;
         }
 
@@ -275,12 +272,15 @@ namespace SolastaCommunityExpansion.Builders
             {
                 Definition.FeatureUnlocks.Add(new FeatureUnlockByLevel(feature, level));
             }
+
+            Definition.FeatureUnlocks.Sort(Sorting.Compare);
             return this;
         }
 
         public CharacterClassDefinitionBuilder AddFeaturesAtLevel(int level, params FeatureDefinition[] features)
         {
             Definition.AddFeatureUnlocks(features.Select(f => new FeatureUnlockByLevel(f, level)));
+            Definition.FeatureUnlocks.Sort(Sorting.Compare);
             return this;
         }
     }

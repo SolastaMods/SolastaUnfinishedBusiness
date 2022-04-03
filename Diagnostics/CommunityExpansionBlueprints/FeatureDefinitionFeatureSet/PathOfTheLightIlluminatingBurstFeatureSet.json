@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:PathOfTheLightIlluminatingBurstInitiator:e8ad8505-17d7-57fe-8684-258798a382b6",
     "Definition:PathOfTheLightIlluminatingBurst:afeb14b1-308c-56e6-9680-5942aca31ee5",
+    "Definition:PathOfTheLightIlluminatingBurstInitiator:e8ad8505-17d7-57fe-8684-258798a382b6",
     "Definition:PathOfTheLightIlluminatingBurstSuppressor:3f300372-fc36-5d56-b8dd-8642ac03d24e"
   ],
   "mode": "Union",

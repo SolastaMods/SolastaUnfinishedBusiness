@@ -54,16 +54,16 @@
   "stealableLootDefinition": null,
   "bestiaryLootOptions": [],
   "features": [
-    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
-    "Definition:SenseDarkvision24:a7a21553e478546448413923e8dd948e",
-    "Definition:MoveModeMove2:0127a492ba7a429408b3282dde9374d7",
-    "Definition:MoveModeFly12:5e70172c8e2a40146b375001ab656a44",
-    "Definition:AbilityCheckAffinityKeenSight:3c05196978fcf854e886aec1e67e64e8",
     "Definition:AbilityCheckAffinityKeenHearing:4e042e049873e27469a28b7c8e9e1d72",
+    "Definition:AbilityCheckAffinityKeenSight:3c05196978fcf854e886aec1e67e64e8",
     "Definition:CombatAffinityFlyby:a5d877d885f31944fbae4bbaa2bb5d6c",
+    "Definition:ConditionAffinityProneImmunity:abedf907fa238ce4c91865e7ab06c78d",
     "Definition:MovementAffinityNoClimb:f65dd18ad2835b14e96502705a1b9544",
     "Definition:MovementAffinityNoSpecialMoves:0cd5ea35f59f7e84fa3a0c6615abf781",
-    "Definition:ConditionAffinityProneImmunity:abedf907fa238ce4c91865e7ab06c78d",
+    "Definition:MoveModeFly12:5e70172c8e2a40146b375001ab656a44",
+    "Definition:MoveModeMove2:0127a492ba7a429408b3282dde9374d7",
+    "Definition:SenseDarkvision24:a7a21553e478546448413923e8dd948e",
+    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
     "Definition:HelpAction:994ab51f-a81a-50fd-af24-45dfd078b637"
   ],
   "attackIterations": [

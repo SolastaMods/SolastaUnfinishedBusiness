@@ -1,15 +1,15 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:DH_MysticArcanum17_DHForesightSpell:6b52120d-8c13-503c-9f72-48c7783fa4e3",
-    "Definition:DH_MysticArcanum17_DHPowerWordKillSpell:d348cd7e-74e0-596b-96d7-ab77fd61737d",
-    "Definition:DH_MysticArcanum17_DHWeirdSpell:7c8070c5-4501-5558-b9e2-a4906034d539",
-    "Definition:DH_MysticArcanum17_DHDominateMonsterSpell:9ebaa2a0-9596-5196-8424-e914969563d7",
-    "Definition:DH_MysticArcanum17_DHFeeblemindSpell:62e0c1d9-4ec4-5794-b625-1165babdf136",
-    "Definition:DH_MysticArcanum17_DHPowerWordStunSpell:680f1ac4-5580-54de-a052-3a297a0af393",
-    "Definition:DH_MysticArcanum17_DHFingerOfDeathSpell:c10e71c3-655c-5968-a270-f0476c8484d1",
     "Definition:DH_MysticArcanum17_CircleOfDeath:c7b0ed78-1486-5edd-a941-99f134d09148",
     "Definition:DH_MysticArcanum17_ConjureFey:729b9442-1686-5913-9ac3-7a09beafc5f0",
+    "Definition:DH_MysticArcanum17_DHDominateMonsterSpell:9ebaa2a0-9596-5196-8424-e914969563d7",
+    "Definition:DH_MysticArcanum17_DHFeeblemindSpell:62e0c1d9-4ec4-5794-b625-1165babdf136",
+    "Definition:DH_MysticArcanum17_DHFingerOfDeathSpell:c10e71c3-655c-5968-a270-f0476c8484d1",
+    "Definition:DH_MysticArcanum17_DHForesightSpell:6b52120d-8c13-503c-9f72-48c7783fa4e3",
+    "Definition:DH_MysticArcanum17_DHPowerWordKillSpell:d348cd7e-74e0-596b-96d7-ab77fd61737d",
+    "Definition:DH_MysticArcanum17_DHPowerWordStunSpell:680f1ac4-5580-54de-a052-3a297a0af393",
+    "Definition:DH_MysticArcanum17_DHWeirdSpell:7c8070c5-4501-5558-b9e2-a4906034d539",
     "Definition:DH_MysticArcanum17_Eyebite:5973f837-75eb-5297-87ad-122a0e48258b",
     "Definition:DH_MysticArcanum17_TrueSeeing:6dbd3d23-8063-593d-9e18-6844ff40eea3"
   ],

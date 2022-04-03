@@ -25,12 +25,7 @@
   "savingThrowScores": [
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Strength",
-      "bonus": 0
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Dexterity",
+      "abilityScoreName": "Charisma",
       "bonus": 0
     },
     {
@@ -40,17 +35,22 @@
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Dexterity",
+      "bonus": 0
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Intelligence",
       "bonus": 0
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Wisdom",
+      "abilityScoreName": "Strength",
       "bonus": 0
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Charisma",
+      "abilityScoreName": "Wisdom",
       "bonus": 0
     }
   ],

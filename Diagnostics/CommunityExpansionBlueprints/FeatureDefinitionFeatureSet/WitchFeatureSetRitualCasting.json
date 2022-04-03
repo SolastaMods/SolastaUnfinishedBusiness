@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:WitchRitualCastingMagicAffinity:4385a40d-40c6-55b8-90c7-087a0414d8a1",
-    "Definition:ActionAffinityWizardRitualCasting:ab85ac35847f3fc4899712329db32377"
+    "Definition:ActionAffinityWizardRitualCasting:ab85ac35847f3fc4899712329db32377",
+    "Definition:WitchRitualCastingMagicAffinity:4385a40d-40c6-55b8-90c7-087a0414d8a1"
   ],
   "mode": "Union",
   "defaultSelection": 0,

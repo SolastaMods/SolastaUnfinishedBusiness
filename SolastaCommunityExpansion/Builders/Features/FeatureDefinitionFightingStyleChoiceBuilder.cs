@@ -51,6 +51,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         public FeatureDefinitionFightingStyleChoiceBuilder SetFightingStyles(IEnumerable<string> styles)
         {
             Definition.SetFightingStyles(styles);
+            Definition.FightingStyles.Sort();
             return This();
         }
 
@@ -62,6 +63,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         public FeatureDefinitionFightingStyleChoiceBuilder AddFightingStyles(IEnumerable<string> styles)
         {
             Definition.AddFightingStyles(styles);
+            Definition.FightingStyles.Sort();
             return This();
         }
     }
