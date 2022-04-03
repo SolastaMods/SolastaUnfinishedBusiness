@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
+using HarmonyLib;
 using ModKit;
 using UnityModManagerNet;
 
@@ -11,37 +12,48 @@ namespace SolastaCommunityExpansion
 {
     public static class Main
     {
-        public static bool IsMulticlassInstalled { get; set; }
         internal static bool IsDebugBuild => UnityEngine.Debug.isDebugBuild;
         internal static bool Enabled { get; set; }
 
         internal static readonly string MOD_FOLDER = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        
+        internal static readonly string MulticlassFilename = Path.Combine(MOD_FOLDER, "SolastaMulticlass.dll");
 
+        internal static readonly bool IsMulticlassInstalled = File.Exists(MulticlassFilename);
+
+        // need to be public for MC sidecar
         [Conditional("DEBUG")]
-        internal static void Log(string msg)
+        public static void Log(string msg)
         {
             Logger.Log(msg);
         }
 
-        internal static void Error(Exception ex)
+        // need to be public for MC sidecar
+        public static void Error(Exception ex)
         {
             Logger?.Error(ex.ToString());
         }
 
-        internal static void Error(string msg)
+        // need to be public for MC sidecar
+        public static void Error(string msg)
         {
             Logger?.Error(msg);
         }
 
-        internal static void Warning(string msg)
+        // need to be public for MC sidecar
+        public static void Warning(string msg)
         {
             Logger?.Warning(msg);
         }
 
-        internal static UnityModManager.ModEntry.ModLogger Logger { get; private set; }
+        // need to be public for MC sidecar
+        public static UnityModManager.ModEntry.ModLogger Logger { get; private set; }
+
         internal static ModManager<Core, Settings> Mod { get; private set; }
         internal static MenuManager Menu { get; private set; }
-        internal static Settings Settings => Mod.Settings;
+
+        // need to be public for MC sidecar
+        public static Settings Settings => Mod.Settings;
 
         internal static bool Load(UnityModManager.ModEntry modEntry)
         {
@@ -58,6 +70,17 @@ namespace SolastaCommunityExpansion
                 Menu.Enable(modEntry, assembly);
 
                 Translations.Load(MOD_FOLDER);
+
+                // load multiclass
+                var multiclassFilename = Path.Combine(MOD_FOLDER, "SolastaMulticlass.dll");
+
+                if (IsMulticlassInstalled && Main.Settings.EnableMulticlass)
+                {
+                    var multiclassAssembly = Assembly.LoadFile(multiclassFilename);
+                    var harmony = new Harmony("SolastaMulticlass");
+
+                    harmony.PatchAll(multiclassAssembly);
+                }
             }
             catch (Exception ex)
             {
