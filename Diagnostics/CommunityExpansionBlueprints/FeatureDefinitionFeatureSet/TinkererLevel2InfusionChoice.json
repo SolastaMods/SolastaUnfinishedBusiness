@@ -1,0 +1,45 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:summonArtificialServantPower:d321d6f8-079e-58b9-b921-99a38fbf54bc",
+    "Definition:ArtificerInfusionEnhancedArmor:982235c8-0db8-5434-9e98-735e9270f271",
+    "Definition:ArtificerInfusionBagOfHolding:269fb5c5-2ce1-5847-976d-52a98d54f459",
+    "Definition:PowerInfuseDarkvision:22179db3-5388-51b3-877d-767775c0c600",
+    "Definition:ArtificerInfusionEnhancedFocus:47b9e913-683a-5a89-86d5-4d5ab3c4be2f",
+    "Definition:ArtificerInfusionEnhancedWeapon:2e54572b-87bb-5aca-8e97-085229100b71",
+    "Definition:ArtificerInfusionMindSharpener:9235b3d1-9d88-5252-a64b-cf177e136e37",
+    "Definition:ArtificerInfusionArmorMagicalStrength:402dc3fd-b077-5b36-9ab4-75bce2f185f8"
+  ],
+  "mode": "Exclusion",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&TinkererInfusionChoiceTitle",
+    "description": "Subclass/&TinkererInfusionChoiceDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "3120419f-9363-57b4-a4c8-8416184e4804",
+  "contentPack": 9999,
+  "name": "TinkererLevel2InfusionChoice"
+}

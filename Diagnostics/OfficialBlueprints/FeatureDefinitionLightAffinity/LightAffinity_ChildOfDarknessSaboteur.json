@@ -1,0 +1,46 @@
+{
+  "$type": "FeatureDefinitionLightAffinity, Assembly-CSharp",
+  "lightingEffectAndConditionList": [
+    {
+      "$type": "FeatureDefinitionLightAffinity+LightingEffectAndCondition, Assembly-CSharp",
+      "lightingState": "Darkness",
+      "condition": "Definition:ConditionChildOfDarkness_DarknessSaboteur:8344532667b480a4db47d18e40b88371",
+      "effect": null
+    },
+    {
+      "$type": "FeatureDefinitionLightAffinity+LightingEffectAndCondition, Assembly-CSharp",
+      "lightingState": "Unlit",
+      "condition": "Definition:ConditionChildOfDarkness_DarknessSaboteur:8344532667b480a4db47d18e40b88371",
+      "effect": null
+    }
+  ],
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Condition/&ChildOfDarkness_Title",
+    "description": "Condition/&ChildOfDarkness0_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "39f638b577396194a829708a4e7418b6",
+  "contentPack": "BaseGame",
+  "name": "LightAffinity_ChildOfDarknessSaboteur"
+}

@@ -1,0 +1,39 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:ActionAffinityMartialCommanderCoordinatedDefense:ced5b6c17d6c61e408b9156cb70eb10a",
+    "Definition:PowerMartialCommanderCoordinatedDefense:1db8bd5a73378824a91b63a2a2128eef"
+  ],
+  "mode": "Union",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&MartialCommanderCoordinatedDefenseTitle",
+    "description": "Feature/&MartialCommanderCoordinatedDefenseDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "604760b88b0f1474a9d9495a3a8d0d67",
+  "contentPack": "BaseGame",
+  "name": "FeatureSetCommanderCoordinatedDefense"
+}

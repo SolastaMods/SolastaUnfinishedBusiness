@@ -1,10 +1,10 @@
-﻿using SolastaModApi;
+﻿using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaCommunityExpansion.Level20.Features
 {
-    internal sealed class PowerPaladinAuraOfProtection18Builder : BaseDefinitionBuilder<FeatureDefinitionPower>
+    internal sealed class PowerPaladinAuraOfProtection18Builder : FeatureDefinitionPowerBuilder
     {
         private static FeatureDefinitionPower _instance;
 
@@ -24,17 +24,6 @@ namespace SolastaCommunityExpansion.Level20.Features
             Definition.GuiPresentation.Title = "Feature/&PowerPaladinAuraOfProtection18Title";
         }
 
-        internal static FeatureDefinitionPower Instance
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = new PowerPaladinAuraOfProtection18Builder().AddToDB();
-                }
-
-                return _instance;
-            }
-        }
+        internal static FeatureDefinitionPower Instance => _instance ??= new PowerPaladinAuraOfProtection18Builder().AddToDB();
     }
 }

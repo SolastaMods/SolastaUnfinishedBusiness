@@ -11,8 +11,14 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             int intValue;
 
             UI.Label("");
-            UI.Label("Debug:".yellow());
+            UI.Label("General:".yellow());
             UI.Label("");
+
+            toggle = Main.Settings.EnableRespec;
+            if (UI.Toggle("Enable the RESPEC after rest action", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableRespec = toggle;
+            }
 
             toggle = Main.Settings.EnableCheatMenu;
             if (UI.Toggle("Enable the cheats menu", ref toggle, UI.AutoWidth()))
@@ -21,7 +27,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
 
             toggle = Main.Settings.NoExperienceOnLevelUp;
-            if (UI.Toggle("No experience is required to level up", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("No experience is required to Level Up", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.NoExperienceOnLevelUp = toggle;
             }
@@ -34,7 +40,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             var gameCampaign = Gui.GameCampaign;
             var gameFactionService = ServiceRepository.GetService<IGameFactionService>();
 
-            if (gameFactionService != null && gameCampaign?.CampaignDefinitionName != "UserCampaign")
+            // NOTE: don't use gameCampaign?. which bypasses Unity object lifetime check
+            if (gameFactionService != null && gameCampaign != null && gameCampaign.CampaignDefinitionName != "UserCampaign")
             {
                 foreach (FactionDefinition faction in gameFactionService.RegisteredFactions)
                 {

@@ -1,0 +1,162 @@
+{
+  "$type": "EffectProxyDefinition, Assembly-CSharp",
+  "canMove": false,
+  "canRotate": false,
+  "canMoveOnCharacters": false,
+  "canAttack": true,
+  "actionId": "ProxyCallLightning",
+  "freeActionId": "ProxyCallLightningFree",
+  "attackMethod": "Power",
+  "firstAttackIsFree": true,
+  "constrainedToSpellArea": true,
+  "damageDie": "D8",
+  "damageType": "DamageRadiant",
+  "attackPower": "Definition:PowerCallLightning:92db79af026a9ff498553e5328122ad2",
+  "impactsPlacement": false,
+  "additionalFeatures": [],
+  "attackParticle": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "attackImpactParticle": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "addLightSource": false,
+  "lightSourceForm": {
+    "$type": "LightSourceForm, Assembly-CSharp",
+    "lightSourceType": "Basic",
+    "brightRange": 4,
+    "dimAdditionalRange": 4,
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.945098042,
+      "g": 0.360026062,
+      "b": 0.24313724,
+      "a": 1.0
+    },
+    "graphicsPrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "382beb45afcab144c934e4a1f34b619d",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "applyToSelf": false
+  },
+  "lightSourceOffset": {
+    "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "spellImmunityFromOutside": false,
+  "maxSpellLevelImmunity": 1,
+  "hasPresentation": true,
+  "prefabReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "ffa854ac99879054e88a4ef09991f7a1",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "isEmptyPresentation": true,
+  "modelScale": 1.0,
+  "showWorldLocationFeedbacks": false,
+  "hasPortrait": true,
+  "portraitSpriteReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "4b39a720f47d6a6489f97533952457c9",
+    "m_SubObjectName": "CallLightning",
+    "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+  },
+  "startEvent": {
+    "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": {
+      "$type": "WwiseEventReference, AK.Wwise.Unity.API.WwiseTypes",
+      "objectName": "Play_Vfx_CONJ_CallLightning_Proxy_Loop",
+      "id": 4116722186,
+      "guid": "9EF0215D-13B8-4635-ADC0-944764291420",
+      "name": "9EF0215D-13B8-4635-ADC0-944764291420"
+    },
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "stopEvent": {
+    "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": {
+      "$type": "WwiseEventReference, AK.Wwise.Unity.API.WwiseTypes",
+      "objectName": "Stop_Vfx_CONJ_CallLightning_Proxy_Loop",
+      "id": 1847841816,
+      "guid": "0B752F13-D8CC-464B-B615-D5BB819EA9AD",
+      "name": "0B752F13-D8CC-464B-B615-D5BB819EA9AD"
+    },
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "soundEffectOnHitDescription": {
+    "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
+    "switchOnHit": {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": {
+        "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
+        "WwiseSwitchGroupReference": {
+          "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+          "objectName": "Switch_Damage",
+          "id": 1103537035,
+          "guid": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A",
+          "name": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A"
+        },
+        "objectName": "Spell",
+        "id": 523506649,
+        "guid": "225A6C3B-22D3-4B63-9E92-62510CD541D1",
+        "name": "225A6C3B-22D3-4B63-9E92-62510CD541D1"
+      },
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "EffectProxy/&ProxyCallLightningTitle",
+    "description": "EffectProxy/&ProxyCallLightningDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "4b39a720f47d6a6489f97533952457c9",
+      "m_SubObjectName": "CallLightning",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "7b61d9f4d087efe4e834265097a3ff9e",
+  "contentPack": "BaseGame",
+  "name": "ProxyCallLightning"
+}

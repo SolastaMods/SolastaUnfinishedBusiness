@@ -1,0 +1,101 @@
+{
+  "$type": "SpellListDefinition, Assembly-CSharp",
+  "hasCantrips": false,
+  "maxSpellLevel": 5,
+  "spellsByLevel": [
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 0,
+      "spells": []
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 1,
+      "spells": [
+        "Definition:FogCloud:c0914cf3ec2124242b9f64d267e94c17",
+        "Definition:Thunderwave:6c670662de0366842bca44119e9104da"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 2,
+      "spells": [
+        "Definition:ScorchingRay:2196d4d1af65ab8469bcb2b382014a58",
+        "Definition:SpikeGrowth:489c8aa040535444da10a267213ee7dc"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 3,
+      "spells": [
+        "Definition:Fireball:3f88bf59a445ce64aa23dfb935750535",
+        "Definition:LightningBolt:f6e4a759d9257fe429523d7f3e8d9eb3"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 4,
+      "spells": [
+        "Definition:ConjureMinorElementals:d90fff57665a51c4faf587eb54f3e001",
+        "Definition:IceStorm:433fb934e19f1b5409b89bfa7fed3e3d",
+        "Definition:Stoneskin:9040c4fcd7301184f8772720f716a837"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 5,
+      "spells": [
+        "Definition:ConeOfCold:4014172b09c7b0347911d81077d7ba0c",
+        "Definition:ConjureElemental:7b1c584f8e18f6a4194eba7bc80d3643",
+        "Definition:FlameStrike:e165a70c93c4985449e51d32117c2ddf"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 6,
+      "spells": []
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 7,
+      "spells": []
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 8,
+      "spells": []
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 9,
+      "spells": []
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "SpellList/&ElementalistSpellsListTitle",
+    "description": "SpellList/&ElementalistSpellsListDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "bf646de5-3d7b-53e5-93d4-4e70bd24501b",
+  "contentPack": 9999,
+  "name": "ElementalistSpellsList"
+}

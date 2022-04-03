@@ -1,0 +1,43 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:DHEIAttributeModifersEldritchSmite:d2858f08-7bcc-534c-b254-0004bf4ce3b9",
+    "Definition:DHEIAttributeModifersThirstingBlade:c26debc7-fe9b-5037-a380-a1cfc4945428",
+    "Definition:DHEldritchInvocationSlow:3fa3c649-2ada-5bee-926f-15434a36e09b",
+    "Definition:DHEldritchInvocationLevitate:8975146d-7cbc-5b2d-bf4e-c5f153ec8ff5",
+    "Definition:DHEldritchInvocationJump:2a6b8f9e-f647-533d-92bc-719a72c506e2",
+    "Definition:DHEIAttributeModifersGiftoftheProtectors:cb42a6ae-a375-597a-be50-5395cf3ab74f"
+  ],
+  "mode": "Exclusion",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&ClassWarlockEldritchInvocationSetLevelTitle",
+    "description": "Feature/&ClassWarlockEldritchInvocationSetLevelDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "5fff07f5-83fa-5842-8c09-b3eafa5c8fdd",
+  "contentPack": 9999,
+  "name": "ClassWarlockEldritchInvocationSetLevel9"
+}

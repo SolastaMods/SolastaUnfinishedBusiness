@@ -1,4 +1,5 @@
 ﻿using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionCastSpells;
 
 namespace SolastaCommunityExpansion.Level20.SubClasses
@@ -9,11 +10,9 @@ namespace SolastaCommunityExpansion.Level20.SubClasses
         {
             CastSpellMartialSpellBlade.SetSpellCastingLevel(4);
 
-            CastSpellMartialSpellBlade.SlotsPerLevels.Clear();
-            CastSpellMartialSpellBlade.SlotsPerLevels.AddRange(SpellsHelper.OneThirdCastingSlots);
+            CastSpellMartialSpellBlade.SlotsPerLevels.SetRange(SpellsHelper.OneThirdCastingSlots);
 
-            CastSpellMartialSpellBlade.ReplacedSpells.Clear();
-            CastSpellMartialSpellBlade.ReplacedSpells.AddRange(SpellsHelper.OneThirdCasterReplacedSpells);
+            CastSpellMartialSpellBlade.ReplacedSpells.SetRange(SpellsHelper.OneThirdCasterReplacedSpells);
         }
     }
 }

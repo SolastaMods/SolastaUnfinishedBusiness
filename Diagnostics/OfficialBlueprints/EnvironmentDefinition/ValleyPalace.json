@@ -1,0 +1,37 @@
+{
+  "$type": "EnvironmentDefinition, Assembly-CSharp",
+  "outdoor": false,
+  "sceneReferenceOverride": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Environment/&ValleyPalaceTitle",
+    "description": "Environment/&ValleyPalaceDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "4652c7dcf76cb7840855e3595f1e15fc",
+      "m_SubObjectName": "DLC1_BuriedCity_Palace",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 10,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "bb69fe2bc78743843928d12b3194b384",
+  "contentPack": "LostValley",
+  "name": "ValleyPalace"
+}

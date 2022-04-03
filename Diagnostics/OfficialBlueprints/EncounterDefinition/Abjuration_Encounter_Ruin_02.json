@@ -1,0 +1,34 @@
+{
+  "$type": "EncounterDefinition, Assembly-CSharp",
+  "type": "Event",
+  "challengeRating": 2,
+  "locationOverride": "Definition:Encounter_Ruin_LocationDB:ca604025ce05341418bad84e91e4fde3",
+  "monsterOccurences": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Encounter/&Abjuration_Ruins02_EncounterTitle",
+    "description": "Encounter/&Abjuration_Ruins02_EncounterDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "1512c6b12c1c0154f82a986b07d29bba",
+  "contentPack": "BaseGame",
+  "name": "Abjuration_Encounter_Ruin_02"
+}

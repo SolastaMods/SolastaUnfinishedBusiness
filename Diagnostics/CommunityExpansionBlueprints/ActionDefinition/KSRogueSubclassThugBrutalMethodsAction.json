@@ -1,0 +1,76 @@
+{
+  "$type": "ActionDefinition, Assembly-CSharp",
+  "id": 44800,
+  "actionType": "Bonus",
+  "actionScope": "Battle",
+  "pairedActionId": "NoAction",
+  "usesPerTurn": -1,
+  "classNameOverride": "Shove",
+  "requiresAuthorization": true,
+  "stealthBreakerBehavior": "None",
+  "feedbackOnHoverType": "None",
+  "iterativeTargeting": false,
+  "canTriggerBattle": false,
+  "parameter": "Shove",
+  "formType": "Small",
+  "focusCameraOnAction": true,
+  "addedConditionName": "",
+  "removedConditionName": "",
+  "preventsSerialization": true,
+  "activatedPower": null,
+  "displayPowerTooltip": false,
+  "dieType": "D10",
+  "abilityScore": "Dexterity",
+  "maxCells": 1,
+  "targetType": "Sphere",
+  "targetParameter": 1,
+  "matchingCondition": "",
+  "particlePrefab": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "soundEvent": {
+    "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": {
+      "$type": "WwiseEventReference, AK.Wwise.Unity.API.WwiseTypes",
+      "objectName": "Play_WP_Hit_Shoved",
+      "id": 3449356009,
+      "guid": "B37DE214-A675-42E2-9B13-FE0817B83074",
+      "name": "B37DE214-A675-42E2-9B13-FE0817B83074"
+    },
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Action/&ShoveTitle",
+    "description": "Action/&ShoveDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "65074d13f674e1741a3bf4f2d4e740b4",
+      "m_SubObjectName": "Shove",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 30,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "4887ed85-b6fb-5542-9f1b-79a279736a86",
+  "contentPack": 9999,
+  "name": "KSRogueSubclassThugBrutalMethodsAction"
+}

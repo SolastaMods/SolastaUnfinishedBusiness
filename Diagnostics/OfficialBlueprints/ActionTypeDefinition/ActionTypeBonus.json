@@ -1,0 +1,44 @@
+{
+  "$type": "ActionTypeDefinition, Assembly-CSharp",
+  "color": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.8188522,
+    "g": 0.8235294,
+    "b": 0.484429061,
+    "a": 1.0
+  },
+  "unavailableColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.5,
+    "g": 0.5,
+    "b": 0.5,
+    "a": 1.0
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Action/&ActionTypeBonusTitle",
+    "description": "Action/&ActionTypeBonusDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 2,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "21b025d538fb89e4d802735dd36cc680",
+  "contentPack": "BaseGame",
+  "name": "ActionTypeBonus"
+}

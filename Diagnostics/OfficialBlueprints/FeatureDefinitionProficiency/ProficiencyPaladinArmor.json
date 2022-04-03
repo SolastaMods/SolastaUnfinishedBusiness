@@ -1,0 +1,38 @@
+{
+  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
+  "proficiencyType": "Armor",
+  "proficiencies": [
+    "LightArmorCategory",
+    "MediumArmorCategory",
+    "HeavyArmorCategory",
+    "ShieldCategory"
+  ],
+  "forbiddenItemTags": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&PaladinArmorProficiencyTitle",
+    "description": "Feature/&ArmorTrainingShortDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "fcb8875cea1a0de43859febd16c09bc0",
+  "contentPack": "BaseGame",
+  "name": "ProficiencyPaladinArmor"
+}

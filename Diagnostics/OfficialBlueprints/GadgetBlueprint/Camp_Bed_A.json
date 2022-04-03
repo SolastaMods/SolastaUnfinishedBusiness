@@ -1,0 +1,123 @@
+{
+  "$type": "GadgetBlueprint, Assembly-CSharp",
+  "parameters": [],
+  "interactionNodes": [
+    {
+      "$type": "InteractionNodeDescription, Assembly-CSharp",
+      "position": {
+        "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+        "x": 0.0,
+        "y": -1.5
+      },
+      "orientation": "North"
+    },
+    {
+      "$type": "InteractionNodeDescription, Assembly-CSharp",
+      "position": {
+        "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+        "x": 1.0,
+        "y": 0.0
+      },
+      "orientation": "West"
+    },
+    {
+      "$type": "InteractionNodeDescription, Assembly-CSharp",
+      "position": {
+        "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+        "x": 0.0,
+        "y": 1.5
+      },
+      "orientation": "South"
+    },
+    {
+      "$type": "InteractionNodeDescription, Assembly-CSharp",
+      "position": {
+        "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+        "x": -1.0,
+        "y": 0.0
+      },
+      "orientation": "East"
+    }
+  ],
+  "canBeActivated": false,
+  "customizableDimensions": false,
+  "minCustomizableDimensions": {
+    "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
+  },
+  "maxCustomizableDimensions": {
+    "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
+  },
+  "campaignOnly": false,
+  "groundPlacement": true,
+  "groundLowPlacement": false,
+  "groundHighPlacement": true,
+  "wallPlacement": false,
+  "openingPlacement": true,
+  "openingLowPlacement": false,
+  "openingHighPlacement": false,
+  "propPlacement": false,
+  "lightSources": [],
+  "category": "Adventuring",
+  "dimensions": {
+    "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
+  },
+  "prefabsByEnvironment": [
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "Stronghold",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "7c8a618ecabb13d43ad515078eced276",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "TownInterior",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "7c8a618ecabb13d43ad515078eced276",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "ValleyPalace",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "6f762f18b92c1294fa36beb0761c4885",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Gadget/&CampBedTitle",
+    "description": "Gadget/&CampBedDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "bb02577e086cc64489dc7fe8c2781e93",
+      "m_SubObjectName": "Campfire",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 21,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "4c69aa7d084361f4bbba243f8a2844cf",
+  "contentPack": "BaseGame",
+  "name": "Camp_Bed_A"
+}

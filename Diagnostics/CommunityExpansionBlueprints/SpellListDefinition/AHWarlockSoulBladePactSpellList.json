@@ -1,0 +1,79 @@
+{
+  "$type": "SpellListDefinition, Assembly-CSharp",
+  "hasCantrips": false,
+  "maxSpellLevel": 5,
+  "spellsByLevel": [
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 0,
+      "spells": []
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 1,
+      "spells": [
+        "Definition:Shield:f69bd9c9375fc074a90043c42f9868fe",
+        "Definition:FalseLife:97d70ac4c94f31540aa7b7e1555b7a49"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 2,
+      "spells": [
+        "Definition:Blur:277b11af157a3c84292024790e6173b3",
+        "Definition:BrandingSmite:1da57f03be1764642968c141460fe859"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 3,
+      "spells": [
+        "Definition:Haste:134efafc59c7c58438b711271fb2c785",
+        "Definition:Slow:ee93dd5046aabe14e90ba99da310fbb4"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 4,
+      "spells": [
+        "Definition:PhantasmalKiller:d132436fd5250d34f973848ca4ac985f",
+        "Definition:BlackTentacles:3ed042e75b44763479efbc4b9680dd3a"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 5,
+      "spells": [
+        "Definition:ConeOfCold:4014172b09c7b0347911d81077d7ba0c",
+        "Definition:MindTwist:88c5c5e07eb13684998c75c11492fdd5"
+      ]
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&AHWarlockSoulBladePactSpellListTitle",
+    "description": "Feature/&AHWarlockSoulBladePactSpellListDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "2e1adc2f-7812-5dca-ba15-1a73a8a8b887",
+  "contentPack": 9999,
+  "name": "AHWarlockSoulBladePactSpellList"
+}

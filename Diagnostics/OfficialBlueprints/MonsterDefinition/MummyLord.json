@@ -1,0 +1,348 @@
+{
+  "$type": "MonsterDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": "Monster",
+  "overrideSpawnDecision": null,
+  "characterFamily": "Undead",
+  "creatureTags": [],
+  "defaultFaction": "HostileMonsters",
+  "fullyControlledWhenAllied": false,
+  "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
+  "alignment": "LawfulEvil",
+  "armorClass": 17,
+  "armor": "",
+  "hitDice": 13,
+  "hitDiceType": "D8",
+  "hitPointsBonus": 39,
+  "standardHitPoints": 97,
+  "abilityScores": [
+    18,
+    10,
+    17,
+    11,
+    18,
+    16
+  ],
+  "savingThrowScores": [
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Constitution",
+      "bonus": 8
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Intelligence",
+      "bonus": 5
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Wisdom",
+      "bonus": 9
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Charisma",
+      "bonus": 8
+    }
+  ],
+  "skillScores": [
+    {
+      "$type": "MonsterSkillProficiency, Assembly-CSharp",
+      "skillName": "History",
+      "bonus": 5
+    },
+    {
+      "$type": "MonsterSkillProficiency, Assembly-CSharp",
+      "skillName": "Religion",
+      "bonus": 5
+    }
+  ],
+  "legendaryCreature": true,
+  "maxLegendaryResistances": 3,
+  "maxLegendaryActionPoints": 3,
+  "differentActionEachTurn": false,
+  "legendaryActionOptions": [
+    {
+      "$type": "LegendaryActionDescription, Assembly-CSharp",
+      "cost": 1,
+      "subaction": "MonsterAttack",
+      "monsterAttackDefinition": "Definition:Attack_MummyLord_RottingFist:3bb91e22330c6cd45ac82f3560415ab6",
+      "featureDefinitionPower": "Definition:Power_Legendary_MummyLord_BlindingDust:7e6a9d20f7b9d9840a0ee895986a2606",
+      "spellDefinition": null,
+      "magicAttackBonus": 0,
+      "saveDC": 0,
+      "magicAbilityBonus": 0,
+      "canMove": false,
+      "moveMode": null,
+      "noOpportunityAttack": false,
+      "decisionPackage": "Definition:LegendaryMummyLordAttack_Default:15ed7f17f3fab3a4eae6a7d8d13ede71"
+    },
+    {
+      "$type": "LegendaryActionDescription, Assembly-CSharp",
+      "cost": 1,
+      "subaction": "Power",
+      "monsterAttackDefinition": null,
+      "featureDefinitionPower": "Definition:Power_MummyLord_DreadfulGlare:ebd779d578d4b54478685a80fdbf95c7",
+      "spellDefinition": null,
+      "magicAttackBonus": 0,
+      "saveDC": 0,
+      "magicAbilityBonus": 0,
+      "canMove": false,
+      "moveMode": null,
+      "noOpportunityAttack": false,
+      "decisionPackage": "Definition:LegendaryMummyLordCast_Debuff:938b79a36747dea4bacc8a07cde2f606"
+    },
+    {
+      "$type": "LegendaryActionDescription, Assembly-CSharp",
+      "cost": 1,
+      "subaction": "Power",
+      "monsterAttackDefinition": null,
+      "featureDefinitionPower": "Definition:Power_Legendary_MummyLord_BlindingDust:7e6a9d20f7b9d9840a0ee895986a2606",
+      "spellDefinition": null,
+      "magicAttackBonus": 0,
+      "saveDC": 0,
+      "magicAbilityBonus": 0,
+      "canMove": false,
+      "moveMode": null,
+      "noOpportunityAttack": false,
+      "decisionPackage": "Definition:LegendaryMummyLordAoE_Debuff_BlindingDust:4649dd23e398b7248b37fa86fdf2141f"
+    },
+    {
+      "$type": "LegendaryActionDescription, Assembly-CSharp",
+      "cost": 2,
+      "subaction": "Power",
+      "monsterAttackDefinition": null,
+      "featureDefinitionPower": "Definition:Power_Legendary_MummyLord_BlasphemousWords:8e9cff4b551f7cc419ddabbc4806ef7a",
+      "spellDefinition": null,
+      "magicAttackBonus": 0,
+      "saveDC": 0,
+      "magicAbilityBonus": 0,
+      "canMove": false,
+      "moveMode": null,
+      "noOpportunityAttack": false,
+      "decisionPackage": "Definition:LegendaryMummyLordAoE_Debuff_BlasphemousWord:66dae2e7cf77fc240b58d05d63169329"
+    },
+    {
+      "$type": "LegendaryActionDescription, Assembly-CSharp",
+      "cost": 2,
+      "subaction": "Power",
+      "monsterAttackDefinition": null,
+      "featureDefinitionPower": "Definition:Power_Legendary_MummyLord_ChannelNegativeEnergy:b2f951facd938fe4381a8cd40b1b50c8",
+      "spellDefinition": null,
+      "magicAttackBonus": 0,
+      "saveDC": 0,
+      "magicAbilityBonus": 0,
+      "canMove": false,
+      "moveMode": null,
+      "noOpportunityAttack": false,
+      "decisionPackage": "Definition:LegendaryMummyLordAoE_Debuff_ChannelNegativeEnergy:bab9eea0a5798c74eb04491806856a09"
+    },
+    {
+      "$type": "LegendaryActionDescription, Assembly-CSharp",
+      "cost": 2,
+      "subaction": "Power",
+      "monsterAttackDefinition": null,
+      "featureDefinitionPower": "Definition:Power_Legendary_MummyLord_Whirlwind:a7c2a45f9ecec1742974d757c39ff871",
+      "spellDefinition": null,
+      "magicAttackBonus": 0,
+      "saveDC": 0,
+      "magicAbilityBonus": 0,
+      "canMove": false,
+      "moveMode": null,
+      "noOpportunityAttack": false,
+      "decisionPackage": "Definition:LegendaryMummyLordCast_Teleport:71adba7474e98aa4e929c4bc19031af6"
+    }
+  ],
+  "defaultBattleDecisionPackage": "Definition:MummyLordCombatDecision:4a1fa423e9bbf7446a3ac108570b9058",
+  "threatEvaluatorDefinition": null,
+  "languages": [
+    "Language_Common",
+    "Language_Elvish"
+  ],
+  "audioSwitches": [],
+  "audioSwitchesOnHands": [],
+  "audioRaceRTPCValue": 54.0,
+  "challengeRating": 15.0,
+  "noExperienceGain": false,
+  "droppedLootDefinition": "Definition:MummyLord_loot_drop:c7593920fd8302842bdfb3d30edc869f",
+  "stealableLootDefinition": null,
+  "bestiaryLootOptions": [],
+  "features": [
+    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+    "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+    "Definition:DamageAffinityMummyLord_BludgeoningImmunity:82cc17c2d2a73f14fbf7026120c180bc",
+    "Definition:DamageAffinityMummyLord_PiercingImmunity:c8c668f866a09db45855aecc47f63175",
+    "Definition:DamageAffinityMummyLord_SlashingImmunity:cc5209ebd30da554887b94bb0bf8c0d4",
+    "Definition:DamageAffinityPoisonImmunity:7f47b64e57ec7b247acaa220a510b131",
+    "Definition:DamageAffinityNecroticImmunity:0c4d40bf6e1946143bae2746a57972b3",
+    "Definition:ConditionAffinityPoisonImmunity:558b2de37dbf89341ab0ed6c445873a6",
+    "Definition:ConditionAffinityCalmEmotionCharmedImmunity:7f9cfd9f309debf4988ec184b56b7faf",
+    "Definition:ConditionAffinityCharmImmunity:a631ef6239aa7764db463cf3f29d65fb",
+    "Definition:ConditionAffinityCharmImmunityHypnoticPattern:566f797ed2499ed46afb4754192b65f1",
+    "Definition:ConditionAffinityCalmEmotionFrightenedImmunity:f2c70d3f302356c45bf9859205ff16ce",
+    "Definition:ConditionAffinityFrightenedImmunity:561b7a96b31b8064e85df039829c050b",
+    "Definition:ConditionAffinityParalyzedmmunity:fb168e0f7aeed9c479746505d1df5da7",
+    "Definition:SavingThrowAffinitySpellResistance:d6341ebb2cb967949b4426e31e993b86",
+    "Definition:DamageAffinityFireVulnerability:3f6fefd9cd5a7e442b3173bafed47822",
+    "Definition:CastSpellMummyLord:89ad8d0e085199d4584f065946c4d6e4",
+    "Definition:MoveModeMove4:463147192ec0e6f47b4cc7d1ebf5f7d3",
+    "Definition:Power_MummyLord_DreadfulGlare:ebd779d578d4b54478685a80fdbf95c7"
+  ],
+  "attackIterations": [
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 1,
+      "monsterAttackDefinition": "Definition:Attack_MummyLord_RottingFist:3bb91e22330c6cd45ac82f3560415ab6"
+    }
+  ],
+  "sneakStance": "Stealth",
+  "patrolStance": "SlowWalk",
+  "interceptStance": "Walk",
+  "dualSex": true,
+  "minimalAge": 100,
+  "maximalAge": 100,
+  "height": 6,
+  "weight": 150,
+  "isHusk": false,
+  "isPet": false,
+  "forbidFastTravel": false,
+  "forceHasComplexActions": false,
+  "forcePersistentBody": false,
+  "bestiaryEntry": "Full",
+  "bestiaryReference": null,
+  "bestiaryCameraOffset": {
+    "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+    "x": 0.0,
+    "y": 7.0,
+    "z": -35.0
+  },
+  "alwaysHideStats": false,
+  "bestiarySpriteReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "14d5d357765c0b54baacbe64857368f6",
+    "m_SubObjectName": "MummyLord",
+    "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+  },
+  "monsterPresentation": {
+    "$type": "MonsterPresentation, Assembly-CSharp",
+    "hasUniqueName": false,
+    "uniqueNameTitle": "",
+    "humanoidMonsterPresentationDefinitions": [],
+    "useCustomMaterials": false,
+    "customMaterials": [],
+    "customShaderReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "mutantFleshDirection": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": -1.0,
+      "z": 0.0
+    },
+    "overrideCharacterShaderColors": false,
+    "firstCharacterShaderColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "secondCharacterShaderColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "hasPhantomDistortion": true,
+    "attachedParticlesReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "bestiaryAttachedParticlesReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "hasPrefabVariants": false,
+    "monsterPresentationDefinitions": [],
+    "malePrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "b3b99f5299bde874394001b226e5066e",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "maleModelScale": 0.66,
+    "femalePrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "b3b99f5299bde874394001b226e5066e",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "femaleModelScale": 0.66,
+    "wieldedItemsScale": 1.0,
+    "hideWieldedItemsWhenPassive": false,
+    "hideDuringCutscene": false,
+    "hasLightingCutscene": true,
+    "canGeneratePortrait": false,
+    "needMerchantPortrait": false,
+    "hasMonsterPortraitBackground": true,
+    "portraitCameraFollowOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": -0.5,
+      "z": -5.0
+    },
+    "portraitCameraLookAtScreenOffset": {
+      "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+      "x": 0.5,
+      "y": 0.4
+    },
+    "portraitCameraFOV": 40.0,
+    "portraitCameraLightingOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    }
+  },
+  "forceCombatStartsAnimation": false,
+  "hasLookAt": false,
+  "forceNoFlyAnimation": false,
+  "followFloorAngle": false,
+  "groupAttacks": true,
+  "isUnique": true,
+  "uniqueNameId": "Hendeolas",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "NPC/&NPC_Hendeolas_Title",
+    "description": "NPC/&NPC_Hendeolas_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "f82a4739a5c3dce4abed674d22220314",
+      "m_SubObjectName": "CustomPortrait_MummyLord",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "f751315996ef39f4db4336b4935e38ec",
+  "contentPack": "LostValley",
+  "name": "MummyLord"
+}

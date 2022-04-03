@@ -1,0 +1,55 @@
+{
+  "$type": "FeatureDefinitionAbilityCheckAffinity, Assembly-CSharp",
+  "useControllerAbilityChecks": false,
+  "affinityGroups": [
+    {
+      "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Strength",
+      "proficiencyName": "Athletics",
+      "affinity": "None",
+      "abilityCheckModifierDiceNumber": 5,
+      "abilityCheckModifierDieType": "D1",
+      "abilityCheckContext": "ResistingShove",
+      "lightingContext": "Irrelevant"
+    },
+    {
+      "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Dexterity",
+      "proficiencyName": "Acrobatics",
+      "affinity": "None",
+      "abilityCheckModifierDiceNumber": 5,
+      "abilityCheckModifierDieType": "D1",
+      "abilityCheckContext": "ResistingShove",
+      "lightingContext": "Irrelevant"
+    }
+  ],
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "ccde2f9d67a2e9b4ea3029858d8fbb2b",
+  "contentPack": "BaseGame",
+  "name": "AbilityCheckAffinityOrcBerserkerShove"
+}

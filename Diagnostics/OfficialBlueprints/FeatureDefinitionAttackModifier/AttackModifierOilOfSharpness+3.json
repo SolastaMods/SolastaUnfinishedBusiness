@@ -1,0 +1,55 @@
+{
+  "$type": "FeatureDefinitionAttackModifier, Assembly-CSharp",
+  "attackRollModifierMethod": "FlatValue",
+  "attackRollModifier": 3,
+  "attackRollAbilityScore": "",
+  "damageRollModifierMethod": "FlatValue",
+  "damageRollModifier": 3,
+  "damageRollAbilityScore": "",
+  "additionalDamageDice": 0,
+  "canDualWieldNonLight": false,
+  "canAddAbilityBonusToSecondary": false,
+  "additionalAttackTag": "Magical",
+  "followUpStrike": false,
+  "followUpDamageDie": "D4",
+  "followUpAddAbilityBonus": true,
+  "additionalBonusAttackFromMain": false,
+  "abilityScoreReplacement": "None",
+  "damageDieReplacement": "None",
+  "replacedDieType": "D8",
+  "impactParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&OilOfSharpness_Title",
+    "description": "Equipment/&OilOfSharpness_Function_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "61edd032173c6f94fa0f22ca9d49125e",
+      "m_SubObjectName": "OilOfSharpness",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "4922541c5186cbe49904d57d7491c478",
+  "contentPack": "BaseGame",
+  "name": "AttackModifierOilOfSharpness+3"
+}

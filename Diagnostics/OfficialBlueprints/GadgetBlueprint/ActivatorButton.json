@@ -1,0 +1,197 @@
+{
+  "$type": "GadgetBlueprint, Assembly-CSharp",
+  "parameters": [
+    {
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "Operation",
+      "type": "Operation",
+      "conditionalDisplay": false,
+      "conditionalParameter": "",
+      "conditionalMatch": true,
+      "intDefaultValue": 0,
+      "intMinValue": 0,
+      "intMaxValue": 0,
+      "boolDefaultValue": false,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": true,
+      "gadgetExecutionFilter": ""
+    },
+    {
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "TargetGadgets",
+      "type": "GadgetList",
+      "conditionalDisplay": false,
+      "conditionalParameter": "",
+      "conditionalMatch": true,
+      "intDefaultValue": 0,
+      "intMinValue": 0,
+      "intMaxValue": 0,
+      "boolDefaultValue": false,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": true,
+      "gadgetExecutionFilter": ""
+    },
+    {
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "Param_DefaultAsActivated",
+      "type": "GenericBool",
+      "conditionalDisplay": false,
+      "conditionalParameter": "",
+      "conditionalMatch": true,
+      "intDefaultValue": 0,
+      "intMinValue": 0,
+      "intMaxValue": 0,
+      "boolDefaultValue": false,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": true,
+      "gadgetExecutionFilter": ""
+    },
+    {
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "Param_DefaultAsEnabled",
+      "type": "GenericBool",
+      "conditionalDisplay": false,
+      "conditionalParameter": "",
+      "conditionalMatch": true,
+      "intDefaultValue": 0,
+      "intMinValue": 0,
+      "intMaxValue": 0,
+      "boolDefaultValue": true,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": true,
+      "gadgetExecutionFilter": ""
+    }
+  ],
+  "interactionNodes": [
+    {
+      "$type": "InteractionNodeDescription, Assembly-CSharp",
+      "position": {
+        "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+        "x": 0.0,
+        "y": -1.0
+      },
+      "orientation": "North"
+    }
+  ],
+  "canBeActivated": true,
+  "customizableDimensions": false,
+  "minCustomizableDimensions": {
+    "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
+  },
+  "maxCustomizableDimensions": {
+    "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
+  },
+  "campaignOnly": false,
+  "groundPlacement": false,
+  "groundLowPlacement": false,
+  "groundHighPlacement": false,
+  "wallPlacement": true,
+  "openingPlacement": false,
+  "openingLowPlacement": false,
+  "openingHighPlacement": false,
+  "propPlacement": true,
+  "lightSources": [],
+  "category": "Activators",
+  "dimensions": {
+    "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
+  },
+  "prefabsByEnvironment": [
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "Necropolis",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "c10896dfbf46425438e2b9dd52e88c17",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "Stronghold",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "8a0288b80a9b43945a07ed5c521d9e88",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "ElvenPalace",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "8fc5eebe21189374095fd3c2b8587630",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "Sewers",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "adc12965bf7a3de4385162b4e6aa5904",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "Catacombs",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "ddd7d16aeb0496142b4f100288e9fe25",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "TownInterior",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "098e299ef29c93349917f37b821ea2d4",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "ValleyPalace",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "e2cc1ace3fd22b64f8ad71af4421556e",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Gadget/&ActivatorButtonTitle",
+    "description": "Gadget/&ActivatorButtonDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "a13505c7ed5ef964284e3ac98639228c",
+      "m_SubObjectName": "ActivatorButton",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "d7dfcf937a6259a4d8df2b0697c96e56",
+  "contentPack": "BaseGame",
+  "name": "ActivatorButton"
+}

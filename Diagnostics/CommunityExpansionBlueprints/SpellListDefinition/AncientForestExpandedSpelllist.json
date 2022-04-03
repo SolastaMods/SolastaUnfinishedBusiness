@@ -1,0 +1,99 @@
+{
+  "$type": "SpellListDefinition, Assembly-CSharp",
+  "hasCantrips": false,
+  "maxSpellLevel": 5,
+  "spellsByLevel": [
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 0,
+      "spells": []
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 1,
+      "spells": [
+        "Definition:Entangle:0224dcb79ea69f34eb9a51546fc78d0d",
+        "Definition:Goodberry:6183e557cd5222e4eb6134ccbeb9db10"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 2,
+      "spells": [
+        "Definition:Barkskin:fcb74f4deaec07b40814328a9d5aa5f6",
+        "Definition:SpikeGrowth:489c8aa040535444da10a267213ee7dc"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 3,
+      "spells": [
+        "Definition:MassHealingWord:1b13f79192a474947a2c0138ded903b3",
+        "Definition:VampiricTouch:149a2d0a835fda54b99a710e0dabfd53"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 4,
+      "spells": [
+        "Definition:Blight:bd131ed580e31734abb8189ab7e17a10",
+        "Definition:GreaterRestoration:6131d7d4650604b44ad3c74b21cc3eb2"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 5,
+      "spells": [
+        "Definition:Contagion:13567fa6f3f984347b5b6c4347fac6e8",
+        "Definition:RaiseDead:d35f9eee1baf295468f1dd7c696a15ba"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 6,
+      "spells": []
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 7,
+      "spells": []
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 8,
+      "spells": []
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 9,
+      "spells": []
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&AncientForestExpandedSpelllistTitle",
+    "description": "Feature/&AncientForestExpandedSpelllistDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "7e128bf0-0210-5d6b-96fb-051ee9a5e930",
+  "contentPack": 9999,
+  "name": "AncientForestExpandedSpelllist"
+}

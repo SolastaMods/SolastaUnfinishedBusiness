@@ -1,0 +1,33 @@
+{
+  "$type": "CharacterInteractionDefinition, Assembly-CSharp",
+  "actionId": "Manipulate",
+  "cursorType": "Default",
+  "animation": "NoAnimation",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "TutorialStep/&Tuto_Legendary_02_Title",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "db9132bf8f31790419286d870002d488",
+  "contentPack": "BaseGame",
+  "name": "Cancel"
+}

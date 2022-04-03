@@ -15,28 +15,65 @@ namespace SolastaCommunityExpansion
     [XmlRoot(ElementName = "Settings")]
     public class Settings : UnityModManager.ModSettings
     {
-        public const string GUID = "b1ffaca74824486ea74a68d45e6b1925";
+        internal const string GUID = "b1ffaca74824486ea74a68d45e6b1925";
+
+        //
+        // Welcome Message
+        //
+
+        public bool DisplayWelcomeMessage { get; set; } = true;
+
+        //
+        // Diagnostics
+        //
+
+#pragma warning disable S1104 // Fields should not have public accessibility
+        // very large or not very useful definitions
+        public string[] ExcludeFromExport = new []
+        {
+            "AdventureLogDefinition",
+            "ConsoleTableDefinition",
+            "CreditsGroupDefinition",
+            "CreditsTableDefinition",
+            "DocumentTableDefinition",
+            "NarrativeEventTableDefinition",
+            "NarrativeTreeDefinition", // NarrativeTreeDefinition causes crash with PreserveReferencesHandling.None
+            "SoundbanksDefinition",
+            "SubtitleTableDefinition",
+            "TravelJournalDefinition",
+            "TutorialSectionDefinition",
+            "TutorialStepDefinition",
+            "TutorialSubsectionDefinition",
+            "TutorialTocDefinition",
+            "TutorialTableDefinition",
+            "QuestTreeDefinition",
+        };
+
+        public string[] ExcludeFromCEExport = new []
+        {
+            "BlueprintCategory",
+            "GadgetBlueprint",
+            "RoomBlueprint",
+            "PropBlueprint"
+        };
+#pragma warning restore S1104 // Fields should not have public accessibility
+
+        //
+        // Blueprints Viewer UI
+        //
+
+        internal int SelectedRawDataType = 0;
+        internal int MaxRows = 20;
+        internal int MaxSearchDepth = 3;
 
         //
         // SETTINGS UI TOGGLES
         //
 
-        public bool DisplayInitialChoicesToggle { get; set; }
-        public bool DisplayMiscellaneousToggle { get; set; }
-        public bool DisplayProgressionToggle { get; set; }
-        public bool DisplayFaceUnlockSettings { get; set; }
         public bool DisplayClassesToggle { get; set; }
         public bool DisplaySubclassesToggle { get; set; }
         public bool DisplayFeatsToggle { get; set; }
         public bool DisplayFightingStylesToggle { get; set; }
-        public bool DisplaySrdRulesToggle { get; set; }
-        public bool DisplayHouseRulesToggle { get; set; }
-        public bool DisplayAdventureLogToggle { get; set; }
-        public bool DisplayBattleToggle { get; set; }
-        public bool DisplayCampaignToggle { get; set; }
-        public bool DisplayItemToggle { get; set; }
-        public bool DisplayMonsterToggle { get; set; }
-        public bool DisplaySpellToggle { get; set; }
         public bool DisplayCraftingToggle { get; set; }
         public bool DisplayMerchantsToggle { get; set; }
 
@@ -45,25 +82,20 @@ namespace SolastaCommunityExpansion
         //
 
         public bool AllowDynamicPowers { get; set; } = true;
-        public bool AllowExtraKeyboardCharactersInCampaignNames { get; set; } = true;
-        public bool AllowExtraKeyboardCharactersInLocationNames { get; set; } = true;
-        public bool BugFixAttunementUnknownCharacter { get; set; } = true;
-        public bool BugFixBestiarySorting { get; set; } = true;
+        public bool BugFixAncestryDamageTypeResolution { get; set; } = true;
         public bool BugFixButtonActivatorTriggerIssue { get; set; } = true;
-        public bool BugFixCharacterPanelSorting { get; set; } = true;
+        public bool BugFixConjuredUnitsTeleportWithParty { get; set; } = true;
         public bool BugFixExpandColorTables { get; set; } = true;
-        public bool BugFixGameGadgetCheckIsEnabled { get; set; } = true;
-        public bool BugFixItemFiltering { get; set; } = true;
-        public bool BugFixMainScreenInventoryPanelGround { get; set; } = true;
         public bool BugFixNullRecipesOnGameSerialization { get; set; } = true;
-        public bool BugFixOnCanSaveToggleChanged { get; set; } = true;
-        public bool EnableCancelEditOnRightMouseClick { get; set; } = true;
+        public bool BugFixSpellDurations { get; set; } = true;
+        public bool EnableDungeonMakerPro { get; set; } = true;
         public bool EnableDungeonMakerRotationHotkeys { get; set; } = true;
         public bool EnableFirstLevelCasterFeats { get; set; } = true;
         public bool EnableMultiLinePowerPanel { get; set; } = true;
         public bool EnableMultiLineSpellPanel { get; set; } = true;
         public bool EnableSortingClasses { get; set; } = true;
         public bool EnableSortingDeities { get; set; } = true;
+        public bool EnableSortingDungeonMakerAssets { get; set; } = true;
         public bool EnableSortingFeats { get; set; } = true;
         public bool EnableSortingFutureFeatures { get; set; } = true;
         public bool EnableSortingRaces { get; set; } = true;
@@ -90,15 +122,15 @@ namespace SolastaCommunityExpansion
         public int TotalFeatsGrantedFistLevel { get; set; }
 
         // Miscellaneous
-        public bool AllowExtraKeyboardCharactersInNames { get; set; }
+        public bool AllowExtraKeyboardCharactersInAllNames { get; set; }
         public bool OfferAdditionalLoreFriendlyNames { get; set; }
 
         // Progression
         public bool EnablesAsiAndFeat { get; set; }
         public bool EnableLevel20 { get; set; }
-        public bool EnableRespec { get; set; }
 
         // Visuals
+        public bool EnableAdditionalBackstoryDisplay { get; set; }
         public bool UnlockAllNpcFaces { get; set; }
         public bool AllowUnmarkedSorcerers { get; set; }
         public bool UnlockMarkAndTatoosForAllCharacters { get; set; }
@@ -159,15 +191,16 @@ namespace SolastaCommunityExpansion
 
         // SRD
         public bool UseOfficialAdvantageDisadvantageRules { get; set; }
-        public bool UseOfficialCombatSurpriseRules { get; set; }
-        public bool RollDifferentStealthChecksForEachCharacterPair { get; set; }
         public bool EnablePowerAid { get; set; }
         public bool AddBleedingToLesserRestoration { get; set; }
         public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
         public bool AllowTargetingSelectionWhenCastingChainLightningSpell { get; set; }
         public bool FixSorcererTwinnedLogic { get; set; }
+        public bool EnableUpcastConjureElementalAndFey { get; set; }
         public bool FullyControlConjurations { get; set; }
-        public bool DismissControlledConjurationsWhenDeliberatelyDropConcentration { get; set; }
+        public bool OnlyShowMostPowerfulUpcastConjuredElementalOrFey { get; set; }
+        public bool UseHeightOneCylinderEffect { get; set; }
+        public bool BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove { get; set; }
 
         // House
         public bool AllowAnyClassToWearSylvanArmor { get; set; }
@@ -187,7 +220,6 @@ namespace SolastaCommunityExpansion
 
         public bool EnableSaveByLocation { get; set; }
         public bool EnableTelemaCampaign { get; set; }
-        public bool EnableTeleportParty { get; set; }
         public bool FollowCharactersOnTeleport { get; set; }
         public bool OverrideMinMaxLevel { get; set; }
         public int OverridePartySize { get; set; } = Models.DungeonMakerContext.GAME_PARTY_SIZE;
@@ -223,9 +255,18 @@ namespace SolastaCommunityExpansion
         // Gameplay - Tools
         //
 
-        // Debug
+        // General
+        public bool EnableRespec { get; set; }
         public bool EnableCheatMenu { get; set; }
         public bool NoExperienceOnLevelUp { get; set; }
+
+        // Debug
+        public bool DebugLogDefinitionCreation { get; set; }
+        public bool DebugLogFieldInitialization { get; set; }
+        public bool DebugDisableVerifyDefinitionNameIsNotInUse { get; set; }
+#if DEBUG
+        public bool DebugLogVariantMisuse { get; set; }
+#endif
 
         // Faction Relations
 
@@ -233,21 +274,15 @@ namespace SolastaCommunityExpansion
         // Interface - Dungeon Maker
         //
 
-        public bool AllowGadgetsToBePlacedAnywhere { get; set; }
-        public bool AllowPropsToBePlacedAnywhere { get; set; }
+        public bool AllowDungeonsMaxLevel20 { get; set; }
+        public bool AllowGadgetsAndPropsToBePlacedAnywhere { get; set; }
         public bool UnleashNpcAsEnemy { get; set; }
         public bool UnleashEnemyAsNpc { get; set; }
-
+        public bool EnableDungeonMakerModdedContent { get; set; }
+        public bool EnableExtraHighLevelMonsters { get; set; }
         //
         // Interface - Game UI
         //
-
-        // Adventure Log
-        public bool EnableAdventureLogBanterLines { get; set; }
-        public bool EnableAdventureLogDocuments { get; set; }
-        public bool EnableAdventureLogLore { get; set; }
-        public bool EnableAdventureLogTextFeedback { get; set; }
-        public bool EnableAdventureLogPopups { get; set; }
 
         // Battle
         public bool DontFollowCharacterInBattle { get; set; }
@@ -272,15 +307,19 @@ namespace SolastaCommunityExpansion
         public int MaxSpellLevelsPerLine { get; set; } = 5;
 
         //
-        // Interface - Hotkeys
+        // Interface - Keyboard & Mouse
         //
 
+        public bool EnableCancelEditOnRightMouseClick { get; set; }
+        public bool EnableHotkeyToggleHud { get; set; }
+        public bool EnableHotkeyToggleIndividualHud { get; set; }
         public bool EnableCharacterExport { get; set; }
         public bool EnableHotkeyDebugOverlay { get; set; }
         public bool EnableHotkeyZoomCamera { get; set; }
-        public bool EnableHotkeyToggleHud { get; set; }
-        public bool EnableHotkeyToggleIndividualHud { get; set; }
+        public bool EnableTeleportParty { get; set; }
         public bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }
         public bool InvertAltBehaviorOnTooltips { get; set; }
+        public bool EnableCtrlClickBypassMetamagicPanel { get; set; }
+        public bool EnableCtrlClickOnlySwapsMainHand { get; set; }
     }
 }

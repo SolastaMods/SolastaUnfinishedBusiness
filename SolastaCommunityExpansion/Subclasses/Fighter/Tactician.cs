@@ -1,6 +1,9 @@
-﻿using SolastaCommunityExpansion.CustomFeatureDefinitions;
-using SolastaModApi;
+﻿using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi.Extensions;
+using static SolastaModApi.DatabaseHelper;
+using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Fighter
 {
@@ -9,15 +12,11 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
         private CharacterSubclassDefinition Subclass;
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
         {
-            return DatabaseHelper.FeatureDefinitionSubclassChoices.SubclassChoiceFighterMartialArchetypes;
+            return FeatureDefinitionSubclassChoices.SubclassChoiceFighterMartialArchetypes;
         }
         internal override CharacterSubclassDefinition GetSubclass()
         {
-            if (Subclass == null)
-            {
-                Subclass = TacticianFighterSubclassBuilder.BuildAndAddSubclass();
-            }
-            return Subclass;
+            return Subclass ??= TacticianFighterSubclassBuilder.BuildAndAddSubclass();
         }
     }
 
@@ -53,11 +52,9 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             proneMotionEffect.SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
 
             //Add to our new effect
-            EffectDescription newEffectDescription = new EffectDescription();
-            newEffectDescription.Copy(DatabaseHelper.FeatureDefinitionPowers.PowerFighterActionSurge.EffectDescription);
-            newEffectDescription.EffectForms.Clear();
-            newEffectDescription.EffectForms.Add(damageEffect);
-            newEffectDescription.EffectForms.Add(proneMotionEffect);
+            EffectDescription newEffectDescription =
+                FeatureDefinitionPowers.PowerFighterActionSurge.EffectDescription.Copy();
+            newEffectDescription.SetEffectForms(damageEffect, proneMotionEffect);
             newEffectDescription.SetSavingThrowDifficultyAbility("Strength");
             newEffectDescription.SetDifficultyClassComputation(RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency);
             newEffectDescription.SavingThrowAbility = "Strength";
@@ -67,14 +64,16 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             FeatureDefinitionPowerSharedPoolBuilder builder = new FeatureDefinitionPowerSharedPoolBuilder(name, guid,
                 TacticianFighterSubclassBuilder.GambitResourcePool, RuleDefinitions.RechargeRate.ShortRest, RuleDefinitions.ActivationTime.OnAttackHit,
                 1, true, true, AttributeDefinitions.Strength, newEffectDescription,
-                new GuiPresentationBuilder("Feature/&KnockDownPowerDescription", "Feature/&KnockDownPowerTitle")
-                .SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerFighterActionSurge.GuiPresentation.SpriteReference).Build(), false);
+                new GuiPresentationBuilder("Feature/&KnockDownPowerTitle", "Feature/&KnockDownPowerDescription")
+                .SetSpriteReference(FeatureDefinitionPowers.PowerFighterActionSurge.GuiPresentation.SpriteReference).Build(), false);
 
             return builder.AddToDB();
         }
 
         public static FeatureDefinitionPowerSharedPool CreateAndAddToDB()
-            => Build(KnockDownPowerName, KnockDownPowerNameGuid);
+        {
+            return Build(KnockDownPowerName, KnockDownPowerNameGuid);
+        }
     }
 
     internal static class InspirePowerBuilder
@@ -106,7 +105,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
 
             //Add to our new effect
             EffectDescription newEffectDescription = new EffectDescription();
-            newEffectDescription.Copy(DatabaseHelper.FeatureDefinitionPowers.PowerDomainLifePreserveLife.EffectDescription);
+            newEffectDescription.Copy(FeatureDefinitionPowers.PowerDomainLifePreserveLife.EffectDescription);
             newEffectDescription.EffectForms.Clear();
             newEffectDescription.EffectForms.Add(healingEffect);
             //newEffectDescription.EffectForms.Add(blessEffect);
@@ -121,8 +120,8 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             FeatureDefinitionPowerSharedPoolBuilder builder = new FeatureDefinitionPowerSharedPoolBuilder(name, guid,
                 TacticianFighterSubclassBuilder.GambitResourcePool, RuleDefinitions.RechargeRate.ShortRest, RuleDefinitions.ActivationTime.BonusAction,
                 1, true, true, AttributeDefinitions.Strength, newEffectDescription,
-                new GuiPresentationBuilder("Feature/&InspirePowerDescription", "Feature/&InspirePowerTitle")
-                .SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainLifePreserveLife.GuiPresentation.SpriteReference).Build(), false);
+                new GuiPresentationBuilder("Feature/&InspirePowerTitle", "Feature/&InspirePowerDescription")
+                .SetSpriteReference(FeatureDefinitionPowers.PowerDomainLifePreserveLife.GuiPresentation.SpriteReference).Build(), false);
 
             builder.SetShortTitle("Feature/&InspirePowerTitle");
 
@@ -130,7 +129,9 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
         }
 
         public static FeatureDefinitionPowerSharedPool CreateAndAddToDB()
-            => Build(InspirePowerName, InspirePowerNameGuid);
+        {
+            return Build(InspirePowerName, InspirePowerNameGuid);
+        }
     }
 
     internal static class CounterStrikePowerBuilder
@@ -155,33 +156,24 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
 
             //Add to our new effect
             EffectDescription newEffectDescription = new EffectDescription();
-            newEffectDescription.Copy(DatabaseHelper.FeatureDefinitionPowers.PowerDomainLawHolyRetribution.EffectDescription);
+            newEffectDescription.Copy(FeatureDefinitionPowers.PowerDomainLawHolyRetribution.EffectDescription);
             newEffectDescription.EffectForms.Clear();
             newEffectDescription.EffectForms.Add(damageEffect);
 
             FeatureDefinitionPowerSharedPoolBuilder builder = new FeatureDefinitionPowerSharedPoolBuilder(name, guid,
                 TacticianFighterSubclassBuilder.GambitResourcePool, RuleDefinitions.RechargeRate.ShortRest, RuleDefinitions.ActivationTime.Reaction,
                 1, true, true, AttributeDefinitions.Strength, newEffectDescription,
-                new GuiPresentationBuilder("Feature/&CounterStrikePowerDescription", "Feature/&CounterStrikePowerTitle")
-                .SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainLawHolyRetribution.GuiPresentation.SpriteReference).Build(), false);
+                new GuiPresentationBuilder("Feature/&CounterStrikePowerTitle", "Feature/&CounterStrikePowerDescription")
+                .SetSpriteReference(FeatureDefinitionPowers.PowerDomainLawHolyRetribution.GuiPresentation.SpriteReference).Build(), false);
             builder.SetReaction(RuleDefinitions.ReactionTriggerContext.HitByMelee, string.Empty);
 
             return builder.AddToDB();
         }
 
         public static FeatureDefinitionPowerSharedPool CreateAndAddToDB()
-            => Build(CounterStrikePowerName, CounterStrikePowerNameGuid);
-    }
-
-    internal static class GambitResourcePoolBuilder
-    {
-        private const string GambitResourcePoolName = "GambitResourcePool";
-        private const string GambitResourcePoolNameGuid = "00da2b27-139a-4ca0-a285-aaa70d108bc8";
-
-        public static FeatureDefinitionPower CreateAndAddToDB()
-            => new FeatureDefinitionPowerPoolBuilder(GambitResourcePoolName, GambitResourcePoolNameGuid,
-                4, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Dexterity, RuleDefinitions.RechargeRate.ShortRest,
-                new GuiPresentationBuilder("Feature/&GambitResourcePoolDescription", "Feature/&GambitResourcePoolTitle").Build()).AddToDB();
+        {
+            return Build(CounterStrikePowerName, CounterStrikePowerNameGuid);
+        }
     }
 
     internal static class GambitResourcePoolAddBuilder
@@ -199,14 +191,32 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
         private const string GambitResourcePoolAdd18Guid = "c7ced45a-572f-4af0-8ec5-2add074dd7c3";
 
         public static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
-            => new FeatureDefinitionPowerPoolModifierBuilder(name, guid,
-                1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Dexterity, TacticianFighterSubclassBuilder.GambitResourcePool,
-                new GuiPresentationBuilder("Feature/&GambitResourcePoolAddDescription", "Feature/&GambitResourcePoolAddTitle").Build()).AddToDB();
+        {
+            return FeatureDefinitionPowerPoolModifierBuilder.Create(name, guid)
+                .Configure(1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Dexterity, TacticianFighterSubclassBuilder.GambitResourcePool)
+                .SetGuiPresentation(new GuiPresentationBuilder("Feature/&GambitResourcePoolAddTitle", "Feature/&GambitResourcePoolAddDescription").Build())
+                .AddToDB();
+        }
 
-        public static FeatureDefinitionPower GambitResourcePoolAdd() => CreateAndAddToDB(GambitResourcePoolAddName, GambitResourcePoolAddNameGuid);
-        public static FeatureDefinitionPower GambitResourcePoolAdd10() => CreateAndAddToDB(GambitResourcePoolAdd10Name, GambitResourcePoolAdd10Guid);
-        public static FeatureDefinitionPower GambitResourcePoolAdd15() => CreateAndAddToDB(GambitResourcePoolAdd15Name, GambitResourcePoolAdd15Guid);
-        public static FeatureDefinitionPower GambitResourcePoolAdd18() => CreateAndAddToDB(GambitResourcePoolAdd18Name, GambitResourcePoolAdd18Guid);
+        public static FeatureDefinitionPower GambitResourcePoolAdd()
+        {
+            return CreateAndAddToDB(GambitResourcePoolAddName, GambitResourcePoolAddNameGuid);
+        }
+
+        public static FeatureDefinitionPower GambitResourcePoolAdd10()
+        {
+            return CreateAndAddToDB(GambitResourcePoolAdd10Name, GambitResourcePoolAdd10Guid);
+        }
+
+        public static FeatureDefinitionPower GambitResourcePoolAdd15()
+        {
+            return CreateAndAddToDB(GambitResourcePoolAdd15Name, GambitResourcePoolAdd15Guid);
+        }
+
+        public static FeatureDefinitionPower GambitResourcePoolAdd18()
+        {
+            return CreateAndAddToDB(GambitResourcePoolAdd18Name, GambitResourcePoolAdd18Guid);
+        }
     }
 
     public static class TacticianFighterSubclassBuilder
@@ -216,28 +226,26 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
 
         public static CharacterSubclassDefinition BuildAndAddSubclass()
         {
-            var subclassGuiPresentation = new GuiPresentationBuilder(
-                    "Subclass/&TactitionFighterSubclassDescription",
-                    "Subclass/&TactitionFighterSubclassTitle")
-                    .SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.RoguishShadowCaster.GuiPresentation.SpriteReference)
-                    .Build();
-
-            var definition = new CharacterSubclassDefinitionBuilder(TacticianFighterSubclassName, TacticianFighterSubclassNameGuid)
-                    .SetGuiPresentation(subclassGuiPresentation)
-                    .AddFeatureAtLevel(GambitResourcePool, 3)
-                    .AddFeatureAtLevel(KnockDownPower, 3)
-                    .AddFeatureAtLevel(InspirePower, 3)
-                    .AddFeatureAtLevel(CounterStrikePower, 3)
-                    .AddFeatureAtLevel(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetChampionRemarkableAthlete, 7) //Wasn't sure what to do for level mostly a ribbon feature
-                    .AddFeatureAtLevel(GambitResourcePoolAdd10, 10)
-                    .AddFeatureAtLevel(GambitResourcePoolAdd15, 15)
-                    .AddFeatureAtLevel(GambitResourcePoolAdd18, 18)
-                    .AddToDB();
-
-            return definition;
+            return CharacterSubclassDefinitionBuilder
+                .Create(TacticianFighterSubclassName, TacticianFighterSubclassNameGuid)
+                .SetGuiPresentation("TactitionFighterSubclass", Category.Subclass, RoguishShadowCaster.GuiPresentation.SpriteReference)
+                .AddFeatureAtLevel(GambitResourcePool, 3)
+                .AddFeatureAtLevel(KnockDownPower, 3)
+                .AddFeatureAtLevel(InspirePower, 3)
+                .AddFeatureAtLevel(CounterStrikePower, 3)
+                .AddFeatureAtLevel(FeatureDefinitionFeatureSets.FeatureSetChampionRemarkableAthlete, 7) //Wasn't sure what to do for level mostly a ribbon feature
+                .AddFeatureAtLevel(GambitResourcePoolAdd10, 10)
+                .AddFeatureAtLevel(GambitResourcePoolAdd15, 15)
+                .AddFeatureAtLevel(GambitResourcePoolAdd18, 18)
+                .AddToDB();
         }
 
-        public static readonly FeatureDefinitionPower GambitResourcePool = GambitResourcePoolBuilder.CreateAndAddToDB();
+        public static FeatureDefinitionPower GambitResourcePool { get; } = FeatureDefinitionPowerPoolBuilder
+            .Create("GambitResourcePool", "00da2b27-139a-4ca0-a285-aaa70d108bc8")
+            .Configure(4, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Dexterity, RuleDefinitions.RechargeRate.ShortRest)
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
         public static readonly FeatureDefinitionPower GambitResourcePoolAdd = GambitResourcePoolAddBuilder.GambitResourcePoolAdd();
         public static readonly FeatureDefinitionPower GambitResourcePoolAdd10 = GambitResourcePoolAddBuilder.GambitResourcePoolAdd10();
         public static readonly FeatureDefinitionPower GambitResourcePoolAdd15 = GambitResourcePoolAddBuilder.GambitResourcePoolAdd15();
@@ -245,6 +253,5 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
         public static readonly FeatureDefinitionPowerSharedPool KnockDownPower = KnockDownPowerBuilder.CreateAndAddToDB();
         public static readonly FeatureDefinitionPowerSharedPool InspirePower = InspirePowerBuilder.CreateAndAddToDB();
         public static readonly FeatureDefinitionPowerSharedPool CounterStrikePower = CounterStrikePowerBuilder.CreateAndAddToDB();
-
     }
 }

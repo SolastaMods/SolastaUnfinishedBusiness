@@ -1,10 +1,10 @@
-﻿using SolastaModApi;
+﻿using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaCommunityExpansion.Level20.Features
 {
-    internal class PowerClericDivineInterventionImprovementBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
+    internal sealed class PowerClericDivineInterventionImprovementBuilder : FeatureDefinitionPowerBuilder
     {
         private const string PowerClericDivineInterventionImprovementClericName = "ZSPowerClericDivineInterventionImprovementCleric";
         private const string PowerClericDivineInterventionImprovementClericGuid = "cc4303e4-114e-43aa-a7ee-e197c9f8ef40";
@@ -15,14 +15,16 @@ namespace SolastaCommunityExpansion.Level20.Features
         private const string PowerClericDivineInterventionImprovementWizardName = "ZSPowerClericDivineInterventionImprovementWizard";
         private const string PowerClericDivineInterventionImprovementWizardGuid = "78b25422-6497-441e-a285-b4dd97211a32";
 
-        protected PowerClericDivineInterventionImprovementBuilder(FeatureDefinitionPower basePower, string name, string guid) : base(basePower, name, guid)
+        private PowerClericDivineInterventionImprovementBuilder(FeatureDefinitionPower basePower, string name, string guid) : base(basePower, name, guid)
         {
             Definition.SetHasCastingFailure(false);
             Definition.SetOverriddenPower(basePower);
         }
 
         private static FeatureDefinitionPower CreateAndAddToDB(FeatureDefinitionPower basePower, string name, string guid)
-            => new PowerClericDivineInterventionImprovementBuilder(basePower, name, guid).AddToDB();
+        {
+            return new PowerClericDivineInterventionImprovementBuilder(basePower, name, guid).AddToDB();
+        }
 
         internal static readonly FeatureDefinitionPower PowerClericDivineInterventionImprovementCleric =
             CreateAndAddToDB(PowerClericDivineInterventionCleric, PowerClericDivineInterventionImprovementClericName, PowerClericDivineInterventionImprovementClericGuid);

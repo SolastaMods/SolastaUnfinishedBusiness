@@ -1,0 +1,42 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:AncestrySorcererDraconicBlack:51b706df4f7c7a64688d8b0ac501ae21",
+    "Definition:AncestrySorcererDraconicGold:057972fc72be321438914e957309a196",
+    "Definition:AncestrySorcererDraconicGreen:db5dba36b3abfd049aa0ae4a49fa422b",
+    "Definition:AncestrySorcererDraconicSilver:d1ac0e68210e8c448947f06f28e3eca5",
+    "Definition:AncestrySorcererDraconicBlue:5e3813bc1010c5b4697ab3551a64f008"
+  ],
+  "mode": "Exclusion",
+  "defaultSelection": 1,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&PathClawDragonAncestryTitle",
+    "description": "Feature/&PathClawDragonAncestryDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "90f10b630b8c8db409564b37d68644fe",
+  "contentPack": "BaseGame",
+  "name": "FeatureSetPathClawDragonAncestry"
+}
