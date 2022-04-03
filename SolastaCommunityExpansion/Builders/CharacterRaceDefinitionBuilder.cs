@@ -77,30 +77,34 @@ namespace SolastaCommunityExpansion.Builders
             Definition.FeatureUnlocks.Clear();
 
             // sort to add to list in determistic order
-            foreach (var (featureDefinition, level) in featuresByLevel.OrderBy(f => f.featureDefinition.Name))
+            foreach (var (featureDefinition, level) in featuresByLevel)
             {
                 Definition.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureDefinition, level));
             }
 
+            Definition.FeatureUnlocks.Sort(Sorting.Compare);
             return this;
         }
 
         public CharacterRaceDefinitionBuilder AddFeatureAtLevel(FeatureDefinition feature, int level)
         {
             Definition.AddFeatureUnlocks(new FeatureUnlockByLevel(feature, level));
+            Definition.FeatureUnlocks.Sort(Sorting.Compare);
             return this;
         }
 
         public CharacterRaceDefinitionBuilder AddFeaturesAtLevel(int level, params FeatureDefinition[] features)
         {
             Definition.AddFeatureUnlocks(features.Select(f => new FeatureUnlockByLevel(f, level)));
+            Definition.FeatureUnlocks.Sort(Sorting.Compare);
             return this;
         }
 
         public CharacterRaceDefinitionBuilder SetFeaturesAtLevel(int level, params FeatureDefinition[] features)
         {
             Definition.SetFeatureUnlocks(
-                features.Select(f => new FeatureUnlockByLevel(f, level)).OrderBy(f => f.Level).ThenBy(f => f.FeatureDefinition.Name));
+                features.Select(f => new FeatureUnlockByLevel(f, level)));
+            Definition.FeatureUnlocks.Sort(Sorting.Compare);
             return this;
         }
     }

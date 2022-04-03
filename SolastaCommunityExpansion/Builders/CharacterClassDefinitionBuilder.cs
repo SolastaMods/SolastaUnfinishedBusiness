@@ -273,12 +273,14 @@ namespace SolastaCommunityExpansion.Builders
                 Definition.FeatureUnlocks.Add(new FeatureUnlockByLevel(feature, level));
             }
 
+            Definition.FeatureUnlocks.Sort(Sorting.Compare);
             return this;
         }
 
         public CharacterClassDefinitionBuilder AddFeaturesAtLevel(int level, params FeatureDefinition[] features)
         {
             Definition.AddFeatureUnlocks(features.Select(f => new FeatureUnlockByLevel(f, level)));
+            Definition.FeatureUnlocks.Sort(Sorting.Compare);
             return this;
         }
     }

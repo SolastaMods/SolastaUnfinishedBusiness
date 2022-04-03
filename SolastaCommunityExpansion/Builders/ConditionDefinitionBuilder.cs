@@ -104,24 +104,28 @@ namespace SolastaCommunityExpansion.Builders
         public TBuilder AddConditionTags(params string[] value)
         {
             Definition.AddConditionTags(value);
+            Definition.ConditionTags.Sort();
             return This();
         }
 
         public TBuilder AddFeatures(IEnumerable<FeatureDefinition> value)
         {
             Definition.AddFeatures(value);
+            Definition.Features.Sort(Sorting.Compare);
             return This();
         }
 
         public TBuilder AddFeatures(params FeatureDefinition[] value)
         {
             Definition.AddFeatures(value);
+            Definition.Features.Sort(Sorting.Compare);
             return This();
         }
 
         public TBuilder SetFeatures(IEnumerable<FeatureDefinition> value)
         {
             Definition.SetFeatures(value);
+            Definition.Features.Sort(Sorting.Compare);
             return This();
         }
 
@@ -211,6 +215,7 @@ namespace SolastaCommunityExpansion.Builders
         public TBuilder AddRecurrentEffectForm(EffectForm effect)
         {
             Definition.RecurrentEffectForms.Add(effect);
+            Definition.RecurrentEffectForms.Sort(Sorting.Compare);
             return This();
         }
 

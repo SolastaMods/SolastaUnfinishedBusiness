@@ -333,6 +333,7 @@ namespace SolastaCommunityExpansion.Builders
         public MonsterDefinitionBuilder SetFeatures(IEnumerable<FeatureDefinition> features)
         {
             Definition.Features.SetRange(features);
+            Definition.Features.Sort(Sorting.Compare);
             return this;
         }
 
@@ -355,6 +356,7 @@ namespace SolastaCommunityExpansion.Builders
         public MonsterDefinitionBuilder AddSkillScores(IEnumerable<MonsterSkillProficiency> skillScores)
         {
             Definition.SkillScores.AddRange(skillScores);
+            Definition.SkillScores.Sort(Sorting.Compare);
             return this;
         }
 
@@ -371,6 +373,7 @@ namespace SolastaCommunityExpansion.Builders
         public MonsterDefinitionBuilder SetSkillScores(IEnumerable<MonsterSkillProficiency> skillScores)
         {
             Definition.SkillScores.SetRange(skillScores);
+            Definition.SkillScores.Sort(Sorting.Compare);
             return this;
         }
 
@@ -388,6 +391,7 @@ namespace SolastaCommunityExpansion.Builders
         public MonsterDefinitionBuilder AddAttackIterations(IEnumerable<MonsterAttackIteration> monsterAttackIterations)
         {
             Definition.AttackIterations.AddRange(monsterAttackIterations);
+            Definition.AttackIterations.Sort(Sorting.Compare);
             return this;
         }
 
@@ -416,6 +420,7 @@ namespace SolastaCommunityExpansion.Builders
         public MonsterDefinitionBuilder AddLegendaryActionOptions(IEnumerable<LegendaryActionDescription> legendaryActionDescriptions)
         {
             Definition.AddLegendaryActionOptions(legendaryActionDescriptions);
+            Definition.LegendaryActionOptions.Sort(Sorting.Compare);
             return this;
         }
 
@@ -473,6 +478,7 @@ namespace SolastaCommunityExpansion.Builders
         public MonsterDefinitionBuilder AddSavingThrowScores(IEnumerable<MonsterSavingThrowProficiency> savingThrowScores)
         {
             Definition.SavingThrowScores.AddRange(savingThrowScores);
+            Definition.SavingThrowScores.Sort(Sorting.Compare);
             return this;
         }
 
@@ -507,25 +513,23 @@ namespace SolastaCommunityExpansion.Builders
             Definition.MonsterPresentation.SetFemalePrefabReference(assetReference);
             return this;
         }
+
         public MonsterDefinitionBuilder SetHasPrefabVariants(bool value)
         {
             Definition.MonsterPresentation.SetHasPrefabVariants(value);
             return this;
         }
 
-
         public MonsterDefinitionBuilder SetUseCustomMaterials(bool value)
         {
             Definition.MonsterPresentation.SetUseCustomMaterials(value);
             return this;
         }
+
         public MonsterDefinitionBuilder SetCustomMaterials(AssetReference[] assetReference)
         {
             Definition.MonsterPresentation.SetCustomMaterials(assetReference);
             return this;
         }
-
-
-
     }
 }

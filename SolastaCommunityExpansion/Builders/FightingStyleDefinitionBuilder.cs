@@ -42,6 +42,7 @@ namespace SolastaCommunityExpansion.Builders
         public TBuilder SetFeatures(IEnumerable<FeatureDefinition> features)
         {
             Definition.SetFeatures(features.OrderBy(f => f.Name));
+            Definition.Features.Sort(Sorting.Compare);
             return This();
         }
 
