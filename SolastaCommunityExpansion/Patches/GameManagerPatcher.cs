@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.Models;
 using UnityModManagerNet;
 #if DEBUG
@@ -48,6 +47,9 @@ namespace SolastaCommunityExpansion.Patches
             Level20Context.Load();
             PickPocketContext.Load();
 
+            // Powers needs to be added to db before spells because of summoned creatures that have new powers defined here.
+            PowersContext.AddToDB();
+
             RemoveBugVisualModelsContext.Load();
             RemoveIdentificationContext.Load();
             RespecContext.Load();
@@ -57,9 +59,6 @@ namespace SolastaCommunityExpansion.Patches
             SrdAndHouseRulesContext.Load();
             TelemaCampaignContext.Load();
             VisionContext.Load();
-
-            // Always load multiclass blueprints to avoid issues loading heroes from files
-            MulticlassContext.Load();
 
             // Races may rely on spells and powers being in the DB before they can properly load.
             RacesContext.Load();
@@ -80,6 +79,9 @@ namespace SolastaCommunityExpansion.Patches
 
                 // There are feats that need all character classes loaded before they can properly be setup.
                 FeatsContext.Load();
+
+                // Generally available powers need all classes in the db before they are initialized here.
+                PowersContext.Switch();
 
                 // Spells context needs character classes (specifically spell lists) in the db in order to do it's work.
                 SpellsContext.Load();

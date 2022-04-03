@@ -111,6 +111,7 @@ namespace SolastaCommunityExpansion
 
         // Initial Choices
         public bool AllowDisplayAllUnofficialContent { get; set; }
+        public bool AddHelpActionToAllRaces { get; set; }
         public bool DisableSenseDarkVisionFromAllRaces { get; set; }
         public bool DisableSenseSuperiorDarkVisionFromAllRaces { get; set; }
         public bool EnableAlternateHuman { get; set; }
