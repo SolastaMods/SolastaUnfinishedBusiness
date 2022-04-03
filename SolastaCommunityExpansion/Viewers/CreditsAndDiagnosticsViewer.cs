@@ -10,9 +10,9 @@ using static SolastaCommunityExpansion.Viewers.Displays.PatchesDisplay;
 
 namespace SolastaCommunityExpansion.Viewers
 {
-    public class CreditsAndTroubleshootingViewer : IMenuSelectablePage
+    public class CreditsAndDiagnosticsViewer : IMenuSelectablePage
     {
-        public string Name => "Credits & Troubleshooting";
+        public string Name => "Credits & Diagnostics";
 
         public int Priority => 999;
 
@@ -24,8 +24,10 @@ namespace SolastaCommunityExpansion.Viewers
         {
             new NamedAction("Credits", DisplayCredits),
             new NamedAction("Diagnostics", DisplayDiagnostics),
+#if DEBUG
             new NamedAction("Blueprints", DisplayBlueprints),
             new NamedAction("Services", DisplayGameServices),
+#endif
         };
 
         public void OnGUI(UnityModManager.ModEntry modEntry)

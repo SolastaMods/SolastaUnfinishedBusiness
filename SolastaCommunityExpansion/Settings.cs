@@ -111,7 +111,7 @@ namespace SolastaCommunityExpansion
 
         // Initial Choices
         public bool AllowDisplayAllUnofficialContent { get; set; }
-        public bool AddHelpActionToAllClasses { get; set; }
+        public bool AddHelpActionToAllRaces { get; set; }
         public bool DisableSenseDarkVisionFromAllRaces { get; set; }
         public bool DisableSenseSuperiorDarkVisionFromAllRaces { get; set; }
         public bool EnableAlternateHuman { get; set; }
@@ -121,16 +121,14 @@ namespace SolastaCommunityExpansion
         public bool EnableEpicArray { get; set; }
         public int TotalFeatsGrantedFistLevel { get; set; }
 
-        // Miscellaneous
-        public bool AllowExtraKeyboardCharactersInAllNames { get; set; }
-        public bool OfferAdditionalLoreFriendlyNames { get; set; }
-
         // Progression
         public bool EnablesAsiAndFeat { get; set; }
         public bool EnableLevel20 { get; set; }
 
         // Visuals
         public bool EnableAdditionalBackstoryDisplay { get; set; }
+        public bool AllowExtraKeyboardCharactersInAllNames { get; set; }
+        public bool OfferAdditionalLoreFriendlyNames { get; set; }
         public bool UnlockAllNpcFaces { get; set; }
         public bool AllowUnmarkedSorcerers { get; set; }
         public bool UnlockMarkAndTatoosForAllCharacters { get; set; }
@@ -167,23 +165,10 @@ namespace SolastaCommunityExpansion
         public List<string> FightingStyleEnabled { get; } = new List<string>();
 
         //
-        // Characters - Powers
-        //
-
-        public List<string> PowerEnabled { get; } = new List<string>();
-
-        //
         // Characters - Spells
         //
 
         public Utils.SerializableDictionary<string, List<string>> SpellSpellListEnabled { get; set; } = new Utils.SerializableDictionary<string, List<string>>();
-
-        //
-        // Encounters - General
-        //
-
-        public bool EnableEnemiesControlledByPlayer { get; set; }
-        public bool EnableHeroesControlledByComputer { get; set; }
 
         //
         // Gameplay - Rules
@@ -191,16 +176,15 @@ namespace SolastaCommunityExpansion
 
         // SRD
         public bool UseOfficialAdvantageDisadvantageRules { get; set; }
-        public bool EnablePowerAid { get; set; }
         public bool AddBleedingToLesserRestoration { get; set; }
         public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
         public bool AllowTargetingSelectionWhenCastingChainLightningSpell { get; set; }
-        public bool FixSorcererTwinnedLogic { get; set; }
-        public bool EnableUpcastConjureElementalAndFey { get; set; }
-        public bool FullyControlConjurations { get; set; }
-        public bool OnlyShowMostPowerfulUpcastConjuredElementalOrFey { get; set; }
-        public bool UseHeightOneCylinderEffect { get; set; }
         public bool BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove { get; set; }
+        public bool EnableUpcastConjureElementalAndFey { get; set; }
+        public bool OnlyShowMostPowerfulUpcastConjuredElementalOrFey { get; set; }
+        public bool FixSorcererTwinnedLogic { get; set; }
+        public bool FullyControlConjurations { get; set; }
+
 
         // House
         public bool AllowAnyClassToWearSylvanArmor { get; set; }
@@ -208,10 +192,11 @@ namespace SolastaCommunityExpansion
         public bool DisableAutoEquip { get; set; }
         public bool MakeAllMagicStaveArcaneFoci { get; set; }
         public bool IncreaseSenseNormalVision { get; set; }
+        public bool QuickCastLightCantripOnWornItemsFirst { get; set; }
+        public bool UseHeightOneCylinderEffect { get; set; }
         public bool AddPickpocketableLoot { get; set; }
         public bool AllowStackedMaterialComponent { get; set; }
         public bool ScaleMerchantPricesCorrectly { get; set; }
-        public bool QuickCastLightCantripOnWornItemsFirst { get; set; }
         public int MultiplyTheExperienceGainedBy { get; set; } = 100;
 
         //
@@ -234,7 +219,6 @@ namespace SolastaCommunityExpansion
         public bool RemoveIdentifcationRequirements { get; set; }
         public bool ShowCraftingRecipeInDetailedTooltips { get; set; }
         public int RecipeCost { get; set; } = 200;
-
         public int SetBeltOfDwarvenKindBeardChances { get; set; } = 50;
 
         // Crafting
@@ -280,6 +264,7 @@ namespace SolastaCommunityExpansion
         public bool UnleashEnemyAsNpc { get; set; }
         public bool EnableDungeonMakerModdedContent { get; set; }
         public bool EnableExtraHighLevelMonsters { get; set; }
+
         //
         // Interface - Game UI
         //
@@ -321,5 +306,26 @@ namespace SolastaCommunityExpansion
         public bool InvertAltBehaviorOnTooltips { get; set; }
         public bool EnableCtrlClickBypassMetamagicPanel { get; set; }
         public bool EnableCtrlClickOnlySwapsMainHand { get; set; }
+
+        //
+        // Encounters - General
+        //
+
+        public bool EnableEnemiesControlledByPlayer { get; set; }
+        public bool EnableHeroesControlledByComputer { get; set; }
+
+        //
+        // Multiclass
+        //
+
+        public bool EnableLevelDown { get; set; }
+        public bool EnableMulticlass { get; set; }
+
+        public int MaxAllowedClasses { get; set; } = 3;
+
+        public bool EnableMinInOutAttributes { get; set; } = true;
+
+        public bool EnableRelearnSpells { get; set; }
+        public bool EnableDisplayAllKnownSpellsOnLevelUp { get; set; }
     }
 }

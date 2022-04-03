@@ -9,6 +9,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class GameServicesDisplay
     {
+#if DEBUG
+
         private static readonly Dictionary<string, Func<object>> TARGET_LIST = new()
         {
             { "None", null },
@@ -87,5 +89,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 _treeView.Clear();
             }
         }
+#endif
     }
 }

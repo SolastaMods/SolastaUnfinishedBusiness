@@ -16,7 +16,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
             ref int __result,
             Dictionary<int, int> ___spellsSlotCapacities)
         {
-            if (Main.IsMulticlassInstalled || __instance.SpellCastingClass != ClassWarlock)
+            if (Main.Settings.EnableMulticlass || __instance.SpellCastingClass != ClassWarlock)
             {
                 return true;
             }
@@ -38,7 +38,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
             Dictionary<int, int> ___usedSpellsSlots,
             Dictionary<int, int> ___spellsSlotCapacities)
         {
-            if (Main.IsMulticlassInstalled || __instance.SpellCastingClass != ClassWarlock)
+            if (Main.Settings.EnableMulticlass || __instance.SpellCastingClass != ClassWarlock)
             {
                 return true;
             }
@@ -64,7 +64,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
             ref int remaining,
             ref int max)
         {
-            if (Main.IsMulticlassInstalled || __instance.SpellCastingClass != ClassWarlock)
+            if (Main.Settings.EnableMulticlass || __instance.SpellCastingClass != ClassWarlock)
             {
                 return true;
             }
@@ -90,7 +90,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
     {
         internal static bool Prefix(RulesetSpellRepertoire __instance, Dictionary<int, int> ___usedSpellsSlots, int slotLevel)
         {
-            if (Main.IsMulticlassInstalled || slotLevel == 0 || __instance.SpellCastingClass != ClassWarlock)
+            if (Main.Settings.EnableMulticlass || slotLevel == 0 || __instance.SpellCastingClass != ClassWarlock)
             {
                 return true;
             }

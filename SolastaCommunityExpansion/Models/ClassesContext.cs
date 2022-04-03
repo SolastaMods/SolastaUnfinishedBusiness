@@ -83,9 +83,10 @@ namespace SolastaCommunityExpansion.Models
             UpdateClassVisibility(className);
         }
 
+#if DEBUG
         public static string GenerateClassDescription()
         {
-            var outString = new StringBuilder("[heading]Classes[/heading]");
+            var outString = new StringBuilder("[size=3][b]Classes[/b][/size]\n");
 
             outString.Append("\n[list]");
 
@@ -101,5 +102,6 @@ namespace SolastaCommunityExpansion.Models
 
             return outString.ToString();
         }
+#endif
     }
 }

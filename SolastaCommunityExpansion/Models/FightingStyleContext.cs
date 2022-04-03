@@ -72,9 +72,10 @@ namespace SolastaCommunityExpansion.Models
             UpdateStyleVisibility(styleName);
         }
 
+#if DEBUG
         public static string GenerateFightingStyleDescription()
         {
-            var outString = new StringBuilder("[heading]Fighting Styles[/heading]");
+            var outString = new StringBuilder("[size=3][b]Fighting Styles[/b][/size]\n");
 
             outString.Append("\n[list]");
 
@@ -90,5 +91,6 @@ namespace SolastaCommunityExpansion.Models
 
             return outString.ToString();
         }
+#endif
     }
 }

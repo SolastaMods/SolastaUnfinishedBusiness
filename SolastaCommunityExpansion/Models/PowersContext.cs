@@ -21,30 +21,27 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void Switch()
         {
-            //
-            // TODO: Test Help Power before adding to classes...
-            //
-            //SwitchHelpPower();
+            SwitchHelpPower();
         }
 
         internal static void SwitchHelpPower()
         {
-            var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
+            var dbCharacterRaceDefinition = DatabaseRepository.GetDatabase<CharacterRaceDefinition>();
 
-            if (Main.Settings.AddHelpActionToAllClasses)
+            if (Main.Settings.AddHelpActionToAllRaces)
             {
-                foreach (var characterClassDefinition in dbCharacterClassDefinition
+                foreach (var characterRaceDefinition in dbCharacterRaceDefinition
                     .Where(a => !a.FeatureUnlocks.Exists(x => x.Level == 1 && x.FeatureDefinition == FeatureDefinitionPowerHelpAction)))
                 {
-                    characterClassDefinition.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureDefinitionPowerHelpAction, 1));
+                    characterRaceDefinition.AddFeatureUnlock(FeatureDefinitionPowerHelpAction, 1);
                 }
             }
             else
             {
-                foreach (var characterClassDefinition in dbCharacterClassDefinition
+                foreach (var characterRaceDefinition in dbCharacterRaceDefinition
                     .Where(a => a.FeatureUnlocks.Exists(x => x.Level == 1 && x.FeatureDefinition == FeatureDefinitionPowerHelpAction)))
                 {
-                    characterClassDefinition.FeatureUnlocks.RemoveAll(x => x.Level == 1 && x.FeatureDefinition == FeatureDefinitionPowerHelpAction);
+                    characterRaceDefinition.FeatureUnlocks.RemoveAll(x => x.Level == 1 && x.FeatureDefinition == FeatureDefinitionPowerHelpAction);
                 }
             }
         }
@@ -52,6 +49,7 @@ namespace SolastaCommunityExpansion.Models
         private static void LoadHelpPower()
         {
             var effectDescription = TrueStrike.EffectDescription.Copy();
+
             effectDescription.SetRangeType(RuleDefinitions.RangeType.Touch);
             effectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
             effectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);

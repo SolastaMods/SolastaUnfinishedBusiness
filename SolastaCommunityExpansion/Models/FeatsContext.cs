@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -87,9 +88,10 @@ namespace SolastaCommunityExpansion.Models
             GuiWrapperContext.RecacheFeats();
         }
 
+#if DEBUG
         public static string GenerateFeatsDescription()
         {
-            var outString = new StringBuilder("[heading]Feats[/heading]");
+            var outString = new StringBuilder("[size=3][b]Feats[/b][/size]\n");
 
             outString.Append("\n[list]");
 
@@ -105,5 +107,7 @@ namespace SolastaCommunityExpansion.Models
 
             return outString.ToString();
         }
+#endif
     }
+
 }

@@ -11,6 +11,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 {
     public static class BlueprintDisplay
     {
+#if DEBUG
         private static IEnumerable<BaseDefinition> _allBlueprints;
 
         private static IEnumerable<BaseDefinition> GetBlueprints()
@@ -252,5 +253,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 throw;
             }
         }
+#endif
     }
 }
+
