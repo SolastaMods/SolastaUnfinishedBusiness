@@ -318,7 +318,7 @@ namespace SolastaCommunityExpansion
         //
 
         public bool EnableLevelDown { get; set; }
-        public bool EnableMulticlass { get; set; } = true;
+        public bool EnableMulticlass { get; set; }
 
         public int MaxAllowedClasses { get; set; } = 3;
 
