@@ -683,10 +683,10 @@ Feature/&AdditionalDamageHinderingBlastTitle	Explosion gênante
 Feature/&AgonizingBlastFeatureSetDescription	Lorsque vous lancez un sort utilisant des dégâts de force (explosion occulte), ajoutez votre modificateur de Charisme aux dégâts qu'il inflige lors d'un coup.
 Feature/&AgonizingBlastFeatureSetTitle	Explosion agonisante
 Feature/&AHSoulBladeEmpowerDamageBonusDescription	Vous êtes renforcé et infligez un bonus de dégâts égal à votre maîtrise de toutes vos attaques.
-Feature/&AHSoulBladeEmpowerWeaponDamageBonusTitle	Âme habilitée
-Feature/&AHSoulBladeEmpowerWeaponDamageBonusDescription	Vous êtes renforcé et infligez un bonus de dégâts égal à votre maîtrise de toutes vos attaques.
 Feature/&AHSoulBladeEmpowerWeaponConditionDescription	Vous êtes renforcé et infligez un bonus de dégâts égal à votre maîtrise de toutes vos attaques.
 Feature/&AHSoulBladeEmpowerWeaponConditionTitle	Âme habilitée
+Feature/&AHSoulBladeEmpowerWeaponDamageBonusDescription	Vous êtes renforcé et infligez un bonus de dégâts égal à votre maîtrise de toutes vos attaques.
+Feature/&AHSoulBladeEmpowerWeaponDamageBonusTitle	Âme habilitée
 Feature/&AHSoulBladeSummonPactWeaponPowerDescription	Une fois par repos court, vous pouvez invoquer une forme spirituelle d'une arme de votre pacte par une action libre. Par une action bonus, vous pouvez diriger l'arme comme vous le souhaitez pour attaquer vos ennemis. L'arme se déplace jusqu'à 20 pieds à chaque fois avant de frapper.
 Feature/&AHSoulBladeSummonPactWeaponPowerTitle	Arme du pacte spirituel
 Feature/&AHWarlockClassPactBoonSetDescription	Au niveau 3, votre patron d'un autre monde vous accorde un cadeau pour vos loyaux services. Vous pouvez choisir entre :
@@ -733,7 +733,7 @@ Feature/&ArtificerSpecialistArchetypesDescription	Dans quel domaine d'études vo
 Feature/&ArtificerSpecialistArchetypesTitle	Spécialisations de bricoleur
 Feature/&AscendantStepTitle	Étape ascendante
 Feature/&AspectoftheMoonDescription	Vous n'avez plus besoin de dormir et pouvez surveiller, ce qui réduit les risques d'attaque et vous assure d'être éveillé si le camp est attaqué.
-Feature/&AspectoftheMoonTitle	Aspect de la Lune
+Feature/&AspectoftheMoonTitle	Aspect de la lune
 Feature/&AttributeModifierBolgrifAbilityScoreSetDescription	Sagesse +2, Force +1
 Feature/&AttributeModifierBolgrifAbilityScoreSetTitle	Augmentation d'attribut
 Feature/&AttributeModifierGnomeAbilityScoreSetDescription	Intelligence +2, Dextérité +1
@@ -743,6 +743,12 @@ Feature/&BarbarianIndomitableMightTitle	Puissance indomptable
 Feature/&BardSkillsTitle	Compétences de barde
 Feature/&BeguilingInfluenceDescription	Vous maîtrisez les compétences Tromperie et Persuasion.
 Feature/&BeguilingInfluenceTitle	Influence séduisante
+Feature/&BolgrifDruidicMagicDescription	Vous connaissez un sort mineur de votre choix dans la liste des sorts du druide. La sagesse est votre capacité d'incantation pour cela.
+Feature/&BolgrifDruidicMagicTitle	Magie druidique
+Feature/&BolgrifInvisibilityPowerDescription	Par une action bonus, vous pouvez devenir magiquement invisible pendant 1 round. Cette invisibilité se brise si vous entreprenez une action offensive. Une fois que vous avez utilisé cette capacité, vous ne pouvez plus l'utiliser tant que vous n'avez pas terminé un repos court ou long.
+Feature/&BolgrifInvisibilityPowerTitle	Disparaître
+Feature/&BolgrifPowerfulBuildDescription	Vous comptez votre taille comme grande lors de la détermination de votre capacité de charge.
+Feature/&BolgrifPowerfulBuildTitle	Construction puissante
 Feature/&BondoftheTalismanDescription	Téléportez jusqu'à 5 cellules.
 Feature/&BondoftheTalismanTitle	Talisman de téléportation
 Feature/&ChainsofCarceriTitle	Chaînes de Carceri
@@ -761,7 +767,7 @@ Feature/&ClassWarlockMysticArcanumSetTitle	Arcane Mystique
 Feature/&ClassWarlockSavingThrowProficiencyDescription	Sagesse, charisme
 Feature/&ClassWarlockSavingThrowProficiencyTitle	Compétences en jets de sauvegarde
 Feature/&ClassWarlockSkillProficiencyDescription	Choisissez 2 de ces compétences : Arcanes, Tromperie, Histoire, Intimidation, Enquête, Nature et Religion
-Feature/&ClassWarlockSkillProficiencyTitle	Compétences de Démoniste
+Feature/&ClassWarlockSkillProficiencyTitle	Compétences de démoniste
 Feature/&ClassWarlockSpellcastingDescription	Vos recherches sur les arcanes et la magie que vous a conférée votre mécène vous ont donné de la facilité avec les sorts
 Feature/&ClassWarlockSpellcastingTitle	Magie du pacte de démoniste
 Feature/&ClassWarlockToolsProficiencyDescription	Vous avez été formé pour préparer des remèdes à base de plantes et utiliser un équipement enchanteur
@@ -857,12 +863,6 @@ Feature/&ElementalPatronFeatureSet_Level10Title	Elémentaliste
 Feature/&EyesoftheRuneKeeperDescription	Vous pouvez lire tous les écrits.
 Feature/&EyesoftheRuneKeeperTitle	Les yeux du gardien des runes
 Feature/&FiendishVigorTitle	Vigueur diabolique
-Feature/&BolgrifDruidicMagicDescription	Vous connaissez un sort mineur de votre choix dans la liste des sorts du druide. La sagesse est votre capacité d'incantation pour cela.
-Feature/&BolgrifDruidicMagicTitle	Magie druidique
-Feature/&BolgrifInvisibilityPowerDescription	Par une action bonus, vous pouvez devenir magiquement invisible pendant 1 round. Cette invisibilité se brise si vous entreprenez une action offensive. Une fois que vous avez utilisé cette capacité, vous ne pouvez plus l'utiliser tant que vous n'avez pas terminé un repos court ou long.
-Feature/&BolgrifInvisibilityPowerTitle	Disparaître
-Feature/&BolgrifPowerfulBuildDescription	Vous comptez votre taille comme grande lors de la détermination de votre capacité de charge.
-Feature/&BolgrifPowerfulBuildTitle	Construction puissante
 Feature/&FlameArtillery_09ModePowerDescription	Invoque une construction qui dure 1 heure.\nFlame Artillery : Crée un cône de feu qui inflige 3D8 dégâts en cas d'échec.\nAutodestruction : inflige 3D8 dégâts de force en cas d'échec de sauvegarde et détruit l'unité.
 Feature/&FlameArtillery_09ModePowerTitle	Invoquer une construction d'artillerie de flammes
 Feature/&FlameArtillery_15ModePowerDescription	Invoque une construction qui dure 1 heure.\nFlame Artillery : Crée un cône de feu qui inflige 3D8 dégâts en cas d'échec.\nAutodestruction : inflige 3D8 dégâts de force en cas d'échec de sauvegarde et détruit l'unité.\n Half Cover Dome : fournit une demi-couverture aux alliés à moins de 10 pieds.
@@ -1003,16 +1003,16 @@ Feature/&TempHPShieldTitle	Dôme de protection
 Feature/&ThiefofFiveFatesTitle	Voleur des cinq destins
 Feature/&ThirstingBladeDescription	Vous pouvez attaquer avec votre arme deux fois, au lieu d'une, chaque fois que vous effectuez l'action Attaquer à votre tour.
 Feature/&ThirstingBladeTitle	Lame assoiffée
+Feature/&TinkererArmorProficiencyDescription	Maîtrise des armures légères et moyennes ainsi que des boucliers
 Feature/&TinkererArmorProficiencyTitle	Compétence d'armure de bricoleur
-Feature/&TinkererArmorTrainingDescription	Maîtrise des armures légères et moyennes ainsi que des boucliers
 Feature/&TinkererSkillGainChoicesPluralDescription	Les compétences du bricoleur sont les arcanes, l'histoire, l'investigation, la médecine, la nature, la perception et le tour de passe-passe
 Feature/&TinkererSkillPointsTitle	Compétences de bricoleur
-Feature/&TinkererToolProficiencyDescription	Maîtrisez de nombreux outils, notamment les outils de voleur, les kits de parchemins, le kit d'empoisonnement, le kit d'herboristerie et les outils d'enchantement
 Feature/&TinkererToolsExpertiseDescription	Acquérir de l'expertise avec de nombreux outils, notamment les outils de voleur, les kits de parchemins, le kit d'empoisonnement, le kit d'herboristerie et les outils d'enchantement
 Feature/&TinkererToolsExpertiseTitle	Expertise en outils de bricolage
+Feature/&TinkererToolsProficiencyDescription	Maîtrisez de nombreux outils, notamment les outils de voleur, les kits de parchemins, le kit d'empoisonnement, le kit d'herboristerie et les outils d'enchantement
 Feature/&TinkererToolsProficiencyTitle	Maîtrise des outils
-Feature/&TinkererWeaponProficiencyTitle	Maîtrise des armes du bricoleur
 Feature/&TinkererWeaponProficiencyDescription	Maîtrise des armes simples
+Feature/&TinkererWeaponProficiencyTitle	Maîtrise des armes du bricoleur
 Feature/&ToadKingBasicToxinTitle	Toxine de base
 Feature/&ToadKingExpandedSpelllistAfinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de sorcier. Les sorts suivants sont ajoutés à la liste des sorts de démoniste pour vous :\n Niveau 1 : Graisser, détecter le poison et la maladie\n Niveau 2 : AcidArrow, Spider Climb\n Niveau 3 : Nuage lent et puant\n Niveau 4 : tentacules noires, liberté de mouvement\n Niveau 5 : Contagion, peste d'insectes
 Feature/&ToadKingExpandedSpelllistAfinityTitle	Sorts du roi crapaud
@@ -1073,14 +1073,19 @@ FlexibleRaces/&PointPoolAbilityScore3Description	Utilisez trois boosts sur les s
 FlexibleRaces/&PointPoolAbilityScore3Title	Augmentation du score de capacité
 FlexibleRaces/&PointPoolAbilityScore4Description	Utilisez quatre boosts sur les scores de capacité dans n'importe quelle combinaison de votre choix.
 FlexibleRaces/&PointPoolAbilityScore4Title	Augmentation du score de capacité
+Format/&LevelAndExperienceFormat	Niveau : {0}\nExpérience : {1}\n{2} points requis pour atteindre le niveau {3}
+Format/&LevelAndExperienceMaxedFormat	Niveau : {0}\nExpérience : {1}\nniveau maximum atteint.
 Item/&ForceArtilleryProjectileDescription	ForceArtillerieProjectile
 Item/&ForceArtilleryProjectileTitle	ForceArtillerieProjectile
 Language/&GnomishDescription	Ancienne langue solastane, préservée par les gnomes vivant dans les forêts profondes de Solasta, elle a survécu au cataclysme.
 Language/&GnomishTitle	gnome
+MainMenu/&ExportPdfDescription	Nivelez ce héros
+MainMenu/&ExportPdfTitle	Descendre d'un niveau
 Message/&CharacterExportDuplicateNameErrorDescription	Exportation annulée :\n\nUn héros portant ce nom existe déjà dans le pool.\nVeuillez essayer un autre nom.
 Message/&CharacterExportEmptyNameErrorDescription	Exportation annulée :\n\nVeuillez essayer un nom non vide.
 Message/&CharacterExportModalContentDescription	Saisissez le nom du héros à exporter :
 Message/&CharacterExportModalTitleDescription	Exportation de caractères
+Message/&LevelDownConfirmationDescription	Nivelez ce héros ?
 Message/&MessageModWelcomeDescription	Le Community Expansion Mod regorge de fonctionnalités intéressantes, mais par défaut, aucune n'est activée. Appuyez sur <color=yellow>Ctrl-F10</color> pour ouvrir l'interface utilisateur de Unity Mod Manager [UMM], puis cliquez sur l'icône des paramètres à côté de "Community Expansion" pour ouvrir les pages de paramètres.\n\n Explorez les options et sélectionnez celles que vous aimez. L'interface utilisateur UMM va maintenant s'ouvrir.
 Message/&MessageModWelcomeTitle	Mod d'expansion de la communauté
 Message/&SpawnCustomEncounterDescription	Générer une rencontre aux coordonnées ({0}, {1}) ?
@@ -1352,7 +1357,7 @@ Power/&UrPriestRadiantWardTitle	Service radieux
 Power/&UrPriestSpellSiphonDescription	vous apprenez à puiser dans une plus grande source de magie en combinaison avec votre réserve de puissance normale. Par une action, vous pouvez dépenser une Divinité canalisée pour retrouver une utilisation dépensée de votre arcane mystique de niveau 6.
 Power/&UrPriestSpellSiphonTitle	Siphon de sorts
 Pugilist	Dégâts de pugiliste
-Race/&BolgrifRaceDescription Bolgrifs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, bolgrifs demonstrate formidable skills with weapons and nature magic.
+Race/&BolgrifRaceDescription	Les bolgrifs sont des demi-géants vivant dans les hautes terres gelées de Solasta. Ils sont rusés, prudents, reclus, se méfient de la plupart des humanoïdes à l'exception des elfes et préfèrent vivre loin de la civilisation dans des clans soudés. S'ils sont poussés au combat, les bolgrifs font preuve de formidables compétences avec les armes et la magie de la nature.
 Race/&BolgrifRaceTitle	Bolgrif
 Race/&GnomeRaceDescription	Un bourdonnement constant d'activités animées imprègne les dédales et les quartiers où les gnomes forment leurs communautés très unies. Des sons plus forts ponctuent le bourdonnement : ici un craquement d'engrenages grinçants, là une petite explosion, un cri de surprise ou de triomphe, et surtout des éclats de rire. Les gnomes prennent plaisir à la vie, profitant de chaque instant d'invention, d'exploration, d'investigation, de création et de jeu.
 Race/&GnomeRaceTitle	Nain des bois
@@ -1426,6 +1431,9 @@ Screen/&FeyTeleportSpellDescription	Ce sort Fey est toujours préparé.
 Screen/&FeyTeleportSpellTitle	fée
 Screen/&ShadowTouchedSpellDescription	Ce sort d'Ombre est toujours préparé.
 Screen/&ShadowTouchedSpellTitle	Ombre
+Screen/&SpellSlotsUsedLongDescription	Vous avez dépensé {0} emplacement(s) de repos long de ce niveau.
+Screen/&SpellSlotsUsedShortDescription	Vous avez dépensé {0} créneau(x) de repos court de ce niveau.
+Screen/&SpellSlotsUsedShortLongDescription	Vous avez dépensé {0} créneau(x) de repos court et {1} créneau(x) de repos long de ce niveau.
 Screen/&WitchSpellDescription	Sort connu sous le nom de Sorcière
 Screen/&WitchSpellHeader	Sorcière
 Screen/&WitchSpellTitle	Sorcière
@@ -1573,7 +1581,7 @@ Subclass/&AttackModifierArtificerBattleSmithWeaponDescription	Vos attaques compt
 Subclass/&AttackModifierArtificerBattleSmithWeaponTitle	Arme infusée
 Subclass/&AttackModifierArtificerBlindingWeaponDescription	Touchez une arme qui acquiert la capacité d'aveugler les cibles lorsqu'elle est touchée (contre une sauvegarde de Constitution). Notez que vous ne pouvez activer une perfusion qu'une seule fois. L'activer une seconde fois annulera la première.
 Subclass/&AttackModifierArtificerBlindingWeaponTitle	Arme aveuglante
-Subclass/&AttackModifierArtificerEnhancedArmorDescription	Touchez Armor et il devient magique et fournit +1 AC. Notez que vous ne pouvez activer une perfusion qu'une seule fois. L'activer une seconde fois annulera la première.
+Subclass/&AttackModifierArtificerEnhancedArmorDescription	Touchez Armor et il devient magique et fournit +1 CA. Notez que vous ne pouvez activer une perfusion qu'une seule fois. L'activer une seconde fois annulera la première.
 Subclass/&AttackModifierArtificerEnhancedArmorTitle	Armure améliorée
 Subclass/&AttackModifierArtificerEnhancedFocusDescription	Touchez un focus et il devient magique et gagne +1 pour attaquer et épeler dc. Notez que vous ne pouvez activer une perfusion qu'une seule fois. L'activer une seconde fois annulera la première.
 Subclass/&AttackModifierArtificerEnhancedFocusTitle	Mise au point améliorée

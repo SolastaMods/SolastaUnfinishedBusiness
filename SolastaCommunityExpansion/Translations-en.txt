@@ -683,10 +683,10 @@ Feature/&AdditionalDamageHinderingBlastTitle	Hindering Blast
 Feature/&AgonizingBlastFeatureSetDescription	When you cast a spell using force damage (eldritch blast), add your Charisma modifier to the damage it deals on a hit.
 Feature/&AgonizingBlastFeatureSetTitle	Agonizing Blast
 Feature/&AHSoulBladeEmpowerDamageBonusDescription	You are empowered and do a damage bonus equal to your proficiency on all your attacks.
-Feature/&AHSoulBladeEmpowerWeaponDamageBonusTitle	Soul Empowered
-Feature/&AHSoulBladeEmpowerWeaponDamageBonusDescription	You are empowered and do a damage bonus equal to your proficiency on all your attacks.
 Feature/&AHSoulBladeEmpowerWeaponConditionDescription	You are empowered and do a damage bonus equal to your proficiency on all your attacks.
 Feature/&AHSoulBladeEmpowerWeaponConditionTitle	Soul Empowered
+Feature/&AHSoulBladeEmpowerWeaponDamageBonusDescription	You are empowered and do a damage bonus equal to your proficiency on all your attacks.
+Feature/&AHSoulBladeEmpowerWeaponDamageBonusTitle	Soul Empowered
 Feature/&AHSoulBladeSummonPactWeaponPowerDescription	Once per short rest you can summon forth a spiritual form of a weapon from your pact as a free action. As a bonus action you can direct the weapon as desired to attack your foes. The weapon moves up to 20ft each time before striking.
 Feature/&AHSoulBladeSummonPactWeaponPowerTitle	Spiritual pact weapon
 Feature/&AHWarlockClassPactBoonSetDescription	At 3rd level, your otherworldly patron bestows a gift upon you for your loyal service. You can choose between:
@@ -743,6 +743,12 @@ Feature/&BarbarianIndomitableMightTitle	Indomitable Might
 Feature/&BardSkillsTitle	Bard Skills
 Feature/&BeguilingInfluenceDescription	You gain proficiency in the Deception and Persuasion skills.
 Feature/&BeguilingInfluenceTitle	Beguiling Influence
+Feature/&BolgrifDruidicMagicDescription	You know one cantrip of your choice from the druid spell list. Wisdom is your spellcasting ability for it.
+Feature/&BolgrifDruidicMagicTitle	Druidic Magic
+Feature/&BolgrifInvisibilityPowerDescription	As a bonus action, you can magically turn invisible for 1 round. This invisibility breaks if you take any offensive action. Once you use this ability, you can't use it again until you finish a short or long rest.
+Feature/&BolgrifInvisibilityPowerTitle	Vanish
+Feature/&BolgrifPowerfulBuildDescription	You count your size as Large when determining your carrying capacity.
+Feature/&BolgrifPowerfulBuildTitle	Powerful Build
 Feature/&BondoftheTalismanDescription	Teleport up to 5 cells away.
 Feature/&BondoftheTalismanTitle	Teleport Talisman
 Feature/&ChainsofCarceriTitle	Chains of Carceri
@@ -857,12 +863,6 @@ Feature/&ElementalPatronFeatureSet_Level10Title	Elementalist
 Feature/&EyesoftheRuneKeeperDescription	You can read all writing.
 Feature/&EyesoftheRuneKeeperTitle	Eyes of the RuneKeeper
 Feature/&FiendishVigorTitle	Fiendish Vigor
-Feature/&BolgrifDruidicMagicDescription	You know one cantrip of your choice from the druid spell list. Wisdom is your spellcasting ability for it.
-Feature/&BolgrifDruidicMagicTitle	Druidic Magic
-Feature/&BolgrifInvisibilityPowerDescription	As a bonus action, you can magically turn invisible for 1 round. This invisibility breaks if you take any offensive action. Once you use this ability, you can't use it again until you finish a short or long rest.
-Feature/&BolgrifInvisibilityPowerTitle	Vanish
-Feature/&BolgrifPowerfulBuildDescription	You count your size as Large when determining your carrying capacity.
-Feature/&BolgrifPowerfulBuildTitle	Powerful Build
 Feature/&FlameArtillery_09ModePowerDescription	Summons a construct that lasts 1 hour. \nFlame Artillery : Creates a cone of fire that deals 3D8 damage on a failed save. \nSelf-Destruct : deals 3D8 force damage on a failed save and destroys the unit.
 Feature/&FlameArtillery_09ModePowerTitle	Summon Flame Artillery Construct
 Feature/&FlameArtillery_15ModePowerDescription	Summons a construct that lasts 1 hour. \nFlame Artillery : Creates a cone of fire that deals 3D8 damage on a failed save. \nSelf-Destruct : deals 3D8 force damage on a failed save and destroys the unit. \n Half Cover Dome : provides half cover to allies within 10ft.
@@ -1003,16 +1003,16 @@ Feature/&TempHPShieldTitle	Protecting Dome
 Feature/&ThiefofFiveFatesTitle	Thief of Five Fates
 Feature/&ThirstingBladeDescription	You can attack with your weapon twice, instead of once, whenever you take the Attack action on your turn.
 Feature/&ThirstingBladeTitle	Thirsting Blade
+Feature/&TinkererArmorProficiencyDescription	Proficiency with Light and Medium armors as well as shields
 Feature/&TinkererArmorProficiencyTitle	Tinkerer Armor Proficiency
-Feature/&TinkererArmorTrainingDescription	Proficiency with Light and Medium armors as well as shields
 Feature/&TinkererSkillGainChoicesPluralDescription	Tinkerer skills are Arcana, History, Investigation, Medecine, Nature, Perception and Sleight of Hand
 Feature/&TinkererSkillPointsTitle	Tinkerer Skills
-Feature/&TinkererToolProficiencyDescription	Gain proficiency with many tools including Thieve's Tools, Scroll Kits, Poisoner's Kit, Herbalism Kit, and Enchanting Tools
 Feature/&TinkererToolsExpertiseDescription	Gain expertise with many tools including Thieve's Tools, Scroll Kits, Poisoner's Kit, Herbalism Kit, and Enchanting Tools
 Feature/&TinkererToolsExpertiseTitle	Tinkerer Tool Expertise
+Feature/&TinkererToolsProficiencyDescription	Gain proficiency with many tools including Thieve's Tools, Scroll Kits, Poisoner's Kit, Herbalism Kit, and Enchanting Tools
 Feature/&TinkererToolsProficiencyTitle	Tool Proficiencies
-Feature/&TinkererWeaponProficiencyTitle	Tinkerer Weapon Proficiencies
 Feature/&TinkererWeaponProficiencyDescription	Proficiency with simple weapons
+Feature/&TinkererWeaponProficiencyTitle	Tinkerer Weapon Proficiencies
 Feature/&ToadKingBasicToxinTitle	Basic Toxin
 Feature/&ToadKingExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: \n Level 1: Grease, Detect Poison And Disease \n Level 2: AcidArrow, Spider Climb \n Level 3: Slow, Stinking Cloud \n Level 4: Black Tentacles,Freedom Of Movement \n Level 5: Contagion,Insect Plague
 Feature/&ToadKingExpandedSpelllistAfinityTitle	Toad King Spells
@@ -1073,14 +1073,19 @@ FlexibleRaces/&PointPoolAbilityScore3Description	Use three boosts on ability sco
 FlexibleRaces/&PointPoolAbilityScore3Title	Ability Score Increase
 FlexibleRaces/&PointPoolAbilityScore4Description	Use four boosts on ability scores in any combination of your choosing.
 FlexibleRaces/&PointPoolAbilityScore4Title	Ability Score Increase
+Format/&LevelAndExperienceFormat	Level: {0}\nExperience: {1}\n{2} points required to reach level {3}
+Format/&LevelAndExperienceMaxedFormat	Level: {0}\nExperience: {1}\nmax level reached.
 Item/&ForceArtilleryProjectileDescription	ForceArtilleryProjectile
 Item/&ForceArtilleryProjectileTitle	ForceArtilleryProjectile
 Language/&GnomishDescription	An old Solastan language, preserved by gnomes living in deep forests of Solasta, it has survived the Cataclysm.
 Language/&GnomishTitle	Gnomish
+MainMenu/&ExportPdfDescription	Level down this Hero
+MainMenu/&ExportPdfTitle	Level Down
 Message/&CharacterExportDuplicateNameErrorDescription	Export Cancelled:\n\nA hero with this name already exists in the pool.\nPlease try a different name.
 Message/&CharacterExportEmptyNameErrorDescription	Export Cancelled:\n\nPlease try a non empty name.
 Message/&CharacterExportModalContentDescription	Enter the hero name to export:
 Message/&CharacterExportModalTitleDescription	Character Export
+Message/&LevelDownConfirmationDescription	Level down this Hero?
 Message/&MessageModWelcomeDescription	The Community Expansion Mod is packed full of exciting features, but by default none are enabled. Press <color=yellow>Ctrl-F10</color> to open the Unity Mod Manager UI [UMM], then click on the settings icon next to 'Community Expansion' to open the settings pages.\n\n Explore the options and select the ones you like. The UMM UI will now open.
 Message/&MessageModWelcomeTitle	Community Expansion Mod
 Message/&SpawnCustomEncounterDescription	Spawn encounter at coordinates ({0}, {1})?
@@ -1352,7 +1357,7 @@ Power/&UrPriestRadiantWardTitle	Radiant Ward
 Power/&UrPriestSpellSiphonDescription	you learn how to tap into a greater source of magic in combination with your normal reserve of power. As an action, you can expend a Channel Divinity to regain an expended use of your 6th-level Mystic Arcanum.
 Power/&UrPriestSpellSiphonTitle	Spell Siphon
 Pugilist	Pugilist Damage
-Race/&BolgrifRaceDescription Bolgrifs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, bolgrifs demonstrate formidable skills with weapons and nature magic.
+Race/&BolgrifRaceDescription	Bolgrifs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, bolgrifs demonstrate formidable skills with weapons and nature magic.
 Race/&BolgrifRaceTitle	Bolgrif
 Race/&GnomeRaceDescription	A constant hum of busy activity pervades the warrens and neighborhoods where gnomes form their close-knit communities. Louder sounds punctuate the hum: a crunch of grinding gears here, a minor explosion there, a yelp of surprise or triumph, and especially bursts of laughter. Gnomes take delight in life, enjoying every moment of invention, exploration, investigation, creation, and play.
 Race/&GnomeRaceTitle	Woodland Gnome
@@ -1426,6 +1431,9 @@ Screen/&FeyTeleportSpellDescription	This Fey spell is always prepared.
 Screen/&FeyTeleportSpellTitle	Fey
 Screen/&ShadowTouchedSpellDescription	This Shadow spell is always prepared.
 Screen/&ShadowTouchedSpellTitle	Shadow
+Screen/&SpellSlotsUsedLongDescription	You have expended {0} long-rest slot(s) of this level.
+Screen/&SpellSlotsUsedShortDescription	You have expended {0} short-rest slot(s) of this level.
+Screen/&SpellSlotsUsedShortLongDescription	You have expended {0} short-rest slot(s) and {1} long-rest slot(s) of this level.
 Screen/&WitchSpellDescription	Spell known as a Witch
 Screen/&WitchSpellHeader	Witch
 Screen/&WitchSpellTitle	Witch
@@ -1823,11 +1831,3 @@ Tooltip/&Tag9000Title	Custom Effect
 Tooltip/&TagCommunityExpansionTitle	Community Expansion
 Tooltip/&TagMaledictionTitle	Malediction
 Tooltip/&TagOtherModContentTitle	From mod
-Screen/&SpellSlotsUsedLongDescription	You have expended {0} long-rest slot(s) of this level.
-Screen/&SpellSlotsUsedShortDescription	You have expended {0} short-rest slot(s) of this level.
-Screen/&SpellSlotsUsedShortLongDescription	You have expended {0} short-rest slot(s) and {1} long-rest slot(s) of this level.
-Format/&LevelAndExperienceFormat	Level: {0}\nExperience: {1}\n{2} points required to reach level {3}
-Format/&LevelAndExperienceMaxedFormat	Level: {0}\nExperience: {1}\nmax level reached.
-MainMenu/&ExportPdfTitle	Level Down
-MainMenu/&ExportPdfDescription	Level down this Hero
-Message/&LevelDownConfirmationDescription	Level down this Hero?

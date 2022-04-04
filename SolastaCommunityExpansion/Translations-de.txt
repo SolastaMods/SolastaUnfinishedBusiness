@@ -567,7 +567,7 @@ Feat/&HealerStabilizeTitle	Stabilisieren
 Feat/&HealerTitle	Heiler
 Feat/&HealerUseMedicineDescription	Du kannst eine Aktion verwenden, um 1W6 + 4 + Trefferpunkte auf Charakterstufe so oft pro kurzer Pause wiederherzustellen, wie es deinem WE-Modifikator entspricht.
 Feat/&HealerUseMedicineTitle	Verwenden Sie Medizin
-Feat/&IncreaseConstructSelectingDescription	Du kannst jetzt zwei Artilleriekonstrukte beschwören. Die Konstrukte können den gleichen oder unterschiedliche Modi aufweisen
+Feat/&IncreaseConstructSelectingDescription	Du kannst jetzt zwei Artilleriekonstrukte beschwören. Die Konstrukte können den gleichen oder unterschiedliche Modi haben
 Feat/&IncreaseConstructSelectingTitle	Verstärkung
 Feat/&InspiringLeaderDescription	Verbringen Sie 10 Minuten damit, bis zu 6 freundliche Kreaturen (darunter auch Sie selbst) innerhalb von 30 Fuß von Ihnen zu inspirieren. Jede Kreatur erhält temporäre Trefferpunkte in Höhe deiner Stufe + deines Charisma-Modifikators. Einmal pro kurzer Pause verwendbar.
 Feat/&InspiringLeaderTitle	Inspirierende Führungskraft
@@ -648,7 +648,7 @@ Feat/&SummonArtificialServantTitle	Beschwöre einen künstlichen Diener
 Feat/&SummonArtilleryConstructDescription	Der Blaster erstellt und befehligt ein Artilleriekonstrukt in einem von mehreren Modi. Die HP des Konstrukts steigen mit der Stufe seines Beschwörers und es kann einmal pro Tag für 1 Stunde kostenlos beschworen werden. Das Konstrukt kann mit einem Zauber der 1. Stufe wiederbeschworen werden. Die drei Modi sind:\n<color=#add8e6ff>Schutzkuppel-Konstrukt:</color>\nGewährt Verbündeten innerhalb von 10 Fuß 1W8 + 4 temporäre HP\n<color=#add8e6ff>Flammenartillerie-Konstrukt:</color>\nErzeugt einen Feuerkegel, der bei einem misslungenen GE-Rettungswurf 2W8 Schaden verursacht\n<color=#add8e6ff>Force Artillery Construct:</color>\nVerursacht 2W8 Kraftschaden und stößt den Gegner 1,50 m weit weg.
 Feat/&SummonArtilleryConstructlevel09Description	Eine neue Funktion wurde hinzugefügt. Das Artilleriekonstrukt kann sich selbst zerstören und bei einem fehlgeschlagenen Rettungswurf 3W8 Machtschaden verursachen.\nZusätzlich erhöhen sich sowohl die Flammen- als auch die Machtartillerie-Schadenswürfe um 1W8 auf insgesamt 3W8
 Feat/&SummonArtilleryConstructlevel09Title	Artillerie-Konstrukt-Upgrade: Selbstzerstörung
-Feat/&SummonArtilleryConstructlevel15Description	Eine neue Funktion wurde hinzugefügt. Das Artillerie-Konstrukt bietet Verbündeten innerhalb von 10 Fuß jetzt halbe Deckung\n<size=17><color=#add8e6ff>Artilleriekonstrukt-Upgrade: Verstärkungen</color></size>\nDu kannst jetzt zwei Artilleriekonstrukte beschwören. Die Konstrukte können den gleichen oder unterschiedliche Modi aufweisen
+Feat/&SummonArtilleryConstructlevel15Description	Eine neue Funktion wurde hinzugefügt. Das Artillerie-Konstrukt bietet Verbündeten innerhalb von 10 Fuß jetzt halbe Deckung\n<size=17><color=#add8e6ff>Artilleriekonstrukt-Upgrade: Verstärkungen</color></size>\nDu kannst jetzt zwei Artilleriekonstrukte beschwören. Die Konstrukte können den gleichen oder unterschiedliche Modi haben
 Feat/&SummonArtilleryConstructlevel15Title	Upgrade des Artilleriekonstrukts: Halbe Deckungskuppel
 Feat/&SummonArtilleryConstructTitle	Artilleriekonstrukt beschwören
 Feat/&SummonProtectorConstructDescription	Dein eigener Battle Buddy steht bereit, um dich zu verteidigen und Feinde anzugreifen. Das Beschützerkonstrukt kann sich dreimal täglich selbst reparieren und Verbündeten bei Angriffen Nachteile zufügen
@@ -683,10 +683,10 @@ Feature/&AdditionalDamageHinderingBlastTitle	Hinderliche Explosion
 Feature/&AgonizingBlastFeatureSetDescription	Wenn du einen Zauber wirkst, der Gewaltschaden (dunkle Explosion) verwendet, addiere deinen Charisma-Modifikator zu dem Schaden, den er bei einem Treffer verursacht.
 Feature/&AgonizingBlastFeatureSetTitle	Qualvolle Explosion
 Feature/&AHSoulBladeEmpowerDamageBonusDescription	Du bist ermächtigt und fügst bei all deinen Angriffen einen Schadensbonus in Höhe deines Könnens zu.
-Feature/&AHSoulBladeEmpowerWeaponDamageBonusTitle	Seele ermächtigt
-Feature/&AHSoulBladeEmpowerWeaponDamageBonusDescription	Du bist ermächtigt und fügst bei all deinen Angriffen einen Schadensbonus in Höhe deines Könnens zu.
 Feature/&AHSoulBladeEmpowerWeaponConditionDescription	Du bist ermächtigt und fügst bei all deinen Angriffen einen Schadensbonus in Höhe deines Könnens zu.
 Feature/&AHSoulBladeEmpowerWeaponConditionTitle	Seele ermächtigt
+Feature/&AHSoulBladeEmpowerWeaponDamageBonusDescription	Du bist ermächtigt und fügst bei all deinen Angriffen einen Schadensbonus in Höhe deines Könnens zu.
+Feature/&AHSoulBladeEmpowerWeaponDamageBonusTitle	Seele ermächtigt
 Feature/&AHSoulBladeSummonPactWeaponPowerDescription	Einmal pro kurzer Rast kannst du als Freie Aktion eine spirituelle Form einer Waffe aus deinem Pakt beschwören. Als Bonusaktion kannst du die Waffe wie gewünscht lenken, um deine Feinde anzugreifen. Die Waffe bewegt sich jedes Mal bis zu 20 Fuß, bevor sie zuschlägt.
 Feature/&AHSoulBladeSummonPactWeaponPowerTitle	Waffe des spirituellen Pakts
 Feature/&AHWarlockClassPactBoonSetDescription	Auf der 3. Stufe verleiht Ihnen Ihr jenseitiger Gönner ein Geschenk für Ihre treuen Dienste. Sie können wählen zwischen:
@@ -704,7 +704,7 @@ Feature/&AHWarlockFiendPactFiendishResilienceTitle	Teuflische Resilienz
 Feature/&AHWarlockFiendPactSpellListDescription	The Fiend lässt dich aus einer erweiterten Liste von Zaubersprüchen wählen, wenn du einen Hexenmeisterzauber lernst. Die folgenden Zauber werden für Sie zur Hexenmeister-Zauberliste hinzugefügt.\nLevel 1: Brennende Hände, Bane\nLevel 2: Blindheit, Sengender Strahl\nLevel 3: Feuerball, stinkende Wolke\nStufe 4: Feuerschild, Feuerwand\nLevel 5: Flammenschlag, Elementarfeuer beschwören
 Feature/&AHWarlockFiendPactSpellListTitle	Fiend erweiterte Zauberliste
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerDescription	Einmal pro kurzer Pause können Sie eine Waffe eine Minute lang mit der Kraft der Seelen stärken, Ihre Waffe leuchtet für 20 Fuß helles Licht und 20 Fuß schwaches Licht und Sie fügen Ihr Charisma zu Ihrer Trefferquote hinzu. Zusätzlich fügen alle deine Angriffe für die Dauer deinen Fertigkeitsbonus an Schaden hinzu.
-Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle	Seelenstärke
+Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle	Seelenkraft
 Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	Mit der Seelenklinge kannst du aus einer erweiterten Liste von Zaubersprüchen wählen, wenn du einen Hexenmeisterzauber lernst. Die folgenden Zauber werden für Sie zur Hexenmeister-Zauberliste hinzugefügt.\nStufe 1: Schild, falsches Leben\nLevel 2: Blur, Branding Smite\nStufe 3: Hast, Langsam\nLevel 4: Phantasmal Killer, Schwarze Tentakel\nLevel 5: Kältekegel, Mind Twist
 Feature/&AHWarlockSoulBladePactExtendedSpellListTitle	Seelenklingenzauber
 Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Einmal pro kurzer Rast nutzt du die Kraft der Seelen, um dich zu verteidigen. Mit einer Bonusaktion erhältst du temporäre HP in Höhe deiner Stufe + Charisma-Modifikator.
@@ -743,6 +743,12 @@ Feature/&BarbarianIndomitableMightTitle	Unbezwingbare Macht
 Feature/&BardSkillsTitle	Bardenfähigkeiten
 Feature/&BeguilingInfluenceDescription	Sie erwerben Kenntnisse in den Fertigkeiten Täuschung und Überzeugung.
 Feature/&BeguilingInfluenceTitle	Betörender Einfluss
+Feature/&BolgrifDruidicMagicDescription	Du kennst einen Cantrip deiner Wahl aus der Zauberliste der Druiden. Weisheit ist deine Zauberfähigkeit dafür.
+Feature/&BolgrifDruidicMagicTitle	Druidische Magie
+Feature/&BolgrifInvisibilityPowerDescription	Als Bonusaktion kannst du dich auf magische Weise für 1 Runde unsichtbar machen. Diese Unsichtbarkeit wird unterbrochen, wenn Sie anstößig handeln. Sobald Sie diese Fähigkeit verwendet haben, können Sie sie nicht erneut verwenden, bis Sie eine kurze oder lange Pause beendet haben.
+Feature/&BolgrifInvisibilityPowerTitle	Verschwinden
+Feature/&BolgrifPowerfulBuildDescription	Sie zählen Ihre Größe als Large, wenn Sie Ihre Tragfähigkeit bestimmen.
+Feature/&BolgrifPowerfulBuildTitle	Leistungsstarker Aufbau
 Feature/&BondoftheTalismanDescription	Teleportiere dich bis zu 5 Zellen weit.
 Feature/&BondoftheTalismanTitle	Teleport-Talisman
 Feature/&ChainsofCarceriTitle	Ketten von Carceri
@@ -815,7 +821,7 @@ Feature/&DomainElementalLightingDomainlevel1FeaturesTitle	Elementare (Beleuchtun
 Feature/&DomainInsightDomainlevel1FeaturesDescription	Sie lernen die Level-1-Features dieser Domain kennen
 Feature/&DomainInsightDomainlevel1FeaturesTitle	Insight-Domäne
 Feature/&DomainLawDomainlevel1FeaturesDescription	Sie lernen die Level-1-Features dieser Domain kennen
-Feature/&DomainLawDomainlevel1FeaturesTitle	Rechtsgebiet
+Feature/&DomainLawDomainlevel1FeaturesTitle	Rechtsbereich
 Feature/&DomainLifeDomainlevel1FeaturesDescription	Sie lernen die Level-1-Features dieser Domain kennen
 Feature/&DomainLifeDomainlevel1FeaturesTitle	Lebensbereich
 Feature/&DomainMischiefDomainlevel1FeaturesDescription	Sie lernen die Level-1-Features dieser Domain kennen
@@ -857,12 +863,6 @@ Feature/&ElementalPatronFeatureSet_Level10Title	Elementarmagier
 Feature/&EyesoftheRuneKeeperDescription	Sie können alle Schriften lesen.
 Feature/&EyesoftheRuneKeeperTitle	Augen des Runenhüters
 Feature/&FiendishVigorTitle	Teuflische Kraft
-Feature/&BolgrifDruidicMagicDescription	Du kennst einen Cantrip deiner Wahl aus der Zauberliste der Druiden. Weisheit ist deine Zauberfähigkeit dafür.
-Feature/&BolgrifDruidicMagicTitle	Druidische Magie
-Feature/&BolgrifInvisibilityPowerDescription	Als Bonusaktion kannst du dich auf magische Weise für 1 Runde unsichtbar machen. Diese Unsichtbarkeit wird unterbrochen, wenn Sie anstößig handeln. Sobald Sie diese Fähigkeit verwendet haben, können Sie sie nicht erneut verwenden, bis Sie eine kurze oder lange Pause beendet haben.
-Feature/&BolgrifInvisibilityPowerTitle	Verschwinden
-Feature/&BolgrifPowerfulBuildDescription	Sie zählen Ihre Größe als Large, wenn Sie Ihre Tragfähigkeit bestimmen.
-Feature/&BolgrifPowerfulBuildTitle	Leistungsstarker Aufbau
 Feature/&FlameArtillery_09ModePowerDescription	Beschwört ein Konstrukt, das 1 Stunde hält.\nFlammenartillerie: Erzeugt einen Feuerkegel, der bei einem fehlgeschlagenen Rettungswurf 3W8 Schaden verursacht.\nSelbstzerstörung: Verursacht 3W8 Machtschaden bei einem fehlgeschlagenen Rettungswurf und zerstört die Einheit.
 Feature/&FlameArtillery_09ModePowerTitle	Flammenartillerie-Konstrukt beschwören
 Feature/&FlameArtillery_15ModePowerDescription	Beschwört ein Konstrukt, das 1 Stunde hält.\nFlammenartillerie: Erzeugt einen Feuerkegel, der bei einem fehlgeschlagenen Rettungswurf 3W8 Schaden verursacht.\nSelbstzerstörung: Verursacht 3W8 Machtschaden bei einem fehlgeschlagenen Rettungswurf und zerstört die Einheit.\n Half Cover Dome: Bietet Verbündeten innerhalb von 10 Fuß halbe Deckung.
@@ -1003,16 +1003,16 @@ Feature/&TempHPShieldTitle	Schutzkuppel
 Feature/&ThiefofFiveFatesTitle	Dieb der fünf Schicksale
 Feature/&ThirstingBladeDescription	Du kannst zweimal statt einmal mit deiner Waffe angreifen, wenn du in deinem Zug die Angriffsaktion ausführst.
 Feature/&ThirstingBladeTitle	Durstige Klinge
+Feature/&TinkererArmorProficiencyDescription	Kenntnisse im Umgang mit leichten und mittleren Rüstungen sowie Schilden
 Feature/&TinkererArmorProficiencyTitle	Tüftler-Rüstungskompetenz
-Feature/&TinkererArmorTrainingDescription	Kenntnisse im Umgang mit leichten und mittleren Rüstungen sowie Schilden
 Feature/&TinkererSkillGainChoicesPluralDescription	Tüftlerfähigkeiten sind Arcana, Geschichte, Ermittlung, Medizin, Natur, Wahrnehmung und Fingerfertigkeit
 Feature/&TinkererSkillPointsTitle	Tüftlerfähigkeiten
-Feature/&TinkererToolProficiencyDescription	Erwerben Sie Kenntnisse im Umgang mit vielen Werkzeugen, darunter Diebeswerkzeuge, Schriftrollen-Kits, Poisoner's Kit, Herbalism Kit und Enchanting Tools
 Feature/&TinkererToolsExpertiseDescription	Sammeln Sie Erfahrung mit vielen Werkzeugen, darunter Werkzeuge des Diebes, Schriftrollen-Kits, Poisoner's Kit, Herbalism Kit und Enchanting Tools
 Feature/&TinkererToolsExpertiseTitle	Tüftler-Tool-Expertise
+Feature/&TinkererToolsProficiencyDescription	Erwerben Sie Kenntnisse im Umgang mit vielen Werkzeugen, darunter Diebeswerkzeuge, Schriftrollen-Kits, Poisoner's Kit, Herbalism Kit und Enchanting Tools
 Feature/&TinkererToolsProficiencyTitle	Werkzeugkenntnisse
-Feature/&TinkererWeaponProficiencyTitle	Tüftler-Waffenkenntnisse
 Feature/&TinkererWeaponProficiencyDescription	Umgang mit einfachen Waffen
+Feature/&TinkererWeaponProficiencyTitle	Tüftler-Waffenkenntnisse
 Feature/&ToadKingBasicToxinTitle	Basisches Toxin
 Feature/&ToadKingExpandedSpelllistAfinityDescription	Du wählst aus einer erweiterten Liste von Zaubersprüchen, wenn du einen Hexenmeisterzauber lernst. Die folgenden Zauber werden der Hexenmeister-Zauberliste für Sie hinzugefügt:\n Level 1: Schmieren, Gift und Krankheit erkennen\n Level 2: AcidArrow, Spinnenklettern\n Level 3: Langsame, stinkende Wolke\n Stufe 4: Schwarze Tentakel, Bewegungsfreiheit\n Stufe 5: Ansteckung, Insektenplage
 Feature/&ToadKingExpandedSpelllistAfinityTitle	Krötenkönig-Zauber
@@ -1057,7 +1057,7 @@ Feedback/&AdditionalDamageUpgradedConstructFormat	Verbesserter Schaden
 Feedback/&AdditionalDamageUpgradedConstructLine	Das aufgewertete Konstrukt verursacht 1W8 mehr Schaden pro Treffer
 Feedback/&ExtraDamageDescription	Zusätzlicher Schaden durch Blitzspeer
 Feedback/&ExtraDamageTitle	Blitzspeer zusätzlichen Schaden
-Feedback/&LightningSpearAdditionalDamageDescription	Blitzschaden 1W6 extra einmal pro Runde
+Feedback/&LightningSpearAdditionalDamageDescription	Blitzschaden 1W6 extra einmal pro Zug
 Feedback/&LightningSpearAdditionalDamageTitle	Blitzspeer zusätzlichen Schaden
 FightingStyle/&BlindFightingDescription	Sie haben Blindsicht mit einer Reichweite von 10 Fuß.
 FightingStyle/&BlindFightingTitle	Blindes Kämpfen
@@ -1073,17 +1073,22 @@ FlexibleRaces/&PointPoolAbilityScore3Description	Verwenden Sie drei Boosts auf F
 FlexibleRaces/&PointPoolAbilityScore3Title	Erhöhung des Fähigkeitswerts
 FlexibleRaces/&PointPoolAbilityScore4Description	Verwenden Sie vier Boosts auf Fähigkeitswerte in einer beliebigen Kombination Ihrer Wahl.
 FlexibleRaces/&PointPoolAbilityScore4Title	Erhöhung des Fähigkeitswerts
+Format/&LevelAndExperienceFormat	Stufe: {0}\nErfahrung: {1}\n{2} Punkte erforderlich, um Stufe {3} zu erreichen
+Format/&LevelAndExperienceMaxedFormat	Stufe: {0}\nErfahrung: {1}\nMaximales Level erreicht.
 Item/&ForceArtilleryProjectileDescription	ForceArtilleryProjectile
 Item/&ForceArtilleryProjectileTitle	ForceArtilleryProjectile
 Language/&GnomishDescription	Eine alte solastanische Sprache, die von Gnomen bewahrt wurde, die in den tiefen Wäldern von Solasta leben, hat die Katastrophe überlebt.
 Language/&GnomishTitle	Gnomisch
+MainMenu/&ExportPdfDescription	Stufen Sie diesen Helden herunter
+MainMenu/&ExportPdfTitle	Einebnen
 Message/&CharacterExportDuplicateNameErrorDescription	Export abgebrochen:\n\nEin Held mit diesem Namen existiert bereits im Pool.\nBitte versuchen Sie es mit einem anderen Namen.
 Message/&CharacterExportEmptyNameErrorDescription	Export abgebrochen:\n\nBitte versuchen Sie es mit einem nicht leeren Namen.
 Message/&CharacterExportModalContentDescription	Geben Sie den zu exportierenden Heldennamen ein:
 Message/&CharacterExportModalTitleDescription	Zeichenexport
+Message/&LevelDownConfirmationDescription	Diesen Helden runterleveln?
 Message/&MessageModWelcomeDescription	Der Community Expansion Mod ist vollgepackt mit aufregenden Funktionen, aber standardmäßig sind keine aktiviert. Drücken Sie <color=yellow>Strg-F10</color>, um die Unity Mod Manager-Benutzeroberfläche [UMM] zu öffnen, und klicken Sie dann auf das Einstellungssymbol neben „Community-Erweiterung“, um die Einstellungsseiten zu öffnen.\n\n Erkunden Sie die Optionen und wählen Sie diejenigen aus, die Ihnen gefallen. Die UMM-Benutzeroberfläche wird nun geöffnet.
 Message/&MessageModWelcomeTitle	Community-Erweiterungs-Mod
-Message/&SpawnCustomEncounterDescription	Spawn-Begegnung an den Koordinaten ({0}, {1})?
+Message/&SpawnCustomEncounterDescription	Spawn-Begegnung bei den Koordinaten ({0}, {1})?
 Message/&SpawnCustomEncounterTitle	Begegnen
 Message/&TeleportPartyDescription	Gruppe zu Koordinaten ({0}, {1}) teleportieren?\nSie können Quests oder Karten zerstören, wenn Sie sich an einen unentdeckten Ort teleportieren
 Message/&TeleportPartyTitle	Teleportieren
@@ -1352,7 +1357,7 @@ Power/&UrPriestRadiantWardTitle	Strahlende Station
 Power/&UrPriestSpellSiphonDescription	Sie lernen, wie Sie in Kombination mit Ihrer normalen Kraftreserve eine größere Quelle der Magie anzapfen können. Als Aktion kannst du eine Göttlichkeit kanalisieren, um eine verbrauchte Nutzung deines mystischen Arkanums der 6. Stufe wiederzuerlangen.
 Power/&UrPriestSpellSiphonTitle	Siphon buchstabieren
 Pugilist	Faustkämpfer-Schaden
-Race/&BolgrifRaceDescription Bolgrifs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, bolgrifs demonstrate formidable skills with weapons and nature magic.
+Race/&BolgrifRaceDescription	Bolgrifs sind Halbriesen, die im gefrorenen Hochland von Solasta leben. Sie sind schlau, vorsichtig, zurückgezogen, misstrauen den meisten Humanoiden außer den Elfen und ziehen es vor, fernab der Zivilisation in eng verbundenen Clans zu leben. Wenn sie in den Kampf gedrängt werden, demonstrieren Bolgrifs beeindruckende Fähigkeiten im Umgang mit Waffen und Naturmagie.
 Race/&BolgrifRaceTitle	Bolgrif
 Race/&GnomeRaceDescription	Ein ständiges Summen geschäftiger Aktivität durchdringt die Gehege und Nachbarschaften, in denen Gnome ihre eng verbundenen Gemeinschaften bilden. Lautere Geräusche unterstreichen das Summen: ein Knirschen knirschender Zahnräder hier, eine kleine Explosion dort, ein überraschter oder triumphierender Aufschrei und vor allem schallendes Gelächter. Gnome erfreuen sich am Leben und genießen jeden Moment des Erfindens, Erkundens, Erforschens, Schaffens und Spielens.
 Race/&GnomeRaceTitle	Waldzwerg
@@ -1426,6 +1431,9 @@ Screen/&FeyTeleportSpellDescription	Dieser Fey-Zauber ist immer vorbereitet.
 Screen/&FeyTeleportSpellTitle	Fey
 Screen/&ShadowTouchedSpellDescription	Dieser Schattenzauber ist immer vorbereitet.
 Screen/&ShadowTouchedSpellTitle	Schatten
+Screen/&SpellSlotsUsedLongDescription	Sie haben {0} Slots für lange Pausen dieses Levels aufgebraucht.
+Screen/&SpellSlotsUsedShortDescription	Sie haben {0} Kurzpausen-Slots dieses Levels aufgebraucht.
+Screen/&SpellSlotsUsedShortLongDescription	Sie haben {0} Slot(s) für kurze Pausen und {1} Slot(s) für lange Pausen dieses Levels aufgebraucht.
 Screen/&WitchSpellDescription	Als Hexe bekannter Zauber
 Screen/&WitchSpellHeader	Hexe
 Screen/&WitchSpellTitle	Hexe
