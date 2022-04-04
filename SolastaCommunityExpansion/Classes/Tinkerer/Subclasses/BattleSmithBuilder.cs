@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
-using SolastaModApi;
 using SolastaModApi.Extensions;
 using static RuleDefinitions;
 using static SolastaCommunityExpansion.Builders.Features.AutoPreparedSpellsGroupBuilder;
@@ -35,29 +34,26 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 
             battleSmith.AddFeatureAtLevel(battleSmithPrepSpells, 3);
 
-            GuiPresentationBuilder weaponProfPresentation = new GuiPresentationBuilder(
-                "Subclass/&WeaponProfArtificerBattleSmithTitle",
-                "Subclass/&WeaponProfArtificerBattleSmithDescription");
-            FeatureDefinitionProficiency weaponProf = FeatureHelpers.BuildProficiency(ProficiencyType.Weapon,
-                new List<string>() { EquipmentDefinitions.MartialWeaponCategory },
-                "ProficiencyWeaponArtificerBattleSmith", weaponProfPresentation.Build());
-            battleSmith.AddFeatureAtLevel(weaponProf, 3);
+            var weaponProf = FeatureHelpers
+                .BuildProficiency("ProficiencyWeaponArtificerBattleSmith", ProficiencyType.Weapon, EquipmentDefinitions.MartialWeaponCategory)
+                .SetGuiPresentation("WeaponProfArtificerBattleSmith", Category.Subclass)
+                .AddToDB();
 
-            FeatureDefinitionPowerPoolModifier InfusionPoolIncrease = FeatureDefinitionPowerPoolModifierBuilder
+            var infusionPoolIncrease = FeatureDefinitionPowerPoolModifierBuilder
                 .Create("AttributeModiferArtificerBattleSmithInfusionHealingPool", TinkererClass.GuidNamespace)
                 .Configure(2, UsesDetermination.Fixed, AttributeDefinitions.Intelligence, TinkererClass.InfusionPool)
                 .SetGuiPresentation("HealingPoolArtificerBattleSmithInfusionsIncrease", Category.Subclass)
                 .AddToDB();
-            battleSmith.AddFeatureAtLevel(InfusionPoolIncrease, 3);
 
-            GuiPresentationBuilder attackModGui = new GuiPresentationBuilder(
-                "Subclass/&AttackModifierArtificerBattleSmithWeaponTitle",
-                "Subclass/&AttackModifierArtificerBattleSmithWeaponDescription");
-            attackModGui.SetSpriteReference(FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference);
-            FeatureDefinitionAttackModifier battleSmithInfusedWeapon = new FeatureDefinitionAttackModifierBuilder("AttackModifierArtificerBattleSmithWeapon",
-                 GuidHelper.Create(TinkererClass.GuidNamespace, "AttackModifierArtificerBattleSmithWeapon").ToString(),
-                // Note this is not magical because that causes a conflict with the enhanced weapon effect.
-                AbilityScoreReplacement.SpellcastingAbility, "", attackModGui.Build()).AddToDB();
+            battleSmith.AddFeatureAtLevel(weaponProf, 3);
+            battleSmith.AddFeatureAtLevel(infusionPoolIncrease, 3);
+
+            var battleSmithInfusedWeapon = new FeatureDefinitionAttackModifierBuilder(
+                    "AttackModifierArtificerBattleSmithWeapon", TinkererClass.GuidNamespace,
+                    // Note this is not magical because that causes a conflict with the enhanced weapon effect.
+                    AbilityScoreReplacement.SpellcastingAbility, "")
+                .SetGuiPresentation("AttackModifierArtificerBattleSmithWeapon", Category.Subclass, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference)
+                .AddToDB();
 
             GuiPresentationBuilder infuseWeaponGui = new GuiPresentationBuilder(
                 "Subclass/&PowerArtificerBattleSmithInfuseWeaponTitle",
@@ -116,13 +112,10 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 
         private sealed class FeatureDefinitionAttackModifierBuilder : Builders.Features.FeatureDefinitionAttackModifierBuilder
         {
-            public FeatureDefinitionAttackModifierBuilder(string name, string guid,
-                AbilityScoreReplacement abilityReplacement, string additionalAttackTag,
-                GuiPresentation guiPresentation) : base(name, guid)
+            public FeatureDefinitionAttackModifierBuilder(string name, Guid guidNamespace, AbilityScoreReplacement abilityReplacement, string additionalAttackTag) : base(name, guidNamespace)
             {
                 Definition.SetAbilityScoreReplacement(abilityReplacement);
                 Definition.SetAdditionalAttackTag(additionalAttackTag);
-                Definition.SetGuiPresentation(guiPresentation);
             }
         }
     }

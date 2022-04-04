@@ -9,7 +9,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&TinkererWeaponProficiencyTitle",
-    "description": "Feature/&TinkererWeaponTrainingShortDescription",
+    "description": "Feature/&TinkererWeaponProficiencyDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

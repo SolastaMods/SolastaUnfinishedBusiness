@@ -42,7 +42,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock
         internal static SpellListDefinition WarlockSpellList { get; } = SpellListDefinitionBuilder
             .Create(DatabaseHelper.SpellListDefinitions.SpellListWizard, "ClassWarlockSpellList", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.SpellList)
-            .SetMaxSpellLevel(9, true)
+            .ClearSpells()
             .SetSpellsAtLevel(0, EldritchBlast, AnnoyingBee, ChillTouch, DancingLights, PoisonSpray, TrueStrike)
             .SetSpellsAtLevel(1, CharmPerson, ComprehendLanguages, ExpeditiousRetreat, ProtectionFromEvilGood, 
                 /* seems like it is unfinished: HellishRebukeSpellBuilder.HellishRebukeSpell,*/ PactMarkSpellBuilder.PactMarkSpell)
@@ -54,6 +54,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock
             .SetSpellsAtLevel(7, FingerOfDeath)
             .SetSpellsAtLevel(8, DominateMonster, Feeblemind, PowerWordStun)
             .SetSpellsAtLevel(9, Weird, Foresight, PowerWordKill)
+            .FinalizeSpells()
             .AddToDB();
     }
 }

@@ -683,10 +683,10 @@ Feature/&AdditionalDamageHinderingBlastTitle	Impedindo Explosão
 Feature/&AgonizingBlastFeatureSetDescription	Quando você lançar um feitiço usando dano de força (explosão mística), adicione seu modificador de Carisma ao dano que ele causa em um acerto.
 Feature/&AgonizingBlastFeatureSetTitle	Explosão Agonizante
 Feature/&AHSoulBladeEmpowerDamageBonusDescription	Você é fortalecido e causa um bônus de dano igual à sua proficiência em todos os seus ataques.
-Feature/&AHSoulBladeEmpowerWeaponDamageBonusTitle	Fortalecido pela alma
-Feature/&AHSoulBladeEmpowerWeaponDamageBonusDescription	Você é fortalecido e causa um bônus de dano igual à sua proficiência em todos os seus ataques.
 Feature/&AHSoulBladeEmpowerWeaponConditionDescription	Você é fortalecido e causa um bônus de dano igual à sua proficiência em todos os seus ataques.
 Feature/&AHSoulBladeEmpowerWeaponConditionTitle	Fortalecido pela alma
+Feature/&AHSoulBladeEmpowerWeaponDamageBonusDescription	Você é fortalecido e causa um bônus de dano igual à sua proficiência em todos os seus ataques.
+Feature/&AHSoulBladeEmpowerWeaponDamageBonusTitle	Fortalecido pela alma
 Feature/&AHSoulBladeSummonPactWeaponPowerDescription	Uma vez por descanso curto, você pode invocar uma forma espiritual de uma arma do seu pacto como uma ação livre. Como uma ação bônus, você pode direcionar a arma conforme desejar para atacar seus inimigos. A arma se move até 20 pés cada vez antes de atacar.
 Feature/&AHSoulBladeSummonPactWeaponPowerTitle	Arma do pacto espiritual
 Feature/&AHWarlockClassPactBoonSetDescription	No 3º nível, seu patrono sobrenatural concede um presente a você por seu serviço leal. Você pode escolher entre:
@@ -743,6 +743,12 @@ Feature/&BarbarianIndomitableMightTitle	Força Indomável
 Feature/&BardSkillsTitle	Habilidades de Bardo
 Feature/&BeguilingInfluenceDescription	Você ganha proficiência nas perícias Enganação e Persuasão.
 Feature/&BeguilingInfluenceTitle	Influência sedutora
+Feature/&BolgrifDruidicMagicDescription	Você conhece um truque de sua escolha da lista de magias de druida. Sabedoria é sua habilidade de conjuração para isso.
+Feature/&BolgrifDruidicMagicTitle	Magia Druídica
+Feature/&BolgrifInvisibilityPowerDescription	Como uma ação bônus, você pode ficar invisível magicamente por 1 rodada. Esta invisibilidade quebra se você tomar qualquer ação ofensiva. Depois de usar essa habilidade, você não pode usá-la novamente até terminar um descanso curto ou longo.
+Feature/&BolgrifInvisibilityPowerTitle	Desaparecer
+Feature/&BolgrifPowerfulBuildDescription	Você conta seu tamanho como Grande ao determinar sua capacidade de carga.
+Feature/&BolgrifPowerfulBuildTitle	Construção poderosa
 Feature/&BondoftheTalismanDescription	Teletransporte até 5 células de distância.
 Feature/&BondoftheTalismanTitle	Talismã de Teletransporte
 Feature/&ChainsofCarceriTitle	Correntes de Carceri
@@ -857,12 +863,6 @@ Feature/&ElementalPatronFeatureSet_Level10Title	Elementalista
 Feature/&EyesoftheRuneKeeperDescription	Você pode ler toda a escrita.
 Feature/&EyesoftheRuneKeeperTitle	Olhos do Guardião das Runas
 Feature/&FiendishVigorTitle	Vigor Diabólico
-Feature/&BolgrifDruidicMagicDescription	Você conhece um truque de sua escolha da lista de magias de druida. Sabedoria é sua habilidade de conjuração para isso.
-Feature/&BolgrifDruidicMagicTitle	Magia Druídica
-Feature/&BolgrifInvisibilityPowerDescription	Como uma ação bônus, você pode ficar invisível magicamente por 1 rodada. Esta invisibilidade quebra se você tomar qualquer ação ofensiva. Depois de usar essa habilidade, você não pode usá-la novamente até terminar um descanso curto ou longo.
-Feature/&BolgrifInvisibilityPowerTitle	Desaparecer
-Feature/&BolgrifPowerfulBuildDescription	Você conta seu tamanho como Grande ao determinar sua capacidade de carga.
-Feature/&BolgrifPowerfulBuildTitle	Construção poderosa
 Feature/&FlameArtillery_09ModePowerDescription	Evoca uma construção que dura 1 hora.\nArtilharia Flamejante: Cria um cone de fogo que causa 3D8 de dano se falhar na resistência.\nAutodestruição: causa 3D8 de dano de força em uma falha na resistência e destrói a unidade.
 Feature/&FlameArtillery_09ModePowerTitle	Evocar Construto de Artilharia Flamejante
 Feature/&FlameArtillery_15ModePowerDescription	Evoca uma construção que dura 1 hora.\nArtilharia Flamejante: Cria um cone de fogo que causa 3D8 de dano se falhar na resistência.\nAutodestruição: causa 3D8 de dano de força em uma falha na resistência e destrói a unidade.\n Meia Cobertura Dome: fornece meia cobertura aos aliados dentro de 10 pés.
@@ -1003,16 +1003,16 @@ Feature/&TempHPShieldTitle	Cúpula de Proteção
 Feature/&ThiefofFiveFatesTitle	Ladrão de cinco destinos
 Feature/&ThirstingBladeDescription	Você pode atacar com sua arma duas vezes, em vez de uma, sempre que realizar a ação Atacar no seu turno.
 Feature/&ThirstingBladeTitle	Lâmina Sedenta
+Feature/&TinkererArmorProficiencyDescription	Proficiência com armaduras leves e médias, bem como escudos
 Feature/&TinkererArmorProficiencyTitle	Proficiência em Armadura do Tinkerer
-Feature/&TinkererArmorTrainingShortDescription	Proficiência com armaduras leves e médias, bem como escudos
 Feature/&TinkererSkillGainChoicesPluralDescription	As habilidades do Tinkerer são Arcana, História, Investigação, Medicina, Natureza, Percepção e Prestidigitação
 Feature/&TinkererSkillPointsTitle	Habilidades de funileiro
-Feature/&TinkererToolProficiencyPluralShortDescription	Ganhe proficiência com muitas ferramentas, incluindo Ferramentas do Ladrão, Kits de Pergaminho, Kit do Envenenador, Kit de Herbalismo e Ferramentas de Encantamento
-Feature/&TinkererToolsExpertisePluralShortDescription	Adquira experiência com muitas ferramentas, incluindo Ferramentas do Ladrão, Kits de Pergaminho, Kit do Envenenador, Kit de Herbalismo e Ferramentas de Encantamento
+Feature/&TinkererToolsExpertiseDescription	Adquira experiência com muitas ferramentas, incluindo Ferramentas do Ladrão, Kits de Pergaminho, Kit do Envenenador, Kit de Herbalismo e Ferramentas de Encantamento
 Feature/&TinkererToolsExpertiseTitle	Expertise em ferramentas Tinkerer
+Feature/&TinkererToolsProficiencyDescription	Ganhe proficiência com muitas ferramentas, incluindo Ferramentas do Ladrão, Kits de Pergaminho, Kit do Envenenador, Kit de Herbalismo e Ferramentas de Encantamento
 Feature/&TinkererToolsProficiencyTitle	Proficiências em Ferramentas
+Feature/&TinkererWeaponProficiencyDescription	Proficiência com armas simples
 Feature/&TinkererWeaponProficiencyTitle	Proficiências com Armas do Tinkerer
-Feature/&TinkererWeaponTrainingShortDescription	Proficiência com armas simples
 Feature/&ToadKingBasicToxinTitle	Toxina Básica
 Feature/&ToadKingExpandedSpelllistAfinityDescription	Você escolhe a partir de uma lista expandida de magias quando aprende uma magia de bruxo. Os seguintes feitiços são adicionados à lista de feitiços de bruxo para você:\n Nível 1: Graxa, Detectar Veneno e Doença\n Nível 2: AcidArrow, Spider Climb\n Nível 3: nuvem lenta e fedorenta\n Nível 4: Tentáculos Negros, Liberdade de Movimento\n Nível 5: Contágio, Praga de Insetos
 Feature/&ToadKingExpandedSpelllistAfinityTitle	Feitiços do Rei Sapo
@@ -1073,14 +1073,19 @@ FlexibleRaces/&PointPoolAbilityScore3Description	Use três reforços nos valores
 FlexibleRaces/&PointPoolAbilityScore3Title	Aumento de pontuação de habilidade
 FlexibleRaces/&PointPoolAbilityScore4Description	Use quatro reforços nos valores de habilidade em qualquer combinação de sua escolha.
 FlexibleRaces/&PointPoolAbilityScore4Title	Aumento de pontuação de habilidade
+Format/&LevelAndExperienceFormat	Nível: {0}\nExperiência: {1}\n{2} pontos necessários para atingir o nível {3}
+Format/&LevelAndExperienceMaxedFormat	Nível: {0}\nExperiência: {1}\nnível máximo atingido.
 Item/&ForceArtilleryProjectileDescription	ForceArtilleryProjectile
 Item/&ForceArtilleryProjectileTitle	ForceArtilleryProjectile
 Language/&GnomishDescription	Uma antiga língua Solastan, preservada por gnomos que vivem nas florestas profundas de Solasta, sobreviveu ao Cataclismo.
 Language/&GnomishTitle	Gnômico
+MainMenu/&ExportPdfDescription	Desça o nível deste herói
+MainMenu/&ExportPdfTitle	Nível baixo
 Message/&CharacterExportDuplicateNameErrorDescription	Exportação cancelada:\n\nUm herói com esse nome já existe no pool.\nPor favor, tente um nome diferente.
 Message/&CharacterExportEmptyNameErrorDescription	Exportação cancelada:\n\nTente um nome não vazio.
 Message/&CharacterExportModalContentDescription	Digite o nome do herói para exportar:
 Message/&CharacterExportModalTitleDescription	Exportação de caracteres
+Message/&LevelDownConfirmationDescription	Reduzir o nível deste Herói?
 Message/&MessageModWelcomeDescription	O Community Expansion Mod está repleto de recursos interessantes, mas, por padrão, nenhum está ativado. Pressione <color=yellow>Ctrl-F10</color> para abrir a interface do usuário do Unity Mod Manager [UMM] e clique no ícone de configurações ao lado de 'Expansão da comunidade' para abrir as páginas de configurações.\n\n Explore as opções e selecione as que você gosta. A interface do usuário do UMM será aberta agora.
 Message/&MessageModWelcomeTitle	Módulo de expansão da comunidade
 Message/&SpawnCustomEncounterDescription	Gerar encontro nas coordenadas ({0}, {1})?
@@ -1352,7 +1357,7 @@ Power/&UrPriestRadiantWardTitle	Ala Radiante
 Power/&UrPriestSpellSiphonDescription	você aprende a explorar uma fonte maior de magia em combinação com sua reserva normal de poder. Com uma ação, você pode gastar um Canalizar Divindade para recuperar um uso gasto de seu Arcano Místico de 6º nível.
 Power/&UrPriestSpellSiphonTitle	Sifão de Feitiços
 Pugilist	Dano do Pugilista
-Race/&BolgrifRaceDescription Bolgrifs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, bolgrifs demonstrate formidable skills with weapons and nature magic.
+Race/&BolgrifRaceDescription	Bolgrifs são meio-gigantes que vivem nas terras altas congeladas de Solasta. Eles são astutos, cautelosos, reclusos, desconfiam da maioria dos humanóides, exceto elfos, e preferem viver longe da civilização em clãs unidos. Se pressionados para a batalha, os bolgrifs demonstram habilidades formidáveis ​​com armas e magia da natureza.
 Race/&BolgrifRaceTitle	Bolgrif
 Race/&GnomeRaceDescription	Um zumbido constante de atividade movimentada permeia as tocas e bairros onde os gnomos formam suas comunidades unidas. Sons mais altos pontuam o zumbido: um ranger de engrenagens rangendo aqui, uma pequena explosão ali, um grito de surpresa ou triunfo e, especialmente, gargalhadas. Os gnomos se deleitam com a vida, aproveitando cada momento de invenção, exploração, investigação, criação e jogo.
 Race/&GnomeRaceTitle	Gnomo da Floresta
@@ -1426,6 +1431,9 @@ Screen/&FeyTeleportSpellDescription	Este feitiço Fey está sempre preparado.
 Screen/&FeyTeleportSpellTitle	feérico
 Screen/&ShadowTouchedSpellDescription	Este feitiço de Sombra está sempre preparado.
 Screen/&ShadowTouchedSpellTitle	Sombra
+Screen/&SpellSlotsUsedLongDescription	Você gastou {0} slot(s) de descanso longo deste nível.
+Screen/&SpellSlotsUsedShortDescription	Você gastou {0} slot(s) de descanso curto deste nível.
+Screen/&SpellSlotsUsedShortLongDescription	Você gastou {0} slot(s) de descanso curto e {1} slot(s) de descanso longo deste nível.
 Screen/&WitchSpellDescription	Feitiço conhecido como Bruxa
 Screen/&WitchSpellHeader	Bruxa
 Screen/&WitchSpellTitle	Bruxa

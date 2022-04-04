@@ -5,6 +5,7 @@ using SolastaCommunityExpansion.CustomFeatureDefinitions;
 using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
+using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Wizard
 {
@@ -29,14 +30,14 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 .Create("MagicAffinityLifeTransmuterHeightened", SubclassNamespace)
                 .SetGuiPresentation("MagicAffinityLifeTransmuterList", Category.Subclass)
                 .SetWarList(2,
-                    SpellDefinitions.FalseLife.Name, // necromancy
-                    SpellDefinitions.MagicWeapon.Name, // transmutation
-                    SpellDefinitions.Blindness.Name, // necromancy
-                    SpellDefinitions.Fly.Name, // transmutation
-                    SpellDefinitions.BestowCurse.Name, // necromancy
-                    SpellDefinitions.VampiricTouch.Name, // necromancy
-                    SpellDefinitions.Blight.Name, // necromancy
-                    SpellDefinitions.CloudKill.Name) // conjuration)
+                    FalseLife, // necromancy
+                    MagicWeapon, // transmutation
+                    Blindness, // necromancy
+                    Fly, // transmutation
+                    BestowCurse, // necromancy
+                    VampiricTouch, // necromancy
+                    Blight, // necromancy
+                    CloudKill) // conjuration)
                 .AddToDB();
 
             // Add tranmsuter stone like abilities.
@@ -104,23 +105,23 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                     RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RangeType.Touch, 2,
                     RuleDefinitions.TargetType.Individuals, ActionDefinitions.ItemSelectionType.None, RuleDefinitions.DurationType.UntilLongRest, 1,
                     RuleDefinitions.TurnOccurenceType.EndOfTurn, AttributeDefinitions.Intelligence, ConditionDefinitions.ConditionFlying, "PowerTransmuteFly")
-                .SetGuiPresentation(Category.Subclass, SpellDefinitions.Fly.GuiPresentation.SpriteReference)
+                .SetGuiPresentation(Category.Subclass, Fly.GuiPresentation.SpriteReference)
                 .AddToDB();
 
             FeatureDefinitionPowerSharedPool powerHeal = FeatureDefinitionPowerSharedPoolBuilder
                 .Create("PowerTransmuteHeal", SubclassNamespace)
                 .Configure(transmuteForce, RuleDefinitions.RechargeRate.LongRest, RuleDefinitions.ActivationTime.BonusAction,
                     1, false, false, AttributeDefinitions.Intelligence,
-                    SpellDefinitions.MassHealingWord.EffectDescription, false /* unique instance */)
-                .SetGuiPresentation(Category.Subclass, SpellDefinitions.MassHealingWord.GuiPresentation.SpriteReference)
+                    MassHealingWord.EffectDescription, false /* unique instance */)
+                .SetGuiPresentation(Category.Subclass, MassHealingWord.GuiPresentation.SpriteReference)
                 .AddToDB();
 
             FeatureDefinitionPowerSharedPool powerRevive = FeatureDefinitionPowerSharedPoolBuilder
                 .Create("PowerTransmuteRevive", SubclassNamespace)
                 .Configure(transmuteForce, RuleDefinitions.RechargeRate.LongRest,
                     RuleDefinitions.ActivationTime.BonusAction, 1, false, false, AttributeDefinitions.Intelligence,
-                    SpellDefinitions.Revivify.EffectDescription, false /* unique instance */)
-                .SetGuiPresentation(Category.Subclass, SpellDefinitions.Revivify.GuiPresentation.SpriteReference)
+                    Revivify.EffectDescription, false /* unique instance */)
+                .SetGuiPresentation(Category.Subclass, Revivify.GuiPresentation.SpriteReference)
                 .AddToDB();
 
             FeatureDefinitionPowerPoolModifier transmuteForceExtraBonus = FeatureDefinitionPowerPoolModifierBuilder
@@ -177,7 +178,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 .SetDurationData(durationType, durationParameter, endOfEffect)
                 .AddEffectForm(effectForm)
                 .SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None, 1, 0, 0, 0, 0, 0, 0, 0, 0, RuleDefinitions.AdvancementDuration.None)
-                .SetParticleEffectParameters(SpellDefinitions.MagicWeapon.EffectDescription.EffectParticleParameters.Copy())
+                .SetParticleEffectParameters(MagicWeapon.EffectDescription.EffectParticleParameters.Copy())
                 .Build();
 
             return FeatureDefinitionPowerSharedPoolBuilder

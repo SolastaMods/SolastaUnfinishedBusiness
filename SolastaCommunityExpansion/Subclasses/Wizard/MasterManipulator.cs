@@ -4,6 +4,7 @@ using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
+using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Wizard
 {
@@ -34,18 +35,18 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             var arcaneControlAffinity = FeatureDefinitionMagicAffinityBuilder
                 .Create("MagicAffinityControlHeightened", SubclassNamespace)
                 .SetWarList(1,
-                    SpellDefinitions.CharmPerson.Name, // enchantment
-                    SpellDefinitions.Sleep.Name, // enchantment
-                    SpellDefinitions.ColorSpray.Name, // illusion
-                    SpellDefinitions.HoldPerson.Name, // enchantment,
-                    SpellDefinitions.Invisibility.Name, // illusion
-                    SpellDefinitions.Counterspell.Name, // abjuration
-                    SpellDefinitions.DispelMagic.Name, // abjuration
-                    SpellDefinitions.Banishment.Name, // abjuration
-                    SpellDefinitions.Confusion.Name, // enchantment
-                    SpellDefinitions.PhantasmalKiller.Name, // illusion
-                    SpellDefinitions.DominatePerson.Name, // Enchantment
-                    SpellDefinitions.HoldMonster.Name) // Enchantment           
+                    CharmPerson, // enchantment
+                    Sleep, // enchantment
+                    ColorSpray, // illusion
+                    HoldPerson, // enchantment,
+                    Invisibility, // illusion
+                    Counterspell, // abjuration
+                    DispelMagic, // abjuration
+                    Banishment, // abjuration
+                    Confusion, // enchantment
+                    PhantasmalKiller, // illusion
+                    DominatePerson, // Enchantment
+                    HoldMonster) // Enchantment           
                 .SetGuiPresentation("MagicAffinityMasterManipulatorList", Category.Subclass)
                 .AddToDB();
 
@@ -57,14 +58,14 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
 
             FeatureDefinitionPower powerDominate = FeatureDefinitionPowerBuilder
                 .Create("PowerManipulatorDominatePerson", SubclassNamespace)
-                .SetGuiPresentation(Category.Subclass, SpellDefinitions.DominatePerson.GuiPresentation.SpriteReference)
+                .SetGuiPresentation(Category.Subclass, DominatePerson.GuiPresentation.SpriteReference)
                 .Configure(0,
                     RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed,
                     AttributeDefinitions.Intelligence,
                     RuleDefinitions.ActivationTime.BonusAction,
                     1, RuleDefinitions.RechargeRate.LongRest,
                     false, false, AttributeDefinitions.Intelligence,
-                    SpellDefinitions.DominatePerson.EffectDescription, false /* unique instance */)
+                    DominatePerson.EffectDescription, false /* unique instance */)
                 .AddToDB();
 
             Subclass = CharacterSubclassDefinitionBuilder
