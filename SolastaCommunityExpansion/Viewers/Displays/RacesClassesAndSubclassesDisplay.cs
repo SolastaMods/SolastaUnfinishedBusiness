@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using ModKit;
+﻿using ModKit;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Subclasses.Rogue;
 using SolastaCommunityExpansion.Subclasses.Wizard;
@@ -15,8 +13,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             bool toggle;
             int intValue;
 
-            UI.Label("");
-            UI.Label(". Note you " + RequiresRestart + " after changing races, classes and subclasses sets");
             UI.Label("");
 
             toggle = Main.Settings.DisplayGeneralToggle;

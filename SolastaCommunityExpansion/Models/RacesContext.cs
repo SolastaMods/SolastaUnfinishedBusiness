@@ -14,9 +14,9 @@ namespace SolastaCommunityExpansion.Models
         {
             var dbCharacterRaceDefinition = DatabaseRepository.GetDatabase<CharacterRaceDefinition>();
 
-            foreach (var CharacterRaceDefinition in dbCharacterRaceDefinition)
+            foreach (var characterRaceDefinition in dbCharacterRaceDefinition)
             {
-                CharacterRaceDefinition.FeatureUnlocks.Sort((a, b) =>
+                characterRaceDefinition.FeatureUnlocks.Sort((a, b) =>
                 {
                     var result = a.Level - b.Level;
 
@@ -35,27 +35,29 @@ namespace SolastaCommunityExpansion.Models
             LoadRace(BolgrifRaceBuilder.BolgrifRace);
             LoadRace(GnomeRaceBuilder.GnomeRace);
 
+            Races = Races.OrderBy(x => x.Value.FormatTitle()).ToDictionary(x => x.Key, x => x.Value);
+
             if (Main.Settings.EnableSortingFutureFeatures)
             {
                 SortRacesFeatures();
             }
         }
 
-        private static void LoadRace(CharacterRaceDefinition characterClass)
+        private static void LoadRace(CharacterRaceDefinition definition)
         {
-            if (!Races.ContainsKey(characterClass.Name))
+            var name = definition.Name;
+
+            if (!Races.ContainsKey(name))
             {
-                Races.Add(characterClass.Name, characterClass);
+                Races.Add(name, definition);
             }
 
-            Races = Races.OrderBy(x => x.Value.FormatTitle()).ToDictionary(x => x.Key, x => x.Value);
-
-            UpdateRaceVisibility(characterClass.Name);
+            UpdateRaceVisibility(name);
         }
 
-        private static void UpdateRaceVisibility(string className)
+        private static void UpdateRaceVisibility(string raceName)
         {
-            Races[className].GuiPresentation.SetHidden(!Main.Settings.ClassEnabled.Contains(className));
+            Races[raceName].GuiPresentation.SetHidden(!Main.Settings.RaceEnabled.Contains(raceName));
         }
 
         internal static void Switch(string raceName, bool active)
