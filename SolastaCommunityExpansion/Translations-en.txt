@@ -683,8 +683,8 @@ Feature/&AdditionalDamageHinderingBlastTitle	Hindering Blast
 Feature/&AgonizingBlastFeatureSetDescription	When you cast a spell using force damage (eldritch blast), add your Charisma modifier to the damage it deals on a hit.
 Feature/&AgonizingBlastFeatureSetTitle	Agonizing Blast
 Feature/&AHSoulBladeEmpowerDamageBonusDescription	You are empowered and do a damage bonus equal to your proficiency on all your attacks.
-Feature/&AHSoulBladeEmpowerDamageBonusTitle	Soul Empowered
-Feature/&AHSoulBladeEmpowerDamageBonusTitleDescription	You are empowered and do a damage bonus equal to your proficiency on all your attacks.
+Feature/&AHSoulBladeEmpowerWeaponDamageBonusTitle	Soul Empowered
+Feature/&AHSoulBladeEmpowerWeaponDamageBonusDescription	You are empowered and do a damage bonus equal to your proficiency on all your attacks.
 Feature/&AHSoulBladeEmpowerWeaponConditionDescription	You are empowered and do a damage bonus equal to your proficiency on all your attacks.
 Feature/&AHSoulBladeEmpowerWeaponConditionTitle	Soul Empowered
 Feature/&AHSoulBladeSummonPactWeaponPowerDescription	Once per short rest you can summon forth a spiritual form of a weapon from your pact as a free action. As a bonus action you can direct the weapon as desired to attack your foes. The weapon moves up to 20ft each time before striking.

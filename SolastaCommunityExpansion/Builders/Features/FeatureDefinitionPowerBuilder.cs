@@ -190,6 +190,12 @@ namespace SolastaCommunityExpansion.Builders.Features
             return This();
         }
 
+        public TBuilder SetShortTitleOverride(string titleOverride)
+        {
+            Definition.SetShortTitleOverride(titleOverride);
+            return This();
+        }
+
         public TBuilder SetSpellCastingFeature(FeatureDefinitionCastSpell spellFeature)
         {
             Definition.SetSpellcastingFeature(spellFeature);
@@ -200,6 +206,18 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
             Definition.SetFixedUsesPerRecharge(fixedUses);
             Definition.SetUsesDetermination(RuleDefinitions.UsesDetermination.Fixed);
+            return This();
+        }
+
+        public TBuilder SetFixedUsesPerRecharge(int fixedUses)
+        {
+            Definition.SetFixedUsesPerRecharge(fixedUses);
+            return This();
+        }
+
+        public TBuilder SetCostPerUse(int costPerUse)
+        {
+            Definition.SetCostPerUse(costPerUse);
             return This();
         }
 
