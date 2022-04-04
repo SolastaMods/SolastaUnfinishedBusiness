@@ -22,26 +22,26 @@ namespace SolastaCommunityExpansion.Spells
     {
         internal static readonly Guid DhBaseGuid = new("05c1b1dbae144731b4505c1232fdc37e");
 
-        private static readonly SpellDefinition DivineWord = BuildDivineWord();
-        private static readonly SpellDefinition FingerOfDeath = BuildFingerOfDeath();
-        private static readonly SpellDefinition ReverseGravity = BuildReverseGravity();
-        private static readonly SpellDefinition ConjureCelestial = BuildConjureCelestial();
-        private static readonly SpellDefinition DominateMonster = BuildDominateMonster();
-        private static readonly SpellDefinition Feeblemind = BuildFeeblemind();
-        private static readonly SpellDefinition HolyAura = BuildHolyAura();
-        private static readonly SpellDefinition IncendiaryCloud = BuildIncendiaryCloud();
-        private static readonly SpellDefinition Maze = BuildMaze();
-        private static readonly SpellDefinition MindBlank = BuildMindBlank();
-        private static readonly SpellDefinition PowerWordStun = BuildPowerWordStun();
-        private static readonly SpellDefinition SunBurst = BuildSunBurst();
-        private static readonly SpellDefinition Foresight = BuildForesight();
-        private static readonly SpellDefinition MassHeal = BuildMassHeal();
-        private static readonly SpellDefinition MeteorSwarmSingleTarget = BuildMeteorSwarmSingleTarget();
-        private static readonly SpellDefinition PowerWordHeal = BuildPowerWordHeal();
-        private static readonly SpellDefinition PowerWordKill = BuildPowerWordKill();
-        private static readonly SpellDefinition TimeStop = BuildTimeStop();
-        private static readonly SpellDefinition Shapechange = BuildShapechange();
-        private static readonly SpellDefinition Weird = BuildWeird();
+        internal static readonly SpellDefinition DivineWord = BuildDivineWord();
+        internal static readonly SpellDefinition FingerOfDeath = BuildFingerOfDeath();
+        internal static readonly SpellDefinition ReverseGravity = BuildReverseGravity();
+        internal static readonly SpellDefinition ConjureCelestial = BuildConjureCelestial();
+        internal static readonly SpellDefinition DominateMonster = BuildDominateMonster();
+        internal static readonly SpellDefinition Feeblemind = BuildFeeblemind();
+        internal static readonly SpellDefinition HolyAura = BuildHolyAura();
+        internal static readonly SpellDefinition IncendiaryCloud = BuildIncendiaryCloud();
+        internal static readonly SpellDefinition Maze = BuildMaze();
+        internal static readonly SpellDefinition MindBlank = BuildMindBlank();
+        internal static readonly SpellDefinition PowerWordStun = BuildPowerWordStun();
+        internal static readonly SpellDefinition SunBurst = BuildSunBurst();
+        internal static readonly SpellDefinition Foresight = BuildForesight();
+        internal static readonly SpellDefinition MassHeal = BuildMassHeal();
+        internal static readonly SpellDefinition MeteorSwarmSingleTarget = BuildMeteorSwarmSingleTarget();
+        internal static readonly SpellDefinition PowerWordHeal = BuildPowerWordHeal();
+        internal static readonly SpellDefinition PowerWordKill = BuildPowerWordKill();
+        internal static readonly SpellDefinition TimeStop = BuildTimeStop();
+        internal static readonly SpellDefinition Shapechange = BuildShapechange();
+        internal static readonly SpellDefinition Weird = BuildWeird();
 
         internal static void AddToDB()
         {
@@ -71,29 +71,29 @@ namespace SolastaCommunityExpansion.Spells
         {
             // 7th level
             SpellsContext.RegisterSpell(DivineWord, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListCleric");
-            SpellsContext.RegisterSpell(FingerOfDeath, isFromOtherMod: false, "SpellListClassWarlock", "SpellListWizard", "SpellListSorcerer");
+            SpellsContext.RegisterSpell(FingerOfDeath, isFromOtherMod: false, "ClassWarlockSpellList", "SpellListWizard", "SpellListSorcerer");
             SpellsContext.RegisterSpell(ReverseGravity, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListDruid", "SpellListWizard", "SpellListSorcerer");
             SpellsContext.RegisterSpell(ConjureCelestial, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListCleric");
 
             // 8th level
-            SpellsContext.RegisterSpell(DominateMonster, isFromOtherMod: false, "SpellListClassWarlock", "SpellListWizard", "SpellListSorcerer", "WitchSpellList");
-            SpellsContext.RegisterSpell(Feeblemind, isFromOtherMod: false, "SpellListClassWarlock", "SpellListWizard", "SpellListDruid", "WitchSpellList");
+            SpellsContext.RegisterSpell(DominateMonster, isFromOtherMod: false, "ClassWarlockSpellList", "SpellListWizard", "SpellListSorcerer", "WitchSpellList");
+            SpellsContext.RegisterSpell(Feeblemind, isFromOtherMod: false, "ClassWarlockSpellList", "SpellListWizard", "SpellListDruid", "WitchSpellList");
             SpellsContext.RegisterSpell(HolyAura, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListCleric");
             SpellsContext.RegisterSpell(IncendiaryCloud, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListWizard", "SpellListSorcerer");
             SpellsContext.RegisterSpell(Maze, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListWizard");
             SpellsContext.RegisterSpell(MindBlank, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListWizard", "WitchSpellList");
-            SpellsContext.RegisterSpell(PowerWordStun, isFromOtherMod: false, "SpellListClassWarlock", "SpellListWizard", "SpellListSorcerer", "WitchSpellList");
+            SpellsContext.RegisterSpell(PowerWordStun, isFromOtherMod: false, "ClassWarlockSpellList", "SpellListWizard", "SpellListSorcerer", "WitchSpellList");
             SpellsContext.RegisterSpell(SunBurst, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListDruid", "SpellListWizard", "SpellListSorcerer");
 
             // 9th level
-            SpellsContext.RegisterSpell(Foresight, isFromOtherMod: false, "SpellListClassWarlock", "SpellListDruid", "SpellListWizard", "WitchSpellList");
+            SpellsContext.RegisterSpell(Foresight, isFromOtherMod: false, "ClassWarlockSpellList", "SpellListDruid", "SpellListWizard", "WitchSpellList");
             SpellsContext.RegisterSpell(MassHeal, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListCleric");
             SpellsContext.RegisterSpell(MeteorSwarmSingleTarget, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListWizard", "SpellListSorcerer");
             SpellsContext.RegisterSpell(PowerWordHeal, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListCleric");
-            SpellsContext.RegisterSpell(PowerWordKill, isFromOtherMod: false, "SpellListClassWarlock", "SpellListWizard", "SpellListSorcerer");
+            SpellsContext.RegisterSpell(PowerWordKill, isFromOtherMod: false, "ClassWarlockSpellList", "SpellListWizard", "SpellListSorcerer");
             SpellsContext.RegisterSpell(TimeStop, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListWizard", "SpellListSorcerer");
             SpellsContext.RegisterSpell(Shapechange, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListDruid", "SpellListWizard");
-            SpellsContext.RegisterSpell(Weird, isFromOtherMod: false, "SpellListClassWarlock", "SpellListWizard", "WitchSpellList");
+            SpellsContext.RegisterSpell(Weird, isFromOtherMod: false, "ClassWarlockSpellList", "SpellListWizard", "WitchSpellList");
         }
 
         //
@@ -422,7 +422,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetSpellsAtLevel(1, Bless, CureWounds, DetectEvilAndGood, DetectMagic, Shield)
                 .SetSpellsAtLevel(2, LesserRestoration, ProtectionFromPoison)
                 .SetSpellsAtLevel(5, GreaterRestoration)
-                .SetMaxSpellLevel(5, false)
+                .FinalizeSpells()
                 .AddToDB();
 
             FeatureDefinitionCastSpell castSpellCouatl = FeatureDefinitionCastSpellBuilder

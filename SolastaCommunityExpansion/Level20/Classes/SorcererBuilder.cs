@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using SolastaCommunityExpansion.Level20.Features;
 using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionCastSpells;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionFeatureSets;
@@ -22,14 +23,11 @@ namespace SolastaCommunityExpansion.Level20.Classes
 
             CastSpellSorcerer.SetSpellCastingLevel(9);
 
-            CastSpellSorcerer.SlotsPerLevels.Clear();
-            CastSpellSorcerer.SlotsPerLevels.AddRange(SpellsHelper.FullCastingSlots);
+            CastSpellSorcerer.SlotsPerLevels.SetRange(SpellsHelper.FullCastingSlots);
 
-            CastSpellSorcerer.ReplacedSpells.Clear();
-            CastSpellSorcerer.ReplacedSpells.AddRange(SpellsHelper.FullCasterReplacedSpells);
+            CastSpellSorcerer.ReplacedSpells.SetRange(SpellsHelper.FullCasterReplacedSpells);
 
-            CastSpellSorcerer.KnownSpells.Clear();
-            CastSpellSorcerer.KnownSpells.AddRange(SpellsHelper.SorcererKnownSpells);
+            CastSpellSorcerer.KnownSpells.SetRange(SpellsHelper.SorcererKnownSpells);
         }
     }
 }

@@ -25,13 +25,8 @@
   "savingThrowScores": [
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Strength",
-      "bonus": 14
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Dexterity",
-      "bonus": 0
+      "abilityScoreName": "Charisma",
+      "bonus": 9
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
@@ -40,21 +35,31 @@
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Dexterity",
+      "bonus": 0
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Intelligence",
       "bonus": 0
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Wisdom",
-      "bonus": 9
+      "abilityScoreName": "Strength",
+      "bonus": 14
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Charisma",
+      "abilityScoreName": "Wisdom",
       "bonus": 9
     }
   ],
   "skillScores": [
+    {
+      "$type": "MonsterSkillProficiency, Assembly-CSharp",
+      "skillName": "",
+      "bonus": 0
+    },
     {
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "Arcana",
@@ -69,11 +74,6 @@
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "Perception",
       "bonus": 9
-    },
-    {
-      "$type": "MonsterSkillProficiency, Assembly-CSharp",
-      "skillName": "",
-      "bonus": 0
     }
   ],
   "legendaryCreature": false,
@@ -258,7 +258,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "f2aea6af-b5d1-5e65-b195-2a406329864b",

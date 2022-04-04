@@ -12,12 +12,12 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 {
     internal static class WarlockPactOfTheChainSummons
     {
-        public static FeatureDefinitionPower PactofChainFamiliarInvisibilityPower;
-        public static FeatureDefinitionPower PactofChainFamiliarSpellResistencePower;
-        public static MonsterDefinition PactChainPseudodragon;
-        public static MonsterDefinition PactChainSprite;
-        public static MonsterDefinition PactChainImp;
-        public static MonsterDefinition PactChainQuasit;
+        public static FeatureDefinitionPower PactofChainFamiliarInvisibilityPower { get; private set; }
+        public static FeatureDefinitionPower PactofChainFamiliarSpellResistencePower { get; private set; }
+        public static MonsterDefinition PactChainPseudodragon { get; private set; }
+        public static MonsterDefinition PactChainSprite { get; private set; }
+        public static MonsterDefinition PactChainImp { get; private set; }
+        public static MonsterDefinition PactChainQuasit { get; private set; }
 
         public static void buildPactofChainFamiliarInvisibilityPower()
         {
@@ -95,7 +95,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             string text = "PactOfChain";
 
             MonsterDefinition BaseTemplateName = DatabaseHelper.MonsterDefinitions.SilverDragon_Princess;
-            MonsterDefinition MonsterShaderReference = DatabaseHelper.MonsterDefinitions.SilverDragon_Princess;
+            //MonsterDefinition MonsterShaderReference = DatabaseHelper.MonsterDefinitions.SilverDragon_Princess;
 
             string NewName = "CustomPseudodragon";
             string NewTitle = "CustomPseudodragonTitle";
@@ -325,7 +325,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             string text = "PactOfChain";
 
             MonsterDefinition BaseTemplateName = DatabaseHelper.MonsterDefinitions.Dryad;
-            MonsterDefinition MonsterShaderReference = DatabaseHelper.MonsterDefinitions.FeyBear;
+            //MonsterDefinition MonsterShaderReference = DatabaseHelper.MonsterDefinitions.FeyBear;
 
             string NewName = "CustomSprite";
             string NewTitle = "CustomSpriteTitle";
@@ -563,7 +563,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             string text = "PactOfChain";
 
             MonsterDefinition BaseTemplateName = DatabaseHelper.MonsterDefinitions.Goblin;
-            MonsterDefinition MonsterShaderReference = DatabaseHelper.MonsterDefinitions.Ghoul;
+            //MonsterDefinition MonsterShaderReference = DatabaseHelper.MonsterDefinitions.Ghoul;
 
             string NewName = "CustomImp";
             string NewTitle = "CustomImpTitle";
@@ -794,7 +794,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             string text = "PactOfChain";
 
             MonsterDefinition BaseTemplateName = DatabaseHelper.MonsterDefinitions.Goblin;
-            MonsterDefinition MonsterShaderReference = DatabaseHelper.MonsterDefinitions.Goblin;
+            //MonsterDefinition MonsterShaderReference = DatabaseHelper.MonsterDefinitions.Goblin;
 
             string NewName = "CustomQuasit";
             string NewTitle = "CustomQuasitTitle";

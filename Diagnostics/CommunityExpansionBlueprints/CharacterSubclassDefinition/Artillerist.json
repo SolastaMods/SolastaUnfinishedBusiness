@@ -23,22 +23,22 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ArtilleryConstructLevel09AutopreparedSpells:ecbbbfe6-4ff6-5c55-b9da-919b09896938",
-      "level": 9
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ArtilleryConstructlevel09FeatureSet:a1e9557c-c1a9-4912-9fea-1a16c4124331",
       "level": 9
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ArtilleryConstructLevel15AutopreparedSpells:841d72b7-2570-56d1-acfd-77fa34d2e4db",
-      "level": 15
+      "featureDefinition": "Definition:ArtilleryConstructLevel09AutopreparedSpells:ecbbbfe6-4ff6-5c55-b9da-919b09896938",
+      "level": 9
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ArtilleryConstructlevel15FeatureSet:50c91d16-1a84-494a-ba72-dd4879955f2f",
+      "level": 15
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ArtilleryConstructLevel15AutopreparedSpells:841d72b7-2570-56d1-acfd-77fa34d2e4db",
       "level": 15
     }
   ],
@@ -64,7 +64,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "6a2ac050-eb4b-50c3-83de-05e8430f78f9",

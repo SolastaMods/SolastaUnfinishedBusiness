@@ -29,14 +29,14 @@
   "additionalScribedSpells": 0,
   "additionalKnownSpellsCount": 0,
   "warListSpells": [
-    "FalseLife",
-    "MagicWeapon",
-    "Blindness",
-    "Fly",
     "BestowCurse",
-    "VampiricTouch",
     "Blight",
-    "CloudKill"
+    "Blindness",
+    "CloudKill",
+    "FalseLife",
+    "Fly",
+    "MagicWeapon",
+    "VampiricTouch"
   ],
   "counterspellAffinity": "None",
   "spellsCounterAffinity": "None",
@@ -69,7 +69,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "c4d1d236-c7f9-5131-bfd2-89f381fa749a",

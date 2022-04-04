@@ -44,6 +44,7 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetPoolAmount(poolAmount);
             Definition.RestrictedChoices.AddRange(choices);
             Definition.SetUniqueChoices(uniqueChoices);
+            Definition.RestrictedChoices.Sort();
 
             return this;
         }
@@ -63,6 +64,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         public FeatureDefinitionPointPoolBuilder RestrictChoices(IEnumerable<string> choices)
         {
             Definition.RestrictedChoices.AddRange(choices);
+            Definition.RestrictedChoices.Sort();
             return this;
         }
 

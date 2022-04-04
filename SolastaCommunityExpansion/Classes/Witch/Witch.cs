@@ -162,6 +162,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                     Contagion, DispelEvilAndGood, DominatePerson, HoldMonster)
                 .SetSpellsAtLevel(6,
                     Eyebite, TrueSeeing)
+                .FinalizeSpells()
                 .AddToDB();
 
             // Build our spellCast object containing previously created spell list

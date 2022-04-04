@@ -38,6 +38,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         public FeatureDefinitionActionAffinityBuilder SetAuthorizedActions(params ActionDefinitions.Id[] actions)
         {
             Definition.SetAuthorizedActions(actions);
+            Definition.AuthorizedActions.Sort();
             return This();
         }
     }

@@ -25,13 +25,8 @@
   "savingThrowScores": [
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Strength",
+      "abilityScoreName": "Charisma",
       "bonus": 0
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Dexterity",
-      "bonus": 8
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
@@ -40,18 +35,23 @@
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Dexterity",
+      "bonus": 8
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Intelligence",
+      "bonus": 0
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Strength",
       "bonus": 0
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Wisdom",
       "bonus": 10
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Charisma",
-      "bonus": 0
     }
   ],
   "skillScores": [],
@@ -96,7 +96,7 @@
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
-      "monsterAttackDefinition": "Definition:DH_Custom_PitFiend_Bite_Attack:f6284216-ea97-5849-ae3c-47a8159f838f"
+      "monsterAttackDefinition": "Definition:Attack_Green_Dragon_Tail:8b9e1f1692bd40f43904b14a03e6e1e3"
     },
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
@@ -106,7 +106,7 @@
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
-      "monsterAttackDefinition": "Definition:Attack_Green_Dragon_Tail:8b9e1f1692bd40f43904b14a03e6e1e3"
+      "monsterAttackDefinition": "Definition:DH_Custom_PitFiend_Bite_Attack:f6284216-ea97-5849-ae3c-47a8159f838f"
     },
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
@@ -258,7 +258,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "0471525c-3afc-5679-91e5-3d7abdf1992c",

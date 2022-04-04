@@ -8,9 +8,9 @@
   "spellListDefinition": "Definition:SpellListWizard:ebbe572795f1e2e499bf55d00df9547f",
   "restrictedSchools": [
     "SchoolConjuration",
-    "SchoolTransmutation",
     "SchoolEnchantment",
-    "SchoolIllusion"
+    "SchoolIllusion",
+    "SchoolTransmutation"
   ],
   "spellKnowledge": "Selection",
   "spellReadyness": "AllKnown",
@@ -347,7 +347,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "20a1a155-6992-5137-98aa-17ad091038bc",

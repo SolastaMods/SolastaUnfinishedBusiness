@@ -13,7 +13,9 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class SubclassesContext
     {
-        internal static Dictionary<string, AbstractSubclass> Subclasses { get; private set; } = new Dictionary<string, AbstractSubclass>();
+        private static Dictionary<string, FeatureDefinitionSubclassChoice> SubclassesChoiceList { get; set; } = new();
+
+        internal static Dictionary<string, CharacterSubclassDefinition> Subclasses { get; private set; } = new();
 
         private static void SortSubclassesFeatures()
         {
@@ -50,6 +52,8 @@ namespace SolastaCommunityExpansion.Models
             LoadSubclass(new Thug());
             LoadSubclass(new CircleOfTheForestGuardian());
 
+            Subclasses = Subclasses.OrderBy(x => x.Value.FormatTitle()).ToDictionary(x => x.Key, x => x.Value);
+
             if (Main.Settings.EnableSortingFutureFeatures)
             {
                 SortSubclassesFeatures();
@@ -58,20 +62,22 @@ namespace SolastaCommunityExpansion.Models
 
         private static void LoadSubclass(AbstractSubclass subclassBuilder)
         {
-            CharacterSubclassDefinition subclass = subclassBuilder.GetSubclass();
-            if (!Subclasses.ContainsKey(subclass.Name))
+            var subclass = subclassBuilder.GetSubclass();
+            var name = subclass.Name;
+
+            if (!Subclasses.ContainsKey(name))
             {
-                Subclasses.Add(subclass.Name, subclassBuilder);
+                SubclassesChoiceList.Add(name, subclassBuilder.GetSubclassChoiceList());
+                Subclasses.Add(name, subclass);
             }
 
-            Subclasses = Subclasses.OrderBy(x => x.Value.GetSubclass().FormatTitle()).ToDictionary(x => x.Key, x => x.Value);
-
-            UpdateSubclassVisibility(subclass.Name);
+            UpdateSubclassVisibility(name);
         }
 
         private static void UpdateSubclassVisibility(string name)
         {
-            FeatureDefinitionSubclassChoice choiceList = Subclasses[name].GetSubclassChoiceList();
+            var choiceList = SubclassesChoiceList[name];
+
             if (Main.Settings.SubclassEnabled.Contains(name))
             {
                 if (!choiceList.Subclasses.Contains(name))
@@ -86,6 +92,7 @@ namespace SolastaCommunityExpansion.Models
                     choiceList.Subclasses.Remove(name);
                 }
             }
+
         }
 
         internal static void Switch(string subclassName, bool active)
@@ -110,23 +117,25 @@ namespace SolastaCommunityExpansion.Models
             UpdateSubclassVisibility(subclassName);
         }
 
+#if DEBUG
         public static string GenerateSubclassDescription()
         {
-            var outString = new StringBuilder("[heading]Subclasses[/heading]");
+            var outString = new StringBuilder("[size=3][b]Subclasses[/b][/size]\n");
 
             outString.Append("\n[list]");
 
             foreach (var subclass in Subclasses.Values)
             {
                 outString.Append("\n[*][b]");
-                outString.Append(subclass.GetSubclass().FormatTitle());
+                outString.Append(subclass.FormatTitle());
                 outString.Append("[/b]: ");
-                outString.Append(subclass.GetSubclass().FormatDescription());
+                outString.Append(subclass.FormatDescription());
             }
 
             outString.Append("\n[/list]");
 
             return outString.ToString();
         }
+#endif
     }
 }

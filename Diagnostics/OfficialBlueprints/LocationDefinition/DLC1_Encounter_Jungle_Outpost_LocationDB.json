@@ -189,7 +189,7 @@
     "exploredDescription": "LocationType/&Encounter_Jungle_Outpost_Description"
   },
   "challengeRating": -1,
-  "focusWhenRevealed": true,
+  "focusWhenRevealed": false,
   "startsWithScavengerCamp": false,
   "ignoredByScavengers": false,
   "useDirectionalLightInCutscene": true,
@@ -219,7 +219,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "OpenGameContent",
   "guid": "7069c3ea9aed17c438c014582e39550d",

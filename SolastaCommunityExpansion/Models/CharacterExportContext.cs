@@ -30,7 +30,7 @@ namespace SolastaCommunityExpansion.Models
             InputField.onValueChanged = null;
             InputField.fontAsset = contentText.font;
             InputField.pointSize = contentText.fontSize;
-            InputField.transform.localPosition = new Vector3(0, contentText.transform.parent.localPosition.y - contentText.fontSize, 0);
+            InputField.transform.localPosition = new Vector3(-50, contentText.transform.parent.localPosition.y - contentText.fontSize, 0);
         }
 
         private static string ParseText(string text)

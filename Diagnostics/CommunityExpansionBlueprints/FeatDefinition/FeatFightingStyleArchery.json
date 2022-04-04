@@ -14,7 +14,7 @@
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Feat/&FightingStyleArcheryTitle",
     "description": "Feat/&FightingStyleArcheryDescription",
     "spriteReference": {
@@ -32,7 +32,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "66b04bb8-2ce7-5d73-aaf9-184bac8dacd7",

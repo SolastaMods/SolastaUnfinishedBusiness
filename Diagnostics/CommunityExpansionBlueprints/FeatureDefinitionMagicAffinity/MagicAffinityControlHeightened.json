@@ -29,18 +29,18 @@
   "additionalScribedSpells": 0,
   "additionalKnownSpellsCount": 0,
   "warListSpells": [
+    "Banishment",
     "CharmPerson",
-    "Sleep",
     "ColorSpray",
-    "HoldPerson",
-    "Invisibility",
+    "Confusion",
     "Counterspell",
     "DispelMagic",
-    "Banishment",
-    "Confusion",
-    "PhantasmalKiller",
     "DominatePerson",
-    "HoldMonster"
+    "HoldMonster",
+    "HoldPerson",
+    "Invisibility",
+    "PhantasmalKiller",
+    "Sleep"
   ],
   "counterspellAffinity": "None",
   "spellsCounterAffinity": "None",
@@ -73,7 +73,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "af0d6b9d-6b6c-562e-a515-ced5b24ab1c2",

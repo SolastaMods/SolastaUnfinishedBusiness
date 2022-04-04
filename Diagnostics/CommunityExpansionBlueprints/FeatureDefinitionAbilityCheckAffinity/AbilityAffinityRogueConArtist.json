@@ -4,8 +4,18 @@
   "affinityGroups": [
     {
       "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
-      "abilityScoreName": "Dexterity",
-      "proficiencyName": "SleightOfHand",
+      "abilityScoreName": "Charisma",
+      "proficiencyName": "Deception",
+      "affinity": "Advantage",
+      "abilityCheckModifierDiceNumber": 0,
+      "abilityCheckModifierDieType": "D8",
+      "abilityCheckContext": "None",
+      "lightingContext": "Irrelevant"
+    },
+    {
+      "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Charisma",
+      "proficiencyName": "Performance",
       "affinity": "Advantage",
       "abilityCheckModifierDiceNumber": 0,
       "abilityCheckModifierDieType": "D8",
@@ -24,18 +34,8 @@
     },
     {
       "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
-      "abilityScoreName": "Charisma",
-      "proficiencyName": "Deception",
-      "affinity": "Advantage",
-      "abilityCheckModifierDiceNumber": 0,
-      "abilityCheckModifierDieType": "D8",
-      "abilityCheckContext": "None",
-      "lightingContext": "Irrelevant"
-    },
-    {
-      "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
-      "abilityScoreName": "Charisma",
-      "proficiencyName": "Performance",
+      "abilityScoreName": "Dexterity",
+      "proficiencyName": "SleightOfHand",
       "affinity": "Advantage",
       "abilityCheckModifierDiceNumber": 0,
       "abilityCheckModifierDieType": "D8",
@@ -65,7 +65,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "955c0ca4-3428-5bd8-8eee-be4ebdd85731",

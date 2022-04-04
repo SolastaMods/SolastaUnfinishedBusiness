@@ -5,7 +5,7 @@
   "characterFamily": "Elemental",
   "creatureTags": [],
   "defaultFaction": "HostileMonsters",
-  "fullyControlledWhenAllied": true,
+  "fullyControlledWhenAllied": false,
   "sizeDefinition": "Definition:Gargantuan:7c516e825cf3b0b4d964afb80bada697",
   "alignment": "Neutral",
   "armorClass": 19,
@@ -25,7 +25,12 @@
   "savingThrowScores": [
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Strength",
+      "abilityScoreName": "Charisma",
+      "bonus": 11
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Constitution",
       "bonus": 0
     },
     {
@@ -35,23 +40,18 @@
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Constitution",
+      "abilityScoreName": "Intelligence",
       "bonus": 0
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Intelligence",
+      "abilityScoreName": "Strength",
       "bonus": 0
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Wisdom",
       "bonus": 12
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Charisma",
-      "bonus": 11
     }
   ],
   "skillScores": [],
@@ -348,7 +348,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "c6ca2e7c-06a3-5483-92e3-22eb3805d2a7",

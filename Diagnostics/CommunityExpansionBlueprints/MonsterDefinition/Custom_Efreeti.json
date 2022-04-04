@@ -5,7 +5,7 @@
   "characterFamily": "Elemental",
   "creatureTags": [],
   "defaultFaction": "HostileMonsters",
-  "fullyControlledWhenAllied": true,
+  "fullyControlledWhenAllied": false,
   "sizeDefinition": "Definition:Large:6dde335b40d952b4ea82fa0b49a03c11",
   "alignment": "LawfulEvil",
   "armorClass": 17,
@@ -25,7 +25,12 @@
   "savingThrowScores": [
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Strength",
+      "abilityScoreName": "Charisma",
+      "bonus": 7
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Constitution",
       "bonus": 0
     },
     {
@@ -35,23 +40,18 @@
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Constitution",
-      "bonus": 0
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Intelligence",
       "bonus": 7
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Wisdom",
-      "bonus": 6
+      "abilityScoreName": "Strength",
+      "bonus": 0
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Charisma",
-      "bonus": 7
+      "abilityScoreName": "Wisdom",
+      "bonus": 6
     }
   ],
   "skillScores": [],
@@ -287,7 +287,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "d69543ee-46ba-58f8-a5f5-4361e41b84cc",

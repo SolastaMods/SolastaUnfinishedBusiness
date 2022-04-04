@@ -1,17 +1,18 @@
 ﻿using System.Collections.Generic;
-using SolastaModApi;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaModApi;
 using SolastaModApi.Extensions;
 using static RuleDefinitions;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionConditionAffinitys;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionDamageAffinitys;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
-using static SolastaModApi.DatabaseHelper.SpellListDefinitions;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionProficiencys;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionConditionAffinitys;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionMovementAffinitys;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionProficiencys;
+using static SolastaModApi.DatabaseHelper.SpellDefinitions;
+using static SolastaModApi.DatabaseHelper.SpellListDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 {
@@ -25,70 +26,13 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetGuiPresentation("ToadKingExpandedSpelllist", Category.Feature)
                 .SetGuiPresentationNoContent()
                 .ClearSpells()
-               // .SetSpellsAtLevel(1, Grease, DetectPoisonAndDisease)
-               // .SetSpellsAtLevel(2, AcidArrow, SpiderClimb)
-               // .SetSpellsAtLevel(3, Slow, StinkingCloud)
-               // .SetSpellsAtLevel(4, BlackTentacles,FreedomOfMovement)
-               // .SetSpellsAtLevel(5, Contagion,InsectPlague)
-                .SetMaxSpellLevel(5, false)
+                .SetSpellsAtLevel(1, DetectPoisonAndDisease, Longstrider)
+                .SetSpellsAtLevel(2, AcidArrow, SpiderClimb)
+                .SetSpellsAtLevel(3, Slow, StinkingCloud)
+                .SetSpellsAtLevel(4, BlackTentacles, FreedomOfMovement)
+                .SetSpellsAtLevel(5, Contagion, InsectPlague)
+                .FinalizeSpells()
                 .AddToDB();
-            ToadKingExpandedSpelllist.ClearSpellsByLevel();
-            ToadKingExpandedSpelllist.SpellsByLevel.AddRange(new List<SpellListDefinition.SpellsByLevelDuplet>()
-             {
-               //  new SpellListDefinition.SpellsByLevelDuplet
-               //  {
-               //      Level =0,
-               //      Spells = new List<SpellDefinition>
-               //      {
-               //      }
-               //  },
-                 new SpellListDefinition.SpellsByLevelDuplet
-                 {
-                     Level =1,
-                     Spells = new List<SpellDefinition>
-                     {
-                         DatabaseHelper.SpellDefinitions.DetectPoisonAndDisease,
-                         DatabaseHelper.SpellDefinitions.Longstrider
-                     }
-                 },
-                 new SpellListDefinition.SpellsByLevelDuplet
-                 {
-                     Level =2,
-                     Spells = new List<SpellDefinition>
-                     {
-                         DatabaseHelper.SpellDefinitions.AcidArrow,
-                         DatabaseHelper.SpellDefinitions.SpiderClimb
-                     }
-                 },
-                 new SpellListDefinition.SpellsByLevelDuplet
-                 {
-                     Level =3,
-                     Spells = new List<SpellDefinition>
-                     {
-                         DatabaseHelper.SpellDefinitions.StinkingCloud,
-                         DatabaseHelper.SpellDefinitions.Slow
-                     }
-                 },
-                 new SpellListDefinition.SpellsByLevelDuplet
-                 {
-                     Level =4,
-                     Spells = new List<SpellDefinition>
-                     {
-                         DatabaseHelper.SpellDefinitions.FreedomOfMovement,
-                         DatabaseHelper.SpellDefinitions.BlackTentacles
-                     }
-                 },
-                 new SpellListDefinition.SpellsByLevelDuplet
-                 {
-                     Level =5,
-                     Spells = new List<SpellDefinition>
-                     {
-                         DatabaseHelper.SpellDefinitions.Contagion,
-                         DatabaseHelper.SpellDefinitions.InsectPlague
-                     }
-                 },
-
-             });
 
             FeatureDefinitionMagicAffinity ToadKingExpandedSpelllistAfinity = FeatureDefinitionMagicAffinityBuilder
                 .Create("ToadKingExpandedSpelllistAfinity", DefinitionBuilder.CENamespaceGuid)
@@ -122,11 +66,11 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetGuiPresentation(Category.Power)
                 .Configure(
                        1,
-                       RuleDefinitions.UsesDetermination.ProficiencyBonus,
+                       UsesDetermination.ProficiencyBonus,
                        AttributeDefinitions.Charisma,
-                       RuleDefinitions.ActivationTime.Action,
+                       ActivationTime.Action,
                        1,
-                       RuleDefinitions.RechargeRate.AtWill,
+                       RechargeRate.AtWill,
                        false,
                        false,
                        AttributeDefinitions.Charisma,
@@ -139,19 +83,19 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                                     0,
                                     DieType.D6,
                                     1,
-                                    RuleDefinitions.HealFromInflictedDamage.Never,
-                                    new List<RuleDefinitions.TrendInfo>())
+                                    HealFromInflictedDamage.Never,
+                                    new List<TrendInfo>())
                                 .Build())
                             .SetTargetingData(
-                                    RuleDefinitions.Side.All,
-                                    RuleDefinitions.RangeType.Self,
+                                    Side.All,
+                                    RangeType.Self,
                                     1,
-                                    RuleDefinitions.TargetType.CubeWithOffset,
+                                    TargetType.CubeWithOffset,
                                     3,
                                     2,
                                     ActionDefinitions.ItemSelectionType.None)
                             .SetEffectAdvancement(
-                                RuleDefinitions.EffectIncrementMethod.CasterLevelTable,
+                                EffectIncrementMethod.CasterLevelTable,
                                 5,
                                 0,
                                 1,
@@ -161,9 +105,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                                 0,
                                 0,
                                 0,
-                                RuleDefinitions.AdvancementDuration.None
+                                AdvancementDuration.None
                                 )
-                            .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.Thunderwave.EffectDescription.EffectParticleParameters)
+                            .SetParticleEffectParameters(Thunderwave.EffectDescription.EffectParticleParameters)
                             .Build()
                        ,
                        true)
@@ -175,11 +119,11 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetGuiPresentation(Category.Power)
                 .Configure(
                        1,
-                       RuleDefinitions.UsesDetermination.ProficiencyBonus,
+                       UsesDetermination.ProficiencyBonus,
                        AttributeDefinitions.Charisma,
-                       RuleDefinitions.ActivationTime.Action,
+                       ActivationTime.Action,
                        1,
-                       RuleDefinitions.RechargeRate.AtWill,
+                       RechargeRate.AtWill,
                        false,
                        false,
                        AttributeDefinitions.Charisma,
@@ -201,16 +145,16 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                                 false,
                                 DatabaseHelper.SmartAttributeDefinitions.Constitution.name,
                                 true,
-                                RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                                EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                                 DatabaseHelper.SmartAttributeDefinitions.Constitution.name,
                                 20,
                                 false,
                                 new List<SaveAffinityBySenseDescription>())
                             .SetTargetingData(
-                                    RuleDefinitions.Side.Enemy,
-                                    RuleDefinitions.RangeType.Touch,
+                                    Side.Enemy,
+                                    RangeType.Touch,
                                     1,
-                                    RuleDefinitions.TargetType.Individuals,
+                                    TargetType.Individuals,
                                     1,
                                     1,
                                     ActionDefinitions.ItemSelectionType.None)
@@ -233,11 +177,11 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetGuiPresentation(Category.Power)
                 .Configure(
                        1,
-                       RuleDefinitions.UsesDetermination.ProficiencyBonus,
+                       UsesDetermination.ProficiencyBonus,
                        AttributeDefinitions.Charisma,
-                       RuleDefinitions.ActivationTime.Action,
+                       ActivationTime.Action,
                        1,
-                       RuleDefinitions.RechargeRate.AtWill,
+                       RechargeRate.AtWill,
                        false,
                        false,
                        AttributeDefinitions.Charisma,
@@ -251,10 +195,10 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                                 .SetSavingThrowAffinity(EffectSavingThrowType.Negates)
                                 )
                             .SetTargetingData(
-                                    RuleDefinitions.Side.All,
-                                    RuleDefinitions.RangeType.Distance,
+                                    Side.All,
+                                    RangeType.Distance,
                                     6,
-                                    RuleDefinitions.TargetType.Individuals,
+                                    TargetType.Individuals,
                                     1,
                                     1,
                                     ActionDefinitions.ItemSelectionType.None)
@@ -263,7 +207,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                                 false,
                                 DatabaseHelper.SmartAttributeDefinitions.Strength.name,
                                 true,
-                                RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                                EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                                 DatabaseHelper.SmartAttributeDefinitions.Strength.name,
                                 20,
                                 false,
@@ -297,7 +241,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                                 3,
                                 DieType.D6,
                                 1,
-                                RuleDefinitions.HealFromInflictedDamage.Never,
+                                HealFromInflictedDamage.Never,
                                 new List<RuleDefinitions.TrendInfo>())
                             .Build()
                             )
@@ -313,20 +257,20 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetGuiPresentation(Category.Power)
                 .Configure(
                        1,
-                       RuleDefinitions.UsesDetermination.ProficiencyBonus,
+                       UsesDetermination.ProficiencyBonus,
                        AttributeDefinitions.Charisma,
-                       RuleDefinitions.ActivationTime.Action,
+                       ActivationTime.Action,
                        1,
-                       RuleDefinitions.RechargeRate.AtWill,
+                       RechargeRate.AtWill,
                        false,
                        false,
                        AttributeDefinitions.Charisma,
                        new EffectDescriptionBuilder()
                             .SetTargetingData(
-                                    RuleDefinitions.Side.All,
-                                    RuleDefinitions.RangeType.MeleeHit,
+                                    Side.All,
+                                    RangeType.MeleeHit,
                                     1,
-                                    RuleDefinitions.TargetType.Individuals,
+                                    TargetType.Individuals,
                                     1,
                                     1,
                                     ActionDefinitions.ItemSelectionType.None)
@@ -359,7 +303,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                                 false,
                                 DatabaseHelper.SmartAttributeDefinitions.Strength.name,
                                 true,
-                                RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                                EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                                 DatabaseHelper.SmartAttributeDefinitions.Strength.name,
                                 20,
                                 false,

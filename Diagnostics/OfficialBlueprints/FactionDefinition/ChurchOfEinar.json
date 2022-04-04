@@ -16,6 +16,8 @@
     "m_SubObjectName": "ChurchOfEinarFlagSmall",
     "m_SubObjectType": ""
   },
+  "failsQuestOnLowRelation": false,
+  "questFailThreshold": -70,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -36,7 +38,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "TacticalAdventuresContent",
   "guid": "766e3e395551fb54bbaf66a2c43763e2",

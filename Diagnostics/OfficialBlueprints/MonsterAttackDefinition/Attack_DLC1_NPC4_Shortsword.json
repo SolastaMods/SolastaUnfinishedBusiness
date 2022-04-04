@@ -89,7 +89,7 @@
           "dieType": "D6",
           "versatileDieType": "D1",
           "bonusDamage": 3,
-          "damageType": "DamageSlashing",
+          "damageType": "DamagePiercing",
           "healFromInflictedDamage": "Never",
           "hitPointsFloor": 0,
           "forceKillOnZeroHp": false,
@@ -372,7 +372,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "TacticalAdventuresContentHidden",
   "guid": "c90b65bdc6c3dda4abb251f4c6bb97af",

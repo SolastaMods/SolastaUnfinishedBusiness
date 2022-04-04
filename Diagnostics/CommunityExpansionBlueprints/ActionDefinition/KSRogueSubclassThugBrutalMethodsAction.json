@@ -66,7 +66,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 30,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "4887ed85-b6fb-5542-9f1b-79a279736a86",

@@ -53,7 +53,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 47,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "TacticalAdventuresContent",
   "guid": "238447636641d8749ad48be4233b98bd",

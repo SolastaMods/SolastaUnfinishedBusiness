@@ -22,72 +22,14 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             SpellListDefinition MoonLitExpandedSpelllist = SpellListDefinitionBuilder
                 .Create(SpellListPaladin, "MoonLitExpandedSpelllist", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation("MoonLitExpandedSpelllist", Category.Feature)
-                .SetGuiPresentationNoContent()
                 .ClearSpells()
-               // .SetSpellsAtLevel(1, FaerieFire, Sleep)
-               // .SetSpellsAtLevel(2, MoonBeam, SeeInvisibility)
-               // .SetSpellsAtLevel(3, Daylight, HypnoticPattern)
-               // .SetSpellsAtLevel(4, GreaterInvisibility, DominateBeast)
-               // .SetSpellsAtLevel(5, DominatePerson, FlameStrike)
-                .SetMaxSpellLevel(5, false)
+                .SetSpellsAtLevel(1, FaerieFire, Sleep)
+                .SetSpellsAtLevel(2, MoonBeam, SeeInvisibility)
+                .SetSpellsAtLevel(3, Daylight, HypnoticPattern)
+                .SetSpellsAtLevel(4, GreaterInvisibility, DominateBeast)
+                .SetSpellsAtLevel(5, DominatePerson, FlameStrike)
+                .FinalizeSpells()
                 .AddToDB();
-            MoonLitExpandedSpelllist.ClearSpellsByLevel();
-            MoonLitExpandedSpelllist.SpellsByLevel.AddRange(new List<SpellListDefinition.SpellsByLevelDuplet>()
-             {
-                // new SpellListDefinition.SpellsByLevelDuplet
-                // {
-                //     Level =0,
-                //     Spells = new List<SpellDefinition>
-                //     {
-                //     }
-                // },
-                 new SpellListDefinition.SpellsByLevelDuplet
-                 {
-                     Level =1,
-                     Spells = new List<SpellDefinition>
-                     {
-                         DatabaseHelper.SpellDefinitions.Sleep,
-                         DatabaseHelper.SpellDefinitions.FaerieFire
-                     }
-                 },
-                 new SpellListDefinition.SpellsByLevelDuplet
-                 {
-                     Level =2,
-                     Spells = new List<SpellDefinition>
-                     {
-                         DatabaseHelper.SpellDefinitions.MoonBeam,
-                         DatabaseHelper.SpellDefinitions.SeeInvisibility
-                     }
-                 },
-                 new SpellListDefinition.SpellsByLevelDuplet
-                 {
-                     Level =3,
-                     Spells = new List<SpellDefinition>
-                     {
-                         DatabaseHelper.SpellDefinitions.Daylight,
-                         DatabaseHelper.SpellDefinitions.HypnoticPattern
-                     }
-                 },
-                 new SpellListDefinition.SpellsByLevelDuplet
-                 {
-                     Level =4,
-                     Spells = new List<SpellDefinition>
-                     {
-                         DatabaseHelper.SpellDefinitions.DominateBeast,
-                         DatabaseHelper.SpellDefinitions.GreaterInvisibility
-                     }
-                 },
-                 new SpellListDefinition.SpellsByLevelDuplet
-                 {
-                     Level =5,
-                     Spells = new List<SpellDefinition>
-                     {
-                         DatabaseHelper.SpellDefinitions.DominatePerson,
-                         DatabaseHelper.SpellDefinitions.FlameStrike
-                     }
-                 },
-
-             });
 
 
             FeatureDefinitionMagicAffinity MoonLitExpandedSpelllistAfinity = FeatureDefinitionMagicAffinityBuilder
@@ -96,15 +38,21 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetExtendedSpellList(MoonLitExpandedSpelllist)
                 .AddToDB();
 
-            var Unlit = new FeatureDefinitionLightAffinity.LightingEffectAndCondition();
-            Unlit.lightingState = LocationDefinitions.LightingState.Unlit;
-            Unlit.condition = DatabaseHelper.ConditionDefinitions.ConditionInvisible;
-            var Dim = new FeatureDefinitionLightAffinity.LightingEffectAndCondition();
-            Dim.lightingState = LocationDefinitions.LightingState.Dim;
-            Dim.condition = DatabaseHelper.ConditionDefinitions.ConditionInvisible;
-            var Darkness = new FeatureDefinitionLightAffinity.LightingEffectAndCondition();
-            Darkness.lightingState = LocationDefinitions.LightingState.Darkness;
-            Darkness.condition = DatabaseHelper.ConditionDefinitions.ConditionInvisible;
+            var Unlit = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
+            {
+                lightingState = LocationDefinitions.LightingState.Unlit,
+                condition = DatabaseHelper.ConditionDefinitions.ConditionInvisible
+            };
+            var Dim = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
+            {
+                lightingState = LocationDefinitions.LightingState.Dim,
+                condition = DatabaseHelper.ConditionDefinitions.ConditionInvisible
+            };
+            var Darkness = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
+            {
+                lightingState = LocationDefinitions.LightingState.Darkness,
+                condition = DatabaseHelper.ConditionDefinitions.ConditionInvisible
+            };
 
 
             FeatureDefinitionLightAffinity MoonLitLightAffinity = FeatureDefinitionLightAffinityBuilder
@@ -128,11 +76,11 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetGuiPresentation(Category.Power)
                 .Configure(
                        1,
-                       RuleDefinitions.UsesDetermination.ProficiencyBonus,
+                       UsesDetermination.ProficiencyBonus,
                        AttributeDefinitions.Charisma,
-                       RuleDefinitions.ActivationTime.Action,
+                       ActivationTime.Action,
                        1,
-                       RuleDefinitions.RechargeRate.LongRest,
+                       RechargeRate.LongRest,
                        false,
                        false,
                        AttributeDefinitions.Charisma,
@@ -145,11 +93,11 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetGuiPresentation(Category.Power)
                 .Configure(
                        1,
-                       RuleDefinitions.UsesDetermination.ProficiencyBonus,
+                       UsesDetermination.ProficiencyBonus,
                        AttributeDefinitions.Charisma,
-                       RuleDefinitions.ActivationTime.Action,
+                       ActivationTime.Action,
                        1,
-                       RuleDefinitions.RechargeRate.LongRest,
+                       RechargeRate.LongRest,
                        false,
                        false,
                        AttributeDefinitions.Charisma,
@@ -163,11 +111,11 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetGuiPresentation(Category.Power)
                 .Configure(
                        1,
-                       RuleDefinitions.UsesDetermination.Fixed,
+                       UsesDetermination.Fixed,
                        AttributeDefinitions.Charisma,
-                       RuleDefinitions.ActivationTime.Action,
+                       ActivationTime.Action,
                        1,
-                       RuleDefinitions.RechargeRate.LongRest,
+                       RechargeRate.LongRest,
                        false,
                        false,
                        AttributeDefinitions.Charisma,
@@ -189,24 +137,24 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetGuiPresentation(Category.Power)
                 .Configure(
                        1,
-                       RuleDefinitions.UsesDetermination.Fixed,
+                       UsesDetermination.Fixed,
                        AttributeDefinitions.Charisma,
-                       RuleDefinitions.ActivationTime.Action,
+                       ActivationTime.Action,
                        1,
-                       RuleDefinitions.RechargeRate.LongRest,
+                       RechargeRate.LongRest,
                        false,
                        false,
                        AttributeDefinitions.Charisma,
                         new EffectDescriptionBuilder()
                                 .SetDurationData(
-                                     RuleDefinitions.DurationType.Minute,
+                                     DurationType.Minute,
                                      1,
-                                     RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                                     TurnOccurenceType.EndOfTurn)
                                 .SetTargetingData(
-                                    RuleDefinitions.Side.All,
-                                    RuleDefinitions.RangeType.Distance,
+                                    Side.All,
+                                    RangeType.Distance,
                                     12,
-                                    RuleDefinitions.TargetType.Cylinder,
+                                    TargetType.Cylinder,
                                     10,
                                     10,
                                     ActionDefinitions.ItemSelectionType.None)
@@ -215,7 +163,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                                     false,
                                     AttributeDefinitions.Dexterity,
                                     true,
-                                    RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                                     AttributeDefinitions.Dexterity,
                                     20,
                                     false,
@@ -227,13 +175,13 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                                         false,
                                         false,
                                         new List<ConditionDefinition>())
-                                        .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.Negates)
+                                        .HasSavingThrow(EffectSavingThrowType.Negates)
                                     .Build())
                                 .AddEffectForm(new EffectFormBuilder()
                                     .SetMotionForm(
                                         MotionForm.MotionType.Levitate,
                                         10)
-                                    .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.Negates)
+                                    .HasSavingThrow(EffectSavingThrowType.Negates)
                                     .Build())
                                 .SetRecurrentEffect(Entangle.EffectDescription.RecurrentEffect)
                                 .Build()

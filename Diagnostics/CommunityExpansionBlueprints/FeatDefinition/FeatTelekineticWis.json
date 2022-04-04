@@ -10,13 +10,13 @@
   "armorProficiencyCategory": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:PowerTelekineticWisPush:0c396538-d91f-5d84-aee4-fefeb85d6f54",
+    "Definition:FeatWisIncrement:1794c14b-322c-560a-a025-d3e34d2cd58b",
     "Definition:PowerTelekineticWisPull:ddd0fc6d-f0ff-556e-8854-b40c54b63c7f",
-    "Definition:FeatWisIncrement:1794c14b-322c-560a-a025-d3e34d2cd58b"
+    "Definition:PowerTelekineticWisPush:0c396538-d91f-5d84-aee4-fefeb85d6f54"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Feat/&FeatTelekineticWisTitle",
     "description": "Feat/&FeatTelekineticWisDescription",
     "spriteReference": {
@@ -34,7 +34,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "d96de6eb-65fe-5f9c-9360-50a926d698fe",

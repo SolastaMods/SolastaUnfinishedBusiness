@@ -2,10 +2,10 @@
   "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
   "proficiencyType": "Weapon",
   "proficiencies": [
-    "ShortbowType",
-    "LongbowType",
+    "HeavyCrossbowType",
     "LightCrossbowType",
-    "HeavyCrossbowType"
+    "LongbowType",
+    "ShortbowType"
   ],
   "forbiddenItemTags": [],
   "guiPresentation": {
@@ -28,7 +28,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "62a71277-b62d-41e6-9546-19f6faa2b5a7",

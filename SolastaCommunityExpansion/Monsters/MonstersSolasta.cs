@@ -1,10 +1,7 @@
 ﻿using SolastaModApi;
 using SolastaModApi.Extensions;
 using System.Collections.Generic;
-//******************************************************************************************
-// BY DEFINITION, REFACTORING REQUIRES CONFIRMING EXTERNAL BEHAVIOUR DOES NOT CHANGE
-// "REFACTORING WITHOUT TESTS IS JUST CHANGING STUFF"
-//******************************************************************************************
+
 namespace SolastaCommunityExpansion.Monsters
 {
     internal static class MonstersSolasta

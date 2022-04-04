@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using ModKit;
+﻿using ModKit;
 using SolastaCommunityExpansion.Feats;
 using SolastaCommunityExpansion.Models;
 using static SolastaCommunityExpansion.Viewers.Displays.Shared;
@@ -8,204 +7,67 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class FeatsAndFightingStylesDisplay
     {
-        private const int MAX_COLUMNS = 6;
-
-        private const float PIXELS_PER_COLUMN = 225;
-
-        private static void DisplayFeats()
+        internal static void DisplayGeneral()
         {
             bool toggle;
             int intValue;
-            bool selectAll = Main.Settings.FeatEnabled.Count == FeatsContext.Feats.Count;
+
+            UI.Label("");
+            //UI.Label(". Note you " + RequiresRestart + " after changing races, classes and subclasses sets");
+            //UI.Label("");
+
+            toggle = Main.Settings.DisplayGeneralToggle;
+            if (UI.DisclosureToggle("General:".yellow(), ref toggle, 200))
+            {
+                Main.Settings.DisplayGeneralToggle = toggle;
+            }
+
+            if (!Main.Settings.DisplayGeneralToggle)
+            {
+                return;
+            }
 
             UI.Label("");
 
-            toggle = Main.Settings.DisplayFeatsToggle;
-            if (UI.DisclosureToggle("Feats:".yellow(), ref toggle, 200))
+            intValue = Main.Settings.FeatPowerAttackModifier;
+            if (UI.Slider("Power Attack".orange() + " modifier ".white() + RequiresRestart, ref intValue, 1, 6, 3, ""))
             {
-                Main.Settings.DisplayFeatsToggle = toggle;
-            }
-
-            if (Main.Settings.DisplayFeatsToggle)
-            {
-                UI.Label("");
-
-                if (FeatsContext.HasFeatsFromOtherMods)
-                {
-                    UI.Label(". Feats in " + "brown".color(RGBA.brown) + " were not created by this mod");
-                    UI.Label("");
-                }
-
-                intValue = Main.Settings.FeatPowerAttackModifier;
-                if (UI.Slider("Power Attack".orange() + " modifier ".white() + RequiresRestart, ref intValue, 1, 6, 3, ""))
-                {
-                    Main.Settings.FeatPowerAttackModifier = intValue;
-                    AcehighFeats.UpdatePowerAttackModifier();
-                }
-
-                UI.Label("");
-
-                if (UI.Toggle("Select all", ref selectAll))
-                {
-                    foreach (var keyValuePair in FeatsContext.Feats)
-                    {
-                        FeatsContext.Switch(keyValuePair.Key, selectAll);
-                    }
-                }
-
-                intValue = Main.Settings.FeatSliderPosition;
-                if (UI.Slider("slide left for description / right to collapse".white().bold().italic(), ref intValue, 1, MAX_COLUMNS, 1, ""))
-                {
-                    Main.Settings.FeatSliderPosition = intValue;
-                }
-
-                UI.Label("");
-
-                int columns;
-                var flip = false;
-                var current = 0;
-                var featsCount = FeatsContext.Feats.Count;
-
-                using (UI.VerticalScope())
-                {
-                    while (current < featsCount)
-                    {
-                        columns = Main.Settings.FeatSliderPosition;
-
-                        using (UI.HorizontalScope())
-                        {
-                            while (current < featsCount && columns-- > 0)
-                            {
-                                var keyValuePair = FeatsContext.Feats.ElementAt(current);
-                                var title = keyValuePair.Key.FormatTitle();
-
-                                if (keyValuePair.Value)
-                                {
-                                    title = title.color(RGBA.brown);
-                                }
-
-                                if (flip)
-                                {
-                                    title = title.yellow();
-                                }
-
-                                toggle = Main.Settings.FeatEnabled.Contains(keyValuePair.Key.Name);
-                                if (UI.Toggle(title, ref toggle, UI.Width(PIXELS_PER_COLUMN)))
-                                {
-                                    FeatsContext.Switch(keyValuePair.Key, toggle);
-                                }
-
-                                if (Main.Settings.FeatSliderPosition == 1)
-                                {
-                                    var description = keyValuePair.Key.FormatDescription();
-
-                                    if (flip)
-                                    {
-                                        description = description.yellow();
-                                    }
-
-                                    UI.Label(description, UI.Width(PIXELS_PER_COLUMN * 3));
-
-                                    flip = !flip;
-                                }
-
-                                current++;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        private static void DisplayFightingStyles()
-        {
-            bool toggle;
-            int intValue;
-            bool selectAll = Main.Settings.FightingStyleEnabled.Count == FightingStyleContext.Styles.Count;
-
-            UI.Label("");
-
-            toggle = Main.Settings.DisplayFightingStylesToggle;
-            if (UI.DisclosureToggle("Fighting Styles:".yellow(), ref toggle, 200))
-            {
-                Main.Settings.DisplayFightingStylesToggle = toggle;
-            }
-
-            if (Main.Settings.DisplayFightingStylesToggle)
-            {
-                UI.Label("");
-
-                if (UI.Toggle("Select all", ref selectAll))
-                {
-                    foreach (var keyValuePair in FightingStyleContext.Styles)
-                    {
-                        FightingStyleContext.Switch(keyValuePair.Key, selectAll);
-                    }
-                }
-
-                intValue = Main.Settings.FightingStyleSliderPosition;
-                if (UI.Slider("slide left for description / right to collapse".white().bold().italic(), ref intValue, 1, MAX_COLUMNS, 1, ""))
-                {
-                    Main.Settings.FightingStyleSliderPosition = intValue;
-                }
-
-                UI.Label("");
-
-                int columns;
-                var flip = false;
-                var current = 0;
-                var stylesCount = FightingStyleContext.Styles.Count;
-
-                using (UI.VerticalScope())
-                {
-                    while (current < stylesCount)
-                    {
-                        columns = Main.Settings.FightingStyleSliderPosition;
-
-                        using (UI.HorizontalScope())
-                        {
-                            while (current < stylesCount && columns-- > 0)
-                            {
-                                var keyValuePair = FightingStyleContext.Styles.ElementAt(current);
-                                var title = keyValuePair.Value.GetStyle().FormatTitle();
-
-                                if (flip)
-                                {
-                                    title = title.yellow();
-                                }
-
-                                toggle = Main.Settings.FightingStyleEnabled.Contains(keyValuePair.Key);
-                                if (UI.Toggle(title, ref toggle, UI.Width(PIXELS_PER_COLUMN)))
-                                {
-                                    FightingStyleContext.Switch(keyValuePair.Key, toggle);
-                                }
-
-                                if (Main.Settings.FightingStyleSliderPosition == 1)
-                                {
-                                    var description = keyValuePair.Value.GetStyle().FormatDescription();
-
-                                    if (flip)
-                                    {
-                                        description = description.yellow();
-                                    }
-
-                                    UI.Label(description, UI.Width(PIXELS_PER_COLUMN * 3));
-
-                                    flip = !flip;
-                                }
-
-                                current++;
-                            }
-                        }
-                    }
-                }
+                Main.Settings.FeatPowerAttackModifier = intValue;
+                AcehighFeats.UpdatePowerAttackModifier();
             }
         }
 
         internal static void DisplayFeatsAndFightingStyles()
         {
-            DisplayFeats();
-            DisplayFightingStyles();
+            bool displayToggle;
+            int sliderPos;
+
+            DisplayGeneral();
+
+            displayToggle = Main.Settings.DisplayFeatsToggle;
+            sliderPos = Main.Settings.FeatSliderPosition;
+            DisplayDefinitions(
+                "Feats:".yellow(),
+                FeatsContext.Switch,
+                FeatsContext.Feats,
+                Main.Settings.FeatEnabled,
+                ref displayToggle,
+                ref sliderPos);
+            Main.Settings.DisplayFeatsToggle = displayToggle;
+            Main.Settings.FeatSliderPosition = sliderPos;
+
+            displayToggle = Main.Settings.DisplayFightingStylesToggle;
+            sliderPos = Main.Settings.FightingStyleSliderPosition;
+            DisplayDefinitions(
+                "Fighting Styles:".yellow(),
+                FightingStyleContext.Switch,
+                FightingStyleContext.FightingStyles,
+                Main.Settings.FightingStyleEnabled,
+                ref displayToggle,
+                ref sliderPos);
+            Main.Settings.DisplayFightingStylesToggle = displayToggle;
+            Main.Settings.FightingStyleSliderPosition = sliderPos;
+
             UI.Label("");
         }
     }

@@ -25,12 +25,7 @@
   "savingThrowScores": [
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Strength",
-      "bonus": 0
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Dexterity",
+      "abilityScoreName": "Charisma",
       "bonus": 9
     },
     {
@@ -40,18 +35,23 @@
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Dexterity",
+      "bonus": 9
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Intelligence",
+      "bonus": 0
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Strength",
       "bonus": 0
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Wisdom",
       "bonus": 7
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Charisma",
-      "bonus": 9
     }
   ],
   "skillScores": [
@@ -235,12 +235,12 @@
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
-      "monsterAttackDefinition": "Definition:Attack_Rapier_Razan:d1122e61713e47e42b9b3bfdd0496cda"
+      "monsterAttackDefinition": "Definition:Attack_Defiler_Bite_Razan:3eba1b928665fd94c84a6ce3f6fda83a"
     },
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
-      "monsterAttackDefinition": "Definition:Attack_Defiler_Bite_Razan:3eba1b928665fd94c84a6ce3f6fda83a"
+      "monsterAttackDefinition": "Definition:Attack_Rapier_Razan:d1122e61713e47e42b9b3bfdd0496cda"
     }
   ],
   "sneakStance": "Stealth",
@@ -389,7 +389,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "9908b10d-debe-5b9c-a26f-9181b541ddcd",

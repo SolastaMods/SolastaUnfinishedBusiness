@@ -10,8 +10,8 @@
   "armorProficiencyCategory": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:AttributeModifierCreed_Of_Misaye:74d55f601f8ad8246b18a19766524280",
-    "Definition:AdditionalDamageFeatShadySneakAttack:22ad096b-473a-56e7-b972-92e066e3c086"
+    "Definition:AdditionalDamageFeatShadySneakAttack:22ad096b-473a-56e7-b972-92e066e3c086",
+    "Definition:AttributeModifierCreed_Of_Misaye:74d55f601f8ad8246b18a19766524280"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
@@ -33,7 +33,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "c5dc7a79-f3d7-5747-bd89-51a96631a1c3",

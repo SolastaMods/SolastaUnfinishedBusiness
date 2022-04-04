@@ -1,0 +1,39 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:AttributeModifierBolgrifStrengthAbilityScoreIncrease:7b8d459b-c1f2-4373-bc4d-5e29ea4851f3",
+    "Definition:AttributeModifierBolgrifWisdomAbilityScoreIncrease:4099c645-fc05-4ba1-833f-eabb94b865d0"
+  ],
+  "mode": "Union",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&AttributeModifierBolgrifAbilityScoreSetTitle",
+    "description": "Feature/&AttributeModifierBolgrifAbilityScoreSetDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "0a6efe74-ebcf-455c-9eb3-31741d22d3bd",
+  "contentPack": 9999,
+  "name": "AttributeModifierBolgrifAbilityScoreSet"
+}

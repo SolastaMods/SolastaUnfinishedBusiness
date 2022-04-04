@@ -28,7 +28,9 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
             var len = functorParameters.PlayerPlacementMarkers.Length;
             var idx = 0;
 
-            foreach (var guestCharacter in gameLocationCharacterService.GuestCharacters)
+            // only conjured units should teleport with the party
+            foreach (var guestCharacter in gameLocationCharacterService.GuestCharacters
+                .Where(x => x.RulesetCharacter.Tags.Contains(AttributeDefinitions.TagConjure)))
             {
                 var rulesetCharacter = guestCharacter.RulesetCharacter;
 

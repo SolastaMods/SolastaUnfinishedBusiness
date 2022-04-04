@@ -26,16 +26,23 @@
       },
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
-        "decision": "Definition:CastMagic_DPS_SingleTarget:a03b2b9514d7dfa489be3748a07a43e9",
+        "decision": "Definition:CastMagic_Debuff_SingleTarget:fe74c0437c1069a42b609a74cb09de60",
+        "weight": 2.5,
+        "cooldown": 2,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:MeleeAttack_Default:c7500087a5f8b764e9bc131a06fbdd3e",
         "weight": 2.5,
         "cooldown": 0,
         "dynamicCooldown": false
       },
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
-        "decision": "Definition:CastMagic_Debuff_SingleTarget:fe74c0437c1069a42b609a74cb09de60",
-        "weight": 2.5,
-        "cooldown": 2,
+        "decision": "Definition:CastMagic_DPS_SingleTarget:a03b2b9514d7dfa489be3748a07a43e9",
+        "weight": 2.2,
+        "cooldown": 0,
         "dynamicCooldown": false
       },
       {
@@ -54,14 +61,7 @@
       },
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
-        "decision": "Definition:MeleeAttack_Default:c7500087a5f8b764e9bc131a06fbdd3e",
-        "weight": 1.5,
-        "cooldown": 0,
-        "dynamicCooldown": false
-      },
-      {
-        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
-        "decision": "Definition:LongRangePathToEnemyOnlyIfNoAction_Dash:f8cf5d9e693665a4b9c02d2503814034",
+        "decision": "Definition:LongRangePathToEnemy_Dash:4e5f0f365b7acb54d81b527719d373d1",
         "weight": 0.1,
         "cooldown": 0,
         "dynamicCooldown": false
@@ -88,7 +88,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "TacticalAdventuresContentHidden",
   "guid": "759fe2939a38aea47804db2e97e12e6e",

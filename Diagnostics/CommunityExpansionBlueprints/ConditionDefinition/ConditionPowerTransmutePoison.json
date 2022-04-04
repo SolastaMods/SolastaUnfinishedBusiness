@@ -4,13 +4,13 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:DamageAffinityPoisonResistance:acd13ccc3c05d474a8a4472b0cc01a75",
     "Definition:DamageAffinityAcidResistance:10a85b220b55a28479e26b695ba7392d",
     "Definition:DamageAffinityColdResistance:277b59ebffdc36946879acc4e946affd",
     "Definition:DamageAffinityFireResistance:65d64edf05bfa284999522d4c5375d17",
-    "Definition:DamageAffinityThunderResistance:510045c677352854ca27ebea37c85d02",
     "Definition:DamageAffinityLightningResistance:443d9129d7904f14b8d9977881f95c08",
-    "Definition:DamageAffinityNecroticResistance:ee5f1fbda4f516844b493f08fdd4fb5a"
+    "Definition:DamageAffinityNecroticResistance:ee5f1fbda4f516844b493f08fdd4fb5a",
+    "Definition:DamageAffinityPoisonResistance:acd13ccc3c05d474a8a4472b0cc01a75",
+    "Definition:DamageAffinityThunderResistance:510045c677352854ca27ebea37c85d02"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -141,7 +141,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "2cbaf2df-504d-5e2e-be5d-a3e3d7a686a1",

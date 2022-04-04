@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
@@ -103,31 +104,34 @@ namespace SolastaCommunityExpansion.Builders
         public TBuilder AddConditionTags(params string[] value)
         {
             Definition.AddConditionTags(value);
+            Definition.ConditionTags.Sort();
             return This();
         }
 
         public TBuilder AddFeatures(IEnumerable<FeatureDefinition> value)
         {
             Definition.AddFeatures(value);
+            Definition.Features.Sort(Sorting.Compare);
             return This();
         }
 
         public TBuilder AddFeatures(params FeatureDefinition[] value)
         {
             Definition.AddFeatures(value);
+            Definition.Features.Sort(Sorting.Compare);
             return This();
         }
 
         public TBuilder SetFeatures(IEnumerable<FeatureDefinition> value)
         {
             Definition.SetFeatures(value);
+            Definition.Features.Sort(Sorting.Compare);
             return This();
         }
 
         public TBuilder SetFeatures(params FeatureDefinition[] value)
         {
-            Definition.SetFeatures(value);
-            return This();
+            return SetFeatures(value.AsEnumerable());
         }
 
         public TBuilder SetAdditionalDamageData(RuleDefinitions.DieType dieType, int numberOfDie, ConditionDefinition.DamageQuantity damageQuantity, bool additionalDamageWhenHit)
@@ -211,6 +215,7 @@ namespace SolastaCommunityExpansion.Builders
         public TBuilder AddRecurrentEffectForm(EffectForm effect)
         {
             Definition.RecurrentEffectForms.Add(effect);
+            Definition.RecurrentEffectForms.Sort(Sorting.Compare);
             return This();
         }
 

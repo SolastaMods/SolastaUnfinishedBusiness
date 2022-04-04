@@ -40,22 +40,24 @@ namespace SolastaCommunityExpansion.Models
             LoadClass(Warden.Instance);
             LoadClass(Witch.Instance);
 
+            Classes = Classes.OrderBy(x => x.Value.FormatTitle()).ToDictionary(x => x.Key, x => x.Value);
+
             if (Main.Settings.EnableSortingFutureFeatures)
             {
                 SortClassesFeatures();
             }
         }
 
-        private static void LoadClass(CharacterClassDefinition characterClass)
+        private static void LoadClass(CharacterClassDefinition definition)
         {
-            if (!Classes.ContainsKey(characterClass.Name))
+            var name = definition.Name;
+
+            if (!Classes.ContainsKey(name))
             {
-                Classes.Add(characterClass.Name, characterClass);
+                Classes.Add(name, definition);
             }
 
-            Classes = Classes.OrderBy(x => x.Value.FormatTitle()).ToDictionary(x => x.Key, x => x.Value);
-
-            UpdateClassVisibility(characterClass.Name);
+            UpdateClassVisibility(name);
         }
 
         private static void UpdateClassVisibility(string className)
@@ -85,9 +87,10 @@ namespace SolastaCommunityExpansion.Models
             UpdateClassVisibility(className);
         }
 
+#if DEBUG
         public static string GenerateClassDescription()
         {
-            var outString = new StringBuilder("[heading]Classes[/heading]");
+            var outString = new StringBuilder("[size=3][b]Classes[/b][/size]\n");
 
             outString.Append("\n[list]");
 
@@ -103,5 +106,6 @@ namespace SolastaCommunityExpansion.Models
 
             return outString.ToString();
         }
+#endif
     }
 }

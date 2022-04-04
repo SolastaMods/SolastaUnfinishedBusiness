@@ -20,7 +20,8 @@
     },
     "symbolChar": "25F8",
     "sortOrder": 8,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "OpenGameContent",
   "guid": "c64fbbe82376ad846b4c271f8fdeead6",

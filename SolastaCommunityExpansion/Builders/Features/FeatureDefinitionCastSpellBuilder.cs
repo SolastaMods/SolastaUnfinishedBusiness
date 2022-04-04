@@ -115,6 +115,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         public FeatureDefinitionCastSpellBuilder AddRestrictedSchool(SchoolOfMagicDefinition school)
         {
             Definition.RestrictedSchools.Add(school.Name);
+            Definition.RestrictedSchools.Sort();
             return this;
         }
 
@@ -125,6 +126,7 @@ namespace SolastaCommunityExpansion.Builders.Features
                 AddRestrictedSchool(school);
             }
 
+            Definition.RestrictedSchools.Sort();
             return this;
         }
 

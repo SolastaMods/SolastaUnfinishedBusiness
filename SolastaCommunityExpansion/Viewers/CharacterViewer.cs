@@ -3,7 +3,7 @@ using ModKit;
 using UnityEngine;
 using UnityModManagerNet;
 using static SolastaCommunityExpansion.Viewers.Displays.CharacterDisplay;
-using static SolastaCommunityExpansion.Viewers.Displays.ClassesAndSubclassesDisplay;
+using static SolastaCommunityExpansion.Viewers.Displays.RacesClassesAndSubclassesDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.FeatsAndFightingStylesDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.SpellsDisplay;
 
@@ -20,7 +20,7 @@ namespace SolastaCommunityExpansion.Viewers
         private static readonly NamedAction[] actions =
         {
             new NamedAction("General", DisplayCharacter),
-            new NamedAction("Classes & Subclasses", DisplayClassesAndSubclasses),
+            new NamedAction("Races, Classes & Subclasses", DisplayClassesAndSubclasses),
             new NamedAction("Feats & Fighting Styles", DisplayFeatsAndFightingStyles),
             new NamedAction("Spells", DisplaySpells)
         };

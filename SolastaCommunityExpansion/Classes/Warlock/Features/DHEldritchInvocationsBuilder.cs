@@ -10,20 +10,18 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 {
     public static class DHEldritchInvocationsBuilder
     {
-        public static readonly Dictionary<string, SpellDefinition> DictionaryofEIPseudoCantrips = new();
-        public static readonly Dictionary<string, SpellDefinition> DictionaryofEIPseudoSpells = new();
+        public static Dictionary<string, SpellDefinition> DictionaryofEIPseudoCantrips { get; private set; } = new();
+        public static Dictionary<string, SpellDefinition> DictionaryofEIPseudoSpells { get; private set; } = new();
 
-        public static readonly Dictionary<string, FeatureDefinitionPower> DictionaryofEIPowers = new();
+        public static Dictionary<string, FeatureDefinitionPower> DictionaryofEIPowers { get; private set; } = new();
 
-        // TODO: use a builder
-        public static SpellDefinition EldritchBlast = ScriptableObject.CreateInstance<SpellDefinition>();
-        public static readonly List<string> ListofEBImprovements = new();
-        public static readonly Dictionary<string, FeatureDefinitionBonusCantrips> DictionaryofEBInvocations = new();
-
-        public static readonly List<string> ListofEIAttributeModifers = new();
-        public static readonly Dictionary<string, FeatureDefinitionFeatureSet> DictionaryofEIAttributeModifers = new();
-        public static FeatureDefinitionFeatureSet AgonizingBlastFeatureSet;
-        public static FeatureDefinitionFeatureSet HinderingBlastFeatureSet;
+        public static SpellDefinition EldritchBlast { get; set; }
+        public static List<string> ListofEBImprovements { get; private set; } = new();
+        public static Dictionary<string, FeatureDefinitionBonusCantrips> DictionaryofEBInvocations { get; private set; } = new();
+        public static List<string> ListofEIAttributeModifers { get; private set; } = new();
+        public static Dictionary<string, FeatureDefinitionFeatureSet> DictionaryofEIAttributeModifers { get; private set; } = new();
+        public static FeatureDefinitionFeatureSet AgonizingBlastFeatureSet { get; set; }
+        public static FeatureDefinitionFeatureSet HinderingBlastFeatureSet { get; set; }
 
         public static void Build()
         {
@@ -34,12 +32,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
         private static void SpellsToCantripsForEldritchInvocations()
         {
-
-
-
-            var castSpellName = "SpellsToCantripsForEldritchInvocations";
-            var castSpellGuid = GuidHelper.Create(new Guid(Settings.GUID), castSpellName).ToString();
-
             //at will
             DictionaryofEIPseudoCantrips.Add("ArmorofShadows", DatabaseHelper.SpellDefinitions.MageArmor);// self
             DictionaryofEIPseudoCantrips.Add("EldritchSight", DatabaseHelper.SpellDefinitions.DetectMagic);
@@ -258,7 +250,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
 
                 GuiPresentation guiPresentationEBImprovements = new GuiPresentationBuilder(
-                    "Feature/&" + entry + "MagicAffinityTitle", 
+                    "Feature/&" + entry + "MagicAffinityTitle",
                     "Feature/&" + entry + "MagicAffinityDescription")
                     .Build();
 
@@ -438,15 +430,21 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             DictionaryofEIAttributeModifers["WitchSight"].FeatureSet.Add(DatabaseHelper.FeatureDefinitionSenses.SenseSeeInvisible12);
 
 
-            var Unlit = new FeatureDefinitionLightAffinity.LightingEffectAndCondition();
-            Unlit.lightingState = LocationDefinitions.LightingState.Unlit;
-            Unlit.condition = DatabaseHelper.ConditionDefinitions.ConditionInvisible;
-            var Dim = new FeatureDefinitionLightAffinity.LightingEffectAndCondition();
-            Dim.lightingState = LocationDefinitions.LightingState.Dim;
-            Dim.condition = DatabaseHelper.ConditionDefinitions.ConditionInvisible;
-            var Darkness = new FeatureDefinitionLightAffinity.LightingEffectAndCondition();
-            Darkness.lightingState = LocationDefinitions.LightingState.Darkness;
-            Darkness.condition = DatabaseHelper.ConditionDefinitions.ConditionInvisible;
+            var Unlit = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
+            {
+                lightingState = LocationDefinitions.LightingState.Unlit,
+                condition = DatabaseHelper.ConditionDefinitions.ConditionInvisible
+            };
+            var Dim = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
+            {
+                lightingState = LocationDefinitions.LightingState.Dim,
+                condition = DatabaseHelper.ConditionDefinitions.ConditionInvisible
+            };
+            var Darkness = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
+            {
+                lightingState = LocationDefinitions.LightingState.Darkness,
+                condition = DatabaseHelper.ConditionDefinitions.ConditionInvisible
+            };
 
             FeatureDefinitionLightAffinity OneWithShadowsLightAffinity = FeatureDefinitionLightAffinityBuilder
                 .Create("OneWithShadowsLightAffinity", DefinitionBuilder.CENamespaceGuid)

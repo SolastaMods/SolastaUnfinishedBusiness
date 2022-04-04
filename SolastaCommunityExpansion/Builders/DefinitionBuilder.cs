@@ -653,10 +653,13 @@ namespace SolastaCommunityExpansion.Builders
         internal TBuilder This()
         {
 #if DEBUG
+#pragma warning disable S3060 // "is" should not be used with "this"
+            // TODO: check if this test is of any use
             if (this is not TBuilder)
             {
                 throw new SolastaModApiException($"Error in Configure. TBuilder={typeof(TBuilder).Name}, this={GetType().Name}");
             }
+#pragma warning restore S3060 // "is" should not be used with "this"
 #endif
 
             return (TBuilder)this;

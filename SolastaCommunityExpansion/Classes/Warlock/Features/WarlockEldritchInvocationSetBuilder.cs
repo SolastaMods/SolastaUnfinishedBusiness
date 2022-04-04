@@ -78,8 +78,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
 
             Definition.FeatureSet.Add(DictionaryofEIAttributeModifers["OneWithShadows"]);
-            Definition.FeatureSet.Add(DHEldritchInvocationsBuilder.DictionaryofEIPowers["DreadfulWord"]);
-            Definition.FeatureSet.Add(DHEldritchInvocationsBuilder.DictionaryofEIPowers["Trickster'sEscape"]);
+            Definition.FeatureSet.Add(DictionaryofEIPowers["DreadfulWord"]);
+            Definition.FeatureSet.Add(DictionaryofEIPowers["Trickster'sEscape"]);
             Definition.SetUniqueChoices(false);
         }
 
@@ -88,9 +88,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             return new WarlockEldritchInvocationSetBuilderLevel7(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionFeatureSet WarlockEldritchInvocationSetLevel7 = CreateAndAddToDB(WarlockEldritchInvocationSetLevel7Name, WarlockEldritchInvocationSetLevel7Guid);
+        public static readonly FeatureDefinitionFeatureSet WarlockEldritchInvocationSetLevel7 = CreateAndAddToDB(WarlockEldritchInvocationSetLevel7Name, WarlockEldritchInvocationSetLevel7Guid);
     }
-
 
     internal class WarlockEldritchInvocationSetBuilderLevel9 : FeatureDefinitionFeatureSetBuilder
     {
@@ -107,9 +106,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 Minions of Chaos - cant convert subspells , would need to use a feature set of powers conjure elemental
             */
 
-            Definition.FeatureSet.Add(DHEldritchInvocationsBuilder.DictionaryofEIPowers["AscendantStep"]);
-            Definition.FeatureSet.Add(DHEldritchInvocationsBuilder.DictionaryofEIPowers["OtherworldlyLeap"]);
-            Definition.FeatureSet.Add(DHEldritchInvocationsBuilder.DictionaryofEIAttributeModifers["GiftoftheProtectors"]);
+            Definition.FeatureSet.Add(DictionaryofEIPowers["AscendantStep"]);
+            Definition.FeatureSet.Add(DictionaryofEIPowers["OtherworldlyLeap"]);
+            Definition.FeatureSet.Add(DictionaryofEIAttributeModifers["GiftoftheProtectors"]);
 
 
             Definition.SetUniqueChoices(false);
@@ -120,7 +119,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             return new WarlockEldritchInvocationSetBuilderLevel9(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionFeatureSet WarlockEldritchInvocationSetLevel9 = CreateAndAddToDB(WarlockEldritchInvocationSetLevel9Name, WarlockEldritchInvocationSetLevel9Guid);
+        public static readonly FeatureDefinitionFeatureSet WarlockEldritchInvocationSetLevel9 = CreateAndAddToDB(WarlockEldritchInvocationSetLevel9Name, WarlockEldritchInvocationSetLevel9Guid);
     }
 
 
@@ -141,7 +140,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             */
 
 
-            Definition.FeatureSet.Add(DHEldritchInvocationsBuilder.DictionaryofEIAttributeModifers["BondoftheTalisman"]);
+            Definition.FeatureSet.Add(DictionaryofEIAttributeModifers["BondoftheTalisman"]);
 
             Definition.SetUniqueChoices(false);
         }
@@ -151,7 +150,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             return new WarlockEldritchInvocationSetBuilderLevel12(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionFeatureSet WarlockEldritchInvocationSetLevel12 = CreateAndAddToDB(WarlockEldritchInvocationSetLevel12Name, WarlockEldritchInvocationSetLevel12Guid);
+        public static readonly FeatureDefinitionFeatureSet WarlockEldritchInvocationSetLevel12 = CreateAndAddToDB(WarlockEldritchInvocationSetLevel12Name, WarlockEldritchInvocationSetLevel12Guid);
     }
 
 
@@ -171,9 +170,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
             */
 
-            Definition.FeatureSet.Add(DHEldritchInvocationsBuilder.DictionaryofEIPowers["ChainsofCarceri"]);
-            Definition.FeatureSet.Add(DHEldritchInvocationsBuilder.DictionaryofEIPowers["ShroudofShadow"]);
-            Definition.FeatureSet.Add(DHEldritchInvocationsBuilder.DictionaryofEIAttributeModifers["WitchSight"]);
+            Definition.FeatureSet.Add(DictionaryofEIPowers["ChainsofCarceri"]);
+            Definition.FeatureSet.Add(DictionaryofEIPowers["ShroudofShadow"]);
+            Definition.FeatureSet.Add(DictionaryofEIAttributeModifers["WitchSight"]);
 
             Definition.SetUniqueChoices(false);
         }
@@ -183,7 +182,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             return new WarlockEldritchInvocationSetBuilderLevel15(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionFeatureSet WarlockEldritchInvocationSetLevel15 = CreateAndAddToDB(WarlockEldritchInvocationSetLevel15Name, WarlockEldritchInvocationSetLevel15Guid);
+        public static readonly FeatureDefinitionFeatureSet WarlockEldritchInvocationSetLevel15 = CreateAndAddToDB(WarlockEldritchInvocationSetLevel15Name, WarlockEldritchInvocationSetLevel15Guid);
     }
 
 
@@ -206,8 +205,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             return new WarlockEldritchInvocationSetBuilderLevel18(name, guid).AddToDB();
         }
 
-        public static FeatureDefinitionFeatureSet WarlockEldritchInvocationSetLevel18 = CreateAndAddToDB(WarlockEldritchInvocationSetLevel18Name, WarlockEldritchInvocationSetLevel18Guid);
+        public static readonly FeatureDefinitionFeatureSet WarlockEldritchInvocationSetLevel18 = CreateAndAddToDB(WarlockEldritchInvocationSetLevel18Name, WarlockEldritchInvocationSetLevel18Guid);
     }
-
-
 }

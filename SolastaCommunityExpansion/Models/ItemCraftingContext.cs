@@ -124,9 +124,10 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
+#if DEBUG
         public static string GenerateItemsDescription()
         {
-            var outString = new StringBuilder("[heading]Craftable Items[/heading]");
+            var outString = new StringBuilder("[size=3][b]Craftable Items[/b][/size]\n");
 
             outString.Append("\n[list]");
 
@@ -147,5 +148,6 @@ namespace SolastaCommunityExpansion.Models
 
             return outString.ToString();
         }
+#endif
     }
 }

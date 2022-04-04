@@ -25,13 +25,8 @@
   "savingThrowScores": [
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Strength",
-      "bonus": 14
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Dexterity",
-      "bonus": 0
+      "abilityScoreName": "Charisma",
+      "bonus": 12
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
@@ -40,18 +35,23 @@
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Dexterity",
+      "bonus": 0
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Intelligence",
       "bonus": 0
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Wisdom",
-      "bonus": 9
+      "abilityScoreName": "Strength",
+      "bonus": 14
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Charisma",
-      "bonus": 12
+      "abilityScoreName": "Wisdom",
+      "bonus": 9
     }
   ],
   "skillScores": [],
@@ -116,12 +116,12 @@
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
-      "monsterAttackDefinition": "Definition:DH_Custom_Balor_Whip_Attack:c0cc13d0-00df-5817-8a87-00e07fed1a4e"
+      "monsterAttackDefinition": "Definition:DH_Custom_Balor_Longsword_Attack:ff243881-afa0-56e6-b7d4-d9c83fe7bbbc"
     },
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
-      "monsterAttackDefinition": "Definition:DH_Custom_Balor_Longsword_Attack:ff243881-afa0-56e6-b7d4-d9c83fe7bbbc"
+      "monsterAttackDefinition": "Definition:DH_Custom_Balor_Whip_Attack:c0cc13d0-00df-5817-8a87-00e07fed1a4e"
     }
   ],
   "sneakStance": "Stealth",
@@ -268,7 +268,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "bdf1a1c4-8827-57f1-956b-58009e42443e",

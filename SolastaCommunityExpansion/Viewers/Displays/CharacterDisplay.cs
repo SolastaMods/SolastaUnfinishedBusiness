@@ -30,6 +30,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label(". All these settings only apply when creating a new hero as they get embed in the hero save file");
             UI.Label("");
 
+            toggle = Main.Settings.AddHelpActionToAllRaces;
+            if (UI.Toggle("Add the " + "Help".orange() + " action to all races", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.AddHelpActionToAllRaces = toggle;
+                PowersContext.Switch();
+            }
+
             // TODO: vision changes only take effect when creating a character. not sure if new block label is clear enough on intentions or we need more explanation here.
             toggle = Main.Settings.DisableSenseDarkVisionFromAllRaces;
             if (UI.Toggle("Disable " + "Sense Dark Vision".orange() + " from all races " + RequiresRestart, ref toggle, UI.AutoWidth()))
@@ -116,7 +123,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = Main.Settings.EnableAdditionalBackstoryDisplay;
-            if (UI.Toggle("Enable additional backstory display in the chararacter inspection panel", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enable additional backstory display in the character inspection panel", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableAdditionalBackstoryDisplay = toggle;
             }

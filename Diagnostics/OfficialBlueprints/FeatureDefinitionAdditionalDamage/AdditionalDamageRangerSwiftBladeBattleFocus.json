@@ -11,7 +11,7 @@
   "requiredCharacterFamily": null,
   "damageValueDetermination": "Die",
   "damageDieType": "D8",
-  "damageDiceNumber": 1,
+  "damageDiceNumber": 2,
   "additionalDamageType": "SameAsBaseDamage",
   "specificDamageType": "Radiant",
   "damageAdvancement": "None",
@@ -104,7 +104,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "OpenGameContent",
   "guid": "b6c248310b82a934aa918819fe36ab46",

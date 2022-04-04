@@ -25,13 +25,8 @@
   "savingThrowScores": [
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Strength",
-      "bonus": 0
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Dexterity",
-      "bonus": 0
+      "abilityScoreName": "Charisma",
+      "bonus": 6
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
@@ -40,18 +35,23 @@
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Dexterity",
+      "bonus": 0
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Intelligence",
+      "bonus": 0
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Strength",
       "bonus": 0
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Wisdom",
       "bonus": 7
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Charisma",
-      "bonus": 6
     }
   ],
   "skillScores": [],
@@ -94,18 +94,18 @@
   "stealableLootDefinition": null,
   "bestiaryLootOptions": [],
   "features": [
+    "Definition:AttackModifierKindredSpiritMagicSpiritMagicAttack:ecf64b2fbd2445a47b119d51b379dd62",
+    "Definition:ConditionAffinityPoisonImmunity:558b2de37dbf89341ab0ed6c445873a6",
+    "Definition:DamageAffinityMummyLord_BludgeoningImmunity:82cc17c2d2a73f14fbf7026120c180bc",
+    "Definition:DamageAffinityMummyLord_PiercingImmunity:c8c668f866a09db45855aecc47f63175",
+    "Definition:DamageAffinityMummyLord_SlashingImmunity:cc5209ebd30da554887b94bb0bf8c0d4",
+    "Definition:DamageAffinityPsychicImmunity:b52cfcbb789ae27428958d10a45529ac",
+    "Definition:DamageAffinityRadiantResistance:8ea0757b1c53c0446a9d83a4f0c3ca4d",
+    "Definition:DHCastSpellCouatl:462ab802-95f0-50ec-a827-1dea0b7568c6",
     "Definition:MoveModeFly12:5e70172c8e2a40146b375001ab656a44",
     "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
     "Definition:SenseSuperiorDarkvision:388ca3fa81ee8a84c831be14214fd1c0",
-    "Definition:SenseTruesight16:ea70a5054de732f4f8112f2ffca185a6",
-    "Definition:AttackModifierKindredSpiritMagicSpiritMagicAttack:ecf64b2fbd2445a47b119d51b379dd62",
-    "Definition:DamageAffinityRadiantResistance:8ea0757b1c53c0446a9d83a4f0c3ca4d",
-    "Definition:DamageAffinityPsychicImmunity:b52cfcbb789ae27428958d10a45529ac",
-    "Definition:DamageAffinityMummyLord_PiercingImmunity:c8c668f866a09db45855aecc47f63175",
-    "Definition:DamageAffinityMummyLord_SlashingImmunity:cc5209ebd30da554887b94bb0bf8c0d4",
-    "Definition:DamageAffinityMummyLord_BludgeoningImmunity:82cc17c2d2a73f14fbf7026120c180bc",
-    "Definition:ConditionAffinityPoisonImmunity:558b2de37dbf89341ab0ed6c445873a6",
-    "Definition:DHCastSpellCouatl:462ab802-95f0-50ec-a827-1dea0b7568c6"
+    "Definition:SenseTruesight16:ea70a5054de732f4f8112f2ffca185a6"
   ],
   "attackIterations": [
     {
@@ -258,7 +258,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "fc38ed74-3e2f-4960-86cc-3120d638410b",

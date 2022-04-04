@@ -296,7 +296,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&PowerAttackTwoHandedPowerTitle",
-    "description": "Take a -3 to hit penalty to your attack for the rest of the turn to do +6 damage when you land your strikes.  Only to be used when attacking with two hands, melee or ranged.",
+    "description": "Take a -3 to hit penalty to your attack for the rest of the turn to do +6 damage when you land your strikes. Only to be used when attacking with two hands, melee or ranged.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "255fdc99aafc8044fb31353f8a5e61e1",
@@ -312,7 +312,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "b45b8467-7caa-428e-b4b5-ba3c4a153f07",

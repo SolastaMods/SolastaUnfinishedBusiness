@@ -2,8 +2,8 @@
   "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
   "proficiencyType": "Weapon",
   "proficiencies": [
-    "SimpleWeaponCategory",
-    "MartialWeaponCategory"
+    "MartialWeaponCategory",
+    "SimpleWeaponCategory"
   ],
   "forbiddenItemTags": [],
   "guiPresentation": {
@@ -26,7 +26,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "5450b412-3f29-549a-ae04-7eca337d58d1",

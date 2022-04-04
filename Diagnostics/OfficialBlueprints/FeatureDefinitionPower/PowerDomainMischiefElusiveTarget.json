@@ -32,7 +32,7 @@
     "targetSide": "Ally",
     "durationType": "Round",
     "durationParameter": 1,
-    "endOfEffect": "StartOfTurn",
+    "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Dexterity",
@@ -346,7 +346,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "OpenGameContent",
   "guid": "e71b59f944aaa7346ab334b75e86b77d",

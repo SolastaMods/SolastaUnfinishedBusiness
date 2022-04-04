@@ -1,4 +1,5 @@
 ﻿using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Level20.SubClasses
 {
@@ -12,11 +13,9 @@ namespace SolastaCommunityExpansion.Level20.SubClasses
             {
                 featureDefinitionCastSpell.SetSpellCastingLevel(4);
 
-                featureDefinitionCastSpell.SlotsPerLevels.Clear();
-                featureDefinitionCastSpell.SlotsPerLevels.AddRange(SpellsHelper.OneThirdCastingSlots);
+                featureDefinitionCastSpell.SlotsPerLevels.SetRange(SpellsHelper.OneThirdCastingSlots);
 
-                featureDefinitionCastSpell.ReplacedSpells.Clear();
-                featureDefinitionCastSpell.ReplacedSpells.AddRange(SpellsHelper.OneThirdCasterReplacedSpells);
+                featureDefinitionCastSpell.ReplacedSpells.SetRange(SpellsHelper.OneThirdCasterReplacedSpells);
             }
         }
     }

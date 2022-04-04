@@ -11,12 +11,12 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierFeatCraftyInt:b23c3b73-7690-42ba-aa49-7ca3451daa05",
-    "Definition:CraftyPoisonersKit:32ddae84-66e7-4b56-b5ec-0ec91a713e2e",
-    "Definition:CraftyNature:7399b06a-bfda-4e60-8366-17e0d6cec0d0"
+    "Definition:CraftyNature:7399b06a-bfda-4e60-8366-17e0d6cec0d0",
+    "Definition:CraftyPoisonersKit:32ddae84-66e7-4b56-b5ec-0ec91a713e2e"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "CraftyFeats/&ToxicologistIntFeatTitle",
     "description": "CraftyFeats/&ToxicologistIntFeatDescription",
     "spriteReference": {
@@ -34,7 +34,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "702d1b4d-953c-406d-a900-d5d376ed29d3",

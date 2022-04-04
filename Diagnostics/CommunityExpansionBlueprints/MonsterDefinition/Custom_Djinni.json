@@ -5,7 +5,7 @@
   "characterFamily": "Elemental",
   "creatureTags": [],
   "defaultFaction": "HostileMonsters",
-  "fullyControlledWhenAllied": true,
+  "fullyControlledWhenAllied": false,
   "sizeDefinition": "Definition:Large:6dde335b40d952b4ea82fa0b49a03c11",
   "alignment": "ChaoticGood",
   "armorClass": 17,
@@ -25,7 +25,12 @@
   "savingThrowScores": [
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Strength",
+      "abilityScoreName": "Charisma",
+      "bonus": 9
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Constitution",
       "bonus": 0
     },
     {
@@ -35,23 +40,18 @@
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Constitution",
+      "abilityScoreName": "Intelligence",
       "bonus": 0
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Intelligence",
+      "abilityScoreName": "Strength",
       "bonus": 0
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Wisdom",
       "bonus": 7
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Charisma",
-      "bonus": 9
     }
   ],
   "skillScores": [],
@@ -136,12 +136,12 @@
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 3,
-      "monsterAttackDefinition": "Definition:DH_Custom_LightningScimatar_Attack:8019fc81-13c2-5415-bccb-79e3ea57ab70"
+      "monsterAttackDefinition": "Definition:DH_Custom_AirBlast_Attack:427640a2-c043-5f01-9932-00b958050991"
     },
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 3,
-      "monsterAttackDefinition": "Definition:DH_Custom_AirBlast_Attack:427640a2-c043-5f01-9932-00b958050991"
+      "monsterAttackDefinition": "Definition:DH_Custom_LightningScimatar_Attack:8019fc81-13c2-5415-bccb-79e3ea57ab70"
     }
   ],
   "sneakStance": "Stealth",
@@ -288,7 +288,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "3b763b10-066a-5831-85a2-fcf25b8df79e",

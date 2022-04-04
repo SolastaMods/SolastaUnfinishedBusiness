@@ -13,6 +13,8 @@
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
+  "failsQuestOnLowRelation": false,
+  "questFailThreshold": -70,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -33,7 +35,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "TacticalAdventuresContent",
   "guid": "c3351b43b0e9f8941bc956ccb6ab9b9b",

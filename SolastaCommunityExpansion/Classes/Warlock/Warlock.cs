@@ -16,8 +16,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock
 {
     public static class Warlock
     {
-        public const int MYSTIC_ARCANUM_SPELL_LEVEL = 6;
-
         public static CharacterClassDefinition ClassWarlock { get; private set; }
 
         private static FeatureDefinitionProficiency FeatureDefinitionProficiencyArmor { get; set; }
@@ -94,45 +92,24 @@ namespace SolastaCommunityExpansion.Classes.Warlock
 
         private static void BuildSpells()
         {
-            var castSpellName = "ClassWarlockCastSpell";
-            //var castSpellGuid = GuidHelper.Create(new Guid(Settings.GUID), castSpellName).ToString();
-            var classWarlockCastSpell = FeatureDefinitionCastSpellBuilder.Create(DatabaseHelper.FeatureDefinitionCastSpells.CastSpellSorcerer,castSpellName, DefinitionBuilder.CENamespaceGuid);
+            var classWarlockCastSpell = FeatureDefinitionCastSpellBuilder
+                .Create(FeatureDefinitionCastSpells.CastSpellSorcerer, "ClassWarlockCastSpell", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation("ClassWarlockSpellcasting", Category.Feature)
+                .SetKnownCantrips(2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4)
+                .SetKnownSpells(2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15)
+                .SetReplacedSpells(0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0)
+                .SetSlotsPerLevel(WarlockSpells.WarlockCastingSlots)
+                .SetSlotsRecharge(RuleDefinitions.RechargeRate.ShortRest)
+                .SetSpellCastingAbility(AttributeDefinitions.Charisma)
+                .SetSpellCastingLevel(5)
+                .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Class)
+                .SetSpellList(WarlockSpells.WarlockSpellList)
+                .SetSpellKnowledge(RuleDefinitions.SpellKnowledge.Selection)
+                .SetSpellPreparationCount(RuleDefinitions.SpellPreparationCount.AbilityBonusPlusLevel)
+                .SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown);
 
-            ClassWarlockSpellList.Build();
-            SpellListDefinition classWarlockSpellList = ClassWarlockSpellList.WarlockSpellList;
-
-            classWarlockCastSpell.SetGuiPresentation(new GuiPresentationBuilder(
-                "Feature/&ClassWarlockSpellcastingTitle",
-                "Feature/&ClassWarlockSpellcastingDescription").Build());
-
-            classWarlockCastSpell.SetKnownCantrips(new List<int>
-            {
-                2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4
-            });
-
-            classWarlockCastSpell.SetKnownSpells(new List<int>
-            {
-                2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15
-            });
-
-            classWarlockCastSpell.SetReplacedSpells(new List<int> 
-            {
-                0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0
-            });
-
-            classWarlockCastSpell.SetSlotsPerLevel(ClassWarlockSpellList.WarlockCastingSlots);
-            classWarlockCastSpell.SetSlotsRecharge(RuleDefinitions.RechargeRate.ShortRest);
-            classWarlockCastSpell.SetSpellCastingAbility(AttributeDefinitions.Charisma);
-            classWarlockCastSpell.SetSpellCastingLevel(5);
-            classWarlockCastSpell.SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Class);
-            classWarlockCastSpell.SetSpellList(classWarlockSpellList);
-            classWarlockCastSpell.SetSpellKnowledge(RuleDefinitions.SpellKnowledge.Selection);
-            classWarlockCastSpell.SetSpellPreparationCount(RuleDefinitions.SpellPreparationCount.AbilityBonusPlusLevel);
-            classWarlockCastSpell.SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown);
-
-            FeatureDefinitionClassWarlockCastSpell = classWarlockCastSpell.AddToDB();         
+            FeatureDefinitionClassWarlockCastSpell = classWarlockCastSpell.AddToDB();
         }
-
 
         private static void BuildProgression(CharacterClassDefinitionBuilder classWarlockBuilder)
         {
@@ -142,12 +119,13 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                 .SetSubclassSuffix("Patron")
                 .SetFilterByDeity(false)
                 .SetSubclasses(
-                    AHWarlockSubclassSoulBladePact.Build(),
+                    AHWarlockSubclassSoulBladePact.Subclass,
                     DHWarlockSubclassAncientForestPatron.Build(),
                     DHWarlockSubclassElementalPatron.Build(),
                     DHWarlockSubclassMoonLitPatron.Build(),
                     DHWarlockSubclassRiftWalkerPatron.Build(),
-                    //   DHWarlockSubclassUrPriestPatron.Build(),   // needs more work and verification before release, autoprepared spells cant just be reused because they specific cleric class, battle domain divine Fortitude (wrath in code) also didnt work
+                    // needs more work and verification before release, autoprepared spells cant just be reused because they specific cleric class, battle domain divine Fortitude (wrath in code) also didnt work
+                    //DHWarlockSubclassUrPriestPatron.Build(),
                     DHWarlockSubclassToadKingPatron.Build()
                     )
                 .AddToDB();
@@ -160,26 +138,26 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                     FeatureDefinitionProficiencyTool,
                     FeatureDefinitionSkillPoints,
                     FeatureDefinitionClassWarlockCastSpell,
-                    subclassChoices) 
+                    subclassChoices)
                 .AddFeaturesAtLevel(2, WarlockEldritchInvocationSetLevel2)
                 .AddFeaturesAtLevel(2, WarlockEldritchInvocationSetLevel2)
                 .AddFeaturesAtLevel(3, WarlockClassPactBoonSetBuilder.WarlockClassPactBoonSet)
                 .AddFeaturesAtLevel(4, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
-                .AddFeaturesAtLevel(5, WarlockEldritchInvocationSetLevel5) // no idea why this was changed to level 2, leave it at level 5
+                .AddFeaturesAtLevel(5, WarlockEldritchInvocationSetLevel5)
                 //level 6 - subclass feature
                 .AddFeatureAtLevel(7, WarlockEldritchInvocationSetBuilderLevel7.WarlockEldritchInvocationSetLevel7)
                 .AddFeatureAtLevel(8, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
                 .AddFeatureAtLevel(9, WarlockEldritchInvocationSetBuilderLevel9.WarlockEldritchInvocationSetLevel9)
                 //level 10 - subclass feature
-           //     .AddFeatureAtLevel(11, WarlockMysticArcanumSets.WarlockMysticArcanumSetLevel11)
+                .AddFeatureAtLevel(11, WarlockMysticArcanumSets.WarlockMysticArcanumSetLevel11)
                 .AddFeatureAtLevel(12, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
                 .AddFeatureAtLevel(12, WarlockEldritchInvocationSetBuilderLevel12.WarlockEldritchInvocationSetLevel12)
-          //      .AddFeatureAtLevel(13, WarlockMysticArcanumSets.WarlockMysticArcanumSetLevel13)
+                .AddFeatureAtLevel(13, WarlockMysticArcanumSets.WarlockMysticArcanumSetLevel13)
                 //level 14 - subclass feature
-          //      .AddFeatureAtLevel(15, WarlockMysticArcanumSets.WarlockMysticArcanumSetLevel15)
+                .AddFeatureAtLevel(15, WarlockMysticArcanumSets.WarlockMysticArcanumSetLevel15)
                 .AddFeatureAtLevel(15, WarlockEldritchInvocationSetBuilderLevel15.WarlockEldritchInvocationSetLevel15)
                 .AddFeatureAtLevel(16, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
-          //      .AddFeatureAtLevel(17, WarlockMysticArcanumSets.WarlockMysticArcanumSetLevel17)
+                .AddFeatureAtLevel(17, WarlockMysticArcanumSets.WarlockMysticArcanumSetLevel17)
                 .AddFeatureAtLevel(18, WarlockEldritchInvocationSetBuilderLevel18.WarlockEldritchInvocationSetLevel18)
                 .AddFeatureAtLevel(19, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
                 .AddFeatureAtLevel(20, WarlockEldritchMasterPower);
@@ -187,12 +165,11 @@ namespace SolastaCommunityExpansion.Classes.Warlock
 
         internal static CharacterClassDefinition BuildWarlockClass()
         {
-            // TODO: is this required?
-            //classWarlockGuiPresentationBuilder.SetHidden(!Main.Settings.EnableClassWarlock);
+            var warlockSpriteReference = Utils.CustomIcons.CreateAssetReferenceSprite("Warlock", Properties.Resources.Warlock, 1024, 576);
 
             var classWarlockBuilder = CharacterClassDefinitionBuilder
                 .Create("ClassWarlock", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(Category.Class, Cleric.GuiPresentation.SpriteReference, 1 /*hidden=true/false?*/)
+                .SetGuiPresentation(Category.Class, warlockSpriteReference, 1)
                 .AddFeatPreferences(FeatDefinitions.PowerfulCantrip, FeatDefinitions.FlawlessConcentration, FeatDefinitions.Robust)
                 .AddPersonality(PersonalityFlagDefinitions.Violence, 3)
                 .AddPersonality(PersonalityFlagDefinitions.Self_Preservation, 3)
@@ -223,6 +200,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                 .SetPictogram(Wizard.ClassPictogramReference);
 
             DHEldritchInvocationsBuilder.Build();
+
             BuildEquipment(classWarlockBuilder);
             BuildProficiencies();
             BuildSpells();

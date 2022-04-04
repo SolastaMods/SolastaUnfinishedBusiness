@@ -187,8 +187,8 @@
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "campaignOnly": false,
-  "groundPlacement": false,
-  "groundLowPlacement": false,
+  "groundPlacement": true,
+  "groundLowPlacement": true,
   "groundHighPlacement": true,
   "wallPlacement": false,
   "openingPlacement": false,
@@ -232,7 +232,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "OpenGameContent",
   "guid": "23a9e02c994c3ef4f8171f456bf40d3f",

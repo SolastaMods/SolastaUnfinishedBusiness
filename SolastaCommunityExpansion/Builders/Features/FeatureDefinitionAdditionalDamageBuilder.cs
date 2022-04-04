@@ -134,6 +134,18 @@ namespace SolastaCommunityExpansion.Builders.Features
             return This();
         }
 
+        public TBuilder SetAdditionalDamageType(RuleDefinitions.AdditionalDamageType damageType)
+        {
+            Definition.SetAdditionalDamageType(damageType);
+            return This();
+        }
+
+        public TBuilder SetDamageValueDetermination(RuleDefinitions.AdditionalDamageValueDetermination determination)
+        {
+            Definition.SetDamageValueDetermination(determination);
+            return This();
+        }
+
         public TBuilder SetDiceByRank(params (int rank, int dice)[] diceByRank)
         {
             Definition.SetDiceByRankTable(diceByRank.Select(d => DiceByRankBuilder.BuildDiceByRank(d.rank, d.dice)));

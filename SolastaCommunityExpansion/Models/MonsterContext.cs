@@ -1,9 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
-//******************************************************************************************
-// BY DEFINITION, REFACTORING REQUIRES CONFIRMING EXTERNAL BEHAVIOUR DOES NOT CHANGE
-// "REFACTORING WITHOUT TESTS IS JUST CHANGING STUFF"
-//******************************************************************************************
+
 namespace SolastaCommunityExpansion.Models
 {
     internal static class MonsterContext
@@ -50,7 +47,7 @@ namespace SolastaCommunityExpansion.Models
 
         }
 
-        public static readonly List<MonsterDefinition> ModdedMonsters = new List<MonsterDefinition>();
+        public static readonly List<MonsterDefinition> ModdedMonsters = new();
 
         public static void AddNewMonsters()
         {

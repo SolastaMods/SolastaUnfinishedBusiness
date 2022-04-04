@@ -41,42 +41,100 @@ namespace SolastaCommunityExpansion.Builders
 
         public SpellListDefinitionBuilder ClearSpells()
         {
-            Definition.SpellsByLevel.ForEach(s => s.Spells.Clear());
+            // Clear everything
+            Definition.SpellsByLevel.Clear();
+
+            // Add empty spells at level for level 0..9
+            EnsureSpellListsConfigured();
+
+            return this;
+        }
+
+        private void EnsureSpellListsConfigured()
+        {
+            // should be levels 0..9 in that order
+            for (int level = 0; level < 10; level++)
+            {
+                if (Definition.SpellsByLevel.Count < level + 1)
+                {
+                    // Add new duplet
+                    Definition.SpellsByLevel.Add(new SpellsByLevelDuplet { Level = level, Spells = new() });
+                }
+
+                // Check this level matches
+                var spells = Definition.SpellsByLevel[level];
+
+                if (spells.Level != level)
+                {
+                    throw new InvalidOperationException($"Spell list not configured correctly for level={level}");
+                }
+
+                // Ensure spells list is set
+                spells.Spells ??= new();
+            }
+        }
+
+        public SpellListDefinitionBuilder ClearSpellsAtLevel(int level)
+        {
+            Definition.SpellsByLevel.SingleOrDefault(s => s.Level == level)?.Spells.Clear();
             return this;
         }
 
         public SpellListDefinitionBuilder SetSpellsAtLevel(int level, params SpellDefinition[] spellsByLevel)
         {
-            return SetSpellsByLevel(level, spellsByLevel.AsEnumerable());
+            return SetSpellsAtLevel(level, spellsByLevel.AsEnumerable());
         }
 
-        public SpellListDefinitionBuilder SetSpellsByLevel(int level, IEnumerable<SpellDefinition> spells)
+        public SpellListDefinitionBuilder SetSpellsAtLevel(int level, IEnumerable<SpellDefinition> spells)
         {
             if (level > 9 || level < 0)
             {
                 throw new ArgumentException($"Spell level {level} is not supported.");
             }
 
-            var spellsByLevel = Definition.SpellsByLevel;
+            // Ensure all levels set up
+            EnsureSpellListsConfigured();
 
-            for (int i = 0; i <= level; i++)
+#if DEBUG
+            if (spells.GroupBy(s => s.GUID).Any(g => g.Count() > 1))
             {
-                if (i >= spellsByLevel.Count)
-                {
-                    spellsByLevel.Add(new SpellsByLevelDuplet { Level = level });
-                }
-                else if (spellsByLevel[i] == null)
-                {
-                    spellsByLevel[i] = new SpellsByLevelDuplet { Level = level };
-                }
+                throw new ArgumentException($"{Definition.Name}. There are duplicate spells in the supplied level {level} spell list.");
             }
+#endif
 
-            spellsByLevel[level].Spells ??= new();
-            spellsByLevel[level].Spells.SetRange(spells.Where(s => s.Implemented));
+            // Set the spells - remove duplicates - sort to add to list in determistic order
+            Definition.SpellsByLevel[level].Spells.SetRange(spells.Where(s => s.Implemented).OrderBy(s => s.Name).Distinct());
 
             return this;
         }
 
+        /// <summary>
+        /// Sets the max spell level and whether this list has cantrips
+        /// calculated from the spells currently in the list.
+        /// </summary>
+        /// <returns></returns>
+        public SpellListDefinitionBuilder FinalizeSpells()
+        {
+            // Will throw if anything incorrect
+            EnsureSpellListsConfigured();
+
+            var maxLevel =
+                Definition.SpellsByLevel.Where(s => s.Spells.Any()).Max(s => s.Level);
+
+            var hasCantrips =
+                Definition.SpellsByLevel.Where(s => s.Spells.Any()).Any(s => s.Level == 0);
+
+            SetMaxSpellLevel(maxLevel, hasCantrips);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Explicitly set the max spell level and whether this list has cantrips
+        /// </summary>
+        /// <param name="maxLevel"></param>
+        /// <param name="hasCantrips"></param>
+        /// <returns></returns>
         public SpellListDefinitionBuilder SetMaxSpellLevel(int maxLevel, bool hasCantrips)
         {
             Definition.SetMaxSpellLevel(maxLevel);

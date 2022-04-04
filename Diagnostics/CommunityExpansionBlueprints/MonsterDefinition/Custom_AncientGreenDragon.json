@@ -25,13 +25,8 @@
   "savingThrowScores": [
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Strength",
-      "bonus": 0
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Dexterity",
-      "bonus": 8
+      "abilityScoreName": "Charisma",
+      "bonus": 11
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
@@ -40,36 +35,26 @@
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Dexterity",
+      "bonus": 8
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Intelligence",
+      "bonus": 0
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Strength",
       "bonus": 0
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Wisdom",
       "bonus": 10
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Charisma",
-      "bonus": 11
     }
   ],
   "skillScores": [
-    {
-      "$type": "MonsterSkillProficiency, Assembly-CSharp",
-      "skillName": "Perception",
-      "bonus": 16
-    },
-    {
-      "$type": "MonsterSkillProficiency, Assembly-CSharp",
-      "skillName": "Stealth",
-      "bonus": 8
-    },
-    {
-      "$type": "MonsterSkillProficiency, Assembly-CSharp",
-      "skillName": "Persuasion",
-      "bonus": 11
-    },
     {
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "Deception",
@@ -79,6 +64,21 @@
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "Insight",
       "bonus": 10
+    },
+    {
+      "$type": "MonsterSkillProficiency, Assembly-CSharp",
+      "skillName": "Perception",
+      "bonus": 16
+    },
+    {
+      "$type": "MonsterSkillProficiency, Assembly-CSharp",
+      "skillName": "Persuasion",
+      "bonus": 11
+    },
+    {
+      "$type": "MonsterSkillProficiency, Assembly-CSharp",
+      "skillName": "Stealth",
+      "bonus": 8
     }
   ],
   "legendaryCreature": true,
@@ -334,7 +334,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "f132cbec-fece-5db5-86e3-1f0c522cf365",

@@ -40,7 +40,7 @@
       },
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
-        "decision": "Definition:Move_AggressiveSingleTarget:e2b9994460da27b4693612d277ae67d5",
+        "decision": "Definition:Move_Ranged:d970b74017c1802469af710393c6e2a7",
         "weight": 2.0,
         "cooldown": 0,
         "dynamicCooldown": false
@@ -88,7 +88,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "TacticalAdventuresContentHidden",
   "guid": "7d3b47066172ce549a1d9ca7000e13f4",

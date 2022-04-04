@@ -52,7 +52,15 @@ namespace SolastaCommunityExpansion.Models
                 if (monsterDefinitionDatabase != null)
                 {
                     Monsters.AddRange(monsterDefinitionDatabase.Where(x => x.DungeonMakerPresence == MonsterDefinition.DungeonMaker.Monster));
-                    Monsters.Sort((a, b) => a.FormatTitle().CompareTo(b.FormatTitle()));
+                    Monsters.Sort((a, b) =>
+                    {
+                        if (a.ChallengeRating == b.ChallengeRating)
+                        {
+                            return a.FormatTitle().CompareTo(b.FormatTitle());
+                        }
+
+                        return a.ChallengeRating.CompareTo(b.ChallengeRating);
+                    });
                 }
             }
 

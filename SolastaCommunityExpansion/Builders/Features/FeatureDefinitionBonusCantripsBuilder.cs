@@ -46,6 +46,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         public FeatureDefinitionBonusCantripsBuilder AddBonusCantrip(SpellDefinition spellDefinition)
         {
             Definition.BonusCantrips.Add(spellDefinition);
+            Definition.BonusCantrips.Sort(Sorting.Compare);
             return this;
         }
 
@@ -58,6 +59,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         public FeatureDefinitionBonusCantripsBuilder SetBonusCantrips(IEnumerable<SpellDefinition> spellDefinitions)
         {
             Definition.BonusCantrips.SetRange(spellDefinitions);
+            Definition.BonusCantrips.Sort(Sorting.Compare);
             return this;
         }
     }

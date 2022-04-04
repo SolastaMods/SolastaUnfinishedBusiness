@@ -5,7 +5,7 @@
   "characterFamily": "Fiend",
   "creatureTags": [],
   "defaultFaction": "HostileMonsters",
-  "fullyControlledWhenAllied": true,
+  "fullyControlledWhenAllied": false,
   "sizeDefinition": "Definition:Large:6dde335b40d952b4ea82fa0b49a03c11",
   "alignment": "LawfulEvil",
   "armorClass": 18,
@@ -25,13 +25,8 @@
   "savingThrowScores": [
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Strength",
-      "bonus": 0
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Dexterity",
-      "bonus": 7
+      "abilityScoreName": "Charisma",
+      "bonus": 9
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
@@ -40,18 +35,23 @@
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Dexterity",
+      "bonus": 7
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Intelligence",
+      "bonus": 0
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Strength",
       "bonus": 0
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Wisdom",
       "bonus": 7
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Charisma",
-      "bonus": 9
     }
   ],
   "skillScores": [],
@@ -112,17 +112,17 @@
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
-      "monsterAttackDefinition": "Definition:DH_Custom_Ice_Bite_Attack:05242ab0-9015-5419-ad87-b83c0e0975ff"
-    },
-    {
-      "$type": "MonsterAttackIteration, Assembly-CSharp",
-      "number": 1,
       "monsterAttackDefinition": "Definition:Attack_Green_Dragon_Claw:f1a189a088e4e4e42864c52ba2eeb456"
     },
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
       "monsterAttackDefinition": "Definition:Attack_Green_Dragon_Tail:8b9e1f1692bd40f43904b14a03e6e1e3"
+    },
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 1,
+      "monsterAttackDefinition": "Definition:DH_Custom_Ice_Bite_Attack:05242ab0-9015-5419-ad87-b83c0e0975ff"
     }
   ],
   "sneakStance": "Stealth",
@@ -269,7 +269,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "108e9c28-f8dc-5602-a803-55f53c190dda",

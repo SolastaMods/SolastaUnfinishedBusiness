@@ -16,7 +16,10 @@
     "AcidArrow",
     "ScorchingRay",
     "LightningBolt",
-    "Sunbeam"
+    "Sunbeam",
+    "DHEldritchBlast",
+    "DHEldritchBlastRepellingBlast",
+    "DHEldritchBlastGraspingHand"
   ],
   "maxSpellLevelImmunity": -1,
   "concentrationAffinity": "None",
@@ -72,7 +75,8 @@
     },
     "symbolChar": "221E",
     "sortOrder": 0,
-    "unusedInSolastaCOTM": false
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "934ecc14-570f-552c-b73a-57149c8fae6a",
