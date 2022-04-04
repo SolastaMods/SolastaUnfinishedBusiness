@@ -70,7 +70,8 @@ namespace SolastaCommunityExpansion
         // SETTINGS UI TOGGLES
         //
 
-        public bool DisplayGeneralToggle { get; set; }      
+        public bool DisplayGeneralRaceClassSubClassToggle { get; set; }
+        public bool DisplayFeatFightingStyleToggle { get; set; }
         public bool DisplayRacesToggle { get; set; }
         public bool DisplayClassesToggle { get; set; }
         public bool DisplaySubclassesToggle { get; set; }
@@ -285,7 +286,7 @@ namespace SolastaCommunityExpansion
         public bool HideExitAndTeleporterGizmosIfNotDiscovered { get; set; }
 
         // Inventory and Items
-        public bool EnableInventoryFilteringAndSorting { get; set; } = true;
+        public bool EnableInventoryFilteringAndSorting { get; set; }
         public bool EnableInvisibleCrownOfTheMagister { get; set; }
         public string EmpressGarbAppearance { get; set; } = "Normal";
 

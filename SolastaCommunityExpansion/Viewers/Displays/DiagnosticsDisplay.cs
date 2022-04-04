@@ -188,6 +188,8 @@ All settings start disabled by default. On first start the mod will display an w
 [line]
 [img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/08-Gameplay-Tools.png?raw=true[/img]
 [line]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/17-Multiclass.png?raw=true[/img]
+[line]
 [img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/09-Interface-DungeonMaker.png?raw=true[/img]
 [line]
 [img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/10-Interface-GameUi.png?raw=true[/img]
@@ -202,7 +204,7 @@ All settings start disabled by default. On first start the mod will display an w
 [line]
 [img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/15-CreditsDiagnostics-Credits.png?raw=true[/img]
 [line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/16-Multiclass.png?raw=true[/img]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/16-CreditsDiagnostics-Diagnostics.png?raw=true[/img]
 [line]
 
 {1}
