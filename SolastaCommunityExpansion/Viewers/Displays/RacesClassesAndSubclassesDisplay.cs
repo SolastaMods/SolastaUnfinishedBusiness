@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using ModKit;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Subclasses.Rogue;
@@ -9,321 +10,104 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class RacesClassesAndSubclassesDisplay
     {
-        private const int MAX_COLUMNS = 4;
-
-        private const float PIXELS_PER_COLUMN = 240;
-
-        private static void DisplayRaces()
+        internal static void DisplayGeneral()
         {
             bool toggle;
             int intValue;
-            bool selectAll = Main.Settings.RaceEnabled.Count == RacesContext.Races.Count;
 
             UI.Label("");
-
-            toggle = Main.Settings.DisplayRacesToggle;
-            if (UI.DisclosureToggle("Races: ".yellow() + RequiresRestart, ref toggle, 200))
-            {
-                Main.Settings.DisplayRacesToggle = toggle;
-            }
-
-            if (Main.Settings.DisplayRacesToggle)
-            {
-                if (RacesContext.Races.Count == 0)
-                {
-                    UI.Label("");
-                    UI.Label("No unofficial races available on this mod yet...".bold().red());
-
-                    return;
-                }
-
-                UI.Label("");
-                if (UI.Toggle("Select all", ref selectAll))
-                {
-                    foreach (var keyValuePair in RacesContext.Races)
-                    {
-                        RacesContext.Switch(keyValuePair.Key, selectAll);
-                    }
-                }
-
-                intValue = Main.Settings.RaceSliderPosition;
-                if (UI.Slider("slide left for description / right to collapse".white().bold().italic(), ref intValue, 1, MAX_COLUMNS, 1, ""))
-                {
-                    Main.Settings.RaceSliderPosition = intValue;
-                }
-
-                UI.Label("");
-
-                int columns;
-                var flip = false;
-                var current = 0;
-                var racesCount = RacesContext.Races.Count;
-
-                using (UI.VerticalScope())
-                {
-                    while (current < racesCount)
-                    {
-                        columns = Main.Settings.RaceSliderPosition;
-
-                        using (UI.HorizontalScope())
-                        {
-                            while (current < racesCount && columns-- > 0)
-                            {
-                                var keyValuePair = RacesContext.Races.ElementAt(current);
-                                var characterRace = keyValuePair.Value;
-                                var title = characterRace.FormatTitle();
-
-                                if (flip)
-                                {
-                                    title = title.yellow();
-                                }
-
-                                toggle = Main.Settings.RaceEnabled.Contains(keyValuePair.Key);
-                                if (UI.Toggle(title, ref toggle, UI.Width(PIXELS_PER_COLUMN)))
-                                {
-                                    RacesContext.Switch(keyValuePair.Key, toggle);
-                                }
-
-                                if (Main.Settings.RaceSliderPosition == 1)
-                                {
-                                    var description = characterRace.FormatDescription();
-
-                                    if (flip)
-                                    {
-                                        description = description.yellow();
-                                    }
-
-                                    UI.Label(description, UI.Width(PIXELS_PER_COLUMN * 3));
-
-                                    flip = !flip;
-                                }
-
-                                current++;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        private static void DisplayClasses()
-        {
-            bool toggle;
-            int intValue;
-            bool selectAll = Main.Settings.ClassEnabled.Count == ClassesContext.Classes.Count;
-
+            UI.Label(". Note you " + RequiresRestart + " after changing races, classes and subclasses sets");
             UI.Label("");
 
-            toggle = Main.Settings.DisplayClassesToggle;
-            if (UI.DisclosureToggle("Classes: ".yellow() + RequiresRestart, ref toggle, 200))
+            toggle = Main.Settings.DisplayGeneralToggle;
+            if (UI.DisclosureToggle("General:".yellow(), ref toggle, 200))
             {
-                Main.Settings.DisplayClassesToggle = toggle;
+                Main.Settings.DisplayGeneralToggle = toggle;
             }
 
-            if (Main.Settings.DisplayClassesToggle)
+            if (!Main.Settings.DisplayGeneralToggle)
             {
-                if (ClassesContext.Classes.Count == 0)
-                {
-                    UI.Label("");
-                    UI.Label("No unofficial classes available on this mod yet...".bold().red());
-
-                    return;
-                }
-
-                UI.Label("");
-                if (UI.Toggle("Select all", ref selectAll))
-                {
-                    foreach (var keyValuePair in ClassesContext.Classes)
-                    {
-                        ClassesContext.Switch(keyValuePair.Key, selectAll);
-                    }
-                }
-
-                intValue = Main.Settings.ClassSliderPosition;
-                if (UI.Slider("slide left for description / right to collapse".white().bold().italic(), ref intValue, 1, MAX_COLUMNS, 1, ""))
-                {
-                    Main.Settings.ClassSliderPosition = intValue;
-                }
-
-                UI.Label("");
-
-                int columns;
-                var flip = false;
-                var current = 0;
-                var classesCount = ClassesContext.Classes.Count;
-
-                using (UI.VerticalScope())
-                {
-                    while (current < classesCount)
-                    {
-                        columns = Main.Settings.ClassSliderPosition;
-
-                        using (UI.HorizontalScope())
-                        {
-                            while (current < classesCount && columns-- > 0)
-                            {
-                                var keyValuePair = ClassesContext.Classes.ElementAt(current);
-                                var characterClass = keyValuePair.Value;
-                                var title = characterClass.FormatTitle();
-
-                                if (flip)
-                                {
-                                    title = title.yellow();
-                                }
-
-                                toggle = Main.Settings.ClassEnabled.Contains(keyValuePair.Key);
-                                if (UI.Toggle(title, ref toggle, UI.Width(PIXELS_PER_COLUMN)))
-                                {
-                                    ClassesContext.Switch(keyValuePair.Key, toggle);
-                                }
-
-                                if (Main.Settings.ClassSliderPosition == 1)
-                                {
-                                    var description = characterClass.FormatDescription();
-
-                                    if (flip)
-                                    {
-                                        description = description.yellow();
-                                    }
-
-                                    UI.Label(description, UI.Width(PIXELS_PER_COLUMN * 3));
-
-                                    flip = !flip;
-                                }
-
-                                current++;
-                            }
-                        }
-                    }
-                }
+                return;
             }
-        }
-
-        private static void DisplaySubclasses()
-        {
-            bool toggle;
-            int intValue;
-            bool selectAll = Main.Settings.SubclassEnabled.Count == SubclassesContext.Subclasses.Count;
 
             UI.Label("");
-
-            toggle = Main.Settings.DisplaySubclassesToggle;
-            if (UI.DisclosureToggle("Subclasses: ".yellow() + RequiresRestart, ref toggle, 200))
+            toggle = Main.Settings.EnableUnlimitedArcaneRecoveryOnWizardSpellMaster;
+            if (UI.Toggle("Enable unlimited ".white() + "Arcane Recovery".orange() + " on " + "Wizard".orange() + " Spell Master\n".white() + "Must be enabled when the ability has available uses (or before character creation)".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
-                Main.Settings.DisplaySubclassesToggle = toggle;
+                Main.Settings.EnableUnlimitedArcaneRecoveryOnWizardSpellMaster = toggle;
+                SpellMaster.UpdateBonusRecovery();
             }
 
-            if (Main.Settings.DisplaySubclassesToggle)
+            UI.Label("");
+            toggle = Main.Settings.EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter;
+            if (UI.Toggle("Enable short rest recharge of ".white() + "Arcane Weapon".orange() + " on " + "Wizard".orange() + " Arcane Fighter\n".white(), ref toggle, UI.AutoWidth()))
             {
-                UI.Label("");
-                toggle = Main.Settings.EnableUnlimitedArcaneRecoveryOnWizardSpellMaster;
-                if (UI.Toggle("Enable unlimited ".white() + "Arcane Recovery".orange() + " on " + "Wizard".orange() + " Spell Master\n".white() + "Must be enabled when the ability has available uses (or before character creation)".italic().yellow(), ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.EnableUnlimitedArcaneRecoveryOnWizardSpellMaster = toggle;
-                    SpellMaster.UpdateBonusRecovery();
-                }
+                Main.Settings.EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter = toggle;
+                ArcaneFighter.UpdateEnchantWeapon();
+            }
 
-                UI.Label("");
-                toggle = Main.Settings.EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter;
-                if (UI.Toggle("Enable short rest recharge of ".white() + "Arcane Weapon".orange() + " on " + "Wizard".orange() + " Arcane Fighter\n".white(), ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter = toggle;
-                    ArcaneFighter.UpdateEnchantWeapon();
-                }
+            UI.Label("");
+            UI.Label("Override " + "Rogue".orange() + " Con Artist ".white() + "Improved Manipulation".orange() + " Spell DC".white());
+            intValue = Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc;
+            if (UI.Slider("", ref intValue, 0, 5, 3, "", UI.AutoWidth()))
+            {
+                Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc = intValue;
+                ConArtist.UpdateSpellDCBoost();
+            }
 
-                UI.Label("");
-                UI.Label("Override " + "Rogue".orange() + " Con Artist ".white() + "Improved Manipulation".orange() + " Spell DC".white());
-                intValue = Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc;
-                if (UI.Slider("", ref intValue, 0, 5, 3, "", UI.AutoWidth()))
-                {
-                    Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc = intValue;
-                    ConArtist.UpdateSpellDCBoost();
-                }
-
-                UI.Label("");
-                UI.Label("Override " + "Wizard".orange() + " Master Manipulator ".white() + "Arcane Manipulation".orange() + " Spell DC".white());
-                intValue = Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc;
-                if (UI.Slider("", ref intValue, 0, 5, 2, "", UI.AutoWidth()))
-                {
-                    Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc = intValue;
-                    MasterManipulator.UpdateSpellDCBoost();
-                }
-
-                UI.Label("");
-                if (UI.Toggle("Select all", ref selectAll))
-                {
-                    foreach (var keyValuePair in SubclassesContext.Subclasses)
-                    {
-                        SubclassesContext.Switch(keyValuePair.Key, selectAll);
-                    }
-                }
-
-                intValue = Main.Settings.SubclassSliderPosition;
-                if (UI.Slider("slide left for description / right to collapse".white().bold().italic(), ref intValue, 1, MAX_COLUMNS, 1, ""))
-                {
-                    Main.Settings.SubclassSliderPosition = intValue;
-                }
-
-                UI.Label("");
-
-                int columns;
-                var flip = false;
-                var current = 0;
-                var subclassesCount = SubclassesContext.Subclasses.Count;
-
-                using (UI.VerticalScope())
-                {
-                    while (current < subclassesCount)
-                    {
-                        columns = Main.Settings.SubclassSliderPosition;
-
-                        using (UI.HorizontalScope())
-                        {
-                            while (current < subclassesCount && columns-- > 0)
-                            {
-                                var keyValuePair = SubclassesContext.Subclasses.ElementAt(current);
-                                var subclass = keyValuePair.Value.GetSubclass();
-                                var suffix = keyValuePair.Value.GetSubclassChoiceList().SubclassSuffix;
-                                var title = $"{subclass.FormatTitle()} ({suffix})";
-
-                                if (flip)
-                                {
-                                    title = title.yellow();
-                                }
-
-                                toggle = Main.Settings.SubclassEnabled.Contains(keyValuePair.Key);
-                                if (UI.Toggle(title, ref toggle, UI.Width(PIXELS_PER_COLUMN)))
-                                {
-                                    SubclassesContext.Switch(keyValuePair.Key, toggle);
-                                }
-
-                                if (Main.Settings.SubclassSliderPosition == 1)
-                                {
-                                    var description = subclass.FormatDescription();
-
-                                    if (flip)
-                                    {
-                                        description = description.yellow();
-                                    }
-
-                                    UI.Label(description, UI.Width(PIXELS_PER_COLUMN * 3));
-
-                                    flip = !flip;
-                                }
-
-                                current++;
-                            }
-                        }
-                    }
-                }
+            UI.Label("");
+            UI.Label("Override " + "Wizard".orange() + " Master Manipulator ".white() + "Arcane Manipulation".orange() + " Spell DC".white());
+            intValue = Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc;
+            if (UI.Slider("", ref intValue, 0, 5, 2, "", UI.AutoWidth()))
+            {
+                Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc = intValue;
+                MasterManipulator.UpdateSpellDCBoost();
             }
         }
 
         internal static void DisplayClassesAndSubclasses()
         {
-            DisplayRaces();
-            DisplayClasses();
-            DisplaySubclasses();
+            bool displayToggle;
+            int sliderPos;
+
+            DisplayGeneral();
+
+            displayToggle = Main.Settings.DisplayRacesToggle;
+            sliderPos = Main.Settings.RaceSliderPosition;
+            DisplayDefinitions(
+                "Races:".yellow(),
+                RacesContext.Switch,
+                RacesContext.Races,
+                Main.Settings.RaceEnabled,
+                ref displayToggle,
+                ref sliderPos);
+            Main.Settings.DisplayRacesToggle = displayToggle;
+            Main.Settings.RaceSliderPosition = sliderPos;
+
+            displayToggle = Main.Settings.DisplayClassesToggle;
+            sliderPos = Main.Settings.ClassSliderPosition;
+            DisplayDefinitions(
+                "Classes:".yellow(),
+                ClassesContext.Switch,
+                ClassesContext.Classes,
+                Main.Settings.ClassEnabled,
+                ref displayToggle,
+                ref sliderPos);
+            Main.Settings.DisplayClassesToggle = displayToggle;
+            Main.Settings.ClassSliderPosition = sliderPos;
+
+            displayToggle = Main.Settings.DisplaySubclassesToggle;
+            sliderPos = Main.Settings.SubclassSliderPosition;
+            DisplayDefinitions(
+                "Subclasses:".yellow(),
+                SubclassesContext.Switch,
+                SubclassesContext.Subclasses,
+                Main.Settings.SubclassEnabled,
+                ref displayToggle,
+                ref sliderPos);
+            Main.Settings.DisplaySubclassesToggle = displayToggle;
+            Main.Settings.SubclassSliderPosition = sliderPos;
+
             UI.Label("");
         }
     }

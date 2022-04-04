@@ -70,6 +70,7 @@ namespace SolastaCommunityExpansion
         // SETTINGS UI TOGGLES
         //
 
+        public bool DisplayGeneralToggle { get; set; }      
         public bool DisplayRacesToggle { get; set; }
         public bool DisplayClassesToggle { get; set; }
         public bool DisplaySubclassesToggle { get; set; }

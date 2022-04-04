@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using SolastaCommunityExpansion.Subclasses;
 using SolastaCommunityExpansion.Subclasses.Barbarian;
 using SolastaCommunityExpansion.Subclasses.Druid;
@@ -13,7 +12,7 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class SubclassesContext
     {
-        internal static Dictionary<string, AbstractSubclass> Subclasses { get; private set; } = new Dictionary<string, AbstractSubclass>();
+        internal static Dictionary<string, CharacterSubclassDefinition> Subclasses { get; private set; } = new Dictionary<string, CharacterSubclassDefinition>();
 
         private static void SortSubclassesFeatures()
         {
@@ -61,32 +60,32 @@ namespace SolastaCommunityExpansion.Models
             CharacterSubclassDefinition subclass = subclassBuilder.GetSubclass();
             if (!Subclasses.ContainsKey(subclass.Name))
             {
-                Subclasses.Add(subclass.Name, subclassBuilder);
+                Subclasses.Add(subclass.Name, subclass);
             }
 
-            Subclasses = Subclasses.OrderBy(x => x.Value.GetSubclass().FormatTitle()).ToDictionary(x => x.Key, x => x.Value);
+            Subclasses = Subclasses.OrderBy(x => x.Value.FormatTitle()).ToDictionary(x => x.Key, x => x.Value);
 
-            UpdateSubclassVisibility(subclass.Name);
+            // UpdateSubclassVisibility(subclass.Name);
         }
 
-        private static void UpdateSubclassVisibility(string name)
-        {
-            FeatureDefinitionSubclassChoice choiceList = Subclasses[name].GetSubclassChoiceList();
-            if (Main.Settings.SubclassEnabled.Contains(name))
-            {
-                if (!choiceList.Subclasses.Contains(name))
-                {
-                    choiceList.Subclasses.Add(name);
-                }
-            }
-            else
-            {
-                if (choiceList.Subclasses.Contains(name))
-                {
-                    choiceList.Subclasses.Remove(name);
-                }
-            }
-        }
+        //private static void UpdateSubclassVisibility(string name)
+        //{
+        //    FeatureDefinitionSubclassChoice choiceList = Subclasses[name].GetSubclassChoiceList();
+        //    if (Main.Settings.SubclassEnabled.Contains(name))
+        //    {
+        //        if (!choiceList.Subclasses.Contains(name))
+        //        {
+        //            choiceList.Subclasses.Add(name);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        if (choiceList.Subclasses.Contains(name))
+        //        {
+        //            choiceList.Subclasses.Remove(name);
+        //        }
+        //    }
+        //}
 
         internal static void Switch(string subclassName, bool active)
         {
@@ -107,7 +106,7 @@ namespace SolastaCommunityExpansion.Models
                 Main.Settings.SubclassEnabled.Remove(subclassName);
             }
 
-            UpdateSubclassVisibility(subclassName);
+            //UpdateSubclassVisibility(subclassName);
         }
 
 #if DEBUG
