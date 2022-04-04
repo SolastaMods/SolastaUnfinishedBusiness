@@ -313,13 +313,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             flashEffect.SetDurationData(RuleDefinitions.DurationType.Permanent, 0, RuleDefinitions.TurnOccurenceType.StartOfTurn);
             flashEffect.SetParticleEffectParameters(SpellDefinitions.Bless.EffectDescription.EffectParticleParameters);
 
-            GuiPresentationBuilder flashOfGeniusPresentation = new GuiPresentationBuilder(
-                "Subclass/&TinkererFlashOfGeniusPowerTitle",
-                "Subclass/&TinkererFlashOfGeniusPowerDescription");
-
-            FeatureDefinitionPower flashOfGenius = new FeatureHelpers.FeatureDefinitionPowerBuilder("TinkererFlashOfGeniusPower", GuidHelper.Create(GuidNamespace, "TinkererFlashOfGeniusPower").ToString(),
-                -1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, RuleDefinitions.ActivationTime.PermanentUnlessIncapacitated,
-                -1, RuleDefinitions.RechargeRate.AtWill, false, false, AttributeDefinitions.Intelligence, flashEffect.Build(), flashOfGeniusPresentation.Build()).AddToDB();
+            FeatureDefinitionPower flashOfGenius = new FeatureHelpers
+                .FeatureDefinitionPowerBuilder("TinkererFlashOfGeniusPower", GuidNamespace,
+                    -1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, RuleDefinitions.ActivationTime.PermanentUnlessIncapacitated,
+                    -1, RuleDefinitions.RechargeRate.AtWill, false, false, AttributeDefinitions.Intelligence, flashEffect.Build())
+                .SetGuiPresentation(Category.Subclass)
+                .AddToDB();
             artificerBuilder.AddFeatureAtLevel(7, flashOfGenius);
 
             // ASI (8)
@@ -360,19 +359,15 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             // winged boots-- probably not- it's a real complicated item
 
             // 11 spell storing item- no clue what to do
-            GuiPresentationBuilder SpellStoringItemGui = new GuiPresentationBuilder(
-                "Subclass/&PowerTinkererSpellStoringItemTitle",
-                "Subclass/&PowerTinkererSpellStoringItemDescription");
-            SpellStoringItemGui.SetSpriteReference(FeatureDefinitionPowers.PowerDomainElementalDiscipleOfTheElementsLightning.GuiPresentation.SpriteReference);
-
             EffectDescriptionBuilder spellEffect = new EffectDescriptionBuilder();
             spellEffect.SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             spellEffect.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1, RuleDefinitions.TargetType.Self, 1, 1, ActionDefinitions.ItemSelectionType.None);
             spellEffect.AddEffectForm(new EffectFormBuilder().SetSpellForm(9).Build());
-            FeatureDefinitionPower spellStoringItem = new FeatureHelpers.FeatureDefinitionPowerBuilder("TinkererSpellStoringItem", GuidHelper.Create(GuidNamespace, "TinkererSpellStoringItem").ToString(),
+            FeatureDefinitionPower spellStoringItem = new FeatureHelpers.FeatureDefinitionPowerBuilder("TinkererSpellStoringItem", GuidNamespace,
                 0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, RuleDefinitions.ActivationTime.BonusAction,
-                1, RuleDefinitions.RechargeRate.LongRest, false, false, AttributeDefinitions.Intelligence, spellEffect.Build(),
-                SpellStoringItemGui.Build()).AddToDB();
+                1, RuleDefinitions.RechargeRate.LongRest, false, false, AttributeDefinitions.Intelligence, spellEffect.Build())
+                .SetGuiPresentation("PowerTinkererSpellStoringItem", Category.Subclass, FeatureDefinitionPowers.PowerDomainElementalDiscipleOfTheElementsLightning.GuiPresentation.SpriteReference)
+                .AddToDB();
             artificerBuilder.AddFeatureAtLevel(11, spellStoringItem);
 
             artificerBuilder.AddFeatureAtLevel(12, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);

@@ -30,15 +30,15 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
                     BuildSpellGroup(17, CloudKill, RaiseDead))
                 .AddToDB();
 
-            GuiPresentationBuilder spellRecoveryGui = new GuiPresentationBuilder(
-                "Subclass/&MagicAffinityAlchemistSpellRecoveryTitle",
-                "Subclass/&MagicAffinityAlchemistSpellRecoveryDescription");
-            spellRecoveryGui.SetSpriteReference(PowerWizardArcaneRecovery.GuiPresentation.SpriteReference);
-            FeatureDefinitionPower bonusRecovery = BuildSpellFormPower(2 /* usePerRecharge */, UsesDetermination.Fixed, ActivationTime.Rest,
-                1 /* cost */, RechargeRate.LongRest, "PowerAlchemistSpellBonusRecovery", spellRecoveryGui.Build());
+            FeatureDefinitionPower bonusRecovery = BuildSpellFormPower(
+                    2 /* usePerRecharge */, UsesDetermination.Fixed, ActivationTime.Rest,
+                    1 /* cost */, RechargeRate.LongRest, "PowerAlchemistSpellBonusRecovery")
+                .SetGuiPresentation("MagicAffinityAlchemistSpellRecovery", Category.Subclass, PowerWizardArcaneRecovery.GuiPresentation.SpriteReference)
+                .AddToDB();
 
-            BuildRestActivity(RestDefinitions.RestStage.AfterRest, RestType.ShortRest,
-                RestActivityDefinition.ActivityCondition.CanUsePower, "UsePower", bonusRecovery.Name, "AlcemicalPreparationRestAction", spellRecoveryGui.Build());
+            BuildRestActivity("AlcemicalPreparationRestAction", RestDefinitions.RestStage.AfterRest, RestType.ShortRest, RestActivityDefinition.ActivityCondition.CanUsePower, "UsePower", bonusRecovery.Name)
+                .SetGuiPresentation("MagicAffinityAlchemistSpellRecovery", Category.Subclass, PowerWizardArcaneRecovery.GuiPresentation.SpriteReference)
+                .AddToDB();
 
             // Healing 2d4+int
             EffectDescriptionBuilder healEffect = new EffectDescriptionBuilder();
@@ -194,16 +194,15 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
                 "MagicAffinityArtificerAlchemicalSavantHeightened", alchemicalSavantSpellsGui.Build());
             alchemicalSavantSpells.SetForceHalfDamageOnCantrips(true);
 
-            GuiPresentationBuilder restorativeElixirs = new GuiPresentationBuilder(
-                "Feat/&PowerAlchemistRestorativeElixirsTitle",
-                "Feat/&PowerAlchemistRestorativeElixirsDescription");
-            restorativeElixirs.SetSpriteReference(LesserRestoration.GuiPresentation.SpriteReference);
-            FeatureDefinitionPower restorativeElixirsPower = new FeatureHelpers.FeatureDefinitionPowerBuilder("PowerAlchemistRestorativeElixirs", GuidHelper.Create(TinkererClass.GuidNamespace, "PowerAlchemistRestorativeElixirs").ToString(),
-                0, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence,
-                ActivationTime.Action, 1, RechargeRate.LongRest,
-                false, false, AttributeDefinitions.Intelligence,
-                LesserRestoration.EffectDescription,
-                restorativeElixirs.Build()).AddToDB();
+            FeatureDefinitionPower restorativeElixirsPower = new FeatureHelpers
+                .FeatureDefinitionPowerBuilder(
+                    "PowerAlchemistRestorativeElixirs", TinkererClass.GuidNamespace,
+                    0, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence,
+                    ActivationTime.Action, 1, RechargeRate.LongRest,
+                    false, false, AttributeDefinitions.Intelligence,
+                    LesserRestoration.EffectDescription)
+                .SetGuiPresentation("PowerAlchemistRestorativeElixirs", Category.Feat, LesserRestoration.GuiPresentation.SpriteReference)
+                .AddToDB();
 
             var emboldeningShotsGui = GuiPresentationBuilder.Build("PowerAlchemistEmboldeningShots", Category.Feat);
 
@@ -228,20 +227,15 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
                 emboldeningShots
             }, "ArtificerAlchemistShotsSpellPrep", emboldeningShotsGui);
 
-            GuiPresentationBuilder greaterRestorativeElixirsGui = new GuiPresentationBuilder(
-                "Feat/&PowerAlchemistGreaterRestorativeElixirsTitle",
-                "Feat/&PowerAlchemistGreaterRestorativeElixirsDescription");
-            restorativeElixirs.SetSpriteReference(GreaterRestoration.GuiPresentation.SpriteReference);
-            FeatureDefinitionPower greaterRestorativeElixirs = new FeatureHelpers.FeatureDefinitionPowerBuilder("PowerAlchemistGreaterRestorativeElixirs", GuidHelper.Create(TinkererClass.GuidNamespace, "PowerAlchemistGreaterRestorativeElixirs").ToString(),
-                1, UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
-                ActivationTime.Action, 1, RechargeRate.LongRest,
-                false, false, AttributeDefinitions.Intelligence,
-                GreaterRestoration.EffectDescription,
-                greaterRestorativeElixirsGui.Build()).AddToDB();
+            FeatureDefinitionPower greaterRestorativeElixirs = new FeatureHelpers
+                .FeatureDefinitionPowerBuilder("PowerAlchemistGreaterRestorativeElixirs", TinkererClass.GuidNamespace,
+                    1, UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
+                    ActivationTime.Action, 1, RechargeRate.LongRest,
+                    false, false, AttributeDefinitions.Intelligence,
+                    GreaterRestoration.EffectDescription)
+                .SetGuiPresentation("PowerAlchemistGreaterRestorativeElixirs", Category.Feat, GreaterRestoration.GuiPresentation.SpriteReference)
+                .AddToDB();
 
-            GuiPresentationBuilder healElixirsGui = new GuiPresentationBuilder(
-                "Feat/&PowerAlchemistHealElixirsTitle",
-                "Feat/&PowerAlchemistHealElixirsDescription");
             EffectDescriptionBuilder healSpellEffect = new EffectDescriptionBuilder();
             healSpellEffect.AddEffectForm(new EffectFormBuilder()
                 .SetHealingForm(HealingComputation.Dice, 0, DieType.D1, 70, false, HealingCap.MaximumHitPoints)
@@ -263,13 +257,14 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             healSpellEffect.SetDurationData(DurationType.Instantaneous, 1, TurnOccurenceType.EndOfTurn);
             healSpellEffect.SetParticleEffectParameters(FalseLife.EffectDescription.EffectParticleParameters);
 
-            FeatureDefinitionPower greatHealElixirs = new FeatureHelpers.FeatureDefinitionPowerBuilder("PowerAlchemistHealElixirs",
-                GuidHelper.Create(TinkererClass.GuidNamespace, "PowerAlchemistHealElixirs").ToString(),
-                1, UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
-                ActivationTime.Action, 1, RechargeRate.LongRest,
-                false, false, AttributeDefinitions.Intelligence,
-                healSpellEffect.Build(),
-                healElixirsGui.Build()).AddToDB();
+            FeatureDefinitionPower greatHealElixirs = new FeatureHelpers
+                .FeatureDefinitionPowerBuilder("PowerAlchemistHealElixirs", TinkererClass.GuidNamespace,
+                    1, UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
+                    ActivationTime.Action, 1, RechargeRate.LongRest,
+                    false, false, AttributeDefinitions.Intelligence,
+                    healSpellEffect.Build())
+                .SetGuiPresentation("PowerAlchemistHealElixirs", Category.Feat)
+                .AddToDB();
 
             return CharacterSubclassDefinitionBuilder
                 .Create("Alchemist", TinkererClass.GuidNamespace)

@@ -16,23 +16,21 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         // TODO Most of theese builders should likely get moved/merged with the CE builders.
         public class FeatureDefinitionPowerBuilder : Builders.Features.FeatureDefinitionPowerBuilder
         {
-            public FeatureDefinitionPowerBuilder(string name, string guid, int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination,
+            public FeatureDefinitionPowerBuilder(string name, Guid guidNamespace, int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination,
                 string usesAbilityScoreName, RuleDefinitions.ActivationTime activationTime, int costPerUse, RuleDefinitions.RechargeRate recharge,
                 bool proficiencyBonusToAttack, bool abilityScoreBonusToAttack, string abilityScore,
-                EffectDescription effectDescription, GuiPresentation guiPresentation) : base(name, guid)
+                EffectDescription effectDescription) : base(name, guidNamespace)
             {
                 Configure(usesPerRecharge, usesDetermination, usesAbilityScoreName, activationTime, costPerUse,
                     recharge, proficiencyBonusToAttack, abilityScoreBonusToAttack, abilityScore, effectDescription);
-
-                Definition.SetGuiPresentation(guiPresentation);
             }
 
-            public FeatureDefinitionPowerBuilder(string name, string guid, int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination,
+            public FeatureDefinitionPowerBuilder(string name, Guid guidNamespace, int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination,
                 string usesAbilityScoreName, RuleDefinitions.ActivationTime activationTime, int costPerUse, RuleDefinitions.RechargeRate recharge,
                 bool proficiencyBonusToAttack, bool abilityScoreBonusToAttack, string abilityScore,
-                EffectDescription effectDescription, GuiPresentation guiPresentation, FeatureDefinitionPower overridenPower) :
-                this(name, guid, usesPerRecharge, usesDetermination, usesAbilityScoreName, activationTime, costPerUse, recharge,
-                    proficiencyBonusToAttack, abilityScoreBonusToAttack, abilityScore, effectDescription, guiPresentation)
+                EffectDescription effectDescription, FeatureDefinitionPower overridenPower) :
+                this(name, guidNamespace, usesPerRecharge, usesDetermination, usesAbilityScoreName, activationTime, costPerUse, recharge,
+                    proficiencyBonusToAttack, abilityScoreBonusToAttack, abilityScore, effectDescription)
             {
                 Definition.SetOverriddenPower(overridenPower);
             }
@@ -206,15 +204,14 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         public class RestActivityDefinitionBuilder : Builders.RestActivityDefinitionBuilder
         {
-            public RestActivityDefinitionBuilder(string name, string guid, RestDefinitions.RestStage restStage, RuleDefinitions.RestType restType,
-                RestActivityDefinition.ActivityCondition condition, string functor, string stringParameter, GuiPresentation guiPresentation) : base(name, guid)
+            public RestActivityDefinitionBuilder(string name, Guid guidNamespace, RestDefinitions.RestStage restStage, RuleDefinitions.RestType restType,
+                RestActivityDefinition.ActivityCondition condition, string functor, string stringParameter) : base(name, guidNamespace)
             {
                 Definition.SetRestStage(restStage);
                 Definition.SetRestType(restType);
                 Definition.SetCondition(condition);
                 Definition.SetFunctor(functor);
                 Definition.SetStringParameter(stringParameter);
-                Definition.SetGuiPresentation(guiPresentation);
             }
         }
 
@@ -310,7 +307,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             return FeatureDefinitionProficiencyBuilder
                 .Create(name, TinkererClass.GuidNamespace)
-                .SetProficiencies(type,  proficiencies);
+                .SetProficiencies(type, proficiencies);
         }
 
         public static FeatureDefinitionAttributeModifier BuildAttributeModifier(AttributeModifierOperation modifierType,
@@ -339,8 +336,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 attackModifier, dcModifier, guiPresentation).AddToDB();
         }
 
-        public static FeatureDefinitionPower BuildSpellFormPower(int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination,
-            RuleDefinitions.ActivationTime activationTime, int costPerUse, RuleDefinitions.RechargeRate recharge, string name, GuiPresentation guiPresentation)
+        public static FeatureDefinitionPowerBuilder BuildSpellFormPower(int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination,
+            RuleDefinitions.ActivationTime activationTime, int costPerUse, RuleDefinitions.RechargeRate recharge, string name)
         {
             EffectDescriptionBuilder effectDescriptionBuilder = new EffectDescriptionBuilder();
             effectDescriptionBuilder.SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Self, 0, 0, 0, 0, ActionDefinitions.ItemSelectionType.None);
@@ -355,16 +352,15 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             particleParams.Copy(DatabaseHelper.FeatureDefinitionPowers.PowerWizardArcaneRecovery.EffectDescription.EffectParticleParameters);
             effectDescriptionBuilder.SetParticleEffectParameters(particleParams);
 
-            return new FeatureDefinitionPowerBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
+            return new FeatureDefinitionPowerBuilder(name, TinkererClass.GuidNamespace,
                 usesPerRecharge, usesDetermination, AttributeDefinitions.Intelligence, activationTime, costPerUse, recharge, false, false, AttributeDefinitions.Intelligence,
-                effectDescriptionBuilder.Build(), guiPresentation).AddToDB();
+                effectDescriptionBuilder.Build());
         }
 
-        public static RestActivityDefinition BuildRestActivity(RestDefinitions.RestStage restStage, RuleDefinitions.RestType restType, RestActivityDefinition.ActivityCondition condition,
-            string functor, string stringParameter, string name, GuiPresentation guiPresentation)
+        public static RestActivityDefinitionBuilder BuildRestActivity(string name, RestDefinitions.RestStage restStage, RuleDefinitions.RestType restType,
+            RestActivityDefinition.ActivityCondition condition, string functor, string stringParameter)
         {
-            return new RestActivityDefinitionBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
-                restStage, restType, condition, functor, stringParameter, guiPresentation).AddToDB();
+            return new RestActivityDefinitionBuilder(name, TinkererClass.GuidNamespace, restStage, restType, condition, functor, stringParameter);
         }
 
         public static FeatureDefinitionAttackModifier BuildAttackModifier(RuleDefinitions.AttackModifierMethod attackRollModifierMethod,
