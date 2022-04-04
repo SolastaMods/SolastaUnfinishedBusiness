@@ -15,7 +15,7 @@ namespace SolastaCommunityExpansion.Models
         internal const string PALADIN_SPELLLIST = "SpellListPaladin";
         internal const string RANGER_SPELLLIST = "SpellListRanger";
         internal const string SORCERER_SPELLLIST = "SpellListSorcerer";
-        internal const string WARLOCK_SPELLLIST = "WarlockClassSpelllist";
+        internal const string WARLOCK_SPELLLIST = "WarlockClassSpellList";
         internal const string WITCH_SPELLLIST = "WitchSpellList";
         internal const string WIZARD_SPELLLIST = "SpellListWizard";
         internal const string GREENMAGE_SPELLLIST = "SpellListWizardGreenmage";
