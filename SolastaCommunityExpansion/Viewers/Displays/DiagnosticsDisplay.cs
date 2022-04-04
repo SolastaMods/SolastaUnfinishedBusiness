@@ -216,6 +216,8 @@ All settings start disabled by default. On first start the mod will display an w
 {5}
 
 {6}
+
+{7}
 ";
 
         internal static void DisplayDumpDescription()
@@ -231,6 +233,7 @@ All settings start disabled by default. On first start the mod will display an w
 
                 var descriptionData = string.Format(ModDescription,
                     collectedCredits.ToString(),
+                    RacesContext.GenerateRaceDescription(),
                     ClassesContext.GenerateClassDescription(),
                     SubclassesContext.GenerateSubclassDescription(),
                     FeatsContext.GenerateFeatsDescription(),

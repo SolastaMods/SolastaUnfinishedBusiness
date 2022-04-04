@@ -3,14 +3,108 @@ using ModKit;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Subclasses.Rogue;
 using SolastaCommunityExpansion.Subclasses.Wizard;
+using static SolastaCommunityExpansion.Viewers.Displays.Shared;
 
 namespace SolastaCommunityExpansion.Viewers.Displays
 {
-    internal static class ClassesAndSubclassesDisplay
+    internal static class RacesClassesAndSubclassesDisplay
     {
         private const int MAX_COLUMNS = 4;
 
         private const float PIXELS_PER_COLUMN = 240;
+
+        private static void DisplayRaces()
+        {
+            bool toggle;
+            int intValue;
+            bool selectAll = Main.Settings.RaceEnabled.Count == RacesContext.Races.Count;
+
+            UI.Label("");
+
+            toggle = Main.Settings.DisplayRacesToggle;
+            if (UI.DisclosureToggle("Races: ".yellow() + RequiresRestart, ref toggle, 200))
+            {
+                Main.Settings.DisplayRacesToggle = toggle;
+            }
+
+            if (Main.Settings.DisplayRacesToggle)
+            {
+                if (RacesContext.Races.Count == 0)
+                {
+                    UI.Label("");
+                    UI.Label("No unofficial races available on this mod yet...".bold().red());
+
+                    return;
+                }
+
+                UI.Label("");
+                if (UI.Toggle("Select all", ref selectAll))
+                {
+                    foreach (var keyValuePair in RacesContext.Races)
+                    {
+                        RacesContext.Switch(keyValuePair.Key, selectAll);
+                    }
+                }
+
+                intValue = Main.Settings.RaceSliderPosition;
+                if (UI.Slider("slide left for description / right to collapse".white().bold().italic(), ref intValue, 1, MAX_COLUMNS, 1, ""))
+                {
+                    Main.Settings.RaceSliderPosition = intValue;
+                }
+
+                UI.Label("");
+
+                int columns;
+                var flip = false;
+                var current = 0;
+                var racesCount = RacesContext.Races.Count;
+
+                using (UI.VerticalScope())
+                {
+                    while (current < racesCount)
+                    {
+                        columns = Main.Settings.RaceSliderPosition;
+
+                        using (UI.HorizontalScope())
+                        {
+                            while (current < racesCount && columns-- > 0)
+                            {
+                                var keyValuePair = RacesContext.Races.ElementAt(current);
+                                var characterRace = keyValuePair.Value;
+                                var title = characterRace.FormatTitle();
+
+                                if (flip)
+                                {
+                                    title = title.yellow();
+                                }
+
+                                toggle = Main.Settings.RaceEnabled.Contains(keyValuePair.Key);
+                                if (UI.Toggle(title, ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+                                {
+                                    RacesContext.Switch(keyValuePair.Key, toggle);
+                                }
+
+                                if (Main.Settings.RaceSliderPosition == 1)
+                                {
+                                    var description = characterRace.FormatDescription();
+
+                                    if (flip)
+                                    {
+                                        description = description.yellow();
+                                    }
+
+                                    UI.Label(description, UI.Width(PIXELS_PER_COLUMN * 3));
+
+                                    flip = !flip;
+                                }
+
+                                current++;
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
         private static void DisplayClasses()
         {
@@ -21,7 +115,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = Main.Settings.DisplayClassesToggle;
-            if (UI.DisclosureToggle("Classes:".yellow(), ref toggle, 200))
+            if (UI.DisclosureToggle("Classes: ".yellow() + RequiresRestart, ref toggle, 200))
             {
                 Main.Settings.DisplayClassesToggle = toggle;
             }
@@ -114,7 +208,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
 
             toggle = Main.Settings.DisplaySubclassesToggle;
-            if (UI.DisclosureToggle("Subclasses:".yellow(), ref toggle, 200))
+            if (UI.DisclosureToggle("Subclasses: ".yellow() + RequiresRestart, ref toggle, 200))
             {
                 Main.Settings.DisplaySubclassesToggle = toggle;
             }
@@ -227,6 +321,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
         internal static void DisplayClassesAndSubclasses()
         {
+            DisplayRaces();
             DisplayClasses();
             DisplaySubclasses();
             UI.Label("");
