@@ -1004,15 +1004,15 @@ Feature/&ThiefofFiveFatesTitle	Thief of Five Fates
 Feature/&ThirstingBladeDescription	You can attack with your weapon twice, instead of once, whenever you take the Attack action on your turn.
 Feature/&ThirstingBladeTitle	Thirsting Blade
 Feature/&TinkererArmorProficiencyTitle	Tinkerer Armor Proficiency
-Feature/&TinkererArmorTrainingShortDescription	Proficiency with Light and Medium armors as well as shields
+Feature/&TinkererArmorTrainingDescription	Proficiency with Light and Medium armors as well as shields
 Feature/&TinkererSkillGainChoicesPluralDescription	Tinkerer skills are Arcana, History, Investigation, Medecine, Nature, Perception and Sleight of Hand
 Feature/&TinkererSkillPointsTitle	Tinkerer Skills
-Feature/&TinkererToolProficiencyPluralShortDescription	Gain proficiency with many tools including Thieve's Tools, Scroll Kits, Poisoner's Kit, Herbalism Kit, and Enchanting Tools
-Feature/&TinkererToolsExpertisePluralShortDescription	Gain expertise with many tools including Thieve's Tools, Scroll Kits, Poisoner's Kit, Herbalism Kit, and Enchanting Tools
+Feature/&TinkererToolProficiencyDescription	Gain proficiency with many tools including Thieve's Tools, Scroll Kits, Poisoner's Kit, Herbalism Kit, and Enchanting Tools
+Feature/&TinkererToolsExpertiseDescription	Gain expertise with many tools including Thieve's Tools, Scroll Kits, Poisoner's Kit, Herbalism Kit, and Enchanting Tools
 Feature/&TinkererToolsExpertiseTitle	Tinkerer Tool Expertise
 Feature/&TinkererToolsProficiencyTitle	Tool Proficiencies
 Feature/&TinkererWeaponProficiencyTitle	Tinkerer Weapon Proficiencies
-Feature/&TinkererWeaponTrainingShortDescription	Proficiency with simple weapons
+Feature/&TinkererWeaponProficiencyDescription	Proficiency with simple weapons
 Feature/&ToadKingBasicToxinTitle	Basic Toxin
 Feature/&ToadKingExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: \n Level 1: Grease, Detect Poison And Disease \n Level 2: AcidArrow, Spider Climb \n Level 3: Slow, Stinking Cloud \n Level 4: Black Tentacles,Freedom Of Movement \n Level 5: Contagion,Insect Plague
 Feature/&ToadKingExpandedSpelllistAfinityTitle	Toad King Spells

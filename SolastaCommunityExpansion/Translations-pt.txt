@@ -1004,15 +1004,15 @@ Feature/&ThiefofFiveFatesTitle	Ladrão de cinco destinos
 Feature/&ThirstingBladeDescription	Você pode atacar com sua arma duas vezes, em vez de uma, sempre que realizar a ação Atacar no seu turno.
 Feature/&ThirstingBladeTitle	Lâmina Sedenta
 Feature/&TinkererArmorProficiencyTitle	Proficiência em Armadura do Tinkerer
-Feature/&TinkererArmorTrainingShortDescription	Proficiência com armaduras leves e médias, bem como escudos
+Feature/&TinkererArmorTrainingDescription	Proficiência com armaduras leves e médias, bem como escudos
 Feature/&TinkererSkillGainChoicesPluralDescription	As habilidades do Tinkerer são Arcana, História, Investigação, Medicina, Natureza, Percepção e Prestidigitação
 Feature/&TinkererSkillPointsTitle	Habilidades de funileiro
-Feature/&TinkererToolProficiencyPluralShortDescription	Ganhe proficiência com muitas ferramentas, incluindo Ferramentas do Ladrão, Kits de Pergaminho, Kit do Envenenador, Kit de Herbalismo e Ferramentas de Encantamento
-Feature/&TinkererToolsExpertisePluralShortDescription	Adquira experiência com muitas ferramentas, incluindo Ferramentas do Ladrão, Kits de Pergaminho, Kit do Envenenador, Kit de Herbalismo e Ferramentas de Encantamento
+Feature/&TinkererToolProficiencyDescription	Ganhe proficiência com muitas ferramentas, incluindo Ferramentas do Ladrão, Kits de Pergaminho, Kit do Envenenador, Kit de Herbalismo e Ferramentas de Encantamento
+Feature/&TinkererToolsExpertiseDescription	Adquira experiência com muitas ferramentas, incluindo Ferramentas do Ladrão, Kits de Pergaminho, Kit do Envenenador, Kit de Herbalismo e Ferramentas de Encantamento
 Feature/&TinkererToolsExpertiseTitle	Expertise em ferramentas Tinkerer
 Feature/&TinkererToolsProficiencyTitle	Proficiências em Ferramentas
 Feature/&TinkererWeaponProficiencyTitle	Proficiências com Armas do Tinkerer
-Feature/&TinkererWeaponTrainingShortDescription	Proficiência com armas simples
+Feature/&TinkererWeaponProficiencyDescription	Proficiência com armas simples
 Feature/&ToadKingBasicToxinTitle	Toxina Básica
 Feature/&ToadKingExpandedSpelllistAfinityDescription	Você escolhe a partir de uma lista expandida de magias quando aprende uma magia de bruxo. Os seguintes feitiços são adicionados à lista de feitiços de bruxo para você:\n Nível 1: Graxa, Detectar Veneno e Doença\n Nível 2: AcidArrow, Spider Climb\n Nível 3: nuvem lenta e fedorenta\n Nível 4: Tentáculos Negros, Liberdade de Movimento\n Nível 5: Contágio, Praga de Insetos
 Feature/&ToadKingExpandedSpelllistAfinityTitle	Feitiços do Rei Sapo

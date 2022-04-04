@@ -52,11 +52,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
                 .AddToDB();
             //    artillerist.AddFeatureAtLevel(flameAttack, 3);
 
-            GuiPresentationBuilder forceGui = new GuiPresentationBuilder(
-                "Feat/&ArtilleristForceCannonTitle",
-                "Feat/&ArtilleristForceCannonDescription");
-            forceGui.SetSpriteReference(MagicMissile.GuiPresentation.SpriteReference);
-
             EffectDescriptionBuilder forceEffect = new EffectDescriptionBuilder();
             forceEffect.AddEffectForm(new EffectFormBuilder().SetDamageForm(false, DieType.D8, DamageTypeForce, 0, DieType.D8, 2, HealFromInflictedDamage.Never, new List<TrendInfo>())
                 .Build());
@@ -67,6 +62,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
             FeatureDefinitionPower forceAttack = new FeatureDefinitionPowerBuilder("ArtilleristForceCannonAttack", TinkererClass.GuidNamespace,
                 1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, ActivationTime.BonusAction, 0, RechargeRate.AtWill, true, true, AttributeDefinitions.Intelligence, forceEffect.Build())
+                .SetGuiPresentation("ArtilleristForceCannon", Category.Feat, MagicMissile.GuiPresentation.SpriteReference)
                 .AddToDB();
             //    artillerist.AddFeatureAtLevel(forceAttack, 3);
 
@@ -219,7 +215,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             FeatureDefinitionPower force15Attack = new FeatureDefinitionPowerBuilder("ArtilleristForceCannon15Attack", TinkererClass.GuidNamespace,
                 1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, ActivationTime.BonusAction,
                 0, RechargeRate.AtWill, true, true, AttributeDefinitions.Intelligence, force15Effect.Build(), force9Attack)
-                .SetGuiPresentation("", Category.Feat, MagicMissile.GuiPresentation.SpriteReference)
+                .SetGuiPresentation("ArtilleristForceCannon15", Category.Feat, MagicMissile.GuiPresentation.SpriteReference)
                 .AddToDB();
             //    artillerist.AddFeatureAtLevel(force15Attack, 15);
 #pragma warning restore S1481, IDE0059 // Unused local variables should be removed

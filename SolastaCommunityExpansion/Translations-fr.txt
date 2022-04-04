@@ -1004,15 +1004,15 @@ Feature/&ThiefofFiveFatesTitle	Voleur des cinq destins
 Feature/&ThirstingBladeDescription	Vous pouvez attaquer avec votre arme deux fois, au lieu d'une, chaque fois que vous effectuez l'action Attaquer à votre tour.
 Feature/&ThirstingBladeTitle	Lame assoiffée
 Feature/&TinkererArmorProficiencyTitle	Compétence d'armure de bricoleur
-Feature/&TinkererArmorTrainingShortDescription	Maîtrise des armures légères et moyennes ainsi que des boucliers
+Feature/&TinkererArmorTrainingDescription	Maîtrise des armures légères et moyennes ainsi que des boucliers
 Feature/&TinkererSkillGainChoicesPluralDescription	Les compétences du bricoleur sont les arcanes, l'histoire, l'investigation, la médecine, la nature, la perception et le tour de passe-passe
 Feature/&TinkererSkillPointsTitle	Compétences de bricoleur
-Feature/&TinkererToolProficiencyPluralShortDescription	Maîtrisez de nombreux outils, notamment les outils de voleur, les kits de parchemins, le kit d'empoisonnement, le kit d'herboristerie et les outils d'enchantement
-Feature/&TinkererToolsExpertisePluralShortDescription	Acquérir de l'expertise avec de nombreux outils, notamment les outils de voleur, les kits de parchemins, le kit d'empoisonnement, le kit d'herboristerie et les outils d'enchantement
+Feature/&TinkererToolProficiencyDescription	Maîtrisez de nombreux outils, notamment les outils de voleur, les kits de parchemins, le kit d'empoisonnement, le kit d'herboristerie et les outils d'enchantement
+Feature/&TinkererToolsExpertiseDescription	Acquérir de l'expertise avec de nombreux outils, notamment les outils de voleur, les kits de parchemins, le kit d'empoisonnement, le kit d'herboristerie et les outils d'enchantement
 Feature/&TinkererToolsExpertiseTitle	Expertise en outils de bricolage
 Feature/&TinkererToolsProficiencyTitle	Maîtrise des outils
 Feature/&TinkererWeaponProficiencyTitle	Maîtrise des armes du bricoleur
-Feature/&TinkererWeaponTrainingShortDescription	Maîtrise des armes simples
+Feature/&TinkererWeaponProficiencyDescription	Maîtrise des armes simples
 Feature/&ToadKingBasicToxinTitle	Toxine de base
 Feature/&ToadKingExpandedSpelllistAfinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de sorcier. Les sorts suivants sont ajoutés à la liste des sorts de démoniste pour vous :\n Niveau 1 : Graisser, détecter le poison et la maladie\n Niveau 2 : AcidArrow, Spider Climb\n Niveau 3 : Nuage lent et puant\n Niveau 4 : tentacules noires, liberté de mouvement\n Niveau 5 : Contagion, peste d'insectes
 Feature/&ToadKingExpandedSpelllistAfinityTitle	Sorts du roi crapaud

@@ -255,7 +255,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                     ToolTypeDefinitions.ThievesToolsType.Name, ToolTypeDefinitions.ScrollKitType.Name,
                     ToolTypeDefinitions.PoisonersKitType.Name, ToolTypeDefinitions.HerbalismKitType.Name,
                     ToolTypeDefinitions.EnchantingToolType.Name, ToolTypeDefinitions.ArtisanToolSmithToolsType.Name)
-                .SetGuiPresentation("", Category.Feature)
+                .SetGuiPresentation("TinkererToolsExpertise", Category.Feature)
                 .AddToDB();
 
             artificerBuilder.AddFeatureAtLevel(6, toolExpertise);

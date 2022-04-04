@@ -1004,15 +1004,15 @@ Feature/&ThiefofFiveFatesTitle	Dieb der fünf Schicksale
 Feature/&ThirstingBladeDescription	Du kannst zweimal statt einmal mit deiner Waffe angreifen, wenn du in deinem Zug die Angriffsaktion ausführst.
 Feature/&ThirstingBladeTitle	Durstige Klinge
 Feature/&TinkererArmorProficiencyTitle	Tüftler-Rüstungskompetenz
-Feature/&TinkererArmorTrainingShortDescription	Kenntnisse im Umgang mit leichten und mittleren Rüstungen sowie Schilden
+Feature/&TinkererArmorTrainingDescription	Kenntnisse im Umgang mit leichten und mittleren Rüstungen sowie Schilden
 Feature/&TinkererSkillGainChoicesPluralDescription	Tüftlerfähigkeiten sind Arcana, Geschichte, Ermittlung, Medizin, Natur, Wahrnehmung und Fingerfertigkeit
 Feature/&TinkererSkillPointsTitle	Tüftlerfähigkeiten
-Feature/&TinkererToolProficiencyPluralShortDescription	Erwerben Sie Kenntnisse im Umgang mit vielen Werkzeugen, darunter Diebeswerkzeuge, Schriftrollen-Kits, Poisoner's Kit, Herbalism Kit und Enchanting Tools
-Feature/&TinkererToolsExpertisePluralShortDescription	Sammeln Sie Erfahrung mit vielen Werkzeugen, darunter Werkzeuge des Diebes, Schriftrollen-Kits, Poisoner's Kit, Herbalism Kit und Enchanting Tools
+Feature/&TinkererToolProficiencyDescription	Erwerben Sie Kenntnisse im Umgang mit vielen Werkzeugen, darunter Diebeswerkzeuge, Schriftrollen-Kits, Poisoner's Kit, Herbalism Kit und Enchanting Tools
+Feature/&TinkererToolsExpertiseDescription	Sammeln Sie Erfahrung mit vielen Werkzeugen, darunter Werkzeuge des Diebes, Schriftrollen-Kits, Poisoner's Kit, Herbalism Kit und Enchanting Tools
 Feature/&TinkererToolsExpertiseTitle	Tüftler-Tool-Expertise
 Feature/&TinkererToolsProficiencyTitle	Werkzeugkenntnisse
 Feature/&TinkererWeaponProficiencyTitle	Tüftler-Waffenkenntnisse
-Feature/&TinkererWeaponTrainingShortDescription	Umgang mit einfachen Waffen
+Feature/&TinkererWeaponProficiencyDescription	Umgang mit einfachen Waffen
 Feature/&ToadKingBasicToxinTitle	Basisches Toxin
 Feature/&ToadKingExpandedSpelllistAfinityDescription	Du wählst aus einer erweiterten Liste von Zaubersprüchen, wenn du einen Hexenmeisterzauber lernst. Die folgenden Zauber werden der Hexenmeister-Zauberliste für Sie hinzugefügt:\n Level 1: Schmieren, Gift und Krankheit erkennen\n Level 2: AcidArrow, Spinnenklettern\n Level 3: Langsame, stinkende Wolke\n Stufe 4: Schwarze Tentakel, Bewegungsfreiheit\n Stufe 5: Ansteckung, Insektenplage
 Feature/&ToadKingExpandedSpelllistAfinityTitle	Krötenkönig-Zauber
