@@ -16,13 +16,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             //UI.Label(". Note you " + RequiresRestart + " after changing races, classes and subclasses sets");
             //UI.Label("");
 
-            toggle = Main.Settings.DisplayGeneralToggle;
+            toggle = Main.Settings.DisplayFeatFightingStyleToggle;
             if (UI.DisclosureToggle("General:".yellow(), ref toggle, 200))
             {
-                Main.Settings.DisplayGeneralToggle = toggle;
+                Main.Settings.DisplayFeatFightingStyleToggle = toggle;
             }
 
-            if (!Main.Settings.DisplayGeneralToggle)
+            if (!Main.Settings.DisplayFeatFightingStyleToggle)
             {
                 return;
             }
