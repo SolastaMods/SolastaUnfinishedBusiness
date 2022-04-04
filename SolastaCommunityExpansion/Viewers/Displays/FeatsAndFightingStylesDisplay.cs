@@ -7,10 +7,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class FeatsAndFightingStylesDisplay
     {
-        private const int MAX_COLUMNS = 6;
-
-        private const float PIXELS_PER_COLUMN = 225;
-
         internal static void DisplayGeneral()
         {
             bool toggle;
