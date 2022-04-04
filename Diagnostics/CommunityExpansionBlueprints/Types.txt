@@ -60,3 +60,5 @@ SolastaCommunityExpansion.Subclasses.Barbarian.PathOfTheLight+IlluminatingBurstP
 SolastaCommunityExpansion.Subclasses.Barbarian.PathOfTheLight+IlluminatingStrikeAdditionalDamage
 SpellDefinition
 SpellListDefinition
+TA.AI.DecisionDefinition
+TA.AI.DecisionPackageDefinition
