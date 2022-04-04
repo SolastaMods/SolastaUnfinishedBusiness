@@ -72,7 +72,7 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "",
+          "conditionDefinitionName": "AHSoulBladeEmpowerWeaponCondition",
           "conditionDefinition": "Definition:AHSoulBladeEmpowerWeaponCondition:48ea358a-d09c-54ce-b785-8155901f6f95",
           "operation": "Add",
           "conditionsList": [],

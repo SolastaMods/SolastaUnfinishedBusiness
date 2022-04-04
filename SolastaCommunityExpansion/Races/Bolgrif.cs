@@ -96,14 +96,14 @@ namespace SolastaCommunityExpansion.Races
                 .SetMaximalAge(500)
                 .SetBaseHeight(96)
                 .SetBaseWeight(130)
-                .SetFeatures(
-                    (FeatureDefinitionMoveModes.MoveModeMove6, 1),
-                    (bolgrifAbilityScoreModifierSet, 1),
-                    (FeatureDefinitionSenses.SenseNormalVision, 1),
-                    (bolgrifPowerfulBuild, 1),
-                    (bolgrifInvisibilityPower, 1),
-                    (bolgrifDruidicMagic, 1),
-                    (bolgrifLanguageProficiency, 1))
+                .SetFeaturesAtLevel(1,
+                    FeatureDefinitionMoveModes.MoveModeMove6,
+                    bolgrifAbilityScoreModifierSet,
+                    FeatureDefinitionSenses.SenseNormalVision,
+                    bolgrifPowerfulBuild,
+                    bolgrifInvisibilityPower,
+                    bolgrifDruidicMagic,
+                    bolgrifLanguageProficiency)
                 .AddToDB();
 
             FeatDefinitions.FocusedSleeper.CompatibleRacesPrerequisite.Add(bolgrif.name);

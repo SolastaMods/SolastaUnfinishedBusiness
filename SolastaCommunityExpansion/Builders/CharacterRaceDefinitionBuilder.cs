@@ -72,20 +72,6 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public CharacterRaceDefinitionBuilder SetFeatures(params (FeatureDefinition featureDefinition, int level)[] featuresByLevel)
-        {
-            Definition.FeatureUnlocks.Clear();
-
-            // sort to add to list in determistic order
-            foreach (var (featureDefinition, level) in featuresByLevel)
-            {
-                Definition.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureDefinition, level));
-            }
-
-            Definition.FeatureUnlocks.Sort(Sorting.Compare);
-            return this;
-        }
-
         public CharacterRaceDefinitionBuilder AddFeatureAtLevel(FeatureDefinition feature, int level)
         {
             Definition.AddFeatureUnlocks(new FeatureUnlockByLevel(feature, level));

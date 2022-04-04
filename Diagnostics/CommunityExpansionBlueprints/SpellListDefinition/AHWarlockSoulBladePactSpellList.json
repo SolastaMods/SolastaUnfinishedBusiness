@@ -12,8 +12,8 @@
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 1,
       "spells": [
-        "Definition:Shield:f69bd9c9375fc074a90043c42f9868fe",
-        "Definition:FalseLife:97d70ac4c94f31540aa7b7e1555b7a49"
+        "Definition:FalseLife:97d70ac4c94f31540aa7b7e1555b7a49",
+        "Definition:Shield:f69bd9c9375fc074a90043c42f9868fe"
       ]
     },
     {
@@ -36,8 +36,8 @@
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 4,
       "spells": [
-        "Definition:PhantasmalKiller:d132436fd5250d34f973848ca4ac985f",
-        "Definition:BlackTentacles:3ed042e75b44763479efbc4b9680dd3a"
+        "Definition:BlackTentacles:3ed042e75b44763479efbc4b9680dd3a",
+        "Definition:PhantasmalKiller:d132436fd5250d34f973848ca4ac985f"
       ]
     },
     {
@@ -47,6 +47,26 @@
         "Definition:ConeOfCold:4014172b09c7b0347911d81077d7ba0c",
         "Definition:MindTwist:88c5c5e07eb13684998c75c11492fdd5"
       ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 6,
+      "spells": []
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 7,
+      "spells": []
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 8,
+      "spells": []
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 9,
+      "spells": []
     }
   ],
   "guiPresentation": {
