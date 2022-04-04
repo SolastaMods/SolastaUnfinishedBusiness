@@ -70,9 +70,11 @@ namespace SolastaCommunityExpansion
                 Translations.Load(MOD_FOLDER);
 
                 // load multiclass
-                if (IsMulticlassInstalled && Main.Settings.EnableMulticlass)
+                if (IsMulticlassInstalled && Settings.EnableMulticlass)
                 {
+#pragma warning disable S3885 // "Assembly.Load" should be used
                     var multiclassAssembly = Assembly.LoadFile(MulticlassFilename);
+#pragma warning restore S3885 // "Assembly.Load" should be used
                     var harmony = new Harmony(multiclassAssembly.FullName.Substring(0, 17));
 
                     harmony.PatchAll(multiclassAssembly);
@@ -89,7 +91,7 @@ namespace SolastaCommunityExpansion
 
         internal static void OnShowGui(UnityModManager.ModEntry modEntry)
         {
-            if (Main.Settings.EnableHeroesControlledByComputer)
+            if (Settings.EnableHeroesControlledByComputer)
             {
                 Models.PlayerControllerContext.RefreshGuiState();
             }
