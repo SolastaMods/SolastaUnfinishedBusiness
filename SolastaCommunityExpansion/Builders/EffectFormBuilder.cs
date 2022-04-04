@@ -6,6 +6,7 @@ using SolastaModApi.Infrastructure;
 using TA.AI;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using static RuleDefinitions;
 
 namespace SolastaCommunityExpansion.Builders
 {
@@ -18,14 +19,14 @@ namespace SolastaCommunityExpansion.Builders
             effectForm = new EffectForm();
         }
 
-        public EffectFormBuilder HasSavingThrow(RuleDefinitions.EffectSavingThrowType savingThrowAffinity)
+        public EffectFormBuilder HasSavingThrow(EffectSavingThrowType savingThrowAffinity)
         {
             effectForm.HasSavingThrow = true;
             effectForm.SavingThrowAffinity = savingThrowAffinity;
             return this;
         }
 
-        public EffectFormBuilder CanSaveToCancel(RuleDefinitions.TurnOccurenceType saveOccurence)
+        public EffectFormBuilder CanSaveToCancel(TurnOccurenceType saveOccurence)
         {
             effectForm.CanSaveToCancel = true;
             effectForm.SaveOccurence = saveOccurence;
@@ -44,21 +45,14 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        [Obsolete("Use SetBonusMode")]
-        public EffectFormBuilder ApplyAbilityBonus()
-        {
-            this.SetBonusMode(RuleDefinitions.AddBonusMode.AbilityBonus);
-            return this;
-        }
-
-        public EffectFormBuilder SetBonusMode(RuleDefinitions.AddBonusMode bonusMode)
+        public EffectFormBuilder SetBonusMode(AddBonusMode bonusMode)
         {
             effectForm.AddBonusMode = bonusMode;
             return this;
         }
 
         public EffectFormBuilder SetLevelAdvancement(EffectForm.LevelApplianceType applyLevel,
-            RuleDefinitions.LevelSourceType levelType, int levelMultiplier)
+            LevelSourceType levelType, int levelMultiplier)
         {
             effectForm.SetApplyLevel(applyLevel);
             effectForm.SetLevelType(levelType);
@@ -121,17 +115,17 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public EffectFormBuilder SetDamageForm(bool versatile, RuleDefinitions.DieType versatileDieType, string damageType, int bonusDamage,
-            RuleDefinitions.DieType dieType, int diceNumber, RuleDefinitions.HealFromInflictedDamage healFromInflictedDamage,
-            params RuleDefinitions.TrendInfo[] damageBonusTrends)
+        public EffectFormBuilder SetDamageForm(bool versatile, DieType versatileDieType, string damageType, int bonusDamage,
+            DieType dieType, int diceNumber, HealFromInflictedDamage healFromInflictedDamage,
+            params TrendInfo[] damageBonusTrends)
         {
             return SetDamageForm(versatile, versatileDieType, damageType, bonusDamage, dieType,
                 diceNumber, healFromInflictedDamage, damageBonusTrends.AsEnumerable());
         }
 
-        public EffectFormBuilder SetDamageForm(bool versatile, RuleDefinitions.DieType versatileDieType, string damageType, int bonusDamage,
-            RuleDefinitions.DieType dieType, int diceNumber, RuleDefinitions.HealFromInflictedDamage healFromInflictedDamage,
-            IEnumerable<RuleDefinitions.TrendInfo> damageBonusTrends)
+        public EffectFormBuilder SetDamageForm(bool versatile, DieType versatileDieType, string damageType, int bonusDamage,
+            DieType dieType, int diceNumber, HealFromInflictedDamage healFromInflictedDamage,
+            IEnumerable<TrendInfo> damageBonusTrends)
         {
             effectForm.FormType = EffectForm.EffectFormType.Damage;
             DamageForm damageForm = new DamageForm();
@@ -160,9 +154,9 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public EffectFormBuilder SetHealingForm(RuleDefinitions.HealingComputation healingComputation,
-            int bonusHitPoints, RuleDefinitions.DieType dieType, int diceNumber, bool variablePool,
-            RuleDefinitions.HealingCap healingCap)
+        public EffectFormBuilder SetHealingForm(HealingComputation healingComputation,
+            int bonusHitPoints, DieType dieType, int diceNumber, bool variablePool,
+            HealingCap healingCap)
         {
             effectForm.FormType = EffectForm.EffectFormType.Healing;
 
@@ -179,12 +173,12 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public EffectFormBuilder SetItemPropertyForm(RuleDefinitions.ItemPropertyUsage usageLimitation, int useAmount, params FeatureUnlockByLevel[] featureBySlotLevel)
+        public EffectFormBuilder SetItemPropertyForm(ItemPropertyUsage usageLimitation, int useAmount, params FeatureUnlockByLevel[] featureBySlotLevel)
         {
             return SetItemPropertyForm(featureBySlotLevel.AsEnumerable(), usageLimitation, useAmount);
         }
 
-        public EffectFormBuilder SetItemPropertyForm(IEnumerable<FeatureUnlockByLevel> featureBySlotLevel, RuleDefinitions.ItemPropertyUsage usageLimitation, int useAmount)
+        public EffectFormBuilder SetItemPropertyForm(IEnumerable<FeatureUnlockByLevel> featureBySlotLevel, ItemPropertyUsage usageLimitation, int useAmount)
         {
             effectForm.FormType = EffectForm.EffectFormType.ItemProperty;
             ItemPropertyForm itemForm = new ItemPropertyForm();
@@ -195,7 +189,7 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public EffectFormBuilder SetLightSourceForm(RuleDefinitions.LightSourceType lightSourceType, int brightRange, int dimAdditionalRange,
+        public EffectFormBuilder SetLightSourceForm(LightSourceType lightSourceType, int brightRange, int dimAdditionalRange,
             Color color, AssetReference graphicsPrefabReference)
         {
             effectForm.FormType = EffectForm.EffectFormType.LightSource;
@@ -219,13 +213,13 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public EffectFormBuilder SetReviveForm(int secondsSinceDeath, RuleDefinitions.ReviveHitPoints reviveHitPoints,
+        public EffectFormBuilder SetReviveForm(int secondsSinceDeath, ReviveHitPoints reviveHitPoints,
             params ConditionDefinition[] removedConditions)
         {
             return SetReviveForm(secondsSinceDeath, reviveHitPoints, removedConditions.AsEnumerable());
         }
 
-        public EffectFormBuilder SetReviveForm(int secondsSinceDeath, RuleDefinitions.ReviveHitPoints reviveHitPoints,
+        public EffectFormBuilder SetReviveForm(int secondsSinceDeath, ReviveHitPoints reviveHitPoints,
             IEnumerable<ConditionDefinition> removedConditions)
         {
             effectForm.FormType = EffectForm.EffectFormType.Revive;

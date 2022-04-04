@@ -683,8 +683,8 @@ Feature/&AdditionalDamageHinderingBlastTitle	Explosion gênante
 Feature/&AgonizingBlastFeatureSetDescription	Lorsque vous lancez un sort utilisant des dégâts de force (explosion occulte), ajoutez votre modificateur de Charisme aux dégâts qu'il inflige lors d'un coup.
 Feature/&AgonizingBlastFeatureSetTitle	Explosion agonisante
 Feature/&AHSoulBladeEmpowerDamageBonusDescription	Vous êtes renforcé et infligez un bonus de dégâts égal à votre maîtrise de toutes vos attaques.
-Feature/&AHSoulBladeEmpowerDamageBonusTitle	Âme habilitée
-Feature/&AHSoulBladeEmpowerDamageBonusTitleDescription	Vous êtes renforcé et infligez un bonus de dégâts égal à votre maîtrise de toutes vos attaques.
+Feature/&AHSoulBladeEmpowerWeaponDamageBonusTitle	Âme habilitée
+Feature/&AHSoulBladeEmpowerWeaponDamageBonusDescription	Vous êtes renforcé et infligez un bonus de dégâts égal à votre maîtrise de toutes vos attaques.
 Feature/&AHSoulBladeEmpowerWeaponConditionDescription	Vous êtes renforcé et infligez un bonus de dégâts égal à votre maîtrise de toutes vos attaques.
 Feature/&AHSoulBladeEmpowerWeaponConditionTitle	Âme habilitée
 Feature/&AHSoulBladeSummonPactWeaponPowerDescription	Une fois par repos court, vous pouvez invoquer une forme spirituelle d'une arme de votre pacte par une action libre. Par une action bonus, vous pouvez diriger l'arme comme vous le souhaitez pour attaquer vos ennemis. L'arme se déplace jusqu'à 20 pieds à chaque fois avant de frapper.

@@ -20,12 +20,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:BolgrifInvisibilityPower:36dcb055-372c-4abf-83b7-4405475d9295",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:BolgrifPowerfulBuild:3f635935-28a3-4bfd-8f51-77417ad7eb8a",
+      "featureDefinition": "Definition:ProficiencyBolgrifLanguages:dc03c8d7-5098-4dec-9f60-46e3af0d63c9",
       "level": 1
     },
     {
@@ -35,12 +30,17 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyBolgrifLanguages:dc03c8d7-5098-4dec-9f60-46e3af0d63c9",
+      "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+      "featureDefinition": "Definition:BolgrifPowerfulBuild:3f635935-28a3-4bfd-8f51-77417ad7eb8a",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:BolgrifInvisibilityPower:36dcb055-372c-4abf-83b7-4405475d9295",
       "level": 1
     },
     {
@@ -269,7 +269,7 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Race/&BolgrifRaceTitle",
     "description": "Race/&BolgrifRaceDescription",
     "spriteReference": {

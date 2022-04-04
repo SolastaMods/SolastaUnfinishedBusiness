@@ -683,8 +683,8 @@ Feature/&AdditionalDamageHinderingBlastTitle	Hinderliche Explosion
 Feature/&AgonizingBlastFeatureSetDescription	Wenn du einen Zauber wirkst, der Gewaltschaden (dunkle Explosion) verwendet, addiere deinen Charisma-Modifikator zu dem Schaden, den er bei einem Treffer verursacht.
 Feature/&AgonizingBlastFeatureSetTitle	Qualvolle Explosion
 Feature/&AHSoulBladeEmpowerDamageBonusDescription	Du bist ermächtigt und fügst bei all deinen Angriffen einen Schadensbonus in Höhe deines Könnens zu.
-Feature/&AHSoulBladeEmpowerDamageBonusTitle	Seele ermächtigt
-Feature/&AHSoulBladeEmpowerDamageBonusTitleDescription	Du bist ermächtigt und fügst bei all deinen Angriffen einen Schadensbonus in Höhe deines Könnens zu.
+Feature/&AHSoulBladeEmpowerWeaponDamageBonusTitle	Seele ermächtigt
+Feature/&AHSoulBladeEmpowerWeaponDamageBonusDescription	Du bist ermächtigt und fügst bei all deinen Angriffen einen Schadensbonus in Höhe deines Könnens zu.
 Feature/&AHSoulBladeEmpowerWeaponConditionDescription	Du bist ermächtigt und fügst bei all deinen Angriffen einen Schadensbonus in Höhe deines Könnens zu.
 Feature/&AHSoulBladeEmpowerWeaponConditionTitle	Seele ermächtigt
 Feature/&AHSoulBladeSummonPactWeaponPowerDescription	Einmal pro kurzer Rast kannst du als Freie Aktion eine spirituelle Form einer Waffe aus deinem Pakt beschwören. Als Bonusaktion kannst du die Waffe wie gewünscht lenken, um deine Feinde anzugreifen. Die Waffe bewegt sich jedes Mal bis zu 20 Fuß, bevor sie zuschlägt.

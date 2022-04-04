@@ -683,8 +683,8 @@ Feature/&AdditionalDamageHinderingBlastTitle	Impedindo Explosão
 Feature/&AgonizingBlastFeatureSetDescription	Quando você lançar um feitiço usando dano de força (explosão mística), adicione seu modificador de Carisma ao dano que ele causa em um acerto.
 Feature/&AgonizingBlastFeatureSetTitle	Explosão Agonizante
 Feature/&AHSoulBladeEmpowerDamageBonusDescription	Você é fortalecido e causa um bônus de dano igual à sua proficiência em todos os seus ataques.
-Feature/&AHSoulBladeEmpowerDamageBonusTitle	Fortalecido pela alma
-Feature/&AHSoulBladeEmpowerDamageBonusTitleDescription	Você é fortalecido e causa um bônus de dano igual à sua proficiência em todos os seus ataques.
+Feature/&AHSoulBladeEmpowerWeaponDamageBonusTitle	Fortalecido pela alma
+Feature/&AHSoulBladeEmpowerWeaponDamageBonusDescription	Você é fortalecido e causa um bônus de dano igual à sua proficiência em todos os seus ataques.
 Feature/&AHSoulBladeEmpowerWeaponConditionDescription	Você é fortalecido e causa um bônus de dano igual à sua proficiência em todos os seus ataques.
 Feature/&AHSoulBladeEmpowerWeaponConditionTitle	Fortalecido pela alma
 Feature/&AHSoulBladeSummonPactWeaponPowerDescription	Uma vez por descanso curto, você pode invocar uma forma espiritual de uma arma do seu pacto como uma ação livre. Como uma ação bônus, você pode direcionar a arma conforme desejar para atacar seus inimigos. A arma se move até 20 pés cada vez antes de atacar.

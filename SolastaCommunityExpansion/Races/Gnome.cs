@@ -84,14 +84,14 @@ namespace SolastaCommunityExpansion.Races
                 .SetMaximalAge(350)
                 .SetBaseHeight(47)
                 .SetBaseWeight(35)
-                .SetFeatures(
-                    (FeatureDefinitionMoveModes.MoveModeMove5, 1),
-                    (gnomeAbilityScoreModifierSet, 1),
-                    (FeatureDefinitionSenses.SenseNormalVision, 1),
-                    (FeatureDefinitionSenses.SenseDarkvision, 1),
-                    (gnomeCunning, 1),
-                    (gnomeNaturalIllusionist, 1),
-                    (gnomeLanguageProficiency, 1))
+                .SetFeaturesAtLevel(1,
+                    FeatureDefinitionMoveModes.MoveModeMove5,
+                    gnomeAbilityScoreModifierSet,
+                    FeatureDefinitionSenses.SenseNormalVision,
+                    FeatureDefinitionSenses.SenseDarkvision,
+                    gnomeCunning,
+                    gnomeNaturalIllusionist,
+                    gnomeLanguageProficiency)
                 .AddToDB();
 
             FeatDefinitions.FocusedSleeper.CompatibleRacesPrerequisite.Add(gnome.name);
