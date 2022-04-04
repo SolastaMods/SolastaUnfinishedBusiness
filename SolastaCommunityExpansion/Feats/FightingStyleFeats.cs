@@ -24,8 +24,8 @@ namespace SolastaCommunityExpansion.Feats
             );
 
             feats.AddRange(
-                FightingStyleContext.Styles.Values
-                    .Select(fs => BuildFightingStyleFeat(fs.GetStyle())));
+                FightingStyleContext.FightingStyles.Values
+                    .Select(fs => BuildFightingStyleFeat(fs)));
         }
 
         private static FeatDefinition BuildFightingStyleFeat(string style)

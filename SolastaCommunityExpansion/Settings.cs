@@ -70,6 +70,8 @@ namespace SolastaCommunityExpansion
         // SETTINGS UI TOGGLES
         //
 
+        public bool DisplayGeneralToggle { get; set; }      
+        public bool DisplayRacesToggle { get; set; }
         public bool DisplayClassesToggle { get; set; }
         public bool DisplaySubclassesToggle { get; set; }
         public bool DisplayFeatsToggle { get; set; }
@@ -137,13 +139,15 @@ namespace SolastaCommunityExpansion
         public bool UnlockGlowingColorsForAllMarksAndTatoos { get; set; }
 
         //
-        // Characters - Classes & Subclasses
+        // Characters - Races, Classes & Subclasses
         //
 
         public bool EnableUnlimitedArcaneRecoveryOnWizardSpellMaster { get; set; }
         public bool EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter { get; set; }
         public int OverrideRogueConArtistImprovedManipulationSpellDc { get; set; } = 3;
         public int OverrideWizardMasterManipulatorArcaneManipulationSpellDc { get; set; } = 2;
+        public int RaceSliderPosition { get; set; } = 1;
+        public List<string> RaceEnabled { get; } = new List<string>();
         public int ClassSliderPosition { get; set; } = 1;
         public List<string> ClassEnabled { get; } = new List<string>();
         public int SubclassSliderPosition { get; set; } = 1;
