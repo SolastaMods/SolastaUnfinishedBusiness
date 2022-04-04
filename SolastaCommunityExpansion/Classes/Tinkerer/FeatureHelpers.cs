@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -34,23 +35,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                     proficiencyBonusToAttack, abilityScoreBonusToAttack, abilityScore, effectDescription, guiPresentation)
             {
                 Definition.SetOverriddenPower(overridenPower);
-            }
-        }
-
-        public class FeatureDefinitionProficiencyBuilder : Builders.Features.FeatureDefinitionProficiencyBuilder
-        {
-            public FeatureDefinitionProficiencyBuilder(string name, string guid, RuleDefinitions.ProficiencyType type,
-                GuiPresentation guiPresentation, params string[] proficiencies) :
-                this(name: name, guid, type, guiPresentation, proficiencies.AsEnumerable())
-            {
-            }
-
-            public FeatureDefinitionProficiencyBuilder(string name, string guid, RuleDefinitions.ProficiencyType type,
-                GuiPresentation guiPresentation, IEnumerable<string> proficiencies) : base(name, guid)
-            {
-                Definition.SetProficiencyType(type);
-                Definition.Proficiencies.AddRange(proficiencies);
-                Definition.SetGuiPresentation(guiPresentation);
             }
         }
 
@@ -315,10 +299,18 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             };
         }
 
-        public static FeatureDefinitionProficiency BuildProficiency(RuleDefinitions.ProficiencyType type,
-            IEnumerable<string> proficiencies, string name, GuiPresentation guiPresentation)
+        public static FeatureDefinitionProficiencyBuilder BuildProficiency(string name,
+            RuleDefinitions.ProficiencyType type, params string[] proficiencies)
         {
-            return new FeatureDefinitionProficiencyBuilder(name, GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(), type, guiPresentation, proficiencies).AddToDB();
+            return BuildProficiency(name, type, proficiencies.AsEnumerable());
+        }
+
+        public static FeatureDefinitionProficiencyBuilder BuildProficiency(string name,
+            RuleDefinitions.ProficiencyType type, IEnumerable<string> proficiencies)
+        {
+            return FeatureDefinitionProficiencyBuilder
+                .Create(name, TinkererClass.GuidNamespace)
+                .SetProficiencies(type,  proficiencies);
         }
 
         public static FeatureDefinitionAttributeModifier BuildAttributeModifier(AttributeModifierOperation modifierType,

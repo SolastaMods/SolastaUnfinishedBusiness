@@ -148,40 +148,30 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 EquipmentOptionsBuilder.Option(ItemDefinitions.ThievesTool, EquipmentDefinitions.OptionTool, 1),
                 EquipmentOptionsBuilder.Option(ItemDefinitions.DungeoneerPack, EquipmentDefinitions.OptionStarterPack, 1));
 
-            //public List<FeatureUnlockByLevel> FeatureUnlocks { get; }
-            FeatureDefinitionProficiency armorProf = FeatureHelpers.BuildProficiency(RuleDefinitions.ProficiencyType.Armor,
-                new List<string>() { EquipmentDefinitions.LightArmorCategory, EquipmentDefinitions.MediumArmorCategory, EquipmentDefinitions.ShieldCategory },
-                "ProficiencyArmorTinkerer",
-                new GuiPresentationBuilder(
-                    "Feature/&TinkererArmorProficiencyTitle",
-                    "Feature/&TinkererArmorTrainingShortDescription").Build());
-            artificerBuilder.AddFeatureAtLevel(1, armorProf);
+            var armorProf = FeatureHelpers
+                .BuildProficiency("ProficiencyArmorTinkerer", RuleDefinitions.ProficiencyType.Armor, EquipmentDefinitions.LightArmorCategory, EquipmentDefinitions.MediumArmorCategory, EquipmentDefinitions.ShieldCategory)
+                .SetGuiPresentation("TinkererArmorProficiency", Category.Feature)
+                .AddToDB();
 
-            FeatureDefinitionProficiency weaponProf = FeatureHelpers.BuildProficiency(RuleDefinitions.ProficiencyType.Weapon,
-                new List<string>() { EquipmentDefinitions.SimpleWeaponCategory },
-                "ProficiencyWeaponTinkerer",
-                new GuiPresentationBuilder(
-                    "Feature/&TinkererWeaponProficiencyTitle",
-                    "Feature/&TinkererWeaponTrainingShortDescription").Build());
-            artificerBuilder.AddFeatureAtLevel(1, weaponProf);
+            var weaponProf = FeatureHelpers
+                .BuildProficiency("ProficiencyWeaponTinkerer", RuleDefinitions.ProficiencyType.Weapon, EquipmentDefinitions.SimpleWeaponCategory)
+                .SetGuiPresentation("TinkererWeaponProficiency", Category.Feature)
+                .AddToDB();
 
-            FeatureDefinitionProficiency toolProf = FeatureHelpers.BuildProficiency(RuleDefinitions.ProficiencyType.Tool,
-                new List<string>() { ToolTypeDefinitions.ThievesToolsType.Name, ToolTypeDefinitions.ScrollKitType.Name,
+            var toolProf = FeatureHelpers
+                .BuildProficiency("ProficiencyToolsTinkerer", RuleDefinitions.ProficiencyType.Tool,
+                    ToolTypeDefinitions.ThievesToolsType.Name, ToolTypeDefinitions.ScrollKitType.Name,
                     ToolTypeDefinitions.PoisonersKitType.Name, ToolTypeDefinitions.HerbalismKitType.Name,
-                    ToolTypeDefinitions.EnchantingToolType.Name, ToolTypeDefinitions.ArtisanToolSmithToolsType.Name},
-                "ProficiencyToolsTinkerer",
-                new GuiPresentationBuilder(
-                    "Feature/&TinkererToolsProficiencyTitle",
-                    "Feature/&TinkererToolProficiencyPluralShortDescription").Build());
-            artificerBuilder.AddFeatureAtLevel(1, toolProf);
+                    ToolTypeDefinitions.EnchantingToolType.Name, ToolTypeDefinitions.ArtisanToolSmithToolsType.Name)
+                .SetGuiPresentation("TinkererToolsProficiency", Category.Feature)
+                .AddToDB();
 
-            FeatureDefinitionProficiency saveProf = FeatureHelpers.BuildProficiency(RuleDefinitions.ProficiencyType.SavingThrow,
-                new List<string>() { AttributeDefinitions.Constitution, AttributeDefinitions.Intelligence },
-                "ProficiencyTinkererSavingThrow",
-                new GuiPresentationBuilder(
-                    "Feature/&SavingThrowTinkererProficiencyTitle",
-                    "Feature/&SavingThrowTinkererProficiencyDescription").Build());
-            artificerBuilder.AddFeatureAtLevel(1, saveProf);
+            var saveProf = FeatureHelpers
+                .BuildProficiency("ProficiencyTinkererSavingThrow", RuleDefinitions.ProficiencyType.SavingThrow, AttributeDefinitions.Constitution, AttributeDefinitions.Intelligence)
+                .SetGuiPresentation("SavingThrowTinkererProficiency", Category.Feature)
+                .AddToDB();
+
+            artificerBuilder.AddFeaturesAtLevel(1, armorProf, weaponProf, toolProf, saveProf);
 
             // skill point pool (1)
             var skillPoints = FeatureDefinitionPointPoolBuilder
@@ -260,14 +250,14 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             artificerBuilder.AddFeatureAtLevel(4, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
 
             // Tool expertise (level 6)
-            FeatureDefinitionProficiency toolExpertise = FeatureHelpers.BuildProficiency(RuleDefinitions.ProficiencyType.ToolOrExpertise,
-                new List<string>() { ToolTypeDefinitions.ThievesToolsType.Name, ToolTypeDefinitions.ScrollKitType.Name,
+            var toolExpertise = FeatureHelpers.BuildProficiency("ExpertiseToolsTinkerer",
+                RuleDefinitions.ProficiencyType.ToolOrExpertise,
+                    ToolTypeDefinitions.ThievesToolsType.Name, ToolTypeDefinitions.ScrollKitType.Name,
                     ToolTypeDefinitions.PoisonersKitType.Name, ToolTypeDefinitions.HerbalismKitType.Name,
-                    ToolTypeDefinitions.EnchantingToolType.Name, ToolTypeDefinitions.ArtisanToolSmithToolsType.Name},
-                "ExpertiseToolsTinkerer",
-                new GuiPresentationBuilder(
-                    "Feature/&TinkererToolsExpertiseTitle",
-                    "Feature/&TinkererToolsExpertisePluralShortDescription").Build());
+                    ToolTypeDefinitions.EnchantingToolType.Name, ToolTypeDefinitions.ArtisanToolSmithToolsType.Name)
+                .SetGuiPresentation("", Category.Feature)
+                .AddToDB();
+
             artificerBuilder.AddFeatureAtLevel(6, toolExpertise);
 
             FeatureDefinitionPowerPoolModifier InfusionPoolIncrease = FeatureDefinitionPowerPoolModifierBuilder
