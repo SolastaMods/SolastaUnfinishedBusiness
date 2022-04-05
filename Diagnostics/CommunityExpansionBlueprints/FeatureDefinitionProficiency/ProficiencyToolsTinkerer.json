@@ -2,19 +2,19 @@
   "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
   "proficiencyType": "Tool",
   "proficiencies": [
-    "ThievesToolsType",
-    "ScrollKitType",
-    "PoisonersKitType",
-    "HerbalismKitType",
+    "ArtisanToolSmithToolsType",
     "EnchantingToolType",
-    "ArtisanToolSmithToolsType"
+    "HerbalismKitType",
+    "PoisonersKitType",
+    "ScrollKitType",
+    "ThievesToolsType"
   ],
   "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&TinkererToolsProficiencyTitle",
-    "description": "Feature/&TinkererToolProficiencyPluralShortDescription",
+    "description": "Feature/&TinkererToolsProficiencyDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

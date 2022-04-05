@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomFeatureDefinitions;
-using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Patches.Bugfix;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
 using static FeatureDefinitionCastSpell;
+using static SolastaCommunityExpansion.Models.SpellsContext;
 using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
@@ -70,30 +70,30 @@ namespace SolastaCommunityExpansion.Spells
         internal static void Register()
         {
             // 7th level
-            SpellsContext.RegisterSpell(DivineWord, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListCleric");
-            SpellsContext.RegisterSpell(FingerOfDeath, isFromOtherMod: false, "ClassWarlockSpellList", "SpellListWizard", "SpellListSorcerer");
-            SpellsContext.RegisterSpell(ReverseGravity, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListDruid", "SpellListWizard", "SpellListSorcerer");
-            SpellsContext.RegisterSpell(ConjureCelestial, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListCleric");
+            RegisterSpell(DivineWord, isFromOtherMod: false, NOT_IN_MIN_SET, CLERIC_SPELLLIST);
+            RegisterSpell(FingerOfDeath, isFromOtherMod: false, WARLOCK_SPELLLIST, WITCH_SPELLLIST, WIZARD_SPELLLIST, SORCERER_SPELLLIST);
+            RegisterSpell(ReverseGravity, isFromOtherMod: false, NOT_IN_MIN_SET, DRUID_SPELLLIST, WIZARD_SPELLLIST, SORCERER_SPELLLIST);
+            RegisterSpell(ConjureCelestial, isFromOtherMod: false, NOT_IN_MIN_SET, CLERIC_SPELLLIST);
 
             // 8th level
-            SpellsContext.RegisterSpell(DominateMonster, isFromOtherMod: false, "ClassWarlockSpellList", "SpellListWizard", "SpellListSorcerer", "WitchSpellList");
-            SpellsContext.RegisterSpell(Feeblemind, isFromOtherMod: false, "ClassWarlockSpellList", "SpellListWizard", "SpellListDruid", "WitchSpellList");
-            SpellsContext.RegisterSpell(HolyAura, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListCleric");
-            SpellsContext.RegisterSpell(IncendiaryCloud, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListWizard", "SpellListSorcerer");
-            SpellsContext.RegisterSpell(Maze, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListWizard");
-            SpellsContext.RegisterSpell(MindBlank, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListWizard", "WitchSpellList");
-            SpellsContext.RegisterSpell(PowerWordStun, isFromOtherMod: false, "ClassWarlockSpellList", "SpellListWizard", "SpellListSorcerer", "WitchSpellList");
-            SpellsContext.RegisterSpell(SunBurst, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListDruid", "SpellListWizard", "SpellListSorcerer");
+            RegisterSpell(DominateMonster, isFromOtherMod: false, WARLOCK_SPELLLIST, WIZARD_SPELLLIST, SORCERER_SPELLLIST, WITCH_SPELLLIST);
+            RegisterSpell(Feeblemind, isFromOtherMod: false, WARLOCK_SPELLLIST, WIZARD_SPELLLIST, DRUID_SPELLLIST, WITCH_SPELLLIST);
+            RegisterSpell(HolyAura, isFromOtherMod: false, NOT_IN_MIN_SET, CLERIC_SPELLLIST);
+            RegisterSpell(IncendiaryCloud, isFromOtherMod: false, NOT_IN_MIN_SET, WIZARD_SPELLLIST, SORCERER_SPELLLIST);
+            RegisterSpell(Maze, isFromOtherMod: false, NOT_IN_MIN_SET, WIZARD_SPELLLIST);
+            RegisterSpell(MindBlank, isFromOtherMod: false, NOT_IN_MIN_SET, WIZARD_SPELLLIST, WITCH_SPELLLIST);
+            RegisterSpell(PowerWordStun, isFromOtherMod: false, WARLOCK_SPELLLIST, WIZARD_SPELLLIST, SORCERER_SPELLLIST, WITCH_SPELLLIST);
+            RegisterSpell(SunBurst, isFromOtherMod: false, NOT_IN_MIN_SET, DRUID_SPELLLIST, WIZARD_SPELLLIST, SORCERER_SPELLLIST);
 
             // 9th level
-            SpellsContext.RegisterSpell(Foresight, isFromOtherMod: false, "ClassWarlockSpellList", "SpellListDruid", "SpellListWizard", "WitchSpellList");
-            SpellsContext.RegisterSpell(MassHeal, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListCleric");
-            SpellsContext.RegisterSpell(MeteorSwarmSingleTarget, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListWizard", "SpellListSorcerer");
-            SpellsContext.RegisterSpell(PowerWordHeal, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListCleric");
-            SpellsContext.RegisterSpell(PowerWordKill, isFromOtherMod: false, "ClassWarlockSpellList", "SpellListWizard", "SpellListSorcerer");
-            SpellsContext.RegisterSpell(TimeStop, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListWizard", "SpellListSorcerer");
-            SpellsContext.RegisterSpell(Shapechange, isFromOtherMod: false, SpellsContext.NOT_IN_MIN_SET, "SpellListDruid", "SpellListWizard");
-            SpellsContext.RegisterSpell(Weird, isFromOtherMod: false, "ClassWarlockSpellList", "SpellListWizard", "WitchSpellList");
+            RegisterSpell(Foresight, isFromOtherMod: false, WARLOCK_SPELLLIST, DRUID_SPELLLIST, WIZARD_SPELLLIST, WITCH_SPELLLIST);
+            RegisterSpell(MassHeal, isFromOtherMod: false, NOT_IN_MIN_SET, CLERIC_SPELLLIST);
+            RegisterSpell(MeteorSwarmSingleTarget, isFromOtherMod: false, NOT_IN_MIN_SET, WIZARD_SPELLLIST, SORCERER_SPELLLIST);
+            RegisterSpell(PowerWordHeal, isFromOtherMod: false, NOT_IN_MIN_SET, CLERIC_SPELLLIST);
+            RegisterSpell(PowerWordKill, isFromOtherMod: false, WARLOCK_SPELLLIST, WIZARD_SPELLLIST, SORCERER_SPELLLIST);
+            RegisterSpell(TimeStop, isFromOtherMod: false, NOT_IN_MIN_SET, WIZARD_SPELLLIST, SORCERER_SPELLLIST);
+            RegisterSpell(Shapechange, isFromOtherMod: false, NOT_IN_MIN_SET, DRUID_SPELLLIST, WIZARD_SPELLLIST);
+            RegisterSpell(Weird, isFromOtherMod: false, WARLOCK_SPELLLIST, WIZARD_SPELLLIST, WITCH_SPELLLIST);
         }
 
         //

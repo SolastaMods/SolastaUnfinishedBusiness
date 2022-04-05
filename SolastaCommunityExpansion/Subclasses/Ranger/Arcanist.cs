@@ -37,7 +37,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
             var arcanist_mark = CreateArcanistMark();
             var arcane_detonation = CreateArcaneDetonation();
             var arcane_detonation_upgrade = CreateArcaneDetonationUpgrade();
-            var arcane_pulse_powers = CreateArcanePulsePowers();
+            var (arcane_pulse_action, arcane_pulse_upgrade_action) = CreateArcanePulsePowers();
 
             return CharacterSubclassDefinitionBuilder
                 .Create("RangerArcanistRangerSubclass", RangerArcanistRangerSubclassGuid)
@@ -45,9 +45,9 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
                 .AddFeatureAtLevel(ranger_arcanist_magic, 3)
                 .AddFeatureAtLevel(arcanist_mark, 3)
                 .AddFeatureAtLevel(arcane_detonation, 3)
-                .AddFeatureAtLevel(arcane_pulse_powers.arcane_pulse_action, 7)
+                .AddFeatureAtLevel(arcane_pulse_action, 7)
                 .AddFeatureAtLevel(arcane_detonation_upgrade, 11)
-                .AddFeatureAtLevel(arcane_pulse_powers.arcane_pulse_upgrade_action, 15)
+                .AddFeatureAtLevel(arcane_pulse_upgrade_action, 15)
                 .AddToDB();
         }
 

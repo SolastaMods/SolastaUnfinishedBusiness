@@ -232,6 +232,9 @@ namespace SolastaCommunityExpansion.Viewers
             UI.Label("Controllers:".yellow());
             UI.Label("");
 
+            UI.Label(". Note the encounters feature won't work in a Multiplayer session. Yet...");
+            UI.Label("");
+
             toggle = Main.Settings.EnableEnemiesControlledByPlayer;
             if (UI.Toggle("Enable enemies controlled by players", ref toggle))
             {

@@ -10,6 +10,16 @@ namespace SolastaCommunityExpansion.Models
     internal static class SpellsContext
     {
         internal const string NOT_IN_MIN_SET = null;
+        internal const string CLERIC_SPELLLIST = "SpellListCleric";
+        internal const string DRUID_SPELLLIST = "SpellListDruid";
+        internal const string PALADIN_SPELLLIST = "SpellListPaladin";
+        internal const string RANGER_SPELLLIST = "SpellListRanger";
+        internal const string SORCERER_SPELLLIST = "SpellListSorcerer";
+        internal const string WARLOCK_SPELLLIST = "ClassWarlockSpellList";
+        internal const string WITCH_SPELLLIST = "WitchSpellList";
+        internal const string WIZARD_SPELLLIST = "SpellListWizard";
+        internal const string GREENMAGE_SPELLLIST = "SpellListWizardGreenmage";
+        internal const string SHOCK_ARCANIST_SPELLLIST = "SpellListShockArcanist";
 
         internal class SpellRecord
         {

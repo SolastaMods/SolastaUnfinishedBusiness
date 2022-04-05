@@ -15,13 +15,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
-            toggle = Main.Settings.DisplayGeneralToggle;
+            toggle = Main.Settings.DisplayGeneralRaceClassSubClassToggle;
             if (UI.DisclosureToggle("General:".yellow(), ref toggle, 200))
             {
-                Main.Settings.DisplayGeneralToggle = toggle;
+                Main.Settings.DisplayGeneralRaceClassSubClassToggle = toggle;
             }
 
-            if (!Main.Settings.DisplayGeneralToggle)
+            if (!Main.Settings.DisplayGeneralRaceClassSubClassToggle)
             {
                 return;
             }

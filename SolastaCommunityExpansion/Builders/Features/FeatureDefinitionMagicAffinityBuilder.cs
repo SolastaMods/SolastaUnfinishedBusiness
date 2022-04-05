@@ -58,16 +58,16 @@ namespace SolastaCommunityExpansion.Builders.Features
             return this;
         }
 
-        public FeatureDefinitionMagicAffinityBuilder SetWarList(int levelBonus, params string[] spellNames)
+        public FeatureDefinitionMagicAffinityBuilder SetWarList(int levelBonus, params SpellDefinition[] spells)
         {
-            return SetWarList(levelBonus, spellNames.AsEnumerable());
+            return SetWarList(levelBonus, spells.AsEnumerable());
         }
 
-        public FeatureDefinitionMagicAffinityBuilder SetWarList(int levelBonus, IEnumerable<string> spellNames)
+        public FeatureDefinitionMagicAffinityBuilder SetWarList(int levelBonus, IEnumerable<SpellDefinition> spells)
         {
             Definition.SetUsesWarList(true);
             Definition.SetWarListSlotBonus(levelBonus);
-            Definition.WarListSpells.AddRange(spellNames);
+            Definition.WarListSpells.AddRange(spells.Select(s => s.Name));
             Definition.WarListSpells.Sort();
             return this;
         }
