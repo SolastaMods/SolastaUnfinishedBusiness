@@ -227,7 +227,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                     .Build();
 
                 ConditionDefinition ElementalFormCondtion = new Tinkerer.FeatureHelpers.ConditionDefinitionBuilder(
-                    "DH_ElementalForm_" + text + "Condition", GuidHelper.Create(new Guid(Settings.GUID), "DH_ElementalForm_" + text + "Condition").ToString(),
+                    "DH_ElementalForm_" + text + "Condition", DefinitionBuilder.CENamespaceGuid,
                     DurationType.Minute, 1, false, guiPresentationElementalFormCondition,
                     Dictionaryof_Elemental_damageResistances[entry.Key],
                         additionalDamage

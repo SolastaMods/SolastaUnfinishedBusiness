@@ -53,7 +53,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                     .Build();
 
             ConditionDefinition spellResistanceCondition = new Tinkerer.FeatureHelpers.ConditionDefinitionBuilder(
-                "DHSpellResistenceCondition", GuidHelper.Create(new Guid(Settings.GUID), "DHSpellResistenceCondition").ToString(),
+                "DHSpellResistenceCondition", DefinitionBuilder.CENamespaceGuid,
                 RuleDefinitions.DurationType.Minute,
                 1,
                 false,
