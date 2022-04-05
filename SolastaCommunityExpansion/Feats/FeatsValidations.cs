@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Feats
 
         internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateMinCharLevel(int minCharLevel)
         {
-            return (FeatDefinition _, RulesetCharacterHero hero) =>
+            return (_, hero) =>
             {
                 var isLevelValid = hero.ClassesHistory.Count >= minCharLevel;
 
@@ -21,10 +21,8 @@ namespace SolastaCommunityExpansion.Feats
                 {
                     return (true, Gui.Format("Tooltip/&FeatPrerequisiteLevelFormat", minCharLevel.ToString()));
                 }
-                else
-                {
-                    return (false, Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteLevelFormat", minCharLevel.ToString()), "EA7171"));
-                }
+
+                return (false, Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteLevelFormat", minCharLevel.ToString()), "EA7171"));
             };
         }
 
@@ -32,7 +30,7 @@ namespace SolastaCommunityExpansion.Feats
         {
             var className = characterClassDefinition.Name;
 
-            return (FeatDefinition _, RulesetCharacterHero hero) =>
+            return (_, hero) =>
             {
                 var isNotClass = !hero.ClassesAndLevels.ContainsKey(characterClassDefinition);
 
@@ -40,10 +38,8 @@ namespace SolastaCommunityExpansion.Feats
                 {
                     return (true, Gui.Format($"Tooltip/&FeatPrerequisiteIsNot{className}"));
                 }
-                else
-                {
-                    return (false, Gui.Colorize(Gui.Format($"Tooltip/&FeatPrerequisiteIsNot{className}"), "EA7171"));
-                }
+
+                return (false, Gui.Colorize(Gui.Format($"Tooltip/&FeatPrerequisiteIsNot{className}"), "EA7171"));
             };
         }
 

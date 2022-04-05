@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using System.IO;
+﻿using System.IO;
 using System.Text;
 using ModKit;
 using SolastaCommunityExpansion.DataMiner;
@@ -234,7 +233,7 @@ All settings start disabled by default. On first start the mod will display an w
                 }
 
                 var descriptionData = string.Format(ModDescription,
-                    collectedCredits.ToString(),
+                    collectedCredits,
                     RacesContext.GenerateRaceDescription(),
                     ClassesContext.GenerateClassDescription(),
                     SubclassesContext.GenerateSubclassDescription(),

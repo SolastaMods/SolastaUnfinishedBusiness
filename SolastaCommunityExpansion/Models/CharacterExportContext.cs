@@ -74,7 +74,7 @@ namespace SolastaCommunityExpansion.Models
                 {
                     if (newFirstName.Contains(" "))
                     {
-                        var a = newFirstName.Split(new char[] { ' ' }, 2);
+                        var a = newFirstName.Split(new[] { ' ' }, 2);
 
                         newFirstName = ParseText(a[0]);
                         newSurname = hasSurname ? ParseText(a[1]) ?? string.Empty : string.Empty;

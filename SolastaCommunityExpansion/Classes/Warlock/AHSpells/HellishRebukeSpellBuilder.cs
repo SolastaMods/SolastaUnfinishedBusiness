@@ -1,8 +1,6 @@
-﻿using System;
-using SolastaModApi;
-using SolastaModApi.Extensions;
+﻿
 
-    /*
+/*
 namespace SolastaCommunityExpansion.Classes.Warlock.AHSpells
 {
     internal class HellishRebukeSpellBuilder : BaseDefinitionBuilder<SpellDefinition>

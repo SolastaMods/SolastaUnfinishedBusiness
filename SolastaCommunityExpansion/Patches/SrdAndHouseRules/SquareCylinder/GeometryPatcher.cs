@@ -41,7 +41,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SquareCylinder
 
             if (!adaptToGroundLevel)
             {
-                if ((double)edgeSize % 2.0 == 0.0)
+                if (edgeSize % 2.0 == 0.0)
                     vector3 = new Vector3(0.5f, 0.0f, 0.5f);
 
                 if (height % 2.0 == 0.0)
@@ -49,9 +49,9 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SquareCylinder
             }
             else
             {
-                vector3.y = (float)(0.5 * (double)height - 0.5);
+                vector3.y = (float)(0.5 * height - 0.5);
 
-                if ((double)edgeSize % 2.0 == 0.0)
+                if (edgeSize % 2.0 == 0.0)
                     vector3 += new Vector3(0.5f, 0.0f, 0.5f);
             }
 
@@ -139,7 +139,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SquareCylinder
 
             if (___hasMagneticTargeting || ___rangeType == RuleDefinitions.RangeType.Self)
             {
-                if ((double)edgeSize % 2.0 == 0.0)
+                if (edgeSize % 2.0 == 0.0)
                     vector = new Vector3(0.5f, 0f, 0.5f);
 
                 if (height % 2.0 == 0.0)
@@ -147,9 +147,9 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SquareCylinder
             }
             else
             {
-                vector = new Vector3(0.0f, (float)(0.5 * (double)height - 0.5), 0.0f);
+                vector = new Vector3(0.0f, (float)(0.5 * height - 0.5), 0.0f);
 
-                if ((double)edgeSize % 2.0 == 0.0)
+                if (edgeSize % 2.0 == 0.0)
                     vector += new Vector3(0.5f, 0.0f, 0.5f);
             }
 
@@ -191,7 +191,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SquareCylinder
 
             if (hasMagneticTargeting)
             {
-                if ((double)edgeSize % 2.0 == 0.0)
+                if (edgeSize % 2.0 == 0.0)
                     vector3 = new Vector3(0.5f, 0f, 0.5f);
 
                 if (height % 2.0 == 0.0)
@@ -199,18 +199,18 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SquareCylinder
             }
             else
             {
-                vector3.y = (float)(0.5 * (double)height - 0.5);
+                vector3.y = (float)(0.5 * height - 0.5);
 
-                if ((double)edgeSize % 2.0 == 0.0)
+                if (edgeSize % 2.0 == 0.0)
                     vector3 += new Vector3(0.5f, 0.0f, 0.5f);
             }
 
             var vector3_2 = point - cubeOrigin - vector3;
 
             __result =
-                (double)Mathf.Abs(vector3_2.x) <= (double)0.5f * edgeSize
-                && (double)Mathf.Abs(vector3_2.y) <= (double)0.5f * height
-                && (double)Mathf.Abs(vector3_2.z) <= (double)0.5f * edgeSize;
+                Mathf.Abs(vector3_2.x) <= (double)0.5f * edgeSize
+                && Mathf.Abs(vector3_2.y) <= (double)0.5f * height
+                && Mathf.Abs(vector3_2.z) <= (double)0.5f * edgeSize;
 
             Main.Log($"GeometryUtils_CubeContainsPoint_Regular (on): edge={edgeSize}, height={height}, origin=({cubeOrigin.x}, {cubeOrigin.y}, {cubeOrigin.z}), point=({point.x}, {point.y}, {point.z}), result={__result}");
 

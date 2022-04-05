@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.AtttributeModifierBon
         {
             if (__instance.Operation == (FeatureDefinitionAttributeModifier.AttributeModifierOperation)ExtraAttributeModifierOperation.AdditiveAtEnd)
             {
-                __result = Mathf.FloorToInt(__instance.Value + (float)originValue);
+                __result = Mathf.FloorToInt(__instance.Value + originValue);
             }
         }
     }

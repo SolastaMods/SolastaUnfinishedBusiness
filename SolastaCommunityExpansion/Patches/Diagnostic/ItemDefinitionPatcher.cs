@@ -62,7 +62,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
                 Main.Log(msg);
 
                 var path = Path.Combine(DiagnosticsContext.DiagnosticsFolder, LogName);
-                File.AppendAllLines(path, new string[] {
+                File.AppendAllLines(path, new[] {
                         $"{Environment.NewLine}",
                         $"------------------------------------------------------------------------------------",
                         msg

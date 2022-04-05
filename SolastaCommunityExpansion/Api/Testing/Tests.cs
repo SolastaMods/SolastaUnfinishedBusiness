@@ -130,13 +130,13 @@ namespace SolastaModApi.Testing
                                             {
                                                 setter
                                                     .MakeGenericMethod(extension.TargetType)
-                                                    .Invoke(null, new object[] { instance, GetDefaultValue() });
+                                                    .Invoke(null, new[] { instance, GetDefaultValue() });
                                             }
                                             else
                                             {
                                                 // sealed type extensions aren't generic
                                                 setter
-                                                    .Invoke(null, new object[] { instance, GetDefaultValue() });
+                                                    .Invoke(null, new[] { instance, GetDefaultValue() });
                                             }
 
                                             methodsSucceeded++;

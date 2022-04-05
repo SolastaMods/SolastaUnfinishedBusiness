@@ -2,9 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
-using SolastaCommunityExpansion.Models;
 using SolastaModApi.Infrastructure;
-using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
 {

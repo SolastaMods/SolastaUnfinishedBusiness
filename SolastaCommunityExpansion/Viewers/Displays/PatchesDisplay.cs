@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using HarmonyLib;
@@ -13,7 +12,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
     {
         private static Dictionary<string, string> _modIdsToColor;
         private static string _modID;
-        private static Dictionary<MethodBase, List<Patch>> _patches = null;
+        private static Dictionary<MethodBase, List<Patch>> _patches;
         private static readonly Dictionary<MethodBase, List<Patch>> _disabled = new() { };
         private static GUIStyle _buttonStyle;
         private static bool firstTime = true;
