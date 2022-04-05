@@ -121,7 +121,7 @@ namespace SolastaCommunityExpansion.Builders
         public static TBuilder SetGuiPresentation<TBuilder>(this TBuilder builder, GuiPresentation guiPresentation)
             where TBuilder : IDefinitionBuilder
         {
-            ((IDefinitionBuilder)builder).SetGuiPresentation(guiPresentation);
+            builder.SetGuiPresentation(guiPresentation);
             return builder;
         }
 
@@ -154,7 +154,7 @@ namespace SolastaCommunityExpansion.Builders
         public static TBuilder SetGuiPresentation<TBuilder>(this TBuilder builder, Category category, AssetReferenceSprite sprite = null, int sortOrder = 0)
             where TBuilder : IDefinitionBuilder
         {
-            var definitionName = ((IDefinitionBuilder)builder).Name;
+            var definitionName = builder.Name;
 
             return SetGuiPresentation(builder, GuiPresentationBuilder.Build(null, definitionName, category, sprite, sortOrder));
         }
@@ -165,7 +165,7 @@ namespace SolastaCommunityExpansion.Builders
         public static TBuilder SetOrUpdateGuiPresentation<TBuilder>(this TBuilder builder, string title, string description, AssetReferenceSprite sprite = null)
             where TBuilder : IDefinitionBuilder
         {
-            var guip = ((IDefinitionBuilder)builder).GetGuiPresentation();
+            var guip = builder.GetGuiPresentation();
 
             return SetGuiPresentation(builder, GuiPresentationBuilder.Build(guip, title, description, sprite));
         }
@@ -179,7 +179,7 @@ namespace SolastaCommunityExpansion.Builders
         public static TBuilder SetOrUpdateGuiPresentation<TBuilder>(this TBuilder builder, string name, Category category, AssetReferenceSprite sprite = null, int sortOrder = 0)
             where TBuilder : IDefinitionBuilder
         {
-            var guip = ((IDefinitionBuilder)builder).GetGuiPresentation();
+            var guip = builder.GetGuiPresentation();
 
             return SetGuiPresentation(builder, GuiPresentationBuilder.Build(guip, name, category, sprite, sortOrder));
         }
@@ -194,8 +194,8 @@ namespace SolastaCommunityExpansion.Builders
         public static TBuilder SetOrUpdateGuiPresentation<TBuilder>(this TBuilder builder, Category category, AssetReferenceSprite sprite = null, int sortOrder = 0)
             where TBuilder : IDefinitionBuilder
         {
-            var guip = ((IDefinitionBuilder)builder).GetGuiPresentation();
-            var definitionName = ((IDefinitionBuilder)builder).Name;
+            var guip = builder.GetGuiPresentation();
+            var definitionName = builder.Name;
 
             return SetGuiPresentation(builder, GuiPresentationBuilder.Build(guip, definitionName, category, sprite, sortOrder));
         }
@@ -206,7 +206,7 @@ namespace SolastaCommunityExpansion.Builders
         public static TBuilder SetGuiPresentationNoContent<TBuilder>(this TBuilder builder, bool hidden = false)
             where TBuilder : IDefinitionBuilder
         {
-            ((IDefinitionBuilder)builder).SetGuiPresentation(hidden ? GuiPresentationBuilder.NoContentHidden : GuiPresentationBuilder.NoContent);
+            builder.SetGuiPresentation(hidden ? GuiPresentationBuilder.NoContentHidden : GuiPresentationBuilder.NoContent);
             return builder;
         }
 
@@ -216,7 +216,7 @@ namespace SolastaCommunityExpansion.Builders
         public static TBuilder SetGuiPresentationNoContent<TBuilder>(this TBuilder builder, AssetReferenceSprite sprite)
             where TBuilder : IDefinitionBuilder
         {
-            ((IDefinitionBuilder)builder).SetGuiPresentation(
+            builder.SetGuiPresentation(
                 GuiPresentationBuilder.Build(GuiPresentationBuilder.NoContentTitle, GuiPresentationBuilder.NoContentTitle, sprite));
             return builder;
         }

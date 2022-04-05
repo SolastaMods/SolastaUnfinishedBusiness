@@ -1,5 +1,4 @@
 ﻿using SolastaModApi;
-using SolastaModApi.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Classes.Warlock.AHSpells;
 using System.Collections.Generic;

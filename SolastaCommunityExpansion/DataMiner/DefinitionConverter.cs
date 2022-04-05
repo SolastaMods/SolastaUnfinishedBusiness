@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using SolastaCommunityExpansion.DataMiner;
 using System;
 
 namespace SolastaCommunityExpansion.DataMiner

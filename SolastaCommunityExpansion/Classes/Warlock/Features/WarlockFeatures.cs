@@ -1,6 +1,5 @@
 ﻿using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaModApi.Extensions;
 using static SolastaCommunityExpansion.Builders.DefinitionBuilder;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 

@@ -206,7 +206,7 @@ namespace SolastaCommunityExpansion.Models
                     "Message/&TeleportPartyTitle",
                     Gui.Format("Message/&TeleportPartyDescription", position.x.ToString(), position.x.ToString()),
                     "Message/&MessageYesTitle", "Message/&MessageNoTitle",
-                    new MessageModal.MessageValidatedHandler(() => TeleportParty(position)),
+                    () => TeleportParty(position),
                     null);
             }
 

@@ -70,7 +70,7 @@ namespace SolastaCommunityExpansion.Builders
 
         public ItemDefinitionBuilder SetGold(int gold)
         {
-            Definition.SetCosts(new int[] { 0, gold, 0, 0, 0 });
+            Definition.SetCosts(new[] { 0, gold, 0, 0, 0 });
             return this;
         }
 

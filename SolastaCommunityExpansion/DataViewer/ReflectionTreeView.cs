@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using ModKit;
 using ModKit.Utility;
 using UnityEngine;
-using static ModKit.Utility.StringExtensions;
 
 namespace SolastaCommunityExpansion.DataViewer
 {
@@ -20,9 +19,9 @@ namespace SolastaCommunityExpansion.DataViewer
         private int _startIndex;
         private int _skipLevels;
         private string searchText = "";
-        private int visitCount = 0;
-        private int searchDepth = 0;
-        private int searchBreadth = 0;
+        private int visitCount;
+        private int searchDepth;
+        private int searchBreadth;
         private void updateCounts(int visitCount, int depth, int breadth)
         {
             this.visitCount = visitCount;

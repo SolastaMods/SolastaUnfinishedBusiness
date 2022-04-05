@@ -392,7 +392,7 @@ namespace SolastaCommunityExpansion.Builders
             Preconditions.IsNotNullOrWhiteSpace(Definition.Name, nameof(Definition.Name));
             Preconditions.IsNotNullOrWhiteSpace(Definition.GUID, nameof(Definition.GUID));
 
-            if (!Guid.TryParse(Definition.GUID, out var guid))
+            if (!Guid.TryParse(Definition.GUID, out var _))
             {
                 throw new SolastaModApiException($"The string in Definition.GUID '{Definition.GUID}' is not a GUID.");
             }
