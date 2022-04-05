@@ -71,7 +71,7 @@ namespace SolastaCommunityExpansion.Models
             {
                 foreach (ItemDefinition item in items)
                 {
-                    item.SetCosts(new int[] { 0, Main.Settings.RecipeCost, 0, 0, 0 });
+                    item.SetCosts(new[] { 0, Main.Settings.RecipeCost, 0, 0, 0 });
                 }
             }
         }

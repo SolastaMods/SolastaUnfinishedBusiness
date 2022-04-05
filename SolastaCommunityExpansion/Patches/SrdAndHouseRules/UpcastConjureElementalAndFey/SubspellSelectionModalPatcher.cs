@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.UpcastConjureElemen
 {
     [HarmonyPatch(typeof(SubspellSelectionModal), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [HarmonyPatch(new Type[] {
+    [HarmonyPatch(new[] {
         typeof(SpellDefinition), typeof(RulesetCharacter), typeof(RulesetSpellRepertoire),
         typeof(SpellsByLevelBox.SpellCastEngagedHandler), typeof(int), typeof(RectTransform)})]
     internal static class SubspellSelectionModal_Bind

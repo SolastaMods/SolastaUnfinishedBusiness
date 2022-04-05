@@ -22,7 +22,14 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Location
                     __instance is not CursorLocationEditorDefault &&
                     __instance is not CursorLocationExplorationDefault)
                 {
-                    GuiScreen screen = Gui.CurrentLocationScreen ?? Gui.GuiService.GetScreen<UserLocationEditorScreen>();
+                    GuiScreen screen = Gui.CurrentLocationScreen;
+                    
+                    // Don't use ?? on Unity objec
+                    if (screen == null)
+                    {
+                        screen = Gui.GuiService.GetScreen<UserLocationEditorScreen>();
+                    }
+
                     if (screen != null && screen.Visible)
                     {
                         Main.Log($"Cancelling {screen.GetType().Name} cursor");
