@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.Respec
+namespace SolastaCommunityExpansion.Patches.Tools.Respec
 {
     // use this patch to enable the after rest actions
     [HarmonyPatch(typeof(RulesetCharacterHero), "EnumerateAfterRestActions")]

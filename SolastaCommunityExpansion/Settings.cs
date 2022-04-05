@@ -62,6 +62,7 @@ namespace SolastaCommunityExpansion
         // Blueprints Viewer UI
         //
 
+        // must be set to zero or won't compile
         internal int SelectedRawDataType = 0;
         internal int MaxRows = 20;
         internal int MaxSearchDepth = 3;

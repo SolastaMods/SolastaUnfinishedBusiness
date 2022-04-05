@@ -13,11 +13,11 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.EpicArrayAndPointBu
         {
             if (Main.Settings.EnableEpicPoints)
             {
-                if (Array.IndexOf(new int[] { 15, 16 }, previousValue) != -1)
+                if (Array.IndexOf(new[] { 15, 16 }, previousValue) != -1)
                 {
                     __result = 3;
                 }
-                else if (Array.IndexOf(new int[] { 17, 18 }, previousValue) != -1)
+                else if (Array.IndexOf(new[] { 17, 18 }, previousValue) != -1)
                 {
                     __result = 4;
                 }

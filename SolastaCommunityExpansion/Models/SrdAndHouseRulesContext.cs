@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using HarmonyLib;
-using SolastaModApi.Extensions;
+﻿using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionActionAffinitys;
 

@@ -39,7 +39,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             { "IGameSerializationService", () => ServiceRepository.GetService<IGameSerializationService>() },
             { "IGameService", () => ServiceRepository.GetService<IGameService>() },
             { "IGameSettingsService", () => ServiceRepository.GetService<IGameSettingsService>() },
-            { "IGameVariableService", () => ServiceRepository.GetService<IGameVariableService>() }
+            { "IGameVariableService", () => ServiceRepository.GetService<IGameVariableService>() },
+            { "ICharacterBuildingService", () => ServiceRepository.GetService<ICharacterBuildingService>() }
         };
 
         private static readonly string[] _targetNames = TARGET_LIST.Keys.ToArray();

@@ -17,7 +17,7 @@ namespace SolastaCommunityExpansion.Patches.PartySize
     {
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
-            var logErrorMethod = typeof(Trace).GetMethod("LogError", BindingFlags.Public | BindingFlags.Static, Type.DefaultBinder, new Type[1] { typeof(string) }, null);
+            var logErrorMethod = typeof(Trace).GetMethod("LogError", BindingFlags.Public | BindingFlags.Static, Type.DefaultBinder, new Type[] { typeof(string) }, null);
             var found = 0;
 
             foreach (var instruction in instructions)
