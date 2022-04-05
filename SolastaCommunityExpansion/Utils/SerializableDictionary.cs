@@ -5,6 +5,14 @@ using System.Xml.Serialization;
 
 namespace SolastaCommunityExpansion.Utils
 {
+    // Generic types should not contain static fields, or they get copied for every instance of the type
+    internal static class SerializableDictionary
+    {
+        public const string ItemTag = "item";
+        public const string KeyTag = "key";
+        public const string ValueTag = "value";
+    }
+
     /// <summary>
     /// Base on https://weblogs.asp.net/pwelter34/444961
     /// </summary>
@@ -17,10 +25,6 @@ namespace SolastaCommunityExpansion.Utils
     {
         // XmlSerializer.Deserialize() will create a new Object, and then call ReadXml()
         // So cannot use instance field, use class field
-
-        public const string ItemTag = "item";
-        public const string KeyTag = "key";
-        public const string ValueTag = "value";
 
         public XmlSchema GetSchema()
         {
@@ -40,15 +44,15 @@ namespace SolastaCommunityExpansion.Utils
             reader.ReadStartElement();
 
             // IsStartElement() will call MoveToContent()
-            while (reader.IsStartElement(ItemTag))
+            while (reader.IsStartElement(SerializableDictionary.ItemTag))
             {
-                reader.ReadStartElement(ItemTag);
+                reader.ReadStartElement(SerializableDictionary.ItemTag);
 
-                reader.ReadStartElement(KeyTag);
+                reader.ReadStartElement(SerializableDictionary.KeyTag);
                 TKey key = (TKey)keySerializer.Deserialize(reader);
                 reader.ReadEndElement();
 
-                reader.ReadStartElement(ValueTag);
+                reader.ReadStartElement(SerializableDictionary.ValueTag);
                 TValue value = (TValue)valueSerializer.Deserialize(reader);
                 reader.ReadEndElement();
 
@@ -66,13 +70,13 @@ namespace SolastaCommunityExpansion.Utils
 
             foreach (var kvp in this)
             {
-                writer.WriteStartElement(ItemTag);
+                writer.WriteStartElement(SerializableDictionary.ItemTag);
 
-                writer.WriteStartElement(KeyTag);
+                writer.WriteStartElement(SerializableDictionary.KeyTag);
                 keySerializer.Serialize(writer, kvp.Key);
                 writer.WriteEndElement();
 
-                writer.WriteStartElement(ValueTag);
+                writer.WriteStartElement(SerializableDictionary.ValueTag);
                 valueSerializer.Serialize(writer, kvp.Value);
                 writer.WriteEndElement();
 

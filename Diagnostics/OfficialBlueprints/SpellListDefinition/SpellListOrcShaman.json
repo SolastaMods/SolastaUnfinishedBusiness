@@ -1,0 +1,74 @@
+{
+  "$type": "SpellListDefinition, Assembly-CSharp",
+  "hasCantrips": true,
+  "maxSpellLevel": 3,
+  "spellsByLevel": [
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 0,
+      "spells": [
+        "Definition:ChillTouch:2dffe98ad497e4b418abc947f6077fb7",
+        "Definition:SacredFlame:e49182bcdd6632e428a185bd55ef8355",
+        "Definition:Dazzle:dc9e69f2397e0d541a8821fe4e4cf6ba"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 1,
+      "spells": [
+        "Definition:CureWounds:c401c5cf11ac8274f98a0dc809ff5863",
+        "Definition:HuntersMark:a4976a0eae64c43478a3711dc064fb8b",
+        "Definition:Bane:2e60d6f650100a84f917bd5d0e69b356",
+        "Definition:HideousLaughter:8773ef52f0dd71e4a8dbe8a2814b3cf4",
+        "Definition:Shield:f69bd9c9375fc074a90043c42f9868fe"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 2,
+      "spells": [
+        "Definition:Blur:277b11af157a3c84292024790e6173b3",
+        "Definition:ConjureGoblinoids:f8af597cea616aa478d76ba8e57b78af",
+        "Definition:Shatter:acb96b651384a47428da7c0c32ab359e",
+        "Definition:Invisibility:191eaa38bdc35ea429f843cc00e7e559",
+        "Definition:AcidArrow:f37e9c53e7ea033458b5eba667a67f84"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 3,
+      "spells": [
+        "Definition:Slow:ee93dd5046aabe14e90ba99da310fbb4",
+        "Definition:LightningBolt:f6e4a759d9257fe429523d7f3e8d9eb3",
+        "Definition:Haste:134efafc59c7c58438b711271fb2c785"
+      ]
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "ee67d5b818e394c4c8f25f89a37ec9ec",
+  "contentPack": "BaseGame",
+  "name": "SpellListOrcShaman"
+}

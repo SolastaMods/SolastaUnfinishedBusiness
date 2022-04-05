@@ -1,0 +1,39 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:AttributeModifierForestGnomeAbilityScoreIncrease:b7f18e2f-532f-46bf-96d2-f3612026295f",
+    "Definition:AttributeModifierGnomeAbilityScoreIncrease:b1475c33-f9ba-4224-b4b1-a55621f4dcd1"
+  ],
+  "mode": "Union",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&AttributeModifierGnomeAbilityScoreSetTitle",
+    "description": "Feature/&AttributeModifierGnomeAbilityScoreSetDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "b239a9b0-f964-48b4-8958-a631ee3d6178",
+  "contentPack": 9999,
+  "name": "AttributeModifierGnomeAbilityScoreSet"
+}

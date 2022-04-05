@@ -1,6 +1,4 @@
-﻿using SolastaModApi;
-using SolastaModApi.Extensions;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.CustomFeatureDefinitions
 {
@@ -37,16 +35,6 @@ namespace SolastaCommunityExpansion.CustomFeatureDefinitions
                 RulesetEffect rulesetEffect, bool criticalHit, bool firstTarget)
         {
             onHit?.Invoke(attacker, defender, attackModifier, attackMode, rangedAttack, advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget);
-        }
-    }
-
-    public class FeatureDefinitionOnAttackHitEffectBuilder : BaseDefinitionBuilder<FeatureDefinitionOnAttackHitEffect>
-    {
-        public FeatureDefinitionOnAttackHitEffectBuilder(string name, string guid,
-            OnAttackHitDelegate onHit, GuiPresentation guiPresentation) : base(name, guid)
-        {
-            Definition.SetOnAttackHitDelegate(onHit);
-            Definition.SetGuiPresentation(guiPresentation);
         }
     }
 }

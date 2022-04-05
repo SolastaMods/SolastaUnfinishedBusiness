@@ -1,7 +1,8 @@
-﻿using SolastaModApi.Extensions;
-using System.Collections.Generic;
-using static SolastaCommunityExpansion.Level20.Features.RangerVanishActionBuilder;
+﻿using System.Collections.Generic;
+using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 using static SolastaCommunityExpansion.Level20.Features.RangerFeralSensesBuilder;
+using static SolastaCommunityExpansion.Level20.Features.RangerVanishActionBuilder;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionCastSpells;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionFeatureSets;
@@ -24,11 +25,9 @@ namespace SolastaCommunityExpansion.Level20.Classes
 
             CastSpellRanger.SetSpellCastingLevel(5);
 
-            CastSpellRanger.SlotsPerLevels.Clear();
-            CastSpellRanger.SlotsPerLevels.AddRange(SpellsHelper.HalfCastingSlots);
+            CastSpellRanger.SlotsPerLevels.SetRange(SpellsHelper.HalfCastingSlots);
 
-            CastSpellRanger.ReplacedSpells.Clear();
-            CastSpellRanger.ReplacedSpells.AddRange(SpellsHelper.HalfCasterReplacedSpells);
+            CastSpellRanger.ReplacedSpells.SetRange(SpellsHelper.HalfCasterReplacedSpells);
         }
     }
 }

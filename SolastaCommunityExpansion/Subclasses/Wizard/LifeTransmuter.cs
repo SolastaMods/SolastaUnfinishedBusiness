@@ -1,21 +1,24 @@
-﻿using SolastaCommunityExpansion.CustomFeatureDefinitions;
-using SolastaCommunityExpansion.Features;
-using SolastaModApi;
-using SolastaModApi.BuilderHelpers;
-using System;
-using System.Collections.Generic;
+﻿using System;
+using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.CustomFeatureDefinitions;
+using SolastaModApi.Extensions;
+using static SolastaModApi.DatabaseHelper;
+using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
+using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Wizard
 {
     internal class LifeTransmuter : AbstractSubclass
     {
-        private static Guid SubclassNamespace = new Guid("81cdcf44-5f04-4aea-8232-b22a1c264065");
+        private static Guid SubclassNamespace = new("81cdcf44-5f04-4aea-8232-b22a1c264065");
         private readonly CharacterSubclassDefinition Subclass;
 
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
         {
-            return DatabaseHelper.FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
+            return FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
         }
+
         internal override CharacterSubclassDefinition GetSubclass()
         {
             return Subclass;
@@ -23,193 +26,164 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
 
         internal LifeTransmuter()
         {
-            CharacterSubclassDefinitionBuilder lifeTransmuter = new CharacterSubclassDefinitionBuilder("LifeTransmuter", GuidHelper.Create(SubclassNamespace, "LifeTransmuter").ToString());
-            GuiPresentationBuilder LifeTransmuterPresentation = new GuiPresentationBuilder(
-                "Subclass/&TraditionLifeTransmuterDescription",
-                "Subclass/&TraditionLifeTransmuterTitle");
-            LifeTransmuterPresentation.SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.RoguishDarkweaver.GuiPresentation.SpriteReference);
-            lifeTransmuter.SetGuiPresentation(LifeTransmuterPresentation.Build());
-
-            GuiPresentationBuilder LifeTransmuterAffinityGui = new GuiPresentationBuilder(
-                "Subclass/&MagicAffinityLifeTransmuterListDescription",
-                "Subclass/&MagicAffinityLifeTransmuterListTitle");
-            FeatureDefinitionMagicAffinity LifeTransmuterAffinity = BuildMagicAffinityHeightenedList(new List<string>() {
-                DatabaseHelper.SpellDefinitions.FalseLife.Name, // necromancy
-                DatabaseHelper.SpellDefinitions.MagicWeapon.Name, // transmutation
-                DatabaseHelper.SpellDefinitions.Blindness.Name, // necromancy
-                DatabaseHelper.SpellDefinitions.Fly.Name, // transmutation
-                DatabaseHelper.SpellDefinitions.BestowCurse.Name, // necromancy
-                DatabaseHelper.SpellDefinitions.VampiricTouch.Name, // necromancy
-                DatabaseHelper.SpellDefinitions.Blight.Name, // necromancy
-                DatabaseHelper.SpellDefinitions.CloudKill.Name, // conjuration
-            }, 2,
-                "MagicAffinityLifeTransmuterHeightened", LifeTransmuterAffinityGui.Build());
-            lifeTransmuter.AddFeatureAtLevel(LifeTransmuterAffinity, 2);
+            var lifeTransmuterAffinity = FeatureDefinitionMagicAffinityBuilder
+                .Create("MagicAffinityLifeTransmuterHeightened", SubclassNamespace)
+                .SetGuiPresentation("MagicAffinityLifeTransmuterList", Category.Subclass)
+                .SetWarList(2,
+                    FalseLife, // necromancy
+                    MagicWeapon, // transmutation
+                    Blindness, // necromancy
+                    Fly, // transmutation
+                    BestowCurse, // necromancy
+                    VampiricTouch, // necromancy
+                    Blight, // necromancy
+                    CloudKill) // conjuration)
+                .AddToDB();
 
             // Add tranmsuter stone like abilities.
-            GuiPresentationBuilder LifeTransmuterDivintyGui = new GuiPresentationBuilder(
-                "Subclass/&HealingPoolLifeTransmuterListDescription",
-                "Subclass/&HealingPoolLifeTransmuterListTitle");
-
-            FeatureDefinitionPower TransmuteForce = new FeatureDefinitionPowerPoolBuilder("AttributeModiferTransmuterHealingPool",
-                GuidHelper.Create(SubclassNamespace, "AttributeModiferTransmuterHealingPool").ToString(),
-                2, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, RuleDefinitions.RechargeRate.LongRest,
-                LifeTransmuterDivintyGui.Build()).AddToDB();
-            lifeTransmuter.AddFeatureAtLevel(TransmuteForce, 6);
+            FeatureDefinitionPower transmuteForce = FeatureDefinitionPowerPoolBuilder
+                .Create("AttributeModiferTransmuterHealingPool", SubclassNamespace)
+                .Configure(2, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, RuleDefinitions.RechargeRate.LongRest)
+                .SetGuiPresentation("HealingPoolLifeTransmuterList", Category.Subclass)
+                .AddToDB();
 
             // Make a power that grants darkvision
-            GuiPresentationBuilder TransmuteDarkvision = new GuiPresentationBuilder(
-                "Subclass/&PowerTransmuteDarkvisionDescription",
-                "Subclass/&PowerTransmuteDarkvisionTitle");
-            TransmuteDarkvision.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainBattleDivineWrath.GuiPresentation.SpriteReference);
-            GuiPresentationBuilder ConditionDarkvisionGui = new GuiPresentationBuilder(
-                "Subclass/&PowerTransmuteDarkvisionDescription",
-                "Subclass/&PowerTransmuteDarkvisionTitle");
-            ConditionDarkvisionGui.SetSpriteReference(DatabaseHelper.ConditionDefinitions.ConditionDarkvision.GuiPresentation.SpriteReference);
-            ConditionDefinition superiorDarkvision = BuildCondition(new List<FeatureDefinition>() { DatabaseHelper.FeatureDefinitionSenses.SenseSuperiorDarkvision },
-                RuleDefinitions.DurationType.UntilLongRest, 1, "ConditionPowerTransmuteDarkvision", ConditionDarkvisionGui.Build());
-            FeatureDefinitionPowerSharedPool PowerDarkvision = BuildActionTransmuteConditionPower(TransmuteForce, RuleDefinitions.RechargeRate.LongRest,
-                RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RangeType.Touch, 2,
-                RuleDefinitions.TargetType.Individuals, ActionDefinitions.ItemSelectionType.None, RuleDefinitions.DurationType.UntilLongRest, 1,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn, AttributeDefinitions.Intelligence, superiorDarkvision, "PowerTransmuteDarkvision", TransmuteDarkvision.Build());
-            lifeTransmuter.AddFeatureAtLevel(PowerDarkvision, 6);
+            ConditionDefinition superiorDarkvision = BuildCondition(RuleDefinitions.DurationType.UntilLongRest,
+                    1, "ConditionPowerTransmuteDarkvision", FeatureDefinitionSenses.SenseSuperiorDarkvision)
+                .SetGuiPresentation("PowerTransmuteDarkvision", Category.Subclass, ConditionDefinitions.ConditionDarkvision.GuiPresentation.SpriteReference)
+                .AddToDB();
+
+            FeatureDefinitionPowerSharedPool powerDarkvision = BuildActionTransmuteConditionPower(transmuteForce, RuleDefinitions.RechargeRate.LongRest,
+                    RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RangeType.Touch, 2,
+                    RuleDefinitions.TargetType.Individuals, ActionDefinitions.ItemSelectionType.None, RuleDefinitions.DurationType.UntilLongRest, 1,
+                    RuleDefinitions.TurnOccurenceType.EndOfTurn, AttributeDefinitions.Intelligence, superiorDarkvision, "PowerTransmuteDarkvision")
+                .SetGuiPresentation(Category.Subclass, FeatureDefinitionPowers.PowerDomainBattleDivineWrath.GuiPresentation.SpriteReference)
+                .AddToDB();
+
+            ConditionDefinition poisonResistance = BuildCondition(
+                RuleDefinitions.DurationType.UntilLongRest,
+                    1, "ConditionPowerTransmutePoison",
+                    FeatureDefinitionDamageAffinitys.DamageAffinityPoisonResistance,
+                    FeatureDefinitionDamageAffinitys.DamageAffinityAcidResistance,
+                    FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance,
+                    FeatureDefinitionDamageAffinitys.DamageAffinityFireResistance,
+                    FeatureDefinitionDamageAffinitys.DamageAffinityThunderResistance,
+                    FeatureDefinitionDamageAffinitys.DamageAffinityLightningResistance,
+                    FeatureDefinitionDamageAffinitys.DamageAffinityNecroticResistance)
+                .SetGuiPresentation("ConditionTransmutePoison", Category.Subclass, ConditionDefinitions.ConditionProtectedFromPoison.GuiPresentation.SpriteReference)
+                .AddToDB();
 
             // Make a power that gives resistance to an elemental damage
-            GuiPresentationBuilder TransmutePoison = new GuiPresentationBuilder(
-                "Subclass/&PowerTransmuteElementalResistanceDescription",
-                "Subclass/&PowerTransmuteElemnetalResistanceTitle");
-            TransmutePoison.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalFireBurst.GuiPresentation.SpriteReference);
-            GuiPresentationBuilder ConditionPoisonResistance = new GuiPresentationBuilder(
-                "Subclass/&ConditionTransmutePoisonDescription",
-                "Subclass/&ConditionTransmutePoisonTitle");
-            ConditionPoisonResistance.SetSpriteReference(DatabaseHelper.ConditionDefinitions.ConditionProtectedFromPoison.GuiPresentation.SpriteReference);
-            ConditionDefinition PoisonResistance = BuildCondition(new List<FeatureDefinition>() {
-                DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPoisonResistance,
-                DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityAcidResistance,
-                DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance,
-                DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireResistance,
-                DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityThunderResistance,
-                DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityLightningResistance,
-                DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityNecroticResistance,
-            },
-                RuleDefinitions.DurationType.UntilLongRest, 1, "ConditionPowerTransmutePoison", ConditionPoisonResistance.Build());
-            FeatureDefinitionPowerSharedPool PowerPoison = BuildActionTransmuteConditionPower(TransmuteForce, RuleDefinitions.RechargeRate.LongRest,
-                RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RangeType.Touch, 2,
-                RuleDefinitions.TargetType.Individuals, ActionDefinitions.ItemSelectionType.None, RuleDefinitions.DurationType.UntilLongRest, 1,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn, AttributeDefinitions.Intelligence, PoisonResistance, "PowerTransmutePoison", TransmutePoison.Build());
-            lifeTransmuter.AddFeatureAtLevel(PowerPoison, 6);
+            FeatureDefinitionPowerSharedPool powerPoison = BuildActionTransmuteConditionPower(
+                    transmuteForce, RuleDefinitions.RechargeRate.LongRest,
+                    RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RangeType.Touch, 2,
+                    RuleDefinitions.TargetType.Individuals, ActionDefinitions.ItemSelectionType.None, RuleDefinitions.DurationType.UntilLongRest, 1,
+                    RuleDefinitions.TurnOccurenceType.EndOfTurn, AttributeDefinitions.Intelligence, poisonResistance, "PowerTransmutePoison")
+                .SetGuiPresentation("PowerTransmuteElementalResistance", Category.Subclass, FeatureDefinitionPowers.PowerDomainElementalFireBurst.GuiPresentation.SpriteReference)
+                .AddToDB();
+
             // Make a power that gives proficiency to constitution saves
-            GuiPresentationBuilder TransmuteConstitution = new GuiPresentationBuilder(
-                "Subclass/&PowerTransmuteConstitutionDescription",
-                "Subclass/&PowerTransmuteConstitutionTitle");
-            GuiPresentationBuilder ConstitutionSaveGui = new GuiPresentationBuilder(
-                "Subclass/&ConditionTransmuteConstitutionSaveDescription",
-                "Subclass/&ConditionTransmuteConstitutionSaveTitle");
-            ConstitutionSaveGui.SetSpriteReference(DatabaseHelper.ConditionDefinitions.ConditionBearsEndurance.GuiPresentation.SpriteReference);
-            ConditionDefinition ConstitutionProf = BuildCondition(new List<FeatureDefinition>() { DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfArun },
-                RuleDefinitions.DurationType.UntilLongRest, 1, "ConditionPowerTransmuteConstitution", ConstitutionSaveGui.Build());
-            TransmuteConstitution.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerPaladinAuraOfCourage.GuiPresentation.SpriteReference);
-            FeatureDefinitionPowerSharedPool PowerConstitution = BuildActionTransmuteConditionPower(TransmuteForce, RuleDefinitions.RechargeRate.LongRest,
-                RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RangeType.Touch, 2,
-                RuleDefinitions.TargetType.Individuals, ActionDefinitions.ItemSelectionType.None, RuleDefinitions.DurationType.UntilLongRest, 1,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn, AttributeDefinitions.Intelligence, ConstitutionProf, "PowerTransmuteConstitution", TransmuteConstitution.Build());
-            lifeTransmuter.AddFeatureAtLevel(PowerConstitution, 6);
+            ConditionDefinition constitutionProf = BuildCondition(RuleDefinitions.DurationType.UntilLongRest,
+                    1, "ConditionPowerTransmuteConstitution", FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfArun)
+                .SetGuiPresentation("ConditionTransmuteConstitutionSave", Category.Subclass, ConditionDefinitions.ConditionBearsEndurance.GuiPresentation.SpriteReference)
+                .AddToDB();
 
-            GuiPresentationBuilder LifeTransmuterExtraPoolGui = new GuiPresentationBuilder(
-                "Subclass/&HealingPoolLifeTransmuterBonusDescription",
-                "Subclass/&HealingPoolLifeTransmuterBonusTitle");
-            FeatureDefinitionPowerPoolModifier TransmuteForceExtra = new FeatureDefinitionPowerPoolModifierBuilder("AttributeModiferTransmuterHealingPoolExtra",
-                GuidHelper.Create(SubclassNamespace, "AttributeModiferTransmuterHealingPoolExtra").ToString(),
-                2, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, TransmuteForce, LifeTransmuterExtraPoolGui.Build()).AddToDB();
-            lifeTransmuter.AddFeatureAtLevel(TransmuteForceExtra, 10);
+            FeatureDefinitionPowerSharedPool powerConstitution = BuildActionTransmuteConditionPower(transmuteForce, RuleDefinitions.RechargeRate.LongRest,
+                    RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RangeType.Touch, 2,
+                    RuleDefinitions.TargetType.Individuals, ActionDefinitions.ItemSelectionType.None, RuleDefinitions.DurationType.UntilLongRest, 1,
+                    RuleDefinitions.TurnOccurenceType.EndOfTurn, AttributeDefinitions.Intelligence, constitutionProf, "PowerTransmuteConstitution")
+                .SetGuiPresentation(Category.Subclass, FeatureDefinitionPowers.PowerPaladinAuraOfCourage.GuiPresentation.SpriteReference)
+                .AddToDB();
 
-            GuiPresentationBuilder TransmuteFly = new GuiPresentationBuilder(
-                "Subclass/&PowerTransmuteFlyDescription",
-                "Subclass/&PowerTransmuteFlyTitle");
-            TransmuteFly.SetSpriteReference(DatabaseHelper.SpellDefinitions.Fly.GuiPresentation.SpriteReference);
-            FeatureDefinitionPowerSharedPool PowerFly = BuildActionTransmuteConditionPower(TransmuteForce, RuleDefinitions.RechargeRate.LongRest,
-                RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RangeType.Touch, 2,
-                RuleDefinitions.TargetType.Individuals, ActionDefinitions.ItemSelectionType.None, RuleDefinitions.DurationType.UntilLongRest, 1,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn, AttributeDefinitions.Intelligence, DatabaseHelper.ConditionDefinitions.ConditionFlying, "PowerTransmuteFly", TransmuteFly.Build());
-            lifeTransmuter.AddFeatureAtLevel(PowerFly, 10);
+            FeatureDefinitionPowerPoolModifier transmuteForceExtra = FeatureDefinitionPowerPoolModifierBuilder
+                .Create("AttributeModiferTransmuterHealingPoolExtra", SubclassNamespace)
+                .Configure(2, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, transmuteForce)
+                .SetGuiPresentation("HealingPoolLifeTransmuterBonus", Category.Subclass)
+                .AddToDB();
 
-            GuiPresentationBuilder TransmuteHeal = new GuiPresentationBuilder(
-                "Subclass/&PowerTransmuteHealDescription",
-                "Subclass/&PowerTransmuteHealTitle");
-            TransmuteHeal.SetSpriteReference(DatabaseHelper.SpellDefinitions.MassHealingWord.GuiPresentation.SpriteReference);
-            FeatureDefinitionPowerSharedPool PowerHeal = new FeatureDefinitionPowerSharedPoolBuilder("PowerTransmuteHeal", GuidHelper.Create(SubclassNamespace, "PowerTransmuteHeal").ToString(),
-                TransmuteForce, RuleDefinitions.RechargeRate.LongRest, RuleDefinitions.ActivationTime.BonusAction, 1, false, false, AttributeDefinitions.Intelligence,
-                DatabaseHelper.SpellDefinitions.MassHealingWord.EffectDescription, TransmuteHeal.Build(), false /* unique instance */).AddToDB();
-            lifeTransmuter.AddFeatureAtLevel(PowerHeal, 10);
+            FeatureDefinitionPowerSharedPool powerFly = BuildActionTransmuteConditionPower(transmuteForce, RuleDefinitions.RechargeRate.LongRest,
+                    RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RangeType.Touch, 2,
+                    RuleDefinitions.TargetType.Individuals, ActionDefinitions.ItemSelectionType.None, RuleDefinitions.DurationType.UntilLongRest, 1,
+                    RuleDefinitions.TurnOccurenceType.EndOfTurn, AttributeDefinitions.Intelligence, ConditionDefinitions.ConditionFlying, "PowerTransmuteFly")
+                .SetGuiPresentation(Category.Subclass, Fly.GuiPresentation.SpriteReference)
+                .AddToDB();
 
-            GuiPresentationBuilder TransmuteRevive = new GuiPresentationBuilder(
-                "Subclass/&PowerTransmuteReviveDescription",
-                "Subclass/&PowerTransmuteReviveTitle");
-            TransmuteRevive.SetSpriteReference(DatabaseHelper.SpellDefinitions.Revivify.GuiPresentation.SpriteReference);
-            FeatureDefinitionPowerSharedPool PowerRevive = new FeatureDefinitionPowerSharedPoolBuilder("PowerTransmuteRevive", GuidHelper.Create(SubclassNamespace, "PowerTransmuteRevive").ToString(),
-                TransmuteForce, RuleDefinitions.RechargeRate.LongRest, RuleDefinitions.ActivationTime.BonusAction, 1, false, false, AttributeDefinitions.Intelligence,
-                DatabaseHelper.SpellDefinitions.Revivify.EffectDescription, TransmuteRevive.Build(), false /* unique instance */).AddToDB();
-            lifeTransmuter.AddFeatureAtLevel(PowerRevive, 10);
+            FeatureDefinitionPowerSharedPool powerHeal = FeatureDefinitionPowerSharedPoolBuilder
+                .Create("PowerTransmuteHeal", SubclassNamespace)
+                .Configure(transmuteForce, RuleDefinitions.RechargeRate.LongRest, RuleDefinitions.ActivationTime.BonusAction,
+                    1, false, false, AttributeDefinitions.Intelligence,
+                    MassHealingWord.EffectDescription, false /* unique instance */)
+                .SetGuiPresentation(Category.Subclass, MassHealingWord.GuiPresentation.SpriteReference)
+                .AddToDB();
 
-            GuiPresentationBuilder LifeTransmuterExtraPoolBonusGui = new GuiPresentationBuilder(
-                "Subclass/&HealingPoolLifeTransmuterBonusExtraDescription",
-                "Subclass/&HealingPoolLifeTransmuterBonusExtraTitle");
-            FeatureDefinitionPowerPoolModifier TransmuteForceExtraBonus = new FeatureDefinitionPowerPoolModifierBuilder("AttributeModiferTransmuterHealingPoolBonus",
-                GuidHelper.Create(SubclassNamespace, "AttributeModiferTransmuterHealingPoolBonus").ToString(),
-                4, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, TransmuteForce, LifeTransmuterExtraPoolBonusGui.Build()).AddToDB();
-            lifeTransmuter.AddFeatureAtLevel(TransmuteForceExtraBonus, 14);
+            FeatureDefinitionPowerSharedPool powerRevive = FeatureDefinitionPowerSharedPoolBuilder
+                .Create("PowerTransmuteRevive", SubclassNamespace)
+                .Configure(transmuteForce, RuleDefinitions.RechargeRate.LongRest,
+                    RuleDefinitions.ActivationTime.BonusAction, 1, false, false, AttributeDefinitions.Intelligence,
+                    Revivify.EffectDescription, false /* unique instance */)
+                .SetGuiPresentation(Category.Subclass, Revivify.GuiPresentation.SpriteReference)
+                .AddToDB();
 
-            lifeTransmuter.AddFeatureAtLevel(DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityNecroticResistance, 14);
+            FeatureDefinitionPowerPoolModifier transmuteForceExtraBonus = FeatureDefinitionPowerPoolModifierBuilder
+                .Create("AttributeModiferTransmuterHealingPoolBonus", SubclassNamespace)
+                .Configure(4, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, transmuteForce)
+                .SetGuiPresentation("HealingPoolLifeTransmuterBonusExtra", Category.Subclass)
+                .AddToDB();
 
-            Subclass = lifeTransmuter.AddToDB();
+            Subclass = CharacterSubclassDefinitionBuilder
+                .Create("LifeTransmuter", SubclassNamespace)
+                .SetGuiPresentation("TraditionLifeTransmuter", Category.Subclass, RoguishDarkweaver.GuiPresentation.SpriteReference)
+                .AddFeatureAtLevel(lifeTransmuterAffinity, 2)
+                .AddFeatureAtLevel(transmuteForce, 6)
+                .AddFeatureAtLevel(powerDarkvision, 6)
+                .AddFeatureAtLevel(powerPoison, 6)
+                .AddFeatureAtLevel(powerConstitution, 6)
+                .AddFeatureAtLevel(transmuteForceExtra, 10)
+                .AddFeatureAtLevel(powerFly, 10)
+                .AddFeatureAtLevel(powerHeal, 10)
+                .AddFeatureAtLevel(powerRevive, 10)
+                .AddFeatureAtLevel(transmuteForceExtraBonus, 14)
+                .AddFeatureAtLevel(FeatureDefinitionDamageAffinitys.DamageAffinityNecroticResistance, 14)
+                .AddToDB();
         }
 
-        private static FeatureDefinitionMagicAffinity BuildMagicAffinityHeightenedList(List<string> spellNames, int levelBonus, string name, GuiPresentation guiPresentation)
+        private static ConditionDefinitionBuilder BuildCondition(RuleDefinitions.DurationType durationType, int durationParameter,
+            string name, params FeatureDefinition[] conditionFeatures)
         {
-            FeatureDefinitionMagicAffinityBuilder builder = new FeatureDefinitionMagicAffinityBuilder(name, GuidHelper.Create(SubclassNamespace, name).ToString(),
-                guiPresentation).SetWarList(spellNames, levelBonus);
-            return builder.AddToDB();
+            return ConditionDefinitionBuilder
+                .Create(name, SubclassNamespace)
+                .SetFeatures(conditionFeatures)
+                .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
+                .SetAllowMultipleInstances(false)
+                .SetDuration(durationType, durationParameter, false); // No validation due to existing configuration
         }
 
-        private static ConditionDefinition BuildCondition(List<FeatureDefinition> conditionFeatures, RuleDefinitions.DurationType durationType,
-            int durationParameter, string name, GuiPresentation guiPresentation)
-        {
-            ConditionDefinitionBuilder builder = new ConditionDefinitionBuilder(name, GuidHelper.Create(SubclassNamespace, name).ToString(),
-                conditionFeatures, durationType, durationParameter, false, guiPresentation);
-            return builder.AddToDB();
-        }
-
-        private static FeatureDefinitionPowerSharedPool BuildActionTransmuteConditionPower(FeatureDefinitionPower poolPower,
+        private static FeatureDefinitionPowerSharedPoolBuilder BuildActionTransmuteConditionPower(FeatureDefinitionPower poolPower,
             RuleDefinitions.RechargeRate recharge, RuleDefinitions.ActivationTime activationTime, int costPerUse,
             RuleDefinitions.RangeType rangeType, int rangeParameter, RuleDefinitions.TargetType targetType,
             ActionDefinitions.ItemSelectionType itemSelectionType, RuleDefinitions.DurationType durationType, int durationParameter,
             RuleDefinitions.TurnOccurenceType endOfEffect, string abilityScore, ConditionDefinition condition,
-            string name, GuiPresentation guiPresentation)
+            string name)
         {
+            var effectForm = EffectFormBuilder
+                .Create()
+                .SetConditionForm(condition, ConditionForm.ConditionOperation.Add, false, false)
+                .CreatedByCharacter()
+                .Build();
 
-            EffectDescriptionBuilder effectDescriptionBuilder = new EffectDescriptionBuilder();
-            effectDescriptionBuilder.SetTargetingData(RuleDefinitions.Side.Ally, rangeType, rangeParameter, targetType, 1, 0, itemSelectionType);
-            effectDescriptionBuilder.SetCreatedByCharacter();
-            effectDescriptionBuilder.SetDurationData(durationType, durationParameter, endOfEffect);
+            var effectDescription = EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(RuleDefinitions.Side.Ally, rangeType, rangeParameter, targetType, 1, 0, itemSelectionType)
+                .SetCreatedByCharacter()
+                .SetDurationData(durationType, durationParameter, endOfEffect)
+                .AddEffectForm(effectForm)
+                .SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None, 1, 0, 0, 0, 0, 0, 0, 0, 0, RuleDefinitions.AdvancementDuration.None)
+                .SetParticleEffectParameters(MagicWeapon.EffectDescription.EffectParticleParameters.Copy())
+                .Build();
 
-            EffectFormBuilder effectFormBuilder = new EffectFormBuilder();
-            effectFormBuilder.SetConditionForm(condition, ConditionForm.ConditionOperation.Add, false, false, new List<ConditionDefinition>());
-
-            effectFormBuilder.CreatedByCharacter();
-
-            effectDescriptionBuilder.AddEffectForm(effectFormBuilder.Build());
-            effectDescriptionBuilder.SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None, 1,
-                0, 0, 0, 0, 0, 0, 0, 0, RuleDefinitions.AdvancementDuration.None);
-
-            EffectParticleParameters particleParams = new EffectParticleParameters();
-            particleParams.Copy(DatabaseHelper.SpellDefinitions.MagicWeapon.EffectDescription.EffectParticleParameters);
-            effectDescriptionBuilder.SetParticleEffectParameters(particleParams);
-
-            FeatureDefinitionPowerSharedPoolBuilder builder = new FeatureDefinitionPowerSharedPoolBuilder(name, GuidHelper.Create(SubclassNamespace, name).ToString(),
-                poolPower, recharge, activationTime, costPerUse, false, false, abilityScore,
-                effectDescriptionBuilder.Build(), guiPresentation, false /* unique instance */);
-
-            return builder.AddToDB();
+            return FeatureDefinitionPowerSharedPoolBuilder
+                .Create(name, SubclassNamespace)
+                .Configure(poolPower, recharge, activationTime, costPerUse, false, false, abilityScore, effectDescription, false /* unique instance */);
         }
     }
 }

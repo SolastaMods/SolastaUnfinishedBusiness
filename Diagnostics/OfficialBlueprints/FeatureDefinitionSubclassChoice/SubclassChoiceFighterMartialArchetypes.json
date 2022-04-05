@@ -1,0 +1,38 @@
+{
+  "$type": "FeatureDefinitionSubclassChoice, Assembly-CSharp",
+  "subclasses": [
+    "MartialChampion",
+    "MartialMountaineer",
+    "MartialSpellblade",
+    "MartialCommander"
+  ],
+  "filterByDeity": false,
+  "subclassSuffix": "Martial",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FighterMartialArchetypesTitle",
+    "description": "Feature/&FighterMartialArchetypesDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "e3d5d16e53da5e4419e76560aabba484",
+  "contentPack": "LostValley",
+  "name": "SubclassChoiceFighterMartialArchetypes"
+}

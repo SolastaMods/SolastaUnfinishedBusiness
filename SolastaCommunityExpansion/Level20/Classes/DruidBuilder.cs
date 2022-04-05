@@ -1,5 +1,6 @@
-﻿using SolastaModApi.Extensions;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionCastSpells;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionFeatureSets;
@@ -8,7 +9,6 @@ namespace SolastaCommunityExpansion.Level20.Classes
 {
     internal static class DruidBuilder
     {
-
         internal static void Load()
         {
             // add missing progression
@@ -20,11 +20,9 @@ namespace SolastaCommunityExpansion.Level20.Classes
 
             CastSpellDruid.SetSpellCastingLevel(9);
 
-            CastSpellDruid.SlotsPerLevels.Clear();
-            CastSpellDruid.SlotsPerLevels.AddRange(SpellsHelper.FullCastingSlots);
+            CastSpellDruid.SlotsPerLevels.SetRange(SpellsHelper.FullCastingSlots);
 
-            CastSpellDruid.ReplacedSpells.Clear();
-            CastSpellDruid.ReplacedSpells.AddRange(SpellsHelper.EmptyReplacedSpells);
+            CastSpellDruid.ReplacedSpells.SetRange(SpellsHelper.EmptyReplacedSpells);
         }
     }
 }

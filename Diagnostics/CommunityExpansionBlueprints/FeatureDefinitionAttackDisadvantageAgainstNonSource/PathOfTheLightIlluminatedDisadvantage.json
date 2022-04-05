@@ -1,0 +1,30 @@
+{
+  "$type": "SolastaCommunityExpansion.CustomFeatureDefinitions.FeatureDefinitionAttackDisadvantageAgainstNonSource, SolastaCommunityExpansion",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Subclass/&BarbarianPathOfTheLightIlluminatedDisadvantageDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "afffafb1-3f8b-519e-a804-596c5c8a2865",
+  "contentPack": 9999,
+  "name": "PathOfTheLightIlluminatedDisadvantage"
+}

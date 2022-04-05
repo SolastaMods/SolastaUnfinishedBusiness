@@ -1,0 +1,59 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:KSRogueSubclassThugProficiencies:55dae83e-0522-57ae-aa09-dc075f34ed0b",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AdditionalDamageRogueSneakAttackRemove:2efd04da-a069-50c4-be1e-44f2432d7404",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:KSRogueSubclassThugExploitVulnerabilities:d4f67d9f-f5db-54ff-b215-243ff983becb",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:KSRogueSubclassThugBrutalMethods:2444519e-fdc2-57f7-a1f6-fb717542fab2",
+      "level": 9
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:KSRogueSubclassThugOvercomeCompetition:9c18b1ce-c277-5d4d-a60c-0cc69cf8b32a",
+      "level": 13
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&KSRogueSubclassThugTitle",
+    "description": "Subclass/&KSRogueSubclassThugDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "6210cb2662b49e245829db8f0a61c78b",
+      "m_SubObjectName": "Champion",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "eff5c8b6-a8b4-5323-baa2-d11ac7265c49",
+  "contentPack": 9999,
+  "name": "KSRogueSubclassThug"
+}

@@ -1,4 +1,4 @@
-﻿using SolastaModApi;
+﻿using SolastaCommunityExpansion.Builders;
 using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.CampaignDefinitions;
 using static SolastaModApi.DatabaseHelper.CharacterTemplateDefinitions;
@@ -7,7 +7,7 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class TelemaCampaignContext
     {
-        private sealed class TelemaCampaignUnleashedBuilder : BaseDefinitionBuilder<CampaignDefinition>
+        private sealed class TelemaCampaignUnleashedBuilder : CampaignDefinitionBuilder
         {
             private const string TelemaDemoUnleashedName = "TelemaDemoUnleashed";
             private const string TelemaDemoUnleashedGuid = "397df3dcfcd444f09df11d05034ec52e";
@@ -18,8 +18,10 @@ namespace SolastaCommunityExpansion.Models
                 Definition.PredefinedParty.Clear();
             }
 
-            public static CampaignDefinition CreateAndAddToDB(string name, string guid)
-                => new TelemaCampaignUnleashedBuilder(name, guid).AddToDB();
+            private static CampaignDefinition CreateAndAddToDB(string name, string guid)
+            {
+                return new TelemaCampaignUnleashedBuilder(name, guid).AddToDB(true, null, null);
+            }
 
             public static readonly CampaignDefinition TelemaDemoUnleashed = CreateAndAddToDB(TelemaDemoUnleashedName, TelemaDemoUnleashedGuid);
         }

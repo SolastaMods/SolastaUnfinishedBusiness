@@ -1,9 +1,9 @@
-﻿using SolastaCommunityExpansion.ItemCrafting;
-using SolastaModApi;
-using SolastaModApi.Extensions;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using SolastaCommunityExpansion.ItemCrafting;
+using SolastaModApi;
+using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -11,14 +11,14 @@ namespace SolastaCommunityExpansion.Models
     {
         public static Dictionary<string, List<ItemDefinition>> RecipeBooks { get; } = new Dictionary<string, List<ItemDefinition>>();
 
-        public static readonly List<string> BASE_GAME_ITEMS_CATEGORIES = new List<string>()
+        public static readonly List<string> BASE_GAME_ITEMS_CATEGORIES = new()
         {
             "PrimedItems",
             "EnchantingIngredients",
             "RelicForgeries",
         };
 
-        public static readonly Dictionary<string, string> RecipeTitles = new Dictionary<string, string>
+        public static readonly Dictionary<string, string> RecipeTitles = new()
         {
             { "PrimedItems", "Primed Items" },
             { "EnchantingIngredients", "Enchanting Ingredients" },
@@ -71,7 +71,7 @@ namespace SolastaCommunityExpansion.Models
             {
                 foreach (ItemDefinition item in items)
                 {
-                    item.SetCosts(new int[] { 0, Main.Settings.RecipeCost, 0, 0, 0 });
+                    item.SetCosts(new[] { 0, Main.Settings.RecipeCost, 0, 0, 0 });
                 }
             }
         }
@@ -124,9 +124,10 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
+#if DEBUG
         public static string GenerateItemsDescription()
         {
-            var outString = new StringBuilder("[heading]Craftable Items[/heading]");
+            var outString = new StringBuilder("[size=3][b]Craftable Items[/b][/size]\n");
 
             outString.Append("\n[list]");
 
@@ -147,5 +148,6 @@ namespace SolastaCommunityExpansion.Models
 
             return outString.ToString();
         }
+#endif
     }
 }

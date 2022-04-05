@@ -1,0 +1,319 @@
+{
+  "$type": "MonsterDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": "None",
+  "overrideSpawnDecision": null,
+  "characterFamily": "Monstrosity",
+  "creatureTags": [],
+  "defaultFaction": "HostileMonsters",
+  "fullyControlledWhenAllied": false,
+  "sizeDefinition": "Definition:DragonSize:b051c53e1c238714d855fd6f175ad7b5",
+  "alignment": "Unaligned",
+  "armorClass": 25,
+  "armor": "",
+  "hitDice": 33,
+  "hitDiceType": "D20",
+  "hitPointsBonus": 330,
+  "standardHitPoints": 676,
+  "abilityScores": [
+    30,
+    11,
+    30,
+    3,
+    11,
+    11
+  ],
+  "savingThrowScores": [
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Charisma",
+      "bonus": 9
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Constitution",
+      "bonus": 0
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Dexterity",
+      "bonus": 0
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Intelligence",
+      "bonus": 5
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Strength",
+      "bonus": 0
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Wisdom",
+      "bonus": 9
+    }
+  ],
+  "skillScores": [],
+  "legendaryCreature": true,
+  "maxLegendaryResistances": 3,
+  "maxLegendaryActionPoints": 3,
+  "differentActionEachTurn": false,
+  "legendaryActionOptions": [
+    {
+      "$type": "LegendaryActionDescription, Assembly-CSharp",
+      "cost": 2,
+      "subaction": "MonsterAttack",
+      "monsterAttackDefinition": "Definition:DH_Custom_Tarrasque_Bite:8dfa83ef-fae8-5207-9005-9ccf971db229",
+      "featureDefinitionPower": null,
+      "spellDefinition": null,
+      "magicAttackBonus": 5,
+      "saveDC": 13,
+      "magicAbilityBonus": 3,
+      "canMove": true,
+      "moveMode": "Definition:MoveModeFly6:017c6a5ac95be2841bea36b7dac041fe",
+      "noOpportunityAttack": false,
+      "decisionPackage": "Definition:LegendaryDragonAttack:6d43f1e8297991f4f897cde94d7681aa"
+    },
+    {
+      "$type": "LegendaryActionDescription, Assembly-CSharp",
+      "cost": 1,
+      "subaction": "MonsterAttack",
+      "monsterAttackDefinition": "Definition:DH_Custom_Tarrasque_Tail:4873ebde-bd05-5ccd-adeb-2b39cbf5fae5",
+      "featureDefinitionPower": null,
+      "spellDefinition": null,
+      "magicAttackBonus": 5,
+      "saveDC": 13,
+      "magicAbilityBonus": 3,
+      "canMove": false,
+      "moveMode": null,
+      "noOpportunityAttack": false,
+      "decisionPackage": "Definition:LegendaryDragonAttack:6d43f1e8297991f4f897cde94d7681aa"
+    },
+    {
+      "$type": "LegendaryActionDescription, Assembly-CSharp",
+      "cost": 1,
+      "subaction": "MonsterAttack",
+      "monsterAttackDefinition": "Definition:DH_Custom_Tarrasque_Claw:e9368f8e-7f35-5495-ab3d-3c4ae681e4b6",
+      "featureDefinitionPower": null,
+      "spellDefinition": null,
+      "magicAttackBonus": 5,
+      "saveDC": 13,
+      "magicAbilityBonus": 3,
+      "canMove": false,
+      "moveMode": null,
+      "noOpportunityAttack": false,
+      "decisionPackage": "Definition:LegendaryDragonAttack:6d43f1e8297991f4f897cde94d7681aa"
+    }
+  ],
+  "defaultBattleDecisionPackage": "Definition:DH_Custom_Tarrasque_CombatDecisions:a578240a-5cc4-5b26-b672-36ee8213db3b",
+  "threatEvaluatorDefinition": null,
+  "languages": [],
+  "audioSwitches": [],
+  "audioSwitchesOnHands": [],
+  "audioRaceRTPCValue": 16.0,
+  "challengeRating": 30.0,
+  "noExperienceGain": false,
+  "droppedLootDefinition": null,
+  "stealableLootDefinition": null,
+  "bestiaryLootOptions": [],
+  "features": [
+    "Definition:MoveModeMove8:4c110104739c99e4d920529a058ab2e2",
+    "Definition:SenseTremorsense16:0c4195ea1bc8d6a48b516f82161efbae",
+    "Definition:SenseBlindSight12:c16bc7be6870a764e9075848479ccdef",
+    "Definition:DamageAffinityFireImmunity:6f4ede3c34539284e941dd084eaf4429",
+    "Definition:DamageAffinityPoisonImmunity:7f47b64e57ec7b247acaa220a510b131",
+    "Definition:DamageAffinityMummyLord_BludgeoningImmunity:82cc17c2d2a73f14fbf7026120c180bc",
+    "Definition:DamageAffinityMummyLord_PiercingImmunity:c8c668f866a09db45855aecc47f63175",
+    "Definition:DamageAffinityMummyLord_SlashingImmunity:cc5209ebd30da554887b94bb0bf8c0d4",
+    "Definition:ConditionAffinityFrightenedImmunity:561b7a96b31b8064e85df039829c050b",
+    "Definition:ConditionAffinityCalmEmotionFrightenedImmunity:f2c70d3f302356c45bf9859205ff16ce",
+    "Definition:ConditionAffinityParalyzedmmunity:fb168e0f7aeed9c479746505d1df5da7",
+    "Definition:ConditionAffinityPoisonImmunity:558b2de37dbf89341ab0ed6c445873a6",
+    "Definition:ConditionAffinityCalmEmotionCharmedImmunity:7f9cfd9f309debf4988ec184b56b7faf",
+    "Definition:ConditionAffinityCharmImmunity:a631ef6239aa7764db463cf3f29d65fb",
+    "Definition:ConditionAffinityCharmImmunityHypnoticPattern:566f797ed2499ed46afb4754192b65f1",
+    "Definition:SavingThrowAffinitySpellResistance:d6341ebb2cb967949b4426e31e993b86",
+    "Definition:PowerDragonFrightfulPresence:afa9d44eb9c7a1b479e4caa0bb92111c",
+    "Definition:TarrasqueSwallowPowerDH_Custom:30a4c4c1-53a9-5755-996b-1788121e4aaa",
+    "Definition:DH_Custom_TarrasqueReflectiveCarapace_Immunity:934ecc14-570f-552c-b73a-57149c8fae6a"
+  ],
+  "attackIterations": [
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 1,
+      "monsterAttackDefinition": "Definition:DH_Custom_Tarrasque_Bite:8dfa83ef-fae8-5207-9005-9ccf971db229"
+    },
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 1,
+      "monsterAttackDefinition": "Definition:DH_Custom_Tarrasque_Claw:e9368f8e-7f35-5495-ab3d-3c4ae681e4b6"
+    },
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 1,
+      "monsterAttackDefinition": "Definition:DH_Custom_Tarrasque_Claw:e9368f8e-7f35-5495-ab3d-3c4ae681e4b6"
+    },
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 1,
+      "monsterAttackDefinition": "Definition:DH_Custom_Tarrasque_Horn:57bf7928-d4dc-5d44-8505-17cbf3fe6191"
+    },
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 1,
+      "monsterAttackDefinition": "Definition:DH_Custom_Tarrasque_Tail:4873ebde-bd05-5ccd-adeb-2b39cbf5fae5"
+    }
+  ],
+  "sneakStance": "Stealth",
+  "patrolStance": "SlowWalk",
+  "interceptStance": "Run",
+  "dualSex": true,
+  "minimalAge": 20,
+  "maximalAge": 60,
+  "height": 12,
+  "weight": 500,
+  "isHusk": false,
+  "isPet": false,
+  "forbidFastTravel": false,
+  "forceHasComplexActions": false,
+  "forcePersistentBody": false,
+  "bestiaryEntry": "None",
+  "bestiaryReference": null,
+  "bestiaryCameraOffset": {
+    "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+    "x": 0.0,
+    "y": 7.0,
+    "z": -45.0
+  },
+  "alwaysHideStats": false,
+  "bestiarySpriteReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "9d2bcf6205d8c8144baf45b48b65236e",
+    "m_SubObjectName": "Sorr-Akkath_Abomination",
+    "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+  },
+  "monsterPresentation": {
+    "$type": "MonsterPresentation, Assembly-CSharp",
+    "hasUniqueName": false,
+    "uniqueNameTitle": "",
+    "humanoidMonsterPresentationDefinitions": [],
+    "useCustomMaterials": false,
+    "customMaterials": [],
+    "customShaderReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "mutantFleshDirection": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": -1.0,
+      "z": 0.0
+    },
+    "overrideCharacterShaderColors": false,
+    "firstCharacterShaderColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "secondCharacterShaderColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "hasPhantomDistortion": true,
+    "attachedParticlesReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "bestiaryAttachedParticlesReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "hasPrefabVariants": false,
+    "monsterPresentationDefinitions": [],
+    "malePrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "a6c2e84b33780a843a8d19665c3f06a4",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "maleModelScale": 4.5,
+    "femalePrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "a6c2e84b33780a843a8d19665c3f06a4",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "femaleModelScale": 4.5,
+    "wieldedItemsScale": 1.0,
+    "hideWieldedItemsWhenPassive": false,
+    "hideDuringCutscene": false,
+    "hasLightingCutscene": true,
+    "canGeneratePortrait": true,
+    "needMerchantPortrait": false,
+    "hasMonsterPortraitBackground": true,
+    "portraitCameraFollowOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": -0.5,
+      "z": -18.0
+    },
+    "portraitCameraLookAtScreenOffset": {
+      "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+      "x": 0.45,
+      "y": 0.4
+    },
+    "portraitCameraFOV": 30.0,
+    "portraitCameraLightingOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    }
+  },
+  "forceCombatStartsAnimation": false,
+  "hasLookAt": false,
+  "forceNoFlyAnimation": false,
+  "followFloorAngle": false,
+  "groupAttacks": true,
+  "isUnique": false,
+  "uniqueNameId": "",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Monster/&DH_Custom_Tarrasque_Title",
+    "description": "Monster/&DH_Custom_Tarrasque_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "22b943ba05dc5b14cae1188473164fbc",
+      "m_SubObjectName": "CustomPortrait_Sorr-Akkath_Abomination",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "2d2a7337-9fca-520b-aaae-624bad766fb8",
+  "contentPack": 9999,
+  "name": "Custom_Tarrasque"
+}

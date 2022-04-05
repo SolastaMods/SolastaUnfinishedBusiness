@@ -27,7 +27,6 @@ Feature written by ElAntonius for the Ranger
 //        const string FeatureSetRangerFoeSlayerName = "ZSFeatureSetRangerFoeSlayer";
 //        const string FeatureSetRangerFoeSlayerGuid = "11001D8E-12FE-436E-AF95-D9644B7EEF1D";
 
-
 //        protected FeatureSetRangerFoeSlayerBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetShadowTamerDarkSlayer, name, guid)
 //        {
 //            var foe_slayer_avail_condition = buildConditionFoeSlayerAvailable();

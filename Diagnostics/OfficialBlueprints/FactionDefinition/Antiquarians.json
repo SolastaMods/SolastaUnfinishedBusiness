@@ -1,0 +1,48 @@
+{
+  "$type": "FactionDefinition, Assembly-CSharp",
+  "builtIn": false,
+  "minRelationCap": -100,
+  "maxRelationCap": 100,
+  "stealingPenalty": 0,
+  "attackingPenalty": 0,
+  "killingPenalty": 0,
+  "prominentMembers": [
+    "Definition:Hertha_Gormsdottir:ec3ce2ec41c2bbe41b08ca4d8aa6e295",
+    "Definition:Halman_Summer:fda8753ac2e43de4f99ed0af88f39400"
+  ],
+  "smallSpriteReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "8a606a89205bee643af696b8007114ac",
+    "m_SubObjectName": "AntiquariansFlagSmall",
+    "m_SubObjectType": ""
+  },
+  "failsQuestOnLowRelation": false,
+  "questFailThreshold": -70,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Faction/&AntiquariansTitle",
+    "description": "Faction/&AntiquariansDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "7dcb23c0a9b362b4eb26bd67190b4c82",
+      "m_SubObjectName": "AntiquariansFlag",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "8fdd2517aa497c8458f8bfe0a353a05b",
+  "contentPack": "BaseGame",
+  "name": "Antiquarians"
+}

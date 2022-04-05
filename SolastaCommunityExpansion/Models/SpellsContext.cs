@@ -1,15 +1,25 @@
-﻿using ModKit;
-using SolastaCommunityExpansion.Spells;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using ModKit;
+using SolastaCommunityExpansion.Spells;
 
 namespace SolastaCommunityExpansion.Models
 {
     internal static class SpellsContext
     {
         internal const string NOT_IN_MIN_SET = null;
+        internal const string CLERIC_SPELLLIST = "SpellListCleric";
+        internal const string DRUID_SPELLLIST = "SpellListDruid";
+        internal const string PALADIN_SPELLLIST = "SpellListPaladin";
+        internal const string RANGER_SPELLLIST = "SpellListRanger";
+        internal const string SORCERER_SPELLLIST = "SpellListSorcerer";
+        internal const string WARLOCK_SPELLLIST = "ClassWarlockSpellList";
+        internal const string WITCH_SPELLLIST = "WitchSpellList";
+        internal const string WIZARD_SPELLLIST = "SpellListWizard";
+        internal const string GREENMAGE_SPELLLIST = "SpellListWizardGreenmage";
+        internal const string SHOCK_ARCANIST_SPELLLIST = "SpellListShockArcanist";
 
         internal class SpellRecord
         {
@@ -20,11 +30,11 @@ namespace SolastaCommunityExpansion.Models
             public bool IsFromOtherMod { get; set; }
         }
 
-        internal static readonly Dictionary<SpellDefinition, SpellRecord> RegisteredSpells = new Dictionary<SpellDefinition, SpellRecord>();
+        internal static readonly Dictionary<SpellDefinition, SpellRecord> RegisteredSpells = new();
 
-        private static readonly List<SpellDefinition> RegisteredSpellsList = new List<SpellDefinition>();
+        private static readonly List<SpellDefinition> RegisteredSpellsList = new();
 
-        private static readonly SortedDictionary<string, SpellListDefinition> spellLists = new SortedDictionary<string, SpellListDefinition>();
+        private static readonly SortedDictionary<string, SpellListDefinition> spellLists = new();
 
         internal static SortedDictionary<string, SpellListDefinition> SpellLists
         {
@@ -47,7 +57,9 @@ namespace SolastaCommunityExpansion.Models
                         .OfType<FeatureDefinitionCastSpell>()
                         .FirstOrDefault();
 
-                    if (featureDefinitionCastSpell?.SpellListDefinition != null
+                    // NOTE: don't use featureDefinitionCastSpell?. which bypasses Unity object lifetime check
+                    if (featureDefinitionCastSpell
+                        && featureDefinitionCastSpell.SpellListDefinition
                         && !spellLists.ContainsValue(featureDefinitionCastSpell.SpellListDefinition))
                     {
                         spellLists.Add(title, featureDefinitionCastSpell.SpellListDefinition);
@@ -256,11 +268,20 @@ namespace SolastaCommunityExpansion.Models
             SwitchSpellList(spellDefinition);
         }
 
-        internal static bool AreAllSpellListsSelected() => !RegisteredSpellsList.Any(x => !AreAllSpellListsSelected(x));
+        internal static bool AreAllSpellListsSelected()
+        {
+            return RegisteredSpellsList.All(x => AreAllSpellListsSelected(x));
+        }
 
-        internal static bool AreAllSpellListsSelected(SpellDefinition spellDefinition) => Main.Settings.SpellSpellListEnabled[spellDefinition.Name].Count == SpellsContext.SpellLists.Count;
+        internal static bool AreAllSpellListsSelected(SpellDefinition spellDefinition)
+        {
+            return Main.Settings.SpellSpellListEnabled[spellDefinition.Name].Count == SpellLists.Count;
+        }
 
-        internal static bool AreMinimumSpellListsSelected() => !RegisteredSpellsList.Any(x => !AreMinimumSpellListsSelected(x));
+        internal static bool AreMinimumSpellListsSelected()
+        {
+            return RegisteredSpellsList.All(x => AreMinimumSpellListsSelected(x));
+        }
 
         internal static bool AreMinimumSpellListsSelected(SpellDefinition spellDefinition)
         {
@@ -272,10 +293,13 @@ namespace SolastaCommunityExpansion.Models
                 return false;
             }
 
-            return !minimumSpellLists.Any(x => !selectedSpellLists.Contains(x));
+            return minimumSpellLists.All(x => selectedSpellLists.Contains(x));
         }
 
-        internal static bool AreSuggestedSpellListsSelected() => !RegisteredSpellsList.Any(x => !AreSuggestedSpellListsSelected(x));
+        internal static bool AreSuggestedSpellListsSelected()
+        {
+            return RegisteredSpellsList.All(x => AreSuggestedSpellListsSelected(x));
+        }
 
         internal static bool AreSuggestedSpellListsSelected(SpellDefinition spellDefinition)
         {
@@ -287,12 +311,13 @@ namespace SolastaCommunityExpansion.Models
                 return false;
             }
 
-            return !suggestedSpellLists.Any(x => !selectedSpellLists.Contains(x));
+            return suggestedSpellLists.All(x => selectedSpellLists.Contains(x));
         }
 
+#if DEBUG
         public static string GenerateSpellsDescription()
         {
-            var outString = new StringBuilder("[heading]Spells[/heading]");
+            var outString = new StringBuilder("[size=3][b]Spells[/b][/size]\n");
 
             outString.Append("\n[list]");
 
@@ -308,5 +333,6 @@ namespace SolastaCommunityExpansion.Models
 
             return outString.ToString();
         }
+#endif
     }
 }

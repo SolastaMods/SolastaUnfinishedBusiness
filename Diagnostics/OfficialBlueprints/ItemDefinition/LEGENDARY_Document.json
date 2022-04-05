@@ -1,0 +1,409 @@
+{
+  "$type": "ItemDefinition, Assembly-CSharp",
+  "inDungeonEditor": false,
+  "merchantCategory": "Adventuring",
+  "weight": 0.1,
+  "slotTypes": [
+    "ContainerSlot"
+  ],
+  "slotsWhereActive": [],
+  "activeOnGround": false,
+  "destroyedWhenUnequiped": false,
+  "forceEquip": false,
+  "forceEquipSlot": "",
+  "canBeStacked": false,
+  "stackSize": 10,
+  "defaultStackCount": -1,
+  "costs": [
+    0,
+    5,
+    0,
+    0,
+    0
+  ],
+  "itemTags": [
+    "Paper"
+  ],
+  "activeTags": [],
+  "inactiveTags": [],
+  "magical": false,
+  "requiresAttunement": false,
+  "requiresIdentification": false,
+  "requiredAttunementClasses": [],
+  "itemRarity": "Uncommon",
+  "staticProperties": [],
+  "isArmor": false,
+  "isWeapon": false,
+  "isAmmunition": false,
+  "isUsableDevice": false,
+  "isTool": false,
+  "isStarterPack": false,
+  "isContainerItem": false,
+  "isLightSourceItem": false,
+  "isFocusItem": false,
+  "isWealthPile": false,
+  "isSpellbook": false,
+  "isDocument": true,
+  "documentDescription": {
+    "$type": "DocumentDescription, Assembly-CSharp",
+    "format": "Tome",
+    "contentFragments": [
+      {
+        "$type": "ContentFragmentDescription, Assembly-CSharp",
+        "type": "Header",
+        "text": "Equipment/&Legendary_Document_Content00",
+        "spriteReference": {
+          "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        }
+      },
+      {
+        "$type": "ContentFragmentDescription, Assembly-CSharp",
+        "type": "Illustration",
+        "text": "Equipment/&Legendary_Document_Content01",
+        "spriteReference": {
+          "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+          "m_AssetGUID": "fc87c1df1a72dca4bae286277df10d66",
+          "m_SubObjectName": "Legendary_Rune_01",
+          "m_SubObjectType": ""
+        }
+      },
+      {
+        "$type": "ContentFragmentDescription, Assembly-CSharp",
+        "type": "NewPage",
+        "text": "Equipment/&Legendary_Document_Content05",
+        "spriteReference": {
+          "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+          "m_AssetGUID": "eedfcd34658f1764683bf73d13d07fa3",
+          "m_SubObjectName": "Legendary_Rune_06",
+          "m_SubObjectType": ""
+        }
+      },
+      {
+        "$type": "ContentFragmentDescription, Assembly-CSharp",
+        "type": "Body",
+        "text": "Equipment/&Legendary_Document_Content01",
+        "spriteReference": {
+          "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        }
+      },
+      {
+        "$type": "ContentFragmentDescription, Assembly-CSharp",
+        "type": "Illustration",
+        "text": "Equipment/&Legendary_Document_Content01",
+        "spriteReference": {
+          "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+          "m_AssetGUID": "ea386b465660df441be97924d1f0c912",
+          "m_SubObjectName": "Legendary_Rune_02",
+          "m_SubObjectType": ""
+        }
+      },
+      {
+        "$type": "ContentFragmentDescription, Assembly-CSharp",
+        "type": "NewPage",
+        "text": "Equipment/&Legendary_Document_Content05",
+        "spriteReference": {
+          "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+          "m_AssetGUID": "eedfcd34658f1764683bf73d13d07fa3",
+          "m_SubObjectName": "Legendary_Rune_06",
+          "m_SubObjectType": ""
+        }
+      },
+      {
+        "$type": "ContentFragmentDescription, Assembly-CSharp",
+        "type": "Body",
+        "text": "Equipment/&Legendary_Document_Content02",
+        "spriteReference": {
+          "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        }
+      },
+      {
+        "$type": "ContentFragmentDescription, Assembly-CSharp",
+        "type": "Illustration",
+        "text": "Equipment/&Legendary_Document_Content02",
+        "spriteReference": {
+          "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+          "m_AssetGUID": "660bee1b20ed2844e97f6616e3f11d41",
+          "m_SubObjectName": "Legendary_Rune_03",
+          "m_SubObjectType": ""
+        }
+      },
+      {
+        "$type": "ContentFragmentDescription, Assembly-CSharp",
+        "type": "NewPage",
+        "text": "Equipment/&Legendary_Document_Content05",
+        "spriteReference": {
+          "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+          "m_AssetGUID": "eedfcd34658f1764683bf73d13d07fa3",
+          "m_SubObjectName": "Legendary_Rune_06",
+          "m_SubObjectType": ""
+        }
+      },
+      {
+        "$type": "ContentFragmentDescription, Assembly-CSharp",
+        "type": "Body",
+        "text": "Equipment/&Legendary_Document_Content03",
+        "spriteReference": {
+          "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+          "m_AssetGUID": "660bee1b20ed2844e97f6616e3f11d41",
+          "m_SubObjectName": "Legendary_Rune_03",
+          "m_SubObjectType": ""
+        }
+      },
+      {
+        "$type": "ContentFragmentDescription, Assembly-CSharp",
+        "type": "Illustration",
+        "text": "Equipment/&Legendary_Document_Content03",
+        "spriteReference": {
+          "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+          "m_AssetGUID": "eed802823541519419d22843c778dae9",
+          "m_SubObjectName": "Legendary_Rune_04",
+          "m_SubObjectType": ""
+        }
+      },
+      {
+        "$type": "ContentFragmentDescription, Assembly-CSharp",
+        "type": "Body",
+        "text": "Equipment/&Legendary_Document_Content04",
+        "spriteReference": {
+          "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+          "m_AssetGUID": "eed802823541519419d22843c778dae9",
+          "m_SubObjectName": "Legendary_Rune_04",
+          "m_SubObjectType": ""
+        }
+      },
+      {
+        "$type": "ContentFragmentDescription, Assembly-CSharp",
+        "type": "Illustration",
+        "text": "Equipment/&Legendary_Document_Content04",
+        "spriteReference": {
+          "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+          "m_AssetGUID": "1214262567c19534783fe88b3302e6bf",
+          "m_SubObjectName": "Legendary_Rune_05",
+          "m_SubObjectType": ""
+        }
+      },
+      {
+        "$type": "ContentFragmentDescription, Assembly-CSharp",
+        "type": "Body",
+        "text": "Equipment/&Legendary_Document_Content05",
+        "spriteReference": {
+          "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+          "m_AssetGUID": "1214262567c19534783fe88b3302e6bf",
+          "m_SubObjectName": "Legendary_Rune_05",
+          "m_SubObjectType": ""
+        }
+      },
+      {
+        "$type": "ContentFragmentDescription, Assembly-CSharp",
+        "type": "Illustration",
+        "text": "Equipment/&Legendary_Document_Content05",
+        "spriteReference": {
+          "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+          "m_AssetGUID": "eedfcd34658f1764683bf73d13d07fa3",
+          "m_SubObjectName": "Legendary_Rune_06",
+          "m_SubObjectType": ""
+        }
+      },
+      {
+        "$type": "ContentFragmentDescription, Assembly-CSharp",
+        "type": "Body",
+        "text": "Equipment/&Legendary_Document_Content06",
+        "spriteReference": {
+          "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+          "m_AssetGUID": "eedfcd34658f1764683bf73d13d07fa3",
+          "m_SubObjectName": "Legendary_Rune_06",
+          "m_SubObjectType": ""
+        }
+      }
+    ],
+    "script": "Narrative",
+    "language": "Language_Tirmarian",
+    "loreType": "None",
+    "recipeDefinition": null,
+    "locationDefinition": null,
+    "locationKnowledgeLevel": "Known",
+    "unlockedBestiaryContent": [],
+    "destroyAfterReading": false
+  },
+  "isFood": false,
+  "isFactionRelic": true,
+  "factionRelicDescription": {
+    "$type": "FactionRelicDescription, Assembly-CSharp",
+    "loreValue": 12,
+    "interestedFactions": [
+      "Antiquarians",
+      "TowerOfKnowledge",
+      "Arcaneum"
+    ],
+    "redeemCosts": [
+      0,
+      25,
+      0,
+      0,
+      0
+    ]
+  },
+  "personalityFlagOccurences": [],
+  "soundEffectDescriptionOverride": {
+    "$type": "SoundEffectDescription, Assembly-CSharp",
+    "startEvent": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "stopEvent": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "startSwitch": {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "stopSwitch": {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "guiStoreBody": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "guiPickBody": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "guiStoreOther": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "guiPickOther": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  },
+  "soundEffectOnHitDescriptionOverride": {
+    "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
+    "switchOnHit": {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  },
+  "itemPresentation": {
+    "$type": "ItemPresentation, Assembly-CSharp",
+    "unidentifiedTitle": "",
+    "unidentifiedDescription": "",
+    "overrideSubtype": "None",
+    "assetReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "scaleFactorWhileWielded": 1.0,
+    "useArmorAddressableName": false,
+    "armorAddressableName": "",
+    "useCustomArmorMaterial": false,
+    "customArmorMaterial": "",
+    "hasCrownVariationMask": false,
+    "crownVariationMask": 0,
+    "sameBehavioursForMaleAndFemale": true,
+    "maleBodyPartBehaviours": [],
+    "femaleBodyPartBehaviours": [],
+    "itemFlags": [],
+    "serializedVersion": 1
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&Legendary_Document_Title",
+    "description": "Equipment/&Legendary_Document_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "9410a505b22f24f40b1a56c0ea38fa21",
+      "m_SubObjectName": "PickupQuest_CrownNotes",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "21e82d49d51ff104eae6a17dfec2df28",
+  "contentPack": "BaseGame",
+  "name": "LEGENDARY_Document"
+}

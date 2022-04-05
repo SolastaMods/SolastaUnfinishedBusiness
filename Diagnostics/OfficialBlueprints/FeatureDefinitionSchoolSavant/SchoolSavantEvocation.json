@@ -1,0 +1,32 @@
+{
+  "$type": "FeatureDefinitionSchoolSavant, Assembly-CSharp",
+  "schoolOfMagic": "SchoolEvocation",
+  "reductionFactor": 0.5,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&TraditionSavantTitle",
+    "description": "Feature/&TraditionSavantDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 4,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "14758ed6de381584ea9e5331499a2234",
+  "contentPack": "BaseGame",
+  "name": "SchoolSavantEvocation"
+}

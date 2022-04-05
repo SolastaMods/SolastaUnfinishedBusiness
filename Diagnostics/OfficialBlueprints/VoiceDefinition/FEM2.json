@@ -1,0 +1,65 @@
+{
+  "$type": "VoiceDefinition, Assembly-CSharp",
+  "sex": "Female",
+  "individualName": "homer",
+  "amplitude": 0.5,
+  "speechSpeed": 1.0,
+  "wavePrefix": "FEM2",
+  "wavePath": "Voices/",
+  "wwiseSuffix": "_F2",
+  "wwiseSwitch": {
+    "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": {
+      "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseSwitchGroupReference": {
+        "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+        "objectName": "Switch_VoiceBarks",
+        "id": 2399735075,
+        "guid": "DE1F7659-53C9-4C44-B92C-831E6C72E0E8",
+        "name": "DE1F7659-53C9-4C44-B92C-831E6C72E0E8"
+      },
+      "objectName": "F2",
+      "id": 1802970441,
+      "guid": "00DE6516-7403-4E6A-9DDC-FBE1790A4340",
+      "name": "00DE6516-7403-4E6A-9DDC-FBE1790A4340"
+    },
+    "groupIdInternal": 0,
+    "groupGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    },
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "availableInCharacterCreation": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Voice/&Voice2Title",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 1,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "76bb0999ec9484bcc922e5c1755486e6",
+  "contentPack": "BaseGame",
+  "name": "FEM2"
+}

@@ -1,0 +1,39 @@
+{
+  "$type": "SlotTypeDefinition, Assembly-CSharp",
+  "canStack": false,
+  "canDisplayArmor": false,
+  "canDisplayArmorForPhoto": false,
+  "displayArmorSortingIndex": 0,
+  "canDisplayLight": false,
+  "bodySlot": true,
+  "alwaysLocked": false,
+  "lockedInBattle": true,
+  "hasDefaultVisual": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "SlotType/&BackSlotTitle",
+    "description": "SlotType/&BackSlotDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "4d52575d5cccfea4f8109239060749cd",
+      "m_SubObjectName": "BackSlot",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 1,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "5c8ebc5899a187642a13f0367ac40636",
+  "contentPack": "BaseGame",
+  "name": "BackSlot"
+}

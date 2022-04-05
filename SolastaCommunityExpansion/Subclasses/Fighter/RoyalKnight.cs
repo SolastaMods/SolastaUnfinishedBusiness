@@ -1,17 +1,23 @@
-﻿using SolastaModApi;
+﻿using System;
+using System.Linq;
+using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi.Extensions;
-using System;
+using SolastaModApi.Infrastructure;
+using static SolastaModApi.DatabaseHelper;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys;
+using static SolastaModApi.DatabaseHelper.FightingStyleDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Fighter
 {
     internal class RoyalKnight : AbstractSubclass
     {
-        private static readonly Guid SubclassNamespace = new Guid("f5efd735-ff95-4256-ad17-dde585aeb4e2");
+        private static readonly Guid SubclassNamespace = new("f5efd735-ff95-4256-ad17-dde585aeb4e2");
         private readonly CharacterSubclassDefinition Subclass;
 
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
         {
-            return DatabaseHelper.FeatureDefinitionSubclassChoices.SubclassChoiceFighterMartialArchetypes;
+            return FeatureDefinitionSubclassChoices.SubclassChoiceFighterMartialArchetypes;
         }
         internal override CharacterSubclassDefinition GetSubclass()
         {
@@ -20,146 +26,69 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
 
         internal RoyalKnight()
         {
-            GuiPresentationBuilder royalKnightPresentation = new GuiPresentationBuilder("Subclass/&FighterRoyalKnightDescription", "Subclass/&FighterRoyalKnightTitle")
-                .SetSpriteReference(DatabaseHelper.FightingStyleDefinitions.Protection.GuiPresentation.SpriteReference);
-
-            Subclass = new CharacterSubclassDefinitionBuilder("FighterRoyalKnight", GuidHelper.Create(SubclassNamespace, "FighterRoyalKnight").ToString())
-                .SetGuiPresentation(royalKnightPresentation.Build())
-                .AddFeatureAtLevel(RallyingCryPowerBuilder.RallyingCryPower, 3)
-                .AddFeatureAtLevel(RoyalEnvoyFeatureBuilder.RoyalEnvoyFeatureSet, 7)
-                .AddFeatureAtLevel(InspiringSurgePowerBuilder.InspiringSurgePower, 10)
-                .AddToDB();
-        }
-
-        internal class RoyalEnvoyAbilityCheckAffinityBuilder : BaseDefinitionBuilder<FeatureDefinitionAbilityCheckAffinity>
-        {
-            private const string RoyalEnvoyAbilityCheckName = "RoyalEnvoyAbilityCheckAffinity";
-            private const string RoyalEnvoyAbilityCheckGuid = "b16f8b68-0dab-49e5-b1a2-6fdfd8836849";
-
-            protected RoyalEnvoyAbilityCheckAffinityBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityChampionRemarkableAthlete, name, guid)
-            {
-                Definition.AffinityGroups.Clear();
-                Definition.AffinityGroups.Add(new FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup()
+            var royalEnvoyAbilityCheckAffinity = FeatureDefinitionAbilityCheckAffinityBuilder
+                .Create(AbilityCheckAffinityChampionRemarkableAthlete, "RoyalEnvoyAbilityCheckAffinity", "b16f8b68-0dab-49e5-b1a2-6fdfd8836849")
+                .SetAffinityGroups(new FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup()
                 {
                     abilityScoreName = "Charisma",
                     affinity = RuleDefinitions.CharacterAbilityCheckAffinity.HalfProficiencyWhenNotProficient
-                });
-            }
+                })
+                .AddToDB();
 
-            public static FeatureDefinitionAbilityCheckAffinity CreateAndAddToDB(string name, string guid)
-                => new RoyalEnvoyAbilityCheckAffinityBuilder(name, guid).AddToDB();
+            var royalEnvoyFeatureSet = FeatureDefinitionFeatureSetBuilder
+                .Create("RoyalEnvoyFeature", "c8299685-d806-4e20-aff0-ca3dd4000e05")
+                .SetGuiPresentation(Category.Feature)
+                .SetFeatureSet(royalEnvoyAbilityCheckAffinity, FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfSolasta)
+                .AddToDB();
 
-            public static FeatureDefinitionAbilityCheckAffinity RoyalEnvoyAbilityCheckAffinity
-                => CreateAndAddToDB(RoyalEnvoyAbilityCheckName, RoyalEnvoyAbilityCheckGuid);
-        }
+            // TODO: use EffectDescriptionBuilder
+            EffectDescription effectDescription = FeatureDefinitionPowers.PowerDomainLifePreserveLife.EffectDescription.Copy();
+            effectDescription.EffectForms[0].HealingForm.HealingCap = RuleDefinitions.HealingCap.MaximumHitPoints;
+            effectDescription.EffectForms[0].HealingForm.DiceNumber = 4;
 
-        public class RoyalEnvoyFeatureBuilder : BaseDefinitionBuilder<FeatureDefinitionFeatureSet>
-        {
-            private const string RoyalEnvoyFeatureName = "RoyalEnvoyFeature";
-            private const string RoyalEnvoyFeatureGuid = "c8299685-d806-4e20-aff0-ca3dd4000e05";
+            var rallyingCryPower = FeatureDefinitionPowerBuilder
+                .Create(FeatureDefinitionPowers.PowerDomainLifePreserveLife, "RallyingCryPower", "cabe94a7-7e51-4231-ae6d-e8e6e3954611")
+                .SetGuiPresentation(Category.Feature, SpellDefinitions.HealingWord.GuiPresentation.SpriteReference)
+                .SetShortTitle("Feature/&RallyingCryPowerTitleShort")
+                .SetOverriddenPower(FeatureDefinitionPowers.PowerFighterSecondWind)
+                .SetActivationTime(RuleDefinitions.ActivationTime.BonusAction)
+                .SetRechargeRate(RuleDefinitions.RechargeRate.ShortRest)
+                .SetAbilityScore("Charisma")
+                .SetUsesAbilityScoreName("Charisma")
+                .SetEffectDescription(effectDescription)
+                .AddToDB();
 
-            protected RoyalEnvoyFeatureBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetChampionRemarkableAthlete, name, guid)
-            {
-                Definition.GuiPresentation.Title = "Feature/&RoyalEnvoyFeatureTitle";
-                Definition.GuiPresentation.Description = "Feature/&RoyalEnvoyFeatureDescription";
-                Definition.FeatureSet.Clear();
-                Definition.FeatureSet.Add(RoyalEnvoyAbilityCheckAffinityBuilder.RoyalEnvoyAbilityCheckAffinity);
-                Definition.FeatureSet.Add(DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfSolasta);
-            }
+            // TODO: use EffectDescriptionBuilder
+            EffectDescription inspiringSurgeEffectDescription = FeatureDefinitionPowers.PowerDomainLifePreserveLife.EffectDescription.Copy()
+                .SetTargetType(RuleDefinitions.TargetType.Individuals)
+                .SetTargetParameter(1)
+                .SetTargetParameter2(2)
+                .SetTargetSide(RuleDefinitions.Side.Ally)
+                .SetCanBePlacedOnCharacter(true)
+                .SetTargetFilteringMethod(RuleDefinitions.TargetFilteringMethod.CharacterOnly)
+                .SetDurationType(RuleDefinitions.DurationType.Round)
+                .SetRequiresVisibilityForPosition(true)
+                .SetRangeType(RuleDefinitions.RangeType.Distance)
+                .SetRangeParameter(20);
 
-            public static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)
-                 => new RoyalEnvoyFeatureBuilder(name, guid).AddToDB();
+            inspiringSurgeEffectDescription.EffectForms.SetRange(FeatureDefinitionPowers.PowerFighterActionSurge.EffectDescription.EffectForms.Select(ef => ef.Copy()));
 
-            public static FeatureDefinitionFeatureSet RoyalEnvoyFeatureSet
-                => CreateAndAddToDB(RoyalEnvoyFeatureName, RoyalEnvoyFeatureGuid);
-        }
+            var inspiringSurgePower = FeatureDefinitionPowerBuilder
+                .Create(FeatureDefinitionPowers.PowerDomainLifePreserveLife, "InspiringSurgePower", "c2930ad2-dd02-4ff3-bad8-46d93e328fbd")
+                .SetGuiPresentation(Category.Feature, SpellDefinitions.Heroism.GuiPresentation.SpriteReference)
+                .SetActivationTime(RuleDefinitions.ActivationTime.BonusAction)
+                .SetRechargeRate(RuleDefinitions.RechargeRate.LongRest)
+                .SetEffectDescription(inspiringSurgeEffectDescription)
+                .SetShortTitle("Feature/&InspiringSurgePowerTitleShort")
+                .AddToDB();
 
-        public class RallyingCryPowerBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
-        {
-            private const string RallyingCryPowerName = "RallyingCryPower";
-            private const string RallyingCryPowerGuid = "cabe94a7-7e51-4231-ae6d-e8e6e3954611";
-
-            protected RallyingCryPowerBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionPowers.PowerDomainLifePreserveLife, name, guid)
-            {
-                Definition.SetOverriddenPower(DatabaseHelper.FeatureDefinitionPowers.PowerFighterSecondWind);
-                Definition.SetActivationTime(RuleDefinitions.ActivationTime.BonusAction);
-                Definition.SetRechargeRate(RuleDefinitions.RechargeRate.ShortRest);
-                Definition.SetAbilityScore("Charisma");
-                Definition.SetUsesAbilityScoreName("Charisma");
-
-                SetupGUI();
-
-                EffectDescription effectDescription = new EffectDescription();
-                effectDescription.Copy(Definition.EffectDescription);
-                effectDescription.EffectForms[0].HealingForm.HealingCap = RuleDefinitions.HealingCap.MaximumHitPoints;
-                effectDescription.EffectForms[0].HealingForm.DiceNumber = 4;
-                FeatureDefinitionPowerExtensions.SetEffectDescription(Definition, effectDescription);
-            }
-
-            private void SetupGUI()
-            {
-                Definition.GuiPresentation.Title = "Feature/&RallyingCryPowerTitle";
-                Definition.GuiPresentation.Description = "Feature/&RallyingCryPowerDescription";
-                FeatureDefinitionPowerExtensions.SetShortTitleOverride(Definition, "Feature/&RallyingCryPowerTitleShort");
-                GuiPresentationExtensions.SetSpriteReference(Definition.GuiPresentation, DatabaseHelper.SpellDefinitions.HealingWord.GuiPresentation.SpriteReference);
-            }
-
-            public static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
-                => new RallyingCryPowerBuilder(name, guid).AddToDB();
-
-            public static FeatureDefinitionPower RallyingCryPower
-                => CreateAndAddToDB(RallyingCryPowerName, RallyingCryPowerGuid);
-        }
-
-        internal class InspiringSurgePowerBuilder : BaseDefinitionBuilder<FeatureDefinitionPower>
-        {
-            private const string InspiringSurgePowerName = "InspiringSurgePower";
-            private const string InspiringSurgePowerNameGuid = "c2930ad2-dd02-4ff3-bad8-46d93e328fbd";
-
-            protected InspiringSurgePowerBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionPowers.PowerDomainLifePreserveLife, name, guid)
-            {
-                Definition.SetActivationTime(RuleDefinitions.ActivationTime.BonusAction);
-                Definition.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
-
-                SetupGUI();
-
-                EffectDescription effectDescription = new EffectDescription();
-
-                effectDescription.Copy(Definition.EffectDescription);
-                effectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
-                effectDescription.SetTargetParameter(1);
-                effectDescription.SetTargetParameter2(2);
-                effectDescription.SetTargetSide(RuleDefinitions.Side.Ally);
-                effectDescription.SetCanBePlacedOnCharacter(true);
-                effectDescription.SetTargetFilteringMethod(RuleDefinitions.TargetFilteringMethod.CharacterOnly);
-                effectDescription.DurationType = RuleDefinitions.DurationType.Round;
-                effectDescription.SetRequiresVisibilityForPosition(true);
-                effectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
-                effectDescription.SetRangeParameter(20);
-
-                effectDescription.EffectForms.Clear();
-
-                foreach (EffectForm effectForm in DatabaseHelper.FeatureDefinitionPowers.PowerFighterActionSurge.EffectDescription.EffectForms)
-                {
-                    effectDescription.EffectForms.Add(effectForm);
-                }
-
-                FeatureDefinitionPowerExtensions.SetEffectDescription(Definition, effectDescription);
-            }
-
-            private void SetupGUI()
-            {
-                Definition.GuiPresentation.Title = "Feature/&InspiringSurgePowerTitle";
-                Definition.GuiPresentation.Description = "Feature/&InspiringSurgePowerDescription";
-                FeatureDefinitionPowerExtensions.SetShortTitleOverride(Definition, "Feature/&InspiringSurgePowerTitleShort");
-                GuiPresentationExtensions.SetSpriteReference(Definition.GuiPresentation, DatabaseHelper.SpellDefinitions.Heroism.GuiPresentation.SpriteReference);
-            }
-
-            public static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
-                => new InspiringSurgePowerBuilder(name, guid).AddToDB();
-
-            public static FeatureDefinitionPower InspiringSurgePower
-                => CreateAndAddToDB(InspiringSurgePowerName, InspiringSurgePowerNameGuid);
+            Subclass = CharacterSubclassDefinitionBuilder
+                .Create("FighterRoyalKnight", SubclassNamespace)
+                .SetGuiPresentation(Category.Subclass, Protection.GuiPresentation.SpriteReference)
+                .AddFeatureAtLevel(rallyingCryPower, 3)
+                .AddFeatureAtLevel(royalEnvoyFeatureSet, 7)
+                .AddFeatureAtLevel(inspiringSurgePower, 10)
+                .AddToDB();
         }
     }
 }

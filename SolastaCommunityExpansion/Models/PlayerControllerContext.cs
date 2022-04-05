@@ -7,7 +7,7 @@ namespace SolastaCommunityExpansion.Models
     {
         private const int PLAYER_CONTROLLER_ID = 1;
 
-        private static readonly Dictionary<GameLocationCharacter, int> controllersChoices = new Dictionary<GameLocationCharacter, int>();
+        private static readonly Dictionary<GameLocationCharacter, int> controllersChoices = new();
 
         private static int[] playerCharactersChoices { get; set; }
 
@@ -17,7 +17,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal static bool IsOffGame => Gui.Game == null;
 
-        internal static List<GameLocationCharacter> PlayerCharacters { get; private set; } = new List<GameLocationCharacter>();
+        internal static List<GameLocationCharacter> PlayerCharacters { get; } = new List<GameLocationCharacter>();
 
         internal static int[] PlayerCharactersChoices
         {

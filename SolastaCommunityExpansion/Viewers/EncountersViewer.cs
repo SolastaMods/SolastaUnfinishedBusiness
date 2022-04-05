@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.Viewers
     {
         public string Name => "Encounters";
 
-        public int Priority => 15;
+        public int Priority => 50;
 
         private static int selectedPane;
 
@@ -232,6 +232,9 @@ namespace SolastaCommunityExpansion.Viewers
             UI.Label("Controllers:".yellow());
             UI.Label("");
 
+            UI.Label(". Note the encounters feature won't work in a Multiplayer session. Yet...");
+            UI.Label("");
+
             toggle = Main.Settings.EnableEnemiesControlledByPlayer;
             if (UI.Toggle("Enable enemies controlled by players", ref toggle))
             {
@@ -242,6 +245,11 @@ namespace SolastaCommunityExpansion.Viewers
             if (UI.Toggle("Enable heroes controlled by computer", ref toggle))
             {
                 Main.Settings.EnableHeroesControlledByComputer = toggle;
+
+                if (toggle)
+                {
+                    Models.PlayerControllerContext.RefreshGuiState();
+                }
             }
 
             if (Main.Settings.EnableHeroesControlledByComputer)
@@ -264,9 +272,12 @@ namespace SolastaCommunityExpansion.Viewers
 
                     for (int i = 0; i < playerCharacters.Count; i++)
                     {
-                        UI.HStack(playerCharacters[i].Name, 1, () =>
+                        // Prevent captured closure 
+                        int index = i;
+
+                        UI.HStack(playerCharacters[index].Name, 1, () =>
                         {
-                            if (UI.SelectionGrid(ref playerCharactersChoices[i], controllers, controllers.Length, UI.Width(300)))
+                            if (UI.SelectionGrid(ref playerCharactersChoices[index], controllers, controllers.Length, UI.Width(300)))
                             {
                                 PlayerControllerContext.PlayerCharactersChoices = playerCharactersChoices;
                             }
@@ -294,13 +305,16 @@ namespace SolastaCommunityExpansion.Viewers
             {
                 for (int index = 0; index < EncountersSpawnContext.EncounterCharacters.Count; index++)
                 {
-                    if (EncountersSpawnContext.EncounterCharacters[index] is RulesetCharacterMonster rulesetCharacterMonster)
+                    // Prevent captured closure 
+                    int index2 = index;
+
+                    if (EncountersSpawnContext.EncounterCharacters[index2] is RulesetCharacterMonster rulesetCharacterMonster)
                     {
-                        DisplayMonsterStats(rulesetCharacterMonster.MonsterDefinition, "-", () => EncountersSpawnContext.RemoveFromEncounter(index));
+                        DisplayMonsterStats(rulesetCharacterMonster.MonsterDefinition, "-", () => EncountersSpawnContext.RemoveFromEncounter(index2));
                     }
-                    else if (EncountersSpawnContext.EncounterCharacters[index] is RulesetCharacterHero rulesetCharacterHero)
+                    else if (EncountersSpawnContext.EncounterCharacters[index2] is RulesetCharacterHero rulesetCharacterHero)
                     {
-                        DisplayHeroStats(rulesetCharacterHero, "-", () => EncountersSpawnContext.RemoveFromEncounter(index));
+                        DisplayHeroStats(rulesetCharacterHero, "-", () => EncountersSpawnContext.RemoveFromEncounter(index2));
                     }
                 }
             }

@@ -1,0 +1,38 @@
+{
+  "$type": "PersonalityFlagDefinition, Assembly-CSharp",
+  "inDungeonEditor": true,
+  "dialog": true,
+  "anchor": {
+    "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+    "x": 0.5,
+    "y": 0.37
+  },
+  "type": "Alignment",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "DialogFlags/&SelfPreservation_Title",
+    "description": "DialogFlags/&SelfPreservation_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "1d7b2e3e1a85ed74a8656b2622e20064",
+  "contentPack": "BaseGame",
+  "name": "Self-Preservation"
+}

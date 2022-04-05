@@ -1,38 +1,30 @@
-﻿using SolastaCommunityExpansion.Features;
-using SolastaModApi;
-using SolastaModApi.BuilderHelpers;
+﻿using System;
+using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
-using System;
-using System.Collections.Generic;
+using static SolastaModApi.DatabaseHelper;
+using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
+using static SolastaModApi.DatabaseHelper.SchoolOfMagicDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Rogue
 {
     internal class ConArtist : AbstractSubclass
     {
-        private static readonly Guid SubclassNamespace = new Guid("fdf8dc11-5006-489e-951c-92a8d72ca4c0");
+        private static readonly Guid SubclassNamespace = new("fdf8dc11-5006-489e-951c-92a8d72ca4c0");
         private readonly CharacterSubclassDefinition Subclass;
 
-        #region DcIncreaseAffinity
         private static FeatureDefinitionMagicAffinity _dcIncreaseAffinity;
-        private static FeatureDefinitionMagicAffinity DcIncreaseAffinity
-        {
-            get
-            {
-                return _dcIncreaseAffinity = _dcIncreaseAffinity ??
-                    new FeatureDefinitionMagicAffinityBuilder(
-                        "MagicAffinityRoguishConArtistDC",
-                        GuidHelper.Create(SubclassNamespace, "MagicAffinityRoguishConArtistDC").ToString(),
-                        GetSpellDCPresentation().Build())
-                            .SetCastingModifiers(0, Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc, false, false, false).AddToDB();
-            }
-        }
-        #endregion
+        private static FeatureDefinitionMagicAffinity DcIncreaseAffinity => _dcIncreaseAffinity ??= FeatureDefinitionMagicAffinityBuilder
+            .Create("MagicAffinityRoguishConArtistDC", SubclassNamespace)
+            .SetGuiPresentation(GetSpellDCPresentation().Build())
+            .SetCastingModifiers(0, Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc, false, false, false)
+            .AddToDB();
 
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
         {
-            return DatabaseHelper.FeatureDefinitionSubclassChoices.SubclassChoiceRogueRoguishArchetypes;
+            return FeatureDefinitionSubclassChoices.SubclassChoiceRogueRoguishArchetypes;
         }
+
         internal override CharacterSubclassDefinition GetSubclass()
         {
             return Subclass;
@@ -41,107 +33,86 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
         internal ConArtist()
         {
             // Make Con Artist subclass
-            CharacterSubclassDefinitionBuilder conArtist = new CharacterSubclassDefinitionBuilder("RoguishConArtist", GuidHelper.Create(SubclassNamespace, "RoguishConArtist").ToString());
-            GuiPresentationBuilder conPresentation = new GuiPresentationBuilder(
-                "Subclass/&RoguishConArtistDescription",
-                "Subclass/&RoguishConArtistTitle");
-            conPresentation.SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.DomainInsight.GuiPresentation.SpriteReference);
-            conArtist.SetGuiPresentation(conPresentation.Build());
-
-            GuiPresentationBuilder conAffinity = new GuiPresentationBuilder(
-                "Subclass/&AbilityAffinityRogueConArtistDescription",
-                "Subclass/&AbilityAffinityRogueConArtistTitle");
-            FeatureDefinitionAbilityCheckAffinity abilityAffinity = BuildAbilityAffinity(
-                new List<(string, string)> {
+            FeatureDefinitionAbilityCheckAffinity abilityAffinity = FeatureDefinitionAbilityCheckAffinityBuilder
+                .Create("AbilityAffinityRogueConArtist", SubclassNamespace)
+                .SetGuiPresentation(Category.Subclass)
+                .BuildAndSetAffinityGroups(
+                    RuleDefinitions.CharacterAbilityCheckAffinity.Advantage, RuleDefinitions.DieType.D8, 0,
                     (AttributeDefinitions.Dexterity, SkillDefinitions.SleightOfHand),
                     (AttributeDefinitions.Charisma, SkillDefinitions.Persuasion),
                     (AttributeDefinitions.Charisma, SkillDefinitions.Deception),
-                    (AttributeDefinitions.Charisma, SkillDefinitions.Performance)
-                },
-                RuleDefinitions.CharacterAbilityCheckAffinity.Advantage, "AbilityAffinityRogueConArtist", conAffinity.Build());
-            conArtist.AddFeatureAtLevel(abilityAffinity, 3);
+                    (AttributeDefinitions.Charisma, SkillDefinitions.Performance))
+                .AddToDB();
 
-            CastSpellBuilder spellCasting = new CastSpellBuilder("CastSpellConArtist", GuidHelper.Create(SubclassNamespace, "CastSpellConArtist").ToString());
-            spellCasting.SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Subclass);
-            spellCasting.SetSpellCastingAbility(AttributeDefinitions.Charisma);
-            spellCasting.SetSpellList(DatabaseHelper.SpellListDefinitions.SpellListWizard);
-            spellCasting.AddRestrictedSchool(DatabaseHelper.SchoolOfMagicDefinitions.SchoolConjuration);
-            spellCasting.AddRestrictedSchool(DatabaseHelper.SchoolOfMagicDefinitions.SchoolTransmutation);
-            spellCasting.AddRestrictedSchool(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEnchantment);
-            spellCasting.AddRestrictedSchool(DatabaseHelper.SchoolOfMagicDefinitions.SchoolIllusion);
-            spellCasting.SetSpellKnowledge(RuleDefinitions.SpellKnowledge.Selection);
-            spellCasting.SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown);
-            spellCasting.SetSlotsRecharge(RuleDefinitions.RechargeRate.LongRest);
-            spellCasting.SetKnownCantrips(3, 3, CastSpellBuilder.CasterProgression.THIRD_CASTER);
-            spellCasting.SetKnownSpells(4, 3, CastSpellBuilder.CasterProgression.THIRD_CASTER);
-            spellCasting.SetSlotsPerLevel(3, CastSpellBuilder.CasterProgression.THIRD_CASTER);
-            GuiPresentationBuilder spellcastGui = new GuiPresentationBuilder(
-                "Subclass/&RoguishConArtistSpellcastingDescription",
-                "Subclass/&RoguishConArtistSpellcastingTitle");
-            spellCasting.SetGuiPresentation(spellcastGui.Build());
-            conArtist.AddFeatureAtLevel(spellCasting.AddToDB(), 3);
+            FeatureDefinitionCastSpellBuilder spellCasting = FeatureDefinitionCastSpellBuilder
+                .Create("CastSpellConArtist", SubclassNamespace)
+                .SetGuiPresentation("RoguishConArtistSpellcasting", Category.Subclass)
+                .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Subclass)
+                .SetSpellCastingAbility(AttributeDefinitions.Charisma)
+                .SetSpellList(SpellListDefinitions.SpellListWizard)
+                .AddRestrictedSchools(SchoolConjuration, SchoolTransmutation, SchoolEnchantment, SchoolIllusion)
+                .SetSpellKnowledge(RuleDefinitions.SpellKnowledge.Selection)
+                .SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown)
+                .SetSlotsRecharge(RuleDefinitions.RechargeRate.LongRest)
+                .SetKnownCantrips(3, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER)
+                .SetKnownSpells(4, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER)
+                .SetSlotsPerLevel(3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER);
 
-            GuiPresentationBuilder feintGui = new GuiPresentationBuilder(
-                "Subclass/&RoguishConArtistFeintDescription",
-                "Subclass/&RoguishConArtistFeintTitle");
-            EffectDescriptionBuilder feintBuilder = new EffectDescriptionBuilder();
-            feintBuilder.SetTargetingData(RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.Distance, 12, RuleDefinitions.TargetType.Individuals, 1, 0, ActionDefinitions.ItemSelectionType.None);
-            feintBuilder.SetDurationData(RuleDefinitions.DurationType.Round, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
-            feintBuilder.SetSavingThrowData(true, false, AttributeDefinitions.Wisdom, true, RuleDefinitions.EffectDifficultyClassComputation.SpellCastingFeature, AttributeDefinitions.Charisma,
-                15, false, new List<SaveAffinityBySenseDescription>());
-            GuiPresentationBuilder feintGuiCondition = new GuiPresentationBuilder(
-                "Subclass/&RoguishConArtistFeintConditionDescription",
-                "Subclass/&RoguishConArtistFeintConditionTitle");
-            feintGuiCondition.SetSpriteReference(DatabaseHelper.ConditionDefinitions.ConditionTrueStrike.GuiPresentation.SpriteReference);
-            feintBuilder.AddEffectForm(new EffectFormBuilder().CreatedByCharacter().SetConditionForm(new AdvantageBuilder("RogueConArtistFeintCondition",
-                GuidHelper.Create(SubclassNamespace, "RogueConArtistFeintCondition").ToString(),
-                DatabaseHelper.ConditionDefinitions.ConditionTrueStrike, feintGuiCondition.Build()).AddToDB(), ConditionForm.ConditionOperation.Add,
-                false, false, new List<ConditionDefinition>()).Build());
-            //feintBuilder.AddEffectForm(new EffectFormBuilder().SetConditionForm(DatabaseHelper.ConditionDefinitions.))
-            FeatureDefinitionPower feint = new FeatureDefinitionPowerBuilder("RoguishConArtistFeint", GuidHelper.Create(SubclassNamespace, "RoguishConArtistFeint").ToString(),
-                0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Charisma, RuleDefinitions.ActivationTime.BonusAction, 0, RuleDefinitions.RechargeRate.AtWill,
-                false, false, AttributeDefinitions.Charisma, feintBuilder.Build(), feintGui.Build(), false /* unique instance */).AddToDB();
-            conArtist.AddFeatureAtLevel(feint, 9);
-            conArtist.AddFeatureAtLevel(DcIncreaseAffinity, 13);
+            EffectDescriptionBuilder feintBuilder = EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(
+                    RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.Distance, 12, 
+                    RuleDefinitions.TargetType.Individuals, 1, 0, ActionDefinitions.ItemSelectionType.None)
+                .SetDurationData(RuleDefinitions.DurationType.Round, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                .SetSavingThrowData(
+                    true, false, AttributeDefinitions.Wisdom, true, 
+                    RuleDefinitions.EffectDifficultyClassComputation.SpellCastingFeature, AttributeDefinitions.Charisma,
+                    15, false);
 
-            FeatureDefinitionProficiency proficiency = new FeatureDefinitionProficiencyBuilder("RoguishConArtistMentalSavingThrows", GuidHelper.Create(SubclassNamespace, "RoguishConArtistMentalSavingThrows").ToString(),
-                RuleDefinitions.ProficiencyType.SavingThrow,
-                new List<string>() { AttributeDefinitions.Charisma, AttributeDefinitions.Wisdom },
-                new GuiPresentationBuilder(
-                    "Subclass/&RoguishConArtistMentalSavingThrowsDescription",
-                    "Subclass/&RoguishConArtistMentalSavingThrowsTitle").Build()).AddToDB();
-            conArtist.AddFeatureAtLevel(proficiency, 17);
+            var condition = ConditionDefinitionBuilder
+                .Create(ConditionDefinitions.ConditionTrueStrike, "RogueConArtistFeintCondition", SubclassNamespace)
+                .SetGuiPresentation("RoguishConArtistFeintCondition", Category.Subclass, ConditionDefinitions.ConditionTrueStrike.GuiPresentation.SpriteReference)
+                .SetSpecialInterruptions(RuleDefinitions.ConditionInterruption.Attacked)
+                .SetAdditionalDamageData(RuleDefinitions.DieType.D8, 3, ConditionDefinition.DamageQuantity.Dice, true)
+                .AddToDB();
+
+            feintBuilder.AddEffectForm(
+                EffectFormBuilder
+                    .Create()
+                    .CreatedByCharacter()
+                    .SetConditionForm(
+                        condition, ConditionForm.ConditionOperation.Add, false, false)
+                    .Build());
+
+            FeatureDefinitionPower feint = FeatureDefinitionPowerBuilder
+                .Create("RoguishConArtistFeint", SubclassNamespace)
+                .SetGuiPresentation(Category.Subclass)
+                .Configure(
+                    0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Charisma,
+                    RuleDefinitions.ActivationTime.BonusAction, 0, RuleDefinitions.RechargeRate.AtWill,
+                    false, false, AttributeDefinitions.Charisma, feintBuilder.Build(), false /* unique instance */)
+                .AddToDB();
+
+            FeatureDefinitionProficiency proficiency = FeatureDefinitionProficiencyBuilder
+                .Create("RoguishConArtistMentalSavingThrows", SubclassNamespace)
+                .SetGuiPresentation(Category.Subclass)
+                .SetProficiencies(RuleDefinitions.ProficiencyType.SavingThrow, AttributeDefinitions.Charisma, AttributeDefinitions.Wisdom)
+                .AddToDB();
 
             // add subclass to db and add subclass to rogue class
-            Subclass = conArtist.AddToDB();
-        }
-
-        public class AdvantageBuilder : BaseDefinitionBuilder<ConditionDefinition>
-        {
-            public AdvantageBuilder(string name, string guid, ConditionDefinition original, GuiPresentation guiPresentation) : base(original, name, guid)
-            {
-                Definition.SetGuiPresentation(guiPresentation);
-                Definition.SetField("specialInterruptions", (new List<RuleDefinitions.ConditionInterruption>() {
-                    RuleDefinitions.ConditionInterruption.Attacked,
-                }));
-                Definition.SetAdditionalDamageWhenHit(true);
-                Definition.SetAdditionalDamageDieType(RuleDefinitions.DieType.D8);
-                Definition.SetAdditionalDamageDieNumber(3);
-                Definition.SetAdditionalDamageQuantity(ConditionDefinition.DamageQuantity.Dice);
-            }
+            Subclass = CharacterSubclassDefinitionBuilder
+                .Create("RoguishConArtist", SubclassNamespace)
+                .SetGuiPresentation(Category.Subclass, DomainInsight.GuiPresentation.SpriteReference)
+                .AddFeatureAtLevel(abilityAffinity, 3)
+                .AddFeatureAtLevel(spellCasting.AddToDB(), 3)
+                .AddFeatureAtLevel(feint, 9)
+                .AddFeatureAtLevel(DcIncreaseAffinity, 13)
+                .AddFeatureAtLevel(proficiency, 17).AddToDB();
         }
 
         private static GuiPresentationBuilder GetSpellDCPresentation()
         {
-            return new GuiPresentationBuilder("Subclass/&MagicAffinityRoguishConArtistDC" + Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc + "Description", "Subclass/&MagicAffinityRoguishConArtistDCTitle");
-        }
-
-        public static FeatureDefinitionAbilityCheckAffinity BuildAbilityAffinity(List<(string abilityScoreName, string proficiencyName)> abilityProficiencyPairs,
-            RuleDefinitions.CharacterAbilityCheckAffinity affinityType, string name, GuiPresentation guiPresentation)
-        {
-            FeatureDefinitionAbilityCheckAffinityBuilder builder = new FeatureDefinitionAbilityCheckAffinityBuilder(name, GuidHelper.Create(SubclassNamespace, name).ToString(),
-                abilityProficiencyPairs, 0, RuleDefinitions.DieType.D8, affinityType, guiPresentation);
-            return builder.AddToDB();
+            return new GuiPresentationBuilder("Subclass/&MagicAffinityRoguishConArtistDCTitle", "Subclass/&MagicAffinityRoguishConArtistDC" + Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc + "Description");
         }
 
         public static void UpdateSpellDCBoost()

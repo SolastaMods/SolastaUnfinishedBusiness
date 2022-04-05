@@ -1,0 +1,37 @@
+{
+  "$type": "EnvironmentDefinition, Assembly-CSharp",
+  "outdoor": true,
+  "sceneReferenceOverride": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "5387ebc395c240546a0fd4ad2e003a3f",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Environment/&CityValleyTitle",
+    "description": "Environment/&CityValleyDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "8758737018948bd46bcb07abc7b9fdf8",
+      "m_SubObjectName": "DLC1_City",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 9,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "ee643af6bba4936469039a9b2449c223",
+  "contentPack": "LostValley",
+  "name": "CityValley"
+}

@@ -1,0 +1,43 @@
+{
+  "$type": "BiomeDefinition, Assembly-CSharp",
+  "terrainType": "Desert",
+  "encounterTable": "Definition:AridBadlandsEncounter:f8549634a71a0bf4899d0bd5f1787f20",
+  "narrativeEventBasicLines": [
+    "Travel/&StandardRandomEvents1Title",
+    "Travel/&StandardRandomEvents2Title",
+    "Travel/&StandardRandomEvents3Title",
+    "Travel/&StandardRandomEvents4Title"
+  ],
+  "encounterLocations": [
+    "Definition:EncounterCrossroads_LocationDB:a1b9f35b7028fe24184b3a5b92265a74",
+    "Definition:Encounter_Desert_LocationDB:13ffa145096dbad4ea277bd84ee3307c",
+    "Definition:EncounterCanyon_LocationDB:53de98c0cd86f2948bccee8ac0d06fd0"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "061e26947d2ca36468d032ce4b2ab681",
+  "contentPack": "BaseGame",
+  "name": "Biome_AridBadlands"
+}

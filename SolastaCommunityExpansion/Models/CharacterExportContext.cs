@@ -30,19 +30,12 @@ namespace SolastaCommunityExpansion.Models
             InputField.onValueChanged = null;
             InputField.fontAsset = contentText.font;
             InputField.pointSize = contentText.fontSize;
-            InputField.transform.localPosition = new Vector3(0, contentText.transform.parent.localPosition.y - contentText.fontSize, 0);
+            InputField.transform.localPosition = new Vector3(-50, contentText.transform.parent.localPosition.y - contentText.fontSize, 0);
         }
 
         private static string ParseText(string text)
         {
-            if (Main.Settings.AllowExtraKeyboardCharactersInNames)
-            {
-                return new string(text.Where(n => !HeroNameContext.InvalidFilenameChars.Contains(n)).ToArray()).Trim();
-            }
-            else
-            {
-                return Gui.TrimInvalidCharacterNameSymbols(text).Trim();
-            }
+            return Gui.TrimInvalidCharacterNameSymbols(text).Trim();
         }
 
         internal static void ExportInspectedCharacter(RulesetCharacterHero hero)
@@ -51,7 +44,9 @@ namespace SolastaCommunityExpansion.Models
 
             InputModalVisible = true;
 
-            messageModal.Show(MessageModal.Severity.Informative1, "Message/&CharacterExportModalTitleDescription", INPUT_MODAL_MARK, "Message/&MessageOkTitle", "Message/&MessageCancelTitle", messageValidated, messageCancelled, true);
+            messageModal.Show(MessageModal.Severity.Informative1,
+                "Message/&CharacterExportModalTitleDescription", INPUT_MODAL_MARK,
+                "Message/&MessageOkTitle", "Message/&MessageCancelTitle", messageValidated, messageCancelled, true);
 
             void messageCancelled()
             {
@@ -71,7 +66,7 @@ namespace SolastaCommunityExpansion.Models
 
                 newFirstName = newFirstName.TrimStart();
 
-                if (newFirstName == string.Empty)
+                if (string.IsNullOrEmpty(newFirstName))
                 {
                     Gui.GuiService.ShowAlert("Message/&CharacterExportEmptyNameErrorDescription", "EA7171", 5);
                 }
@@ -79,7 +74,7 @@ namespace SolastaCommunityExpansion.Models
                 {
                     if (newFirstName.Contains(" "))
                     {
-                        var a = newFirstName.Split(new char[] { ' ' }, 2);
+                        var a = newFirstName.Split(new[] { ' ' }, 2);
 
                         newFirstName = ParseText(a[0]);
                         newSurname = hasSurname ? ParseText(a[1]) ?? string.Empty : string.Empty;
@@ -120,10 +115,15 @@ namespace SolastaCommunityExpansion.Models
 
             heroCharacter.CharacterInventory.EnumerateAllItems(inventoryItems);
 
-            var attunedItems = inventoryItems.Select(i => new { Item = i, Name = i.AttunedToCharacter }).ToList();
-            var customItems = inventoryItems.FindAll(i => Gui.GameLocation?.UserCampaign?.UserItems?.Exists(ui => ui.ReferenceItemDefinition == i.ItemDefinition) == true).ToList();
-            var heroItemGuids = heroCharacter.Items.Select(i => new { Item = i, i.Guid }).ToList();
-            var inventoryItemGuids = inventoryItems.Select(i => new { Item = i, i.Guid }).ToList();
+            var attunedItems = inventoryItems.ConvertAll(i => new { Item = i, Name = i.AttunedToCharacter });
+
+            // NOTE: don't use Gui.GameLocation?. which bypasses Unity object lifetime check
+            var customItems = (Gui.GameLocation
+                ? inventoryItems.FindAll(i => Gui.GameLocation.UserCampaign?.UserItems?.Exists(ui => ui.ReferenceItemDefinition == i.ItemDefinition) == true)
+                : Enumerable.Empty<RulesetItem>()).ToList();
+
+            var heroItemGuids = heroCharacter.Items.ConvertAll(i => new { Item = i, i.Guid });
+            var inventoryItemGuids = inventoryItems.ConvertAll(i => new { Item = i, i.Guid });
 
             try
             {
