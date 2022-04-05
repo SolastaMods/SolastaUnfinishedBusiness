@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.Respec
+namespace SolastaCommunityExpansion.Patches.Tools.Respec
 {
     // use this patch to avoid issues during RESPEC if a hero with same name is in the pool
     [HarmonyPatch(typeof(CharacterStageIdentityDefinitionPanel), "CanProceedToNextStage")]

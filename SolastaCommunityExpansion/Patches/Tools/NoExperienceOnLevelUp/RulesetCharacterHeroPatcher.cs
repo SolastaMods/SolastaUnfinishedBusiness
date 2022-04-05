@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.Tools
+namespace SolastaCommunityExpansion.Patches.Tools.NoExperienceOnLevelUp
 {
     // use this patch to enable the No Experience on Level up cheat
     [HarmonyPatch(typeof(RulesetCharacterHero), "CanLevelUp", MethodType.Getter)]
