@@ -22,7 +22,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             ref int sliderPosition,
             Action additionalRendering = null,
             int maxColumns = MAX_COLUMNS,
-            float pixelsPerColumn = PIXELS_PER_COLUMN) where T: BaseDefinition
+            float pixelsPerColumn = PIXELS_PER_COLUMN) where T : BaseDefinition
         {
             bool toggle;
             bool selectAll = selectedDefinitions.Count == registeredDefinitions.Count;
@@ -49,16 +49,19 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
                 using (UI.HorizontalScope())
                 {
-                    if (UI.Toggle("Select all", ref selectAll, UI.Width(PIXELS_PER_COLUMN)))
+                    if (additionalRendering != null)
+                    {
+                        additionalRendering.Invoke();
+                    }
+                    else if (UI.Toggle("Select all", ref selectAll, UI.Width(PIXELS_PER_COLUMN)))
                     {
                         foreach (var registeredDefinition in registeredDefinitions)
                         {
                             switchAction.Invoke(registeredDefinition, selectAll);
                         }
                     }
-
-                    additionalRendering?.Invoke();
                 }
+
 
                 UI.Slider("slide left for description / right to collapse".white().bold().italic(), ref sliderPosition, 1, maxColumns, 1, "");
 
