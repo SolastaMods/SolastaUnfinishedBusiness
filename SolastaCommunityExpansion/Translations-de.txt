@@ -1831,3 +1831,9 @@ Tooltip/&Tag9000Title	Benutzerdefinierter Effekt
 Tooltip/&TagCommunityExpansionTitle	Community-Erweiterung
 Tooltip/&TagMaledictionTitle	Fluch
 Tooltip/&TagOtherModContentTitle	Ab Mod
+Spell/&AirBlastTitle Luft Auf
+Spell/&AirBlastDescription Feuere einen Strahl fokussierter Luft auf dein Ziel ab.
+Spell/&BurstOfRadianceTitle	Schimmerndem Licht
+Spell/&BurstOfRadianceDescription	Erzeuge einen brillanten Blitz aus schimmerndem Licht, der allen Feinden um dich herum Schaden zufügt.
+Spell/&AcidClawsTitle	Angriff Aus
+Spell/&AcidClawsDescription	Führe mit deinen geschärften Krallen einen tödlichen Angriff aus.
