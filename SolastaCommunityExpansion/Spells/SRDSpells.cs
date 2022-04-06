@@ -70,30 +70,30 @@ namespace SolastaCommunityExpansion.Spells
         internal static void Register()
         {
             // 7th level
-            RegisterSpell(DivineWord, isFromOtherMod: false, NOT_IN_MIN_SET, CLERIC_SPELLLIST);
-            RegisterSpell(FingerOfDeath, isFromOtherMod: false, WARLOCK_SPELLLIST, WITCH_SPELLLIST, WIZARD_SPELLLIST, SORCERER_SPELLLIST);
-            RegisterSpell(ReverseGravity, isFromOtherMod: false, NOT_IN_MIN_SET, DRUID_SPELLLIST, WIZARD_SPELLLIST, SORCERER_SPELLLIST);
-            RegisterSpell(ConjureCelestial, isFromOtherMod: false, NOT_IN_MIN_SET, CLERIC_SPELLLIST);
+            RegisterSpell(DivineWord, 0, CLERIC_SPELLLIST);
+            RegisterSpell(FingerOfDeath, 1, WARLOCK_SPELLLIST, WITCH_SPELLLIST, WIZARD_SPELLLIST, SORCERER_SPELLLIST);
+            RegisterSpell(ReverseGravity, 0, DRUID_SPELLLIST, WIZARD_SPELLLIST, SORCERER_SPELLLIST);
+            RegisterSpell(ConjureCelestial, 0, CLERIC_SPELLLIST);
 
             // 8th level
-            RegisterSpell(DominateMonster, isFromOtherMod: false, WARLOCK_SPELLLIST, WIZARD_SPELLLIST, SORCERER_SPELLLIST, WITCH_SPELLLIST);
-            RegisterSpell(Feeblemind, isFromOtherMod: false, WARLOCK_SPELLLIST, WIZARD_SPELLLIST, DRUID_SPELLLIST, WITCH_SPELLLIST);
-            RegisterSpell(HolyAura, isFromOtherMod: false, NOT_IN_MIN_SET, CLERIC_SPELLLIST);
-            RegisterSpell(IncendiaryCloud, isFromOtherMod: false, NOT_IN_MIN_SET, WIZARD_SPELLLIST, SORCERER_SPELLLIST);
-            RegisterSpell(Maze, isFromOtherMod: false, NOT_IN_MIN_SET, WIZARD_SPELLLIST);
-            RegisterSpell(MindBlank, isFromOtherMod: false, NOT_IN_MIN_SET, WIZARD_SPELLLIST, WITCH_SPELLLIST);
-            RegisterSpell(PowerWordStun, isFromOtherMod: false, WARLOCK_SPELLLIST, WIZARD_SPELLLIST, SORCERER_SPELLLIST, WITCH_SPELLLIST);
-            RegisterSpell(SunBurst, isFromOtherMod: false, NOT_IN_MIN_SET, DRUID_SPELLLIST, WIZARD_SPELLLIST, SORCERER_SPELLLIST);
+            RegisterSpell(DominateMonster, 1, WARLOCK_SPELLLIST, WIZARD_SPELLLIST, SORCERER_SPELLLIST, WITCH_SPELLLIST);
+            RegisterSpell(Feeblemind, 1, WARLOCK_SPELLLIST, WIZARD_SPELLLIST, DRUID_SPELLLIST, WITCH_SPELLLIST);
+            RegisterSpell(HolyAura, 0, CLERIC_SPELLLIST);
+            RegisterSpell(IncendiaryCloud, 0, WIZARD_SPELLLIST, SORCERER_SPELLLIST);
+            RegisterSpell(Maze, 0, WIZARD_SPELLLIST);
+            RegisterSpell(MindBlank, 0, WIZARD_SPELLLIST, WITCH_SPELLLIST);
+            RegisterSpell(PowerWordStun, 1, WARLOCK_SPELLLIST, WIZARD_SPELLLIST, SORCERER_SPELLLIST, WITCH_SPELLLIST);
+            RegisterSpell(SunBurst, 0, DRUID_SPELLLIST, WIZARD_SPELLLIST, SORCERER_SPELLLIST);
 
             // 9th level
-            RegisterSpell(Foresight, isFromOtherMod: false, WARLOCK_SPELLLIST, DRUID_SPELLLIST, WIZARD_SPELLLIST, WITCH_SPELLLIST);
-            RegisterSpell(MassHeal, isFromOtherMod: false, NOT_IN_MIN_SET, CLERIC_SPELLLIST);
-            RegisterSpell(MeteorSwarmSingleTarget, isFromOtherMod: false, NOT_IN_MIN_SET, WIZARD_SPELLLIST, SORCERER_SPELLLIST);
-            RegisterSpell(PowerWordHeal, isFromOtherMod: false, NOT_IN_MIN_SET, CLERIC_SPELLLIST);
-            RegisterSpell(PowerWordKill, isFromOtherMod: false, WARLOCK_SPELLLIST, WIZARD_SPELLLIST, SORCERER_SPELLLIST);
-            RegisterSpell(TimeStop, isFromOtherMod: false, NOT_IN_MIN_SET, WIZARD_SPELLLIST, SORCERER_SPELLLIST);
-            RegisterSpell(Shapechange, isFromOtherMod: false, NOT_IN_MIN_SET, DRUID_SPELLLIST, WIZARD_SPELLLIST);
-            RegisterSpell(Weird, isFromOtherMod: false, WARLOCK_SPELLLIST, WIZARD_SPELLLIST, WITCH_SPELLLIST);
+            RegisterSpell(Foresight, 1, WARLOCK_SPELLLIST, DRUID_SPELLLIST, WIZARD_SPELLLIST, WITCH_SPELLLIST);
+            RegisterSpell(MassHeal, 0, CLERIC_SPELLLIST);
+            RegisterSpell(MeteorSwarmSingleTarget, 0, WIZARD_SPELLLIST, SORCERER_SPELLLIST);
+            RegisterSpell(PowerWordHeal, 0, CLERIC_SPELLLIST);
+            RegisterSpell(PowerWordKill, 1, WARLOCK_SPELLLIST, WIZARD_SPELLLIST, SORCERER_SPELLLIST);
+            RegisterSpell(TimeStop, 0, WIZARD_SPELLLIST, SORCERER_SPELLLIST);
+            RegisterSpell(Shapechange, 0, DRUID_SPELLLIST, WIZARD_SPELLLIST);
+            RegisterSpell(Weird, 1, WARLOCK_SPELLLIST, WIZARD_SPELLLIST, WITCH_SPELLLIST);
         }
 
         //

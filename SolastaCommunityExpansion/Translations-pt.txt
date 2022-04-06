@@ -1831,3 +1831,9 @@ Tooltip/&Tag9000Title	Efeito personalizado
 Tooltip/&TagCommunityExpansionTitle	Expansão da comunidade
 Tooltip/&TagMaledictionTitle	Maldição
 Tooltip/&TagOtherModContentTitle	Do modo
+Spell/&AirBlastTitle Rajada de Ar
+Spell/&AirBlastDescription Dispare uma rajada de ar focado em seu alvo.
+Spell/&BurstOfRadianceTitle	Luz Cintilante
+Spell/&BurstOfRadianceDescription	Crie um flash brilhante de luz cintilante, causando dano a todos os inimigos ao seu redor.
+Spell/&AcidClawsTitle	Garras Afiadas
+Spell/&AcidClawsDescription	Faça um ataque mortal com suas garras afiadas.

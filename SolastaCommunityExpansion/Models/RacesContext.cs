@@ -8,7 +8,7 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class RacesContext
     {
-        internal static Dictionary<string, CharacterRaceDefinition> Races { get; private set; } = new Dictionary<string, CharacterRaceDefinition>();
+        internal static HashSet<CharacterRaceDefinition> Races { get; private set; } = new();
 
         internal static void SortRacesFeatures()
         {
@@ -35,7 +35,7 @@ namespace SolastaCommunityExpansion.Models
             LoadRace(BolgrifRaceBuilder.BolgrifRace);
             LoadRace(GnomeRaceBuilder.GnomeRace);
 
-            Races = Races.OrderBy(x => x.Value.FormatTitle()).ToDictionary(x => x.Key, x => x.Value);
+            Races = Races.OrderBy(x => x.FormatTitle()).ToHashSet();
 
             if (Main.Settings.EnableSortingFutureFeatures)
             {
@@ -43,43 +43,40 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        private static void LoadRace(CharacterRaceDefinition definition)
+        private static void LoadRace(CharacterRaceDefinition characterRaceDefinition)
         {
-            var name = definition.Name;
-
-            if (!Races.ContainsKey(name))
+            if (!Races.Contains(characterRaceDefinition))
             {
-                Races.Add(name, definition);
+                Races.Add(characterRaceDefinition);
             }
 
-            UpdateRaceVisibility(name);
+            UpdateRaceVisibility(characterRaceDefinition);
         }
 
-        private static void UpdateRaceVisibility(string raceName)
+        private static void UpdateRaceVisibility(CharacterRaceDefinition characterRaceDefinition)
         {
-            Races[raceName].GuiPresentation.SetHidden(!Main.Settings.RaceEnabled.Contains(raceName));
+            characterRaceDefinition.GuiPresentation.SetHidden(!Main.Settings.RaceEnabled.Contains(characterRaceDefinition.Name));
         }
 
-        internal static void Switch(string raceName, bool active)
+        internal static void Switch(CharacterRaceDefinition characterRaceDefinition, bool active)
         {
-            if (!Races.ContainsKey(raceName))
+            if (!Races.Contains(characterRaceDefinition))
             {
                 return;
             }
 
+            var name = characterRaceDefinition.Name;
+
             if (active)
             {
-                if (!Main.Settings.RaceEnabled.Contains(raceName))
-                {
-                    Main.Settings.RaceEnabled.Add(raceName);
-                }
+                Main.Settings.RaceEnabled.TryAdd(name);
             }
             else
             {
-                Main.Settings.RaceEnabled.Remove(raceName);
+                Main.Settings.RaceEnabled.Remove(name);
             }
 
-            UpdateRaceVisibility(raceName);
+            UpdateRaceVisibility(characterRaceDefinition);
         }
 
 #if DEBUG
@@ -89,7 +86,7 @@ namespace SolastaCommunityExpansion.Models
 
             outString.Append("\n[list]");
 
-            foreach (var characterRace in Races.Values)
+            foreach (var characterRace in Races)
             {
                 outString.Append("\n[*][b]");
                 outString.Append(characterRace.FormatTitle());

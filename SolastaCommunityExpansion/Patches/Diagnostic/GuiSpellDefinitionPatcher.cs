@@ -10,11 +10,10 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
     {
         public static void Postfix(GuiSpellDefinition __instance)
         {
-            if (SpellsContext.RegisteredSpells.TryGetValue(__instance.SpellDefinition, out var record))
+            if (SpellsContext.Spells.TryGetValue(__instance.SpellDefinition, out var record))
             {
                 TagsDefinitions.AddTagAsNeeded(__instance.TagsMap,
-                    record.IsFromOtherMod ? "OtherModContent" : "CommunityExpansion",
-                    TagsDefinitions.Criticity.Normal, true);
+                    "CommunityExpansion", TagsDefinitions.Criticity.Normal, true);
             }
             else if (DiagnosticsContext.IsCeDefinition(__instance.BaseDefinition))
             {
