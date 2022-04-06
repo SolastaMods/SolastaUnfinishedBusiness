@@ -1831,3 +1831,9 @@ Tooltip/&Tag9000Title	Effet personnalisé
 Tooltip/&TagCommunityExpansionTitle	Expansion de la communauté
 Tooltip/&TagMaledictionTitle	Malédiction
 Tooltip/&TagOtherModContentTitle	À partir du module
+Spell/&AirBlastTitle Souffle D'air
+Spell/&AirBlastDescription Tire un souffle d'air concentré sur votre cible.
+Spell/&BurstOfRadianceTitle	Lumière Scintillante
+Spell/&BurstOfRadianceDescription	Crée un flash brillant de lumière scintillante, endommageant tous les ennemis autour de vous.
+Spell/&AcidClawsTitle	Griffes Aiguisées
+Spell/&AcidClawsDescription	Effectuez une attaque mortelle avec vos griffes aiguisées.

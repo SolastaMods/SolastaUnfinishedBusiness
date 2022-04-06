@@ -63,6 +63,46 @@ namespace SolastaCommunityExpansion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap AcidClaws {
+            get {
+                object obj = ResourceManager.GetObject("AcidClaws", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap AirBlast {
+            get {
+                object obj = ResourceManager.GetObject("AirBlast", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Bolgrif {
+            get {
+                object obj = ResourceManager.GetObject("Bolgrif", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap BurstOfRadiance {
+            get {
+                object obj = ResourceManager.GetObject("BurstOfRadiance", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap ContentPack {
             get {
                 object obj = ResourceManager.GetObject("ContentPack", resourceCulture);
@@ -86,16 +126,6 @@ namespace SolastaCommunityExpansion.Properties {
         public static System.Drawing.Bitmap Entry {
             get {
                 object obj = ResourceManager.GetObject("Entry", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap Bolgrif {
-            get {
-                object obj = ResourceManager.GetObject("Bolgrif", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

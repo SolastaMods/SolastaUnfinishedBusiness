@@ -119,12 +119,14 @@ namespace SolastaCommunityExpansion.Models
         internal static void AddToDB()
         {
             BazouSpells.AddToDB();
+            HolicSpells.AddToDB();
             SrdSpells.AddToDB();
         }
 
         internal static void Load()
         {
             BazouSpells.Register();
+            HolicSpells.Register();
             SrdSpells.Register();
             HouseSpellTweaks.Register();
 

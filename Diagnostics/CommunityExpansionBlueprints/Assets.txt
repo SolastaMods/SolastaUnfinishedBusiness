@@ -4513,13 +4513,16 @@ Turn_12C~Necropolis~MOD	RoomBlueprint	RoomBlueprint	9358663d-cd6e-5902-9c28-5757
 Turn_12C~Sewers~MOD	RoomBlueprint	RoomBlueprint	4f5ba24c-2ccc-5b3b-820c-6efa100207e4
 Turn_12C~Stronghold~MOD	RoomBlueprint	RoomBlueprint	a66260e4-487d-5ca5-ac89-25c882c8ad75
 Turn_12C~ValleyPalace~MOD	RoomBlueprint	RoomBlueprint	09a5b4b5-749e-51ca-b59b-44f8e0b13be4
+AcidClaws	SpellDefinition	SpellDefinition	016894e0-1c5d-5fe5-a320-e99a29f0c035
 AHPactMarkSpellBuilder	SpellDefinition	SpellDefinition	ef9a57d2-4f91-5129-830f-44a15a4e2697
+AirBlast	SpellDefinition	SpellDefinition	021bc2a7-b978-54b0-9d5a-1b9e50123cb5
 AlchemistBoldnessElixir	SpellDefinition	SpellDefinition	16a3f274-9fb0-5bbd-a673-281c2c845a5a
 AlchemistFlyElixir	SpellDefinition	SpellDefinition	d5484ca8-7cb5-5ef8-9c68-024346d83f26
 AlchemistHealElixir	SpellDefinition	SpellDefinition	3fe865c2-d870-5cd2-8d93-80584924c384
 AlchemistResilienceElixir	SpellDefinition	SpellDefinition	54bcdc6b-59f1-5a50-8ccb-f886748ff606
 AlchemistSwiftnessElixir	SpellDefinition	SpellDefinition	3e69d4ce-0f48-5c80-aabc-6ea1fd822ef1
 ArtilleristCannonDetonation	SpellDefinition	SpellDefinition	0b326455-d3ea-50ad-b75f-972e7a8834a2
+BurstOfRadiance	SpellDefinition	SpellDefinition	05525895-5026-5d02-9d94-a52c37001dd2
 CantripAlchemistEmboldeningShots	SpellDefinition	SpellDefinition	76b0e805-3104-550f-bf30-fcf41b83c919
 CJDivineWord	SpellDefinition	SpellDefinition	18ecba41-a8ac-4048-979e-2139e66934a7
 DH_Custom_DominateMonster_Spell	SpellDefinition	SpellDefinition	af2bcede-9fbb-5c27-b354-ff40932436f8
