@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using SolastaCommunityExpansion.Utils;
 using UnityModManagerNet;
 
 #pragma warning disable IDE0130 // Namespace does not match folder structure
@@ -78,6 +79,7 @@ namespace SolastaCommunityExpansion
         public bool DisplaySubclassesToggle { get; set; }
         public bool DisplayFeatsToggle { get; set; }
         public bool DisplayFightingStylesToggle { get; set; }
+        public SerializableDictionary<string, bool> DisplaySpellListsToggle { get; set; } = new SerializableDictionary<string, bool>();
         public bool DisplayCraftingToggle { get; set; }
         public bool DisplayMerchantsToggle { get; set; }
 
@@ -175,7 +177,11 @@ namespace SolastaCommunityExpansion
         // Characters - Spells
         //
 
-        public Utils.SerializableDictionary<string, List<string>> SpellSpellListEnabled { get; set; } = new Utils.SerializableDictionary<string, List<string>>();
+        public SerializableDictionary<string, int> SpellListSliderPosition { get; set; } = new SerializableDictionary<string, int>();
+
+        public SerializableDictionary<string, List<string>> SpellListSpellEnabled { get; set; } = new SerializableDictionary<string, List<string>>();
+
+        //public SerializableDictionary<string, List<string>> SpellSpellListEnabled { get; set; } = new SerializableDictionary<string, List<string>>();
 
         //
         // Gameplay - Rules

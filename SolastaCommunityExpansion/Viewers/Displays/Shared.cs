@@ -7,19 +7,20 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class Shared
     {
-        private const int MAX_COLUMNS = 4;
+        internal const int MAX_COLUMNS = 4;
 
-        private const float PIXELS_PER_COLUMN = 240;
+        internal const float PIXELS_PER_COLUMN = 240;
 
         internal static readonly string RequiresRestart = "[requires restart]".italic().red().bold();
 
         internal static void DisplayDefinitions<T>(
             string label,
-            Action<string, bool> switchAction,
-            Dictionary<string, T> registeredDefinitions,
+            Action<T, bool> switchAction,
+            HashSet<T> registeredDefinitions,
             List<string> selectedDefinitions,
             ref bool displayToggle,
             ref int sliderPosition,
+            Action additionalRendering = null,
             int maxColumns = MAX_COLUMNS,
             float pixelsPerColumn = PIXELS_PER_COLUMN) where T: BaseDefinition
         {
@@ -45,12 +46,18 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
 
                 UI.Label("");
-                if (UI.Toggle("Select all", ref selectAll))
+
+                using (UI.HorizontalScope())
                 {
-                    foreach (var keyValuePair in registeredDefinitions)
+                    if (UI.Toggle("Select all", ref selectAll, UI.Width(PIXELS_PER_COLUMN)))
                     {
-                        switchAction.Invoke(keyValuePair.Key, selectAll);
+                        foreach (var registeredDefinition in registeredDefinitions)
+                        {
+                            switchAction.Invoke(registeredDefinition, selectAll);
+                        }
                     }
+
+                    additionalRendering?.Invoke();
                 }
 
                 UI.Slider("slide left for description / right to collapse".white().bold().italic(), ref sliderPosition, 1, maxColumns, 1, "");
@@ -72,8 +79,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         {
                             while (current < count && columns-- > 0)
                             {
-                                var keyValuePair = registeredDefinitions.ElementAt(current);
-                                var definition = keyValuePair.Value;
+                                var definition = registeredDefinitions.ElementAt(current);
                                 var title = definition.FormatTitle();
 
                                 if (flip)
@@ -81,10 +87,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                                     title = title.yellow();
                                 }
 
-                                toggle = selectedDefinitions.Contains(keyValuePair.Key);
+                                toggle = selectedDefinitions.Contains(definition.Name);
                                 if (UI.Toggle(title, ref toggle, UI.Width(pixelsPerColumn)))
                                 {
-                                    switchAction.Invoke(keyValuePair.Key, toggle);
+                                    switchAction.Invoke(definition, toggle);
                                 }
 
                                 if (sliderPosition == 1)
