@@ -26,9 +26,9 @@ namespace SolastaCommunityExpansion.Spells
 
         internal static void Register()
         {
-            RegisterSpell(AcidClaw, isFromOtherMod: false, WIZARD_SPELLLIST);
-            RegisterSpell(AirBlast, isFromOtherMod: false, WIZARD_SPELLLIST);
-            RegisterSpell(BurstOfRadiance, isFromOtherMod: false, CLERIC_SPELLLIST);
+            RegisterSpell(AcidClaw, 0, WIZARD_SPELLLIST);
+            RegisterSpell(AirBlast, 0, WIZARD_SPELLLIST);
+            RegisterSpell(BurstOfRadiance, 0, CLERIC_SPELLLIST);
         }
 
         private static SpellDefinition BuildAcidClaw()

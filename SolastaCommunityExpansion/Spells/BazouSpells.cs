@@ -36,12 +36,12 @@ namespace SolastaCommunityExpansion.Spells
 
         internal static void Register()
         {
-            RegisterSpell(EldritchOrb, isFromOtherMod: false, WITCH_SPELLLIST, WARLOCK_SPELLLIST);
-            RegisterSpell(FindFamiliar, isFromOtherMod: false, WITCH_SPELLLIST, WIZARD_SPELLLIST);
-            RegisterSpell(Frenzy, isFromOtherMod: false, WITCH_SPELLLIST, WARLOCK_SPELLLIST, WIZARD_SPELLLIST, SORCERER_SPELLLIST);
-            RegisterSpell(MinorLifesteal, isFromOtherMod: false, WITCH_SPELLLIST, WIZARD_SPELLLIST);
-            RegisterSpell(PetalStorm, isFromOtherMod: false, WITCH_SPELLLIST, DRUID_SPELLLIST);
-            RegisterSpell(ProtectThreshold, isFromOtherMod: false, WITCH_SPELLLIST, CLERIC_SPELLLIST, DRUID_SPELLLIST, PALADIN_SPELLLIST);
+            RegisterSpell(EldritchOrb, 1, WITCH_SPELLLIST, WARLOCK_SPELLLIST);
+            RegisterSpell(FindFamiliar, 1, WITCH_SPELLLIST, WIZARD_SPELLLIST);
+            RegisterSpell(Frenzy, 1, WITCH_SPELLLIST, WARLOCK_SPELLLIST, WIZARD_SPELLLIST, SORCERER_SPELLLIST);
+            RegisterSpell(MinorLifesteal, 1, WITCH_SPELLLIST, WIZARD_SPELLLIST);
+            RegisterSpell(PetalStorm, 1, WITCH_SPELLLIST, DRUID_SPELLLIST);
+            RegisterSpell(ProtectThreshold, 1, WITCH_SPELLLIST, CLERIC_SPELLLIST, DRUID_SPELLLIST, PALADIN_SPELLLIST);
         }
 
         private static SpellDefinition BuildEldritchOrb()
