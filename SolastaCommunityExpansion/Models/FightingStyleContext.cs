@@ -41,17 +41,11 @@ namespace SolastaCommunityExpansion.Models
             {
                 if (Main.Settings.FightingStyleEnabled.Contains(name))
                 {
-                    if (!fightingStyles.Contains(name))
-                    {
-                        fightingStyles.Add(name);
-                    }
+                    fightingStyles.TryAdd(name);
                 }
                 else
                 {
-                    if (fightingStyles.Contains(name))
-                    {
-                        fightingStyles.Remove(name);
-                    }
+                    fightingStyles.Remove(name);
                 }
             }
         }
@@ -67,10 +61,7 @@ namespace SolastaCommunityExpansion.Models
 
             if (active)
             {
-                if (!Main.Settings.FightingStyleEnabled.Contains(name))
-                {
-                    Main.Settings.FightingStyleEnabled.Add(name);
-                }
+                Main.Settings.FightingStyleEnabled.TryAdd(name);
             }
             else
             {

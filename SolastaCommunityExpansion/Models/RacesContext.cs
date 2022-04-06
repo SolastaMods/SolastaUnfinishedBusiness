@@ -69,10 +69,7 @@ namespace SolastaCommunityExpansion.Models
 
             if (active)
             {
-                if (!Main.Settings.RaceEnabled.Contains(name))
-                {
-                    Main.Settings.RaceEnabled.Add(name);
-                }
+                Main.Settings.RaceEnabled.TryAdd(name);
             }
             else
             {

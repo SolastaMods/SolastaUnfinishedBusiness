@@ -80,17 +80,11 @@ namespace SolastaCommunityExpansion.Models
 
             if (Main.Settings.SubclassEnabled.Contains(name))
             {
-                if (!choiceList.Subclasses.Contains(name))
-                {
-                    choiceList.Subclasses.Add(name);
-                }
+                choiceList.Subclasses.TryAdd(name);
             }
             else
             {
-                if (choiceList.Subclasses.Contains(name))
-                {
-                    choiceList.Subclasses.Remove(name);
-                }
+                choiceList.Subclasses.Remove(name);
             }
         }
 
@@ -105,10 +99,7 @@ namespace SolastaCommunityExpansion.Models
 
             if (active)
             {
-                if (!Main.Settings.SubclassEnabled.Contains(name))
-                {
-                    Main.Settings.SubclassEnabled.Add(name);
-                }
+                Main.Settings.SubclassEnabled.TryAdd(name);
             }
             else
             {

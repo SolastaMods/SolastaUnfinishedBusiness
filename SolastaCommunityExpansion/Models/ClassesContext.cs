@@ -72,10 +72,7 @@ namespace SolastaCommunityExpansion.Models
 
             if (active)
             {
-                if (!Main.Settings.ClassEnabled.Contains(name))
-                {
-                    Main.Settings.ClassEnabled.Add(name);
-                }
+                Main.Settings.ClassEnabled.TryAdd(name);
             }
             else
             {

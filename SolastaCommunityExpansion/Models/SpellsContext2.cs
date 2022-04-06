@@ -36,27 +36,13 @@ namespace SolastaCommunityExpansion.Models
                 SuggestedSpells = new();
             }
 
-            public bool IsMinimumSetSelected()
-            {
-                if (MinimumSpells.Count != SelectedSpells.Count)
-                {
-                    return false;
-                }
-
-                return MinimumSpells.All(x => SelectedSpells.Contains(x.Name));
-            }
+            public bool IsMinimumSetSelected => MinimumSpells.Count == SelectedSpells.Count 
+                || MinimumSpells.All(x => SelectedSpells.Contains(x.Name));
 
             public void SelectMinimumSet() => SelectedSpells.SetRange(MinimumSpells.Select(x => x.Name));
 
-            public bool IsSuggestedSetSelected()
-            {
-                if (SuggestedSpells.Count != SelectedSpells.Count)
-                {
-                    return false;
-                }
-
-                return SuggestedSpells.All(x => SelectedSpells.Contains(x.Name));
-            }
+            public bool IsSuggestedSetSelected => SuggestedSpells.Count != SelectedSpells.Count
+                || SuggestedSpells.All(x => SelectedSpells.Contains(x.Name));
 
             public void SelectSuggestedSet() => SelectedSpells.SetRange(SuggestedSpells.Select(x => x.Name));
 
@@ -72,10 +58,7 @@ namespace SolastaCommunityExpansion.Models
 
                 if (active)
                 {
-                    if (!Main.Settings.SpellListSpellEnabled[spellListName].Contains(spellName))
-                    {
-                        Main.Settings.SpellListSpellEnabled[spellListName].Add(spellName);
-                    }
+                    Main.Settings.SpellListSpellEnabled[spellListName].TryAdd(spellName);
                 }
                 else
                 {
@@ -88,9 +71,9 @@ namespace SolastaCommunityExpansion.Models
 
         internal static bool IsAllSetSelected => !Main.Settings.SpellListSpellEnabled.Values.Where(x => x.Count != Spells.Count).Any();
 
-        internal static bool IsMinimumSetSelected => !SpellListContextTab.Values.Where(x => !x.IsMinimumSetSelected()).Any();
+        internal static bool IsMinimumSetSelected => !SpellListContextTab.Values.Where(x => !x.IsMinimumSetSelected).Any();
 
-        internal static bool IsSuggestedSetSelected => !SpellListContextTab.Values.Where(x => !x.IsSuggestedSetSelected()).Any();
+        internal static bool IsSuggestedSetSelected => !SpellListContextTab.Values.Where(x => !x.IsSuggestedSetSelected).Any();
 
         internal static void SelectAllSet(bool enable)
         {
@@ -186,20 +169,9 @@ namespace SolastaCommunityExpansion.Models
 
                 SpellListContextTab.Add(spellList, new SpellListContext(spellList));
 
-                if (!Main.Settings.DisplaySpellListsToggle.ContainsKey(name))
-                {
-                    Main.Settings.DisplaySpellListsToggle.Add(name, new());
-                }
-
-                if (!Main.Settings.SpellListSliderPosition.ContainsKey(name))
-                {
-                    Main.Settings.SpellListSliderPosition.Add(name, new());
-                }
-
-                if (!Main.Settings.SpellListSpellEnabled.ContainsKey(name))
-                {
-                    Main.Settings.SpellListSpellEnabled.Add(name, new());
-                }
+                Main.Settings.SpellListSpellEnabled.TryAdd(name, new());
+                Main.Settings.DisplaySpellListsToggle.TryAdd(name, new());
+                Main.Settings.SpellListSliderPosition.TryAdd(name, new());
             }
         }
 
@@ -260,8 +232,8 @@ namespace SolastaCommunityExpansion.Models
             {
                 var spellEnabled = Main.Settings.SpellListSpellEnabled[spellList.Name];
 
-                SpellListContextTab[spellList].MinimumSpells.Add(spellDefinition);
                 spellEnabled.TryAdd(spellName);
+                SpellListContextTab[spellList].MinimumSpells.Add(spellDefinition);
             }
 
             foreach (var spellList in suggestedSpellLists)
