@@ -7,6 +7,7 @@ using static SolastaCommunityExpansion.Viewers.Displays.CreditsDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.DiagnosticsDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.GameServicesDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.PatchesDisplay;
+using static SolastaCommunityExpansion.Viewers.Displays.Shared;
 
 namespace SolastaCommunityExpansion.Viewers
 {
@@ -32,7 +33,7 @@ namespace SolastaCommunityExpansion.Viewers
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
-            UI.Label("Welcome to Solasta Community Expansion".yellow().bold());
+            UI.Label(WelcomeMessage);
             UI.Div();
 
             if (Main.Enabled)
