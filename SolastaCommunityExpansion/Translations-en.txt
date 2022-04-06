@@ -1562,7 +1562,7 @@ Subclass/&AbilityAffinityRogueConArtistTitle	Manipulative
 Subclass/&AHWarlockSubclassFiendPactDescription	You have made a pact with a fiend from the lower planes of existence, a being whose aims are evil, even if you strive against those aims. Such beings desire the corruption or destruction of all things, ultimately including you. Fiends powerful enough to forge a pact include demon lords such as Demogorgon, Orcus, Fraz'Urb-luu, and Baphomet; archdevils such as Asmodeus, Dispater, Mephistopheles, and Belial; pit fiends and balors that are especially mighty; and ultroloths and other lords of the yugoloths.
 Subclass/&AHWarlockSubclassFiendPactTitle	Fiend Pact
 Subclass/&AHWarlockSubclassSoulBladePactDescription	You have struck a bargain with a sentient weapon that you feed souls to in return for power.
-Subclass/&AHWarlockSubclassSoulBladePactTitle	SoulBlade pact
+Subclass/&AHWarlockSubclassSoulBladePactTitle	SoulBlade Pact
 Subclass/&ArcaneFighterAdditionalActionDescription	You can cast a spell after defeating an enemy with your weapon attacks.
 Subclass/&ArcaneFighterAdditionalActionTitle	Spell Fighting
 Subclass/&ArcaneFighterBonusWeaponDamageDescription	Once per turn your weapon attacks deal an extra 1d8 damage.
