@@ -7,9 +7,9 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class Shared
     {
-        private const int MAX_COLUMNS = 4;
+        internal const int MAX_COLUMNS = 4;
 
-        private const float PIXELS_PER_COLUMN = 240;
+        internal const float PIXELS_PER_COLUMN = 240;
 
         internal static readonly string RequiresRestart = "[requires restart]".italic().red().bold();
 
@@ -20,6 +20,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             List<string> selectedDefinitions,
             ref bool displayToggle,
             ref int sliderPosition,
+            Action additionalRendering = null,
             int maxColumns = MAX_COLUMNS,
             float pixelsPerColumn = PIXELS_PER_COLUMN) where T: BaseDefinition
         {
@@ -45,12 +46,18 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
 
                 UI.Label("");
-                if (UI.Toggle("Select all", ref selectAll))
+
+                using (UI.HorizontalScope())
                 {
-                    foreach (var registeredDefinition in registeredDefinitions)
+                    if (UI.Toggle("Select all", ref selectAll, UI.Width(PIXELS_PER_COLUMN)))
                     {
-                        switchAction.Invoke(registeredDefinition, selectAll);
+                        foreach (var registeredDefinition in registeredDefinitions)
+                        {
+                            switchAction.Invoke(registeredDefinition, selectAll);
+                        }
                     }
+
+                    additionalRendering?.Invoke();
                 }
 
                 UI.Slider("slide left for description / right to collapse".white().bold().italic(), ref sliderPosition, 1, maxColumns, 1, "");
