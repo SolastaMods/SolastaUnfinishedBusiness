@@ -31,25 +31,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
-            intValue = SpellLevelFilter;
-            if (UI.Slider("Spell level filter ".white() + "[-1 to display all spells]".italic().yellow(), ref intValue, SHOW_ALL, 9, SHOW_ALL))
-            {
-                SpellLevelFilter = intValue;
-
-                if (intValue == SHOW_ALL)
-                {
-                    FilteredSpells = SpellsContext.Spells.ToHashSet();
-                    FilteredSpellsNoCantrips = FilteredSpells.Where(x => x.SpellLevel > 0).ToHashSet();
-                }
-                else
-                {
-                    FilteredSpells = SpellsContext.Spells.Where(x => x.SpellLevel == SpellLevelFilter).ToHashSet();
-                    FilteredSpellsNoCantrips = FilteredSpells.Where(x => x.SpellLevel > 0).ToHashSet();
-                }
-            }
-
-            UI.Label("");
-
             using (UI.HorizontalScope())
             {
                 toggle = SpellsContext.IsAllSetSelected;
@@ -86,6 +67,23 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
             }
 
+            intValue = SpellLevelFilter;
+            if (UI.Slider("spell level filter ".bold().italic().white() + "[-1 to display all spells]".bold().italic().yellow(), ref intValue, SHOW_ALL, 9, SHOW_ALL))
+            {
+                SpellLevelFilter = intValue;
+
+                if (intValue == SHOW_ALL)
+                {
+                    FilteredSpells = SpellsContext.Spells.ToHashSet();
+                    FilteredSpellsNoCantrips = FilteredSpells.Where(x => x.SpellLevel > 0).ToHashSet();
+                }
+                else
+                {
+                    FilteredSpells = SpellsContext.Spells.Where(x => x.SpellLevel == SpellLevelFilter).ToHashSet();
+                    FilteredSpellsNoCantrips = FilteredSpells.Where(x => x.SpellLevel > 0).ToHashSet();
+                }
+            }
+
             UI.Label("");
 
             UI.Div();
@@ -100,13 +98,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
                 void AdditionalRendering()
                 {
-                    toggle = SpellsContext.SpellListContextTab[spellListDefinition].IsMinimumSetSelected();
+                    toggle = SpellsContext.SpellListContextTab[spellListDefinition].IsMinimumSetSelected;
                     if (UI.Toggle("Select Minimum", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                     {
                         SpellsContext.SpellListContextTab[spellListDefinition].SelectMinimumSet();
                     }
 
-                    toggle = SpellsContext.SpellListContextTab[spellListDefinition].IsSuggestedSetSelected();
+                    toggle = SpellsContext.SpellListContextTab[spellListDefinition].IsSuggestedSetSelected;
                     if (UI.Toggle("Select Suggested", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                     {
                         SpellsContext.SpellListContextTab[spellListDefinition].SelectSuggestedSet();
