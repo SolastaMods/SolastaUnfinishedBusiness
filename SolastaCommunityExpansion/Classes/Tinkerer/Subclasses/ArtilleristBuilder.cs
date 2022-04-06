@@ -97,7 +97,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
                 "Feat/&ArtificerArtilleristArcaneFirearmTitle",
                 "Feat/&ArtificerArtilleristArcaneFirearmDescription");
             FeatureDefinitionAdditionalDamage arcaneFirearm = new FeatureDefinitionAdditionalDamageBuilder("ArtificerArtilleristArcaneFirearm",
-                 GuidHelper.Create(TinkererClass.GuidNamespace, "ArtificerArtilleristArcaneFirearm").ToString(), "ArcaneFirearm",
+                TinkererClass.GuidNamespace, "ArcaneFirearm",
                 FeatureLimitedUsage.OncePerTurn, AdditionalDamageValueDetermination.Die, AdditionalDamageTriggerCondition.EvocationSpellDamage, AdditionalDamageRequiredProperty.None,
                 false /* attack only */, DieType.D8, 1 /* dice number */, AdditionalDamageType.SameAsBaseDamage, "", AdditionalDamageAdvancement.None,
                 new List<DiceByRank>(), false, AttributeDefinitions.Wisdom, 0, EffectSavingThrowType.None, new List<ConditionOperationDescription>(),
