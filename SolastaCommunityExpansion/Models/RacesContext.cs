@@ -82,9 +82,7 @@ namespace SolastaCommunityExpansion.Models
 #if DEBUG
         public static string GenerateRaceDescription()
         {
-            var outString = new StringBuilder("[size=3][b]Races[/b][/size]\n");
-
-            outString.Append("\n[list]");
+            var outString = new StringBuilder();
 
             foreach (var characterRace in Races)
             {
@@ -93,8 +91,6 @@ namespace SolastaCommunityExpansion.Models
                 outString.Append("[/b]: ");
                 outString.Append(characterRace.FormatDescription());
             }
-
-            outString.Append("\n[/list]");
 
             return outString.ToString();
         }

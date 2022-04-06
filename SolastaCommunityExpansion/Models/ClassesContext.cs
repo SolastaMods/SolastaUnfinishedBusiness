@@ -85,9 +85,7 @@ namespace SolastaCommunityExpansion.Models
 #if DEBUG
         public static string GenerateClassDescription()
         {
-            var outString = new StringBuilder("[size=3][b]Classes[/b][/size]\n");
-
-            outString.Append("\n[list]");
+            var outString = new StringBuilder();
 
             foreach (var characterClass in Classes)
             {
@@ -96,8 +94,6 @@ namespace SolastaCommunityExpansion.Models
                 outString.Append("[/b]: ");
                 outString.Append(characterClass.FormatDescription());
             }
-
-            outString.Append("\n[/list]");
 
             return outString.ToString();
         }

@@ -71,9 +71,7 @@ namespace SolastaCommunityExpansion.Models
 #if DEBUG
         public static string GenerateFeatsDescription()
         {
-            var outString = new StringBuilder("[size=3][b]Feats[/b][/size]\n");
-
-            outString.Append("\n[list]");
+            var outString = new StringBuilder();
 
             foreach (var feat in Feats)
             {
@@ -82,8 +80,6 @@ namespace SolastaCommunityExpansion.Models
                 outString.Append("[/b]: ");
                 outString.Append(feat.FormatDescription());
             }
-
-            outString.Append("\n[/list]");
 
             return outString.ToString();
         }
