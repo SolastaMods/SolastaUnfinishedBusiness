@@ -36,13 +36,15 @@ namespace SolastaCommunityExpansion.Models
                 SuggestedSpells = new();
             }
 
-            public bool IsMinimumSetSelected => MinimumSpells.Count == SelectedSpells.Count 
-                || MinimumSpells.All(x => SelectedSpells.Contains(x.Name));
-
-            public void SelectMinimumSet() => SelectedSpells.SetRange(MinimumSpells.Select(x => x.Name));
+            public bool IsAllSetSelected => Spells.Count == SelectedSpells.Count
+                || Spells.All(x => SelectedSpells.Contains(x.Name));
 
             public bool IsSuggestedSetSelected => SuggestedSpells.Count == SelectedSpells.Count
                 || SuggestedSpells.All(x => SelectedSpells.Contains(x.Name));
+
+            public void SelectAllSet() => SelectedSpells.SetRange(Spells.Select(x => x.Name));
+
+            public void SelectMinimumSet() => SelectedSpells.SetRange(MinimumSpells.Select(x => x.Name));
 
             public void SelectSuggestedSet() => SelectedSpells.SetRange(SuggestedSpells.Select(x => x.Name));
 
@@ -74,17 +76,15 @@ namespace SolastaCommunityExpansion.Models
 
         internal static bool IsAllSetSelected() => !Main.Settings.SpellListSpellEnabled.Values.Where(x => x.Count != Spells.Count).Any();
 
-        internal static bool IsMinimumSetSelected() => !SpellListContextTab.Values.Where(x => !x.IsMinimumSetSelected).Any();
-
         internal static bool IsSuggestedSetSelected() => !SpellListContextTab.Values.Where(x => !x.IsSuggestedSetSelected).Any();
 
-        internal static void SelectAllSet(bool enable)
+        internal static void SelectAllSet()
         {
             var spellNames = Spells.Select(x => x.Name);
 
             foreach (var spellEnabled in Main.Settings.SpellListSpellEnabled.Values)
             {
-                spellEnabled.SetRange(enable ? spellNames : new List<string>());
+                spellEnabled.SetRange(spellNames);
             }
         }
 
@@ -173,8 +173,8 @@ namespace SolastaCommunityExpansion.Models
                 SpellListContextTab.Add(spellList, new SpellListContext(spellList));
 
                 Main.Settings.SpellListSpellEnabled.TryAdd(name, new());
-                Main.Settings.DisplaySpellListsToggle.TryAdd(name, new());
-                Main.Settings.SpellListSliderPosition.TryAdd(name, new());
+                Main.Settings.DisplaySpellListsToggle.TryAdd(name, false);
+                Main.Settings.SpellListSliderPosition.TryAdd(name, 4);
             }
         }
 

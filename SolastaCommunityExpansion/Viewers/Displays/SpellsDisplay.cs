@@ -22,7 +22,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             bool toggle;
 
             UI.Label("");
-            UI.Label($". You can individually assign each spell to any spell list or simply select the minimum or suggested sets");
+            UI.Label($". You can individually assign each spell to any spell list or simply select the suggested set");
+            UI.Label($". You won't be able to unselect some spells from spell lists as these are required for the classes to work properly");
 
             if (!Main.Settings.EnableLevel20)
             {
@@ -34,23 +35,16 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             using (UI.HorizontalScope())
             {
                 toggle = SpellsContext.IsAllSetSelected();
-
                 if (UI.Toggle("Select All", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
-                {
-                    SpellsContext.SelectAllSet(toggle);
-                }
-
-                toggle = SpellsContext.IsMinimumSetSelected();
-                if (UI.Toggle("Select Minimum", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                 {
                     if (toggle)
                     {
-                        SpellsContext.SelectMinimumSet();
+                        SpellsContext.SelectAllSet();
                     }
                     else
                     {
-                        SpellsContext.SelectAllSet(false);
-                    }
+                        SpellsContext.SelectMinimumSet();
+                    }            
                 }
 
                 toggle = SpellsContext.IsSuggestedSetSelected();
@@ -62,7 +56,18 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     }
                     else
                     {
-                        SpellsContext.SelectAllSet(false);
+                        SpellsContext.SelectMinimumSet();
+                    }
+                }
+
+                toggle = Main.Settings.DisplaySpellListsToggle.All(x => x.Value);
+                if (UI.Toggle("Expand All", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+                {
+                    var keys = Main.Settings.DisplaySpellListsToggle.Keys.ToHashSet();
+
+                    foreach (var key in keys)
+                    {
+                        Main.Settings.DisplaySpellListsToggle[key] = toggle;
                     }
                 }
             }
@@ -98,16 +103,30 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
                 void AdditionalRendering()
                 {
-                    toggle = SpellsContext.SpellListContextTab[spellListDefinition].IsMinimumSetSelected;
-                    if (UI.Toggle("Select Minimum", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+                    toggle = SpellsContext.SpellListContextTab[spellListDefinition].IsAllSetSelected;
+                    if (UI.Toggle("Select All", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                     {
-                        SpellsContext.SpellListContextTab[spellListDefinition].SelectMinimumSet();
+                        if (toggle)
+                        {
+                            SpellsContext.SpellListContextTab[spellListDefinition].SelectAllSet();
+                        }
+                        else
+                        {
+                            SpellsContext.SpellListContextTab[spellListDefinition].SelectMinimumSet();
+                        }
                     }
 
                     toggle = SpellsContext.SpellListContextTab[spellListDefinition].IsSuggestedSetSelected;
                     if (UI.Toggle("Select Suggested", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                     {
-                        SpellsContext.SpellListContextTab[spellListDefinition].SelectSuggestedSet();
+                        if (toggle)
+                        {
+                            SpellsContext.SpellListContextTab[spellListDefinition].SelectSuggestedSet();
+                        }
+                        else
+                        {
+                            SpellsContext.SpellListContextTab[spellListDefinition].SelectMinimumSet();
+                        }
                     }
                 }
 
