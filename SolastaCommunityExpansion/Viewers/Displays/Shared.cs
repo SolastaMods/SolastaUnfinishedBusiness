@@ -15,8 +15,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
         internal static void DisplayDefinitions<T>(
             string label,
-            Action<string, bool> switchAction,
-            Dictionary<string, T> registeredDefinitions,
+            Action<T, bool> switchAction,
+            HashSet<T> registeredDefinitions,
             List<string> selectedDefinitions,
             ref bool displayToggle,
             ref int sliderPosition,
@@ -47,9 +47,9 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 UI.Label("");
                 if (UI.Toggle("Select all", ref selectAll))
                 {
-                    foreach (var keyValuePair in registeredDefinitions)
+                    foreach (var registeredDefinition in registeredDefinitions)
                     {
-                        switchAction.Invoke(keyValuePair.Key, selectAll);
+                        switchAction.Invoke(registeredDefinition, selectAll);
                     }
                 }
 
@@ -72,8 +72,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         {
                             while (current < count && columns-- > 0)
                             {
-                                var keyValuePair = registeredDefinitions.ElementAt(current);
-                                var definition = keyValuePair.Value;
+                                var definition = registeredDefinitions.ElementAt(current);
                                 var title = definition.FormatTitle();
 
                                 if (flip)
@@ -81,10 +80,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                                     title = title.yellow();
                                 }
 
-                                toggle = selectedDefinitions.Contains(keyValuePair.Key);
+                                toggle = selectedDefinitions.Contains(definition.Name);
                                 if (UI.Toggle(title, ref toggle, UI.Width(pixelsPerColumn)))
                                 {
-                                    switchAction.Invoke(keyValuePair.Key, toggle);
+                                    switchAction.Invoke(definition, toggle);
                                 }
 
                                 if (sliderPosition == 1)
