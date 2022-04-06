@@ -78,7 +78,7 @@ namespace SolastaCommunityExpansion.Models
 
             outString.Append("\n[list]");
 
-            foreach (var feat in Feats.Values)
+            foreach (var feat in Feats)
             {
                 outString.Append("\n[*][b]");
                 outString.Append(feat.FormatTitle());

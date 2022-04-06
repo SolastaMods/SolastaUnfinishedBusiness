@@ -89,7 +89,7 @@ namespace SolastaCommunityExpansion.Models
 
             outString.Append("\n[list]");
 
-            foreach (var characterRace in Races.Values)
+            foreach (var characterRace in Races)
             {
                 outString.Append("\n[*][b]");
                 outString.Append(characterRace.FormatTitle());

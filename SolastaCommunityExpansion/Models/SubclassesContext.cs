@@ -125,7 +125,7 @@ namespace SolastaCommunityExpansion.Models
 
             outString.Append("\n[list]");
 
-            foreach (var subclass in Subclasses.Values)
+            foreach (var subclass in Subclasses)
             {
                 outString.Append("\n[*][b]");
                 outString.Append(subclass.FormatTitle());

@@ -87,7 +87,7 @@ namespace SolastaCommunityExpansion.Models
 
             outString.Append("\n[list]");
 
-            foreach (var style in FightingStyles.Values)
+            foreach (var style in FightingStyles)
             {
                 outString.Append("\n[*][b]");
                 outString.Append(style.FormatTitle());
