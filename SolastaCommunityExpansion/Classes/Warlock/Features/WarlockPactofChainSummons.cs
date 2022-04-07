@@ -46,27 +46,16 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
         public static void PactofChainFamiliarAuraOfSpellResistence()
         {
-
-            var guiPresentationSpellResistenceCondition = new GuiPresentationBuilder(
-                    "SpellResistenceDesccription",
-                    "SpellResistenceConditionTitle")
-                    .Build();
-
-            ConditionDefinition spellResistanceCondition = new Tinkerer.FeatureHelpers.ConditionDefinitionBuilder(
-                "DHSpellResistenceCondition", DefinitionBuilder.CENamespaceGuid,
-                RuleDefinitions.DurationType.Minute,
-                1,
-                false,
-                guiPresentationSpellResistenceCondition,
-                DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinitySpellResistance
-                ).AddToDB();
-
+            ConditionDefinition spellResistanceCondition = ConditionDefinitionBuilder
+                .Create("DHSpellResistenceCondition", DefinitionBuilder.CENamespaceGuid)
+                .Configure(RuleDefinitions.DurationType.Minute, 1, false, DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinitySpellResistance)
+                .SetGuiPresentation("SpellResistenceDesccription", "SpellResistenceConditionTitle")
+                .AddToDB();
 
             EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder();
             effectDescription.SetDurationData(RuleDefinitions.DurationType.Permanent, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             effectDescription.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1, RuleDefinitions.TargetType.Sphere, 2, 1, ActionDefinitions.ItemSelectionType.Equiped);
             effectDescription.AddEffectForm(new EffectFormBuilder().SetConditionForm(spellResistanceCondition, ConditionForm.ConditionOperation.Add, true, true, new List<ConditionDefinition>()).Build());
-
 
             PactofChainFamiliarSpellResistencePower = FeatureDefinitionPowerBuilder
                 .Create(

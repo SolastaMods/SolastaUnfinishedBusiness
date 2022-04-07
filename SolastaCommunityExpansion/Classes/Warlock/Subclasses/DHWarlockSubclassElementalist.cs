@@ -222,21 +222,17 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
                 var guiPresentationElementalFormCondition = new GuiPresentationBuilder(
                      "Elemental Form : " + text + " Plane" + " Condition",
-                     "When channeling the elemental  " + text + " Plane, you gain resistence to " + damagetype + " damage and once per turn, apply damage of the same type to your attack"
-                   )
+                     "When channeling the elemental  " + text + " Plane, you gain resistence to " + damagetype + " damage and once per turn, apply damage of the same type to your attack")
                     .Build();
 
-                ConditionDefinition ElementalFormCondtion = new Tinkerer.FeatureHelpers.ConditionDefinitionBuilder(
-                    "DH_ElementalForm_" + text + "Condition", DefinitionBuilder.CENamespaceGuid,
-                    DurationType.Minute, 1, false, guiPresentationElementalFormCondition,
-                    Dictionaryof_Elemental_damageResistances[entry.Key],
-                        additionalDamage
-                    ).AddToDB();
-
-
+                ConditionDefinition ElementalFormCondtion = ConditionDefinitionBuilder
+                    .Create("DH_ElementalForm_" + text + "Condition", DefinitionBuilder.CENamespaceGuid)
+                    .SetGuiPresentation(guiPresentationElementalFormCondition)
+                    .Configure(DurationType.Minute, 1, false,
+                        Dictionaryof_Elemental_damageResistances[entry.Key], additionalDamage)
+                    .AddToDB();
 
                 ElementalFormCondtion.SetConditionParticleReference(Dictionaryof_Elemental_Forms_EffectsParticles[entry.Key]);
-
 
                 EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder();
                 effectDescription.SetDurationData(DurationType.Minute, 1, TurnOccurenceType.EndOfTurn);

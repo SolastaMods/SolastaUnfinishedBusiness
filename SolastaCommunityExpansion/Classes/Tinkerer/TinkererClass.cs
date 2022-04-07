@@ -185,15 +185,13 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
             artificerBuilder.AddFeatureAtLevel(1, skillPoints);
 
-            SpellListDefinition spellList = TinkererSpellList.BuildAndAddToDB();
-
             // spell casting (1)
             var featureSpellCasting = FeatureDefinitionCastSpellBuilder
                 .Create("CastSpellTinkerer", GuidNamespace)
                 .SetGuiPresentation("ArtificerSpellcasting", Category.Subclass)
                 .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Class)
                 .SetSpellCastingAbility(AttributeDefinitions.Intelligence)
-                .SetSpellList(spellList)
+                .SetSpellList(TinkererSpellList.SpellList)
                 .SetSpellKnowledge(RuleDefinitions.SpellKnowledge.WholeList)
                 .SetSpellReadyness(RuleDefinitions.SpellReadyness.Prepared)
                 .SetSpellPreparationCount(RuleDefinitions.SpellPreparationCount.AbilityBonusPlusHalfLevel)

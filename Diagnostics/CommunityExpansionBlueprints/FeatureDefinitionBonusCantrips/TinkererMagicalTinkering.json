@@ -1,9 +1,9 @@
 {
   "$type": "FeatureDefinitionBonusCantrips, Assembly-CSharp",
   "bonusCantrips": [
+    "Definition:Dazzle:dc9e69f2397e0d541a8821fe4e4cf6ba",
     "Definition:Shine:5581bdee6e264364cb9b10558010dddf",
-    "Definition:Sparkle:ac43e07871656cd4db792bdbdc77ac44",
-    "Definition:Dazzle:dc9e69f2397e0d541a8821fe4e4cf6ba"
+    "Definition:Sparkle:ac43e07871656cd4db792bdbdc77ac44"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

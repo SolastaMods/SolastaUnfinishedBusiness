@@ -36,20 +36,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             }
         }
 
-        public class FeatureDefinitionAttackModifierBuilder : Builders.Features.FeatureDefinitionAttackModifierBuilder
-        {
-            public FeatureDefinitionAttackModifierBuilder(string name, Guid guidNamespace, RuleDefinitions.AttackModifierMethod attackRollModifierMethod,
-                int attackRollModifier, string attackRollAbilityScore, RuleDefinitions.AttackModifierMethod damageRollModifierMethod,
-                int damageRollModifier, string damageRollAbilityScore, bool canAddAbilityBonusToSecondary, string additionalAttackTag,
-                GuiPresentation guiPresentation) : base(name, guidNamespace)
-            {
-                Configure(attackRollModifierMethod, attackRollModifier, attackRollAbilityScore, damageRollModifierMethod,
-                    damageRollModifier, damageRollAbilityScore, canAddAbilityBonusToSecondary, additionalAttackTag);
-
-                Definition.SetGuiPresentation(guiPresentation);
-            }
-        }
-
         public class FeatureDefinitionAttributeModifierBuilder : Builders.Features.FeatureDefinitionAttributeModifierBuilder
         {
             public FeatureDefinitionAttributeModifierBuilder(string name, Guid guidNamespace, AttributeModifierOperation modifierType,
@@ -90,17 +76,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             public FeatureDefinitionMagicAffinityBuilder(string name, Guid guidNamesapce, GuiPresentation guiPresentation) : base(name, guidNamesapce)
             {
                 Definition.SetSomaticWithWeaponOrShield(true);
-                Definition.SetGuiPresentation(guiPresentation);
-            }
-        }
-
-        public class ConditionDefinitionBuilder : Builders.ConditionDefinitionBuilder
-        {
-            public ConditionDefinitionBuilder(string name, Guid guidNamespace, RuleDefinitions.DurationType durationType, int durationParameter,
-                bool silent, GuiPresentation guiPresentation, params FeatureDefinition[] conditionFeatures) : base(name, guidNamespace)
-            {
-                Configure(durationType, durationParameter, silent, conditionFeatures);
-
                 Definition.SetGuiPresentation(guiPresentation);
             }
         }
@@ -255,28 +230,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             }
         }
 
-        public static SpellListDefinition.SpellsByLevelDuplet BuildSpellList(int classLevel, params SpellDefinition[] spellnames)
-        {
-            return BuildSpellList(classLevel, spellnames.AsEnumerable());
-        }
-
-        public static SpellListDefinition.SpellsByLevelDuplet BuildSpellList(int classLevel, IEnumerable<SpellDefinition> spellnames)
-        {
-            return new SpellListDefinition.SpellsByLevelDuplet
-            {
-                Level = classLevel,
-                Spells = new List<SpellDefinition>(spellnames)
-            };
-        }
-
         public static FeatureDefinitionProficiencyBuilder BuildProficiency(string name,
             RuleDefinitions.ProficiencyType type, params string[] proficiencies)
-        {
-            return BuildProficiency(name, type, proficiencies.AsEnumerable());
-        }
-
-        public static FeatureDefinitionProficiencyBuilder BuildProficiency(string name,
-            RuleDefinitions.ProficiencyType type, IEnumerable<string> proficiencies)
         {
             return FeatureDefinitionProficiencyBuilder
                 .Create(name, TinkererClass.GuidNamespace)
@@ -298,8 +253,11 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         public static ConditionDefinition BuildCondition(string name, RuleDefinitions.DurationType durationType,
             int durationParameter, bool silent, GuiPresentation guiPresentation, params FeatureDefinition[] conditionFeatures)
         {
-            return new ConditionDefinitionBuilder(name, TinkererClass.GuidNamespace,
-                durationType, durationParameter, silent, guiPresentation, conditionFeatures).AddToDB();
+            return ConditionDefinitionBuilder
+                .Create(name, TinkererClass.GuidNamespace)
+                .SetGuiPresentation(guiPresentation)
+                .Configure(durationType, durationParameter, silent, conditionFeatures)
+                .AddToDB();
         }
 
         public static FeatureDefinitionMagicAffinity BuildMagicAffinityModifiers(string name, int attackModifier, int dcModifier, GuiPresentation guiPresentation)
@@ -340,9 +298,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             RuleDefinitions.AttackModifierMethod damageRollModifierMethod, int damageRollModifier, string damageRollAbilityScore, bool canAddAbilityBonusToSecondary,
             string additionalAttackTag, GuiPresentation guiPresentation)
         {
-            return new FeatureDefinitionAttackModifierBuilder(name, TinkererClass.GuidNamespace,
-                attackRollModifierMethod, attackRollModifier, attackRollAbilityScore, damageRollModifierMethod, damageRollModifier, damageRollAbilityScore,
-                canAddAbilityBonusToSecondary, additionalAttackTag, guiPresentation).AddToDB();
+            return FeatureDefinitionAttackModifierBuilder.Create(name, TinkererClass.GuidNamespace)
+                .SetGuiPresentation(guiPresentation)
+                .Configure(
+                    attackRollModifierMethod, attackRollModifier, attackRollAbilityScore, damageRollModifierMethod,
+                    damageRollModifier, damageRollAbilityScore, canAddAbilityBonusToSecondary, additionalAttackTag)
+                .AddToDB();
         }
 
         public static FeatureDefinitionMovementAffinity BuildMovementAffinity(string name, bool addBase, int speedAdd, float speedMult, GuiPresentation guiPresentation)
