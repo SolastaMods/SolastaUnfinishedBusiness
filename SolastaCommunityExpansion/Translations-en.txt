@@ -1831,8 +1831,8 @@ Tooltip/&Tag9000Title	Custom Effect
 Tooltip/&TagCommunityExpansionTitle	Community Expansion
 Tooltip/&TagMaledictionTitle	Malediction
 Tooltip/&TagOtherModContentTitle	From mod
-Spell/&AirBlastTitle Air Blast
-Spell/&AirBlastDescription Fire a blast of focused air at your target.
+Spell/&AirBlastTitle	Air Blast
+Spell/&AirBlastDescription	Fire a blast of focused air at your target.
 Spell/&BurstOfRadianceTitle	Burst of Radiance
 Spell/&BurstOfRadianceDescription	Create a brilliant flash of shimmering light, damaging all enemies around you.
 Spell/&AcidClawsTitle	Bloody Claws
