@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Classes.Tinkerer.Subclasses;
@@ -79,7 +80,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 "Subclass/&AttackModifierArtificerEnhancedFocusDescription");
             focusPlus1Gui.SetSpriteReference(FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference);
             FeatureDefinitionMagicAffinity focusPlus1 = BuildMagicAffinityModifiers("Enhanced Focus", 1, 1, focusPlus1Gui.Build());
-            ConditionDefinition infusedFocusCondition = BuildCondition(new List<FeatureDefinition>() { focusPlus1 }, RuleDefinitions.DurationType.UntilLongRest, 1, false, "ArtificerInfusedFocus", focusPlus1Gui.Build());
+            ConditionDefinition infusedFocusCondition = BuildCondition("ArtificerInfusedFocus", RuleDefinitions.DurationType.UntilLongRest, 1, false, focusPlus1Gui.Build(), focusPlus1);
 
             GuiPresentationBuilder enhanceFocusGui = new GuiPresentationBuilder(
                 "Subclass/&AttackModifierArtificerEnhancedFocusTitle",
@@ -97,8 +98,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 "Subclass/&AttackModifierArtificerImprovedEnhancedFocusDescription");
             focusPlus2Gui.SetSpriteReference(FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference);
             FeatureDefinitionMagicAffinity focusPlus2 = BuildMagicAffinityModifiers("ImprovedEnhancedFocus", 2, 2, focusPlus2Gui.Build());
-            ConditionDefinition infusedFocusCondition = BuildCondition(new List<FeatureDefinition>() { focusPlus2 }, RuleDefinitions.DurationType.UntilLongRest, 1, false,
-                "ArtificerImprovedInfusedFocus", focusPlus2Gui.Build());
+            ConditionDefinition infusedFocusCondition = BuildCondition("ArtificerImprovedInfusedFocus", RuleDefinitions.DurationType.UntilLongRest, 1, false,
+                focusPlus2Gui.Build(), focusPlus2);
 
             GuiPresentationBuilder enhanceFocusGui = new GuiPresentationBuilder(
                 "Subclass/&AttackModifierArtificerImprovedEnhancedFocusTitle",
@@ -183,9 +184,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 "Subclass/&EquipmentModifierArtificerBagOfHolderDescription");
             bagOfHoldingConditionGui.SetSpriteReference(ConditionDefinitions.ConditionBullsStrength.GuiPresentation.SpriteReference);
 
-            ConditionDefinition bagOfHoldingCondition = BuildCondition(new List<FeatureDefinition>() {
-                    BuildEquipmentAffinity("InfusionBagOfHolding", 1.0f, 500.0f, bagOfHoldingConditionGui.Build())
-                    }, RuleDefinitions.DurationType.UntilLongRest, 1, false, "ArtificerInfusedConditionBagOfHolding", bagOfHoldingConditionGui.Build());
+            ConditionDefinition bagOfHoldingCondition = BuildCondition("ArtificerInfusedConditionBagOfHolding", RuleDefinitions.DurationType.UntilLongRest, 1, false, bagOfHoldingConditionGui.Build(),
+                    BuildEquipmentAffinity("InfusionBagOfHolding", 1.0f, 500.0f, bagOfHoldingConditionGui.Build()));
 
             GuiPresentationBuilder bagOfHoldingGui = new GuiPresentationBuilder(
                 "Subclass/&EquipmentModifierArtificerBagOfHolderTitle",
@@ -202,9 +202,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 "Subclass/&PowerInfuseDarkvisionTitle",
                 "Subclass/&PowerInfuseDarkvisionDescription");
             InfuseDarkvisionCondition.SetSpriteReference(ConditionDefinitions.ConditionSeeInvisibility.GuiPresentation.SpriteReference);
-            ConditionDefinition darkvisionCondition = BuildCondition(new List<FeatureDefinition>() {
-                FeatureDefinitionSenses.SenseSuperiorDarkvision,
-                }, RuleDefinitions.DurationType.UntilLongRest, 1, false, "ArtificerInfusedConditionDarkvision", InfuseDarkvisionCondition.Build());
+            ConditionDefinition darkvisionCondition = BuildCondition("ArtificerInfusedConditionDarkvision", RuleDefinitions.DurationType.UntilLongRest, 1, false,
+                InfuseDarkvisionCondition.Build(), FeatureDefinitionSenses.SenseSuperiorDarkvision);
 
             GuiPresentationBuilder InfuseDarkvision = new GuiPresentationBuilder(
                 "Subclass/&PowerInfuseDarkvisionTitle",
@@ -218,13 +217,14 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         private static FeatureDefinitionPower BuildMindSharpener()
         {
-            GuiPresentationBuilder InfuseMindSharpenerCondition = new GuiPresentationBuilder(
-                "Subclass/&PowerInfuseMindSharpenerTitle",
-                "Subclass/&PowerInfuseMindSharpenerDescription");
-            InfuseMindSharpenerCondition.SetSpriteReference(ConditionDefinitions.ConditionBearsEndurance.GuiPresentation.SpriteReference);
-            ConditionDefinition infusedMindSharpenerCondition = BuildCondition(new List<FeatureDefinition>() {
-                BuildMagicAffinityConcentration("MagicAffinityMindSharpener", RuleDefinitions.ConcentrationAffinity.Advantage, 20, InfuseMindSharpenerCondition.Build()),
-                }, RuleDefinitions.DurationType.UntilLongRest, 1, false, "ArtificerInfusedConditionMindSharpener", InfuseMindSharpenerCondition.Build());
+            var affinity = Builders.Features.FeatureDefinitionMagicAffinityBuilder
+                .Create("MagicAffinityMindSharpener", TinkererClass.GuidNamespace)
+                .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage, 20)
+                .SetGuiPresentation("PowerInfuseMindSharpener", Category.Subclass, ConditionDefinitions.ConditionBearsEndurance.GuiPresentation.SpriteReference)
+                .AddToDB();
+
+            ConditionDefinition infusedMindSharpenerCondition = BuildCondition("ArtificerInfusedConditionMindSharpener",
+                RuleDefinitions.DurationType.UntilLongRest, 1, false, affinity.GuiPresentation, affinity);
 
             GuiPresentationBuilder InfuseMindSharpener = new GuiPresentationBuilder(
                 "Subclass/&PowerInfuseMindSharpenerTitle",
@@ -248,11 +248,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             }, 0, RuleDefinitions.DieType.D1, RuleDefinitions.CharacterAbilityCheckAffinity.Advantage, InfuseArmorMagicalStrengthCondition.Build());
             FeatureDefinitionSavingThrowAffinity strengthSaveAffinity = BuildSavingThrowAffinity("SaveAffinityInfusionMagicalStrength",
                 new List<string>() { AttributeDefinitions.Strength }, RuleDefinitions.CharacterSavingThrowAffinity.Advantage, FeatureDefinitionSavingThrowAffinity.ModifierType.AddDice, 0, RuleDefinitions.DieType.D1, false, InfuseArmorMagicalStrengthCondition.Build());
-            ConditionDefinition armorMagicalStrengthCondition = BuildCondition(new List<FeatureDefinition>() {
-                strengthAbilityAffinity,
-                strengthSaveAffinity,
-                FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity,
-                }, RuleDefinitions.DurationType.UntilLongRest, 1, false, "ArtificerInfusionArmorMagicalStrengthCondition", InfuseArmorMagicalStrengthCondition.Build());
+            ConditionDefinition armorMagicalStrengthCondition = BuildCondition("ArtificerInfusionArmorMagicalStrengthCondition", RuleDefinitions.DurationType.UntilLongRest, 1, false, InfuseArmorMagicalStrengthCondition.Build(),
+                strengthAbilityAffinity, strengthSaveAffinity, FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity);
 
             GuiPresentationBuilder InfuseArmorMagicalStrength = new GuiPresentationBuilder(
                 "Subclass/&PowerInfuseArmorMagicalStrengthTitle",
@@ -273,7 +270,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 "Subclass/&ConditionResistantArmorTitle",
                 "Subclass/&ConditionResistnatArmorDescription");
             ConditionArmorResistance.SetSpriteReference(ConditionDefinitions.ConditionAuraOfProtection.GuiPresentation.SpriteReference);
-            ConditionDefinition ArmorResistance = BuildCondition(new List<FeatureDefinition>() {
+            ConditionDefinition ArmorResistance = BuildCondition("ConditionPowerArtificerResistantArmor",
+                RuleDefinitions.DurationType.UntilLongRest, 1, false, ConditionArmorResistance.Build(),
                 FeatureDefinitionDamageAffinitys.DamageAffinityAcidResistance,
                 FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance,
                 FeatureDefinitionDamageAffinitys.DamageAffinityFireResistance,
@@ -283,9 +281,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 FeatureDefinitionDamageAffinitys.DamageAffinityPoisonResistance,
                 FeatureDefinitionDamageAffinitys.DamageAffinityPsychicResistance,
                 FeatureDefinitionDamageAffinitys.DamageAffinityRadiantResistance,
-                FeatureDefinitionDamageAffinitys.DamageAffinityThunderResistance
-            },
-                RuleDefinitions.DurationType.UntilLongRest, 1, false, "ConditionPowerArtificerResistantArmor", ConditionArmorResistance.Build());
+                FeatureDefinitionDamageAffinitys.DamageAffinityThunderResistance);
             return BuildItemConditionInfusion(ArmorResistance, "ArtificerInfusionResistantArmor", InfuseResistantArmor.Build()).AddToDB();
         }
 
@@ -401,13 +397,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         private static FeatureDefinitionPower PowerMimicsItem(ItemDefinition item, string name)
         {
-            List<FeatureDefinition> features = new List<FeatureDefinition>();
-            foreach (ItemPropertyDescription property in item.StaticProperties)
-            {
-                features.Add(property.FeatureDefinition);
-            }
-            ConditionDefinition itemCondition = BuildCondition(features, RuleDefinitions.DurationType.UntilLongRest, 1, false,
-                "Condition" + name, item.GuiPresentation);
+            ConditionDefinition itemCondition = BuildCondition("Condition" + name, RuleDefinitions.DurationType.UntilLongRest, 1, false,
+                item.GuiPresentation, item.StaticProperties.Select(p => p.FeatureDefinition).ToArray());
 
             EffectDescriptionBuilder itemEffect = new EffectDescriptionBuilder();
             itemEffect.SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);

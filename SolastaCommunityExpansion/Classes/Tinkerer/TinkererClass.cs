@@ -296,11 +296,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             GuiPresentationBuilder flashOfGeniusConditionPresentation = new GuiPresentationBuilder(
                 "Subclass/&TinkererFlashOfGeniusConditionTitle",
                 "Subclass/&TinkererFlashOfGeniusConditionDescription");
-            ConditionDefinition flashCondition = FeatureHelpers.BuildCondition(new List<FeatureDefinition>() {
-                geniusSaves,
-                geniusAbility,
-            },
-                RuleDefinitions.DurationType.Hour, 1, true, "TinkererFlashOfGeniusCondition", flashOfGeniusConditionPresentation.Build());
+            ConditionDefinition flashCondition = FeatureHelpers.BuildCondition("TinkererFlashOfGeniusCondition",
+                RuleDefinitions.DurationType.Hour, 1, true, flashOfGeniusConditionPresentation.Build(),
+                geniusSaves, geniusAbility);
 
             EffectDescriptionBuilder flashEffect = new EffectDescriptionBuilder();
             flashEffect.AddEffectForm(new EffectFormBuilder().SetConditionForm(flashCondition, ConditionForm.ConditionOperation.Add, true, false, new List<ConditionDefinition>()).Build());

@@ -97,13 +97,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         public class ConditionDefinitionBuilder : Builders.ConditionDefinitionBuilder
         {
             public ConditionDefinitionBuilder(string name, Guid guidNamespace, RuleDefinitions.DurationType durationType, int durationParameter,
-                bool silent, GuiPresentation guiPresentation, params FeatureDefinition[] conditionFeatures) :
-                    this(name, guidNamespace, durationType, durationParameter, silent, guiPresentation, conditionFeatures.AsEnumerable())
-            {
-            }
-
-            public ConditionDefinitionBuilder(string name, Guid guidNamespace, RuleDefinitions.DurationType durationType, int durationParameter,
-                bool silent, GuiPresentation guiPresentation, IEnumerable<FeatureDefinition> conditionFeatures) : base(name, guidNamespace)
+                bool silent, GuiPresentation guiPresentation, params FeatureDefinition[] conditionFeatures) : base(name, guidNamespace)
             {
                 Configure(durationType, durationParameter, silent, conditionFeatures);
 
@@ -310,8 +304,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             return new FeatureDefinitionMagicAffinityBuilder(name, TinkererClass.GuidNamespace, levelBonus, guiPresentation, spellNames).AddToDB();
         }
 
-        public static ConditionDefinition BuildCondition(IEnumerable<FeatureDefinition> conditionFeatures, RuleDefinitions.DurationType durationType,
-            int durationParameter, bool silent, string name, GuiPresentation guiPresentation)
+        public static ConditionDefinition BuildCondition(string name, RuleDefinitions.DurationType durationType,
+            int durationParameter, bool silent, GuiPresentation guiPresentation, params FeatureDefinition[] conditionFeatures)
         {
             return new ConditionDefinitionBuilder(name, TinkererClass.GuidNamespace,
                 durationType, durationParameter, silent, guiPresentation, conditionFeatures).AddToDB();
