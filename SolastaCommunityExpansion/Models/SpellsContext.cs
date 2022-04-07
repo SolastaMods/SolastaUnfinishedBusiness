@@ -246,24 +246,11 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
+
 #if DEBUG
         public static string GenerateSpellsDescription()
         {
-            var outString = new StringBuilder("[size=3][b]Spells[/b][/size]\n");
-
-            outString.Append("\n[list]");
-
-            foreach (var spell in Spells)
-            {
-                outString.Append("\n[*][b]");
-                outString.Append(spell.FormatTitle());
-                outString.Append("[/b]: ");
-                outString.Append(spell.FormatDescription());
-            }
-
-            outString.Append("\n[/list]");
-
-            return outString.ToString();
+        // TODO: remove this later after the other request gets merged otherwise won't compile in DEBUG
         }
 #endif
     }
