@@ -20,12 +20,23 @@ namespace SolastaCommunityExpansion.Spells
     {
         internal static readonly Guid BAZOU_SPELLS_BASE_GUID = new("91384db5-6659-4384-bf2c-3a41160343f4");
 
-        internal static readonly SpellDefinition EldritchOrb = BuildEldritchOrb();
-        internal static readonly SpellDefinition FindFamiliar = BuildFindFamiliar();
-        internal static readonly SpellDefinition Frenzy = BuildFrenzy();
-        internal static readonly SpellDefinition MinorLifesteal = BuildMinorLifesteal();
-        internal static readonly SpellDefinition PetalStorm = BuildPetalStorm();
-        internal static readonly SpellDefinition ProtectThreshold = BuildProtectThreshold();
+        private static SpellDefinition _eldritchOrb;
+        internal static SpellDefinition EldritchOrb => _eldritchOrb ??= BuildEldritchOrb();
+
+        private static SpellDefinition _findFamiliar;
+        internal static SpellDefinition FindFamiliar => _findFamiliar ??= BuildFindFamiliar();
+
+        private static SpellDefinition _frenzy;
+        internal static SpellDefinition Frenzy => _frenzy ??= BuildFrenzy();
+
+        private static SpellDefinition _minorLifesteal;
+        internal static SpellDefinition MinorLifesteal => _minorLifesteal ??= BuildMinorLifesteal();
+
+        private static SpellDefinition _petalStorm;
+        internal static SpellDefinition PetalStorm => _petalStorm ??= BuildPetalStorm();
+
+        private static SpellDefinition _protectThreshold;
+        internal static SpellDefinition ProtectThreshold => _protectThreshold ??= BuildProtectThreshold();
 
         internal static void AddToDB()
         {
