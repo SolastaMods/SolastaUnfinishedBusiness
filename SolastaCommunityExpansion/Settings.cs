@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
-using SolastaCommunityExpansion.Utils;
+using ModKit.Utility;
 using UnityModManagerNet;
 
 #pragma warning disable IDE0130 // Namespace does not match folder structure
