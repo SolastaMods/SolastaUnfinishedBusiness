@@ -38,7 +38,8 @@ namespace SolastaCommunityExpansion.Spells
         private static SpellDefinition _protectThreshold;
         internal static SpellDefinition ProtectThreshold => _protectThreshold ??= BuildProtectThreshold();
 
-        internal static void AddToDB()
+        // don't need since spells are created when first referenced/used
+/*        internal static void AddToDB()
         {
             _ = EldritchOrb;
             _ = FindFamiliar;
@@ -47,7 +48,7 @@ namespace SolastaCommunityExpansion.Spells
             _ = PetalStorm;
             _ = ProtectThreshold;
         }
-
+*/
         internal static void Register()
         {
             RegisterSpell(EldritchOrb, 1, WitchSpellList, WarlockSpellList);
