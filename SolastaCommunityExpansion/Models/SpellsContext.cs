@@ -43,7 +43,8 @@ namespace SolastaCommunityExpansion.Models
                     AllSpells.Add(spell);
                 }
             }
-            public void SelectAllSet(bool toggle)
+
+            public void SelectAllSetInternal(bool toggle)
             {
                 foreach (var spell in AllSpells)
                 {
@@ -51,11 +52,11 @@ namespace SolastaCommunityExpansion.Models
                 }
             }
 
-            public void SelectSuggestedSet(bool toggle)
+            public void SelectSuggestedSetInternal(bool toggle)
             {
                 if (toggle)
                 {
-                    SelectAllSet(false);
+                    SelectAllSetInternal(false);
                 }
 
                 foreach (var spell in SuggestedSpells)
@@ -115,7 +116,7 @@ namespace SolastaCommunityExpansion.Models
         {
             foreach (var spellListContext in SpellListContextTab.Values)
             {
-                spellListContext.SelectAllSet(toggle);
+                spellListContext.SelectAllSetInternal(toggle);
             }
         }
 
@@ -123,7 +124,7 @@ namespace SolastaCommunityExpansion.Models
         {
             foreach (var spellListContext in SpellListContextTab.Values)
             {
-                spellListContext.SelectSuggestedSet(toggle);
+                spellListContext.SelectSuggestedSetInternal(toggle);
             }
         }
 
@@ -255,7 +256,8 @@ namespace SolastaCommunityExpansion.Models
 #if DEBUG
         public static string GenerateSpellsDescription()
         {
-        // TODO: remove this later after the other request gets merged otherwise won't compile in DEBUG
+            // TODO: remove this later after the other request gets merged otherwise won't compile in DEBUG
+            return string.Empty;
         }
 #endif
     }

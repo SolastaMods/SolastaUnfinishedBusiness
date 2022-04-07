@@ -135,42 +135,38 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .AddToDB();
         }
 
-        internal static SpellListDefinition WitchSpellList { get; private set; }
+        internal static SpellListDefinition WitchSpellList { get; } = SpellListDefinitionBuilder
+            .Create(SpellListDefinitions.SpellListWizard, "WitchSpellList", WITCH_BASE_GUID)
+            .SetGuiPresentationNoContent()
+            .ClearSpells()
+            .SetSpellsAtLevel(0,
+                AcidSplash, ChillTouch, DancingLights, EldritchOrb, ProduceFlame,
+                MinorLifesteal, Resistance, SpareTheDying, TrueStrike)
+            .SetSpellsAtLevel(1,
+                AnimalFriendship, Bane, CharmPerson, ComprehendLanguages,
+                DetectMagic, ExpeditiousRetreat, FaerieFire, FindFamiliar, HideousLaughter,
+                ProtectionFromEvilGood, Sleep, Thunderwave)
+            .SetSpellsAtLevel(2,
+                Blindness, CalmEmotions, Darkness, Darkvision,
+                HoldPerson, Invisibility, Knock, Levitate,
+                MistyStep, PetalStorm, ProtectThreshold, RayOfEnfeeblement,
+                SeeInvisibility, Shatter, SpiderClimb)
+            .SetSpellsAtLevel(3,
+                BestowCurse, Counterspell, DispelMagic, Fear,
+                Fly, HypnoticPattern, RemoveCurse, Slow,
+                StinkingCloud, Tongues)
+            .SetSpellsAtLevel(4,
+                Banishment, BlackTentacles, Confusion, DimensionDoor,
+                DominateBeast, GreaterInvisibility, PhantasmalKiller)
+            .SetSpellsAtLevel(5,
+                Contagion, DispelEvilAndGood, DominatePerson, HoldMonster)
+            .SetSpellsAtLevel(6,
+                Eyebite, Frenzy, TrueSeeing)
+            .FinalizeSpells()
+            .AddToDB();
 
         private static void BuildSpells()
         {
-            var classSpellList = SpellListDefinitionBuilder
-                .Create(SpellListDefinitions.SpellListWizard, "WitchSpellList", WITCH_BASE_GUID)
-                .SetGuiPresentationNoContent()
-                .ClearSpells()
-                .SetSpellsAtLevel(0,
-                    AcidSplash, ChillTouch, DancingLights, EldritchOrb, ProduceFlame,
-                    MinorLifesteal, Resistance, SpareTheDying, TrueStrike)
-                .SetSpellsAtLevel(1,
-                    AnimalFriendship, Bane, CharmPerson, ComprehendLanguages,
-                    DetectMagic, ExpeditiousRetreat, FaerieFire, FindFamiliar, HideousLaughter,
-                    ProtectionFromEvilGood, Sleep, Thunderwave)
-                .SetSpellsAtLevel(2,
-                    Blindness, CalmEmotions, Darkness, Darkvision,
-                    HoldPerson, Invisibility, Knock, Levitate,
-                    MistyStep, PetalStorm, ProtectThreshold, RayOfEnfeeblement, 
-                    SeeInvisibility, Shatter, SpiderClimb)
-                .SetSpellsAtLevel(3,
-                    BestowCurse, Counterspell, DispelMagic, Fear,
-                    Fly, HypnoticPattern, RemoveCurse, Slow,
-                    StinkingCloud, Tongues)
-                .SetSpellsAtLevel(4,
-                    Banishment, BlackTentacles, Confusion, DimensionDoor,
-                    DominateBeast, GreaterInvisibility, PhantasmalKiller)
-                .SetSpellsAtLevel(5,
-                    Contagion, DispelEvilAndGood, DominatePerson, HoldMonster)
-                .SetSpellsAtLevel(6,
-                    Eyebite, Frenzy, TrueSeeing)
-                .FinalizeSpells()
-                .AddToDB();
-
-            WitchSpellList = classSpellList;
-
             // Build our spellCast object containing previously created spell list
             List<SlotsByLevelDuplet> witchCastingSlots = new List<SlotsByLevelDuplet>{
                 new () { Slots = new () {2,0,0,0,0,0,0,0,0,0}, Level = 01 },
@@ -206,7 +202,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .SetSpellCastingLevel(9)
                 .SetSpellKnowledge(SpellKnowledge.Selection)
                 .SetSpellReadyness(SpellReadyness.AllKnown)
-                .SetSpellList(classSpellList)
+                .SetSpellList(WitchSpellList)
                 .SetReplacedSpells(SpellsHelper.FullCasterReplacedSpells)
                 .AddToDB();
         }

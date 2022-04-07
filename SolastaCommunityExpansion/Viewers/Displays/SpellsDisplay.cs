@@ -80,13 +80,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     toggle = spellListContext.IsAllSetSelected;
                     if (UI.Toggle("Select All", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                     {
-                        spellListContext.SelectAllSet(toggle);
+                        spellListContext.SelectAllSetInternal(toggle);
                     }
 
                     toggle = spellListContext.IsSuggestedSetSelected;
                     if (UI.Toggle("Select Suggested", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                     {
-                        spellListContext.SelectSuggestedSet(toggle);
+                        spellListContext.SelectSuggestedSetInternal(toggle);
                     }
                 }
 
