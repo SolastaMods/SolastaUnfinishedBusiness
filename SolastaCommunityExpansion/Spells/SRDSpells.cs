@@ -9,6 +9,7 @@ using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
 using static FeatureDefinitionCastSpell;
+using static SolastaCommunityExpansion.Classes.Warlock.Features.DHEldritchInvocationsBuilder;
 using static SolastaCommunityExpansion.Classes.Warlock.WarlockSpells;
 using static SolastaCommunityExpansion.Classes.Witch.Witch;
 using static SolastaCommunityExpansion.Models.SpellsContext;
@@ -72,6 +73,9 @@ namespace SolastaCommunityExpansion.Spells
 
         internal static void Register()
         {
+            // cantrip 
+            RegisterSpell(EldritchBlast, 1, WarlockSpellList);
+
             // 7th level
             RegisterSpell(DivineWord, 0, SpellListCleric);
             RegisterSpell(FingerOfDeath, 1, WarlockSpellList, WitchSpellList, SpellListWizard, SpellListSorcerer);
