@@ -55,10 +55,7 @@ namespace SolastaCommunityExpansion.Models
             {
                 if (toggle)
                 {
-                    foreach (var spell in AllSpells)
-                    {
-                        Switch(spell, false);
-                    }
+                    SelectAllSet(false);
                 }
 
                 foreach (var spell in SuggestedSpells)
