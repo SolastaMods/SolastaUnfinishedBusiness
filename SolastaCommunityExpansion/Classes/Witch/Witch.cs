@@ -135,7 +135,11 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .AddToDB();
         }
 
-        internal static SpellListDefinition WitchSpellList { get; } = SpellListDefinitionBuilder
+        internal static SpellListDefinition WitchSpellList { get; private set; }
+
+        private static void BuildSpells()
+        {
+            WitchSpellList = SpellListDefinitionBuilder
             .Create(SpellListDefinitions.SpellListWizard, "WitchSpellList", WITCH_BASE_GUID)
             .SetGuiPresentationNoContent()
             .ClearSpells()
@@ -164,9 +168,6 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 Eyebite, Frenzy, TrueSeeing)
             .FinalizeSpells()
             .AddToDB();
-
-        private static void BuildSpells()
-        {
             // Build our spellCast object containing previously created spell list
             List<SlotsByLevelDuplet> witchCastingSlots = new List<SlotsByLevelDuplet>{
                 new () { Slots = new () {2,0,0,0,0,0,0,0,0,0}, Level = 01 },
