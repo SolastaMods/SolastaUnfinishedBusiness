@@ -46,30 +46,26 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         private static FeatureDefinitionPower ringProtectionPlus1;
         private static FeatureDefinitionPower improvedEnhancedWeapon;
 
-        private static FeatureDefinitionPowerSharedPoolBuilder BuildBasicInfusionPower(string name, EffectDescription effect, GuiPresentation presentation)
+        private static FeatureDefinitionPowerSharedPoolBuilder BuildBasicInfusionPower(string name, EffectDescription effect)
         {
-            return new FeatureDefinitionPowerSharedPoolBuilder(name,
-                GuidHelper.Create(TinkererClass.GuidNamespace, name).ToString(),
-                TinkererClass.InfusionPool, RuleDefinitions.RechargeRate.LongRest, RuleDefinitions.ActivationTime.NoCost, 1, false, false, AttributeDefinitions.Intelligence,
-                effect, presentation, true /* unique instance */);
+            return FeatureDefinitionPowerSharedPoolBuilder.Create(name, TinkererClass.GuidNamespace)
+                .Configure(
+                    TinkererClass.InfusionPool, RuleDefinitions.RechargeRate.LongRest, RuleDefinitions.ActivationTime.NoCost,
+                    1, false, false, AttributeDefinitions.Intelligence, effect, true /* unique instance */);
         }
 
         public static FeatureDefinitionPower ArtificialServant => artificialServant ??= BuildArtificialServant();
 
         private static FeatureDefinitionPower BuildArtificialServant()
         {
-            GuiPresentationBuilder summonArtificialServantGui = new GuiPresentationBuilder(
-                "Feat/&SummonArtificialServantTitle",
-                "Feat/&SummonArtificialServantDescription");
-            summonArtificialServantGui.SetSpriteReference(SpellDefinitions.ConjureGoblinoids.GuiPresentation.SpriteReference);
-
             EffectDescriptionBuilder artificialServantEffect = new EffectDescriptionBuilder();
             artificialServantEffect.SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             artificialServantEffect.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
             artificialServantEffect.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, ArtificialServantBuilder.ArtificialServant.name, ConditionFlyingBootsWinged, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
 
-            return BuildBasicInfusionPower("summonArtificialServantPower",
-                artificialServantEffect.Build(), summonArtificialServantGui.Build()).AddToDB();
+            return BuildBasicInfusionPower("summonArtificialServantPower", artificialServantEffect.Build())
+                .SetGuiPresentation("SummonArtificialServant", Category.Feat, SpellDefinitions.ConjureGoblinoids.GuiPresentation.SpriteReference)
+                .AddToDB();
         }
 
         public static FeatureDefinitionPower EnhancedFocus => enhancedFocus ??= BuildEnhancedFocus();
@@ -385,7 +381,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 new FeatureUnlockByLevel(itemFeature, 0),
             }, RuleDefinitions.ItemPropertyUsage.Unlimited, 1).Build());
 
-            return BuildBasicInfusionPower(name, itemEffect.Build(), gui);
+            return BuildBasicInfusionPower(name, itemEffect.Build()).SetGuiPresentation(gui);
         }
 
         private static FeatureDefinitionPowerSharedPoolBuilder BuildItemConditionInfusion(ConditionDefinition condition, string name, GuiPresentation gui)
@@ -394,7 +390,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             conditionEffect.SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             conditionEffect.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Touch, 1, RuleDefinitions.TargetType.Individuals, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
             conditionEffect.AddEffectForm(new EffectFormBuilder().SetConditionForm(condition, ConditionForm.ConditionOperation.Add, false, false, new List<ConditionDefinition>()).Build());
-            return BuildBasicInfusionPower(name, conditionEffect.Build(), gui);
+            return BuildBasicInfusionPower(name, conditionEffect.Build()).SetGuiPresentation(gui);
         }
 
         private static FeatureDefinitionPower PowerMimicsItem(ItemDefinition item, string name)
@@ -407,8 +403,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             itemEffect.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Touch, 1, RuleDefinitions.TargetType.Individuals, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
             itemEffect.AddEffectForm(new EffectFormBuilder().SetConditionForm(itemCondition, ConditionForm.ConditionOperation.Add, false, false, new List<ConditionDefinition>()).Build());
 
-            return BuildBasicInfusionPower("Power" + name,
-                itemEffect.Build(), item.GuiPresentation).AddToDB();
+            return BuildBasicInfusionPower("Power" + name, itemEffect.Build()).SetGuiPresentation(item.GuiPresentation).AddToDB();
         }
     }
 }
