@@ -9,12 +9,15 @@ using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
 using static FeatureDefinitionCastSpell;
+using static SolastaCommunityExpansion.Classes.Warlock.WarlockSpells;
+using static SolastaCommunityExpansion.Classes.Witch.Witch;
 using static SolastaCommunityExpansion.Models.SpellsContext;
 using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaModApi.DatabaseHelper.MonsterDefinitions;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
+using static SolastaModApi.DatabaseHelper.SpellListDefinitions;
 
 namespace SolastaCommunityExpansion.Spells
 {
@@ -70,30 +73,30 @@ namespace SolastaCommunityExpansion.Spells
         internal static void Register()
         {
             // 7th level
-            RegisterSpell(DivineWord, 0, CLERIC_SPELLLIST);
-            RegisterSpell(FingerOfDeath, 1, WARLOCK_SPELLLIST, WITCH_SPELLLIST, WIZARD_SPELLLIST, SORCERER_SPELLLIST);
-            RegisterSpell(ReverseGravity, 0, DRUID_SPELLLIST, WIZARD_SPELLLIST, SORCERER_SPELLLIST);
-            RegisterSpell(ConjureCelestial, 0, CLERIC_SPELLLIST);
+            RegisterSpell(DivineWord, 0, SpellListCleric);
+            RegisterSpell(FingerOfDeath, 1, WarlockSpellList, WitchSpellList, SpellListWizard, SpellListSorcerer);
+            RegisterSpell(ReverseGravity, 0, SpellListDruid, SpellListWizard, SpellListSorcerer);
+            RegisterSpell(ConjureCelestial, 0, SpellListCleric);
 
             // 8th level
-            RegisterSpell(DominateMonster, 1, WARLOCK_SPELLLIST, WIZARD_SPELLLIST, SORCERER_SPELLLIST, WITCH_SPELLLIST);
-            RegisterSpell(Feeblemind, 1, WARLOCK_SPELLLIST, WIZARD_SPELLLIST, DRUID_SPELLLIST, WITCH_SPELLLIST);
-            RegisterSpell(HolyAura, 0, CLERIC_SPELLLIST);
-            RegisterSpell(IncendiaryCloud, 0, WIZARD_SPELLLIST, SORCERER_SPELLLIST);
-            RegisterSpell(Maze, 0, WIZARD_SPELLLIST);
-            RegisterSpell(MindBlank, 0, WIZARD_SPELLLIST, WITCH_SPELLLIST);
-            RegisterSpell(PowerWordStun, 1, WARLOCK_SPELLLIST, WIZARD_SPELLLIST, SORCERER_SPELLLIST, WITCH_SPELLLIST);
-            RegisterSpell(SunBurst, 0, DRUID_SPELLLIST, WIZARD_SPELLLIST, SORCERER_SPELLLIST);
+            RegisterSpell(DominateMonster, 1, WarlockSpellList, SpellListWizard, SpellListSorcerer, WitchSpellList);
+            RegisterSpell(Feeblemind, 1, WarlockSpellList, SpellListWizard, SpellListDruid, WitchSpellList);
+            RegisterSpell(HolyAura, 0, SpellListCleric);
+            RegisterSpell(IncendiaryCloud, 0, SpellListWizard, SpellListSorcerer);
+            RegisterSpell(Maze, 0, SpellListWizard);
+            RegisterSpell(MindBlank, 0, SpellListWizard, WitchSpellList);
+            RegisterSpell(PowerWordStun, 1, WarlockSpellList, SpellListWizard, SpellListSorcerer, WitchSpellList);
+            RegisterSpell(SunBurst, 0, SpellListDruid, SpellListWizard, SpellListSorcerer);
 
             // 9th level
-            RegisterSpell(Foresight, 1, WARLOCK_SPELLLIST, DRUID_SPELLLIST, WIZARD_SPELLLIST, WITCH_SPELLLIST);
-            RegisterSpell(MassHeal, 0, CLERIC_SPELLLIST);
-            RegisterSpell(MeteorSwarmSingleTarget, 0, WIZARD_SPELLLIST, SORCERER_SPELLLIST);
-            RegisterSpell(PowerWordHeal, 0, CLERIC_SPELLLIST);
-            RegisterSpell(PowerWordKill, 1, WARLOCK_SPELLLIST, WIZARD_SPELLLIST, SORCERER_SPELLLIST);
-            RegisterSpell(TimeStop, 0, WIZARD_SPELLLIST, SORCERER_SPELLLIST);
-            RegisterSpell(Shapechange, 0, DRUID_SPELLLIST, WIZARD_SPELLLIST);
-            RegisterSpell(Weird, 1, WARLOCK_SPELLLIST, WIZARD_SPELLLIST, WITCH_SPELLLIST);
+            RegisterSpell(Foresight, 1, WarlockSpellList, SpellListDruid, SpellListWizard, WitchSpellList);
+            RegisterSpell(MassHeal, 0, SpellListCleric);
+            RegisterSpell(MeteorSwarmSingleTarget, 0, SpellListWizard, SpellListSorcerer);
+            RegisterSpell(PowerWordHeal, 0, SpellListCleric);
+            RegisterSpell(PowerWordKill, 1, WarlockSpellList, SpellListWizard, SpellListSorcerer);
+            RegisterSpell(TimeStop, 0, SpellListWizard, SpellListSorcerer);
+            RegisterSpell(Shapechange, 0, SpellListDruid, SpellListWizard);
+            RegisterSpell(Weird, 1, WarlockSpellList, SpellListWizard, WitchSpellList);
         }
 
         //
