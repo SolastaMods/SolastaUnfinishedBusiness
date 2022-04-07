@@ -108,26 +108,5 @@ namespace SolastaCommunityExpansion.Models
 
             UpdateSubclassVisibility(characterSubclassDefinition);
         }
-
-#if DEBUG
-        public static string GenerateSubclassDescription()
-        {
-            var outString = new StringBuilder("[size=3][b]Subclasses[/b][/size]\n");
-
-            outString.Append("\n[list]");
-
-            foreach (var subclass in Subclasses)
-            {
-                outString.Append("\n[*][b]");
-                outString.Append(subclass.FormatTitle());
-                outString.Append("[/b]: ");
-                outString.Append(subclass.FormatDescription());
-            }
-
-            outString.Append("\n[/list]");
-
-            return outString.ToString();
-        }
-#endif
     }
 }

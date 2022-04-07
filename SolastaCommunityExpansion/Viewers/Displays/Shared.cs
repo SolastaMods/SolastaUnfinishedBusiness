@@ -13,6 +13,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
         internal static readonly string RequiresRestart = "[requires restart]".italic().red().bold();
 
+        internal static readonly string WelcomeMessage = "Welcome to Solasta Community Expansion".yellow().bold();
+
         internal static void DisplayDefinitions<T>(
             string label,
             Action<T, bool> switchAction,

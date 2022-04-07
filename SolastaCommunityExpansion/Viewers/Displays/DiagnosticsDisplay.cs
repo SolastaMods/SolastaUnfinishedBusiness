@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using ModKit;
 using SolastaCommunityExpansion.DataMiner;
@@ -145,17 +146,21 @@ namespace SolastaCommunityExpansion.Viewers.Displays
         private const string ModDescription = @"
 [size=5][b][i]Solasta Community Expansion[/i][/b][/size]
 
-This is a collection of work from the Solasta modding community. It includes multiclass, races, classes, subclasses, feats, fighting styles, items, crafting recipes, gameplay options, UI improvements, Dungeon Maker improvements and more. The general philosophy is everything is optional to enable, so you can install the mod and then enable the pieces you want. There are some minor bug fixes that are enabled by default.
+This is a collection of work from the Solasta modding community. It includes multiclass, races, classes, subclasses, feats, fighting styles, spells, items, crafting recipes, gameplay options, UI improvements, Dungeon Maker improvements and more. The general philosophy is everything is optional to enable, so you can install the mod and then enable the pieces you want. There are some minor bug fixes that are enabled by default.
 
 [b]ATTENTION[/b]
 
-This is now a standalone mod. Please uninstall any other mod from your mods folder including: SolastaModApi, SolastaCommunityExpansionMulticlass and SolastaDungeonMakerPro.
+This is now a standalone mod. Please uninstall any other mod from your mods folder including: SolastaModApi, SolastaCommunityExpansionMulticlass, SolastaDungeonMakerPro and SolastaTinkerer.
 
 [size=4][b]Credits[/b][/size]
 
+[list]
 {0}
+[/list]
 
-[url=https://github.com/SolastaMods/SolastaCommunityExpansion]Source Code (MIT License)[/url]
+[size=4][b]Source Code[/b][/size]
+
+You can contribute to this work at [url=https://github.com/SolastaMods/SolastaCommunityExpansion]Source Code (MIT License)[/url].
 
 [size=4][b]How to Report Bugs[/b][/size]
 
@@ -206,20 +211,63 @@ All settings start disabled by default. On first start the mod will display an w
 [img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/16-CreditsDiagnostics-Diagnostics.png?raw=true[/img]
 [line]
 
+[size=3][b]Races[/b][/size]
+
+[list]
 {1}
+[/list]
 
+[size=3][b]Classes[/b][/size]
+
+[list]
 {2}
+[/list]
 
+[size=3][b]Subclasses[/b][/size]
+
+[list]
 {3}
+[/list]
 
+[size=3][b]Feats[/b][/size]
+
+[list]
 {4}
+[/list]
 
+[size=3][b]Fighting Styles[/b][/size]
+
+[list]
 {5}
+[/list]
 
+[size=3][b]Spells[/b][/size]
+
+[list]
 {6}
+[/list]
 
+[size=3][b]Recipes[/b][/size]
+
+[list]
 {7}
+[/list]
 ";
+
+        private static string GenerateDescription<T>(IEnumerable<T> definitions) where T: BaseDefinition
+        {
+            var outString = new StringBuilder();
+
+            foreach (var definition in definitions)
+            {
+                outString.Append("\n[*][b]");
+                outString.Append(definition.FormatTitle());
+                outString.Append("[/b]: ");
+                outString.Append(definition.FormatDescription());
+            }
+
+            return outString.ToString();
+        }
 
         internal static void DisplayDumpDescription()
         {
@@ -229,17 +277,21 @@ All settings start disabled by default. On first start the mod will display an w
 
                 foreach (var kvp in CreditsTable)
                 {
-                    collectedCredits.Append("\n[*]").Append(kvp.Key).Append(": ").Append(kvp.Value);
+                    collectedCredits
+                        .Append("\n[*][b]")
+                        .Append(kvp.Key)
+                        .Append("[/b]: ")
+                        .Append(kvp.Value);
                 }
 
                 var descriptionData = string.Format(ModDescription,
                     collectedCredits,
-                    RacesContext.GenerateRaceDescription(),
-                    ClassesContext.GenerateClassDescription(),
-                    SubclassesContext.GenerateSubclassDescription(),
-                    FeatsContext.GenerateFeatsDescription(),
-                    FightingStyleContext.GenerateFightingStyleDescription(),
-                    SpellsContext.GenerateSpellsDescription(),
+                    GenerateDescription(RacesContext.Races),
+                    GenerateDescription(ClassesContext.Classes),
+                    GenerateDescription(SubclassesContext.Subclasses),
+                    GenerateDescription(FeatsContext.Feats),
+                    GenerateDescription(FightingStyleContext.FightingStyles),
+                    GenerateDescription(SpellsContext.Spells),
                     ItemCraftingContext.GenerateItemsDescription());
 
                 using var sw = new StreamWriter($"{DiagnosticsContext.DiagnosticsFolder}/NexusDescription.txt");

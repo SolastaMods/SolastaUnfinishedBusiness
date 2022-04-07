@@ -78,26 +78,5 @@ namespace SolastaCommunityExpansion.Models
 
             UpdateRaceVisibility(characterRaceDefinition);
         }
-
-#if DEBUG
-        public static string GenerateRaceDescription()
-        {
-            var outString = new StringBuilder("[size=3][b]Races[/b][/size]\n");
-
-            outString.Append("\n[list]");
-
-            foreach (var characterRace in Races)
-            {
-                outString.Append("\n[*][b]");
-                outString.Append(characterRace.FormatTitle());
-                outString.Append("[/b]: ");
-                outString.Append(characterRace.FormatDescription());
-            }
-
-            outString.Append("\n[/list]");
-
-            return outString.ToString();
-        }
-#endif
     }
 }

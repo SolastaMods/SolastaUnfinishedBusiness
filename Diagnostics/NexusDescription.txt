@@ -1,36 +1,40 @@
 
 [size=5][b][i]Solasta Community Expansion[/i][/b][/size]
 
-This is a collection of work from the Solasta modding community. It includes multiclass, races, classes, subclasses, feats, fighting styles, items, crafting recipes, gameplay options, UI improvements, Dungeon Maker improvements and more. The general philosophy is everything is optional to enable, so you can install the mod and then enable the pieces you want. There are some minor bug fixes that are enabled by default.
+This is a collection of work from the Solasta modding community. It includes multiclass, races, classes, subclasses, feats, fighting styles, spells, items, crafting recipes, gameplay options, UI improvements, Dungeon Maker improvements and more. The general philosophy is everything is optional to enable, so you can install the mod and then enable the pieces you want. There are some minor bug fixes that are enabled by default.
 
 [b]ATTENTION[/b]
 
-This is now a standalone mod. Please uninstall any other mod from your mods folder including: SolastaModApi, SolastaCommunityExpansionMulticlass and SolastaDungeonMakerPro.
+This is now a standalone mod. Please uninstall any other mod from your mods folder including: SolastaModApi, SolastaCommunityExpansionMulticlass, SolastaDungeonMakerPro and SolastaTinkerer.
 
 [size=4][b]Credits[/b][/size]
 
+[list]
 
-[*]ChrisJohnDigital: head developer, crafting, faction relations, feats, fighting styles, items, subclasses, progression
-[*]Zappastuff: multiclass, level 20, respec, level down, encounters, dungeon maker editor & pro, party size, screen map, inventory sorting, adventure log, epic points, teleport, mod UI, diagnostics, integration, arcane defense/precision, brutal thug, charismatic defense/precision, fighting surge, metamagic, primal, shady and wise defense/precision feats, races migration
-[*]ImpPhil: adv/dis rules, conjurations control, auto-equip, location rotation in DM, monster's health, pause UI, sorting, stocks prices, no attunement, xp scaling, character export, save by location, combat camera, diagnostics, custom icons, refactor, screen map
-[*]DubhHerder: 7th, 8th and 9th level spells, Crafty Feats migration, bug models replacement, additional high level monsters, Warlock class and subclasses, Tinkerer Artillerist subclass
-[*]View619: Darkvision, Superior Dark Vision
-[*]SilverGriffon: PickPocket, lore friendly names, crafty feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants
-[*]Bazou: Witch class
-[*]Boofat: alwaysAlt
-[*]AceHigh: original Warlock class, original multiclass idea, Tactician subclass, Power Attack and Reckless Fury feats, no identification
-[*]ElAntonious: Arcanist subclass, Torchbearer and Dual Flurry feats
-[*]Scarlex: Royal Knight subclass
-[*]RedOrca: Path of the Light subclass, Indomitable Might
-[*]Krisys: Thug subclass
-[*]Dreadmaker: Circle of the Forest Guardian subclass
-[*]Narria: modKit creator, developer
-[*]Spacehamster: dataminer
-[*]Holic75: pact magic slots, Warlock class sprite, bolgrif and gnome races, acid claw, air blast and burst of radiance cantrips
-[*]sinai-dev: Unity Explorer UI standalone
-[*]Burtsev-Alexey: deep copy algorithm
+[*][b]ChrisJohnDigital[/b]: head developer, crafting, faction relations, feats, fighting styles, items, subclasses, progression
+[*][b]Zappastuff[/b]: multiclass, level 20, respec, level down, encounters, dungeon maker editor & pro, party size, screen map, inventory sorting, adventure log, epic points, teleport, mod UI, diagnostics, integration, arcane defense/precision, brutal thug, charismatic defense/precision, fighting surge, metamagic, primal, shady and wise defense/precision feats, races migration
+[*][b]ImpPhil[/b]: adv/dis rules, conjurations control, auto-equip, location rotation in DM, monster's health, pause UI, sorting, stocks prices, no attunement, xp scaling, character export, save by location, combat camera, diagnostics, custom icons, refactor, screen map
+[*][b]DubhHerder[/b]: 7th, 8th and 9th level spells, Crafty Feats migration, bug models replacement, additional high level monsters, Warlock class and subclasses, Tinkerer Artillerist subclass
+[*][b]View619[/b]: Darkvision, Superior Dark Vision
+[*][b]SilverGriffon[/b]: PickPocket, lore friendly names, crafty feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants
+[*][b]Bazou[/b]: Witch class
+[*][b]Boofat[/b]: alwaysAlt
+[*][b]AceHigh[/b]: original Warlock class, original multiclass idea, Tactician subclass, Power Attack and Reckless Fury feats, no identification
+[*][b]ElAntonious[/b]: Arcanist subclass, Torchbearer and Dual Flurry feats
+[*][b]Scarlex[/b]: Royal Knight subclass
+[*][b]RedOrca[/b]: Path of the Light subclass, Indomitable Might
+[*][b]Krisys[/b]: Thug subclass
+[*][b]Dreadmaker[/b]: Circle of the Forest Guardian subclass
+[*][b]Narria[/b]: modKit creator, developer
+[*][b]Spacehamster[/b]: dataminer
+[*][b]Holic75[/b]: pact magic slots, Warlock class sprite, bolgrif and gnome races, acid claw, air blast burst of radiance, thunder strike, earth tremor and winter's breath spells
+[*][b]sinai-dev[/b]: Unity Explorer UI standalone
+[*][b]Burtsev-Alexey[/b]: deep copy algorithm
+[/list]
 
-[url=https://github.com/SolastaMods/SolastaCommunityExpansion]Source Code (MIT License)[/url]
+[size=4][b]Source Code[/b][/size]
+
+You can contribute to this work at [url=https://github.com/SolastaMods/SolastaCommunityExpansion]Source Code (MIT License)[/url].
 
 [size=4][b]How to Report Bugs[/b][/size]
 
@@ -84,6 +88,7 @@ All settings start disabled by default. On first start the mod will display an w
 [size=3][b]Races[/b][/size]
 
 [list]
+
 [*][b]Bolgrif[/b]: Bolgrifs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, bolgrifs demonstrate formidable skills with weapons and nature magic.
 [*][b]Woodland Gnome[/b]: A constant hum of busy activity pervades the warrens and neighborhoods where gnomes form their close-knit communities. Louder sounds punctuate the hum: a crunch of grinding gears here, a minor explosion there, a yelp of surprise or triumph, and especially bursts of laughter. Gnomes take delight in life, enjoying every moment of invention, exploration, investigation, creation, and play.
 [/list]
@@ -91,6 +96,7 @@ All settings start disabled by default. On first start the mod will display an w
 [size=3][b]Classes[/b][/size]
 
 [list]
+
 [*][b]Tinkerer[/b]: Tinkerers are inventors, alchemists, and more. They bridge the space between magic and technology
 [*][b]Warlock[/b]: Warlocks are seekers of the knowledge that lies hidden in the fabric of the multiverse. Through pacts made with mysterious beings of supernatural power, warlocks unlock magical effects both subtle and spectacular.
 [*][b]Witch[/b]: Afflicted by a sinister curse, witches can spin dark magic into Maledictions, which they use to debilitate foes. They are also accompanied by their familiars, loyal magical companions which they use to deal the killing blow.
@@ -99,6 +105,7 @@ All settings start disabled by default. On first start the mod will display an w
 [size=3][b]Subclasses[/b][/size]
 
 [list]
+
 [*][b]Arcane Fighter[/b]: Channel your magic into weapon attacks.
 [*][b]Circle of the Forest Guardian[/b]: Circle of the Forest Guardian Druids are sworn to protect the forests and all that dwell within them. Skilled in the use of Abjuration magic and martial combat, members of this druidic circle are fearsome opponents on the battlefield.
 [*][b]Con Artist[/b]: Con Artists are rogues that specialize in deception and tricking others. They use magic to aid their natural manipulative abilities.
@@ -116,6 +123,7 @@ All settings start disabled by default. On first start the mod will display an w
 [size=3][b]Feats[/b][/size]
 
 [list]
+
 [*][b]Apothecary (Intelligence)[/b]: +1 Intelligence, Proficiency or Expertise with Herbalism Kit and Arcana
 [*][b]Apothecary (Wisdom)[/b]: +1 Wisdom, Proficiency or Expertise with Herbalism Kit and Medicine
 [*][b]Arcane Defense[/b]: Increase your Intelligence by 1, to a maximum of 20.
@@ -198,10 +206,14 @@ While you are not wearing any armor, your AC equals 10 + your Wisdom modifier.
 [size=3][b]Fighting Styles[/b][/size]
 
 [list]
+
 [*][b]Blind Fighting[/b]: You have blindsight with a range of 10 feet.
 [*][b]Pugilist[/b]: While you are completely unarmed, your unarmed strikes deal an additional d8 of damage and you can punch with your offhand as a bonus action.
 [/list]
 
+[size=3][b]Spells[/b][/size]
+
+[list]
 [size=3][b]Spells[/b][/size]
 
 [list]
@@ -210,9 +222,12 @@ While you are not wearing any armor, your AC equals 10 + your Wisdom modifier.
 [*][b]Burst of Radiance[/b]: Create a brilliant flash of shimmering light, damaging all enemies around you.
 [*][b]Eldritch Orb[/b]: You fling a ball of eldritch energy at a creature or object within range.
 [*][b]Minor Lifesteal[/b]: You drain life energy from a hostile creature you can see within range. You then heal hit points equal to the amount of damage dealt. This spell has no effect on undead or constructs.
+[*][b]Sound Burst[/b]: Create a burst of thundering sound, damaging everyone around you.
 [*][b]Find Familiar[/b]: You gain the service of a familiar.
 [*][b]Petal Storm[/b]: Choose an unoccupied 15-foot cube of air that you can see within range. An elemental force of swirling winds appears in the cube and lasts for the spell's duration. The cloud heavily obscures its area. Any creature that enters the storm for the first time on a turn or starts its turn there must make a Strength saving throw. On a failed save, the creature takes 3d4 slashing damage. As a bonus action, you can move the storm up to 30 feet in any direction.
 [*][b]Protect Threshold[/b]: Tracing arcane sigils along its boundary, you can ward a doorway, window, or other portal from entry. For the duration, an invisible eldritch creature stalks the warded portal. Any creature that attempts to pass through the portal must make a Wisdom saving throw or take 4d6 psychic damage, or half as much on a successful save.
+[*][b]Earth Tremor[/b]: You strike the ground and unleash a tremor of seismic force, hurling up earth, rock, and sand.
+[*][b]Winter's Breath[/b]: Create a blast of cold wind to chill your enemies and knock them prone.
 [*][b]Frenzy[/b]: With a gesture, you reduce a crowd to base instinct and violence. Choose a point you can see within range. Each creature within 20 feet of that point must make a Wisdom saving throw. On a failed save, a creature is frenzied for the duration. When a creature is frenzied, it draws a melee weapon, if it has one. A frenzied creature must use its action at the beginning of its turn to attack a creature within its reach. It uses a melee weapon, if it has one, or an improvised weapon or unarmed strike, if it doesn't. If multiple targets are within the creature's reach, it chooses its target randomly. If there is no target within the creature's reach, it attacks itself, against its own AC, dealing damage as normal on a hit. At the end of its turn, a frenzied creature can repeat its saving throw, ending the effect on it early on a success.
 [*][b]Conjure Celestial (Couatl)[/b]: You summon a celestial of challenge rating 4 or lower, which appears in an unoccupied space that you can see within range. The celestial disappears when it drops to 0 hit points or when the spell ends. The celestial is friendly to you and your companions for the duration.
 [*][b]Divine Word[/b]: You utter a divine word, imbued with the power that shaped the world at the dawn of creation. Choose any number of creatures you can see within range. Each creature that can hear you must make a Charisma saving throw. On a failed save, a creature suffers an effect based on its current hit points:
@@ -241,10 +256,12 @@ Regardless of its current hit points, a celestial, an elemental, a fey, or a fie
 [*][b]Time Stop[/b]: You briefly stop the flow of time for everyone but yourself. No time passes for other creatures, while you take 1d4 + 1 turns in a row, during which you can use actions and move as normal.
 [*][b]Weird[/b]: Drawing on the deepest fears of a group of creatures, you create illusory creatures in their minds, visible only to them. Each creature in a 30-foot-radius sphere centered on a point of your choice within range must make a Wisdom saving throw. On a failed save, a creature becomes frightened for the duration. The illusion calls on the creature's deepest fears, manifesting its worst nightmares as an implacable threat. At the end of each of the frightened creature's turns, it must succeed on a Wisdom saving throw or take 4d10 psychic damage. On a successful save, the spell ends for that creature.
 [/list]
+[/list]
 
-[size=3][b]Craftable Items[/b][/size]
+[size=3][b]Recipes[/b][/size]
 
 [list]
+
 [*][b]Primed Items[/b]: Primed Battleaxe, Primed Breastplate, Primed Chain Mail, Primed Chain Shirt, Primed Dagger, Primed Greataxe, Primed Greatsword, Primed Half Plate, Primed Heavy Crossbow, Primed Hide Armor, Primed Druid Armor, Primed Leather Armor, Primed Crossbow, Primed Longbow, Primed Longsword, Primed Mace, Primed Maul, Primed Morningstar, Primed Plate, Primed Rapier, Primed Scale Mail, Primed Scimitar, Primed Shortbow, Primed Shortsword, Primed Spear, Primed Studded Armor, Primed Warhammer
 [*][b]Enchanting Ingredients[/b]: Mithral Stone, Crystal of Winter, Blood Ruby, Soul Gem, Slavestone, Cloud Diamond, Stardust, Doom Gem, Shard of Fire, Shard of Ice, Life Stone, Diamond of Elai, Primordial Lava Stones, Blood of Solasta, Medusa Coral, Purple Amber, Heartstone, Spider Queen Venom
 [*][b]Relic Forgeries[/b]: Tirmarian Holy Symbol, Depleted Rune, Imperial Gate Plaque, Aksha's Journal, Ancient Manifest, Tirmarian Master Smith's Memoirs, Tirmarian Inquisitor's Journal, Poem, The Elven Wars, Silent Whisper Parchment
