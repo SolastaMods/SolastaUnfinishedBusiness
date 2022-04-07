@@ -13,6 +13,7 @@ using static FeatureDefinitionCastSpell;
 using static RuleDefinitions;
 using static SolastaCommunityExpansion.Builders.EquipmentOptionsBuilder;
 using static SolastaCommunityExpansion.Builders.Features.AutoPreparedSpellsGroupBuilder;
+using static SolastaCommunityExpansion.Spells.BazouSpells;
 using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
@@ -134,6 +135,8 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .AddToDB();
         }
 
+        internal static SpellListDefinition WitchSpellList { get; private set; }
+
         private static void BuildSpells()
         {
             var classSpellList = SpellListDefinitionBuilder
@@ -141,16 +144,17 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .SetGuiPresentationNoContent()
                 .ClearSpells()
                 .SetSpellsAtLevel(0,
-                    AcidSplash, ChillTouch, DancingLights, ProduceFlame,
-                    Resistance, SpareTheDying, TrueStrike)
+                    AcidSplash, ChillTouch, DancingLights, EldritchOrb, ProduceFlame,
+                    MinorLifesteal, Resistance, SpareTheDying, TrueStrike)
                 .SetSpellsAtLevel(1,
                     AnimalFriendship, Bane, CharmPerson, ComprehendLanguages,
-                    DetectMagic, ExpeditiousRetreat, FaerieFire, HideousLaughter,
+                    DetectMagic, ExpeditiousRetreat, FaerieFire, FindFamiliar, HideousLaughter,
                     ProtectionFromEvilGood, Sleep, Thunderwave)
                 .SetSpellsAtLevel(2,
                     Blindness, CalmEmotions, Darkness, Darkvision,
                     HoldPerson, Invisibility, Knock, Levitate,
-                    MistyStep, RayOfEnfeeblement, SeeInvisibility, Shatter, SpiderClimb)
+                    MistyStep, PetalStorm, ProtectThreshold, RayOfEnfeeblement, 
+                    SeeInvisibility, Shatter, SpiderClimb)
                 .SetSpellsAtLevel(3,
                     BestowCurse, Counterspell, DispelMagic, Fear,
                     Fly, HypnoticPattern, RemoveCurse, Slow,
@@ -161,9 +165,11 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .SetSpellsAtLevel(5,
                     Contagion, DispelEvilAndGood, DominatePerson, HoldMonster)
                 .SetSpellsAtLevel(6,
-                    Eyebite, TrueSeeing)
+                    Eyebite, Frenzy, TrueSeeing)
                 .FinalizeSpells()
                 .AddToDB();
+
+            WitchSpellList = classSpellList;
 
             // Build our spellCast object containing previously created spell list
             List<SlotsByLevelDuplet> witchCastingSlots = new List<SlotsByLevelDuplet>{
