@@ -215,15 +215,13 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 "Feature/&ArtificerInfusionCastingDescription").Build()
                 ));
 
-            GuiPresentationBuilder magicalTinkeringGui = new GuiPresentationBuilder(
-                "Subclass/&TinkererMagicalTinkeringTitle",
-                "Subclass/&TinkererMagicalTinkeringDescription");
-            artificerBuilder.AddFeatureAtLevel(2, FeatureHelpers.BuildBonusCantrips("TinkererMagicalTinkering", new List<SpellDefinition>()
-            {
-                SpellDefinitions.Shine,
-                SpellDefinitions.Sparkle,
-                SpellDefinitions.Dazzle,
-            }, magicalTinkeringGui.Build()));
+            var bonusCantrips = FeatureDefinitionBonusCantripsBuilder
+                .Create("TinkererMagicalTinkering", GuidNamespace)
+                .SetGuiPresentation("TinkererMagicalTinkering", Category.Subclass)
+                .SetBonusCantrips(SpellDefinitions.Shine, SpellDefinitions.Sparkle, SpellDefinitions.Dazzle)
+                .AddToDB();
+
+            artificerBuilder.AddFeatureAtLevel(2, bonusCantrips);
 
             // infuse item (level 2)
             // potentially give them "healing pool" points for the number of infusions, then abilities that provide a bonus for 24hrs which the player activates each day

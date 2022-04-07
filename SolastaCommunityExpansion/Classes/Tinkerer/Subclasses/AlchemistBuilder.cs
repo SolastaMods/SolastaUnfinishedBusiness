@@ -197,8 +197,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
                 .SetGuiPresentation("PowerAlchemistRestorativeElixirs", Category.Feat, LesserRestoration.GuiPresentation.SpriteReference)
                 .AddToDB();
 
-            var emboldeningShotsGui = GuiPresentationBuilder.Build("PowerAlchemistEmboldeningShots", Category.Feat);
-
             EffectDescriptionBuilder emboldeningShotsEffect = new EffectDescriptionBuilder();
             emboldeningShotsEffect.AddEffectForm(new EffectFormBuilder().SetTempHPForm(0, DieType.D6, 4).SetBonusMode(AddBonusMode.AbilityBonus).Build());
             emboldeningShotsEffect.SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Individuals, 1, 1, ActionDefinitions.ItemSelectionType.None);
@@ -212,13 +210,14 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
                 .SetCastingTime(ActivationTime.BonusAction)
                 .SetEffectDescription(emboldeningShotsEffect.Build())
                 .SetMaterialComponent(MaterialComponentType.Mundane)
-                .SetGuiPresentation(emboldeningShotsGui)
+                .SetGuiPresentation("PowerAlchemistEmboldeningShots", Category.Feat)
                 .AddToDB();
 
-            FeatureDefinitionBonusCantrips emboldeningCantrips = BuildBonusCantrips("ArtificerAlchemistShotsSpellPrep", new List<SpellDefinition>()
-            {
-                emboldeningShots
-            }, emboldeningShotsGui);
+            FeatureDefinitionBonusCantrips emboldeningCantrips = FeatureDefinitionBonusCantripsBuilder
+                .Create("ArtificerAlchemistShotsSpellPrep", TinkererClass.GuidNamespace)
+                .SetBonusCantrips(emboldeningShots)
+                .SetGuiPresentation("PowerAlchemistEmboldeningShots", Category.Feat)
+                .AddToDB();
 
             FeatureDefinitionPower greaterRestorativeElixirs = new FeatureHelpers
                 .FeatureDefinitionPowerBuilder("PowerAlchemistGreaterRestorativeElixirs", TinkererClass.GuidNamespace,

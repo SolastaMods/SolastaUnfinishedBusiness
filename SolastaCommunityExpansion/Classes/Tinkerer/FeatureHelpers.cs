@@ -222,15 +222,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             }
         }
 
-        public class FeatureDefinitionBonusCantripsBuilder : Builders.Features.FeatureDefinitionBonusCantripsBuilder
-        {
-            public FeatureDefinitionBonusCantripsBuilder(string name, Guid guidNamespace, IEnumerable<SpellDefinition> cantrips, GuiPresentation guiPresentation) : base(name, guidNamespace)
-            {
-                Definition.BonusCantrips.AddRange(cantrips);
-                Definition.SetGuiPresentation(guiPresentation);
-            }
-        }
-
         public class FeatureDefinitionAdditionalDamageBuilder : Builders.Features.FeatureDefinitionAdditionalDamageBuilder
         {
             public FeatureDefinitionAdditionalDamageBuilder(string name, Guid guidNamesapce, string notificationTag, RuleDefinitions.FeatureLimitedUsage limitedUsage,
@@ -367,11 +358,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 healingBonusDiceNumber, healingBonusDiceType, addLevel, guiPresentation).AddToDB();
         }
 
-        public static FeatureDefinitionBonusCantrips BuildBonusCantrips(string name, IEnumerable<SpellDefinition> cantrips, GuiPresentation guiPresentation)
-        {
-            return new FeatureDefinitionBonusCantripsBuilder(name, TinkererClass.GuidNamespace,                cantrips, guiPresentation).AddToDB();
-        }
-
         public static FeatureDefinitionSavingThrowAffinity BuildSavingThrowAffinity(string name,
             IEnumerable<string> abilityScores,
             RuleDefinitions.CharacterSavingThrowAffinity affinityType, FeatureDefinitionSavingThrowAffinity.ModifierType modifierType, int diceNumber,
@@ -387,25 +373,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         {
             return new FeatureDefinitionAbilityCheckAffinityBuilder(name, TinkererClass.GuidNamespace,
                 abilityProficiencyPairs, diceNumber, dieType, affinityType, guiPresentation).AddToDB();
-        }
-
-        public static FeatureDefinitionEquipmentAffinity BuildEquipmentAffinity(string name, float carryingCapacityMultiplier, float additionalCarryingCapacity, GuiPresentation guiPresentation)
-        {
-            return FeatureDefinitionEquipmentAffinityBuilder
-                .Create(name, TinkererClass.GuidNamespace)
-                .SetGuiPresentation(guiPresentation)
-                .SetCarryingCapacityMultiplier(carryingCapacityMultiplier, additionalCarryingCapacity)
-                .AddToDB();
-        }
-
-        public static FeatureDefinitionMagicAffinity BuildMagicAffinityConcentration(string name,
-            RuleDefinitions.ConcentrationAffinity concentrationAffinity, int threshold, GuiPresentation guiPresentation)
-        {
-            return FeatureDefinitionMagicAffinityBuilder
-                .Create(name, TinkererClass.GuidNamespace)
-                .SetConcentrationModifiers(concentrationAffinity, threshold)
-                .SetGuiPresentation(guiPresentation)
-                .AddToDB();
         }
 
         public class FeatureDefinitionFeatureSetBuilder : Builders.Features.FeatureDefinitionFeatureSetBuilder
