@@ -135,7 +135,8 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .AddToDB();
         }
 
-        internal static SpellListDefinition WitchSpellList { get; } = SpellListDefinitionBuilder
+        private static SpellListDefinition _witchSpellList;
+        internal static SpellListDefinition WitchSpellList => _witchSpellList ??= SpellListDefinitionBuilder
             .Create(SpellListDefinitions.SpellListWizard, "WitchSpellList", WITCH_BASE_GUID)
             .SetGuiPresentationNoContent()
             .ClearSpells()

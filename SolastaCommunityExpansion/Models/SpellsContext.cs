@@ -217,7 +217,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void AddToDB()
         {
-            BazouSpells.AddToDB();
+            //BazouSpells.AddToDB();
             HolicSpells.AddToDB();
             SrdSpells.AddToDB();
         }
