@@ -4,12 +4,15 @@ using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
+using static SolastaCommunityExpansion.Classes.Warlock.WarlockSpells;
+using static SolastaCommunityExpansion.Classes.Witch.Witch;
 using static SolastaCommunityExpansion.Models.SpellsContext;
 using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaModApi.DatabaseHelper.MonsterDefinitions;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
+using static SolastaModApi.DatabaseHelper.SpellListDefinitions;
 
 namespace SolastaCommunityExpansion.Spells
 {
@@ -17,12 +20,12 @@ namespace SolastaCommunityExpansion.Spells
     {
         internal static readonly Guid BAZOU_SPELLS_BASE_GUID = new("91384db5-6659-4384-bf2c-3a41160343f4");
 
-        private static readonly SpellDefinition EldritchOrb = BuildEldritchOrb();
-        private static readonly SpellDefinition FindFamiliar = BuildFindFamiliar();
-        private static readonly SpellDefinition Frenzy = BuildFrenzy();
-        private static readonly SpellDefinition MinorLifesteal = BuildMinorLifesteal();
-        private static readonly SpellDefinition PetalStorm = BuildPetalStorm();
-        private static readonly SpellDefinition ProtectThreshold = BuildProtectThreshold();
+        internal static readonly SpellDefinition EldritchOrb = BuildEldritchOrb();
+        internal static readonly SpellDefinition FindFamiliar = BuildFindFamiliar();
+        internal static readonly SpellDefinition Frenzy = BuildFrenzy();
+        internal static readonly SpellDefinition MinorLifesteal = BuildMinorLifesteal();
+        internal static readonly SpellDefinition PetalStorm = BuildPetalStorm();
+        internal static readonly SpellDefinition ProtectThreshold = BuildProtectThreshold();
 
         internal static void AddToDB()
         {
@@ -36,12 +39,12 @@ namespace SolastaCommunityExpansion.Spells
 
         internal static void Register()
         {
-            RegisterSpell(EldritchOrb, 1, WITCH_SPELLLIST, WARLOCK_SPELLLIST);
-            RegisterSpell(FindFamiliar, 1, WITCH_SPELLLIST, WIZARD_SPELLLIST);
-            RegisterSpell(Frenzy, 1, WITCH_SPELLLIST, WARLOCK_SPELLLIST, WIZARD_SPELLLIST, SORCERER_SPELLLIST);
-            RegisterSpell(MinorLifesteal, 1, WITCH_SPELLLIST, WIZARD_SPELLLIST);
-            RegisterSpell(PetalStorm, 1, WITCH_SPELLLIST, DRUID_SPELLLIST);
-            RegisterSpell(ProtectThreshold, 1, WITCH_SPELLLIST, CLERIC_SPELLLIST, DRUID_SPELLLIST, PALADIN_SPELLLIST);
+            RegisterSpell(EldritchOrb, 1, WitchSpellList, WarlockSpellList);
+            RegisterSpell(FindFamiliar, 1, WitchSpellList, SpellListWizard);
+            RegisterSpell(Frenzy, 1, WitchSpellList, WarlockSpellList, SpellListWizard, SpellListSorcerer);
+            RegisterSpell(MinorLifesteal, 1, WitchSpellList, SpellListWizard);
+            RegisterSpell(PetalStorm, 1, WitchSpellList, SpellListDruid);
+            RegisterSpell(ProtectThreshold, 1, WitchSpellList, SpellListCleric, SpellListDruid, SpellListPaladin);
         }
 
         private static SpellDefinition BuildEldritchOrb()

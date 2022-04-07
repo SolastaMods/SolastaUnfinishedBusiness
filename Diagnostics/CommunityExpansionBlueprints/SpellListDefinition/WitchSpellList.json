@@ -10,12 +10,12 @@
         "Definition:AcidSplash:98ea9fff39f7c054ba171c32b00a90e6",
         "Definition:ChillTouch:2dffe98ad497e4b418abc947f6077fb7",
         "Definition:DancingLights:ca63de70121df1b46ae3c1f8c183f941",
+        "Definition:EldritchOrb:0db30b08-c8f6-5dd7-a248-eb9cae787a17",
+        "Definition:MinorLifesteal:708ff12c-4747-534c-955b-5f9438eb58ac",
         "Definition:ProduceFlame:99a59d41bc8a00a458199a4c2e7d9571",
         "Definition:Resistance:384dce9da39ad4e4b82106fa7829c17c",
         "Definition:SpareTheDying:4f1e3d9c88278a94fbc457664ab8d6bf",
-        "Definition:TrueStrike:8adca77af0c221445af40629f3743ec8",
-        "Definition:EldritchOrb:0db30b08-c8f6-5dd7-a248-eb9cae787a17",
-        "Definition:MinorLifesteal:708ff12c-4747-534c-955b-5f9438eb58ac"
+        "Definition:TrueStrike:8adca77af0c221445af40629f3743ec8"
       ]
     },
     {
@@ -29,11 +29,11 @@
         "Definition:DetectMagic:a00ea7ca05339cb42a49056d722b6680",
         "Definition:ExpeditiousRetreat:3713ff85f9f53f2459ae8d7a976a24b8",
         "Definition:FaerieFire:72b2d8c811efbb04e8d70c0a41f5d963",
+        "Definition:FindFamiliar:7c7a9c9f-2fda-5acc-acb7-eebfb2b4e064",
         "Definition:HideousLaughter:8773ef52f0dd71e4a8dbe8a2814b3cf4",
         "Definition:ProtectionFromEvilGood:b8a59d1a01529b04893e0c440cecee39",
         "Definition:Sleep:9bfc9d5dc54cc2c4ab7e4baade97bf64",
-        "Definition:Thunderwave:6c670662de0366842bca44119e9104da",
-        "Definition:FindFamiliar:7c7a9c9f-2fda-5acc-acb7-eebfb2b4e064"
+        "Definition:Thunderwave:6c670662de0366842bca44119e9104da"
       ]
     },
     {
@@ -49,12 +49,12 @@
         "Definition:Knock:7b59b8af31053a843a006d0e375dbd89",
         "Definition:Levitate:ad416e5b882b3974c929eb75863f0e84",
         "Definition:MistyStep:f4619f117544fe148aae6952202da5e3",
+        "Definition:PetalStorm:016e3598-5a09-5249-a225-746d5e038c79",
+        "Definition:ProtectThreshold:ee8d355e-db32-5d06-aa6a-cd1ef06926b7",
         "Definition:RayOfEnfeeblement:b617f68e7f041b74bb018ce5bf9a1c5c",
         "Definition:SeeInvisibility:10c15ca8321632e42825254149dfb885",
         "Definition:Shatter:acb96b651384a47428da7c0c32ab359e",
-        "Definition:SpiderClimb:1ba4092482a450c4da60e17cbe4577df",
-        "Definition:PetalStorm:016e3598-5a09-5249-a225-746d5e038c79",
-        "Definition:ProtectThreshold:ee8d355e-db32-5d06-aa6a-cd1ef06926b7"
+        "Definition:SpiderClimb:1ba4092482a450c4da60e17cbe4577df"
       ]
     },
     {
@@ -101,8 +101,8 @@
       "level": 6,
       "spells": [
         "Definition:Eyebite:ea9050011d6bef2419be7b2d59750659",
-        "Definition:TrueSeeing:16c9f67d4a89cbf47baad67ecadafaa5",
-        "Definition:Frenzy:74c02289-00b5-5b12-906d-56cff4687601"
+        "Definition:Frenzy:74c02289-00b5-5b12-906d-56cff4687601",
+        "Definition:TrueSeeing:16c9f67d4a89cbf47baad67ecadafaa5"
       ]
     },
     {

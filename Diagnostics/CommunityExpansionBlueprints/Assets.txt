@@ -4556,6 +4556,7 @@ DHSunBurstSpell	SpellDefinition	SpellDefinition	654cb89e-ab87-5da8-a79c-5c24ee85
 DHTimeStopSpell	SpellDefinition	SpellDefinition	0ab6cde6-d23d-565c-8c7c-6df0006078e8
 DHWeirdSpell	SpellDefinition	SpellDefinition	b77c5b1b-902e-5957-83c1-4a496bf10f0b
 DismissConstruct	SpellDefinition	SpellDefinition	8003917a-9c90-4748-bb2f-f32b7edf8844
+EarthTremor	SpellDefinition	SpellDefinition	77badbad-0b3c-5902-acf0-1697a8bd4b9a
 EldritchOrb	SpellDefinition	SpellDefinition	0db30b08-c8f6-5dd7-a248-eb9cae787a17
 FindFamiliar	SpellDefinition	SpellDefinition	7c7a9c9f-2fda-5acc-acb7-eebfb2b4e064
 Frenzy	SpellDefinition	SpellDefinition	74c02289-00b5-5b12-906d-56cff4687601
@@ -4579,6 +4580,8 @@ SummonProtectorConstruct_Upgrade	SpellDefinition	SpellDefinition	ccd2a793-e566-4
 SummonTempHPShieldConstruct	SpellDefinition	SpellDefinition	db9e7e8e-b749-4b46-9ba3-60a7bf221b0b
 SummonTempHPShieldConstruct_15	SpellDefinition	SpellDefinition	84ddce96-ec58-4141-933d-371080d611d2
 SummonTempHPShieldConstruct_9	SpellDefinition	SpellDefinition	f1e88575-40ca-4f4e-9447-616058e213a4
+ThunderStrike	SpellDefinition	SpellDefinition	99e700aa-fa7d-583b-9d67-8260fcc0c4e1
+WinterBreath	SpellDefinition	SpellDefinition	c0a7658b-16fb-5a23-ad3e-3a993a9e4e87
 WitchFamiliar	SpellDefinition	SpellDefinition	07e56c1a-9211-5f6d-add9-e85a5321d2e9
 AHWarlockSoulBladePactSpellList	SpellListDefinition	SpellListDefinition	2e1adc2f-7812-5dca-ba15-1a73a8a8b887
 AncientForestExpandedSpelllist	SpellListDefinition	SpellListDefinition	7e128bf0-0210-5d6b-96fb-051ee9a5e930

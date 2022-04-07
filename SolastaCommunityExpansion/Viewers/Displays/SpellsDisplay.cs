@@ -10,10 +10,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
     {
         private const int SHOW_ALL = -1;
 
-        private static HashSet<SpellDefinition> FilteredSpells { get; set; } = SpellsContext.Spells.ToHashSet();
-
-        private static HashSet<SpellDefinition> FilteredSpellsNoCantrips { get; set; } = FilteredSpells.Where(x => x.SpellLevel > 0).ToHashSet();
-
         private static int SpellLevelFilter { get; set; } = SHOW_ALL;
 
         internal static void DisplaySpells()
@@ -37,27 +33,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 toggle = SpellsContext.IsAllSetSelected();
                 if (UI.Toggle("Select All", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                 {
-                    if (toggle)
-                    {
-                        SpellsContext.SelectAllSet();
-                    }
-                    else
-                    {
-                        SpellsContext.SelectMinimumSet();
-                    }            
+                    SpellsContext.SelectAllSet(toggle);
                 }
 
                 toggle = SpellsContext.IsSuggestedSetSelected();
                 if (UI.Toggle("Select Suggested", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                 {
-                    if (toggle)
-                    {
-                        SpellsContext.SelectSuggestedSet();
-                    }
-                    else
-                    {
-                        SpellsContext.SelectMinimumSet();
-                    }
+                    SpellsContext.SelectSuggestedSet(toggle);
                 }
 
                 toggle = Main.Settings.DisplaySpellListsToggle.All(x => x.Value);
@@ -76,17 +58,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             if (UI.Slider("spell level filter ".bold().italic().white() + "[-1 to display all spells]".bold().italic().yellow(), ref intValue, SHOW_ALL, 9, SHOW_ALL))
             {
                 SpellLevelFilter = intValue;
-
-                if (intValue == SHOW_ALL)
-                {
-                    FilteredSpells = SpellsContext.Spells.ToHashSet();
-                    FilteredSpellsNoCantrips = FilteredSpells.Where(x => x.SpellLevel > 0).ToHashSet();
-                }
-                else
-                {
-                    FilteredSpells = SpellsContext.Spells.Where(x => x.SpellLevel == SpellLevelFilter).ToHashSet();
-                    FilteredSpellsNoCantrips = FilteredSpells.Where(x => x.SpellLevel > 0).ToHashSet();
-                }
             }
 
             UI.Label("");
@@ -96,44 +67,34 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             foreach (var kvp in SpellsContext.SpellLists)
             {
                 var spellListDefinition = kvp.Value;
+                var spellListContext = SpellsContext.SpellListContextTab[spellListDefinition];
                 var name = spellListDefinition.name;
                 var displayToggle = Main.Settings.DisplaySpellListsToggle[name];
                 var sliderPos = Main.Settings.SpellListSliderPosition[name];
                 var spellEnabled = Main.Settings.SpellListSpellEnabled[name];
+                var allowedSpells = spellListContext.AllSpells
+                    .Where(x => SpellLevelFilter == SHOW_ALL || x.SpellLevel == SpellLevelFilter).ToHashSet();
 
                 void AdditionalRendering()
                 {
-                    toggle = SpellsContext.SpellListContextTab[spellListDefinition].IsAllSetSelected;
+                    toggle = spellListContext.IsAllSetSelected;
                     if (UI.Toggle("Select All", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                     {
-                        if (toggle)
-                        {
-                            SpellsContext.SpellListContextTab[spellListDefinition].SelectAllSet();
-                        }
-                        else
-                        {
-                            SpellsContext.SpellListContextTab[spellListDefinition].SelectMinimumSet();
-                        }
+                        spellListContext.SelectAllSetInternal(toggle);
                     }
 
-                    toggle = SpellsContext.SpellListContextTab[spellListDefinition].IsSuggestedSetSelected;
+                    toggle = spellListContext.IsSuggestedSetSelected;
                     if (UI.Toggle("Select Suggested", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                     {
-                        if (toggle)
-                        {
-                            SpellsContext.SpellListContextTab[spellListDefinition].SelectSuggestedSet();
-                        }
-                        else
-                        {
-                            SpellsContext.SpellListContextTab[spellListDefinition].SelectMinimumSet();
-                        }
+                        spellListContext.SelectSuggestedSetInternal(toggle);
                     }
                 }
 
+
                 DisplayDefinitions(
                     $"{kvp.Key}:".yellow(),
-                    SpellsContext.SpellListContextTab[spellListDefinition].Switch,
-                    spellListDefinition.HasCantrips ? FilteredSpells : FilteredSpellsNoCantrips,
+                    spellListContext.Switch,
+                    allowedSpells,
                     spellEnabled,
                     ref displayToggle,
                     ref sliderPos,

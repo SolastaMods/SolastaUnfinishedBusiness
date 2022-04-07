@@ -38,14 +38,14 @@ namespace SolastaCommunityExpansion.Level20
 
         internal static readonly Dictionary<string, int> SpellListDefinitionList = new()
         {
-            { SpellsContext.CLERIC_SPELLLIST, 9 },
-            { SpellsContext.DRUID_SPELLLIST, 9 },
-            { SpellsContext.PALADIN_SPELLLIST, 5 },
-            { SpellsContext.RANGER_SPELLLIST, 5 },
-            { SpellsContext.SHOCK_ARCANIST_SPELLLIST, 9 },
-            { SpellsContext.SORCERER_SPELLLIST, 9 },
-            { SpellsContext.WIZARD_SPELLLIST, 9 },
-            { SpellsContext.GREENMAGE_SPELLLIST, 9 },
+            { "SpellListCleric", 9 },
+            { "SpellListDruid", 9 },
+            { "SpellListPaladin", 5 },
+            { "SpellListRanger", 5 },
+            { "SpellListShockArcanist", 9 },
+            { "SpellListSorcerer", 9 },
+            { "SpellListWizard", 9 },
+            { "SpellListWizardGreenmage", 9 },
         };
 
         // keep public as CE:MC depends on it
