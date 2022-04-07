@@ -151,6 +151,9 @@
   <data name="BurstOfRadiance" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BurstOfRadianceSpell.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="EarthTremor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EarthTremorSpell.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="WinterBreath" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WinterBreathSpell.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

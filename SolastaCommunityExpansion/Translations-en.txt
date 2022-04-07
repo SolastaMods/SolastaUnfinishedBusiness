@@ -1841,3 +1841,5 @@ Spell/&WinterBreathTitle	Winter's Breath
 Spell/&WinterBreathDescription	Create a blast of cold wind to chill your enemies and knock them prone.
 Spell/&ThunderStrikeTitle	Sound Burst
 Spell/&ThunderStrikeDescription	Create a burst of thundering sound, damaging everyone around you.
+Spell/&EarthTremorTitle	Earth Tremor
+Spell/&EarthTremorDescription	You strike the ground and unleash a tremor of seismic force, hurling up earth, rock, and sand.

@@ -1,7 +1,9 @@
 ﻿using System;
 using SolastaCommunityExpansion.Builders;
 using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 using static ActionDefinitions;
+using static EffectForm;
 using static RuleDefinitions;
 using static SolastaCommunityExpansion.Models.SpellsContext;
 using static SolastaModApi.DatabaseHelper;
@@ -18,6 +20,7 @@ namespace SolastaCommunityExpansion.Spells
         private static readonly SpellDefinition BurstOfRadiance = BuildBurstOfRadiance();
         private static readonly SpellDefinition ThunderStrike = BuildThunderStrike();
         private static readonly SpellDefinition WinterBreath = BuildWinterBreath();
+        private static readonly SpellDefinition EarthTremor = BuildEarthTremor();
 
         internal static void AddToDB()
         {
@@ -25,6 +28,7 @@ namespace SolastaCommunityExpansion.Spells
             _ = AirBlast;
             _ = BurstOfRadiance;
             _ = ThunderStrike;
+            _ = EarthTremor;
             _ = WinterBreath;
         }
 
@@ -34,6 +38,7 @@ namespace SolastaCommunityExpansion.Spells
             RegisterSpell(AirBlast, 0, WIZARD_SPELLLIST, SORCERER_SPELLLIST, DRUID_SPELLLIST);
             RegisterSpell(BurstOfRadiance, 0, CLERIC_SPELLLIST);
             RegisterSpell(ThunderStrike, 0, WIZARD_SPELLLIST, SORCERER_SPELLLIST, DRUID_SPELLLIST);
+            RegisterSpell(EarthTremor, 0, GREENMAGE_SPELLLIST, WIZARD_SPELLLIST, SORCERER_SPELLLIST, DRUID_SPELLLIST);
             RegisterSpell(WinterBreath, 0, GREENMAGE_SPELLLIST, DRUID_SPELLLIST);
         }
 
@@ -184,6 +189,56 @@ namespace SolastaCommunityExpansion.Spells
             return spell;
         }
 
+        private static SpellDefinition BuildEarthTremor()
+        {
+            const string name = "EarthTremor";
+
+            var spriteReference = Utils.CustomIcons.CreateAssetReferenceSprite(name, Properties.Resources.EarthTremor, 128, 128);
+
+            //var rubbleProxy = EffectProxyDefinitionBuilder
+            //    .Create(EffectProxyDefinitions.ProxyGrease, "RubbleProxy", "")
+            //    .SetGuiPresentation(Category.EffectProxy, spriteReference)
+            //    .AddToDB();
+
+            var effectDescription = EffectDescriptionBuilder
+                .Create()
+                .SetEffectAdvancement(
+                    EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 1, 0, 0, 0, 0, 0, 0, AdvancementDuration.None)
+                .SetSavingThrowData(true, true, AttributeDefinitions.Dexterity, false, EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Wisdom, 12, false)
+                .SetDurationData(DurationType.Minute, 10)
+                .SetParticleEffectParameters(Grease.EffectDescription.EffectParticleParameters)
+                .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Cylinder, 1, 1, ItemSelectionType.None)
+                .AddEffectForm(
+                    EffectFormBuilder
+                        .Create()
+                        .SetMotionForm(MotionForm.MotionType.FallProne, 1)
+                        .CreatedByCharacter()
+                        .HasSavingThrow(EffectSavingThrowType.Negates).Build())
+                .AddEffectForm(
+                    EffectFormBuilder
+                        .Create()
+                        .SetDamageForm(false, DieType.D1, DamageTypeBludgeoning, 0, DieType.D12, 3, HealFromInflictedDamage.Never)
+                        .HasSavingThrow(EffectSavingThrowType.HalfDamage).Build()
+                ).Build();
+
+            effectDescription.EffectForms.AddRange(
+                Grease.EffectDescription.EffectForms.Find(e => e.GetField<EffectForm, EffectFormType>("formType") == EffectForm.EffectFormType.Topology));
+
+            var spell = SpellDefinitionBuilder
+                .Create(name, HOLIC_SPELLS_BASE_GUID)
+                .SetGuiPresentation(Category.Spell, spriteReference)
+                .SetEffectDescription(effectDescription)
+                .SetCastingTime(ActivationTime.Action)
+                .SetSpellLevel(3)
+                .SetRequiresConcentration(false)
+                .SetVerboseComponent(true)
+                .SetSomaticComponent(true)
+                .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+                .AddToDB();
+
+            return spell;
+        }
+
         private static SpellDefinition BuildWinterBreath()
         {
             const string name = "WinterBreath";
@@ -219,6 +274,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetRequiresConcentration(false)
                 .SetVerboseComponent(true)
                 .SetSomaticComponent(true)
+                .SetMaterialComponent(MaterialComponentType.Mundane)
                 .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
                 .AddToDB();
 
