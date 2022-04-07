@@ -5,6 +5,7 @@ using UnityModManagerNet;
 using static SolastaCommunityExpansion.Viewers.Displays.DungeonMakerDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.GameUiDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.KeyboardAndMouseDisplay;
+using static SolastaCommunityExpansion.Viewers.Displays.Shared;
 
 namespace SolastaCommunityExpansion.Viewers
 {
@@ -25,7 +26,7 @@ namespace SolastaCommunityExpansion.Viewers
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
-            UI.Label("Welcome to Solasta Community Expansion".yellow().bold());
+            UI.Label(WelcomeMessage);
             UI.Div();
 
             if (Main.Enabled)

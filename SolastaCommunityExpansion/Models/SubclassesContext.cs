@@ -112,9 +112,7 @@ namespace SolastaCommunityExpansion.Models
 #if DEBUG
         public static string GenerateSubclassDescription()
         {
-            var outString = new StringBuilder("[size=3][b]Subclasses[/b][/size]\n");
-
-            outString.Append("\n[list]");
+            var outString = new StringBuilder();
 
             foreach (var subclass in Subclasses)
             {
@@ -123,8 +121,6 @@ namespace SolastaCommunityExpansion.Models
                 outString.Append("[/b]: ");
                 outString.Append(subclass.FormatDescription());
             }
-
-            outString.Append("\n[/list]");
 
             return outString.ToString();
         }

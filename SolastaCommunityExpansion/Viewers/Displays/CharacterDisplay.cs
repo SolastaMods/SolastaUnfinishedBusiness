@@ -11,17 +11,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             int intValue;
             bool toggle;
 
-            //
-            // WARNING: reenable this if Extra Contents ever gets updated
-            //
-
-            //UI.Label("");
-            //toggle = Main.Settings.AllowDisplayAllUnofficialContent;
-            //if (UI.Toggle("Allow all unofficial feats and spells to be tweaked by this mod " + RequiresRestart, ref toggle, UI.AutoWidth()))
-            //{
-            //    Main.Settings.AllowDisplayAllUnofficialContent = toggle;
-            //}
-
             UI.Label("");
 
             UI.Label("Initial choices:".yellow());

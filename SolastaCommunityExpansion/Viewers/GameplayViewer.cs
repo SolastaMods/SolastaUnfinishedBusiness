@@ -6,6 +6,7 @@ using static SolastaCommunityExpansion.Viewers.Displays.CampaignsAndLocationsDis
 using static SolastaCommunityExpansion.Viewers.Displays.ItemsAndCraftingDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.RulesDisplay;
 using static SolastaCommunityExpansion.Viewers.Displays.ToolsDisplay;
+using static SolastaCommunityExpansion.Viewers.Displays.Shared;
 
 namespace SolastaCommunityExpansion.Viewers
 {
@@ -27,7 +28,7 @@ namespace SolastaCommunityExpansion.Viewers
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
-            UI.Label("Welcome to Solasta Community Expansion".yellow().bold());
+            UI.Label(WelcomeMessage);
             UI.Div();
 
             if (Main.Enabled)

@@ -127,9 +127,7 @@ namespace SolastaCommunityExpansion.Models
 #if DEBUG
         public static string GenerateItemsDescription()
         {
-            var outString = new StringBuilder("[size=3][b]Craftable Items[/b][/size]\n");
-
-            outString.Append("\n[list]");
+            var outString = new StringBuilder();
 
             foreach (string key in RecipeBooks.Keys)
             {
@@ -143,8 +141,6 @@ namespace SolastaCommunityExpansion.Models
 
                 outString.Append(string.Join(", ", uniqueEntries));
             }
-
-            outString.Append("\n[/list]");
 
             return outString.ToString();
         }
