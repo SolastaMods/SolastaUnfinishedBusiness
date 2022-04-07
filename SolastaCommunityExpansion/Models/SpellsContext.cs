@@ -53,6 +53,14 @@ namespace SolastaCommunityExpansion.Models
 
             public void SelectSuggestedSet(bool toggle)
             {
+                if (toggle)
+                {
+                    foreach (var spell in AllSpells)
+                    {
+                        Switch(spell, false);
+                    }
+                }
+
                 foreach (var spell in SuggestedSpells)
                 {
                     Switch(spell, toggle);
