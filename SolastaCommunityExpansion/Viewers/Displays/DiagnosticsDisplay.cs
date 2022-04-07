@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using ModKit;
 using SolastaCommunityExpansion.DataMiner;
@@ -253,6 +254,21 @@ All settings start disabled by default. On first start the mod will display an w
 [/list]
 ";
 
+        private static string GenerateDescription<T>(IEnumerable<T> definitions) where T: BaseDefinition
+        {
+            var outString = new StringBuilder();
+
+            foreach (var definition in definitions)
+            {
+                outString.Append("\n[*][b]");
+                outString.Append(definition.FormatTitle());
+                outString.Append("[/b]: ");
+                outString.Append(definition.FormatDescription());
+            }
+
+            return outString.ToString();
+        }
+
         internal static void DisplayDumpDescription()
         {
             UI.ActionButton("Dump Nexus Description", () =>
@@ -270,12 +286,12 @@ All settings start disabled by default. On first start the mod will display an w
 
                 var descriptionData = string.Format(ModDescription,
                     collectedCredits,
-                    RacesContext.GenerateRaceDescription(),
-                    ClassesContext.GenerateClassDescription(),
-                    SubclassesContext.GenerateSubclassDescription(),
-                    FeatsContext.GenerateFeatsDescription(),
-                    FightingStyleContext.GenerateFightingStyleDescription(),
-                    SpellsContext.GenerateSpellsDescription(),
+                    GenerateDescription(RacesContext.Races),
+                    GenerateDescription(ClassesContext.Classes),
+                    GenerateDescription(SubclassesContext.Subclasses),
+                    GenerateDescription(FeatsContext.Feats),
+                    GenerateDescription(FightingStyleContext.FightingStyles),
+                    GenerateDescription(SpellsContext.Spells),
                     ItemCraftingContext.GenerateItemsDescription());
 
                 using var sw = new StreamWriter($"{DiagnosticsContext.DiagnosticsFolder}/NexusDescription.txt");

@@ -81,22 +81,5 @@ namespace SolastaCommunityExpansion.Models
 
             UpdateClassVisibility(characterClassDefinition);
         }
-
-#if DEBUG
-        public static string GenerateClassDescription()
-        {
-            var outString = new StringBuilder();
-
-            foreach (var characterClass in Classes)
-            {
-                outString.Append("\n[*][b]");
-                outString.Append(characterClass.FormatTitle());
-                outString.Append("[/b]: ");
-                outString.Append(characterClass.FormatDescription());
-            }
-
-            return outString.ToString();
-        }
-#endif
     }
 }

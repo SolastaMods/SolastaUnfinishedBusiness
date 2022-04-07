@@ -67,23 +67,5 @@ namespace SolastaCommunityExpansion.Models
             UpdateFeatsVisibility(featDefinition);
             GuiWrapperContext.RecacheFeats();
         }
-
-#if DEBUG
-        public static string GenerateFeatsDescription()
-        {
-            var outString = new StringBuilder();
-
-            foreach (var feat in Feats)
-            {
-                outString.Append("\n[*][b]");
-                outString.Append(feat.FormatTitle());
-                outString.Append("[/b]: ");
-                outString.Append(feat.FormatDescription());
-            }
-
-            return outString.ToString();
-        }
-#endif
     }
-
 }
