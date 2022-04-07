@@ -213,43 +213,43 @@ All settings start disabled by default. On first start the mod will display an w
 
 [size=3][b]Races[/b][/size]
 
-[list]
+[list=1]
 {1}
 [/list]
 
 [size=3][b]Classes[/b][/size]
 
-[list]
+[list=1]
 {2}
 [/list]
 
 [size=3][b]Subclasses[/b][/size]
 
-[list]
+[list=1]
 {3}
 [/list]
 
 [size=3][b]Feats[/b][/size]
 
-[list]
+[list=1]
 {4}
 [/list]
 
 [size=3][b]Fighting Styles[/b][/size]
 
-[list]
+[list=1]
 {5}
 [/list]
 
 [size=3][b]Spells[/b][/size]
 
-[list]
+[list=1]
 {6}
 [/list]
 
-[size=3][b]Recipes[/b][/size]
+[size=3][b]Items & Crafting[/b][/size]
 
-[list]
+[list=1]
 {7}
 [/list]
 ";

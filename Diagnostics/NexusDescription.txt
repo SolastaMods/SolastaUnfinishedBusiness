@@ -87,7 +87,7 @@ All settings start disabled by default. On first start the mod will display an w
 
 [size=3][b]Races[/b][/size]
 
-[list]
+[list=1]
 
 [*][b]Bolgrif[/b]: Bolgrifs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, bolgrifs demonstrate formidable skills with weapons and nature magic.
 [*][b]Woodland Gnome[/b]: A constant hum of busy activity pervades the warrens and neighborhoods where gnomes form their close-knit communities. Louder sounds punctuate the hum: a crunch of grinding gears here, a minor explosion there, a yelp of surprise or triumph, and especially bursts of laughter. Gnomes take delight in life, enjoying every moment of invention, exploration, investigation, creation, and play.
@@ -95,7 +95,7 @@ All settings start disabled by default. On first start the mod will display an w
 
 [size=3][b]Classes[/b][/size]
 
-[list]
+[list=1]
 
 [*][b]Tinkerer[/b]: Tinkerers are inventors, alchemists, and more. They bridge the space between magic and technology
 [*][b]Warlock[/b]: Warlocks are seekers of the knowledge that lies hidden in the fabric of the multiverse. Through pacts made with mysterious beings of supernatural power, warlocks unlock magical effects both subtle and spectacular.
@@ -104,7 +104,7 @@ All settings start disabled by default. On first start the mod will display an w
 
 [size=3][b]Subclasses[/b][/size]
 
-[list]
+[list=1]
 
 [*][b]Arcane Fighter[/b]: Channel your magic into weapon attacks.
 [*][b]Circle of the Forest Guardian[/b]: Circle of the Forest Guardian Druids are sworn to protect the forests and all that dwell within them. Skilled in the use of Abjuration magic and martial combat, members of this druidic circle are fearsome opponents on the battlefield.
@@ -122,7 +122,7 @@ All settings start disabled by default. On first start the mod will display an w
 
 [size=3][b]Feats[/b][/size]
 
-[list]
+[list=1]
 
 [*][b]Apothecary (Intelligence)[/b]: +1 Intelligence, Proficiency or Expertise with Herbalism Kit and Arcana
 [*][b]Apothecary (Wisdom)[/b]: +1 Wisdom, Proficiency or Expertise with Herbalism Kit and Medicine
@@ -205,7 +205,7 @@ While you are not wearing any armor, your AC equals 10 + your Wisdom modifier.
 
 [size=3][b]Fighting Styles[/b][/size]
 
-[list]
+[list=1]
 
 [*][b]Blind Fighting[/b]: You have blindsight with a range of 10 feet.
 [*][b]Pugilist[/b]: While you are completely unarmed, your unarmed strikes deal an additional d8 of damage and you can punch with your offhand as a bonus action.
@@ -213,13 +213,13 @@ While you are not wearing any armor, your AC equals 10 + your Wisdom modifier.
 
 [size=3][b]Spells[/b][/size]
 
-[list]
-[size=3][b]Spells[/b][/size]
+[list=1]
 
-[list]
 [*][b]Air Blast[/b]: Fire a blast of focused air at your target.
 [*][b]Bloody Claws[/b]: Make a deadly attack with your sharpened claws.
 [*][b]Burst of Radiance[/b]: Create a brilliant flash of shimmering light, damaging all enemies around you.
+[*][b]Eldritch Blast[/b]: A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage.
+The spell creates more than one beam when you reach higher levels: two beams at 5th level, three beams at 11th level, and four beams at 17th level. You can direct the beams at the same target or at different ones. Make a separate attack roll for each beam.
 [*][b]Eldritch Orb[/b]: You fling a ball of eldritch energy at a creature or object within range.
 [*][b]Minor Lifesteal[/b]: You drain life energy from a hostile creature you can see within range. You then heal hit points equal to the amount of damage dealt. This spell has no effect on undead or constructs.
 [*][b]Sound Burst[/b]: Create a burst of thundering sound, damaging everyone around you.
@@ -256,11 +256,10 @@ Regardless of its current hit points, a celestial, an elemental, a fey, or a fie
 [*][b]Time Stop[/b]: You briefly stop the flow of time for everyone but yourself. No time passes for other creatures, while you take 1d4 + 1 turns in a row, during which you can use actions and move as normal.
 [*][b]Weird[/b]: Drawing on the deepest fears of a group of creatures, you create illusory creatures in their minds, visible only to them. Each creature in a 30-foot-radius sphere centered on a point of your choice within range must make a Wisdom saving throw. On a failed save, a creature becomes frightened for the duration. The illusion calls on the creature's deepest fears, manifesting its worst nightmares as an implacable threat. At the end of each of the frightened creature's turns, it must succeed on a Wisdom saving throw or take 4d10 psychic damage. On a successful save, the spell ends for that creature.
 [/list]
-[/list]
 
-[size=3][b]Recipes[/b][/size]
+[size=3][b]Items & Crafting[/b][/size]
 
-[list]
+[list=1]
 
 [*][b]Primed Items[/b]: Primed Battleaxe, Primed Breastplate, Primed Chain Mail, Primed Chain Shirt, Primed Dagger, Primed Greataxe, Primed Greatsword, Primed Half Plate, Primed Heavy Crossbow, Primed Hide Armor, Primed Druid Armor, Primed Leather Armor, Primed Crossbow, Primed Longbow, Primed Longsword, Primed Mace, Primed Maul, Primed Morningstar, Primed Plate, Primed Rapier, Primed Scale Mail, Primed Scimitar, Primed Shortbow, Primed Shortsword, Primed Spear, Primed Studded Armor, Primed Warhammer
 [*][b]Enchanting Ingredients[/b]: Mithral Stone, Crystal of Winter, Blood Ruby, Soul Gem, Slavestone, Cloud Diamond, Stardust, Doom Gem, Shard of Fire, Shard of Ice, Life Stone, Diamond of Elai, Primordial Lava Stones, Blood of Solasta, Medusa Coral, Purple Amber, Heartstone, Spider Queen Venom
