@@ -4579,6 +4579,8 @@ SummonProtectorConstruct_Upgrade	SpellDefinition	SpellDefinition	ccd2a793-e566-4
 SummonTempHPShieldConstruct	SpellDefinition	SpellDefinition	db9e7e8e-b749-4b46-9ba3-60a7bf221b0b
 SummonTempHPShieldConstruct_15	SpellDefinition	SpellDefinition	84ddce96-ec58-4141-933d-371080d611d2
 SummonTempHPShieldConstruct_9	SpellDefinition	SpellDefinition	f1e88575-40ca-4f4e-9447-616058e213a4
+ThunderStrike	SpellDefinition	SpellDefinition	99e700aa-fa7d-583b-9d67-8260fcc0c4e1
+WinterBreath	SpellDefinition	SpellDefinition	0d27967e-e6c5-5b46-a28f-8b95be6c08a4
 WitchFamiliar	SpellDefinition	SpellDefinition	07e56c1a-9211-5f6d-add9-e85a5321d2e9
 AHWarlockSoulBladePactSpellList	SpellListDefinition	SpellListDefinition	2e1adc2f-7812-5dca-ba15-1a73a8a8b887
 AncientForestExpandedSpelllist	SpellListDefinition	SpellListDefinition	7e128bf0-0210-5d6b-96fb-051ee9a5e930

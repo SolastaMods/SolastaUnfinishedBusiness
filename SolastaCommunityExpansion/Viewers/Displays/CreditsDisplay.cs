@@ -23,7 +23,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             { "Dreadmaker", "Circle of the Forest Guardian subclass" },
             { "Narria", "modKit creator, developer" },
             { "Spacehamster", "dataminer" },
-            { "Holic75", "pact magic slots, Warlock class sprite, bolgrif and gnome races, acid claw, air blast and burst of radiance cantrips" },
+            { "Holic75", "pact magic slots, Warlock class sprite, bolgrif and gnome races, acid claw, air blast burst of radiance, thunder strike and winter's breath spells" },
             { "sinai-dev", "Unity Explorer UI standalone" },
             { "Burtsev-Alexey", "deep copy algorithm" }
         };

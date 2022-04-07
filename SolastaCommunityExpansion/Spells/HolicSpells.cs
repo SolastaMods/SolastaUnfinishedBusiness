@@ -16,19 +16,25 @@ namespace SolastaCommunityExpansion.Spells
         private static readonly SpellDefinition AcidClaw = BuildAcidClaw();
         private static readonly SpellDefinition AirBlast = BuildAirBlast();
         private static readonly SpellDefinition BurstOfRadiance = BuildBurstOfRadiance();
+        private static readonly SpellDefinition ThunderStrike = BuildThunderStrike();
+        private static readonly SpellDefinition WinterBreath = BuildWinterBreath();
 
         internal static void AddToDB()
         {
             _ = AcidClaw;
             _ = AirBlast;
             _ = BurstOfRadiance;
+            _ = ThunderStrike;
+            _ = WinterBreath;
         }
 
         internal static void Register()
         {
-            RegisterSpell(AcidClaw, 0, WIZARD_SPELLLIST);
-            RegisterSpell(AirBlast, 0, WIZARD_SPELLLIST);
+            RegisterSpell(AcidClaw, 0, DRUID_SPELLLIST);
+            RegisterSpell(AirBlast, 0, WIZARD_SPELLLIST, SORCERER_SPELLLIST, DRUID_SPELLLIST);
             RegisterSpell(BurstOfRadiance, 0, CLERIC_SPELLLIST);
+            RegisterSpell(ThunderStrike, 0, WIZARD_SPELLLIST, SORCERER_SPELLLIST, DRUID_SPELLLIST);
+            RegisterSpell(WinterBreath, 0, GREENMAGE_SPELLLIST, DRUID_SPELLLIST);
         }
 
         private static SpellDefinition BuildAcidClaw()
@@ -136,6 +142,84 @@ namespace SolastaCommunityExpansion.Spells
                 .SetSomaticComponent(false)
                 .SetMaterialComponent(MaterialComponentType.Mundane)
                 .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+                .AddToDB();
+
+            return spell;
+        }
+
+        private static SpellDefinition BuildThunderStrike()
+        {
+            const string name = "ThunderStrike";
+
+            var spriteReference = Shield.GuiPresentation.SpriteReference;
+
+            var effectDescription = EffectDescriptionBuilder
+                .Create()
+                .SetEffectAdvancement(
+                    EffectIncrementMethod.CasterLevelTable, 1, 0, 1, 0, 0, 0, 0, 0, 0, AdvancementDuration.None)
+                .SetSavingThrowData(true, true, AttributeDefinitions.Constitution, false, EffectDifficultyClassComputation.SpellCastingFeature, AttributeDefinitions.Wisdom, 15, false)
+                .SetDurationData(DurationType.Instantaneous)
+                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere, 1, 1, ItemSelectionType.None)
+                .AddEffectForm(
+                    EffectFormBuilder
+                        .Create()
+                        .SetDamageForm(false, DieType.D1, DamageTypeThunder, 0, DieType.D6, 1, HealFromInflictedDamage.Never)
+                        .HasSavingThrow(EffectSavingThrowType.Negates).Build()
+                ).Build();
+
+            effectDescription.SetTargetExcludeCaster(true);
+
+            var spell = SpellDefinitionBuilder
+                .Create(name, HOLIC_SPELLS_BASE_GUID)
+                .SetGuiPresentation(Category.Spell, spriteReference)
+                .SetEffectDescription(effectDescription)
+                .SetCastingTime(ActivationTime.Action)
+                .SetSpellLevel(0)
+                .SetRequiresConcentration(false)
+                .SetVerboseComponent(true)
+                .SetSomaticComponent(true)
+                .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+                .AddToDB();
+
+            return spell;
+        }
+
+        private static SpellDefinition BuildWinterBreath()
+        {
+            const string name = "WinterBreath";
+
+            var spriteReference = Utils.CustomIcons.CreateAssetReferenceSprite(name, Properties.Resources.WinterBreath, 128, 128);
+
+            var effectDescription = EffectDescriptionBuilder
+                .Create()
+                .SetEffectAdvancement(
+                    EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 1, 0, 0, 0, 0, 0, 0, AdvancementDuration.None)
+                .SetSavingThrowData(true, true, AttributeDefinitions.Dexterity, false, EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Wisdom, 12, false)
+                .SetDurationData(DurationType.Instantaneous)
+                .SetParticleEffectParameters(ConeOfCold.EffectDescription.EffectParticleParameters)
+                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere, 1, 1, ItemSelectionType.None)
+                .AddEffectForm(
+                    EffectFormBuilder
+                        .Create()
+                        .SetMotionForm(MotionForm.MotionType.FallProne, 1)
+                        .HasSavingThrow(EffectSavingThrowType.Negates).Build())
+                .AddEffectForm(
+                    EffectFormBuilder
+                        .Create()
+                        .SetDamageForm(false, DieType.D1, DamageTypeCold, 0, DieType.D8, 4, HealFromInflictedDamage.Never)
+                        .HasSavingThrow(EffectSavingThrowType.HalfDamage).Build()
+                ).Build();
+
+            var spell = SpellDefinitionBuilder
+                .Create(name, HOLIC_SPELLS_BASE_GUID)
+                .SetGuiPresentation(Category.Spell, spriteReference)
+                .SetEffectDescription(effectDescription)
+                .SetCastingTime(ActivationTime.Action)
+                .SetSpellLevel(3)
+                .SetRequiresConcentration(false)
+                .SetVerboseComponent(true)
+                .SetSomaticComponent(true)
+                .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
                 .AddToDB();
 
             return spell;
