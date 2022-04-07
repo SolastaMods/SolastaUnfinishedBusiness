@@ -42,11 +42,29 @@ namespace SolastaCommunityExpansion.Models
             public bool IsSuggestedSetSelected => SuggestedSpells.Count == SelectedSpells.Count
                 || SuggestedSpells.All(x => SelectedSpells.Contains(x.Name));
 
-            public void SelectAllSet() => SelectedSpells.SetRange(Spells.Select(x => x.Name));
+            public void SelectAllSet()
+            {
+                foreach (var spell in Spells)
+                {
+                    Switch(spell, true);
+                }
+            }
 
-            public void SelectMinimumSet() => SelectedSpells.SetRange(MinimumSpells.Select(x => x.Name));
+            public void SelectMinimumSet()
+            {
+                foreach (var spell in MinimumSpells)
+                {
+                    Switch(spell, true);
+                }
+            }
 
-            public void SelectSuggestedSet() => SelectedSpells.SetRange(SuggestedSpells.Select(x => x.Name));
+            public void SelectSuggestedSet()
+            {
+                foreach (var spell in SuggestedSpells)
+                {
+                    Switch(spell, true);
+                }
+            }
 
             public void Switch(SpellDefinition spellDefinition, bool active)
             {
@@ -80,11 +98,9 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void SelectAllSet()
         {
-            var spellNames = Spells.Select(x => x.Name);
-
-            foreach (var spellEnabled in Main.Settings.SpellListSpellEnabled.Values)
+            foreach (var spellListContext in SpellListContextTab.Values)
             {
-                spellEnabled.SetRange(spellNames);
+                spellListContext.SelectAllSet();
             }
         }
 
@@ -92,8 +108,7 @@ namespace SolastaCommunityExpansion.Models
         {
             foreach (var spellListContext in SpellListContextTab.Values)
             {
-                Main.Settings.SpellListSpellEnabled[spellListContext.SpellList.Name]
-                    .SetRange(spellListContext.MinimumSpells.Select(x => x.Name));
+                spellListContext.SelectMinimumSet();
             }
         }
 
@@ -101,8 +116,7 @@ namespace SolastaCommunityExpansion.Models
         {
             foreach (var spellListContext in SpellListContextTab.Values)
             {
-                Main.Settings.SpellListSpellEnabled[spellListContext.SpellList.Name]
-                    .SetRange(spellListContext.SuggestedSpells.Select(x => x.Name));
+                spellListContext.SelectSuggestedSet();
             }
         }
 
