@@ -62,11 +62,17 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                             switchAction.Invoke(registeredDefinition, selectAll);
                         }
                     }
+
+                    toggle = sliderPosition == 1;
+                    if (UI.Toggle("Show Descriptions", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+                    {
+                        sliderPosition = toggle ? 1 : 4;
+                    }
                 }
 
+                //UI.Slider("slide left for description / right to collapse".white().bold().italic(), ref sliderPosition, 1, maxColumns, 1, "");
 
-                UI.Slider("slide left for description / right to collapse".white().bold().italic(), ref sliderPosition, 1, maxColumns, 1, "");
-
+                UI.Div();
                 UI.Label("");
 
                 int columns;
