@@ -5,8 +5,18 @@ using static SolastaModApi.DatabaseHelper.FeatureDefinitionProficiencys;
 
 namespace SolastaCommunityExpansion.Models
 {
-    internal static class MulticlassContext
+    public static class MulticlassContext
     {
+        public static CharacterClassDefinition DummyClass { get; private set; }
+
+        public static RestActivityDefinition RestActivityLevelDown { get; private set; } = RestActivityDefinitionBuilder
+            .Create("LevelDown", "fdb4d86eaef942d1a22dbf1fb5a7299f")
+            .SetGuiPresentation("MainMenu/&ExportPdfTitle", "MainMenu/&ExportPdfDescription")
+            .SetRestData(
+                RestDefinitions.RestStage.AfterRest, RuleDefinitions.RestType.ShortRest,
+                RestActivityDefinition.ActivityCondition.None, "LevelDown", string.Empty)
+            .AddToDB();
+
         internal static void Load()
         {
             _ = ArmorProficiencyMulticlassBuilder.BarbarianArmorProficiencyMulticlass;
@@ -16,6 +26,15 @@ namespace SolastaCommunityExpansion.Models
             _ = SkillProficiencyPointPoolSkillsBuilder.PointPoolBardSkillPointsMulticlass;
             _ = SkillProficiencyPointPoolSkillsBuilder.PointPoolRangerSkillPointsMulticlass;
             _ = SkillProficiencyPointPoolSkillsBuilder.PointPoolRogueSkillPointsMulticlass;
+        }
+
+        internal static void LaterLoad()
+        {
+            // don't refactor out of this method...
+            DummyClass = CharacterClassDefinitionBuilder
+                .Create("DummyClass", "062d696ab44146e0b316188f943d8079")
+                .SetGuiPresentationNoContent()
+                .AddToDB();
         }
     }
 
