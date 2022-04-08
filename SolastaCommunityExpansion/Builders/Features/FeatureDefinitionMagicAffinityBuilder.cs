@@ -18,6 +18,11 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
+        protected FeatureDefinitionMagicAffinityBuilder(FeatureDefinitionMagicAffinity original, string name)
+            : base(original, name)
+        {
+        }
+
         protected FeatureDefinitionMagicAffinityBuilder(FeatureDefinitionMagicAffinity original, string name, string guid)
             : base(original, name, guid)
         {

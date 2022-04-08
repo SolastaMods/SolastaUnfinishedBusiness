@@ -83,7 +83,7 @@ Different Archfey, e.g. Winter-themed
             /*
                         FeatureDefinitionAdditionalDamage AdditionalDamageLifeSap = new FeatureDefinitionAdditionalDamageBuilder(
                                  "AdditionalDamageAncientForestLifeSap",
-                                 GuidHelper.Create(new Guid(Settings.GUID), "AdditionalDamageAncientForestLifeSap").ToString(),
+                                 GuidHelper.Create(Settings.GUID, "AdditionalDamageAncientForestLifeSap").ToString(),
                                  "AncientForestLifeSap",
                                  RuleDefinitions.FeatureLimitedUsage.None,
                                  RuleDefinitions.AdditionalDamageValueDetermination.SpellcastingBonus,
@@ -100,7 +100,7 @@ Different Archfey, e.g. Winter-themed
                             ).AddToDB();
 
                      //   FeatureDefinitionFeatureSet AncientForestLifeSapFeatureSet = FeatureDefinitionFeatureSetBuilder
-                     //       .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, "AncientForestLifeSapFeatureSet", GuidHelper.Create(new Guid(Settings.GUID), "AncientForestLifeSapFeatureSet").ToString())
+                     //       .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, "AncientForestLifeSapFeatureSet", GuidHelper.Create(Settings.GUID, "AncientForestLifeSapFeatureSet").ToString())
                      //       .SetGuiPresentation(new GuiPresentationBuilder("Feature/&AncientForestLifeSapFeatureSetDescription", "Feature/&AncientForestLifeSapFeatureSetTitle").Build())
                      //      .ClearFeatureSet() 
                      //      .AddFeatureSet(AdditionalDamageAncientForestLifeSap)
@@ -166,7 +166,7 @@ Different Archfey, e.g. Winter-themed
                 .AddToDB();
 
             FeatureDefinitionPower HerbalBrewPool = FeatureDefinitionPowerPoolBuilder
-                 .Create("DH_HerbalBrewPool", GuidHelper.Create(new Guid(Settings.GUID), "DH_HerbalBrewPool").ToString())
+                .Create("DH_HerbalBrewPool")
                 .SetGuiPresentationNoContent()
                 .SetUsesProficiency()
                 .SetUsesAbility(1, AttributeDefinitions.Charisma)
@@ -196,7 +196,7 @@ Different Archfey, e.g. Winter-themed
                 .Build();
 
                 ConditionDefinition ResistentBrewsCondition = ConditionDefinitionBuilder.Create(
-                    "DH_ResistentBrews_" + text + "Condition", GuidHelper.Create(new Guid(Settings.GUID), "DH_ResistentBrews_" + text + "Condition").ToString())
+                    "DH_ResistentBrews_" + text + "Condition")
                     .SetDuration(DurationType.Hour, 1)
                     .SetSilent(Silent.None)
                     .SetGuiPresentation(guiPresentationResistentBrewsCondition)
@@ -298,7 +298,6 @@ Different Archfey, e.g. Winter-themed
 
                 FeatureDefinitionPower HerbalBrewFortifying = new FeatureDefinitionPowerSharedPoolBuilder(
                        "AncientForestHerbalBrewFortifying" + entry.Key + "Resistance",
-                       GuidHelper.Create(new Guid(Settings.GUID), "AncientForestHerbalBrewFortifying" + entry.Key + "Resistance").ToString(),
                        HerbalBrewPool,
                        RechargeRate.LongRest,
                        ActivationTime.Rest,
@@ -357,7 +356,7 @@ Different Archfey, e.g. Winter-themed
 
             //         var HerbalBrewBuilder = new FeatureDefinitionPowerSharedPoolBuilder(
             //              "DHHerbalBrew" + text,
-            //              GuidHelper.Create(new Guid(Settings.GUID), "DHHerbalBrew" + text).ToString(),
+            //              GuidHelper.Create(Settings.GUID, "DHHerbalBrew" + text).ToString(),
             //              HerbalBrewPool,
             //              RuleDefinitions.RechargeRate.LongRest,
             //              RuleDefinitions.ActivationTime.BonusAction,
@@ -381,7 +380,6 @@ Different Archfey, e.g. Winter-themed
 
             FeatureDefinitionPower HerbalBrewQuickening = new FeatureDefinitionPowerSharedPoolBuilder(
                    "AncientForestHerbalBrewQuickening",
-                   GuidHelper.Create(new Guid(Settings.GUID), "AncientForestHerbalBrewQuickening").ToString(),
                    HerbalBrewPool,
                    RechargeRate.LongRest,
                    ActivationTime.Rest,
@@ -485,7 +483,6 @@ Different Archfey, e.g. Winter-themed
 
             FeatureDefinitionPower HerbalBrewToxifying = new FeatureDefinitionPowerSharedPoolBuilder(
                  "AncientForestHerbalBrewToxifying",
-                 GuidHelper.Create(new Guid(Settings.GUID), "AncientForestHerbalBrewToxifying").ToString(),
                  HerbalBrewPool,
                  RechargeRate.LongRest,
                  ActivationTime.Rest,
@@ -672,7 +669,7 @@ Different Archfey, e.g. Winter-themed
             RootedPower.GuiPresentation.SetSpriteReference(PowerRangerHideInPlainSight.GuiPresentation.SpriteReference);
 
             FeatureDefinitionPower AncientForestWallofThornsPool = FeatureDefinitionPowerPoolBuilder
-                .Create("DHAncientForestWallofThornsPool", GuidHelper.Create(new Guid(Settings.GUID), "DHAncientForestWallofThornsPool").ToString())
+                .Create("DHAncientForestWallofThornsPool")
                 .SetGuiPresentationNoContent()
                 .SetUsesProficiency()
                 .SetUsesAbility(1, AttributeDefinitions.Charisma)
@@ -714,7 +711,6 @@ Different Archfey, e.g. Winter-themed
 
                 FeatureDefinitionPower WallofThornsPower = new FeatureDefinitionPowerSharedPoolBuilder(
                      "AncientForest" + spell.name,
-                     GuidHelper.Create(new Guid(Settings.GUID), "AncientForest" + spell.name).ToString(),
                      AncientForestWallofThornsPool,
                      RechargeRate.LongRest,
                      ActivationTime.Rest,

@@ -22,12 +22,10 @@ namespace SolastaCommunityExpansion.Models
                 .SetPool(HeroDefinitions.PointsPoolType.Feat, 2)
                 .AddToDB();
 
-            var guid = new System.Guid(Settings.GUID);
-
             // 11 here as need to count the Alternate Human Feat
             for (var i = 3; i <= 11; i++)
             {
-                _ = FeatureDefinitionPointPoolBuilder.Create($"PointPool{i}BonusFeats", guid)
+                _ = FeatureDefinitionPointPoolBuilder.Create($"PointPool{i}BonusFeats")
                     .SetGuiPresentation($"PointPoolSelect{i}Feats", Category.Race)
                     .SetPool(HeroDefinitions.PointsPoolType.Feat, i)
                     .AddToDB();

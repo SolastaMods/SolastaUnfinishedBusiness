@@ -9,6 +9,11 @@ namespace SolastaCommunityExpansion.Builders
     public class SpellDefinitionBuilder : DefinitionBuilder<SpellDefinition, SpellDefinitionBuilder>
     {
         #region Constructors
+        protected SpellDefinitionBuilder(SpellDefinition original, string name) : base(original, name)
+        {
+            InitializeFields();
+        }
+
         protected SpellDefinitionBuilder(string name, string guid) : base(name, guid)
         {
             InitializeFields();

@@ -21,9 +21,8 @@ namespace SolastaCommunityExpansion.Spells
         internal class PactMarkSpellBuilder : SpellDefinitionBuilder
         {
             private const string PactMarkSpellName = "AHPactMarkSpell";
-            private static readonly string PactMarkSpellGuid = GuidHelper.Create(new Guid(Settings.GUID), PactMarkSpellName).ToString();
 
-            protected PactMarkSpellBuilder(string name, string guid) : base(DatabaseHelper.SpellDefinitions.HuntersMark, name, guid)
+            protected PactMarkSpellBuilder(string name) : base(DatabaseHelper.SpellDefinitions.HuntersMark, name)
             {
                 Definition.GuiPresentation.Title = "Spell/&AHPactMarkSpellTitle";
                 Definition.GuiPresentation.Description = "Spell/&AHPactMarkSpellDescription";
@@ -68,16 +67,15 @@ namespace SolastaCommunityExpansion.Spells
 
             public static SpellDefinition CreateAndAddToDB()
             {
-                return new PactMarkSpellBuilder(PactMarkSpellName, PactMarkSpellGuid).AddToDB();
+                return new PactMarkSpellBuilder(PactMarkSpellName).AddToDB();
             }
         }
 
         internal class PactMarkPactMarkConditionBuilder : ConditionDefinitionBuilder
         {
             private const string PactMarkPactMarkConditionName = "AHPactMarkPactMarkCondition";
-            private static readonly string PactMarkPactMarkConditionGuid = GuidHelper.Create(new Guid(Settings.GUID), PactMarkPactMarkConditionName).ToString();
 
-            protected PactMarkPactMarkConditionBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionHuntersMark, name, guid)
+            protected PactMarkPactMarkConditionBuilder(string name) : base(DatabaseHelper.ConditionDefinitions.ConditionHuntersMark, name)
             {
                 Definition.GuiPresentation.Title = "Spell/&AHPactMarkPactMarkConditionTitle";
                 Definition.GuiPresentation.Description = "Spell/&AHPactMarkPactMarkConditionDescription";
@@ -85,39 +83,37 @@ namespace SolastaCommunityExpansion.Spells
                 Definition.Features.Add(PactMarkAdditionalDamageBuilder.PactMarkAdditionalDamage);
             }
 
-            public static ConditionDefinition CreateAndAddToDB(string name, string guid)
+            public static ConditionDefinition CreateAndAddToDB(string name)
             {
-                return new PactMarkPactMarkConditionBuilder(name, guid).AddToDB();
+                return new PactMarkPactMarkConditionBuilder(name).AddToDB();
             }
 
-            public static readonly ConditionDefinition PactMarkCondition = CreateAndAddToDB(PactMarkPactMarkConditionName, PactMarkPactMarkConditionGuid);
+            public static readonly ConditionDefinition PactMarkCondition = CreateAndAddToDB(PactMarkPactMarkConditionName);
         }
 
         internal class PactMarkMarkedByPactConditionBuilder : ConditionDefinitionBuilder
         {
             private const string PactMarkMarkedByPactConditionName = "AHPactMarkMarkedByPactCondition";
-            private static readonly string PactMarkMarkedByPactConditionGuid = GuidHelper.Create(new Guid(Settings.GUID), PactMarkMarkedByPactConditionName).ToString();
 
-            protected PactMarkMarkedByPactConditionBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionMarkedByHunter, name, guid)
+            protected PactMarkMarkedByPactConditionBuilder(string name) : base(DatabaseHelper.ConditionDefinitions.ConditionMarkedByHunter, name)
             {
                 Definition.GuiPresentation.Title = "Spell/&AHPactMarkMarkedByPactConditionTitle";
                 Definition.GuiPresentation.Description = "Spell/&AHPactMarkMarkedByPactConditionDescription";
             }
 
-            public static ConditionDefinition CreateAndAddToDB(string name, string guid)
+            public static ConditionDefinition CreateAndAddToDB(string name)
             {
-                return new PactMarkMarkedByPactConditionBuilder(name, guid).AddToDB();
+                return new PactMarkMarkedByPactConditionBuilder(name).AddToDB();
             }
 
-            public static readonly ConditionDefinition MarkedByPactCondition = CreateAndAddToDB(PactMarkMarkedByPactConditionName, PactMarkMarkedByPactConditionGuid);
+            public static readonly ConditionDefinition MarkedByPactCondition = CreateAndAddToDB(PactMarkMarkedByPactConditionName);
         }
 
         internal class PactMarkAdditionalDamageBuilder : FeatureDefinitionAdditionalDamageBuilder
         {
             private const string PactMarkAdditionalDamageBuilderName = "AHPactMarkAdditionalDamage";
-            private static readonly string PactMarkAdditionalDamageGuid = GuidHelper.Create(new Guid(Settings.GUID), PactMarkAdditionalDamageBuilderName).ToString();
 
-            protected PactMarkAdditionalDamageBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageHuntersMark, name, guid)
+            protected PactMarkAdditionalDamageBuilder(string name) : base(DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageHuntersMark, name)
             {
                 Definition.GuiPresentation.Title = "Spell/&AHPactMarkAdditionalDamageTitle";
                 Definition.GuiPresentation.Description = "Spell/&AHPactMarkAdditionalDamageDescription";
@@ -126,18 +122,18 @@ namespace SolastaCommunityExpansion.Spells
                 Definition.SetNotificationTag("PactMarked");
             }
 
-            public static FeatureDefinitionAdditionalDamage CreateAndAddToDB(string name, string guid)
+            public static FeatureDefinitionAdditionalDamage CreateAndAddToDB(string name)
             {
-                return new PactMarkAdditionalDamageBuilder(name, guid).AddToDB();
+                return new PactMarkAdditionalDamageBuilder(name).AddToDB();
             }
 
-            public static readonly FeatureDefinitionAdditionalDamage PactMarkAdditionalDamage = CreateAndAddToDB(PactMarkAdditionalDamageBuilderName, PactMarkAdditionalDamageGuid);
+            public static readonly FeatureDefinitionAdditionalDamage PactMarkAdditionalDamage = CreateAndAddToDB(PactMarkAdditionalDamageBuilderName);
         }
 
         //internal class HellishRebukeSpellBuilder : BaseDefinitionBuilder<SpellDefinition>
         //{
         //    private const string HellishRebukeSpellName = "AHHellishRebukeSpell";
-        //    private static readonly string HellishRebukeSpellNameGuid = GuidHelper.Create(new Guid(Settings.GUID), HellishRebukeSpellName).ToString();
+        //    private static readonly string HellishRebukeSpellNameGuid = GuidHelper.Create(Settings.GUID, HellishRebukeSpellName).ToString();
 
         //    protected HellishRebukeSpellBuilder(string name, string guid) : base(DatabaseHelper.SpellDefinitions.SacredFlame, name, guid)
         //    {
