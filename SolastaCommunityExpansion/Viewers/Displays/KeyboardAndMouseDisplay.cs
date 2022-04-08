@@ -42,6 +42,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
 
             #region Hotkeys
+            UI.Label("");
             UI.Label("General:".yellow());
             UI.Label("");
 
@@ -142,9 +143,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             }
             #endregion
 
-            UI.Label("Multiclass:".yellow());
-
             UI.Label("");
+            UI.Label("Multiclass:".yellow());
+            UI.Label("");
+
             UI.Label(". Press the " + "up".cyan() + " arrow to toggle the character panel selector visibility");
             UI.Label(". Press the " + "down".cyan() + " arrow to browse other classes details");
             UI.Label(". " + "SHIFT".cyan() + " click on a spell consumes a long rest slot instead of the default short rest one");

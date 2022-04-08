@@ -14,12 +14,8 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("General:".yellow());
             UI.Label("");
 
-            UI.Label(". Note that for technical reasons the Level Down after rest action depends on Multiclass to work properly");
-            UI.Label(". You can find the Level Down setting under the Multiclass tab");
-            UI.Label("");
-
             toggle = Main.Settings.EnableRespec;
-            if (UI.Toggle("Enable the RESPEC after rest action", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enable the RESPEC after rest action " + "[Level Down as well if Multiclass is enabled]".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableRespec = toggle;
             }
