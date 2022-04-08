@@ -15,7 +15,7 @@ namespace SolastaCommunityExpansion
         internal static bool IsDebugBuild => UnityEngine.Debug.isDebugBuild;
         internal static bool Enabled { get; set; }
 
-        private static readonly string MOD_FOLDER = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        internal static readonly string MOD_FOLDER = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
         private static readonly string MulticlassFilename = Path.Combine(MOD_FOLDER, "SolastaMulticlass.dll");
         private static readonly string CustomCodeFilename = Path.Combine(MOD_FOLDER, "SolastaCustomCode.dll");
         internal static bool IsMulticlassInstalled { get; private set; } = File.Exists(MulticlassFilename);
