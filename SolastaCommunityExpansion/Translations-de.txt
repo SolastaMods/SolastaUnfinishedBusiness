@@ -1552,7 +1552,8 @@ SpellList/&RiftWalkerSpellsListDescription	Spaltwandler-ZaubersprücheListe Besc
 SpellList/&RiftWalkerSpellsListTitle	Spaltwandler-ZaubersprücheListe
 SpellList/&SpellListClassWarlockDescription	Zauberspruch-Liste Hexenmeister
 SpellList/&SpellListClassWarlockTitle	Hexenmeister-Zauberliste
-SpellList/&SpellListTinkererTitle	Zauberliste für die Klasse des Tüftlers.
+SpellList/&SpellListTinkererTitle	Zauberliste für die Klasse des Tüftlers
+SpellList/&SpellListTinkererDescription	Zauberliste für die Klasse des Tüftlers
 Stage/&IdentityMorphotypeEyeHeader	Augen-Stil
 Stage/&SubclassSelectionStageCovenDescription	Hexenzirkel
 Stage/&SubclassSelectionStageCovenFeaturesDescription	Hexenzirkel

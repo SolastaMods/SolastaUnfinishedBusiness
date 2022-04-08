@@ -104,7 +104,7 @@ namespace SolastaCommunityExpansion.Monsters
             TarrasqueReflectiveCarapace = BuildNewMagicAffinity(
                    "DH_Custom_" + text,
                    DatabaseHelper.FeatureDefinitionMagicAffinitys.MagicAffinityConditionImmuneToShine,
-                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+
                   "MonsterPower/&DH_" + text + "_Title",
                    "MonsterPower/&DH_" + text + "_Description"
                     );
@@ -134,7 +134,7 @@ namespace SolastaCommunityExpansion.Monsters
             TarrasqueSwallow_Decision = BuildNewDecisionDefinition(
                    "DH_Custom_" + text,
                    DatabaseHelper.DecisionDefinitions.CastMagic_Fly_Self,
-                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+
                   "MonsterPower/&DH_" + text + "_Title",
                    "MonsterPower/&DH_" + text + "_Description"
                     );
@@ -151,7 +151,7 @@ namespace SolastaCommunityExpansion.Monsters
             Tarrasque_CombatDecisions = BuildNewDecisionPackageDefinition(
                    "DH_Custom_" + text,
                    DatabaseHelper.DecisionPackageDefinitions.RemorhazCombatDecisions,
-                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+
                   "MonsterPower/&DH_" + text + "_Title",
                    "MonsterPower/&DH_" + text + "_Description"
                     );
@@ -220,7 +220,7 @@ namespace SolastaCommunityExpansion.Monsters
             FeatureDefinitionPower Balor_Retaliate_Power = NewMonsterPowers.BuildNewPower(
                     "DH_Custom_" + Power_text,
                     DatabaseHelper.FeatureDefinitionPowers.PowerRemorhazRetaliate,
-                    GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + Power_text).ToString(),
+
                    "MonsterPower/&DH_" + Power_text + "_Title",
                     "MonsterPower/&DH_" + Power_text + "_Description"
                      );
@@ -239,7 +239,7 @@ namespace SolastaCommunityExpansion.Monsters
             Balor_Retaliate_DamageAffinity = BuildNewDamageAffinity(
                    "DH_Custom_" + text,
                    DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireImmunityRemorhaz,
-                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+
                   "MonsterPower/&DH_" + text + "_Title",
                    "MonsterPower/&DH_" + text + "_Description"
                     );
@@ -253,7 +253,7 @@ namespace SolastaCommunityExpansion.Monsters
         {
             /*
             string text = "Lich_Spelllist";
-            Lich_spelllist = Helpers.SpelllistBuilder.create9LevelSpelllist(text, GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(), "",
+            Lich_spelllist = Helpers.SpelllistBuilder.create9LevelSpelllist(text, GuidHelper.Create(Settings.GUID, "DH_Custom_" + text).ToString(), "",
                                                                     new List<SpellDefinition>
                                                                     {
                                                                                     DatabaseHelper.SpellDefinitions.FireBolt,
@@ -318,7 +318,7 @@ namespace SolastaCommunityExpansion.Monsters
             Lich_spelllist = BuildNewSpelllist(
                       text,
                      DatabaseHelper.SpellListDefinitions.SpellListMage,
-                     GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+  
                     "SpellList/&SpellListWizardTitle",
                      "Feature/&NoContentTitle"
                       );
@@ -442,7 +442,7 @@ namespace SolastaCommunityExpansion.Monsters
             CastSpell_Lich = BuildNewCaster(
                      "DH_Custom_" + text,
                      DatabaseHelper.FeatureDefinitionCastSpells.CastSpellMage,
-                     GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+  
                     "Spell/&DH_" + text + "_Title",
                      "Spell/&DH_" + text + "_Description"
                       );
@@ -498,7 +498,7 @@ namespace SolastaCommunityExpansion.Monsters
 
         {
             /*   string text = "ArchMage_Spelllist";
-               ArchMage_spelllist = Helpers.SpelllistBuilder.create9LevelSpelllist(text, GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(), "",
+               ArchMage_spelllist = Helpers.SpelllistBuilder.create9LevelSpelllist(text, GuidHelper.Create(Settings.GUID, "DH_Custom_" + text).ToString(), "",
                                                                        new List<SpellDefinition>
                                                                        {
                                                                                        DatabaseHelper.SpellDefinitions.FireBolt,
@@ -556,7 +556,7 @@ namespace SolastaCommunityExpansion.Monsters
             Archmage_spelllist = BuildNewSpelllist(
                       text,
                      DatabaseHelper.SpellListDefinitions.SpellListMage,
-                     GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+  
                     "SpellList/&SpellListWizardTitle",
                      "Feature/&NoContentTitle"
                       );
@@ -675,7 +675,7 @@ namespace SolastaCommunityExpansion.Monsters
             CastSpell_ArchMage = BuildNewCaster(
                      "DH_Custom_" + text,
                      DatabaseHelper.FeatureDefinitionCastSpells.CastSpellMage,
-                     GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+  
                     "Spell/&DH_" + text + "_Title",
                      "Spell/&DH_" + text + "_Description"
                       );
@@ -731,7 +731,7 @@ namespace SolastaCommunityExpansion.Monsters
         {
             /*
                         string text = "GuardianNaga_Spelllist";
-                        GuardianNaga_spelllist = Helpers.SpelllistBuilder.create9LevelSpelllist(text, GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(), "",
+                        GuardianNaga_spelllist = Helpers.SpelllistBuilder.create9LevelSpelllist(text, GuidHelper.Create(Settings.GUID, "DH_Custom_" + text).ToString(), "",
                                                                                 new List<SpellDefinition>
                                                                                 {
                                                                                                 DatabaseHelper.SpellDefinitions.SacredFlame
@@ -781,7 +781,7 @@ namespace SolastaCommunityExpansion.Monsters
             GuardianNaga_spelllist = BuildNewSpelllist(
                       text,
                      DatabaseHelper.SpellListDefinitions.SpellListHighPriest,
-                     GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+  
                     "Feature/&GuardianNagaSpellListTitle",
                      "Feature/&GuardianNagaSpellListDescription"
                       );
@@ -869,7 +869,7 @@ namespace SolastaCommunityExpansion.Monsters
             CastSpell_GuardianNaga = BuildNewCaster(
                      "DH_Custom_" + text,
                      DatabaseHelper.FeatureDefinitionCastSpells.CastSpellDivineAvatar_Wizard,
-                     GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+  
                     "Spell/&DH_" + text + "_Title",
                      "Spell/&DH_" + text + "_Description"
                       );
@@ -928,7 +928,7 @@ namespace SolastaCommunityExpansion.Monsters
             AirTitan_SleetStorm_Immunity = BuildNewMagicAffinity(
                    "DH_Custom_" + text,
                    DatabaseHelper.FeatureDefinitionMagicAffinitys.MagicAffinityConditionImmuneToShine,
-                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+
                   "MonsterPower/&DH_" + text + "_Title",
                    "MonsterPower/&DH_" + text + "_Description"
                     );
@@ -946,7 +946,7 @@ namespace SolastaCommunityExpansion.Monsters
             FeatureDefinitionPower FireTitan_Retaliate_Power = NewMonsterPowers.BuildNewPower(
                     "DH_Custom_" + Power_text,
                     DatabaseHelper.FeatureDefinitionPowers.PowerRemorhazRetaliate,
-                    GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + Power_text).ToString(),
+
                    "MonsterPower/&DH_" + Power_text + "_Title",
                     "MonsterPower/&DH_" + Power_text + "_Description"
                      );
@@ -966,7 +966,7 @@ namespace SolastaCommunityExpansion.Monsters
             FireTitan_Retaliate_DamageAffinity = BuildNewDamageAffinity(
                    "DH_Custom_" + text,
                    DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireImmunityRemorhaz,
-                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+
                   "MonsterPower/&DH_" + text + "_Title",
                    "MonsterPower/&DH_" + text + "_Description"
                     );
@@ -985,7 +985,7 @@ namespace SolastaCommunityExpansion.Monsters
             AncientDragon_CombatDecisions = BuildNewDecisionPackageDefinition(
                    "DH_Custom_" + text,
                    DatabaseHelper.DecisionPackageDefinitions.DragonCombatDecisions,
-                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+
                   "MonsterPower/&DH_" + text + "_Title",
                    "MonsterPower/&DH_" + text + "_Description"
                     );
@@ -1025,7 +1025,7 @@ namespace SolastaCommunityExpansion.Monsters
             SummonCreature_Magic_Decision = BuildNewDecisionDefinition(
                    "DH_Custom_" + text,
                    DatabaseHelper.DecisionDefinitions.CastMagic_Debuff_AoE,
-                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+
                   "MonsterPower/&DH_" + text + "_Title",
                    "MonsterPower/&DH_" + text + "_Description"
                     );
@@ -1042,7 +1042,7 @@ namespace SolastaCommunityExpansion.Monsters
             AtWillAOE_Magic_Decision = BuildNewDecisionDefinition(
                    "DH_Custom_" + text,
                    DatabaseHelper.DecisionDefinitions.CastMagic_DPS_AoE,
-                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+
                   "MonsterPower/&DH_" + text + "_Title",
                    "MonsterPower/&DH_" + text + "_Description"
                     );
@@ -1058,7 +1058,7 @@ namespace SolastaCommunityExpansion.Monsters
             CastMagic_Stoneskin_Decision = BuildNewDecisionDefinition(
                    "DH_Custom_" + text,
                    DatabaseHelper.DecisionDefinitions.CastMagic_Fly_Self,
-                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+
                   "MonsterPower/&DH_" + text + "_Title",
                    "MonsterPower/&DH_" + text + "_Description"
                     );
@@ -1074,7 +1074,7 @@ namespace SolastaCommunityExpansion.Monsters
             LimitedPerDayAOE_Magic_Decision = BuildNewDecisionDefinition(
                    "DH_Custom_" + text,
                    DatabaseHelper.DecisionDefinitions.CastMagic_DPS_AoE,
-                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+
                   "MonsterPower/&DH_" + text + "_Title",
                    "MonsterPower/&DH_" + text + "_Description"
                     );
@@ -1089,7 +1089,7 @@ namespace SolastaCommunityExpansion.Monsters
             AtWillSelfBuff_Magic_Decision = BuildNewDecisionDefinition(
                    "DH_Custom_" + text,
                    DatabaseHelper.DecisionDefinitions.CastMagic_SelfBuff,
-                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+
                   "MonsterPower/&DH_" + text + "_Title",
                    "MonsterPower/&DH_" + text + "_Description"
                     );
@@ -1105,7 +1105,7 @@ namespace SolastaCommunityExpansion.Monsters
             LimitedPerDayTargetDebuff_Magic_Decision = BuildNewDecisionDefinition(
                    "DH_Custom_" + text,
                    DatabaseHelper.DecisionDefinitions.CastMagic_Debuff_SingleTarget,
-                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+
                   "MonsterPower/&DH_" + text + "_Title",
                    "MonsterPower/&DH_" + text + "_Description"
                     );
@@ -1121,7 +1121,7 @@ namespace SolastaCommunityExpansion.Monsters
             Solar_CombatDecisions = BuildNewDecisionPackageDefinition(
                    "DH_Custom_" + text,
                    DatabaseHelper.DecisionPackageDefinitions.DefaultRangeWithBackupMeleeDecisions,
-                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+
                   "MonsterPower/&DH_" + text + "_Title",
                    "MonsterPower/&DH_" + text + "_Description"
                     );
@@ -1177,7 +1177,7 @@ namespace SolastaCommunityExpansion.Monsters
             HighLevelCaster_CombatDecisions = BuildNewDecisionPackageDefinition(
                    "DH_Custom_" + text,
                    DatabaseHelper.DecisionPackageDefinitions.CubeOfLightCombatDecisions,
-                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+
                   "MonsterPower/&DH_" + text + "_Title",
                    "MonsterPower/&DH_" + text + "_Description"
                     );
@@ -1227,7 +1227,7 @@ namespace SolastaCommunityExpansion.Monsters
             Vampire_CombatDecisions = BuildNewDecisionPackageDefinition(
                    "DH_Custom_" + text,
                    DatabaseHelper.DecisionPackageDefinitions.DefilerCombatDecisions,
-                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+
                   "MonsterPower/&DH_" + text + "_Title",
                    "MonsterPower/&DH_" + text + "_Description"
                     );
@@ -1301,7 +1301,7 @@ namespace SolastaCommunityExpansion.Monsters
             Titan_CombatDecisions = BuildNewDecisionPackageDefinition(
                    "DH_Custom_" + text,
                    DatabaseHelper.DecisionPackageDefinitions.DefaultMeleeBeastCombatDecisions,
-                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+
                   "MonsterPower/&DH_" + text + "_Title",
                    "MonsterPower/&DH_" + text + "_Description"
                     );
@@ -1383,7 +1383,7 @@ namespace SolastaCommunityExpansion.Monsters
             ConstructTitan_CombatDecisions = BuildNewDecisionPackageDefinition(
                    "DH_Custom_" + text,
                    DatabaseHelper.DecisionPackageDefinitions.DefaultMeleeBeastCombatDecisions,
-                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+
                   "MonsterPower/&DH_" + text + "_Title",
                    "MonsterPower/&DH_" + text + "_Description"
                     );
@@ -1466,7 +1466,7 @@ namespace SolastaCommunityExpansion.Monsters
             Naga_CombatDecisions = BuildNewDecisionPackageDefinition(
                    "DH_Custom_" + text,
                    DatabaseHelper.DecisionPackageDefinitions.FlyingSnakeCombatDecisions,
-                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+
                   "MonsterPower/&DH_" + text + "_Title",
                    "MonsterPower/&DH_" + text + "_Description"
                     );
@@ -1537,7 +1537,7 @@ namespace SolastaCommunityExpansion.Monsters
             PitFiend_CombatDecisions = BuildNewDecisionPackageDefinition(
                    "DH_Custom_" + text,
                    DatabaseHelper.DecisionPackageDefinitions.DefaultMeleeBeastCombatDecisions,
-                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+
                   "MonsterPower/&DH_" + text + "_Title",
                    "MonsterPower/&DH_" + text + "_Description"
                     );
@@ -1595,7 +1595,7 @@ namespace SolastaCommunityExpansion.Monsters
             Balor_CombatDecisions = BuildNewDecisionPackageDefinition(
                    "DH_Custom_" + text,
                    DatabaseHelper.DecisionPackageDefinitions.PhaseSpiderCombatDecisions,
-                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+
                   "MonsterPower/&DH_" + text + "_Title",
                    "MonsterPower/&DH_" + text + "_Description"
                     );
@@ -1632,7 +1632,7 @@ namespace SolastaCommunityExpansion.Monsters
             Nalfeshnee_CombatDecisions = BuildNewDecisionPackageDefinition(
                    "DH_Custom_" + text,
                    DatabaseHelper.DecisionPackageDefinitions.PhaseSpiderCombatDecisions,
-                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+
                   "MonsterPower/&DH_" + text + "_Title",
                    "MonsterPower/&DH_" + text + "_Description"
                     );
@@ -1665,60 +1665,60 @@ namespace SolastaCommunityExpansion.Monsters
         //-------------------------------------------------------------------------------------------------------------------------------------------
         //-------------------------------------------------------------------------------------------------------------------------------------------
         //-------------------------------------------------------------------------------------------------------------------------------------------
-        public static FeatureDefinitionCastSpell BuildNewCaster(string name, FeatureDefinitionCastSpell baseCaster, string guid, string title, string description)
+        public static FeatureDefinitionCastSpell BuildNewCaster(string name, FeatureDefinitionCastSpell baseCaster, string title, string description)
         {
             return FeatureDefinitionCastSpellBuilder
-                .Create(baseCaster, name, guid)
+                .Create(baseCaster, name, DefinitionBuilder.CENamespaceGuid)
                 .SetOrUpdateGuiPresentation(title, description)
                 .AddToDB();
         }
 
-        public static FeatureDefinitionDamageAffinity BuildNewDamageAffinity(string name, FeatureDefinitionDamageAffinity baseDamageAffinity, string guid, string title, string description)
+        public static FeatureDefinitionDamageAffinity BuildNewDamageAffinity(string name, FeatureDefinitionDamageAffinity baseDamageAffinity, string title, string description)
         {
             return FeatureDefinitionDamageAffinityBuilder
-                .Create(baseDamageAffinity, name, guid)
+                .Create(baseDamageAffinity, name, DefinitionBuilder.CENamespaceGuid)
                 .SetOrUpdateGuiPresentation(title, description)
                 .AddToDB();
         }
 
 
-        public static TA.AI.DecisionPackageDefinition BuildNewDecisionPackageDefinition(string name, TA.AI.DecisionPackageDefinition baseDecisionPackageDefinition, string guid, string title, string description)
+        public static TA.AI.DecisionPackageDefinition BuildNewDecisionPackageDefinition(string name, TA.AI.DecisionPackageDefinition baseDecisionPackageDefinition, string title, string description)
         {
             return DecisionPackageDefinitionBuilder
-                .Create(baseDecisionPackageDefinition, name, guid)
+                .Create(baseDecisionPackageDefinition, name, DefinitionBuilder.CENamespaceGuid)
                 .SetOrUpdateGuiPresentation(title, description)
                 .AddToDB();
         }
 
-        public static TA.AI.DecisionDefinition BuildNewDecisionDefinition(string name, TA.AI.DecisionDefinition baseDecisionDefinition, string guid, string title, string description)
+        public static TA.AI.DecisionDefinition BuildNewDecisionDefinition(string name, TA.AI.DecisionDefinition baseDecisionDefinition, string title, string description)
         {
             return DecisionDefinitionBuilder
-                .Create(baseDecisionDefinition, name, guid)
+                .Create(baseDecisionDefinition, name, DefinitionBuilder.CENamespaceGuid)
                 .SetOrUpdateGuiPresentation(title, description)
                 .AddToDB();
         }
 
-        public static MonsterPresentationDefinition BuildNewMonsterPresentation(string name, MonsterPresentationDefinition baseMonsterPresentation, string guid, string title, string description)
+        public static MonsterPresentationDefinition BuildNewMonsterPresentation(string name, MonsterPresentationDefinition baseMonsterPresentation, string title, string description)
         {
             return MonsterPresentationDefinitionBuilder
-                .Create(baseMonsterPresentation, name, guid)
+                .Create(baseMonsterPresentation, name, DefinitionBuilder.CENamespaceGuid)
                 .SetOrUpdateGuiPresentation(title, description)
                 .AddToDB();
         }
 
-        public static FeatureDefinitionMagicAffinity BuildNewMagicAffinity(string name, FeatureDefinitionMagicAffinity baseMagicAffinity, string guid, string title, string description)
+        public static FeatureDefinitionMagicAffinity BuildNewMagicAffinity(string name, FeatureDefinitionMagicAffinity baseMagicAffinity, string title, string description)
         {
             return FeatureDefinitionMagicAffinityBuilder
-                .Create(baseMagicAffinity, name, guid)
+                .Create(baseMagicAffinity, name, DefinitionBuilder.CENamespaceGuid)
                 .SetOrUpdateGuiPresentation(title, description)
                 .AddToDB();
         }
 
 
-        public static SpellListDefinition BuildNewSpelllist(string name, SpellListDefinition baseSpellList, string guid, string title, string description)
+        public static SpellListDefinition BuildNewSpelllist(string name, SpellListDefinition baseSpellList, string title, string description)
         {
             return SpellListDefinitionBuilder
-                .Create(baseSpellList, name, guid)
+                .Create(baseSpellList, name, DefinitionBuilder.CENamespaceGuid)
                 .SetOrUpdateGuiPresentation(title, description)
                 .AddToDB();
         }

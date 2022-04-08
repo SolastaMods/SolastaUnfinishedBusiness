@@ -56,6 +56,19 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetGuiPresentation(guiPresentation);
         }
 
+        public FeatureDefinitionPowerSharedPoolBuilder(string name,
+            FeatureDefinitionPower poolPower,
+            RuleDefinitions.RechargeRate recharge, RuleDefinitions.ActivationTime activationTime, int costPerUse,
+            bool proficiencyBonusToAttack, bool abilityScoreBonusToAttack, string abilityScore, EffectDescription effectDescription,
+            GuiPresentation guiPresentation, bool uniqueInstance) : base(name, CENamespaceGuid)
+        {
+            Preconditions.IsNotNull(poolPower, $"FeatureDefinitionPowerSharedPoolBuilder[{name}] poolPower is null.");
+
+            Configure(poolPower, recharge, activationTime, costPerUse, proficiencyBonusToAttack, abilityScoreBonusToAttack, abilityScore, effectDescription, uniqueInstance);
+
+            Definition.SetGuiPresentation(guiPresentation);
+        }
+
         #region Constructors
         public FeatureDefinitionPowerSharedPoolBuilder(FeatureDefinitionPowerSharedPool original) : base(original)
         {

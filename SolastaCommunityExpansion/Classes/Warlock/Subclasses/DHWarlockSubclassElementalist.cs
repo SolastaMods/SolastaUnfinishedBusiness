@@ -15,7 +15,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
     internal static class DHWarlockSubclassElementalPatron
     {
         public const string Name = "DHWarlockSubclassElementalPatron";
-        private static readonly string Guid = GuidHelper.Create(new Guid(Settings.GUID), Name).ToString();
 
         private static readonly Dictionary<string, string> Dictionaryof_Elemental_Damage = new()
         {
@@ -41,7 +40,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
         public static CharacterSubclassDefinition Build()
         {
             ElementalFormPool = FeatureDefinitionPowerPoolBuilder
-                .Create("DH_ElementalFormPool", GuidHelper.Create(new Guid(Settings.GUID), "DH_ElementalFormPool").ToString())
+                .Create("DH_ElementalFormPool", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentationNoContent()
                 .SetUsesProficiency()
                 .SetUsesAbility(1, AttributeDefinitions.Charisma)
@@ -58,7 +57,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .Build();
 
             var FeatureSet_Level01Builder = FeatureDefinitionFeatureSetBuilder
-                .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, "ElementalPatronFeatureSet_Level01", GuidHelper.Create(new Guid(Settings.GUID), "ElementalPatronFeatureSet_Level01").ToString())
+                .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, "ElementalPatronFeatureSet_Level01", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(guiFeatureSet_Level01);
 
             FeatureDefinitionFeatureSet FeatureSet_Level01 = FeatureSet_Level01Builder
@@ -84,7 +83,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 "Feature/&ElementalPatronFeatureSet_Level06Description")
                 .Build();
             var FeatureSet_Level06Builder = FeatureDefinitionFeatureSetBuilder
-                .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, "ElementalPatronFeatureSet_Level06", GuidHelper.Create(new Guid(Settings.GUID), "ElementalPatronFeatureSet_Level06").ToString())
+                .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, "ElementalPatronFeatureSet_Level06", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(guiFeatureSet_Level06);
 
             FeatureDefinitionFeatureSet FeatureSet_Level06 = FeatureSet_Level06Builder
@@ -116,8 +115,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .Build();
             var FeatureSet_Level10Builder = FeatureDefinitionFeatureSetBuilder.Create(
                 DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest,
-                "ElementalPatronFeatureSet_Level10",
-                GuidHelper.Create(new Guid(Settings.GUID), "ElementalPatronFeatureSet_Level10").ToString())
+                "ElementalPatronFeatureSet_Level10", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(guiFeatureSet_Level10);
 
             FeatureDefinitionFeatureSet FeatureSet_Level10 = FeatureSet_Level10Builder
@@ -145,7 +143,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                     .SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.TraditionLoremaster.GuiPresentation.SpriteReference)
                     .Build();
 
-            return CharacterSubclassDefinitionBuilder.Create(Name, Guid)
+            return CharacterSubclassDefinitionBuilder.Create(Name, DefinitionBuilder.CENamespaceGuid)
                         .SetGuiPresentation(subclassGuiPresentation)
                         .AddFeatureAtLevel(FeatureSet_Level01, 1)
                         .AddFeatureAtLevel(FeatureSet_Level06, 6)
@@ -209,8 +207,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
                 FeatureDefinitionAdditionalDamage additionalDamage = FeatureDefinitionAdditionalDamageBuilder
                     .Create(
-                        "DH_ElementalForm_" + text + "additionalDamage",
-                        GuidHelper.Create(new Guid(Settings.GUID), "DH_ElementalForm_" + text + "additionalDamage").ToString())
+                        "DH_ElementalForm_" + text + "additionalDamage", DefinitionBuilder.CENamespaceGuid)
                     .Configure(
                         "ElementalDamage",
                         FeatureLimitedUsage.OncePerTurn, AdditionalDamageValueDetermination.ProficiencyBonus,
@@ -251,7 +248,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
                 var ElementalFormBuilder = new FeatureDefinitionPowerSharedPoolBuilder(
                        "DH_ElementalForm_" + text,
-                       GuidHelper.Create(new Guid(Settings.GUID), "DH_ElementalForm_" + text).ToString(),
                        ElementalFormPool,
                        RechargeRate.LongRest,
                        ActivationTime.BonusAction,
@@ -350,7 +346,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                     .Build();
 
                 ConditionDefinition EnhancedElementalFormCondtion = ConditionDefinitionBuilder.Create(
-                    "DH_EnhancedElementalForm_" + text + "Condition", GuidHelper.Create(new Guid(Settings.GUID), "DH_EnhancedElementalForm_" + text + "Condition").ToString())
+                    "DH_EnhancedElementalForm_" + text + "Condition", DefinitionBuilder.CENamespaceGuid)
                    .SetDuration(DurationType.Minute, 1)
                     .SetSilent(Silent.None)
                     .SetGuiPresentation(guiPresentationEnhancedElementalFormCondition)
@@ -380,7 +376,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
                 var EnhancedElementalFormBuilder = new FeatureDefinitionPowerSharedPoolBuilder(
                        "DH_EnhancedElementalForm_" + text,
-                       GuidHelper.Create(new Guid(Settings.GUID), "DH_EnhancedElementalForm_" + text).ToString(),
                        ElementalFormPool,
                        RechargeRate.LongRest,
                        ActivationTime.BonusAction,
@@ -410,13 +405,12 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
         public static void AtWillConjureMinorElementals()
         {
             SpellDefinitionBuilder AtWillConjureMinorElementalsBuilder = SpellDefinitionBuilder
-                    .Create(ConjureMinorElementals, "DHAtWillConjureMinorElementals", GuidHelper.Create(new System.Guid(Settings.GUID), "DHAtWillConjureMinorElementals").ToString());
+                    .Create(ConjureMinorElementals, "DHAtWillConjureMinorElementals", DefinitionBuilder.CENamespaceGuid);
             AtWillConjureMinorElementalsBuilder.SetSpellLevel(0);
 
             FeatureDefinitionBonusCantripsBuilder MinorElementalBonusCantripBuilder = FeatureDefinitionBonusCantripsBuilder.Create(
                 DatabaseHelper.FeatureDefinitionBonusCantripss.BonusCantripsDomainOblivion,
-                 "DHConjureMinorElementalsBonusCantrip",
-                 GuidHelper.Create(new System.Guid(Settings.GUID), "DHAtWillConjureMinorElementalsBonusCantrip").ToString())
+                 "DHConjureMinorElementalsBonusCantrip", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(new GuiPresentationBuilder(
                     "Feature/&DHConjureMinorElementalsBonusCantripTitle",
                     "Feature/&DHConjureMinorElementalsBonusCantripDescription")
@@ -433,8 +427,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             SpellListDefinition ElementalistSpellList = SpellListDefinitionBuilder
                 .Create(
                     DatabaseHelper.SpellListDefinitions.SpellListPaladin,
-                    "ElementalistSpellsList",
-                    GuidHelper.Create(new Guid(Settings.GUID), "ElementalistSpellsList").ToString())
+                    "ElementalistSpellsList", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation("ElementalistSpellsList", Category.SpellList)
                 .ClearSpells()
                 .SetSpellsAtLevel(1, Thunderwave, FogCloud)
@@ -446,7 +439,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .AddToDB();
 
             var ElementalistMagicAffintyBuilder = FeatureDefinitionMagicAffinityBuilder
-                .Create("ElementalistSpellsMagicAffinity", GuidHelper.Create(new Guid(Settings.GUID), "ElementalistSpellsMagicAffinity").ToString())
+                .Create("ElementalistSpellsMagicAffinity", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(
                          new GuiPresentationBuilder(
                          "Feature/&ElementalistSpellsMagicAffinityTitle",

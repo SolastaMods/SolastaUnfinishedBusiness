@@ -1552,7 +1552,8 @@ SpellList/&RiftWalkerSpellsListDescription	Feitiços RiftWalkerLista Descrição
 SpellList/&RiftWalkerSpellsListTitle	Feitiços do Rift WalkerList
 SpellList/&SpellListClassWarlockDescription	Lista de feitiços do mago
 SpellList/&SpellListClassWarlockTitle	Lista de feitiços do mago
-SpellList/&SpellListTinkererTitle	Lista de feitiços para a classe Tinkerer.
+SpellList/&SpellListTinkererTitle	Lista de feitiços para a classe Tinkerer
+SpellList/&SpellListTinkererDescription	Lista de feitiços para a classe Tinkerer
 Stage/&IdentityMorphotypeEyeHeader	Estilo Olho
 Stage/&SubclassSelectionStageCovenDescription	Coven
 Stage/&SubclassSelectionStageCovenFeaturesDescription	Coven

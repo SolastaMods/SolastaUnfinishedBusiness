@@ -191,11 +191,11 @@
     "Definition:CombatAffinityFlyby:a5d877d885f31944fbae4bbaa2bb5d6c",
     "Definition:DamageAffinityLightningImmunity:9acb6e13145079c40a27012146696746",
     "Definition:DamageAffinityThunderImmunity:5835d7e62c97afc4eaeae24ed7873d58",
-    "Definition:SummonCreature_Air_Elemental_Power:ecdb786d-018f-5510-a200-5696712a7e92",
-    "Definition:SummonCreature_WindSnake_Power:a55084c7-d990-5d5a-860e-0441bf1486b4",
+    "Definition:SummonCreature_Air_Elemental_Power:e2205595-fe25-54a4-95ab-2924d1f4fe58",
+    "Definition:SummonCreature_WindSnake_Power:c2c2648a-a2d1-52d4-a5dc-fe2cf1c03d98",
     "Definition:MagicAffinityFeatFlawlessConcentration:75bf6b2ab20de7640986f271f39b52c5",
     "Definition:DH_Custom_SleetStorm_Immunity:47728c24-8ce3-558b-a2d0-4b0cbb4196b0",
-    "Definition:LimitedPerDayAOE_AirTitan_LightningStormDH_Custom_Power:97d99eaf-6e03-5471-a3c2-602feb5f6f62"
+    "Definition:LimitedPerDayAOE_AirTitan_LightningStormDH_Custom_Power:19351afd-0755-5aa0-b94c-6d93242d2b8a"
   ],
   "attackIterations": [
     {

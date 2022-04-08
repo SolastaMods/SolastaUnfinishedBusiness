@@ -300,7 +300,7 @@
   "magical": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {

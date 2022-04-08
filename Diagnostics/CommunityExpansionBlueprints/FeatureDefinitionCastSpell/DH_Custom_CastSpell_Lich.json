@@ -5,7 +5,7 @@
   "spellcastingParametersComputation": "Static",
   "staticDCValue": 20,
   "staticToHitValue": 12,
-  "spellListDefinition": "Definition:Lich_Spelllist:f0c7dc2d-a97e-5445-896f-712579391720",
+  "spellListDefinition": "Definition:Lich_Spelllist:bfcfd3b6-3ef2-5718-bdac-8a41960146c6",
   "restrictedSchools": [],
   "spellKnowledge": "FixedList",
   "spellReadyness": "AllKnown",
