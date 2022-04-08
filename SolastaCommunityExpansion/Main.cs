@@ -16,8 +16,10 @@ namespace SolastaCommunityExpansion
         internal static bool Enabled { get; set; }
 
         internal static readonly string MOD_FOLDER = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-        private static string MulticlassFilename { get; set; } = Path.Combine(MOD_FOLDER, "SolastaMulticlass.dll");
+        private static readonly string MulticlassFilename = Path.Combine(MOD_FOLDER, "SolastaMulticlass.dll");
+        private static readonly string CustomCodeFilename = Path.Combine(MOD_FOLDER, "SolastaCustomCode.dll");
         internal static bool IsMulticlassInstalled { get; private set; } = File.Exists(MulticlassFilename);
+        internal static bool IsCustomCodeInstalled { get; private set; } = File.Exists(CustomCodeFilename);
 
         // need to be public for MC sidecar
         [Conditional("DEBUG")]
@@ -78,6 +80,17 @@ namespace SolastaCommunityExpansion
                     var harmony = new Harmony(multiclassAssembly.FullName.Substring(0, 17));
 
                     harmony.PatchAll(multiclassAssembly);
+                }
+
+                // load custom code [zappastuff personal dll hook]
+                if (IsCustomCodeInstalled)
+                {
+#pragma warning disable S3885 // "Assembly.Load" should be used
+                    var customCodeAssembly = Assembly.LoadFile(CustomCodeFilename);
+#pragma warning restore S3885 // "Assembly.Load" should be used
+                    var harmony = new Harmony(customCodeAssembly.FullName.Substring(0, 17));
+
+                    harmony.PatchAll(customCodeAssembly);
                 }
             }
             catch (Exception ex)
