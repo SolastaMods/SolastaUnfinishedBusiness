@@ -4,7 +4,7 @@ using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using static SolastaCommunityExpansion.Builders.DefinitionBuilder;
-using static SolastaCommunityExpansion.Classes.Warlock.Features.DHEldritchInvocationsBuilder;
+using static SolastaCommunityExpansion.Classes.Warlock.Features.EldritchInvocationsBuilder;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionFeatureSets;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Features
