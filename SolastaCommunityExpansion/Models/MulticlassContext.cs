@@ -1,5 +1,6 @@
 ﻿using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionProficiencys;
 
@@ -35,6 +36,8 @@ namespace SolastaCommunityExpansion.Models
                 .Create("DummyClass", "062d696ab44146e0b316188f943d8079")
                 .SetGuiPresentationNoContent()
                 .AddToDB();
+
+            DummyClass.GuiPresentation.SetHidden(true);
         }
     }
 
