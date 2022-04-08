@@ -185,15 +185,13 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
             artificerBuilder.AddFeatureAtLevel(1, skillPoints);
 
-            SpellListDefinition spellList = TinkererSpellList.BuildAndAddToDB();
-
             // spell casting (1)
             var featureSpellCasting = FeatureDefinitionCastSpellBuilder
                 .Create("CastSpellTinkerer", GuidNamespace)
                 .SetGuiPresentation("ArtificerSpellcasting", Category.Subclass)
                 .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Class)
                 .SetSpellCastingAbility(AttributeDefinitions.Intelligence)
-                .SetSpellList(spellList)
+                .SetSpellList(TinkererSpellList.SpellList)
                 .SetSpellKnowledge(RuleDefinitions.SpellKnowledge.WholeList)
                 .SetSpellReadyness(RuleDefinitions.SpellReadyness.Prepared)
                 .SetSpellPreparationCount(RuleDefinitions.SpellPreparationCount.AbilityBonusPlusHalfLevel)
@@ -215,15 +213,13 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 "Feature/&ArtificerInfusionCastingDescription").Build()
                 ));
 
-            GuiPresentationBuilder magicalTinkeringGui = new GuiPresentationBuilder(
-                "Subclass/&TinkererMagicalTinkeringTitle",
-                "Subclass/&TinkererMagicalTinkeringDescription");
-            artificerBuilder.AddFeatureAtLevel(2, FeatureHelpers.BuildBonusCantrips("TinkererMagicalTinkering", new List<SpellDefinition>()
-            {
-                SpellDefinitions.Shine,
-                SpellDefinitions.Sparkle,
-                SpellDefinitions.Dazzle,
-            }, magicalTinkeringGui.Build()));
+            var bonusCantrips = FeatureDefinitionBonusCantripsBuilder
+                .Create("TinkererMagicalTinkering", GuidNamespace)
+                .SetGuiPresentation("TinkererMagicalTinkering", Category.Subclass)
+                .SetBonusCantrips(SpellDefinitions.Shine, SpellDefinitions.Sparkle, SpellDefinitions.Dazzle)
+                .AddToDB();
+
+            artificerBuilder.AddFeatureAtLevel(2, bonusCantrips);
 
             // infuse item (level 2)
             // potentially give them "healing pool" points for the number of infusions, then abilities that provide a bonus for 24hrs which the player activates each day
@@ -296,11 +292,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             GuiPresentationBuilder flashOfGeniusConditionPresentation = new GuiPresentationBuilder(
                 "Subclass/&TinkererFlashOfGeniusConditionTitle",
                 "Subclass/&TinkererFlashOfGeniusConditionDescription");
-            ConditionDefinition flashCondition = FeatureHelpers.BuildCondition(new List<FeatureDefinition>() {
-                geniusSaves,
-                geniusAbility,
-            },
-                RuleDefinitions.DurationType.Hour, 1, true, "TinkererFlashOfGeniusCondition", flashOfGeniusConditionPresentation.Build());
+            ConditionDefinition flashCondition = FeatureHelpers.BuildCondition("TinkererFlashOfGeniusCondition",
+                RuleDefinitions.DurationType.Hour, 1, true, flashOfGeniusConditionPresentation.Build(),
+                geniusSaves, geniusAbility);
 
             EffectDescriptionBuilder flashEffect = new EffectDescriptionBuilder();
             flashEffect.AddEffectForm(new EffectFormBuilder().SetConditionForm(flashCondition, ConditionForm.ConditionOperation.Add, true, false, new List<ConditionDefinition>()).Build());

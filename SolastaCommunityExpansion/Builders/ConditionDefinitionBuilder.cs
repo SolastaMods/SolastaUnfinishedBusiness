@@ -240,9 +240,9 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         public TBuilder Configure(RuleDefinitions.DurationType durationType, int durationParameter,
-            bool silent, IEnumerable<FeatureDefinition> conditionFeatures)
+            bool silent, params FeatureDefinition[] conditionFeatures)
         {
-            Definition.Features.AddRange(conditionFeatures);
+            Definition.AddFeatures(conditionFeatures);
             Definition.SetConditionType(RuleDefinitions.ConditionType.Beneficial);
             Definition.SetAllowMultipleInstances(false);
             Definition.SetDurationType(durationType);
