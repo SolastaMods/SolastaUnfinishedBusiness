@@ -28,6 +28,14 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
+            intValue = SpellLevelFilter;
+            if (UI.Slider("spell level filter ".bold().italic().white() + "[-1 to display all spells]".bold().italic().yellow(), ref intValue, SHOW_ALL, 9, SHOW_ALL))
+            {
+                SpellLevelFilter = intValue;
+            }
+
+            UI.Label("");
+
             using (UI.HorizontalScope())
             {
                 toggle = SpellsContext.IsAllSetSelected();
@@ -53,14 +61,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     }
                 }
             }
-
-            intValue = SpellLevelFilter;
-            if (UI.Slider("spell level filter ".bold().italic().white() + "[-1 to display all spells]".bold().italic().yellow(), ref intValue, SHOW_ALL, 9, SHOW_ALL))
-            {
-                SpellLevelFilter = intValue;
-            }
-
-            UI.Label("");
 
             UI.Div();
 

@@ -70,16 +70,16 @@ namespace SolastaCommunityExpansion
         // SETTINGS UI TOGGLES
         //
 
-        public bool DisplayGeneralRaceClassSubClassToggle { get; set; }
-        public bool DisplayFeatFightingStyleToggle { get; set; }
-        public bool DisplayRacesToggle { get; set; }
-        public bool DisplayClassesToggle { get; set; }
-        public bool DisplaySubclassesToggle { get; set; }
-        public bool DisplayFeatsToggle { get; set; }
-        public bool DisplayFightingStylesToggle { get; set; }
-        public SerializableDictionary<string, bool> DisplaySpellListsToggle { get; set; } = new SerializableDictionary<string, bool>();
-        public bool DisplayCraftingToggle { get; set; }
-        public bool DisplayMerchantsToggle { get; set; }
+        public bool DisplayGeneralRaceClassSubClassToggle { get; set; } = true;
+        public bool DisplayFeatFightingStyleToggle { get; set; } = true;
+        public bool DisplayRacesToggle { get; set; } = true;
+        public bool DisplayClassesToggle { get; set; } = true;
+        public bool DisplaySubclassesToggle { get; set; } = true;
+        public bool DisplayFeatsToggle { get; set; } = true;
+        public bool DisplayFightingStylesToggle { get; set; } = true;
+        public SerializableDictionary<string, bool> DisplaySpellListsToggle { get; set; } = new();
+        public bool DisplayCraftingToggle { get; set; } = true;
+        public bool DisplayMerchantsToggle { get; set; } = true;
 
         //
         // SETTINGS HIDDEN ON UI
@@ -131,7 +131,6 @@ namespace SolastaCommunityExpansion
         public bool EnableLevel20 { get; set; }
 
         // Visuals
-        public bool EnableAdditionalBackstoryDisplay { get; set; }
         public bool AllowExtraKeyboardCharactersInAllNames { get; set; }
         public bool OfferAdditionalLoreFriendlyNames { get; set; }
         public bool UnlockAllNpcFaces { get; set; }
@@ -149,37 +148,35 @@ namespace SolastaCommunityExpansion
         public bool EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter { get; set; }
         public int OverrideRogueConArtistImprovedManipulationSpellDc { get; set; } = 3;
         public int OverrideWizardMasterManipulatorArcaneManipulationSpellDc { get; set; } = 2;
-        public int RaceSliderPosition { get; set; } = 1;
-        public List<string> RaceEnabled { get; } = new List<string>();
-        public int ClassSliderPosition { get; set; } = 1;
-        public List<string> ClassEnabled { get; } = new List<string>();
-        public int SubclassSliderPosition { get; set; } = 1;
-        public List<string> SubclassEnabled { get; } = new List<string>();
+        public int RaceSliderPosition { get; set; } = 4;
+        public List<string> RaceEnabled { get; } = new();
+        public int ClassSliderPosition { get; set; } = 4;
+        public List<string> ClassEnabled { get; } = new();
+        public int SubclassSliderPosition { get; set; } = 4;
+        public List<string> SubclassEnabled { get; } = new();
 
         //
         // Characters - Feats
         //
 
         public int FeatPowerAttackModifier { get; set; } = 3;
-        public int FeatSliderPosition { get; set; } = 1;
-        public List<string> FeatEnabled { get; } = new List<string>();
+        public int FeatSliderPosition { get; set; } = 4;
+        public List<string> FeatEnabled { get; } = new();
 
         //
         // Characters - Fighting Styles
         //
 
-        public int FightingStyleSliderPosition { get; set; } = 1;
-        public List<string> FightingStyleEnabled { get; } = new List<string>();
+        public int FightingStyleSliderPosition { get; set; } = 4;
+        public List<string> FightingStyleEnabled { get; } = new();
 
         //
         // Characters - Spells
         //
 
-        public SerializableDictionary<string, int> SpellListSliderPosition { get; set; } = new SerializableDictionary<string, int>();
+        public SerializableDictionary<string, int> SpellListSliderPosition { get; set; } = new();
 
-        public SerializableDictionary<string, List<string>> SpellListSpellEnabled { get; set; } = new SerializableDictionary<string, List<string>>();
-
-        //public SerializableDictionary<string, List<string>> SpellSpellListEnabled { get; set; } = new SerializableDictionary<string, List<string>>();
+        public SerializableDictionary<string, List<string>> SpellListSpellEnabled { get; set; } = new();
 
         //
         // Gameplay - Rules
@@ -233,9 +230,9 @@ namespace SolastaCommunityExpansion
         public int SetBeltOfDwarvenKindBeardChances { get; set; } = 50;
 
         // Crafting
-        public List<string> CraftingInStore { get; } = new List<string>();
-        public List<string> CraftingItemsInDM { get; } = new List<string>();
-        public List<string> CraftingRecipesInDM { get; } = new List<string>();
+        public List<string> CraftingInStore { get; } = new();
+        public List<string> CraftingItemsInDM { get; } = new();
+        public List<string> CraftingRecipesInDM { get; } = new();
 
         // Merchants
         public bool StockGorimStoreWithAllNonMagicalClothing { get; set; }
@@ -286,6 +283,7 @@ namespace SolastaCommunityExpansion
         public bool AutoPauseOnVictory { get; set; }
 
         // Campaigns and Locations
+        public bool EnableAdditionalBackstoryDisplay { get; set; }
         public bool EnableAdditionalIconsOnLevelMap { get; set; }
         public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
         public bool HideExitAndTeleporterGizmosIfNotDiscovered { get; set; }
@@ -300,7 +298,7 @@ namespace SolastaCommunityExpansion
         public bool RemoveBugVisualModels { get; set; }
 
         // Spells
-        public int MaxSpellLevelsPerLine { get; set; } = 5;
+        public int MaxSpellLevelsPerLine { get; set; } = 4;
 
         //
         // Interface - Keyboard & Mouse
@@ -329,7 +327,6 @@ namespace SolastaCommunityExpansion
         // Multiclass
         //
 
-        public bool EnableLevelDown { get; set; }
         public bool EnableMulticlass { get; set; }
 
         public int MaxAllowedClasses { get; set; } = 3;

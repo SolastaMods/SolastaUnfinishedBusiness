@@ -113,6 +113,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetDisableTerrainShadows<T>(this T entity, System.Boolean value)
+            where T : LocationDefinition
+        {
+            entity.SetField("disableTerrainShadows", value);
+            return entity;
+        }
+
         public static T SetFocusWhenRevealed<T>(this T entity, System.Boolean value)
             where T : LocationDefinition
         {
