@@ -16,23 +16,11 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        protected CancelConditionPowerBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-        }
-
-        protected CancelConditionPowerBuilder(FeatureDefinitionPower original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
-        {
-        }
-
         protected CancelConditionPowerBuilder(FeatureDefinitionPower original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
         {
         }
 
         protected CancelConditionPowerBuilder(FeatureDefinitionPower original, string name, string definitionGuid) : base(original, name, definitionGuid)
-        {
-        }
-
-        protected CancelConditionPowerBuilder(FeatureDefinitionPower original) : base(original)
         {
         }
         #endregion

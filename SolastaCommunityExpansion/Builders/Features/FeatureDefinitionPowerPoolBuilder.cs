@@ -45,31 +45,19 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
 
         #region Constructors
-        public FeatureDefinitionPowerPoolBuilder(FeatureDefinitionPower original) : base(original)
+        protected FeatureDefinitionPowerPoolBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
-        public FeatureDefinitionPowerPoolBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        protected FeatureDefinitionPowerPoolBuilder(string name, string definitionGuid) : base(name, definitionGuid)
         {
         }
 
-        public FeatureDefinitionPowerPoolBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        protected FeatureDefinitionPowerPoolBuilder(FeatureDefinitionPower original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
         {
         }
 
-        public FeatureDefinitionPowerPoolBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-        }
-
-        public FeatureDefinitionPowerPoolBuilder(FeatureDefinitionPower original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
-        {
-        }
-
-        public FeatureDefinitionPowerPoolBuilder(FeatureDefinitionPower original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
-        {
-        }
-
-        public FeatureDefinitionPowerPoolBuilder(FeatureDefinitionPower original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        protected FeatureDefinitionPowerPoolBuilder(FeatureDefinitionPower original, string name, string definitionGuid) : base(original, name, definitionGuid)
         {
         }
         #endregion

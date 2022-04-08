@@ -23,23 +23,11 @@ namespace SolastaCommunityExpansion.CustomDefinitions
         where TBuilder : FeatureDefinitionCustomCodeBuilder<TDefinition, TBuilder>
     {
         #region Constructors
-        protected FeatureDefinitionCustomCodeBuilder(TDefinition original) : base(original)
-        {
-        }
-
         protected FeatureDefinitionCustomCodeBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
         protected FeatureDefinitionCustomCodeBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected FeatureDefinitionCustomCodeBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-        }
-
-        protected FeatureDefinitionCustomCodeBuilder(TDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
         }
 

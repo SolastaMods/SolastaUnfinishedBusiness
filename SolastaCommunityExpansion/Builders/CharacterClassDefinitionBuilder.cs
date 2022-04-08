@@ -13,23 +13,11 @@ namespace SolastaCommunityExpansion.Builders
     public class CharacterClassDefinitionBuilder : DefinitionBuilder<CharacterClassDefinition, CharacterClassDefinitionBuilder>
     {
         #region Constructors
-        protected CharacterClassDefinitionBuilder(CharacterClassDefinition original) : base(original)
-        {
-        }
-
         protected CharacterClassDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
         protected CharacterClassDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected CharacterClassDefinitionBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-        }
-
-        protected CharacterClassDefinitionBuilder(CharacterClassDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
         }
 

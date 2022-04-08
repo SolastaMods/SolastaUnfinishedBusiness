@@ -11,23 +11,11 @@ namespace SolastaCommunityExpansion.Builders
         where TBuilder : FeatDefinitionBuilder<TDefinition, TBuilder>
     {
         #region Constructors
-        protected FeatDefinitionBuilder(TDefinition original) : base(original)
-        {
-        }
-
         protected FeatDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
         protected FeatDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected FeatDefinitionBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-        }
-
-        protected FeatDefinitionBuilder(TDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
         }
 
@@ -122,23 +110,11 @@ namespace SolastaCommunityExpansion.Builders
     public class FeatDefinitionBuilder : FeatDefinitionBuilder<FeatDefinition, FeatDefinitionBuilder>
     {
         #region Constructors
-        protected FeatDefinitionBuilder(FeatDefinition original) : base(original)
-        {
-        }
-
         protected FeatDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
         protected FeatDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected FeatDefinitionBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-        }
-
-        protected FeatDefinitionBuilder(FeatDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
         }
 

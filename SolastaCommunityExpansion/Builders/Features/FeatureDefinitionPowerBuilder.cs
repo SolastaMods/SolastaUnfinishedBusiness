@@ -6,23 +6,11 @@ namespace SolastaCommunityExpansion.Builders.Features
     public class FeatureDefinitionPowerBuilder : FeatureDefinitionPowerBuilder<FeatureDefinitionPower, FeatureDefinitionPowerBuilder>
     {
         #region Constructors
-        protected FeatureDefinitionPowerBuilder(FeatureDefinitionPower original) : base(original)
-        {
-        }
-
         protected FeatureDefinitionPowerBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
         protected FeatureDefinitionPowerBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected FeatureDefinitionPowerBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-        }
-
-        protected FeatureDefinitionPowerBuilder(FeatureDefinitionPower original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
         }
 
@@ -41,23 +29,11 @@ namespace SolastaCommunityExpansion.Builders.Features
         where TBuilder : FeatureDefinitionPowerBuilder<TDefinition, TBuilder>
     {
         #region Constructors
-        protected FeatureDefinitionPowerBuilder(TDefinition original) : base(original)
-        {
-        }
-
         protected FeatureDefinitionPowerBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
         protected FeatureDefinitionPowerBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected FeatureDefinitionPowerBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-        }
-
-        protected FeatureDefinitionPowerBuilder(TDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
         }
 

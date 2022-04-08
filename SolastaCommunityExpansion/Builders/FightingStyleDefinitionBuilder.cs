@@ -10,23 +10,11 @@ namespace SolastaCommunityExpansion.Builders
         where TBuilder : FightingStyleDefinitionBuilder<TDefinition, TBuilder>
     {
         #region Constructors
-        protected FightingStyleDefinitionBuilder(TDefinition original) : base(original)
-        {
-        }
-
         protected FightingStyleDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
         protected FightingStyleDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected FightingStyleDefinitionBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-        }
-
-        protected FightingStyleDefinitionBuilder(TDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
         }
 
