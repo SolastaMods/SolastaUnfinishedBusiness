@@ -8,23 +8,11 @@ namespace SolastaCommunityExpansion.Builders.Features
         where TBuilder : FeatureDefinitionConditionAffinityBuilder<TDefinition, TBuilder>
     {
         #region Constructors
-        protected FeatureDefinitionConditionAffinityBuilder(TDefinition original) : base(original)
-        {
-        }
-
         protected FeatureDefinitionConditionAffinityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
         protected FeatureDefinitionConditionAffinityBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected FeatureDefinitionConditionAffinityBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-        }
-
-        protected FeatureDefinitionConditionAffinityBuilder(TDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
         }
 
@@ -54,23 +42,11 @@ namespace SolastaCommunityExpansion.Builders.Features
         : FeatureDefinitionConditionAffinityBuilder<FeatureDefinitionConditionAffinity, FeatureDefinitionConditionAffinityBuilder>
     {
         #region Constructors
-        protected FeatureDefinitionConditionAffinityBuilder(FeatureDefinitionConditionAffinity original) : base(original)
-        {
-        }
-
         protected FeatureDefinitionConditionAffinityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
         protected FeatureDefinitionConditionAffinityBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected FeatureDefinitionConditionAffinityBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-        }
-
-        protected FeatureDefinitionConditionAffinityBuilder(FeatureDefinitionConditionAffinity original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
         }
 

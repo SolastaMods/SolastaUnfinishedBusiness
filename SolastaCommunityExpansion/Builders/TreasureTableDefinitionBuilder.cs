@@ -7,23 +7,11 @@ namespace SolastaCommunityExpansion.Builders
     public class TreasureTableDefinitionBuilder : DefinitionBuilder<TreasureTableDefinition, TreasureTableDefinitionBuilder>
     {
         #region Constructors
-        protected TreasureTableDefinitionBuilder(TreasureTableDefinition original) : base(original)
-        {
-        }
-
         protected TreasureTableDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
         protected TreasureTableDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected TreasureTableDefinitionBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-        }
-
-        protected TreasureTableDefinitionBuilder(TreasureTableDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
         }
 

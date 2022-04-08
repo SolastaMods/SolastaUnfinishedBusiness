@@ -7,23 +7,11 @@ namespace SolastaCommunityExpansion.Builders.Features
         : FeatureDefinitionPowerBuilder<FeatureDefinitionConditionalPower, FeatureDefinitionConditionalPowerBuilder>
     {
         #region Constructors
-        protected FeatureDefinitionConditionalPowerBuilder(FeatureDefinitionConditionalPower original) : base(original)
-        {
-        }
-
         protected FeatureDefinitionConditionalPowerBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
         protected FeatureDefinitionConditionalPowerBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected FeatureDefinitionConditionalPowerBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-        }
-
-        protected FeatureDefinitionConditionalPowerBuilder(FeatureDefinitionConditionalPower original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
         }
 

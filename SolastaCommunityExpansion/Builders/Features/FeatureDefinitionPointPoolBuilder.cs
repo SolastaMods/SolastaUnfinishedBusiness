@@ -8,23 +8,11 @@ namespace SolastaCommunityExpansion.Builders.Features
     public class FeatureDefinitionPointPoolBuilder : FeatureDefinitionBuilder<FeatureDefinitionPointPool, FeatureDefinitionPointPoolBuilder>
     {
         #region Constructors
-        protected FeatureDefinitionPointPoolBuilder(FeatureDefinitionPointPool original) : base(original)
-        {
-        }
-
         protected FeatureDefinitionPointPoolBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
         protected FeatureDefinitionPointPoolBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected FeatureDefinitionPointPoolBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-        }
-
-        protected FeatureDefinitionPointPoolBuilder(FeatureDefinitionPointPool original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
         }
 

@@ -6,10 +6,6 @@ namespace SolastaCommunityExpansion.Builders
     public class RecipeDefinitionBuilder : DefinitionBuilder<RecipeDefinition, RecipeDefinitionBuilder>
     {
         #region Constructors
-        protected RecipeDefinitionBuilder(RecipeDefinition original) : base(original)
-        {
-        }
-
         protected RecipeDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
@@ -18,22 +14,13 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        protected RecipeDefinitionBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-        }
-
-        protected RecipeDefinitionBuilder(RecipeDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
-        {
-        }
-
         protected RecipeDefinitionBuilder(RecipeDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
         {
         }
-        #endregion
-
         protected RecipeDefinitionBuilder(RecipeDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
         {
         }
+        #endregion
 
         public RecipeDefinitionBuilder SetCraftedItem(ItemDefinition craftedItem)
         {

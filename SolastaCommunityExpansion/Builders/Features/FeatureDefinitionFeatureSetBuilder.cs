@@ -10,21 +10,11 @@ namespace SolastaCommunityExpansion.Builders.Features
         where TBuilder : FeatureDefinitionFeatureSetBuilder<TDefinition, TBuilder>
     {
         #region Constructors
-        protected FeatureDefinitionFeatureSetBuilder(TDefinition original) : base(original) { }
-
         protected FeatureDefinitionFeatureSetBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
         protected FeatureDefinitionFeatureSetBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected FeatureDefinitionFeatureSetBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-        }
-
-        protected FeatureDefinitionFeatureSetBuilder(TDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
         }
 
@@ -90,23 +80,11 @@ namespace SolastaCommunityExpansion.Builders.Features
     {
         #region Constructors
 
-        protected FeatureDefinitionFeatureSetBuilder(FeatureDefinitionFeatureSet original) : base(original)
-        {
-        }
-
         protected FeatureDefinitionFeatureSetBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
         protected FeatureDefinitionFeatureSetBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected FeatureDefinitionFeatureSetBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-        }
-
-        protected FeatureDefinitionFeatureSetBuilder(FeatureDefinitionFeatureSet original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
         }
 

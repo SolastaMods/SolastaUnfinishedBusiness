@@ -12,23 +12,11 @@ namespace SolastaCommunityExpansion.Builders.Features
         where TBuilder : FeatureDefinitionAdditionalDamageBuilder<TDefinition, TBuilder>
     {
         #region Constructors
-        protected FeatureDefinitionAdditionalDamageBuilder(TDefinition original) : base(original)
-        {
-        }
-
         protected FeatureDefinitionAdditionalDamageBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
         protected FeatureDefinitionAdditionalDamageBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected FeatureDefinitionAdditionalDamageBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-        }
-
-        protected FeatureDefinitionAdditionalDamageBuilder(TDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
         }
 
@@ -184,23 +172,11 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
 
         #region Constructors
-        protected FeatureDefinitionAdditionalDamageBuilder(FeatureDefinitionAdditionalDamage original) : base(original)
-        {
-        }
-
         protected FeatureDefinitionAdditionalDamageBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
         protected FeatureDefinitionAdditionalDamageBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected FeatureDefinitionAdditionalDamageBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-        }
-
-        protected FeatureDefinitionAdditionalDamageBuilder(FeatureDefinitionAdditionalDamage original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
         }
 

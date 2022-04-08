@@ -9,23 +9,11 @@ namespace SolastaCommunityExpansion.Builders.Features
         : FeatureDefinitionAffinityBuilder<FeatureDefinitionSummoningAffinity, FeatureDefinitionSummoningAffinityBuilder>
     {
         #region Constructors
-        protected FeatureDefinitionSummoningAffinityBuilder(FeatureDefinitionSummoningAffinity original) : base(original)
-        {
-        }
-
         protected FeatureDefinitionSummoningAffinityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
         protected FeatureDefinitionSummoningAffinityBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected FeatureDefinitionSummoningAffinityBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-        }
-
-        protected FeatureDefinitionSummoningAffinityBuilder(FeatureDefinitionSummoningAffinity original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
         }
 
