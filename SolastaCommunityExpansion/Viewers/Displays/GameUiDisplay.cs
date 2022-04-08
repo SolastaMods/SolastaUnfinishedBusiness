@@ -50,6 +50,14 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
+            toggle = Main.Settings.EnableAdditionalBackstoryDisplay;
+            if (UI.Toggle("Enable additional backstory display in the character inspection panel", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableAdditionalBackstoryDisplay = toggle;
+            }
+
+            UI.Label("");
+
             toggle = Main.Settings.EnableAdditionalIconsOnLevelMap;
             if (UI.Toggle("Enable additional icons for camps, exits and teleporters on level map", ref toggle, UI.AutoWidth()))
             {

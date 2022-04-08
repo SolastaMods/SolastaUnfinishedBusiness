@@ -133,7 +133,6 @@ namespace SolastaCommunityExpansion
         public bool EnableLevel20 { get; set; }
 
         // Visuals
-        public bool EnableAdditionalBackstoryDisplay { get; set; }
         public bool AllowExtraKeyboardCharactersInAllNames { get; set; }
         public bool OfferAdditionalLoreFriendlyNames { get; set; }
         public bool UnlockAllNpcFaces { get; set; }
@@ -286,6 +285,7 @@ namespace SolastaCommunityExpansion
         public bool AutoPauseOnVictory { get; set; }
 
         // Campaigns and Locations
+        public bool EnableAdditionalBackstoryDisplay { get; set; }
         public bool EnableAdditionalIconsOnLevelMap { get; set; }
         public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
         public bool HideExitAndTeleporterGizmosIfNotDiscovered { get; set; }
@@ -329,7 +329,6 @@ namespace SolastaCommunityExpansion
         // Multiclass
         //
 
-        public bool EnableLevelDown { get; set; }
         public bool EnableMulticlass { get; set; }
 
         public int MaxAllowedClasses { get; set; } = 3;
