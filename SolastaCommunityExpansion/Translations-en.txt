@@ -1534,13 +1534,14 @@ Spell/&RepellingBlastDescription	A beam of crackling energy streaks toward a cre
 Spell/&RepellingBlastTitle	Eldritch Blast (Repelling)
 Spell/&WitchFamiliarDescription	You gain the service of a familiar.
 Spell/&WitchFamiliarTitle	Witch Familiar
-SpellList/&ElementalistSpellsListDescription	Elementalist SpellsList Description
+SpellList/&ElementalistSpellsListDescription	Elementalist SpellsList
 SpellList/&ElementalistSpellsListTitle	Elementalist SpellsList
-SpellList/&RiftWalkerSpellsListDescription	RiftWalker SpellsList Description
+SpellList/&RiftWalkerSpellsListDescription	RiftWalker SpellsList
 SpellList/&RiftWalkerSpellsListTitle	Rift Walker SpellsList
 SpellList/&SpellListClassWarlockDescription	Warlock SpellList
 SpellList/&SpellListClassWarlockTitle	Warlock SpellList
-SpellList/&SpellListTinkererTitle	Spell list for the Tinkerer class.
+SpellList/&SpellListTinkererTitle	Tinkerer Spelllist
+SpellList/&SpellListTinkererDescription	Tinkerer Spelllist
 Stage/&IdentityMorphotypeEyeHeader	Eye Style
 Stage/&SubclassSelectionStageCovenDescription	Coven
 Stage/&SubclassSelectionStageCovenFeaturesDescription	Coven
@@ -1562,7 +1563,7 @@ Subclass/&AbilityAffinityRogueConArtistTitle	Manipulative
 Subclass/&AHWarlockSubclassFiendPactDescription	You have made a pact with a fiend from the lower planes of existence, a being whose aims are evil, even if you strive against those aims. Such beings desire the corruption or destruction of all things, ultimately including you. Fiends powerful enough to forge a pact include demon lords such as Demogorgon, Orcus, Fraz'Urb-luu, and Baphomet; archdevils such as Asmodeus, Dispater, Mephistopheles, and Belial; pit fiends and balors that are especially mighty; and ultroloths and other lords of the yugoloths.
 Subclass/&AHWarlockSubclassFiendPactTitle	Fiend Pact
 Subclass/&AHWarlockSubclassSoulBladePactDescription	You have struck a bargain with a sentient weapon that you feed souls to in return for power.
-Subclass/&AHWarlockSubclassSoulBladePactTitle	SoulBlade pact
+Subclass/&AHWarlockSubclassSoulBladePactTitle	SoulBlade Pact
 Subclass/&ArcaneFighterAdditionalActionDescription	You can cast a spell after defeating an enemy with your weapon attacks.
 Subclass/&ArcaneFighterAdditionalActionTitle	Spell Fighting
 Subclass/&ArcaneFighterBonusWeaponDamageDescription	Once per turn your weapon attacks deal an extra 1d8 damage.
@@ -1831,3 +1832,15 @@ Tooltip/&Tag9000Title	Custom Effect
 Tooltip/&TagCommunityExpansionTitle	Community Expansion
 Tooltip/&TagMaledictionTitle	Malediction
 Tooltip/&TagOtherModContentTitle	From mod
+Spell/&AirBlastTitle	Air Blast
+Spell/&AirBlastDescription	Fire a blast of focused air at your target.
+Spell/&BurstOfRadianceTitle	Burst of Radiance
+Spell/&BurstOfRadianceDescription	Create a brilliant flash of shimmering light, damaging all enemies around you.
+Spell/&AcidClawsTitle	Bloody Claws
+Spell/&AcidClawsDescription	Make a deadly attack with your sharpened claws.
+Spell/&WinterBreathTitle	Winter's Breath
+Spell/&WinterBreathDescription	Create a blast of cold wind to chill your enemies and knock them prone.
+Spell/&ThunderStrikeTitle	Sound Burst
+Spell/&ThunderStrikeDescription	Create a burst of thundering sound, damaging everyone around you.
+Spell/&EarthTremorTitle	Earth Tremor
+Spell/&EarthTremorDescription	You strike the ground and unleash a tremor of seismic force, hurling up earth, rock, and sand.

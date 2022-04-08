@@ -7,9 +7,9 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class FightingStyleContext
     {
-        private static Dictionary<string, List<FeatureDefinitionFightingStyleChoice>> FightingStylesChoiceList { get; set; } = new();
+        private static Dictionary<FightingStyleDefinition, List<FeatureDefinitionFightingStyleChoice>> FightingStylesChoiceList { get; set; } = new();
 
-        internal static Dictionary<string, FightingStyleDefinition> FightingStyles { get; private set; } = new();
+        internal static HashSet<FightingStyleDefinition> FightingStyles { get; private set; } = new();
 
         internal static void Load()
         {
@@ -18,87 +18,59 @@ namespace SolastaCommunityExpansion.Models
             LoadStyle(new Pugilist());
             LoadStyle(new TitanFighting());
 
-            FightingStyles = FightingStyles.OrderBy(x => x.Value.FormatTitle()).ToDictionary(x => x.Key, x => x.Value);
+            FightingStyles = FightingStyles.OrderBy(x => x.FormatTitle()).ToHashSet();
         }
 
         private static void LoadStyle(AbstractFightingStyle styleBuilder)
         {
             var style = styleBuilder.GetStyle();
-            var name = style.Name;
 
-            if (!FightingStyles.ContainsKey(name))
+            if (!FightingStyles.Contains(style))
             {
-                FightingStylesChoiceList.Add(name, styleBuilder.GetChoiceLists());
-                FightingStyles.Add(name, style);
+                FightingStylesChoiceList.Add(style, styleBuilder.GetChoiceLists());
+                FightingStyles.Add(style);
             }
 
-            UpdateStyleVisibility(name);
+            UpdateStyleVisibility(style);
         }
 
-        private static void UpdateStyleVisibility(string name)
+        private static void UpdateStyleVisibility(FightingStyleDefinition fightingStyleDefinition)
         {
-            var choiceLists = FightingStylesChoiceList[name];
+            var name = fightingStyleDefinition.Name;
+            var choiceLists = FightingStylesChoiceList[fightingStyleDefinition];
 
             foreach (var fightingStyles in choiceLists.Select(cl => cl.FightingStyles))
             {
                 if (Main.Settings.FightingStyleEnabled.Contains(name))
                 {
-                    if (!fightingStyles.Contains(name))
-                    {
-                        fightingStyles.Add(name);
-                    }
+                    fightingStyles.TryAdd(name);
                 }
                 else
                 {
-                    if (fightingStyles.Contains(name))
-                    {
-                        fightingStyles.Remove(name);
-                    }
+                    fightingStyles.Remove(name);
                 }
             }
         }
 
-        internal static void Switch(string styleName, bool active)
+        internal static void Switch(FightingStyleDefinition fightingStyleDefinition, bool active)
         {
-            if (!FightingStyles.ContainsKey(styleName))
+            if (!FightingStyles.Contains(fightingStyleDefinition))
             {
                 return;
             }
 
+            var name = fightingStyleDefinition.Name;
+
             if (active)
             {
-                if (!Main.Settings.FightingStyleEnabled.Contains(styleName))
-                {
-                    Main.Settings.FightingStyleEnabled.Add(styleName);
-                }
+                Main.Settings.FightingStyleEnabled.TryAdd(name);
             }
             else
             {
-                Main.Settings.FightingStyleEnabled.Remove(styleName);
+                Main.Settings.FightingStyleEnabled.Remove(name);
             }
 
-            UpdateStyleVisibility(styleName);
+            UpdateStyleVisibility(fightingStyleDefinition);
         }
-
-#if DEBUG
-        public static string GenerateFightingStyleDescription()
-        {
-            var outString = new StringBuilder("[size=3][b]Fighting Styles[/b][/size]\n");
-
-            outString.Append("\n[list]");
-
-            foreach (var style in FightingStyles.Values)
-            {
-                outString.Append("\n[*][b]");
-                outString.Append(style.FormatTitle());
-                outString.Append("[/b]: ");
-                outString.Append(style.FormatDescription());
-            }
-
-            outString.Append("\n[/list]");
-
-            return outString.ToString();
-        }
-#endif
     }
 }

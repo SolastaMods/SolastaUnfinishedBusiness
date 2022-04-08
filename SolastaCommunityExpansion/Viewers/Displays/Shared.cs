@@ -7,21 +7,24 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 {
     internal static class Shared
     {
-        private const int MAX_COLUMNS = 4;
+        internal const int MAX_COLUMNS = 4;
 
-        private const float PIXELS_PER_COLUMN = 240;
+        internal const float PIXELS_PER_COLUMN = 240;
 
         internal static readonly string RequiresRestart = "[requires restart]".italic().red().bold();
 
+        internal static readonly string WelcomeMessage = "Welcome to Solasta Community Expansion".yellow().bold();
+
         internal static void DisplayDefinitions<T>(
             string label,
-            Action<string, bool> switchAction,
-            Dictionary<string, T> registeredDefinitions,
+            Action<T, bool> switchAction,
+            HashSet<T> registeredDefinitions,
             List<string> selectedDefinitions,
             ref bool displayToggle,
             ref int sliderPosition,
+            Action additionalRendering = null,
             int maxColumns = MAX_COLUMNS,
-            float pixelsPerColumn = PIXELS_PER_COLUMN) where T: BaseDefinition
+            float pixelsPerColumn = PIXELS_PER_COLUMN) where T : BaseDefinition
         {
             bool toggle;
             bool selectAll = selectedDefinitions.Count == registeredDefinitions.Count;
@@ -45,16 +48,31 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 }
 
                 UI.Label("");
-                if (UI.Toggle("Select all", ref selectAll))
+
+                using (UI.HorizontalScope())
                 {
-                    foreach (var keyValuePair in registeredDefinitions)
+                    if (additionalRendering != null)
                     {
-                        switchAction.Invoke(keyValuePair.Key, selectAll);
+                        additionalRendering.Invoke();
+                    }
+                    else if (UI.Toggle("Select all", ref selectAll, UI.Width(PIXELS_PER_COLUMN)))
+                    {
+                        foreach (var registeredDefinition in registeredDefinitions)
+                        {
+                            switchAction.Invoke(registeredDefinition, selectAll);
+                        }
+                    }
+
+                    toggle = sliderPosition == 1;
+                    if (UI.Toggle("Show Descriptions", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+                    {
+                        sliderPosition = toggle ? 1 : 4;
                     }
                 }
 
-                UI.Slider("slide left for description / right to collapse".white().bold().italic(), ref sliderPosition, 1, maxColumns, 1, "");
+                //UI.Slider("slide left for description / right to collapse".white().bold().italic(), ref sliderPosition, 1, maxColumns, 1, "");
 
+                UI.Div();
                 UI.Label("");
 
                 int columns;
@@ -72,8 +90,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                         {
                             while (current < count && columns-- > 0)
                             {
-                                var keyValuePair = registeredDefinitions.ElementAt(current);
-                                var definition = keyValuePair.Value;
+                                var definition = registeredDefinitions.ElementAt(current);
                                 var title = definition.FormatTitle();
 
                                 if (flip)
@@ -81,10 +98,10 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                                     title = title.yellow();
                                 }
 
-                                toggle = selectedDefinitions.Contains(keyValuePair.Key);
+                                toggle = selectedDefinitions.Contains(definition.Name);
                                 if (UI.Toggle(title, ref toggle, UI.Width(pixelsPerColumn)))
                                 {
-                                    switchAction.Invoke(keyValuePair.Key, toggle);
+                                    switchAction.Invoke(definition, toggle);
                                 }
 
                                 if (sliderPosition == 1)

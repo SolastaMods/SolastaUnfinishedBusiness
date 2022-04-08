@@ -114,7 +114,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock
         private static void BuildProgression(CharacterClassDefinitionBuilder classWarlockBuilder)
         {
             FeatureDefinitionSubclassChoice subclassChoices = FeatureDefinitionSubclassChoiceBuilder
-                .Create("ClassWarlockSubclassChoice", GuidHelper.Create(new Guid(Settings.GUID), "ClassWarlockSubclassChoice").ToString())
+                .Create("ClassWarlockSubclassChoice", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation("ClassWarlockPatron", Category.Subclass)
                 .SetSubclassSuffix("Patron")
                 .SetFilterByDeity(false)
@@ -199,7 +199,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                 .SetIngredientGatheringOdds(Sorcerer.IngredientGatheringOdds)
                 .SetPictogram(Wizard.ClassPictogramReference);
 
-            DHEldritchInvocationsBuilder.Build();
+            EldritchInvocationsBuilder.Build();
 
             BuildEquipment(classWarlockBuilder);
             BuildProficiencies();

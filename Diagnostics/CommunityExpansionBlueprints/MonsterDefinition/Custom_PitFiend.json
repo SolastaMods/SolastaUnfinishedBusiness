@@ -87,10 +87,10 @@
     "Definition:SavingThrowAffinitySpellResistance:d6341ebb2cb967949b4426e31e993b86",
     "Definition:PowerDragonFrightfulPresence:afa9d44eb9c7a1b479e4caa0bb92111c",
     "Definition:AttackModifierMartialSpellBladeMagicWeapon:9de1d9539d9b72048acf914d292e95ad",
-    "Definition:AtWillAOE_Fireball_Power_DH_Custom:86122d93-9504-5d9e-8931-8ccdcd2d75c8",
-    "Definition:LimitedPerDayTargetDebuff_HoldMonster_Power:43d6e495-4012-526f-ad4c-17c94e434d4b",
-    "Definition:LimitedPerDayAOE_WallOfFire_Power:f3b9d0e9-6fcf-5488-aacc-b19fbf854623",
-    "Definition:SummonCreature_Erinyes_Power:19539a0d-ac3a-5743-adcf-99704f65d0fc"
+    "Definition:AtWillAOE_Fireball_Power_DH_Custom:6aba5199-4498-541e-a328-e31e9d840b12",
+    "Definition:LimitedPerDayTargetDebuff_HoldMonster_Power:01d2c99c-2906-5870-908e-0d017c1cefb5",
+    "Definition:LimitedPerDayAOE_WallOfFire_Power:054168d8-d948-59ca-a05c-83f0b3b1259d",
+    "Definition:SummonCreature_Erinyes_Power:d453dcdd-ab87-5f3b-830c-794a5975e775"
   ],
   "attackIterations": [
     {

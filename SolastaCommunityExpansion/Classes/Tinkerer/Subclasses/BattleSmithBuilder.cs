@@ -70,19 +70,19 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             GuiPresentationBuilder extraAttackGui = new GuiPresentationBuilder(
                 "Subclass/&AttributeModifierArtificerBattleSmithExtraAttackTitle",
                 "Subclass/&AttributeModifierArtificerBattleSmithExtraAttackDescription");
-            FeatureDefinitionAttributeModifier extraAttack = FeatureHelpers.BuildAttributeModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                AttributeDefinitions.AttacksNumber, 1,
-                "AttributeModifierBattleSmithExtraAttack", extraAttackGui.Build());
+            FeatureDefinitionAttributeModifier extraAttack = FeatureHelpers.BuildAttributeModifier("AttributeModifierBattleSmithExtraAttack",
+                FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, AttributeDefinitions.AttacksNumber,
+                1, extraAttackGui.Build());
             battleSmith.AddFeatureAtLevel(extraAttack, 5);
 
             GuiPresentationBuilder joltAttackGui = new GuiPresentationBuilder(
                 "Feat/&AttackModifierArtificerBattleSmithJoltTitle",
                 "Feat/&AttackModifierArtificerBattleSmithJoltDescription");
             FeatureDefinitionAttackModifier joltAttack = FeatureHelpers.BuildAttackModifier(
-                // Note ability score bonus only works if it's applied to a weapon, not a character.
-                AttackModifierMethod.None, 0, AttributeDefinitions.Intelligence,
-                AttackModifierMethod.FlatValue, 3, AttributeDefinitions.Intelligence, false, "Magical",
-                "AttackModifierArtificerBattleSmithJolt", joltAttackGui.Build());
+                "AttackModifierArtificerBattleSmithJolt",                 // Note ability score bonus only works if it's applied to a weapon, not a character.
+                AttackModifierMethod.None, 0,
+                AttributeDefinitions.Intelligence, AttackModifierMethod.FlatValue, 3, AttributeDefinitions.Intelligence, false,
+                "Magical", joltAttackGui.Build());
             battleSmith.AddFeatureAtLevel(joltAttack, 9);
 
             GuiPresentationBuilder improvedInfuseWeaponGui = new GuiPresentationBuilder(
@@ -99,10 +99,10 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
                 "Feat/&AttackModifierArtificerBattleSmithJolt2Title",
                 "Feat/&AttackModifierArtificerBattleSmithJolt2Description");
             FeatureDefinitionAttackModifier jolt2Attack = FeatureHelpers.BuildAttackModifier(
-                // Note ability score bonus only works if it's applied to a weapon, not a character.
-                AttackModifierMethod.None, 0, AttributeDefinitions.Intelligence,
-                AttackModifierMethod.FlatValue, 3, AttributeDefinitions.Intelligence, false, "Magical",
-                "AttackModifierArtificerBattleSmithJolt2", jolt2AttackGui.Build());
+                "AttackModifierArtificerBattleSmithJolt2",                 // Note ability score bonus only works if it's applied to a weapon, not a character.
+                AttackModifierMethod.None, 0,
+                AttributeDefinitions.Intelligence, AttackModifierMethod.FlatValue, 3, AttributeDefinitions.Intelligence, false,
+                "Magical", jolt2AttackGui.Build());
             battleSmith.AddFeatureAtLevel(jolt2Attack, 15);
             battleSmith.AddFeatureAtLevel(ProtectorConstructUpgradeFeatureSetBuilder.ProtectorConstructUpgradeFeatureSet, 15);
 

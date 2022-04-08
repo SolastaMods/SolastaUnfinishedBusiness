@@ -13,9 +13,9 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class SubclassesContext
     {
-        private static Dictionary<string, FeatureDefinitionSubclassChoice> SubclassesChoiceList { get; set; } = new();
+        private static Dictionary<CharacterSubclassDefinition, FeatureDefinitionSubclassChoice> SubclassesChoiceList { get; set; } = new();
 
-        internal static Dictionary<string, CharacterSubclassDefinition> Subclasses { get; private set; } = new();
+        internal static HashSet<CharacterSubclassDefinition> Subclasses { get; private set; } = new();
 
         private static void SortSubclassesFeatures()
         {
@@ -52,7 +52,7 @@ namespace SolastaCommunityExpansion.Models
             LoadSubclass(new Thug());
             LoadSubclass(new CircleOfTheForestGuardian());
 
-            Subclasses = Subclasses.OrderBy(x => x.Value.FormatTitle()).ToDictionary(x => x.Key, x => x.Value);
+            Subclasses = Subclasses.OrderBy(x => x.FormatTitle()).ToHashSet();
 
             if (Main.Settings.EnableSortingFutureFeatures)
             {
@@ -63,79 +63,50 @@ namespace SolastaCommunityExpansion.Models
         private static void LoadSubclass(AbstractSubclass subclassBuilder)
         {
             var subclass = subclassBuilder.GetSubclass();
-            var name = subclass.Name;
 
-            if (!Subclasses.ContainsKey(name))
+            if (!Subclasses.Contains(subclass))
             {
-                SubclassesChoiceList.Add(name, subclassBuilder.GetSubclassChoiceList());
-                Subclasses.Add(name, subclass);
+                SubclassesChoiceList.Add(subclass, subclassBuilder.GetSubclassChoiceList());
+                Subclasses.Add(subclass);
             }
 
-            UpdateSubclassVisibility(name);
+            UpdateSubclassVisibility(subclass);
         }
 
-        private static void UpdateSubclassVisibility(string name)
+        private static void UpdateSubclassVisibility(CharacterSubclassDefinition characterSubclassDefinition)
         {
-            var choiceList = SubclassesChoiceList[name];
+            var name = characterSubclassDefinition.Name;
+            var choiceList = SubclassesChoiceList[characterSubclassDefinition];
 
             if (Main.Settings.SubclassEnabled.Contains(name))
             {
-                if (!choiceList.Subclasses.Contains(name))
-                {
-                    choiceList.Subclasses.Add(name);
-                }
+                choiceList.Subclasses.TryAdd(name);
             }
             else
             {
-                if (choiceList.Subclasses.Contains(name))
-                {
-                    choiceList.Subclasses.Remove(name);
-                }
+                choiceList.Subclasses.Remove(name);
             }
-
         }
 
-        internal static void Switch(string subclassName, bool active)
+        internal static void Switch(CharacterSubclassDefinition characterSubclassDefinition, bool active)
         {
-            if (!Subclasses.ContainsKey(subclassName))
+            if (!Subclasses.Contains(characterSubclassDefinition))
             {
                 return;
             }
 
+            var name = characterSubclassDefinition.Name;
+
             if (active)
             {
-                if (!Main.Settings.SubclassEnabled.Contains(subclassName))
-                {
-                    Main.Settings.SubclassEnabled.Add(subclassName);
-                }
+                Main.Settings.SubclassEnabled.TryAdd(name);
             }
             else
             {
-                Main.Settings.SubclassEnabled.Remove(subclassName);
+                Main.Settings.SubclassEnabled.Remove(name);
             }
 
-            UpdateSubclassVisibility(subclassName);
+            UpdateSubclassVisibility(characterSubclassDefinition);
         }
-
-#if DEBUG
-        public static string GenerateSubclassDescription()
-        {
-            var outString = new StringBuilder("[size=3][b]Subclasses[/b][/size]\n");
-
-            outString.Append("\n[list]");
-
-            foreach (var subclass in Subclasses.Values)
-            {
-                outString.Append("\n[*][b]");
-                outString.Append(subclass.FormatTitle());
-                outString.Append("[/b]: ");
-                outString.Append(subclass.FormatDescription());
-            }
-
-            outString.Append("\n[/list]");
-
-            return outString.ToString();
-        }
-#endif
     }
 }

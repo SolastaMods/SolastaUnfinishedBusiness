@@ -30,8 +30,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
                 .AddToDB();
 
             FeatureDefinitionPower bonusRecovery = BuildSpellFormPower(
-                    2 /* usePerRecharge */, UsesDetermination.Fixed, ActivationTime.Rest,
-                    1 /* cost */, RechargeRate.LongRest, "PowerAlchemistSpellBonusRecovery")
+                    "PowerAlchemistSpellBonusRecovery", 2 /* usePerRecharge */, UsesDetermination.Fixed,
+                    ActivationTime.Rest, 1 /* cost */, RechargeRate.LongRest)
                 .SetGuiPresentation("MagicAffinityAlchemistSpellRecovery", Category.Subclass, PowerWizardArcaneRecovery.GuiPresentation.SpriteReference)
                 .AddToDB();
 
@@ -63,10 +63,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
                 "ArtificerAlchemistSwiftnessElixir", Category.Feat, ConditionExpeditiousRetreat.GuiPresentation.SpriteReference);
 
             // Swiftness speed increase by 10ft 1 hour
-            ConditionDefinition swiftness = BuildCondition(new List<FeatureDefinition>()
-            {
-                BuildMovementAffinity(true, 2, 1, "AlchemistSwiftnessMovementAffinity", swiftnessGui)
-            }, DurationType.Hour, 1, false, "AlchemistSwiftnessElixirCondition", swiftnessGui);
+            ConditionDefinition swiftness = BuildCondition("AlchemistSwiftnessElixirCondition", DurationType.Hour, 1, false, swiftnessGui,
+                BuildMovementAffinity("AlchemistSwiftnessMovementAffinity", true, 2, 1, swiftnessGui));
             FeatureDefinitionPower cancelSwiftness = new CancelConditionPowerBuilder("CancelElixirSwiftness", "86888f66-c8b2-49db-910a-bde389dd69df",
                 new GuiPresentationBuilder("Subclass/&CancelCancelElixirSwiftnessTitle", "Subclass/&CancelCancelElixirSwiftnessDescription")
                 .SetSpriteReference(ConditionExpeditiousRetreat.GuiPresentation.SpriteReference).Build(),
@@ -95,11 +93,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             var resilienceGui = GuiPresentationBuilder
                 .Build("ArtificerAlchemistResilienceElixir", Category.Feat, ConditionAuraOfProtection.GuiPresentation.SpriteReference);
 
-            ConditionDefinition resilience = BuildCondition(new List<FeatureDefinition>()
-            {
-                BuildAttributeModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 1,
-                "AlchemistResilienceMovementAffinity", resilienceGui)
-            }, DurationType.Minute, 10, false, "AlchemistResilienceElixirCondition", resilienceGui);
+            ConditionDefinition resilience = BuildCondition("AlchemistResilienceElixirCondition", DurationType.Minute, 10, false, resilienceGui,
+                BuildAttributeModifier("AlchemistResilienceMovementAffinity", FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass,
+                1, resilienceGui));
             FeatureDefinitionPower cancelResilience = new CancelConditionPowerBuilder("CancelElixirResilience", "4de693d2-f193-4434-8741-57335d7cefdc",
                 new GuiPresentationBuilder("Subclass/&CancelCancelElixirResilienceTitle", "Subclass/&CancelCancelElixirResilienceDescription")
                 .SetSpriteReference(ConditionAuraOfProtection.GuiPresentation.SpriteReference).Build(),
@@ -140,10 +136,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             // Flight slow fly speed for 10 minutes
             var flyElixirGui = GuiPresentationBuilder.Build("ArtificerAlchemistFlyElixir", Category.Feat, PowerFunctionBootsWinged.GuiPresentation.SpriteReference);
 
-            ConditionDefinition fly = BuildCondition(new List<FeatureDefinition>()
-            {
-                FeatureDefinitionMoveModes.MoveModeFly2,
-            }, DurationType.Minute, 10, false, "AlchemistFlyElixirCondition", flyElixirGui);
+            ConditionDefinition fly = BuildCondition("AlchemistFlyElixirCondition", DurationType.Minute, 10, false, flyElixirGui,
+                FeatureDefinitionMoveModes.MoveModeFly2);
 
             FeatureDefinitionPower cancelFly = new CancelConditionPowerBuilder("CancelElixirFly", "64385214-7b0f-4372-a12f-8346b2b33884",
                 new GuiPresentationBuilder("Subclass/&CancelCancelElixirFlyTitle", "Subclass/&CancelCancelElixirFlyDescription")
@@ -180,8 +174,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             GuiPresentationBuilder alchemicalSavantGui = new GuiPresentationBuilder(
                 "Feat/&ArtificerAlchemistAlchemicalSavantTitle",
                 "Feat/&ArtificerAlchemistAlchemicalSavantDescription");
-            FeatureDefinitionHealingModifier improvedHealing = BuildHealingModifier(1, DieType.D4, LevelSourceType.CharacterLevel,
-                "ArtificerAlchemistAlchemicalSavantHealing", alchemicalSavantGui.Build());
+            FeatureDefinitionHealingModifier improvedHealing = BuildHealingModifier("ArtificerAlchemistAlchemicalSavantHealing", 1, DieType.D4,
+                LevelSourceType.CharacterLevel, alchemicalSavantGui.Build());
 
             GuiPresentationBuilder alchemicalSavantSpellsGui = new GuiPresentationBuilder(
                 "Subclass/&MagicAffinityAlchemicalSavantListTitle",
@@ -203,8 +197,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
                 .SetGuiPresentation("PowerAlchemistRestorativeElixirs", Category.Feat, LesserRestoration.GuiPresentation.SpriteReference)
                 .AddToDB();
 
-            var emboldeningShotsGui = GuiPresentationBuilder.Build("PowerAlchemistEmboldeningShots", Category.Feat);
-
             EffectDescriptionBuilder emboldeningShotsEffect = new EffectDescriptionBuilder();
             emboldeningShotsEffect.AddEffectForm(new EffectFormBuilder().SetTempHPForm(0, DieType.D6, 4).SetBonusMode(AddBonusMode.AbilityBonus).Build());
             emboldeningShotsEffect.SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Individuals, 1, 1, ActionDefinitions.ItemSelectionType.None);
@@ -218,13 +210,14 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
                 .SetCastingTime(ActivationTime.BonusAction)
                 .SetEffectDescription(emboldeningShotsEffect.Build())
                 .SetMaterialComponent(MaterialComponentType.Mundane)
-                .SetGuiPresentation(emboldeningShotsGui)
+                .SetGuiPresentation("PowerAlchemistEmboldeningShots", Category.Feat)
                 .AddToDB();
 
-            FeatureDefinitionBonusCantrips emboldeningCantrips = BuildBonusCantrips(new List<SpellDefinition>()
-            {
-                emboldeningShots
-            }, "ArtificerAlchemistShotsSpellPrep", emboldeningShotsGui);
+            FeatureDefinitionBonusCantrips emboldeningCantrips = FeatureDefinitionBonusCantripsBuilder
+                .Create("ArtificerAlchemistShotsSpellPrep", TinkererClass.GuidNamespace)
+                .SetBonusCantrips(emboldeningShots)
+                .SetGuiPresentation("PowerAlchemistEmboldeningShots", Category.Feat)
+                .AddToDB();
 
             FeatureDefinitionPower greaterRestorativeElixirs = new FeatureHelpers
                 .FeatureDefinitionPowerBuilder("PowerAlchemistGreaterRestorativeElixirs", TinkererClass.GuidNamespace,

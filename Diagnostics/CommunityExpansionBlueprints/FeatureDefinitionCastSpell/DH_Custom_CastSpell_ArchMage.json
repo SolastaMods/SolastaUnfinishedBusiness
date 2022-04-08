@@ -5,7 +5,7 @@
   "spellcastingParametersComputation": "Static",
   "staticDCValue": 17,
   "staticToHitValue": 9,
-  "spellListDefinition": "Definition:ArchMage_Spelllist:5c289b7e-10df-5156-b53d-bc6a7be28b45",
+  "spellListDefinition": "Definition:ArchMage_Spelllist:825e9f2b-1a92-5a5e-8125-2187166db1d8",
   "restrictedSchools": [],
   "spellKnowledge": "FixedList",
   "spellReadyness": "AllKnown",

@@ -5,6 +5,7 @@ using ModKit;
 using SolastaCommunityExpansion.Models;
 using UnityEngine;
 using UnityModManagerNet;
+using static SolastaCommunityExpansion.Viewers.Displays.Shared;
 
 namespace SolastaCommunityExpansion.Viewers
 {
@@ -358,7 +359,7 @@ namespace SolastaCommunityExpansion.Viewers
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
-            UI.Label("Welcome to Solasta Community Expansion".yellow().bold());
+            UI.Label(WelcomeMessage);
             UI.Div();
 
             if (Main.Enabled)

@@ -8,7 +8,7 @@ using SolastaCommunityExpansion.Builders.Features;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Features
 {
-    public static class DHEldritchInvocationsBuilder
+    public static class EldritchInvocationsBuilder
     {
         public static Dictionary<string, SpellDefinition> DictionaryofEIPseudoCantrips { get; private set; } = new();
         public static Dictionary<string, SpellDefinition> DictionaryofEIPseudoSpells { get; private set; } = new();
@@ -85,7 +85,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                      .Build();
 
                 var EIPowerBuilder = FeatureDefinitionPowerBuilder
-                    .Create(textPseudoCantrips, GuidHelper.Create(new Guid(Settings.GUID), textPseudoCantrips).ToString())
+                    .Create(textPseudoCantrips, DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation(guiPresentationEIPseudoCantrips)
                     .Configure(
                      1,
@@ -124,7 +124,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                     .SetSpriteReference(entry.Value.GuiPresentation.SpriteReference)
                     .Build();
                 var EIPowerBuilder = FeatureDefinitionPowerBuilder
-                    .Create(textPseudoSpells, GuidHelper.Create(new Guid(Settings.GUID), textPseudoSpells).ToString())
+                    .Create(textPseudoSpells, DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation(guiPresentationEIPseudoSpells)
                     .Configure(
                      1,
@@ -198,7 +198,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
 
             SpellDefinitionBuilder EldritchBlastBuilder = SpellDefinitionBuilder
-                .Create("DHEldritchBlast", GuidHelper.Create(new System.Guid(Settings.GUID), "DHEldritchBlast").ToString())
+                .Create("DHEldritchBlast", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(EldritchBlastGui.Build())
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
                 .SetSpellLevel(0)
@@ -231,7 +231,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 effect.Copy(EldritchBlastEffect);
 
                 SpellDefinitionBuilder EIcantripBuilder = SpellDefinitionBuilder
-                    .Create(textEBImprovements, GuidHelper.Create(new Guid(Settings.GUID), textEBImprovements).ToString())
+                    .Create(textEBImprovements, DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(new GuiPresentationBuilder
                     (
                     "Spell/&" + entry + "Title",
@@ -255,7 +255,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                     .Build();
 
                 FeatureDefinitionBonusCantrips BonusCantrip = FeatureDefinitionBonusCantripsBuilder
-                    .Create(DatabaseHelper.FeatureDefinitionBonusCantripss.BonusCantripsDomainOblivion, textEBImprovements + "BonusCantrip", GuidHelper.Create(new Guid(Settings.GUID), textEBImprovements + "BonusCantrip").ToString())
+                    .Create(DatabaseHelper.FeatureDefinitionBonusCantripss.BonusCantripsDomainOblivion, textEBImprovements + "BonusCantrip", DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation(guiPresentationEBImprovements)
                         .ClearBonusCantrips()
                         .AddBonusCantrip(EIcantrip)
@@ -291,14 +291,12 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             var EldritchBlastAncestry = ScriptableObject.CreateInstance<FeatureDefinitionAncestry>();
             EldritchBlastAncestry.SetDamageType(RuleDefinitions.DamageTypeForce);
             EldritchBlastAncestry.name = "AgonizingBlastForceAncestry";
-            EldritchBlastAncestry.SetGuid(GuidHelper.Create(new Guid(Settings.GUID), "AgonizingBlastForceAncestry").ToString());
+            EldritchBlastAncestry.SetGuid(DefinitionBuilder.CENamespaceGuid.ToString());
             EldritchBlastAncestry.GuiPresentation = new GuiPresentationBuilder(
                 "Feature/&NoContentTitle", "Feature/&NoContentTitle").Build();
 
             FeatureDefinitionAdditionalDamage AdditionalDamageAgonizingBlast = FeatureDefinitionAdditionalDamageBuilder
-                .Create(
-                    "AdditionalDamageAgonizingBlast",
-                     GuidHelper.Create(new Guid(Settings.GUID), "AdditionalDamageAgonizingBlast").ToString())
+                .Create("AdditionalDamageAgonizingBlast", DefinitionBuilder.CENamespaceGuid)
                 .Configure(
                     "Agonizing_Blast",
                     RuleDefinitions.FeatureLimitedUsage.None, RuleDefinitions.AdditionalDamageValueDetermination.SpellcastingBonus,
@@ -309,7 +307,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .AddToDB();
 
             AgonizingBlastFeatureSet = FeatureDefinitionFeatureSetBuilder
-                .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, "AgonizingBlastFeatureSet", GuidHelper.Create(new Guid(Settings.GUID), "AgonizingBlastFeatureSet").ToString())
+                .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, "AgonizingBlastFeatureSet", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(new GuiPresentationBuilder(
                     "Feature/&AgonizingBlastFeatureSetTitle",
                     "Feature/&AgonizingBlastFeatureSetDescription")
@@ -327,9 +325,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             hinderingConditionOperation.SetConditionName(DatabaseHelper.ConditionDefinitions.ConditionHindered.name);
 
             FeatureDefinitionAdditionalDamage AdditionalDamageHinderingBlast = FeatureDefinitionAdditionalDamageBuilder
-                .Create(
-                    "AdditionalDamageHinderingBlast",
-                     GuidHelper.Create(new Guid(Settings.GUID), "AdditionalDamageHinderingBlast").ToString())
+                .Create("AdditionalDamageHinderingBlast", DefinitionBuilder.CENamespaceGuid)
                 .Configure(
                     "Hindering Blast",
                     RuleDefinitions.FeatureLimitedUsage.OncePerTurn, RuleDefinitions.AdditionalDamageValueDetermination.Die,
@@ -341,7 +337,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .AddToDB();
 
             HinderingBlastFeatureSet = FeatureDefinitionFeatureSetBuilder
-                .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, "HinderingBlastFeatureSet", GuidHelper.Create(new Guid(Settings.GUID), "HinderingBlastFeatureSet").ToString())
+                .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, "HinderingBlastFeatureSet", DefinitionBuilder.CENamespaceGuid)
                .SetGuiPresentation(new GuiPresentationBuilder(
                    "Feature/&HinderingBlastFeatureSetTitle",
                    "Feature/&HinderingBlastFeatureSetDescription"
@@ -397,7 +393,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 "Feature/&" + entry + "Description")
                 .Build();
                 var FeatureSetEldritchInvocationsBuilder = FeatureDefinitionFeatureSetBuilder
-                    .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, textEIAttributeModifers, GuidHelper.Create(new Guid(Settings.GUID), textEIAttributeModifers).ToString())
+                    .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, textEIAttributeModifers, DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation(guiFeatureSetEldritchInvocations);
 
                 FeatureDefinitionFeatureSet FeatureSetEldritchInvocations = FeatureSetEldritchInvocationsBuilder

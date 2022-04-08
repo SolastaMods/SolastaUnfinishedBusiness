@@ -8,7 +8,7 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class FeatsContext
     {
-        internal static Dictionary<string, FeatDefinition> Feats { get; private set; } = new();
+        internal static HashSet<FeatDefinition> Feats { get; private set; } = new();
 
         internal static void Load()
         {
@@ -28,70 +28,44 @@ namespace SolastaCommunityExpansion.Models
 
             feats.ForEach(f => LoadFeat(f));
 
-            Feats = Feats.OrderBy(x => x.Value.FormatTitle()).ToDictionary(x => x.Key, x => x.Value);
+            Feats = Feats.OrderBy(x => x.FormatTitle()).ToHashSet();
         }
 
-        private static void LoadFeat(FeatDefinition definition)
+        private static void LoadFeat(FeatDefinition featDefinition)
         {
-            var name = definition.Name;
-
-            if (!Feats.ContainsKey(name))
+            if (!Feats.Contains(featDefinition))
             {
-                Feats.Add(name, definition);
+                Feats.Add(featDefinition);
             }
 
-            UpdateFeatsVisibility(name);
+            UpdateFeatsVisibility(featDefinition);
         }
 
-        private static void UpdateFeatsVisibility(string featName)
+        private static void UpdateFeatsVisibility(FeatDefinition featDefinition)
         {
-            Feats[featName].GuiPresentation.SetHidden(!Main.Settings.FeatEnabled.Contains(featName));
-           
+            featDefinition.GuiPresentation.SetHidden(!Main.Settings.FeatEnabled.Contains(featDefinition.Name));  
         }
 
-        internal static void Switch(string feat, bool active)
+        internal static void Switch(FeatDefinition featDefinition, bool active)
         {
-            if (!Feats.ContainsKey(feat))
+            if (!Feats.Contains(featDefinition))
             {
                 return;
             }
 
+            var name = featDefinition.Name;
+
             if (active)
             {
-                if (!Main.Settings.FeatEnabled.Contains(feat))
-                {
-                    Main.Settings.FeatEnabled.Add(feat);
-                }
+                Main.Settings.FeatEnabled.TryAdd(name);
             }
             else
             {
-                Main.Settings.FeatEnabled.Remove(feat);
+                Main.Settings.FeatEnabled.Remove(name);
             }
 
-            UpdateFeatsVisibility(feat);
+            UpdateFeatsVisibility(featDefinition);
             GuiWrapperContext.RecacheFeats();
         }
-
-#if DEBUG
-        public static string GenerateFeatsDescription()
-        {
-            var outString = new StringBuilder("[size=3][b]Feats[/b][/size]\n");
-
-            outString.Append("\n[list]");
-
-            foreach (var feat in Feats.Values)
-            {
-                outString.Append("\n[*][b]");
-                outString.Append(feat.FormatTitle());
-                outString.Append("[/b]: ");
-                outString.Append(feat.FormatDescription());
-            }
-
-            outString.Append("\n[/list]");
-
-            return outString.ToString();
-        }
-#endif
     }
-
 }

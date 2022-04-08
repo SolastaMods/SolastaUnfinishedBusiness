@@ -29,8 +29,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
         #endregion
 
-        public FeatureDefinitionMagicAffinityBuilder SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity concentrationAffinity,
-               int threshold)
+        public FeatureDefinitionMagicAffinityBuilder SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity concentrationAffinity, int threshold)
         {
             Definition.SetConcentrationAffinity(concentrationAffinity);
             if (threshold > 0)
