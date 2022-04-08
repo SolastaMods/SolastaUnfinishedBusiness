@@ -6,7 +6,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
     internal static class TinkererSpellList
     {
-        public static SpellListDefinition SpellList { get; } =
+        private static SpellListDefinition _spellList;
+        public static SpellListDefinition SpellList => _spellList ??=
              SpellListDefinitionBuilder.Create("SpellListTinkerer", TinkererClass.GuidNamespace)
                 .SetGuiPresentation("SpellListTinkerer", Category.SpellList)
                 .ClearSpells()
