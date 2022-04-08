@@ -199,7 +199,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                 .SetIngredientGatheringOdds(Sorcerer.IngredientGatheringOdds)
                 .SetPictogram(Wizard.ClassPictogramReference);
 
-            DHEldritchInvocationsBuilder.Build();
+            EldritchInvocationsBuilder.Build();
 
             BuildEquipment(classWarlockBuilder);
             BuildProficiencies();

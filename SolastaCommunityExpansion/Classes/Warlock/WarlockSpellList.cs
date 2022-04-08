@@ -1,10 +1,10 @@
 ﻿using SolastaModApi;
 using SolastaCommunityExpansion.Builders;
-using SolastaCommunityExpansion.Classes.Warlock.AHSpells;
 using System.Collections.Generic;
+using static SolastaCommunityExpansion.Spells.AceHighSpells;
 using static SolastaCommunityExpansion.Spells.SrdSpells;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
-using static SolastaCommunityExpansion.Classes.Warlock.Features.DHEldritchInvocationsBuilder;
+using static SolastaCommunityExpansion.Classes.Warlock.Features.EldritchInvocationsBuilder;
 using static FeatureDefinitionCastSpell;
 
 namespace SolastaCommunityExpansion.Classes.Warlock
@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock
     public static class WarlockSpells
     {
         // referenced by by CE:MC
-        // ideally this would be immutable.  Could return a copy so that it can't be accidentally modified.
+        // ideally this would be immutable. Could return a copy so that it can't be accidentally modified.
         public static List<SlotsByLevelDuplet> WarlockCastingSlots { get; } = new()
         {
             new() { Slots = new List<int> { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, Level = 01 },
@@ -44,7 +44,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock
             .ClearSpells()
             .SetSpellsAtLevel(0, EldritchBlast, AnnoyingBee, ChillTouch, DancingLights, PoisonSpray, TrueStrike)
             .SetSpellsAtLevel(1, CharmPerson, ComprehendLanguages, ExpeditiousRetreat, ProtectionFromEvilGood, 
-                /* seems like it is unfinished: HellishRebukeSpellBuilder.HellishRebukeSpell,*/ PactMarkSpellBuilder.PactMarkSpell)
+                /* seems like it is unfinished: HellishRebukeSpellBuilder.HellishRebukeSpell,*/ PactMarkSpell)
             .SetSpellsAtLevel(2, Darkness, HoldPerson, Invisibility, MistyStep, RayOfEnfeeblement, Shatter, SpiderClimb)
             .SetSpellsAtLevel(3, Counterspell, DispelMagic, Fear, Fly, HypnoticPattern, RemoveCurse, Tongues, VampiricTouch)
             .SetSpellsAtLevel(4, Banishment, Blight, DimensionDoor)

@@ -9058,7 +9058,7 @@ namespace SolastaModApi
             public static QuestTreeDefinition DLC1_Secondary_Quest_Valley_Mask_01 { get; } = GetDefinition<QuestTreeDefinition>("DLC1_Secondary_Quest_Valley_Mask_01", "cf02ef489c3b41d47955e6ca12f25922");
             public static QuestTreeDefinition DLC1_Secondary_Quest_Valley_Mask_02 { get; } = GetDefinition<QuestTreeDefinition>("DLC1_Secondary_Quest_Valley_Mask_02", "d703c777b4525314daedcf8d58887848");
             public static QuestTreeDefinition DLC1_Secondary_Quest_Valley_Mask_03 { get; } = GetDefinition<QuestTreeDefinition>("DLC1_Secondary_Quest_Valley_Mask_03", "4ef9f2036fbb41c4183d4b5bac53eb72");
-            public static QuestTreeDefinition DLC1_Secondary_Quest_Valley_Mask_11 { get; } = GetDefinition<QuestTreeDefinition>("DLC1_Secondary_Quest_Valley_Mask_11", "15c151657723f1343ab8e5020f06b76d");
+            public static QuestTreeDefinition DLC1_Secondary_Quest_Valley_Mask_11 { get; } = GetDefinition<QuestTreeDefinition>("DLC1_Secondary_Quest_Valley_Mask_11", "7ae1ac73738f29b439615e82ae69a9e4");
             public static QuestTreeDefinition DLC1_Secondary_Quest_Valley_Underground_Ruins { get; } = GetDefinition<QuestTreeDefinition>("DLC1_Secondary_Quest_Valley_Underground_Ruins", "0694cc6d51cf180428400ccbcfd85363");
             public static QuestTreeDefinition DLC1_SUB_Scenario_City_Backup_PLAN_B { get; } = GetDefinition<QuestTreeDefinition>("DLC1_SUB_Scenario_City_Backup_PLAN_B", "94a4bfc936250ec4fa7faf27d46f96b1");
             public static QuestTreeDefinition DLC1_SUB_Scenario_City_Backup_PLAN_C { get; } = GetDefinition<QuestTreeDefinition>("DLC1_SUB_Scenario_City_Backup_PLAN_C", "c0b3383365560054587dddfa6aa1d34c");

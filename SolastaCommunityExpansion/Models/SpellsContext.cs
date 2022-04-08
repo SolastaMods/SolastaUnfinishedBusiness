@@ -201,6 +201,7 @@ namespace SolastaCommunityExpansion.Models
             }
 
             // register spells
+            AceHighSpells.Register();
             BazouSpells.Register();
             HolicSpells.Register();
             SrdSpells.Register();

@@ -107,15 +107,44 @@ namespace SolastaCommunityExpansion.Viewers.Displays
 
             UI.Label("");
 
-            UI.Label("Visuals:".yellow());
+            toggle = Main.Settings.EnableMulticlass;
+            if (UI.Toggle("Enable Multiclass " + RequiresRestart, ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableMulticlass = toggle;
+            }
+
+            if (Main.Settings.EnableMulticlass)
+            {
+                toggle = Main.Settings.EnableMinInOutAttributes;
+                if (UI.Toggle("+ Enforce ability scores minimum in & out pre-requisites".italic(), ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.EnableMinInOutAttributes = toggle;
+                }
+
+                toggle = Main.Settings.EnableRelearnSpells;
+                if (UI.Toggle("+ Can re-learn cantrips or spells from another selected class".italic(), ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.EnableRelearnSpells = toggle;
+                }
+
+                toggle = Main.Settings.EnableDisplayAllKnownSpellsOnLevelUp;
+                if (UI.Toggle("+ Display known spells from all classes during level up".italic(), ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.EnableDisplayAllKnownSpellsOnLevelUp = toggle;
+                }
+
+                UI.Label("");
+
+                intValue = Main.Settings.MaxAllowedClasses;
+                if (UI.Slider("Max allowed classes".white(), ref intValue, 1, 4, 3, "", UI.Width(50)))
+                {
+                    Main.Settings.MaxAllowedClasses = intValue;
+                }
+            }
 
             UI.Label("");
 
-            toggle = Main.Settings.EnableAdditionalBackstoryDisplay;
-            if (UI.Toggle("Enable additional backstory display in the character inspection panel", ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnableAdditionalBackstoryDisplay = toggle;
-            }
+            UI.Label("Visuals:".yellow());
 
             UI.Label("");
 

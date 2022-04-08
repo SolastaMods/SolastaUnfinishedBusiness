@@ -89,6 +89,9 @@ namespace SolastaCommunityExpansion.Patches
                 // Spells context needs character classes (specifically spell lists) in the db in order to do it's work.
                 SpellsContext.Load();
 
+                // Later load DummyClass to avoid unnecessary creation of some blueprints from feats
+                MulticlassContext.LaterLoad();
+
                 // Save by location initialization depends on services to be ready
                 SaveByLocationContext.Load();
 
