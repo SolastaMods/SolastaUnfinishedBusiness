@@ -80,7 +80,7 @@
       "cost": 2,
       "subaction": "Power",
       "monsterAttackDefinition": null,
-      "featureDefinitionPower": "Definition:PowerDragonBreath_DH_Custom_DisintegratingBeam_Power:8e371c3b-f2dd-5bf7-b3af-dfa992583883",
+      "featureDefinitionPower": "Definition:PowerDragonBreath_DH_Custom_DisintegratingBeam_Power:5b9cf741-3afe-550d-bb89-c223c1b773f4",
       "spellDefinition": null,
       "magicAttackBonus": 5,
       "saveDC": 13,
@@ -123,10 +123,10 @@
     "Definition:ConditionAffinityPoisonImmunity:558b2de37dbf89341ab0ed6c445873a6",
     "Definition:SavingThrowAffinitySpellResistance:d6341ebb2cb967949b4426e31e993b86",
     "Definition:AttackModifierMartialSpellBladeMagicWeapon:9de1d9539d9b72048acf914d292e95ad",
-    "Definition:AtWillAOEDH_Custom_IncreasedGravityZone_Attack:bc190618-e758-5569-b130-215c857484ed",
-    "Definition:PowerDragonBreath_DH_Custom_DisintegratingBeam_Power:8e371c3b-f2dd-5bf7-b3af-dfa992583883",
+    "Definition:AtWillAOEDH_Custom_IncreasedGravityZone_Attack:c73cdb26-56bc-52c7-ab2d-01ca05dfc380",
+    "Definition:PowerDragonBreath_DH_Custom_DisintegratingBeam_Power:5b9cf741-3afe-550d-bb89-c223c1b773f4",
     "Definition:PowerDragonFrightfulPresence:afa9d44eb9c7a1b479e4caa0bb92111c",
-    "Definition:PowerDragonBreath_DH_Custom_DisintegratingBeam_Power:8e371c3b-f2dd-5bf7-b3af-dfa992583883"
+    "Definition:PowerDragonBreath_DH_Custom_DisintegratingBeam_Power:5b9cf741-3afe-550d-bb89-c223c1b773f4"
   ],
   "attackIterations": [
     {

@@ -1552,7 +1552,8 @@ SpellList/&RiftWalkerSpellsListDescription	Description des sorts de marcheur des
 SpellList/&RiftWalkerSpellsListTitle	Liste de sorts de marcheur de faille
 SpellList/&SpellListClassWarlockDescription	Liste de sorts de sorcier
 SpellList/&SpellListClassWarlockTitle	Liste de sorts de sorcier
-SpellList/&SpellListTinkererTitle	Liste de sorts pour la classe de bricoleur.
+SpellList/&SpellListTinkererTitle	Liste de sorts pour la classe de bricoleur
+SpellList/&SpellListTinkererDescription	Liste de sorts pour la classe de bricoleur
 Stage/&IdentityMorphotypeEyeHeader	Style des yeux
 Stage/&SubclassSelectionStageCovenDescription	Coven
 Stage/&SubclassSelectionStageCovenFeaturesDescription	Coven

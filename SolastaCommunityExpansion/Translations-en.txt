@@ -1534,13 +1534,14 @@ Spell/&RepellingBlastDescription	A beam of crackling energy streaks toward a cre
 Spell/&RepellingBlastTitle	Eldritch Blast (Repelling)
 Spell/&WitchFamiliarDescription	You gain the service of a familiar.
 Spell/&WitchFamiliarTitle	Witch Familiar
-SpellList/&ElementalistSpellsListDescription	Elementalist SpellsList Description
+SpellList/&ElementalistSpellsListDescription	Elementalist SpellsList
 SpellList/&ElementalistSpellsListTitle	Elementalist SpellsList
-SpellList/&RiftWalkerSpellsListDescription	RiftWalker SpellsList Description
+SpellList/&RiftWalkerSpellsListDescription	RiftWalker SpellsList
 SpellList/&RiftWalkerSpellsListTitle	Rift Walker SpellsList
 SpellList/&SpellListClassWarlockDescription	Warlock SpellList
 SpellList/&SpellListClassWarlockTitle	Warlock SpellList
-SpellList/&SpellListTinkererTitle	Spell list for the Tinkerer class.
+SpellList/&SpellListTinkererTitle	Tinkerer Spelllist
+SpellList/&SpellListTinkererDescription	Tinkerer Spelllist
 Stage/&IdentityMorphotypeEyeHeader	Eye Style
 Stage/&SubclassSelectionStageCovenDescription	Coven
 Stage/&SubclassSelectionStageCovenFeaturesDescription	Coven

@@ -26,7 +26,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             effectDescription.Copy(invisibilty.EffectDescription);
 
             PactofChainFamiliarInvisibilityPower = FeatureDefinitionPowerBuilder
-                .Create("PactofChainFamiliarInvisibilityPower", GuidHelper.Create(new Guid(Settings.GUID), "PactofChainFamiliarInvisibilityPower").ToString())
+                .Create("PactofChainFamiliarInvisibilityPower", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(invisibilty.GuiPresentation)
                 .Configure(
                    1,
@@ -58,9 +58,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             effectDescription.AddEffectForm(new EffectFormBuilder().SetConditionForm(spellResistanceCondition, ConditionForm.ConditionOperation.Add, true, true, new List<ConditionDefinition>()).Build());
 
             PactofChainFamiliarSpellResistencePower = FeatureDefinitionPowerBuilder
-                .Create(
-                "PactofChainFamiliarSpellResistencePower",
-                GuidHelper.Create(new Guid(Settings.GUID), "PactofChainFamiliarSpellResistencePower").ToString())
+                .Create("PactofChainFamiliarSpellResistencePower", DefinitionBuilder.CENamespaceGuid)
                 .Configure(
                 1,
                 RuleDefinitions.UsesDetermination.Fixed,
@@ -212,8 +210,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
             MonsterDefinitionBuilder Definition = MonsterDefinitionBuilder
                 .Create(BaseTemplateName,
-                text + NewName,
-                GuidHelper.Create(new Guid(Settings.GUID), text + NewName).ToString())
+                text + NewName, DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation("Monster/&" + text + NewTitle, "Monster/&" + text + NewDescription);
 
             Definition.SetInDungeonEditor(false);
@@ -438,8 +435,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             //   AssetReferenceSprite SpriteReference = DatabaseHelper.MonsterDefinitions.KindredSpiritViper.GuiPresentation.SpriteReference;
 
             MonsterDefinitionBuilder Definition = MonsterDefinitionBuilder.Create(BaseTemplateName,
-                text + NewName,
-                GuidHelper.Create(new Guid(Settings.GUID), text + NewName).ToString())
+                text + NewName, DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation("Monster/&" + text + NewTitle, "Monster/&" + text + NewDescription);
 
             Definition.SetInDungeonEditor(false);
@@ -675,9 +671,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             //  AssetReference AttachedParticlesReference = DatabaseHelper.MonsterDefinitions.FeyBear.MonsterPresentation.GetField<UnityEngine.AddressableAssets.AssetReference>("attachedParticlesReference");
             //   AssetReferenceImp ImpReference = DatabaseHelper.MonsterDefinitions.KindredSpiritViper.GuiPresentation.ImpReference;
 
-            MonsterDefinitionBuilder Definition = MonsterDefinitionBuilder.Create(BaseTemplateName,
-                text + NewName,
-                GuidHelper.Create(new Guid(Settings.GUID), text + NewName).ToString())
+            MonsterDefinitionBuilder Definition = MonsterDefinitionBuilder
+                .Create(BaseTemplateName, text + NewName, DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation("Monster/&" + text + NewTitle, "Monster/&" + text + NewDescription);
 
             Definition.SetInDungeonEditor(false);
@@ -786,8 +781,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             //MonsterDefinition MonsterShaderReference = DatabaseHelper.MonsterDefinitions.Goblin;
 
             string NewName = "CustomQuasit";
-            string NewTitle = "CustomQuasitTitle";
-            string NewDescription = "CustomQuasitDescription";
             CharacterSizeDefinition Size = DatabaseHelper.CharacterSizeDefinitions.Tiny;
             string Alignment = DatabaseHelper.AlignmentDefinitions.NeutralGood.name;
             int ArmorClass = 13;
@@ -905,8 +898,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             //   AssetReferenceQuasit QuasitReference = DatabaseHelper.MonsterDefinitions.KindredSpiritViper.GuiPresentation.QuasitReference;
 
             MonsterDefinitionBuilder Definition = MonsterDefinitionBuilder
-                .Create(BaseTemplateName, text + NewName, GuidHelper.Create(new Guid(Settings.GUID), text + NewName).ToString())
-                .SetGuiPresentation("Monster/&" + text + NewTitle, "Monster/&" + text + NewDescription);
+                .Create(BaseTemplateName, text + NewName, DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(Category.Monster);
 
             Definition.SetInDungeonEditor(false);
             Definition.SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None);

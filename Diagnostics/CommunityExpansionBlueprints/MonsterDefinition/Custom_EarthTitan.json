@@ -65,7 +65,7 @@
       "cost": 1,
       "subaction": "Power",
       "monsterAttackDefinition": null,
-      "featureDefinitionPower": "Definition:AtWillAOE_DH_Custom_IlluminatingCrystals_Power:80c500d0-7737-50dc-a2cb-74cdf1ceafa7",
+      "featureDefinitionPower": "Definition:AtWillAOE_DH_Custom_IlluminatingCrystals_Power:8132f9b8-2e71-5563-98bf-5c43cdae4998",
       "spellDefinition": null,
       "magicAttackBonus": 5,
       "saveDC": 13,
@@ -119,8 +119,8 @@
     "Definition:DamageAffinitySlashingResistance:2345f12303c12854fad8b09556da53d6",
     "Definition:DamageAffinityPiercingResistance:b6c93ec66a0ec9747b5c02f9db3091ff",
     "Definition:AttackModifierMartialSpellBladeMagicWeapon:9de1d9539d9b72048acf914d292e95ad",
-    "Definition:SummonCreature_Earth_Elemental_Power:cfe8bd74-1087-5f68-a680-fd45ab3cb287",
-    "Definition:SummonCreature_SkarnGhoul_Power:6beb0e57-db22-5243-9f76-982d053ebbac",
+    "Definition:SummonCreature_Earth_Elemental_Power:696728c1-7c5f-5031-9ff2-1467a28c155c",
+    "Definition:SummonCreature_SkarnGhoul_Power:9ea0b945-e3e4-52c4-b585-dad84f0bd7a9",
     "Definition:DH_Custom_EarthTitan_Earthquake_Power:f008b6d7-f1ce-5e4d-afba-01126caaebcf"
   ],
   "attackIterations": [

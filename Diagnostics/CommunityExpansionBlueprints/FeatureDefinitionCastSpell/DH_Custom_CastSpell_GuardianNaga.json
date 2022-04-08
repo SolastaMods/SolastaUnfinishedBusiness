@@ -5,7 +5,7 @@
   "spellcastingParametersComputation": "Static",
   "staticDCValue": 16,
   "staticToHitValue": 8,
-  "spellListDefinition": "Definition:GuardianNaga_Spelllist:b4f85fc3-1e00-5b66-b61d-b56cd28c4683",
+  "spellListDefinition": "Definition:GuardianNaga_Spelllist:86551a16-aa76-54ab-aa34-2bba9b1d756c",
   "restrictedSchools": [],
   "spellKnowledge": "FixedList",
   "spellReadyness": "AllKnown",

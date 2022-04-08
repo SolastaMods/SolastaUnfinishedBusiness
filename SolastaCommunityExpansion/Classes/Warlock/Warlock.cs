@@ -114,7 +114,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock
         private static void BuildProgression(CharacterClassDefinitionBuilder classWarlockBuilder)
         {
             FeatureDefinitionSubclassChoice subclassChoices = FeatureDefinitionSubclassChoiceBuilder
-                .Create("ClassWarlockSubclassChoice", GuidHelper.Create(new Guid(Settings.GUID), "ClassWarlockSubclassChoice").ToString())
+                .Create("ClassWarlockSubclassChoice", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation("ClassWarlockPatron", Category.Subclass)
                 .SetSubclassSuffix("Patron")
                 .SetFilterByDeity(false)
