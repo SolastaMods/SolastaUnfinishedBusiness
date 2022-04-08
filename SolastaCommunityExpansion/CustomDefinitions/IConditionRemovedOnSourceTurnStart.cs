@@ -1,4 +1,4 @@
-﻿namespace SolastaCommunityExpansion.CustomFeatureDefinitions
+﻿namespace SolastaCommunityExpansion.CustomDefinitions
 {
     /// <summary>
     /// Implement on a ConditionDefinition to make it be removed when its source's turn starts.

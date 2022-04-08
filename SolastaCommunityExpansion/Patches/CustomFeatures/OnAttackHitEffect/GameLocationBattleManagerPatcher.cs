@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using SolastaCommunityExpansion.CustomFeatureDefinitions;
+using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnAttackHitEffect

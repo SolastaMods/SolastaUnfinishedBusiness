@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders.Features;
 
-namespace SolastaCommunityExpansion.CustomFeatureDefinitions
+namespace SolastaCommunityExpansion.CustomDefinitions
 {
     /// <summary>
     /// Grants you immunity to opportunity attacks when the attacker has the specified condition (inflicted by you).

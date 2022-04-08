@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SolastaCommunityExpansion.CustomFeatureDefinitions
+namespace SolastaCommunityExpansion.CustomDefinitions
 {
     public interface IOnAttackHitEffect
     {

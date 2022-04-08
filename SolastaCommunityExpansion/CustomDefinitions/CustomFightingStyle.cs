@@ -1,6 +1,6 @@
 ﻿using SolastaCommunityExpansion.Builders;
 
-namespace SolastaCommunityExpansion.CustomFeatureDefinitions
+namespace SolastaCommunityExpansion.CustomDefinitions
 {
     public delegate bool IsActiveFightingStyleDelegate(RulesetCharacterHero character);
 

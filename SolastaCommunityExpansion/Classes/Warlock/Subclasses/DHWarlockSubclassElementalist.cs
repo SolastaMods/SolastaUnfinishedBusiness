@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using SolastaModApi;
 using SolastaCommunityExpansion.Builders;
-using SolastaCommunityExpansion.CustomFeatureDefinitions;
+using SolastaCommunityExpansion.CustomDefinitions;
 using UnityEngine.AddressableAssets;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi.Extensions;

@@ -2,7 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
-using SolastaCommunityExpansion.CustomFeatureDefinitions;
+using SolastaCommunityExpansion.CustomDefinitions;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.ConditionRemovedOnSourceTurnStart
 {

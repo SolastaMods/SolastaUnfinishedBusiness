@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SolastaCommunityExpansion.CustomFeatureDefinitions
+namespace SolastaCommunityExpansion.CustomDefinitions
 {
     /// <summary>
     /// Implement on a FeatureDefinition to be able to change the min roll value on ability checks

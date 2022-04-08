@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using SolastaModApi.Extensions;
 
-namespace SolastaCommunityExpansion.CustomFeatureDefinitions
+namespace SolastaCommunityExpansion.CustomDefinitions
 {
     /**
      * This adds the ability to do fully custom EffectForms. If possible you should use the standard EffectForms.

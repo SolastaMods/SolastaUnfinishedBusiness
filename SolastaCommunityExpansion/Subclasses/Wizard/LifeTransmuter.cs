@@ -1,7 +1,7 @@
 ﻿using System;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaCommunityExpansion.CustomFeatureDefinitions;
+using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;

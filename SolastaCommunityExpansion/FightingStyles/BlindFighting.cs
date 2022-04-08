@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
-using SolastaCommunityExpansion.CustomFeatureDefinitions;
+using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
