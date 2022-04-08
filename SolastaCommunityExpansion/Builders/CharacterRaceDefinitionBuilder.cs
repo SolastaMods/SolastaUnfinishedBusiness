@@ -7,23 +7,11 @@ namespace SolastaCommunityExpansion.Builders
     public class CharacterRaceDefinitionBuilder : DefinitionBuilder<CharacterRaceDefinition, CharacterRaceDefinitionBuilder>
     {
         #region Constructors
-        protected CharacterRaceDefinitionBuilder(CharacterRaceDefinition original) : base(original)
-        {
-        }
-
         protected CharacterRaceDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
         protected CharacterRaceDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected CharacterRaceDefinitionBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-        }
-
-        protected CharacterRaceDefinitionBuilder(CharacterRaceDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
         }
 

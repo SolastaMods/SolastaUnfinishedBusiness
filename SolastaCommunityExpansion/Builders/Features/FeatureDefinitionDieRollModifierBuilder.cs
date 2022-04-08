@@ -7,23 +7,11 @@ namespace SolastaCommunityExpansion.Builders.Features
         : FeatureDefinitionAffinityBuilder<FeatureDefinitionDieRollModifier, FeatureDefinitionDieRollModifierBuilder>
     {
         #region Constructors
-        protected FeatureDefinitionDieRollModifierBuilder(FeatureDefinitionDieRollModifier original) : base(original)
-        {
-        }
-
         protected FeatureDefinitionDieRollModifierBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
         protected FeatureDefinitionDieRollModifierBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected FeatureDefinitionDieRollModifierBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-        }
-
-        protected FeatureDefinitionDieRollModifierBuilder(FeatureDefinitionDieRollModifier original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
         }
 

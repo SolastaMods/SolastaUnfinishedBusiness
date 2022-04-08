@@ -9,23 +9,11 @@ namespace SolastaCommunityExpansion.Builders.Features
     public class FeatureDefinitionAdditionalActionBuilder : FeatureDefinitionBuilder<FeatureDefinitionAdditionalAction, FeatureDefinitionAdditionalActionBuilder>
     {
         #region Constructors
-        protected FeatureDefinitionAdditionalActionBuilder(FeatureDefinitionAdditionalAction original) : base(original)
-        {
-        }
-
         protected FeatureDefinitionAdditionalActionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
         protected FeatureDefinitionAdditionalActionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected FeatureDefinitionAdditionalActionBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-        }
-
-        protected FeatureDefinitionAdditionalActionBuilder(FeatureDefinitionAdditionalAction original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
         }
 

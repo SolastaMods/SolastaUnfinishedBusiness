@@ -88,7 +88,6 @@ namespace SolastaCommunityExpansion.Builders
         private protected static readonly MethodInfo GetDatabaseMethodInfo =
             typeof(DatabaseRepository).GetMethod("GetDatabase", BindingFlags.Public | BindingFlags.Static);
 
-        protected const string CENamePrefix = "_CE_";
         protected internal static readonly Guid CENamespaceGuid = new("b1ffaca74824486ea74a68d45e6b1925");
     }
 
@@ -176,20 +175,17 @@ namespace SolastaCommunityExpansion.Builders
         #region Constructors
 
         /// <summary>
-        /// Create a new instance of TDefinition.  Automatically generate a guid from namespaceGuid plus name.
-        /// Assign a GuiPresentation with a generated title key and description key.
+        /// Create a new instance of TDefinition. Generate Definition.Guid from <paramref name="namespaceGuid"/> plus <paramref name="name"/>.
         /// </summary>
         /// <param name="name">The name assigned to the definition (mandatory)</param>
-        /// <param name="namespaceGuid">The base or namespace guid from which to generate a guid for this definition, based on baseGuid+name (mandatory)</param>
-        private protected DefinitionBuilder(string name, Guid namespaceGuid) :
-            this(name, null, namespaceGuid, true)
+        /// <param name="namespaceGuid">The base or namespace guid from which to generate a guid for this definition.</param>
+        private protected DefinitionBuilder(string name, Guid namespaceGuid) : this(name, null, namespaceGuid, true)
         {
             IsNew = true;
         }
 
         /// <summary>
         /// Create a new instance of TDefinition.  Assign the supplied guid as the definition guid.
-        /// Assigns a GuiPresentation with a generated title key and description key.
         /// </summary>
         /// <param name="name">The name assigned to the definition (mandatory)</param>
         /// <param name="definitionGuid">The guid for this definition (mandatory)</param>
@@ -198,43 +194,6 @@ namespace SolastaCommunityExpansion.Builders
         {
             Preconditions.IsNotNullOrWhiteSpace(definitionGuid, nameof(definitionGuid));
             IsNew = true;
-        }
-
-        /// <summary>
-        /// TODO: ... Create definition given 'name' only.
-        /// Name = _CE_{name}
-        /// Guid = CreateGuid(name, CENamespaceGuid)
-        /// GuiPresentation = CommunityExpansion/&{name}Title, CommunityExpansion/&{name}Description, but can be overridden.
-        /// </summary>
-        /// <param name="name"></param>
-        /// <param name="createGuiPresentation"></param>
-        private protected DefinitionBuilder(string name, bool createGuiPresentation = true)
-            : this(CENamePrefix + name, null, CENamespaceGuid, true)
-        {
-            // If we know 'name' is unique across all dbs for definitions created by CE or mods using CE we can auto-generate
-            // the guid and the GuiPresentation
-            if (createGuiPresentation)
-            {
-                Definition.GuiPresentation = GuiPresentationBuilder.Build(name, Category.CommunityExpansion);
-                IsNew = true;
-            }
-        }
-
-        /// <summary>
-        /// TODO: ...
-        /// </summary>
-        /// <param name="original"></param>
-        /// <param name="name"></param>
-        /// <param name="createGuiPresentation"></param>
-        private protected DefinitionBuilder(TDefinition original, string name, bool createGuiPresentation = true)
-            : this(original, CENamePrefix + name, null, CENamespaceGuid, true)
-        {
-            // If we know 'name' is unique across all dbs for definitions created by CE or mods using CE we can auto-generate
-            // the guid and the GuiPresentation
-            if (createGuiPresentation)
-            {
-                Definition.GuiPresentation = GuiPresentationBuilder.Build(name, Category.CommunityExpansion);
-            }
         }
 
         // TODO: two very similar ctors - worth combining?
@@ -276,19 +235,18 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         /// <summary>
-        /// Create clone and rename. Automatically generate a guid from baseGuid plus name.
+        /// Create a clone of <paramref name="original"/> and rename as <paramref name="name"/>. Automatically generate a guid from <paramref name="namespaceGuid"/> plus <paramref name="name"/>.
         /// </summary>
         /// <param name="original">The definition being copied.</param>
         /// <param name="name">The name assigned to the definition (mandatory).</param>
-        /// <param name="namespaceGuid">The base or namespace guid from which to generate a guid for this definition, based on baseGuid+name (mandatory).</param>
+        /// <param name="namespaceGuid">The base or namespace guid from which to generate a guid for this definition.</param>
         private protected DefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) :
             this(original, name, null, namespaceGuid, true)
         {
         }
 
         /// <summary>
-        /// Create clone and rename. Assign the supplied guid as the definition guid.
-        /// Assigns a GuiPresentation with a generated title key and description key.
+        /// Create clone and rename as <paramref name="name"/>. Assign the supplied <paramref name="definitionGuid"/> as the definition guid.
         /// </summary>
         /// <param name="original">The definition being copied.</param>
         /// <param name="name">The name assigned to the definition (mandatory).</param>
@@ -566,14 +524,9 @@ namespace SolastaCommunityExpansion.Builders
     {
         // TODO: merge with base class?
 
-        // TODO: deprecate/remove this ctor
-        private protected DefinitionBuilder(TDefinition original) : base(original) { }
-
         private protected DefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid) { }
         private protected DefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid) { }
-        private protected DefinitionBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation) { }
 
-        private protected DefinitionBuilder(TDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation) { }
         private protected DefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid) { }
         private protected DefinitionBuilder(TDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid) { }
 
@@ -611,40 +564,43 @@ namespace SolastaCommunityExpansion.Builders
         // make ctors private
         // use private ctors in Create methods
 
-        /*
-        // NOTE: removing this Create for simplicity since it's not used
-        // If agreed, will need to remove all matching ctors
-        internal static TBuilder Create(TDefinition original)
-        {
-            return CreateImpl(original);
-        }
-        */
-
+        /// <summary>
+        /// Create a new instance of TBuilder with an associated Definition. Generate Definition.Guid from <paramref name="namespaceGuid"/> plus <paramref name="name"/>.
+        /// </summary>
+        /// <param name="name">The name assigned to the definition (mandatory)</param>
+        /// <param name="namespaceGuid">The base or namespace guid from which to generate a guid for this definition.</param>
         internal static TBuilder Create(string name, Guid namespaceGuid)
         {
             return CreateImpl(name, namespaceGuid);
         }
 
+        /// <summary>
+        /// Create a new instance of TBuilder with an associated Definition.  Assign the supplied guid as the definition guid.
+        /// </summary>
+        /// <param name="name">The name assigned to the definition (mandatory)</param>
+        /// <param name="definitionGuid">The guid for this definition (mandatory)</param>
         internal static TBuilder Create(string name, string definitionGuid)
         {
             return CreateImpl(name, definitionGuid);
         }
 
-        internal static TBuilder Create(string name, bool createGuiPresentation = true)
-        {
-            return CreateImpl(name, createGuiPresentation);
-        }
-
-        internal static TBuilder Create(TDefinition original, string name, bool createGuiPresentation = true)
-        {
-            return CreateImpl(original, name, createGuiPresentation);
-        }
-
+        /// <summary>
+        /// Create clone or <paramref name="original"/> and rename as <paramref name="name"/>. Automatically generate a guid from <paramref name="name"/> plus <paramref name="namespaceGuid"/>.
+        /// </summary>
+        /// <param name="original">The definition being copied.</param>
+        /// <param name="name">The name assigned to the definition (mandatory).</param>
+        /// <param name="namespaceGuid">The base or namespace guid from which to generate a guid for this definition.</param>
         internal static TBuilder Create(TDefinition original, string name, Guid namespaceGuid)
         {
             return CreateImpl(original, name, namespaceGuid);
         }
 
+        /// <summary>
+        /// Create clone and rename as <paramref name="name"/>. Assign the supplied <paramref name="definitionGuid"/> as the definition guid.
+        /// </summary>
+        /// <param name="original">The definition being copied.</param>
+        /// <param name="name">The name assigned to the definition (mandatory).</param>
+        /// <param name="definitionGuid">The guid for this definition (mandatory).</param>
         internal static TBuilder Create(TDefinition original, string name, string definitionGuid)
         {
             return CreateImpl(original, name, definitionGuid);

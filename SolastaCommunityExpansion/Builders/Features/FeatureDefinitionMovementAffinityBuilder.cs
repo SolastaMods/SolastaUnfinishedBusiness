@@ -6,23 +6,11 @@ namespace SolastaCommunityExpansion.Builders.Features
         : FeatureDefinitionBuilder<FeatureDefinitionMovementAffinity, FeatureDefinitionMovementAffinityBuilder>
     {
         #region Constructors
-        protected FeatureDefinitionMovementAffinityBuilder(FeatureDefinitionMovementAffinity original) : base(original)
-        {
-        }
-
         protected FeatureDefinitionMovementAffinityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
         protected FeatureDefinitionMovementAffinityBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected FeatureDefinitionMovementAffinityBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-        }
-
-        protected FeatureDefinitionMovementAffinityBuilder(FeatureDefinitionMovementAffinity original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
         }
 

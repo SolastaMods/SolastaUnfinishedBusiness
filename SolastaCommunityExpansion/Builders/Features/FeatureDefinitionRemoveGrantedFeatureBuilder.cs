@@ -15,23 +15,11 @@ namespace SolastaCommunityExpansion.Builders.Features
     public class FeatureDefinitionRemoveGrantedFeatureBuilder : FeatureDefinitionBuilder<FeatureDefinitionRemoveGrantedFeature, FeatureDefinitionRemoveGrantedFeatureBuilder>
     {
         #region Constructors
-        protected FeatureDefinitionRemoveGrantedFeatureBuilder(FeatureDefinitionRemoveGrantedFeature original) : base(original)
-        {
-        }
-
         protected FeatureDefinitionRemoveGrantedFeatureBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
         protected FeatureDefinitionRemoveGrantedFeatureBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected FeatureDefinitionRemoveGrantedFeatureBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-        }
-
-        protected FeatureDefinitionRemoveGrantedFeatureBuilder(FeatureDefinitionRemoveGrantedFeature original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
         }
 
