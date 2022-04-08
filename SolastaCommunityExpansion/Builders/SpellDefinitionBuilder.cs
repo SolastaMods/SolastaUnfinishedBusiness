@@ -9,28 +9,37 @@ namespace SolastaCommunityExpansion.Builders
     public class SpellDefinitionBuilder : DefinitionBuilder<SpellDefinition, SpellDefinitionBuilder>
     {
         #region Constructors
-        protected SpellDefinitionBuilder(SpellDefinition original, string name) : base(original, name)
+        protected SpellDefinitionBuilder(SpellDefinition original) : base(original)
         {
             InitializeFields();
         }
 
-        protected SpellDefinitionBuilder(string name, string guid) : base(name, guid)
+        protected SpellDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
             InitializeFields();
         }
 
-        protected SpellDefinitionBuilder(string name, Guid guidNamespace) : base(name, guidNamespace)
+        protected SpellDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
         {
             InitializeFields();
         }
 
-        protected SpellDefinitionBuilder(SpellDefinition original, string name, string guid) : base(original, name, guid)
+        protected SpellDefinitionBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
         {
             InitializeFields();
         }
 
-        protected SpellDefinitionBuilder(SpellDefinition original, string name, Guid guidNamespace)
-            : base(original, name, guidNamespace)
+        protected SpellDefinitionBuilder(SpellDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
+        {
+            InitializeFields();
+        }
+
+        protected SpellDefinitionBuilder(SpellDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+            InitializeFields();
+        }
+
+        protected SpellDefinitionBuilder(SpellDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
         {
             InitializeFields();
         }

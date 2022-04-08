@@ -8,28 +8,31 @@ namespace SolastaCommunityExpansion.Builders.Features
     public class FeatureDefinitionMagicAffinityBuilder : FeatureDefinitionAffinityBuilder<FeatureDefinitionMagicAffinity, FeatureDefinitionMagicAffinityBuilder>
     {
         #region Constructors
-        protected FeatureDefinitionMagicAffinityBuilder(string name, string guid)
-            : base(name, guid)
+        protected FeatureDefinitionMagicAffinityBuilder(FeatureDefinitionMagicAffinity original) : base(original)
         {
         }
 
-        protected FeatureDefinitionMagicAffinityBuilder(string name, Guid namespaceGuid)
-            : base(name, namespaceGuid)
+        protected FeatureDefinitionMagicAffinityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
-        protected FeatureDefinitionMagicAffinityBuilder(FeatureDefinitionMagicAffinity original, string name)
-            : base(original, name)
+        protected FeatureDefinitionMagicAffinityBuilder(string name, string definitionGuid) : base(name, definitionGuid)
         {
         }
 
-        protected FeatureDefinitionMagicAffinityBuilder(FeatureDefinitionMagicAffinity original, string name, string guid)
-            : base(original, name, guid)
+        protected FeatureDefinitionMagicAffinityBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
         {
         }
 
-        protected FeatureDefinitionMagicAffinityBuilder(FeatureDefinitionMagicAffinity original, string name, Guid namespaceGuid)
-            : base(original, name, namespaceGuid)
+        protected FeatureDefinitionMagicAffinityBuilder(FeatureDefinitionMagicAffinity original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
+        {
+        }
+
+        protected FeatureDefinitionMagicAffinityBuilder(FeatureDefinitionMagicAffinity original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionMagicAffinityBuilder(FeatureDefinitionMagicAffinity original, string name, string definitionGuid) : base(original, name, definitionGuid)
         {
         }
         #endregion
