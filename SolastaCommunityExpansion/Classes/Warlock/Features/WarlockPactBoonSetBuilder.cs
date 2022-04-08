@@ -216,11 +216,10 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
     {
         private const string DHPactOfTheTomeFeatureSetName = "DHPactOfTheTomeFeatureSet";
 
-        protected DHPactOfTheTomeFeatureSetBuilder(string name) : base(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest)
+        protected DHPactOfTheTomeFeatureSetBuilder(string name) : base(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name)
         {
             Definition.GuiPresentation.Title = "Feature/&DHPactOfTheTomeFeatureSetTitle";
             Definition.GuiPresentation.Description = "Feature/&DHPactOfTheTomeFeatureSetDescription";
-
 
             Definition.FeatureSet.Clear();
             Definition.FeatureSet.Add(DHPactOfTheTomeBonusCantripsBuilder.DHPactOfTheTomeBonusCantrips);
