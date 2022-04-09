@@ -171,7 +171,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
             {
                 return ConditionDefinitionBuilder
                     .Create(ConditionDefinitions.ConditionBarkskin, "BarkWard", BaseGuid)
-                    .SetGuiPresentation("ConditionBarkWard", Category.Condition)
+                    .SetOrUpdateGuiPresentation("ConditionBarkWard", Category.Condition)
                     .ClearFeatures()
                     .SetAllowMultipleInstances(false)
                     .SetDuration(DurationType.Minute, 10)
@@ -212,7 +212,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
 
                 return ConditionDefinitionBuilder
                     .Create(ConditionDefinitions.ConditionBarkskin, "ImprovedBarkWard", BaseGuid)
-                    .SetGuiPresentation(Category.Condition)
+                    .SetOrUpdateGuiPresentation(Category.Condition)
                     .SetAllowMultipleInstances(true)
                     .SetDuration(DurationType.Minute, 10)
                     .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
@@ -253,7 +253,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
 
                 return ConditionDefinitionBuilder
                     .Create(ConditionDefinitions.ConditionBarkskin, "SuperiorBarkWard", BaseGuid)
-                    .SetGuiPresentation("ConditionSuperiorBarkWard", Category.Condition)
+                    .SetOrUpdateGuiPresentation("ConditionSuperiorBarkWard", Category.Condition)
                     .SetFeatures(superiorBarkWardRetaliateDamageAffinity)
                     .SetAllowMultipleInstances(false)
                     .SetDuration(DurationType.Minute, 10)
