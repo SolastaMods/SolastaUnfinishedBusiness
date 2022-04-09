@@ -56,7 +56,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("Advanced:".yellow());
 
             UI.Label("");
-            UI.Label(". ATTENTION:".bold().red() + " These 2 settings will require the player to have this mod installed");
+            UI.Label(". ATTENTION:".bold().red() + " This setting will require the player to have this mod installed");
             UI.Label("");
 
             toggle = Main.Settings.EnableDungeonMakerModdedContent;
@@ -72,13 +72,13 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("");
             UI.Label("");
 
-            toggle = Main.Settings.EnableExtraHighLevelMonsters;
-            if (UI.Toggle("Enable additional high level monsters (+20 CR) for tier 3 and 4 campaigns " + RequiresRestart, ref toggle))
-            {
-                Main.Settings.EnableExtraHighLevelMonsters = toggle;
-            }
+            //toggle = Main.Settings.EnableExtraHighLevelMonsters;
+            //if (UI.Toggle("Enable additional high level monsters (+20 CR) for tier 3 and 4 campaigns " + RequiresRestart, ref toggle))
+            //{
+            //    Main.Settings.EnableExtraHighLevelMonsters = toggle;
+            //}
 
-            UI.Label("");
+            //UI.Label("");
         }
     }
 }

@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaCommunityExpansion.CustomFeatureDefinitions.FeatureDefinitionAttackDisadvantageAgainstNonSource, SolastaCommunityExpansion",
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionAttackDisadvantageAgainstNonSource, SolastaCommunityExpansion",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

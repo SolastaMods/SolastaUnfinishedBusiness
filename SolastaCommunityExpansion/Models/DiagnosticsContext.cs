@@ -225,25 +225,21 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void CheckOrphanedTerms(string outputFile)
         {
-            var terms = new HashSet<string>();
+            var terms = new Dictionary<string, string>();
             var sourceFile = Path.Combine(Main.MOD_FOLDER, "Translations-en.txt");
 
             foreach (var line in File.ReadLines(sourceFile))
             {
-                string term;
-
                 try
                 {
                     var splitted = line.Split(new[] { '\t', ' ' }, 2);
 
-                    term = splitted[0];
+                    terms.Add(splitted[0], splitted[1]);              
                 }
                 catch
                 {
                     continue;
-                }
-
-                terms.Add(term);
+                }             
             }
 
             foreach (var definition in CEBaseDefinitions)
@@ -251,18 +247,23 @@ namespace SolastaCommunityExpansion.Models
                 var title = definition.GuiPresentation.Title;
                 var description = definition.GuiPresentation.Description;
 
-                if (title != null && terms.Contains(title))
+                if (title != null && terms.ContainsKey(title))
                 {
                     terms.Remove(title);
                 }
 
-                if (description != null && terms.Contains(description))
+                if (description != null && !description.Contains("{") && terms.ContainsKey(description))
                 {
                     terms.Remove(description);
                 }
             }
 
-            File.WriteAllLines(outputFile, terms.ToArray());
+            using var writer = new StreamWriter(outputFile);
+
+            foreach (var kvp in terms)
+            {
+                writer.WriteLine($"{kvp.Key}\t{kvp.Value}");
+            }
         }
     }
 }

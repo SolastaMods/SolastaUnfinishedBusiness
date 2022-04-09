@@ -1,266 +1,427 @@
-BlindingWeaponStrike
-BlueprintCategory/&FlatRoomsTitle
-Caption/&GadgetParametersCustomRemoveDescription
-Condition/&ConditionDualFlurryApplyDescription
-Condition/&ConditionDualFlurryApplyTitle
-Condition/&ConditionDualFlurryGrantDescription
-Condition/&ConditionDualFlurryGrantTitle
-Condition/&DH_ReverseGravity_Spell_Description
-Condition/&DH_ReverseGravity_Spell_Title
-Condition/&DH_TimeStop_Spell_Description
-Condition/&DH_TimeStop_Spell_Title
-Condition/&Frenzied
-Condition/&HalfLifeConditionDescription
-Condition/&HalfLifeConditionTitle
-Condition/&RuinedDescription
-Condition/&RuinedTitle
-CraftyFeats/&CraftyHerbalismKitDescription
-Equipment/&Enchanted_Spear_Stormblade_Title
-Feat/&AddProtectorConstructCantripDescription
-Feat/&AddProtectorConstructCantripTitle
-Feat/&ArtificerArtillerstImprovedCannonsDescription
-Feat/&ArtificerArtillerstImprovedCannonsTitle
-Feat/&ArtilleryConstructDescription
-Feat/&ArtilleryConstructTitle
-Feat/&ArtilleryConstructTitle_3
-Feat/&ArtilleryConstructTitle_5
-Feat/&ConstructSelectingPoolDescription
-Feat/&ConstructSelectingPoolTitle
-Feat/&FeatSavageAttackerReroll
-Feat/&FightingStyleGeneralFeatDescription
-Feat/&FightingStyleGeneralFeatitle
-Feat/&FlameArtilleryConstructDescription_3
-Feat/&ForceArtillery_2Description
-Feat/&ForceArtillery_2Title
-Feat/&ForceStrikePowerDescription
-Feat/&ForceStrikePowerTitle
-Feat/&IncreaseConstructSelectingDescription
-Feat/&IncreaseConstructSelectingTitle
-Feat/&ModeSwitchingPoolDescription
-Feat/&ModeSwitchingPoolTitle
-Feat/&PowerAttackFeatDescription
-Feat/&TinkererConstructFamilyDescription
-Feat/&TinkererConstructFamilyTitle
-Feature/&AdditionalActionDualFlurryDescription
-Feature/&AdditionalActionDualFlurryTitle
-Feature/&AHSoulBladeEmpowerDamageBonusDescription
-Feature/&AHWarlockFiendPactDarkOnesBlessingPowerDescription
-Feature/&AHWarlockFiendPactDarkOnesBlessingPowerTitle
-Feature/&AHWarlockFiendPactDarkOnesOwnLuckDescription
-Feature/&AHWarlockFiendPactDarkOnesOwnLuckTitle
-Feature/&AHWarlockFiendPactExtendedSpellListDescription
-Feature/&AHWarlockFiendPactExtendedSpellListTitle
-Feature/&AHWarlockFiendPactFiendishResilienceDescription
-Feature/&AHWarlockFiendPactFiendishResilienceTitle
-Feature/&AHWarlockFiendPactSpellListDescription
-Feature/&AHWarlockFiendPactSpellListTitle
-Feature/&AlwaysBeardDescription
-Feature/&DHAtWillFireballPowerDescription
-Feature/&DHAtWillFireballPowerTitle
-Feature/&DHAtWillHoldMonsterPowerDescription
-Feature/&DHAtWillHoldMonsterPowerTitle
-Feature/&DHAtWillInvisibilityPowerDescription
-Feature/&DHAtWillInvisibilityPowerTitle
-Feature/&DH_RiftCloakDescription
-Feature/&DH_RiftCloakTitle
-Feature/&DomainBattleDomainlevel1FeaturesDescription
-Feature/&DomainBattleDomainlevel1FeaturesTitle
-Feature/&DomainElementalColdDomainlevel1FeaturesDescription
-Feature/&DomainElementalColdDomainlevel1FeaturesTitle
-Feature/&DomainElementalFireDomainlevel1FeaturesDescription
-Feature/&DomainElementalFireDomainlevel1FeaturesTitle
-Feature/&DomainElementalLightingDomainlevel1FeaturesDescription
-Feature/&DomainElementalLightingDomainlevel1FeaturesTitle
-Feature/&DomainInsightDomainlevel1FeaturesDescription
-Feature/&DomainInsightDomainlevel1FeaturesTitle
-Feature/&DomainLawDomainlevel1FeaturesDescription
-Feature/&DomainLawDomainlevel1FeaturesTitle
-Feature/&DomainLifeDomainlevel1FeaturesDescription
-Feature/&DomainLifeDomainlevel1FeaturesTitle
-Feature/&DomainMischiefDomainlevel1FeaturesDescription
-Feature/&DomainMischiefDomainlevel1FeaturesTitle
-Feature/&DomainOblivionDomainlevel1FeaturesDescription
-Feature/&DomainOblivionDomainlevel1FeaturesTitle
-Feature/&DomainSunDomainlevel1FeaturesDescription
-Feature/&DomainSunDomainlevel1FeaturesTitle
-Feature/&HinderingBlastMagicAffinityDescription
-Feature/&HinderingBlastMagicAffinityTitle
-Feature/&IndomitableResistanceTitle
-Feature/&InspiringSurgePowerTitleShort
-Feature/&PowerAttackAttackModifierDescription
-Feature/&PowerAttackConditionDescription
-Feature/&PowerAttackPowerDescription
-Feature/&PowerAttackTwoHandedAttackModifierDescription
-Feature/&PowerAttackTwoHandedConditionDescription
-Feature/&PowerAttackTwoHandedPowerDescription
-Feature/&ProficiencyGnomishLanguageDescription
-Feature/&ProficiencyGnomishLanguageTitle
-Feature/&RallyingCryPowerTitleShort
-Feature/&RangerFeatureSetFoeSlayerDescription
-Feature/&RangerFeatureSetFoeSlayerTitle
-Feature/&SignofIllOmenTitle
-Feature/&UrPriestDomainTheftDescription
-Feature/&UrPriestDomainTheftTitle
-Feature/&UrPriestExpandedSpelllistAfinityDescription
-Feature/&UrPriestExpandedSpelllistAfinityTitle
-Feedback/&AdditionalDamageAgonizing_BlastFormat
-Feedback/&AdditionalDamageAgonizing_BlastLine
-Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat
-Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine
-Feedback/&AdditionalDamageArcaneFirearmFormat
-Feedback/&AdditionalDamageArcaneFirearmLine
-Feedback/&AdditionalDamageArcanistMarkFormat
-Feedback/&AdditionalDamageArcanistMarkLine
-Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeFormat
-Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeLine
-Feedback/&AdditionalDamageBlindingWeaponStrikeFormat
-Feedback/&AdditionalDamageBlindingWeaponStrikeLine
-Feedback/&AdditionalDamageElementalDamageFormat
-Feedback/&AdditionalDamageElementalDamageLine
-Feedback/&AdditionalDamagePactMarkedFormat
-Feedback/&AdditionalDamagePactMarkedLine
-Feedback/&AdditionalDamagePactSoulTakerFormat
-Feedback/&AdditionalDamagePactSoulTakerLine
-Feedback/&AdditionalDamagePugilistFormat
-Feedback/&AdditionalDamagePugilistLine
-Feedback/&AdditionalDamageSoulEmpoweredFormat
-Feedback/&AdditionalDamageSoulEmpoweredLine
-Feedback/&AdditionalDamageUpgradedConstructFormat
-Feedback/&AdditionalDamageUpgradedConstructLine
-Feedback/&ExtraDamageDescription
-Feedback/&ExtraDamageTitle
-Format/&LevelAndExperienceFormat
-Format/&LevelAndExperienceMaxedFormat
-Message/&CharacterExportDuplicateNameErrorDescription
-Message/&CharacterExportEmptyNameErrorDescription
-Message/&CharacterExportModalContentDescription
-Message/&CharacterExportModalTitleDescription
-Message/&LevelDownConfirmationDescription
-Message/&MessageModWelcomeDescription
-Message/&MessageModWelcomeTitle
-Message/&SpawnCustomEncounterDescription
-Message/&SpawnCustomEncounterTitle
-Message/&TeleportPartyDescription
-Message/&TeleportPartyTitle
-Modifier/&RuinedDescription
-Modifier/&RuinedTitle
-MonsterAttack/&DHImpAttackDescription
-MonsterAttack/&DHImpAttackTitle
-MonsterAttack/&DHPseudodragonAttackDescription
-MonsterAttack/&DHPseudodragonAttackTitle
-MonsterAttack/&DHQuasitAttackDescription
-MonsterAttack/&DHQuasitAttackTitle
-MonsterAttack/&DHSpriteAttackDescription
-MonsterAttack/&DHSpriteAttackTitle
-MonsterAttack/&DHCouatlBiteAttackDescription
-MonsterAttack/&DHCouatlBiteAttackTitle
-MonsterPower/&DHTarrasqueReflectiveCarapaceImmunityDescription
-MonsterPower/&DHTarrasqueReflectiveCarapaceImmunityTitle
-Power/&UrPriestControlUndeadDescription
-Power/&UrPriestControlUndeadTitle
-Power/&UrPriestHalfLifeDescription
-Power/&UrPriestHalfLifeTitle
-Power/&UrPriestRadiantWardDescription
-Power/&UrPriestRadiantWardTitle
-Power/&UrPriestSpellSiphonDescription
-Power/&UrPriestSpellSiphonTitle
-Pugilist
-Reaction/&SpendPowerCounterStrikePowerDescription
-Reaction/&SpendPowerCounterStrikePowerReactDescription
-Reaction/&SpendPowerCounterStrikePowerReactTitle
-Reaction/&SpendPowerCounterStrikePowerTitle
-Reaction/&SpendPowerInspirePowerDescription
-Reaction/&SpendPowerInspirePowerTitle
-Reaction/&SpendPowerKnockDownPowerDescription
-Reaction/&SpendPowerKnockDownPowerReactDescription
-Reaction/&SpendPowerKnockDownPowerReactTitle
-Reaction/&SpendPowerKnockDownPowerTitle
-Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageDescription
-Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageReactDescription
-Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageReactTitle
-Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageTitle
-Reaction/&UseZSPowerRangerFoeSlayerAttackDescription
-Reaction/&UseZSPowerRangerFoeSlayerAttackReactTitle
-Reaction/&UseZSPowerRangerFoeSlayerAttackTitle
-Reaction/&UseZSPowerRangerFoeSlayerDamageReactDescription
-Rules/&CounterFormDismissCreatureFormat
-Rules/&LightningSpearPowerDescription
-Rules/&LightningSpearPowerTitle
-Screen/&CovenSpellDescription
-Screen/&CovenSpellHeader
-Screen/&CovenSpellTitle
-Screen/&EditorLocationSize3Title
-Screen/&EditorLocationSize4Title
-Screen/&FeyTeleportSpellDescription
-Screen/&FeyTeleportSpellTitle
-Screen/&ShadowTouchedSpellDescription
-Screen/&ShadowTouchedSpellTitle
-Screen/&SpellSlotsUsedLongDescription
-Screen/&SpellSlotsUsedShortDescription
-Screen/&SpellSlotsUsedShortLongDescription
-Screen/&WitchSpellDescription
-Screen/&WitchSpellHeader
-Screen/&WitchSpellTitle
-Spell/&DHTimeStop_SpellDescription
-Spell/&DHTimeStop_SpellTitle
-Spell/&DHAnimalShapesSpellDescription
-Spell/&DHAnimalShapesSpellTitle
-Spell/&HinderingBlastDescription
-Spell/&HinderingBlastTitle
-Spell/&IPConjureInvisibleStalkerTitle
-Stage/&IdentityMorphotypeEyeHeader
-Stage/&SubclassSelectionStageCovenDescription
-Stage/&SubclassSelectionStageCovenFeaturesDescription
-Stage/&SubclassSelectionStageCovenFeaturesHeader
-Stage/&SubclassSelectionStageCovenFeaturesTitle
-Stage/&SubclassSelectionStageCovenHeader
-Stage/&SubclassSelectionStageCovenTitle
-Stage/&SubclassSelectionStagePatronDescription
-Stage/&SubclassSelectionStagePatronFeatures
-Stage/&SubclassSelectionStagePatronHeader
-Stage/&SubclassSelectionStagePatronTitle
-Stage/&SubclassSelectionStageSpecialistDescription
-Stage/&SubclassSelectionStageSpecialistFeatures
-Stage/&SubclassSelectionStageSpecialistHeader
-Stage/&SubclassSelectionStageSpecialistNoneDescription
-Stage/&SubclassSelectionStageSpecialistTitle
-Subclass/&AHWarlockSubclassFiendPactDescription
-Subclass/&AHWarlockSubclassFiendPactTitle
-Subclass/&ArtificerArtileristCannonsDescription
-Subclass/&ArtificerArtileristCannonsTitle
-Subclass/&AttackModifierImprovedArtificerBattleSmithWeaponDescription
-Subclass/&AttackModifierImprovedArtificerBattleSmithWeaponTitle
-Subclass/&BloodWitchDescription
-Subclass/&BloodWitchMagicDescription
-Subclass/&BloodWitchMagicTitle
-Subclass/&BloodWitchTitle
-Subclass/&MagicAffinityMasterManipulatorDC0Description
-Subclass/&MagicAffinityMasterManipulatorDC1Description
-Subclass/&MagicAffinityMasterManipulatorDC3Description
-Subclass/&MagicAffinityMasterManipulatorDC4Description
-Subclass/&MagicAffinityMasterManipulatorDC5Description
-Subclass/&MagicAffinityMasterManipulatorDCDescription
-Subclass/&MagicAffinityRoguishConArtistDC0Description
-Subclass/&MagicAffinityRoguishConArtistDC1Description
-Subclass/&MagicAffinityRoguishConArtistDC2Description
-Subclass/&MagicAffinityRoguishConArtistDC4Description
-Subclass/&MagicAffinityRoguishConArtistDC5Description
-Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedDescription
-Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedTitle
-Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponDescription
-Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponTitle
-Subclass/&PurpleWitchDescription
-Subclass/&PurpleWitchMagicDescription
-Subclass/&PurpleWitchMagicTitle
-Subclass/&PurpleWitchTitle
-Subclass/&WarlockUrPriestDescription
-Subclass/&WarlockUrPriestTitle
-Tooltip/&FeatPrerequisiteHasStealthAttack
-Tooltip/&FeatPrerequisiteIsNotBarbarian
-Tooltip/&FeatPrerequisiteIsNotFighter
-Tooltip/&FeatPrerequisiteIsNotRogue
-Tooltip/&FeatPrerequisiteLevelFormat
-Tooltip/&Tag9000Title
-Tooltip/&TagCommunityExpansionTitle
-Tooltip/&TagMaledictionTitle
-Tooltip/&TagOtherModContentTitle
+BlueprintCategory/&FlatRoomsTitle	Flat Rooms
+Caption/&GadgetParametersCustomRemoveDescription	Remove:\n{0}
+Condition/&ConditionDualFlurryApplyDescription	You are building momentum...
+Condition/&ConditionDualFlurryApplyTitle	Dual Flurry!
+Condition/&ConditionDualFlurryGrantDescription	Your foes are reeling!
+Condition/&ConditionDualFlurryGrantTitle	Dual Flurry!
+Condition/&HalfLifeConditionDescription	You take necrotic energy into yourself and hang between life and death and are temporarily possessed by your own ghost, gaining flying, and the same condition immunities and damage resistenances as other ghosts.
+Condition/&HalfLifeConditionTitle	HalfLife
+Condition/&RuinedDescription	This creature's defence is reduced.
+Condition/&RuinedTitle	Ruined
+CraftyFeats/&CraftyHerbalismKitDescription	Herbalism Kit proficiency or expertise
+Feat/&AddProtectorConstructCantripDescription	Adds Mending Construct and Dismiss Construct cantrips to increase your constructs flexibility
+Feat/&AddProtectorConstructCantripTitle	Bonus Construct Cantrips
+Feat/&ArtificerArtillerstImprovedCannonsDescription	The effect from your cannons increases. Additional damage from the fire, an additional target from the force, and additional temp HP from the shield.
+Feat/&ArtificerArtillerstImprovedCannonsTitle	Improved Cannons
+Feat/&ArtilleryConstructDescription	Can damage or protect allies
+Feat/&ArtilleryConstructTitle	Artillery Construct
+Feat/&ArtilleryConstructTitle_3	Artillery Construct
+Feat/&ArtilleryConstructTitle_5	Artillery Construct
+Feat/&ConstructSelectingPoolDescription	Select the mode for your Construct
+Feat/&ConstructSelectingPoolTitle	Artillery Mode
+Feat/&FeatSavageAttackerReroll	Due to being a Savage Attacker {0} rerolls the {1} die from a {2} to a {3}
+Feat/&FightingStyleGeneralFeatDescription	You can select a fighting style.
+Feat/&FightingStyleGeneralFeatitle	Fighting Style
+Feat/&FlameArtilleryConstructDescription_3	Creates a cone of fire that deals 3D8 damage on a failed save.
+Feat/&ForceArtillery_2Description	3D8 Force damage and push target 5ft
+Feat/&ForceArtillery_2Title	Force Artillery (Improved)
+Feat/&ForceStrikePowerDescription	Ranged attack 1d6 force damage from your trusty sidekick
+Feat/&ForceStrikePowerTitle	Force Sling (Artifical Servant)
+Feat/&IncreaseConstructSelectingDescription	You can now summon two Artillery Constructs. The constructs can be of the same or different modes
+Feat/&IncreaseConstructSelectingTitle	Reinforcements
+Feat/&ModeSwitchingPoolDescription	You can switch between modes once per day by creating and using temporary weapons
+Feat/&ModeSwitchingPoolTitle	Armor Mode
+Feat/&PowerAttackFeatDescription	You learned to trade accuracy to lander deadlier/harder blows. You can choose to take a -{0} penalty to your to hit in order to do more damage (+{0} damage for one handed weapons, +{1} damage for two handed weapons). Lasts for the whole turn once activated. Works with melee and ranged weapons.
+Feat/&TinkererConstructFamilyDescription	Created by Tinkerer
+Feat/&TinkererConstructFamilyTitle	Tinkerer Construct
+Feature/&AdditionalActionDualFlurryDescription	You may make an additional off-hand attack.
+Feature/&AdditionalActionDualFlurryTitle	Dual Flurry!
+Feature/&AHSoulBladeEmpowerDamageBonusDescription	You are empowered and do a damage bonus equal to your proficiency on all your attacks.
+Feature/&AlwaysBeardDescription	{0}% chances to grow a glorious beard!
+MonsterPower/&DHAirTitanLightningStormPowerDescription	6d8 Lightning in wide area
+MonsterPower/&DHAirTitanLightningStormPowerTitle	Lightning Storm
+MonsterPower/&DHGenericLightningAttackPowerDescription	12D8
+MonsterPower/&DHGenericLightningAttackPowerTitle	Lightning Strike
+Feature/&DH_RiftCloakDescription	Your control of rift portals has increased to the point than you can now grant the protection of the rift to others. You can cast warding bond at will (without the sharing of damage)
+Feature/&DH_RiftCloakTitle	Rift Cloak
+Feature/&DomainBattleDomainlevel1FeaturesDescription	You learn the level 1 features of this domain
+Feature/&DomainBattleDomainlevel1FeaturesTitle	Battle Domain
+Feature/&DomainElementalColdDomainlevel1FeaturesDescription	You learn the level 1 features of this domain
+Feature/&DomainElementalColdDomainlevel1FeaturesTitle	Elemental (Cold) Domain
+Feature/&DomainElementalFireDomainlevel1FeaturesDescription	You learn the level 1 features of this domain
+Feature/&DomainElementalFireDomainlevel1FeaturesTitle	Elemental (Fire) Domain
+Feature/&DomainElementalLightingDomainlevel1FeaturesDescription	You learn the level 1 features of this domain
+Feature/&DomainElementalLightingDomainlevel1FeaturesTitle	Elemental(Lighting) Domain
+Feature/&DomainInsightDomainlevel1FeaturesDescription	You learn the level 1 features of this domain
+Feature/&DomainInsightDomainlevel1FeaturesTitle	Insight Domain
+Feature/&DomainLawDomainlevel1FeaturesDescription	You learn the level 1 features of this domain
+Feature/&DomainLawDomainlevel1FeaturesTitle	Law Domain
+Feature/&DomainLifeDomainlevel1FeaturesDescription	You learn the level 1 features of this domain
+Feature/&DomainLifeDomainlevel1FeaturesTitle	Life Domain
+Feature/&DomainMischiefDomainlevel1FeaturesDescription	You learn the level 1 features of this domain
+Feature/&DomainMischiefDomainlevel1FeaturesTitle	Mischief Domain
+Feature/&DomainOblivionDomainlevel1FeaturesDescription	You learn the level 1 features of this domain
+Feature/&DomainOblivionDomainlevel1FeaturesTitle	Oblivion Domain
+Feature/&DomainSunDomainlevel1FeaturesDescription	You learn the level 1 features of this domain
+Feature/&DomainSunDomainlevel1FeaturesTitle	Sun Domain
+Feature/&HinderingBlastMagicAffinityDescription	when you hit a creature with your eldritch blast, you can reduce that creature's speed by 10 feet until the end of your next turn
+Feature/&HinderingBlastMagicAffinityTitle	Hindering Blast
+Feature/&IndomitableResistanceTitle	Indomitable Resistance
+Feature/&InspiringSurgePowerTitleShort	Inspiring Surge
+Feature/&PowerAttackAttackModifierDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged.
+Feature/&PowerAttackConditionDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged.
+Feature/&PowerAttackPowerDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged.
+Feature/&PowerAttackTwoHandedAttackModifierDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes. Only to be used when attacking with two hands, melee or ranged.
+Feature/&PowerAttackTwoHandedConditionDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes. Only to be used when attacking with two hands, melee or ranged.
+Feature/&PowerAttackTwoHandedPowerDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes. Only to be used when attacking with two hands, melee or ranged.
+Feature/&RallyingCryPowerTitleShort	Rallying Cry
+Feature/&SignofIllOmenTitle	Sign of Ill Omen
+Feature/&UrPriestDomainTheftDescription	You snatch the secrets that a god grants all of it's devout clerics. Choose a cleric domain: you gain the features that domain grants at 1st level.
+Feature/&UrPriestDomainTheftTitle	Domain Theft
+Feature/&UrPriestExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. Cleric spells are added to the warlock spell list for you
+Feature/&UrPriestExpandedSpelllistAfinityTitle	UrPriest Spells
+Feedback/&AdditionalDamageAgonizing_BlastFormat	Agonizing Blast
+Feedback/&AdditionalDamageAgonizing_BlastLine	When you cast a spell using force damage (eldritch blast), add your Charisma modifier to the damage it deals on a hit.
+Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat	Additional Damage from Magically Powered Attacks
+Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine	Additional Damage from Magically Powered Attacks
+Feedback/&AdditionalDamageArcaneFirearmFormat	Blasting Enhancement!
+Feedback/&AdditionalDamageArcaneFirearmLine	Dealing additional damage from Blasting Enhancement
+Feedback/&AdditionalDamageArcanistMarkFormat	Arcanist's Mark!
+Feedback/&AdditionalDamageArcanistMarkLine	Arcanist's Mark detonates and deals extra damage to the target!
+Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeFormat	Illuminating Strike!
+Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeLine	Illuminating Strike deals extra damage to the target!
+Feedback/&AdditionalDamageBlindingWeaponStrikeFormat	Blinding Weapon
+Feedback/&AdditionalDamageBlindingWeaponStrikeLine	Additional damage and trying to apply Blindness from Blinding Weapon.
+Feedback/&AdditionalDamageElementalDamageFormat	Elemental Damage
+Feedback/&AdditionalDamageElementalDamageLine	Elemental form grants additional damage
+Feedback/&AdditionalDamagePactMarkedFormat	Pact mark!
+Feedback/&AdditionalDamagePactMarkedLine	Pact mark does additional damage!
+Feedback/&AdditionalDamagePactSoulTakerFormat	Soul taker!
+Feedback/&AdditionalDamagePactSoulTakerLine	Soul taker does additional damage!
+Feedback/&AdditionalDamagePugilistFormat	Pugilist
+Feedback/&AdditionalDamagePugilistLine	Additional Unarmed Damage from Pugilist
+Feedback/&AdditionalDamageSoulEmpoweredFormat	Soul Empowered!
+Feedback/&AdditionalDamageSoulEmpoweredLine	Soul Empowered does additional damage!
+Feedback/&AdditionalDamageUpgradedConstructFormat	Upgraded Damage
+Feedback/&AdditionalDamageUpgradedConstructLine	The upgraded construct deals 1D8 more damage per hit
+Feedback/&ExtraDamageDescription	Extra damage from Lighting Spear
+Feedback/&ExtraDamageTitle	Lightning Spear extra damage
+Format/&LevelAndExperienceFormat	Level: {0}\nExperience: {1}\n{2} points required to reach level {3}
+Format/&LevelAndExperienceMaxedFormat	Level: {0}\nExperience: {1}\nmax level reached.
+Message/&CharacterExportDuplicateNameErrorDescription	Export Cancelled:\n\nA hero with this name already exists in the pool.\nPlease try a different name.
+Message/&CharacterExportEmptyNameErrorDescription	Export Cancelled:\n\nPlease try a non empty name.
+Message/&CharacterExportModalContentDescription	Enter the hero name to export:
+Message/&CharacterExportModalTitleDescription	Character Export
+Message/&LevelDownConfirmationDescription	Level down this Hero?
+Message/&MessageModWelcomeDescription	The Community Expansion Mod is packed full of exciting features, but by default none are enabled. Press <color=yellow>Ctrl-F10</color> to open the Unity Mod Manager UI [UMM], then click on the settings icon next to 'Community Expansion' to open the settings pages.\n\n Explore the options and select the ones you like. The UMM UI will now open.
+Message/&MessageModWelcomeTitle	Community Expansion Mod
+Message/&SpawnCustomEncounterDescription	Spawn encounter at coordinates ({0}, {1})?
+Message/&SpawnCustomEncounterTitle	Encounter
+Message/&TeleportPartyDescription	Teleport party to coordinates ({0}, {1})?\nYou might break quests or maps if you teleport to an undiscovered place
+Message/&TeleportPartyTitle	Teleport
+Modifier/&RuinedDescription	-3 to Armor Class
+Modifier/&RuinedTitle	Ruined
+Monster/&DHCustomAirTitanDescription	When summoned, these elder elementals manifest as beings of apocalyptic capability, entities whose mere existence promises destruction.
+Monster/&DHCustomAirTitanTitle	<color=#ff0000ff>Primordial Air Titan</color>
+Monster/&DHCustomAncientBlackDragonDescription	The most evil-tempered and vile of the chromatic dragons, black dragons collect the wreckage and treasures of fallen peoples. These dragons loathe seeing the weak prosper and revel in the collapse of humanoid kingdoms. They make their homes in fetid swamps and crumbling ruins where kingdoms once stood.
+Monster/&DHCustomAncientBlackDragonTitle	<color=#ff0000ff>Ancient Black Dragon</color>
+Monster/&DHCustomAncientBlueDragonDescription	Vain and territorial, blue dragons soar through the skies over deserts, preying on caravans and plundering herds and settlements in the verdant lands beyond the desert's reach. These dragons can also be found in dry steppes, searing badlands, and rocky coasts. They guard their territories against all potential competitors, especially brass dragons.
+Monster/&DHCustomAncientBlueDragonTitle	<color=#ff0000ff>Ancient Blue Dragon</color>
+Monster/&DHCustomAncientGreenDragonDescription	The most cunning and treacherous of true dragons, green dragons use misdirection and trickery to get the upper hand against their enemies. Nasty tempered and thoroughly evil, they take special pleasure in subverting and corrupting the good-hearted. In the ancient forests they roam, green dragons demonstrate an aggression that is often less about territory than it is about gaining power and wealth with as little effort as possible.
+Monster/&DHCustomAncientGreenDragonTitle	<color=#ff0000ff>Ancient Green Dragon</color>
+Monster/&DHCustomAncientRedDragonDescription	The most covetous of the true dragons, red dragons tirelessly seek to increase their treasure hoards. They are exceptionally vain, even for dragons, and their conceit is reflected in their proud bearing and their disdain for other creatures.
+Monster/&DHCustomAncientRedDragonTitle	<color=#ff0000ff>Ancient Red Dragon</color>
+Monster/&DHCustomAncientWhiteDragonDescription	The smallest, least intelligent, and most animalistic of the chromatic dragons, white dragons dwell in frigid climes, favoring arctic areas or icy mountains. They are vicious, cruel reptiles driven by hunger and greed.
+Monster/&DHCustomAncientWhiteDragonTitle	<color=#ff0000ff>Ancient White Dragon</color>
+Monster/&DHCustomArchmageDescription	Archmages are powerful (and usually quite old) spellcasters dedicated to the study of the arcane arts. Benevolent ones counsel kings and queens, while evil ones rule as tyrants and pursue lichdom. Those who are neither good nor evil sequester themselves in remote towers to practice their magic without interruption.
+Monster/&DHCustomArchmageTitle	<color=#ff0000ff>Archmage</color>
+Monster/&DHCustomBalorDescription	Figures of ancient and terrible evil, balors rule as generals over demonic armies, yearning to seize power while destroying any creatures that oppose them
+Monster/&DHCustomBalorTitle	<color=#ff0000ff>Balor</color>
+Monster/&DHCustomConstructTitanDescription	Massive constructs built for war and wrought of heavy metal. An unstoppable juggernaut, it exists to follow its creator's orders, and it protects or attacks as that creator demands.
+Monster/&DHCustomConstructTitanTitle	<color=#ff0000ff>Mechanical Construct Titan</color>
+Monster/&DHCustomDevaDescription	Devas are angels that act as divine messengers or agents to the Material Plane,
+Monster/&DHCustomDevaTitle	<color=#ff0000ff>Deva</color>
+Monster/&DHCustomDjinniDescription	Proud genies from the Elemental Plane of Air, Masters of the air, the djinn ride powerful whirlwinds that they create and direct on a whim, and which can even carry passengers.
+Monster/&DHCustomDjinniTitle	<color=#ff0000ff>Djinni</color>
+Monster/&DHCustomEarthTitanDescription	When summoned, these elder elementals manifest as beings of apocalyptic capability, entities whose mere existence promises destruction.
+Monster/&DHCustomEarthTitanTitle	<color=#ff0000ff>Primordial Earth Titan</color>
+Monster/&DHCustomEfreetiDescription	Hulking genies of the Elemental Plane of Fire, the efreet are masters of flame, immune to fire and able to create it on a whim.
+Monster/&DHCustomEfreetiTitle	<color=#ff0000ff>Efreeti</color>
+Monster/&DHCustomErinyesDescription	the erinyes are fierce and disciplined warriors. Sweeping down from the skies, they bring swift death to creatures that have wronged their masters
+Monster/&DHCustomErinyesTitle	<color=#ff0000ff>Erinyes</color>
+Monster/&DHCustomFireTitanDescription	When summoned, these elder elementals manifest as beings of apocalyptic capability, entities whose mere existence promises destruction.
+Monster/&DHCustomFireTitanTitle	<color=#ff0000ff>Primordial Fire Titan</color>
+Monster/&DHCustomGuardianNagaDescription	Wise and good, the beautiful guardian nagas protect sacred places and items of magical power from falling into evil hands. In their hidden redoubts, they research spells and hatch convoluted plots to thwart the evil designs of their enemies.
+Monster/&DHCustomGuardianNagaTitle	<color=#ff0000ff>Guardian Naga</color>
+Monster/&DHCustomHornedDevilDescription	The flying infantry of the hellish legions, horned devils follow orders to the letter.
+Monster/&DHCustomHornedDevilTitle	<color=#ff0000ff>Horned Devil</color>
+Monster/&DHCustomIceDevilDescription	Coveting the power of their pit fiend superiors, ice devils work ceaselessly toward promotion, slaughtering the enemies of the Nine Hells and claiming as many souls as they can for their archdevil masters.
+Monster/&DHCustomIceDevilTitle	<color=#ff0000ff>Ice Devil</color>
+Monster/&DHCustomLichDescription	Liches are the remains of great wizards who embrace undeath as a means of preserving themselves. They further their own power at any cost, having no interest in the affairs of the living except where those affairs interfere with their own. Scheming and insane, they hunger for long-forgotten knowledge and the most terrible secrets.
+Monster/&DHCustomLichTitle	<color=#ff0000ff>Lich</color>
+Monster/&DHCustomNalfeshneeDescription	The nalfeshnee is one of the most grotesque demons-a corpulent mockery of ape and boar standing twice the height of a human, with feathered wings that seem too small for its bloated body. These brutish features conceal a remarkable intelligence and cunning.
+Monster/&DHCustomNalfeshneeTitle	<color=#ff0000ff>Nalfeshnee</color>
+Monster/&DHCustomPitFiendDescription	The undisputed lords of most other devils, pit fiends attend the archdukes and archduchesses of the Nine Hells and carry out their wishes. These mighty devils are the generals of the Nine Hells, leading its infernal legions into battle.
+Monster/&DHCustomPitFiendTitle	<color=#ff0000ff>Pit Fiend</color>
+Monster/&DHCustomPlanetarDescription	Planetars act as the weapons of the gods they serve, presenting a tangible representation of their deities' might.
+Monster/&DHCustomPlanetarTitle	<color=#ff0000ff>Planetar</color>
+Monster/&DHCustomRocDescription	Rocs are solitary creatures that can live for centuries. They lair in nests made from trees, tents, broken ships, and the remains of caravans they carry off, placing these massive tangles in mountain clefts out of the reach of lesser creatures.
+Monster/&DHCustomRocTitle	<color=#ff0000ff>Roc</color>
+Monster/&DHCustomSolarDescription	On the battlefield, the solar's sword flies into the fray on its own, and a single arrow from a solar's bow can strike a target dead on contact. So great is a solar's celestial might that even demon princes shrink at its resonant commands.
+Monster/&DHCustomSolarTitle	<color=#ff0000ff>Solar</color>
+Monster/&DHCustomStormGiantDescription	Storm giants are contemplative seers that live in places far removed from mortal civilization. Most have pale purple-gray skin and hair, and glittering emerald eyes.
+Monster/&DHCustomStormGiantTitle	<color=#ff0000ff>Storm Giant</color>
+Monster/&DHCustomTarrasqueDescription	The legendary tarrasque is possibly the most dreaded monster of the Material Plane. It is widely believed that only one of these creatures exists, though no one can predict where and when it will strike. A scaly biped, the tarrasque is fifty feet tall and seventy feet long, weighing hundreds of tons
+Monster/&DHCustomTarrasqueTitle	<color=#ff0000ff>Tarrasque</color>
+Monster/&DHCustomVampireDescription	Awakened to an endless night, vampires hunger for the life they have lost and sate that hunger by drinking the blood of the living. Vampires abhor sunlight, for its touch burns them. They never cast shadows or reflections, and any vampire wishing to move unnoticed among the living keeps to the darkness and far from reflective surfaces.
+Monster/&DHCustomVampireTitle	<color=#ff0000ff>Vampire</color>
+MonsterAttack/&DHAirBlastAttackDescription	5d6 thunder and pushes 2 cells
+MonsterAttack/&DHAirBlastAttackTitle	Air Blast
+MonsterAttack/&DHAirTitanSlamAttackDescription	4d6+6 Bludgeoning & 4d6 Thunder
+MonsterAttack/&DHAirTitanSlamAttackTitle	Thunderous Slam
+MonsterAttack/&DHAncientDragonTailAttackDescription	2D8+8 Bludgeoning
+MonsterAttack/&DHAncientDragonTailAttackTitle	Tail Attack
+MonsterAttack/&DHBalorLongswordAttackDescription	3D8+8 Slashing & 3D8 Lightning
+MonsterAttack/&DHBalorLongswordAttackTitle	Longsword Attack
+MonsterAttack/&DHBalorWhipAttackDescription	2D6+8 Slashing & 3D6 Fire
+MonsterAttack/&DHBalorWhipAttackTitle	Whip Attack
+MonsterAttack/&DHConstructTitanForceCannonAttackDescription	4D8 Force damage and target is knocked prone
+MonsterAttack/&DHConstructTitanForceCannonAttackTitle	Force Cannon
+MonsterAttack/&DHConstructTitanSlamAttackDescription	3D12+8 bludgeoning Damage and target is pushed 20 ft
+MonsterAttack/&DHConstructTitanSlamAttackTitle	Slam
+MonsterAttack/&DHTarrasqueSwallowedconditionDescription	Cannot act and takes 16d6 acid damage each turn. 60 damage in a single attack can force the swallower to regurgitate.
+MonsterAttack/&DHTarrasqueSwallowedconditionTitle	Swallowed
+MonsterAttack/&DHTarrasqueSwallowingconditionDescription	60 damage in a single attack can force it to regurgitate.
+MonsterAttack/&DHTarrasqueSwallowingconditionTitle	Swallowing creature
+MonsterAttack/&DHDamageAcidBiteAttackDescription	2D10+9 Piercing & 2D8 Acid Damage
+MonsterAttack/&DHDamageAcidBiteAttackTitle	Acid Bite Attack
+MonsterAttack/&DHDamageColdBiteAttackDescription	2D10+9 Piercing & 2D8 Cold Damage
+MonsterAttack/&DHDamageColdBiteAttackTitle	Ice Bite Attack
+MonsterAttack/&DHDamageFireBiteAttackDescription	2D10+9 Piercing & 4D6 Fire Damage
+MonsterAttack/&DHDamageFireBiteAttackTitle	Fire Bite Attack
+MonsterAttack/&DHDamageLightningBiteAttackDescription	2D10+9 Piercing & 2D10 Lightning Damage
+MonsterAttack/&DHDamageLightningBiteAttackTitle	Lightning Bite Attack
+MonsterAttack/&DHDamagePoisonBiteAttackDescription	2D10+9 Piercing & 3D6 Poison Damage
+MonsterAttack/&DHDamagePoisonBiteAttackTitle	Poison Bite Attack
+MonsterAttack/&DHEarthTitanBoulderAttackDescription	7D10+8 Bludgeoning
+MonsterAttack/&DHEarthTitanBoulderAttackTitle	Boulder
+MonsterAttack/&DHEarthTitanSlamAttackDescription	4D10+8 Bludgeoning
+MonsterAttack/&DHEarthTitanSlamAttackTitle	Ground Slam
+MonsterAttack/&DHFireScimatarAttackDescription	2d6+6 slashing & 2d6 Fire
+MonsterAttack/&DHFireScimatarAttackTitle	Scimatar
+MonsterAttack/&DHFireTitanSlamAttackDescription	3d6+5 Bludgeoning + 10d6 Fire
+MonsterAttack/&DHFireTitanSlamAttackTitle	Searing Slam
+MonsterAttack/&DHForkAttackDescription	2D8 +6 Piercing
+MonsterAttack/&DHForkAttackTitle	Fork Attack
+MonsterAttack/&DHGenericBiteAttackNoExtraDamageDescription	2d10 + 6 Piercing Damage
+MonsterAttack/&DHGenericBiteAttackNoExtraDamageTitle	Bite Attack
+MonsterAttack/&DHGenericClawAttackDescription	2D6 + 9 Slashing Damage
+MonsterAttack/&DHGenericClawAttackTitle	Claw attack
+MonsterAttack/&DHGenericStrongerBiteAttackNoExtraDamageDescription	2D10 + 9
+MonsterAttack/&DHGenericStrongerBiteAttackNoExtraDamageTitle	Bite Attack
+MonsterAttack/&DHHornedDevilTailAttackDescription	1D8 +6 Piercing , inflicts Bleeding Wound condition
+MonsterAttack/&DHHornedDevilTailAttackTitle	Tail Attack
+MonsterAttack/&DHHornedDevilTailAttackconditionDescription	3D6 Necrotic, save to cancel
+MonsterAttack/&DHHornedDevilTailAttackconditionTitle	Bleeding Wound
+MonsterAttack/&DHHurlFlameAttackDescription	5d6 Fire
+MonsterAttack/&DHHurlFlameAttackTitle	Hurl Flame
+MonsterAttack/&DHIceBiteAttackDescription	2d6+5 Piercing & 3d6 Cold
+MonsterAttack/&DHIceBiteAttackTitle	Ice Bite
+MonsterAttack/&DHImpAttackDescription	1d4 + 3 piercing damage, and the target must make a DC 11 Constitution saving throw, taking 10 (3d6) poison damage on a failed save, or half as much damage on a successful one.
+MonsterAttack/&DHImpAttackTitle	Sting
+MonsterAttack/&DHLichParalyzingTouchAttackDescription	3D6 Cold and inflicts Paralyzed condition
+MonsterAttack/&DHLichParalyzingTouchAttackTitle	Paralyzing Touch
+MonsterAttack/&DHLightningScimatarAttackDescription	2d6+5 slashing & 2d6 lightning
+MonsterAttack/&DHLightningScimatarAttackTitle	Scimatar
+MonsterAttack/&DHNagaBiteAttackDescription	1d8+4 Piercing & 15 DC Con Save to half 10d8 Poison
+MonsterAttack/&DHNagaBiteAttackTitle	Poison Bite
+MonsterAttack/&DHNagaSpitAttackDescription	15 DC Con Save to half 10d8 Poison
+MonsterAttack/&DHNagaSpitAttackTitle	Spit Poison
+MonsterAttack/&DHPitFiendBiteAttackDescription	2d6+7 Poison, Inflicts poison condition
+MonsterAttack/&DHPitFiendBiteAttackTitle	Bite Attack
+MonsterAttack/&DHPitFiendBiteAttackconditionDescription	6D6 Posion recurring
+MonsterAttack/&DHPitFiendBiteAttackconditionTitle	Poisoned
+MonsterAttack/&DHPitFiendMaceAttackDescription	2D6+8 Bludgeoning & 6D6 Fire
+MonsterAttack/&DHPitFiendMaceAttackTitle	Mace Attack
+MonsterAttack/&DHPoisonLongbowAttackDescription	Longbow with poison arrows
+MonsterAttack/&DHPoisonLongbowAttackTitle	Poison Longbow
+MonsterAttack/&DHPoisonLongswordAttackDescription	1d10+4 Slashing & 3d8 Poison
+MonsterAttack/&DHPoisonLongswordAttackTitle	Poison Longsword
+MonsterAttack/&DHPseudodragonAttackDescription	1d4 Piercing damage.The target must succeed on a DC 10 Constitution saving throw or become poisoned for 1 minute. The poisoned target falls unconscious for the same duration, or until it takes damage or another creature takes an action to shake it awake.
+MonsterAttack/&DHPseudodragonAttackTitle	Sting
+MonsterAttack/&DHQuasitAttackDescription	1d4 + 3 piercing damage, and the target must succeed on a DC 10 Constitution saving throw or take 5 (2d4) poison damage and become poisoned for 1 minute.
+MonsterAttack/&DHQuasitAttackTitle	Claw
+MonsterAttack/&DHRadiantLongbowAttackDescription	2D6+8 Piercing & 6D8 Radiant
+MonsterAttack/&DHRadiantLongbowAttackTitle	Slaying Longbow.
+MonsterAttack/&DHRadiantLongswordAttackDescription	4D6+8 Slashing & 6D8 Radiant
+MonsterAttack/&DHRadiantLongswordAttackTitle	Radiant Greatsword
+MonsterAttack/&DHRocBeakAttackDescription	4d8+9 Piercing
+MonsterAttack/&DHRocBeakAttackTitle	Beak
+MonsterAttack/&DHRocTalonsAttackDescription	4d6+9 Slashing and target is grappled and restrained by Roc
+MonsterAttack/&DHRocTalonsAttackTitle	Talons
+MonsterAttack/&DHSpriteAttackDescription	1d4 Piercing damage.The target must succeed on a DC 10 Constitution saving throw or become poisoned for 1 minute. The poisoned target falls unconscious for the same duration, or until it takes damage or another creature takes an action to shake it awake.
+MonsterAttack/&DHSpriteAttackTitle	Fairy Bow
+MonsterAttack/&DHTarrasqueBiteDescription	4d12 + 10 piercing damage and the target must succeed a Dexterity check or be grappled (escape DC 20).
+MonsterAttack/&DHTarrasqueBiteTitle	Bite
+MonsterAttack/&DHTarrasqueBiteconditionDescription	Until this grapple ends, the target is restrained.
+MonsterAttack/&DHTarrasqueBiteconditionTitle	Caught by Tarrasque
+MonsterAttack/&DHTarrasqueClawDescription	4d8 + 10 slashing damage
+MonsterAttack/&DHTarrasqueClawTitle	Claw
+MonsterAttack/&DHTarrasqueHornDescription	4d10 + 10) piercing damage
+MonsterAttack/&DHTarrasqueHornTitle	Horn
+MonsterAttack/&DHTarrasqueTailDescription	4d6 + 10 bludgeoning damage. If the target is a creature, it must succeed on a DC 20 Strength saving throw or be knocked prone
+MonsterAttack/&DHTarrasqueTailTitle	Tail
+MonsterAttack/&DHCouatlBiteAttackDescription	Piercing damage, and the target must succeed on a DC 13 Constitution saving throw or be poisoned for 24 hours. Until this poison ends, the target is unconscious.
+MonsterAttack/&DHCouatlBiteAttackTitle	Bite
+MonsterPower/&DHAirTitanGalePowerDescription	4D10 Thunder and pushed on failed save
+MonsterPower/&DHAirTitanGalePowerTitle	Screaming Gale
+MonsterPower/&DHAirTitanLightningPowerDescription	3D10 Lightning in area
+MonsterPower/&DHAirTitanLightningPowerTitle	Lightning Strike
+MonsterPower/&DHAncientDragonWingPowerDescription	Dragons can flap their wings to produce enough wind to propel most humanoids away and knock them prone.
+MonsterPower/&DHAncientDragonWingPowerTitle	Wing Attack
+MonsterPower/&DHBalorFireAuraPowerDescription	3D6 Fire
+MonsterPower/&DHBalorFireAuraPowerTitle	Fire Aura
+MonsterPower/&DHBlindingGazePowerDescription	DC15 Constitution Save or be Blinded until lesser restoration is used
+MonsterPower/&DHBlindingGazePowerTitle	Blinding Gaze
+MonsterPower/&DHDamageAcidBreathPowerDescription	15D8 Acid
+MonsterPower/&DHDamageAcidBreathPowerTitle	Acid Breath
+MonsterPower/&DHDamageColdBreathPowerDescription	16D8 Cold
+MonsterPower/&DHDamageColdBreathPowerTitle	Ice Breath
+MonsterPower/&DHDamageFireBreathPowerDescription	26D6 Fire
+MonsterPower/&DHDamageFireBreathPowerTitle	Fire Breath
+MonsterPower/&DHDamageLightningBreathPowerDescription	16D10 Lightning
+MonsterPower/&DHDamageLightningBreathPowerTitle	Lightning Breath
+MonsterPower/&DHDamagePoisonBreathPowerDescription	22D6 Poison
+MonsterPower/&DHDamagePoisonBreathPowerTitle	Poison Breath
+MonsterPower/&DHDisintegratingBeamPowerDescription	6D10 Radiant Damage and target is disintegrated on 0 HP
+MonsterPower/&DHDisintegratingBeamPowerTitle	Disintegrating Beam
+MonsterPower/&DHEarthTitanEarthquakePowerDescription	4D10 Bludgeoning
+MonsterPower/&DHEarthTitanEarthquakePowerTitle	Earthquake
+MonsterPower/&DHErinyesParryPowerDescription	+3 AC
+MonsterPower/&DHErinyesParryPowerTitle	Parry
+MonsterPower/&DHFireTitanAuraPowerDescription	each creature within 30 feet of it takes 35 (10d6) fire damage, and flammable objects in the aura that aren't being worn or carried ignite.
+MonsterPower/&DHFireTitanAuraPowerTitle	Fire Titan Aura
+MonsterPower/&DHFireTitanRetaliateDamageAffinityDescription	A creature takes 35 (10d6) fire damage from touching Maegera or from hitting it with a melee attack while within 10 feet of it
+MonsterPower/&DHFireTitanRetaliateDamageAffinityTitle	Fire Titan Retaliate
+MonsterPower/&DHFireTitanRetaliatePowerDescription	A creature takes 35 (10d6) fire damage from touching Maegera or from hitting it with a melee attack while within 10 feet of it
+MonsterPower/&DHFireTitanRetaliatePowerTitle	Fire Titan Retaliate
+MonsterPower/&DHIlluminatingCrystalsPowerDescription	Any creature in the area when the spell is cast is also outlined in light. For the duration, objects and affected creatures shed dim light in a 10-foot radius.
+MonsterPower/&DHIlluminatingCrystalsPowerTitle	Illuminating Crystals
+MonsterPower/&DHIncreasedGravityZoneAttackPowerDescription	The Titan focuses zone within 20 feet of it. Any creature in a 20-foot-radius, 20-foot-high cylinder centered on this point must succeed on a DC 26 Dexterity saving throw or take 33 (6d10) bludgeoning damage and fall prone and be restrained for one round.
+MonsterPower/&DHIncreasedGravityZoneAttackPowerTitle	Increased Gravity Zone
+MonsterPower/&DHLichDisruptLifePowerDescription	6D6 Necrotic
+MonsterPower/&DHLichDisruptLifePowerTitle	Disrupt Life
+MonsterPower/&DHSearingBurstPowerDescription	4D6 Fire & 4D6 Radiant
+MonsterPower/&DHSearingBurstPowerTitle	Searing Burst
+MonsterPower/&DHSummonCreatureLesserConstructPowerTitle	Summons 1 Construct
+MonsterPower/&DHSummonCreatureLesserConstructPowerDescription	Summon Lesser Construct
+MonsterPower/&DHSummonCreatureAirElementalPowerDescription	Summons 1 Air Elemental
+MonsterPower/&DHSummonCreatureAirElementalPowerTitle	Summon Greater Elemental
+MonsterPower/&DHSummonCreatureEarthElementalPowerDescription	Summons 1 Earth Elemental
+MonsterPower/&DHSummonCreatureEarthElementalPowerTitle	Summon Greater Elemental
+MonsterPower/&DHSummonCreatureErinyesPowerDescription	An Erinyes is called forth to fight
+MonsterPower/&DHSummonCreatureErinyesPowerTitle	Summons Minion: Erinyes
+MonsterPower/&DHSummonCreatureFireElementalPowerDescription	Summons 1 Fire Elemental
+MonsterPower/&DHSummonCreatureFireElementalPowerTitle	Summon Greater Elemental
+MonsterPower/&DHSummonCreatureFireJesterPowerDescription	Summons 2 Fire Jesters
+MonsterPower/&DHSummonCreatureFireJesterPowerTitle	Summon Lesser Elementals
+MonsterPower/&DHSummonCreatureNalfeshneePowerDescription	A Nalfeshnee is called forth to fight
+MonsterPower/&DHSummonCreatureNalfeshneePowerTitle	Summons Minion: Nalfeshnee
+MonsterPower/&DHSummonCreatureSkarnGhoulPowerDescription	Summons 1 Skarn Ghoul
+MonsterPower/&DHSummonCreatureSkarnGhoulPowerTitle	Summon Lesser Elemental
+MonsterPower/&DHSummonCreatureWindSnakePowerDescription	Summons 4 Wind Snakes
+MonsterPower/&DHSummonCreatureWindSnakePowerTitle	Summon Lesser Elementals
+MonsterPower/&DHSummonCreatureWolvesPowerDescription	The vampire magically calls 3d6 wolves
+MonsterPower/&DHSummonCreatureWolvesPowerTitle	Children of the Night
+MonsterPower/&DHTarrasqueReflectiveCarapaceImmunityDescription	Any time the tarrasque is targeted by a magic missile spell, a line spell, or a spell that requires a ranged attack roll, the tarrasque is unaffected
+MonsterPower/&DHTarrasqueReflectiveCarapaceImmunityTitle	Reflective Carapace
+MonsterPower/&DHTarrasqueSwallowPowerDescription	The tarrasque makes one bite attack against a Large or smaller creature it is grappling. If the attack hits, the target is swallowed, and the grapple ends.
+MonsterPower/&DHTarrasqueSwallowPowerTitle	Swallow
+MonsterPower/&DHVampireCharmPowerDescription	The vampire targets one humanoid it can see within 30 feet of it. The target must succeed on a DC 17 Wisdom saving throw against this magic or be charmed by the vampire.
+MonsterPower/&DHVampireCharmPowerTitle	Charm
+Power/&UrPriestControlUndeadDescription	As an action, you target one undead creature you can see within 30 feet of you. The target must make a Wisdom saving throw. On a failed save, the target must obey your commands
+Power/&UrPriestControlUndeadTitle	Control Undead
+Power/&UrPriestHalfLifeDescription	You take necrotic energy into yourself and hang between life and death and are temporarily possessed by your own ghost, gaining flying, and the same condition immunities and damage resistenances as other ghosts.
+Power/&UrPriestHalfLifeTitle	Half Life
+Power/&UrPriestRadiantWardDescription	As an action, you gain a number of temporary hit points equal to twice your warlock level.
+Power/&UrPriestRadiantWardTitle	Radiant Ward
+Power/&UrPriestSpellSiphonDescription	you learn how to tap into a greater source of magic in combination with your normal reserve of power. As an action, you can expend a Channel Divinity to regain an expended use of your 6th-level Mystic Arcanum.
+Power/&UrPriestSpellSiphonTitle	Spell Siphon
+Reaction/&SpendPowerCounterStrikePowerDescription	Spend a gambit die and Counter Strike the enemy, if you hit, do an additional 1d6+2 bludgeoning damage.
+Reaction/&SpendPowerCounterStrikePowerReactDescription	Spend a gambit die and Counter Strike the enemy, if you hit, do an additional 1d6+2 bludgeoning damage.
+Reaction/&SpendPowerCounterStrikePowerReactTitle	Counter Strike
+Reaction/&SpendPowerCounterStrikePowerTitle	Counter Strike
+Reaction/&SpendPowerInspirePowerDescription	Spend a gambit die and inspire or your ally to give 1d6+2 temp hp
+Reaction/&SpendPowerInspirePowerTitle	Inspire
+Reaction/&SpendPowerKnockDownPowerDescription	Spend a gambit die and empower your attack to do an additional 1d6+2 bludgeoning damage and knock them down until the start of their next turn if they fail a Strength save vs. 8 + your Strength + proficiency
+Reaction/&SpendPowerKnockDownPowerReactDescription	Spend a gambit die and empower your attack to do an additional 1d6+2 bludgeoning damage and knock them down until the start of their next turn if they fail a Strength save vs. 8 + your Strength + proficiency
+Reaction/&SpendPowerKnockDownPowerReactTitle	Knock down
+Reaction/&SpendPowerKnockDownPowerTitle	Knock down
+Rules/&CounterFormDismissCreatureFormat	Dismiss Tinkerer construct
+Rules/&LightningSpearPowerDescription	Lightning Damage 1D6 + 1D6
+Rules/&LightningSpearPowerTitle	Lightning Spear
+Screen/&CovenSpellDescription	Spell known because part of a Coven
+Screen/&CovenSpellHeader	Coven
+Screen/&CovenSpellTitle	Coven
+Screen/&EditorLocationSize3Title	Huge [MODDED]
+Screen/&EditorLocationSize4Title	Gargantuan [MODDED]
+Screen/&FeyTeleportSpellDescription	This Fey spell is always prepared.
+Screen/&FeyTeleportSpellTitle	Fey
+Screen/&ShadowTouchedSpellDescription	This Shadow spell is always prepared.
+Screen/&ShadowTouchedSpellTitle	Shadow
+Screen/&SpellSlotsUsedLongDescription	You have expended {0} long-rest slot(s) of this level.
+Screen/&SpellSlotsUsedShortDescription	You have expended {0} short-rest slot(s) of this level.
+Screen/&SpellSlotsUsedShortLongDescription	You have expended {0} short-rest slot(s) and {1} long-rest slot(s) of this level.
+Screen/&WitchSpellDescription	Spell known as a Witch
+Screen/&WitchSpellHeader	Witch
+Screen/&WitchSpellTitle	Witch
+Spell/&DHCastSpellArchMageDescription	Archmage Casting Ability
+Spell/&DHCastSpellArchMageTitle	Archmage Casting Ability
+Spell/&DHCastSpellGuardianNagaDescription	Archmage Casting Ability
+Spell/&DHCastSpellGuardianNagaTitle	Archmage Casting Ability
+Spell/&DHCastSpellLichDescription	Lich Casting Ability
+Spell/&DHCastSpellLichTitle	Lich Casting Ability
+Spell/&DHAnimalShapesSpellDescription	Choose any number of willing creatures that you can see within range. You transform each target into the form of a Large or smaller beast with a challenge rating of 4 or lower.
+Spell/&DHAnimalShapesSpellTitle	Animal shapes
+Spell/&HinderingBlastDescription	A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage.\n(when you hit a creature with your eldritch blast, you can reduce that creature's speed by 10 feet until the end of your next turn.)
+Spell/&HinderingBlastTitle	Eldritch Blast (Hindering)
+Spell/&IPConjureInvisibleStalkerTitle	Conjure Elemental (Invisible Stalker)
+Stage/&IdentityMorphotypeEyeHeader	Eye Style
+Subclass/&ArtificerArtileristCannonsDescription	You create a set of cannons that you can activate in battle as a bonus action
+Subclass/&ArtificerArtileristCannonsTitle	Cannons
+Subclass/&AttackModifierImprovedArtificerBattleSmithWeaponDescription	You infuse your weapon with power. Your attacks count as Magical and you add +7 to your attack and damage rolls.
+Subclass/&AttackModifierImprovedArtificerBattleSmithWeaponTitle	Improved Infuse Weapon
+Subclass/&BloodWitchDescription	Forbidden by most witch covens, blood magic centers on the use of dark spells and mortal hexes that draw from the spellcaster's very essence. It is fundamentally more perilous than other witch crafts, but its many risks come with copious rewards.
+Subclass/&BloodWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known. \n\nLevel Spells\nLevel 1: Entangle, Goodberry\nLevel 2: Barkskin, Protection from Poison\nLevel 3: Conjure Animals, Create Food\nLevel 4: Giant Insect, Stoneskin\nLevel 5: Dispel Evil and Good, Insect Plague
+Subclass/&BloodWitchMagicTitle	Blood Magic
+Subclass/&BloodWitchTitle	Blood Witch
+Subclass/&MagicAffinityMasterManipulatorDC0Description	It is harder for opponents to resist your spells. The save DC increases by 0.
+Subclass/&MagicAffinityMasterManipulatorDC1Description	It is harder for opponents to resist your spells. The save DC increases by 1.
+Subclass/&MagicAffinityMasterManipulatorDC3Description	It is harder for opponents to resist your spells. The save DC increases by 3.
+Subclass/&MagicAffinityMasterManipulatorDC4Description	It is harder for opponents to resist your spells. The save DC increases by 4.
+Subclass/&MagicAffinityMasterManipulatorDC5Description	It is harder for opponents to resist your spells. The save DC increases by 5.
+Subclass/&MagicAffinityMasterManipulatorDCDescription	It is harder for opponents to resist your spells. The save DC increases by 3.
+Subclass/&MagicAffinityRoguishConArtistDC0Description	Your spell save DC increases by 0.
+Subclass/&MagicAffinityRoguishConArtistDC1Description	Your spell save DC increases by 1.
+Subclass/&MagicAffinityRoguishConArtistDC2Description	Your spell save DC increases by 2.
+Subclass/&MagicAffinityRoguishConArtistDC4Description	Your spell save DC increases by 4.
+Subclass/&MagicAffinityRoguishConArtistDC5Description	Your spell save DC increases by 5.
+Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedDescription	Unlimited times you can recover spell slots (in addition to Arcane Recovery).
+Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedTitle	Arcane Depth
+Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponDescription	You infuse your weapon with power. Your attacks count as Magical and you add your +7 to your attack and damage rolls. Note you can only have an infusion active once. Activating it a second time will cancel the first.
+Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponTitle	Improved Infuse Weapon
+Subclass/&PurpleWitchDescription	Purple magic holds sway over the domains of illusions and enchantments that take hold over people's minds, and anything that is not quite as it seems. Practitioners of this form of magic are puppet masters, shaping the apparent reality of those around them to their advantage.
+Subclass/&PurpleWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known. \n\nLevel Spells\nLevel 1: Entangle, Goodberry\nLevel 2: Barkskin, Protection from Poison\nLevel 3: Conjure Animals, Create Food\nLevel 4: Giant Insect, Stoneskin\nLevel 5: Dispel Evil and Good, Insect Plague
+Subclass/&PurpleWitchMagicTitle	Purple Magic
+Subclass/&PurpleWitchTitle	Purple Witch
+Subclass/&WarlockUrPriestDescription	While the vast majority of divine spellcasters gain their powers from a deity, there are those who despise the gods. Those who call themselves Ur-priests have learned to siphon off the divine energies granted by gods to their divine spellcasters, using it for their own needs without giving even lip-service to any god. As an Ur-priest, you differ from most warlocks, lacking a patron who grants you your power. Eldritch Invocations you uncover are warped forms of magic the gods might grant their patrons, while Pact Boons are likely divine artefacts you have managed to steal.
+Subclass/&WarlockUrPriestTitle	UrPriest Pact
+Tooltip/&FeatPrerequisiteHasStealthAttack	Has stealth attack
+Tooltip/&FeatPrerequisiteIsNotBarbarian	Isn't a Barbarian
+Tooltip/&FeatPrerequisiteIsNotFighter	Isn't a Fighter
+Tooltip/&FeatPrerequisiteIsNotRogue	Isn't a Rogue
+Tooltip/&FeatPrerequisiteLevelFormat	Min Character Level {0}
+Tooltip/&Tag9000Title	Custom Effect
+Tooltip/&TagCommunityExpansionTitle	Community Expansion
+Tooltip/&TagMaledictionTitle	Malediction
+Tooltip/&TagOtherModContentTitle	From mod
