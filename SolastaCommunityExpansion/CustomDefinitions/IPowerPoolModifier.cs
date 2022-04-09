@@ -1,4 +1,4 @@
-﻿namespace SolastaCommunityExpansion.CustomFeatureDefinitions
+﻿namespace SolastaCommunityExpansion.CustomDefinitions
 {
     public interface IPowerPoolModifier
     {

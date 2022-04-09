@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders.Features;
 
-namespace SolastaCommunityExpansion.CustomFeatureDefinitions
+namespace SolastaCommunityExpansion.CustomDefinitions
 {
     /// <summary>
     /// Imposes disadvantage when attacking anyone but the source of the specified condition.

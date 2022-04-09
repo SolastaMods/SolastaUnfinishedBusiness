@@ -1,4 +1,4 @@
-﻿namespace SolastaCommunityExpansion.CustomFeatureDefinitions
+﻿namespace SolastaCommunityExpansion.CustomDefinitions
 {
     //
     // FeatureDefinitionRemoveGrantedFeature allows you to remove a previously granted feature from a hero character

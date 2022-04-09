@@ -15,7 +15,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomEffectForm
             bool proxyOnly = false,
             bool forceSelfConditionOnly = false)
         {
-            foreach (CustomFeatureDefinitions.CustomEffectForm customEffect in effectForms.OfType<CustomFeatureDefinitions.CustomEffectForm>())
+            foreach (CustomDefinitions.CustomEffectForm customEffect in effectForms.OfType<CustomDefinitions.CustomEffectForm>())
             {
                 customEffect.ApplyForm(formsParams, retargeting, proxyOnly, forceSelfConditionOnly);
             }

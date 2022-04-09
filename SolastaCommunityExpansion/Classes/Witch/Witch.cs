@@ -4,7 +4,7 @@ using System.Linq;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Classes.Witch.Subclasses;
-using SolastaCommunityExpansion.CustomFeatureDefinitions;
+using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.Level20;
 using SolastaModApi;
 using SolastaModApi.Extensions;

@@ -1,4 +1,4 @@
-﻿using SolastaCommunityExpansion.CustomFeatureDefinitions;
+﻿using SolastaCommunityExpansion.CustomDefinitions;
 
 namespace SolastaCommunityExpansion.Level20.Features
 {
