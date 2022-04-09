@@ -69,7 +69,6 @@ namespace SolastaCommunityExpansion
                 Menu.Enable(modEntry, assembly);
 
                 LoadSidecars();
-                LoadTranslations(); ;
             }
             catch (Exception ex)
             {
@@ -105,48 +104,6 @@ namespace SolastaCommunityExpansion
 #pragma warning restore S3885 // "Assembly.Load" should be used
 
                 harmony.PatchAll(sidecarAssembly);
-            }
-        }
-
-        internal static void LoadTranslations()
-        {
-            var code = LocalizationManager.CurrentLanguageCode;
-            var path = Path.Combine(MOD_FOLDER, $"Translations-{code}.txt");
-
-            var languageSourceData = LocalizationManager.Sources[0];
-            var languageIndex = languageSourceData.GetLanguageIndexFromCode(code);
-
-            foreach (var line in File.ReadLines(path))
-            {
-                string term;
-                string text;
-
-                try
-                {
-                    var splitted = line.Split(new[] { '\t', ' ' }, 2);
-
-                    term = splitted[0];
-                    text = splitted[1];
-                }
-                catch
-                {
-                    Main.Error($"invalid translation line \"{line}\".");
-
-                    continue;
-                }
-
-                var termData = languageSourceData.GetTermData(term);
-
-                if (termData != null && termData.Languages[languageIndex] != null)
-                {
-                    Main.Log($"term {term} overwritten with {code} text {text}");
-
-                    termData.Languages[languageIndex] = text;
-                }
-                else
-                {
-                    languageSourceData.AddTerm(term).Languages[languageIndex] = text;
-                }
             }
         }
     }

@@ -7,7 +7,7 @@ AttributeModifier/&DHFeeblemindIntSpellTitle	Fraca inteligência
 BlueprintCategory/&FlatRoomsTitle	Salas Planas
 Caption/&GadgetParametersCustomRemoveDescription	Remover:\n{0}
 Class/&ClassWarlockDescription	Os magos são buscadores do conhecimento que está escondido no tecido do multiverso. Através de pactos feitos com seres misteriosos de poder sobrenatural, os magos desbloqueiam efeitos mágicos tanto sutis quanto espetaculares.
-Class/&ClassWarlockTitle	Feiticeiro
+Class/&ClassWarlockTitle	Warlock
 Class/&TinkererDescription	Os funileiros são inventores, alquimistas, e muito mais. Eles fazem a ponte entre a magia e a tecnologia
 Class/&TinkererTitle	Tinkerer
 Class/&WitchArmorProficiencyDescription	Armadura leve
