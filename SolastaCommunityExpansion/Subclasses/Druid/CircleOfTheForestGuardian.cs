@@ -45,13 +45,13 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
                 .AddToDB();
 
             var extraAttack = FeatureDefinitionAttributeModifierBuilder
-                .Create("AttributeModifierDruidForestGuardianExtraAttack", "45a7595b-5d5f-4351-b7f1-cb78c9d0a136") // guid for back-compat
+                .Create("AttributeModifierDruidForestGuardianExtraAttack", BaseGuid)
                 .SetGuiPresentation("DruidForestGuardianExtraAttack", Category.Feature)
                 .SetModifier(Additive, AttributeDefinitions.AttacksNumber, 1)
                 .AddToDB();
 
             var sylvanResistance = FeatureDefinitionAttributeModifierBuilder
-                .Create("AttributeModifierDruidForestGuardianSylvanDurability", "afd1de94-ce76-575c-922a-19fea5a8d5ce") // guid for back-compat
+                .Create("AttributeModifierDruidForestGuardianSylvanDurability", BaseGuid)
                 .SetGuiPresentation("DruidForestGuardianSylvanDurability", Category.Feature)
                 .SetModifier(Additive, AttributeDefinitions.HitPointBonusPerLevel, 1)
                 .AddToDB();
@@ -65,7 +65,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
             var (barkWard, improvedBarkWard, superiorBarkWard) = CreateBarkWard();
 
             return CharacterSubclassDefinitionBuilder
-                .Create(DruidForestGuardianDruidSubclassName, "45a7595b-5d5f-4351-b7f1-cb78c9d0a136") // guid for back-compat
+                .Create(DruidForestGuardianDruidSubclassName, BaseGuid)
                 .SetGuiPresentation(Category.Subclass, MartialMountaineer.GuiPresentation.SpriteReference)
                 .AddFeatureAtLevel(druidForestGuardianMagic, 2)
                 .AddFeatureAtLevel(sylvanResistance, 2)
