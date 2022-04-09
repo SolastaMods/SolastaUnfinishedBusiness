@@ -4,7 +4,6 @@ AttributeModifier/&DHFeeblemindChaSpellDescription	Pontuação de carisma igual 
 AttributeModifier/&DHFeeblemindChaSpellTitle	Fraco Carisma
 AttributeModifier/&DHFeeblemindIntSpellDescription	Nota de inteligência igual a 1
 AttributeModifier/&DHFeeblemindIntSpellTitle	Fraca inteligência
-BlindingWeaponStrike	Arma Cegante
 BlueprintCategory/&FlatRoomsTitle	Salas Planas
 Caption/&GadgetParametersCustomRemoveDescription	Remover:\n{0}
 Class/&ClassWarlockDescription	Os magos são buscadores do conhecimento que está escondido no tecido do multiverso. Através de pactos feitos com seres misteriosos de poder sobrenatural, os magos desbloqueiam efeitos mágicos tanto sutis quanto espetaculares.
@@ -73,10 +72,6 @@ Condition/&ConditionMarkedByArcanistDescription	Atingido pela marca Arcanist.
 Condition/&ConditionMarkedByArcanistTitle	Marca do Arcanista
 Condition/&ConditionSuperiorBarkWardDescription	Os espíritos da floresta lhe concedem imunidade contra o veneno e causam danos 3d8 piercing aos atacantes de corpo a corpo.
 Condition/&ConditionSuperiorBarkWardTitle	Ala Superior Bark Ward
-Condition/&DH_ReverseGravity_Spell_Description	Gravidade reversa
-Condition/&DH_ReverseGravity_Spell_Title	Gravidade reversa
-Condition/&DH_TimeStop_Spell_Description	Congelado pelo Tempo Stop
-Condition/&DH_TimeStop_Spell_Title	Congelado pelo Tempo Stop
 Condition/&DHFeeblemindSpellDescription	As pontuações de Inteligência e Carisma da criatura se tornam 1. A criatura não pode lançar feitiços, ativar itens mágicos, compreender a linguagem, ou se comunicar de qualquer forma inteligível
 Condition/&DHFeeblemindSpellTitle	Feeblemind
 Condition/&DHForesightSpellDescription	vantagem em rolos de ataque, verificações de habilidade e lançamentos de economia. Além disso, outras criaturas têm desvantagem nos rolos de ataque
@@ -93,7 +88,7 @@ Condition/&DHWeirdSpellDescription	A ilusão invoca os medos mais profundos da c
 Condition/&DHWeirdSpellTitle	Esquisito
 Condition/&DisorientDescription	A precisão desta criatura é reduzida.
 Condition/&DisorientTitle	Desorientado
-Condition/&Frenzied	Esta criatura é frenética e irá atacar a criatura mais próxima.
+Condition/&FrenziedDescription	Esta criatura é frenética e irá atacar a criatura mais próxima.
 Condition/&FrenziedTitle	Frenzied
 Condition/&HalfLifeConditionDescription	Você toma energia necrótica em si mesmo e fica entre a vida e a morte e está temporariamente possuído por seu próprio fantasma, ganhando imunidade e resistências aos danos da mesma condição que outros fantasmas.
 Condition/&HalfLifeConditionTitle	HalfLife
@@ -141,7 +136,7 @@ DamageAffinity/&DHHolyAuraSpellDescription	Quando um demônio ou um morto-vivo a
 DamageAffinity/&DHHolyAuraSpellTitle	Santa Aura Retaliação
 Equipment/&ArcaneStaffDescription	Esta equipe está inscrita com escrita mágica e pode ser usada como foco para a fundição de feitiços Arcane.
 Equipment/&ArcaneStaffTitle	Cajado Arcano
-Equipment/&DruidicAmuletDescription	Este amuleto totêmico pode ser usado como um foco para a fundição de feitiços druídicos.
+Equipment/&DruidicAmuletDescription	Este amuleto totêmico pode ser usado como foco para a fundição de feitiços druídicos.
 Equipment/&DruidicAmuletTitle	Amuleto druídico
 Equipment/&Enchanted_Club_Acuteness_Description	Esta arma encantada foi criada usando os antigos conhecimentos dos mestres ferreiros de Manacalon. Seu design foi uma das primeiras obras de Elgador Keenspirit, Magesmith of the Arcaneum.
 Equipment/&Enchanted_Club_Acuteness_Title	Clube de Fidelidade
@@ -149,8 +144,8 @@ Equipment/&Enchanted_Club_Bearclaw_Description	Esta arma encantada foi forjada u
 Equipment/&Enchanted_Club_Bearclaw_Title	Clube da Garra do Urso
 Equipment/&Enchanted_Club_Lightbringer_Description	Esta arma encantada foi forjada usando os antigos conhecimentos dos mestres ferreiros de Colthannin. Ela foi projetada por Elgador Keenspirit, Magesmith do Arcano para apoiar o combate contra criaturas não-mortas.
 Equipment/&Enchanted_Club_Lightbringer_Title	Clube Lightbringer
-Equipment/&Enchanted_Club_PowerDescription	Esta arma encantada foi forjada usando os antigos conhecimentos dos mestres ferreiros de Manacalon. Algumas criaturas respeitam apenas as forças físicas. Os arcanistas do Manacalon criaram este clube para dar aos campeões das Legiões de Ferro a força que seus corpos elfos não proporcionavam.
-Equipment/&Enchanted_Club_PowerTitle	Clube do Poder
+Equipment/&Enchanted_Club_Power_Description	Esta arma encantada foi forjada usando os antigos conhecimentos dos mestres ferreiros de Manacalon. Algumas criaturas respeitam apenas as forças físicas. Os arcanistas do Manacalon criaram este clube para dar aos campeões das Legiões de Ferro a força que seus corpos elfos não proporcionavam.
+Equipment/&Enchanted_Club_Power_Title	Clube do Poder
 Equipment/&Enchanted_Club_Punisher_Description	Esta arma encantada foi criada usando os antigos conhecimentos dos mestres ferreiros de Manacalon. A combinação do melhor metal e da melhor pedra eslava deu a este machado um poder penetrante incrível.
 Equipment/&Enchanted_Club_Punisher_Title	Clube do Punidor
 Equipment/&Enchanted_Dart_Acuteness_Description	Esta arma encantada foi criada usando os antigos conhecimentos dos mestres ferreiros de Manacalon. Seu design foi uma das primeiras obras de Elgador Keenspirit, Magesmith of the Arcaneum.
@@ -171,7 +166,7 @@ Equipment/&Enchanted_Handaxe_Souldrinker_Description	Esta arma encantada foi cri
 Equipment/&Enchanted_Handaxe_Souldrinker_Title	Handaxe de Souldrinker
 Equipment/&Enchanted_HeavyCrossbow_Accuracy_Description	Esta arma encantada foi forjada usando os antigos conhecimentos dos mestres arqueiros de Colthannin. Seu design original trazia o signo de Defineth Sharpsight, um renomado feiticeiro elfo silvestre.
 Equipment/&Enchanted_HeavyCrossbow_Accuracy_Title	Besta Cruzada de Precisão Pesada
-Equipment/&Enchanted_HeavyCrossbow_Lightbringer_Description	Esta arma encantada foi forjada usando os antigos conhecimentos dos mestres arqueiros de Colthannin. Ela foi projetada por Elgador Keenspirit, Magesmith do Arcano para apoiar o combate contra criaturas não-mortas.
+Equipment/&Enchanted_HeavyCrossbow_Lightbringer_Description	Esta arma encantada foi forjada usando os antigos conhecimentos dos mestres arqueiros de Colthannin. Foi projetada por Elgador Keenspirit, Magesmith do Arcano, para apoiar o combate contra criaturas não-mortas.
 Equipment/&Enchanted_HeavyCrossbow_Lightbringer_Title	Besta Pesada Lightbringer
 Equipment/&Enchanted_HeavyCrossbow_Medusa_Description	Esta arma encantada foi forjada usando os antigos conhecimentos dos mestres arqueiros de Colthannin. A magia fundiu o coral medusa e a madeira dura para criar um arco mortal, favorecido pelas festas de bordo dos halflings da ilha.
 Equipment/&Enchanted_HeavyCrossbow_Medusa_Title	Besta Pesada Medusa
@@ -208,15 +203,15 @@ Equipment/&Enchanted_LightCrossbow_Medusa_Title	Medusa Besta Leve
 Equipment/&Enchanted_LightCrossbow_Sharpshooting_Description	Esta arma encantada foi forjada usando os antigos conhecimentos dos mestres arqueiros de Colthannin. O Coedymwarth preferiu lidar com os arcanistas do Manacalon fisicamente em vez de magicamente. Seus melhores arqueiros receberam bestais, a criação do Defeth Sharpsight.
 Equipment/&Enchanted_LightCrossbow_Sharpshooting_Title	Besta de Arco Cruzado Leve de Sharpshooting
 Equipment/&Enchanted_LightCrossbow_Stormbow_Description	Esta arma encantada foi forjada usando os antigos conhecimentos dos mestres arqueiros de Colthannin. Foi projetada por Galar Stromforge, o primeiro ferreiro anão a aproveitar o poder da tempestade em uma arma � para um efeito devastador!
-Equipment/&Enchanted_LightCrossbow_Stormbow_Title	Besta-de-Tempestade Leve
+Equipment/&Enchanted_LightCrossbow_Stormbow_Title	Besta-de-Tormenta-leve
 Equipment/&Enchanted_Maul_Acuteness_Description	Esta arma encantada foi criada usando os antigos conhecimentos dos mestres ferreiros de Manacalon. Seu design foi uma das primeiras obras de Elgador Keenspirit, Magesmith of the Arcaneum.
 Equipment/&Enchanted_Maul_Acuteness_Title	Maul da Acuidade
 Equipment/&Enchanted_Maul_Bearclaw_Description	Esta arma encantada foi forjada usando os antigos conhecimentos dos mestres ferreiros de Manacalon. As pontas afiadas da garra do urso trituram a armadura para infligir danos adicionais �, exatamente como esperado por Ildurial Stronghand, que projetou a primeira arma deste tipo.
 Equipment/&Enchanted_Maul_Bearclaw_Title	Garra de urso Maul
 Equipment/&Enchanted_Maul_Lightbringer_Description	Esta arma encantada foi forjada usando os antigos conhecimentos dos mestres ferreiros de Colthannin. Ela foi projetada por Elgador Keenspirit, Magesmith do Arcano para apoiar o combate contra criaturas não-mortas.
 Equipment/&Enchanted_Maul_Lightbringer_Title	Maul Lightbringer Maul
-Equipment/&Enchanted_Maul_PowerDescription	Esta arma encantada foi forjada usando os antigos conhecimentos dos mestres ferreiros de Manacalon. Algumas criaturas respeitam apenas as forças físicas. Os arcanistas do Manacalon criaram este Maul para dar aos campeões das Legiões de Ferro a força que seus corpos elfos não proporcionavam.
-Equipment/&Enchanted_Maul_PowerTitle	Maul do Poder
+Equipment/&Enchanted_Maul_Power_Description	Esta arma encantada foi forjada usando os antigos conhecimentos dos mestres ferreiros de Manacalon. Algumas criaturas respeitam apenas as forças físicas. Os arcanistas do Manacalon criaram este Maul para dar aos campeões das Legiões de Ferro a força que seus corpos elfos não proporcionavam.
+Equipment/&Enchanted_Maul_Power_Title	Maul do Poder
 Equipment/&Enchanted_Maul_Punisher_Description	Esta arma encantada foi criada usando os antigos conhecimentos dos mestres ferreiros de Manacalon. A combinação do melhor metal e da melhor pedra eslava deu a este machado um poder penetrante incrível.
 Equipment/&Enchanted_Maul_Punisher_Title	Punidor Maul
 Equipment/&Enchanted_Quarterstaff_Acuteness_Description	Esta arma encantada foi criada usando os antigos conhecimentos dos mestres ferreiros de Manacalon. Seu design foi uma das primeiras obras de Elgador Keenspirit, Magesmith of the Arcaneum.
@@ -275,7 +270,7 @@ Equipment/&Enchanted_Shield_Wooden_Survival_Description	Esta armadura encantada 
 Equipment/&Enchanted_Shield_Wooden_Survival_Title	Escudo de Sobrevivência de Madeira
 Equipment/&Enchanted_Spear_Acuteness_Description	Esta arma encantada foi criada usando os antigos conhecimentos dos mestres ferreiros de Manacalon. Seu design foi uma das primeiras obras de Elgador Keenspirit, Magesmith of the Arcaneum.
 Equipment/&Enchanted_Spear_Acuteness_Title	Lança de Acuidade
-Equipment/&Enchanted_Spear_BlackViper_Description	Esta arma encantada foi forjada usando o conhecimento antigo dos mestres ferreiros de Manacalon, usando uma lança e o veneno de uma aranha lendária das profundezas de Solasta. O projetista da lâmina foi Grigg Blackheart, um notório ferreiro do pântano Marsh halfling que trabalhava nas forjas da Aer Elai.
+Equipment/&Enchanted_Spear_BlackViper_Description	Esta arma encantada foi forjada usando o antigo conhecimento dos mestres ferreiros de Manacalon, usando uma lança e o veneno de uma aranha lendária das profundezas de Solasta. O projetista da lâmina foi Grigg Blackheart, um notório ferreiro do pântano Marsh halfling que trabalhava nas forjas da Aer Elai.
 Equipment/&Enchanted_Spear_BlackViper_Title	Lança da Víbora Negra
 Equipment/&Enchanted_Spear_Doomblade_Description	Esta arma encantada foi forjada usando os antigos conhecimentos dos mestres ferreiros de Manacalon. Kenaloth Darkmind concebeu as Doomblades como uma ferramenta de punição para aqueles que resistiram à magia do Império.
 Equipment/&Enchanted_Spear_Doomblade_Title	A Lança Doom Tipped
@@ -283,7 +278,6 @@ Equipment/&Enchanted_Spear_Lightbringer_Description	Esta arma encantada foi forj
 Equipment/&Enchanted_Spear_Lightbringer_Title	Lança Lightbringer
 Equipment/&Enchanted_Spear_Sharpness_Description	Esta arma encantada foi criada usando os antigos conhecimentos dos mestres ferreiros de Manacalon. Seu design foi uma das primeiras obras de Elgador Keenspirit, Magesmith of the Arcaneum.
 Equipment/&Enchanted_Spear_Sharpness_Title	Lança da Nitidez
-Equipment/&Enchanted_Spear_Stormblade_Title	Lança Stormblade
 Equipment/&Enchanted_Spear_Whiteburn_Description	Esta arma encantada foi criada usando os antigos conhecimentos dos mestres ferreiros de Manacalon. Whiteburn foi criada pelo primeiro Danantar a combater uma invasão troll vinda dos pântanos ao sul de seu domínio entre os Sioltafin e os Scarafin.
 Equipment/&Enchanted_Spear_Whiteburn_Title	Lança Whiteburn
 Equipment/&Enchanted_StuddedLeather_Deflection_Description	Esta armadura encantada foi criada usando os antigos conhecimentos dos mestres armadores da Manacalon. Ildurial Stronghand forjou a primeira dessas armaduras para a guarda pessoal do Imperador.
@@ -304,8 +298,8 @@ Equipment/&Enchanted_Warhammer_Bearclaw_Description	Esta arma encantada foi forj
 Equipment/&Enchanted_Warhammer_Bearclaw_Title	Martelo de Aquecedor de Garras de Urso
 Equipment/&Enchanted_Warhammer_Lightbringer_Description	Esta arma encantada foi forjada usando os antigos conhecimentos dos mestres ferreiros de Colthannin. Ela foi projetada por Elgador Keenspirit, Magesmith do Arcano para apoiar o combate contra criaturas não-mortas.
 Equipment/&Enchanted_Warhammer_Lightbringer_Title	Martelo Quente Lightbringer
-Equipment/&Enchanted_Warhammer_PowerDescription	Esta arma encantada foi forjada usando os antigos conhecimentos dos mestres ferreiros de Manacalon. Algumas criaturas respeitam apenas as forças físicas. Os arcanistas do Manacalon criaram este Martelo de Guerra para dar aos campeões das Legiões de Ferro a força que seus corpos elfos não proporcionavam.
-Equipment/&Enchanted_Warhammer_PowerTitle	Martelo Quente de Poder
+Equipment/&Enchanted_Warhammer_Power_Description	Esta arma encantada foi forjada usando os antigos conhecimentos dos mestres ferreiros de Manacalon. Algumas criaturas respeitam apenas as forças físicas. Os arcanistas do Manacalon criaram este Martelo de Guerra para dar aos campeões das Legiões de Ferro a força que seus corpos elfos não proporcionavam.
+Equipment/&Enchanted_Warhammer_Power_Title	Martelo Quente de Poder
 Equipment/&Enchanted_Warhammer_Punisher_Description	Esta arma encantada foi criada usando os antigos conhecimentos dos mestres ferreiros de Manacalon. A combinação do melhor metal e da melhor pedra eslava deu a este machado um poder penetrante incrível.
 Equipment/&Enchanted_Warhammer_Punisher_Title	Martelo de Punidor
 Equipment/&HerbalBrewQuickeningTitle	Poção de Fermento à Base de Ervas : Poção de Apressurização
@@ -324,7 +318,7 @@ Equipment/&ThunderPunchDescription	1D8 causa danos e impõe desvantagens nos rol
 Equipment/&ThunderPunchTitle	Soco de trovão
 Equipment/&WandIdentifyDescription	O texto lança o feitiço identificando o feitiço, gastando uma taxa. A varinha tem 3 cargas e recupera cargas 1d3 a cada amanhecer.
 Equipment/&WandIdentifyTitle	Bastão de Texto de Identificar
-Feat/&AddConstructCantripsDescription	Acrescenta cancros para curar e descartar suas construções
+Feat/&AddConstructCantripsDescription	Acrescenta cancros para curar e dispensar suas construções
 Feat/&AddConstructCantripsTitle	Construir Cantrips
 Feat/&AddProtectorConstructCantripDescription	Adiciona Construct Mending Construct e Dississississ Construct para aumentar a flexibilidade de suas construções
 Feat/&AddProtectorConstructCantripTitle	Bônus de Construção de Cantrips
@@ -360,7 +354,7 @@ Feat/&ArtilleristCannonDetonationDescription	Detonar um de seus dispositivos cau
 Feat/&ArtilleristCannonDetonationTitle	Detonação do dispositivo
 Feat/&ArtilleristFlameCannon15Description	Fale fogo, lidando com danos de fogo 6d8 contra seus inimigos como uma ação bônus
 Feat/&ArtilleristFlameCannon15Title	Lançador de chamas
-Feat/&ArtilleristFlameCannon9Description	Fale fogo, lidando com danos de fogo 3d8 em seus inimigos como uma ação bônus
+Feat/&ArtilleristFlameCannon9Description	Fale fogo, lidando com danos de fogo 3d8 contra seus inimigos como uma ação bônus
 Feat/&ArtilleristFlameCannon9Title	Lançador de chamas
 Feat/&ArtilleristFlameCannonDescription	Fale fogo, lidando com danos de fogo 2d8 em seus inimigos como uma ação bônus
 Feat/&ArtilleristFlameCannonTitle	Lançador de chamas
@@ -499,7 +493,7 @@ Feat/&FeatTelekineticChaPushTitle	Empurrão telecinético
 Feat/&FeatTelekineticChaTitle	Telecinético (Carisma)
 Feat/&FeatTelekineticIntDescription	Aumentar o atributo Inteligência em 1. Ganhar uma habilidade de ação bônus para empurrar ou puxar criaturas.
 Feat/&FeatTelekineticIntPullDescription	Puxar telekineticamente uma criatura na sua direção.
-Feat/&FeatTelekineticIntPullTitle	Puxar telecinético
+Feat/&FeatTelekineticIntPullTitle	Puxar telecinéticamente
 Feat/&FeatTelekineticIntPushDescription	Telecineticamente empurra uma criatura para longe de você.
 Feat/&FeatTelekineticIntPushTitle	Empurrão telecinético
 Feat/&FeatTelekineticIntTitle	Telecinético (Inteligência)
@@ -569,7 +563,7 @@ Feat/&HealerUseMedicineDescription	Você pode usar uma ação para restaurar 1d6
 Feat/&HealerUseMedicineTitle	Use a medicina
 Feat/&IncreaseConstructSelectingDescription	Agora você pode convocar duas Construções de Artilharia. As construções podem ser do mesmo modo ou de modos diferentes
 Feat/&IncreaseConstructSelectingTitle	Reforços
-Feat/&InspiringLeaderDescription	Passe 10 minutos para inspirar até 6 criaturas amigáveis (que podem incluir você mesmo) a menos de 30 metros de você. Cada criatura ganha pontos de golpe temporários iguais ao seu nível + seu modificador de Carisma. Útil uma vez por curto descanso.
+Feat/&InspiringLeaderDescription	Passe 10 minutos para inspirar até 6 criaturas amigáveis (que podem incluir você mesmo) a menos de 30 metros de você. Cada criatura ganha pontos de sucesso temporários iguais ao seu nível + seu modificador de Carisma. Útil uma vez por curto descanso.
 Feat/&InspiringLeaderTitle	Líder inspirador
 Feat/&IntToAttackAndDamageDescription	Adicione Int em vez de Str ou Dex a suas Armas de Armaduras
 Feat/&IntToAttackAndDamageTitle	Arma de Amror
@@ -595,7 +589,7 @@ Feat/&PowerFalseLifeFromFeatDescription	Reforçando-se com um fac-símile necrom
 Feat/&PowerFalseLifeFromFeatTitle	Vida Falsa
 Feat/&PowerInflictWoundsFromFeatDescription	Faça um feitiço de ataque corpo a corpo contra uma criatura que você possa alcançar. Em um acerto, o alvo leva danos necróticos 3d10.
 Feat/&PowerInflictWoundsFromFeatTitle	Feridas de Inflição
-Feat/&PowerInvisibilityFromFeatDescription	Uma criatura que você toca torna-se Invisível até que o feitiço termine. Qualquer coisa que o alvo esteja usando ou carregando é Invisível, desde que esteja sobre a pessoa do alvo. O feitiço termina para um alvo que ataca ou lança um feitiço.
+Feat/&PowerInvisibilityFromFeatDescription	Uma criatura que você toca torna-se Invisível até que o feitiço termine. Qualquer coisa que o alvo esteja vestindo ou carregando é Invisível desde que esteja na pessoa do alvo. O feitiço termina para um alvo que ataca ou lança um feitiço.
 Feat/&PowerInvisibilityFromFeatTitle	Invisibilidade
 Feat/&PowerMistyStepFromFeatDescription	Brevemente rodeado de névoa prateada, você se teletransporta até 30 pés para um espaço desocupado que você pode ver.
 Feat/&PowerMistyStepFromFeatTitle	Degrau enevoado
@@ -627,7 +621,7 @@ Feat/&ResummonArtilleryConstruct_15Title	Resummon Artillery Construct 3
 Feat/&ResummonArtilleryConstructDescription	Este feitiço permite ao funileiro retomar uma Construção de Artilharia em um dos vários modos após o término da convocação inicial. A construção resumida também dura 1 hora.
 Feat/&RetributionDescription	Construir danos 1D4 + Int quando atacado
 Feat/&RetributionTitle	Retribuição
-Feat/&ScoutSentinelFeatureSet_level03Description	<tamanho=17><color=#add8e6ff>Learn Scout Sentinel Spells</cor></tamanho>>nível 3: Míssil Mágico, Onda de Trovão Nível 5: Borrão, Desfocagem Nível 9: Parafuso Relâmpago, Padrão Hipnótico Nível 13: Escudo de Fogo, Maior Invisibilidade Nível 17: Dimensão Porta, Parede de Vento, Parede de Fogo Tamanho=17>#add8e6ff>Multiplas Funções da Armadura</cor>## tamanho>#nVocê pode alternar entre os modos funcionais uma vez por dia, criando e usando armas temporárias=n<tamanho=17># cor=#add8e6ff>Modo Sentinela</cor>#/tamanho>#nGanhe um número limitado de HP temporários com base no nível. Impor desvantagem aos inimigos que atacam os aliados. Tamanho=17> cor=#add8e6ff>Scout Mode</cor>## tamanho>#nGanhe maior movimento, vantagem de furtividade e um ataque à distância que lida com um dado extra de dano uma vez por vez. \Tamanho = 17 cor = 8e6ff Características = cor = tamanho = 1. Você pode usar as armas da armadura como um foco soletrador para seus feitiços.
+Feat/&ScoutSentinelFeatureSet_level03Description	<tamanho=17><color=#add8e6ff>Learn Scout Sentinel Spells</cor></tamanho>>nível 3: Míssil Mágico, Onda de Trovão Nível 5: Borrão, Desfocagem Nível 9: Parafuso Relâmpago, Padrão Hipnótico Nível 13: Escudo de Fogo, Maior Invisibilidade Nível 17: Dimensão Porta, Parede de Vento, Parede de Fogo Tamanho=17>#add8e6ff>Multiplas Funções da Armadura</cor>## tamanho>#nVocê pode alternar entre os modos funcionais uma vez por dia, criando e usando armas temporárias=n<tamanho=17># cor=#add8e6ff>Modo Sentinela</cor>#/tamanho>nGanhe um número limitado de HP temporários com base no nível. Impor desvantagem aos inimigos que atacam os aliados. Tamanho=17> cor=#add8e6ff>Scout Mode</cor>## tamanho>#nGanhe maior movimento, vantagem de furto e um ataque à distância que lida com um dado extra de dano uma vez por vez. \Tamanho = 17 cor = 8e6ff Características = cor = tamanho = 1. Você pode usar as armas da armadura como um foco soletrador para seus feitiços.
 Feat/&ScoutSentinelFeatureSet_level03Title	Sentinela Escoteira
 Feat/&ScoutSentinelFeatureSet_level05Description	<tamanho=17><color=#add8e6ff>Extra Attack</cor></tamanho>\n Você pode atacar mais uma vez, por turno de combate, quando usar o ataque ou empurrar ações
 Feat/&ScoutSentinelFeatureSet_level05Title	Sentinela Escoteira
@@ -693,21 +687,11 @@ Feature/&AHWarlockClassPactBoonSetDescription	No terceiro nível, seu outro patr
 Feature/&AHWarlockClassPactBoonSetTitle	Pacto
 Feature/&AHWarlockClassPactOfTheBladeSetDescription	Você se torna proficiente com todas as armas e seus ataques com armas são considerados mágicos.
 Feature/&AHWarlockClassPactOfTheBladeSetTitle	Pacto da Lâmina
-Feature/&AHWarlockFiendPactDarkOnesBlessingPowerDescription	Começando no 1º nível, quando você reduz uma criatura hostil a 0 pontos de golpe***, você ganha pontos de golpe temporários iguais ao seu modificador de Carisma + seu nível de mago (mínimo de 1). \Nota Mod - Isto acrescenta um poder de vontade livre para adicionar estes HP Temp que você terá que usar manualmente quando você derrubar/mata um inimigo.
-Feature/&AHWarlockFiendPactDarkOnesBlessingPowerTitle	A bênção do escuro
-Feature/&AHWarlockFiendPactDarkOnesOwnLuckDescription	Você ganha um uso indomável uma vez por dia (Escolha para voltar a lançar com economia se você falhar). (Não corresponde à SRD, mas exigiria uma capacidade de reação totalmente nova para imitar a SRD).
-Feature/&AHWarlockFiendPactDarkOnesOwnLuckTitle	A Própria Sorte do Escuro
-Feature/&AHWarlockFiendPactExtendedSpellListDescription	O Fiend lhe permite escolher entre uma lista expandida de feitiços quando você aprende um feitiço de mago. Os seguintes feitiços são adicionados à lista de feitiços de mago para você. \Nível 1: Mãos ardentes, Bane Nível 2: Cegueira, Raio Escaldante Nível 3: Bola de fogo, Nuvem fedorenta Nível 4: Escudo de fogo, Parede de fogo Nível 5: Ataque de chama, Fogo de Conjugação Elemental
-Feature/&AHWarlockFiendPactExtendedSpellListTitle	Fiend expandiu a lista de feitiços
-Feature/&AHWarlockFiendPactFiendishResilienceDescription	Você ganha resistência aos danos causados pelo fogo. (Não é o mesmo que SRD - acredito que a implementação adequada exigiria um poder para cada tipo de dano com um pool de recursos compartilhado, pois não parece haver uma maneira de agrupar escolhas de poder como feitiços neste momento).
-Feature/&AHWarlockFiendPactFiendishResilienceTitle	Resiliência Fiendish
-Feature/&AHWarlockFiendPactSpellListDescription	O Fiend lhe permite escolher entre uma lista expandida de feitiços quando você aprende um feitiço de mago. Os seguintes feitiços são adicionados à lista de feitiços de mago para você. \Nível 1: Mãos ardentes, Bane Nível 2: Cegueira, Raio Escaldante Nível 3: Bola de fogo, Nuvem fedorenta Nível 4: Escudo de fogo, Parede de fogo Nível 5: Ataque de chama, Fogo de Conjugação Elemental
-Feature/&AHWarlockFiendPactSpellListTitle	Fiend expandiu a lista de feitiços
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerDescription	Uma vez por breve descanso, você pode dar poder a uma arma com o poder das almas por um minuto, sua arma acende por 20 pés de luz brilhante e 20 pés de luz fraca e você acrescenta seu carisma ao seu para acertar. Além disso, todos os seus ataques acrescentam seu bônus de proficiência em danos durante o período de duração.
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle	Poder da Alma
 Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	A lâmina da Alma permite que você escolha a partir de uma lista expandida de feitiços quando aprender um feitiço de mago. Os seguintes feitiços são adicionados à lista de feitiços de mago para você. \Nível 1: Escudo, Vida Falsa Nível 2: Borrão, Feitiço de Marca Nível 3: Pressa, Lento Nível 4: Assassino Fantasma, Tentáculos Negros Nível 5: Cone de Frio, Torção da Mente
 Feature/&AHWarlockSoulBladePactExtendedSpellListTitle	Feitiços da Lâmina da Alma
-Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Uma vez por breve descanso você usa o poder das almas para se defender. Usando uma ação bônus, você ganha um hp temporário igual ao seu nível + modificador de carisma.
+Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Uma vez por breve descanso você usa o poder das almas para se defender. Usando uma ação bônus você ganha um hp temporário igual ao seu nível + modificador de carisma.
 Feature/&AHWarlockSoulBladePactSoulShieldPowerTitle	Escudo de alma
 Feature/&AHWarlockSoulBladePactSpellListDescription	A lâmina da Alma permite que você escolha a partir de uma lista expandida de feitiços quando aprender um feitiço de mago. Os seguintes feitiços são adicionados à lista de feitiços de mago para você. \Nível 1: Escudo, Vida Falsa Nível 2: Borrão, Feitiço de Marca Nível 3: Pressa, Lento Nível 4: Assassino Fantasma, Tentáculos Negros Nível 5: Cone de Frio, Torção da Mente
 Feature/&AHWarlockSoulBladePactSpellListTitle	Lista ortográfica expandida da lâmina da alma
@@ -760,9 +744,9 @@ Feature/&ClassWarlockEldritchInvocationSetLevel5Description	Acrescentar uma invo
 Feature/&ClassWarlockEldritchInvocationSetLevel5Title	Acrescentar uma invocação eldritch.
 Feature/&ClassWarlockEldritchInvocationSetLevelDescription	Acrescentar uma invocação de eldritch.
 Feature/&ClassWarlockEldritchInvocationSetLevelTitle	Invocação de eldritch
-Feature/&ClassWarlockEldritchMasterDescription	você pode recorrer a sua reserva interior de poder místico enquanto implora a seu patrono que recupere os feitiços gastos. Você pode gastar 1 minuto pedindo ajuda a seu mecenas para recuperar todos os espaços de feitiços gastos de sua mágica de Pacto. Uma vez que você recupere feitiços com este recurso, você deve terminar um longo descanso antes de poder fazer isso novamente.
+Feature/&ClassWarlockEldritchMasterDescription	você pode recorrer a sua reserva interior de poder místico enquanto implora a seu patrono que recupere os espaços gastos com feitiços. Você pode gastar 1 minuto pedindo ajuda a seu mecenas para recuperar todos os espaços de feitiços gastos de sua mágica de Pacto. Uma vez que você recupere feitiços com este recurso, você deve terminar um longo descanso antes de poder fazer isso novamente.
 Feature/&ClassWarlockEldritchMasterTitle	Mestre Eldritch
-Feature/&ClassWarlockMysticArcanumSetDescription	Seu patrono lhe concede um segredo mágico chamado arcano. Você pode lançar seu feitiço arcano uma vez sem gastar um feitiço. Você deve terminar um longo descanso antes de poder fazer isso novamente. Em níveis superiores, você ganha mais feitiços de mago de sua escolha que podem ser lançados desta forma: um 6º feitiço no 11º nível, um 7º feitiço no 13º nível, um 8º feitiço no 15º nível, e um 9º feitiço no 17º nível.
+Feature/&ClassWarlockMysticArcanumSetDescription	Seu patrono lhe concede um segredo mágico chamado arcano. Você pode lançar seu feitiço arcano uma vez sem gastar um feitiço. Você deve terminar um longo descanso antes de poder fazer isso novamente. Em níveis superiores, você ganha mais feitiços de magia de sua escolha que podem ser lançados desta forma: um sexto feitiço no 11º nível, um sétimo feitiço no 13º nível, um oitavo nível no 15º nível e um nono nível no 17º nível.
 Feature/&ClassWarlockMysticArcanumSetTitle	Mystic Arcanum
 Feature/&ClassWarlockSavingThrowProficiencyDescription	Sabedoria, Carisma
 Feature/&ClassWarlockSavingThrowProficiencyTitle	Poupar lança Proficiências
@@ -776,20 +760,10 @@ Feature/&ClassWarlockWeaponProficiencyDescription	Armas simples
 Feature/&ClassWarlockWeaponProficiencyTitle	Proficiências de armas de feitiçaria
 Feature/&CounterStrikePowerDescription	Gaste um gambit die e contra-ataca o inimigo, se você acertar, faça um dano adicional de 1d6+2 bludgeoning.
 Feature/&CounterStrikePowerTitle	Contra-Ataque
-Feature/&DH_AirTitan_LightningStorm_Custom_PowerDescription	6d8 Relâmpagos em ampla área
-Feature/&DH_AirTitan_LightningStorm_Custom_PowerTitle	Tempestade Relâmpago
-Feature/&DH_AtWill_Fireball_PowerDescription	Bola de fogo at-vontade
-Feature/&DH_AtWill_Fireball_PowerTitle	Bola de fogo
-Feature/&DH_AtWill_HoldMonster_PowerDescription	3 usos por dia
-Feature/&DH_AtWill_HoldMonster_PowerTitle	Monstro do Porão
-Feature/&DH_AtWill_Invisibility_PowerDescription	Invisibilidade do At-will
-Feature/&DH_AtWill_Invisibility_PowerTitle	Invisibilidade
 Feature/&DH_BlinkDescription	Como uma ação bônus, você desaparece de seu plano atual de existência, evitando todos os danos. No início da sua próxima volta, você retorna ao espaço do qual desapareceu.
 Feature/&DH_BlinkTitle	Pestaneje
 Feature/&DH_FadeIntoTheVoidDescription	Quando você é reduzido a 0 pontos de acerto, mas não é morto, você cai para 1 ponto de acerto, em vez disso, ao desvanecer-se brevemente no vazio para diminuir o dano. Você não pode usar este recurso novamente até que termine um longo descanso.
 Feature/&DH_FadeIntoTheVoidTitle	Fade Into The Void (Desaparecer no Vazio)
-Feature/&DH_Generic_Lightning_Attack_Custom_PowerDescription	12D8
-Feature/&DH_Generic_Lightning_Attack_Custom_PowerTitle	Relâmpago
 Feature/&DH_RiftCloakDescription	Seu controle dos portais de fenda aumentou ao ponto de poder agora conceder a proteção da fenda a outros. Você pode lançar a ala à vontade (sem a partilha de danos)
 Feature/&DH_RiftCloakTitle	Manto de Rift
 Feature/&DH_RiftControlDescription	Brevemente cercado pela energia da fenda, você se teletransporta para um espaço desocupado. Agora você pode trazer um aliado com você quando se teletransportar e o alcance tiver aumentado significativamente
@@ -850,7 +824,7 @@ Feature/&DualFlurryTitle	Duplo Flurry
 Feature/&EldritchMindDescription	Você tem vantagem sobre os lançamentos de economia da Constituição que você faz para manter sua concentração em um feitiço.
 Feature/&EldritchMindTitle	Mente Eldritch
 Feature/&EldritchSightTitle	Eldritch Sight
-Feature/&EldritchSmiteDescription	Uma vez por vez quando você atinge uma criatura com sua arma de pacto, você pode gastar um feitiço de mago para lidar com um dano extra de força 1d8 ao alvo, mais outro 1d8 por nível do feitiço,
+Feature/&EldritchSmiteDescription	Uma vez por vez quando você atinge uma criatura com sua arma de pacto, você pode gastar um feitiço de mago para lidar com um dano extra de força 1d8 ao alvo, mais outros 1d8 por nível do feitiço,
 Feature/&EldritchSmiteTitle	Eldritch Smite
 Feature/&ElementalistSpellsMagicAffinityDescription	Você escolhe de uma lista expandida de feitiços quando aprende um feitiço de mago. Os seguintes feitiços são adicionados à lista de feitiços de mago para você: \Nível 1: Onda de Trovão, Nuvem de Nevoeiro Nível 2: Crescimento de Espigão, Raio de Chama Nível 3: Bola de Fogo, Parafuso de Raio Nível 4: Pele de Pedra, Icestormenta Nível 5: Cone de Frio, Golpe de Chama
 Feature/&ElementalistSpellsMagicAffinityTitle	Feitiços Elementalistas
@@ -869,7 +843,7 @@ Feature/&FlameArtillery_15ModePowerDescription	Convoca uma construção que dura
 Feature/&FlameArtillery_15ModePowerTitle	Invocar a Construção de Artilharia de Chama
 Feature/&FlameArtilleryModePowerDescription	Convoca uma construção que dura 1 hora. \Artilharia em chamas: Cria um cone de fogo que trata de danos 2D8 em um salvamento fracassado.
 Feature/&FlameArtilleryModePowerTitle	Invocação de chama de artilharia de fogo
-Feature/&ForceArtillery_09ModePowerDescription	Convoca uma construção que dura 1 hora. \Força de Artilharia: Tridimensional8 força o dano e empurra o inimigo a 5 pés de distância. \Autodestruição: trata os danos da força 3D8 em uma unidade que falhou e destrói a unidade.
+Feature/&ForceArtillery_09ModePowerDescription	Convoca uma construção que dura 1 hora. \Força de Artilharia: Tridimensional8 força o dano e empurra o inimigo a 5 pés de distância. \Autodestruição: trata os danos da força 3D8 em uma unidade que falhou, salvando e destruindo a unidade.
 Feature/&ForceArtillery_09ModePowerTitle	Invocar Força de Artilharia de Construção
 Feature/&ForceArtillery_15ModePowerDescription	Convoca uma construção que dura 1 hora. \Força de Artilharia: Tridimensional8 força o dano e empurra o inimigo a 5 pés de distância. \Autodestruição: trata os danos da força 3D8 em uma unidade que falhou, salvando e destruindo a unidade. \Meia Cúpula de Cobertura : fornece metade da cobertura aos aliados num raio de 10 pés.
 Feature/&ForceArtillery_15ModePowerTitle	Invocar Força de Construção de Artilharia
@@ -897,7 +871,7 @@ Feature/&HinderingBlastFeatureSetDescription	Quando você atinge uma criatura co
 Feature/&HinderingBlastFeatureSetTitle	Dificultando a explosão
 Feature/&HinderingBlastMagicAffinityDescription	quando você atinge uma criatura com sua explosão de eldritch, você pode reduzir a velocidade dessa criatura em 3 metros até o final de sua próxima curva
 Feature/&HinderingBlastMagicAffinityTitle	Dificultando a explosão
-Feature/&ImprovedPactWeaponDescription	Além disso, a arma ganha um bônus de +1 para seus feitiços de ataque e rolos de dano.
+Feature/&ImprovedPactWeaponDescription	Você pode usar qualquer arma como foco de magia para seus feitiços. Além disso, a arma ganha um bônus de +1 para seus rolos de ataque e dano.
 Feature/&ImprovedPactWeaponTitle	Arma de Pacto Melhorada
 Feature/&ImprovedScoutModePowerDescription	Ganho de recursos aprimorados do Modo Escoteiro. Pode agora criar vantagem para aliados e desvantagem para inimigos com um único ataque
 Feature/&ImprovedScoutModePowerTitle	Modo Escoteiro Melhorado
@@ -931,8 +905,8 @@ Feature/&MoonLitLightAffinityTitle	Manto Umbral
 Feature/&OneWithShadowsDescription	Quando você está em uma área de pouca luz ou escuridão, você se torna invisível até que se mova ou tome uma ação ou uma reação.
 Feature/&OneWithShadowsTitle	Um Com Sombras
 Feature/&OtherworldlyLeapTitle	Outro salto mundial
-Feature/&PowerAttackAttackModifierOneHandedDescription	Tome um -{0} para acertar a penalidade de seu ataque durante o resto da vez para fazer +{0} danos quando você aterrissa seus ataques. Somente para ser usado quando atacar com uma arma de mão única sem luz, corpo a corpo ou à queima-roupa.
-Feature/&PowerAttackAttackModifierOneHandedTitle	Ataque de força com uma só mão
+Feature/&PowerAttackAttackModifierDescription	Tome um -{0} para acertar a penalidade de seu ataque durante o resto da vez para fazer +{0} danos quando você aterrissa seus ataques. Somente para ser usado quando atacar com uma arma de mão única sem luz, corpo a corpo ou à queima-roupa.
+Feature/&PowerAttackAttackModifierTitle	Ataque de força com uma só mão
 Feature/&PowerAttackConditionDescription	Tome um -{0} para acertar a penalidade de seu ataque durante o resto da vez para fazer +{0} danos quando você aterrissa seus ataques. Somente para ser usado quando atacar com uma arma de mão única sem luz, corpo a corpo ou à queima-roupa.
 Feature/&PowerAttackConditionTitle	Ataque de força com uma só mão
 Feature/&PowerAttackPowerDescription	Tome um -{0} para acertar a penalidade de seu ataque durante o resto da vez para fazer +{0} danos quando você aterrissa seus ataques. Somente para ser usado quando atacar com uma arma de mão única sem luz, corpo a corpo ou à queima-roupa.
@@ -944,7 +918,7 @@ Feature/&PowerAttackTwoHandedConditionTitle	Ataque com duas mãos
 Feature/&PowerAttackTwoHandedPowerDescription	Tome um -{0} para acertar a penalidade de seu ataque durante o resto da vez para fazer +{1} danos quando você aterrissa seus ataques. Somente para ser usado quando atacar com duas mãos, corpo a corpo ou à queima-roupa.
 Feature/&PowerAttackTwoHandedPowerTitle	Ataque com duas mãos
 Feature/&PowerPaladinAuraOfCourage18Description	Conceder um bônus de economia de lançamento aos aliados com 30 pés.
-Feature/&PowerPaladinAuraOfCourage18Title	Melhoria da Aura de Coragem
+Feature/&PowerPaladinAuraOfCourage18Title	Melhoria da Aura da Coragem
 Feature/&PowerPaladinAuraOfProtection18Description	Você e seus aliados a menos de 30 pés não podem se assustar.
 Feature/&PowerPaladinAuraOfProtection18Title	Melhoria da Aura de Proteção
 Feature/&PowerTorchbearerDescription	Tentativa de incendiar um alvo comum!
@@ -972,8 +946,6 @@ Feature/&RallyingCryPowerTitle	Choro de Rally
 Feature/&RallyingCryPowerTitleShort	Choro de rali
 Feature/&RangerArcanistMagicDescription	A partir do 3º nível, você aprende um feitiço adicional quando alcança certos níveis nesta classe. Cada feitiço conta como um feitiço de ranger para você, mas não conta contra o número de feitiços de ranger que você conhece. Os feitiços são: Nível 3: Escudo, Nível 5: Passo enevoado, Nível 9: Pressa, Nível 13: Porta de Dimensão, e Nível 17: Segurar Monstro. Além disso, você é proficiente em lançar feitiços em batalha, e pode lançar feitiços que requerem um componente somático mesmo que ambas as mãos estejam segurando uma arma ou escudo.
 Feature/&RangerArcanistMagicTitle	Fundição de Feitiços de Arcanistas Rangers
-Feature/&RangerFeatureSetFoeSlayerDescription	No 20º nível, você se torna um caçador inigualável de seus inimigos. Uma vez em cada um de seus turnos, você pode adicionar seu modificador de Sabedoria ao rolo de Ataque ou ao rolo de dano de um Ataque que você faz contra um de seus inimigos preferidos.
-Feature/&RangerFeatureSetFoeSlayerTitle	Caçador de inimigos
 Feature/&RangerFeralSensesDescription	Você ganha sentidos preternaturais que o ajudam a combater criaturas que você não pode ver. Quando você ataca uma criatura que não consegue ver, sua incapacidade de vê-la não impõe desvantagens em seu ataque rola contra ela.
 Feature/&RangerFeralSensesTitle	Sentidos ferozes
 Feature/&RangerVanishActionDescription	A partir do 14º nível, você pode usar a ação Esconder como uma ação bônus na sua vez.
@@ -1029,7 +1001,7 @@ Feature/&UrPriestExpandedSpelllistAfinityDescription	Você escolhe de uma lista 
 Feature/&UrPriestExpandedSpelllistAfinityTitle	Feitiços UrPriest
 Feature/&WallofThornsFeatureSetDescription	Muro de Espinhos fundido uma vez por dia
 Feature/&WallofThornsFeatureSetTitle	Barreira florestal
-Feature/&ZSPowerPaladinCleansingTouchDescription	Remover os efeitos de feitiços tocando um aliado. Você pode fazer isso um número de vezes por dia igual ao seu modificador de Carisma.
+Feature/&ZSPowerPaladinCleansingTouchDescription	Remover os efeitos de feitiços tocando um aliado. Você pode fazer isto um número de vezes por dia igual ao seu modificador de Carisma.
 Feature/&ZSPowerPaladinCleansingTouchTitle	Toque de Limpeza
 Feedback/&AdditionalDamageAgonizing_BlastFormat	Explosão agonizante
 Feedback/&AdditionalDamageAgonizing_BlastLine	Quando você lança um feitiço usando dano por força (explosão de eldritch), acrescente seu modificador de Carisma ao dano que ele trata em um golpe.
@@ -1077,8 +1049,8 @@ Format/&LevelAndExperienceFormat	Nível: {0}nExperiência: {Pontos necessários 
 Format/&LevelAndExperienceMaxedFormat	Nível: {0}nExperiência: {Nível máximo alcançado.
 Item/&ForceArtilleryProjectileDescription	ForceArtilleryProjectile
 Item/&ForceArtilleryProjectileTitle	ForceArtilleryProjectile
-Language/&GnomishDescription	Uma antiga língua solastana, preservada por gnomos que vivem em florestas profundas de Solasta, sobreviveu ao Cataclismo.
-Language/&GnomishTitle	Gnomish
+Language/&GnomishLanguageDescription	Uma antiga língua solastana, preservada por gnomos que vivem em florestas profundas de Solasta, sobreviveu ao Cataclismo.
+Language/&GnomishLanguageTitle	Gnomish
 MainMenu/&ExportPdfDescription	Nivele abaixo este Herói
 MainMenu/&ExportPdfTitle	Nível Abaixo
 Message/&CharacterExportDuplicateNameErrorDescription	Exportação Cancelada: um herói com este nome já existe na piscina. Por favor, tente um nome diferente.
@@ -1096,62 +1068,62 @@ Modifier/&DisorientDescription	-1d6 para atacar rolos
 Modifier/&DisorientTitle	Desorientado
 Modifier/&RuinedDescription	-3 para a classe Armor
 Modifier/&RuinedTitle	Arruinado
-Monster/&DH_Custom_AirTitan_Description	Quando convocados, estes elementais mais velhos manifestam-se como seres de capacidade apocalíptica, entidades cuja mera existência promete destruição.
-Monster/&DH_Custom_AirTitan_Title	<color=#ff0000ff>Primordial Air Titan</cor>
-Monster/&DH_Custom_AncientBlackDragon_Description	Os mais mal-humorados e vis dos dragões cromáticos, os dragões negros recolhem os destroços e os tesouros dos povos caídos. Estes dragões detestam ver os fracos prosperar e se divertir no colapso dos reinos humanóides. Eles fazem suas casas em pântanos fétidos e ruínas desmoronadas onde os reinos outrora estavam.
-Monster/&DH_Custom_AncientBlackDragon_Title	<color=#ff0000ff>Ancient Black Dragon</cor>
-Monster/&DH_Custom_AncientBlueDragon_Description	Vaidosos e territoriais, os dragões azuis voam pelos céus sobre os desertos, pregando em caravanas e saqueando rebanhos e assentamentos nas terras verdejantes além do alcance do deserto. Estes dragões também podem ser encontrados em estepes secas, em terras ruins e em costas rochosas. Eles guardam seus territórios contra todos os concorrentes potenciais, especialmente os dragões de latão.
-Monster/&DH_Custom_AncientBlueDragon_Title	<color=#ff0000ff>Ancient Blue Dragon</cor>
-Monster/&DH_Custom_AncientGreenDragon_Description	Os mais astutos e traiçoeiros dos verdadeiros dragões, os dragões verdes usam a má direção e a trapaça para se imporem contra seus inimigos. Maldosos temperados e completamente maus, eles têm um prazer especial em subverter e corromper os de bom coração. Nas florestas antigas eles vagueiam, os dragões verdes demonstram uma agressão que muitas vezes se trata menos de território do que de ganhar poder e riqueza com o menor esforço possível.
-Monster/&DH_Custom_AncientGreenDragon_Title	<color=#ff0000ff>Ancient Green Dragon</cor>
-Monster/&DH_Custom_AncientRedDragon_Description	Os mais cobiçosos dos verdadeiros dragões, os dragões vermelhos procuram incansavelmente aumentar seus acervos de tesouros. Eles são excepcionalmente vaidosos, mesmo para os dragões, e sua presunção se reflete em seu orgulho e seu desprezo por outras criaturas.
-Monster/&DH_Custom_AncientRedDragon_Title	<color=#ff0000ff>Ancient Red Dragon</cor>
-Monster/&DH_Custom_AncientWhiteDragon_Description	Os menores, menos inteligentes e mais animalescos dos dragões cromáticos, dragões brancos habitam em climas frígidos, favorecendo áreas árticas ou montanhas geladas. Eles são répteis cruéis e cruéis, movidos pela fome e pela ganância.
-Monster/&DH_Custom_AncientWhiteDragon_Title	<color=#ff0000ff>Dragão Branco Antigo</cor>
-Monster/&DH_Custom_Archmage_Description	As imagens das arcadas são poderosos (e geralmente bastante antigos) castres ortográficos dedicados ao estudo das artes arcanas. Os benevolentes aconselham reis e rainhas, enquanto os malvados governam como tiranos e perseguem o lichdom. Aqueles que não são bons nem maus se sequestram em torres remotas para praticar sua magia sem interrupção.
-Monster/&DH_Custom_Archmage_Title	<color=#ff0000ff>Arqumage</cor>
-Monster/&DH_Custom_Balor_Description	Figuras do mal antigo e terrível, os balors governam como generais sobre exércitos demoníacos, ansiando por tomar o poder enquanto destroem quaisquer criaturas que se oponham a eles
-Monster/&DH_Custom_Balor_Title	<color=#ff0000ff>Balor</cor>
-Monster/&DH_Custom_ConstructTitan_Description	Construções maciças construídas para a guerra e forjadas de metal pesado. Um imparável malabarismo, existe para seguir as ordens de seu criador, e protege ou ataca como esse criador exige.
-Monster/&DH_Custom_ConstructTitan_Title	<color=#ff0000ff>Mechanical Construct Titan</color>
-Monster/&DH_Custom_Deva_Description	Os Devas são anjos que atuam como mensageiros ou agentes divinos para o Plano Material,
-Monster/&DH_Custom_Deva_Title	<color=#ff0000ff>Deva</cor>
-Monster/&DH_Custom_Djinni_Description	Orgulhosos gênios do Plano Elemental do Ar, Mestres do Ar, os djinn cavalgam poderosos redemoinhos que eles criam e dirigem por capricho, e que podem até mesmo transportar passageiros.
-Monster/&DH_Custom_Djinni_Title	<color=#ff0000ff>Djinni</cor>
-Monster/&DH_Custom_EarthTitan_Description	Quando convocados, estes elementais mais velhos manifestam-se como seres de capacidade apocalíptica, entidades cuja mera existência promete destruição.
-Monster/&DH_Custom_EarthTitan_Title	<color=#ff0000ff>Primordial Earth Titan</cor>
-Monster/&DH_Custom_Efreeti_Description	Gênios de tosco do Plano Elemental do Fogo, os efreet são mestres da chama, imunes ao fogo e capazes de criá-lo por um capricho.
-Monster/&DH_Custom_Efreeti_Title	<color=#ff0000ff>Efreeti</cor>
-Monster/&DH_Custom_Erinyes_Description	os erinyes são guerreiros ferozes e disciplinados. Varrendo dos céus, eles trazem morte rápida para as criaturas que enganaram seus senhores.
-Monster/&DH_Custom_Erinyes_Title	<color=#ff0000ff>Erinyes</cor>
-Monster/&DH_Custom_FireTitan_Description	Quando convocados, estes elementais mais velhos manifestam-se como seres de capacidade apocalíptica, entidades cuja mera existência promete destruição.
-Monster/&DH_Custom_FireTitan_Title	<color=#ff0000ff>Primordial Fire Titan</cor>
-Monster/&DH_Custom_GuardianNaga_Description	Sábia e boa, as belas nagas guardiãs protegem os lugares sagrados e os itens de poder mágico de cair em mãos malignas. Em seus redutos ocultos, eles pesquisam feitiços e eclodem convolutos enredos para frustrar os desígnios malignos de seus inimigos.
-Monster/&DH_Custom_GuardianNaga_Title	<color=#ff0000ff>Guardian Naga</cor>
-Monster/&DH_Custom_HornedDevil_Description	A infantaria voadora das legiões infernais, demônios chifrados seguem ordens à risca.
-Monster/&DH_Custom_HornedDevil_Title	<color=#ff0000ff>Diabo chifrado</cor>
-Monster/&DH_Custom_IceDevil_Description	Cobiçando o poder de seus superiores demoníacos, os demônios do gelo trabalham incessantemente para a promoção, massacrando os inimigos dos Nove Infernos e reclamando o maior número possível de almas para seus mestres arquiduqueiros.
-Monster/&DH_Custom_IceDevil_Title	<color=#ff0000ff>Ice Devil</cor>
-Monster/&DH_Custom_Lich_Description	Os liches são restos de grandes feiticeiros que abraçam a morte não morta como meio de se preservarem. Eles promovem seu próprio poder a qualquer custo, não tendo nenhum interesse nos assuntos dos vivos, exceto quando esses assuntos interferem com os seus próprios. Esquemas e loucos, eles têm fome de conhecimentos há muito esquecidos e dos segredos mais terríveis.
-Monster/&DH_Custom_Lich_Title	<color=#ff0000ff>Lich</cor>
-Monster/&DH_Custom_Nalfeshnee_Description	O meio-espinho é um dos demônios mais grotescos - um escárnio corpulento de macaco e javali de pé duas vezes a altura de um humano, com asas de penas que parecem pequenas demais para seu corpo inchado. Estas características brutais escondem uma notável inteligência e astúcia.
-Monster/&DH_Custom_Nalfeshnee_Title	<color=#ff0000ff>Nalfeshnee</cor>
-Monster/&DH_Custom_PitFiend_Description	Os senhores incontestáveis da maioria dos outros demônios, os demônios do fosso atendem aos arquiduques e arquiduques das Nove Infernas e realizam seus desejos. Estes poderosos demônios são os generais das Nove Infernas, levando suas legiões infernais para a batalha.
-Monster/&DH_Custom_PitFiend_Title	<color=#ff0000ff>Pit Fiend</cor>
-Monster/&DH_Custom_Planetar_Description	Os planetários atuam como armas dos deuses que servem, apresentando uma representação tangível do poder de suas divindades.
-Monster/&DH_Custom_Planetar_Title	<color=#ff0000ff>Planetar</cor>
-Monster/&DH_Custom_Roc_Description	As rochas são criaturas solitárias que podem viver por séculos. Elas cavam em ninhos feitos de árvores, tendas, navios quebrados e os restos de caravanas que carregam, colocando estes emaranhados maciços em fendas de montanhas fora do alcance de criaturas menores.
-Monster/&DH_Custom_Roc_Title	<color=#ff0000ff>Roc</cor>
-Monster/&DH_Custom_Solar_Description	No campo de batalha, a espada do Solar voa para a briga por si só, e uma única flecha do arco do Solar pode atingir um alvo morto ao contato. Tão grande é o poder celestial de um solar que até os príncipes demoníacos se encolhem a seus comandos ressonantes.
-Monster/&DH_Custom_Solar_Title	<color=#ff0000ff>Solar</cor>
-Monster/&DH_Custom_StormGiant_Description	Os gigantes da tempestade são videntes contemplativos que vivem em lugares distantes da civilização mortal. A maioria tem a pele e os cabelos pálidos e cinzentos, e olhos esmeralda brilhantes.
-Monster/&DH_Custom_StormGiant_Title	<color=#ff0000ff>Storm Giant</cor>
-Monster/&DH_Custom_Tarrasque_Description	O lendário tarrasco é possivelmente o monstro mais temido do Plano Material. Acredita-se amplamente que apenas uma destas criaturas existe, embora ninguém possa prever onde e quando ela irá atacar. Um bípede escamoso, o tarrasco tem 50 pés de altura e 70 pés de comprimento, pesando centenas de toneladas.
-Monster/&DH_Custom_Tarrasque_Title	<color=#ff0000ff>Tarrasco</cor>
-Monster/&DH_Custom_Vampire_Description	Despertados para uma noite interminável, os vampiros têm fome pela vida que perderam e saciaram essa fome ao beber o sangue dos vivos. Os vampiros abominam a luz do sol, pois seu toque os queima. Eles nunca lançam sombras ou reflexos, e qualquer vampiro que deseje passar despercebido entre os vivos se mantém na escuridão e longe de superfícies refletoras.
-Monster/&DH_Custom_Vampire_Title	<color=#ff0000ff>Vampiro</cor>
+Monster/&DHCustomAirTitanDescription	Quando convocados, estes elementais mais velhos manifestam-se como seres de capacidade apocalíptica, entidades cuja mera existência promete destruição.
+Monster/&DHCustomAirTitanTitle	<color=#ff0000ff>Primordial Air Titan</cor>
+Monster/&DHCustomAncientBlackDragonDescription	Os mais mal-humorados e vis dos dragões cromáticos, os dragões negros recolhem os destroços e os tesouros dos povos caídos. Estes dragões detestam ver os fracos prosperar e se divertir no colapso dos reinos humanóides. Eles fazem suas casas em pântanos fétidos e ruínas desmoronadas onde os reinos outrora estavam.
+Monster/&DHCustomAncientBlackDragonTitle	<color=#ff0000ff>Ancient Black Dragon</cor>
+Monster/&DHCustomAncientBlueDragonDescription	Vaidosos e territoriais, os dragões azuis voam pelos céus sobre os desertos, pregando em caravanas e saqueando rebanhos e assentamentos nas terras verdejantes além do alcance do deserto. Estes dragões também podem ser encontrados em estepes secas, em terras ruins e em costas rochosas. Eles guardam seus territórios contra todos os concorrentes potenciais, especialmente os dragões de latão.
+Monster/&DHCustomAncientBlueDragonTitle	<color=#ff0000ff>Ancient Blue Dragon</cor>
+Monster/&DHCustomAncientGreenDragonDescription	Os mais astutos e traiçoeiros dos verdadeiros dragões, os dragões verdes usam a má direção e a trapaça para se imporem contra seus inimigos. Maldosos temperados e completamente maus, eles têm um prazer especial em subverter e corromper os de bom coração. Nas florestas antigas eles vagueiam, os dragões verdes demonstram uma agressão que muitas vezes se trata menos de território do que de ganhar poder e riqueza com o menor esforço possível.
+Monster/&DHCustomAncientGreenDragonTitle	<color=#ff0000ff>Ancient Green Dragon</cor>
+Monster/&DHCustomAncientRedDragonDescription	Os mais cobiçosos dos verdadeiros dragões, os dragões vermelhos procuram incansavelmente aumentar seus acervos de tesouros. Eles são excepcionalmente vaidosos, mesmo para os dragões, e sua presunção se reflete em seu orgulho e seu desprezo por outras criaturas.
+Monster/&DHCustomAncientRedDragonTitle	<color=#ff0000ff>Ancient Red Dragon</cor>
+Monster/&DHCustomAncientWhiteDragonDescription	Os menores, menos inteligentes e mais animalescos dos dragões cromáticos, dragões brancos habitam em climas frígidos, favorecendo áreas árticas ou montanhas geladas. Eles são répteis cruéis e cruéis, movidos pela fome e pela ganância.
+Monster/&DHCustomAncientWhiteDragonTitle	<color=#ff0000ff>Dragão Branco Antigo</cor>
+Monster/&DHCustomArchmageDescription	As imagens das arcadas são poderosos (e geralmente bastante antigos) castres ortográficos dedicados ao estudo das artes arcanas. Os benevolentes aconselham reis e rainhas, enquanto os malvados governam como tiranos e perseguem o lichdom. Aqueles que não são bons nem maus se sequestram em torres remotas para praticar sua magia sem interrupção.
+Monster/&DHCustomArchmageTitle	<color=#ff0000ff>Arqumage</cor>
+Monster/&DHCustomBalorDescription	Figuras do mal antigo e terrível, os balors governam como generais sobre exércitos demoníacos, ansiando por tomar o poder enquanto destroem quaisquer criaturas que se oponham a eles
+Monster/&DHCustomBalorTitle	<color=#ff0000ff>Balor</cor>
+Monster/&DHCustomConstructTitanDescription	Construções maciças construídas para a guerra e forjadas de metal pesado. Um imparável malabarismo, existe para seguir as ordens de seu criador, e protege ou ataca como esse criador exige.
+Monster/&DHCustomConstructTitanTitle	<color=#ff0000ff>Mechanical Construct Titan</color>
 Monster/&DHCustomCouatlDescription	Os Couatls são seres serpentinos benevolentes de grande intelecto e perspicácia. Suas asas brilhantemente coloridas e suavidade falam de suas origens celestiais.
 Monster/&DHCustomCouatlTitle	Couatl
+Monster/&DHCustomDevaDescription	Os Devas são anjos que atuam como mensageiros ou agentes divinos para o Plano Material,
+Monster/&DHCustomDevaTitle	<color=#ff0000ff>Deva</cor>
+Monster/&DHCustomDjinniDescription	Orgulhosos gênios do Plano Elemental do Ar, Mestres do Ar, os djinn cavalgam poderosos redemoinhos que eles criam e dirigem por capricho, e que podem até mesmo transportar passageiros.
+Monster/&DHCustomDjinniTitle	<color=#ff0000ff>Djinni</cor>
+Monster/&DHCustomEarthTitanDescription	Quando convocados, estes elementais mais velhos manifestam-se como seres de capacidade apocalíptica, entidades cuja mera existência promete destruição.
+Monster/&DHCustomEarthTitanTitle	<color=#ff0000ff>Primordial Earth Titan</cor>
+Monster/&DHCustomEfreetiDescription	Os gênios do Elemental Plane of Fire, os efreet são mestres da chama, imunes ao fogo e capazes de criá-lo por um capricho.
+Monster/&DHCustomEfreetiTitle	<color=#ff0000ff>Efreeti</cor>
+Monster/&DHCustomErinyesDescription	os erinyes são guerreiros ferozes e disciplinados. Varrendo dos céus, eles trazem morte rápida para as criaturas que enganaram seus senhores.
+Monster/&DHCustomErinyesTitle	<color=#ff0000ff>Erinyes</cor>
+Monster/&DHCustomFireTitanDescription	Quando convocados, estes elementais mais velhos manifestam-se como seres de capacidade apocalíptica, entidades cuja mera existência promete destruição.
+Monster/&DHCustomFireTitanTitle	<color=#ff0000ff>Primordial Fire Titan</cor>
+Monster/&DHCustomGuardianNagaDescription	Sábia e boa, as belas nagas guardiãs protegem os lugares sagrados e os itens de poder mágico de cair em mãos malignas. Em seus redutos ocultos, eles pesquisam feitiços e eclodem convolutos enredos para frustrar os desígnios malignos de seus inimigos.
+Monster/&DHCustomGuardianNagaTitle	<color=#ff0000ff>Guardian Naga</cor>
+Monster/&DHCustomHornedDevilDescription	A infantaria voadora das legiões infernais, demônios chifrados seguem ordens à risca.
+Monster/&DHCustomHornedDevilTitle	<color=#ff0000ff>Diabo chifrado</cor>
+Monster/&DHCustomIceDevilDescription	Cobiçando o poder de seus superiores demoníacos, os demônios do gelo trabalham incessantemente para a promoção, massacrando os inimigos dos Nove Infernos e reclamando o maior número possível de almas para seus mestres arquiduqueiros.
+Monster/&DHCustomIceDevilTitle	<color=#ff0000ff>Ice Devil</cor>
+Monster/&DHCustomLichDescription	Os liches são restos de grandes feiticeiros que abraçam a morte não morta como meio de se preservarem. Eles promovem seu próprio poder a qualquer custo, não tendo nenhum interesse nos assuntos dos vivos, exceto quando esses assuntos interferem com os seus próprios. Esquemas e loucos, eles têm fome de conhecimentos há muito esquecidos e dos segredos mais terríveis.
+Monster/&DHCustomLichTitle	<color=#ff0000ff>Lich</cor>
+Monster/&DHCustomNalfeshneeDescription	O meio-espinho é um dos demônios mais grotescos - um escárnio corpulento de macaco e javali de pé duas vezes a altura de um humano, com asas de penas que parecem pequenas demais para seu corpo inchado. Estas características brutais escondem uma notável inteligência e astúcia.
+Monster/&DHCustomNalfeshneeTitle	<color=#ff0000ff>Nalfeshnee</cor>
+Monster/&DHCustomPitFiendDescription	Os senhores incontestáveis da maioria dos outros demônios, os demônios do fosso atendem aos arquiduques e arquiduques das Nove Infernas e realizam seus desejos. Estes poderosos demônios são os generais das Nove Infernas, levando suas legiões infernais para a batalha.
+Monster/&DHCustomPitFiendTitle	<color=#ff0000ff>Pit Fiend</cor>
+Monster/&DHCustomPlanetarDescription	Os planetários atuam como armas dos deuses que servem, apresentando uma representação tangível do poder de suas divindades.
+Monster/&DHCustomPlanetarTitle	<color=#ff0000ff>Planetar</cor>
+Monster/&DHCustomRocDescription	As rochas são criaturas solitárias que podem viver por séculos. Elas cavam em ninhos feitos de árvores, tendas, navios quebrados e os restos de caravanas que carregam, colocando estes emaranhados maciços em fendas de montanhas fora do alcance de criaturas menores.
+Monster/&DHCustomRocTitle	<color=#ff0000ff>Roc</cor>
+Monster/&DHCustomSolarDescription	No campo de batalha, a espada do Solar voa para a briga por si só, e uma única flecha do arco do Solar pode atingir um alvo morto ao contato. Tão grande é o poder celestial de um solar que até os príncipes demoníacos se encolhem aos seus comandos ressonantes.
+Monster/&DHCustomSolarTitle	<color=#ff0000ff>Solar</cor>
+Monster/&DHCustomStormGiantDescription	Os gigantes da tempestade são videntes contemplativos que vivem em lugares distantes da civilização mortal. A maioria tem a pele e os cabelos pálidos e cinzentos, e olhos esmeralda brilhantes.
+Monster/&DHCustomStormGiantTitle	<color=#ff0000ff>Storm Giant</cor>
+Monster/&DHCustomTarrasqueDescription	O lendário tarrasco é possivelmente o monstro mais temido do Plano Material. Acredita-se amplamente que apenas uma destas criaturas existe, embora ninguém possa prever onde e quando ela irá atacar. Um bípede escamoso, o tarrasco tem 50 pés de altura e 70 pés de comprimento, pesando centenas de toneladas.
+Monster/&DHCustomTarrasqueTitle	<color=#ff0000ff>Tarrasco</cor>
+Monster/&DHCustomVampireDescription	Despertados para uma noite interminável, os vampiros têm fome pela vida que perderam e saciaram essa fome ao beber o sangue dos vivos. Os vampiros abominam a luz do sol, pois seu toque os queima. Eles nunca lançam sombras ou reflexos, e qualquer vampiro que deseje passar despercebido entre os vivos se mantém na escuridão e longe de superfícies refletoras.
+Monster/&DHCustomVampireTitle	<color=#ff0000ff>Vampiro</cor>
 Monster/&OwlFamiliarDescription	Coruja familiar
 Monster/&OwlFamiliarTitle	Coruja
 Monster/&PactOfChainCustomImpDescription	Os diabinhos são encontrados em todos os planos inferiores, seja fazendo recados para seus mestres infernais, espionando seus rivais, ou enganando e enganando os mortais. Um diabinho se orgulha de servir a um mestre maligno de qualquer tipo, mas não se pode confiar nele para realizar tarefas com qualquer velocidade ou eficiência.
@@ -1164,168 +1136,174 @@ Monster/&PactOfChainCustomSpriteDescription	Ao contrário dos píxeis, os sprite
 Monster/&PactOfChainCustomSpriteTitle	Sprite (Pacto de Cadeia)
 Monster/&WitchOwlFamiliarDescription	Coruja familiar
 Monster/&WitchOwlFamiliarTitle	Coruja
-MonsterAttack/&DH_AirBlast_AttackDescription	5d6 trovões e empurra 2 células
-MonsterAttack/&DH_AirBlast_AttackTitle	Jato de ar
-MonsterAttack/&DH_AirTitan_Slam_AttackDescriptiond	4d6+6 Bludgeoning & 4d6 Thunder
-MonsterAttack/&DH_AirTitan_Slam_AttackTitle	Thunderous Slam
-MonsterAttack/&DH_AncientDragon_Tail_AttackDescription	2D8+8 Bludgeoning
-MonsterAttack/&DH_AncientDragon_Tail_AttackTitle	Ataque de cauda
-MonsterAttack/&DH_Balor_Longsword_AttackDescription	3D8+8 Slashing & 3D8 Lightning
-MonsterAttack/&DH_Balor_Longsword_AttackTitle	Ataque por palavra longa
-MonsterAttack/&DH_Balor_Whip_AttackDescription	2D6+8 Cortes e 3D6 Fogo
-MonsterAttack/&DH_Balor_Whip_AttackTitle	Ataque de chicote
-MonsterAttack/&DH_ConstructTitan_ForceCannon_AttackDescription	4D8 A força e o alvo são propensos a golpes
-MonsterAttack/&DH_ConstructTitan_ForceCannon_AttackTitle	Forçar o canhão
-MonsterAttack/&DH_ConstructTitan_Slam_AttackDescription	Danos 3D12+8 e o alvo é empurrado 20 pés
-MonsterAttack/&DH_ConstructTitan_Slam_AttackTitle	Slam
-MonsterAttack/&DH_TarrasqueSwallowedcondition_Description	Não pode agir e leva danos com ácido 16d6 em cada curva. 60 danos em um único ataque podem forçar o andorinhão a regurgitar.
-MonsterAttack/&DH_TarrasqueSwallowedcondition_Title	Engolido
-MonsterAttack/&DH_TarrasqueSwallowingcondition_Description	60 danos em um único ataque podem forçá-lo a regurgitar.
-MonsterAttack/&DH_TarrasqueSwallowingcondition_Title	Engole a criatura
-MonsterAttack/&DH_DamageAcid_Bite_AttackDescription	2D10+9 Piercing & 2D8 Danos por Ácido
-MonsterAttack/&DH_DamageAcid_Bite_AttackTitle	Ataque de mordida ácida
-MonsterAttack/&DH_DamageCold_Bite_AttackDescription	2D10+9 Piercing & 2D8 Danos causados pelo frio
-MonsterAttack/&DH_DamageCold_Bite_AttackTitle	Ataque de mordida de gelo
-MonsterAttack/&DH_DamageFire_Bite_AttackDescription	2D10+9 Piercing & 4D6 Danos causados pelo fogo
-MonsterAttack/&DH_DamageFire_Bite_AttackTitle	Ataque de mordida de fogo
-MonsterAttack/&DH_DamageLightning_Bite_AttackDescription	2D10+9 Piercing & 2D10 Danos por Raios
-MonsterAttack/&DH_DamageLightning_Bite_AttackTitle	Ataque de mordida por raio
-MonsterAttack/&DH_DamagePoison_Bite_AttackDescription	2D10+9 Piercing & 3D6 Danos por veneno
-MonsterAttack/&DH_DamagePoison_Bite_AttackTitle	Ataque de mordidas venenosas
-MonsterAttack/&DH_EarthTitan_Boulder_AttackDescription	7D10+8 Bludgeoning
-MonsterAttack/&DH_EarthTitan_Boulder_AttackTitle	Boulder
-MonsterAttack/&DH_EarthTitan_Slam_AttackDescription	4D10+8 Bludgeoning
-MonsterAttack/&DH_EarthTitan_Slam_AttackTitle	Golpe de terra
-MonsterAttack/&DH_FireScimatar_AttackDescription	Cortes 2d6+6 & 2d6 Fogo
-MonsterAttack/&DH_FireScimatar_AttackTitle	Scimatar
-MonsterAttack/&DH_FireTitan_Slam_AttackDescription	3d6+5 Bombardeio + 10d6 Fogo
-MonsterAttack/&DH_FireTitan_Slam_AttackTitle	Searing Slam
-MonsterAttack/&DH_Fork_AttackDescription	2D8 +6 Piercing
-MonsterAttack/&DH_Fork_AttackTitle	Ataque de garfo
-MonsterAttack/&DH_Generic_Bite_Attack_No_ExtraDamage_Description	2d10 + 6 Danos por Piercing
-MonsterAttack/&DH_Generic_Bite_Attack_No_ExtraDamage_Title	Ataque de mordidas
-MonsterAttack/&DH_Generic_Claw_AttackDescription	2D6 + 9 Danos por corte
-MonsterAttack/&DH_Generic_Claw_AttackTitle	Ataque de garra
-MonsterAttack/&DH_Generic_Stronger_Bite_Attack_No_ExtraDamage_Description	2D10 + 9
-MonsterAttack/&DH_Generic_Stronger_Bite_Attack_No_ExtraDamage_Title	Ataque de mordidas
-MonsterAttack/&DH_HornedDevilTail_AttackDescription	1D8 +6 Piercing , inflige condição de ferida de sangramento
-MonsterAttack/&DH_HornedDevilTail_AttackTitle	Ataque de cauda
-MonsterAttack/&DH_HornedDevilTail_Attackcondition_Description	3D6 Necrótico, salvar para cancelar
-MonsterAttack/&DH_HornedDevilTail_Attackcondition_Title	Ferida Sangrenta
-MonsterAttack/&DH_HurlFlame_AttackDescription	5d6 Incêndio
-MonsterAttack/&DH_HurlFlame_AttackTitle	Chama Hurl
-MonsterAttack/&DH_Ice_Bite_AttackDescription	2d6+5 Piercing & 3d6 Frio
-MonsterAttack/&DH_Ice_Bite_AttackTitle	Picada de gelo
-MonsterAttack/&DH_ImpAttackDescription	1d4 + 3 danos perfurantes, e o alvo deve fazer um lançamento salvador DC 11 Constitution, levando 10 (3d6) danos por veneno em um salvador falhado, ou metade do dano em um salvador bem sucedido.
-MonsterAttack/&DH_ImpAttackTitle	Ferrão
-MonsterAttack/&DH_Lich_ParalyzingTouch_AttackDescription	3D6 Frio e inflige a condição de paralisado
-MonsterAttack/&DH_Lich_ParalyzingTouch_AttackTitle	Toque paralisante
-MonsterAttack/&DH_LightningScimatar_AttackDescription	Cortes 2d6+5 e relâmpagos 2d6
-MonsterAttack/&DH_LightningScimatar_AttackTitle	Scimatar
-MonsterAttack/&DH_NagaBite_AttackDescription	1d8+4 Piercing & 15 DC Con Save to half 10d8 Poison
-MonsterAttack/&DH_NagaBite_AttackTitle	Picada de veneno
-MonsterAttack/&DH_NagaSpit_AttackDescription	15 DC Con Poupar para metade 10d8 Veneno
-MonsterAttack/&DH_NagaSpit_AttackTitle	Veneno de cuspo
-MonsterAttack/&DH_PitFiend_Bite_AttackDescription	2d6+7 Veneno, Inflige condição de veneno
-MonsterAttack/&DH_PitFiend_Bite_AttackTitle	Ataque de mordidas
-MonsterAttack/&DH_PitFiend_Bite_Attackcondition_Description	6D6 Posião recorrente
-MonsterAttack/&DH_PitFiend_Bite_Attackcondition_Title	Intoxicado
-MonsterAttack/&DH_PitFiend_Mace_AttackDescription	2D6+8 Bombardeamento & Incêndio 6D6
-MonsterAttack/&DH_PitFiend_Mace_AttackTitle	Ataque de maça
-MonsterAttack/&DH_PoisonLongbow_AttackDescription	Arco longo com flechas venenosas
-MonsterAttack/&DH_PoisonLongbow_AttackTitle	Arco Longo Venenoso
-MonsterAttack/&DH_PoisonLongsword_AttackDescription	1d10+4 Cortar & 3d8 Veneno
-MonsterAttack/&DH_PoisonLongsword_AttackTitle	Palavra longa venenosa
-MonsterAttack/&DH_PseudodragonAttackDescription	1d4 Danos por perfuração. O alvo deve ser bem sucedido em um arremesso de economia da Constituição DC 10 ou ficar envenenado por 1 minuto. O alvo envenenado fica inconsciente durante o mesmo tempo, ou até que ele sofra danos ou outra criatura tome uma ação para sacudi-lo.
-MonsterAttack/&DH_PseudodragonAttackTitle	Ferrão
-MonsterAttack/&DH_QuasitAttackDescription	1d4 + 3 danos perfurantes, e o alvo deve ser bem sucedido em um arremesso de economia de DC 10 Constitution ou tomar 5 (2d4) danos por veneno e ficar envenenado por 1 minuto.
-MonsterAttack/&DH_QuasitAttackTitle	Garra
-MonsterAttack/&DH_RadiantLongbow_AttackDescription	2D6+8 Piercing & 6D8 Radiante
-MonsterAttack/&DH_RadiantLongbow_AttackTitle	Matando Longbow.
-MonsterAttack/&DH_RadiantLongsword_AttackDescription	4D6+8 Cortando e 6D8 Radiante
-MonsterAttack/&DH_RadiantLongsword_AttackTitle	Palavras Grandes Radiantes
-MonsterAttack/&DH_Roc_Beak_AttackDescription	4d8+9 Piercing
-MonsterAttack/&DH_Roc_Beak_AttackTitle	Bico
-MonsterAttack/&DH_Roc_Talons_AttackDescription	4d6+9 O corte e o alvo são agarrados e restringidos por Roc
-MonsterAttack/&DH_Roc_Talons_AttackTitle	Garras
-MonsterAttack/&DH_SpriteAttackDescription	1d4 Danos por perfuração. O alvo deve ser bem sucedido em um arremesso de economia da Constituição DC 10 ou ficar envenenado por 1 minuto. O alvo envenenado fica inconsciente durante o mesmo tempo, ou até que ele sofra danos ou outra criatura tome uma ação para sacudi-lo.
-MonsterAttack/&DH_SpriteAttackTitle	Arco de Fada
-MonsterAttack/&DH_Tarrasque_Bite_Description	4d12 + 10 danos perfurantes e o alvo deve suceder a uma verificação de destreza ou ser agarrado (escape DC 20).
-MonsterAttack/&DH_Tarrasque_Bite_Title	Mordida
-MonsterAttack/&DH_Tarrasque_BiteCondition_Description	Até que esta garra termine, o alvo é contido.
-MonsterAttack/&DH_Tarrasque_BiteCondition_Title	Apanhado por Tarrasque
-MonsterAttack/&DH_Tarrasque_Claw_Description	4d8 + 10 danos por corte
-MonsterAttack/&DH_Tarrasque_Claw_Title	Garra
-MonsterAttack/&DH_Tarrasque_Horn_Description	4d10 + 10) danos por perfuração
-MonsterAttack/&DH_Tarrasque_Horn_Title	Chifre
-MonsterAttack/&DH_Tarrasque_Tail_Description	Danos 4d6 + 10 bludgeoning. Se o alvo for uma criatura, ela deve ser bem sucedida em um arremesso de força DC 20 ou ser derrubada
-MonsterAttack/&DH_Tarrasque_Tail_Title	Cauda
-MonsterAttack/&DHCouatlBiteAttackDescription	Danos perfurantes, e o alvo deve ser bem sucedido em um arremesso da Constituição DC 13 economizando ou ser envenenado por 24 horas. Até que este veneno termine, o alvo está inconsciente.
+MonsterAttack/&DHAirBlastAttackDescription	5d6 trovões e empurra 2 células
+MonsterAttack/&DHAirBlastAttackTitle	Jato de ar
+MonsterAttack/&DHAirTitanSlamAttackDescription	4d6+6 Bludgeoning & 4d6 Thunder
+MonsterAttack/&DHAirTitanSlamAttackTitle	Thunderous Slam
+MonsterAttack/&DHAncientDragonTailAttackDescription	2D8+8 Bludgeoning
+MonsterAttack/&DHAncientDragonTailAttackTitle	Ataque de cauda
+MonsterAttack/&DHBalorLongswordAttackDescription	3D8+8 Slashing & 3D8 Lightning
+MonsterAttack/&DHBalorLongswordAttackTitle	Ataque por palavra longa
+MonsterAttack/&DHBalorWhipAttackDescription	2D6+8 Cortes e 3D6 Fogo
+MonsterAttack/&DHBalorWhipAttackTitle	Ataque de chicote
+MonsterAttack/&DHConstructTitanForceCannonAttackDescription	4D8 A força e o alvo são propensos a golpes
+MonsterAttack/&DHConstructTitanForceCannonAttackTitle	Forçar o canhão
+MonsterAttack/&DHConstructTitanSlamAttackDescription	Danos 3D12+8 e o alvo é empurrado 20 pés
+MonsterAttack/&DHConstructTitanSlamAttackTitle	Slam
+MonsterAttack/&DHCouatlBiteAttackDescription	Danos perfurantes, e o alvo deve ser bem sucedido em um arremesso da Constituição DC 13 poupando ou ser envenenado por 24 horas. Até que este veneno termine, o alvo está inconsciente.
 MonsterAttack/&DHCouatlBiteAttackTitle	Mordida
-MonsterPower/&DH_AirTitan_Gale_PowerDescription	4D10 Trovões e empurrões falharam, salvo
-MonsterPower/&DH_AirTitan_Gale_PowerTitle	Gritando Gale
-MonsterPower/&DH_AirTitan_Lightning_PowerDescription	3D10 Relâmpagos na área
-MonsterPower/&DH_AirTitan_Lightning_PowerTitle	Relâmpago
-MonsterPower/&DH_AncientDragon_Wing_PowerDescription	Os dragões podem bater suas asas para produzir vento suficiente para impulsionar a maioria dos humanóides e derrubá-los com propensão.
-MonsterPower/&DH_AncientDragon_Wing_PowerTitle	Ataque das asas
-MonsterPower/&DH_Balor_FireAura_PowerDescription	Incêndio 3D6
-MonsterPower/&DH_Balor_FireAura_PowerTitle	Aura de fogo
-MonsterPower/&DH_BlindingGaze_PowerDescription	DC15 Constituição Salvar ou ser cego até que uma restauração menor seja utilizada
-MonsterPower/&DH_BlindingGaze_PowerTitle	Olhar Cegante
-MonsterPower/&DH_DamageAcid_Breath_PowerDescription	15D8 Ácido
-MonsterPower/&DH_DamageAcid_Breath_PowerTitle	Respiração Ácida
-MonsterPower/&DH_DamageCold_Breath_PowerDescription	16D8 Frio
-MonsterPower/&DH_DamageCold_Breath_PowerTitle	Respiração de gelo
-MonsterPower/&DH_DamageFire_Breath_PowerDescription	26D6 Incêndio
-MonsterPower/&DH_DamageFire_Breath_PowerTitle	Respiração de fogo
-MonsterPower/&DH_DamageLightning_Breath_PowerDescription	16D10 Relâmpagos
-MonsterPower/&DH_DamageLightning_Breath_PowerTitle	Respiração Relâmpago
-MonsterPower/&DH_DamagePoison_Breath_PowerDescription	22D6 Veneno
-MonsterPower/&DH_DamagePoison_Breath_PowerTitle	Respiração Venenosa
-MonsterPower/&DH_DisintegratingBeam_PowerDescription	6D10 Dano radiante e alvo é desintegrado em 0 HP
-MonsterPower/&DH_DisintegratingBeam_PowerTitle	Viga desintegradora
-MonsterPower/&DH_EarthTitan_Earthquake_PowerDescription	4D10 Batedeira
-MonsterPower/&DH_EarthTitan_Earthquake_PowerTitle	Terremoto
-MonsterPower/&DH_ErinyesParry_PowerDescription	+3 AC
-MonsterPower/&DH_ErinyesParry_PowerTitle	Parry
-MonsterPower/&DH_FireTitan_Aura_PowerDescription	cada criatura a menos de 30 pés dela leva 35 (10d6) de dano de fogo, e objetos inflamáveis na aura que não estão sendo usados ou carregados inflamam-se.
-MonsterPower/&DH_FireTitan_Aura_PowerTitle	Fogo Titan Aura
-MonsterPower/&DH_FireTitan_Retaliate_DamageAffinity_Description	Uma criatura leva 35 (10d6) de dano de fogo por ter tocado Maegera ou por tê-la atingido com um ataque corpo a corpo enquanto a menos de 3 metros dela
-MonsterPower/&DH_FireTitan_Retaliate_DamageAffinity_Title	Retaliação do Titã do Fogo
-MonsterPower/&DH_FireTitan_Retaliate_PowerDescription	Uma criatura leva 35 (10d6) de dano de fogo por ter tocado Maegera ou por tê-la atingido com um ataque corpo a corpo enquanto a menos de 3 metros dela
-MonsterPower/&DH_FireTitan_Retaliate_PowerTitle	Retaliação do Titã do Fogo
-MonsterPower/&DH_IlluminatingCrystals_PowerDescription	Qualquer criatura na área quando o feitiço é lançado também é delineado à luz. Durante a duração, objetos e criaturas afetadas derramam luz fraca em um raio de 10 pés.
-MonsterPower/&DH_IlluminatingCrystals_PowerTitle	Cristais Iluminadores
-MonsterPower/&DH_IncreasedGravityZone_AttackDescription	O Titan focaliza a zona a menos de 20 pés dela. Qualquer criatura em um cilindro de 20 pés de raio e 20 pés de altura centrado neste ponto deve ser bem sucedida em um lançamento de salvamento de destreza DC 26 ou levar 33 (6d10) de dano e cair propenso a cair e ser contido por um round.
-MonsterPower/&DH_IncreasedGravityZone_AttackTitle	Aumento da Zona de Gravidade
-MonsterPower/&DH_Lich_DisruptLife_PowerDescription	6D6 Necrótico
-MonsterPower/&DH_Lich_DisruptLife_PowerTitle	Vida em ruptura
-MonsterPower/&DH_SearingBurst_PowerDescription	4D6 Fogo e 4D6 Radiante
-MonsterPower/&DH_SearingBurst_PowerTitle	Searing Burst
-MonsterPower/&DH_SummonCreature_Air_Elemental_PowerDescription	Convocação 1 Air Elemental
-MonsterPower/&DH_SummonCreature_Air_Elemental_PowerTitle	Invocar o Grande Elemental
-MonsterPower/&DH_SummonCreature_Earth_Elemental_PowerDescription	Convocação 1 Elemental Terra
-MonsterPower/&DH_SummonCreature_Earth_Elemental_PowerTitle	Invocar o Grande Elemental
-MonsterPower/&DH_SummonCreature_Erinyes_PowerDescription	Um Erinyes é chamado a lutar
-MonsterPower/&DH_SummonCreature_Erinyes_PowerTitle	Citação Minion: Erinyes
-MonsterPower/&DH_SummonCreature_Fire_Elemental_PowerDescription	Convocação 1 Elemental de Incêndio
-MonsterPower/&DH_SummonCreature_Fire_Elemental_PowerTitle	Invocar o Grande Elemental
-MonsterPower/&DH_SummonCreature_Fire_Jester_PowerDescription	Convocação 2 jesuítas do fogo
-MonsterPower/&DH_SummonCreature_Fire_Jester_PowerTitle	Invocar Elementais Menores
-MonsterPower/&DH_SummonCreature_Nalfeshnee_PowerDescription	Um Nalfeshnee é chamado para lutar
-MonsterPower/&DH_SummonCreature_Nalfeshnee_PowerTitle	Citação Minion: Nalfeshnee
-MonsterPower/&DH_SummonCreature_SkarnGhoul_PowerDescription	Convocação 1 Skarn Ghoul
-MonsterPower/&DH_SummonCreature_SkarnGhoul_PowerTitle	Invocar o Elemental Menor
-MonsterPower/&DH_SummonCreature_WindSnake_PowerDescription	Citação 4 Serpentes de Vento
-MonsterPower/&DH_SummonCreature_WindSnake_PowerTitle	Invocar Elementais Menores
-MonsterPower/&DH_SummonCreature_Wolves_PowerDescription	O vampiro chama magicamente os lobos 3d6
-MonsterPower/&DH_SummonCreature_Wolves_PowerTitle	Crianças da Noite
-MonsterPower/&DH_TarrasqueReflectiveCarapace_Immunity_Description	Sempre que o tarrasco é alvo de um feitiço mágico de míssil, um feitiço de linha ou um feitiço que requer um rolo de ataque à distância, o tarrasco não é afetado.
-MonsterPower/&DH_TarrasqueReflectiveCarapace_Immunity_Title	Carapaça Refletiva
-MonsterPower/&DH_TarrasqueSwallowPowerDescription	O tarrasco faz um ataque de mordida contra uma criatura grande ou menor que está agarrando. Se o ataque atingir, o alvo é engolido e a garra termina.
-MonsterPower/&DH_TarrasqueSwallowPowerTitle	Engole
-MonsterPower/&DH_VampireCharmPowerDescription	O vampiro visa um humanóide que ele pode ver a menos de 30 metros dele. O alvo deve ser bem sucedido em um lançamento salvador de Sabedoria DC 17 contra esta magia ou ser encantado pelo vampiro.
-MonsterPower/&DH_VampireCharmPowerTitle	Encantamento
+MonsterAttack/&DHDamageAcidBiteAttackDescription	2D10+9 Piercing & 2D8 Danos por Ácido
+MonsterAttack/&DHDamageAcidBiteAttackTitle	Ataque de mordida ácida
+MonsterAttack/&DHDamageColdBiteAttackDescription	2D10+9 Piercing & 2D8 Danos causados pelo frio
+MonsterAttack/&DHDamageColdBiteAttackTitle	Ataque de mordida de gelo
+MonsterAttack/&DHDamageFireBiteAttackDescription	2D10+9 Piercing & 4D6 Danos causados pelo fogo
+MonsterAttack/&DHDamageFireBiteAttackTitle	Ataque de mordida de fogo
+MonsterAttack/&DHDamageLightningBiteAttackDescription	2D10+9 Piercing & 2D10 Danos causados por raios
+MonsterAttack/&DHDamageLightningBiteAttackTitle	Ataque de mordida por raio
+MonsterAttack/&DHDamagePoisonBiteAttackDescription	2D10+9 Piercing & 3D6 Danos por veneno
+MonsterAttack/&DHDamagePoisonBiteAttackTitle	Ataque de mordidas venenosas
+MonsterAttack/&DHEarthTitanBoulderAttackDescription	7D10+8 Bludgeoning
+MonsterAttack/&DHEarthTitanBoulderAttackTitle	Boulder
+MonsterAttack/&DHEarthTitanSlamAttackDescription	4D10+8 Bludgeoning
+MonsterAttack/&DHEarthTitanSlamAttackTitle	Golpe de terra
+MonsterAttack/&DHFireScimatarAttackDescription	Cortes 2d6+6 & 2d6 Fogo
+MonsterAttack/&DHFireScimatarAttackTitle	Scimatar
+MonsterAttack/&DHFireTitanSlamAttackDescription	3d6+5 Bombardeio + 10d6 Fogo
+MonsterAttack/&DHFireTitanSlamAttackTitle	Searing Slam
+MonsterAttack/&DHForkAttackDescription	2D8 +6 Piercing
+MonsterAttack/&DHForkAttackTitle	Ataque de garfo
+MonsterAttack/&DHGenericBiteAttackNoExtraDamageDescription	2d10 + 6 Danos por Piercing
+MonsterAttack/&DHGenericBiteAttackNoExtraDamageTitle	Ataque de mordidas
+MonsterAttack/&DHGenericClawAttackDescription	2D6 + 9 Danos por corte
+MonsterAttack/&DHGenericClawAttackTitle	Ataque de garra
+MonsterAttack/&DHGenericStrongerBiteAttackNoExtraDamageDescription	2D10 + 9
+MonsterAttack/&DHGenericStrongerBiteAttackNoExtraDamageTitle	Ataque de mordidas
+MonsterAttack/&DHHornedDevilTailAttackconditionDescription	3D6 Necrótico, salvar para cancelar
+MonsterAttack/&DHHornedDevilTailAttackconditionTitle	Ferida Sangrenta
+MonsterAttack/&DHHornedDevilTailAttackDescription	1D8 +6 Piercing , inflige condição de ferida de sangramento
+MonsterAttack/&DHHornedDevilTailAttackTitle	Ataque de cauda
+MonsterAttack/&DHHurlFlameAttackDescription	5d6 Incêndio
+MonsterAttack/&DHHurlFlameAttackTitle	Chama Hurl
+MonsterAttack/&DHIceBiteAttackDescription	2d6+5 Piercing & 3d6 Frio
+MonsterAttack/&DHIceBiteAttackTitle	Picada de gelo
+MonsterAttack/&DHImpAttackDescription	1d4 + 3 danos perfurantes, e o alvo deve fazer um lançamento salvador DC 11 Constitution, levando 10 (3d6) danos por veneno em um salvador falhado, ou metade do dano em um salvador bem sucedido.
+MonsterAttack/&DHImpAttackTitle	Ferrão
+MonsterAttack/&DHLichParalyzingTouchAttackDescription	3D6 Frio e inflige a condição de paralisado
+MonsterAttack/&DHLichParalyzingTouchAttackTitle	Toque paralisante
+MonsterAttack/&DHLightningScimatarAttackDescription	Cortes 2d6+5 e relâmpagos 2d6
+MonsterAttack/&DHLightningScimatarAttackTitle	Scimatar
+MonsterAttack/&DHNagaBiteAttackDescription	1d8+4 Piercing & 15 DC Con Save to half 10d8 Poison
+MonsterAttack/&DHNagaBiteAttackTitle	Picada de veneno
+MonsterAttack/&DHNagaSpitAttackDescription	15 DC Con Poupar para metade 10d8 Veneno
+MonsterAttack/&DHNagaSpitAttackTitle	Veneno de cuspo
+MonsterAttack/&DHPitFiendBiteAttackconditionDescription	6D6 Posião recorrente
+MonsterAttack/&DHPitFiendBiteAttackconditionTitle	Intoxicado
+MonsterAttack/&DHPitFiendBiteAttackDescription	2d6+7 Veneno, Inflige condição de veneno
+MonsterAttack/&DHPitFiendBiteAttackTitle	Ataque de mordidas
+MonsterAttack/&DHPitFiendMaceAttackDescription	2D6+8 Bombardeamento & Incêndio 6D6
+MonsterAttack/&DHPitFiendMaceAttackTitle	Ataque de maça
+MonsterAttack/&DHPoisonLongbowAttackDescription	Arco longo com flechas venenosas
+MonsterAttack/&DHPoisonLongbowAttackTitle	Arco Longo Venenoso
+MonsterAttack/&DHPoisonLongswordAttackDescription	1d10+4 Cortar & 3d8 Veneno
+MonsterAttack/&DHPoisonLongswordAttackTitle	Palavra longa venenosa
+MonsterAttack/&DHPseudodragonAttackDescription	1d4 Danos por perfuração. O alvo deve ser bem sucedido em um arremesso de economia da Constituição DC 10 ou ficar envenenado por 1 minuto. O alvo envenenado fica inconsciente durante o mesmo tempo, ou até que ele sofra danos ou outra criatura tome uma ação para sacudi-lo.
+MonsterAttack/&DHPseudodragonAttackTitle	Ferrão
+MonsterAttack/&DHQuasitAttackDescription	1d4 + 3 danos perfurantes, e o alvo deve ser bem sucedido em um arremesso de 10 DC ou tomar 5 (2d4) danos por veneno e ficar envenenado por 1 minuto.
+MonsterAttack/&DHQuasitAttackTitle	Garra
+MonsterAttack/&DHRadiantLongbowAttackDescription	2D6+8 Piercing & 6D8 Radiante
+MonsterAttack/&DHRadiantLongbowAttackTitle	Matando Longbow.
+MonsterAttack/&DHRadiantLongswordAttackDescription	4D6+8 Cortando e 6D8 Radiante
+MonsterAttack/&DHRadiantLongswordAttackTitle	Palavras Grandes Radiantes
+MonsterAttack/&DHRocBeakAttackDescription	4d8+9 Piercing
+MonsterAttack/&DHRocBeakAttackTitle	Bico
+MonsterAttack/&DHRocTalonsAttackDescription	4d6+9 O corte e o alvo são agarrados e restringidos por Roc
+MonsterAttack/&DHRocTalonsAttackTitle	Garras
+MonsterAttack/&DHSpriteAttackDescription	1d4 Danos por perfuração. O alvo deve ser bem sucedido em um arremesso de economia da Constituição DC 10 ou ficar envenenado por 1 minuto. O alvo envenenado fica inconsciente durante o mesmo tempo, ou até que ele sofra danos ou outra criatura tome uma ação para sacudi-lo.
+MonsterAttack/&DHSpriteAttackTitle	Arco de Fada
+MonsterAttack/&DHTarrasqueBiteconditionDescription	Até que esta garra termine, o alvo é contido.
+MonsterAttack/&DHTarrasqueBiteconditionTitle	Apanhado por Tarrasque
+MonsterAttack/&DHTarrasqueBiteDescription	4d12 + 10 danos perfurantes e o alvo deve suceder a uma verificação de destreza ou ser agarrado (escape DC 20).
+MonsterAttack/&DHTarrasqueBiteTitle	Mordida
+MonsterAttack/&DHTarrasqueClawDescription	4d8 + 10 danos por corte
+MonsterAttack/&DHTarrasqueClawTitle	Garra
+MonsterAttack/&DHTarrasqueHornDescription	4d10 + 10) danos por perfuração
+MonsterAttack/&DHTarrasqueHornTitle	Chifre
+MonsterAttack/&DHTarrasqueSwallowedconditionDescription	Não pode agir e leva danos com ácido 16d6 em cada curva. 60 danos em um único ataque podem forçar o andorinhão a regurgitar.
+MonsterAttack/&DHTarrasqueSwallowedconditionTitle	Engolido
+MonsterAttack/&DHTarrasqueSwallowingconditionDescription	60 danos em um único ataque podem forçá-lo a regurgitar.
+MonsterAttack/&DHTarrasqueSwallowingconditionTitle	Engole a criatura
+MonsterAttack/&DHTarrasqueTailDescription	Danos 4d6 + 10 bludgeoning. Se o alvo for uma criatura, ela deve ser bem sucedida em um arremesso de força DC 20 ou ser derrubada
+MonsterAttack/&DHTarrasqueTailTitle	Cauda
+MonsterPower/&DHAirTitanGalePowerDescription	4D10 Trovões e empurrões falharam, salvo
+MonsterPower/&DHAirTitanGalePowerTitle	Gritando Gale
+MonsterPower/&DHAirTitanLightningPowerDescription	3D10 Relâmpagos na área
+MonsterPower/&DHAirTitanLightningPowerTitle	Relâmpago
+MonsterPower/&DHAirTitanLightningStormPowerDescription	6d8 Relâmpagos em ampla área
+MonsterPower/&DHAirTitanLightningStormPowerTitle	Tempestade Relâmpago
+MonsterPower/&DHAncientDragonWingPowerDescription	Os dragões podem bater suas asas para produzir vento suficiente para impulsionar a maioria dos humanóides e derrubá-los com propensão.
+MonsterPower/&DHAncientDragonWingPowerTitle	Ataque das asas
+MonsterPower/&DHBalorFireAuraPowerDescription	Incêndio 3D6
+MonsterPower/&DHBalorFireAuraPowerTitle	Aura de fogo
+MonsterPower/&DHBlindingGazePowerDescription	DC15 Constituição Salvar ou ser cego até que uma restauração menor seja utilizada
+MonsterPower/&DHBlindingGazePowerTitle	Olhar Cegante
+MonsterPower/&DHDamageAcidBreathPowerDescription	15D8 Ácido
+MonsterPower/&DHDamageAcidBreathPowerTitle	Respiração Ácida
+MonsterPower/&DHDamageColdBreathPowerDescription	16D8 Frio
+MonsterPower/&DHDamageColdBreathPowerTitle	Respiração de gelo
+MonsterPower/&DHDamageFireBreathPowerDescription	26D6 Incêndio
+MonsterPower/&DHDamageFireBreathPowerTitle	Respiração de fogo
+MonsterPower/&DHDamageLightningBreathPowerDescription	16D10 Relâmpagos
+MonsterPower/&DHDamageLightningBreathPowerTitle	Respiração Relâmpago
+MonsterPower/&DHDamagePoisonBreathPowerDescription	22D6 Veneno
+MonsterPower/&DHDamagePoisonBreathPowerTitle	Respiração Venenosa
+MonsterPower/&DHDisintegratingBeamPowerDescription	6D10 Dano radiante e alvo é desintegrado em 0 HP
+MonsterPower/&DHDisintegratingBeamPowerTitle	Viga desintegradora
+MonsterPower/&DHEarthTitanEarthquakePowerDescription	4D10 Batedeira
+MonsterPower/&DHEarthTitanEarthquakePowerTitle	Terremoto
+MonsterPower/&DHErinyesParryPowerDescription	+3 AC
+MonsterPower/&DHErinyesParryPowerTitle	Parry
+MonsterPower/&DHFireTitanAuraPowerDescription	cada criatura a menos de 30 pés dela leva 35 (10d6) de dano de fogo, e objetos inflamáveis na aura que não estão sendo usados ou carregados inflamam-se.
+MonsterPower/&DHFireTitanAuraPowerTitle	Fogo Titan Aura
+MonsterPower/&DHFireTitanRetaliateDamageAffinityDescription	Uma criatura leva 35 (10d6) de dano de fogo por tocar Maegera ou por bater nela com um ataque corpo a corpo enquanto está a menos de 3 metros dela
+MonsterPower/&DHFireTitanRetaliateDamageAffinityTitle	Retaliação do Titã do Fogo
+MonsterPower/&DHFireTitanRetaliatePowerDescription	Uma criatura leva 35 (10d6) de dano de fogo por tocar Maegera ou por bater nela com um ataque corpo a corpo enquanto está a menos de 3 metros dela
+MonsterPower/&DHFireTitanRetaliatePowerTitle	Retaliação do Titã do Fogo
+MonsterPower/&DHGenericLightningAttackPowerDescription	12D8
+MonsterPower/&DHGenericLightningAttackPowerTitle	Relâmpago
+MonsterPower/&DHIlluminatingCrystalsPowerDescription	Qualquer criatura na área quando o feitiço é lançado também é delineado à luz. Durante a duração, objetos e criaturas afetadas derramam luz fraca em um raio de 10 pés.
+MonsterPower/&DHIlluminatingCrystalsPowerTitle	Cristais Iluminadores
+MonsterPower/&DHIncreasedGravityZoneAttackPowerDescription	O Titan focaliza a zona a menos de 20 pés dela. Qualquer criatura em um cilindro de 20 pés de raio e 20 pés de altura centrado neste ponto deve ser bem sucedida em um lançamento de salvamento de destreza DC 26 ou tomar 33 (6d10) de dano e cair propenso a cair e ser contido por um round.
+MonsterPower/&DHIncreasedGravityZoneAttackPowerTitle	Aumento da Zona de Gravidade
+MonsterPower/&DHLichDisruptLifePowerDescription	6D6 Necrótico
+MonsterPower/&DHLichDisruptLifePowerTitle	Vida em ruptura
+MonsterPower/&DHSearingBurstPowerDescription	4D6 Fogo e 4D6 Radiante
+MonsterPower/&DHSearingBurstPowerTitle	Searing Burst
+MonsterPower/&DHSummonCreatureAirElementalPowerDescription	Convocação 1 Air Elemental
+MonsterPower/&DHSummonCreatureAirElementalPowerTitle	Invocar o Grande Elemental
+MonsterPower/&DHSummonCreatureEarthElementalPowerDescription	Convocação 1 Elemental Terra
+MonsterPower/&DHSummonCreatureEarthElementalPowerTitle	Invocar o Grande Elemental
+MonsterPower/&DHSummonCreatureErinyesPowerDescription	Um Erinyes é chamado a lutar
+MonsterPower/&DHSummonCreatureErinyesPowerTitle	Citação Minion: Erinyes
+MonsterPower/&DHSummonCreatureFireElementalPowerDescription	Convocação 1 Elemental de Incêndio
+MonsterPower/&DHSummonCreatureFireElementalPowerTitle	Invocar o Grande Elemental
+MonsterPower/&DHSummonCreatureFireJesterPowerDescription	Convocação 2 jesuítas do fogo
+MonsterPower/&DHSummonCreatureFireJesterPowerTitle	Invocar Elementais Menores
+MonsterPower/&DHSummonCreatureLesserConstructPowerDescription	Convocar o Lesser Construct
+MonsterPower/&DHSummonCreatureLesserConstructPowerTitle	Citação 1 Construir
+MonsterPower/&DHSummonCreatureNalfeshneePowerDescription	Um Nalfeshnee é chamado para lutar
+MonsterPower/&DHSummonCreatureNalfeshneePowerTitle	Citação Minion: Nalfeshnee
+MonsterPower/&DHSummonCreatureSkarnGhoulPowerDescription	Convocação 1 Skarn Ghoul
+MonsterPower/&DHSummonCreatureSkarnGhoulPowerTitle	Invocar o Elemental Menor
+MonsterPower/&DHSummonCreatureWindSnakePowerDescription	Citação 4 Serpentes de Vento
+MonsterPower/&DHSummonCreatureWindSnakePowerTitle	Invocar Elementais Menores
+MonsterPower/&DHSummonCreatureWolvesPowerDescription	O vampiro chama magicamente os lobos 3d6
+MonsterPower/&DHSummonCreatureWolvesPowerTitle	Crianças da Noite
+MonsterPower/&DHTarrasqueReflectiveCarapaceImmunityDescription	Sempre que o tarrasco é alvo de um feitiço de míssil mágico, um feitiço de linha ou um feitiço que requer um rolo de ataque à distância, o tarrasco não é afetado.
+MonsterPower/&DHTarrasqueReflectiveCarapaceImmunityTitle	Carapaça Refletiva
+MonsterPower/&DHTarrasqueSwallowPowerDescription	O tarrasco faz um ataque de mordida contra uma criatura grande ou menor que está agarrando. Se o ataque atingir, o alvo é engolido e a garra termina.
+MonsterPower/&DHTarrasqueSwallowPowerTitle	Engole
+MonsterPower/&DHVampireCharmPowerDescription	O vampiro visa um humanóide que ele pode ver a menos de 30 metros dele. O alvo deve ser bem sucedido em um lançamento salvador de Sabedoria DC 17 contra esta magia ou ser encantado pelo vampiro.
+MonsterPower/&DHVampireCharmPowerTitle	Encantamento
 Power/&AncientForestLifeSapDescription	Quando você atinge um inimigo com um feitiço de ataque (PB vezes por dia), você inflige seu Cha Modifer em danos e cura metade dessa quantidade se menos da metade de seus pontos de golpe.
 Power/&AncientForestLifeSapTitle	Seiva vital
 Power/&AncientForestRootedPowerDescription	Os tendrilhos arborícolas crescem dos pés e caem no chão. Sua velocidade se torna 0, e você ganha vantagem em qualquer lançamento de salvamento para empurrá-lo, puxá-lo ou derrubá-lo. Você pode lançar emaranhado à vontade
@@ -1356,10 +1334,9 @@ Power/&UrPriestRadiantWardDescription	Como uma ação, você ganha um número de
 Power/&UrPriestRadiantWardTitle	Ala Radiante
 Power/&UrPriestSpellSiphonDescription	você aprende a explorar uma fonte maior de magia em combinação com sua reserva normal de energia. Como uma ação, você pode gastar uma Divindade do Canal para recuperar o uso gasto de seu 6° nível do Mystic Arcanum.
 Power/&UrPriestSpellSiphonTitle	Soletra Sifão
-Pugilist	Danos do Pugilista
-Race/&BolgrifRaceDescription	Os Bolgrifs são semi-giões que vivem nas terras altas congeladas de Solasta. Eles são astutos, cautelosos, reclusos, desconfiam da maioria dos humanóides exceto elfos e preferem viver longe da civilização em clãs bem unidos. Se pressionados para a batalha, os bolgrifs demonstram habilidades formidáveis com armas e magia da natureza.
+Race/&BolgrifRaceDescription	Os Bolgrifs são semi-giões que vivem nas terras altas congeladas de Solasta. Eles são astutos, cautelosos, reclusos, desconfiam da maioria dos humanóides exceto os elfos e preferem viver longe da civilização em clãs bem unidos. Se pressionados para a batalha, os bolgrifs demonstram habilidades formidáveis com armas e magia da natureza.
 Race/&BolgrifRaceTitle	Bolgrif
-Race/&GnomeRaceDescription	Um constante zumbido de atividade agitada permeia os guerreiros e bairros onde os gnomos formam suas comunidades unidas. Sons mais altos pontuam o zumbido: um ranger de trituração aqui, uma pequena explosão ali, um grito de surpresa ou triunfo, e especialmente explosões de gargalhadas. Os gnomos se deliciam com a vida, desfrutando cada momento de invenção, exploração, investigação, criação e brincadeira.
+Race/&GnomeRaceDescription	Um constante zumbido de atividade agitada permeia os guerreiros e bairros onde os gnomos formam suas comunidades unidas. Sons mais altos pontuam o zumbido: um ranger de trituração aqui, uma pequena explosão ali, um grito de surpresa ou triunfo, e especialmente explosões de riso. Os gnomos se deliciam com a vida, desfrutando cada momento de invenção, exploração, investigação, criação e brincadeira.
 Race/&GnomeRaceTitle	Gnomo da floresta
 Race/&PointPoolSelect10FeatsDescription	Selecione 10 proezas adicionais para seu personagem.
 Race/&PointPoolSelect10FeatsTitle	10 Feats de Bônus
@@ -1391,14 +1368,6 @@ Reaction/&SpendPowerKnockDownPowerDescription	Gaste uma morte de gambit e dê po
 Reaction/&SpendPowerKnockDownPowerReactDescription	Gaste uma morte de gambit e dê poder a seu ataque para fazer um dano adicional de 1d6+2 e derrube-os até o início de sua próxima curva se falharem uma economia de Força vs. 8 + sua Força + proficiência
 Reaction/&SpendPowerKnockDownPowerReactTitle	Derrubar
 Reaction/&SpendPowerKnockDownPowerTitle	Derrubar
-Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageDescription	Adicione seu modificador de Sabedoria ao seu rolo de danos.
-Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageReactDescription	Acrescente seu modificador de Sabedoria ao seu rolo de danos.
-Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageReactTitle	Caçador de inimigos
-Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageTitle	Caçador de inimigos
-Reaction/&UseZSPowerRangerFoeSlayerAttackDescription	Acrescente seu modificador de Sabedoria ao seu rolo de ataque.
-Reaction/&UseZSPowerRangerFoeSlayerAttackReactTitle	Caçador de inimigos
-Reaction/&UseZSPowerRangerFoeSlayerAttackTitle	Caçador de inimigos
-Reaction/&UseZSPowerRangerFoeSlayerDamageReactDescription	Acrescente seu modificador de Sabedoria ao seu rolo de ataque.
 RestActivity/&ZSRespecDescription	Respeite este Herói
 RestActivity/&ZSRespecTitle	Respec
 RestActivity/&ZSSorcerousRestorationDescription	Recuperar 4 pontos de feitiçaria durante um breve descanso.
@@ -1440,37 +1409,29 @@ Screen/&WitchSpellTitle	Bruxa
 Sorceror/&ZSSorcerousRestorationDescription	Recuperar 4 pontos de feitiçaria durante um breve descanso.
 Sorceror/&ZSSorcerousRestorationTitle	Restauração de feitiçaria
 Spell/&AcidClawsDescription	Faça um ataque mortal com suas garras afiadas.
-Spell/&AcidClawsTitle	Garras Sangrentas
+Spell/&AcidClawsTitle	Garras sangrentas
 Spell/&AHPactMarkAdditionalDamageDescription	Um dano adicional de 1d6 em uma criatura marcada pelo pacto.
 Spell/&AHPactMarkAdditionalDamageTitle	Dano da marca do pacto
 Spell/&AHPactMarkMarkedByPactConditionDescription	Esta criatura foi marcada por um pacto e retira danos extras do marcador.
 Spell/&AHPactMarkMarkedByPactConditionTitle	Marcado por um pacto
 Spell/&AHPactMarkPactMarkConditionDescription	Você pode marcar outras criaturas com uma marca de pacto e fazer um dano adicional 1d6 a elas com ataques físicos ou ortográficos.
-Spell/&AHPactMarkPactMarkConditionTitle	Marca de pacto
+Spell/&AHPactMarkPactMarkConditionTitle	Marca do pacto
 Spell/&AHPactMarkSpellDescription	Você coloca uma marca de seu pacto em uma criatura que você pode ver a 90 pés. Ela se torna vulnerável a você e leva um dano adicional de 1d6 sempre que você a atinge com um ataque (ataque físico ou feitiço). Este dano é do mesmo tipo que o ataque que atinge.
 Spell/&AHPactMarkSpellTitle	Marca de Pacto
 Spell/&AirBlastDescription	Dispare uma rajada de ar concentrado em seu alvo.
-Spell/&AirBlastTitle	Jato de ar
+Spell/&AirBlastTitle	Explosão de ar
 Spell/&BurstOfRadianceDescription	Crie um flash brilhante de luz cintilante, danificando todos os inimigos ao seu redor.
-Spell/&BurstOfRadianceTitle	Raios de Radiance
+Spell/&BurstOfRadianceTitle	Raio de Radiance
 Spell/&CJDivineWordDescription	Você profere uma palavra divina, imbuído do poder que moldou o mundo na aurora da criação. Escolha qualquer número de criaturas que você possa ver dentro do alcance. Cada criatura que pode ouvir você deve fazer um lançamento salvador de Carisma. Em um salvamento falhado, uma criatura sofre um efeito baseado em seus atuais pontos de golpe: 50 pontos de golpe ou menos: surdo por 1 minuto 40 pontos de golpe ou menos: surdo e cego por 10 minutos 30 pontos de golpe ou menos: cego, surdo e atordoado por 1 hora 20 pontos de golpe ou menos: morto instantaneamente, independentemente de seus pontos de golpe atuais, um celestial, um elementar, um fey, ou um demônio que falhe sua salvação é forçado a voltar ao seu plano de origem (se já não estiver lá) e não pode retornar ao seu plano atual por 24 horas por qualquer meio que não seja um feitiço de desejo. \n
 Spell/&CJDivineWordTitle	Palavra Divina
-Spell/&DH_CastSpell_Lich_Description	Capacidade de Lich Casting
-Spell/&DH_CastSpell_Lich_Title	Capacidade de Lich Casting
-Spell/&DH_DominateMonster_Spell_Description	Você tenta seduzir uma criatura que você pode ver ao seu alcance. Ela deve ser bem sucedida em um lançamento salvador de Sabedoria ou ser encantada por você durante o tempo que durar.
-Spell/&DH_DominateMonster_Spell_Title	Dominar o monstro
-Spell/&DH_FingerOfDeath_Spell_Description	O alvo deve fazer um lançamento salvador da Constituição. São necessários 7d8 + 30 danos necróticos em um salvamento falhado, ou metade dos danos em um salvamento bem sucedido.
-Spell/&DH_FingerOfDeath_Spell_Title	Dedo da Morte
-Spell/&DH_PowerWordKill_Spell_Description	Você pronuncia uma palavra de poder que pode obrigar uma criatura que você pode ver ao alcance de sua mão a morrer instantaneamente. Se a criatura que você escolher tiver 100 pontos de acerto ou menos, ela morre. Caso contrário, o feitiço não tem efeito.
-Spell/&DH_PowerWordKill_Spell_Title	Matar palavra de poder
-Spell/&DH_PowerWordStun_Spell_Description	Você fala uma palavra de poder que pode sobrecarregar a mente de uma criatura que você pode ver ao alcance, deixando-a estupefata. Se o alvo tem 150 pontos de acerto ou menos, ele fica atordoado. Caso contrário, o feitiço não tem efeito.
-Spell/&DH_PowerWordStun_Spell_Title	Atordoamento de palavras de poder
-Spell/&DH_ReverseGravity_Spell_Description	Este feitiço inverte a gravidade em um cilindro de 50 pés de raio e 100 pés de altura, centrado em um ponto dentro do alcance.
-Spell/&DH_ReverseGravity_Spell_Title	Inverter a Gravidade
-Spell/&DH_TimeStop_Spell_Description	Você pára brevemente o fluxo de tempo para todos, menos para você mesmo. Nenhum tempo passa para outras criaturas, enquanto você dá 1d4 + 1 voltas seguidas, durante as quais você pode usar ações e se mover normalmente.
-Spell/&DH_TimeStop_Spell_Title	Parada do tempo
 Spell/&DHAnimalShapesSpellDescription	Escolha qualquer número de criaturas dispostas que você possa ver dentro do alcance. Você transforma cada alvo na forma de uma besta Grande ou menor com uma classificação de desafio de 4 ou menor.
 Spell/&DHAnimalShapesSpellTitle	Formas de animais
+Spell/&DHCastSpellArchMageDescription	Habilidade de Fundição de Armage
+Spell/&DHCastSpellArchMageTitle	Habilidade de Fundição de Armage
+Spell/&DHCastSpellGuardianNagaDescription	Habilidade de Fundição de Armage
+Spell/&DHCastSpellGuardianNagaTitle	Habilidade de Fundição de Armage
+Spell/&DHCastSpellLichDescription	Capacidade de Lich Casting
+Spell/&DHCastSpellLichTitle	Capacidade de Lich Casting
 Spell/&DHConjureCelestialSpellDescription	Você convoca um celestial de grau de desafio 4 ou inferior, que aparece em um espaço desocupado que você pode ver dentro do alcance. O celestial desaparece quando cai a 0 pontos de acerto ou quando o feitiço termina. O celestial é amigável para você e seus companheiros por toda a duração.
 Spell/&DHConjureCelestialSpellTitle	Conjugação Celestial (Couatl)
 Spell/&DHDominateMonsterSpellDescription	Você tenta seduzir uma criatura que você pode ver ao seu alcance. Ela deve ser bem sucedida em um lançamento salvador de Sabedoria ou ser encantada por você durante o tempo que durar.
@@ -1541,39 +1502,22 @@ Spell/&ProtectThresholdTitle	Proteger o Limiar
 Spell/&RepellingBlastDescription	Um feixe de rajadas de energia crepitante em direção a uma criatura dentro do alcance. Faz um ataque de feitiço à distância contra o alvo. Em um ataque, o alvo leva um dano de força 1d10.\n(Quando você atinge uma criatura com explosão de eldritch, você pode empurrar a criatura até 3 metros de distância de você em linha reta).
 Spell/&RepellingBlastTitle	Explosão de Eldritch (Repelir)
 Spell/&ThunderStrikeDescription	Crie uma explosão de som estrondoso, prejudicando todos à sua volta.
-Spell/&ThunderStrikeTitle	Som de rajada
+Spell/&ThunderStrikeTitle	Quebra de som
 Spell/&WinterBreathDescription	Crie uma rajada de vento frio para esfriar seus inimigos e derrubá-los propenso.
 Spell/&WinterBreathTitle	Respiração do inverno
 Spell/&WitchFamiliarDescription	Você ganha o serviço de um familiar.
 Spell/&WitchFamiliarTitle	Feiticeiro Familiar
-SpellList/&ElementalistSpellsListDescription	Feitiços Elementalistas Descrição da Lista
-SpellList/&ElementalistSpellsListTitle	Feitiços ElementalistasLista
-SpellList/&RiftWalkerSpellsListDescription	Feitiços RiftWalkerLista Descrição
-SpellList/&RiftWalkerSpellsListTitle	Feitiços do Rift WalkerList
-SpellList/&SpellListClassWarlockDescription	Lista de feitiços do mago
-SpellList/&SpellListClassWarlockTitle	Lista de feitiços do mago
-SpellList/&SpellListTinkererTitle	Lista de feitiços para a classe Tinkerer
-SpellList/&SpellListTinkererDescription	Lista de feitiços para a classe Tinkerer
-Stage/&IdentityMorphotypeEyeHeader	Estilo Olho
-Stage/&SubclassSelectionStageCovenDescription	Coven
-Stage/&SubclassSelectionStageCovenFeaturesDescription	Coven
-Stage/&SubclassSelectionStageCovenFeaturesHeader	Características do Convênio
-Stage/&SubclassSelectionStageCovenFeaturesTitle	Coven
-Stage/&SubclassSelectionStageCovenHeader	Selecione um Convênio
-Stage/&SubclassSelectionStageCovenTitle	Coven
-Stage/&SubclassSelectionStagePatronDescription	Um mago é definido por um pacto com um ser de outro mundo. Às vezes a relação entre feiticeiro e patrono é como a de um clérigo e uma divindade, embora os seres que servem como patronos não sejam deuses.
-Stage/&SubclassSelectionStagePatronFeatures	Outras características dos mecenas
-Stage/&SubclassSelectionStagePatronHeader	Warlock Outros Patronos de Palavras
-Stage/&SubclassSelectionStagePatronTitle	Outros Patronos
-Stage/&SubclassSelectionStageSpecialistDescription	Descrição Há uma ampla gama de especialidades em Tinkerers, incluindo a fabricação de elixires como fabricante de poção, a realização de explosões como detonador e o empunhamento de armamento mágico como ferreiro de arma.
-Stage/&SubclassSelectionStageSpecialistFeatures	Características Especialistas
-Stage/&SubclassSelectionStageSpecialistHeader	Especializações
-Stage/&SubclassSelectionStageSpecialistNoneDescription	Especialista Nenhum Descrição
-Stage/&SubclassSelectionStageSpecialistTitle	Selecione Especialização
+SpellList/&ClassWarlockSpellListDescription	Lista de feitiços do mago
+SpellList/&ClassWarlockSpellListTitle	Lista de feitiços do mago
+SpellList/&ElementalistSpellsListDescription	Lista Ortográfica Elementalista
+SpellList/&ElementalistSpellsListTitle	Lista Ortográfica Elementalista
+SpellList/&RiftWalkerSpellsListDescription	Lista Ortográfica do RiftWalker
+SpellList/&RiftWalkerSpellsListTitle	Lista Ortográfica de Rift Walker
+SpellList/&SpellListTinkererDescription	Lista de Feitiços Tinkerer
+SpellList/&SpellListTinkererTitle	Lista de Feitiços Tinkerer
+Stage/&IdentityMorphotypeEyeHeader	Estilo dos olhos
 Subclass/&AbilityAffinityRogueConArtistDescription	Vantagem nas verificações de habilidade usando Persuasão, Engano, Desempenho, e Luz da Mão.
 Subclass/&AbilityAffinityRogueConArtistTitle	Manipulativo
-Subclass/&AHWarlockSubclassFiendPactDescription	Você fez um pacto com um demônio dos planos inferiores da existência, um ser cujos objetivos são maus, mesmo que você lute contra esses objetivos. Tais seres desejam a corrupção ou a destruição de todas as coisas, em última análise incluindo você. Os demônios poderosos o suficiente para forjar um pacto incluem senhores demoníacos como Demogorgon, Orcus, Fraz'Urb-luu e Baphomet; arquiduques como Asmodeus, Dispater, Mefistófeles e Belial; demônios das covas e balões que são especialmente poderosos; e ultroloths e outros senhores dos yugoloths.
-Subclass/&AHWarlockSubclassFiendPactTitle	O Pacto Fiend
 Subclass/&AHWarlockSubclassSoulBladePactDescription	Você conseguiu um acordo com uma arma senciente para alimentar as almas em troca de poder.
 Subclass/&AHWarlockSubclassSoulBladePactTitle	Pacto SoulBlade
 Subclass/&ArcaneFighterAdditionalActionDescription	Você pode lançar um feitiço após derrotar um inimigo com seus ataques com armas.
@@ -1585,7 +1529,7 @@ Subclass/&ArtificerAlchemistTitle	Criador de poção
 Subclass/&ArtificerArtileristCannonsDescription	Você cria um conjunto de canhões que você pode ativar em batalha como uma ação bônus
 Subclass/&ArtificerArtileristCannonsTitle	Cânones
 Subclass/&ArtificerArtilleristDescription	Você é especializado em lançar projéteis e causar explosões
-Subclass/&ArtificerArtilleristTitle	Detonador
+Subclass/&ArtificerArtilleristTitle	Demolidor
 Subclass/&ArtificerBattleSmithDescription	Você é especializado no uso de armas mágicas em combate
 Subclass/&ArtificerBattleSmithTitle	Smith Arma
 Subclass/&ArtificerSpellcastingDescription	Feitiços de Tinkerer
@@ -1621,7 +1565,7 @@ Subclass/&BarbarianPathOfTheLightIlluminatedConditionDescription	Distraído pela
 Subclass/&BarbarianPathOfTheLightIlluminatedConditionTitle	Iluminado
 Subclass/&BarbarianPathOfTheLightIlluminatedDisadvantageDescription	Desvantagem em qualquer rolo de ataque que não seja contra o Caminho do Bárbaro da Luz.
 Subclass/&BarbarianPathOfTheLightIlluminatedPreventInvisibilityDescription	Não pode se tornar invisível.
-Subclass/&BarbarianPathOfTheLightIlluminatingBurstDescription	Na volta em que você entra em sua fúria, você pode optar por iluminar até três inimigos a menos de 30 pés de você. Eles devem ser bem sucedidos em um lançamento de economia de Constituição (DC igual a 8 + seu bônus de proficiência + seu modificador de Constituição) ou sofrer danos radiantes 4d6 e ser iluminados por sua Greve Iluminadora por 1 minuto. Uma criatura iluminada desta forma faz outro lançamento salvador de Constitution no final de cada um de seus giros. Em uma economia bem sucedida, o efeito termina para ele.
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstDescription	Na volta em que você entra em sua fúria, você pode escolher iluminar até três inimigos a menos de 30 pés de você. Eles devem ser bem sucedidos em um lançamento de economia de Constituição (DC igual a 8 + seu bônus de proficiência + seu modificador de Constituição) ou sofrer danos radiantes 4d6 e ser iluminados por sua Greve Iluminadora por 1 minuto. Uma criatura iluminada desta forma faz outro lançamento salvador de Constitution no final de cada um de seus giros. Em uma economia bem sucedida, o efeito termina para ela.
 Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerDescription	Até três inimigos sofrem danos 4d6 radiantes e são iluminados por sua Greve Iluminadora. (A Constituição que salva o arremesso nega).
 Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerTitle	Arrombamento Iluminador
 Subclass/&BarbarianPathOfTheLightIlluminatingBurstTitle	Iluminando a explosão
@@ -1636,7 +1580,7 @@ Subclass/&BarbarianPathOfTheLightPierceTheDarknessTitle	Trespassar a escuridão
 Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription	Pode perceber criaturas invisíveis.
 Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionTitle	Invisibilidade da visão
 Subclass/&BarbarianPathOfTheLightTitle	Caminho da Luz
-Subclass/&BloodWitchDescription	Proibido pela maioria dos cobaias de bruxas, a magia do sangue se concentra no uso de feitiços escuros e hexes mortais que extraem da própria essência do feiticeiro. É fundamentalmente mais perigosa do que outras feitiçarias, mas seus muitos riscos vêm com recompensas copiosas.
+Subclass/&BloodWitchDescription	Proibido pela maioria dos cobaias de bruxas, a magia do sangue se concentra no uso de feitiços escuros e hexes mortais que extraem da própria essência do feiticeiro. É fundamentalmente mais arriscada do que outras feitiçarias, mas seus muitos riscos vêm com recompensas copiosas.
 Subclass/&BloodWitchMagicDescription	Você ganha os seguintes feitiços. Estes feitiços contam como feitiços de bruxaria para você e não contam contra seu número total de feitiços conhecidos. \Nível 1: Entangle, Goodberry Nível 2: Barkskin, Proteção contra o veneno Nível 3: Conjurar animais, Criar alimento Nível 4: Inseto gigante, Stoneskin Nível 5: Dissipar o mal e o bem, Peste de inseto
 Subclass/&BloodWitchMagicTitle	Magia Sanguínea
 Subclass/&BloodWitchTitle	Bruxa de sangue
@@ -1654,7 +1598,7 @@ Subclass/&ConditionSpellShieldArcaneDeflectionDescription	Você pode usar seus p
 Subclass/&ConditionSpellShieldArcaneDeflectionTitle	Deflexão Arcana
 Subclass/&ConditionTransmuteConstitutionSaveDescription	A Constituição temporária economiza a proficiência concedida pelo poder da Força Transmutora.
 Subclass/&ConditionTransmuteConstitutionSaveTitle	A Constituição Economiza
-Subclass/&ConditionTransmutePoisonDescription	Ácido temporário, Frio, Fogo, Raio, Necrótico, Trovão e Resistência ao Veneno concedidos pelo poder da Força Transmutora.
+Subclass/&ConditionTransmutePoisonDescription	Ácido temporário, Frio, Fogo, Raio, Necrótico, Trovão e Resistência ao Veneno concedidos pela Força Transmutora.
 Subclass/&ConditionTransmutePoisonTitle	Resistência Elementar
 Subclass/&CraftingTinkererMagicItemAdeptDescription	Você é adepto de criar itens mágicos. Você leva 1/4 do tempo para confeccionar itens e aplica o dobro de seu bônus de proficiência ao confeccionar.
 Subclass/&CraftingTinkererMagicItemAdeptTitle	Adepto a itens mágicos
@@ -1768,13 +1712,13 @@ Subclass/&PowerTransmuteHealTitle	Curar
 Subclass/&PowerTransmuteReviveDescription	Use sua Força Transmutora para reanimar um personagem (dentro de 1 minuto de sua morte).
 Subclass/&PowerTransmuteReviveTitle	Reanimar
 Subclass/&PurpleWitchDescription	A magia roxa domina os domínios das ilusões e encantamentos que se apoderam da mente das pessoas, e tudo o que não é bem o que parece. Os praticantes desta forma de magia são mestres fantoches, moldando a realidade aparente dos que os rodeiam em seu benefício.
-Subclass/&PurpleWitchMagicDescription	Você ganha os seguintes feitiços. Estes feitiços contam como feitiços de Bruxaria para você e não contam contra seu número total de feitiços conhecidos. \Nível 1: Entangle, Goodberry Nível 2: Barkskin, Proteção contra o veneno Nível 3: Conjugação de animais, Criação de alimentos Nível 4: Inseto gigante, Stoneskin Nível 5: Dissipar o mal e o bem, Peste de inseto
+Subclass/&PurpleWitchMagicDescription	Você ganha os seguintes feitiços. Estes feitiços contam como feitiços de Feitiços para você e não contam contra seu número total de feitiços conhecidos. \Nível 1: Entangle, Goodberry Nível 2: Barkskin, Proteção contra o veneno Nível 3: Conjugação de animais, Criação de alimentos Nível 4: Inseto gigante, Stoneskin Nível 5: Dissipar o mal e o bem, Peste de inseto
 Subclass/&PurpleWitchMagicTitle	Magia Púrpura
 Subclass/&PurpleWitchTitle	Bruxa roxa
 Subclass/&RangerArcanistRangerSubclassDescription	O Ranger Arcanist funde suas habilidades de ranger com habilidades de arcano. Suas armas podem afligir seus oponentes com a Marca do Arcanista, e aprenderam a lançar alguns feitiços de Feiticeiro como parte de seu repertório de feitiços de Ranger.
 Subclass/&RangerArcanistRangerSubclassTitle	Arcanista Guarda-florestal
-Subclass/&RedWitchDescription	A magia arcana ligada à canalização dos elementos é considerada magia vermelha, e é extremamente perigosa quando usada. As bruxas especializadas em magia vermelha estão entre as mais mortíferas dos feiticeiros existentes, canalizando sua maldição para a ira arcana sem obstáculos.
-Subclass/&RedWitchMagicDescription	Você ganha os seguintes feitiços. Estes feitiços contam como feitiços de Bruxa para você e não contam contra seu número total de feitiços conhecidos. \Nível 1: Mãos Ardentes, Míssil Mágico Nível 2: Flecha Ácida, Raio Escaldante Nível 3: Bola de Fogo, Proteção da Energia Nível 4: Tempestade de Gelo, Parede de Fogo Nível 5: Cone de Frio, Torção da Mente
+Subclass/&RedWitchDescription	A magia arcana ligada à canalização dos elementos é considerada magia vermelha, e é extremamente perigosa quando usada. As bruxas especializadas em magia vermelha estão entre as mais mortíferas dos castres ortográficos existentes, canalizando sua maldição para a ira arcana sem obstáculos.
+Subclass/&RedWitchMagicDescription	Você ganha os seguintes feitiços. Estes feitiços contam como feitiços de Bruxa para você e não contam contra seu número total de feitiços conhecidos. \Nível 1: Mãos Ardentes, Míssil Mágico Nível 2: Flecha Ácida, Raio Escaldante Nível 3: Bola de Fogo, Proteção da Energia Nível 4: Tempestade de Gelo, Muro de Fogo Nível 5: Cone de Frio, Torção da Mente
 Subclass/&RedWitchMagicTitle	Magia Vermelha
 Subclass/&RedWitchTitle	Bruxa Vermelha
 Subclass/&RoguishConArtistDescription	Os Artistas Con são malfeitores que se especializam em enganar e enganar os outros. Eles usam magia para auxiliar suas habilidades naturais de manipulação.
