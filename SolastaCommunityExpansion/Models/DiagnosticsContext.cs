@@ -206,7 +206,11 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void CreateCEDefinitionDiagnostics()
         {
-            CreateDefinitionDiagnostics(CEBaseDefinitions, "CE-Definitions");
+            var baseFilename = "CE-Definitions";
+
+            CreateDefinitionDiagnostics(CEBaseDefinitions, baseFilename);
+
+            CheckOrphanedTerms(Path.Combine(DiagnosticsFolder, $"{baseFilename}-Translations-OrphanedTerms-en.txt"));
         }
 
         internal static List<string> KnownDuplicateDefinitionNames { get; } = new()
@@ -217,6 +221,48 @@ namespace SolastaCommunityExpansion.Models
         internal static bool IsCeDefinition(BaseDefinition definition)
         {
             return CEBaseDefinitions2.Contains(definition);
+        }
+
+        internal static void CheckOrphanedTerms(string outputFile)
+        {
+            var terms = new HashSet<string>();
+            var sourceFile = Path.Combine(Main.MOD_FOLDER, "Translations-en.txt");
+
+            foreach (var line in File.ReadLines(sourceFile))
+            {
+                string term;
+
+                try
+                {
+                    var splitted = line.Split(new[] { '\t', ' ' }, 2);
+
+                    term = splitted[0];
+                }
+                catch
+                {
+                    continue;
+                }
+
+                terms.Add(term);
+            }
+
+            foreach (var definition in CEBaseDefinitions)
+            {
+                var title = definition.GuiPresentation.Title;
+                var description = definition.GuiPresentation.Description;
+
+                if (title != null && terms.Contains(title))
+                {
+                    terms.Remove(title);
+                }
+
+                if (description != null && terms.Contains(description))
+                {
+                    terms.Remove(description);
+                }
+            }
+
+            File.WriteAllLines(outputFile, terms.ToArray());
         }
     }
 }

@@ -74,7 +74,6 @@ namespace SolastaCommunityExpansion.Monsters
         public static MonsterAttackIteration PitFiendTailAttackIteration { get; private set; } = new();
         public static MonsterAttackIteration PitFiendWeaponAttackIteration { get; private set; } = new();
 
-
         public static MonsterAttackIteration PlanetarLongswordAttackIteration { get; private set; } = new();
         public static MonsterSkillProficiency PlanetarmonsterSkillProficiency_1 { get; private set; } = new();
 
@@ -94,32 +93,27 @@ namespace SolastaCommunityExpansion.Monsters
         public static MonsterSkillProficiency StormGiantmonsterSkillProficiency_3 { get; private set; } = new();
         public static MonsterSkillProficiency StormGiantmonsterSkillProficiency_4 { get; private set; } = new();
 
-
         public static LegendaryActionDescription VampirelegendaryActionDescription { get; private set; } = new();
         public static LegendaryActionDescription VampirelegendaryActionDescription_2 { get; private set; } = new();
-        public static  LegendaryActionDescription VampirelegendaryActionDescription_3 { get; private set; } = new();
+        public static LegendaryActionDescription VampirelegendaryActionDescription_3 { get; private set; } = new();
         //public static LegendaryActionDescription VampirelegendaryActionDescription_4 = new LegendaryActionDescription();
         public static MonsterSkillProficiency VampiremonsterSkillProficiency_1 { get; private set; } = new();
         public static MonsterSkillProficiency VampiremonsterSkillProficiency_2 { get; private set; } = new();
 
         public static AssetReference EmptyassetReference { get; private set; } = new();
 
-
-        public static MonsterAttackIteration TarrasqueBiteAttackIteration { get; private set; } =  new();
-        public static MonsterAttackIteration TarrasqueClawAttackIteration { get; private set; } =  new();
-        public static MonsterAttackIteration TarrasqueHornAttackIteration { get; private set; } =  new();
+        public static MonsterAttackIteration TarrasqueBiteAttackIteration { get; private set; } = new();
+        public static MonsterAttackIteration TarrasqueClawAttackIteration { get; private set; } = new();
+        public static MonsterAttackIteration TarrasqueHornAttackIteration { get; private set; } = new();
         public static MonsterAttackIteration TarrasqueTailAttackIteration { get; private set; } = new();
-
 
         public static LegendaryActionDescription TarrasquelegendaryActionDescription { get; private set; } = new();
         public static LegendaryActionDescription TarrasquelegendaryActionDescription_2 { get; private set; } = new();
         public static LegendaryActionDescription TarrasquelegendaryActionDescription_3 { get; private set; } = new();
-        public static LegendaryActionDescription TarrasquelegendaryActionDescription_4 { get; private set; } = new();
-
+        //public static LegendaryActionDescription TarrasquelegendaryActionDescription_4 { get; private set; } = new();
 
         public static void EnableInDungeonMaker()
         {
-
             BlackDragonBiteAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.DictionaryOfAncientDragonBites["Ancient Black Dragon"]);
             BlackDragonBiteAttackIteration.SetField("number", 1);
 
@@ -354,7 +348,7 @@ namespace SolastaCommunityExpansion.Monsters
             VampirelegendaryActionDescription_2.SetFeatureDefinitionPower(DatabaseHelper.FeatureDefinitionPowers.PowerDefilerDarkness);
             VampirelegendaryActionDescription_2.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.LegendaryDefilerDarkness);
 
-    
+
             VampirelegendaryActionDescription_3.SetCost(1);
             VampirelegendaryActionDescription_3.SetSubaction(LegendaryActionDescription.SubactionType.Power);
             VampirelegendaryActionDescription_3.SetFeatureDefinitionPower(NewMonsterPowers.VampireCharmPower);
@@ -370,7 +364,6 @@ namespace SolastaCommunityExpansion.Monsters
 
             VampiremonsterSkillProficiency_2.SetField("skillName", "Stealth");
             VampiremonsterSkillProficiency_2.SetField("bonus", 9);
-
 
             EmptyassetReference.SetField("m_AssetGUID", "");
             EmptyassetReference.SetField("m_SubObjectName", "");
@@ -405,18 +398,10 @@ namespace SolastaCommunityExpansion.Monsters
             TarrasquelegendaryActionDescription_3.SetMonsterAttackDefinition(NewMonsterAttacks.Tarrasque_Claw_Attack);
             TarrasquelegendaryActionDescription_3.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.LegendaryDragonAttack);
 
-        //   TarrasquelegendaryActionDescription_4.SetCost(2);
-        //   TarrasquelegendaryActionDescription_4.SetSubaction(LegendaryActionDescription.SubactionType.Power);
-        //   TarrasquelegendaryActionDescription_4.SetFeatureDefinitionPower(NewMonsterPowers.TarrasqueSwallowPower);
-        //   TarrasquelegendaryActionDescription_4.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.LegendaryLaetharCast_Debuff);
+            //   TarrasquelegendaryActionDescription_4.SetCost(2);
+            //   TarrasquelegendaryActionDescription_4.SetSubaction(LegendaryActionDescription.SubactionType.Power);
+            //   TarrasquelegendaryActionDescription_4.SetFeatureDefinitionPower(NewMonsterPowers.TarrasqueSwallowPower);
+            //   TarrasquelegendaryActionDescription_4.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.LegendaryLaetharCast_Debuff);
         }
-
-
     }
-
-
-
-
 }
-
-
