@@ -2,7 +2,7 @@
   "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionOpportunityAttackImmunityIfAttackerHasCondition, SolastaCommunityExpansion",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
+    "hidden": false,
     "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
