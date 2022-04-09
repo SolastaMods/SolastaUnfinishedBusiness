@@ -53,6 +53,13 @@ namespace SolastaCommunityExpansion.Builders.Features
             return This();
         }
 
+        public FeatureDefinitionDamageAffinityBuilder SetAncestryDefinesDamageType(bool ancestryDefinesDamageType)
+        {
+            Definition.SetAncestryDefinesDamageType(ancestryDefinesDamageType);
+
+            return This();
+        }
+
         public FeatureDefinitionDamageAffinityBuilder SetDamageAffinityType(RuleDefinitions.DamageAffinityType damageAffinityType)
         {
             Definition.DamageAffinityType = damageAffinityType;
@@ -64,6 +71,14 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
             Definition.SetRetaliatePower(featureDefinitionPower);
             Definition.SetRetaliateRangeCells(rangeCells);
+
+            return This();
+        }
+
+        public FeatureDefinitionDamageAffinityBuilder SetRetaliate(FeatureDefinitionPower featureDefinitionPower, int rangeCells, bool reliateWhenHit)
+        {
+            SetRetaliate(featureDefinitionPower, rangeCells);
+            Definition.SetRetaliateWhenHit(reliateWhenHit);
 
             return This();
         }

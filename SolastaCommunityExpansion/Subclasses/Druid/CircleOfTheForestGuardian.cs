@@ -156,24 +156,6 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
 
             return (barkWard, improvedBarkWard, superiorBarkWard);
         }
-
-        // A builder to help us build a custom damage affinity for our Bark Ward conditions
-        internal class FeatureDefinitionDamageAffinityBuilder : Builders.Features.FeatureDefinitionDamageAffinityBuilder
-        {
-            public FeatureDefinitionDamageAffinityBuilder(string name, string guid, bool retaliateWhenHit, int retaliationRange,
-                FeatureDefinitionPower retaliationPower, DamageAffinityType damageAffinityType, string damageType,
-                GuiPresentation guiPresentation) : base(DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireShieldWarm, name, guid)
-            {
-                Definition
-                    .SetDamageAffinityType(damageAffinityType)
-                    .SetDamageType(damageType)
-                    .SetRetaliateWhenHit(retaliateWhenHit)
-                    .SetRetaliateRangeCells(retaliationRange)
-                    .SetRetaliatePower(retaliationPower)
-                    .SetGuiPresentation(guiPresentation)
-                    .SetAncestryDefinesDamageType(false);
-            }
-        }
     }
 
     // Creates a dedicated builder for the the three Bark Ward conditions
@@ -239,18 +221,14 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
 
         private static FeatureDefinitionDamageAffinity CreateImprovedBarkWardDamage()
         {
-            GuiPresentationBuilder improvedBarkWardDamageGui = new GuiPresentationBuilder(
-                "Feature/&NoContentTitle",
-                "Feature/&NoContentTitle");
-
-            return new CircleOfTheForestGuardian.FeatureDefinitionDamageAffinityBuilder("ImprovedBarkWardRetaliationDamage",
-                GuidHelper.Create(CircleOfTheForestGuardian.BaseGuid, "ImprovedBarkWardRetaliationDamage").ToString(),
-                true,
-                1,
-                CreateImprovedBarkWardRetaliate(),
-                DamageAffinityType.None,
-                DamageTypePoison,
-                improvedBarkWardDamageGui.Build()).AddToDB();
+            return FeatureDefinitionDamageAffinityBuilder
+                .Create("ImprovedBarkWardRetaliationDamage", CircleOfTheForestGuardian.BaseGuid)
+                .SetGuiPresentationNoContent()
+                .SetDamageAffinityType(DamageAffinityType.None)
+                .SetDamageType(DamageTypePoison)
+                .SetRetaliate(CreateImprovedBarkWardRetaliate(), 1, true)
+                .SetAncestryDefinesDamageType(false)
+                .AddToDB();
         }
 
         protected ConditionImprovedBarkWardBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionBarkskin, name, guid)
@@ -285,7 +263,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
                 "DamagePiercing",
                 0, DieType.D8,
                 3, HealFromInflictedDamage.Never,
-                new List<RuleDefinitions.TrendInfo>());
+                new List<TrendInfo>());
             damageEffect.CreatedByCondition();
 
             EffectDescriptionBuilder superiorBarkWardRetaliationEffect = new EffectDescriptionBuilder();
@@ -311,18 +289,14 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
 
         private static FeatureDefinitionDamageAffinity CreateSuperiorBarkWardDamage()
         {
-            GuiPresentationBuilder superiorBarkWardDamageGui = new GuiPresentationBuilder(
-                "Feature/&NoContentTitle",
-                "Feature/&NoContentTitle");
-
-            return new CircleOfTheForestGuardian.FeatureDefinitionDamageAffinityBuilder("SuperiorBarkWardRetaliationDamage",
-                GuidHelper.Create(CircleOfTheForestGuardian.BaseGuid, "SuperiorBarkWardRetaliationDamage").ToString(),
-                true,
-                1,
-                CreateSuperiorBarkWardRetaliate(),
-                DamageAffinityType.Immunity,
-                DamageTypePoison,
-               superiorBarkWardDamageGui.Build()).AddToDB();
+            return FeatureDefinitionDamageAffinityBuilder
+                .Create("SuperiorBarkWardRetaliationDamage", CircleOfTheForestGuardian.BaseGuid)
+                .SetGuiPresentationNoContent()
+                .SetDamageAffinityType(DamageAffinityType.Immunity)
+                .SetDamageType(DamageTypePoison)
+                .SetRetaliate(CreateSuperiorBarkWardRetaliate(), 1, true)
+                .SetAncestryDefinesDamageType(false)
+                .AddToDB();
         }
 
         protected ConditionSuperiorBarkWardBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionBarkskin, name, guid)
