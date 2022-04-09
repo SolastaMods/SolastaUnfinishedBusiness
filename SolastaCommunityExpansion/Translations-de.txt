@@ -7,7 +7,7 @@ AttributeModifier/&DHFeeblemindIntSpellTitle	Schwache Intelligenz
 BlueprintCategory/&FlatRoomsTitle	Flache Räume
 Caption/&GadgetParametersCustomRemoveDescription	Entfernen:\n{0}
 Class/&ClassWarlockDescription	Hexenmeister sind Sucher nach dem Wissen, das im Gewebe des Multiversums verborgen liegt. Durch Pakte mit mysteriösen Wesen mit übernatürlichen Kräften entfalten Hexenmeister magische Effekte, die sowohl subtil als auch spektakulär sind.
-Class/&ClassWarlockTitle	Hexenmeister
+Class/&ClassWarlockTitle	Warlock
 Class/&TinkererDescription	Tüftler sind Erfinder, Alchemisten und mehr. Sie überbrücken den Raum zwischen Magie und Technologie.
 Class/&TinkererTitle	Tüftler
 Class/&WitchArmorProficiencyDescription	Leichte Rüstung

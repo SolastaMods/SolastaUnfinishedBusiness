@@ -7,7 +7,7 @@ AttributeModifier/&DHFeeblemindIntSpellTitle	Intelligence faible
 BlueprintCategory/&FlatRoomsTitle	Pièces plates
 Caption/&GadgetParametersCustomRemoveDescription	Suppression:\n{0}
 Class/&ClassWarlockDescription	Les sorciers sont des chercheurs du savoir qui se cache dans le tissu du multivers. Grâce à des pactes conclus avec des êtres mystérieux aux pouvoirs surnaturels, les sorciers débloquent des effets magiques aussi bien subtils que spectaculaires.
-Class/&ClassWarlockTitle	Sorcier
+Class/&ClassWarlockTitle	Warlock
 Class/&TinkererDescription	Les bricoleurs sont des inventeurs, des alchimistes et bien plus encore. Ils font le lien entre la magie et la technologie.
 Class/&TinkererTitle	Bricoleur
 Class/&WitchArmorProficiencyDescription	Armure légère
