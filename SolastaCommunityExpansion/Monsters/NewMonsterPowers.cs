@@ -132,6 +132,7 @@ namespace SolastaCommunityExpansion.Monsters
             effectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
             effectDescription.SetTargetSide(RuleDefinitions.Side.Enemy);
             effectDescription.SetTargetParameter(1);
+            effectDescription.SetTargetParameter2(2);
             effectDescription.SetDifficultyClassComputation(RuleDefinitions.EffectDifficultyClassComputation.FixedValue);
             effectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions.Wisdom.Name);
             effectDescription.SetFixedSavingThrowDifficultyClass(17);
@@ -670,6 +671,7 @@ namespace SolastaCommunityExpansion.Monsters
             IlluminatingCrystals_Power.SetEffectDescription(effectDescription);
             IlluminatingCrystals_Power.EffectDescription.SetTargetExcludeCaster(true);
             IlluminatingCrystals_Power.EffectDescription.SetTargetParameter(6);
+            IlluminatingCrystals_Power.EffectDescription.SetTargetParameter2(2);
             IlluminatingCrystals_Power.EffectDescription.SetRangeParameter(0);
             IlluminatingCrystals_Power.EffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
             IlluminatingCrystals_Power.EffectDescription.SetTargetType(RuleDefinitions.TargetType.PerceivingWithinDistance);
