@@ -88,7 +88,7 @@ namespace SolastaCommunityExpansion.Patches
                 SpellsContext.Load();
 
                 // Monsters need spells
-                MonsterContext.Load();
+                //MonsterContext.Load(); // Removing from CE
 
                 // Later load DummyClass to avoid unnecessary creation of some blueprints from feats
                 MulticlassContext.LaterLoad();

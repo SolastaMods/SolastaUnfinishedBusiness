@@ -56,7 +56,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             UI.Label("Advanced:".yellow());
 
             UI.Label("");
-            UI.Label(". ATTENTION:".bold().red() + " These 2 settings will require the player to have this mod installed");
+            UI.Label(". ATTENTION:".bold().red() + " This setting will require the player to have this mod installed");
             UI.Label("");
 
             toggle = Main.Settings.EnableDungeonMakerModdedContent;
