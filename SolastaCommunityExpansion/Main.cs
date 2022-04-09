@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using HarmonyLib;
+using I2.Loc;
 using ModKit;
 using UnityModManagerNet;
 
@@ -14,9 +15,10 @@ namespace SolastaCommunityExpansion
     {
         private const string CeFilename = "SolastaCommunityExpansion.dll";
         private const string McFilename = "SolastaMulticlass.dll";
-        internal static bool IsDebugBuild => UnityEngine.Debug.isDebugBuild;
-        internal static bool Enabled { get; set; }
+
         internal static string MOD_FOLDER { get; private set; } = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        internal static bool Enabled { get; set; }
+        internal static bool IsDebugBuild => UnityEngine.Debug.isDebugBuild;
 
         // need to be public for MC sidecar
         [Conditional("DEBUG")]
@@ -66,24 +68,8 @@ namespace SolastaCommunityExpansion
                 Menu = new MenuManager();
                 Menu.Enable(modEntry, assembly);
 
-                Translations.Load(MOD_FOLDER);
-
-                // load sidecars
-                foreach (var path in Directory.EnumerateFiles(MOD_FOLDER, "Solasta*.dll"))
-                {
-                    var filename = Path.GetFileName(path);
-
-                    if (filename == CeFilename || (filename == McFilename && !Main.Settings.EnableMulticlass))
-                    {
-                        continue;
-                    }
-
-#pragma warning disable S3885 // "Assembly.Load" should be used
-                    var customCodeAssembly = Assembly.LoadFile(path);
-                    var harmony = new Harmony(customCodeAssembly.GetName().Name);
-#pragma warning restore S3885 // "Assembly.Load" should be used
-                    harmony.PatchAll(customCodeAssembly);
-                }
+                LoadSidecars();
+                LoadTranslations(); ;
             }
             catch (Exception ex)
             {
@@ -99,6 +85,68 @@ namespace SolastaCommunityExpansion
             if (Settings.EnableHeroesControlledByComputer)
             {
                 Models.PlayerControllerContext.RefreshGuiState();
+            }
+        }
+
+        internal static void LoadSidecars()
+        {
+            foreach (var path in Directory.EnumerateFiles(MOD_FOLDER, "Solasta*.dll"))
+            {
+                var filename = Path.GetFileName(path);
+
+                if (filename == CeFilename || (filename == McFilename && !Main.Settings.EnableMulticlass))
+                {
+                    continue;
+                }
+
+#pragma warning disable S3885 // "Assembly.Load" should be used
+                var sidecarAssembly = Assembly.LoadFile(path);
+                var harmony = new Harmony(sidecarAssembly.GetName().Name);
+#pragma warning restore S3885 // "Assembly.Load" should be used
+
+                harmony.PatchAll(sidecarAssembly);
+            }
+        }
+
+        internal static void LoadTranslations()
+        {
+            var code = LocalizationManager.CurrentLanguageCode;
+            var path = Path.Combine(MOD_FOLDER, $"Translations-{code}.txt");
+
+            var languageSourceData = LocalizationManager.Sources[0];
+            var languageIndex = languageSourceData.GetLanguageIndexFromCode(code);
+
+            foreach (var line in File.ReadLines(path))
+            {
+                string term;
+                string text;
+
+                try
+                {
+                    var splitted = line.Split(new[] { '\t', ' ' }, 2);
+
+                    term = splitted[0];
+                    text = splitted[1];
+                }
+                catch
+                {
+                    Main.Error($"invalid translation line \"{line}\".");
+
+                    continue;
+                }
+
+                var termData = languageSourceData.GetTermData(term);
+
+                if (termData != null && termData.Languages[languageIndex] != null)
+                {
+                    Main.Log($"term {term} overwritten with {code} text {text}");
+
+                    termData.Languages[languageIndex] = text;
+                }
+                else
+                {
+                    languageSourceData.AddTerm(term).Languages[languageIndex] = text;
+                }
             }
         }
     }
