@@ -96,7 +96,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
             barkWardBuff.SetConditionForm(ConditionBarkWardBuilder.GetOrAdd(), ConditionForm.ConditionOperation.Add, true, true, new List<ConditionDefinition>());
 
             EffectFormBuilder improvedBarkWardBuff = new EffectFormBuilder();
-            improvedBarkWardBuff.SetConditionForm(ConditionImprovedBarkWardBuilder.GetOrAdd(), ConditionForm.ConditionOperation.Add, true, true, new List<ConditionDefinition>());
+            improvedBarkWardBuff.SetConditionForm(CreateConditionImprovedBarkWard(), ConditionForm.ConditionOperation.Add, true, true, new List<ConditionDefinition>());
 
             EffectFormBuilder superiorBarkWardBuff = new EffectFormBuilder();
             superiorBarkWardBuff.SetConditionForm(ConditionSuperiorBarkWardBuilder.GetOrAdd(), ConditionForm.ConditionOperation.Add, true, true, new List<ConditionDefinition>());
@@ -155,6 +155,47 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
                 .AddToDB();
 
             return (barkWard, improvedBarkWard, superiorBarkWard);
+
+            static ConditionDefinition CreateConditionImprovedBarkWard()
+            {
+                var damageEffect = EffectFormBuilder
+                    .Create()
+                    .SetDamageForm(false, DieType.D8, "DamagePiercing", 0, DieType.D8, 2, HealFromInflictedDamage.Never)
+                    .CreatedByCondition()
+                    .Build();
+
+                var improvedBarkWardRetaliationEffect = EffectDescriptionBuilder
+                    .Create()
+                    .AddEffectForm(damageEffect)
+                    .Build();
+
+                var improvedBarkWardDamageRetaliate = FeatureDefinitionPowerBuilder
+                    .Create("improvedBarkWardRetaliate", CircleOfTheForestGuardian.BaseGuid)
+                    .SetGuiPresentationNoContent()
+                    .Configure(
+                        0, UsesDetermination.Fixed, AttributeDefinitions.Wisdom, ActivationTime.NoCost,
+                        0, RechargeRate.AtWill, false, false, AttributeDefinitions.Wisdom,
+                        improvedBarkWardRetaliationEffect, true)
+                    .AddToDB();
+
+                var improvedBarkWardDamage = FeatureDefinitionDamageAffinityBuilder
+                    .Create("ImprovedBarkWardRetaliationDamage", CircleOfTheForestGuardian.BaseGuid)
+                    .SetGuiPresentationNoContent()
+                    .SetDamageAffinityType(DamageAffinityType.None)
+                    .SetDamageType(DamageTypePoison)
+                    .SetRetaliate(improvedBarkWardDamageRetaliate, 1, true)
+                    .SetAncestryDefinesDamageType(false)
+                    .AddToDB();
+
+                return ConditionDefinitionBuilder
+                    .Create(DatabaseHelper.ConditionDefinitions.ConditionBarkskin, "ImprovedBarkWard", CircleOfTheForestGuardian.BaseGuid)
+                    .SetGuiPresentation(Category.Condition)
+                    .SetAllowMultipleInstances(true)
+                    .SetDuration(DurationType.Minute, 10)
+                    .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
+                    .SetFeatures(improvedBarkWardDamage)
+                    .AddToDB();
+            }
         }
     }
 
@@ -182,75 +223,6 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
         {
             var db = DatabaseRepository.GetDatabase<ConditionDefinition>();
             return db.TryGetElement("BarkWard", GuidHelper.Create(CircleOfTheForestGuardian.BaseGuid, "BarkWard").ToString()) ?? CreateAndAddToDB();
-        }
-    }
-
-    internal class ConditionImprovedBarkWardBuilder : ConditionDefinitionBuilder
-    {
-        private static FeatureDefinitionPower CreateImprovedBarkWardRetaliate()
-        {
-            EffectFormBuilder damageEffect = new EffectFormBuilder();
-            damageEffect.SetDamageForm(false, DieType.D8,
-                "DamagePiercing",
-                0, DieType.D8,
-                2, HealFromInflictedDamage.Never,
-                new List<RuleDefinitions.TrendInfo>());
-            damageEffect.CreatedByCondition();
-
-            EffectDescriptionBuilder improvedBarkWardRetaliationEffect = new EffectDescriptionBuilder();
-            improvedBarkWardRetaliationEffect.AddEffectForm(damageEffect.Build());
-
-            return FeatureDefinitionPowerBuilder
-                .Create("improvedBarkWardRetaliate", CircleOfTheForestGuardian.BaseGuid)
-                .SetGuiPresentationNoContent()
-                .Configure(
-                    0,
-                    UsesDetermination.Fixed,
-                    AttributeDefinitions.Wisdom,
-                    ActivationTime.NoCost,
-                    0,
-                    RechargeRate.AtWill,
-                    false,
-                    false,
-                    AttributeDefinitions.Wisdom,
-                    improvedBarkWardRetaliationEffect.Build(),
-                    true
-                    )
-                .AddToDB();
-        }
-
-        private static FeatureDefinitionDamageAffinity CreateImprovedBarkWardDamage()
-        {
-            return FeatureDefinitionDamageAffinityBuilder
-                .Create("ImprovedBarkWardRetaliationDamage", CircleOfTheForestGuardian.BaseGuid)
-                .SetGuiPresentationNoContent()
-                .SetDamageAffinityType(DamageAffinityType.None)
-                .SetDamageType(DamageTypePoison)
-                .SetRetaliate(CreateImprovedBarkWardRetaliate(), 1, true)
-                .SetAncestryDefinesDamageType(false)
-                .AddToDB();
-        }
-
-        protected ConditionImprovedBarkWardBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionBarkskin, name, guid)
-        {
-            Definition.GuiPresentation.Title = "Condition/&ConditionImprovedBarkWardTitle";
-            Definition.GuiPresentation.Description = "Condition/&ConditionImprovedBarkWardDescription";
-
-            SetFeatures(CreateImprovedBarkWardDamage());
-            SetAllowMultipleInstances(false);
-            SetDuration(DurationType.Minute, 10);
-            SetTurnOccurence(TurnOccurenceType.EndOfTurn);
-        }
-
-        public static ConditionDefinition CreateAndAddToDB()
-        {
-            return new ConditionImprovedBarkWardBuilder("ImprovedBarkWard", GuidHelper.Create(CircleOfTheForestGuardian.BaseGuid, "ImprovedBarkWard").ToString()).AddToDB();
-        }
-
-        public static ConditionDefinition GetOrAdd()
-        {
-            var db = DatabaseRepository.GetDatabase<ConditionDefinition>();
-            return db.TryGetElement("ImprovedBarkWard", GuidHelper.Create(CircleOfTheForestGuardian.BaseGuid, "ImprovedBarkWard").ToString()) ?? CreateAndAddToDB();
         }
     }
 
