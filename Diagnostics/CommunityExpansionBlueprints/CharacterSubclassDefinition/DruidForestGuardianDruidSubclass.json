@@ -13,7 +13,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierDruidForestGuardianSylvanDurability:afd1de94-ce76-575c-922a-19fea5a8d5ce",
+      "featureDefinition": "Definition:AttributeModifierDruidForestGuardianSylvanDurability:00c2095b-95a3-540c-a521-2628ff457aa9",
       "level": 2
     },
     {
@@ -23,7 +23,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierDruidForestGuardianExtraAttack:ee4d920b-23c1-54e4-b968-1370a6da457c",
+      "featureDefinition": "Definition:AttributeModifierDruidForestGuardianExtraAttack:559b3bcb-76fe-545c-b5c3-3b31325f0f4b",
       "level": 6
     },
     {
@@ -63,7 +63,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "45a7595b-5d5f-4351-b7f1-cb78c9d0a136",
+  "guid": "029c40fb-fdf5-5cc7-94ab-51aac1a40c2b",
   "contentPack": 9999,
   "name": "DruidForestGuardianDruidSubclass"
 }

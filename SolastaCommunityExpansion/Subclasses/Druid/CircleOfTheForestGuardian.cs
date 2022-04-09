@@ -2,15 +2,14 @@
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
-using SolastaModApi;
 using SolastaModApi.Extensions;
 using static FeatureDefinitionAttributeModifier.AttributeModifierOperation;
+using static RuleDefinitions;
 using static SolastaCommunityExpansion.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
-using static RuleDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Druid
 {
@@ -47,19 +46,14 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
 
             // NOTE: unable to use preferred Create because of legacy guid generation
             var extraAttack = FeatureDefinitionAttributeModifierBuilder
-                .Create(
-                    "AttributeModifierDruidForestGuardianExtraAttack", // unless we can change this name to DruidForestGuardianExtraAttack
-                    GuidHelper.Create(BaseGuid, "DruidForestGuardianExtraAttack").ToString())
-                .SetGuiPresentation(Category.Feature)
+                .Create("AttributeModifierDruidForestGuardianExtraAttack", BaseGuid)
+                .SetGuiPresentation("DruidForestGuardianExtraAttack", Category.Feature)
                 .SetModifier(Additive, AttributeDefinitions.AttacksNumber, 1)
                 .AddToDB();
 
-            // NOTE: unable to use preferred Create because of legacy guid generation
             var sylvanResistance = FeatureDefinitionAttributeModifierBuilder
-                .Create(
-                    "AttributeModifierDruidForestGuardianSylvanDurability", // unless we can change this name to DruidForestGuardianSylvanDurability
-                    GuidHelper.Create(BaseGuid, "DruidForestGuardianSylvanDurability").ToString())
-                .SetGuiPresentation(Category.Feature)
+                .Create("AttributeModifierDruidForestGuardianSylvanDurability", BaseGuid)
+                .SetGuiPresentation("DruidForestGuardianSylvanDurability", Category.Feature)
                 .SetModifier(Additive, AttributeDefinitions.HitPointBonusPerLevel, 1)
                 .AddToDB();
 
@@ -212,8 +206,8 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
 
                 return ConditionDefinitionBuilder
                     .Create(ConditionDefinitions.ConditionBarkskin, "ImprovedBarkWard", BaseGuid)
-                    .SetOrUpdateGuiPresentation(Category.Condition)
-                    .SetAllowMultipleInstances(true)
+                    .SetOrUpdateGuiPresentation("ConditionImprovedBarkWard", Category.Condition)
+                    .SetAllowMultipleInstances(false)
                     .SetDuration(DurationType.Minute, 10)
                     .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
                     .SetFeatures(improvedBarkWardDamage)
