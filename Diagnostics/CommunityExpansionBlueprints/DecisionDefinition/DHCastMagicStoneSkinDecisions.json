@@ -1,0 +1,138 @@
+{
+  "$type": "TA.AI.DecisionDefinition, Assembly-CSharp",
+  "decision": {
+    "$type": "TA.AI.DecisionDescription, Assembly-CSharp",
+    "description": "Self fly spell, with random. Penalized if we have an enemy in melee range (opportunity attack).",
+    "scorer": {
+      "$type": "TA.AI.ActivityScorerDefinition, Assembly-CSharp",
+      "scorer": {
+        "$type": "TA.AI.ActivityScorer, Assembly-CSharp",
+        "considerations": [
+          {
+            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
+            "consideration": {
+              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
+              "consideration": {
+                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
+                "considerationType": "TargetHasCondition",
+                "curve": {
+                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+                },
+                "stringParameter": "ConditionFlying60",
+                "floatParameter": 2.0,
+                "intParameter": 2,
+                "byteParameter": 0,
+                "boolParameter": true,
+                "boolSecParameter": false,
+                "boolTerParameter": false
+              },
+              "name": "TargetIsNotFlying"
+            },
+            "weight": 1.0
+          },
+          {
+            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
+            "consideration": {
+              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
+              "consideration": {
+                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
+                "considerationType": "Random",
+                "curve": {
+                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+                },
+                "stringParameter": "",
+                "floatParameter": 0.0,
+                "intParameter": 0,
+                "byteParameter": 0,
+                "boolParameter": false,
+                "boolSecParameter": false,
+                "boolTerParameter": false
+              },
+              "name": "RandomHighChance"
+            },
+            "weight": 1.0
+          },
+          {
+            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
+            "consideration": {
+              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
+              "consideration": {
+                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
+                "considerationType": "HasEnemiesInMeleeRange",
+                "curve": {
+                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+                },
+                "stringParameter": "",
+                "floatParameter": 0.9,
+                "intParameter": 1,
+                "byteParameter": 0,
+                "boolParameter": false,
+                "boolSecParameter": true,
+                "boolTerParameter": false
+              },
+              "name": "HasEnemyInMeleeRangeStronglyPenalized"
+            },
+            "weight": 1.0
+          },
+          {
+            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
+            "consideration": {
+              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
+              "consideration": {
+                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
+                "considerationType": "CanCastMagic",
+                "curve": {
+                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+                },
+                "stringParameter": "",
+                "floatParameter": 0.0,
+                "intParameter": 0,
+                "byteParameter": 0,
+                "boolParameter": false,
+                "boolSecParameter": false,
+                "boolTerParameter": false
+              },
+              "name": "CanCastMagic_IgnoreAdvantage"
+            },
+            "weight": 1.0
+          }
+        ]
+      },
+      "name": "CastMagic_FlySelfWithRandom"
+    },
+    "activityType": "CastMagic",
+    "stringParameter": "Stoneskin",
+    "stringSecParameter": "",
+    "boolParameter": false,
+    "boolSecParameter": false,
+    "floatParameter": 0.0,
+    "enumParameter": 772
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "50630345-ae13-5c12-ba10-12d50bce35fb",
+  "contentPack": 9999,
+  "name": "DHCastMagicStoneSkinDecisions"
+}

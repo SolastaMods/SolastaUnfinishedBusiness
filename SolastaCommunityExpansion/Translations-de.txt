@@ -149,8 +149,8 @@ Equipment/&Enchanted_Club_Bearclaw_Description	Diese verzauberte Waffe wurde mit
 Equipment/&Enchanted_Club_Bearclaw_Title	Bärenklauen-Keule
 Equipment/&Enchanted_Club_Lightbringer_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Schmiedemeister von Colthannin geschmiedet. Sie wurde von Elgador Keenspirit, dem Magierschmied des Arkaneums, entworfen, um den Kampf gegen untote Kreaturen zu unterstützen.
 Equipment/&Enchanted_Club_Lightbringer_Title	Lichtbringer-Keule
-Equipment/&Enchanted_Club_Power_Description	Diese verzauberte Waffe wurde mit dem alten Wissen der Meisterschmiede von Manacalon geschmiedet. Manche Kreaturen respektieren nur physische Kräfte. Die Arkanisten Manacalons schufen diese Keule, um den Champions der Eisernen Legionen die Stärke zu verleihen, die ihre elfischen Körper nicht bieten können.
-Equipment/&Enchanted_Club_Power_Title	Keule der Macht
+Equipment/&Enchanted_Club_PowerDescription	Diese verzauberte Waffe wurde mit dem alten Wissen der Meisterschmiede von Manacalon geschmiedet. Manche Kreaturen respektieren nur physische Kräfte. Die Arkanisten Manacalons schufen diese Keule, um den Champions der Eisernen Legionen die Stärke zu verleihen, die ihre elfischen Körper nicht bieten können.
+Equipment/&Enchanted_Club_PowerTitle	Keule der Macht
 Equipment/&Enchanted_Club_Punisher_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Meisterschmiede Manacalons geschaffen. Die Kombination aus bestem Metall und Slawenstein verlieh dieser Axt eine unglaubliche Durchschlagskraft.
 Equipment/&Enchanted_Club_Punisher_Title	Punisher-Keule
 Equipment/&Enchanted_Dart_Acuteness_Description	Diese verzauberte Waffe wurde mit dem alten Wissen der Meisterschmiede Manacalons geschaffen. Sie wurde von Elgador Keenspirit, dem Magierschmied des Arkaneums, entworfen und ist eines seiner ersten Werke.
@@ -215,8 +215,8 @@ Equipment/&Enchanted_Maul_Bearclaw_Description	Diese verzauberte Waffe wurde nac
 Equipment/&Enchanted_Maul_Bearclaw_Title	Bärenklauen-Maul
 Equipment/&Enchanted_Maul_Lightbringer_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Schmiedemeister von Colthannin geschmiedet. Sie wurde von Elgador Keenspirit, dem Magierschmied des Arkaneums, entworfen, um den Kampf gegen untote Kreaturen zu unterstützen.
 Equipment/&Enchanted_Maul_Lightbringer_Title	Lichtbringer-Maul
-Equipment/&Enchanted_Maul_Power_Description	Diese verzauberte Waffe wurde mit dem alten Wissen der Meisterschmiede von Manacalon geschmiedet. Manche Kreaturen respektieren nur körperliche Stärke. Die Arkanisten Manacalons schufen diesen Stab, um den Champions der Eisernen Legionen die Stärke zu verleihen, die ihre elfischen Körper nicht bieten können.
-Equipment/&Enchanted_Maul_Power_Title	Maul der Macht
+Equipment/&Enchanted_Maul_PowerDescription	Diese verzauberte Waffe wurde mit dem alten Wissen der Meisterschmiede von Manacalon geschmiedet. Manche Kreaturen respektieren nur körperliche Stärke. Die Arkanisten Manacalons schufen diesen Stab, um den Champions der Eisernen Legionen die Stärke zu verleihen, die ihre elfischen Körper nicht bieten können.
+Equipment/&Enchanted_Maul_PowerTitle	Maul der Macht
 Equipment/&Enchanted_Maul_Punisher_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Meisterschmiede Manacalons geschaffen. Die Kombination aus bestem Metall und Slawenstein verleiht dieser Axt eine unglaubliche Durchschlagskraft.
 Equipment/&Enchanted_Maul_Punisher_Title	Punisher Maul
 Equipment/&Enchanted_Quarterstaff_Acuteness_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Meisterschmiede Manacalons geschaffen. Sie wurde von Elgador Keenspirit, dem Magierschmied des Arkaneums, entworfen und ist eines seiner ersten Werke.
@@ -304,8 +304,8 @@ Equipment/&Enchanted_Warhammer_Bearclaw_Description	Diese verzauberte Waffe wurd
 Equipment/&Enchanted_Warhammer_Bearclaw_Title	Bärenklauen-Warhammer
 Equipment/&Enchanted_Warhammer_Lightbringer_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Meisterschmiede von Colthannin geschmiedet. Sie wurde von Elgador Keenspirit, dem Magierschmied des Arcaneums, entworfen, um den Kampf gegen untote Kreaturen zu unterstützen.
 Equipment/&Enchanted_Warhammer_Lightbringer_Title	Lichtbringer-Warhammer
-Equipment/&Enchanted_Warhammer_Power_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Meisterschmiede von Manacalon geschmiedet. Manche Kreaturen respektieren nur physische Kräfte. Die Arkanisten Manacalons schufen diesen Kriegshammer, um den Champions der Eisernen Legionen die Stärke zu verleihen, die ihre elfischen Körper nicht bieten können.
-Equipment/&Enchanted_Warhammer_Power_Title	Kriegshammer der Macht
+Equipment/&Enchanted_Warhammer_PowerDescription	Diese verzauberte Waffe wurde mit dem uralten Wissen der Meisterschmiede von Manacalon geschmiedet. Manche Kreaturen respektieren nur physische Kräfte. Die Arkanisten Manacalons schufen diesen Kriegshammer, um den Champions der Eisernen Legionen die Stärke zu verleihen, die ihre elfischen Körper nicht bieten können.
+Equipment/&Enchanted_Warhammer_PowerTitle	Kriegshammer der Macht
 Equipment/&Enchanted_Warhammer_Punisher_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Meisterschmiede Manacalons geschaffen. Die Kombination aus bestem Metall und Slawenstein verlieh dieser Axt eine unglaubliche Durchschlagskraft.
 Equipment/&Enchanted_Warhammer_Punisher_Title	Punisher-Warhammer
 Equipment/&HerbalBrewQuickeningTitle	Kräutergebräu: Trank der Belebung
@@ -776,20 +776,20 @@ Feature/&ClassWarlockWeaponProficiencyDescription	Einfache Waffen
 Feature/&ClassWarlockWeaponProficiencyTitle	Hexenmeister-Waffenfähigkeiten
 Feature/&CounterStrikePowerDescription	Gib einen Gambit-Würfel aus und füge dem Feind einen Gegenschlag zu. Wenn du triffst, verursachst du zusätzlich 1d6+2 Schaden durch Niederschlagen.
 Feature/&CounterStrikePowerTitle	Gegenschlag
-Feature/&DH_AirTitan_LightningStorm_Custom_Power_Description	6d8 Blitze im weiten Umkreis
-Feature/&DH_AirTitan_LightningStorm_Custom_Power_Title	Blitzsturm
-Feature/&DH_AtWill_Fireball_Power_Description	Feuerball mit Willenskraft
-Feature/&DH_AtWill_Fireball_Power_Title	Feuerball
-Feature/&DH_AtWill_HoldMonster_Power_Description	3 Einsätze pro Tag
-Feature/&DH_AtWill_HoldMonster_Power_Title	Monster festhalten
-Feature/&DH_AtWill_Invisibility_Power_Description	Unsichtbarkeit mit Willenskraft
-Feature/&DH_AtWill_Invisibility_Power_Title	Unsichtbarkeit
+Feature/&DH_AirTitan_LightningStorm_Custom_PowerDescription	6d8 Blitze im weiten Umkreis
+Feature/&DH_AirTitan_LightningStorm_Custom_PowerTitle	Blitzsturm
+Feature/&DH_AtWill_Fireball_PowerDescription	Feuerball mit Willenskraft
+Feature/&DH_AtWill_Fireball_PowerTitle	Feuerball
+Feature/&DH_AtWill_HoldMonster_PowerDescription	3 Einsätze pro Tag
+Feature/&DH_AtWill_HoldMonster_PowerTitle	Monster festhalten
+Feature/&DH_AtWill_Invisibility_PowerDescription	Unsichtbarkeit mit Willenskraft
+Feature/&DH_AtWill_Invisibility_PowerTitle	Unsichtbarkeit
 Feature/&DH_BlinkDescription	Als Bonusaktion verschwindest du aus deiner aktuellen Existenzebene und verhinderst jeglichen Schaden. Zu Beginn deines nächsten Zuges kehrst du in den Raum zurück, aus dem du verschwunden bist.
 Feature/&DH_BlinkTitle	Blinzeln
 Feature/&DH_FadeIntoTheVoidDescription	Wenn du auf 0 Trefferpunkte reduziert, aber nicht getötet wirst, sinkst du stattdessen auf 1 Trefferpunkt, während du kurz in die Leere verschwindest, um den Schaden zu verringern. Du kannst diese Fähigkeit erst wieder einsetzen, wenn du eine lange Pause gemacht hast.
 Feature/&DH_FadeIntoTheVoidTitle	In die Leere verblassen
-Feature/&DH_Generic_Lightning_Attack_Custom_Power_Description	12D8
-Feature/&DH_Generic_Lightning_Attack_Custom_Power_Title	Blitzschlag
+Feature/&DH_Generic_Lightning_Attack_Custom_PowerDescription	12D8
+Feature/&DH_Generic_Lightning_Attack_Custom_PowerTitle	Blitzschlag
 Feature/&DH_RiftCloakDescription	Deine Kontrolle über Spaltportale hat sich so weit verbessert, dass du nun anderen den Schutz des Spalts gewähren kannst. Du kannst nach Belieben ein Schutzband wirken (ohne Schaden zu teilen).
 Feature/&DH_RiftCloakTitle	Spalt-Umhang
 Feature/&DH_RiftControlDescription	Du bist kurzzeitig von der Energie des Spalts umgeben und teleportierst dich in einen unbesetzten Raum. Du kannst jetzt einen Verbündeten mitnehmen, wenn du dich teleportierst, und die Reichweite wurde deutlich erhöht.
@@ -1164,92 +1164,92 @@ Monster/&PactOfChainCustomSpriteDescription	Anders als Kobolde geben sich Kobold
 Monster/&PactOfChainCustomSpriteTitle	Sprite (Pakt der Kette)
 Monster/&WitchOwlFamiliarDescription	Eule vertraut
 Monster/&WitchOwlFamiliarTitle	Eule
-MonsterAttack/&DH_AirBlast_Attack_Description	5d6 Donner und stößt 2 Zellen
-MonsterAttack/&DH_AirBlast_Attack_Title	Luftstoß
-MonsterAttack/&DH_AirTitan_Slam_Attack_Descriptiond	4d6+6 Prügel & 4d6 Donner
-MonsterAttack/&DH_AirTitan_Slam_Attack_Title	Donnernder Schlag
-MonsterAttack/&DH_AncientDragon_Tail_Attack_Description	2D8+8 Prügeln
-MonsterAttack/&DH_AncientDragon_Tail_Attack_Title	Schwanz-Attacke
-MonsterAttack/&DH_Balor_Longsword_Attack_Description	3D8+8 Hieb & 3D8 Blitz
-MonsterAttack/&DH_Balor_Longsword_Attack_Title	Langschwert-Angriff
-MonsterAttack/&DH_Balor_Whip_Attack_Description	2D6+8 Hieb & 3D6 Feuer
-MonsterAttack/&DH_Balor_Whip_Attack_Title	Peitschenangriff
-MonsterAttack/&DH_ConstructTitan_ForceCannon_Attack_Description	4D8 Kraftschaden und das Ziel wird zu Boden geworfen
-MonsterAttack/&DH_ConstructTitan_ForceCannon_Attack_Title	Macht-Kanone
-MonsterAttack/&DH_ConstructTitan_Slam_Attack_Description	3D12+8 Prügelschaden und das Ziel wird 20 Fuß weit geschleudert
-MonsterAttack/&DH_ConstructTitan_Slam_Attack_Title	Zuschlagen
-MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Description	Kann nicht handeln und erleidet jede Runde 16d6 Säureschaden. 60 Schadenspunkte in einem einzigen Angriff können den Verschluckten zum Erbrechen zwingen.
-MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Title	Verschluckt
-MonsterAttack/&DH_Custom_TarrasqueSwallowingcondition_Description	60 Schadenspunkte in einem einzigen Angriff können ihn zum Erbrechen zwingen.
-MonsterAttack/&DH_Custom_TarrasqueSwallowingcondition_Title	Verschluckende Kreatur
-MonsterAttack/&DH_DamageAcid_Bite_Attack_Description	2D10+9 Durchbohrender Schaden & 2D8 Säureschaden
-MonsterAttack/&DH_DamageAcid_Bite_Attack_Title	Säurebiss-Angriff
-MonsterAttack/&DH_DamageCold_Bite_Attack_Description	2D10+9 Durchbohren & 2D8 Kälteschaden
-MonsterAttack/&DH_DamageCold_Bite_Attack_Title	Eisbiss-Angriff
-MonsterAttack/&DH_DamageFire_Bite_Attack_Description	2D10+9 Durchbohren & 4D6 Feuerschaden
-MonsterAttack/&DH_DamageFire_Bite_Attack_Title	Feuerbiss-Angriff
-MonsterAttack/&DH_DamageLightning_Bite_Attack_Description	2D10+9 Durchbohren & 2D10 Blitzschaden
-MonsterAttack/&DH_DamageLightning_Bite_Attack_Title	Blitz-Biss-Attacke
-MonsterAttack/&DH_DamagePoison_Bite_Attack_Description	2D10+9 Durchbohren & 3D6 Giftschaden
-MonsterAttack/&DH_DamagePoison_Bite_Attack_Title	Giftbiss-Attacke
-MonsterAttack/&DH_EarthTitan_Boulder_Attack_Description	7D10+8 Prügeln
-MonsterAttack/&DH_EarthTitan_Boulder_Attack_Title	Felsbrocken
-MonsterAttack/&DH_EarthTitan_Slam_Attack_Description	4D10+8 Verletzen
-MonsterAttack/&DH_EarthTitan_Slam_Attack_Title	Ground Slam
-MonsterAttack/&DH_FireScimatar_Attack_Description	2d6+6 Hieb & 2d6 Feuer
-MonsterAttack/&DH_FireScimatar_Attack_Title	Scimatar
-MonsterAttack/&DH_FireTitan_Slam_Attack_Description	3d6+5 Verprügeln + 10d6 Feuer
-MonsterAttack/&DH_FireTitan_Slam_Attack_Title	Versengender Hieb
-MonsterAttack/&DH_Fork_Attack_Description	2d8 +6 Durchbohren
-MonsterAttack/&DH_Fork_Attack_Title	Gabelangriff
+MonsterAttack/&DH_AirBlast_AttackDescription	5d6 Donner und stößt 2 Zellen
+MonsterAttack/&DH_AirBlast_AttackTitle	Luftstoß
+MonsterAttack/&DH_AirTitan_Slam_AttackDescriptiond	4d6+6 Prügel & 4d6 Donner
+MonsterAttack/&DH_AirTitan_Slam_AttackTitle	Donnernder Schlag
+MonsterAttack/&DH_AncientDragon_Tail_AttackDescription	2D8+8 Prügeln
+MonsterAttack/&DH_AncientDragon_Tail_AttackTitle	Schwanz-Attacke
+MonsterAttack/&DH_Balor_Longsword_AttackDescription	3D8+8 Hieb & 3D8 Blitz
+MonsterAttack/&DH_Balor_Longsword_AttackTitle	Langschwert-Angriff
+MonsterAttack/&DH_Balor_Whip_AttackDescription	2D6+8 Hieb & 3D6 Feuer
+MonsterAttack/&DH_Balor_Whip_AttackTitle	Peitschenangriff
+MonsterAttack/&DH_ConstructTitan_ForceCannon_AttackDescription	4D8 Kraftschaden und das Ziel wird zu Boden geworfen
+MonsterAttack/&DH_ConstructTitan_ForceCannon_AttackTitle	Macht-Kanone
+MonsterAttack/&DH_ConstructTitan_Slam_AttackDescription	3D12+8 Prügelschaden und das Ziel wird 20 Fuß weit geschleudert
+MonsterAttack/&DH_ConstructTitan_Slam_AttackTitle	Zuschlagen
+MonsterAttack/&DH_TarrasqueSwallowedcondition_Description	Kann nicht handeln und erleidet jede Runde 16d6 Säureschaden. 60 Schadenspunkte in einem einzigen Angriff können den Verschluckten zum Erbrechen zwingen.
+MonsterAttack/&DH_TarrasqueSwallowedcondition_Title	Verschluckt
+MonsterAttack/&DH_TarrasqueSwallowingcondition_Description	60 Schadenspunkte in einem einzigen Angriff können ihn zum Erbrechen zwingen.
+MonsterAttack/&DH_TarrasqueSwallowingcondition_Title	Verschluckende Kreatur
+MonsterAttack/&DH_DamageAcid_Bite_AttackDescription	2D10+9 Durchbohrender Schaden & 2D8 Säureschaden
+MonsterAttack/&DH_DamageAcid_Bite_AttackTitle	Säurebiss-Angriff
+MonsterAttack/&DH_DamageCold_Bite_AttackDescription	2D10+9 Durchbohren & 2D8 Kälteschaden
+MonsterAttack/&DH_DamageCold_Bite_AttackTitle	Eisbiss-Angriff
+MonsterAttack/&DH_DamageFire_Bite_AttackDescription	2D10+9 Durchbohren & 4D6 Feuerschaden
+MonsterAttack/&DH_DamageFire_Bite_AttackTitle	Feuerbiss-Angriff
+MonsterAttack/&DH_DamageLightning_Bite_AttackDescription	2D10+9 Durchbohren & 2D10 Blitzschaden
+MonsterAttack/&DH_DamageLightning_Bite_AttackTitle	Blitz-Biss-Attacke
+MonsterAttack/&DH_DamagePoison_Bite_AttackDescription	2D10+9 Durchbohren & 3D6 Giftschaden
+MonsterAttack/&DH_DamagePoison_Bite_AttackTitle	Giftbiss-Attacke
+MonsterAttack/&DH_EarthTitan_Boulder_AttackDescription	7D10+8 Prügeln
+MonsterAttack/&DH_EarthTitan_Boulder_AttackTitle	Felsbrocken
+MonsterAttack/&DH_EarthTitan_Slam_AttackDescription	4D10+8 Verletzen
+MonsterAttack/&DH_EarthTitan_Slam_AttackTitle	Ground Slam
+MonsterAttack/&DH_FireScimatar_AttackDescription	2d6+6 Hieb & 2d6 Feuer
+MonsterAttack/&DH_FireScimatar_AttackTitle	Scimatar
+MonsterAttack/&DH_FireTitan_Slam_AttackDescription	3d6+5 Verprügeln + 10d6 Feuer
+MonsterAttack/&DH_FireTitan_Slam_AttackTitle	Versengender Hieb
+MonsterAttack/&DH_Fork_AttackDescription	2d8 +6 Durchbohren
+MonsterAttack/&DH_Fork_AttackTitle	Gabelangriff
 MonsterAttack/&DH_Generic_Bite_Attack_No_ExtraDamage_Description	2d10 + 6 Durchbohrender Schaden
 MonsterAttack/&DH_Generic_Bite_Attack_No_ExtraDamage_Title	Biss-Angriff
-MonsterAttack/&DH_Generic_Claw_Attack_Description	2d6 + 9 Hiebschaden
-MonsterAttack/&DH_Generic_Claw_Attack_Title	Klauen-Angriff
+MonsterAttack/&DH_Generic_Claw_AttackDescription	2d6 + 9 Hiebschaden
+MonsterAttack/&DH_Generic_Claw_AttackTitle	Klauen-Angriff
 MonsterAttack/&DH_Generic_Stronger_Bite_Attack_No_ExtraDamage_Description	2D10 + 9
 MonsterAttack/&DH_Generic_Stronger_Bite_Attack_No_ExtraDamage_Title	Biss-Angriff
-MonsterAttack/&DH_HornedDevilTail_Attack_Description	1D8 +6 Durchbohren, verursacht eine blutende Wunde
-MonsterAttack/&DH_HornedDevilTail_Attack_Title	Schwanz-Attacke
+MonsterAttack/&DH_HornedDevilTail_AttackDescription	1D8 +6 Durchbohren, verursacht eine blutende Wunde
+MonsterAttack/&DH_HornedDevilTail_AttackTitle	Schwanz-Attacke
 MonsterAttack/&DH_HornedDevilTail_Attackcondition_Description	3D6 Nekrotisch, Schutzwirkung wird aufgehoben
 MonsterAttack/&DH_HornedDevilTail_Attackcondition_Title	Blutende Wunde
-MonsterAttack/&DH_HurlFlame_Attack_Description	5d6 Feuer
-MonsterAttack/&DH_HurlFlame_Attack_Title	Flamme schleudern
-MonsterAttack/&DH_Ice_Bite_Attack_Description	2d6+5 Durchbohren & 3d6 Kälte
-MonsterAttack/&DH_Ice_Bite_Attack_Title	Eisbiss
-MonsterAttack/&DH_ImpAttack_Description	1d4 + 3 durchstechender Schaden. Das Ziel muss einen Konstitutionsschutzwurf von DC 11 ablegen und erleidet bei einem misslungenen Schutzwurf 10 (3d6) Giftschaden, bei einem erfolgreichen Schutzwurf halb so viel Schaden.
-MonsterAttack/&DH_ImpAttack_Title	Stachel
-MonsterAttack/&DH_Lich_ParalyzingTouch_Attack_Description	3D6 Kälte und verursacht den Zustand "Gelähmt".
-MonsterAttack/&DH_Lich_ParalyzingTouch_Attack_Title	Lähmende Berührung
-MonsterAttack/&DH_LightningScimatar_Attack_Description	2d6+5 Hiebschaden & 2d6 Blitzschaden
-MonsterAttack/&DH_LightningScimatar_Attack_Title	Scimatar
-MonsterAttack/&DH_NagaBite_Attack_Description	1d8+4 Durchbohren & 15 DC Con Save bis zur Hälfte 10d8 Gift
-MonsterAttack/&DH_NagaBite_Attack_Title	Giftiger Biss
-MonsterAttack/&DH_NagaSpit_Attack_Description	15 DC Con Save auf die Hälfte von 10d8 Gift
-MonsterAttack/&DH_NagaSpit_Attack_Title	Gift spucken
-MonsterAttack/&DH_PitFiend_Bite_Attack_Description	2d6+7 Gift, fügt Giftzustand zu
-MonsterAttack/&DH_PitFiend_Bite_Attack_Title	Biss-Attacke
+MonsterAttack/&DH_HurlFlame_AttackDescription	5d6 Feuer
+MonsterAttack/&DH_HurlFlame_AttackTitle	Flamme schleudern
+MonsterAttack/&DH_Ice_Bite_AttackDescription	2d6+5 Durchbohren & 3d6 Kälte
+MonsterAttack/&DH_Ice_Bite_AttackTitle	Eisbiss
+MonsterAttack/&DH_ImpAttackDescription	1d4 + 3 durchstechender Schaden. Das Ziel muss einen Konstitutionsschutzwurf von DC 11 ablegen und erleidet bei einem misslungenen Schutzwurf 10 (3d6) Giftschaden, bei einem erfolgreichen Schutzwurf halb so viel Schaden.
+MonsterAttack/&DH_ImpAttackTitle	Stachel
+MonsterAttack/&DH_Lich_ParalyzingTouch_AttackDescription	3D6 Kälte und verursacht den Zustand "Gelähmt".
+MonsterAttack/&DH_Lich_ParalyzingTouch_AttackTitle	Lähmende Berührung
+MonsterAttack/&DH_LightningScimatar_AttackDescription	2d6+5 Hiebschaden & 2d6 Blitzschaden
+MonsterAttack/&DH_LightningScimatar_AttackTitle	Scimatar
+MonsterAttack/&DH_NagaBite_AttackDescription	1d8+4 Durchbohren & 15 DC Con Save bis zur Hälfte 10d8 Gift
+MonsterAttack/&DH_NagaBite_AttackTitle	Giftiger Biss
+MonsterAttack/&DH_NagaSpit_AttackDescription	15 DC Con Save auf die Hälfte von 10d8 Gift
+MonsterAttack/&DH_NagaSpit_AttackTitle	Gift spucken
+MonsterAttack/&DH_PitFiend_Bite_AttackDescription	2d6+7 Gift, fügt Giftzustand zu
+MonsterAttack/&DH_PitFiend_Bite_AttackTitle	Biss-Attacke
 MonsterAttack/&DH_PitFiend_Bite_Attackcondition_Description	6D6 Posion wiederkehrend
 MonsterAttack/&DH_PitFiend_Bite_Attackcondition_Title	Vergiftet
-MonsterAttack/&DH_PitFiend_Mace_Attack_Description	2D6+8 Prügel & 6D6 Feuer
-MonsterAttack/&DH_PitFiend_Mace_Attack_Title	Streitkolben-Angriff
-MonsterAttack/&DH_PoisonLongbow_Attack_Description	Langbogen mit Giftpfeilen
-MonsterAttack/&DH_PoisonLongbow_Attack_Title	Gift-Langbogen
-MonsterAttack/&DH_PoisonLongsword_Attack_Description	1d10+4 Hieb & 3d8 Gift
-MonsterAttack/&DH_PoisonLongsword_Attack_Title	Gift-Langschwert
-MonsterAttack/&DH_PseudodragonAttack_Description	1d4 Durchbohrender Schaden: Das Ziel muss einen Konstitutionsschutzwurf von DC 10 bestehen oder wird für 1 Minute vergiftet. Das vergiftete Ziel wird für die gleiche Dauer bewusstlos, oder bis es Schaden nimmt oder eine andere Kreatur eine Aktion durchführt, um es wachzurütteln.
-MonsterAttack/&DH_PseudodragonAttack_Title	Stachel
-MonsterAttack/&DH_QuasitAttack_Description	1d4 + 3 durchstechender Schaden, und das Ziel muss einen Rettungswurf mit DC 10 Konstitution bestehen oder 5 (2d4) Giftschaden erleiden und 1 Minute lang vergiftet sein.
-MonsterAttack/&DH_QuasitAttack_Title	Klaue
-MonsterAttack/&DH_RadiantLongbow_Attack_Description	2D6+8 Durchbohren & 6D8 Strahlenschaden
-MonsterAttack/&DH_RadiantLongbow_Attack_Title	Tötender Langbogen.
-MonsterAttack/&DH_RadiantLongsword_Attack_Description	4D6+8 Hieb- und 6D8 Strahlenschaden
-MonsterAttack/&DH_RadiantLongsword_Attack_Title	Strahlendes Großschwert
-MonsterAttack/&DH_Roc_Beak_Attack_Description	4d8+9 Durchbohren
-MonsterAttack/&DH_Roc_Beak_Attack_Title	Schnabel
-MonsterAttack/&DH_Roc_Talons_Attack_Description	4d6+9 Hieb und das Ziel wird von Roc gepackt und gefesselt
-MonsterAttack/&DH_Roc_Talons_Attack_Title	Krallen
-MonsterAttack/&DH_SpriteAttack_Description	1d4 Durchbohrender Schaden: Das Ziel muss einen Konstitutionsschutzwurf von DC 10 bestehen oder wird 1 Minute lang vergiftet. Das vergiftete Ziel wird für die gleiche Dauer bewusstlos, oder bis es Schaden nimmt oder eine andere Kreatur eine Aktion durchführt, um es wachzurütteln.
-MonsterAttack/&DH_SpriteAttack_Title	Feenbogen
+MonsterAttack/&DH_PitFiend_Mace_AttackDescription	2D6+8 Prügel & 6D6 Feuer
+MonsterAttack/&DH_PitFiend_Mace_AttackTitle	Streitkolben-Angriff
+MonsterAttack/&DH_PoisonLongbow_AttackDescription	Langbogen mit Giftpfeilen
+MonsterAttack/&DH_PoisonLongbow_AttackTitle	Gift-Langbogen
+MonsterAttack/&DH_PoisonLongsword_AttackDescription	1d10+4 Hieb & 3d8 Gift
+MonsterAttack/&DH_PoisonLongsword_AttackTitle	Gift-Langschwert
+MonsterAttack/&DH_PseudodragonAttackDescription	1d4 Durchbohrender Schaden: Das Ziel muss einen Konstitutionsschutzwurf von DC 10 bestehen oder wird für 1 Minute vergiftet. Das vergiftete Ziel wird für die gleiche Dauer bewusstlos, oder bis es Schaden nimmt oder eine andere Kreatur eine Aktion durchführt, um es wachzurütteln.
+MonsterAttack/&DH_PseudodragonAttackTitle	Stachel
+MonsterAttack/&DH_QuasitAttackDescription	1d4 + 3 durchstechender Schaden, und das Ziel muss einen Rettungswurf mit DC 10 Konstitution bestehen oder 5 (2d4) Giftschaden erleiden und 1 Minute lang vergiftet sein.
+MonsterAttack/&DH_QuasitAttackTitle	Klaue
+MonsterAttack/&DH_RadiantLongbow_AttackDescription	2D6+8 Durchbohren & 6D8 Strahlenschaden
+MonsterAttack/&DH_RadiantLongbow_AttackTitle	Tötender Langbogen.
+MonsterAttack/&DH_RadiantLongsword_AttackDescription	4D6+8 Hieb- und 6D8 Strahlenschaden
+MonsterAttack/&DH_RadiantLongsword_AttackTitle	Strahlendes Großschwert
+MonsterAttack/&DH_Roc_Beak_AttackDescription	4d8+9 Durchbohren
+MonsterAttack/&DH_Roc_Beak_AttackTitle	Schnabel
+MonsterAttack/&DH_Roc_Talons_AttackDescription	4d6+9 Hieb und das Ziel wird von Roc gepackt und gefesselt
+MonsterAttack/&DH_Roc_Talons_AttackTitle	Krallen
+MonsterAttack/&DH_SpriteAttackDescription	1d4 Durchbohrender Schaden: Das Ziel muss einen Konstitutionsschutzwurf von DC 10 bestehen oder wird 1 Minute lang vergiftet. Das vergiftete Ziel wird für die gleiche Dauer bewusstlos, oder bis es Schaden nimmt oder eine andere Kreatur eine Aktion durchführt, um es wachzurütteln.
+MonsterAttack/&DH_SpriteAttackTitle	Feenbogen
 MonsterAttack/&DH_Tarrasque_Bite_Description	4d12 + 10 durchdringender Schaden und das Ziel muss eine Geschicklichkeitsprobe bestehen oder gepackt werden (Flucht DC 20).
 MonsterAttack/&DH_Tarrasque_Bite_Title	Biss
 MonsterAttack/&DH_Tarrasque_BiteCondition_Description	Bis dieser Griff endet, ist das Ziel gefesselt.
@@ -1262,70 +1262,70 @@ MonsterAttack/&DH_Tarrasque_Tail_Description	4d6 + 10 Schaden durch Hiebe. Hande
 MonsterAttack/&DH_Tarrasque_Tail_Title	Schwanz
 MonsterAttack/&DHCouatlBiteAttackDescription	Durchbohrender Schaden, und das Ziel muss einen Rettungswurf der Konstitution (DC 13) bestehen oder für 24 Stunden vergiftet werden. Bis dieses Gift endet, ist das Ziel bewusstlos.
 MonsterAttack/&DHCouatlBiteAttackTitle	Biss
-MonsterPower/&DH_AirTitan_Gale_Power_Description	4D10 Donner und Stoßen bei misslungenem Schutzwurf
-MonsterPower/&DH_AirTitan_Gale_Power_Title	Schreiender Orkan
-MonsterPower/&DH_AirTitan_Lightning_Power_Description	3D10 Blitzschlag im Gebiet
-MonsterPower/&DH_AirTitan_Lightning_Power_Title	Blitzschlag
-MonsterPower/&DH_AncientDragon_Wing_Power_Description	Drachen können mit ihren Flügeln so viel Wind erzeugen, dass sie die meisten Humanoiden wegschleudern und zu Boden werfen.
-MonsterPower/&DH_AncientDragon_Wing_Power_Title	Flügelangriff
-MonsterPower/&DH_Balor_FireAura_Power_Description	3D6 Feuer
-MonsterPower/&DH_Balor_FireAura_Power_Title	Feuer-Aura
-MonsterPower/&DH_BlindingGaze_Power_Description	DC15 Konstitutionsschutz oder Blindheit, bis eine geringere Wiederherstellung verwendet wird
-MonsterPower/&DH_BlindingGaze_Power_Title	Blendender Blick
-MonsterPower/&DH_DamageAcid_Breath_Power_Description	15D8 Säure
-MonsterPower/&DH_DamageAcid_Breath_Power_Title	Saurer Atem
-MonsterPower/&DH_DamageCold_Breath_Power_Description	16D8 Kälte
-MonsterPower/&DH_DamageCold_Breath_Power_Title	Eis-Atem
-MonsterPower/&DH_DamageFire_Breath_Power_Description	26D6 Feuer
-MonsterPower/&DH_DamageFire_Breath_Power_Title	Feuer-Atem
-MonsterPower/&DH_DamageLightning_Breath_Power_Description	16D10 Blitz
-MonsterPower/&DH_DamageLightning_Breath_Power_Title	Blitz-Atem
-MonsterPower/&DH_DamagePoison_Breath_Power_Description	22D6 Gift
-MonsterPower/&DH_DamagePoison_Breath_Power_Title	Giftiger Atem
-MonsterPower/&DH_DisintegratingBeam_Power_Description	6D10 Strahlenschaden und das Ziel wird auf 0 HP desintegriert
-MonsterPower/&DH_DisintegratingBeam_Power_Title	Auflösungsstrahl
-MonsterPower/&DH_EarthTitan_Earthquake_Power_Description	4D10 Prügeln
-MonsterPower/&DH_EarthTitan_Earthquake_Power_Title	Erdbeben
-MonsterPower/&DH_ErinyesParry_Power_Description	+3 AC
-MonsterPower/&DH_ErinyesParry_Power_Title	Parieren
-MonsterPower/&DH_FireTitan_Aura_Power_Description	Jede Kreatur im Umkreis von 30 Fuß erleidet 35 (10d6) Feuerschaden, und entflammbare Gegenstände in der Aura, die nicht getragen werden, entzünden sich.
-MonsterPower/&DH_FireTitan_Aura_Power_Title	Feuer-Titan-Aura
+MonsterPower/&DH_AirTitan_Gale_PowerDescription	4D10 Donner und Stoßen bei misslungenem Schutzwurf
+MonsterPower/&DH_AirTitan_Gale_PowerTitle	Schreiender Orkan
+MonsterPower/&DH_AirTitan_Lightning_PowerDescription	3D10 Blitzschlag im Gebiet
+MonsterPower/&DH_AirTitan_Lightning_PowerTitle	Blitzschlag
+MonsterPower/&DH_AncientDragon_Wing_PowerDescription	Drachen können mit ihren Flügeln so viel Wind erzeugen, dass sie die meisten Humanoiden wegschleudern und zu Boden werfen.
+MonsterPower/&DH_AncientDragon_Wing_PowerTitle	Flügelangriff
+MonsterPower/&DH_Balor_FireAura_PowerDescription	3D6 Feuer
+MonsterPower/&DH_Balor_FireAura_PowerTitle	Feuer-Aura
+MonsterPower/&DH_BlindingGaze_PowerDescription	DC15 Konstitutionsschutz oder Blindheit, bis eine geringere Wiederherstellung verwendet wird
+MonsterPower/&DH_BlindingGaze_PowerTitle	Blendender Blick
+MonsterPower/&DH_DamageAcid_Breath_PowerDescription	15D8 Säure
+MonsterPower/&DH_DamageAcid_Breath_PowerTitle	Saurer Atem
+MonsterPower/&DH_DamageCold_Breath_PowerDescription	16D8 Kälte
+MonsterPower/&DH_DamageCold_Breath_PowerTitle	Eis-Atem
+MonsterPower/&DH_DamageFire_Breath_PowerDescription	26D6 Feuer
+MonsterPower/&DH_DamageFire_Breath_PowerTitle	Feuer-Atem
+MonsterPower/&DH_DamageLightning_Breath_PowerDescription	16D10 Blitz
+MonsterPower/&DH_DamageLightning_Breath_PowerTitle	Blitz-Atem
+MonsterPower/&DH_DamagePoison_Breath_PowerDescription	22D6 Gift
+MonsterPower/&DH_DamagePoison_Breath_PowerTitle	Giftiger Atem
+MonsterPower/&DH_DisintegratingBeam_PowerDescription	6D10 Strahlenschaden und das Ziel wird auf 0 HP desintegriert
+MonsterPower/&DH_DisintegratingBeam_PowerTitle	Auflösungsstrahl
+MonsterPower/&DH_EarthTitan_Earthquake_PowerDescription	4D10 Prügeln
+MonsterPower/&DH_EarthTitan_Earthquake_PowerTitle	Erdbeben
+MonsterPower/&DH_ErinyesParry_PowerDescription	+3 AC
+MonsterPower/&DH_ErinyesParry_PowerTitle	Parieren
+MonsterPower/&DH_FireTitan_Aura_PowerDescription	Jede Kreatur im Umkreis von 30 Fuß erleidet 35 (10d6) Feuerschaden, und entflammbare Gegenstände in der Aura, die nicht getragen werden, entzünden sich.
+MonsterPower/&DH_FireTitan_Aura_PowerTitle	Feuer-Titan-Aura
 MonsterPower/&DH_FireTitan_Retaliate_DamageAffinity_Description	Eine Kreatur erleidet 35 (10d6) Feuerschaden, wenn sie Maegera berührt oder mit einem Nahkampfangriff trifft, während sie sich in einem Umkreis von 10 Fuß befindet.
 MonsterPower/&DH_FireTitan_Retaliate_DamageAffinity_Title	Feuer-Titan Vergeltung
-MonsterPower/&DH_FireTitan_Retaliate_Power_Description	Eine Kreatur erleidet 35 (10d6) Feuerschaden, wenn sie Maegera berührt oder mit einem Nahkampfangriff in einem Umkreis von 10 Fuß von ihr getroffen wird.
-MonsterPower/&DH_FireTitan_Retaliate_Power_Title	Feuer-Titan Vergeltung
-MonsterPower/&DH_IlluminatingCrystals_Power_Description	Jede Kreatur, die sich beim Wirken des Zaubers in der Nähe befindet, wird ebenfalls in Licht gehüllt. Für die Dauer des Zaubers verbreiten Gegenstände und betroffene Kreaturen ein schwaches Licht in einem Umkreis von 10 Fuß.
-MonsterPower/&DH_IlluminatingCrystals_Power_Title	Erleuchtende Kristalle
-MonsterPower/&DH_IncreasedGravityZone_Attack_Description	Der Titan fokussiert die Zone in einem Umkreis von 20 Fuß um ihn. Jede Kreatur in einem 20-Fuß-Radius und einem 20-Fuß-Zylinder, der auf diesen Punkt zentriert ist, muss einen Rettungswurf mit DC 26 (Geschicklichkeit) bestehen oder erleidet 33 (6d10) Hiebschaden, fällt auf den Boden und ist eine Runde lang gefesselt.
-MonsterPower/&DH_IncreasedGravityZone_Attack_Title	Zone mit erhöhter Schwerkraft
-MonsterPower/&DH_Lich_DisruptLife_Power_Description	6D6 Nekrotisch
-MonsterPower/&DH_Lich_DisruptLife_Power_Title	Leben zerstören
-MonsterPower/&DH_SearingBurst_Power_Description	4D6 Feuer & 4D6 Strahlen
-MonsterPower/&DH_SearingBurst_Power_Title	Versengender Ausbruch
-MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Description	Beschwört 1 Luftelementar
-MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Title	Großes Elementar beschwören
-MonsterPower/&DH_SummonCreature_Earth_Elemental_Power_Description	Beschwört 1 Erd-Elementar
-MonsterPower/&DH_SummonCreature_Earth_Elemental_Power_Title	Großes Elementar beschwören
-MonsterPower/&DH_SummonCreature_Erinyes_Power_Description	Ein Erinyes wird zum Kampf herbeigerufen
-MonsterPower/&DH_SummonCreature_Erinyes_Power_Title	Diener beschwören: Erinyes
-MonsterPower/&DH_SummonCreature_Fire_Elemental_Power_Description	Beschwört 1 Feuer-Elementar
-MonsterPower/&DH_SummonCreature_Fire_Elemental_Power_Title	Großes Elementar beschwören
-MonsterPower/&DH_SummonCreature_Fire_Jester_Power_Description	Beschwört 2 Feuernarren
-MonsterPower/&DH_SummonCreature_Fire_Jester_Power_Title	Kleinere Elementare beschwören
-MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Description	Ein Nalfeshnee wird zum Kampf herbeigerufen
-MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Title	Diener beschwören: Nalfeshnee
-MonsterPower/&DH_SummonCreature_SkarnGhoul_Power_Description	Beschwört 1 Skarn-Ghoul
-MonsterPower/&DH_SummonCreature_SkarnGhoul_Power_Title	Geringere Elementare beschwören
-MonsterPower/&DH_SummonCreature_WindSnake_Power_Description	Beschwört 4 Windschlangen
-MonsterPower/&DH_SummonCreature_WindSnake_Power_Title	Geringere Elementare beschwören
-MonsterPower/&DH_SummonCreature_Wolves_Power_Description	Der Vampir ruft auf magische Weise 3d6 Wölfe herbei
-MonsterPower/&DH_SummonCreature_Wolves_Power_Title	Kinder der Nacht
+MonsterPower/&DH_FireTitan_Retaliate_PowerDescription	Eine Kreatur erleidet 35 (10d6) Feuerschaden, wenn sie Maegera berührt oder mit einem Nahkampfangriff in einem Umkreis von 10 Fuß von ihr getroffen wird.
+MonsterPower/&DH_FireTitan_Retaliate_PowerTitle	Feuer-Titan Vergeltung
+MonsterPower/&DH_IlluminatingCrystals_PowerDescription	Jede Kreatur, die sich beim Wirken des Zaubers in der Nähe befindet, wird ebenfalls in Licht gehüllt. Für die Dauer des Zaubers verbreiten Gegenstände und betroffene Kreaturen ein schwaches Licht in einem Umkreis von 10 Fuß.
+MonsterPower/&DH_IlluminatingCrystals_PowerTitle	Erleuchtende Kristalle
+MonsterPower/&DH_IncreasedGravityZone_AttackDescription	Der Titan fokussiert die Zone in einem Umkreis von 20 Fuß um ihn. Jede Kreatur in einem 20-Fuß-Radius und einem 20-Fuß-Zylinder, der auf diesen Punkt zentriert ist, muss einen Rettungswurf mit DC 26 (Geschicklichkeit) bestehen oder erleidet 33 (6d10) Hiebschaden, fällt auf den Boden und ist eine Runde lang gefesselt.
+MonsterPower/&DH_IncreasedGravityZone_AttackTitle	Zone mit erhöhter Schwerkraft
+MonsterPower/&DH_Lich_DisruptLife_PowerDescription	6D6 Nekrotisch
+MonsterPower/&DH_Lich_DisruptLife_PowerTitle	Leben zerstören
+MonsterPower/&DH_SearingBurst_PowerDescription	4D6 Feuer & 4D6 Strahlen
+MonsterPower/&DH_SearingBurst_PowerTitle	Versengender Ausbruch
+MonsterPower/&DH_SummonCreature_Air_Elemental_PowerDescription	Beschwört 1 Luftelementar
+MonsterPower/&DH_SummonCreature_Air_Elemental_PowerTitle	Großes Elementar beschwören
+MonsterPower/&DH_SummonCreature_Earth_Elemental_PowerDescription	Beschwört 1 Erd-Elementar
+MonsterPower/&DH_SummonCreature_Earth_Elemental_PowerTitle	Großes Elementar beschwören
+MonsterPower/&DH_SummonCreature_Erinyes_PowerDescription	Ein Erinyes wird zum Kampf herbeigerufen
+MonsterPower/&DH_SummonCreature_Erinyes_PowerTitle	Diener beschwören: Erinyes
+MonsterPower/&DH_SummonCreature_Fire_Elemental_PowerDescription	Beschwört 1 Feuer-Elementar
+MonsterPower/&DH_SummonCreature_Fire_Elemental_PowerTitle	Großes Elementar beschwören
+MonsterPower/&DH_SummonCreature_Fire_Jester_PowerDescription	Beschwört 2 Feuernarren
+MonsterPower/&DH_SummonCreature_Fire_Jester_PowerTitle	Kleinere Elementare beschwören
+MonsterPower/&DH_SummonCreature_Nalfeshnee_PowerDescription	Ein Nalfeshnee wird zum Kampf herbeigerufen
+MonsterPower/&DH_SummonCreature_Nalfeshnee_PowerTitle	Diener beschwören: Nalfeshnee
+MonsterPower/&DH_SummonCreature_SkarnGhoul_PowerDescription	Beschwört 1 Skarn-Ghoul
+MonsterPower/&DH_SummonCreature_SkarnGhoul_PowerTitle	Geringere Elementare beschwören
+MonsterPower/&DH_SummonCreature_WindSnake_PowerDescription	Beschwört 4 Windschlangen
+MonsterPower/&DH_SummonCreature_WindSnake_PowerTitle	Geringere Elementare beschwören
+MonsterPower/&DH_SummonCreature_Wolves_PowerDescription	Der Vampir ruft auf magische Weise 3d6 Wölfe herbei
+MonsterPower/&DH_SummonCreature_Wolves_PowerTitle	Kinder der Nacht
 MonsterPower/&DH_TarrasqueReflectiveCarapace_Immunity_Description	Jedes Mal, wenn die Tarraske von einem magischen Raketenzauber, einem Linienzauber oder einem Zauber, der einen Distanzangriffswurf erfordert, getroffen wird, ist die Tarraske davon unberührt.
 MonsterPower/&DH_TarrasqueReflectiveCarapace_Immunity_Title	Reflektierender Panzer
-MonsterPower/&DH_TarrasqueSwallowPower_Description	Die Tarraske führt einen Bissangriff gegen eine große oder kleinere Kreatur aus, die sie gerade packt. Wenn der Angriff trifft, wird das Ziel verschluckt und der Griff endet.
-MonsterPower/&DH_TarrasqueSwallowPower_Title	Verschlucken
-MonsterPower/&DH_VampireCharmPower_Description	Der Vampir zielt auf einen Humanoiden, den er im Umkreis von 30 Fuß sehen kann. Das Ziel muss einen Weisheitswurf DC 17 gegen diese Magie bestehen oder von dem Vampir verzaubert werden.
-MonsterPower/&DH_VampireCharmPower_Title	Verzaubern
+MonsterPower/&DH_TarrasqueSwallowPowerDescription	Die Tarraske führt einen Bissangriff gegen eine große oder kleinere Kreatur aus, die sie gerade packt. Wenn der Angriff trifft, wird das Ziel verschluckt und der Griff endet.
+MonsterPower/&DH_TarrasqueSwallowPowerTitle	Verschlucken
+MonsterPower/&DH_VampireCharmPowerDescription	Der Vampir zielt auf einen Humanoiden, den er im Umkreis von 30 Fuß sehen kann. Das Ziel muss einen Weisheitswurf DC 17 gegen diese Magie bestehen oder von dem Vampir verzaubert werden.
+MonsterPower/&DH_VampireCharmPowerTitle	Verzaubern
 Power/&AncientForestLifeSapDescription	Wenn du einen Feind mit einem Angriffswurf mit Zaubern triffst (PB-mal pro Tag), fügst du deinen Cha-Modifer an Schaden zu und heilst die Hälfte dieses Betrags, wenn du weniger als die Hälfte deiner Trefferpunkte hast.
 Power/&AncientForestLifeSapTitle	Lebenssaft
 Power/&AncientForestRootedPowerDescription	Baumartige Ranken wachsen aus deinen Füßen und graben sich in den Boden. Deine Geschwindigkeit wird auf 0 reduziert, und du erhältst einen Vorteil auf alle Schutzwürfe, die dich schubsen, ziehen oder auf den Boden werfen.

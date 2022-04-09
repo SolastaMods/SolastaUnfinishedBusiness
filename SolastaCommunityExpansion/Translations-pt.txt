@@ -149,8 +149,8 @@ Equipment/&Enchanted_Club_Bearclaw_Description	Esta arma encantada foi forjada u
 Equipment/&Enchanted_Club_Bearclaw_Title	Clube da Garra do Urso
 Equipment/&Enchanted_Club_Lightbringer_Description	Esta arma encantada foi forjada usando os antigos conhecimentos dos mestres ferreiros de Colthannin. Ela foi projetada por Elgador Keenspirit, Magesmith do Arcano para apoiar o combate contra criaturas não-mortas.
 Equipment/&Enchanted_Club_Lightbringer_Title	Clube Lightbringer
-Equipment/&Enchanted_Club_Power_Description	Esta arma encantada foi forjada usando os antigos conhecimentos dos mestres ferreiros de Manacalon. Algumas criaturas respeitam apenas as forças físicas. Os arcanistas do Manacalon criaram este clube para dar aos campeões das Legiões de Ferro a força que seus corpos elfos não proporcionavam.
-Equipment/&Enchanted_Club_Power_Title	Clube do Poder
+Equipment/&Enchanted_Club_PowerDescription	Esta arma encantada foi forjada usando os antigos conhecimentos dos mestres ferreiros de Manacalon. Algumas criaturas respeitam apenas as forças físicas. Os arcanistas do Manacalon criaram este clube para dar aos campeões das Legiões de Ferro a força que seus corpos elfos não proporcionavam.
+Equipment/&Enchanted_Club_PowerTitle	Clube do Poder
 Equipment/&Enchanted_Club_Punisher_Description	Esta arma encantada foi criada usando os antigos conhecimentos dos mestres ferreiros de Manacalon. A combinação do melhor metal e da melhor pedra eslava deu a este machado um poder penetrante incrível.
 Equipment/&Enchanted_Club_Punisher_Title	Clube do Punidor
 Equipment/&Enchanted_Dart_Acuteness_Description	Esta arma encantada foi criada usando os antigos conhecimentos dos mestres ferreiros de Manacalon. Seu design foi uma das primeiras obras de Elgador Keenspirit, Magesmith of the Arcaneum.
@@ -215,8 +215,8 @@ Equipment/&Enchanted_Maul_Bearclaw_Description	Esta arma encantada foi forjada u
 Equipment/&Enchanted_Maul_Bearclaw_Title	Garra de urso Maul
 Equipment/&Enchanted_Maul_Lightbringer_Description	Esta arma encantada foi forjada usando os antigos conhecimentos dos mestres ferreiros de Colthannin. Ela foi projetada por Elgador Keenspirit, Magesmith do Arcano para apoiar o combate contra criaturas não-mortas.
 Equipment/&Enchanted_Maul_Lightbringer_Title	Maul Lightbringer Maul
-Equipment/&Enchanted_Maul_Power_Description	Esta arma encantada foi forjada usando os antigos conhecimentos dos mestres ferreiros de Manacalon. Algumas criaturas respeitam apenas as forças físicas. Os arcanistas do Manacalon criaram este Maul para dar aos campeões das Legiões de Ferro a força que seus corpos elfos não proporcionavam.
-Equipment/&Enchanted_Maul_Power_Title	Maul do Poder
+Equipment/&Enchanted_Maul_PowerDescription	Esta arma encantada foi forjada usando os antigos conhecimentos dos mestres ferreiros de Manacalon. Algumas criaturas respeitam apenas as forças físicas. Os arcanistas do Manacalon criaram este Maul para dar aos campeões das Legiões de Ferro a força que seus corpos elfos não proporcionavam.
+Equipment/&Enchanted_Maul_PowerTitle	Maul do Poder
 Equipment/&Enchanted_Maul_Punisher_Description	Esta arma encantada foi criada usando os antigos conhecimentos dos mestres ferreiros de Manacalon. A combinação do melhor metal e da melhor pedra eslava deu a este machado um poder penetrante incrível.
 Equipment/&Enchanted_Maul_Punisher_Title	Punidor Maul
 Equipment/&Enchanted_Quarterstaff_Acuteness_Description	Esta arma encantada foi criada usando os antigos conhecimentos dos mestres ferreiros de Manacalon. Seu design foi uma das primeiras obras de Elgador Keenspirit, Magesmith of the Arcaneum.
@@ -304,8 +304,8 @@ Equipment/&Enchanted_Warhammer_Bearclaw_Description	Esta arma encantada foi forj
 Equipment/&Enchanted_Warhammer_Bearclaw_Title	Martelo de Aquecedor de Garras de Urso
 Equipment/&Enchanted_Warhammer_Lightbringer_Description	Esta arma encantada foi forjada usando os antigos conhecimentos dos mestres ferreiros de Colthannin. Ela foi projetada por Elgador Keenspirit, Magesmith do Arcano para apoiar o combate contra criaturas não-mortas.
 Equipment/&Enchanted_Warhammer_Lightbringer_Title	Martelo Quente Lightbringer
-Equipment/&Enchanted_Warhammer_Power_Description	Esta arma encantada foi forjada usando os antigos conhecimentos dos mestres ferreiros de Manacalon. Algumas criaturas respeitam apenas as forças físicas. Os arcanistas do Manacalon criaram este Martelo de Guerra para dar aos campeões das Legiões de Ferro a força que seus corpos elfos não proporcionavam.
-Equipment/&Enchanted_Warhammer_Power_Title	Martelo Quente de Poder
+Equipment/&Enchanted_Warhammer_PowerDescription	Esta arma encantada foi forjada usando os antigos conhecimentos dos mestres ferreiros de Manacalon. Algumas criaturas respeitam apenas as forças físicas. Os arcanistas do Manacalon criaram este Martelo de Guerra para dar aos campeões das Legiões de Ferro a força que seus corpos elfos não proporcionavam.
+Equipment/&Enchanted_Warhammer_PowerTitle	Martelo Quente de Poder
 Equipment/&Enchanted_Warhammer_Punisher_Description	Esta arma encantada foi criada usando os antigos conhecimentos dos mestres ferreiros de Manacalon. A combinação do melhor metal e da melhor pedra eslava deu a este machado um poder penetrante incrível.
 Equipment/&Enchanted_Warhammer_Punisher_Title	Martelo de Punidor
 Equipment/&HerbalBrewQuickeningTitle	Poção de Fermento à Base de Ervas : Poção de Apressurização
@@ -776,20 +776,20 @@ Feature/&ClassWarlockWeaponProficiencyDescription	Armas simples
 Feature/&ClassWarlockWeaponProficiencyTitle	Proficiências de armas de feitiçaria
 Feature/&CounterStrikePowerDescription	Gaste um gambit die e contra-ataca o inimigo, se você acertar, faça um dano adicional de 1d6+2 bludgeoning.
 Feature/&CounterStrikePowerTitle	Contra-Ataque
-Feature/&DH_AirTitan_LightningStorm_Custom_Power_Description	6d8 Relâmpagos em ampla área
-Feature/&DH_AirTitan_LightningStorm_Custom_Power_Title	Tempestade Relâmpago
-Feature/&DH_AtWill_Fireball_Power_Description	Bola de fogo at-vontade
-Feature/&DH_AtWill_Fireball_Power_Title	Bola de fogo
-Feature/&DH_AtWill_HoldMonster_Power_Description	3 usos por dia
-Feature/&DH_AtWill_HoldMonster_Power_Title	Monstro do Porão
-Feature/&DH_AtWill_Invisibility_Power_Description	Invisibilidade do At-will
-Feature/&DH_AtWill_Invisibility_Power_Title	Invisibilidade
+Feature/&DH_AirTitan_LightningStorm_Custom_PowerDescription	6d8 Relâmpagos em ampla área
+Feature/&DH_AirTitan_LightningStorm_Custom_PowerTitle	Tempestade Relâmpago
+Feature/&DH_AtWill_Fireball_PowerDescription	Bola de fogo at-vontade
+Feature/&DH_AtWill_Fireball_PowerTitle	Bola de fogo
+Feature/&DH_AtWill_HoldMonster_PowerDescription	3 usos por dia
+Feature/&DH_AtWill_HoldMonster_PowerTitle	Monstro do Porão
+Feature/&DH_AtWill_Invisibility_PowerDescription	Invisibilidade do At-will
+Feature/&DH_AtWill_Invisibility_PowerTitle	Invisibilidade
 Feature/&DH_BlinkDescription	Como uma ação bônus, você desaparece de seu plano atual de existência, evitando todos os danos. No início da sua próxima volta, você retorna ao espaço do qual desapareceu.
 Feature/&DH_BlinkTitle	Pestaneje
 Feature/&DH_FadeIntoTheVoidDescription	Quando você é reduzido a 0 pontos de acerto, mas não é morto, você cai para 1 ponto de acerto, em vez disso, ao desvanecer-se brevemente no vazio para diminuir o dano. Você não pode usar este recurso novamente até que termine um longo descanso.
 Feature/&DH_FadeIntoTheVoidTitle	Fade Into The Void (Desaparecer no Vazio)
-Feature/&DH_Generic_Lightning_Attack_Custom_Power_Description	12D8
-Feature/&DH_Generic_Lightning_Attack_Custom_Power_Title	Relâmpago
+Feature/&DH_Generic_Lightning_Attack_Custom_PowerDescription	12D8
+Feature/&DH_Generic_Lightning_Attack_Custom_PowerTitle	Relâmpago
 Feature/&DH_RiftCloakDescription	Seu controle dos portais de fenda aumentou ao ponto de poder agora conceder a proteção da fenda a outros. Você pode lançar a ala à vontade (sem a partilha de danos)
 Feature/&DH_RiftCloakTitle	Manto de Rift
 Feature/&DH_RiftControlDescription	Brevemente cercado pela energia da fenda, você se teletransporta para um espaço desocupado. Agora você pode trazer um aliado com você quando se teletransportar e o alcance tiver aumentado significativamente
@@ -1164,92 +1164,92 @@ Monster/&PactOfChainCustomSpriteDescription	Ao contrário dos píxeis, os sprite
 Monster/&PactOfChainCustomSpriteTitle	Sprite (Pacto de Cadeia)
 Monster/&WitchOwlFamiliarDescription	Coruja familiar
 Monster/&WitchOwlFamiliarTitle	Coruja
-MonsterAttack/&DH_AirBlast_Attack_Description	5d6 trovões e empurra 2 células
-MonsterAttack/&DH_AirBlast_Attack_Title	Jato de ar
-MonsterAttack/&DH_AirTitan_Slam_Attack_Descriptiond	4d6+6 Bludgeoning & 4d6 Thunder
-MonsterAttack/&DH_AirTitan_Slam_Attack_Title	Thunderous Slam
-MonsterAttack/&DH_AncientDragon_Tail_Attack_Description	2D8+8 Bludgeoning
-MonsterAttack/&DH_AncientDragon_Tail_Attack_Title	Ataque de cauda
-MonsterAttack/&DH_Balor_Longsword_Attack_Description	3D8+8 Slashing & 3D8 Lightning
-MonsterAttack/&DH_Balor_Longsword_Attack_Title	Ataque por palavra longa
-MonsterAttack/&DH_Balor_Whip_Attack_Description	2D6+8 Cortes e 3D6 Fogo
-MonsterAttack/&DH_Balor_Whip_Attack_Title	Ataque de chicote
-MonsterAttack/&DH_ConstructTitan_ForceCannon_Attack_Description	4D8 A força e o alvo são propensos a golpes
-MonsterAttack/&DH_ConstructTitan_ForceCannon_Attack_Title	Forçar o canhão
-MonsterAttack/&DH_ConstructTitan_Slam_Attack_Description	Danos 3D12+8 e o alvo é empurrado 20 pés
-MonsterAttack/&DH_ConstructTitan_Slam_Attack_Title	Slam
-MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Description	Não pode agir e leva danos com ácido 16d6 em cada curva. 60 danos em um único ataque podem forçar o andorinhão a regurgitar.
-MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Title	Engolido
-MonsterAttack/&DH_Custom_TarrasqueSwallowingcondition_Description	60 danos em um único ataque podem forçá-lo a regurgitar.
-MonsterAttack/&DH_Custom_TarrasqueSwallowingcondition_Title	Engole a criatura
-MonsterAttack/&DH_DamageAcid_Bite_Attack_Description	2D10+9 Piercing & 2D8 Danos por Ácido
-MonsterAttack/&DH_DamageAcid_Bite_Attack_Title	Ataque de mordida ácida
-MonsterAttack/&DH_DamageCold_Bite_Attack_Description	2D10+9 Piercing & 2D8 Danos causados pelo frio
-MonsterAttack/&DH_DamageCold_Bite_Attack_Title	Ataque de mordida de gelo
-MonsterAttack/&DH_DamageFire_Bite_Attack_Description	2D10+9 Piercing & 4D6 Danos causados pelo fogo
-MonsterAttack/&DH_DamageFire_Bite_Attack_Title	Ataque de mordida de fogo
-MonsterAttack/&DH_DamageLightning_Bite_Attack_Description	2D10+9 Piercing & 2D10 Danos por Raios
-MonsterAttack/&DH_DamageLightning_Bite_Attack_Title	Ataque de mordida por raio
-MonsterAttack/&DH_DamagePoison_Bite_Attack_Description	2D10+9 Piercing & 3D6 Danos por veneno
-MonsterAttack/&DH_DamagePoison_Bite_Attack_Title	Ataque de mordidas venenosas
-MonsterAttack/&DH_EarthTitan_Boulder_Attack_Description	7D10+8 Bludgeoning
-MonsterAttack/&DH_EarthTitan_Boulder_Attack_Title	Boulder
-MonsterAttack/&DH_EarthTitan_Slam_Attack_Description	4D10+8 Bludgeoning
-MonsterAttack/&DH_EarthTitan_Slam_Attack_Title	Golpe de terra
-MonsterAttack/&DH_FireScimatar_Attack_Description	Cortes 2d6+6 & 2d6 Fogo
-MonsterAttack/&DH_FireScimatar_Attack_Title	Scimatar
-MonsterAttack/&DH_FireTitan_Slam_Attack_Description	3d6+5 Bombardeio + 10d6 Fogo
-MonsterAttack/&DH_FireTitan_Slam_Attack_Title	Searing Slam
-MonsterAttack/&DH_Fork_Attack_Description	2D8 +6 Piercing
-MonsterAttack/&DH_Fork_Attack_Title	Ataque de garfo
+MonsterAttack/&DH_AirBlast_AttackDescription	5d6 trovões e empurra 2 células
+MonsterAttack/&DH_AirBlast_AttackTitle	Jato de ar
+MonsterAttack/&DH_AirTitan_Slam_AttackDescriptiond	4d6+6 Bludgeoning & 4d6 Thunder
+MonsterAttack/&DH_AirTitan_Slam_AttackTitle	Thunderous Slam
+MonsterAttack/&DH_AncientDragon_Tail_AttackDescription	2D8+8 Bludgeoning
+MonsterAttack/&DH_AncientDragon_Tail_AttackTitle	Ataque de cauda
+MonsterAttack/&DH_Balor_Longsword_AttackDescription	3D8+8 Slashing & 3D8 Lightning
+MonsterAttack/&DH_Balor_Longsword_AttackTitle	Ataque por palavra longa
+MonsterAttack/&DH_Balor_Whip_AttackDescription	2D6+8 Cortes e 3D6 Fogo
+MonsterAttack/&DH_Balor_Whip_AttackTitle	Ataque de chicote
+MonsterAttack/&DH_ConstructTitan_ForceCannon_AttackDescription	4D8 A força e o alvo são propensos a golpes
+MonsterAttack/&DH_ConstructTitan_ForceCannon_AttackTitle	Forçar o canhão
+MonsterAttack/&DH_ConstructTitan_Slam_AttackDescription	Danos 3D12+8 e o alvo é empurrado 20 pés
+MonsterAttack/&DH_ConstructTitan_Slam_AttackTitle	Slam
+MonsterAttack/&DH_TarrasqueSwallowedcondition_Description	Não pode agir e leva danos com ácido 16d6 em cada curva. 60 danos em um único ataque podem forçar o andorinhão a regurgitar.
+MonsterAttack/&DH_TarrasqueSwallowedcondition_Title	Engolido
+MonsterAttack/&DH_TarrasqueSwallowingcondition_Description	60 danos em um único ataque podem forçá-lo a regurgitar.
+MonsterAttack/&DH_TarrasqueSwallowingcondition_Title	Engole a criatura
+MonsterAttack/&DH_DamageAcid_Bite_AttackDescription	2D10+9 Piercing & 2D8 Danos por Ácido
+MonsterAttack/&DH_DamageAcid_Bite_AttackTitle	Ataque de mordida ácida
+MonsterAttack/&DH_DamageCold_Bite_AttackDescription	2D10+9 Piercing & 2D8 Danos causados pelo frio
+MonsterAttack/&DH_DamageCold_Bite_AttackTitle	Ataque de mordida de gelo
+MonsterAttack/&DH_DamageFire_Bite_AttackDescription	2D10+9 Piercing & 4D6 Danos causados pelo fogo
+MonsterAttack/&DH_DamageFire_Bite_AttackTitle	Ataque de mordida de fogo
+MonsterAttack/&DH_DamageLightning_Bite_AttackDescription	2D10+9 Piercing & 2D10 Danos por Raios
+MonsterAttack/&DH_DamageLightning_Bite_AttackTitle	Ataque de mordida por raio
+MonsterAttack/&DH_DamagePoison_Bite_AttackDescription	2D10+9 Piercing & 3D6 Danos por veneno
+MonsterAttack/&DH_DamagePoison_Bite_AttackTitle	Ataque de mordidas venenosas
+MonsterAttack/&DH_EarthTitan_Boulder_AttackDescription	7D10+8 Bludgeoning
+MonsterAttack/&DH_EarthTitan_Boulder_AttackTitle	Boulder
+MonsterAttack/&DH_EarthTitan_Slam_AttackDescription	4D10+8 Bludgeoning
+MonsterAttack/&DH_EarthTitan_Slam_AttackTitle	Golpe de terra
+MonsterAttack/&DH_FireScimatar_AttackDescription	Cortes 2d6+6 & 2d6 Fogo
+MonsterAttack/&DH_FireScimatar_AttackTitle	Scimatar
+MonsterAttack/&DH_FireTitan_Slam_AttackDescription	3d6+5 Bombardeio + 10d6 Fogo
+MonsterAttack/&DH_FireTitan_Slam_AttackTitle	Searing Slam
+MonsterAttack/&DH_Fork_AttackDescription	2D8 +6 Piercing
+MonsterAttack/&DH_Fork_AttackTitle	Ataque de garfo
 MonsterAttack/&DH_Generic_Bite_Attack_No_ExtraDamage_Description	2d10 + 6 Danos por Piercing
 MonsterAttack/&DH_Generic_Bite_Attack_No_ExtraDamage_Title	Ataque de mordidas
-MonsterAttack/&DH_Generic_Claw_Attack_Description	2D6 + 9 Danos por corte
-MonsterAttack/&DH_Generic_Claw_Attack_Title	Ataque de garra
+MonsterAttack/&DH_Generic_Claw_AttackDescription	2D6 + 9 Danos por corte
+MonsterAttack/&DH_Generic_Claw_AttackTitle	Ataque de garra
 MonsterAttack/&DH_Generic_Stronger_Bite_Attack_No_ExtraDamage_Description	2D10 + 9
 MonsterAttack/&DH_Generic_Stronger_Bite_Attack_No_ExtraDamage_Title	Ataque de mordidas
-MonsterAttack/&DH_HornedDevilTail_Attack_Description	1D8 +6 Piercing , inflige condição de ferida de sangramento
-MonsterAttack/&DH_HornedDevilTail_Attack_Title	Ataque de cauda
+MonsterAttack/&DH_HornedDevilTail_AttackDescription	1D8 +6 Piercing , inflige condição de ferida de sangramento
+MonsterAttack/&DH_HornedDevilTail_AttackTitle	Ataque de cauda
 MonsterAttack/&DH_HornedDevilTail_Attackcondition_Description	3D6 Necrótico, salvar para cancelar
 MonsterAttack/&DH_HornedDevilTail_Attackcondition_Title	Ferida Sangrenta
-MonsterAttack/&DH_HurlFlame_Attack_Description	5d6 Incêndio
-MonsterAttack/&DH_HurlFlame_Attack_Title	Chama Hurl
-MonsterAttack/&DH_Ice_Bite_Attack_Description	2d6+5 Piercing & 3d6 Frio
-MonsterAttack/&DH_Ice_Bite_Attack_Title	Picada de gelo
-MonsterAttack/&DH_ImpAttack_Description	1d4 + 3 danos perfurantes, e o alvo deve fazer um lançamento salvador DC 11 Constitution, levando 10 (3d6) danos por veneno em um salvador falhado, ou metade do dano em um salvador bem sucedido.
-MonsterAttack/&DH_ImpAttack_Title	Ferrão
-MonsterAttack/&DH_Lich_ParalyzingTouch_Attack_Description	3D6 Frio e inflige a condição de paralisado
-MonsterAttack/&DH_Lich_ParalyzingTouch_Attack_Title	Toque paralisante
-MonsterAttack/&DH_LightningScimatar_Attack_Description	Cortes 2d6+5 e relâmpagos 2d6
-MonsterAttack/&DH_LightningScimatar_Attack_Title	Scimatar
-MonsterAttack/&DH_NagaBite_Attack_Description	1d8+4 Piercing & 15 DC Con Save to half 10d8 Poison
-MonsterAttack/&DH_NagaBite_Attack_Title	Picada de veneno
-MonsterAttack/&DH_NagaSpit_Attack_Description	15 DC Con Poupar para metade 10d8 Veneno
-MonsterAttack/&DH_NagaSpit_Attack_Title	Veneno de cuspo
-MonsterAttack/&DH_PitFiend_Bite_Attack_Description	2d6+7 Veneno, Inflige condição de veneno
-MonsterAttack/&DH_PitFiend_Bite_Attack_Title	Ataque de mordidas
+MonsterAttack/&DH_HurlFlame_AttackDescription	5d6 Incêndio
+MonsterAttack/&DH_HurlFlame_AttackTitle	Chama Hurl
+MonsterAttack/&DH_Ice_Bite_AttackDescription	2d6+5 Piercing & 3d6 Frio
+MonsterAttack/&DH_Ice_Bite_AttackTitle	Picada de gelo
+MonsterAttack/&DH_ImpAttackDescription	1d4 + 3 danos perfurantes, e o alvo deve fazer um lançamento salvador DC 11 Constitution, levando 10 (3d6) danos por veneno em um salvador falhado, ou metade do dano em um salvador bem sucedido.
+MonsterAttack/&DH_ImpAttackTitle	Ferrão
+MonsterAttack/&DH_Lich_ParalyzingTouch_AttackDescription	3D6 Frio e inflige a condição de paralisado
+MonsterAttack/&DH_Lich_ParalyzingTouch_AttackTitle	Toque paralisante
+MonsterAttack/&DH_LightningScimatar_AttackDescription	Cortes 2d6+5 e relâmpagos 2d6
+MonsterAttack/&DH_LightningScimatar_AttackTitle	Scimatar
+MonsterAttack/&DH_NagaBite_AttackDescription	1d8+4 Piercing & 15 DC Con Save to half 10d8 Poison
+MonsterAttack/&DH_NagaBite_AttackTitle	Picada de veneno
+MonsterAttack/&DH_NagaSpit_AttackDescription	15 DC Con Poupar para metade 10d8 Veneno
+MonsterAttack/&DH_NagaSpit_AttackTitle	Veneno de cuspo
+MonsterAttack/&DH_PitFiend_Bite_AttackDescription	2d6+7 Veneno, Inflige condição de veneno
+MonsterAttack/&DH_PitFiend_Bite_AttackTitle	Ataque de mordidas
 MonsterAttack/&DH_PitFiend_Bite_Attackcondition_Description	6D6 Posião recorrente
 MonsterAttack/&DH_PitFiend_Bite_Attackcondition_Title	Intoxicado
-MonsterAttack/&DH_PitFiend_Mace_Attack_Description	2D6+8 Bombardeamento & Incêndio 6D6
-MonsterAttack/&DH_PitFiend_Mace_Attack_Title	Ataque de maça
-MonsterAttack/&DH_PoisonLongbow_Attack_Description	Arco longo com flechas venenosas
-MonsterAttack/&DH_PoisonLongbow_Attack_Title	Arco Longo Venenoso
-MonsterAttack/&DH_PoisonLongsword_Attack_Description	1d10+4 Cortar & 3d8 Veneno
-MonsterAttack/&DH_PoisonLongsword_Attack_Title	Palavra longa venenosa
-MonsterAttack/&DH_PseudodragonAttack_Description	1d4 Danos por perfuração. O alvo deve ser bem sucedido em um arremesso de economia da Constituição DC 10 ou ficar envenenado por 1 minuto. O alvo envenenado fica inconsciente durante o mesmo tempo, ou até que ele sofra danos ou outra criatura tome uma ação para sacudi-lo.
-MonsterAttack/&DH_PseudodragonAttack_Title	Ferrão
-MonsterAttack/&DH_QuasitAttack_Description	1d4 + 3 danos perfurantes, e o alvo deve ser bem sucedido em um arremesso de economia de DC 10 Constitution ou tomar 5 (2d4) danos por veneno e ficar envenenado por 1 minuto.
-MonsterAttack/&DH_QuasitAttack_Title	Garra
-MonsterAttack/&DH_RadiantLongbow_Attack_Description	2D6+8 Piercing & 6D8 Radiante
-MonsterAttack/&DH_RadiantLongbow_Attack_Title	Matando Longbow.
-MonsterAttack/&DH_RadiantLongsword_Attack_Description	4D6+8 Cortando e 6D8 Radiante
-MonsterAttack/&DH_RadiantLongsword_Attack_Title	Palavras Grandes Radiantes
-MonsterAttack/&DH_Roc_Beak_Attack_Description	4d8+9 Piercing
-MonsterAttack/&DH_Roc_Beak_Attack_Title	Bico
-MonsterAttack/&DH_Roc_Talons_Attack_Description	4d6+9 O corte e o alvo são agarrados e restringidos por Roc
-MonsterAttack/&DH_Roc_Talons_Attack_Title	Garras
-MonsterAttack/&DH_SpriteAttack_Description	1d4 Danos por perfuração. O alvo deve ser bem sucedido em um arremesso de economia da Constituição DC 10 ou ficar envenenado por 1 minuto. O alvo envenenado fica inconsciente durante o mesmo tempo, ou até que ele sofra danos ou outra criatura tome uma ação para sacudi-lo.
-MonsterAttack/&DH_SpriteAttack_Title	Arco de Fada
+MonsterAttack/&DH_PitFiend_Mace_AttackDescription	2D6+8 Bombardeamento & Incêndio 6D6
+MonsterAttack/&DH_PitFiend_Mace_AttackTitle	Ataque de maça
+MonsterAttack/&DH_PoisonLongbow_AttackDescription	Arco longo com flechas venenosas
+MonsterAttack/&DH_PoisonLongbow_AttackTitle	Arco Longo Venenoso
+MonsterAttack/&DH_PoisonLongsword_AttackDescription	1d10+4 Cortar & 3d8 Veneno
+MonsterAttack/&DH_PoisonLongsword_AttackTitle	Palavra longa venenosa
+MonsterAttack/&DH_PseudodragonAttackDescription	1d4 Danos por perfuração. O alvo deve ser bem sucedido em um arremesso de economia da Constituição DC 10 ou ficar envenenado por 1 minuto. O alvo envenenado fica inconsciente durante o mesmo tempo, ou até que ele sofra danos ou outra criatura tome uma ação para sacudi-lo.
+MonsterAttack/&DH_PseudodragonAttackTitle	Ferrão
+MonsterAttack/&DH_QuasitAttackDescription	1d4 + 3 danos perfurantes, e o alvo deve ser bem sucedido em um arremesso de economia de DC 10 Constitution ou tomar 5 (2d4) danos por veneno e ficar envenenado por 1 minuto.
+MonsterAttack/&DH_QuasitAttackTitle	Garra
+MonsterAttack/&DH_RadiantLongbow_AttackDescription	2D6+8 Piercing & 6D8 Radiante
+MonsterAttack/&DH_RadiantLongbow_AttackTitle	Matando Longbow.
+MonsterAttack/&DH_RadiantLongsword_AttackDescription	4D6+8 Cortando e 6D8 Radiante
+MonsterAttack/&DH_RadiantLongsword_AttackTitle	Palavras Grandes Radiantes
+MonsterAttack/&DH_Roc_Beak_AttackDescription	4d8+9 Piercing
+MonsterAttack/&DH_Roc_Beak_AttackTitle	Bico
+MonsterAttack/&DH_Roc_Talons_AttackDescription	4d6+9 O corte e o alvo são agarrados e restringidos por Roc
+MonsterAttack/&DH_Roc_Talons_AttackTitle	Garras
+MonsterAttack/&DH_SpriteAttackDescription	1d4 Danos por perfuração. O alvo deve ser bem sucedido em um arremesso de economia da Constituição DC 10 ou ficar envenenado por 1 minuto. O alvo envenenado fica inconsciente durante o mesmo tempo, ou até que ele sofra danos ou outra criatura tome uma ação para sacudi-lo.
+MonsterAttack/&DH_SpriteAttackTitle	Arco de Fada
 MonsterAttack/&DH_Tarrasque_Bite_Description	4d12 + 10 danos perfurantes e o alvo deve suceder a uma verificação de destreza ou ser agarrado (escape DC 20).
 MonsterAttack/&DH_Tarrasque_Bite_Title	Mordida
 MonsterAttack/&DH_Tarrasque_BiteCondition_Description	Até que esta garra termine, o alvo é contido.
@@ -1262,70 +1262,70 @@ MonsterAttack/&DH_Tarrasque_Tail_Description	Danos 4d6 + 10 bludgeoning. Se o al
 MonsterAttack/&DH_Tarrasque_Tail_Title	Cauda
 MonsterAttack/&DHCouatlBiteAttackDescription	Danos perfurantes, e o alvo deve ser bem sucedido em um arremesso da Constituição DC 13 economizando ou ser envenenado por 24 horas. Até que este veneno termine, o alvo está inconsciente.
 MonsterAttack/&DHCouatlBiteAttackTitle	Mordida
-MonsterPower/&DH_AirTitan_Gale_Power_Description	4D10 Trovões e empurrões falharam, salvo
-MonsterPower/&DH_AirTitan_Gale_Power_Title	Gritando Gale
-MonsterPower/&DH_AirTitan_Lightning_Power_Description	3D10 Relâmpagos na área
-MonsterPower/&DH_AirTitan_Lightning_Power_Title	Relâmpago
-MonsterPower/&DH_AncientDragon_Wing_Power_Description	Os dragões podem bater suas asas para produzir vento suficiente para impulsionar a maioria dos humanóides e derrubá-los com propensão.
-MonsterPower/&DH_AncientDragon_Wing_Power_Title	Ataque das asas
-MonsterPower/&DH_Balor_FireAura_Power_Description	Incêndio 3D6
-MonsterPower/&DH_Balor_FireAura_Power_Title	Aura de fogo
-MonsterPower/&DH_BlindingGaze_Power_Description	DC15 Constituição Salvar ou ser cego até que uma restauração menor seja utilizada
-MonsterPower/&DH_BlindingGaze_Power_Title	Olhar Cegante
-MonsterPower/&DH_DamageAcid_Breath_Power_Description	15D8 Ácido
-MonsterPower/&DH_DamageAcid_Breath_Power_Title	Respiração Ácida
-MonsterPower/&DH_DamageCold_Breath_Power_Description	16D8 Frio
-MonsterPower/&DH_DamageCold_Breath_Power_Title	Respiração de gelo
-MonsterPower/&DH_DamageFire_Breath_Power_Description	26D6 Incêndio
-MonsterPower/&DH_DamageFire_Breath_Power_Title	Respiração de fogo
-MonsterPower/&DH_DamageLightning_Breath_Power_Description	16D10 Relâmpagos
-MonsterPower/&DH_DamageLightning_Breath_Power_Title	Respiração Relâmpago
-MonsterPower/&DH_DamagePoison_Breath_Power_Description	22D6 Veneno
-MonsterPower/&DH_DamagePoison_Breath_Power_Title	Respiração Venenosa
-MonsterPower/&DH_DisintegratingBeam_Power_Description	6D10 Dano radiante e alvo é desintegrado em 0 HP
-MonsterPower/&DH_DisintegratingBeam_Power_Title	Viga desintegradora
-MonsterPower/&DH_EarthTitan_Earthquake_Power_Description	4D10 Batedeira
-MonsterPower/&DH_EarthTitan_Earthquake_Power_Title	Terremoto
-MonsterPower/&DH_ErinyesParry_Power_Description	+3 AC
-MonsterPower/&DH_ErinyesParry_Power_Title	Parry
-MonsterPower/&DH_FireTitan_Aura_Power_Description	cada criatura a menos de 30 pés dela leva 35 (10d6) de dano de fogo, e objetos inflamáveis na aura que não estão sendo usados ou carregados inflamam-se.
-MonsterPower/&DH_FireTitan_Aura_Power_Title	Fogo Titan Aura
+MonsterPower/&DH_AirTitan_Gale_PowerDescription	4D10 Trovões e empurrões falharam, salvo
+MonsterPower/&DH_AirTitan_Gale_PowerTitle	Gritando Gale
+MonsterPower/&DH_AirTitan_Lightning_PowerDescription	3D10 Relâmpagos na área
+MonsterPower/&DH_AirTitan_Lightning_PowerTitle	Relâmpago
+MonsterPower/&DH_AncientDragon_Wing_PowerDescription	Os dragões podem bater suas asas para produzir vento suficiente para impulsionar a maioria dos humanóides e derrubá-los com propensão.
+MonsterPower/&DH_AncientDragon_Wing_PowerTitle	Ataque das asas
+MonsterPower/&DH_Balor_FireAura_PowerDescription	Incêndio 3D6
+MonsterPower/&DH_Balor_FireAura_PowerTitle	Aura de fogo
+MonsterPower/&DH_BlindingGaze_PowerDescription	DC15 Constituição Salvar ou ser cego até que uma restauração menor seja utilizada
+MonsterPower/&DH_BlindingGaze_PowerTitle	Olhar Cegante
+MonsterPower/&DH_DamageAcid_Breath_PowerDescription	15D8 Ácido
+MonsterPower/&DH_DamageAcid_Breath_PowerTitle	Respiração Ácida
+MonsterPower/&DH_DamageCold_Breath_PowerDescription	16D8 Frio
+MonsterPower/&DH_DamageCold_Breath_PowerTitle	Respiração de gelo
+MonsterPower/&DH_DamageFire_Breath_PowerDescription	26D6 Incêndio
+MonsterPower/&DH_DamageFire_Breath_PowerTitle	Respiração de fogo
+MonsterPower/&DH_DamageLightning_Breath_PowerDescription	16D10 Relâmpagos
+MonsterPower/&DH_DamageLightning_Breath_PowerTitle	Respiração Relâmpago
+MonsterPower/&DH_DamagePoison_Breath_PowerDescription	22D6 Veneno
+MonsterPower/&DH_DamagePoison_Breath_PowerTitle	Respiração Venenosa
+MonsterPower/&DH_DisintegratingBeam_PowerDescription	6D10 Dano radiante e alvo é desintegrado em 0 HP
+MonsterPower/&DH_DisintegratingBeam_PowerTitle	Viga desintegradora
+MonsterPower/&DH_EarthTitan_Earthquake_PowerDescription	4D10 Batedeira
+MonsterPower/&DH_EarthTitan_Earthquake_PowerTitle	Terremoto
+MonsterPower/&DH_ErinyesParry_PowerDescription	+3 AC
+MonsterPower/&DH_ErinyesParry_PowerTitle	Parry
+MonsterPower/&DH_FireTitan_Aura_PowerDescription	cada criatura a menos de 30 pés dela leva 35 (10d6) de dano de fogo, e objetos inflamáveis na aura que não estão sendo usados ou carregados inflamam-se.
+MonsterPower/&DH_FireTitan_Aura_PowerTitle	Fogo Titan Aura
 MonsterPower/&DH_FireTitan_Retaliate_DamageAffinity_Description	Uma criatura leva 35 (10d6) de dano de fogo por ter tocado Maegera ou por tê-la atingido com um ataque corpo a corpo enquanto a menos de 3 metros dela
 MonsterPower/&DH_FireTitan_Retaliate_DamageAffinity_Title	Retaliação do Titã do Fogo
-MonsterPower/&DH_FireTitan_Retaliate_Power_Description	Uma criatura leva 35 (10d6) de dano de fogo por ter tocado Maegera ou por tê-la atingido com um ataque corpo a corpo enquanto a menos de 3 metros dela
-MonsterPower/&DH_FireTitan_Retaliate_Power_Title	Retaliação do Titã do Fogo
-MonsterPower/&DH_IlluminatingCrystals_Power_Description	Qualquer criatura na área quando o feitiço é lançado também é delineado à luz. Durante a duração, objetos e criaturas afetadas derramam luz fraca em um raio de 10 pés.
-MonsterPower/&DH_IlluminatingCrystals_Power_Title	Cristais Iluminadores
-MonsterPower/&DH_IncreasedGravityZone_Attack_Description	O Titan focaliza a zona a menos de 20 pés dela. Qualquer criatura em um cilindro de 20 pés de raio e 20 pés de altura centrado neste ponto deve ser bem sucedida em um lançamento de salvamento de destreza DC 26 ou levar 33 (6d10) de dano e cair propenso a cair e ser contido por um round.
-MonsterPower/&DH_IncreasedGravityZone_Attack_Title	Aumento da Zona de Gravidade
-MonsterPower/&DH_Lich_DisruptLife_Power_Description	6D6 Necrótico
-MonsterPower/&DH_Lich_DisruptLife_Power_Title	Vida em ruptura
-MonsterPower/&DH_SearingBurst_Power_Description	4D6 Fogo e 4D6 Radiante
-MonsterPower/&DH_SearingBurst_Power_Title	Searing Burst
-MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Description	Convocação 1 Air Elemental
-MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Title	Invocar o Grande Elemental
-MonsterPower/&DH_SummonCreature_Earth_Elemental_Power_Description	Convocação 1 Elemental Terra
-MonsterPower/&DH_SummonCreature_Earth_Elemental_Power_Title	Invocar o Grande Elemental
-MonsterPower/&DH_SummonCreature_Erinyes_Power_Description	Um Erinyes é chamado a lutar
-MonsterPower/&DH_SummonCreature_Erinyes_Power_Title	Citação Minion: Erinyes
-MonsterPower/&DH_SummonCreature_Fire_Elemental_Power_Description	Convocação 1 Elemental de Incêndio
-MonsterPower/&DH_SummonCreature_Fire_Elemental_Power_Title	Invocar o Grande Elemental
-MonsterPower/&DH_SummonCreature_Fire_Jester_Power_Description	Convocação 2 jesuítas do fogo
-MonsterPower/&DH_SummonCreature_Fire_Jester_Power_Title	Invocar Elementais Menores
-MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Description	Um Nalfeshnee é chamado para lutar
-MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Title	Citação Minion: Nalfeshnee
-MonsterPower/&DH_SummonCreature_SkarnGhoul_Power_Description	Convocação 1 Skarn Ghoul
-MonsterPower/&DH_SummonCreature_SkarnGhoul_Power_Title	Invocar o Elemental Menor
-MonsterPower/&DH_SummonCreature_WindSnake_Power_Description	Citação 4 Serpentes de Vento
-MonsterPower/&DH_SummonCreature_WindSnake_Power_Title	Invocar Elementais Menores
-MonsterPower/&DH_SummonCreature_Wolves_Power_Description	O vampiro chama magicamente os lobos 3d6
-MonsterPower/&DH_SummonCreature_Wolves_Power_Title	Crianças da Noite
+MonsterPower/&DH_FireTitan_Retaliate_PowerDescription	Uma criatura leva 35 (10d6) de dano de fogo por ter tocado Maegera ou por tê-la atingido com um ataque corpo a corpo enquanto a menos de 3 metros dela
+MonsterPower/&DH_FireTitan_Retaliate_PowerTitle	Retaliação do Titã do Fogo
+MonsterPower/&DH_IlluminatingCrystals_PowerDescription	Qualquer criatura na área quando o feitiço é lançado também é delineado à luz. Durante a duração, objetos e criaturas afetadas derramam luz fraca em um raio de 10 pés.
+MonsterPower/&DH_IlluminatingCrystals_PowerTitle	Cristais Iluminadores
+MonsterPower/&DH_IncreasedGravityZone_AttackDescription	O Titan focaliza a zona a menos de 20 pés dela. Qualquer criatura em um cilindro de 20 pés de raio e 20 pés de altura centrado neste ponto deve ser bem sucedida em um lançamento de salvamento de destreza DC 26 ou levar 33 (6d10) de dano e cair propenso a cair e ser contido por um round.
+MonsterPower/&DH_IncreasedGravityZone_AttackTitle	Aumento da Zona de Gravidade
+MonsterPower/&DH_Lich_DisruptLife_PowerDescription	6D6 Necrótico
+MonsterPower/&DH_Lich_DisruptLife_PowerTitle	Vida em ruptura
+MonsterPower/&DH_SearingBurst_PowerDescription	4D6 Fogo e 4D6 Radiante
+MonsterPower/&DH_SearingBurst_PowerTitle	Searing Burst
+MonsterPower/&DH_SummonCreature_Air_Elemental_PowerDescription	Convocação 1 Air Elemental
+MonsterPower/&DH_SummonCreature_Air_Elemental_PowerTitle	Invocar o Grande Elemental
+MonsterPower/&DH_SummonCreature_Earth_Elemental_PowerDescription	Convocação 1 Elemental Terra
+MonsterPower/&DH_SummonCreature_Earth_Elemental_PowerTitle	Invocar o Grande Elemental
+MonsterPower/&DH_SummonCreature_Erinyes_PowerDescription	Um Erinyes é chamado a lutar
+MonsterPower/&DH_SummonCreature_Erinyes_PowerTitle	Citação Minion: Erinyes
+MonsterPower/&DH_SummonCreature_Fire_Elemental_PowerDescription	Convocação 1 Elemental de Incêndio
+MonsterPower/&DH_SummonCreature_Fire_Elemental_PowerTitle	Invocar o Grande Elemental
+MonsterPower/&DH_SummonCreature_Fire_Jester_PowerDescription	Convocação 2 jesuítas do fogo
+MonsterPower/&DH_SummonCreature_Fire_Jester_PowerTitle	Invocar Elementais Menores
+MonsterPower/&DH_SummonCreature_Nalfeshnee_PowerDescription	Um Nalfeshnee é chamado para lutar
+MonsterPower/&DH_SummonCreature_Nalfeshnee_PowerTitle	Citação Minion: Nalfeshnee
+MonsterPower/&DH_SummonCreature_SkarnGhoul_PowerDescription	Convocação 1 Skarn Ghoul
+MonsterPower/&DH_SummonCreature_SkarnGhoul_PowerTitle	Invocar o Elemental Menor
+MonsterPower/&DH_SummonCreature_WindSnake_PowerDescription	Citação 4 Serpentes de Vento
+MonsterPower/&DH_SummonCreature_WindSnake_PowerTitle	Invocar Elementais Menores
+MonsterPower/&DH_SummonCreature_Wolves_PowerDescription	O vampiro chama magicamente os lobos 3d6
+MonsterPower/&DH_SummonCreature_Wolves_PowerTitle	Crianças da Noite
 MonsterPower/&DH_TarrasqueReflectiveCarapace_Immunity_Description	Sempre que o tarrasco é alvo de um feitiço mágico de míssil, um feitiço de linha ou um feitiço que requer um rolo de ataque à distância, o tarrasco não é afetado.
 MonsterPower/&DH_TarrasqueReflectiveCarapace_Immunity_Title	Carapaça Refletiva
-MonsterPower/&DH_TarrasqueSwallowPower_Description	O tarrasco faz um ataque de mordida contra uma criatura grande ou menor que está agarrando. Se o ataque atingir, o alvo é engolido e a garra termina.
-MonsterPower/&DH_TarrasqueSwallowPower_Title	Engole
-MonsterPower/&DH_VampireCharmPower_Description	O vampiro visa um humanóide que ele pode ver a menos de 30 metros dele. O alvo deve ser bem sucedido em um lançamento salvador de Sabedoria DC 17 contra esta magia ou ser encantado pelo vampiro.
-MonsterPower/&DH_VampireCharmPower_Title	Encantamento
+MonsterPower/&DH_TarrasqueSwallowPowerDescription	O tarrasco faz um ataque de mordida contra uma criatura grande ou menor que está agarrando. Se o ataque atingir, o alvo é engolido e a garra termina.
+MonsterPower/&DH_TarrasqueSwallowPowerTitle	Engole
+MonsterPower/&DH_VampireCharmPowerDescription	O vampiro visa um humanóide que ele pode ver a menos de 30 metros dele. O alvo deve ser bem sucedido em um lançamento salvador de Sabedoria DC 17 contra esta magia ou ser encantado pelo vampiro.
+MonsterPower/&DH_VampireCharmPowerTitle	Encantamento
 Power/&AncientForestLifeSapDescription	Quando você atinge um inimigo com um feitiço de ataque (PB vezes por dia), você inflige seu Cha Modifer em danos e cura metade dessa quantidade se menos da metade de seus pontos de golpe.
 Power/&AncientForestLifeSapTitle	Seiva vital
 Power/&AncientForestRootedPowerDescription	Os tendrilhos arborícolas crescem dos pés e caem no chão. Sua velocidade se torna 0, e você ganha vantagem em qualquer lançamento de salvamento para empurrá-lo, puxá-lo ou derrubá-lo. Você pode lançar emaranhado à vontade

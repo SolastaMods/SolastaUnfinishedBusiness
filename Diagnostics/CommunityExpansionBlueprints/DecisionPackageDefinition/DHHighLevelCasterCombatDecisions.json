@@ -1,0 +1,112 @@
+{
+  "$type": "TA.AI.DecisionPackageDefinition, Assembly-CSharp",
+  "package": {
+    "$type": "TA.AI.DecisionPackageDescription, Assembly-CSharp",
+    "weightedDecisions": [
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:DHCastMagicStoneSkinDecisions:50630345-ae13-5c12-ba10-12d50bce35fb",
+        "weight": 4.0,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:CastMagic_Fly_Self:a72c7bdca3657ab4f9f1ddafbd8c611a",
+        "weight": 4.0,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:CastMagic_SelfBuff_WithRandom:a06649a4018db0b47984b2266cb0344c",
+        "weight": 4.0,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:Move_Ranged:d970b74017c1802469af710393c6e2a7",
+        "weight": 3.0,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:CastMagic_DPS_AoE:1574fe0b89cfdfb438968fe5dfb92c52",
+        "weight": 3.5,
+        "cooldown": 2,
+        "dynamicCooldown": true
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:CastMagic_Debuff_AoE:9c9aeadc97b416e4f9a63fe1a64bf601",
+        "weight": 3.5,
+        "cooldown": 3,
+        "dynamicCooldown": true
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:CastMagic_DPS_SingleTarget:a03b2b9514d7dfa489be3748a07a43e9",
+        "weight": 2.5,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:CastMagic_Debuff_SingleTarget:fe74c0437c1069a42b609a74cb09de60",
+        "weight": 2.5,
+        "cooldown": 2,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:RangedAttack_Default:a96934f6775237944a7beb403b13c731",
+        "weight": 1.5,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:MeleeAttack_Default:c7500087a5f8b764e9bc131a06fbdd3e",
+        "weight": 1.5,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:Move_SoftRetreat_Flying:eadb5d329157e8c48bbb30c5cf303e7c",
+        "weight": 1.5,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      }
+    ]
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "958e934d-ed08-58c3-9c5e-94f0448e0233",
+  "contentPack": 9999,
+  "name": "DHHighLevelCasterCombatDecisions"
+}

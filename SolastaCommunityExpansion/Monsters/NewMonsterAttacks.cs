@@ -8,44 +8,43 @@ namespace SolastaCommunityExpansion.Monsters
 {
     public static class NewMonsterAttacks
     {
-        public static MonsterAttackDefinition FireScimatar_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition LightningScimatar_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition HurlFlame_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition AirBlast_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition PoisonLongsword_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition PoisonLongbow_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition RadiantLongsword_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition RadiantLongbow_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition NagaBite_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition NagaSpit_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition Ice_Bite_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition Roc_Beak_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition Roc_Talons_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition Generic_Bite_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition PitFiend_Bite_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition PitFiend_Mace_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition Generic_Stronger_Bite_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition AncientDragon_Tail_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition Fork_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition HornedDevilTail_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition AncientDragon_Claw_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition Balor_Longsword_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition Balor_Whip_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition Lich_ParalyzingTouch_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition FireTitan_Slam_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition AirTitan_Slam_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition EarthTitan_Slam_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition ConstructTitan_Slam_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition ConstructTitan_ForceCannon_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition EarthTitan_Boulder_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-
-        public static ConditionDefinition TarrasqueGrappledRestrainedCondition  { get; private set; } = ScriptableObject.CreateInstance<ConditionDefinition>();
-        public static MonsterAttackDefinition Tarrasque_Bite_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition Tarrasque_Claw_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition Tarrasque_Tail_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition Tarrasque_Horn_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static Dictionary<string, MonsterAttackDefinition> DictionaryOfAncientDragonBites  { get; private set; } = new Dictionary<string, MonsterAttackDefinition>();
-        public static Dictionary<string, MonsterAttackDefinition> DictionaryOfGenericBitesWithExtraDamage  { get; private set; } = new Dictionary<string, MonsterAttackDefinition>();
+        public static MonsterAttackDefinition FireScimatar_Attack { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition LightningScimatar_Attack { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition HurlFlame_Attack { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition AirBlast_Attack { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition PoisonLongsword_Attack { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition PoisonLongbow_Attack { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition RadiantLongsword_Attack { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition RadiantLongbow_Attack { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition NagaBite_Attack { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition NagaSpit_Attack { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition Ice_Bite_Attack { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition Roc_Beak_Attack { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition Roc_Talons_Attack { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition Generic_Bite_Attack { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition PitFiend_Bite_Attack { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition PitFiend_Mace_Attack { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition Generic_Stronger_Bite_Attack { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition AncientDragon_Tail_Attack { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition Fork_Attack { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition HornedDevilTail_Attack { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition AncientDragon_Claw_Attack { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition Balor_Longsword_Attack { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition Balor_Whip_Attack { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition Lich_ParalyzingTouch_Attack { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition FireTitan_Slam_Attack { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition AirTitan_Slam_Attack { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition EarthTitan_Slam_Attack { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition ConstructTitan_Slam_Attack { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition ConstructTitan_ForceCannon_Attack { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition EarthTitan_Boulder_Attack { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static ConditionDefinition TarrasqueGrappledRestrainedCondition { get; private set; } = ScriptableObject.CreateInstance<ConditionDefinition>();
+        public static MonsterAttackDefinition Tarrasque_Bite_Attack { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition Tarrasque_Claw_Attack { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition Tarrasque_Tail_Attack { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition Tarrasque_Horn_Attack { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static Dictionary<string, MonsterAttackDefinition> DictionaryOfAncientDragonBites { get; private set; } = new Dictionary<string, MonsterAttackDefinition>();
+        public static Dictionary<string, MonsterAttackDefinition> DictionaryOfGenericBitesWithExtraDamage { get; private set; } = new Dictionary<string, MonsterAttackDefinition>();
 
         internal static void Create()
         {
@@ -67,10 +66,10 @@ namespace SolastaCommunityExpansion.Monsters
             BuildNewGeneric_Bite_Attack();
             BuildNewGeneric_Stronger_Bite_Attack();
             BuildNewGeneric_Claw_Attack();
-            BuildNew_AncientDragon_Bite_Attack();
+            BuildNewAncientDragon_Bite_Attack();
             BuildNewAncientDragon_Tail_Attack();
             BuildNewPitFiend_Bite_Attack();
-            BuildNew_PitFiend_Mace_Attack();
+            BuildNewPitFiend_Mace_Attack();
             BuildNewBalor_Longsword_Attack();
             BuildNewBalor_Whip_Attack();
             BuildNewLich_ParalyzingTouch_Attack();
@@ -84,21 +83,16 @@ namespace SolastaCommunityExpansion.Monsters
             BuildNewTarrasque_Claw_Attack();
             BuildNewTarrasque_Tail_Attack();
             BuildNewTarrasque_Horn_Attack();
-
         }
 
         public static void BuildNewRoc_Beak_Attack()
         {
-
-            string text = "Roc_Beak_Attack";
-
+            var text = "RocBeakAttack";
 
             Roc_Beak_Attack = BuildNewAttack(
-                     "DH_Custom_" + text,
-                     DatabaseHelper.MonsterAttackDefinitions.Attack_GiantEagle_Beak,
-                    "MonsterAttack/&DH_" + text + "_Title",
-                     "MonsterAttack/&DH_" + text + "_Description"
-                      );
+                "DH" + text,
+                DatabaseHelper.MonsterAttackDefinitions.Attack_GiantEagle_Beak
+            );
 
             Roc_Beak_Attack.SetToHitBonus(13);
             Roc_Beak_Attack.SetReachRange(2);
@@ -110,16 +104,12 @@ namespace SolastaCommunityExpansion.Monsters
 
         public static void BuildNewRoc_Talons_Attack()
         {
-
-            string text = "Roc_Talons_Attack";
-
+            var text = "RocTalonsAttack";
 
             Roc_Talons_Attack = BuildNewAttack(
-                     "DH_Custom_" + text,
-                     DatabaseHelper.MonsterAttackDefinitions.Attack_GiantEagle_Talons,
-                    "MonsterAttack/&DH_" + text + "_Title",
-                     "MonsterAttack/&DH_" + text + "_Description"
-                      );
+                "DH" + text,
+                DatabaseHelper.MonsterAttackDefinitions.Attack_GiantEagle_Talons
+            );
 
             Roc_Talons_Attack.SetToHitBonus(13);
             Roc_Talons_Attack.SetReachRange(1);
@@ -127,8 +117,6 @@ namespace SolastaCommunityExpansion.Monsters
             Roc_Talons_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
             Roc_Talons_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(9);
             Roc_Talons_Attack.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypeSlashing);
-
-
 
             MotionForm motionForm = new MotionForm();
             motionForm.SetDistance(10);
@@ -153,16 +141,12 @@ namespace SolastaCommunityExpansion.Monsters
 
         public static void BuildNewIce_Bite_Attack()
         {
-
-            string text = "Ice_Bite_Attack";
-
+            var text = "IceBiteAttack";
 
             Ice_Bite_Attack = BuildNewAttack(
-                     "DH_Custom_" + text,
-                     DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Bite,
-                    "MonsterAttack/&DH_" + text + "_Title",
-                     "MonsterAttack/&DH_" + text + "_Description"
-                      );
+                "DH" + text,
+                DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Bite
+            );
 
             Ice_Bite_Attack.SetReachRange(1);
             Ice_Bite_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
@@ -175,16 +159,12 @@ namespace SolastaCommunityExpansion.Monsters
 
         public static void BuildNewNagaSpit_Attack()
         {
-
-            string text = "NagaSpit_Attack";
-
+            var text = "NagaSpitAttack";
 
             NagaSpit_Attack = BuildNewAttack(
-                     "DH_Custom_" + text,
-                     DatabaseHelper.MonsterAttackDefinitions.Attack_Spider_Crimson_Spit,
-                    "MonsterAttack/&DH_" + text + "_Title",
-                     "MonsterAttack/&DH_" + text + "_Description"
-                      );
+                "DH" + text,
+                DatabaseHelper.MonsterAttackDefinitions.Attack_Spider_Crimson_Spit
+            );
 
             NagaSpit_Attack.SetToHitBonus(8);
             NagaSpit_Attack.EffectDescription.SetRangeParameter(6);
@@ -201,22 +181,16 @@ namespace SolastaCommunityExpansion.Monsters
             NagaSpit_Attack.EffectDescription.SetSavingThrowDifficultyAbility(DatabaseHelper.SmartAttributeDefinitions.Constitution.Name);
             NagaSpit_Attack.EffectDescription.SetHasSavingThrow(true);
             NagaSpit_Attack.EffectDescription.SetFixedSavingThrowDifficultyClass(15);
-
-
         }
 
         public static void BuildNewNagaBite_Attack()
         {
-
-            string text = "NagaBite_Attack";
-
+            var text = "NagaBiteAttack";
 
             NagaBite_Attack = BuildNewAttack(
-                     "DH_Custom_" + text,
-                     DatabaseHelper.MonsterAttackDefinitions.Attack_Goblin_PebbleThrow,
-                    "MonsterAttack/&DH_" + text + "_Title",
-                     "MonsterAttack/&DH_" + text + "_Description"
-                      );
+                "DH" + text,
+                DatabaseHelper.MonsterAttackDefinitions.Attack_Goblin_PebbleThrow
+            );
 
             NagaBite_Attack.SetToHitBonus(7);
             NagaBite_Attack.SetProximity(RuleDefinitions.AttackProximity.Melee);
@@ -236,7 +210,6 @@ namespace SolastaCommunityExpansion.Monsters
             damageForm.SetBonusDamage(0);
             damageForm.SetDamageType(RuleDefinitions.DamageTypePoison);
 
-
             EffectForm extraDamageEffect = new EffectForm();
             extraDamageEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
             extraDamageEffect.SetLevelMultiplier(1);
@@ -252,22 +225,16 @@ namespace SolastaCommunityExpansion.Monsters
             NagaBite_Attack.EffectDescription.SetSavingThrowDifficultyAbility(DatabaseHelper.SmartAttributeDefinitions.Constitution.Name);
             NagaBite_Attack.EffectDescription.SetHasSavingThrow(true);
             NagaBite_Attack.EffectDescription.SetFixedSavingThrowDifficultyClass(15);
-
-
         }
 
         public static void BuildNewFork_Attack()
         {
-
-            string text = "Fork_Attack";
-
+            var text = "ForkAttack";
 
             Fork_Attack = BuildNewAttack(
-                     "DH_Custom_" + text,
-                     DatabaseHelper.MonsterAttackDefinitions.Attack_Skeleton_Spear,
-                    "MonsterAttack/&DH_" + text + "_Title",
-                     "MonsterAttack/&DH_" + text + "_Description"
-                      );
+                "DH" + text,
+                DatabaseHelper.MonsterAttackDefinitions.Attack_Skeleton_Spear
+            );
 
             Fork_Attack.SetToHitBonus(10);
             Fork_Attack.SetReachRange(2);
@@ -278,33 +245,25 @@ namespace SolastaCommunityExpansion.Monsters
             Fork_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D8);
             Fork_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(6);
             Fork_Attack.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypePiercing);
-
         }
 
         public static void BuildNewHornedDevilTail_Attack()
         {
-
-            string text = "HornedDevilTail_Attack";
+            var text = "HornedDevilTailAttack";
 
             ConditionDefinition BleedingWound_Condition = BuildNewCondition(
-                         "DH_Custom_" + text + "condition",
-                         DatabaseHelper.ConditionDefinitions.ConditionBleeding,
-                        "MonsterAttack/&DH_" + text + "condition" + "_Title",
-                         "MonsterAttack/&DH_" + text + "condition" + "_Description"
+                "DH" + text + "condition",
+                DatabaseHelper.ConditionDefinitions.ConditionBleeding
            );
 
             BleedingWound_Condition.SetAllowMultipleInstances(true);
             BleedingWound_Condition.RecurrentEffectForms[0].DamageForm.SetDiceNumber(3);
             BleedingWound_Condition.RecurrentEffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
 
-
             HornedDevilTail_Attack = BuildNewAttack(
-                     "DH_Custom_" + text,
-                     DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Tail,
-                    "MonsterAttack/&DH_" + text + "_Title",
-                     "MonsterAttack/&DH_" + text + "_Description"
-                      );
-
+                "DH" + text,
+                DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Tail
+            );
 
             ConditionForm TailCondition = new ConditionForm();
             TailCondition.SetApplyToSelf(false);
@@ -324,7 +283,6 @@ namespace SolastaCommunityExpansion.Monsters
             TailEffect.SetCanSaveToCancel(true);
             TailEffect.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
 
-
             HornedDevilTail_Attack.SetToHitBonus(10);
             HornedDevilTail_Attack.SetReachRange(2);
             HornedDevilTail_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(2);
@@ -336,23 +294,16 @@ namespace SolastaCommunityExpansion.Monsters
             HornedDevilTail_Attack.EffectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions.Wisdom.name);
             HornedDevilTail_Attack.EffectDescription.SetDifficultyClassComputation(RuleDefinitions.EffectDifficultyClassComputation.FixedValue);
             HornedDevilTail_Attack.EffectDescription.SetFixedSavingThrowDifficultyClass(12);
-
-
-
         }
 
         public static void BuildNewPoisonLongsword_Attack()
         {
-
-            string text = "PoisonLongsword_Attack";
-
+            var text = "PoisonLongswordAttack";
 
             PoisonLongsword_Attack = BuildNewAttack(
-                     "DH_Custom_" + text,
-                     DatabaseHelper.MonsterAttackDefinitions.Attack_Veteran_Sorak_Agent_Longsword,
-                    "MonsterAttack/&DH_" + text + "_Title",
-                     "MonsterAttack/&DH_" + text + "_Description"
-                      );
+                "DH" + text,
+                DatabaseHelper.MonsterAttackDefinitions.Attack_Veteran_Sorak_Agent_Longsword
+            );
 
             PoisonLongsword_Attack.SetToHitBonus(8);
             PoisonLongsword_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(1);
@@ -376,20 +327,16 @@ namespace SolastaCommunityExpansion.Monsters
 
             PoisonLongsword_Attack.EffectDescription.EffectForms.Add(extraDamageEffect);
             PoisonLongsword_Attack.EffectDescription.EffectParticleParameters.Copy(DatabaseHelper.MonsterAttackDefinitions.Attack_PoisonousSnake_Bite.EffectDescription.EffectParticleParameters);
-
         }
+
         public static void BuildNewPoisonLongbow_Attack()
         {
-
-            string text = "PoisonLongbow_Attack";
-
+            var text = "PoisonLongbowAttack";
 
             PoisonLongbow_Attack = BuildNewAttack(
-                     "DH_Custom_" + text,
-                     DatabaseHelper.MonsterAttackDefinitions.Attack_BadlandHunter_Longbow,
-                    "MonsterAttack/&DH_" + text + "_Title",
-                     "MonsterAttack/&DH_" + text + "_Description"
-                      );
+                "DH" + text,
+                DatabaseHelper.MonsterAttackDefinitions.Attack_BadlandHunter_Longbow
+            );
 
             PoisonLongbow_Attack.SetToHitBonus(7);
             PoisonLongbow_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(1);
@@ -429,7 +376,6 @@ namespace SolastaCommunityExpansion.Monsters
             PoisonLongbowEffect.SetCanSaveToCancel(false);
             PoisonLongbowEffect.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
 
-
             PoisonLongbow_Attack.EffectDescription.EffectForms.Add(extraDamageEffect);
             PoisonLongbow_Attack.EffectDescription.EffectForms.Add(PoisonLongbowEffect);
 
@@ -437,22 +383,16 @@ namespace SolastaCommunityExpansion.Monsters
             PoisonLongbow_Attack.EffectDescription.SetDifficultyClassComputation(RuleDefinitions.EffectDifficultyClassComputation.FixedValue);
             PoisonLongbow_Attack.EffectDescription.SetFixedSavingThrowDifficultyClass(14);
             PoisonLongbow_Attack.EffectDescription.EffectParticleParameters.Copy(DatabaseHelper.MonsterAttackDefinitions.Attack_PoisonousSnake_Bite.EffectDescription.EffectParticleParameters);
-
-
         }
 
         public static void BuildNewRadiantLongsword_Attack()
         {
-
-            string text = "RadiantLongsword_Attack";
-
+            var text = "RadiantLongswordAttack";
 
             RadiantLongsword_Attack = BuildNewAttack(
-                     "DH_Custom_" + text,
-                     DatabaseHelper.MonsterAttackDefinitions.Attack_Hyeronimus_Greatsword,
-                    "MonsterAttack/&DH_" + text + "_Title",
-                     "MonsterAttack/&DH_" + text + "_Description"
-                      );
+                "DH" + text,
+                DatabaseHelper.MonsterAttackDefinitions.Attack_Hyeronimus_Greatsword
+            );
 
             RadiantLongsword_Attack.SetToHitBonus(15);
             RadiantLongsword_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(4);
@@ -464,20 +404,16 @@ namespace SolastaCommunityExpansion.Monsters
             RadiantLongsword_Attack.EffectDescription.EffectForms[1].DamageForm.SetDieType(RuleDefinitions.DieType.D8);
 
             RadiantLongsword_Attack.EffectDescription.EffectParticleParameters.Copy(DatabaseHelper.MonsterAttackDefinitions.Attack_Divine_Avatar.EffectDescription.EffectParticleParameters);
-
         }
+
         public static void BuildNewRadiantLongbow_Attack()
         {
-
-            string text = "RadiantLongbow_Attack";
-
+            var text = "RadiantLongbowAttack";
 
             RadiantLongbow_Attack = BuildNewAttack(
-                     "DH_Custom_" + text,
-                     DatabaseHelper.MonsterAttackDefinitions.Attack_BadlandHunter_Longbow,
-                    "MonsterAttack/&DH_" + text + "_Title",
-                     "MonsterAttack/&DH_" + text + "_Description"
-                      );
+                "DH" + text,
+                DatabaseHelper.MonsterAttackDefinitions.Attack_BadlandHunter_Longbow
+            );
 
             RadiantLongbow_Attack.SetToHitBonus(13);
             RadiantLongbow_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(2);
@@ -522,22 +458,16 @@ namespace SolastaCommunityExpansion.Monsters
             RadiantLongbow_Attack.EffectDescription.SetFixedSavingThrowDifficultyClass(15);
             RadiantLongbow_Attack.EffectDescription.SetHasSavingThrow(true);
             RadiantLongbow_Attack.EffectDescription.EffectParticleParameters.Copy(DatabaseHelper.MonsterAttackDefinitions.Attack_Divine_Avatar.EffectDescription.EffectParticleParameters);
-
-
         }
 
         public static void BuildNewAirBlast_Attack()
         {
-
-            string text = "AirBlast_Attack";
-
+            var text = "AirBlastAttack";
 
             AirBlast_Attack = BuildNewAttack(
-                     "DH_Custom_" + text,
-                     DatabaseHelper.MonsterAttackDefinitions.Attack_Goblin_PebbleThrow,
-                    "MonsterAttack/&DH_" + text + "_Title",
-                     "MonsterAttack/&DH_" + text + "_Description"
-                      );
+                "DH" + text,
+                DatabaseHelper.MonsterAttackDefinitions.Attack_Goblin_PebbleThrow
+            );
 
             AirBlast_Attack.SetToHitBonus(7);
             AirBlast_Attack.EffectDescription.SetRangeParameter(24);
@@ -559,40 +489,30 @@ namespace SolastaCommunityExpansion.Monsters
             motionEffect.SetLevelMultiplier(1);
 
             AirBlast_Attack.EffectDescription.EffectForms.Add(motionEffect);
-
         }
         public static void BuildNewHurlFlame_Attack()
         {
-
-            string text = "HurlFlame_Attack";
-
+            var text = "HurlFlameAttack";
 
             HurlFlame_Attack = BuildNewAttack(
-                     "DH_Custom_" + text,
-                     DatabaseHelper.MonsterAttackDefinitions.Attack_Fire_Jester_Firebolt,
-                     
-                    "MonsterAttack/&DH_" + text + "_Title",
-                     "MonsterAttack/&DH_" + text + "_Description"
-                      );
+                "DH" + text,
+                DatabaseHelper.MonsterAttackDefinitions.Attack_Fire_Jester_Firebolt
+            );
 
             HurlFlame_Attack.SetToHitBonus(7);
             HurlFlame_Attack.EffectDescription.SetRangeParameter(24);
             HurlFlame_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(5);
             HurlFlame_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
             HurlFlame_Attack.EffectDescription.EffectParticleParameters.Copy(DatabaseHelper.MonsterAttackDefinitions.Attack_FireOsprey_Touch.EffectDescription.EffectParticleParameters);
-
         }
+
         public static void BuildNewFireScimatar_Attack()
         {
-
-            string text = "FireScimatar_Attack";
-
+            var text = "FireScimatarAttack";
 
             FireScimatar_Attack = BuildNewAttack(
-                     "DH_Custom_" + text,
-                     DatabaseHelper.MonsterAttackDefinitions.Attack_Goblin_Cutthroat_Scimitar,
-                    "MonsterAttack/&DH_" + text + "_Title",
-                     "MonsterAttack/&DH_" + text + "_Description"
+                     "DH" + text,
+                     DatabaseHelper.MonsterAttackDefinitions.Attack_Goblin_Cutthroat_Scimitar
                       );
 
             FireScimatar_Attack.SetToHitBonus(10);
@@ -616,21 +536,16 @@ namespace SolastaCommunityExpansion.Monsters
 
             FireScimatar_Attack.EffectDescription.EffectForms.Add(extraFireDamageEffect);
             FireScimatar_Attack.EffectDescription.EffectParticleParameters.Copy(DatabaseHelper.MonsterAttackDefinitions.Attack_FireOsprey_Touch.EffectDescription.EffectParticleParameters);
-
-
         }
+
         public static void BuildNewLightningScimatar_Attack()
         {
-
-            string text = "LightningScimatar_Attack";
-
+            var text = "LightningScimatarAttack";
 
             LightningScimatar_Attack = BuildNewAttack(
-                     "DH_Custom_" + text,
-                     DatabaseHelper.MonsterAttackDefinitions.Attack_Goblin_Cutthroat_Scimitar,
-                    "MonsterAttack/&DH_" + text + "_Title",
-                     "MonsterAttack/&DH_" + text + "_Description"
-                      );
+                "DH" + text,
+                DatabaseHelper.MonsterAttackDefinitions.Attack_Goblin_Cutthroat_Scimitar
+            );
 
             LightningScimatar_Attack.SetToHitBonus(10);
             LightningScimatar_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(2);
@@ -653,44 +568,31 @@ namespace SolastaCommunityExpansion.Monsters
 
             LightningScimatar_Attack.EffectDescription.EffectForms.Add(extraFireDamageEffect);
             LightningScimatar_Attack.EffectDescription.EffectParticleParameters.Copy(DatabaseHelper.MonsterAttackDefinitions.Attack_ZealotShockingAntenna.EffectDescription.EffectParticleParameters);
-
-
         }
 
         public static void BuildNewGeneric_Bite_Attack()
         {
             // generic bite attack without extra damage for CR 10-15 monsters
-            string text = "Generic_Bite_Attack_No_ExtraDamage";
-
+            var text = "GenericBiteAttackNoExtraDamage";
 
             Generic_Bite_Attack = BuildNewAttack(
-                     "DH_Custom_" + text,
-                     DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Bite,
-                     
-                    "MonsterAttack/&DH_" + text + "_Title",
-                     "MonsterAttack/&DH_" + text + "_Description"
+                     "DH" + text,
+                     DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Bite
                       );
 
             Generic_Bite_Attack.SetReachRange(1);
             Generic_Bite_Attack.EffectDescription.EffectForms.RemoveAt(1);
             Generic_Bite_Attack.EffectDescription.EffectParticleParameters.Copy(DatabaseHelper.MonsterAttackDefinitions.Attack_BrownBear_Bite.EffectDescription.EffectParticleParameters);
-
         }
         public static void BuildNewGeneric_Stronger_Bite_Attack()
         {
-
             // generic bite attack without extra damage for high level CR monsters
-            string text_1 = "Generic_Stronger_Bite_Attack_No_ExtraDamage";
-
+            var text = "GenericStrongerBiteAttackNoExtraDamage";
 
             Generic_Stronger_Bite_Attack = BuildNewAttack(
-                     "DH_Custom_" + text_1,
-                     DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Bite,
-                    "MonsterAttack/&DH_" + text_1 + "_Title",
-                     "MonsterAttack/&DH_" + text_1 + "_Description"
-                      );
-
-
+                "DH" + text,
+                DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Bite
+            );
 
             Generic_Stronger_Bite_Attack.SetToHitBonus(15);
             Generic_Stronger_Bite_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(5);
@@ -701,40 +603,25 @@ namespace SolastaCommunityExpansion.Monsters
             Generic_Stronger_Bite_Attack.EffectDescription.EffectForms.RemoveAt(1);
         }
 
-
         public static void BuildNewGeneric_Claw_Attack()
         {
             // correct dice numbers/type for ancient dragon claw
-            string text = "Generic_Claw_Attack";
-
+            var text = "GenericClawAttack";
 
             AncientDragon_Claw_Attack = BuildNewAttack(
-                        "DH_Custom_" + text,
-                       DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Claw,
-                       
-                      "MonsterAttack/&DH_" + text + "_Title",
-                       "MonsterAttack/&DH_" + text + "_Description"
-                        );
+                "DH" + text,
+                DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Claw
+            );
 
             // generic ancient dragon Claw attack
             AncientDragon_Claw_Attack.SetToHitBonus(15);
             AncientDragon_Claw_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(3);
             AncientDragon_Claw_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
             AncientDragon_Claw_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(9);
-
-
-
         }
 
-
-
-
-        public static void BuildNew_AncientDragon_Bite_Attack()
+        public static void BuildNewAncientDragon_Bite_Attack()
         {
-
-
-
-
             Dictionary<string, int> dictionaryofAncientDragonBiteExtraDamageDiceNumbers = new Dictionary<string, int>
             {
                 { "Ancient Black Dragon", 2 },
@@ -762,20 +649,14 @@ namespace SolastaCommunityExpansion.Monsters
                 { "Ancient White Dragon", DatabaseHelper.MonsterAttackDefinitions.Attack_Orc_Grimblade_IceDagger.EffectDescription.EffectParticleParameters }
             };
 
-
             foreach (KeyValuePair<string, string> entry in NewMonsterAttributes.Dictionaryof_Dragon_DamageAffinity)
             {
-
-                string text = entry.Value + "_Bite_Attack";
-                text = text.Replace(" ", "");
+                var text = entry.Value.Replace(" ", "") + "BiteAttack";
 
                 MonsterAttackDefinition Dragon_Bite_Attack = BuildNewAttack(
-                       "DH_Custom_" + text,
-                       DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Bite,
-                       
-                      "MonsterAttack/&DH_" + text + "_Title",
-                       "MonsterAttack/&DH_" + text + "_Description"
-                        );
+                    "DH" + text,
+                    DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Bite
+                );
 
                 Dragon_Bite_Attack.SetReachRange(3);
                 Dragon_Bite_Attack.SetToHitBonus(15);
@@ -789,38 +670,20 @@ namespace SolastaCommunityExpansion.Monsters
                 Dragon_Bite_Attack.EffectDescription.EffectForms[1].DamageForm.SetDamageType(entry.Value);    // ListofDamageTypes_Dragon[i]);
                 Dragon_Bite_Attack.EffectDescription.SetEffectParticleParameters(dictionaryofAncientDragonBiteEffectparticles[entry.Key]);
 
-
                 DictionaryOfAncientDragonBites.Add(entry.Key, Dragon_Bite_Attack);
-
-
                 DictionaryOfGenericBitesWithExtraDamage.Add(entry.Value, Dragon_Bite_Attack);
-
-
-
             }
-
-
-
         }
-
-
-
-
-
 
         public static void BuildNewAncientDragon_Tail_Attack()
         {
             // correct dice numbers/type for ancient dragon tail
-            string text = "AncientDragon_Tail_Attack";
-
+            var text = "AncientDragonTailAttack";
 
             AncientDragon_Tail_Attack = BuildNewAttack(
-                        "DH_Custom_" + text,
-                       DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Tail,
-                       
-                      "MonsterAttack/&DH_" + text + "_Title",
-                       "MonsterAttack/&DH_" + text + "_Description"
-                        );
+                "DH" + text,
+                DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Tail
+            );
 
             // generic ancient dragon Tail attack
             AncientDragon_Tail_Attack.SetReachRange(4);
@@ -828,34 +691,24 @@ namespace SolastaCommunityExpansion.Monsters
             AncientDragon_Tail_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(2);
             AncientDragon_Tail_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D8);
             AncientDragon_Tail_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(8);
-
-
-
         }
-
 
         public static void BuildNewPitFiend_Bite_Attack()
         {
-            string text = "PitFiend_Bite_Attack";
+            var text = "PitFiendBiteAttack";
 
             ConditionDefinition PitFiend_Bite_Condition = BuildNewCondition(
-                     "DH_Custom_" + text + "condition",
-                     DatabaseHelper.ConditionDefinitions.ConditionPoisoned_BasicPoison,
-                    "MonsterAttack/&DH_" + text + "condition" + "_Title",
-                     "MonsterAttack/&DH_" + text + "condition" + "_Description"
-                      );
+                "DH" + text + "condition",
+                DatabaseHelper.ConditionDefinitions.ConditionPoisoned_BasicPoison
+            );
 
             PitFiend_Bite_Condition.RecurrentEffectForms[0].DamageForm.SetDiceNumber(6);
             PitFiend_Bite_Condition.RecurrentEffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
 
-
             PitFiend_Bite_Attack = BuildNewAttack(
-                     "DH_Custom_" + text,
-                     DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Bite,
-                     
-                    "MonsterAttack/&DH_" + text + "_Title",
-                     "MonsterAttack/&DH_" + text + "_Description"
-                      );
+                "DH" + text,
+                DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Bite
+            );
 
             ConditionForm PitFiendBiteCondition = new ConditionForm();
             PitFiendBiteCondition.SetApplyToSelf(false);
@@ -880,25 +733,16 @@ namespace SolastaCommunityExpansion.Monsters
             PitFiend_Bite_Attack.EffectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions.Constitution.name);
             PitFiend_Bite_Attack.EffectDescription.SetDifficultyClassComputation(RuleDefinitions.EffectDifficultyClassComputation.FixedValue);
             PitFiend_Bite_Attack.EffectDescription.SetFixedSavingThrowDifficultyClass(21);
-
         }
 
-
-
-        public static void BuildNew_PitFiend_Mace_Attack()
+        public static void BuildNewPitFiend_Mace_Attack()
         {
-
-            string text = "PitFiend_Mace_Attack";
-
+            var text = "PitFiendMaceAttack";
 
             PitFiend_Mace_Attack = BuildNewAttack(
-                     "DH_Custom_" + text,
-                     DatabaseHelper.MonsterAttackDefinitions.Attack_Divine_Avatar,
-                     
-                    "MonsterAttack/&DH_" + text + "_Title",
-                     "MonsterAttack/&DH_" + text + "_Description"
-                      );
-
+                "DH" + text,
+                DatabaseHelper.MonsterAttackDefinitions.Attack_Divine_Avatar
+            );
 
             PitFiend_Mace_Attack.SetReachRange(2);
             PitFiend_Mace_Attack.SetToHitBonus(14);
@@ -910,23 +754,16 @@ namespace SolastaCommunityExpansion.Monsters
             PitFiend_Mace_Attack.EffectDescription.EffectForms[1].DamageForm.SetDiceNumber(6);
             PitFiend_Mace_Attack.EffectDescription.EffectForms[1].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
             PitFiend_Mace_Attack.EffectDescription.EffectForms[1].DamageForm.SetDamageType("DamageFire");    // ListofDamageTypes_Dragon[i]);
-
-
         }
 
         public static void BuildNewBalor_Longsword_Attack()
         {
-
-            string text = "Balor_Longsword_Attack";
-
+            var text = "BalorLongswordAttack";
 
             Balor_Longsword_Attack = BuildNewAttack(
-                 "DH_Custom_" + text,
-                 DatabaseHelper.MonsterAttackDefinitions.Attack_Divine_Avatar,
-                 
-                "MonsterAttack/&DH_" + text + "_Title",
-                 "MonsterAttack/&DH_" + text + "_Description"
-                  );
+                "DH" + text,
+                DatabaseHelper.MonsterAttackDefinitions.Attack_Divine_Avatar
+            );
 
             Balor_Longsword_Attack.SetReachRange(2);
             Balor_Longsword_Attack.SetToHitBonus(14);
@@ -934,7 +771,6 @@ namespace SolastaCommunityExpansion.Monsters
             Balor_Longsword_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D8);
             Balor_Longsword_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(8);
             Balor_Longsword_Attack.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypeSlashing);
-
 
             Balor_Longsword_Attack.EffectDescription.EffectForms[1].DamageForm.SetDiceNumber(3);
             Balor_Longsword_Attack.EffectDescription.EffectForms[1].DamageForm.SetDieType(RuleDefinitions.DieType.D8);
@@ -946,17 +782,12 @@ namespace SolastaCommunityExpansion.Monsters
 
         public static void BuildNewBalor_Whip_Attack()
         {
-
-            string text = "Balor_Whip_Attack";
-
+            var text = "BalorWhipAttack";
 
             Balor_Whip_Attack = BuildNewAttack(
-                     "DH_Custom_" + text,
-                     DatabaseHelper.MonsterAttackDefinitions.Attack_Divine_Avatar,
-                     
-                    "MonsterAttack/&DH_" + text + "_Title",
-                     "MonsterAttack/&DH_" + text + "_Description"
-                      );
+                "DH" + text,
+                DatabaseHelper.MonsterAttackDefinitions.Attack_Divine_Avatar
+            );
 
             Balor_Whip_Attack.SetReachRange(6);
             Balor_Whip_Attack.SetMaxRange(6);
@@ -985,61 +816,42 @@ namespace SolastaCommunityExpansion.Monsters
             effectForm.SetHasSavingThrow(true);
             effectForm.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
 
-
             Balor_Whip_Attack.EffectDescription.EffectForms.Add(effectForm);
             Balor_Whip_Attack.EffectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions.Strength.Name);
             Balor_Whip_Attack.EffectDescription.SetHasSavingThrow(true);
             Balor_Whip_Attack.EffectDescription.SetDifficultyClassComputation(RuleDefinitions.EffectDifficultyClassComputation.FixedValue);
             Balor_Whip_Attack.EffectDescription.SetFixedSavingThrowDifficultyClass(20);
-
         }
-
-
 
         public static void BuildNewLich_ParalyzingTouch_Attack()
         {
-            string text = "Lich_ParalyzingTouch_Attack";
-
-
+            var text = "LichParalyzingTouchAttack";
 
             Lich_ParalyzingTouch_Attack = BuildNewAttack(
-                     "DH_Custom_" + text,
-                     DatabaseHelper.MonsterAttackDefinitions.Attack_Ghost_Withering_Laethar,
-                     
-                    "MonsterAttack/&DH_" + text + "_Title",
-                     "MonsterAttack/&DH_" + text + "_Description"
-                      );
+                "DH" + text,
+                DatabaseHelper.MonsterAttackDefinitions.Attack_Ghost_Withering_Laethar
+            );
 
             Lich_ParalyzingTouch_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(3);
             Lich_ParalyzingTouch_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
             Lich_ParalyzingTouch_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(0);
             Lich_ParalyzingTouch_Attack.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypeCold);
 
-
             Lich_ParalyzingTouch_Attack.SetToHitBonus(12);
             Lich_ParalyzingTouch_Attack.EffectDescription.EffectForms[1].ConditionForm.SetConditionDefinition(DatabaseHelper.ConditionDefinitions.ConditionParalyzed);
             Lich_ParalyzingTouch_Attack.EffectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions.Constitution.name);
             Lich_ParalyzingTouch_Attack.EffectDescription.SetDifficultyClassComputation(RuleDefinitions.EffectDifficultyClassComputation.FixedValue);
             Lich_ParalyzingTouch_Attack.EffectDescription.SetFixedSavingThrowDifficultyClass(21);
-
         }
-
-
-
 
         public static void BuildNewFireTitan_Slam_Attack()
         {
-            string text = "FireTitan_Slam_Attack";
-
-
+            var text = "FireTitanSlamAttack";
 
             FireTitan_Slam_Attack = BuildNewAttack(
-                     "DH_Custom_" + text,
-                     DatabaseHelper.MonsterAttackDefinitions.Attack_Air_Elemental_Slam,
-                     
-                    "MonsterAttack/&DH_" + text + "_Title",
-                     "MonsterAttack/&DH_" + text + "_Description"
-                      );
+                "DH" + text,
+                DatabaseHelper.MonsterAttackDefinitions.Attack_Air_Elemental_Slam
+            );
 
             FireTitan_Slam_Attack.SetToHitBonus(12);
             FireTitan_Slam_Attack.SetReachRange(3);
@@ -1063,24 +875,16 @@ namespace SolastaCommunityExpansion.Monsters
             extraFireDamageEffect.SetDamageForm(damageForm);
 
             FireTitan_Slam_Attack.EffectDescription.EffectForms.Add(extraFireDamageEffect);
-
         }
-
-
 
         public static void BuildNewAirTitan_Slam_Attack()
         {
-            string text = "AirTitan_Slam_Attack";
-
-
+            var text = "AirTitanSlamAttack";
 
             AirTitan_Slam_Attack = BuildNewAttack(
-                     "DH_Custom_" + text,
-                     DatabaseHelper.MonsterAttackDefinitions.Attack_Air_Elemental_Slam,
-                     
-                    "MonsterAttack/&DH_" + text + "_Title",
-                     "MonsterAttack/&DH_" + text + "_Description"
-                      );
+                "DH" + text,
+                DatabaseHelper.MonsterAttackDefinitions.Attack_Air_Elemental_Slam
+            );
 
             AirTitan_Slam_Attack.SetToHitBonus(16);
             AirTitan_Slam_Attack.SetReachRange(4);
@@ -1104,24 +908,16 @@ namespace SolastaCommunityExpansion.Monsters
             extraDamageEffect.SetDamageForm(damageForm);
 
             AirTitan_Slam_Attack.EffectDescription.EffectForms.Add(extraDamageEffect);
-
         }
-
-
 
         public static void BuildNewEarthTitan_Slam_Attack()
         {
-
-            string text = "EarthTitan_Slam_Attack";
-
+            var text = "EarthTitanSlamAttack";
 
             EarthTitan_Slam_Attack = BuildNewAttack(
-                         "DH_Custom_" + text,
-                         DatabaseHelper.MonsterAttackDefinitions.Attack_Air_Elemental_Slam,
-                         
-                        "MonsterAttack/&DH_" + text + "_Title",
-                         "MonsterAttack/&DH_" + text + "_Description"
-                          );
+                "DH" + text,
+                DatabaseHelper.MonsterAttackDefinitions.Attack_Air_Elemental_Slam
+            );
 
             EarthTitan_Slam_Attack.SetToHitBonus(16);
             EarthTitan_Slam_Attack.SetReachRange(4);
@@ -1129,25 +925,16 @@ namespace SolastaCommunityExpansion.Monsters
             EarthTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D10);
             EarthTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(8);
             EarthTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypeBludgeoning);
-
-
-
-
-
         }
+
         public static void BuildNewConstructTitan_Slam_Attack()
         {
-
-            string text = "ConstructTitan_Slam_Attack";
-
+            var text = "ConstructTitanSlamAttack";
 
             ConstructTitan_Slam_Attack = BuildNewAttack(
-                         "DH_Custom_" + text,
-                         DatabaseHelper.MonsterAttackDefinitions.Attack_Air_Elemental_Slam,
-                         
-                        "MonsterAttack/&DH_" + text + "_Title",
-                         "MonsterAttack/&DH_" + text + "_Description"
-                          );
+                "DH" + text,
+                DatabaseHelper.MonsterAttackDefinitions.Attack_Air_Elemental_Slam
+            );
 
             ConstructTitan_Slam_Attack.SetToHitBonus(18);
             ConstructTitan_Slam_Attack.SetReachRange(4);
@@ -1169,25 +956,16 @@ namespace SolastaCommunityExpansion.Monsters
             effectForm.SetMotionForm(motionForm);
 
             ConstructTitan_Slam_Attack.EffectDescription.EffectForms.Add(effectForm);
-
-
-
-
         }
 
         public static void BuildNewConstructTitan_ForceCannon_Attack()
         {
-
-            string text = "ConstructTitan_ForceCannon_Attack";
-
+            var text = "ConstructTitanForceCannonAttack";
 
             ConstructTitan_ForceCannon_Attack = BuildNewAttack(
-                         "DH_Custom_" + text,
-                         DatabaseHelper.MonsterAttackDefinitions.Attack_Goblin_PebbleThrow,
-                         
-                        "MonsterAttack/&DH_" + text + "_Title",
-                         "MonsterAttack/&DH_" + text + "_Description"
-                          );
+                "DH" + text,
+                DatabaseHelper.MonsterAttackDefinitions.Attack_Goblin_PebbleThrow
+            );
 
             ConstructTitan_ForceCannon_Attack.SetToHitBonus(18);
             ConstructTitan_ForceCannon_Attack.SetReachRange(60);
@@ -1212,24 +990,16 @@ namespace SolastaCommunityExpansion.Monsters
 
                         ConstructTitan_ForceCannon_Attack.EffectDescription.EffectForms.Add(effectForm);
             */
-
-
-
         }
-
 
         public static void BuildNewEarthTitan_Boulder_Attack()
         {
-            string text = "EarthTitan_Boulder_Attack";
-
+            var text = "EarthTitanBoulderAttack";
 
             EarthTitan_Boulder_Attack = BuildNewAttack(
-                     "DH_Custom_" + text,
-                     DatabaseHelper.MonsterAttackDefinitions.Attack_Giant_Fire_Rock,
-                     
-                    "MonsterAttack/&DH_" + text + "_Title",
-                     "MonsterAttack/&DH_" + text + "_Description"
-                      );
+                "DH" + text,
+                DatabaseHelper.MonsterAttackDefinitions.Attack_Giant_Fire_Rock
+            );
 
             EarthTitan_Boulder_Attack.SetToHitBonus(6);
             EarthTitan_Boulder_Attack.SetReachRange(50);
@@ -1253,7 +1023,6 @@ namespace SolastaCommunityExpansion.Monsters
             effectForm.SetMotionForm(motionForm);
 
             EarthTitan_Boulder_Attack.EffectDescription.EffectForms.Add(effectForm);
-
         }
 
         public static void BuildNewTarrasque_Bite_Attack()
@@ -1266,25 +1035,19 @@ namespace SolastaCommunityExpansion.Monsters
             Hit: 36 (4d12 + 10) piercing damage. If the target is a creature, it is grappled (escape DC 20). Until this grapple ends, the target is restrained, and the tarrasque can't bite another target.
             */
 
-            string text = "Tarrasque_Bite";
+            var text = "TarrasqueBite";
 
+            TarrasqueGrappledRestrainedCondition = NewMonsterAttacks.BuildNewCondition(
+                "DH" + text + "condition",
+                DatabaseHelper.ConditionDefinitions.ConditionGrappledRestrainedRemorhaz
+            );
 
-             TarrasqueGrappledRestrainedCondition = NewMonsterAttacks.BuildNewCondition(
-                       "DH_Custom_" + text + "condition",
-                       DatabaseHelper.ConditionDefinitions.ConditionGrappledRestrainedRemorhaz,
-                      "MonsterAttack/&DH_" + text +  "Condition" + "_Title",
-                       "MonsterAttack/&DH_" + text + "Condition" + "_Description"
-                        );
-
-          //  TarrasqueGrappledRestrainedCondition.features.Add(DatabaseHelper.FeatureDefinitionActionAffinitys.ActionAffinityBlackTentacles);
+            //  TarrasqueGrappledRestrainedCondition.features.Add(DatabaseHelper.FeatureDefinitionActionAffinitys.ActionAffinityBlackTentacles);
 
             Tarrasque_Bite_Attack = BuildNewAttack(
-                     "DH_Custom_" + text,
-                     DatabaseHelper.MonsterAttackDefinitions.Attack_Remorhaz_Bite,
-                     
-                    "MonsterAttack/&DH_" + text + "_Title",
-                     "MonsterAttack/&DH_" + text + "_Description"
-                      );
+                "DH" + text,
+                DatabaseHelper.MonsterAttackDefinitions.Attack_Remorhaz_Bite
+            );
 
             Tarrasque_Bite_Attack.SetReachRange(2);
             Tarrasque_Bite_Attack.SetToHitBonus(19);
@@ -1302,14 +1065,11 @@ namespace SolastaCommunityExpansion.Monsters
             Tarrasque_Bite_Attack.EffectDescription.EffectForms[2].ConditionForm.SetConditionDefinition(TarrasqueGrappledRestrainedCondition);
             Tarrasque_Bite_Attack.EffectDescription.EffectForms[2].SetCanSaveToCancel(true);
             Tarrasque_Bite_Attack.EffectDescription.EffectForms.RemoveAt(1);
-
-
-           // Tarrasque_Bite_Attack.EffectDescription.EffectParticleParameters.Copy(DatabaseHelper.MonsterAttackDefinitions.Attack_BrownBear_Bite.EffectDescription.EffectParticleParameters);
-
+            // Tarrasque_Bite_Attack.EffectDescription.EffectParticleParameters.Copy(DatabaseHelper.MonsterAttackDefinitions.Attack_BrownBear_Bite.EffectDescription.EffectParticleParameters);
         }
+
         public static void BuildNewTarrasque_Claw_Attack()
         {
-
             /*
              * Claw.
                Melee Weapon Attack:
@@ -1318,16 +1078,12 @@ namespace SolastaCommunityExpansion.Monsters
                one target.
                Hit: 28 (4d8 + 10) slashing damage.
             */
-            string text = "Tarrasque_Claw";
-
+            var text = "TarrasqueClaw";
 
             Tarrasque_Claw_Attack = BuildNewAttack(
-                     "DH_Custom_" + text,
-                     DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Claw,
-                     
-                    "MonsterAttack/&DH_" + text + "_Title",
-                     "MonsterAttack/&DH_" + text + "_Description"
-                      );
+                "DH" + text,
+                DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Claw
+            );
 
             Tarrasque_Claw_Attack.SetReachRange(3);
             Tarrasque_Claw_Attack.SetToHitBonus(19);
@@ -1338,8 +1094,8 @@ namespace SolastaCommunityExpansion.Monsters
             Tarrasque_Claw_Attack.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypeSlashing);
 
             Tarrasque_Claw_Attack.EffectDescription.EffectParticleParameters.Copy(DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Claw.EffectDescription.EffectParticleParameters);
-
         }
+
         public static void BuildNewTarrasque_Tail_Attack()
         {
             /*
@@ -1351,20 +1107,15 @@ namespace SolastaCommunityExpansion.Monsters
                 Hit: 24 (4d6 + 10) bludgeoning damage.
                 If the target is a creature, it must succeed on a DC 20 Strength saving throw or be knocked prone.
             */
-            string text = "Tarrasque_Tail";
-
+            var text = "TarrasqueTail";
 
             Tarrasque_Tail_Attack = BuildNewAttack(
-                     "DH_Custom_" + text,
-                     DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Tail,
-                     
-                    "MonsterAttack/&DH_" + text + "_Title",
-                     "MonsterAttack/&DH_" + text + "_Description"
-                      );
+                "DH" + text,
+                DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Tail
+            );
 
             Tarrasque_Tail_Attack.SetReachRange(4);
             Tarrasque_Tail_Attack.SetToHitBonus(19);
-
 
             Tarrasque_Tail_Attack.EffectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions.Strength.name);
             Tarrasque_Tail_Attack.EffectDescription.SetDifficultyClassComputation(RuleDefinitions.EffectDifficultyClassComputation.FixedValue);
@@ -1389,15 +1140,9 @@ namespace SolastaCommunityExpansion.Monsters
             effectForm.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
 
             Tarrasque_Tail_Attack.EffectDescription.EffectForms.Add(effectForm);
-
-
             Tarrasque_Tail_Attack.EffectDescription.EffectParticleParameters.Copy(DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Tail.EffectDescription.EffectParticleParameters);
-
-
-
-
-
         }
+
         public static void BuildNewTarrasque_Horn_Attack()
         {
             /*
@@ -1408,16 +1153,12 @@ namespace SolastaCommunityExpansion.Monsters
             one target.
             Hit: 32 (4d10 + 10) piercing damage.
             */
-            string text = "Tarrasque_Horn";
-
+            var text = "TarrasqueHorn";
 
             Tarrasque_Horn_Attack = BuildNewAttack(
-                     "DH_Custom_" + text,
-                     DatabaseHelper.MonsterAttackDefinitions.Attack_Minotaur_Gore,
-                     
-                    "MonsterAttack/&DH_" + text + "_Title",
-                     "MonsterAttack/&DH_" + text + "_Description"
-                      );
+                "DH" + text,
+                DatabaseHelper.MonsterAttackDefinitions.Attack_Minotaur_Gore
+            );
 
             Tarrasque_Horn_Attack.SetReachRange(2);
             Tarrasque_Horn_Attack.SetToHitBonus(19);
@@ -1426,26 +1167,24 @@ namespace SolastaCommunityExpansion.Monsters
             Tarrasque_Horn_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D10);
             Tarrasque_Horn_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(10);
             Tarrasque_Horn_Attack.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypePiercing);
-
             Tarrasque_Horn_Attack.EffectDescription.EffectParticleParameters.Copy(DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Bite.EffectDescription.EffectParticleParameters);
-
         }
 
         //************************************************************************************************************************************
         //************************************************************************************************************************************
-        public static MonsterAttackDefinition BuildNewAttack(string name, MonsterAttackDefinition baseAttack, string title, string description)
+        public static MonsterAttackDefinition BuildNewAttack(string name, MonsterAttackDefinition baseAttack)
         {
             return MonsterAttackDefinitionBuilder
                 .Create(baseAttack, name, DefinitionBuilder.CENamespaceGuid)
-                .SetOrUpdateGuiPresentation(title, description)
+                .SetOrUpdateGuiPresentation(Category.MonsterAttack)
                 .AddToDB();
         }
 
-        public static ConditionDefinition BuildNewCondition(string name, ConditionDefinition baseCondition, string title, string description)
+        public static ConditionDefinition BuildNewCondition(string name, ConditionDefinition baseCondition)
         {
             return ConditionDefinitionBuilder
                 .Create(baseCondition, name, DefinitionBuilder.CENamespaceGuid)
-                .SetOrUpdateGuiPresentation(title, description)
+                .SetOrUpdateGuiPresentation(Category.MonsterAttack)
                 .AddToDB();
         }
     }

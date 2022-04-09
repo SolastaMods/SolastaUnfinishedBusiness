@@ -18,9 +18,7 @@ namespace SolastaCommunityExpansion.Monsters
                 LegendaryCreature = true,
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.Air_Elemental,
                 MonsterShaderReference = DatabaseHelper.MonsterDefinitions.Air_Elemental,
-                NewName = "Custom_AirTitan",
-                NewTitle = "Custom_AirTitan_Title",
-                NewDescription = "Custom_AirTitan_Description",
+                NewName = "CustomAirTitan",
                 Size = DatabaseHelper.CharacterSizeDefinitions.Gargantuan,
                 Alignment = DatabaseHelper.AlignmentDefinitions.Neutral.Name,
                 ArmorClass = 19,
@@ -76,9 +74,7 @@ namespace SolastaCommunityExpansion.Monsters
                 LegendaryCreature = true,
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.Golem_Clay,
                 MonsterShaderReference = DatabaseHelper.MonsterDefinitions.SkarnGhoul,
-                NewName = "Custom_EarthTitan",
-                NewTitle = "Custom_EarthTitan_Title",
-                NewDescription = "Custom_EarthTitan_Description",
+                NewName = "CustomEarthTitan",
                 Size = DatabaseHelper.CharacterSizeDefinitions.Gargantuan,
                 Alignment = DatabaseHelper.AlignmentDefinitions.Neutral.Name,
                 ArmorClass = 21,
@@ -127,9 +123,7 @@ namespace SolastaCommunityExpansion.Monsters
                 LegendaryCreature = true,
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.Fire_Elemental,
                 MonsterShaderReference = DatabaseHelper.MonsterDefinitions.Fire_Elemental,
-                NewName = "Custom_FireTitan",
-                NewTitle = "Custom_FireTitan_Title",
-                NewDescription = "Custom_FireTitan_Description",
+                NewName = "CustomFireTitan",
                 Size = DatabaseHelper.CharacterSizeDefinitions.Gargantuan,
                 Alignment = DatabaseHelper.AlignmentDefinitions.Neutral.Name,
                 ArmorClass = 16,
@@ -183,9 +177,7 @@ namespace SolastaCommunityExpansion.Monsters
                 LegendaryCreature = true,
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.Golem_Iron,
                 MonsterShaderReference = DatabaseHelper.MonsterDefinitions.Golem_Iron,
-                NewName = "Custom_ConstructTitan",
-                NewTitle = "Custom_ConstructTitan_Title",
-                NewDescription = "Custom_ConstructTitan_Description",
+                NewName = "CustomConstructTitan",
                 Size = DatabaseHelper.CharacterSizeDefinitions.Gargantuan,
                 Alignment = DatabaseHelper.AlignmentDefinitions.Neutral.Name,
                 ArmorClass = 23,
@@ -243,18 +235,17 @@ namespace SolastaCommunityExpansion.Monsters
                 MonsterDefinitionBuilder NewMonster = new MonsterDefinitionBuilder(
                     Definitions[i].NewName,
                     GuidHelper.Create(Settings.GUID, Definitions[i].NewName).ToString(),
-                    "Monster/&" + "DH_" + Definitions[i].NewTitle,
-                    "Monster/&" + "DH_" + Definitions[i].NewDescription,
+                    "Monster/&" + "DH" + Definitions[i].NewTitle,
+                    "Monster/&" + "DH" + Definitions[i].NewDescription,
                     Definitions[i].BaseTemplateName);
                 */
 
                 MonsterDefinitionBuilder NewMonster = MonsterDefinitionBuilder
                         .Create(
-                            Definitions[i].BaseTemplateName, Definitions[i].NewName,
+                            Definitions[i].BaseTemplateName, "DH" + Definitions[i].NewName,
                             DefinitionBuilder.CENamespaceGuid)
                         .SetGuiPresentation(
-                            "Monster/&" + "DH_" + Definitions[i].NewTitle,
-                            "Monster/&" + "DH_" + Definitions[i].NewDescription,
+                            Category.Monster,
                             Definitions[i].BaseTemplateName.GuiPresentation.SpriteReference);
 
                 NewMonster.SetInDungeonEditor(true);
@@ -523,18 +514,12 @@ namespace SolastaCommunityExpansion.Monsters
                         NewMonsterPowers.DisintegratingBeam_Power
                     });
 
-
                     AssetReference assetReference = new AssetReference();
                     assetReference.SetField("m_AssetGUID", "0ff0b1c4180816e468ec3dcab4b18c35");
                     NewMonster.SetPrefabReference(assetReference);
-
                     NewMonster.SetUseCustomMaterials(true);
                     NewMonster.SetCustomMaterials(DatabaseHelper.MonsterPresentationDefinitions.Golem_Iron_Presentation.CustomMaterials);
-
-
                     NewMonster.SetDefaultBattleDecisionPackage(NewMonsterAttributes.ConstructTitan_CombatDecisions);
-
-
                     // monster powres, AI and combat needs work, too repetitive at the moment as some powers/attacks are not triggering
                     NewMonster.SetInDungeonEditor(false);
                 }
@@ -544,8 +529,6 @@ namespace SolastaCommunityExpansion.Monsters
                 NewMonster.SetCanGeneratePortrait(true);
                 NewMonster.SetCustomShaderReference(Definitions[i].MonsterShaderReference.MonsterPresentation.CustomShaderReference);
                 NewMonster.SetHasPrefabVariants(false);
-
-
 
                 Models.MonsterContext.ModdedMonsters.Add(NewMonster.AddToDB());
             }

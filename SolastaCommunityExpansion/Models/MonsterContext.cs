@@ -11,8 +11,6 @@ namespace SolastaCommunityExpansion.Models
             public MonsterDefinition BaseTemplateName;
             public MonsterDefinition MonsterShaderReference;
             public string NewName;
-            public string NewTitle;
-            public string NewDescription;
             public CharacterSizeDefinition Size;
             public string Alignment;
             public int ArmorClass;
@@ -49,12 +47,11 @@ namespace SolastaCommunityExpansion.Models
 
         public static readonly List<MonsterDefinition> ModdedMonsters = new();
 
-        public static void AddNewMonsters()
+        public static void Load()
         {
             if (Main.Settings.EnableExtraHighLevelMonsters)
             {
                 //following order of new blueprint creation should be maintained
-                Monsters.NewMonsterSpells.Create();
                 Monsters.NewMonsterAttributes.Create();
                 Monsters.NewMonsterAttacks.Create();
                 Monsters.NewMonsterPowers.Create();
