@@ -8,7 +8,7 @@
     "hitAffinitiesByTargetTag": [],
     "targetType": "Individuals",
     "itemSelectionType": "Equiped",
-    "targetParameter":1,
+    "targetParameter": 1,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,

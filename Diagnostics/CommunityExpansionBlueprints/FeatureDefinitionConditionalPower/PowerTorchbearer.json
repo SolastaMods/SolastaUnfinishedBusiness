@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaCommunityExpansion.CustomFeatureDefinitions.FeatureDefinitionConditionalPower, SolastaCommunityExpansion",
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionConditionalPower, SolastaCommunityExpansion",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Touch",
