@@ -953,8 +953,8 @@ Feature/&PrimalChampionDescription	At 20th level, you embody the power of the wi
 Feature/&PrimalChampionTitle	Primal Champion
 Feature/&ProficiencyBolgrifLanguagesDescription	Common, Elvish and Giant
 Feature/&ProficiencyBolgrifLanguagesTitle	Language
-Feature/&ProficiencyGnomishLanguageDescription	Common, Gnomish
-Feature/&ProficiencyGnomishLanguageTitle	Languages
+Feature/&ProficiencyGnomishLanguagesDescription	Common, Gnomish
+Feature/&ProficiencyGnomishLanguagesTitle	Languages
 Feature/&ProficiencyRogueBlindSenseDescription	Starting at 14th level, if you are able to hear, you are aware of the location of any hidden or invisible creature within 10 feet of you.
 Feature/&ProficiencyRogueBlindSenseTitle	Blindsense
 Feature/&ProficiencyRogueSlipperyMindDescription	By 15th level, you have acquired greater mental strength. You gain proficiency in Wisdom saving throws.
