@@ -328,12 +328,8 @@ namespace SolastaCommunityExpansion
         //
 
         public bool EnableMulticlass { get; set; }
-
-        public int MaxAllowedClasses { get; set; } = 3;
-
         public bool EnableMinInOutAttributes { get; set; } = true;
-
         public bool EnableRelearnSpells { get; set; }
-        public bool EnableDisplayAllKnownSpellsOnLevelUp { get; set; }
+        public int MaxAllowedClasses { get; set; } = 3;
     }
 }

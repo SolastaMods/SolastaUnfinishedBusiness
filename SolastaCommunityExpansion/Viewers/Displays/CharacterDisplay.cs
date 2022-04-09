@@ -127,12 +127,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                     Main.Settings.EnableRelearnSpells = toggle;
                 }
 
-                toggle = Main.Settings.EnableDisplayAllKnownSpellsOnLevelUp;
-                if (UI.Toggle("+ Display known spells from all classes during level up".italic(), ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.EnableDisplayAllKnownSpellsOnLevelUp = toggle;
-                }
-
                 UI.Label("");
 
                 intValue = Main.Settings.MaxAllowedClasses;
