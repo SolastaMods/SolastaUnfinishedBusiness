@@ -90,9 +90,6 @@ namespace SolastaCommunityExpansion.Patches
                 // Monsters need spells
                 MonsterContext.Load();
 
-                // Later load DummyClass to avoid unnecessary creation of some blueprints from feats
-                MulticlassContext.LaterLoad();
-
                 // Save by location initialization depends on services to be ready
                 SaveByLocationContext.Load();
 
