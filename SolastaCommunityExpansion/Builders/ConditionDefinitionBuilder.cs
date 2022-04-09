@@ -95,6 +95,12 @@ namespace SolastaCommunityExpansion.Builders
             return This();
         }
 
+        public TBuilder ClearFeatures()
+        {
+            Definition.ClearFeatures();
+            return This();
+        }
+
         public TBuilder AddFeatures(IEnumerable<FeatureDefinition> value)
         {
             Definition.AddFeatures(value);
