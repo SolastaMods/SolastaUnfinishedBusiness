@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaCommunityExpansion.CustomFeatureDefinitions.FeatureDefinitionOpportunityAttackImmunityIfAttackerHasCondition, SolastaCommunityExpansion",
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionOpportunityAttackImmunityIfAttackerHasCondition, SolastaCommunityExpansion",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,

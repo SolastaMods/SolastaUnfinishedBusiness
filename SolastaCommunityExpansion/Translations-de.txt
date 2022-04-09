@@ -4,10 +4,9 @@ AttributeModifier/&DHFeeblemindChaSpellDescription	Charisma-Wert ist gleich 1
 AttributeModifier/&DHFeeblemindChaSpellTitle	Schwaches Charisma
 AttributeModifier/&DHFeeblemindIntSpellDescription	Intelligenzwert ist gleich 1
 AttributeModifier/&DHFeeblemindIntSpellTitle	Schwache Intelligenz
-BlindingWeaponStrike	Blendende Waffe
 BlueprintCategory/&FlatRoomsTitle	Flache Räume
 Caption/&GadgetParametersCustomRemoveDescription	Entfernen:\n{0}
-Class/&ClassWarlockDescription	Hexenmeister sind auf der Suche nach dem Wissen, das im Gewebe des Multiversums verborgen liegt. Durch Pakte mit mysteriösen Wesen mit übernatürlichen Kräften entfalten Hexenmeister magische Effekte, die sowohl subtil als auch spektakulär sind.
+Class/&ClassWarlockDescription	Hexenmeister sind Sucher nach dem Wissen, das im Gewebe des Multiversums verborgen liegt. Durch Pakte mit mysteriösen Wesen mit übernatürlichen Kräften entfalten Hexenmeister magische Effekte, die sowohl subtil als auch spektakulär sind.
 Class/&ClassWarlockTitle	Hexenmeister
 Class/&TinkererDescription	Tüftler sind Erfinder, Alchemisten und mehr. Sie überbrücken den Raum zwischen Magie und Technologie.
 Class/&TinkererTitle	Tüftler
@@ -16,9 +15,9 @@ Class/&WitchArmorProficiencyTitle	Hexer-Rüstungsfähigkeiten
 Class/&WitchCacklePowerDescription	Du kannst deine Bonusaktion nutzen, um zu gackern. Die Dauer deiner Malediction verlängert sich für jede betroffene Kreatur im Umkreis von 60 Fuß um 1 Runde.\n Nicht alle Hexen lachen wahnsinnig, wenn sie gackern, aber alle Gackern erfordern eine verbale Komponente, wie ein Zauber. Diese reichen von banalen Flüchen und Beleidigungen bis hin zum Murmeln toter Sprachen und dem Sprechen rückwärts.
 Class/&WitchCacklePowerTitle	Gackern
 Class/&WitchDescription	Hexen, die von einem finsteren Fluch befallen sind, können dunkle Magie in Malediktionen verwandeln, mit denen sie ihre Feinde schwächen. Sie werden auch von ihren Vertrauten begleitet, treuen magischen Begleitern, die sie einsetzen, um den tödlichen Schlag auszuführen.
-Class/&WitchFamiliarPowerDescription	Du erlernst den Zauber Hexenvertrauter, d.h. einen verbesserten Zauber Vertrauter finden, und kannst ihn als Ritual ohne materielle Komponenten wirken. Der Zauber wird nicht auf die Anzahl deiner bekannten Zaubersprüche angerechnet. Der Zauber verbessert "Vertrauten finden" auf folgende Weise:\n- Dein Vertrauter ist jede Runde unmittelbar vor oder nach deinem Zug an der Reihe (du hast die Wahl).\n- Einmal pro Zug kannst du deinem Vertrauten als Aktion oder Bonusaktion geistig befehlen, seine Reaktion zu nutzen, um einen Angriff durchzuführen. \n- Wenn du einen Zauber wirkst, kannst du ihn durch deinen Vertrauten wirken, als ob er den Zauber gewirkt hätte, auch wenn der Zauber keine Berührungsreichweite hat.\n- Dein Vertrauter kann deinen Zauberangriffsbonus für seine Angriffswürfe verwenden.\n- Dein Vertrauter addiert deinen Fertigkeitsbonus zu seiner Rüstungsklasse, seinen Schutzwürfen und Schadenswürfen.\n- Du addierst das Doppelte deiner Hexenstufe zu den maximalen Trefferpunkten deines Vertrauten.
+Class/&WitchFamiliarPowerDescription	Du erlernst den Zauber Hexenvertrauter, d.h. einen verbesserten Zauber Vertrauter finden, und kannst ihn als Ritual ohne materielle Komponenten wirken. Der Zauber wird nicht auf die Anzahl deiner bekannten Zaubersprüche angerechnet. Der Zauber verbessert "Vertrauten finden" auf folgende Weise:\n- Dein Vertrauter ist jede Runde unmittelbar vor oder nach deinem Zug an der Reihe (du hast die Wahl).\n- Einmal pro Zug kannst du deinem Vertrauten als Aktion oder Bonusaktion geistig befehlen, seine Reaktion zu nutzen, um einen Angriff durchzuführen. \n- Wenn du einen Zauber wirkst, kannst du ihn durch deinen Vertrauten wirken, als ob er den Zauber gewirkt hätte, selbst wenn der Zauber keine Berührungsreichweite hat. \n- Dein Vertrauter kann deinen Zauberangriffsbonus für seine Angriffswürfe verwenden. \n- Dein Vertrauter addiert deinen Fertigkeitsbonus zu seiner Rüstungsklasse, seinen Schutzwürfen und seinen Schadenswürfen. \n- Du addierst das Doppelte deiner Hexenstufe zu den maximalen Trefferpunkten deines Vertrauten.
 Class/&WitchFamiliarPowerTitle	Vertrauter
-Class/&WitchFeatureSetBurnedCurseDescription	Fast dein ganzer Körper wurde von arkanen Flammen verbrannt, was zu auffälligen schwarzen Narben und Glutnarben führt, die unter der Haut brennen. Du bist resistent gegen Feuerschaden und kennst den Zauber Flamme erzeugen, der nicht auf die Gesamtzahl deiner Zaubersprüche angerechnet wird.
+Class/&WitchFeatureSetBurnedCurseDescription	Fast dein ganzer Körper wurde von arkanen Flammen verbrannt, was zu auffälligen schwarzen Narben und Glutnarben führt, die unter der Haut brennen. Du bist resistent gegen Feuerschaden und beherrschst den Zauber Flamme erzeugen, der nicht auf die Gesamtzahl deiner Zaubersprüche angerechnet wird.
 Class/&WitchFeatureSetBurnedCurseTitle	Verbrannt
 Class/&WitchFeatureSetLovelessCurseDescription	Du bist dazu verflucht, niemals die wahre Liebe zu finden. Abgestumpft und unzufrieden, kann nicht einmal Magie dein Herz umstimmen; daher bist du immun dagegen, verzaubert zu werden.
 Class/&WitchFeatureSetLovelessCurseTitle	Lieblos
@@ -32,7 +31,7 @@ Class/&WitchFeatureSetWitchCurseDescription	Du wirst von einem schrecklichen Flu
 Class/&WitchFeatureSetWitchCurseTitle	Hexenfluch
 Class/&WitchMaledictionAbateDescription	Als Aktion wählst du eine Kreatur, die du im Umkreis von 60 Fuß sehen kannst, um einen Charisma-Sparwurf zu machen. Bei einem misslungenen Schutzwurf kann die Kreatur bis zum Ende deines nächsten Zuges keine Reaktionen ausführen.
 Class/&WitchMaledictionAbateTitle	Verhexung abschwächen
-Class/&WitchMaledictionApathyDescription	Wähle als Aktion eine Kreatur, die du im Umkreis von 60 Fuß sehen kannst, um einen Charisma-Sicherungswurf zu machen. Bei einem misslungenen Schutzwurf wird die Kreatur bis zum Ende deines nächsten Zuges gleichgültig gegenüber einer Kreatur deiner Wahl, der sie feindlich gesinnt ist. Diese Gleichgültigkeit endet, wenn das Ziel von der Kreatur, der gegenüber es gleichgültig ist, angegriffen oder durch einen Zauber verletzt wird.
+Class/&WitchMaledictionApathyDescription	Als Aktion wählst du eine Kreatur, die du im Umkreis von 60 Fuß sehen kannst, um einen Charisma-Sicherungswurf zu machen. Bei einem misslungenen Schutzwurf wird die Kreatur bis zum Ende deines nächsten Zuges gleichgültig gegenüber einer Kreatur deiner Wahl, der sie feindlich gesinnt ist. Diese Gleichgültigkeit endet, wenn das Ziel von der Kreatur, der gegenüber es gleichgültig ist, angegriffen oder durch einen Zauber verletzt wird.
 Class/&WitchMaledictionApathyTitle	Apathie-Malediktion
 Class/&WitchMaledictionCharmDescription	Wähle als Aktion eine Kreatur im Umkreis von 60 Fuß, die du sehen kannst, und lege einen Rettungswurf in Weisheit ab. Bei einem misslungenen Schutzwurf wird die Kreatur bis zum Ende deines nächsten Zuges von dir verzaubert.
 Class/&WitchMaledictionCharmTitle	Bösartige Verhexung verzaubern
@@ -44,7 +43,7 @@ Class/&WitchMaledictionObfuscateDescription	Als Aktion erschaffst du eine Nebels
 Class/&WitchMaledictionObfuscateTitle	Verwirrende Verhexung
 Class/&WitchMaledictionPoxDescription	Wähle als Aktion eine Kreatur, die du im Umkreis von 5 Fuß sehen kannst, um einen Konstitutionsschutzwurf zu machen. Bei einem misslungenen Schutzwurf ist die Kreatur bis zum Ende deines nächsten Zuges vergiftet.
 Class/&WitchMaledictionPoxTitle	Pox Malediction
-Class/&WitchMaledictionRuinDescription	Als Aktion wählst du eine Kreatur, die du im Umkreis von 60 Fuß sehen kannst, um einen Konstitutions-Sicherungswurf zu machen. Bei einem misslungenen Schutzwurf verringert sich die Rüstungsklasse der Kreatur bis zum Ende deines nächsten Zuges um 3, mindestens aber um 10.
+Class/&WitchMaledictionRuinDescription	Als Aktion wählst du eine Kreatur, die du im Umkreis von 60 Fuß sehen kannst, um einen Konstitutions-Sicherungswurf zu machen. Bei einem misslungenen Schutzwurf verringert sich die Rüstungsklasse der Kreatur bis zum Ende deines nächsten Zuges um 3, mindestens jedoch um 10.
 Class/&WitchMaledictionRuinTitle	Verderbliche Verhexung
 Class/&WitchSavingthrowProficiencyDescription	Weisheit, Charisma
 Class/&WitchSavingthrowProficiencyTitle	Hexen-Professionalität bei Rettungswürfen
@@ -57,7 +56,7 @@ Class/&WitchToolProficiencyDescription	Wähle eine aus Kräuterkunde und Giftmis
 Class/&WitchToolProficiencyTitle	Werkzeug-Fähigkeiten der Hexe
 Class/&WitchWeaponProficiencyDescription	Einfache Waffen
 Class/&WitchWeaponProficiencyTitle	Hexenwaffen-Professionalität
-Condition/&AncientForestPhotosynthesisDescription	Du kannst Energie aus Sonnenlicht absorbieren. Solange du dich in direktem, hellem Licht befindest, erhältst du 2 HP pro Runde.
+Condition/&AncientForestPhotosynthesisDescription	Du kannst Energie aus Sonnenlicht absorbieren. Solange du dich in direktem, hellem Licht befindest, erhältst du pro Runde 2 HP.
 Condition/&AncientForestPhotosynthesisTitle	Photosynthese
 Condition/&AncientForestRootedConditionDescription	Baumartige Ranken wachsen aus deinen Füßen und graben sich in den Boden. Deine Geschwindigkeit wird auf 0 reduziert, und du erhältst einen Vorteil auf alle Schutzwürfe, die dich schubsen, ziehen oder auf den Boden werfen.
 Condition/&AncientForestRootedConditionTitle	Verwurzelt
@@ -72,19 +71,15 @@ Condition/&ConditionImprovedBarkWardTitle	Verbesserter Rindenschutz
 Condition/&ConditionMarkedByArcanistDescription	Befallen vom Mal des Arkanisten.
 Condition/&ConditionMarkedByArcanistTitle	Zeichen des Arkanisten
 Condition/&ConditionSuperiorBarkWardDescription	Die Geister des Waldes gewähren dir Giftimmunität und verursachen 3d8 durchdringenden Schaden an Nahkampfangreifern.
-Condition/&ConditionSuperiorBarkWardTitle	Überlegene Rindenabwehr
-Condition/&DH_ReverseGravity_Spell_Description	Umgekehrte Schwerkraft
-Condition/&DH_ReverseGravity_Spell_Title	Umgekehrte Schwerkraft
-Condition/&DH_TimeStop_Spell_Description	Gefroren durch Zeitstopp
-Condition/&DH_TimeStop_Spell_Title	Eingefroren durch Zeitstopp
-Condition/&DHFeeblemindSpellDescription	Die Intelligenz- und Charisma-Werte der Kreatur werden zu 1. Die Kreatur kann keine Zaubersprüche wirken, keine magischen Gegenstände aktivieren, keine Sprache verstehen oder auf irgendeine verständliche Weise kommunizieren.
+Condition/&ConditionSuperiorBarkWardTitle	Überlegener Rindenschutz
+Condition/&DHFeeblemindSpellDescription	Die Intelligenz- und Charisma-Werte der Kreatur werden zu 1. Die Kreatur kann nicht zaubern, keine magischen Gegenstände aktivieren, keine Sprache verstehen und sich nicht verständlich machen.
 Condition/&DHFeeblemindSpellTitle	Feeblemind
 Condition/&DHForesightSpellDescription	Vorteil bei Angriffswürfen, Fähigkeitsprüfungen und Rettungswürfen. Außerdem haben andere Kreaturen einen Nachteil bei Angriffswürfen.
 Condition/&DHForesightSpellTitle	Vorhersehung
 Condition/&DHHolyAuraSpellDescription	Wenn du diesen Zauber sprichst, wirfst du in einem Umkreis von 1,5 Metern ein schwaches Licht aus und hast Vorteil bei allen Schutzwürfen, und andere Kreaturen haben bis zum Ende des Zaubers Nachteil bei Angriffswürfen gegen sie. Wenn ein Unhold oder ein Untoter eine betroffene Kreatur mit einem Nahkampfangriff trifft, blitzt die Aura außerdem in hellem Licht auf. Der Angreifer muss einen Konstitutionsschutzwurf bestehen oder geblendet werden, bis der Zauber endet.
 Condition/&DHHolyAuraSpellTitle	Geschützt durch Heilige Aura
 Condition/&DHMindBlankSpellDescription	Immun gegen psychischen Schaden und den Zustand "verzaubert".
-Condition/&DHMindBlankSpellTitle	Geistesblind
+Condition/&DHMindBlankSpellTitle	Geistlos
 Condition/&DHReverseGravitySpellDescription	kann sich nicht bewegen
 Condition/&DHReverseGravitySpellTitle	Gefangen durch umgekehrte Schwerkraft
 Condition/&DHTimeStopSpellDescription	Eingefroren durch Zeitstopp
@@ -93,7 +88,7 @@ Condition/&DHWeirdSpellDescription	Die Illusion beschwört die tiefsten Ängste 
 Condition/&DHWeirdSpellTitle	Verrückte
 Condition/&DisorientDescription	Die Genauigkeit der Kreatur ist verringert.
 Condition/&DisorientTitle	Desorientiert
-Condition/&Frenzied	Diese Kreatur ist rasend und greift die nächstgelegene Kreatur an.
+Condition/&FrenziedDescription	Diese Kreatur ist rasend und greift die nächstgelegene Kreatur an.
 Condition/&FrenziedTitle	Raserei
 Condition/&HalfLifeConditionDescription	Du nimmst nekrotische Energie in dich auf und schwebst zwischen Leben und Tod. Du bist vorübergehend von deinem eigenen Geist besessen, kannst fliegen und verfügst über die gleichen Zustandsimmunitäten und Schadensresistenzen wie andere Geister.
 Condition/&HalfLifeConditionTitle	Halbwertszeit
@@ -119,7 +114,7 @@ CraftyFeats/&AttributeIntDescription	+1 Intelligenz
 CraftyFeats/&AttributeIntTitle	Intelligenz
 CraftyFeats/&AttributeWisDescription	+1 Weisheit
 CraftyFeats/&AttributeWisTitle	Weisheit
-CraftyFeats/&CraftyArcanaDescription	Arkana-Fertigkeit oder -Expertise
+CraftyFeats/&CraftyArcanaDescription	Beherrschung von Arkana oder Fachwissen
 CraftyFeats/&CraftyBowsDescription	Beherrschung aller Bögen und Armbrüste
 CraftyFeats/&CraftyBowsTitle	Bogen-Beherrschung
 CraftyFeats/&CraftyFletcherFeatDescription	+1 Geschicklichkeit, Beherrschung oder Erfahrung im Umgang mit Schmiedewerkzeugen, Beherrschung von Bögen und Armbrüsten
@@ -137,7 +132,7 @@ CraftyFeats/&ToxicologistIntFeatDescription	+1 Intelligenz, Beherrschung oder Ex
 CraftyFeats/&ToxicologistIntFeatTitle	Toxikologe (Intelligenz)
 CraftyFeats/&ToxicologistWisFeatDescription	+1 Weisheit, Beherrschung oder Erfahrung mit dem Giftmischer-Kit und Medizin
 CraftyFeats/&ToxicologistWisFeatTitle	Toxikologe (Weisheit)
-DamageAffinity/&DHHolyAuraSpellDescription	Wenn ein Unhold oder ein Untoter eine betroffene Kreatur mit einem Nahkampfangriff trifft, blitzt die Aura in hellem Licht auf. Der Angreifer muss einen Konstitutionswettkampf bestehen oder geblendet werden, bis der Zauber endet.
+DamageAffinity/&DHHolyAuraSpellDescription	Wenn ein Unhold oder ein Untoter eine betroffene Kreatur mit einem Nahkampfangriff trifft, blitzt die Aura in hellem Licht auf. Der Angreifer muss einen Konstitutionsschutzwurf bestehen oder geblendet werden, bis der Zauber endet.
 DamageAffinity/&DHHolyAuraSpellTitle	Heilige Aura - Vergeltung
 Equipment/&ArcaneStaffDescription	Dieser Stab ist mit magischer Schrift beschriftet und kann als Fokus für arkane Zauber verwendet werden.
 Equipment/&ArcaneStaffTitle	Arkaner Stab
@@ -149,8 +144,8 @@ Equipment/&Enchanted_Club_Bearclaw_Description	Diese verzauberte Waffe wurde mit
 Equipment/&Enchanted_Club_Bearclaw_Title	Bärenklauen-Keule
 Equipment/&Enchanted_Club_Lightbringer_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Schmiedemeister von Colthannin geschmiedet. Sie wurde von Elgador Keenspirit, dem Magierschmied des Arkaneums, entworfen, um den Kampf gegen untote Kreaturen zu unterstützen.
 Equipment/&Enchanted_Club_Lightbringer_Title	Lichtbringer-Keule
-Equipment/&Enchanted_Club_PowerDescription	Diese verzauberte Waffe wurde mit dem alten Wissen der Meisterschmiede von Manacalon geschmiedet. Manche Kreaturen respektieren nur physische Kräfte. Die Arkanisten Manacalons schufen diese Keule, um den Champions der Eisernen Legionen die Stärke zu verleihen, die ihre elfischen Körper nicht bieten können.
-Equipment/&Enchanted_Club_PowerTitle	Keule der Macht
+Equipment/&Enchanted_Club_Power_Description	Diese verzauberte Waffe wurde mit dem alten Wissen der Meisterschmiede von Manacalon geschmiedet. Manche Kreaturen respektieren nur physische Kräfte. Die Arkanisten Manacalons schufen diese Keule, um den Champions der Eisernen Legionen die Stärke zu verleihen, die ihre elfischen Körper nicht bieten können.
+Equipment/&Enchanted_Club_Power_Title	Keule der Macht
 Equipment/&Enchanted_Club_Punisher_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Meisterschmiede Manacalons geschaffen. Die Kombination aus bestem Metall und Slawenstein verlieh dieser Axt eine unglaubliche Durchschlagskraft.
 Equipment/&Enchanted_Club_Punisher_Title	Punisher-Keule
 Equipment/&Enchanted_Dart_Acuteness_Description	Diese verzauberte Waffe wurde mit dem alten Wissen der Meisterschmiede Manacalons geschaffen. Sie wurde von Elgador Keenspirit, dem Magierschmied des Arkaneums, entworfen und ist eines seiner ersten Werke.
@@ -198,14 +193,14 @@ Equipment/&Enchanted_Javelin_Frostburn_Title	Frostbrennender Speer
 Equipment/&Enchanted_Javelin_Sharpness_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Schmiedemeister Manacalons geschaffen. Sie wurde von Elgador Keenspirit, dem Magierschmied des Arkaneums, entworfen und ist eines seiner ersten Werke.
 Equipment/&Enchanted_Javelin_Sharpness_Title	Speer der Schärfe
 Equipment/&Enchanted_Javelin_Souldrinker_Description	Diese verzauberte Waffe wurde mit dem alten Wissen der Meisterschmiede Manacalons geschaffen. Diese Waffe, die bei den Agenten von Silent Whisper sehr beliebt ist, wurde von Cylordir Redblade entworfen.
-Equipment/&Enchanted_Javelin_Souldrinker_Title	Souldrinker Speer
+Equipment/&Enchanted_Javelin_Souldrinker_Title	Souldrinker-Speer
 Equipment/&Enchanted_LightCrossbow_Accuracy_Description	Diese verzauberte Waffe wurde mit dem alten Wissen der Meisterbogenschützen von Colthannin geschmiedet. Ihr ursprüngliches Design trug das Siegel von Defineth Sharpsight, einem berühmten Zauberer der Sylvan-Elfen.
 Equipment/&Enchanted_LightCrossbow_Accuracy_Title	Leichte Armbrust der Treffsicherheit
-Equipment/&Enchanted_LightCrossbow_Lightbringer_Description	Diese verzauberte Waffe wurde mit dem alten Wissen der Meisterbogenbauer Colthannins geschmiedet. Sie wurde von Elgador Keenspirit, dem Magierschmied des Arkaneums, entworfen, um den Kampf gegen untote Kreaturen zu unterstützen.
+Equipment/&Enchanted_LightCrossbow_Lightbringer_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Meisterbogenschützen Colthannins geschmiedet. Sie wurde von Elgador Keenspirit, dem Magierschmied des Arkaneums, entworfen, um den Kampf gegen untote Kreaturen zu unterstützen.
 Equipment/&Enchanted_LightCrossbow_Lightbringer_Title	Lichtbringer-Lichtarmbrust
 Equipment/&Enchanted_LightCrossbow_Medusa_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Meisterbogenbauer von Colthannin geschmiedet. Durch Magie wurden Medusen-Korallen und Hartholz zu einem tödlichen Bogen verschmolzen, der von den Enterkommandos der Halblinge der Insel bevorzugt wird.
 Equipment/&Enchanted_LightCrossbow_Medusa_Title	Medusa-Leicht-Armbrust
-Equipment/&Enchanted_LightCrossbow_Sharpshooting_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Meisterbogenbauer von Colthannin geschmiedet. Die Coedymwarth zogen es vor, sich mit Manacalons Arkanisten physisch statt magisch auseinanderzusetzen. Ihre besten Bogenschützen erhielten Armbrüste, die von Defineth Sharpsight geschaffen wurden.
+Equipment/&Enchanted_LightCrossbow_Sharpshooting_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Meisterbogenbauer von Colthannin geschmiedet. Die Coedymwarth zogen es vor, den Arkanisten Manacalons physisch statt magisch zu begegnen. Ihre besten Bogenschützen erhielten Armbrüste, die von Defineth Sharpsight geschaffen wurden.
 Equipment/&Enchanted_LightCrossbow_Sharpshooting_Title	Leichte Armbrust des Scharfschützen
 Equipment/&Enchanted_LightCrossbow_Stormbow_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Meisterbogenschützen von Colthannin geschmiedet. Sie wurde von Galar Stromforge entworfen, dem ersten zwergischen Schmied, der die Macht des Sturms in einer Waffe nutzbar machte � mit verheerender Wirkung!
 Equipment/&Enchanted_LightCrossbow_Stormbow_Title	Leichte Sturmarmbrust
@@ -215,8 +210,8 @@ Equipment/&Enchanted_Maul_Bearclaw_Description	Diese verzauberte Waffe wurde nac
 Equipment/&Enchanted_Maul_Bearclaw_Title	Bärenklauen-Maul
 Equipment/&Enchanted_Maul_Lightbringer_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Schmiedemeister von Colthannin geschmiedet. Sie wurde von Elgador Keenspirit, dem Magierschmied des Arkaneums, entworfen, um den Kampf gegen untote Kreaturen zu unterstützen.
 Equipment/&Enchanted_Maul_Lightbringer_Title	Lichtbringer-Maul
-Equipment/&Enchanted_Maul_PowerDescription	Diese verzauberte Waffe wurde mit dem alten Wissen der Meisterschmiede von Manacalon geschmiedet. Manche Kreaturen respektieren nur körperliche Stärke. Die Arkanisten Manacalons schufen diesen Stab, um den Champions der Eisernen Legionen die Stärke zu verleihen, die ihre elfischen Körper nicht bieten können.
-Equipment/&Enchanted_Maul_PowerTitle	Maul der Macht
+Equipment/&Enchanted_Maul_Power_Description	Diese verzauberte Waffe wurde mit dem alten Wissen der Meisterschmiede von Manacalon geschmiedet. Manche Kreaturen respektieren nur körperliche Stärke. Die Arkanisten Manacalons schufen diesen Stab, um den Champions der Eisernen Legionen die Stärke zu verleihen, die ihre elfischen Körper nicht bieten können.
+Equipment/&Enchanted_Maul_Power_Title	Maul der Macht
 Equipment/&Enchanted_Maul_Punisher_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Meisterschmiede Manacalons geschaffen. Die Kombination aus bestem Metall und Slawenstein verleiht dieser Axt eine unglaubliche Durchschlagskraft.
 Equipment/&Enchanted_Maul_Punisher_Title	Punisher Maul
 Equipment/&Enchanted_Quarterstaff_Acuteness_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Meisterschmiede Manacalons geschaffen. Sie wurde von Elgador Keenspirit, dem Magierschmied des Arkaneums, entworfen und ist eines seiner ersten Werke.
@@ -227,9 +222,9 @@ Equipment/&Enchanted_Quarterstaff_Frostburn_Description	Diese verzauberte Waffe 
 Equipment/&Enchanted_Quarterstaff_Frostburn_Title	Frostbrennender Viertelstab
 Equipment/&Enchanted_Quarterstaff_Lightbringer_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Schmiedemeister von Colthannin geschmiedet. Er wurde von Elgador Keenspirit, dem Magierschmied des Arkaneums, entworfen, um den Kampf gegen untote Kreaturen zu unterstützen.
 Equipment/&Enchanted_Quarterstaff_Lightbringer_Title	Lichtbringer-Viertelstab
-Equipment/&Enchanted_Quarterstaff_Souldrinker_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Meisterschmiede von Manacalon geschaffen. Diese Waffe wurde von Cylordir Redblade entworfen und ist bei den Agenten von Silent Whisper sehr beliebt.
+Equipment/&Enchanted_Quarterstaff_Souldrinker_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Meisterschmiede von Manacalon geschaffen. Diese Waffe, die bei den Agenten von Silent Whisper sehr beliebt ist, wurde von Cylordir Redblade entworfen.
 Equipment/&Enchanted_Quarterstaff_Souldrinker_Title	Souldrinker-Viertelstab
-Equipment/&Enchanted_Quarterstaff_Stormblade_Description	Diese verzauberte Waffe wurde mit dem alten Wissen der Meisterschmiede Manacalons geschmiedet. Er wurde von Galar Stromforge entworfen, dem ersten zwergischen Schmied, der die Macht des Sturms in einer Waffe nutzbar machte � mit verheerender Wirkung!
+Equipment/&Enchanted_Quarterstaff_Stormblade_Description	Diese verzauberte Waffe wurde nach dem alten Wissen der Meisterschmiede Manacalons geschmiedet. Er wurde von Galar Stromforge entworfen, dem ersten zwergischen Schmied, der die Macht des Sturms in einer Waffe nutzbar machte � mit verheerender Wirkung!
 Equipment/&Enchanted_Quarterstaff_Stormblade_Title	Sturmblatt-Vierstelstab
 Equipment/&Enchanted_Quarterstaff_Warden_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Meisterschmiede Manacalons geschmiedet. Er wurde von Ildurial Strongarm, einem berühmten Klingenschmied Manacalons, entworfen. Die erste Klinge dieser Art, der Manacalon-Wächter, wurde dem Kommandanten der Euraidd angeboten.
 Equipment/&Enchanted_Quarterstaff_Warden_Title	Wächter-Vierstelstab
@@ -243,7 +238,7 @@ Equipment/&Enchanted_Scimitar_Lightbringer_Description	Diese verzauberte Waffe w
 Equipment/&Enchanted_Scimitar_Lightbringer_Title	Lichtbringer-Krummsäbel
 Equipment/&Enchanted_Scimitar_Souldrinker_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Meisterschmiede von Manacalon geschaffen. Diese Waffe wurde von Cylordir Redblade entworfen und ist bei den Agenten von Silent Whisper sehr beliebt.
 Equipment/&Enchanted_Scimitar_Souldrinker_Title	Souldrinker-Krummsäbel
-Equipment/&Enchanted_Scimitar_Stormblade_Description	Diese verzauberte Waffe wurde nach dem alten Wissen der Meisterschmiede Manacalons geschmiedet. Sie wurde von Galar Stromforge entworfen, dem ersten zwergischen Schmied, der die Macht des Sturms in einer Waffe nutzbar machte � mit verheerender Wirkung!
+Equipment/&Enchanted_Scimitar_Stormblade_Description	Diese verzauberte Waffe wurde mit dem alten Wissen der Meisterschmiede Manacalons geschmiedet. Sie wurde von Galar Stromforge entworfen, dem ersten zwergischen Schmied, der die Macht des Sturms in einer Waffe nutzbar machte � mit verheerender Wirkung!
 Equipment/&Enchanted_Scimitar_Stormblade_Title	Sturmblatt-Säbel
 Equipment/&Enchanted_Scimitar_Warden_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Meisterschmiede Manacalons geschmiedet. Sie wurde von Ildurial Strongarm, einem berühmten Klingenschmied Manacalons, entworfen. Die erste Klinge dieser Art, der Manacalon Warden, wurde dem Kommandanten der Euraidd angeboten.
 Equipment/&Enchanted_Scimitar_Warden_Title	Krummsäbel des Wächters
@@ -275,23 +270,22 @@ Equipment/&Enchanted_Shield_Wooden_Survival_Description	Diese verzauberte Rüstu
 Equipment/&Enchanted_Shield_Wooden_Survival_Title	Hölzerner Schild des Überlebens
 Equipment/&Enchanted_Spear_Acuteness_Description	Diese verzauberte Waffe wurde mit dem alten Wissen der Meisterschmiede Manacalons geschaffen. Sein Design ist eines der frühen Werke von Elgador Keenspirit, dem Magierschmied des Arcaneums.
 Equipment/&Enchanted_Spear_Acuteness_Title	Speer der Schärfe
-Equipment/&Enchanted_Spear_BlackViper_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Meisterschmiede Manacalons geschmiedet, wobei ein Speer und das Gift einer legendären Spinne aus den Tiefen Solastas verwendet wurden. Die Klinge wurde von Grigg Blackheart entworfen, einem berüchtigten Halblingschmied aus dem Sumpf, der in den Schmieden von Aer Elai arbeitete.
+Equipment/&Enchanted_Spear_BlackViper_Description	Diese verzauberte Waffe wurde nach dem alten Wissen der Meisterschmiede Manacalons aus einem Speer und dem Gift einer legendären Spinne aus den Tiefen Solastas geschmiedet. Die Klinge wurde von Grigg Blackheart entworfen, einem berüchtigten Halblingschmied aus dem Sumpf, der in den Schmieden von Aer Elai arbeitete.
 Equipment/&Enchanted_Spear_BlackViper_Title	Schwarzer Viperspeer
-Equipment/&Enchanted_Spear_Doomblade_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Meisterschmiede von Manacalon geschmiedet. Kenaloth Darkmind entwickelte die Schicksalsklingen als Werkzeug zur Bestrafung derjenigen, die sich der Magie des Imperiums widersetzten.
+Equipment/&Enchanted_Spear_Doomblade_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Meisterschmiede von Manacalon geschmiedet. Kenaloth Darkmind erfand die Schicksalsklingen als Werkzeug zur Bestrafung derer, die sich der Magie des Imperiums widersetzten.
 Equipment/&Enchanted_Spear_Doomblade_Title	Schicksalsklingen-Speer
 Equipment/&Enchanted_Spear_Lightbringer_Description	Diese verzauberte Waffe wurde mit dem alten Wissen der Meisterschmiede von Colthannin geschmiedet. Sie wurde von Elgador Keenspirit, dem Magierschmied des Arcaneums, entworfen, um den Kampf gegen untote Kreaturen zu unterstützen.
 Equipment/&Enchanted_Spear_Lightbringer_Title	Lichtbringer-Speer
 Equipment/&Enchanted_Spear_Sharpness_Description	Diese verzauberte Waffe wurde mit dem alten Wissen der Meisterschmiede von Manacalon geschaffen. Sie wurde von Elgador Keenspirit, dem Magierschmied des Arkaneums, entworfen und ist eines seiner ersten Werke.
 Equipment/&Enchanted_Spear_Sharpness_Title	Speer der Schärfe
-Equipment/&Enchanted_Spear_Stormblade_Title	Sturmblatt-Speer
-Equipment/&Enchanted_Spear_Whiteburn_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Schmiedemeister Manacalons geschaffen. Whiteburn wurde vom ersten Danantar erschaffen, um eine Trollinvasion zu bekämpfen, die aus den Sümpfen im Süden seiner Domäne zwischen Sioltafin und Scarafin kam.
+Equipment/&Enchanted_Spear_Whiteburn_Description	Diese verzauberte Waffe wurde mit dem alten Wissen der Meisterschmiede Manacalons geschaffen. Whiteburn wurde vom ersten Danantar erschaffen, um eine Trollinvasion zu bekämpfen, die aus den Sümpfen im Süden seiner Domäne zwischen dem Sioltafin und dem Scarafin kam.
 Equipment/&Enchanted_Spear_Whiteburn_Title	Whiteburn-Speer
 Equipment/&Enchanted_StuddedLeather_Deflection_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen von Manacalons Waffenschmieden geschaffen. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die Leibgarde des Imperators.
 Equipment/&Enchanted_StuddedLeather_Deflection_Title	Nietenleder der Ablenkung
 Equipment/&Enchanted_StuddedLeather_FlameDancing_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen von Manacalons Waffenschmiedemeistern hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die Leibwache des Kaisers.
 Equipment/&Enchanted_StuddedLeather_FlameDancing_Title	Nietenleder des Flammentanzes
 Equipment/&Enchanted_StuddedLeather_FrostWalking_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen von Manacalons Waffenschmiedemeistern hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die Leibwache des Kaisers.
-Equipment/&Enchanted_StuddedLeather_FrostWalking_Title	Bespicktes Leder des Frostspaziergangs
+Equipment/&Enchanted_StuddedLeather_FrostWalking_Title	Nietenleder des Frostspaziergangs
 Equipment/&Enchanted_StuddedLeather_Robustness_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen von Manacalons Waffenschmiedemeistern hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die Leibwache des Kaisers.
 Equipment/&Enchanted_StuddedLeather_Robustness_Title	Nietenleder der Robustheit
 Equipment/&Enchanted_StuddedLeather_Sturdiness_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen von Manacalons Waffenschmiedemeistern hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die Leibwache des Kaisers.
@@ -304,12 +298,12 @@ Equipment/&Enchanted_Warhammer_Bearclaw_Description	Diese verzauberte Waffe wurd
 Equipment/&Enchanted_Warhammer_Bearclaw_Title	Bärenklauen-Warhammer
 Equipment/&Enchanted_Warhammer_Lightbringer_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Meisterschmiede von Colthannin geschmiedet. Sie wurde von Elgador Keenspirit, dem Magierschmied des Arcaneums, entworfen, um den Kampf gegen untote Kreaturen zu unterstützen.
 Equipment/&Enchanted_Warhammer_Lightbringer_Title	Lichtbringer-Warhammer
-Equipment/&Enchanted_Warhammer_PowerDescription	Diese verzauberte Waffe wurde mit dem uralten Wissen der Meisterschmiede von Manacalon geschmiedet. Manche Kreaturen respektieren nur physische Kräfte. Die Arkanisten Manacalons schufen diesen Kriegshammer, um den Champions der Eisernen Legionen die Stärke zu verleihen, die ihre elfischen Körper nicht bieten können.
-Equipment/&Enchanted_Warhammer_PowerTitle	Kriegshammer der Macht
+Equipment/&Enchanted_Warhammer_Power_Description	Diese verzauberte Waffe wurde mit dem alten Wissen der Meisterschmiede von Manacalon geschmiedet. Manche Kreaturen respektieren nur physische Kräfte. Die Arkanisten Manacalons schufen diesen Kriegshammer, um den Champions der Eisernen Legionen die Stärke zu verleihen, die ihre elfischen Körper nicht bieten können.
+Equipment/&Enchanted_Warhammer_Power_Title	Kriegshammer der Macht
 Equipment/&Enchanted_Warhammer_Punisher_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Meisterschmiede Manacalons geschaffen. Die Kombination aus bestem Metall und Slawenstein verlieh dieser Axt eine unglaubliche Durchschlagskraft.
 Equipment/&Enchanted_Warhammer_Punisher_Title	Punisher-Warhammer
 Equipment/&HerbalBrewQuickeningTitle	Kräutergebräu: Trank der Belebung
-Equipment/&HerbalBrewToxifyingTitle	Kräutergebräu: Trank des Vergiftens
+Equipment/&HerbalBrewToxifyingTitle	Kräutertrank: Trank des Vergiftens
 Equipment/&ImprovedLightningSpearDescription	Kann nun mit einem einzigen Angriff einen Vorteil für Verbündete und einen Nachteil für Feinde erzeugen.
 Equipment/&ImprovedLightningSpearTitle	Verbesserter Blitzspeer
 Equipment/&ImprovedThunderPunchDescription	Kann nun Feinde mit einer Bonusaktion in Nahkampfreichweite ziehen und 1D8 Donnerschaden zufügen
@@ -326,7 +320,7 @@ Equipment/&WandIdentifyDescription	Text Wirkt den Zauber Identifizieren, indem e
 Equipment/&WandIdentifyTitle	Text Stab der Identifizierung
 Feat/&AddConstructCantripsDescription	Fügt Zaubersprüche zum Heilen und Entlassen deiner Konstrukte hinzu
 Feat/&AddConstructCantripsTitle	Konstrukt-Kantrips
-Feat/&AddProtectorConstructCantripDescription	Fügt die Cantrips "Konstrukt heilen" und "Konstrukt auflösen" hinzu, um die Flexibilität deiner Konstrukte zu erhöhen.
+Feat/&AddProtectorConstructCantripDescription	Erhöht die Flexibilität eurer Konstrukte durch die Cantrips "Konstrukt heilen" und "Konstrukt auflösen".
 Feat/&AddProtectorConstructCantripTitle	Bonus-Konstrukt-Kantrips
 Feat/&AlchemistSubclassElixirsDescription	Erlerne die Herstellung experimenteller Elixiere: Heilung, Schnelligkeit, Widerstandsfähigkeit, Kühnheit, Flucht
 Feat/&AlchemistSubclassElixirsTitle	Experimentelle Elixiere
@@ -352,7 +346,7 @@ Feat/&ArtificerArtillerstDetonationSpellPreparedDescription	Du erhältst die Fä
 Feat/&ArtificerArtillerstDetonationSpellPreparedTitle	Geräte-Detonation
 Feat/&ArtificerArtillerstImprovedCannonsDescription	Die Wirkung deiner Kanonen erhöht sich. Zusätzlicher Schaden durch das Feuer, ein zusätzliches Ziel durch die Kraft und zusätzliche temporäre HP durch den Schild.
 Feat/&ArtificerArtillerstImprovedCannonsTitle	Verbesserte Kanonen
-Feat/&ArtificialServantAttackDescription	Fernkampfangriff mit 1d6 Kraftschaden durch deinen treuen Handlanger
+Feat/&ArtificialServantAttackDescription	Fernkampfangriff mit 1d6 Kraftschaden durch deinen treuen Gehilfen
 Feat/&ArtificialServantAttackTitle	Macht-Schleuder
 Feat/&ArtificialServantDescription	Der Diener ist freundlich zu dir und deinen Begleitern und gehorcht deinen Befehlen.
 Feat/&ArtificialServantTitle	Künstlicher Diener
@@ -393,7 +387,7 @@ Feat/&AttackModifierArtificerBattleSmithJolt2Title	Verbesserter Waffenangriff Ru
 Feat/&AttackModifierArtificerBattleSmithJoltDescription	Deine Waffenangriffe verursachen 3 zusätzliche Schadenspunkte
 Feat/&AttackModifierArtificerBattleSmithJoltTitle	Waffenangriff Ruck
 Feat/&AutoPreparedSpellsDescription	Stufe 3 Magisches Geschoss, Donnerwelle\nStufe 5 Verwischen, Zerschmettern\nStufe 9 Blitzschlag, Windwand, Feuerwand
-Feat/&AutoPreparedSpellsTitle	Erlernen von Späher-Wächter-Zaubern
+Feat/&AutoPreparedSpellsTitle	Erlernen von Scout Sentinel-Zaubern
 Feat/&BattleSmithSubclassSpellsDescription	Stufe 3: Schild, Heldentum, Zeichen des Jägers\nStufe 5: Brennender Pranger, Geisterwaffe\nStufe 9: Fluch entfernen, Leuchtfeuer der Hoffnung\nStufe 13: Feuerschild, Todeswache\n17: Massive Wundheilung, Wand der Kraft
 Feat/&BattleSmithSubclassSpellsTitle	Waffenschmiedezauber lernen
 Feat/&CancelFlyingConditionDescription	Fliegen beenden, um Springen und Krabbeln zu ermöglichen.
@@ -412,7 +406,7 @@ Feat/&DualFlurryDescription	Du bist ein Meister des Kampfes mit gepaarten Waffen
 Feat/&DualFlurryTitle	Doppelter Ansturm
 Feat/&ExtraInfusionSlotsDescription	Du erhältst zusätzliche Plätze für Infusionen, die für Rüstungen/Waffen verwendet werden sollten.
 Feat/&ExtraInfusionSlotsTitle	Zusätzliche Infusionen
-Feat/&FeatArcaneDefenseDescription	Erhöhe deine Intelligenz um 1, bis zu einem Maximum von 20. Solange du keine Rüstung trägst, sind deine AC gleich 10 + dein Intelligenzmodifikator.
+Feat/&FeatArcaneDefenseDescription	Erhöhe deine Intelligenz um 1, bis zu einem Maximum von 20. Solange du keine Rüstung trägst, ist dein AC gleich 10 + dein Intelligenzmodifikator.
 Feat/&FeatArcaneDefenseTitle	Arkane Verteidigung
 Feat/&FeatArcanePrecisionDescription	Wenn diese Fähigkeit bei einer Waffe aktiv ist, zählen ihre Angriffe als magisch und du verwendest deine Intelligenz für deine Angriffs- und Schadenswürfe. Er hat eine Dauer von 1 Minute und kann zweimal vor einer langen Pause eingesetzt werden.
 Feat/&FeatArcanePrecisionTitle	Arkane Präzision
@@ -438,7 +432,7 @@ Feat/&FeatFeyTeleportationIntDescription	Erhöht das Intelligenz-Attribut um 1. 
 Feat/&FeatFeyTeleportationIntTitle	Fey-Teleportation (Intelligenz)
 Feat/&FeatFeyTeleportationWisDescription	Erhöhe das Weisheitsattribut um 1 und erlerne die Fähigkeit Nebliger Schritt einmal pro kurzer Ruhepause und erlerne den Zauber. Erlangt die Beherrschung von Tirmarianisch.
 Feat/&FeatFeyTeleportationWisTitle	Fey-Teleportation (Weisheit)
-Feat/&FeatFightingSurgeDexterityDescription	Erhöhe deine Geschicklichkeit um 1, bis zu einem Maximum von 20. In deinem Zug kannst du zusätzlich zu deiner normalen Aktion und einer möglichen Bonusaktion eine weitere Aktion ausführen. Sobald du diese Eigenschaft benutzt hast, musst du eine lange Ruhepause einlegen, bevor du sie erneut benutzen kannst.
+Feat/&FeatFightingSurgeDexterityDescription	Erhöhe deine Geschicklichkeit um 1, bis zu einem Maximum von 20. In deinem Zug kannst du zusätzlich zu deiner normalen Aktion und einer möglichen Bonusaktion eine weitere Aktion ausführen. Sobald du diese Fähigkeit benutzt hast, musst du eine lange Ruhepause einlegen, bevor du sie wieder benutzen kannst.
 Feat/&FeatFightingSurgeDexterityTitle	Kampfeswut (Geschicklichkeit)
 Feat/&FeatFightingSurgeStrengthDescription	Erhöhe deine Stärke um 1, bis zu einem Maximum von 20. In deinem Zug kannst du zusätzlich zu deiner regulären Aktion und einer möglichen Bonusaktion eine weitere Aktion ausführen. Sobald du diese Eigenschaft benutzt hast, musst du eine lange Ruhepause einlegen, bevor du sie erneut benutzen kannst.
 Feat/&FeatFightingSurgeStrengthTitle	Kampfeswut (Stärke)
@@ -447,7 +441,7 @@ Feat/&FeatHeavyArmorMasterClassTitle	Schwere-Verteidigungs-Meisterschaft
 Feat/&FeatImprovedCriticalDescription	Deine Angriffe sind kritische Treffer bei einem Wurf von 19 oder 20.
 Feat/&FeatImprovedCriticalTitle	Verbesserter kritischer Treffer
 Feat/&FeatIntIncrementDescription	+1 Intelligenz
-Feat/&FeatIntIncrementTitle	Intelligenz-Attribut-Erhöhung
+Feat/&FeatIntIncrementTitle	Intelligenz-Attributsteigerung
 Feat/&FeatLightArmorDescription	Beherrschung von Leichter Rüstung und +1 Geschicklichkeit
 Feat/&FeatLightArmorProficiencyDescription	Beherrschung von Leichter Rüstung
 Feat/&FeatLightArmorProficiencyTitle	Leichte Rüstung
@@ -504,7 +498,7 @@ Feat/&FeatTelekineticIntPushDescription	Stoße eine Kreatur telekinetisch von di
 Feat/&FeatTelekineticIntPushTitle	Telekinetischer Stoß
 Feat/&FeatTelekineticIntTitle	Telekinetisch (Intelligenz)
 Feat/&FeatTelekineticWisDescription	Erhöhe das Weisheitsattribut um 1. Erhalte eine Bonusaktionsfähigkeit, um Kreaturen zu schieben oder zu ziehen.
-Feat/&FeatTelekineticWisPullDescription	Ziehe eine Kreatur telekinetisch zu dir.
+Feat/&FeatTelekineticWisPullDescription	Ziehe eine Kreatur telekinetisch zu dir hin.
 Feat/&FeatTelekineticWisPullTitle	Telekinetisches Ziehen
 Feat/&FeatTelekineticWisPushDescription	Stoße eine Kreatur telekinetisch von dir weg.
 Feat/&FeatTelekineticWisPushTitle	Telekinetischer Stoß
@@ -513,7 +507,7 @@ Feat/&FeatToughDescription	Wenn du diese Fähigkeit erlangst, erhöht sich dein 
 Feat/&FeatToughTitle	Zäh
 Feat/&FeatWarCasterDescription	Du erhältst einen Vorteil bei Prüfungen zur Aufrechterhaltung der Konzentration. Du erhältst die Fähigkeit, die somatische Komponente von Zaubern auch mit vollen Händen auszuführen. Du erhältst +2 auf Angriffswürfe mit Zaubern.
 Feat/&FeatWarCasterTitle	Kriegswirker
-Feat/&FeatWiseDefenseDescription	Erhöhe deine Weisheit um 1, bis zu einem Maximum von 20. Solange du keine Rüstung trägst, ist dein AC gleich 10 + dein Weisheitsmodifikator.
+Feat/&FeatWiseDefenseDescription	Erhöhe deine Weisheit um 1, bis zu einem Maximum von 20.\n Solange du keine Rüstung trägst, ist dein AC gleich 10 + dein Weisheitsmodifikator.
 Feat/&FeatWiseDefenseTitle	Kluge Verteidigung
 Feat/&FeatWisePrecisionDescription	Wenn diese Fähigkeit bei einer Waffe aktiv ist, zählen ihre Angriffe als magisch und du verwendest deine Weisheit für deine Angriffs- und Schadenswürfe. Sie hat eine Dauer von 1 Minute und kann zweimal vor einer langen Ruhepause eingesetzt werden.
 Feat/&FeatWisePrecisionTitle	Kluge Präzision
@@ -558,8 +552,8 @@ Feat/&ForceStrikePowerTitle	Machtschleuder (Künstlicher Diener)
 Feat/&GauntletsGrappleDescription	Kann nun Feinde mit einer Bonusaktion in Nahkampfreichweite ziehen und 1D8 Donnerschaden zufügen
 Feat/&GauntletsGrappleTitle	Panzerhandschuh-Greifling
 Feat/&HalfCoverShieldDescription	Gewährt 2 AC innerhalb von 10ft
-Feat/&HalfCoverShieldTitle	Halbe Deckung - Kuppel
-Feat/&HealerDescription	Du erhältst eine Befähigung oder Expertise in Medizin-Proben. Du erhältst die Fähigkeit, eine sterbende Kreatur zu stabilisieren und eine Kreatur, die innerhalb der letzten 12 Sekunden gestorben ist, einmal pro langer Pause wiederzubeleben. Du kannst mit einer Aktion 1d6 + 4 + Charakterstufe Trefferpunkte so oft pro kurzer Pause wiederherstellen, wie es deinem Weisheitsmodifikator entspricht.
+Feat/&HalfCoverShieldTitle	Kuppel mit halber Deckung
+Feat/&HealerDescription	Du erhältst Fertigkeit oder Expertise in Medizin-Proben. Du erhältst die Fähigkeit, eine sterbende Kreatur zu stabilisieren und eine Kreatur, die innerhalb der letzten 12 Sekunden gestorben ist, einmal pro langer Pause wiederzubeleben. Du kannst eine Aktion verwenden, um 1d6 + 4 + Charakterstufe Trefferpunkte so oft pro kurzer Ruhepause wiederherzustellen, wie es deinem Weisheitsmodifikator entspricht.
 Feat/&HealerResuscitateDescription	Benutze eine Aktion, um eine Kreatur wiederzubeleben, die innerhalb der letzten 15 Sekunden gestorben ist.
 Feat/&HealerResuscitateTitle	Wiederbelebung
 Feat/&HealerStabilizeDescription	Verwende eine Aktion, um eine sterbende Kreatur zu stabilisieren.
@@ -649,7 +643,7 @@ Feat/&SummonArtilleryConstructDescription	Der Blaster erschafft und befehligt ei
 Feat/&SummonArtilleryConstructlevel09Description	Es wurde eine neue Funktion hinzugefügt. Das Artillerie-Konstrukt kann sich selbst zerstören und bei einem misslungenen Schutzversuch 3D8 Kraftschaden verursachen. \nZusätzlich erhöhen sich die Schadenswürfe für Flammen- und Kraftartillerie um 1D8 auf insgesamt 3D8
 Feat/&SummonArtilleryConstructlevel09Title	Artillerie-Konstrukt-Upgrade: Selbstzerstörung
 Feat/&SummonArtilleryConstructlevel15Description	Es wurde eine neue Funktion hinzugefügt. Das Artillerie-Konstrukt gibt nun Verbündeten im Umkreis von 10ft halbe Deckung \n<size=17><color=#add8e6ff>Artillerie-Konstrukt Upgrade : Verstärkung</color></size>\nSie können nun zwei Artillerie-Konstrukte beschwören. Die Konstrukte können den gleichen oder unterschiedliche Modi haben
-Feat/&SummonArtilleryConstructlevel15Title	Artillerie-Konstrukt-Upgrade: Halbe Kuppel
+Feat/&SummonArtilleryConstructlevel15Title	Artillerie-Konstrukt-Upgrade: Halbe Deckungskuppel
 Feat/&SummonArtilleryConstructTitle	Artillerie-Konstrukt beschwören
 Feat/&SummonProtectorConstructDescription	Dein ganz persönlicher Kampfgefährte steht bereit, um dich zu verteidigen und Feinde anzugreifen. Das Beschützerkonstrukt kann sich 3 Mal am Tag selbst reparieren und kann Angriffe auf Verbündete mit Nachteilen belegen
 Feat/&SummonProtectorConstructDescription_2	Upgrade Beschützerkonstrukt beschwören
@@ -693,23 +687,13 @@ Feature/&AHWarlockClassPactBoonSetDescription	Auf der 3. Stufe überreicht dir d
 Feature/&AHWarlockClassPactBoonSetTitle	Paktsegen
 Feature/&AHWarlockClassPactOfTheBladeSetDescription	Du wirst im Umgang mit allen Waffen geübt und deine Waffenangriffe werden als magisch angesehen.
 Feature/&AHWarlockClassPactOfTheBladeSetTitle	Pakt der Klinge
-Feature/&AHWarlockFiendPactDarkOnesBlessingPowerDescription	Ab Stufe 1 erhältst du, wenn du eine feindliche Kreatur auf 0 Trefferpunkte*** reduzierst, vorübergehend Trefferpunkte in Höhe deines Charisma-Modifikators + deiner Hexenmeisterstufe (mindestens 1). \n*** Mod-Anmerkung - Dies fügt eine kostenlose Willenskraft hinzu, um diese Temp-HP hinzuzufügen, die du manuell benutzen musst, wenn du einen Feind niederstreckst/tötest.
-Feature/&AHWarlockFiendPactDarkOnesBlessingPowerTitle	Segen des Dunklen
-Feature/&AHWarlockFiendPactDarkOnesOwnLuckDescription	Du erhältst einmal pro Tag einen unbezwingbaren Einsatz (du hast die Wahl, deinen Rettungswurf zu wiederholen, wenn du versagst). (Stimmt nicht mit der SRD überein, würde aber eine ganz neue Reaktionsfähigkeit erfordern, um die SRD zu emulieren).
-Feature/&AHWarlockFiendPactDarkOnesOwnLuckTitle	Eigenes Glück des Dunklen
-Feature/&AHWarlockFiendPactExtendedSpellListDescription	Der Unhold lässt dich aus einer erweiterten Liste von Zaubern wählen, wenn du einen Hexenmeisterzauber erlernst. Die folgenden Zauber werden der Liste der Hexenmeisterzauber für dich hinzugefügt. \nStufe 1: Brennende Hände, Fluch \nStufe 2: Blindheit, Sengender Strahl \nStufe 3: Feuerball, Stinkende Wolke \nStufe 4: Feuerschild, Feuerwand \nStufe 5: Flammenstoß, Elementarfeuer beschwören
-Feature/&AHWarlockFiendPactExtendedSpellListTitle	Erweiterte Zauberliste des Unholds
-Feature/&AHWarlockFiendPactFiendishResilienceDescription	Du erhältst Widerstand gegen Feuerschaden. (Nicht identisch mit SRD - ich glaube, die richtige Implementierung würde eine Kraft für jeden Schadenstyp mit einem gemeinsamen Ressourcenpool erfordern, da es im Moment keine Möglichkeit zu geben scheint, Kraftauswahlen wie Zauber zu gruppieren).
-Feature/&AHWarlockFiendPactFiendishResilienceTitle	Unmenschliche Widerstandsfähigkeit
-Feature/&AHWarlockFiendPactSpellListDescription	Der Unhold lässt euch aus einer erweiterten Liste von Zaubern wählen, wenn ihr einen Hexenmeisterzauber lernt. Die folgenden Zauber werden der Liste der Hexenmeisterzauber für euch hinzugefügt. \nStufe 1: Brennende Hände, Fluch \nStufe 2: Blindheit, Sengender Strahl \nStufe 3: Feuerball, Stinkende Wolke \nStufe 4: Feuerschild, Feuerwand \nStufe 5: Flammenstoß, Elementares Feuer beschwören
-Feature/&AHWarlockFiendPactSpellListTitle	Erweiterte Zauberliste des Unholds
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerDescription	Einmal pro kurzer Ruhepause kannst du eine Minute lang eine Waffe mit der Macht der Seelen ausstatten. Deine Waffe leuchtet dann 20ft helles Licht und 20ft schummriges Licht aus und du addierst dein Charisma zu deinem Trefferwert. Zusätzlich fügen alle deine Angriffe für die Dauer der Fähigkeit einen Bonus auf deinen Schaden hinzu.
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle	Seele verstärken
 Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	Die Seelenklinge lässt dich aus einer erweiterten Liste von Zaubern wählen, wenn du einen Hexenmeisterzauber erlernst. Die folgenden Zauber werden der Liste der Hexenmeisterzauber für dich hinzugefügt. \nStufe 1: Schild, Falsches Leben \nStufe 2: Unschärfe, Brennender Peiniger \nStufe 3: Eile, Verlangsamen \nStufe 4: Phantasmatischer Killer, Schwarze Tentakel \nStufe 5: Kältekegel, Gedankenverdrehung
 Feature/&AHWarlockSoulBladePactExtendedSpellListTitle	Seelenklingen-Zauber
 Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Einmal pro kurzer Pause nutzt du die Macht der Seelen, um dich zu verteidigen. Mit einer Bonusaktion erhältst du temporäre PS in Höhe deiner Stufe + Charisma-Modifikator.
 Feature/&AHWarlockSoulBladePactSoulShieldPowerTitle	Seelenschild
-Feature/&AHWarlockSoulBladePactSpellListDescription	Die Seelenklinge lässt dich aus einer erweiterten Liste von Zaubern wählen, wenn du einen Hexenmeisterzauber erlernst. Die folgenden Zauber werden der Liste der Hexenmeisterzauber für dich hinzugefügt. \nStufe 1: Schild, Falsches Leben \nStufe 2: Unschärfe, Brennender Peiniger \nStufe 3: Eile, Langsam \nStufe 4: Phantasmatischer Killer, Schwarze Tentakel \nStufe 5: Kältekegel, Gedankenverdrehung
+Feature/&AHWarlockSoulBladePactSpellListDescription	Die Seelenklinge lässt dich aus einer erweiterten Liste von Zaubern wählen, wenn du einen Hexenmeisterzauber erlernst. Die folgenden Zauber werden der Zauberliste des Hexenmeisters für dich hinzugefügt. \nStufe 1: Schild, Falsches Leben \nStufe 2: Unschärfe, Brennender Peiniger \nStufe 3: Eile, Langsam \nStufe 4: Phantasmatischer Killer, Schwarze Tentakel \nStufe 5: Kältekegel, Gedankenverdrehung
 Feature/&AHWarlockSoulBladePactSpellListTitle	Erweiterte Zauberliste für Seelenklinge
 Feature/&AlwaysBeardDescription	{0}% Chance, sich einen prächtigen Bart wachsen zu lassen!
 Feature/&AncientForestExpandedSpelllistAfinityDescription	Wenn du einen Hexenmeisterzauber erlernst, kannst du aus einer erweiterten Liste von Zaubern wählen. Die folgenden Zauber werden der Liste der Hexenmeisterzauber für dich hinzugefügt: \n Stufe 1: Goodberry, Entangle \n Stufe 2: Barkskin, Spike Growth\n Stufe 3: Mass Healing Word, Vampiric Touch \n Stufe 4: Blight, Greater Restoration \n Stufe 5: Contagion, Raise Dead
@@ -743,12 +727,12 @@ Feature/&BarbarianIndomitableMightTitle	Unbezwingbare Macht
 Feature/&BardSkillsTitle	Barden-Fertigkeiten
 Feature/&BeguilingInfluenceDescription	Du erhältst die Fertigkeiten Täuschung und Überredung.
 Feature/&BeguilingInfluenceTitle	Betörende Beeinflussung
-Feature/&BolgrifDruidicMagicDescription	Du kennst einen Cantrip deiner Wahl aus der Druidenzauberliste. Weisheit ist deine Zauberfähigkeit für diesen Zauber.
+Feature/&BolgrifDruidicMagicDescription	Du kennst einen Cantrip deiner Wahl aus der Liste der Druidenzauber. Weisheit ist deine Zauberfähigkeit für diesen Zauber.
 Feature/&BolgrifDruidicMagicTitle	Druidische Magie
-Feature/&BolgrifInvisibilityPowerDescription	Als Bonusaktion kannst du dich auf magische Weise für 1 Runde unsichtbar machen. Diese Unsichtbarkeit wird unterbrochen, wenn du eine offensive Aktion ausführst. Wenn du diese Fähigkeit einmal benutzt hast, kannst du sie erst wieder nach einer kurzen oder langen Ruhepause einsetzen.
+Feature/&BolgrifInvisibilityPowerDescription	Als Bonusaktion kannst du dich auf magische Weise für 1 Runde unsichtbar machen. Diese Unsichtbarkeit wird unterbrochen, wenn du eine offensive Aktion ausführst. Wenn du diese Fähigkeit einmal benutzt hast, kannst du sie erst nach einer kurzen oder langen Ruhepause wieder einsetzen.
 Feature/&BolgrifInvisibilityPowerTitle	Verschwinden
 Feature/&BolgrifPowerfulBuildDescription	Du zählst deine Größe als Groß, wenn du deine Tragfähigkeit bestimmst.
-Feature/&BolgrifPowerfulBuildTitle	Mächtiges Gebäude
+Feature/&BolgrifPowerfulBuildTitle	Mächtiger Aufbau
 Feature/&BondoftheTalismanDescription	Teleportiere dich bis zu 5 Zellen weit weg.
 Feature/&BondoftheTalismanTitle	Teleport-Talisman
 Feature/&ChainsofCarceriTitle	Ketten von Carceri
@@ -776,20 +760,10 @@ Feature/&ClassWarlockWeaponProficiencyDescription	Einfache Waffen
 Feature/&ClassWarlockWeaponProficiencyTitle	Hexenmeister-Waffenfähigkeiten
 Feature/&CounterStrikePowerDescription	Gib einen Gambit-Würfel aus und füge dem Feind einen Gegenschlag zu. Wenn du triffst, verursachst du zusätzlich 1d6+2 Schaden durch Niederschlagen.
 Feature/&CounterStrikePowerTitle	Gegenschlag
-Feature/&DH_AirTitan_LightningStorm_Custom_PowerDescription	6d8 Blitze im weiten Umkreis
-Feature/&DH_AirTitan_LightningStorm_Custom_PowerTitle	Blitzsturm
-Feature/&DH_AtWill_Fireball_PowerDescription	Feuerball mit Willenskraft
-Feature/&DH_AtWill_Fireball_PowerTitle	Feuerball
-Feature/&DH_AtWill_HoldMonster_PowerDescription	3 Einsätze pro Tag
-Feature/&DH_AtWill_HoldMonster_PowerTitle	Monster festhalten
-Feature/&DH_AtWill_Invisibility_PowerDescription	Unsichtbarkeit mit Willenskraft
-Feature/&DH_AtWill_Invisibility_PowerTitle	Unsichtbarkeit
 Feature/&DH_BlinkDescription	Als Bonusaktion verschwindest du aus deiner aktuellen Existenzebene und verhinderst jeglichen Schaden. Zu Beginn deines nächsten Zuges kehrst du in den Raum zurück, aus dem du verschwunden bist.
 Feature/&DH_BlinkTitle	Blinzeln
-Feature/&DH_FadeIntoTheVoidDescription	Wenn du auf 0 Trefferpunkte reduziert, aber nicht getötet wirst, sinkst du stattdessen auf 1 Trefferpunkt, während du kurz in die Leere verschwindest, um den Schaden zu verringern. Du kannst diese Fähigkeit erst wieder einsetzen, wenn du eine lange Pause gemacht hast.
+Feature/&DH_FadeIntoTheVoidDescription	Wenn du auf 0 Trefferpunkte reduziert, aber nicht vollständig getötet wirst, fällst du stattdessen auf 1 Trefferpunkt, während du kurz ins Nichts verschwindest, um den Schaden zu verringern. Du kannst diese Fähigkeit erst wieder einsetzen, wenn du eine lange Pause gemacht hast.
 Feature/&DH_FadeIntoTheVoidTitle	In die Leere verblassen
-Feature/&DH_Generic_Lightning_Attack_Custom_PowerDescription	12D8
-Feature/&DH_Generic_Lightning_Attack_Custom_PowerTitle	Blitzschlag
 Feature/&DH_RiftCloakDescription	Deine Kontrolle über Spaltportale hat sich so weit verbessert, dass du nun anderen den Schutz des Spalts gewähren kannst. Du kannst nach Belieben ein Schutzband wirken (ohne Schaden zu teilen).
 Feature/&DH_RiftCloakTitle	Spalt-Umhang
 Feature/&DH_RiftControlDescription	Du bist kurzzeitig von der Energie des Spalts umgeben und teleportierst dich in einen unbesetzten Raum. Du kannst jetzt einen Verbündeten mitnehmen, wenn du dich teleportierst, und die Reichweite wurde deutlich erhöht.
@@ -841,7 +815,7 @@ Feature/&DruidForestGuardianMagicDescription	Ab der 2. Stufe, wenn du diesen Zir
 Feature/&DruidForestGuardianMagicTitle	Zirkel-Zauber
 Feature/&DruidForestGuardianSuperiorBarkWardDescription	Eure Fähigkeit 'Borkenwächter' reflektiert jetzt 3d8 durchdringenden Schaden auf Nahkampfangreifer. Außerdem gewährt euch "Borkenwächter" jetzt Immunität gegen Gift, während er aktiv ist.
 Feature/&DruidForestGuardianSuperiorBarkWardTitle	Überlegener Borkenschutz
-Feature/&DruidForestGuardianSylvanDurabilityDescription	Waldwächter erlangen von Natur aus die Widerstandsfähigkeit einer mächtigen Eiche. Auf der 2. Stufe erhöht sich dein Trefferpunkte-Maximum um 2 und jedes Mal um 1, wenn du eine Stufe in dieser Klasse gewinnst.
+Feature/&DruidForestGuardianSylvanDurabilityDescription	Waldwächter erlangen von Natur aus die Widerstandsfähigkeit einer mächtigen Eiche. Auf der 2. Stufe erhöht sich dein Trefferpunkte-Maximum um 2 und steigt jedes Mal um 1, wenn du eine Stufe in dieser Klasse aufsteigst.
 Feature/&DruidForestGuardianSylvanDurabilityTitle	Sylvanische Widerstandsfähigkeit
 Feature/&DruidForestGuardianSylvanWarMagicDescription	Du bist es gewohnt, druidische Magie in Harmonie mit kriegerischem Geschick einzusetzen. Ab Stufe 2 kannst du Zauber wirken, die eine somatische Komponente erfordern, auch wenn du mit beiden Händen eine Waffe oder einen Schild hältst.
 Feature/&DruidForestGuardianSylvanWarMagicTitle	Sylvanische Kriegsmagie
@@ -871,7 +845,7 @@ Feature/&FlameArtilleryModePowerDescription	Ruft ein Konstrukt herbei, das 1 Stu
 Feature/&FlameArtilleryModePowerTitle	Flammenartillerie-Konstrukt beschwören
 Feature/&ForceArtillery_09ModePowerDescription	Ruft ein Konstrukt herbei, das 1 Stunde lang anhält. \nKraftartillerie : Verursacht 3D8 Kraftschaden und stößt den Gegner 5ft weit weg. \nSelbstzerstörung : Verursacht 3D8 Kraftschaden bei einem misslungenen Schutz und zerstört die Einheit.
 Feature/&ForceArtillery_09ModePowerTitle	Kraft-Artillerie-Konstrukt beschwören
-Feature/&ForceArtillery_15ModePowerDescription	Ruft ein Konstrukt herbei, das 1 Stunde lang hält. \nKraftartillerie : Verursacht 3D8 Kraftschaden und stößt den Gegner 5ft weit weg. \nSelbstzerstörung : Fügt bei einem misslungenen Schutzversuch 3D8 Kraftschaden zu und zerstört die Einheit. \n Halbe Deckungskuppel : gibt Verbündeten innerhalb von 10ft halbe Deckung.
+Feature/&ForceArtillery_15ModePowerDescription	Ruft ein Konstrukt herbei, das 1 Stunde lang hält. \nKraftartillerie : Verursacht 3D8 Kraftschaden und stößt den Gegner 5ft weit weg. \nSelbstzerstörung : Fügt bei einem misslungenen Schutzversuch 3D8 Kraftschaden zu und zerstört die Einheit. \n Halbe Deckungskuppel : Bietet Verbündeten innerhalb von 10ft halbe Deckung.
 Feature/&ForceArtillery_15ModePowerTitle	Kraft-Artillerie-Konstrukt beschwören
 Feature/&ForceArtilleryAdditionalDamageTitle	Erhöhter Schaden
 Feature/&ForceArtilleryModePowerDescription	Beschwört ein Konstrukt, das 1 Stunde lang hält. \nKraftartillerie : Verursacht 2D8 Kraftschaden und stößt das Ziel 5ft weit weg.
@@ -891,7 +865,7 @@ Feature/&GnomeNaturalIllusionistDescription	Du kennst den Cantrip Lästige Biene
 Feature/&GnomeNaturalIllusionistTitle	Natürliche Magie
 Feature/&GraspingHandMagicAffinityDescription	Wenn du eine Kreatur mit deinem Eldritch-Schlag triffst, kannst du diese Kreatur in einer geraden Linie 10 Fuß näher zu dir bewegen.
 Feature/&GraspingHandMagicAffinityTitle	Greifende Explosion
-Feature/&HerbalBrewFeatureSetDescription	Du erhältst die Beherrschung des Giftmischer-Sets oder des Kräuterkunde-Sets, wenn du sie nicht bereits besitzt. \Wenn du eine lange Ruhepause beendest, kannst du Kräutersude herstellen, die jeweils bis zur nächsten langen Ruhepause reichen. Du kannst insgesamt so viele Gebräue herstellen, wie es deinem Fertigkeitsbonus entspricht. Für jedes Gebräu kannst du einen der folgenden Effekte wählen: \n<color=#add8e6ff>Kräftigendes Gebräu</color> : gewährt 1 Stunde lang Resistenz gegen verschiedene Schadensarten.\n<color=#add8e6ff>Verstärkendes Gebräu</color> : verleiht 2d6 Trefferpunkte.\n<color=#add8e6ff>Vergiftendes Gebräu</color> : wirkt wie ein Gift, das auf eine Waffe aufgetragen werden kann und 1 Minute lang anhält. Bei einem Treffer erleidet das Ziel bei jedem Treffer 1d4 Giftschaden.
+Feature/&HerbalBrewFeatureSetDescription	Du erhältst die Beherrschung des Giftmischer-Sets oder des Kräuterkunde-Sets, wenn du sie nicht bereits besitzt. \Wenn du eine lange Ruhepause beendest, kannst du Kräutersude herstellen, die jeweils bis zur nächsten langen Ruhepause reichen. Du kannst insgesamt so viele Gebräue herstellen, wie es deinem Fertigkeitsbonus entspricht. Für jedes Gebräu kannst du einen der folgenden Effekte wählen: \n<color=#add8e6ff>Kräftigendes Gebräu</color> : gewährt 1 Stunde lang Resistenz gegen verschiedene Schadensarten.\n<color=#add8e6ff>Verstärkendes Gebräu</color> : verleiht 2d6 Trefferpunkte.\n<color=#add8e6ff>Vergiftendes Gebräu</color> : wirkt wie Gift, das auf eine Waffe aufgetragen werden kann und 1 Minute lang anhält. Bei einem Treffer erleidet das Ziel bei jedem Treffer 1d4 Giftschaden.
 Feature/&HerbalBrewFeatureSetTitle	Kräuterbrauen
 Feature/&HinderingBlastFeatureSetDescription	Wenn du eine Kreatur mit deiner eldritchischen Explosion triffst, kannst du die Geschwindigkeit dieser Kreatur bis zum Ende deines nächsten Zuges um 10 Fuß verringern.
 Feature/&HinderingBlastFeatureSetTitle	Hinderliche Explosion
@@ -899,7 +873,7 @@ Feature/&HinderingBlastMagicAffinityDescription	Wenn du eine Kreatur mit deiner 
 Feature/&HinderingBlastMagicAffinityTitle	Behindernde Explosion
 Feature/&ImprovedPactWeaponDescription	Du kannst eine beliebige Waffe als Zauberfokus für deine Hexenmeisterzauber verwenden und erhältst einen Bonus von +1 auf deine Angriffs- und Schadenswürfe.
 Feature/&ImprovedPactWeaponTitle	Verbesserte Paktwaffe
-Feature/&ImprovedScoutModePowerDescription	Erhält die Eigenschaften des verbesserten Spähmodus. Kann nun mit einem einzigen Angriff einen Vorteil für Verbündete und einen Nachteil für Feinde erzeugen.
+Feature/&ImprovedScoutModePowerDescription	Erhält die Eigenschaften des verbesserten Spähermodus. Kann nun mit einem einzigen Angriff einen Vorteil für Verbündete und einen Nachteil für Feinde erzeugen.
 Feature/&ImprovedScoutModePowerTitle	Verbesserter Spähermodus
 Feature/&ImprovedSentinelModePowerDescription	Erhält die Eigenschaften des verbesserten Wächtermodus durch die Macht Panzerhandschuh-Greifer.
 Feature/&ImprovedSentinelModePowerTitle	Verbesserter Wächtermodus
@@ -913,7 +887,7 @@ Feature/&InspiringSurgePowerTitle	Inspirierender Ansturm
 Feature/&InspiringSurgePowerTitleShort	Inspirierender Ansturm
 Feature/&KnockDownPowerDescription	Gib einen Gambit-Würfel aus und befähige deinen Angriff, zusätzlich 1d6+2 Schaden durch Hiebe zu verursachen und den Gegner bis zum Beginn seines nächsten Zuges niederzuschlagen, wenn er einen Stärke-Save gegen 8 + deine Stärke + Fertigkeit nicht besteht.
 Feature/&KnockDownPowerTitle	Zu Boden stoßen
-Feature/&KSRogueSubclassThugBrutalMethodsDescription	Du kannst Stoßen als Bonusaktion ausführen.
+Feature/&KSRogueSubclassThugBrutalMethodsDescription	Du kannst als Bonusaktion schubsen.
 Feature/&KSRogueSubclassThugBrutalMethodsTitle	Brutale Methoden
 Feature/&KSRogueSubclassThugExploitVulnerabilitiesSneakAttackDescription	Du kannst Schleichangriff mit jeder Art von Nahkampfwaffe einsetzen, nicht nur mit Finessenwaffen. 1d6 zusätzlicher Schaden (+1d6 alle 2 Stufen) an einer Kreatur, die du mit dem Vorteil triffst, einmal pro Runde. Der Vorteil ist nicht nötig, wenn sich ein aktiver Verbündeter in der Nähe des Ziels befindet.
 Feature/&KSRogueSubclassThugExploitVulnerabilitiesSneakAttackTitle	Vielseitiger Schleichangriff
@@ -931,8 +905,8 @@ Feature/&MoonLitLightAffinityTitle	Umbraler Umhang
 Feature/&OneWithShadowsDescription	Wenn du dich in einem Bereich mit schummrigem Licht oder Dunkelheit befindest, wirst du unsichtbar, bis du dich bewegst oder eine Aktion oder Reaktion ausführst.
 Feature/&OneWithShadowsTitle	Eins mit den Schatten
 Feature/&OtherworldlyLeapTitle	Andersweltlicher Sprung
-Feature/&PowerAttackAttackModifierOneHandedDescription	Nimm für den Rest der Runde einen Malus von -{0} auf deinen Angriff hin, um +{0} Schaden zu verursachen, wenn du deine Schläge ausführst. Darf nur verwendet werden, wenn du mit einer einhändigen Nicht-Lichtwaffe angreifst, egal ob im Nah- oder Fernkampf.
-Feature/&PowerAttackAttackModifierOneHandedTitle	Einhändiger Machtangriff
+Feature/&PowerAttackAttackModifierDescription	Nimm für den Rest der Runde einen Malus von -{0} auf deinen Angriff hin, um +{0} Schaden zu verursachen, wenn du deine Schläge ausführst. Darf nur verwendet werden, wenn du mit einer einhändigen Nicht-Lichtwaffe angreifst, egal ob im Nah- oder Fernkampf.
+Feature/&PowerAttackAttackModifierTitle	Einhändiger Machtangriff
 Feature/&PowerAttackConditionDescription	Nimm für den Rest der Runde einen Malus von -{0} auf Treffer, um +{0} Schaden zu verursachen, wenn du deine Schläge ausführst. Kann nur verwendet werden, wenn du mit einer nicht-leichten Einhandwaffe angreifst, egal ob im Nah- oder Fernkampf.
 Feature/&PowerAttackConditionTitle	Einhändiger Machtangriff
 Feature/&PowerAttackPowerDescription	Nimm für den Rest der Runde einen Malus von -{0} auf Treffer, um +{0} Schaden zu verursachen, wenn du deine Schläge ausführst. Kann nur verwendet werden, wenn du mit einer nicht-leichten Einhandwaffe angreifst, egal ob im Nah- oder Fernkampf.
@@ -957,7 +931,7 @@ Feature/&ProficiencyGnomishLanguagesDescription	Gemeine, Gnomisch
 Feature/&ProficiencyGnomishLanguagesTitle	Sprachen
 Feature/&ProficiencyRogueBlindSenseDescription	Ab Stufe 14 kannst du, wenn du hören kannst, den Aufenthaltsort jeder versteckten oder unsichtbaren Kreatur im Umkreis von 10 Fuß erkennen.
 Feature/&ProficiencyRogueBlindSenseTitle	Blindheitssinn
-Feature/&ProficiencyRogueSlipperyMindDescription	Mit der 15. Stufe hast du größere mentale Stärke erlangt. Du erhältst die Fähigkeit, Weisheitswürfe zu meistern.
+Feature/&ProficiencyRogueSlipperyMindDescription	Mit Stufe 15 hast du größere mentale Stärke erlangt. Du erhältst die Fähigkeit, Weisheitswürfe zu meistern.
 Feature/&ProficiencyRogueSlipperyMindTitle	Schlüpfriger Geist
 Feature/&RageDamageBonusAttackModifierDescription	Füge +2 Schaden zu deinen Angriffen hinzu, wenn du wütend bist.
 Feature/&RageDamageBonusAttackModifierTitle	Schaden durch Wut
@@ -972,8 +946,6 @@ Feature/&RallyingCryPowerTitle	Sammelnder Schrei
 Feature/&RallyingCryPowerTitleShort	Versammlungsschrei
 Feature/&RangerArcanistMagicDescription	Ab der 3. Stufe lernst du einen zusätzlichen Zauber, wenn du bestimmte Stufen in dieser Klasse erreichst. Jeder Zauber zählt für dich als Waldläuferzauber, aber er wird nicht auf die Anzahl der Waldläuferzauber angerechnet, die du kennst. Die Zaubersprüche sind: Stufe 3: Schild, Stufe 5: Nebliger Schritt, Stufe 9: Eile, Stufe 13: Dimensionstor und Stufe 17: Monster festhalten. Außerdem bist du geübt darin, Zauber im Kampf zu wirken, und kannst Zauber, die eine körperliche Komponente erfordern, auch dann wirken, wenn du mit beiden Händen eine Waffe oder einen Schild hältst.
 Feature/&RangerArcanistMagicTitle	Waldläufer-Arkanist-Zauberei
-Feature/&RangerFeatureSetFoeSlayerDescription	Auf Stufe 20 wirst du zu einem unvergleichlichen Jäger deiner Feinde. Einmal in jeder deiner Runden kannst du deinen Weisheitsmodifikator zum Angriffswurf oder zum Schadenswurf eines Angriffs addieren, den du gegen einen deiner bevorzugten Feinde ausführst.
-Feature/&RangerFeatureSetFoeSlayerTitle	Feindentöter
 Feature/&RangerFeralSensesDescription	Du erhältst übernatürliche Sinne, die dir helfen, Kreaturen zu bekämpfen, die du nicht sehen kannst. Wenn du eine Kreatur angreifst, die du nicht sehen kannst, hat deine Unfähigkeit, sie zu sehen, keinen Nachteil bei deinen Angriffswürfen gegen sie zur Folge.
 Feature/&RangerFeralSensesTitle	Wilde Sinne
 Feature/&RangerVanishActionDescription	Ab Stufe 14 kannst du die Aktion Verstecken als Bonusaktion in deinem Zug einsetzen.
@@ -1014,8 +986,8 @@ Feature/&TinkererToolsProficiencyTitle	Werkzeug-Fähigkeiten
 Feature/&TinkererWeaponProficiencyDescription	Beherrschung von einfachen Waffen
 Feature/&TinkererWeaponProficiencyTitle	Tüftler-Waffenfertigkeiten
 Feature/&ToadKingBasicToxinTitle	Grundlegendes Gift
-Feature/&ToadKingExpandedSpelllistAfinityDescription	Du wählst aus einer erweiterten Liste von Zaubern, wenn du einen Hexenmeisterzauber erlernst. Die folgenden Zauber werden der Liste der Hexenmeisterzauber für dich hinzugefügt: \n Stufe 1: Fett, Gift und Krankheit erkennen \n Stufe 2: Säurepfeil, Spinnenklettern \n Stufe 3: Langsam, Stinkende Wolke \n Stufe 4: Schwarze Tentakel, Bewegungsfreiheit \n Stufe 5: Ansteckung, Insektenplage
-Feature/&ToadKingExpandedSpelllistAfinityTitle	Krötenkönig-Zauber
+Feature/&ToadKingExpandedSpelllistAfinityDescription	Du wählst aus einer erweiterten Liste von Zaubern, wenn du einen Hexenmeisterzauber erlernst. Die folgenden Zauber werden der Liste der Hexenmeisterzauber für dich hinzugefügt: \n Stufe 1: Schmiere, Gift und Krankheit erkennen \n Stufe 2: Säurepfeil, Spinnenklettern \n Stufe 3: Langsam, Stinkende Wolke \n Stufe 4: Schwarze Tentakel, Bewegungsfreiheit \n Stufe 5: Ansteckung, Insektenplage
+Feature/&ToadKingExpandedSpelllistAfinityTitle	Zaubersprüche des Krötenkönigs
 Feature/&ToadKingHallucinogenicToxinAffintyDescription	Dein Körper hat sich so verändert, dass er gegen Gifte resistent ist und ein Abwehrgift produziert, wenn er in Nahkampfreichweite angegriffen wird (bis zu PB-mal pro Tag). Wenn der Angreifer einen Con-Save nicht besteht, wird er zu luzinogenem Gift, bis er angegriffen oder anderweitig unterbrochen wird.
 Feature/&ToadKingHallucinogenicToxinAffintyTitle	Halluzinogenes Toxin
 Feature/&ToadKingJumpTitle	Springen
@@ -1023,7 +995,7 @@ Feature/&ToadKingPoisonConditionAffinityTitle	Immun gegen Giftzustand
 Feature/&ToadKingPoisonDamageAffinityTitle	Unempfindlich gegen Giftschaden
 Feature/&ToadKingStickyFeetTitle	Gesponnene Füße
 Feature/&Trickster'sEscapeTitle	Flucht des Tricksters
-Feature/&UrPriestDomainTheftDescription	Du schnappst dir die Geheimnisse, die ein Gott allen seinen frommen Klerikern gewährt. Wähle eine Kleriker-Domäne: Du erhältst die Eigenschaften, die diese Domäne auf Stufe 1 gewährt.
+Feature/&UrPriestDomainTheftDescription	Du schnappst dir die Geheimnisse, die ein Gott allen seinen gläubigen Klerikern gewährt. Wähle eine Kleriker-Domäne: Du erhältst die Eigenschaften, die diese Domäne auf Stufe 1 gewährt.
 Feature/&UrPriestDomainTheftTitle	Domänendiebstahl
 Feature/&UrPriestExpandedSpelllistAfinityDescription	Du wählst aus einer erweiterten Liste von Zaubern, wenn du einen Hexenmeisterzauber erlernst. Klerikerzauber werden der Zauberliste des Hexenmeisters für dich hinzugefügt.
 Feature/&UrPriestExpandedSpelllistAfinityTitle	UrPriester-Zauber
@@ -1077,8 +1049,8 @@ Format/&LevelAndExperienceFormat	Stufe: {0}\nErfahrung: {1}\n{2} Punkte erforder
 Format/&LevelAndExperienceMaxedFormat	Stufe: {0}\nErfahrung: {1}\nMaximal erreichte Stufe.
 Item/&ForceArtilleryProjectileDescription	ForceArtilleryProjectile
 Item/&ForceArtilleryProjectileTitle	KraftArtillerieGeschoss
-Language/&GnomishDescription	Eine alte solastanische Sprache, die von Gnomen bewahrt wird, die in den tiefen Wäldern von Solasta leben, und die den Kataklysmus überlebt hat.
-Language/&GnomishTitle	Gnomisch
+Language/&GnomishLanguageDescription	Eine alte solastanische Sprache, die von Gnomen bewahrt wird, die in den tiefen Wäldern von Solasta leben, und die den Kataklysmus überlebt hat.
+Language/&GnomishLanguageTitle	Gnomisch
 MainMenu/&ExportPdfDescription	Diesen Helden herabstufen
 MainMenu/&ExportPdfTitle	Herabstufen
 Message/&CharacterExportDuplicateNameErrorDescription	Export abgebrochen:\n\nEin Held mit diesem Namen existiert bereits im Pool.\nBitte versuche einen anderen Namen.
@@ -1096,65 +1068,65 @@ Modifier/&DisorientDescription	-1d6 auf Angriffswürfe
 Modifier/&DisorientTitle	Desorientiert
 Modifier/&RuinedDescription	-3 auf Rüstungsklasse
 Modifier/&RuinedTitle	Ruiniert
-Monster/&DH_Custom_AirTitan_Description	Wenn sie beschworen werden, manifestieren sich diese älteren Elementare als Wesen mit apokalyptischen Fähigkeiten, Wesen, deren bloße Existenz Zerstörung verspricht.
-Monster/&DH_Custom_AirTitan_Title	<color=#ff0000ff>Primordial Air Titan</color>
-Monster/&DH_Custom_AncientBlackDragon_Description	Die bösartigsten und abscheulichsten der farbigen Drachen sammeln die Trümmer und Schätze der gefallenen Völker. Diese Drachen verabscheuen es, wenn die Schwachen gedeihen und erfreuen sich am Zusammenbruch humanoider Königreiche. Sie hausen in fauligen Sümpfen und zerfallenen Ruinen, wo einst Königreiche standen.
-Monster/&DH_Custom_AncientBlackDragon_Title	<color=#ff0000ff>Altschwarzer Drache</color>
-Monster/&DH_Custom_AncientBlueDragon_Description	Die eitlen und territorialen blauen Drachen schweben durch die Lüfte über den Wüsten, machen Jagd auf Karawanen und plündern Herden und Siedlungen in den grünen Ländern jenseits der Wüste. Diese Drachen sind auch in trockenen Steppen, sengenden Badlands und felsigen Küsten zu finden. Sie bewachen ihr Territorium gegen alle potenziellen Konkurrenten, insbesondere gegen Messingdrachen.
-Monster/&DH_Custom_AncientBlueDragon_Title	<color=#ff0000ff>Altblauer Drache</color>
-Monster/&DH_Custom_AncientGreenDragon_Description	Grüne Drachen sind die gerissensten und heimtückischsten unter den echten Drachen und nutzen Irreführung und Tricks, um die Oberhand über ihre Feinde zu gewinnen. Sie sind übel gelaunt und durch und durch böse und haben ein besonderes Vergnügen daran, die Gutmütigen zu unterwandern und zu verderben. In den uralten Wäldern, die sie durchstreifen, legen grüne Drachen eine Aggressivität an den Tag, bei der es oft weniger um das Territorium als vielmehr darum geht, mit möglichst wenig Aufwand Macht und Reichtum zu erlangen.
-Monster/&DH_Custom_AncientGreenDragon_Title	<color=#ff0000ff>Uralter Grüner Drache</color>
-Monster/&DH_Custom_AncientRedDragon_Description	Rote Drachen sind die begehrlichsten unter den echten Drachen und versuchen unermüdlich, ihre Schatzkammern zu vergrößern. Sie sind außergewöhnlich eitel, selbst für Drachen, und ihre Einbildung spiegelt sich in ihrem stolzen Auftreten und ihrer Verachtung für andere Kreaturen wider.
-Monster/&DH_Custom_AncientRedDragon_Title	<color=#ff0000ff>Alter Roter Drache</color>
-Monster/&DH_Custom_AncientWhiteDragon_Description	Weiße Drachen sind die kleinsten, am wenigsten intelligenten und animalischsten der Farbdrachen. Sie leben in kalten Gegenden und bevorzugen arktische Gebiete oder eisige Berge. Sie sind bösartige, grausame Reptilien, die von Hunger und Gier getrieben werden.
-Monster/&DH_Custom_AncientWhiteDragon_Title	<color=#ff0000ff>Alter Weißer Drache</color>
-Monster/&DH_Custom_Archmage_Description	Erzmagier sind mächtige (und meist recht alte) Zauberwirker, die sich dem Studium der arkanen Künste widmen. Wohlwollende Magier beraten Könige und Königinnen, während böse Magier als Tyrannen herrschen und das Lichdom anstreben. Diejenigen, die weder gut noch böse sind, ziehen sich in abgelegene Türme zurück, um ihre Magie ungestört auszuüben.
-Monster/&DH_Custom_Archmage_Title	<color=#ff0000ff>Archmage</color>
-Monster/&DH_Custom_Balor_Description	Als Figuren des uralten und schrecklichen Bösen herrschen Balors als Generäle über dämonische Armeen und sehnen sich danach, die Macht an sich zu reißen und alle Kreaturen zu vernichten, die sich ihnen widersetzen.
-Monster/&DH_Custom_Balor_Title	<color=#ff0000ff>Balor</color>
-Monster/&DH_Custom_ConstructTitan_Description	Massive Konstrukte, die für den Krieg gebaut und aus schwerem Metall gefertigt wurden. Ein unaufhaltsamer Moloch, der die Befehle seines Schöpfers befolgt und ihn beschützt oder angreift, wie sein Schöpfer es verlangt.
-Monster/&DH_Custom_ConstructTitan_Title	<color=#ff0000ff>Mechanisches Konstrukt Titan</color>
-Monster/&DH_Custom_Deva_Description	Devas sind Engel, die als göttliche Boten oder Agenten auf der materiellen Ebene agieren,
-Monster/&DH_Custom_Deva_Title	<color=#ff0000ff>Deva</color>
-Monster/&DH_Custom_Djinni_Description	Die stolzen Dschinns sind Meister der Luft und reiten auf mächtigen Wirbelstürmen, die sie nach Lust und Laune erschaffen und lenken, und die sogar Passagiere befördern können.
-Monster/&DH_Custom_Djinni_Title	<color=#ff0000ff>Djinni</color>
-Monster/&DH_Custom_EarthTitan_Description	Wenn sie beschworen werden, manifestieren sich diese älteren Elementare als Wesen mit apokalyptischen Fähigkeiten, Wesen, deren bloße Existenz Zerstörung verspricht.
-Monster/&DH_Custom_EarthTitan_Title	<color=#ff0000ff>Primordial Earth Titan</color>
-Monster/&DH_Custom_Efreeti_Description	Diese gewaltigen Genies der Feuerelementarebene sind Meister der Flamme, immun gegen Feuer und in der Lage, es aus einer Laune heraus zu erschaffen.
-Monster/&DH_Custom_Efreeti_Title	<color=#ff0000ff>Efreeti</color>
-Monster/&DH_Custom_Erinyes_Description	Die Erinyes sind wilde und disziplinierte Krieger. Sie fegen vom Himmel herab und bringen Kreaturen, die ihren Herren Unrecht getan haben, den schnellen Tod.
-Monster/&DH_Custom_Erinyes_Title	<color=#ff0000ff>Erinyes</color>
-Monster/&DH_Custom_FireTitan_Description	Wenn sie beschworen werden, manifestieren sich diese älteren Elementare als Wesen mit apokalyptischen Fähigkeiten, Wesen, deren bloße Existenz Zerstörung verspricht.
-Monster/&DH_Custom_FireTitan_Title	<color=#ff0000ff>Primordialer Feuer-Titan</color>
-Monster/&DH_Custom_GuardianNaga_Description	Die schönen Wächter-Nagas sind weise und gut und schützen heilige Orte und Gegenstände mit magischer Kraft davor, in böse Hände zu fallen. In ihren versteckten Verstecken erforschen sie Zaubersprüche und hecken verworrene Pläne aus, um die bösen Pläne ihrer Feinde zu vereiteln.
-Monster/&DH_Custom_GuardianNaga_Title	<color=#ff0000ff>Wächter-Naga</color>
-Monster/&DH_Custom_HornedDevil_Description	Die fliegende Infanterie der höllischen Legionen, gehörnte Teufel, die Befehle buchstabengetreu ausführen.
-Monster/&DH_Custom_HornedDevil_Title	<color=#ff0000ff>Gehörnter Teufel</color>
-Monster/&DH_Custom_IceDevil_Description	Die Eisteufel, die die Macht ihrer Vorgesetzten, der Grubengeister, begehren, arbeiten unaufhörlich an ihrer Beförderung, schlachten die Feinde der Neun Höllen ab und holen sich so viele Seelen wie möglich für ihre erzteuflischen Meister.
-Monster/&DH_Custom_IceDevil_Title	<color=#ff0000ff>Eisteufel</color>
-Monster/&DH_Custom_Lich_Description	Liches sind die Überreste großer Zauberer, die den Untod als Mittel zu ihrer eigenen Erhaltung nutzen. Sie fördern ihre eigene Macht um jeden Preis und haben kein Interesse an den Angelegenheiten der Lebenden, es sei denn, diese Angelegenheiten kommen ihren eigenen in die Quere. Intrigant und wahnsinnig, hungern sie nach längst vergessenem Wissen und den schrecklichsten Geheimnissen.
-Monster/&DH_Custom_Lich_Title	<color=#ff0000ff>Lich</color>
-Monster/&DH_Custom_Nalfeshnee_Description	Der Nalfeshnee ist einer der groteskesten Dämonen - eine korpulente Mischung aus Affe und Wildschwein, doppelt so groß wie ein Mensch, mit gefiederten Flügeln, die zu klein für seinen aufgeblähten Körper scheinen. Hinter diesen brutalen Zügen verbirgt sich eine bemerkenswerte Intelligenz und Gerissenheit.
-Monster/&DH_Custom_Nalfeshnee_Title	<color=#ff0000ff>Nalfeshnee</color>
-Monster/&DH_Custom_PitFiend_Description	Als unbestrittene Herren der meisten anderen Teufel dienen die Grubengeister den Erzherzögen und Erzherzoginnen der Neun Höllen und führen ihre Wünsche aus. Diese mächtigen Teufel sind die Generäle der Neun Höllen und führen ihre höllischen Legionen in die Schlacht.
-Monster/&DH_Custom_PitFiend_Title	<color=#ff0000ff>Grubengeister</color>
-Monster/&DH_Custom_Planetar_Description	Planetare sind die Waffen der Götter, denen sie dienen, und stellen eine greifbare Darstellung der Macht ihrer Gottheiten dar.
-Monster/&DH_Custom_Planetar_Title	<color=#ff0000ff>Planetar</color>
-Monster/&DH_Custom_Roc_Description	Roks sind Einzelgänger, die Jahrhunderte lang leben können. Sie verstecken sich in Nestern aus Bäumen, Zelten, zerbrochenen Schiffen und den Überresten von Karawanen, die sie erbeutet haben, und platzieren diese massiven Gebilde in Bergspalten außerhalb der Reichweite kleinerer Kreaturen.
-Monster/&DH_Custom_Roc_Title	<color=#ff0000ff>Roc</color>
-Monster/&DH_Custom_Solar_Description	Auf dem Schlachtfeld fliegt das Schwert des Solars von selbst ins Gefecht, und ein einziger Pfeil aus dem Bogen eines Solars kann ein Ziel bei Kontakt totschlagen. Die himmlische Macht eines Solars ist so groß, dass selbst Dämonenfürsten vor seinen klangvollen Befehlen zurückschrecken.
-Monster/&DH_Custom_Solar_Title	<color=#ff0000ff>Solar</color>
-Monster/&DH_Custom_StormGiant_Description	Sturmriesen sind kontemplative Seher, die an Orten leben, die weit von der sterblichen Zivilisation entfernt sind. Die meisten von ihnen haben blasse purpurgraue Haut und Haare und glitzernde smaragdgrüne Augen.
-Monster/&DH_Custom_StormGiant_Title	<color=#ff0000ff>Sturmriese</color>
-Monster/&DH_Custom_Tarrasque_Description	Die legendäre Tarraske ist möglicherweise das gefürchtetste Monster der materiellen Ebene. Es wird allgemein angenommen, dass es nur eine dieser Kreaturen gibt, obwohl niemand vorhersagen kann, wo und wann sie zuschlagen wird. Die Tarrasque ist ein schuppiger Zweibeiner, der fünfzig Fuß hoch und siebzig Fuß lang ist und Hunderte von Tonnen wiegt.
-Monster/&DH_Custom_Tarrasque_Title	<color=#ff0000ff>Tarraske</color>
-Monster/&DH_Custom_Vampire_Description	Wenn sie in einer endlosen Nacht erwachen, hungern Vampire nach dem Leben, das sie verloren haben, und stillen diesen Hunger, indem sie das Blut der Lebenden trinken. Vampire verabscheuen das Sonnenlicht, denn dessen Berührung verbrennt sie. Sie werfen weder Schatten noch Spiegelungen, und jeder Vampir, der sich unbemerkt unter den Lebenden bewegen will, hält sich in der Dunkelheit und fern von reflektierenden Oberflächen.
-Monster/&DH_Custom_Vampire_Title	<color=#ff0000ff>Vampir</color>
-Monster/&DHCustomCouatlDescription	Couatls sind wohlwollende, schlangenartige Wesen von großem Intellekt und Einsicht. Ihre leuchtend farbigen Flügel und ihr sanftes Wesen sprechen für ihre himmlische Herkunft.
-Monster/&DHCustomCouatlTitle	Kouatl
+Monster/&DHCustomAirTitanDescription	Wenn sie beschworen werden, manifestieren sich diese älteren Elementare als Wesen mit apokalyptischen Fähigkeiten, Wesen, deren bloße Existenz Zerstörung verspricht.
+Monster/&DHCustomAirTitanTitle	<color=#ff0000ff>Primordial Air Titan</color>
+Monster/&DHCustomAncientBlackDragonDescription	Die bösartigsten und abscheulichsten der farbigen Drachen sammeln die Trümmer und Schätze der gefallenen Völker. Diese Drachen verabscheuen es, wenn die Schwachen gedeihen, und erfreuen sich am Zusammenbruch humanoider Königreiche. Sie hausen in fauligen Sümpfen und zerfallenen Ruinen, wo einst Königreiche standen.
+Monster/&DHCustomAncientBlackDragonTitle	<color=#ff0000ff>Altschwarzer Drache</color>
+Monster/&DHCustomAncientBlueDragonDescription	Die eitlen und territorialen blauen Drachen schweben durch die Lüfte über den Wüsten, machen Jagd auf Karawanen und plündern Herden und Siedlungen in den grünen Ländern jenseits der Wüste. Diese Drachen sind auch in trockenen Steppen, sengenden Badlands und felsigen Küsten zu finden. Sie bewachen ihr Territorium gegen alle potenziellen Konkurrenten, insbesondere gegen Messingdrachen.
+Monster/&DHCustomAncientBlueDragonTitle	<color=#ff0000ff>Altblauer Drache</color>
+Monster/&DHCustomAncientGreenDragonDescription	Grüne Drachen sind die gerissensten und heimtückischsten unter den echten Drachen und nutzen Irreführung und Tricks, um die Oberhand über ihre Feinde zu gewinnen. Sie sind übel gelaunt und durch und durch böse und haben ein besonderes Vergnügen daran, die Gutmütigen zu unterwandern und zu verderben. In den uralten Wäldern, die sie durchstreifen, legen grüne Drachen eine Aggressivität an den Tag, bei der es oft weniger um das Territorium als vielmehr darum geht, mit möglichst wenig Aufwand Macht und Reichtum zu erlangen.
+Monster/&DHCustomAncientGreenDragonTitle	<color=#ff0000ff>Uralter Grüner Drache</color>
+Monster/&DHCustomAncientRedDragonDescription	Rote Drachen sind die begehrlichsten unter den echten Drachen und versuchen unermüdlich, ihre Schatzkammern zu vergrößern. Sie sind außergewöhnlich eitel, selbst für Drachen, und ihre Einbildung spiegelt sich in ihrem stolzen Auftreten und ihrer Verachtung für andere Kreaturen wider.
+Monster/&DHCustomAncientRedDragonTitle	<color=#ff0000ff>Alter Roter Drache</color>
+Monster/&DHCustomAncientWhiteDragonDescription	Weiße Drachen sind die kleinsten, am wenigsten intelligenten und animalischsten der Farbdrachen. Sie leben in kalten Gegenden und bevorzugen arktische Gebiete oder eisige Berge. Sie sind bösartige, grausame Reptilien, die von Hunger und Gier getrieben werden.
+Monster/&DHCustomAncientWhiteDragonTitle	<color=#ff0000ff>Alter Weißer Drache</color>
+Monster/&DHCustomArchmageDescription	Erzmagier sind mächtige (und meist recht alte) Zauberwirker, die sich dem Studium der arkanen Künste widmen. Wohlwollende Magier beraten Könige und Königinnen, während böse Magier als Tyrannen herrschen und das Lichdom anstreben. Diejenigen, die weder gut noch böse sind, kapseln sich in abgelegenen Türmen ab, um ihre Magie ungestört auszuüben.
+Monster/&DHCustomArchmageTitle	<color=#ff0000ff>Archmage</color>
+Monster/&DHCustomBalorDescription	Als Gestalten des uralten und schrecklichen Bösen herrschen Balors als Generäle über dämonische Armeen und sehnen sich danach, die Macht an sich zu reißen und alle Kreaturen zu vernichten, die sich ihnen widersetzen.
+Monster/&DHCustomBalorTitle	<color=#ff0000ff>Balor</color>
+Monster/&DHCustomConstructTitanDescription	Massive Konstrukte, die für den Krieg gebaut und aus schwerem Metall gefertigt wurden. Ein unaufhaltsamer Moloch, der die Befehle seines Schöpfers befolgt und ihn beschützt oder angreift, wie sein Schöpfer es verlangt.
+Monster/&DHCustomConstructTitanTitle	<color=#ff0000ff>Mechanisches Konstrukt Titan</color>
+Monster/&DHCustomCouatlDescription	Couatls sind wohlwollende, schlangenartige Wesen mit großem Intellekt und Einsicht. Ihre leuchtend bunten Flügel und ihr sanftes Wesen sprechen für ihre himmlische Herkunft.
+Monster/&DHCustomCouatlTitle	Couatl
+Monster/&DHCustomDevaDescription	Devas sind Engel, die als göttliche Boten oder Agenten auf der materiellen Ebene agieren,
+Monster/&DHCustomDevaTitle	<color=#ff0000ff>Deva</color>
+Monster/&DHCustomDjinniDescription	Die stolzen Dschinns sind Meister der Luft und reiten auf mächtigen Wirbelstürmen, die sie nach Lust und Laune erschaffen und lenken, und die sogar Passagiere befördern können.
+Monster/&DHCustomDjinniTitle	<color=#ff0000ff>Djinni</color>
+Monster/&DHCustomEarthTitanDescription	Wenn sie beschworen werden, manifestieren sich diese älteren Elementare als Wesen mit apokalyptischen Fähigkeiten, Wesen, deren bloße Existenz Zerstörung verspricht.
+Monster/&DHCustomEarthTitanTitle	<color=#ff0000ff>Primordial Earth Titan</color>
+Monster/&DHCustomEfreetiDescription	Diese gewaltigen Genies der Feuerelementarebene sind Meister der Flamme, immun gegen Feuer und in der Lage, es aus einer Laune heraus zu erschaffen.
+Monster/&DHCustomEfreetiTitle	<color=#ff0000ff>Efreeti</color>
+Monster/&DHCustomErinyesDescription	Die Erinyes sind wilde und disziplinierte Krieger. Sie fegen vom Himmel herab und bringen Kreaturen, die ihren Herren Unrecht getan haben, den schnellen Tod.
+Monster/&DHCustomErinyesTitle	<color=#ff0000ff>Erinyes</color>
+Monster/&DHCustomFireTitanDescription	Wenn sie beschworen werden, manifestieren sich diese älteren Elementare als Wesen mit apokalyptischen Fähigkeiten, Wesen, deren bloße Existenz Zerstörung verspricht.
+Monster/&DHCustomFireTitanTitle	<color=#ff0000ff>Primordialer Feuer-Titan</color>
+Monster/&DHCustomGuardianNagaDescription	Die schönen Wächter-Nagas sind weise und gut und schützen heilige Orte und Gegenstände mit magischer Kraft davor, in böse Hände zu fallen. In ihren versteckten Verstecken erforschen sie Zaubersprüche und hecken verworrene Pläne aus, um die bösen Pläne ihrer Feinde zu vereiteln.
+Monster/&DHCustomGuardianNagaTitle	<color=#ff0000ff>Wächter-Naga</color>
+Monster/&DHCustomHornedDevilDescription	Die fliegende Infanterie der höllischen Legionen, gehörnte Teufel, die Befehle buchstabengetreu ausführen.
+Monster/&DHCustomHornedDevilTitle	<color=#ff0000ff>Gehörnter Teufel</color>
+Monster/&DHCustomIceDevilDescription	Die Eisteufel, die die Macht ihrer Vorgesetzten, der Grubengeister, begehren, arbeiten unaufhörlich an ihrer Beförderung, schlachten die Feinde der Neun Höllen ab und holen sich so viele Seelen wie möglich für ihre erzteuflischen Meister.
+Monster/&DHCustomIceDevilTitle	<color=#ff0000ff>Eisteufel</color>
+Monster/&DHCustomLichDescription	Liches sind die Überreste großer Zauberer, die den Untod als Mittel zu ihrer eigenen Erhaltung nutzen. Sie fördern ihre eigene Macht um jeden Preis und haben kein Interesse an den Angelegenheiten der Lebenden, es sei denn, diese Angelegenheiten kommen ihren eigenen in die Quere. Intrigant und wahnsinnig, hungern sie nach längst vergessenem Wissen und den schrecklichsten Geheimnissen.
+Monster/&DHCustomLichTitle	<color=#ff0000ff>Lich</color>
+Monster/&DHCustomNalfeshneeDescription	Der Nalfeshnee ist einer der groteskesten Dämonen - eine korpulente Mischung aus Affe und Wildschwein, doppelt so groß wie ein Mensch, mit gefiederten Flügeln, die zu klein für seinen aufgeblähten Körper scheinen. Hinter diesen brutalen Zügen verbirgt sich eine bemerkenswerte Intelligenz und Gerissenheit.
+Monster/&DHCustomNalfeshneeTitle	<color=#ff0000ff>Nalfeshnee</color>
+Monster/&DHCustomPitFiendDescription	Als unbestrittene Herren der meisten anderen Teufel dienen die Grubengeister den Erzherzögen und Erzherzoginnen der Neun Höllen und führen ihre Wünsche aus. Diese mächtigen Teufel sind die Generäle der Neun Höllen und führen ihre höllischen Legionen in die Schlacht.
+Monster/&DHCustomPitFiendTitle	<color=#ff0000ff>Grubengeister</color>
+Monster/&DHCustomPlanetarDescription	Planetare sind die Waffen der Götter, denen sie dienen, und stellen eine greifbare Darstellung der Macht ihrer Gottheiten dar.
+Monster/&DHCustomPlanetarTitle	<color=#ff0000ff>Planetar</color>
+Monster/&DHCustomRocDescription	Roks sind Einzelgänger, die Jahrhunderte lang leben können. Sie verstecken sich in Nestern aus Bäumen, Zelten, zerbrochenen Schiffen und den Überresten von Karawanen, die sie erbeutet haben, und platzieren diese massiven Gebilde in Bergspalten außerhalb der Reichweite kleinerer Kreaturen.
+Monster/&DHCustomRocTitle	<color=#ff0000ff>Roc</color>
+Monster/&DHCustomSolarDescription	Auf dem Schlachtfeld fliegt das Schwert des Solars von selbst ins Gefecht, und ein einziger Pfeil aus dem Bogen eines Solars kann ein Ziel bei Berührung totschlagen. Die himmlische Macht eines Solars ist so groß, dass selbst Dämonenfürsten vor seinen klangvollen Befehlen zurückschrecken.
+Monster/&DHCustomSolarTitle	<color=#ff0000ff>Solar</color>
+Monster/&DHCustomStormGiantDescription	Sturmriesen sind kontemplative Seher, die an Orten leben, die weit von der sterblichen Zivilisation entfernt sind. Die meisten von ihnen haben blasse purpurgraue Haut und Haare und glitzernde smaragdgrüne Augen.
+Monster/&DHCustomStormGiantTitle	<color=#ff0000ff>Sturmriese</color>
+Monster/&DHCustomTarrasqueDescription	Die legendäre Tarraske ist möglicherweise das gefürchtetste Monster der materiellen Ebene. Es wird allgemein angenommen, dass es nur eine dieser Kreaturen gibt, obwohl niemand vorhersagen kann, wo und wann sie zuschlagen wird. Die Tarrasque ist ein schuppiger Zweibeiner, der fünfzig Fuß hoch und siebzig Fuß lang ist und Hunderte von Tonnen wiegt.
+Monster/&DHCustomTarrasqueTitle	<color=#ff0000ff>Tarraske</color>
+Monster/&DHCustomVampireDescription	Wenn sie in einer endlosen Nacht erwachen, hungern Vampire nach dem Leben, das sie verloren haben, und stillen diesen Hunger, indem sie das Blut der Lebenden trinken. Vampire verabscheuen das Sonnenlicht, denn dessen Berührung verbrennt sie. Sie werfen weder Schatten noch Spiegelungen, und jeder Vampir, der sich unbemerkt unter den Lebenden bewegen will, hält sich in der Dunkelheit und fern von reflektierenden Oberflächen.
+Monster/&DHCustomVampireTitle	<color=#ff0000ff>Vampir</color>
 Monster/&OwlFamiliarDescription	Eule vertraut
 Monster/&OwlFamiliarTitle	Eule
-Monster/&PactOfChainCustomImpDescription	Kobolde sind überall in den unteren Ebenen anzutreffen, wo sie entweder Botengänge für ihre höllischen Herren erledigen, Rivalen ausspionieren oder Sterbliche in die Irre führen und in die Irre führen. Kobolde sind stolz darauf, einem bösen Meister zu dienen, aber man kann sich nicht darauf verlassen, dass sie ihre Aufgaben schnell und effizient erledigen.
+Monster/&PactOfChainCustomImpDescription	Kobolde sind überall in den unteren Ebenen anzutreffen. Sie erledigen entweder Botengänge für ihre höllischen Herren, spionieren Rivalen aus oder führen Sterbliche in die Irre und legen sie in die Irre. Kobolde sind stolz darauf, einem bösen Meister zu dienen, aber man kann sich nicht darauf verlassen, dass sie ihre Aufgaben schnell und effizient erledigen.
 Monster/&PactOfChainCustomImpTitle	Kobold (Pakt der Kette)
 Monster/&PactOfChainCustomPseudodragonDescription	Der schwer fassbare Pseudodrache lebt an den stillen Orten der Welt, in den Höhlen der Bäume und in kleinen Höhlen. Mit seinen rotbraunen Schuppen, seinen Hörnern und seinem mit scharfen Zähnen gefüllten Maul ähnelt der Pseudodrache einem winzigen roten Drachen, doch sein Wesen ist verspielt.
 Monster/&PactOfChainCustomPseudodragonTitle	Pseudodrache (Pakt der Kette)
@@ -1164,168 +1136,174 @@ Monster/&PactOfChainCustomSpriteDescription	Anders als Kobolde geben sich Kobold
 Monster/&PactOfChainCustomSpriteTitle	Sprite (Pakt der Kette)
 Monster/&WitchOwlFamiliarDescription	Eule vertraut
 Monster/&WitchOwlFamiliarTitle	Eule
-MonsterAttack/&DH_AirBlast_AttackDescription	5d6 Donner und stößt 2 Zellen
-MonsterAttack/&DH_AirBlast_AttackTitle	Luftstoß
-MonsterAttack/&DH_AirTitan_Slam_AttackDescriptiond	4d6+6 Prügel & 4d6 Donner
-MonsterAttack/&DH_AirTitan_Slam_AttackTitle	Donnernder Schlag
-MonsterAttack/&DH_AncientDragon_Tail_AttackDescription	2D8+8 Prügeln
-MonsterAttack/&DH_AncientDragon_Tail_AttackTitle	Schwanz-Attacke
-MonsterAttack/&DH_Balor_Longsword_AttackDescription	3D8+8 Hieb & 3D8 Blitz
-MonsterAttack/&DH_Balor_Longsword_AttackTitle	Langschwert-Angriff
-MonsterAttack/&DH_Balor_Whip_AttackDescription	2D6+8 Hieb & 3D6 Feuer
-MonsterAttack/&DH_Balor_Whip_AttackTitle	Peitschenangriff
-MonsterAttack/&DH_ConstructTitan_ForceCannon_AttackDescription	4D8 Kraftschaden und das Ziel wird zu Boden geworfen
-MonsterAttack/&DH_ConstructTitan_ForceCannon_AttackTitle	Macht-Kanone
-MonsterAttack/&DH_ConstructTitan_Slam_AttackDescription	3D12+8 Prügelschaden und das Ziel wird 20 Fuß weit geschleudert
-MonsterAttack/&DH_ConstructTitan_Slam_AttackTitle	Zuschlagen
-MonsterAttack/&DH_TarrasqueSwallowedcondition_Description	Kann nicht handeln und erleidet jede Runde 16d6 Säureschaden. 60 Schadenspunkte in einem einzigen Angriff können den Verschluckten zum Erbrechen zwingen.
-MonsterAttack/&DH_TarrasqueSwallowedcondition_Title	Verschluckt
-MonsterAttack/&DH_TarrasqueSwallowingcondition_Description	60 Schadenspunkte in einem einzigen Angriff können ihn zum Erbrechen zwingen.
-MonsterAttack/&DH_TarrasqueSwallowingcondition_Title	Verschluckende Kreatur
-MonsterAttack/&DH_DamageAcid_Bite_AttackDescription	2D10+9 Durchbohrender Schaden & 2D8 Säureschaden
-MonsterAttack/&DH_DamageAcid_Bite_AttackTitle	Säurebiss-Angriff
-MonsterAttack/&DH_DamageCold_Bite_AttackDescription	2D10+9 Durchbohren & 2D8 Kälteschaden
-MonsterAttack/&DH_DamageCold_Bite_AttackTitle	Eisbiss-Angriff
-MonsterAttack/&DH_DamageFire_Bite_AttackDescription	2D10+9 Durchbohren & 4D6 Feuerschaden
-MonsterAttack/&DH_DamageFire_Bite_AttackTitle	Feuerbiss-Angriff
-MonsterAttack/&DH_DamageLightning_Bite_AttackDescription	2D10+9 Durchbohren & 2D10 Blitzschaden
-MonsterAttack/&DH_DamageLightning_Bite_AttackTitle	Blitz-Biss-Attacke
-MonsterAttack/&DH_DamagePoison_Bite_AttackDescription	2D10+9 Durchbohren & 3D6 Giftschaden
-MonsterAttack/&DH_DamagePoison_Bite_AttackTitle	Giftbiss-Attacke
-MonsterAttack/&DH_EarthTitan_Boulder_AttackDescription	7D10+8 Prügeln
-MonsterAttack/&DH_EarthTitan_Boulder_AttackTitle	Felsbrocken
-MonsterAttack/&DH_EarthTitan_Slam_AttackDescription	4D10+8 Verletzen
-MonsterAttack/&DH_EarthTitan_Slam_AttackTitle	Ground Slam
-MonsterAttack/&DH_FireScimatar_AttackDescription	2d6+6 Hieb & 2d6 Feuer
-MonsterAttack/&DH_FireScimatar_AttackTitle	Scimatar
-MonsterAttack/&DH_FireTitan_Slam_AttackDescription	3d6+5 Verprügeln + 10d6 Feuer
-MonsterAttack/&DH_FireTitan_Slam_AttackTitle	Versengender Hieb
-MonsterAttack/&DH_Fork_AttackDescription	2d8 +6 Durchbohren
-MonsterAttack/&DH_Fork_AttackTitle	Gabelangriff
-MonsterAttack/&DH_Generic_Bite_Attack_No_ExtraDamage_Description	2d10 + 6 Durchbohrender Schaden
-MonsterAttack/&DH_Generic_Bite_Attack_No_ExtraDamage_Title	Biss-Angriff
-MonsterAttack/&DH_Generic_Claw_AttackDescription	2d6 + 9 Hiebschaden
-MonsterAttack/&DH_Generic_Claw_AttackTitle	Klauen-Angriff
-MonsterAttack/&DH_Generic_Stronger_Bite_Attack_No_ExtraDamage_Description	2D10 + 9
-MonsterAttack/&DH_Generic_Stronger_Bite_Attack_No_ExtraDamage_Title	Biss-Angriff
-MonsterAttack/&DH_HornedDevilTail_AttackDescription	1D8 +6 Durchbohren, verursacht eine blutende Wunde
-MonsterAttack/&DH_HornedDevilTail_AttackTitle	Schwanz-Attacke
-MonsterAttack/&DH_HornedDevilTail_Attackcondition_Description	3D6 Nekrotisch, Schutzwirkung wird aufgehoben
-MonsterAttack/&DH_HornedDevilTail_Attackcondition_Title	Blutende Wunde
-MonsterAttack/&DH_HurlFlame_AttackDescription	5d6 Feuer
-MonsterAttack/&DH_HurlFlame_AttackTitle	Flamme schleudern
-MonsterAttack/&DH_Ice_Bite_AttackDescription	2d6+5 Durchbohren & 3d6 Kälte
-MonsterAttack/&DH_Ice_Bite_AttackTitle	Eisbiss
-MonsterAttack/&DH_ImpAttackDescription	1d4 + 3 durchstechender Schaden. Das Ziel muss einen Konstitutionsschutzwurf von DC 11 ablegen und erleidet bei einem misslungenen Schutzwurf 10 (3d6) Giftschaden, bei einem erfolgreichen Schutzwurf halb so viel Schaden.
-MonsterAttack/&DH_ImpAttackTitle	Stachel
-MonsterAttack/&DH_Lich_ParalyzingTouch_AttackDescription	3D6 Kälte und verursacht den Zustand "Gelähmt".
-MonsterAttack/&DH_Lich_ParalyzingTouch_AttackTitle	Lähmende Berührung
-MonsterAttack/&DH_LightningScimatar_AttackDescription	2d6+5 Hiebschaden & 2d6 Blitzschaden
-MonsterAttack/&DH_LightningScimatar_AttackTitle	Scimatar
-MonsterAttack/&DH_NagaBite_AttackDescription	1d8+4 Durchbohren & 15 DC Con Save bis zur Hälfte 10d8 Gift
-MonsterAttack/&DH_NagaBite_AttackTitle	Giftiger Biss
-MonsterAttack/&DH_NagaSpit_AttackDescription	15 DC Con Save auf die Hälfte von 10d8 Gift
-MonsterAttack/&DH_NagaSpit_AttackTitle	Gift spucken
-MonsterAttack/&DH_PitFiend_Bite_AttackDescription	2d6+7 Gift, fügt Giftzustand zu
-MonsterAttack/&DH_PitFiend_Bite_AttackTitle	Biss-Attacke
-MonsterAttack/&DH_PitFiend_Bite_Attackcondition_Description	6D6 Posion wiederkehrend
-MonsterAttack/&DH_PitFiend_Bite_Attackcondition_Title	Vergiftet
-MonsterAttack/&DH_PitFiend_Mace_AttackDescription	2D6+8 Prügel & 6D6 Feuer
-MonsterAttack/&DH_PitFiend_Mace_AttackTitle	Streitkolben-Angriff
-MonsterAttack/&DH_PoisonLongbow_AttackDescription	Langbogen mit Giftpfeilen
-MonsterAttack/&DH_PoisonLongbow_AttackTitle	Gift-Langbogen
-MonsterAttack/&DH_PoisonLongsword_AttackDescription	1d10+4 Hieb & 3d8 Gift
-MonsterAttack/&DH_PoisonLongsword_AttackTitle	Gift-Langschwert
-MonsterAttack/&DH_PseudodragonAttackDescription	1d4 Durchbohrender Schaden: Das Ziel muss einen Konstitutionsschutzwurf von DC 10 bestehen oder wird für 1 Minute vergiftet. Das vergiftete Ziel wird für die gleiche Dauer bewusstlos, oder bis es Schaden nimmt oder eine andere Kreatur eine Aktion durchführt, um es wachzurütteln.
-MonsterAttack/&DH_PseudodragonAttackTitle	Stachel
-MonsterAttack/&DH_QuasitAttackDescription	1d4 + 3 durchstechender Schaden, und das Ziel muss einen Rettungswurf mit DC 10 Konstitution bestehen oder 5 (2d4) Giftschaden erleiden und 1 Minute lang vergiftet sein.
-MonsterAttack/&DH_QuasitAttackTitle	Klaue
-MonsterAttack/&DH_RadiantLongbow_AttackDescription	2D6+8 Durchbohren & 6D8 Strahlenschaden
-MonsterAttack/&DH_RadiantLongbow_AttackTitle	Tötender Langbogen.
-MonsterAttack/&DH_RadiantLongsword_AttackDescription	4D6+8 Hieb- und 6D8 Strahlenschaden
-MonsterAttack/&DH_RadiantLongsword_AttackTitle	Strahlendes Großschwert
-MonsterAttack/&DH_Roc_Beak_AttackDescription	4d8+9 Durchbohren
-MonsterAttack/&DH_Roc_Beak_AttackTitle	Schnabel
-MonsterAttack/&DH_Roc_Talons_AttackDescription	4d6+9 Hieb und das Ziel wird von Roc gepackt und gefesselt
-MonsterAttack/&DH_Roc_Talons_AttackTitle	Krallen
-MonsterAttack/&DH_SpriteAttackDescription	1d4 Durchbohrender Schaden: Das Ziel muss einen Konstitutionsschutzwurf von DC 10 bestehen oder wird 1 Minute lang vergiftet. Das vergiftete Ziel wird für die gleiche Dauer bewusstlos, oder bis es Schaden nimmt oder eine andere Kreatur eine Aktion durchführt, um es wachzurütteln.
-MonsterAttack/&DH_SpriteAttackTitle	Feenbogen
-MonsterAttack/&DH_Tarrasque_Bite_Description	4d12 + 10 durchdringender Schaden und das Ziel muss eine Geschicklichkeitsprobe bestehen oder gepackt werden (Flucht DC 20).
-MonsterAttack/&DH_Tarrasque_Bite_Title	Biss
-MonsterAttack/&DH_Tarrasque_BiteCondition_Description	Bis dieser Griff endet, ist das Ziel gefesselt.
-MonsterAttack/&DH_Tarrasque_BiteCondition_Title	Gefangen von Tarrasque
-MonsterAttack/&DH_Tarrasque_Claw_Description	4d8 + 10 Hiebschaden
-MonsterAttack/&DH_Tarrasque_Claw_Title	Klaue
-MonsterAttack/&DH_Tarrasque_Horn_Description	4d10 + 10) Durchschlagschaden
-MonsterAttack/&DH_Tarrasque_Horn_Title	Horn
-MonsterAttack/&DH_Tarrasque_Tail_Description	4d6 + 10 Schaden durch Hiebe. Handelt es sich bei dem Ziel um eine Kreatur, so muss diese einen DC 20 Stärkewurf bestehen oder sie wird am Boden liegend getroffen.
-MonsterAttack/&DH_Tarrasque_Tail_Title	Schwanz
-MonsterAttack/&DHCouatlBiteAttackDescription	Durchbohrender Schaden, und das Ziel muss einen Rettungswurf der Konstitution (DC 13) bestehen oder für 24 Stunden vergiftet werden. Bis dieses Gift endet, ist das Ziel bewusstlos.
+MonsterAttack/&DHAirBlastAttackDescription	5d6 Donner und stößt 2 Zellen
+MonsterAttack/&DHAirBlastAttackTitle	Luftstoß
+MonsterAttack/&DHAirTitanSlamAttackDescription	4d6+6 Prügel & 4d6 Donner
+MonsterAttack/&DHAirTitanSlamAttackTitle	Donnernder Schlag
+MonsterAttack/&DHAncientDragonTailAttackDescription	2D8+8 Prügeln
+MonsterAttack/&DHAncientDragonTailAttackTitle	Schwanz-Attacke
+MonsterAttack/&DHBalorLongswordAttackDescription	3D8+8 Hieb & 3D8 Blitz
+MonsterAttack/&DHBalorLongswordAttackTitle	Langschwert-Angriff
+MonsterAttack/&DHBalorWhipAttackDescription	2D6+8 Hieb & 3D6 Feuer
+MonsterAttack/&DHBalorWhipAttackTitle	Peitschenangriff
+MonsterAttack/&DHConstructTitanForceCannonAttackDescription	4D8 Kraftschaden und das Ziel wird zu Boden geworfen
+MonsterAttack/&DHConstructTitanForceCannonAttackTitle	Macht-Kanone
+MonsterAttack/&DHConstructTitanSlamAttackDescription	3D12+8 Prügelschaden und das Ziel wird 20 Fuß weit geschleudert
+MonsterAttack/&DHConstructTitanSlamAttackTitle	Zuschlagen
+MonsterAttack/&DHCouatlBiteAttackDescription	Durchbohrender Schaden und das Ziel muss einen Konstitutions-Erhaltungswurf von DC 13 bestehen oder wird für 24 Stunden vergiftet. Bis dieses Gift endet, ist das Ziel bewusstlos.
 MonsterAttack/&DHCouatlBiteAttackTitle	Biss
-MonsterPower/&DH_AirTitan_Gale_PowerDescription	4D10 Donner und Stoßen bei misslungenem Schutzwurf
-MonsterPower/&DH_AirTitan_Gale_PowerTitle	Schreiender Orkan
-MonsterPower/&DH_AirTitan_Lightning_PowerDescription	3D10 Blitzschlag im Gebiet
-MonsterPower/&DH_AirTitan_Lightning_PowerTitle	Blitzschlag
-MonsterPower/&DH_AncientDragon_Wing_PowerDescription	Drachen können mit ihren Flügeln so viel Wind erzeugen, dass sie die meisten Humanoiden wegschleudern und zu Boden werfen.
-MonsterPower/&DH_AncientDragon_Wing_PowerTitle	Flügelangriff
-MonsterPower/&DH_Balor_FireAura_PowerDescription	3D6 Feuer
-MonsterPower/&DH_Balor_FireAura_PowerTitle	Feuer-Aura
-MonsterPower/&DH_BlindingGaze_PowerDescription	DC15 Konstitutionsschutz oder Blindheit, bis eine geringere Wiederherstellung verwendet wird
-MonsterPower/&DH_BlindingGaze_PowerTitle	Blendender Blick
-MonsterPower/&DH_DamageAcid_Breath_PowerDescription	15D8 Säure
-MonsterPower/&DH_DamageAcid_Breath_PowerTitle	Saurer Atem
-MonsterPower/&DH_DamageCold_Breath_PowerDescription	16D8 Kälte
-MonsterPower/&DH_DamageCold_Breath_PowerTitle	Eis-Atem
-MonsterPower/&DH_DamageFire_Breath_PowerDescription	26D6 Feuer
-MonsterPower/&DH_DamageFire_Breath_PowerTitle	Feuer-Atem
-MonsterPower/&DH_DamageLightning_Breath_PowerDescription	16D10 Blitz
-MonsterPower/&DH_DamageLightning_Breath_PowerTitle	Blitz-Atem
-MonsterPower/&DH_DamagePoison_Breath_PowerDescription	22D6 Gift
-MonsterPower/&DH_DamagePoison_Breath_PowerTitle	Giftiger Atem
-MonsterPower/&DH_DisintegratingBeam_PowerDescription	6D10 Strahlenschaden und das Ziel wird auf 0 HP desintegriert
-MonsterPower/&DH_DisintegratingBeam_PowerTitle	Auflösungsstrahl
-MonsterPower/&DH_EarthTitan_Earthquake_PowerDescription	4D10 Prügeln
-MonsterPower/&DH_EarthTitan_Earthquake_PowerTitle	Erdbeben
-MonsterPower/&DH_ErinyesParry_PowerDescription	+3 AC
-MonsterPower/&DH_ErinyesParry_PowerTitle	Parieren
-MonsterPower/&DH_FireTitan_Aura_PowerDescription	Jede Kreatur im Umkreis von 30 Fuß erleidet 35 (10d6) Feuerschaden, und entflammbare Gegenstände in der Aura, die nicht getragen werden, entzünden sich.
-MonsterPower/&DH_FireTitan_Aura_PowerTitle	Feuer-Titan-Aura
-MonsterPower/&DH_FireTitan_Retaliate_DamageAffinity_Description	Eine Kreatur erleidet 35 (10d6) Feuerschaden, wenn sie Maegera berührt oder mit einem Nahkampfangriff trifft, während sie sich in einem Umkreis von 10 Fuß befindet.
-MonsterPower/&DH_FireTitan_Retaliate_DamageAffinity_Title	Feuer-Titan Vergeltung
-MonsterPower/&DH_FireTitan_Retaliate_PowerDescription	Eine Kreatur erleidet 35 (10d6) Feuerschaden, wenn sie Maegera berührt oder mit einem Nahkampfangriff in einem Umkreis von 10 Fuß von ihr getroffen wird.
-MonsterPower/&DH_FireTitan_Retaliate_PowerTitle	Feuer-Titan Vergeltung
-MonsterPower/&DH_IlluminatingCrystals_PowerDescription	Jede Kreatur, die sich beim Wirken des Zaubers in der Nähe befindet, wird ebenfalls in Licht gehüllt. Für die Dauer des Zaubers verbreiten Gegenstände und betroffene Kreaturen ein schwaches Licht in einem Umkreis von 10 Fuß.
-MonsterPower/&DH_IlluminatingCrystals_PowerTitle	Erleuchtende Kristalle
-MonsterPower/&DH_IncreasedGravityZone_AttackDescription	Der Titan fokussiert die Zone in einem Umkreis von 20 Fuß um ihn. Jede Kreatur in einem 20-Fuß-Radius und einem 20-Fuß-Zylinder, der auf diesen Punkt zentriert ist, muss einen Rettungswurf mit DC 26 (Geschicklichkeit) bestehen oder erleidet 33 (6d10) Hiebschaden, fällt auf den Boden und ist eine Runde lang gefesselt.
-MonsterPower/&DH_IncreasedGravityZone_AttackTitle	Zone mit erhöhter Schwerkraft
-MonsterPower/&DH_Lich_DisruptLife_PowerDescription	6D6 Nekrotisch
-MonsterPower/&DH_Lich_DisruptLife_PowerTitle	Leben zerstören
-MonsterPower/&DH_SearingBurst_PowerDescription	4D6 Feuer & 4D6 Strahlen
-MonsterPower/&DH_SearingBurst_PowerTitle	Versengender Ausbruch
-MonsterPower/&DH_SummonCreature_Air_Elemental_PowerDescription	Beschwört 1 Luftelementar
-MonsterPower/&DH_SummonCreature_Air_Elemental_PowerTitle	Großes Elementar beschwören
-MonsterPower/&DH_SummonCreature_Earth_Elemental_PowerDescription	Beschwört 1 Erd-Elementar
-MonsterPower/&DH_SummonCreature_Earth_Elemental_PowerTitle	Großes Elementar beschwören
-MonsterPower/&DH_SummonCreature_Erinyes_PowerDescription	Ein Erinyes wird zum Kampf herbeigerufen
-MonsterPower/&DH_SummonCreature_Erinyes_PowerTitle	Diener beschwören: Erinyes
-MonsterPower/&DH_SummonCreature_Fire_Elemental_PowerDescription	Beschwört 1 Feuer-Elementar
-MonsterPower/&DH_SummonCreature_Fire_Elemental_PowerTitle	Großes Elementar beschwören
-MonsterPower/&DH_SummonCreature_Fire_Jester_PowerDescription	Beschwört 2 Feuernarren
-MonsterPower/&DH_SummonCreature_Fire_Jester_PowerTitle	Kleinere Elementare beschwören
-MonsterPower/&DH_SummonCreature_Nalfeshnee_PowerDescription	Ein Nalfeshnee wird zum Kampf herbeigerufen
-MonsterPower/&DH_SummonCreature_Nalfeshnee_PowerTitle	Diener beschwören: Nalfeshnee
-MonsterPower/&DH_SummonCreature_SkarnGhoul_PowerDescription	Beschwört 1 Skarn-Ghoul
-MonsterPower/&DH_SummonCreature_SkarnGhoul_PowerTitle	Geringere Elementare beschwören
-MonsterPower/&DH_SummonCreature_WindSnake_PowerDescription	Beschwört 4 Windschlangen
-MonsterPower/&DH_SummonCreature_WindSnake_PowerTitle	Geringere Elementare beschwören
-MonsterPower/&DH_SummonCreature_Wolves_PowerDescription	Der Vampir ruft auf magische Weise 3d6 Wölfe herbei
-MonsterPower/&DH_SummonCreature_Wolves_PowerTitle	Kinder der Nacht
-MonsterPower/&DH_TarrasqueReflectiveCarapace_Immunity_Description	Jedes Mal, wenn die Tarraske von einem magischen Raketenzauber, einem Linienzauber oder einem Zauber, der einen Distanzangriffswurf erfordert, getroffen wird, ist die Tarraske davon unberührt.
-MonsterPower/&DH_TarrasqueReflectiveCarapace_Immunity_Title	Reflektierender Panzer
-MonsterPower/&DH_TarrasqueSwallowPowerDescription	Die Tarraske führt einen Bissangriff gegen eine große oder kleinere Kreatur aus, die sie gerade packt. Wenn der Angriff trifft, wird das Ziel verschluckt und der Griff endet.
-MonsterPower/&DH_TarrasqueSwallowPowerTitle	Verschlucken
-MonsterPower/&DH_VampireCharmPowerDescription	Der Vampir zielt auf einen Humanoiden, den er im Umkreis von 30 Fuß sehen kann. Das Ziel muss einen Weisheitswurf DC 17 gegen diese Magie bestehen oder von dem Vampir verzaubert werden.
-MonsterPower/&DH_VampireCharmPowerTitle	Verzaubern
+MonsterAttack/&DHDamageAcidBiteAttackDescription	2D10+9 Durchbohrender Schaden & 2D8 Säureschaden
+MonsterAttack/&DHDamageAcidBiteAttackTitle	Angriff mit Säurebiss
+MonsterAttack/&DHDamageColdBiteAttackDescription	2D10+9 Durchbohren und 2D8 Kälteschaden
+MonsterAttack/&DHDamageColdBiteAttackTitle	Eisbiss-Angriff
+MonsterAttack/&DHDamageFireBiteAttackDescription	2D10+9 Durchbohren & 4D6 Feuerschaden
+MonsterAttack/&DHDamageFireBiteAttackTitle	Feuerbiss-Angriff
+MonsterAttack/&DHDamageLightningBiteAttackDescription	2D10+9 Durchbohren & 2D10 Blitzschaden
+MonsterAttack/&DHDamageLightningBiteAttackTitle	Blitz-Biss-Attacke
+MonsterAttack/&DHDamagePoisonBiteAttackDescription	2D10+9 Durchbohren & 3D6 Giftschaden
+MonsterAttack/&DHDamagePoisonBiteAttackTitle	Giftbiss-Attacke
+MonsterAttack/&DHEarthTitanBoulderAttackDescription	7D10+8 Hiebschaden
+MonsterAttack/&DHEarthTitanBoulderAttackTitle	Felsbrocken
+MonsterAttack/&DHEarthTitanSlamAttackDescription	4D10+8 Verletzen
+MonsterAttack/&DHEarthTitanSlamAttackTitle	Ground Slam
+MonsterAttack/&DHFireScimatarAttackDescription	2d6+6 Hieb & 2d6 Feuer
+MonsterAttack/&DHFireScimatarAttackTitle	Scimatar
+MonsterAttack/&DHFireTitanSlamAttackDescription	3d6+5 Hieb + 10d6 Feuer
+MonsterAttack/&DHFireTitanSlamAttackTitle	Versengender Hieb
+MonsterAttack/&DHForkAttackDescription	2d8 +6 Durchbohren
+MonsterAttack/&DHForkAttackTitle	Gabelangriff
+MonsterAttack/&DHGenericBiteAttackNoExtraDamageDescription	2d10 + 6 Durchbohrender Schaden
+MonsterAttack/&DHGenericBiteAttackNoExtraDamageTitle	Biss-Angriff
+MonsterAttack/&DHGenericClawAttackDescription	2d6 + 9 Hiebschaden
+MonsterAttack/&DHGenericClawAttackTitle	Klauen-Angriff
+MonsterAttack/&DHGenericStrongerBiteAttackNoExtraDamageDescription	2D10 + 9
+MonsterAttack/&DHGenericStrongerBiteAttackNoExtraDamageTitle	Biss-Angriff
+MonsterAttack/&DHHornedDevilTailAttackconditionDescription	3D6 Nekrotisch, Schutzwirkung wird aufgehoben
+MonsterAttack/&DHHornedDevilTailAttackconditionTitle	Blutende Wunde
+MonsterAttack/&DHHornedDevilTailAttackDescription	1D8 +6 Durchbohren, verursacht den Zustand Blutende Wunde
+MonsterAttack/&DHHornedDevilTailAttackTitle	Schwanz-Attacke
+MonsterAttack/&DHHurlFlameAttackDescription	5d6 Feuer
+MonsterAttack/&DHHurlFlameAttackTitle	Flamme schleudern
+MonsterAttack/&DHIceBiteAttackDescription	2d6+5 Durchbohren & 3d6 Kälte
+MonsterAttack/&DHIceBiteAttackTitle	Eisbiss
+MonsterAttack/&DHImpAttackDescription	1d4 + 3 durchstechender Schaden. Das Ziel muss einen Konstitutionsschutzwurf von DC 11 ablegen und erleidet bei einem misslungenen Schutzwurf 10 (3d6) Giftschaden, bei einem erfolgreichen Schutzwurf halb so viel Schaden.
+MonsterAttack/&DHImpAttackTitle	Stachel
+MonsterAttack/&DHLichParalyzingTouchAttackDescription	3D6 Kälte und verursacht den Zustand "Gelähmt".
+MonsterAttack/&DHLichParalyzingTouchAttackTitle	Lähmende Berührung
+MonsterAttack/&DHLightningScimatarAttackDescription	2d6+5 Hiebschaden & 2d6 Blitzschaden
+MonsterAttack/&DHLightningScimatarAttackTitle	Scimatar
+MonsterAttack/&DHNagaBiteAttackDescription	1d8+4 Durchbohren & 15 DC Con Save bis zur Hälfte 10d8 Gift
+MonsterAttack/&DHNagaBiteAttackTitle	Giftiger Biss
+MonsterAttack/&DHNagaSpitAttackDescription	15 DC Con Save auf die Hälfte von 10d8 Gift
+MonsterAttack/&DHNagaSpitAttackTitle	Gift spucken
+MonsterAttack/&DHPitFiendBiteAttackconditionDescription	6D6 Posion wiederkehrend
+MonsterAttack/&DHPitFiendBiteAttackconditionTitle	Vergiftet
+MonsterAttack/&DHPitFiendBiteAttackDescription	2d6+7 Gift, fügt Giftzustand zu
+MonsterAttack/&DHPitFiendBiteAttackTitle	Biss-Angriff
+MonsterAttack/&DHPitFiendMaceAttackDescription	2D6+8 Niederstrecken & 6D6 Feuer
+MonsterAttack/&DHPitFiendMaceAttackTitle	Streitkolben-Angriff
+MonsterAttack/&DHPoisonLongbowAttackDescription	Langbogen mit Giftpfeilen
+MonsterAttack/&DHPoisonLongbowAttackTitle	Gift-Langbogen
+MonsterAttack/&DHPoisonLongswordAttackDescription	1d10+4 Hieb & 3d8 Gift
+MonsterAttack/&DHPoisonLongswordAttackTitle	Gift-Langschwert
+MonsterAttack/&DHPseudodragonAttackDescription	1d4 Durchbohrender Schaden: Das Ziel muss einen Konstitutionsschutzwurf von DC 10 bestehen oder wird für 1 Minute vergiftet. Das vergiftete Ziel wird für die gleiche Dauer bewusstlos, oder bis es Schaden nimmt oder eine andere Kreatur eine Aktion durchführt, um es wachzurütteln.
+MonsterAttack/&DHPseudodragonAttackTitle	Stachel
+MonsterAttack/&DHQuasitAttackDescription	1d4 + 3 durchstechender Schaden, und das Ziel muss einen Rettungswurf mit DC 10 Konstitution bestehen oder 5 (2d4) Giftschaden erleiden und 1 Minute lang vergiftet sein.
+MonsterAttack/&DHQuasitAttackTitle	Klaue
+MonsterAttack/&DHRadiantLongbowAttackDescription	2D6+8 Durchbohren & 6D8 Strahlenschaden
+MonsterAttack/&DHRadiantLongbowAttackTitle	Tötender Langbogen.
+MonsterAttack/&DHRadiantLongswordAttackDescription	4D6+8 Hieb- und 6D8 Strahlenschaden
+MonsterAttack/&DHRadiantLongswordAttackTitle	Strahlendes Großschwert
+MonsterAttack/&DHRocBeakAttackDescription	4d8+9 Durchbohren
+MonsterAttack/&DHRocBeakAttackTitle	Schnabel
+MonsterAttack/&DHRocTalonsAttackDescription	4d6+9 Hieb und das Ziel wird von Roc gepackt und gefesselt
+MonsterAttack/&DHRocTalonsAttackTitle	Krallen
+MonsterAttack/&DHSpriteAttackDescription	1d4 Durchbohrender Schaden: Das Ziel muss einen Konstitutionsschutzwurf von DC 10 bestehen oder wird 1 Minute lang vergiftet. Das vergiftete Ziel wird für die gleiche Dauer bewusstlos, oder bis es Schaden nimmt oder eine andere Kreatur eine Aktion durchführt, um es wachzurütteln.
+MonsterAttack/&DHSpriteAttackTitle	Feenbogen
+MonsterAttack/&DHTarrasqueBiteconditionDescription	Bis zum Ende dieses Haltegriffs ist das Ziel gefesselt.
+MonsterAttack/&DHTarrasqueBiteconditionTitle	Gefangen von Tarrasque
+MonsterAttack/&DHTarrasqueBiteDescription	4d12 + 10 durchdringender Schaden und das Ziel muss eine Geschicklichkeitsprüfung bestehen oder gefesselt werden (Entkommen DC 20).
+MonsterAttack/&DHTarrasqueBiteTitle	Biss
+MonsterAttack/&DHTarrasqueClawDescription	4d8 + 10 Hiebschaden
+MonsterAttack/&DHTarrasqueClawTitle	Klaue
+MonsterAttack/&DHTarrasqueHornDescription	4d10 + 10) Durchbohrungsschaden
+MonsterAttack/&DHTarrasqueHornTitle	Horn
+MonsterAttack/&DHTarrasqueSwallowedconditionDescription	Kann nicht handeln und erleidet jede Runde 16d6 Säureschaden. 60 Schadenspunkte in einem einzigen Angriff können den Verschluckten zum Erbrechen zwingen.
+MonsterAttack/&DHTarrasqueSwallowedconditionTitle	Verschluckt
+MonsterAttack/&DHTarrasqueSwallowingconditionDescription	60 Schadenspunkte in einem einzigen Angriff können den Verschlinger zum Erbrechen zwingen.
+MonsterAttack/&DHTarrasqueSwallowingconditionTitle	Verschluckende Kreatur
+MonsterAttack/&DHTarrasqueTailDescription	4d6 + 10 Knüppelschaden. Handelt es sich bei dem Ziel um eine Kreatur, muss sie einen DC-20-Stärke-Erhaltungswurf bestehen oder sie wird auf den Boden geworfen.
+MonsterAttack/&DHTarrasqueTailTitle	Schwanz
+MonsterPower/&DHAirTitanGalePowerDescription	4D10 Donner und Stoßen bei misslungener Rettung
+MonsterPower/&DHAirTitanGalePowerTitle	Kreischender Orkan
+MonsterPower/&DHAirTitanLightningPowerDescription	3D10 Blitze im Gebiet
+MonsterPower/&DHAirTitanLightningPowerTitle	Blitzschlag
+MonsterPower/&DHAirTitanLightningStormPowerDescription	6d8 Blitzschlag in weitem Gebiet
+MonsterPower/&DHAirTitanLightningStormPowerTitle	Blitzsturm
+MonsterPower/&DHAncientDragonWingPowerDescription	Drachen können mit ihren Flügeln so viel Wind erzeugen, dass sie die meisten Humanoiden wegschleudern und zu Boden werfen.
+MonsterPower/&DHAncientDragonWingPowerTitle	Flügel-Attacke
+MonsterPower/&DHBalorFireAuraPowerDescription	3D6 Feuer
+MonsterPower/&DHBalorFireAuraPowerTitle	Feuer-Aura
+MonsterPower/&DHBlindingGazePowerDescription	DC15 Konstitutionsschutz oder Blindheit, bis eine geringere Wiederherstellung verwendet wird
+MonsterPower/&DHBlindingGazePowerTitle	Blendender Blick
+MonsterPower/&DHDamageAcidBreathPowerDescription	15D8 Säure
+MonsterPower/&DHDamageAcidBreathPowerTitle	Saurer Atem
+MonsterPower/&DHDamageColdBreathPowerDescription	16D8 Kälte
+MonsterPower/&DHDamageColdBreathPowerTitle	Eis-Atem
+MonsterPower/&DHDamageFireBreathPowerDescription	26D6 Feuer
+MonsterPower/&DHDamageFireBreathPowerTitle	Feuer-Atem
+MonsterPower/&DHDamageLightningBreathPowerDescription	16D10 Blitz
+MonsterPower/&DHDamageLightningBreathPowerTitle	Blitz-Atem
+MonsterPower/&DHDamagePoisonBreathPowerDescription	22D6 Gift
+MonsterPower/&DHDamagePoisonBreathPowerTitle	Giftiger Atem
+MonsterPower/&DHDisintegratingBeamPowerDescription	6D10 Strahlenschaden und das Ziel wird auf 0 HP desintegriert
+MonsterPower/&DHDisintegratingBeamPowerTitle	Auflösungsstrahl
+MonsterPower/&DHEarthTitanEarthquakePowerDescription	4D10 Prügeln
+MonsterPower/&DHEarthTitanEarthquakePowerTitle	Erdbeben
+MonsterPower/&DHErinyesParryPowerDescription	+3 AC
+MonsterPower/&DHErinyesParryPowerTitle	Parieren
+MonsterPower/&DHFireTitanAuraPowerDescription	Jede Kreatur im Umkreis von 30 Fuß erleidet 35 (10d6) Feuerschaden, und entflammbare Gegenstände in der Aura, die nicht getragen werden, entzünden sich.
+MonsterPower/&DHFireTitanAuraPowerTitle	Feuer-Titan-Aura
+MonsterPower/&DHFireTitanRetaliateDamageAffinityDescription	Eine Kreatur erleidet 35 (10d6) Feuerschaden, wenn sie Maegera berührt oder mit einem Nahkampfangriff trifft, während sie sich in einem Umkreis von 10 Fuß befindet.
+MonsterPower/&DHFireTitanRetaliateDamageAffinityTitle	Feuer-Titan Vergeltung
+MonsterPower/&DHFireTitanRetaliatePowerDescription	Eine Kreatur erleidet 35 (10d6) Feuerschaden, wenn sie Maegera berührt oder mit einem Nahkampfangriff in einem Umkreis von 10 Fuß von ihr getroffen wird.
+MonsterPower/&DHFireTitanRetaliatePowerTitle	Feuer-Titan vergelten
+MonsterPower/&DHGenericLightningAttackPowerDescription	12D8
+MonsterPower/&DHGenericLightningAttackPowerTitle	Blitzschlag
+MonsterPower/&DHIlluminatingCrystalsPowerDescription	Jede Kreatur, die sich zum Zeitpunkt des Zaubers in der Nähe befindet, wird ebenfalls in Licht gehüllt. Für die Dauer des Zaubers verbreiten Gegenstände und betroffene Kreaturen ein schwaches Licht in einem Umkreis von 10 Fuß.
+MonsterPower/&DHIlluminatingCrystalsPowerTitle	Erleuchtende Kristalle
+MonsterPower/&DHIncreasedGravityZoneAttackPowerDescription	Der Titan fokussiert die Zone in einem Umkreis von 20 Fuß um ihn. Jede Kreatur in einem 20-Fuß-Radius und einem 20-Fuß-Zylinder, der auf diesen Punkt zentriert ist, muss einen Rettungswurf mit DC 26 (Geschicklichkeit) bestehen oder erleidet 33 (6d10) Hiebschaden, fällt auf den Boden und ist eine Runde lang gefesselt.
+MonsterPower/&DHIncreasedGravityZoneAttackPowerTitle	Zone mit erhöhter Schwerkraft
+MonsterPower/&DHLichDisruptLifePowerDescription	6D6 Nekrotisch
+MonsterPower/&DHLichDisruptLifePowerTitle	Leben zerstören
+MonsterPower/&DHSearingBurstPowerDescription	4D6 Feuer & 4D6 Strahlen
+MonsterPower/&DHSearingBurstPowerTitle	Versengender Ausbruch
+MonsterPower/&DHSummonCreatureAirElementalPowerDescription	Beschwört 1 Luftelementar
+MonsterPower/&DHSummonCreatureAirElementalPowerTitle	Großes Elementar beschwören
+MonsterPower/&DHSummonCreatureEarthElementalPowerDescription	Beschwört 1 Erd-Elementar
+MonsterPower/&DHSummonCreatureEarthElementalPowerTitle	Großes Elementar beschwören
+MonsterPower/&DHSummonCreatureErinyesPowerDescription	Ein Erinyes wird zum Kampf herbeigerufen
+MonsterPower/&DHSummonCreatureErinyesPowerTitle	Diener beschwören: Erinyes
+MonsterPower/&DHSummonCreatureFireElementalPowerDescription	Beschwört 1 Feuer-Elementar
+MonsterPower/&DHSummonCreatureFireElementalPowerTitle	Großes Elementar beschwören
+MonsterPower/&DHSummonCreatureFireJesterPowerDescription	Beschwört 2 Feuernarren
+MonsterPower/&DHSummonCreatureFireJesterPowerTitle	Geringere Elementare beschwören
+MonsterPower/&DHSummonCreatureLesserConstructPowerDescription	Kleines Konstrukt beschwören
+MonsterPower/&DHSummonCreatureLesserConstructPowerTitle	Beschwört 1 Konstrukt
+MonsterPower/&DHSummonCreatureNalfeshneePowerDescription	Ein Nalfeshnee wird zum Kampf herbeigerufen
+MonsterPower/&DHSummonCreatureNalfeshneePowerTitle	Diener beschwören: Nalfeshnee
+MonsterPower/&DHSummonCreatureSkarnGhoulPowerDescription	Beschwört 1 Skarn-Ghoul
+MonsterPower/&DHSummonCreatureSkarnGhoulPowerTitle	Beschwörung: Kleines Elementar
+MonsterPower/&DHSummonCreatureWindSnakePowerDescription	Beschwört 4 Windschlangen
+MonsterPower/&DHSummonCreatureWindSnakePowerTitle	Geringere Elementare beschwören
+MonsterPower/&DHSummonCreatureWolvesPowerDescription	Der Vampir ruft auf magische Weise 3d6 Wölfe herbei
+MonsterPower/&DHSummonCreatureWolvesPowerTitle	Kinder der Nacht
+MonsterPower/&DHTarrasqueReflectiveCarapaceImmunityDescription	Jedes Mal, wenn die Tarraske von einem magischen Raketenzauber, einem Linienzauber oder einem Zauber, der einen Distanzangriffswurf erfordert, getroffen wird, ist die Tarraske davon unberührt.
+MonsterPower/&DHTarrasqueReflectiveCarapaceImmunityTitle	Reflektierender Panzer
+MonsterPower/&DHTarrasqueSwallowPowerDescription	Die Tarraske führt einen Bissangriff gegen eine große oder kleinere Kreatur aus, die sie gerade packt. Wenn der Angriff trifft, wird das Ziel verschluckt und der Griff endet.
+MonsterPower/&DHTarrasqueSwallowPowerTitle	Verschlucken
+MonsterPower/&DHVampireCharmPowerDescription	Der Vampir zielt auf einen Humanoiden, den er im Umkreis von 30 Fuß sehen kann. Das Ziel muss einen Weisheitswurf DC 17 gegen diese Magie bestehen oder vom Vampir verzaubert werden.
+MonsterPower/&DHVampireCharmPowerTitle	Verzaubern
 Power/&AncientForestLifeSapDescription	Wenn du einen Feind mit einem Angriffswurf mit Zaubern triffst (PB-mal pro Tag), fügst du deinen Cha-Modifer an Schaden zu und heilst die Hälfte dieses Betrags, wenn du weniger als die Hälfte deiner Trefferpunkte hast.
 Power/&AncientForestLifeSapTitle	Lebenssaft
 Power/&AncientForestRootedPowerDescription	Baumartige Ranken wachsen aus deinen Füßen und graben sich in den Boden. Deine Geschwindigkeit wird auf 0 reduziert, und du erhältst einen Vorteil auf alle Schutzwürfe, die dich schubsen, ziehen oder auf den Boden werfen.
@@ -1344,7 +1322,7 @@ Power/&ToadKingCroakDescription	Du sendest eine Schallwelle aus, die Schaden ver
 Power/&ToadKingCroakTitle	Krächzen
 Power/&ToadKingGraspingTongueDescription	Feinde zu sich heranziehen
 Power/&ToadKingGraspingTongueTitle	Greifende Zunge
-Power/&ToadKingHallucinogenicToxinPowerDescription	Dein Körper hat sich so verändert, dass er resistent gegen Gifte wird und ein Abwehrgift produziert, wenn er in Nahkampfreichweite angegriffen wird (bis zu PB-mal pro Tag). Wenn der Angreifer einen Con-Save nicht besteht, wird er zu luzinogenem Gift, bis er angegriffen oder anderweitig unterbrochen wird.
+Power/&ToadKingHallucinogenicToxinPowerDescription	Dein Körper hat sich so verändert, dass er resistent gegen Gifte ist und ein Abwehrgift produziert, wenn er in Nahkampfreichweite angegriffen wird (bis zu PB-mal pro Tag). Wenn der Angreifer einen Con-Save nicht besteht, wird er zu luzinogenem Gift, bis er angegriffen oder anderweitig unterbrochen wird.
 Power/&ToadKingHallucinogenicToxinPowerTitle	Halluzinogenes Toxin
 Power/&ToadKingSwallowDescription	Versuch, einen mittelgroßen oder kleineren Gegner zu verschlucken. Bei einem misslungenen Str-Save wird das Monster verschluckt und erleidet pro Runde 3D6 Säureschaden. Endet, wenn der Krötenzauberer mit 15 oder mehr Schaden in einem einzigen Angriff getroffen wird.
 Power/&ToadKingSwallowTitle	Verschlucken
@@ -1355,9 +1333,8 @@ Power/&UrPriestHalfLifeTitle	Halbes Leben
 Power/&UrPriestRadiantWardDescription	Als Aktion erhältst du vorübergehend eine Anzahl von Trefferpunkten, die dem Doppelten deiner Hexenmeisterstufe entspricht.
 Power/&UrPriestRadiantWardTitle	Strahlender Wächter
 Power/&UrPriestSpellSiphonDescription	Du lernst, wie du eine größere Quelle der Magie in Kombination mit deiner normalen Kraftreserve anzapfen kannst. Als Aktion kannst du einen Channel Divinity aufwenden, um einen verbrauchten Einsatz deines Mystic Arcanum der Stufe 6 wiederherzustellen.
-Power/&UrPriestSpellSiphonTitle	Zauber Siphon
-Pugilist	Schaden eines Kämpfers
-Race/&BolgrifRaceDescription	Bolgrifs sind Halbgiganten, die im eisigen Hochland von Solasta leben. Sie sind gerissen, vorsichtig und zurückgezogen, misstrauen den meisten Humanoiden außer Elfen und leben lieber fernab der Zivilisation in eng verbundenen Clans. Wenn sie in die Schlacht gezwungen werden, zeigen die Bolgrifs beeindruckende Fähigkeiten im Umgang mit Waffen und Naturmagie.
+Power/&UrPriestSpellSiphonTitle	Zauberspruch Siphon
+Race/&BolgrifRaceDescription	Bolgrifs sind Halbgiganten, die im eisigen Hochland von Solasta leben. Sie sind gerissen, vorsichtig und zurückgezogen, misstrauen den meisten Humanoiden außer Elfen und ziehen es vor, fernab der Zivilisation in eng verbundenen Clans zu leben. Wenn sie in die Schlacht gezwungen werden, zeigen die Bolgrifs beeindruckende Fähigkeiten im Umgang mit Waffen und Naturmagie.
 Race/&BolgrifRaceTitle	Bolgrif
 Race/&GnomeRaceDescription	Ein ständiges Brummen und geschäftiges Treiben durchdringt die Verstecke und Viertel, in denen die Gnome ihre eng verbundenen Gemeinschaften bilden. Das Brummen wird von lauteren Geräuschen unterbrochen: das Knirschen knirschender Zahnräder hier, eine kleine Explosion dort, ein Aufschrei der Überraschung oder des Triumphs und vor allem Lachanfälle. Gnome haben Freude am Leben und genießen jeden Moment des Erfindens, Erforschens, Forschens, Erschaffens und Spielens.
 Race/&GnomeRaceTitle	Waldzwerg
@@ -1387,19 +1364,11 @@ Reaction/&SpendPowerCounterStrikePowerReactTitle	Gegenschlag
 Reaction/&SpendPowerCounterStrikePowerTitle	Gegenschlag
 Reaction/&SpendPowerInspirePowerDescription	Gib einen Gambit-Würfel aus und inspiriere deinen Verbündeten, um ihm 1d6+2 temp hp zu geben.
 Reaction/&SpendPowerInspirePowerTitle	Inspirieren
-Reaction/&SpendPowerKnockDownPowerDescription	Gib einen Gambit-Würfel aus und befähige deinen Angriff, zusätzlich 1d6+2 Schaden durch Niederschlagen zu verursachen und den Gegner bis zum Beginn seines nächsten Zuges zu Boden zu werfen, wenn er einen Stärke-Save gegen 8 + deine Stärke + Fertigkeit nicht besteht.
+Reaction/&SpendPowerKnockDownPowerDescription	Gib einen Gambit-Würfel aus und ermächtige deinen Angriff, um zusätzlich 1d6+2 Schaden durch Niederschlagen zu verursachen und den Gegner bis zum Beginn seines nächsten Zuges niederzuschlagen, wenn er einen Stärke-Save gegen 8 + deine Stärke + Fertigkeit nicht besteht.
 Reaction/&SpendPowerKnockDownPowerReactDescription	Gib einen Gambit-Würfel aus und befähige deinen Angriff, zusätzlich 1d6+2 Hiebschaden zu verursachen und den Gegner bis zum Beginn seines nächsten Zuges niederzustrecken, wenn er einen Stärke-Save gegen 8 + deine Stärke + Fertigkeit nicht besteht.
 Reaction/&SpendPowerKnockDownPowerReactTitle	Umhauen
 Reaction/&SpendPowerKnockDownPowerTitle	Niederschlagen
-Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageDescription	Addiere deinen Weisheitsmodifikator zu deinem Schadenswurf.
-Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageReactDescription	Addiere deinen Weisheitsmodifikator zu deinem Schadenswurf.
-Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageReactTitle	Feind-Töter
-Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageTitle	Feind-Töter
-Reaction/&UseZSPowerRangerFoeSlayerAttackDescription	Addiere deinen Weisheitsmodifikator zu deinem Angriffswurf.
-Reaction/&UseZSPowerRangerFoeSlayerAttackReactTitle	Feind-Töter
-Reaction/&UseZSPowerRangerFoeSlayerAttackTitle	Feindlicher Töter
-Reaction/&UseZSPowerRangerFoeSlayerDamageReactDescription	Addiere deinen Weisheitsmodifikator zu deinem Angriffswurf.
-RestActivity/&ZSRespecDescription	Diesen Helden neu aufwerten
+RestActivity/&ZSRespecDescription	Diesen Helden wieder aufwerten
 RestActivity/&ZSRespecTitle	Wiederherstellen
 RestActivity/&ZSSorcerousRestorationDescription	Erhalte während einer kurzen Ruhepause 4 Zauberpunkte zurück.
 RestActivity/&ZSSorcerousRestorationTitle	Hexerische Wiederherstellung
@@ -1411,14 +1380,14 @@ Rules/&DisadvantageOnAttackByEnemyTitle	Durchgerüttelt
 Rules/&ExtraDamageOnAttackConditionDescription	Zusätzlicher Schaden durch Blitzspeer
 Rules/&ExtraDamageOnAttackConditionTitle	Statisch geschockt
 Rules/&HalfCoverShieldAttributeDescription	Verbündete erhalten +2AC innerhalb von 10ft
-Rules/&HalfCoverShieldAttributeTitle	Kuppel mit halber Deckung
+Rules/&HalfCoverShieldAttributeTitle	Halbe Deckung - Kuppel
 Rules/&HalfCoverShieldConditionDescription	+2AC
 Rules/&HalfCoverShieldConditionTitle	Geschützt durch Kuppel
 Rules/&LightningSpearPowerDescription	Blitzschaden 1D6 + 1D6
 Rules/&LightningSpearPowerTitle	Blitzspeer
 Rules/&SelfDestructionConditionDescription	Selbstzerstörung
 Rules/&SelfDestructionConditionTitle	Selbstzerstörung
-Rules/&ThunderStruckBalancingAdvantageDescription	Ausbalancieren von "Blitzschlag", so dass es nur bei Verbündeten wirkt
+Rules/&ThunderStruckBalancingAdvantageDescription	Ausbalancieren von "Donnerschlag", so dass es nur noch bei Verbündeten wirkt
 Rules/&ThunderStruckBalancingAdvantageTitle	Verspottet
 Rules/&ThunderStruckDescription	Nachteil bei Angriffen auf Verbündete des Wächters
 Rules/&ThunderStruckTitle	Donnerschlag(Abgelenkt)
@@ -1434,44 +1403,36 @@ Screen/&ShadowTouchedSpellTitle	Schatten
 Screen/&SpellSlotsUsedLongDescription	Du hast {0} Lang-Ruhe-Slot(s) dieser Stufe verbraucht.
 Screen/&SpellSlotsUsedShortDescription	Du hast {0} Kurzpausenplätze dieser Stufe verbraucht.
 Screen/&SpellSlotsUsedShortLongDescription	Du hast {0} kurzzeitige(n) und {1} langzeitige(n) Slot(s) dieser Stufe verbraucht.
-Screen/&WitchSpellDescription	Zauberspruch als Hexe bekannt
+Screen/&WitchSpellDescription	Zauberspruch bekannt als Hexe
 Screen/&WitchSpellHeader	Hexe
 Screen/&WitchSpellTitle	Hexe
-Sorceror/&ZSSorcerousRestorationDescription	Erhalte während einer kurzen Ruhepause 4 Zauberei-Punkte zurück.
+Sorceror/&ZSSorcerousRestorationDescription	Erhalte während einer kurzen Pause 4 Zauberpunkte zurück.
 Sorceror/&ZSSorcerousRestorationTitle	Hexerische Wiederherstellung
 Spell/&AcidClawsDescription	Führe einen tödlichen Angriff mit deinen geschärften Klauen aus.
 Spell/&AcidClawsTitle	Blutige Klauen
-Spell/&AHPactMarkAdditionalDamageDescription	Zusätzliche 1d6 Schaden an einer paktmarkierten Kreatur.
+Spell/&AHPactMarkAdditionalDamageDescription	Fügt einer paktmarkierten Kreatur zusätzlich 1d6 Schaden zu.
 Spell/&AHPactMarkAdditionalDamageTitle	Paktmarkierungsschaden
 Spell/&AHPactMarkMarkedByPactConditionDescription	Diese Kreatur wurde durch einen Pakt markiert und erleidet zusätzlichen Schaden durch die Markierung.
 Spell/&AHPactMarkMarkedByPactConditionTitle	Markiert durch einen Pakt
 Spell/&AHPactMarkPactMarkConditionDescription	Du kannst andere Kreaturen mit einem Paktzeichen markieren und ihnen mit physischen Angriffen oder Zaubern zusätzlich 1d6 Schaden zufügen.
 Spell/&AHPactMarkPactMarkConditionTitle	Paktzeichen
-Spell/&AHPactMarkSpellDescription	Du legst ein Zeichen aus deinem Pakt auf eine Kreatur, die du innerhalb von 90 Fuß sehen kannst. Es wird dir gegenüber verwundbar und erleidet zusätzlich 1d6 Schaden, wenn du es mit einem Angriff (physisch oder mit einem Zauber) triffst. Dieser Schaden entspricht dem Typ des Angriffs, der es trifft.
+Spell/&AHPactMarkSpellDescription	Du legst ein Zeichen aus deinem Pakt auf eine Kreatur, die du innerhalb von 90 Fuß sehen kannst. Es wird dir gegenüber verwundbar und erleidet zusätzlich 1d6 Schaden, wenn du es mit einem Angriff (körperlich oder mit einem Zauber) triffst. Dieser Schaden entspricht dem Typ des Angriffs, der es trifft.
 Spell/&AHPactMarkSpellTitle	Paktzeichen
-Spell/&AirBlastDescription	Feuert einen konzentrierten Luftstoß auf euer Ziel.
+Spell/&AirBlastDescription	Feuere einen konzentrierten Luftstoß auf dein Ziel.
 Spell/&AirBlastTitle	Luftstoß
-Spell/&BurstOfRadianceDescription	Erzeuge einen brillanten Blitz aus schimmerndem Licht, der allen Feinden um dich herum Schaden zufügt.
+Spell/&BurstOfRadianceDescription	Erzeuge einen brillanten Blitz aus schimmerndem Licht, der allen Gegnern um dich herum Schaden zufügt.
 Spell/&BurstOfRadianceTitle	Strahlende Explosion
 Spell/&CJDivineWordDescription	Du sprichst ein göttliches Wort, durchdrungen von der Macht, die die Welt zu Beginn der Schöpfung geformt hat. Wähle eine beliebige Anzahl von Kreaturen, die du in Reichweite sehen kannst. Jede Kreatur, die dich hören kann, muss einen Charisma-Sicherungswurf machen. Bei einem misslungenen Schutzwurf erleidet die Kreatur einen Effekt, der von ihren aktuellen Trefferpunkten abhängt:\n50 Trefferpunkte oder weniger: betäubt für 1 Minute\n40 Trefferpunkte oder weniger: betäubt und geblendet für 10 Minuten\n30 Trefferpunkte oder weniger: geblendet, betäubt und betäubt für 1 Stunde\n20 Trefferpunkte oder weniger: Ungeachtet seiner aktuellen Trefferpunkte wird ein Himmlischer, ein Elementarer, ein Fey oder ein Unhold, der seine Schutzparade nicht besteht, in seine Ursprungsebene zurückgedrängt (wenn er nicht schon dort ist) und kann 24 Stunden lang nicht in seine aktuelle Ebene zurückkehren, es sei denn, er spricht einen Wunschzauber. \n
 Spell/&CJDivineWordTitle	Göttliches Wort
-Spell/&DH_CastSpell_Lich_Description	Lich-Zauber-Fähigkeit
-Spell/&DH_CastSpell_Lich_Title	Lich-Zauber-Fähigkeit
-Spell/&DH_DominateMonster_Spell_Description	Du versuchst, eine Kreatur, die du in Reichweite siehst, zu betören. Es muss einen Weisheitswurf ablegen oder für die Dauer des Zaubers von dir verzaubert werden.
-Spell/&DH_DominateMonster_Spell_Title	Monster beherrschen
-Spell/&DH_FingerOfDeath_Spell_Description	Das Ziel muss einen Schutzwurf auf Konstitution ablegen. Bei einem misslungenen Schutzwurf erleidet es 7d8 + 30 nekrotischen Schaden, bei einem erfolgreichen Schutzwurf halb so viel Schaden.
-Spell/&DH_FingerOfDeath_Spell_Title	Finger des Todes
-Spell/&DH_PowerWordKill_Spell_Description	Du sprichst ein Machtwort, das eine Kreatur, die du in Reichweite siehst, zum sofortigen Tod zwingen kann. Wenn die Kreatur, die du auswählst, 100 Trefferpunkte oder weniger hat, stirbt sie. Andernfalls hat der Zauber keine Wirkung.
-Spell/&DH_PowerWordKill_Spell_Title	Machtwort Töten
-Spell/&DH_PowerWordStun_Spell_Description	Du sprichst ein Machtwort, das den Geist einer Kreatur, die du in Reichweite siehst, überwältigen kann und sie sprachlos macht. Wenn das Ziel 150 Trefferpunkte oder weniger hat, wird es betäubt. Andernfalls hat der Zauber keine Wirkung.
-Spell/&DH_PowerWordStun_Spell_Title	Machtwort Betäubung
-Spell/&DH_ReverseGravity_Spell_Description	Dieser Zauber kehrt die Schwerkraft in einem Zylinder mit einem Radius von 50 Fuß und einer Höhe von 100 Fuß um, der auf einen Punkt in Reichweite zentriert ist.
-Spell/&DH_ReverseGravity_Spell_Title	Schwerkraft umkehren
-Spell/&DH_TimeStop_Spell_Description	Du hältst den Fluss der Zeit für alle außer dir kurzzeitig an. Für andere Kreaturen vergeht keine Zeit, während du 1d4 + 1 Umdrehung hintereinander machst, während der du dich wie gewohnt bewegen und Aktionen ausführen kannst.
-Spell/&DH_TimeStop_Spell_Title	Zeit anhalten
 Spell/&DHAnimalShapesSpellDescription	Wähle eine beliebige Anzahl williger Kreaturen, die du in Reichweite sehen kannst. Du verwandelst jedes Ziel in die Form eines großen oder kleineren Tieres mit einem Schwierigkeitsgrad von 4 oder niedriger.
 Spell/&DHAnimalShapesSpellTitle	Tiergestalten
-Spell/&DHConjureCelestialSpellDescription	Du beschwörst einen Himmelskörper der Schwierigkeitsstufe 4 oder niedriger, der in einem unbesetzten Raum erscheint, den du in Reichweite sehen kannst. Das Himmelswesen verschwindet, wenn es auf 0 Trefferpunkte fällt oder wenn der Zauber endet. Der Himmelskörper ist dir und deinen Begleitern für die Dauer des Zaubers freundlich gesinnt.
+Spell/&DHCastSpellArchMageDescription	Erzmagier-Zauberfähigkeit
+Spell/&DHCastSpellArchMageTitle	Zaubernde Fähigkeit des Erzmagiers
+Spell/&DHCastSpellGuardianNagaDescription	Zaubernde Fähigkeit des Erzmagiers
+Spell/&DHCastSpellGuardianNagaTitle	Zauberfähigkeit Erzmagier
+Spell/&DHCastSpellLichDescription	Lich-Zauberfähigkeit
+Spell/&DHCastSpellLichTitle	Lich-Zauberfähigkeit
+Spell/&DHConjureCelestialSpellDescription	Du beschwörst einen Himmelskörper der Schwierigkeitsstufe 4 oder niedriger, der in einem unbesetzten Raum erscheint, den du in Reichweite sehen kannst. Der Himmelsmensch verschwindet, wenn er auf 0 Trefferpunkte fällt oder wenn der Zauber endet. Der Himmelskörper ist dir und deinen Begleitern für die Dauer des Zaubers freundlich gesinnt.
 Spell/&DHConjureCelestialSpellTitle	Himmelswesen beschwören (Couatl)
 Spell/&DHDominateMonsterSpellDescription	Du versuchst, eine Kreatur zu betören, die du in Reichweite siehst. Es muss einen Weisheitswurf bestehen oder für die Dauer des Zaubers von dir verzaubert werden.
 Spell/&DHDominateMonsterSpellTitle	Monster beherrschen
@@ -1480,8 +1441,8 @@ Spell/&DHFeeblemindSpellTitle	Feeblemind
 Spell/&DHFingerOfDeathSpellDescription	Das Ziel muss einen Schutzwurf auf Konstitution ablegen. Bei einem misslungenen Schutzwurf erleidet es 7d8 + 30 nekrotischen Schaden, bei einem erfolgreichen Schutzwurf halb so viel Schaden.
 Spell/&DHFingerOfDeathSpellTitle	Finger des Todes (kein Zombie)
 Spell/&DHForesightSpellDescription	Du berührst eine willige Kreatur und gewährst ihr eine begrenzte Fähigkeit, in die unmittelbare Zukunft zu sehen. Für die Dauer der Berührung kann das Ziel nicht überrascht werden und hat Vorteil bei Angriffswürfen, Fähigkeitsprüfungen und Schutzwürfen. Außerdem haben andere Kreaturen für diese Zeit einen Nachteil bei Angriffswürfen gegen das Ziel.
-Spell/&DHForesightSpellTitle	Vorausschauende Sicht
-Spell/&DHHolyAuraSpellDescription	Göttliches Licht strömt von dir aus und verschmilzt in einem Radius von 30 Fuß um dich herum zu einem sanften Leuchten. Kreaturen deiner Wahl, die sich in diesem Radius befinden, wenn du diesen Zauber sprichst, werfen in einem Umkreis von 5 Fuß ein schwaches Licht ab und haben Vorteil bei allen Schutzwürfen. Andere Kreaturen haben bis zum Ende des Zaubers Nachteil bei Angriffswürfen gegen sie.
+Spell/&DHForesightSpellTitle	Voraussicht
+Spell/&DHHolyAuraSpellDescription	Göttliches Licht strömt von dir aus und verschmilzt in einem Radius von 30 Fuß um dich herum zu einem sanften Leuchten. Kreaturen deiner Wahl, die sich in diesem Radius befinden, wenn du diesen Zauber sprichst, werfen in einem Umkreis von 1,5 Metern ein schwaches Licht ab und haben Vorteil bei allen Schutzwürfen; andere Kreaturen haben bis zum Ende des Zaubers Nachteil bei Angriffswürfen gegen sie.
 Spell/&DHHolyAuraSpellTitle	Heilige Aura
 Spell/&DHIncendiaryCloudSpellDescription	Eine wirbelnde Rauchwolke, die von weißglühender Glut durchzogen ist, erscheint in einer Kugel mit einem Radius von 20 Fuß, die auf einen Punkt in Reichweite zentriert ist. Die Wolke breitet sich um Ecken herum aus und wird stark verdunkelt. Sie hält so lange an, bis ein Wind von mittlerer oder höherer Geschwindigkeit (mindestens 10 Meilen pro Stunde) sie vertreibt. Wenn die Wolke erscheint, muss jede Kreatur in ihr einen Rettungswurf auf Geschicklichkeit machen. Bei einem misslungenen Schutzwurf erleidet die Kreatur 10d8 Feuerschaden, bei einem erfolgreichen Schutzwurf die Hälfte des Schadens. Eine Kreatur muss diesen Rettungswurf auch machen, wenn sie den Bereich des Zaubers zum ersten Mal in einem Zug betritt oder ihren Zug dort beendet. Die Wolke bewegt sich 10 Fuß direkt von dir weg in eine Richtung, die du zu Beginn jedes deiner Züge wählst.
 Spell/&DHIncendiaryCloudSpellTitle	Feurige Wolke
@@ -1507,10 +1468,10 @@ Spell/&DHSunBurstSpellDescription	Leuchtendes Sonnenlicht blitzt in einem Radius
 Spell/&DHSunBurstSpellTitle	Sonnenaufgang
 Spell/&DHTimeStopSpellDescription	Du hältst den Fluss der Zeit für alle außer dir kurz an. Für andere Kreaturen vergeht keine Zeit, während du 1d4 + 1 Umdrehung hintereinander machst, während der du dich wie gewohnt bewegen und Aktionen ausführen kannst.
 Spell/&DHTimeStopSpellTitle	Zeit anhalten
-Spell/&DHWeirdSpellDescription	Indem du aus den tiefsten Ängsten einer Gruppe von Kreaturen schöpfst, erschaffst du in ihren Köpfen illusorische Kreaturen, die nur für sie sichtbar sind. Jede Kreatur, die sich in einem Radius von 30 Fuß um einen Punkt deiner Wahl innerhalb der Reichweite befindet, muss einen Rettungswurf in Weisheit ablegen. Bei einem misslungenen Schutzwurf wird die Kreatur für die Dauer des Wurfes verängstigt. Die Illusion beschwört die tiefsten Ängste der Kreatur herauf und manifestiert ihre schlimmsten Albträume als unerbittliche Bedrohung. Am Ende jeder Runde der verängstigten Kreatur muss sie einen Weisheitswurf bestehen oder 4d10 psychischen Schaden erleiden. Bei einem erfolgreichen Schutzwurf endet der Zauber für die Kreatur.
+Spell/&DHWeirdSpellDescription	Indem du auf die tiefsten Ängste einer Gruppe von Kreaturen zurückgreifst, erschaffst du in ihren Köpfen illusorische Kreaturen, die nur für sie sichtbar sind. Jede Kreatur, die sich in einem Umkreis von 30 Fuß um einen Punkt deiner Wahl innerhalb der Reichweite befindet, muss einen Rettungswurf in Weisheit ablegen. Bei einem misslungenen Schutzwurf wird die Kreatur für die Dauer des Wurfes verängstigt. Die Illusion beschwört die tiefsten Ängste der Kreatur herauf und manifestiert ihre schlimmsten Albträume als unerbittliche Bedrohung. Am Ende jeder Runde der verängstigten Kreatur muss sie einen Weisheitswurf bestehen oder 4d10 psychischen Schaden erleiden. Bei einem erfolgreichen Schutzwurf endet der Zauber für die Kreatur.
 Spell/&DHWeirdSpellTitle	Unheimlich
 Spell/&EarthTremorDescription	Du schlägst auf den Boden und entfesselst ein Beben seismischer Kraft, das Erde, Felsen und Sand hochschleudert.
-Spell/&EarthTremorTitle	Erderschütterung
+Spell/&EarthTremorTitle	Beben der Erde
 Spell/&EldritchBlastDescription	Ein Strahl aus knisternder Energie rast auf eine Kreatur in Reichweite zu. Führe einen Fernkampfzauberangriff gegen das Ziel aus. Bei einem Treffer erleidet das Ziel 1d10 Kraftschaden.\nDer Zauber erzeugt mehr als einen Strahl, wenn du höhere Stufen erreichst: zwei Strahlen auf Stufe 5, drei Strahlen auf Stufe 11 und vier Strahlen auf Stufe 17. Du kannst die Strahlen auf dasselbe Ziel oder auf verschiedene Ziele richten. Führe für jeden Strahl einen eigenen Angriffswurf durch.
 Spell/&EldritchBlastTitle	Eldritch-Stoß
 Spell/&EldritchOrbDescription	Du schleuderst einen Ball aus eldritischer Energie auf eine Kreatur oder ein Objekt in Reichweite.
@@ -1536,51 +1497,34 @@ Spell/&MinorLifestealDescription	Du entziehst einer feindlichen Kreatur, die du 
 Spell/&MinorLifestealTitle	Geringer Lebenserhalt
 Spell/&PetalStormDescription	Wähle einen unbesetzten 15 Fuß großen Luftwürfel, den du in Reichweite sehen kannst. Eine elementare Kraft wirbelnder Winde erscheint in diesem Würfel und hält für die Dauer des Zaubers an. Die Wolke verdunkelt ihr Gebiet stark. Jede Kreatur, die den Sturm zum ersten Mal in einem Zug betritt oder ihren Zug dort beginnt, muss einen Schutzwurf auf Stärke ablegen. Bei einem misslungenen Schutzwurf erleidet die Kreatur 3d4 Hiebschaden. Als Bonusaktion kannst du den Sturm bis zu 30 Fuß in eine beliebige Richtung bewegen.
 Spell/&PetalStormTitle	Blütenblattsturm
-Spell/&ProtectThresholdDescription	Indem du arkane Siegel entlang seiner Grenzen zeichnest, kannst du eine Tür, ein Fenster oder ein anderes Portal vor dem Eindringen schützen. Für die Dauer des Sturms schleicht eine unsichtbare eldritchische Kreatur durch das geschützte Portal. Jede Kreatur, die versucht, das Portal zu durchqueren, muss einen Weisheitswurf ablegen oder erleidet 4d6 psychischen Schaden bzw. die Hälfte davon bei einem erfolgreichen Schutz.
+Spell/&ProtectThresholdDescription	Indem du arkane Siegel entlang seiner Grenzen zeichnest, kannst du eine Tür, ein Fenster oder ein anderes Portal vor dem Eindringen schützen. Für die Dauer des Sturms schleicht eine unsichtbare eldritchische Kreatur durch das geschützte Portal. Jede Kreatur, die versucht, das Portal zu durchqueren, muss einen Weisheitswurf ablegen oder erleidet 4d6 psychischen Schaden, bei einem erfolgreichen Schutz halb so viel.
 Spell/&ProtectThresholdTitle	Schutz der Schwelle
 Spell/&RepellingBlastDescription	Ein Strahl aus knisternder Energie rast auf eine Kreatur in Reichweite zu. Führe einen Fernkampfzauberangriff gegen das Ziel aus. Bei einem Treffer erleidet das Ziel 1d10 Kraftschaden. (Wenn du eine Kreatur mit Eldritch Blast triffst, kannst du sie bis zu 10 Fuß in einer geraden Linie von dir wegstoßen.)
-Spell/&RepellingBlastTitle	Eldritch-Schlag (Abstoßen)
-Spell/&ThunderStrikeDescription	Erzeuge einen donnernden Schallstoß, der allen um dich herum Schaden zufügt.
+Spell/&RepellingBlastTitle	Eldritch-Blast (Abstoßen)
+Spell/&ThunderStrikeDescription	Erzeuge einen donnernden Schallstoß, der alle um dich herum schädigt.
 Spell/&ThunderStrikeTitle	Schallsturm
 Spell/&WinterBreathDescription	Erzeuge einen kalten Windstoß, der deine Feinde frösteln lässt und sie zu Boden wirft.
 Spell/&WinterBreathTitle	Atem des Winters
 Spell/&WitchFamiliarDescription	Du erhältst die Dienste eines Vertrauten.
 Spell/&WitchFamiliarTitle	Hexen-Vertrauter
-SpellList/&ElementalistSpellsListDescription	Elementarmagier ZauberListe Beschreibung
-SpellList/&ElementalistSpellsListTitle	Elementarmagier-Zauberspruchliste
-SpellList/&RiftWalkerSpellsListDescription	Spaltwandler-ZaubersprücheListe Beschreibung
-SpellList/&RiftWalkerSpellsListTitle	Spaltwandler-ZaubersprücheListe
-SpellList/&SpellListClassWarlockDescription	Zauberspruch-Liste Hexenmeister
-SpellList/&SpellListClassWarlockTitle	Hexenmeister-Zauberliste
-SpellList/&SpellListTinkererTitle	Zauberliste für die Klasse des Tüftlers
-SpellList/&SpellListTinkererDescription	Zauberliste für die Klasse des Tüftlers
+SpellList/&ClassWarlockSpellListDescription	Hexenmeister-Zauberspruch-Liste
+SpellList/&ClassWarlockSpellListTitle	Hexenmeister-Zauberspruch-Liste
+SpellList/&ElementalistSpellsListDescription	Elementarmagier-Zauberspruch-Liste
+SpellList/&ElementalistSpellsListTitle	Elementarmagier-ZauberspruchListe
+SpellList/&RiftWalkerSpellsListDescription	RiftWalker-ZauberspruchListe
+SpellList/&RiftWalkerSpellsListTitle	Spaltwandler-ZauberspruchListe
+SpellList/&SpellListTinkererDescription	Tinkerer-Zauberspruchliste
+SpellList/&SpellListTinkererTitle	Kesselflicker-Zauberspruch-Liste
 Stage/&IdentityMorphotypeEyeHeader	Augen-Stil
-Stage/&SubclassSelectionStageCovenDescription	Hexenzirkel
-Stage/&SubclassSelectionStageCovenFeaturesDescription	Hexenzirkel
-Stage/&SubclassSelectionStageCovenFeaturesHeader	Eigenschaften des Hexenzirkels
-Stage/&SubclassSelectionStageCovenFeaturesTitle	Hexenzirkel
-Stage/&SubclassSelectionStageCovenHeader	Wählen Sie einen Coven
-Stage/&SubclassSelectionStageCovenTitle	Hexenzirkel
-Stage/&SubclassSelectionStagePatronDescription	Ein Hexenmeister ist durch einen Pakt mit einem jenseitigen Wesen definiert. Manchmal ist die Beziehung zwischen Hexenmeister und Beschützer ähnlich wie die zwischen einem Kleriker und einer Gottheit, obwohl die Wesen, die als Beschützer dienen, keine Götter sind
-Stage/&SubclassSelectionStagePatronFeatures	Andersweltliche Schutzherren Merkmale
-Stage/&SubclassSelectionStagePatronHeader	Hexenmeister - andere Schutzherren
-Stage/&SubclassSelectionStagePatronTitle	Andere wortgewandte Beschützer
-Stage/&SubclassSelectionStageSpecialistDescription	Beschreibung Es gibt eine Vielzahl von Spezialisierungen bei den Tinkern, darunter die Herstellung von Elixieren als Zaubertrankbrauer, die Herstellung von Explosionen als Sprengmeister und der Umgang mit magischen Waffen als Waffenschmied.
-Stage/&SubclassSelectionStageSpecialistFeatures	Spezialisten-Merkmale
-Stage/&SubclassSelectionStageSpecialistHeader	Spezialisierungen
-Stage/&SubclassSelectionStageSpecialistNoneDescription	Spezialist Keine Beschreibung
-Stage/&SubclassSelectionStageSpecialistTitle	Spezialisierung wählen
-Subclass/&AbilityAffinityRogueConArtistDescription	Vorteil bei Fähigkeitsproben auf Überredung, Täuschung, Leistung und Geschicklichkeit.
+Subclass/&AbilityAffinityRogueConArtistDescription	Vorteil bei Fähigkeitsprüfungen mit Überredung, Täuschung, Leistung und Geschicklichkeit.
 Subclass/&AbilityAffinityRogueConArtistTitle	Manipulativ
-Subclass/&AHWarlockSubclassFiendPactDescription	Du hast einen Pakt mit einem Unhold aus den niederen Ebenen der Existenz geschlossen, einem Wesen, dessen Ziele böse sind, auch wenn du dich gegen diese Ziele wehrst. Solche Wesen wollen alle Dinge verderben oder zerstören, auch dich. Zu den Unholden, die mächtig genug sind, um einen Pakt zu schließen, gehören Dämonenfürsten wie Demogorgon, Orcus, Fraz'Urb-luu und Baphomet; Erzteufel wie Asmodeus, Dispater, Mephistopheles und Belial; Grubengeister und Balors, die besonders mächtig sind, sowie Ultroloths und andere Fürsten der Yugoloths.
-Subclass/&AHWarlockSubclassFiendPactTitle	Ungeheuer-Pakt
 Subclass/&AHWarlockSubclassSoulBladePactDescription	Du hast einen Pakt mit einer empfindungsfähigen Waffe geschlossen, der du im Gegenzug für Macht Seelen zuführst.
 Subclass/&AHWarlockSubclassSoulBladePactTitle	Seelenklingen-Pakt
 Subclass/&ArcaneFighterAdditionalActionDescription	Du kannst einen Zauber wirken, nachdem du einen Gegner mit deinen Waffenangriffen besiegt hast.
 Subclass/&ArcaneFighterAdditionalActionTitle	Kampf mit Zaubern
 Subclass/&ArcaneFighterBonusWeaponDamageDescription	Einmal pro Runde verursachen deine Waffenangriffe zusätzlich 1d8 Schaden.
 Subclass/&ArcaneFighterBonusWeaponDamageTitle	Magiebetriebene Angriffe
-Subclass/&ArtificerAlchemistDescription	Du bist auf Tränke, Verstärker, Heilung und Zaubersprüche spezialisiert.
+Subclass/&ArtificerAlchemistDescription	Du hast dich auf Tränke, Verstärker, Heilung und Zaubersprüche spezialisiert.
 Subclass/&ArtificerAlchemistTitle	Zaubertrank-Macher
 Subclass/&ArtificerArtileristCannonsDescription	Du stellst eine Reihe von Kanonen her, die du im Kampf als Bonusaktion aktivieren kannst.
 Subclass/&ArtificerArtileristCannonsTitle	Kanonen
@@ -1621,17 +1565,17 @@ Subclass/&BarbarianPathOfTheLightIlluminatedConditionDescription	Abgelenkt durch
 Subclass/&BarbarianPathOfTheLightIlluminatedConditionTitle	Beleuchtet
 Subclass/&BarbarianPathOfTheLightIlluminatedDisadvantageDescription	Nachteil bei jedem Angriffswurf, der nicht gegen den Barbaren des Pfades des Lichts gerichtet ist.
 Subclass/&BarbarianPathOfTheLightIlluminatedPreventInvisibilityDescription	Kann nicht unsichtbar werden.
-Subclass/&BarbarianPathOfTheLightIlluminatingBurstDescription	In der Runde, in der du in Wut gerätst, kannst du bis zu drei Gegner im Umkreis von 30 Fuß erleuchten. Sie müssen einen Konstitutionsschutzwurf bestehen (DC gleich 8 + dein Fertigkeitsbonus + dein Konstitutionsmodifikator) oder 4d6 Strahlungsschaden erleiden und 1 Minute lang von deinem Erleuchtenden Schlag erleuchtet werden. Eine auf diese Weise erleuchtete Kreatur macht am Ende jeder ihrer Runden einen weiteren Konstitutions-Erhaltungswurf. Bei einem erfolgreichen Schutz endet der Effekt für sie.
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstDescription	In der Runde, in der du in Wut gerätst, kannst du bis zu drei Feinde im Umkreis von 30 Fuß erleuchten. Sie müssen einen Konstitutionsschutzwurf bestehen (DC gleich 8 + dein Fertigkeitsbonus + dein Konstitutionsmodifikator) oder 4d6 Strahlungsschaden erleiden und 1 Minute lang von deinem Erleuchtenden Schlag erleuchtet werden. Eine auf diese Weise erleuchtete Kreatur macht am Ende jeder ihrer Runden einen weiteren Konstitutions-Erhaltungswurf. Bei einem erfolgreichen Schutz endet der Effekt für sie.
 Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerDescription	Bis zu drei Feinde erleiden 4d6 Strahlungsschaden und werden von deinem Erleuchtenden Schlag erleuchtet. (Konstitutions-Sicherungswurf negiert.)
 Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerTitle	Illuminierender Stoß
 Subclass/&BarbarianPathOfTheLightIlluminatingBurstTitle	Erleuchtender Ansturm
 Subclass/&BarbarianPathOfTheLightIlluminatingStrikeDescription	Während du wütest, erleidet die erste Kreatur, die du mit einem Angriff in deinem Zug triffst, zusätzlich 1d6 Strahlenschaden und wird bis zum Beginn deines nächsten Zuges magisch erleuchtet. Außerdem hat die Kreatur bei jedem Angriffswurf, der nicht gegen dich gerichtet ist, einen Nachteil und kann sich nicht unsichtbar machen.
-Subclass/&BarbarianPathOfTheLightIlluminatingStrikeImprovementDescription	Der zusätzliche Schaden, der durch Erleuchtender Stoß verursacht wird, erhöht sich auf 2d6.
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeImprovementDescription	Der zusätzliche Schaden, den der Erleuchtende Schlag verursacht, erhöht sich auf 2d6.
 Subclass/&BarbarianPathOfTheLightIlluminatingStrikeImprovementTitle	Verbesserung von Leuchtendes Schlagen
 Subclass/&BarbarianPathOfTheLightIlluminatingStrikeTitle	Leuchtender Stoß
 Subclass/&BarbarianPathOfTheLightLightsProtectionDescription	Du erhältst Trefferpunkte in Höhe der Hälfte deiner Barbarenstufe zurück, wenn eine feindliche Kreatur stirbt, die von deinem Erleuchtenden Schlag betroffen ist. Außerdem provozierst du keine Gelegenheitsangriffe mehr von Kreaturen, die von deinem "Erleuchtenden Schlag" betroffen sind.
 Subclass/&BarbarianPathOfTheLightLightsProtectionTitle	Der Schutz des Lichts
-Subclass/&BarbarianPathOfTheLightPierceTheDarknessDescription	Du erhältst überlegene Dunkelheitssicht.
+Subclass/&BarbarianPathOfTheLightPierceTheDarknessDescription	Du erhältst überlegene Nachtsicht.
 Subclass/&BarbarianPathOfTheLightPierceTheDarknessTitle	Durchdringen der Dunkelheit
 Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription	Du kannst unsichtbare Kreaturen wahrnehmen.
 Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionTitle	Unsichtbarkeitssicht
@@ -1653,12 +1597,12 @@ Subclass/&ConditionResistnatArmorDescription	Deine Rüstung ist resistent gegen 
 Subclass/&ConditionSpellShieldArcaneDeflectionDescription	Du kannst deine arkanen Kräfte einsetzen, um dich als Reaktion abzuschirmen. Dadurch erhältst du bis zu deinem nächsten Zug +{0} auf deinen AC.
 Subclass/&ConditionSpellShieldArcaneDeflectionTitle	Arkane Ablenkung
 Subclass/&ConditionTransmuteConstitutionSaveDescription	Vorübergehende Konstitutionsschutz-Fähigkeit, die durch die Kraft Transmute Force gewährt wird.
-Subclass/&ConditionTransmuteConstitutionSaveTitle	Konstitutionsabwehr
-Subclass/&ConditionTransmutePoisonDescription	Vorübergehende Säure-, Kälte-, Feuer-, Blitz-, Nekrotik-, Donner- und Gift-Resistenz, die durch die Macht Machtumwandlung gewährt wird.
+Subclass/&ConditionTransmuteConstitutionSaveTitle	Konstitutions-Saves
+Subclass/&ConditionTransmutePoisonDescription	Vorübergehende Säure-, Kälte-, Feuer-, Blitz-, Nekrotik-, Donner- und Giftresistenz, die durch die Macht "Macht umwandeln" gewährt wird.
 Subclass/&ConditionTransmutePoisonTitle	Elementar-Resistenz
 Subclass/&CraftingTinkererMagicItemAdeptDescription	Du bist geschickt im Herstellen von magischen Gegenständen. Du brauchst 1/4 der Zeit für die Herstellung von Gegenständen und wendest beim Herstellen den doppelten Befähigungsbonus an.
 Subclass/&CraftingTinkererMagicItemAdeptTitle	Adept für magische Gegenstände
-Subclass/&DHWarlockSubclassElementalPatronDescription	Du hast einen Pakt mit Primordalen geschlossen und wurdest von ihnen verändert, die sich in den elementaren Badlands aufhalten. Das elementare Chaos des Patrons hat deine Seele durchdrungen und lässt dich die Macht der verschiedenen Elementararten nutzen.
+Subclass/&DHWarlockSubclassElementalPatronDescription	Du hast einen Pakt mit den Primordalen in den elementaren Badlands geschlossen und wurdest von ihnen verändert. Das elementare Chaos des Patrons hat deine Seele durchdrungen und lässt dich die Macht der verschiedenen Elementararten nutzen.
 Subclass/&DHWarlockSubclassElementalPatronTitle	Elementarmagier-Pakt
 Subclass/&DHWarlockSubclassRiftWalkerDescription	Dein Schutzherr ist eines der seltenen Wesen, die die Leere zwischen den Welten ihr Zuhause nennen. Sie gleiten mit Leichtigkeit zwischen den Ebenen hin und her, und das Wissen, das du aus der Interaktion mit ihnen gewonnen hast, erlaubt es dir, verweilende Spalt-Energien zu deinem Vorteil in Solasta zu nutzen. Es kann sein, dass dich manchmal die Sehnsucht nach dem fernen Reich deines Schutzherrn packt, der Wunsch, für den Rest deiner Tage zwischen den Dimensionen zu wandern, oder du hältst Ausschau nach Anzeichen für ein weiteres Rift-Ereignis, entweder um es zu verhindern oder zu fördern.
 Subclass/&DHWarlockSubclassRiftWalkerTitle	Pakt der Spaltwanderer
@@ -1715,7 +1659,7 @@ Subclass/&MagicAffinityMasterManipulatorListTitle	Arkane Manipulation
 Subclass/&MagicAffinityMeleeWizardConcentrationDescription	Durch die Erfahrung im Chaos des Kampfes erhältst du einen Vorteil bei Konzentrationsproben.
 Subclass/&MagicAffinityMeleeWizardConcentrationTitle	Verbesserte Konzentration
 Subclass/&MagicAffinityRoguishConArtistDC0Description	Dein Schutz-DC für Zaubersprüche erhöht sich um 0.
-Subclass/&MagicAffinityRoguishConArtistDC1Description	Dein Schutz-DC gegen Zaubersprüche erhöht sich um 1.
+Subclass/&MagicAffinityRoguishConArtistDC1Description	Dein Schutz-DC für Zaubersprüche erhöht sich um 1.
 Subclass/&MagicAffinityRoguishConArtistDC2Description	Dein Schutz-DC gegen Zaubersprüche erhöht sich um 2.
 Subclass/&MagicAffinityRoguishConArtistDC3Description	Dein Schutz-DC gegen Zaubersprüche erhöht sich um 3.
 Subclass/&MagicAffinityRoguishConArtistDC4Description	Dein Zauberspruch-Save-DC erhöht sich um 4.
@@ -1740,8 +1684,8 @@ Subclass/&PowerInfuseArmorMagicalStrengthTitle	Rüstung der magischen Stärke
 Subclass/&PowerInfuseDarkvisionDescription	Verleihe einer Schutzbrille die Fähigkeit, im Dunkeln zu sehen. Beachte, dass du eine Infusion nur einmal aktivieren kannst. Wenn du sie ein zweites Mal aktivierst, wird die erste aufgehoben. Beachte, dass du eine Infusion nur einmal aktivieren kannst. Wenn du sie ein zweites Mal aktivierst, wird die erste abgebrochen.
 Subclass/&PowerInfuseDarkvisionTitle	Schutzbrille der Nacht
 Subclass/&PowerInfuseMindSharpenerDescription	Verleihe einer Rüstung oder einem Gewand die Fähigkeit, deine Konzentration beim Zaubern zu verbessern. Du erhältst einen Vorteil bei Konzentrationsprüfungen und jeder Schaden unter 20 löst keine Prüfung aus. Beachte, dass du eine Infusion nur einmal aktiv haben kannst. Wenn du sie ein zweites Mal aktivierst, wird die erste deaktiviert.
-Subclass/&PowerInfuseMindSharpenerTitle	Geistschärfer
-Subclass/&PowerInfuseResistantArmorDescription	Infundiere deiner Rüstung Schadensresistenz. Sie wird resistent gegen Säure-, Kälte-, Feuer-, Kraft-, Blitz-, Nekrotik-, Gift-, Psycho-, Strahlen- und Donnerschaden. Beachte, dass du eine Infusion nur einmal aktiv haben kannst. Wenn du sie ein zweites Mal aktivierst, wird die erste aufgehoben.
+Subclass/&PowerInfuseMindSharpenerTitle	Scharfmacher
+Subclass/&PowerInfuseResistantArmorDescription	Infundiere deiner Rüstung Schadensresistenz. Sie wird resistent gegen Säure-, Kälte-, Feuer-, Kraft-, Blitz-, Nekrotische-, Gift-, Psychische-, Strahlen- und Donnerschaden. Beachte, dass du eine Infusion nur einmal aktiv haben kannst. Wenn du sie ein zweites Mal aktivierst, wird die erste aufgehoben.
 Subclass/&PowerInfuseResistantArmorTitle	Widerstandsfähige Rüstung
 Subclass/&PowerManipulatorDominatePersonDescription	Du kannst "Person beherrschen" so oft pro langer Pause einsetzen, wie es deinem Intelligenzmodifikator entspricht.
 Subclass/&PowerManipulatorDominatePersonTitle	Beherrschte Person
@@ -1768,7 +1712,7 @@ Subclass/&PowerTransmuteHealTitle	Heilen
 Subclass/&PowerTransmuteReviveDescription	Verwende deine Transmutierte Kraft, um einen Charakter wiederzubeleben (innerhalb von 1 Minute nach seinem Tod).
 Subclass/&PowerTransmuteReviveTitle	Wiederbeleben
 Subclass/&PurpleWitchDescription	Die violette Magie beherrscht die Domäne der Illusionen und Verzauberungen, die den Geist der Menschen und alles, was nicht ganz so ist, wie es scheint, beeinflussen. Praktizierende dieser Form der Magie sind Puppenspieler, die die scheinbare Realität der Menschen um sie herum zu ihrem Vorteil gestalten.
-Subclass/&PurpleWitchMagicDescription	Du erhältst die folgenden Zaubersprüche. Diese Zauber zählen für dich als Hexenzauber und werden nicht auf deine Gesamtanzahl an bekannten Zaubern angerechnet. \n\nZaubersprüche der Stufen\nStufe 1: Verstricken, Goodberry\nStufe 2: Rindenhaut, Schutz vor Gift\nStufe 3: Tiere beschwören, Nahrung erschaffen\nStufe 4: Rieseninsekt, Steinhaut\nStufe 5: Böses und Gutes bannen, Insektenplage
+Subclass/&PurpleWitchMagicDescription	Du erhältst die folgenden Zaubersprüche. Diese Zauber zählen für dich als Hexenzauber und werden nicht auf deine Gesamtanzahl an bekannten Zaubern angerechnet. \n\nZaubersprüche der Stufe\nStufe 1: Verstricken, Goodberry\nStufe 2: Rindenhaut, Schutz vor Gift\nStufe 3: Tiere beschwören, Nahrung erschaffen\nStufe 4: Rieseninsekt, Steinhaut\nStufe 5: Böses und Gutes bannen, Insektenplage
 Subclass/&PurpleWitchMagicTitle	Violette Magie
 Subclass/&PurpleWitchTitle	Violette Hexe
 Subclass/&RangerArcanistRangerSubclassDescription	Der Waldläufer-Arkanist verbindet seine Waldläufer-Fertigkeiten mit arkanen Fähigkeiten. Ihre Waffen können ihre Gegner mit dem Mal des Arkanisten befallen und sie haben gelernt, einige Zaubersprüche als Teil ihres Waldläufer-Zauberrepertoires zu wirken.
@@ -1807,30 +1751,30 @@ Subclass/&TraditionLifeTransmuterDescription	Meister der Manipulation von Materi
 Subclass/&TraditionLifeTransmuterTitle	Lebensumwandler
 Subclass/&TraditionMasterManipulatorDescription	Meistermanipulatoren zeichnen sich dadurch aus, dass sie das Schlachtfeld kontrollieren und ihre Feinde daran hindern, sie anzugreifen.
 Subclass/&TraditionMasterManipulatorTitle	Meister-Manipulator
-Subclass/&TraditionSpellMasterBonusCantripsDescription	Erhält 2 zusätzliche Zaubersprüche bekannt.
+Subclass/&TraditionSpellMasterBonusCantripsDescription	Erhält 2 zusätzliche bekannte Zaubersprüche.
 Subclass/&TraditionSpellMasterBonusCantripsTitle	Bonus-Kantrips
 Subclass/&TraditionSpellMasterDescription	Zaubermeister vertiefen sich in die Magie und versuchen, jeden Zauber zu lernen, den sie in die Finger bekommen. Ihr Wissen über Zaubersprüche ist unübertroffen.
 Subclass/&TraditionSpellMasterExtraPreparedDescription	Bereite zusätzliche Zaubersprüche mit Intelligenzmodifikator vor, damit du immer das hast, was du brauchst.
 Subclass/&TraditionSpellMasterExtraPreparedTitle	Extra Vorbereitet
-Subclass/&TraditionSpellMasterPreparedDescription	Bereite zusätzliche Zaubersprüche mit Befähigungsbonus vor, damit du immer über das verfügst, was du brauchst.
+Subclass/&TraditionSpellMasterPreparedDescription	Bereite zusätzliche Zaubersprüche mit Befähigungsbonus vor, damit du immer das hast, was du brauchst.
 Subclass/&TraditionSpellMasterPreparedTitle	Vorbereitet sein
 Subclass/&TraditionSpellMasterSpellResistanceDescription	Deine Ausbildung im Umgang mit Magie verschafft dir einen Vorteil bei Schutzwürfen gegen Zaubersprüche.
 Subclass/&TraditionSpellMasterSpellResistanceTitle	Widerstand gegen Zaubersprüche
 Subclass/&TraditionSpellMasterTitle	Meister der Zauberei
-Subclass/&WarlockAncientForestDescription	Du hast eine Beziehung zu einem mächtigen Naturwesen aufgebaut: Uralte Dryaden, Erzdruiden, Manifestationen des Feenreichs, die in die materielle Ebene eindringen, vergessene Götter aus einer Urzeit. Dein Gönner mag wünschen, dass du die natürliche Welt beschützt, in weit entfernte Länder reist, die er nicht erreichen kann, oder er mag ein anderes Motiv haben, das für kurzlebige Sterbliche unergründlich scheint.
+Subclass/&WarlockAncientForestDescription	Du hast eine Beziehung zu einem mächtigen Naturwesen aufgebaut: Uralte Dryaden, Erzdruiden, Manifestationen des Feenreichs, die in die materielle Ebene eindringen, vergessene Götter aus einer Urzeit. Dein Gönner wünscht sich vielleicht, dass du die natürliche Welt beschützt, in ferne Länder reist, die er nicht erreichen kann, oder er hat ein anderes Motiv, das den kurzlebigen Sterblichen unergründlich erscheint.
 Subclass/&WarlockAncientForestTitle	Uralter Waldpakt
 Subclass/&WarlockMoonLitDescription	Dein Schutzherr ist ein Geist des Mondes, ein Wesen, das die zyklische Natur von Licht und Dunkelheit verkörpert. Diese Geister versuchen, die Macht des Mondes über den Nachthimmel aufrechtzuerhalten, während sie profane Mächte, die sich an die Dunkelheit heranpirschen, in Schach halten, und beauftragen ihre Hexenmeister mit derselben Aufgabe, indem sie ihnen das Kommando über die Kräfte des Mondes und seine Wirkungen übertragen.
 Subclass/&WarlockMoonLitTitle	MoonLit-Pakt
 Subclass/&WarlockToadKingDescription	Ob Fee, Dämon oder durch den Kataklysmus hervorgerufene Missgeburt, die wahre Natur des Krötenkönigs ist nicht bekannt. Bekannt ist jedoch, dass der Krötenkönig über ein großes Gebiet von Sümpfen und Mooren in den Badlands herrscht und denen, die ihm dienen wollen, Macht verleiht.
 Subclass/&WarlockToadKingTitle	Krötenkönig-Pakt
-Subclass/&WarlockUrPriestDescription	Während die große Mehrheit der göttlichen Zauberwirker ihre Kräfte von einer Gottheit erhält, gibt es auch solche, die die Götter verachten. Diejenigen, die sich selbst als Ur-Priester bezeichnen, haben gelernt, die göttlichen Energien, die die Götter ihren göttlichen Zauberwirkern gewähren, abzuschöpfen und sie für ihre eigenen Bedürfnisse zu nutzen, ohne auch nur ein Lippenbekenntnis zu einem Gott abzulegen. Als Ur-Priester unterscheidet ihr euch von den meisten Hexenmeistern, da ihr keinen Schutzherrn habt, der euch eure Macht verleiht. Eldritch-Beschwörungen, die du entdeckst, sind verzerrte Formen der Magie, die die Götter ihren Gönnern gewähren könnten, während Pakt-Gaben wahrscheinlich göttliche Artefakte sind, die du stehlen konntest.
+Subclass/&WarlockUrPriestDescription	Während die große Mehrheit der göttlichen Zauberwirker ihre Kräfte von einer Gottheit erhält, gibt es auch solche, die die Götter verachten. Diejenigen, die sich Ur-Priester nennen, haben gelernt, die göttlichen Energien, die die Götter ihren göttlichen Zauberwirkern gewähren, abzuschöpfen und sie für ihre eigenen Bedürfnisse zu nutzen, ohne auch nur ein Lippenbekenntnis zu einem Gott abzulegen. Als Ur-Priester unterscheidet ihr euch von den meisten Hexenmeistern, da ihr keinen Schutzherrn habt, der euch eure Macht verleiht. Eldritch-Beschwörungen, die du entdeckst, sind verzerrte Formen der Magie, die die Götter ihren Gönnern gewähren, während Pakt-Gaben wahrscheinlich göttliche Artefakte sind, die du stehlen konntest.
 Subclass/&WarlockUrPriestTitle	UrPriester-Pakt
 Subclass/&WeaponProfArcaneFighterDescription	Durch seine Kampferfahrung ist der Arkane Kämpfer in einfachen und martialischen Waffen ausgebildet.
 Subclass/&WeaponProfArcaneFighterTitle	Waffentraining
 Subclass/&WeaponProfArtificerBattleSmithDescription	Durch seine Kampferfahrung hat der Waffenschmied eine Ausbildung in Kampfwaffen erhalten.
 Subclass/&WeaponProfArtificerBattleSmithTitle	Waffentraining
-Subclass/&WhiteWitchDescription	Weiße Magie ist grundsätzlich gut und wohltätig für alle Lebewesen. Hexen, die dieses Handwerk ergreifen, widmen sich trotz des hasserfüllten Fluchs, der sie infiziert, oft der Heilung und der Pflege mit der Absicht, die Welt zu verbessern.
-Subclass/&WhiteWitchMagicDescription	Du erhältst die folgenden Zaubersprüche. Diese Zauber zählen für dich als Hexenzauber und werden nicht auf deine Gesamtanzahl an bekannten Zaubern angerechnet. \n\nZaubersprüche der Stufen\nStufe 1: Segnen, Wunden heilen\nStufe 2: Geringere Wiederherstellung, Gebet der Heilung\nStufe 3: Leuchtfeuer der Hoffnung, Wiederbelebung\nStufe 4: Todeswache, Wächter des Glaubens\nStufe 5: Massenhafte Heilung von Wunden, Tote auferwecken
+Subclass/&WhiteWitchDescription	Weiße Magie ist grundsätzlich gut und wohltätig für alle Lebewesen. Hexen, die sich dieses Handwerk zu eigen machen, widmen sich trotz des hasserfüllten Fluchs, der sie infiziert, oft der Heilung und der Pflege, mit der Absicht, die Welt zu verbessern.
+Subclass/&WhiteWitchMagicDescription	Du erhältst die folgenden Zaubersprüche. Diese Zauber zählen für dich als Hexenzauber und werden nicht auf deine Gesamtanzahl an bekannten Zaubern angerechnet. \Stufe 1: Segnen, Wunden heilen\nStufe 2: Geringere Wiederherstellung, Gebet der Heilung\nStufe 3: Leuchtfeuer der Hoffnung, Wiederbelebung\nStufe 4: Todeswache, Wächter des Glaubens\nStufe 5: Massenhaft Wunden heilen, Tote erwecken
 Subclass/&WhiteWitchMagicTitle	Weiße Magie
 Subclass/&WhiteWitchTitle	Weiße Hexe
 Subclass/&WitchSubclassPathDescription	Dein Wissen über Magie gipfelt darin, dass du einem Hexenzirkel beitrittst, einem Kreis von Hexen, die einen bestimmten Weg der Hexerei und der Flüche beschreiten.
@@ -1843,4 +1787,4 @@ Tooltip/&FeatPrerequisiteLevelFormat	Mindestcharakterstufe {0}
 Tooltip/&Tag9000Title	Benutzerdefinierter Effekt
 Tooltip/&TagCommunityExpansionTitle	Erweiterung der Gemeinschaft
 Tooltip/&TagMaledictionTitle	Verhexung
-Tooltip/&TagOtherModContentTitle	Aus Mod
+Tooltip/&TagOtherModContentTitle	Von Mod

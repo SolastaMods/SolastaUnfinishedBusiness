@@ -4,7 +4,6 @@ AttributeModifier/&DHFeeblemindChaSpellDescription	Charisma score equals 1
 AttributeModifier/&DHFeeblemindChaSpellTitle	Feeble Charisma
 AttributeModifier/&DHFeeblemindIntSpellDescription	Intelligence score equals 1
 AttributeModifier/&DHFeeblemindIntSpellTitle	Feeble intelligence
-BlindingWeaponStrike	Blinding Weapon
 BlueprintCategory/&FlatRoomsTitle	Flat Rooms
 Caption/&GadgetParametersCustomRemoveDescription	Remove:\n{0}
 Class/&ClassWarlockDescription	Warlocks are seekers of the knowledge that lies hidden in the fabric of the multiverse. Through pacts made with mysterious beings of supernatural power, warlocks unlock magical effects both subtle and spectacular.
@@ -73,10 +72,6 @@ Condition/&ConditionMarkedByArcanistDescription	Afflicted by Arcanist's Mark.
 Condition/&ConditionMarkedByArcanistTitle	Arcanist's Mark
 Condition/&ConditionSuperiorBarkWardDescription	The spirits of the forest grant you poison immunity, and cause 3d8 piercing damage to melee attackers.
 Condition/&ConditionSuperiorBarkWardTitle	Superior Bark Ward
-Condition/&DH_ReverseGravity_Spell_Description	Reverse Gravity
-Condition/&DH_ReverseGravity_Spell_Title	Reverse Gravity
-Condition/&DH_TimeStop_Spell_Description	Frozen by Time Stop
-Condition/&DH_TimeStop_Spell_Title	Frozen by Time Stop
 Condition/&DHFeeblemindSpellDescription	The creature's Intelligence and Charisma scores become 1. The creature can't cast spells, activate magic items, understand language, or communicate in any intelligible way
 Condition/&DHFeeblemindSpellTitle	Feeblemind
 Condition/&DHForesightSpellDescription	advantage on attack rolls, ability checks, and saving throws. Additionally, other creatures have disadvantage on attack rolls
@@ -93,7 +88,7 @@ Condition/&DHWeirdSpellDescription	The illusion calls on the creature's deepest 
 Condition/&DHWeirdSpellTitle	Weirded
 Condition/&DisorientDescription	This creature's accuracy is reduced.
 Condition/&DisorientTitle	Disoriented
-Condition/&Frenzied	This creature is frenzied and will attack the closest creature.
+Condition/&FrenziedDescription	This creature is frenzied and will attack the closest creature.
 Condition/&FrenziedTitle	Frenzied
 Condition/&HalfLifeConditionDescription	You take necrotic energy into yourself and hang between life and death and are temporarily possessed by your own ghost, gaining flying, and the same condition immunities and damage resistenances as other ghosts.
 Condition/&HalfLifeConditionTitle	HalfLife
@@ -283,7 +278,6 @@ Equipment/&Enchanted_Spear_Lightbringer_Description	This enchanted weapon was fo
 Equipment/&Enchanted_Spear_Lightbringer_Title	Lightbringer Spear
 Equipment/&Enchanted_Spear_Sharpness_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
 Equipment/&Enchanted_Spear_Sharpness_Title	Spear of Sharpness
-Equipment/&Enchanted_Spear_Stormblade_Title	Stormblade Spear
 Equipment/&Enchanted_Spear_Whiteburn_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Whiteburn was created by the first Danantar to fight a troll invasion coming from the swamps to the south of his domain between the Sioltafin and the Scarafin.
 Equipment/&Enchanted_Spear_Whiteburn_Title	Whiteburn Spear
 Equipment/&Enchanted_StuddedLeather_Deflection_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
@@ -693,16 +687,6 @@ Feature/&AHWarlockClassPactBoonSetDescription	At 3rd level, your otherworldly pa
 Feature/&AHWarlockClassPactBoonSetTitle	Pact boon
 Feature/&AHWarlockClassPactOfTheBladeSetDescription	You become proficient with all weapons and your weapon attacks are considered magical.
 Feature/&AHWarlockClassPactOfTheBladeSetTitle	Pact of the Blade
-Feature/&AHWarlockFiendPactDarkOnesBlessingPowerDescription	Starting at 1st level, when you reduce a hostile creature to 0 hit points***, you gain temporary hit points equal to your Charisma modifier + your warlock level (minimum of 1). \n*** Mod note - This adds a free at will power to add these Temp HP that you will have to manually use when you down/kill an enemy.
-Feature/&AHWarlockFiendPactDarkOnesBlessingPowerTitle	Dark one's blessing
-Feature/&AHWarlockFiendPactDarkOnesOwnLuckDescription	You gain an indomitable use once per day (Choice to re-roll saving throw if you fail). (Doesn't match SRD but would require a whole new reaction ability to emulate the SRD).
-Feature/&AHWarlockFiendPactDarkOnesOwnLuckTitle	Dark One's Own Luck
-Feature/&AHWarlockFiendPactExtendedSpellListDescription	The Fiend lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you. \nLevel 1: Burning hands, Bane \nLevel 2: Blindness, Scorching Ray\nLevel 3: Fireball, Stinking Cloud \nLevel 4: Fire Shield, Wall of Fire \nLevel 5: Flame Strike, Conjure Elemental Fire
-Feature/&AHWarlockFiendPactExtendedSpellListTitle	Fiend expanded spell list
-Feature/&AHWarlockFiendPactFiendishResilienceDescription	You gain resistance to fire damage. (Not same as SRD - I believe the proper implementation would require a power for every damage type with a shared resource pool as there doesn't seem to be a way to group power choices like spells right now).
-Feature/&AHWarlockFiendPactFiendishResilienceTitle	Fiendish Resilience
-Feature/&AHWarlockFiendPactSpellListDescription	The Fiend lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you. \nLevel 1: Burning hands, Bane \nLevel 2: Blindness, Scorching Ray \nLevel 3: Fireball, Stinking Cloud \nLevel 4: Fire Shield, Wall of Fire \nLevel 5: Flame Strike, Conjure Elemental Fire
-Feature/&AHWarlockFiendPactSpellListTitle	Fiend expanded spell list
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerDescription	Once per short rest you can empower a weapon with the power of souls for one minute, your weapon lights up for 20ft of bright light and 20ft of dim light and you add your charisma to your to hit. Additionally all your attacks add your proficiency bonus in damage for the duration.
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle	Soul Empower
 Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	The Soul blade lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you. \nLevel 1: Shield, False life\nLevel 2: Blur, Branding Smite \nLevel 3: Haste, Slow \nLevel 4: Phantasmal Killer, Black Tentacles \nLevel 5: Cone of Cold, Mind Twist
@@ -776,12 +760,6 @@ Feature/&ClassWarlockWeaponProficiencyDescription	Simple Weapons
 Feature/&ClassWarlockWeaponProficiencyTitle	Warlock Weapon Proficiencies
 Feature/&CounterStrikePowerDescription	Spend a gambit die and Counter Strike the enemy, if you hit, do an additional 1d6+2 bludgeoning damage.
 Feature/&CounterStrikePowerTitle	Counter Strike
-Feature/&DHAtWillFireballPowerDescription	At-will Fireball
-Feature/&DHAtWillFireballPowerTitle	Fireball
-Feature/&DHAtWillHoldMonsterPowerDescription	3 Uses per Day
-Feature/&DHAtWillHoldMonsterPowerTitle	Hold Monster
-Feature/&DHAtWillInvisibilityPowerDescription	At-will Invisibility
-Feature/&DHAtWillInvisibilityPowerTitle	Invisibility
 Feature/&DH_BlinkDescription	As a bonus action, you vanish from your current plane of existence, preventing all damage. At the start of your next turn, you return to the space you vanished from.
 Feature/&DH_BlinkTitle	Blink
 Feature/&DH_FadeIntoTheVoidDescription	When you are reduced to 0 hit points but not killed outright, you drop to 1 hit point instead as you briefly fade into the void to lessen the damage. You can't use this feature again until you finish a long rest.
@@ -972,8 +950,6 @@ Feature/&RallyingCryPowerTitle	Rallying Cry
 Feature/&RallyingCryPowerTitleShort	Rallying Cry
 Feature/&RangerArcanistMagicDescription	Starting at 3rd level, you learn an additional spell when you reach certain levels in this class. Each spell counts as a ranger spell for you, but it doesn't count against the number of ranger spells you know. The spells are: Level 3: Shield, Level 5: Misty Step, Level 9: Haste, Level 13: Dimension Door, and Level 17: Hold Monster. Additionally, you are proficient at casting spells in battle, and may cast spells that require a somatic component even if both of your hands are holding a weapon or shield.
 Feature/&RangerArcanistMagicTitle	Ranger Arcanist Spellcasting
-Feature/&RangerFeatureSetFoeSlayerDescription	At 20th level, you become an unparalleled Hunter of your enemies. Once on each of your turns, you can add your Wisdom modifier to the Attack roll or the damage roll of an Attack you make against one of your Favored enemies.
-Feature/&RangerFeatureSetFoeSlayerTitle	Foe Slayer
 Feature/&RangerFeralSensesDescription	You gain preternatural senses that help you fight creatures you can’t see. When you attack a creature you can’t see, your inability to see it doesn’t impose disadvantage on your attack rolls against it.
 Feature/&RangerFeralSensesTitle	Feral Senses
 Feature/&RangerVanishActionDescription	Starting at 14th level, you can use the Hide action as a bonus action on your turn.
@@ -1358,7 +1334,6 @@ Power/&UrPriestRadiantWardDescription	As an action, you gain a number of tempora
 Power/&UrPriestRadiantWardTitle	Radiant Ward
 Power/&UrPriestSpellSiphonDescription	you learn how to tap into a greater source of magic in combination with your normal reserve of power. As an action, you can expend a Channel Divinity to regain an expended use of your 6th-level Mystic Arcanum.
 Power/&UrPriestSpellSiphonTitle	Spell Siphon
-Pugilist	Pugilist Damage
 Race/&BolgrifRaceDescription	Bolgrifs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, bolgrifs demonstrate formidable skills with weapons and nature magic.
 Race/&BolgrifRaceTitle	Bolgrif
 Race/&GnomeRaceDescription	A constant hum of busy activity pervades the warrens and neighborhoods where gnomes form their close-knit communities. Louder sounds punctuate the hum: a crunch of grinding gears here, a minor explosion there, a yelp of surprise or triumph, and especially bursts of laughter. Gnomes take delight in life, enjoying every moment of invention, exploration, investigation, creation, and play.
@@ -1393,14 +1368,6 @@ Reaction/&SpendPowerKnockDownPowerDescription	Spend a gambit die and empower you
 Reaction/&SpendPowerKnockDownPowerReactDescription	Spend a gambit die and empower your attack to do an additional 1d6+2 bludgeoning damage and knock them down until the start of their next turn if they fail a Strength save vs. 8 + your Strength + proficiency
 Reaction/&SpendPowerKnockDownPowerReactTitle	Knock down
 Reaction/&SpendPowerKnockDownPowerTitle	Knock down
-Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageDescription	Add your Wisdom modifier to your damage roll.
-Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageReactDescription	Add your Wisdom modifier to your damage roll.
-Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageReactTitle	Foe Slayer
-Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageTitle	Foe Slayer
-Reaction/&UseZSPowerRangerFoeSlayerAttackDescription	Add your Wisdom modifier to your attack roll.
-Reaction/&UseZSPowerRangerFoeSlayerAttackReactTitle	Foe Slayer
-Reaction/&UseZSPowerRangerFoeSlayerAttackTitle	Foe Slayer
-Reaction/&UseZSPowerRangerFoeSlayerDamageReactDescription	Add your Wisdom modifier to your attack roll.
 RestActivity/&ZSRespecDescription	Respec this Hero
 RestActivity/&ZSRespecTitle	Respec
 RestActivity/&ZSSorcerousRestorationDescription	Regain 4 sorcery points during a short rest.
@@ -1457,8 +1424,6 @@ Spell/&DHCastSpellGuardianNagaDescription	Archmage Casting Ability
 Spell/&DHCastSpellGuardianNagaTitle	Archmage Casting Ability
 Spell/&DHCastSpellLichDescription	Lich Casting Ability
 Spell/&DHCastSpellLichTitle	Lich Casting Ability
-Spell/&DHTimeStop_SpellDescription	You briefly stop the flow of time for everyone but yourself. No time passes for other creatures, while you take 1d4 + 1 turns in a row, during which you can use actions and move as normal.
-Spell/&DHTimeStop_SpellTitle	Time Stop
 Spell/&DHAnimalShapesSpellDescription	Choose any number of willing creatures that you can see within range. You transform each target into the form of a Large or smaller beast with a challenge rating of 4 or lower.
 Spell/&DHAnimalShapesSpellTitle	Animal shapes
 Spell/&DHConjureCelestialSpellDescription	You summon a celestial of challenge rating 4 or lower, which appears in an unoccupied space that you can see within range. The celestial disappears when it drops to 0 hit points or when the spell ends. The celestial is friendly to you and your companions for the duration.
@@ -1539,25 +1504,8 @@ SpellList/&ClassWarlockSpellListTitle	Warlock SpellList
 SpellList/&SpellListTinkererTitle	Tinkerer Spelllist
 SpellList/&SpellListTinkererDescription	Tinkerer Spelllist
 Stage/&IdentityMorphotypeEyeHeader	Eye Style
-Stage/&SubclassSelectionStageCovenDescription	Coven
-Stage/&SubclassSelectionStageCovenFeaturesDescription	Coven
-Stage/&SubclassSelectionStageCovenFeaturesHeader	Coven Features
-Stage/&SubclassSelectionStageCovenFeaturesTitle	Coven
-Stage/&SubclassSelectionStageCovenHeader	Select a Coven
-Stage/&SubclassSelectionStageCovenTitle	Coven
-Stage/&SubclassSelectionStagePatronDescription	A warlock is defined by a pact with an otherworldly being. Sometimes the relationship between warlock and patron is like that of a cleric and a deity, though the beings that serve as patrons are not gods
-Stage/&SubclassSelectionStagePatronFeatures	Otherwordly Patrons Features
-Stage/&SubclassSelectionStagePatronHeader	Warlock Otherwordly Patrons
-Stage/&SubclassSelectionStagePatronTitle	Otherwordly Patrons
-Stage/&SubclassSelectionStageSpecialistDescription	Description There are a wide range of specialties in Tinkerers including making elixirs as a Potion Maker, making explosions as a Blaster, and wielding magical weaponry as a Weapon Smith.
-Stage/&SubclassSelectionStageSpecialistFeatures	Specialist Features
-Stage/&SubclassSelectionStageSpecialistHeader	Specializations
-Stage/&SubclassSelectionStageSpecialistNoneDescription	Specialist None Description
-Stage/&SubclassSelectionStageSpecialistTitle	Select Specialization
 Subclass/&AbilityAffinityRogueConArtistDescription	Advantage on ability checks using Persuasion, Deception, Performance, and Sleight of Hand.
 Subclass/&AbilityAffinityRogueConArtistTitle	Manipulative
-Subclass/&AHWarlockSubclassFiendPactDescription	You have made a pact with a fiend from the lower planes of existence, a being whose aims are evil, even if you strive against those aims. Such beings desire the corruption or destruction of all things, ultimately including you. Fiends powerful enough to forge a pact include demon lords such as Demogorgon, Orcus, Fraz'Urb-luu, and Baphomet; archdevils such as Asmodeus, Dispater, Mephistopheles, and Belial; pit fiends and balors that are especially mighty; and ultroloths and other lords of the yugoloths.
-Subclass/&AHWarlockSubclassFiendPactTitle	Fiend Pact
 Subclass/&AHWarlockSubclassSoulBladePactDescription	You have struck a bargain with a sentient weapon that you feed souls to in return for power.
 Subclass/&AHWarlockSubclassSoulBladePactTitle	SoulBlade Pact
 Subclass/&ArcaneFighterAdditionalActionDescription	You can cast a spell after defeating an enemy with your weapon attacks.
