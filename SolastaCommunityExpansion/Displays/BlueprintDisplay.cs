@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if DEBUG
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -7,11 +8,10 @@ using ModKit.Utility;
 using SolastaCommunityExpansion.DataViewer;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Viewers.Displays
+namespace SolastaCommunityExpansion.Displays
 {
     public static class BlueprintDisplay
     {
-#if DEBUG
         private static IEnumerable<BaseDefinition> _allBlueprints;
 
         private static IEnumerable<BaseDefinition> GetBlueprints()
@@ -253,7 +253,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 throw;
             }
         }
-#endif
     }
 }
-
+#endif

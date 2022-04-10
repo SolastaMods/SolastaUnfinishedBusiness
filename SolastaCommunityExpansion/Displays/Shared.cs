@@ -3,17 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using ModKit;
 
-namespace SolastaCommunityExpansion.Viewers.Displays
+namespace SolastaCommunityExpansion.Displays
 {
     internal static class Shared
     {
-        internal const int MAX_COLUMNS = 4;
-
         internal const float PIXELS_PER_COLUMN = 240;
 
         internal static readonly string RequiresRestart = "[requires restart]".italic().red().bold();
 
-        internal static readonly string WelcomeMessage = "Welcome to Solasta Community Expansion".yellow().bold();
+        internal static void DisplaySubMenu(ref int selectedPane, params NamedAction[] actions)
+        {
+            UI.Label("Welcome to Solasta Community Expansion".yellow().bold());
+            UI.Div();
+
+            if (Main.Enabled)
+            {
+                UI.TabBar(ref selectedPane, null, actions);
+            }
+        }
 
         internal static void DisplayDefinitions<T>(
             string label,
@@ -22,9 +29,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             List<string> selectedDefinitions,
             ref bool displayToggle,
             ref int sliderPosition,
-            Action additionalRendering = null,
-            int maxColumns = MAX_COLUMNS,
-            float pixelsPerColumn = PIXELS_PER_COLUMN) where T : BaseDefinition
+            Action additionalRendering = null) where T : BaseDefinition
         {
             bool toggle;
             bool selectAll = selectedDefinitions.Count == registeredDefinitions.Count;
@@ -99,7 +104,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                                 }
 
                                 toggle = selectedDefinitions.Contains(definition.Name);
-                                if (UI.Toggle(title, ref toggle, UI.Width(pixelsPerColumn)))
+                                if (UI.Toggle(title, ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                                 {
                                     switchAction.Invoke(definition, toggle);
                                 }
@@ -113,7 +118,7 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                                         description = description.yellow();
                                     }
 
-                                    UI.Label(description, UI.Width(pixelsPerColumn * 3));
+                                    UI.Label(description, UI.Width(PIXELS_PER_COLUMN * 3));
 
                                     flip = !flip;
                                 }

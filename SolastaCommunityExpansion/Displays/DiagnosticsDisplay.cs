@@ -5,15 +5,31 @@ using ModKit;
 using SolastaCommunityExpansion.DataMiner;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Patches.Diagnostic;
-using static SolastaCommunityExpansion.Viewers.Displays.CreditsDisplay;
+using static SolastaCommunityExpansion.Displays.CreditsDisplay;
+using static SolastaCommunityExpansion.Displays.PatchesDisplay;
 
-namespace SolastaCommunityExpansion.Viewers.Displays
+namespace SolastaCommunityExpansion.Displays
 {
     internal static class DiagnosticsDisplay
     {
         private static bool IsUnityExplorerEnabled { get; set; }
 
-        internal static void DisplayModdingTools()
+        private static bool displayPatches;
+
+        internal static void DisplayDiagnostics()
+        {
+            DisplayModdingTools();
+
+            UI.DisclosureToggle("Patches:".yellow(), ref displayPatches, 200);
+            UI.Label("");
+
+            if (displayPatches)
+            {
+                DisplayPatches();
+            }
+        }
+
+        private static void DisplayModdingTools()
         {
             UI.Label("");
 

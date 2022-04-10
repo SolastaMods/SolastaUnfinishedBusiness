@@ -6,7 +6,7 @@ using ModKit;
 using UnityEngine;
 using static ModKit.Utility.RichTextExtensions;
 
-namespace SolastaCommunityExpansion.Viewers.Displays
+namespace SolastaCommunityExpansion.Displays
 {
     internal static class PatchesDisplay
     {

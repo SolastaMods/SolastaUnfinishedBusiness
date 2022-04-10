@@ -5,17 +5,11 @@ using ModKit;
 using SolastaCommunityExpansion.Models;
 using UnityEngine;
 using UnityModManagerNet;
-using static SolastaCommunityExpansion.Viewers.Displays.Shared;
 
-namespace SolastaCommunityExpansion.Viewers
+namespace SolastaCommunityExpansion.Displays
 {
-    public class EncountersViewer : IMenuSelectablePage
+    public static class EncountersDisplay
     {
-        public string Name => "Encounters";
-
-        public int Priority => 50;
-
-        private static int selectedPane;
 
         private static bool showStats;
 
@@ -225,7 +219,7 @@ namespace SolastaCommunityExpansion.Viewers
             }
         }
 
-        private static void DisplayGeneral()
+        internal static void DisplayEncountersGeneral()
         {
             bool toggle;
 
@@ -323,7 +317,7 @@ namespace SolastaCommunityExpansion.Viewers
             UI.Label("");
         }
 
-        private static void DisplayBestiary()
+        internal static void DisplayBestiary()
         {
             UI.Label("");
             UI.Label($". Click + to add up to {EncountersSpawnContext.MAX_ENCOUNTER_CHARACTERS} characters to the encounter list");
@@ -335,7 +329,7 @@ namespace SolastaCommunityExpansion.Viewers
             }
         }
 
-        private static void DisplayNPCs()
+        internal static void DisplayNPCs()
         {
             using (UI.VerticalScope(UI.AutoWidth(), UI.AutoHeight()))
             {
@@ -347,29 +341,6 @@ namespace SolastaCommunityExpansion.Viewers
                 {
                     DisplayHeroStats(hero, "+", () => EncountersSpawnContext.AddToEncounter(hero));
                 }
-            }
-        }
-
-        private static readonly NamedAction[] actions = new NamedAction[]
-        {
-            new NamedAction("General", DisplayGeneral),
-            new NamedAction("Bestiary", DisplayBestiary),
-            new NamedAction("Characters Pool", DisplayNPCs)
-        };
-
-        public void OnGUI(UnityModManager.ModEntry modEntry)
-        {
-            UI.Label(WelcomeMessage);
-            UI.Div();
-
-            if (Main.Enabled)
-            {
-                var titles = actions.Select((a, i) => i == selectedPane ? a.name.orange().bold() : a.name).ToArray();
-
-                UI.SelectionGrid(ref selectedPane, titles, titles.Length, UI.ExpandWidth(true));
-                GUILayout.BeginVertical("box");
-                actions[selectedPane].action();
-                GUILayout.EndVertical();
             }
         }
     }

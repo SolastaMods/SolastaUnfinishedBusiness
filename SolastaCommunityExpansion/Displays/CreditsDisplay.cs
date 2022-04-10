@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using ModKit;
 
-namespace SolastaCommunityExpansion.Viewers.Displays
+namespace SolastaCommunityExpansion.Displays
 {
     internal static class CreditsDisplay
     {
