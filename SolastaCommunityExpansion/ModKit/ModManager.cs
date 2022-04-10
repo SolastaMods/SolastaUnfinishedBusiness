@@ -12,7 +12,7 @@ namespace ModKit {
 
         void HandleModEnable();
 
-        void HandleModDisable();
+        //void HandleModDisable();
     }
 
     public class ModManager<TCore, TSettings>
@@ -98,13 +98,14 @@ namespace ModKit {
             }
             catch (Exception e) {
                 Error(e);
-                Disable(modEntry, true);
+                //Disable(modEntry, true);
                 throw;
             }
 
             process.Log("Enabled.");
         }
 
+#if false
         public void Disable(UnityModManager.ModEntry modEntry, bool unpatch = false) {
             _logger = modEntry.Logger;
 
@@ -149,26 +150,26 @@ namespace ModKit {
 
             process.Log("Disabled.");
         }
+#endif
+#endregion
 
-        #endregion
+#region Settings
 
-        #region Settings
-
-        public void ResetSettings() {
-            if (Enabled) {
-                Settings = new TSettings();
-            }
-        }
+        //public void ResetSettings() {
+        //    if (Enabled) {
+        //        Settings = new TSettings();
+        //    }
+        //}
 
         private void HandleSaveGUI(UnityModManager.ModEntry modEntry) => UnityModManager.ModSettings.Save(Settings, modEntry);
 
-        #endregion
+#endregion
 
-        #region Loggers
+#region Loggers
 
-        public void Critical(string str) => _logger.Critical(str);
+        //public void Critical(string str) => _logger.Critical(str);
 
-        public void Critical(object obj) => _logger.Critical(obj?.ToString() ?? "null");
+        //public void Critical(object obj) => _logger.Critical(obj?.ToString() ?? "null");
 
         public void Error(Exception e) {
             _logger.Error($"{e.Message}\n{e.StackTrace}");
@@ -176,28 +177,28 @@ namespace ModKit {
                 Error(e.InnerException);
         }
 
-        public void Error(string str) => _logger.Error(str);
+        //public void Error(string str) => _logger.Error(str);
 
-        public void Error(object obj) => _logger.Error(obj?.ToString() ?? "null");
+        //public void Error(object obj) => _logger.Error(obj?.ToString() ?? "null");
 
-        public void Log(string str) => _logger.Log(str);
+        //public void Log(string str) => _logger.Log(str);
 
-        public void Log(object obj) => _logger.Log(obj?.ToString() ?? "null");
+        //public void Log(object obj) => _logger.Log(obj?.ToString() ?? "null");
 
-        public void Warning(string str) => _logger.Warning(str);
+        //public void Warning(string str) => _logger.Warning(str);
 
-        public void Warning(object obj) => _logger.Warning(obj?.ToString() ?? "null");
+        //public void Warning(object obj) => _logger.Warning(obj?.ToString() ?? "null");
 
-        [Conditional("DEBUG")]
-        public void Debug(MethodBase method, params object[] parameters) => _logger.Log($"{method.DeclaringType.Name}.{method.Name}({string.Join(", ", parameters)})");
+        //[Conditional("DEBUG")]
+        //public void Debug(MethodBase method, params object[] parameters) => _logger.Log($"{method.DeclaringType.Name}.{method.Name}({string.Join(", ", parameters)})");
 
         [Conditional("DEBUG")]
         public void Debug(string str) => _logger.Log(str);
 
-        [Conditional("DEBUG")]
-        public void Debug(object obj) => _logger.Log(obj?.ToString() ?? "null");
+        //[Conditional("DEBUG")]
+        //public void Debug(object obj) => _logger.Log(obj?.ToString() ?? "null");
 
-        #endregion
+#endregion
 
         private class ProcessLogger : IDisposable {
             private readonly Stopwatch _stopWatch = new();
