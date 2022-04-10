@@ -192,8 +192,6 @@ All settings start disabled by default. On first start the mod will display an w
 [line]
 [img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/08-Gameplay-Tools.png?raw=true[/img]
 [line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/17-Multiclass.png?raw=true[/img]
-[line]
 [img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/09-Interface-DungeonMaker.png?raw=true[/img]
 [line]
 [img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/10-Interface-GameUi.png?raw=true[/img]
