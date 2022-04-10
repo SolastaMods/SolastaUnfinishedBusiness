@@ -39,25 +39,25 @@ namespace ModKit.Utility {
             return cache as CachedProperty<TProperty>;
         }
 
-        public static PropertyInfo GetPropertyInfo<T, TProperty>(string name) => GetPropertyCache<T, TProperty>(name).Info;
+        //public static PropertyInfo GetPropertyInfo<T, TProperty>(string name) => GetPropertyCache<T, TProperty>(name).Info;
 
-        public static PropertyInfo GetPropertyInfo<TProperty>(this Type type, string name) => GetPropertyCache<TProperty>(type, name).Info;
+        //public static PropertyInfo GetPropertyInfo<TProperty>(this Type type, string name) => GetPropertyCache<TProperty>(type, name).Info;
 
         public static TProperty GetPropertyValue<T, TProperty>(this ref T instance, string name) where T : struct => (GetPropertyCache<T, TProperty>(name) as CachedPropertyOfStruct<T, TProperty>).Get(ref instance);
 
         public static TProperty GetPropertyValue<T, TProperty>(this T instance, string name) where T : class => (GetPropertyCache<T, TProperty>(name) as CachedPropertyOfClass<T, TProperty>).Get(instance);
 
-        public static TProperty GetPropertyValue<T, TProperty>(string name) => GetPropertyCache<T, TProperty>(name).Get();
+        //public static TProperty GetPropertyValue<T, TProperty>(string name) => GetPropertyCache<T, TProperty>(name).Get();
 
-        public static TProperty GetPropertyValue<TProperty>(this Type type, string name) => GetPropertyCache<TProperty>(type, name).Get();
+        //public static TProperty GetPropertyValue<TProperty>(this Type type, string name) => GetPropertyCache<TProperty>(type, name).Get();
 
-        public static void SetPropertyValue<T, TProperty>(this ref T instance, string name, TProperty value) where T : struct => (GetPropertyCache<T, TProperty>(name) as CachedPropertyOfStruct<T, TProperty>).Set(ref instance, value);
+        //public static void SetPropertyValue<T, TProperty>(this ref T instance, string name, TProperty value) where T : struct => (GetPropertyCache<T, TProperty>(name) as CachedPropertyOfStruct<T, TProperty>).Set(ref instance, value);
 
-        public static void SetPropertyValue<T, TProperty>(this T instance, string name, TProperty value) where T : class => (GetPropertyCache<T, TProperty>(name) as CachedPropertyOfClass<T, TProperty>).Set(instance, value);
+        //public static void SetPropertyValue<T, TProperty>(this T instance, string name, TProperty value) where T : class => (GetPropertyCache<T, TProperty>(name) as CachedPropertyOfClass<T, TProperty>).Set(instance, value);
 
-        public static void SetPropertyValue<T, TProperty>(string name, TProperty value) => GetPropertyCache<T, TProperty>(name).Set(value);
+        //public static void SetPropertyValue<T, TProperty>(string name, TProperty value) => GetPropertyCache<T, TProperty>(name).Set(value);
 
-        public static void SetPropertyValue<TProperty>(this Type type, string name, TProperty value) => GetPropertyCache<TProperty>(type, name).Set(value);
+        //public static void SetPropertyValue<TProperty>(this Type type, string name, TProperty value) => GetPropertyCache<TProperty>(type, name).Set(value);
 
         private abstract class CachedProperty<TProperty> {
             public readonly PropertyInfo Info;
@@ -134,7 +134,7 @@ namespace ModKit.Utility {
 
             public override void Set(TProperty value) => (_setter ??= CreateSetter(typeof(Setter), Info.SetMethod, true) as Setter)(ref _dummy, value);
 
-            public void Set(ref T instance, TProperty value) => (_setter ??= CreateSetter(typeof(Setter), Info.SetMethod, true) as Setter)(ref instance, value);
+            //public void Set(ref T instance, TProperty value) => (_setter ??= CreateSetter(typeof(Setter), Info.SetMethod, true) as Setter)(ref instance, value);
         }
 
         private class CachedPropertyOfClass<T, TProperty> : CachedProperty<TProperty> {
@@ -153,7 +153,7 @@ namespace ModKit.Utility {
 
             public override void Set(TProperty value) => (_setter ??= CreateSetter(typeof(Setter), Info.SetMethod, false) as Setter)(_dummy, value);
 
-            public void Set(T instance, TProperty value) => (_setter ??= CreateSetter(typeof(Setter), Info.SetMethod, false) as Setter)(instance, value);
+            //public void Set(T instance, TProperty value) => (_setter ??= CreateSetter(typeof(Setter), Info.SetMethod, false) as Setter)(instance, value);
         }
 
         private class CachedPropertyOfStatic<TProperty> : CachedProperty<TProperty> {

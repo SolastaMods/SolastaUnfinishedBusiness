@@ -7,23 +7,11 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 {
     internal class FeatDefinitionWithPrerequisitesBuilder : FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
     {
-        public FeatDefinitionWithPrerequisitesBuilder(FeatDefinitionWithPrerequisites original) : base(original)
-        {
-        }
-
         public FeatDefinitionWithPrerequisitesBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
         public FeatDefinitionWithPrerequisitesBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        public FeatDefinitionWithPrerequisitesBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-        }
-
-        public FeatDefinitionWithPrerequisitesBuilder(FeatDefinitionWithPrerequisites original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
         }
 

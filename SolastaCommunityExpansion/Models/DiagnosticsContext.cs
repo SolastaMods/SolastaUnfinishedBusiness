@@ -206,7 +206,11 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void CreateCEDefinitionDiagnostics()
         {
-            CreateDefinitionDiagnostics(CEBaseDefinitions, "CE-Definitions");
+            var baseFilename = "CE-Definitions";
+
+            CreateDefinitionDiagnostics(CEBaseDefinitions, baseFilename);
+
+            CheckOrphanedTerms(Path.Combine(DiagnosticsFolder, $"{baseFilename}-Translations-OrphanedTerms-en.txt"));
         }
 
         internal static List<string> KnownDuplicateDefinitionNames { get; } = new()
@@ -217,6 +221,49 @@ namespace SolastaCommunityExpansion.Models
         internal static bool IsCeDefinition(BaseDefinition definition)
         {
             return CEBaseDefinitions2.Contains(definition);
+        }
+
+        internal static void CheckOrphanedTerms(string outputFile)
+        {
+            var terms = new Dictionary<string, string>();
+            var sourceFile = Path.Combine(Main.MOD_FOLDER, "Translations-en.txt");
+
+            foreach (var line in File.ReadLines(sourceFile))
+            {
+                try
+                {
+                    var splitted = line.Split(new[] { '\t', ' ' }, 2);
+
+                    terms.Add(splitted[0], splitted[1]);              
+                }
+                catch
+                {
+                    continue;
+                }             
+            }
+
+            foreach (var definition in CEBaseDefinitions)
+            {
+                var title = definition.GuiPresentation.Title;
+                var description = definition.GuiPresentation.Description;
+
+                if (title != null && terms.ContainsKey(title))
+                {
+                    terms.Remove(title);
+                }
+
+                if (description != null && !description.Contains("{") && terms.ContainsKey(description))
+                {
+                    terms.Remove(description);
+                }
+            }
+
+            using var writer = new StreamWriter(outputFile);
+
+            foreach (var kvp in terms)
+            {
+                writer.WriteLine($"{kvp.Key}\t{kvp.Value}");
+            }
         }
     }
 }

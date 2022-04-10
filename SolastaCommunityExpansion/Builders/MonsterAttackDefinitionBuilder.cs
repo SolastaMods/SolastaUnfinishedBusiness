@@ -6,23 +6,11 @@ namespace SolastaCommunityExpansion.Builders
     public class MonsterAttackDefinitionBuilder : DefinitionBuilder<MonsterAttackDefinition, MonsterAttackDefinitionBuilder>
     {
         #region Constructors
-        protected MonsterAttackDefinitionBuilder(MonsterAttackDefinition original) : base(original)
-        {
-        }
-
         protected MonsterAttackDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
         protected MonsterAttackDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected MonsterAttackDefinitionBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-        }
-
-        protected MonsterAttackDefinitionBuilder(MonsterAttackDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
         }
 

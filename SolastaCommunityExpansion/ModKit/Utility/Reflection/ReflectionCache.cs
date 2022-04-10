@@ -19,12 +19,12 @@ namespace ModKit.Utility {
 
         public static int SizeLimit { get; set; } = 1000;
 
-        public static void Clear() {
-            _fieldCache.Clear();
-            _propertieCache.Clear();
-            _methodCache.Clear();
-            _cache.Clear();
-        }
+        //public static void Clear() {
+        //    _fieldCache.Clear();
+        //    _propertieCache.Clear();
+        //    _methodCache.Clear();
+        //    _cache.Clear();
+        //}
 
         private static void EnqueueCache(object obj) {
             while (_cache.Count >= SizeLimit && _cache.Count > 0)

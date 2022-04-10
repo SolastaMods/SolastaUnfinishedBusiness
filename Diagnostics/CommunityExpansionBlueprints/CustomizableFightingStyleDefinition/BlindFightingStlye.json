@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaCommunityExpansion.CustomFeatureDefinitions.CustomizableFightingStyleDefinition, SolastaCommunityExpansion",
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.CustomizableFightingStyleDefinition, SolastaCommunityExpansion",
   "features": [
     "Definition:SenseBlindSight2:f6e92e044ad5c9945b1c01d9891bf49d"
   ],

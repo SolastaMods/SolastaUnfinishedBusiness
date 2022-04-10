@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using HarmonyLib;
+using I2.Loc;
 using ModKit;
 using UnityModManagerNet;
 
@@ -12,14 +13,12 @@ namespace SolastaCommunityExpansion
 {
     public static class Main
     {
-        internal static bool IsDebugBuild => UnityEngine.Debug.isDebugBuild;
-        internal static bool Enabled { get; set; }
+        private const string CeFilename = "SolastaCommunityExpansion.dll";
+        private const string McFilename = "SolastaMulticlass.dll";
 
-        internal static readonly string MOD_FOLDER = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-        private static readonly string MulticlassFilename = Path.Combine(MOD_FOLDER, "SolastaMulticlass.dll");
-        private static readonly string CustomCodeFilename = Path.Combine(MOD_FOLDER, "SolastaCustomCode.dll");
-        internal static bool IsMulticlassInstalled { get; private set; } = File.Exists(MulticlassFilename);
-        internal static bool IsCustomCodeInstalled { get; private set; } = File.Exists(CustomCodeFilename);
+        internal static string MOD_FOLDER { get; private set; } = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        internal static bool Enabled { get; set; }
+        internal static bool IsDebugBuild => UnityEngine.Debug.isDebugBuild;
 
         // need to be public for MC sidecar
         [Conditional("DEBUG")]
@@ -69,29 +68,7 @@ namespace SolastaCommunityExpansion
                 Menu = new MenuManager();
                 Menu.Enable(modEntry, assembly);
 
-                Translations.Load(MOD_FOLDER);
-
-                // load multiclass
-                if (IsMulticlassInstalled && Settings.EnableMulticlass)
-                {
-#pragma warning disable S3885 // "Assembly.Load" should be used
-                    var multiclassAssembly = Assembly.LoadFile(MulticlassFilename);
-#pragma warning restore S3885 // "Assembly.Load" should be used
-                    var harmony = new Harmony(multiclassAssembly.FullName.Substring(0, 17));
-
-                    harmony.PatchAll(multiclassAssembly);
-                }
-
-                // load custom code [zappastuff personal dll hook]
-                if (IsCustomCodeInstalled)
-                {
-#pragma warning disable S3885 // "Assembly.Load" should be used
-                    var customCodeAssembly = Assembly.LoadFile(CustomCodeFilename);
-#pragma warning restore S3885 // "Assembly.Load" should be used
-                    var harmony = new Harmony(customCodeAssembly.FullName.Substring(0, 17));
-
-                    harmony.PatchAll(customCodeAssembly);
-                }
+                LoadSidecars();
             }
             catch (Exception ex)
             {
@@ -107,6 +84,26 @@ namespace SolastaCommunityExpansion
             if (Settings.EnableHeroesControlledByComputer)
             {
                 Models.PlayerControllerContext.RefreshGuiState();
+            }
+        }
+
+        internal static void LoadSidecars()
+        {
+            foreach (var path in Directory.EnumerateFiles(MOD_FOLDER, "Solasta*.dll"))
+            {
+                var filename = Path.GetFileName(path);
+
+                if (filename == CeFilename || (filename == McFilename && !Main.Settings.EnableMulticlass))
+                {
+                    continue;
+                }
+
+#pragma warning disable S3885 // "Assembly.Load" should be used
+                var sidecarAssembly = Assembly.LoadFile(path);
+                var harmony = new Harmony(sidecarAssembly.GetName().Name);
+#pragma warning restore S3885 // "Assembly.Load" should be used
+
+                harmony.PatchAll(sidecarAssembly);
             }
         }
     }

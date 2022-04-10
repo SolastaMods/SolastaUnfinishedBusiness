@@ -7,23 +7,11 @@ namespace SolastaCommunityExpansion.Builders.Features
         : FeatureDefinitionAffinityBuilder<FeatureDefinitionAttackModifier, FeatureDefinitionAttackModifierBuilder>
     {
         #region Constructors
-        protected FeatureDefinitionAttackModifierBuilder(FeatureDefinitionAttackModifier original) : base(original)
-        {
-        }
-
         protected FeatureDefinitionAttackModifierBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
         protected FeatureDefinitionAttackModifierBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected FeatureDefinitionAttackModifierBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-        }
-
-        protected FeatureDefinitionAttackModifierBuilder(FeatureDefinitionAttackModifier original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
         }
 

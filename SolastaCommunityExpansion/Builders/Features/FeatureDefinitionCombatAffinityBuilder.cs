@@ -9,23 +9,11 @@ namespace SolastaCommunityExpansion.Builders.Features
     {
         #region Constructors
 
-        protected FeatureDefinitionCombatAffinityBuilder(TDefinition original) : base(original)
-        {
-        }
-
         protected FeatureDefinitionCombatAffinityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
         protected FeatureDefinitionCombatAffinityBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected FeatureDefinitionCombatAffinityBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-        }
-
-        protected FeatureDefinitionCombatAffinityBuilder(TDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
         }
 
@@ -52,23 +40,11 @@ namespace SolastaCommunityExpansion.Builders.Features
     {
         #region Constructors
 
-        protected FeatureDefinitionCombatAffinityBuilder(FeatureDefinitionCombatAffinity original) : base(original)
-        {
-        }
-
         protected FeatureDefinitionCombatAffinityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
         protected FeatureDefinitionCombatAffinityBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected FeatureDefinitionCombatAffinityBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-        }
-
-        protected FeatureDefinitionCombatAffinityBuilder(FeatureDefinitionCombatAffinity original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
         }
 

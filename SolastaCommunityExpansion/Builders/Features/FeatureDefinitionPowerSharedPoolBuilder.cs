@@ -1,5 +1,5 @@
 ﻿using System;
-using SolastaCommunityExpansion.CustomFeatureDefinitions;
+using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 
@@ -70,31 +70,19 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
 
         #region Constructors
-        public FeatureDefinitionPowerSharedPoolBuilder(FeatureDefinitionPowerSharedPool original) : base(original)
+        protected FeatureDefinitionPowerSharedPoolBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
-        public FeatureDefinitionPowerSharedPoolBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        protected FeatureDefinitionPowerSharedPoolBuilder(string name, string definitionGuid) : base(name, definitionGuid)
         {
         }
 
-        public FeatureDefinitionPowerSharedPoolBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        protected FeatureDefinitionPowerSharedPoolBuilder(FeatureDefinitionPowerSharedPool original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
         {
         }
 
-        public FeatureDefinitionPowerSharedPoolBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-        }
-
-        public FeatureDefinitionPowerSharedPoolBuilder(FeatureDefinitionPowerSharedPool original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
-        {
-        }
-
-        public FeatureDefinitionPowerSharedPoolBuilder(FeatureDefinitionPowerSharedPool original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
-        {
-        }
-
-        public FeatureDefinitionPowerSharedPoolBuilder(FeatureDefinitionPowerSharedPool original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        protected FeatureDefinitionPowerSharedPoolBuilder(FeatureDefinitionPowerSharedPool original, string name, string definitionGuid) : base(original, name, definitionGuid)
         {
         }
         #endregion

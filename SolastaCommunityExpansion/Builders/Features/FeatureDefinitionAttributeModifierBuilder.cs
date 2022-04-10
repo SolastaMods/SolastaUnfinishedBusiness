@@ -7,10 +7,6 @@ namespace SolastaCommunityExpansion.Builders.Features
     public class FeatureDefinitionAttributeModifierBuilder : FeatureDefinitionBuilder<FeatureDefinitionAttributeModifier, FeatureDefinitionAttributeModifierBuilder>
     {
         #region Constructors
-        protected FeatureDefinitionAttributeModifierBuilder(FeatureDefinitionAttributeModifier original) : base(original)
-        {
-        }
-
         protected FeatureDefinitionAttributeModifierBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
@@ -19,13 +15,6 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        protected FeatureDefinitionAttributeModifierBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-        }
-
-        protected FeatureDefinitionAttributeModifierBuilder(FeatureDefinitionAttributeModifier original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
-        {
-        }
 
         protected FeatureDefinitionAttributeModifierBuilder(FeatureDefinitionAttributeModifier original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
         {

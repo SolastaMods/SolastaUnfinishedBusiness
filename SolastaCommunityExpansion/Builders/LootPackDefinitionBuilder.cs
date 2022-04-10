@@ -5,23 +5,11 @@ namespace SolastaCommunityExpansion.Builders
     public class LootPackDefinitionBuilder : DefinitionBuilder<LootPackDefinition, LootPackDefinitionBuilder>
     {
         #region Constructors
-        protected LootPackDefinitionBuilder(LootPackDefinition original) : base(original)
-        {
-        }
-
         protected LootPackDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
         protected LootPackDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected LootPackDefinitionBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-        }
-
-        protected LootPackDefinitionBuilder(LootPackDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
         }
 

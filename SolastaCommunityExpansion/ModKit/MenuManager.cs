@@ -67,13 +67,13 @@ namespace ModKit {
             modEntry.OnGUI += OnGUI;
         }
 
-        public void Disable(UnityModManager.ModEntry modEntry) {
-            modEntry.OnGUI -= OnGUI;
+        //public void Disable(UnityModManager.ModEntry modEntry) {
+        //    modEntry.OnGUI -= OnGUI;
 
-            _topPages.Clear();
-            _selectablePages.Clear();
-            _bottomPages.Clear();
-        }
+        //    _topPages.Clear();
+        //    _selectablePages.Clear();
+        //    _bottomPages.Clear();
+        //}
 
         #endregion
 

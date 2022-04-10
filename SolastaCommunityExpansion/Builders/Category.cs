@@ -27,6 +27,8 @@
         Language,
         Modifier,
         Monster,
+        MonsterAttack,
+        MonsterPower,
         Power,
         Race,
         Reaction,

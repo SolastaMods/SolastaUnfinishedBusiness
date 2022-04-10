@@ -10,10 +10,6 @@ namespace SolastaCommunityExpansion.Builders.Features
     public class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<FeatureDefinitionCastSpell, FeatureDefinitionCastSpellBuilder>
     {
         #region Constructors
-        protected FeatureDefinitionCastSpellBuilder(FeatureDefinitionCastSpell original) : base(original)
-        {
-        }
-
         protected FeatureDefinitionCastSpellBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
             InitializeFields();
@@ -22,15 +18,6 @@ namespace SolastaCommunityExpansion.Builders.Features
         protected FeatureDefinitionCastSpellBuilder(string name, string definitionGuid) : base(name, definitionGuid)
         {
             InitializeFields();
-        }
-
-        protected FeatureDefinitionCastSpellBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-            InitializeFields();
-        }
-
-        protected FeatureDefinitionCastSpellBuilder(FeatureDefinitionCastSpell original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
-        {
         }
 
         protected FeatureDefinitionCastSpellBuilder(FeatureDefinitionCastSpell original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)

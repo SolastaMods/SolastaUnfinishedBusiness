@@ -4,7 +4,6 @@ AttributeModifier/&DHFeeblemindChaSpellDescription	Charisma score equals 1
 AttributeModifier/&DHFeeblemindChaSpellTitle	Feeble Charisma
 AttributeModifier/&DHFeeblemindIntSpellDescription	Intelligence score equals 1
 AttributeModifier/&DHFeeblemindIntSpellTitle	Feeble intelligence
-BlindingWeaponStrike	Blinding Weapon
 BlueprintCategory/&FlatRoomsTitle	Flat Rooms
 Caption/&GadgetParametersCustomRemoveDescription	Remove:\n{0}
 Class/&ClassWarlockDescription	Warlocks are seekers of the knowledge that lies hidden in the fabric of the multiverse. Through pacts made with mysterious beings of supernatural power, warlocks unlock magical effects both subtle and spectacular.
@@ -73,10 +72,6 @@ Condition/&ConditionMarkedByArcanistDescription	Afflicted by Arcanist's Mark.
 Condition/&ConditionMarkedByArcanistTitle	Arcanist's Mark
 Condition/&ConditionSuperiorBarkWardDescription	The spirits of the forest grant you poison immunity, and cause 3d8 piercing damage to melee attackers.
 Condition/&ConditionSuperiorBarkWardTitle	Superior Bark Ward
-Condition/&DH_ReverseGravity_Spell_Description	Reverse Gravity
-Condition/&DH_ReverseGravity_Spell_Title	Reverse Gravity
-Condition/&DH_TimeStop_Spell_Description	Frozen by Time Stop
-Condition/&DH_TimeStop_Spell_Title	Frozen by Time Stop
 Condition/&DHFeeblemindSpellDescription	The creature's Intelligence and Charisma scores become 1. The creature can't cast spells, activate magic items, understand language, or communicate in any intelligible way
 Condition/&DHFeeblemindSpellTitle	Feeblemind
 Condition/&DHForesightSpellDescription	advantage on attack rolls, ability checks, and saving throws. Additionally, other creatures have disadvantage on attack rolls
@@ -93,7 +88,7 @@ Condition/&DHWeirdSpellDescription	The illusion calls on the creature's deepest 
 Condition/&DHWeirdSpellTitle	Weirded
 Condition/&DisorientDescription	This creature's accuracy is reduced.
 Condition/&DisorientTitle	Disoriented
-Condition/&Frenzied	This creature is frenzied and will attack the closest creature.
+Condition/&FrenziedDescription	This creature is frenzied and will attack the closest creature.
 Condition/&FrenziedTitle	Frenzied
 Condition/&HalfLifeConditionDescription	You take necrotic energy into yourself and hang between life and death and are temporarily possessed by your own ghost, gaining flying, and the same condition immunities and damage resistenances as other ghosts.
 Condition/&HalfLifeConditionTitle	HalfLife
@@ -283,7 +278,6 @@ Equipment/&Enchanted_Spear_Lightbringer_Description	This enchanted weapon was fo
 Equipment/&Enchanted_Spear_Lightbringer_Title	Lightbringer Spear
 Equipment/&Enchanted_Spear_Sharpness_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
 Equipment/&Enchanted_Spear_Sharpness_Title	Spear of Sharpness
-Equipment/&Enchanted_Spear_Stormblade_Title	Stormblade Spear
 Equipment/&Enchanted_Spear_Whiteburn_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Whiteburn was created by the first Danantar to fight a troll invasion coming from the swamps to the south of his domain between the Sioltafin and the Scarafin.
 Equipment/&Enchanted_Spear_Whiteburn_Title	Whiteburn Spear
 Equipment/&Enchanted_StuddedLeather_Deflection_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
@@ -693,16 +687,6 @@ Feature/&AHWarlockClassPactBoonSetDescription	At 3rd level, your otherworldly pa
 Feature/&AHWarlockClassPactBoonSetTitle	Pact boon
 Feature/&AHWarlockClassPactOfTheBladeSetDescription	You become proficient with all weapons and your weapon attacks are considered magical.
 Feature/&AHWarlockClassPactOfTheBladeSetTitle	Pact of the Blade
-Feature/&AHWarlockFiendPactDarkOnesBlessingPowerDescription	Starting at 1st level, when you reduce a hostile creature to 0 hit points***, you gain temporary hit points equal to your Charisma modifier + your warlock level (minimum of 1). \n*** Mod note - This adds a free at will power to add these Temp HP that you will have to manually use when you down/kill an enemy.
-Feature/&AHWarlockFiendPactDarkOnesBlessingPowerTitle	Dark one's blessing
-Feature/&AHWarlockFiendPactDarkOnesOwnLuckDescription	You gain an indomitable use once per day (Choice to re-roll saving throw if you fail). (Doesn't match SRD but would require a whole new reaction ability to emulate the SRD).
-Feature/&AHWarlockFiendPactDarkOnesOwnLuckTitle	Dark One's Own Luck
-Feature/&AHWarlockFiendPactExtendedSpellListDescription	The Fiend lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you. \nLevel 1: Burning hands, Bane \nLevel 2: Blindness, Scorching Ray\nLevel 3: Fireball, Stinking Cloud \nLevel 4: Fire Shield, Wall of Fire \nLevel 5: Flame Strike, Conjure Elemental Fire
-Feature/&AHWarlockFiendPactExtendedSpellListTitle	Fiend expanded spell list
-Feature/&AHWarlockFiendPactFiendishResilienceDescription	You gain resistance to fire damage. (Not same as SRD - I believe the proper implementation would require a power for every damage type with a shared resource pool as there doesn't seem to be a way to group power choices like spells right now).
-Feature/&AHWarlockFiendPactFiendishResilienceTitle	Fiendish Resilience
-Feature/&AHWarlockFiendPactSpellListDescription	The Fiend lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you. \nLevel 1: Burning hands, Bane \nLevel 2: Blindness, Scorching Ray \nLevel 3: Fireball, Stinking Cloud \nLevel 4: Fire Shield, Wall of Fire \nLevel 5: Flame Strike, Conjure Elemental Fire
-Feature/&AHWarlockFiendPactSpellListTitle	Fiend expanded spell list
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerDescription	Once per short rest you can empower a weapon with the power of souls for one minute, your weapon lights up for 20ft of bright light and 20ft of dim light and you add your charisma to your to hit. Additionally all your attacks add your proficiency bonus in damage for the duration.
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle	Soul Empower
 Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	The Soul blade lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you. \nLevel 1: Shield, False life\nLevel 2: Blur, Branding Smite \nLevel 3: Haste, Slow \nLevel 4: Phantasmal Killer, Black Tentacles \nLevel 5: Cone of Cold, Mind Twist
@@ -776,20 +760,10 @@ Feature/&ClassWarlockWeaponProficiencyDescription	Simple Weapons
 Feature/&ClassWarlockWeaponProficiencyTitle	Warlock Weapon Proficiencies
 Feature/&CounterStrikePowerDescription	Spend a gambit die and Counter Strike the enemy, if you hit, do an additional 1d6+2 bludgeoning damage.
 Feature/&CounterStrikePowerTitle	Counter Strike
-Feature/&DH_AirTitan_LightningStorm_Custom_Power_Description	6d8 Lightning in wide area
-Feature/&DH_AirTitan_LightningStorm_Custom_Power_Title	Lightning Storm
-Feature/&DH_AtWill_Fireball_Power_Description	At-will Fireball
-Feature/&DH_AtWill_Fireball_Power_Title	Fireball
-Feature/&DH_AtWill_HoldMonster_Power_Description	3 Uses per Day
-Feature/&DH_AtWill_HoldMonster_Power_Title	Hold Monster
-Feature/&DH_AtWill_Invisibility_Power_Description	At-will Invisibility
-Feature/&DH_AtWill_Invisibility_Power_Title	Invisibility
 Feature/&DH_BlinkDescription	As a bonus action, you vanish from your current plane of existence, preventing all damage. At the start of your next turn, you return to the space you vanished from.
 Feature/&DH_BlinkTitle	Blink
 Feature/&DH_FadeIntoTheVoidDescription	When you are reduced to 0 hit points but not killed outright, you drop to 1 hit point instead as you briefly fade into the void to lessen the damage. You can't use this feature again until you finish a long rest.
 Feature/&DH_FadeIntoTheVoidTitle	Fade Into The Void
-Feature/&DH_Generic_Lightning_Attack_Custom_Power_Description	12D8
-Feature/&DH_Generic_Lightning_Attack_Custom_Power_Title	Lightning Strike
 Feature/&DH_RiftCloakDescription	Your control of rift portals has increased to the point than you can now grant the protection of the rift to others. You can cast warding bond at will (without the sharing of damage)
 Feature/&DH_RiftCloakTitle	Rift Cloak
 Feature/&DH_RiftControlDescription	Briefly surrounded by the energy of the rift, you teleport to an unoccupied space. You can now bring an ally with you when teleporting and the range has increased significantly
@@ -931,8 +905,8 @@ Feature/&MoonLitLightAffinityTitle	Umbral Cloak
 Feature/&OneWithShadowsDescription	When you are in an area of dim light or darkness, you become invisible until you move or take an action or a reaction.
 Feature/&OneWithShadowsTitle	One With Shadows
 Feature/&OtherworldlyLeapTitle	Otherworldly Leap
-Feature/&PowerAttackAttackModifierOneHandedDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged.
-Feature/&PowerAttackAttackModifierOneHandedTitle	One handed power attack
+Feature/&PowerAttackAttackModifierDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged.
+Feature/&PowerAttackAttackModifierTitle	One handed power attack
 Feature/&PowerAttackConditionDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged.
 Feature/&PowerAttackConditionTitle	One handed power attack
 Feature/&PowerAttackPowerDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged.
@@ -972,8 +946,6 @@ Feature/&RallyingCryPowerTitle	Rallying Cry
 Feature/&RallyingCryPowerTitleShort	Rallying Cry
 Feature/&RangerArcanistMagicDescription	Starting at 3rd level, you learn an additional spell when you reach certain levels in this class. Each spell counts as a ranger spell for you, but it doesn't count against the number of ranger spells you know. The spells are: Level 3: Shield, Level 5: Misty Step, Level 9: Haste, Level 13: Dimension Door, and Level 17: Hold Monster. Additionally, you are proficient at casting spells in battle, and may cast spells that require a somatic component even if both of your hands are holding a weapon or shield.
 Feature/&RangerArcanistMagicTitle	Ranger Arcanist Spellcasting
-Feature/&RangerFeatureSetFoeSlayerDescription	At 20th level, you become an unparalleled Hunter of your enemies. Once on each of your turns, you can add your Wisdom modifier to the Attack roll or the damage roll of an Attack you make against one of your Favored enemies.
-Feature/&RangerFeatureSetFoeSlayerTitle	Foe Slayer
 Feature/&RangerFeralSensesDescription	You gain preternatural senses that help you fight creatures you can’t see. When you attack a creature you can’t see, your inability to see it doesn’t impose disadvantage on your attack rolls against it.
 Feature/&RangerFeralSensesTitle	Feral Senses
 Feature/&RangerVanishActionDescription	Starting at 14th level, you can use the Hide action as a bonus action on your turn.
@@ -1077,8 +1049,8 @@ Format/&LevelAndExperienceFormat	Level: {0}\nExperience: {1}\n{2} points require
 Format/&LevelAndExperienceMaxedFormat	Level: {0}\nExperience: {1}\nmax level reached.
 Item/&ForceArtilleryProjectileDescription	ForceArtilleryProjectile
 Item/&ForceArtilleryProjectileTitle	ForceArtilleryProjectile
-Language/&GnomishDescription	An old Solastan language, preserved by gnomes living in deep forests of Solasta, it has survived the Cataclysm.
-Language/&GnomishTitle	Gnomish
+Language/&GnomishLanguageDescription	An old Solastan language, preserved by gnomes living in deep forests of Solasta, it has survived the Cataclysm.
+Language/&GnomishLanguageTitle	Gnomish
 MainMenu/&ExportPdfDescription	Level down this Hero
 MainMenu/&ExportPdfTitle	Level Down
 Message/&CharacterExportDuplicateNameErrorDescription	Export Cancelled:\n\nA hero with this name already exists in the pool.\nPlease try a different name.
@@ -1096,62 +1068,62 @@ Modifier/&DisorientDescription	-1d6 to attack rolls
 Modifier/&DisorientTitle	Disoriented
 Modifier/&RuinedDescription	-3 to Armor Class
 Modifier/&RuinedTitle	Ruined
-Monster/&DH_Custom_AirTitan_Description	When summoned, these elder elementals manifest as beings of apocalyptic capability, entities whose mere existence promises destruction.
-Monster/&DH_Custom_AirTitan_Title	<color=#ff0000ff>Primordial Air Titan</color>
-Monster/&DH_Custom_AncientBlackDragon_Description	The most evil-tempered and vile of the chromatic dragons, black dragons collect the wreckage and treasures of fallen peoples. These dragons loathe seeing the weak prosper and revel in the collapse of humanoid kingdoms. They make their homes in fetid swamps and crumbling ruins where kingdoms once stood.
-Monster/&DH_Custom_AncientBlackDragon_Title	<color=#ff0000ff>Ancient Black Dragon</color>
-Monster/&DH_Custom_AncientBlueDragon_Description	Vain and territorial, blue dragons soar through the skies over deserts, preying on caravans and plundering herds and settlements in the verdant lands beyond the desert's reach. These dragons can also be found in dry steppes, searing badlands, and rocky coasts. They guard their territories against all potential competitors, especially brass dragons.
-Monster/&DH_Custom_AncientBlueDragon_Title	<color=#ff0000ff>Ancient Blue Dragon</color>
-Monster/&DH_Custom_AncientGreenDragon_Description	The most cunning and treacherous of true dragons, green dragons use misdirection and trickery to get the upper hand against their enemies. Nasty tempered and thoroughly evil, they take special pleasure in subverting and corrupting the good-hearted. In the ancient forests they roam, green dragons demonstrate an aggression that is often less about territory than it is about gaining power and wealth with as little effort as possible.
-Monster/&DH_Custom_AncientGreenDragon_Title	<color=#ff0000ff>Ancient Green Dragon</color>
-Monster/&DH_Custom_AncientRedDragon_Description	The most covetous of the true dragons, red dragons tirelessly seek to increase their treasure hoards. They are exceptionally vain, even for dragons, and their conceit is reflected in their proud bearing and their disdain for other creatures.
-Monster/&DH_Custom_AncientRedDragon_Title	<color=#ff0000ff>Ancient Red Dragon</color>
-Monster/&DH_Custom_AncientWhiteDragon_Description	The smallest, least intelligent, and most animalistic of the chromatic dragons, white dragons dwell in frigid climes, favoring arctic areas or icy mountains. They are vicious, cruel reptiles driven by hunger and greed.
-Monster/&DH_Custom_AncientWhiteDragon_Title	<color=#ff0000ff>Ancient White Dragon</color>
-Monster/&DH_Custom_Archmage_Description	Archmages are powerful (and usually quite old) spellcasters dedicated to the study of the arcane arts. Benevolent ones counsel kings and queens, while evil ones rule as tyrants and pursue lichdom. Those who are neither good nor evil sequester themselves in remote towers to practice their magic without interruption.
-Monster/&DH_Custom_Archmage_Title	<color=#ff0000ff>Archmage</color>
-Monster/&DH_Custom_Balor_Description	Figures of ancient and terrible evil, balors rule as generals over demonic armies, yearning to seize power while destroying any creatures that oppose them
-Monster/&DH_Custom_Balor_Title	<color=#ff0000ff>Balor</color>
-Monster/&DH_Custom_ConstructTitan_Description	Massive constructs built for war and wrought of heavy metal. An unstoppable juggernaut, it exists to follow its creator's orders, and it protects or attacks as that creator demands.
-Monster/&DH_Custom_ConstructTitan_Title	<color=#ff0000ff>Mechanical Construct Titan</color>
-Monster/&DH_Custom_Deva_Description	Devas are angels that act as divine messengers or agents to the Material Plane,
-Monster/&DH_Custom_Deva_Title	<color=#ff0000ff>Deva</color>
-Monster/&DH_Custom_Djinni_Description	Proud genies from the Elemental Plane of Air, Masters of the air, the djinn ride powerful whirlwinds that they create and direct on a whim, and which can even carry passengers.
-Monster/&DH_Custom_Djinni_Title	<color=#ff0000ff>Djinni</color>
-Monster/&DH_Custom_EarthTitan_Description	When summoned, these elder elementals manifest as beings of apocalyptic capability, entities whose mere existence promises destruction.
-Monster/&DH_Custom_EarthTitan_Title	<color=#ff0000ff>Primordial Earth Titan</color>
-Monster/&DH_Custom_Efreeti_Description	Hulking genies of the Elemental Plane of Fire, the efreet are masters of flame, immune to fire and able to create it on a whim.
-Monster/&DH_Custom_Efreeti_Title	<color=#ff0000ff>Efreeti</color>
-Monster/&DH_Custom_Erinyes_Description	the erinyes are fierce and disciplined warriors. Sweeping down from the skies, they bring swift death to creatures that have wronged their masters
-Monster/&DH_Custom_Erinyes_Title	<color=#ff0000ff>Erinyes</color>
-Monster/&DH_Custom_FireTitan_Description	When summoned, these elder elementals manifest as beings of apocalyptic capability, entities whose mere existence promises destruction.
-Monster/&DH_Custom_FireTitan_Title	<color=#ff0000ff>Primordial Fire Titan</color>
-Monster/&DH_Custom_GuardianNaga_Description	Wise and good, the beautiful guardian nagas protect sacred places and items of magical power from falling into evil hands. In their hidden redoubts, they research spells and hatch convoluted plots to thwart the evil designs of their enemies.
-Monster/&DH_Custom_GuardianNaga_Title	<color=#ff0000ff>Guardian Naga</color>
-Monster/&DH_Custom_HornedDevil_Description	The flying infantry of the hellish legions, horned devils follow orders to the letter.
-Monster/&DH_Custom_HornedDevil_Title	<color=#ff0000ff>Horned Devil</color>
-Monster/&DH_Custom_IceDevil_Description	Coveting the power of their pit fiend superiors, ice devils work ceaselessly toward promotion, slaughtering the enemies of the Nine Hells and claiming as many souls as they can for their archdevil masters.
-Monster/&DH_Custom_IceDevil_Title	<color=#ff0000ff>Ice Devil</color>
-Monster/&DH_Custom_Lich_Description	Liches are the remains of great wizards who embrace undeath as a means of preserving themselves. They further their own power at any cost, having no interest in the affairs of the living except where those affairs interfere with their own. Scheming and insane, they hunger for long-forgotten knowledge and the most terrible secrets.
-Monster/&DH_Custom_Lich_Title	<color=#ff0000ff>Lich</color>
-Monster/&DH_Custom_Nalfeshnee_Description	The nalfeshnee is one of the most grotesque demons-a corpulent mockery of ape and boar standing twice the height of a human, with feathered wings that seem too small for its bloated body. These brutish features conceal a remarkable intelligence and cunning.
-Monster/&DH_Custom_Nalfeshnee_Title	<color=#ff0000ff>Nalfeshnee</color>
-Monster/&DH_Custom_PitFiend_Description	The undisputed lords of most other devils, pit fiends attend the archdukes and archduchesses of the Nine Hells and carry out their wishes. These mighty devils are the generals of the Nine Hells, leading its infernal legions into battle.
-Monster/&DH_Custom_PitFiend_Title	<color=#ff0000ff>Pit Fiend</color>
-Monster/&DH_Custom_Planetar_Description	Planetars act as the weapons of the gods they serve, presenting a tangible representation of their deities' might.
-Monster/&DH_Custom_Planetar_Title	<color=#ff0000ff>Planetar</color>
-Monster/&DH_Custom_Roc_Description	Rocs are solitary creatures that can live for centuries. They lair in nests made from trees, tents, broken ships, and the remains of caravans they carry off, placing these massive tangles in mountain clefts out of the reach of lesser creatures.
-Monster/&DH_Custom_Roc_Title	<color=#ff0000ff>Roc</color>
-Monster/&DH_Custom_Solar_Description	On the battlefield, the solar's sword flies into the fray on its own, and a single arrow from a solar's bow can strike a target dead on contact. So great is a solar's celestial might that even demon princes shrink at its resonant commands.
-Monster/&DH_Custom_Solar_Title	<color=#ff0000ff>Solar</color>
-Monster/&DH_Custom_StormGiant_Description	Storm giants are contemplative seers that live in places far removed from mortal civilization. Most have pale purple-gray skin and hair, and glittering emerald eyes.
-Monster/&DH_Custom_StormGiant_Title	<color=#ff0000ff>Storm Giant</color>
-Monster/&DH_Custom_Tarrasque_Description	The legendary tarrasque is possibly the most dreaded monster of the Material Plane. It is widely believed that only one of these creatures exists, though no one can predict where and when it will strike. A scaly biped, the tarrasque is fifty feet tall and seventy feet long, weighing hundreds of tons
-Monster/&DH_Custom_Tarrasque_Title	<color=#ff0000ff>Tarrasque</color>
-Monster/&DH_Custom_Vampire_Description	Awakened to an endless night, vampires hunger for the life they have lost and sate that hunger by drinking the blood of the living. Vampires abhor sunlight, for its touch burns them. They never cast shadows or reflections, and any vampire wishing to move unnoticed among the living keeps to the darkness and far from reflective surfaces.
-Monster/&DH_Custom_Vampire_Title	<color=#ff0000ff>Vampire</color>
-Monster/&DHCustomCouatlDescription	Couatls are benevolent serpentine beings of great intellect and insight. Their brilliantly colored wings and gentle manner speak to their celestial origins.
-Monster/&DHCustomCouatlTitle	Couatl
+Monster/&Custom_AirTitanDescription	When summoned, these elder elementals manifest as beings of apocalyptic capability, entities whose mere existence promises destruction.
+Monster/&Custom_AirTitanTitle	<color=#ff0000ff>Primordial Air Titan</color>
+Monster/&Custom_AncientBlackDragonDescription	The most evil-tempered and vile of the chromatic dragons, black dragons collect the wreckage and treasures of fallen peoples. These dragons loathe seeing the weak prosper and revel in the collapse of humanoid kingdoms. They make their homes in fetid swamps and crumbling ruins where kingdoms once stood.
+Monster/&Custom_AncientBlackDragonTitle	<color=#ff0000ff>Ancient Black Dragon</color>
+Monster/&Custom_AncientBlueDragonDescription	Vain and territorial, blue dragons soar through the skies over deserts, preying on caravans and plundering herds and settlements in the verdant lands beyond the desert's reach. These dragons can also be found in dry steppes, searing badlands, and rocky coasts. They guard their territories against all potential competitors, especially brass dragons.
+Monster/&Custom_AncientBlueDragonTitle	<color=#ff0000ff>Ancient Blue Dragon</color>
+Monster/&Custom_AncientGreenDragonDescription	The most cunning and treacherous of true dragons, green dragons use misdirection and trickery to get the upper hand against their enemies. Nasty tempered and thoroughly evil, they take special pleasure in subverting and corrupting the good-hearted. In the ancient forests they roam, green dragons demonstrate an aggression that is often less about territory than it is about gaining power and wealth with as little effort as possible.
+Monster/&Custom_AncientGreenDragonTitle	<color=#ff0000ff>Ancient Green Dragon</color>
+Monster/&Custom_AncientRedDragonDescription	The most covetous of the true dragons, red dragons tirelessly seek to increase their treasure hoards. They are exceptionally vain, even for dragons, and their conceit is reflected in their proud bearing and their disdain for other creatures.
+Monster/&Custom_AncientRedDragonTitle	<color=#ff0000ff>Ancient Red Dragon</color>
+Monster/&Custom_AncientWhiteDragonDescription	The smallest, least intelligent, and most animalistic of the chromatic dragons, white dragons dwell in frigid climes, favoring arctic areas or icy mountains. They are vicious, cruel reptiles driven by hunger and greed.
+Monster/&Custom_AncientWhiteDragonTitle	<color=#ff0000ff>Ancient White Dragon</color>
+Monster/&Custom_ArchmageDescription	Archmages are powerful (and usually quite old) spellcasters dedicated to the study of the arcane arts. Benevolent ones counsel kings and queens, while evil ones rule as tyrants and pursue lichdom. Those who are neither good nor evil sequester themselves in remote towers to practice their magic without interruption.
+Monster/&Custom_ArchmageTitle	<color=#ff0000ff>Archmage</color>
+Monster/&Custom_BalorDescription	Figures of ancient and terrible evil, balors rule as generals over demonic armies, yearning to seize power while destroying any creatures that oppose them
+Monster/&Custom_BalorTitle	<color=#ff0000ff>Balor</color>
+Monster/&Custom_ConstructTitanDescription	Massive constructs built for war and wrought of heavy metal. An unstoppable juggernaut, it exists to follow its creator's orders, and it protects or attacks as that creator demands.
+Monster/&Custom_ConstructTitanTitle	<color=#ff0000ff>Mechanical Construct Titan</color>
+Monster/&Custom_CouatlDescription	Couatls are benevolent serpentine beings of great intellect and insight. Their brilliantly colored wings and gentle manner speak to their celestial origins.
+Monster/&Custom_CouatlTitle	Couatl
+Monster/&Custom_DevaDescription	Devas are angels that act as divine messengers or agents to the Material Plane,
+Monster/&Custom_DevaTitle	<color=#ff0000ff>Deva</color>
+Monster/&Custom_DjinniDescription	Proud genies from the Elemental Plane of Air, Masters of the air, the djinn ride powerful whirlwinds that they create and direct on a whim, and which can even carry passengers.
+Monster/&Custom_DjinniTitle	<color=#ff0000ff>Djinni</color>
+Monster/&Custom_EarthTitanDescription	When summoned, these elder elementals manifest as beings of apocalyptic capability, entities whose mere existence promises destruction.
+Monster/&Custom_EarthTitanTitle	<color=#ff0000ff>Primordial Earth Titan</color>
+Monster/&Custom_EfreetiDescription	Hulking genies of the Elemental Plane of Fire, the efreet are masters of flame, immune to fire and able to create it on a whim.
+Monster/&Custom_EfreetiTitle	<color=#ff0000ff>Efreeti</color>
+Monster/&Custom_ErinyesDescription	the erinyes are fierce and disciplined warriors. Sweeping down from the skies, they bring swift death to creatures that have wronged their masters
+Monster/&Custom_ErinyesTitle	<color=#ff0000ff>Erinyes</color>
+Monster/&Custom_FireTitanDescription	When summoned, these elder elementals manifest as beings of apocalyptic capability, entities whose mere existence promises destruction.
+Monster/&Custom_FireTitanTitle	<color=#ff0000ff>Primordial Fire Titan</color>
+Monster/&Custom_GuardianNagaDescription	Wise and good, the beautiful guardian nagas protect sacred places and items of magical power from falling into evil hands. In their hidden redoubts, they research spells and hatch convoluted plots to thwart the evil designs of their enemies.
+Monster/&Custom_GuardianNagaTitle	<color=#ff0000ff>Guardian Naga</color>
+Monster/&Custom_HornedDevilDescription	The flying infantry of the hellish legions, horned devils follow orders to the letter.
+Monster/&Custom_HornedDevilTitle	<color=#ff0000ff>Horned Devil</color>
+Monster/&Custom_IceDevilDescription	Coveting the power of their pit fiend superiors, ice devils work ceaselessly toward promotion, slaughtering the enemies of the Nine Hells and claiming as many souls as they can for their archdevil masters.
+Monster/&Custom_IceDevilTitle	<color=#ff0000ff>Ice Devil</color>
+Monster/&Custom_LichDescription	Liches are the remains of great wizards who embrace undeath as a means of preserving themselves. They further their own power at any cost, having no interest in the affairs of the living except where those affairs interfere with their own. Scheming and insane, they hunger for long-forgotten knowledge and the most terrible secrets.
+Monster/&Custom_LichTitle	<color=#ff0000ff>Lich</color>
+Monster/&Custom_NalfeshneeDescription	The nalfeshnee is one of the most grotesque demons-a corpulent mockery of ape and boar standing twice the height of a human, with feathered wings that seem too small for its bloated body. These brutish features conceal a remarkable intelligence and cunning.
+Monster/&Custom_NalfeshneeTitle	<color=#ff0000ff>Nalfeshnee</color>
+Monster/&Custom_PitFiendDescription	The undisputed lords of most other devils, pit fiends attend the archdukes and archduchesses of the Nine Hells and carry out their wishes. These mighty devils are the generals of the Nine Hells, leading its infernal legions into battle.
+Monster/&Custom_PitFiendTitle	<color=#ff0000ff>Pit Fiend</color>
+Monster/&Custom_PlanetarDescription	Planetars act as the weapons of the gods they serve, presenting a tangible representation of their deities' might.
+Monster/&Custom_PlanetarTitle	<color=#ff0000ff>Planetar</color>
+Monster/&Custom_RocDescription	Rocs are solitary creatures that can live for centuries. They lair in nests made from trees, tents, broken ships, and the remains of caravans they carry off, placing these massive tangles in mountain clefts out of the reach of lesser creatures.
+Monster/&Custom_RocTitle	<color=#ff0000ff>Roc</color>
+Monster/&Custom_SolarDescription	On the battlefield, the solar's sword flies into the fray on its own, and a single arrow from a solar's bow can strike a target dead on contact. So great is a solar's celestial might that even demon princes shrink at its resonant commands.
+Monster/&Custom_SolarTitle	<color=#ff0000ff>Solar</color>
+Monster/&Custom_StormGiantDescription	Storm giants are contemplative seers that live in places far removed from mortal civilization. Most have pale purple-gray skin and hair, and glittering emerald eyes.
+Monster/&Custom_StormGiantTitle	<color=#ff0000ff>Storm Giant</color>
+Monster/&Custom_TarrasqueDescription	The legendary tarrasque is possibly the most dreaded monster of the Material Plane. It is widely believed that only one of these creatures exists, though no one can predict where and when it will strike. A scaly biped, the tarrasque is fifty feet tall and seventy feet long, weighing hundreds of tons
+Monster/&Custom_TarrasqueTitle	<color=#ff0000ff>Tarrasque</color>
+Monster/&Custom_VampireDescription	Awakened to an endless night, vampires hunger for the life they have lost and sate that hunger by drinking the blood of the living. Vampires abhor sunlight, for its touch burns them. They never cast shadows or reflections, and any vampire wishing to move unnoticed among the living keeps to the darkness and far from reflective surfaces.
+Monster/&Custom_VampireTitle	<color=#ff0000ff>Vampire</color>
 Monster/&OwlFamiliarDescription	Owl familiar
 Monster/&OwlFamiliarTitle	Owl
 Monster/&PactOfChainCustomImpDescription	Imps are found throughout the Lower Planes, either running errands for their infernal masters, spying on rivals, or misleading and waylaying mortals. An imp will proudly serve an evil master of any kind, but it can't be relied on to carry out tasks with any speed or efficiency.
@@ -1164,168 +1136,174 @@ Monster/&PactOfChainCustomSpriteDescription	Unlike pixies, sprites rarely indulg
 Monster/&PactOfChainCustomSpriteTitle	Sprite (Pact of Chain)
 Monster/&WitchOwlFamiliarDescription	Owl familiar
 Monster/&WitchOwlFamiliarTitle	Owl
-MonsterAttack/&DH_AirBlast_Attack_Description	5d6 thunder and pushes 2 cells
-MonsterAttack/&DH_AirBlast_Attack_Title	Air Blast
-MonsterAttack/&DH_AirTitan_Slam_Attack_Descriptiond	4d6+6 Bludgeoning & 4d6 Thunder
-MonsterAttack/&DH_AirTitan_Slam_Attack_Title	Thunderous Slam
-MonsterAttack/&DH_AncientDragon_Tail_Attack_Description	2D8+8 Bludgeoning
-MonsterAttack/&DH_AncientDragon_Tail_Attack_Title	Tail Attack
-MonsterAttack/&DH_Balor_Longsword_Attack_Description	3D8+8 Slashing & 3D8 Lightning
-MonsterAttack/&DH_Balor_Longsword_Attack_Title	Longsword Attack
-MonsterAttack/&DH_Balor_Whip_Attack_Description	2D6+8 Slashing & 3D6 Fire
-MonsterAttack/&DH_Balor_Whip_Attack_Title	Whip Attack
-MonsterAttack/&DH_ConstructTitan_ForceCannon_Attack_Description	4D8 Force damage and target is knocked prone
-MonsterAttack/&DH_ConstructTitan_ForceCannon_Attack_Title	Force Cannon
-MonsterAttack/&DH_ConstructTitan_Slam_Attack_Description	3D12+8 bludgeoning Damage and target is pushed 20 ft
-MonsterAttack/&DH_ConstructTitan_Slam_Attack_Title	Slam
-MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Description	Cannot act and takes 16d6 acid damage each turn. 60 damage in a single attack can force the swallower to regurgitate.
-MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Title	Swallowed
-MonsterAttack/&DH_Custom_TarrasqueSwallowingcondition_Description	60 damage in a single attack can force it to regurgitate.
-MonsterAttack/&DH_Custom_TarrasqueSwallowingcondition_Title	Swallowing creature
-MonsterAttack/&DH_DamageAcid_Bite_Attack_Description	2D10+9 Piercing & 2D8 Acid Damage
-MonsterAttack/&DH_DamageAcid_Bite_Attack_Title	Acid Bite Attack
-MonsterAttack/&DH_DamageCold_Bite_Attack_Description	2D10+9 Piercing & 2D8 Cold Damage
-MonsterAttack/&DH_DamageCold_Bite_Attack_Title	Ice Bite Attack
-MonsterAttack/&DH_DamageFire_Bite_Attack_Description	2D10+9 Piercing & 4D6 Fire Damage
-MonsterAttack/&DH_DamageFire_Bite_Attack_Title	Fire Bite Attack
-MonsterAttack/&DH_DamageLightning_Bite_Attack_Description	2D10+9 Piercing & 2D10 Lightning Damage
-MonsterAttack/&DH_DamageLightning_Bite_Attack_Title	Lightning Bite Attack
-MonsterAttack/&DH_DamagePoison_Bite_Attack_Description	2D10+9 Piercing & 3D6 Poison Damage
-MonsterAttack/&DH_DamagePoison_Bite_Attack_Title	Poison Bite Attack
-MonsterAttack/&DH_EarthTitan_Boulder_Attack_Description	7D10+8 Bludgeoning
-MonsterAttack/&DH_EarthTitan_Boulder_Attack_Title	Boulder
-MonsterAttack/&DH_EarthTitan_Slam_Attack_Description	4D10+8 Bludgeoning
-MonsterAttack/&DH_EarthTitan_Slam_Attack_Title	Ground Slam
-MonsterAttack/&DH_FireScimatar_Attack_Description	2d6+6 slashing & 2d6 Fire
-MonsterAttack/&DH_FireScimatar_Attack_Title	Scimatar
-MonsterAttack/&DH_FireTitan_Slam_Attack_Description	3d6+5 Bludgeoning + 10d6 Fire
-MonsterAttack/&DH_FireTitan_Slam_Attack_Title	Searing Slam
-MonsterAttack/&DH_Fork_Attack_Description	2D8 +6 Piercing
-MonsterAttack/&DH_Fork_Attack_Title	Fork Attack
-MonsterAttack/&DH_Generic_Bite_Attack_No_ExtraDamage_Description	2d10 + 6 Piercing Damage
-MonsterAttack/&DH_Generic_Bite_Attack_No_ExtraDamage_Title	Bite Attack
-MonsterAttack/&DH_Generic_Claw_Attack_Description	2D6 + 9 Slashing Damage
-MonsterAttack/&DH_Generic_Claw_Attack_Title	Claw attack
-MonsterAttack/&DH_Generic_Stronger_Bite_Attack_No_ExtraDamage_Description	2D10 + 9
-MonsterAttack/&DH_Generic_Stronger_Bite_Attack_No_ExtraDamage_Title	Bite Attack
-MonsterAttack/&DH_HornedDevilTail_Attack_Description	1D8 +6 Piercing , inflicts Bleeding Wound condition
-MonsterAttack/&DH_HornedDevilTail_Attack_Title	Tail Attack
-MonsterAttack/&DH_HornedDevilTail_Attackcondition_Description	3D6 Necrotic, save to cancel
-MonsterAttack/&DH_HornedDevilTail_Attackcondition_Title	Bleeding Wound
-MonsterAttack/&DH_HurlFlame_Attack_Description	5d6 Fire
-MonsterAttack/&DH_HurlFlame_Attack_Title	Hurl Flame
-MonsterAttack/&DH_Ice_Bite_Attack_Description	2d6+5 Piercing & 3d6 Cold
-MonsterAttack/&DH_Ice_Bite_Attack_Title	Ice Bite
-MonsterAttack/&DH_ImpAttack_Description	1d4 + 3 piercing damage, and the target must make a DC 11 Constitution saving throw, taking 10 (3d6) poison damage on a failed save, or half as much damage on a successful one.
-MonsterAttack/&DH_ImpAttack_Title	Sting
-MonsterAttack/&DH_Lich_ParalyzingTouch_Attack_Description	3D6 Cold and inflicts Paralyzed condition
-MonsterAttack/&DH_Lich_ParalyzingTouch_Attack_Title	Paralyzing Touch
-MonsterAttack/&DH_LightningScimatar_Attack_Description	2d6+5 slashing & 2d6 lightning
-MonsterAttack/&DH_LightningScimatar_Attack_Title	Scimatar
-MonsterAttack/&DH_NagaBite_Attack_Description	1d8+4 Piercing & 15 DC Con Save to half 10d8 Poison
-MonsterAttack/&DH_NagaBite_Attack_Title	Poison Bite
-MonsterAttack/&DH_NagaSpit_Attack_Description	15 DC Con Save to half 10d8 Poison
-MonsterAttack/&DH_NagaSpit_Attack_Title	Spit Poison
-MonsterAttack/&DH_PitFiend_Bite_Attack_Description	2d6+7 Poison, Inflicts poison condition
-MonsterAttack/&DH_PitFiend_Bite_Attack_Title	Bite Attack
-MonsterAttack/&DH_PitFiend_Bite_Attackcondition_Description	6D6 Posion recurring
-MonsterAttack/&DH_PitFiend_Bite_Attackcondition_Title	Poisoned
-MonsterAttack/&DH_PitFiend_Mace_Attack_Description	2D6+8 Bludgeoning & 6D6 Fire
-MonsterAttack/&DH_PitFiend_Mace_Attack_Title	Mace Attack
-MonsterAttack/&DH_PoisonLongbow_Attack_Description	Longbow with poison arrows
-MonsterAttack/&DH_PoisonLongbow_Attack_Title	Poison Longbow
-MonsterAttack/&DH_PoisonLongsword_Attack_Description	1d10+4 Slashing & 3d8 Poison
-MonsterAttack/&DH_PoisonLongsword_Attack_Title	Poison Longsword
-MonsterAttack/&DH_PseudodragonAttack_Description	1d4 Piercing damage.The target must succeed on a DC 10 Constitution saving throw or become poisoned for 1 minute. The poisoned target falls unconscious for the same duration, or until it takes damage or another creature takes an action to shake it awake.
-MonsterAttack/&DH_PseudodragonAttack_Title	Sting
-MonsterAttack/&DH_QuasitAttack_Description	1d4 + 3 piercing damage, and the target must succeed on a DC 10 Constitution saving throw or take 5 (2d4) poison damage and become poisoned for 1 minute.
-MonsterAttack/&DH_QuasitAttack_Title	Claw
-MonsterAttack/&DH_RadiantLongbow_Attack_Description	2D6+8 Piercing & 6D8 Radiant
-MonsterAttack/&DH_RadiantLongbow_Attack_Title	Slaying Longbow.
-MonsterAttack/&DH_RadiantLongsword_Attack_Description	4D6+8 Slashing & 6D8 Radiant
-MonsterAttack/&DH_RadiantLongsword_Attack_Title	Radiant Greatsword
-MonsterAttack/&DH_Roc_Beak_Attack_Description	4d8+9 Piercing
-MonsterAttack/&DH_Roc_Beak_Attack_Title	Beak
-MonsterAttack/&DH_Roc_Talons_Attack_Description	4d6+9 Slashing and target is grappled and restrained by Roc
-MonsterAttack/&DH_Roc_Talons_Attack_Title	Talons
-MonsterAttack/&DH_SpriteAttack_Description	1d4 Piercing damage.The target must succeed on a DC 10 Constitution saving throw or become poisoned for 1 minute. The poisoned target falls unconscious for the same duration, or until it takes damage or another creature takes an action to shake it awake.
-MonsterAttack/&DH_SpriteAttack_Title	Fairy Bow
-MonsterAttack/&DH_Tarrasque_Bite_Description	4d12 + 10 piercing damage and the target must succeed a Dexterity check or be grappled (escape DC 20).
-MonsterAttack/&DH_Tarrasque_Bite_Title	Bite
-MonsterAttack/&DH_Tarrasque_BiteCondition_Description	Until this grapple ends, the target is restrained.
-MonsterAttack/&DH_Tarrasque_BiteCondition_Title	Caught by Tarrasque
-MonsterAttack/&DH_Tarrasque_Claw_Description	4d8 + 10 slashing damage
-MonsterAttack/&DH_Tarrasque_Claw_Title	Claw
-MonsterAttack/&DH_Tarrasque_Horn_Description	4d10 + 10) piercing damage
-MonsterAttack/&DH_Tarrasque_Horn_Title	Horn
-MonsterAttack/&DH_Tarrasque_Tail_Description	4d6 + 10 bludgeoning damage. If the target is a creature, it must succeed on a DC 20 Strength saving throw or be knocked prone
-MonsterAttack/&DH_Tarrasque_Tail_Title	Tail
-MonsterAttack/&DHCouatlBiteAttackDescription	Piercing damage, and the target must succeed on a DC 13 Constitution saving throw or be poisoned for 24 hours. Until this poison ends, the target is unconscious.
-MonsterAttack/&DHCouatlBiteAttackTitle	Bite
-MonsterPower/&DH_AirTitan_Gale_Power_Description	4D10 Thunder and pushed on failed save
-MonsterPower/&DH_AirTitan_Gale_Power_Title	Screaming Gale
-MonsterPower/&DH_AirTitan_Lightning_Power_Description	3D10 Lightning in area
-MonsterPower/&DH_AirTitan_Lightning_Power_Title	Lightning Strike
-MonsterPower/&DH_AncientDragon_Wing_Power_Description	Dragons can flap their wings to produce enough wind to propel most humanoids away and knock them prone.
-MonsterPower/&DH_AncientDragon_Wing_Power_Title	Wing Attack
-MonsterPower/&DH_Balor_FireAura_Power_Description	3D6 Fire
-MonsterPower/&DH_Balor_FireAura_Power_Title	Fire Aura
-MonsterPower/&DH_BlindingGaze_Power_Description	DC15 Constitution Save or be Blinded until lesser restoration is used
-MonsterPower/&DH_BlindingGaze_Power_Title	Blinding Gaze
-MonsterPower/&DH_DamageAcid_Breath_Power_Description	15D8 Acid
-MonsterPower/&DH_DamageAcid_Breath_Power_Title	Acid Breath
-MonsterPower/&DH_DamageCold_Breath_Power_Description	16D8 Cold
-MonsterPower/&DH_DamageCold_Breath_Power_Title	Ice Breath
-MonsterPower/&DH_DamageFire_Breath_Power_Description	26D6 Fire
-MonsterPower/&DH_DamageFire_Breath_Power_Title	Fire Breath
-MonsterPower/&DH_DamageLightning_Breath_Power_Description	16D10 Lightning
-MonsterPower/&DH_DamageLightning_Breath_Power_Title	Lightning Breath
-MonsterPower/&DH_DamagePoison_Breath_Power_Description	22D6 Poison
-MonsterPower/&DH_DamagePoison_Breath_Power_Title	Poison Breath
-MonsterPower/&DH_DisintegratingBeam_Power_Description	6D10 Radiant Damage and target is disintegrated on 0 HP
-MonsterPower/&DH_DisintegratingBeam_Power_Title	Disintegrating Beam
-MonsterPower/&DH_EarthTitan_Earthquake_Power_Description	4D10 Bludgeoning
-MonsterPower/&DH_EarthTitan_Earthquake_Power_Title	Earthquake
-MonsterPower/&DH_ErinyesParry_Power_Description	+3 AC
-MonsterPower/&DH_ErinyesParry_Power_Title	Parry
-MonsterPower/&DH_FireTitan_Aura_Power_Description	each creature within 30 feet of it takes 35 (10d6) fire damage, and flammable objects in the aura that aren't being worn or carried ignite.
-MonsterPower/&DH_FireTitan_Aura_Power_Title	Fire Titan Aura
-MonsterPower/&DH_FireTitan_Retaliate_DamageAffinity_Description	A creature takes 35 (10d6) fire damage from touching Maegera or from hitting it with a melee attack while within 10 feet of it
-MonsterPower/&DH_FireTitan_Retaliate_DamageAffinity_Title	Fire Titan Retaliate
-MonsterPower/&DH_FireTitan_Retaliate_Power_Description	A creature takes 35 (10d6) fire damage from touching Maegera or from hitting it with a melee attack while within 10 feet of it
-MonsterPower/&DH_FireTitan_Retaliate_Power_Title	Fire Titan Retaliate
-MonsterPower/&DH_IlluminatingCrystals_Power_Description	Any creature in the area when the spell is cast is also outlined in light. For the duration, objects and affected creatures shed dim light in a 10-foot radius.
-MonsterPower/&DH_IlluminatingCrystals_Power_Title	Illuminating Crystals
-MonsterPower/&DH_IncreasedGravityZone_Attack_Description	The Titan focuses zone within 20 feet of it. Any creature in a 20-foot-radius, 20-foot-high cylinder centered on this point must succeed on a DC 26 Dexterity saving throw or take 33 (6d10) bludgeoning damage and fall prone and be restrained for one round.
-MonsterPower/&DH_IncreasedGravityZone_Attack_Title	Increased Gravity Zone
-MonsterPower/&DH_Lich_DisruptLife_Power_Description	6D6 Necrotic
-MonsterPower/&DH_Lich_DisruptLife_Power_Title	Disrupt Life
-MonsterPower/&DH_SearingBurst_Power_Description	4D6 Fire & 4D6 Radiant
-MonsterPower/&DH_SearingBurst_Power_Title	Searing Burst
-MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Description	Summons 1 Air Elemental
-MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Title	Summon Greater Elemental
-MonsterPower/&DH_SummonCreature_Earth_Elemental_Power_Description	Summons 1 Earth Elemental
-MonsterPower/&DH_SummonCreature_Earth_Elemental_Power_Title	Summon Greater Elemental
-MonsterPower/&DH_SummonCreature_Erinyes_Power_Description	An Erinyes is called forth to fight
-MonsterPower/&DH_SummonCreature_Erinyes_Power_Title	Summons Minion: Erinyes
-MonsterPower/&DH_SummonCreature_Fire_Elemental_Power_Description	Summons 1 Fire Elemental
-MonsterPower/&DH_SummonCreature_Fire_Elemental_Power_Title	Summon Greater Elemental
-MonsterPower/&DH_SummonCreature_Fire_Jester_Power_Description	Summons 2 Fire Jesters
-MonsterPower/&DH_SummonCreature_Fire_Jester_Power_Title	Summon Lesser Elementals
-MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Description	A Nalfeshnee is called forth to fight
-MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Title	Summons Minion: Nalfeshnee
-MonsterPower/&DH_SummonCreature_SkarnGhoul_Power_Description	Summons 1 Skarn Ghoul
-MonsterPower/&DH_SummonCreature_SkarnGhoul_Power_Title	Summon Lesser Elemental
-MonsterPower/&DH_SummonCreature_WindSnake_Power_Description	Summons 4 Wind Snakes
-MonsterPower/&DH_SummonCreature_WindSnake_Power_Title	Summon Lesser Elementals
-MonsterPower/&DH_SummonCreature_Wolves_Power_Description	The vampire magically calls 3d6 wolves
-MonsterPower/&DH_SummonCreature_Wolves_Power_Title	Children of the Night
-MonsterPower/&DH_TarrasqueReflectiveCarapace_Immunity_Description	Any time the tarrasque is targeted by a magic missile spell, a line spell, or a spell that requires a ranged attack roll, the tarrasque is unaffected
-MonsterPower/&DH_TarrasqueReflectiveCarapace_Immunity_Title	Reflective Carapace
-MonsterPower/&DH_TarrasqueSwallowPower_Description	The tarrasque makes one bite attack against a Large or smaller creature it is grappling. If the attack hits, the target is swallowed, and the grapple ends.
-MonsterPower/&DH_TarrasqueSwallowPower_Title	Swallow
-MonsterPower/&DH_VampireCharmPower_Description	The vampire targets one humanoid it can see within 30 feet of it. The target must succeed on a DC 17 Wisdom saving throw against this magic or be charmed by the vampire.
-MonsterPower/&DH_VampireCharmPower_Title	Charm
+MonsterAttack/&DH_Custom_AirBlastAttackDescription	5d6 thunder and pushes 2 cells
+MonsterAttack/&DH_Custom_AirBlastAttackTitle	Air Blast
+MonsterAttack/&DH_Custom_AirTitanSlamAttackDescription	4d6+6 Bludgeoning & 4d6 Thunder
+MonsterAttack/&DH_Custom_AirTitanSlamAttackTitle	Thunderous Slam
+MonsterAttack/&DH_Custom_AncientDragonTailAttackDescription	2D8+8 Bludgeoning
+MonsterAttack/&DH_Custom_AncientDragonTailAttackTitle	Tail Attack
+MonsterAttack/&DH_Custom_BalorLongswordAttackDescription	3D8+8 Slashing & 3D8 Lightning
+MonsterAttack/&DH_Custom_BalorLongswordAttackTitle	Longsword Attack
+MonsterAttack/&DH_Custom_BalorWhipAttackDescription	2D6+8 Slashing & 3D6 Fire
+MonsterAttack/&DH_Custom_BalorWhipAttackTitle	Whip Attack
+MonsterAttack/&DH_Custom_ConstructTitanForceCannonAttackDescription	4D8 Force damage and target is knocked prone
+MonsterAttack/&DH_Custom_ConstructTitanForceCannonAttackTitle	Force Cannon
+MonsterAttack/&DH_Custom_ConstructTitanSlamAttackDescription	3D12+8 bludgeoning Damage and target is pushed 20 ft
+MonsterAttack/&DH_Custom_ConstructTitanSlamAttackTitle	Slam
+MonsterAttack/&DH_Custom_CouatlBiteAttackDescription	Piercing damage, and the target must succeed on a DC 13 Constitution saving throw or be poisoned for 24 hours. Until this poison ends, the target is unconscious.
+MonsterAttack/&DH_Custom_CouatlBiteAttackTitle	Bite
+MonsterAttack/&DH_Custom_DamageAcidBiteAttackDescription	2D10+9 Piercing & 2D8 Acid Damage
+MonsterAttack/&DH_Custom_DamageAcidBiteAttackTitle	Acid Bite Attack
+MonsterAttack/&DH_Custom_DamageColdBiteAttackDescription	2D10+9 Piercing & 2D8 Cold Damage
+MonsterAttack/&DH_Custom_DamageColdBiteAttackTitle	Ice Bite Attack
+MonsterAttack/&DH_Custom_DamageFireBiteAttackDescription	2D10+9 Piercing & 4D6 Fire Damage
+MonsterAttack/&DH_Custom_DamageFireBiteAttackTitle	Fire Bite Attack
+MonsterAttack/&DH_Custom_DamageLightningBiteAttackDescription	2D10+9 Piercing & 2D10 Lightning Damage
+MonsterAttack/&DH_Custom_DamageLightningBiteAttackTitle	Lightning Bite Attack
+MonsterAttack/&DH_Custom_DamagePoisonBiteAttackDescription	2D10+9 Piercing & 3D6 Poison Damage
+MonsterAttack/&DH_Custom_DamagePoisonBiteAttackTitle	Poison Bite Attack
+MonsterAttack/&DH_Custom_EarthTitanBoulderAttackDescription	7D10+8 Bludgeoning
+MonsterAttack/&DH_Custom_EarthTitanBoulderAttackTitle	Boulder
+MonsterAttack/&DH_Custom_EarthTitanSlamAttackDescription	4D10+8 Bludgeoning
+MonsterAttack/&DH_Custom_EarthTitanSlamAttackTitle	Ground Slam
+MonsterAttack/&DH_Custom_FireScimatarAttackDescription	2d6+6 slashing & 2d6 Fire
+MonsterAttack/&DH_Custom_FireScimatarAttackTitle	Scimatar
+MonsterAttack/&DH_Custom_FireTitanSlamAttackDescription	3d6+5 Bludgeoning + 10d6 Fire
+MonsterAttack/&DH_Custom_FireTitanSlamAttackTitle	Searing Slam
+MonsterAttack/&DH_Custom_ForkAttackDescription	2D8 +6 Piercing
+MonsterAttack/&DH_Custom_ForkAttackTitle	Fork Attack
+MonsterAttack/&DH_Custom_GenericBiteAttackNoExtraDamageDescription	2d10 + 6 Piercing Damage
+MonsterAttack/&DH_Custom_GenericBiteAttackNoExtraDamageTitle	Bite Attack
+MonsterAttack/&DH_Custom_GenericClawAttackDescription	2D6 + 9 Slashing Damage
+MonsterAttack/&DH_Custom_GenericClawAttackTitle	Claw attack
+MonsterAttack/&DH_Custom_GenericStrongerBiteAttackNoExtraDamageDescription	2D10 + 9
+MonsterAttack/&DH_Custom_GenericStrongerBiteAttackNoExtraDamageTitle	Bite Attack
+MonsterAttack/&DH_Custom_HornedDevilTailAttackconditionDescription	3D6 Necrotic, save to cancel
+MonsterAttack/&DH_Custom_HornedDevilTailAttackconditionTitle	Bleeding Wound
+MonsterAttack/&DH_Custom_HornedDevilTailAttackDescription	1D8 +6 Piercing , inflicts Bleeding Wound condition
+MonsterAttack/&DH_Custom_HornedDevilTailAttackTitle	Tail Attack
+MonsterAttack/&DH_Custom_HurlFlameAttackDescription	5d6 Fire
+MonsterAttack/&DH_Custom_HurlFlameAttackTitle	Hurl Flame
+MonsterAttack/&DH_Custom_IceBiteAttackDescription	2d6+5 Piercing & 3d6 Cold
+MonsterAttack/&DH_Custom_IceBiteAttackTitle	Ice Bite
+MonsterAttack/&DH_Custom_ImpAttackDescription	1d4 + 3 piercing damage, and the target must make a DC 11 Constitution saving throw, taking 10 (3d6) poison damage on a failed save, or half as much damage on a successful one.
+MonsterAttack/&DH_Custom_ImpAttackTitle	Sting
+MonsterAttack/&DH_Custom_LichParalyzingTouchAttackDescription	3D6 Cold and inflicts Paralyzed condition
+MonsterAttack/&DH_Custom_LichParalyzingTouchAttackTitle	Paralyzing Touch
+MonsterAttack/&DH_Custom_LightningScimatarAttackDescription	2d6+5 slashing & 2d6 lightning
+MonsterAttack/&DH_Custom_LightningScimatarAttackTitle	Scimatar
+MonsterAttack/&DH_Custom_NagaBiteAttackDescription	1d8+4 Piercing & 15 DC Con Save to half 10d8 Poison
+MonsterAttack/&DH_Custom_NagaBiteAttackTitle	Poison Bite
+MonsterAttack/&DH_Custom_NagaSpitAttackDescription	15 DC Con Save to half 10d8 Poison
+MonsterAttack/&DH_Custom_NagaSpitAttackTitle	Spit Poison
+MonsterAttack/&DH_Custom_PitFiendBiteAttackconditionDescription	6D6 Posion recurring
+MonsterAttack/&DH_Custom_PitFiendBiteAttackconditionTitle	Poisoned
+MonsterAttack/&DH_Custom_PitFiendBiteAttackDescription	2d6+7 Poison, Inflicts poison condition
+MonsterAttack/&DH_Custom_PitFiendBiteAttackTitle	Bite Attack
+MonsterAttack/&DH_Custom_PitFiendMaceAttackDescription	2D6+8 Bludgeoning & 6D6 Fire
+MonsterAttack/&DH_Custom_PitFiendMaceAttackTitle	Mace Attack
+MonsterAttack/&DH_Custom_PoisonLongbowAttackDescription	Longbow with poison arrows
+MonsterAttack/&DH_Custom_PoisonLongbowAttackTitle	Poison Longbow
+MonsterAttack/&DH_Custom_PoisonLongswordAttackDescription	1d10+4 Slashing & 3d8 Poison
+MonsterAttack/&DH_Custom_PoisonLongswordAttackTitle	Poison Longsword
+MonsterAttack/&DH_Custom_PseudodragonAttackDescription	1d4 Piercing damage.The target must succeed on a DC 10 Constitution saving throw or become poisoned for 1 minute. The poisoned target falls unconscious for the same duration, or until it takes damage or another creature takes an action to shake it awake.
+MonsterAttack/&DH_Custom_PseudodragonAttackTitle	Sting
+MonsterAttack/&DH_Custom_QuasitAttackDescription	1d4 + 3 piercing damage, and the target must succeed on a DC 10 Constitution saving throw or take 5 (2d4) poison damage and become poisoned for 1 minute.
+MonsterAttack/&DH_Custom_QuasitAttackTitle	Claw
+MonsterAttack/&DH_Custom_RadiantLongbowAttackDescription	2D6+8 Piercing & 6D8 Radiant
+MonsterAttack/&DH_Custom_RadiantLongbowAttackTitle	Slaying Longbow.
+MonsterAttack/&DH_Custom_RadiantLongswordAttackDescription	4D6+8 Slashing & 6D8 Radiant
+MonsterAttack/&DH_Custom_RadiantLongswordAttackTitle	Radiant Greatsword
+MonsterAttack/&DH_Custom_RocBeakAttackDescription	4d8+9 Piercing
+MonsterAttack/&DH_Custom_RocBeakAttackTitle	Beak
+MonsterAttack/&DH_Custom_RocTalonsAttackDescription	4d6+9 Slashing and target is grappled and restrained by Roc
+MonsterAttack/&DH_Custom_RocTalonsAttackTitle	Talons
+MonsterAttack/&DH_Custom_SpriteAttackDescription	1d4 Piercing damage.The target must succeed on a DC 10 Constitution saving throw or become poisoned for 1 minute. The poisoned target falls unconscious for the same duration, or until it takes damage or another creature takes an action to shake it awake.
+MonsterAttack/&DH_Custom_SpriteAttackTitle	Fairy Bow
+MonsterAttack/&DH_Custom_TarrasqueBiteconditionDescription	Until this grapple ends, the target is restrained.
+MonsterAttack/&DH_Custom_TarrasqueBiteconditionTitle	Caught by Tarrasque
+MonsterAttack/&DH_Custom_TarrasqueBiteDescription	4d12 + 10 piercing damage and the target must succeed a Dexterity check or be grappled (escape DC 20).
+MonsterAttack/&DH_Custom_TarrasqueBiteTitle	Bite
+MonsterAttack/&DH_Custom_TarrasqueClawDescription	4d8 + 10 slashing damage
+MonsterAttack/&DH_Custom_TarrasqueClawTitle	Claw
+MonsterAttack/&DH_Custom_TarrasqueHornDescription	4d10 + 10) piercing damage
+MonsterAttack/&DH_Custom_TarrasqueHornTitle	Horn
+MonsterAttack/&DH_Custom_TarrasqueSwallowedconditionDescription	Cannot act and takes 16d6 acid damage each turn. 60 damage in a single attack can force the swallower to regurgitate.
+MonsterAttack/&DH_Custom_TarrasqueSwallowedconditionTitle	Swallowed
+MonsterAttack/&DH_Custom_TarrasqueSwallowingconditionDescription	60 damage in a single attack can force it to regurgitate.
+MonsterAttack/&DH_Custom_TarrasqueSwallowingconditionTitle	Swallowing creature
+MonsterAttack/&DH_Custom_TarrasqueTailDescription	4d6 + 10 bludgeoning damage. If the target is a creature, it must succeed on a DC 20 Strength saving throw or be knocked prone
+MonsterAttack/&DH_Custom_TarrasqueTailTitle	Tail
+MonsterPower/&DH_Custom_AirTitanGalePowerDescription	4D10 Thunder and pushed on failed save
+MonsterPower/&DH_Custom_AirTitanGalePowerTitle	Screaming Gale
+MonsterPower/&DH_Custom_AirTitanLightningPowerDescription	3D10 Lightning in area
+MonsterPower/&DH_Custom_AirTitanLightningPowerTitle	Lightning Strike
+MonsterPower/&DH_Custom_AirTitanLightningStormPowerDescription	6d8 Lightning in wide area
+MonsterPower/&DH_Custom_AirTitanLightningStormPowerTitle	Lightning Storm
+MonsterPower/&DH_Custom_AncientDragonWingPowerDescription	Dragons can flap their wings to produce enough wind to propel most humanoids away and knock them prone.
+MonsterPower/&DH_Custom_AncientDragonWingPowerTitle	Wing Attack
+MonsterPower/&DH_Custom_BalorFireAuraPowerDescription	3D6 Fire
+MonsterPower/&DH_Custom_BalorFireAuraPowerTitle	Fire Aura
+MonsterPower/&DH_Custom_BlindingGazePowerDescription	DC15 Constitution Save or be Blinded until lesser restoration is used
+MonsterPower/&DH_Custom_BlindingGazePowerTitle	Blinding Gaze
+MonsterPower/&DH_Custom_DamageAcidBreathPowerDescription	15D8 Acid
+MonsterPower/&DH_Custom_DamageAcidBreathPowerTitle	Acid Breath
+MonsterPower/&DH_Custom_DamageColdBreathPowerDescription	16D8 Cold
+MonsterPower/&DH_Custom_DamageColdBreathPowerTitle	Ice Breath
+MonsterPower/&DH_Custom_DamageFireBreathPowerDescription	26D6 Fire
+MonsterPower/&DH_Custom_DamageFireBreathPowerTitle	Fire Breath
+MonsterPower/&DH_Custom_DamageLightningBreathPowerDescription	16D10 Lightning
+MonsterPower/&DH_Custom_DamageLightningBreathPowerTitle	Lightning Breath
+MonsterPower/&DH_Custom_DamagePoisonBreathPowerDescription	22D6 Poison
+MonsterPower/&DH_Custom_DamagePoisonBreathPowerTitle	Poison Breath
+MonsterPower/&DH_Custom_DisintegratingBeamPowerDescription	6D10 Radiant Damage and target is disintegrated on 0 HP
+MonsterPower/&DH_Custom_DisintegratingBeamPowerTitle	Disintegrating Beam
+MonsterPower/&DH_Custom_EarthTitanEarthquakePowerDescription	4D10 Bludgeoning
+MonsterPower/&DH_Custom_EarthTitanEarthquakePowerTitle	Earthquake
+MonsterPower/&DH_Custom_ErinyesParryPowerDescription	+3 AC
+MonsterPower/&DH_Custom_ErinyesParryPowerTitle	Parry
+MonsterPower/&DH_Custom_FireTitanAuraPowerDescription	each creature within 30 feet of it takes 35 (10d6) fire damage, and flammable objects in the aura that aren't being worn or carried ignite.
+MonsterPower/&DH_Custom_FireTitanAuraPowerTitle	Fire Titan Aura
+MonsterPower/&DH_Custom_FireTitanRetaliateDamageAffinityDescription	A creature takes 35 (10d6) fire damage from touching Maegera or from hitting it with a melee attack while within 10 feet of it
+MonsterPower/&DH_Custom_FireTitanRetaliateDamageAffinityTitle	Fire Titan Retaliate
+MonsterPower/&DH_Custom_FireTitanRetaliatePowerDescription	A creature takes 35 (10d6) fire damage from touching Maegera or from hitting it with a melee attack while within 10 feet of it
+MonsterPower/&DH_Custom_FireTitanRetaliatePowerTitle	Fire Titan Retaliate
+MonsterPower/&DH_Custom_GenericLightningAttackPowerDescription	12D8
+MonsterPower/&DH_Custom_GenericLightningAttackPowerTitle	Lightning Strike
+MonsterPower/&DH_Custom_IlluminatingCrystalsPowerDescription	Any creature in the area when the spell is cast is also outlined in light. For the duration, objects and affected creatures shed dim light in a 10-foot radius.
+MonsterPower/&DH_Custom_IlluminatingCrystalsPowerTitle	Illuminating Crystals
+MonsterPower/&DH_Custom_IncreasedGravityZoneAttackPowerDescription	The Titan focuses zone within 20 feet of it. Any creature in a 20-foot-radius, 20-foot-high cylinder centered on this point must succeed on a DC 26 Dexterity saving throw or take 33 (6d10) bludgeoning damage and fall prone and be restrained for one round.
+MonsterPower/&DH_Custom_IncreasedGravityZoneAttackPowerTitle	Increased Gravity Zone
+MonsterPower/&DH_Custom_LichDisruptLifePowerDescription	6D6 Necrotic
+MonsterPower/&DH_Custom_LichDisruptLifePowerTitle	Disrupt Life
+MonsterPower/&DH_Custom_SearingBurstPowerDescription	4D6 Fire & 4D6 Radiant
+MonsterPower/&DH_Custom_SearingBurstPowerTitle	Searing Burst
+MonsterPower/&DH_Custom_SummonCreatureAirElementalPowerDescription	Summons 1 Air Elemental
+MonsterPower/&DH_Custom_SummonCreatureAirElementalPowerTitle	Summon Greater Elemental
+MonsterPower/&DH_Custom_SummonCreatureEarthElementalPowerDescription	Summons 1 Earth Elemental
+MonsterPower/&DH_Custom_SummonCreatureEarthElementalPowerTitle	Summon Greater Elemental
+MonsterPower/&DH_Custom_SummonCreatureErinyesPowerDescription	An Erinyes is called forth to fight
+MonsterPower/&DH_Custom_SummonCreatureErinyesPowerTitle	Summons Minion: Erinyes
+MonsterPower/&DH_Custom_SummonCreatureFireElementalPowerDescription	Summons 1 Fire Elemental
+MonsterPower/&DH_Custom_SummonCreatureFireElementalPowerTitle	Summon Greater Elemental
+MonsterPower/&DH_Custom_SummonCreatureFireJesterPowerDescription	Summons 2 Fire Jesters
+MonsterPower/&DH_Custom_SummonCreatureFireJesterPowerTitle	Summon Lesser Elementals
+MonsterPower/&DH_Custom_SummonCreatureLesserConstructPowerDescription	Summon Lesser Construct
+MonsterPower/&DH_Custom_SummonCreatureLesserConstructPowerTitle	Summons 1 Construct
+MonsterPower/&DH_Custom_SummonCreatureNalfeshneePowerDescription	A Nalfeshnee is called forth to fight
+MonsterPower/&DH_Custom_SummonCreatureNalfeshneePowerTitle	Summons Minion: Nalfeshnee
+MonsterPower/&DH_Custom_SummonCreatureSkarnGhoulPowerDescription	Summons 1 Skarn Ghoul
+MonsterPower/&DH_Custom_SummonCreatureSkarnGhoulPowerTitle	Summon Lesser Elemental
+MonsterPower/&DH_Custom_SummonCreatureWindSnakePowerDescription	Summons 4 Wind Snakes
+MonsterPower/&DH_Custom_SummonCreatureWindSnakePowerTitle	Summon Lesser Elementals
+MonsterPower/&DH_Custom_SummonCreatureWolvesPowerDescription	The vampire magically calls 3d6 wolves
+MonsterPower/&DH_Custom_SummonCreatureWolvesPowerTitle	Children of the Night
+MonsterPower/&DH_Custom_TarrasqueReflectiveCarapaceImmunityDescription	Any time the tarrasque is targeted by a magic missile spell, a line spell, or a spell that requires a ranged attack roll, the tarrasque is unaffected
+MonsterPower/&DH_Custom_TarrasqueReflectiveCarapaceImmunityTitle	Reflective Carapace
+MonsterPower/&DH_Custom_TarrasqueSwallowPowerDescription	The tarrasque makes one bite attack against a Large or smaller creature it is grappling. If the attack hits, the target is swallowed, and the grapple ends.
+MonsterPower/&DH_Custom_TarrasqueSwallowPowerTitle	Swallow
+MonsterPower/&DH_Custom_VampireCharmPowerDescription	The vampire targets one humanoid it can see within 30 feet of it. The target must succeed on a DC 17 Wisdom saving throw against this magic or be charmed by the vampire.
+MonsterPower/&DH_Custom_VampireCharmPowerTitle	Charm
 Power/&AncientForestLifeSapDescription	When you hit an enemy with an attack roll spell up (PB times per day), You inflict your Cha Modifer in damage and heal half of that amount if under half of your hitpoints.
 Power/&AncientForestLifeSapTitle	Life Sap
 Power/&AncientForestRootedPowerDescription	Arboreal tendrils grow from your feet and dig into the ground. Your speed becomes 0, and you gain advantage on any saving throws to push you, pull you, or knock you prone.You can cast entangle at will
@@ -1356,11 +1334,10 @@ Power/&UrPriestRadiantWardDescription	As an action, you gain a number of tempora
 Power/&UrPriestRadiantWardTitle	Radiant Ward
 Power/&UrPriestSpellSiphonDescription	you learn how to tap into a greater source of magic in combination with your normal reserve of power. As an action, you can expend a Channel Divinity to regain an expended use of your 6th-level Mystic Arcanum.
 Power/&UrPriestSpellSiphonTitle	Spell Siphon
-Pugilist	Pugilist Damage
 Race/&BolgrifRaceDescription	Bolgrifs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, bolgrifs demonstrate formidable skills with weapons and nature magic.
 Race/&BolgrifRaceTitle	Bolgrif
 Race/&GnomeRaceDescription	A constant hum of busy activity pervades the warrens and neighborhoods where gnomes form their close-knit communities. Louder sounds punctuate the hum: a crunch of grinding gears here, a minor explosion there, a yelp of surprise or triumph, and especially bursts of laughter. Gnomes take delight in life, enjoying every moment of invention, exploration, investigation, creation, and play.
-Race/&GnomeRaceTitle	Woodland Gnome
+Race/&GnomeRaceTitle	Gnome
 Race/&PointPoolSelect10FeatsDescription	Select 10 additional feats for your character.
 Race/&PointPoolSelect10FeatsTitle	10 Bonus Feats
 Race/&PointPoolSelect11FeatsDescription	Select 11 additional feats for your character.
@@ -1391,14 +1368,6 @@ Reaction/&SpendPowerKnockDownPowerDescription	Spend a gambit die and empower you
 Reaction/&SpendPowerKnockDownPowerReactDescription	Spend a gambit die and empower your attack to do an additional 1d6+2 bludgeoning damage and knock them down until the start of their next turn if they fail a Strength save vs. 8 + your Strength + proficiency
 Reaction/&SpendPowerKnockDownPowerReactTitle	Knock down
 Reaction/&SpendPowerKnockDownPowerTitle	Knock down
-Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageDescription	Add your Wisdom modifier to your damage roll.
-Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageReactDescription	Add your Wisdom modifier to your damage roll.
-Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageReactTitle	Foe Slayer
-Reaction/&SpendPowerZSPowerRangerFoeSlayerDamageTitle	Foe Slayer
-Reaction/&UseZSPowerRangerFoeSlayerAttackDescription	Add your Wisdom modifier to your attack roll.
-Reaction/&UseZSPowerRangerFoeSlayerAttackReactTitle	Foe Slayer
-Reaction/&UseZSPowerRangerFoeSlayerAttackTitle	Foe Slayer
-Reaction/&UseZSPowerRangerFoeSlayerDamageReactDescription	Add your Wisdom modifier to your attack roll.
 RestActivity/&ZSRespecDescription	Respec this Hero
 RestActivity/&ZSRespecTitle	Respec
 RestActivity/&ZSSorcerousRestorationDescription	Regain 4 sorcery points during a short rest.
@@ -1439,6 +1408,8 @@ Screen/&WitchSpellHeader	Witch
 Screen/&WitchSpellTitle	Witch
 Sorceror/&ZSSorcerousRestorationDescription	Regain 4 sorcery points during a short rest.
 Sorceror/&ZSSorcerousRestorationTitle	Sorcerous Restoration
+Spell/&AcidClawsDescription	Make a deadly attack with your sharpened claws.
+Spell/&AcidClawsTitle	Bloody Claws
 Spell/&AHPactMarkAdditionalDamageDescription	An additional 1d6 damage on a pact marked creature.
 Spell/&AHPactMarkAdditionalDamageTitle	Pact mark damage
 Spell/&AHPactMarkMarkedByPactConditionDescription	This creature has been marked by a pact and takes extra damage from the marker.
@@ -1447,24 +1418,20 @@ Spell/&AHPactMarkPactMarkConditionDescription	You can mark other creatures with 
 Spell/&AHPactMarkPactMarkConditionTitle	Pact Mark
 Spell/&AHPactMarkSpellDescription	You place a mark form your pact onto a creature you can see within 90ft. It becomes vulnerable to you and takes an additional 1d6 damage whenever you hit it with an attack (physical or spell attack). This damage is the same type as the attack that hits.
 Spell/&AHPactMarkSpellTitle	Pact Mark
+Spell/&AirBlastDescription	Fire a blast of focused air at your target.
+Spell/&AirBlastTitle	Air Blast
+Spell/&BurstOfRadianceDescription	Create a brilliant flash of shimmering light, damaging all enemies around you.
+Spell/&BurstOfRadianceTitle	Burst of Radiance
 Spell/&CJDivineWordDescription	You utter a divine word, imbued with the power that shaped the world at the dawn of creation. Choose any number of creatures you can see within range. Each creature that can hear you must make a Charisma saving throw. On a failed save, a creature suffers an effect based on its current hit points:\n50 hit points or fewer: deafened for 1 minute\n40 hit points or fewer: deafened and blinded for 10 minutes\n30 hit points or fewer: blinded, deafened, and stunned for 1 hour\n20 hit points or fewer: killed instantly\nRegardless of its current hit points, a celestial, an elemental, a fey, or a fiend that fails its save is forced back to its plane of origin (if it isn’t there already) and can’t return to your current plane for 24 hours by any means short of a wish spell.\n
 Spell/&CJDivineWordTitle	Divine Word
-Spell/&DH_CastSpell_Lich_Description	Lich Casting Ability
-Spell/&DH_CastSpell_Lich_Title	Lich Casting Ability
-Spell/&DH_DominateMonster_Spell_Description	You attempt to beguile a creature that you can see within range. It must succeed on a Wisdom saving throw or be charmed by you for the duration.
-Spell/&DH_DominateMonster_Spell_Title	Dominate Monster
-Spell/&DH_FingerOfDeath_Spell_Description	The target must make a Constitution saving throw. It takes 7d8 + 30 necrotic damage on a failed save, or half as much damage on a successful one.
-Spell/&DH_FingerOfDeath_Spell_Title	Finger of Death
-Spell/&DH_PowerWordKill_Spell_Description	You utter a word of power that can compel one creature you can see within range to die instantly. If the creature you choose has 100 hit points or fewer, it dies. Otherwise, the spell has no effect.
-Spell/&DH_PowerWordKill_Spell_Title	Power Word Kill
-Spell/&DH_PowerWordStun_Spell_Description	You speak a word of power that can overwhelm the mind of one creature you can see within range, leaving it dumbfounded. If the target has 150 hit points or fewer, it is stunned. Otherwise, the spell has no effect.
-Spell/&DH_PowerWordStun_Spell_Title	Power Word Stun
-Spell/&DH_ReverseGravity_Spell_Description	This spell reverses gravity in a 50-foot-radius, 100-foot-high cylinder centered on a point within range.
-Spell/&DH_ReverseGravity_Spell_Title	Reverse Gravity
-Spell/&DH_TimeStop_Spell_Description	You briefly stop the flow of time for everyone but yourself. No time passes for other creatures, while you take 1d4 + 1 turns in a row, during which you can use actions and move as normal.
-Spell/&DH_TimeStop_Spell_Title	Time Stop
 Spell/&DHAnimalShapesSpellDescription	Choose any number of willing creatures that you can see within range. You transform each target into the form of a Large or smaller beast with a challenge rating of 4 or lower.
 Spell/&DHAnimalShapesSpellTitle	Animal shapes
+Spell/&DHCastSpellArchMageDescription	Archmage Casting Ability
+Spell/&DHCastSpellArchMageTitle	Archmage Casting Ability
+Spell/&DHCastSpellGuardianNagaDescription	Archmage Casting Ability
+Spell/&DHCastSpellGuardianNagaTitle	Archmage Casting Ability
+Spell/&DHCastSpellLichDescription	Lich Casting Ability
+Spell/&DHCastSpellLichTitle	Lich Casting Ability
 Spell/&DHConjureCelestialSpellDescription	You summon a celestial of challenge rating 4 or lower, which appears in an unoccupied space that you can see within range. The celestial disappears when it drops to 0 hit points or when the spell ends. The celestial is friendly to you and your companions for the duration.
 Spell/&DHConjureCelestialSpellTitle	Conjure Celestial (Couatl)
 Spell/&DHDominateMonsterSpellDescription	You attempt to beguile a creature that you can see within range. It must succeed on a Wisdom saving throw or be charmed by you for the duration.
@@ -1503,6 +1470,8 @@ Spell/&DHTimeStopSpellDescription	You briefly stop the flow of time for everyone
 Spell/&DHTimeStopSpellTitle	Time Stop
 Spell/&DHWeirdSpellDescription	Drawing on the deepest fears of a group of creatures, you create illusory creatures in their minds, visible only to them. Each creature in a 30-foot-radius sphere centered on a point of your choice within range must make a Wisdom saving throw. On a failed save, a creature becomes frightened for the duration. The illusion calls on the creature's deepest fears, manifesting its worst nightmares as an implacable threat. At the end of each of the frightened creature's turns, it must succeed on a Wisdom saving throw or take 4d10 psychic damage. On a successful save, the spell ends for that creature.
 Spell/&DHWeirdSpellTitle	Weird
+Spell/&EarthTremorDescription	You strike the ground and unleash a tremor of seismic force, hurling up earth, rock, and sand.
+Spell/&EarthTremorTitle	Earth Tremor
 Spell/&EldritchBlastDescription	A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage.\nThe spell creates more than one beam when you reach higher levels: two beams at 5th level, three beams at 11th level, and four beams at 17th level. You can direct the beams at the same target or at different ones. Make a separate attack roll for each beam.
 Spell/&EldritchBlastTitle	Eldritch Blast
 Spell/&EldritchOrbDescription	You fling a ball of eldritch energy at a creature or object within range.
@@ -1532,36 +1501,23 @@ Spell/&ProtectThresholdDescription	Tracing arcane sigils along its boundary, you
 Spell/&ProtectThresholdTitle	Protect Threshold
 Spell/&RepellingBlastDescription	A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage.\n(When you hit a creature with eldritch blast, you can push the creature up to 10 feet away from you in a straight line.)
 Spell/&RepellingBlastTitle	Eldritch Blast (Repelling)
+Spell/&ThunderStrikeDescription	Create a burst of thundering sound, damaging everyone around you.
+Spell/&ThunderStrikeTitle	Sound Burst
+Spell/&WinterBreathDescription	Create a blast of cold wind to chill your enemies and knock them prone.
+Spell/&WinterBreathTitle	Winter's Breath
 Spell/&WitchFamiliarDescription	You gain the service of a familiar.
 Spell/&WitchFamiliarTitle	Witch Familiar
-SpellList/&ElementalistSpellsListDescription	Elementalist SpellsList
-SpellList/&ElementalistSpellsListTitle	Elementalist SpellsList
-SpellList/&RiftWalkerSpellsListDescription	RiftWalker SpellsList
-SpellList/&RiftWalkerSpellsListTitle	Rift Walker SpellsList
-SpellList/&SpellListClassWarlockDescription	Warlock SpellList
-SpellList/&SpellListClassWarlockTitle	Warlock SpellList
-SpellList/&SpellListTinkererTitle	Tinkerer Spelllist
+SpellList/&ClassWarlockSpellListDescription	Warlock SpellList
+SpellList/&ClassWarlockSpellListTitle	Warlock SpellList
+SpellList/&ElementalistSpellsListDescription	Elementalist SpellList
+SpellList/&ElementalistSpellsListTitle	Elementalist SpellList
+SpellList/&RiftWalkerSpellsListDescription	RiftWalker SpellList
+SpellList/&RiftWalkerSpellsListTitle	Rift Walker SpellList
 SpellList/&SpellListTinkererDescription	Tinkerer Spelllist
+SpellList/&SpellListTinkererTitle	Tinkerer Spelllist
 Stage/&IdentityMorphotypeEyeHeader	Eye Style
-Stage/&SubclassSelectionStageCovenDescription	Coven
-Stage/&SubclassSelectionStageCovenFeaturesDescription	Coven
-Stage/&SubclassSelectionStageCovenFeaturesHeader	Coven Features
-Stage/&SubclassSelectionStageCovenFeaturesTitle	Coven
-Stage/&SubclassSelectionStageCovenHeader	Select a Coven
-Stage/&SubclassSelectionStageCovenTitle	Coven
-Stage/&SubclassSelectionStagePatronDescription	A warlock is defined by a pact with an otherworldly being. Sometimes the relationship between warlock and patron is like that of a cleric and a deity, though the beings that serve as patrons are not gods
-Stage/&SubclassSelectionStagePatronFeatures	Otherwordly Patrons Features
-Stage/&SubclassSelectionStagePatronHeader	Warlock Otherwordly Patrons
-Stage/&SubclassSelectionStagePatronTitle	Otherwordly Patrons
-Stage/&SubclassSelectionStageSpecialistDescription	Description There are a wide range of specialties in Tinkerers including making elixirs as a Potion Maker, making explosions as a Blaster, and wielding magical weaponry as a Weapon Smith.
-Stage/&SubclassSelectionStageSpecialistFeatures	Specialist Features
-Stage/&SubclassSelectionStageSpecialistHeader	Specializations
-Stage/&SubclassSelectionStageSpecialistNoneDescription	Specialist None Description
-Stage/&SubclassSelectionStageSpecialistTitle	Select Specialization
 Subclass/&AbilityAffinityRogueConArtistDescription	Advantage on ability checks using Persuasion, Deception, Performance, and Sleight of Hand.
 Subclass/&AbilityAffinityRogueConArtistTitle	Manipulative
-Subclass/&AHWarlockSubclassFiendPactDescription	You have made a pact with a fiend from the lower planes of existence, a being whose aims are evil, even if you strive against those aims. Such beings desire the corruption or destruction of all things, ultimately including you. Fiends powerful enough to forge a pact include demon lords such as Demogorgon, Orcus, Fraz'Urb-luu, and Baphomet; archdevils such as Asmodeus, Dispater, Mephistopheles, and Belial; pit fiends and balors that are especially mighty; and ultroloths and other lords of the yugoloths.
-Subclass/&AHWarlockSubclassFiendPactTitle	Fiend Pact
 Subclass/&AHWarlockSubclassSoulBladePactDescription	You have struck a bargain with a sentient weapon that you feed souls to in return for power.
 Subclass/&AHWarlockSubclassSoulBladePactTitle	SoulBlade Pact
 Subclass/&ArcaneFighterAdditionalActionDescription	You can cast a spell after defeating an enemy with your weapon attacks.
@@ -1832,15 +1788,3 @@ Tooltip/&Tag9000Title	Custom Effect
 Tooltip/&TagCommunityExpansionTitle	Community Expansion
 Tooltip/&TagMaledictionTitle	Malediction
 Tooltip/&TagOtherModContentTitle	From mod
-Spell/&AirBlastTitle	Air Blast
-Spell/&AirBlastDescription	Fire a blast of focused air at your target.
-Spell/&BurstOfRadianceTitle	Burst of Radiance
-Spell/&BurstOfRadianceDescription	Create a brilliant flash of shimmering light, damaging all enemies around you.
-Spell/&AcidClawsTitle	Bloody Claws
-Spell/&AcidClawsDescription	Make a deadly attack with your sharpened claws.
-Spell/&WinterBreathTitle	Winter's Breath
-Spell/&WinterBreathDescription	Create a blast of cold wind to chill your enemies and knock them prone.
-Spell/&ThunderStrikeTitle	Sound Burst
-Spell/&ThunderStrikeDescription	Create a burst of thundering sound, damaging everyone around you.
-Spell/&EarthTremorTitle	Earth Tremor
-Spell/&EarthTremorDescription	You strike the ground and unleash a tremor of seismic force, hurling up earth, rock, and sand.

@@ -1,5 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.IO;
 using HarmonyLib;
+using I2.Loc;
 using SolastaCommunityExpansion.Models;
 using UnityModManagerNet;
 #if DEBUG
@@ -18,6 +20,8 @@ namespace SolastaCommunityExpansion.Patches
             ItemDefinitionVerification.Load();
             EffectFormVerification.Load();
 #endif
+            LoadTranslations();
+
             ResourceLocatorContext.Load();
 
             // Cache TA definitions for diagnostics and export
@@ -72,8 +76,6 @@ namespace SolastaCommunityExpansion.Patches
             // Subclasses may rely on classes being loaded (as well as spells and powers) in order to properly refer back to the class.
             SubclassesContext.Load();
 
-            MonsterContext.AddNewMonsters();
-
             ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += (_) =>
             {
                 // Both are late initialized to allow feats and races from other mods
@@ -89,8 +91,8 @@ namespace SolastaCommunityExpansion.Patches
                 // Spells context needs character classes (specifically spell lists) in the db in order to do it's work.
                 SpellsContext.Load();
 
-                // Later load DummyClass to avoid unnecessary creation of some blueprints from feats
-                MulticlassContext.LaterLoad();
+                // Monsters need spells
+                //MonsterContext.Load(); // Removing from CE
 
                 // Save by location initialization depends on services to be ready
                 SaveByLocationContext.Load();
@@ -106,6 +108,48 @@ namespace SolastaCommunityExpansion.Patches
 
                 DisplayWelcomeMessage();
             };
+        }
+
+        private static void LoadTranslations()
+        {
+            var code = LocalizationManager.CurrentLanguageCode.Split('-')[0];
+            var path = Path.Combine(Main.MOD_FOLDER, $"Translations-{code}.txt");
+
+            var languageSourceData = LocalizationManager.Sources[0];
+            var languageIndex = languageSourceData.GetLanguageIndexFromCode(code);
+
+            foreach (var line in File.ReadLines(path))
+            {
+                string term;
+                string text;
+
+                try
+                {
+                    var splitted = line.Split(new[] { '\t', ' ' }, 2);
+
+                    term = splitted[0];
+                    text = splitted[1];
+                }
+                catch
+                {
+                    Main.Error($"invalid translation line \"{line}\".");
+
+                    continue;
+                }
+
+                var termData = languageSourceData.GetTermData(term);
+
+                if (termData != null && termData.Languages[languageIndex] != null)
+                {
+                    Main.Log($"term {term} overwritten with {code} text {text}");
+
+                    termData.Languages[languageIndex] = text;
+                }
+                else
+                {
+                    languageSourceData.AddTerm(term).Languages[languageIndex] = text;
+                }
+            }
         }
 
         private static void DisplayWelcomeMessage()

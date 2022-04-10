@@ -8,23 +8,11 @@ namespace SolastaCommunityExpansion.Builders.Features
         where TBuilder : FeatureDefinitionDamageAffinityBuilder<TDefinition, TBuilder>
     {
         #region Constructors
-        protected FeatureDefinitionDamageAffinityBuilder(TDefinition original) : base(original)
-        {
-        }
-
         protected FeatureDefinitionDamageAffinityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
         protected FeatureDefinitionDamageAffinityBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected FeatureDefinitionDamageAffinityBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-        }
-
-        protected FeatureDefinitionDamageAffinityBuilder(TDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
         }
 
@@ -41,23 +29,11 @@ namespace SolastaCommunityExpansion.Builders.Features
     public class FeatureDefinitionDamageAffinityBuilder : FeatureDefinitionDamageAffinityBuilder<FeatureDefinitionDamageAffinity, FeatureDefinitionDamageAffinityBuilder>
     {
         #region Constructors
-        protected FeatureDefinitionDamageAffinityBuilder(FeatureDefinitionDamageAffinity original) : base(original)
-        {
-        }
-
         protected FeatureDefinitionDamageAffinityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
         protected FeatureDefinitionDamageAffinityBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected FeatureDefinitionDamageAffinityBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-        }
-
-        protected FeatureDefinitionDamageAffinityBuilder(FeatureDefinitionDamageAffinity original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
         }
 
@@ -77,6 +53,13 @@ namespace SolastaCommunityExpansion.Builders.Features
             return This();
         }
 
+        public FeatureDefinitionDamageAffinityBuilder SetAncestryDefinesDamageType(bool ancestryDefinesDamageType)
+        {
+            Definition.SetAncestryDefinesDamageType(ancestryDefinesDamageType);
+
+            return This();
+        }
+
         public FeatureDefinitionDamageAffinityBuilder SetDamageAffinityType(RuleDefinitions.DamageAffinityType damageAffinityType)
         {
             Definition.DamageAffinityType = damageAffinityType;
@@ -88,6 +71,14 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
             Definition.SetRetaliatePower(featureDefinitionPower);
             Definition.SetRetaliateRangeCells(rangeCells);
+
+            return This();
+        }
+
+        public FeatureDefinitionDamageAffinityBuilder SetRetaliate(FeatureDefinitionPower featureDefinitionPower, int rangeCells, bool reliateWhenHit)
+        {
+            SetRetaliate(featureDefinitionPower, rangeCells);
+            Definition.SetRetaliateWhenHit(reliateWhenHit);
 
             return This();
         }

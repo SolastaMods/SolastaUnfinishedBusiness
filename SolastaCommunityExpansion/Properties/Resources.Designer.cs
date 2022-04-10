@@ -123,6 +123,16 @@ namespace SolastaCommunityExpansion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap EarthTremor {
+            get {
+                object obj = ResourceManager.GetObject("EarthTremor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Entry {
             get {
                 object obj = ResourceManager.GetObject("Entry", resourceCulture);
@@ -166,16 +176,6 @@ namespace SolastaCommunityExpansion.Properties {
         public static System.Drawing.Bitmap Warlock {
             get {
                 object obj = ResourceManager.GetObject("Warlock", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap EarthTremor {
-            get {
-                object obj = ResourceManager.GetObject("EarthTremor", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomEffectForm
     {
         public static void Postfix(EffectDescription __instance, Dictionary<string, TagsDefinitions.Criticity> tagsMap)
         {
-            foreach (CustomFeatureDefinitions.CustomEffectForm customEffect in __instance.EffectForms.OfType<CustomFeatureDefinitions.CustomEffectForm>())
+            foreach (CustomDefinitions.CustomEffectForm customEffect in __instance.EffectForms.OfType<CustomDefinitions.CustomEffectForm>())
             {
                 customEffect.FillTags(tagsMap);
             }

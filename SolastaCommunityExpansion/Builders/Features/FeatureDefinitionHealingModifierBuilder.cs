@@ -6,23 +6,11 @@ namespace SolastaCommunityExpansion.Builders.Features
         : FeatureDefinitionAffinityBuilder<FeatureDefinitionHealingModifier, FeatureDefinitionHealingModifierBuilder>
     {
         #region Constructors
-        protected FeatureDefinitionHealingModifierBuilder(FeatureDefinitionHealingModifier original) : base(original)
-        {
-        }
-
         protected FeatureDefinitionHealingModifierBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
         protected FeatureDefinitionHealingModifierBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected FeatureDefinitionHealingModifierBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-        }
-
-        protected FeatureDefinitionHealingModifierBuilder(FeatureDefinitionHealingModifier original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
         {
         }
 

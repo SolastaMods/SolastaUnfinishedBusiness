@@ -48,24 +48,11 @@ namespace SolastaCommunityExpansion.Builders
             SetEmptyParticleReferencesWhereNull();
         }
 
-        protected ConditionDefinitionBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-            SetEmptyParticleReferencesWhereNull();
-        }
-
-        protected ConditionDefinitionBuilder(TDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
-        {
-        }
-
         protected ConditionDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
         {
         }
 
         protected ConditionDefinitionBuilder(TDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
-        {
-        }
-
-        protected ConditionDefinitionBuilder(TDefinition original) : base(original)
         {
         }
         #endregion
@@ -105,6 +92,12 @@ namespace SolastaCommunityExpansion.Builders
         {
             Definition.AddConditionTags(value);
             Definition.ConditionTags.Sort();
+            return This();
+        }
+
+        public TBuilder ClearFeatures()
+        {
+            Definition.ClearFeatures();
             return This();
         }
 
@@ -271,23 +264,11 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        protected ConditionDefinitionBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-        }
-
-        protected ConditionDefinitionBuilder(ConditionDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
-        {
-        }
-
         protected ConditionDefinitionBuilder(ConditionDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
         {
         }
 
         protected ConditionDefinitionBuilder(ConditionDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
-        {
-        }
-
-        protected ConditionDefinitionBuilder(ConditionDefinition original) : base(original)
         {
         }
         #endregion

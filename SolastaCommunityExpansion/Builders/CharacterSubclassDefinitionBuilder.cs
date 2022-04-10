@@ -16,23 +16,11 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        protected CharacterSubclassDefinitionBuilder(string name, bool createGuiPresentation = true) : base(name, createGuiPresentation)
-        {
-        }
-
-        protected CharacterSubclassDefinitionBuilder(CharacterSubclassDefinition original, string name, bool createGuiPresentation = true) : base(original, name, createGuiPresentation)
-        {
-        }
-
         protected CharacterSubclassDefinitionBuilder(CharacterSubclassDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
         {
         }
 
         protected CharacterSubclassDefinitionBuilder(CharacterSubclassDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
-        {
-        }
-
-        protected CharacterSubclassDefinitionBuilder(CharacterSubclassDefinition original) : base(original)
         {
         }
         #endregion
