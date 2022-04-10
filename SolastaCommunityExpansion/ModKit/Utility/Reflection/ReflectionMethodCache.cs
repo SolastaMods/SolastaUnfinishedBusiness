@@ -43,48 +43,48 @@ namespace ModKit.Utility {
             typeof(Func<,,,,,,,,,,,,,,,,>)
         };
 
-        private static readonly TripleDictionary<Type, string, Type, WeakReference> _methodCache = new();
+        //private static readonly TripleDictionary<Type, string, Type, WeakReference> _methodCache = new();
 
-        private static CachedMethod<TMethod> GetMethodCache<T, TMethod>(string name) where TMethod : Delegate {
-            object cache = null;
-            if (_methodCache.TryGetValue(typeof(T), name, typeof(TMethod), out var weakRef))
-                cache = weakRef.Target;
-            if (cache == null) {
-                cache = new CachedMethodOfNonStatic<T, TMethod>(name);
-                _methodCache[typeof(T), name, typeof(TMethod)] = new WeakReference(cache);
-                EnqueueCache(cache);
-            }
-            return cache as CachedMethod<TMethod>;
-        }
+        //private static CachedMethod<TMethod> GetMethodCache<T, TMethod>(string name) where TMethod : Delegate {
+        //    object cache = null;
+        //    if (_methodCache.TryGetValue(typeof(T), name, typeof(TMethod), out var weakRef))
+        //        cache = weakRef.Target;
+        //    if (cache == null) {
+        //        cache = new CachedMethodOfNonStatic<T, TMethod>(name);
+        //        _methodCache[typeof(T), name, typeof(TMethod)] = new WeakReference(cache);
+        //        EnqueueCache(cache);
+        //    }
+        //    return cache as CachedMethod<TMethod>;
+        //}
 
-        private static CachedMethod<TMethod> GetMethodCache<TMethod>(Type type, string name) where TMethod : Delegate {
-            object cache = null;
-            if (_methodCache.TryGetValue(type, name, typeof(TMethod), out var weakRef))
-                cache = weakRef.Target;
-            if (cache == null) {
-                cache =
-                    IsStatic(type) ?
-                    Activator.CreateInstance(typeof(CachedMethodOfStatic<>).MakeGenericType(typeof(TMethod)), type, name) :
-                    Activator.CreateInstance(typeof(CachedMethodOfNonStatic<,>).MakeGenericType(type, typeof(TMethod)), name);
-                _methodCache[type, name, typeof(TMethod)] = new WeakReference(cache);
-                EnqueueCache(cache);
-            }
-            return cache as CachedMethod<TMethod>;
-        }
+        //private static CachedMethod<TMethod> GetMethodCache<TMethod>(Type type, string name) where TMethod : Delegate {
+        //    object cache = null;
+        //    if (_methodCache.TryGetValue(type, name, typeof(TMethod), out var weakRef))
+        //        cache = weakRef.Target;
+        //    if (cache == null) {
+        //        cache =
+        //            IsStatic(type) ?
+        //            Activator.CreateInstance(typeof(CachedMethodOfStatic<>).MakeGenericType(typeof(TMethod)), type, name) :
+        //            Activator.CreateInstance(typeof(CachedMethodOfNonStatic<,>).MakeGenericType(type, typeof(TMethod)), name);
+        //        _methodCache[type, name, typeof(TMethod)] = new WeakReference(cache);
+        //        EnqueueCache(cache);
+        //    }
+        //    return cache as CachedMethod<TMethod>;
+        //}
 
-        public static MethodInfo GetMethodInfo<T, TMethod>(string name) where TMethod : Delegate => GetMethodCache<T, TMethod>(name).Info;
+        //public static MethodInfo GetMethodInfo<T, TMethod>(string name) where TMethod : Delegate => GetMethodCache<T, TMethod>(name).Info;
 
-        public static MethodInfo GetMethodInfo<TMethod>(Type type, string name) where TMethod : Delegate => GetMethodCache<TMethod>(type, name).Info;
-        public static TMethod GetMethodDel<T, TMethod>(string name) where TMethod : Delegate => GetMethodCache<T, TMethod>(name).Del;
+        //public static MethodInfo GetMethodInfo<TMethod>(Type type, string name) where TMethod : Delegate => GetMethodCache<TMethod>(type, name).Info;
+        //public static TMethod GetMethodDel<T, TMethod>(string name) where TMethod : Delegate => GetMethodCache<T, TMethod>(name).Del;
 
-        public static TMethod GetMethodDel<TMethod>(Type type, string name) where TMethod : Delegate => GetMethodCache<TMethod>(type, name).Del;
+        //public static TMethod GetMethodDel<TMethod>(Type type, string name) where TMethod : Delegate => GetMethodCache<TMethod>(type, name).Del;
 
-        public static TMethod GetMethod<T, TMethod>(string name) where TMethod : Delegate => GetMethodCache<T, TMethod>(name).Del;
+        //public static TMethod GetMethod<T, TMethod>(string name) where TMethod : Delegate => GetMethodCache<T, TMethod>(name).Del;
 
-        public static TMethod GetMethod<TMethod>(Type type, string name) where TMethod : Delegate => GetMethodCache<TMethod>(type, name).Del;
+        //public static TMethod GetMethod<TMethod>(Type type, string name) where TMethod : Delegate => GetMethodCache<TMethod>(type, name).Del;
 
         private abstract class CachedMethod<TMethod> where TMethod : Delegate {
-            private TMethod _delegate;
+            //private TMethod _delegate;
 
             public readonly MethodInfo Info;
 
@@ -136,8 +136,8 @@ namespace ModKit.Utility {
                     throw new InvalidOperationException();
             }
 
-            public TMethod Del
-                => _delegate ??= CreateDelegate();
+            //public TMethod Del
+            //    => _delegate ??= CreateDelegate();
 
             private static bool CheckParamsOfGenericMethod(ParameterInfo[] @params, ParameterInfo[] delParams, Type[] delGenericArgs) {
                 if (@params.Length != delParams.Length) {

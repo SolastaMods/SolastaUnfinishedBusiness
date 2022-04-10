@@ -70,13 +70,13 @@ namespace ModKit.Utility {
             white = 0xffffffff,
         }
 
-        public static string ToHtmlString(this RGBA color) => $"{color:X}";
+        //public static string ToHtmlString(this RGBA color) => $"{color:X}";
 
         public static string Bold(this string str) => $"<b>{str}</b>";
 
-        public static string Color(this string str, Color color) => $"<color=#{ColorUtility.ToHtmlStringRGBA(color)}>{str}</color>";
+        //public static string Color(this string str, Color color) => $"<color=#{ColorUtility.ToHtmlStringRGBA(color)}>{str}</color>";
 
-        public static string Color(this string str, RGBA color) => $"<color=#{color:X}>{str}</color>";
+        //public static string Color(this string str, RGBA color) => $"<color=#{color:X}>{str}</color>";
 
         public static string Color(this string str, string rrggbbaa) => $"<color=#{rrggbbaa}>{str}</color>";
 
@@ -92,14 +92,12 @@ namespace ModKit.Utility {
         public static string Yellow(this string s) => _ = s.color("yellow");
         public static string Orange(this string s) => _ = s.color("orange");
 
-
-
         public static string Italic(this string str) => $"<i>{str}</i>";
 
         public static string ToSentence(this string str) => Regex.Replace(str, @"((?<=\p{Ll})\p{Lu})|\p{Lu}(?=\p{Ll})", " $0").TrimStart();//return string.Concat(str.Select(c => char.IsUpper(c) ? " " + c : c.ToString())).TrimStart(' ');
 
-        public static string Size(this string str, int size) => $"<size={size}>{str}</size>";
+        //public static string Size(this string str, int size) => $"<size={size}>{str}</size>";
 
-        public static string SizePercent(this string str, int percent) => $"<size={percent}%>{str}</size>";
+        //public static string SizePercent(this string str, int percent) => $"<size={percent}%>{str}</size>";
     }
 }

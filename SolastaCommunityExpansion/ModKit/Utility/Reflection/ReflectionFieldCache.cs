@@ -22,46 +22,46 @@ namespace ModKit.Utility {
             return cache as CachedField<TField>;
         }
 
-        private static CachedField<TField> GetFieldCache<TField>(Type type, string name) {
-            object cache = null;
-            if (_fieldCache.TryGetValue(type, name, out var weakRef))
-                cache = weakRef.Target;
-            if (cache == null) {
-                cache =
-                    IsStatic(type) ?
-                    new CachedFieldOfStatic<TField>(type, name) :
-                    type.IsValueType ?
-                    Activator.CreateInstance(typeof(CachedFieldOfStruct<,>).MakeGenericType(type, typeof(TField)), name) :
-                    Activator.CreateInstance(typeof(CachedFieldOfClass<,>).MakeGenericType(type, typeof(TField)), name);
-                _fieldCache[type, name] = new WeakReference(cache);
-                EnqueueCache(cache);
-            }
-            return cache as CachedField<TField>;
-        }
+        //private static CachedField<TField> GetFieldCache<TField>(Type type, string name) {
+        //    object cache = null;
+        //    if (_fieldCache.TryGetValue(type, name, out var weakRef))
+        //        cache = weakRef.Target;
+        //    if (cache == null) {
+        //        cache =
+        //            IsStatic(type) ?
+        //            new CachedFieldOfStatic<TField>(type, name) :
+        //            type.IsValueType ?
+        //            Activator.CreateInstance(typeof(CachedFieldOfStruct<,>).MakeGenericType(type, typeof(TField)), name) :
+        //            Activator.CreateInstance(typeof(CachedFieldOfClass<,>).MakeGenericType(type, typeof(TField)), name);
+        //        _fieldCache[type, name] = new WeakReference(cache);
+        //        EnqueueCache(cache);
+        //    }
+        //    return cache as CachedField<TField>;
+        //}
 
-        public static FieldInfo GetFieldInfo<T, TField>(string name) => GetFieldCache<T, TField>(name).Info;
+        //public static FieldInfo GetFieldInfo<T, TField>(string name) => GetFieldCache<T, TField>(name).Info;
 
-        public static FieldInfo GetFieldInfo<TField>(this Type type, string name) => GetFieldCache<TField>(type, name).Info;
+        //public static FieldInfo GetFieldInfo<TField>(this Type type, string name) => GetFieldCache<TField>(type, name).Info;
 
-        public static ref TField GetFieldRef<T, TField>(this ref T instance, string name) where T : struct => ref (GetFieldCache<T, TField>(name) as CachedFieldOfStruct<T, TField>).GetRef(ref instance);
+        //public static ref TField GetFieldRef<T, TField>(this ref T instance, string name) where T : struct => ref (GetFieldCache<T, TField>(name) as CachedFieldOfStruct<T, TField>).GetRef(ref instance);
 
-        public static ref TField GetFieldRef<T, TField>(this T instance, string name) where T : class => ref (GetFieldCache<T, TField>(name) as CachedFieldOfClass<T, TField>).GetRef(instance);
+        //public static ref TField GetFieldRef<T, TField>(this T instance, string name) where T : class => ref (GetFieldCache<T, TField>(name) as CachedFieldOfClass<T, TField>).GetRef(instance);
 
         public static TField GetFieldValue<T, TField>(this ref T instance, string name) where T : struct => (GetFieldCache<T, TField>(name) as CachedFieldOfStruct<T, TField>).Get(ref instance);
 
         public static TField GetFieldValue<T, TField>(this T instance, string name) where T : class => (GetFieldCache<T, TField>(name) as CachedFieldOfClass<T, TField>).Get(instance);
 
-        public static TField GetFieldValue<T, TField>(string name) => GetFieldCache<T, TField>(name).Get();
+        //public static TField GetFieldValue<T, TField>(string name) => GetFieldCache<T, TField>(name).Get();
 
-        public static TField GetFieldValue<TField>(this Type type, string name) => GetFieldCache<TField>(type, name).Get();
+        //public static TField GetFieldValue<TField>(this Type type, string name) => GetFieldCache<TField>(type, name).Get();
 
-        public static void SetFieldValue<T, TField>(this ref T instance, string name, TField value) where T : struct => (GetFieldCache<T, TField>(name) as CachedFieldOfStruct<T, TField>).Set(ref instance, value);
+        //public static void SetFieldValue<T, TField>(this ref T instance, string name, TField value) where T : struct => (GetFieldCache<T, TField>(name) as CachedFieldOfStruct<T, TField>).Set(ref instance, value);
 
-        public static void SetFieldValue<T, TField>(this T instance, string name, TField value) where T : class => (GetFieldCache<T, TField>(name) as CachedFieldOfClass<T, TField>).Set(instance, value);
+        //public static void SetFieldValue<T, TField>(this T instance, string name, TField value) where T : class => (GetFieldCache<T, TField>(name) as CachedFieldOfClass<T, TField>).Set(instance, value);
 
-        public static void SetFieldValue<T, TField>(string name, TField value) => GetFieldCache<T, TField>(name).Set(value);
+        //public static void SetFieldValue<T, TField>(string name, TField value) => GetFieldCache<T, TField>(name).Set(value);
 
-        public static void SetFieldValue<TField>(this Type type, string name, TField value) => GetFieldCache<TField>(type, name).Set(value);
+        //public static void SetFieldValue<TField>(this Type type, string name, TField value) => GetFieldCache<TField>(type, name).Set(value);
 
         private abstract class CachedField<TField> {
             public readonly FieldInfo Info;
@@ -160,7 +160,7 @@ namespace ModKit.Utility {
 
             private T _dummy = default;
             private Getter _getter;
-            private RefGetter _refGetter;
+            //private RefGetter _refGetter;
             private Setter _setter;
 
             public CachedFieldOfStruct(string name) : base(typeof(T), name) { }
@@ -169,11 +169,11 @@ namespace ModKit.Utility {
 
             public TField Get(ref T instance) => (_getter ??= CreateGetter(typeof(Getter), true) as Getter)(ref instance);
 
-            public ref TField GetRef(ref T instance) => ref (_refGetter ??= CreateRefGetter(typeof(RefGetter), true) as RefGetter)(ref instance);
+            //public ref TField GetRef(ref T instance) => ref (_refGetter ??= CreateRefGetter(typeof(RefGetter), true) as RefGetter)(ref instance);
 
             public override void Set(TField value) => (_setter ??= CreateSetter(typeof(Setter), true) as Setter)(ref _dummy, value);
 
-            public void Set(ref T instance, TField value) => (_setter ??= CreateSetter(typeof(Setter), true) as Setter)(ref instance, value);
+            //public void Set(ref T instance, TField value) => (_setter ??= CreateSetter(typeof(Setter), true) as Setter)(ref instance, value);
         }
 
         private class CachedFieldOfClass<T, TField> : CachedField<TField> {
@@ -183,7 +183,7 @@ namespace ModKit.Utility {
 
             private readonly T _dummy = default;
             private Getter _getter;
-            private RefGetter _refGetter;
+            //private RefGetter _refGetter;
             private Setter _setter;
 
             public CachedFieldOfClass(string name) : base(typeof(T), name) { }
@@ -192,11 +192,11 @@ namespace ModKit.Utility {
 
             public TField Get(T instance) => (_getter ??= CreateGetter(typeof(Getter), false) as Getter)(instance);
 
-            public ref TField GetRef(T instance) => ref (_refGetter ??= CreateRefGetter(typeof(RefGetter), false) as RefGetter)(instance);
+            //public ref TField GetRef(T instance) => ref (_refGetter ??= CreateRefGetter(typeof(RefGetter), false) as RefGetter)(instance);
 
             public override void Set(TField value) => (_setter ??= CreateSetter(typeof(Setter), false) as Setter)(_dummy, value);
 
-            public void Set(T instance, TField value) => (_setter ??= CreateSetter(typeof(Setter), false) as Setter)(instance, value);
+            //public void Set(T instance, TField value) => (_setter ??= CreateSetter(typeof(Setter), false) as Setter)(instance, value);
         }
 
         private class CachedFieldOfStatic<TField> : CachedField<TField> {

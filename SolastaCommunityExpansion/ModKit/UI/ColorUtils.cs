@@ -46,10 +46,10 @@ namespace ModKit {
         notable = 0xb1821fff, //0xffe000ff, // 0xC08020ff //0xffd840ff, // 0x40ff40c0, // 0xf03399ff, // 0xff3399ff,
     }
 
-
-
-    public static class ColorUtils {
-        public static Color color(this RGBA rga, float adjust = 0) {
+    public static class ColorUtils
+    {
+        public static Color color(this RGBA rga, float adjust = 0)
+        {
             var red = (float)((long)rga >> 24) / 256f;
             var green = (float)(0xFF & ((long)rga >> 16)) / 256f;
             var blue = (float)(0xFF & ((long)rga >> 8)) / 256f;
