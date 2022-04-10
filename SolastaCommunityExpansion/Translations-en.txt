@@ -1337,7 +1337,7 @@ Power/&UrPriestSpellSiphonTitle	Spell Siphon
 Race/&BolgrifRaceDescription	Bolgrifs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, bolgrifs demonstrate formidable skills with weapons and nature magic.
 Race/&BolgrifRaceTitle	Bolgrif
 Race/&GnomeRaceDescription	A constant hum of busy activity pervades the warrens and neighborhoods where gnomes form their close-knit communities. Louder sounds punctuate the hum: a crunch of grinding gears here, a minor explosion there, a yelp of surprise or triumph, and especially bursts of laughter. Gnomes take delight in life, enjoying every moment of invention, exploration, investigation, creation, and play.
-Race/&GnomeRaceTitle	Woodland Gnome
+Race/&GnomeRaceTitle	Gnome
 Race/&PointPoolSelect10FeatsDescription	Select 10 additional feats for your character.
 Race/&PointPoolSelect10FeatsTitle	10 Bonus Feats
 Race/&PointPoolSelect11FeatsDescription	Select 11 additional feats for your character.
