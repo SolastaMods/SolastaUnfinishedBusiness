@@ -12,20 +12,20 @@ This is now a standalone mod. Please uninstall any other mod from your mods fold
 [list]
 
 [*][b]ChrisJohnDigital[/b]: head developer, crafting, faction relations, feats, fighting styles, items, subclasses, progression
-[*][b]Zappastuff[/b]: multiclass, level 20, respec, level down, encounters, dungeon maker editor & pro, party size, screen map, inventory sorting, adventure log, epic points, teleport, mod UI, diagnostics, integration, arcane defense/precision, brutal thug, charismatic defense/precision, fighting surge, metamagic, primal, shady and wise defense/precision feats, races migration
+[*][b]Zappastuff[/b]: multiclass, level 20, respec, level down, encounters, dungeon maker editor & pro, party size, screen map, inventory sorting, adventure log, epic points, teleport, mod UI, diagnostics, integration, arcane defense/precision, brutal thug, charismatic defense/precision, fighting surge, metamagic, primal, shady and wise defense/precision feats, races and spells migration
 [*][b]ImpPhil[/b]: adv/dis rules, conjurations control, auto-equip, location rotation in DM, monster's health, pause UI, sorting, stocks prices, no attunement, xp scaling, character export, save by location, combat camera, diagnostics, custom icons, refactor, screen map
-[*][b]DubhHerder[/b]: 7th, 8th and 9th level spells, Crafty Feats migration, bug models replacement, additional high level monsters, Warlock class and subclasses, Tinkerer Artillerist subclass
-[*][b]View619[/b]: Darkvision, Superior Dark Vision
 [*][b]SilverGriffon[/b]: PickPocket, lore friendly names, crafty feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants
+[*][b]AceHigh[/b]: Warlock class, multiclass idea, Tactician subclass, Power Attack and Reckless Fury feats, no identification
+[*][b]DubhHerder[/b]: higher level spells, feats migration, bug models replacement, Warlock subclasses and invocations, Tinkerer Artillerist subclass
+[*][b]View619[/b]: Darkvision, Superior Dark Vision
 [*][b]Bazou[/b]: Witch class
-[*][b]Boofat[/b]: alwaysAlt
-[*][b]AceHigh[/b]: original Warlock class, original multiclass idea, Tactician subclass, Power Attack and Reckless Fury feats, no identification
 [*][b]ElAntonious[/b]: Arcanist subclass, Torchbearer and Dual Flurry feats
-[*][b]Scarlex[/b]: Royal Knight subclass
 [*][b]RedOrca[/b]: Path of the Light subclass, Indomitable Might
-[*][b]Krisys[/b]: Thug subclass
 [*][b]Dreadmaker[/b]: Circle of the Forest Guardian subclass
+[*][b]Scarlex[/b]: Royal Knight subclass
+[*][b]Krisys[/b]: Thug subclass
 [*][b]Narria[/b]: modKit creator, developer
+[*][b]Boofat[/b]: alwaysAlt
 [*][b]Spacehamster[/b]: dataminer
 [*][b]Holic75[/b]: pact magic slots, Warlock class sprite, bolgrif and gnome races, acid claw, air blast burst of radiance, thunder strike, earth tremor and winter's breath spells
 [*][b]sinai-dev[/b]: Unity Explorer UI standalone
@@ -90,7 +90,7 @@ All settings start disabled by default. On first start the mod will display an w
 [list=1]
 
 [*][b]Bolgrif[/b]: Bolgrifs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, bolgrifs demonstrate formidable skills with weapons and nature magic.
-[*][b]Woodland Gnome[/b]: A constant hum of busy activity pervades the warrens and neighborhoods where gnomes form their close-knit communities. Louder sounds punctuate the hum: a crunch of grinding gears here, a minor explosion there, a yelp of surprise or triumph, and especially bursts of laughter. Gnomes take delight in life, enjoying every moment of invention, exploration, investigation, creation, and play.
+[*][b]Gnome[/b]: A constant hum of busy activity pervades the warrens and neighborhoods where gnomes form their close-knit communities. Louder sounds punctuate the hum: a crunch of grinding gears here, a minor explosion there, a yelp of surprise or triumph, and especially bursts of laughter. Gnomes take delight in life, enjoying every moment of invention, exploration, investigation, creation, and play.
 [/list]
 
 [size=3][b]Classes[/b][/size]
