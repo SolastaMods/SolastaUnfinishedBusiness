@@ -1,7 +1,7 @@
 ﻿using ModKit;
 using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.Viewers.Displays
+namespace SolastaCommunityExpansion.Displays
 {
     internal static class CampaignsAndLocationsDisplay
     {

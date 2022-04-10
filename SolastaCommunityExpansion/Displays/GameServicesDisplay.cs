@@ -1,15 +1,15 @@
-﻿using System;
+﻿#if DEBUG
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using ModKit.Utility;
 using SolastaCommunityExpansion.DataViewer;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Viewers.Displays
+namespace SolastaCommunityExpansion.Displays
 {
     internal static class GameServicesDisplay
     {
-#if DEBUG
 
         private static readonly Dictionary<string, Func<object>> TARGET_LIST = new()
         {
@@ -90,6 +90,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
                 _treeView.Clear();
             }
         }
-#endif
     }
 }
+#endif

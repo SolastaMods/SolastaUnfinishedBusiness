@@ -1,9 +1,9 @@
 ﻿using System.Linq;
 using ModKit;
 using SolastaCommunityExpansion.Models;
-using static SolastaCommunityExpansion.Viewers.Displays.Shared;
+using static SolastaCommunityExpansion.Displays.Shared;
 
-namespace SolastaCommunityExpansion.Viewers.Displays
+namespace SolastaCommunityExpansion.Displays
 {
     internal static class ItemsAndCraftingDisplay
     {

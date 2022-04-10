@@ -1,9 +1,9 @@
 ﻿using ModKit;
 using SolastaCommunityExpansion.Feats;
 using SolastaCommunityExpansion.Models;
-using static SolastaCommunityExpansion.Viewers.Displays.Shared;
+using static SolastaCommunityExpansion.Displays.Shared;
 
-namespace SolastaCommunityExpansion.Viewers.Displays
+namespace SolastaCommunityExpansion.Displays
 {
     internal static class FeatsAndFightingStylesDisplay
     {
@@ -13,8 +13,6 @@ namespace SolastaCommunityExpansion.Viewers.Displays
             int intValue;
 
             UI.Label("");
-            //UI.Label(". Note you " + RequiresRestart + " after changing races, classes and subclasses sets");
-            //UI.Label("");
 
             toggle = Main.Settings.DisplayFeatFightingStyleToggle;
             if (UI.DisclosureToggle("General:".yellow(), ref toggle, 200))
