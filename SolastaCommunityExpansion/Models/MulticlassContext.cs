@@ -18,6 +18,11 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void Load()
         {
+            if (!Main.IsMulticlassInstalled)
+            {
+                Main.Settings.EnableMulticlass = false;
+            }
+
             _ = ArmorProficiencyMulticlassBuilder.BarbarianArmorProficiencyMulticlass;
             _ = ArmorProficiencyMulticlassBuilder.FighterArmorProficiencyMulticlass;
             _ = ArmorProficiencyMulticlassBuilder.PaladinArmorProficiencyMulticlass;
