@@ -1,13 +1,8 @@
 ﻿using UnityModManagerNet;
 using ModKit;
-#if DEBUG
-using static SolastaCommunityExpansion.Displays.BlueprintDisplay;
-using static SolastaCommunityExpansion.Displays.GameServicesDisplay;
-#endif
 using static SolastaCommunityExpansion.Displays.CampaignsAndLocationsDisplay;
 using static SolastaCommunityExpansion.Displays.CharacterDisplay;
 using static SolastaCommunityExpansion.Displays.CreditsDisplay;
-using static SolastaCommunityExpansion.Displays.DiagnosticsDisplay;
 using static SolastaCommunityExpansion.Displays.DungeonMakerDisplay;
 using static SolastaCommunityExpansion.Displays.EncountersDisplay;
 using static SolastaCommunityExpansion.Displays.FeatsAndFightingStylesDisplay;
@@ -19,6 +14,11 @@ using static SolastaCommunityExpansion.Displays.RulesDisplay;
 using static SolastaCommunityExpansion.Displays.Shared;
 using static SolastaCommunityExpansion.Displays.SpellsDisplay;
 using static SolastaCommunityExpansion.Displays.ToolsDisplay;
+#if DEBUG
+using static SolastaCommunityExpansion.Displays.BlueprintDisplay;
+using static SolastaCommunityExpansion.Displays.GameServicesDisplay;
+using static SolastaCommunityExpansion.Displays.DiagnosticsDisplay;
+#endif
 
 #pragma warning disable IDE0130 // Namespace does not match folder structure
 namespace SolastaCommunityExpansion
@@ -92,8 +92,8 @@ namespace SolastaCommunityExpansion
 
         public void OnGUI(UnityModManager.ModEntry modEntry) => DisplaySubMenu(ref creditsSelectedPane,
             new NamedAction("Credits", DisplayCredits)
-            , new NamedAction("Diagnostics", DisplayDiagnostics)
 #if DEBUG
+            , new NamedAction("Diagnostics", DisplayDiagnostics)
             , new NamedAction("Blueprints", DisplayBlueprints)
             , new NamedAction("Services", DisplayGameServices)
 #endif
