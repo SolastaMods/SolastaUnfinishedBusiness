@@ -26,10 +26,10 @@ This is now a standalone mod. Please uninstall any other mod from your mods fold
 [*][b]RedOrca[/b]: Path of the Light subclass, Indomitable Might
 [*][b]Scarlex[/b]: Royal Knight subclass
 [*][b]SilverGriffon[/b]: PickPocket, lore friendly names, crafty feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants
-[*][b]sinai-dev[/b]: Unity Explorer UI standalone
+[*][b]Sinai-dev[/b]: Unity Explorer UI standalone
 [*][b]Spacehamster[/b]: dataminer
 [*][b]View619[/b]: Darkvision, Superior Dark Vision
-[*][b]Zappastuff[/b]: multiclass, level 20, respec, level down, encounters, dungeon maker editor & pro, party size, screen map, inventory sorting, adventure log, epic points, teleport, mod UI, diagnostics, integration, arcane defense/precision, brutal thug, charismatic defense/precision, fighting surge, metamagic, primal, shady and wise defense/precision feats, races and spells migration
+[*][b]Zappastuff[/b]: multiclass, level 20, respec, level down, encounters, dungeon maker editor & pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, integration, arcane defense/precision, brutal thug, charismatic defense/precision, fighting surge, metamagic, primal, shady and wise defense/precision feats, races and spells migration
 [/list]
 
 [size=4][b]Source Code[/b][/size]
@@ -125,12 +125,12 @@ All settings start disabled by default. On first start the mod will display an w
 [*][b]Apothecary (Intelligence)[/b]: +1 Intelligence, Proficiency or Expertise with Herbalism Kit and Arcana
 [*][b]Apothecary (Wisdom)[/b]: +1 Wisdom, Proficiency or Expertise with Herbalism Kit and Medicine
 [*][b]Arcane Defense[/b]: Increase your Intelligence by 1, to a maximum of 20.
-While you are not wearing any armor, your AC equals 10 + your Intelligence modifier.
+While you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Intelligence modifier.
 [*][b]Arcane Precision[/b]: When active on a weapon, it's attacks count as Magical and you use your intelligence for your attack and damage rolls. It has 1 minute duration and can be used twice before a long rest.
 [*][b]Brutal Thug[/b]: You land powerful blows in the right places.
 You can sneak attack with martial based weapons and get figther weapon proficiency.
 [*][b]Charismatic Defense[/b]: Increase your Charisma by 1, to a maximum of 20.
-While you are not wearing any armor, your AC equals 10 + your Charisma modifier.
+While you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Charisma modifier.
 [*][b]Charismatic Precision[/b]: When active on a weapon, it's attacks count as Magical and you use your charisma for your attack and damage rolls. It has 1 minute duration and can be used twice before a long rest.
 [*][b]Chef (Constitution)[/b]: You gain +1 to Constitution. Spend 1 hour to cook a meal to heal yourself and your companions 1d8. Once a day you may spend an hour to cook treats that provide temporary HP when eaten.
 [*][b]Chef (Wisdom)[/b]: You gain +1 to Wisdom. Spend 1 hour to cook a meal to heal yourself and your companions. Once a day you may spend an hour to cook treats that provide temporary HP when eaten.
@@ -176,10 +176,10 @@ You learn the Twinned metamagic and gain 2 sorcery points.
 [*][b]Power attack[/b]: You learned to trade accuracy to lander deadlier/harder blows. You can choose to take a -3 penalty to your to hit in order to do more damage (+3 damage for one handed weapons, +6 damage for two handed weapons). Lasts for the whole turn once activated. Works with melee and ranged weapons.
 [*][b]Primal Rage (Constitution)[/b]: Increase your Constitution by 1, to a maximum of 20.
 You can enter a rage as a bonus action as defined in the Barbarian's rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way you must finish a long rest before using this feature again.
-While you are not wearing any armor, your AC equals 10 + your Constitution modifier.
+While you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Constitution modifier.
 [*][b]Primal Rage (Strength)[/b]: Increase your Strength by 1, to a maximum of 20.
 You can enter a rage as a bonus action as defined in the Barbarian's rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way you must finish a long rest before using this feature again.
-While you are not wearing any armor, your AC equals 10 + your Constitution modifier.
+While you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Constitution modifier.
 [*][b]Reckless Fury[/b]: You gain the ability to enter a rage for one minute once per day (note no armor restriction), and you can attack recklessly gaining advantage on your melee attacks while giving advantage to your attackers until your next turn.
 [*][b]Savage Attacker[/b]: Reroll weapon and spell damage dice when they roll a 1 (does not reroll all damage sources, for example excludes Sneak Attack and Smite).
 [*][b]Scribe[/b]: +1 Intelligence, Proficiency or Expertise with Scroll Kit and Arcana, Requires the ability to cast spells
@@ -197,7 +197,7 @@ Once per turn, you can deal an extra 1d6 damage to one creature you hit with an 
 [*][b]Toxicologist (Wisdom)[/b]: +1 Wisdom, Proficiency or Expertise with Poisoner's Kit and Medicine
 [*][b]War Caster[/b]: You gain advantage on checks to maintain concentration. You gain the ability to perform the somatic component of spells even with full hands. You gain +2 on spell attack rolls.
 [*][b]Wise Defense[/b]: Increase your Wisdom by 1, to a maximum of 20.
-While you are not wearing any armor, your AC equals 10 + your Wisdom modifier.
+While you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Wisdom modifier.
 [*][b]Wise Precision[/b]: When active on a weapon, it's attacks count as Magical and you use your wisdom for your attack and damage rolls. It has 1 minute duration and can be used twice before a long rest.
 [/list]
 
