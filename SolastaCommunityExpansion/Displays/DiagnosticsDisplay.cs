@@ -105,6 +105,7 @@ namespace SolastaCommunityExpansion.Displays
             {
                 UI.ActionButton("Create TA diagnostics", () => DiagnosticsContext.CreateTADefinitionDiagnostics(), UI.Width(200));
                 UI.ActionButton("Create CE diagnostics", () => DiagnosticsContext.CreateCEDefinitionDiagnostics(), UI.Width(200));
+                UI.ActionButton("Dump Desciptions", () => DisplayDumpDescription(), UI.Width(200));
             }
 
             UI.Label("");
@@ -231,7 +232,7 @@ All settings start disabled by default. On first start the mod will display an w
 [/list]
 ";
 
-        private static string GenerateDescription<T>(IEnumerable<T> definitions) where T: BaseDefinition
+        private static string GenerateDescription<T>(IEnumerable<T> definitions) where T : BaseDefinition
         {
             var outString = new StringBuilder();
 
@@ -248,33 +249,29 @@ All settings start disabled by default. On first start the mod will display an w
 
         internal static void DisplayDumpDescription()
         {
-            UI.ActionButton("Dump Nexus Description", () =>
+            var collectedCredits = new StringBuilder();
+
+            foreach (var kvp in CreditsTable)
             {
-                var collectedCredits = new StringBuilder();
+                collectedCredits
+                    .Append("\n[*][b]")
+                    .Append(kvp.Key)
+                    .Append("[/b]: ")
+                    .Append(kvp.Value);
+            }
 
-                foreach (var kvp in CreditsTable)
-                {
-                    collectedCredits
-                        .Append("\n[*][b]")
-                        .Append(kvp.Key)
-                        .Append("[/b]: ")
-                        .Append(kvp.Value);
-                }
+            var descriptionData = string.Format(ModDescription,
+                collectedCredits,
+                GenerateDescription(RacesContext.Races),
+                GenerateDescription(ClassesContext.Classes),
+                GenerateDescription(SubclassesContext.Subclasses),
+                GenerateDescription(FeatsContext.Feats),
+                GenerateDescription(FightingStyleContext.FightingStyles),
+                GenerateDescription(SpellsContext.Spells),
+                ItemCraftingContext.GenerateItemsDescription());
 
-                var descriptionData = string.Format(ModDescription,
-                    collectedCredits,
-                    GenerateDescription(RacesContext.Races),
-                    GenerateDescription(ClassesContext.Classes),
-                    GenerateDescription(SubclassesContext.Subclasses),
-                    GenerateDescription(FeatsContext.Feats),
-                    GenerateDescription(FightingStyleContext.FightingStyles),
-                    GenerateDescription(SpellsContext.Spells),
-                    ItemCraftingContext.GenerateItemsDescription());
-
-                using var sw = new StreamWriter($"{DiagnosticsContext.DiagnosticsFolder}/NexusDescription.txt");
-                sw.WriteLine(descriptionData);
-            },
-            UI.Width(200));
+            using var sw = new StreamWriter($"{DiagnosticsContext.DiagnosticsFolder}/NexusDescription.txt");
+            sw.WriteLine(descriptionData);
         }
     }
 }

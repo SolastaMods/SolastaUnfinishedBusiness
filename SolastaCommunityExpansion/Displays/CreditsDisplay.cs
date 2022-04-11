@@ -2,9 +2,6 @@
 using System.IO;
 using ModKit;
 using static SolastaCommunityExpansion.Displays.PatchesDisplay;
-#if DEBUG
-using static SolastaCommunityExpansion.Displays.DiagnosticsDisplay;
-#endif
 
 namespace SolastaCommunityExpansion.Displays
 {
@@ -55,29 +52,28 @@ namespace SolastaCommunityExpansion.Displays
                     }
                 }, UI.Width(200));
             }
-#if DEBUG
-            DisplayDumpDescription();
-#endif
-
-            UI.Label("");
-
-            foreach (var kvp in CreditsTable)
-            {
-                using (UI.HorizontalScope())
-                {
-                    UI.Label(kvp.Key.orange(), UI.Width(110));
-                    UI.Label(kvp.Value, UI.Width(500));
-                }
-            }
 
             UI.Label("");
             UI.DisclosureToggle("Patches:".yellow(), ref displayPatches, 200);
+
             UI.Label("");
 
             if (displayPatches)
             {
                 DisplayPatches();
             }
+
+            // credits
+            foreach (var kvp in CreditsTable)
+            {
+                using (UI.HorizontalScope())
+                {
+                    UI.Label(kvp.Key.orange(), UI.Width(120));
+                    UI.Label(kvp.Value, UI.Width(600));
+                }
+            }
+
+            UI.Label("");
         }
     }
 }
