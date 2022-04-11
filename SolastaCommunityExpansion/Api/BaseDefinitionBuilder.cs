@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if false
+using System;
 using SolastaCommunityExpansion.Builders;
 
 namespace SolastaModApi
@@ -52,3 +53,4 @@ namespace SolastaModApi
         #endregion
     }
 }
+#endif
