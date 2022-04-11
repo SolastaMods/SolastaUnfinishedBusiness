@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if DEBUG
+using System;
 using System.Linq;
 using System.Reflection;
 using SolastaModApi.Diagnostics;
@@ -374,3 +375,4 @@ namespace SolastaModApi.Testing
         }
     }
 }
+#endif

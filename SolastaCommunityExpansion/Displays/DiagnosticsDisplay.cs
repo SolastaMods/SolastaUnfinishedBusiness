@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿#if DEBUG
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using ModKit;
@@ -6,48 +7,13 @@ using SolastaCommunityExpansion.DataMiner;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Patches.Diagnostic;
 using static SolastaCommunityExpansion.Displays.CreditsDisplay;
-using static SolastaCommunityExpansion.Displays.PatchesDisplay;
 
 namespace SolastaCommunityExpansion.Displays
 {
     internal static class DiagnosticsDisplay
     {
-        private static bool IsUnityExplorerEnabled { get; set; }
-
-        private static bool displayPatches;
-
         internal static void DisplayDiagnostics()
         {
-            DisplayModdingTools();
-
-            UI.DisclosureToggle("Patches:".yellow(), ref displayPatches, 200);
-            UI.Label("");
-
-            if (displayPatches)
-            {
-                DisplayPatches();
-            }
-        }
-
-        private static void DisplayModdingTools()
-        {
-            UI.Label("");
-
-            using (UI.HorizontalScope())
-            {
-                UI.ActionButton("Enable the Unity Explorer UI", () =>
-                {
-                    if (!IsUnityExplorerEnabled)
-                    {
-                        IsUnityExplorerEnabled = true;
-                        UnityExplorer.ExplorerStandalone.CreateInstance();
-                    }
-                }, UI.Width(200));
-#if DEBUG
-                DisplayDumpDescription();
-#endif
-            }
-
             UI.Label("");
             UI.Label(". You can set the environment variable " + DiagnosticsContext.ProjectEnvironmentVariable.italic().yellow() + " to customize the output folder");
 
@@ -121,7 +87,7 @@ namespace SolastaCommunityExpansion.Displays
                         BlueprintExporter.Cancel(DiagnosticsContext.CE);
                     }
                 }, UI.Width(200));
-#if DEBUG
+
                 UI.ActionButton(exportTaLabel2, () =>
                 {
                     if (percentageCompleteTa2 == 0)
@@ -133,13 +99,13 @@ namespace SolastaCommunityExpansion.Displays
                         BlueprintExporter.Cancel(DiagnosticsContext.TA2);
                     }
                 }, UI.Width(200));
-#endif
             }
-#if DEBUG
+
             using (UI.HorizontalScope())
             {
                 UI.ActionButton("Create TA diagnostics", () => DiagnosticsContext.CreateTADefinitionDiagnostics(), UI.Width(200));
                 UI.ActionButton("Create CE diagnostics", () => DiagnosticsContext.CreateCEDefinitionDiagnostics(), UI.Width(200));
+                UI.ActionButton("Dump Descriptions", () => DisplayDumpDescription(), UI.Width(200));
             }
 
             UI.Label("");
@@ -153,11 +119,9 @@ namespace SolastaCommunityExpansion.Displays
 
             ItemDefinitionVerification.Mode = Main.Settings.DebugLogVariantMisuse ? ItemDefinitionVerification.Verification.Log : ItemDefinitionVerification.Verification.None;
             EffectFormVerification.Mode = Main.Settings.DebugLogVariantMisuse ? EffectFormVerification.Verification.Log : EffectFormVerification.Verification.None;
-#endif
+
             UI.Label("");
         }
-
-#if DEBUG
 
         private const string ModDescription = @"
 [size=5][b][i]Solasta Community Expansion[/i][/b][/size]
@@ -268,7 +232,7 @@ All settings start disabled by default. On first start the mod will display an w
 [/list]
 ";
 
-        private static string GenerateDescription<T>(IEnumerable<T> definitions) where T: BaseDefinition
+        private static string GenerateDescription<T>(IEnumerable<T> definitions) where T : BaseDefinition
         {
             var outString = new StringBuilder();
 
@@ -285,34 +249,30 @@ All settings start disabled by default. On first start the mod will display an w
 
         internal static void DisplayDumpDescription()
         {
-            UI.ActionButton("Dump Nexus Description", () =>
+            var collectedCredits = new StringBuilder();
+
+            foreach (var kvp in CreditsTable)
             {
-                var collectedCredits = new StringBuilder();
+                collectedCredits
+                    .Append("\n[*][b]")
+                    .Append(kvp.Key)
+                    .Append("[/b]: ")
+                    .Append(kvp.Value);
+            }
 
-                foreach (var kvp in CreditsTable)
-                {
-                    collectedCredits
-                        .Append("\n[*][b]")
-                        .Append(kvp.Key)
-                        .Append("[/b]: ")
-                        .Append(kvp.Value);
-                }
+            var descriptionData = string.Format(ModDescription,
+                collectedCredits,
+                GenerateDescription(RacesContext.Races),
+                GenerateDescription(ClassesContext.Classes),
+                GenerateDescription(SubclassesContext.Subclasses),
+                GenerateDescription(FeatsContext.Feats),
+                GenerateDescription(FightingStyleContext.FightingStyles),
+                GenerateDescription(SpellsContext.Spells),
+                ItemCraftingContext.GenerateItemsDescription());
 
-                var descriptionData = string.Format(ModDescription,
-                    collectedCredits,
-                    GenerateDescription(RacesContext.Races),
-                    GenerateDescription(ClassesContext.Classes),
-                    GenerateDescription(SubclassesContext.Subclasses),
-                    GenerateDescription(FeatsContext.Feats),
-                    GenerateDescription(FightingStyleContext.FightingStyles),
-                    GenerateDescription(SpellsContext.Spells),
-                    ItemCraftingContext.GenerateItemsDescription());
-
-                using var sw = new StreamWriter($"{DiagnosticsContext.DiagnosticsFolder}/NexusDescription.txt");
-                sw.WriteLine(descriptionData);
-            },
-            UI.Width(200));
+            using var sw = new StreamWriter($"{DiagnosticsContext.DiagnosticsFolder}/NexusDescription.txt");
+            sw.WriteLine(descriptionData);
         }
-#endif
     }
 }
+#endif

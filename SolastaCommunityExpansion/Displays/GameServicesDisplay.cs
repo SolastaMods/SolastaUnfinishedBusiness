@@ -1,5 +1,4 @@
-﻿#if DEBUG
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using ModKit.Utility;
@@ -10,12 +9,16 @@ namespace SolastaCommunityExpansion.Displays
 {
     internal static class GameServicesDisplay
     {
-
         private static readonly Dictionary<string, Func<object>> TARGET_LIST = new()
         {
             { "None", null },
+            { "IGamingPlatformService", () => ServiceRepository.GetService<IGamingPlatformService>() },
+            { "ICharacterBuildingService", () => ServiceRepository.GetService<ICharacterBuildingService>() },
+            { "ICharacterPoolService", () => ServiceRepository.GetService<ICharacterPoolService>() },
             { "IGameCampaignService", () => ServiceRepository.GetService<IGameCampaignService>() },
             { "IGameFactionService", () => ServiceRepository.GetService<IGameFactionService>() },
+            { "IHeroBuildingCommandService", () => ServiceRepository.GetService<IHeroBuildingCommandService>() },
+            { "INetworkingService", () => ServiceRepository.GetService<INetworkingService>() },
             { "IGameLocationActionService", () => ServiceRepository.GetService<IGameLocationActionService>() },
             { "IGameLocationAudioService", () => ServiceRepository.GetService<IGameLocationAudioService>() },
             { "IGameLocationBanterService", () => ServiceRepository.GetService<IGameLocationBanterService>() },
@@ -39,57 +42,52 @@ namespace SolastaCommunityExpansion.Displays
             { "IGameSerializationService", () => ServiceRepository.GetService<IGameSerializationService>() },
             { "IGameService", () => ServiceRepository.GetService<IGameService>() },
             { "IGameSettingsService", () => ServiceRepository.GetService<IGameSettingsService>() },
-            { "IGameVariableService", () => ServiceRepository.GetService<IGameVariableService>() },
-            { "ICharacterBuildingService", () => ServiceRepository.GetService<ICharacterBuildingService>() }
+            { "IGameVariableService", () => ServiceRepository.GetService<IGameVariableService>() }
         };
 
-        private static readonly string[] _targetNames = TARGET_LIST.Keys.ToArray();
+        private static readonly string[] targetNames = TARGET_LIST.Keys.ToArray();
 
-        private static ReflectionTreeView _treeView;
+        private static ReflectionTreeView TreeView { get; } = new ReflectionTreeView();
 
         private static void ResetTree()
         {
-            if (_treeView == null)
-            {
-                _treeView = new ReflectionTreeView();
-            }
+            Func<object> getTarget = TARGET_LIST[targetNames[Main.Settings.SelectedRawDataType]];
 
-            Func<object> getTarget = TARGET_LIST[_targetNames[Main.Settings.SelectedRawDataType]];
             if (getTarget == null)
             {
-                _treeView.Clear();
+                TreeView.Clear();
             }
             else
             {
-                _treeView.SetRoot(getTarget());
+                TreeView.SetRoot(getTarget());
             }
         }
+
         public static void DisplayGameServices()
         {
             try
             {
-                if (_treeView == null)
+                if (TreeView == null)
                 {
                     ResetTree();
                 }
 
                 // target selection
-                GUIHelper.SelectionGrid(ref Main.Settings.SelectedRawDataType, _targetNames, 5, () => ResetTree());
+                GUIHelper.SelectionGrid(ref Main.Settings.SelectedRawDataType, targetNames, 8, () => ResetTree());
 
                 // tree view
                 if (Main.Settings.SelectedRawDataType != 0)
                 {
                     GUILayout.Space(10f);
 
-                    _treeView.OnGUI();
+                    TreeView.OnGUI();
                 }
             }
             catch
             {
                 Main.Settings.SelectedRawDataType = 0;
-                _treeView.Clear();
+                TreeView.Clear();
             }
         }
     }
 }
-#endif

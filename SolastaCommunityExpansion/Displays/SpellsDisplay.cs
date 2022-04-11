@@ -19,7 +19,6 @@ namespace SolastaCommunityExpansion.Displays
 
             UI.Label("");
             UI.Label($". You can individually assign each spell to any spell list or simply select the suggested set");
-            UI.Label($". You won't be able to unselect some spells from spell lists as these are required for the classes to work properly");
 
             if (!Main.Settings.EnableLevel20)
             {
