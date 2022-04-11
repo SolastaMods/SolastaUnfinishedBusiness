@@ -13,7 +13,6 @@ namespace SolastaCommunityExpansion
 {
     public static class Main
     {
-        private const string CeFilename = "SolastaCommunityExpansion.dll";
         private const string McFilename = "SolastaMulticlass.dll";
 
         internal static string MOD_FOLDER { get; private set; } = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
@@ -68,7 +67,7 @@ namespace SolastaCommunityExpansion
                 Menu = new MenuManager();
                 Menu.Enable(modEntry, assembly);
 
-                LoadSidecars();
+                LoadSidecars(assembly.GetName().Name);
             }
             catch (Exception ex)
             {
@@ -87,13 +86,13 @@ namespace SolastaCommunityExpansion
             }
         }
 
-        internal static void LoadSidecars()
+        internal static void LoadSidecars(string currentAssemblyName)
         {
             foreach (var path in Directory.EnumerateFiles(MOD_FOLDER, "Solasta*.dll"))
             {
                 var filename = Path.GetFileName(path);
 
-                if (filename == CeFilename || (filename == McFilename && !Main.Settings.EnableMulticlass))
+                if (filename.StartsWith(currentAssemblyName) || (filename == McFilename && !Main.Settings.EnableMulticlass))
                 {
                     continue;
                 }
