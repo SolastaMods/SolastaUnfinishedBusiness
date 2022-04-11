@@ -3,7 +3,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using HarmonyLib;
-using I2.Loc;
 using ModKit;
 using UnityModManagerNet;
 
@@ -17,7 +16,8 @@ namespace SolastaCommunityExpansion
 
         internal static string MOD_FOLDER { get; private set; } = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
         internal static bool Enabled { get; set; }
-        internal static bool IsDebugBuild => UnityEngine.Debug.isDebugBuild;
+        internal static bool IsDebugBuild = UnityEngine.Debug.isDebugBuild;
+        internal static bool IsMulticlassInstalled = File.Exists(Path.Combine(MOD_FOLDER, McFilename));
 
         // need to be public for MC sidecar
         [Conditional("DEBUG")]
