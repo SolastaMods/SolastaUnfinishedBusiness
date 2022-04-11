@@ -143,13 +143,16 @@ namespace SolastaCommunityExpansion.Displays
             }
             #endregion
 
-            UI.Label("");
-            UI.Label("Multiclass:".yellow());
-            UI.Label("");
+            if (Main.IsMulticlassInstalled)
+            {
+                UI.Label("");
+                UI.Label("Multiclass:".yellow());
+                UI.Label("");
 
-            UI.Label(". Press the " + "up".cyan() + " arrow to toggle the character panel selector visibility");
-            UI.Label(". Press the " + "down".cyan() + " arrow to browse other classes details");
-            UI.Label(". " + "SHIFT".cyan() + " click on a spell consumes a long rest slot instead of the default short rest one");
+                UI.Label(". Press the " + "up".cyan() + " arrow to toggle the character panel selector visibility");
+                UI.Label(". Press the " + "down".cyan() + " arrow to browse other classes details");
+                UI.Label(". " + "SHIFT".cyan() + " click on a spell consumes a long rest slot instead of the default short rest one");
+            }
 
             UI.Label("");
         }
