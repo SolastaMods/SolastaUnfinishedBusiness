@@ -105,7 +105,7 @@ namespace SolastaCommunityExpansion.Displays
             {
                 UI.ActionButton("Create TA diagnostics", () => DiagnosticsContext.CreateTADefinitionDiagnostics(), UI.Width(200));
                 UI.ActionButton("Create CE diagnostics", () => DiagnosticsContext.CreateCEDefinitionDiagnostics(), UI.Width(200));
-                UI.ActionButton("Dump Desciptions", () => DisplayDumpDescription(), UI.Width(200));
+                UI.ActionButton("Dump Descriptions", () => DisplayDumpDescription(), UI.Width(200));
             }
 
             UI.Label("");
