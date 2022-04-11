@@ -406,7 +406,7 @@ Feat/&DualFlurryDescription	You are a master of fighting with paired weapons. On
 Feat/&DualFlurryTitle	Dual Flurry
 Feat/&ExtraInfusionSlotsDescription	You gain extra infusion slots, should be used on armor/weapons
 Feat/&ExtraInfusionSlotsTitle	Extra Infusions
-Feat/&FeatArcaneDefenseDescription	Increase your Intelligence by 1, to a maximum of 20.\nWhile you are not wearing any armor, your AC equals 10 + your Intelligence modifier.
+Feat/&FeatArcaneDefenseDescription	Increase your Intelligence by 1, to a maximum of 20.\nWhile you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Intelligence modifier.
 Feat/&FeatArcaneDefenseTitle	Arcane Defense
 Feat/&FeatArcanePrecisionDescription	When active on a weapon, it's attacks count as Magical and you use your intelligence for your attack and damage rolls. It has 1 minute duration and can be used twice before a long rest.
 Feat/&FeatArcanePrecisionTitle	Arcane Precision
@@ -416,7 +416,7 @@ Feat/&FeatBrutalThugDescription	You land powerful blows in the right places.\nYo
 Feat/&FeatBrutalThugTitle	Brutal Thug
 Feat/&FeatChaIncrementDescription	+1 Charisma
 Feat/&FeatChaIncrementTitle	Charisma Attribute Increase
-Feat/&FeatCharismaticDefenseDescription	Increase your Charisma by 1, to a maximum of 20.\nWhile you are not wearing any armor, your AC equals 10 + your Charisma modifier.
+Feat/&FeatCharismaticDefenseDescription	Increase your Charisma by 1, to a maximum of 20.\nWhile you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Charisma modifier.
 Feat/&FeatCharismaticDefenseTitle	Charismatic Defense
 Feat/&FeatCharismaticPrecisionDescription	When active on a weapon, it's attacks count as Magical and you use your charisma for your attack and damage rolls. It has 1 minute duration and can be used twice before a long rest.
 Feat/&FeatCharismaticPrecisionTitle	Charismatic Precision
@@ -466,9 +466,9 @@ Feat/&FeatMetamagicAdeptQuickenedDescription	Increase your Charisma by 1, to a m
 Feat/&FeatMetamagicAdeptQuickenedTitle	Metamagic: Quickened
 Feat/&FeatMetamagicAdeptTwinnedDescription	Increase your Charisma by 1, to a maximum of 20.\nYou learn the Twinned metamagic and gain 2 sorcery points.
 Feat/&FeatMetamagicAdeptTwinnedTitle	Metamagic: Twinned
-Feat/&FeatPrimalConstitutionDescription	Increase your Constitution by 1, to a maximum of 20.\nYou can enter a rage as a bonus action as defined in the Barbarian's rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way you must finish a long rest before using this feature again.\nWhile you are not wearing any armor, your AC equals 10 + your Constitution modifier.
+Feat/&FeatPrimalConstitutionDescription	Increase your Constitution by 1, to a maximum of 20.\nYou can enter a rage as a bonus action as defined in the Barbarian's rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way you must finish a long rest before using this feature again.\nWhile you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Constitution modifier.
 Feat/&FeatPrimalConstitutionTitle	Primal Rage (Constitution)
-Feat/&FeatPrimalStrengthDescription	Increase your Strength by 1, to a maximum of 20.\nYou can enter a rage as a bonus action as defined in the Barbarian's rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way you must finish a long rest before using this feature again.\nWhile you are not wearing any armor, your AC equals 10 + your Constitution modifier.
+Feat/&FeatPrimalStrengthDescription	Increase your Strength by 1, to a maximum of 20.\nYou can enter a rage as a bonus action as defined in the Barbarian's rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way you must finish a long rest before using this feature again.\nWhile you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Constitution modifier.
 Feat/&FeatPrimalStrengthTitle	Primal Rage (Strength)
 Feat/&FeatPugilistFightingStlyeDescription	While you are completely unarmed, your unarmed strikes deal an additional d8 of damage and you can punch with your offhand as a bonus action.
 Feat/&FeatPugilistFightingStlyeTitle	Fighting Style: Pugilist
@@ -507,7 +507,7 @@ Feat/&FeatToughDescription	Your hit point maximum increases by an amount equal t
 Feat/&FeatToughTitle	Tough
 Feat/&FeatWarCasterDescription	You gain advantage on checks to maintain concentration. You gain the ability to perform the somatic component of spells even with full hands. You gain +2 on spell attack rolls.
 Feat/&FeatWarCasterTitle	War Caster
-Feat/&FeatWiseDefenseDescription	Increase your Wisdom by 1, to a maximum of 20.\nWhile you are not wearing any armor, your AC equals 10 + your Wisdom modifier.
+Feat/&FeatWiseDefenseDescription	Increase your Wisdom by 1, to a maximum of 20.\nWhile you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Wisdom modifier.
 Feat/&FeatWiseDefenseTitle	Wise Defense
 Feat/&FeatWisePrecisionDescription	When active on a weapon, it's attacks count as Magical and you use your wisdom for your attack and damage rolls. It has 1 minute duration and can be used twice before a long rest.
 Feat/&FeatWisePrecisionTitle	Wise Precision
