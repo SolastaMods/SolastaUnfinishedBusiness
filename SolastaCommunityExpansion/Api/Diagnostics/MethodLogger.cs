@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿#if DEBUG
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using SolastaModApi.Infrastructure;
 
@@ -48,3 +49,4 @@ namespace SolastaModApi.Diagnostics
         }
     }
 }
+#endif
