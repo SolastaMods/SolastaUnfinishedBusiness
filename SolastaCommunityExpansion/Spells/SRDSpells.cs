@@ -504,70 +504,61 @@ namespace SolastaCommunityExpansion.Spells
 
             List<MonsterSkillProficiency> SkillScores = new List<MonsterSkillProficiency>();
 
-            /*waiting until MonsterAttackDefinitionBuilder is available to use
+            var CouatlBite_Attack = MonsterAttackDefinitionBuilder
+                .Create(MonsterAttackDefinitions.Attack_TigerDrake_Bite, "DH_Custom_CouatlBite_Attack", DhBaseGuid)
+                .SetGuiPresentation(Category.MonsterAttack)
+                .AddToDB();
 
-                        MonsterAttackDefinition CouatlBite_Attack = MonsterAttackDefinitionBuilder(
-                                 "DH_Custom_" + text,
-                                 DatabaseHelper.MonsterAttackDefinitions.Attack_TigerDrake_Bite,
-                                 GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + "CouatlBite_Attack").ToString(),
-                                "MonsterAttack/&DH_CouatlBite_Attack_Title",
-                                 "MonsterAttack/&DH_CouatlBite_Attack_Description"
-                                  );
+            CouatlBite_Attack.SetToHitBonus(7);
+            CouatlBite_Attack.EffectDescription.SetRangeParameter(1);
+            CouatlBite_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(1);
+            CouatlBite_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
+            CouatlBite_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(5);
+            CouatlBite_Attack.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypePiercing);
 
-                        CouatlBite_Attack.SetToHitBonus(7);
-                        CouatlBite_Attack.EffectDescription.SetRangeParameter(1);
-                        CouatlBite_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(1);
-                        CouatlBite_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
-                        CouatlBite_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(5);
-                        CouatlBite_Attack.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypePiercing);
+            ConditionForm conditionForm = new ConditionForm();
+            conditionForm.SetConditionDefinition(DatabaseHelper.ConditionDefinitions.ConditionPoisoned);
+            conditionForm.SetConditionDefinitionName(DatabaseHelper.ConditionDefinitions.ConditionPoisoned.name);
+            conditionForm.SetOperation(ConditionForm.ConditionOperation.Add);
 
+            EffectForm extraPoisonEffect = new EffectForm();
+            extraPoisonEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
+            extraPoisonEffect.SetLevelMultiplier(1);
+            extraPoisonEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
+            extraPoisonEffect.SetCreatedByCharacter(true);
+            extraPoisonEffect.FormType = EffectForm.EffectFormType.Condition;
+            extraPoisonEffect.SetConditionForm(conditionForm);
+            extraPoisonEffect.SetHasSavingThrow(true);
+            extraPoisonEffect.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
 
-                        ConditionForm conditionForm = new ConditionForm();
-                        conditionForm.SetConditionDefinition(DatabaseHelper.ConditionDefinitions.ConditionPoisoned);
-                        conditionForm.SetConditionDefinitionName(DatabaseHelper.ConditionDefinitions.ConditionPoisoned.name);
-                        conditionForm.SetOperation(ConditionForm.ConditionOperation.Add);
+            ConditionForm sleepForm = new ConditionForm();
+            sleepForm.SetConditionDefinition(DatabaseHelper.ConditionDefinitions.ConditionMagicallyAsleep);
+            sleepForm.SetConditionDefinitionName(DatabaseHelper.ConditionDefinitions.ConditionAsleep.name);
+            sleepForm.SetOperation(ConditionForm.ConditionOperation.Add);
 
-                        EffectForm extraPoisonEffect = new EffectForm();
-                        extraPoisonEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
-                        extraPoisonEffect.SetLevelMultiplier(1);
-                        extraPoisonEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
-                        extraPoisonEffect.SetCreatedByCharacter(true);
-                        extraPoisonEffect.FormType = EffectForm.EffectFormType.Condition;
-                        extraPoisonEffect.SetConditionForm(conditionForm);
-                        extraPoisonEffect.SetHasSavingThrow(true);
-                        extraPoisonEffect.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
+            EffectForm extraSleepEffect = new EffectForm();
+            extraSleepEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
+            extraSleepEffect.SetLevelMultiplier(1);
+            extraSleepEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
+            extraSleepEffect.SetCreatedByCharacter(true);
+            extraSleepEffect.FormType = EffectForm.EffectFormType.Condition;
+            extraSleepEffect.SetConditionForm(sleepForm);
+            extraSleepEffect.SetHasSavingThrow(true);
+            extraSleepEffect.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
 
-                        ConditionForm sleepForm = new ConditionForm();
-                        sleepForm.SetConditionDefinition(DatabaseHelper.ConditionDefinitions.ConditionMagicallyAsleep);
-                        sleepForm.SetConditionDefinitionName(DatabaseHelper.ConditionDefinitions.ConditionAsleep.name);
-                        sleepForm.SetOperation(ConditionForm.ConditionOperation.Add);
-
-                        EffectForm extraSleepEffect = new EffectForm();
-                        extraSleepEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
-                        extraSleepEffect.SetLevelMultiplier(1);
-                        extraSleepEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
-                        extraSleepEffect.SetCreatedByCharacter(true);
-                        extraSleepEffect.FormType = EffectForm.EffectFormType.Condition;
-                        extraSleepEffect.SetConditionForm(sleepForm);
-                        extraSleepEffect.SetHasSavingThrow(true);
-                        extraSleepEffect.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
-
-
-                        CouatlBite_Attack.EffectDescription.EffectForms.Add(extraSleepEffect);
-                        CouatlBite_Attack.EffectDescription.EffectForms.Add(extraPoisonEffect);
-                        CouatlBite_Attack.EffectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions.Constitution.Name);
-                        CouatlBite_Attack.EffectDescription.SetSavingThrowDifficultyAbility(DatabaseHelper.SmartAttributeDefinitions.Constitution.Name);
-                        CouatlBite_Attack.EffectDescription.SetHasSavingThrow(true);
-                        CouatlBite_Attack.EffectDescription.SetFixedSavingThrowDifficultyClass(13);
-                        CouatlBite_Attack.EffectDescription.SetDurationParameter(24);
-                        CouatlBite_Attack.EffectDescription.SetDurationType(RuleDefinitions.DurationType.Hour);
-
-                        */
+            CouatlBite_Attack.EffectDescription.EffectForms.Add(extraSleepEffect);
+            CouatlBite_Attack.EffectDescription.EffectForms.Add(extraPoisonEffect);
+            CouatlBite_Attack.EffectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions.Constitution.Name);
+            CouatlBite_Attack.EffectDescription.SetSavingThrowDifficultyAbility(DatabaseHelper.SmartAttributeDefinitions.Constitution.Name);
+            CouatlBite_Attack.EffectDescription.SetHasSavingThrow(true);
+            CouatlBite_Attack.EffectDescription.SetFixedSavingThrowDifficultyClass(13);
+            CouatlBite_Attack.EffectDescription.SetDurationParameter(24);
+            CouatlBite_Attack.EffectDescription.SetDurationType(RuleDefinitions.DurationType.Hour);
 
             List<MonsterAttackIteration> AttackIterations = new List<MonsterAttackIteration>
             {
-                Tiger_Drake.AttackIterations[0]
-                // CouatlBite_Attack
+                Tiger_Drake.AttackIterations[0],
+                new MonsterAttackIteration(CouatlBite_Attack, 1)
             };
 
             List<LegendaryActionDescription> LegendaryActionOptions = new List<LegendaryActionDescription>();
