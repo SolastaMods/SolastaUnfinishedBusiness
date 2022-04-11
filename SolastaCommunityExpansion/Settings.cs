@@ -96,6 +96,7 @@ namespace SolastaCommunityExpansion
         public bool EnableDungeonMakerPro { get; set; } = true;
         public bool EnableDungeonMakerRotationHotkeys { get; set; } = true;
         public bool EnableFirstLevelCasterFeats { get; set; } = true;
+        public bool EnableMoveSorceryPointsBox { get; set; } = true;
         public bool EnableMultiLinePowerPanel { get; set; } = true;
         public bool EnableMultiLineSpellPanel { get; set; } = true;
         public bool EnableSortingClasses { get; set; } = true;
