@@ -5,7 +5,7 @@ namespace SolastaCommunityExpansion.Displays
 {
     internal static class CreditsDisplay
     {
-        internal static readonly Dictionary<string, string> CreditsTable = new()
+        internal static readonly SortedDictionary<string, string> CreditsTable = new()
         {
             { "ChrisJohnDigital", "head developer, crafting, faction relations, feats, fighting styles, items, subclasses, progression" },
             { "Zappastuff", "multiclass, level 20, respec, level down, encounters, dungeon maker editor & pro, party size, screen map, inventory sorting, adventure log, epic points, teleport, mod UI, diagnostics, integration, arcane defense/precision, brutal thug, charismatic defense/precision, fighting surge, metamagic, primal, shady and wise defense/precision feats, races and spells migration" },
