@@ -12,6 +12,35 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class DiagnosticsContext
     {
+        // very large or not very useful definitions
+        private static readonly string[] ExcludeFromExport = new[]
+        {
+            "AdventureLogDefinition",
+            "ConsoleTableDefinition",
+            "CreditsGroupDefinition",
+            "CreditsTableDefinition",
+            "DocumentTableDefinition",
+            "NarrativeEventTableDefinition",
+            "NarrativeTreeDefinition", // NarrativeTreeDefinition causes crash with PreserveReferencesHandling.None
+            "SoundbanksDefinition",
+            "SubtitleTableDefinition",
+            "TravelJournalDefinition",
+            "TutorialSectionDefinition",
+            "TutorialStepDefinition",
+            "TutorialSubsectionDefinition",
+            "TutorialTocDefinition",
+            "TutorialTableDefinition",
+            "QuestTreeDefinition",
+        };
+
+        private static readonly string[] ExcludeFromCEExport = new[]
+        {
+            "BlueprintCategory",
+            "GadgetBlueprint",
+            "RoomBlueprint",
+            "PropBlueprint"
+        };
+
         private const string OFFICIAL_BP_FOLDER = "OfficialBlueprints";
         private const string COMMUNITY_EXPANSION_BP_FOLDER = "CommunityExpansionBlueprints";
 
@@ -71,7 +100,7 @@ namespace SolastaCommunityExpansion.Models
 
             TABaseDefinitions = TABaseDefinitionsMap.Values
                 .SelectMany(v => v)
-                .Where(x => Array.IndexOf(Main.Settings.ExcludeFromExport, x.GetType().Name) < 0)
+                .Where(x => Array.IndexOf(ExcludeFromExport, x.GetType().Name) < 0)
                 .Distinct()
                 .OrderBy(x => x.Name)
                 .ThenBy(x => x.GetType().Name)
@@ -118,8 +147,8 @@ namespace SolastaCommunityExpansion.Models
             CEBaseDefinitionsMap = definitions.OrderBy(db => db.Key.FullName).ToDictionary(v => v.Key, v => v.Value);
             CEBaseDefinitions = CEBaseDefinitionsMap.Values
                 .SelectMany(v => v)
-                .Where(x => Array.IndexOf(Main.Settings.ExcludeFromExport, x.GetType().Name) < 0)
-                .Where(x => Array.IndexOf(Main.Settings.ExcludeFromCEExport, x.GetType().Name) < 0)
+                .Where(x => Array.IndexOf(ExcludeFromExport, x.GetType().Name) < 0)
+                .Where(x => Array.IndexOf(ExcludeFromCEExport, x.GetType().Name) < 0)
                 .Distinct()
                 .OrderBy(x => x.Name)
                 .ThenBy(x => x.GetType().Name)
