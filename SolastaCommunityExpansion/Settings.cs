@@ -23,41 +23,6 @@ namespace SolastaCommunityExpansion
         public bool DisplayWelcomeMessage { get; set; } = true;
 
         //
-        // Diagnostics
-        //
-
-#pragma warning disable S1104 // Fields should not have public accessibility
-        // very large or not very useful definitions
-        public string[] ExcludeFromExport = new []
-        {
-            "AdventureLogDefinition",
-            "ConsoleTableDefinition",
-            "CreditsGroupDefinition",
-            "CreditsTableDefinition",
-            "DocumentTableDefinition",
-            "NarrativeEventTableDefinition",
-            "NarrativeTreeDefinition", // NarrativeTreeDefinition causes crash with PreserveReferencesHandling.None
-            "SoundbanksDefinition",
-            "SubtitleTableDefinition",
-            "TravelJournalDefinition",
-            "TutorialSectionDefinition",
-            "TutorialStepDefinition",
-            "TutorialSubsectionDefinition",
-            "TutorialTocDefinition",
-            "TutorialTableDefinition",
-            "QuestTreeDefinition",
-        };
-
-        public string[] ExcludeFromCEExport = new []
-        {
-            "BlueprintCategory",
-            "GadgetBlueprint",
-            "RoomBlueprint",
-            "PropBlueprint"
-        };
-#pragma warning restore S1104 // Fields should not have public accessibility
-
-        //
         // Blueprints Viewer UI
         //
 
@@ -90,9 +55,11 @@ namespace SolastaCommunityExpansion
         public bool BugFixButtonActivatorTriggerIssue { get; set; } = true;
         public bool BugFixConjuredUnitsTeleportWithParty { get; set; } = true;
         public bool BugFixDeityOfferingOnMulticlassHeroes { get; set; } = true;
+        public bool BugFixDominateSpells { get; set; } = true;
         public bool BugFixExpandColorTables { get; set; } = true;
         public bool BugFixNullRecipesOnGameSerialization { get; set; } = true;
         public bool BugFixSpellDurations { get; set; } = true;
+        public bool BugFixWieldedConfigurationSelector { get; set; } = true;
         public bool EnableDungeonMakerPro { get; set; } = true;
         public bool EnableDungeonMakerRotationHotkeys { get; set; } = true;
         public bool EnableFirstLevelCasterFeats { get; set; } = true;

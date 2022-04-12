@@ -113,7 +113,7 @@ namespace SolastaCommunityExpansion.Displays
                 UI.Label("Empress Garb".orange() + " appearance ".white(), UI.Width(325));
 
                 intValue = Array.IndexOf(ItemOptionsContext.EmpressGarbAppearances, Main.Settings.EmpressGarbAppearance);
-                if (UI.SelectionGrid(ref intValue, ItemOptionsContext.EmpressGarbAppearances, ItemOptionsContext.EmpressGarbAppearances.Length, UI.Width(600)))
+                if (UI.SelectionGrid(ref intValue, ItemOptionsContext.EmpressGarbAppearances, ItemOptionsContext.EmpressGarbAppearances.Length, 3, UI.Width(440)))
                 {
                     Main.Settings.EmpressGarbAppearance = ItemOptionsContext.EmpressGarbAppearances[intValue];
                     ItemOptionsContext.SwitchEmpressGarb();

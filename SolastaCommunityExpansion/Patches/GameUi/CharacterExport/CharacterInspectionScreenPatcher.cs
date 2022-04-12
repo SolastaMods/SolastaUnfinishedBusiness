@@ -2,7 +2,7 @@
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.Patches.CharacterExport
+namespace SolastaCommunityExpansion.Patches.GameUi.CharacterExport
 {
     // uses this patch to trap the input hotkey and start export process
     [HarmonyPatch(typeof(CharacterInspectionScreen), "HandleInput")]

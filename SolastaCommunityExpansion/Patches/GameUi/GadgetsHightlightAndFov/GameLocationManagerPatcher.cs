@@ -3,7 +3,7 @@ using System.Linq;
 using HarmonyLib;
 using static SolastaModApi.DatabaseHelper.GadgetBlueprints;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.ScreenMap
+namespace SolastaCommunityExpansion.Patches.GameUi.GadgetsHightlightAndFov
 {
     [HarmonyPatch(typeof(GameLocationManager), "ReadyLocation")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

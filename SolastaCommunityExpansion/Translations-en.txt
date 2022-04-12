@@ -1060,6 +1060,7 @@ Message/&CharacterExportModalTitleDescription	Character Export
 Message/&LevelDownConfirmationDescription	Level down this Hero?
 Message/&MessageModWelcomeDescription	The Community Expansion Mod is packed full of exciting features, but by default none are enabled. Press <color=yellow>Ctrl-F10</color> to open the Unity Mod Manager UI [UMM], then click on the settings icon next to 'Community Expansion' to open the settings pages.\n\n Explore the options and select the ones you like. The UMM UI will now open.
 Message/&MessageModWelcomeTitle	Community Expansion Mod
+Message/&SpawnCustomEncounterErrorDescription	Cannot spawn encounters on a multiplayer game. Yet...
 Message/&SpawnCustomEncounterDescription	Spawn encounter at coordinates ({0}, {1})?
 Message/&SpawnCustomEncounterTitle	Encounter
 Message/&TeleportPartyDescription	Teleport party to coordinates ({0}, {1})?\nYou might break quests or maps if you teleport to an undiscovered place

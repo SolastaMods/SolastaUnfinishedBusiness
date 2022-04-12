@@ -6,14 +6,42 @@ using System.Linq;
 using HarmonyLib;
 using I2.Loc;
 using SolastaCommunityExpansion.Builders;
+#if DEBUG
 using SolastaCommunityExpansion.DataMiner;
+#endif
 
 namespace SolastaCommunityExpansion.Models
 {
     internal static class DiagnosticsContext
     {
-        private const string OFFICIAL_BP_FOLDER = "OfficialBlueprints";
-        private const string COMMUNITY_EXPANSION_BP_FOLDER = "CommunityExpansionBlueprints";
+        // very large or not very useful definitions
+        private static readonly string[] ExcludeFromExport = new[]
+        {
+            "AdventureLogDefinition",
+            "ConsoleTableDefinition",
+            "CreditsGroupDefinition",
+            "CreditsTableDefinition",
+            "DocumentTableDefinition",
+            "NarrativeEventTableDefinition",
+            "NarrativeTreeDefinition", // NarrativeTreeDefinition causes crash with PreserveReferencesHandling.None
+            "SoundbanksDefinition",
+            "SubtitleTableDefinition",
+            "TravelJournalDefinition",
+            "TutorialSectionDefinition",
+            "TutorialStepDefinition",
+            "TutorialSubsectionDefinition",
+            "TutorialTocDefinition",
+            "TutorialTableDefinition",
+            "QuestTreeDefinition",
+        };
+
+        private static readonly string[] ExcludeFromCEExport = new[]
+        {
+            "BlueprintCategory",
+            "GadgetBlueprint",
+            "RoomBlueprint",
+            "PropBlueprint"
+        };
 
         private static Dictionary<BaseDefinition, BaseDefinition> TABaseDefinitionAndCopy;
         private static BaseDefinition[] TABaseDefinitions;
@@ -34,7 +62,7 @@ namespace SolastaCommunityExpansion.Models
 
         private static string GetDiagnosticsFolder()
         {
-            var path = Path.Combine(ProjectFolder ?? GAME_FOLDER, @"Diagnostics");
+            var path = Path.Combine(ProjectFolder ?? GAME_FOLDER, "Diagnostics");
 
             EnsureFolderExists(path);
 
@@ -71,7 +99,7 @@ namespace SolastaCommunityExpansion.Models
 
             TABaseDefinitions = TABaseDefinitionsMap.Values
                 .SelectMany(v => v)
-                .Where(x => Array.IndexOf(Main.Settings.ExcludeFromExport, x.GetType().Name) < 0)
+                .Where(x => Array.IndexOf(ExcludeFromExport, x.GetType().Name) < 0)
                 .Distinct()
                 .OrderBy(x => x.Name)
                 .ThenBy(x => x.GetType().Name)
@@ -118,8 +146,8 @@ namespace SolastaCommunityExpansion.Models
             CEBaseDefinitionsMap = definitions.OrderBy(db => db.Key.FullName).ToDictionary(v => v.Key, v => v.Value);
             CEBaseDefinitions = CEBaseDefinitionsMap.Values
                 .SelectMany(v => v)
-                .Where(x => Array.IndexOf(Main.Settings.ExcludeFromExport, x.GetType().Name) < 0)
-                .Where(x => Array.IndexOf(Main.Settings.ExcludeFromCEExport, x.GetType().Name) < 0)
+                .Where(x => Array.IndexOf(ExcludeFromExport, x.GetType().Name) < 0)
+                .Where(x => Array.IndexOf(ExcludeFromCEExport, x.GetType().Name) < 0)
                 .Distinct()
                 .OrderBy(x => x.Name)
                 .ThenBy(x => x.GetType().Name)
@@ -128,6 +156,102 @@ namespace SolastaCommunityExpansion.Models
 
             Main.Log($"Cached {CEBaseDefinitions.Length} CE definitions");
         }
+
+        internal static List<string> KnownDuplicateDefinitionNames { get; } = new()
+        {
+            "SummonProtectorConstruct"
+        };
+
+        internal static bool IsCeDefinition(BaseDefinition definition)
+        {
+            return CEBaseDefinitions2.Contains(definition);
+        }
+
+#if DEBUG
+        private const string OFFICIAL_BP_FOLDER = "OfficialBlueprints";
+        private const string COMMUNITY_EXPANSION_BP_FOLDER = "CommunityExpansionBlueprints";
+
+        internal static void ExportTADefinitions()
+        {
+            var path = Path.Combine(DiagnosticsFolder, OFFICIAL_BP_FOLDER);
+
+            BlueprintExporter.ExportBlueprints(TA, TABaseDefinitions, TABaseDefinitionsMap, TABaseDefinitionAndCopy, true, path);
+        }
+
+        /// <summary>
+        /// Export all TA definitions with any modifications made by CE.
+        /// </summary>
+        internal static void ExportTADefinitionsAfterCELoaded()
+        {
+            var path = Path.Combine(DiagnosticsFolder, OFFICIAL_BP_FOLDER);
+
+            BlueprintExporter.ExportBlueprints(TA2, TABaseDefinitions, TABaseDefinitionsMap, TABaseDefinitionAndCopy, false, path);
+        }
+
+        internal static void ExportCEDefinitions()
+        {
+            var path = Path.Combine(DiagnosticsFolder, COMMUNITY_EXPANSION_BP_FOLDER);
+
+            BlueprintExporter.ExportBlueprints(CE, CEBaseDefinitions, CEBaseDefinitionsMap, null, false, path);
+        }
+
+        internal static void CreateTADefinitionDiagnostics()
+        {
+            CreateDefinitionDiagnostics(TABaseDefinitions, "TA-Definitions");
+        }
+
+        internal static void CreateCEDefinitionDiagnostics()
+        {
+            var baseFilename = "CE-Definitions";
+
+            CreateDefinitionDiagnostics(CEBaseDefinitions, baseFilename);
+
+            CheckOrphanedTerms(Path.Combine(DiagnosticsFolder, $"{baseFilename}-Translations-OrphanedTerms-en.txt"));
+        }
+
+        internal static void CheckOrphanedTerms(string outputFile)
+        {
+            var terms = new Dictionary<string, string>();
+            var sourceFile = Path.Combine(Main.MOD_FOLDER, "Translations-en.txt");
+
+            foreach (var line in File.ReadLines(sourceFile))
+            {
+                try
+                {
+                    var splitted = line.Split(new[] { '\t', ' ' }, 2);
+
+                    terms.Add(splitted[0], splitted[1]);              
+                }
+                catch
+                {
+                    continue;
+                }             
+            }
+
+            foreach (var definition in CEBaseDefinitions)
+            {
+                var title = definition.GuiPresentation.Title;
+                var description = definition.GuiPresentation.Description;
+
+                if (title != null && terms.ContainsKey(title))
+                {
+                    terms.Remove(title);
+                }
+
+                if (description != null && !description.Contains("{") && terms.ContainsKey(description))
+                {
+                    terms.Remove(description);
+                }
+            }
+
+            using var writer = new StreamWriter(outputFile);
+
+            foreach (var kvp in terms)
+            {
+                writer.WriteLine($"{kvp.Key}\t{kvp.Value}");
+            }
+        }
+
 
         private static void CreateDefinitionDiagnostics(BaseDefinition[] baseDefinitions, string baseFilename)
         {
@@ -174,96 +298,6 @@ namespace SolastaCommunityExpansion.Models
 
             File.WriteAllLines(Path.Combine(DiagnosticsFolder, $"{baseFilename}-GuiPresentation-MissingTranslation-{currentLanguage}.txt"), allLines);
         }
-
-        internal static void ExportTADefinitions()
-        {
-            var path = Path.Combine(DiagnosticsFolder, OFFICIAL_BP_FOLDER);
-
-            BlueprintExporter.ExportBlueprints(TA, TABaseDefinitions, TABaseDefinitionsMap, TABaseDefinitionAndCopy, true, path);
-        }
-
-        /// <summary>
-        /// Export all TA definitions with any modifications made by CE.
-        /// </summary>
-        internal static void ExportTADefinitionsAfterCELoaded()
-        {
-            var path = Path.Combine(DiagnosticsFolder, OFFICIAL_BP_FOLDER);
-
-            BlueprintExporter.ExportBlueprints(TA2, TABaseDefinitions, TABaseDefinitionsMap, TABaseDefinitionAndCopy, false, path);
-        }
-
-        internal static void ExportCEDefinitions()
-        {
-            var path = Path.Combine(DiagnosticsFolder, COMMUNITY_EXPANSION_BP_FOLDER);
-
-            BlueprintExporter.ExportBlueprints(CE, CEBaseDefinitions, CEBaseDefinitionsMap, null, false, path);
-        }
-
-        internal static void CreateTADefinitionDiagnostics()
-        {
-            CreateDefinitionDiagnostics(TABaseDefinitions, "TA-Definitions");
-        }
-
-        internal static void CreateCEDefinitionDiagnostics()
-        {
-            var baseFilename = "CE-Definitions";
-
-            CreateDefinitionDiagnostics(CEBaseDefinitions, baseFilename);
-
-            CheckOrphanedTerms(Path.Combine(DiagnosticsFolder, $"{baseFilename}-Translations-OrphanedTerms-en.txt"));
-        }
-
-        internal static List<string> KnownDuplicateDefinitionNames { get; } = new()
-        {
-            "SummonProtectorConstruct"
-        };
-
-        internal static bool IsCeDefinition(BaseDefinition definition)
-        {
-            return CEBaseDefinitions2.Contains(definition);
-        }
-
-        internal static void CheckOrphanedTerms(string outputFile)
-        {
-            var terms = new Dictionary<string, string>();
-            var sourceFile = Path.Combine(Main.MOD_FOLDER, "Translations-en.txt");
-
-            foreach (var line in File.ReadLines(sourceFile))
-            {
-                try
-                {
-                    var splitted = line.Split(new[] { '\t', ' ' }, 2);
-
-                    terms.Add(splitted[0], splitted[1]);              
-                }
-                catch
-                {
-                    continue;
-                }             
-            }
-
-            foreach (var definition in CEBaseDefinitions)
-            {
-                var title = definition.GuiPresentation.Title;
-                var description = definition.GuiPresentation.Description;
-
-                if (title != null && terms.ContainsKey(title))
-                {
-                    terms.Remove(title);
-                }
-
-                if (description != null && !description.Contains("{") && terms.ContainsKey(description))
-                {
-                    terms.Remove(description);
-                }
-            }
-
-            using var writer = new StreamWriter(outputFile);
-
-            foreach (var kvp in terms)
-            {
-                writer.WriteLine($"{kvp.Key}\t{kvp.Value}");
-            }
-        }
+#endif
     }
 }

@@ -107,7 +107,17 @@ namespace SolastaCommunityExpansion.Models
                                  Gui.GameLocation.LocationDefinition &&
                                  Gui.GameLocation.LocationDefinition.IsUserLocation;
 
-            if (isUserLocation)
+            if (PlayerControllerContext.IsMultiplayer)
+            {
+                Gui.GuiService.ShowMessage(
+                    MessageModal.Severity.Informative1,
+                    "Message/&SpawnCustomEncounterTitle",
+                    "Message/&SpawnCustomEncounterErrorDescription",
+                    "Message/&MessageOkTitle", string.Empty,
+                    null,
+                    null);
+            }
+            else if (isUserLocation)
             {
                 var position = GetEncounterPosition();
 

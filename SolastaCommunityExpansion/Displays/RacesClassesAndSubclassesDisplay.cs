@@ -71,7 +71,7 @@ namespace SolastaCommunityExpansion.Displays
             displayToggle = Main.Settings.DisplayRacesToggle;
             sliderPos = Main.Settings.RaceSliderPosition;
             DisplayDefinitions(
-                "Races:".yellow(),
+                "Races".yellow(),
                 RacesContext.Switch,
                 RacesContext.Races,
                 Main.Settings.RaceEnabled,
@@ -83,7 +83,7 @@ namespace SolastaCommunityExpansion.Displays
             displayToggle = Main.Settings.DisplayClassesToggle;
             sliderPos = Main.Settings.ClassSliderPosition;
             DisplayDefinitions(
-                "Classes:".yellow(),
+                "Classes".yellow(),
                 ClassesContext.Switch,
                 ClassesContext.Classes,
                 Main.Settings.ClassEnabled,
@@ -95,7 +95,7 @@ namespace SolastaCommunityExpansion.Displays
             displayToggle = Main.Settings.DisplaySubclassesToggle;
             sliderPos = Main.Settings.SubclassSliderPosition;
             DisplayDefinitions(
-                "Subclasses:".yellow(),
+                "Subclasses".yellow(),
                 SubclassesContext.Switch,
                 SubclassesContext.Subclasses,
                 Main.Settings.SubclassEnabled,
