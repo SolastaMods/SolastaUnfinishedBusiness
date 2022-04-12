@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaCommunityExpansion.CustomFeatureDefinitions;
+using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
