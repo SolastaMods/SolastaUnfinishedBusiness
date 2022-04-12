@@ -54,7 +54,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.SummonFormExtraOrigin
 
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
-            var addedConditionPos = Main.IsDebugBuild ? 36 : 27;
+            var addedConditionPos = Main.IsDebugBuild ? 36 : 26;
             var found = 0;
             var inflictConditionMethod = typeof(RulesetActor).GetMethod("InflictCondition");
             var extendInflictConditionMethod = typeof(RulesetImplementationManagerLocation_ApplySummonForm).GetMethod("ExtendInflictCondition");
