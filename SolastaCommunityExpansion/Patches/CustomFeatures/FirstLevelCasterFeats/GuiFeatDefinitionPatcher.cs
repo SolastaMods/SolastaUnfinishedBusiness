@@ -6,7 +6,7 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaModApi.Extensions;
 
-namespace SolastaCommunityExpansion.Patches.Bugfix
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.FirstLevelCasterFeats
 {
     [HarmonyPatch(typeof(GuiFeatDefinition), "IsFeatMacthingPrerequisites")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

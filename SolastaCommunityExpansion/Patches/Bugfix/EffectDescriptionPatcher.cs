@@ -10,6 +10,11 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
     {
         public static bool Prefix(EffectDescription __instance, int slotLevel, ref int __result)
         {
+            if (!Main.Settings.BugFixDominateSpells)
+            {
+                return true;
+            }
+
             if (__instance.EffectAdvancement.AlteredDuration >= 0)
             {
                 // use standard calculation
