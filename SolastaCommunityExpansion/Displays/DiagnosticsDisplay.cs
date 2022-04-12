@@ -162,6 +162,10 @@ This is now a standalone mod. Please uninstall any other mod from your mods fold
 
 [img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/UMM-02.png?raw=true[/img]
 
+[size=4][b]Multiplayer [beta support][/b][/size]
+
+We did all possible efforts to ensure this Mod will work under a multiplayer session. You must ensure all players have this mod installed and at least all settings under CE Mod UI > Gameplay matches across all players. The easiest way to achieve that is ask the host to share his Mod settings.xml file with guests before a session.
+
 [size=4][b]How to Report Bugs[/b][/size]
 
 [list]
@@ -178,7 +182,7 @@ You can contribute to this work at [url=https://github.com/SolastaMods/SolastaCo
 
 [size=4][b]Features[/b][/size]
 
-All settings start disabled by default. On first start the mod will display an welcome message and open the UMM Mod UI settings again. Multiplayer support is still in beta. We recommend all players to share the same mod [b]Settings.xml[/b] file before a session.
+All settings start disabled by default. On first start the mod will display an welcome message and open the UMM Mod UI settings again.
 
 [img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/01-Character-General.png?raw=true[/img]
 [line]

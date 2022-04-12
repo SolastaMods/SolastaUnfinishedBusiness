@@ -634,20 +634,6 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetCheatInfiniteActionResources<T>(this T entity, System.Boolean value)
-            where T : RulesetCharacter
-        {
-            entity.SetField("<CheatInfiniteActionResources>k__BackingField", value);
-            return entity;
-        }
-
-        public static T SetCheatIsInvisible<T>(this T entity, System.Boolean value)
-            where T : RulesetCharacter
-        {
-            entity.SetField("<CheatIsInvisible>k__BackingField", value);
-            return entity;
-        }
-
         public static T SetConcentratedSpell<T>(this T entity, RulesetEffectSpell value)
             where T : RulesetCharacter
         {
