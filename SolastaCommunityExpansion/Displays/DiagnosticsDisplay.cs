@@ -138,9 +138,29 @@ This is now a standalone mod. Please uninstall any other mod from your mods fold
 {0}
 [/list]
 
-[size=4][b]Source Code[/b][/size]
+[size=4][b]How to Install[/b][/size]
 
-You can contribute to this work at [url=https://github.com/SolastaMods/SolastaCommunityExpansion]Source Code (MIT License)[/url].
+[b]STEP 1:[/b] Install Unity Mod Manager (UMM):
+
+[list]
+[*] Download Unity Mod Manager from [url=https://www.nexusmods.com/site/mods/21]Nexus Mods[/url] and extract the zip to a folder of your preference [don't use the Solasta game folder].
+[*] Start the program [i]UnityModManager.exe[/i]
+[*] Select [i]Solasta: Crown of the Magister[/i] from the list of available games
+[*] Manually select the game folder in case UMM fails to auto detect it
+[*] The Unity Mod Manager should now launch when game is launched
+[/list]
+
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/UMM-01.png?raw=true[/img]
+
+[b]HINT:[/b] Doorstop Proxy is the preferred install method but won't work on some Windows configurations or MacOS. Use the Assembly method as an alternative in case you don't see the UMM UI upon game launch.
+
+[b]STEP 2:[/b] Install Community Expansion (CE):
+
+[list]
+[*] Download CE from the files section and drag and drop the zip over the UMM Mods tab
+[/list]
+
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/UMM-02.png?raw=true[/img]
 
 [size=4][b]How to Report Bugs[/b][/size]
 
@@ -151,6 +171,10 @@ You can contribute to this work at [url=https://github.com/SolastaMods/SolastaCo
 [*] A step-by-step procedure to reproduce it.
 [*] The save, character and log files.
 [/list]
+
+[size=4][b]Source Code[/b][/size]
+
+You can contribute to this work at [url=https://github.com/SolastaMods/SolastaCommunityExpansion]Source Code (MIT License)[/url].
 
 [size=4][b]Features[/b][/size]
 
@@ -185,8 +209,6 @@ All settings start disabled by default. On first start the mod will display an w
 [img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/14-Encounters-Pool.png?raw=true[/img]
 [line]
 [img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/15-CreditsDiagnostics-Credits.png?raw=true[/img]
-[line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/16-CreditsDiagnostics-Diagnostics.png?raw=true[/img]
 [line]
 
 [size=3][b]Races[/b][/size]
