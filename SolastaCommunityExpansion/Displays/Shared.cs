@@ -37,7 +37,7 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             toggle = displayToggle;
-            if (UI.DisclosureToggle(label, ref toggle, 200))
+            if (UI.DisclosureToggle($"{label}:", ref toggle, 200))
             {
                 displayToggle = toggle;
             }
@@ -47,7 +47,7 @@ namespace SolastaCommunityExpansion.Displays
                 if (registeredDefinitions.Count == 0)
                 {
                     UI.Label("");
-                    UI.Label("No unofficial definitions available on this mod yet...".bold().red());
+                    UI.Label($"No {label} available on this mod yet...".bold().red());
 
                     return;
                 }
