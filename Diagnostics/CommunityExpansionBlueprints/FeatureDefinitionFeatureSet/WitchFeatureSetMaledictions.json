@@ -1,0 +1,45 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:WitchMaledictionAbate:ad0e93d8-84c7-56db-8aac-eb25c0a7c3f4",
+    "Definition:WitchMaledictionApathy:6a3fddc2-6a9a-5465-ba2c-5d16c509417d",
+    "Definition:WitchMaledictionCharm:24df9a7b-8b77-548a-b3c1-facd8ce5a424",
+    "Definition:WitchMaledictionDisorient:a7043beb-6681-558f-8ed6-0fb8215900b2",
+    "Definition:WitchMaledictionEvilEye:33f61a13-9f1c-5616-a3d8-bc2e592a02eb",
+    "Definition:WitchMaledictionObfuscate:db00bd44-6b09-5f73-b3bb-0c6bbfdf18cf",
+    "Definition:WitchMaledictionPox:f53945c2-dfa4-53a4-844e-a46c0dc04659",
+    "Definition:WitchMaledictionRuin:8a607c9a-8ed5-50f5-8206-f62c2db0ab52"
+  ],
+  "mode": "Exclusion",
+  "defaultSelection": 0,
+  "uniqueChoices": true,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Class/&WitchFeatureSetMaledictionsTitle",
+    "description": "Class/&WitchFeatureSetMaledictionsDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "894fd263-01fa-56f1-a3ad-0c1f16d3c8d5",
+  "contentPack": 9999,
+  "name": "WitchFeatureSetMaledictions"
+}

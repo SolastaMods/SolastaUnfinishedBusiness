@@ -1,108 +1,71 @@
-﻿using SolastaCommunityExpansion.Feats;
-using SolastaModApi.Extensions;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Text;
+using SolastaCommunityExpansion.Feats;
+using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Models
 {
     internal static class FeatsContext
     {
-        internal static bool HasFeatsFromOtherMods { get; private set; }
-
-        internal static Dictionary<FeatDefinition, bool> Feats { get; private set; } = new Dictionary<FeatDefinition, bool>();
-
-        internal static List<FeatDefinition> GetAllUnofficialFeats()
-        {
-            var officialFeatNames = typeof(SolastaModApi.DatabaseHelper.FeatDefinitions)
-                .GetProperties(BindingFlags.Public | BindingFlags.Static)
-                .Where(f => f.PropertyType == typeof(FeatDefinition))
-                .Select(f => f.Name).ToList();
-
-            return DatabaseRepository.GetDatabase<FeatDefinition>()
-                .Where(f => !officialFeatNames.Contains(f.Name)).ToList();
-        }
+        internal static HashSet<FeatDefinition> Feats { get; private set; } = new();
 
         internal static void Load()
         {
-            // Generate feats here and fill the list
-            List<FeatDefinition> feats = new List<FeatDefinition>();
+            var feats = new List<FeatDefinition>();
 
-            // Build feats
+            // Generate feats here and fill the list
             AcehighFeats.CreateFeats(feats);
             ArmorFeats.CreateArmorFeats(feats);
             CasterFeats.CreateFeats(feats);
-            FightingStlyeFeats.CreateFeats(feats);
+            FightingStyleFeats.CreateFeats(feats);
             OtherFeats.CreateFeats(feats);
             HealingFeats.CreateFeats(feats);
             PickPocketContext.CreateFeats(feats);
             CraftyFeats.CreateFeats(feats);
             ElAntoniousFeats.CreateFeats(feats);
+            ZappaFeats.CreateFeats(feats);
 
-            // Use the list of all unofficial feats to get the settings and ui set up
-            foreach (FeatDefinition feat in GetAllUnofficialFeats())
-            {
-                var isFromOtherMod = !feats.Contains(feat);
+            feats.ForEach(f => LoadFeat(f));
 
-                if (isFromOtherMod && !Main.Settings.AllowDisplayAllUnofficialContent)
-                {
-                    continue;
-                }
-
-                if (!Feats.ContainsKey(feat))
-                {
-                    Feats.Add(feat, isFromOtherMod);
-                }
-
-                feat.GuiPresentation.SetHidden(!Main.Settings.FeatEnabled.Contains(feat.Name));
-            }
-
-            Feats = Feats.OrderBy(x => x.Key.FormatTitle()).ToDictionary(x => x.Key, x => x.Value);
-            HasFeatsFromOtherMods = Feats.Any(x => x.Value);
+            Feats = Feats.OrderBy(x => x.FormatTitle()).ToHashSet();
         }
 
-        internal static void Switch(FeatDefinition feat, bool active)
+        private static void LoadFeat(FeatDefinition featDefinition)
         {
-            if (!Feats.ContainsKey(feat))
+            if (!Feats.Contains(featDefinition))
+            {
+                Feats.Add(featDefinition);
+            }
+
+            UpdateFeatsVisibility(featDefinition);
+        }
+
+        private static void UpdateFeatsVisibility(FeatDefinition featDefinition)
+        {
+            featDefinition.GuiPresentation.SetHidden(!Main.Settings.FeatEnabled.Contains(featDefinition.Name));  
+        }
+
+        internal static void Switch(FeatDefinition featDefinition, bool active)
+        {
+            if (!Feats.Contains(featDefinition))
             {
                 return;
             }
 
-            feat.GuiPresentation.SetHidden(!active);
+            var name = featDefinition.Name;
 
             if (active)
             {
-                if (!Main.Settings.FeatEnabled.Contains(feat.Name))
-                {
-                    Main.Settings.FeatEnabled.Add(feat.Name);
-                }
+                Main.Settings.FeatEnabled.TryAdd(name);
             }
             else
             {
-                Main.Settings.FeatEnabled.Remove(feat.Name);
+                Main.Settings.FeatEnabled.Remove(name);
             }
 
+            UpdateFeatsVisibility(featDefinition);
             GuiWrapperContext.RecacheFeats();
-        }
-
-        public static string GenerateFeatsDescription()
-        {
-            var outString = new StringBuilder("[heading]Feats[/heading]");
-
-            outString.Append("\n[list]");
-
-            foreach (var feat in Feats.Keys)
-            {
-                outString.Append("\n[*][b]");
-                outString.Append(feat.FormatTitle());
-                outString.Append("[/b]: ");
-                outString.Append(feat.FormatDescription());
-            }
-
-            outString.Append("\n[/list]");
-
-            return outString.ToString();
         }
     }
 }

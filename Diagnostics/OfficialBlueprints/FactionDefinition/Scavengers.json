@@ -1,0 +1,48 @@
+{
+  "$type": "FactionDefinition, Assembly-CSharp",
+  "builtIn": false,
+  "minRelationCap": -100,
+  "maxRelationCap": 100,
+  "stealingPenalty": 0,
+  "attackingPenalty": 0,
+  "killingPenalty": 0,
+  "prominentMembers": [
+    "Definition:Merchant_Annie_Bagmordah:fd3c64cb943be794c816a5308998f47a",
+    "Definition:Milan:24e0385155712cc4a984a28e79452426"
+  ],
+  "smallSpriteReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "b5015bf76883e8641a2ef4617023505a",
+    "m_SubObjectName": "ScavengersFlagSmall",
+    "m_SubObjectType": ""
+  },
+  "failsQuestOnLowRelation": false,
+  "questFailThreshold": -70,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Faction/&ScavengersTitle",
+    "description": "Faction/&ScavengersDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "ee911432fc12ee444ae681eb44f20b79",
+      "m_SubObjectName": "ScavengersFlag",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "c8c7ada81eff5f9488499544416933d5",
+  "contentPack": "BaseGame",
+  "name": "Scavengers"
+}

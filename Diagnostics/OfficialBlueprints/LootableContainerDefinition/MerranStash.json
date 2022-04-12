@@ -1,0 +1,35 @@
+{
+  "$type": "LootableContainerDefinition, Assembly-CSharp",
+  "minSlotsNumber": 10,
+  "contentAlwaysKnown": false,
+  "forbidDrop": false,
+  "ignoredByScavengers": false,
+  "restrictedItems": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&MerranStashTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "1ffaab74d0c39d340b39f1e4c74c708d",
+  "contentPack": "BaseGame",
+  "name": "MerranStash"
+}

@@ -1,0 +1,40 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:AbilityCheckAffinityLoremasterKeenMindSkills:5978c2390ad9b734bb6227dac141a1cb",
+    "Definition:MagicAffinityLoremasterKeenMindScribing:91a24e5f9cc752d47b18b38674228010",
+    "Definition:CraftingAffinityLoremasterKeenMindCrafting:f984cf1b01aaa78438c7e3bcfcbca32f"
+  ],
+  "mode": "Union",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&TraditionLoremasterKeenMindTitle",
+    "description": "Feature/&TraditionLoremasterKeenMindDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "53667750483570c44ac42764a06616f8",
+  "contentPack": "BaseGame",
+  "name": "FeatureSetLoremasterKeenMind"
+}

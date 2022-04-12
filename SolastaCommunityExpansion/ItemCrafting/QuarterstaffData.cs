@@ -1,6 +1,6 @@
-﻿using SolastaModApi;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using SolastaModApi;
 using static SolastaCommunityExpansion.ItemCrafting.ItemCollection;
 
 namespace SolastaCommunityExpansion.ItemCrafting
@@ -11,18 +11,14 @@ namespace SolastaCommunityExpansion.ItemCrafting
 
         internal static ItemCollection Items
         {
-            get
+            get => items ??= new ItemCollection()
             {
-                if (items == null)
-                {
-                    items = new ItemCollection()
-                    {
-                        BaseGuid = new Guid("16757d1b-518f-4669-af43-1ddf5d23c223"),
-                        BaseWeapons = new List<ItemDefinition>()
+                BaseGuid = new Guid("16757d1b-518f-4669-af43-1ddf5d23c223"),
+                BaseWeapons = new List<ItemDefinition>()
                         {
                             DatabaseHelper.ItemDefinitions.Quarterstaff,
                         },
-                        PossiblePrimedItemsToReplace = new List<ItemDefinition>()
+                PossiblePrimedItemsToReplace = new List<ItemDefinition>()
                         {
                             DatabaseHelper.ItemDefinitions.Primed_Mace,
                             DatabaseHelper.ItemDefinitions.Primed_Longsword,
@@ -30,7 +26,7 @@ namespace SolastaCommunityExpansion.ItemCrafting
                             DatabaseHelper.ItemDefinitions.Primed_Shortsword,
                             DatabaseHelper.ItemDefinitions.Primed_Dagger,
                         },
-                        MagicToCopy = new List<MagicItemDataHolder>()
+                MagicToCopy = new List<MagicItemDataHolder>()
                         {
                              // Same as +1
                             new MagicItemDataHolder("Acuteness", DatabaseHelper.ItemDefinitions.Enchanted_Mace_Of_Acuteness,
@@ -50,10 +46,7 @@ namespace SolastaCommunityExpansion.ItemCrafting
                             new MagicItemDataHolder("Souldrinker", DatabaseHelper.ItemDefinitions.Enchanted_Dagger_Souldrinker,
                                 DatabaseHelper.RecipeDefinitions.Recipe_Enchantment_DaggerSouldrinker),
                         }
-                    };
-                }
-                return items;
-            }
+            };
             set => items = value;
         }
     }

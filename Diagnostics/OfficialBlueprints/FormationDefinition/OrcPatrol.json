@@ -1,0 +1,75 @@
+{
+  "$type": "FormationDefinition, Assembly-CSharp",
+  "defaultFormation": true,
+  "formationPositions": [
+    {
+      "$type": "TA.int3, Assembly-CSharp",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    {
+      "$type": "TA.int3, Assembly-CSharp",
+      "x": 0,
+      "y": 0,
+      "z": -1
+    },
+    {
+      "$type": "TA.int3, Assembly-CSharp",
+      "x": 1,
+      "y": 0,
+      "z": -1
+    },
+    {
+      "$type": "TA.int3, Assembly-CSharp",
+      "x": 0,
+      "y": 0,
+      "z": -2
+    },
+    {
+      "$type": "TA.int3, Assembly-CSharp",
+      "x": 1,
+      "y": 0,
+      "z": -2
+    },
+    {
+      "$type": "TA.int3, Assembly-CSharp",
+      "x": 0,
+      "y": 0,
+      "z": -3
+    },
+    {
+      "$type": "TA.int3, Assembly-CSharp",
+      "x": 1,
+      "y": 0,
+      "z": -3
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "d7ed97101bd0ba547b3863ee176ed17c",
+  "contentPack": "BaseGame",
+  "name": "OrcPatrol"
+}

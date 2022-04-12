@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class InventoryManagementContext
     {
-        private static readonly List<string> SortCategories = new List<string>
+        private static readonly List<string> SortCategories = new()
         {
             "Name",
             "Category",
@@ -18,9 +18,9 @@ namespace SolastaCommunityExpansion.Models
             "Cost per Weight",
         };
 
-        private static readonly List<RulesetItem> FilteredItems = new List<RulesetItem>();
+        private static readonly List<RulesetItem> FilteredItems = new();
 
-        private static readonly List<MerchantCategoryDefinition> ItemCategories = new List<MerchantCategoryDefinition>();
+        private static readonly List<MerchantCategoryDefinition> ItemCategories = new();
 
         private static GuiDropdown FilterGuiDropdown { get; set; }
 
@@ -123,12 +123,12 @@ namespace SolastaCommunityExpansion.Models
 
             BySortGroup.Inverted = false;
             BySortGroup.Selected = true;
-            BySortGroup.SortRequested = new SortGroup.SortRequestedHandler((sortCategory, inverted) =>
+            BySortGroup.SortRequested = (_, inverted) =>
             {
                 BySortGroup.Inverted = inverted;
                 BySortGroup.Refresh();
                 SelectionChanged();
-            });
+            };
 
             byTextMesh.SetText("by");
 

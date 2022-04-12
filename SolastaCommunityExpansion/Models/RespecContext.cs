@@ -1,8 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using HarmonyLib;
-using SolastaModApi;
+using SolastaCommunityExpansion.Builders;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
@@ -14,7 +13,7 @@ namespace SolastaCommunityExpansion.Models
     {
         internal const RestActivityDefinition.ActivityCondition ActivityConditionCanRespec = (RestActivityDefinition.ActivityCondition)(-1001);
 
-        public class RestActivityRespecBuilder : BaseDefinitionBuilder<RestActivityDefinition>
+        public class RestActivityRespecBuilder : RestActivityDefinitionBuilder
         {
             private const string RespecName = "ZSRespec";
             private const string RespecGuid = "40824029eb224fb581f0d4e5989b6735";
@@ -29,7 +28,9 @@ namespace SolastaCommunityExpansion.Models
             }
 
             private static RestActivityDefinition CreateAndAddToDB(string name, string guid)
-                => new RestActivityRespecBuilder(name, guid).AddToDB();
+            {
+                return new RestActivityRespecBuilder(name, guid).AddToDB();
+            }
 
             public static readonly RestActivityDefinition RestActivityRespec
                 = CreateAndAddToDB(RespecName, RespecGuid);
@@ -42,21 +43,9 @@ namespace SolastaCommunityExpansion.Models
 
         public class FunctorRespec : Functor
         {
-            private const int RESPEC_STATE_NORESPEC = 0;
-            private const int RESPEC_STATE_RESPECING = 1;
-            private const int RESPEC_STATE_ABORTED = 2;
+            internal static bool IsRespecing { get; set; }
 
-            private static int RespecState { get; set; }
-
-            internal static bool IsRespecing => RespecState == RESPEC_STATE_RESPECING;
-
-            internal static void AbortRespec() => RespecState = RESPEC_STATE_ABORTED;
-
-            internal static void StartRespec() => RespecState = RESPEC_STATE_RESPECING;
-
-            internal static void StopRespec() => RespecState = RESPEC_STATE_NORESPEC;
-
-            private static readonly List<RulesetItemSpellbook> rulesetItemSpellbooks = new List<RulesetItemSpellbook>();
+            private static readonly List<RulesetItemSpellbook> rulesetItemSpellbooks = new();
 
             internal static void DropSpellbooksIfRequired(RulesetCharacterHero rulesetCharacterHero)
             {
@@ -92,25 +81,27 @@ namespace SolastaCommunityExpansion.Models
                 var guiConsoleScreenVisible = guiConsoleScreen.Visible;
                 var gameCampaignScreenVisible = gameCampaignScreen.Visible;
 
-                var gameLocationscreenExplorationVisible = gameLocationScreenExploration?.Visible;
-
-                StartRespec();
+                // NOTE: don't use gameLocationScreenExploration?. which bypasses Unity object lifetime check
+                var gameLocationscreenExplorationVisible = gameLocationScreenExploration && gameLocationScreenExploration.Visible;
 
                 guiConsoleScreen.Hide(true);
                 gameCampaignScreen.Hide(true);
 
-                gameLocationScreenExploration?.Hide(true);
+                // NOTE: don't use gameLocationScreenExploration?. which bypasses Unity object lifetime check
+                if (gameLocationScreenExploration)
+                {
+                    gameLocationScreenExploration.Hide(true);
+                }
 
                 var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
-
-                characterBuildingService.CreateNewCharacter();
-
                 var oldHero = functorParameters.RestingHero;
-                var newHero = characterBuildingService.HeroCharacter;
+                var newHero = characterBuildingService.CreateNewCharacter().HeroCharacter;
+
+                IsRespecing = true;
 
                 DropSpellbooksIfRequired(oldHero);
 
-                yield return StartCharacterCreationWizard();
+                yield return StartCharacterCreationWizard(newHero);
 
                 if (IsRespecing)
                 {
@@ -124,28 +115,31 @@ namespace SolastaCommunityExpansion.Models
                 guiConsoleScreen.Show(guiConsoleScreenVisible);
                 gameCampaignScreen.Show(gameCampaignScreenVisible);
 
-                if (gameLocationscreenExplorationVisible == true)
+                // NOTE: don't use gameLocationScreenExploration?. which bypasses Unity object lifetime check
+                if (gameLocationscreenExplorationVisible && gameLocationScreenExploration)
                 {
                     gameLocationScreenExploration.Show(true);
                 }
-
-                StopRespec();
             }
 
-            internal static IEnumerator StartCharacterCreationWizard()
+            internal static IEnumerator StartCharacterCreationWizard(RulesetCharacterHero hero)
             {
                 var characterCreationScreen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
                 var restModalScreen = Gui.GuiService.GetScreen<RestModal>();
 
-                restModalScreen.KeepCurrentstate = true;
+                restModalScreen.KeepCurrentState = true;
                 restModalScreen.Hide(true);
                 characterCreationScreen.OriginScreen = restModalScreen;
+                characterCreationScreen.CurrentHero = hero;
                 characterCreationScreen.Show();
 
                 while (characterCreationScreen.isActiveAndEnabled)
                 {
                     yield return null;
                 }
+
+                // if there is hero building data still then respec was aborted
+                IsRespecing = !hero.TryGetHeroBuildingData(out var _);
             }
 
             internal static void FinalizeRespec(RulesetCharacterHero oldHero, RulesetCharacterHero newHero)
@@ -182,6 +176,8 @@ namespace SolastaCommunityExpansion.Models
                 }
 
                 gameLocationCharacterService.SetField("dirtyParty", true);
+
+                IsRespecing = false;
             }
 
             internal static void CopyInventoryOver(RulesetCharacterHero oldHero, RulesetCharacterHero newHero)

@@ -1,0 +1,38 @@
+{
+  "$type": "DieTypeDefinition, Assembly-CSharp",
+  "dieType": "D4",
+  "rollingMeshReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "cbfb6291b5f3f1345a01cfc2a8bc9fdb",
+    "m_SubObjectName": "D4_low",
+    "m_SubObjectType": ""
+  },
+  "scaleFactor": 20.0,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Rules/&DieD4Title",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "b8c78e8476650004f981554ddc2688c3",
+      "m_SubObjectName": "D4Empty",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "8be8ec48fc7a45841971101b8eb0ff76",
+  "contentPack": "BaseGame",
+  "name": "DieTypeD4"
+}

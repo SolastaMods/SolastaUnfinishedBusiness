@@ -1,0 +1,46 @@
+{
+  "$type": "CharacterSizeDefinition, Assembly-CSharp",
+  "wieldingSize": "Small",
+  "carryingSize": "Small",
+  "minExtent": {
+    "$type": "TA.int3, Assembly-CSharp",
+    "x": 0,
+    "y": 0,
+    "z": 0
+  },
+  "maxExtent": {
+    "$type": "TA.int3, Assembly-CSharp",
+    "x": 0,
+    "y": 0,
+    "z": 0
+  },
+  "visionHeightFactor": 0.93,
+  "bestiaryScaleFactor": 1.0,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Size/&SmallTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 1,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "79feb0e022c48a7419b88b88e49218d2",
+  "contentPack": "BaseGame",
+  "name": "Small"
+}

@@ -1,0 +1,35 @@
+{
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.CustomizableFightingStyleDefinition, SolastaCommunityExpansion",
+  "features": [
+    "Definition:AdditionalDamagePugilist:36d24b2e-8ef4-4037-a82f-05e63d56f3d2",
+    "Definition:PowerPugilistOffhandAttack:a97a1c9c-232b-42ae-8003-30d244e958b3"
+  ],
+  "condition": "RangedWeaponAttack",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "FightingStyle/&PugilistFightingTitle",
+    "description": "FightingStyle/&PugilistFightingDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "aa99d934a7dfe064191c9a18e4822595",
+      "m_SubObjectName": "Barbarian_Path_Berserker",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "b14f91dc-8706-498b-a9a0-d583b7b00d09",
+  "contentPack": 9999,
+  "name": "PugilistFightingStlye"
+}

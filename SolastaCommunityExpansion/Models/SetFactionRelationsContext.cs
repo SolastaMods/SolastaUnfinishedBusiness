@@ -7,7 +7,7 @@
             var service = ServiceRepository.GetService<IGameFactionService>();
             if (service != null)
             {
-                service.ModifyRelation(name, FactionDefinition.RelationOperation.Increase, value - service.FactionRelations[name], "" /* this string doesn't matter if we're using "SetValue" */);
+                service.ExecuteFactionOperation(name, FactionDefinition.FactionOperation.Increase, value - service.FactionRelations[name], "", null /* this string and monster doesn't matter if we're using "SetValue" */);
             }
         }
     }

@@ -1,13 +1,12 @@
 {
-	"Id": "SolastaCommunityExpansion",
-	"DisplayName": "Community Expansion",
-	"Author": "ChrisJohnDigital",
-	"Version": "1.2.15.10",
-	"ManagerVersion": "0.23.4",
-	"Requirements": [ "SolastaModApi" ],
-	"LoadAfter": [ "SolastaModApi" ],
-	"AssemblyName": "SolastaCommunityExpansion.dll",
-	"EntryMethod": "SolastaCommunityExpansion.Main.Load",
-	"Repository": "https://raw.githubusercontent.com/ChrisPJohn/SolastaCommunityExpansion/main/SolastaCommunityExpansion/Repository.json",
-	"HomePage": "https://www.nexusmods.com/solastacrownofthemagister/mods/182"
+  "Id": "SolastaCommunityExpansion",
+  "DisplayName": "Community Expansion",
+  "Author": "SolastaMods",
+  "Version": "1.3.43.0",
+  "GameVersion": "1.3.43",
+  "ManagerVersion": "0.23.4",
+  "AssemblyName": "SolastaCommunityExpansion.dll",
+  "EntryMethod": "SolastaCommunityExpansion.Main.Load",
+  "Repository": "https://raw.githubusercontent.com/SolastaMods/SolastaCommunityExpansion/main/SolastaCommunityExpansion/Repository.json",
+  "HomePage": "https://www.nexusmods.com/solastacrownofthemagister/mods/207"
 }

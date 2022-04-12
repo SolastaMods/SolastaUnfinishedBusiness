@@ -1,28 +1,28 @@
-﻿using SolastaCommunityExpansion.CustomFeatureDefinitions;
-using SolastaModApi;
+﻿using SolastaCommunityExpansion.CustomDefinitions;
 
 namespace SolastaCommunityExpansion.Level20.Features
 {
-    internal class PrimalChampionBuilder : BaseDefinitionBuilder<PrimalChampion>
+    internal sealed class PrimalChampionBuilder : FeatureDefinitionCustomCodeBuilder<PrimalChampion, PrimalChampionBuilder>
     {
         private const string PrimalChampionName = "ZSPrimalChampion";
         private const string PrimalChampionGuid = "118a5ea1-8a19-4bee-9db1-7a2464c8e7b5";
 
-        protected PrimalChampionBuilder(string name, string guid) : base(name, guid)
+        private PrimalChampionBuilder(string name, string guid) : base(name, guid)
         {
-
             Definition.GuiPresentation.Description = "Feature/&PrimalChampionDescription";
             Definition.GuiPresentation.Title = "Feature/&PrimalChampionTitle";
         }
 
         private static PrimalChampion CreateAndAddToDB(string name, string guid)
-            => new PrimalChampionBuilder(name, guid).AddToDB();
+        {
+            return new PrimalChampionBuilder(name, guid).AddToDB();
+        }
 
         internal static readonly PrimalChampion PrimalChampion =
             CreateAndAddToDB(PrimalChampionName, PrimalChampionGuid);
     }
 
-    internal class PrimalChampion : FeatureDefinitionCustomCode
+    internal sealed class PrimalChampion : FeatureDefinitionCustomCode
     {
         public override void ApplyFeature(RulesetCharacterHero hero)
         {

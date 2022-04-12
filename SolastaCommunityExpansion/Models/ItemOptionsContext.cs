@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SolastaCommunityExpansion.Builders;
 using SolastaModApi;
 using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionCharacterPresentations;
@@ -13,7 +15,7 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class ItemOptionsContext
     {
-        private sealed class WandIdentifyBuilder : BaseDefinitionBuilder<ItemDefinition>
+        private sealed class WandIdentifyBuilder : ItemDefinitionBuilder
         {
             private WandIdentifyBuilder(string name, string guid, string title, string description, ItemDefinition original) : base(original, name, guid)
             {
@@ -37,10 +39,12 @@ namespace SolastaCommunityExpansion.Models
                 Store_Merchant_Hugo_Requer_Cyflen_Potions.StockUnitDescriptions.Add(stockFocus);
             }
 
-            private static ItemDefinition CreateAndAddToDB(string name, string guid, string title, string description, ItemDefinition original) =>
-                new WandIdentifyBuilder(name, guid, title, description, original).AddToDB();
+            private static ItemDefinition CreateAndAddToDB(string name, string guid, string title, string description, ItemDefinition original)
+            {
+                return new WandIdentifyBuilder(name, guid, title, description, original).AddToDB();
+            }
 
-            internal static readonly ItemDefinition WandIdentify = WandIdentifyBuilder.CreateAndAddToDB(
+            internal static readonly ItemDefinition WandIdentify = CreateAndAddToDB(
                 "WandIdentify",
                 "46ae7624-4d24-455a-98f9-d41403b0ae19",
                 "Equipment/&WandIdentifyTitle",
@@ -48,10 +52,20 @@ namespace SolastaCommunityExpansion.Models
                 WandMagicMissile);
         }
 
-        private sealed class FocusDefinitionBuilder : BaseDefinitionBuilder<ItemDefinition>
+        private sealed class FocusDefinitionBuilder : ItemDefinitionBuilder
         {
-            private FocusDefinitionBuilder(string name, string guid, string title, string description, ItemDefinition original, EquipmentDefinitions.FocusType type, AssetReferenceSprite assetReferenceSprite) : base(original, name, guid)
+            private FocusDefinitionBuilder(
+                string name,
+                string guid,
+                string title,
+                string description,
+                ItemDefinition original,
+                EquipmentDefinitions.FocusType type,
+                AssetReferenceSprite assetReferenceSprite,
+                params string[] slotTypes) : base(original, name, guid)
             {
+                // Use IsXXXItem = true/SetIsXXXItem(true) before using the XXXItemDescription
+                Definition.IsFocusItem = true;
                 Definition.FocusItemDescription.SetFocusType(type);
                 Definition.GuiPresentation.Title = title;
                 Definition.GuiPresentation.Description = description;
@@ -62,7 +76,13 @@ namespace SolastaCommunityExpansion.Models
                 }
 
                 Definition.SetCosts(ComponentPouch.Costs);
-                Definition.SetIsFocusItem(true);
+
+                if (slotTypes.Length > 0)
+                {
+                    Definition.SlotTypes.SetRange(slotTypes);
+                    Definition.SlotTypes.Add(EquipmentDefinitions.SlotTypeContainer);
+                    Definition.SlotsWhereActive.SetRange(slotTypes);
+                }
 
                 var stockFocus = new StockUnitDescription();
 
@@ -80,19 +100,29 @@ namespace SolastaCommunityExpansion.Models
                 Store_Merchant_Hugo_Requer_Cyflen_Potions.StockUnitDescriptions.Add(stockFocus);
             }
 
-            private static ItemDefinition CreateAndAddToDB(string name, string guid, string title, string description, ItemDefinition original, EquipmentDefinitions.FocusType type, AssetReferenceSprite assetReferenceSprite) =>
-                new FocusDefinitionBuilder(name, guid, title, description, original, type, assetReferenceSprite).AddToDB();
+            private static ItemDefinition CreateAndAddToDB(
+                string name,
+                string guid,
+                string title,
+                string description,
+                ItemDefinition original,
+                EquipmentDefinitions.FocusType type,
+                AssetReferenceSprite assetReferenceSprite,
+                params string[] slotTypes)
+            {
+                return new FocusDefinitionBuilder(name, guid, title, description, original, type, assetReferenceSprite, slotTypes).AddToDB();
+            }
 
-            internal static readonly ItemDefinition ArcaneStaff = FocusDefinitionBuilder.CreateAndAddToDB(
+            internal static readonly ItemDefinition ArcaneStaff = CreateAndAddToDB(
                 "ArcaneStaff",
                 "991e1fec-9777-4635-948f-5bedcb96147d",
                 "Equipment/&ArcaneStaffTitle",
                 "Equipment/&ArcaneStaffDescription",
                 Quarterstaff,
-                EquipmentDefinitions.FocusType.Druidic,
+                EquipmentDefinitions.FocusType.Arcane,
                 QuarterstaffPlus1.GuiPresentation.SpriteReference);
 
-            internal static readonly ItemDefinition DruidicAmulet = FocusDefinitionBuilder.CreateAndAddToDB(
+            internal static readonly ItemDefinition DruidicAmulet = CreateAndAddToDB(
                 "DruidicAmulet",
                 "3487d3b2-1058-4c0f-8009-9e4f525cb0e0",
                 "Equipment/&DruidicAmuletTitle",
@@ -101,7 +131,7 @@ namespace SolastaCommunityExpansion.Models
                 EquipmentDefinitions.FocusType.Druidic,
                 BeltOfGiantHillStrength.GuiPresentation.SpriteReference);
 
-            internal static readonly ItemDefinition LivewoodClub = FocusDefinitionBuilder.CreateAndAddToDB(
+            internal static readonly ItemDefinition LivewoodClub = CreateAndAddToDB(
                 "LivewoodClub",
                 "dd27119b-01e0-4a47-a043-98b89dc930a1",
                 "Equipment/&LivewoodClubTitle",
@@ -110,12 +140,12 @@ namespace SolastaCommunityExpansion.Models
                 EquipmentDefinitions.FocusType.Druidic,
                 null);
 
-            internal static readonly ItemDefinition LivewoodStaff = FocusDefinitionBuilder.CreateAndAddToDB(
+            internal static readonly ItemDefinition LivewoodStaff = CreateAndAddToDB(
                 "LivewoodStaff",
                 "ff3ec29c-734f-4ef6-8d6e-ceb961d9a8a0",
                 "Equipment/&LivewoodStaffTitle",
                 "Equipment/&LivewoodStaffDescription",
-                ComponentPouch_ArcaneAmulet,
+                Quarterstaff,
                 EquipmentDefinitions.FocusType.Druidic,
                 StaffOfHealing.GuiPresentation.SpriteReference);
         }
@@ -135,7 +165,7 @@ namespace SolastaCommunityExpansion.Models
             "Wizard Clothes"
         };
 
-        private static readonly List<ItemDefinition> Crowns = new List<ItemDefinition>
+        private static readonly List<ItemDefinition> Crowns = new()
         {
             CrownOfTheMagister,
             CrownOfTheMagister01,
@@ -192,6 +222,23 @@ namespace SolastaCommunityExpansion.Models
                 var maleBodyPartBehaviours = itemPresentation.GetBodyPartBehaviours(RuleDefinitions.CreatureSex.Male);
 
                 maleBodyPartBehaviours[0] = Main.Settings.EnableInvisibleCrownOfTheMagister ? GraphicsCharacterDefinitions.BodyPartBehaviour.Shape : GraphicsCharacterDefinitions.BodyPartBehaviour.Armor;
+            }
+        }
+
+        internal static void SwitchDruidAllowMetalArmor()
+        {
+            var active = Main.Settings.AllowDruidToWearMetalArmor;
+
+            if (active)
+            {
+                DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyDruidArmor.ForbiddenItemTags.Clear();
+            }
+            else
+            {
+                if (!DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyDruidArmor.ForbiddenItemTags.Contains(TagsDefinitions.ItemTagMetal))
+                {
+                    DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyDruidArmor.ForbiddenItemTags.Add(TagsDefinitions.ItemTagMetal);
+                }
             }
         }
 
@@ -263,12 +310,13 @@ namespace SolastaCommunityExpansion.Models
         internal static void SwitchMagicStaffFoci()
         {
             foreach (ItemDefinition item in DatabaseRepository.GetDatabase<ItemDefinition>()
-                .Where(x => x.WeaponDescription.WeaponType == EquipmentDefinitions.WeaponTypeQuarterstaff && x.Magical && !x.Name.Contains("OfHealing")))
+                .Where(x => x.IsWeapon) // WeaponDescription could be null
+                .Where(x => x.WeaponDescription.WeaponType == EquipmentDefinitions.WeaponTypeQuarterstaff)
+                .Where(x => x.Magical && !x.Name.Contains("OfHealing")))
             {
-                item.SetIsFocusItem(Main.Settings.MakeAllMagicStaveArcaneFoci);
-
-                if (item.IsFocusItem)
+                if (Main.Settings.MakeAllMagicStaveArcaneFoci)
                 {
+                    item.IsFocusItem = true;
                     item.FocusItemDescription.SetFocusType(EquipmentDefinitions.FocusType.Arcane);
                 }
             }
@@ -276,35 +324,55 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void SwitchRestockAntiquarian()
         {
-            foreach (var stock in DatabaseHelper.MerchantDefinitions.Store_Merchant_Antiquarians_Halman_Summer.StockUnitDescriptions.Where(
+            if (!Main.Settings.RestockAntiquarians)
+            {
+                return;
+            }
+
+            foreach (var stock in Store_Merchant_Antiquarians_Halman_Summer.StockUnitDescriptions.Where(
                 x => !x.ItemDefinition.Name.Contains("Manual") && !x.ItemDefinition.Name.Contains("Tome")))
             {
-                stock.SetReassortAmount(Main.Settings.RestockAntiquarians ? 1 : 0);
-                stock.SetReassortRateValue(Main.Settings.RestockAntiquarians ? 7 : 21);
+                stock.SetReassortAmount(1);
+                stock.SetReassortRateValue(7);
             }
         }
 
         internal static void SwitchRestockArcaneum()
         {
-            foreach (StockUnitDescription stock in DatabaseHelper.MerchantDefinitions.Store_Merchant_Arcaneum_Heddlon_Surespell.StockUnitDescriptions)
+            if (!Main.Settings.RestockArcaneum)
             {
-                stock.SetReassortAmount(Main.Settings.RestockArcaneum ? 1 : 0);
+                return;
+            }
+
+            foreach (StockUnitDescription stock in Store_Merchant_Arcaneum_Heddlon_Surespell.StockUnitDescriptions)
+            {
+                stock.SetReassortAmount(1);
             }
         }
 
         internal static void SwitchRestockCircleOfDanantar()
         {
-            foreach (StockUnitDescription stock in DatabaseHelper.MerchantDefinitions.Store_Merchant_CircleOfDanantar_Joriel_Foxeye.StockUnitDescriptions)
+            if (!Main.Settings.RestockCircleOfDanantar)
             {
-                stock.SetReassortAmount(Main.Settings.RestockCircleOfDanantar ? 1 : 0);
+                return;
+            }
+
+            foreach (StockUnitDescription stock in Store_Merchant_CircleOfDanantar_Joriel_Foxeye.StockUnitDescriptions)
+            {
+                stock.SetReassortAmount(1);
             }
         }
 
         internal static void SwitchRestockTowerOfKnowledge()
         {
-            foreach (StockUnitDescription stock in DatabaseHelper.MerchantDefinitions.Store_Merchant_TowerOfKnowledge_Maddy_Greenisle.StockUnitDescriptions)
+            if (!Main.Settings.RestockTowerOfKnowledge)
             {
-                stock.SetReassortAmount(Main.Settings.RestockTowerOfKnowledge ? 1 : 0);
+                return;
+            }
+
+            foreach (StockUnitDescription stock in Store_Merchant_TowerOfKnowledge_Maddy_Greenisle.StockUnitDescriptions)
+            {
+                stock.SetReassortAmount(1);
             }
         }
 
@@ -323,6 +391,7 @@ namespace SolastaCommunityExpansion.Models
             LoadClothingGorimStock();
             SwitchSetBeltOfDwarvenKindBeardChances();
             SwitchCrownOfTheMagister();
+            SwitchDruidAllowMetalArmor();
             SwitchEmpressGarb();
             SwitchFociItems();
             SwitchFociItemsDungeonMaker();

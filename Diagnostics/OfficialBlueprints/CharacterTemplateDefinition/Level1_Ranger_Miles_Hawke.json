@@ -1,0 +1,134 @@
+{
+  "$type": "CharacterTemplateDefinition, Assembly-CSharp",
+  "editorOnly": false,
+  "firstName": "Race/&HumanMaleName4Title",
+  "surName": "Race/&HumanSurName9Title",
+  "abilityScores": [
+    16,
+    18,
+    14,
+    9,
+    11,
+    13
+  ],
+  "automateAbilityScoreIncreases": false,
+  "mainRace": "Definition:Human:d844f80cc9ab3cb4d95630e35163eedd",
+  "subRace": null,
+  "originMorphotype": "Origin_AS",
+  "skinMorphotype": "FaceAndSkinCopperish",
+  "musculatureMorphotypeValue": 60.0,
+  "ageMorphotypeValue": 0.0,
+  "faceShapeMorphotype": "FaceShape_AS_A",
+  "hairShapeMorphotype": "HairShape_C",
+  "hairColorMorphotype": "HairColorBrown",
+  "beardShapeMorphotype": "BeardShape_None",
+  "eyeColorMorphotype": "EyeColorBlue",
+  "eyeMorphotype": "Eye_Default",
+  "bodyDecorationMorphotype": "BodyDecoration_None",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "Scars_None",
+  "mainClass": "Definition:Ranger:d4cb9ea3b00ab6a4c9d3cd07aa199f40",
+  "subClass": null,
+  "deity": null,
+  "background": "Definition:SellSword:ba16530ecc32e924b8b14e4a50ea265b",
+  "backgroundPersonalityFlag1": "Violence",
+  "backgroundPersonalityFlag2": "Cynicism",
+  "alignment": "LawfulGood",
+  "alignmentPersonalityFlag1": "Helpfulness",
+  "alignmentPersonalityFlag2": "Friendliness",
+  "fightingStyle": null,
+  "equipment": [
+    "Definition:ExplorerPack:03fbaf29ed08637449084486fe78a3c8",
+    "Definition:Shortsword:5d0f8d61d53786448920cad0485b77b7",
+    "Definition:Shortsword:5d0f8d61d53786448920cad0485b77b7",
+    "Definition:CraftingStarterPack:9a568dd5f63486a44b5f8607441b3b36",
+    "Definition:Leather:3eb1973bc4b1dac46b8814ab902e523a",
+    "Definition:Longbow:8e188e12f1f0daa40a78a6cd72b030e4",
+    "Definition:HerbalismKit:074f1654b516bab49b8cf7bd96ecfe9e",
+    "Definition:Arrow:0b2e8c437ac65034b8055735aa5da873",
+    "Definition:Warhammer:642fede86cb34fd499fd36d0a3da9d1a"
+  ],
+  "startingMoney": [
+    0,
+    25,
+    0,
+    0,
+    0
+  ],
+  "skillsOverride": [
+    "Persuasion",
+    "Medecine",
+    "Stealth",
+    "Nature",
+    "Survival",
+    "AnimalHandling",
+    "Perception"
+  ],
+  "toolsOverride": [
+    "HerbalismKitType"
+  ],
+  "featsOverride": [],
+  "expertisesOverride": [],
+  "languagesOverride": [
+    "Language_Dwarvish"
+  ],
+  "metamagicOverride": [],
+  "characterLevel": 1,
+  "knownRaceCantrips": [],
+  "knownClassCantrips": [],
+  "knownSubclassCantrips": [],
+  "knownRaceSpells": [],
+  "knownClassSpells": [],
+  "knownSubclassSpells": [],
+  "preparedClassSpells": [],
+  "preparedSubclassSpells": [],
+  "sex": "Male",
+  "pronoun": "Male",
+  "age": 24,
+  "facePath": "",
+  "wieldedItemsConfigurations": [
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:Shortsword:5d0f8d61d53786448920cad0485b77b7",
+      "offHandItemDefinition": "Definition:Shortsword:5d0f8d61d53786448920cad0485b77b7"
+    },
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:Longbow:8e188e12f1f0daa40a78a6cd72b030e4",
+      "offHandItemDefinition": null
+    },
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": null,
+      "offHandItemDefinition": "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994"
+    }
+  ],
+  "voiceId": "MAL1",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "CharacterTemplate/&GarradTitle",
+    "description": "CharacterTemplate/&GarradDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "4c371c374df7ac54ba709b87758ed8e9",
+      "m_SubObjectName": "Level1_Ranger_Miles_Hawke",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "a1b5fb8009a27bc42bcf9e89bd206338",
+  "contentPack": "BaseGame",
+  "name": "Level1_Ranger_Miles_Hawke"
+}

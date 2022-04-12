@@ -1,0 +1,36 @@
+{
+  "$type": "DateTimeDefinition, Assembly-CSharp",
+  "year": 1024,
+  "month": 6,
+  "day": 12,
+  "hour": 10,
+  "minute": 0,
+  "seconds": 0,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "7260c0548acab56429ea810f6c4b91e6",
+  "contentPack": "BaseGame",
+  "name": "Tutorial_00_Tavern_DateTime_Restore"
+}

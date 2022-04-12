@@ -1,0 +1,137 @@
+{
+  "$type": "CharacterTemplateDefinition, Assembly-CSharp",
+  "editorOnly": true,
+  "firstName": "Janet2",
+  "surName": "Wizard2",
+  "abilityScores": [
+    11,
+    10,
+    12,
+    18,
+    11,
+    14
+  ],
+  "automateAbilityScoreIncreases": true,
+  "mainRace": "Definition:Halfling:d6a9a559998c0974abd8077d7012ef84",
+  "subRace": "Definition:HalflingMarsh:7d54ea787abc11642a15214c750157f3",
+  "originMorphotype": "Origin_NonHuman",
+  "skinMorphotype": "FaceAndSkinBronze",
+  "musculatureMorphotypeValue": 0.0,
+  "ageMorphotypeValue": 0.0,
+  "faceShapeMorphotype": "FaceShape_A",
+  "hairShapeMorphotype": "HairShape_A",
+  "hairColorMorphotype": "HairColorBrown",
+  "beardShapeMorphotype": "",
+  "eyeColorMorphotype": "EyeColorBlack",
+  "eyeMorphotype": "Eye_Default",
+  "bodyDecorationMorphotype": "BodyDecoration_None",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "",
+  "mainClass": "Definition:Wizard:a279003a65f95a64eb58fcc71463c734",
+  "subClass": "Definition:TraditionShockArcanist:6f400ff2620a4c14cabd9f8fd450eee1",
+  "deity": null,
+  "background": "Definition:Academic_Aristocrat_QA_Background:ea66065bf03a98b40922a14812c67342",
+  "backgroundPersonalityFlag1": "Pragmatism",
+  "backgroundPersonalityFlag2": "Selfishness",
+  "alignment": "NeutralGood",
+  "alignmentPersonalityFlag1": "Pragmatism",
+  "alignmentPersonalityFlag2": "Self-Preservation",
+  "fightingStyle": null,
+  "equipment": [
+    "Definition:Backpack:9548f1e58e784c34aaee1a179c7ff3d5",
+    "Definition:Quarterstaff:e02fa6fe6682b034ea74a6c48c9ee134",
+    "Definition:ClothesWizard:b4665400531663847b34d9df971d3e78",
+    "Definition:Spellbook:8fba4fb82a318ea4ab1076b0b607c9a9",
+    "Definition:ComponentPouch:792f520ab845d5e4e99248603ab0ffd8",
+    "Definition:Food_Ration:59973b7c0f7bd2f4089ec4406628b941"
+  ],
+  "startingMoney": [
+    0,
+    37,
+    0,
+    10,
+    0
+  ],
+  "skillsOverride": [
+    "Investigation",
+    "Medecine",
+    "Arcana",
+    "Nature",
+    "History"
+  ],
+  "toolsOverride": [],
+  "featsOverride": [],
+  "expertisesOverride": [],
+  "languagesOverride": [],
+  "metamagicOverride": [],
+  "characterLevel": 2,
+  "knownRaceCantrips": [],
+  "knownClassCantrips": [
+    "Definition:FireBolt:fac7c06d87f301d4ca3798b4c18d86c8",
+    "Definition:Light:c1d0bf7d6cd76e543a665bd1cb3aa01c",
+    "Definition:ShockingGrasp:0bcfc5c29da450c4bb0f27df027616eb",
+    "Definition:Shine:5581bdee6e264364cb9b10558010dddf",
+    "Definition:Sparkle:ac43e07871656cd4db792bdbdc77ac44"
+  ],
+  "knownSubclassCantrips": [],
+  "knownRaceSpells": [],
+  "knownClassSpells": [
+    "Definition:BurningHands:a2c42e38e03448e438a2abfc3252352a",
+    "Definition:MagicMissile:2b2b43fb6eeb735479a21209286db382",
+    "Definition:FalseLife:97d70ac4c94f31540aa7b7e1555b7a49",
+    "Definition:Shield:f69bd9c9375fc074a90043c42f9868fe",
+    "Definition:FeatherFall:4e3a52bac403e3246bb7c4c12f520245",
+    "Definition:Thunderwave:6c670662de0366842bca44119e9104da",
+    "Definition:MageArmor:4772a21b455a76149adcc38d58267a10",
+    "Definition:ExpeditiousRetreat:3713ff85f9f53f2459ae8d7a976a24b8",
+    "Definition:DetectMagic:a00ea7ca05339cb42a49056d722b6680"
+  ],
+  "knownSubclassSpells": [],
+  "preparedClassSpells": [
+    "Definition:BurningHands:a2c42e38e03448e438a2abfc3252352a",
+    "Definition:MagicMissile:2b2b43fb6eeb735479a21209286db382",
+    "Definition:Shield:f69bd9c9375fc074a90043c42f9868fe",
+    "Definition:FeatherFall:4e3a52bac403e3246bb7c4c12f520245",
+    "Definition:Thunderwave:6c670662de0366842bca44119e9104da"
+  ],
+  "preparedSubclassSpells": [],
+  "sex": "Female",
+  "pronoun": "Female",
+  "age": 20,
+  "facePath": "",
+  "wieldedItemsConfigurations": [
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:Quarterstaff:e02fa6fe6682b034ea74a6c48c9ee134",
+      "offHandItemDefinition": null
+    }
+  ],
+  "voiceId": "FEM2",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "CharacterTemplate/&VioletTitle",
+    "description": "CharacterTemplate/&VioletDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "519b685eeebff8541a23457e096b2547",
+      "m_SubObjectName": "JanetWiz2_QA",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "f0d34918947381749bfdc0a462f775d3",
+  "contentPack": "BaseGame",
+  "name": "JanetWiz2_QA"
+}

@@ -1,0 +1,130 @@
+{
+  "$type": "SpellListDefinition, Assembly-CSharp",
+  "hasCantrips": true,
+  "maxSpellLevel": 5,
+  "spellsByLevel": [
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 0,
+      "spells": [
+        "Definition:AcidSplash:98ea9fff39f7c054ba171c32b00a90e6",
+        "Definition:DancingLights:ca63de70121df1b46ae3c1f8c183f941",
+        "Definition:FireBolt:fac7c06d87f301d4ca3798b4c18d86c8",
+        "Definition:Guidance:94ed96edd24acbe4f87e72375221868a",
+        "Definition:Light:c1d0bf7d6cd76e543a665bd1cb3aa01c",
+        "Definition:PoisonSpray:d3aec91794deb6646b41c246e57a1f1e",
+        "Definition:RayOfFrost:637a3697f05a4614e8200abfa5daaaff",
+        "Definition:Resistance:384dce9da39ad4e4b82106fa7829c17c",
+        "Definition:ShockingGrasp:0bcfc5c29da450c4bb0f27df027616eb",
+        "Definition:SpareTheDying:4f1e3d9c88278a94fbc457664ab8d6bf"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 1,
+      "spells": [
+        "Definition:CureWounds:c401c5cf11ac8274f98a0dc809ff5863",
+        "Definition:DetectMagic:a00ea7ca05339cb42a49056d722b6680",
+        "Definition:ExpeditiousRetreat:3713ff85f9f53f2459ae8d7a976a24b8",
+        "Definition:FaerieFire:72b2d8c811efbb04e8d70c0a41f5d963",
+        "Definition:FalseLife:97d70ac4c94f31540aa7b7e1555b7a49",
+        "Definition:FeatherFall:4e3a52bac403e3246bb7c4c12f520245",
+        "Definition:Grease:31f056cc8a643054ba1e59be0d224482",
+        "Definition:Identify:e398d34493329f147bae4902122057c2",
+        "Definition:Jump:f9b46eef2189b8342a4943588e2f947c",
+        "Definition:Longstrider:79bd842bd1a7d65499d148a671f7ce83"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 2,
+      "spells": [
+        "Definition:Aid:d2af062b671377f449bad1b3f920d331",
+        "Definition:Blur:277b11af157a3c84292024790e6173b3",
+        "Definition:Darkvision:346361c8cc5708f4fb70d42c31fe4823",
+        "Definition:EnhanceAbility:08840275ddebe7f40abaa4bc145ee9f8",
+        "Definition:Invisibility:191eaa38bdc35ea429f843cc00e7e559",
+        "Definition:LesserRestoration:5da149e59ebb042419041382af919aea",
+        "Definition:Levitate:ad416e5b882b3974c929eb75863f0e84",
+        "Definition:MagicWeapon:c9c2c6779e83836468fb6f4ab562897f",
+        "Definition:ProtectionFromPoison:a7ceb55598ebbfd4cb4dfded0a7450f9",
+        "Definition:SeeInvisibility:10c15ca8321632e42825254149dfb885",
+        "Definition:SpiderClimb:1ba4092482a450c4da60e17cbe4577df"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 3,
+      "spells": [
+        "Definition:CreateFood:ec735d1c4c89e0a4eb77dd6422948d3b",
+        "Definition:DispelMagic:296e789b353c0324b804bee2c16a419a",
+        "Definition:Fly:6c13f5461f5047645a8c165cc0f43f83",
+        "Definition:Haste:134efafc59c7c58438b711271fb2c785",
+        "Definition:ProtectionFromEnergy:8416ac74aea478f498e2d50380376e90",
+        "Definition:Revivify:16e7fb95186cf9b41806d15fbacd81af"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 4,
+      "spells": [
+        "Definition:FreedomOfMovement:7c93b80e19d0f3e47843e96bd06d026c",
+        "Definition:Stoneskin:9040c4fcd7301184f8772720f716a837"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 5,
+      "spells": [
+        "Definition:GreaterRestoration:6131d7d4650604b44ad3c74b21cc3eb2"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 6,
+      "spells": []
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 7,
+      "spells": []
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 8,
+      "spells": []
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 9,
+      "spells": []
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "SpellList/&SpellListTinkererTitle",
+    "description": "SpellList/&SpellListTinkererDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "5f26ef4a-30cc-56f9-9d31-ad3ecce7d2fe",
+  "contentPack": 9999,
+  "name": "SpellListTinkerer"
+}

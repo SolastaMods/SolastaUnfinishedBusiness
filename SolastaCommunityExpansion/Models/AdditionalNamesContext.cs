@@ -9,14 +9,6 @@ namespace SolastaCommunityExpansion.Models
         {
             if (Main.Settings.OfferAdditionalLoreFriendlyNames)
             {
-                CharacterRaceDefinition dwarfNames = Dwarf;
-                CharacterRaceDefinition elfHighNames = ElfHigh;
-                CharacterRaceDefinition elfSylvanNames = ElfSylvan;
-                CharacterRaceDefinition halfElfNames = HalfElf;
-                CharacterRaceDefinition halfOrcNames = HalfOrc;
-                CharacterRaceDefinition halflingNames = Halfling;
-                CharacterRaceDefinition humanNames = Human;
-
                 foreach (var line in File.ReadLines($"{Main.MOD_FOLDER}/Names-en.txt"))
                 {
                     var splitted = line.Split(new[] { '\t', ' ' }, 2);
@@ -25,89 +17,83 @@ namespace SolastaCommunityExpansion.Models
 
                     if (term.Contains("DwarfFemale"))
                     {
-                        dwarfNames.RacePresentation.FemaleNameOptions.Add(name);
+                        Dwarf.RacePresentation.FemaleNameOptions.Add(name);
                     }
                     else if (term.Contains("DwarfMale"))
                     {
-                        dwarfNames.RacePresentation.MaleNameOptions.Add(name);
+                        Dwarf.RacePresentation.MaleNameOptions.Add(name);
                     }
                     else if (term.Contains("DwarfSur"))
                     {
-                        dwarfNames.RacePresentation.SurNameOptions.Add(name);
+                        Dwarf.RacePresentation.SurNameOptions.Add(name);
                     }
-
                     else if (term.Contains("ElfFemale"))
                     {
-                        elfHighNames.RacePresentation.FemaleNameOptions.Add(name);
+                        ElfHigh.RacePresentation.FemaleNameOptions.Add(name);
                     }
                     else if (term.Contains("ElfMale"))
                     {
-                        elfHighNames.RacePresentation.MaleNameOptions.Add(name);
+                        ElfHigh.RacePresentation.MaleNameOptions.Add(name);
                     }
                     else if (term.Contains("ElfSur"))
                     {
-                        elfHighNames.RacePresentation.SurNameOptions.Add(name);
+                        ElfHigh.RacePresentation.SurNameOptions.Add(name);
                     }
-
                     else if (term.Contains("SylvanElfFemale"))
                     {
-                        elfSylvanNames.RacePresentation.FemaleNameOptions.Add(name);
+                        ElfSylvan.RacePresentation.FemaleNameOptions.Add(name);
                     }
                     else if (term.Contains("SylvanElfMale"))
                     {
-                        elfSylvanNames.RacePresentation.MaleNameOptions.Add(name);
+                        ElfSylvan.RacePresentation.MaleNameOptions.Add(name);
                     }
                     else if (term.Contains("SylvanElfSur"))
                     {
-                        elfSylvanNames.RacePresentation.SurNameOptions.Add(name);
+                        ElfSylvan.RacePresentation.SurNameOptions.Add(name);
                     }
-
                     else if (term.Contains("HalfElfFemale"))
                     {
-                        halfElfNames.RacePresentation.FemaleNameOptions.Add(name);
+                        HalfElf.RacePresentation.FemaleNameOptions.Add(name);
                     }
                     else if (term.Contains("HalfElfMale"))
                     {
-                        halfElfNames.RacePresentation.MaleNameOptions.Add(name);
+                        HalfElf.RacePresentation.MaleNameOptions.Add(name);
                     }
                     else if (term.Contains("HalfElfSur"))
                     {
-                        halfElfNames.RacePresentation.SurNameOptions.Add(name);
+                        HalfElf.RacePresentation.SurNameOptions.Add(name);
                     }
-
                     else if (term.Contains("HalfOrcFemale"))
                     {
-                        halfOrcNames.RacePresentation.FemaleNameOptions.Add(name);
+                        HalfOrc.RacePresentation.FemaleNameOptions.Add(name);
                     }
                     else if (term.Contains("HalfOrcMale"))
                     {
-                        halfOrcNames.RacePresentation.MaleNameOptions.Add(name);
+                        HalfOrc.RacePresentation.MaleNameOptions.Add(name);
                     }
-
                     else if (term.Contains("HalflingFemale"))
                     {
-                        halflingNames.RacePresentation.FemaleNameOptions.Add(name);
+                        Halfling.RacePresentation.FemaleNameOptions.Add(name);
                     }
                     else if (term.Contains("HalflingMale"))
                     {
-                        halflingNames.RacePresentation.MaleNameOptions.Add(name);
+                        Halfling.RacePresentation.MaleNameOptions.Add(name);
                     }
                     else if (term.Contains("HalflingSur"))
                     {
-                        halflingNames.RacePresentation.SurNameOptions.Add(name);
+                        Halfling.RacePresentation.SurNameOptions.Add(name);
                     }
-
                     else if (term.Contains("HumanFemale"))
                     {
-                        humanNames.RacePresentation.FemaleNameOptions.Add(name);
+                        Human.RacePresentation.FemaleNameOptions.Add(name);
                     }
                     else if (term.Contains("HumanMale"))
                     {
-                        humanNames.RacePresentation.MaleNameOptions.Add(name);
+                        Human.RacePresentation.MaleNameOptions.Add(name);
                     }
                     else if (term.Contains("HumanSur"))
                     {
-                        humanNames.RacePresentation.SurNameOptions.Add(name);
+                        Human.RacePresentation.SurNameOptions.Add(name);
                     }
                 }
             }

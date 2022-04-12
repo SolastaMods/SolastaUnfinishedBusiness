@@ -1,111 +1,81 @@
-﻿using SolastaCommunityExpansion.Features;
-using SolastaModApi;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Builders.Features;
+using SolastaModApi.Infrastructure;
+using static FeatureDefinitionAttributeModifier;
+using static RuleDefinitions;
+using static SolastaModApi.DatabaseHelper.ArmorCategoryDefinitions;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 
 namespace SolastaCommunityExpansion.Feats
 {
     internal static class ArmorFeats
     {
-        public static readonly Guid ArmorNamespace = new Guid("d37cf3a0-6dbe-461f-8af5-58761414ef6b");
+        public static readonly Guid ArmorNamespace = new("d37cf3a0-6dbe-461f-8af5-58761414ef6b");
 
         public static void CreateArmorFeats(List<FeatDefinition> feats)
         {
-            // Light Armor prof
-            GuiPresentationBuilder lightProfPresentation = new GuiPresentationBuilder(
-                "Feat/&ProfLightArmorDescription",
-                "Feat/&ProfLightArmorTitle");
-            FeatureDefinition lightProf = BuildProficiency(RuleDefinitions.ProficiencyType.Armor, new List<string>()
-            {
-                EquipmentDefinitions.LightArmorCategory.ToString()
-            }, "FeatLightArmorProficiency", lightProfPresentation.Build()
-            );
-            GuiPresentationBuilder dexPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatDexIncrementDescription",
-                "Feat/&FeatDexIncrementTitle");
-            FeatureDefinition dexIncrement = BuildAttributeModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                AttributeDefinitions.Dexterity, 1, "FeatDexIncrement", dexPresentation.Build());
+            var lightArmorProficiency = BuildProficiency("FeatLightArmorProficiency",
+                ProficiencyType.Armor, EquipmentDefinitions.LightArmorCategory);
 
-            GuiPresentationBuilder lightPresentation = new GuiPresentationBuilder(
-                "Feat/&LightArmorDescription",
-                "Feat/&LightArmorTitle");
-            FeatDefinitionBuilder lightArmor = new FeatDefinitionBuilder("FeatLightArmor", GuidHelper.Create(ArmorNamespace, "FeatLightArmor").ToString(),
-                new List<FeatureDefinition>()
-            {
-                lightProf,
-                dexIncrement,
-            }, lightPresentation.Build());
-            feats.Add(lightArmor.AddToDB());
+            var mediumArmorProficiency = BuildProficiency("FeatMediumArmorProficiency",
+                ProficiencyType.Armor, EquipmentDefinitions.MediumArmorCategory, EquipmentDefinitions.ShieldCategory);
 
-            // Medium Armor prof (dex)
-            GuiPresentationBuilder mediumProfPresentation = new GuiPresentationBuilder(
-                "Feat/&ProfMediumArmorDescription",
-                "Feat/&ProfMediumArmorTitle");
-            FeatureDefinition mediumProf = BuildProficiency(RuleDefinitions.ProficiencyType.Armor, new List<string>()
-            {
-                EquipmentDefinitions.MediumArmorCategory.ToString(),
-                EquipmentDefinitions.ShieldCategory.ToString(),
-            }, "FeatMediumArmorProficiency", mediumProfPresentation.Build()
-            );
+            var dexterityModifier = BuildAttributeModifier("FeatDexIncrement",
+                AttributeModifierOperation.Additive, AttributeDefinitions.Dexterity, 1);
 
-            GuiPresentationBuilder mediumDexPresentation = new GuiPresentationBuilder(
-                "Feat/&MediumDexArmorDescription",
-                "Feat/&MediumDexArmorTitle");
-            FeatDefinitionBuilder mediumDexArmor = new FeatDefinitionBuilder("FeatMediumArmorDex", GuidHelper.Create(ArmorNamespace, "FeatMediumArmorDex").ToString(),
-                new List<FeatureDefinition>()
-            {
-                mediumProf,
-                dexIncrement,
-            }, mediumDexPresentation.Build());
-            mediumDexArmor.SetArmorProficiencyPrerequisite(DatabaseHelper.ArmorCategoryDefinitions.LightArmorCategory);
-            feats.Add(mediumDexArmor.AddToDB());
+            var strengthModifier = BuildAttributeModifier("FeatStrengthIncrement",
+                AttributeModifierOperation.Additive, AttributeDefinitions.Strength, 1);
 
-            // Medium Armor prof (strength)
-            GuiPresentationBuilder strengthPresentation = new GuiPresentationBuilder(
-                "Feat/&FeatStrengthIncrementDescription",
-                "Feat/&FeatStrengthIncrementTitle");
-            FeatureDefinition strengthIncrement = BuildAttributeModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                AttributeDefinitions.Dexterity, 1, "FeatStrengthIncrement", strengthPresentation.Build());
+            var lightArmorFeat = BuildFeat("FeatLightArmor", lightArmorProficiency, dexterityModifier);
 
-            GuiPresentationBuilder mediumStrengthPresentation = new GuiPresentationBuilder(
-                "Feat/&MediumStrengthArmorDescription",
-                "Feat/&MediumStrengthArmorTitle");
-            FeatDefinitionBuilder mediumSrengthArmor = new FeatDefinitionBuilder("FeatMediumArmorStrength", GuidHelper.Create(ArmorNamespace, "FeatMediumArmorStrength").ToString(),
-                new List<FeatureDefinition>()
-            {
-                mediumProf,
-                strengthIncrement,
-            }, mediumStrengthPresentation.Build());
-            mediumSrengthArmor.SetArmorProficiencyPrerequisite(DatabaseHelper.ArmorCategoryDefinitions.LightArmorCategory);
-            feats.Add(mediumSrengthArmor.AddToDB());
+            // Note: medium armor feats have pre-req of light armor
+            var mediumDexArmorFeat = BuildFeat("FeatMediumArmorDex", LightArmorCategory, mediumArmorProficiency, dexterityModifier);
+            var mediumStrengthArmorFeat = BuildFeat("FeatMediumArmorStrength", LightArmorCategory, mediumArmorProficiency, strengthModifier);
 
-            GuiPresentationBuilder heavyArmorMaster = new GuiPresentationBuilder(
-                "Feat/&HeavyArmorMasterDescription",
-                "Feat/&HeavyArmorMasterTitle");
-            FeatDefinitionBuilder heavyArmor = new FeatDefinitionBuilder("FeatHeavyArmorMasterClass", GuidHelper.Create(ArmorNamespace, "FeatHeavyArmorMasterClass").ToString(),
-                new List<FeatureDefinition>()
-            {
-                DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityBludgeoningResistance,
-                DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinitySlashingResistance,
-                DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPiercingResistance,
-            }, heavyArmorMaster.Build());
-            heavyArmor.SetArmorProficiencyPrerequisite(DatabaseHelper.ArmorCategoryDefinitions.HeavyArmorCategory);
-            feats.Add(heavyArmor.AddToDB());
+            // Note: heavy armor master has pre-req of heavy armor
+            var heavyArmorMasterFeat = BuildFeat("FeatHeavyArmorMasterClass", HeavyArmorCategory,
+                DamageAffinityBludgeoningResistance, DamageAffinitySlashingResistance, DamageAffinityPiercingResistance);
+
+            feats.AddRange(lightArmorFeat, mediumDexArmorFeat, mediumStrengthArmorFeat, heavyArmorMasterFeat);
         }
 
-        public static FeatureDefinitionProficiency BuildProficiency(RuleDefinitions.ProficiencyType type,
-            List<string> proficiencies, string name, GuiPresentation guiPresentation)
+        public static FeatDefinition BuildFeat(string name, ArmorCategoryDefinition prerequisite, params FeatureDefinition[] features)
         {
-            FeatureDefinitionProficiencyBuilder builder = new FeatureDefinitionProficiencyBuilder(name, GuidHelper.Create(ArmorNamespace, name).ToString(), type, proficiencies, guiPresentation);
-            return builder.AddToDB();
+            return FeatDefinitionBuilder
+                .Create(name, ArmorNamespace)
+                .SetGuiPresentation(Category.Feat)
+                .SetFeatures(features)
+                .SetArmorProficiencyPrerequisite(prerequisite)
+                .AddToDB();
         }
 
-        public static FeatureDefinitionAttributeModifier BuildAttributeModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation modifierType,
-                string attribute, int amount, string name, GuiPresentation guiPresentation)
+        public static FeatDefinition BuildFeat(string name, params FeatureDefinition[] features)
         {
-            FeatureDefinitionAttributeModifierBuilder builder = new FeatureDefinitionAttributeModifierBuilder(name, GuidHelper.Create(ArmorNamespace, name).ToString(),
-               modifierType, attribute, amount, guiPresentation);
-            return builder.AddToDB();
+            return FeatDefinitionBuilder
+                .Create(name, ArmorNamespace)
+                .SetGuiPresentation(Category.Feat)
+                .SetFeatures(features)
+                .AddToDB();
+        }
+
+        public static FeatureDefinitionProficiency BuildProficiency(string name, ProficiencyType type, params string[] proficiencies)
+        {
+            return FeatureDefinitionProficiencyBuilder
+                .Create(name, ArmorNamespace)
+                .SetGuiPresentation(Category.Feat)
+                .SetProficiencies(type, proficiencies)
+                .AddToDB();
+        }
+
+        public static FeatureDefinitionAttributeModifier BuildAttributeModifier(string name, AttributeModifierOperation modifierType, string attribute, int amount)
+        {
+            return FeatureDefinitionAttributeModifierBuilder
+                .Create(name, ArmorNamespace)
+                .SetGuiPresentation(Category.Feat)
+                .SetModifier(modifierType, attribute, amount)
+                .AddToDB();
         }
     }
 }

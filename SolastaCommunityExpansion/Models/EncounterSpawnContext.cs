@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using TA;
-using UnityEngine;
 using static SolastaModApi.DatabaseHelper.DecisionPackageDefinitions;
 using static SolastaModApi.DatabaseHelper.FactionDefinitions;
 using static SolastaModApi.DatabaseHelper.FormationDefinitions;
@@ -14,11 +13,11 @@ namespace SolastaCommunityExpansion.Models
 
         private static ulong EncounterId { get; set; } = 10000;
 
-        private static readonly List<RulesetCharacterHero> Heroes = new List<RulesetCharacterHero>();
+        private static readonly List<RulesetCharacterHero> Heroes = new();
 
-        private static readonly List<MonsterDefinition> Monsters = new List<MonsterDefinition>();
+        private static readonly List<MonsterDefinition> Monsters = new();
 
-        internal static readonly List<RulesetCharacter> EncounterCharacters = new List<RulesetCharacter>();
+        internal static readonly List<RulesetCharacter> EncounterCharacters = new();
 
         internal static void AddToEncounter(RulesetCharacterHero hero)
         {
@@ -53,7 +52,15 @@ namespace SolastaCommunityExpansion.Models
                 if (monsterDefinitionDatabase != null)
                 {
                     Monsters.AddRange(monsterDefinitionDatabase.Where(x => x.DungeonMakerPresence == MonsterDefinition.DungeonMaker.Monster));
-                    Monsters.Sort((a, b) => a.FormatTitle().CompareTo(b.FormatTitle()));
+                    Monsters.Sort((a, b) =>
+                    {
+                        if (a.ChallengeRating == b.ChallengeRating)
+                        {
+                            return a.FormatTitle().CompareTo(b.FormatTitle());
+                        }
+
+                        return a.ChallengeRating.CompareTo(b.ChallengeRating);
+                    });
                 }
             }
 
@@ -95,9 +102,22 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void ConfirmStageEncounter()
         {
-            var isUserLocation = Gui.GameLocation?.LocationDefinition?.IsUserLocation == true;
+            // NOTE: don't use GameLocation?. or LocationDefinition?. which bypasses Unity object lifetime check
+            var isUserLocation = Gui.GameLocation &&
+                                 Gui.GameLocation.LocationDefinition &&
+                                 Gui.GameLocation.LocationDefinition.IsUserLocation;
 
-            if (isUserLocation)
+            if (PlayerControllerContext.IsMultiplayer)
+            {
+                Gui.GuiService.ShowMessage(
+                    MessageModal.Severity.Informative1,
+                    "Message/&SpawnCustomEncounterTitle",
+                    "Message/&SpawnCustomEncounterErrorDescription",
+                    "Message/&MessageOkTitle", string.Empty,
+                    null,
+                    null);
+            }
+            else if (isUserLocation)
             {
                 var position = GetEncounterPosition();
 
@@ -106,7 +126,7 @@ namespace SolastaCommunityExpansion.Models
                     "Message/&SpawnCustomEncounterTitle",
                     Gui.Format("Message/&SpawnCustomEncounterDescription", position.x.ToString(), position.x.ToString()),
                     "Message/&MessageYesTitle", "Message/&MessageNoTitle",
-                    new MessageModal.MessageValidatedHandler(() => { StageEncounter(position); }),
+                    () => StageEncounter(position),
                     null);
             }
         }

@@ -1,0 +1,36 @@
+{
+  "$type": "MapWaypointDefinition, Assembly-CSharp",
+  "allowFastTravel": true,
+  "locationExit": false,
+  "longRestAvailable": false,
+  "forceCameraOrientation": false,
+  "cameraAngle": 0.0,
+  "fastTravelFromSameSectorOnly": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Map/&Location_WizardTower_LandingPad_Title",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "3c995816a4566c24989d2d41c6beddb9",
+  "contentPack": "BaseGame",
+  "name": "MapWaypointDefinition_WizardTower_LandingPad"
+}

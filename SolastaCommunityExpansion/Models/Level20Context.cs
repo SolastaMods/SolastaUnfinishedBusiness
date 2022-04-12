@@ -15,28 +15,27 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void Load()
         {
-            if (Main.Settings.EnableLevel20)
-            {
-                FixCastSpellTables();
-                UpdateSpellLists();
+            //
+            // should not be protected to avoid issues on MP or loading heroes
+            //
+            UpdateSpellLists();
 
-                ElfHighBuilder.Load();
+            ElfHighBuilder.Load();
 
-                BarbarianBuilder.Load();
-                ClericBuilder.Load();
-                DruidBuilder.Load();
-                FighterBuilder.Load();
-                PaladinBuilder.Load();
-                RangerBuilder.Load();
-                RogueBuilder.Load();
-                SorcererBuilder.Load();
-                WizardBuilder.Load();
+            BarbarianBuilder.Load();
+            ClericBuilder.Load();
+            DruidBuilder.Load();
+            FighterBuilder.Load();
+            PaladinBuilder.Load();
+            RangerBuilder.Load();
+            RogueBuilder.Load();
+            SorcererBuilder.Load();
+            WizardBuilder.Load();
 
-                ConArtistBuilder.Load();
-                MartialSpellBladeBuilder.Load();
-                ShadowcasterBuilder.Load();
-                SpellShieldBuilder.Load();
-            }
+            ConArtistBuilder.Load();
+            MartialSpellBladeBuilder.Load();
+            ShadowcasterBuilder.Load();
+            SpellShieldBuilder.Load();
         }
     }
 }

@@ -1,14 +1,16 @@
-﻿using SolastaCommunityExpansion.Classes;
-using SolastaModApi.Extensions;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using SolastaCommunityExpansion.Classes.Tinkerer;
+using SolastaCommunityExpansion.Classes.Warlock;
+using SolastaCommunityExpansion.Classes.Witch;
+using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Models
 {
     internal static class ClassesContext
     {
-        internal static Dictionary<string, CharacterClassDefinition> Classes { get; private set; } = new Dictionary<string, CharacterClassDefinition>();
+        internal static HashSet<CharacterClassDefinition> Classes { get; private set; } = new();
 
         internal static void SortClassesFeatures()
         {
@@ -32,8 +34,11 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void Load()
         {
-            //LoadClass(new Tinkerer());
+            LoadClass(TinkererClass.BuildTinkererClass());
+            LoadClass(Warlock.BuildWarlockClass());
             LoadClass(Witch.Instance);
+
+            Classes = Classes.OrderBy(x => x.FormatTitle()).ToHashSet();
 
             if (Main.Settings.EnableSortingFutureFeatures)
             {
@@ -41,62 +46,40 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        private static void LoadClass(CharacterClassDefinition characterClass)
+        private static void LoadClass(CharacterClassDefinition characterClassDefinition)
         {
-            if (!Classes.ContainsKey(characterClass.Name))
+            if (!Classes.Contains(characterClassDefinition))
             {
-                Classes.Add(characterClass.Name, characterClass);
+                Classes.Add(characterClassDefinition);
             }
 
-            Classes = Classes.OrderBy(x => x.Value.FormatTitle()).ToDictionary(x => x.Key, x => x.Value);
-
-            UpdateClassVisibility(characterClass.Name);
+            UpdateClassVisibility(characterClassDefinition);
         }
 
-        private static void UpdateClassVisibility(string className)
+        private static void UpdateClassVisibility(CharacterClassDefinition characterClassDefinition)
         {
-            Classes[className].GuiPresentation.SetHidden(!Main.Settings.ClassEnabled.Contains(className));
+            characterClassDefinition.GuiPresentation.SetHidden(!Main.Settings.ClassEnabled.Contains(characterClassDefinition.Name));
         }
 
-        internal static void Switch(string className, bool active)
+        internal static void Switch(CharacterClassDefinition characterClassDefinition, bool active)
         {
-            if (!Classes.ContainsKey(className))
+            if (!Classes.Contains(characterClassDefinition))
             {
                 return;
             }
 
+            var name = characterClassDefinition.Name;
+
             if (active)
             {
-                if (!Main.Settings.ClassEnabled.Contains(className))
-                {
-                    Main.Settings.ClassEnabled.Add(className);
-                }
+                Main.Settings.ClassEnabled.TryAdd(name);
             }
             else
             {
-                Main.Settings.ClassEnabled.Remove(className);
+                Main.Settings.ClassEnabled.Remove(name);
             }
 
-            UpdateClassVisibility(className);
-        }
-
-        public static string GenerateClassDescription()
-        {
-            var outString = new StringBuilder("[heading]Classes[/heading]");
-
-            outString.Append("\n[list]");
-
-            foreach (var characterClass in Classes.Values)
-            {
-                outString.Append("\n[*][b]");
-                outString.Append(characterClass.FormatTitle());
-                outString.Append("[/b]: ");
-                outString.Append(characterClass.FormatDescription());
-            }
-
-            outString.Append("\n[/list]");
-
-            return outString.ToString();
+            UpdateClassVisibility(characterClassDefinition);
         }
     }
 }

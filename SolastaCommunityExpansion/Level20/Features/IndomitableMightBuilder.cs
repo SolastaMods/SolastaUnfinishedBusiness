@@ -1,35 +1,51 @@
-﻿using SolastaCommunityExpansion.CustomFeatureDefinitions;
-using SolastaModApi;
+﻿using System.Collections.Generic;
+using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Level20.Features
 {
-    internal class IndomitableMightBuilder : BaseDefinitionBuilder<IndomitableMight>
+    internal sealed class IndomitableMightBuilder : FeatureDefinitionBuilder<IndomitableMight, IndomitableMightBuilder>
     {
         private const string IndomitableMightName = "ZSBarbarianIndomitableMight";
         private const string IndomitableMightGuid = "2a0e9082-c81d-4d02-800a-92f04fbe85dc";
 
-        protected IndomitableMightBuilder(string name, string guid) : base(name, guid)
+        private IndomitableMightBuilder(string name, string guid) : base(name, guid)
         {
             var guiPresentationBuilder = new GuiPresentationBuilder(
-                "Feature/&BarbarianIndomitableMightDescription",
-                "Feature/&BarbarianIndomitableMightTitle");
+                "Feature/&BarbarianIndomitableMightTitle",
+                "Feature/&BarbarianIndomitableMightDescription");
 
             Definition.SetGuiPresentation(guiPresentationBuilder.Build());
         }
 
         private static FeatureDefinition CreateAndAddToDB(string name, string guid)
-            => new IndomitableMightBuilder(name, guid).AddToDB();
+        {
+            return new IndomitableMightBuilder(name, guid).AddToDB();
+        }
 
         internal static readonly FeatureDefinition IndomitableMight =
             CreateAndAddToDB(IndomitableMightName, IndomitableMightGuid);
     }
 
-    internal class IndomitableMight : FeatureDefinition, IMinimumAbilityCheckTotal
+    internal sealed class IndomitableMight : FeatureDefinition, IChangeAbilityCheck
     {
-        public int? MinimumStrengthAbilityCheckTotal(RulesetCharacter character, string proficiencyName)
+        public int MinRoll(
+            RulesetCharacter character,
+            int baseBonus,
+            int rollModifier,
+            string abilityScoreName,
+            string proficiencyName,
+            List<RuleDefinitions.TrendInfo> advantageTrends,
+            List<RuleDefinitions.TrendInfo> modifierTrends)
         {
-            return character?.GetAttribute(AttributeDefinitions.Strength).CurrentValue;
+            if (character == null || abilityScoreName != AttributeDefinitions.Strength)
+            {
+                return 1;
+            }
+
+            return character.GetAttribute(AttributeDefinitions.Strength).CurrentValue;
         }
     }
 }

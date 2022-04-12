@@ -1,0 +1,54 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ElementalPatronFeatureSet_Level01:966bb3e3-679b-52c3-b195-3fe1cae782af",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ElementalPatronFeatureSet_Level06:2795a6c8-2673-5c34-a18c-d278c2ad06df",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ElementalPatronFeatureSet_Level10:e811200d-aa23-50f1-8be2-19f44a85d994",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:DHConjureMinorElementalsBonusCantrip:a8fa4b6e-0943-5308-96c2-e196ed35c790",
+      "level": 14
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&DHWarlockSubclassElementalPatronTitle",
+    "description": "Subclass/&DHWarlockSubclassElementalPatronDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "c65d64ec5cd37a544a153c3b919e123b",
+      "m_SubObjectName": "Wizard_Scholar",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "55c7a670-53d2-5571-9cd1-b00b3740547b",
+  "contentPack": 9999,
+  "name": "DHWarlockSubclassElementalPatron"
+}

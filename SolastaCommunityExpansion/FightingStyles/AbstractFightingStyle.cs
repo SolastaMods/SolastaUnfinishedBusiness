@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 
-
 namespace SolastaCommunityExpansion.FightingStyles
 {
     internal abstract class AbstractFightingStyle

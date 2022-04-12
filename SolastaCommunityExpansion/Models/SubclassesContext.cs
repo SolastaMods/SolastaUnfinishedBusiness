@@ -1,19 +1,21 @@
-﻿using SolastaCommunityExpansion.Subclasses;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using SolastaCommunityExpansion.Subclasses;
 using SolastaCommunityExpansion.Subclasses.Barbarian;
 using SolastaCommunityExpansion.Subclasses.Druid;
 using SolastaCommunityExpansion.Subclasses.Fighter;
 using SolastaCommunityExpansion.Subclasses.Ranger;
 using SolastaCommunityExpansion.Subclasses.Rogue;
 using SolastaCommunityExpansion.Subclasses.Wizard;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace SolastaCommunityExpansion.Models
 {
     internal static class SubclassesContext
     {
-        internal static Dictionary<string, AbstractSubclass> Subclasses { get; private set; } = new Dictionary<string, AbstractSubclass>();
+        private static Dictionary<CharacterSubclassDefinition, FeatureDefinitionSubclassChoice> SubclassesChoiceList { get; set; } = new();
+
+        internal static HashSet<CharacterSubclassDefinition> Subclasses { get; private set; } = new();
 
         private static void SortSubclassesFeatures()
         {
@@ -50,6 +52,8 @@ namespace SolastaCommunityExpansion.Models
             LoadSubclass(new Thug());
             LoadSubclass(new CircleOfTheForestGuardian());
 
+            Subclasses = Subclasses.OrderBy(x => x.FormatTitle()).ToHashSet();
+
             if (Main.Settings.EnableSortingFutureFeatures)
             {
                 SortSubclassesFeatures();
@@ -58,76 +62,51 @@ namespace SolastaCommunityExpansion.Models
 
         private static void LoadSubclass(AbstractSubclass subclassBuilder)
         {
-            CharacterSubclassDefinition subclass = subclassBuilder.GetSubclass();
-            if (!Subclasses.ContainsKey(subclass.Name))
+            var subclass = subclassBuilder.GetSubclass();
+
+            if (!Subclasses.Contains(subclass))
             {
-                Subclasses.Add(subclass.Name, subclassBuilder);
+                SubclassesChoiceList.Add(subclass, subclassBuilder.GetSubclassChoiceList());
+                Subclasses.Add(subclass);
             }
 
-            Subclasses = Subclasses.OrderBy(x => x.Value.GetSubclass().FormatTitle()).ToDictionary(x => x.Key, x => x.Value);
-
-            UpdateSubclassVisibility(subclass.Name);
+            UpdateSubclassVisibility(subclass);
         }
 
-        private static void UpdateSubclassVisibility(string name)
+        private static void UpdateSubclassVisibility(CharacterSubclassDefinition characterSubclassDefinition)
         {
-            FeatureDefinitionSubclassChoice choiceList = Subclasses[name].GetSubclassChoiceList();
+            var name = characterSubclassDefinition.Name;
+            var choiceList = SubclassesChoiceList[characterSubclassDefinition];
+
             if (Main.Settings.SubclassEnabled.Contains(name))
             {
-                if (!choiceList.Subclasses.Contains(name))
-                {
-                    choiceList.Subclasses.Add(name);
-                }
+                choiceList.Subclasses.TryAdd(name);
             }
             else
             {
-                if (choiceList.Subclasses.Contains(name))
-                {
-                    choiceList.Subclasses.Remove(name);
-                }
+                choiceList.Subclasses.Remove(name);
             }
         }
 
-        internal static void Switch(string subclassName, bool active)
+        internal static void Switch(CharacterSubclassDefinition characterSubclassDefinition, bool active)
         {
-            if (!Subclasses.ContainsKey(subclassName))
+            if (!Subclasses.Contains(characterSubclassDefinition))
             {
                 return;
             }
 
+            var name = characterSubclassDefinition.Name;
+
             if (active)
             {
-                if (!Main.Settings.SubclassEnabled.Contains(subclassName))
-                {
-                    Main.Settings.SubclassEnabled.Add(subclassName);
-                }
+                Main.Settings.SubclassEnabled.TryAdd(name);
             }
             else
             {
-                Main.Settings.SubclassEnabled.Remove(subclassName);
+                Main.Settings.SubclassEnabled.Remove(name);
             }
 
-            UpdateSubclassVisibility(subclassName);
-        }
-
-        public static string GenerateSubclassDescription()
-        {
-            var outString = new StringBuilder("[heading]Subclasses[/heading]");
-
-            outString.Append("\n[list]");
-
-            foreach (var subclass in Subclasses.Values)
-            {
-                outString.Append("\n[*][b]");
-                outString.Append(subclass.GetSubclass().FormatTitle());
-                outString.Append("[/b]: ");
-                outString.Append(subclass.GetSubclass().FormatDescription());
-            }
-
-            outString.Append("\n[/list]");
-
-            return outString.ToString();
+            UpdateSubclassVisibility(characterSubclassDefinition);
         }
     }
-
 }
