@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine.EventSystems;
 using static SolastaCommunityExpansion.Models.CharacterExportContext;
 
-namespace SolastaCommunityExpansion.Patches.CharacterExport
+namespace SolastaCommunityExpansion.Patches.GameUi.CharacterExport
 {
     // uses this patch to offer an input field when in the context of character export which is set if message content equals to \n\n\n
     [HarmonyPatch(typeof(MessageModal), "OnEndShow")]

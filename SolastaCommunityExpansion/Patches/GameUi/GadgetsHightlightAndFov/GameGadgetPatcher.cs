@@ -5,7 +5,7 @@ using HarmonyLib;
 using SolastaModApi.Extensions;
 using TA;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.ScreenMap
+namespace SolastaCommunityExpansion.Patches.GameUi.GadgetsHightlightAndFov
 {
     // hides certain element from the map on custom dungeons unless already discovered
     [HarmonyPatch(typeof(GameGadget), "ComputeIsRevealed")]

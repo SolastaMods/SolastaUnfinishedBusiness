@@ -26,6 +26,16 @@ namespace SolastaCommunityExpansion.Patches.BugFix
 
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
+            if (!Main.Settings.BugFixWieldedConfigurationSelector)
+            {
+                foreach (var instruction in instructions)
+                {
+                    yield return instruction;
+                }
+
+                yield break;
+            }
+
             var bindMethod = typeof(InventorySlotBox).GetMethod("Bind");
             var myBindMethod = typeof(WieldedConfigurationSelector_Bind).GetMethod("MyBind");
 
