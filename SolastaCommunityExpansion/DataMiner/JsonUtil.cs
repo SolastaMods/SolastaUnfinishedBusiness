@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿#if DEBUG
+using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
 using System.Collections.Generic;
@@ -79,3 +80,4 @@ namespace SolastaCommunityExpansion.DataMiner
         }
     }
 }
+#endif

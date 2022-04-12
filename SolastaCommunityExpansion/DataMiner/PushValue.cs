@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if DEBUG
+using System;
 using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.DataMiner
@@ -27,3 +28,4 @@ namespace SolastaCommunityExpansion.DataMiner
         #endregion
     }
 }
+#endif

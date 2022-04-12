@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿#if DEBUG
+using Newtonsoft.Json;
 using System;
 
 namespace SolastaCommunityExpansion.DataMiner
@@ -30,3 +31,4 @@ namespace SolastaCommunityExpansion.DataMiner
         }
     }
 }
+#endif
