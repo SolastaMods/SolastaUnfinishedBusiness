@@ -7,12 +7,15 @@ namespace SolastaCommunityExpansion.Displays
 {
     internal static class ItemsAndCraftingDisplay
     {
+        private const int MAX_COLUMNS = 1;
+
         private static void AddUIForWeaponKey(string key)
         {
             bool toggle;
             using (UI.HorizontalScope(UI.AutoWidth()))
             {
-                UI.ActionButton(ItemCraftingContext.RecipeTitles[key], () => ItemCraftingContext.LearnRecipes(key), UI.Width(175));
+                UI.ActionButton(ItemCraftingContext.RecipeTitles[key], () => ItemCraftingContext.LearnRecipes(key), UI.Width(180));
+                UI.Space(20);
 
                 toggle = Main.Settings.CraftingInStore.Contains(key);
                 if (UI.Toggle("Add to store", ref toggle, UI.Width(125)))
@@ -131,7 +134,7 @@ namespace SolastaCommunityExpansion.Displays
 
                 using (UI.HorizontalScope(UI.AutoWidth()))
                 {
-                    UI.Space(180);
+                    UI.Space(204);
 
                     toggle = ItemCraftingContext.RecipeBooks.Keys.Count == Main.Settings.CraftingInStore.Count;
                     if (UI.Toggle("Add all to store", ref toggle, UI.Width(125)))
@@ -180,7 +183,7 @@ namespace SolastaCommunityExpansion.Displays
 
                     using (UI.HorizontalScope())
                     {
-                        while (current < count && cols < 2)
+                        while (current < count && cols < MAX_COLUMNS)
                         {
                             AddUIForWeaponKey(keys.ElementAt(current));
 

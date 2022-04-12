@@ -45,7 +45,7 @@ namespace SolastaCommunityExpansion.Displays
             displayToggle = Main.Settings.DisplayFeatsToggle;
             sliderPos = Main.Settings.FeatSliderPosition;
             DisplayDefinitions(
-                "Feats:".yellow(),
+                "Feats".yellow(),
                 FeatsContext.Switch,
                 FeatsContext.Feats,
                 Main.Settings.FeatEnabled,
@@ -57,7 +57,7 @@ namespace SolastaCommunityExpansion.Displays
             displayToggle = Main.Settings.DisplayFightingStylesToggle;
             sliderPos = Main.Settings.FightingStyleSliderPosition;
             DisplayDefinitions(
-                "Fighting Styles:".yellow(),
+                "Fighting Styles".yellow(),
                 FightingStyleContext.Switch,
                 FightingStyleContext.FightingStyles,
                 Main.Settings.FightingStyleEnabled,

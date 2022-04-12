@@ -90,7 +90,7 @@ namespace SolastaCommunityExpansion.Displays
                 }
 
                 DisplayDefinitions(
-                    $"{kvp.Key}:".yellow(),
+                    kvp.Key.yellow(),
                     spellListContext.Switch,
                     allowedSpells,
                     spellEnabled,

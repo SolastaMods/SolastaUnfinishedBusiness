@@ -11,11 +11,11 @@ namespace ModKit {
         // UI for picking items from a collection
         public static void Toolbar(ref int value, string[] texts, params GUILayoutOption[] options) => value = GL.Toolbar(value, texts, options);
         public static void Toolbar(ref int value, string[] texts, GUIStyle style, params GUILayoutOption[] options) => value = GL.Toolbar(value, texts, style, options);
-        public static bool SelectionGrid(ref int selected, string[] texts, int xCols, params GUILayoutOption[] options) {
+        public static bool SelectionGrid(ref int selected, string[] texts, int xCols, int maxColsIfNarrow = 4, params GUILayoutOption[] options) {
             if (xCols <= 0)
                 xCols = texts.Count();
             if (IsNarrow)
-                xCols = Math.Min(4, xCols);
+                xCols = Math.Min(maxColsIfNarrow, xCols);
             var sel = selected;
             var titles = texts.Select((a, i) => i == sel ? a.orange().bold() : a);
             if (xCols <= 0)
