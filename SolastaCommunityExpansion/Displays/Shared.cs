@@ -7,7 +7,7 @@ namespace SolastaCommunityExpansion.Displays
 {
     internal static class Shared
     {
-        internal const float PIXELS_PER_COLUMN = 240;
+        internal const float PIXELS_PER_COLUMN = 220;
 
         internal static readonly string RequiresRestart = "[requires restart]".italic().red().bold();
 
