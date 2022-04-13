@@ -112,6 +112,11 @@
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
       "monsterAttackDefinition": "Definition:Attack_TigerDrake_Bite:8b2d23ea7fa239847bd45db4ee8ccab9"
+    },
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 1,
+      "monsterAttackDefinition": "Definition:DH_Custom_CouatlBite_Attack:d92ce419-f2ee-5067-b866-2c893fd7fe00"
     }
   ],
   "sneakStance": "Stealth",
