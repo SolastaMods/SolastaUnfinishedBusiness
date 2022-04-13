@@ -15,33 +15,35 @@ namespace SolastaCommunityExpansion.Monsters
         {
             new Models.MonsterContext.CustomMonster()
             {
-                MonsterName = "Ancient Black Dragon",
-                BaseTemplateName = DatabaseHelper.MonsterDefinitions.BlackDragon_MasterOfNecromancy,
-                MonsterShaderReference = DatabaseHelper.MonsterDefinitions.SRD_Thug,
-                NewName = "CustomAncientBlackDragon",
-                Size = DatabaseHelper.CharacterSizeDefinitions.DragonSize,
-                Alignment = "ChaoticEvil",
-                ArmorClass = 22,
-                HitDice = 21,
-                HitDiceType = RuleDefinitions.DieType.D20,
-                HitPointsBonus = 147,
-                StandardHitPoints = 367,
-                AttributeStrength = 27,
-                AttributeDexterity = 14,
-                AttributeConstitution = 25,
-                AttributeIntelligence = 16,
-                AttributeWisdom = 15,
-                AttributeCharisma = 19,
-                SavingThrowStrength = 0,
-                SavingThrowDexterity = 9,
-                SavingThrowConstitution = 14,
-                SavingThrowIntelligence = 0,
-                SavingThrowWisdom = 9,
-                SavingThrowCharisma = 11,
-                CR = 21,
-                LegendaryCreature = true,
-                Type = "Dragon",
-                Features = new List<FeatureDefinition>()
+               MonsterName = "Ancient Black Dragon",
+               BaseTemplateName = DatabaseHelper.MonsterDefinitions.BlackDragon_MasterOfNecromancy,
+               MonsterShaderReference = DatabaseHelper.MonsterDefinitions.SRD_Thug,
+               NewName = "Custom_AncientBlackDragon",
+               NewTitle = "Custom_AncientBlackDragon_Title",
+               NewDescription = "Custom_AncientBlackDragon_Description",
+               Size = DatabaseHelper.CharacterSizeDefinitions.DragonSize,
+               Alignment = "ChaoticEvil",
+               ArmorClass = 22,
+               HitDice = 21,
+               HitDiceType = RuleDefinitions.DieType.D20,
+               HitPointsBonus = 147,
+               StandardHitPoints = 367,
+               AttributeStrength = 27,
+               AttributeDexterity = 14,
+               AttributeConstitution = 25,
+               AttributeIntelligence = 16,
+               AttributeWisdom = 15,
+               AttributeCharisma = 19,
+               SavingThrowStrength = 0,
+               SavingThrowDexterity = 9,
+               SavingThrowConstitution = 14,
+               SavingThrowIntelligence = 0,
+               SavingThrowWisdom = 9,
+               SavingThrowCharisma = 11,
+               CR = 21,
+               LegendaryCreature = true,
+               Type = "Dragon",
+               Features = new List<FeatureDefinition>()
                {
                 DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove8 ,
                  DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly12    ,
@@ -55,30 +57,30 @@ namespace SolastaCommunityExpansion.Monsters
                  NewMonsterPowers.DictionaryOfAncientDragonBreaths["Ancient Black Dragon"]
                },
 
-                SkillScores = new List<MonsterSkillProficiency>()
+                SkillScores=new List<MonsterSkillProficiency> ()
                 {
                     MonstersAttributes.DragonmonsterSkillProficiency_1,
                     MonstersAttributes.DragonmonsterSkillProficiency_2
                 },
-                AttackIterations = new List<MonsterAttackIteration>()
+                AttackIterations=new List<MonsterAttackIteration> ()
                 {
                     MonstersAttributes.BlackDragonBiteAttackIteration,
                     MonstersAttributes.DragonClawAttackIteration,
                     MonstersAttributes.DragonClawAttackIteration_2
                 },
-                LegendaryActionOptions = new List<LegendaryActionDescription>()
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
                 {
                     MonstersAttributes.DragonlegendaryActionDescription_2,
                     MonstersAttributes.DragonlegendaryActionDescription
                 },
 
-                DefaultBattleDecisionPackage = NewMonsterAttributes.AncientDragon_CombatDecisions,
-                GroupAttacks = true,
+                DefaultBattleDecisionPackage=NewMonsterAttributes.AncientDragon_CombatDecisions,
+                GroupAttacks=true,
 
 
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.BlackDragon_MasterOfNecromancy.GuiPresentation.SpriteReference,
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.EmptyassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.BlackDragon_MasterOfNecromancy.GuiPresentation.SpriteReference,
 
 
             },
@@ -88,7 +90,9 @@ namespace SolastaCommunityExpansion.Monsters
                 MonsterName = "Ancient Blue Dragon",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.SpectralDragon_02,
                 MonsterShaderReference = DatabaseHelper.MonsterDefinitions.SpectralDragon_02,
-                NewName = "CustomAncientBlueDragon",
+                NewName = "Custom_AncientBlueDragon",
+                NewTitle = "Custom_AncientBlueDragon_Title",
+                NewDescription = "Custom_AncientBlueDragon_Description",
                 Size = DatabaseHelper.CharacterSizeDefinitions.DragonSize,
                 Alignment = "LawfulEvil",
                 ArmorClass = 22,
@@ -126,29 +130,29 @@ namespace SolastaCommunityExpansion.Monsters
                  NewMonsterPowers.DictionaryOfAncientDragonBreaths["Ancient Blue Dragon"]
                },
 
-                SkillScores = new List<MonsterSkillProficiency>()
+                SkillScores=new List<MonsterSkillProficiency> ()
                 {
                     MonstersAttributes.DragonmonsterSkillProficiency_1,
                     MonstersAttributes.DragonmonsterSkillProficiency_2
                 },
-                AttackIterations = new List<MonsterAttackIteration>()
+                AttackIterations=new List<MonsterAttackIteration> ()
                 {
                     MonstersAttributes.BlueDragonBiteAttackIteration,
                     MonstersAttributes.DragonClawAttackIteration,
                     MonstersAttributes.DragonClawAttackIteration_2
                 },
-                LegendaryActionOptions = new List<LegendaryActionDescription>()
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
                 {
                     MonstersAttributes.DragonlegendaryActionDescription_2,
                     MonstersAttributes.DragonlegendaryActionDescription
                 },
 
-                DefaultBattleDecisionPackage = NewMonsterAttributes.AncientDragon_CombatDecisions,
-                GroupAttacks = true,
+                DefaultBattleDecisionPackage=NewMonsterAttributes.AncientDragon_CombatDecisions,
+                GroupAttacks=true,
 
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.SpectralDragon_02.GuiPresentation.SpriteReference,
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.EmptyassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.SpectralDragon_02.GuiPresentation.SpriteReference,
 
 
             },
@@ -159,7 +163,9 @@ namespace SolastaCommunityExpansion.Monsters
                 MonsterName = "Ancient Green Dragon",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.GreenDragon_MasterOfConjuration,
                 MonsterShaderReference = DatabaseHelper.MonsterDefinitions.SRD_Thug,
-                NewName = "CustomAncientGreenDragon",
+                NewName = "Custom_AncientGreenDragon",
+                NewTitle = "Custom_AncientGreenDragon_Title",
+                NewDescription = "Custom_AncientGreenDragon_Description",
                 Size = DatabaseHelper.CharacterSizeDefinitions.DragonSize,
                 Alignment = "LawfulEvil",
                 ArmorClass = 21,
@@ -197,7 +203,7 @@ namespace SolastaCommunityExpansion.Monsters
                  NewMonsterPowers.DictionaryOfAncientDragonBreaths["Ancient Green Dragon"]
                },
 
-                SkillScores = new List<MonsterSkillProficiency>()
+                SkillScores=new List<MonsterSkillProficiency> ()
                 {
                     MonstersAttributes.DragonmonsterSkillProficiency_1,
                     MonstersAttributes.DragonmonsterSkillProficiency_2,
@@ -206,24 +212,24 @@ namespace SolastaCommunityExpansion.Monsters
                     MonstersAttributes.GreenDragonmonsterSkillProficiency_5,
 
                 },
-                AttackIterations = new List<MonsterAttackIteration>()
+                AttackIterations=new List<MonsterAttackIteration> ()
                 {
                     MonstersAttributes.GreenDragonBiteAttackIteration,
                     MonstersAttributes.DragonClawAttackIteration,
                     MonstersAttributes.DragonClawAttackIteration_2
                 },
-                LegendaryActionOptions = new List<LegendaryActionDescription>()
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
                 {
                     MonstersAttributes.DragonlegendaryActionDescription_2,
                     MonstersAttributes.DragonlegendaryActionDescription
                 },
 
-                DefaultBattleDecisionPackage = NewMonsterAttributes.AncientDragon_CombatDecisions,
-                GroupAttacks = true,
+                DefaultBattleDecisionPackage=NewMonsterAttributes.AncientDragon_CombatDecisions,
+                GroupAttacks=true,
 
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.GreenDragon_MasterOfConjuration.GuiPresentation.SpriteReference,
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.EmptyassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.GreenDragon_MasterOfConjuration.GuiPresentation.SpriteReference,
 
 
             },
@@ -233,7 +239,9 @@ namespace SolastaCommunityExpansion.Monsters
                 MonsterName = "Ancient Red Dragon",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.GoldDragon_AerElai,
                 MonsterShaderReference = DatabaseHelper.MonsterDefinitions.SRD_Thug,
-                NewName = "CustomAncientRedDragon",
+                NewName = "Custom_AncientRedDragon",
+                NewTitle = "Custom_AncientRedDragon_Title",
+                NewDescription = "Custom_AncientRedDragon_Description",
                 Size = DatabaseHelper.CharacterSizeDefinitions.DragonSize,
                 Alignment = "ChaoticEvil",
                 ArmorClass = 22,
@@ -271,59 +279,65 @@ namespace SolastaCommunityExpansion.Monsters
                  NewMonsterPowers.DictionaryOfAncientDragonBreaths["Ancient Red Dragon"]
                },
 
-                SkillScores = new List<MonsterSkillProficiency>()
+                SkillScores=new List<MonsterSkillProficiency> ()
                 {
                     MonstersAttributes.DragonmonsterSkillProficiency_1,
                     MonstersAttributes.DragonmonsterSkillProficiency_2
                 },
-                AttackIterations = new List<MonsterAttackIteration>()
+                AttackIterations=new List<MonsterAttackIteration> ()
                 {
                     MonstersAttributes.RedDragonBiteAttackIteration,
                     MonstersAttributes.DragonClawAttackIteration,
                     MonstersAttributes.DragonClawAttackIteration_2
                 },
-                LegendaryActionOptions = new List<LegendaryActionDescription>()
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
                 {
                     MonstersAttributes.DragonlegendaryActionDescription_2,
                     MonstersAttributes.DragonlegendaryActionDescription
                 },
 
-                DefaultBattleDecisionPackage = NewMonsterAttributes.AncientDragon_CombatDecisions,
-                GroupAttacks = true,
+                DefaultBattleDecisionPackage=NewMonsterAttributes.AncientDragon_CombatDecisions,
+                GroupAttacks=true,
 
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.GoldDragon_AerElai.GuiPresentation.SpriteReference,
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.EmptyassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.GoldDragon_AerElai.GuiPresentation.SpriteReference,
+
+
+
             },
 
             new Models.MonsterContext.CustomMonster()
             {
-                MonsterName = "Ancient White Dragon",
-                BaseTemplateName = DatabaseHelper.MonsterDefinitions.SilverDragon_Princess,
-                MonsterShaderReference = DatabaseHelper.MonsterDefinitions.SRD_Thug,
-                NewName = "CustomAncientWhiteDragon",
-                Size = DatabaseHelper.CharacterSizeDefinitions.DragonSize,
-                Alignment = "ChaoticEvil",
-                ArmorClass = 20,
-                HitDice = 18,
-                HitDiceType = RuleDefinitions.DieType.D20,
-                HitPointsBonus = 144,
-                StandardHitPoints = 333,
-                AttributeStrength = 26,
-                AttributeDexterity = 10,
-                AttributeConstitution = 26,
-                AttributeIntelligence = 10,
-                AttributeWisdom = 13,
-                AttributeCharisma = 14,
-                SavingThrowStrength = 0,
-                SavingThrowDexterity = 6,
-                SavingThrowConstitution = 14,
-                SavingThrowIntelligence = 0,
-                SavingThrowWisdom = 7,
-                SavingThrowCharisma = 8,
-                CR = 20,
-                LegendaryCreature = true,
-                Type = "Dragon",
+
+                MonsterName = "Ancient White Dragon" ,
+                BaseTemplateName = DatabaseHelper.MonsterDefinitions.SilverDragon_Princess    ,
+                MonsterShaderReference = DatabaseHelper.MonsterDefinitions.SRD_Thug ,
+                NewName = "Custom_AncientWhiteDragon"    ,
+                NewTitle = "Custom_AncientWhiteDragon_Title"  ,
+                NewDescription = "Custom_AncientWhiteDragon_Description"    ,
+                Size = DatabaseHelper.CharacterSizeDefinitions.DragonSize ,
+                Alignment = "ChaoticEvil"  ,
+                ArmorClass = 20  ,
+                HitDice = 18  ,
+                HitDiceType = RuleDefinitions.DieType.D20    ,
+                HitPointsBonus = 144 ,
+                StandardHitPoints = 333 ,
+                AttributeStrength = 26  ,
+                AttributeDexterity = 10  ,
+                AttributeConstitution = 26  ,
+                AttributeIntelligence = 10  ,
+                AttributeWisdom = 13  ,
+                AttributeCharisma = 14  ,
+                SavingThrowStrength = 0   ,
+                SavingThrowDexterity = 6   ,
+                SavingThrowConstitution = 14  ,
+                SavingThrowIntelligence = 0   ,
+                SavingThrowWisdom = 7   ,
+                SavingThrowCharisma = 8   ,
+                CR = 20  ,
+                LegendaryCreature = true   ,
+                Type = "Dragon"   ,
                 Features = new List<FeatureDefinition>()
                 {
                     DatabaseHelper.FeatureDefinitionMoveModes.MoveModeBurrow8   ,
@@ -340,37 +354,43 @@ namespace SolastaCommunityExpansion.Monsters
                  NewMonsterPowers.DictionaryOfAncientDragonBreaths["Ancient White Dragon"]
                },
 
-                SkillScores = new List<MonsterSkillProficiency>()
+                SkillScores=new List<MonsterSkillProficiency> ()
                 {
                     MonstersAttributes.DragonmonsterSkillProficiency_1,
                     MonstersAttributes.DragonmonsterSkillProficiency_2
                 },
-                AttackIterations = new List<MonsterAttackIteration>()
+                AttackIterations=new List<MonsterAttackIteration> ()
                 {
                     MonstersAttributes.WhiteDragonBiteAttackIteration,
                     MonstersAttributes.DragonClawAttackIteration,
                     MonstersAttributes.DragonClawAttackIteration_2
                 },
-                LegendaryActionOptions = new List<LegendaryActionDescription>()
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
                 {
                     MonstersAttributes.DragonlegendaryActionDescription_2,
                     MonstersAttributes.DragonlegendaryActionDescription
                 },
 
-                DefaultBattleDecisionPackage = NewMonsterAttributes.AncientDragon_CombatDecisions,
-                GroupAttacks = true,
+                DefaultBattleDecisionPackage=NewMonsterAttributes.AncientDragon_CombatDecisions,
+                GroupAttacks=true,
 
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.SilverDragon_Princess.GuiPresentation.SpriteReference,
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.EmptyassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.SilverDragon_Princess.GuiPresentation.SpriteReference,
+
+
+
             },
+
 
             new Models.MonsterContext.CustomMonster()
             {
                 MonsterName = "Archmage",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.SRD_Mage,
                 MonsterShaderReference = DatabaseHelper.MonsterDefinitions.SRD_Thug,
-                NewName = "CustomArchmage",
+                NewName = "Custom_Archmage",
+                NewTitle = "Custom_Archmage_Title",
+                NewDescription = "Custom_Archmage_Description",
                 Size = DatabaseHelper.CharacterSizeDefinitions.Medium,
                 Alignment = "Neutral",
                 ArmorClass = 15,
@@ -408,26 +428,26 @@ namespace SolastaCommunityExpansion.Monsters
                      NewMonsterAttributes.CastSpell_ArchMage
                 },
 
-                SkillScores = new List<MonsterSkillProficiency>()
+                SkillScores=new List<MonsterSkillProficiency> ()
                 {
                     MonstersAttributes.ArchmagemonsterSkillProficiency_1,
                     MonstersAttributes.ArchmagemonsterSkillProficiency_2
                 },
-                AttackIterations = new List<MonsterAttackIteration>()
+                AttackIterations=new List<MonsterAttackIteration> ()
                 {
                     DatabaseHelper.MonsterDefinitions.SRD_Mage.AttackIterations[0]
                 },
-                LegendaryActionOptions = new List<LegendaryActionDescription>()
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
                 {
 
                 },
 
-                DefaultBattleDecisionPackage = NewMonsterAttributes.HighLevelCaster_CombatDecisions,
-                GroupAttacks = false,
+                DefaultBattleDecisionPackage=NewMonsterAttributes.HighLevelCaster_CombatDecisions,
+                GroupAttacks=false,
 
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.SRD_Mage.GuiPresentation.SpriteReference,
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.EmptyassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.SRD_Mage.GuiPresentation.SpriteReference,
             },
 
 
@@ -436,7 +456,9 @@ namespace SolastaCommunityExpansion.Monsters
                 MonsterName = "Balor",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.Minotaur,
                 MonsterShaderReference = DatabaseHelper.MonsterDefinitions.Fire_Spider,
-                NewName = "CustomBalor",
+                NewName = "Custom_Balor",
+                NewTitle = "Custom_Balor_Title",
+                NewDescription = "Custom_Balor_Description",
                 Size = DatabaseHelper.CharacterSizeDefinitions.Huge,
                 Alignment = "ChaoticEvil",
                 ArmorClass = 19,
@@ -479,58 +501,62 @@ namespace SolastaCommunityExpansion.Monsters
                         NewMonsterPowers.SummonCreature_Nalfeshnee_Power
                 },
 
-                SkillScores = new List<MonsterSkillProficiency>()
+                SkillScores=new List<MonsterSkillProficiency> ()
                 {
 
                 },
-                AttackIterations = new List<MonsterAttackIteration>()
+                AttackIterations=new List<MonsterAttackIteration> ()
                 {
                     MonstersAttributes.BalorWhipAttackIteration,
                     MonstersAttributes.BalorLongswordAttackIteration
                 },
-                LegendaryActionOptions = new List<LegendaryActionDescription>()
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
                 {
 
                 },
 
-                DefaultBattleDecisionPackage = NewMonsterAttributes.Balor_CombatDecisions,
-                GroupAttacks = true,
+                DefaultBattleDecisionPackage=NewMonsterAttributes.Balor_CombatDecisions,
+                GroupAttacks=true,
 
 
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.BalorassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.MinotaurElite.GuiPresentation.SpriteReference,
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.BalorassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.MinotaurElite.GuiPresentation.SpriteReference,
+
             },
 
-            new Models.MonsterContext.CustomMonster()
-            {
-                MonsterName = "Deva",
-                BaseTemplateName = DatabaseHelper.MonsterDefinitions.Divine_Avatar,
-                MonsterShaderReference = DatabaseHelper.MonsterDefinitions.Divine_Avatar,
-                NewName = "CustomDeva",
-                Size = DatabaseHelper.CharacterSizeDefinitions.Medium,
-                Alignment = "LawfulGood",
-                ArmorClass = 17,
-                HitDice = 16,
-                HitDiceType = RuleDefinitions.DieType.D8,
-                HitPointsBonus = 64,
-                StandardHitPoints = 136,
-                AttributeStrength = 18,
-                AttributeDexterity = 18,
-                AttributeConstitution = 18,
-                AttributeIntelligence = 17,
-                AttributeWisdom = 20,
-                AttributeCharisma = 20,
-                SavingThrowStrength = 0,
-                SavingThrowDexterity = 0,
-                SavingThrowConstitution = 0,
-                SavingThrowIntelligence = 0,
-                SavingThrowWisdom = 9,
-                SavingThrowCharisma = 9,
-                CR = 10,
-                LegendaryCreature = false,
-                Type = "Celestial",
-                Features = new List<FeatureDefinition>()
+
+             new Models.MonsterContext.CustomMonster()
+             {
+                    MonsterName = "Deva",
+                    BaseTemplateName = DatabaseHelper.MonsterDefinitions.Divine_Avatar,
+                    MonsterShaderReference = DatabaseHelper.MonsterDefinitions.Divine_Avatar,
+                    NewName = "Custom_Deva",
+                    NewTitle = "Custom_Deva_Title",
+                    NewDescription = "Custom_Deva_Description",
+                    Size = DatabaseHelper.CharacterSizeDefinitions.Medium,
+                    Alignment = "LawfulGood",
+                    ArmorClass = 17,
+                    HitDice = 16,
+                    HitDiceType = RuleDefinitions.DieType.D8,
+                    HitPointsBonus = 64,
+                    StandardHitPoints = 136,
+                    AttributeStrength = 18,
+                    AttributeDexterity = 18,
+                    AttributeConstitution = 18,
+                    AttributeIntelligence = 17,
+                    AttributeWisdom = 20,
+                    AttributeCharisma = 20,
+                    SavingThrowStrength = 0,
+                    SavingThrowDexterity = 0,
+                    SavingThrowConstitution = 0,
+                    SavingThrowIntelligence = 0,
+                    SavingThrowWisdom = 9,
+                    SavingThrowCharisma = 9,
+                    CR = 10,
+                    LegendaryCreature = false,
+                    Type = "Celestial",
+                    Features = new List<FeatureDefinition>()
                     {
                         DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove6,
                          DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly12,
@@ -548,32 +574,35 @@ namespace SolastaCommunityExpansion.Monsters
 
                     },
 
-                SkillScores = new List<MonsterSkillProficiency>()
+                SkillScores=new List<MonsterSkillProficiency> ()
                 {
                     MonstersAttributes.DevamonsterSkillProficiency_1,
                     MonstersAttributes.DevamonsterSkillProficiency_2
                 },
-                AttackIterations = (DatabaseHelper.MonsterDefinitions.Divine_Avatar.AttackIterations)
+                AttackIterations=(DatabaseHelper.MonsterDefinitions.Divine_Avatar.AttackIterations)
                 ,
-                LegendaryActionOptions = new List<LegendaryActionDescription>()
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
                 {
 
                 },
 
-                DefaultBattleDecisionPackage = DatabaseHelper.MonsterDefinitions.Divine_Avatar.DefaultBattleDecisionPackage,
-                GroupAttacks = DatabaseHelper.MonsterDefinitions.Divine_Avatar.GroupAttacks,
+                DefaultBattleDecisionPackage=DatabaseHelper.MonsterDefinitions.Divine_Avatar.DefaultBattleDecisionPackage,
+                GroupAttacks=DatabaseHelper.MonsterDefinitions.Divine_Avatar.GroupAttacks,
 
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.Divine_Avatar.GuiPresentation.SpriteReference,
-            },
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.EmptyassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.Divine_Avatar.GuiPresentation.SpriteReference,
+             },
 
-            new Models.MonsterContext.CustomMonster()
-            {
+
+             new Models.MonsterContext.CustomMonster()
+             {
                 MonsterName = "Djinni",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.Fire_Jester,
                 MonsterShaderReference = DatabaseHelper.MonsterDefinitions.Air_Elemental,
-                NewName = "CustomDjinni",
+                NewName = "Custom_Djinni",
+                NewTitle = "Custom_Djinni_Title",
+                NewDescription = "Custom_Djinni_Description",
                 Size = DatabaseHelper.CharacterSizeDefinitions.Large,
                 Alignment = "ChaoticGood",
                 ArmorClass = 17,
@@ -607,37 +636,40 @@ namespace SolastaCommunityExpansion.Monsters
                      DatabaseHelper.FeatureDefinitionPowers.PowerDragonWingAttack
                 },
 
-                SkillScores = new List<MonsterSkillProficiency>()
+                SkillScores=new List<MonsterSkillProficiency> ()
                 {
 
                 },
-                AttackIterations = new List<MonsterAttackIteration>()
+                AttackIterations=new List<MonsterAttackIteration> ()
                 {
                     MonstersAttributes.DjinniAttackIteration,
                     MonstersAttributes.DjinniAttackIteration_2
 
                 },
-                LegendaryActionOptions = new List<LegendaryActionDescription>()
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
                 {
 
                 },
 
-                DefaultBattleDecisionPackage = DatabaseHelper.MonsterDefinitions.Air_Elemental.DefaultBattleDecisionPackage,
-                GroupAttacks = false,
+                DefaultBattleDecisionPackage=DatabaseHelper.MonsterDefinitions.Air_Elemental.DefaultBattleDecisionPackage,
+                GroupAttacks=false,
 
 
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.DjinniassetReference,
-                SpriteReference = DatabaseHelper.HumanoidMonsterPresentationDefinitions.NPC_Presentation_Emtan_Ghost.GuiPresentation.SpriteReference,
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.DjinniassetReference,
+                SpriteReference=DatabaseHelper.HumanoidMonsterPresentationDefinitions.NPC_Presentation_Emtan_Ghost.GuiPresentation.SpriteReference,
 
-            },
+             },
 
-            new Models.MonsterContext.CustomMonster()
-            {
+
+           new Models.MonsterContext.CustomMonster()
+           {
                 MonsterName = "Efreeti",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.Fire_Jester,
                 MonsterShaderReference = DatabaseHelper.MonsterDefinitions.Fire_Spider,
-                NewName = "CustomEfreeti",
+                NewName = "Custom_Efreeti",
+                NewTitle = "Custom_Efreeti_Title",
+                NewDescription = "Custom_Efreeti_Description",
                 Size = DatabaseHelper.CharacterSizeDefinitions.Large,
                 Alignment = "LawfulEvil",
                 ArmorClass = 17,
@@ -670,35 +702,39 @@ namespace SolastaCommunityExpansion.Monsters
                      DatabaseHelper.FeatureDefinitionPowers.PowerFireOspreyBlast
                 },
 
-                SkillScores = new List<MonsterSkillProficiency>()
+                SkillScores=new List<MonsterSkillProficiency> ()
                 {
 
                 },
-                AttackIterations = new List<MonsterAttackIteration>()
+                AttackIterations=new List<MonsterAttackIteration> ()
                 {
                     MonstersAttributes.EfreetiAttackIteration,
                     MonstersAttributes.EfreetiAttackIteration_2
                 },
-                LegendaryActionOptions = new List<LegendaryActionDescription>()
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
                 {
 
                 },
 
-                DefaultBattleDecisionPackage = DatabaseHelper.MonsterDefinitions.Fire_Elemental.DefaultBattleDecisionPackage,
-                GroupAttacks = false,
+                DefaultBattleDecisionPackage=DatabaseHelper.MonsterDefinitions.Fire_Elemental.DefaultBattleDecisionPackage,
+                GroupAttacks=false,
 
 
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.EfreetiassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.Fire_Jester.GuiPresentation.SpriteReference,
-            },
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.EfreetiassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.Fire_Jester.GuiPresentation.SpriteReference,
+
+           },
+
 
             new Models.MonsterContext.CustomMonster()
             {
                 MonsterName = "Erinyes",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.Estalla,
                 MonsterShaderReference = DatabaseHelper.MonsterDefinitions.SRD_Thug,
-                NewName = "CustomErinyes",
+                NewName = "Custom_Erinyes",
+                NewTitle = "Custom_Erinyes_Title",
+                NewDescription = "Custom_Erinyes_Description",
                 Size = DatabaseHelper.CharacterSizeDefinitions.Medium,
                 Alignment = "LawfulEvil",
                 ArmorClass = 18,
@@ -739,31 +775,34 @@ namespace SolastaCommunityExpansion.Monsters
                      NewMonsterPowers.ErinyesParry_Power
                 },
 
-                SkillScores = new List<MonsterSkillProficiency>()
+                SkillScores=new List<MonsterSkillProficiency> ()
                 {
 
                 },
-                AttackIterations = new List<MonsterAttackIteration>()
+                AttackIterations=new List<MonsterAttackIteration> ()
                 {
                     MonstersAttributes.ErinyesAttackIteration,
                     MonstersAttributes.ErinyesAttackIteration_2
                 },
-                LegendaryActionOptions = DatabaseHelper.MonsterDefinitions.Estalla.LegendaryActionOptions,
+                LegendaryActionOptions=DatabaseHelper.MonsterDefinitions.Estalla.LegendaryActionOptions,
 
-                DefaultBattleDecisionPackage = DatabaseHelper.DecisionPackageDefinitions.DefaultRangeWithBackupMeleeDecisions,
-                GroupAttacks = false,
+                DefaultBattleDecisionPackage=DatabaseHelper.DecisionPackageDefinitions.DefaultRangeWithBackupMeleeDecisions,
+                GroupAttacks=false,
 
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.Estalla.GuiPresentation.SpriteReference,
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.EmptyassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.Estalla.GuiPresentation.SpriteReference,
             },
 
-            new Models.MonsterContext.CustomMonster()
-            {
+           new Models.MonsterContext.CustomMonster()
+           {
+
                 MonsterName = "Guardian Naga",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.Tiger_Drake,
                 MonsterShaderReference = DatabaseHelper.MonsterDefinitions.SRD_Thug,
-                NewName = "CustomGuardianNaga",
+                NewName = "Custom_GuardianNaga",
+                NewTitle = "Custom_GuardianNaga_Title",
+                NewDescription = "Custom_GuardianNaga_Description",
                 Size = DatabaseHelper.CharacterSizeDefinitions.Large,
                 Alignment = "LawfulGood",
                 ArmorClass = 18,
@@ -798,34 +837,37 @@ namespace SolastaCommunityExpansion.Monsters
                      NewMonsterAttributes.CastSpell_GuardianNaga
                 },
 
-                SkillScores = new List<MonsterSkillProficiency>()
+                SkillScores=new List<MonsterSkillProficiency> ()
                 {
 
                 },
-                AttackIterations = new List<MonsterAttackIteration>()
+                AttackIterations=new List<MonsterAttackIteration> ()
                 {
                     MonstersAttributes.NagaAttackIteration_2,
                     MonstersAttributes.NagaAttackIteration
                 },
-                LegendaryActionOptions = new List<LegendaryActionDescription>()
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
                 {
 
                 },
 
-                DefaultBattleDecisionPackage = NewMonsterAttributes.Naga_CombatDecisions,
-                GroupAttacks = false,
+                DefaultBattleDecisionPackage=NewMonsterAttributes.Naga_CombatDecisions,
+                GroupAttacks=false,
 
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.Tiger_Drake.GuiPresentation.SpriteReference,
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.EmptyassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.Tiger_Drake.GuiPresentation.SpriteReference,
             },
+
 
             new Models.MonsterContext.CustomMonster()
             {
                 MonsterName = "Horned Devil",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.Sorr_Akkath_Assassin,
                 MonsterShaderReference = DatabaseHelper.MonsterDefinitions.Wraith,
-                NewName = "CustomHornedDevil",
+                NewName = "Custom_HornedDevil",
+                NewTitle = "Custom_HornedDevil_Title",
+                NewDescription = "Custom_HornedDevil_Description",
                 Size = DatabaseHelper.CharacterSizeDefinitions.Large,
                 Alignment = "LawfulEvil",
                 ArmorClass = 18,
@@ -868,35 +910,38 @@ namespace SolastaCommunityExpansion.Monsters
                       DatabaseHelper.FeatureDefinitionPowers.PowerFireOspreyBlast
                 },
 
-                SkillScores = new List<MonsterSkillProficiency>()
+                SkillScores=new List<MonsterSkillProficiency> ()
                 {
 
                 },
-                AttackIterations = new List<MonsterAttackIteration>()
+                AttackIterations=new List<MonsterAttackIteration> ()
                 {
                     MonstersAttributes.HornedDevilForkAttackIteration,
                     MonstersAttributes.HornedDevilForkAttackIteration,
                     MonstersAttributes.HornedDevilTailAttackIteration
                 },
-                LegendaryActionOptions = new List<LegendaryActionDescription>()
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
                 {
 
                 },
 
-                DefaultBattleDecisionPackage = DatabaseHelper.DecisionPackageDefinitions.SorakShikkathAndBossCombatDecisions,
-                GroupAttacks = true,
+                DefaultBattleDecisionPackage=DatabaseHelper.DecisionPackageDefinitions.SorakShikkathAndBossCombatDecisions,
+                GroupAttacks=true,
 
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.Sorr_Akkath_Assassin.GuiPresentation.SpriteReference,
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.EmptyassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.Sorr_Akkath_Assassin.GuiPresentation.SpriteReference,
             },
 
-            new Models.MonsterContext.CustomMonster()
-            {
+
+             new Models.MonsterContext.CustomMonster()
+             {
                 MonsterName = "Ice Devil",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.SkarnGhoul,
                 MonsterShaderReference = DatabaseHelper.MonsterDefinitions.SkarnGhoul,
-                NewName = "CustomIceDevil",
+                NewName = "Custom_IceDevil",
+                NewTitle = "Custom_IceDevil_Title",
+                NewDescription = "Custom_IceDevil_Description",
                 Size = DatabaseHelper.CharacterSizeDefinitions.Large,
                 Alignment = "LawfulEvil",
                 ArmorClass = 18,
@@ -937,35 +982,38 @@ namespace SolastaCommunityExpansion.Monsters
                      DatabaseHelper.FeatureDefinitionPowers.PowerWinterWolfBreath
                 },
 
-                SkillScores = new List<MonsterSkillProficiency>()
+                SkillScores=new List<MonsterSkillProficiency> ()
                 {
 
                 },
-                AttackIterations = new List<MonsterAttackIteration>()
+                AttackIterations=new List<MonsterAttackIteration> ()
                 {
                     MonstersAttributes.IceDevilBiteAttackIteration,
                     MonstersAttributes.IceDevilClawAttackIteration,
                     MonstersAttributes.IceDevilTailAttackIteration
                 },
-                LegendaryActionOptions = new List<LegendaryActionDescription>()
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
                 {
 
                 },
 
-                DefaultBattleDecisionPackage = DatabaseHelper.DecisionPackageDefinitions.SorakShikkathAndBossCombatDecisions,
-                GroupAttacks = true,
+                DefaultBattleDecisionPackage=DatabaseHelper.DecisionPackageDefinitions.SorakShikkathAndBossCombatDecisions,
+                GroupAttacks=true,
 
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.SkarnGhoul.GuiPresentation.SpriteReference,
-            },
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.EmptyassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.SkarnGhoul.GuiPresentation.SpriteReference,
+             },
+
 
             new Models.MonsterContext.CustomMonster()
             {
                 MonsterName = "Lich",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.MummyLord,
                 MonsterShaderReference = DatabaseHelper.MonsterDefinitions.SRD_Thug,
-                NewName = "CustomLich",
+                NewName = "Custom_Lich",
+                NewTitle = "Custom_Lich_Title",
+                NewDescription = "Custom_Lich_Description",
                 Size = DatabaseHelper.CharacterSizeDefinitions.Medium,
                 Alignment = "NeutralEvil",
                 ArmorClass = 17,
@@ -1014,18 +1062,18 @@ namespace SolastaCommunityExpansion.Monsters
                      NewMonsterAttributes.CastSpell_Lich
                 },
 
-                SkillScores = new List<MonsterSkillProficiency>()
+                SkillScores=new List<MonsterSkillProficiency> ()
                 {
                     MonstersAttributes.LichmonsterSkillProficiency_1,
                     MonstersAttributes.LichmonsterSkillProficiency_2,
                     MonstersAttributes.LichmonsterSkillProficiency_3,
                     MonstersAttributes.LichmonsterSkillProficiency_4
                 },
-                AttackIterations = new List<MonsterAttackIteration>()
+                AttackIterations=new List<MonsterAttackIteration> ()
                 {
                     MonstersAttributes.LichAttackIteration
                 },
-                LegendaryActionOptions = new List<LegendaryActionDescription>()
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
                 {
                     MonstersAttributes.LichlegendaryActionDescription_0,
                     MonstersAttributes.LichlegendaryActionDescription,
@@ -1034,19 +1082,25 @@ namespace SolastaCommunityExpansion.Monsters
                     MonstersAttributes.LichlegendaryActionDescription_4
                 },
 
-                DefaultBattleDecisionPackage = NewMonsterAttributes.HighLevelCaster_CombatDecisions,
-                GroupAttacks = false,
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.LichassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.Adam_The_Twelth.GuiPresentation.SpriteReference,
-            },
+                DefaultBattleDecisionPackage=NewMonsterAttributes.HighLevelCaster_CombatDecisions,
+                GroupAttacks=false,
+
+
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.LichassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.Adam_The_Twelth.GuiPresentation.SpriteReference,
+
+            }       ,
 
             new Models.MonsterContext.CustomMonster()
             {
+
                 MonsterName = "Nalfeshnee",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.Ogre_Zombie,
                 MonsterShaderReference = DatabaseHelper.MonsterDefinitions.SRD_Thug,
-                NewName = "CustomNalfeshnee",
+                NewName = "Custom_Nalfeshnee",
+                NewTitle = "Custom_Nalfeshnee_Title",
+                NewDescription = "Custom_Nalfeshnee_Description",
                 Size = DatabaseHelper.CharacterSizeDefinitions.Large,
                 Alignment = "ChaoticEvil",
                 ArmorClass = 18,
@@ -1088,28 +1142,28 @@ namespace SolastaCommunityExpansion.Monsters
                      DatabaseHelper.FeatureDefinitionPowers.PowerPhaseSpiderTeleport
                 },
 
-                SkillScores = new List<MonsterSkillProficiency>()
+                SkillScores=new List<MonsterSkillProficiency> ()
                 {
 
                 },
-                AttackIterations = new List<MonsterAttackIteration>()
+                AttackIterations=new List<MonsterAttackIteration> ()
                 {
                     MonstersAttributes.NalfeshneeBiteAttackIteration,
                     MonstersAttributes.NalfeshneeClawAttackIteration,
                     MonstersAttributes.NalfeshneeClawAttackIteration
                 },
-                LegendaryActionOptions = new List<LegendaryActionDescription>()
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
                 {
 
                 },
 
-                DefaultBattleDecisionPackage = NewMonsterAttributes.Nalfeshnee_CombatDecisions,
-                GroupAttacks = true,
+                DefaultBattleDecisionPackage=NewMonsterAttributes.Nalfeshnee_CombatDecisions,
+                GroupAttacks=true,
 
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.Ogre_Zombie.GuiPresentation.SpriteReference,
-            },
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.EmptyassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.Ogre_Zombie.GuiPresentation.SpriteReference,
+            }       ,
 
             new Models.MonsterContext.CustomMonster()
             {
@@ -1117,7 +1171,9 @@ namespace SolastaCommunityExpansion.Monsters
                 MonsterName = "Pit Fiend",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.Sorr_Akkath_Abomination,
                 MonsterShaderReference = DatabaseHelper.MonsterDefinitions.PhaseSpider,
-                NewName = "CustomPitFiend",
+                NewName = "Custom_PitFiend",
+                NewTitle = "Custom_PitFiend_Title",
+                NewDescription = "Custom_PitFiend_Description",
                 Size = DatabaseHelper.CharacterSizeDefinitions.Large,
                 Alignment = "LawfulEvil",
                 ArmorClass = 19,
@@ -1164,60 +1220,62 @@ namespace SolastaCommunityExpansion.Monsters
                         NewMonsterPowers.SummonCreature_Erinyes_Power
                 },
 
-                SkillScores = new List<MonsterSkillProficiency>()
+                SkillScores=new List<MonsterSkillProficiency> ()
                 {
 
                 },
-                AttackIterations = new List<MonsterAttackIteration>()
+                AttackIterations=new List<MonsterAttackIteration> ()
                 {
                     MonstersAttributes.PitFiendBiteAttackIteration,
                     MonstersAttributes.PitFiendClawAttackIteration,
                     MonstersAttributes.PitFiendTailAttackIteration,
                     MonstersAttributes.PitFiendWeaponAttackIteration
                 },
-                LegendaryActionOptions = new List<LegendaryActionDescription>()
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
                 {
 
                 },
 
-                DefaultBattleDecisionPackage = NewMonsterAttributes.PitFiend_CombatDecisions,
-                GroupAttacks = true,
+                DefaultBattleDecisionPackage=NewMonsterAttributes.PitFiend_CombatDecisions,
+                GroupAttacks=true,
 
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.Sorr_Akkath_Abomination.GuiPresentation.SpriteReference,
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.EmptyassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.Sorr_Akkath_Abomination.GuiPresentation.SpriteReference,
             },
 
-            new Models.MonsterContext.CustomMonster()
-            {
+              new Models.MonsterContext.CustomMonster()
+              {
 
-                MonsterName = "Planetar",
-                BaseTemplateName = DatabaseHelper.MonsterDefinitions.Divine_Avatar_Wizard,
-                MonsterShaderReference = DatabaseHelper.MonsterDefinitions.Ghost_Wolf,
-                NewName = "CustomPlanetar",
-                Size = DatabaseHelper.CharacterSizeDefinitions.Large,
-                Alignment = "LawfulGood",
-                ArmorClass = 19,
-                HitDice = 16,
-                HitDiceType = RuleDefinitions.DieType.D10,
-                HitPointsBonus = 112,
-                StandardHitPoints = 200,
-                AttributeStrength = 24,
-                AttributeDexterity = 20,
-                AttributeConstitution = 24,
-                AttributeIntelligence = 19,
-                AttributeWisdom = 22,
-                AttributeCharisma = 25,
-                SavingThrowStrength = 0,
-                SavingThrowDexterity = 0,
-                SavingThrowConstitution = 12,
-                SavingThrowIntelligence = 0,
-                SavingThrowWisdom = 11,
-                SavingThrowCharisma = 12,
-                CR = 16,
-                LegendaryCreature = false,
-                Type = "Celestial",
-                Features = new List<FeatureDefinition>()
+                    MonsterName = "Planetar",
+                    BaseTemplateName = DatabaseHelper.MonsterDefinitions.Divine_Avatar_Wizard,
+                    MonsterShaderReference = DatabaseHelper.MonsterDefinitions.Ghost_Wolf,
+                    NewName = "Custom_Planetar",
+                    NewTitle = "Custom_Planetar_Title",
+                    NewDescription = "Custom_Planetar_Description",
+                    Size = DatabaseHelper.CharacterSizeDefinitions.Large,
+                    Alignment = "LawfulGood",
+                    ArmorClass = 19,
+                    HitDice = 16,
+                    HitDiceType = RuleDefinitions.DieType.D10,
+                    HitPointsBonus = 112,
+                    StandardHitPoints = 200,
+                    AttributeStrength = 24,
+                    AttributeDexterity = 20,
+                    AttributeConstitution = 24,
+                    AttributeIntelligence = 19,
+                    AttributeWisdom = 22,
+                    AttributeCharisma = 25,
+                    SavingThrowStrength = 0,
+                    SavingThrowDexterity = 0,
+                    SavingThrowConstitution = 12,
+                    SavingThrowIntelligence = 0,
+                    SavingThrowWisdom = 11,
+                    SavingThrowCharisma = 12,
+                    CR = 16,
+                    LegendaryCreature = false,
+                    Type = "Celestial",
+                    Features = new List<FeatureDefinition>()
                     {
                         DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove6,
                          DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly12,
@@ -1235,57 +1293,59 @@ namespace SolastaCommunityExpansion.Monsters
 
                     },
 
-                SkillScores = new List<MonsterSkillProficiency>()
+                SkillScores=new List<MonsterSkillProficiency> ()
                 {
                     MonstersAttributes.PlanetarmonsterSkillProficiency_1
                 },
-                AttackIterations = new List<MonsterAttackIteration>()
+                AttackIterations=new List<MonsterAttackIteration> ()
                 {
                     MonstersAttributes.PlanetarLongswordAttackIteration
                 },
-                LegendaryActionOptions = new List<LegendaryActionDescription>()
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
                 {
 
                 },
 
-                DefaultBattleDecisionPackage = DatabaseHelper.MonsterDefinitions.Divine_Avatar_Cleric.DefaultBattleDecisionPackage,
-                GroupAttacks = false,
+                DefaultBattleDecisionPackage=DatabaseHelper.MonsterDefinitions.Divine_Avatar_Cleric.DefaultBattleDecisionPackage,
+                GroupAttacks=false,
 
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.Divine_Avatar_Wizard.GuiPresentation.SpriteReference,
-            },
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.EmptyassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.Divine_Avatar_Wizard.GuiPresentation.SpriteReference,
+              } ,
 
-            new Models.MonsterContext.CustomMonster()
-            {
+             new Models.MonsterContext.CustomMonster()
+             {
 
-                MonsterName = "Roc",
-                BaseTemplateName = DatabaseHelper.MonsterDefinitions.Giant_Eagle,
-                MonsterShaderReference = DatabaseHelper.MonsterDefinitions.SRD_Thug,
-                NewName = "CustomRoc",
-                Size = DatabaseHelper.CharacterSizeDefinitions.DragonSize,
-                Alignment = "Unaligned",
-                ArmorClass = 15,
-                HitDice = 16,
-                HitDiceType = RuleDefinitions.DieType.D20,
-                HitPointsBonus = 80,
-                StandardHitPoints = 248,
-                AttributeStrength = 28,
-                AttributeDexterity = 10,
-                AttributeConstitution = 20,
-                AttributeIntelligence = 3,
-                AttributeWisdom = 10,
-                AttributeCharisma = 9,
-                SavingThrowStrength = 0,
-                SavingThrowDexterity = 4,
-                SavingThrowConstitution = 9,
-                SavingThrowIntelligence = 0,
-                SavingThrowWisdom = 4,
-                SavingThrowCharisma = 3,
-                CR = 11,
-                LegendaryCreature = false,
-                Type = "Monstrosity",
-                Features = new List<FeatureDefinition>()
+                    MonsterName = "Roc",
+                    BaseTemplateName = DatabaseHelper.MonsterDefinitions.Giant_Eagle,
+                    MonsterShaderReference = DatabaseHelper.MonsterDefinitions.SRD_Thug,
+                    NewName = "Custom_Roc",
+                    NewTitle = "Custom_Roc_Title",
+                    NewDescription = "Custom_Roc_Description",
+                    Size = DatabaseHelper.CharacterSizeDefinitions.DragonSize,
+                    Alignment = "Unaligned",
+                    ArmorClass = 15,
+                    HitDice = 16,
+                    HitDiceType = RuleDefinitions.DieType.D20,
+                    HitPointsBonus = 80,
+                    StandardHitPoints = 248,
+                    AttributeStrength = 28,
+                    AttributeDexterity = 10,
+                    AttributeConstitution = 20,
+                    AttributeIntelligence = 3,
+                    AttributeWisdom = 10,
+                    AttributeCharisma = 9,
+                    SavingThrowStrength = 0,
+                    SavingThrowDexterity = 4,
+                    SavingThrowConstitution = 9,
+                    SavingThrowIntelligence = 0,
+                    SavingThrowWisdom = 4,
+                    SavingThrowCharisma = 3,
+                    CR = 11,
+                    LegendaryCreature = false,
+                    Type = "Monstrosity",
+                    Features = new List<FeatureDefinition>()
                     {
                         DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
                          DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove4,
@@ -1295,27 +1355,27 @@ namespace SolastaCommunityExpansion.Monsters
                             ,
                     },
 
-                SkillScores = new List<MonsterSkillProficiency>()
+                SkillScores=new List<MonsterSkillProficiency> ()
                 {
                     MonstersAttributes.RocmonsterSkillProficiency_1
                 },
-                AttackIterations = new List<MonsterAttackIteration>()
+                AttackIterations=new List<MonsterAttackIteration> ()
                 {
                     MonstersAttributes.RocBiteAttackIteration,
                     MonstersAttributes.RocClawAttackIteration
                 },
-                LegendaryActionOptions = new List<LegendaryActionDescription>()
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
                 {
 
                 },
 
-                DefaultBattleDecisionPackage = DatabaseHelper.DecisionPackageDefinitions.RemorhazCombatDecisions,
-                GroupAttacks = true,
+                DefaultBattleDecisionPackage=DatabaseHelper.DecisionPackageDefinitions.RemorhazCombatDecisions,
+                GroupAttacks=true,
 
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.Giant_Eagle.GuiPresentation.SpriteReference,
-            },
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.EmptyassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.Giant_Eagle.GuiPresentation.SpriteReference,
+            }       ,
 
 
             new Models.MonsterContext.CustomMonster()
@@ -1323,7 +1383,9 @@ namespace SolastaCommunityExpansion.Monsters
                 MonsterName = "Solar",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.Divine_Avatar_Cleric,
                 MonsterShaderReference = DatabaseHelper.MonsterDefinitions.Fire_Elemental,
-                NewName = "CustomSolar",
+                NewName = "Custom_Solar",
+                NewTitle = "Custom_Solar_Title",
+                NewDescription = "Custom_Solar_Description",
                 Size = DatabaseHelper.CharacterSizeDefinitions.Large,
                 Alignment = "LawfulGood",
                 ArmorClass = 21,
@@ -1365,59 +1427,62 @@ namespace SolastaCommunityExpansion.Monsters
                      NewMonsterPowers.AtWillSelfBuff_Invisibility_Power
                 },
 
-                SkillScores = new List<MonsterSkillProficiency>()
+                SkillScores=new List<MonsterSkillProficiency> ()
                 {
                     MonstersAttributes.SolarmonsterSkillProficiency_1
                 },
-                AttackIterations = new List<MonsterAttackIteration>()
+                AttackIterations=new List<MonsterAttackIteration> ()
                 {
                     MonstersAttributes.SolarLongswordAttackIteration,
                     MonstersAttributes.SolarLongbowAttackIteration
                 },
-                LegendaryActionOptions = new List<LegendaryActionDescription>()
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
                 {
                     MonstersAttributes.SolarlegendaryActionDescription,
                     MonstersAttributes.SolarlegendaryActionDescription_2,
                     MonstersAttributes.SolarlegendaryActionDescription_3
                 },
 
-                DefaultBattleDecisionPackage = NewMonsterAttributes.Solar_CombatDecisions,
-                GroupAttacks = false,
+                DefaultBattleDecisionPackage=NewMonsterAttributes.Solar_CombatDecisions,
+                GroupAttacks=false,
 
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.Divine_Avatar_Cleric.GuiPresentation.SpriteReference,
-            },
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.EmptyassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.Divine_Avatar_Cleric.GuiPresentation.SpriteReference,
+            }       ,
 
-            new Models.MonsterContext.CustomMonster()
-            {
-                MonsterName = "Storm Giant",
-                BaseTemplateName = DatabaseHelper.MonsterDefinitions.Giant_Frost,
-                MonsterShaderReference = DatabaseHelper.MonsterDefinitions.SRD_Thug,
-                NewName = "CustomStormGiant",
-                Size = DatabaseHelper.CharacterSizeDefinitions.Huge,
-                Alignment = "ChaoticGood",
-                ArmorClass = 16,
-                HitDice = 20,
-                HitDiceType = RuleDefinitions.DieType.D12,
-                HitPointsBonus = 100,
-                StandardHitPoints = 230,
-                AttributeStrength = 29,
-                AttributeDexterity = 14,
-                AttributeConstitution = 20,
-                AttributeIntelligence = 16,
-                AttributeWisdom = 18,
-                AttributeCharisma = 18,
-                SavingThrowStrength = 14,
-                SavingThrowDexterity = 0,
-                SavingThrowConstitution = 10,
-                SavingThrowIntelligence = 0,
-                SavingThrowWisdom = 9,
-                SavingThrowCharisma = 9,
-                CR = 13,
-                LegendaryCreature = false,
-                Type = "Giant",
-                Features = new List<FeatureDefinition>()
+
+             new Models.MonsterContext.CustomMonster()
+             {
+                    MonsterName = "Storm Giant",
+                    BaseTemplateName = DatabaseHelper.MonsterDefinitions.Giant_Frost,
+                    MonsterShaderReference = DatabaseHelper.MonsterDefinitions.SRD_Thug,
+                    NewName = "Custom_StormGiant",
+                    NewTitle = "Custom_StormGiant_Title",
+                    NewDescription = "Custom_StormGiant_Description",
+                    Size = DatabaseHelper.CharacterSizeDefinitions.Huge,
+                    Alignment = "ChaoticGood",
+                    ArmorClass = 16,
+                    HitDice = 20,
+                    HitDiceType = RuleDefinitions.DieType.D12,
+                    HitPointsBonus = 100,
+                    StandardHitPoints = 230,
+                    AttributeStrength = 29,
+                    AttributeDexterity = 14,
+                    AttributeConstitution = 20,
+                    AttributeIntelligence = 16,
+                    AttributeWisdom = 18,
+                    AttributeCharisma = 18,
+                    SavingThrowStrength = 14,
+                    SavingThrowDexterity = 0,
+                    SavingThrowConstitution = 10,
+                    SavingThrowIntelligence = 0,
+                    SavingThrowWisdom = 9,
+                    SavingThrowCharisma = 9,
+                    CR = 13,
+                    LegendaryCreature = false,
+                    Type = "Giant",
+                    Features = new List<FeatureDefinition>()
                     {
                         DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove10,
                          DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
@@ -1428,57 +1493,59 @@ namespace SolastaCommunityExpansion.Monsters
                          NewMonsterPowers.Generic_Lightning_Attack_Power
                     },
 
-                SkillScores = new List<MonsterSkillProficiency>()
+                SkillScores=new List<MonsterSkillProficiency> ()
                 {
                     MonstersAttributes.StormGiantmonsterSkillProficiency_1,
                     MonstersAttributes.StormGiantmonsterSkillProficiency_2,
                     MonstersAttributes.StormGiantmonsterSkillProficiency_3,
                     MonstersAttributes.StormGiantmonsterSkillProficiency_4
                 },
-                AttackIterations = DatabaseHelper.MonsterDefinitions.Giant_Frost.AttackIterations,
+                AttackIterations=DatabaseHelper.MonsterDefinitions.Giant_Frost.AttackIterations,
 
-                LegendaryActionOptions = new List<LegendaryActionDescription>()
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
                 {
 
                 },
 
-                DefaultBattleDecisionPackage = DatabaseHelper.DecisionPackageDefinitions.SorakShikkathAndBossCombatDecisions,
-                GroupAttacks = false,
+                DefaultBattleDecisionPackage=DatabaseHelper.DecisionPackageDefinitions.SorakShikkathAndBossCombatDecisions,
+                GroupAttacks=false,
 
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.Giant_Frost.GuiPresentation.SpriteReference,
-            },
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.EmptyassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.Giant_Frost.GuiPresentation.SpriteReference,
+             }      ,
 
             new Models.MonsterContext.CustomMonster()
             {
-                MonsterName = "Tarrasque",
-                BaseTemplateName = DatabaseHelper.MonsterDefinitions.Sorr_Akkath_Abomination,
-                MonsterShaderReference = DatabaseHelper.MonsterDefinitions.Sorr_Akkath_Abomination,
-                NewName = "CustomTarrasque",
-                Size = DatabaseHelper.CharacterSizeDefinitions.DragonSize,
-                Alignment = "Unaligned",
-                ArmorClass = 25,
-                HitDice = 33,
-                HitDiceType = RuleDefinitions.DieType.D20,
-                HitPointsBonus = 330,
-                StandardHitPoints = 676,
-                AttributeStrength = 30,
-                AttributeDexterity = 11,
-                AttributeConstitution = 30,
-                AttributeIntelligence = 3,
-                AttributeWisdom = 11,
-                AttributeCharisma = 11,
-                SavingThrowStrength = 0,
-                SavingThrowDexterity = 0,
-                SavingThrowConstitution = 0,
-                SavingThrowIntelligence = 5,
-                SavingThrowWisdom = 9,
-                SavingThrowCharisma = 9,
-                CR = 30,
-                LegendaryCreature = true,
-                Type = "Monstrosity",
-                Features = new List<FeatureDefinition>()
+               MonsterName = "Tarrasque",
+               BaseTemplateName = DatabaseHelper.MonsterDefinitions.Sorr_Akkath_Abomination,
+               MonsterShaderReference = DatabaseHelper.MonsterDefinitions.Sorr_Akkath_Abomination,
+               NewName = "Custom_Tarrasque",
+               NewTitle = "Custom_Tarrasque_Title",
+               NewDescription = "Custom_Tarrasque_Description",
+               Size = DatabaseHelper.CharacterSizeDefinitions.DragonSize,
+               Alignment = "Unaligned",
+               ArmorClass = 25,
+               HitDice = 33,
+               HitDiceType = RuleDefinitions.DieType.D20,
+               HitPointsBonus = 330,
+               StandardHitPoints = 676,
+               AttributeStrength = 30,
+               AttributeDexterity = 11,
+               AttributeConstitution = 30,
+               AttributeIntelligence = 3,
+               AttributeWisdom = 11,
+               AttributeCharisma = 11,
+               SavingThrowStrength = 0,
+               SavingThrowDexterity = 0,
+               SavingThrowConstitution = 0,
+               SavingThrowIntelligence = 5,
+               SavingThrowWisdom = 9,
+               SavingThrowCharisma = 9,
+               CR = 30,
+               LegendaryCreature = true,
+               Type = "Monstrosity",
+               Features = new List<FeatureDefinition>()
                {
                 DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove8 ,
                  DatabaseHelper.FeatureDefinitionSenses.SenseTremorsense16    ,
@@ -1531,35 +1598,38 @@ namespace SolastaCommunityExpansion.Monsters
 
             },
 
-            new Models.MonsterContext.CustomMonster()
-            {
-                MonsterName = "Vampire",
-                BaseTemplateName = DatabaseHelper.MonsterDefinitions.Razan,
-                MonsterShaderReference = DatabaseHelper.MonsterDefinitions.SRD_Thug,
-                NewName = "CustomVampire",
-                Size = DatabaseHelper.CharacterSizeDefinitions.Medium,
-                Alignment = "LawfulEvil",
-                ArmorClass = 16,
-                HitDice = 17,
-                HitDiceType = RuleDefinitions.DieType.D8,
-                HitPointsBonus = 68,
-                StandardHitPoints = 144,
-                AttributeStrength = 18,
-                AttributeDexterity = 18,
-                AttributeConstitution = 18,
-                AttributeIntelligence = 17,
-                AttributeWisdom = 15,
-                AttributeCharisma = 18,
-                SavingThrowStrength = 0,
-                SavingThrowDexterity = 9,
-                SavingThrowConstitution = 0,
-                SavingThrowIntelligence = 0,
-                SavingThrowWisdom = 7,
-                SavingThrowCharisma = 9,
-                CR = 13,
-                LegendaryCreature = true,
-                Type = "Undead",
-                Features = new List<FeatureDefinition>()
+             new Models.MonsterContext.CustomMonster()
+             {
+
+                    MonsterName = "Vampire",
+                    BaseTemplateName = DatabaseHelper.MonsterDefinitions.Razan,
+                    MonsterShaderReference = DatabaseHelper.MonsterDefinitions.SRD_Thug,
+                    NewName = "Custom_Vampire",
+                    NewTitle = "Custom_Vampire_Title",
+                    NewDescription = "Custom_Vampire_Description",
+                    Size = DatabaseHelper.CharacterSizeDefinitions.Medium,
+                    Alignment = "LawfulEvil",
+                    ArmorClass = 16,
+                    HitDice = 17,
+                    HitDiceType = RuleDefinitions.DieType.D8,
+                    HitPointsBonus = 68,
+                    StandardHitPoints = 144,
+                    AttributeStrength = 18,
+                    AttributeDexterity = 18,
+                    AttributeConstitution = 18,
+                    AttributeIntelligence = 17,
+                    AttributeWisdom = 15,
+                    AttributeCharisma = 18,
+                    SavingThrowStrength = 0,
+                    SavingThrowDexterity = 9,
+                    SavingThrowConstitution = 0,
+                    SavingThrowIntelligence = 0,
+                    SavingThrowWisdom = 7,
+                    SavingThrowCharisma = 9,
+                    CR = 13,
+                    LegendaryCreature = true,
+                    Type = "Undead",
+                    Features = new List<FeatureDefinition>()
                     {
                         DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove6,
                          DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly8,
@@ -1577,32 +1647,35 @@ namespace SolastaCommunityExpansion.Monsters
                          DatabaseHelper.FeatureDefinitionMagicAffinitys.MagicAffinityConditionImmuneToShine,
                          DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityVeilImmunity,
                          DatabaseHelper.FeatureDefinitionRegenerations.RegenerationVampire,
-                         DatabaseHelper.FeatureDefinitionMovementAffinitys.MovementAffinitySpiderClimb,
-                         NewMonsterPowers.SummonCreature_Wolves_Power
+                         DatabaseHelper.FeatureDefinitionMovementAffinitys.MovementAffinitySpiderClimb
+                        ,
+                          NewMonsterPowers.SummonCreature_Wolves_Power
                     },
 
-                SkillScores = new List<MonsterSkillProficiency>()
+                SkillScores=new List<MonsterSkillProficiency> ()
                 {
                     MonstersAttributes.VampiremonsterSkillProficiency_1,
                     MonstersAttributes.VampiremonsterSkillProficiency_2
                 },
-                AttackIterations = DatabaseHelper.MonsterDefinitions.Razan.AttackIterations,
+                AttackIterations=DatabaseHelper.MonsterDefinitions.Razan.AttackIterations ,
 
-                LegendaryActionOptions = new List<LegendaryActionDescription>()
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
                 {
                     MonstersAttributes.VampirelegendaryActionDescription,
                     MonstersAttributes.VampirelegendaryActionDescription_2,
                     MonstersAttributes.VampirelegendaryActionDescription_3
                 },
 
-                DefaultBattleDecisionPackage = NewMonsterAttributes.Vampire_CombatDecisions,
-                GroupAttacks = true,
+                DefaultBattleDecisionPackage=NewMonsterAttributes.Vampire_CombatDecisions,
+                GroupAttacks=true,
 
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.Brood_of_blood.GuiPresentation.SpriteReference,
-            }
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.EmptyassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.Brood_of_blood.GuiPresentation.SpriteReference,
+             }
         };
+
+
 
         public static void EnableInDungeonMaker()
         {
@@ -1613,18 +1686,19 @@ namespace SolastaCommunityExpansion.Monsters
                  * 
                  * MonsterDefinitionBuilder NewMonster = new MonsterDefinitionBuilder(
                     Definitions[i].NewName,
-                    GuidHelper.Create(Settings.GUID, Definitions[i].NewName).ToString(),
-                    "Monster/&" + "DH" + Definitions[i].NewTitle,
-                    "Monster/&" + "DH" + Definitions[i].NewDescription,
+                    GuidHelper.Create(new System.Guid(Settings.GUID), Definitions[i].NewName).ToString(),
+                    "Monster/&" + "DH_" + Definitions[i].NewTitle,
+                    "Monster/&" + "DH_" + Definitions[i].NewDescription,
                     Definitions[i].BaseTemplateName);
                 */
 
                 MonsterDefinitionBuilder NewMonster = MonsterDefinitionBuilder
                         .Create(
-                            Definitions[i].BaseTemplateName, "DH" + Definitions[i].NewName,
+                            Definitions[i].BaseTemplateName, Definitions[i].NewName, 
                             DefinitionBuilder.CENamespaceGuid)
                         .SetGuiPresentation(
-                            Category.Monster,
+                            "Monster/&" + "DH_" + Definitions[i].NewTitle, 
+                            "Monster/&" + "DH_" + Definitions[i].NewDescription, 
                             Definitions[i].BaseTemplateName.GuiPresentation.SpriteReference);
 
                 NewMonster.SetInDungeonEditor(true);
@@ -1739,10 +1813,14 @@ namespace SolastaCommunityExpansion.Monsters
                 if (Definitions[i].MonsterName == "Ancient Green Dragon")
                 {
                     DatabaseHelper.MonsterPresentationDefinitions.Green_Dragon_Presentation.SetModelScale(0.75f);
+
+
                 }
                 if (Definitions[i].MonsterName == "Ancient Blue Dragon")
                 {
                     NewMonster.SetSpriteReference(DatabaseHelper.MonsterDefinitions.Young_BlackDragon.GuiPresentation.SpriteReference);
+
+
                 }
                 if (Definitions[i].MonsterName == "Planetar" || Definitions[i].MonsterName == "Solar")
                 {
@@ -1770,19 +1848,23 @@ namespace SolastaCommunityExpansion.Monsters
                 {
                     AssetReference assetReference = new AssetReference();
                     assetReference.SetField("m_AssetGUID", "cab8992a98c1d3749bc0a50d53fcc378");
+
+
                     NewMonster.SetPrefabReference(assetReference);
                 }
                 if (Definitions[i].MonsterName == "Tarrasque")
                 {
+
                     NewMonster.SetModelScale(4.5f);
+
                     // monster powres, AI and combat needs work, too repetitive at the moment as some powers/attacks are not triggering
                     NewMonster.SetInDungeonEditor(false);
                 }
-                MonsterDefinition monster = NewMonster.AddToDB();
+                MonsterDefinition monster= NewMonster.AddToDB();
 
                 // temporary fix until builder is changed
                 monster.CreatureTags.Clear();
-                Models.MonsterContext.ModdedMonsters.Add(monster);
+             Models.MonsterContext.ModdedMonsters.Add(monster);
             }
         }
     }

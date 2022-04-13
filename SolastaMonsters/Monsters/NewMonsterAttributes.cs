@@ -2,11 +2,9 @@
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
+using UnityEngine;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Builders;
-using TA.AI;
-using UnityEngine;
-using static SolastaCommunityExpansion.Spells.SrdSpells;
 
 namespace SolastaCommunityExpansion.Monsters
 {
@@ -19,71 +17,78 @@ namespace SolastaCommunityExpansion.Monsters
         public static SpellListDefinition Lich_spelllist { get; private set; } = ScriptableObject.CreateInstance<SpellListDefinition>();
         public static FeatureDefinitionCastSpell CastSpell_Lich { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionCastSpell>();
 
-        public static FeatureDefinitionDamageAffinity FireTitan_Retaliate_DamageAffinity { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionDamageAffinity>();
-        public static FeatureDefinitionDamageAffinity Balor_Retaliate_DamageAffinity { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionDamageAffinity>();
-        public static FeatureDefinitionMagicAffinity AirTitan_SleetStorm_Immunity { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionMagicAffinity>();
-        public static FeatureDefinitionMagicAffinity TarrasqueReflectiveCarapace { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionMagicAffinity>();
+        public static FeatureDefinitionDamageAffinity FireTitan_Retaliate_DamageAffinity  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionDamageAffinity>();
+        public static FeatureDefinitionDamageAffinity Balor_Retaliate_DamageAffinity  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionDamageAffinity>();
+        public static FeatureDefinitionMagicAffinity AirTitan_SleetStorm_Immunity  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionMagicAffinity>();
+        public static FeatureDefinitionMagicAffinity TarrasqueReflectiveCarapace  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionMagicAffinity>();
 
-        public static DecisionPackageDefinition AncientDragon_CombatDecisions { get; private set; } = ScriptableObject.CreateInstance<DecisionPackageDefinition>();
-        public static DecisionPackageDefinition PitFiend_CombatDecisions { get; private set; } = ScriptableObject.CreateInstance<DecisionPackageDefinition>();
-        public static DecisionPackageDefinition Balor_CombatDecisions { get; private set; } = ScriptableObject.CreateInstance<DecisionPackageDefinition>();
-        public static DecisionPackageDefinition Nalfeshnee_CombatDecisions { get; private set; } = ScriptableObject.CreateInstance<DecisionPackageDefinition>();
-        public static DecisionPackageDefinition Solar_CombatDecisions { get; private set; } = ScriptableObject.CreateInstance<DecisionPackageDefinition>();
-        public static DecisionPackageDefinition HighLevelCaster_CombatDecisions { get; private set; } = ScriptableObject.CreateInstance<DecisionPackageDefinition>();
-        public static DecisionPackageDefinition Naga_CombatDecisions { get; private set; } = ScriptableObject.CreateInstance<DecisionPackageDefinition>();
-        public static DecisionPackageDefinition Vampire_CombatDecisions { get; private set; } = ScriptableObject.CreateInstance<DecisionPackageDefinition>();
-        public static DecisionPackageDefinition Titan_CombatDecisions { get; private set; } = ScriptableObject.CreateInstance<DecisionPackageDefinition>();
-        public static DecisionPackageDefinition ConstructTitan_CombatDecisions { get; private set; } = ScriptableObject.CreateInstance<DecisionPackageDefinition>();
-        public static DecisionPackageDefinition Tarrasque_CombatDecisions { get; private set; } = ScriptableObject.CreateInstance<DecisionPackageDefinition>();
-        public static DecisionDefinition TarrasqueSwallow_Decision { get; private set; } = ScriptableObject.CreateInstance<DecisionDefinition>();
+        public static TA.AI.DecisionPackageDefinition AncientDragon_CombatDecisions  { get; private set; } = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
+        public static TA.AI.DecisionPackageDefinition PitFiend_CombatDecisions  { get; private set; } = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
+        public static TA.AI.DecisionPackageDefinition Balor_CombatDecisions  { get; private set; } = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
+        public static TA.AI.DecisionPackageDefinition Nalfeshnee_CombatDecisions  { get; private set; } = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
+        public static TA.AI.DecisionPackageDefinition Solar_CombatDecisions  { get; private set; } = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
+        public static TA.AI.DecisionPackageDefinition HighLevelCaster_CombatDecisions  { get; private set; } = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
+        public static TA.AI.DecisionPackageDefinition Naga_CombatDecisions  { get; private set; } = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
+        public static TA.AI.DecisionPackageDefinition Vampire_CombatDecisions  { get; private set; } = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
+        public static TA.AI.DecisionPackageDefinition Titan_CombatDecisions  { get; private set; } = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
+        public static TA.AI.DecisionPackageDefinition ConstructTitan_CombatDecisions  { get; private set; } = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
+        public static TA.AI.DecisionPackageDefinition Tarrasque_CombatDecisions  { get; private set; } = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
+        public static TA.AI.DecisionDefinition TarrasqueSwallow_Decision  { get; private set; } = ScriptableObject.CreateInstance<TA.AI.DecisionDefinition>();
 
-        public static DecisionDefinition AtWillAOE_Magic_Decision { get; private set; } = ScriptableObject.CreateInstance<DecisionDefinition>();
-        public static DecisionDefinition AtWillSelfBuff_Magic_Decision { get; private set; } = ScriptableObject.CreateInstance<DecisionDefinition>();
-        public static DecisionDefinition LimitedPerDayTargetDebuff_Magic_Decision { get; private set; } = ScriptableObject.CreateInstance<DecisionDefinition>();
-        public static DecisionDefinition LimitedPerDayAOE_Magic_Decision { get; private set; } = ScriptableObject.CreateInstance<DecisionDefinition>();
-        public static DecisionDefinition SummonCreature_Magic_Decision { get; private set; } = ScriptableObject.CreateInstance<DecisionDefinition>();
-        public static DecisionDefinition CastMagic_Stoneskin_Decision { get; private set; } = ScriptableObject.CreateInstance<DecisionDefinition>();
-        public static Dictionary<string, string> Dictionaryof_Dragon_DamageAffinity { get; private set; } = new Dictionary<string, string>();
+        public static TA.AI.DecisionDefinition AtWillAOE_Magic_Decision  { get; private set; } = ScriptableObject.CreateInstance<TA.AI.DecisionDefinition>();
+        public static TA.AI.DecisionDefinition AtWillSelfBuff_Magic_Decision  { get; private set; } = ScriptableObject.CreateInstance<TA.AI.DecisionDefinition>();
+        public static TA.AI.DecisionDefinition LimitedPerDayTargetDebuff_Magic_Decision  { get; private set; } = ScriptableObject.CreateInstance<TA.AI.DecisionDefinition>();
+        public static TA.AI.DecisionDefinition LimitedPerDayAOE_Magic_Decision  { get; private set; } = ScriptableObject.CreateInstance<TA.AI.DecisionDefinition>();
+        public static TA.AI.DecisionDefinition SummonCreature_Magic_Decision  { get; private set; } = ScriptableObject.CreateInstance<TA.AI.DecisionDefinition>();
+        public static TA.AI.DecisionDefinition CastMagic_Stoneskin_Decision  { get; private set; } = ScriptableObject.CreateInstance<TA.AI.DecisionDefinition>();
 
-        //public static List<string> ListofDamageTypes_Dragon  { get; private set; } = new List<string> { "DamageAcid", "DamagePoison", "DamageFire", "DamageCold", "DamageLightning" };
-        //public static List<string> ListofDamageTypes_Physical  { get; private set; } = new List<string> { "DamageSlashing", "DamageBludgeoning", "DamagePiercing" };
-        //public static List<string> ListofDamageTypes_Other  { get; private set; } = new List<string> { "DamageThunder", "DamagePsychic", "DamageForce", "DamageNecrotic", "DamageRadiant" };
+        public static Dictionary<string, string> Dictionaryof_Dragon_DamageAffinity  { get; private set; } = new Dictionary<string, string>();
+
+
+        public static List<string> ListofDamageTypes_Dragon  { get; private set; } = new List<string> { "DamageAcid", "DamagePoison", "DamageFire", "DamageCold", "DamageLightning" };
+        public static List<string> ListofDamageTypes_Physical  { get; private set; } = new List<string> { "DamageSlashing", "DamageBludgeoning", "DamagePiercing" };
+        public static List<string> ListofDamageTypes_Other  { get; private set; } = new List<string> { "DamageThunder", "DamagePsychic", "DamageForce", "DamageNecrotic", "DamageRadiant" };
+
 
         internal static void Create()
         {
-            Setdamageaffinity();
-            BuildNewCastMagic_StoneSkin_Decision();
-            BuildNewAtWillAOE_Magic_Decision();
-            BuildNewAtWillSelfBuff_Magic_Decision();
-            BuildNewLimitedPerDayTargetDebuffMagic_Decision();
-            BuildNewLimitedPerDayAOE_Magic_Decision();
-            BuildNewSummonCreature_Magic_Decision();
-            BuildNewPitFiend_CombatDecisions();
-            BuildNewBalor_CombatDecisions();
-            BuildNewNalfeshnee_CombatDecisions();
-            BuildNewSolar_CombatDecisions();
-            BuildNewHighLevelCaster_CombatDecisions();
-            BuildNewNaga_CombatDecisions();
-            BuildNewVampire_CombatDecisions();
-            BuildNewTitan_CombatDecisions();
-            BuildNewConstructTitan_CombatDecisions();
-            BuildNewLich_Spelllist();
+            setdamageaffinity();
+            BuildNew_CastMagic_StoneSkin_Decision();
+            BuildNew_AtWillAOE_Magic_Decision();
+            BuildNew_AtWillSelfBuff_Magic_Decision();
+            BuildNew_LimitedPerDayTargetDebuffMagic_Decision();
+            BuildNew_LimitedPerDayAOE_Magic_Decision();
+            BuildNew_SummonCreature_Magic_Decision();
+            BuildNew_PitFiend_CombatDecisions();
+            BuildNew_Balor_CombatDecisions();
+            BuildNew_Nalfeshnee_CombatDecisions();
+            BuildNew_Solar_CombatDecisions();
+            BuildNew_HighLevelCaster_CombatDecisions();
+            BuildNew_Naga_CombatDecisions();
+            BuildNew_Vampire_CombatDecisions();
+            BuildNew_Titan_CombatDecisions();
+            BuildNew_ConstructTitan_CombatDecisions();
+            BuildNew_Lich_Spelllist();
             BuildNewCastSpell_Lich();
-            BuildNewArchMage_Spelllist();
+            BuildNew_ArchMage_Spelllist();
             BuildNewCastSpell_ArchMage();
-            BuildNewGuardianNaga_Spelllist();
+            BuildNew_GuardianNaga_Spelllist();
             BuildNewCastSpell_GuardianNaga();
             BuildNewFireTitan_Retaliate_DamageAffinity();
-            BuildNewAncientDragon_CombatDecisions();
-            BuildNewAirTitan_SleetStorm_Immunity_MagicAffinity();
+            BuildNew_AncientDragon_CombatDecisions();
+            BuildNew_AirTitan_SleetStorm_Immunity_MagicAffinity();
             BuildNewBalor_Retaliate_DamageAffinity();
             BuildNewTarrasqueReflectiveCarapace();
-            BuildNewTarrasqueSwallow_Decision();
-            BuildNewTarrasque_CombatDecisions();
+
+            BuildNew_TarrasqueSwallow_Decision();
+            BuildNew_Tarrasque_CombatDecisions();
         }
 
-        public static void Setdamageaffinity()
+
+
+        public static void setdamageaffinity()
         {
+
             // correct damage type and dice numbers/type for ancient dragon Breath
             Dictionaryof_Dragon_DamageAffinity.Add("Ancient Black Dragon", "DamageAcid");
             Dictionaryof_Dragon_DamageAffinity.Add("Ancient Blue Dragon", "DamageLightning");
@@ -91,88 +96,102 @@ namespace SolastaCommunityExpansion.Monsters
             Dictionaryof_Dragon_DamageAffinity.Add("Ancient Red Dragon", "DamageFire");
             Dictionaryof_Dragon_DamageAffinity.Add("Ancient White Dragon", "DamageCold");
         }
-
         public static void BuildNewTarrasqueReflectiveCarapace()
         {
-            string text = "TarrasqueReflectiveCarapaceImmunity";
+            string text = "TarrasqueReflectiveCarapace_Immunity";
+
 
             TarrasqueReflectiveCarapace = BuildNewMagicAffinity(
-                   "DH" + text,
-                   DatabaseHelper.FeatureDefinitionMagicAffinitys.MagicAffinityConditionImmuneToShine
+                   "DH_Custom_" + text,
+                   DatabaseHelper.FeatureDefinitionMagicAffinitys.MagicAffinityConditionImmuneToShine,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
                     );
 
+
             TarrasqueReflectiveCarapace.SpellImmunities.Clear();
+
+
             TarrasqueReflectiveCarapace.SpellImmunities.Add(DatabaseHelper.SpellDefinitions.MagicMissile.Name);
 
             SpellDefinition[] listofAllSpells = DatabaseRepository.GetDatabase<SpellDefinition>().GetAllElements();
 
             foreach (SpellDefinition spell in listofAllSpells)
             {
-                if (spell.EffectDescription.TargetType == RuleDefinitions.TargetType.Line || spell.EffectDescription.RangeType == RuleDefinitions.RangeType.RangeHit)
+                if (spell.EffectDescription.TargetType == RuleDefinitions.TargetType.Line|| spell.EffectDescription.RangeType == RuleDefinitions.RangeType.RangeHit)
                 {
                     TarrasqueReflectiveCarapace.SpellImmunities.Add(spell.Name);
                 }
             }
 
         }
-        public static void BuildNewTarrasqueSwallow_Decision()
+        public static void BuildNew_TarrasqueSwallow_Decision()
         {
-            string text = "TarrasqueSwallowDecisions";
+            string text = "TarrasqueSwallow_Decision";
+
 
             TarrasqueSwallow_Decision = BuildNewDecisionDefinition(
-                   "DH" + text,
-                   DatabaseHelper.DecisionDefinitions.CastMagic_Fly_Self
+                   "DH_Custom_" + text,
+                   DatabaseHelper.DecisionDefinitions.CastMagic_Fly_Self,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
                     );
+
 
             TarrasqueSwallow_Decision.Decision.SetStringParameter("TarrasqueSwallow");
         }
-
-        public static void BuildNewTarrasque_CombatDecisions()
+   
+        public static void BuildNew_Tarrasque_CombatDecisions()
         {
-            string text = "TarrasqueCombatDecisions";
+            string text = "Tarrasque_CombatDecisions";
 
 
             Tarrasque_CombatDecisions = BuildNewDecisionPackageDefinition(
-                   "DH" + text,
-                   DatabaseHelper.DecisionPackageDefinitions.RemorhazCombatDecisions
+                   "DH_Custom_" + text,
+                   DatabaseHelper.DecisionPackageDefinitions.RemorhazCombatDecisions,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
                     );
 
             Tarrasque_CombatDecisions.Package.WeightedDecisions.Clear();
 
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_0 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_0 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_0.SetDecision(DatabaseHelper.DecisionDefinitions.LongRangePathToEnemy_Dash);
             weightedDecisionDescription_0.SetWeight(5f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_2 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_2 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_2.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_DPS_SingleTarget);
             weightedDecisionDescription_2.SetWeight(4.5f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_1 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_1 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_1.SetDecision(DatabaseHelper.DecisionDefinitions.MeleeAttack_Default);
             weightedDecisionDescription_1.SetWeight(4f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_4 = new WeightedDecisionDescription();
-            weightedDecisionDescription_4.SetDecision(TarrasqueSwallow_Decision);
-            weightedDecisionDescription_4.SetWeight(4.5f);
+           TA.AI.WeightedDecisionDescription weightedDecisionDescription_4 = new TA.AI.WeightedDecisionDescription();
+           weightedDecisionDescription_4.SetDecision(TarrasqueSwallow_Decision);
+           weightedDecisionDescription_4.SetWeight(4.5f);
             //
-            WeightedDecisionDescription weightedDecisionDescription_3 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_3 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_3.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_FrightfulPresence_Dragon);
             weightedDecisionDescription_3.SetWeight(3f);
 
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_5 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_5 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_5.SetDecision(DatabaseHelper.DecisionDefinitions.Move_Aggressive_Remorhaz);
             weightedDecisionDescription_5.SetWeight(2.0f);
 
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_7 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_7 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_7.SetDecision(DatabaseHelper.DecisionDefinitions.Emote_Angry);
             weightedDecisionDescription_7.SetWeight(0.1f);
 
@@ -187,7 +206,7 @@ namespace SolastaCommunityExpansion.Monsters
                                                                     weightedDecisionDescription_4,
                                                                     weightedDecisionDescription_3,
                                                                     weightedDecisionDescription_5,
-                                                                    //       weightedDecisionDescription_6,
+                                                             //       weightedDecisionDescription_6,
                                                                     weightedDecisionDescription_7
                                                                     );
         }
@@ -195,12 +214,15 @@ namespace SolastaCommunityExpansion.Monsters
         public static void BuildNewBalor_Retaliate_DamageAffinity()
         {
 
-            string Power_text = "BalorRetaliatePower";
+            string Power_text = "Balor_Retaliate_Power";
 
 
             FeatureDefinitionPower Balor_Retaliate_Power = NewMonsterPowers.BuildNewPower(
-                    "DH" + Power_text,
-                    DatabaseHelper.FeatureDefinitionPowers.PowerRemorhazRetaliate
+                    "DH_Custom_" + Power_text,
+                    DatabaseHelper.FeatureDefinitionPowers.PowerRemorhazRetaliate,
+                    GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + Power_text).ToString(),
+                   "MonsterPower/&DH_" + Power_text + "_Title",
+                    "MonsterPower/&DH_" + Power_text + "_Description"
                      );
 
             Balor_Retaliate_Power.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Sphere);
@@ -211,24 +233,27 @@ namespace SolastaCommunityExpansion.Monsters
             Balor_Retaliate_Power.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypeFire);
 
 
-            string text = "BalorRetaliateDamageAffinity";
+            string text = "Balor_Retaliate_DamageAffinity";
 
 
             Balor_Retaliate_DamageAffinity = BuildNewDamageAffinity(
-                   "DH" + text,
-                   DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireImmunityRemorhaz
+                   "DH_Custom_" + text,
+                   DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireImmunityRemorhaz,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
                     );
 
             Balor_Retaliate_DamageAffinity.SetRetaliatePower(Balor_Retaliate_Power);
 
         }
 
-        public static void BuildNewLich_Spelllist()
+        public static void BuildNew_Lich_Spelllist()
 
         {
             /*
             string text = "Lich_Spelllist";
-            Lich_spelllist = Helpers.SpelllistBuilder.create9LevelSpelllist(text, GuidHelper.Create(Settings.GUID, "DH" + text).ToString(), "",
+            Lich_spelllist = Helpers.SpelllistBuilder.create9LevelSpelllist(text, GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(), "",
                                                                     new List<SpellDefinition>
                                                                     {
                                                                                     DatabaseHelper.SpellDefinitions.FireBolt,
@@ -288,11 +313,14 @@ namespace SolastaCommunityExpansion.Monsters
 
             */
 
-            string text = "LichSpelllist";
+            string text = "Lich_Spelllist";
 
             Lich_spelllist = BuildNewSpelllist(
-                     "DH" + text,
-                     DatabaseHelper.SpellListDefinitions.SpellListMage
+                      text,
+                     DatabaseHelper.SpellListDefinitions.SpellListMage,
+                     GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                    "SpellList/&SpellListWizardTitle",
+                     "Feature/&NoContentTitle"
                       );
 
 
@@ -365,23 +393,23 @@ namespace SolastaCommunityExpansion.Monsters
                 Spells = new List<SpellDefinition>(),
                 Level = 7
             };
-            LichSpell_level_7.Spells.Add(ReverseGravity);
-            LichSpell_level_7.Spells.Add(PowerWordStun);
-            LichSpell_level_7.Spells.Add(PowerWordKill);
+            LichSpell_level_7.Spells.Add(NewMonsterSpells.ReverseGravity_Spell);
+            LichSpell_level_7.Spells.Add(NewMonsterSpells.PowerWordStun_Spell);
+            LichSpell_level_7.Spells.Add(NewMonsterSpells.PowerWordKill_Spell);
 
             SpellListDefinition.SpellsByLevelDuplet LichSpell_level_8 = new SpellListDefinition.SpellsByLevelDuplet
             {
                 Spells = new List<SpellDefinition>(),
                 Level = 8
             };
-            LichSpell_level_8.Spells.Add(PowerWordStun);
+            LichSpell_level_8.Spells.Add(NewMonsterSpells.PowerWordStun_Spell);
 
             SpellListDefinition.SpellsByLevelDuplet LichSpell_level_9 = new SpellListDefinition.SpellsByLevelDuplet
             {
                 Spells = new List<SpellDefinition>(),
                 Level = 9
             };
-            LichSpell_level_9.Spells.Add(PowerWordKill);
+            LichSpell_level_9.Spells.Add(NewMonsterSpells.PowerWordKill_Spell);
 
             Lich_spelllist.SetContentCopyright(BaseDefinition.Copyright.UserContent);
             Lich_spelllist.SetMaxSpellLevel(7);
@@ -406,14 +434,17 @@ namespace SolastaCommunityExpansion.Monsters
         public static void BuildNewCastSpell_Lich()
         {
 
-            string text = "CastSpellLich";
+            string text = "CastSpell_Lich";
 
 
 
 
             CastSpell_Lich = BuildNewCaster(
-                     "DH" + text,
-                     DatabaseHelper.FeatureDefinitionCastSpells.CastSpellMage
+                     "DH_Custom_" + text,
+                     DatabaseHelper.FeatureDefinitionCastSpells.CastSpellMage,
+                     GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                    "Spell/&DH_" + text + "_Title",
+                     "Spell/&DH_" + text + "_Description"
                       );
 
 
@@ -463,11 +494,11 @@ namespace SolastaCommunityExpansion.Monsters
         }
 
 
-        public static void BuildNewArchMage_Spelllist()
+        public static void BuildNew_ArchMage_Spelllist()
 
         {
             /*   string text = "ArchMage_Spelllist";
-               ArchMage_spelllist = Helpers.SpelllistBuilder.create9LevelSpelllist(text, GuidHelper.Create(Settings.GUID, "DH" + text).ToString(), "",
+               ArchMage_spelllist = Helpers.SpelllistBuilder.create9LevelSpelllist(text, GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(), "",
                                                                        new List<SpellDefinition>
                                                                        {
                                                                                        DatabaseHelper.SpellDefinitions.FireBolt,
@@ -520,11 +551,14 @@ namespace SolastaCommunityExpansion.Monsters
                ArchMage_spelllist.SetHasCantrips(true);
             */
 
-            string text = "ArchMageSpelllist";
+            string text = "ArchMage_Spelllist";
 
             Archmage_spelllist = BuildNewSpelllist(
-                     "DH" + text,
-                     DatabaseHelper.SpellListDefinitions.SpellListMage
+                      text,
+                     DatabaseHelper.SpellListDefinitions.SpellListMage,
+                     GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                    "SpellList/&SpellListWizardTitle",
+                     "Feature/&NoContentTitle"
                       );
 
 
@@ -592,23 +626,23 @@ namespace SolastaCommunityExpansion.Monsters
                 Spells = new List<SpellDefinition>(),
                 Level = 7
             };
-            ArchmageSpell_level_7.Spells.Add(ReverseGravity);
-            ArchmageSpell_level_7.Spells.Add(PowerWordStun);
-            ArchmageSpell_level_7.Spells.Add(TimeStop);
+            ArchmageSpell_level_7.Spells.Add(NewMonsterSpells.ReverseGravity_Spell);
+            ArchmageSpell_level_7.Spells.Add(NewMonsterSpells.PowerWordStun_Spell);
+            ArchmageSpell_level_7.Spells.Add(NewMonsterSpells.TimeStop_Spell);
 
             SpellListDefinition.SpellsByLevelDuplet ArchmageSpell_level_8 = new SpellListDefinition.SpellsByLevelDuplet
             {
                 Spells = new List<SpellDefinition>(),
                 Level = 8
             };
-            ArchmageSpell_level_8.Spells.Add(PowerWordStun);
+            ArchmageSpell_level_8.Spells.Add(NewMonsterSpells.PowerWordStun_Spell);
 
             SpellListDefinition.SpellsByLevelDuplet ArchmageSpell_level_9 = new SpellListDefinition.SpellsByLevelDuplet
             {
                 Spells = new List<SpellDefinition>(),
                 Level = 9
             };
-            ArchmageSpell_level_9.Spells.Add(TimeStop);
+            ArchmageSpell_level_9.Spells.Add(NewMonsterSpells.TimeStop_Spell);
 
             Archmage_spelllist.SetContentCopyright(BaseDefinition.Copyright.UserContent);
             Archmage_spelllist.SetMaxSpellLevel(7);
@@ -633,14 +667,17 @@ namespace SolastaCommunityExpansion.Monsters
         public static void BuildNewCastSpell_ArchMage()
         {
 
-            string text = "CastSpellArchMage";
+            string text = "CastSpell_ArchMage";
 
 
 
 
             CastSpell_ArchMage = BuildNewCaster(
-                     "DH" + text,
-                     DatabaseHelper.FeatureDefinitionCastSpells.CastSpellMage
+                     "DH_Custom_" + text,
+                     DatabaseHelper.FeatureDefinitionCastSpells.CastSpellMage,
+                     GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                    "Spell/&DH_" + text + "_Title",
+                     "Spell/&DH_" + text + "_Description"
                       );
 
 
@@ -689,12 +726,12 @@ namespace SolastaCommunityExpansion.Monsters
 
         }
 
-        public static void BuildNewGuardianNaga_Spelllist()
+        public static void BuildNew_GuardianNaga_Spelllist()
 
         {
             /*
                         string text = "GuardianNaga_Spelllist";
-                        GuardianNaga_spelllist = Helpers.SpelllistBuilder.create9LevelSpelllist(text, GuidHelper.Create(Settings.GUID, "DH" + text).ToString(), "",
+                        GuardianNaga_spelllist = Helpers.SpelllistBuilder.create9LevelSpelllist(text, GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(), "",
                                                                                 new List<SpellDefinition>
                                                                                 {
                                                                                                 DatabaseHelper.SpellDefinitions.SacredFlame
@@ -739,12 +776,15 @@ namespace SolastaCommunityExpansion.Monsters
                         */
 
 
-            string text = "GuardianNagaSpelllist";
+            string text = "GuardianNaga_Spelllist";
 
             GuardianNaga_spelllist = BuildNewSpelllist(
-            "DH" + text,
-            DatabaseHelper.SpellListDefinitions.SpellListHighPriest
-            );
+                      text,
+                     DatabaseHelper.SpellListDefinitions.SpellListHighPriest,
+                     GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                    "Feature/&GuardianNagaSpellListTitle",
+                     "Feature/&GuardianNagaSpellListDescription"
+                      );
 
 
             SpellListDefinition.SpellsByLevelDuplet GuardianNagaSpell_Cantrips = new SpellListDefinition.SpellsByLevelDuplet
@@ -821,14 +861,17 @@ namespace SolastaCommunityExpansion.Monsters
         public static void BuildNewCastSpell_GuardianNaga()
         {
 
-            string text = "CastSpellGuardianNaga";
+            string text = "CastSpell_GuardianNaga";
 
 
 
 
             CastSpell_GuardianNaga = BuildNewCaster(
-                     "DH" + text,
-                     DatabaseHelper.FeatureDefinitionCastSpells.CastSpellDivineAvatar_Wizard
+                     "DH_Custom_" + text,
+                     DatabaseHelper.FeatureDefinitionCastSpells.CastSpellDivineAvatar_Wizard,
+                     GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                    "Spell/&DH_" + text + "_Title",
+                     "Spell/&DH_" + text + "_Description"
                       );
 
 
@@ -877,14 +920,17 @@ namespace SolastaCommunityExpansion.Monsters
 
         }
 
-        public static void BuildNewAirTitan_SleetStorm_Immunity_MagicAffinity()
+        public static void BuildNew_AirTitan_SleetStorm_Immunity_MagicAffinity()
         {
-            string text = "SleetStormImmunity";
+            string text = "SleetStorm_Immunity";
 
 
             AirTitan_SleetStorm_Immunity = BuildNewMagicAffinity(
-                   "DH" + text,
-                   DatabaseHelper.FeatureDefinitionMagicAffinitys.MagicAffinityConditionImmuneToShine
+                   "DH_Custom_" + text,
+                   DatabaseHelper.FeatureDefinitionMagicAffinitys.MagicAffinityConditionImmuneToShine,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
                     );
 
 
@@ -894,12 +940,15 @@ namespace SolastaCommunityExpansion.Monsters
         public static void BuildNewFireTitan_Retaliate_DamageAffinity()
         {
 
-            string Power_text = "FireTitanRetaliatePower";
+            string Power_text = "FireTitan_Retaliate_Power";
 
 
             FeatureDefinitionPower FireTitan_Retaliate_Power = NewMonsterPowers.BuildNewPower(
-                    "DH" + Power_text,
-                    DatabaseHelper.FeatureDefinitionPowers.PowerRemorhazRetaliate
+                    "DH_Custom_" + Power_text,
+                    DatabaseHelper.FeatureDefinitionPowers.PowerRemorhazRetaliate,
+                    GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + Power_text).ToString(),
+                   "MonsterPower/&DH_" + Power_text + "_Title",
+                    "MonsterPower/&DH_" + Power_text + "_Description"
                      );
 
 
@@ -911,36 +960,44 @@ namespace SolastaCommunityExpansion.Monsters
 
 
 
-            string text = "FireTitanRetaliateDamageAffinity";
+            string text = "FireTitan_Retaliate_DamageAffinity";
 
 
             FireTitan_Retaliate_DamageAffinity = BuildNewDamageAffinity(
-                   "DH" + text,
-                   DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireImmunityRemorhaz
+                   "DH_Custom_" + text,
+                   DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireImmunityRemorhaz,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
                     );
 
             FireTitan_Retaliate_DamageAffinity.SetRetaliatePower(FireTitan_Retaliate_Power);
+
+
         }
 
 
-        public static void BuildNewAncientDragon_CombatDecisions()
+        public static void BuildNew_AncientDragon_CombatDecisions()
         {
-            string text = "AncientDragonCombatDecisions";
+            string text = "AncientDragon_CombatDecisions";
 
 
             AncientDragon_CombatDecisions = BuildNewDecisionPackageDefinition(
-                   "DH" + text,
-                   DatabaseHelper.DecisionPackageDefinitions.DragonCombatDecisions
+                   "DH_Custom_" + text,
+                   DatabaseHelper.DecisionPackageDefinitions.DragonCombatDecisions,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
                     );
 
             AncientDragon_CombatDecisions.Package.WeightedDecisions.Clear();
 
 
-            WeightedDecisionDescription weightedDecisionDescription = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription.SetDecision(DatabaseHelper.DecisionDefinitions.Move_SoftRetreat_Flying);
             weightedDecisionDescription.SetWeight(3);
 
-            WeightedDecisionDescription weightedDecisionDescription_2 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_2 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_2.SetDecision(DatabaseHelper.DecisionDefinitions.Move_Burrow_Aggressive_Small);
             weightedDecisionDescription_2.SetWeight(3);
 
@@ -960,119 +1017,140 @@ namespace SolastaCommunityExpansion.Monsters
                 );
 
         }
-        public static void BuildNewSummonCreature_Magic_Decision()
+        public static void BuildNew_SummonCreature_Magic_Decision()
         {
-            string text = "SummonCreatureMagicDecisions";
+            string text = "SummonCreature_Magic_Decision";
 
 
             SummonCreature_Magic_Decision = BuildNewDecisionDefinition(
-                   "DH" + text,
-                   DatabaseHelper.DecisionDefinitions.CastMagic_Debuff_AoE
+                   "DH_Custom_" + text,
+                   DatabaseHelper.DecisionDefinitions.CastMagic_Debuff_AoE,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
                     );
 
             SummonCreature_Magic_Decision.Decision.SetEnumParameter(((int)RuleDefinitions.MagicType.SummonsCreature));
 
             SummonCreature_Magic_Decision.Decision.SetStringParameter("SummonCreature");
         }
-        public static void BuildNewAtWillAOE_Magic_Decision()
+        public static void BuildNew_AtWillAOE_Magic_Decision()
         {
-            string text = "AtWillAOEMagicDecisions";
+            string text = "AtWillAOE_Magic_Decision";
 
 
             AtWillAOE_Magic_Decision = BuildNewDecisionDefinition(
-                   "DH" + text,
-                   DatabaseHelper.DecisionDefinitions.CastMagic_DPS_AoE
+                   "DH_Custom_" + text,
+                   DatabaseHelper.DecisionDefinitions.CastMagic_DPS_AoE,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
                     );
 
 
             AtWillAOE_Magic_Decision.Decision.SetStringParameter("AtWillAOE");
         }
-        public static void BuildNewCastMagic_StoneSkin_Decision()
+        public static void BuildNew_CastMagic_StoneSkin_Decision()
         {
-            string text = "CastMagicStoneSkinDecisions";
+            string text = "CastMagic_StoneSkin_Decision";
 
 
             CastMagic_Stoneskin_Decision = BuildNewDecisionDefinition(
-                   "DH" + text,
-                   DatabaseHelper.DecisionDefinitions.CastMagic_Fly_Self
+                   "DH_Custom_" + text,
+                   DatabaseHelper.DecisionDefinitions.CastMagic_Fly_Self,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
                     );
 
 
             CastMagic_Stoneskin_Decision.Decision.SetStringParameter("Stoneskin");
         }
-        public static void BuildNewLimitedPerDayAOE_Magic_Decision()
+        public static void BuildNew_LimitedPerDayAOE_Magic_Decision()
         {
-            string text = "LimitedPerDayAOEMagicDecisions";
+            string text = "LimitedPerDayAOE_Magic_Decision";
 
 
             LimitedPerDayAOE_Magic_Decision = BuildNewDecisionDefinition(
-                   "DH" + text,
-                   DatabaseHelper.DecisionDefinitions.CastMagic_DPS_AoE
+                   "DH_Custom_" + text,
+                   DatabaseHelper.DecisionDefinitions.CastMagic_DPS_AoE,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
                     );
 
             LimitedPerDayAOE_Magic_Decision.Decision.SetStringParameter("LimitedPerDayAOE");
         }
-        public static void BuildNewAtWillSelfBuff_Magic_Decision()
+        public static void BuildNew_AtWillSelfBuff_Magic_Decision()
         {
-            string text = "AtWillSelfBuffMagicDecisions";
+            string text = "AtWillSelfBuff_Magic_Decision";
 
 
             AtWillSelfBuff_Magic_Decision = BuildNewDecisionDefinition(
-                   "DH" + text,
-                   DatabaseHelper.DecisionDefinitions.CastMagic_SelfBuff
+                   "DH_Custom_" + text,
+                   DatabaseHelper.DecisionDefinitions.CastMagic_SelfBuff,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
                     );
 
 
             AtWillSelfBuff_Magic_Decision.Decision.SetStringParameter("AtWillSelfBuff");
         }
-        public static void BuildNewLimitedPerDayTargetDebuffMagic_Decision()
+        public static void BuildNew_LimitedPerDayTargetDebuffMagic_Decision()
         {
-            string text = "LimitedPerDayTargetDebuffMagicDecisions";
+            string text = "LimitedPerDayTargetDebuff_Magic_Decision";
 
 
             LimitedPerDayTargetDebuff_Magic_Decision = BuildNewDecisionDefinition(
-                   "DH" + text,
-                   DatabaseHelper.DecisionDefinitions.CastMagic_Debuff_SingleTarget
+                   "DH_Custom_" + text,
+                   DatabaseHelper.DecisionDefinitions.CastMagic_Debuff_SingleTarget,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
                     );
 
             LimitedPerDayTargetDebuff_Magic_Decision.Decision.SetStringParameter("LimitedPerDayTargetDebuff");
         }
 
-        public static void BuildNewSolar_CombatDecisions()
+        public static void BuildNew_Solar_CombatDecisions()
         {
-            string text = "SolarCombatDecisions";
+            string text = "Solar_CombatDecisions";
 
 
             Solar_CombatDecisions = BuildNewDecisionPackageDefinition(
-                   "DH" + text,
-                   DatabaseHelper.DecisionPackageDefinitions.DefaultRangeWithBackupMeleeDecisions
+                   "DH_Custom_" + text,
+                   DatabaseHelper.DecisionPackageDefinitions.DefaultRangeWithBackupMeleeDecisions,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
                     );
 
             Solar_CombatDecisions.Package.WeightedDecisions.Clear();
 
             //
-            WeightedDecisionDescription weightedDecisionDescription = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription.SetDecision(DatabaseHelper.DecisionDefinitions.RangedAttack_Default);
             weightedDecisionDescription.SetWeight(4.5f);
 
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_0 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_0 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_0.SetDecision(DatabaseHelper.DecisionDefinitions.MeleeAttack_Default);
             weightedDecisionDescription_0.SetWeight(1.5f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_1 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_1 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_1.SetDecision(AtWillSelfBuff_Magic_Decision);
             weightedDecisionDescription_1.SetWeight(2.5f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_2 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_2 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_2.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_SelfBuff_WithRandom);
             weightedDecisionDescription_2.SetWeight(2.5f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_3 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_3 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_3.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_Debuff_AoE);
             weightedDecisionDescription_3.SetWeight(2.5f);
 
@@ -1091,40 +1169,43 @@ namespace SolastaCommunityExpansion.Monsters
 
         }
 
-        public static void BuildNewHighLevelCaster_CombatDecisions()
+        public static void BuildNew_HighLevelCaster_CombatDecisions()
         {
-            string text = "HighLevelCasterCombatDecisions";
+            string text = "HighLevelCaster_CombatDecisions";
 
 
             HighLevelCaster_CombatDecisions = BuildNewDecisionPackageDefinition(
-                   "DH" + text,
-                   DatabaseHelper.DecisionPackageDefinitions.CubeOfLightCombatDecisions
+                   "DH_Custom_" + text,
+                   DatabaseHelper.DecisionPackageDefinitions.CubeOfLightCombatDecisions,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
                     );
 
             HighLevelCaster_CombatDecisions.Package.WeightedDecisions.Clear();
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_0 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_0 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_0.SetDecision(CastMagic_Stoneskin_Decision);
             weightedDecisionDescription_0.SetWeight(4);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_1 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_1 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_1.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_Fly_Self);
             weightedDecisionDescription_1.SetWeight(4);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_2 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_2 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_2.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_SelfBuff_WithRandom);
             weightedDecisionDescription_2.SetWeight(4);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_5 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_5 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_5.SetDecision(DatabaseHelper.DecisionDefinitions.Move_Ranged);
             weightedDecisionDescription_5.SetWeight(3.0f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_8 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_8 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_8.SetDecision(DatabaseHelper.DecisionDefinitions.Move_SoftRetreat_Flying);
             weightedDecisionDescription_8.SetWeight(1.5f);
 
@@ -1138,58 +1219,61 @@ namespace SolastaCommunityExpansion.Monsters
 
             HighLevelCaster_CombatDecisions.Package.WeightedDecisions.Add(weightedDecisionDescription_8);
         }
-        public static void BuildNewVampire_CombatDecisions()
+        public static void BuildNew_Vampire_CombatDecisions()
         {
-            string text = "VampireCombatDecisions";
+            string text = "Vampire_CombatDecisions";
 
 
             Vampire_CombatDecisions = BuildNewDecisionPackageDefinition(
-                   "DH" + text,
-                   DatabaseHelper.DecisionPackageDefinitions.DefilerCombatDecisions
+                   "DH_Custom_" + text,
+                   DatabaseHelper.DecisionPackageDefinitions.DefilerCombatDecisions,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
                     );
 
             Vampire_CombatDecisions.Package.WeightedDecisions.Clear();
 
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_0 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_0 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_0.SetDecision(DatabaseHelper.DecisionDefinitions.LongRangePathToEnemy_DashAvoidLight);
             weightedDecisionDescription_0.SetWeight(5f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_1 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_1 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_1.SetDecision(DatabaseHelper.DecisionDefinitions.MeleeAttack_Default);
             weightedDecisionDescription_1.SetWeight(4f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_2 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_2 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_2.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_Defiler_Darkness);
             weightedDecisionDescription_2.SetWeight(4f);
             weightedDecisionDescription_2.SetCooldown(3);
 
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_3 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_3 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_3.SetDecision(SummonCreature_Magic_Decision);
             weightedDecisionDescription_3.SetWeight(4f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_4 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_4 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_4.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_Defiler_Teleport);
             weightedDecisionDescription_4.SetWeight(3.0f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_5 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_5 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_5.SetDecision(DatabaseHelper.DecisionDefinitions.Move_AggressiveLightSensitive_Defiler);
             weightedDecisionDescription_5.SetWeight(2.0f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_6 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_6 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_6.SetDecision(DatabaseHelper.DecisionDefinitions.RangedAttack_Default);
             weightedDecisionDescription_6.SetWeight(1.0f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_7 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_7 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_7.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_Defiler_Teleport_Fallback);
             weightedDecisionDescription_7.SetWeight(0.1f);
 
@@ -1209,14 +1293,17 @@ namespace SolastaCommunityExpansion.Monsters
                                                                     );
         }
 
-        public static void BuildNewTitan_CombatDecisions()
+        public static void BuildNew_Titan_CombatDecisions()
         {
-            string text = "TitanCombatDecisions";
+            string text = "Titan_CombatDecisions";
 
 
             Titan_CombatDecisions = BuildNewDecisionPackageDefinition(
-                   "DH" + text,
-                   DatabaseHelper.DecisionPackageDefinitions.DefaultMeleeBeastCombatDecisions
+                   "DH_Custom_" + text,
+                   DatabaseHelper.DecisionPackageDefinitions.DefaultMeleeBeastCombatDecisions,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
                     );
 
             Titan_CombatDecisions.Package.WeightedDecisions.Clear();
@@ -1230,46 +1317,46 @@ namespace SolastaCommunityExpansion.Monsters
 
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_0 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_0 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_0.SetDecision(DatabaseHelper.DecisionDefinitions.LongRangePathToEnemy_Dash);
             weightedDecisionDescription_0.SetWeight(5f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_1 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_1 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_1.SetDecision(LimitedPerDayAOE_Magic_Decision);
             weightedDecisionDescription_1.SetWeight(4f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_2 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_2 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_2.SetDecision(AtWillAOE_Magic_Decision);
             weightedDecisionDescription_2.SetWeight(3.5f);
 
 
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_3 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_3 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_3.SetDecision(SummonCreature_Magic_Decision);
             weightedDecisionDescription_3.SetWeight(3.5f);
             weightedDecisionDescription_3.SetDynamicCooldown(true);
             weightedDecisionDescription_3.SetCooldown(3);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_4 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_4 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_4.SetDecision(DatabaseHelper.DecisionDefinitions.MeleeAttack_Default);
             weightedDecisionDescription_4.SetWeight(3.0f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_5 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_5 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_5.SetDecision(DatabaseHelper.DecisionDefinitions.Move_AggressiveSingleTargetAndSpread);
             weightedDecisionDescription_5.SetWeight(2.0f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_6 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_6 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_6.SetDecision(DatabaseHelper.DecisionDefinitions.RangedAttack_Default);
             weightedDecisionDescription_6.SetWeight(1.0f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_7 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_7 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_7.SetDecision(DatabaseHelper.DecisionDefinitions.Emote_Angry);
             weightedDecisionDescription_7.SetWeight(1.0f);
 
@@ -1288,14 +1375,17 @@ namespace SolastaCommunityExpansion.Monsters
                                                                     weightedDecisionDescription_7
                                                                     );
         }
-        public static void BuildNewConstructTitan_CombatDecisions()
+        public static void BuildNew_ConstructTitan_CombatDecisions()
         {
-            string text = "ConstructTitanCombatDecisions";
+            string text = "ConstructTitan_CombatDecisions";
 
 
             ConstructTitan_CombatDecisions = BuildNewDecisionPackageDefinition(
-                   "DH" + text,
-                   DatabaseHelper.DecisionPackageDefinitions.DefaultMeleeBeastCombatDecisions
+                   "DH_Custom_" + text,
+                   DatabaseHelper.DecisionPackageDefinitions.DefaultMeleeBeastCombatDecisions,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
                     );
 
             ConstructTitan_CombatDecisions.Package.WeightedDecisions.Clear();
@@ -1309,46 +1399,46 @@ namespace SolastaCommunityExpansion.Monsters
 
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_0 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_0 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_0.SetDecision(DatabaseHelper.DecisionDefinitions.LongRangePathToEnemy_Dash);
             weightedDecisionDescription_0.SetWeight(5f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_1 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_1 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_1.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_DPS_AoE_DragonBreath);
             weightedDecisionDescription_1.SetWeight(4f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_2 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_2 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_2.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_FrightfulPresence_Dragon);
             weightedDecisionDescription_2.SetWeight(3.5f);
 
 
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_3 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_3 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_3.SetDecision(AtWillAOE_Magic_Decision);
             weightedDecisionDescription_3.SetWeight(3.5f);
             weightedDecisionDescription_3.SetDynamicCooldown(true);
             weightedDecisionDescription_3.SetCooldown(3);
-
+        
             //
-            WeightedDecisionDescription weightedDecisionDescription_4 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_4 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_4.SetDecision(DatabaseHelper.DecisionDefinitions.MeleeAttack_Default);
             weightedDecisionDescription_4.SetWeight(3.0f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_5 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_5 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_5.SetDecision(DatabaseHelper.DecisionDefinitions.Move_AggressiveSingleTargetAndSpread);
             weightedDecisionDescription_5.SetWeight(2.0f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_6 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_6 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_6.SetDecision(DatabaseHelper.DecisionDefinitions.RangedAttack_Default);
             weightedDecisionDescription_6.SetWeight(3.0f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_7 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_7 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_7.SetDecision(DatabaseHelper.DecisionDefinitions.Emote_Angry);
             weightedDecisionDescription_7.SetWeight(1.0f);
 
@@ -1368,56 +1458,59 @@ namespace SolastaCommunityExpansion.Monsters
                                                                     );
         }
 
-        public static void BuildNewNaga_CombatDecisions()
+        public static void BuildNew_Naga_CombatDecisions()
         {
-            string text = "NagaCombatDecisions";
+            string text = "Naga_CombatDecisions";
 
 
             Naga_CombatDecisions = BuildNewDecisionPackageDefinition(
-                   "DH" + text,
-                   DatabaseHelper.DecisionPackageDefinitions.FlyingSnakeCombatDecisions
+                   "DH_Custom_" + text,
+                   DatabaseHelper.DecisionPackageDefinitions.FlyingSnakeCombatDecisions,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
                     );
 
             Naga_CombatDecisions.Package.WeightedDecisions.Clear();
 
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_1 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_1 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_1.SetDecision(DatabaseHelper.DecisionDefinitions.MeleeAttack_Default);
             weightedDecisionDescription_1.SetWeight(4.5f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_2 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_2 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_2.SetDecision(DatabaseHelper.DecisionDefinitions.RangedAttack_Default);
             weightedDecisionDescription_2.SetWeight(4.5f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_4 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_4 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_4.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_SelfHeal);
             weightedDecisionDescription_4.SetWeight(4.5f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_3 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_3 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_3.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_SelfBuff);
             weightedDecisionDescription_3.SetWeight(3.5f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_5 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_5 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_5.SetDecision(DatabaseHelper.DecisionDefinitions.Move_Ranged);
             weightedDecisionDescription_5.SetWeight(3.0f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_6 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_6 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_6.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_DPS_SingleTarget);
             weightedDecisionDescription_6.SetWeight(2.5f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_7 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_7 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_7.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_Debuff_SingleTarget);
             weightedDecisionDescription_7.SetWeight(2.5f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_8 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_8 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_8.SetDecision(DatabaseHelper.DecisionDefinitions.Move_SoftRetreat_Flying);
             weightedDecisionDescription_8.SetWeight(1.5f);
 
@@ -1436,41 +1529,44 @@ namespace SolastaCommunityExpansion.Monsters
                                                                     );
         }
 
-        public static void BuildNewPitFiend_CombatDecisions()
+        public static void BuildNew_PitFiend_CombatDecisions()
         {
-            string text = "PitFiendCombatDecisions";
+            string text = "PitFiend_CombatDecisions";
 
 
             PitFiend_CombatDecisions = BuildNewDecisionPackageDefinition(
-                   "DH" + text,
-                   DatabaseHelper.DecisionPackageDefinitions.DefaultMeleeBeastCombatDecisions
+                   "DH_Custom_" + text,
+                   DatabaseHelper.DecisionPackageDefinitions.DefaultMeleeBeastCombatDecisions,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
                     );
 
             PitFiend_CombatDecisions.Package.WeightedDecisions.Clear();
 
             // summon creature 1/day
-            WeightedDecisionDescription weightedDecisionDescription = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription.SetDecision(SummonCreature_Magic_Decision);
             weightedDecisionDescription.SetWeight(4.5f);
 
 
             // frightful presence roll 5 or 6
-            WeightedDecisionDescription weightedDecisionDescription_0 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_0 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_0.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_FrightfulPresence_Dragon);
             weightedDecisionDescription_0.SetWeight(4.5f);
 
             // wall of fire 3/day
-            WeightedDecisionDescription weightedDecisionDescription_1 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_1 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_1.SetDecision(LimitedPerDayTargetDebuff_Magic_Decision);
             weightedDecisionDescription_1.SetWeight(3.0f);
 
             // hold person 3/day
-            WeightedDecisionDescription weightedDecisionDescription_2 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_2 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_2.SetDecision(LimitedPerDayAOE_Magic_Decision);
             weightedDecisionDescription_2.SetWeight(3.0f);
 
             // at will fireballs
-            WeightedDecisionDescription weightedDecisionDescription_3 = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_3 = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription_3.SetDecision(AtWillAOE_Magic_Decision);
             weightedDecisionDescription_3.SetWeight(3.0f);
 
@@ -1491,20 +1587,23 @@ namespace SolastaCommunityExpansion.Monsters
 
         }
 
-        public static void BuildNewBalor_CombatDecisions()
+        public static void BuildNew_Balor_CombatDecisions()
         {
-            string text = "BalorCombatDecisions";
+            string text = "Balor_CombatDecisions";
 
 
             Balor_CombatDecisions = BuildNewDecisionPackageDefinition(
-                   "DH" + text,
-                   DatabaseHelper.DecisionPackageDefinitions.PhaseSpiderCombatDecisions
+                   "DH_Custom_" + text,
+                   DatabaseHelper.DecisionPackageDefinitions.PhaseSpiderCombatDecisions,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
                     );
 
             Balor_CombatDecisions.Package.WeightedDecisions.Clear();
 
             // summon creature 1/day
-            WeightedDecisionDescription weightedDecisionDescription = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription.SetDecision(SummonCreature_Magic_Decision);
             weightedDecisionDescription.SetWeight(4.5f);
 
@@ -1525,20 +1624,23 @@ namespace SolastaCommunityExpansion.Monsters
 
         }
 
-        public static void BuildNewNalfeshnee_CombatDecisions()
+        public static void BuildNew_Nalfeshnee_CombatDecisions()
         {
-            string text = "NalfeshneeCombatDecisions";
+            string text = "Nalfeshnee_CombatDecisions";
 
 
             Nalfeshnee_CombatDecisions = BuildNewDecisionPackageDefinition(
-                   "DH" + text,
-                   DatabaseHelper.DecisionPackageDefinitions.PhaseSpiderCombatDecisions
+                   "DH_Custom_" + text,
+                   DatabaseHelper.DecisionPackageDefinitions.PhaseSpiderCombatDecisions,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
                     );
 
             Nalfeshnee_CombatDecisions.Package.WeightedDecisions.Clear();
 
             // frightful presence roll 5 or 6
-            WeightedDecisionDescription weightedDecisionDescription = new WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription = new TA.AI.WeightedDecisionDescription();
             weightedDecisionDescription.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_FrightfulPresence_Dragon);
             weightedDecisionDescription.SetWeight(4.5f);
 
@@ -1559,56 +1661,68 @@ namespace SolastaCommunityExpansion.Monsters
 
         }
 
-        //
-        //
-        //
 
-        public static FeatureDefinitionCastSpell BuildNewCaster(string name, FeatureDefinitionCastSpell baseCaster)
+        //-------------------------------------------------------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------------------------------------------------------
+        public static FeatureDefinitionCastSpell BuildNewCaster(string name, FeatureDefinitionCastSpell baseCaster, string guid, string title, string description)
         {
             return FeatureDefinitionCastSpellBuilder
-                .Create(baseCaster, name, DefinitionBuilder.CENamespaceGuid)
-                .SetOrUpdateGuiPresentation(Category.Spell)
+                .Create(baseCaster, name, guid)
+                .SetOrUpdateGuiPresentation(title, description)
                 .AddToDB();
         }
 
-        public static FeatureDefinitionDamageAffinity BuildNewDamageAffinity(string name, FeatureDefinitionDamageAffinity baseDamageAffinity)
+        public static FeatureDefinitionDamageAffinity BuildNewDamageAffinity(string name, FeatureDefinitionDamageAffinity baseDamageAffinity, string guid, string title, string description)
         {
             return FeatureDefinitionDamageAffinityBuilder
-                .Create(baseDamageAffinity, name, DefinitionBuilder.CENamespaceGuid)
-                .SetOrUpdateGuiPresentation(Category.MonsterPower)
+                .Create(baseDamageAffinity, name, guid)
+                .SetOrUpdateGuiPresentation(title, description)
                 .AddToDB();
         }
 
-        public static DecisionPackageDefinition BuildNewDecisionPackageDefinition(string name, DecisionPackageDefinition baseDecisionPackageDefinition)
+
+        public static TA.AI.DecisionPackageDefinition BuildNewDecisionPackageDefinition(string name, TA.AI.DecisionPackageDefinition baseDecisionPackageDefinition, string guid, string title, string description)
         {
             return DecisionPackageDefinitionBuilder
-                .Create(baseDecisionPackageDefinition, name, DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentationNoContent()
+                .Create(baseDecisionPackageDefinition, name, guid)
+                .SetOrUpdateGuiPresentation(title, description)
                 .AddToDB();
         }
 
-        public static DecisionDefinition BuildNewDecisionDefinition(string name, DecisionDefinition baseDecisionDefinition)
+        public static TA.AI.DecisionDefinition BuildNewDecisionDefinition(string name, TA.AI.DecisionDefinition baseDecisionDefinition, string guid, string title, string description)
         {
             return DecisionDefinitionBuilder
-                .Create(baseDecisionDefinition, name, DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentationNoContent()
+                .Create(baseDecisionDefinition, name, guid)
+                .SetOrUpdateGuiPresentation(title, description)
                 .AddToDB();
         }
 
-        public static FeatureDefinitionMagicAffinity BuildNewMagicAffinity(string name, FeatureDefinitionMagicAffinity baseMagicAffinity)
+        public static MonsterPresentationDefinition BuildNewMonsterPresentation(string name, MonsterPresentationDefinition baseMonsterPresentation, string guid, string title, string description)
+        {
+            return MonsterPresentationDefinitionBuilder
+                .Create(baseMonsterPresentation, name, guid)
+                .SetOrUpdateGuiPresentation(title, description)
+                .AddToDB();
+        }
+
+        public static FeatureDefinitionMagicAffinity BuildNewMagicAffinity(string name, FeatureDefinitionMagicAffinity baseMagicAffinity, string guid, string title, string description)
         {
             return FeatureDefinitionMagicAffinityBuilder
-                .Create(baseMagicAffinity, name, DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentationNoContent()
+                .Create(baseMagicAffinity, name, guid)
+                .SetOrUpdateGuiPresentation(title, description)
                 .AddToDB();
         }
 
-        public static SpellListDefinition BuildNewSpelllist(string name, SpellListDefinition baseSpellList)
+
+        public static SpellListDefinition BuildNewSpelllist(string name, SpellListDefinition baseSpellList, string guid, string title, string description)
         {
             return SpellListDefinitionBuilder
-                .Create(baseSpellList, name, DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentationNoContent()
+                .Create(baseSpellList, name, guid)
+                .SetOrUpdateGuiPresentation(title, description)
                 .AddToDB();
         }
+
+
     }
 }

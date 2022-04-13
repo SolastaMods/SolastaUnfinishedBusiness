@@ -9,36 +9,37 @@ namespace SolastaCommunityExpansion.Monsters
 {
     public static class NewMonsterPowers
     {
-        public static FeatureDefinitionPower Generic_Lightning_Attack_Power { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower Balor_FireAura_Power { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower IncreasedGravityZone_Power { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower Lich_DisruptLife_Power { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower FireTitan_Aura_Power { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower AirTitan_Lightning_Power { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower AirTitan_Gale_Power { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower AirTitan_LightningStorm_Attack_Power { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower EarthTitan_Earthquake_Power { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower IlluminatingCrystals_Power { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower DisintegratingBeam_Power { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower AtWillSelfBuff_Invisibility_Power { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower AtWillAOE_Fireball_Power { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower LimitedPerDayTargetDebuff_HoldMonster_Power { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower LimitedPerDayAOE_WallOfFire_Power { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower SummonCreature_Erinyes_Power { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower ErinyesParry_Power { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower SummonCreature_Nalfeshnee_Power { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower SearingBurst_Power { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower BlindingGaze_Power { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower SummonCreature_Elemental_Power { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower SummonCreature_Wolves_Power { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower SummonCreature_LesserConstruct_Power { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower AncientDragon_Wing_Power { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower TarrasqueSwallowPower { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower VampireCharmPower { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower Generic_Lightning_Attack_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower Balor_FireAura_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower IncreasedGravityZone_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower Lich_DisruptLife_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower FireTitan_Aura_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower AirTitan_Lightning_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower AirTitan_Gale_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower AirTitan_LightningStorm_Attack_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower EarthTitan_Earthquake_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower IlluminatingCrystals_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower DisintegratingBeam_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower AtWillSelfBuff_Invisibility_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower AtWillAOE_Fireball_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower LimitedPerDayTargetDebuff_HoldMonster_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower LimitedPerDayAOE_WallOfFire_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower SummonCreature_Erinyes_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower ErinyesParry_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower SummonCreature_Nalfeshnee_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower SearingBurst_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower BlindingGaze_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower SummonCreature_Elemental_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower SummonCreature_Wolves_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower SummonCreature_LesserConstruct_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower AncientDragon_Wing_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower TarrasqueSwallowPower  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower VampireCharmPower  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
 
-        public static Dictionary<string, FeatureDefinitionPower> DictionaryOfAncientDragonBreaths { get; private set; } = new Dictionary<string, FeatureDefinitionPower>();
-        public static Dictionary<string, FeatureDefinitionPower> DictionaryOfGenericBreathsWithExtraDamage { get; private set; } = new Dictionary<string, FeatureDefinitionPower>();
-        public static Dictionary<string, FeatureDefinitionPower> Dictionaryof_SummoningElementals { get; private set; } = new Dictionary<string, FeatureDefinitionPower>();
+        public static Dictionary<string, FeatureDefinitionPower> DictionaryOfAncientDragonBreaths  { get; private set; } = new Dictionary<string, FeatureDefinitionPower>();
+        public static Dictionary<string, FeatureDefinitionPower> DictionaryOfGenericBreathsWithExtraDamage  { get; private set; } = new Dictionary<string, FeatureDefinitionPower>();
+        public static Dictionary<string, FeatureDefinitionPower> Dictionaryof_SummoningElementals  { get; private set; } = new Dictionary<string, FeatureDefinitionPower>();
+
 
         internal static void Create()
         {
@@ -72,67 +73,93 @@ namespace SolastaCommunityExpansion.Monsters
         }
         public static void BuildNewTarrasqueSwallowPower()
         {
-            var text = "TarrasqueSwallowPower";
+
+            string text = "TarrasqueSwallowPower";
+
 
             ConditionDefinition TarrasqueSwallowingCondition = NewMonsterAttacks.BuildNewCondition(
-                "DHTarrasqueSwallowingcondition",
-                DatabaseHelper.ConditionDefinitions.ConditionSwallowingRemorhaz
-                );
+                         "DH_Custom_TarrasqueSwallowingcondition",
+                         DatabaseHelper.ConditionDefinitions.ConditionSwallowingRemorhaz,
+                         GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_TarrasqueSwallowingcondition").ToString(),
+                        "MonsterAttack/&DH_Custom_TarrasqueSwallowingcondition_Title",
+                        "MonsterAttack/&DH_Custom_TarrasqueSwallowingcondition_Description"
+           );
 
             TarrasqueSwallowingCondition.SetInterruptionDamageThreshold(60);
             TarrasqueSwallowingCondition.SetInterruptionRequiresSavingThrow(false);
 
+
+
+
             ConditionDefinition TarrasqueSwallowedCondition = NewMonsterAttacks.BuildNewCondition(
-                "DHTarrasqueSwallowedcondition",
-                DatabaseHelper.ConditionDefinitions.ConditionSwallowedRemorhaz
-            );
+                         "DH_Custom_TarrasqueSwallowedcondition",
+                         DatabaseHelper.ConditionDefinitions.ConditionSwallowedRemorhaz,
+                         GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_TarrasqueSwallowedcondition").ToString(),
+                        "MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Title",
+                        "MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Description"
+           );
 
             TarrasqueSwallowedCondition.RecurrentEffectForms[0].DamageForm.SetDiceNumber(16);
 
+
             TarrasqueSwallowPower = BuildNewPower(
-                "DH" + text,
-                DatabaseHelper.FeatureDefinitionPowers.PowerRemorhazSwallow
-            );
+                    text + "DH_Custom" ,
+                   DatabaseHelper.FeatureDefinitionPowers.PowerRemorhazSwallow,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
             TarrasqueSwallowPower.EffectDescription.SetTargetConditionAsset(NewMonsterAttacks.TarrasqueGrappledRestrainedCondition);
+
             TarrasqueSwallowPower.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(4);
             TarrasqueSwallowPower.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D12);
             TarrasqueSwallowPower.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(10);
             TarrasqueSwallowPower.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypePiercing);
+
             TarrasqueSwallowPower.EffectDescription.EffectForms[2].ConditionForm.SetConditionDefinition(TarrasqueSwallowedCondition);
+
             TarrasqueSwallowPower.EffectDescription.EffectForms[3].ConditionForm.SetConditionDefinition(TarrasqueSwallowingCondition);
+
             TarrasqueSwallowPower.EffectDescription.EffectForms.RemoveAt(1);
         }
-
         public static void BuildNewErinyesParry_Power()
         {
-            var text = "ErinyesParryPower";
+
+            string text = "ErinyesParry_Power";
+
 
             ErinyesParry_Power = BuildNewPower(
-                "DH" + text,
-                DatabaseHelper.FeatureDefinitionPowers.PowerFeatTwinBlade
-            );
+                   "DH_Custom_" + text,
+                   DatabaseHelper.FeatureDefinitionPowers.PowerFeatTwinBlade,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
             ErinyesParry_Power.SetReactionContext(RuleDefinitions.ReactionTriggerContext.HitByMelee);
             ErinyesParry_Power.EffectDescription.EffectForms[0].ConditionForm.SetApplyToSelf(true);
             ErinyesParry_Power.EffectDescription.EffectForms[0].ConditionForm.SetForceOnSelf(true);
         }
-
         public static void BuildNewVampireCharmPower()
         {
-            var text = "VampireCharmPower";
+
+            string text = "VampireCharmPower";
+
 
             VampireCharmPower = BuildNewPower(
-                "DH" + text,
-                DatabaseHelper.FeatureDefinitionPowers.PowerLaetharParalyzingGaze
-            );
+                   "DH_Custom_" + text,
+                   DatabaseHelper.FeatureDefinitionPowers.PowerLaetharParalyzingGaze,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                   "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
             EffectDescription effectDescription = new EffectDescription();
             effectDescription.Copy(DatabaseHelper.SpellDefinitions.HypnoticPattern.EffectDescription);
             effectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
             effectDescription.SetTargetSide(RuleDefinitions.Side.Enemy);
             effectDescription.SetTargetParameter(1);
-            effectDescription.SetTargetParameter2(2);
             effectDescription.SetDifficultyClassComputation(RuleDefinitions.EffectDifficultyClassComputation.FixedValue);
             effectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions.Wisdom.Name);
             effectDescription.SetFixedSavingThrowDifficultyClass(17);
@@ -140,16 +167,17 @@ namespace SolastaCommunityExpansion.Monsters
         }
         public static void BuildNewGeneric_Lightning_Attack()
         {
+
             // for storm giant
-            var text = "GenericLightningAttackPower";
+            string text = "Generic_Lightning_Attack";
 
             /*
                      //   FeatureDefinitionPower Generic_Lightning_Attack_Power = Helpers.GenericPowerBuilder<FeatureDefinitionPower>
                                .createPower(
-                               text + "DHCustom_Power",
-                               GuidHelper.Create(Settings.GUID, text + "DHCustom_Power").ToString(),
-                               "Feature/&DH_" + text + "_Custom_PowerTitle",
-                               "Feature/&DH_" + text + "_Custom_PowerDescription",
+                               text + "DH_Custom_Power",
+                               GuidHelper.Create(new System.Guid(Settings.GUID), text + "DH_Custom_Power").ToString(),
+                               "Feature/&DH_" + text + "_Custom_Power_Title",
+                               "Feature/&DH_" + text + "_Custom_Power_Description",
                                DatabaseHelper.SpellDefinitions.LightningBolt.GuiPresentation.SpriteReference,
                                DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalLightningBlade.EffectDescription,
                                RuleDefinitions.ActivationTime.Action,
@@ -164,9 +192,13 @@ namespace SolastaCommunityExpansion.Monsters
                         */
 
             Generic_Lightning_Attack_Power = BuildNewPower(
-                "DH" + text,
-                DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalLightningBlade
-            );
+                       text + "DH_Custom_Power",
+                       DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalLightningBlade,
+                       GuidHelper.Create(new System.Guid(Settings.GUID), text + "DH_Custom_Power").ToString(),
+                       "Feature/&DH_" + text + "_Custom_Power_Title",
+                       "Feature/&DH_" + text + "_Custom_Power_Description"
+                        );
+
 
             Generic_Lightning_Attack_Power.SetActivationTime(RuleDefinitions.ActivationTime.Action);
             Generic_Lightning_Attack_Power.SetFixedUsesPerRecharge(1);
@@ -176,6 +208,9 @@ namespace SolastaCommunityExpansion.Monsters
             Generic_Lightning_Attack_Power.SetAbilityScore("Charisma");
             Generic_Lightning_Attack_Power.SetCostPerUse(1);
             Generic_Lightning_Attack_Power.SetShowCasting(true);
+
+
+
 
             Generic_Lightning_Attack_Power.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Cylinder);
             Generic_Lightning_Attack_Power.EffectDescription.SetTargetParameter(3);
@@ -190,8 +225,13 @@ namespace SolastaCommunityExpansion.Monsters
             Generic_Lightning_Attack_Power.EffectDescription.SetFixedSavingThrowDifficultyClass(17);
         }
 
+
         public static void BuildNew_AncientDragon_Breath_Power()
         {
+
+
+
+
             Dictionary<string, int> dictionaryofAncientDragonBreathExtraDamageDiceNumbers = new Dictionary<string, int>
             {
                 { "Ancient Black Dragon", 15 },
@@ -228,14 +268,20 @@ namespace SolastaCommunityExpansion.Monsters
                 { "Ancient White Dragon", DatabaseHelper.SpellDefinitions.ConeOfCold.EffectDescription.EffectParticleParameters }
             };
 
+
             foreach (KeyValuePair<string, string> entry in NewMonsterAttributes.Dictionaryof_Dragon_DamageAffinity)
             {
-                var text = entry.Value.Replace(" ", "").Replace("_", "") + "BreathPower";
+
+                string text = entry.Value;
+                text = text.Replace(" ", "");
 
                 FeatureDefinitionPower Dragon_Breath_Power = BuildNewPower(
-                    "DH" + text,
-                    DatabaseHelper.FeatureDefinitionPowers.PowerDragonBreath_Fire
-                );
+                       "PowerDragonBreath_DH_Custom_" + text,
+                       DatabaseHelper.FeatureDefinitionPowers.PowerDragonBreath_Fire,
+                       GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                      "MonsterPower/&DH_" + text + "_Breath_Power" + "_Title",
+                       "MonsterPower/&DH_" + text + "_Breath_Power" + "_Description"
+                        );
 
                 Dragon_Breath_Power.EffectDescription.SetTargetType(dictionaryofAncientDragonBreathShape[entry.Key]);
                 Dragon_Breath_Power.EffectDescription.SetTargetParameter(20);
@@ -247,54 +293,82 @@ namespace SolastaCommunityExpansion.Monsters
                 Dragon_Breath_Power.EffectDescription.SetFixedSavingThrowDifficultyClass(23);
 
                 DictionaryOfAncientDragonBreaths.Add(entry.Key, Dragon_Breath_Power);
+
+
                 DictionaryOfGenericBreathsWithExtraDamage.Add(entry.Value, Dragon_Breath_Power);
             }
+
+
+
+
         }
 
 
         public static void BuildNewBalor_FireAura_Power()
         {
-            var text = "BalorFireAuraPower";
+
+            string text = "Balor_FireAura_Power";
+
 
             Balor_FireAura_Power = BuildNewPower(
-                "DH" + text,
-                DatabaseHelper.FeatureDefinitionPowers.PowerArrokAuraOfFire
-            );
+                   "DH_Custom_" + text,
+                   DatabaseHelper.FeatureDefinitionPowers.PowerArrokAuraOfFire,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
             Balor_FireAura_Power.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Sphere);
             Balor_FireAura_Power.EffectDescription.SetTargetParameter(4);
+
             Balor_FireAura_Power.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(3);
             Balor_FireAura_Power.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
             Balor_FireAura_Power.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypeFire);
-        }
 
+
+
+        }
         public static void BuildNewLich_DisruptLife_Power()
         {
-            var text = "LichDisruptLifePower";
+
+            string text = "Lich_DisruptLife_Power";
+
 
             Lich_DisruptLife_Power = BuildNewPower(
-                "DH" + text,
-                DatabaseHelper.FeatureDefinitionPowers.PowerFireOspreyBlast
-            );
+                   "DH_Custom_" + text,
+                   DatabaseHelper.FeatureDefinitionPowers.PowerFireOspreyBlast,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
             Lich_DisruptLife_Power.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Sphere);
             Lich_DisruptLife_Power.EffectDescription.SetTargetParameter(4);
             Lich_DisruptLife_Power.EffectDescription.SetFixedSavingThrowDifficultyClass(18);
             Lich_DisruptLife_Power.EffectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions.Constitution.Name);
             Lich_DisruptLife_Power.EffectDescription.SetSavingThrowDifficultyAbility(DatabaseHelper.SmartAttributeDefinitions.Constitution.Name);
+
+
             Lich_DisruptLife_Power.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(6);
             Lich_DisruptLife_Power.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
             Lich_DisruptLife_Power.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypeNecrotic);
-        }
 
+
+
+        }
         public static void BuildNewAncientDragon_Wing_Power()
         {
-            var text = "AncientDragonWingPower";
+
+            string text = "AncientDragon_Wing_Power";
+
 
             AncientDragon_Wing_Power = BuildNewPower(
-                "DH" + text,
-                DatabaseHelper.FeatureDefinitionPowers.PowerDragonWingAttack
-            );
+                   "DH_Custom_" + text,
+                   DatabaseHelper.FeatureDefinitionPowers.PowerDragonWingAttack,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
             AncientDragon_Wing_Power.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(9);
             AncientDragon_Wing_Power.EffectDescription.SetFixedSavingThrowDifficultyClass(24);
@@ -302,6 +376,7 @@ namespace SolastaCommunityExpansion.Monsters
 
         public static void BuildNewSummonCreature_Elemental_Power()
         {
+
             Dictionary<SpellDefinition, int> dictionaryelementals = new Dictionary<SpellDefinition, int>
             {
                 { DatabaseHelper.SpellDefinitions.ConjureElementalAir, 1 },
@@ -312,20 +387,25 @@ namespace SolastaCommunityExpansion.Monsters
                 { DatabaseHelper.SpellDefinitions.ConjureMinorElementalsTwo, 2 }
             };
 
+
             foreach (KeyValuePair<SpellDefinition, int> entry in dictionaryelementals)
 
             {
-                var text = "SummonCreature" + entry.Key.EffectDescription.EffectForms[0].SummonForm.MonsterDefinitionName.Replace("_", "") + "Power";
+                string text = "SummonCreature_" + entry.Key.EffectDescription.EffectForms[0].SummonForm.MonsterDefinitionName + "_Power";
 
                 SummonCreature_Elemental_Power = BuildNewPower(
-                    "DH" + text,
-                    DatabaseHelper.FeatureDefinitionPowers.PowerClericDivineInterventionPaladin
-                );
+                    text,
+                   DatabaseHelper.FeatureDefinitionPowers.PowerClericDivineInterventionPaladin,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
                 SummonCreature_Elemental_Power.SetHasCastingFailure(false);
                 SummonCreature_Elemental_Power.EffectDescription.Copy(DatabaseHelper.SpellDefinitions.ConjureGoblinoids.EffectDescription);
                 SummonCreature_Elemental_Power.EffectDescription.EffectForms[0].SummonForm.SetMonsterDefinitionName(entry.Key.EffectDescription.EffectForms[0].SummonForm.MonsterDefinitionName);
                 SummonCreature_Elemental_Power.EffectDescription.EffectForms[0].SummonForm.SetNumber(entry.Value);
+
                 SummonCreature_Elemental_Power.SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
                 SummonCreature_Elemental_Power.SetActivationTime(RuleDefinitions.ActivationTime.Action);
 
@@ -333,18 +413,25 @@ namespace SolastaCommunityExpansion.Monsters
             }
         }
 
+
         public static void BuildNewSearingBurst_Power()
         {
-            var text = "SearingBurstPower";
+
+            string text = "SearingBurst_Power";
+
 
             SearingBurst_Power = BuildNewPower(
-                "DH" + text,
-                DatabaseHelper.FeatureDefinitionPowers.PowerFireOspreyBlast
-            );
+                   "DH_Custom_" + text,
+                   DatabaseHelper.FeatureDefinitionPowers.PowerFireOspreyBlast,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
             SearingBurst_Power.SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
             SearingBurst_Power.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Sphere);
             SearingBurst_Power.EffectDescription.SetTargetParameter(4);
+
             SearingBurst_Power.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(4);
             SearingBurst_Power.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
             SearingBurst_Power.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypeFire);
@@ -356,6 +443,7 @@ namespace SolastaCommunityExpansion.Monsters
             damageForm.SetDieType(RuleDefinitions.DieType.D6);
             damageForm.SetBonusDamage(0);
             damageForm.SetDamageType(RuleDefinitions.DamageTypeRadiant);
+
 
             EffectForm extraDamageEffect = new EffectForm();
             extraDamageEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
@@ -372,50 +460,70 @@ namespace SolastaCommunityExpansion.Monsters
             SearingBurst_Power.EffectDescription.SetSavingThrowDifficultyAbility(DatabaseHelper.SmartAttributeDefinitions.Dexterity.Name);
             SearingBurst_Power.EffectDescription.SetHasSavingThrow(true);
             SearingBurst_Power.EffectDescription.SetFixedSavingThrowDifficultyClass(23);
-        }
 
+        }
         public static void BuildNewBlindingGaze_Power()
         {
-            var text = "BlindingGazePower";
+
+            string text = "BlindingGaze_Power";
+
 
             BlindingGaze_Power = BuildNewPower(
-                "DH" + text,
-                DatabaseHelper.FeatureDefinitionPowers.PowerLaetharParalyzingGaze
-            );
+                   "DH_Custom_" + text,
+                   DatabaseHelper.FeatureDefinitionPowers.PowerLaetharParalyzingGaze,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
             BlindingGaze_Power.SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
             BlindingGaze_Power.EffectDescription.EffectForms[0].SetCanSaveToCancel(false);
+
             BlindingGaze_Power.EffectDescription.EffectForms[0].ConditionForm.SetConditionDefinition(DatabaseHelper.ConditionDefinitions.ConditionBlinded);
+
+
+
         }
 
         public static void BuildNewAtWillSelfBuff_Invisibility_Power()
         {
-            var text = "AtWillSelfBuffInvisibilityPower";
+
+            string text = "AtWillSelfBuff_Invisibility_Power";
+
 
             AtWillSelfBuff_Invisibility_Power = BuildNewPower(
-                "DH" + text,
-                DatabaseHelper.FeatureDefinitionPowers.PowerDomainBattleDivineWrath
-            );
+                   text + "_DH_Custom",
+                   DatabaseHelper.FeatureDefinitionPowers.PowerDomainBattleDivineWrath,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
             AtWillSelfBuff_Invisibility_Power.SetGuiPresentation(DatabaseHelper.SpellDefinitions.Invisibility.GuiPresentation);
             AtWillSelfBuff_Invisibility_Power.EffectDescription.Copy(DatabaseHelper.SpellDefinitions.Invisibility.EffectDescription);
             AtWillSelfBuff_Invisibility_Power.SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
             AtWillSelfBuff_Invisibility_Power.SetActivationTime(RuleDefinitions.ActivationTime.Action);
+
         }
 
         public static void BuildNewAtWillAOE_Fireball_Power()
         {
-            var text = "AtWillAOEFireballPower";
+
+            string text = "AtWillAOE_Fireball_Power";
+
 
             AtWillAOE_Fireball_Power = BuildNewPower(
-                "DH" + text,
-                DatabaseHelper.FeatureDefinitionPowers.PowerDomainBattleDivineWrath
-            );
-
+                   text + "_DH_Custom",
+                   DatabaseHelper.FeatureDefinitionPowers.PowerDomainBattleDivineWrath,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
             AtWillAOE_Fireball_Power.SetGuiPresentation(DatabaseHelper.SpellDefinitions.Fireball.GuiPresentation);
             AtWillAOE_Fireball_Power.EffectDescription.Copy(DatabaseHelper.SpellDefinitions.Fireball.EffectDescription);
             AtWillAOE_Fireball_Power.SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
             AtWillAOE_Fireball_Power.SetActivationTime(RuleDefinitions.ActivationTime.Action);
+
             AtWillAOE_Fireball_Power.EffectDescription.SetDifficultyClassComputation(RuleDefinitions.EffectDifficultyClassComputation.FixedValue);
             AtWillAOE_Fireball_Power.EffectDescription.EffectForms[0].SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.HalfDamage);
             AtWillAOE_Fireball_Power.EffectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions.Dexterity.Name);
@@ -424,12 +532,17 @@ namespace SolastaCommunityExpansion.Monsters
 
         public static void BuildNewLimitedPerDayTargetDebuff_HoldMonster_Power()
         {
-            var text = "LimitedPerDayTargetDebuffHoldMonsterPower";
+
+            string text = "LimitedPerDayTargetDebuff_HoldMonster_Power";
+
 
             LimitedPerDayTargetDebuff_HoldMonster_Power = BuildNewPower(
-                "DH" + text,
-                DatabaseHelper.FeatureDefinitionPowers.PowerDomainLawAnathema
-            );
+                   text,
+                   DatabaseHelper.FeatureDefinitionPowers.PowerDomainLawAnathema,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
             LimitedPerDayTargetDebuff_HoldMonster_Power.SetUniqueInstance(true);
             LimitedPerDayTargetDebuff_HoldMonster_Power.SetGuiPresentation(DatabaseHelper.SpellDefinitions.HoldMonster.GuiPresentation);
@@ -437,44 +550,59 @@ namespace SolastaCommunityExpansion.Monsters
             LimitedPerDayTargetDebuff_HoldMonster_Power.EffectDescription.Copy(DatabaseHelper.SpellDefinitions.HoldMonster.EffectDescription);
             LimitedPerDayTargetDebuff_HoldMonster_Power.EffectDescription.SetDifficultyClassComputation(RuleDefinitions.EffectDifficultyClassComputation.FixedValue);
             LimitedPerDayTargetDebuff_HoldMonster_Power.EffectDescription.SetFixedSavingThrowDifficultyClass(21);
+
             LimitedPerDayTargetDebuff_HoldMonster_Power.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
             LimitedPerDayTargetDebuff_HoldMonster_Power.SetCostPerUse(1);
             LimitedPerDayTargetDebuff_HoldMonster_Power.SetFixedUsesPerRecharge(3);
             LimitedPerDayTargetDebuff_HoldMonster_Power.SetActivationTime(RuleDefinitions.ActivationTime.Action);
+
         }
+
 
         public static void BuildNewLimitedPerDayAOE_WallOfFire_Power()
         {
-            var text = "LimitedPerDayAOEWallOfFirePower";
+
+            string text = "LimitedPerDayAOE_WallOfFire_Power";
 
             LimitedPerDayAOE_WallOfFire_Power = BuildNewPower(
-                "DH" + text,
-                DatabaseHelper.FeatureDefinitionPowers.PowerDomainBattleDivineWrath
-            );
+                   text,
+                   DatabaseHelper.FeatureDefinitionPowers.PowerDomainBattleDivineWrath,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
             LimitedPerDayAOE_WallOfFire_Power.SetUniqueInstance(false);
             LimitedPerDayAOE_WallOfFire_Power.SetGuiPresentation(DatabaseHelper.SpellDefinitions.WallOfFire.GuiPresentation);
             LimitedPerDayAOE_WallOfFire_Power.EffectDescription.Copy(DatabaseHelper.SpellDefinitions.WallOfFireRing_Outer.EffectDescription);
             LimitedPerDayAOE_WallOfFire_Power.EffectDescription.SetDifficultyClassComputation(RuleDefinitions.EffectDifficultyClassComputation.FixedValue);
             LimitedPerDayAOE_WallOfFire_Power.EffectDescription.SetFixedSavingThrowDifficultyClass(21);
+
+
             LimitedPerDayAOE_WallOfFire_Power.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
             LimitedPerDayAOE_WallOfFire_Power.SetCostPerUse(1);
             LimitedPerDayAOE_WallOfFire_Power.SetFixedUsesPerRecharge(3);
             LimitedPerDayAOE_WallOfFire_Power.SetActivationTime(RuleDefinitions.ActivationTime.Action);
+
         }
 
         public static void BuildNewSummonCreature_Erinyes_Power()
         {
-            var text = "SummonCreatureErinyesPower";
+
+            string text = "SummonCreature_Erinyes_Power";
 
             SummonCreature_Erinyes_Power = BuildNewPower(
-                "DH" + text,
-                DatabaseHelper.FeatureDefinitionPowers.PowerClericDivineInterventionPaladin
-            );
+                   text,
+                   DatabaseHelper.FeatureDefinitionPowers.PowerClericDivineInterventionPaladin,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
             SummonCreature_Erinyes_Power.SetHasCastingFailure(false);
             SummonCreature_Erinyes_Power.EffectDescription.Copy(DatabaseHelper.SpellDefinitions.ConjureGoblinoids.EffectDescription);
             SummonCreature_Erinyes_Power.EffectDescription.EffectForms[0].SummonForm.SetMonsterDefinitionName("Custom_Erinyes");
+
             SummonCreature_Erinyes_Power.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
             SummonCreature_Erinyes_Power.SetCostPerUse(1);
             SummonCreature_Erinyes_Power.SetFixedUsesPerRecharge(1);
@@ -484,50 +612,69 @@ namespace SolastaCommunityExpansion.Monsters
 
         public static void BuildNewSummonCreature_Nalfeshnee_Power()
         {
-            var text = "SummonCreatureNalfeshneePower";
+
+            string text = "SummonCreature_Nalfeshnee_Power";
 
             SummonCreature_Nalfeshnee_Power = BuildNewPower(
-                "DH" + text,
-                DatabaseHelper.FeatureDefinitionPowers.PowerClericDivineInterventionPaladin
-            );
+                   text,
+                   DatabaseHelper.FeatureDefinitionPowers.PowerClericDivineInterventionPaladin,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
             SummonCreature_Nalfeshnee_Power.SetHasCastingFailure(false);
             SummonCreature_Nalfeshnee_Power.EffectDescription.Copy(DatabaseHelper.SpellDefinitions.ConjureGoblinoids.EffectDescription);
             SummonCreature_Nalfeshnee_Power.EffectDescription.EffectForms[0].SummonForm.SetMonsterDefinitionName("Custom_Nalfeshnee");
             SummonCreature_Nalfeshnee_Power.EffectDescription.EffectForms[0].SummonForm.SetNumber(2);
+
             SummonCreature_Nalfeshnee_Power.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
             SummonCreature_Nalfeshnee_Power.SetCostPerUse(1);
             SummonCreature_Nalfeshnee_Power.SetFixedUsesPerRecharge(2);
             SummonCreature_Nalfeshnee_Power.SetActivationTime(RuleDefinitions.ActivationTime.Action);
+
         }
 
         public static void BuildNewSummonCreature_Wolves_Power()
         {
-            var text = "SummonCreatureWolvesPower";
+
+            string text = "SummonCreature_Wolves_Power";
 
             SummonCreature_Wolves_Power = BuildNewPower(
-                "DH" + text,
-                DatabaseHelper.FeatureDefinitionPowers.PowerClericDivineInterventionPaladin
-            );
+                   text,
+                   DatabaseHelper.FeatureDefinitionPowers.PowerClericDivineInterventionPaladin,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
             SummonCreature_Wolves_Power.SetHasCastingFailure(false);
             SummonCreature_Wolves_Power.EffectDescription.Copy(DatabaseHelper.SpellDefinitions.ConjureGoblinoids.EffectDescription);
             SummonCreature_Wolves_Power.EffectDescription.EffectForms[0].SummonForm.SetMonsterDefinitionName("Wolf");
             SummonCreature_Wolves_Power.EffectDescription.EffectForms[0].SummonForm.SetNumber(3);
+
             SummonCreature_Wolves_Power.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
             SummonCreature_Wolves_Power.SetCostPerUse(1);
             SummonCreature_Wolves_Power.SetFixedUsesPerRecharge(3);
             SummonCreature_Wolves_Power.SetActivationTime(RuleDefinitions.ActivationTime.Action);
+
         }
+
+
 
         public static void BuildNewAirTitan_Gale_Power()
         {
-            var text = "AirTitanGalePower";
+
+            string text = "AirTitan_Gale_Power";
+
 
             AirTitan_Gale_Power = BuildNewPower(
-                "DH" + text,
-                DatabaseHelper.FeatureDefinitionPowers.PowerDragonWingAttack
-            );
+                   "DH_Custom_" + text,
+                   DatabaseHelper.FeatureDefinitionPowers.PowerDragonWingAttack,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
             AirTitan_Gale_Power.EffectDescription.SetTargetParameter(10);
             AirTitan_Gale_Power.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(4);
@@ -555,6 +702,7 @@ namespace SolastaCommunityExpansion.Monsters
             effectForm.SetHasSavingThrow(true);
             effectForm.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
 
+
             AirTitan_Gale_Power.EffectDescription.EffectForms.Add(effectForm);
 
             MotionForm motionForm_2 = new MotionForm();
@@ -572,34 +720,51 @@ namespace SolastaCommunityExpansion.Monsters
             effectForm_2.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
 
             AirTitan_Gale_Power.EffectDescription.EffectForms.Add(effectForm_2);
-        }
 
+
+        }
         public static void BuildNewFireTitan_Aura_Power()
         {
-            var text = "FireTitanAuraPower";
+
+            string text = "FireTitan_Aura_Power";
+
 
             FireTitan_Aura_Power = BuildNewPower(
-                "DH" + text,
-                DatabaseHelper.FeatureDefinitionPowers.PowerArrokAuraOfFire
-            );
+                   "DH_Custom_" + text,
+                   DatabaseHelper.FeatureDefinitionPowers.PowerArrokAuraOfFire,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
             FireTitan_Aura_Power.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Sphere);
             FireTitan_Aura_Power.EffectDescription.SetTargetParameter(10);
+
             FireTitan_Aura_Power.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(10);
             FireTitan_Aura_Power.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
             FireTitan_Aura_Power.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypeFire);
+
+
+
         }
+
 
         public static void BuildNewAirTitan_Lightning_Power()
         {
-            var text = "AirTitanLightningPower";
+
+            string text = "AirTitan_Lightning_Power";
+
 
             AirTitan_Lightning_Power = BuildNewPower(
-                "DH" + text,
-                DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalLightningBlade
-            );
+                   "DH_Custom_" + text,
+                   DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalLightningBlade,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
             AirTitan_Lightning_Power.SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
+
             AirTitan_Lightning_Power.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Cylinder);
             AirTitan_Lightning_Power.EffectDescription.SetTargetParameter(2);
             AirTitan_Lightning_Power.EffectDescription.SetRangeParameter(100);
@@ -611,16 +776,22 @@ namespace SolastaCommunityExpansion.Monsters
             AirTitan_Lightning_Power.EffectDescription.SetFixedSavingThrowDifficultyClass(20);
         }
 
+
+
+
+
+
         public static void BuildNewAirTitan_LightningStorm_Attack()
         {
-            var text = "AirTitanLightningStormPower";
+
+            string text = "AirTitan_LightningStorm";
             /*
                         AirTitan_LightningStorm_Attack_Power = Helpers.GenericPowerBuilder<FeatureDefinitionPower>
                                .createPower(
-                               "LimitedPerDayAOE_"+text + "DHCustom_Power",
-                               GuidHelper.Create(Settings.GUID, text + "DHCustom_Power").ToString(),
-                               "Feature/&DH_" + text + "_Custom_PowerTitle",
-                               "Feature/&DH_" + text + "_Custom_PowerDescription",
+                               "LimitedPerDayAOE_"+text + "DH_Custom_Power",
+                               GuidHelper.Create(new System.Guid(Settings.GUID), text + "DH_Custom_Power").ToString(),
+                               "Feature/&DH_" + text + "_Custom_Power_Title",
+                               "Feature/&DH_" + text + "_Custom_Power_Description",
                                DatabaseHelper.SpellDefinitions.LightningBolt.GuiPresentation.SpriteReference,
                                DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalLightningBlade.EffectDescription,
                                RuleDefinitions.ActivationTime.Action,
@@ -634,9 +805,13 @@ namespace SolastaCommunityExpansion.Monsters
                                );
             */
             AirTitan_LightningStorm_Attack_Power = BuildNewPower(
-                "DH" + text,
-                DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalLightningBlade
-            );
+                    "LimitedPerDayAOE_" + text + "DH_Custom_Power",
+                     DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalLightningBlade,
+                     GuidHelper.Create(new System.Guid(Settings.GUID), text + "DH_Custom_Power").ToString(),
+                     "Feature/&DH_" + text + "_Custom_Power_Title",
+                     "Feature/&DH_" + text + "_Custom_Power_Description"
+                      );
+
 
             AirTitan_LightningStorm_Attack_Power.SetActivationTime(RuleDefinitions.ActivationTime.Action);
             AirTitan_LightningStorm_Attack_Power.SetFixedUsesPerRecharge(1);
@@ -646,6 +821,8 @@ namespace SolastaCommunityExpansion.Monsters
             AirTitan_LightningStorm_Attack_Power.SetAbilityScore("Charisma");
             AirTitan_LightningStorm_Attack_Power.SetCostPerUse(1);
             AirTitan_LightningStorm_Attack_Power.SetShowCasting(true);
+
+
             AirTitan_LightningStorm_Attack_Power.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Cylinder);
             AirTitan_LightningStorm_Attack_Power.EffectDescription.SetTargetParameter(24);
             AirTitan_LightningStorm_Attack_Power.EffectDescription.SetRangeParameter(0);
@@ -655,42 +832,55 @@ namespace SolastaCommunityExpansion.Monsters
             AirTitan_LightningStorm_Attack_Power.EffectDescription.EffectForms[0].SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.HalfDamage);
             AirTitan_LightningStorm_Attack_Power.EffectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions.Dexterity.Name);
             AirTitan_LightningStorm_Attack_Power.EffectDescription.SetFixedSavingThrowDifficultyClass(20);
+
         }
 
         public static void BuildNewIlluminatingCrystals_Power()
         {
-            var text = "IlluminatingCrystalsPower";
+
+            string text = "IlluminatingCrystals_Power";
+
 
             IlluminatingCrystals_Power = BuildNewPower(
-                "DH" + text,
-                DatabaseHelper.FeatureDefinitionPowers.PowerFireOspreyBlast
-            );
+                   "AtWillAOE_DH_Custom_" + text,
+                   DatabaseHelper.FeatureDefinitionPowers.PowerFireOspreyBlast,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
             EffectDescription effectDescription = new EffectDescription();
             effectDescription.Copy(DatabaseHelper.SpellDefinitions.FaerieFire.EffectDescription);
             IlluminatingCrystals_Power.SetEffectDescription(effectDescription);
             IlluminatingCrystals_Power.EffectDescription.SetTargetExcludeCaster(true);
             IlluminatingCrystals_Power.EffectDescription.SetTargetParameter(6);
-            IlluminatingCrystals_Power.EffectDescription.SetTargetParameter2(2);
             IlluminatingCrystals_Power.EffectDescription.SetRangeParameter(0);
             IlluminatingCrystals_Power.EffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
             IlluminatingCrystals_Power.EffectDescription.SetTargetType(RuleDefinitions.TargetType.PerceivingWithinDistance);
             IlluminatingCrystals_Power.EffectDescription.SetHasSavingThrow(false);
+
+
         }
 
         public static void BuildNewDisintegratingBeam_Power()
         {
-            var text = "DisintegratingBeamPower";
+
+            string text = "DisintegratingBeam_Power";
+
 
             DisintegratingBeam_Power = BuildNewPower(
-                "DH" + text,
-                DatabaseHelper.FeatureDefinitionPowers.PowerDragonBreath_Acid
-            );
+                   "PowerDragonBreath_DH_Custom_" + text,
+                   DatabaseHelper.FeatureDefinitionPowers.PowerDragonBreath_Acid,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
             EffectDescription effectDescription = new EffectDescription();
             effectDescription.Copy(DatabaseHelper.SpellDefinitions.Disintegrate.EffectDescription);
             DisintegratingBeam_Power.SetEffectDescription(effectDescription);
             DisintegratingBeam_Power.EffectDescription.SetEffectParticleParameters(DatabaseHelper.SpellDefinitions.LightningBolt.EffectDescription.EffectParticleParameters);
+
             DisintegratingBeam_Power.EffectDescription.SetFixedSavingThrowDifficultyClass(26);
             DisintegratingBeam_Power.EffectDescription.SetDifficultyClassComputation(RuleDefinitions.EffectDifficultyClassComputation.FixedValue);
             DisintegratingBeam_Power.EffectDescription.SetTargetParameter(30);
@@ -699,20 +889,27 @@ namespace SolastaCommunityExpansion.Monsters
             DisintegratingBeam_Power.EffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
             DisintegratingBeam_Power.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Line);
             DisintegratingBeam_Power.EffectDescription.SetHasSavingThrow(true);
+
             DisintegratingBeam_Power.EffectDescription.EffectForms[0].SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.HalfDamage);
             DisintegratingBeam_Power.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(11);
             DisintegratingBeam_Power.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D10);
             DisintegratingBeam_Power.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypeRadiant);
-        }
 
+
+        }
         public static void BuildNewIncreasedGravityZone_Attack()
         {
-            var text = "IncreasedGravityZoneAttackPower";
+
+            string text = "IncreasedGravityZone_Attack";
+
 
             IncreasedGravityZone_Power = BuildNewPower(
-                "DH" + text,
-                DatabaseHelper.FeatureDefinitionPowers.PowerDragonWingAttack
-            );
+                   "AtWillAOEDH_Custom_" + text,
+                   DatabaseHelper.FeatureDefinitionPowers.PowerDragonWingAttack,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
             EffectDescription effectDescription = new EffectDescription();
             effectDescription.Copy(DatabaseHelper.FeatureDefinitionPowers.PowerFireOspreyBlast.EffectDescription);
@@ -765,35 +962,46 @@ namespace SolastaCommunityExpansion.Monsters
             effect.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
 
             IncreasedGravityZone_Power.EffectDescription.EffectForms.Add(effect);
-        }
 
+        }
         public static void BuildNewSummonCreature_LesserConstruct_Power()
         {
-            var text = "SummonCreatureLesserConstructPower";
+
+            string text = "SummonCreature_LesserConstruct_Power";
 
             SummonCreature_LesserConstruct_Power = BuildNewPower(
-                "DH" + text,
-                DatabaseHelper.FeatureDefinitionPowers.PowerClericDivineInterventionPaladin
-            );
+                   text,
+                   DatabaseHelper.FeatureDefinitionPowers.PowerClericDivineInterventionPaladin,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
             SummonCreature_LesserConstruct_Power.SetHasCastingFailure(false);
             SummonCreature_LesserConstruct_Power.EffectDescription.Copy(DatabaseHelper.SpellDefinitions.ConjureGoblinoids.EffectDescription);
             SummonCreature_LesserConstruct_Power.EffectDescription.EffectForms[0].SummonForm.SetMonsterDefinitionName("Magic_Mouth");
             SummonCreature_LesserConstruct_Power.EffectDescription.EffectForms[0].SummonForm.SetNumber(3);
+
             SummonCreature_LesserConstruct_Power.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
             SummonCreature_LesserConstruct_Power.SetCostPerUse(1);
             SummonCreature_LesserConstruct_Power.SetFixedUsesPerRecharge(3);
             SummonCreature_LesserConstruct_Power.SetActivationTime(RuleDefinitions.ActivationTime.Action);
+
         }
 
         public static void BuildNewEarthTitan_Earthquake_Power()
         {
-            var text = "EarthTitanEarthquakePower";
+
+            string text = "EarthTitan_Earthquake_Power";
+
 
             EarthTitan_Earthquake_Power = BuildNewPower(
-                "DH" + text,
-                DatabaseHelper.FeatureDefinitionPowers.PowerDragonWingAttack
-            );
+                   "DH_Custom_" + text,
+                   DatabaseHelper.FeatureDefinitionPowers.PowerDragonWingAttack,
+                   GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
             EarthTitan_Earthquake_Power.EffectDescription.SetTargetParameter(20);
             EarthTitan_Earthquake_Power.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(4);
@@ -817,13 +1025,20 @@ namespace SolastaCommunityExpansion.Monsters
             effectForm.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
 
             EarthTitan_Earthquake_Power.EffectDescription.EffectForms.Add(effectForm);
+
+
         }
 
-        public static FeatureDefinitionPower BuildNewPower(string name, FeatureDefinitionPower basePower)
+
+        //************************************************************************************************************************************
+        //************************************************************************************************************************************
+
+
+        public static FeatureDefinitionPower BuildNewPower(string name, FeatureDefinitionPower basePower, string guid, string title, string description)
         {
             return FeatureDefinitionPowerBuilder
-                .Create(basePower, name, DefinitionBuilder.CENamespaceGuid)
-                .SetOrUpdateGuiPresentation(Category.MonsterPower)
+                .Create(basePower, name, guid)
+                .SetOrUpdateGuiPresentation(title, description)
                 .AddToDB();
         }
     }
