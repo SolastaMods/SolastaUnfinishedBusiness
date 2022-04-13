@@ -674,7 +674,7 @@ Feature/&AdditionalDamageFeatShadySneakAttackDescription	Once per turn, you can 
 Feature/&AdditionalDamageFeatShadySneakAttackTitle	Shady Sneak Attack
 Feature/&AdditionalDamageHinderingBlastDescription	When you hit a creature with your eldritch blast, you can reduce that creature's speed by 10 feet until the end of your next turn
 Feature/&AdditionalDamageHinderingBlastTitle	Hindering Blast
-Feature/&AgonizingBlastFeatureSetDescription	When you cast a spell using force damage (eldritch blast), add your Charisma modifier to the damage it deals on a hit.
+Feature/&AgonizingBlastFeatureSetDescription	When you cast a spell using force damage (eldritch blast), add 1d4 to the damage it deals on a hit.
 Feature/&AgonizingBlastFeatureSetTitle	Agonizing Blast
 Feature/&AHSoulBladeEmpowerDamageBonusDescription	You are empowered and do a damage bonus equal to your proficiency on all your attacks.
 Feature/&AHSoulBladeEmpowerWeaponConditionDescription	You are empowered and do a damage bonus equal to your proficiency on all your attacks.
@@ -1004,7 +1004,7 @@ Feature/&WallofThornsFeatureSetTitle	Forest Barrier
 Feature/&ZSPowerPaladinCleansingTouchDescription	Remove spell effects by touching an ally. You can do this a number of times per day equal to your Charisma modifier.
 Feature/&ZSPowerPaladinCleansingTouchTitle	Cleansing Touch
 Feedback/&AdditionalDamageAgonizing_BlastFormat	Agonizing Blast
-Feedback/&AdditionalDamageAgonizing_BlastLine	When you cast a spell using force damage (eldritch blast), add your Charisma modifier to the damage it deals on a hit.
+Feedback/&AdditionalDamageAgonizing_BlastLine	When you cast a spell using force damage (eldritch blast), add 1d4 to the damage it deals on a hit.
 Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat	Additional Damage from Magically Powered Attacks
 Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine	Additional Damage from Magically Powered Attacks
 Feedback/&AdditionalDamageArcaneFirearmFormat	Blasting Enhancement!
@@ -1281,6 +1281,21 @@ SpellList/&RiftWalkerSpellsListTitle	Rift Walker SpellList
 SpellList/&SpellListTinkererDescription	Tinkerer Spelllist
 SpellList/&SpellListTinkererTitle	Tinkerer Spelllist
 Stage/&IdentityMorphotypeEyeHeader	Eye Style
+Stage/&SubclassSelectionStagePatronDescription	A warlock is defined by a pact with an otherworldly being. Sometimes the relationship between warlock and patron is like that of a cleric and a deity, though the beings that serve as patrons are not gods
+Stage/&SubclassSelectionStagePatronFeatures	Otherwordly Patrons Features
+Stage/&SubclassSelectionStagePatronHeader	Warlock Otherwordly Patrons
+Stage/&SubclassSelectionStagePatronTitle	Otherwordly Patrons
+Stage/&SubclassSelectionStageCovenDescription	Coven
+Stage/&SubclassSelectionStageCovenFeaturesDescription	Coven
+Stage/&SubclassSelectionStageCovenFeaturesHeader	Coven Features
+Stage/&SubclassSelectionStageCovenFeaturesTitle	Coven
+Stage/&SubclassSelectionStageCovenHeader	Select a Coven
+Stage/&SubclassSelectionStageCovenTitle	Coven
+Stage/&SubclassSelectionStageSpecialistDescription	Description There are a wide range of specialties in Tinkerers including making elixirs as a Potion Maker, making explosions as a Blaster, and wielding magical weaponry as a Weapon Smith.
+Stage/&SubclassSelectionStageSpecialistFeatures	Specialist Features
+Stage/&SubclassSelectionStageSpecialistHeader	Specializations
+Stage/&SubclassSelectionStageSpecialistNoneDescription	Specialist None Description
+Stage/&SubclassSelectionStageSpecialistTitle	Select Specialization
 Subclass/&AbilityAffinityRogueConArtistDescription	Advantage on ability checks using Persuasion, Deception, Performance, and Sleight of Hand.
 Subclass/&AbilityAffinityRogueConArtistTitle	Manipulative
 Subclass/&AHWarlockSubclassSoulBladePactDescription	You have struck a bargain with a sentient weapon that you feed souls to in return for power.
