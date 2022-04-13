@@ -86,11 +86,9 @@
       <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\UnityModManager\UnityModManager.dll</HintPath>
       <Private>false</Private>
     </Reference>
-    <Reference Include="UniverseLib.Mono">
-      <HintPath>..\lib\UniverseLib.Mono.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityExplorer.STANDALONE.Mono">
-      <HintPath>..\lib\UnityExplorer.STANDALONE.Mono.dll</HintPath>
+    <Reference Include="SolastaCommunityExpansion">
+      <HintPath>$(SolastaInstallDir)\Mods\SolastaCommunityExpansion\SolastaCommunityExpansion.dll</HintPath>
+      <Private>False</Private>
     </Reference>
   </ItemGroup>
 

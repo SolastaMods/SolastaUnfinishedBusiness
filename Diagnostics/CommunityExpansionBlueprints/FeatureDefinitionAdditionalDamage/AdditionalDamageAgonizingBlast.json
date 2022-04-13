@@ -9,7 +9,7 @@
   "requiredTargetSenseType": "Darkvision",
   "requiredTargetCreatureTag": "",
   "requiredCharacterFamily": null,
-  "damageValueDetermination": "Die",
+  "damageValueDetermination": "SpellcastingBonus",
   "damageDieType": "D4",
   "damageDiceNumber": 1,
   "additionalDamageType": "AncestryDamageType",

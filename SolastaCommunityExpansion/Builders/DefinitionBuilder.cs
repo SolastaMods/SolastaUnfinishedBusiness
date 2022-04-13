@@ -88,13 +88,13 @@ namespace SolastaCommunityExpansion.Builders
         private protected static readonly MethodInfo GetDatabaseMethodInfo =
             typeof(DatabaseRepository).GetMethod("GetDatabase", BindingFlags.Public | BindingFlags.Static);
 
-        protected internal static readonly Guid CENamespaceGuid = new("b1ffaca74824486ea74a68d45e6b1925");
+        public static readonly Guid CENamespaceGuid = new("b1ffaca74824486ea74a68d45e6b1925");
     }
 
     // Used to allow extension methods in other mods to set GuiPresentation 
     // Adding SetGuiPresentation as a public method causes name clash issues.
     // Ok, could have used a different name...
-    internal interface IDefinitionBuilder
+    public interface IDefinitionBuilder
     {
         void SetGuiPresentation(GuiPresentation presentation);
         GuiPresentation GetGuiPresentation();
@@ -569,7 +569,7 @@ namespace SolastaCommunityExpansion.Builders
         /// </summary>
         /// <param name="name">The name assigned to the definition (mandatory)</param>
         /// <param name="namespaceGuid">The base or namespace guid from which to generate a guid for this definition.</param>
-        internal static TBuilder Create(string name, Guid namespaceGuid)
+        public static TBuilder Create(string name, Guid namespaceGuid)
         {
             return CreateImpl(name, namespaceGuid);
         }
@@ -579,7 +579,7 @@ namespace SolastaCommunityExpansion.Builders
         /// </summary>
         /// <param name="name">The name assigned to the definition (mandatory)</param>
         /// <param name="definitionGuid">The guid for this definition (mandatory)</param>
-        internal static TBuilder Create(string name, string definitionGuid)
+        public static TBuilder Create(string name, string definitionGuid)
         {
             return CreateImpl(name, definitionGuid);
         }
@@ -590,7 +590,7 @@ namespace SolastaCommunityExpansion.Builders
         /// <param name="original">The definition being copied.</param>
         /// <param name="name">The name assigned to the definition (mandatory).</param>
         /// <param name="namespaceGuid">The base or namespace guid from which to generate a guid for this definition.</param>
-        internal static TBuilder Create(TDefinition original, string name, Guid namespaceGuid)
+        public static TBuilder Create(TDefinition original, string name, Guid namespaceGuid)
         {
             return CreateImpl(original, name, namespaceGuid);
         }
@@ -601,7 +601,7 @@ namespace SolastaCommunityExpansion.Builders
         /// <param name="original">The definition being copied.</param>
         /// <param name="name">The name assigned to the definition (mandatory).</param>
         /// <param name="definitionGuid">The guid for this definition (mandatory).</param>
-        internal static TBuilder Create(TDefinition original, string name, string definitionGuid)
+        public static TBuilder Create(TDefinition original, string name, string definitionGuid)
         {
             return CreateImpl(original, name, definitionGuid);
         }
