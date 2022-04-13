@@ -239,7 +239,7 @@ namespace SolastaCommunityExpansion
         public bool UnleashNpcAsEnemy { get; set; }
         public bool UnleashEnemyAsNpc { get; set; }
         public bool EnableDungeonMakerModdedContent { get; set; }
-        //public bool EnableExtraHighLevelMonsters { get; set; }
+        public bool EnableExtraHighLevelMonsters { get; set; }
 
         //
         // Interface - Game UI
