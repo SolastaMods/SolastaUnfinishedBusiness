@@ -87,7 +87,7 @@ Feature/&UrPriestDomainTheftTitle	Domain Theft
 Feature/&UrPriestExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. Cleric spells are added to the warlock spell list for you
 Feature/&UrPriestExpandedSpelllistAfinityTitle	UrPriest Spells
 Feedback/&AdditionalDamageAgonizing_BlastFormat	Agonizing Blast
-Feedback/&AdditionalDamageAgonizing_BlastLine	When you cast a spell using force damage (eldritch blast), add 1d4 to the damage it deals on a hit.
+Feedback/&AdditionalDamageAgonizing_BlastLine	When you cast a spell using force damage (eldritch blast), add your Charisma modifier to the damage it deals on a hit.
 Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat	Additional Damage from Magically Powered Attacks
 Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine	Additional Damage from Magically Powered Attacks
 Feedback/&AdditionalDamageArcaneFirearmFormat	Blasting Enhancement!
