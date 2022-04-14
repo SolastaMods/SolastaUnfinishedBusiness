@@ -322,6 +322,7 @@ namespace SolastaModApi
             public static CharacterFamilyDefinition Fey { get; } = GetDefinition<CharacterFamilyDefinition>("Fey", "63797643242429841b1409512f4b487e");
             public static CharacterFamilyDefinition Fiend { get; } = GetDefinition<CharacterFamilyDefinition>("Fiend", "d5dc121ebb417664db6be40aef6d8d90");
             public static CharacterFamilyDefinition Giant { get; } = GetDefinition<CharacterFamilyDefinition>("Giant", "92f53aa281ce4d948a3808108d095314");
+            public static CharacterFamilyDefinition Giant_Rugan { get; } = GetDefinition<CharacterFamilyDefinition>("Giant_Rugan", "9e89d90316e5b56408e245c0b25a8737");
             public static CharacterFamilyDefinition Humanoid { get; } = GetDefinition<CharacterFamilyDefinition>("Humanoid", "f7aa818c9f44ba84180d6c255337cee8");
             public static CharacterFamilyDefinition Monstrosity { get; } = GetDefinition<CharacterFamilyDefinition>("Monstrosity", "a92853e018071294ea85fb0fa954a799");
             public static CharacterFamilyDefinition Ooze { get; } = GetDefinition<CharacterFamilyDefinition>("Ooze", "aff60c773b51a4a4685ff9a009f99b45");
@@ -7706,6 +7707,7 @@ namespace SolastaModApi
             public static NarrativeTreeDefinition DLC1_Narrative_Valley_CS_17_GIANT_04_Mid { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_Narrative_Valley_CS_17_GIANT_04_Mid", "e73434b286906684b8baccf64b0c5d54");
             public static NarrativeTreeDefinition DLC1_Narrative_Valley_CS_18_GIANT_05 { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_Narrative_Valley_CS_18_GIANT_05", "7a83cb9dae72c564583dee478a3bd7ca");
             public static NarrativeTreeDefinition DLC1_Narrative_Valley_CS_19_GIANT_06 { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_Narrative_Valley_CS_19_GIANT_06", "30d7525ddff9d414da539a8a31b98b5b");
+            public static NarrativeTreeDefinition DLC1_Narrative_Valley_CS_20_GIANT_05_End { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_Narrative_Valley_CS_20_GIANT_05_End", "0fdcfe263bdb24346bac538a03def56d");
             public static NarrativeTreeDefinition DLC1_Narrative_Valley_Cut_Cam_Treasure_Room { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_Narrative_Valley_Cut_Cam_Treasure_Room", "5952578dfadc0ee469c98546ee0b8854");
             public static NarrativeTreeDefinition DLC1_Narrative_Valley_Cut_Cam_Treasure_Room_A { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_Narrative_Valley_Cut_Cam_Treasure_Room_A", "c679ddfafddb85e4087915af0b77276d");
             public static NarrativeTreeDefinition DLC1_Narrative_Valley_Cut_Cam_Treasure_Room_B { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_Narrative_Valley_Cut_Cam_Treasure_Room_B", "65a4e2388b474ce4c868b46c27e26805");
