@@ -720,8 +720,10 @@ Feature/&AspectoftheMoonDescription	You no longer need to sleep and can keep wat
 Feature/&AspectoftheMoonTitle	Aspect of the Moon
 Feature/&AttributeModifierBolgrifAbilityScoreSetDescription	Wisdom +2, Strength +1
 Feature/&AttributeModifierBolgrifAbilityScoreSetTitle	Attribute Increase
-Feature/&AttributeModifierGnomeAbilityScoreSetDescription	Intelligence +2, Dexterity +1
-Feature/&AttributeModifierGnomeAbilityScoreSetTitle	Attribute Increase
+Feature/&AttributeModifierGnomeAbilityScoreIncreaseDescription	Intelligence +2
+Feature/&AttributeModifierGnomeAbilityScoreIncreaseTitle	Gnome Attribute Increase
+Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseDescription	Dexterity +1
+Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseTitle	Forest Gnome Attribute Increase
 Feature/&BarbarianIndomitableMightDescription	If your total for a Strength check is less than your Strength score, you can use that score in place of the total.
 Feature/&BarbarianIndomitableMightTitle	Indomitable Might
 Feature/&BardSkillsTitle	Bard Skills
