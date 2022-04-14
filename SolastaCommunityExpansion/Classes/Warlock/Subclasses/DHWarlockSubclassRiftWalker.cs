@@ -173,17 +173,16 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                    .Create(DatabaseHelper.SpellListDefinitions.SpellListPaladin, "RiftWalkerSpellsList", CENamespaceGuid)
                    .SetGuiPresentation("RiftWalkerSpellsList", Category.SpellList)
                    .ClearSpells()
-                 
-                //   .SetSpellsAtLevel(1, Jump, Longstrider)
-                //   .SetSpellsAtLevel(2, Blur, PassWithoutTrace)
-                //   .SetSpellsAtLevel(3, Haste, Slow)
-                //   .SetSpellsAtLevel(4, FreedomOfMovement, GreaterInvisibility)
-                //   .SetSpellsAtLevel(5, MindTwist, DispelEvilAndGood)
-                   .SetMaxSpellLevel(5, false)
+                   .SetSpellsAtLevel(1, Jump, Longstrider)
+                   .SetSpellsAtLevel(2, Blur, PassWithoutTrace)
+                   .SetSpellsAtLevel(3, Haste, Slow)
+                   .SetSpellsAtLevel(4, FreedomOfMovement, GreaterInvisibility)
+                   .SetSpellsAtLevel(5, MindTwist, DispelEvilAndGood)
+                   .FinalizeSpells()
                    .AddToDB();
-            RiftWalkerSpellList.ClearSpellsByLevel();
-            RiftWalkerSpellList.SpellsByLevel.AddRange(new List<SpellListDefinition.SpellsByLevelDuplet>()
-             {
+            //RiftWalkerSpellList.ClearSpellsByLevel();
+            //RiftWalkerSpellList.SpellsByLevel.AddRange(new List<SpellListDefinition.SpellsByLevelDuplet>()
+            // {
                 // new SpellListDefinition.SpellsByLevelDuplet
                 // {
                 //     Level =0,
@@ -191,53 +190,53 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 //     {
                 //     }
                 // },
-                 new SpellListDefinition.SpellsByLevelDuplet
-                 {
-                     Level =1,
-                     Spells = new List<SpellDefinition>
-                     {
-                         DatabaseHelper.SpellDefinitions.Jump,
-                         DatabaseHelper.SpellDefinitions.Longstrider
-                     }
-                 },
-                 new SpellListDefinition.SpellsByLevelDuplet
-                 {
-                     Level =2,
-                     Spells = new List<SpellDefinition>
-                     {
-                         DatabaseHelper.SpellDefinitions.Blur,
-                         DatabaseHelper.SpellDefinitions.PassWithoutTrace
-                     }
-                 },
-                 new SpellListDefinition.SpellsByLevelDuplet
-                 {
-                     Level =3,
-                     Spells = new List<SpellDefinition>
-                     {
-                         DatabaseHelper.SpellDefinitions.Haste,
-                         DatabaseHelper.SpellDefinitions.Slow
-                     }
-                 },
-                 new SpellListDefinition.SpellsByLevelDuplet
-                 {
-                     Level =4,
-                     Spells = new List<SpellDefinition>
-                     {
-                         DatabaseHelper.SpellDefinitions.FreedomOfMovement,
-                         DatabaseHelper.SpellDefinitions.GreaterInvisibility
-                     }
-                 },
-                 new SpellListDefinition.SpellsByLevelDuplet
-                 {
-                     Level =5,
-                     Spells = new List<SpellDefinition>
-                     {
-                         DatabaseHelper.SpellDefinitions.MindTwist,
-                         DatabaseHelper.SpellDefinitions.DispelEvilAndGood
-                     }
-                 },
+                 //new SpellListDefinition.SpellsByLevelDuplet
+                 //{
+                 //    Level =1,
+                 //    Spells = new List<SpellDefinition>
+                 //    {
+                 //        DatabaseHelper.SpellDefinitions.Jump,
+                 //        DatabaseHelper.SpellDefinitions.Longstrider
+                 //    }
+                 //},
+                 //new SpellListDefinition.SpellsByLevelDuplet
+                 //{
+                 //    Level =2,
+                 //    Spells = new List<SpellDefinition>
+                 //    {
+                 //        DatabaseHelper.SpellDefinitions.Blur,
+                 //        DatabaseHelper.SpellDefinitions.PassWithoutTrace
+                 //    }
+                 //},
+                 //new SpellListDefinition.SpellsByLevelDuplet
+                 //{
+                 //    Level =3,
+                 //    Spells = new List<SpellDefinition>
+                 //    {
+                 //        DatabaseHelper.SpellDefinitions.Haste,
+                 //        DatabaseHelper.SpellDefinitions.Slow
+                 //    }
+                 //},
+                 //new SpellListDefinition.SpellsByLevelDuplet
+                 //{
+                 //    Level =4,
+                 //    Spells = new List<SpellDefinition>
+                 //    {
+                 //        DatabaseHelper.SpellDefinitions.FreedomOfMovement,
+                 //        DatabaseHelper.SpellDefinitions.GreaterInvisibility
+                 //    }
+                 //},
+                 //new SpellListDefinition.SpellsByLevelDuplet
+                 //{
+                 //    Level =5,
+                 //    Spells = new List<SpellDefinition>
+                 //    {
+                 //        DatabaseHelper.SpellDefinitions.MindTwist,
+                 //        DatabaseHelper.SpellDefinitions.DispelEvilAndGood
+                 //    }
+                 //},
 
-             });
+             //});
          
             
 
