@@ -1281,6 +1281,21 @@ SpellList/&RiftWalkerSpellsListTitle	Rift Walker SpellList
 SpellList/&SpellListTinkererDescription	Tinkerer Spelllist
 SpellList/&SpellListTinkererTitle	Tinkerer Spelllist
 Stage/&IdentityMorphotypeEyeHeader	Eye Style
+Stage/&SubclassSelectionStagePatronDescription	A warlock is defined by a pact with an otherworldly being. Sometimes the relationship between warlock and patron is like that of a cleric and a deity, though the beings that serve as patrons are not gods
+Stage/&SubclassSelectionStagePatronFeatures	Otherwordly Patrons Features
+Stage/&SubclassSelectionStagePatronHeader	Warlock Otherwordly Patrons
+Stage/&SubclassSelectionStagePatronTitle	Otherwordly Patrons
+Stage/&SubclassSelectionStageCovenDescription	Coven
+Stage/&SubclassSelectionStageCovenFeaturesDescription	Coven
+Stage/&SubclassSelectionStageCovenFeaturesHeader	Coven Features
+Stage/&SubclassSelectionStageCovenFeaturesTitle	Coven
+Stage/&SubclassSelectionStageCovenHeader	Select a Coven
+Stage/&SubclassSelectionStageCovenTitle	Coven
+Stage/&SubclassSelectionStageSpecialistDescription	Description There are a wide range of specialties in Tinkerers including making elixirs as a Potion Maker, making explosions as a Blaster, and wielding magical weaponry as a Weapon Smith.
+Stage/&SubclassSelectionStageSpecialistFeatures	Specialist Features
+Stage/&SubclassSelectionStageSpecialistHeader	Specializations
+Stage/&SubclassSelectionStageSpecialistNoneDescription	Specialist None Description
+Stage/&SubclassSelectionStageSpecialistTitle	Select Specialization
 Subclass/&AbilityAffinityRogueConArtistDescription	Advantage on ability checks using Persuasion, Deception, Performance, and Sleight of Hand.
 Subclass/&AbilityAffinityRogueConArtistTitle	Manipulative
 Subclass/&AHWarlockSubclassSoulBladePactDescription	You have struck a bargain with a sentient weapon that you feed souls to in return for power.
