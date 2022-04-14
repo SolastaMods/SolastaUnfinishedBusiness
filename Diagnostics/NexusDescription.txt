@@ -125,7 +125,26 @@ All settings start disabled by default. On first start the mod will display an w
 [*][b]Witch[/b]: Afflicted by a sinister curse, witches can spin dark magic into Maledictions, which they use to debilitate foes. They are also accompanied by their familiars, loyal magical companions which they use to deal the killing blow.
 [/list]
 
-[size=3][b]Subclasses[/b][/size]
+[size=3][b]Mod Classes Subclasses[/b][/size]
+
+[list=1]
+
+[*][b]Green Witch[/b]: Plants, nature, and things that grow are the domain of green magic. Normally a type of arcana championed by druids, some witches have a close tie to the powers of green magic, and can coax plants and animals into their bidding.
+[*][b]Red Witch[/b]: Arcane magic tied to channeling the elements is deemed red magic, and is extremely hazardous when used. Witches that specialize in red magic are among the deadliest spellcasters in existence, channeling their curse into unhindered arcane wrath.
+[*][b]White Witch[/b]: White magic is fundamentally good and benevolent for all living things. Witches that adopt this craft, in spite of the hateful curse that infects them, often dedicate themselves to healing and caretaking, with the intent of bettering the world.
+[*][b]Potion Maker[/b]: You specialize in potions, buffs, healing, and spell casting
+[*][b]Blaster[/b]: You specialize in hurling projectiles and causing explosions
+[*][b]Weapon Smith[/b]: You specialize in using magical weapons in combat
+[*][b]Scout Sentinel[/b]: A Scout Sentinel tinkerer modifies armor to enhance it's fuction, provding enhanced protection and mobility.
+[*][b]SoulBlade Pact[/b]: You have struck a bargain with a sentient weapon that you feed souls to in return for power.
+[*][b]Ancient Forest Pact[/b]: You have forged a relationship with a powerful nature entity: Ancient Dryads, Archdruids , Manifestations of the Feywild bleeding into the material plane, Forgotten gods from a primal age. Your patron may wish for you to protect the natural world, travel to far off lands that it cannot, or it may have another motive that seems inscrutable to short-lived mortals.
+[*][b]Elementalist Pact[/b]: You've been made a pact with and been changed by primordals present in the elemental badlands. The elemental chaos of the patron has suffused your soul, letting you use the power of diferent elemental types
+[*][b]MoonLit Pact[/b]: Your patron is a spirit of the moon, an entity that embodies the cyclical nature of light and darkness. These spirits seek to maintain the power of the moon over the night sky while keeping profane powers that stalk the darkness at bay and task their warlocks with the same, granting them command over the powers of the moon and its effects.
+[*][b]Rift Walker Pact[/b]: Your patron is one of the rare beings who calls the void between worlds their home. They slip between the planes with ease and the knowledge you have gained from interacting with them allows you to harness lingering rift engeries to your benefit within solasta. You might be sometimes filled with a longing for the distant realm of your patron, a desire to wander between dimensions for the rest of your days, or watch for signs of another Rift event, either to prevent or encourage.
+[*][b]Toad King Pact[/b]: Fey, demon or abberation caused by the Cataclysm, the true nature of the Toad King is not known, but it is known that the Toad King rules a large area of swamps and marshes within the Badlands and offers power to those willing to serve.
+[/list]
+
+[size=3][b]Official Classes Subclasses[/b][/size]
 
 [list=1]
 
