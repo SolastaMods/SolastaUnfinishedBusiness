@@ -117,7 +117,7 @@ namespace SolastaCommunityExpansion.Patches
 
             if (!File.Exists(path))
             {
-                return;
+                path = Path.Combine(Main.MOD_FOLDER, $"Translations-en.txt");
             }
 
             var languageSourceData = LocalizationManager.Sources[0];
