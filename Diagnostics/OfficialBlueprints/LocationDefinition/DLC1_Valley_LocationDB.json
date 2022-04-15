@@ -205,6 +205,7 @@
   "hasPriorityForTeleporter": false,
   "canAttackNonHostileCharacters": true,
   "forceNoEncounterPrespawn": false,
+  "disableTerrainShadows": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

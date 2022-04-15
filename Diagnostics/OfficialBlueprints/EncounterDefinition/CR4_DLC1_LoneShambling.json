@@ -19,8 +19,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "CR4_LoneShambling_Title",
-    "description": "CR4_LoneShambling_Description",
+    "title": "Encounter/&CR4_LoneShambling_Title",
+    "description": "Encounter/&CR4_LoneShambling_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

@@ -2,7 +2,7 @@
   "$type": "MonsterDefinition, Assembly-CSharp",
   "dungeonMakerPresence": "None",
   "overrideSpawnDecision": null,
-  "characterFamily": "Giant",
+  "characterFamily": "Giant_Rugan",
   "creatureTags": [],
   "defaultFaction": "DLC1_Faction_Giant",
   "fullyControlledWhenAllied": true,

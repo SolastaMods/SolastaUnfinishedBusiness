@@ -30,8 +30,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "CR8_Remorhaz_Huge_Title",
-    "description": "CR8_Remorhaz_Huge_Description",
+    "title": "Encounter/&CR8_Remorhaz_Huge_Title",
+    "description": "Encounter/&CR8_Remorhaz_Huge_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

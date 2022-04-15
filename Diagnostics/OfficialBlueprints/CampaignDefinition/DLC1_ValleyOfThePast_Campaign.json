@@ -1725,6 +1725,22 @@
       "boolValue": false,
       "intValue": 0,
       "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "BuriedCityUnderAttack-C",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "OwnScepter-C",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
     }
   ],
   "knownRecipes": [
