@@ -216,6 +216,7 @@ namespace SolastaCommunityExpansion
         //
 
         // General
+        public bool EnableCharacterChecker { get; set; }
         public bool EnableRespec { get; set; }
         public bool EnableCheatMenu { get; set; }
         public bool NoExperienceOnLevelUp { get; set; }
