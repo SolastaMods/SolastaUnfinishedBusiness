@@ -115,6 +115,11 @@ namespace SolastaCommunityExpansion.Patches
             var code = LocalizationManager.CurrentLanguageCode.Split('-')[0];
             var path = Path.Combine(Main.MOD_FOLDER, $"Translations-{code}.txt");
 
+            if (!File.Exists(path))
+            {
+                path = Path.Combine(Main.MOD_FOLDER, $"Translations-en.txt");
+            }
+
             var languageSourceData = LocalizationManager.Sources[0];
             var languageIndex = languageSourceData.GetLanguageIndexFromCode(code);
 
