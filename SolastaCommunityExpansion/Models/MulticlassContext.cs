@@ -23,6 +23,9 @@ namespace SolastaCommunityExpansion.Models
                 Main.Settings.EnableMulticlass = false;
             }
 
+            // avoids requires restart on level down feature if RESPEC enabled after MC on another session
+            _ = RestActivityLevelDown;
+
             _ = ArmorProficiencyMulticlassBuilder.BarbarianArmorProficiencyMulticlass;
             _ = ArmorProficiencyMulticlassBuilder.FighterArmorProficiencyMulticlass;
             _ = ArmorProficiencyMulticlassBuilder.PaladinArmorProficiencyMulticlass;
