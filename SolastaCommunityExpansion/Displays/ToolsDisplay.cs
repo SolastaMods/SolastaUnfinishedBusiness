@@ -14,6 +14,12 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("General:".yellow());
             UI.Label("");
 
+            toggle = Main.Settings.EnableCharacterChecker;
+            if (UI.Toggle("Enable the character checker button on the character pool", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableCharacterChecker = toggle;
+            }
+
             toggle = Main.Settings.EnableRespec;
             if (UI.Toggle("Enable the RESPEC after rest action " + "[Level Down as well if Multiclass is enabled]".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
