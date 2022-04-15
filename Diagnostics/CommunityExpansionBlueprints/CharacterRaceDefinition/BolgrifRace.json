@@ -1,51 +1,51 @@
 {
   "$type": "CharacterRaceDefinition, Assembly-CSharp",
-  "sizeDefinition": "Definition:Small:79feb0e022c48a7419b88b88e49218d2",
+  "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
   "defaultAlignement": "Neutral",
   "dualSex": true,
-  "minimalAge": 350,
+  "minimalAge": 500,
   "maximalAge": 99,
-  "baseHeight": 47,
-  "baseWeight": 35,
+  "baseHeight": 96,
+  "baseWeight": 130,
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:GnomeCunningFeature:8804963d-8214-480a-be62-98a5652f69e5",
+      "featureDefinition": "Definition:AttributeModifierBolgrifStrengthAbilityScoreIncrease:7b8d459b-c1f2-4373-bc4d-5e29ea4851f3",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+      "featureDefinition": "Definition:AttributeModifierBolgrifWisdomAbilityScoreIncrease:4099c645-fc05-4ba1-833f-eabb94b865d0",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierForestGnomeAbilityScoreIncrease:b7f18e2f-532f-46bf-96d2-f3612026295f",
+      "featureDefinition": "Definition:BolgrifDruidicMagic:ea2a9c8e-6ca9-490b-a056-d768182b5cd2",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierGnomeAbilityScoreIncrease:b1475c33-f9ba-4224-b4b1-a55621f4dcd1",
+      "featureDefinition": "Definition:ProficiencyBolgrifLanguages:dc03c8d7-5098-4dec-9f60-46e3af0d63c9",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyGnomishLanguages:c497f363-c5d9-4255-9549-2db054976361",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MoveModeMove5:39236d1a5cbaf114d96e2709eb817529",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:GnomeNaturalIllusionist:bfb1b55f-dbce-49b7-b76d-5b5b3c4fe992",
+      "featureDefinition": "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:BolgrifPowerfulBuild:3f635935-28a3-4bfd-8f51-77417ad7eb8a",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:BolgrifInvisibilityPower:36dcb055-372c-4abf-83b7-4405475d9295",
       "level": 1
     }
   ],
@@ -69,35 +69,13 @@
     "$type": "RacePresentation, Assembly-CSharp",
     "bodyAssetPrefix": "Elf",
     "morphotypeAssetPrefix": "Elf",
-    "maleNameOptions": [
-      "Race/&HalflingMaleName1Title",
-      "Race/&HalflingMaleName2Title",
-      "Race/&HalflingMaleName3Title",
-      "Race/&HalflingMaleName4Title",
-      "Race/&HalflingMaleName5Title",
-      "Race/&HalflingMaleName6Title"
-    ],
-    "femaleNameOptions": [
-      "Race/&HalflingFemaleName1Title",
-      "Race/&HalflingFemaleName2Title",
-      "Race/&HalflingFemaleName3Title",
-      "Race/&HalflingFemaleName4Title",
-      "Race/&HalflingFemaleName5Title",
-      "Race/&HalflingFemaleName6Title",
-      "Race/&HalflingFemaleName7Title"
-    ],
+    "maleNameOptions": [],
+    "femaleNameOptions": [],
     "hasSurName": true,
-    "surNameTitle": "Race/&HalflingSurNameTitle",
-    "surNameOptions": [
-      "Race/&HalflingSurName1Title",
-      "Race/&HalflingSurName2Title",
-      "Race/&HalflingSurName3Title",
-      "Race/&HalflingSurName4Title",
-      "Race/&HalflingSurName5Title",
-      "Race/&HalflingSurName6Title"
-    ],
+    "surNameTitle": "Race/&ElfSurNameTitle",
+    "surNameOptions": [],
     "needBeard": false,
-    "canModifyMusculature": false,
+    "canModifyMusculature": true,
     "originOptions": [
       "Origin_NonHuman"
     ],
@@ -163,9 +141,9 @@
       "HairShape_X",
       "HairShape_Y",
       "HairShape_Z",
-      "HairShape_AA",
       "HairShape_F",
       "HairShape_G",
+      "HairShape_AA",
       "HairShape_None"
     ],
     "femaleHairShapeOptions": [
@@ -197,8 +175,13 @@
       "HairShape_None"
     ],
     "maleBeardShapeOptions": [
-      "BeardShape_None",
+      "BeardShape_A",
+      "BeardShape_B",
+      "BeardShape_E",
+      "BeardShape_F",
+      "BeardShape_G",
       "BeardShape_C",
+      "BeardShape_D",
       "BeardShape_H",
       "BeardShape_I",
       "BeardShape_J",
@@ -208,33 +191,33 @@
       "BeardShape_P"
     ],
     "equipmentLayoutPath": "Gui/Prefabs/Equipment/MediumHeroEquipmentLayout",
-    "maleVoiceDefinition": "NEUTRAL1",
+    "maleVoiceDefinition": "MAL1",
     "femaleVoiceDefinition": "FEM2",
     "portraitShieldOffset": {
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.02,
-      "y": 0.08,
+      "y": 0.0,
       "z": 0.0
     },
     "preferedSkinColors": {
       "$type": "TA.RangedInt, Assembly-CSharp",
-      "minValue": 1,
-      "maxValue": 15
+      "minValue": 45,
+      "maxValue": 48
     },
     "preferedHairColors": {
       "$type": "TA.RangedInt, Assembly-CSharp",
-      "minValue": 26,
-      "maxValue": 47
+      "minValue": 16,
+      "maxValue": 32
     }
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Race/&GnomeRaceTitle",
-    "description": "Race/&GnomeRaceDescription",
+    "title": "Race/&BolgrifRaceTitle",
+    "description": "Race/&BolgrifRaceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "e7e3229e8053586ab3051c307493582a",
+      "m_AssetGUID": "c61572cd52435b98824229b82b293825",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -251,7 +234,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ce63140e-c018-4f83-8e6e-bc7bbc815a17",
+  "guid": "346b7f90-973f-425f-8342-d534759e65aa",
   "contentPack": 9999,
-  "name": "GnomeRace"
+  "name": "BolgrifRace"
 }

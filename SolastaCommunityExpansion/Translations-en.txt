@@ -718,8 +718,10 @@ Feature/&ArtificerSpecialistArchetypesTitle	Tinkerer Specializations
 Feature/&AscendantStepTitle	Ascendant Step
 Feature/&AspectoftheMoonDescription	You no longer need to sleep and can keep watch, lowering the chances of attack and ensuring you are awake if camp is attacked.
 Feature/&AspectoftheMoonTitle	Aspect of the Moon
-Feature/&AttributeModifierBolgrifAbilityScoreSetDescription	Wisdom +2, Strength +1
-Feature/&AttributeModifierBolgrifAbilityScoreSetTitle	Attribute Increase
+Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseDescription	Wisdom +2
+Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseTitle	Attribute Increase
+Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseDescription	Strength +1
+Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseTitle	Attribute Increase
 Feature/&AttributeModifierGnomeAbilityScoreIncreaseDescription	Intelligence +2
 Feature/&AttributeModifierGnomeAbilityScoreIncreaseTitle	Gnome Attribute Increase
 Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseDescription	Dexterity +1

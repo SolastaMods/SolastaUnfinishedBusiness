@@ -38,14 +38,6 @@ Feature/&AdditionalActionDualFlurryDescription	You may make an additional off-ha
 Feature/&AdditionalActionDualFlurryTitle	Dual Flurry!
 Feature/&AHSoulBladeEmpowerDamageBonusDescription	You are empowered and do a damage bonus equal to your proficiency on all your attacks.
 Feature/&AlwaysBeardDescription	{0}% chances to grow a glorious beard!
-Feature/&AttributeModifierBolgrifAbilityScoreSetDescription	Wisdom +2, Strength +1
-Feature/&AttributeModifierBolgrifAbilityScoreSetTitle	Attribute Increase
-Feature/&BolgrifDruidicMagicDescription	You know one cantrip of your choice from the druid spell list. Wisdom is your spellcasting ability for it.
-Feature/&BolgrifDruidicMagicTitle	Druidic Magic
-Feature/&BolgrifInvisibilityPowerDescription	As a bonus action, you can magically turn invisible for 1 round. This invisibility breaks if you take any offensive action. Once you use this ability, you can't use it again until you finish a short or long rest.
-Feature/&BolgrifInvisibilityPowerTitle	Vanish
-Feature/&BolgrifPowerfulBuildDescription	You count your size as Large when determining your carrying capacity.
-Feature/&BolgrifPowerfulBuildTitle	Powerful Build
 Feature/&DH_RiftCloakDescription	Your control of rift portals has increased to the point than you can now grant the protection of the rift to others. You can cast warding bond at will (without the sharing of damage)
 Feature/&DH_RiftCloakTitle	Rift Cloak
 Feature/&DomainBattleDomainlevel1FeaturesDescription	You learn the level 1 features of this domain
@@ -78,8 +70,6 @@ Feature/&PowerAttackPowerDescription	Take a -{0} to hit penalty to your attack f
 Feature/&PowerAttackTwoHandedAttackModifierDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes. Only to be used when attacking with two hands, melee or ranged.
 Feature/&PowerAttackTwoHandedConditionDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes. Only to be used when attacking with two hands, melee or ranged.
 Feature/&PowerAttackTwoHandedPowerDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes. Only to be used when attacking with two hands, melee or ranged.
-Feature/&ProficiencyBolgrifLanguagesDescription	Common, Elvish and Giant
-Feature/&ProficiencyBolgrifLanguagesTitle	Language
 Feature/&RallyingCryPowerTitleShort	Rallying Cry
 Feature/&SignofIllOmenTitle	Sign of Ill Omen
 Feature/&UrPriestDomainTheftDescription	You snatch the secrets that a god grants all of it's devout clerics. Choose a cleric domain: you gain the features that domain grants at 1st level.
@@ -136,8 +126,6 @@ Power/&UrPriestRadiantWardDescription	As an action, you gain a number of tempora
 Power/&UrPriestRadiantWardTitle	Radiant Ward
 Power/&UrPriestSpellSiphonDescription	you learn how to tap into a greater source of magic in combination with your normal reserve of power. As an action, you can expend a Channel Divinity to regain an expended use of your 6th-level Mystic Arcanum.
 Power/&UrPriestSpellSiphonTitle	Spell Siphon
-Race/&BolgrifRaceDescription	Bolgrifs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, bolgrifs demonstrate formidable skills with weapons and nature magic.
-Race/&BolgrifRaceTitle	Bolgrif
 Reaction/&SpendPowerCounterStrikePowerDescription	Spend a gambit die and Counter Strike the enemy, if you hit, do an additional 1d6+2 bludgeoning damage.
 Reaction/&SpendPowerCounterStrikePowerReactDescription	Spend a gambit die and Counter Strike the enemy, if you hit, do an additional 1d6+2 bludgeoning damage.
 Reaction/&SpendPowerCounterStrikePowerReactTitle	Counter Strike
