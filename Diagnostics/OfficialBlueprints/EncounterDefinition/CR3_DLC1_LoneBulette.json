@@ -19,8 +19,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "CR3_LoneBulette_Title",
-    "description": "CR3_LoneBulette_Description",
+    "title": "Encounter/&CR3_LoneBulette_Title",
+    "description": "Encounter/&CR3_LoneBulette_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

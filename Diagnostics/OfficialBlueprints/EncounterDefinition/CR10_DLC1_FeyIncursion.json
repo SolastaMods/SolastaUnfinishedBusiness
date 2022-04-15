@@ -41,8 +41,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "CR10_FeyIncursion_Title",
-    "description": "CR10_FeyIncursion_Description",
+    "title": "Encounter/&CR10_FeyIncursion_Title",
+    "description": "Encounter/&CR10_FeyIncursion_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

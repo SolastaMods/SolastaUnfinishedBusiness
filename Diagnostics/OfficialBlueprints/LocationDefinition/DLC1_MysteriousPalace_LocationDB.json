@@ -196,6 +196,7 @@
   "hasPriorityForTeleporter": false,
   "canAttackNonHostileCharacters": false,
   "forceNoEncounterPrespawn": false,
+  "disableTerrainShadows": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -203,8 +204,8 @@
     "description": "Map/&Location_Presentation_Description_Mysterious",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "bbb4beb82de0f854b89035d83a387c5f",
-      "m_SubObjectName": "Ruins_Telema_Loading",
+      "m_AssetGUID": "ec67d1b778f060544b2ddf181702b972",
+      "m_SubObjectName": "DLC1_MysteriousPalace",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
