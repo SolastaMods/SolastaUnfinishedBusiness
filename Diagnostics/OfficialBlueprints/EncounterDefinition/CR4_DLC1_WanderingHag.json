@@ -40,9 +40,9 @@
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "CR4_WanderingHag_Title",
-    "description": "CR4_WanderingHag_Description",
+    "hidden": true,
+    "title": "Encounter/&CR4_WanderingHag_Title",
+    "description": "Encounter/&CR4_WanderingHag_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

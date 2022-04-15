@@ -30,8 +30,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "CR9_GiantsAndWinterWolves_Huge_Title",
-    "description": "CR9_GiantsAndWinterWolves_Huge_Description",
+    "title": "Encounter/&CR9_GiantsAndWinterWolves_Huge_Title",
+    "description": "Encounter/&CR9_GiantsAndWinterWolves_Huge_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

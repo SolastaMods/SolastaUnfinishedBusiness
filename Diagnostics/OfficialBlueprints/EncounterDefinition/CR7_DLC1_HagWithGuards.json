@@ -41,8 +41,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "CR7_HagWithGuards_Title",
-    "description": "CR7_HagWithGuards_Description",
+    "title": "Encounter/&CR7_HagWithGuards_Title",
+    "description": "Encounter/&CR7_HagWithGuards_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

@@ -19,8 +19,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "CR11_IronGolem_Title",
-    "description": "CR11_IronGolem_Description",
+    "title": "Encounter/&CR11_IronGolem_Title",
+    "description": "Encounter/&CR11_IronGolem_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
