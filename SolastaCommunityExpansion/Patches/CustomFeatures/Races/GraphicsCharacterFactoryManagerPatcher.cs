@@ -13,6 +13,11 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Races
 
         internal static void Postfix(GraphicsCharacter graphicsCharacter, string [] ___shapePartsToLoad)
         {
+            if (!Main.Settings.EnableRacesMorphotypePatch)
+            {
+                return;
+            }
+
             if (graphicsCharacter.RulesetCharacter is not RulesetCharacterHero rulesetCharacterHero)
             {
                 return;
