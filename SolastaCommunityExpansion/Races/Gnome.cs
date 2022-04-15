@@ -16,21 +16,14 @@ namespace SolastaCommunityExpansion.Races
 
             var gnomeAbilityScoreModifier = FeatureDefinitionAttributeModifierBuilder
                 .Create("AttributeModifierGnomeAbilityScoreIncrease", "b1475c33-f9ba-4224-b4b1-a55621f4dcd1")
-                .SetGuiPresentationNoContent(true)
+                .SetGuiPresentation(Category.Feature)
                 .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, AttributeDefinitions.Intelligence, 2)
                 .AddToDB();
 
             var forestGnomeAbilityScoreModifier = FeatureDefinitionAttributeModifierBuilder
                 .Create("AttributeModifierForestGnomeAbilityScoreIncrease", "b7f18e2f-532f-46bf-96d2-f3612026295f")
-                .SetGuiPresentationNoContent(true)
-                .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, AttributeDefinitions.Dexterity, 1)
-                .AddToDB();
-
-            var gnomeAbilityScoreModifierSet = FeatureDefinitionFeatureSetBuilder
-                .Create("AttributeModifierGnomeAbilityScoreSet", "b239a9b0-f964-48b4-8958-a631ee3d6178")
                 .SetGuiPresentation(Category.Feature)
-                .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-                .SetFeatureSet(gnomeAbilityScoreModifier, forestGnomeAbilityScoreModifier)
+                .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, AttributeDefinitions.Dexterity, 1)
                 .AddToDB();
 
             var gnomeCunning = FeatureDefinitionSavingThrowAffinityBuilder
@@ -86,7 +79,8 @@ namespace SolastaCommunityExpansion.Races
                 .SetBaseWeight(35)
                 .SetFeaturesAtLevel(1,
                     FeatureDefinitionMoveModes.MoveModeMove5,
-                    gnomeAbilityScoreModifierSet,
+                    gnomeAbilityScoreModifier,
+                    forestGnomeAbilityScoreModifier,
                     FeatureDefinitionSenses.SenseNormalVision,
                     FeatureDefinitionSenses.SenseDarkvision,
                     gnomeCunning,
