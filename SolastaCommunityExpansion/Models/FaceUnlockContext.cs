@@ -66,6 +66,7 @@ namespace SolastaCommunityExpansion.Models
                 SorcerousDraconicBloodline.SetMorphotypeSubclassFilterTag(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default);
                 SorcerousManaPainter.SetMorphotypeSubclassFilterTag(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default);
                 SorcerousChildRift.SetMorphotypeSubclassFilterTag(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default);
+                SorcerousHauntedSoul.SetMorphotypeSubclassFilterTag(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default);
             }
         }
     }
