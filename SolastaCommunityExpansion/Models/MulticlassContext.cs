@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Models
             .Create("LevelDown", "fdb4d86eaef942d1a22dbf1fb5a7299f")
             .SetGuiPresentation("MainMenu/&ExportPdfTitle", "MainMenu/&ExportPdfDescription")
             .SetRestData(
-                RestDefinitions.RestStage.AfterRest, RuleDefinitions.RestType.ShortRest,
+                RestDefinitions.RestStage.AfterRest, RuleDefinitions.RestType.LongRest,
                 RestActivityDefinition.ActivityCondition.None, "LevelDown", string.Empty)
             .AddToDB();
 
