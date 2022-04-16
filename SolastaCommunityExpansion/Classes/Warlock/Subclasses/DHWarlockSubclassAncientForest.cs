@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if false
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using SolastaModApi;
@@ -756,3 +757,4 @@ Different Archfey, e.g. Winter-themed
         }
     }
 }
+#endif

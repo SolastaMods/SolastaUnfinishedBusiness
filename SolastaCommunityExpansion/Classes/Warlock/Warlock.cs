@@ -120,11 +120,12 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                 .SetFilterByDeity(false)
                 .SetSubclasses(
                     AHWarlockSubclassSoulBladePact.Subclass,
-                    DHWarlockSubclassAncientForestPatron.Build(),
+                    // needs more work and verification,  find a better solution for the rest panel
+                    //DHWarlockSubclassAncientForestPatron.Build(),
                     DHWarlockSubclassElementalPatron.Build(),
                     DHWarlockSubclassMoonLitPatron.Build(),
                     DHWarlockSubclassRiftWalkerPatron.Build(),
-                    // needs more work and verification before release, autoprepared spells cant just be reused because they specific cleric class, battle domain divine Fortitude (wrath in code) also didnt work
+                    // needs more work and verification, autoprepared spells cant just be reused because they specific cleric class, battle domain divine Fortitude (wrath in code) also didnt work
                     //DHWarlockSubclassUrPriestPatron.Build(),
                     DHWarlockSubclassToadKingPatron.Build()
                     )
