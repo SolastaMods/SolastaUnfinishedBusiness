@@ -4,6 +4,7 @@ using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 using static SolastaCommunityExpansion.Builders.DefinitionBuilder;
+using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 {
@@ -86,7 +87,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                        false,
                        false,
                        AttributeDefinitions.Charisma,
-                       Banishment.EffectDescription,
+                       Banishment.EffectDescription.DeepCopy(),
                        true)
                 .AddToDB();
 
@@ -133,7 +134,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                        false,
                        false,
                        AttributeDefinitions.Charisma,
-                       Banishment.EffectDescription,
+                       Banishment.EffectDescription.DeepCopy(),
                        true)
                 .AddToDB();
 
