@@ -93,7 +93,7 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             toggle = Main.Settings.EnablesAsiAndFeat;
-            if (UI.Toggle("Enable both ASI and feat", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enable both attribute scores increase and feats selection instead of an exclusive choice", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnablesAsiAndFeat = toggle;
                 AsiAndFeatContext.Switch(toggle);
