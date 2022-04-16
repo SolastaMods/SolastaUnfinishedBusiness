@@ -1,7 +1,6 @@
 ﻿using SolastaCommunityExpansion.Level20.Classes;
 using SolastaCommunityExpansion.Level20.Races;
 using SolastaCommunityExpansion.Level20.SubClasses;
-using static SolastaCommunityExpansion.Level20.SpellsHelper;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -18,7 +17,6 @@ namespace SolastaCommunityExpansion.Models
             //
             // should not be protected to avoid issues on MP or loading heroes
             //
-            UpdateSpellLists();
 
             ElfHighBuilder.Load();
 
