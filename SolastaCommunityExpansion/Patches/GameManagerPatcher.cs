@@ -112,7 +112,7 @@ namespace SolastaCommunityExpansion.Patches
 
         private static void LoadTranslations()
         {
-            var code = LocalizationManager.CurrentLanguageCode.Split('-')[0];
+            var code = LocalizationManager.CurrentLanguageCode;
             var path = Path.Combine(Main.MOD_FOLDER, $"Translations-{code}.txt");
 
             if (!File.Exists(path))
