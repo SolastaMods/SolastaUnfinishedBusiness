@@ -38,12 +38,13 @@ namespace SolastaCommunityExpansion.Models
 
             // allows casters to use slots above their caster level if multiclassed
             // also fixes Warlock spells acquision above level 10
-            var spellListDefinition = DatabaseRepository.GetDatabase<SpellListDefinition>();
+            var spellListDefinitions = DatabaseRepository.GetDatabase<SpellListDefinition>();
 
-            foreach (var spellsByLevel in spellListDefinition
-                .Select(x => x.SpellsByLevel))
+            foreach (var spellListDefinition in spellListDefinitions)
             {
-                while (spellsByLevel.Count < 9)
+                var spellsByLevel = spellListDefinition.SpellsByLevel;
+                
+                while (spellsByLevel.Count < 9 + (spellListDefinition.HasCantrips ? 1 : 0))
                 {
                     spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet { Level = spellsByLevel.Count, Spells = new() });
                 }
