@@ -1,4 +1,5 @@
-﻿using SolastaCommunityExpansion.Builders;
+﻿using System.Linq;
+using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -26,6 +27,7 @@ namespace SolastaCommunityExpansion.Models
             // avoids requires restart on level down feature if RESPEC enabled after MC on another session
             _ = RestActivityLevelDown;
 
+            // ensure these are always referenced here for diagnostics dump
             _ = ArmorProficiencyMulticlassBuilder.BarbarianArmorProficiencyMulticlass;
             _ = ArmorProficiencyMulticlassBuilder.FighterArmorProficiencyMulticlass;
             _ = ArmorProficiencyMulticlassBuilder.PaladinArmorProficiencyMulticlass;
@@ -33,6 +35,20 @@ namespace SolastaCommunityExpansion.Models
             _ = SkillProficiencyPointPoolSkillsBuilder.PointPoolBardSkillPointsMulticlass;
             _ = SkillProficiencyPointPoolSkillsBuilder.PointPoolRangerSkillPointsMulticlass;
             _ = SkillProficiencyPointPoolSkillsBuilder.PointPoolRogueSkillPointsMulticlass;
+
+            // allows casters to use slots above their caster level if multiclassed
+            // also fixes Warlock spells acquision above level 10
+            var spellListDefinitions = DatabaseRepository.GetDatabase<SpellListDefinition>();
+
+            foreach (var spellListDefinition in spellListDefinitions)
+            {
+                var spellsByLevel = spellListDefinition.SpellsByLevel;
+                
+                while (spellsByLevel.Count < 9 + (spellListDefinition.HasCantrips ? 1 : 0))
+                {
+                    spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet { Level = spellsByLevel.Count, Spells = new() });
+                }
+            }
         }
     }
 

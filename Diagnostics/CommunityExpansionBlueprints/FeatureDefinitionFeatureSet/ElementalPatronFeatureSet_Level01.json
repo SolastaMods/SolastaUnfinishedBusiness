@@ -8,8 +8,8 @@
     "Definition:DH_ElementalForm_Fire:18d1f244-7896-58fb-ad14-eb471bd0d9db",
     "Definition:DH_ElementalForm_Ice:1efe2ac5-d863-5480-913d-20185fbb0886",
     "Definition:DH_ElementalForm_Shadow:cb487f57-3d56-5f5f-8ca6-2017f0fcbd77",
-    "Definition:DH_ElementalFormPool:b8270e0d-295a-5eba-8efe-0538cb0859c1",
-    "Definition:ElementalistSpellsMagicAffinity:d833416d-a95e-509a-9024-06f9867c32f8"
+    "Definition:ElementalistSpellsMagicAffinity:d833416d-a95e-509a-9024-06f9867c32f8",
+    "Definition:DH_ElementalFormPool:b8270e0d-295a-5eba-8efe-0538cb0859c1"
   ],
   "mode": "Union",
   "defaultSelection": 0,

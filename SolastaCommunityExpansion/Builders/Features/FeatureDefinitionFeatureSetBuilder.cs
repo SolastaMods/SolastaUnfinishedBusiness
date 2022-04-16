@@ -41,7 +41,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         public TBuilder SetFeatureSet(IEnumerable<FeatureDefinition> featureDefinitions)
         {
             Definition.SetFeatureSet(featureDefinitions);
-            Definition.FeatureSet.Sort(Sorting.Compare);
+            Definition.FeatureSet.Sort(Sorting.CompareTitle);
             return (TBuilder)this;
         }
 
@@ -53,7 +53,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         public TBuilder AddFeatureSet(IEnumerable<FeatureDefinition> featureDefinitions)
         {
             Definition.AddFeatureSet(featureDefinitions);
-            Definition.FeatureSet.Sort(Sorting.Compare);
+            Definition.FeatureSet.Sort(Sorting.CompareTitle);
             return (TBuilder)this;
         }
 

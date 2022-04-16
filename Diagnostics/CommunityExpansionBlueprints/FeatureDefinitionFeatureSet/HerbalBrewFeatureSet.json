@@ -1,15 +1,15 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
+    "Definition:AncientForestHerbalBrewToxifying:09a37758-6b3a-5298-bedc-f793fa3b74a9",
+    "Definition:ProficiencyMarksmanToolChoice:fc555a38799525846be9a0289dd71ae7",
+    "Definition:AncientForestHerbalBrewQuickening:38a913c9-6f4b-5db4-8fb6-43a9036d6504",
+    "Definition:DH_HerbalBrewPool:9855259c-a1f2-53cd-9255-defbe94ebd80",
     "Definition:AncientForestHerbalBrewFortifyingResistentToAcidResistance:82d27316-882e-518d-8ea7-5b04f084837e",
     "Definition:AncientForestHerbalBrewFortifyingResistentToLightningResistance:cf03790e-490c-5b9f-88e3-d041bbb9c843",
     "Definition:AncientForestHerbalBrewFortifyingResistentToNecroticResistance:73b6db55-0f80-5932-abf5-febb0ab33e50",
     "Definition:AncientForestHerbalBrewFortifyingResistentToPoisonResistance:b175dfd1-1f72-5638-88f3-721ce8913103",
-    "Definition:AncientForestHerbalBrewFortifyingResistentToRadiantResistance:a8026099-127b-53a2-8fd9-060be4d5c193",
-    "Definition:AncientForestHerbalBrewQuickening:38a913c9-6f4b-5db4-8fb6-43a9036d6504",
-    "Definition:AncientForestHerbalBrewToxifying:09a37758-6b3a-5298-bedc-f793fa3b74a9",
-    "Definition:DH_HerbalBrewPool:9855259c-a1f2-53cd-9255-defbe94ebd80",
-    "Definition:ProficiencyMarksmanToolChoice:fc555a38799525846be9a0289dd71ae7"
+    "Definition:AncientForestHerbalBrewFortifyingResistentToRadiantResistance:a8026099-127b-53a2-8fd9-060be4d5c193"
   ],
   "mode": "Union",
   "defaultSelection": 0,
