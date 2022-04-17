@@ -1,4 +1,7 @@
 ﻿using HarmonyLib;
+using SolastaCommunityExpansion;
+using SolastaCommunityExpansion.Utils;
+using SolastaMonsters.Models;
 
 namespace SolastaMonsters.Patches
 {
@@ -7,8 +10,11 @@ namespace SolastaMonsters.Patches
     {
         internal static void Postfix()
         {
-            SolastaCommunityExpansion.Utils.Translations.LoadTranslations("monsters");
-            Models.MonsterContext.Load();
+            if (Main.Settings.EnableExtraHighLevelMonsters)
+            {
+                Translations.LoadTranslations("monsters");
+                MonsterContext.Load();
+            }
         }
     }
 }

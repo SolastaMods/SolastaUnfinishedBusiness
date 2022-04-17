@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
-using SolastaCommunityExpansion;
 
 namespace SolastaMonsters.Models
 {
@@ -54,19 +53,16 @@ namespace SolastaMonsters.Models
 
         public static void Load()
         {
-            if (Main.Settings.EnableExtraHighLevelMonsters)
-            {
-                //following order of new blueprint creation should be maintained
-                Monsters.NewMonsterAttributes.Create();
-                Monsters.NewMonsterAttacks.Create();
-                Monsters.NewMonsterPowers.Create();
+            //following order of new blueprint creation should be maintained
+            Monsters.NewMonsterAttributes.Create();
+            Monsters.NewMonsterAttacks.Create();
+            Monsters.NewMonsterPowers.Create();
 
-                Monsters.MonstersHomebrew.EnableInDungeonMaker();
-                Monsters.MonstersSolasta.EnableInDungeonMaker();
+            Monsters.MonstersHomebrew.EnableInDungeonMaker();
+            Monsters.MonstersSolasta.EnableInDungeonMaker();
 
-                Monsters.MonstersAttributes.EnableInDungeonMaker();
-                Monsters.MonstersSRD.EnableInDungeonMaker();
-            }
+            Monsters.MonstersAttributes.EnableInDungeonMaker();
+            Monsters.MonstersSRD.EnableInDungeonMaker();
         }
     }
 }
