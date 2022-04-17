@@ -25,7 +25,8 @@ namespace SolastaCommunityExpansion.Models
 
         public static readonly List<MonsterDefinition> ModdedMonsters = new();
 
-        internal static void BackupAndDelete(string path, UserContent userContent)
+        // must be public because of transpiler
+        public static void BackupAndDelete(string path, UserContent userContent)
         {
             var backupDirectory = Path.Combine(Main.MOD_FOLDER, BACKUP_FOLDER);
 
