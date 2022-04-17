@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
 namespace SolastaCommunityExpansion.Models
 {
-    internal static class DungeonMakerContext
+    public static class DungeonMakerContext
     {
         internal const int GAME_PARTY_SIZE = 4;
 
@@ -22,6 +23,9 @@ namespace SolastaCommunityExpansion.Models
 
         private const string BACKUP_FOLDER = "DungeonMakerBackups";
 
+        public static readonly List<MonsterDefinition> ModdedMonsters = new();
+
+        // must be public because of transpiler
         public static void BackupAndDelete(string path, UserContent userContent)
         {
             var backupDirectory = Path.Combine(Main.MOD_FOLDER, BACKUP_FOLDER);

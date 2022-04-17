@@ -24,9 +24,9 @@ namespace SolastaMulticlass.Patches.LevelUp
                     return;
                 }
 
-                var isMulticlass = LevelUpContext.IsMulticlass(hero);
+                var isMulticaster = SharedSpellsContext.IsMulticaster(hero);
 
-                if (!isMulticlass)
+                if (!isMulticaster)
                 {
                     return;
                 }

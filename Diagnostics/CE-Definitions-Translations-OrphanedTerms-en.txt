@@ -1,9 +1,5 @@
 BlueprintCategory/&FlatRoomsTitle	Flat Rooms
 Caption/&GadgetParametersCustomRemoveDescription	Remove:\n{0}
-Condition/&AncientForestPhotosynthesisDescription	You can absorb energy from sunlight. While you are in direct bright light, you gain 2 HP per round
-Condition/&AncientForestPhotosynthesisTitle	Photosynthesis
-Condition/&AncientForestRootedConditionDescription	Arboreal tendrils grow from your feet and dig into the ground. Your speed becomes 0, and you gain advantage on any saving throws to push you, pull you, or knock you prone.You can cast entangle at will
-Condition/&AncientForestRootedConditionTitle	Rooted
 Condition/&ConditionDualFlurryApplyDescription	You are building momentum...
 Condition/&ConditionDualFlurryApplyTitle	Dual Flurry!
 Condition/&ConditionDualFlurryGrantDescription	Your foes are reeling!
@@ -13,8 +9,6 @@ Condition/&HalfLifeConditionTitle	HalfLife
 Condition/&RuinedDescription	This creature's defence is reduced.
 Condition/&RuinedTitle	Ruined
 CraftyFeats/&CraftyHerbalismKitDescription	Herbalism Kit proficiency or expertise
-Equipment/&HerbalBrewQuickeningTitle	Herbal Brew : Potion of Quickening
-Equipment/&HerbalBrewToxifyingTitle	Herbal Brew : Potion of Toxifying
 Feat/&AddProtectorConstructCantripDescription	Adds Mending Construct and Dismiss Construct cantrips to increase your constructs flexibility
 Feat/&AddProtectorConstructCantripTitle	Bonus Construct Cantrips
 Feat/&ArtificerArtillerstImprovedCannonsDescription	The effect from your cannons increases. Additional damage from the fire, an additional target from the force, and additional temp HP from the shield.
@@ -44,16 +38,8 @@ Feature/&AdditionalActionDualFlurryDescription	You may make an additional off-ha
 Feature/&AdditionalActionDualFlurryTitle	Dual Flurry!
 Feature/&AHSoulBladeEmpowerDamageBonusDescription	You are empowered and do a damage bonus equal to your proficiency on all your attacks.
 Feature/&AlwaysBeardDescription	{0}% chances to grow a glorious beard!
-Feature/&AncientForestExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: \n Level 1: Goodberry, Entangle \n Level 2: Barkskin, Spike Growth\n Level 3: Mass Healing Word,Vampiric Touch \n Level 4: Blight, Greater Restoration \n Level 5: Contagion,Raise Dead
-Feature/&AncientForestExpandedSpelllistAfinityTitle	Ancient Forest Spells
-Feature/&AncientForestLightAffinityDescription	You can absorb energy from sunlight. While you are in direct bright light, you gain 2 HP per round
-Feature/&AncientForestLightAffinityTitle	Photosynthesis
-Feature/&AncientForestRegrowthDescription	A pool of healing power - 5 points per warlock level
-Feature/&AncientForestRegrowthTitle	Regrowth
 Feature/&DH_RiftCloakDescription	Your control of rift portals has increased to the point than you can now grant the protection of the rift to others. You can cast warding bond at will (without the sharing of damage)
 Feature/&DH_RiftCloakTitle	Rift Cloak
-Feature/&DHAncientForestBonusCantripDescription	Your patron shares secrets on the nature of how natural magic and life energy are connected. Your learn Shillelagh and Chill Touch
-Feature/&DHAncientForestBonusCantripTitle	Ancient Forest Bonus Cantrips
 Feature/&DomainBattleDomainlevel1FeaturesDescription	You learn the level 1 features of this domain
 Feature/&DomainBattleDomainlevel1FeaturesTitle	Battle Domain
 Feature/&DomainElementalColdDomainlevel1FeaturesDescription	You learn the level 1 features of this domain
@@ -74,8 +60,6 @@ Feature/&DomainOblivionDomainlevel1FeaturesDescription	You learn the level 1 fea
 Feature/&DomainOblivionDomainlevel1FeaturesTitle	Oblivion Domain
 Feature/&DomainSunDomainlevel1FeaturesDescription	You learn the level 1 features of this domain
 Feature/&DomainSunDomainlevel1FeaturesTitle	Sun Domain
-Feature/&HerbalBrewFeatureSetDescription	You gain proficiency with either the poisoner kit or herbalism kits if you don't already have it. \nWhen you finish a long rest, you can create herbal brews, each of which lasts until the next long rest. You create a total of brews equal to your proficiency bonus. For each brew, choose one of the following effects: \n<color=#add8e6ff>Fortifying Brew</color> : grants resistance to different damage types for 1 hour.\n<color=#add8e6ff>Quickening Brew</color> : provides 2d6 hit points.\n<color=#add8e6ff>Toxifying Brew</color> : acts as poison that can be applied to a weapon that lasts for 1 minute. If the hit lands the target takes 1d4 poison damage on each hit.
-Feature/&HerbalBrewFeatureSetTitle	Herbal Brewing
 Feature/&HinderingBlastMagicAffinityDescription	when you hit a creature with your eldritch blast, you can reduce that creature's speed by 10 feet until the end of your next turn
 Feature/&HinderingBlastMagicAffinityTitle	Hindering Blast
 Feature/&IndomitableResistanceTitle	Indomitable Resistance
@@ -92,8 +76,6 @@ Feature/&UrPriestDomainTheftDescription	You snatch the secrets that a god grants
 Feature/&UrPriestDomainTheftTitle	Domain Theft
 Feature/&UrPriestExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. Cleric spells are added to the warlock spell list for you
 Feature/&UrPriestExpandedSpelllistAfinityTitle	UrPriest Spells
-Feature/&WallofThornsFeatureSetDescription	Cast Wall of Thorns once a day
-Feature/&WallofThornsFeatureSetTitle	Forest Barrier
 Feedback/&AdditionalDamageAgonizing_BlastFormat	Agonizing Blast
 Feedback/&AdditionalDamageAgonizing_BlastLine	When you cast a spell using force damage (eldritch blast), add your Charisma modifier to the damage it deals on a hit.
 Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat	Additional Damage from Magically Powered Attacks
@@ -129,17 +111,13 @@ Message/&CharacterExportModalTitleDescription	Character Export
 Message/&LevelDownConfirmationDescription	Level down this Hero?
 Message/&MessageModWelcomeDescription	The Community Expansion Mod is packed full of exciting features, but by default none are enabled. Press <color=yellow>Ctrl-F10</color> to open the Unity Mod Manager UI [UMM], then click on the settings icon next to 'Community Expansion' to open the settings pages.\n\n Explore the options and select the ones you like. The UMM UI will now open.
 Message/&MessageModWelcomeTitle	Community Expansion Mod
-Message/&SpawnCustomEncounterErrorDescription	Cannot spawn encounters on a multiplayer game. Yet...
 Message/&SpawnCustomEncounterDescription	Spawn encounter at coordinates ({0}, {1})?
+Message/&SpawnCustomEncounterErrorDescription	Cannot spawn encounters on a multiplayer game. Yet...
 Message/&SpawnCustomEncounterTitle	Encounter
 Message/&TeleportPartyDescription	Teleport party to coordinates ({0}, {1})?\nYou might break quests or maps if you teleport to an undiscovered place
 Message/&TeleportPartyTitle	Teleport
 Modifier/&RuinedDescription	-3 to Armor Class
 Modifier/&RuinedTitle	Ruined
-Power/&AncientForestLifeSapDescription	When you hit an enemy with an attack roll spell up (PB times per day), You inflict your Cha Modifer in damage and heal half of that amount if under half of your hitpoints.
-Power/&AncientForestLifeSapTitle	Life Sap
-Power/&AncientForestRootedPowerDescription	Arboreal tendrils grow from your feet and dig into the ground. Your speed becomes 0, and you gain advantage on any saving throws to push you, pull you, or knock you prone.You can cast entangle at will
-Power/&AncientForestRootedPowerTitle	Rooted
 Power/&UrPriestControlUndeadDescription	As an action, you target one undead creature you can see within 30 feet of you. The target must make a Wisdom saving throw. On a failed save, the target must obey your commands
 Power/&UrPriestControlUndeadTitle	Control Undead
 Power/&UrPriestHalfLifeDescription	You take necrotic energy into yourself and hang between life and death and are temporarily possessed by your own ghost, gaining flying, and the same condition immunities and damage resistenances as other ghosts.
@@ -188,16 +166,16 @@ Spell/&HinderingBlastDescription	A beam of crackling energy streaks toward a cre
 Spell/&HinderingBlastTitle	Eldritch Blast (Hindering)
 Spell/&IPConjureInvisibleStalkerTitle	Conjure Elemental (Invisible Stalker)
 Stage/&IdentityMorphotypeEyeHeader	Eye Style
-Stage/&SubclassSelectionStagePatronDescription	A warlock is defined by a pact with an otherworldly being. Sometimes the relationship between warlock and patron is like that of a cleric and a deity, though the beings that serve as patrons are not gods
-Stage/&SubclassSelectionStagePatronFeatures	Otherwordly Patrons Features
-Stage/&SubclassSelectionStagePatronHeader	Warlock Otherwordly Patrons
-Stage/&SubclassSelectionStagePatronTitle	Otherwordly Patrons
 Stage/&SubclassSelectionStageCovenDescription	Coven
 Stage/&SubclassSelectionStageCovenFeaturesDescription	Coven
 Stage/&SubclassSelectionStageCovenFeaturesHeader	Coven Features
 Stage/&SubclassSelectionStageCovenFeaturesTitle	Coven
 Stage/&SubclassSelectionStageCovenHeader	Select a Coven
 Stage/&SubclassSelectionStageCovenTitle	Coven
+Stage/&SubclassSelectionStagePatronDescription	A warlock is defined by a pact with an otherworldly being. Sometimes the relationship between warlock and patron is like that of a cleric and a deity, though the beings that serve as patrons are not gods
+Stage/&SubclassSelectionStagePatronFeatures	Otherwordly Patrons Features
+Stage/&SubclassSelectionStagePatronHeader	Warlock Otherwordly Patrons
+Stage/&SubclassSelectionStagePatronTitle	Otherwordly Patrons
 Stage/&SubclassSelectionStageSpecialistDescription	Description There are a wide range of specialties in Tinkerers including making elixirs as a Potion Maker, making explosions as a Blaster, and wielding magical weaponry as a Weapon Smith.
 Stage/&SubclassSelectionStageSpecialistFeatures	Specialist Features
 Stage/&SubclassSelectionStageSpecialistHeader	Specializations
@@ -230,8 +208,6 @@ Subclass/&PurpleWitchDescription	Purple magic holds sway over the domains of ill
 Subclass/&PurpleWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known. \n\nLevel Spells\nLevel 1: Entangle, Goodberry\nLevel 2: Barkskin, Protection from Poison\nLevel 3: Conjure Animals, Create Food\nLevel 4: Giant Insect, Stoneskin\nLevel 5: Dispel Evil and Good, Insect Plague
 Subclass/&PurpleWitchMagicTitle	Purple Magic
 Subclass/&PurpleWitchTitle	Purple Witch
-Subclass/&WarlockAncientForestDescription	You have forged a relationship with a powerful nature entity: Ancient Dryads, Archdruids , Manifestations of the Feywild bleeding into the material plane, Forgotten gods from a primal age. Your patron may wish for you to protect the natural world, travel to far off lands that it cannot, or it may have another motive that seems inscrutable to short-lived mortals.
-Subclass/&WarlockAncientForestTitle	Ancient Forest Pact
 Subclass/&WarlockUrPriestDescription	While the vast majority of divine spellcasters gain their powers from a deity, there are those who despise the gods. Those who call themselves Ur-priests have learned to siphon off the divine energies granted by gods to their divine spellcasters, using it for their own needs without giving even lip-service to any god. As an Ur-priest, you differ from most warlocks, lacking a patron who grants you your power. Eldritch Invocations you uncover are warped forms of magic the gods might grant their patrons, while Pact Boons are likely divine artefacts you have managed to steal.
 Subclass/&WarlockUrPriestTitle	UrPriest Pact
 Tooltip/&FeatPrerequisiteHasStealthAttack	Has stealth attack

@@ -35,7 +35,7 @@ namespace SolastaMulticlass.Models
 
         internal static void RegisterHero(RulesetCharacterHero rulesetCharacterHero)
         {
-            LevelUpTab.Add(rulesetCharacterHero, new LevelUpData());
+            LevelUpTab.TryAdd(rulesetCharacterHero, new LevelUpData());
         }
 
         internal static void UnregisterHero(RulesetCharacterHero rulesetCharacterHero)
@@ -137,7 +137,7 @@ namespace SolastaMulticlass.Models
         internal static bool RequiresDeity(RulesetCharacterHero rulesetCharacterHero)
             => LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData) && levelUpData.RequiresDeity;
 
-        // also referenced by 2 transpilers in CharacterStageClassSelectionPanel
+        // also referenced by 2 transpilers in PatchingContext
         public static int GetSelectedClassLevel(RulesetCharacterHero rulesetCharacterHero)
         {
             var selectedClass = GetSelectedClass(rulesetCharacterHero);
@@ -147,7 +147,7 @@ namespace SolastaMulticlass.Models
                 return classLevel;
             }
 
-            return 1;
+            return 1; // first time hero is getting this class
         }
 
         internal static bool IsClassSelectionStage(RulesetCharacterHero rulesetCharacterHero)

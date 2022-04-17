@@ -2,7 +2,7 @@
 using SolastaModApi.Extensions;
 using System.Collections.Generic;
 
-namespace SolastaCommunityExpansion.Monsters
+namespace SolastaMonsters.Monsters
 {
     internal static class MonstersSolasta
     {
@@ -30,7 +30,7 @@ namespace SolastaCommunityExpansion.Monsters
                 if (monster.DungeonMakerPresence == MonsterDefinition.DungeonMaker.None)
                 {
                     monster.SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.Monster);
-                    Models.MonsterContext.ModdedMonsters.Add(monster);
+                    SolastaCommunityExpansion.Models.DungeonMakerContext.ModdedMonsters.Add(monster);
                 }
                 if (monster == DatabaseHelper.MonsterDefinitions.SilverDragon_Princess)
                 {
