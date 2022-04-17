@@ -5,7 +5,7 @@ using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
 
-namespace SolastaCommunityExpansion.Monsters
+namespace SolastaMonsters.Monsters
 {
     internal static class MonstersHomebrew
     {

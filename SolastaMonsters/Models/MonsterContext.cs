@@ -1,12 +1,12 @@
-﻿using SolastaModApi;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
+using SolastaCommunityExpansion;
 
-namespace SolastaCommunityExpansion.Models
+namespace SolastaMonsters.Models
 {
     internal static class MonsterContext
     {
-        internal static string GUID = "";
+        internal static string GUID = "d825a5ac-75bf-4ffa-81d3-b8c8b5f5d2a3";
 
         internal struct CustomMonster
         {

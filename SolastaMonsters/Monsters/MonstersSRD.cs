@@ -5,7 +5,7 @@ using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
 
-namespace SolastaCommunityExpansion.Monsters
+namespace SolastaMonsters.Monsters
 {
 #pragma warning disable S101 // Types should be named in PascalCase
     internal static class MonstersSRD

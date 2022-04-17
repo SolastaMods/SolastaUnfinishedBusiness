@@ -3,7 +3,7 @@ using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
 
-namespace SolastaCommunityExpansion.Monsters
+namespace SolastaMonsters.Monsters
 {
     internal static class MonstersAttributes
     {

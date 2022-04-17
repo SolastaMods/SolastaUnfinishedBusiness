@@ -2,7 +2,7 @@
 using SolastaModApi.Extensions;
 using System.Collections.Generic;
 
-namespace SolastaCommunityExpansion.Monsters
+namespace SolastaMonsters.Monsters
 {
     internal static class MonstersSolasta
     {
