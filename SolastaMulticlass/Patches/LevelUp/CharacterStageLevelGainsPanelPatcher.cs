@@ -58,7 +58,7 @@ namespace SolastaMulticlass.Patches.LevelUp
         {
             public static List<RulesetSpellRepertoire> SpellRepertoires(RulesetCharacterHero rulesetCharacterHero)
             {
-                if (LevelUpContext.IsLevelingUp(rulesetCharacterHero) && LevelUpContext.IsMulticlass(rulesetCharacterHero))
+                if (LevelUpContext.IsLevelingUp(rulesetCharacterHero) && SharedSpellsContext.IsMulticaster(rulesetCharacterHero))
                 {
                     var result = new List<RulesetSpellRepertoire>();
 
