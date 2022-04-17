@@ -37,7 +37,8 @@
     4,
     4,
     4,
-    4
+    4,
+    0
   ],
   "knownSpells": [
     0,
@@ -59,7 +60,8 @@
     12,
     12,
     13,
-    14
+    14,
+    0
   ],
   "scribedSpells": [
     0,
@@ -81,9 +83,32 @@
     0,
     0,
     0,
+    0,
     0
   ],
-  "replacedSpells": [],
+  "replacedSpells": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
   "slotsPerLevels": [
     {
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
