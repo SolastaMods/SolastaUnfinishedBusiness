@@ -59,6 +59,11 @@ namespace SolastaCommunityExpansion.Models
                     castSpellDefinition.KnownCantrips.Add(0);
                 }
 
+                while (castSpellDefinition.KnownSpells.Count < Level20Context.MOD_MAX_LEVEL + 1)
+                {
+                    castSpellDefinition.KnownSpells.Add(0);
+                }
+
                 while (castSpellDefinition.ReplacedSpells.Count < Level20Context.MOD_MAX_LEVEL + 1)
                 {
                     castSpellDefinition.ReplacedSpells.Add(0);
