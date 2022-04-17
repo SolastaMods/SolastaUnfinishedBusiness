@@ -1,6 +1,6 @@
 # Solasta Community Expansion
 
-This is a collection of work from the Solasta modding community. It includes feats, subclasses, items, crafting recipes, gameplay options, UI improvements, and more. The general philosophy is everything is optional to enable, so you can install the mod and then enable the pieces you want. There are some minor bug fixes that are enabled by default.
+This is a collection of work from the Solasta modding community. It includes multiclass, feats, classes, subclasses, items, crafting recipes, gameplay options, UI improvements, and more. The general philosophy is everything is optional to enable, so you can install the mod and then enable the pieces you want. There are some minor bug fixes that are enabled by default.
 
 The goal with the modifications provided here is to minimize code patches. Minimizing code patches means compatibility with other mods is easier as well as makes maintenance easier. Any code patches should be as targeted and minimal as possible to reduce the chance of unintended side effects. There are a lot of interesting things that can be done with just edits to the database.
 
@@ -22,10 +22,9 @@ Do you have a mod you want to see included here? We are happy to take new contri
 	- [.NET "Current" x86 SDK](https://dotnet.microsoft.com/download/visual-studio-sdks)
 1. Download and install [Unity Mod Manager (UMM)](https://www.nexusmods.com/site/mods/21)
 2. Execute UMM, Select Solasta, and Install
-3. Download and install [SolastaModApi](https://www.nexusmods.com/solastacrownofthemagister/mods/48) using UMM
-4. Create the environment variable *SolastaInstallDir* and point it to your Solasta game home folder
+3. Create the environment variable *SolastaInstallDir* and point it to your Solasta game home folder
 	- tip: search for "edit the system environment variables" on windows search bar
-5. Use "Install Release" or "Install Debug" to have the Mod installed directly to your Game Mods folder
+4. Use "Install Release" or "Install Debug" to have the Mod installed directly to your Game Mods folder
 
 NOTE Unity Mod Manager and this mod template make use of [Harmony](https://go.microsoft.com/fwlink/?linkid=874338)
 
@@ -49,11 +48,3 @@ NOTE Unity Mod Manager and this mod template make use of [Harmony](https://go.mi
 		* Rename *UnityPlayer.dll* to *UnityPlayer.dll.original*
 		* Paste *UnityPlayer.dll* and *WinPixEventRuntime.dll* from clipboard
 5. You can now attach the Unity Debugger from Visual Studio 2019, Debug -> Attach Unity Debug
-
-# How to publish (update)
-
-1. Develop / Test the Mod
-2. Edit version entries on CSPROJ, Info.json, and Repository.json
-3. Update DownloadURL on Repository.json
-4. Release Mod on GitHub using Vx.y.z as TAG/RELEASE convention
-5. Update Nexus page with new release
