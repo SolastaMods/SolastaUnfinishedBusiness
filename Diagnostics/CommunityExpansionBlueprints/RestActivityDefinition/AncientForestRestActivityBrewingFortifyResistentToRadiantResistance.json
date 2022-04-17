@@ -1,19 +1,16 @@
 {
-  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
-  "featureSet": [
-    "Definition:ActionAffinityWizardRitualCasting:ab85ac35847f3fc4899712329db32377",
-    "Definition:WitchRitualCastingMagicAffinity:4385a40d-40c6-55b8-90c7-087a0414d8a1"
-  ],
-  "mode": "Union",
-  "defaultSelection": 0,
-  "uniqueChoices": false,
-  "enumerateInDescription": false,
-  "hasRacialAffinity": false,
+  "$type": "RestActivityDefinition, Assembly-CSharp",
+  "restStage": "AfterRest",
+  "restType": "LongRest",
+  "condition": "CanUsePower",
+  "functor": "UsePower",
+  "stringParameter": "AncientForestHerbalBrewFortifyingResistentToRadiantResistance",
+  "checkConsciousness": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Class/&WitchFeatureSetRitualCastingTitle",
-    "description": "Class/&WitchFeatureSetRitualCastingDescription",
+    "title": "This herbal brew grants resistence to Radiant damage for one hour",
+    "description": "Herbal Brew : Potion of Radiant resistence",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -33,7 +30,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ac0f43fd-914a-507e-8048-59a63a1f913e",
+  "guid": "d37dadf4-0dfe-5c48-b432-e4b379ffd86b",
   "contentPack": 9999,
-  "name": "WitchFeatureSetRitualCasting"
+  "name": "AncientForestRestActivityBrewingFortifyResistentToRadiantResistance"
 }
