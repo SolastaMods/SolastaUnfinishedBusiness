@@ -20,7 +20,8 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Monsters
                 return;
             }
 
-            if (__instance.GuiCharacter.RulesetCharacterMonster != null) // Only change for monsters
+            if (__instance.GuiCharacter.RulesetCharacterMonster != null && 
+                __instance.GuiCharacter.RulesetCharacterMonster.Side == RuleDefinitions.Side.Enemy) // Only change for monsters
             {
                 float ratio = Mathf.Clamp(__instance.GuiCharacter.CurrentHitPoints / (float)__instance.GuiCharacter.HitPoints, 0.0f, 1f);
 

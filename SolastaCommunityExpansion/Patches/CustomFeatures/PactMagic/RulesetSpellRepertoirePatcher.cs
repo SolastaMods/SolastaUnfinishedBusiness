@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using static SolastaCommunityExpansion.Classes.Warlock.Warlock;
+using static SolastaCommunityExpansion.Classes.Warlock.WarlockSpells;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
 {
@@ -20,7 +21,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
                 return true;
             }
 
-            ___spellsSlotCapacities.TryGetValue(1, out __result);
+            ___spellsSlotCapacities.TryGetValue(PACT_MAGIC_SLOT_TAB_INDEX, out __result);
 
             return false;
         }
@@ -42,8 +43,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
                 return true;
             }
 
-            ___spellsSlotCapacities.TryGetValue(1, out var max);
-            ___usedSpellsSlots.TryGetValue(1, out var used);
+            ___spellsSlotCapacities.TryGetValue(PACT_MAGIC_SLOT_TAB_INDEX, out var max);
+            ___usedSpellsSlots.TryGetValue(PACT_MAGIC_SLOT_TAB_INDEX, out var used);
             __result = max - used;
 
             return false;
@@ -73,8 +74,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
 
             if (spellLevel <= __instance.MaxSpellLevelOfSpellCastingLevel)
             {
-                ___spellsSlotCapacities.TryGetValue(1, out max);
-                ___usedSpellsSlots.TryGetValue(-1, out var used);
+                ___spellsSlotCapacities.TryGetValue(PACT_MAGIC_SLOT_TAB_INDEX, out max);
+                ___usedSpellsSlots.TryGetValue(PACT_MAGIC_SLOT_TAB_INDEX, out var used);
                 remaining = max - used;
             }
 
@@ -96,13 +97,9 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
 
             var warlockSpellLevel = __instance.MaxSpellLevelOfSpellCastingLevel;
 
-            for (var i = 1; i <= warlockSpellLevel; i++)
+            for (var i = PACT_MAGIC_SLOT_TAB_INDEX; i <= warlockSpellLevel; i++)
             {
-                if (!___usedSpellsSlots.ContainsKey(i))
-                {
-                    ___usedSpellsSlots.Add(i, 0);
-                }
-
+                ___usedSpellsSlots.TryAdd(i, 0);
                 ___usedSpellsSlots[i]++;
             }
 

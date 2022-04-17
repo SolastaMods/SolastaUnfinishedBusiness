@@ -10,6 +10,11 @@ namespace SolastaCommunityExpansion.Builders
             return x.Name.CompareTo(y.Name);
         }
 
+        internal static int CompareTitle(BaseDefinition x, BaseDefinition y)
+        {
+            return x.FormatTitle().CompareTo(y.FormatTitle());
+        }
+
         internal static int Compare(SavingThrowAffinityGroup x, SavingThrowAffinityGroup y)
         {
             var result = x.abilityScoreName.CompareTo(y.abilityScoreName);

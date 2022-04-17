@@ -10,17 +10,22 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierGnomeAbilityScoreSet:b239a9b0-f964-48b4-8958-a631ee3d6178",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:GnomeCunningFeature:8804963d-8214-480a-be62-98a5652f69e5",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierForestGnomeAbilityScoreIncrease:b7f18e2f-532f-46bf-96d2-f3612026295f",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierGnomeAbilityScoreIncrease:b1475c33-f9ba-4224-b4b1-a55621f4dcd1",
       "level": 1
     },
     {
@@ -41,16 +46,6 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierGnomeAbilityScoreIncrease:b1475c33-f9ba-4224-b4b1-a55621f4dcd1",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierForestGnomeAbilityScoreIncrease:b7f18e2f-532f-46bf-96d2-f3612026295f",
       "level": 1
     }
   ],
@@ -113,11 +108,18 @@
       "FaceShape_A",
       "FaceShape_B",
       "FaceShape_C",
-      "FaceShape_NPC_Priest_of_Maraike",
-      "FaceShape_NPC_Wilf_Warmhearth",
-      "FaceShape_NPC_Renno_Highwater",
-      "FaceShape_NPC_Hanno_Mudstrider",
-      "FaceShape_NPC_Krim_Sunsail"
+      "FaceShape_NPC_Daliat_Sunbird",
+      "FaceShape_NPC_Ilastar_Keenmind_Airgetine",
+      "FaceShape_NPC_Iolair_Faisech",
+      "FaceShape_NPC_Llygath_Steelmind",
+      "FaceShape_NPC_Mardracht",
+      "FaceShape_NPC_Medwal_Strongfire",
+      "FaceShape_NPC_Nobleman",
+      "FaceShape_NPC_Orenetis",
+      "FaceShape_NPC_Serafiel_Anfarel",
+      "FaceShape_NPC_Lysantir",
+      "FaceShape_NPC_Esfalad_Graymas",
+      "FaceShape_NPC_Telerien_Purevoice"
     ],
     "femaleFaceShapeOptions": [
       "FaceShape_D",
@@ -126,10 +128,17 @@
       "FaceShape_A",
       "FaceShape_B",
       "FaceShape_C",
-      "FaceShape_NPC_Annie_Bagmordah",
-      "FaceShape_NPC_Mildred_Warmhearth",
-      "FaceShape_NPC_Maddy_Greenisle",
-      "FaceShape_NPC_Rose_Fairwind"
+      "FaceShape_NPC_Ceiwad_Silverflower",
+      "FaceShape_NPC_Adrasteia_Epimeles_Aspis",
+      "FaceShape_NPC_Idriel_Fair_Brow",
+      "FaceShape_NPC_Joriel_Fox_Eye",
+      "FaceShape_NPC_Kiaradth_BrightSpark",
+      "FaceShape_NPC_Kythaela_Wildspring",
+      "FaceShape_NPC_Lizzaria_of_Grimhold",
+      "FaceShape_NPC_Ellaria_Anfarel",
+      "FaceShape_NPC_Finaliel_SharpMind",
+      "FaceShape_NPC_Malariel_Brogarad",
+      "FaceShape_NPC_Samko_Flint"
     ],
     "maleHairShapeOptions": [
       "HairShape_A",

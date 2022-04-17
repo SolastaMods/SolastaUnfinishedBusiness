@@ -41,7 +41,9 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Monsters
                 return;  // health wasn't dirty so healthGauge hasn't been updated
             }
 
-            if (__instance.RulesetCharacterMonster != null) // only change for monsters
+            if (__instance.RulesetCharacterMonster != null &&
+                __instance.RulesetCharacterMonster.Side == RuleDefinitions.Side.Enemy) // Only change for monsters
+
             {
                 var ratio = Mathf.Clamp(__instance.CurrentHitPoints / (float)__instance.HitPoints, 0.0f, 1f);
 
@@ -131,6 +133,12 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Monsters
                 if (__instance.RulesetCharacter.IsSubstitute)
                 {
                     // It's a hero wildshaping (probably).
+                    return false;
+                }
+
+                if (__instance.RulesetCharacter.Side != RuleDefinitions.Side.Enemy)
+                {
+                    // It's a companion
                     return false;
                 }
 

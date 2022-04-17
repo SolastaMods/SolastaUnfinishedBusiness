@@ -53,7 +53,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Encounter/&CR3_Woodland_Creatures_Title",
-    "description": "Encounter/&CR3_Woodland_Creatures_Desciption",
+    "description": "Encounter/&CR3_Woodland_Creatures_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

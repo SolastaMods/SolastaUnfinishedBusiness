@@ -1,6 +1,7 @@
 ﻿#if DEBUG
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using ModKit;
 using SolastaCommunityExpansion.DataMiner;
@@ -227,34 +228,40 @@ All settings start disabled by default. On first start the mod will display an w
 {2}
 [/list]
 
-[size=3][b]Subclasses[/b][/size]
+[size=3][b]Mod Classes Subclasses[/b][/size]
 
 [list=1]
 {3}
 [/list]
 
-[size=3][b]Feats[/b][/size]
+[size=3][b]Official Classes Subclasses[/b][/size]
 
 [list=1]
 {4}
 [/list]
 
-[size=3][b]Fighting Styles[/b][/size]
+[size=3][b]Feats[/b][/size]
 
 [list=1]
 {5}
 [/list]
 
-[size=3][b]Spells[/b][/size]
+[size=3][b]Fighting Styles[/b][/size]
 
 [list=1]
 {6}
 [/list]
 
-[size=3][b]Items & Crafting[/b][/size]
+[size=3][b]Spells[/b][/size]
 
 [list=1]
 {7}
+[/list]
+
+[size=3][b]Items & Crafting[/b][/size]
+
+[list=1]
+{8}
 [/list]
 ";
 
@@ -290,6 +297,10 @@ All settings start disabled by default. On first start the mod will display an w
                 collectedCredits,
                 GenerateDescription(RacesContext.Races),
                 GenerateDescription(ClassesContext.Classes),
+                GenerateDescription(DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
+                    .Where(x => !SubclassesContext.Subclasses.Contains(x))
+                    .Where(x => DiagnosticsContext.IsCeDefinition(x))
+                    .ToHashSet()),
                 GenerateDescription(SubclassesContext.Subclasses),
                 GenerateDescription(FeatsContext.Feats),
                 GenerateDescription(FightingStyleContext.FightingStyles),
