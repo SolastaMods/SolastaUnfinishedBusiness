@@ -545,9 +545,7 @@ namespace SolastaMonsters.Monsters
                 NewMonster.SetCustomShaderReference(Definitions[i].MonsterShaderReference.MonsterPresentation.CustomShaderReference);
                 NewMonster.SetHasPrefabVariants(false);
 
-
-
-                Models.MonsterContext.ModdedMonsters.Add(NewMonster.AddToDB());
+                SolastaCommunityExpansion.Models.DungeonMakerContext.ModdedMonsters.Add(NewMonster.AddToDB());
             }
         }
     }

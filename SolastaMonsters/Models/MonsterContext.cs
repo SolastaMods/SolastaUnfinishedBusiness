@@ -46,10 +46,7 @@ namespace SolastaMonsters.Models
             public bool PhantomDistortion;
             public AssetReference AttachedParticlesReference;
             public AssetReferenceSprite SpriteReference;
-
         }
-
-        public static readonly List<MonsterDefinition> ModdedMonsters = new();
 
         public static void Load()
         {

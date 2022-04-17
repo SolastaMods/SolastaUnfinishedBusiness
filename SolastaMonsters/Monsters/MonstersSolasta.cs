@@ -30,7 +30,7 @@ namespace SolastaMonsters.Monsters
                 if (monster.DungeonMakerPresence == MonsterDefinition.DungeonMaker.None)
                 {
                     monster.SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.Monster);
-                    Models.MonsterContext.ModdedMonsters.Add(monster);
+                    SolastaCommunityExpansion.Models.DungeonMakerContext.ModdedMonsters.Add(monster);
                 }
                 if (monster == DatabaseHelper.MonsterDefinitions.SilverDragon_Princess)
                 {

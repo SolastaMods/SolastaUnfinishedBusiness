@@ -1864,7 +1864,7 @@ namespace SolastaMonsters.Monsters
 
                 // temporary fix until builder is changed
                 monster.CreatureTags.Clear();
-             Models.MonsterContext.ModdedMonsters.Add(monster);
+             SolastaCommunityExpansion.Models.DungeonMakerContext.ModdedMonsters.Add(monster);
             }
         }
     }
