@@ -20,7 +20,11 @@ namespace SolastaMulticlass.Models
             PatchClassLevel();
             PatchEquipmentAssignment();
             PatchFeatureUnlocks();
+            AddNonOfficialBlueprintsToFeaturesCollections();
+        }
 
+        internal static void AddNonOfficialBlueprintsToFeaturesCollections()
+        {
             var dbFeatureDefinitionPointPool = DatabaseRepository.GetDatabase<FeatureDefinitionPointPool>();
             var dbFeatureDefinitionProficiency = DatabaseRepository.GetDatabase<FeatureDefinitionProficiency>();
 
@@ -28,35 +32,35 @@ namespace SolastaMulticlass.Models
             // add these later as need to wait for these blueprints to be instantiated and not willing to publicise CE
             //
 
-            FeaturesToReplace.Add(
-                dbFeatureDefinitionProficiency.GetElement("ProficiencyWardenArmor"), 
-                ArmorProficiencyMulticlassBuilder.WardenArmorProficiencyMulticlass);
+            //FeaturesToReplace.Add(
+            //    dbFeatureDefinitionProficiency.GetElement("ProficiencyWardenArmor"), 
+            //    ArmorProficiencyMulticlassBuilder.WardenArmorProficiencyMulticlass);
 
             FeaturesToExclude.Add(TinkererClass, new()
             {
-                dbFeatureDefinitionPointPool.GetElement("ProficiencyWeaponTinkerer"),
                 dbFeatureDefinitionPointPool.GetElement("PointPoolTinkererSkillPoints"),
-                dbFeatureDefinitionPointPool.GetElement("ProficiencyTinkererSavingThrow")
+                dbFeatureDefinitionProficiency.GetElement("ProficiencyWeaponTinkerer"),
+                dbFeatureDefinitionProficiency.GetElement("ProficiencyTinkererSavingThrow")
             });
 
-            FeaturesToExclude.Add(WardenClass, new()
-            {
-                dbFeatureDefinitionPointPool.GetElement("PointPoolWardenSkillPoints"),
-                dbFeatureDefinitionPointPool.GetElement("ProficiencyWardenSavingthrow")
-            });
+            //FeaturesToExclude.Add(WardenClass, new()
+            //{
+            //    dbFeatureDefinitionPointPool.GetElement("PointPoolWardenSkillPoints"),
+            //    dbFeatureDefinitionPointPool.GetElement("ProficiencyWardenSavingthrow")
+            //});
 
             FeaturesToExclude.Add(WitchClass, new()
             {
-                dbFeatureDefinitionPointPool.GetElement("ProficiencyWitchWeapon"),
                 dbFeatureDefinitionPointPool.GetElement("PointPoolWitchSkillPoints"),
-                dbFeatureDefinitionPointPool.GetElement("ProficiencyWitchSavingthrow")
+                dbFeatureDefinitionProficiency.GetElement("ProficiencyWitchWeapon"),
+                dbFeatureDefinitionProficiency.GetElement("ProficiencyWitchSavingthrow")
             });
 
             FeaturesToExclude.Add(WarlockClass, new()
             {
-                dbFeatureDefinitionPointPool.GetElement("ClassWarlockWeaponProficiency"),
                 dbFeatureDefinitionPointPool.GetElement("ClassWarlockSkillProficiency"),
-                dbFeatureDefinitionPointPool.GetElement("ClassWarlockSavingThrowProficiency")
+                dbFeatureDefinitionProficiency.GetElement("ClassWarlockWeaponProficiency"),
+                dbFeatureDefinitionProficiency.GetElement("ClassWarlockSavingThrowProficiency")
             });
         }
 
