@@ -35,10 +35,7 @@ namespace SolastaMulticlass.Models
             inputService.RegisterCommand(PLAIN_DOWN, 274, -1, -1, -1, -1, -1);
         }
 
-        public static string GetSelectedClassSearchTerm(string original)
-        {
-            return original + SelectedClass.Name;
-        }
+        public static string GetSelectedClassSearchTerm(string original) => original + SelectedClass.Name;
 
         public static void EnumerateClassBadges(CharacterInformationPanel __instance)
         {

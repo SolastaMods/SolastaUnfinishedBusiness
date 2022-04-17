@@ -147,7 +147,7 @@ namespace SolastaMulticlass.Models
                 return classLevel;
             }
 
-            return 1;
+            return 1; // first time hero is getting this class
         }
 
         internal static bool IsClassSelectionStage(RulesetCharacterHero rulesetCharacterHero)
