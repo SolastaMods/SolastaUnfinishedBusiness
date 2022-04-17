@@ -1,6 +1,6 @@
 ﻿using HarmonyLib;
 
-namespace SolastaMonsters.Patchers
+namespace SolastaMonsters.Patches
 {
     [HarmonyPatch(typeof(GameManager), "BindPostDatabase")]
     internal static class GameManagerBindPostDatabase
