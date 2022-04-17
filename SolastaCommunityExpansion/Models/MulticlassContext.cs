@@ -54,17 +54,17 @@ namespace SolastaCommunityExpansion.Models
 
             foreach (var castSpellDefinition in castSpellDefinitions)
             {
-                while (castSpellDefinition.KnownCantrips.Count < Level20Context.MOD_MAX_LEVEL)
+                while (castSpellDefinition.KnownCantrips.Count < Level20Context.MOD_MAX_LEVEL + 1)
                 {
                     castSpellDefinition.KnownCantrips.Add(0);
                 }
 
-                while (castSpellDefinition.ReplacedSpells.Count < Level20Context.MOD_MAX_LEVEL)
+                while (castSpellDefinition.ReplacedSpells.Count < Level20Context.MOD_MAX_LEVEL + 1)
                 {
                     castSpellDefinition.ReplacedSpells.Add(0);
                 }
 
-                while (castSpellDefinition.ScribedSpells.Count < Level20Context.MOD_MAX_LEVEL)
+                while (castSpellDefinition.ScribedSpells.Count < Level20Context.MOD_MAX_LEVEL + 1)
                 {
                     castSpellDefinition.ScribedSpells.Add(0);
                 }
