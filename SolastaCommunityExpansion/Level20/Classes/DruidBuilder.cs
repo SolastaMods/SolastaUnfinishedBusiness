@@ -21,9 +21,6 @@ namespace SolastaCommunityExpansion.Level20.Classes
             CastSpellDruid.SetSpellCastingLevel(9);
 
             CastSpellDruid.SlotsPerLevels.SetRange(SpellsHelper.FullCastingSlots);
-
-            CastSpellDruid.KnownCantrips.Add(0); // need this to avoid a trace error message when leveling up to 20
-
             CastSpellDruid.ReplacedSpells.SetRange(SpellsHelper.EmptyReplacedSpells);
         }
     }

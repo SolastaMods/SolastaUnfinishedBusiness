@@ -805,7 +805,7 @@ Feature/&DomainOblivionDomainlevel1FeaturesTitle	Oblivion Domain
 Feature/&DomainSunDomainlevel1FeaturesDescription	You learn the level 1 features of this domain
 Feature/&DomainSunDomainlevel1FeaturesTitle	Sun Domain
 Feature/&DreadfulWordTitle	Dreadful Word
-Feature/&DruidForestGuardianBarkWardDescription	You gain the ability to summon a Bark Ward to protect you. As a bonus action, you can expend a use of your Wild Shape to gain 5 temporary hit points for each level you have in this class. These temporary hit points last for 10 minutes, or until you use your Wild Shape again.
+Feature/&DruidForestGuardianBarkWardDescription	You gain the ability to summon a Bark Ward to protect you. As a bonus action, you can expend a use of your Wild Shape to gain 4 temporary hit points for each level you have in this class. These temporary hit points last for 10 minutes, or until you use your Wild Shape again.
 Feature/&DruidForestGuardianBarkWardTitle	Bark Ward
 Feature/&DruidForestGuardianExtraAttackDescription	Starting at 6th level, you can attack twice, instead of once, whenever you take the Attack action on your turn.
 Feature/&DruidForestGuardianExtraAttackTitle	Extra Attack

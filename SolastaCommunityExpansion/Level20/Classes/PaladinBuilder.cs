@@ -93,7 +93,6 @@ namespace SolastaCommunityExpansion.Level20.Classes
             CastSpellPaladin.SetSpellCastingLevel(5);
 
             CastSpellPaladin.SlotsPerLevels.SetRange(SpellsHelper.HalfCastingSlots);
-
             CastSpellPaladin.ReplacedSpells.SetRange(SpellsHelper.EmptyReplacedSpells);
         }
     }

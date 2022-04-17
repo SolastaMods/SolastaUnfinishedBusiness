@@ -36,17 +36,42 @@ namespace SolastaCommunityExpansion.Models
             _ = SkillProficiencyPointPoolSkillsBuilder.PointPoolRangerSkillPointsMulticlass;
             _ = SkillProficiencyPointPoolSkillsBuilder.PointPoolRogueSkillPointsMulticlass;
 
-            // allows casters to use slots above their caster level if multiclassed
-            // also fixes Warlock spells acquision above level 10
+            // required to ensure level 20 and multiclass will work correctly on higher level heroes
             var spellListDefinitions = DatabaseRepository.GetDatabase<SpellListDefinition>();
 
             foreach (var spellListDefinition in spellListDefinitions)
             {
                 var spellsByLevel = spellListDefinition.SpellsByLevel;
                 
-                while (spellsByLevel.Count < 9 + (spellListDefinition.HasCantrips ? 1 : 0))
+                while (spellsByLevel.Count < Level20Context.MAX_SPELL_LEVEL + (spellListDefinition.HasCantrips ? 1 : 0))
                 {
                     spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet { Level = spellsByLevel.Count, Spells = new() });
+                }
+            }
+
+            // required to avoid some trace error messages that might desync multiplayer sessions and prevent level up from 19 to 20
+            var castSpellDefinitions = DatabaseRepository.GetDatabase<FeatureDefinitionCastSpell>();
+
+            foreach (var castSpellDefinition in castSpellDefinitions)
+            {
+                while (castSpellDefinition.KnownCantrips.Count < Level20Context.MOD_MAX_LEVEL + 1)
+                {
+                    castSpellDefinition.KnownCantrips.Add(0);
+                }
+
+                while (castSpellDefinition.KnownSpells.Count < Level20Context.MOD_MAX_LEVEL + 1)
+                {
+                    castSpellDefinition.KnownSpells.Add(0);
+                }
+
+                while (castSpellDefinition.ReplacedSpells.Count < Level20Context.MOD_MAX_LEVEL + 1)
+                {
+                    castSpellDefinition.ReplacedSpells.Add(0);
+                }
+
+                while (castSpellDefinition.ScribedSpells.Count < Level20Context.MOD_MAX_LEVEL + 1)
+                {
+                    castSpellDefinition.ScribedSpells.Add(0);
                 }
             }
         }

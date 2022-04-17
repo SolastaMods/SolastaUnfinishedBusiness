@@ -27,9 +27,6 @@ namespace SolastaCommunityExpansion.Level20.Classes
             CastSpellCleric.SetSpellCastingLevel(9);
 
             CastSpellCleric.SlotsPerLevels.SetRange(SpellsHelper.FullCastingSlots);
-
-            CastSpellCleric.KnownCantrips.Add(0); // need this to avoid a trace error message when leveling up to 20
-
             CastSpellCleric.ReplacedSpells.SetRange(SpellsHelper.EmptyReplacedSpells);
 
             DomainBattle.FeatureUnlocks.Add(new FeatureUnlockByLevel(PowerClericDivineInterventionImprovementPaladin, 20));

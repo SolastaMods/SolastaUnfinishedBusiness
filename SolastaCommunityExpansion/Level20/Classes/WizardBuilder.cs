@@ -22,10 +22,7 @@ namespace SolastaCommunityExpansion.Level20.Classes
 
             CastSpellWizard.SetSpellCastingLevel(9);
 
-            CastSpellWizard.KnownCantrips.Add(0); // need this to avoid a trace error message when leveling up to 20
-
             CastSpellWizard.SlotsPerLevels.SetRange(SpellsHelper.FullCastingSlots);
-
             CastSpellWizard.ReplacedSpells.SetRange(SpellsHelper.EmptyReplacedSpells);
         }
     }

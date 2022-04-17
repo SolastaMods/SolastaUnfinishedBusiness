@@ -64,9 +64,6 @@ namespace SolastaCommunityExpansion.Patches
             TelemaCampaignContext.Load();
             VisionContext.Load();
 
-            // Multiclass blueprints should always load to avoid issues with heroes saves
-            MulticlassContext.Load();
-
             // Races may rely on spells and powers being in the DB before they can properly load.
             RacesContext.Load();
 
@@ -75,6 +72,9 @@ namespace SolastaCommunityExpansion.Patches
 
             // Subclasses may rely on classes being loaded (as well as spells and powers) in order to properly refer back to the class.
             SubclassesContext.Load();
+
+            // Multiclass blueprints should always load to avoid issues with heroes saves and after classes and subclasses
+            MulticlassContext.Load();
 
             ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += (_) =>
             {
