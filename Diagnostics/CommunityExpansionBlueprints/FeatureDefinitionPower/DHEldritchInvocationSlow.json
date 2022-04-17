@@ -9,7 +9,7 @@
     "targetType": "Cube",
     "itemSelectionType": "Equiped",
     "targetParameter": 8,
-    "targetParameter2": 0,
+    "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": true,

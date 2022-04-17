@@ -7,7 +7,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 {
     internal static partial class WarlockFeatures
     {
-        public readonly static FeatureDefinitionPower WarlockEldritchMasterPower = FeatureDefinitionPowerBuilder
+        internal static readonly FeatureDefinitionPower WarlockEldritchMasterPower = FeatureDefinitionPowerBuilder
             .Create(PowerWizardArcaneRecovery, "ClassWarlockEldritchMaster", CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetActivationTime(RuleDefinitions.ActivationTime.Minute1)

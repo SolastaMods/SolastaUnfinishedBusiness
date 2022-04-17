@@ -24,9 +24,7 @@ namespace SolastaCommunityExpansion.Level20.Classes
             CastSpellSorcerer.SetSpellCastingLevel(9);
 
             CastSpellSorcerer.SlotsPerLevels.SetRange(SpellsHelper.FullCastingSlots);
-
             CastSpellSorcerer.ReplacedSpells.SetRange(SpellsHelper.FullCasterReplacedSpells);
-
             CastSpellSorcerer.KnownSpells.SetRange(SpellsHelper.SorcererKnownSpells);
         }
     }

@@ -166,7 +166,7 @@ namespace SolastaCommunityExpansion.Models
                 }
             }
 
-            if (ndx > 0)
+            if (ndx >= 0)
             {
                 characterRaceDefinition.FeatureUnlocks.RemoveAt(ndx);
             }

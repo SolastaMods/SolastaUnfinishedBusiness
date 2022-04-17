@@ -66,6 +66,7 @@ namespace SolastaCommunityExpansion
         public bool EnableMoveSorceryPointsBox { get; set; } = true;
         public bool EnableMultiLinePowerPanel { get; set; } = true;
         public bool EnableMultiLineSpellPanel { get; set; } = true;
+        public bool EnableRacesMorphotypePatch { get; set; } = true;
         public bool EnableSortingClasses { get; set; } = true;
         public bool EnableSortingDeities { get; set; } = true;
         public bool EnableSortingDungeonMakerAssets { get; set; } = true;
@@ -216,6 +217,7 @@ namespace SolastaCommunityExpansion
         //
 
         // General
+        public bool EnableCharacterChecker { get; set; }
         public bool EnableRespec { get; set; }
         public bool EnableCheatMenu { get; set; }
         public bool NoExperienceOnLevelUp { get; set; }

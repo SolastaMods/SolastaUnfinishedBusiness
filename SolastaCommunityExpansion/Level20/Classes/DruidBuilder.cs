@@ -21,7 +21,6 @@ namespace SolastaCommunityExpansion.Level20.Classes
             CastSpellDruid.SetSpellCastingLevel(9);
 
             CastSpellDruid.SlotsPerLevels.SetRange(SpellsHelper.FullCastingSlots);
-
             CastSpellDruid.ReplacedSpells.SetRange(SpellsHelper.EmptyReplacedSpells);
         }
     }

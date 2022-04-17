@@ -5,6 +5,7 @@ using SolastaModApi.Extensions;
 using SolastaCommunityExpansion.Builders;
 using UnityEngine;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Features
 {
@@ -97,7 +98,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                      false,
                      false,
                      AttributeDefinitions.Charisma,
-                     entry.Value.EffectDescription,
+                     entry.Value.EffectDescription.DeepCopy(), // need to copy to avoid issues with the source spells
                      true);
                 FeatureDefinitionPower EIPower = EIPowerBuilder.AddToDB();
 
@@ -136,7 +137,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                      false,
                      false,
                      AttributeDefinitions.Charisma,
-                     entry.Value.EffectDescription,
+                     entry.Value.EffectDescription.DeepCopy(), // need to copy to avoid issues with the source spells
                      true);
                 FeatureDefinitionPower EIPower = EIPowerBuilder.AddToDB();
 
@@ -147,9 +148,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
                 DictionaryofEIPowers.Add(entry.Key, EIPower);
             }
-
         }
-
 
         private static void EldritchBlastAndEBInvocations()
         {

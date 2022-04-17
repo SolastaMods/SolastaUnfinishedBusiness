@@ -28,7 +28,7 @@ namespace SolastaCommunityExpansion.Displays
 
             UI.Label("");
             toggle = Main.Settings.EnableUnlimitedArcaneRecoveryOnWizardSpellMaster;
-            if (UI.Toggle("Enable unlimited ".white() + "Arcane Recovery".orange() + " on " + "Wizard".orange() + " Spell Master\n".white() + "Must be enabled when the ability has available uses (or before character creation)".italic().yellow(), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enable unlimited ".white() + "Arcane Recovery".orange() + " on " + "Wizard".orange() + " Spell Master\n".white() + "Must be enabled when the ability has available uses or before character creation. Requires restart if multiclass is enabled.".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableUnlimitedArcaneRecoveryOnWizardSpellMaster = toggle;
                 SpellMaster.UpdateBonusRecovery();

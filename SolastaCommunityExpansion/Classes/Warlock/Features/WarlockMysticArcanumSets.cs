@@ -43,9 +43,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .AddToDB();
         }
 
-        public static readonly FeatureDefinitionFeatureSet WarlockMysticArcanumSetLevel11 = Create(11, 6);
-        public static readonly FeatureDefinitionFeatureSet WarlockMysticArcanumSetLevel13 = Create(13, 7, 6);
-        public static readonly FeatureDefinitionFeatureSet WarlockMysticArcanumSetLevel15 = Create(15, 8, 7, 6);
-        public static readonly FeatureDefinitionFeatureSet WarlockMysticArcanumSetLevel17 = Create(17, 9, 8, 7, 6);
+        internal static readonly FeatureDefinitionFeatureSet WarlockMysticArcanumSetLevel11 = Create(11, 6);
+        internal static readonly FeatureDefinitionFeatureSet WarlockMysticArcanumSetLevel13 = Create(13, 7, 6);
+        internal static readonly FeatureDefinitionFeatureSet WarlockMysticArcanumSetLevel15 = Create(15, 8, 7, 6);
+        internal static readonly FeatureDefinitionFeatureSet WarlockMysticArcanumSetLevel17 = Create(17, 9, 8, 7, 6);
     }
 }

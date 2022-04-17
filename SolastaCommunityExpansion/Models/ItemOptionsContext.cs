@@ -17,6 +17,8 @@ namespace SolastaCommunityExpansion.Models
     {
         private sealed class WandIdentifyBuilder : ItemDefinitionBuilder
         {
+            internal static readonly HashSet<StockUnitDescription> StockFocus = new();
+
             private WandIdentifyBuilder(string name, string guid, string title, string description, ItemDefinition original) : base(original, name, guid)
             {
                 Definition.GuiPresentation.Title = title;
@@ -36,7 +38,7 @@ namespace SolastaCommunityExpansion.Models
                 stockFocus.SetReassortRateValue(1);
                 stockFocus.SetReassortRateType(RuleDefinitions.DurationType.Day);
 
-                Store_Merchant_Hugo_Requer_Cyflen_Potions.StockUnitDescriptions.Add(stockFocus);
+                StockFocus.Add(stockFocus);
             }
 
             private static ItemDefinition CreateAndAddToDB(string name, string guid, string title, string description, ItemDefinition original)
@@ -54,6 +56,8 @@ namespace SolastaCommunityExpansion.Models
 
         private sealed class FocusDefinitionBuilder : ItemDefinitionBuilder
         {
+            internal static readonly HashSet<StockUnitDescription> StockFocus = new();
+
             private FocusDefinitionBuilder(
                 string name,
                 string guid,
@@ -97,7 +101,7 @@ namespace SolastaCommunityExpansion.Models
                 stockFocus.SetReassortRateValue(1);
                 stockFocus.SetReassortRateType(RuleDefinitions.DurationType.Day);
 
-                Store_Merchant_Hugo_Requer_Cyflen_Potions.StockUnitDescriptions.Add(stockFocus);
+                StockFocus.Add(stockFocus);
             }
 
             private static ItemDefinition CreateAndAddToDB(
@@ -292,7 +296,26 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void SwitchFociItems()
         {
+            if (Main.Settings.StockHugoStoreWithAdditionalFoci)
+            {
+                Store_Merchant_Hugo_Requer_Cyflen_Potions.StockUnitDescriptions.AddRange(WandIdentifyBuilder.StockFocus);
+                Store_Merchant_Hugo_Requer_Cyflen_Potions.StockUnitDescriptions.AddRange(FocusDefinitionBuilder.StockFocus);
+            }
+            else
+            {
+                foreach (var stockFocus in WandIdentifyBuilder.StockFocus)
+                {
+                    Store_Merchant_Hugo_Requer_Cyflen_Potions.StockUnitDescriptions.Remove(stockFocus);
+                }
+
+                foreach (var stockFocus in FocusDefinitionBuilder.StockFocus)
+                {
+                    Store_Merchant_Hugo_Requer_Cyflen_Potions.StockUnitDescriptions.Remove(stockFocus);
+                }
+            }
+
             WandIdentifyBuilder.WandIdentify.GuiPresentation.SetHidden(!Main.Settings.StockHugoStoreWithAdditionalFoci);
+
             FocusDefinitionBuilder.ArcaneStaff.GuiPresentation.SetHidden(!Main.Settings.StockHugoStoreWithAdditionalFoci);
             FocusDefinitionBuilder.DruidicAmulet.GuiPresentation.SetHidden(!Main.Settings.StockHugoStoreWithAdditionalFoci);
             FocusDefinitionBuilder.LivewoodClub.GuiPresentation.SetHidden(!Main.Settings.StockHugoStoreWithAdditionalFoci);

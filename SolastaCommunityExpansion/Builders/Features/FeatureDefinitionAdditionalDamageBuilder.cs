@@ -151,14 +151,15 @@ namespace SolastaCommunityExpansion.Builders.Features
             bool attackModeOnly, RuleDefinitions.DieType damageDieType, int damageDiceNumber, RuleDefinitions.AdditionalDamageType additionalDamageType,
             string specificDamageType, RuleDefinitions.AdditionalDamageAdvancement damageAdvancement, List<DiceByRank> diceByRankTable)
         {
+            // this should be first to avoid issues with Damage Value determination
+            SetDamageDice(damageDieType, damageDiceNumber);
+
             Definition.SetNotificationTag(notificationTag);
             Definition.SetLimitedUsage(limitedUsage);
             Definition.SetDamageValueDetermination(damageValueDetermination);
             Definition.SetTriggerCondition(triggerCondition);
             Definition.SetRequiredProperty(requiredProperty);
             Definition.SetAttackModeOnly(attackModeOnly);
-
-            SetDamageDice(damageDieType, damageDiceNumber);
 
             // Does this conflict with SetSpecificDamageType below?
             Definition.SetAdditionalDamageType(additionalDamageType);

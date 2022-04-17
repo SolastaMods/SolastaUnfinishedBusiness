@@ -32,7 +32,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void Load()
         {
-            //LoadRace(BolgrifRaceBuilder.BolgrifRace);
+            LoadRace(BolgrifRaceBuilder.BolgrifRace);
             LoadRace(GnomeRaceBuilder.GnomeRace);
 
             Races = Races.OrderBy(x => x.FormatTitle()).ToHashSet();

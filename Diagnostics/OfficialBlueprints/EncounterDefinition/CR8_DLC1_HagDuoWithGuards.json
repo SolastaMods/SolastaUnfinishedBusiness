@@ -52,8 +52,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "CR8_HagDuoWithGuards_Title",
-    "description": "CR8_HagDuoWithGuards_Description",
+    "title": "Encounter/&CR8_HagDuoWithGuards_Title",
+    "description": "Encounter/&CR8_HagDuoWithGuards_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
