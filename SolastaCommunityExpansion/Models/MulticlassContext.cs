@@ -77,7 +77,7 @@ namespace SolastaCommunityExpansion.Models
         }
     }
 
-    internal sealed class ArmorProficiencyMulticlassBuilder : FeatureDefinitionProficiencyBuilder
+    public sealed class ArmorProficiencyMulticlassBuilder : FeatureDefinitionProficiencyBuilder
     {
         private const string BarbarianArmorProficiencyMulticlassName = "BarbarianArmorProficiencyMulticlass";
         private const string BarbarianArmorProficiencyMulticlassGuid = "86558227b0cd4771b42978a60dc610db";
@@ -102,26 +102,26 @@ namespace SolastaCommunityExpansion.Models
             return new ArmorProficiencyMulticlassBuilder(name, guid, title, proficienciesToReplace).AddToDB();
         }
 
-        internal static readonly FeatureDefinitionProficiency BarbarianArmorProficiencyMulticlass =
+        public static readonly FeatureDefinitionProficiency BarbarianArmorProficiencyMulticlass =
             CreateAndAddToDB(BarbarianArmorProficiencyMulticlassName, BarbarianArmorProficiencyMulticlassGuid, "Feature/&BarbarianArmorProficiencyTitle",
                 EquipmentDefinitions.ShieldCategory
             );
 
-        internal static readonly FeatureDefinitionProficiency FighterArmorProficiencyMulticlass =
+        public static readonly FeatureDefinitionProficiency FighterArmorProficiencyMulticlass =
             CreateAndAddToDB(FighterArmorProficiencyMulticlassName, FighterArmorProficiencyMulticlassGuid, "Feature/&FighterArmorProficiencyTitle",
                 EquipmentDefinitions.LightArmorCategory,
                 EquipmentDefinitions.MediumArmorCategory,
                 EquipmentDefinitions.ShieldCategory
             );
 
-        internal static readonly FeatureDefinitionProficiency PaladinArmorProficiencyMulticlass =
+        public static readonly FeatureDefinitionProficiency PaladinArmorProficiencyMulticlass =
             CreateAndAddToDB(PaladinArmorProficiencyMulticlassName, PaladinArmorProficiencyMulticlassGuid, "Feature/&PaladinArmorProficiencyTitle",
                 EquipmentDefinitions.LightArmorCategory,
                 EquipmentDefinitions.MediumArmorCategory,
                 EquipmentDefinitions.ShieldCategory
             );
 
-        internal static readonly FeatureDefinitionProficiency WardenArmorProficiencyMulticlass =
+        public static readonly FeatureDefinitionProficiency WardenArmorProficiencyMulticlass =
             CreateAndAddToDB(WardenArmorProficiencyMulticlassName, WardenArmorProficiencyMulticlassGuid, "Feature/&WardenArmorProficiencyTitle",
                 EquipmentDefinitions.LightArmorCategory,
                 EquipmentDefinitions.MediumArmorCategory,
@@ -129,9 +129,9 @@ namespace SolastaCommunityExpansion.Models
             );
     }
 
-    internal static class SkillProficiencyPointPoolSkillsBuilder
+    public static class SkillProficiencyPointPoolSkillsBuilder
     {
-        internal static readonly FeatureDefinitionPointPool PointPoolBardSkillPointsMulticlass = FeatureDefinitionPointPoolBuilder
+        public static readonly FeatureDefinitionPointPool PointPoolBardSkillPointsMulticlass = FeatureDefinitionPointPoolBuilder
             .Create("PointPoolBardSkillPointsMulticlass", "a69b2527569b4893abe57ad1f80e97ed")
             // Non-standard pattern?
             .SetGuiPresentation("Feature/&BardSkillsTitle", "Feature/&SkillGainChoicesPluralDescription")
@@ -158,7 +158,7 @@ namespace SolastaCommunityExpansion.Models
             )
             .AddToDB();
 
-        internal static readonly FeatureDefinitionPointPool PointPoolRangerSkillPointsMulticlass = FeatureDefinitionPointPoolBuilder
+        public static readonly FeatureDefinitionPointPool PointPoolRangerSkillPointsMulticlass = FeatureDefinitionPointPoolBuilder
             .Create("PointPoolRangerSkillPointsMulticlass", "096e4e01b52b490e807cf8d458845aa5")
             // Non-standard pattern?
             .SetGuiPresentation("Feature/&RangerSkillsTitle", "Feature/&SkillGainChoicesPluralDescription")
@@ -175,7 +175,7 @@ namespace SolastaCommunityExpansion.Models
             )
             .AddToDB();
 
-        internal static readonly FeatureDefinitionPointPool PointPoolRogueSkillPointsMulticlass = FeatureDefinitionPointPoolBuilder
+        public static readonly FeatureDefinitionPointPool PointPoolRogueSkillPointsMulticlass = FeatureDefinitionPointPoolBuilder
             .Create("PointPoolRogueSkillPointsMulticlass", "451259da8c5c41f4b1b363f00b01be4e")
             // Non-standard pattern?
             .SetGuiPresentation("Feature/&RogueSkillPointsTitle", "Feature/&SkillGainChoicesPluralDescription")
