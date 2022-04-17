@@ -9,15 +9,15 @@ namespace SolastaMulticlass.Patches
         internal static void Postfix()
 
         {
-            InspectionPanelContext.Load();
-            LevelDownContext.Load();
-            PatchingContext.Load();
+            InspectionPanelContext.Load(); // no dependencies
+            LevelDownContext.Load(); // no dependencies
 
             ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += (_) =>
-            {
-                CacheSpellsContext.Load();
-                IntegrationContext.Load();
-                SharedSpellsContext.Load();
+            {   
+                CacheSpellsContext.Load(); // dependes on all CE blueprints in databases
+                IntegrationContext.Load(); // depends on all CE blueprints in databases
+                PatchingContext.Load(); // depends on IntegrationContext
+                SharedSpellsContext.Load(); // depends on IntegrationContext
             };
         }
     }
