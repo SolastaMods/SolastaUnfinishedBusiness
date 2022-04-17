@@ -6,26 +6,30 @@ namespace SolastaMulticlass.Models
 {
     internal static class CacheSpellsContext
     {
-        private static readonly Dictionary<string, Dictionary<int, HashSet<SpellDefinition>>> classSpellList = new();
-        private static readonly Dictionary<string, Dictionary<int, HashSet<SpellDefinition>>> subclassSpellList = new();
+        private static readonly Dictionary<CharacterClassDefinition, Dictionary<int, HashSet<SpellDefinition>>> classSpellList = new();
+        private static readonly Dictionary<CharacterSubclassDefinition, Dictionary<int, HashSet<SpellDefinition>>> subclassSpellList = new();
 
-        private static int GetLowestCasterLevelFromSpellLevel(string name, int spellLevel, bool isSubclass = false)
+        private static int GetLowestCasterLevelFromSpellLevel(BaseDefinition definition, int spellLevel, bool isSubclass = false)
         {
             CasterType casterType;
 
-            if (isSubclass)
+            if (isSubclass && definition is CharacterSubclassDefinition characterSubclassDefinition)
             {
-                if (!SharedSpellsContext.SubclassCasterType.TryGetValue(name, out casterType))
+                if (!SharedSpellsContext.SubclassCasterType.TryGetValue(characterSubclassDefinition, out casterType))
+                {
+                    return 0;
+                }
+            }
+            else if (definition is CharacterClassDefinition characterClassDefinition)
+            {
+                if (!SharedSpellsContext.ClassCasterType.TryGetValue(characterClassDefinition, out casterType))
                 {
                     return 0;
                 }
             }
             else
             {
-                if (!SharedSpellsContext.ClassCasterType.TryGetValue(name, out casterType))
-                {
-                    return 0;
-                }
+                casterType = CasterType.None;
             }
 
             var modifier = (int)casterType - (int)casterType % 2;
@@ -34,26 +38,42 @@ namespace SolastaMulticlass.Models
             return classLevel;
         }
 
-        private static void RegisterSpell(string name, int level, List<SpellDefinition> spellList, bool isSubclass = false)
+        private static void RegisterSpell(BaseDefinition definition, int level, List<SpellDefinition> spellList, bool isSubclass = false)
         {
-            if (spellList != null)
+            if (spellList == null)
             {
-                var record = isSubclass ? subclassSpellList : classSpellList;
+                return;
+            }
 
-                record.TryAdd(name, new());
-                record[name].TryAdd(level, new());
+            if (isSubclass && definition is CharacterSubclassDefinition characterSubclassDefinition)
+            {
+                subclassSpellList.TryAdd(characterSubclassDefinition, new());
+                subclassSpellList[characterSubclassDefinition].TryAdd(level, new());
 
                 foreach (var spell in spellList)
                 {
-                    if (!record[name][level].Contains(spell))
+                    if (!subclassSpellList[characterSubclassDefinition][level].Contains(spell))
                     {
-                        record[name][level].Add(spell);
+                        subclassSpellList[characterSubclassDefinition][level].Add(spell);
+                    }
+                }
+            }
+            else if (definition is CharacterClassDefinition characterClassDefinition)
+            {
+                classSpellList.TryAdd(characterClassDefinition, new());
+                classSpellList[characterClassDefinition].TryAdd(level, new());
+
+                foreach (var spell in spellList)
+                {
+                    if (!classSpellList[characterClassDefinition][level].Contains(spell))
+                    {
+                        classSpellList[characterClassDefinition][level].Add(spell);
                     }
                 }
             }
         }
 
-        private static void EnumerateSpells(string name, List<FeatureUnlockByLevel> featureUnlocks, bool isSubClass = false)
+        private static void EnumerateSpells(BaseDefinition definition, List<FeatureUnlockByLevel> featureUnlocks, bool isSubClass = false)
         {
             void Register(SpellListDefinition spellListDefinition)
             {
@@ -66,10 +86,10 @@ namespace SolastaMulticlass.Models
 
                 for (var i = 0; i < maxLevel; i++)
                 {
-                    var level = GetLowestCasterLevelFromSpellLevel(name, spellListDefinition.SpellsByLevel[i].Level, true);
+                    var level = GetLowestCasterLevelFromSpellLevel(definition, spellListDefinition.SpellsByLevel[i].Level, true);
                     var spellList = spellListDefinition.SpellsByLevel[i].Spells;
 
-                    RegisterSpell(name, level, spellList, isSubClass);
+                    RegisterSpell(definition, level, spellList, isSubClass);
                 }
             }
 
@@ -97,7 +117,7 @@ namespace SolastaMulticlass.Models
                         var level = autoPreparedSpellsGroup.ClassLevel;
                         var spellList = autoPreparedSpellsGroup.SpellsList;
 
-                        RegisterSpell(name, level, spellList, isSubClass);
+                        RegisterSpell(definition, level, spellList, isSubClass);
                     }
                 }
                 else if (featureDefinition is FeatureDefinitionBonusCantrips featureDefinitionBonusCantrips)
@@ -105,7 +125,7 @@ namespace SolastaMulticlass.Models
                     var level = featureUnlock.Level;
                     var spellList = featureDefinitionBonusCantrips.BonusCantrips;
 
-                    RegisterSpell(name, level, spellList, isSubClass);
+                    RegisterSpell(definition, level, spellList, isSubClass);
                 }
                 // unofficial
                 //else if (featureDefinitionTypeName == "FeatureDefinitionExtraSpellSelection")
@@ -121,18 +141,16 @@ namespace SolastaMulticlass.Models
         {
             foreach (var characterClassDefinition in DatabaseRepository.GetDatabase<CharacterClassDefinition>())
             {
-                var className = characterClassDefinition.Name;
                 var featureUnlocks = characterClassDefinition.FeatureUnlocks;
 
-                EnumerateSpells(className, featureUnlocks, false);
+                EnumerateSpells(characterClassDefinition, featureUnlocks, false);
             }
 
             foreach (var characterSubclassDefinition in DatabaseRepository.GetDatabase<CharacterSubclassDefinition>())
             {
-                var subclassName = characterSubclassDefinition.Name;
                 var featureUnlocks = characterSubclassDefinition.FeatureUnlocks;
 
-                EnumerateSpells(subclassName, featureUnlocks, true);
+                EnumerateSpells(characterSubclassDefinition, featureUnlocks, true);
             }
         }
 
@@ -173,15 +191,9 @@ namespace SolastaMulticlass.Models
             var selectedClass = LevelUpContext.GetSelectedClass(rulesetCharacterHero);
             var selectedSubclass = LevelUpContext.GetSelectedSubclass(rulesetCharacterHero);
 
-            // NOTE: don't use SelectedClass?. which bypasses Unity object lifetime check
-            var className = selectedClass ? selectedClass.Name : null;
-
-            // NOTE: don't use SelectedSubclass?. which bypasses Unity object lifetime check
-            var subClassName = selectedSubclass ? selectedSubclass.Name : null;
-
-            if (className != null && classSpellList.ContainsKey(className))
+            if (selectedClass != null && classSpellList.ContainsKey(selectedClass))
             {
-                foreach (var levelSpell in classSpellList[className]
+                foreach (var levelSpell in classSpellList[selectedClass]
                     .Where(x => x.Key <= classLevel))
                 {
                     if (levelSpell.Value.Contains(spellDefinition))
@@ -195,9 +207,9 @@ namespace SolastaMulticlass.Models
                 }
             }
 
-            if (subClassName != null && subclassSpellList.ContainsKey(subClassName))
+            if (selectedSubclass != null && subclassSpellList.ContainsKey(selectedSubclass))
             {
-                foreach (var levelSpell in subclassSpellList[subClassName]
+                foreach (var levelSpell in subclassSpellList[selectedSubclass]
                     .Where(x => x.Key <= classLevel))
                 {
                     if (levelSpell.Value.Contains(spellDefinition))

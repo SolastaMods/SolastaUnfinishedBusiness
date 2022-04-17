@@ -4,6 +4,9 @@ using System.Linq;
 using static FeatureDefinitionCastSpell;
 using static SolastaCommunityExpansion.Classes.Warlock.WarlockSpells;
 using static SolastaCommunityExpansion.Level20.SpellsHelper;
+using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
+using static SolastaMulticlass.Models.IntegrationContext;
 
 namespace SolastaMulticlass.Models
 {
@@ -20,28 +23,26 @@ namespace SolastaMulticlass.Models
     {
         internal static Dictionary<string, BaseDefinition> RecoverySlots { get; } = new();
 
-        internal static Dictionary<string, CasterType> ClassCasterType { get; } = new()
+        internal static Dictionary<CharacterClassDefinition, CasterType> ClassCasterType { get; } = new()
         {
-            //{ IntegrationContext.CLASS_ALCHEMIST, CasterType.HalfRoundUp },
-            //{ IntegrationContext.CLASS_BARD, CasterType.Full },
-            { IntegrationContext.CLASS_TINKERER, CasterType.HalfRoundUp },
-            { IntegrationContext.CLASS_WITCH, CasterType.Full },
-            { RuleDefinitions.ClericClass, CasterType.Full },
-            { RuleDefinitions.DruidClass, CasterType.Full },
-            { RuleDefinitions.SorcererClass, CasterType.Full },
-            { RuleDefinitions.WizardClass, CasterType.Full },
-            { RuleDefinitions.PaladinClass, CasterType.Half },
-            { RuleDefinitions.RangerClass, CasterType.Half }
+            { Cleric, CasterType.Full },
+            { Druid, CasterType.Full },
+            { Sorcerer, CasterType.Full },
+            { Wizard, CasterType.Full },
+            { Paladin, CasterType.Half },
+            { Ranger, CasterType.Half }
+            // these are added during load
+            //{ TinkererClass, CasterType.HalfRoundUp },
+            //{ WitchClass, CasterType.Full },
         };
 
-        internal static Dictionary<string, CasterType> SubclassCasterType { get; } = new()
+        internal static Dictionary<CharacterSubclassDefinition, CasterType> SubclassCasterType { get; } = new()
         {
-            //{ "BarbarianSubclassPrimalPathOfWarShaman", CasterType.OneThird }, // Holic
-            //{ "MartialEldritchKnight", CasterType.OneThird }, // Holic
-            { "MartialSpellblade", CasterType.OneThird },
-            { "RoguishShadowCaster", CasterType.OneThird },
-            { "RoguishConArtist", CasterType.OneThird }, // ChrisJohnDigital
-            { "FighterSpellShield", CasterType.OneThird } // ChrisJohnDigital
+            { MartialSpellblade, CasterType.OneThird },
+            { RoguishShadowCaster, CasterType.OneThird }
+            // these are added during load
+            //{ ConArtistSubclass, CasterType.OneThird }, // ChrisJohnDigital
+            //{ SpellShieldSubclass, CasterType.OneThird } // ChrisJohnDigital
         };
 
         internal class CasterLevelContext
@@ -98,14 +99,14 @@ namespace SolastaMulticlass.Models
 
         private static CasterType GetCasterTypeForClassOrSubclass(CharacterClassDefinition characterClassDefinition, CharacterSubclassDefinition characterSubclassDefinition)
         {
-            if (characterClassDefinition != null && ClassCasterType.ContainsKey(characterClassDefinition.Name) && ClassCasterType[characterClassDefinition.Name] != CasterType.None)
+            if (characterClassDefinition != null && ClassCasterType.ContainsKey(characterClassDefinition) && ClassCasterType[characterClassDefinition] != CasterType.None)
             {
-                return ClassCasterType[characterClassDefinition.Name];
+                return ClassCasterType[characterClassDefinition];
             }
 
-            if (characterSubclassDefinition != null && SubclassCasterType.ContainsKey(characterSubclassDefinition.Name))
+            if (characterSubclassDefinition != null && SubclassCasterType.ContainsKey(characterSubclassDefinition))
             {
-                return SubclassCasterType[characterSubclassDefinition.Name];
+                return SubclassCasterType[characterSubclassDefinition];
             }
 
             return CasterType.None;
@@ -140,20 +141,20 @@ namespace SolastaMulticlass.Models
         }
 
         // need the null check for companions who don't have repertoires
-        internal static bool IsMulticaster(RulesetCharacterHero rulesetCharacterHero) => rulesetCharacterHero == null
-            ? false
-            : rulesetCharacterHero.SpellRepertoires
+        internal static bool IsMulticaster(RulesetCharacterHero rulesetCharacterHero) =>
+            rulesetCharacterHero != null
+            && rulesetCharacterHero.SpellRepertoires
                 .Count(sr => sr.SpellCastingFeature.SpellCastingOrigin != CastingOrigin.Race) > 1;
 
         // need the null check for companions who don't have repertoires
-        internal static bool IsSharedcaster(RulesetCharacterHero rulesetCharacterHero) => rulesetCharacterHero == null
-            ? false
-            : rulesetCharacterHero.SpellRepertoires
-                .Where(sr => sr.SpellCastingClass != IntegrationContext.WarlockClass)
+        internal static bool IsSharedcaster(RulesetCharacterHero rulesetCharacterHero) =>
+            rulesetCharacterHero != null
+            && rulesetCharacterHero.SpellRepertoires
+                .Where(sr => sr.SpellCastingClass != WarlockClass)
                 .Count(sr => sr.SpellCastingFeature.SpellCastingOrigin != CastingOrigin.Race) > 1;
 
         internal static bool IsWarlock(CharacterClassDefinition characterClassDefinition) =>
-            characterClassDefinition == IntegrationContext.WarlockClass;
+            characterClassDefinition == WarlockClass;
 
         // need the null check for companions who don't have repertoires
         internal static int GetWarlockLevel(RulesetCharacterHero rulesetCharacterHero)
@@ -164,7 +165,7 @@ namespace SolastaMulticlass.Models
             }
 
             var warlockLevel = 0;
-            var warlock = rulesetCharacterHero.ClassesAndLevels.Keys.FirstOrDefault(x => x == IntegrationContext.WarlockClass);
+            var warlock = rulesetCharacterHero.ClassesAndLevels.Keys.FirstOrDefault(x => x == WarlockClass);
 
             if (warlock != null)
             {
@@ -174,14 +175,8 @@ namespace SolastaMulticlass.Models
             return warlockLevel;
         }
 
-        // need the null check for companions who don't have repertoires
         internal static int GetWarlockSpellLevel(RulesetCharacterHero rulesetCharacterHero)
         {
-            if (rulesetCharacterHero == null)
-            {
-                return 0;
-            }
-
             var warlockLevel = GetWarlockLevel(rulesetCharacterHero);
 
             if (warlockLevel > 0)
@@ -192,14 +187,8 @@ namespace SolastaMulticlass.Models
             return 0;
         }
 
-        // need the null check for companions who don't have repertoires
         internal static int GetWarlockMaxSlots(RulesetCharacterHero rulesetCharacterHero)
         {
-            if (rulesetCharacterHero == null)
-            {
-                return 0;
-            }
-
             var warlockLevel = GetWarlockLevel(rulesetCharacterHero);
 
             if (warlockLevel > 0)
@@ -253,11 +242,13 @@ namespace SolastaMulticlass.Models
             CharacterClassDefinition filterCharacterClassDefinition,
             CharacterSubclassDefinition filterCharacterSubclassDefinition = null)
         {
-            int classSpellLevel;
-
-            if (IsWarlock(filterCharacterClassDefinition))
+            if (rulesetCharacterHero == null)
             {
-                classSpellLevel = GetWarlockSpellLevel(rulesetCharacterHero);
+                return 0;
+            }
+            else if (IsWarlock(filterCharacterClassDefinition))
+            {
+                return GetWarlockSpellLevel(rulesetCharacterHero);
             }
             else if (!IsMulticaster(rulesetCharacterHero))
             {
@@ -265,12 +256,7 @@ namespace SolastaMulticlass.Models
                     .Where(sr => !IsWarlock(sr.SpellCastingClass))
                     .FirstOrDefault(sr => sr.SpellCastingFeature.SpellCastingOrigin != CastingOrigin.Race);
 
-                if (casterRepertoire != null)
-                {
-                    return casterRepertoire.MaxSpellLevelOfSpellCastingLevel;
-                }
-
-                return 1;
+                return casterRepertoire == null ? 0 : casterRepertoire.MaxSpellLevelOfSpellCastingLevel;
             }
             else
             {
@@ -294,10 +280,8 @@ namespace SolastaMulticlass.Models
                     }
                 }
 
-                classSpellLevel = casterLevelContext.GetSpellLevel();
+                return casterLevelContext.GetSpellLevel();
             }
-
-            return classSpellLevel;
         }
 
         internal static int GetCombinedSpellLevel(RulesetCharacterHero rulesetCharacterHero)
@@ -345,7 +329,14 @@ namespace SolastaMulticlass.Models
             }
 
             // Tinkerer special case
-            RecoverySlots.Add("ArtificerInfusionSpellRefuelingRing", IntegrationContext.TinkererClass);
+            RecoverySlots.Add("ArtificerInfusionSpellRefuelingRing", TinkererClass);
+
+            // These need to be later added to avoid a null object in the collection
+            ClassCasterType.Add(TinkererClass, CasterType.HalfRoundUp);
+            ClassCasterType.Add(WitchClass, CasterType.Full);
+
+            SubclassCasterType.Add(ConArtistSubclass, CasterType.OneThird);
+            SubclassCasterType.Add(SpellShieldSubclass, CasterType.OneThird);
         }
 
         internal const int PACT_MAGIC_SLOT_TAB_INDEX = -1;
