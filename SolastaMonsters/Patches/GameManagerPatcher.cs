@@ -7,6 +7,7 @@ namespace SolastaMonsters.Patches
     {
         internal static void Postfix()
         {
+            SolastaCommunityExpansion.Utils.Translations.LoadTranslations("monsters");
             Models.MonsterContext.Load();
         }
     }
