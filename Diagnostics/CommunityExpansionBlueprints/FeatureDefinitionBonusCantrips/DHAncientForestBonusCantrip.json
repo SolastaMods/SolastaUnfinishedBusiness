@@ -1,19 +1,14 @@
 {
-  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
-  "featureSet": [
-    "Definition:ActionAffinityWizardRitualCasting:ab85ac35847f3fc4899712329db32377",
-    "Definition:WitchRitualCastingMagicAffinity:4385a40d-40c6-55b8-90c7-087a0414d8a1"
+  "$type": "FeatureDefinitionBonusCantrips, Assembly-CSharp",
+  "bonusCantrips": [
+    "Definition:ChillTouch:2dffe98ad497e4b418abc947f6077fb7",
+    "Definition:Shillelagh:2143d3cd84db2c540b80fe022d0adf1d"
   ],
-  "mode": "Union",
-  "defaultSelection": 0,
-  "uniqueChoices": false,
-  "enumerateInDescription": false,
-  "hasRacialAffinity": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Class/&WitchFeatureSetRitualCastingTitle",
-    "description": "Class/&WitchFeatureSetRitualCastingDescription",
+    "title": "Feature/&DHAncientForestBonusCantripTitle",
+    "description": "Feature/&DHAncientForestBonusCantripDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -33,7 +28,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ac0f43fd-914a-507e-8048-59a63a1f913e",
+  "guid": "53093405-2ebb-5cef-9750-75bf8364da02",
   "contentPack": 9999,
-  "name": "WitchFeatureSetRitualCasting"
+  "name": "DHAncientForestBonusCantrip"
 }
