@@ -86,10 +86,7 @@
       <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\UnityModManager\UnityModManager.dll</HintPath>
       <Private>false</Private>
     </Reference>
-    <Reference Include="SolastaCommunityExpansion">
-      <HintPath>$(SolastaInstallDir)\Mods\SolastaCommunityExpansion\SolastaCommunityExpansion.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
+    <ProjectReference Include="..\SolastaCommunityExpansion\SolastaCommunityExpansion.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -5,7 +5,7 @@ using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
 
-namespace SolastaCommunityExpansion.Monsters
+namespace SolastaMonsters.Monsters
 {
     internal static class MonstersHomebrew
     {
@@ -545,9 +545,7 @@ namespace SolastaCommunityExpansion.Monsters
                 NewMonster.SetCustomShaderReference(Definitions[i].MonsterShaderReference.MonsterPresentation.CustomShaderReference);
                 NewMonster.SetHasPrefabVariants(false);
 
-
-
-                Models.MonsterContext.ModdedMonsters.Add(NewMonster.AddToDB());
+                SolastaCommunityExpansion.Models.DungeonMakerContext.ModdedMonsters.Add(NewMonster.AddToDB());
             }
         }
     }
