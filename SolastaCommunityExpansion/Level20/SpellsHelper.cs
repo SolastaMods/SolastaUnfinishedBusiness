@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using SolastaCommunityExpansion.Models;
-using SolastaModApi.Extensions;
 using static FeatureDefinitionCastSpell;
 
 namespace SolastaCommunityExpansion.Level20
@@ -8,47 +6,6 @@ namespace SolastaCommunityExpansion.Level20
     // keep public as CE:MC depends on it 
     public static class SpellsHelper
     {
-        internal static void UpdateSpellLists()
-        {
-            var dbSpellListDefinition = DatabaseRepository.GetDatabase<SpellListDefinition>();
-
-            foreach (var kvp in SpellListDefinitionList)
-            {
-                var spellListDefinitionName = kvp.Key;
-                var maxSpellLevel = kvp.Value;
-
-                if (dbSpellListDefinition.TryGetElement(spellListDefinitionName, out SpellListDefinition spellListDefinition))
-                {
-                    var accountForCantrips = spellListDefinition.HasCantrips ? 1 : 0;
-
-                    while (spellListDefinition.SpellsByLevel.Count < maxSpellLevel + accountForCantrips)
-                    {
-                        spellListDefinition.SpellsByLevel.Add(
-                            new SpellListDefinition.SpellsByLevelDuplet
-                            {
-                                Level = spellListDefinition.SpellsByLevel.Count,
-                                Spells = new List<SpellDefinition>()
-                            });
-                    }
-
-                    spellListDefinition.SetMaxSpellLevel(maxSpellLevel);
-                }
-            }
-        }
-
-        internal static readonly Dictionary<string, int> SpellListDefinitionList = new()
-        {
-            { "SpellListCleric", 9 },
-            { "SpellListDruid", 9 },
-            { "SpellListPaladin", 5 },
-            { "SpellListRanger", 5 },
-            { "SpellListShockArcanist", 9 },
-            { "SpellListSorcerer", 9 },
-            { "SpellListWizard", 9 },
-            { "SpellListWizardGreenmage", 9 },
-        };
-
-        // keep public as CE:MC depends on it
         // game uses IndexOf(0) on these sub lists reason why the last 0 there
         public static List<SlotsByLevelDuplet> FullCastingSlots { get; private set; } = new()
         {

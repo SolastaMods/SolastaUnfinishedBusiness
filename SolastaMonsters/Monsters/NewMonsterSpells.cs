@@ -2,6 +2,7 @@
 using SolastaModApi.Extensions;
 using UnityEngine;
 using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Monsters
 {
@@ -32,7 +33,7 @@ namespace SolastaCommunityExpansion.Monsters
             ConditionDefinition ReverseGravity_Condition = BuildNewCondition(
                      "DH_Custom_" + text + "condition",
                      DatabaseHelper.ConditionDefinitions.ConditionLevitate,
-                     GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text + "condition").ToString(),
+                     GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text + "condition").ToString(),
                     "Condition/&DH_" + text + "_Title",
                      "Condition/&DH_" + text + "_Description"
                       );
@@ -61,7 +62,7 @@ namespace SolastaCommunityExpansion.Monsters
             ReverseGravity_Spell = BuildNewSpell(
                      "DH_Custom_" + text,
                      DatabaseHelper.SpellDefinitions.Levitate,
-                     GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                     GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                     "Spell/&DH_" + text + "_Title",
                      "Spell/&DH_" + text + "_Description"
                       );
@@ -118,7 +119,7 @@ namespace SolastaCommunityExpansion.Monsters
             DominateMonster_Spell = BuildNewSpell(
                      "DH_Custom_" + text,
                      DatabaseHelper.SpellDefinitions.DominatePerson,
-                     GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                     GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                     "Spell/&DH_" + text + "_Title",
                      "Spell/&DH_" + text + "_Description"
                       );
@@ -141,7 +142,7 @@ namespace SolastaCommunityExpansion.Monsters
             FingerOfDeath_Spell = BuildNewSpell(
                      "DH_Custom_" + text,
                      DatabaseHelper.SpellDefinitions.Disintegrate,
-                     GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                     GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                     "Spell/&DH_" + text + "_Title",
                      "Spell/&DH_" + text + "_Description"
                       );
@@ -168,7 +169,7 @@ namespace SolastaCommunityExpansion.Monsters
             PowerWordKill_Spell = BuildNewSpell(
                      "DH_Custom_" + text,
                      DatabaseHelper.SpellDefinitions.Harm,
-                     GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                     GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                     "Spell/&DH_" + text + "_Title",
                      "Spell/&DH_" + text + "_Description"
                       );
@@ -208,7 +209,7 @@ namespace SolastaCommunityExpansion.Monsters
             PowerWordStun_Spell = BuildNewSpell(
                      "DH_Custom_" + text,
                      DatabaseHelper.SpellDefinitions.Harm,
-                     GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                     GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                     "Spell/&DH_" + text + "_Title",
                      "Spell/&DH_" + text + "_Description"
                       );
@@ -262,7 +263,7 @@ namespace SolastaCommunityExpansion.Monsters
             ConditionDefinition TimeStopped_Condition = BuildNewCondition(
                  "DH_Custom_" + text + "condition",
                  DatabaseHelper.ConditionDefinitions.ConditionIncapacitated,
-                 GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text + "condition").ToString(),
+                 GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text + "condition").ToString(),
                 "Condition/&DH_" + text + "_Title",
                  "Condition/&DH_" + text + "_Description"
                   );
@@ -278,7 +279,7 @@ namespace SolastaCommunityExpansion.Monsters
             TimeStop_Spell = BuildNewSpell(
                      "DH_Custom_" + text,
                      DatabaseHelper.SpellDefinitions.Disintegrate,
-                     GuidHelper.Create(new System.Guid(Settings.GUID), "DH_Custom_" + text).ToString(),
+                     GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                     "Spell/&DH_" + text + "_Title",
                      "Spell/&DH_" + text + "_Description"
                       );

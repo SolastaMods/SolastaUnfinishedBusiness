@@ -242,7 +242,7 @@ namespace SolastaCommunityExpansion.Monsters
                 /*
                 MonsterDefinitionBuilder NewMonster = new MonsterDefinitionBuilder(
                     Definitions[i].NewName,
-                    GuidHelper.Create(new System.Guid(Settings.GUID), Definitions[i].NewName).ToString(),
+                    GuidHelper.Create(new System.Guid(MonsterContext.GUID), Definitions[i].NewName).ToString(),
                     "Monster/&" + "DH_" + Definitions[i].NewTitle,
                     "Monster/&" + "DH_" + Definitions[i].NewDescription,
                     Definitions[i].BaseTemplateName);

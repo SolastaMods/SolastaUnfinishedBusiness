@@ -1,16 +1,21 @@
-﻿using System.Collections.Generic;
+﻿using SolastaModApi;
+using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Models
 {
     internal static class MonsterContext
     {
+        internal static string GUID = "";
+
         internal struct CustomMonster
         {
             public string MonsterName;
             public MonsterDefinition BaseTemplateName;
             public MonsterDefinition MonsterShaderReference;
             public string NewName;
+            public string NewTitle;
+            public string NewDescription;
             public CharacterSizeDefinition Size;
             public string Alignment;
             public int ArmorClass;
