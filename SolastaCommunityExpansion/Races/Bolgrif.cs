@@ -54,8 +54,9 @@ namespace SolastaCommunityExpansion.Races
                 .AddToDB();
 
             var bolgrifDruidicMagicSpellList = SpellListDefinitionBuilder
-                .Create(SpellListDefinitions.SpellListWizard, "BolgrifDruidicMagicSpellList", "3ac97eec-8d09-4ce3-8d29-40ea8b423798")
+                .Create(SpellListDefinitions.SpellListDruid, "BolgrifDruidicMagicSpellList", "3ac97eec-8d09-4ce3-8d29-40ea8b423798")
                 .SetGuiPresentationNoContent()
+                .ClearSpells()
                 .SetSpellsAtLevel(0, SpellListDefinitions.SpellListDruid.SpellsByLevel[0].Spells)
                 .FinalizeSpells()
                 .AddToDB();
