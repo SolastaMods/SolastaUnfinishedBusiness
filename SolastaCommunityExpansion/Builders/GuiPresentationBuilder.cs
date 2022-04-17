@@ -113,7 +113,7 @@ namespace SolastaCommunityExpansion.Builders
         public static GuiPresentation NoContentHidden { get; } = Build(NoContentTitle, NoContentTitle, EmptySprite, 0, true);
     }
 
-    internal static class BaseDefinitionBuilderGuiPresentationExtensions
+    public static class BaseDefinitionBuilderGuiPresentationExtensions
     {
         /// <summary>
         /// Set the provided GuiPresentation instance on the definition owned by the builder.

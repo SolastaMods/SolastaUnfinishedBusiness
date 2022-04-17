@@ -23,7 +23,6 @@ namespace SolastaCommunityExpansion.Level20.Classes
             CastSpellWizard.SetSpellCastingLevel(9);
 
             CastSpellWizard.SlotsPerLevels.SetRange(SpellsHelper.FullCastingSlots);
-
             CastSpellWizard.ReplacedSpells.SetRange(SpellsHelper.EmptyReplacedSpells);
         }
     }

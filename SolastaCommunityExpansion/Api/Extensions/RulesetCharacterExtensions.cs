@@ -634,20 +634,6 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetCheatInfiniteActionResources<T>(this T entity, System.Boolean value)
-            where T : RulesetCharacter
-        {
-            entity.SetField("<CheatInfiniteActionResources>k__BackingField", value);
-            return entity;
-        }
-
-        public static T SetCheatIsInvisible<T>(this T entity, System.Boolean value)
-            where T : RulesetCharacter
-        {
-            entity.SetField("<CheatIsInvisible>k__BackingField", value);
-            return entity;
-        }
-
         public static T SetConcentratedSpell<T>(this T entity, RulesetEffectSpell value)
             where T : RulesetCharacter
         {
@@ -1533,21 +1519,21 @@ namespace SolastaModApi.Extensions
         public static T SetUsedChannelDivinity<T>(this T entity, System.Int32 value)
             where T : RulesetCharacter
         {
-            entity.SetProperty("UsedChannelDivinity", value);
+            entity.SetField("usedChannelDivinity", value);
             return entity;
         }
 
         public static T SetUsedHealingPool<T>(this T entity, System.Int32 value)
             where T : RulesetCharacter
         {
-            entity.SetProperty("UsedHealingPool", value);
+            entity.SetField("usedHealingPool", value);
             return entity;
         }
 
         public static T SetUsedIndomitableResistances<T>(this T entity, System.Int32 value)
             where T : RulesetCharacter
         {
-            entity.SetProperty("UsedIndomitableResistances", value);
+            entity.SetField("usedIndomitableResistances", value);
             return entity;
         }
 
@@ -1568,14 +1554,14 @@ namespace SolastaModApi.Extensions
         public static T SetUsedRagePoints<T>(this T entity, System.Int32 value)
             where T : RulesetCharacter
         {
-            entity.SetProperty("UsedRagePoints", value);
+            entity.SetField("usedRagePoints", value);
             return entity;
         }
 
         public static T SetUsedSorceryPoints<T>(this T entity, System.Int32 value)
             where T : RulesetCharacter
         {
-            entity.SetProperty("UsedSorceryPoints", value);
+            entity.SetField("usedSorceryPoints", value);
             return entity;
         }
 

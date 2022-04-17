@@ -1,6 +1,7 @@
 ﻿#if DEBUG
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using ModKit;
 using SolastaCommunityExpansion.DataMiner;
@@ -162,6 +163,10 @@ This is now a standalone mod. Please uninstall any other mod from your mods fold
 
 [img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/UMM-02.png?raw=true[/img]
 
+[size=4][b]Multiplayer [beta support][/b][/size]
+
+We did all possible efforts to ensure this Mod will work under a multiplayer session. You must ensure all players have this mod installed and at least all settings under CE Mod UI > Gameplay matches across all players. The easiest way to achieve that is ask the host to share his Mod settings.xml file with guests before a session.
+
 [size=4][b]How to Report Bugs[/b][/size]
 
 [list]
@@ -178,7 +183,7 @@ You can contribute to this work at [url=https://github.com/SolastaMods/SolastaCo
 
 [size=4][b]Features[/b][/size]
 
-All settings start disabled by default. On first start the mod will display an welcome message and open the UMM Mod UI settings again. Multiplayer support is still in beta. We recommend all players to share the same mod [b]Settings.xml[/b] file before a session.
+All settings start disabled by default. On first start the mod will display an welcome message and open the UMM Mod UI settings again.
 
 [img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/01-Character-General.png?raw=true[/img]
 [line]
@@ -223,34 +228,40 @@ All settings start disabled by default. On first start the mod will display an w
 {2}
 [/list]
 
-[size=3][b]Subclasses[/b][/size]
+[size=3][b]Mod Classes Subclasses[/b][/size]
 
 [list=1]
 {3}
 [/list]
 
-[size=3][b]Feats[/b][/size]
+[size=3][b]Official Classes Subclasses[/b][/size]
 
 [list=1]
 {4}
 [/list]
 
-[size=3][b]Fighting Styles[/b][/size]
+[size=3][b]Feats[/b][/size]
 
 [list=1]
 {5}
 [/list]
 
-[size=3][b]Spells[/b][/size]
+[size=3][b]Fighting Styles[/b][/size]
 
 [list=1]
 {6}
 [/list]
 
-[size=3][b]Items & Crafting[/b][/size]
+[size=3][b]Spells[/b][/size]
 
 [list=1]
 {7}
+[/list]
+
+[size=3][b]Items & Crafting[/b][/size]
+
+[list=1]
+{8}
 [/list]
 ";
 
@@ -286,6 +297,10 @@ All settings start disabled by default. On first start the mod will display an w
                 collectedCredits,
                 GenerateDescription(RacesContext.Races),
                 GenerateDescription(ClassesContext.Classes),
+                GenerateDescription(DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
+                    .Where(x => !SubclassesContext.Subclasses.Contains(x))
+                    .Where(x => DiagnosticsContext.IsCeDefinition(x))
+                    .ToHashSet()),
                 GenerateDescription(SubclassesContext.Subclasses),
                 GenerateDescription(FeatsContext.Feats),
                 GenerateDescription(FightingStyleContext.FightingStyles),

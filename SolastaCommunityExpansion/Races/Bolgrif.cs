@@ -1,5 +1,4 @@
-﻿#if false
-using SolastaCommunityExpansion.Builders;
+﻿using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -15,23 +14,16 @@ namespace SolastaCommunityExpansion.Races
         {
             var bolgrifSpriteReference = Utils.CustomIcons.CreateAssetReferenceSprite("Bolgrif", Properties.Resources.Bolgrif, 1024, 512);
 
-            var bolgrifAbilityScoreModifier1 = FeatureDefinitionAttributeModifierBuilder
+            var bolgrifAbilityScoreModifierWisdom = FeatureDefinitionAttributeModifierBuilder
                 .Create("AttributeModifierBolgrifWisdomAbilityScoreIncrease", "4099c645-fc05-4ba1-833f-eabb94b865d0")
-                .SetGuiPresentationNoContent(true)
+                .SetGuiPresentation(Category.Feature)
                 .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, AttributeDefinitions.Wisdom, 2)
                 .AddToDB();
 
-            var bolgrifAbilityScoreModifier2 = FeatureDefinitionAttributeModifierBuilder
+            var bolgrifAbilityScoreModifierStrength = FeatureDefinitionAttributeModifierBuilder
                 .Create("AttributeModifierBolgrifStrengthAbilityScoreIncrease", "7b8d459b-c1f2-4373-bc4d-5e29ea4851f3")
-                .SetGuiPresentationNoContent(true)
-                .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, AttributeDefinitions.Strength, 1)
-                .AddToDB();
-
-            var bolgrifAbilityScoreModifierSet = FeatureDefinitionFeatureSetBuilder
-                .Create("AttributeModifierBolgrifAbilityScoreSet", "0a6efe74-ebcf-455c-9eb3-31741d22d3bd")
                 .SetGuiPresentation(Category.Feature)
-                .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-                .SetFeatureSet(bolgrifAbilityScoreModifier1, bolgrifAbilityScoreModifier2)
+                .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, AttributeDefinitions.Strength, 1)
                 .AddToDB();
 
             var bolgrifPowerfulBuild = FeatureDefinitionEquipmentAffinityBuilder
@@ -62,8 +54,9 @@ namespace SolastaCommunityExpansion.Races
                 .AddToDB();
 
             var bolgrifDruidicMagicSpellList = SpellListDefinitionBuilder
-                .Create(SpellListDefinitions.SpellListWizard, "BolgrifDruidicMagicSpellList", "3ac97eec-8d09-4ce3-8d29-40ea8b423798")
+                .Create(SpellListDefinitions.SpellListDruid, "BolgrifDruidicMagicSpellList", "3ac97eec-8d09-4ce3-8d29-40ea8b423798")
                 .SetGuiPresentationNoContent()
+                .ClearSpells()
                 .SetSpellsAtLevel(0, SpellListDefinitions.SpellListDruid.SpellsByLevel[0].Spells)
                 .FinalizeSpells()
                 .AddToDB();
@@ -88,18 +81,24 @@ namespace SolastaCommunityExpansion.Races
             bolgrifRacePresentation.SetPreferedSkinColors(new TA.RangedInt(45, 48));
             bolgrifRacePresentation.SetPreferedHairColors(new TA.RangedInt(16, 32));
             bolgrifRacePresentation.SetMaleBeardShapeOptions(CharacterRaceDefinitions.Dwarf.RacePresentation.MaleBeardShapeOptions);
+            bolgrifRacePresentation.FemaleFaceShapeOptions.Clear();
+            bolgrifRacePresentation.MaleFaceShapeOptions.Clear();
+            bolgrifRacePresentation.AddFemaleFaceShapeOptions(CharacterRaceDefinitions.Elf.RacePresentation.FemaleFaceShapeOptions);
+            bolgrifRacePresentation.AddMaleFaceShapeOptions(CharacterRaceDefinitions.Elf.RacePresentation.MaleFaceShapeOptions);
 
             var bolgrif = CharacterRaceDefinitionBuilder
                 .Create(CharacterRaceDefinitions.Human, "BolgrifRace", "346b7f90-973f-425f-8342-d534759e65aa")
                 .SetGuiPresentation(Category.Race, bolgrifSpriteReference)
                 .SetSizeDefinition(CharacterSizeDefinitions.Medium)
+                .SetRacePresentation(bolgrifRacePresentation)
                 .SetMinimalAge(30)
                 .SetMaximalAge(500)
                 .SetBaseHeight(96)
                 .SetBaseWeight(130)
                 .SetFeaturesAtLevel(1,
                     FeatureDefinitionMoveModes.MoveModeMove6,
-                    bolgrifAbilityScoreModifierSet,
+                    bolgrifAbilityScoreModifierWisdom,
+                    bolgrifAbilityScoreModifierStrength,
                     FeatureDefinitionSenses.SenseNormalVision,
                     bolgrifPowerfulBuild,
                     bolgrifInvisibilityPower,
@@ -113,4 +112,3 @@ namespace SolastaCommunityExpansion.Races
         }
     }
 }
-#endif

@@ -1,4 +1,5 @@
-﻿using SolastaCommunityExpansion.Builders;
+﻿using System.Linq;
+using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -12,7 +13,7 @@ namespace SolastaCommunityExpansion.Models
             .Create("LevelDown", "fdb4d86eaef942d1a22dbf1fb5a7299f")
             .SetGuiPresentation("MainMenu/&ExportPdfTitle", "MainMenu/&ExportPdfDescription")
             .SetRestData(
-                RestDefinitions.RestStage.AfterRest, RuleDefinitions.RestType.ShortRest,
+                RestDefinitions.RestStage.AfterRest, RuleDefinitions.RestType.LongRest,
                 RestActivityDefinition.ActivityCondition.None, "LevelDown", string.Empty)
             .AddToDB();
 
@@ -23,6 +24,10 @@ namespace SolastaCommunityExpansion.Models
                 Main.Settings.EnableMulticlass = false;
             }
 
+            // avoids requires restart on level down feature if RESPEC enabled after MC on another session
+            _ = RestActivityLevelDown;
+
+            // ensure these are always referenced here for diagnostics dump
             _ = ArmorProficiencyMulticlassBuilder.BarbarianArmorProficiencyMulticlass;
             _ = ArmorProficiencyMulticlassBuilder.FighterArmorProficiencyMulticlass;
             _ = ArmorProficiencyMulticlassBuilder.PaladinArmorProficiencyMulticlass;
@@ -30,6 +35,45 @@ namespace SolastaCommunityExpansion.Models
             _ = SkillProficiencyPointPoolSkillsBuilder.PointPoolBardSkillPointsMulticlass;
             _ = SkillProficiencyPointPoolSkillsBuilder.PointPoolRangerSkillPointsMulticlass;
             _ = SkillProficiencyPointPoolSkillsBuilder.PointPoolRogueSkillPointsMulticlass;
+
+            // required to ensure level 20 and multiclass will work correctly on higher level heroes
+            var spellListDefinitions = DatabaseRepository.GetDatabase<SpellListDefinition>();
+
+            foreach (var spellListDefinition in spellListDefinitions)
+            {
+                var spellsByLevel = spellListDefinition.SpellsByLevel;
+                
+                while (spellsByLevel.Count < Level20Context.MAX_SPELL_LEVEL + (spellListDefinition.HasCantrips ? 1 : 0))
+                {
+                    spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet { Level = spellsByLevel.Count, Spells = new() });
+                }
+            }
+
+            // required to avoid some trace error messages that might desync multiplayer sessions and prevent level up from 19 to 20
+            var castSpellDefinitions = DatabaseRepository.GetDatabase<FeatureDefinitionCastSpell>();
+
+            foreach (var castSpellDefinition in castSpellDefinitions)
+            {
+                while (castSpellDefinition.KnownCantrips.Count < Level20Context.MOD_MAX_LEVEL + 1)
+                {
+                    castSpellDefinition.KnownCantrips.Add(0);
+                }
+
+                while (castSpellDefinition.KnownSpells.Count < Level20Context.MOD_MAX_LEVEL + 1)
+                {
+                    castSpellDefinition.KnownSpells.Add(0);
+                }
+
+                while (castSpellDefinition.ReplacedSpells.Count < Level20Context.MOD_MAX_LEVEL + 1)
+                {
+                    castSpellDefinition.ReplacedSpells.Add(0);
+                }
+
+                while (castSpellDefinition.ScribedSpells.Count < Level20Context.MOD_MAX_LEVEL + 1)
+                {
+                    castSpellDefinition.ScribedSpells.Add(0);
+                }
+            }
         }
     }
 

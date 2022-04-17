@@ -718,10 +718,14 @@ Feature/&ArtificerSpecialistArchetypesTitle	Tinkerer Specializations
 Feature/&AscendantStepTitle	Ascendant Step
 Feature/&AspectoftheMoonDescription	You no longer need to sleep and can keep watch, lowering the chances of attack and ensuring you are awake if camp is attacked.
 Feature/&AspectoftheMoonTitle	Aspect of the Moon
-Feature/&AttributeModifierBolgrifAbilityScoreSetDescription	Wisdom +2, Strength +1
-Feature/&AttributeModifierBolgrifAbilityScoreSetTitle	Attribute Increase
-Feature/&AttributeModifierGnomeAbilityScoreSetDescription	Intelligence +2, Dexterity +1
-Feature/&AttributeModifierGnomeAbilityScoreSetTitle	Attribute Increase
+Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseDescription	Wisdom +2
+Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseTitle	Attribute Increase
+Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseDescription	Strength +1
+Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseTitle	Attribute Increase
+Feature/&AttributeModifierGnomeAbilityScoreIncreaseDescription	Intelligence +2
+Feature/&AttributeModifierGnomeAbilityScoreIncreaseTitle	Gnome Attribute Increase
+Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseDescription	Dexterity +1
+Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseTitle	Forest Gnome Attribute Increase
 Feature/&BarbarianIndomitableMightDescription	If your total for a Strength check is less than your Strength score, you can use that score in place of the total.
 Feature/&BarbarianIndomitableMightTitle	Indomitable Might
 Feature/&BardSkillsTitle	Bard Skills
@@ -738,10 +742,6 @@ Feature/&BondoftheTalismanTitle	Teleport Talisman
 Feature/&ChainsofCarceriTitle	Chains of Carceri
 Feature/&ClassWarlockArmorProficiencyDescription	Light Armor
 Feature/&ClassWarlockArmorProficiencyTitle	Warlock Armor Proficiencies
-Feature/&ClassWarlockEldritchInvocationSetLevel2Description	Add an eldritch invocation.
-Feature/&ClassWarlockEldritchInvocationSetLevel2Title	Eldritch Invocation
-Feature/&ClassWarlockEldritchInvocationSetLevel5Description	Add an eldritch invocation.
-Feature/&ClassWarlockEldritchInvocationSetLevel5Title	Add an eldritch invocation.
 Feature/&ClassWarlockEldritchInvocationSetLevelDescription	Add an eldritch invocation.
 Feature/&ClassWarlockEldritchInvocationSetLevelTitle	Eldritch Invocation
 Feature/&ClassWarlockEldritchMasterDescription	you can draw on your inner reserve of mystical power while entreating your patron to regain expended spell slots. You can spend 1 minute entreating your patron for aid to regain all your expended spell slots from your Pact Magic feature. Once you regain spell slots with this feature, you must finish a long rest before you can do so again.
@@ -805,7 +805,7 @@ Feature/&DomainOblivionDomainlevel1FeaturesTitle	Oblivion Domain
 Feature/&DomainSunDomainlevel1FeaturesDescription	You learn the level 1 features of this domain
 Feature/&DomainSunDomainlevel1FeaturesTitle	Sun Domain
 Feature/&DreadfulWordTitle	Dreadful Word
-Feature/&DruidForestGuardianBarkWardDescription	You gain the ability to summon a Bark Ward to protect you. As a bonus action, you can expend a use of your Wild Shape to gain 5 temporary hit points for each level you have in this class. These temporary hit points last for 10 minutes, or until you use your Wild Shape again.
+Feature/&DruidForestGuardianBarkWardDescription	You gain the ability to summon a Bark Ward to protect you. As a bonus action, you can expend a use of your Wild Shape to gain 4 temporary hit points for each level you have in this class. These temporary hit points last for 10 minutes, or until you use your Wild Shape again.
 Feature/&DruidForestGuardianBarkWardTitle	Bark Ward
 Feature/&DruidForestGuardianExtraAttackDescription	Starting at 6th level, you can attack twice, instead of once, whenever you take the Attack action on your turn.
 Feature/&DruidForestGuardianExtraAttackTitle	Extra Attack
@@ -1281,6 +1281,21 @@ SpellList/&RiftWalkerSpellsListTitle	Rift Walker SpellList
 SpellList/&SpellListTinkererDescription	Tinkerer Spelllist
 SpellList/&SpellListTinkererTitle	Tinkerer Spelllist
 Stage/&IdentityMorphotypeEyeHeader	Eye Style
+Stage/&SubclassSelectionStagePatronDescription	A warlock is defined by a pact with an otherworldly being. Sometimes the relationship between warlock and patron is like that of a cleric and a deity, though the beings that serve as patrons are not gods
+Stage/&SubclassSelectionStagePatronFeatures	Otherwordly Patrons Features
+Stage/&SubclassSelectionStagePatronHeader	Warlock Otherwordly Patrons
+Stage/&SubclassSelectionStagePatronTitle	Otherwordly Patrons
+Stage/&SubclassSelectionStageCovenDescription	Coven
+Stage/&SubclassSelectionStageCovenFeaturesDescription	Coven
+Stage/&SubclassSelectionStageCovenFeaturesHeader	Coven Features
+Stage/&SubclassSelectionStageCovenFeaturesTitle	Coven
+Stage/&SubclassSelectionStageCovenHeader	Select a Coven
+Stage/&SubclassSelectionStageCovenTitle	Coven
+Stage/&SubclassSelectionStageSpecialistDescription	Description There are a wide range of specialties in Tinkerers including making elixirs as a Potion Maker, making explosions as a Blaster, and wielding magical weaponry as a Weapon Smith.
+Stage/&SubclassSelectionStageSpecialistFeatures	Specialist Features
+Stage/&SubclassSelectionStageSpecialistHeader	Specializations
+Stage/&SubclassSelectionStageSpecialistNoneDescription	Specialist None Description
+Stage/&SubclassSelectionStageSpecialistTitle	Select Specialization
 Subclass/&AbilityAffinityRogueConArtistDescription	Advantage on ability checks using Persuasion, Deception, Performance, and Sleight of Hand.
 Subclass/&AbilityAffinityRogueConArtistTitle	Manipulative
 Subclass/&AHWarlockSubclassSoulBladePactDescription	You have struck a bargain with a sentient weapon that you feed souls to in return for power.
@@ -1557,3 +1572,11 @@ Monster/&DHCustomCouatlDescription	Couatls are benevolent serpentine beings of g
 Monster/&DHCustomCouatlTitle	Couatl
 MonsterAttack/&DH_Custom_CouatlBite_AttackDescription	Piercing damage, and the target must succeed on a DC 13 Constitution saving throw or be poisoned for 24 hours. Until this poison ends, the target is unconscious.
 MonsterAttack/&DH_Custom_CouatlBite_AttackTitle	Bite
+Monster/&PactOfChainCustomImpDescription	Imps are found throughout the Lower Planes, either running errands for their infernal masters, spying on rivals, or misleading and waylaying mortals. An imp will proudly serve an evil master of any kind, but it can't be relied on to carry out tasks with any speed or efficiency.
+Monster/&PactOfChainCustomImpTitle	Imp (Pact of Chain)
+Monster/&PactOfChainCustomPseudodragonDescription	The elusive pseudodragon dwells in the quiet places of the world, making its home in the hollows of trees and small caves. With its red-brown scales, horns, and a maw filled with sharp teeth, a pseudodragon resembles a tiny red dragon but its disposition is playful.
+Monster/&PactOfChainCustomPseudodragonTitle	Pseudodragon (Pact of Chain)
+Monster/&PactOfChainCustomQuasitDescription	Quasits infest the Lower Planes. Physically weak, they keep to the shadows to plot mischief and wickedness. More powerful demons use quasits as spies and messengers when they aren't devouring them or pulling them apart to pass the time.
+Monster/&PactOfChainCustomQuasitTitle	Quasit (Pact of Chain)
+Monster/&PactOfChainCustomSpriteDescription	Unlike pixies, sprites rarely indulge in frivolous merriment and fun. They are firm warriors, protectors, and judges, and their stern bent causes other fey to consider them overly dour and serious. However, fey that respect the sprites' territory find them staunch allies in times of trouble.
+Monster/&PactOfChainCustomSpriteTitle	Sprite (Pact of Chain)
