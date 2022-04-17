@@ -63,12 +63,14 @@ We did all possible efforts to ensure this Mod will work under a multiplayer ses
 [size=4][b]How to Report Bugs[/b][/size]
 
 [list]
-[*] The versions of Solasta and Solasta Community Expansion.
-[*] A list of other mods you have installed.
+[*] The versions of Solasta and this mod.
+[*] A list of other mods you have installed [you shouldn't have any].
 [*] A short description of the bug.
 [*] A step-by-step procedure to reproduce it.
 [*] The save, character and log files.
 [/list]
+
+[b]HINT:[/b] Check the folder [i]C:\Users\[b]YOUR_USER_NAME[/b]\AppData\LocalLow\Tactical Adventures\Solasta[/i] for the info we need.
 
 [size=4][b]Source Code[/b][/size]
 
@@ -323,4 +325,3 @@ Regardless of its current hit points, a celestial, an elemental, a fey, or a fie
 [*][b]Hide Armor[/b]: Hide Armor of Sturdiness, Hide Armor of Robustness, Hide Armor of Survival, Hide Armor of Flame Dancing, Hide Armor of Frost Walking, Hide Armor of Deflection
 [*][b]Studded Leather[/b]: Studded Leather of Sturdiness, Studded Leather of Robustness, Studded Leather of Survival, Studded Leather of Flame Dancing, Studded Leather of Frost Walking, Studded Leather of Deflection
 [/list]
-

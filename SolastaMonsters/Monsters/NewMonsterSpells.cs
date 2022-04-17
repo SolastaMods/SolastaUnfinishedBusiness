@@ -2,9 +2,9 @@
 using SolastaModApi.Extensions;
 using UnityEngine;
 using SolastaCommunityExpansion.Builders;
-using SolastaCommunityExpansion.Models;
+using SolastaMonsters.Models;
 
-namespace SolastaCommunityExpansion.Monsters
+namespace SolastaMonsters.Monsters
 {
     public static class NewMonsterSpells
     {

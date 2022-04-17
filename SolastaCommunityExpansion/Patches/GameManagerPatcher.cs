@@ -1,8 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using System.IO;
 using HarmonyLib;
-using I2.Loc;
 using SolastaCommunityExpansion.Models;
+using SolastaCommunityExpansion.Utils;
 using UnityModManagerNet;
 #if DEBUG
 using SolastaCommunityExpansion.Patches.Diagnostic;
@@ -20,7 +19,7 @@ namespace SolastaCommunityExpansion.Patches
             ItemDefinitionVerification.Load();
             EffectFormVerification.Load();
 #endif
-            LoadTranslations();
+            Translations.LoadTranslations("translations");
 
             ResourceLocatorContext.Load();
 
@@ -108,53 +107,6 @@ namespace SolastaCommunityExpansion.Patches
 
                 DisplayWelcomeMessage();
             };
-        }
-
-        private static void LoadTranslations()
-        {
-            var code = LocalizationManager.CurrentLanguageCode;
-            var path = Path.Combine(Main.MOD_FOLDER, $"Translations-{code}.txt");
-
-            if (!File.Exists(path))
-            {
-                path = Path.Combine(Main.MOD_FOLDER, $"Translations-en.txt");
-            }
-
-            var languageSourceData = LocalizationManager.Sources[0];
-            var languageIndex = languageSourceData.GetLanguageIndexFromCode(code);
-
-            foreach (var line in File.ReadLines(path))
-            {
-                string term;
-                string text;
-
-                try
-                {
-                    var splitted = line.Split(new[] { '\t', ' ' }, 2);
-
-                    term = splitted[0];
-                    text = splitted[1];
-                }
-                catch
-                {
-                    Main.Error($"invalid translation line \"{line}\".");
-
-                    continue;
-                }
-
-                var termData = languageSourceData.GetTermData(term);
-
-                if (termData != null && termData.Languages[languageIndex] != null)
-                {
-                    Main.Log($"term {term} overwritten with {code} text {text}");
-
-                    termData.Languages[languageIndex] = text;
-                }
-                else
-                {
-                    languageSourceData.AddTerm(term).Languages[languageIndex] = text;
-                }
-            }
         }
 
         private static void DisplayWelcomeMessage()

@@ -147,7 +147,7 @@
       <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\UnityEngine.UIModule.dll</HintPath>
       <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.UIModule">
+    <Reference Include="UnityEngine.PhysicsModule">
       <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
       <Private>false</Private>
     </Reference>
@@ -216,19 +216,19 @@
     <None Update="Info.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Translations-de.txt">
+    <None Update="translations-de.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Translations-en.txt">
+    <None Update="translations-en.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Translations-fr.txt">
+    <None Update="translations-fr.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Translations-pt.txt">
+    <None Update="translations-pt.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Names-en.txt">
+    <None Update="names-en.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

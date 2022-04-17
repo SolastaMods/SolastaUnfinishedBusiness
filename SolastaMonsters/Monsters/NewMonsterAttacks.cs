@@ -3,9 +3,9 @@ using SolastaModApi.Extensions;
 using System.Collections.Generic;
 using UnityEngine;
 using SolastaCommunityExpansion.Builders;
-using SolastaCommunityExpansion.Models;
+using SolastaMonsters.Models;
 
-namespace SolastaCommunityExpansion.Monsters
+namespace SolastaMonsters.Monsters
 {
     public static class NewMonsterAttacks
     {

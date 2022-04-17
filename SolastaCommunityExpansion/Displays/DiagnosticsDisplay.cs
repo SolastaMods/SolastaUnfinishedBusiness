@@ -170,12 +170,14 @@ We did all possible efforts to ensure this Mod will work under a multiplayer ses
 [size=4][b]How to Report Bugs[/b][/size]
 
 [list]
-[*] The versions of Solasta and Solasta Community Expansion.
-[*] A list of other mods you have installed.
+[*] The versions of Solasta and this mod.
+[*] A list of other mods you have installed [you shouldn't have any].
 [*] A short description of the bug.
 [*] A step-by-step procedure to reproduce it.
 [*] The save, character and log files.
 [/list]
+
+[b]HINT:[/b] Check the folder [i]C:\Users\[b]YOUR_USER_NAME[/b]\AppData\LocalLow\Tactical Adventures\Solasta[/i] for the info we need.
 
 [size=4][b]Source Code[/b][/size]
 
@@ -263,6 +265,12 @@ All settings start disabled by default. On first start the mod will display an w
 [list=1]
 {8}
 [/list]
+
+[size=3][b]Monsters[/b][/size]
+
+[list=1]
+{9}
+[/list]
 ";
 
         private static string GenerateDescription<T>(IEnumerable<T> definitions) where T : BaseDefinition
@@ -299,13 +307,13 @@ All settings start disabled by default. On first start the mod will display an w
                 GenerateDescription(ClassesContext.Classes),
                 GenerateDescription(DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
                     .Where(x => !SubclassesContext.Subclasses.Contains(x))
-                    .Where(x => DiagnosticsContext.IsCeDefinition(x))
-                    .ToHashSet()),
+                    .Where(x => DiagnosticsContext.IsCeDefinition(x))),
                 GenerateDescription(SubclassesContext.Subclasses),
                 GenerateDescription(FeatsContext.Feats),
                 GenerateDescription(FightingStyleContext.FightingStyles),
                 GenerateDescription(SpellsContext.Spells),
-                ItemCraftingContext.GenerateItemsDescription());
+                ItemCraftingContext.GenerateItemsDescription(),
+                GenerateDescription(DungeonMakerContext.ModdedMonsters));
 
             using var sw = new StreamWriter($"{DiagnosticsContext.DiagnosticsFolder}/NexusDescription.txt");
             sw.WriteLine(descriptionData);
