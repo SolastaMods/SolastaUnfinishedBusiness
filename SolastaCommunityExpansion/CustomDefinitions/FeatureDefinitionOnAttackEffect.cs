@@ -1,47 +1,41 @@
 ﻿namespace SolastaCommunityExpansion.CustomDefinitions
 {
-    public interface IOnAttackHitEffect
+    public interface IOnAttackEffect
     {
-        void OnAttackHit(
+        void OnAttack(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier attackModifier,
-            int attackRoll,
-            int successDelta,
-            bool ranged);
+            RulesetAttackMode attackerAttackMode);
     }
 
-    public delegate void OnAttackHitDelegate(
+    public delegate void OnAttackDelegate(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier attackModifier,
-            int attackRoll,
-            int successDelta,
-            bool ranged);
+            RulesetAttackMode attackerAttackMode);
 
     /**
      * Before using this, please consider if FeatureDefinitionAdditionalDamage can cover the desired use case.
      * This has much greater flexibility, so there are cases where it is appropriate, but when possible it is
      * better for future maintainability of features to use the features provided by TA.
      */
-    public class FeatureDefinitionOnAttackHitEffect : FeatureDefinition, IOnAttackHitEffect
+    public class FeatureDefinitionOnAttackEffect : FeatureDefinition, IOnAttackEffect
     {
-        private OnAttackHitDelegate onAttackHit;
+        private OnAttackDelegate onAttack;
 
-        internal void SetOnAttackHitDelegate(OnAttackHitDelegate del)
+        internal void SetOnAttackDelegate(OnAttackDelegate del)
         {
-            onAttackHit = del;
+            onAttack = del;
         }
 
-        public void OnAttackHit(
+        public void OnAttack(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier attackModifier,
-            int attackRoll,
-            int successDelta,
-            bool ranged)
+            RulesetAttackMode attackerAttackMode)
         {
-            onAttackHit?.Invoke(attacker, defender, attackModifier, attackRoll, successDelta, ranged);
+            onAttack?.Invoke(attacker, defender, attackModifier, attackerAttackMode);
         }
     }
 }
