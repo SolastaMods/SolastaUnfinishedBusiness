@@ -71,6 +71,8 @@ namespace SolastaCommunityExpansion.Patches
 
             // Subclasses may rely on classes being loaded (as well as spells and powers) in order to properly refer back to the class.
             SubclassesContext.Load();
+            
+            PowerBundleContext.Load();
 
             // Multiclass blueprints should always load to avoid issues with heroes saves and after classes and subclasses
             MulticlassContext.Load();
