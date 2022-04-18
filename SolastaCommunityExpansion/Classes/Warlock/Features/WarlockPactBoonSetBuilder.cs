@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using SolastaModApi;
 using SolastaCommunityExpansion.Builders;
 using UnityEngine;
 using SolastaModApi.Extensions;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Features
 {
@@ -190,10 +192,30 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                  true);
             FeatureDefinitionPower FindFamiliarQuasitPower = FindFamiliarQuasitPowerBuilder.AddToDB();
 
-            Definition.FeatureSet.Add(FindFamiliarPseudodragonPower);
-            Definition.FeatureSet.Add(FindFamiliarSpritePower);
-            Definition.FeatureSet.Add(FindFamiliarImpPower);
-            Definition.FeatureSet.Add(FindFamiliarQuasitPower);
+            // Definition.FeatureSet.Add(FindFamiliarPseudodragonPower);
+            // Definition.FeatureSet.Add(FindFamiliarSpritePower);
+            // Definition.FeatureSet.Add(FindFamiliarImpPower);
+            // Definition.FeatureSet.Add(FindFamiliarQuasitPower);
+
+            FeatureDefinitionPower findFamiliarPowerBundle = FeatureDefinitionPowerPoolBuilder
+                .Create("FindFamiliarBundlePower", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(new GuiPresentationBuilder(
+                    "Find familiar title",
+                    "Summons a familiar from the list"
+                ).Build())
+                .SetActivation(RuleDefinitions.ActivationTime.NoCost, 1)
+                .AddToDB();
+
+
+            PowerBundleContext.RegisterPowerBundle(findFamiliarPowerBundle,
+                new List<FeatureDefinitionPower>()
+                {
+                    FindFamiliarPseudodragonPower,
+                    FindFamiliarSpritePower,
+                    FindFamiliarImpPower,
+                    FindFamiliarQuasitPower
+                });
+            Definition.FeatureSet.Add(findFamiliarPowerBundle);
 
             Definition.SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union);
         }
