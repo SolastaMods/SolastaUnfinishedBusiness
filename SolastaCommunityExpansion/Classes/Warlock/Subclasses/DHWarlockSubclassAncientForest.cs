@@ -462,7 +462,7 @@ Different Archfey, e.g. Winter-themed
             
             FeatureDefinitionPower potionFunction = FeatureDefinitionPowerBuilder
                 .Create($"AncientForestPotion{resTypeName}Function", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(guiPresentation)
+                .SetGuiPresentation(new GuiPresentationBuilder(guiPresentation).SetTitle("Equipment/&FunctionPotionDrinkTitle").Build())
                 .Configure(
                     1,
                     UsesDetermination.Fixed,
