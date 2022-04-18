@@ -114,11 +114,10 @@ namespace SolastaMulticlass.Patches.LevelUp
             public static int ComputeHighestSpellLevel(FeatureDefinitionCastSpell featureDefinitionCastSpell, int classLevel, CharacterHeroBuildingData heroBuildingData)
             {
                 var hero = heroBuildingData.HeroCharacter;
-                var isMulticaster = SharedSpellsContext.IsMulticaster(hero);
+                var isMulticlass = LevelUpContext.IsMulticlass(hero);
 
-                if (!isMulticaster)
+                if (!isMulticlass)
                 {
-
                     return featureDefinitionCastSpell.ComputeHighestSpellLevel(classLevel);
                 }
 
@@ -158,9 +157,9 @@ namespace SolastaMulticlass.Patches.LevelUp
                 ref List<SpellDefinition> __result)
             {
                 var hero = heroBuildingData.HeroCharacter;
-                var isMulticaster = SharedSpellsContext.IsMulticaster(hero);
+                var isMulticlass = LevelUpContext.IsMulticlass(hero);
 
-                if (!isMulticaster)
+                if (!isMulticlass)
                 {
                     return true;
                 }
@@ -282,9 +281,9 @@ namespace SolastaMulticlass.Patches.LevelUp
                 ref FeatureDefinitionCastSpell __result)
             {
                 var hero = heroBuildingData.HeroCharacter;
-                var isMulticaster = SharedSpellsContext.IsMulticaster(hero);
+                var isMulticlass = LevelUpContext.IsMulticlass(hero);
 
-                if (!isMulticaster)
+                if (!isMulticlass)
                 {
                     return true;
                 }
@@ -351,9 +350,9 @@ namespace SolastaMulticlass.Patches.LevelUp
                 CharacterHeroBuildingData heroBuildingData)
             {
                 var hero = heroBuildingData.HeroCharacter;
-                var isMulticaster = SharedSpellsContext.IsMulticaster(hero);
+                var isMulticlass = LevelUpContext.IsMulticlass(hero);
 
-                if (!isMulticaster)
+                if (!isMulticlass)
                 {
                     return true;
                 }
