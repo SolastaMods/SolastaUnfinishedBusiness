@@ -1057,12 +1057,32 @@ FightingStyle/&BlindFightingDescription	You have blindsight with a range of 10 f
 FightingStyle/&BlindFightingTitle	Blind Fighting
 FightingStyle/&PugilistFightingDescription	While you are completely unarmed, your unarmed strikes deal an additional d8 of damage and you can punch with your offhand as a bonus action.
 FightingStyle/&PugilistFightingTitle	Pugilist
+FlexibleBackgrounds/&AcademicBackgroundSuggestedSkillsDescription	Arcana, Nature, and Insight
+FlexibleBackgrounds/&AcademicBackgroundSuggestedSkillsTitle	Suggested Skills
+FlexibleBackgrounds/&AcolyteBackgroundSuggestedSkillsDescription	Religion, Nature, and Insight
+FlexibleBackgrounds/&AcolyteBackgroundSuggestedSkillsTitle	Suggested Skills
+FlexibleBackgrounds/&AristocratBackgroundSuggestedSkillsDescription	History, Persuasion, and Intimidation
+FlexibleBackgrounds/&AristocratBackgroundSuggestedSkillsTitle	Suggested Skills
 FlexibleBackgrounds/&BackgroundSkillSelect2Description	Select 2 skill proficiencies
 FlexibleBackgrounds/&BackgroundSkillSelect2Title	Skills
 FlexibleBackgrounds/&BackgroundSkillSelect3Description	Select 3 skill proficiencies
 FlexibleBackgrounds/&BackgroundSkillSelect3Title	Skills
 FlexibleBackgrounds/&BackgroundToolSelectDescription	Select a tool proficiency
 FlexibleBackgrounds/&BackgroundToolSelectTitle	Tool
+FlexibleBackgrounds/&BackgroundToolSelect2Description	Select 2 tool proficiencies
+FlexibleBackgrounds/&BackgroundToolSelect2Title	Tools
+FlexibleBackgrounds/&LawkeeperBackgroundSuggestedSkillsDescription	Perception and Intimidation
+FlexibleBackgrounds/&LawkeeperBackgroundSuggestedSkillsTitle	Suggested Skills
+FlexibleBackgrounds/&LowlifeBackgroundSuggestedSkillsDescription	Sleight of Hand, Stealth, and Deception
+FlexibleBackgrounds/&LowlifeBackgroundSuggestedSkillsTitle	Suggested Skills
+FlexibleBackgrounds/&PhilosopherBackgroundSuggestedSkillsDescription	Medicine and Persuasion
+FlexibleBackgrounds/&PhilosopherBackgroundSuggestedSkillsTitle	Suggested Skills
+FlexibleBackgrounds/&SellswordBackgroundSuggestedSkillsDescription	Athletics and Intimidation
+FlexibleBackgrounds/&SellswordBackgroundSuggestedSkillsTitle	Suggested Skills
+FlexibleBackgrounds/&SpyBackgroundSuggestedSkillsDescription	Stealth, Deception, and Nature
+FlexibleBackgrounds/&SpyBackgroundSuggestedSkillsTitle	Suggested Skills
+FlexibleBackgrounds/&WandererBackgroundSuggestedSkillsDescription	Survival and Nature
+FlexibleBackgrounds/&WandererBackgroundSuggestedSkillsTitle	Suggested Skills
 FlexibleRaces/&PointPoolAbilityScore3Description	Use three boosts on ability scores in any combination of your choosing.
 FlexibleRaces/&PointPoolAbilityScore3Title	Ability Score Increase
 FlexibleRaces/&PointPoolAbilityScore4Description	Use four boosts on ability scores in any combination of your choosing.
