@@ -355,7 +355,7 @@ namespace SolastaCommunityExpansion.Feats
             var wiseDefense = FeatDefinitionBuilder
                 .Create("FeatWiseDefense", ZappaFeatNamespace)
                 .SetFeatures(
-                    AttributeModifierCreed_Of_Solasta,
+                    AttributeModifierCreed_Of_Maraike,
                     FeatureDefinitionAttributeModifierBuilder
                         .Create(AttributeModifierBarbarianUnarmoredDefense, "AttributeModifierFeatWiseDefenseAdd", ZappaFeatNamespace)
                         .SetGuiPresentationNoContent()
