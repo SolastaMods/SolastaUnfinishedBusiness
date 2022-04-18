@@ -256,7 +256,8 @@ namespace SolastaMulticlass.Models
                     .Where(sr => !IsWarlock(sr.SpellCastingClass))
                     .FirstOrDefault(sr => sr.SpellCastingFeature.SpellCastingOrigin != CastingOrigin.Race);
 
-                return casterRepertoire == null ? 0 : casterRepertoire.MaxSpellLevelOfSpellCastingLevel;
+                // 1 here as level 1 classes won't have a repertoire until level down is finished
+                return casterRepertoire == null ? 1 : casterRepertoire.MaxSpellLevelOfSpellCastingLevel;
             }
             else
             {
