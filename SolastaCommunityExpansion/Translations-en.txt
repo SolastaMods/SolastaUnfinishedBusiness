@@ -324,8 +324,8 @@ Equipment/&Enchanted_Warhammer_Power_Description	This enchanted weapon was forge
 Equipment/&Enchanted_Warhammer_Power_Title	Warhammer of Power
 Equipment/&Enchanted_Warhammer_Punisher_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. The combination of the best metal and Slavestone gave this axe incredible piercing power.
 Equipment/&Enchanted_Warhammer_Punisher_Title	Punisher Warhammer
-Equipment/&HerbalBrewQuickeningTitle	Herbal Brew : Potion of Quickening
-Equipment/&HerbalBrewToxifyingTitle	Herbal Brew : Potion of Toxifying
+Equipment/&HerbalBrewHealingTitle	Herbal Brew of Quickening
+Equipment/&HerbalBrewToxifyingTitle	Herbal Brew of Toxifying
 Equipment/&ImprovedLightningSpearDescription	Can now create advantage for allies and disadvantage for enemies with a single attack
 Equipment/&ImprovedLightningSpearTitle	Improved Lightning Spear
 Equipment/&ImprovedThunderPunchDescription	Can now pull enemies into melee range with a bonus action and inflict 1D8 thunder damage
@@ -887,7 +887,8 @@ Feature/&GnomeNaturalIllusionistDescription	You know the Annoying Bee cantrip. I
 Feature/&GnomeNaturalIllusionistTitle	Natural Magic
 Feature/&GraspingHandMagicAffinityDescription	when you hit a creature with your eldritch blast, you can move that creature in a straight line 10 feet closer to you.
 Feature/&GraspingHandMagicAffinityTitle	Grasping Blast
-Feature/&HerbalBrewFeatureSetDescription	You gain proficiency with either the poisoner kit or herbalism kits if you don't already have it. \nWhen you finish a long rest, you can create herbal brews, each of which lasts until the next long rest. You create a total of brews equal to your proficiency bonus. For each brew, choose one of the following effects: \n<color=#add8e6ff>Fortifying Brew</color> : grants resistance to different damage types for 1 hour.\n<color=#add8e6ff>Quickening Brew</color> : provides 2d6 hit points.\n<color=#add8e6ff>Toxifying Brew</color> : acts as poison that can be applied to a weapon that lasts for 1 minute. If the hit lands the target takes 1d4 poison damage on each hit.
+Feature/&HerbalBrewFeatureSetDescription	You gain proficiency with either the poisoner kit or herbalism kits if you don't already have it. \nWhen you finish a long rest, you can create herbal brews, each of which lasts until the next long rest. You create a total of brews equal to your proficiency bonus. For each brew, choose one of the following effects: \n<color=#add8e6ff>Fortifying Brew</color> : grants resistance to different damage types for 1 hour.\n<color=#add8e6ff>Quickening Brew</color> : provides 2d4 hit points.\n<color=#add8e6ff>Toxifying Brew</color> : acts as poison that can be applied to a weapon that lasts for 1 minute. If the hit lands the target takes 1d4 poison damage on each hit.
+Feature/&HerbalBrewDescription	When you finish a long rest, you can create herbal brews, each of which lasts until the next long rest. You create a total of brews equal to your proficiency bonus. For each brew, choose one of the following effects: \n<color=#add8e6ff>Fortifying Brew</color> : grants resistance to different damage types for 1 hour.\n<color=#add8e6ff>Quickening Brew</color> : provides 2d4 hit points.\n<color=#add8e6ff>Toxifying Brew</color> : acts as poison that can be applied to a weapon that lasts for 1 minute. If the hit lands the target takes 1d4 poison damage on each hit.
 Feature/&HerbalBrewFeatureSetTitle	Herbal Brewing
 Feature/&HinderingBlastFeatureSetDescription	When you hit a creature with your eldritch blast, you can reduce that creature's speed by 10 feet until the end of your next turn
 Feature/&HinderingBlastFeatureSetTitle	Hindering Blast
