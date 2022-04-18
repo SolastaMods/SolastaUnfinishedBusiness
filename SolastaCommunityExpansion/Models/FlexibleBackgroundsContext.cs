@@ -31,16 +31,16 @@ namespace SolastaCommunityExpansion.Models
             .SetPool(HeroDefinitions.PointsPoolType.Tool, 1)
             .AddToDB();
 
-        private static readonly FeatureDefinition toolTwo = FeatureDefinitionPointPoolBuilder
+        private static readonly FeatureDefinition toolChoiceTwo = FeatureDefinitionPointPoolBuilder
             .Create("BackgroundToolSelect2", "07d30e58-eddc-43eb-a24c-71f107b8d76a")
             .SetGuiPresentation(Category.FlexibleBackgrounds)
             .SetPool(HeroDefinitions.PointsPoolType.Tool, 2)
             .AddToDB();
 
         private static FeatureDefinition academicSuggestedSkills = FeatureDefinitionBuilder
-    .Create("AcademicBackgroundSuggestedSkills", FLEX_BACK_BASE_GUID)
-    .SetGuiPresentation("AcademicBackgroundSuggestedSkills", Category.FlexibleBackgrounds)
-    .AddToDB();
+            .Create("AcademicBackgroundSuggestedSkills", FLEX_BACK_BASE_GUID)
+            .SetGuiPresentation("AcademicBackgroundSuggestedSkills", Category.FlexibleBackgrounds)
+            .AddToDB();
 
         private static FeatureDefinition acolyteSuggestedSkills = FeatureDefinitionBuilder
            .Create("AcolyteBackgroundSuggestedSkills", FLEX_BACK_BASE_GUID)
@@ -92,7 +92,7 @@ namespace SolastaCommunityExpansion.Models
             { Philosopher, new List<FeatureDefinition> { skillTwo, philosopherSuggestedSkills, toolChoice } },
             { SellSword, new List<FeatureDefinition> { skillTwo, sellswordSuggestedSkills, toolChoice } },
             { Spy, new List<FeatureDefinition> { skillThree, spySuggestedSkills, toolChoice } },
-            { Wanderer, new List<FeatureDefinition> { skillTwo, wandererSuggestedSkills, toolTwo } },
+            { Wanderer, new List<FeatureDefinition> { skillTwo, wandererSuggestedSkills, toolChoiceTwo } },
         };
 
         private static readonly Dictionary<CharacterBackgroundDefinition, List<FeatureDefinition>> removedFeatures = new()

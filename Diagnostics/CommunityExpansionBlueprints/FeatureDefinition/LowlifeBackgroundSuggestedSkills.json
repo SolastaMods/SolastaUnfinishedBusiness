@@ -1,10 +1,10 @@
 {
-  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionOnAttackHitEffect, SolastaCommunityExpansion",
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&DualFlurryTitle",
-    "description": "Feature/&DualFlurryDescription",
+    "title": "FlexibleBackgrounds/&LowlifeBackgroundSuggestedSkillsTitle",
+    "description": "FlexibleBackgrounds/&LowlifeBackgroundSuggestedSkillsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "baf864a5-d9d9-5e5f-aa36-a65360b41cf3",
+  "guid": "21b12791-424a-5ae4-862c-9cda1c3b7619",
   "contentPack": 9999,
-  "name": "FeatureDualFlurry"
+  "name": "LowlifeBackgroundSuggestedSkills"
 }
