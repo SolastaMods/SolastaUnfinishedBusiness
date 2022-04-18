@@ -1,5 +1,4 @@
-﻿using System;
-using HarmonyLib;
+﻿using HarmonyLib;
 using SolastaCommunityExpansion;
 using static SolastaCommunityExpansion.Models.MulticlassContext;
 
@@ -11,14 +10,16 @@ namespace SolastaMulticlass.Patches.LevelDown
     {
         internal static void Postfix(RulesetCharacterHero __instance)
         {
-            if (Main.Settings.EnableRespec)
+            if (!Main.Settings.EnableRespec)
             {
-                var characterLevel = __instance.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+                __instance.AfterRestActions.Remove(RestActivityLevelDown);
+            }
 
-                if (characterLevel > 1)
-                {
-                    __instance.AfterRestActions.Add(RestActivityLevelDown);
-                }
+            var characterLevel = __instance.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+
+            if (characterLevel == 1)
+            {
+                __instance.AfterRestActions.Remove(RestActivityLevelDown);
             }
         }
     }
