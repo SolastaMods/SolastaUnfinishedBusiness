@@ -6,6 +6,7 @@ using SolastaModApi;
 using SolastaModApi.Extensions;
 using static RuleDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionAttributeModifiers;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
@@ -175,10 +176,15 @@ Different Archfey, e.g. Winter-themed
                 .AddToDB();
 
             PowerBundleContext.RegisterPowerBundle(herbalBrewPool,
-                new List<FeatureDefinitionPower>()
+                new List<FeatureDefinitionPower>
                 {
-                    BuildHerbalBrew(herbalBrewPool, Poison_Basic, "Toxifying"),
-                    BuildHerbalBrew(herbalBrewPool, PotionOfHealing, "Healing")
+                    BuildHerbalBrew(herbalBrewPool, "Toxifying", Poison_Basic),
+                    BuildHerbalBrew(herbalBrewPool, "Healing", PotionOfHealing),
+                    BuildHerbalBrew(herbalBrewPool, DamageAffinityAcidResistance, PotionOfSpeed),
+                    BuildHerbalBrew(herbalBrewPool, DamageAffinityLightningResistance, Ingredient_RefinedOil),
+                    BuildHerbalBrew(herbalBrewPool, DamageAffinityNecroticResistance, PotionOfClimbing),
+                    BuildHerbalBrew(herbalBrewPool, DamageAffinityPoisonResistance, PotionOfHeroism),
+                    BuildHerbalBrew(herbalBrewPool, DamageAffinityRadiantResistance, PotionOfInvisibility),
                 });
 
 
@@ -371,10 +377,9 @@ Different Archfey, e.g. Winter-themed
                 .AddToDB();
         }
 
-        private static FeatureDefinitionPower BuildHerbalBrew(
-            FeatureDefinitionPower pool,
-            ItemDefinition baseItem,
-            string type)
+        private static FeatureDefinitionPower BuildHerbalBrew(FeatureDefinitionPower pool,
+            string type,
+            ItemDefinition baseItem)
         {
             var itemTitle = $"Equipment/&HerbalBrew{type}Title";
             var itemName = $"AncientForestHerbalBrew{type}Item";
@@ -395,6 +400,115 @@ Different Archfey, e.g. Winter-themed
             brewItem.SetIsUsableDevice(true);
             brewItem.SetUsableDeviceDescription(baseItem.UsableDeviceDescription);
 
+
+            EffectForm brewForm = new EffectFormBuilder()
+                .SetSummonItemForm(brewItem, 1)
+                .SetBonusMode(AddBonusMode.DoubleProficiency)
+                .Build();
+
+
+            EffectDescription brewEffect = new EffectDescriptionBuilder()
+                .AddEffectForm(brewForm)
+                .SetDurationData(DurationType.UntilLongRest)
+                .SetTargetingData(
+                    Side.Ally,
+                    RangeType.Self,
+                    1,
+                    TargetType.Self,
+                    1,
+                    1,
+                    ActionDefinitions.ItemSelectionType.Equiped)
+                .Build();
+
+
+            return new FeatureDefinitionPowerSharedPoolBuilder(
+                powerName,
+                pool,
+                RechargeRate.ShortRest,
+                ActivationTime.NoCost,
+                1,
+                false,
+                false,
+                AttributeDefinitions.Charisma,
+                brewEffect,
+                guiPresentation,
+                false
+            ).AddToDB();
+        }
+        
+        private static FeatureDefinitionPower BuildHerbalBrew(FeatureDefinitionPower pool,
+            FeatureDefinitionDamageAffinity resType,
+            ItemDefinition baseItem)
+        {
+            var resTypeName = resType.Name;
+            Main.Log($"[ENDER] name:'{resTypeName}'");
+
+            var itemName = $"AncientForestHerbalBrew{resTypeName}Item";
+            var powerName = $"AncientForestHerbalBrew{resTypeName}Power";
+
+            GuiPresentation guiPresentation = new GuiPresentationBuilder(
+                $"Equipment/&HerbalBrew{resTypeName}Title",
+                $"Equipment/&HerbalBrew{resTypeName}Description",
+                baseItem.GuiPresentation.SpriteReference
+            ).Build();
+            
+            ConditionDefinition resistanceCondition = ConditionDefinitionBuilder.Create(
+                    $"AncientForestHerbalBrew{resTypeName}Condition", DefinitionBuilder.CENamespaceGuid)
+                .SetDuration(DurationType.Hour, 1)
+                .SetSilent(Silent.None)
+                .SetGuiPresentation(guiPresentation)
+                .AddFeatures(resType)
+                .AddToDB();
+            
+            FeatureDefinitionPower potionFunction = FeatureDefinitionPowerBuilder
+                .Create($"AncientForestPotion{resTypeName}Function", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(guiPresentation)
+                .Configure(
+                    1,
+                    UsesDetermination.Fixed,
+                    AttributeDefinitions.Charisma,
+                    ActivationTime.Action,
+                    1,
+                    RechargeRate.AtWill,
+                    false,
+                    false,
+                    AttributeDefinitions.Charisma,
+                    new EffectDescriptionBuilder()
+                        .AddEffectForm(
+                            new EffectFormBuilder().SetConditionForm(
+                                resistanceCondition,
+                                ConditionForm.ConditionOperation.Add,
+                                true,
+                                true,
+                                new List<ConditionDefinition>()).Build())
+                        .SetDurationData(DurationType.Hour, 1)
+                        .SetTargetingData(
+                            Side.Ally,
+                            RangeType.Self,
+                            1,
+                            TargetType.Self,
+                            1,
+                            1,
+                            ActionDefinitions.ItemSelectionType.None)
+                        .Build()
+                    ,
+                    true)
+                .AddToDB();
+
+            var brewItem = ItemDefinitionBuilder.Create(baseItem, itemName, DefinitionBuilder.CENamespaceGuid)
+                .SetGold(0)
+                .SetGuiPresentation(guiPresentation)
+                .MakeMagical()
+                .SetUsableDeviceDescription(potionFunction)
+                .AddToDB();
+            var description = brewItem.UsableDeviceDescription;
+            brewItem.SetGuiPresentation(guiPresentation);
+            brewItem.SetIsFood(true);
+            brewItem.SetItemRarity(ItemRarity.Common);
+            brewItem.SetFoodDescription(new FoodDescription().SetNutritiveCapacity(0).SetPerishable(true));
+            brewItem.SetIsUsableDevice(true);
+            brewItem.SetRequiresIdentification(false);
+            brewItem.SetUsableDeviceDescription(description);
 
             EffectForm brewForm = new EffectFormBuilder()
                 .SetSummonItemForm(brewItem, 1)

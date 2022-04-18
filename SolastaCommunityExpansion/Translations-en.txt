@@ -324,8 +324,18 @@ Equipment/&Enchanted_Warhammer_Power_Description	This enchanted weapon was forge
 Equipment/&Enchanted_Warhammer_Power_Title	Warhammer of Power
 Equipment/&Enchanted_Warhammer_Punisher_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. The combination of the best metal and Slavestone gave this axe incredible piercing power.
 Equipment/&Enchanted_Warhammer_Punisher_Title	Punisher Warhammer
-Equipment/&HerbalBrewHealingTitle	Herbal Brew of Quickening
-Equipment/&HerbalBrewToxifyingTitle	Herbal Brew of Toxifying
+Equipment/&HerbalBrewHealingTitle	Brew of Quickening
+Equipment/&HerbalBrewToxifyingTitle	Brew of Toxifying
+Equipment/&HerbalBrewDamageAffinityAcidResistanceTitle	Brew of Acid Protection
+Equipment/&HerbalBrewDamageAffinityAcidResistanceDescription    Grants protection to Acid for 1 hour
+Equipment/&HerbalBrewDamageAffinityLightningResistanceTitle	Brew of Lightning Protection
+Equipment/&HerbalBrewDamageAffinityLightningResistanceDescription    Grants protection to Lightning for 1 hour
+Equipment/&HerbalBrewDamageAffinityNecroticResistanceTitle	Brew of Necrotic Protection
+Equipment/&HerbalBrewDamageAffinityNecroticResistanceDescription    Grants protection to Necrotic for 1 hour
+Equipment/&HerbalBrewDamageAffinityPoisonResistanceTitle	Brew of Poison Protection
+Equipment/&HerbalBrewDamageAffinityPoisonResistanceDescription    Grants protection to Poison for 1 hour
+Equipment/&HerbalBrewDamageAffinityRadiantResistanceTitle	Brew of Radiant Protection
+Equipment/&HerbalBrewDamageAffinityRadiantResistanceDescription    Grants protection to Radiant for 1 hour
 Equipment/&ImprovedLightningSpearDescription	Can now create advantage for allies and disadvantage for enemies with a single attack
 Equipment/&ImprovedLightningSpearTitle	Improved Lightning Spear
 Equipment/&ImprovedThunderPunchDescription	Can now pull enemies into melee range with a bonus action and inflict 1D8 thunder damage
