@@ -257,6 +257,22 @@ namespace SolastaCommunityExpansion.Builders
             effectForm.SetSummonForm(summonForm);
             return this;
         }
+        
+        public EffectFormBuilder SetSummonItemForm(ItemDefinition item, int number)
+        {
+            effectForm.FormType = EffectForm.EffectFormType.Summon;
+            SummonForm summonForm = new SummonForm();
+            summonForm.SetSummonType(SummonForm.Type.InventoryItem);
+            summonForm.SetItemDefinition(item);
+            summonForm.SetNumber(number);
+            summonForm.SetMonsterDefinitionName("");//do we even need this?
+            summonForm.SetConditionDefinition(null);
+            summonForm.SetPersistOnConcentrationLoss(true);
+            summonForm.SetDecisionPackage(null);
+            summonForm.SetEffectProxyDefinitionName(ScriptableObject.CreateInstance<EffectProxyDefinition>().Name);
+            effectForm.SetSummonForm(summonForm);
+            return this;
+        }
 
         public EffectFormBuilder SetTempHPForm(int bonusHitPoints, RuleDefinitions.DieType dieType, int diceNumber)
         {
