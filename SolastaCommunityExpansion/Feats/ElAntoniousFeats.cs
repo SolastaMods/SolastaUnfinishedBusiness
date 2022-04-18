@@ -43,14 +43,14 @@ namespace SolastaCommunityExpansion.Feats
 
         private static FeatureDefinition BuildFeatureDualFlurry()
         {
-            return FeatureDefinitionOnAttackHitEffectBuilder
+            return FeatureDefinitionOnAttackDamageEffectBuilder
                 .Create("FeatureDualFlurry", DualFlurryGuid)
                 .SetGuiPresentation("DualFlurry", Category.Feature)
-                .SetOnAttackHitDelegate(OnAttackHit)
+                .SetOnAttackDamageDelegate(OnAttackDamage)
                 .AddToDB();
         }
-
-        private static void OnAttackHit(GameLocationCharacter attacker,
+        
+        private static void OnAttackDamage(GameLocationCharacter attacker,
                 GameLocationCharacter defender, ActionModifier attackModifier, RulesetAttackMode attackMode,
                 bool rangedAttack, RuleDefinitions.AdvantageType advantageType, List<EffectForm> actualEffectForms,
                 RulesetEffect rulesetEffect, bool criticalHit, bool firstTarget)
