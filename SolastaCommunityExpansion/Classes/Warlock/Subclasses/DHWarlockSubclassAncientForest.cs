@@ -26,7 +26,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetSpellsAtLevel(1, Goodberry, Entangle)
                 .SetSpellsAtLevel(2, Barkskin, SpikeGrowth)
                 .SetSpellsAtLevel(3, MassHealingWord, VampiricTouch)
-                .SetSpellsAtLevel(4, Blight, GreaterRestoration)
+                .SetSpellsAtLevel(4, Blight, IdentifyCreatures)
                 .SetSpellsAtLevel(5, Contagion, RaiseDead)
                 .FinalizeSpells()
                 .AddToDB();
