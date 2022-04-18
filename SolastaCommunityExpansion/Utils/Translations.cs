@@ -7,8 +7,7 @@ namespace SolastaCommunityExpansion.Utils
     {
         public static void LoadTranslations(string category)
         {
-            var code = LocalizationManager.CurrentLanguageCode;
-            var path = Path.Combine(Main.MOD_FOLDER, $"{category}-{code}.txt");
+            var path = Path.Combine(Main.MOD_FOLDER, $"{category}-{LocalizationManager.CurrentLanguageCode}.txt");
 
             if (!File.Exists(path))
             {
@@ -16,7 +15,7 @@ namespace SolastaCommunityExpansion.Utils
             }
 
             var languageSourceData = LocalizationManager.Sources[0];
-            var languageIndex = languageSourceData.GetLanguageIndexFromCode(code);
+            var languageIndex = languageSourceData.GetLanguageIndex(LocalizationManager.CurrentLanguage);
 
             foreach (var line in File.ReadLines(path))
             {
@@ -41,7 +40,7 @@ namespace SolastaCommunityExpansion.Utils
 
                 if (termData != null && termData.Languages[languageIndex] != null)
                 {
-                    Main.Log($"term {term} overwritten with {code} text {text}");
+                    Main.Log($"term {term} overwritten with text {text}");
 
                     termData.Languages[languageIndex] = text;
                 }
