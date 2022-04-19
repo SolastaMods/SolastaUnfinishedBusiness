@@ -263,6 +263,11 @@ namespace SolastaMulticlass.Patches.SlotsSpells
                     return true;
                 }
 
+                if (!SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire))
+                {
+                    return true;
+                }
+
                 foreach (var spellRepertoire in heroWithSpellRepertoire.SpellRepertoires)
                 {
                     var usedSpellsSlots = spellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots");
@@ -271,9 +276,9 @@ namespace SolastaMulticlass.Patches.SlotsSpells
                     {
                         var key = recoveredSlot.Key;
 
-                        if (usedSpellsSlots.TryGetValue(key, out var usedSpellSLots) && usedSpellSLots > 0)
+                        if (usedSpellsSlots.TryGetValue(key, out var used) && used > 0)
                         {
-                            usedSpellsSlots[key] = Mathf.Max(0, usedSpellSLots - recoveredSlot.Value);
+                            usedSpellsSlots[key] = Mathf.Max(0, used - recoveredSlot.Value);
                         }
                     }
 
