@@ -85,7 +85,7 @@ namespace SolastaCommunityExpansion.Races
             bolgrifRacePresentation.MaleFaceShapeOptions.Clear();
             bolgrifRacePresentation.AddFemaleFaceShapeOptions(CharacterRaceDefinitions.Dwarf.RacePresentation.FemaleFaceShapeOptions);
             bolgrifRacePresentation.AddMaleFaceShapeOptions(CharacterRaceDefinitions.Dwarf.RacePresentation.MaleFaceShapeOptions);
-
+            
             var bolgrif = CharacterRaceDefinitionBuilder
                 .Create(CharacterRaceDefinitions.Human, "BolgrifRace", "346b7f90-973f-425f-8342-d534759e65aa")
                 .SetGuiPresentation(Category.Race, bolgrifSpriteReference)
