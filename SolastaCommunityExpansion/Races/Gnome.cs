@@ -64,13 +64,7 @@ namespace SolastaCommunityExpansion.Races
 
             var gnomeRacePresentation = CharacterRaceDefinitions.HalfElf.RacePresentation.DeepCopy();
 
-            gnomeRacePresentation.SetBodyAssetPrefix(CharacterRaceDefinitions.HalfElf.RacePresentation.BodyAssetPrefix);
-            gnomeRacePresentation.SetMorphotypeAssetPrefix(CharacterRaceDefinitions.HalfElf.RacePresentation.MorphotypeAssetPrefix);
             gnomeRacePresentation.SetPreferedHairColors(new TA.RangedInt(26, 47));
-            gnomeRacePresentation.FemaleFaceShapeOptions.Clear();
-            gnomeRacePresentation.MaleFaceShapeOptions.Clear();
-            gnomeRacePresentation.AddFemaleFaceShapeOptions(CharacterRaceDefinitions.HalfElf.RacePresentation.FemaleFaceShapeOptions);
-            gnomeRacePresentation.AddMaleFaceShapeOptions(CharacterRaceDefinitions.HalfElf.RacePresentation.MaleFaceShapeOptions);
 
             var gnome = CharacterRaceDefinitionBuilder
                 .Create(CharacterRaceDefinitions.Human, "GnomeRace", "ce63140e-c018-4f83-8e6e-bc7bbc815a17")
