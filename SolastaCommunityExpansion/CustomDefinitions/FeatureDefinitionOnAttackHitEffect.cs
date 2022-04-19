@@ -2,7 +2,15 @@
 {
     public interface IOnAttackHitEffect
     {
-        void OnAttackHit(
+        void BeforeOnAttackHit(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            int attackRoll,
+            int successDelta,
+            bool ranged);
+
+        void AfterOnAttackHit(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier attackModifier,
@@ -26,14 +34,16 @@
      */
     public class FeatureDefinitionOnAttackHitEffect : FeatureDefinition, IOnAttackHitEffect
     {
-        private OnAttackHitDelegate onAttackHit;
+        private OnAttackHitDelegate beforeOnAttackHit;
+        private OnAttackHitDelegate afterOnAttackHit;
 
-        internal void SetOnAttackHitDelegate(OnAttackHitDelegate del)
+        internal void SetOnAttackHitDelegates(OnAttackHitDelegate before = null, OnAttackHitDelegate after = null)
         {
-            onAttackHit = del;
+            beforeOnAttackHit = before;
+            afterOnAttackHit = after;
         }
 
-        public void OnAttackHit(
+        public void BeforeOnAttackHit(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier attackModifier,
@@ -41,7 +51,18 @@
             int successDelta,
             bool ranged)
         {
-            onAttackHit?.Invoke(attacker, defender, attackModifier, attackRoll, successDelta, ranged);
+            beforeOnAttackHit?.Invoke(attacker, defender, attackModifier, attackRoll, successDelta, ranged);
+        }
+
+        public void AfterOnAttackHit(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            int attackRoll,
+            int successDelta,
+            bool ranged)
+        {
+            afterOnAttackHit?.Invoke(attacker, defender, attackModifier, attackRoll, successDelta, ranged);
         }
     }
 }

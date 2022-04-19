@@ -4,7 +4,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 {
     public interface IOnAttackDamageEffect
     {
-        void OnAttackDamage(
+        void BeforeOnAttackDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender, 
             ActionModifier attackModifier, 
@@ -14,6 +14,18 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             List<EffectForm> actualEffectForms,
             RulesetEffect rulesetEffect, 
             bool criticalHit, 
+            bool firstTarget);
+
+        void AfterOnAttackDamage(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            RuleDefinitions.AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool criticalHit,
             bool firstTarget);
     }
 
@@ -36,14 +48,16 @@ namespace SolastaCommunityExpansion.CustomDefinitions
      */
     public class FeatureDefinitionOnAttackDamageEffect : FeatureDefinition, IOnAttackDamageEffect
     {
-        private OnAttackDamageDelegate onAttackDamage;
+        private OnAttackDamageDelegate beforeOnAttackDamage;
+        private OnAttackDamageDelegate afterOnAttackDamage;
 
-        internal void SetOnAttackDamageDelegate(OnAttackDamageDelegate del)
+        internal void SetOnAttackDamageDelegates(OnAttackDamageDelegate before = null, OnAttackDamageDelegate after = null)
         {
-            onAttackDamage = del;
+            beforeOnAttackDamage = before;
+            afterOnAttackDamage = after;
         }
 
-        public void OnAttackDamage(
+        public void BeforeOnAttackDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier attackModifier,
@@ -55,7 +69,22 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             bool criticalHit,
             bool firstTarget)
         {
-            onAttackDamage?.Invoke(attacker, defender, attackModifier, attackMode, rangedAttack, advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget);
+            beforeOnAttackDamage?.Invoke(attacker, defender, attackModifier, attackMode, rangedAttack, advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget);
+        }
+
+        public void AfterOnAttackDamage(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            RuleDefinitions.AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool criticalHit,
+            bool firstTarget)
+        {
+            afterOnAttackDamage?.Invoke(attacker, defender, attackModifier, attackMode, rangedAttack, advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget);
         }
     }
 }

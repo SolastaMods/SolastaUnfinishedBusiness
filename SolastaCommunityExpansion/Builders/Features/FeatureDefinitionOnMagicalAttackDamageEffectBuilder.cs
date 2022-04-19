@@ -23,9 +23,9 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
         #endregion
 
-        public FeatureDefinitionOnMagicalAttackDamageEffectBuilder SetOnMagicalAttackDamageDelegate(OnMagicalAttackDamageDelegate del)
+        public FeatureDefinitionOnMagicalAttackDamageEffectBuilder SetOnAttackDamageDelegates(OnMagicalAttackDamageDelegate before, OnMagicalAttackDamageDelegate after)
         {
-            Definition.SetOnMagicalAttackDamageDelegate(del);
+            Definition.SetOnAttackDamageDelegates(before, after);
             return this;
         }
     }
