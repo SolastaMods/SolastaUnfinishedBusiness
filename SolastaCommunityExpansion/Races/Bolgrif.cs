@@ -93,8 +93,8 @@ namespace SolastaCommunityExpansion.Races
                 .SetRacePresentation(bolgrifRacePresentation)
                 .SetMinimalAge(30)
                 .SetMaximalAge(500)
-                .SetBaseHeight(96)
-                .SetBaseWeight(130)
+                .SetBaseHeight(84)
+                .SetBaseWeight(170)
                 .SetFeaturesAtLevel(1,
                     FeatureDefinitionMoveModes.MoveModeMove6,
                     bolgrifAbilityScoreModifierWisdom,
