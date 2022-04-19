@@ -21,7 +21,15 @@ namespace SolastaMulticlass.Models
 
     internal static class SharedSpellsContext
     {
-        internal static Dictionary<string, BaseDefinition> RecoverySlots { get; } = new();
+        internal static Dictionary<string, BaseDefinition> RecoverySlots { get; } = new()
+        {
+            { "TinkererSpellStoringItem", TinkererClass },
+            { "ArtificerInfusionSpellRefuelingRing", TinkererClass },
+            { "PowerAlchemistSpellBonusRecovery", TinkererClass },
+            { "PowerCircleLandNaturalRecovery", Druid },
+            { "PowerWizardArcaneRecovery", Wizard },
+            { "PowerSpellMasterBonusRecovery", Wizard }
+        };
 
         internal static Dictionary<CharacterClassDefinition, CasterType> ClassCasterType { get; } = new()
         {
@@ -256,7 +264,8 @@ namespace SolastaMulticlass.Models
                     .Where(sr => !IsWarlock(sr.SpellCastingClass))
                     .FirstOrDefault(sr => sr.SpellCastingFeature.SpellCastingOrigin != CastingOrigin.Race);
 
-                return casterRepertoire == null ? 0 : casterRepertoire.MaxSpellLevelOfSpellCastingLevel;
+                // 1 here as level 1 classes won't have a repertoire until level down is finished
+                return casterRepertoire == null ? 1 : casterRepertoire.MaxSpellLevelOfSpellCastingLevel;
             }
             else
             {
@@ -289,52 +298,8 @@ namespace SolastaMulticlass.Models
 
         internal static void Load()
         {
-            // init the recovery slots tab
-            var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
-
-            foreach (var element in dbCharacterClassDefinition)
-            {
-                var powers = element.FeatureUnlocks
-                    .Select(x => x.FeatureDefinition)
-                    .OfType<FeatureDefinitionPower>();
-
-                foreach (var power in powers
-                    .Where(x => x.ActivationTime == RuleDefinitions.ActivationTime.Rest)
-                    .Where(x => x.RechargeRate != RuleDefinitions.RechargeRate.AtWill)
-                    .Where(x => x.EffectDescription.EffectForms
-                        .Where(x => x.FormType == EffectForm.EffectFormType.SpellSlots)
-                        .Any(x => x.SpellSlotsForm.Type == SpellSlotsForm.EffectType.RecoverHalfLevelUp)))
-                {
-                    RecoverySlots.Add(power.Name, element);
-                }
-            }
-
-            var dbCharacterSubclassDefinition = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>();
-
-            foreach (var element in dbCharacterSubclassDefinition)
-            {
-                var powers = element.FeatureUnlocks
-                    .Select(x => x.FeatureDefinition)
-                    .OfType<FeatureDefinitionPower>();
-
-                foreach (var power in powers
-                    .Where(x => x.ActivationTime == RuleDefinitions.ActivationTime.Rest)
-                    .Where(x => x.RechargeRate != RuleDefinitions.RechargeRate.AtWill)
-                    .Where(x => x.EffectDescription.EffectForms
-                        .Where(x => x.FormType == EffectForm.EffectFormType.SpellSlots)
-                        .Any(x => x.SpellSlotsForm.Type == SpellSlotsForm.EffectType.RecoverHalfLevelUp)))
-                {
-                    RecoverySlots.Add(power.Name, element);
-                }
-            }
-
-            // Tinkerer special case
-            RecoverySlots.Add("ArtificerInfusionSpellRefuelingRing", TinkererClass);
-
-            // These need to be later added to avoid a null object in the collection
             ClassCasterType.Add(TinkererClass, CasterType.HalfRoundUp);
             ClassCasterType.Add(WitchClass, CasterType.Full);
-
             SubclassCasterType.Add(ConArtistSubclass, CasterType.OneThird);
             SubclassCasterType.Add(SpellShieldSubclass, CasterType.OneThird);
         }
