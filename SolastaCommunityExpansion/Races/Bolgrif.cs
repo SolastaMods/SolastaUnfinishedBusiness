@@ -76,15 +76,8 @@ namespace SolastaCommunityExpansion.Races
 
             var bolgrifRacePresentation = CharacterRaceDefinitions.Dwarf.RacePresentation.DeepCopy();
 
-            bolgrifRacePresentation.SetBodyAssetPrefix(CharacterRaceDefinitions.Dwarf.RacePresentation.BodyAssetPrefix);
-            bolgrifRacePresentation.SetMorphotypeAssetPrefix(CharacterRaceDefinitions.Dwarf.RacePresentation.MorphotypeAssetPrefix);
             bolgrifRacePresentation.SetPreferedSkinColors(new TA.RangedInt(45, 48));
             bolgrifRacePresentation.SetPreferedHairColors(new TA.RangedInt(16, 32));
-            bolgrifRacePresentation.SetMaleBeardShapeOptions(CharacterRaceDefinitions.Dwarf.RacePresentation.MaleBeardShapeOptions);
-            bolgrifRacePresentation.FemaleFaceShapeOptions.Clear();
-            bolgrifRacePresentation.MaleFaceShapeOptions.Clear();
-            bolgrifRacePresentation.AddFemaleFaceShapeOptions(CharacterRaceDefinitions.Dwarf.RacePresentation.FemaleFaceShapeOptions);
-            bolgrifRacePresentation.AddMaleFaceShapeOptions(CharacterRaceDefinitions.Dwarf.RacePresentation.MaleFaceShapeOptions);
             
             var bolgrif = CharacterRaceDefinitionBuilder
                 .Create(CharacterRaceDefinitions.Human, "BolgrifRace", "346b7f90-973f-425f-8342-d534759e65aa")
