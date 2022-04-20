@@ -114,25 +114,21 @@ namespace SolastaCommunityExpansion.Models
             FunctorExecutionContext context)
         {
             FunctorUseCustomRestPower functorUsePower = this;
-            GameLocationCharacter fromActor =
-                GameLocationCharacter.GetFromActor(functorParameters.RestingHero);
+            var fromActor = GameLocationCharacter.GetFromActor(functorParameters.RestingHero);
             if (fromActor != null)
             {
-                FeatureDefinitionPower power = PowerBundleContext.GetPower(functorParameters.StringParameter);
+                var power = PowerBundleContext.GetPower(functorParameters.StringParameter);
                 if (power != null)
                 {
                     var usablePower = UsablePowersProvider.Get(power, functorParameters.RestingHero);
-                    if (usablePower.PowerDefinition.EffectDescription.TargetType ==
-                        RuleDefinitions.TargetType.Self)
+                    if (usablePower.PowerDefinition.EffectDescription.TargetType == RuleDefinitions.TargetType.Self)
                     {
                         functorUsePower.powerUsed = false;
                         ServiceRepository.GetService<IGameLocationActionService>();
-                        CharacterActionParams actionParams =
-                            new CharacterActionParams(fromActor, ActionDefinitions.Id.PowerMain);
+                        var actionParams = new CharacterActionParams(fromActor, ActionDefinitions.Id.PowerMain);
                         actionParams.TargetCharacters.Add(fromActor);
                         actionParams.ActionModifiers.Add(new ActionModifier());
-                        IRulesetImplementationService service =
-                            ServiceRepository.GetService<IRulesetImplementationService>();
+                        var service = ServiceRepository.GetService<IRulesetImplementationService>();
                         actionParams.RulesetEffect =
                             service.InstantiateEffectPower(fromActor.RulesetCharacter, usablePower, true);
                         actionParams.SkipAnimationsAndVFX = true;
