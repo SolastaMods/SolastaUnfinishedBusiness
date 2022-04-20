@@ -108,14 +108,13 @@ Different Archfey, e.g. Winter-themed
             */
 
 
-            FeatureDefinitionPower LifeSap = FeatureDefinitionPowerBuilder
-                .Create("AncientForestLifeSap", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(Category.Power)
+            var lifeSapDamageAndHeal = FeatureDefinitionPowerBuilder
+                .Create("AncientForestLifeSapDamageAndHeal", DefinitionBuilder.CENamespaceGuid)
                 .Configure(
                        1,
                        UsesDetermination.ProficiencyBonus,
                        AttributeDefinitions.Charisma,
-                       ActivationTime.OnAttackSpellHitAutomatic,
+                       ActivationTime.Reaction,
                        1,
                        RechargeRate.AtWill,
                        false,
@@ -131,8 +130,8 @@ Different Archfey, e.g. Winter-themed
                                     DieType.D1,
                                     0,
                                     HealFromInflictedDamage.Half,
-                                    new List<RuleDefinitions.TrendInfo>())
-                                .SetBonusMode(AddBonusMode.AbilityBonus)
+                                    new List<TrendInfo>())
+                                .SetBonusMode(AddBonusMode.DoubleProficiency)
                                 .Build())
                             .SetTargetFiltering(TargetFilteringMethod.CharacterOnly, TargetFilteringTag.UnderHalfHitPoints, 0, DieType.D1)
                             .SetTargetingData(
@@ -146,6 +145,24 @@ Different Archfey, e.g. Winter-themed
                             .Build()
                        ,
                        true)
+                .AddToDB();
+            
+            var lifeSapFeature = FeatureDefinitionOnMagicalAttackDamageEffectBuilder
+                .Create("AncientForestLifeSap", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(Category.Power)
+                .SetOnMagicalAttackDamageDelegate((attacker, defender, _, _, _, _, _) =>
+                {
+                    var caster = attacker.RulesetCharacter;
+                    if (caster.MissingHitPoints >= caster.CurrentHitPoints)
+                    {
+                        PowersContext.ApplyPowerEffectForms(
+                            lifeSapDamageAndHeal,
+                            caster,
+                            defender.RulesetCharacter,
+                            "AncientForestLifeSap"
+                        );
+                    }
+                })
                 .AddToDB();
 
             FeatureDefinitionPower Regrowth = FeatureDefinitionPowerBuilder
@@ -369,7 +386,7 @@ Different Archfey, e.g. Winter-themed
                 .AddFeatureAtLevel(Regrowth, 1)
                 .AddFeatureAtLevel(AncientForestBonusCantrip, 1)
                 .AddFeatureAtLevel(herbalBrewFeatureSet, 6)
-                .AddFeatureAtLevel(LifeSap, 6)
+                .AddFeatureAtLevel(lifeSapFeature, 6)
                 .AddFeatureAtLevel(AncientForestLightAffinity, 10)
                 .AddFeatureAtLevel(RootedPower, 10)
                 .AddFeatureAtLevel(AttributeModifierBarkskin, 14)

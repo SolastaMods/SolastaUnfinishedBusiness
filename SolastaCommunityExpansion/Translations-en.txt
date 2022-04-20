@@ -1138,8 +1138,10 @@ Monster/&WitchOwlFamiliarDescription	Owl Familiar
 Monster/&WitchOwlFamiliarTitle	Owl
 MonsterAttack/&DH_Custom_CouatlBite_AttackDescription	Piercing damage, and the target must succeed on a DC 13 Constitution saving throw or be poisoned for 24 hours. Until this poison ends, the target is unconscious.
 MonsterAttack/&DH_Custom_CouatlBite_AttackTitle	Bite
-Power/&AncientForestLifeSapDescription	When you hit an enemy with an attack roll spell up (PB times per day), You inflict your Cha Modifer in damage and heal half of that amount if under half of your hitpoints.
+Power/&AncientForestLifeSapDescription	When you hit an enemy with attack spell while at half-health, you inflict double your Proficiency bonus in Necrotic damage and heal for half of dmage dealt.
 Power/&AncientForestLifeSapTitle	Life Sap
+Feedback/&AdditionalDamageAncientForestLifeSapFormat	Life Sap
+Feedback/&AdditionalDamageAncientForestLifeSapLine	When you hit an enemy with attack spell while at half-health, you inflict double your Proficiency bonus in Necrotic damage and heal for half of dmage dealt. 
 Power/&AncientForestRootedPowerDescription	Arboreal tendrils grow from your feet and dig into the ground. Your speed becomes 0, and you gain advantage on any saving throws to push you, pull you, or knock you prone.You can cast entangle at will
 Power/&AncientForestRootedPowerTitle	Rooted
 Power/&HelpActionDescription	You can aid a friendly creature in attacking a creature within 5 feet of you. You feint, distract the target, or in some other way team up to make your ally's attack more effective. If your ally attacks the target before your next turn, the first attack roll is made with advantage.
