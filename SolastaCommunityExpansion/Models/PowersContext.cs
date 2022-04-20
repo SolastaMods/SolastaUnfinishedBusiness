@@ -78,5 +78,26 @@ namespace SolastaCommunityExpansion.Models
                     true)
                 .AddToDB();
         }
+
+        public static void ApplyPowerEffectForms(FeatureDefinitionPower power, RulesetCharacter source,
+            RulesetCharacter target, string logTag = null)
+        {
+            var ruleset = ServiceRepository.GetService<IRulesetImplementationService>();
+
+            if (logTag != null)
+            {
+                target.AdditionalDamageGenerated(source, target, RuleDefinitions.DieType.D1, 0, 0, logTag);
+            }
+            
+            var usablePower = UsablePowersProvider.Get(power, source);
+            var effectPower = ruleset.InstantiateEffectPower(source, usablePower, false);
+            var formsParams = new RulesetImplementationDefinitions.ApplyFormsParams();
+            formsParams.FillSourceAndTarget(source, target);
+            formsParams.FillFromActiveEffect(effectPower);
+            formsParams.FillSpecialParameters(false, 0, 0, 0, 0, null, RuleDefinitions.RollOutcome.Neutral, 0, false, 0, 1, null);
+            formsParams.effectSourceType = RuleDefinitions.EffectSourceType.Power;
+            ruleset.ApplyEffectForms(power.EffectDescription.EffectForms, formsParams);
+            ruleset.ClearDamageFormsByIndex();
+        }
     }
 }
