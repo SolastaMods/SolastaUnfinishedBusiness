@@ -170,7 +170,7 @@ namespace SolastaCommunityExpansion
         public bool MakeAllMagicStaveArcaneFoci { get; set; }
         public bool IncreaseSenseNormalVision { get; set; }
         public bool QuickCastLightCantripOnWornItemsFirst { get; set; }
-        public bool UseHeightOneCylinderEffect { get; set; }
+        //public bool UseHeightOneCylinderEffect { get; set; }
         public bool AddPickpocketableLoot { get; set; }
         public bool AllowStackedMaterialComponent { get; set; }
         public bool ScaleMerchantPricesCorrectly { get; set; }

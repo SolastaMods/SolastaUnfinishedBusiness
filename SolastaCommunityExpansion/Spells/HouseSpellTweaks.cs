@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Spells
         public static void Register()
         {
             AddBleedingToRestoration();
-            UseHeightOneCylinderEffect();
+            //UseHeightOneCylinderEffect();
             MinorFixes();
         }
 
@@ -42,6 +42,7 @@ namespace SolastaCommunityExpansion.Spells
             }
         }
 
+#if false
         internal static void UseHeightOneCylinderEffect()
         {
             // always applicable
@@ -110,6 +111,7 @@ namespace SolastaCommunityExpansion.Spells
                 }
             }
         }
+#endif
 
         public static void AddBleedingToRestoration()
         {
