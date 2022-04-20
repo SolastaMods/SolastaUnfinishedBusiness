@@ -78,73 +78,25 @@ Different Archfey, e.g. Winter-themed
              * 
              * */
 
-            /*
-                        FeatureDefinitionAdditionalDamage AdditionalDamageLifeSap = new FeatureDefinitionAdditionalDamageBuilder(
-                                 "AdditionalDamageAncientForestLifeSap",
-                                 GuidHelper.Create(Settings.GUID, "AdditionalDamageAncientForestLifeSap").ToString(),
-                                 "AncientForestLifeSap",
-                                 RuleDefinitions.FeatureLimitedUsage.None,
-                                 RuleDefinitions.AdditionalDamageValueDetermination.SpellcastingBonus,
-                                 RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamageMatchesSourceAncestry,
-                                 RuleDefinitions.AdditionalDamageRequiredProperty.None,
-                                 false,
-                                 RuleDefinitions.DieType.D4,
-                                 1,
-                                 RuleDefinitions.AdditionalDamageType.AncestryDamageType,
-                                 RuleDefinitions.DamageTypeForce,
-                                 RuleDefinitions.AdditionalDamageAdvancement.None,
-                                 new List<DiceByRank>(),
-                                 new GuiPresentationBuilder("Feature/&AdditionalDamageAncientForestLifeSapDescription", "Feature/&AdditionalDamageAncientForestLifeSapTitle").Build()
-                            ).AddToDB();
-
-                     //   FeatureDefinitionFeatureSet AncientForestLifeSapFeatureSet = FeatureDefinitionFeatureSetBuilder
-                     //       .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, "AncientForestLifeSapFeatureSet", GuidHelper.Create(Settings.GUID, "AncientForestLifeSapFeatureSet").ToString())
-                     //       .SetGuiPresentation(new GuiPresentationBuilder("Feature/&AncientForestLifeSapFeatureSetDescription", "Feature/&AncientForestLifeSapFeatureSetTitle").Build())
-                     //      .ClearFeatureSet() 
-                     //      .AddFeatureSet(AdditionalDamageAncientForestLifeSap)
-                     //      .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-                     //      .SetUniqueChoices(false)
-                     //      .AddToDB();
-            */
-
-
             var lifeSapDamageAndHeal = FeatureDefinitionPowerBuilder
                 .Create("AncientForestLifeSapDamageAndHeal", DefinitionBuilder.CENamespaceGuid)
-                .Configure(
-                       1,
-                       UsesDetermination.ProficiencyBonus,
-                       AttributeDefinitions.Charisma,
-                       ActivationTime.Reaction,
-                       1,
-                       RechargeRate.AtWill,
-                       false,
-                       false,
-                       AttributeDefinitions.Charisma,
-                       new EffectDescriptionBuilder()
-                            .AddEffectForm(
-                                new EffectFormBuilder().SetDamageForm(
-                                    false,
-                                    DieType.D1,
-                                    DamageTypeNecrotic,
-                                    0,
-                                    DieType.D1,
-                                    0,
-                                    HealFromInflictedDamage.Half,
-                                    new List<TrendInfo>())
-                                .SetBonusMode(AddBonusMode.DoubleProficiency)
-                                .Build())
-                            .SetTargetFiltering(TargetFilteringMethod.CharacterOnly, TargetFilteringTag.UnderHalfHitPoints, 0, DieType.D1)
-                            .SetTargetingData(
-                                    Side.Enemy,
-                                    RangeType.Distance,
-                                    1,
-                                    TargetType.Individuals,
-                                    1,
-                                    1,
-                                    ActionDefinitions.ItemSelectionType.None)
-                            .Build()
-                       ,
-                       true)
+                .SetEffectDescription(new EffectDescriptionBuilder()
+                    .AddEffectForm(
+                        new EffectFormBuilder()
+                            .SetDamageForm(
+                                false,
+                                DieType.D1,
+                                DamageTypeNecrotic,
+                                0,
+                                DieType.D1,
+                                0,
+                                HealFromInflictedDamage.Half,
+                                new List<TrendInfo>()
+                            )
+                            .SetBonusMode(AddBonusMode.DoubleProficiency)
+                            .Build())
+                    .Build()
+                )
                 .AddToDB();
             
             var lifeSapFeature = FeatureDefinitionOnMagicalAttackDamageEffectBuilder
@@ -153,15 +105,15 @@ Different Archfey, e.g. Winter-themed
                 .SetOnMagicalAttackDamageDelegate((attacker, defender, _, _, _, _, _) =>
                 {
                     var caster = attacker.RulesetCharacter;
-                    if (caster.MissingHitPoints >= caster.CurrentHitPoints)
-                    {
+                   // if (caster.MissingHitPoints >= caster.CurrentHitPoints)
+                    //{
                         PowersContext.ApplyPowerEffectForms(
                             lifeSapDamageAndHeal,
                             caster,
                             defender.RulesetCharacter,
                             "AncientForestLifeSap"
                         );
-                    }
+                  //  }
                 })
                 .AddToDB();
 
