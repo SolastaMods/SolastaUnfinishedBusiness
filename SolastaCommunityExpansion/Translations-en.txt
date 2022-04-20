@@ -706,7 +706,7 @@ Feature/&AdditionalDamageFeatShadySneakAttackDescription	Once per turn, you can 
 Feature/&AdditionalDamageFeatShadySneakAttackTitle	Shady Sneak Attack
 Feature/&AdditionalDamageHinderingBlastDescription	When you hit a creature with your eldritch blast, you can reduce that creature's speed by 10 feet until the end of your next turn
 Feature/&AdditionalDamageHinderingBlastTitle	Hindering Blast
-Feature/&AgonizingBlastFeatureSetDescription	When you cast a spell using force damage (eldritch blast), add your Charisma modifier to the damage it deals on a hit.
+Feature/&AgonizingBlastFeatureSetDescription	Add your Charisma modifier to the damage of Eldritch Basts.
 Feature/&AgonizingBlastFeatureSetTitle	Agonizing Blast
 Feature/&AHSoulBladeEmpowerDamageBonusDescription	You are empowered and do a damage bonus equal to your proficiency on all your attacks.
 Feature/&AHSoulBladeEmpowerWeaponConditionDescription	You are empowered and do a damage bonus equal to your proficiency on all your attacks.
