@@ -124,7 +124,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
             var engagedHandler = box.GetField<UsablePowerBox.PowerEngagedHandler>("powerEngaged");
             var activator = box.GetField<RulesetCharacter>("activator");
 
-            engagedHandler(PowerBundleContext.GetUsablePower(activator, power));
+            engagedHandler(UsablePowersProvider.Get(power, activator));
         }
     }
 

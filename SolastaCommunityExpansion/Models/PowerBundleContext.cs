@@ -15,7 +15,6 @@ namespace SolastaCommunityExpansion.Models
         private static readonly Dictionary<SpellDefinition, FeatureDefinitionPower> Spells2Powers = new();
         private static readonly Dictionary<FeatureDefinitionPower, SpellDefinition> Powers2Spells = new();
         private static readonly Dictionary<FeatureDefinitionPower, List<FeatureDefinitionPower>> Bundles = new();
-        private static readonly Dictionary<FeatureDefinitionPower, RulesetUsablePower> UsablePowers = new();
 
         public static void RegisterPowerBundle(FeatureDefinitionPower masterPower,
             IEnumerable<FeatureDefinitionPower> subPowers)
@@ -99,30 +98,6 @@ namespace SolastaCommunityExpansion.Models
             return null;
         }
 
-        public static RulesetUsablePower GetUsablePower(RulesetCharacter actor, FeatureDefinitionPower power)
-        {
-            RulesetUsablePower result = null;
-            if (actor != null)
-            {
-                result = actor.UsablePowers.FirstOrDefault(u => u.PowerDefinition == power);
-            }
-
-            if (result == null)
-            {
-                if (UsablePowers.ContainsKey(power))
-                {
-                    result = UsablePowers[power];
-                }
-                else
-                {
-                    result = new RulesetUsablePower(power, null, null);
-                    UsablePowers.Add(power, result);
-                }
-            }
-
-            return result;
-        }
-
         public static void Load()
         {
             ServiceRepository.GetService<IFunctorService>()
@@ -146,8 +121,7 @@ namespace SolastaCommunityExpansion.Models
                 FeatureDefinitionPower power = PowerBundleContext.GetPower(functorParameters.StringParameter);
                 if (power != null)
                 {
-                    RulesetUsablePower usablePower =
-                        PowerBundleContext.GetUsablePower(functorParameters.RestingHero, power);
+                    var usablePower = UsablePowersProvider.Get(power, functorParameters.RestingHero);
                     if (usablePower.PowerDefinition.EffectDescription.TargetType ==
                         RuleDefinitions.TargetType.Self)
                     {
