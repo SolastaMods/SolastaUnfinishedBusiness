@@ -94,10 +94,11 @@ namespace SolastaCommunityExpansion.Models
             var formsParams = new RulesetImplementationDefinitions.ApplyFormsParams();
             formsParams.FillSourceAndTarget(source, target);
             formsParams.FillFromActiveEffect(effectPower);
-            formsParams.FillSpecialParameters(false, 0, 0, 0, 0, null, RuleDefinitions.RollOutcome.Neutral, 0, false, 0, 1, null);
+            formsParams.FillSoloPowerSpecialParameters();
             formsParams.effectSourceType = RuleDefinitions.EffectSourceType.Power;
             ruleset.ApplyEffectForms(power.EffectDescription.EffectForms, formsParams);
             ruleset.ClearDamageFormsByIndex();
+            ruleset.TerminateEffect(effectPower, false);
         }
     }
 }
