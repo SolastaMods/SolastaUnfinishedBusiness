@@ -78,7 +78,7 @@ namespace SolastaCommunityExpansion.Races
 
             bolgrifRacePresentation.SetPreferedSkinColors(new TA.RangedInt(45, 48));
             bolgrifRacePresentation.SetPreferedHairColors(new TA.RangedInt(16, 32));
-            
+
             var bolgrif = CharacterRaceDefinitionBuilder
                 .Create(CharacterRaceDefinitions.Human, "BolgrifRace", "346b7f90-973f-425f-8342-d534759e65aa")
                 .SetGuiPresentation(Category.Race, bolgrifSpriteReference)
