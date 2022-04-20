@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using SolastaModApi;
-using SolastaModApi.Extensions;
 using SolastaCommunityExpansion.Builders;
-using UnityEngine;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.Models;
 using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Features
@@ -264,21 +263,29 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 DictionaryofEBInvocations.Add(entry, BonusCantrip);
             }
 
-            DictionaryofEBInvocations["RepellingBlast"].BonusCantrips[0].EffectDescription.EffectForms
+            var repellingBlastDescription = DictionaryofEBInvocations["RepellingBlast"].BonusCantrips[0].EffectDescription;
+            repellingBlastDescription.EffectForms
                 .Add(new EffectFormBuilder()
                 .SetMotionForm(
                     MotionForm.MotionType.PushFromOrigin,
                     2)
                 .Build());
 
-            DictionaryofEBInvocations["GraspingHand"].BonusCantrips[0].EffectDescription.EffectForms
+            var graspingBlastDescription = DictionaryofEBInvocations["GraspingHand"].BonusCantrips[0].EffectDescription;
+            graspingBlastDescription.EffectForms
                 .Add(new EffectFormBuilder()
                 .SetMotionForm(
                     MotionForm.MotionType.DragToOrigin,
                     2)
                 .Build());
 
-
+            bool IsEldritchBlast(RulesetEffect effect)
+            {
+                var effectDescription = effect.EffectDescription;
+                return effectDescription == EldritchBlastEffect
+                       || effectDescription == repellingBlastDescription
+                       || effectDescription == graspingBlastDescription;
+            }
 
 
             // Agonizing blast could have Cha added via SpellDamageMatchesSourceAncestry for force damage
@@ -286,53 +293,85 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             // Bigger problem is that its limited to first roll only...
             // could do the same for Hindering/lethargic blast (via condition operations)
 
-            // TODO: FeatureDefinitionAncestryBuilder
-            var EldritchBlastAncestry = ScriptableObject.CreateInstance<FeatureDefinitionAncestry>();
-            EldritchBlastAncestry.SetDamageType(RuleDefinitions.DamageTypeForce);
-            EldritchBlastAncestry.name = "AgonizingBlastForceAncestry";
-            EldritchBlastAncestry.SetGuid(DefinitionBuilder.CENamespaceGuid.ToString());
-            EldritchBlastAncestry.GuiPresentation = new GuiPresentationBuilder(
-                "Feature/&NoContentTitle", "Feature/&NoContentTitle").Build();
-
-            FeatureDefinitionAdditionalDamage AdditionalDamageAgonizingBlast = FeatureDefinitionAdditionalDamageBuilder
+            var additionalDamageAgonizingBlast = FeatureDefinitionPowerBuilder
+                .Create("AgonizingBlastDamagePower", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentationNoContent()
+                .SetAbilityScore(AttributeDefinitions.Charisma)
+                .SetEffectDescription(new EffectDescriptionBuilder()
+                    .AddEffectForm(
+                        new EffectFormBuilder()
+                            .SetDamageForm(
+                                false,
+                                RuleDefinitions.DieType.D1,
+                                RuleDefinitions.DamageTypeForce,
+                                0,
+                                RuleDefinitions.DieType.D1,
+                                0,
+                                RuleDefinitions.HealFromInflictedDamage.Never,
+                                new List<RuleDefinitions.TrendInfo>()
+                            )
+                            .SetBonusMode(RuleDefinitions.AddBonusMode.AbilityBonus)
+                            .Build())
+                    .Build()
+                )
+                .AddToDB();
+            
+            var agonizingBlastFeature =  FeatureDefinitionOnMagicalAttackDamageEffectBuilder
                 .Create("AdditionalDamageAgonizingBlast", DefinitionBuilder.CENamespaceGuid)
-                .Configure(
-                    "Agonizing_Blast",
-                    RuleDefinitions.FeatureLimitedUsage.None, RuleDefinitions.AdditionalDamageValueDetermination.SpellcastingBonus,
-                    RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamageMatchesSourceAncestry, RuleDefinitions.AdditionalDamageRequiredProperty.None,
-                    false /* attack only */, RuleDefinitions.DieType.D4, 1 /* dice number */, RuleDefinitions.AdditionalDamageType.AncestryDamageType, RuleDefinitions.DamageTypeForce,
-                    RuleDefinitions.AdditionalDamageAdvancement.None, new List<DiceByRank>())
                 .SetGuiPresentation(Category.Feature)
+                .SetOnMagicalAttackDamageDelegate((attacker, defender, _, effect, _, _, _) =>
+                {
+                    if (IsEldritchBlast(effect))
+                    {
+                        PowersContext.ApplyPowerEffectForms(
+                            additionalDamageAgonizingBlast,
+                            attacker.RulesetCharacter,
+                            defender.RulesetCharacter,
+                            "Agonizing_Blast"
+                        );
+                    }
+                })
                 .AddToDB();
 
             AgonizingBlastFeatureSet = FeatureDefinitionFeatureSetBuilder
                 .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, "AgonizingBlastFeatureSet", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(new GuiPresentationBuilder(
-                    "Feature/&AgonizingBlastFeatureSetTitle",
-                    "Feature/&AgonizingBlastFeatureSetDescription")
-                .Build())
+                .SetGuiPresentation(Category.Feature)
                .ClearFeatureSet()
-               .AddFeatureSet(EldritchBlastAncestry)
-               .AddFeatureSet(AdditionalDamageAgonizingBlast)
+                .AddFeatureSet(agonizingBlastFeature)
                .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                .SetUniqueChoices(false)
                .AddToDB();
 
-            var hinderingConditionOperation = new ConditionOperationDescription();
-            hinderingConditionOperation.SetOperation(ConditionOperationDescription.ConditionOperation.Add);
-            hinderingConditionOperation.SetConditionDefinition(DatabaseHelper.ConditionDefinitions.ConditionHindered_By_Frost);
-            hinderingConditionOperation.SetConditionName(DatabaseHelper.ConditionDefinitions.ConditionHindered.name);
-
-            FeatureDefinitionAdditionalDamage AdditionalDamageHinderingBlast = FeatureDefinitionAdditionalDamageBuilder
+            var additionalEffectHinderingBlast = FeatureDefinitionPowerBuilder
+                .Create("HinderingBlastEffectPower", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentationNoContent()
+                .SetEffectDescription(new EffectDescriptionBuilder()
+                    .AddEffectForm(
+                        new EffectFormBuilder()
+                            .SetConditionForm(
+                                DatabaseHelper.ConditionDefinitions.ConditionHindered_By_Frost,
+                                ConditionForm.ConditionOperation.Add
+                            )
+                            .SetBonusMode(RuleDefinitions.AddBonusMode.AbilityBonus)
+                            .Build())
+                    .Build()
+                )
+                .AddToDB();
+            
+            var hinderingBlastFeature =  FeatureDefinitionOnMagicalAttackDamageEffectBuilder
                 .Create("AdditionalDamageHinderingBlast", DefinitionBuilder.CENamespaceGuid)
-                .Configure(
-                    "Hindering Blast",
-                    RuleDefinitions.FeatureLimitedUsage.OncePerTurn, RuleDefinitions.AdditionalDamageValueDetermination.Die,
-                    RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamageMatchesSourceAncestry, RuleDefinitions.AdditionalDamageRequiredProperty.None,
-                    false /* attack only */, RuleDefinitions.DieType.D1, 0 /* dice number */, RuleDefinitions.AdditionalDamageType.AncestryDamageType, RuleDefinitions.DamageTypeForce,
-                    RuleDefinitions.AdditionalDamageAdvancement.None, new List<DiceByRank>())
                 .SetGuiPresentation(Category.Feature)
-                .SetConditionOperations(new List<ConditionOperationDescription> { hinderingConditionOperation })
+                .SetOnMagicalAttackDamageDelegate((attacker, defender, _, effect, _, _, _) =>
+                {
+                    if (IsEldritchBlast(effect))
+                    {
+                        PowersContext.ApplyPowerEffectForms(
+                            additionalEffectHinderingBlast,
+                            attacker.RulesetCharacter,
+                            defender.RulesetCharacter
+                        );
+                    }
+                })
                 .AddToDB();
 
             HinderingBlastFeatureSet = FeatureDefinitionFeatureSetBuilder
@@ -342,8 +381,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                    "Feature/&HinderingBlastFeatureSetDescription"
                    ).Build())
                .ClearFeatureSet()
-               .AddFeatureSet(EldritchBlastAncestry)
-               .AddFeatureSet(AdditionalDamageHinderingBlast)
+               .AddFeatureSet(hinderingBlastFeature)
                .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                .SetUniqueChoices(false)
                .AddToDB();

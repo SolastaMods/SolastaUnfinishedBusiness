@@ -80,6 +80,11 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
+        public EffectFormBuilder SetConditionForm(ConditionDefinition condition, ConditionForm.ConditionOperation operation)
+        {
+            return SetConditionForm(condition, operation, false, false, condition);
+        }
+        
         public EffectFormBuilder SetConditionForm(ConditionDefinition condition, ConditionForm.ConditionOperation operation, bool applyToSelf, bool forceOnSelf, params ConditionDefinition[] detrimentalConditions)
         {
             return SetConditionForm(condition, operation, applyToSelf, forceOnSelf, detrimentalConditions.AsEnumerable());
