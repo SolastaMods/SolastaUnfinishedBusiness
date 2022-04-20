@@ -1,32 +1,27 @@
-﻿using HarmonyLib;
-using System.Collections.Generic;
+﻿using System.Diagnostics.CodeAnalysis;
+using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.Races
 {
-        [HarmonyPatch(typeof(GraphicsCharacter), "ResetScale")]
-        class GraphicsCharacter_ResetScale
+    [HarmonyPatch(typeof(GraphicsCharacter), "ResetScale")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal class GraphicsCharacter_ResetScale
+    {
+        internal static void Postfix(GraphicsCharacter __instance, ref float __result)
         {
-            internal static void Postfix(GraphicsCharacter __instance, ref float __result)
+            if (!Main.Settings.EnableRacesScalePatch)
             {
-                Dictionary<CharacterRaceDefinition, float> raceScaleMap = new Dictionary<CharacterRaceDefinition, float>();
-                
-                raceScaleMap[SolastaCommunityExpansion.Races.BolgrifRaceBuilder.BolgrifRace] = 8.8f / 6.4f;
-                raceScaleMap[SolastaCommunityExpansion.Races.GnomeRaceBuilder.GnomeRace] = -0.04f / -0.06f;
-                
-                var race = (__instance.RulesetCharacter as RulesetCharacterHero)?.RaceDefinition;
-                
-                if (race != null && raceScaleMap.ContainsKey(race))
-                {
-                    __result *= raceScaleMap[race];
-                }
-                else
-                {
-                    __result *= 1.0f / 1.0f;
-                }
+                return;
+            }
 
+            if (__instance.RulesetCharacter is RulesetCharacterHero rulesetCharacterHero
+                && RacesContext.RaceScaleMap.TryGetValue(rulesetCharacterHero.RaceDefinition, out var scale))
+            {
+                __result *= scale;
                 __instance.transform.localScale = new Vector3(__result, __result, __result);
-
             }
         }
+    }
 }
