@@ -205,11 +205,11 @@ namespace SolastaMulticlass.Models
         // Deity patching support
         //
 
-        public static void IsDeitySelectionRelevant(CharacterStageDeitySelectionPanel __instance, RulesetCharacterHero ___currentHero)
+        public static void IsDeitySelectionRelevant(RulesetCharacterHero ___currentHero, ref bool ___isRelevant)
         {
             if (LevelUpContext.IsLevelingUp(___currentHero))
             {
-                __instance.SetField("isRelevant", LevelUpContext.RequiresDeity(___currentHero));
+                ___isRelevant = LevelUpContext.RequiresDeity(___currentHero);
             }
         }
 
@@ -222,11 +222,11 @@ namespace SolastaMulticlass.Models
             };
 
             var harmony = new Harmony("SolastaMulticlass");
-            var prefix = typeof(PatchingContext).GetMethod("IsDeitySelectionRelevant");
+            var postfix = typeof(PatchingContext).GetMethod("IsDeitySelectionRelevant");
 
             foreach (var method in methods)
             {
-                harmony.Patch(method, prefix: new HarmonyMethod(prefix));
+                harmony.Patch(method, postfix: new HarmonyMethod(postfix));
             }
         }
 
