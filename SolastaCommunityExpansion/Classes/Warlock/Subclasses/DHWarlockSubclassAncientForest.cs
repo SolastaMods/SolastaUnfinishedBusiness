@@ -105,7 +105,8 @@ Different Archfey, e.g. Winter-themed
                 .SetOnMagicalAttackDamageDelegates(null, (attacker, defender, _, effect, _, _, _) =>
                 {
                     var caster = attacker.RulesetCharacter;
-                    if (caster.MissingHitPoints >= caster.CurrentHitPoints)
+                    if (caster.MissingHitPoints >= caster.CurrentHitPoints &&
+                        effect.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage))
                     {
                         PowersContext.ApplyPowerEffectForms(
                             lifeSapDamageAndHeal,
