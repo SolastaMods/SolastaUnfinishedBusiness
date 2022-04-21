@@ -42,7 +42,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions
         private OnMagicalAttackDamageDelegate beforeOnMagicalAttackDamage;
         private OnMagicalAttackDamageDelegate afterOnMagicalAttackDamage;
 
-        internal void SetOnAttackDamageDelegates(OnMagicalAttackDamageDelegate before = null, OnMagicalAttackDamageDelegate after = null)
+        internal void SetOnMagicalAttackDamageDelegates(OnMagicalAttackDamageDelegate before = null, OnMagicalAttackDamageDelegate after = null)
         {
             beforeOnMagicalAttackDamage = before;
             afterOnMagicalAttackDamage = after;

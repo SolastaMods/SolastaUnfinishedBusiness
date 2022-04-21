@@ -120,7 +120,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
 
             var rulesetCharacter = attacker.RulesetCharacter;
 
-            if (rulesetCharacter == null)
+            if (rulesetCharacter != null)
             {
                 foreach (var feature in rulesetCharacter.EnumerateFeaturesToBrowse<IOnMagicalAttackDamageEffect>())
                 {
@@ -133,7 +133,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                 yield return values.Current;
             }
 
-            if (rulesetCharacter == null)
+            if (rulesetCharacter != null)
             {
                 foreach (var feature in rulesetCharacter.EnumerateFeaturesToBrowse<IOnMagicalAttackDamageEffect>())
                 {
