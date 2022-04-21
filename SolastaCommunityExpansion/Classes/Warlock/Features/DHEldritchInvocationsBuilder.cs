@@ -342,34 +342,21 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                .SetUniqueChoices(false)
                .AddToDB();
 
-            var additionalEffectHinderingBlast = FeatureDefinitionPowerBuilder
-                .Create("HinderingBlastEffectPower", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentationNoContent()
-                .SetEffectDescription(new EffectDescriptionBuilder()
-                    .AddEffectForm(
-                        new EffectFormBuilder()
-                            .SetConditionForm(
-                                DatabaseHelper.ConditionDefinitions.ConditionHindered_By_Frost,
-                                ConditionForm.ConditionOperation.Add
-                            )
-                            .SetBonusMode(RuleDefinitions.AddBonusMode.AbilityBonus)
-                            .Build())
-                    .Build()
+            var additionalEffectHinderingBlast = new EffectFormBuilder()
+                .SetConditionForm(
+                    DatabaseHelper.ConditionDefinitions.ConditionHindered_By_Frost,
+                    ConditionForm.ConditionOperation.Add
                 )
-                .AddToDB();
+                .Build();
             
             var hinderingBlastFeature =  FeatureDefinitionOnMagicalAttackDamageEffectBuilder
                 .Create("AdditionalDamageHinderingBlast", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Feature)
-                .SetOnMagicalAttackDamageDelegate((attacker, defender, _, effect, _, _, _) =>
+                .SetOnMagicalAttackDamageDelegates(null, (_, _, _, effect, actualForms, _, _) =>
                 {
                     if (IsEldritchBlast(effect))
                     {
-                        PowersContext.ApplyPowerEffectForms(
-                            additionalEffectHinderingBlast,
-                            attacker.RulesetCharacter,
-                            defender.RulesetCharacter
-                        );
+                        actualForms.Add(additionalEffectHinderingBlast);
                     }
                 })
                 .AddToDB();
