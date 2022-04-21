@@ -20,11 +20,15 @@ namespace SolastaMulticlass.Patches.Wildshape
                 RulesetCharacter shifter,
                 int requiredLevel)
             {
-                var isShapeOptionAvailable = shifter is RulesetCharacterHero rulesetCharacterHero && requiredLevel <= rulesetCharacterHero.ClassesAndLevels[Druid];
+                if (shifter is RulesetCharacterHero rulesetCharacterHero 
+                    && rulesetCharacterHero.ClassesAndLevels.TryGetValue(Druid, out var levels))
+                {
+                    var isShapeOptionAvailable = requiredLevel <= levels;
 
-                ___levelLabel.TMP_Text.color = isShapeOptionAvailable ? ___validLevelColor : ___invalidLevelColor;
-                ___toggle.interactable = isShapeOptionAvailable;
-                ___canvasGroup.alpha = isShapeOptionAvailable ? 1f : 0.3f;
+                    ___levelLabel.TMP_Text.color = isShapeOptionAvailable ? ___validLevelColor : ___invalidLevelColor;
+                    ___toggle.interactable = isShapeOptionAvailable;
+                    ___canvasGroup.alpha = isShapeOptionAvailable ? 1f : 0.3f;
+                }
             }
         }
     }

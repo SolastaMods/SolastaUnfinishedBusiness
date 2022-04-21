@@ -5,40 +5,58 @@ using SolastaCommunityExpansion.Builders;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
-using static SolastaModApi.DatabaseHelper.RestActivityDefinitions;
 
 namespace SolastaCommunityExpansion.Models
 {
-    internal static class RespecContext
+    public static class RespecContext
     {
-        internal const RestActivityDefinition.ActivityCondition ActivityConditionCanRespec = (RestActivityDefinition.ActivityCondition)(-1001);
+        private const RestActivityDefinition.ActivityCondition ActivityConditionDisabled = (RestActivityDefinition.ActivityCondition)(-1001);
 
-        public class RestActivityRespecBuilder : RestActivityDefinitionBuilder
-        {
-            private const string RespecName = "ZSRespec";
-            private const string RespecGuid = "40824029eb224fb581f0d4e5989b6735";
+        private const string LevelDownName = "LevelDown";
+        private const string RespecName = "Respec";
 
-            protected RestActivityRespecBuilder(string name, string guid) : base(LevelUp, name, guid)
-            {
-                Definition.GuiPresentation.Title = "RestActivity/&ZSRespecTitle";
-                Definition.GuiPresentation.Description = "RestActivity/&ZSRespecDescription";
-                Definition.SetCondition(ActivityConditionCanRespec);
-                Definition.SetFunctor(RespecName);
-                ServiceRepository.GetService<IFunctorService>().RegisterFunctor(RespecName, new FunctorRespec());
-            }
+        public static RestActivityDefinition RestActivityLevelDown { get; private set; } = RestActivityDefinitionBuilder
+            .Create(LevelDownName, "fdb4d86eaef942d1a22dbf1fb5a7299f")
+            .SetGuiPresentation("MainMenu/&ExportPdfTitle", "MainMenu/&ExportPdfDescription")
+            .SetRestData(
+                RestDefinitions.RestStage.AfterRest, RuleDefinitions.RestType.LongRest,
+                RestActivityDefinition.ActivityCondition.None, LevelDownName, string.Empty)
+            .AddToDB();
 
-            private static RestActivityDefinition CreateAndAddToDB(string name, string guid)
-            {
-                return new RestActivityRespecBuilder(name, guid).AddToDB();
-            }
-
-            public static readonly RestActivityDefinition RestActivityRespec
-                = CreateAndAddToDB(RespecName, RespecGuid);
-        }
+        public static RestActivityDefinition RestActivityRespec { get; private set; } = RestActivityDefinitionBuilder
+            .Create(RespecName, "40824029eb224fb581f0d4e5989b6735")
+            .SetGuiPresentation("RestActivity/&ZSRespecTitle", "RestActivity/&ZSRespecDescription")
+            .SetRestData(
+                RestDefinitions.RestStage.AfterRest, RuleDefinitions.RestType.LongRest,
+                RestActivityDefinition.ActivityCondition.None, RespecName, string.Empty)
+            .AddToDB();
 
         internal static void Load()
         {
-            _ = RestActivityRespecBuilder.RestActivityRespec;
+            _ = RestActivityLevelDown;
+            _ = RestActivityRespec;
+
+            ServiceRepository.GetService<IFunctorService>().RegisterFunctor(RespecName, new FunctorRespec());
+
+            Switch();
+        }
+
+        internal static void Switch()
+        {
+            if (Main.Settings.EnableRespec)
+            {
+                if (Main.Settings.EnableMulticlass)
+                {
+                    RestActivityLevelDown.SetCondition(RestActivityDefinition.ActivityCondition.None);
+                }
+
+                RestActivityRespec.SetCondition(RestActivityDefinition.ActivityCondition.None);
+            }
+            else
+            {
+                RestActivityLevelDown.SetCondition(ActivityConditionDisabled);
+                RestActivityRespec.SetCondition(ActivityConditionDisabled);
+            }
         }
 
         public class FunctorRespec : Functor

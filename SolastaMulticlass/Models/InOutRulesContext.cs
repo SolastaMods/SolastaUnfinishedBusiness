@@ -48,15 +48,6 @@ namespace SolastaMulticlass.Models
             selectedClass = allowedClasses.IndexOf(hero.ClassesHistory[hero.ClassesHistory.Count - 1]);
         }
 
-        private static readonly HashSet<string> CoreAttributes = new()
-        {
-            AttributeDefinitions.Strength,
-            AttributeDefinitions.Dexterity,
-            AttributeDefinitions.Intelligence,
-            AttributeDefinitions.Wisdom,
-            AttributeDefinitions.Charisma
-        };
-
         private static int MyGetAttribute(RulesetCharacterHero hero, string attributeName)
         {
             var attribute = hero.GetAttribute(attributeName);
@@ -79,7 +70,7 @@ namespace SolastaMulticlass.Models
 
             hero.CharacterInventory.EnumerateAllItems(items, considerContainers: false);
 
-            foreach (var attributeName in CoreAttributes)
+            foreach (var attributeName in AttributeDefinitions.AbilityScoreNames)
             {
                 attributeModifiers.Add(attributeName, 0);
             }
@@ -88,7 +79,7 @@ namespace SolastaMulticlass.Models
                 .SelectMany(x => x.ItemDefinition.StaticProperties
                     .Select(y => y.FeatureDefinition)
                     .OfType<FeatureDefinitionAttributeModifier>()
-                    .Where(z => CoreAttributes.Contains(z.ModifiedAttribute) && z.ModifierType == FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive)))
+                    .Where(z => AttributeDefinitions.AbilityScoreNames.Contains(z.ModifiedAttribute) && z.ModifierType == FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive)))
             {
                 attributeModifiers[featureDefinitionAttributeModifier.ModifiedAttribute] += featureDefinitionAttributeModifier.ModifierValue;
             }
@@ -117,7 +108,6 @@ namespace SolastaMulticlass.Models
                 case IntegrationContext.CLASS_WARDEN:
                     return strength >= 13;
 
-                //case IntegrationContext.CLASS_BARD:
                 case RuleDefinitions.SorcererClass:
                 case IntegrationContext.CLASS_WARLOCK:
                 case IntegrationContext.CLASS_WITCH:
@@ -130,7 +120,6 @@ namespace SolastaMulticlass.Models
                 case RuleDefinitions.FighterClass:
                     return strength >= 13 || dexterity >= 13;
 
-                //case IntegrationContext.CLASS_MONK:
                 case RuleDefinitions.RangerClass:
                     return dexterity >= 13 && wisdom >= 13;
 
@@ -140,7 +129,6 @@ namespace SolastaMulticlass.Models
                 case RuleDefinitions.RogueClass:
                     return dexterity >= 13;
 
-                //case IntegrationContext.CLASS_ALCHEMIST:
                 case RuleDefinitions.WizardClass:
                 case IntegrationContext.CLASS_TINKERER:
                     return intelligence >= 13;
@@ -150,39 +138,6 @@ namespace SolastaMulticlass.Models
             }
         }
 
-        [SuppressMessage("Convert switch statement to expression", "IDE0066")]
-        internal static bool IsSupported(CharacterClassDefinition classDefinition)
-        {
-            if (classDefinition.GuiPresentation.Hidden)
-            {
-                return false;
-            }
-
-            return true;
-
-            //switch (classDefinition.Name)
-            //{
-            //    //case IntegrationContext.CLASS_ALCHEMIST:
-            //    //case IntegrationContext.CLASS_BARD:
-            //    //case IntegrationContext.CLASS_MONK:
-            //    case RuleDefinitions.BarbarianClass:
-            //    case RuleDefinitions.ClericClass:
-            //    case RuleDefinitions.DruidClass:
-            //    case RuleDefinitions.FighterClass:
-            //    case RuleDefinitions.PaladinClass:
-            //    case RuleDefinitions.RangerClass:
-            //    case RuleDefinitions.RogueClass:
-            //    case RuleDefinitions.SorcererClass:
-            //    case RuleDefinitions.WizardClass:
-            //    case IntegrationContext.CLASS_TINKERER:
-            //    case IntegrationContext.CLASS_WARDEN:
-            //    case IntegrationContext.CLASS_WARLOCK:
-            //    case IntegrationContext.CLASS_WITCH:
-            //        return true;
-
-            //    default:
-            //        return false;
-            //}
-        }
+        internal static bool IsSupported(CharacterClassDefinition classDefinition) => !classDefinition.GuiPresentation.Hidden;
     }
 }

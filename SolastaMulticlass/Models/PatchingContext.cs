@@ -1,11 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionProficiencys;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionPointPools;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaMulticlass.Models.IntegrationContext;
+using SolastaCommunityExpansion.Models;
+using SolastaModApi.Infrastructure;
 
 namespace SolastaMulticlass.Models
 {
@@ -16,178 +19,130 @@ namespace SolastaMulticlass.Models
         internal static void Load()
         {
             PatchClassLevel();
+            PatchDeitySelection();
             PatchEquipmentAssignment();
             PatchFeatureUnlocks();
+            AddNonOfficialBlueprintsToFeaturesCollections();
+        }
+
+        internal static void AddNonOfficialBlueprintsToFeaturesCollections()
+        {
+            var dbFeatureDefinitionPointPool = DatabaseRepository.GetDatabase<FeatureDefinitionPointPool>();
+            var dbFeatureDefinitionProficiency = DatabaseRepository.GetDatabase<FeatureDefinitionProficiency>();
+
+            //
+            // add these later as need to wait for these blueprints to be instantiated and not willing to publicise CE
+            //
+
+            //FeaturesToReplace.Add(
+            //    dbFeatureDefinitionProficiency.GetElement("ProficiencyWardenArmor"), 
+            //    ArmorProficiencyMulticlassBuilder.WardenArmorProficiencyMulticlass);
+
+            FeaturesToExclude.Add(TinkererClass, new()
+            {
+                dbFeatureDefinitionPointPool.GetElement("PointPoolTinkererSkillPoints"),
+                dbFeatureDefinitionProficiency.GetElement("ProficiencyWeaponTinkerer"),
+                dbFeatureDefinitionProficiency.GetElement("ProficiencyTinkererSavingThrow")
+            });
+
+            //FeaturesToExclude.Add(WardenClass, new()
+            //{
+            //    dbFeatureDefinitionPointPool.GetElement("PointPoolWardenSkillPoints"),
+            //    dbFeatureDefinitionPointPool.GetElement("ProficiencyWardenSavingthrow")
+            //});
+
+            FeaturesToExclude.Add(WitchClass, new()
+            {
+                dbFeatureDefinitionPointPool.GetElement("PointPoolWitchSkillPoints"),
+                dbFeatureDefinitionProficiency.GetElement("ProficiencyWitchWeapon"),
+                dbFeatureDefinitionProficiency.GetElement("ProficiencyWitchSavingthrow")
+            });
+
+            FeaturesToExclude.Add(WarlockClass, new()
+            {
+                dbFeatureDefinitionPointPool.GetElement("ClassWarlockSkillProficiency"),
+                dbFeatureDefinitionProficiency.GetElement("ClassWarlockWeaponProficiency"),
+                dbFeatureDefinitionProficiency.GetElement("ClassWarlockSavingThrowProficiency")
+            });
         }
 
         // these features will be replaced to comply to SRD multiclass rules
-        private static readonly Dictionary<string, Dictionary<string, string>> FeaturesToReplace = new()
+        private static readonly Dictionary<FeatureDefinition, FeatureDefinition> FeaturesToReplace = new()
         {
-            {
-                RuleDefinitions.BarbarianClass,
-                new Dictionary<string, string> {
-                { "ProficiencyBarbarianArmor", "BarbarianArmorProficiencyMulticlass"} }
-            },
-
-            {
-                RuleDefinitions.FighterClass,
-                new Dictionary<string, string> {
-                { "ProficiencyFighterArmor", "FighterArmorProficiencyMulticlass"} }
-            },
-
-            {
-                RuleDefinitions.PaladinClass,
-                new Dictionary<string, string> {
-                 { "ProficiencyPaladinArmor", "PaladinArmorProficiencyMulticlass"} }
-            },
-
-            {
-                RuleDefinitions.RangerClass,
-                new Dictionary<string, string> {
-                { "PointPoolRangerSkillPoints", "PointPoolRangerSkillPointsMulticlass"} }
-            },
-
-            {
-                RuleDefinitions.RogueClass,
-                new Dictionary<string, string> {
-                { "PointPoolRogueSkillPoints", "PointPoolRogueSkillPointsMulticlass"} }
-            },
-
-            //{
-            //    CLASS_BARD,
-            //    new Dictionary<string, string> {
-            //    { "BardSkillProficiency", "PointPoolBardSkillPointsMulticlass"} }
-            //},
-
-            {
-                CLASS_WARDEN,
-                new Dictionary<string, string> {
-                { "ProficiencyWardenArmor", "WardenArmorProficiencyMulticlass"} }
-            },
+            { ProficiencyBarbarianArmor, ArmorProficiencyMulticlassBuilder.BarbarianArmorProficiencyMulticlass },
+            { ProficiencyFighterArmor, ArmorProficiencyMulticlassBuilder.FighterArmorProficiencyMulticlass },
+            { ProficiencyPaladinArmor, ArmorProficiencyMulticlassBuilder.PaladinArmorProficiencyMulticlass },
+            { PointPoolRangerSkillPoints, SkillProficiencyPointPoolSkillsBuilder.PointPoolRangerSkillPointsMulticlass },
+            { PointPoolRogueSkillPoints, SkillProficiencyPointPoolSkillsBuilder.PointPoolRogueSkillPointsMulticlass }
         };
 
         // these features will be removed to comply with SRD multiclass rules
-        private static readonly Dictionary<string, List<string>> FeaturesToExclude = new()
+        private static readonly Dictionary<CharacterClassDefinition, List<FeatureDefinition>> FeaturesToExclude = new()
         {
             {
-                RuleDefinitions.BarbarianClass,
-                new List<string> {
-                "PointPoolBarbarianrSkillPoints",
-                "ProficiencyBarbarianSavingThrow" }
+                Barbarian,
+                new() {
+                PointPoolBarbarianrSkillPoints,
+                ProficiencyBarbarianSavingThrow }
             },
 
             {
-                RuleDefinitions.ClericClass,
-                new List<string> {
-                "ProficiencyClericWeapon",
-                "PointPoolClericSkillPoints",
-                "ProficiencyClericSavingThrow" }
+                Cleric,
+                new() {
+                ProficiencyClericWeapon,
+                PointPoolClericSkillPoints,
+                ProficiencyClericSavingThrow }
             },
 
             {
-                RuleDefinitions.DruidClass,
-                new List<string> {
-                "PointPoolDruidSkillPoints",
-                "ProficiencyDruidSavingThrow" }
+                Druid,
+                new() {
+                PointPoolDruidSkillPoints,
+                ProficiencyDruidSavingThrow }
             },
 
             {
-                RuleDefinitions.FighterClass,
-                new List<string> {
-                "PointPoolFighterSkillPoints",
-                "ProficiencyFighterSavingThrow" }
+                Fighter,
+                new() {
+                PointPoolFighterSkillPoints,
+                ProficiencyFighterSavingThrow }
             },
 
             {
-                RuleDefinitions.PaladinClass,
-                new List<string> {
-                "PointPoolPaladinSkillPoints",
-                "ProficiencyPaladinSavingThrow" }
+                Paladin,
+                new() {
+                PointPoolPaladinSkillPoints,
+                ProficiencyPaladinSavingThrow }
             },
 
             {
-                RuleDefinitions.RangerClass,
-                new List<string> {
-                "ProficiencyRangerSavingThrow" }
+                Ranger,
+                new() {
+                ProficiencyRangerSavingThrow }
             },
 
             {
-                RuleDefinitions.RogueClass,
-                new List<string> {
-                "ProficiencyRogueWeapon",
-                "ProficiencyRogueSavingThrow" }
+                Rogue,
+                new() {
+                ProficiencyRogueWeapon,
+                ProficiencyRogueSavingThrow }
             },
 
             {
-                RuleDefinitions.SorcererClass,
-                new List<string> {
-                "ProficiencySorcererWeapon",
-                "ProficiencySorcererArmor",
-                "PointPoolSorcererSkillPoints",
-                "ProficiencySorcererSavingThrow"}
+                Sorcerer,
+                new() {
+                ProficiencySorcererWeapon,
+                PointPoolSorcererSkillPoints,
+                ProficiencySorcererSavingThrow }
             },
 
             {
-                RuleDefinitions.WizardClass,
-                new List<string> {
-                "ProficiencyWizardWeapon",
-                "ProficiencyWizardArmor",
-                "PointPoolWizardSkillPoints",
-                "ProficiencyWizardSavingThrow"}
-            },
-
-            {
-                CLASS_TINKERER,
-                new List<string> {
-                "ProficiencyWeaponTinkerer",
-                "PointPoolTinkererSkillPoints",
-                "ProficiencyTinkererSavingThrow"}
-            },
-
-            {
-                CLASS_WARDEN,
-                new List<string> {
-                "PointPoolWardenSkillPoints",
-                "ProficiencyWardenSavingthrow" }
-            },
-
-            {
-                CLASS_WITCH,
-                new List<string> {
-                "ProficiencyWitchWeapon",
-                "PointPoolWitchSkillPoints",
-                "ProficiencyWitchSavingthrow"}
-            },
-
-            //{
-            //    CLASS_ALCHEMIST,
-            //    new List<string> {
-            //    "AlchemistWeaponProficiency",
-            //    "AlchemistSkillProficiency",
-            //    "AlchemistSavingthrowProficiency" }
-            //},
-
-            //{
-            //    CLASS_BARD,
-            //    new List<string> {
-            //    "BardWeaponProficiency",
-            //    "BardSavingthrowProficiency" }
-            //},
-
-            //{
-            //    CLASS_MONK,
-            //    new List<string> {
-            //    "MonkSkillProficiency",
-            //    "MonkSavingthrowProficiency" }
-            //},
-
-            {
-                CLASS_WARLOCK,
-                new List<string> {
-                "ClassWarlockWeaponProficiency",
-                "ClassWarlockSkillProficiency",
-                "ClassWarlockSavingThrowProficiency" }
-            },
+                Wizard,
+                new() {
+                ProficiencyWizardWeapon,
+                PointPoolWizardSkillPoints,
+                ProficiencyWizardSavingThrow }
+            }
         };
 
         //
@@ -197,6 +152,7 @@ namespace SolastaMulticlass.Models
         public static IEnumerable<CodeInstruction> ClassLevelTranspiler(IEnumerable<CodeInstruction> instructions)
         {
             var classesAndLevelsMethod = typeof(RulesetCharacterHero).GetMethod("get_ClassesAndLevels");
+            var classesHistoryMethod = typeof(RulesetCharacterHero).GetMethod("get_ClassesHistory");
             var getClassLevelMethod = typeof(LevelUpContext).GetMethod("GetSelectedClassLevel");
 
             var instructionsToBypass = 0;
@@ -209,9 +165,13 @@ namespace SolastaMulticlass.Models
                 }
                 else if (instruction.Calls(classesAndLevelsMethod))
                 {
-                    yield return instruction;
                     yield return new CodeInstruction(OpCodes.Call, getClassLevelMethod);
-                    instructionsToBypass = 2;
+                    instructionsToBypass = 2; // bypasses the [] and the classDefinition index
+                }
+                else if (instruction.Calls(classesHistoryMethod))
+                {
+                    yield return new CodeInstruction(OpCodes.Call, getClassLevelMethod);
+                    instructionsToBypass = 1; // bypasses the count
                 }
                 else
                 {
@@ -224,8 +184,12 @@ namespace SolastaMulticlass.Models
         {
             var methods = new MethodInfo[]
             {
+                // these use ClassesAndLevels[classDefinition]
                 typeof(CharacterStageClassSelectionPanel).GetMethod("FillClassFeatures", PrivateBinding),
-                typeof(CharacterStageClassSelectionPanel).GetMethod("RefreshCharacter", PrivateBinding)
+                typeof(CharacterStageClassSelectionPanel).GetMethod("RefreshCharacter", PrivateBinding),
+                // these use ClassesHistory.Count
+                typeof(CharacterStageSpellSelectionPanel).GetMethod("Refresh", PrivateBinding),
+                typeof(CharacterBuildingManager).GetMethod("AutoAcquireSpells")
             };
 
             var harmony = new Harmony("SolastaMulticlass");
@@ -238,10 +202,39 @@ namespace SolastaMulticlass.Models
         }
 
         //
+        // Deity patching support
+        //
+
+        public static void IsDeitySelectionRelevant(RulesetCharacterHero ___currentHero, ref bool ___isRelevant)
+        {
+            if (LevelUpContext.IsLevelingUp(___currentHero) && LevelUpContext.RequiresDeity(___currentHero))
+            {
+                ___isRelevant = true;
+            }
+        }
+
+        private static void PatchDeitySelection()
+        {
+            var methods = new MethodInfo[]
+            {
+                typeof(CharacterStageDeitySelectionPanel).GetMethod("UpdateRelevance"),
+                typeof(CharacterStageSubclassSelectionPanel).GetMethod("UpdateRelevance")
+            };
+
+            var harmony = new Harmony("SolastaMulticlass");
+            var postfix = typeof(PatchingContext).GetMethod("IsDeitySelectionRelevant");
+
+            foreach (var method in methods)
+            {
+                harmony.Patch(method, postfix: new HarmonyMethod(postfix));
+            }
+        }
+
+        //
         // Equipment patching support
         //
 
-        public static bool EquipmentPrefix(CharacterHeroBuildingData heroBuildingData)
+        public static bool ShouldEquipmentBeAssigned(CharacterHeroBuildingData heroBuildingData)
         {
             var hero = heroBuildingData.HeroCharacter;
             var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
@@ -261,7 +254,7 @@ namespace SolastaMulticlass.Models
             };
 
             var harmony = new Harmony("SolastaMulticlass");
-            var prefix = typeof(PatchingContext).GetMethod("EquipmentPrefix");
+            var prefix = typeof(PatchingContext).GetMethod("ShouldEquipmentBeAssigned");
 
             foreach (var method in methods)
             {
@@ -400,7 +393,6 @@ namespace SolastaMulticlass.Models
                 return characterClassDefinition.FeatureUnlocks;
             }
 
-            var className = selectedClass.Name;
             var dbFeatureDefinition = DatabaseRepository.GetDatabase<FeatureDefinition>();
             var filteredFeatureUnlockByLevels = selectedClass.FeatureUnlocks.ToList();
 
@@ -415,30 +407,22 @@ namespace SolastaMulticlass.Models
                     && !(selectedClass == Fighter && LevelUpContext.GetSelectedClassLevel(rulesetCharacterHero) >= 11));
             }
 
-            // replace features per mc rules
-            FeaturesToReplace.TryGetValue(className, out var featureNamesToReplace);
-
-            if (featureNamesToReplace != null)
+            foreach (var featureNameToReplace in FeaturesToReplace)
             {
-                foreach (var featureNameToReplace in featureNamesToReplace)
+                var count = filteredFeatureUnlockByLevels.RemoveAll(x => x.FeatureDefinition == featureNameToReplace.Key);
+
+                if (count > 0)
                 {
-                    var count = filteredFeatureUnlockByLevels.RemoveAll(x => x.FeatureDefinition.Name == featureNameToReplace.Key);
-
-                    if (count > 0)
-                    {
-                        var newFeatureDefinition = dbFeatureDefinition.GetElement(featureNameToReplace.Value);
-
-                        filteredFeatureUnlockByLevels.Add(new FeatureUnlockByLevel(newFeatureDefinition, 1));
-                    }
+                    filteredFeatureUnlockByLevels.Add(new FeatureUnlockByLevel(featureNameToReplace.Value, 1));
                 }
             }
 
             // exclude features per mc rules
-            FeaturesToExclude.TryGetValue(className, out var featureNamesToExclude);
+            FeaturesToExclude.TryGetValue(selectedClass, out var featureNamesToExclude);
 
             if (featureNamesToExclude != null)
             {
-                filteredFeatureUnlockByLevels.RemoveAll(x => featureNamesToExclude.Contains(x.FeatureDefinition.Name));
+                filteredFeatureUnlockByLevels.RemoveAll(x => featureNamesToExclude.Contains(x.FeatureDefinition));
             }
 
             // sort back results

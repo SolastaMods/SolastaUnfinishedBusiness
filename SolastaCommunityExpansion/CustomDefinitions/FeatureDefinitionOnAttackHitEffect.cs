@@ -1,19 +1,31 @@
-﻿using System.Collections.Generic;
-
-namespace SolastaCommunityExpansion.CustomDefinitions
+﻿namespace SolastaCommunityExpansion.CustomDefinitions
 {
     public interface IOnAttackHitEffect
     {
-        void OnAttackHit(GameLocationCharacter attacker,
-                GameLocationCharacter defender, ActionModifier attackModifier, RulesetAttackMode attackMode,
-                bool rangedAttack, RuleDefinitions.AdvantageType advantageType, List<EffectForm> actualEffectForms,
-                RulesetEffect rulesetEffect, bool criticalHit, bool firstTarget);
+        void BeforeOnAttackHit(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            int attackRoll,
+            int successDelta,
+            bool ranged);
+
+        void AfterOnAttackHit(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            int attackRoll,
+            int successDelta,
+            bool ranged);
     }
 
-    public delegate void OnAttackHitDelegate(GameLocationCharacter attacker,
-                GameLocationCharacter defender, ActionModifier attackModifier, RulesetAttackMode attackMode,
-                bool rangedAttack, RuleDefinitions.AdvantageType advantageType, List<EffectForm> actualEffectForms,
-                RulesetEffect rulesetEffect, bool criticalHit, bool firstTarget);
+    public delegate void OnAttackHitDelegate(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            int attackRoll,
+            int successDelta,
+            bool ranged);
 
     /**
      * Before using this, please consider if FeatureDefinitionAdditionalDamage can cover the desired use case.
@@ -22,19 +34,35 @@ namespace SolastaCommunityExpansion.CustomDefinitions
      */
     public class FeatureDefinitionOnAttackHitEffect : FeatureDefinition, IOnAttackHitEffect
     {
-        private OnAttackHitDelegate onHit;
+        private OnAttackHitDelegate beforeOnAttackHit;
+        private OnAttackHitDelegate afterOnAttackHit;
 
-        internal void SetOnAttackHitDelegate(OnAttackHitDelegate del)
+        internal void SetOnAttackHitDelegates(OnAttackHitDelegate before = null, OnAttackHitDelegate after = null)
         {
-            onHit = del;
+            beforeOnAttackHit = before;
+            afterOnAttackHit = after;
         }
 
-        public void OnAttackHit(GameLocationCharacter attacker,
-                GameLocationCharacter defender, ActionModifier attackModifier, RulesetAttackMode attackMode,
-                bool rangedAttack, RuleDefinitions.AdvantageType advantageType, List<EffectForm> actualEffectForms,
-                RulesetEffect rulesetEffect, bool criticalHit, bool firstTarget)
+        public void BeforeOnAttackHit(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            int attackRoll,
+            int successDelta,
+            bool ranged)
         {
-            onHit?.Invoke(attacker, defender, attackModifier, attackMode, rangedAttack, advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget);
+            beforeOnAttackHit?.Invoke(attacker, defender, attackModifier, attackRoll, successDelta, ranged);
+        }
+
+        public void AfterOnAttackHit(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            int attackRoll,
+            int successDelta,
+            bool ranged)
+        {
+            afterOnAttackHit?.Invoke(attacker, defender, attackModifier, attackRoll, successDelta, ranged);
         }
     }
 }

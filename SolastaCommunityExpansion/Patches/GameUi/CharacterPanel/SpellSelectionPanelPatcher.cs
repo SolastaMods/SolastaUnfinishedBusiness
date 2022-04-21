@@ -167,6 +167,12 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
 
                 if (level == 0)
                 {
+                    // changed to support game v1.3.44 and allow ancestry cantrips to display off battle
+                    if (actionType == ActionDefinitions.ActionType.None)
+                    {
+                        return true;
+                    }
+
                     foreach (SpellDefinition cantrip in spellRepertoire.KnownCantrips)
                     {
                         if (cantrip.ActivationTime == spellActivationTime)
