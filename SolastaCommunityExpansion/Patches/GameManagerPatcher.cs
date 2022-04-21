@@ -100,9 +100,6 @@ namespace SolastaCommunityExpansion.Patches
                 // Save by location initialization depends on services to be ready
                 SaveByLocationContext.Load();
 
-                // Load Character Action Handlers close to the bottom to give chance to other contexts to register
-                CharacterActionContext.Load();
-
                 // Recache all gui collections
                 GuiWrapperContext.Recache();
 
