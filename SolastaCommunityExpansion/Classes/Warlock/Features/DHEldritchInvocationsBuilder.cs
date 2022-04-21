@@ -149,6 +149,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             }
         }
 
+        private static readonly string EldritchBlastName = "DHEldritchBlast"; 
+
         private static void EldritchBlastAndEBInvocations()
         {
 
@@ -196,7 +198,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
 
             SpellDefinitionBuilder EldritchBlastBuilder = SpellDefinitionBuilder
-                .Create("DHEldritchBlast", DefinitionBuilder.CENamespaceGuid)
+                .Create(EldritchBlastName, DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(EldritchBlastGui.Build())
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
                 .SetSpellLevel(0)
@@ -223,7 +225,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
 
 
-                string textEBImprovements = "DHEldritchBlast" + entry;
+                string textEBImprovements = EldritchBlastName + entry;
 
                 EffectDescription effect = new EffectDescription();
                 effect.Copy(EldritchBlastEffect);
@@ -319,7 +321,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             var agonizingBlastFeature =  FeatureDefinitionOnMagicalAttackDamageEffectBuilder
                 .Create("AdditionalDamageAgonizingBlast", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Feature)
-                .SetOnMagicalAttackDamageDelegate((attacker, defender, _, effect, _, _, _) =>
+                .SetOnMagicalAttackDamageDelegates(null, (attacker, defender, _, effect, _, _, _) =>
                 {
                     if (IsEldritchBlast(effect))
                     {

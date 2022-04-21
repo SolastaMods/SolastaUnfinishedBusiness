@@ -102,18 +102,18 @@ Different Archfey, e.g. Winter-themed
             var lifeSapFeature = FeatureDefinitionOnMagicalAttackDamageEffectBuilder
                 .Create("AncientForestLifeSap", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Power)
-                .SetOnMagicalAttackDamageDelegate((attacker, defender, _, _, _, _, _) =>
+                .SetOnMagicalAttackDamageDelegates(null, (attacker, defender, _, effect, _, _, _) =>
                 {
                     var caster = attacker.RulesetCharacter;
-                   // if (caster.MissingHitPoints >= caster.CurrentHitPoints)
-                    //{
+                    if (caster.MissingHitPoints >= caster.CurrentHitPoints)
+                    {
                         PowersContext.ApplyPowerEffectForms(
                             lifeSapDamageAndHeal,
                             caster,
                             defender.RulesetCharacter,
                             "AncientForestLifeSap"
                         );
-                  //  }
+                    }
                 })
                 .AddToDB();
 
