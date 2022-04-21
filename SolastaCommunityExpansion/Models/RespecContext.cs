@@ -32,6 +32,7 @@ namespace SolastaCommunityExpansion.Models
         {
             _ = RestActivityLevelDown;
             _ = RestActivityRespec;
+            Switch();
         }
 
         internal static void Switch()
