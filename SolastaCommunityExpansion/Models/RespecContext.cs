@@ -38,7 +38,11 @@ namespace SolastaCommunityExpansion.Models
         {
             if (Main.Settings.EnableRespec)
             {
-                RestActivityLevelDown.SetCondition(RestActivityDefinition.ActivityCondition.None);
+                if (Main.Settings.EnableMulticlass)
+                {
+                    RestActivityLevelDown.SetCondition(RestActivityDefinition.ActivityCondition.None);
+                }
+
                 RestActivityRespec.SetCondition(RestActivityDefinition.ActivityCondition.None);
             }
             else
