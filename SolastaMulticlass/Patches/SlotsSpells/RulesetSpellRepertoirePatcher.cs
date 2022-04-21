@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
 using SolastaModApi.Infrastructure;
@@ -228,7 +229,7 @@ namespace SolastaMulticlass.Patches.SlotsSpells
         // patches exclusive to MC
         //
 
-        // handles all different scenarios to determine max spell level (must be a postfix)
+        // handles all different scenarios to determine max spell level
         [HarmonyPatch(typeof(RulesetSpellRepertoire), "MaxSpellLevelOfSpellCastingLevel", MethodType.Getter)]
         internal static class RulesetSpellRepertoireMaxSpellLevelOfSpellCastingLevelGetter
         {
@@ -241,12 +242,16 @@ namespace SolastaMulticlass.Patches.SlotsSpells
                     return;
                 }
 
-                if (!SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire))
+                if (SharedSpellsContext.IsSharedcaster(heroWithSpellRepertoire))
                 {
-                    return;
+                    __result = SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire);
                 }
-
-                __result = SharedSpellsContext.GetCombinedSpellLevel(heroWithSpellRepertoire);
+                else if (SharedSpellsContext.IsWarlock(__instance.SpellCastingClass))
+                {
+                    __result = Math.Max(
+                        SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire),
+                        SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire));
+                }
             }
         }
 
@@ -263,6 +268,11 @@ namespace SolastaMulticlass.Patches.SlotsSpells
                     return true;
                 }
 
+                if (!SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire))
+                {
+                    return true;
+                }
+
                 foreach (var spellRepertoire in heroWithSpellRepertoire.SpellRepertoires)
                 {
                     var usedSpellsSlots = spellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots");
@@ -271,9 +281,9 @@ namespace SolastaMulticlass.Patches.SlotsSpells
                     {
                         var key = recoveredSlot.Key;
 
-                        if (usedSpellsSlots.TryGetValue(key, out var usedSpellSLots) && usedSpellSLots > 0)
+                        if (usedSpellsSlots.TryGetValue(key, out var used) && used > 0)
                         {
-                            usedSpellsSlots[key] = Mathf.Max(0, usedSpellSLots - recoveredSlot.Value);
+                            usedSpellsSlots[key] = Mathf.Max(0, used - recoveredSlot.Value);
                         }
                     }
 

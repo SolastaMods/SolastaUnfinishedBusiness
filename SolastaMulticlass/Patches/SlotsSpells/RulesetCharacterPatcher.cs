@@ -23,6 +23,7 @@ namespace SolastaMulticlass.Patches.SlotsSpells
                 {
                     if (instruction.Calls(restoreAllSpellSlotsMethod))
                     {
+                        yield return new CodeInstruction(OpCodes.Ldarg_0); // rulesetCharacter
                         yield return new CodeInstruction(OpCodes.Ldarg_1); // restType
                         yield return new CodeInstruction(OpCodes.Call, myRestoreAllSpellSlotsMethod);
                     }
@@ -33,17 +34,13 @@ namespace SolastaMulticlass.Patches.SlotsSpells
                 }
             }
 
-            public static void RestoreAllSpellSlots(RulesetSpellRepertoire __instance, RuleDefinitions.RestType restType)
+            public static void RestoreAllSpellSlots(RulesetSpellRepertoire __instance, RulesetCharacter rulesetCharacter, RuleDefinitions.RestType restType)
             {
-                if (restType == RuleDefinitions.RestType.LongRest)
+                if (restType == RuleDefinitions.RestType.LongRest 
+                    || rulesetCharacter is not RulesetCharacterHero heroWithSpellRepertoire)
                 {
-                    return;
-                }
+                    rulesetCharacter.RestoreAllSpellSlots();
 
-                var heroWithSpellRepertoire = SharedSpellsContext.GetHero(__instance.CharacterName);
-
-                if (heroWithSpellRepertoire == null)
-                {
                     return;
                 }
 

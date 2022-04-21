@@ -134,13 +134,13 @@ namespace SolastaCommunityExpansion.Displays
                 Main.Settings.QuickCastLightCantripOnWornItemsFirst = toggle;
             }
 
-            toggle = Main.Settings.UseHeightOneCylinderEffect;
-            if (UI.Toggle("Display a height 1 cylinder effect when casting " + "Black Tentacles, Entangle, Grease ".orange() +
-                " (square cylinder), ".yellow() + "Spike Growth".orange() + " (round cylinder).".yellow(), ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.UseHeightOneCylinderEffect = toggle;
-                HouseSpellTweaks.UseHeightOneCylinderEffect();
-            }
+            //toggle = Main.Settings.UseHeightOneCylinderEffect;
+            //if (UI.Toggle("Display a height 1 cylinder effect when casting " + "Black Tentacles, Entangle, Grease ".orange() +
+            //    " (square cylinder), ".yellow() + "Spike Growth".orange() + " (round cylinder).".yellow(), ref toggle, UI.AutoWidth()))
+            //{
+            //    Main.Settings.UseHeightOneCylinderEffect = toggle;
+            //    HouseSpellTweaks.UseHeightOneCylinderEffect();
+            //}
 
             UI.Label("");
 

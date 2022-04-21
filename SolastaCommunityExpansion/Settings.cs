@@ -66,7 +66,7 @@ namespace SolastaCommunityExpansion
         public bool EnableMoveSorceryPointsBox { get; set; } = true;
         public bool EnableMultiLinePowerPanel { get; set; } = true;
         public bool EnableMultiLineSpellPanel { get; set; } = true;
-        public bool EnableRacesMorphotypePatch { get; set; } = true;
+        public bool EnableRacesScalePatch { get; set; } = true;
         public bool EnableSortingClasses { get; set; } = true;
         public bool EnableSortingDeities { get; set; } = true;
         public bool EnableSortingDungeonMakerAssets { get; set; } = true;
@@ -170,7 +170,7 @@ namespace SolastaCommunityExpansion
         public bool MakeAllMagicStaveArcaneFoci { get; set; }
         public bool IncreaseSenseNormalVision { get; set; }
         public bool QuickCastLightCantripOnWornItemsFirst { get; set; }
-        public bool UseHeightOneCylinderEffect { get; set; }
+        //public bool UseHeightOneCylinderEffect { get; set; }
         public bool AddPickpocketableLoot { get; set; }
         public bool AllowStackedMaterialComponent { get; set; }
         public bool ScaleMerchantPricesCorrectly { get; set; }

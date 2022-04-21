@@ -3,7 +3,7 @@
   "restStage": "AfterRest",
   "restType": "LongRest",
   "condition": -1001,
-  "functor": "ZSRespec",
+  "functor": "Respec",
   "stringParameter": "",
   "checkConsciousness": false,
   "guiPresentation": {
@@ -14,8 +14,8 @@
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -25,12 +25,12 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 10,
+    "sortOrder": 0,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
   "guid": "40824029eb224fb581f0d4e5989b6735",
   "contentPack": 9999,
-  "name": "ZSRespec"
+  "name": "Respec"
 }

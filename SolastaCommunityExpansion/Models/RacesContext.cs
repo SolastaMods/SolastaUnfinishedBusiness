@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using SolastaCommunityExpansion.Races;
 using SolastaModApi.Extensions;
 
@@ -8,6 +7,8 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class RacesContext
     {
+        internal static Dictionary<CharacterRaceDefinition, float> RaceScaleMap { get; } = new();
+
         internal static HashSet<CharacterRaceDefinition> Races { get; private set; } = new();
 
         internal static void SortRacesFeatures()
@@ -41,6 +42,9 @@ namespace SolastaCommunityExpansion.Models
             {
                 SortRacesFeatures();
             }
+
+            RaceScaleMap[BolgrifRaceBuilder.BolgrifRace] = 8.8f / 6.4f;
+            RaceScaleMap[GnomeRaceBuilder.GnomeRace] = -0.04f / -0.06f;
         }
 
         private static void LoadRace(CharacterRaceDefinition characterRaceDefinition)

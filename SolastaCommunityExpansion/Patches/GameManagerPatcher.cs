@@ -3,6 +3,7 @@ using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Utils;
 using UnityModManagerNet;
+
 #if DEBUG
 using SolastaCommunityExpansion.Patches.Diagnostic;
 #endif
@@ -13,6 +14,9 @@ namespace SolastaCommunityExpansion.Patches
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameManager_BindPostDatabase
     {
+        //
+        // Skyrim Load Order (ops, Solasta, lol)
+        //
         internal static void Postfix()
         {
 #if DEBUG
