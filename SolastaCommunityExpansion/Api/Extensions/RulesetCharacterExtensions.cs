@@ -1519,21 +1519,21 @@ namespace SolastaModApi.Extensions
         public static T SetUsedChannelDivinity<T>(this T entity, System.Int32 value)
             where T : RulesetCharacter
         {
-            entity.SetField("usedChannelDivinity", value);
+            entity.SetProperty("UsedChannelDivinity", value);
             return entity;
         }
 
         public static T SetUsedHealingPool<T>(this T entity, System.Int32 value)
             where T : RulesetCharacter
         {
-            entity.SetField("usedHealingPool", value);
+            entity.SetProperty("UsedHealingPool", value);
             return entity;
         }
 
         public static T SetUsedIndomitableResistances<T>(this T entity, System.Int32 value)
             where T : RulesetCharacter
         {
-            entity.SetField("usedIndomitableResistances", value);
+            entity.SetProperty("UsedIndomitableResistances", value);
             return entity;
         }
 
@@ -1554,14 +1554,14 @@ namespace SolastaModApi.Extensions
         public static T SetUsedRagePoints<T>(this T entity, System.Int32 value)
             where T : RulesetCharacter
         {
-            entity.SetField("usedRagePoints", value);
+            entity.SetProperty("UsedRagePoints", value);
             return entity;
         }
 
         public static T SetUsedSorceryPoints<T>(this T entity, System.Int32 value)
             where T : RulesetCharacter
         {
-            entity.SetField("usedSorceryPoints", value);
+            entity.SetProperty("UsedSorceryPoints", value);
             return entity;
         }
 

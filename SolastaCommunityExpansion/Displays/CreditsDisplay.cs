@@ -23,7 +23,7 @@ namespace SolastaCommunityExpansion.Displays
             { "Burtsev-Alexey", "deep copy algorithm" },
             { "ChrisJohnDigital", "head developer, crafting, faction relations, feats, fighting styles, items, subclasses, progression" },
             { "Dreadmaker", "Circle of the Forest Guardian subclass" },
-            { "DubhHerder", "higher level spells, feats migration, bug models replacement, Warlock subclasses and invocations, Tinkerer Artillerist subclass" },
+            { "DubhHerder", "7th, 8th and 9th level spells, Crafty Feats migration, bug models replacement, additional high level monsters, class, subclasses" },
             { "ElAntonious", "Arcanist subclass, Torchbearer and Dual Flurry feats" },
             { "Holic75", "pact magic slots, Warlock class sprite, bolgrif and gnome races, acid claw, air blast burst of radiance, thunder strike, earth tremor and winter's breath spells" },
             { "ImpPhil", "adv/dis rules, conjurations control, auto-equip, location rotation in DM, monster's health, pause UI, sorting, stocks prices, no attunement, xp scaling, character export, save by location, combat camera, diagnostics, custom icons, refactor, screen map" },

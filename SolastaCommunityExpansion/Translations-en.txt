@@ -7,7 +7,7 @@ AttributeModifier/&DHFeeblemindIntSpellTitle	Feeble intelligence
 BlueprintCategory/&FlatRoomsTitle	Flat Rooms
 Caption/&GadgetParametersCustomRemoveDescription	Remove:\n{0}
 Class/&ClassWarlockDescription	Warlocks are seekers of the knowledge that lies hidden in the fabric of the multiverse. Through pacts made with mysterious beings of supernatural power, warlocks unlock magical effects both subtle and spectacular.
-Class/&ClassWarlockTitle	Warlock
+Class/&ClassWarlockTitle	Warlock [Beta]
 Class/&TinkererDescription	Tinkerers are inventors, alchemists, and more. They bridge the space between magic and technology
 Class/&TinkererTitle	Tinkerer
 Class/&WitchArmorProficiencyDescription	Light Armor

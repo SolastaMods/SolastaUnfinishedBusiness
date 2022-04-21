@@ -10,28 +10,34 @@ namespace SolastaCommunityExpansion.Models
 {
     public static class RespecContext
     {
-        internal const RestActivityDefinition.ActivityCondition ActivityConditionDisabled = (RestActivityDefinition.ActivityCondition)(-1001);
+        private const RestActivityDefinition.ActivityCondition ActivityConditionDisabled = (RestActivityDefinition.ActivityCondition)(-1001);
+
+        private const string LevelDownName = "LevelDown";
+        private const string RespecName = "Respec";
 
         public static RestActivityDefinition RestActivityLevelDown { get; private set; } = RestActivityDefinitionBuilder
-            .Create("LevelDown", "fdb4d86eaef942d1a22dbf1fb5a7299f")
+            .Create(LevelDownName, "fdb4d86eaef942d1a22dbf1fb5a7299f")
             .SetGuiPresentation("MainMenu/&ExportPdfTitle", "MainMenu/&ExportPdfDescription")
             .SetRestData(
                 RestDefinitions.RestStage.AfterRest, RuleDefinitions.RestType.LongRest,
-                RestActivityDefinition.ActivityCondition.None, "LevelDown", string.Empty)
+                RestActivityDefinition.ActivityCondition.None, LevelDownName, string.Empty)
             .AddToDB();
 
         public static RestActivityDefinition RestActivityRespec { get; private set; } = RestActivityDefinitionBuilder
-            .Create("Respec", "40824029eb224fb581f0d4e5989b6735")
+            .Create(RespecName, "40824029eb224fb581f0d4e5989b6735")
             .SetGuiPresentation("RestActivity/&ZSRespecTitle", "RestActivity/&ZSRespecDescription")
             .SetRestData(
                 RestDefinitions.RestStage.AfterRest, RuleDefinitions.RestType.LongRest,
-                RestActivityDefinition.ActivityCondition.None, "Respec", string.Empty)
+                RestActivityDefinition.ActivityCondition.None, RespecName, string.Empty)
             .AddToDB();
 
         internal static void Load()
         {
             _ = RestActivityLevelDown;
             _ = RestActivityRespec;
+
+            ServiceRepository.GetService<IFunctorService>().RegisterFunctor(RespecName, new FunctorRespec());
+
             Switch();
         }
 
