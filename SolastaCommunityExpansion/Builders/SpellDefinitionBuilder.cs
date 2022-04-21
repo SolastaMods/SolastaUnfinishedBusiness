@@ -33,6 +33,10 @@ namespace SolastaCommunityExpansion.Builders
 
         private void InitializeFields()
         {
+            //
+            // Should fix lots of official spells getting modified by spells on this mod
+            //
+            Definition.SetEffectDescription(Definition.EffectDescription.DeepCopy());
             Definition.SetImplemented(true);
         }
 
