@@ -28,7 +28,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                 .SetGuiPresentation(Category.Subclass)
                 .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage, 0)
                 .SetHandsFullCastingModifiers(true, true, true)
-                .SetCastingModifiers(0, 0, true, false, false)
+                .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.None, 0, true, false, false)
                 .AddToDB();
 
             FeatureDefinitionCastSpellBuilder spellCasting = FeatureDefinitionCastSpellBuilder

@@ -32,13 +32,18 @@ namespace SolastaCommunityExpansion.Models
         {
             _ = RestActivityLevelDown;
             _ = RestActivityRespec;
+            Switch();
         }
 
         internal static void Switch()
         {
             if (Main.Settings.EnableRespec)
             {
-                RestActivityLevelDown.SetCondition(RestActivityDefinition.ActivityCondition.None);
+                if (Main.Settings.EnableMulticlass)
+                {
+                    RestActivityLevelDown.SetCondition(RestActivityDefinition.ActivityCondition.None);
+                }
+
                 RestActivityRespec.SetCondition(RestActivityDefinition.ActivityCondition.None);
             }
             else

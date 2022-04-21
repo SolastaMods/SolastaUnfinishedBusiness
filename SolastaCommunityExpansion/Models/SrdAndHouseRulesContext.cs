@@ -9,6 +9,7 @@ namespace SolastaCommunityExpansion.Models
         internal static void Load()
         {
             AllowTargetingSelectionWhenCastingChainLightningSpell();
+            ApplyConditionBlindedShouldNotAllowOpportunityAttack();
         }
 
         internal static void ApplyConditionBlindedShouldNotAllowOpportunityAttack()
