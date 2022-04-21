@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomDefinitions;
@@ -9,36 +10,13 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
     //
     // this patch shouldn't be protected
     //
-    [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterAttack")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class GameLocationBattleManager_HandleCharacterAttack
-    {
-        internal static void Postfix(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackerAttackMode)
-        {
-            if (attacker.RulesetCharacter == null)
-            {
-                return;
-            }
-
-            foreach (var feature in attacker.RulesetCharacter.EnumerateFeaturesToBrowse<IOnAttackEffect>())
-            {
-                feature.OnAttack(attacker, defender, attackModifier, attackerAttackMode);
-            }
-        }
-    }
-
-    //
-    // this patch shouldn't be protected
-    //
     [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterAttackHit")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameLocationBattleManager_HandleCharacterAttackHit
     {
-        internal static void Postfix(
+        internal static IEnumerator Postfix(
+            IEnumerator values,
+            GameLocationBattleManager __instance,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier attackModifier,
@@ -46,14 +24,29 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
             int successDelta,
             bool ranged)
         {
-            if (attacker.RulesetCharacter == null)
+            Main.Logger.Log("HandleCharacterAttackHit");
+
+            var rulesetCharacter = attacker.RulesetCharacter;
+
+            if (rulesetCharacter != null)
             {
-                return;
+                foreach (var feature in rulesetCharacter.EnumerateFeaturesToBrowse<IOnAttackHitEffect>())
+                {
+                    feature.BeforeOnAttackHit(attacker, defender, attackModifier, attackRoll, successDelta, ranged);
+                }
             }
 
-            foreach (var feature in attacker.RulesetCharacter.EnumerateFeaturesToBrowse<IOnAttackHitEffect>())
+            while (values.MoveNext())
             {
-                feature.OnAttackHit(attacker, defender, attackModifier, attackRoll, successDelta, ranged);
+                yield return values.Current;
+            }
+
+            if (rulesetCharacter != null)
+            {
+                foreach (var feature in rulesetCharacter.EnumerateFeaturesToBrowse<IOnAttackHitEffect>())
+                {
+                    feature.AfterOnAttackHit(attacker, defender, attackModifier, attackRoll, successDelta, ranged);
+                }
             }
         }
     }
@@ -65,25 +58,42 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameLocationBattleManager_HandleCharacterAttackDamage
     {
-        internal static void Postfix(
+        internal static IEnumerator Postfix(
+            IEnumerator values,
+            GameLocationBattleManager __instance,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender, 
-            ActionModifier attackModifier, 
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
             RulesetAttackMode attackMode,
-            bool rangedAttack, RuleDefinitions.AdvantageType advantageType, 
+            bool rangedAttack, RuleDefinitions.AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect, 
-            bool criticalHit, 
+            RulesetEffect rulesetEffect,
+            bool criticalHit,
             bool firstTarget)
         {
-            if (attacker.RulesetCharacter == null)
+            Main.Logger.Log("HandleCharacterAttackDamage");
+
+            var rulesetCharacter = attacker.RulesetCharacter;
+
+            if (rulesetCharacter != null)
             {
-                return;
+                foreach (var feature in rulesetCharacter.EnumerateFeaturesToBrowse<IOnAttackDamageEffect>())
+                {
+                    feature.BeforeOnAttackDamage(attacker, defender, attackModifier, attackMode, rangedAttack, advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget);
+                }
             }
 
-            foreach (var feature in attacker.RulesetCharacter.EnumerateFeaturesToBrowse<IOnAttackDamageEffect>())
+            while (values.MoveNext())
             {
-                feature.OnAttackDamage(attacker, defender, attackModifier, attackMode, rangedAttack, advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget);
+                yield return values.Current;
+            }
+
+            if (rulesetCharacter != null)
+            {
+                foreach (var feature in rulesetCharacter.EnumerateFeaturesToBrowse<IOnAttackDamageEffect>())
+                {
+                    feature.AfterOnAttackDamage(attacker, defender, attackModifier, attackMode, rangedAttack, advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget);
+                }
             }
         }
     }
@@ -95,7 +105,9 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameLocationBattleManager_HandleCharacterMagicalAttackDamage
     {
-        internal static void Postfix(
+        internal static IEnumerator Postfix(
+            IEnumerator values,
+            GameLocationBattleManager __instance,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier magicModifier,
@@ -104,38 +116,29 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
             bool firstTarget,
             bool criticalHit)
         {
-            if (attacker.RulesetCharacter == null)
+            Main.Logger.Log("HandleCharacterMagicalAttackDamage");
+
+            var rulesetCharacter = attacker.RulesetCharacter;
+
+            if (rulesetCharacter != null)
             {
-                return;
+                foreach (var feature in rulesetCharacter.EnumerateFeaturesToBrowse<IOnMagicalAttackDamageEffect>())
+                {
+                    feature.BeforeOnMagicalAttackDamage(attacker, defender, magicModifier, rulesetEffect, actualEffectForms, firstTarget, criticalHit);
+                }
             }
 
-            foreach (var feature in attacker.RulesetCharacter.EnumerateFeaturesToBrowse<IOnMagicalAttackDamageEffect>())
+            while (values.MoveNext())
             {
-                feature.OnMagicalAttackDamage(attacker, defender, magicModifier, rulesetEffect, actualEffectForms, firstTarget, criticalHit);
-            }
-        }
-    }
-
-    //
-    // this patch shouldn't be protected
-    //
-    [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterAttackFinished")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class GameLocationBattleManager_HandleCharacterAttackFinished
-    {
-        internal static void Postfix(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RulesetAttackMode attackerAttackMode)
-        {
-            if (attacker.RulesetCharacter == null)
-            {
-                return;
+                yield return values.Current;
             }
 
-            foreach (var feature in attacker.RulesetCharacter.EnumerateFeaturesToBrowse<IOnAttackFinishedEffect>())
+            if (rulesetCharacter != null)
             {
-                feature.OnAttackFinished(attacker, defender, attackerAttackMode);
+                foreach (var feature in rulesetCharacter.EnumerateFeaturesToBrowse<IOnMagicalAttackDamageEffect>())
+                {
+                    feature.AfterOnMagicalAttackDamage(attacker, defender, magicModifier, rulesetEffect, actualEffectForms, firstTarget, criticalHit);
+                }
             }
         }
     }
