@@ -251,9 +251,10 @@ namespace SolastaCommunityExpansion.Spells
                 .SetEffectAdvancement(
                     EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 1, 0, 0, 0, 0, 0, 0, AdvancementDuration.None)
                 .SetSavingThrowData(true, true, AttributeDefinitions.Dexterity, false, EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Wisdom, 12, false)
-                .SetDurationData(DurationType.Instantaneous)
+                .SetDurationData(DurationType.Minute)
                 .SetParticleEffectParameters(ConeOfCold.EffectDescription.EffectParticleParameters)
-                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere, 1, 1, ItemSelectionType.None)
+                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 1, 1, ItemSelectionType.None)
+                .SetTargetProximityData(false, 30)
                 .AddEffectForm(
                     EffectFormBuilder
                         .Create()
