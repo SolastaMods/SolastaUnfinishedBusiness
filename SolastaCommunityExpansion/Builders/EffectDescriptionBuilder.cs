@@ -302,6 +302,24 @@ namespace SolastaCommunityExpansion.Builders
             effect.EffectForms.Add(effectForm);
             return this;
         }
+        
+        public EffectDescriptionBuilder AddEffectForms(params EffectForm[] effectForms)
+        {
+            effect.EffectForms.AddRange(effectForms);
+            return this;
+        }
+        
+        public EffectDescriptionBuilder SetEffectForms(params EffectForm[] effectForms)
+        {
+            effect.EffectForms.SetRange(effectForms);
+            return this;
+        }
+        
+        public EffectDescriptionBuilder ClearEffectForms()
+        {
+            effect.EffectForms.Clear();
+            return this;
+        }
 
         public EffectDescription Build()
         {

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi.Extensions;
 using UnityEngine;
@@ -119,6 +120,36 @@ namespace SolastaCommunityExpansion.Models
                     return;
                 }
             }
+        }
+
+        public static List<T> FeaturesByType<T>(RulesetActor actor) where T : class
+        {
+            var list = new List<FeatureDefinition>();
+            actor.EnumerateFeaturesToBrowse<T>(list);
+            return list.Select(s => s as T).ToList();
+        }
+
+        public static EffectDescription ModifySpellEffect(EffectDescription original, RulesetEffectSpell spell)
+        {
+            var result = original;
+            var baseDefinition = spell.SpellDefinition as ICustomMagicEffectBasedOnCaster;
+            if (baseDefinition != null && spell.Caster != null)
+            {
+                result = baseDefinition.GetCustomEffect(spell);
+            }
+
+            //TODO: find a way to cache result, so it works faster
+            return FeaturesByType<IModifySpellEffect>(spell.Caster)
+                .Aggregate(result, (current, f) => f.ModifyEffect(spell, current));
+        }
+        
+        public static EffectDescription AddEffectForms(EffectDescription baseEffect, params EffectForm[] effectForms)
+        {
+            var newEffect = new EffectDescription();
+            newEffect.Copy(baseEffect);
+            newEffect.EffectForms.AddRange(effectForms);
+
+            return newEffect;
         }
     }
 }
