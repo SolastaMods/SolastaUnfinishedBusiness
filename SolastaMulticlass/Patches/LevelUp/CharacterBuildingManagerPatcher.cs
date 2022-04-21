@@ -107,46 +107,6 @@ namespace SolastaMulticlass.Patches.LevelUp
         // SPELLS
         //
 
-        // correctly computes the highest spell level when auto acquiring spells
-        [HarmonyPatch(typeof(CharacterBuildingManager), "AutoAcquireSpells")]
-        internal static class CharacterBuildingManagerAutoAcquireSpells
-        {
-            public static int ComputeHighestSpellLevel(FeatureDefinitionCastSpell featureDefinitionCastSpell, int classLevel, CharacterHeroBuildingData heroBuildingData)
-            {
-                var hero = heroBuildingData.HeroCharacter;
-                var isMulticlass = LevelUpContext.IsMulticlass(hero);
-
-                if (!isMulticlass)
-                {
-                    return featureDefinitionCastSpell.ComputeHighestSpellLevel(classLevel);
-                }
-
-                var selectedClass = LevelUpContext.GetSelectedClass(hero);
-                var selectedSubclass = LevelUpContext.GetSelectedSubclass(hero);
-
-                return SharedSpellsContext.GetClassSpellLevel(hero, selectedClass, selectedSubclass);
-            }
-
-            internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
-            {
-                var computeHighesteSpellMethod = typeof(FeatureDefinitionCastSpell).GetMethod("ComputeHighestSpellLevel");
-                var customComputeHighestSpellMethod = typeof(CharacterBuildingManagerAutoAcquireSpells).GetMethod("ComputeHighestSpellLevel");
-
-                foreach (var instruction in instructions)
-                {
-                    if (instruction.Calls(computeHighesteSpellMethod))
-                    {
-                        yield return new CodeInstruction(OpCodes.Ldarg_1);
-                        yield return new CodeInstruction(OpCodes.Call, customComputeHighestSpellMethod);
-                    }
-                    else
-                    {
-                        yield return instruction;
-                    }
-                }
-            }
-        }
-
         // ensures the level up process only presents / offers spells based on all different mod settings
         [HarmonyPatch(typeof(CharacterBuildingManager), "EnumerateKnownAndAcquiredSpells")]
         internal static class CharacterBuildingManagerEnumerateKnownAndAcquiredSpells
@@ -200,7 +160,7 @@ namespace SolastaMulticlass.Patches.LevelUp
                     // PATCH: don't allow spells from whole lists to be re-learned
                     if (spellRepertoire.SpellCastingFeature.SpellKnowledge == RuleDefinitions.SpellKnowledge.WholeList)
                     {
-                        var classSpellLevel = SharedSpellsContext.GetClassSpellLevel(hero, spellRepertoire.SpellCastingClass, spellRepertoire.SpellCastingSubclass);
+                        var classSpellLevel = spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
 
                         for (var spellLevel = 1; spellLevel <= classSpellLevel; spellLevel++)
                         {

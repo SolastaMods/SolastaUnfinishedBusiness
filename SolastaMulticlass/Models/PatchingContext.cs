@@ -8,6 +8,7 @@ using static SolastaModApi.DatabaseHelper.FeatureDefinitionPointPools;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaMulticlass.Models.IntegrationContext;
 using SolastaCommunityExpansion.Models;
+using SolastaModApi.Infrastructure;
 
 namespace SolastaMulticlass.Models
 {
@@ -18,6 +19,7 @@ namespace SolastaMulticlass.Models
         internal static void Load()
         {
             PatchClassLevel();
+            PatchDeitySelection();
             PatchEquipmentAssignment();
             PatchFeatureUnlocks();
             AddNonOfficialBlueprintsToFeaturesCollections();
@@ -150,6 +152,7 @@ namespace SolastaMulticlass.Models
         public static IEnumerable<CodeInstruction> ClassLevelTranspiler(IEnumerable<CodeInstruction> instructions)
         {
             var classesAndLevelsMethod = typeof(RulesetCharacterHero).GetMethod("get_ClassesAndLevels");
+            var classesHistoryMethod = typeof(RulesetCharacterHero).GetMethod("get_ClassesHistory");
             var getClassLevelMethod = typeof(LevelUpContext).GetMethod("GetSelectedClassLevel");
 
             var instructionsToBypass = 0;
@@ -162,9 +165,13 @@ namespace SolastaMulticlass.Models
                 }
                 else if (instruction.Calls(classesAndLevelsMethod))
                 {
-                    yield return instruction;
                     yield return new CodeInstruction(OpCodes.Call, getClassLevelMethod);
-                    instructionsToBypass = 2;
+                    instructionsToBypass = 2; // bypasses the [] and the classDefinition index
+                }
+                else if (instruction.Calls(classesHistoryMethod))
+                {
+                    yield return new CodeInstruction(OpCodes.Call, getClassLevelMethod);
+                    instructionsToBypass = 1; // bypasses the count
                 }
                 else
                 {
@@ -177,8 +184,12 @@ namespace SolastaMulticlass.Models
         {
             var methods = new MethodInfo[]
             {
+                // these use ClassesAndLevels[classDefinition]
                 typeof(CharacterStageClassSelectionPanel).GetMethod("FillClassFeatures", PrivateBinding),
-                typeof(CharacterStageClassSelectionPanel).GetMethod("RefreshCharacter", PrivateBinding)
+                typeof(CharacterStageClassSelectionPanel).GetMethod("RefreshCharacter", PrivateBinding),
+                // these use ClassesHistory.Count
+                typeof(CharacterStageSpellSelectionPanel).GetMethod("Refresh", PrivateBinding),
+                typeof(CharacterBuildingManager).GetMethod("AutoAcquireSpells")
             };
 
             var harmony = new Harmony("SolastaMulticlass");
@@ -191,10 +202,39 @@ namespace SolastaMulticlass.Models
         }
 
         //
+        // Deity patching support
+        //
+
+        public static void IsDeitySelectionRelevant(CharacterStageDeitySelectionPanel __instance, RulesetCharacterHero ___currentHero)
+        {
+            if (LevelUpContext.IsLevelingUp(___currentHero))
+            {
+                __instance.SetField("isRelevant", LevelUpContext.RequiresDeity(___currentHero));
+            }
+        }
+
+        private static void PatchDeitySelection()
+        {
+            var methods = new MethodInfo[]
+            {
+                typeof(CharacterStageDeitySelectionPanel).GetMethod("UpdateRelevance"),
+                typeof(CharacterStageSubclassSelectionPanel).GetMethod("UpdateRelevance")
+            };
+
+            var harmony = new Harmony("SolastaMulticlass");
+            var prefix = typeof(PatchingContext).GetMethod("IsDeitySelectionRelevant");
+
+            foreach (var method in methods)
+            {
+                harmony.Patch(method, prefix: new HarmonyMethod(prefix));
+            }
+        }
+
+        //
         // Equipment patching support
         //
 
-        public static bool EquipmentPrefix(CharacterHeroBuildingData heroBuildingData)
+        public static bool ShouldEquipmentBeAssigned(CharacterHeroBuildingData heroBuildingData)
         {
             var hero = heroBuildingData.HeroCharacter;
             var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
@@ -214,7 +254,7 @@ namespace SolastaMulticlass.Models
             };
 
             var harmony = new Harmony("SolastaMulticlass");
-            var prefix = typeof(PatchingContext).GetMethod("EquipmentPrefix");
+            var prefix = typeof(PatchingContext).GetMethod("ShouldEquipmentBeAssigned");
 
             foreach (var method in methods)
             {

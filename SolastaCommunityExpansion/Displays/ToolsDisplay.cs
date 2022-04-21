@@ -24,6 +24,7 @@ namespace SolastaCommunityExpansion.Displays
             if (UI.Toggle("Enable the RESPEC after rest action " + "[Level Down as well if Multiclass is enabled]".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableRespec = toggle;
+                RespecContext.Switch();
             }
 
             toggle = Main.Settings.EnableCheatMenu;

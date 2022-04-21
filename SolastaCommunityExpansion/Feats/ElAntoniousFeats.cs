@@ -46,11 +46,11 @@ namespace SolastaCommunityExpansion.Feats
             return FeatureDefinitionOnAttackDamageEffectBuilder
                 .Create("FeatureDualFlurry", DualFlurryGuid)
                 .SetGuiPresentation("DualFlurry", Category.Feature)
-                .SetOnAttackDamageDelegate(OnAttackDamage)
+                .SetOnAttackDamageDelegates(null, AfterOnAttackDamage)
                 .AddToDB();
         }
         
-        private static void OnAttackDamage(GameLocationCharacter attacker,
+        private static void AfterOnAttackDamage(GameLocationCharacter attacker,
                 GameLocationCharacter defender, ActionModifier attackModifier, RulesetAttackMode attackMode,
                 bool rangedAttack, RuleDefinitions.AdvantageType advantageType, List<EffectForm> actualEffectForms,
                 RulesetEffect rulesetEffect, bool criticalHit, bool firstTarget)

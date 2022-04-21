@@ -3,7 +3,7 @@
   "preparedSpellModifier": "None",
   "saveDCModifierType": "None",
   "saveDCModifier": 0,
-  "spellAttackModifierType": "None",
+  "spellAttackModifierType": "FlatValue",
   "spellAttackModifier": 2,
   "spellImmunities": [],
   "maxSpellLevelImmunity": -1,

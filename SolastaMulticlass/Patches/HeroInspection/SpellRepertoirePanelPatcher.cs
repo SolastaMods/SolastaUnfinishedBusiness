@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using System;
+using HarmonyLib;
 using SolastaMulticlass.Models;
 using UnityEngine;
 
@@ -30,12 +31,12 @@ namespace SolastaMulticlass.Patches.HeroInspection
                 else
                 {
                     var heroWithSpellRepertoire = __instance.GuiCharacter.RulesetCharacterHero;
-                    var spellCastingClass = spellRepertoire.SpellCastingClass;
-                    var spellCastingSubclass = spellRepertoire.SpellCastingSubclass;
 
-                    classSpellLevel = SharedSpellsContext.GetClassSpellLevel(heroWithSpellRepertoire, spellCastingClass, spellCastingSubclass);
+                    classSpellLevel = spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
                     slotLevel = SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire)
-                        ? SharedSpellsContext.GetCombinedSpellLevel(heroWithSpellRepertoire)
+                        ? Math.Max(
+                            SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire), 
+                            SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire))
                         : classSpellLevel;        
                 }
 
