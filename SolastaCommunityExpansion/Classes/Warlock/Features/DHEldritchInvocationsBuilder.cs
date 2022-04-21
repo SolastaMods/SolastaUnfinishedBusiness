@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using SolastaModApi;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
@@ -16,7 +17,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         public static Dictionary<string, FeatureDefinitionPower> DictionaryofEIPowers { get; private set; } = new();
 
         public static SpellDefinition EldritchBlast { get; set; }
-        public static List<string> ListofEBImprovements { get; private set; } = new();
         public static Dictionary<string, FeatureDefinitionBonusCantrips> DictionaryofEBInvocations { get; private set; } = new();
         public static List<string> ListofEIAttributeModifers { get; private set; } = new();
         public static Dictionary<string, FeatureDefinitionFeatureSet> DictionaryofEIAttributeModifers { get; private set; } = new();
@@ -154,14 +154,13 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         private static void EldritchBlastAndEBInvocations()
         {
 
-            GuiPresentationBuilder EldritchBlastGui = new GuiPresentationBuilder(
-            "Spell/&EldritchBlastTitle",
-            "Spell/&EldritchBlastDescription");
-            EldritchBlastGui.SetSpriteReference(DatabaseHelper.SpellDefinitions.MagicMissile.GuiPresentation.SpriteReference);
+            var eldritchBlastGui = new GuiPresentationBuilder(
+                    "Spell/&EldritchBlastTitle",
+                    "Spell/&EldritchBlastDescription",
+                    DatabaseHelper.SpellDefinitions.MagicMissile.GuiPresentation.SpriteReference)
+                .Build();
 
-            EffectDescription EldritchBlastEffect = new EffectDescriptionBuilder()
-            .AddEffectForm(
-                new EffectFormBuilder().SetDamageForm(
+            var blastDamage = new EffectFormBuilder().SetDamageForm(
                     false,
                     RuleDefinitions.DieType.D10,
                     RuleDefinitions.DamageTypeForce,
@@ -170,7 +169,10 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                     1,
                     RuleDefinitions.HealFromInflictedDamage.Never,
                     new List<RuleDefinitions.TrendInfo>())
-                .Build())
+                .Build();
+            
+            EffectDescription EldritchBlastEffect = new EffectDescriptionBuilder()
+            .AddEffectForm(blastDamage)
             .SetTargetingData(
                     RuleDefinitions.Side.Enemy,
                     RuleDefinitions.RangeType.RangeHit,
@@ -196,171 +198,104 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             .Build();
 
 
+            var agonizingForm = new EffectFormBuilder(blastDamage)
+                .SetBonusMode(RuleDefinitions.AddBonusMode.AbilityBonus)
+                .Build();
 
-            SpellDefinitionBuilder EldritchBlastBuilder = SpellDefinitionBuilder
-                .Create(EldritchBlastName, DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(EldritchBlastGui.Build())
-                .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
-                .SetSpellLevel(0)
-                .SetCastingTime(RuleDefinitions.ActivationTime.Action)
-                .SetVerboseComponent(true)
-                .SetSomaticComponent(true)
-                .SetEffectDescription(EldritchBlastEffect)
-                .SetAiParameters(new SpellAIParameters());
-            EldritchBlast = EldritchBlastBuilder.AddToDB();
-
-
-            //  AdditionalDamageSorcererDraconicElementalAffinity and AncestrySorcererDraconicGold - works for single class but would be a bug/buff for multiclass
-            // ListofEBImprovements.Add("AgonizingBlast");    // AttackModifierOathOfDevotionSacredWeapon//PowerTraditionShockArcanistArcaneFury
-            // ListofEBImprovements.Add("EldritchSpear" );  // not really useful for game
-            //    ListofEBImprovements.Add("HinderingBlast");// ConditionHindered
-            ListofEBImprovements.Add("RepellingBlast");// pushFromOrigin
-            ListofEBImprovements.Add("GraspingHand");//rope grapple but part of EB
-
-
-
-            // at will EI
-            foreach (string entry in ListofEBImprovements)
-            {
-
-
-
-                string textEBImprovements = EldritchBlastName + entry;
-
-                EffectDescription effect = new EffectDescription();
-                effect.Copy(EldritchBlastEffect);
-
-                SpellDefinitionBuilder EIcantripBuilder = SpellDefinitionBuilder
-                    .Create(textEBImprovements, DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(new GuiPresentationBuilder
-                    (
-                    "Spell/&" + entry + "Title",
-                    "Spell/&" + entry + "Description"
-                    )
-                    .SetSpriteReference(DatabaseHelper.SpellDefinitions.MagicMissile.GuiPresentation.SpriteReference).Build()
-                    )
-                .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
-                .SetSpellLevel(0)
-                .SetCastingTime(RuleDefinitions.ActivationTime.Action)
-                .SetVerboseComponent(true)
-                .SetSomaticComponent(true)
-                .SetEffectDescription(effect)
-                .SetAiParameters(new SpellAIParameters());
-                SpellDefinition EIcantrip = EIcantripBuilder.AddToDB();
-
-
-                GuiPresentation guiPresentationEBImprovements = new GuiPresentationBuilder(
-                    "Feature/&" + entry + "MagicAffinityTitle",
-                    "Feature/&" + entry + "MagicAffinityDescription")
-                    .Build();
-
-                FeatureDefinitionBonusCantrips BonusCantrip = FeatureDefinitionBonusCantripsBuilder
-                    .Create(DatabaseHelper.FeatureDefinitionBonusCantripss.BonusCantripsDomainOblivion, textEBImprovements + "BonusCantrip", DefinitionBuilder.CENamespaceGuid)
-                    .SetGuiPresentation(guiPresentationEBImprovements)
-                        .ClearBonusCantrips()
-                        .AddBonusCantrip(EIcantrip)
-                        .AddToDB();
-
-
-                DictionaryofEBInvocations.Add(entry, BonusCantrip);
-            }
-
-            var repellingBlastDescription = DictionaryofEBInvocations["RepellingBlast"].BonusCantrips[0].EffectDescription;
-            repellingBlastDescription.EffectForms
-                .Add(new EffectFormBuilder()
-                .SetMotionForm(
-                    MotionForm.MotionType.PushFromOrigin,
-                    2)
-                .Build());
-
-            var graspingBlastDescription = DictionaryofEBInvocations["GraspingHand"].BonusCantrips[0].EffectDescription;
-            graspingBlastDescription.EffectForms
-                .Add(new EffectFormBuilder()
-                .SetMotionForm(
-                    MotionForm.MotionType.DragToOrigin,
-                    2)
-                .Build());
-
-            bool IsEldritchBlast(RulesetEffect effect)
-            {
-                var effectDescription = effect.EffectDescription;
-                return effectDescription == EldritchBlastEffect
-                       || effectDescription == repellingBlastDescription
-                       || effectDescription == graspingBlastDescription;
-            }
-
-
-            // Agonizing blast could have Cha added via SpellDamageMatchesSourceAncestry for force damage
-            // not a problem for warlocks but could buff magic missile if a warlock wizard multiclass is a thing
-            // Bigger problem is that its limited to first roll only...
-            // could do the same for Hindering/lethargic blast (via condition operations)
-
-            var additionalDamageAgonizingBlast = FeatureDefinitionPowerBuilder
-                .Create("AgonizingBlastDamagePower", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentationNoContent()
-                .SetAbilityScore(AttributeDefinitions.Charisma)
-                .SetEffectDescription(new EffectDescriptionBuilder()
-                    .AddEffectForm(
-                        new EffectFormBuilder()
-                            .SetDamageForm(
-                                false,
-                                RuleDefinitions.DieType.D1,
-                                RuleDefinitions.DamageTypeForce,
-                                0,
-                                RuleDefinitions.DieType.D1,
-                                0,
-                                RuleDefinitions.HealFromInflictedDamage.Never,
-                                new List<RuleDefinitions.TrendInfo>()
-                            )
-                            .SetBonusMode(RuleDefinitions.AddBonusMode.AbilityBonus)
-                            .Build())
-                    .Build()
-                )
-                .AddToDB();
-            
-            var agonizingBlastFeature =  FeatureDefinitionOnMagicalAttackDamageEffectBuilder
-                .Create("AdditionalDamageAgonizingBlast", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(Category.Feature)
-                .SetOnMagicalAttackDamageDelegates(null, (attacker, defender, _, effect, _, _, _) =>
-                {
-                    if (IsEldritchBlast(effect))
-                    {
-                        PowersContext.ApplyPowerEffectForms(
-                            additionalDamageAgonizingBlast,
-                            attacker.RulesetCharacter,
-                            defender.RulesetCharacter,
-                            "Agonizing_Blast"
-                        );
-                    }
-                })
-                .AddToDB();
-
-            AgonizingBlastFeatureSet = FeatureDefinitionFeatureSetBuilder
-                .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, "AgonizingBlastFeatureSet", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(Category.Feature)
-               .ClearFeatureSet()
-                .AddFeatureSet(agonizingBlastFeature)
-               .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-               .SetUniqueChoices(false)
-               .AddToDB();
-
-            var additionalEffectHinderingBlast = new EffectFormBuilder()
+            var hinderingForm = new EffectFormBuilder()
                 .SetConditionForm(
                     DatabaseHelper.ConditionDefinitions.ConditionHindered_By_Frost,
                     ConditionForm.ConditionOperation.Add
                 )
                 .Build();
             
-            var hinderingBlastFeature =  FeatureDefinitionOnMagicalAttackDamageEffectBuilder
+            var agonizingBlastEffect = new EffectDescriptionBuilder(EldritchBlastEffect)
+                .SetEffectForms(agonizingForm)
+                .Build();
+            
+            var hinderingBlastEffect = new EffectDescriptionBuilder(EldritchBlastEffect)
+                .AddEffectForm(hinderingForm)
+                .Build();
+            
+            var hinderingAgonizingBlastEffect = new EffectDescriptionBuilder(EldritchBlastEffect)
+                .SetEffectForms(agonizingForm, hinderingForm)
+                .Build();
+
+            var agonizingBlastFeature = FeatureDefinitionBuilder
+                .Create("AdditionalDamageAgonizingBlast", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(Category.Feature)
+                .AddToDB();
+            
+            var hinderingBlastFeature =  FeatureDefinitionBuilder
                 .Create("AdditionalDamageHinderingBlast", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Feature)
-                .SetOnMagicalAttackDamageDelegates(null, (_, _, _, effect, actualForms, _, _) =>
-                {
-                    if (IsEldritchBlast(effect))
-                    {
-                        actualForms.Add(additionalEffectHinderingBlast);
-                    }
-                })
+                .AddToDB();
+
+
+            var eldritchBlast = SpellWithCasterFeatureDependentEffectsBuilder
+                .Create(EldritchBlastName, DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(eldritchBlastGui)
+                .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
+                .SetSpellLevel(0)
+                .SetCastingTime(RuleDefinitions.ActivationTime.Action)
+                .SetVerboseComponent(true)
+                .SetSomaticComponent(true)
+                .SetEffectDescription(EldritchBlastEffect)
+                .SetFeatureEffects(
+                    (new List<FeatureDefinition> { agonizingBlastFeature, hinderingBlastFeature }, hinderingAgonizingBlastEffect),
+                    (new List<FeatureDefinition> { agonizingBlastFeature }, agonizingBlastEffect),
+                    (new List<FeatureDefinition> { hinderingBlastFeature }, hinderingBlastEffect)
+                )
+                .SetAiParameters(new SpellAIParameters())
+                .AddToDB();
+            EldritchBlast = eldritchBlast;
+
+            var pushForm = new EffectFormBuilder()
+                .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 2)
+                .Build();
+            var pullForm = new EffectFormBuilder()
+                .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
+                .Build();
+            
+            void MakeEldritchBlastVariant(string name, params EffectForm[] forms)
+            {
+                string cantripName = EldritchBlastName + name;
+
+                EffectDescription effect = new EffectDescription();
+                effect.Copy(EldritchBlastEffect);
+
+                var cantrip = SpellWithCasterFeatureDependentEffectsBuilder
+                    .Create(eldritchBlast, cantripName, DefinitionBuilder.CENamespaceGuid)
+                    .SetGuiPresentation(Category.Spell, eldritchBlastGui.SpriteReference)
+                    .SetEffectDescription(CustomFeaturesContext.AddEffectForms(EldritchBlastEffect, forms))
+                    .SetFeatureEffects(eldritchBlast.featuresEffectList
+                        .Select(t => (t.Item1, CustomFeaturesContext.AddEffectForms(t.Item2, forms)))
+                        .ToArray()
+                    )
+                    .AddToDB();
+
+                var bonusCantrip = FeatureDefinitionBonusCantripsBuilder
+                    .Create(DatabaseHelper.FeatureDefinitionBonusCantripss.BonusCantripsDomainOblivion,
+                        cantripName + "BonusCantrip", DefinitionBuilder.CENamespaceGuid)
+                    .SetGuiPresentation(Category.Feature)
+                    .ClearBonusCantrips()
+                    .AddBonusCantrip(cantrip)
+                    .AddToDB();
+
+                DictionaryofEBInvocations.Add(name, bonusCantrip);
+            }
+
+            MakeEldritchBlastVariant("RepellingBlast", pushForm);
+            MakeEldritchBlastVariant("GraspingHand", pullForm);
+            
+            AgonizingBlastFeatureSet = FeatureDefinitionFeatureSetBuilder
+                .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest,
+                    "AgonizingBlastFeatureSet", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(Category.Feature)
+                .ClearFeatureSet()
+                .AddFeatureSet(agonizingBlastFeature)
+                .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+                .SetUniqueChoices(false)
                 .AddToDB();
 
             HinderingBlastFeatureSet = FeatureDefinitionFeatureSetBuilder

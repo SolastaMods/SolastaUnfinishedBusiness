@@ -410,7 +410,6 @@ Different Archfey, e.g. Winter-themed
             ItemDefinition baseItem)
         {
             var resTypeName = resType.Name;
-            Main.Log($"[ENDER] name:'{resTypeName}'");
 
             var itemName = $"AncientForestHerbalBrew{resTypeName}Item";
             var powerName = $"AncientForestHerbalBrew{resTypeName}Power";
