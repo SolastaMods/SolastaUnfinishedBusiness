@@ -207,9 +207,9 @@ namespace SolastaMulticlass.Models
 
         public static void IsDeitySelectionRelevant(RulesetCharacterHero ___currentHero, ref bool ___isRelevant)
         {
-            if (LevelUpContext.IsLevelingUp(___currentHero))
+            if (LevelUpContext.IsLevelingUp(___currentHero) && LevelUpContext.RequiresDeity(___currentHero))
             {
-                ___isRelevant = LevelUpContext.RequiresDeity(___currentHero);
+                ___isRelevant = true;
             }
         }
 
