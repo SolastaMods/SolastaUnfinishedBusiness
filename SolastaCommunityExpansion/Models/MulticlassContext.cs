@@ -7,25 +7,14 @@ using static SolastaModApi.DatabaseHelper.FeatureDefinitionProficiencys;
 
 namespace SolastaCommunityExpansion.Models
 {
-    public static class MulticlassContext
+    internal static class MulticlassContext
     {
-        public static RestActivityDefinition RestActivityLevelDown { get; private set; } = RestActivityDefinitionBuilder
-            .Create("LevelDown", "fdb4d86eaef942d1a22dbf1fb5a7299f")
-            .SetGuiPresentation("MainMenu/&ExportPdfTitle", "MainMenu/&ExportPdfDescription")
-            .SetRestData(
-                RestDefinitions.RestStage.AfterRest, RuleDefinitions.RestType.LongRest,
-                RestActivityDefinition.ActivityCondition.None, "LevelDown", string.Empty)
-            .AddToDB();
-
         internal static void Load()
         {
             if (!Main.IsMulticlassInstalled)
             {
                 Main.Settings.EnableMulticlass = false;
             }
-
-            // avoids requires restart on level down feature if RESPEC enabled after MC on another session
-            _ = RestActivityLevelDown;
 
             // ensure these are always referenced here for diagnostics dump
             _ = ArmorProficiencyMulticlassBuilder.BarbarianArmorProficiencyMulticlass;
