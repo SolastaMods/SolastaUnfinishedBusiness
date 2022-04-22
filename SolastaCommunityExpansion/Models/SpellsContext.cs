@@ -14,14 +14,14 @@ namespace SolastaCommunityExpansion.Models
             private List<string> SelectedSpells => Main.Settings.SpellListSpellEnabled[SpellList.Name];
             public SpellListDefinition SpellList { get; private set; }
             public HashSet<SpellDefinition> AllSpells { get; private set; }
-            public HashSet<SpellDefinition> MinimumSpells { get; private set; }
+            //public HashSet<SpellDefinition> MinimumSpells { get; private set; }
             public HashSet<SpellDefinition> SuggestedSpells { get; private set; }
 
             public SpellListContext(SpellListDefinition spellListDefinition)
             {
                 SpellList = spellListDefinition;
                 AllSpells = new();
-                MinimumSpells = new();
+                //MinimumSpells = new();
                 SuggestedSpells = new();
             }
 
@@ -38,7 +38,7 @@ namespace SolastaCommunityExpansion.Models
                 AllSpells.Clear();
 
                 foreach (var spell in Spells
-                    .Where(x => x.SpellLevel >= minSpellLevel && x.SpellLevel <= maxSpellLevel && !MinimumSpells.Contains(x)))
+                    .Where(x => x.SpellLevel >= minSpellLevel && x.SpellLevel <= maxSpellLevel /*&& !MinimumSpells.Contains(x)*/))
                 {
                     AllSpells.Add(spell);
                 }
@@ -225,7 +225,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void RegisterSpell(
             SpellDefinition spellDefinition,
-            int suggestedStartsAt = 0,
+            //int suggestedStartsAt = 0,
             params SpellListDefinition[] spellLists)
         {
             if (Spells.Contains(spellDefinition))
@@ -239,17 +239,17 @@ namespace SolastaCommunityExpansion.Models
             {
                 var spellList = spellLists[i];
 
-                if (i < suggestedStartsAt)
+                /*if (i < suggestedStartsAt)
                 {
                     SpellListContextTab[spellList].MinimumSpells.Add(spellDefinition);
                 }
                 else
-                {
+                {*/
                     var enable = Main.Settings.SpellListSpellEnabled[spellList.Name].Contains(spellDefinition.Name);
 
                     SpellListContextTab[spellList].Switch(spellDefinition, enable);
                     SpellListContextTab[spellList].SuggestedSpells.Add(spellDefinition);
-                }
+                //}
             }
         }
 
