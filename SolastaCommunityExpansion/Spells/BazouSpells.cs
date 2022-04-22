@@ -51,12 +51,12 @@ namespace SolastaCommunityExpansion.Spells
 */
         internal static void Register()
         {
-            RegisterSpell(EldritchOrb, 1, WitchSpellList, WarlockSpellList);
-            RegisterSpell(FindFamiliar, 1, WitchSpellList, SpellListWizard);
-            RegisterSpell(Frenzy, 1, WitchSpellList, WarlockSpellList, SpellListWizard, SpellListSorcerer);
-            RegisterSpell(MinorLifesteal, 1, WitchSpellList, SpellListWizard);
-            RegisterSpell(PetalStorm, 1, WitchSpellList, SpellListDruid);
-            RegisterSpell(ProtectThreshold, 1, WitchSpellList, SpellListCleric, SpellListDruid, SpellListPaladin);
+            RegisterSpell(EldritchOrb, WitchSpellList, WarlockSpellList);
+            RegisterSpell(FindFamiliar, WitchSpellList, SpellListWizard);
+            RegisterSpell(Frenzy, WitchSpellList, WarlockSpellList, SpellListWizard, SpellListSorcerer);
+            RegisterSpell(MinorLifesteal, WitchSpellList, SpellListWizard);
+            RegisterSpell(PetalStorm, WitchSpellList, SpellListDruid);
+            RegisterSpell(ProtectThreshold, WitchSpellList, SpellListCleric, SpellListDruid, SpellListPaladin);
         }
 
         private static SpellDefinition BuildEldritchOrb()

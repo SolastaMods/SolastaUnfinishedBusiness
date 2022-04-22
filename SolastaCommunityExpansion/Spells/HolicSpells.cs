@@ -35,12 +35,12 @@ namespace SolastaCommunityExpansion.Spells
 
         internal static void Register()
         {
-            RegisterSpell(AcidClaw, 0, SpellListDruid);
-            RegisterSpell(AirBlast, 0, SpellListWizard, SpellListSorcerer, SpellListDruid);
-            RegisterSpell(BurstOfRadiance, 0, SpellListCleric);
-            RegisterSpell(ThunderStrike, 0, SpellListWizard, SpellListSorcerer, SpellListDruid);
-            RegisterSpell(EarthTremor, 0, SpellListWizardGreenmage, SpellListWizard, SpellListSorcerer, SpellListDruid);
-            RegisterSpell(WinterBreath, 0, SpellListWizardGreenmage, SpellListDruid);
+            RegisterSpell(AcidClaw, SpellListDruid);
+            RegisterSpell(AirBlast, SpellListWizard, SpellListSorcerer, SpellListDruid);
+            RegisterSpell(BurstOfRadiance, SpellListCleric);
+            RegisterSpell(ThunderStrike, SpellListWizard, SpellListSorcerer, SpellListDruid);
+            RegisterSpell(EarthTremor, SpellListWizardGreenmage, SpellListWizard, SpellListSorcerer, SpellListDruid);
+            RegisterSpell(WinterBreath, SpellListWizardGreenmage, SpellListDruid);
         }
 
         private static SpellDefinition BuildAcidClaw()
