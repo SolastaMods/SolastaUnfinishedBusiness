@@ -232,6 +232,13 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
     internal class DHPactOfTheTomeFeatureSetBuilder : FeatureDefinitionFeatureSetBuilder
     {
         private const string DHPactOfTheTomeFeatureSetName = "DHPactOfTheTomeFeatureSet";
+        
+        private static readonly FeatureDefinitionPointPool DHPactOfTheTomeBonusCantrips = FeatureDefinitionPointPoolWithBonusBuilder
+            .Create( "DHPactOfTheTomeBonusCantrips", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentationNoContent()
+            .SetPool(HeroDefinitions.PointsPoolType.Cantrip, 3)
+            .OnlyUniqueChoices()
+            .AddToDB();
 
         protected DHPactOfTheTomeFeatureSetBuilder(string name) : base(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, DefinitionBuilder.CENamespaceGuid)
         {
@@ -239,7 +246,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             Definition.GuiPresentation.Description = "Feature/&DHPactOfTheTomeFeatureSetDescription";
 
             Definition.FeatureSet.Clear();
-            Definition.FeatureSet.Add(DHPactOfTheTomeBonusCantripsBuilder.DHPactOfTheTomeBonusCantrips);
+            Definition.FeatureSet.Add(DHPactOfTheTomeBonusCantrips);
             Definition.FeatureSet.Add(DHPactOfTheTomeMagicAffinityBuilder.DHPactOfTheTomeMagicAffinity);
         }
 
@@ -249,28 +256,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         }
 
         internal static readonly FeatureDefinitionFeatureSet DHPactOfTheTomeFeatureSet = CreateAndAddToDB(DHPactOfTheTomeFeatureSetName);
-    }
-
-    internal class DHPactOfTheTomeBonusCantripsBuilder : FeatureDefinitionPointPoolBuilder
-    {
-        private const string PactOfTheTomeBonusCantripsName = "DHPactOfTheTomeBonusCantrips";
-
-        protected DHPactOfTheTomeBonusCantripsBuilder(string name) : base(DatabaseHelper.FeatureDefinitionPointPools.PointPoolCircleLandBonusCantrip, name, DefinitionBuilder.CENamespaceGuid)
-        {
-            Definition.GuiPresentation.Title = "Feature/&NoContentTitle";
-            Definition.GuiPresentation.Description = "Feature/&NoContentTitle";
-            Definition.RestrictedChoices.Clear();
-
-            Definition.SetPoolType(HeroDefinitions.PointsPoolType.Cantrip);
-            Definition.SetPoolAmount(4);
-        }
-
-        internal static FeatureDefinitionPointPool CreateAndAddToDB(string name)
-        {
-            return new DHPactOfTheTomeBonusCantripsBuilder(name).AddToDB();
-        }
-
-        internal static readonly FeatureDefinitionPointPool DHPactOfTheTomeBonusCantrips = CreateAndAddToDB(PactOfTheTomeBonusCantripsName);
     }
 
 

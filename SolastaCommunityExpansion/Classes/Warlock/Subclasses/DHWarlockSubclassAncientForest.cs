@@ -125,8 +125,8 @@ Different Archfey, e.g. Winter-themed
             Regrowth.GuiPresentation.SetSpriteReference(PowerFunctionGoodberryHealing.GuiPresentation.SpriteReference);
 
 
-            FeatureDefinitionBonusCantrips AncientForestBonusCantrip = FeatureDefinitionBonusCantripsBuilder
-                .Create(DatabaseHelper.FeatureDefinitionBonusCantripss.BonusCantripsDomainOblivion, "DHAncientForestBonusCantrip", DefinitionBuilder.CENamespaceGuid)
+            var AncientForestBonusCantrip = FeatureDefinitionFreeBonusCantripsBuilder
+                .Create( "DHAncientForestBonusCantrip", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Feature)
                 .ClearBonusCantrips()
                 .AddBonusCantrip(Shillelagh)

@@ -17,7 +17,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         public static Dictionary<string, FeatureDefinitionPower> DictionaryofEIPowers { get; private set; } = new();
 
         public static SpellDefinition EldritchBlast { get; set; }
-        public static Dictionary<string, FeatureDefinitionBonusCantrips> DictionaryofEBInvocations { get; private set; } = new();
+        public static Dictionary<string, FeatureDefinition> DictionaryofEBInvocations { get; private set; } = new();
         public static List<string> ListofEIAttributeModifers { get; private set; } = new();
         public static Dictionary<string, FeatureDefinitionFeatureSet> DictionaryofEIAttributeModifers { get; private set; } = new();
         public static FeatureDefinitionFeatureSet AgonizingBlastFeatureSet { get; set; }
@@ -274,9 +274,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                     )
                     .AddToDB();
 
-                var bonusCantrip = FeatureDefinitionBonusCantripsBuilder
-                    .Create(DatabaseHelper.FeatureDefinitionBonusCantripss.BonusCantripsDomainOblivion,
-                        cantripName + "BonusCantrip", DefinitionBuilder.CENamespaceGuid)
+                var bonusCantrip = FeatureDefinitionFreeBonusCantripsBuilder
+                    .Create(cantripName + "BonusCantrip", DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation(Category.Feature)
                     .ClearBonusCantrips()
                     .AddBonusCantrip(cantrip)

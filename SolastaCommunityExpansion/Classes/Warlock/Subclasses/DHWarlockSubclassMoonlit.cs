@@ -10,7 +10,6 @@ using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionMovementAffinitys;
 using static SolastaModApi.DatabaseHelper.SpellListDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionMoveModes;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionBonusCantripss;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 {
@@ -201,9 +200,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetSpellLevel(0)
                 .AddToDB();
 
-            FeatureDefinitionBonusCantrips MoonlitBonusCantrips = FeatureDefinitionBonusCantripsBuilder
-                .Create(BonusCantripsDomainSun,"MoonlitBonusCantrips", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation("MoonlitBonusCantrips", Category.Feat)
+            var MoonlitBonusCantrips = FeatureDefinitionFreeBonusCantripsBuilder
+                .Create("MoonlitBonusCantrips", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(Category.Feat)
                 .ClearBonusCantrips()
                 .AddBonusCantrip(AtWillMoonbeam)
                 .AddBonusCantrip(AtWillFaerieFire)

@@ -155,8 +155,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
         public static void AtWillWardingBond()
         {
-            WardingBondBonusCantrip = FeatureDefinitionBonusCantripsBuilder
-                .Create(DatabaseHelper.FeatureDefinitionBonusCantripss.BonusCantripsDomainOblivion, "DHWardingBondBonusCantrip", CENamespaceGuid)
+            WardingBondBonusCantrip = FeatureDefinitionFreeBonusCantripsBuilder
+                .Create( "DHWardingBondBonusCantrip", CENamespaceGuid)
                 .SetGuiPresentation(Category.Feature)
                 .ClearBonusCantrips()
                 .AddBonusCantrip(SpellDefinitionBuilder

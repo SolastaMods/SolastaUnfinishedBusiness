@@ -408,17 +408,11 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                     .Create(ConjureMinorElementals, "DHAtWillConjureMinorElementals", DefinitionBuilder.CENamespaceGuid);
             AtWillConjureMinorElementalsBuilder.SetSpellLevel(0);
 
-            FeatureDefinitionBonusCantripsBuilder MinorElementalBonusCantripBuilder = FeatureDefinitionBonusCantripsBuilder.Create(
-                DatabaseHelper.FeatureDefinitionBonusCantripss.BonusCantripsDomainOblivion,
-                 "DHConjureMinorElementalsBonusCantrip", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(new GuiPresentationBuilder(
-                    "Feature/&DHConjureMinorElementalsBonusCantripTitle",
-                    "Feature/&DHConjureMinorElementalsBonusCantripDescription")
-                .Build());
-
-            MinorElementalBonusCantripBuilder.ClearBonusCantrips();
-            MinorElementalBonusCantripBuilder.AddBonusCantrip(AtWillConjureMinorElementalsBuilder.AddToDB());
-            MinorElementalBonusCantrip = MinorElementalBonusCantripBuilder.AddToDB();
+            MinorElementalBonusCantrip = FeatureDefinitionFreeBonusCantripsBuilder
+                .Create("DHConjureMinorElementalsBonusCantrip", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(Category.Feature)
+                .AddBonusCantrip(AtWillConjureMinorElementalsBuilder.AddToDB())
+                .AddToDB();
         }
 
 
