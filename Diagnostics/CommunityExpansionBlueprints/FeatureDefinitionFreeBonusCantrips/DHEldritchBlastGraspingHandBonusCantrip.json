@@ -1,18 +1,13 @@
 {
-  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
-  "featureSet": [
-    "Definition:AdditionalDamageAgonizingBlast:fd6945a0-1a24-53b9-97d9-9a19fd869895"
+  "$type": "SolastaCommunityExpansion.Builders.FeatureDefinitionFreeBonusCantrips, SolastaCommunityExpansion",
+  "bonusCantrips": [
+    "Definition:DHEldritchBlastGraspingHand:67457d22-a4cb-5ec4-ac66-2a0adba85c34"
   ],
-  "mode": "Union",
-  "defaultSelection": 0,
-  "uniqueChoices": false,
-  "enumerateInDescription": false,
-  "hasRacialAffinity": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AgonizingBlastFeatureSetTitle",
-    "description": "Feature/&AgonizingBlastFeatureSetDescription",
+    "title": "Feature/&DHEldritchBlastGraspingHandBonusCantripTitle",
+    "description": "Feature/&DHEldritchBlastGraspingHandBonusCantripDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -32,7 +27,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "6d83380b-f696-5fdf-bcc6-0fdc7ac1d574",
+  "guid": "8ca78192-af9c-5928-940a-4f421418374a",
   "contentPack": 9999,
-  "name": "AgonizingBlastFeatureSet"
+  "name": "DHEldritchBlastGraspingHandBonusCantrip"
 }

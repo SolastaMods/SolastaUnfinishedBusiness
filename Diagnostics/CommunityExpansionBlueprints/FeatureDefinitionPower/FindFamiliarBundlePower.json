@@ -127,17 +127,17 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "Rest",
+  "activationTime": "NoCost",
   "reactionContext": "None",
   "reactionName": "",
   "hasCastingFailure": false,
   "castingSuccessComputation": "CasterLevel",
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
-  "rechargeRate": "LongRest",
+  "rechargeRate": "AtWill",
   "costPerUse": 1,
   "spellcastingFeature": null,
-  "usesDetermination": "ProficiencyBonus",
+  "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Charisma",
   "fixedUsesPerRecharge": 1,
@@ -155,13 +155,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&HerbalBrewFeatureSetTitle",
-    "description": "Feature/&HerbalBrewDescription",
+    "title": "Find familiar title",
+    "description": "Summons a familiar from the list",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "7552b9fd7bbfa804b85a8e1fa2ade48c",
-      "m_SubObjectName": "PotionRemedy",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -176,7 +176,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9855259c-a1f2-53cd-9255-defbe94ebd80",
+  "guid": "2ec35efd-e7ea-5927-81f7-006cd88c66ed",
   "contentPack": 9999,
-  "name": "DH_HerbalBrewPool"
+  "name": "FindFamiliarBundlePower"
 }

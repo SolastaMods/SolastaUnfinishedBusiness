@@ -1,18 +1,14 @@
 {
-  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
-  "featureSet": [
-    "Definition:AdditionalDamageAgonizingBlast:fd6945a0-1a24-53b9-97d9-9a19fd869895"
-  ],
-  "mode": "Union",
-  "defaultSelection": 0,
-  "uniqueChoices": false,
-  "enumerateInDescription": false,
-  "hasRacialAffinity": false,
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionPointPoolWithBonus, SolastaCommunityExpansion",
+  "poolType": "Cantrip",
+  "poolAmount": 3,
+  "restrictedChoices": [],
+  "uniqueChoices": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AgonizingBlastFeatureSetTitle",
-    "description": "Feature/&AgonizingBlastFeatureSetDescription",
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -32,7 +28,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "6d83380b-f696-5fdf-bcc6-0fdc7ac1d574",
+  "guid": "862cdcdd-3f35-5a3f-bc93-870c70fa15af",
   "contentPack": 9999,
-  "name": "AgonizingBlastFeatureSet"
+  "name": "DHPactOfTheTomeBonusCantrips"
 }

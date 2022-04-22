@@ -1,18 +1,14 @@
 {
-  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
-  "featureSet": [
-    "Definition:AdditionalDamageAgonizingBlast:fd6945a0-1a24-53b9-97d9-9a19fd869895"
+  "$type": "SolastaCommunityExpansion.Builders.FeatureDefinitionFreeBonusCantrips, SolastaCommunityExpansion",
+  "bonusCantrips": [
+    "Definition:ChillTouch:2dffe98ad497e4b418abc947f6077fb7",
+    "Definition:Shillelagh:2143d3cd84db2c540b80fe022d0adf1d"
   ],
-  "mode": "Union",
-  "defaultSelection": 0,
-  "uniqueChoices": false,
-  "enumerateInDescription": false,
-  "hasRacialAffinity": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AgonizingBlastFeatureSetTitle",
-    "description": "Feature/&AgonizingBlastFeatureSetDescription",
+    "title": "Feature/&DHAncientForestBonusCantripTitle",
+    "description": "Feature/&DHAncientForestBonusCantripDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -32,7 +28,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "6d83380b-f696-5fdf-bcc6-0fdc7ac1d574",
+  "guid": "53093405-2ebb-5cef-9750-75bf8364da02",
   "contentPack": 9999,
-  "name": "AgonizingBlastFeatureSet"
+  "name": "DHAncientForestBonusCantrip"
 }

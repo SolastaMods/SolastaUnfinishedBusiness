@@ -1,18 +1,13 @@
 {
-  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
-  "featureSet": [
-    "Definition:AdditionalDamageAgonizingBlast:fd6945a0-1a24-53b9-97d9-9a19fd869895"
+  "$type": "SolastaCommunityExpansion.Builders.FeatureDefinitionFreeBonusCantrips, SolastaCommunityExpansion",
+  "bonusCantrips": [
+    "Definition:DHAtWillConjureMinorElementals:e7f87a1c-dc5a-5f25-966a-c4265ab7c2b0"
   ],
-  "mode": "Union",
-  "defaultSelection": 0,
-  "uniqueChoices": false,
-  "enumerateInDescription": false,
-  "hasRacialAffinity": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AgonizingBlastFeatureSetTitle",
-    "description": "Feature/&AgonizingBlastFeatureSetDescription",
+    "title": "Feature/&DHConjureMinorElementalsBonusCantripTitle",
+    "description": "Feature/&DHConjureMinorElementalsBonusCantripDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -32,7 +27,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "6d83380b-f696-5fdf-bcc6-0fdc7ac1d574",
+  "guid": "a8fa4b6e-0943-5308-96c2-e196ed35c790",
   "contentPack": 9999,
-  "name": "AgonizingBlastFeatureSet"
+  "name": "DHConjureMinorElementalsBonusCantrip"
 }
