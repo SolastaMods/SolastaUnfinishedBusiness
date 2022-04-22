@@ -133,14 +133,31 @@ namespace SolastaCommunityExpansion.Models
         {
             var result = original;
             var baseDefinition = spell.SpellDefinition as ICustomMagicEffectBasedOnCaster;
-            if (baseDefinition != null && spell.Caster != null)
+            var caster = spell.Caster;
+
+            if (baseDefinition != null && caster != null)
             {
-                result = baseDefinition.GetCustomEffect(spell);
+                result = baseDefinition.GetCustomEffect(caster);
             }
 
             //TODO: find a way to cache result, so it works faster
-            return FeaturesByType<IModifySpellEffect>(spell.Caster)
+            return FeaturesByType<IModifySpellEffect>(caster)
                 .Aggregate(result, (current, f) => f.ModifyEffect(spell, current));
+        }
+
+        /**Modifies spell description for GUI purposes. Uses only modifiers based on ICustomMagicEffectBasedOnCaster*/
+        public static EffectDescription ModifySpellEffectGui(EffectDescription original, GuiSpellDefinition spell)
+        {
+            var result = original;
+            var baseDefinition = spell.SpellDefinition as ICustomMagicEffectBasedOnCaster;
+            var caster = ActivePalyerCharacter.Get()?.RulesetCharacter;
+
+            if (baseDefinition != null && caster != null)
+            {
+                result = baseDefinition.GetCustomEffect(caster);
+            }
+
+            return result;
         }
         
         public static EffectDescription AddEffectForms(EffectDescription baseEffect, params EffectForm[] effectForms)

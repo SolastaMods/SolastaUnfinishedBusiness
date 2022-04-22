@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 using SolastaModApi.Infrastructure;
+using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
 {
@@ -129,6 +131,26 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
             }
 
             panelToActivate = null;
+        }
+    }
+
+    [HarmonyPatch(typeof(CharacterControlPanel), "Bind")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class CharacterControlPanel_Bind
+    {
+        internal static void Prefix(CharacterControlPanel __instance, GameLocationCharacter gameCharacter, RectTransform actionTooltipAnchor)
+        {
+            ActivePalyerCharacter.Set(gameCharacter);
+        }
+    }
+    
+    [HarmonyPatch(typeof(CharacterControlPanel), "Unbind")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class CharacterControlPanel_Unbind
+    {
+        internal static void Prefix(CharacterControlPanel __instance)
+        {
+            ActivePalyerCharacter.Set();
         }
     }
 }

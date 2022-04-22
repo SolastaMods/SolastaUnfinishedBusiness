@@ -7,7 +7,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 {
     public interface ICustomMagicEffectBasedOnCaster
     {
-        EffectDescription GetCustomEffect(RulesetEffectSpell spell);
+        EffectDescription GetCustomEffect(RulesetCharacter caster);
     }
 
     public interface IModifySpellEffect
@@ -17,13 +17,15 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 
     public class SpellWithCasterFeatureDependentEffects : SpellDefinition, ICustomMagicEffectBasedOnCaster
     {
-        public List<(List<FeatureDefinition>, EffectDescription)> featuresEffectList = new();
+        private readonly List<(List<FeatureDefinition>, EffectDescription)> _featuresEffectList = new();
 
-        public EffectDescription GetCustomEffect(RulesetEffectSpell spell)
+        public List<(List<FeatureDefinition>, EffectDescription)> FeaturesEffectList => _featuresEffectList;
+
+        public EffectDescription GetCustomEffect(RulesetCharacter caster)
         {
-            var casterFeatures = CustomFeaturesContext.FeaturesByType<FeatureDefinition>(spell.Caster).ToHashSet();
+            var casterFeatures = CustomFeaturesContext.FeaturesByType<FeatureDefinition>(caster).ToHashSet();
 
-            foreach (var (featureDefinitions, customEffect) in featuresEffectList)
+            foreach (var (featureDefinitions, customEffect) in _featuresEffectList)
             {
                 if (featureDefinitions.All(f => casterFeatures.Contains(f)))
                 {
@@ -57,6 +59,16 @@ namespace SolastaCommunityExpansion.CustomDefinitions
         static void Postfix(ref EffectDescription __result, RulesetEffectSpell __instance)
         {
             __result = CustomFeaturesContext.ModifySpellEffect(__result, __instance);
+        }
+    }
+
+    //add support for ICustomMagicEffectBasedOnCaster allowing to pick spell effect for GUI depending on caster properties
+    [HarmonyPatch(typeof(GuiSpellDefinition), "EffectDescription", MethodType.Getter)]
+    class GuiSpellDefinitionl_EffectDescription
+    {
+        static void Postfix(ref EffectDescription __result, GuiSpellDefinition __instance)
+        {
+            __result = CustomFeaturesContext.ModifySpellEffectGui(__result, __instance);
         }
     }
 }

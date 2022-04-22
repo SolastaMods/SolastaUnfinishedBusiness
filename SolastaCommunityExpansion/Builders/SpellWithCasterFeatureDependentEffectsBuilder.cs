@@ -36,19 +36,19 @@ namespace SolastaCommunityExpansion.Builders
 
         public TBuilder AddFeatureEffects(params (List<FeatureDefinition>, EffectDescription)[] featureEffects)
         {
-            Definition.featuresEffectList.AddRange(featureEffects);
+            Definition.FeaturesEffectList.AddRange(featureEffects);
             return This();
         }
 
         public TBuilder SetFeatureEffects(params (List<FeatureDefinition>, EffectDescription)[] featureEffects)
         {
-            Definition.featuresEffectList.SetRange(featureEffects);
+            Definition.FeaturesEffectList.SetRange(featureEffects);
             return This();
         }
 
         public TBuilder ClearFeatureEffects()
         {
-            Definition.featuresEffectList.Clear();
+            Definition.FeaturesEffectList.Clear();
             return This();
         }
     }

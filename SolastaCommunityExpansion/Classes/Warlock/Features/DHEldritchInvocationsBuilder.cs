@@ -268,7 +268,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                     .Create(eldritchBlast, cantripName, DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation(Category.Spell, eldritchBlastGui.SpriteReference)
                     .SetEffectDescription(CustomFeaturesContext.AddEffectForms(EldritchBlastEffect, forms))
-                    .SetFeatureEffects(eldritchBlast.featuresEffectList
+                    .SetFeatureEffects(eldritchBlast.FeaturesEffectList
                         .Select(t => (t.Item1, CustomFeaturesContext.AddEffectForms(t.Item2, forms)))
                         .ToArray()
                     )
