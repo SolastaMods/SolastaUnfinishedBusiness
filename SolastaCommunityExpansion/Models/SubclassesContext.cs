@@ -47,9 +47,9 @@ namespace SolastaCommunityExpansion.Models
             LoadSubclass(new LifeTransmuter());
             LoadSubclass(new Arcanist());
             LoadSubclass(new Tactician());
-            LoadSubclass(new RoyalKnight());
+            _ = new RoyalKnight(); // LoadSubclass(new RoyalKnight());
             LoadSubclass(new PathOfTheLight());
-            LoadSubclass(new Thug());
+            _ = new Thug(); // LoadSubclass(new Thug());
             LoadSubclass(new CircleOfTheForestGuardian());
 
             Subclasses = Subclasses.OrderBy(x => x.FormatTitle()).ToHashSet();
