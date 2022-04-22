@@ -33,7 +33,7 @@ namespace SolastaCommunityExpansion.Models
                 foreach (var characterRaceDefinition in dbCharacterRaceDefinition
                     .Where(a => !a.FeatureUnlocks.Exists(x => x.Level == 1 && x.FeatureDefinition == FeatureDefinitionPowerHelpAction)))
                 {
-                    characterRaceDefinition.AddFeatureUnlock(FeatureDefinitionPowerHelpAction, 1);
+                    characterRaceDefinition.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureDefinitionPowerHelpAction, 1));
                 }
             }
             else
