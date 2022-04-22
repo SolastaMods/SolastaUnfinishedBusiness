@@ -32,7 +32,7 @@ namespace SolastaMulticlass.Patches.HeroInspection
                 {
                     var heroWithSpellRepertoire = __instance.GuiCharacter.RulesetCharacterHero;
 
-                    classSpellLevel = spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
+                    classSpellLevel = SharedSpellsContext.GetClassSpellLevel(spellRepertoire);
                     slotLevel = SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire)
                         ? Math.Max(
                             SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire), 

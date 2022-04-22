@@ -235,6 +235,12 @@ namespace SolastaMulticlass.Patches.SlotsSpells
         {
             internal static void Postfix(RulesetSpellRepertoire __instance, ref int __result)
             {
+                // required to ensure we don't display auto prepared spells
+                if (SharedSpellsContext.DisableMaxSpellLevelOfSpellCastingLevelPatch)
+                {
+                    return;
+                }
+
                 var heroWithSpellRepertoire = SharedSpellsContext.GetHero(__instance.CharacterName);
 
                 if (heroWithSpellRepertoire == null)
