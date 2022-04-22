@@ -8,7 +8,6 @@ using static SolastaModApi.DatabaseHelper.FeatureDefinitionPointPools;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaMulticlass.Models.IntegrationContext;
 using SolastaCommunityExpansion.Models;
-using SolastaModApi.Infrastructure;
 
 namespace SolastaMulticlass.Models
 {
@@ -19,7 +18,6 @@ namespace SolastaMulticlass.Models
         internal static void Load()
         {
             PatchClassLevel();
-            PatchDeitySelection();
             PatchEquipmentAssignment();
             PatchFeatureUnlocks();
             AddNonOfficialBlueprintsToFeaturesCollections();
@@ -198,35 +196,6 @@ namespace SolastaMulticlass.Models
             foreach (var method in methods)
             {
                 harmony.Patch(method, transpiler: new HarmonyMethod(transpiler));
-            }
-        }
-
-        //
-        // Deity patching support
-        //
-
-        public static void IsDeitySelectionRelevant(CharacterStageDeitySelectionPanel __instance, RulesetCharacterHero ___currentHero)
-        {
-            if (LevelUpContext.IsLevelingUp(___currentHero))
-            {
-                __instance.SetField("isRelevant", LevelUpContext.RequiresDeity(___currentHero));
-            }
-        }
-
-        private static void PatchDeitySelection()
-        {
-            var methods = new MethodInfo[]
-            {
-                typeof(CharacterStageDeitySelectionPanel).GetMethod("UpdateRelevance"),
-                typeof(CharacterStageSubclassSelectionPanel).GetMethod("UpdateRelevance")
-            };
-
-            var harmony = new Harmony("SolastaMulticlass");
-            var prefix = typeof(PatchingContext).GetMethod("IsDeitySelectionRelevant");
-
-            foreach (var method in methods)
-            {
-                harmony.Patch(method, prefix: new HarmonyMethod(prefix));
             }
         }
 
