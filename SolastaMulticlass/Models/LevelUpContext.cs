@@ -14,7 +14,6 @@ namespace SolastaMulticlass.Models
             public CharacterClassDefinition SelectedClass;
             public CharacterSubclassDefinition SelectedSubclass;
             public bool IsClassSelectionStage { get; set; }
-            public bool RequiresDeity { get; set; }
             public bool RequiresHolySymbol { get; set; }
             public bool RequiresClothesWizard { get; set; }
             public bool RequiresComponentPouch { get; set; }
@@ -65,13 +64,15 @@ namespace SolastaMulticlass.Models
 
             levelUpData.SelectedSubclass = subclass;
 
-            levelUpData.RequiresDeity =
-                (levelUpData.SelectedClass == Cleric && !classesAndLevels.ContainsKey(Cleric))
-                || (levelUpData.SelectedClass == Paladin && rulesetCharacterHero.DeityDefinition == null);
-
             levelUpData.RequiresHolySymbol =
-                !(classesAndLevels.ContainsKey(Cleric)
-                || classesAndLevels.ContainsKey(Paladin)) && (levelUpData.SelectedClass == Cleric || levelUpData.SelectedClass == Paladin);
+                (
+                    levelUpData.SelectedClass == Cleric ||
+                    levelUpData.SelectedClass == Paladin
+                ) &&
+                !(
+                    classesAndLevels.ContainsKey(Cleric) ||
+                    classesAndLevels.ContainsKey(Paladin)
+                 );
 
             levelUpData.RequiresClothesWizard =
                 !classesAndLevels.ContainsKey(Wizard) && levelUpData.SelectedClass == Wizard;
@@ -82,8 +83,6 @@ namespace SolastaMulticlass.Models
                     levelUpData.SelectedClass == Sorcerer ||
                     levelUpData.SelectedClass == Wizard ||
                     levelUpData.SelectedClass == TinkererClass ||
-                    //levelUpData.SelectedClass == AlchemistClass ||
-                    //levelUpData.SelectedClass == BardClass ||
                     levelUpData.SelectedClass == WarlockClass ||
                     levelUpData.SelectedClass == WitchClass
                 ) &&
@@ -92,8 +91,6 @@ namespace SolastaMulticlass.Models
                     classesAndLevels.ContainsKey(Sorcerer) ||
                     classesAndLevels.ContainsKey(Wizard) ||
                     classesAndLevels.ContainsKey(TinkererClass) ||
-                    //classesAndLevels.ContainsKey(AlchemistClass) ||
-                    //classesAndLevels.ContainsKey(BardClass) ||
                     classesAndLevels.ContainsKey(WarlockClass) ||
                     classesAndLevels.ContainsKey(WitchClass)
                 );
@@ -131,7 +128,9 @@ namespace SolastaMulticlass.Models
         }
 
         internal static bool RequiresDeity(RulesetCharacterHero rulesetCharacterHero)
-            => LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData) && levelUpData.RequiresDeity;
+            => LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData)
+                && (levelUpData.SelectedClass == Cleric || levelUpData.SelectedClass == Paladin)
+                && rulesetCharacterHero.DeityDefinition == null;
 
         // also referenced by 4 transpilers in PatchingContext
         public static int GetSelectedClassLevel(RulesetCharacterHero rulesetCharacterHero)
