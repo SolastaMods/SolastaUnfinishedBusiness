@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.EpicArrayAndPointBu
     // enables epic points
     [HarmonyPatch(typeof(CharacterStageAbilityScoresPanel), "Reset")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class GameManager_Reset
+    internal static class CharacterStageAbilityScoresPanel_Reset
     {
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
@@ -37,7 +37,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.EpicArrayAndPointBu
     // enables epic points
     [HarmonyPatch(typeof(CharacterStageAbilityScoresPanel), "Refresh")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class GameManager_Refresh
+    internal static class CharacterStageAbilityScoresPanel_Refresh
     {
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
