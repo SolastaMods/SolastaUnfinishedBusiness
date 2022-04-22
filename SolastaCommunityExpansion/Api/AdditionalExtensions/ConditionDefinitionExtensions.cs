@@ -5,6 +5,7 @@ namespace SolastaModApi.Extensions
 {
     public static partial class ConditionDefinitionExtensions
     {
+#if false
         public static ConditionDefinition ClearParticleReferences(this ConditionDefinition definition)
         {
             var assetReference = new AssetReference();
@@ -16,6 +17,7 @@ namespace SolastaModApi.Extensions
 
             return definition;
         }
+#endif
 
         public static ConditionDefinition SetEmptyParticleReferencesWhereNull(this ConditionDefinition definition)
         {
