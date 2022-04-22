@@ -118,7 +118,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
             return false;
         }
 
-        static void PowerEngagedHandler(UsablePowerBox box, SpellDefinition spell)
+        private static void PowerEngagedHandler(UsablePowerBox box, SpellDefinition spell)
         {
             var power = PowerBundleContext.GetPower(spell);
             var engagedHandler = box.GetField<UsablePowerBox.PowerEngagedHandler>("powerEngaged");
@@ -161,7 +161,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
             return true;
         }
 
-        static void PowerEngagedHandler(AfterRestActionItem item, SpellDefinition spell)
+        private static void PowerEngagedHandler(AfterRestActionItem item, SpellDefinition spell)
         {
             item.GetField<Button>("button").interactable = false;
 
@@ -202,9 +202,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
                 } while (needsToWait);
             }
 
-            AfterRestActionItem.AfterRestActionTakenHandler afterRestActionTaken = item.AfterRestActionTaken;
-            if (afterRestActionTaken != null)
-                afterRestActionTaken();
+            item.AfterRestActionTaken?.Invoke();
             item.SetField("executing", false);
             Button button = item.GetField<Button>("button");
             if (button != null)

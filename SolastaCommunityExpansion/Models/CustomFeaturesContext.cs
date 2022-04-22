@@ -6,6 +6,21 @@ using UnityEngine;
 
 namespace SolastaCommunityExpansion.Models
 {
+    internal static class ActivePlayerCharacter
+    {
+        private static GameLocationCharacter _character = null;
+
+        internal static void Set(GameLocationCharacter character = null)
+        {
+            _character = character;
+        }
+
+        internal static GameLocationCharacter Get()
+        {
+            return _character;
+        }
+    }
+
     internal static class CustomFeaturesContext
     {
         internal static CharacterAction CurrentAction { get; set; }
@@ -150,7 +165,7 @@ namespace SolastaCommunityExpansion.Models
         {
             var result = original;
             var baseDefinition = spell.SpellDefinition as ICustomMagicEffectBasedOnCaster;
-            var caster = ActivePalyerCharacter.Get()?.RulesetCharacter;
+            var caster = ActivePlayerCharacter.Get()?.RulesetCharacter;
 
             if (baseDefinition != null && caster != null)
             {

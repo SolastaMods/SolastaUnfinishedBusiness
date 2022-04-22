@@ -140,7 +140,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
     {
         internal static void Prefix(CharacterControlPanel __instance, GameLocationCharacter gameCharacter, RectTransform actionTooltipAnchor)
         {
-            ActivePalyerCharacter.Set(gameCharacter);
+            ActivePlayerCharacter.Set(gameCharacter);
         }
     }
     
@@ -150,7 +150,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
     {
         internal static void Prefix(CharacterControlPanel __instance)
         {
-            ActivePalyerCharacter.Set();
+            ActivePlayerCharacter.Set();
         }
     }
 }

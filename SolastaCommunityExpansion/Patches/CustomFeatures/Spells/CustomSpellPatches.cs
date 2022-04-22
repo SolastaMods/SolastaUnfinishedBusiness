@@ -7,14 +7,15 @@ using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.Spells
 {
-    public class CustomSpellPatches
+    internal static class CustomSpellPatches
     {
         //add support for ICustomMagicEffectBasedOnCaster allowing to pick spell effect depending on some caster properties
         //and IModifySpellEffect which modifies existing effect (changing elemental damage type for example)
         [HarmonyPatch(typeof(RulesetEffectSpell), "EffectDescription", MethodType.Getter)]
-        class RulesetEffectSpell_EffectDescription
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+        internal static class RulesetEffectSpell_EffectDescription
         {
-            static void Postfix(ref EffectDescription __result, RulesetEffectSpell __instance)
+            internal static void Postfix(ref EffectDescription __result, RulesetEffectSpell __instance)
             {
                 __result = CustomFeaturesContext.ModifySpellEffect(__result, __instance);
             }
@@ -22,9 +23,10 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Spells
 
         //add support for ICustomMagicEffectBasedOnCaster allowing to pick spell effect for GUI depending on caster properties
         [HarmonyPatch(typeof(GuiSpellDefinition), "EffectDescription", MethodType.Getter)]
-        class GuiSpellDefinitionl_EffectDescription
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+        internal static class GuiSpellDefinitionl_EffectDescription
         {
-            static void Postfix(ref EffectDescription __result, GuiSpellDefinition __instance)
+            internal static void Postfix(ref EffectDescription __result, GuiSpellDefinition __instance)
             {
                 __result = CustomFeaturesContext.ModifySpellEffectGui(__result, __instance);
             }
@@ -32,9 +34,10 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Spells
 
         [HarmonyPatch(typeof(CharacterBuildingManager), "RegisterPoolStack")]
         [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-        public static class CharacterBuildingManager_RegisterPoolStack
+        internal static class CharacterBuildingManager_RegisterPoolStack
         {
-            public static void Postfix(CharacterBuildingManager __instance, CharacterHeroBuildingData heroBuildingData,
+            internal static void Postfix(
+                CharacterHeroBuildingData heroBuildingData,
                 List<FeatureDefinition> features,
                 string tag)
             {
