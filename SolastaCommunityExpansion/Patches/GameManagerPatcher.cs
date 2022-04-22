@@ -95,7 +95,7 @@ namespace SolastaCommunityExpansion.Patches
                 SpellsContext.Load();
 
                 // Monsters need spells
-                //MonsterContext.Load(); // Removing from CE
+                MonsterContext.AddNewMonsters();
 
                 // Save by location initialization depends on services to be ready
                 SaveByLocationContext.Load();

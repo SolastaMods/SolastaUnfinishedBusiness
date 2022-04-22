@@ -1,12 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using SolastaModApi;
+using SolastaModApi.Extensions;
+using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
-
-namespace SolastaMonsters.Models
+//******************************************************************************************
+// BY DEFINITION, REFACTORING REQUIRES CONFIRMING EXTERNAL BEHAVIOUR DOES NOT CHANGE
+// "REFACTORING WITHOUT TESTS IS JUST CHANGING STUFF"
+//******************************************************************************************
+namespace SolastaCommunityExpansion.Models
 {
     internal static class MonsterContext
     {
-        internal static string GUID = "d825a5ac-75bf-4ffa-81d3-b8c8b5f5d2a3";
-
+        internal const string GUID = "b1ffaca74824486ea74a68d45e6b1925";
         internal struct CustomMonster
         {
             public string MonsterName;
@@ -46,20 +50,26 @@ namespace SolastaMonsters.Models
             public bool PhantomDistortion;
             public AssetReference AttachedParticlesReference;
             public AssetReferenceSprite SpriteReference;
+
         }
 
-        public static void Load()
+        public static readonly List<MonsterDefinition> ModdedMonsters = new List<MonsterDefinition>();
+
+        public static void AddNewMonsters()
         {
-            //following order of new blueprint creation should be maintained
-            Monsters.NewMonsterAttributes.Create();
-            Monsters.NewMonsterAttacks.Create();
-            Monsters.NewMonsterPowers.Create();
-
-            Monsters.MonstersHomebrew.EnableInDungeonMaker();
-            Monsters.MonstersSolasta.EnableInDungeonMaker();
-
-            Monsters.MonstersAttributes.EnableInDungeonMaker();
-            Monsters.MonstersSRD.EnableInDungeonMaker();
+            
+                //following order of new blueprint creation should be maintained
+                Monsters.NewMonsterSpells.Create();
+                Monsters.NewMonsterAttributes.Create();
+                Monsters.NewMonsterAttacks.Create();
+                Monsters.NewMonsterPowers.Create();
+                       
+                Monsters.MonstersHomebrew.EnableInDungeonMaker();
+                Monsters.MonstersSolasta.EnableInDungeonMaker();
+                       
+                Monsters.MonstersAttributes.EnableInDungeonMaker();
+                Monsters.MonstersSRD.EnableInDungeonMaker();
+            
         }
     }
 }
