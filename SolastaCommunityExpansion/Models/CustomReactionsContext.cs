@@ -6,7 +6,7 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Models
 {
-    public static class CutomReactionsContext
+    public static class CustomReactionsContext
     {
         private static IDamagedReactionSpell _alwayseact;
         public static IDamagedReactionSpell AlwaysReactToDamaged => _alwayseact ??= new AlwaysReactToDamagedImpl();

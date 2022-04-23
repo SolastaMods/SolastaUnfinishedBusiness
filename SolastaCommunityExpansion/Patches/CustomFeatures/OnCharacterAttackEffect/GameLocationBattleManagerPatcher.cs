@@ -97,7 +97,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                 }
             }
 
-            yield return CutomReactionsContext.TryReactingToDamageWithSpell(attacker, defender, attackModifier, attackMode, rangedAttack, advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget);
+            yield return CustomReactionsContext.TryReactingToDamageWithSpell(attacker, defender, attackModifier, attackMode, rangedAttack, advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget);
         }
     }
 

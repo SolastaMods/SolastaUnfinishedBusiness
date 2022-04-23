@@ -141,7 +141,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
                 .SetSomaticComponent(true)
                 .SetVerboseComponent(true)
-                .AddCustomFeature(CutomReactionsContext.AlwaysReactToDamaged)
+                .AddCustomFeature(CustomReactionsContext.AlwaysReactToDamaged)
                 .SetCastingTime(RuleDefinitions.ActivationTime.Reaction)
                 .SetEffectDescription(new EffectDescriptionBuilder()
                     .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ScorchingRay)
