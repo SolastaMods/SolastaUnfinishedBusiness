@@ -11,13 +11,17 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class SubspellSelectionModal_OnActivate
     {
-        internal static bool Prefix(SubspellSelectionModal __instance, int index,
-            RulesetSpellRepertoire ___spellRepertoire, SpellsByLevelBox.SpellCastEngagedHandler ___spellCastEngaged)
+        internal static bool Prefix(
+            SubspellSelectionModal __instance,
+            int index,
+            RulesetSpellRepertoire ___spellRepertoire,
+            SpellDefinition ___masterSpell,
+            SpellsByLevelBox.SpellCastEngagedHandler ___spellCastEngaged,
+            int ___slotLevel,
+            UsableDeviceFunctionBox.DeviceFunctionEngagedHandler ___deviceFunctionEngaged
+            )
         {
-            var masterSpell = __instance.GetField<SpellDefinition>("masterSpell");
-
-            var masterPower = PowerBundleContext.GetPower(masterSpell);
-
+            var masterPower = PowerBundleContext.GetPower(___masterSpell);
 
             if (masterPower == null)
             {
@@ -26,21 +30,16 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
 
             if (___spellCastEngaged != null)
             {
-                var slotLevel = __instance.GetField<int>("slotLevel");
-                ___spellCastEngaged(___spellRepertoire, ___spellRepertoire.KnownSpells[index],
-                    slotLevel);
+                ___spellCastEngaged(___spellRepertoire, ___spellRepertoire.KnownSpells[index], ___slotLevel);
             }
             else
             {
-                UsableDeviceFunctionBox.DeviceFunctionEngagedHandler deviceFunctionEngaged =
-                    __instance.GetField<UsableDeviceFunctionBox.DeviceFunctionEngagedHandler>("deviceFunctionEngaged");
-                if (deviceFunctionEngaged != null)
-                    deviceFunctionEngaged(
-                        __instance.GetField<GuiCharacter>("guiCharacter"),
-                        __instance.GetField<RulesetItemDevice>("rulesetItemDevice"),
-                        __instance.GetField<RulesetDeviceFunction>("rulesetDeviceFunction"),
-                        0, index
-                    );
+                ___deviceFunctionEngaged?.Invoke(
+                    __instance.GetField<GuiCharacter>("guiCharacter"),
+                    __instance.GetField<RulesetItemDevice>("rulesetItemDevice"),
+                    __instance.GetField<RulesetDeviceFunction>("rulesetDeviceFunction"),
+                    0, index
+                );
             }
 
             __instance.Hide();
@@ -52,8 +51,15 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class SubspellItem_Bind
     {
-        internal static bool Prefix(SubspellItem __instance, RulesetCharacter caster,
-            SpellDefinition spellDefinition, int index, SubspellItem.OnActivateHandler onActivate)
+        internal static bool Prefix(
+            SubspellItem __instance, 
+            RulesetCharacter caster,
+            SpellDefinition spellDefinition, 
+            int index, 
+            SubspellItem.OnActivateHandler onActivate,
+            GuiLabel ___spellTitle,
+            GuiTooltip ___tooltip
+            )
         {
             var power = PowerBundleContext.GetPower(spellDefinition);
 
@@ -64,9 +70,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
 
             __instance.SetField("index", index);
 
-            GuiPowerDefinition guiPowerDefinition =
-                ServiceRepository.GetService<IGuiWrapperService>().GetGuiPowerDefinition(power.Name);
-            __instance.GetField<GuiLabel>("spellTitle").Text = guiPowerDefinition.Title;
+            GuiPowerDefinition guiPowerDefinition = ServiceRepository.GetService<IGuiWrapperService>().GetGuiPowerDefinition(power.Name);
+            ___spellTitle.Text = guiPowerDefinition.Title;
 
             //add info about remaining spell slots if powers consume them
             // var usablePower = caster.GetPowerFromDefinition(power);
@@ -75,12 +80,14 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
             //     var power_info = Helpers.Accessors.getNumberOfSpellsFromRepertoireOfSpecificSlotLevelAndFeature(power.costPerUse, caster, power.spellcastingFeature);
             //     instance.spellTitle.Text += $"   [{power_info.remains}/{power_info.total}]";
             // }
-            var tooltip = __instance.GetField<GuiTooltip>("tooltip");
-            tooltip.TooltipClass = guiPowerDefinition.TooltipClass;
-            tooltip.Content = power.GuiPresentation.Description;
-            tooltip.DataProvider = guiPowerDefinition;
-            tooltip.Context = caster;
+
+            ___tooltip.TooltipClass = guiPowerDefinition.TooltipClass;
+            ___tooltip.Content = power.GuiPresentation.Description;
+            ___tooltip.DataProvider = guiPowerDefinition;
+            ___tooltip.Context = caster;
+
             __instance.SetField("onActivate", onActivate);
+
             return false;
         }
     }
@@ -89,31 +96,34 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class UsablePowerBox_OnActivateCb
     {
-        internal static bool Prefix(UsablePowerBox __instance)
+        internal static bool Prefix(
+            UsablePowerBox __instance,
+            RulesetUsablePower ___usablePower,
+            UsablePowerBox.PowerEngagedHandler ___powerEngaged,
+            RulesetCharacter ___activator)
         {
-            var masterPower = __instance.GetField<RulesetUsablePower>("usablePower").PowerDefinition;
+            var masterPower = ___usablePower.PowerDefinition;
 
             if (PowerBundleContext.GetBundle(masterPower) == null)
             {
                 return true;
             }
 
-            if (__instance.GetField<UsablePowerBox.PowerEngagedHandler>("powerEngaged") == null)
+            if (___powerEngaged == null)
             {
                 return true;
             }
 
             var masterSpell = PowerBundleContext.GetSpell(masterPower);
+            var repertoire = new RulesetSpellRepertoire();
+            var subspellSelectionModalScreen = Gui.GuiService.GetScreen<SubspellSelectionModal>();
+            var handler = new SpellsByLevelBox.SpellCastEngagedHandler(
+                (spellRepertoire, spell, slotLevel) => PowerEngagedHandler(__instance, spell));
 
-            SubspellSelectionModal screen = Gui.GuiService.GetScreen<SubspellSelectionModal>();
-            var handler = new SpellsByLevelBox.SpellCastEngagedHandler((spellRepertoire, spell, slotLevel) =>
-                PowerEngagedHandler(__instance, spell));
-            var repertoir = new RulesetSpellRepertoire();
-            repertoir.KnownSpells.AddRange(masterSpell.SubspellsList);
+            repertoire.KnownSpells.AddRange(masterSpell.SubspellsList);
 
-            screen.Bind(masterSpell, __instance.GetField<RulesetCharacter>("activator"), repertoir, handler, 0,
-                __instance.RectTransform);
-            screen.Show();
+            subspellSelectionModalScreen.Bind(masterSpell, ___activator, repertoire, handler, 0, __instance.RectTransform);
+            subspellSelectionModalScreen.Show();
 
             return false;
         }
@@ -132,27 +142,33 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class AfterRestActionItem_OnExecuteCb
     {
-        internal static bool Prefix(AfterRestActionItem __instance, bool ___executing, Button ___button)
+        internal static bool Prefix(
+            AfterRestActionItem __instance, 
+            bool ___executing)
         {
-            if (___executing) { return true; }
+            if (___executing)
+            { 
+                return true; 
+            }
 
             var activity = __instance.RestActivityDefinition;
 
             if (activity.Functor == "UseCustomRestPower" && activity.StringParameter != null)
             {
                 var masterPower = PowerBundleContext.GetPower(activity.StringParameter);
+
                 if (masterPower)
                 {
                     var masterSpell = PowerBundleContext.GetSpell(masterPower);
-
-                    SubspellSelectionModal screen = Gui.GuiService.GetScreen<SubspellSelectionModal>();
+                    var repertoire = new RulesetSpellRepertoire();
+                    var subspellSelectionModalScreen = Gui.GuiService.GetScreen<SubspellSelectionModal>();
                     var handler = new SpellsByLevelBox.SpellCastEngagedHandler((spellRepertoire, spell, slotLevel) =>
                         PowerEngagedHandler(__instance, spell));
-                    var repertoir = new RulesetSpellRepertoire();
-                    repertoir.KnownSpells.AddRange(masterSpell.SubspellsList);
 
-                    screen.Bind(masterSpell, __instance.Hero, repertoir, handler, 0, __instance.RectTransform);
-                    screen.Show();
+                    repertoire.KnownSpells.AddRange(masterSpell.SubspellsList);
+
+                    subspellSelectionModalScreen.Bind(masterSpell, __instance.Hero, repertoire, handler, 0, __instance.RectTransform);
+                    subspellSelectionModalScreen.Show();
 
                     return false;
                 }
@@ -173,24 +189,28 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
         private static IEnumerator ExecuteAsync(AfterRestActionItem item, string powerName)
         {
             item.SetField("executing", true);
+
             var parameters = new FunctorParametersDescription {RestingHero = item.Hero, StringParameter = powerName};
-            IGameRestingService service = ServiceRepository.GetService<IGameRestingService>();
+            var gameRestingService = ServiceRepository.GetService<IGameRestingService>();
+
             yield return ServiceRepository.GetService<IFunctorService>()
-                .ExecuteFunctorAsync(item.RestActivityDefinition.Functor, parameters, service);
+                .ExecuteFunctorAsync(item.RestActivityDefinition.Functor, parameters, gameRestingService);
 
             yield return null;
-            IGameLocationActionService actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            IGameLocationCharacterService characterService =
-                ServiceRepository.GetService<IGameLocationCharacterService>();
-            if (actionService != null && characterService != null)
+
+            var gameLocationActionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+
+            if (gameLocationActionService != null && gameLocationCharacterService != null)
             {
-                bool needsToWait = false;
+                bool needsToWait;
+
                 do
                 {
                     needsToWait = false;
-                    foreach (GameLocationCharacter partyCharacter in characterService.PartyCharacters)
+                    foreach (var partyCharacter in gameLocationCharacterService.PartyCharacters)
                     {
-                        if (actionService.IsCharacterActing(partyCharacter))
+                        if (gameLocationActionService.IsCharacterActing(partyCharacter))
                         {
                             needsToWait = true;
                             break;
@@ -198,15 +218,22 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
                     }
 
                     if (needsToWait)
+                    {
                         yield return null;
+                    }
+
                 } while (needsToWait);
             }
 
             item.AfterRestActionTaken?.Invoke();
             item.SetField("executing", false);
-            Button button = item.GetField<Button>("button");
+
+            var button = item.GetField<Button>("button");
+
             if (button != null)
+            {
                 button.interactable = true;
+            }
         }
     }
 }
