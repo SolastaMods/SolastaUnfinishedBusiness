@@ -14,7 +14,7 @@ namespace SolastaMulticlass.Patches
 
             ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += (_) =>
             {   
-                CacheSpellsContext.Load(); // dependes on all CE blueprints in databases
+                CacheSpellsContext.Load(); // depends on all CE blueprints in databases
                 IntegrationContext.Load(); // depends on all CE blueprints in databases
                 PatchingContext.Load(); // depends on IntegrationContext
                 SharedSpellsContext.Load(); // depends on IntegrationContext

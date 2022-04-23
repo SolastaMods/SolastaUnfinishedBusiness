@@ -47,8 +47,7 @@ namespace SolastaMulticlass.Patches.HeroInspection
                     __instance.LevelSelected,
                     spellRepertoire.KnownCantrips.Count > 0 ? 1 : 0,
                     classSpellLevel,
-                    slotLevel,
-                    useClassSpellLevelOnButtons: false);
+                    slotLevel);
             }
         }
     }
