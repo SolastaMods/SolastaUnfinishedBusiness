@@ -1259,6 +1259,8 @@ Spell/&AHPactMarkPactMarkConditionDescription	You can mark other creatures with 
 Spell/&AHPactMarkPactMarkConditionTitle	Pact Mark
 Spell/&AHPactMarkSpellDescription	You place a mark form your pact onto a creature you can see within 90ft. It becomes vulnerable to you and takes an additional 1d6 damage whenever you hit it with an attack (physical or spell attack). This damage is the same type as the attack that hits.
 Spell/&AHPactMarkSpellTitle	Pact Mark
+Spell/&AHHellishRebukeTitle Hellish Rebuke
+Spell/&AHHellishRebukeDescription  You point your finger, and the creature that damaged you is momentarily surrounded by hellish flames. The creature must make a Dexterity saving throw. It takes 2d10 fire damage on a failed save, or half as much damage on a successful one.
 Spell/&AirBlastDescription	Fire a blast of focused air at your target.
 Spell/&AirBlastTitle	Air Blast
 Spell/&BurstOfRadianceDescription	Create a brilliant flash of shimmering light, damaging all enemies around you.
