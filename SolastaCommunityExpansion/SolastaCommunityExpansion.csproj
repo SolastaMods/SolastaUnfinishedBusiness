@@ -86,12 +86,14 @@
       <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\UnityModManager\UnityModManager.dll</HintPath>
       <Private>false</Private>
     </Reference>
-    <Reference Include="UniverseLib.Mono">
-      <HintPath>..\lib\UniverseLib.Mono.dll</HintPath>
-    </Reference>
     <Reference Include="UnityExplorer.STANDALONE.Mono">
       <HintPath>..\lib\UnityExplorer.STANDALONE.Mono.dll</HintPath>
     </Reference>
+    <Reference Include="Mcs">
+      <HintPath>..\lib\mcs.dll</HintPath>
+    </Reference>
+    <PackageReference Include="Samboy063.Tomlet" Version="3.1.3" />
+    <PackageReference Include="UniverseLib.Mono" Version="1.3.8" />
   </ItemGroup>
 
   <ItemGroup>
