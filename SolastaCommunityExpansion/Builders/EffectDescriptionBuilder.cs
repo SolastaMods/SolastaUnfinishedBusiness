@@ -51,6 +51,12 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
+        public EffectDescriptionBuilder SetParticleEffectParameters(SpellDefinition reference)
+        {
+            effect.SetEffectParticleParameters(reference.EffectDescription.EffectParticleParameters);
+            return this;
+        }
+
         public EffectDescriptionBuilder SetEffectAIParameters(EffectAIParameters effectAIParameters)
         {
             effect.SetEffectAIParameters(effectAIParameters);
@@ -68,9 +74,9 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public EffectDescriptionBuilder SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod effectIncrementMethod, int incrementMultiplier, int additionalTargetsPerIncrement,
-            int additionalDicePerIncrement, int additionalSpellLevelPerIncrement, int additionalSummonsPerIncrement, int additionalHPPerIncrement, int additionalTempHPPerIncrement,
-            int additionalTargetCellsPerIncrement, int additionalItemBonus, RuleDefinitions.AdvancementDuration alteredDuration)
+        public EffectDescriptionBuilder SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod effectIncrementMethod, int incrementMultiplier=1, int additionalTargetsPerIncrement=0,
+            int additionalDicePerIncrement=0, int additionalSpellLevelPerIncrement=0, int additionalSummonsPerIncrement=0, int additionalHPPerIncrement=0, int additionalTempHPPerIncrement=0,
+            int additionalTargetCellsPerIncrement=0, int additionalItemBonus=0, RuleDefinitions.AdvancementDuration alteredDuration=RuleDefinitions.AdvancementDuration.None)
         {
             EffectAdvancement effectAdvancement = new EffectAdvancement();
             effectAdvancement.SetEffectIncrementMethod(effectIncrementMethod);
@@ -88,7 +94,7 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public EffectDescriptionBuilder SetTargetingData(RuleDefinitions.Side targetSide, RuleDefinitions.RangeType rangeType, int rangeParameter, RuleDefinitions.TargetType targetType, int targetParameter, int targetParameter2, ActionDefinitions.ItemSelectionType itemSelectionType)
+        public EffectDescriptionBuilder SetTargetingData(RuleDefinitions.Side targetSide, RuleDefinitions.RangeType rangeType, int rangeParameter, RuleDefinitions.TargetType targetType, int targetParameter=1, int targetParameter2=1, ActionDefinitions.ItemSelectionType itemSelectionType=ActionDefinitions.ItemSelectionType.None)
         {
             effect.TargetSide = targetSide;
             effect.RangeType = rangeType;
@@ -213,7 +219,7 @@ namespace SolastaCommunityExpansion.Builders
 
         public EffectDescriptionBuilder SetSavingThrowData(bool hasSavingThrow, bool disableSavingThrowOnAllies, string savingThrowAbility, bool ignoreCover,
             RuleDefinitions.EffectDifficultyClassComputation difficultyClassComputation, string savingThrowDifficultyAbility,
-            int fixedSavingThrowDifficultyClass, bool advantageForEnemies, params SaveAffinityBySenseDescription[] savingThrowAffinitiesBySense)
+            int fixedSavingThrowDifficultyClass=10, bool advantageForEnemies=false, params SaveAffinityBySenseDescription[] savingThrowAffinitiesBySense)
         {
             return SetSavingThrowData(
                 hasSavingThrow, disableSavingThrowOnAllies, savingThrowAbility,
