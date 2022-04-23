@@ -120,10 +120,8 @@ Different Archfey, e.g. Winter-themed
 
             FeatureDefinitionPower Regrowth = FeatureDefinitionPowerBuilder
                 .Create(PowerPaladinLayOnHands, "AncientForestRegrowth", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(Category.Feature)
+                .SetGuiPresentation(Category.Feature, PowerFunctionGoodberryHealing.GuiPresentation.SpriteReference)
                 .AddToDB();
-            Regrowth.GuiPresentation.SetSpriteReference(PowerFunctionGoodberryHealing.GuiPresentation.SpriteReference);
-
 
             var AncientForestBonusCantrip = FeatureDefinitionFreeBonusCantripsBuilder
                 .Create( "DHAncientForestBonusCantrip", DefinitionBuilder.CENamespaceGuid)
@@ -157,7 +155,6 @@ Different Archfey, e.g. Winter-themed
                     BuildHerbalBrew(herbalBrewPool, DamageAffinityRadiantResistance, PotionOfInvisibility),
                 });
 
-
             RestActivityDefinitionBuilder
                 .Create("AncientForestToxifyingRestActivity", DefinitionBuilder.CENamespaceGuid)
                 .SetRestData(
@@ -177,7 +174,6 @@ Different Archfey, e.g. Winter-themed
                 .SetUniqueChoices(false)
                 .AddFeatureSet(herbalBrewPool)
                 .AddToDB();
-
 
             ConditionDefinition Photosynthesis = ConditionDefinitionBuilder
                 .Create("AncientForestPhotosynthesis", DefinitionBuilder.CENamespaceGuid)
@@ -225,7 +221,7 @@ Different Archfey, e.g. Winter-themed
 
             FeatureDefinitionPower RootedPower = FeatureDefinitionPowerBuilder
                 .Create("AncientForestRootedPower", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(Category.Power)
+                .SetGuiPresentation(Category.Power, PowerRangerHideInPlainSight.GuiPresentation.SpriteReference)
                 .Configure(
                        1,
                        UsesDetermination.Fixed,
@@ -258,8 +254,6 @@ Different Archfey, e.g. Winter-themed
                        true)
                 .AddToDB();
 
-            RootedPower.GuiPresentation.SetSpriteReference(PowerRangerHideInPlainSight.GuiPresentation.SpriteReference);
-
             FeatureDefinitionPower AncientForestWallofThornsPool = FeatureDefinitionPowerPoolBuilder
                 .Create("DHAncientForestWallofThornsPool", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentationNoContent()
@@ -275,14 +269,13 @@ Different Archfey, e.g. Winter-themed
                 .SetUniqueChoices(false)
                 .AddToDB();
 
-            List<SpellDefinition> ThornSpells = new List<SpellDefinition>
+            var thornSpells = new List<SpellDefinition>
             {
                 WallOfThornsWallLine,
                 WallOfThornsWallRing
             };
 
-
-            foreach (SpellDefinition spell in ThornSpells)
+            foreach (SpellDefinition spell in thornSpells)
             {
                 //   FeatureDefinitionPower WallofThornsPower = FeatureDefinitionPowerBuilder
                 //       .Create("AncientForest" + spell.name, DefinitionBuilder.CENamespaceGuid)
@@ -320,7 +313,6 @@ Different Archfey, e.g. Winter-themed
             }
             // should Use features sets so character saves don't break
 
-
             FeatureDefinitionAttributeModifier AncientForestAttributeModiferRegrowth = FeatureDefinitionAttributeModifierBuilder
                   .Create(AttributeModifierPaladinHealingPoolBase, "AncientForestAttributeModiferRegrowth", DefinitionBuilder.CENamespaceGuid)
                   .SetGuiPresentationNoContent(true)
@@ -346,7 +338,6 @@ Different Archfey, e.g. Winter-themed
                 .AddFeatureAtLevel(WallofThornsFeatureSet, 14)
                 .AddToDB();
         }
-
         private static FeatureDefinitionPower BuildHerbalBrew(FeatureDefinitionPower pool,
             string type,
             ItemDefinition baseItem)
@@ -370,12 +361,10 @@ Different Archfey, e.g. Winter-themed
             brewItem.SetIsUsableDevice(true);
             brewItem.SetUsableDeviceDescription(baseItem.UsableDeviceDescription);
 
-
             EffectForm brewForm = new EffectFormBuilder()
                 .SetSummonItemForm(brewItem, 1)
                 .SetBonusMode(AddBonusMode.DoubleProficiency)
                 .Build();
-
 
             EffectDescription brewEffect = new EffectDescriptionBuilder()
                 .AddEffectForm(brewForm)
@@ -390,7 +379,6 @@ Different Archfey, e.g. Winter-themed
                     ActionDefinitions.ItemSelectionType.Equiped)
                 .Build();
 
-
             return new FeatureDefinitionPowerSharedPoolBuilder(
                 powerName,
                 pool,
@@ -404,8 +392,7 @@ Different Archfey, e.g. Winter-themed
                 guiPresentation,
                 false
             ).AddToDB();
-        }
-        
+        }    
         private static FeatureDefinitionPower BuildHerbalBrew(FeatureDefinitionPower pool,
             FeatureDefinitionDamageAffinity resType,
             ItemDefinition baseItem)
