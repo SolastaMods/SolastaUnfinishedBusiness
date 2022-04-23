@@ -103,8 +103,8 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
 
             FeatureDefinitionPowerSharedPool powerFly = BuildActionTransmuteConditionPower(transmuteForce, RuleDefinitions.RechargeRate.LongRest,
                     RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RangeType.Touch, 2,
-                    RuleDefinitions.TargetType.Individuals, ActionDefinitions.ItemSelectionType.None, RuleDefinitions.DurationType.UntilLongRest, 1,
-                    RuleDefinitions.TurnOccurenceType.EndOfTurn, AttributeDefinitions.Intelligence, ConditionDefinitions.ConditionFlying, "PowerTransmuteFly")
+                    RuleDefinitions.TargetType.IndividualsUnique, ActionDefinitions.ItemSelectionType.None, RuleDefinitions.DurationType.UntilLongRest, 1,
+                    RuleDefinitions.TurnOccurenceType.EndOfTurn, AttributeDefinitions.Intelligence, ConditionDefinitions.ConditionFlying12, "PowerTransmuteFly")
                 .SetGuiPresentation(Category.Subclass, Fly.GuiPresentation.SpriteReference)
                 .AddToDB();
 

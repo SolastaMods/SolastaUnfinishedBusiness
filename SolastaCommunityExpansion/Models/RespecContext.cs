@@ -91,6 +91,11 @@ namespace SolastaCommunityExpansion.Models
 
             public override IEnumerator Execute(FunctorParametersDescription functorParameters, FunctorExecutionContext context)
             {
+                if (PlayerControllerContext.IsMultiplayer)
+                {
+                    yield break;             
+                }
+
                 var guiConsoleScreen = Gui.GuiService.GetScreen<GuiConsoleScreen>();
                 var gameCampaignScreen = Gui.GuiService.GetScreen<GameCampaignScreen>();
 

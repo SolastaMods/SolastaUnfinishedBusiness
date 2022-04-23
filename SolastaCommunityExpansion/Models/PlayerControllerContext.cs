@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace SolastaCommunityExpansion.Models
 {
-    internal static class PlayerControllerContext
+    public static class PlayerControllerContext
     {
         private const int PLAYER_CONTROLLER_ID = 1;
 
@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal static readonly string[] Controllers = new string[] { "Human", "AI" };
 
-        internal static bool IsMultiplayer => ServiceRepository.GetService<INetworkingService>().IsMultiplayerGame;
+        public static bool IsMultiplayer => ServiceRepository.GetService<INetworkingService>().IsMultiplayerGame;
 
         internal static bool IsOffGame => Gui.Game == null;
 
