@@ -14,16 +14,8 @@ namespace SolastaMulticlass.Models
             public CharacterClassDefinition SelectedClass;
             public CharacterSubclassDefinition SelectedSubclass;
             public bool IsClassSelectionStage { get; set; }
-            public bool RequiresHolySymbol { get; set; }
-            public bool RequiresClothesWizard { get; set; }
-            public bool RequiresComponentPouch { get; set; }
-            public bool RequiresDruidicFocus { get; set; }
-            public bool RequiresSpellbook { get; set; }
-            public bool HasHolySymbolGranted { get; set; }
-            public bool HasComponentPouchGranted { get; set; }
-            public bool HasDruidicFocusGranted { get; set; }
-            public bool HasClothesWizardGranted { get; set; }
-            public bool HasSpellbookGranted { get; set; }
+            public bool RequiresDeity { get; set; }
+            public HashSet<ItemDefinition> GrantedItems { get; set; }
         }
 
         // keeps a tab on all heroes leveling up
@@ -51,20 +43,21 @@ namespace SolastaMulticlass.Models
             }
 
             levelUpData.SelectedClass = characterClassDefinition;
-            levelUpData.SelectedSubclass = null;
 
-            if (characterClassDefinition == null)
-            {
-                return;
-            }
-
+            bool required;
             var classesAndLevels = rulesetCharacterHero.ClassesAndLevels;
 
             rulesetCharacterHero.ClassesAndSubclasses.TryGetValue(levelUpData.SelectedClass, out var subclass);
-
             levelUpData.SelectedSubclass = subclass;
 
-            levelUpData.RequiresHolySymbol =
+            levelUpData.RequiresDeity = 
+                (levelUpData.SelectedClass == Cleric && !classesAndLevels.ContainsKey(Cleric))
+                || (levelUpData.SelectedClass == Paladin && rulesetCharacterHero.DeityDefinition == null);
+
+            levelUpData.GrantedItems = new();
+
+            // Holy Symbol
+            required =
                 (
                     levelUpData.SelectedClass == Cleric ||
                     levelUpData.SelectedClass == Paladin
@@ -74,10 +67,22 @@ namespace SolastaMulticlass.Models
                     classesAndLevels.ContainsKey(Paladin)
                  );
 
-            levelUpData.RequiresClothesWizard =
+            if (required)
+            {
+                levelUpData.GrantedItems.Add(HolySymbolAmulet);
+            }
+
+            // Clothes Wizard
+            required =
                 !classesAndLevels.ContainsKey(Wizard) && levelUpData.SelectedClass == Wizard;
 
-            levelUpData.RequiresComponentPouch =
+            if (required)
+            {
+                levelUpData.GrantedItems.Add(ClothesWizard);
+            }
+
+            // Component Pouch
+            required =
                 (
                     levelUpData.SelectedClass == Ranger ||
                     levelUpData.SelectedClass == Sorcerer ||
@@ -95,11 +100,28 @@ namespace SolastaMulticlass.Models
                     classesAndLevels.ContainsKey(WitchClass)
                 );
 
-            levelUpData.RequiresDruidicFocus =
+            if (required)
+            {
+                levelUpData.GrantedItems.Add(ComponentPouch);
+            }
+            
+            // Druidic Focus
+            required =
                 (levelUpData.SelectedClass == Druid) && !classesAndLevels.ContainsKey(Druid);
 
-            levelUpData.RequiresSpellbook =
+            if (required)
+            {
+                levelUpData.GrantedItems.Add(DruidicFocus);
+            }
+
+            // Spellbook
+            required =
                 !classesAndLevels.ContainsKey(Wizard) && levelUpData.SelectedClass == Wizard;
+
+            if (required)
+            {
+                levelUpData.GrantedItems.Add(Spellbook);
+            }
         }
 
         internal static CharacterSubclassDefinition GetSelectedSubclass(RulesetCharacterHero rulesetCharacterHero)
@@ -129,8 +151,7 @@ namespace SolastaMulticlass.Models
 
         internal static bool RequiresDeity(RulesetCharacterHero rulesetCharacterHero)
             => LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData)
-                && (levelUpData.SelectedClass == Cleric || levelUpData.SelectedClass == Paladin)
-                && rulesetCharacterHero.DeityDefinition == null;
+                && levelUpData.RequiresDeity;
 
         // also referenced by 4 transpilers in PatchingContext
         public static int GetSelectedClassLevel(RulesetCharacterHero rulesetCharacterHero)
@@ -142,7 +163,8 @@ namespace SolastaMulticlass.Models
                 return classLevel;
             }
 
-            return 1; // first time hero is getting this class
+            // first time hero is getting this class
+            return 1;
         }
 
         internal static bool IsClassSelectionStage(RulesetCharacterHero rulesetCharacterHero)
@@ -156,10 +178,6 @@ namespace SolastaMulticlass.Models
                 && (rulesetCharacterHero.ClassesAndLevels.Count > 1
                     || !rulesetCharacterHero.ClassesAndLevels.ContainsKey(levelUpData.SelectedClass));
 
-        //
-        // need to grant some additional items depending on the new class
-        //
-
         internal static void GrantItemsIfRequired(RulesetCharacterHero rulesetCharacterHero)
         {
             if (!LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData))
@@ -167,11 +185,10 @@ namespace SolastaMulticlass.Models
                 return;
             }
 
-            GrantHolySymbol(rulesetCharacterHero, levelUpData);
-            GrantClothesWizard(rulesetCharacterHero, levelUpData);
-            GrantComponentPouch(rulesetCharacterHero, levelUpData);
-            GrantDruidicFocus(rulesetCharacterHero, levelUpData);
-            GrantSpellbook(rulesetCharacterHero, levelUpData);
+            foreach (var grantedItem in levelUpData.GrantedItems)
+            {
+                rulesetCharacterHero.GrantItem(grantedItem, tryToEquip: false);
+            }
         }
 
         internal static void UngrantItemsIfRequired(RulesetCharacterHero rulesetCharacterHero)
@@ -181,120 +198,9 @@ namespace SolastaMulticlass.Models
                 return;
             }
 
-            UngrantHolySymbol(rulesetCharacterHero, levelUpData);
-            UngrantClothesWizard(rulesetCharacterHero, levelUpData);
-            UngrantComponentPouch(rulesetCharacterHero, levelUpData);
-            UngrantDruidicFocus(rulesetCharacterHero, levelUpData);
-            UngrantSpellbook(rulesetCharacterHero, levelUpData);
-        }
-
-        private static void GrantHolySymbol(RulesetCharacterHero rulesetCharacterHero, LevelUpData levelUpData)
-        {
-            if (levelUpData.RequiresHolySymbol && !levelUpData.HasHolySymbolGranted)
+            foreach (var grantedItem in levelUpData.GrantedItems)
             {
-                var holySymbolAmulet = new RulesetItemSpellbook(HolySymbolAmulet);
-
-                rulesetCharacterHero.GrantItem(holySymbolAmulet, true);
-                levelUpData.HasHolySymbolGranted = true;
-            }
-        }
-
-        private static void UngrantHolySymbol(RulesetCharacterHero rulesetCharacterHero, LevelUpData levelUpData)
-        {
-            if (levelUpData.HasHolySymbolGranted)
-            {
-                var holySymbolAmulet = new RulesetItemSpellbook(HolySymbolAmulet);
-
-                rulesetCharacterHero.LoseItem(holySymbolAmulet);
-                levelUpData.HasHolySymbolGranted = false;
-            }
-        }
-
-        private static void GrantClothesWizard(RulesetCharacterHero rulesetCharacterHero, LevelUpData levelUpData)
-        {
-            if (levelUpData.RequiresClothesWizard && !levelUpData.HasClothesWizardGranted)
-            {
-                var clothesWizard = new RulesetItem(ClothesWizard);
-
-                rulesetCharacterHero.GrantItem(clothesWizard, false);
-                levelUpData.HasClothesWizardGranted = true;
-            }
-        }
-
-        private static void UngrantClothesWizard(RulesetCharacterHero rulesetCharacterHero, LevelUpData levelUpData)
-        {
-            if (levelUpData.HasClothesWizardGranted)
-            {
-                var clothesWizard = new RulesetItem(ClothesWizard);
-
-                rulesetCharacterHero.LoseItem(clothesWizard);
-                levelUpData.HasClothesWizardGranted = false;
-            }
-        }
-
-        private static void GrantComponentPouch(RulesetCharacterHero rulesetCharacterHero, LevelUpData levelUpData)
-        {
-            if (levelUpData.RequiresComponentPouch && !levelUpData.HasComponentPouchGranted)
-            {
-                var componentPouch = new RulesetItem(ComponentPouch);
-
-                rulesetCharacterHero.GrantItem(componentPouch, true);
-                levelUpData.HasComponentPouchGranted = true;
-            }
-        }
-
-        private static void UngrantComponentPouch(RulesetCharacterHero rulesetCharacterHero, LevelUpData levelUpData)
-        {
-            if (levelUpData.HasComponentPouchGranted)
-            {
-                var componentPouch = new RulesetItem(ComponentPouch);
-
-                rulesetCharacterHero.LoseItem(componentPouch);
-                levelUpData.HasComponentPouchGranted = false;
-            }
-        }
-
-        private static void GrantDruidicFocus(RulesetCharacterHero rulesetCharacterHero, LevelUpData levelUpData)
-        {
-            if (levelUpData.RequiresDruidicFocus && !levelUpData.HasDruidicFocusGranted)
-            {
-                var druidicFocus = new RulesetItem(DruidicFocus);
-
-                rulesetCharacterHero.GrantItem(druidicFocus, true);
-                levelUpData.HasDruidicFocusGranted = true;
-            }
-        }
-
-        private static void UngrantDruidicFocus(RulesetCharacterHero rulesetCharacterHero, LevelUpData levelUpData)
-        {
-            if (levelUpData.HasDruidicFocusGranted)
-            {
-                var druidicFocus = new RulesetItem(DruidicFocus);
-
-                rulesetCharacterHero.LoseItem(druidicFocus);
-                levelUpData.HasDruidicFocusGranted = false;
-            }
-        }
-
-        private static void GrantSpellbook(RulesetCharacterHero rulesetCharacterHero, LevelUpData levelUpData)
-        {
-            if (levelUpData.RequiresSpellbook && !levelUpData.HasSpellbookGranted)
-            {
-                var spellbook = new RulesetItemSpellbook(Spellbook);
-
-                rulesetCharacterHero.GrantItem(spellbook, false);
-                levelUpData.HasSpellbookGranted = true;
-            }
-        }
-
-        private static void UngrantSpellbook(RulesetCharacterHero rulesetCharacterHero, LevelUpData levelUpData)
-        {
-            if (levelUpData.HasSpellbookGranted)
-            {
-                var spellbook = new RulesetItemSpellbook(Spellbook);
-
-                rulesetCharacterHero.LoseItem(spellbook);
-                levelUpData.HasSpellbookGranted = false;
+                rulesetCharacterHero.LoseItem(grantedItem, allInstances: false);
             }
         }
     }

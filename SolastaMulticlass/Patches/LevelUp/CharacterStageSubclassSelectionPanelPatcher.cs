@@ -5,7 +5,6 @@ namespace SolastaMulticlass.Patches.LevelUp
 {
     internal static class CharacterStageSubclassSelectionPanelPatcher
     {
-        // only displays spell casting features from the current class
         [HarmonyPatch(typeof(CharacterStageSubclassSelectionPanel), "UpdateRelevance")]
         internal static class CharacterStageSubclassSelectionPanelUpdateRelevance
         {

@@ -1,11 +1,11 @@
-﻿using HarmonyLib;
+﻿using System.Collections.Generic;
+using HarmonyLib;
 using SolastaMulticlass.Models;
 
 namespace SolastaMulticlass.Patches.LevelUp
 {
     internal static class CharacterStageDeitySelectionPanelPatcher
     {
-        // only displays spell casting features from the current class
         [HarmonyPatch(typeof(CharacterStageDeitySelectionPanel), "UpdateRelevance")]
         internal static class CharacterStageDeitySelectionPanelUpdateRelevance
         {
