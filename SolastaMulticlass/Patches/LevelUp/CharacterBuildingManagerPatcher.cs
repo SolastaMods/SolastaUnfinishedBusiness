@@ -131,13 +131,13 @@ namespace SolastaMulticlass.Patches.LevelUp
 
                 foreach (var spellRepertoire in hero.SpellRepertoires)
                 {
-                    var isRepertoireFromSelectedClassSubclass = CacheSpellsContext.IsRepertoireFromSelectedClassSubclass(hero, spellRepertoire);
+                    var isRepertoireFromSelectedClassSubclass = LevelUpContext.IsRepertoireFromSelectedClassSubclass(hero, spellRepertoire);
 
                     // PATCH: don't allow cantrips to be re-learned
                     foreach (var spell in spellRepertoire.KnownCantrips)
                     {
                         if (isRepertoireFromSelectedClassSubclass
-                            || (!Main.Settings.EnableRelearnSpells && CacheSpellsContext.IsSpellOfferedBySelectedClassSubclass(hero, spell)))
+                            || (!Main.Settings.EnableRelearnSpells && LevelUpContext.IsSpellOfferedBySelectedClassSubclass(hero, spell)))
                         {
                             spellDefinitionList.TryAdd(spell);
                         }
@@ -147,7 +147,7 @@ namespace SolastaMulticlass.Patches.LevelUp
                     foreach (var spell in spellRepertoire.KnownSpells)
                     {
                         if (isRepertoireFromSelectedClassSubclass
-                            || (!Main.Settings.EnableRelearnSpells && CacheSpellsContext.IsSpellOfferedBySelectedClassSubclass(hero, spell)))
+                            || (!Main.Settings.EnableRelearnSpells && LevelUpContext.IsSpellOfferedBySelectedClassSubclass(hero, spell)))
                         {
                             spellDefinitionList.TryAdd(spell);
                         }
@@ -167,7 +167,7 @@ namespace SolastaMulticlass.Patches.LevelUp
                             foreach (var spell in spellRepertoire.SpellCastingFeature.SpellListDefinition.GetSpellsOfLevel(spellLevel))
                             {
                                 if (isRepertoireFromSelectedClassSubclass
-                                    || (!Main.Settings.EnableRelearnSpells && CacheSpellsContext.IsSpellOfferedBySelectedClassSubclass(hero, spell)))
+                                    || (!Main.Settings.EnableRelearnSpells && LevelUpContext.IsSpellOfferedBySelectedClassSubclass(hero, spell)))
                                 {
                                     spellDefinitionList.TryAdd(spell);
                                 }
@@ -189,7 +189,7 @@ namespace SolastaMulticlass.Patches.LevelUp
                     foreach (var spell in foundSpellbook.ScribedSpells)
                     {
                         if (selectedClass == Wizard
-                            || (!Main.Settings.EnableRelearnSpells && CacheSpellsContext.IsSpellOfferedBySelectedClassSubclass(hero, spell)))
+                            || (!Main.Settings.EnableRelearnSpells && LevelUpContext.IsSpellOfferedBySelectedClassSubclass(hero, spell)))
                         {
                             spellDefinitionList.TryAdd(spell);
                         }

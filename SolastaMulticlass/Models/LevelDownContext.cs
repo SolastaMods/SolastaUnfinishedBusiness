@@ -227,7 +227,7 @@ namespace SolastaMulticlass.Models
 
         private static void UnlearnSpells(RulesetCharacterHero hero, int indexLevel)
         {
-            var heroRepertoire = hero.SpellRepertoires.FirstOrDefault(x => CacheSpellsContext.IsRepertoireFromSelectedClassSubclass(hero, x));
+            var heroRepertoire = hero.SpellRepertoires.FirstOrDefault(x => LevelUpContext.IsRepertoireFromSelectedClassSubclass(hero, x));
 
             if (heroRepertoire == null)
             {
@@ -283,7 +283,7 @@ namespace SolastaMulticlass.Models
             }
 
             var classLevel = hero.ClassesAndLevels[characterClassDefinition];
-            var heroRepertoire = hero.SpellRepertoires.FirstOrDefault(x => CacheSpellsContext.IsRepertoireFromSelectedClassSubclass(hero, x));
+            var heroRepertoire = hero.SpellRepertoires.FirstOrDefault(x => LevelUpContext.IsRepertoireFromSelectedClassSubclass(hero, x));
 
             foreach (var featureDefinition in hero.ActiveFeatures[tag])
             {
