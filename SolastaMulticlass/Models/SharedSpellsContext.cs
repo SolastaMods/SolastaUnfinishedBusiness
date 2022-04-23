@@ -238,6 +238,17 @@ namespace SolastaMulticlass.Models
             return 0;
         }
 
+        internal static bool DisableMaxSpellLevelOfSpellCastingLevelPatch { get; private set; }
+
+        internal static int GetClassSpellLevel(RulesetSpellRepertoire spellRepertoire)
+        {
+            DisableMaxSpellLevelOfSpellCastingLevelPatch = true;
+            var classSpellLevel = spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
+            DisableMaxSpellLevelOfSpellCastingLevelPatch = false;
+
+            return classSpellLevel;
+        }
+
         internal static void Load()
         {
             ClassCasterType.Add(TinkererClass, CasterType.HalfRoundUp);

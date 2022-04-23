@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using SolastaCommunityExpansion.CustomDefinitions;
+using static SolastaCommunityExpansion.Models.RespecContext;
 
 namespace SolastaMulticlass.Models
 {
@@ -13,6 +14,11 @@ namespace SolastaMulticlass.Models
                 FunctorParametersDescription functorParameters,
                 FunctorExecutionContext context)
             {
+                if (SolastaCommunityExpansion.Models.PlayerControllerContext.IsMultiplayer)
+                {
+                    yield break;
+                }
+
                 var state = -1;
 
                 Gui.GuiService.ShowMessage(
@@ -29,7 +35,14 @@ namespace SolastaMulticlass.Models
 
                 if (state > 0)
                 {
-                    LevelDown(functorParameters.RestingHero);
+                    if (functorParameters.RestingHero.ClassesHistory.Count > 1)
+                    {
+                        LevelDown(functorParameters.RestingHero);
+                    }
+                    else
+                    {
+                        yield return new FunctorRespec().Execute(functorParameters, context);
+                    }
                 }
             }
         }
@@ -142,7 +155,7 @@ namespace SolastaMulticlass.Models
                     while (poolAmount-- > 0)
                     {
                         var featureDefinition = hero.TrainedFeats.Last();
-                        var featureDefinitionName = featureDefinition.Name;
+                        //var featureDefinitionName = featureDefinition.Name;
 
                         hero.TrainedFeats.Remove(featureDefinition);
 
@@ -214,7 +227,7 @@ namespace SolastaMulticlass.Models
 
         private static void UnlearnSpells(RulesetCharacterHero hero, int indexLevel)
         {
-            var heroRepertoire = hero.SpellRepertoires.FirstOrDefault(x => CacheSpellsContext.IsRepertoireFromSelectedClassSubclass(hero, x));
+            var heroRepertoire = hero.SpellRepertoires.FirstOrDefault(x => LevelUpContext.IsRepertoireFromSelectedClassSubclass(hero, x));
 
             if (heroRepertoire == null)
             {
@@ -270,7 +283,7 @@ namespace SolastaMulticlass.Models
             }
 
             var classLevel = hero.ClassesAndLevels[characterClassDefinition];
-            var heroRepertoire = hero.SpellRepertoires.FirstOrDefault(x => CacheSpellsContext.IsRepertoireFromSelectedClassSubclass(hero, x));
+            var heroRepertoire = hero.SpellRepertoires.FirstOrDefault(x => LevelUpContext.IsRepertoireFromSelectedClassSubclass(hero, x));
 
             foreach (var featureDefinition in hero.ActiveFeatures[tag])
             {

@@ -16,9 +16,8 @@ namespace SolastaMulticlass.Patches.LevelUp
                 var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
                 var currentLocalHeroCharacter = characterBuildingService.CurrentLocalHeroCharacter;
                 var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(currentLocalHeroCharacter);
-                var isMulticlass = LevelUpContext.IsMulticlass(currentLocalHeroCharacter);
 
-                if (!(isClassSelectionStage && isMulticlass))
+                if (!isClassSelectionStage)
                 {
                     return;
                 }
