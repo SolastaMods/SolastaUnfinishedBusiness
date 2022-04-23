@@ -33,7 +33,7 @@ namespace SolastaCommunityExpansion.Races
 
             var bolgrifInvisibilityEffect = EffectDescriptionBuilder
                 .Create(SpellDefinitions.Invisibility.EffectDescription)
-                .SetDurationData(RuleDefinitions.DurationType.Instantaneous, 1, RuleDefinitions.TurnOccurenceType.StartOfTurn)
+                .SetDurationData(RuleDefinitions.DurationType.Round, 1, RuleDefinitions.TurnOccurenceType.StartOfTurn)
                 .SetTargetingData(
                     RuleDefinitions.Side.Ally,
                     RuleDefinitions.RangeType.Self, 1,
