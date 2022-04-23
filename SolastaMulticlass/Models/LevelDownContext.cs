@@ -14,6 +14,11 @@ namespace SolastaMulticlass.Models
                 FunctorParametersDescription functorParameters,
                 FunctorExecutionContext context)
             {
+                if (SolastaCommunityExpansion.Models.PlayerControllerContext.IsMultiplayer)
+                {
+                    yield break;
+                }
+
                 var state = -1;
 
                 Gui.GuiService.ShowMessage(
