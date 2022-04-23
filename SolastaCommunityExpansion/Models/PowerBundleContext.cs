@@ -10,6 +10,7 @@ namespace SolastaCommunityExpansion.Models
 {
     public class PowerBundleContext
     {
+        internal const string UseCustomRestPowerFunctorName = "UseCustomRestPower";
         private static readonly Guid GuidNamespace = new("d99cec61-31b8-42a3-a5d6-082369fadaaf");
 
         private static readonly Dictionary<SpellDefinition, FeatureDefinitionPower> Spells2Powers = new();
@@ -101,7 +102,7 @@ namespace SolastaCommunityExpansion.Models
         public static void Load()
         {
             ServiceRepository.GetService<IFunctorService>()
-                .RegisterFunctor("UseCustomRestPower", new FunctorUseCustomRestPower());
+                .RegisterFunctor(UseCustomRestPowerFunctorName, new FunctorUseCustomRestPower());
         }
     }
 

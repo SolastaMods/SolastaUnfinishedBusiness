@@ -18,7 +18,10 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
             SpellDefinition ___masterSpell,
             SpellsByLevelBox.SpellCastEngagedHandler ___spellCastEngaged,
             int ___slotLevel,
-            UsableDeviceFunctionBox.DeviceFunctionEngagedHandler ___deviceFunctionEngaged
+            UsableDeviceFunctionBox.DeviceFunctionEngagedHandler ___deviceFunctionEngaged,
+            GuiCharacter ___guiCharacter,
+            RulesetItemDevice ___rulesetItemDevice,
+            RulesetDeviceFunction ___rulesetDeviceFunction
             )
         {
             var masterPower = PowerBundleContext.GetPower(___masterSpell);
@@ -35,9 +38,9 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
             else
             {
                 ___deviceFunctionEngaged?.Invoke(
-                    __instance.GetField<GuiCharacter>("guiCharacter"),
-                    __instance.GetField<RulesetItemDevice>("rulesetItemDevice"),
-                    __instance.GetField<RulesetDeviceFunction>("rulesetDeviceFunction"),
+                    ___guiCharacter,
+                    ___rulesetItemDevice,
+                    ___rulesetDeviceFunction,
                     0, index
                 );
             }
@@ -153,7 +156,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
 
             var activity = __instance.RestActivityDefinition;
 
-            if (activity.Functor == "UseCustomRestPower" && activity.StringParameter != null)
+            if (activity.Functor == PowerBundleContext.UseCustomRestPowerFunctorName && activity.StringParameter != null)
             {
                 var masterPower = PowerBundleContext.GetPower(activity.StringParameter);
 

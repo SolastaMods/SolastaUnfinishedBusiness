@@ -161,7 +161,7 @@ Different Archfey, e.g. Winter-themed
                     RestDefinitions.RestStage.AfterRest,
                     RestType.LongRest,
                     RestActivityDefinition.ActivityCondition.CanUsePower,
-                    "UseCustomRestPower",
+                    PowerBundleContext.UseCustomRestPowerFunctorName,
                     herbalBrewPool.name)
                 .SetGuiPresentation(herbalBrewPool.GuiPresentation.Title,
                     herbalBrewPool.GuiPresentation.Description)
