@@ -23,6 +23,8 @@ namespace SolastaCommunityExpansion.Models
 
     internal static class CustomFeaturesContext
     {
+        internal static HashSet<ConditionDefinition> CharacterLabelEnabledConditions { get; } = new();
+
         internal static CharacterAction CurrentAction { get; set; }
 
         internal static void RecursiveGrantCustomFeatures(RulesetCharacterHero hero, List<FeatureDefinition> features)

@@ -108,8 +108,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .Create("AHWarlockSubclassSoulBladePact", DefinitionBuilder.CENamespaceGuid)
                 .SetOrUpdateGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.OathOfTheMotherland.GuiPresentation.SpriteReference)
                 .AddFeatureAtLevel(extendedSpellList, 1) // Extra Soulblade spells
-                .AddFeatureAtLevel(proficiencySoulBladeWeapon, 1) // Martial weapons
-                .AddFeatureAtLevel(proficiencySoulBladeArmor, 1) // Medium armor and shield
+                .AddFeatureAtLevel(proficiencySoulBladeArmor, 1) // Martial weapons
+                .AddFeatureAtLevel(proficiencySoulBladeWeapon, 1) // Medium armor and shield
                 .AddFeatureAtLevel(empowerWeaponPower, 1) //Feature to rival hexblade curse
                 .AddFeatureAtLevel(summonPactWeaponPower, 6)
                 .AddFeatureAtLevel(shieldPower, 10)

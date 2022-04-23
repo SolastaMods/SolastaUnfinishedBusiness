@@ -862,7 +862,7 @@ Feature/&ElementalistSpellsMagicAffinityDescription	You choose from an expanded 
 Feature/&ElementalistSpellsMagicAffinityTitle	Elementalist Spells
 Feature/&ElementalPatronFeatureSet_Level01Description	<size=17><color=#add8e6ff>Learn Elementalist Spells</color></size>\nLevel 1: Fog Cloud, Thunderwave\nLevel 2: Spike Growth, Scorching Ray\nLevel 3: Lightning Bolt, Fireball \nLevel 4: Stoneskin, Icestorm\nLevel 5: Cone of Cold, Flame Strike\n\n<size=17><color=#add8e6ff>Elemental Forms</color></size>\nYou can switch between elemental forms a number of times (equal to your Proficiency Bonus) per day by channeling elemental energy. You can resistence to the relevant damage and and once per turn, apply damage of the same type to your attacks. The forms last for 1 minute.
 Feature/&ElementalPatronFeatureSet_Level01Title	Elementalist
-Feature/&ElementalPatronFeatureSet_Level06Description	<size=17><color=#add8e6ff>Elemental Knowledge</color></size>\nYou knowledge of elementals has increased to the point that you now gain advantage on ability checks towards elementals, and deal additional damage against elementals equal to your knowledge level. You can no longer by charmed or frightened by elementals
+Feature/&ElementalPatronFeatureSet_Level06Description	<size=17><color=#add8e6ff>Elemental Knowledge</color></size>\nYou knowledge of elementals has increased to the point that you now gain advantage on ability checks towards elementals, and deal additional damage against elementals equal to your knowledge level. You can no longer be charmed or frightened by elementals
 Feature/&ElementalPatronFeatureSet_Level06Title	Elementalist
 Feature/&ElementalPatronFeatureSet_Level10Description	<size=17><color=#add8e6ff>Enhanced Elemental Forms</color></size>\nYou elemental forms now grant damage immunity when active
 Feature/&ElementalPatronFeatureSet_Level10Title	Elementalist
@@ -1663,7 +1663,7 @@ Tooltip/&Tag9000Title	Custom Effect
 Tooltip/&TagCommunityExpansionTitle	Community Expansion
 Tooltip/&TagMaledictionTitle	Malediction
 Tooltip/&TagOtherModContentTitle	From mod
-Feature/&ProficiencySoulBladeWeaponTitle	SoulBlade Weapon Proficiencies
+Feature/&ProficiencySoulBladeWeaponTitle	Soulblade Weapon Proficiencies
 Feature/&ProficiencySoulBladeWeaponDescription	Simple Weapons, Martial Weapons
-Feature/&ProficiencySoulBladeArmorTitle	SoulBlade Weapon Proficiencies
+Feature/&ProficiencySoulBladeArmorTitle	Soulblade Armor Proficiencies
 Feature/&ProficiencySoulBladeArmorDescription	Light Armor, Medium Armor and Shield

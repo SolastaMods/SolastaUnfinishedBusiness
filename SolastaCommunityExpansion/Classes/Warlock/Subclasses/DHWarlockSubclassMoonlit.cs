@@ -10,6 +10,7 @@ using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionMovementAffinitys;
 using static SolastaModApi.DatabaseHelper.SpellListDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionMoveModes;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 {
@@ -37,22 +38,29 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetExtendedSpellList(MoonLitExpandedSpelllist)
                 .AddToDB();
 
+            var moonlitInvisibleCondition = ConditionDefinitionBuilder
+                .Create(DatabaseHelper.ConditionDefinitions.ConditionInvisible, "ConditionMoonlitInvisible", DefinitionBuilder.CENamespaceGuid)
+                .SetSilent(Silent.WhenAddedOrRemoved)
+                .AddToDB();
+
+            // don't get the annoying message on log
+            CustomFeaturesContext.CharacterLabelEnabledConditions.Add(moonlitInvisibleCondition);
+
             var Unlit = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
             {
                 lightingState = LocationDefinitions.LightingState.Unlit,
-                condition = DatabaseHelper.ConditionDefinitions.ConditionInvisible
+                condition = moonlitInvisibleCondition
             };
             var Dim = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
             {
                 lightingState = LocationDefinitions.LightingState.Dim,
-                condition = DatabaseHelper.ConditionDefinitions.ConditionInvisible
+                condition = moonlitInvisibleCondition
             };
             var Darkness = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
             {
                 lightingState = LocationDefinitions.LightingState.Darkness,
-                condition = DatabaseHelper.ConditionDefinitions.ConditionInvisible
+                condition = moonlitInvisibleCondition
             };
-
 
             FeatureDefinitionLightAffinity MoonLitLightAffinity = FeatureDefinitionLightAffinityBuilder
                 .Create("MoonLitLightAffinity", DefinitionBuilder.CENamespaceGuid)
