@@ -44,14 +44,14 @@ namespace SolastaMulticlass.Patches.LevelUp
                 var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
                 var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
 
-                if (isLevelingUp && !isClassSelectionStage)
-                {
-                    LevelUpContext.GrantItemsIfRequired(hero);
-                }
-
                 if (isLevelingUp)
                 {
                     LevelUpContext.SetSelectedClass(hero, classDefinition);
+                }
+
+                if (isLevelingUp && !isClassSelectionStage)
+                {
+                    LevelUpContext.GrantItemsIfRequired(hero);
                 }
 
                 return !(isLevelingUp && isClassSelectionStage);
