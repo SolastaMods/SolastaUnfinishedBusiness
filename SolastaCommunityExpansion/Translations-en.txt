@@ -1204,6 +1204,11 @@ Reaction/&SpendPowerKnockDownPowerDescription	Spend a gambit die and empower you
 Reaction/&SpendPowerKnockDownPowerReactDescription	Spend a gambit die and empower your attack to do an additional 1d6+2 bludgeoning damage and knock them down until the start of their next turn if they fail a Strength save vs. 8 + your Strength + proficiency
 Reaction/&SpendPowerKnockDownPowerReactTitle	Knock down
 Reaction/&SpendPowerKnockDownPowerTitle	Knock down
+Reaction/&SubitemSelectSlotLevelTitle   Slot Level
+Reaction/CastSpellInRetributionReactTitle Cast Spell
+Reaction/CastSpellInRetributionReactDescription  Click to cast {0}
+Reaction/CastSpellInRetributionTitle Cast Reaction Spell
+Reaction/CastSpellInRetributionDescription {0} is attacking {1}! You can cast {2} in responce!
 RestActivity/&ZSRespecDescription	Respec this Hero
 RestActivity/&ZSRespecTitle	Respec
 RestActivity/&ZSSorcerousRestorationDescription	Regain 4 sorcery points during a short rest.

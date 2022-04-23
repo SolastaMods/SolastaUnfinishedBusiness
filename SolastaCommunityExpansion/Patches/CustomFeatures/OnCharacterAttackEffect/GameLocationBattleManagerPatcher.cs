@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomDefinitions;
+using SolastaCommunityExpansion.Models;
 using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffect
@@ -95,6 +96,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                     feature.AfterOnAttackDamage(attacker, defender, attackModifier, attackMode, rangedAttack, advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget);
                 }
             }
+
+            yield return CutomReactionsContext.TryReactingToDamageWithSpell(attacker, defender, attackModifier, attackMode, rangedAttack, advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget);
         }
     }
 
