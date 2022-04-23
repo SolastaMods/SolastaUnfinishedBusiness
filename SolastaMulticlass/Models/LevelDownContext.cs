@@ -150,7 +150,7 @@ namespace SolastaMulticlass.Models
                     while (poolAmount-- > 0)
                     {
                         var featureDefinition = hero.TrainedFeats.Last();
-                        var featureDefinitionName = featureDefinition.Name;
+                        //var featureDefinitionName = featureDefinition.Name;
 
                         hero.TrainedFeats.Remove(featureDefinition);
 
