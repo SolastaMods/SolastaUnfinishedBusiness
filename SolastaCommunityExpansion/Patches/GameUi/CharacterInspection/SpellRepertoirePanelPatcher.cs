@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
     {
         internal static void Postfix(SpellRepertoirePanel __instance, RectTransform ___sorceryPointsBox)
         {
-            if (!Main.Settings.EnableMoveSorceryPointsBox || __instance.SpellRepertoire.SpellCastingFeature.SpellKnowledge == RuleDefinitions.SpellKnowledge.Selection)
+            if (!Main.Settings.EnableMoveSorceryPointsBox)
             {
                 return;
             }
