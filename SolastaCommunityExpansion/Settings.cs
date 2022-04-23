@@ -97,6 +97,7 @@ namespace SolastaCommunityExpansion
 
         // Progression
         public bool EnablesAsiAndFeat { get; set; }
+        public bool EnableFeatsAtEvenLevels { get; set; }
         public bool EnableLevel20 { get; set; }
 
         // Visuals
