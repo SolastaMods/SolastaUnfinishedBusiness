@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace SolastaMulticlass.Models
 {
     internal static class CacheSpellsContext
     {
-        private static readonly Dictionary<CharacterClassDefinition, Dictionary<int, HashSet<SpellDefinition>>> classSpellList = new();
-        private static readonly Dictionary<CharacterSubclassDefinition, Dictionary<int, HashSet<SpellDefinition>>> subclassSpellList = new();
+        internal static readonly Dictionary<CharacterClassDefinition, Dictionary<int, HashSet<SpellDefinition>>> ClassSpellList = new();
+        internal static readonly Dictionary<CharacterSubclassDefinition, Dictionary<int, HashSet<SpellDefinition>>> SubclassSpellList = new();
 
         private static int GetLowestCasterLevelFromSpellLevel(BaseDefinition definition, int spellLevel, bool isSubclass = false)
         {
@@ -47,27 +46,27 @@ namespace SolastaMulticlass.Models
 
             if (isSubclass && definition is CharacterSubclassDefinition characterSubclassDefinition)
             {
-                subclassSpellList.TryAdd(characterSubclassDefinition, new());
-                subclassSpellList[characterSubclassDefinition].TryAdd(level, new());
+                SubclassSpellList.TryAdd(characterSubclassDefinition, new());
+                SubclassSpellList[characterSubclassDefinition].TryAdd(level, new());
 
                 foreach (var spell in spellList)
                 {
-                    if (!subclassSpellList[characterSubclassDefinition][level].Contains(spell))
+                    if (!SubclassSpellList[characterSubclassDefinition][level].Contains(spell))
                     {
-                        subclassSpellList[characterSubclassDefinition][level].Add(spell);
+                        SubclassSpellList[characterSubclassDefinition][level].Add(spell);
                     }
                 }
             }
             else if (definition is CharacterClassDefinition characterClassDefinition)
             {
-                classSpellList.TryAdd(characterClassDefinition, new());
-                classSpellList[characterClassDefinition].TryAdd(level, new());
+                ClassSpellList.TryAdd(characterClassDefinition, new());
+                ClassSpellList[characterClassDefinition].TryAdd(level, new());
 
                 foreach (var spell in spellList)
                 {
-                    if (!classSpellList[characterClassDefinition][level].Contains(spell))
+                    if (!ClassSpellList[characterClassDefinition][level].Contains(spell))
                     {
-                        classSpellList[characterClassDefinition][level].Add(spell);
+                        ClassSpellList[characterClassDefinition][level].Add(spell);
                     }
                 }
             }
@@ -152,78 +151,6 @@ namespace SolastaMulticlass.Models
 
                 EnumerateSpells(characterSubclassDefinition, featureUnlocks, true);
             }
-        }
-
-        internal static bool IsRepertoireFromSelectedClassSubclass(RulesetCharacterHero rulesetCharacterHero, RulesetSpellRepertoire rulesetSpellRepertoire)
-        {
-            var selectedClass = LevelUpContext.GetSelectedClass(rulesetCharacterHero);
-            var selectedSubclass = LevelUpContext.GetSelectedSubclass(rulesetCharacterHero);
-
-            return
-                (rulesetSpellRepertoire.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Class
-                    && rulesetSpellRepertoire.SpellCastingClass == selectedClass) ||
-                (rulesetSpellRepertoire.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Subclass
-                    && rulesetSpellRepertoire.SpellCastingSubclass == selectedSubclass);
-        }
-
-        internal static bool IsSpellKnownBySelectedClassSubclass(RulesetCharacterHero rulesetCharacterHero, SpellDefinition spellDefinition)
-        {
-            var selectedClass = LevelUpContext.GetSelectedClass(rulesetCharacterHero);
-            var selectedSubclass = LevelUpContext.GetSelectedSubclass(rulesetCharacterHero);
-
-            var spellRepertoire = rulesetCharacterHero.SpellRepertoires.Find(sr =>
-                (sr.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Class
-                    && sr.SpellCastingClass == selectedClass) ||
-                (sr.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Subclass
-                    && sr.SpellCastingSubclass == selectedSubclass));
-
-            if (spellRepertoire == null)
-            {
-                return false;
-            }
-
-            return spellRepertoire.HasKnowledgeOfSpell(spellDefinition);
-        }
-
-        internal static bool IsSpellOfferedBySelectedClassSubclass(RulesetCharacterHero rulesetCharacterHero, SpellDefinition spellDefinition, bool onlyCurrentLevel = false)
-        {
-            var classLevel = LevelUpContext.GetSelectedClassLevel(rulesetCharacterHero);
-            var selectedClass = LevelUpContext.GetSelectedClass(rulesetCharacterHero);
-            var selectedSubclass = LevelUpContext.GetSelectedSubclass(rulesetCharacterHero);
-
-            if (selectedClass != null && classSpellList.ContainsKey(selectedClass))
-            {
-                foreach (var levelSpell in classSpellList[selectedClass]
-                    .Where(x => x.Key <= classLevel))
-                {
-                    if (levelSpell.Value.Contains(spellDefinition))
-                    {
-                        return true;
-                    }
-                    else if (onlyCurrentLevel)
-                    {
-                        break;
-                    }
-                }
-            }
-
-            if (selectedSubclass != null && subclassSpellList.ContainsKey(selectedSubclass))
-            {
-                foreach (var levelSpell in subclassSpellList[selectedSubclass]
-                    .Where(x => x.Key <= classLevel))
-                {
-                    if (levelSpell.Value.Contains(spellDefinition))
-                    {
-                        return true;
-                    }
-                    else if (onlyCurrentLevel)
-                    {
-                        break;
-                    }
-                }
-            }
-
-            return false;
         }
     }
 }

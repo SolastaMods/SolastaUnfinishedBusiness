@@ -33,11 +33,11 @@ namespace SolastaMulticlass.Patches.LevelUp
 
                 if (bindMode == SpellBox.BindMode.Learning)
                 {
-                    allSpells.RemoveAll(s => !CacheSpellsContext.IsSpellOfferedBySelectedClassSubclass(hero, s));
+                    allSpells.RemoveAll(s => !LevelUpContext.IsSpellOfferedBySelectedClassSubclass(hero, s));
                 }
                 else if (bindMode == SpellBox.BindMode.Unlearn)
                 {
-                    allSpells.RemoveAll(s => !CacheSpellsContext.IsSpellOfferedBySelectedClassSubclass(hero, s) || !CacheSpellsContext.IsSpellKnownBySelectedClassSubclass(hero, s));
+                    allSpells.RemoveAll(s => !LevelUpContext.IsSpellOfferedBySelectedClassSubclass(hero, s) || !LevelUpContext.IsSpellKnownBySelectedClassSubclass(hero, s));
                 }
             }
         }

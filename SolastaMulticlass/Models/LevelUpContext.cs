@@ -178,6 +178,78 @@ namespace SolastaMulticlass.Models
                 && (rulesetCharacterHero.ClassesAndLevels.Count > 1
                     || !rulesetCharacterHero.ClassesAndLevels.ContainsKey(levelUpData.SelectedClass));
 
+        internal static bool IsRepertoireFromSelectedClassSubclass(RulesetCharacterHero rulesetCharacterHero, RulesetSpellRepertoire rulesetSpellRepertoire)
+        {
+            var selectedClass = GetSelectedClass(rulesetCharacterHero);
+            var selectedSubclass = GetSelectedSubclass(rulesetCharacterHero);
+
+            return
+                (rulesetSpellRepertoire.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Class
+                    && rulesetSpellRepertoire.SpellCastingClass == selectedClass) ||
+                (rulesetSpellRepertoire.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Subclass
+                    && rulesetSpellRepertoire.SpellCastingSubclass == selectedSubclass);
+        }
+
+        internal static bool IsSpellKnownBySelectedClassSubclass(RulesetCharacterHero rulesetCharacterHero, SpellDefinition spellDefinition)
+        {
+            var selectedClass = GetSelectedClass(rulesetCharacterHero);
+            var selectedSubclass = GetSelectedSubclass(rulesetCharacterHero);
+
+            var spellRepertoire = rulesetCharacterHero.SpellRepertoires.Find(sr =>
+                (sr.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Class
+                    && sr.SpellCastingClass == selectedClass) ||
+                (sr.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Subclass
+                    && sr.SpellCastingSubclass == selectedSubclass));
+
+            if (spellRepertoire == null)
+            {
+                return false;
+            }
+
+            return spellRepertoire.HasKnowledgeOfSpell(spellDefinition);
+        }
+
+        internal static bool IsSpellOfferedBySelectedClassSubclass(RulesetCharacterHero rulesetCharacterHero, SpellDefinition spellDefinition, bool onlyCurrentLevel = false)
+        {
+            var classLevel = GetSelectedClassLevel(rulesetCharacterHero);
+            var selectedClass = GetSelectedClass(rulesetCharacterHero);
+            var selectedSubclass = GetSelectedSubclass(rulesetCharacterHero);
+
+            if (selectedClass != null && CacheSpellsContext.ClassSpellList.ContainsKey(selectedClass))
+            {
+                foreach (var levelSpell in CacheSpellsContext.ClassSpellList[selectedClass]
+                    .Where(x => x.Key <= classLevel))
+                {
+                    if (levelSpell.Value.Contains(spellDefinition))
+                    {
+                        return true;
+                    }
+                    else if (onlyCurrentLevel)
+                    {
+                        break;
+                    }
+                }
+            }
+
+            if (selectedSubclass != null && CacheSpellsContext.SubclassSpellList.ContainsKey(selectedSubclass))
+            {
+                foreach (var levelSpell in CacheSpellsContext.SubclassSpellList[selectedSubclass]
+                    .Where(x => x.Key <= classLevel))
+                {
+                    if (levelSpell.Value.Contains(spellDefinition))
+                    {
+                        return true;
+                    }
+                    else if (onlyCurrentLevel)
+                    {
+                        break;
+                    }
+                }
+            }
+
+            return false;
+        }
+
         internal static void GrantItemsIfRequired(RulesetCharacterHero rulesetCharacterHero)
         {
             if (!LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData))

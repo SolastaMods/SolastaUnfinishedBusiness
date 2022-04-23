@@ -62,7 +62,7 @@ namespace SolastaMulticlass.Patches.LevelUp
                 {
                     var result = new List<RulesetSpellRepertoire>();
 
-                    result.AddRange(rulesetCharacterHero.SpellRepertoires.Where(x => CacheSpellsContext.IsRepertoireFromSelectedClassSubclass(rulesetCharacterHero, x)));
+                    result.AddRange(rulesetCharacterHero.SpellRepertoires.Where(x => LevelUpContext.IsRepertoireFromSelectedClassSubclass(rulesetCharacterHero, x)));
 
                     return result;
                 }
