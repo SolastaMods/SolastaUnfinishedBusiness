@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using SolastaCommunityExpansion.CustomDefinitions;
+using static SolastaCommunityExpansion.Models.RespecContext;
 
 namespace SolastaMulticlass.Models
 {
@@ -29,7 +30,14 @@ namespace SolastaMulticlass.Models
 
                 if (state > 0)
                 {
-                    LevelDown(functorParameters.RestingHero);
+                    if (functorParameters.RestingHero.ClassesHistory.Count > 1)
+                    {
+                        LevelDown(functorParameters.RestingHero);
+                    }
+                    else
+                    {
+                        yield return new FunctorRespec().Execute(functorParameters, context);
+                    }
                 }
             }
         }
