@@ -119,7 +119,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Elemental Form : Earth Plane Condition",
+    "title": "Elemental Form: Earth Plane Condition",
     "description": "When channeling the elemental  Earth Plane, you gain Immunity to Bludgeoning damage and once per turn, apply damage of the same type to your attack",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

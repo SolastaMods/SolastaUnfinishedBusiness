@@ -17,7 +17,7 @@ This is now a standalone mod. Please uninstall any other mod from your mods fold
 [*][b]Burtsev-Alexey[/b]: deep copy algorithm
 [*][b]ChrisJohnDigital[/b]: head developer, crafting, faction relations, feats, fighting styles, items, subclasses, progression
 [*][b]Dreadmaker[/b]: Circle of the Forest Guardian subclass
-[*][b]DubhHerder[/b]: higher level spells, feats migration, bug models replacement, Warlock subclasses and invocations, Tinkerer Artillerist subclass
+[*][b]DubhHerder[/b]: 7th, 8th and 9th level spells, Crafty Feats migration, bug models replacement, additional high level monsters, class, subclasses
 [*][b]ElAntonious[/b]: Arcanist subclass, Torchbearer and Dual Flurry feats
 [*][b]Holic75[/b]: pact magic slots, Warlock class sprite, bolgrif and gnome races, acid claw, air blast burst of radiance, thunder strike, earth tremor and winter's breath spells
 [*][b]ImpPhil[/b]: adv/dis rules, conjurations control, auto-equip, location rotation in DM, monster's health, pause UI, sorting, stocks prices, no attunement, xp scaling, character export, save by location, combat camera, diagnostics, custom icons, refactor, screen map
@@ -124,7 +124,7 @@ All settings start disabled by default. On first start the mod will display an w
 [list=1]
 
 [*][b]Tinkerer[/b]: Tinkerers are inventors, alchemists, and more. They bridge the space between magic and technology
-[*][b]Warlock[/b]: Warlocks are seekers of the knowledge that lies hidden in the fabric of the multiverse. Through pacts made with mysterious beings of supernatural power, warlocks unlock magical effects both subtle and spectacular.
+[*][b]Warlock [Beta][/b]: Warlocks are seekers of the knowledge that lies hidden in the fabric of the multiverse. Through pacts made with mysterious beings of supernatural power, warlocks unlock magical effects both subtle and spectacular.
 [*][b]Witch[/b]: Afflicted by a sinister curse, witches can spin dark magic into Maledictions, which they use to debilitate foes. They are also accompanied by their familiars, loyal magical companions which they use to deal the killing blow.
 [/list]
 
@@ -145,6 +145,8 @@ All settings start disabled by default. On first start the mod will display an w
 [*][b]MoonLit Pact[/b]: Your patron is a spirit of the moon, an entity that embodies the cyclical nature of light and darkness. These spirits seek to maintain the power of the moon over the night sky while keeping profane powers that stalk the darkness at bay and task their warlocks with the same, granting them command over the powers of the moon and its effects.
 [*][b]Rift Walker Pact[/b]: Your patron is one of the rare beings who calls the void between worlds their home. They slip between the planes with ease and the knowledge you have gained from interacting with them allows you to harness lingering rift engeries to your benefit within solasta. You might be sometimes filled with a longing for the distant realm of your patron, a desire to wander between dimensions for the rest of your days, or watch for signs of another Rift event, either to prevent or encourage.
 [*][b]Toad King Pact[/b]: Fey, demon or abberation caused by the Cataclysm, the true nature of the Toad King is not known, but it is known that the Toad King rules a large area of swamps and marshes within the Badlands and offers power to those willing to serve.
+[*][b]Royal Knight[/b]: A knight who inspires greatness in others by committing brave deeds in battle. A lone knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
+[*][b]Thug[/b]: Thugs are sharp-minded combattants who seek the thrill of the fight and will make their enemies bite the dust by any means necessary. They benefit from an advanced martial training and learn to make use of their wit and brawn alike to triumph in battle.
 [/list]
 
 [size=3][b]Official Classes Subclasses[/b][/size]
@@ -158,11 +160,9 @@ All settings start disabled by default. On first start the mod will display an w
 [*][b]Master Manipulator[/b]: Master Manipulators excel at controlling the battlefield and preventing their enemies from being able to attack them.
 [*][b]Path of the Light[/b]: Barbarians who follow the Path of the Light illuminate the darkness and protect their allies from dangers that lurk within it.
 [*][b]Ranger Arcanist[/b]: The Ranger Arcanist melds their ranger skills with arcane abilities. Their weapons can afflict their opponents with the Arcanist's Mark, and have learned how to cast some Wizard spells as part of their Ranger spell repertoire.
-[*][b]Royal Knight[/b]: A knight who inspires greatness in others by committing brave deeds in battle. A lone knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
 [*][b]Spell Master[/b]: Spell masters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge.
 [*][b]Spell Shield[/b]: Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
 [*][b]The Tactician[/b]: The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed. They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes. Mod note - This class re-uses channel divinity for these features.
-[*][b]Thug[/b]: Thugs are sharp-minded combattants who seek the thrill of the fight and will make their enemies bite the dust by any means necessary. They benefit from an advanced martial training and learn to make use of their wit and brawn alike to triumph in battle.
 [/list]
 
 [size=3][b]Feats[/b][/size]

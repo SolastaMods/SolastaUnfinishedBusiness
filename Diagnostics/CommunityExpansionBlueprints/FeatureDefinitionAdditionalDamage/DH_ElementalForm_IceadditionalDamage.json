@@ -38,7 +38,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Elemental Damage : Ice Plane",
+    "title": "Elemental Damage: Ice Plane",
     "description": "When channeling the elemental Ice Plane, additional Cold damage, equal to your Proficiency Bonus, is added to the total",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

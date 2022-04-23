@@ -30,7 +30,7 @@
     "targetConditionName": "",
     "targetConditionAsset": null,
     "targetSide": "Ally",
-    "durationType": "Instantaneous",
+    "durationType": "Round",
     "durationParameter": 1,
     "endOfEffect": "StartOfTurn",
     "hasSavingThrow": false,
