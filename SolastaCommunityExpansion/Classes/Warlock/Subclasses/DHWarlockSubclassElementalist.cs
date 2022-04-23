@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using SolastaModApi;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.CustomDefinitions;
@@ -36,7 +35,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
         private static readonly Dictionary<string, ConditionDefinition> DictionaryOfElementalConditions = new();
         private static FeatureDefinitionMagicAffinity ElementalistMagicAffinity { get; set; }
 
-
         public static CharacterSubclassDefinition Build()
         {
             ElementalFormPool = FeatureDefinitionPowerPoolBuilder
@@ -50,17 +48,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             ElementalForms();
             ElementalistSpells();
 
-
-            GuiPresentation guiFeatureSet_Level01 = new GuiPresentationBuilder(
-                "Feature/&ElementalPatronFeatureSet_Level01Title",
-                "Feature/&ElementalPatronFeatureSet_Level01Description")
-                .Build();
-
-            var FeatureSet_Level01Builder = FeatureDefinitionFeatureSetBuilder
+            var FeatureSet_Level01 = FeatureDefinitionFeatureSetBuilder
                 .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, "ElementalPatronFeatureSet_Level01", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(guiFeatureSet_Level01);
-
-            FeatureDefinitionFeatureSet FeatureSet_Level01 = FeatureSet_Level01Builder
+                .SetGuiPresentation(Category.Feature)
                 .ClearFeatureSet()
                 .AddFeatureSet(ElementalFormPool)
                 .AddFeatureSet(DictionaryOfElementalFormPowers["Shadow"])
@@ -77,16 +67,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetUniqueChoices(false)
                 .AddToDB();
 
-
-            GuiPresentation guiFeatureSet_Level06 = new GuiPresentationBuilder(
-                "Feature/&ElementalPatronFeatureSet_Level06Title",
-                "Feature/&ElementalPatronFeatureSet_Level06Description")
-                .Build();
-            var FeatureSet_Level06Builder = FeatureDefinitionFeatureSetBuilder
+            var FeatureSet_Level06 = FeatureDefinitionFeatureSetBuilder
                 .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, "ElementalPatronFeatureSet_Level06", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(guiFeatureSet_Level06);
-
-            FeatureDefinitionFeatureSet FeatureSet_Level06 = FeatureSet_Level06Builder
+                .SetGuiPresentation(Category.Feature)
                 .ClearFeatureSet()
                 .AddFeatureSet(DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageRangerFavoredEnemyElemental)
                 .AddFeatureSet(DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityProtectedFromEvil)
@@ -109,17 +92,11 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
        */
             EnhancedElementalForms();
 
-            GuiPresentation guiFeatureSet_Level10 = new GuiPresentationBuilder(
-                "Feature/&ElementalPatronFeatureSet_Level10Title",
-                "Feature/&ElementalPatronFeatureSet_Level10Description")
-                .Build();
-            var FeatureSet_Level10Builder = FeatureDefinitionFeatureSetBuilder.Create(
+            var FeatureSet_Level10 = FeatureDefinitionFeatureSetBuilder.Create(
                 DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest,
                 "ElementalPatronFeatureSet_Level10", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(guiFeatureSet_Level10);
-
-            FeatureDefinitionFeatureSet FeatureSet_Level10 = FeatureSet_Level10Builder
-                .ClearFeatureSet()
+                .SetGuiPresentation(Category.Feature)
+                                .ClearFeatureSet()
                 .AddFeatureSet(DictionaryOfEnhancedElementalFormPowers["Shadow"])
                 .AddFeatureSet(DictionaryOfEnhancedElementalFormPowers["Astral"])
                 .AddFeatureSet(DictionaryOfEnhancedElementalFormPowers["Ethereal"])
@@ -132,33 +109,19 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .AddToDB();
 
             // cantrip at will version of Protection from Energy or conjure minor elementals
-
-
             AtWillConjureMinorElementals();
 
-
-            var subclassGuiPresentation = new GuiPresentationBuilder(
-                    "Subclass/&DHWarlockSubclassElementalPatronTitle",
-                    "Subclass/&DHWarlockSubclassElementalPatronDescription")
-                    .SetSpriteReference(DatabaseHelper.CharacterSubclassDefinitions.TraditionLoremaster.GuiPresentation.SpriteReference)
-                    .Build();
-
             return CharacterSubclassDefinitionBuilder.Create(Name, DefinitionBuilder.CENamespaceGuid)
-                        .SetGuiPresentation(subclassGuiPresentation)
-                        .AddFeatureAtLevel(FeatureSet_Level01, 1)
-                        .AddFeatureAtLevel(FeatureSet_Level06, 6)
-                        .AddFeatureAtLevel(FeatureSet_Level10, 10)
-                        .AddFeatureAtLevel(MinorElementalBonusCantrip, 14)
-                        .AddToDB();
-
-
+                .SetGuiPresentation(Category.Subclass)
+                .AddFeatureAtLevel(FeatureSet_Level01, 1)
+                .AddFeatureAtLevel(FeatureSet_Level06, 6)
+                .AddFeatureAtLevel(FeatureSet_Level10, 10)
+                .AddFeatureAtLevel(MinorElementalBonusCantrip, 14)
+                .AddToDB();
         }
-
 
         public static void ElementalForms()
         {
-
-
             Dictionary<string, FeatureDefinitionDamageAffinity> Dictionaryof_Elemental_damageResistances = new Dictionary<string, FeatureDefinitionDamageAffinity>
             {
                 { "Shadow",  DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityNecroticResistance },
@@ -194,20 +157,17 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
             foreach (KeyValuePair<string, string> entry in Dictionaryof_Elemental_Damage)
             {
-
                 string text = entry.Key;
                 string damagetype = entry.Value.Substring(6);
 
                 var guiPresentationElementalFormDamage = new GuiPresentationBuilder(
-                     "Elemental Damage : " + text + " Plane",
-                     "When channeling the elemental " + text + " Plane, additional " + damagetype + " damage, equal to your Proficiency Bonus, is added to the total"
-                   )
-                    .Build();
-
+                        "Elemental Damage: " + text + " Plane",
+                        "When channeling the elemental " + text + " Plane, additional " + damagetype + " damage, equal to your Proficiency Bonus, is added to the total"
+                    )
+                   .Build();
 
                 FeatureDefinitionAdditionalDamage additionalDamage = FeatureDefinitionAdditionalDamageBuilder
-                    .Create(
-                        "DH_ElementalForm_" + text + "additionalDamage", DefinitionBuilder.CENamespaceGuid)
+                    .Create("DH_ElementalForm_" + text + "additionalDamage", DefinitionBuilder.CENamespaceGuid)
                     .Configure(
                         "ElementalDamage",
                         FeatureLimitedUsage.OncePerTurn, AdditionalDamageValueDetermination.ProficiencyBonus,
@@ -218,35 +178,31 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                     .AddToDB();
 
                 var guiPresentationElementalFormCondition = new GuiPresentationBuilder(
-                     "Elemental Form : " + text + " Plane" + " Condition",
+                     "Elemental Form: " + text + " Plane" + " Condition",
                      "When channeling the elemental  " + text + " Plane, you gain resistence to " + damagetype + " damage and once per turn, apply damage of the same type to your attack")
                     .Build();
 
                 ConditionDefinition ElementalFormCondtion = ConditionDefinitionBuilder
                     .Create("DH_ElementalForm_" + text + "Condition", DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation(guiPresentationElementalFormCondition)
+                    .SetConditionParticleReference(Dictionaryof_Elemental_Forms_EffectsParticles[entry.Key])
                     .Configure(DurationType.Minute, 1, false,
                         Dictionaryof_Elemental_damageResistances[entry.Key], additionalDamage)
                     .AddToDB();
-
-                ElementalFormCondtion.SetConditionParticleReference(Dictionaryof_Elemental_Forms_EffectsParticles[entry.Key]);
 
                 EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder();
                 effectDescription.SetDurationData(DurationType.Minute, 1, TurnOccurenceType.EndOfTurn);
                 effectDescription.SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
                 effectDescription.AddEffectForm(new EffectFormBuilder().SetConditionForm(ElementalFormCondtion, ConditionForm.ConditionOperation.Add, true, true, new List<ConditionDefinition>()).Build());
 
-
                 var guiPresentationElementalForm = new GuiPresentationBuilder(
-                     "Elemental Form : " + text + " Plane",
+                     "Elemental Form: " + text + " Plane",
                      "When channeling the elemental  " + text + " Plane, you gain resistence to " + damagetype + " damage and once per turn, apply damage of the same type to your attack"
                      )
                      .SetSpriteReference(Dictionaryof_Elemental_Forms_Sprites[entry.Key])
                      .Build();
 
-
-
-                var ElementalFormBuilder = new FeatureDefinitionPowerSharedPoolBuilder(
+                var elementalFormPower = new FeatureDefinitionPowerSharedPoolBuilder(
                        "DH_ElementalForm_" + text,
                        ElementalFormPool,
                        RechargeRate.LongRest,
@@ -258,38 +214,22 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                        effectDescription.Build(),
                        guiPresentationElementalForm,
                        true
-                       );
-                FeatureDefinitionPowerSharedPool ElementalFormPower = ElementalFormBuilder.AddToDB();
+                       ).AddToDB();
 
-
-
-                DictionaryOfElementalFormPowers.Add(entry.Key, ElementalFormPower);
-
+                DictionaryOfElementalFormPowers.Add(entry.Key, elementalFormPower);
                 DictionaryOfElementaladditionalDamage.Add(entry.Key, additionalDamage);
-
                 DictionaryOfElementalConditions.Add(entry.Key, ElementalFormCondtion);
-
             }
 
             foreach (KeyValuePair<string, ConditionDefinition> entry in DictionaryOfElementalConditions)
             {
-
                 entry.Value.CancellingConditions.AddRange(DictionaryOfElementalConditions.Values);
-
                 entry.Value.CancellingConditions.Remove(entry.Value);
-
-
-
             }
-
-
         }
-
 
         public static void EnhancedElementalForms()
         {
-
-
             Dictionary<string, FeatureDefinitionDamageAffinity> Dictionaryof_Elemental_damageImmunitiess = new Dictionary<string, FeatureDefinitionDamageAffinity>
             {
                 { "Shadow",  DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityNecroticImmunity},
@@ -336,12 +276,11 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
             foreach (KeyValuePair<string, string> entry in Dictionaryof_Elemental_Damage)
             {
-
                 string text = entry.Key;
                 string damagetype = entry.Value.Substring(6);
 
                 var guiPresentationEnhancedElementalFormCondition = new GuiPresentationBuilder(
-                    "Elemental Form : " + text + " Plane" + " Condition",
+                    "Elemental Form: " + text + " Plane" + " Condition",
                     "When channeling the elemental  " + text + " Plane, you gain Immunity to " + damagetype + " damage and once per turn, apply damage of the same type to your attack")
                     .Build();
 
@@ -353,26 +292,21 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                     .AddFeatures(Dictionaryof_Elemental_damageImmunitiess[entry.Key], DictionaryOfElementaladditionalDamage[entry.Key])
                     .AddToDB();
 
-
                 // particles for first form / shader for upgrade
                 EnhancedElementalFormCondtion.SetConditionParticleReference(Dictionaryof_Elemental_Forms_EffectsParticles[entry.Key]);
                 EnhancedElementalFormCondtion.SetCharacterShaderReference(Dictionaryof_Elemental_Forms_EffectsShaders[entry.Key]);
-
 
                 EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder();
                 effectDescription.SetDurationData(DurationType.Minute, 1, TurnOccurenceType.EndOfTurn);
                 effectDescription.SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
                 effectDescription.AddEffectForm(new EffectFormBuilder().SetConditionForm(EnhancedElementalFormCondtion, ConditionForm.ConditionOperation.Add, true, true, new List<ConditionDefinition>()).Build());
 
-
                 var guiPresentationEnhancedElementalForm = new GuiPresentationBuilder(
-                     "Elemental Form : " + text + " Plane",
+                     "Elemental Form: " + text + " Plane",
                      "When channeling the elemental  " + text + " Plane, you gain Immunity to " + damagetype + " damage and once per turn, apply damage of the same type to your attack"
                      )
                      .SetSpriteReference(Dictionaryof_Elemental_Forms_Sprites[entry.Key])
                      .Build();
-
-
 
                 var EnhancedElementalFormBuilder = new FeatureDefinitionPowerSharedPoolBuilder(
                        "DH_EnhancedElementalForm_" + text,
@@ -390,16 +324,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 FeatureDefinitionPowerSharedPool EnhancedElementalFormPower = EnhancedElementalFormBuilder.AddToDB();
                 EnhancedElementalFormPower.SetOverriddenPower(DictionaryOfElementalFormPowers[entry.Key]);
 
-
                 DictionaryOfEnhancedElementalFormPowers.Add(entry.Key, EnhancedElementalFormPower);
-
-
-
-
-
-
             }
-
         }
 
         public static void AtWillConjureMinorElementals()
@@ -419,10 +345,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
         public static void ElementalistSpells()
         {
             SpellListDefinition ElementalistSpellList = SpellListDefinitionBuilder
-                .Create(
-                    DatabaseHelper.SpellListDefinitions.SpellListPaladin,
-                    "ElementalistSpellsList", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation("ElementalistSpellsList", Category.SpellList)
+                .Create(DatabaseHelper.SpellListDefinitions.SpellListPaladin, "ElementalistSpellsList", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(Category.SpellList)
                 .ClearSpells()
                 .SetSpellsAtLevel(1, Thunderwave, FogCloud)
                 .SetSpellsAtLevel(2, SpikeGrowth, ScorchingRay)
@@ -432,18 +356,11 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .FinalizeSpells()
                 .AddToDB();
 
-            var ElementalistMagicAffintyBuilder = FeatureDefinitionMagicAffinityBuilder
+            ElementalistMagicAffinity = FeatureDefinitionMagicAffinityBuilder
                 .Create("ElementalistSpellsMagicAffinity", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(
-                         new GuiPresentationBuilder(
-                         "Feature/&ElementalistSpellsMagicAffinityTitle",
-                         "Feature/&ElementalistSpellsMagicAffinityDescription"
-                         ).Build()
-
-                     );
-
-            ElementalistMagicAffinity = ElementalistMagicAffintyBuilder.AddToDB();
-            ElementalistMagicAffinity.SetExtendedSpellList(ElementalistSpellList);
+                .SetGuiPresentation(Category.Feature)
+                .SetExtendedSpellList(ElementalistSpellList)
+                .AddToDB();
         }
     }
 }
