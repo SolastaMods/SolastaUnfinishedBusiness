@@ -1,7 +1,9 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionPointPools;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -29,6 +31,32 @@ namespace SolastaCommunityExpansion.Models
                     .SetGuiPresentation($"PointPoolSelect{i}Feats", Category.Race)
                     .SetPool(HeroDefinitions.PointsPoolType.Feat, i)
                     .AddToDB();
+            }
+        }
+
+        internal static void RefreshEvenLevelFeats()
+        {
+            var levels = new int[] { 2, 6, 10, 14 };
+            var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
+
+            foreach (var characterClassDefinition in dbCharacterClassDefinition)
+            {
+                if (Main.Settings.EnableFeatsAtEvenLevels)
+                {
+                    foreach (var level in levels)
+                    {
+                        characterClassDefinition.FeatureUnlocks.TryAdd(
+                            new FeatureUnlockByLevel(PointPoolBonusFeat, level));
+                    }
+                }
+                else
+                {
+                    foreach (var level in levels)
+                    {
+                        characterClassDefinition.FeatureUnlocks.Remove(
+                            new FeatureUnlockByLevel(PointPoolBonusFeat, level));
+                    }
+                }
             }
         }
 
