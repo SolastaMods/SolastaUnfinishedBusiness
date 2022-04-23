@@ -112,7 +112,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             AtWillConjureMinorElementals();
 
             return CharacterSubclassDefinitionBuilder.Create(Name, DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(Category.Subclass)
+                .SetGuiPresentation(Category.Subclass, DatabaseHelper.CharacterSubclassDefinitions.TraditionLoremaster.GuiPresentation.SpriteReference)
                 .AddFeatureAtLevel(FeatureSet_Level01, 1)
                 .AddFeatureAtLevel(FeatureSet_Level06, 6)
                 .AddFeatureAtLevel(FeatureSet_Level10, 10)
