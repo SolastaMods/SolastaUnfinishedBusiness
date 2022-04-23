@@ -38,7 +38,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Elemental Damage : Fire Plane",
+    "title": "Elemental Damage: Fire Plane",
     "description": "When channeling the elemental Fire Plane, additional Fire damage, equal to your Proficiency Bonus, is added to the total",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

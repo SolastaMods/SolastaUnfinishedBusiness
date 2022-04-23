@@ -714,7 +714,7 @@ Feature/&AHSoulBladeEmpowerWeaponConditionTitle	Soul Empowered
 Feature/&AHSoulBladeEmpowerWeaponDamageBonusDescription	You are empowered and do a damage bonus equal to your proficiency on all your attacks.
 Feature/&AHSoulBladeEmpowerWeaponDamageBonusTitle	Soul Empowered
 Feature/&AHSoulBladeSummonPactWeaponPowerDescription	Once per short rest you can summon forth a spiritual form of a weapon from your pact as a free action. As a bonus action you can direct the weapon as desired to attack your foes. The weapon moves up to 20ft each time before striking.
-Feature/&AHSoulBladeSummonPactWeaponPowerTitle	Spiritual pact weapon
+Feature/&AHSoulBladeSummonPactWeaponPowerTitle	Spiritual Pact Weapon
 Feature/&AHWarlockClassPactBoonSetDescription	At 3rd level, your otherworldly patron bestows a gift upon you for your loyal service. You can choose between:
 Feature/&AHWarlockClassPactBoonSetTitle	Pact boon
 Feature/&AHWarlockClassPactOfTheBladeSetDescription	You become proficient with all weapons and your weapon attacks are considered magical.
@@ -724,7 +724,7 @@ Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle	Soul Empower
 Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	The Soul blade lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you. \nLevel 1: Shield, False life\nLevel 2: Blur, Branding Smite \nLevel 3: Haste, Slow \nLevel 4: Phantasmal Killer, Black Tentacles \nLevel 5: Cone of Cold, Mind Twist
 Feature/&AHWarlockSoulBladePactExtendedSpellListTitle	Soulblade Spells
 Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Once per short rest you use the power of souls to defend yourself. Using a bonus action you gain temp hp equal to your level + charisma modifier.
-Feature/&AHWarlockSoulBladePactSoulShieldPowerTitle	Soul shield
+Feature/&AHWarlockSoulBladePactSoulShieldPowerTitle	Soul Shield
 Feature/&AHWarlockSoulBladePactSpellListDescription	The Soul blade lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you. \nLevel 1: Shield, False life\nLevel 2: Blur, Branding Smite \nLevel 3: Haste, Slow \nLevel 4: Phantasmal Killer, Black Tentacles \nLevel 5: Cone of Cold, Mind Twist
 Feature/&AHWarlockSoulBladePactSpellListTitle	Soul blade expanded spell list
 Feature/&AlwaysBeardDescription	{0}% chances to grow a glorious beard!
@@ -794,7 +794,7 @@ Feature/&CounterStrikePowerDescription	Spend a gambit die and Counter Strike the
 Feature/&CounterStrikePowerTitle	Counter Strike
 Feature/&DH_BlinkDescription	As a bonus action, you vanish from your current plane of existence, preventing all damage. At the start of your next turn, you return to the space you vanished from.
 Feature/&DH_BlinkTitle	Blink
-Feature/&DH_FadeIntoTheVoidDescription	When you are reduced to 0 hit points but not killed outright, you drop to 1 hit point instead as you briefly fade into the void to lessen the damage. You can't use this feature again until you finish a long rest.
+Feature/&DH_FadeIntoTheVoidDescription	When you are reduced to 0 hit points but not killed outright, you drop to 1 hit point instead as you briefly fade into the void to lessen the damage. You can't use this feature again until you finish a long rest
 Feature/&DH_FadeIntoTheVoidTitle	Fade Into The Void
 Feature/&DH_RiftCloakDescription	Your control of rift portals has increased to the point than you can now grant the protection of the rift to others. You can cast warding bond at will (without the sharing of damage)
 Feature/&DH_RiftCloakTitle	Rift Cloak
@@ -1170,7 +1170,7 @@ Power/&MoonlitDarkMoonTitle	Dark Moon
 Power/&MoonlitFullMoonDescription	You can cast Daylight (PB times per day)
 Power/&MoonlitFullMoonTitle	Full Moon
 Power/&MoonlitMoonTouchedDescription	You conjure the gravitational pull of the moon in a small area, causing creatures who fail a saving throw to float upwards
-Power/&MoonlitMoonTouchedTitle	Moon touched
+Power/&MoonlitMoonTouchedTitle	Moon Touched
 Power/&ToadKingCroakDescription	Emit a wave of sound that causes damage and pushes creatures and objects away.
 Power/&ToadKingCroakTitle	Croak
 Power/&ToadKingGraspingTongueDescription	Pull enemies towards yourself
@@ -1663,3 +1663,7 @@ Tooltip/&Tag9000Title	Custom Effect
 Tooltip/&TagCommunityExpansionTitle	Community Expansion
 Tooltip/&TagMaledictionTitle	Malediction
 Tooltip/&TagOtherModContentTitle	From mod
+Feature/&ProficiencySoulBladeWeaponTitle	SoulBlade Weapon Proficiencies
+Feature/&ProficiencySoulBladeWeaponDescription	Simple Weapons, Martial Weapons
+Feature/&ProficiencySoulBladeArmorTitle	SoulBlade Weapon Proficiencies
+Feature/&ProficiencySoulBladeArmorDescription	Light Armor, Medium Armor and Shield

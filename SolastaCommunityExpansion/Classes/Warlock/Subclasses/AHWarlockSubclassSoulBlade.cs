@@ -94,12 +94,22 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetExtendedSpellList(spellList)
                 .AddToDB();
 
+            var proficiencySoulBladeArmor = FeatureDefinitionProficiencyBuilder
+                .Create(ProficiencyClericArmor, "ProficiencySoulBladeArmor", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(Category.Feature)
+                .AddToDB();
+
+            var proficiencySoulBladeWeapon = FeatureDefinitionProficiencyBuilder
+                .Create(ProficiencyFighterWeapon, "ProficiencySoulBladeWeapon", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(Category.Feature)
+                .AddToDB();
+
             return CharacterSubclassDefinitionBuilder
                 .Create("AHWarlockSubclassSoulBladePact", DefinitionBuilder.CENamespaceGuid)
                 .SetOrUpdateGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.OathOfTheMotherland.GuiPresentation.SpriteReference)
                 .AddFeatureAtLevel(extendedSpellList, 1) // Extra Soulblade spells
-                .AddFeatureAtLevel(ProficiencyFighterWeapon, 1) // Martial weapons
-                .AddFeatureAtLevel(ProficiencyClericArmor, 1) // Medium armor and shield
+                .AddFeatureAtLevel(proficiencySoulBladeWeapon, 1) // Martial weapons
+                .AddFeatureAtLevel(proficiencySoulBladeArmor, 1) // Medium armor and shield
                 .AddFeatureAtLevel(empowerWeaponPower, 1) //Feature to rival hexblade curse
                 .AddFeatureAtLevel(summonPactWeaponPower, 6)
                 .AddFeatureAtLevel(shieldPower, 10)

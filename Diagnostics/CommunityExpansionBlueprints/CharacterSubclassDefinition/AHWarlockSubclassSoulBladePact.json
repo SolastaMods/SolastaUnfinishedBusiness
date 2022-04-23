@@ -3,22 +3,22 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyClericArmor:aaad0b8f6c298014ab5597ba052e3de6",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyFighterWeapon:b042ddec31ba7f04bbc4e0676716c76f",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AHWarlockSoulBladePactEmpowerWeaponPower:d0d7af4a-2c48-5b13-9f11-6d9c79c9ec25",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AHWarlockSoulBladePactExtendedSpellList:0bc3b531-1713-591b-af44-3e4cd68cb166",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencySoulBladeArmor:4778a605-86e3-599a-b627-6077d32a5a55",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencySoulBladeWeapon:9f57a0aa-dfaf-5d9c-8890-ab3cd681560b",
       "level": 1
     },
     {
