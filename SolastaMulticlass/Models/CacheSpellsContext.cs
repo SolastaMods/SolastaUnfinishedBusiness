@@ -8,27 +8,17 @@ namespace SolastaMulticlass.Models
         internal static readonly Dictionary<CharacterClassDefinition, Dictionary<int, HashSet<SpellDefinition>>> ClassSpellList = new();
         internal static readonly Dictionary<CharacterSubclassDefinition, Dictionary<int, HashSet<SpellDefinition>>> SubclassSpellList = new();
 
-        private static int GetLowestCasterLevelFromSpellLevel(BaseDefinition definition, int spellLevel, bool isSubclass = false)
+        private static int GetLowestCasterLevelFromSpellLevel(BaseDefinition definition, int spellLevel)
         {
-            CasterType casterType;
+            CasterType casterType = CasterType.None;
 
-            if (isSubclass && definition is CharacterSubclassDefinition characterSubclassDefinition)
+            if (definition is CharacterClassDefinition characterClassDefinition)
             {
-                if (!SharedSpellsContext.SubclassCasterType.TryGetValue(characterSubclassDefinition, out casterType))
-                {
-                    return 0;
-                }
+                SharedSpellsContext.ClassCasterType.TryGetValue(characterClassDefinition, out casterType);
             }
-            else if (definition is CharacterClassDefinition characterClassDefinition)
+            else if (definition is CharacterSubclassDefinition characterSubclassDefinition)
             {
-                if (!SharedSpellsContext.ClassCasterType.TryGetValue(characterClassDefinition, out casterType))
-                {
-                    return 0;
-                }
-            }
-            else
-            {
-                casterType = CasterType.None;
+                SharedSpellsContext.SubclassCasterType.TryGetValue(characterSubclassDefinition, out casterType);
             }
 
             var modifier = (int)casterType - (int)casterType % 2;
@@ -85,7 +75,7 @@ namespace SolastaMulticlass.Models
 
                 for (var i = 0; i < maxLevel; i++)
                 {
-                    var level = GetLowestCasterLevelFromSpellLevel(definition, spellListDefinition.SpellsByLevel[i].Level, true);
+                    var level = GetLowestCasterLevelFromSpellLevel(definition, spellListDefinition.SpellsByLevel[i].Level);
                     var spellList = spellListDefinition.SpellsByLevel[i].Spells;
 
                     RegisterSpell(definition, level, spellList, isSubClass);
@@ -126,13 +116,6 @@ namespace SolastaMulticlass.Models
 
                     RegisterSpell(definition, level, spellList, isSubClass);
                 }
-                // unofficial
-                //else if (featureDefinitionTypeName == "FeatureDefinitionExtraSpellSelection")
-                //{
-                //    var spellListDefinition = AccessTools.Field(featureDefinition.GetType(), "spell_list").GetValue(featureDefinition) as SpellListDefinition;
-
-                //    Register(spellListDefinition);
-                //}
             }
         }
 

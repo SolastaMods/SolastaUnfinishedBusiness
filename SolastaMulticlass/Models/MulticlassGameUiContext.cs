@@ -123,12 +123,9 @@ namespace SolastaMulticlass.Models
             SpellLevelButton.LevelSelectedHandler levelSelected,
             int accountForCantrips,
             int classSpellLevel,
-            int slotLevel,
-            bool useClassSpellLevelOnButtons = true)
+            int slotLevel)
         {
-            var level = useClassSpellLevelOnButtons ? classSpellLevel : slotLevel;
-
-            while (___levelButtonsTable.childCount < level + accountForCantrips)
+            while (___levelButtonsTable.childCount < classSpellLevel + accountForCantrips)
             {
                 Gui.GetPrefabFromPool(___levelButtonPrefab, ___levelButtonsTable);
 
@@ -138,7 +135,7 @@ namespace SolastaMulticlass.Models
                 child.GetComponent<SpellLevelButton>().Bind(index, new SpellLevelButton.LevelSelectedHandler(levelSelected));
             }
 
-            while (___levelButtonsTable.childCount > level + accountForCantrips)
+            while (___levelButtonsTable.childCount > classSpellLevel + accountForCantrips)
             {
                 Gui.ReleaseInstanceToPool(___levelButtonsTable.GetChild(___levelButtonsTable.childCount - 1).gameObject);
             }

@@ -47,11 +47,11 @@ namespace SolastaMulticlass.Patches.LevelUp
                 if (isLevelingUp)
                 {
                     LevelUpContext.SetSelectedClass(hero, classDefinition);
-                }
 
-                if (isLevelingUp && !isClassSelectionStage)
-                {
-                    LevelUpContext.GrantItemsIfRequired(hero);
+                    if (!isClassSelectionStage)
+                    {
+                        LevelUpContext.GrantItemsIfRequired(hero);
+                    }
                 }
 
                 return !(isLevelingUp && isClassSelectionStage);
@@ -267,13 +267,12 @@ namespace SolastaMulticlass.Patches.LevelUp
                 // PATCH
                 foreach (var activeFeature in hero.ActiveFeatures.Where(x => x.Key.StartsWith(localTag)))
                 {
-                    foreach (var featureDefinition in activeFeature.Value)
+                    foreach (var featureDefinition in activeFeature.Value
+                        .OfType<FeatureDefinitionCastSpell>())
                     {
-                        if (featureDefinition is FeatureDefinitionCastSpell)
-                        {
-                            __result = featureDefinition as FeatureDefinitionCastSpell;
-                            return false;
-                        }
+                        __result = featureDefinition;
+
+                        return false;
                     }
                 }
 
@@ -287,13 +286,12 @@ namespace SolastaMulticlass.Patches.LevelUp
                 // PATCH
                 foreach (var activeFeature in hero.ActiveFeatures.Where(x => x.Key.StartsWith(localTag)))
                 {
-                    foreach (var featureDefinition in activeFeature.Value)
+                    foreach (var featureDefinition in activeFeature.Value
+                        .OfType<FeatureDefinitionCastSpell>())
                     {
-                        if (featureDefinition is FeatureDefinitionCastSpell)
-                        {
-                            __result = featureDefinition as FeatureDefinitionCastSpell;
+                            __result = featureDefinition;
+
                             return false;
-                        }
                     }
                 }
 
