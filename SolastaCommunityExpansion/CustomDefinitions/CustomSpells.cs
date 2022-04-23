@@ -14,7 +14,24 @@ namespace SolastaCommunityExpansion.CustomDefinitions
         EffectDescription ModifyEffect(RulesetEffectSpell spell, EffectDescription effect);
     }
 
-    public class SpellWithCasterFeatureDependentEffects : SpellDefinition, ICustomMagicEffectBasedOnCaster
+    public interface ISpellWithCustomFeatures
+    {
+        List<object> CustomFeatures { get; }
+
+        public IEnumerable<T> GetTypedFeatures<T>() where T: class;
+    }
+
+    public class SpellWithCustomFeatures : SpellDefinition, ISpellWithCustomFeatures
+    {
+        public List<object> CustomFeatures { get; } = new();
+
+        public IEnumerable<T> GetTypedFeatures<T>() where T : class
+        {
+            return CustomFeatures.Select(f => f as T);
+        }
+    }
+
+    public class SpellWithCasterFeatureDependentEffects : SpellWithCustomFeatures, ICustomMagicEffectBasedOnCaster
     {
         private readonly List<(List<FeatureDefinition>, EffectDescription)> _featuresEffectList = new();
 
