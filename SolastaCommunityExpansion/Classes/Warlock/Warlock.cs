@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Classes.Warlock.Features;
@@ -101,11 +100,10 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                 .SetSlotsPerLevel(WarlockSpells.WarlockCastingSlots)
                 .SetSlotsRecharge(RuleDefinitions.RechargeRate.ShortRest)
                 .SetSpellCastingAbility(AttributeDefinitions.Charisma)
-                .SetSpellCastingLevel(5)
+                .SetSpellCastingLevel(9)
                 .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Class)
                 .SetSpellList(WarlockSpells.WarlockSpellList)
                 .SetSpellKnowledge(RuleDefinitions.SpellKnowledge.Selection)
-                .SetSpellPreparationCount(RuleDefinitions.SpellPreparationCount.AbilityBonusPlusLevel)
                 .SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown);
 
             FeatureDefinitionClassWarlockCastSpell = classWarlockCastSpell.AddToDB();
@@ -155,15 +153,15 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                 .AddFeatureAtLevel(8, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
                 .AddFeatureAtLevel(9, WarlockEldritchInvocationSetLevel9)
                 //level 10 - subclass feature
-                .AddFeatureAtLevel(11, WarlockMysticArcanumSets.WarlockMysticArcanumSetLevel11)
+                .AddFeatureAtLevel(11, WarlockMysticArcanumSetLevel11)
                 .AddFeatureAtLevel(12, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
                 .AddFeatureAtLevel(12, WarlockEldritchInvocationSetLevel12)
-                .AddFeatureAtLevel(13, WarlockMysticArcanumSets.WarlockMysticArcanumSetLevel13)
+                .AddFeatureAtLevel(13, WarlockMysticArcanumSetLevel13)
                 //level 14 - subclass feature
-                .AddFeatureAtLevel(15, WarlockMysticArcanumSets.WarlockMysticArcanumSetLevel15)
+                .AddFeatureAtLevel(15, WarlockMysticArcanumSetLevel15)
                 .AddFeatureAtLevel(15, WarlockEldritchInvocationSetLevel15)
                 .AddFeatureAtLevel(16, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
-                .AddFeatureAtLevel(17, WarlockMysticArcanumSets.WarlockMysticArcanumSetLevel17)
+                .AddFeatureAtLevel(17, WarlockMysticArcanumSetLevel17)
                 .AddFeatureAtLevel(18, WarlockEldritchInvocationSetLevel18)
                 .AddFeatureAtLevel(19, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
                 .AddFeatureAtLevel(20, WarlockEldritchMasterPower);
