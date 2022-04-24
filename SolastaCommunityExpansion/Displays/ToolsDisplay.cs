@@ -5,6 +5,15 @@ namespace SolastaCommunityExpansion.Displays
 {
     internal static class ToolsDisplay
     {
+        internal static void SetFactionRelation(string name, int value)
+        {
+            var service = ServiceRepository.GetService<IGameFactionService>();
+            if (service != null)
+            {
+                service.ExecuteFactionOperation(name, FactionDefinition.FactionOperation.Increase, value - service.FactionRelations[name], "", null /* this string and monster doesn't matter if we're using "SetValue" */);
+            }
+        }
+
         internal static void DisplayTools()
         {
             bool toggle;
@@ -79,7 +88,7 @@ namespace SolastaCommunityExpansion.Displays
 
                     if (UI.Slider("                              " + title, ref intValue, faction.MinRelationCap, faction.MaxRelationCap, 0, "", UI.AutoWidth()))
                     {
-                        SetFactionRelationsContext.SetFactionRelation(faction.Name, intValue);
+                        SetFactionRelation(faction.Name, intValue);
                     }
 
                     flip = !flip;
