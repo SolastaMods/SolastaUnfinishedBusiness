@@ -60,6 +60,8 @@ namespace SolastaCommunityExpansion.Models
             }
 
             ArcaneFighter.UpdateEnchantWeapon();
+            ConArtist.UpdateSpellDCBoost();
+            MasterManipulator.UpdateSpellDCBoost();
             SpellMaster.UpdateBonusRecovery();
         }
 
