@@ -149,14 +149,14 @@
   "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": null,
+  "overriddenPower": "Definition:DH_ElementalFormPool:b8270e0d-295a-5eba-8efe-0538cb0859c1",
   "includeBaseDescription": false,
   "magical": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Power/&DH_ElementalFormPoolTitle",
-    "description": "Power/&DH_ElementalFormPoolDescription",
+    "title": "Power/&DH_ElementalFormPoolEnhancedTitle",
+    "description": "Power/&DH_ElementalFormPoolEnhancedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -176,7 +176,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b8270e0d-295a-5eba-8efe-0538cb0859c1",
+  "guid": "caa5ca41-3b17-5141-8858-fe6b013efb88",
   "contentPack": 9999,
-  "name": "DH_ElementalFormPool"
+  "name": "DH_ElementalFormPoolEnhanced"
 }

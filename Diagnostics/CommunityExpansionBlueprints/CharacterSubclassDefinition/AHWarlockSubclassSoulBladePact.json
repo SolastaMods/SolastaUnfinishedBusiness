@@ -8,12 +8,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AHWarlockSoulBladePactExtendedSpellList:0bc3b531-1713-591b-af44-3e4cd68cb166",
+      "featureDefinition": "Definition:ProficiencySoulBladeArmor:4778a605-86e3-599a-b627-6077d32a5a55",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencySoulBladeArmor:4778a605-86e3-599a-b627-6077d32a5a55",
+      "featureDefinition": "Definition:AHWarlockSoulBladePactExtendedSpellList:0bc3b531-1713-591b-af44-3e4cd68cb166",
       "level": 1
     },
     {

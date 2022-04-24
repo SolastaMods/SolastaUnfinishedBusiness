@@ -39,7 +39,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Elemental Damage: Astral Plane",
-    "description": "When channeling the elemental Astral Plane, additional Psychic damage, equal to your Proficiency Bonus, is added to the total",
+    "description": "RECHECK When channeling Astral Plane, additional Psychic damage, equal to your Proficiency Bonus, is added to the total",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -59,7 +59,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c56ea081-be48-503a-9afa-e03aca875ea1",
+  "guid": "e53e5286-1e15-5c7d-92c5-50512bbdd2cb",
   "contentPack": 9999,
-  "name": "DH_ElementalForm_AstraladditionalDamage"
+  "name": "DH_ElementalForm_AstralAdditionalDamage"
 }
