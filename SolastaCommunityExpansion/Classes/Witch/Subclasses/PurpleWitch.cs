@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if false
+using System;
 using static SolastaCommunityExpansion.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
@@ -42,3 +43,4 @@ namespace SolastaCommunityExpansion.Classes.Witch.Subclasses
         }
     }
 }
+#endif
