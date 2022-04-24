@@ -23,6 +23,12 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("General:".yellow());
             UI.Label("");
 
+            toggle = Main.Settings.EnableSaveByLocation;
+            if (UI.Toggle("Enable save by campaigns / locations", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableSaveByLocation = toggle;
+            }
+
             toggle = Main.Settings.EnableCharacterChecker;
             if (UI.Toggle("Enable the character checker button on the character pool", ref toggle, UI.AutoWidth()))
             {
@@ -47,6 +53,17 @@ namespace SolastaCommunityExpansion.Displays
             {
                 Main.Settings.NoExperienceOnLevelUp = toggle;
             }
+
+            UI.Label("");
+
+            intValue = Main.Settings.MaxBackupFilesPerLocationCampaign;
+            if (UI.Slider("Max. backup files per location or campaign".white(), ref intValue, 0, 20, 10))
+            {
+                Main.Settings.MaxBackupFilesPerLocationCampaign = intValue;
+            }
+
+            UI.Label("");
+            UI.Label(". Backup files are saved under " + "GAME_FOLDER/Mods/SolastaCommunityExpansion/DungeonMakerBackups".italic().yellow());
 
             UI.Label("");
             UI.Label("Faction Relations:".yellow());

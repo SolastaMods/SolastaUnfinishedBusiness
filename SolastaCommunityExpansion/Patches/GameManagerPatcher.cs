@@ -61,7 +61,6 @@ namespace SolastaCommunityExpansion.Patches
             // There are spells that rely on new monster definitions with powers loaded during the PowersContext. So spells should get added to db after powers.
             SpellsContext.Load();
             SrdAndHouseRulesContext.Load();
-            TelemaCampaignContext.Load();
 
             // Races may rely on spells and powers being in the DB before they can properly load.
             RacesContext.Load();
