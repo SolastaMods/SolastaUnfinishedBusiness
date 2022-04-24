@@ -134,7 +134,7 @@ namespace SolastaCommunityExpansion.Spells
 
         static SpellDefinition BuildHellishRebuke()
         {
-            return SpellWithCustomFeatursBuilder
+            return SpellWithCustomFeaturesBuilder
                 .Create("AHHellishRebuke", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Spell,  Utils.CustomIcons.CreateAssetReferenceSprite("HellishRebuke", Properties.Resources.HellishRebuke, 128, 128))
                 .SetSpellLevel(1)

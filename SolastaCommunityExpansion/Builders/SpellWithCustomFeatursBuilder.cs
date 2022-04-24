@@ -5,24 +5,24 @@ using SolastaCommunityExpansion.CustomDefinitions;
 namespace SolastaCommunityExpansion.Builders
 {
 
-    public abstract class SpellWithCustomFeatursBuilder<TDefinition, TBuilder> : SpellDefinitionBuilder<TDefinition, TBuilder>
+    public abstract class SpellWithCustomFeaturesBuilder<TDefinition, TBuilder> : SpellDefinitionBuilder<TDefinition, TBuilder>
         where TDefinition : SpellWithCustomFeatures
-        where TBuilder : SpellWithCustomFeatursBuilder<TDefinition, TBuilder>
+        where TBuilder : SpellWithCustomFeaturesBuilder<TDefinition, TBuilder>
     {
         #region Constructors
-        protected SpellWithCustomFeatursBuilder(string name, string guid) : base(name, guid)
+        protected SpellWithCustomFeaturesBuilder(string name, string guid) : base(name, guid)
         {
         }
 
-        protected SpellWithCustomFeatursBuilder(string name, Guid guidNamespace) : base(name, guidNamespace)
+        protected SpellWithCustomFeaturesBuilder(string name, Guid guidNamespace) : base(name, guidNamespace)
         {
         }
 
-        protected SpellWithCustomFeatursBuilder(TDefinition original, string name, string guid) : base(original, name, guid)
+        protected SpellWithCustomFeaturesBuilder(TDefinition original, string name, string guid) : base(original, name, guid)
         {
         }
 
-        protected SpellWithCustomFeatursBuilder(TDefinition original, string name, Guid guidNamespace) : base(original, name, guidNamespace)
+        protected SpellWithCustomFeaturesBuilder(TDefinition original, string name, Guid guidNamespace) : base(original, name, guidNamespace)
         {
         }
         #endregion
@@ -46,21 +46,21 @@ namespace SolastaCommunityExpansion.Builders
         }
     }
 
-    public class SpellWithCustomFeatursBuilder: SpellWithCustomFeatursBuilder<SpellWithCustomFeatures, SpellWithCustomFeatursBuilder>
+    public class SpellWithCustomFeaturesBuilder: SpellWithCustomFeaturesBuilder<SpellWithCustomFeatures, SpellWithCustomFeaturesBuilder>
     {
-        public SpellWithCustomFeatursBuilder(string name, string guid) : base(name, guid)
+        public SpellWithCustomFeaturesBuilder(string name, string guid) : base(name, guid)
         {
         }
 
-        public SpellWithCustomFeatursBuilder(string name, Guid guidNamespace) : base(name, guidNamespace)
+        public SpellWithCustomFeaturesBuilder(string name, Guid guidNamespace) : base(name, guidNamespace)
         {
         }
 
-        public SpellWithCustomFeatursBuilder(SpellWithCustomFeatures original, string name, string guid) : base(original, name, guid)
+        public SpellWithCustomFeaturesBuilder(SpellWithCustomFeatures original, string name, string guid) : base(original, name, guid)
         {
         }
 
-        public SpellWithCustomFeatursBuilder(SpellWithCustomFeatures original, string name, Guid guidNamespace) : base(original, name, guidNamespace)
+        public SpellWithCustomFeaturesBuilder(SpellWithCustomFeatures original, string name, Guid guidNamespace) : base(original, name, guidNamespace)
         {
         }
     }

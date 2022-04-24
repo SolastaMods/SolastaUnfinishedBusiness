@@ -5,11 +5,11 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public abstract class SpellWithCasterFeatureDependentEffectsBuilder<TDefinition, TBuilder> : SpellWithCustomFeatursBuilder<
+    public abstract class SpellWithCasterFeatureDependentEffectsBuilder<TDefinition, TBuilder> : SpellWithCustomFeaturesBuilder<
         TDefinition,
         TBuilder>
         where TDefinition : SpellWithCasterFeatureDependentEffects
-        where TBuilder : SpellWithCustomFeatursBuilder<TDefinition, TBuilder>
+        where TBuilder : SpellWithCustomFeaturesBuilder<TDefinition, TBuilder>
     {
         #region Constructors
 
