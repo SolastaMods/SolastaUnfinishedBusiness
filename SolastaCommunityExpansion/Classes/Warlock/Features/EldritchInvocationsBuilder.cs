@@ -40,15 +40,12 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             DictionaryofEIPseudoCantrips.Add("OtherworldlyLeap", DatabaseHelper.SpellDefinitions.Jump);// self
             DictionaryofEIPseudoCantrips.Add("ChainsofCarceri", DatabaseHelper.SpellDefinitions.HoldMonster);
             DictionaryofEIPseudoCantrips.Add("ShroudofShadow", DatabaseHelper.SpellDefinitions.Invisibility);
-
             // 1/day
             DictionaryofEIPseudoSpells.Add("ThiefofFiveFates", DatabaseHelper.SpellDefinitions.Bane);
             DictionaryofEIPseudoSpells.Add("MiretheMind", DatabaseHelper.SpellDefinitions.Slow);
             //cant do it this way as it uses subspells  DictionaryofEIPseudoSpells.Add("SignofIllOmen", DatabaseHelper.SpellDefinitions.BestowCurse);
             DictionaryofEIPseudoSpells.Add("DreadfulWord", DatabaseHelper.SpellDefinitions.Confusion);
             DictionaryofEIPseudoSpells.Add("Trickster'sEscape", DatabaseHelper.SpellDefinitions.FreedomOfMovement);// self
-
-
 
             // EI that arent valid for game right now
             //{"BeastSpeech",         DatabaseHelper.SpellDefinitions.},
@@ -70,19 +67,13 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             // at will EI
             foreach (KeyValuePair<string, SpellDefinition> entry in DictionaryofEIPseudoCantrips)
             {
-
-
-
                 string textPseudoCantrips = "DHEldritchInvocation" + entry.Value.name;
 
-
-
-
                 var guiPresentationEIPseudoCantrips = new GuiPresentationBuilder(
-                    "Feature/&" + entry.Key + "Title",         //                    entry.Value.GuiPresentation.title) // textPseudoCantrips + "Title")
-                    "Cast " + entry.Value.name + " at will")  //entry.Value.GuiPresentation.Description,// textPseudoCantrips + "Description",
-                     .SetSpriteReference(entry.Value.GuiPresentation.SpriteReference)
-                     .Build();
+                    "Feature/&" + entry.Key + "Title",
+                    Gui.Format("Feature/&SpellAsInvocationAtWillDescription", entry.Value.FormatTitle()))
+                        .SetSpriteReference(entry.Value.GuiPresentation.SpriteReference)
+                        .Build();
 
                 var EIPowerBuilder = FeatureDefinitionPowerBuilder
                     .Create(textPseudoCantrips, DefinitionBuilder.CENamespaceGuid)
@@ -101,17 +92,13 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                      true);
                 FeatureDefinitionPower EIPower = EIPowerBuilder.AddToDB();
 
-
                 if (entry.Key == "ArmorofShadows" || entry.Key == "FiendishVigor" || entry.Key == "AscendantStep" || entry.Key == "OtherworldlyLeap")
                 {
                     EIPower.EffectDescription.TargetType = RuleDefinitions.TargetType.Self;
                 }
 
                 DictionaryofEIPowers.Add(entry.Key, EIPower);
-
             }
-
-
 
             // 1/day EI
             foreach (KeyValuePair<string, SpellDefinition> entry in DictionaryofEIPseudoSpells)
@@ -119,10 +106,10 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 string textPseudoSpells = "DHEldritchInvocation" + entry.Value.name;
 
                 var guiPresentationEIPseudoSpells = new GuiPresentationBuilder(
-                    "Feature/&" + entry.Key + "Title",                   // entry.Value.GuiPresentation.title)        //textPseudoSpells + "Title")
-                    "Cast " + entry.Value.name + " once per day")                   // entry.Value.GuiPresentation.Description,  //textPseudoSpells + "Description",
-                    .SetSpriteReference(entry.Value.GuiPresentation.SpriteReference)
-                    .Build();
+                    "Feature/&" + entry.Key + "Title",
+                    Gui.Format("Feature/&SpellAsInvocationOncePerDayDescription", entry.Value.FormatTitle()))
+                        .SetSpriteReference(entry.Value.GuiPresentation.SpriteReference)
+                        .Build();
                 var EIPowerBuilder = FeatureDefinitionPowerBuilder
                     .Create(textPseudoSpells, DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation(guiPresentationEIPseudoSpells)

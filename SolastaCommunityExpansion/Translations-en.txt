@@ -958,6 +958,8 @@ Feature/&WitchSightDescription	You can sense or see invisibility up to 60 ft
 Feature/&WitchSightTitle	Witch Sight
 Feature/&OneWithShadowsDescription	When you are in an area of dim light or darkness, you become invisible until you move or take an action or a reaction.
 Feature/&OneWithShadowsTitle	One With Shadows
+Feature/&OneWithShadowsLightAffinityDescription	When you are in an area of dim light or darkness, you become invisible until you move or take an action or a reaction.
+Feature/&OneWithShadowsLightAffinityTitle	One With Shadows
 Feature/&OtherworldlyLeapTitle	Otherworldly Leap
 Feature/&PowerAttackAttackModifierDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged.
 Feature/&PowerAttackAttackModifierTitle	One handed power attack
@@ -1671,3 +1673,5 @@ Feature/&ProficiencySoulBladeWeaponTitle	Soulblade Weapon Proficiencies
 Feature/&ProficiencySoulBladeWeaponDescription	Simple Weapons, Martial Weapons
 Feature/&ProficiencySoulBladeArmorTitle	Soulblade Armor Proficiencies
 Feature/&ProficiencySoulBladeArmorDescription	Light Armor, Medium Armor and Shield
+Feature/&SpellAsInvocationAtWillDescription	Cast {0} at will
+Feature/&SpellAsInvocationOncePerDayDescription	Cast {0} once per day
