@@ -1,3 +1,1 @@
-OneWithShadowsLightAffinity	Title='Feature/&OneWithShadowsLightAffinityTitle'.
-OneWithShadowsLightAffinity	Description='Feature/&OneWithShadowsLightAffinityDescription'.
 WardenArmorProficiencyMulticlass	Title='Feature/&WardenArmorProficiencyTitle'.
