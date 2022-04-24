@@ -6,9 +6,6 @@ namespace SolastaMulticlass.Patches.Cantrips
 {
     internal static class CharacterActionCastSpellPatcher
     {
-        // enforces cantrips to be cast at character level
-        internal static readonly Dictionary<ulong, int> CasterLevel = new();
-
         [HarmonyPatch(typeof(CharacterActionCastSpell), "GetAdvancementData")]
         internal static class CharacterActionCastSpellGetAdvancementData
         {
