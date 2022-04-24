@@ -1,15 +1,7 @@
 {
   "$type": "SpellDefinition, Assembly-CSharp",
   "spellsBundle": false,
-  "subspellsList": [
-    "Definition:SpellDH_EnhancedElementalForm_Shadow:f3c201b2-0c76-515c-8117-a705430f3be7",
-    "Definition:SpellDH_EnhancedElementalForm_Astral:66967bea-ac17-56ad-9f61-829ce591b4b6",
-    "Definition:SpellDH_EnhancedElementalForm_Ethereal:42fe51c6-0a01-5423-9082-40d581b4ca0d",
-    "Definition:SpellDH_EnhancedElementalForm_Fire:0d26e010-f37f-58d3-83fd-afd733fa8581",
-    "Definition:SpellDH_EnhancedElementalForm_Earth:4fdedab1-0c32-5c88-9c69-fc72bf257c90",
-    "Definition:SpellDH_EnhancedElementalForm_Ice:f9faf382-46e2-55a6-9570-12e23146ab73",
-    "Definition:SpellDH_EnhancedElementalForm_Air:e013c0e8-7f1b-54e2-8bc5-63b23ba4d95a"
-  ],
+  "subspellsList": [],
   "implemented": true,
   "schoolOfMagic": "SchoolEvocation",
   "spellLevel": 0,
@@ -160,13 +152,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Power/&DH_ElementalFormPoolEnhancedTitle",
-    "description": "Power/&DH_ElementalFormPoolEnhancedDescription",
+    "title": "Ethereal Plane",
+    "description": "RECHECk When channeling the Ethereal Plane, you gain Immunity to Force damage and once per turn, apply damage of the same type to your attack",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "154d0306b9a1d9a43aec9af45149a1c7",
+      "m_SubObjectName": "AuraDevotion",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -181,7 +173,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "6e7a84a4-373f-5983-8071-59ef24cb9d32",
+  "guid": "42fe51c6-0a01-5423-9082-40d581b4ca0d",
   "contentPack": 9999,
-  "name": "SpellDH_ElementalFormPoolEnhanced"
+  "name": "SpellDH_EnhancedElementalForm_Ethereal"
 }

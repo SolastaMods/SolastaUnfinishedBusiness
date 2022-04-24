@@ -4,8 +4,8 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:DamageAffinityNecroticResistance:ee5f1fbda4f516844b493f08fdd4fb5a",
-    "Definition:DH_ElementalForm_ShadowAdditionalDamage:1293403b-ed47-5411-b02c-b7ddaadb158d"
+    "Definition:DamageAffinityBludgeoningImmunity:a260a40c93a840444894b813253ee9fb",
+    "Definition:DH_ElementalForm_EarthAdditionalDamage:cf6726dc-4b3d-5c47-aef8-9885c52c9ea0"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -22,12 +22,12 @@
   "conditionTags": [],
   "recurrentEffectForms": [],
   "cancellingConditions": [
-    "Definition:DH_ElementalForm_AstralCondition:a14171cc-a1b7-5c76-bb27-06c9b158b5a1",
-    "Definition:DH_ElementalForm_EtherealCondition:1bd66765-191d-57d3-88d1-fa161cea7741",
-    "Definition:DH_ElementalForm_FireCondition:2257f7d0-f396-5909-8389-c486acb8e542",
-    "Definition:DH_ElementalForm_EarthCondition:66331e7a-b5a1-55e7-9d03-9530a81f6bd4",
-    "Definition:DH_ElementalForm_IceCondition:cbd685be-cb74-53c9-98b3-fd7f230eae4d",
-    "Definition:DH_ElementalForm_AirCondition:a42fe005-54ac-5f2a-adfe-4a52ab34e46b"
+    "Definition:DH_EnhancedElementalForm_ShadowCondition:04cbd9a4-e02b-53bb-9679-a990aac63fe0",
+    "Definition:DH_EnhancedElementalForm_AstralCondition:7dd8bef7-0dc6-5e46-9fea-ef7037ad421c",
+    "Definition:DH_EnhancedElementalForm_EtherealCondition:6844e7d7-1e2c-5d71-8bfa-6bf1bd937631",
+    "Definition:DH_EnhancedElementalForm_FireCondition:8df4ff87-c57f-5cac-8601-ef6e359362e7",
+    "Definition:DH_EnhancedElementalForm_IceCondition:9eccdb1e-985e-55f7-8f81-83819d72e4d9",
+    "Definition:DH_EnhancedElementalForm_AirCondition:973f0538-b2b6-54c4-b7a4-c0930b8f0857"
   ],
   "additionalDamageWhenHit": false,
   "additionalDamageType": "",
@@ -47,7 +47,7 @@
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "2e9f6a2a7a42f0c48bebe8fad0572632",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -59,9 +59,9 @@
   },
   "characterShaderReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": null,
-    "m_SubObjectType": null
+    "m_AssetGUID": "06a468f2a92070841bf16acd0e7bd262",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
   },
   "particlesBasedOnAncestryDamageType": false,
   "acidParticleParameters": null,
@@ -126,12 +126,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Shadow Plane",
-    "description": "RECHECk When channeling the Shadow Plane, you gain Resistance to Necrotic damage and once per turn, apply damage of the same type to your attack",
+    "title": "Earth Plane",
+    "description": "RECHECk When channeling the Earth Plane, you gain Immunity to Bludgeoning damage and once per turn, apply damage of the same type to your attack",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c702ac588026d8b4c90ffee27a600506",
-      "m_SubObjectName": "HeraldOfTheSun",
+      "m_AssetGUID": "e5a2bfebebf72bb48a6206b4fc8aabee",
+      "m_SubObjectName": "DivineWrath",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -147,7 +147,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f52a89e6-6651-5843-93f6-503891d5fb3f",
+  "guid": "c433a74c-fff6-516d-8096-557013327a37",
   "contentPack": 9999,
-  "name": "DH_ElementalForm_ShadowCondition"
+  "name": "DH_EnhancedElementalForm_EarthCondition"
 }

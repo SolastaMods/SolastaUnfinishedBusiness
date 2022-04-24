@@ -4,8 +4,8 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:DamageAffinityNecroticResistance:ee5f1fbda4f516844b493f08fdd4fb5a",
-    "Definition:DH_ElementalForm_ShadowAdditionalDamage:1293403b-ed47-5411-b02c-b7ddaadb158d"
+    "Definition:DamageAffinityThunderResistance:510045c677352854ca27ebea37c85d02",
+    "Definition:DH_ElementalForm_AirAdditionalDamage:07dfa4fe-32a6-5495-8df6-c0ffc54963b7"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -22,12 +22,12 @@
   "conditionTags": [],
   "recurrentEffectForms": [],
   "cancellingConditions": [
+    "Definition:DH_ElementalForm_ShadowCondition:f52a89e6-6651-5843-93f6-503891d5fb3f",
     "Definition:DH_ElementalForm_AstralCondition:a14171cc-a1b7-5c76-bb27-06c9b158b5a1",
     "Definition:DH_ElementalForm_EtherealCondition:1bd66765-191d-57d3-88d1-fa161cea7741",
     "Definition:DH_ElementalForm_FireCondition:2257f7d0-f396-5909-8389-c486acb8e542",
     "Definition:DH_ElementalForm_EarthCondition:66331e7a-b5a1-55e7-9d03-9530a81f6bd4",
-    "Definition:DH_ElementalForm_IceCondition:cbd685be-cb74-53c9-98b3-fd7f230eae4d",
-    "Definition:DH_ElementalForm_AirCondition:a42fe005-54ac-5f2a-adfe-4a52ab34e46b"
+    "Definition:DH_ElementalForm_IceCondition:cbd685be-cb74-53c9-98b3-fd7f230eae4d"
   ],
   "additionalDamageWhenHit": false,
   "additionalDamageType": "",
@@ -47,7 +47,7 @@
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "2a2913c5eec57a24da4af020cf0e0f0f",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -126,12 +126,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Shadow Plane",
-    "description": "RECHECk When channeling the Shadow Plane, you gain Resistance to Necrotic damage and once per turn, apply damage of the same type to your attack",
+    "title": "Air Plane",
+    "description": "RECHECk When channeling the Air Plane, you gain Resistance to Thunder damage and once per turn, apply damage of the same type to your attack",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c702ac588026d8b4c90ffee27a600506",
-      "m_SubObjectName": "HeraldOfTheSun",
+      "m_AssetGUID": "190728041c6b0294b824f29597e11e19",
+      "m_SubObjectName": "HeraldElementsThunder",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -147,7 +147,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f52a89e6-6651-5843-93f6-503891d5fb3f",
+  "guid": "a42fe005-54ac-5f2a-adfe-4a52ab34e46b",
   "contentPack": 9999,
-  "name": "DH_ElementalForm_ShadowCondition"
+  "name": "DH_ElementalForm_AirCondition"
 }

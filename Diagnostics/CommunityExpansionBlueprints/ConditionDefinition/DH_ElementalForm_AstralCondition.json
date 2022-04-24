@@ -22,7 +22,12 @@
   "conditionTags": [],
   "recurrentEffectForms": [],
   "cancellingConditions": [
-    "Definition:DH_ElementalForm_ShadowCondition:f52a89e6-6651-5843-93f6-503891d5fb3f"
+    "Definition:DH_ElementalForm_ShadowCondition:f52a89e6-6651-5843-93f6-503891d5fb3f",
+    "Definition:DH_ElementalForm_EtherealCondition:1bd66765-191d-57d3-88d1-fa161cea7741",
+    "Definition:DH_ElementalForm_FireCondition:2257f7d0-f396-5909-8389-c486acb8e542",
+    "Definition:DH_ElementalForm_EarthCondition:66331e7a-b5a1-55e7-9d03-9530a81f6bd4",
+    "Definition:DH_ElementalForm_IceCondition:cbd685be-cb74-53c9-98b3-fd7f230eae4d",
+    "Definition:DH_ElementalForm_AirCondition:a42fe005-54ac-5f2a-adfe-4a52ab34e46b"
   ],
   "additionalDamageWhenHit": false,
   "additionalDamageType": "",

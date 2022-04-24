@@ -21,7 +21,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
             SpellListDefinition MoonLitExpandedSpelllist = SpellListDefinitionBuilder
                 .Create(SpellListPaladin, "MoonLitExpandedSpelllist", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation("MoonLitExpandedSpelllist", Category.Feature)
+                .SetGuiPresentationNoContent()
                 .ClearSpells()
                 .SetSpellsAtLevel(1, FaerieFire, Sleep)
                 .SetSpellsAtLevel(2, MoonBeam, SeeInvisibility)

@@ -4,8 +4,8 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:DamageAffinityNecroticResistance:ee5f1fbda4f516844b493f08fdd4fb5a",
-    "Definition:DH_ElementalForm_ShadowAdditionalDamage:1293403b-ed47-5411-b02c-b7ddaadb158d"
+    "Definition:DamageAffinityForceDamageResistance:4255cfeca2edc0643bc2b1897930a815",
+    "Definition:DH_ElementalForm_EtherealAdditionalDamage:92bd212d-113e-5dec-8550-4083d1750781"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -22,8 +22,8 @@
   "conditionTags": [],
   "recurrentEffectForms": [],
   "cancellingConditions": [
+    "Definition:DH_ElementalForm_ShadowCondition:f52a89e6-6651-5843-93f6-503891d5fb3f",
     "Definition:DH_ElementalForm_AstralCondition:a14171cc-a1b7-5c76-bb27-06c9b158b5a1",
-    "Definition:DH_ElementalForm_EtherealCondition:1bd66765-191d-57d3-88d1-fa161cea7741",
     "Definition:DH_ElementalForm_FireCondition:2257f7d0-f396-5909-8389-c486acb8e542",
     "Definition:DH_ElementalForm_EarthCondition:66331e7a-b5a1-55e7-9d03-9530a81f6bd4",
     "Definition:DH_ElementalForm_IceCondition:cbd685be-cb74-53c9-98b3-fd7f230eae4d",
@@ -47,7 +47,7 @@
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "62a22b407b0619549997a357f6344630",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -126,12 +126,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Shadow Plane",
-    "description": "RECHECk When channeling the Shadow Plane, you gain Resistance to Necrotic damage and once per turn, apply damage of the same type to your attack",
+    "title": "Ethereal Plane",
+    "description": "RECHECk When channeling the Ethereal Plane, you gain Resistance to Force damage and once per turn, apply damage of the same type to your attack",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c702ac588026d8b4c90ffee27a600506",
-      "m_SubObjectName": "HeraldOfTheSun",
+      "m_AssetGUID": "154d0306b9a1d9a43aec9af45149a1c7",
+      "m_SubObjectName": "AuraDevotion",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -147,7 +147,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f52a89e6-6651-5843-93f6-503891d5fb3f",
+  "guid": "1bd66765-191d-57d3-88d1-fa161cea7741",
   "contentPack": 9999,
-  "name": "DH_ElementalForm_ShadowCondition"
+  "name": "DH_ElementalForm_EtherealCondition"
 }

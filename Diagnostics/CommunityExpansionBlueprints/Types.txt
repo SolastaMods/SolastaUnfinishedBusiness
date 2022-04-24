@@ -1,5 +1,4 @@
 ActionDefinition
-CampaignDefinition
 CharacterClassDefinition
 CharacterFamilyDefinition
 CharacterRaceDefinition

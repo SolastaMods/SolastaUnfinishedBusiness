@@ -21,7 +21,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
         {
             var ancientForestSpelllist = SpellListDefinitionBuilder
                 .Create(SpellListPaladin, "AncientForestExpandedSpelllist", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(Category.Feature)
+                .SetGuiPresentationNoContent()
                 .ClearSpells()
                 .SetSpellsAtLevel(1, Goodberry, Entangle)
                 .SetSpellsAtLevel(2, Barkskin, SpikeGrowth)

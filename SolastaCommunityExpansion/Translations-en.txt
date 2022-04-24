@@ -952,6 +952,8 @@ Feature/&MoonLitExpandedSpelllistAfinityDescription	You choose from an expanded 
 Feature/&MoonLitExpandedSpelllistAfinityTitle	MoonLit Spelllist
 Feature/&MoonLitLightAffinityDescription	You can become invisible in dim light or natural darkness
 Feature/&MoonLitLightAffinityTitle	Umbral Cloak
+Feature/&WitchSightDescription	You can sense or see invisibility up to 60 ft
+Feature/&WitchSightTitle	Witch Sight
 Feature/&OneWithShadowsDescription	When you are in an area of dim light or darkness, you become invisible until you move or take an action or a reaction.
 Feature/&OneWithShadowsTitle	One With Shadows
 Feature/&OtherworldlyLeapTitle	Otherworldly Leap
@@ -1137,8 +1139,8 @@ Message/&TeleportPartyDescription	Teleport party to coordinates ({0}, {1})?\nYou
 Message/&TeleportPartyTitle	Teleport
 Modifier/&DisorientDescription	-1d6 to attack rolls
 Modifier/&DisorientTitle	Disoriented
-Modifier/&RuinedDescription	-3 to Armor Class
-Modifier/&RuinedTitle	Ruined
+Modifier/&AttributeModifierRuinDescription	-3 to Armor Class
+Modifier/&AttributeModifierRuinTitle	Ruined
 Monster/&DHCustomCouatlDescription	Couatls are benevolent serpentine beings of great intellect and insight. Their brilliantly colored wings and gentle manner speak to their celestial origins.
 Monster/&DHCustomCouatlTitle	Couatl
 Monster/&OwlFamiliarDescription	Owl Familiar
