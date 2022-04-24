@@ -2,7 +2,7 @@
 {
     public class RequestReactionToDamageWithSpell : ReactionRequestCastSpell
     {
-        private string attackerName;
+        private string attackerName { get; set; }
 
         public RequestReactionToDamageWithSpell(
             CharacterActionParams actionParams,
