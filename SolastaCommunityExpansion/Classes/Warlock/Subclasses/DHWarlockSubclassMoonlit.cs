@@ -44,7 +44,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .AddToDB();
 
             // don't get the annoying message on log
-            CustomFeaturesContext.CharacterLabelEnabledConditions.Add(moonlitInvisibleCondition);
+            Global.CharacterLabelEnabledConditions.Add(moonlitInvisibleCondition);
 
             var Unlit = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
             {

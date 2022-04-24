@@ -14,10 +14,12 @@ namespace SolastaCommunityExpansion.Models
 
         private static FeatureDefinitionPower FeatureDefinitionPowerHelpAction { get; set; }
 
-        internal static void AddToDB()
+        internal static void Load()
         {
             LoadHelpPower();
         }
+
+        internal static void LateLoad() => Switch();
 
         internal static void Switch()
         {

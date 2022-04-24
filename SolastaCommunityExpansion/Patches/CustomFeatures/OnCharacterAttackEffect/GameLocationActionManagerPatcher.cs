@@ -17,14 +17,14 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
             CharacterAction action)
         {
             Main.Logger.Log(action.ActionDefinition.Name);
-            CustomFeaturesContext.CurrentAction = action;
+            Global.CurrentAction = action;
 
             while (values.MoveNext())
             {
                 yield return values.Current;
             }
 
-            CustomFeaturesContext.CurrentAction = null;
+            Global.CurrentAction = null;
         }
     }
 }

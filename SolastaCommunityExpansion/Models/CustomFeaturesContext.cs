@@ -6,27 +6,8 @@ using UnityEngine;
 
 namespace SolastaCommunityExpansion.Models
 {
-    internal static class ActivePlayerCharacter
-    {
-        private static GameLocationCharacter _character = null;
-
-        internal static void Set(GameLocationCharacter character = null)
-        {
-            _character = character;
-        }
-
-        internal static GameLocationCharacter Get()
-        {
-            return _character;
-        }
-    }
-
     internal static class CustomFeaturesContext
     {
-        internal static HashSet<ConditionDefinition> CharacterLabelEnabledConditions { get; } = new();
-
-        internal static CharacterAction CurrentAction { get; set; }
-
         internal static void RecursiveGrantCustomFeatures(RulesetCharacterHero hero, List<FeatureDefinition> features)
         {
             foreach (var grantedFeature in features)
@@ -174,7 +155,7 @@ namespace SolastaCommunityExpansion.Models
         public static EffectDescription ModifySpellEffectGui(EffectDescription original, GuiSpellDefinition spell)
         {
             var result = original;
-            var caster = ActivePlayerCharacter.Get()?.RulesetCharacter;
+            var caster = Global.ActivePlayerCharacter?.RulesetCharacter;
 
             if (spell.SpellDefinition is ICustomMagicEffectBasedOnCaster baseDefinition && caster != null)
             {

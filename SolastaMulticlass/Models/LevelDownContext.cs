@@ -14,7 +14,7 @@ namespace SolastaMulticlass.Models
                 FunctorParametersDescription functorParameters,
                 FunctorExecutionContext context)
             {
-                if (SolastaCommunityExpansion.Models.PlayerControllerContext.IsMultiplayer)
+                if (SolastaCommunityExpansion.Models.Global.IsMultiplayer)
                 {
                     yield break;
                 }

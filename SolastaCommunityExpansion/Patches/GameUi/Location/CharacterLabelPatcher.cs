@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Location
     {
         internal static void Prefix(CharacterLabel __instance, RulesetActor character, RulesetCondition condition)
         {
-            if (CustomFeaturesContext.CharacterLabelEnabledConditions.Contains(condition.ConditionDefinition))
+            if (Global.CharacterLabelEnabledConditions.Contains(condition.ConditionDefinition))
             {
                 var displayConditionLabelMethod = typeof(CharacterLabel).GetMethod("DisplayConditionLabel", BindingFlags.NonPublic | BindingFlags.Instance);
 
@@ -28,7 +28,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Location
     {
         internal static void Prefix(CharacterLabel __instance, RulesetActor character, RulesetCondition condition)
         {
-            if (CustomFeaturesContext.CharacterLabelEnabledConditions.Contains(condition.ConditionDefinition))
+            if (Global.CharacterLabelEnabledConditions.Contains(condition.ConditionDefinition))
             {
                 var displayConditionLabelMethod = typeof(CharacterLabel).GetMethod("DisplayConditionLabel", BindingFlags.NonPublic | BindingFlags.Instance);
 
