@@ -67,24 +67,30 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
             // maybe could be merged with the witchs find familiar
 
+            //Warlock's familiar's don't scale but get one-time bonuses when Chain Master invocation is selected
+            // Definition.FeatureSet.Add(WarlockPactOfTheChainSummons.buildSummoningAffinity());
+            
             WarlockPactOfTheChainSummons.PactofChainFamiliarAuraOfSpellResistence();
             WarlockPactOfTheChainSummons.buildPactofChainFamiliarInvisibilityPower();
-            WarlockPactOfTheChainSummons.buildCustomPseudodragon();
+            var pseudodragon = WarlockPactOfTheChainSummons.buildCustomPseudodragon();
             WarlockPactOfTheChainSummons.buildCustomSprite();
             WarlockPactOfTheChainSummons.buildCustomImp();
             WarlockPactOfTheChainSummons.buildCustomQuasit();
 
 
-            EffectDescriptionBuilder effectDescriptionPseudodragon = new EffectDescriptionBuilder();
-            effectDescriptionPseudodragon.SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
-            effectDescriptionPseudodragon.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
-            effectDescriptionPseudodragon.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, WarlockPactOfTheChainSummons.PactChainPseudodragon.name, DatabaseHelper.ConditionDefinitions.ConditionFlyingBootsWinged, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
-            effectDescriptionPseudodragon.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ConjureElementalAir.EffectDescription.EffectParticleParameters);
+            EffectDescriptionBuilder effectDescriptionPseudodragon = new EffectDescriptionBuilder()
+            .SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn)
+            .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1, RuleDefinitions.TargetType.Position, 1, 1)
+            .AddEffectForm(new EffectFormBuilder()
+                .SetSummonCreatureForm(1, pseudodragon.name, true, null)
+                .Build()
+            )
+            .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ConjureElementalAir.EffectDescription.EffectParticleParameters);
 
             GuiPresentationBuilder FindFamiliarPsuedodragonGui = new GuiPresentationBuilder(
-                "Spell/&FindFamiliarPsuedodragonDescription",
-                "Spell/&FindFamiliarPsuedodragonTitle");
-            FindFamiliarPsuedodragonGui.SetSpriteReference(WarlockPactOfTheChainSummons.PactChainPseudodragon.GuiPresentation.SpriteReference);
+                "Spell/&FindFamiliarPsuedodragonTitle",
+                "Spell/&FindFamiliarPsuedodragonDescription");
+            FindFamiliarPsuedodragonGui.SetSpriteReference(pseudodragon.GuiPresentation.SpriteReference);
 
 
             EffectDescriptionBuilder effectDescriptionSprite = new EffectDescriptionBuilder();
@@ -211,9 +217,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 new List<FeatureDefinitionPower>()
                 {
                     FindFamiliarPseudodragonPower,
-                    FindFamiliarSpritePower,
-                    FindFamiliarImpPower,
-                    FindFamiliarQuasitPower
+                    // FindFamiliarSpritePower,
+                    // FindFamiliarImpPower,
+                    // FindFamiliarQuasitPower
                 });
             Definition.FeatureSet.Add(findFamiliarPowerBundle);
 

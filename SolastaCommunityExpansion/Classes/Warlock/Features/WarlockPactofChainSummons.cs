@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -7,6 +6,7 @@ using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using UnityEngine.AddressableAssets;
 using UnityEngine;
+using static RuleDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Features
 {
@@ -14,7 +14,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
     {
         public static FeatureDefinitionPower PactofChainFamiliarInvisibilityPower { get; private set; }
         public static FeatureDefinitionPower PactofChainFamiliarSpellResistencePower { get; private set; }
-        public static MonsterDefinition PactChainPseudodragon { get; private set; }
         public static MonsterDefinition PactChainSprite { get; private set; }
         public static MonsterDefinition PactChainImp { get; private set; }
         public static MonsterDefinition PactChainQuasit { get; private set; }
@@ -48,24 +47,24 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         {
             ConditionDefinition spellResistanceCondition = ConditionDefinitionBuilder
                 .Create("DHSpellResistenceCondition", DefinitionBuilder.CENamespaceGuid)
-                .Configure(RuleDefinitions.DurationType.Minute, 1, false, DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinitySpellResistance)
+                .Configure(DurationType.Minute, 1, false, DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinitySpellResistance)
                 .SetGuiPresentation("SpellResistenceDesccription", "SpellResistenceConditionTitle")
                 .AddToDB();
 
             EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder();
-            effectDescription.SetDurationData(RuleDefinitions.DurationType.Permanent, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
-            effectDescription.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1, RuleDefinitions.TargetType.Sphere, 2, 1, ActionDefinitions.ItemSelectionType.Equiped);
+            effectDescription.SetDurationData(DurationType.Permanent, 1, TurnOccurenceType.EndOfTurn);
+            effectDescription.SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Sphere, 2, 1);
             effectDescription.AddEffectForm(new EffectFormBuilder().SetConditionForm(spellResistanceCondition, ConditionForm.ConditionOperation.Add, true, true, new List<ConditionDefinition>()).Build());
 
             PactofChainFamiliarSpellResistencePower = FeatureDefinitionPowerBuilder
                 .Create("PactofChainFamiliarSpellResistencePower", DefinitionBuilder.CENamespaceGuid)
                 .Configure(
                 1,
-                RuleDefinitions.UsesDetermination.Fixed,
+                UsesDetermination.Fixed,
                 AttributeDefinitions.Charisma,
-                RuleDefinitions.ActivationTime.Permanent,
+                ActivationTime.Permanent,
                 1,
-                RuleDefinitions.RechargeRate.AtWill,
+                RechargeRate.AtWill,
                 false,
                 false,
                 AttributeDefinitions.Charisma,
@@ -75,7 +74,147 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .AddToDB();
         }
 
-        public static void buildCustomPseudodragon()
+        // public static FeatureDefinition buildSummoningAffinity()
+        // {
+        //     var acConditionDefinition = ConditionDefinitionBuilder
+        //         .Create(DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondAC, "ConditionWarlockFamiliarAC",
+        //             DefinitionBuilder.CENamespaceGuid)
+        //         .SetGuiPresentationNoContent()
+        //         .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
+        //         .AddToDB();
+        //
+        //     var stConditionDefinition = ConditionDefinitionBuilder
+        //         .Create(DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondSavingThrows,
+        //             "ConditionWarlockFamiliarST", DefinitionBuilder.CENamespaceGuid)
+        //         .SetGuiPresentationNoContent()
+        //         .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
+        //         .AddToDB();
+        //      
+        //      var damageConditionDefinition = ConditionDefinitionBuilder
+        //          .Create(DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondMeleeDamage,
+        //              "ConditionWarlockFamiliarDamage", DefinitionBuilder.CENamespaceGuid)
+        //          .SetGuiPresentationNoContent()
+        //          .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
+        //          .AddToDB();
+        //
+        //      var hitConditionDefinition = ConditionDefinitionBuilder
+        //          .Create(DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondMeleeAttack,
+        //              "ConditionWarlockFamiliarHit", DefinitionBuilder.CENamespaceGuid)
+        //          .SetGuiPresentationNoContent()
+        //          .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceSpellAttack)
+        //          .AddToDB();
+        //
+        //      var hpConditionDefinition = ConditionDefinitionBuilder
+        //          .Create(DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondHP, "ConditionWarlockFamiliarHP",
+        //              DefinitionBuilder.CENamespaceGuid)
+        //          .SetGuiPresentationNoContent()
+        //          .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceClassLevel)
+        //          .SetAllowMultipleInstances(true)
+        //          .AddToDB();
+        //
+        //      var summoningAffinity = FeatureDefinitionSummoningAffinityBuilder
+        //          .Create(DatabaseHelper.FeatureDefinitionSummoningAffinitys.SummoningAffinityKindredSpiritBond,
+        //              "SummoningAffinityWarlockFamiliar", DefinitionBuilder.CENamespaceGuid)
+        //          .ClearEffectForms()
+        //          .SetRequiredMonsterTag("WarlockFamiliar")
+        //          .SetAddedConditions(
+        //              acConditionDefinition, stConditionDefinition, damageConditionDefinition, hitConditionDefinition, 
+        //              hpConditionDefinition, hpConditionDefinition)
+        //          .AddToDB();
+        //
+        //      return summoningAffinity;
+        // }
+
+        public static MonsterDefinition buildCustomPseudodragon()
+        {
+            var baseMonster = DatabaseHelper.MonsterDefinitions.Young_GreenDragon;
+            
+            var biteAttack = MonsterAttackDefinitionBuilder
+                .Create(DatabaseHelper.MonsterAttackDefinitions.Attack_Wolf_Bite, "AttackWarlockDragonBite", DefinitionBuilder.CENamespaceGuid)
+                .SetActionType(ActionDefinitions.ActionType.Main)
+                .SetToHitBonus(4)
+                .SetEffectDescription(new EffectDescriptionBuilder()
+                    .SetEffectForms(new EffectFormBuilder()
+                        .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.CharacterLevel, 1)
+                        .SetDamageForm(dieType: DieType.D4, diceNumber: 1, bonusDamage:2, damageType:DamageTypePiercing)
+                        .Build()
+                    )
+                    .Build()
+                )
+                .AddToDB();
+            
+            //TODO: add bitye that poisons, maybe one of flying snakes or spiders has something similar?
+            var stingAttack = MonsterAttackDefinitionBuilder
+                .Create(DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Claw, "AttackWarlockDragonSting", DefinitionBuilder.CENamespaceGuid)
+                .SetActionType(ActionDefinitions.ActionType.Main)
+                .SetToHitBonus(4)
+                .SetEffectDescription(new EffectDescriptionBuilder()
+                    .SetEffectForms(new EffectFormBuilder()
+                        .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.CharacterLevel, 1)
+                        .SetDamageForm(dieType: DieType.D4, diceNumber: 1, bonusDamage:2, damageType:DamageTypePiercing)
+                        .Build()
+                    )
+                    .Build()
+                )
+                .AddToDB();
+
+
+            var monster = MonsterDefinitionBuilder
+                .Create(baseMonster, "PactOfChainDragon", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation("PactOfChainCustomPseudodragon", Category.Monster, baseMonster.GuiPresentation.SpriteReference)
+                .SetFeatures(
+                    DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly12,
+                    DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove2,
+                    DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
+                    DatabaseHelper.FeatureDefinitionSenses.SenseSuperiorDarkvision,
+                    DatabaseHelper.FeatureDefinitionSenses.SenseBlindSight2,
+                    
+                    //DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity
+                    
+                    PactofChainFamiliarSpellResistencePower, //fix this should grant dragon advantage on spell save 
+                    DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenSight,
+                    DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenHearing
+                    
+                )
+                .SetAttackIterations(new MonsterAttackIteration(biteAttack, 1), new MonsterAttackIteration(stingAttack, 1))//TODO: improve this setter
+                .SetSkillScores(
+                    (DatabaseHelper.SkillDefinitions.Perception.Name, 3),
+                    (DatabaseHelper.SkillDefinitions.Stealth.Name, 4)
+                )
+                .SetArmorClass(13)
+                .SetAbilityScores(6,15,13,10,12,10)
+                .SetStandardHitPoints(7)
+                .SetHitDice(DieType.D4, 2)
+                .SetHitPointsBonus(2)
+                .SetSavingThrowScores()//TODO: check if this sets bonuses to 0
+                .SetDefaultBattleDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.DragonCombatDecisions)
+                .SetSizeDefinition(DatabaseHelper.CharacterSizeDefinitions.Tiny)
+                .SetAlignment(DatabaseHelper.AlignmentDefinitions.Neutral.Name)
+                .SetCharacterFamily(DatabaseHelper.CharacterFamilyDefinitions.Fey.name)
+                .SetChallengeRating(0)
+                .SetDroppedLootDefinition(null)
+                .SetFullyControlledWhenAllied(true)
+                .SetDefaultFaction("Party")
+                .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
+                .SetInDungeonEditor(false)
+                .SetModelScale(0.1f)
+                .SetCreatureTags("WarlockFamiliar")
+                .SetNoExperienceGain(false)
+                .SetHasPhantomDistortion(true)
+                .AddToDB();
+            
+            
+            monster.MonsterPresentation.SetHasPrefabVariants(false);
+            monster.MonsterPresentation.MonsterPresentationDefinitions.Empty();
+            monster.MonsterPresentation.SetUseCustomMaterials(true);
+            monster.MonsterPresentation.SetCustomMaterials(DatabaseHelper.MonsterPresentationDefinitions.Young_Green_Dragon_Presentation.CustomMaterials);
+            monster.MonsterPresentation.SetHasMonsterPortraitBackground(true);
+            monster.MonsterPresentation.SetCanGeneratePortrait(true);
+            
+            return monster; 
+        }
+
+        public static void buildCustomPseudodragon2()
         {
 
 
@@ -296,12 +435,12 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             Definition.SetFullyControlledWhenAllied(true);
             Definition.SetDefaultFaction("Party");
 
-            PactChainPseudodragon = Definition.AddToDB();
-            PactChainPseudodragon.MonsterPresentation.SetHasPrefabVariants(false);
-            PactChainPseudodragon.CreatureTags.Clear();
-            PactChainPseudodragon.MonsterPresentation.MonsterPresentationDefinitions.Empty();
-            PactChainPseudodragon.MonsterPresentation.SetUseCustomMaterials(true);
-            PactChainPseudodragon.MonsterPresentation.SetCustomMaterials(DatabaseHelper.MonsterPresentationDefinitions.Silver_Dragon_Presentation.CustomMaterials);
+            // PactChainPseudodragon = Definition.AddToDB();
+            // PactChainPseudodragon.MonsterPresentation.SetHasPrefabVariants(false);
+            // PactChainPseudodragon.CreatureTags.Clear();
+            // PactChainPseudodragon.MonsterPresentation.MonsterPresentationDefinitions.Empty();
+            // PactChainPseudodragon.MonsterPresentation.SetUseCustomMaterials(true);
+            // PactChainPseudodragon.MonsterPresentation.SetCustomMaterials(DatabaseHelper.MonsterPresentationDefinitions.Silver_Dragon_Presentation.CustomMaterials);
 
         }
 

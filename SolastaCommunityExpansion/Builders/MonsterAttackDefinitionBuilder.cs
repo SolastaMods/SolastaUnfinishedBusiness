@@ -1,11 +1,17 @@
 ﻿using System;
 using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public class MonsterAttackDefinitionBuilder : DefinitionBuilder<MonsterAttackDefinition, MonsterAttackDefinitionBuilder>
+    public abstract class
+        MonsterAttackDefinitionBuilder<TDefinition, TBuilder> : DefinitionBuilder<TDefinition, TBuilder>
+        where TDefinition : MonsterAttackDefinition
+        where TBuilder : MonsterAttackDefinitionBuilder<TDefinition, TBuilder>
+
     {
         #region Constructors
+
         protected MonsterAttackDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
@@ -14,20 +20,67 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        protected MonsterAttackDefinitionBuilder(MonsterAttackDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        protected MonsterAttackDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original,
+            name, namespaceGuid)
         {
         }
 
-        protected MonsterAttackDefinitionBuilder(MonsterAttackDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        protected MonsterAttackDefinitionBuilder(TDefinition original, string name, string definitionGuid) : base(
+            original, name, definitionGuid)
         {
         }
+
         #endregion
 
-        public MonsterAttackDefinitionBuilder SetDamageBonusOfFirstDamageForm(int value)
+        public TBuilder SetDamageBonusOfFirstDamageForm(int value)
         {
             var form = Definition.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.Damage);
             form?.DamageForm.SetBonusDamage(value);
-            return this;
+            return This();
         }
+
+        public TBuilder SetActionType(ActionDefinitions.ActionType value)
+        {
+            Definition.SetField("actionType", value);
+            return This();
+        }
+
+        public TBuilder SetToHitBonus(int bonus)
+        {
+            Definition.ToHitBonus = bonus;
+            return This();
+        }
+
+        public TBuilder SetEffectDescription(EffectDescription effect)
+        {
+            Definition.EffectDescription = effect;
+            return This();
+        }
+    }
+
+    public class MonsterAttackDefinitionBuilder : MonsterAttackDefinitionBuilder<MonsterAttackDefinition,
+        MonsterAttackDefinitionBuilder>
+    {
+        #region Constructors
+
+        public MonsterAttackDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        public MonsterAttackDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        public MonsterAttackDefinitionBuilder(MonsterAttackDefinition original, string name, Guid namespaceGuid) : base(
+            original, name, namespaceGuid)
+        {
+        }
+
+        public MonsterAttackDefinitionBuilder(MonsterAttackDefinition original, string name, string definitionGuid) :
+            base(original, name, definitionGuid)
+        {
+        }
+
+        #endregion
     }
 }

@@ -494,6 +494,18 @@ namespace SolastaCommunityExpansion.Builders
             Definition.MonsterPresentation.SetMaleModelScale(scale);
             return this;
         }
+        
+        public MonsterDefinitionBuilder SetCreatureTags(params string[] tags)
+        {
+            Definition.SetCreatureTags(tags);
+            return this;
+        }
+        
+        public MonsterDefinitionBuilder SetCreatureTags(IEnumerable<string> tags)
+        {
+            Definition.SetCreatureTags(tags);
+            return this;
+        }
 
         public MonsterDefinitionBuilder SetPrefabReference(AssetReference assetReference)
         {

@@ -125,8 +125,8 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public EffectFormBuilder SetDamageForm(bool versatile, DieType versatileDieType, string damageType, int bonusDamage,
-            DieType dieType, int diceNumber, HealFromInflictedDamage healFromInflictedDamage,
+        public EffectFormBuilder SetDamageForm(bool versatile = false, DieType versatileDieType = DieType.D1, string damageType = DamageTypeBludgeoning, int bonusDamage = 0,
+            DieType dieType = DieType.D1, int diceNumber = 0, HealFromInflictedDamage healFromInflictedDamage = HealFromInflictedDamage.Never,
             params TrendInfo[] damageBonusTrends)
         {
             return SetDamageForm(versatile, versatileDieType, damageType, bonusDamage, dieType,
@@ -268,6 +268,23 @@ namespace SolastaCommunityExpansion.Builders
             effectForm.SetSummonForm(summonForm);
             return this;
         }
+
+        public EffectFormBuilder SetSummonCreatureForm(int number, string monsterDefinitionName,
+            bool persistOnConcentrationLoss, DecisionPackageDefinition decisionPackage)
+        {
+            effectForm.FormType = EffectForm.EffectFormType.Summon;
+            SummonForm summonForm = new SummonForm();
+            summonForm.SetSummonType(SummonForm.Type.Creature);
+            summonForm.SetItemDefinition(null);
+            summonForm.SetNumber(number);
+            summonForm.SetMonsterDefinitionName(monsterDefinitionName);
+            summonForm.SetConditionDefinition(null);
+            summonForm.SetPersistOnConcentrationLoss(persistOnConcentrationLoss);
+            summonForm.SetDecisionPackage(decisionPackage);
+            summonForm.SetEffectProxyDefinitionName(null);
+            effectForm.SetSummonForm(summonForm);
+            return this;
+        }
         
         public EffectFormBuilder SetSummonItemForm(ItemDefinition item, int number)
         {
@@ -280,7 +297,7 @@ namespace SolastaCommunityExpansion.Builders
             summonForm.SetConditionDefinition(null);
             summonForm.SetPersistOnConcentrationLoss(true);
             summonForm.SetDecisionPackage(null);
-            summonForm.SetEffectProxyDefinitionName(ScriptableObject.CreateInstance<EffectProxyDefinition>().Name);
+            summonForm.SetEffectProxyDefinitionName(null);
             effectForm.SetSummonForm(summonForm);
             return this;
         }
