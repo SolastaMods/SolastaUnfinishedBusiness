@@ -15,6 +15,11 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
             AfterRestActionItem __instance,
             bool ___executing)
         {
+            if (!Main.Settings.EnablePowersBundlePatch)
+            {
+                return true;
+            }
+
             if (___executing)
             {
                 return true;

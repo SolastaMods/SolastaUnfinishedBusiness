@@ -12,6 +12,11 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
     {
         internal static void Postfix(RulesetEffectSpell __instance, ref EffectDescription __result)
         {
+            if (!Main.Settings.EnableCustomSpellsPatch)
+            {
+                return;
+            }
+
             __result = CustomFeaturesContext.ModifySpellEffect(__result, __instance);
         }
     }

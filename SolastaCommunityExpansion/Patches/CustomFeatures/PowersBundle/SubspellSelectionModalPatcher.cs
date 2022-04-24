@@ -21,6 +21,11 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
             RulesetDeviceFunction ___rulesetDeviceFunction
             )
         {
+            if (!Main.Settings.EnablePowersBundlePatch)
+            {
+                return true;
+            }
+
             var masterPower = PowerBundleContext.GetPower(___masterSpell);
 
             if (masterPower == null)

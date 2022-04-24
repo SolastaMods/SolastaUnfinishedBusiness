@@ -19,6 +19,11 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
             GuiTooltip ___tooltip
             )
         {
+            if (!Main.Settings.EnablePowersBundlePatch)
+            {
+                return true;
+            }
+
             var power = PowerBundleContext.GetPower(spellDefinition);
 
             if (power == null)

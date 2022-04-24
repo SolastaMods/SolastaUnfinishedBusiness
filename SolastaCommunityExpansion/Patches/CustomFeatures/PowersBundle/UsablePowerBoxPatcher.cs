@@ -15,6 +15,11 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
             UsablePowerBox.PowerEngagedHandler ___powerEngaged,
             RulesetCharacter ___activator)
         {
+            if (!Main.Settings.EnablePowersBundlePatch)
+            {
+                return true;
+            }
+
             var masterPower = ___usablePower.PowerDefinition;
 
             if (PowerBundleContext.GetBundle(masterPower) == null)

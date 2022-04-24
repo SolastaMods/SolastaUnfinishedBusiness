@@ -16,6 +16,11 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
             List<FeatureDefinition> features,
             string tag)
         {
+            if (!Main.Settings.EnableCustomSpellsPatch)
+            {
+                return;
+            }
+
             var hero = heroBuildingData.HeroCharacter;
             var poolMods = CustomFeaturesContext.FeaturesByType<IPointPoolMaxBonus>(hero);
 
