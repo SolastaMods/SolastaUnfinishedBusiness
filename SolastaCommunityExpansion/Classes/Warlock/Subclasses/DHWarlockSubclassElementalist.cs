@@ -5,7 +5,6 @@ using SolastaCommunityExpansion.CustomDefinitions;
 using UnityEngine.AddressableAssets;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Models;
-using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using static RuleDefinitions;
 using static SolastaModApi.DatabaseHelper.DamageDefinitions;
@@ -149,6 +148,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             internal AssetReferenceSprite Sprite;
         }
 
+        //Think about making smaller base pool of elements, with ability to expand via eldritch Invocations or Mysterium Arcana
         private static readonly Dictionary<string, ElementalFormConfig> ElementalFormCfg = new()
         {
             {
@@ -175,51 +175,66 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                     Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerDomainInsightForeknowledge.GuiPresentation.SpriteReference,
                 }
             },
-            // {
-            //     "Ethereal", new ElementalFormConfig
-            //     {
-            //         DamageName = "ForceDamage",
-            //         Particles = DatabaseHelper.MonsterDefinitions.Ghost.MonsterPresentation.GetField<AssetReference>("attachedParticlesReference") ,  // backup fey bear - sorr boss,
-            //         Shaders = DatabaseHelper.MonsterDefinitions.PhaseSpider.MonsterPresentation.CustomShaderReference,      // backup fey bear - sorr boss,
-            //         Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerOathOfDevotionAuraDevotion.GuiPresentation.SpriteReference,
-            //     }
-            // },
-            // {
-            //     "Fire", new ElementalFormConfig
-            //     {
-            //         DamageName = "Fire",
-            //         Particles = DatabaseHelper.MonsterDefinitions.Fire_Jester.MonsterPresentation.GetField<AssetReference>("attachedParticlesReference"), // fire jester,
-            //         Shaders = DatabaseHelper.MonsterDefinitions.Fire_Elemental.MonsterPresentation.CustomShaderReference, // fire jester,
-            //         Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalHeraldOfTheElementsFire.GuiPresentation.SpriteReference,
-            //     }
-            // },
-            // {
-            //     "Earth", new ElementalFormConfig
-            //     {
-            //         DamageName = "Bludgeoning",
-            //         Particles = DatabaseHelper.MonsterDefinitions.Earth_Elemental.MonsterPresentation.GetField<AssetReference>("attachedParticlesReference"), // or stone barbarian's ConditionStoneResilience.conditionParticleReference,
-            //         Shaders =  DatabaseHelper.MonsterDefinitions.FeyBear.MonsterPresentation.CustomShaderReference, // or stone barbarian's ConditionStoneResilience.conditionParticleReference,
-            //         Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerDomainBattleDivineWrath.GuiPresentation.SpriteReference,
-            //     }
-            // },
-            // {
-            //     "Ice", new ElementalFormConfig
-            //     {
-            //         DamageName = "Cold",
-            //         Particles = DatabaseHelper.MonsterDefinitions.WindSnake.MonsterPresentation.GetField<AssetReference>("attachedParticlesReference"),// skarn ghoul,
-            //         Shaders = DatabaseHelper.MonsterDefinitions.SkarnGhoul.MonsterPresentation.CustomShaderReference,// skarn ghoul
-            //         Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalHeraldOfTheElementsCold.GuiPresentation.SpriteReference,
-            //     }
-            // },
-            // {
-            //     "Air", new ElementalFormConfig
-            //     {
-            //         DamageName = "Thunder",
-            //         Particles = DatabaseHelper.MonsterDefinitions.Air_Elemental.MonsterPresentation.GetField<AssetReference>("attachedParticlesReference"),
-            //         Shaders = DatabaseHelper.MonsterDefinitions.Air_Elemental.MonsterPresentation.CustomShaderReference,
-            //         Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalHeraldOfTheElementsThunder.GuiPresentation.SpriteReference,
-            //     }
-            // }
+            {
+                "Ethereal", new ElementalFormConfig
+                {
+                    // DamageName = "ForceDamage",
+                    DamageType = DamageForce,
+                    Resistance = DamageAffinityForceDamageResistance,
+                    Immunity = DamageAffinityForceImmunity,
+                    Particles = DatabaseHelper.MonsterDefinitions.Ghost.MonsterPresentation.GetField<AssetReference>("attachedParticlesReference") ,  // backup fey bear - sorr boss,
+                    Shaders = DatabaseHelper.MonsterDefinitions.PhaseSpider.MonsterPresentation.CustomShaderReference,      // backup fey bear - sorr boss,
+                    Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerOathOfDevotionAuraDevotion.GuiPresentation.SpriteReference,
+                }
+            },
+            {
+                "Fire", new ElementalFormConfig
+                {
+                    // DamageName = "Fire",
+                    DamageType = DamageFire,
+                    Resistance = DamageAffinityFireResistance,
+                    Immunity = DamageAffinityFireImmunity,
+                    Particles = DatabaseHelper.MonsterDefinitions.Fire_Jester.MonsterPresentation.GetField<AssetReference>("attachedParticlesReference"), // fire jester,
+                    Shaders = DatabaseHelper.MonsterDefinitions.Fire_Elemental.MonsterPresentation.CustomShaderReference, // fire jester,
+                    Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalHeraldOfTheElementsFire.GuiPresentation.SpriteReference,
+                }
+            },
+            {
+                "Earth", new ElementalFormConfig
+                {
+                    // DamageName = "Bludgeoning",
+                    DamageType = DamageBludgeoning,
+                    Resistance = DamageAffinityBludgeoningResistance,
+                    Immunity = DamageAffinityBludgeoningImmunity,
+                    Particles = DatabaseHelper.MonsterDefinitions.Earth_Elemental.MonsterPresentation.GetField<AssetReference>("attachedParticlesReference"), // or stone barbarian's ConditionStoneResilience.conditionParticleReference,
+                    Shaders =  DatabaseHelper.MonsterDefinitions.FeyBear.MonsterPresentation.CustomShaderReference, // or stone barbarian's ConditionStoneResilience.conditionParticleReference,
+                    Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerDomainBattleDivineWrath.GuiPresentation.SpriteReference,
+                }
+            },
+            {
+                "Ice", new ElementalFormConfig
+                {
+                    // DamageName = "Cold",
+                    DamageType = DamageCold,
+                    Resistance = DamageAffinityColdResistance,
+                    Immunity = DamageAffinityColdImmunity,
+                    Particles = DatabaseHelper.MonsterDefinitions.WindSnake.MonsterPresentation.GetField<AssetReference>("attachedParticlesReference"),// skarn ghoul,
+                    Shaders = DatabaseHelper.MonsterDefinitions.SkarnGhoul.MonsterPresentation.CustomShaderReference,// skarn ghoul
+                    Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalHeraldOfTheElementsCold.GuiPresentation.SpriteReference,
+                }
+            },
+            {
+                "Air", new ElementalFormConfig
+                {
+                    // DamageName = "Thunder",
+                    DamageType = DamageThunder,
+                    Resistance = DamageAffinityThunderResistance,
+                    Immunity = DamageAffinityThunderImmunity,
+                    Particles = DatabaseHelper.MonsterDefinitions.Air_Elemental.MonsterPresentation.GetField<AssetReference>("attachedParticlesReference"),
+                    Shaders = DatabaseHelper.MonsterDefinitions.Air_Elemental.MonsterPresentation.CustomShaderReference,
+                    Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalHeraldOfTheElementsThunder.GuiPresentation.SpriteReference,
+                }
+            }
         };
 
         private static GuiPresentation GuiPresentation(string type, string text, ElementalFormConfig cfg, AssetReferenceSprite sprite = null)
