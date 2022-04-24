@@ -35,6 +35,14 @@ namespace SolastaCommunityExpansion.Models
             bool rangedAttack, RuleDefinitions.AdvantageType advantageType, List<EffectForm> actualEffectForms,
             RulesetEffect rulesetEffect, bool criticalHit, bool firstTarget)
         {
+            var ruleCaster = attacker.RulesetCharacter;
+
+            // Wildshape heroes shouldn't be able to cast react spells
+            if (ruleCaster.IsSubstitute)
+            {
+                yield break;
+            }
+
             var ruleDefender = defender.RulesetCharacter;
 
             ruleDefender.InvokeMethod("EnumerateUsableSpells");
