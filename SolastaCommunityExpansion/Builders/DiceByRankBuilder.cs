@@ -1,6 +1,6 @@
 ﻿using SolastaModApi.Extensions;
 
-namespace SolastaCommunityExpansion.Builders.Features
+namespace SolastaCommunityExpansion.Builders
 {
     public static class DiceByRankBuilder
     {
