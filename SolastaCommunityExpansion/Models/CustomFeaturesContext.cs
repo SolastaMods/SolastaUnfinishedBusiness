@@ -138,9 +138,9 @@ namespace SolastaCommunityExpansion.Models
 
         public static EffectDescription ModifySpellEffect(EffectDescription original, RulesetEffectSpell spell)
         {
-            var result = original;
+            var result = original.Copy();
             var caster = spell.Caster;
-
+            
             if (spell.SpellDefinition is ICustomMagicEffectBasedOnCaster baseDefinition && caster != null)
             {
                 result = baseDefinition.GetCustomEffect(caster);
@@ -154,7 +154,7 @@ namespace SolastaCommunityExpansion.Models
         /**Modifies spell description for GUI purposes. Uses only modifiers based on ICustomMagicEffectBasedOnCaster*/
         public static EffectDescription ModifySpellEffectGui(EffectDescription original, GuiSpellDefinition spell)
         {
-            var result = original;
+            var result = original.Copy();
             var caster = Global.ActivePlayerCharacter?.RulesetCharacter;
 
             if (spell.SpellDefinition is ICustomMagicEffectBasedOnCaster baseDefinition && caster != null)
@@ -167,9 +167,8 @@ namespace SolastaCommunityExpansion.Models
         
         public static EffectDescription AddEffectForms(EffectDescription baseEffect, params EffectForm[] effectForms)
         {
-            var newEffect = new EffectDescription();
+            var newEffect = baseEffect.Copy();
 
-            newEffect.Copy(baseEffect);
             newEffect.EffectForms.AddRange(effectForms);
 
             return newEffect;
