@@ -39,7 +39,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Elemental Damage: Fire Plane",
-    "description": "RECHECK When channeling Fire Plane, additional Fire damage, equal to your Proficiency Bonus, is added to the total",
+    "description": "When channeling Fire Plane, deal additional Fire damage equal to your Proficiency Bonus once per round.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

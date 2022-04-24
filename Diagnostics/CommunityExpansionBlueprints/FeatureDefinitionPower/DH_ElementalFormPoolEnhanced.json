@@ -159,7 +159,7 @@
     "description": "Power/&DH_ElementalFormPoolEnhancedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "8be884dc109357ac927c087e5c027243",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

@@ -12,7 +12,6 @@
     "Definition:DHEldritchInvocationDetectMagic:bf1387de-a961-51b4-9434-53ef844bcffe",
     "Definition:DHEIAttributeModifersEldritchSmite:d2858f08-7bcc-534c-b254-0004bf4ce3b9",
     "Definition:DHEIAttributeModifersEyesoftheRuneKeeper:5deea2a9-e13c-5b01-bc4d-c99e5496cea8",
-    "Definition:DHEIAttributeModifersWitchSight:dbf76444-8552-5444-be84-a6e81b74a6bb",
     "Definition:DHEldritchInvocationFalseLife:ca031f8e-8dbc-55f1-844e-8b10f8593578",
     "Definition:DHEIAttributeModifersGiftoftheEver-LivingOnes:d56f241d-1362-53af-8fdb-3ad761439c6e",
     "Definition:DHEIAttributeModifersGiftoftheProtectors:cb42a6ae-a375-597a-be50-5395cf3ab74f",
@@ -27,7 +26,8 @@
     "Definition:DHEIAttributeModifersBondoftheTalisman:55524c98-0282-540d-abac-9ac6b6d667fc",
     "Definition:DHEldritchInvocationBane:4e20a399-554c-591b-8a9a-0c8eeeb78482",
     "Definition:DHEIAttributeModifersThirstingBlade:c26debc7-fe9b-5037-a380-a1cfc4945428",
-    "Definition:DHEldritchInvocationFreedomOfMovement:a770f899-614b-5226-994d-bd457f91369c"
+    "Definition:DHEldritchInvocationFreedomOfMovement:a770f899-614b-5226-994d-bd457f91369c",
+    "Definition:DHEIAttributeModifersWitchSight:dbf76444-8552-5444-be84-a6e81b74a6bb"
   ],
   "mode": "Exclusion",
   "defaultSelection": 0,

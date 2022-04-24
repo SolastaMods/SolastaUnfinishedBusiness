@@ -295,13 +295,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Plane",
-    "description": "RECHECk When channeling the Plane, you gain Immunity to Cold damage and once per turn, apply damage of the same type to your attack",
+    "title": "Ice Plane",
+    "description": "When channeling the Ice Plane, you gain Immunity to Cold damage and once per turn, apply damage of the same type to your attack",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "06f68ceab1c8cfa4ca199553ee772cf5",
-      "m_SubObjectName": "HeraldElementsCold",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

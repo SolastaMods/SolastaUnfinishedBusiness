@@ -127,12 +127,12 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Ethereal Plane",
-    "description": "RECHECk When channeling the Ethereal Plane, you gain Immunity to Force damage and once per turn, apply damage of the same type to your attack",
+    "description": "Deal additional Force damage equal to your Proficiency Bonus once per round.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "154d0306b9a1d9a43aec9af45149a1c7",
-      "m_SubObjectName": "AuraDevotion",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "762fc2db21c656b6b5423a25e61f3ed5",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

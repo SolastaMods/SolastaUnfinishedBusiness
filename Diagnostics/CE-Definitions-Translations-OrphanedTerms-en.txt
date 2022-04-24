@@ -65,14 +65,16 @@ Feature/&ElementalPactAstralPlane	Astral Plane
 Feature/&ElementalPactEtherealPlane	Ethereal Plane
 Feature/&ElementalPactFirePlane	Fire Plane
 Feature/&ElementalPactEarthPlane	Earth Plane
-Feature/&ElementalPactIcePlane	Plane
+Feature/&ElementalPactIcePlane	Ice Plane
 Feature/&ElementalPactAirPlane	Air Plane
 Feature/&ElementalPatronElementalDamageFormatTitle	Elemental Damage: {0}
-Feature/&ElementalPatronElementalDamageFormatDescription	RECHECK When channeling {0}, additional {1} damage, equal to your Proficiency Bonus, is added to the total
+Feature/&ElementalPatronElementalDamageFormatDescription	When channeling {0}, deal additional {1} damage equal to your Proficiency Bonus once per round.
+Feature/&ElementalPatronElementalConditionFormatTitle	{0}
+Feature/&ElementalPatronElementalConditionFormatDescription	Deal additional {1} damage equal to your Proficiency Bonus once per round.
 Feature/&ElementalPatronElementalFormFormatTitle	{0}
-Feature/&ElementalPatronElementalFormFormatDescription	RECHECk When channeling the {0}, you gain Resistance to {1} damage and once per turn, apply damage of the same type to your attack
+Feature/&ElementalPatronElementalFormFormatDescription	When channeling the {0}, you gain Resistance to {1} damage and once per turn, apply damage of the same type to your attack
 Feature/&ElementalPatronElementalFormEnhancedFormatTitle	{0}
-Feature/&ElementalPatronElementalFormEnhancedFormatDescription	RECHECk When channeling the {0}, you gain Immunity to {1} damage and once per turn, apply damage of the same type to your attack
+Feature/&ElementalPatronElementalFormEnhancedFormatDescription	When channeling the {0}, you gain Immunity to {1} damage and once per turn, apply damage of the same type to your attack
 Feature/&HinderingBlastMagicAffinityDescription	when you hit a creature with your eldritch blast, you can reduce that creature's speed by 10 feet until the end of your next turn
 Feature/&HinderingBlastMagicAffinityTitle	Hindering Blast
 Feature/&IndomitableResistanceTitle	Indomitable Resistance

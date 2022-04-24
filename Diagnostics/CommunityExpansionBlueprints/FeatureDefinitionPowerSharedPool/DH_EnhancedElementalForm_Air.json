@@ -296,12 +296,12 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Air Plane",
-    "description": "RECHECk When channeling the Air Plane, you gain Immunity to Thunder damage and once per turn, apply damage of the same type to your attack",
+    "description": "When channeling the Air Plane, you gain Immunity to Thunder damage and once per turn, apply damage of the same type to your attack",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "190728041c6b0294b824f29597e11e19",
-      "m_SubObjectName": "HeraldElementsThunder",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

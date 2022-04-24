@@ -39,7 +39,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Elemental Damage: Ethereal Plane",
-    "description": "RECHECK When channeling Ethereal Plane, additional Force damage, equal to your Proficiency Bonus, is added to the total",
+    "description": "When channeling Ethereal Plane, deal additional Force damage equal to your Proficiency Bonus once per round.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

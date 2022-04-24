@@ -296,12 +296,12 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Fire Plane",
-    "description": "RECHECk When channeling the Fire Plane, you gain Resistance to Fire damage and once per turn, apply damage of the same type to your attack",
+    "description": "When channeling the Fire Plane, you gain Resistance to Fire damage and once per turn, apply damage of the same type to your attack",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "7b60977c49323ee47b816e7d7280ab59",
-      "m_SubObjectName": "HeraldElementsFire",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
