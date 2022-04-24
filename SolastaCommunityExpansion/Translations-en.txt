@@ -874,11 +874,11 @@ Feature/&ElementalPactEarthPlane	Earth Plane
 Feature/&ElementalPactIcePlane	Plane
 Feature/&ElementalPactAirPlane	Air Plane
 Feature/&ElementalPatronElementalDamageFormatTitle	Elemental Damage: {0}
-Feature/&ElementalPatronElementalDamageFormatDescription	RECHECK When channeling {0}, additional {1} damage, equal to your Proficiency Bonus, is added to the total
+Feature/&ElementalPatronElementalDamageFormatDescription	When channeling {0}, additional {1} damage, equal to your Proficiency Bonus, is added to the total
 Feature/&ElementalPatronElementalFormFormatTitle	{0}
-Feature/&ElementalPatronElementalFormFormatDescription	RECHECk When channeling the {0}, you gain Resistance to {1} damage and once per turn, apply damage of the same type to your attack
+Feature/&ElementalPatronElementalFormFormatDescription	When channeling the {0}, you gain Resistance to {1} damage and once per turn, apply damage of the same type to your attack
 Feature/&ElementalPatronElementalFormEnhancedFormatTitle	{0}
-Feature/&ElementalPatronElementalFormEnhancedFormatDescription	RECHECk When channeling the {0}, you gain Immunity to {1} damage and once per turn, apply damage of the same type to your attack
+Feature/&ElementalPatronElementalFormEnhancedFormatDescription	When channeling the {0}, you gain Immunity to {1} damage and once per turn, apply damage of the same type to your attack
 Power/&DH_ElementalFormPoolTitle	Ele Pool
 Power/&DH_ElementalFormPoolDescription	Ele Pool Desc
 Power/&DH_ElementalFormPoolEnhancedTitle	Enhanced Ele Pool
