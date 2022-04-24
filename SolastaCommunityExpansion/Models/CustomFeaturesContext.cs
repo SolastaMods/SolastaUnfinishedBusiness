@@ -138,7 +138,8 @@ namespace SolastaCommunityExpansion.Models
 
         public static EffectDescription ModifySpellEffect(EffectDescription original, RulesetEffectSpell spell)
         {
-            var result = original.Copy();
+            //TODO: find a way to cache result, so it works faster - this method is called sveral times per spell cast
+            var result = original;
             var caster = spell.Caster;
             
             if (spell.SpellDefinition is ICustomMagicEffectBasedOnCaster baseDefinition && caster != null)
@@ -146,15 +147,20 @@ namespace SolastaCommunityExpansion.Models
                 result = baseDefinition.GetCustomEffect(caster);
             }
 
-            //TODO: find a way to cache result, so it works faster
-            return FeaturesByType<IModifySpellEffect>(caster)
-                .Aggregate(result, (current, f) => f.ModifyEffect(spell, current));
+            var modifiers = FeaturesByType<IModifySpellEffect>(caster);
+
+            if (!modifiers.Empty())
+            {
+                result = modifiers.Aggregate(result.Copy(), (current, f) => f.ModifyEffect(spell, current));
+            }
+
+            return result;
         }
 
         /**Modifies spell description for GUI purposes. Uses only modifiers based on ICustomMagicEffectBasedOnCaster*/
         public static EffectDescription ModifySpellEffectGui(EffectDescription original, GuiSpellDefinition spell)
         {
-            var result = original.Copy();
+            var result = original;
             var caster = Global.ActivePlayerCharacter?.RulesetCharacter;
 
             if (spell.SpellDefinition is ICustomMagicEffectBasedOnCaster baseDefinition && caster != null)
