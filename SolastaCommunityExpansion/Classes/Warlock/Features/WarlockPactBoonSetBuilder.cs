@@ -99,12 +99,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             effectDescriptionSprite.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ConjureElementalAir.EffectDescription.EffectParticleParameters);
 
             GuiPresentationBuilder FindFamiliarSpriteGui = new GuiPresentationBuilder(
-                "Spell/&FindFamiliarSpriteDescription",
-                "Spell/&FindFamiliarSpriteTitle");
-            //
-            // TODO: fix correct sprite
-            //
-            //FindFamiliarSpriteGui.SetSpriteReference(WarlockPactOfTheChainSummons.PactChainSprite.GuiPresentation.SpriteReference);
+                "Spell/&FindFamiliarSpriteTitle",
+                "Spell/&FindFamiliarSpriteDescription");
+            FindFamiliarSpriteGui.SetSpriteReference(sprite.GuiPresentation.SpriteReference);
 
 
             EffectDescriptionBuilder effectDescriptionImp = new EffectDescriptionBuilder();
