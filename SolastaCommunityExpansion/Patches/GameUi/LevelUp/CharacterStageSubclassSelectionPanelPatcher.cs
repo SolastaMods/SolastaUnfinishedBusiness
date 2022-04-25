@@ -1,20 +1,23 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
 {
-    [HarmonyPatch(typeof(CharacterStageSubclassSelectionPanel), "Compare")]
+    [HarmonyPatch(typeof(CharacterStageLevelGainsPanel), "Refresh")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class CharacterStageSubclassSelectionPanel_Compare
+    internal static class CharacterStageLevelGainsPanel_Refresh
     {
-        internal static void Postfix(CharacterSubclassDefinition left, CharacterSubclassDefinition right, ref int __result)
+        internal static HashSet<FeatureDescriptionItem> FeatureDescriptionItems { get; } = new();
+
+        internal static void Prefix()
         {
-            if (!Main.Settings.EnableSortingSubclasses)
+            if (!Main.Settings.EnableEnforceUniqueFeatureSetChoices)
             {
                 return;
             }
 
-            __result = left.FormatTitle().CompareTo(right.FormatTitle());
+            FeatureDescriptionItems.Clear();
         }
     }
 }

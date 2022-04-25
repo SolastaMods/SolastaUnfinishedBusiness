@@ -1,9 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomDefinitions;
+using SolastaModApi.Infrastructure;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
 {
@@ -11,6 +15,10 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class FeatureDescriptionItem_Bind
     {
+        //
+        // Features With Pre Requisites
+        //
+
         public static void FilterAdd(List<FeatureDefinition> availableFeatures, FeatureDefinition featureDefinition)
         {
             if (featureDefinition is IFeatureDefinitionWithPrerequisites featureDefinitionWithPrerequisites
@@ -25,7 +33,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
 
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
-            var availableFeaturesField = typeof(FeatureDescriptionItem).GetField("availableFeatures", BindingFlags.NonPublic | BindingFlags.Instance);  
+            var availableFeaturesField = typeof(FeatureDescriptionItem).GetField("availableFeatures", BindingFlags.NonPublic | BindingFlags.Instance);
             var filterAddMethod = typeof(FeatureDescriptionItem_Bind).GetMethod("FilterAdd");
 
             var found = 0;
@@ -42,6 +50,53 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
             }
 
             return code;
+        }
+
+        //
+        // Unique Feature Set Choices
+        //
+
+        // ensures we try to offer unique default options
+        internal static void Postfix(FeatureDescriptionItem __instance, GuiDropdown ___choiceDropdown)
+        {
+            if (!Main.Settings.EnableEnforceUniqueFeatureSetChoices)
+            {
+                return;
+            }
+
+            foreach (var featureDescriptionItem in CharacterStageLevelGainsPanel_Refresh.FeatureDescriptionItems
+                .Where(x => x.Feature == __instance.Feature))
+            {
+                var choiceDropDown = featureDescriptionItem.GetField<FeatureDescriptionItem, GuiDropdown>("choiceDropdown");
+
+                if (choiceDropDown.value == ___choiceDropdown.value)
+                {
+                    choiceDropDown.value = (choiceDropDown.value + 1) % choiceDropDown.options.Count;
+                }
+            }
+
+            __instance.ValueChanged += ValueChanged;
+
+            CharacterStageLevelGainsPanel_Refresh.FeatureDescriptionItems.Add(__instance);
+        }
+
+        // ensures we change any other drop down equals to this one
+        private static void ValueChanged(FeatureDescriptionItem __instance)
+        {
+            var ___choiceDropdown = __instance.GetField<FeatureDescriptionItem, GuiDropdown>("choiceDropdown");
+
+            foreach (var featureDescriptionItem in CharacterStageLevelGainsPanel_Refresh.FeatureDescriptionItems
+                .Where(x => x != __instance && x.Feature == __instance.Feature))
+            {
+                var choiceDropDown = featureDescriptionItem.GetField<FeatureDescriptionItem, GuiDropdown>("choiceDropdown");
+
+                if (choiceDropDown.value == ___choiceDropdown.value)
+                {
+                    choiceDropDown.value = (choiceDropDown.value + 1) % choiceDropDown.options.Count;
+                }
+
+                LayoutRebuilder.ForceRebuildLayoutImmediate(__instance.GetComponent<RectTransform>());
+            }
         }
     }
 }

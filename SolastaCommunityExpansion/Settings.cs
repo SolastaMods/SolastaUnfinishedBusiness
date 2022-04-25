@@ -62,6 +62,7 @@ namespace SolastaCommunityExpansion
         public bool EnableCustomSpellsPatch { get; set; } = true;
         public bool EnableDungeonMakerPro { get; set; } = true;
         public bool EnableDungeonMakerRotationHotkeys { get; set; } = true;
+        public bool EnableEnforceUniqueFeatureSetChoices { get; set; } = true;
         public bool EnableFirstLevelCasterFeats { get; set; } = true;
         public bool EnableMoveSorceryPointsBox { get; set; } = true;
         public bool EnableMultiLinePowerPanel { get; set; } = true;
