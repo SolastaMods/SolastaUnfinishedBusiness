@@ -72,7 +72,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             
             WarlockPactOfTheChainSummons.buildPactofChainFamiliarInvisibilityPower();
             var pseudodragon = WarlockPactOfTheChainSummons.buildCustomPseudodragon();
-            WarlockPactOfTheChainSummons.buildCustomSprite();
+            var sprite = WarlockPactOfTheChainSummons.buildCustomSprite();
             WarlockPactOfTheChainSummons.buildCustomImp();
             WarlockPactOfTheChainSummons.buildCustomQuasit();
 
@@ -95,7 +95,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             EffectDescriptionBuilder effectDescriptionSprite = new EffectDescriptionBuilder();
             effectDescriptionSprite.SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             effectDescriptionSprite.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
-            effectDescriptionSprite.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, WarlockPactOfTheChainSummons.PactChainSprite.name, DatabaseHelper.ConditionDefinitions.ConditionFlyingBootsWinged, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
+            effectDescriptionSprite.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, sprite.name, null, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
             effectDescriptionSprite.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ConjureElementalAir.EffectDescription.EffectParticleParameters);
 
             GuiPresentationBuilder FindFamiliarSpriteGui = new GuiPresentationBuilder(
@@ -216,7 +216,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 new List<FeatureDefinitionPower>()
                 {
                     FindFamiliarPseudodragonPower,
-                    // FindFamiliarSpritePower,
+                    FindFamiliarSpritePower,
                     // FindFamiliarImpPower,
                     // FindFamiliarQuasitPower
                 });

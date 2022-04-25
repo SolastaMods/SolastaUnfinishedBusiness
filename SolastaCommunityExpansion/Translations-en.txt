@@ -1159,6 +1159,8 @@ Monster/&PactOfChainCustomQuasitDescription	Quasits infest the Lower Planes. Phy
 Monster/&PactOfChainCustomQuasitTitle	Quasit (Pact of Chain)
 Monster/&PactOfChainCustomSpriteDescription	Unlike pixies, sprites rarely indulge in frivolous merriment and fun. They are firm warriors, protectors, and judges, and their stern bent causes other fey to consider them overly dour and serious. However, fey that respect the sprites' territory find them staunch allies in times of trouble.
 Monster/&PactOfChainCustomSpriteTitle	Sprite (Pact of Chain)
+Power/&PactofChainFamiliarInvisibilityPowerTitle	Invisibility
+Power/&PactofChainFamiliarInvisibilityPowerDescription	The creature magically turns invisible until it attacks or casts a spell, or until its concentration ends (as if concentrating on a spell). Any equipment the creaure wears or carries is invisible with it.
 Monster/&WitchOwlFamiliarDescription	Owl Familiar
 Monster/&WitchOwlFamiliarTitle	Owl
 MonsterAttack/&DH_Custom_CouatlBite_AttackDescription	Piercing damage, and the target must succeed on a DC 13 Constitution saving throw or be poisoned for 24 hours. Until this poison ends, the target is unconscious.

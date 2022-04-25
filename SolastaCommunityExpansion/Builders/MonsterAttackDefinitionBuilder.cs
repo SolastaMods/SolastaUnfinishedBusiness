@@ -51,6 +51,12 @@ namespace SolastaCommunityExpansion.Builders
             return This();
         }
 
+        public TBuilder SetProximity(RuleDefinitions.AttackProximity proximity)
+        {
+            Definition.SetProximity(proximity);
+            return This();
+        }
+
         public TBuilder SetEffectDescription(EffectDescription effect)
         {
             Definition.EffectDescription = effect;
