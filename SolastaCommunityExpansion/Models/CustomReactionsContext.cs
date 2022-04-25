@@ -44,6 +44,10 @@ namespace SolastaCommunityExpansion.Models
             }
 
             var ruleDefender = defender.RulesetCharacter;
+            if (ruleDefender == null)
+            {
+                yield break;
+            }
 
             ruleDefender.InvokeMethod("EnumerateUsableSpells");
             var spells = ruleDefender.UsableSpells
