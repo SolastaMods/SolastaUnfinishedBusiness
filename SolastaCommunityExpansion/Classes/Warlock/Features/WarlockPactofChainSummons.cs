@@ -13,7 +13,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
     internal static class WarlockPactOfTheChainSummons
     {
         public static FeatureDefinitionPower PactofChainFamiliarInvisibilityPower { get; private set; }
-        public static FeatureDefinitionPower PactofChainFamiliarSpellResistencePower { get; private set; }
         public static MonsterDefinition PactChainSprite { get; private set; }
         public static MonsterDefinition PactChainImp { get; private set; }
         public static MonsterDefinition PactChainQuasit { get; private set; }
@@ -41,37 +40,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                    true)
                .AddToDB();
 
-        }
-
-        public static void PactofChainFamiliarAuraOfSpellResistence()
-        {
-            ConditionDefinition spellResistanceCondition = ConditionDefinitionBuilder
-                .Create("DHSpellResistenceCondition", DefinitionBuilder.CENamespaceGuid)
-                .Configure(DurationType.Minute, 1, false, DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinitySpellResistance)
-                .SetGuiPresentation("SpellResistenceDesccription", "SpellResistenceConditionTitle")
-                .AddToDB();
-
-            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder();
-            effectDescription.SetDurationData(DurationType.Permanent, 1, TurnOccurenceType.EndOfTurn);
-            effectDescription.SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Sphere, 2, 1);
-            effectDescription.AddEffectForm(new EffectFormBuilder().SetConditionForm(spellResistanceCondition, ConditionForm.ConditionOperation.Add, true, true, new List<ConditionDefinition>()).Build());
-
-            PactofChainFamiliarSpellResistencePower = FeatureDefinitionPowerBuilder
-                .Create("PactofChainFamiliarSpellResistencePower", DefinitionBuilder.CENamespaceGuid)
-                .Configure(
-                1,
-                UsesDetermination.Fixed,
-                AttributeDefinitions.Charisma,
-                ActivationTime.Permanent,
-                1,
-                RechargeRate.AtWill,
-                false,
-                false,
-                AttributeDefinitions.Charisma,
-                effectDescription.Build(),
-                true)
-                .SetGuiPresentation(new GuiPresentationBuilder("FamiliarSpellResistenceDescription", "FamiliarSpellResistenceTitle").Build())
-                .AddToDB();
         }
 
         // public static FeatureDefinition buildSummoningAffinity()
@@ -135,7 +103,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .SetToHitBonus(4)
                 .SetEffectDescription(new EffectDescriptionBuilder()
                     .SetEffectForms(new EffectFormBuilder()
-                        .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.CharacterLevel, 1)
                         .SetDamageForm(dieType: DieType.D4, diceNumber: 1, bonusDamage:2, damageType:DamageTypePiercing)
                         .Build()
                     )
@@ -143,16 +110,30 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 )
                 .AddToDB();
             
-            //TODO: add bitye that poisons, maybe one of flying snakes or spiders has something similar?
             var stingAttack = MonsterAttackDefinitionBuilder
-                .Create(DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Claw, "AttackWarlockDragonSting", DefinitionBuilder.CENamespaceGuid)
+                .Create(DatabaseHelper.MonsterAttackDefinitions.Attack_Badlands_Spider_Bite, "AttackWarlockDragonSting", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(Category.MonsterAttack)
                 .SetActionType(ActionDefinitions.ActionType.Main)
                 .SetToHitBonus(4)
                 .SetEffectDescription(new EffectDescriptionBuilder()
+                    .SetSavingThrowData(
+                        true,
+                        true,
+                        AttributeDefinitions.Constitution,
+                        false, EffectDifficultyClassComputation.FixedValue,
+                        null,
+                        11
+                    )
                     .SetEffectForms(new EffectFormBuilder()
-                        .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.CharacterLevel, 1)
                         .SetDamageForm(dieType: DieType.D4, diceNumber: 1, bonusDamage:2, damageType:DamageTypePiercing)
-                        .Build()
+                        .Build(),
+                        new EffectFormBuilder()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(
+                                DatabaseHelper.ConditionDefinitions.ConditionPoisoned,
+                                ConditionForm.ConditionOperation.Add
+                            )
+                            .Build()
                     )
                     .Build()
                 )
@@ -171,12 +152,11 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                     
                     //DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity
                     
-                    PactofChainFamiliarSpellResistencePower, //fix this should grant dragon advantage on spell save 
+                    DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityMagebaneRejectMagic,
                     DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenSight,
                     DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenHearing
-                    
                 )
-                .SetAttackIterations(new MonsterAttackIteration(biteAttack, 1), new MonsterAttackIteration(stingAttack, 1))//TODO: improve this setter
+                .SetAttackIterations(stingAttack, biteAttack)
                 .SetSkillScores(
                     (DatabaseHelper.SkillDefinitions.Perception.Name, 3),
                     (DatabaseHelper.SkillDefinitions.Stealth.Name, 4)
@@ -189,9 +169,10 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .SetSavingThrowScores()//TODO: check if this sets bonuses to 0
                 .SetDefaultBattleDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.DragonCombatDecisions)
                 .SetSizeDefinition(DatabaseHelper.CharacterSizeDefinitions.Tiny)
-                .SetAlignment(DatabaseHelper.AlignmentDefinitions.Neutral.Name)
-                .SetCharacterFamily(DatabaseHelper.CharacterFamilyDefinitions.Fey.name)
+                .SetAlignment(DatabaseHelper.AlignmentDefinitions.NeutralGood.Name)
+                .SetCharacterFamily(DatabaseHelper.CharacterFamilyDefinitions.Dragon.name)
                 .SetChallengeRating(0)
+                .SetLegendaryCreature(false)
                 .SetDroppedLootDefinition(null)
                 .SetFullyControlledWhenAllied(true)
                 .SetDefaultFaction("Party")
@@ -201,6 +182,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .SetCreatureTags("WarlockFamiliar")
                 .SetNoExperienceGain(false)
                 .SetHasPhantomDistortion(true)
+                .SetForceNoFlyAnimation(true)
+                .SetGroupAttacks(true)
                 .AddToDB();
             
             
@@ -212,236 +195,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             monster.MonsterPresentation.SetCanGeneratePortrait(true);
             
             return monster; 
-        }
-
-        public static void buildCustomPseudodragon2()
-        {
-
-
-            string text = "PactOfChain";
-
-            MonsterDefinition BaseTemplateName = DatabaseHelper.MonsterDefinitions.SilverDragon_Princess;
-            //MonsterDefinition MonsterShaderReference = DatabaseHelper.MonsterDefinitions.SilverDragon_Princess;
-
-            string NewName = "CustomPseudodragon";
-            string NewTitle = "CustomPseudodragonTitle";
-            string NewDescription = "CustomPseudodragonDescription";
-            CharacterSizeDefinition Size = DatabaseHelper.CharacterSizeDefinitions.Tiny;
-            string Alignment = DatabaseHelper.AlignmentDefinitions.NeutralGood.name;
-            int ArmorClass = 13;
-            int HitDice = 2;
-            RuleDefinitions.DieType HitDiceType = RuleDefinitions.DieType.D4;
-            int HitPointsBonus = 4;
-            int StandardHitPoints = 7;
-            int AttributeStrength = 6;
-            int AttributeDexterity = 15;
-            int AttributeConstitution = 13;
-            int AttributeIntelligence = 10;
-            int AttributeWisdom = 12;
-            int AttributeCharisma = 10;
-            int SavingThrowStrength = 0;
-            int SavingThrowDexterity = 0;
-            int SavingThrowConstitution = 0;
-            int SavingThrowIntelligence = 0;
-            int SavingThrowWisdom = 0;
-            int SavingThrowCharisma = 0;
-            float CR = 0.25f;
-            bool LegendaryCreature = false;
-            string Type = DatabaseHelper.CharacterFamilyDefinitions.Dragon.name;
-
-            List<FeatureDefinition> Features = new List<FeatureDefinition>()
-            {
-                DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly12,
-                DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
-                DatabaseHelper.FeatureDefinitionSenses.SenseSuperiorDarkvision,
-                DatabaseHelper.FeatureDefinitionSenses.SenseBlindSight2,
-
-                DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionOwlsWisdom,
-               // DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinitySpellResistance
-              PactofChainFamiliarSpellResistencePower
-                //  castSpellPseudodragon
-            };
-
-            MonsterSkillProficiency skillProficiency_1 = new MonsterSkillProficiency();
-            skillProficiency_1.SetField("skillName", "Perception");
-            skillProficiency_1.SetField("bonus", 3);
-
-            MonsterSkillProficiency skillProficiency_2 = new MonsterSkillProficiency();
-            skillProficiency_2.SetField("skillName", "Stealth");
-            skillProficiency_2.SetField("bonus", 4);
-
-            List<MonsterSkillProficiency> SkillScores = new List<MonsterSkillProficiency>() { skillProficiency_1, skillProficiency_2 };
-
-            /* waiting until MonsterAttackDefinitionBuilder is available to use
-             * need to update attackIterations
-             * test before commiting
-             //           MonsterAttackDefinition PseudodragonAttack = MonsterAttackDefinitionBuilder(
-             //                    DatabaseHelper.MonsterAttackDefinitions.Attack_TigerDrake_Bite,
-             //                    "DH_Custom_" + text,
-             //                    GuidHelper.Create(new System.Guid(DhBaseGuid), DhBaseString + "PseudodragonAttack").ToString()
-             //                     );
-             //                    PseudodragonAttack.GuiPresentation.SetTitle       ("MonsterAttack/&DH_PseudodragonAttack_Title"      );
-             //                    PseudodragonAttack.GuiPresentation.SetDescription("MonsterAttack/&DH_PseudodragonAttack_Description");
-
-             //           PseudodragonAttack.SetToHitBonus(7);
-             //           PseudodragonAttack.EffectDescription.SetRangeParameter(1);
-             //           PseudodragonAttack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(1);
-             //           PseudodragonAttack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
-             //           PseudodragonAttack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(5);
-             //           PseudodragonAttack.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypePiercing);
-             //
-             //           ConditionForm conditionForm = new ConditionForm();
-             //           conditionForm.SetConditionDefinition(DatabaseHelper.ConditionDefinitions.ConditionPoisoned);
-             //           conditionForm.SetConditionDefinitionName(DatabaseHelper.ConditionDefinitions.ConditionPoisoned.name);
-             //           conditionForm.SetOperation(ConditionForm.ConditionOperation.Add);
-            //
-             //           EffectForm extraPoisonEffect = new EffectForm();
-             //           extraPoisonEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
-             //           extraPoisonEffect.SetLevelMultiplier(1);
-             //           extraPoisonEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
-             //           extraPoisonEffect.SetCreatedByCharacter(true);
-             //           extraPoisonEffect.FormType = EffectForm.EffectFormType.Condition;
-             //           extraPoisonEffect.SetConditionForm(conditionForm);
-             //           extraPoisonEffect.SetHasSavingThrow(true);
-             //           extraPoisonEffect.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
-             //
-             //           ConditionForm sleepForm = new ConditionForm();
-             //           sleepForm.SetConditionDefinition(DatabaseHelper.ConditionDefinitions.ConditionMagicallyAsleep);
-             //           sleepForm.SetConditionDefinitionName(DatabaseHelper.ConditionDefinitions.ConditionAsleep.name);
-             //           sleepForm.SetOperation(ConditionForm.ConditionOperation.Add);
-             //
-             //           EffectForm extraSleepEffect = new EffectForm();
-             //           extraSleepEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
-             //           extraSleepEffect.SetLevelMultiplier(1);
-             //           extraSleepEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
-             //           extraSleepEffect.SetCreatedByCharacter(true);
-             //           extraSleepEffect.FormType = EffectForm.EffectFormType.Condition;
-             //           extraSleepEffect.SetConditionForm(sleepForm);
-             //           extraSleepEffect.SetHasSavingThrow(true);
-             //           extraSleepEffect.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
-             //
-
-             //           PseudodragonAttack.EffectDescription.EffectForms.Add(extraSleepEffect);
-             //           PseudodragonAttack.EffectDescription.EffectForms.Add(extraPoisonEffect);
-             //           PseudodragonAttack.EffectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions.Constitution.Name);
-             //           PseudodragonAttack.EffectDescription.SetSavingThrowDifficultyAbility(DatabaseHelper.SmartAttributeDefinitions.Constitution.Name);
-             //           PseudodragonAttack.EffectDescription.SetHasSavingThrow(true);
-             //           PseudodragonAttack.EffectDescription.SetFixedSavingThrowDifficultyClass(11);
-             //           PseudodragonAttack.EffectDescription.SetDurationParameter(1);
-             //           PseudodragonAttack.EffectDescription.SetDurationType(RuleDefinitions.DurationType.Hour);
-                        */
-
-            List<MonsterAttackIteration> AttackIterations = new List<MonsterAttackIteration>
-            {
-                DatabaseHelper.MonsterDefinitions.Flying_Snake.AttackIterations[0]
-                // PseudodragonAttack
-            };
-
-            List<LegendaryActionDescription> LegendaryActionOptions = new List<LegendaryActionDescription>();
-
-            bool GroupAttacks = false;
-
-            bool PhantomDistortion = true;
-            // AttachedParticlesReference = "0286006526f6f9c4fa61ed8ead4f72cc"
-            //  AssetReference AttachedParticlesReference = DatabaseHelper.MonsterDefinitions.FeyBear.MonsterPresentation.GetField<UnityEngine.AddressableAssets.AssetReference>("attachedParticlesReference");
-            //   AssetReferenceSprite SpriteReference = DatabaseHelper.MonsterDefinitions.KindredSpiritViper.GuiPresentation.SpriteReference;
-
-
-            MonsterDefinitionBuilder Definition = MonsterDefinitionBuilder
-                .Create(BaseTemplateName,
-                text + NewName, DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation("Monster/&" + text + NewTitle, "Monster/&" + text + NewDescription);
-
-            Definition.SetInDungeonEditor(false);
-            Definition.SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None);
-            Definition.SetSizeDefinition(Size);
-            Definition.SetChallengeRating(CR);
-            Definition.SetAlignment(Alignment);
-            Definition.SetCharacterFamily(Type);
-            Definition.SetLegendaryCreature(LegendaryCreature);
-            Definition.SetArmorClass(ArmorClass);
-            Definition.SetHitDiceNumber(HitDice);
-            Definition.SetHitDiceType(HitDiceType);
-            Definition.SetHitPointsBonus(HitPointsBonus);
-            Definition.SetStandardHitPoints(StandardHitPoints);
-
-            Definition.ClearFeatures();
-            Definition.AddFeatures(Features);
-            Definition.ClearAbilityScores();
-            Definition.SetAbilityScores(
-                AttributeStrength,
-                AttributeDexterity,
-                AttributeConstitution,
-                AttributeIntelligence,
-                AttributeWisdom,
-                AttributeCharisma);
-
-            MonsterSavingThrowProficiency StrSave = new MonsterSavingThrowProficiency();
-            StrSave.SetField("abilityScoreName", AttributeDefinitions.Strength);
-            StrSave.SetField("bonus", SavingThrowStrength);
-
-            MonsterSavingThrowProficiency DexSave = new MonsterSavingThrowProficiency();
-            DexSave.SetField("abilityScoreName", AttributeDefinitions.Dexterity);
-            DexSave.SetField("bonus", SavingThrowDexterity);
-
-            MonsterSavingThrowProficiency ConSave = new MonsterSavingThrowProficiency();
-            ConSave.SetField("abilityScoreName", AttributeDefinitions.Constitution);
-            ConSave.SetField("bonus", SavingThrowConstitution);
-
-            MonsterSavingThrowProficiency IntSave = new MonsterSavingThrowProficiency();
-            IntSave.SetField("abilityScoreName", AttributeDefinitions.Intelligence);
-            IntSave.SetField("bonus", SavingThrowIntelligence);
-
-            MonsterSavingThrowProficiency WisSave = new MonsterSavingThrowProficiency();
-            WisSave.SetField("abilityScoreName", AttributeDefinitions.Wisdom);
-            WisSave.SetField("bonus", SavingThrowWisdom);
-
-            MonsterSavingThrowProficiency ChaSave = new MonsterSavingThrowProficiency();
-            ChaSave.SetField("abilityScoreName", AttributeDefinitions.Charisma);
-            ChaSave.SetField("bonus", SavingThrowCharisma);
-
-            Definition.ClearSavingThrowScores();
-            Definition.AddSavingThrowScores(new List<MonsterSavingThrowProficiency>()
-            {
-                StrSave,
-                DexSave,
-                ConSave,
-                IntSave,
-                WisSave,
-                ChaSave
-            });
-
-            Definition.ClearSkillScores();
-            Definition.AddSkillScores(SkillScores);
-            Definition.ClearAttackIterations();
-            Definition.AddAttackIterations(AttackIterations);
-            Definition.SetDefaultBattleDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.DragonCombatDecisions);
-            Definition.SetGroupAttacks(GroupAttacks);
-            Definition.ClearLegendaryActionOptions();
-            Definition.AddLegendaryActionOptions(LegendaryActionOptions);
-            //Definition.GuiPresentation.spriteReference=(SpriteReference);
-            Definition.SetHasPhantomDistortion(PhantomDistortion);
-            //Definition.MonsterPresentation.attachedParticlesReference=(AttachedParticlesReference);
-            Definition.SetNoExperienceGain(false);
-            Definition.SetHasMonsterPortraitBackground(true);
-            Definition.SetCanGeneratePortrait(true);
-            //  Definition.MonsterPresentation.customShaderReference=(MonsterShaderReference);
-
-
-
-            Definition.SetModelScale(0.1f);
-
-
-            Definition.SetFullyControlledWhenAllied(true);
-            Definition.SetDefaultFaction("Party");
-
-            // PactChainPseudodragon = Definition.AddToDB();
-            // PactChainPseudodragon.MonsterPresentation.SetHasPrefabVariants(false);
-            // PactChainPseudodragon.CreatureTags.Clear();
-            // PactChainPseudodragon.MonsterPresentation.MonsterPresentationDefinitions.Empty();
-            // PactChainPseudodragon.MonsterPresentation.SetUseCustomMaterials(true);
-            // PactChainPseudodragon.MonsterPresentation.SetCustomMaterials(DatabaseHelper.MonsterPresentationDefinitions.Silver_Dragon_Presentation.CustomMaterials);
-
         }
 
         public static void buildCustomSprite()
@@ -729,7 +482,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity,
                 PactofChainFamiliarInvisibilityPower,
               //  DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinitySpellResistance
-              PactofChainFamiliarSpellResistencePower
+              // PactofChainFamiliarSpellResistencePower
                 //  game doesnt like when a monster uses shapechange
               //  not easy to stop see through magical darkness
             };
@@ -958,7 +711,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 PactofChainFamiliarInvisibilityPower,
 
                //  DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinitySpellResistance
-              PactofChainFamiliarSpellResistencePower
+              // PactofChainFamiliarSpellResistencePower
                 //  castSpellQuasit
             };
 

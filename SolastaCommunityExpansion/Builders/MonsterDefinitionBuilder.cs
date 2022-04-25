@@ -383,6 +383,20 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
+        public MonsterDefinitionBuilder SetAttackIterations(params MonsterAttackDefinition[] monsterAttackIterations)
+        {
+            return SetAttackIterations(monsterAttackIterations.Select(
+                d => new MonsterAttackIteration(d, 1))
+            );
+        }
+        
+        public MonsterDefinitionBuilder SetAttackIterations(params (MonsterAttackDefinition, int)[] monsterAttackIterations)
+        {
+            return SetAttackIterations(monsterAttackIterations.Select(
+                d => new MonsterAttackIteration(d.Item1, d.Item2)
+            ));
+        }
+        
         public MonsterDefinitionBuilder SetAttackIterations(params MonsterAttackIteration[] monsterAttackIterations)
         {
             return SetAttackIterations(monsterAttackIterations.AsEnumerable());

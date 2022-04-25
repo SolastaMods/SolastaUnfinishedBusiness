@@ -70,7 +70,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             //Warlock's familiar's don't scale but get one-time bonuses when Chain Master invocation is selected
             // Definition.FeatureSet.Add(WarlockPactOfTheChainSummons.buildSummoningAffinity());
             
-            WarlockPactOfTheChainSummons.PactofChainFamiliarAuraOfSpellResistence();
             WarlockPactOfTheChainSummons.buildPactofChainFamiliarInvisibilityPower();
             var pseudodragon = WarlockPactOfTheChainSummons.buildCustomPseudodragon();
             WarlockPactOfTheChainSummons.buildCustomSprite();
