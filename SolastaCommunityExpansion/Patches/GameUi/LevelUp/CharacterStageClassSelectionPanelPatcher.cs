@@ -6,6 +6,23 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
 {
+    [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "Refresh")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class CharacterStageClassSelectionPanel_Refresh
+    {
+        internal static HashSet<FeatureDescriptionItem> FeatureDescriptionItems { get; } = new();
+
+        internal static void Prefix()
+        {
+            if (!Main.Settings.EnableEnforceUniqueFeatureSetChoices)
+            {
+                return;
+            }
+
+            FeatureDescriptionItems.Clear();
+        }
+    }
+
     [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "Compare")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterStageClassSelectionPanel_Compare

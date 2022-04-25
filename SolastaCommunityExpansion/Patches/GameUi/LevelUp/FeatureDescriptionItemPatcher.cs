@@ -57,27 +57,17 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
         //
 
         // ensures we try to offer unique default options
-        internal static void Postfix(FeatureDescriptionItem __instance, GuiDropdown ___choiceDropdown)
+        internal static void Postfix(FeatureDescriptionItem __instance)
         {
             if (!Main.Settings.EnableEnforceUniqueFeatureSetChoices)
             {
                 return;
             }
 
-            foreach (var featureDescriptionItem in CharacterStageLevelGainsPanel_Refresh.FeatureDescriptionItems
-                .Where(x => x.Feature == __instance.Feature))
-            {
-                var choiceDropDown = featureDescriptionItem.GetField<FeatureDescriptionItem, GuiDropdown>("choiceDropdown");
-
-                if (choiceDropDown.value == ___choiceDropdown.value)
-                {
-                    choiceDropDown.value = (choiceDropDown.value + 1) % choiceDropDown.options.Count;
-                }
-            }
-
+            CharacterStageClassSelectionPanel_Refresh.FeatureDescriptionItems.Add(__instance);
             __instance.ValueChanged += ValueChanged;
 
-            CharacterStageLevelGainsPanel_Refresh.FeatureDescriptionItems.Add(__instance);
+            ValueChanged(__instance);
         }
 
         // ensures we change any other drop down equals to this one
@@ -85,7 +75,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
         {
             var ___choiceDropdown = __instance.GetField<FeatureDescriptionItem, GuiDropdown>("choiceDropdown");
 
-            foreach (var featureDescriptionItem in CharacterStageLevelGainsPanel_Refresh.FeatureDescriptionItems
+            foreach (var featureDescriptionItem in CharacterStageClassSelectionPanel_Refresh.FeatureDescriptionItems
                 .Where(x => x != __instance && x.Feature == __instance.Feature))
             {
                 var choiceDropDown = featureDescriptionItem.GetField<FeatureDescriptionItem, GuiDropdown>("choiceDropdown");
@@ -94,8 +84,6 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
                 {
                     choiceDropDown.value = (choiceDropDown.value + 1) % choiceDropDown.options.Count;
                 }
-
-                LayoutRebuilder.ForceRebuildLayoutImmediate(__instance.GetComponent<RectTransform>());
             }
         }
     }
