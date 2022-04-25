@@ -47,10 +47,11 @@ namespace SolastaCommunityExpansion.Models
             LoadSubclass(new LifeTransmuter());
             LoadSubclass(new Arcanist());
             LoadSubclass(new Tactician());
-            _ = new RoyalKnight(); // LoadSubclass(new RoyalKnight());
+            LoadSubclass(new RoyalKnight());
             LoadSubclass(new PathOfTheLight());
-            _ = new Thug(); // LoadSubclass(new Thug());
+            LoadSubclass(new Thug());
             LoadSubclass(new CircleOfTheForestGuardian());
+            LoadSubclass(new Opportunist());
 
             Subclasses = Subclasses.OrderBy(x => x.FormatTitle()).ToHashSet();
 
@@ -58,11 +59,6 @@ namespace SolastaCommunityExpansion.Models
             {
                 SortSubclassesFeatures();
             }
-
-            ArcaneFighter.UpdateEnchantWeapon();
-            ConArtist.UpdateSpellDCBoost();
-            MasterManipulator.UpdateSpellDCBoost();
-            SpellMaster.UpdateBonusRecovery();
         }
 
         private static void LoadSubclass(AbstractSubclass subclassBuilder)
