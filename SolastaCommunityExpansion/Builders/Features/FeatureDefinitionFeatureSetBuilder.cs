@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
@@ -96,5 +97,34 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
         #endregion
+    }
+
+    public class FeatureDefinitionFeatureSetWithPreRequisitesBuilder : FeatureDefinitionFeatureSetBuilder<FeatureDefinitionFeatureSetWithPreRequisites, FeatureDefinitionFeatureSetWithPreRequisitesBuilder>
+    {
+        #region Constructors
+
+        protected FeatureDefinitionFeatureSetWithPreRequisitesBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionFeatureSetWithPreRequisitesBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        protected FeatureDefinitionFeatureSetWithPreRequisitesBuilder(FeatureDefinitionFeatureSetWithPreRequisites original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionFeatureSetWithPreRequisitesBuilder(FeatureDefinitionFeatureSetWithPreRequisites original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+        #endregion
+
+        public FeatureDefinitionFeatureSetWithPreRequisitesBuilder SetValidator(Func<bool> validator)
+        {
+            Definition.Validator = validator;
+
+            return this;
+        }
     }
 }

@@ -47,8 +47,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 DictionaryofEIAttributeModifers["BeguilingInfluence"],
                 DictionaryofEIAttributeModifers["EldritchMind"],
                 DictionaryofEIAttributeModifers["EyesoftheRuneKeeper"],
-                DictionaryofEIAttributeModifers["GiftoftheEver-LivingOnes"],
-                DictionaryofEIAttributeModifers["ImprovedPactWeapon"]
+                DictionaryofEIAttributeModifers["GiftoftheEver-LivingOnes"]
             )
             .SetUniqueChoices(true)
             .AddToDB();
@@ -67,7 +66,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             .AddFeatureSet(
                 DictionaryofEIPowers["MiretheMind"],
                 DictionaryofEIAttributeModifers["EldritchSmite"],
-                DictionaryofEIAttributeModifers["ThirstingBlade"]
+                DictionaryofEIAttributeModifers["ThirstingBlade"],
+                DictionaryofEIAttributeModifers["ImprovedPactWeapon"]
             )
             .AddToDB();
         #endregion

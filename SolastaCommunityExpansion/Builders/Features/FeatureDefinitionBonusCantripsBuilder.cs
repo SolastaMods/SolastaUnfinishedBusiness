@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features
@@ -108,5 +109,39 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
 
         #endregion
+    }
+
+    public class FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder : FeatureDefinitionBonusCantripsBuilder<
+        FeatureDefinitionFreeBonusCantripsWithPrerequisites, FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder>
+    {
+        #region Constructors
+
+        public FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        public FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder(string name, string definitionGuid) : base(name,
+            definitionGuid)
+        {
+        }
+
+        public FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder(FeatureDefinitionFreeBonusCantripsWithPrerequisites original, string name,
+            Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        public FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder(FeatureDefinitionFreeBonusCantripsWithPrerequisites original, string name,
+            string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+
+        #endregion
+
+        public FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder SetValidator(Func<bool> validator)
+        {
+            Definition.Validator = validator;
+
+            return this;
+        }
     }
 }

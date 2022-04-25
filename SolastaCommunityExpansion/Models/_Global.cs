@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -19,5 +20,20 @@ namespace SolastaCommunityExpansion.Models
 
         // true if not in game
         public static bool IsOffGame => Gui.Game == null;
+
+        // level up hero
+        public static RulesetCharacterHero ActiveLevelUpHero => ServiceRepository.GetService<ICharacterBuildingService>()?.CurrentLocalHeroCharacter;
+
+        public static bool ActiveLevelUpHeroHasCantrip(SpellDefinition spellDefinition)
+        {
+            var hero = ActiveLevelUpHero;
+
+            if (hero == null)
+            {
+                return true;
+            }
+
+            return hero.SpellRepertoires.Any(x => x.KnownCantrips.Contains(spellDefinition));
+        }
     }
 }

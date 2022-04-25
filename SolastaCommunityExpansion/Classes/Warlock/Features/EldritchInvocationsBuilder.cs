@@ -4,6 +4,7 @@ using System.Linq;
 using SolastaModApi;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi.Infrastructure;
 
@@ -20,8 +21,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         public static Dictionary<string, FeatureDefinition> DictionaryofEBInvocations { get; private set; } = new();
         public static List<string> ListofEIAttributeModifers { get; private set; } = new();
         public static Dictionary<string, FeatureDefinitionFeatureSet> DictionaryofEIAttributeModifers { get; private set; } = new();
-        public static FeatureDefinitionFeatureSet AgonizingBlastFeatureSet { get; set; }
-        public static FeatureDefinitionFeatureSet HinderingBlastFeatureSet { get; set; }
+        public static FeatureDefinitionFeatureSetWithPreRequisites AgonizingBlastFeatureSet { get; set; }
+        public static FeatureDefinitionFeatureSetWithPreRequisites HinderingBlastFeatureSet { get; set; }
 
         public static void Build()
         {
@@ -261,11 +262,12 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                     )
                     .AddToDB();
 
-                var bonusCantrip = FeatureDefinitionFreeBonusCantripsBuilder
+                var bonusCantrip = FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder
                     .Create(cantripName + "BonusCantrip", DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation(Category.Feature)
                     .ClearBonusCantrips()
                     .AddBonusCantrip(cantrip)
+                    .SetValidator(() => Global.ActiveLevelUpHeroHasCantrip(EldritchBlast))
                     .AddToDB();
 
                 DictionaryofEBInvocations.Add(name, bonusCantrip);
@@ -274,29 +276,27 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             MakeEldritchBlastVariant("RepellingBlast", pushForm);
             MakeEldritchBlastVariant("GraspingHand", pullForm);
             
-            AgonizingBlastFeatureSet = FeatureDefinitionFeatureSetBuilder
-                .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest,
-                    "AgonizingBlastFeatureSet", DefinitionBuilder.CENamespaceGuid)
+            AgonizingBlastFeatureSet = FeatureDefinitionFeatureSetWithPreRequisitesBuilder
+                .Create("AgonizingBlastFeatureSet", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Feature)
                 .ClearFeatureSet()
                 .AddFeatureSet(agonizingBlastFeature)
                 .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                 .SetUniqueChoices(false)
+                .SetValidator(() => Global.ActiveLevelUpHeroHasCantrip(eldritchBlast))
                 .AddToDB();
 
-            HinderingBlastFeatureSet = FeatureDefinitionFeatureSetBuilder
-                .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, "HinderingBlastFeatureSet", DefinitionBuilder.CENamespaceGuid)
-               .SetGuiPresentation(new GuiPresentationBuilder(
-                   "Feature/&HinderingBlastFeatureSetTitle",
-                   "Feature/&HinderingBlastFeatureSetDescription"
-                   ).Build())
-               .ClearFeatureSet()
-               .AddFeatureSet(hinderingBlastFeature)
-               .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-               .SetUniqueChoices(false)
-               .AddToDB();
-
+            HinderingBlastFeatureSet = FeatureDefinitionFeatureSetWithPreRequisitesBuilder
+                .Create("HinderingBlastFeatureSet", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(Category.Feature)
+                .ClearFeatureSet()
+                .AddFeatureSet(hinderingBlastFeature)
+                .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+                .SetUniqueChoices(false)
+                .SetValidator(() => Global.ActiveLevelUpHeroHasCantrip(eldritchBlast))
+                .AddToDB();
         }
+
         private static void EIAttributeModifers()
         {
             ListofEIAttributeModifers.AddRange(new List<String>
