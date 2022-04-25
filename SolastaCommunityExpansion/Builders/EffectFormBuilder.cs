@@ -270,7 +270,7 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         public EffectFormBuilder SetSummonCreatureForm(int number, string monsterDefinitionName,
-            bool persistOnConcentrationLoss, DecisionPackageDefinition decisionPackage)
+            bool persistOnConcentrationLoss=false, ConditionDefinition condition=null, DecisionPackageDefinition decisionPackage = null)
         {
             effectForm.FormType = EffectForm.EffectFormType.Summon;
             SummonForm summonForm = new SummonForm();
@@ -278,7 +278,7 @@ namespace SolastaCommunityExpansion.Builders
             summonForm.SetItemDefinition(null);
             summonForm.SetNumber(number);
             summonForm.SetMonsterDefinitionName(monsterDefinitionName);
-            summonForm.SetConditionDefinition(null);
+            summonForm.SetConditionDefinition(condition);
             summonForm.SetPersistOnConcentrationLoss(persistOnConcentrationLoss);
             summonForm.SetDecisionPackage(decisionPackage);
             summonForm.SetEffectProxyDefinitionName(null);
