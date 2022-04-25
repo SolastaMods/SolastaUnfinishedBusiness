@@ -101,7 +101,10 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             GuiPresentationBuilder FindFamiliarSpriteGui = new GuiPresentationBuilder(
                 "Spell/&FindFamiliarSpriteDescription",
                 "Spell/&FindFamiliarSpriteTitle");
-            FindFamiliarSpriteGui.SetSpriteReference(WarlockPactOfTheChainSummons.PactChainSprite.GuiPresentation.SpriteReference);
+            //
+            // TODO: fix correct sprite
+            //
+            //FindFamiliarSpriteGui.SetSpriteReference(WarlockPactOfTheChainSummons.PactChainSprite.GuiPresentation.SpriteReference);
 
 
             EffectDescriptionBuilder effectDescriptionImp = new EffectDescriptionBuilder();
