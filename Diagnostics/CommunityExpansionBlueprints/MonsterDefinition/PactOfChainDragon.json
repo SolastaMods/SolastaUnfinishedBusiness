@@ -1,18 +1,20 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
   "dungeonMakerPresence": "None",
-  "overrideSpawnDecision": null,
-  "characterFamily": "Dragon",
-  "creatureTags": [],
+  "overrideSpawnDecision": "Definition:IdleGuard_NoIntercept:81e247c4ebe23c741800c91fd18c473e",
+  "characterFamily": "Fey",
+  "creatureTags": [
+    "WarlockFamiliar"
+  ],
   "defaultFaction": "Party",
   "fullyControlledWhenAllied": true,
   "sizeDefinition": "Definition:Tiny:6561a80034010bd4da9142d87919eeb2",
-  "alignment": "NeutralGood",
+  "alignment": "Neutral",
   "armorClass": 13,
   "armor": "",
   "hitDice": 2,
   "hitDiceType": "D4",
-  "hitPointsBonus": 4,
+  "hitPointsBonus": 2,
   "standardHitPoints": 7,
   "abilityScores": [
     6,
@@ -22,38 +24,7 @@
     12,
     10
   ],
-  "savingThrowScores": [
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Charisma",
-      "bonus": 0
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Constitution",
-      "bonus": 0
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Dexterity",
-      "bonus": 0
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Intelligence",
-      "bonus": 0
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Strength",
-      "bonus": 0
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Wisdom",
-      "bonus": 0
-    }
-  ],
+  "savingThrowScores": [],
   "skillScores": [
     {
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
@@ -70,33 +41,93 @@
   "maxLegendaryResistances": 3,
   "maxLegendaryActionPoints": 3,
   "differentActionEachTurn": false,
-  "legendaryActionOptions": [],
+  "legendaryActionOptions": [
+    {
+      "$type": "LegendaryActionDescription, Assembly-CSharp",
+      "cost": 0,
+      "subaction": "MonsterAttack",
+      "monsterAttackDefinition": "Definition:Attack_Green_Dragon_Tail:8b9e1f1692bd40f43904b14a03e6e1e3",
+      "featureDefinitionPower": null,
+      "spellDefinition": null,
+      "magicAttackBonus": 0,
+      "saveDC": 0,
+      "magicAbilityBonus": 0,
+      "canMove": false,
+      "moveMode": null,
+      "noOpportunityAttack": false,
+      "decisionPackage": null
+    },
+    {
+      "$type": "LegendaryActionDescription, Assembly-CSharp",
+      "cost": 0,
+      "subaction": "Power",
+      "monsterAttackDefinition": null,
+      "featureDefinitionPower": "Definition:PowerDragonWingAttack:9eb9b2b941476b44482c055f4c1f4b77",
+      "spellDefinition": null,
+      "magicAttackBonus": 0,
+      "saveDC": 0,
+      "magicAbilityBonus": 0,
+      "canMove": true,
+      "moveMode": "Definition:MoveModeFly6:017c6a5ac95be2841bea36b7dac041fe",
+      "noOpportunityAttack": false,
+      "decisionPackage": null
+    }
+  ],
   "defaultBattleDecisionPackage": "Definition:DragonCombatDecisions:2b0886bfdfbcbdd439dad800e901771e",
-  "threatEvaluatorDefinition": null,
+  "threatEvaluatorDefinition": {
+    "$type": "TA.AI.ThreatEvaluatorDefinition, Assembly-CSharp",
+    "threatEvaluator": {
+      "$type": "TA.AI.ThreatEvaluator, Assembly-CSharp",
+      "hateResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "woundRatioResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "maxHPResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "attackersCountResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "meleeVsRangedResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "previousTargetRelatedMalus": -0.3
+    },
+    "name": "PrioritizeHurtDamageDealersAndSwitchTarget"
+  },
   "languages": [
     "Language_Common"
   ],
   "audioSwitches": [],
   "audioSwitchesOnHands": [],
-  "audioRaceRTPCValue": 38.0,
-  "challengeRating": 0.25,
+  "audioRaceRTPCValue": 39.0,
+  "challengeRating": 0.0,
   "noExperienceGain": false,
   "droppedLootDefinition": null,
   "stealableLootDefinition": null,
   "bestiaryLootOptions": [],
   "features": [
+    "Definition:AbilityCheckAffinityKeenHearing:4e042e049873e27469a28b7c8e9e1d72",
+    "Definition:AbilityCheckAffinityKeenSight:3c05196978fcf854e886aec1e67e64e8",
     "Definition:MoveModeFly12:5e70172c8e2a40146b375001ab656a44",
-    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
-    "Definition:SenseSuperiorDarkvision:388ca3fa81ee8a84c831be14214fd1c0",
+    "Definition:MoveModeMove2:0127a492ba7a429408b3282dde9374d7",
+    "Definition:PactofChainFamiliarSpellResistencePower:7c093f2b-76c0-5998-9b2a-047ea74b8e9e",
     "Definition:SenseBlindSight2:f6e92e044ad5c9945b1c01d9891bf49d",
-    "Definition:AbilityCheckAffinityConditionOwlsWisdom:591e7675adc79604eb2a081a98810a3f",
-    "Definition:PactofChainFamiliarSpellResistencePower:7c093f2b-76c0-5998-9b2a-047ea74b8e9e"
+    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+    "Definition:SenseSuperiorDarkvision:388ca3fa81ee8a84c831be14214fd1c0"
   ],
   "attackIterations": [
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
-      "monsterAttackDefinition": "Definition:Attack_FlyingSnake_Bite:474c266753b8ee0429bcb41b2ecf0d2b"
+      "monsterAttackDefinition": "Definition:AttackWarlockDragonBite:3583e00c-deda-51ae-81f9-f5ec2e017a0e"
+    },
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 1,
+      "monsterAttackDefinition": "Definition:AttackWarlockDragonSting:ba63da1f-4cac-554a-8892-1a950e3fc46b"
     }
   ],
   "sneakStance": "Stealth",
@@ -117,15 +148,15 @@
   "bestiaryCameraOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
     "x": 0.0,
-    "y": 7.0,
-    "z": -35.0
+    "y": 10.0,
+    "z": -60.0
   },
   "alwaysHideStats": false,
   "bestiarySpriteReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
+    "m_AssetGUID": "5be4ac0bcb539374fada65aa622f69f6",
+    "m_SubObjectName": "Young_GreenDragon",
+    "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
@@ -136,7 +167,7 @@
     "customMaterials": [
       {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "44ca8536734a8d446bb208ab9225048b",
+        "m_AssetGUID": "6dd13fcd91f23924e91e7dbbc19d732c",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       }
@@ -183,7 +214,7 @@
     },
     "hasPrefabVariants": false,
     "monsterPresentationDefinitions": [
-      "Definition:Silver_Dragon_Presentation:c3b5fb0b3ae78bf41a45b0e562b0b142"
+      "Definition:Young_Green_Dragon_Presentation:0efaa2366da1aed4bb8d81e850bc4b53"
     ],
     "malePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
@@ -229,7 +260,7 @@
   "hasLookAt": false,
   "forceNoFlyAnimation": true,
   "followFloorAngle": false,
-  "groupAttacks": false,
+  "groupAttacks": true,
   "isUnique": false,
   "uniqueNameId": "",
   "guiPresentation": {
@@ -239,9 +270,9 @@
     "description": "Monster/&PactOfChainCustomPseudodragonDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "c1725967e6fb36e4fa658a371a703e4b",
+      "m_SubObjectName": "CustomPortrait_Young_GreenDragon",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -256,7 +287,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f68ba5d6-e527-52cc-96dd-285e9a6f1f01",
+  "guid": "6b34f704-6e53-5173-8235-a36d376ab171",
   "contentPack": 9999,
-  "name": "PactOfChainCustomPseudodragon"
+  "name": "PactOfChainDragon"
 }

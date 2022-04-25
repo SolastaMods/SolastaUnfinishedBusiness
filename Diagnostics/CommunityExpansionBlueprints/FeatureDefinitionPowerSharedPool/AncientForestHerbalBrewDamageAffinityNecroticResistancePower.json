@@ -80,7 +80,7 @@
           "conditionDefinition": null,
           "persistOnConcentrationLoss": true,
           "decisionPackage": null,
-          "effectProxyDefinitionName": ""
+          "effectProxyDefinitionName": null
         }
       }
     ],

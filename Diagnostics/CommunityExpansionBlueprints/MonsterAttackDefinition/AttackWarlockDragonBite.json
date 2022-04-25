@@ -1,15 +1,27 @@
 {
-  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionPowerSharedPool, SolastaCommunityExpansion",
+  "$type": "MonsterAttackDefinition, Assembly-CSharp",
+  "displayedInEditor": true,
+  "methodName": "",
+  "actionType": "Main",
+  "toHitBonus": 4,
+  "afterChargeOnly": false,
+  "limitedUse": false,
+  "maxUses": 1,
+  "proximity": "Melee",
+  "reachRange": 1,
+  "closeRange": 30,
+  "maxRange": 120,
+  "magical": false,
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Self",
-    "rangeParameter": 1,
+    "rangeParameter": 0,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "Self",
     "itemSelectionType": "Equiped",
     "targetParameter": 1,
-    "targetParameter2": 1,
+    "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
@@ -29,9 +41,9 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Ally",
-    "durationType": "UntilLongRest",
-    "durationParameter": 0,
+    "targetSide": "Enemy",
+    "durationType": "Instantaneous",
+    "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
@@ -58,10 +70,10 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Summon",
-        "addBonusMode": "DoubleProficiency",
-        "applyLevel": "No",
-        "levelType": "ClassLevel",
+        "formType": "Damage",
+        "addBonusMode": "None",
+        "applyLevel": "AddBonus",
+        "levelType": "CharacterLevel",
         "levelMultiplier": 1,
         "createdByCharacter": false,
         "createdByCondition": false,
@@ -70,17 +82,20 @@
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "summonForm": {
-          "$type": "SummonForm, Assembly-CSharp",
-          "summonType": "InventoryItem",
-          "itemDefinition": "Definition:AncientForestHerbalBrewDamageAffinityLightningResistanceItem:56e3a9ac-aa82-50d3-9793-12a3f1f9b460",
-          "trackItem": false,
-          "monsterDefinitionName": "",
-          "number": 1,
-          "conditionDefinition": null,
-          "persistOnConcentrationLoss": true,
-          "decisionPackage": null,
-          "effectProxyDefinitionName": null
+        "damageForm": {
+          "$type": "DamageForm, Assembly-CSharp",
+          "versatile": false,
+          "diceNumber": 1,
+          "dieType": "D4",
+          "versatileDieType": "D1",
+          "bonusDamage": 2,
+          "damageType": "DamagePiercing",
+          "healFromInflictedDamage": "Never",
+          "hitPointsFloor": 0,
+          "forceKillOnZeroHp": false,
+          "specialDeathCondition": null,
+          "ignoreFlyingCharacters": false,
+          "ignoreCriticalDoubleDice": false
         }
       }
     ],
@@ -267,44 +282,76 @@
     },
     "animationMagicEffect": "Animation0"
   },
-  "delegatedToAction": false,
-  "surrogateToSpell": null,
-  "triggeredBySpecialMove": false,
-  "activationTime": "NoCost",
-  "reactionContext": "None",
-  "reactionName": "",
-  "hasCastingFailure": false,
-  "castingSuccessComputation": "CasterLevel",
-  "canUseInDialog": false,
-  "disableIfConditionIsOwned": null,
-  "rechargeRate": "ShortRest",
-  "costPerUse": 1,
-  "spellcastingFeature": null,
-  "usesDetermination": "Fixed",
-  "abilityScoreDetermination": "Explicit",
-  "usesAbilityScoreName": "Charisma",
-  "fixedUsesPerRecharge": 1,
-  "abilityScore": "Charisma",
-  "attackHitComputation": "AbilityScore",
-  "fixedAttackHit": 0,
-  "abilityScoreBonusToAttack": false,
-  "proficiencyBonusToAttack": false,
-  "uniqueInstance": false,
-  "showCasting": true,
-  "shortTitleOverride": "",
-  "overriddenPower": null,
-  "includeBaseDescription": false,
-  "magical": true,
+  "projectile": "Javelin",
+  "projectileBone": "Prop1",
+  "itemDefinitionMainHand": null,
+  "itemDefinitionOffHand": null,
+  "useAnimationTag": false,
+  "animationTag": "NoWeapon",
+  "chargePrepareParticle": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "chargeStartParticle": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "chargeLoopParticle": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "chargeEndParticle": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "soundEffectOnHitDescription": {
+    "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
+    "switchOnHit": {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": {
+        "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
+        "WwiseSwitchGroupReference": {
+          "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+          "objectName": "Switch_Damage",
+          "id": 1103537035,
+          "guid": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A",
+          "name": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A"
+        },
+        "objectName": "Bite_Wolf",
+        "id": 1189155406,
+        "guid": "DAF5C20E-9EDF-46AF-B933-E876000CBFE5",
+        "name": "DAF5C20E-9EDF-46AF-B933-E876000CBFE5"
+      },
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Equipment/&HerbalBrewDamageAffinityLightningResistanceTitle",
-    "description": "Equipment/&HerbalBrewDamageAffinityLightningResistanceDescription",
+    "title": "MonsterAttacks/&Attack_Bite_Title",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "8b59351241d18d5489f3fed9df99206a",
-      "m_SubObjectName": "Oil",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -319,7 +366,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0d29b586-1b64-5336-85b2-bf3bbc3179da",
+  "guid": "3583e00c-deda-51ae-81f9-f5ec2e017a0e",
   "contentPack": 9999,
-  "name": "AncientForestHerbalBrewDamageAffinityLightningResistancePower"
+  "name": "AttackWarlockDragonBite"
 }

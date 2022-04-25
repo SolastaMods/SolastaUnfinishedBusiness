@@ -152,13 +152,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&FindFamiliarPsuedodragonDescription",
-    "description": "Spell/&FindFamiliarPsuedodragonTitle",
+    "title": "Spell/&FindFamiliarPsuedodragonTitle",
+    "description": "Spell/&FindFamiliarPsuedodragonDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "c1725967e6fb36e4fa658a371a703e4b",
+      "m_SubObjectName": "CustomPortrait_Young_GreenDragon",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
