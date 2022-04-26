@@ -266,7 +266,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                     FeatureLimitedUsage.OncePerTurn,
                     AdditionalDamageValueDetermination.ProficiencyBonus,
                     AdditionalDamageTriggerCondition.AlwaysActive,
-                    AdditionalDamageRequiredProperty.MeleeWeapon,
+                    AdditionalDamageRequiredProperty.None,
                     false,
                     DieType.D4,
                     1,
