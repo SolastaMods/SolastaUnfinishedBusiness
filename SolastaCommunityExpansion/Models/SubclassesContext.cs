@@ -58,6 +58,11 @@ namespace SolastaCommunityExpansion.Models
             {
                 SortSubclassesFeatures();
             }
+
+            ArcaneFighter.UpdateEnchantWeapon();
+            ConArtist.UpdateSpellDCBoost();
+            MasterManipulator.UpdateSpellDCBoost();
+            SpellMaster.UpdateBonusRecovery();
         }
 
         private static void LoadSubclass(AbstractSubclass subclassBuilder)

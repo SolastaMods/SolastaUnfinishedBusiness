@@ -16,7 +16,7 @@ namespace SolastaMulticlass.Patches.SlotsSpells
         {
             internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
             {
-                var restoreAllSpellSlotsMethod = typeof(RulesetCharacter).GetMethod("RestoreAllSpellSlots");
+                var restoreAllSpellSlotsMethod = typeof(RulesetSpellRepertoire).GetMethod("RestoreAllSpellSlots");
                 var myRestoreAllSpellSlotsMethod = typeof(RulesetCharacterApplyRest).GetMethod("RestoreAllSpellSlots");
 
                 foreach (CodeInstruction instruction in instructions)
@@ -50,7 +50,7 @@ namespace SolastaMulticlass.Patches.SlotsSpells
                     .TryGetValue(SharedSpellsContext.PACT_MAGIC_SLOT_TAB_INDEX, out var slotsToRestore);
 
                 foreach (var spellRepertoire in heroWithSpellRepertoire.SpellRepertoires
-                    .Where(x => x.SpellCastingRace != null))
+                    .Where(x => x.SpellCastingRace == null))
                 {
                     var usedSpellsSlots = spellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots");
 

@@ -99,6 +99,13 @@ namespace SolastaCommunityExpansion.Displays
                 AsiAndFeatContext.Switch(toggle);
             }
 
+            toggle = Main.Settings.EnableFeatsAtEvenLevels;
+            if (UI.Toggle("Enable feats selection at levels 2, 6, 10 and 14", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableFeatsAtEvenLevels = toggle;
+                InitialChoicesContext.RefreshEvenLevelFeats();
+            }
+
             toggle = Main.Settings.EnableLevel20;
             if (UI.Toggle("Enable Level 20 " + RequiresRestart, ref toggle, UI.AutoWidth()))
             {
