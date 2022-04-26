@@ -243,10 +243,7 @@ Different Archfey, e.g. Winter-themed
                                         Side.Ally,
                                         RangeType.Self,
                                         1,
-                                        TargetType.Self,
-                                        1,
-                                        1,
-                                        ActionDefinitions.ItemSelectionType.None)
+                                        TargetType.Self)
                                 .Build()
                        ,
                        true)
@@ -433,17 +430,14 @@ Different Archfey, e.g. Winter-themed
                                 resistanceCondition,
                                 ConditionForm.ConditionOperation.Add,
                                 true,
-                                true,
-                                new List<ConditionDefinition>()).Build())
+                                true
+                            ).Build())
                         .SetDurationData(DurationType.Hour, 1)
                         .SetTargetingData(
                             Side.Ally,
                             RangeType.Self,
                             1,
-                            TargetType.Self,
-                            1,
-                            1,
-                            ActionDefinitions.ItemSelectionType.None)
+                            TargetType.Self)
                         .Build()
                     ,
                     true)
