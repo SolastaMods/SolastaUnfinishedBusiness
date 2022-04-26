@@ -19,9 +19,9 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
 
         public static List<FeatureDefinition> FeatureSetDynamic(FeatureDefinitionFeatureSet featureDefinitionFeatureSet)
         {
-            if (featureDefinitionFeatureSet is FeatureDefinitionFeatureSetUniqueAcross featureDefinitionFeatureSetDynamic)
+            if (featureDefinitionFeatureSet is IFeatureDefinitionFeatureSetDynamic featureDefinitionFeatureSetDynamic)
             {
-                return featureDefinitionFeatureSetDynamic.DynamicFeatureSet(featureDefinitionFeatureSetDynamic);
+                return featureDefinitionFeatureSetDynamic.DynamicFeatureSet(featureDefinitionFeatureSet);
             }
 
             return featureDefinitionFeatureSet.FeatureSet;
@@ -57,9 +57,9 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
 
         public static List<FeatureDefinition> FeatureSetDynamic(FeatureDefinitionFeatureSet featureDefinitionFeatureSet)
         {
-            if (featureDefinitionFeatureSet is FeatureDefinitionFeatureSetUniqueAcross featureDefinitionFeatureSetDynamic)
+            if (featureDefinitionFeatureSet is IFeatureDefinitionFeatureSetDynamic featureDefinitionFeatureSetDynamic)
             {
-                return featureDefinitionFeatureSetDynamic.DynamicFeatureSet(featureDefinitionFeatureSetDynamic);
+                return featureDefinitionFeatureSetDynamic.DynamicFeatureSet(featureDefinitionFeatureSet);
             }
 
             return featureDefinitionFeatureSet.FeatureSet;
@@ -95,40 +95,11 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
                 return;
             }
 
-            if (__instance.Feature is FeatureDefinitionFeatureSetRemoval featureDefinitionFeatureSetRemoval)
-            {
-                var ___choiceDropdown = __instance.GetField<FeatureDescriptionItem, GuiDropdown>("choiceDropdown");
-
-                featureDefinitionFeatureSetRemoval.RemovedFeature = __instance.GetCurrentFeature();
-                //__instance.ValueChanged += ValueChangedAddToOthers;
-                //ValueChangedAddToOthers(__instance);
-            }
-            else if (__instance.Feature is FeatureDefinitionFeatureSetUniqueAcross featureDefinitionFeatureSetUniqueAcross)
+            if (__instance.Feature is FeatureDefinitionFeatureSetUniqueAcross featureDefinitionFeatureSetUniqueAcross)
             {
                 CharacterStageClassSelectionPanel_Refresh.FeatureDescriptionItems.Add(__instance);
                 __instance.ValueChanged += ValueChangedForceUniqueAcross;
                 ValueChangedForceUniqueAcross(__instance);
-            }
-        }
-
-        // ensures we change any other drop down equals to this one
-        private static void ValueChangedAddToOthers(FeatureDescriptionItem __instance)
-        {
-            //var featureDefinitionFeatureSetRemoval = __instance.GetCurrentFeature() as FeatureDefinitionFeatureSetRemoval;
-            //var ___choiceDropdown = __instance.GetField<FeatureDescriptionItem, GuiDropdown>("choiceDropdown");
-
-            foreach (var featureDescriptionItem in CharacterStageClassSelectionPanel_Refresh.FeatureDescriptionItems)
-                //.Where(x => x.Feature == __instance.Feature))
-            {
-                var choiceDropDown = featureDescriptionItem.GetField<FeatureDescriptionItem, GuiDropdown>("choiceDropdown");
-                var optionDataAdvanced = new GuiDropdown.OptionDataAdvanced()
-                {
-                    text = __instance.Feature.FormatTitle(),
-                    TooltipContent = __instance.Feature.FormatDescription(),
-                };
-
-                //choiceDropDown.options.RemoveAt(choiceDropDown.options.Count - 1);
-                choiceDropDown.options.Add(optionDataAdvanced);
             }
         }
 

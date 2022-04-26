@@ -128,28 +128,57 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
     }
 
-    public class FeatureDefinitionFeatureSetDynamicBuilder : FeatureDefinitionFeatureSetBuilder<FeatureDefinitionFeatureSetUniqueAcross, FeatureDefinitionFeatureSetDynamicBuilder>
+    public class FeatureDefinitionFeatureSetRemovalBuilder : FeatureDefinitionFeatureSetBuilder<FeatureDefinitionFeatureSetRemoval, FeatureDefinitionFeatureSetRemovalBuilder>
     {
         #region Constructors
 
-        protected FeatureDefinitionFeatureSetDynamicBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        protected FeatureDefinitionFeatureSetRemovalBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
-        protected FeatureDefinitionFeatureSetDynamicBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        protected FeatureDefinitionFeatureSetRemovalBuilder(string name, string definitionGuid) : base(name, definitionGuid)
         {
         }
 
-        protected FeatureDefinitionFeatureSetDynamicBuilder(FeatureDefinitionFeatureSetUniqueAcross original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        protected FeatureDefinitionFeatureSetRemovalBuilder(FeatureDefinitionFeatureSetRemoval original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
         {
         }
 
-        protected FeatureDefinitionFeatureSetDynamicBuilder(FeatureDefinitionFeatureSetUniqueAcross original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        protected FeatureDefinitionFeatureSetRemovalBuilder(FeatureDefinitionFeatureSetRemoval original, string name, string definitionGuid) : base(original, name, definitionGuid)
         {
         }
         #endregion
 
-        public FeatureDefinitionFeatureSetDynamicBuilder SetDynamicFeatureSetFunc(Func<FeatureDefinitionFeatureSet, List<FeatureDefinition>> func)
+        public FeatureDefinitionFeatureSetRemovalBuilder SetDynamicFeatureSetFunc(Func<FeatureDefinitionFeatureSet, List<FeatureDefinition>> func)
+        {
+            Definition.DynamicFeatureSet = func;
+
+            return this;
+        }
+    }
+
+    public class FeatureDefinitionFeatureSetUniqueAcrossBuilder : FeatureDefinitionFeatureSetBuilder<FeatureDefinitionFeatureSetUniqueAcross, FeatureDefinitionFeatureSetUniqueAcrossBuilder>
+    {
+        #region Constructors
+
+        protected FeatureDefinitionFeatureSetUniqueAcrossBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionFeatureSetUniqueAcrossBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        protected FeatureDefinitionFeatureSetUniqueAcrossBuilder(FeatureDefinitionFeatureSetUniqueAcross original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionFeatureSetUniqueAcrossBuilder(FeatureDefinitionFeatureSetUniqueAcross original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+        #endregion
+
+        public FeatureDefinitionFeatureSetUniqueAcrossBuilder SetDynamicFeatureSetFunc(Func<FeatureDefinitionFeatureSet, List<FeatureDefinition>> func)
         {
             Definition.DynamicFeatureSet = func;
 
