@@ -5,6 +5,7 @@ using System.Linq;
 using ModKit;
 using SolastaCommunityExpansion.Builders;
 using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -189,13 +190,15 @@ namespace SolastaCommunityExpansion.Models
                     rules.ApplyEffectForms(power.EffectDescription.EffectForms, formsParams);
                     ruleChar.UpdateUsageForPowerPool(usablePower, power.CostPerUse);
 
-                    //TODO: figure out coloring/formatting issues
-                    //TODO: implement custom per-power formatting for this message
                     var console = Gui.Game.GameConsole;
-                    var characterName = $"<#4FC0FF>{ruleChar.DisplayName}</color>";
-                    var abilityName = $"<#DEDCDC>{Gui.Localize(power.GuiPresentation.Title)}</color>";
-                    var textFormat = $"Power/&PowerUsedWhileTravellingFormat";
-                    console.LogSimpleLine(Gui.Format(textFormat, characterName, abilityName));
+                    var characterName = ruleChar.DisplayName;
+                    var abilityName = string.IsNullOrEmpty(power.ShortTitleOverride) ? power.GuiPresentation.Title : power.ShortTitleOverride;
+                    var textFormat = $"Feedback/&{power.Name}UsedWhileTravellingFormat";
+
+                    var entry = new GameConsoleEntry(textFormat, console.GetField<ConsoleTableDefinition>("consoleTableDefinition"));
+                    entry.AddParameter(ConsoleStyleDuplet.ParameterType.Player, characterName);
+                    entry.AddParameter(ConsoleStyleDuplet.ParameterType.AttackSpellPower, abilityName);
+                    console.AddEntry(entry);
                 }
             }
 

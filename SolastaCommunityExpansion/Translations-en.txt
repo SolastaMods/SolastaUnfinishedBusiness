@@ -1,4 +1,3 @@
-Power/&PowerUsedWhileTravellingFormat	{0} uses {1} ability.
 ActionAffinity/&DHFeeblemindSpellDescription	Unable to cast spells
 ActionAffinity/&DHFeeblemindSpellTitle	Feeble spellcasting
 AttributeModifier/&DHFeeblemindChaSpellDescription	Charisma score equals 1
@@ -337,6 +336,13 @@ Equipment/&HerbalBrewDamageAffinityPoisonResistanceTitle	Brew of Poison Protecti
 Equipment/&HerbalBrewDamageAffinityPoisonResistanceDescription    Grants protection to Poison for 1 hour
 Equipment/&HerbalBrewDamageAffinityRadiantResistanceTitle	Brew of Radiant Protection
 Equipment/&HerbalBrewDamageAffinityRadiantResistanceDescription    Grants protection to Radiant for 1 hour
+Feedback/&AncientForestHerbalBrewToxifyingPowerUsedWhileTravellingFormat	{0} creates {1}
+Feedback/&AncientForestHerbalBrewHealingPowerUsedWhileTravellingFormat	{0} creates {1}
+Feedback/&AncientForestHerbalBrewDamageAffinityAcidResistancePowerUsedWhileTravellingFormat	{0} creates {1}
+Feedback/&AncientForestHerbalBrewDamageAffinityLightningResistancePowerUsedWhileTravellingFormat	{0} creates {1}
+Feedback/&AncientForestHerbalBrewDamageAffinityNecroticResistancePowerUsedWhileTravellingFormat	{0} creates {1}
+Feedback/&AncientForestHerbalBrewDamageAffinityPoisonResistancePowerUsedWhileTravellingFormat	{0} creates {1}
+Feedback/&AncientForestHerbalBrewDamageAffinityRadiantResistancePowerUsedWhileTravellingFormat	{0} creates {1}
 Equipment/&ImprovedLightningSpearDescription	Can now create advantage for allies and disadvantage for enemies with a single attack
 Equipment/&ImprovedLightningSpearTitle	Improved Lightning Spear
 Equipment/&ImprovedThunderPunchDescription	Can now pull enemies into melee range with a bonus action and inflict 1D8 thunder damage
