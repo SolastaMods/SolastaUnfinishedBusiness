@@ -147,6 +147,18 @@ namespace SolastaCommunityExpansion.Feats
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 
+            // Fast Hands
+            var fastHands = FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
+                .Create("FeatFastHands", ZappaFeatNamespace)
+                .SetFeatures(
+                    ActionAffinityRogueCunningAction,
+                    ActionAffinityThiefFastHands
+                )
+                .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
+                .SetGuiPresentation(Category.Feat)
+                .SetValidators(ValidateMinCharLevel(4), ValidateNotClass(Rogue))
+                .AddToDB();
+
             // Fighting Surge (Dexterity)
             var fightingSurgeDexterity = FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
                 .Create("FeatFightingSurgeDexterity", ZappaFeatNamespace)
