@@ -32,7 +32,7 @@ namespace SolastaCommunityExpansion.Patches
                 List<FeatureDefinition> ___featuresToBrowseItem)
             {
                 // get off here if none of the features are enabled
-                if (!Main.Settings.EnableCtrlClickBypassSmiteReactionPanel || !Main.Settings.EnableMulticlass)
+                if (!Main.Settings.EnableCtrlClickBypassSmiteReactionPanel && !Main.Settings.EnableMulticlass)
                 {
                     while (values.MoveNext())
                     {
