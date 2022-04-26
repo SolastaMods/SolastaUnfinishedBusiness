@@ -217,13 +217,20 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .AddToDB();
 
 
-            PowerBundleContext.RegisterPowerBundle(findFamiliarPowerBundle,
+            PowerBundleContext.RegisterPowerBundle(findFamiliarPowerBundle, false,
                     FindFamiliarPseudodragonPower,
                     FindFamiliarSpritePower,
                     FindFamiliarImpPower,
                     FindFamiliarQuasitPower
                     );
             Definition.FeatureSet.Add(findFamiliarPowerBundle);
+            
+            GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.Familiar,
+                FindFamiliarPseudodragonPower,
+                FindFamiliarSpritePower,
+                FindFamiliarImpPower,
+                FindFamiliarQuasitPower
+            );
 
             Definition.SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union);
         }

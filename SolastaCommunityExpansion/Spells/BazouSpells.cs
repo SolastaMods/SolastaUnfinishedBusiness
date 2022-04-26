@@ -1,6 +1,7 @@
 ﻿using System;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.Models;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -187,6 +188,8 @@ namespace SolastaCommunityExpansion.Spells
 
             spell.EffectDescription.EffectForms.Add(effectForm);
 
+            GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.Familiar, spell);
+            
             return spell;
         }
 
