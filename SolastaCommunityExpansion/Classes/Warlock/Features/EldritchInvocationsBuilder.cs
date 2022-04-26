@@ -267,7 +267,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                     .SetGuiPresentation(Category.Feature)
                     .ClearBonusCantrips()
                     .AddBonusCantrip(cantrip)
-                    .SetValidator(() => Global.ActiveLevelUpHeroHasCantrip(EldritchBlast))
+                    .SetValidators(() => Global.ActiveLevelUpHeroHasCantrip(EldritchBlast))
                     .AddToDB();
 
                 DictionaryofEBInvocations.Add(name, bonusCantrip);
@@ -283,7 +283,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .AddFeatureSet(agonizingBlastFeature)
                 .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                 .SetUniqueChoices(false)
-                .SetValidator(() => Global.ActiveLevelUpHeroHasCantrip(eldritchBlast))
+                .SetValidators(() => Global.ActiveLevelUpHeroHasCantrip(eldritchBlast))
                 .AddToDB();
 
             HinderingBlastFeatureSet = FeatureDefinitionFeatureSetWithPreRequisitesBuilder
@@ -293,7 +293,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .AddFeatureSet(hinderingBlastFeature)
                 .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                 .SetUniqueChoices(false)
-                .SetValidator(() => Global.ActiveLevelUpHeroHasCantrip(eldritchBlast))
+                //.SetValidator(() => Global.ActiveLevelUpHeroHasCantrip(eldritchBlast))
                 .AddToDB();
         }
 

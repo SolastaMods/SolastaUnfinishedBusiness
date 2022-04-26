@@ -22,8 +22,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
         public static void FilterAdd(List<FeatureDefinition> availableFeatures, FeatureDefinition featureDefinition)
         {
             if (featureDefinition is IFeatureDefinitionWithPrerequisites featureDefinitionWithPrerequisites
-                && featureDefinitionWithPrerequisites.Validator != null
-                && !featureDefinitionWithPrerequisites.Validator())
+                && !featureDefinitionWithPrerequisites.Validators.All(x => x.Invoke()))
             {
                 return;
             }

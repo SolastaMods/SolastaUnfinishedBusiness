@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.CustomDefinitions
 {
@@ -10,6 +11,6 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 
     public class FeatureDefinitionFreeBonusCantripsWithPrerequisites : FeatureDefinitionFreeBonusCantrips, IFeatureDefinitionWithPrerequisites
     {
-        public Func<bool> Validator { get; set; }
+        public List<Func<bool>> Validators { get; set; }
     }
 }

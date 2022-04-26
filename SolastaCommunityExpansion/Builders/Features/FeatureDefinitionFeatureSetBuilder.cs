@@ -120,9 +120,9 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
         #endregion
 
-        public FeatureDefinitionFeatureSetWithPreRequisitesBuilder SetValidator(Func<bool> validator)
+        public FeatureDefinitionFeatureSetWithPreRequisitesBuilder SetValidators(params Func<bool>[] validators)
         {
-            Definition.Validator = validator;
+            Definition.Validators.AddRange(validators);
 
             return this;
         }

@@ -137,9 +137,9 @@ namespace SolastaCommunityExpansion.Builders.Features
 
         #endregion
 
-        public FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder SetValidator(Func<bool> validator)
+        public FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder SetValidators(params Func<bool>[] validators)
         {
-            Definition.Validator = validator;
+            Definition.Validators.AddRange(validators);
 
             return this;
         }
