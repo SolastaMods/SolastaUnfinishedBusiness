@@ -3,6 +3,7 @@ using System.Linq;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
+using SolastaCommunityExpansion.Models;
 using SolastaModApi.Extensions;
 using static SolastaCommunityExpansion.Builders.DefinitionBuilder;
 using static SolastaCommunityExpansion.Classes.Warlock.Features.EldritchInvocationsBuilder;
@@ -26,14 +27,44 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             .SetActivationTime(RuleDefinitions.ActivationTime.Minute1)
             .AddToDB();
 
-        private static List<FeatureDefinition> InvocationsDynamicSet(FeatureDefinitionFeatureSetDynamic feature)
+        private static List<FeatureDefinition> InvocationsFilteredFeatureSet(FeatureDefinitionFeatureSet feature)
         {
-            return feature.FeatureSet;
+            return feature.FeatureSet
+                .Where(x => x is not IFeatureDefinitionWithPrerequisites feature || feature.Validators.All(y => y.Invoke()))
+                .ToList();
         }
 
+        private static List<FeatureDefinition> InvocationsTakenFeatureSet(FeatureDefinitionFeatureSet feature)
+        {
+            var heroBuildingData = Global.ActiveLevelUpHero?.GetHeroBuildingData();
+
+            if (heroBuildingData == null)
+            {
+                return new List<FeatureDefinition>();
+            }
+
+            return heroBuildingData.AllActiveFeatures
+                .Where(x =>
+                    DictionaryofEBInvocations.ContainsValue(x)
+                    || (x is FeatureDefinitionFeatureSet y && DictionaryofEIAttributeModifers.ContainsValue(y))
+                    || (x is FeatureDefinitionPower z && DictionaryofEIPowers.ContainsValue(z)))
+                .ToList();
+        }
+
+        #region WarlockEldritchInvocationSetRemoval
+        private static FeatureDefinitionFeatureSetUniqueAcross warlockEldritchInvocationSetRemoval;
+        public static FeatureDefinitionFeatureSetUniqueAcross WarlockEldritchInvocationSetRemoval => warlockEldritchInvocationSetRemoval ??= FeatureDefinitionFeatureSetDynamicBuilder
+            .Create("ClassWarlockEldritchInvocationSetRemoval", CENamespaceGuid)
+            .SetGuiPresentation("Feature/&ClassWarlockEldritchInvocationSetLevelTitle", "Feature/&ClassWarlockEldritchInvocationSetLevelDescription")
+            .SetDynamicFeatureSetFunc(InvocationsTakenFeatureSet)
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
+            .SetUniqueChoices(false)
+            .AddToDB();
+        #endregion
+
         #region WarlockEldritchInvocationSetLevel2
-        private static FeatureDefinitionFeatureSetDynamic warlockEldritchInvocationSetLevel2;
-        public static FeatureDefinitionFeatureSetDynamic WarlockEldritchInvocationSetLevel2 => warlockEldritchInvocationSetLevel2 ??= FeatureDefinitionFeatureSetDynamicBuilder
+        private static FeatureDefinitionFeatureSetUniqueAcross warlockEldritchInvocationSetLevel2;
+        public static FeatureDefinitionFeatureSetUniqueAcross WarlockEldritchInvocationSetLevel2 => warlockEldritchInvocationSetLevel2 ??= FeatureDefinitionFeatureSetDynamicBuilder
             .Create("ClassWarlockEldritchInvocationSetLevel2", CENamespaceGuid)
             .SetGuiPresentation("Feature/&ClassWarlockEldritchInvocationSetLevelTitle", "Feature/&ClassWarlockEldritchInvocationSetLevelDescription")
             /*
@@ -56,15 +87,15 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 DictionaryofEIAttributeModifers["EyesoftheRuneKeeper"],
                 DictionaryofEIAttributeModifers["GiftoftheEver-LivingOnes"]
             )
-            .SetDynamicFeatureSetFunc(InvocationsDynamicSet)
+            .SetDynamicFeatureSetFunc(InvocationsFilteredFeatureSet)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
             .SetUniqueChoices(true)
             .AddToDB();
         #endregion
 
         #region WarlockEldritchInvocationSetLevel5
-        private static FeatureDefinitionFeatureSetDynamic warlockEldritchInvocationSetLevel5;
-        public static FeatureDefinitionFeatureSetDynamic WarlockEldritchInvocationSetLevel5 => warlockEldritchInvocationSetLevel5 ??= FeatureDefinitionFeatureSetDynamicBuilder
+        private static FeatureDefinitionFeatureSetUniqueAcross warlockEldritchInvocationSetLevel5;
+        public static FeatureDefinitionFeatureSetUniqueAcross WarlockEldritchInvocationSetLevel5 => warlockEldritchInvocationSetLevel5 ??= FeatureDefinitionFeatureSetDynamicBuilder
             .Create(WarlockEldritchInvocationSetLevel2, "ClassWarlockEldritchInvocationSetLevel5", CENamespaceGuid)
             /*
             EI that might need a bit more work
@@ -78,50 +109,50 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 DictionaryofEIAttributeModifers["ThirstingBlade"],
                 DictionaryofEIAttributeModifers["ImprovedPactWeapon"]
             )
-            .SetDynamicFeatureSetFunc(InvocationsDynamicSet)
+            .SetDynamicFeatureSetFunc(InvocationsFilteredFeatureSet)
             .AddToDB();
         #endregion
 
         #region WarlockEldritchInvocationSetLevel7
-        private static FeatureDefinitionFeatureSetDynamic warlockEldritchInvocationSetLevel7;
-        public static FeatureDefinitionFeatureSetDynamic WarlockEldritchInvocationSetLevel7 => warlockEldritchInvocationSetLevel7 ??= FeatureDefinitionFeatureSetDynamicBuilder
+        private static FeatureDefinitionFeatureSetUniqueAcross warlockEldritchInvocationSetLevel7;
+        public static FeatureDefinitionFeatureSetUniqueAcross WarlockEldritchInvocationSetLevel7 => warlockEldritchInvocationSetLevel7 ??= FeatureDefinitionFeatureSetDynamicBuilder
             .Create(WarlockEldritchInvocationSetLevel5, "ClassWarlockEldritchInvocationSetLevel7", CENamespaceGuid)
             .AddFeatureSet(
                 DictionaryofEIAttributeModifers["OneWithShadows"],
                 DictionaryofEIPowers["DreadfulWord"],
                 DictionaryofEIPowers["Trickster'sEscape"]
             )
-            .SetDynamicFeatureSetFunc(InvocationsDynamicSet)
+            .SetDynamicFeatureSetFunc(InvocationsFilteredFeatureSet)
             .AddToDB();
         #endregion
 
         #region WarlockEldritchInvocationSetLevel9
-        private static FeatureDefinitionFeatureSetDynamic warlockEldritchInvocationSetLevel9;
-        public static FeatureDefinitionFeatureSetDynamic WarlockEldritchInvocationSetLevel9 => warlockEldritchInvocationSetLevel9 ??= FeatureDefinitionFeatureSetDynamicBuilder
+        private static FeatureDefinitionFeatureSetUniqueAcross warlockEldritchInvocationSetLevel9;
+        public static FeatureDefinitionFeatureSetUniqueAcross WarlockEldritchInvocationSetLevel9 => warlockEldritchInvocationSetLevel9 ??= FeatureDefinitionFeatureSetDynamicBuilder
             .Create(WarlockEldritchInvocationSetLevel7, "ClassWarlockEldritchInvocationSetLevel9", CENamespaceGuid)
             .AddFeatureSet(
                 DictionaryofEIPowers["AscendantStep"],
                 DictionaryofEIPowers["OtherworldlyLeap"],
                 DictionaryofEIAttributeModifers["GiftoftheProtectors"]
             )
-            .SetDynamicFeatureSetFunc(InvocationsDynamicSet)
+            .SetDynamicFeatureSetFunc(InvocationsFilteredFeatureSet)
             .AddToDB();
         #endregion
 
         #region WarlockEldritchInvocationSetLevel12
-        private static FeatureDefinitionFeatureSetDynamic warlockEldritchInvocationSetLevel12;
-        public static FeatureDefinitionFeatureSetDynamic WarlockEldritchInvocationSetLevel12 => warlockEldritchInvocationSetLevel12 ??= FeatureDefinitionFeatureSetDynamicBuilder
+        private static FeatureDefinitionFeatureSetUniqueAcross warlockEldritchInvocationSetLevel12;
+        public static FeatureDefinitionFeatureSetUniqueAcross WarlockEldritchInvocationSetLevel12 => warlockEldritchInvocationSetLevel12 ??= FeatureDefinitionFeatureSetDynamicBuilder
             .Create(WarlockEldritchInvocationSetLevel9, "ClassWarlockEldritchInvocationSetLevel12", CENamespaceGuid)
             .AddFeatureSet(
                 DictionaryofEIAttributeModifers["BondoftheTalisman"]
             )
-            .SetDynamicFeatureSetFunc(InvocationsDynamicSet)
+            .SetDynamicFeatureSetFunc(InvocationsFilteredFeatureSet)
             .AddToDB();
         #endregion
 
         #region WarlockEldritchInvocationSetLevel15
-        private static FeatureDefinitionFeatureSetDynamic warlockEldritchInvocationSetLevel15;
-        public static FeatureDefinitionFeatureSetDynamic WarlockEldritchInvocationSetLevel15 => warlockEldritchInvocationSetLevel15 ??= FeatureDefinitionFeatureSetDynamicBuilder
+        private static FeatureDefinitionFeatureSetUniqueAcross warlockEldritchInvocationSetLevel15;
+        public static FeatureDefinitionFeatureSetUniqueAcross WarlockEldritchInvocationSetLevel15 => warlockEldritchInvocationSetLevel15 ??= FeatureDefinitionFeatureSetDynamicBuilder
             .Create(WarlockEldritchInvocationSetLevel12, "ClassWarlockEldritchInvocationSetLevel15", CENamespaceGuid)
             .AddFeatureSet(
                 /*
@@ -132,15 +163,15 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 DictionaryofEIPowers["ShroudofShadow"],
                 DictionaryofEIAttributeModifers["WitchSight"]
             )
-            .SetDynamicFeatureSetFunc(InvocationsDynamicSet)
+            .SetDynamicFeatureSetFunc(InvocationsFilteredFeatureSet)
             .AddToDB();
         #endregion
 
         #region WarlockEldritchInvocationSetLevel18
-        private static FeatureDefinitionFeatureSetDynamic warlockEldritchInvocationSetLevel18;
-        public static FeatureDefinitionFeatureSetDynamic WarlockEldritchInvocationSetLevel18 => warlockEldritchInvocationSetLevel18 ??= FeatureDefinitionFeatureSetDynamicBuilder
+        private static FeatureDefinitionFeatureSetUniqueAcross warlockEldritchInvocationSetLevel18;
+        public static FeatureDefinitionFeatureSetUniqueAcross WarlockEldritchInvocationSetLevel18 => warlockEldritchInvocationSetLevel18 ??= FeatureDefinitionFeatureSetDynamicBuilder
             .Create(WarlockEldritchInvocationSetLevel15, "ClassWarlockEldritchInvocationSetLevel18", CENamespaceGuid)
-            .SetDynamicFeatureSetFunc(InvocationsDynamicSet)
+            .SetDynamicFeatureSetFunc(InvocationsFilteredFeatureSet)
             .AddToDB();
         #endregion
 

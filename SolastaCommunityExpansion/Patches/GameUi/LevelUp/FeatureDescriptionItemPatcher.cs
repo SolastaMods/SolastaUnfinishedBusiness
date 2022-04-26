@@ -8,6 +8,7 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
 {
+    // dynamic feature sets
     [HarmonyPatch(typeof(FeatureDescriptionItem), "GetCurrentFeature")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class FeatureDescriptionItem_GetCurrentFeature
@@ -18,7 +19,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
 
         public static List<FeatureDefinition> FeatureSetDynamic(FeatureDefinitionFeatureSet featureDefinitionFeatureSet)
         {
-            if (featureDefinitionFeatureSet is FeatureDefinitionFeatureSetDynamic featureDefinitionFeatureSetDynamic)
+            if (featureDefinitionFeatureSet is FeatureDefinitionFeatureSetUniqueAcross featureDefinitionFeatureSetDynamic)
             {
                 return featureDefinitionFeatureSetDynamic.DynamicFeatureSet(featureDefinitionFeatureSetDynamic);
             }
@@ -45,6 +46,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
         }
     }
 
+    // dynamic feature sets
     [HarmonyPatch(typeof(FeatureDescriptionItem), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class FeatureDescriptionItem_Bind
@@ -55,7 +57,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
 
         public static List<FeatureDefinition> FeatureSetDynamic(FeatureDefinitionFeatureSet featureDefinitionFeatureSet)
         {
-            if (featureDefinitionFeatureSet is FeatureDefinitionFeatureSetDynamic featureDefinitionFeatureSetDynamic)
+            if (featureDefinitionFeatureSet is FeatureDefinitionFeatureSetUniqueAcross featureDefinitionFeatureSetDynamic)
             {
                 return featureDefinitionFeatureSetDynamic.DynamicFeatureSet(featureDefinitionFeatureSetDynamic);
             }
@@ -82,7 +84,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
         }
 
         //
-        // Unique Feature Set Choices
+        // Unique Feature Set Choices / Removal Feature Set Choices
         //
 
         // ensures we try to offer unique default options
@@ -93,14 +95,45 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
                 return;
             }
 
-            CharacterStageClassSelectionPanel_Refresh.FeatureDescriptionItems.Add(__instance);
-            __instance.ValueChanged += ValueChanged;
+            if (__instance.Feature is FeatureDefinitionFeatureSetRemoval featureDefinitionFeatureSetRemoval)
+            {
+                var ___choiceDropdown = __instance.GetField<FeatureDescriptionItem, GuiDropdown>("choiceDropdown");
 
-            ValueChanged(__instance);
+                featureDefinitionFeatureSetRemoval.RemovedFeature = __instance.GetCurrentFeature();
+                //__instance.ValueChanged += ValueChangedAddToOthers;
+                //ValueChangedAddToOthers(__instance);
+            }
+            else if (__instance.Feature is FeatureDefinitionFeatureSetUniqueAcross featureDefinitionFeatureSetUniqueAcross)
+            {
+                CharacterStageClassSelectionPanel_Refresh.FeatureDescriptionItems.Add(__instance);
+                __instance.ValueChanged += ValueChangedForceUniqueAcross;
+                ValueChangedForceUniqueAcross(__instance);
+            }
         }
 
         // ensures we change any other drop down equals to this one
-        private static void ValueChanged(FeatureDescriptionItem __instance)
+        private static void ValueChangedAddToOthers(FeatureDescriptionItem __instance)
+        {
+            //var featureDefinitionFeatureSetRemoval = __instance.GetCurrentFeature() as FeatureDefinitionFeatureSetRemoval;
+            //var ___choiceDropdown = __instance.GetField<FeatureDescriptionItem, GuiDropdown>("choiceDropdown");
+
+            foreach (var featureDescriptionItem in CharacterStageClassSelectionPanel_Refresh.FeatureDescriptionItems)
+                //.Where(x => x.Feature == __instance.Feature))
+            {
+                var choiceDropDown = featureDescriptionItem.GetField<FeatureDescriptionItem, GuiDropdown>("choiceDropdown");
+                var optionDataAdvanced = new GuiDropdown.OptionDataAdvanced()
+                {
+                    text = __instance.Feature.FormatTitle(),
+                    TooltipContent = __instance.Feature.FormatDescription(),
+                };
+
+                //choiceDropDown.options.RemoveAt(choiceDropDown.options.Count - 1);
+                choiceDropDown.options.Add(optionDataAdvanced);
+            }
+        }
+
+        // ensures we change any other drop down equals to this one
+        private static void ValueChangedForceUniqueAcross(FeatureDescriptionItem __instance)
         {
             var ___choiceDropdown = __instance.GetField<FeatureDescriptionItem, GuiDropdown>("choiceDropdown");
 

@@ -147,6 +147,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                 .AddFeaturesAtLevel(2, WarlockEldritchInvocationSetLevel2)
                 .AddFeaturesAtLevel(3, WarlockClassPactBoonSetBuilder.WarlockClassPactBoonSet)
                 .AddFeaturesAtLevel(4, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
+                //.AddFeaturesAtLevel(5, WarlockEldritchInvocationSetRemoval)
+                //.AddFeaturesAtLevel(5, WarlockEldritchInvocationSetLevel5)
                 .AddFeaturesAtLevel(5, WarlockEldritchInvocationSetLevel5)
                 //level 6 - subclass feature
                 .AddFeatureAtLevel(7, WarlockEldritchInvocationSetLevel7)

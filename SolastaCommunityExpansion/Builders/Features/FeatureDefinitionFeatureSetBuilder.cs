@@ -128,7 +128,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
     }
 
-    public class FeatureDefinitionFeatureSetDynamicBuilder : FeatureDefinitionFeatureSetBuilder<FeatureDefinitionFeatureSetDynamic, FeatureDefinitionFeatureSetDynamicBuilder>
+    public class FeatureDefinitionFeatureSetDynamicBuilder : FeatureDefinitionFeatureSetBuilder<FeatureDefinitionFeatureSetUniqueAcross, FeatureDefinitionFeatureSetDynamicBuilder>
     {
         #region Constructors
 
@@ -140,16 +140,16 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        protected FeatureDefinitionFeatureSetDynamicBuilder(FeatureDefinitionFeatureSetDynamic original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        protected FeatureDefinitionFeatureSetDynamicBuilder(FeatureDefinitionFeatureSetUniqueAcross original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
         {
         }
 
-        protected FeatureDefinitionFeatureSetDynamicBuilder(FeatureDefinitionFeatureSetDynamic original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        protected FeatureDefinitionFeatureSetDynamicBuilder(FeatureDefinitionFeatureSetUniqueAcross original, string name, string definitionGuid) : base(original, name, definitionGuid)
         {
         }
         #endregion
 
-        public FeatureDefinitionFeatureSetDynamicBuilder SetDynamicFeatureSetFunc(Func<FeatureDefinitionFeatureSetDynamic, List<FeatureDefinition>> func)
+        public FeatureDefinitionFeatureSetDynamicBuilder SetDynamicFeatureSetFunc(Func<FeatureDefinitionFeatureSet, List<FeatureDefinition>> func)
         {
             Definition.DynamicFeatureSet = func;
 
