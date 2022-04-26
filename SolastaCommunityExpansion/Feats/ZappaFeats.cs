@@ -426,6 +426,7 @@ namespace SolastaCommunityExpansion.Feats
                 brutalThug,
                 charismaticDefense,
                 charismaticPrecision,
+                fastHands,
                 fightingSurgeDexterity,
                 fightingSurgeStrength,
                 metamagicAdeptCareful,
