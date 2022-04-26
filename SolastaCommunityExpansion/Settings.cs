@@ -285,6 +285,7 @@ namespace SolastaCommunityExpansion
         public bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }
         public bool InvertAltBehaviorOnTooltips { get; set; }
         public bool EnableCtrlClickBypassMetamagicPanel { get; set; }
+        public bool EnableCtrlClickBypassSmiteReactionPanel { get; set; }
         public bool EnableCtrlClickOnlySwapsMainHand { get; set; }
 
         //

@@ -129,9 +129,16 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             toggle = Main.Settings.EnableCtrlClickBypassMetamagicPanel;
-            if (UI.Toggle("Enable " + "CTRL".cyan() + " click on spells to auto ignore " + "Sorcerer".orange() + " metamagic panel", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enable " + "CTRL".cyan() + " click on spells to ignore the " + "Sorcerer".orange() + " metamagic panel", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableCtrlClickBypassMetamagicPanel = toggle;
+                SelectAll = false;
+            }
+
+            toggle = Main.Settings.EnableCtrlClickBypassSmiteReactionPanel;
+            if (UI.Toggle("Enable " + "CTRL".cyan() + " click on attacks to ignore the " + "Paladin".orange() + " reaction panel", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableCtrlClickBypassSmiteReactionPanel = toggle;
                 SelectAll = false;
             }
 
