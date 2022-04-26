@@ -333,7 +333,7 @@ namespace SolastaMulticlass.Models
                         }
                     }
                 }
-                else if (featureDefinition is FeatureDefinitionCustomCode featureDefinitionCustomCode)
+                else if (featureDefinition is IFeatureDefinitionCustomCode featureDefinitionCustomCode)
                 {
                     featureDefinitionCustomCode.RemoveFeature(hero);
                 }

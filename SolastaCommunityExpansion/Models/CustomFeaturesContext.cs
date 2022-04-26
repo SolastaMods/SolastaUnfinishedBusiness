@@ -16,7 +16,7 @@ namespace SolastaCommunityExpansion.Models
                 {
                     RecursiveGrantCustomFeatures(hero, set.FeatureSet);
                 }
-                if (grantedFeature is FeatureDefinitionCustomCode customFeature)
+                if (grantedFeature is IFeatureDefinitionCustomCode customFeature)
                 {
                     customFeature.ApplyFeature(hero);
                 }
