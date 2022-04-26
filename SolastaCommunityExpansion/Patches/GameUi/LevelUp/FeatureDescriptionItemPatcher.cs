@@ -1,13 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using System.Reflection;
-using System.Reflection.Emit;
 using HarmonyLib;
-using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi.Infrastructure;
-using UnityEngine;
-using UnityEngine.UI;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
 {
@@ -19,37 +13,37 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
         // Features With Pre Requisites
         //
 
-        public static void FilterAdd(List<FeatureDefinition> availableFeatures, FeatureDefinition featureDefinition)
-        {
-            if (featureDefinition is IFeatureDefinitionWithPrerequisites featureDefinitionWithPrerequisites
-                && !featureDefinitionWithPrerequisites.Validators.All(x => x.Invoke()))
-            {
-                return;
-            }
+        //public static void FilterAdd(List<FeatureDefinition> availableFeatures, FeatureDefinition featureDefinition)
+        //{
+        //    if (featureDefinition is IFeatureDefinitionWithPrerequisites featureDefinitionWithPrerequisites
+        //        && !featureDefinitionWithPrerequisites.Validators.All(x => x.Invoke()))
+        //    {
+        //        return;
+        //    }
 
-            availableFeatures.Add(featureDefinition);
-        }
+        //    availableFeatures.Add(featureDefinition);
+        //}
 
-        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
-        {
-            var availableFeaturesField = typeof(FeatureDescriptionItem).GetField("availableFeatures", BindingFlags.NonPublic | BindingFlags.Instance);
-            var filterAddMethod = typeof(FeatureDescriptionItem_Bind).GetMethod("FilterAdd");
+        //internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        //{
+        //    var availableFeaturesField = typeof(FeatureDescriptionItem).GetField("availableFeatures", BindingFlags.NonPublic | BindingFlags.Instance);
+        //    var filterAddMethod = typeof(FeatureDescriptionItem_Bind).GetMethod("FilterAdd");
 
-            var found = 0;
-            var code = new List<CodeInstruction>(instructions);
+        //    var found = 0;
+        //    var code = new List<CodeInstruction>(instructions);
 
-            for (var i = 0; i < code.Count; i++)
-            {
-                var instruction = code[i];
+        //    for (var i = 0; i < code.Count; i++)
+        //    {
+        //        var instruction = code[i];
 
-                if (instruction.LoadsField(availableFeaturesField) && ++found == 2)
-                {
-                    code[i + 2] = new CodeInstruction(OpCodes.Call, filterAddMethod);
-                }
-            }
+        //        if (instruction.LoadsField(availableFeaturesField) && ++found == 2)
+        //        {
+        //            code[i + 2] = new CodeInstruction(OpCodes.Call, filterAddMethod);
+        //        }
+        //    }
 
-            return code;
-        }
+        //    return code;
+        //}
 
         //
         // Unique Feature Set Choices

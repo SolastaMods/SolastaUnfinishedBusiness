@@ -2,6 +2,7 @@
 using System.Linq;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi.Extensions;
 using static SolastaCommunityExpansion.Builders.DefinitionBuilder;
 using static SolastaCommunityExpansion.Classes.Warlock.Features.EldritchInvocationsBuilder;
@@ -18,16 +19,22 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         internal static readonly FeatureDefinitionFeatureSet WarlockMysticArcanumSetLevel17 = CreateMysticArcanumSet(17, 9, 8, 7, 6);
 
         private static FeatureDefinitionPower warlockEldritchMasterPower;
+
         internal static FeatureDefinitionPower WarlockEldritchMasterPower => warlockEldritchMasterPower ??= FeatureDefinitionPowerBuilder
             .Create(PowerWizardArcaneRecovery, "ClassWarlockEldritchMaster", CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .SetActivationTime(RuleDefinitions.ActivationTime.Minute1)
             .AddToDB();
 
+        private static List<FeatureDefinition> InvocationsDynamicSet(FeatureDefinitionFeatureSetDynamic feature)
+        {
+            return feature.FeatureSet;
+        }
+
         #region WarlockEldritchInvocationSetLevel2
-        private static FeatureDefinitionFeatureSet warlockEldritchInvocationSetLevel2;
-        public static FeatureDefinitionFeatureSet WarlockEldritchInvocationSetLevel2 => warlockEldritchInvocationSetLevel2 ??= FeatureDefinitionFeatureSetBuilder
-            .Create(TerrainTypeAffinityRangerNaturalExplorerChoice, "ClassWarlockEldritchInvocationSetLevel2", CENamespaceGuid)
+        private static FeatureDefinitionFeatureSetDynamic warlockEldritchInvocationSetLevel2;
+        public static FeatureDefinitionFeatureSetDynamic WarlockEldritchInvocationSetLevel2 => warlockEldritchInvocationSetLevel2 ??= FeatureDefinitionFeatureSetDynamicBuilder
+            .Create("ClassWarlockEldritchInvocationSetLevel2", CENamespaceGuid)
             .SetGuiPresentation("Feature/&ClassWarlockEldritchInvocationSetLevelTitle", "Feature/&ClassWarlockEldritchInvocationSetLevelDescription")
             /*
             EI that might need a bit more work
@@ -49,6 +56,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 DictionaryofEIAttributeModifers["EyesoftheRuneKeeper"],
                 DictionaryofEIAttributeModifers["GiftoftheEver-LivingOnes"]
             )
+            .SetDynamicFeatureSetFunc(InvocationsDynamicSet)
             .SetUniqueChoices(true)
             .AddToDB();
         #endregion
