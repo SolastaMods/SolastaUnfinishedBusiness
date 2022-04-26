@@ -152,34 +152,54 @@ namespace SolastaCommunityExpansion.Models
             FunctorParametersDescription functorParameters,
             FunctorExecutionContext context)
         {
-            FunctorUseCustomRestPower functorUsePower = this;
-            var fromActor = GameLocationCharacter.GetFromActor(functorParameters.RestingHero);
-            if (fromActor != null)
+            FunctorUseCustomRestPower functor = this;
+            var power = PowerBundleContext.GetPower(functorParameters.StringParameter);
+            if (power == null)
             {
-                var power = PowerBundleContext.GetPower(functorParameters.StringParameter);
-                if (power != null)
-                {
-                    var usablePower = UsablePowersProvider.Get(power, functorParameters.RestingHero);
-                    if (usablePower.PowerDefinition.EffectDescription.TargetType == RuleDefinitions.TargetType.Self)
-                    {
-                        functorUsePower.powerUsed = false;
-                        ServiceRepository.GetService<IGameLocationActionService>();
-                        var actionParams = new CharacterActionParams(fromActor, ActionDefinitions.Id.PowerMain);
-                        actionParams.TargetCharacters.Add(fromActor);
-                        actionParams.ActionModifiers.Add(new ActionModifier());
-                        var service = ServiceRepository.GetService<IRulesetImplementationService>();
-                        actionParams.RulesetEffect =
-                            service.InstantiateEffectPower(fromActor.RulesetCharacter, usablePower, true);
-                        actionParams.SkipAnimationsAndVFX = true;
-                        ServiceRepository.GetService<ICommandService>().ExecuteAction(actionParams,
-                            functorUsePower.ActionExecuted, false);
-                        while (!functorUsePower.powerUsed)
-                            yield return null;
-                    }
-                }
-
-                Trace.LogWarning("Unable to assign targets to power");
+                yield break;
             }
+
+            var ruleChar = functorParameters.RestingHero;
+            var usablePower = UsablePowersProvider.Get(power, ruleChar);
+            if (usablePower.PowerDefinition.EffectDescription.TargetType == RuleDefinitions.TargetType.Self)
+            {
+                var fromActor = GameLocationCharacter.GetFromActor(ruleChar);
+                var rules = ServiceRepository.GetService<IRulesetImplementationService>();
+                if (fromActor != null)
+                {
+                    functor.powerUsed = false;
+                    ServiceRepository.GetService<IGameLocationActionService>();
+                    var actionParams = new CharacterActionParams(fromActor, ActionDefinitions.Id.PowerMain);
+                    actionParams.TargetCharacters.Add(fromActor);
+                    actionParams.ActionModifiers.Add(new ActionModifier());
+                    actionParams.RulesetEffect = rules.InstantiateEffectPower(fromActor.RulesetCharacter, usablePower, true);
+                    actionParams.SkipAnimationsAndVFX = true;
+                    ServiceRepository.GetService<ICommandService>()
+                        .ExecuteAction(actionParams,  functor.ActionExecuted, false);
+                    while (!functor.powerUsed)
+                        yield return null;
+                }
+                else
+                {
+                    var formsParams = new RulesetImplementationDefinitions.ApplyFormsParams();
+                    formsParams.FillSourceAndTarget(ruleChar, ruleChar);
+                    formsParams.FillFromActiveEffect(rules.InstantiateEffectPower(ruleChar, usablePower, false));
+                    formsParams.effectSourceType = RuleDefinitions.EffectSourceType.Power;
+                        
+                    rules.ApplyEffectForms(power.EffectDescription.EffectForms, formsParams);
+                    ruleChar.UpdateUsageForPowerPool(usablePower, power.CostPerUse);
+
+                    //TODO: figure out coloring/formatting issues
+                    //TODO: implement custom per-power formatting for this message
+                    var console = Gui.Game.GameConsole;
+                    var characterName = $"<#4FC0FF>{ruleChar.DisplayName}</color>";
+                    var abilityName = $"<#DEDCDC>{Gui.Localize(power.GuiPresentation.Title)}</color>";
+                    var textFormat = $"Power/&PowerUsedWhileTravellingFormat";
+                    console.LogSimpleLine(Gui.Format(textFormat, characterName, abilityName));
+                }
+            }
+
+            Trace.LogWarning("Unable to assign targets to power");
         }
 
         private void ActionExecuted(CharacterAction action) => this.powerUsed = true;

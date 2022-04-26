@@ -1,3 +1,4 @@
+Power/&PowerUsedWhileTravellingFormat	{0} uses {1} ability.
 ActionAffinity/&DHFeeblemindSpellDescription	Unable to cast spells
 ActionAffinity/&DHFeeblemindSpellTitle	Feeble spellcasting
 AttributeModifier/&DHFeeblemindChaSpellDescription	Charisma score equals 1
