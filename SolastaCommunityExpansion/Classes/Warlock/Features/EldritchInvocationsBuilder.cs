@@ -293,7 +293,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .AddFeatureSet(hinderingBlastFeature)
                 .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                 .SetUniqueChoices(false)
-                //.SetValidator(() => Global.ActiveLevelUpHeroHasCantrip(eldritchBlast))
+                .SetValidators(() => Global.ActiveLevelUpHeroHasCantrip(eldritchBlast))
                 .AddToDB();
         }
 
