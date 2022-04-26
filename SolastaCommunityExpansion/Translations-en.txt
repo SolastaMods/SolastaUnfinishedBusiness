@@ -1679,3 +1679,5 @@ Feature/&ProficiencySoulBladeArmorTitle	Soulblade Armor Proficiencies
 Feature/&ProficiencySoulBladeArmorDescription	Light Armor, Medium Armor and Shield
 Feature/&SpellAsInvocationAtWillDescription	Cast {0} at will
 Feature/&SpellAsInvocationOncePerDayDescription	Cast {0} once per day
+Feat/&FeatFastHandsDescription	You gain a Cunning Action and can use the Bonus Action granted by it to make a Dexterity (Sleight of Hand) check, use your thieves’ tools to Disarm a trap or open a lock, or take the Use an Object action.
+Feat/&FeatFastHandsTitle	Fast Hands
