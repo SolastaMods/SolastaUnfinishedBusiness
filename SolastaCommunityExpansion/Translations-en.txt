@@ -876,17 +876,17 @@ Feature/&ElementalPactEarthPlane	Earth Plane
 Feature/&ElementalPactIcePlane	Ice Plane
 Feature/&ElementalPactAirPlane	Air Plane
 Feature/&ElementalPatronElementalDamageFormatTitle	Elemental Damage: {0}
-Feature/&ElementalPatronElementalDamageFormatDescription	When channeling {0}, deal additional {1} damage equal to your Proficiency Bonus once per round.
-Feature/&ElementalPatronElementalConditionFormatTitle	{0}
-Feature/&ElementalPatronElementalConditionFormatDescription	Deal additional {1} damage equal to your Proficiency Bonus once per round.
+Feature/&ElementalPatronElementalDamageFormatDescription	When channeling {0}, deal additional {1} damage equal to your Proficiency Bonus on a first hit each round.
+Feature/&ElementalPatronElementalConditionFormatTitle	Channeling {0}
+Feature/&ElementalPatronElementalConditionFormatDescription	Deal additional {1} damage equal to your Proficiency Bonus on a first hit each round.
 Feature/&ElementalPatronElementalFormFormatTitle	{0}
-Feature/&ElementalPatronElementalFormFormatDescription	When channeling the {0}, you gain Resistance to {1} damage and once per turn, apply damage of the same type to your attack
-Feature/&ElementalPatronElementalFormEnhancedFormatTitle	{0}
-Feature/&ElementalPatronElementalFormEnhancedFormatDescription	When channeling the {0}, you gain Immunity to {1} damage and once per turn, apply damage of the same type to your attack
+Feature/&ElementalPatronElementalFormFormatDescription	When channeling the {0}, you gain Resistance to {1} damage and apply Proficiency Bonus as damage of the same type to first hit each round. 
+Feature/&ElementalPatronElementalFormEnhancedFormatTitle	Channeling {0}
+Feature/&ElementalPatronElementalFormEnhancedFormatDescription	When channeling the {0}, you gain Immunity to {1} and apply Proficiency Bonus as damage of the same type to first hit each round.
 Power/&DH_ElementalFormPoolTitle	Elemental Forms
-Power/&DH_ElementalFormPoolDescription	You can switch between elemental forms a number of times (equal to your Proficiency Bonus) per day by channeling elemental energy. You gain resistance to the relevant damage and once per turn, apply damage of the same type to your attacks. The forms last for 1 minute.
+Power/&DH_ElementalFormPoolDescription	You can switch between elemental forms a number of times (equal to your Proficiency Bonus) per day by channeling elemental energy. You gain resistance to the relevant damage and once per turn, apply Proficiency Bonus as damage of the same type first hit each round. The forms last for 1 minute.
 Power/&DH_ElementalFormPoolEnhancedTitle	Elemental Forms
-Power/&DH_ElementalFormPoolEnhancedDescription	You can switch between elemental forms a number of times (equal to your Proficiency Bonus) per day by channeling elemental energy. You gain immunity to the relevant damage and once per turn, apply damage of the same type to your attacks. The forms last for 1 minute.
+Power/&DH_ElementalFormPoolEnhancedDescription	You can switch between elemental forms a number of times (equal to your Proficiency Bonus) per day by channeling elemental energy. You gain immunity to the relevant damage and apply Proficiency Bonus as damage of the same type to first hit each round. The forms last for 1 minute.
 Feature/&EyesoftheRuneKeeperDescription	You can read all writing.
 Feature/&EyesoftheRuneKeeperTitle	Eyes of the RuneKeeper
 Feature/&FiendishVigorTitle	Fiendish Vigor
@@ -1153,16 +1153,20 @@ Monster/&OwlFamiliarDescription	Owl Familiar
 Monster/&OwlFamiliarTitle	Owl
 Monster/&PactOfChainCustomImpDescription	Imps are found throughout the Lower Planes, either running errands for their infernal masters, spying on rivals, or misleading and waylaying mortals. An imp will proudly serve an evil master of any kind, but it can't be relied on to carry out tasks with any speed or efficiency.
 Monster/&PactOfChainCustomImpTitle	Imp (Pact of Chain)
+MonsterAttack/&AttackWarlockImpStingTitle	Poisonous Sting
 Monster/&PactOfChainCustomPseudodragonDescription	The elusive pseudodragon dwells in the quiet places of the world, making its home in the hollows of trees and small caves. With its green scales, horns, and a maw filled with sharp teeth, a pseudodragon resembles a tiny green dragon but its disposition is playful.
 Monster/&PactOfChainCustomPseudodragonTitle	Pseudodragon
 MonsterAttack/&AttackWarlockDragonStingTitle	Poisonous Sting
 MonsterAttack/&AttackWarlockDragonStingDescription	1d4 Piercing damage and target must succeed DC 11 Constitution save or become Poisoned
 Monster/&PactOfChainCustomQuasitDescription	Quasits infest the Lower Planes. Physically weak, they keep to the shadows to plot mischief and wickedness. More powerful demons use quasits as spies and messengers when they aren't devouring them or pulling them apart to pass the time.
 Monster/&PactOfChainCustomQuasitTitle	Quasit (Pact of Chain)
+MonsterAttack/&AttackWarlockQuasitStingTitle	Poisonous Sting
 Monster/&PactOfChainCustomSpriteDescription	Unlike pixies, sprites rarely indulge in frivolous merriment and fun. They are firm warriors, protectors, and judges, and their stern bent causes other fey to consider them overly dour and serious. However, fey that respect the sprites' territory find them staunch allies in times of trouble.
 Monster/&PactOfChainCustomSpriteTitle	Sprite (Pact of Chain)
 Power/&PactofChainFamiliarInvisibilityPowerTitle	Invisibility
 Power/&PactofChainFamiliarInvisibilityPowerDescription	The creature magically turns invisible until it attacks or casts a spell, or until its concentration ends (as if concentrating on a spell). Any equipment the creaure wears or carries is invisible with it.
+Power/&PactofChainFamiliarScarePowerTitle	Scare
+Power/&PactofChainFamiliarScarePowerDescription	One creature of your choice within 20 ft. of it must succeed on a DC 10 Wisdom saving throw or be frightened for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.
 Monster/&WitchOwlFamiliarDescription	Owl Familiar
 Monster/&WitchOwlFamiliarTitle	Owl
 MonsterAttack/&DH_Custom_CouatlBite_AttackDescription	Piercing damage, and the target must succeed on a DC 13 Constitution saving throw or be poisoned for 24 hours. Until this poison ends, the target is unconscious.

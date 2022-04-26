@@ -48,11 +48,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
 
                 var pool = poolStack.ActivePools.GetValueOrDefault(tag);
 
-                if (pool == null)
-                {
-                    poolStack.ActivePools.Add(tag, new PointPool(value));
-                }
-                else
+                if (pool != null)
                 {
                     pool.MaxPoints += value;
                     pool.RemainingPoints += value;
