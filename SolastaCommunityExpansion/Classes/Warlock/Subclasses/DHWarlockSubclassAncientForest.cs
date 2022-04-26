@@ -143,17 +143,15 @@ Different Archfey, e.g. Winter-themed
                 .SetActivation(ActivationTime.Rest, 1)
                 .AddToDB();
 
-            PowerBundleContext.RegisterPowerBundle(herbalBrewPool,
-                new List<FeatureDefinitionPower>
-                {
-                    BuildHerbalBrew(herbalBrewPool, "Toxifying", Poison_Basic),
-                    BuildHerbalBrew(herbalBrewPool, "Healing", PotionOfHealing),
-                    BuildHerbalBrew(herbalBrewPool, DamageAffinityAcidResistance, PotionOfSpeed),
-                    BuildHerbalBrew(herbalBrewPool, DamageAffinityLightningResistance, Ingredient_RefinedOil),
-                    BuildHerbalBrew(herbalBrewPool, DamageAffinityNecroticResistance, PotionOfClimbing),
-                    BuildHerbalBrew(herbalBrewPool, DamageAffinityPoisonResistance, PotionOfHeroism),
-                    BuildHerbalBrew(herbalBrewPool, DamageAffinityRadiantResistance, PotionOfInvisibility),
-                });
+            PowerBundleContext.RegisterPowerBundle(herbalBrewPool, true, 
+                BuildHerbalBrew(herbalBrewPool, "Toxifying", Poison_Basic),
+                BuildHerbalBrew(herbalBrewPool, "Healing", PotionOfHealing),
+                BuildHerbalBrew(herbalBrewPool, DamageAffinityAcidResistance, PotionOfSpeed),
+                BuildHerbalBrew(herbalBrewPool, DamageAffinityLightningResistance, Ingredient_RefinedOil),
+                BuildHerbalBrew(herbalBrewPool, DamageAffinityNecroticResistance, PotionOfClimbing),
+                BuildHerbalBrew(herbalBrewPool, DamageAffinityPoisonResistance, PotionOfHeroism),
+                BuildHerbalBrew(herbalBrewPool, DamageAffinityRadiantResistance, PotionOfInvisibility)
+            );
 
             RestActivityDefinitionBuilder
                 .Create("AncientForestToxifyingRestActivity", DefinitionBuilder.CENamespaceGuid)

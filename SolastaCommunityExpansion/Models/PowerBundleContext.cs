@@ -15,23 +15,41 @@ namespace SolastaCommunityExpansion.Models
 
         private static readonly Dictionary<SpellDefinition, FeatureDefinitionPower> Spells2Powers = new();
         private static readonly Dictionary<FeatureDefinitionPower, SpellDefinition> Powers2Spells = new();
-        private static readonly Dictionary<FeatureDefinitionPower, List<FeatureDefinitionPower>> Bundles = new();
+        private static readonly Dictionary<FeatureDefinitionPower, Bundle> Bundles = new();
 
-        public static void RegisterPowerBundle(FeatureDefinitionPower masterPower,
-            IEnumerable<FeatureDefinitionPower> subPowers)
+        public class Bundle
+        {
+            /**
+             * If set to true will terminate all powers in this bundle when 1 is terminated, so only one power
+             * from this bundle can be in effect
+             */
+            public bool TerminateAll { get; internal set; }
+            public List<FeatureDefinitionPower> SubPowers { get; } = new();
+        }
+
+        public static void RegisterPowerBundle(FeatureDefinitionPower masterPower, bool terminateAll,
+            params FeatureDefinitionPower[] subPowers)
+        {
+        }
+
+        public static void RegisterPowerBundle(FeatureDefinitionPower masterPower, bool terminateAll,
+                IEnumerable<FeatureDefinitionPower> subPowers)
         {
             if (Bundles.ContainsKey(masterPower))
             {
                 throw new Exception($"Bundle '{masterPower.name}' already registered!");
             }
 
-            var subPowersList = subPowers.ToList();
-            Bundles.Add(masterPower, subPowersList);
+            var bundle = new Bundle();
+            bundle.SubPowers.AddRange(subPowers);
+            bundle.TerminateAll = terminateAll;
+            
+            Bundles.Add(masterPower, bundle);
 
             var masterSpell = RegisterPower(masterPower);
             List<SpellDefinition> subSpells = new();
 
-            foreach (var subPower in subPowersList)
+            foreach (var subPower in bundle.SubPowers)
             {
                 subSpells.Add(RegisterPower(subPower));
             }
@@ -39,14 +57,25 @@ namespace SolastaCommunityExpansion.Models
             masterSpell.AddSubspellsList(subSpells);
         }
 
-        public static List<FeatureDefinitionPower> GetBundle(FeatureDefinitionPower master)
+        
+        public static Bundle GetBundle(FeatureDefinitionPower master)
         {
             return master ? Bundles.GetValueOrDefault(master) : null;
         }
 
-        public static List<FeatureDefinitionPower> GetBundle(SpellDefinition master)
+        public static Bundle GetBundle(SpellDefinition master)
         {
             return GetBundle(GetPower(master));
+        }
+        
+        public static List<FeatureDefinitionPower> GetBundleSubPowers(FeatureDefinitionPower master)
+        {
+            return GetBundle(master)?.SubPowers;
+        }
+
+        public static List<FeatureDefinitionPower> GetBundleSubPowers(SpellDefinition master)
+        {
+            return GetBundleSubPowers(GetPower(master));
         }
 
         private static SpellDefinition RegisterPower(FeatureDefinitionPower power)
@@ -74,6 +103,14 @@ namespace SolastaCommunityExpansion.Models
             return Powers2Spells.Keys.FirstOrDefault(p => p.Name == name);
         }
 
+        public static List<FeatureDefinitionPower> GetBundlesBySubpower(FeatureDefinitionPower subPower)
+        {
+            return Bundles
+                .Where(e => e.Value.SubPowers.Contains(subPower))
+                .Select(e => e.Key)
+                .ToList();
+        }
+
         public static SpellDefinition GetSpell(FeatureDefinitionPower power)
         {
             return Powers2Spells.GetValueOrDefault(power);
@@ -83,7 +120,7 @@ namespace SolastaCommunityExpansion.Models
         {
             if (masterPower != null)
             {
-                var subPowers = GetBundle(masterPower);
+                var subPowers = GetBundleSubPowers(masterPower);
                 if (subPowers != null)
                 {
                     List<SpellDefinition> spells = new();

@@ -218,13 +218,11 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
 
             PowerBundleContext.RegisterPowerBundle(findFamiliarPowerBundle,
-                new List<FeatureDefinitionPower>()
-                {
                     FindFamiliarPseudodragonPower,
                     FindFamiliarSpritePower,
                     FindFamiliarImpPower,
                     FindFamiliarQuasitPower
-                });
+                    );
             Definition.FeatureSet.Add(findFamiliarPowerBundle);
 
             Definition.SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union);

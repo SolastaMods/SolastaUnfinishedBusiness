@@ -109,36 +109,17 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             var iconEnhanced = Utils.CustomIcons.CreateAssetReferenceSprite("ElementalFormIconEnhanced", Properties.Resources.ElementalFormIconEnhanced, 24, 24);
             
             var regularPowers = new List<FeatureDefinitionPower>();
-            var refularConditions = new List<ConditionDefinition>();
-
             var enhancedPowers = new List<FeatureDefinitionPower>();
-            var enhancedConditions = new List<ConditionDefinition>();
 
             foreach (var e in ElementalFormCfg)
             {
-                var ((RPower, RCondition), (EPower, ECondition)) = BuildElementalForm(e.Key, e.Value, iconRegular, iconEnhanced);
-
+                var (RPower, EPower) = BuildElementalForm(e.Key, e.Value, iconRegular, iconEnhanced);
                 regularPowers.Add(RPower);
-                refularConditions.Add(RCondition);
-
                 enhancedPowers.Add(EPower);
-                enhancedConditions.Add(ECondition);
             }
 
-            PowerBundleContext.RegisterPowerBundle(ElementalFormPool, regularPowers);
-            PowerBundleContext.RegisterPowerBundle(EnhancedElementalFormPool, enhancedPowers);
-            
-            foreach (var condition in refularConditions)
-            {
-                condition.CancellingConditions.AddRange(refularConditions);
-                condition.CancellingConditions.Remove(condition);
-            }
-            foreach (var condition in enhancedConditions)
-            {
-                condition.CancellingConditions.AddRange(enhancedConditions);
-                condition.CancellingConditions.Remove(condition);
-            }
-            //DatabaseHelper.FeatureDefinitionPowers.PowerSorcererCreateSpellSlot.GuiPresentation.SpriteReference.
+            PowerBundleContext.RegisterPowerBundle(ElementalFormPool, true, regularPowers);
+            PowerBundleContext.RegisterPowerBundle(EnhancedElementalFormPool, true, enhancedPowers);
         }
 
         internal class ElementalFormConfig
@@ -253,7 +234,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             ).Build();
         }
 
-        public static ((FeatureDefinitionPower, ConditionDefinition), (FeatureDefinitionPower, ConditionDefinition))
+        public static (FeatureDefinitionPower,  FeatureDefinitionPower)
             BuildElementalForm(string text, ElementalFormConfig cfg, AssetReferenceSprite iconRegular,
                 AssetReferenceSprite iconEnhanced)
         {
@@ -350,7 +331,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetOverriddenPower(ElementalFormPower)
                 .AddToDB();
 
-            return ((ElementalFormPower, ElementalFormCondtion), (EnhancedElementalFormPower, EnhancedElementalFormCondtion));
+            return (ElementalFormPower, EnhancedElementalFormPower);
         }
 
         public static void AtWillConjureMinorElementals()
