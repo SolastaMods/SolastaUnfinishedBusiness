@@ -111,11 +111,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock
 
         private static void BuildProgression(CharacterClassDefinitionBuilder classWarlockBuilder)
         {
-            //
-            // building but not adding to avoid issues with gamers who already took this class
-            //
-            _ = DHWarlockSubclassAncientForestPatron.Build();
-
             FeatureDefinitionSubclassChoice subclassChoices = FeatureDefinitionSubclassChoiceBuilder
                 .Create("ClassWarlockSubclassChoice", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation("ClassWarlockPatron", Category.Subclass)
@@ -124,7 +119,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                 .SetSubclasses(
                     AHWarlockSubclassSoulBladePact.Subclass,
                     // needs more work and verification,  find a better solution for the rest panel
-                    //DHWarlockSubclassAncientForestPatron.Build(),
+                    DHWarlockSubclassAncientForestPatron.Build(),
                     DHWarlockSubclassElementalPatron.Build(),
                     DHWarlockSubclassMoonLitPatron.Build(),
                     DHWarlockSubclassRiftWalkerPatron.Build(),
