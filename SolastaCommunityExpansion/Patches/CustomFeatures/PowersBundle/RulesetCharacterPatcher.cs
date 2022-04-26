@@ -1,51 +1,110 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
 {
+    internal static class Helper
+    {
+        internal static void TerminatePowers(RulesetCharacter character, FeatureDefinitionPower exclude,
+            IEnumerable<FeatureDefinitionPower> powers)
+        {
+            var allSubPowers = new HashSet<FeatureDefinitionPower>();
+
+            foreach (var power in powers)
+            {
+                allSubPowers.Add(power);
+                if (!Main.Settings.EnablePowersBundlePatch)
+                    continue;
+
+                var bundles = PowerBundleContext.GetMasterPowersBySubPower(power);
+
+                foreach (var masterPower in bundles)
+                {
+                    var bundle = PowerBundleContext.GetBundle(masterPower);
+                    if (!bundle.TerminateAll)
+                        continue;
+
+                    foreach (var subPower in bundle.SubPowers)
+                    {
+                        allSubPowers.Add(subPower);
+                    }
+                }
+            }
+
+            if (exclude != null)
+                allSubPowers.Remove(exclude);
+
+            var toTerminate = character.PowersUsedByMe.Where(u => allSubPowers.Contains(u.PowerDefinition)).ToList();
+            foreach (var power in toTerminate)
+                character.TerminatePower(power);
+        }
+
+        internal static void TerminateSpells(RulesetCharacter character, SpellDefinition exclude,
+            IEnumerable<SpellDefinition> spells)
+        {
+            var allSubSpells = new HashSet<SpellDefinition>();
+
+            foreach (var spell in spells)
+            {
+                allSubSpells.Add(spell);
+                foreach (var allElement in DatabaseRepository.GetDatabase<SpellDefinition>().GetAllElements())
+                {
+                    if (!spell.IsSubSpellOf(allElement))
+                        continue;
+
+                    foreach (var subSpell in allElement.SubspellsList)
+                    {
+                        allSubSpells.Add(subSpell);
+                    }
+                }
+            }
+
+            if (exclude != null)
+                allSubSpells.Remove(exclude);
+
+            var toTerminate = character.SpellsCastByMe.Where(c => allSubSpells.Contains(c.SpellDefinition)).ToList();
+            foreach (var spell in toTerminate)
+                character.TerminateSpell(spell);
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetCharacter), "TerminateMatchingUniquePower")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetCharacter_TerminateMatchingUniquePower
     {
         internal static void Postfix(RulesetCharacter __instance, FeatureDefinitionPower powerDefinition)
         {
-            if (!Main.Settings.EnablePowersBundlePatch)
+            if (Main.Settings.EnableGlobalUniqueEffectsPatch)
             {
-                return;
+                var (powers, spells) = GlobalUniqueEffects.GetSameGroupItems(powerDefinition);
+                powers.Add(powerDefinition);
+                Helper.TerminatePowers(__instance, powerDefinition, powers);
+                Helper.TerminateSpells(__instance, null, spells);
             }
-            
-            var bundles = PowerBundleContext.GetBundlesBySubpower(powerDefinition);
-
-            var allBubPowers = new HashSet<FeatureDefinitionPower>();
-
-            foreach (var masterPower in bundles)
+            else if (Main.Settings.EnableGlobalUniqueEffectsPatch)
             {
-                var bundle = PowerBundleContext.GetBundle(masterPower);
-                if (bundle.TerminateAll)
-                {
-                    foreach (var subPower in bundle.SubPowers)
-                    {
-                        allBubPowers.Add(subPower);
-                    }
-                }
+                Helper.TerminatePowers(__instance, powerDefinition, new[] { powerDefinition });
             }
+        }
+    }
 
-            allBubPowers.Remove(powerDefinition);
 
-            var powersToTerminate = new HashSet<RulesetEffectPower>();
-            var usedPowers = __instance.PowersUsedByMe;
-            foreach (RulesetEffectPower usedPower in usedPowers)
+    [HarmonyPatch(typeof(RulesetCharacter), "TerminateMatchingUniqueSpell")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RulesetActor_TerminateMatchingUniqueSpell
+    {
+        internal static void Postfix(RulesetCharacter __instance, SpellDefinition spellDefinition)
+        {
+            if (Main.Settings.EnableGlobalUniqueEffectsPatch)
             {
-                if (allBubPowers.Contains(usedPower.PowerDefinition))
-                {
-                    powersToTerminate.Add(usedPower);
-                }
+                var (powers, spells) = GlobalUniqueEffects.GetSameGroupItems(spellDefinition);
+                spells.Add(spellDefinition);
+                Helper.TerminatePowers(__instance, null, powers);
+                Helper.TerminateSpells(__instance, spellDefinition, spells);
             }
-
-            foreach (RulesetEffectPower activePower in powersToTerminate)
-                __instance.TerminatePower(activePower);
         }
     }
 }

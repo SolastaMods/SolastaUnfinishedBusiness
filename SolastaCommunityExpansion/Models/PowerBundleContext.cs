@@ -30,6 +30,7 @@ namespace SolastaCommunityExpansion.Models
         public static void RegisterPowerBundle(FeatureDefinitionPower masterPower, bool terminateAll,
             params FeatureDefinitionPower[] subPowers)
         {
+            RegisterPowerBundle(masterPower, terminateAll, subPowers.ToList());
         }
 
         public static void RegisterPowerBundle(FeatureDefinitionPower masterPower, bool terminateAll,
@@ -103,7 +104,7 @@ namespace SolastaCommunityExpansion.Models
             return Powers2Spells.Keys.FirstOrDefault(p => p.Name == name);
         }
 
-        public static List<FeatureDefinitionPower> GetBundlesBySubpower(FeatureDefinitionPower subPower)
+        public static List<FeatureDefinitionPower> GetMasterPowersBySubPower(FeatureDefinitionPower subPower)
         {
             return Bundles
                 .Where(e => e.Value.SubPowers.Contains(subPower))
