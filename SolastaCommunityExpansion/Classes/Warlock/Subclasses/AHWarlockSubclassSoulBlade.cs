@@ -39,21 +39,52 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetDuration(DurationType.Minute, 1)
                 .AddToDB();
 
+            //TODO: convert to separate power that adds damage and small dim glow for a minute PB times a day
+            // var empowerWeaponPower = FeatureDefinitionPowerBuilder
+            //     .Create(FeatureDefinitionPowers.PowerOathOfDevotionSacredWeapon, "AHWarlockSoulBladePactEmpowerWeaponPower", DefinitionBuilder.CENamespaceGuid)
+            //     .SetOrUpdateGuiPresentation(Category.Feature)
+            //     .SetShortTitleOverride("Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle")
+            //     .SetRechargeRate(RechargeRate.ShortRest)
+            //     .SetFixedUsesPerRecharge(1)
+            //     .SetCostPerUse(1)
+            //     .SetActivationTime(ActivationTime.BonusAction)
+            //     .SetEffectDescription(FeatureDefinitionPowers.PowerOathOfDevotionSacredWeapon.EffectDescription.Copy()
+            //         .SetDuration(DurationType.Minute, 1)
+            //         .SetEffectForms(EffectFormBuilder
+            //             .Create()
+            //             .SetConditionForm(weaponCondition, ConditionForm.ConditionOperation.Add, false, true)
+            //             .Build())
+            //         .AddEffectForms(FeatureDefinitionPowers.PowerOathOfDevotionSacredWeapon.EffectDescription.EffectForms)
+            //     )
+            //     .AddToDB();
+
             var empowerWeaponPower = FeatureDefinitionPowerBuilder
-                .Create(FeatureDefinitionPowers.PowerOathOfDevotionSacredWeapon, "AHWarlockSoulBladePactEmpowerWeaponPower", DefinitionBuilder.CENamespaceGuid)
-                .SetOrUpdateGuiPresentation(Category.Feature)
+                .Create("AHWarlockSoulBladePactEmpowerWeaponPower", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerOathOfDevotionSacredWeapon.GuiPresentation.SpriteReference)
                 .SetShortTitleOverride("Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle")
-                .SetRechargeRate(RechargeRate.ShortRest)
+                .SetRechargeRate(RechargeRate.LongRest)
                 .SetFixedUsesPerRecharge(1)
                 .SetCostPerUse(1)
-                .SetActivationTime(ActivationTime.BonusAction)
-                .SetEffectDescription(FeatureDefinitionPowers.PowerOathOfDevotionSacredWeapon.EffectDescription.Copy()
-                    .SetDuration(DurationType.Minute, 1)
-                    .SetEffectForms(EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(weaponCondition, ConditionForm.ConditionOperation.Add, false, true)
-                        .Build())
-                    .AddEffectForms(FeatureDefinitionPowers.PowerOathOfDevotionSacredWeapon.EffectDescription.EffectForms)
+                .SetActivationTime(ActivationTime.Action)
+                .SetAttackModifierAbility(true,true, AttributeDefinitions.Charisma)
+                .SetEffectDescription(new EffectDescriptionBuilder()
+                    .SetDurationData(DurationType.UntilLongRest)
+                    .SetTargetingData(Side.Ally, 
+                        RangeType.Self, 
+                        1, 
+                        TargetType.Item, 
+                        1, 
+                        1,
+                        ActionDefinitions.ItemSelectionType.Weapon
+                    )
+                    .AddEffectForms(new EffectFormBuilder()
+                        .SetItemPropertyForm(
+                            ItemPropertyUsage.Unlimited,
+                            1, new FeatureUnlockByLevel(FeatureDefinitionAttackModifiers.AttackModifierShillelagh, 0)
+                        )
+                        .Build()
+                    )
+                    .Build()
                 )
                 .AddToDB();
 
