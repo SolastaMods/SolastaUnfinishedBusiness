@@ -23,9 +23,15 @@ namespace SolastaCommunityExpansion
 
         // need to be public for MC sidecar
         [Conditional("DEBUG")]
-        public static void Log(string msg)
+        public static void Log(string msg, bool console = false)
         {
             Logger.Log(msg);
+
+
+            if (console)
+            {
+                Gui.Game.GameConsole?.LogSimpleLine(msg);
+            }
         }
 
         // need to be public for MC sidecar
