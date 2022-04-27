@@ -5,6 +5,6 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 {
     public interface IFeatureDefinitionFeatureSetDynamic
     {
-        public Func<FeatureDefinitionFeatureSet, List<FeatureDefinition>> DynamicFeatureSet { get; set; }
+        public Func<FeatureDefinitionFeatureSet, Dictionary<FeatureDefinition, string>> DynamicFeatureSet { get; set; }
     }
 }

@@ -10,8 +10,6 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterStageClassSelectionPanel_Refresh
     {
-        internal static HashSet<FeatureDescriptionItem> FeatureDescriptionItems { get; } = new();
-
         internal static void Prefix()
         {
             if (!Main.Settings.EnableEnforceUniqueFeatureSetChoices)
@@ -19,7 +17,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
                 return;
             }
 
-            FeatureDescriptionItems.Clear();
+            FeatureDescriptionItem_Bind.FeatureDescriptionItems.Clear();
         }
     }
 

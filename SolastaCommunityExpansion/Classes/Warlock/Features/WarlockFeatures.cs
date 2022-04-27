@@ -27,39 +27,56 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             .SetActivationTime(RuleDefinitions.ActivationTime.Minute1)
             .AddToDB();
 
-        private static List<FeatureDefinition> InvocationsFilteredFeatureSet(FeatureDefinitionFeatureSet feature)
+        private static Dictionary<FeatureDefinition, string> InvocationsFilteredFeatureSet(FeatureDefinitionFeatureSet featureDefinitionFeatureSet)
         {
-            return feature.FeatureSet
-                .Where(x => x is not IFeatureDefinitionWithPrerequisites feature || feature.Validators.All(y => y.Invoke()))
-                .ToList();
-        }
+            var result = new Dictionary<FeatureDefinition, string>();
 
-        private static List<FeatureDefinition> InvocationsTakenFeatureSet(FeatureDefinitionFeatureSet feature)
-        {
-            var heroBuildingData = Global.ActiveLevelUpHero?.GetHeroBuildingData();
-
-            if (heroBuildingData == null)
+            foreach (var feature in featureDefinitionFeatureSet.FeatureSet
+                .Where(x => x is not IFeatureDefinitionWithPrerequisites feature || feature.Validators.All(y => y.Invoke())))
             {
-                return new List<FeatureDefinition>();
+                result.Add(feature, string.Empty);
             }
 
-            return heroBuildingData.AllActiveFeatures
-                .Where(y => DictionaryofEBInvocations.Values.Any(x => x == y)
+            return result;
+        }
+
+        private static Dictionary<FeatureDefinition, string> InvocationsTakenFeatureSet(FeatureDefinitionFeatureSet featureDefinitionFeatureSet)
+        {
+            var result = new Dictionary<FeatureDefinition, string>();
+            var hero = Global.ActiveLevelUpHero;
+            var heroBuildingData = hero?.GetHeroBuildingData();
+
+            if (hero == null || heroBuildingData == null)
+            {
+                return result;
+            }
+
+            foreach (var kvp in hero.ActiveFeatures)
+            {
+                var tag = kvp.Key;
+
+                foreach (var feature in kvp.Value
+                    .Where(y => DictionaryofEBInvocations.Values.Any(x => x == y)
                     || DictionaryofEIAttributeModifers.Values.Any(x => x == y)
-                    || DictionaryofEIPowers.Values.Any(x => x == y))
-                .Distinct()
-                .ToList();
+                    || DictionaryofEIPowers.Values.Any(x => x == y)))
+                {
+                    result.TryAdd(feature, tag);
+                }
+            }
+
+            return result;
         }
 
         #region WarlockEldritchInvocationSetRemoval
-        private static FeatureDefinitionFeatureSetRemoval warlockEldritchInvocationSetRemoval;
-        public static FeatureDefinitionFeatureSetRemoval WarlockEldritchInvocationSetRemoval => warlockEldritchInvocationSetRemoval ??= FeatureDefinitionFeatureSetRemovalBuilder
+        private static FeatureDefinitionFeatureSetUniqueAcross warlockEldritchInvocationSetRemoval;
+        public static FeatureDefinitionFeatureSetUniqueAcross WarlockEldritchInvocationSetRemoval => warlockEldritchInvocationSetRemoval ??= FeatureDefinitionFeatureSetUniqueAcrossBuilder
             .Create("ClassWarlockEldritchInvocationSetRemoval", CENamespaceGuid)
             .SetGuiPresentation("Feature/&ClassWarlockEldritchInvocationSetRemovalTitle", "Feature/&ClassWarlockEldritchInvocationSetRemovalDescription")
             .SetFeatureSet(WarlockEldritchInvocationSetLevel18.FeatureSet)
             .SetDynamicFeatureSetFunc(InvocationsTakenFeatureSet)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
             .SetUniqueChoices(false)
+            .SetBehaviorTags(FeatureDefinitionFeatureSetUniqueAcross.REMOVE_BEHAVIOR)
             .AddToDB();
         #endregion
 
@@ -90,7 +107,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             )
             .SetDynamicFeatureSetFunc(InvocationsFilteredFeatureSet)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
-            .SetUniqueChoices(true)
+            .SetUniqueChoices(false)
             .AddToDB();
         #endregion
 
@@ -111,7 +128,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 DictionaryofEIAttributeModifers["ImprovedPactWeapon"]
             )
             .SetDynamicFeatureSetFunc(InvocationsFilteredFeatureSet)
-            .SetUniqueChoices(false)
             .AddToDB();
         #endregion
 
@@ -125,7 +141,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 DictionaryofEIPowers["Trickster'sEscape"]
             )
             .SetDynamicFeatureSetFunc(InvocationsFilteredFeatureSet)
-            .SetUniqueChoices(false)
             .AddToDB();
         #endregion
 
@@ -139,7 +154,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 DictionaryofEIAttributeModifers["GiftoftheProtectors"]
             )
             .SetDynamicFeatureSetFunc(InvocationsFilteredFeatureSet)
-            .SetUniqueChoices(false)
             .AddToDB();
         #endregion
 
@@ -151,7 +165,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 DictionaryofEIAttributeModifers["BondoftheTalisman"]
             )
             .SetDynamicFeatureSetFunc(InvocationsFilteredFeatureSet)
-            .SetUniqueChoices(false)
             .AddToDB();
         #endregion
 
@@ -169,7 +182,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 DictionaryofEIAttributeModifers["WitchSight"]
             )
             .SetDynamicFeatureSetFunc(InvocationsFilteredFeatureSet)
-            .SetUniqueChoices(false)
             .AddToDB();
         #endregion
 
@@ -178,7 +190,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         public static FeatureDefinitionFeatureSetUniqueAcross WarlockEldritchInvocationSetLevel18 => warlockEldritchInvocationSetLevel18 ??= FeatureDefinitionFeatureSetUniqueAcrossBuilder
             .Create(WarlockEldritchInvocationSetLevel15, "ClassWarlockEldritchInvocationSetLevel18", CENamespaceGuid)
             .SetDynamicFeatureSetFunc(InvocationsFilteredFeatureSet)
-            .SetUniqueChoices(false)
             .AddToDB();
         #endregion
 

@@ -128,35 +128,6 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
     }
 
-    public class FeatureDefinitionFeatureSetRemovalBuilder : FeatureDefinitionFeatureSetBuilder<FeatureDefinitionFeatureSetRemoval, FeatureDefinitionFeatureSetRemovalBuilder>
-    {
-        #region Constructors
-
-        protected FeatureDefinitionFeatureSetRemovalBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-        {
-        }
-
-        protected FeatureDefinitionFeatureSetRemovalBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected FeatureDefinitionFeatureSetRemovalBuilder(FeatureDefinitionFeatureSetRemoval original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
-        {
-        }
-
-        protected FeatureDefinitionFeatureSetRemovalBuilder(FeatureDefinitionFeatureSetRemoval original, string name, string definitionGuid) : base(original, name, definitionGuid)
-        {
-        }
-        #endregion
-
-        public FeatureDefinitionFeatureSetRemovalBuilder SetDynamicFeatureSetFunc(Func<FeatureDefinitionFeatureSet, List<FeatureDefinition>> func)
-        {
-            Definition.DynamicFeatureSet = func;
-
-            return this;
-        }
-    }
-
     public class FeatureDefinitionFeatureSetUniqueAcrossBuilder : FeatureDefinitionFeatureSetBuilder<FeatureDefinitionFeatureSetUniqueAcross, FeatureDefinitionFeatureSetUniqueAcrossBuilder>
     {
         #region Constructors
@@ -178,9 +149,17 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
         #endregion
 
-        public FeatureDefinitionFeatureSetUniqueAcrossBuilder SetDynamicFeatureSetFunc(Func<FeatureDefinitionFeatureSet, List<FeatureDefinition>> func)
+        public FeatureDefinitionFeatureSetUniqueAcrossBuilder SetDynamicFeatureSetFunc(Func<FeatureDefinitionFeatureSet, Dictionary<FeatureDefinition, string>> func)
         {
             Definition.DynamicFeatureSet = func;
+
+            return this;
+        }
+
+        public FeatureDefinitionFeatureSetUniqueAcrossBuilder SetBehaviorTags(params string[] behaviorTags)
+        {
+            Definition.BehaviorTags.Clear();
+            Definition.BehaviorTags.AddRange(behaviorTags);
 
             return this;
         }

@@ -5,7 +5,11 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 {
     public class FeatureDefinitionFeatureSetUniqueAcross : FeatureDefinitionFeatureSet, IFeatureDefinitionFeatureSetDynamic
     {
-        public Func<FeatureDefinitionFeatureSet, List<FeatureDefinition>> DynamicFeatureSet { get; set; } =
-            (x) => new List<FeatureDefinition>();
+        internal const string REMOVE_BEHAVIOR = "remove";
+
+        public List<string> BehaviorTags { get; } = new();
+
+        public Func<FeatureDefinitionFeatureSet, Dictionary<FeatureDefinition, string>> DynamicFeatureSet { get; set; } =
+            (x) => new();
     }
 }
