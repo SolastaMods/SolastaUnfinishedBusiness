@@ -11,6 +11,31 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
     //
     // this patch shouldn't be protected
     //
+    [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterAttack")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class GameLocationBattleManager_HandleCharacterAttack
+    {
+        internal static void Postfix(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackerAttackMode)
+        {
+            if (attacker.RulesetCharacter == null)
+            {
+                return;
+            }
+
+            foreach (var feature in attacker.RulesetCharacter.EnumerateFeaturesToBrowse<IOnAttackEffect>())
+            {
+                feature.OnAttack(attacker, defender, attackModifier, attackerAttackMode);
+            }
+        }
+    }
+
+    //
+    // this patch shouldn't be protected
+    //
     [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterAttackHit")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameLocationBattleManager_HandleCharacterAttackHit

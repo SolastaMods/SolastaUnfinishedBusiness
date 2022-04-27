@@ -23,7 +23,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
         #endregion
 
-        public FeatureDefinitionOnAttackHitEffectBuilder SetOnAttackDamageDelegates(OnAttackHitDelegate before, OnAttackHitDelegate after)
+        public FeatureDefinitionOnAttackHitEffectBuilder SetOnAttackHitDelegate(OnAttackHitDelegate before, OnAttackHitDelegate after)
         {
             Definition.SetOnAttackHitDelegates(before, after);
             return this;

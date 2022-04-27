@@ -114,6 +114,8 @@ Condition/&HelpActionDescription	This creature has been distracted.
 Condition/&HelpActionTitle	Distracted
 Condition/&MoonTouchedConditionDescription	Your gravity is negated
 Condition/&MoonTouchedConditionTitle	Moon Touched
+Condition/&DebilitatedConditionDescription	Badly wounded
+Condition/&DebitilatedConditionTitle	The creature has been wounded so badly so it suffered from one or more effect from following list (Baned, Stuned, Bleed,)
 Condition/&PoxDescription	Pox condition
 Condition/&PoxTitle	Pox
 Condition/&RuinDescription	Ruin condition

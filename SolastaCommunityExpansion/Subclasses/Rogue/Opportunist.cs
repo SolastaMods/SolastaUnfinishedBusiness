@@ -23,7 +23,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
             return CreateOpportunist();
         }
 
-        private static void QuickStrikeOnAttackDelegate(GameLocationCharacter attacker, GameLocationCharacter defender, ActionModifier attackModifer, RulesetAttackMode attackerAttackMode)
+        private static void QuickStrikeOnAttackDelegate(GameLocationCharacter attacker, GameLocationCharacter defender, ActionModifier attackModifier, RulesetAttackMode attackerAttackMode)
         {
             // melee attack only
             if (attacker == null || defender == null || attackerAttackMode.Ranged)
@@ -34,21 +34,15 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
             // grant advatage if attacker is performing an opportunity attack or has higher inititative.
             if (attacker.LastInitiative > defender.LastInitiative || attackerAttackMode.ActionType == ActionDefinitions.ActionType.Reaction && attacker.GetActionStatus(ActionDefinitions.Id.AttackOpportunity, ActionDefinitions.ActionScope.Battle) == ActionDefinitions.ActionStatus.Available)
             {
-                attackModifer.AttackAdvantageTrends.Add(new RuleDefinitions.TrendInfo(1, RuleDefinitions.FeatureSourceType.CharacterFeature, "QuickStrike", attacker));
+                attackModifier.AttackAdvantageTrends.Add(new RuleDefinitions.TrendInfo(1, RuleDefinitions.FeatureSourceType.CharacterFeature, "QuickStrike", attacker));
             }
-        }
-
-        private static bool IsDebilitatingStrikePowerActivate(RulesetCharacter hero)
-        {
-            // debilitating strike power is always active but the condition should be fired only when sneak attack hit
-            return true;
         }
 
         internal class DebilitatedConditionBuilder : ConditionDefinitionBuilder
         {
             private const string Name = "Debilitated";
             private const string TitleString = "Condition/&DebilitatedConditionTitle";
-            private const string DescriptionString = "Condition/&DebilitatedConditioDescription";
+            private const string DescriptionString = "Condition/&DebilitatedConditionDescription";
 
             protected DebilitatedConditionBuilder(string name, string guid) : base(ConditionDummy, name, guid)
             {
@@ -67,47 +61,53 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
         {
             var subclassNamespace = new Guid("b217342c-5b1b-46eb-9f2f-86239c3088bf");
 
-            var quickStrike = FeatureDefinitionOnAttackEffectBuilder.Create("RougeSubclassOpportunistQuickStrike", subclassNamespace)
-                .SetGuiPresentation("Feature/&OpportunistQuickStrikeTitle","Feature/&OpportunistQuickStrikeDescription")
+            // Grant advantage when attack enemis whos inititative is lower than your
+            // or when perform an attack of opportunity.
+            var quickStrike = FeatureDefinitionOnAttackEffectBuilder
+                .Create("RoguishOppotunistQuickStrike", subclassNamespace)
+                .SetGuiPresentation("OpportunistQuickStrike", Category.Feature)
                 .SetOnAttackDelegate(QuickStrikeOnAttackDelegate)
                 .AddToDB();
 
             EffectDescriptionBuilder debilitatingStrikeEffectBuilder = new EffectDescriptionBuilder()
                     .SetDurationData(
-                        RuleDefinitions.DurationType.Round,
-                        1,
-                        RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                        durationType : RuleDefinitions.DurationType.Round,
+                        durationParameter: 1,
+                        endOfEffect : RuleDefinitions.TurnOccurenceType.EndOfTurn)
                     .SetTargetingData(
-                        RuleDefinitions.Side.Enemy,
-                        RuleDefinitions.RangeType.MeleeHit,
-                        0, // I think this parameter is irrelevant if range type is meleehit.
-                        RuleDefinitions.TargetType.Individuals, // allow multiple effect stack ?
-                        0,
-                        0,
-                        ActionDefinitions.ItemSelectionType.None)
+                        targetSide : RuleDefinitions.Side.Enemy,
+                        rangeType:  RuleDefinitions.RangeType.MeleeHit,
+                        rangeParameter: 0, // I think this parameter is irrelevant if range type is meleehit.
+                        targetType:  RuleDefinitions.TargetType.Individuals, // allow multiple effect stack ?
+                        targetParameter: 0,
+                        targetParameter2: 0,
+                        itemSelectionType: ActionDefinitions.ItemSelectionType.None)
                     .SetSavingThrowData(
-                        true,
-                        false,
-                        SmartAttributeDefinitions.Constitution.name,
-                        true,
-                        RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                        SmartAttributeDefinitions.Dexterity.name,
-                        20,
-                        false,
-                        new List<SaveAffinityBySenseDescription>())
+                        hasSavingThrow: true,
+                        disableSavingThrowOnAllies: false,
+                        savingThrowAbility: SmartAttributeDefinitions.Constitution.name,
+                        ignoreCover: true,
+                        difficultyClassComputation: RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        savingThrowDifficultyAbility:  SmartAttributeDefinitions.Dexterity.name,
+                        fixedSavingThrowDifficultyClass: 20,
+                        advantageForEnemies: false,
+                        savingThrowAffinitiesBySense: new List<SaveAffinityBySenseDescription>())
                     .AddEffectForm(new EffectFormBuilder()
                         .SetConditionForm(
-                            DebilitatedConditionBuilder.DebilitatedCondition,
-                            ConditionForm.ConditionOperation.AddRandom,
-                            false,
-                            false,
-                            new List<ConditionDefinition> { ConditionBlinded, ConditionBaned, ConditionBleeding, ConditionStunned })
+                            condition: DebilitatedConditionBuilder.DebilitatedCondition,
+                            operation: ConditionForm.ConditionOperation.AddRandom,
+                            applyToSelf: false,
+                            forceOnSelf: false,
+                            detrimentalConditions:  new List<ConditionDefinition> { ConditionBlinded, ConditionBaned, ConditionBleeding, ConditionStunned })
                         .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.Negates)
                         .CanSaveToCancel(RuleDefinitions.TurnOccurenceType.EndOfTurn)
                         .Build());
 
-            var debilitatingStrikePower = FeatureDefinitionConditionalPowerBuilder.Create("RougeSubclassOpportunistDebilitatingStrikePower", SubclassNamespace).
-                Configure(
+            // Enemies struck by your sneak attack suffered from one of the following condtion (Baned, Blinded, Bleed, Stunned)
+            // if they fail a CON save agaisnt the DC of 8 + your DEX mod + your prof.
+            var debilitatingStrikePower = FeatureDefinitionConditionalPowerBuilder
+                .Create("RoguishOpportunistDebilitatingStrikePower", SubclassNamespace)
+                .Configure(
                     1,
                     RuleDefinitions.UsesDetermination.Fixed,
                     AttributeDefinitions.Dexterity,
@@ -119,11 +119,8 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
                     AttributeDefinitions.Dexterity,
                     debilitatingStrikeEffectBuilder.Build()
                 )
-                .SetGuiPresentation("Feature/&OpportunistDebilitatingStrikeTitle", "Feature/&OpportunistDebilitatingStrikeDescription")
-                .SetIsActive(IsDebilitatingStrikePowerActivate)
+                .SetGuiPresentation("OpportunistDebilitatingStrike", Category.Feature)
                 .AddToDB();
-
-            //debilitatingStrikePower.SetIsActiveDelegate(IsDebilitatingStrikePowerActivate);
 
             return CharacterSubclassDefinitionBuilder
                 .Create("Opportunist", subclassNamespace)
