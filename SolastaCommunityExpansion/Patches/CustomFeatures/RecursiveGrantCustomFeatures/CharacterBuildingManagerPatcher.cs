@@ -14,42 +14,25 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.RecursiveGrantCustomF
          * When a character is being granted features, this patch will apply the effect of custom features.
          */
 
-        internal static void Postfix(RulesetCharacterHero hero, List<FeatureDefinition> grantedFeatures)
+        internal static void Postfix(RulesetCharacterHero hero, List<FeatureDefinition> grantedFeatures, bool clearPrevious = true)
         {
-            Models.CustomFeaturesContext.RecursiveGrantCustomFeatures(hero, grantedFeatures);
-        }
-    }
-
-    // undo any custom logic when removing features
-    [HarmonyPatch(typeof(CharacterBuildingManager), "UnassignLastClassLevel")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class CharacterBuildingManager_UnassignLastClassLevel
-    {
-        internal static void Prefix(RulesetCharacterHero hero)
-        {
-            var heroBuildingData = hero.GetHeroBuildingData();
-            
-            foreach (var feature in heroBuildingData.AllActiveFeatures
-                .OfType<IFeatureDefinitionCustomCode>())
+            if (!clearPrevious)
             {
-                feature.RemoveFeature(hero);
+                Models.CustomFeaturesContext.RecursiveGrantCustomFeatures(hero, grantedFeatures);
             }
-        }
-    }
-
-    // undo any custom logic when removing features
-    [HarmonyPatch(typeof(CharacterBuildingManager), "UnassignLastSubclass")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class CharacterBuildingManager_UnassignLastSubclass
-    {
-        internal static void Prefix(RulesetCharacterHero hero)
-        {
-            var heroBuildingData = hero.GetHeroBuildingData();
-
-            foreach (var feature in heroBuildingData.AllActiveFeatures
-                .OfType<IFeatureDefinitionCustomCode>())
+            else
             {
-                feature.RemoveFeature(hero);
+                //
+                // TODO: Move this to CustomFeaturesContext and cover all undo cases there...
+                //
+
+                var heroBuildingData = hero.GetHeroBuildingData();
+
+                foreach (var feature in heroBuildingData.AllActiveFeatures
+                    .OfType<IFeatureDefinitionCustomCode>())
+                {
+                    feature.RemoveFeature(hero);
+                }
             }
         }
     }
