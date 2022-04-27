@@ -164,7 +164,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetSpellLevel(1)
                 .SetCastingTime(RuleDefinitions.ActivationTime.Hours1)
                 // BUG: Unable to have 70 minutes ritual casting time... if set to 10 minutes, it really only takes 10 minutes, instead of 70
-                .SetRitualCasting(RuleDefinitions.ActivationTime.Hours1)
+                .SetRitualCasting(RuleDefinitions.ActivationTime.Minute10)
                 .AddToDB();
 
             spell.SetUniqueInstance(true);

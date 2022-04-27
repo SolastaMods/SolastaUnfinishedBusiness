@@ -81,14 +81,12 @@ namespace SolastaCommunityExpansion.Displays
             if (UI.Toggle("Remove attunement requirements " + RequiresRestart, ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.RemoveAttunementRequirements = toggle;
-                RemoveIdentificationContext.Load();
             }
 
             toggle = Main.Settings.RemoveIdentifcationRequirements;
             if (UI.Toggle("Remove identification requirements " + RequiresRestart, ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.RemoveIdentifcationRequirements = toggle;
-                RemoveIdentificationContext.Load();
             }
 
             UI.Label("");

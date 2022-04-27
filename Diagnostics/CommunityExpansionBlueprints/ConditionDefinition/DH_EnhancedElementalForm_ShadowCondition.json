@@ -5,7 +5,7 @@
   "conditionType": "Beneficial",
   "features": [
     "Definition:DamageAffinityNecroticImmunity:0c4d40bf6e1946143bae2746a57972b3",
-    "Definition:DH_ElementalForm_ShadowadditionalDamage:ea4f3efd-1394-5a0c-8048-bc87ee5550fe"
+    "Definition:DH_ElementalForm_ShadowAdditionalDamage:1293403b-ed47-5411-b02c-b7ddaadb158d"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -21,7 +21,14 @@
   "interruptionDamageThreshold": 0,
   "conditionTags": [],
   "recurrentEffectForms": [],
-  "cancellingConditions": [],
+  "cancellingConditions": [
+    "Definition:DH_EnhancedElementalForm_AstralCondition:7dd8bef7-0dc6-5e46-9fea-ef7037ad421c",
+    "Definition:DH_EnhancedElementalForm_EtherealCondition:6844e7d7-1e2c-5d71-8bfa-6bf1bd937631",
+    "Definition:DH_EnhancedElementalForm_FireCondition:8df4ff87-c57f-5cac-8601-ef6e359362e7",
+    "Definition:DH_EnhancedElementalForm_EarthCondition:c433a74c-fff6-516d-8096-557013327a37",
+    "Definition:DH_EnhancedElementalForm_IceCondition:9eccdb1e-985e-55f7-8f81-83819d72e4d9",
+    "Definition:DH_EnhancedElementalForm_AirCondition:973f0538-b2b6-54c4-b7a4-c0930b8f0857"
+  ],
   "additionalDamageWhenHit": false,
   "additionalDamageType": "",
   "additionalDamageQuantity": "AbilityBonus",
@@ -40,7 +47,7 @@
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "e3592ffbc3ab6c6448fc9b934c1958e9",
+    "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -119,11 +126,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Elemental Form : Shadow Plane Condition",
-    "description": "When channeling the elemental  Shadow Plane, you gain Immunity to Necrotic damage and once per turn, apply damage of the same type to your attack",
+    "title": "Shadow Plane",
+    "description": "Deal additional Necrotic damage equal to your Proficiency Bonus once per round.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "762fc2db21c656b6b5423a25e61f3ed5",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

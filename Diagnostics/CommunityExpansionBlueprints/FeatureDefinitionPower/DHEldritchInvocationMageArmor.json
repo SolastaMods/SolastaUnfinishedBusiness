@@ -306,7 +306,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&ArmorofShadowsTitle",
-    "description": "Cast MageArmor at will",
+    "description": "Cast Mage Armor at will",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "48258cb7b5be9e942a13ecf70cd8903a",

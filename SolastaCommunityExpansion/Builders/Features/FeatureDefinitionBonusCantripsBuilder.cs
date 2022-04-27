@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public class FeatureDefinitionBonusCantripsBuilder : FeatureDefinitionBuilder<FeatureDefinitionBonusCantrips, FeatureDefinitionBonusCantripsBuilder>
+    public abstract class
+        FeatureDefinitionBonusCantripsBuilder<TDefinition, TBuilder> : DefinitionBuilder<TDefinition, TBuilder>
+        where TDefinition : FeatureDefinitionBonusCantrips
+        where TBuilder : FeatureDefinitionBonusCantripsBuilder<TDefinition, TBuilder>
     {
         #region Constructors
         protected FeatureDefinitionBonusCantripsBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
@@ -16,38 +20,127 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        protected FeatureDefinitionBonusCantripsBuilder(FeatureDefinitionBonusCantrips original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        protected FeatureDefinitionBonusCantripsBuilder(TDefinition original, string name, Guid namespaceGuid) : base(
+            original, name, namespaceGuid)
         {
         }
 
-        protected FeatureDefinitionBonusCantripsBuilder(FeatureDefinitionBonusCantrips original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        protected FeatureDefinitionBonusCantripsBuilder(TDefinition original, string name, string definitionGuid) :
+            base(original, name, definitionGuid)
         {
         }
         #endregion
 
-        public FeatureDefinitionBonusCantripsBuilder ClearBonusCantrips()
+        public TBuilder ClearBonusCantrips()
         {
             Definition.BonusCantrips.Clear();
-            return this;
+            return This();
         }
 
-        public FeatureDefinitionBonusCantripsBuilder AddBonusCantrip(SpellDefinition spellDefinition)
+        public TBuilder AddBonusCantrip(SpellDefinition spellDefinition)
         {
             Definition.BonusCantrips.Add(spellDefinition);
             Definition.BonusCantrips.Sort(Sorting.Compare);
-            return this;
+            return This();
         }
 
-        public FeatureDefinitionBonusCantripsBuilder SetBonusCantrips(params SpellDefinition[] spellDefinitions)
+        public TBuilder SetBonusCantrips(params SpellDefinition[] spellDefinitions)
         {
             SetBonusCantrips(spellDefinitions.AsEnumerable());
-            return this;
+            return This();
         }
 
-        public FeatureDefinitionBonusCantripsBuilder SetBonusCantrips(IEnumerable<SpellDefinition> spellDefinitions)
+        public TBuilder SetBonusCantrips(IEnumerable<SpellDefinition> spellDefinitions)
         {
             Definition.BonusCantrips.SetRange(spellDefinitions);
             Definition.BonusCantrips.Sort(Sorting.Compare);
+            return This();
+        }
+    }
+
+    public class FeatureDefinitionBonusCantripsBuilder : FeatureDefinitionBonusCantripsBuilder<
+        FeatureDefinitionBonusCantrips, FeatureDefinitionBonusCantripsBuilder>
+    {
+        #region Constructors
+
+        public FeatureDefinitionBonusCantripsBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        public FeatureDefinitionBonusCantripsBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        public FeatureDefinitionBonusCantripsBuilder(FeatureDefinitionBonusCantrips original, string name,
+            Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        public FeatureDefinitionBonusCantripsBuilder(FeatureDefinitionBonusCantrips original, string name,
+            string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+
+        #endregion
+    }
+
+    public class FeatureDefinitionFreeBonusCantripsBuilder : FeatureDefinitionBonusCantripsBuilder<
+        FeatureDefinitionFreeBonusCantrips, FeatureDefinitionFreeBonusCantripsBuilder>
+    {
+        #region Constructors
+
+        public FeatureDefinitionFreeBonusCantripsBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        public FeatureDefinitionFreeBonusCantripsBuilder(string name, string definitionGuid) : base(name,
+            definitionGuid)
+        {
+        }
+
+        public FeatureDefinitionFreeBonusCantripsBuilder(FeatureDefinitionFreeBonusCantrips original, string name,
+            Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        public FeatureDefinitionFreeBonusCantripsBuilder(FeatureDefinitionFreeBonusCantrips original, string name,
+            string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+
+        #endregion
+    }
+
+    public class FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder : FeatureDefinitionBonusCantripsBuilder<
+        FeatureDefinitionFreeBonusCantripsWithPrerequisites, FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder>
+    {
+        #region Constructors
+
+        public FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        public FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder(string name, string definitionGuid) : base(name,
+            definitionGuid)
+        {
+        }
+
+        public FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder(FeatureDefinitionFreeBonusCantripsWithPrerequisites original, string name,
+            Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        public FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder(FeatureDefinitionFreeBonusCantripsWithPrerequisites original, string name,
+            string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+
+        #endregion
+
+        public FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder SetValidator(Func<bool> validator)
+        {
+            Definition.Validator = validator;
+
             return this;
         }
     }

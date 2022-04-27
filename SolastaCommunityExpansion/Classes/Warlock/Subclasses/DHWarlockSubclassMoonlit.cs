@@ -10,7 +10,7 @@ using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionMovementAffinitys;
 using static SolastaModApi.DatabaseHelper.SpellListDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionMoveModes;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionBonusCantripss;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 {
@@ -21,7 +21,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
             SpellListDefinition MoonLitExpandedSpelllist = SpellListDefinitionBuilder
                 .Create(SpellListPaladin, "MoonLitExpandedSpelllist", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation("MoonLitExpandedSpelllist", Category.Feature)
+                .SetGuiPresentationNoContent()
                 .ClearSpells()
                 .SetSpellsAtLevel(1, FaerieFire, Sleep)
                 .SetSpellsAtLevel(2, MoonBeam, SeeInvisibility)
@@ -38,22 +38,29 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetExtendedSpellList(MoonLitExpandedSpelllist)
                 .AddToDB();
 
+            var moonlitInvisibleCondition = ConditionDefinitionBuilder
+                .Create(DatabaseHelper.ConditionDefinitions.ConditionInvisible, "ConditionMoonlitInvisible", DefinitionBuilder.CENamespaceGuid)
+                .SetSilent(Silent.WhenAddedOrRemoved)
+                .AddToDB();
+
+            // don't get the annoying message on log
+            Global.CharacterLabelEnabledConditions.Add(moonlitInvisibleCondition);
+
             var Unlit = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
             {
                 lightingState = LocationDefinitions.LightingState.Unlit,
-                condition = DatabaseHelper.ConditionDefinitions.ConditionInvisible
+                condition = moonlitInvisibleCondition
             };
             var Dim = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
             {
                 lightingState = LocationDefinitions.LightingState.Dim,
-                condition = DatabaseHelper.ConditionDefinitions.ConditionInvisible
+                condition = moonlitInvisibleCondition
             };
             var Darkness = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
             {
                 lightingState = LocationDefinitions.LightingState.Darkness,
-                condition = DatabaseHelper.ConditionDefinitions.ConditionInvisible
+                condition = moonlitInvisibleCondition
             };
-
 
             FeatureDefinitionLightAffinity MoonLitLightAffinity = FeatureDefinitionLightAffinityBuilder
                 .Create("MoonLitLightAffinity", DefinitionBuilder.CENamespaceGuid)
@@ -201,9 +208,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetSpellLevel(0)
                 .AddToDB();
 
-            FeatureDefinitionBonusCantrips MoonlitBonusCantrips = FeatureDefinitionBonusCantripsBuilder
-                .Create(BonusCantripsDomainSun,"MoonlitBonusCantrips", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation("MoonlitBonusCantrips", Category.Feat)
+            var MoonlitBonusCantrips = FeatureDefinitionFreeBonusCantripsBuilder
+                .Create("MoonlitBonusCantrips", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(Category.Feat)
                 .ClearBonusCantrips()
                 .AddBonusCantrip(AtWillMoonbeam)
                 .AddBonusCantrip(AtWillFaerieFire)

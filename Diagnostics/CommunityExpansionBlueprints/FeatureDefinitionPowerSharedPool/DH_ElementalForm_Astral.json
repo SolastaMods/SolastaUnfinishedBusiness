@@ -7,7 +7,7 @@
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "Self",
-    "itemSelectionType": "Equiped",
+    "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 1,
     "emissiveBorder": "None",
@@ -267,7 +267,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "BonusAction",
+  "activationTime": "NoCost",
   "reactionContext": "None",
   "reactionName": "",
   "hasCastingFailure": false,
@@ -295,13 +295,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Elemental Form : Astral Plane",
-    "description": "When channeling the elemental  Astral Plane, you gain resistence to Psychic damage and once per turn, apply damage of the same type to your attack",
+    "title": "Astral Plane",
+    "description": "When channeling the Astral Plane, you gain Resistance to Psychic damage and once per turn, apply damage of the same type to your attack",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "2243d06e69e758d4c9191ef1c49c3ebf",
-      "m_SubObjectName": "Foreknowledge",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

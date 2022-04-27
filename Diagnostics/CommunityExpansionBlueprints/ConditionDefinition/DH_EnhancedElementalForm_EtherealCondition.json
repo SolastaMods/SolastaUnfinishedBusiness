@@ -5,7 +5,7 @@
   "conditionType": "Beneficial",
   "features": [
     "Definition:DamageAffinityForceImmunity:c2b9dd6f6f3dd6647af35a7545cd3b28",
-    "Definition:DH_ElementalForm_EtherealadditionalDamage:6f5de28c-31d4-5a55-93e8-efbfecb56686"
+    "Definition:DH_ElementalForm_EtherealAdditionalDamage:92bd212d-113e-5dec-8550-4083d1750781"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -21,7 +21,14 @@
   "interruptionDamageThreshold": 0,
   "conditionTags": [],
   "recurrentEffectForms": [],
-  "cancellingConditions": [],
+  "cancellingConditions": [
+    "Definition:DH_EnhancedElementalForm_ShadowCondition:04cbd9a4-e02b-53bb-9679-a990aac63fe0",
+    "Definition:DH_EnhancedElementalForm_AstralCondition:7dd8bef7-0dc6-5e46-9fea-ef7037ad421c",
+    "Definition:DH_EnhancedElementalForm_FireCondition:8df4ff87-c57f-5cac-8601-ef6e359362e7",
+    "Definition:DH_EnhancedElementalForm_EarthCondition:c433a74c-fff6-516d-8096-557013327a37",
+    "Definition:DH_EnhancedElementalForm_IceCondition:9eccdb1e-985e-55f7-8f81-83819d72e4d9",
+    "Definition:DH_EnhancedElementalForm_AirCondition:973f0538-b2b6-54c4-b7a4-c0930b8f0857"
+  ],
   "additionalDamageWhenHit": false,
   "additionalDamageType": "",
   "additionalDamageQuantity": "AbilityBonus",
@@ -119,11 +126,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Elemental Form : Ethereal Plane Condition",
-    "description": "When channeling the elemental  Ethereal Plane, you gain Immunity to Force damage and once per turn, apply damage of the same type to your attack",
+    "title": "Ethereal Plane",
+    "description": "Deal additional Force damage equal to your Proficiency Bonus once per round.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "762fc2db21c656b6b5423a25e61f3ed5",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

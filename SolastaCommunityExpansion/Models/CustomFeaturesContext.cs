@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi.Extensions;
 using UnityEngine;
@@ -7,11 +8,9 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class CustomFeaturesContext
     {
-        internal static CharacterAction CurrentAction { get; set; }
-
         internal static void RecursiveGrantCustomFeatures(RulesetCharacterHero hero, List<FeatureDefinition> features)
         {
-            foreach (FeatureDefinition grantedFeature in features)
+            foreach (var grantedFeature in features)
             {
                 if (grantedFeature is FeatureDefinitionFeatureSet set && set.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                 {
@@ -21,7 +20,7 @@ namespace SolastaCommunityExpansion.Models
                 {
                     customFeature.ApplyFeature(hero);
                 }
-                if (!(grantedFeature is FeatureDefinitionProficiency featureDefinitionProficiency))
+                if (grantedFeature is not FeatureDefinitionProficiency featureDefinitionProficiency)
                 {
                     continue;
                 }
@@ -35,8 +34,9 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void RechargeLinkedPowers(RulesetCharacter character, RuleDefinitions.RestType restType)
         {
-            List<FeatureDefinitionPower> pointPoolPowerDefinitions = new List<FeatureDefinitionPower>();
-            foreach (RulesetUsablePower usablePower in character.UsablePowers)
+            var pointPoolPowerDefinitions = new List<FeatureDefinitionPower>();
+
+            foreach (var usablePower in character.UsablePowers)
             {
                 if (usablePower.PowerDefinition is IPowerSharedPool pool)
                 {
@@ -55,11 +55,12 @@ namespace SolastaCommunityExpansion.Models
             }
 
             // Find the UsablePower of the point pool powers.
-            foreach (RulesetUsablePower poolPower in character.UsablePowers)
+            foreach (var poolPower in character.UsablePowers)
             {
                 if (pointPoolPowerDefinitions.Contains(poolPower.PowerDefinition))
                 {
-                    int poolSize = GetMaxUsesForPool(poolPower, character);
+                    var poolSize = GetMaxUsesForPool(poolPower, character);
+
                     poolPower.SetRemainingUses(poolSize);
 
                     AssignUsesToSharedPowersForPool(character, poolPower, poolSize, poolSize);
@@ -70,11 +71,12 @@ namespace SolastaCommunityExpansion.Models
         internal static void AssignUsesToSharedPowersForPool(RulesetCharacter character, RulesetUsablePower poolPower, int remainingUses, int totalUses)
         {
             // Find powers that rely on this pool
-            foreach (RulesetUsablePower usablePower in character.UsablePowers)
+            foreach (var usablePower in character.UsablePowers)
             {
                 if (usablePower.PowerDefinition is IPowerSharedPool pool)
                 {
-                    FeatureDefinitionPower pointPoolPower = pool.GetUsagePoolPower();
+                    var pointPoolPower = pool.GetUsagePoolPower();
+
                     if (pointPoolPower == poolPower.PowerDefinition)
                     {
                         usablePower.SetMaxUses(totalUses / usablePower.PowerDefinition.CostPerUse);
@@ -88,7 +90,7 @@ namespace SolastaCommunityExpansion.Models
         {
             int totalPoolSize = poolPower.MaxUses;
 
-            foreach (RulesetUsablePower modifierPower in character.UsablePowers)
+            foreach (var modifierPower in character.UsablePowers)
             {
                 if (modifierPower.PowerDefinition is IPowerPoolModifier modifier && modifier.GetUsagePoolPower() == poolPower.PowerDefinition)
                 {
@@ -108,17 +110,74 @@ namespace SolastaCommunityExpansion.Models
 
             var pointPoolPower = sharedPoolPower.GetUsagePoolPower();
 
-            foreach (RulesetUsablePower poolPower in character.UsablePowers)
+            foreach (var poolPower in character.UsablePowers)
             {
                 if (poolPower.PowerDefinition == pointPoolPower)
                 {
-                    int maxUses = GetMaxUsesForPool(poolPower, character);
-                    int remainingUses = Mathf.Clamp(poolPower.RemainingUses - poolUsage, 0, maxUses);
+                    var maxUses = GetMaxUsesForPool(poolPower, character);
+                    var remainingUses = Mathf.Clamp(poolPower.RemainingUses - poolUsage, 0, maxUses);
+
                     poolPower.SetRemainingUses(remainingUses);
                     AssignUsesToSharedPowersForPool(character, poolPower, remainingUses, maxUses);
+
                     return;
                 }
             }
+        }
+
+        public static List<T> FeaturesByType<T>(RulesetActor actor) where T : class
+        {
+            var list = new List<FeatureDefinition>();
+
+            actor.EnumerateFeaturesToBrowse<T>(list);
+
+            return list
+                .Select(s => s as T)
+                .ToList();
+        }
+
+        public static EffectDescription ModifySpellEffect(EffectDescription original, RulesetEffectSpell spell)
+        {
+            //TODO: find a way to cache result, so it works faster - this method is called sveral times per spell cast
+            var result = original;
+            var caster = spell.Caster;
+            
+            if (spell.SpellDefinition is ICustomMagicEffectBasedOnCaster baseDefinition && caster != null)
+            {
+                result = baseDefinition.GetCustomEffect(caster);
+            }
+
+            var modifiers = FeaturesByType<IModifySpellEffect>(caster);
+
+            if (!modifiers.Empty())
+            {
+                result = modifiers.Aggregate(result.Copy(), (current, f) => f.ModifyEffect(spell, current));
+            }
+
+            return result;
+        }
+
+        /**Modifies spell description for GUI purposes. Uses only modifiers based on ICustomMagicEffectBasedOnCaster*/
+        public static EffectDescription ModifySpellEffectGui(EffectDescription original, GuiSpellDefinition spell)
+        {
+            var result = original;
+            var caster = Global.ActivePlayerCharacter?.RulesetCharacter;
+
+            if (spell.SpellDefinition is ICustomMagicEffectBasedOnCaster baseDefinition && caster != null)
+            {
+                result = baseDefinition.GetCustomEffect(caster);
+            }
+
+            return result;
+        }
+        
+        public static EffectDescription AddEffectForms(EffectDescription baseEffect, params EffectForm[] effectForms)
+        {
+            var newEffect = baseEffect.Copy();
+
+            newEffect.EffectForms.AddRange(effectForms);
+
+            return newEffect;
         }
     }
 }

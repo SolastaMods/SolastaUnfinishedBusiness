@@ -17,6 +17,12 @@ namespace SolastaCommunityExpansion.Builders
         {
             effectForm = new EffectForm();
         }
+        
+        public EffectFormBuilder(EffectForm reference)
+        {
+            effectForm = new EffectForm();
+            effectForm.Copy(reference);
+        }
 
         public EffectFormBuilder HasSavingThrow(EffectSavingThrowType savingThrowAffinity)
         {
@@ -80,6 +86,11 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
+        public EffectFormBuilder SetConditionForm(ConditionDefinition condition, ConditionForm.ConditionOperation operation)
+        {
+            return SetConditionForm(condition, operation, false, false, condition);
+        }
+        
         public EffectFormBuilder SetConditionForm(ConditionDefinition condition, ConditionForm.ConditionOperation operation, bool applyToSelf, bool forceOnSelf, params ConditionDefinition[] detrimentalConditions)
         {
             return SetConditionForm(condition, operation, applyToSelf, forceOnSelf, detrimentalConditions.AsEnumerable());
@@ -114,8 +125,8 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public EffectFormBuilder SetDamageForm(bool versatile, DieType versatileDieType, string damageType, int bonusDamage,
-            DieType dieType, int diceNumber, HealFromInflictedDamage healFromInflictedDamage,
+        public EffectFormBuilder SetDamageForm(bool versatile = false, DieType versatileDieType = DieType.D1, string damageType = DamageTypeBludgeoning, int bonusDamage = 0,
+            DieType dieType = DieType.D1, int diceNumber = 0, HealFromInflictedDamage healFromInflictedDamage = HealFromInflictedDamage.Never,
             params TrendInfo[] damageBonusTrends)
         {
             return SetDamageForm(versatile, versatileDieType, damageType, bonusDamage, dieType,
@@ -254,6 +265,39 @@ namespace SolastaCommunityExpansion.Builders
             summonForm.SetPersistOnConcentrationLoss(persistOnConcentrationLoss);
             summonForm.SetDecisionPackage(decisionPackage);
             summonForm.SetEffectProxyDefinitionName(effectProxyDefinition.Name);
+            effectForm.SetSummonForm(summonForm);
+            return this;
+        }
+
+        public EffectFormBuilder SetSummonCreatureForm(int number, string monsterDefinitionName,
+            bool persistOnConcentrationLoss, DecisionPackageDefinition decisionPackage)
+        {
+            effectForm.FormType = EffectForm.EffectFormType.Summon;
+            SummonForm summonForm = new SummonForm();
+            summonForm.SetSummonType(SummonForm.Type.Creature);
+            summonForm.SetItemDefinition(null);
+            summonForm.SetNumber(number);
+            summonForm.SetMonsterDefinitionName(monsterDefinitionName);
+            summonForm.SetConditionDefinition(null);
+            summonForm.SetPersistOnConcentrationLoss(persistOnConcentrationLoss);
+            summonForm.SetDecisionPackage(decisionPackage);
+            summonForm.SetEffectProxyDefinitionName(null);
+            effectForm.SetSummonForm(summonForm);
+            return this;
+        }
+        
+        public EffectFormBuilder SetSummonItemForm(ItemDefinition item, int number)
+        {
+            effectForm.FormType = EffectForm.EffectFormType.Summon;
+            SummonForm summonForm = new SummonForm();
+            summonForm.SetSummonType(SummonForm.Type.InventoryItem);
+            summonForm.SetItemDefinition(item);
+            summonForm.SetNumber(number);
+            summonForm.SetMonsterDefinitionName("");//do we even need this?
+            summonForm.SetConditionDefinition(null);
+            summonForm.SetPersistOnConcentrationLoss(true);
+            summonForm.SetDecisionPackage(null);
+            summonForm.SetEffectProxyDefinitionName(null);
             effectForm.SetSummonForm(summonForm);
             return this;
         }

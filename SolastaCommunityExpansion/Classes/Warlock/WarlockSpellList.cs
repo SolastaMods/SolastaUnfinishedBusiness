@@ -12,8 +12,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock
     // keep public as CE:MC depends on it
     public static class WarlockSpells
     {
-        public static int PACT_MAGIC_SLOT_TAB_INDEX = 1;
-        // referenced by by CE:MC
+        public const int PACT_MAGIC_SLOT_TAB_INDEX = 1;
+
         // ideally this would be immutable. Could return a copy so that it can't be accidentally modified.
         public static List<SlotsByLevelDuplet> WarlockCastingSlots { get; } = new()
         {
@@ -44,8 +44,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock
             .SetGuiPresentation(Category.SpellList)
             .ClearSpells()
             .SetSpellsAtLevel(0, EldritchBlast, AnnoyingBee, ChillTouch, DancingLights, PoisonSpray, TrueStrike)
-            .SetSpellsAtLevel(1, CharmPerson, ComprehendLanguages, ExpeditiousRetreat, ProtectionFromEvilGood, 
-                /* seems like it is unfinished: HellishRebukeSpellBuilder.HellishRebukeSpell,*/ PactMarkSpell)
+            .SetSpellsAtLevel(1, CharmPerson, ComprehendLanguages, ExpeditiousRetreat, ProtectionFromEvilGood, HellishRebukeSpell, PactMarkSpell)
             .SetSpellsAtLevel(2, Darkness, HoldPerson, Invisibility, MistyStep, RayOfEnfeeblement, Shatter, SpiderClimb)
             .SetSpellsAtLevel(3, Counterspell, DispelMagic, Fear, Fly, HypnoticPattern, RemoveCurse, Tongues, VampiricTouch)
             .SetSpellsAtLevel(4, Banishment, Blight, DimensionDoor)

@@ -157,4 +157,19 @@
   <data name="WinterBreath" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WinterBreathSpell.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="HellishRebuke" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\HellishRebuke.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ElementalForm" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ElementalForm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ElementalFormEnhanced" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ElementalFormEnhanced.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ElementalFormIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ElementalFormIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ElementalFormIconEnhanced" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ElementalFormIconEnhanced.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

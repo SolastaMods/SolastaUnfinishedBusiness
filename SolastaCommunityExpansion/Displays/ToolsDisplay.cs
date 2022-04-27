@@ -5,6 +5,15 @@ namespace SolastaCommunityExpansion.Displays
 {
     internal static class ToolsDisplay
     {
+        internal static void SetFactionRelation(string name, int value)
+        {
+            var service = ServiceRepository.GetService<IGameFactionService>();
+            if (service != null)
+            {
+                service.ExecuteFactionOperation(name, FactionDefinition.FactionOperation.Increase, value - service.FactionRelations[name], "", null /* this string and monster doesn't matter if we're using "SetValue" */);
+            }
+        }
+
         internal static void DisplayTools()
         {
             bool toggle;
@@ -13,6 +22,12 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
             UI.Label("General:".yellow());
             UI.Label("");
+
+            toggle = Main.Settings.EnableSaveByLocation;
+            if (UI.Toggle("Enable save by campaigns / locations", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableSaveByLocation = toggle;
+            }
 
             toggle = Main.Settings.EnableCharacterChecker;
             if (UI.Toggle("Enable the character checker button on the character pool", ref toggle, UI.AutoWidth()))
@@ -38,6 +53,17 @@ namespace SolastaCommunityExpansion.Displays
             {
                 Main.Settings.NoExperienceOnLevelUp = toggle;
             }
+
+            UI.Label("");
+
+            intValue = Main.Settings.MaxBackupFilesPerLocationCampaign;
+            if (UI.Slider("Max. backup files per location or campaign".white(), ref intValue, 0, 20, 10))
+            {
+                Main.Settings.MaxBackupFilesPerLocationCampaign = intValue;
+            }
+
+            UI.Label("");
+            UI.Label(". Backup files are saved under " + "GAME_FOLDER/Mods/SolastaCommunityExpansion/DungeonMakerBackups".italic().yellow());
 
             UI.Label("");
             UI.Label("Faction Relations:".yellow());
@@ -79,7 +105,7 @@ namespace SolastaCommunityExpansion.Displays
 
                     if (UI.Slider("                              " + title, ref intValue, faction.MinRelationCap, faction.MaxRelationCap, 0, "", UI.AutoWidth()))
                     {
-                        SetFactionRelationsContext.SetFactionRelation(faction.Name, intValue);
+                        SetFactionRelation(faction.Name, intValue);
                     }
 
                     flip = !flip;

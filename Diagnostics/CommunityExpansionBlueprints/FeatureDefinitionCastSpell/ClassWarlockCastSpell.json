@@ -11,7 +11,7 @@
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "ShortRest",
-  "spellCastingLevel": 5,
+  "spellCastingLevel": 9,
   "knownCantrips": [
     2,
     2,

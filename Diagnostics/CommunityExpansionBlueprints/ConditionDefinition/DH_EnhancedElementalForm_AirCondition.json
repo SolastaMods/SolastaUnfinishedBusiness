@@ -5,7 +5,7 @@
   "conditionType": "Beneficial",
   "features": [
     "Definition:DamageAffinityThunderImmunity:5835d7e62c97afc4eaeae24ed7873d58",
-    "Definition:DH_ElementalForm_AiradditionalDamage:7a765a6c-2c61-5959-ab0d-959828ad141e"
+    "Definition:DH_ElementalForm_AirAdditionalDamage:07dfa4fe-32a6-5495-8df6-c0ffc54963b7"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -21,7 +21,14 @@
   "interruptionDamageThreshold": 0,
   "conditionTags": [],
   "recurrentEffectForms": [],
-  "cancellingConditions": [],
+  "cancellingConditions": [
+    "Definition:DH_EnhancedElementalForm_ShadowCondition:04cbd9a4-e02b-53bb-9679-a990aac63fe0",
+    "Definition:DH_EnhancedElementalForm_AstralCondition:7dd8bef7-0dc6-5e46-9fea-ef7037ad421c",
+    "Definition:DH_EnhancedElementalForm_EtherealCondition:6844e7d7-1e2c-5d71-8bfa-6bf1bd937631",
+    "Definition:DH_EnhancedElementalForm_FireCondition:8df4ff87-c57f-5cac-8601-ef6e359362e7",
+    "Definition:DH_EnhancedElementalForm_EarthCondition:c433a74c-fff6-516d-8096-557013327a37",
+    "Definition:DH_EnhancedElementalForm_IceCondition:9eccdb1e-985e-55f7-8f81-83819d72e4d9"
+  ],
   "additionalDamageWhenHit": false,
   "additionalDamageType": "",
   "additionalDamageQuantity": "AbilityBonus",
@@ -119,11 +126,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Elemental Form : Air Plane Condition",
-    "description": "When channeling the elemental  Air Plane, you gain Immunity to Thunder damage and once per turn, apply damage of the same type to your attack",
+    "title": "Air Plane",
+    "description": "Deal additional Thunder damage equal to your Proficiency Bonus once per round.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "762fc2db21c656b6b5423a25e61f3ed5",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

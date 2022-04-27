@@ -51,7 +51,6 @@ namespace SolastaCommunityExpansion
         //
 
         public bool AllowDynamicPowers { get; set; } = true;
-        public bool BugFixAncestryDamageTypeResolution { get; set; } = true;
         public bool BugFixButtonActivatorTriggerIssue { get; set; } = true;
         public bool BugFixConjuredUnitsTeleportWithParty { get; set; } = true;
         public bool BugFixDeityOfferingOnMulticlassHeroes { get; set; } = true;
@@ -60,12 +59,15 @@ namespace SolastaCommunityExpansion
         public bool BugFixNullRecipesOnGameSerialization { get; set; } = true;
         public bool BugFixSpellDurations { get; set; } = true;
         public bool BugFixWieldedConfigurationSelector { get; set; } = true;
+        public bool EnableCustomSpellsPatch { get; set; } = true;
         public bool EnableDungeonMakerPro { get; set; } = true;
         public bool EnableDungeonMakerRotationHotkeys { get; set; } = true;
+        public bool EnableEnforceUniqueFeatureSetChoices { get; set; } = true;
         public bool EnableFirstLevelCasterFeats { get; set; } = true;
         public bool EnableMoveSorceryPointsBox { get; set; } = true;
         public bool EnableMultiLinePowerPanel { get; set; } = true;
         public bool EnableMultiLineSpellPanel { get; set; } = true;
+        public bool EnablePowersBundlePatch { get; set; } = true;
         public bool EnableRacesScalePatch { get; set; } = true;
         public bool EnableSortingClasses { get; set; } = true;
         public bool EnableSortingDeities { get; set; } = true;
@@ -176,17 +178,8 @@ namespace SolastaCommunityExpansion
         public bool AllowStackedMaterialComponent { get; set; }
         public bool ScaleMerchantPricesCorrectly { get; set; }
         public int MultiplyTheExperienceGainedBy { get; set; } = 100;
-
-        //
-        // Gameplay - Campaigns and Locations
-        //
-
-        public bool EnableSaveByLocation { get; set; }
-        public bool EnableTelemaCampaign { get; set; }
-        public bool FollowCharactersOnTeleport { get; set; }
         public bool OverrideMinMaxLevel { get; set; }
         public int OverridePartySize { get; set; } = Models.DungeonMakerContext.GAME_PARTY_SIZE;
-        public int MaxBackupFilesPerLocationCampaign { get; set; } = 10;
 
         //
         // Gameplay - Items, Crafting & Merchants
@@ -218,10 +211,12 @@ namespace SolastaCommunityExpansion
         //
 
         // General
+        public bool EnableSaveByLocation { get; set; }
         public bool EnableCharacterChecker { get; set; }
         public bool EnableRespec { get; set; }
         public bool EnableCheatMenu { get; set; }
         public bool NoExperienceOnLevelUp { get; set; }
+        public int MaxBackupFilesPerLocationCampaign { get; set; } = 10;
 
         // Debug
         public bool DebugLogDefinitionCreation { get; set; }
@@ -254,6 +249,7 @@ namespace SolastaCommunityExpansion
         public bool AutoPauseOnVictory { get; set; }
 
         // Campaigns and Locations
+        public bool FollowCharactersOnTeleport { get; set; }
         public bool EnableAdditionalBackstoryDisplay { get; set; }
         public bool EnableAdditionalIconsOnLevelMap { get; set; }
         public bool MarkInvisibleTeleportersOnLevelMap { get; set; }

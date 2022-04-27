@@ -133,6 +133,46 @@ namespace SolastaCommunityExpansion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap ElementalForm {
+            get {
+                object obj = ResourceManager.GetObject("ElementalForm", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap ElementalFormEnhanced {
+            get {
+                object obj = ResourceManager.GetObject("ElementalFormEnhanced", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap ElementalFormIcon {
+            get {
+                object obj = ResourceManager.GetObject("ElementalFormIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap ElementalFormIconEnhanced {
+            get {
+                object obj = ResourceManager.GetObject("ElementalFormIconEnhanced", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Entry {
             get {
                 object obj = ResourceManager.GetObject("Entry", resourceCulture);
@@ -156,6 +196,16 @@ namespace SolastaCommunityExpansion.Properties {
         public static System.Drawing.Bitmap Gnome {
             get {
                 object obj = ResourceManager.GetObject("Gnome", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap HellishRebuke {
+            get {
+                object obj = ResourceManager.GetObject("HellishRebuke", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

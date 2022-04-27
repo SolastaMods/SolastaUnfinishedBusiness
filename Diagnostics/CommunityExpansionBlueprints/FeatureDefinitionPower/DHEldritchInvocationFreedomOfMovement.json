@@ -336,7 +336,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&Trickster'sEscapeTitle",
-    "description": "Cast FreedomOfMovement once per day",
+    "description": "Cast Freedom of Movement once per day",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "1bce2fdb81dad0145a160ca13db55f02",

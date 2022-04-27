@@ -1,10 +1,7 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:FindFamiliarPseudodragonPower:a4c185ba-3b40-5c9e-9ef7-6ac8eb7f8e06",
-    "Definition:FindFamiliarSpritePower:2e889454-3330-591f-92ba-383c63fce2c7",
-    "Definition:FindFamiliarImpPower:ea53a7c2-bfa1-54f1-aa07-2dc19fc28613",
-    "Definition:FindFamiliarQuasitPower:4e4b5286-6158-594e-869a-5ef4f9e124d8"
+    "Definition:FindFamiliarBundlePower:2ec35efd-e7ea-5927-81f7-006cd88c66ed"
   ],
   "mode": "Union",
   "defaultSelection": 0,
