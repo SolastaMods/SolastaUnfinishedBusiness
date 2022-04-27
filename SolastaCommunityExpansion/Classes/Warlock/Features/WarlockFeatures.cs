@@ -43,11 +43,12 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 return new List<FeatureDefinition>();
             }
 
-            //
-            // TESTING: add a filter to display only what hero has
-            //
-
-            return new List<FeatureDefinition> { HinderingBlastFeatureSet };
+            return heroBuildingData.AllActiveFeatures
+                .Where(y => DictionaryofEBInvocations.Values.Any(x => x == y)
+                    || DictionaryofEIAttributeModifers.Values.Any(x => x == y)
+                    || DictionaryofEIPowers.Values.Any(x => x == y))
+                .Distinct()
+                .ToList();
         }
 
         #region WarlockEldritchInvocationSetRemoval

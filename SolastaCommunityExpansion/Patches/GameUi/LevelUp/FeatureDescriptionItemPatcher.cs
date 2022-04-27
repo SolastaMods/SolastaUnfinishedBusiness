@@ -95,6 +95,14 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
                 return;
             }
 
+            if (__instance.Feature is FeatureDefinitionFeatureSetRemoval featureDefinitionFeatureSetRemoval)
+            {
+                __instance.ValueChanged += (x) =>
+                {
+                    featureDefinitionFeatureSetRemoval.SelectedFeatureDefinition = __instance.GetCurrentFeature();
+                };
+            }
+
             if (__instance.Feature is FeatureDefinitionFeatureSetUniqueAcross featureDefinitionFeatureSetUniqueAcross)
             {
                 CharacterStageClassSelectionPanel_Refresh.FeatureDescriptionItems.Add(__instance);
