@@ -402,7 +402,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .Create("OneWithShadowsLightAffinity", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Feature)
                 .AddLightingEffectAndCondition(Unlit)
-                .AddLightingEffectAndCondition(Dim)
                 .AddToDB();
             
             FeatureDefinitionLightAffinity OneWithShadowsLightAffinityStrong = FeatureDefinitionLightAffinityBuilder
