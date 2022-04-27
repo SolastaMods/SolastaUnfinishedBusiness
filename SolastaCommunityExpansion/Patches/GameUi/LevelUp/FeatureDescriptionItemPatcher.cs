@@ -93,6 +93,11 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
 
         internal static void Prefix(FeatureDescriptionItem __instance, FeatureDefinition featureDefinition)
         {
+            if (featureDefinition is not FeatureDefinitionFeatureSet)
+            {
+                return;
+            }
+
             var tab = new FeatureDescriptionItemTab();
             FeatureDescriptionItems.Add(__instance, tab);
 
