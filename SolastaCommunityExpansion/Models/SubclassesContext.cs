@@ -51,6 +51,7 @@ namespace SolastaCommunityExpansion.Models
             LoadSubclass(new PathOfTheLight());
             _ = new Thug(); // LoadSubclass(new Thug());
             LoadSubclass(new CircleOfTheForestGuardian());
+            LoadSubclass(new Opportunist());
 
             Subclasses = Subclasses.OrderBy(x => x.FormatTitle()).ToHashSet();
 

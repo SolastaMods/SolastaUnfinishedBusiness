@@ -926,7 +926,11 @@ Feature/&MoonLitLightAffinityDescription	You can become invisible in dim light o
 Feature/&MoonLitLightAffinityTitle	Umbral Cloak
 Feature/&OneWithShadowsDescription	When you are in an area of dim light or darkness, you become invisible until you move or take an action or a reaction.
 Feature/&OneWithShadowsTitle	One With Shadows
-Feature/&OtherworldlyLeapTitle	Otherworldly Leap
+Feature/&OpportunistDebilitatingStrikeDescription Your sneak attack cause one of following conditions (Blinded/Bane/Bleeding/Stuned) to enemies if they fail a CON save vs 8 + your Dexerity + your proficiency.
+Feature/&OpportunistDebilitatingStrikeTitle Debilitating Strike
+Feature/&OpportunistQuickStrikeDescription You have advatange when attack an enemies whose initiative is lower than yours. In addition you also have advatange when perform an attack of opportunity.
+Feature/&OpportunistQuickStrikeTitle Quick Strike
+Feature/&OtherworldlyLeapTitle  Otherworldly Leap
 Feature/&PowerAttackAttackModifierDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged.
 Feature/&PowerAttackAttackModifierTitle	One handed power attack
 Feature/&PowerAttackConditionDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged.
@@ -1513,6 +1517,8 @@ Subclass/&MagicAffinitySpellMasterScribingDescription	Scribing spells takes 1/4 
 Subclass/&MagicAffinitySpellMasterScribingTitle	Master Scriber
 Subclass/&ManipulatorMentalSavingThrowsDescription	Gain proficiency in saving throws with Constitution and Charisma.
 Subclass/&ManipulatorMentalSavingThrowsTitle	Mental Resistance
+Subclass/&OpportunistDescription Opportunist are those who never let a chance to finish their enemis slides.They stab fast and stab where it matters. Not many faced them can escaped unscratched.
+Subclass/&OpportunistTitle Opportunist
 Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponDescription	You infuse your weapon with power. Your attacks count as Magical and you add your +7 to your attack and damage rolls. Note you can only have an infusion active once. Activating it a second time will cancel the first.
 Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponTitle	Improved Infuse Weapon
 Subclass/&PowerArtificerBattleSmithInfuseWeaponDescription	You infuse your weapon with power. Your attacks count as Magical and you use your intelligence for attack and damage rolls until the next long rest
