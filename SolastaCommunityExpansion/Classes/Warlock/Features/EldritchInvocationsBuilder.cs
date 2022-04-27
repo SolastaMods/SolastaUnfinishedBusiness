@@ -4,6 +4,7 @@ using System.Linq;
 using SolastaModApi;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.Classes.Warlock.Subclasses;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi.Infrastructure;
@@ -20,7 +21,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         public static SpellDefinition EldritchBlast { get; set; }
         public static Dictionary<string, FeatureDefinition> DictionaryofEBInvocations { get; private set; } = new();
         public static List<string> ListofEIAttributeModifers { get; private set; } = new();
-        public static Dictionary<string, FeatureDefinitionFeatureSet> DictionaryofEIAttributeModifers { get; private set; } = new();
+        public static Dictionary<string, FeatureDefinitionFeatureSetWithPreRequisites> DictionaryofEIAttributeModifers { get; private set; } = new();
         public static FeatureDefinitionFeatureSetWithPreRequisites AgonizingBlastFeatureSet { get; set; }
         public static FeatureDefinitionFeatureSetWithPreRequisites HinderingBlastFeatureSet { get; set; }
 
@@ -312,7 +313,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                     "GiftoftheProtectors",           // DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityHalfOrcRelentlessEndurance);
                     "BondoftheTalisman",             // DatabaseHelper.FeatureDefinitionPowers.PowerSorakShadowEscape);
                     "WitchSight",                    // DatabaseHelper.FeatureDefinitionSenses.SenseSeeInvisible12;
-                    "OneWithShadows"
+                    "OneWithShadows",
+                    "OneWithShadowsStronger"
                     //   "Lifedrinker",                   // similar to AdditionalDamageDomainOblivionStrikeOblivion +damageValueDetermination = RuleDefinitions.AdditionalDamageValueDetermination.SpellcastingBonus;
                     //"Devil'sSight",                // DatabaseHelper.FeatureDefinitionSenses.SenseDarkvision24 or maybe similar to ConditionAffinityVeilImmunity needs to cover multiple darkness conditions ConditionDarkness ConditionVeil
                     //"GazeofTwoMinds",              //
@@ -339,11 +341,10 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                  "Feature/&" + entry + "Title",
                 "Feature/&" + entry + "Description")
                 .Build();
-                var FeatureSetEldritchInvocationsBuilder = FeatureDefinitionFeatureSetBuilder
-                    .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, textEIAttributeModifers, DefinitionBuilder.CENamespaceGuid)
-                    .SetGuiPresentation(guiFeatureSetEldritchInvocations);
 
-                FeatureDefinitionFeatureSet FeatureSetEldritchInvocations = FeatureSetEldritchInvocationsBuilder
+                var FeatureSetEldritchInvocations = FeatureDefinitionFeatureSetWithPreRequisitesBuilder
+                    .Create(textEIAttributeModifers, DefinitionBuilder.CENamespaceGuid)
+                    .SetGuiPresentation(guiFeatureSetEldritchInvocations)
                     .ClearFeatureSet()
                     .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                     .SetUniqueChoices(false)
@@ -372,32 +373,50 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             //  DictionaryofEIAttributeModifers["Lifedrinker"].FeatureSet.Add();
             DictionaryofEIAttributeModifers["WitchSight"].FeatureSet.Add(DatabaseHelper.FeatureDefinitionSenses.SenseSeeInvisible12);
 
+            
+            var shadowsInvisibiityConditionDefinition = ConditionDefinitionBuilder
+                .Create( "WarlockConditionShadowsSpecial", DefinitionBuilder.CENamespaceGuid)
+                .SetSilent(Silent.WhenAddedOrRemoved)
+                .SetGuiPresentationNoContent()
+                .SetFeatures(DHWarlockSubclassMoonLitPatron.InvisibilityFeature)
+                .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.StartOfTurn)
+                .AddToDB();
 
             var Unlit = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
             {
                 lightingState = LocationDefinitions.LightingState.Unlit,
-                condition = DatabaseHelper.ConditionDefinitions.ConditionInvisible
+                condition = shadowsInvisibiityConditionDefinition
             };
             var Dim = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
             {
                 lightingState = LocationDefinitions.LightingState.Dim,
-                condition = DatabaseHelper.ConditionDefinitions.ConditionInvisible
+                condition = shadowsInvisibiityConditionDefinition
             };
             var Darkness = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
             {
                 lightingState = LocationDefinitions.LightingState.Darkness,
-                condition = DatabaseHelper.ConditionDefinitions.ConditionInvisible
+                condition = shadowsInvisibiityConditionDefinition
             };
 
             FeatureDefinitionLightAffinity OneWithShadowsLightAffinity = FeatureDefinitionLightAffinityBuilder
                 .Create("OneWithShadowsLightAffinity", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation("OneWithShadowsLightAffinity", Category.Feature)
+                .SetGuiPresentation(Category.Feature)
                 .AddLightingEffectAndCondition(Unlit)
+                .AddLightingEffectAndCondition(Dim)
+                .AddToDB();
+            
+            FeatureDefinitionLightAffinity OneWithShadowsLightAffinityStrong = FeatureDefinitionLightAffinityBuilder
+                .Create("OneWithShadowsLightAffinityStrong", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(Category.Feature)
                 .AddLightingEffectAndCondition(Dim)
                 .AddLightingEffectAndCondition(Darkness)
                 .AddToDB();
 
             DictionaryofEIAttributeModifers["OneWithShadows"].FeatureSet.Add(OneWithShadowsLightAffinity);
+            DictionaryofEIAttributeModifers["OneWithShadows"].Validators.SetRange(() => !Global.ActiveLevelUpHeroHasSubclass("MoonLit"));
+            
+            DictionaryofEIAttributeModifers["OneWithShadowsStronger"].FeatureSet.Add(OneWithShadowsLightAffinityStrong);
+            DictionaryofEIAttributeModifers["OneWithShadowsStronger"].Validators.SetRange(() => Global.ActiveLevelUpHeroHasFeature(OneWithShadowsLightAffinity));
 
 
         }

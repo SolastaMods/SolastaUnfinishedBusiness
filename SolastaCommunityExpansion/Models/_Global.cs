@@ -35,5 +35,29 @@ namespace SolastaCommunityExpansion.Models
 
             return hero.SpellRepertoires.Any(x => x.KnownCantrips.Contains(spellDefinition));
         }
+        
+        public static bool ActiveLevelUpHeroHasSubclass(string subclass)
+        {
+            var hero = ActiveLevelUpHero;
+
+            if (hero == null)
+            {
+                return true;
+            }
+
+            return hero.ClassesAndSubclasses.Any(e => e.Value.Name == subclass);
+        }
+
+        public static bool ActiveLevelUpHeroHasFeature(FeatureDefinition feature)
+        {
+            var hero = ActiveLevelUpHero;
+
+            if (hero == null)
+            {
+                return true;
+            }
+
+            return CustomFeaturesContext.FeaturesByType<FeatureDefinition>(hero).Any(f => f == feature);
+        }
     }
 }

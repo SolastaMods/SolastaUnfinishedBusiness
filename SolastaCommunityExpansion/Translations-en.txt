@@ -961,14 +961,20 @@ Feature/&MoonLitDarknessImmunityDescription	You are Immune to the Darkness condi
 Feature/&MoonLitDarknessImmunityTitle	MoonLit Darkness
 Feature/&MoonLitExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: \n Level 1: Faerie Fire, Sleep \n Level 2: Moon Beam, See Invisibility \n Level 3: Daylight, Hypnotic Pattern \n Level 4: Greater Invisibility, Dominate Beast \n Level 5: Dominate Person, Flame Strike
 Feature/&MoonLitExpandedSpelllistAfinityTitle	MoonLit Spelllist
-Feature/&MoonLitLightAffinityDescription	You can become invisible in dim light or natural darkness
+Feature/&MoonLitLightAffinityDescription	If you start your turn in natural darkness you gain invisibility. Moving, attacking or using any power or spell that isn't teleport or self-buff breaks invisibility.
 Feature/&MoonLitLightAffinityTitle	Umbral Cloak
+Feature/&MoonLitLightAffinityStrongDescription	Umbral Cloak now works in dim light and magical darkness.
+Feature/&MoonLitLightAffinityStrongTitle	Improved Umbral Cloak
 Feature/&WitchSightDescription	You can sense or see invisibility up to 60 ft
 Feature/&WitchSightTitle	Witch Sight
-Feature/&OneWithShadowsDescription	When you are in an area of dim light or darkness, you become invisible until you move or take an action or a reaction.
+Feature/&OneWithShadowsDescription	If you start your turn in natural darkness you gain invisibility. Moving, attacking or using any power or spell that isn't teleport or self-buff breaks invisibility.
 Feature/&OneWithShadowsTitle	One With Shadows
-Feature/&OneWithShadowsLightAffinityDescription	When you are in an area of dim light or darkness, you become invisible until you move or take an action or a reaction.
+Feature/&OneWithShadowsLightAffinityDescription	If you start your turn in natural darkness you gain invisibility. Moving, atacking or using any power or spell that isn't teleport or self-buff breaks invisibility.
 Feature/&OneWithShadowsLightAffinityTitle	One With Shadows
+Feature/&OneWithShadowsStrongerDescription	One With Shadows now works in dim light and magical darkness.
+Feature/&OneWithShadowsStrongerTitle	Darker Shadows
+Feature/&OneWithShadowsLightAffinityStrongDescription	One With Shadows now works in dim light and magical darkness.
+Feature/&OneWithShadowsLightAffinityStrongTitle	Darker Shadows
 Feature/&OtherworldlyLeapTitle	Otherworldly Leap
 Feature/&PowerAttackAttackModifierDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged.
 Feature/&PowerAttackAttackModifierTitle	One handed power attack

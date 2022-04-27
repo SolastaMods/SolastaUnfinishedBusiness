@@ -123,6 +123,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             Undying Servitude - summon a a skeleton or zombie
             */
             .AddFeatureSet(
+                DictionaryofEIAttributeModifers["OneWithShadows"],
                 DictionaryofEIPowers["MiretheMind"],
                 DictionaryofEIAttributeModifers["EldritchSmite"],
                 DictionaryofEIAttributeModifers["ThirstingBlade"],
@@ -137,7 +138,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         public static FeatureDefinitionFeatureSetDynamic WarlockEldritchInvocationSetLevel7 => warlockEldritchInvocationSetLevel7 ??= FeatureDefinitionFeatureSetDynamicBuilder
             .Create(WarlockEldritchInvocationSetLevel5, "ClassWarlockEldritchInvocationSetLevel7", CENamespaceGuid)
             .AddFeatureSet(
-                DictionaryofEIAttributeModifers["OneWithShadows"],
+                DictionaryofEIAttributeModifers["OneWithShadowsStronger"],
                 DictionaryofEIPowers["DreadfulWord"],
                 DictionaryofEIPowers["Trickster'sEscape"]
             )

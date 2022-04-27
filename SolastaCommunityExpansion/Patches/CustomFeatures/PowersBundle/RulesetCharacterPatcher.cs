@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
+using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
@@ -104,6 +105,40 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
                 spells.Add(spellDefinition);
                 Helper.TerminatePowers(__instance, null, powers);
                 Helper.TerminateSpells(__instance, spellDefinition, spells);
+            }
+        }
+    }
+    
+    [HarmonyPatch(typeof(RulesetCharacter), "OnConditionAdded")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RulesetActor_OnConditionAdded
+    {
+        internal static void Postfix(RulesetCharacter __instance, RulesetCondition activeCondition)
+        {
+            var features = activeCondition.ConditionDefinition.Features.ToList();
+            foreach (var feature in features)
+            {
+                if (feature is ICustomConditionFeature custom)
+                {
+                    custom.ApplyFeature(__instance);
+                }
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetCharacter), "OnConditionRemoved")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RulesetActor_OnConditionRemoved
+    {
+        internal static void Postfix(RulesetCharacter __instance, RulesetCondition activeCondition)
+        {
+            var features = activeCondition.ConditionDefinition.Features.ToList();
+            foreach (var feature in features)
+            {
+                if (feature is ICustomConditionFeature custom)
+                {
+                    custom.RemoveFeature(__instance);
+                }
             }
         }
     }
