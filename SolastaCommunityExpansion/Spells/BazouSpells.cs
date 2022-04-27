@@ -53,7 +53,7 @@ namespace SolastaCommunityExpansion.Spells
         internal static void Register()
         {
             RegisterSpell(EldritchOrb, 1, WitchSpellList, WarlockSpellList);
-            RegisterSpell(FindFamiliar, 1, WitchSpellList, SpellListWizard);
+            RegisterSpell(FindFamiliar, 1, WitchSpellList, SpellListWizard, WarlockSpellList);
             RegisterSpell(Frenzy, 1, WitchSpellList, WarlockSpellList, SpellListWizard, SpellListSorcerer);
             RegisterSpell(MinorLifesteal, 1, WitchSpellList, SpellListWizard);
             RegisterSpell(PetalStorm, 1, WitchSpellList, SpellListDruid);
