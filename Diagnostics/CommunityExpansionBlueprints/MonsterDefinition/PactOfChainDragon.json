@@ -2,14 +2,14 @@
   "$type": "MonsterDefinition, Assembly-CSharp",
   "dungeonMakerPresence": "None",
   "overrideSpawnDecision": "Definition:IdleGuard_NoIntercept:81e247c4ebe23c741800c91fd18c473e",
-  "characterFamily": "Fey",
+  "characterFamily": "Dragon",
   "creatureTags": [
     "WarlockFamiliar"
   ],
   "defaultFaction": "Party",
   "fullyControlledWhenAllied": true,
   "sizeDefinition": "Definition:Tiny:6561a80034010bd4da9142d87919eeb2",
-  "alignment": "Neutral",
+  "alignment": "NeutralGood",
   "armorClass": 13,
   "armor": "",
   "hitDice": 2,
@@ -113,7 +113,7 @@
     "Definition:AbilityCheckAffinityKeenSight:3c05196978fcf854e886aec1e67e64e8",
     "Definition:MoveModeFly12:5e70172c8e2a40146b375001ab656a44",
     "Definition:MoveModeMove2:0127a492ba7a429408b3282dde9374d7",
-    "Definition:PactofChainFamiliarSpellResistencePower:7c093f2b-76c0-5998-9b2a-047ea74b8e9e",
+    "Definition:SavingThrowAffinitySpellResistance:d6341ebb2cb967949b4426e31e993b86",
     "Definition:SenseBlindSight2:f6e92e044ad5c9945b1c01d9891bf49d",
     "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
     "Definition:SenseSuperiorDarkvision:388ca3fa81ee8a84c831be14214fd1c0"
@@ -122,12 +122,12 @@
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
-      "monsterAttackDefinition": "Definition:AttackWarlockDragonBite:3583e00c-deda-51ae-81f9-f5ec2e017a0e"
+      "monsterAttackDefinition": "Definition:AttackWarlockDragonSting:ba63da1f-4cac-554a-8892-1a950e3fc46b"
     },
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
-      "monsterAttackDefinition": "Definition:AttackWarlockDragonSting:ba63da1f-4cac-554a-8892-1a950e3fc46b"
+      "monsterAttackDefinition": "Definition:AttackWarlockDragonBite:3583e00c-deda-51ae-81f9-f5ec2e017a0e"
     }
   ],
   "sneakStance": "Stealth",

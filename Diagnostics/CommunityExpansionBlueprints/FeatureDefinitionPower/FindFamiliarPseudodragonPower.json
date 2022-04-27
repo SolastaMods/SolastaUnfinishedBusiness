@@ -77,8 +77,8 @@
           "trackItem": false,
           "monsterDefinitionName": "PactOfChainDragon",
           "number": 1,
-          "conditionDefinition": null,
-          "persistOnConcentrationLoss": true,
+          "conditionDefinition": "Definition:ConditionFlyingBootsWinged:83fc6ceb7037bcb41b2fc67df5595685",
+          "persistOnConcentrationLoss": false,
           "decisionPackage": null,
           "effectProxyDefinitionName": null
         }

@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaCommunityExpansion.Builders.FeatureDefinitionFreeBonusCantrips, SolastaCommunityExpansion",
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFreeBonusCantrips, SolastaCommunityExpansion",
   "bonusCantrips": [
     "Definition:ChillTouch:2dffe98ad497e4b418abc947f6077fb7",
     "Definition:Shillelagh:2143d3cd84db2c540b80fe022d0adf1d"

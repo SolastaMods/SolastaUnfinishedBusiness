@@ -9,6 +9,13 @@ Condition/&HalfLifeConditionTitle	HalfLife
 Condition/&RuinedDescription	This creature's defence is reduced.
 Condition/&RuinedTitle	Ruined
 CraftyFeats/&CraftyHerbalismKitDescription	Herbalism Kit proficiency or expertise
+Feedback/&AncientForestHerbalBrewToxifyingPowerUsedWhileTravellingFormat	{0} creates {1}
+Feedback/&AncientForestHerbalBrewHealingPowerUsedWhileTravellingFormat	{0} creates {1}
+Feedback/&AncientForestHerbalBrewDamageAffinityAcidResistancePowerUsedWhileTravellingFormat	{0} creates {1}
+Feedback/&AncientForestHerbalBrewDamageAffinityLightningResistancePowerUsedWhileTravellingFormat	{0} creates {1}
+Feedback/&AncientForestHerbalBrewDamageAffinityNecroticResistancePowerUsedWhileTravellingFormat	{0} creates {1}
+Feedback/&AncientForestHerbalBrewDamageAffinityPoisonResistancePowerUsedWhileTravellingFormat	{0} creates {1}
+Feedback/&AncientForestHerbalBrewDamageAffinityRadiantResistancePowerUsedWhileTravellingFormat	{0} creates {1}
 Feat/&AddProtectorConstructCantripDescription	Adds Mending Construct and Dismiss Construct cantrips to increase your constructs flexibility
 Feat/&AddProtectorConstructCantripTitle	Bonus Construct Cantrips
 Feat/&ArtificerArtillerstImprovedCannonsDescription	The effect from your cannons increases. Additional damage from the fire, an additional target from the force, and additional temp HP from the shield.
@@ -68,13 +75,13 @@ Feature/&ElementalPactEarthPlane	Earth Plane
 Feature/&ElementalPactIcePlane	Ice Plane
 Feature/&ElementalPactAirPlane	Air Plane
 Feature/&ElementalPatronElementalDamageFormatTitle	Elemental Damage: {0}
-Feature/&ElementalPatronElementalDamageFormatDescription	When channeling {0}, deal additional {1} damage equal to your Proficiency Bonus once per round.
-Feature/&ElementalPatronElementalConditionFormatTitle	{0}
-Feature/&ElementalPatronElementalConditionFormatDescription	Deal additional {1} damage equal to your Proficiency Bonus once per round.
+Feature/&ElementalPatronElementalDamageFormatDescription	When channeling {0}, deal additional {1} damage equal to your Proficiency Bonus on a first hit each round.
+Feature/&ElementalPatronElementalConditionFormatTitle	Channeling {0}
+Feature/&ElementalPatronElementalConditionFormatDescription	Deal additional {1} damage equal to your Proficiency Bonus on a first hit each round.
 Feature/&ElementalPatronElementalFormFormatTitle	{0}
-Feature/&ElementalPatronElementalFormFormatDescription	When channeling the {0}, you gain Resistance to {1} damage and once per turn, apply damage of the same type to your attack
-Feature/&ElementalPatronElementalFormEnhancedFormatTitle	{0}
-Feature/&ElementalPatronElementalFormEnhancedFormatDescription	When channeling the {0}, you gain Immunity to {1} damage and once per turn, apply damage of the same type to your attack
+Feature/&ElementalPatronElementalFormFormatDescription	When channeling the {0}, you gain Resistance to {1} damage and apply Proficiency Bonus as damage of the same type to first hit each round. 
+Feature/&ElementalPatronElementalFormEnhancedFormatTitle	Channeling {0}
+Feature/&ElementalPatronElementalFormEnhancedFormatDescription	When channeling the {0}, you gain Immunity to {1} and apply Proficiency Bonus as damage of the same type to first hit each round.
 Feature/&HinderingBlastMagicAffinityDescription	when you hit a creature with your eldritch blast, you can reduce that creature's speed by 10 feet until the end of your next turn
 Feature/&HinderingBlastMagicAffinityTitle	Hindering Blast
 Feature/&IndomitableResistanceTitle	Indomitable Resistance
@@ -131,6 +138,7 @@ Message/&SpawnCustomEncounterErrorDescription	Cannot spawn encounters on a multi
 Message/&SpawnCustomEncounterTitle	Encounter
 Message/&TeleportPartyDescription	Teleport party to coordinates ({0}, {1})?\nYou might break quests or maps if you teleport to an undiscovered place
 Message/&TeleportPartyTitle	Teleport
+MonsterAttack/&AttackWarlockQuasitStingTitle	Poisonous Sting
 Feedback/&AdditionalDamageAncientForestLifeSapFormat	Life Sap!
 Feedback/&AdditionalDamageAncientForestLifeSapLine	Life Sap deals extra damage and heals! 
 Power/&UrPriestControlUndeadDescription	As an action, you target one undead creature you can see within 30 feet of you. The target must make a Wisdom saving throw. On a failed save, the target must obey your commands

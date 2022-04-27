@@ -45,16 +45,16 @@
     "durationType": "Instantaneous",
     "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
-    "hasSavingThrow": false,
-    "disableSavingThrowOnAllies": false,
-    "savingThrowAbility": "Dexterity",
+    "hasSavingThrow": true,
+    "disableSavingThrowOnAllies": true,
+    "savingThrowAbility": "Constitution",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
     "hasShoveRoll": false,
     "createdByCharacter": false,
-    "difficultyClassComputation": "SpellCastingFeature",
-    "savingThrowDifficultyAbility": "Wisdom",
-    "fixedSavingThrowDifficultyClass": 15,
+    "difficultyClassComputation": "FixedValue",
+    "savingThrowDifficultyAbility": null,
+    "fixedSavingThrowDifficultyClass": 11,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
     "advantageForEnemies": false,
@@ -72,8 +72,8 @@
         "$type": "EffectForm, Assembly-CSharp",
         "formType": "Damage",
         "addBonusMode": "None",
-        "applyLevel": "AddBonus",
-        "levelType": "CharacterLevel",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
         "levelMultiplier": 1,
         "createdByCharacter": false,
         "createdByCondition": false,
@@ -96,6 +96,32 @@
           "specialDeathCondition": null,
           "ignoreFlyingCharacters": false,
           "ignoreCriticalDoubleDice": false
+        }
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Condition",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "createdByCharacter": false,
+        "createdByCondition": false,
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "Negates",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "EndOfTurn",
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "ConditionPoisoned",
+          "conditionDefinition": "Definition:ConditionPoisoned:185ea6cfd1e758448bf574c4055af482",
+          "operation": "Add",
+          "conditionsList": [
+            "Definition:ConditionPoisoned:185ea6cfd1e758448bf574c4055af482"
+          ],
+          "applyToSelf": false,
+          "forceOnSelf": false
         }
       }
     ],
@@ -286,8 +312,8 @@
   "projectileBone": "Prop1",
   "itemDefinitionMainHand": null,
   "itemDefinitionOffHand": null,
-  "useAnimationTag": true,
-  "animationTag": "Dagger",
+  "useAnimationTag": false,
+  "animationTag": "NoWeapon",
   "chargePrepareParticle": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
@@ -325,10 +351,10 @@
           "guid": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A",
           "name": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A"
         },
-        "objectName": "Claw_Heavy",
-        "id": 1423590348,
-        "guid": "A16416FB-C4A3-4682-B4FE-E8E5743FC4A4",
-        "name": "A16416FB-C4A3-4682-B4FE-E8E5743FC4A4"
+        "objectName": "Bite_Spider",
+        "id": 687401221,
+        "guid": "F237E74A-F96B-4631-AECF-E9CEC25B572A",
+        "name": "F237E74A-F96B-4631-AECF-E9CEC25B572A"
       },
       "groupIdInternal": 0,
       "groupGuidInternal": {
@@ -345,13 +371,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "MonsterAttacks/&Attack_Claws_Title",
-    "description": "Feature/&NoContentTitle",
+    "title": "MonsterAttack/&AttackWarlockDragonStingTitle",
+    "description": "MonsterAttack/&AttackWarlockDragonStingDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

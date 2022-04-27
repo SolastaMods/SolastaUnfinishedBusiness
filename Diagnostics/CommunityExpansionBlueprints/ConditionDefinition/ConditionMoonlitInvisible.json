@@ -12,7 +12,7 @@
   "durationType": "Hour",
   "durationParameterDie": "D4",
   "durationParameter": 1,
-  "turnOccurence": "EndOfTurn",
+  "turnOccurence": "StartOfTurn",
   "specialInterruptions": [
     "Attacks",
     "CastSpell",
@@ -22,7 +22,9 @@
   "interruptionDamageThreshold": 0,
   "conditionTags": [],
   "recurrentEffectForms": [],
-  "cancellingConditions": [],
+  "cancellingConditions": [
+    "Definition:ConditionMoonlitRevealed:c70ada23-3133-5b4d-a435-b1e884b04348"
+  ],
   "additionalDamageWhenHit": false,
   "additionalDamageType": "",
   "additionalDamageQuantity": "AbilityBonus",

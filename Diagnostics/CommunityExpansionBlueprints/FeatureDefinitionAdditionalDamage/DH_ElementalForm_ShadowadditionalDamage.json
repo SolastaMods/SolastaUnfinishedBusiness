@@ -3,7 +3,7 @@
   "notificationTag": "ElementalDamage",
   "limitedUsage": "OncePerTurn",
   "triggerCondition": "AlwaysActive",
-  "requiredProperty": "MeleeWeapon",
+  "requiredProperty": "None",
   "attackModeOnly": false,
   "requiredTargetCondition": null,
   "requiredTargetSenseType": "Darkvision",
@@ -39,7 +39,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Elemental Damage: Shadow Plane",
-    "description": "When channeling Shadow Plane, deal additional Necrotic damage equal to your Proficiency Bonus once per round.",
+    "description": "When channeling Shadow Plane, deal additional Necrotic damage equal to your Proficiency Bonus on a first hit each round.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

@@ -295,8 +295,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Astral Plane",
-    "description": "When channeling the Astral Plane, you gain Immunity to Psychic damage and once per turn, apply damage of the same type to your attack",
+    "title": "Channeling Astral Plane",
+    "description": "When channeling the Astral Plane, you gain Immunity to Psychic and apply Proficiency Bonus as damage of the same type to first hit each round.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

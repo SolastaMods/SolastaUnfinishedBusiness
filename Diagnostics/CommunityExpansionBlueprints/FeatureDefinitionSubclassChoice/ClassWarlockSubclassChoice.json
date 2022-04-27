@@ -2,6 +2,7 @@
   "$type": "FeatureDefinitionSubclassChoice, Assembly-CSharp",
   "subclasses": [
     "AHWarlockSubclassSoulBladePact",
+    "AncientForest",
     "DHWarlockSubclassElementalPatron",
     "DHWarlockSubclassRiftWalker",
     "MoonLit",

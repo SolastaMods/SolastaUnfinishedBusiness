@@ -2,7 +2,10 @@
   "$type": "SpellDefinition, Assembly-CSharp",
   "spellsBundle": false,
   "subspellsList": [
-    "Definition:SpellFindFamiliarPseudodragonPower:c7930334-79af-5b58-9126-8d4144ac6d60"
+    "Definition:SpellFindFamiliarPseudodragonPower:c7930334-79af-5b58-9126-8d4144ac6d60",
+    "Definition:SpellFindFamiliarSpritePower:adb8028d-fa9b-5581-9622-b8ba910adb9e",
+    "Definition:SpellFindFamiliarImpPower:ff51b8ca-5445-5a6e-bd0e-4bf9d70e1d20",
+    "Definition:SpellFindFamiliarQuasitPower:9b47d513-e931-5e71-bdb7-9b173910c064"
   ],
   "implemented": true,
   "schoolOfMagic": "SchoolEvocation",

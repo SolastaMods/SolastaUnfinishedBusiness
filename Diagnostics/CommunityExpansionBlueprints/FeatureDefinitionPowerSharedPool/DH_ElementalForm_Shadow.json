@@ -296,7 +296,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Shadow Plane",
-    "description": "When channeling the Shadow Plane, you gain Resistance to Necrotic damage and once per turn, apply damage of the same type to your attack",
+    "description": "When channeling the Shadow Plane, you gain Resistance to Necrotic damage and apply Proficiency Bonus as damage of the same type to first hit each round. ",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

@@ -181,6 +181,16 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWarlockEldritchInvocationSetLevel5:8c6e6b04-341a-5952-bad1-67174e518ad3",
+      "level": 5
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWarlockEldritchInvocationSetRemoval:e3d6c468-3ae7-5cfa-94c2-0a0c4b002dfa",
+      "level": 5
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ClassWarlockEldritchInvocationSetLevel7:52acc393-bcf9-56dd-a2a2-023853703d56",
       "level": 7
     },

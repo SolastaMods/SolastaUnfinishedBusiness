@@ -152,8 +152,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Air Plane",
-    "description": "When channeling the Air Plane, you gain Immunity to Thunder damage and once per turn, apply damage of the same type to your attack",
+    "title": "Channeling Air Plane",
+    "description": "When channeling the Air Plane, you gain Immunity to Thunder and apply Proficiency Bonus as damage of the same type to first hit each round.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

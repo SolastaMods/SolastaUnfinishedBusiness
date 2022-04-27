@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaCommunityExpansion.Builders.FeatureDefinitionFreeBonusCantrips, SolastaCommunityExpansion",
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFreeBonusCantrips, SolastaCommunityExpansion",
   "bonusCantrips": [
     "Definition:DHAtWillWardingBond:098c6c7e-41e9-52a6-b232-02ac65ab2ab2"
   ],

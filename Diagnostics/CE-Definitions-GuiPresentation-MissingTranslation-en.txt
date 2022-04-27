@@ -1,1 +1,2 @@
+AttackWarlockImpSting	Description='MonsterAttack/&AttackWarlockImpStingDescription'.
 WardenArmorProficiencyMulticlass	Title='Feature/&WardenArmorProficiencyTitle'.

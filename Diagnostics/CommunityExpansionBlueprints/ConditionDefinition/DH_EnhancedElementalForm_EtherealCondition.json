@@ -21,14 +21,7 @@
   "interruptionDamageThreshold": 0,
   "conditionTags": [],
   "recurrentEffectForms": [],
-  "cancellingConditions": [
-    "Definition:DH_EnhancedElementalForm_ShadowCondition:04cbd9a4-e02b-53bb-9679-a990aac63fe0",
-    "Definition:DH_EnhancedElementalForm_AstralCondition:7dd8bef7-0dc6-5e46-9fea-ef7037ad421c",
-    "Definition:DH_EnhancedElementalForm_FireCondition:8df4ff87-c57f-5cac-8601-ef6e359362e7",
-    "Definition:DH_EnhancedElementalForm_EarthCondition:c433a74c-fff6-516d-8096-557013327a37",
-    "Definition:DH_EnhancedElementalForm_IceCondition:9eccdb1e-985e-55f7-8f81-83819d72e4d9",
-    "Definition:DH_EnhancedElementalForm_AirCondition:973f0538-b2b6-54c4-b7a4-c0930b8f0857"
-  ],
+  "cancellingConditions": [],
   "additionalDamageWhenHit": false,
   "additionalDamageType": "",
   "additionalDamageQuantity": "AbilityBonus",
@@ -126,8 +119,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Ethereal Plane",
-    "description": "Deal additional Force damage equal to your Proficiency Bonus once per round.",
+    "title": "Channeling Ethereal Plane",
+    "description": "Deal additional Force damage equal to your Proficiency Bonus on a first hit each round.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "762fc2db21c656b6b5423a25e61f3ed5",

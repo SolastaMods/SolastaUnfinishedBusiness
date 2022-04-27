@@ -3,57 +3,28 @@
   "dungeonMakerPresence": "None",
   "overrideSpawnDecision": null,
   "characterFamily": "Fey",
-  "creatureTags": [],
+  "creatureTags": [
+    "WarlockFamiliar"
+  ],
   "defaultFaction": "Party",
   "fullyControlledWhenAllied": true,
   "sizeDefinition": "Definition:Tiny:6561a80034010bd4da9142d87919eeb2",
   "alignment": "NeutralGood",
   "armorClass": 15,
-  "armor": "",
+  "armor": "LeatherType",
   "hitDice": 1,
   "hitDiceType": "D4",
-  "hitPointsBonus": 0,
+  "hitPointsBonus": 2,
   "standardHitPoints": 2,
   "abilityScores": [
     3,
     18,
     10,
     14,
-    13,
+    12,
     11
   ],
-  "savingThrowScores": [
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Charisma",
-      "bonus": 0
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Constitution",
-      "bonus": 0
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Dexterity",
-      "bonus": 0
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Intelligence",
-      "bonus": 0
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Strength",
-      "bonus": 0
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Wisdom",
-      "bonus": 0
-    }
-  ],
+  "savingThrowScores": [],
   "skillScores": [
     {
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
@@ -71,7 +42,7 @@
   "maxLegendaryActionPoints": 3,
   "differentActionEachTurn": false,
   "legendaryActionOptions": [],
-  "defaultBattleDecisionPackage": "Definition:DragonCombatDecisions:2b0886bfdfbcbdd439dad800e901771e",
+  "defaultBattleDecisionPackage": "Definition:DryadCombatDecisions:759fe2939a38aea47804db2e97e12e6e",
   "threatEvaluatorDefinition": {
     "$type": "TA.AI.ThreatEvaluatorDefinition, Assembly-CSharp",
     "threatEvaluator": {
@@ -101,24 +72,25 @@
   "audioRaceRTPCValue": 46.0,
   "challengeRating": 0.25,
   "noExperienceGain": false,
-  "droppedLootDefinition": "Definition:Dryad_loot_drop:62b569a7c974b27448c2aa2a7dff2c37",
+  "droppedLootDefinition": null,
   "stealableLootDefinition": null,
   "bestiaryLootOptions": [],
   "features": [
     "Definition:MoveModeFly8:d7d73f75fe686914f998f3c7b3f83e28",
-    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
-    "Definition:PactofChainFamiliarInvisibilityPower:64ab8210-621d-5180-8af8-a41c3759169f"
+    "Definition:MoveModeMove2:0127a492ba7a429408b3282dde9374d7",
+    "Definition:PactofChainFamiliarInvisibilityPower:64ab8210-621d-5180-8af8-a41c3759169f",
+    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945"
   ],
   "attackIterations": [
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
-      "monsterAttackDefinition": "Definition:Attack_Goblin_PebbleThrow:c485f2e952abc3d47b571b0e5ca63732"
+      "monsterAttackDefinition": "Definition:AttackWarlockSpriteBow:8c0570c7-516b-5a37-83c0-b4c05ae74315"
     },
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
-      "monsterAttackDefinition": "Definition:Attack_Mage_Dagger:711167f70938ce846aa5be08bd918fbb"
+      "monsterAttackDefinition": "Definition:AttackWarlockSpriteSword:ff8ec2d3-c4bd-5017-a3ce-7b1fe395bf5b"
     }
   ],
   "sneakStance": "Stealth",
@@ -168,19 +140,19 @@
       "y": -1.0,
       "z": 0.0
     },
-    "overrideCharacterShaderColors": true,
+    "overrideCharacterShaderColors": false,
     "firstCharacterShaderColor": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-      "r": 0.745098054,
-      "g": 0.152941167,
-      "b": 0.624739647,
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
       "a": 0.0
     },
     "secondCharacterShaderColor": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-      "r": 0.6157088,
-      "g": 0.325490177,
-      "b": 0.831372559,
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
       "a": 0.0
     },
     "hasPhantomDistortion": true,
@@ -204,14 +176,14 @@
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "maleModelScale": 0.2,
+    "maleModelScale": 0.4,
     "femalePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "ab0501343e8629149ae0aa4dace755f5",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "femaleModelScale": 0.2,
+    "femaleModelScale": 0.4,
     "wieldedItemsScale": 1.0,
     "hideWieldedItemsWhenPassive": false,
     "hideDuringCutscene": false,
@@ -240,7 +212,7 @@
   },
   "forceCombatStartsAnimation": false,
   "hasLookAt": false,
-  "forceNoFlyAnimation": false,
+  "forceNoFlyAnimation": true,
   "followFloorAngle": false,
   "groupAttacks": false,
   "isUnique": false,
@@ -252,9 +224,9 @@
     "description": "Monster/&PactOfChainCustomSpriteDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "ef04bbcc76713dc45bd995276e01dd7a",
+      "m_SubObjectName": "Dryad",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
