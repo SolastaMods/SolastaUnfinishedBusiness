@@ -1632,3 +1632,5 @@ Tooltip/&Tag9000Title	Custom Effect
 Tooltip/&TagCommunityExpansionTitle	Community Expansion
 Tooltip/&TagMaledictionTitle	Malediction
 Tooltip/&TagOtherModContentTitle	From mod
+Feat/&FeatFastHandsDescription	You gain a Cunning Action and can use the Bonus Action granted by it to make a Dexterity (Sleight of Hand) check, use your thieves’ tools to Disarm a trap or open a lock, or take the Use an Object action.
+Feat/&FeatFastHandsTitle	Fast Hands
