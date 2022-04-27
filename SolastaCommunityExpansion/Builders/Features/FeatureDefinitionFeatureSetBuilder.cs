@@ -128,38 +128,30 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
     }
 
-    public class FeatureDefinitionFeatureSetUniqueAcrossBuilder : FeatureDefinitionFeatureSetBuilder<FeatureDefinitionFeatureSetUniqueAcross, FeatureDefinitionFeatureSetUniqueAcrossBuilder>
+    public class FeatureDefinitionFeatureSetDynamicBuilder : FeatureDefinitionFeatureSetBuilder<FeatureDefinitionFeatureSetDynamic, FeatureDefinitionFeatureSetDynamicBuilder>
     {
         #region Constructors
 
-        protected FeatureDefinitionFeatureSetUniqueAcrossBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        protected FeatureDefinitionFeatureSetDynamicBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
-        protected FeatureDefinitionFeatureSetUniqueAcrossBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        protected FeatureDefinitionFeatureSetDynamicBuilder(string name, string definitionGuid) : base(name, definitionGuid)
         {
         }
 
-        protected FeatureDefinitionFeatureSetUniqueAcrossBuilder(FeatureDefinitionFeatureSetUniqueAcross original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        protected FeatureDefinitionFeatureSetDynamicBuilder(FeatureDefinitionFeatureSetDynamic original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
         {
         }
 
-        protected FeatureDefinitionFeatureSetUniqueAcrossBuilder(FeatureDefinitionFeatureSetUniqueAcross original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        protected FeatureDefinitionFeatureSetDynamicBuilder(FeatureDefinitionFeatureSetDynamic original, string name, string definitionGuid) : base(original, name, definitionGuid)
         {
         }
         #endregion
 
-        public FeatureDefinitionFeatureSetUniqueAcrossBuilder SetDynamicFeatureSetFunc(Func<FeatureDefinitionFeatureSet, Dictionary<FeatureDefinition, string>> func)
+        public FeatureDefinitionFeatureSetDynamicBuilder SetDynamicFeatureSetFunc(Func<FeatureDefinitionFeatureSet, Dictionary<FeatureDefinition, string>> func)
         {
             Definition.DynamicFeatureSet = func;
-
-            return this;
-        }
-
-        public FeatureDefinitionFeatureSetUniqueAcrossBuilder SetBehaviorTags(params string[] behaviorTags)
-        {
-            Definition.BehaviorTags.Clear();
-            Definition.BehaviorTags.AddRange(behaviorTags);
 
             return this;
         }

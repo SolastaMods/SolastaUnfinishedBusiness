@@ -14,7 +14,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
                 return;
             }
 
-            FeatureDescriptionItem_Bind.FeatureDescriptionItems.Clear();
+            FeatureDescriptionItemPatcher.FeatureDescriptionItems.Clear();
         }
     }
 }
