@@ -32,6 +32,30 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
+        internal static void RecursiveRemoveCustomFeatures(RulesetCharacterHero hero, List<FeatureDefinition> features)
+        {
+            foreach (var grantedFeature in features)
+            {
+                if (grantedFeature is FeatureDefinitionFeatureSet set && set.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+                {
+                    RecursiveRemoveCustomFeatures(hero, set.FeatureSet);
+                }
+                if (grantedFeature is IFeatureDefinitionCustomCode customFeature)
+                {
+                    customFeature.RemoveFeature(hero);
+                }
+                if (grantedFeature is not FeatureDefinitionProficiency featureDefinitionProficiency)
+                {
+                    continue;
+                }
+                if (featureDefinitionProficiency.ProficiencyType != RuleDefinitions.ProficiencyType.FightingStyle)
+                {
+                    continue;
+                }
+                featureDefinitionProficiency.Proficiencies.ForEach(prof => hero.TrainedFightingStyles.Remove(DatabaseRepository.GetDatabase<FightingStyleDefinition>().GetElement(prof, false)));
+            }
+        }
+
         internal static void RechargeLinkedPowers(RulesetCharacter character, RuleDefinitions.RestType restType)
         {
             var pointPoolPowerDefinitions = new List<FeatureDefinitionPower>();

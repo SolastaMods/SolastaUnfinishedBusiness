@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using HarmonyLib;
-using SolastaCommunityExpansion.CustomDefinitions;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.RecursiveGrantCustomFeatures
 {
@@ -18,21 +17,11 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.RecursiveGrantCustomF
         {
             if (!clearPrevious)
             {
-                Models.CustomFeaturesContext.RecursiveGrantCustomFeatures(hero, grantedFeatures);
+                CustomFeaturesContext.RecursiveGrantCustomFeatures(hero, grantedFeatures);
             }
             else
             {
-                //
-                // TODO: Move this to CustomFeaturesContext and cover all undo cases there...
-                //
-
-                var heroBuildingData = hero.GetHeroBuildingData();
-
-                foreach (var feature in heroBuildingData.AllActiveFeatures
-                    .OfType<IFeatureDefinitionCustomCode>())
-                {
-                    feature.RemoveFeature(hero);
-                }
+                CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, grantedFeatures);              
             }
         }
     }
