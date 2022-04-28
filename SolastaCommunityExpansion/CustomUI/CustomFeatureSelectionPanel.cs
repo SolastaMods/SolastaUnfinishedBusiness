@@ -1,10 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using ModKit;
+using SolastaModApi;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace SolastaCommunityExpansion.CustomUI
 {
@@ -172,7 +175,7 @@ namespace SolastaCommunityExpansion.CustomUI
                 if (child.gameObject.activeSelf)
                 {
                     SpellsByLevelGroup group = child.GetComponent<SpellsByLevelGroup>();
-                    group.Unbind();
+                    group.CustomUnbind();
                 }
             }
 
@@ -249,8 +252,6 @@ namespace SolastaCommunityExpansion.CustomUI
             HorizontalLayoutGroup layout = this.spellsByLevelTable.GetComponent<HorizontalLayoutGroup>();
             layout.padding.left = (int)SpellsByLevelMargin;
             
-            List<SpellDefinition> unlearnedSpells = null;
-            heroBuildingData.UnlearnedSpells.TryGetValue(lastTag, out unlearnedSpells);
             Main.Log($"[ENDER] Refresh - start configuring spell groups");
 
             for (int i = 0; i < this.spellsByLevelTable.childCount; i++)
@@ -259,7 +260,7 @@ namespace SolastaCommunityExpansion.CustomUI
                 child.gameObject.SetActive(i < requiredSpellGroups);
                 if (i < requiredSpellGroups)
                 {
-                    SpellsByLevelGroup group = child.GetComponent<SpellsByLevelGroup>();
+                    var group = child.GetComponent<SpellsByLevelGroup>();
                     int spellLevel = i;
 
                     group.Selected = true;
@@ -268,8 +269,12 @@ namespace SolastaCommunityExpansion.CustomUI
                     // group.BindLearning(this.CharacterBuildingService, spellFeature.SpellListDefinition,
                     //     spellFeature.RestrictedSchools, spellLevel, this.OnSpellBoxSelectedCb, knownSpells,
                     //     unlearnedSpells, lastTag, group.Selected, this.IsSpellUnlearnStep(this.currentLearnStep));
+                    var arcanum = DatabaseHelper.GetDefinition<FeatureDefinitionFeatureSet>($"ClassWarlockMysticArcanumSetLevel11", null);
+                    var prey = DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetHunterHuntersPrey;
+                    
+                    group.CustomFeatureBind(arcanum, new List<FeatureDefinition>(), lastTag, group.Selected, this.IsUnlearnStep(this.currentLearnStep), this.OnFeatureSelected);
 
-                    // lastWidth = group.RectTransform.rect.width + layout.spacing;
+                    lastWidth = group.RectTransform.rect.width + layout.spacing;
                     totalWidth += lastWidth;
                 }
             }
@@ -306,6 +311,17 @@ namespace SolastaCommunityExpansion.CustomUI
             LayoutRebuilder.ForceRebuildLayoutImmediate(this.spellsByLevelTable);
 
             base.Refresh();
+        }
+
+        private void OnFeatureSelected(SpellBox spellbox)
+        {
+            //TODO: implement
+        }
+
+        private bool IsUnlearnStep(int step)
+        {
+            //TODO: implement
+            return false;
         }
 
 
@@ -635,6 +651,160 @@ namespace SolastaCommunityExpansion.CustomUI
             instance.Level = level;
             instance.LevelSelected = levelSelected;
             instance.GetField<GuiLabel>("label").Text = $"{level}";
+        }
+    }
+
+    internal static class SpellsByLevelGroupExtensions
+    {
+        public static void CustomFeatureBind(this SpellsByLevelGroup instance, FeatureDefinitionFeatureSet featureSet,
+            List<FeatureDefinition> unlearned, string spellTag,
+            bool canAcquireSpells,
+            bool unlearn, SpellBox.SpellBoxChangedHandler spellBoxChanged)
+        {
+            instance.name = $"Feature[{featureSet.Name}]";
+
+            // instance.CommonBind( null, unlearn ? SpellBox.BindMode.Unlearn : SpellBox.BindMode.Learning, spellBoxChanged, new List<SpellDefinition>(), null, new List<SpellDefinition>(), new List<SpellDefinition>(), "");
+            var allSpells = featureSet.FeatureSet;
+            //TODO: implement proper sorting
+            //allSpells.Sort((IComparer<SpellDefinition>) instance);
+
+            var spellsTable = instance.GetField<RectTransform>("spellsTable");
+            var spellPrefab = instance.GetField<GameObject>("spellPrefab");
+
+            while (spellsTable.childCount < allSpells.Count)
+            {
+                Gui.GetPrefabFromPool(spellPrefab, spellsTable);
+            }
+
+            GridLayoutGroup component1 = spellsTable.GetComponent<GridLayoutGroup>();
+            component1.constraintCount = Mathf.Max(3, Mathf.CeilToInt(allSpells.Count / 4f));
+            IGuiWrapperService service = ServiceRepository.GetService<IGuiWrapperService>();
+            for (int index = 0; index < allSpells.Count; ++index)
+            {
+                var feature = allSpells[index];
+                spellsTable.GetChild(index).gameObject.SetActive(true);
+                var box = spellsTable.GetChild(index).GetComponent<SpellBox>();
+                bool isUnlearned = unlearned != null && unlearned.Contains(feature);
+                SpellBox.BindMode bindMode = unlearn ? SpellBox.BindMode.Unlearn : SpellBox.BindMode.Learning;
+
+                // box.Bind(guiSpellDefinition1, null, false, null, isUnlearned, bindMode, spellBoxChanged);
+                box.CustomFeatureBind(feature, isUnlearned, bindMode, spellBoxChanged);
+            }
+
+            //disable unneeded spell boxes
+            for (int count = allSpells.Count; count < spellsTable.childCount; ++count)
+                spellsTable.GetChild(count).gameObject.SetActive(false);
+
+            float x = (float)((double)component1.constraintCount * (double)component1.cellSize.x +
+                              (double)(component1.constraintCount - 1) * (double)component1.spacing.x);
+            spellsTable.sizeDelta = new Vector2(x, spellsTable.sizeDelta.y);
+            instance.RectTransform.sizeDelta = new Vector2(x, instance.RectTransform.sizeDelta.y);
+
+            instance.GetField<SlotStatusTable>("slotStatusTable")
+                .Bind(null, 1, null, false); //TODO: change spell level label
+
+            //TODO: implement refreshes
+            // if (unlearn)
+            //     instance.RefreshUnlearning(characterBuildingService, knownSpells, unlearnedSpells, spellTag, canAcquireSpells && spellLevel > 0);
+            // else
+            //     instance.RefreshLearning(characterBuildingService, knownSpells, unlearnedSpells, spellTag, canAcquireSpells);
+        }
+
+        public static void CustomUnbind(this SpellsByLevelGroup instance)
+        {
+            instance.SpellRepertoire = null;
+            var spellsTable = instance.GetField<RectTransform>("spellsTable");
+            foreach (Component component in spellsTable)
+                component.GetComponent<SpellBox>().CustomUnbind();
+            Gui.ReleaseChildrenToPool(spellsTable);
+            instance.GetField<SlotStatusTable>("slotStatusTable").Unbind(); //TODO: probably would need custom unbind  
+        }
+    }
+
+    internal static class SpellBoxExtensions
+    {
+        private static readonly Dictionary<SpellBox, FeatureDefinition> Features = new();
+
+        public static FeatureDefinition GetFeature(this SpellBox box)
+        {
+            return Features.GetValueOrDefault(box);
+        }
+
+        public static void CustomFeatureBind(this SpellBox instance, FeatureDefinition feature, bool unlearned,
+            SpellBox.BindMode bindMode, SpellBox.SpellBoxChangedHandler spellBoxChanged)
+        {
+            Features.AddOrReplace(instance, feature);
+
+            //instance.GuiSpellDefinition = guiSpellDefinition;
+
+            //instance.Caster = null; //TODO: do we need to set it to null?
+            var image = instance.GetField<Image>("spellImage");
+
+            instance.SetField("bindMode", bindMode);
+            instance.SpellBoxChanged = spellBoxChanged;
+            instance.GetField<GuiLabel>("titleLabel").Text = feature.GuiPresentation.Title;
+            // instance.GuiSpellDefinition.SetupSprite(instance.spellImage, (object) null);
+            // instance.GuiSpellDefinition.SetupTooltip((ITooltip) instance.tooltip, null);
+            instance.SetField("hovered", false);
+            instance.SetField("ritualSpell", false);
+            instance.SetField("autoPrepared", false);
+            instance.SetField("unlearnedSpell", unlearned);
+            image.color = Color.white;
+            SetupSprite(image, feature.GuiPresentation);
+            SetupTooltip(instance.GetField<GuiTooltip>("tooltip"), feature);
+            instance.transform.localScale = new Vector3(1f, 1f, 1f);
+
+            GuiModifier component =
+                instance.GetField<RectTransform>("availableToLearnGroup").GetComponent<GuiModifier>();
+            component.ForwardStartDelay = Random.Range(0.0f, component.Duration);
+
+            instance.SetField("prepared", false);
+            instance.SetField("canLearn", false);
+            instance.SetField("selectedToLearn", false);
+            instance.SetField("canPrepare", false);
+            instance.SetField("known", false);
+            instance.SetField("canUnlearn", false);
+
+            instance.name = feature.Name;
+        }
+
+        public static void SetupSprite(Image imageComponent, GuiPresentation presentation)
+        {
+            if (imageComponent.sprite != null)
+            {
+                Gui.ReleaseAddressableAsset(imageComponent.sprite);
+                imageComponent.sprite = null;
+            }
+
+            if (presentation.SpriteReference != null && presentation.SpriteReference.RuntimeKeyIsValid())
+            {
+                imageComponent.gameObject.SetActive(true);
+                imageComponent.sprite = Gui.LoadAssetSync<Sprite>(presentation.SpriteReference);
+            }
+            else
+                imageComponent.gameObject.SetActive(false);
+        }
+
+        public static void SetupTooltip(GuiTooltip tooltip, FeatureDefinition feature)
+        {
+            if (feature is FeatureDefinitionPower power)
+            {
+                var gui = ServiceRepository.GetService<IGuiWrapperService>().GetGuiPowerDefinition(power.Name);
+                gui.SetupTooltip(tooltip);
+            }
+            else
+            {
+                tooltip.TooltipClass = "";
+                tooltip.Content = feature.GuiPresentation.Description;
+                tooltip.Context = null;
+                tooltip.DataProvider = null;
+            }
+        }
+
+        public static void CustomUnbind(this SpellBox instance)
+        {
+            Features.Remove(instance);
+            instance.Unbind();
         }
     }
 }
