@@ -145,12 +145,10 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                 .AddFeaturesAtLevel(3,
                     WarlockClassPactBoonSetBuilder.WarlockClassPactBoonSet,
                     WarlockEldritchInvocationSetLevel2,
-                    WarlockEldritchInvocationSetLevel2,
                     WarlockEldritchInvocationSetRemoval)
 
                 .AddFeaturesAtLevel(4,
                     FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice,
-                    WarlockEldritchInvocationSetLevel2,
                     WarlockEldritchInvocationSetLevel2,
                     WarlockEldritchInvocationSetRemoval)
 
@@ -160,7 +158,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                     WarlockEldritchInvocationSetRemoval)
 
                 .AddFeaturesAtLevel(6,
-                    WarlockEldritchInvocationSetLevel5,
                     WarlockEldritchInvocationSetLevel5,
                     WarlockEldritchInvocationSetRemoval)
 
@@ -172,7 +169,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                 .AddFeaturesAtLevel(8,
                     FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice,
                     WarlockEldritchInvocationSetLevel7,
-                    WarlockEldritchInvocationSetLevel7,
                     WarlockEldritchInvocationSetRemoval)
 
                 .AddFeaturesAtLevel(9,
@@ -182,12 +178,10 @@ namespace SolastaCommunityExpansion.Classes.Warlock
 
                 .AddFeaturesAtLevel(10,
                     WarlockEldritchInvocationSetLevel9,
-                    WarlockEldritchInvocationSetLevel9,
                     WarlockEldritchInvocationSetRemoval)
 
                 .AddFeaturesAtLevel(11,
                     WarlockMysticArcanumSetLevel11,
-                    WarlockEldritchInvocationSetLevel9,
                     WarlockEldritchInvocationSetLevel9,
                     WarlockEldritchInvocationSetRemoval)
 
@@ -200,11 +194,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                 .AddFeaturesAtLevel(13,
                     WarlockMysticArcanumSetLevel13,
                     WarlockEldritchInvocationSetLevel12,
-                    WarlockEldritchInvocationSetLevel12,
                     WarlockEldritchInvocationSetRemoval)
 
                 .AddFeaturesAtLevel(14,
-                    WarlockEldritchInvocationSetLevel12,
                     WarlockEldritchInvocationSetLevel12,
                     WarlockEldritchInvocationSetRemoval)
 
@@ -216,12 +208,10 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                 .AddFeaturesAtLevel(16,
                     FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice,
                     WarlockEldritchInvocationSetLevel15,
-                    WarlockEldritchInvocationSetLevel15,
                     WarlockEldritchInvocationSetRemoval)
 
                 .AddFeaturesAtLevel(17,
                     WarlockMysticArcanumSetLevel17,
-                    WarlockEldritchInvocationSetLevel15,
                     WarlockEldritchInvocationSetLevel15,
                     WarlockEldritchInvocationSetRemoval)
 
@@ -233,12 +223,10 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                 .AddFeaturesAtLevel(19,
                     FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice,
                     WarlockEldritchInvocationSetLevel18,
-                    WarlockEldritchInvocationSetLevel18,
                     WarlockEldritchInvocationSetRemoval)
 
                 .AddFeaturesAtLevel(20,
                     WarlockEldritchMasterPower,
-                    WarlockEldritchInvocationSetLevel18,
                     WarlockEldritchInvocationSetLevel18,
                     WarlockEldritchInvocationSetRemoval);
         }
