@@ -141,7 +141,6 @@ CraftyFeats/&CraftyBowsDescription	Proficiency with all bows and crossbows
 CraftyFeats/&CraftyBowsTitle	Bow Proficiency
 CraftyFeats/&CraftyFletcherFeatDescription	+1 Dexterity, Proficiency or Expertise with Smith's Tools, Proficiency with bows and crossbows
 CraftyFeats/&CraftyFletcherFeatTitle	Fletcher
-CraftyFeats/&CraftyHerbalismKitDescription	Herbalism Kit proficiency or expertise
 CraftyFeats/&CraftyMedicineDescription	Medicine proficiency or expertise
 CraftyFeats/&CraftyNatureDescription	Nature proficiency or expertise
 CraftyFeats/&CraftyScribeFeatDescription	+1 Intelligence, Proficiency or Expertise with Scroll Kit and Arcana, Requires the ability to cast spells

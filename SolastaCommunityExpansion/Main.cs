@@ -27,7 +27,6 @@ namespace SolastaCommunityExpansion
         {
             Logger.Log(msg);
 
-
             if (console)
             {
                 Gui.Game.GameConsole?.LogSimpleLine(msg);
