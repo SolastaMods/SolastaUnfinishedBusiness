@@ -202,18 +202,10 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                  true);
             FeatureDefinitionPower FindFamiliarQuasitPower = FindFamiliarQuasitPowerBuilder.AddToDB();
 
-            // Definition.FeatureSet.Add(FindFamiliarPseudodragonPower);
-            // Definition.FeatureSet.Add(FindFamiliarSpritePower);
-            // Definition.FeatureSet.Add(FindFamiliarImpPower);
-            // Definition.FeatureSet.Add(FindFamiliarQuasitPower);
-
             FeatureDefinitionPower findFamiliarPowerBundle = FeatureDefinitionPowerPoolBuilder
                 .Create("FindFamiliarBundlePower", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(new GuiPresentationBuilder(
-                    "Find familiar title",
-                    "Summons a familiar from the list"
-                ).Build())
-                .SetActivation(RuleDefinitions.ActivationTime.NoCost, 1)
+                .SetGuiPresentation(Category.Power, Utils.CustomIcons.CreateAssetReferenceSprite("WarlockChainSummon", Properties.Resources.WarlockChainSummon, 128, 64))
+                .SetActivation(RuleDefinitions.ActivationTime.Hours1, 1)
                 .AddToDB();
 
 

@@ -1393,6 +1393,8 @@ Spell/&FindFamiliarQuasitTitle	Find Familiar (Quasit)
 Spell/&FindFamiliarSpriteDescription	Summons your faimiliar in the form of a Sprite
 Spell/&FindFamiliarSpriteTitle	Find Familiar (Sprite)
 Spell/&FindFamiliarTitle	Find Familiar
+Power/&FindFamiliarBundlePowerTitle	Find Familiar
+Power/&FindFamiliarBundlePowerDescription	Summon familiar in the form of Pseudorgagon, Sprite, Imp or Quasit.
 Spell/&FrenzyDescription	With a gesture, you reduce a crowd to base instinct and violence. Choose a point you can see within range. Each creature within 20 feet of that point must make a Wisdom saving throw. On a failed save, a creature is frenzied for the duration. When a creature is frenzied, it draws a melee weapon, if it has one. A frenzied creature must use its action at the beginning of its turn to attack a creature within its reach. It uses a melee weapon, if it has one, or an improvised weapon or unarmed strike, if it doesn't. If multiple targets are within the creature's reach, it chooses its target randomly. If there is no target within the creature's reach, it attacks itself, against its own AC, dealing damage as normal on a hit. At the end of its turn, a frenzied creature can repeat its saving throw, ending the effect on it early on a success
 Spell/&FrenzyTitle	Frenzy
 Spell/&HinderingBlastDescription	A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage.\n(when you hit a creature with your eldritch blast, you can reduce that creature's speed by 10 feet until the end of your next turn.)
