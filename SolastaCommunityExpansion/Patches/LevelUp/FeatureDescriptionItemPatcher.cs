@@ -110,6 +110,7 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
             }
 
             var selectedOption = ___choiceDropdown.options[___choiceDropdown.value];
+            GuiDropdown firstGuiDropdown = null;
 
             foreach (var featureDescriptionItem in FeatureDescriptionItems
                 .Where(x => x.Key != __instance && x.Key.Feature.Name.StartsWith(featureSetNamePrefix)))
@@ -119,6 +120,17 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
                 choiceDropDown.options.Add(selectedOption);
                 choiceDropDown.options.Sort((a,b) => a.text.CompareTo(b.text));
                 choiceDropDown.RefreshShownValue();
+
+                if (firstGuiDropdown == null)
+                {
+                    firstGuiDropdown = choiceDropDown;
+                }
+            }
+
+            // forces the first selection to be equals to the replaced one
+            if (firstGuiDropdown != null)
+            {
+                firstGuiDropdown.value = firstGuiDropdown.options.IndexOf(selectedOption);
             }
 
             tab.SelectedFeature = __instance.GetCurrentFeature();
