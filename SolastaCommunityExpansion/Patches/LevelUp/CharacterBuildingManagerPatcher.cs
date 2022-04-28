@@ -1,6 +1,6 @@
 ﻿using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
+namespace SolastaCommunityExpansion.Patches.LevelUp
 {
     [HarmonyPatch(typeof(CharacterBuildingManager), "FinalizeCharacter")]
     internal static class CharacterBuildingManagerFinalizeCharacter

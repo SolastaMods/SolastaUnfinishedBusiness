@@ -4,7 +4,7 @@ using System.Linq;
 using HarmonyLib;
 using SolastaModApi.Infrastructure;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
+namespace SolastaCommunityExpansion.Patches.LevelUp
 {
     [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "Refresh")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

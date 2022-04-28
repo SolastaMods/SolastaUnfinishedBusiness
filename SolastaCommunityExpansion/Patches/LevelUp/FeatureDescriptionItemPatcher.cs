@@ -6,7 +6,7 @@ using HarmonyLib;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi.Infrastructure;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
+namespace SolastaCommunityExpansion.Patches.LevelUp
 {
     //
     // Dynamic Feature Sets Fetching

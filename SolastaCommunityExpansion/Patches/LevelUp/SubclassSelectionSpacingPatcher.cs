@@ -4,7 +4,7 @@ using SolastaModApi.Infrastructure;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
+namespace SolastaCommunityExpansion.Patches.LevelUp
 {
     [HarmonyPatch(typeof(CharacterStageSubclassSelectionPanel), "EnterStage")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
