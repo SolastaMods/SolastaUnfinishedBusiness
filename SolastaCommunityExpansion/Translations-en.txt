@@ -1189,6 +1189,7 @@ Monster/&WitchOwlFamiliarTitle	Owl
 MonsterAttack/&AttackWarlockDragonStingDescription	1d4 Piercing damage and target must succeed DC 11 Constitution save or become Poisoned
 MonsterAttack/&AttackWarlockDragonStingTitle	Poisonous Sting
 MonsterAttack/&AttackWarlockImpStingTitle	Poisonous Sting
+MonsterAttack/&AttackWarlockImpStingDescription	Poisonous Sting of an Imp
 MonsterAttack/&AttackWarlockQuasitStingTitle	Poisonous Sting
 MonsterAttack/&DH_Custom_CouatlBite_AttackDescription	Piercing damage, and the target must succeed on a DC 13 Constitution saving throw or be poisoned for 24 hours. Until this poison ends, the target is unconscious
 MonsterAttack/&DH_Custom_CouatlBite_AttackTitle	Bite
