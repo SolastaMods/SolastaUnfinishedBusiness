@@ -867,6 +867,8 @@ Feature/&DualFlurryTitle	Dual Flurry
 Feature/&EldritchMindDescription	You have advantage on Constitution saving throws that you make to maintain your concentration on a spell
 Feature/&EldritchMindTitle	Eldritch Mind
 Feature/&EldritchSightTitle	Eldritch Sight
+Feature/&DelilsSightTitle	Devil's Sight
+Feature/&DelilsSightDescription	You can see normally in Darkness, both magical and nonmagical, to a distance of 120 feet.
 Feature/&EldritchSmiteDescription	Once per turn when you hit a creature with your pact weapon, you can expend a warlock spell slot to deal an extra 1d8 force damage to the target, plus another 1d8 per level of the spell slot,
 Feature/&EldritchSmiteTitle	Eldritch Smite
 Feature/&ElementalistSpellsMagicAffinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: \n Level 1: Thunderwave, Fog Cloud \n Level 2: Spike Growth, Scorching Ray \n Level 3: Fireball, Lightning Bolt \n Level 4: Stoneskin, Icestorm \n Level 5: Cone of Cold, Flame Strike

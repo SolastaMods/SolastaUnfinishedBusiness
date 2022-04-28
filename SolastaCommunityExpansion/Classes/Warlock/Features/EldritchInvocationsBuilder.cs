@@ -318,9 +318,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                     "BondoftheTalisman",             // DatabaseHelper.FeatureDefinitionPowers.PowerSorakShadowEscape);
                     "WitchSight",                    // DatabaseHelper.FeatureDefinitionSenses.SenseSeeInvisible12;
                     "OneWithShadows",
-                    "OneWithShadowsStronger"
+                    "OneWithShadowsStronger",
                     //   "Lifedrinker",                   // similar to AdditionalDamageDomainOblivionStrikeOblivion +damageValueDetermination = RuleDefinitions.AdditionalDamageValueDetermination.SpellcastingBonus;
-                    //"Devil'sSight",                // DatabaseHelper.FeatureDefinitionSenses.SenseDarkvision24 or maybe similar to ConditionAffinityVeilImmunity needs to cover multiple darkness conditions ConditionDarkness ConditionVeil
+                    "DevilsSight",                // DatabaseHelper.FeatureDefinitionSenses.SenseDarkvision24 or maybe similar to ConditionAffinityVeilImmunity needs to cover multiple darkness conditions ConditionDarkness ConditionVeil
                     //"GazeofTwoMinds",              //
                     //"InvestmentoftheChainMaster",  // multiple featurs through summoning affinity, could just reuse SummoningAffinityKindredSpiritBond for a similar but not direct copy of non srd EI
                     //"RebukeoftheTalisman",         //
@@ -421,7 +421,17 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             DictionaryofEIAttributeModifers["OneWithShadowsStronger"].FeatureSet.Add(OneWithShadowsLightAffinityStrong);
             DictionaryofEIAttributeModifers["OneWithShadowsStronger"].Validators.SetRange(() => Global.ActiveLevelUpHeroHasFeature(OneWithShadowsLightAffinity));
 
-
+            DictionaryofEIAttributeModifers["DevilsSight"].FeatureSet
+                .AddRange(IgnoreDynamicVisionImpairmentBuilder
+                    .Create("EldritchInvocationDevilsSight", DefinitionBuilder.CENamespaceGuid)
+                    .SetGuiPresentationNoContent()
+                    .SetMaxRange(24)
+                    .AddForbiddenFeatures(DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityHeavilyObscured)
+                    .AddRequiredFeatures()
+                    .AddToDB(),
+                    DatabaseHelper.FeatureDefinitionSenses.SenseDarkvision24
+                );
+            // DatabaseHelper.FeatureDefinitionSenses.SenseSuperiorDarkvision;
         }
     }
 }

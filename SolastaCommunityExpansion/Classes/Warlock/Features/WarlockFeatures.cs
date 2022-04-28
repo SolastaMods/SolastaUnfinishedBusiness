@@ -103,6 +103,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 DictionaryofEIAttributeModifers["AspectoftheMoon"],
                 DictionaryofEIAttributeModifers["BeguilingInfluence"],
                 DictionaryofEIAttributeModifers["EldritchMind"],
+                DictionaryofEIAttributeModifers["DevilsSight"],
                 DictionaryofEIAttributeModifers["EyesoftheRuneKeeper"],
                 DictionaryofEIAttributeModifers["GiftoftheEver-LivingOnes"]
             )
