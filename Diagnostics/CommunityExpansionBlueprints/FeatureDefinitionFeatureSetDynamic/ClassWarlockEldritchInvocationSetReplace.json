@@ -38,8 +38,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&ClassWarlockEldritchInvocationSetRemovalTitle",
-    "description": "Feature/&ClassWarlockEldritchInvocationSetRemovalDescription",
+    "title": "Feature/&ClassWarlockEldritchInvocationSetReplaceTitle",
+    "description": "Feature/&ClassWarlockEldritchInvocationSetReplaceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -59,7 +59,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e3d6c468-3ae7-5cfa-94c2-0a0c4b002dfa",
+  "guid": "e75f423a-d401-5be8-9496-625697aed08a",
   "contentPack": 9999,
-  "name": "ClassWarlockEldritchInvocationSetRemoval"
+  "name": "ClassWarlockEldritchInvocationSetReplace"
 }
