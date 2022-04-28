@@ -15,6 +15,7 @@ namespace SolastaCommunityExpansion.Displays
             Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView &&
             Main.Settings.InvertAltBehaviorOnTooltips &&
             Main.Settings.EnableCtrlClickBypassMetamagicPanel &&
+            Main.Settings.EnableCtrlClickBypassSmiteReactionPanel &
             Main.Settings.EnableCtrlClickOnlySwapsMainHand;
 
         private static void UpdateSettings(bool flag)
@@ -29,6 +30,7 @@ namespace SolastaCommunityExpansion.Displays
             Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView = flag;
             Main.Settings.InvertAltBehaviorOnTooltips = flag;
             Main.Settings.EnableCtrlClickBypassMetamagicPanel = flag;
+            Main.Settings.EnableCtrlClickBypassSmiteReactionPanel = flag;
             Main.Settings.EnableCtrlClickOnlySwapsMainHand = flag;
         }
 
