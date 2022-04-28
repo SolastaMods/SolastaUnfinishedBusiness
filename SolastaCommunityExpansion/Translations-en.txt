@@ -1700,3 +1700,10 @@ Feature/&SpellAsInvocationAtWillDescription	Cast {0} at will
 Feature/&SpellAsInvocationOncePerDayDescription	Cast {0} once per day
 Feat/&FeatFastHandsDescription	You gain a Cunning Action and can use the Bonus Action granted by it to make a Dexterity (Sleight of Hand) check, use your thieves’ tools to Disarm a trap or open a lock, or take the Use an Object action.
 Feat/&FeatFastHandsTitle	Fast Hands
+Subclass/&OpportunistDescription Opportunist are those who never let a chance to finish their enemis slides.They stab fast and stab where it matters. Not many faced them can escaped unscratched.
+Subclass/&OpportunistTitle Opportunist
+Feature/&OpportunistDebilitatingStrikeDescription Your sneak attack cause one of following conditions (Blinded/Bane/Bleeding/Stuned) to enemies if they fail a CON save vs 8 + your Dexerity + your proficiency.
+Feature/&OpportunistDebilitatingStrikeTitle Debilitating Strike
+Feature/&OpportunistQuickStrikeDescription You have advatange when attack an enemies whose initiative is lower than yours. In addition you also have advatange when perform an attack of opportunity.
+Feature/&OpportunistQuickStrikeTitle Quick Strike
+Feature/&OtherworldlyLeapTitle  Otherworldly Leap
