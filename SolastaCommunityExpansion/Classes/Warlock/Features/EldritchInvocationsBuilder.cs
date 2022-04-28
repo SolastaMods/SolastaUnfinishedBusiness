@@ -287,6 +287,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .SetValidators(() => Global.ActiveLevelUpHeroHasCantrip(eldritchBlast))
                 .AddToDB();
 
+            DictionaryofEBInvocations.Add(AgonizingBlastFeatureSet.Name, AgonizingBlastFeatureSet);
+
             HinderingBlastFeatureSet = FeatureDefinitionFeatureSetWithPreRequisitesBuilder
                 .Create("HinderingBlastFeatureSet", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Feature)
@@ -296,6 +298,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .SetUniqueChoices(false)
                 .SetValidators(() => Global.ActiveLevelUpHeroHasCantrip(eldritchBlast))
                 .AddToDB();
+
+            DictionaryofEBInvocations.Add(HinderingBlastFeatureSet.Name, HinderingBlastFeatureSet);
         }
 
         private static void EIAttributeModifers()
