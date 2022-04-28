@@ -25,7 +25,7 @@
   ],
   "mode": "Exclusion",
   "defaultSelection": 0,
-  "uniqueChoices": false,
+  "uniqueChoices": true,
   "enumerateInDescription": false,
   "hasRacialAffinity": false,
   "guiPresentation": {

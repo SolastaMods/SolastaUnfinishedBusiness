@@ -39,7 +39,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Elemental Damage: Air Plane",
-    "description": "When channeling Air Plane, deal additional Thunder damage equal to your Proficiency Bonus on a first hit each round.",
+    "description": "When channeling Air Plane, deal additional Thunder damage equal to your Proficiency Bonus on a first hit each round",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
