@@ -11,7 +11,7 @@ namespace SolastaMulticlass.Patches.LevelUp
         [HarmonyPatch(typeof(FeatureDescriptionItem), "Bind")]
         internal static class FeatureDescriptionItemBind
         {
-            public static void DisableDropdownIfMulticlass(GuiDropdown choiceDropdown)
+            public static void Postfix(GuiDropdown ___choiceDropdown)
             {
                 var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
                 var currentLocalHeroCharacter = characterBuildingService.CurrentLocalHeroCharacter;
@@ -22,27 +22,27 @@ namespace SolastaMulticlass.Patches.LevelUp
                     return;
                 }
 
-                choiceDropdown.gameObject.SetActive(false);
+                ___choiceDropdown.enabled = false;
             }
 
-            internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
-            {
-                var setValueMethod = typeof(TMP_Dropdown).GetMethod("set_value");
-                var choiceDropdownField = typeof(FeatureDescriptionItem).GetField("choiceDropdown", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
-                var disableDropdownIfMulticlassMethod = typeof(FeatureDescriptionItemBind).GetMethod("DisableDropdownIfMulticlass");
+            //internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+            //{
+            //    var setValueMethod = typeof(TMP_Dropdown).GetMethod("set_value");
+            //    var choiceDropdownField = typeof(FeatureDescriptionItem).GetField("choiceDropdown", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+            //    var disableDropdownIfMulticlassMethod = typeof(FeatureDescriptionItemBind).GetMethod("DisableDropdownIfMulticlass");
 
-                foreach (var instruction in instructions)
-                {
-                    yield return instruction;
+            //    foreach (var instruction in instructions)
+            //    {
+            //        yield return instruction;
 
-                    if (instruction.Calls(setValueMethod))
-                    {
-                        yield return new CodeInstruction(OpCodes.Ldarg_0);
-                        yield return new CodeInstruction(OpCodes.Ldfld, choiceDropdownField);
-                        yield return new CodeInstruction(OpCodes.Call, disableDropdownIfMulticlassMethod);
-                    }
-                }
-            }
+            //        if (instruction.Calls(setValueMethod))
+            //        {
+            //            yield return new CodeInstruction(OpCodes.Ldarg_0);
+            //            yield return new CodeInstruction(OpCodes.Ldfld, choiceDropdownField);
+            //            yield return new CodeInstruction(OpCodes.Call, disableDropdownIfMulticlassMethod);
+            //        }
+            //    }
+            //}
         }
     }
 }
