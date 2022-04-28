@@ -80,7 +80,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
             EffectDescriptionBuilder effectDescriptionPseudodragon = new EffectDescriptionBuilder()
             .SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn)
-            .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1, RuleDefinitions.TargetType.Position, 1, 1)
+            .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 2, RuleDefinitions.TargetType.Position, 1, 1)
             .AddEffectForm(new EffectFormBuilder()
                 .SetSummonCreatureForm(1, pseudodragon.name, false, DatabaseHelper.ConditionDefinitions.ConditionFlyingBootsWinged)
                 .Build()
@@ -95,7 +95,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
             EffectDescriptionBuilder effectDescriptionSprite = new EffectDescriptionBuilder();
             effectDescriptionSprite.SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
-            effectDescriptionSprite.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
+            effectDescriptionSprite.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 2, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
             effectDescriptionSprite.AddEffectForm(new EffectFormBuilder().SetSummonCreatureForm(1, sprite.name, false, DatabaseHelper.ConditionDefinitions.ConditionFlyingBootsWinged).Build());
             effectDescriptionSprite.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ConjureElementalAir.EffectDescription.EffectParticleParameters);
 
@@ -108,7 +108,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             EffectDescriptionBuilder effectDescriptionImp = new EffectDescriptionBuilder()
                 .SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1,
                     RuleDefinitions.TurnOccurenceType.EndOfTurn)
-                .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1,
+                .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 2,
                     RuleDefinitions.TargetType.Position,1, 1, ActionDefinitions.ItemSelectionType.Equiped)
                 .AddEffectForm(new EffectFormBuilder().SetSummonCreatureForm( 1, imp.name, false,
                     DatabaseHelper.ConditionDefinitions.ConditionFlyingBootsWinged).Build())
@@ -123,7 +123,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
             EffectDescriptionBuilder effectDescriptionQuasit = new EffectDescriptionBuilder();
             effectDescriptionQuasit.SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
-            effectDescriptionQuasit.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
+            effectDescriptionQuasit.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 2, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
             effectDescriptionQuasit.AddEffectForm(new EffectFormBuilder().SetSummonCreatureForm( 1, quasit.name).Build());
             effectDescriptionQuasit.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ConjureElementalAir.EffectDescription.EffectParticleParameters);
 
