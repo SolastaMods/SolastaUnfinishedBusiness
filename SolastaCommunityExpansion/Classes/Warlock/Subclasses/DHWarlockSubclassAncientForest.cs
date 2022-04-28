@@ -308,28 +308,33 @@ Different Archfey, e.g. Winter-themed
             }
             // should Use features sets so character saves don't break
 
-            FeatureDefinitionAttributeModifier AncientForestAttributeModiferRegrowth = FeatureDefinitionAttributeModifierBuilder
-                  .Create(AttributeModifierPaladinHealingPoolBase, "AncientForestAttributeModiferRegrowth", DefinitionBuilder.CENamespaceGuid)
+            FeatureDefinitionAttributeModifier AncientForestAttributeModifierRegrowth = FeatureDefinitionAttributeModifierBuilder
+                  .Create(AttributeModifierPaladinHealingPoolBase, "AncientForestAttributeModifierRegrowth", DefinitionBuilder.CENamespaceGuid)
                   .SetGuiPresentationNoContent(true)
                   .AddToDB();
 
-            FeatureDefinitionAttributeModifier AncientForestAttributeModiferRegrowthMultiplier = FeatureDefinitionAttributeModifierBuilder
-                .Create(AttributeModifierPaladinHealingPoolMultiplier, "AncientForestAttributeModiferRegrowthMultiplier", DefinitionBuilder.CENamespaceGuid)
+            FeatureDefinitionAttributeModifier AncientForestAttributeModifierRegrowthMultiplier = FeatureDefinitionAttributeModifierBuilder
+                .Create(AttributeModifierPaladinHealingPoolMultiplier, "AncientForestAttributeModifierRegrowthMultiplier", DefinitionBuilder.CENamespaceGuid)
+                .AddToDB();
+
+            FeatureDefinitionAttributeModifier AncientForestAttributeModifierBarkskin = FeatureDefinitionAttributeModifierBuilder
+                .Create(AttributeModifierBarkskin, "AncientForestAttributeModifierBarkskin", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(Category.AttributeModifier)
                 .AddToDB();
 
             return CharacterSubclassDefinitionBuilder
                 .Create("AncientForest", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation("WarlockAncientForest", Category.Subclass, TraditionGreenmage.GuiPresentation.SpriteReference)
                 .AddFeatureAtLevel(ancientForestExpandedSpellListAffinity, 1)
-                .AddFeatureAtLevel(AncientForestAttributeModiferRegrowth, 1)
-                .AddFeatureAtLevel(AncientForestAttributeModiferRegrowthMultiplier, 1)
+                .AddFeatureAtLevel(AncientForestAttributeModifierRegrowth, 1)
+                .AddFeatureAtLevel(AncientForestAttributeModifierRegrowthMultiplier, 1)
                 .AddFeatureAtLevel(Regrowth, 1)
                 .AddFeatureAtLevel(AncientForestBonusCantrip, 1)
                 .AddFeatureAtLevel(herbalBrewFeatureSet, 6)
                 .AddFeatureAtLevel(lifeSapFeature, 6)
                 .AddFeatureAtLevel(AncientForestLightAffinity, 10)
                 .AddFeatureAtLevel(RootedPower, 10)
-                .AddFeatureAtLevel(AttributeModifierBarkskin, 14)
+                .AddFeatureAtLevel(AncientForestAttributeModifierBarkskin, 14)
                 .AddFeatureAtLevel(WallofThornsFeatureSet, 14)
                 .AddToDB();
         }
