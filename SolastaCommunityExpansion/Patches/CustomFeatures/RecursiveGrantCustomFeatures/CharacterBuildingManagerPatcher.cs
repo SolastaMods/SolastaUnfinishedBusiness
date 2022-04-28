@@ -29,7 +29,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.RecursiveGrantCustomF
                 var heroBuildingData = hero.GetHeroBuildingData();
 
                 foreach (var feature in heroBuildingData.AllActiveFeatures
-                    .OfType<IFeatureDefinitionCustomCode>())
+                    .OfType<FeatureDefinitionCustomCode>())
                 {
                     feature.RemoveFeature(hero);
                 }
