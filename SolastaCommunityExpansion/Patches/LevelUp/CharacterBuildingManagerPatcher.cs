@@ -1,4 +1,6 @@
 ﻿using HarmonyLib;
+using SolastaCommunityExpansion.Classes.Warlock.Features;
+using SolastaCommunityExpansion.CustomDefinitions;
 
 namespace SolastaCommunityExpansion.Patches.LevelUp
 {
@@ -17,6 +19,17 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
                     foreach (var activeFeature in hero.ActiveFeatures)
                     {
                         activeFeature.Value.RemoveAll(x => x == feature);
+                    }
+
+                    if (feature is FeatureDefinitionFreeBonusCantrips)
+                    {
+                        var db = DatabaseRepository.GetDatabase<SpellDefinition>();
+                        var cantripToRemove = db.GetElement(feature.Name.Replace("BonusCantrip",""));
+
+                        foreach (var spellRepertoire in hero.SpellRepertoires)
+                        {
+                            spellRepertoire.KnownCantrips.Remove(cantripToRemove);
+                        }
                     }
                 }
             }
