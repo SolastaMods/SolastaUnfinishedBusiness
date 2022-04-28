@@ -1,8 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Reflection.Emit;
-using HarmonyLib;
+﻿using HarmonyLib;
 using SolastaMulticlass.Models;
-using TMPro;
 
 namespace SolastaMulticlass.Patches.LevelUp
 {
@@ -24,25 +21,6 @@ namespace SolastaMulticlass.Patches.LevelUp
 
                 ___choiceDropdown.enabled = false;
             }
-
-            //internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
-            //{
-            //    var setValueMethod = typeof(TMP_Dropdown).GetMethod("set_value");
-            //    var choiceDropdownField = typeof(FeatureDescriptionItem).GetField("choiceDropdown", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
-            //    var disableDropdownIfMulticlassMethod = typeof(FeatureDescriptionItemBind).GetMethod("DisableDropdownIfMulticlass");
-
-            //    foreach (var instruction in instructions)
-            //    {
-            //        yield return instruction;
-
-            //        if (instruction.Calls(setValueMethod))
-            //        {
-            //            yield return new CodeInstruction(OpCodes.Ldarg_0);
-            //            yield return new CodeInstruction(OpCodes.Ldfld, choiceDropdownField);
-            //            yield return new CodeInstruction(OpCodes.Call, disableDropdownIfMulticlassMethod);
-            //        }
-            //    }
-            //}
         }
     }
 }
