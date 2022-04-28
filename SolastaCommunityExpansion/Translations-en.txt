@@ -90,6 +90,8 @@ Condition/&ConditionMarkedByArcanistDescription	Afflicted by Arcanist's Mark
 Condition/&ConditionMarkedByArcanistTitle	Arcanist's Mark
 Condition/&ConditionSuperiorBarkWardDescription	The spirits of the forest grant you poison immunity, and cause 3d8 piercing damage to melee attackers
 Condition/&ConditionSuperiorBarkWardTitle	Superior Bark Ward
+Condition/&DebilitatedConditionDescription	Debilitated condition
+Condition/&DebilitatedConditionTitle	Debilitated
 Condition/&DHFeeblemindSpellDescription	The creature's Intelligence and Charisma scores become 1. The creature can't cast spells, activate magic items, understand language, or communicate in any intelligible way
 Condition/&DHFeeblemindSpellTitle	Feeblemind
 Condition/&DHForesightSpellDescription	advantage on attack rolls, ability checks, and saving throws. Additionally, other creatures have disadvantage on attack rolls
@@ -1188,8 +1190,8 @@ Monster/&WitchOwlFamiliarDescription	Owl Familiar
 Monster/&WitchOwlFamiliarTitle	Owl
 MonsterAttack/&AttackWarlockDragonStingDescription	1d4 Piercing damage and target must succeed DC 11 Constitution save or become Poisoned
 MonsterAttack/&AttackWarlockDragonStingTitle	Poisonous Sting
-MonsterAttack/&AttackWarlockImpStingTitle	Poisonous Sting
 MonsterAttack/&AttackWarlockImpStingDescription	Poisonous Sting of an Imp
+MonsterAttack/&AttackWarlockImpStingTitle	Poisonous Sting
 MonsterAttack/&AttackWarlockQuasitStingTitle	Poisonous Sting
 MonsterAttack/&DH_Custom_CouatlBite_AttackDescription	Piercing damage, and the target must succeed on a DC 13 Constitution saving throw or be poisoned for 24 hours. Until this poison ends, the target is unconscious
 MonsterAttack/&DH_Custom_CouatlBite_AttackTitle	Bite
@@ -1201,6 +1203,8 @@ Power/&DH_ElementalFormPoolDescription	You can switch between elemental forms a 
 Power/&DH_ElementalFormPoolEnhancedDescription	You can switch between elemental forms a number of times (equal to your Proficiency Bonus) per day by channeling elemental energy. You gain immunity to the relevant damage and apply Proficiency Bonus as damage of the same type to first hit each round. The forms last for 1 minute
 Power/&DH_ElementalFormPoolEnhancedTitle	Elemental Forms
 Power/&DH_ElementalFormPoolTitle	Elemental Forms
+Power/&FindFamiliarBundlePowerDescription	Summon familiar in the form of Pseudorgagon, Sprite, Imp or Quasit.
+Power/&FindFamiliarBundlePowerTitle	Find Familiar
 Power/&HelpActionDescription	You can aid a friendly creature in attacking a creature within 5 feet of you. You feint, distract the target, or in some other way team up to make your ally's attack more effective. If your ally attacks the target before your next turn, the first attack roll is made with advantage
 Power/&HelpActionTitle	Help
 Power/&MoonlitDanceoftheNightSkyDescription	You can cast Fly on 4 targets once per day
@@ -1394,8 +1398,6 @@ Spell/&FindFamiliarQuasitTitle	Find Familiar (Quasit)
 Spell/&FindFamiliarSpriteDescription	Summons your faimiliar in the form of a Sprite
 Spell/&FindFamiliarSpriteTitle	Find Familiar (Sprite)
 Spell/&FindFamiliarTitle	Find Familiar
-Power/&FindFamiliarBundlePowerTitle	Find Familiar
-Power/&FindFamiliarBundlePowerDescription	Summon familiar in the form of Pseudorgagon, Sprite, Imp or Quasit.
 Spell/&FrenzyDescription	With a gesture, you reduce a crowd to base instinct and violence. Choose a point you can see within range. Each creature within 20 feet of that point must make a Wisdom saving throw. On a failed save, a creature is frenzied for the duration. When a creature is frenzied, it draws a melee weapon, if it has one. A frenzied creature must use its action at the beginning of its turn to attack a creature within its reach. It uses a melee weapon, if it has one, or an improvised weapon or unarmed strike, if it doesn't. If multiple targets are within the creature's reach, it chooses its target randomly. If there is no target within the creature's reach, it attacks itself, against its own AC, dealing damage as normal on a hit. At the end of its turn, a frenzied creature can repeat its saving throw, ending the effect on it early on a success
 Spell/&FrenzyTitle	Frenzy
 Spell/&HinderingBlastDescription	A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage.\n(when you hit a creature with your eldritch blast, you can reduce that creature's speed by 10 feet until the end of your next turn.)

@@ -1,4 +1,1 @@
-AttackWarlockImpSting	Description='MonsterAttack/&AttackWarlockImpStingDescription'.
-Debilitated	Title='Condition/&DebilitatedConditionTitle'.
-Debilitated	Description='Condition/&DebilitatedConditionDescription'.
 WardenArmorProficiencyMulticlass	Title='Feature/&WardenArmorProficiencyTitle'.
