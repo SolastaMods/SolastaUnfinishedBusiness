@@ -108,7 +108,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             )
             .SetDynamicFeatureSetFunc(InvocationsFilteredFeatureSet)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
-            .SetUniqueChoices(false)
+            .SetUniqueChoices(true)
             .AddToDB();
         #endregion
 
