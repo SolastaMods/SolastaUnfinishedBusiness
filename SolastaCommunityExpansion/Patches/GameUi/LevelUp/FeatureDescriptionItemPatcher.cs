@@ -17,7 +17,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
     {
         public static List<FeatureDefinition> FeatureSetDynamic(FeatureDefinitionFeatureSet featureDefinitionFeatureSet, FeatureDescriptionItem featureDescriptionItem)
         {
-            if (featureDefinitionFeatureSet is IFeatureDefinitionFeatureSetDynamic
+            if (featureDefinitionFeatureSet is FeatureDefinitionFeatureSetDynamic
                 && FeatureDescriptionItemPatcher.FeatureDescriptionItems.TryGetValue(featureDescriptionItem, out var tab))
             {
                 return tab.FeatureSet.Keys.ToList();
@@ -76,14 +76,53 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
 
     internal static class FeatureDescriptionItemPatcher
     {
+        internal const string ReplaceTag = "Replace";
         internal class FeatureDescriptionItemTab
         {
             public Dictionary<FeatureDefinition, string> FeatureSet { get; set; } = new();
 
-            //public FeatureDefinition SelectedFeature;
+            public FeatureDefinition SelectedFeature;
         }
 
         internal static Dictionary<FeatureDescriptionItem, FeatureDescriptionItemTab> FeatureDescriptionItems { get; } = new();
+
+        private static void RefreshDropdownOptions(FeatureDescriptionItem __instance)
+        {
+            var ___choiceDropdown = __instance.GetField<FeatureDescriptionItem, GuiDropdown>("choiceDropdown");
+            var featureSetNamePrefix = __instance.name.Replace(ReplaceTag, string.Empty);
+
+            if (!FeatureDescriptionItems.TryGetValue(__instance, out var tab))
+            {
+                return;
+            }
+
+            if (tab.SelectedFeature != null)
+            {
+                var optionToRemove = ___choiceDropdown.options.Find(x => x.text == tab.SelectedFeature.FormatTitle());
+
+                foreach (var featureDescriptionItem in FeatureDescriptionItems
+                    .Where(x => x.Key != __instance && x.Key.Feature.Name.StartsWith(featureSetNamePrefix)))
+                {
+                    var choiceDropDown = featureDescriptionItem.Key.GetField<FeatureDescriptionItem, GuiDropdown>("choiceDropdown");
+
+                    choiceDropDown.options.Remove(optionToRemove);
+                }
+            }
+
+            var selectedOption = ___choiceDropdown.options[___choiceDropdown.value];
+
+            foreach (var featureDescriptionItem in FeatureDescriptionItems
+                .Where(x => x.Key != __instance && x.Key.Feature.Name.StartsWith(featureSetNamePrefix)))
+            {
+                var choiceDropDown = featureDescriptionItem.Key.GetField<FeatureDescriptionItem, GuiDropdown>("choiceDropdown");
+
+                choiceDropDown.options.Add(selectedOption);
+                choiceDropDown.options.Sort((a,b) => a.text.CompareTo(b.text));
+                choiceDropDown.RefreshShownValue();
+            }
+
+            tab.SelectedFeature = __instance.GetCurrentFeature();
+        }
 
         private static void KeepSelectionsUnique(FeatureDescriptionItem __instance)
         {
@@ -114,20 +153,32 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
                 FeatureDescriptionItem __instance,
                 FeatureDefinition featureDefinition)
             {
-                if (featureDefinition is IFeatureDefinitionFeatureSetDynamic featureDefinitionFeatureSetDynamic)
+                if (featureDefinition is not FeatureDefinitionFeatureSetDynamic featureDefinitionFeatureSetDynamic)
                 {
-                    var tab = new FeatureDescriptionItemTab();
-                    FeatureDescriptionItems.TryAdd(__instance, tab);
-
-                    tab.FeatureSet = featureDefinitionFeatureSetDynamic.DynamicFeatureSet.Invoke((FeatureDefinitionFeatureSet)featureDefinition);
+                    return;
                 }
+
+                var tab = new FeatureDescriptionItemTab();
+                FeatureDescriptionItems.TryAdd(__instance, tab);
+
+                tab.FeatureSet = featureDefinitionFeatureSetDynamic.DynamicFeatureSet.Invoke(featureDefinitionFeatureSetDynamic);
             }
 
             internal static void Postfix(
                 FeatureDescriptionItem __instance,
                 FeatureDefinition featureDefinition)
             {
-                if (featureDefinition is IFeatureDefinitionFeatureSetDynamic featureDefinitionFeatureSetDynamic)
+                if (featureDefinition is not FeatureDefinitionFeatureSetDynamic featureDefinitionFeatureSetDynamic)
+                {
+                    return;
+                }
+
+                if (featureDefinition.Name.EndsWith(ReplaceTag))
+                {
+                    __instance.ValueChanged += RefreshDropdownOptions;
+                    RefreshDropdownOptions(__instance);
+                }
+                else
                 {
                     __instance.ValueChanged += KeepSelectionsUnique;
                     KeepSelectionsUnique(__instance);

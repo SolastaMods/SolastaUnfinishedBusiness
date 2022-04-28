@@ -10,9 +10,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 {
     public static class AHWarlockSubclassSoulBladePact
     {
-        public static CharacterSubclassDefinition Subclass { get; } = Build();
-
-        private static CharacterSubclassDefinition Build()
+        internal static CharacterSubclassDefinition Build()
         {
             var summonPactWeaponPower = FeatureDefinitionPowerBuilder
                 .Create(FeatureDefinitionPowers.PowerTraditionShockArcanistArcaneFury, "AHSoulBladeSummonPactWeaponPower", DefinitionBuilder.CENamespaceGuid)

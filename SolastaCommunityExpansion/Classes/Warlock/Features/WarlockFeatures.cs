@@ -72,8 +72,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         #region WarlockEldritchInvocationSetRemoval
         private static FeatureDefinitionFeatureSetDynamic warlockEldritchInvocationSetRemoval;
         public static FeatureDefinitionFeatureSetDynamic WarlockEldritchInvocationSetRemoval => warlockEldritchInvocationSetRemoval ??= FeatureDefinitionFeatureSetDynamicBuilder
-            .Create("ClassWarlockEldritchInvocationSetRemoval", CENamespaceGuid)
-            .SetGuiPresentation("Feature/&ClassWarlockEldritchInvocationSetRemovalTitle", "Feature/&ClassWarlockEldritchInvocationSetRemovalDescription")
+            .Create("ClassWarlockEldritchInvocationSetReplace", CENamespaceGuid)
+            .SetGuiPresentation(Category.Feature)
             .SetFeatureSet(WarlockEldritchInvocationSetLevel18.FeatureSet)
             .SetDynamicFeatureSetFunc(InvocationsTakenFeatureSet)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
