@@ -64,7 +64,7 @@ namespace SolastaCommunityExpansion.CustomUI
         private const float SpellsByLevelMargin = 10.0f;
 
         //TODO: add proper translation strings
-        public override string Name => "Custom Feature Panel";
+        public override string Name => "CustomFeatureSelection";
         public override string Title => "Custom Feature Panel Title";
         public override string Description => "Custom Feature Panel Description";
         private bool IsFinalStep => this.currentLearnStep == this.allTags.Count;
@@ -198,33 +198,33 @@ namespace SolastaCommunityExpansion.CustomUI
             for (int i = 0; i < this.learnStepsTable.childCount; i++)
             {
                 Transform child = this.learnStepsTable.GetChild(i);
-                Main.Log($"[ENDER] Refresh - learnt step {i} child: {child!= null}, object:{child?.gameObject}");
-                
-                if (child.gameObject.activeSelf)
+
+                if (!child.gameObject.activeSelf)
                 {
-                    LearnStepItem stepItem = child.GetComponent<LearnStepItem>();
-                    Main.Log($"[ENDER] Refresh - get step item {i} item: {stepItem!=null}");
+                    continue;
+                }
 
-                    LearnStepItem.Status status;
-                    if (i == this.currentLearnStep)
-                    {
-                        status = LearnStepItem.Status.InProgress;
-                    }
-                    else if (i == this.currentLearnStep - 1)
-                    {
-                        status = LearnStepItem.Status.Previous;
-                    }
-                    else
-                    {
-                        status = LearnStepItem.Status.Locked;
-                    }
+                LearnStepItem stepItem = child.GetComponent<LearnStepItem>();
+
+                LearnStepItem.Status status;
+                if (i == this.currentLearnStep)
+                {
+                    status = LearnStepItem.Status.InProgress;
+                }
+                else if (i == this.currentLearnStep - 1)
+                {
+                    status = LearnStepItem.Status.Previous;
+                }
+                else
+                {
+                    status = LearnStepItem.Status.Locked;
+                }
                     
-                    stepItem.CustomRefresh(status);
+                stepItem.CustomRefresh(status);
 
-                    if (status == LearnStepItem.Status.InProgress)
-                    {
-                        currentTag = stepItem.Tag;
-                    }
+                if (status == LearnStepItem.Status.InProgress)
+                {
+                    currentTag = stepItem.Tag;
                 }
             }
             Main.Log($"[ENDER] Refresh - steps refreshed");
@@ -290,8 +290,8 @@ namespace SolastaCommunityExpansion.CustomUI
             {
                 Transform child = this.levelButtonsTable.GetChild(spellLevel);
                 child.gameObject.SetActive(true);
-                SpellLevelButton button = child.GetComponent<SpellLevelButton>();
-                button.Bind(spellLevel, this.LevelSelected);
+                var button = child.GetComponent<SpellLevelButton>();
+                button.CustomBind(spellLevel, this.LevelSelected);
             }
             Main.Log($"[ENDER] Refresh - finished configuring buttons");
 
@@ -572,12 +572,69 @@ namespace SolastaCommunityExpansion.CustomUI
             LearnStepItem.ButtonActivatedHandler onAutoSelectActivated)
         {
             instance.Tag = tag;
+            instance.PoolType = HeroDefinitions.PointsPoolType.Irrelevant;
             instance.SetField("rank", rank);
+            instance.SetField("ignoreAvailable", false);
+            instance.SetField("autoLearnAvailable", false);
+            string header = Gui.Localize($"Title-{tag}");
+            instance.GetField<GuiLabel>("headerLabelActive").Text = header;
+            instance.GetField<GuiLabel>("headerLabelInactive").Text = header;
+            instance.OnBackOneStepActivated = onBackOneStepActivated;
+            instance.OnResetActivated = onResetActivated;
+            instance.OnAutoSelectActivated = onAutoSelectActivated;
         }
 
         public static void CustomRefresh(this LearnStepItem instance, LearnStepItem.Status status)
         {
+            int remainingPoints = 2;//poolOfTypeAndTag.RemainingPoints;
+            int maxPoints = 5;//poolOfTypeAndTag.MaxPoints;
+            var ignoreAvailable = instance.GetField<bool>("ignoreAvailable");
+            var choiceLabel = instance.GetField<GuiLabel>("choicesLabel");
+            var activeGroup = instance.GetField<RectTransform>("activeGroup");
+            var inactiveGroup = instance.GetField<RectTransform>("inactiveGroup");
+            var autoButton = instance.GetField<Button>("autoButton");
+            var resetButton = instance.GetField<Button>("resetButton");
+            
+            activeGroup.gameObject.SetActive(status == LearnStepItem.Status.InProgress);
+            inactiveGroup.gameObject.SetActive( status !=  LearnStepItem.Status.InProgress);
+            instance.GetField<Image>("activeBackground").gameObject.SetActive(status != LearnStepItem.Status.Locked);
+            instance.GetField<Image>("inactiveBackground").gameObject.SetActive(status == LearnStepItem.Status.Locked);
+            instance.GetField<Button>("backOneStepButton").gameObject.SetActive(status == LearnStepItem.Status.Previous);
+            resetButton.gameObject.SetActive(status == LearnStepItem.Status.InProgress);
+            autoButton.gameObject.SetActive(status == LearnStepItem.Status.InProgress && !ignoreAvailable);
+            instance.GetField<Button>("ignoreButton").gameObject.SetActive(ignoreAvailable);
 
+            if (status == LearnStepItem.Status.InProgress)
+            {
+                int current = maxPoints - remainingPoints;
+                instance.GetField<GuiLabel>("pointsLabelActive").Text = Gui.FormatCurrentOverMax(current, maxPoints);
+                instance.GetField<Image>("remainingPointsGaugeActive").fillAmount = (float) current /  maxPoints;
+                choiceLabel.Text = "Label-" + instance.Tag;
+                LayoutRebuilder.ForceRebuildLayoutImmediate(choiceLabel.RectTransform);
+                activeGroup.sizeDelta = new Vector2(activeGroup.sizeDelta.x, (float) (choiceLabel.RectTransform.rect.height - choiceLabel.RectTransform.anchoredPosition.y + 12.0));
+                instance.RectTransform.sizeDelta = activeGroup.sizeDelta;
+                resetButton.interactable = remainingPoints < maxPoints;
+                autoButton.interactable = instance.GetField<bool>("autoLearnAvailable") && remainingPoints > 0;
+            }
+            else
+            {
+                int current = maxPoints - remainingPoints;
+                instance.GetField<GuiLabel>("pointsLabelInactive").Text = Gui.FormatCurrentOverMax(current, maxPoints);
+                instance.GetField<Image>("remainingPointsGaugeInactive").fillAmount =  (float) current / maxPoints;
+                instance.RectTransform.sizeDelta = inactiveGroup.sizeDelta;
+                instance.GetField<Button>("backOneStepButton").interactable = true;
+            }
+        }
+    }
+
+    internal static class SpellLevelButtonExtension
+    {
+        public static void CustomBind(this SpellLevelButton instance,
+            int level, SpellLevelButton.LevelSelectedHandler levelSelected)
+        {
+            instance.Level = level;
+            instance.LevelSelected = levelSelected;
+            instance.GetField<GuiLabel>("label").Text = $"{level}";
         }
     }
 }

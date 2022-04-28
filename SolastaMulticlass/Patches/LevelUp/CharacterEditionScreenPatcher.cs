@@ -20,7 +20,7 @@ namespace SolastaMulticlass.Patches.LevelUp
                 var customFeatureSelection = CustomFeatureSelectionPanel.Get(stagePanelPrefabs, __instance.StagesPanelContainer);
                 if (__instance is not CharacterLevelUpScreen characterLevelUpScreen)
                 {
-                    ___stagePanelsByName.Add("CustomStage", customFeatureSelection);
+                    ___stagePanelsByName.Add(customFeatureSelection.Name, customFeatureSelection);
                     
                     return;
                 }
