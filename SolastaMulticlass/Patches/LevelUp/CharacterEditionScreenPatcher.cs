@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using HarmonyLib;
+using SolastaCommunityExpansion;
+using SolastaCommunityExpansion.CustomUI;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
 
@@ -13,13 +15,18 @@ namespace SolastaMulticlass.Patches.LevelUp
         {
             internal static void Postfix(CharacterEditionScreen __instance, Dictionary<string, CharacterStagePanel> ___stagePanelsByName)
             {
+                var characterCreationScreen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
+                var stagePanelPrefabs = characterCreationScreen.GetField<CharacterCreationScreen, GameObject[]>("stagePanelPrefabs");
+                var customFeatureSelection = CustomFeatureSelectionPanel.Get(stagePanelPrefabs, __instance.StagesPanelContainer);
                 if (__instance is not CharacterLevelUpScreen characterLevelUpScreen)
                 {
+                    ___stagePanelsByName.Add("CustomStage", customFeatureSelection);
+                    
                     return;
                 }
 
-                var characterCreationScreen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
-                var stagePanelPrefabs = characterCreationScreen.GetField<CharacterCreationScreen, GameObject[]>("stagePanelPrefabs");
+                // var characterCreationScreen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
+                // var stagePanelPrefabs = characterCreationScreen.GetField<CharacterCreationScreen, GameObject[]>("stagePanelPrefabs");
                 var classSelectionPanel = Gui.GetPrefabFromPool(stagePanelPrefabs[1], __instance.StagesPanelContainer).GetComponent<CharacterStagePanel>();
                 var deitySelectionPanel = Gui.GetPrefabFromPool(stagePanelPrefabs[2], __instance.StagesPanelContainer).GetComponent<CharacterStagePanel>();
 
@@ -32,7 +39,8 @@ namespace SolastaMulticlass.Patches.LevelUp
                     { "AbilityScores", ___stagePanelsByName["AbilityScores"] },
                     { "FightingStyleSelection", ___stagePanelsByName["FightingStyleSelection"] },
                     { "ProficiencySelection", ___stagePanelsByName["ProficiencySelection"] },
-                    { "", ___stagePanelsByName[""] }
+                    { "", ___stagePanelsByName[""] },
+                    {"CustomStage", customFeatureSelection}
                 });
             }
         }
