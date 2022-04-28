@@ -3,7 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using ModKit;
 using SolastaCommunityExpansion.CustomDefinitions;
-using SolastaCommunityExpansion.Models;
+using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
 {
@@ -22,7 +22,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
             }
 
             var hero = heroBuildingData.HeroCharacter;
-            var poolMods = CustomFeaturesContext.FeaturesByType<IPointPoolMaxBonus>(hero);
+            var poolMods = hero.GetFeaturesByType<IPointPoolMaxBonus>();
 
             heroBuildingData.HeroCharacter.BrowseFeaturesOfType<FeatureDefinition>(features, (feature, _) =>
             {

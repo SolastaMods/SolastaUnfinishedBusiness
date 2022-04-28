@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SolastaCommunityExpansion.Models;
+using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.CustomDefinitions
 {
@@ -39,7 +39,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 
         public EffectDescription GetCustomEffect(RulesetCharacter caster)
         {
-            var casterFeatures = CustomFeaturesContext.FeaturesByType<FeatureDefinition>(caster).ToHashSet();
+            var casterFeatures = caster.GetFeaturesByType<FeatureDefinition>().ToHashSet();
 
             foreach (var (featureDefinitions, customEffect) in _featuresEffectList)
             {

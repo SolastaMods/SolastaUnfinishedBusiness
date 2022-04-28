@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.Models;
+using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffect
 {
@@ -20,7 +21,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
             Main.Logger.Log(action.ActionDefinition.Name);
             Global.CurrentAction = action;
 
-            var features = CustomFeaturesContext.FeaturesByType<ICustomOnActionFeature>(action.ActingCharacter.RulesetCharacter);
+            var features = action.ActingCharacter.RulesetCharacter.GetFeaturesByType<ICustomOnActionFeature>();
 
             foreach (var feature in features)
             {
