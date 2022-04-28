@@ -17,8 +17,8 @@ namespace SolastaCommunityExpansion.Spells
 
         internal static void Register()
         {
-            RegisterSpell(PactMarkSpell, 0, WarlockSpellList);
-            RegisterSpell(HellishRebukeSpell, 0, WarlockSpellList);
+            RegisterSpell(PactMarkSpell, 1, WarlockSpellList);
+            RegisterSpell(HellishRebukeSpell, 1, WarlockSpellList);
         }
 
         internal class PactMarkSpellBuilder : SpellDefinitionBuilder
