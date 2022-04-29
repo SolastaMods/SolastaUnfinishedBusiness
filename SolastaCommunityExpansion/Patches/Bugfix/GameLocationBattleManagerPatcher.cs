@@ -1,6 +1,6 @@
 ﻿using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches
+namespace SolastaCommunityExpansion.Patches.Bugfix
 {
     // For some reason only Die value determination increments feature uses,
     // this fix increments for all other types otherwise additional damage features that use other types
@@ -13,6 +13,11 @@ namespace SolastaCommunityExpansion.Patches
             GameLocationCharacter attacker,
             IAdditionalDamageProvider provider)
         {
+            if (!Main.Settings.BugFixCorrectlyCalculateDamageOnMultipleHits)
+            {
+                return;
+            }
+
             if (provider.DamageValueDetermination != RuleDefinitions.AdditionalDamageValueDetermination.Die)
             {
                 if (attacker.UsedSpecialFeatures.ContainsKey(provider.Name))

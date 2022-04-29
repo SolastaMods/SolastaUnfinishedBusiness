@@ -1,12 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi.Extensions;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures.Features
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.IgnoreDynamicVision
 {
     [HarmonyPatch(typeof(GameLocationVisibilityManager), "IsPositionPerceivedByCharacter")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -16,7 +15,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Features
             Vector3 position,
             Vector3 origin,
             RulesetCharacter rulesetCharacter,
-            List<SenseMode.Type> optionalRequiredSense,
             ref bool __result)
         {
             GridAccessor gridAccessor = GridAccessor.Default;
