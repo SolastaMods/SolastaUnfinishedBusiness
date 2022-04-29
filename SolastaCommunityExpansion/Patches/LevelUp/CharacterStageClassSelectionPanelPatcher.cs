@@ -6,22 +6,6 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Patches.LevelUp
 {
-    [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "Refresh")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class CharacterStageClassSelectionPanel_Refresh
-    {
-        internal static void Prefix()
-        {
-            if (!Main.Settings.EnableEnforceUniqueFeatureSetChoices)
-            {
-                return;
-            }
-
-            //FeatureDescriptionItemPatcher.IsClassSelectionStage = true;
-            FeatureDescriptionItemPatcher.FeatureDescriptionItems.Clear();
-        }
-    }
-
     [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "Compare")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterStageClassSelectionPanel_Compare
@@ -47,6 +31,11 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
             var visibleClasses = DatabaseRepository.GetDatabase<CharacterClassDefinition>().Where(x => !x.GuiPresentation.Hidden);
 
             ___compatibleClasses.SetRange(visibleClasses.OrderBy(x => x.FormatTitle()));
+
+            if (Main.Settings.EnableEnforceUniqueFeatureSetChoices)
+            {
+                FeatureDescriptionItemPatcher.FeatureDescriptionItems.Clear();
+            }
         }
     }
 }

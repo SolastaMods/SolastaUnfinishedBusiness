@@ -174,7 +174,8 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
 
                 if (featureDefinition is FeatureDefinitionFeatureSet)
                 {
-                    FeatureDescriptionItems.Add(__instance, featureSet);
+                    // need a TryAdd here to avoid issues with other level up screens
+                    FeatureDescriptionItems.TryAdd(__instance, featureSet);
                 }
             }
 
