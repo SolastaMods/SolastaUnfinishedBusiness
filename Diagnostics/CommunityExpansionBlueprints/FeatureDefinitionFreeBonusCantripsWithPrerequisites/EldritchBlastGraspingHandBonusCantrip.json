@@ -1,13 +1,13 @@
 {
   "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFreeBonusCantripsWithPrerequisites, SolastaCommunityExpansion",
   "bonusCantrips": [
-    "Definition:DHEldritchBlastRepellingBlast:f66d2a59-34fa-5fc7-b95f-9ca50bdc8419"
+    "Definition:EldritchBlastGraspingHand:2594bb21-6f12-5804-a455-cdb8634c042d"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&DHEldritchBlastRepellingBlastBonusCantripTitle",
-    "description": "Feature/&DHEldritchBlastRepellingBlastBonusCantripDescription",
+    "title": "Feature/&EldritchBlastGraspingHandBonusCantripTitle",
+    "description": "Feature/&EldritchBlastGraspingHandBonusCantripDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -27,7 +27,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "6e462069-31d0-567f-b4c8-332c35cc555a",
+  "guid": "a9369019-acb0-5154-a31b-9dfa1434f203",
   "contentPack": 9999,
-  "name": "DHEldritchBlastRepellingBlastBonusCantrip"
+  "name": "EldritchBlastGraspingHandBonusCantrip"
 }

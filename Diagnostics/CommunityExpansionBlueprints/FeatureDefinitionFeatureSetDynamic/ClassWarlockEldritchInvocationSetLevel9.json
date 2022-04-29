@@ -18,14 +18,14 @@
     "Definition:DHEIAttributeModifiersOneWithShadowsStronger:e52f847e-c2fb-5817-a894-fb8d02a292db",
     "Definition:DHEIAttributeModifiersOneWithShadows:463355d0-bd35-5d70-b38c-c79bf83af3af",
     "Definition:DHEIAttributeModifiersThirstingBlade:69314f6f-3b7a-512e-89dd-6f3373cda044",
+    "Definition:EldritchBlastGraspingHandBonusCantrip:a9369019-acb0-5154-a31b-9dfa1434f203",
+    "Definition:EldritchBlastRepellingBlastBonusCantrip:f7873672-9677-55e7-8cc4-8c04d3e9006c",
+    "Definition:DHEldritchInvocationFreedomOfMovement:a770f899-614b-5226-994d-bd457f91369c",
     "Definition:DHEldritchInvocationFalseLife:ca031f8e-8dbc-55f1-844e-8b10f8593578",
-    "Definition:DHEldritchBlastGraspingHandBonusCantrip:8ca78192-af9c-5928-940a-4f421418374a",
     "Definition:HinderingBlast:2b63b3b0-0c19-58b4-876e-bf4630e47100",
     "Definition:DHEldritchInvocationSlow:3fa3c649-2ada-5bee-926f-15434a36e09b",
     "Definition:DHEldritchInvocationJump:2a6b8f9e-f647-533d-92bc-719a72c506e2",
-    "Definition:DHEldritchBlastRepellingBlastBonusCantrip:6e462069-31d0-567f-b4c8-332c35cc555a",
-    "Definition:DHEldritchInvocationBane:4e20a399-554c-591b-8a9a-0c8eeeb78482",
-    "Definition:DHEldritchInvocationFreedomOfMovement:a770f899-614b-5226-994d-bd457f91369c"
+    "Definition:DHEldritchInvocationBane:4e20a399-554c-591b-8a9a-0c8eeeb78482"
   ],
   "mode": "Exclusion",
   "defaultSelection": 0,

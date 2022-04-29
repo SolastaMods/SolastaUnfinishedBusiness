@@ -312,9 +312,9 @@
     "description": "Spell/&EldritchBlastDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "b61663f56247d304aa297e5fe059e294",
-      "m_SubObjectName": "MagicMissile",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -329,7 +329,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e8267b9e-2d34-5ffd-ab0d-9a79caea538e",
+  "guid": "50536bd0-3c1c-57b7-b1ce-9eb7a653e5eb",
   "contentPack": 9999,
-  "name": "DHEldritchBlast"
+  "name": "EldritchBlast"
 }

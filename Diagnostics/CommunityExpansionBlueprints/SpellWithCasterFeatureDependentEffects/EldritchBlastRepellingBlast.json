@@ -112,7 +112,7 @@
         "saveOccurence": "EndOfTurn",
         "motionForm": {
           "$type": "MotionForm, Assembly-CSharp",
-          "type": "DragToOrigin",
+          "type": "PushFromOrigin",
           "distance": 2
         }
       }
@@ -318,13 +318,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&DHEldritchBlastGraspingHandTitle",
-    "description": "Spell/&DHEldritchBlastGraspingHandDescription",
+    "title": "Spell/&EldritchBlastRepellingBlastTitle",
+    "description": "Spell/&EldritchBlastRepellingBlastDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "b61663f56247d304aa297e5fe059e294",
-      "m_SubObjectName": "MagicMissile",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -339,7 +339,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "67457d22-a4cb-5ec4-ac66-2a0adba85c34",
+  "guid": "919c97d2-986c-53e5-a614-237c6d10aeb5",
   "contentPack": 9999,
-  "name": "DHEldritchBlastGraspingHand"
+  "name": "EldritchBlastRepellingBlast"
 }

@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaCommunityExpansion.CustomDefinitions.IgnoreDynamicVisionImpairment, SolastaCommunityExpansion",
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionIgnoreDynamicVisionImpairment, SolastaCommunityExpansion",
   "maxRange": 24.0,
   "requiredFeatures": [],
   "forbiddenFeatures": [
