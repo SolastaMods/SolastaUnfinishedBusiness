@@ -22,9 +22,10 @@ namespace SolastaMulticlass.Patches.LevelUp
                 {
                     var newDict = new Dictionary<string, CharacterStagePanel>();
                     var i = 0;
+                    var targetPosition = ___stagePanelsByName.Count - 1;
                     foreach (var e in ___stagePanelsByName)
                     {
-                        if (i == 2)
+                        if (i == targetPosition)
                         {
                             newDict.Add(customFeatureSelection.Name, customFeatureSelection);
                         }
