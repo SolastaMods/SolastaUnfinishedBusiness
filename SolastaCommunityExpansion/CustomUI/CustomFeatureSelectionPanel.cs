@@ -105,11 +105,12 @@ namespace SolastaCommunityExpansion.CustomUI
         {
             var mysticArcanum11 = DatabaseHelper.GetDefinition<FeatureDefinitionFeatureSet>($"ClassWarlockMysticArcanumSetLevel11", null);
             var EI2 = DatabaseHelper.GetDefinition<FeatureDefinitionFeatureSet>($"ClassWarlockEldritchInvocationSetLevel2", null);
+            var EI18 = DatabaseHelper.GetDefinition<FeatureDefinitionFeatureSet>($"ClassWarlockEldritchInvocationSetLevel18", null);
             return new List<FeatureDefinitionFeatureSet>
             {
-                //mysticArcanum11,
-                EI2,
-                EI2,
+                mysticArcanum11,
+                EI18,
+                EI18,
                 // DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetHunterHuntersPrey,
             };
         }
@@ -180,9 +181,9 @@ namespace SolastaCommunityExpansion.CustomUI
             Main.Log($"[ENDER] CUSTOM EnterStage '{this.StageDefinition}'");
 
             //TODO: add proper localization
-            stageTitleLabel.TMP_Text.text = "Select Features";
-            righrFeaturesLabel.TMP_Text.text = "Features";
-            rightFeaturesDescription.TMP_Text.text = "Select features";
+            stageTitleLabel.Text = "Select Features";
+            righrFeaturesLabel.Text = "Features";
+            rightFeaturesDescription.Text = "Select features";
             
             this.currentLearnStep = 0;
 
@@ -828,8 +829,7 @@ namespace SolastaCommunityExpansion.CustomUI
                     bool isUnlearned = unlearnedFetures != null && unlearnedFetures.Contains(boxFeature);
                     bool canLearn = knownFeatures.Contains(boxFeature) && !selected;
 
-                    var knownNames = String.Join(", ", knownFeatures.Select(f=>f.Name));
-                    Main.Log($"[ENDER] SB.refreshLearning '{boxFeature.Name}', canAcquireFeatures: {canAcquireFeatures}, selected: {selected}, known: [{knownNames}]");
+                    Main.Log($"[ENDER] SB.refreshLearning '{boxFeature.Name}', canAcquireFeatures: {canAcquireFeatures}, selected: {selected}");
                     
                     if (canAcquireFeatures)
                         box.RefreshLearningInProgress((canLearn || selected) && !isUnlearned, selected);
@@ -893,7 +893,6 @@ namespace SolastaCommunityExpansion.CustomUI
 
             instance.SetField("bindMode", bindMode);
             instance.SpellBoxChanged = spellBoxChanged;
-            instance.GetField<GuiLabel>("titleLabel").Text = feature.GuiPresentation.Title;
             // instance.GuiSpellDefinition.SetupSprite(instance.spellImage, (object) null);
             // instance.GuiSpellDefinition.SetupTooltip((ITooltip) instance.tooltip, null);
             instance.SetField("hovered", false);
@@ -901,8 +900,7 @@ namespace SolastaCommunityExpansion.CustomUI
             instance.SetField("autoPrepared", false);
             instance.SetField("unlearnedSpell", unlearned);
             image.color = Color.white;
-            SetupSprite(image, feature.GuiPresentation);
-            SetupTooltip(instance.GetField<GuiTooltip>("tooltip"), feature);
+            SetupUI(instance.GetField<GuiLabel>("titleLabel"), image, instance.GetField<GuiTooltip>("tooltip"), feature);
             instance.transform.localScale = new Vector3(1f, 1f, 1f);
 
             GuiModifier component =
@@ -936,13 +934,21 @@ namespace SolastaCommunityExpansion.CustomUI
                 imageComponent.gameObject.SetActive(false);
         }
 
-        public static void SetupTooltip(GuiTooltip tooltip, FeatureDefinition feature)
+        public static void SetupUI(GuiLabel title, Image image, GuiTooltip tooltip, FeatureDefinition feature)
         {
+            var guiPresentation = feature.GuiPresentation;
             if (feature is FeatureDefinitionPower power)
             {
                 var gui = ServiceRepository.GetService<IGuiWrapperService>().GetGuiPowerDefinition(power.Name);
                 gui.SetupTooltip(tooltip);
             }
+            // else if (feature is FeatureDefinitionBonusCantrips cantrips && cantrips.BonusCantrips.Count == 1)
+            // {
+            //     var cantrip = cantrips.BonusCantrips[0];
+            //     var gui = ServiceRepository.GetService<IGuiWrapperService>().GetGuiSpellDefinition(cantrip.Name);
+            //     gui.SetupTooltip(tooltip);
+            //     guiPresentation = cantrip.GuiPresentation;
+            // }
             else
             {
                 tooltip.TooltipClass = "";
@@ -950,6 +956,9 @@ namespace SolastaCommunityExpansion.CustomUI
                 tooltip.Context = null;
                 tooltip.DataProvider = null;
             }
+
+            title.Text = guiPresentation.Title;
+            SetupSprite(image, guiPresentation);
         }
 
         public static void CustomUnbind(this SpellBox instance)
