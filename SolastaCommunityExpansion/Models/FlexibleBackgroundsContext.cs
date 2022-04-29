@@ -37,47 +37,47 @@ namespace SolastaCommunityExpansion.Models
             .SetPool(HeroDefinitions.PointsPoolType.Tool, 2)
             .AddToDB();
 
-        private static FeatureDefinition academicSuggestedSkills = FeatureDefinitionBuilder
+        private static readonly FeatureDefinition academicSuggestedSkills = FeatureDefinitionBuilder
             .Create("AcademicBackgroundSuggestedSkills", FLEX_BACK_BASE_GUID)
             .SetGuiPresentation("AcademicBackgroundSuggestedSkills", Category.FlexibleBackgrounds)
             .AddToDB();
 
-        private static FeatureDefinition acolyteSuggestedSkills = FeatureDefinitionBuilder
+        private static readonly FeatureDefinition acolyteSuggestedSkills = FeatureDefinitionBuilder
            .Create("AcolyteBackgroundSuggestedSkills", FLEX_BACK_BASE_GUID)
             .SetGuiPresentation("AcolyteBackgroundSuggestedSkills", Category.FlexibleBackgrounds)
             .AddToDB();
 
-        private static FeatureDefinition aristocratSuggestedSkills = FeatureDefinitionBuilder
+        private static readonly FeatureDefinition aristocratSuggestedSkills = FeatureDefinitionBuilder
             .Create("AristocratBackgroundSuggestedSkills", FLEX_BACK_BASE_GUID)
             .SetGuiPresentation("AristocratBackgroundSuggestedSkills", Category.FlexibleBackgrounds)
             .AddToDB();
 
-        private static FeatureDefinition lawkeeperSuggestedSkills = FeatureDefinitionBuilder
+        private static readonly FeatureDefinition lawkeeperSuggestedSkills = FeatureDefinitionBuilder
             .Create("LawkeeperBackgroundSuggestedSkills", FLEX_BACK_BASE_GUID)
             .SetGuiPresentation("LawkeeperBackgroundSuggestedSkills", Category.FlexibleBackgrounds)
             .AddToDB();
 
-        private static FeatureDefinition lowlifeSuggestedSkills = FeatureDefinitionBuilder
+        private static readonly FeatureDefinition lowlifeSuggestedSkills = FeatureDefinitionBuilder
             .Create("LowlifeBackgroundSuggestedSkills", FLEX_BACK_BASE_GUID)
             .SetGuiPresentation("LowlifeBackgroundSuggestedSkills", Category.FlexibleBackgrounds)
             .AddToDB();
 
-        private static FeatureDefinition philosopherSuggestedSkills = FeatureDefinitionBuilder
+        private static readonly FeatureDefinition philosopherSuggestedSkills = FeatureDefinitionBuilder
             .Create("PhilosopherBackgroundSuggestedSkills", FLEX_BACK_BASE_GUID)
             .SetGuiPresentation("PhilosopherBackgroundSuggestedSkills", Category.FlexibleBackgrounds)
             .AddToDB();
 
-        private static FeatureDefinition sellswordSuggestedSkills = FeatureDefinitionBuilder
+        private static readonly FeatureDefinition sellswordSuggestedSkills = FeatureDefinitionBuilder
             .Create("SellswordBackgroundSuggestedSkills", FLEX_BACK_BASE_GUID)
             .SetGuiPresentation("SellswordBackgroundSuggestedSkills", Category.FlexibleBackgrounds)
             .AddToDB();
 
-        private static FeatureDefinition spySuggestedSkills = FeatureDefinitionBuilder
+        private static readonly FeatureDefinition spySuggestedSkills = FeatureDefinitionBuilder
             .Create("SpyBackgroundSuggestedSkills", FLEX_BACK_BASE_GUID)
             .SetGuiPresentation("SpyBackgroundSuggestedSkills", Category.FlexibleBackgrounds)
             .AddToDB();
 
-        private static FeatureDefinition wandererSuggestedSkills = FeatureDefinitionBuilder
+        private static readonly FeatureDefinition wandererSuggestedSkills = FeatureDefinitionBuilder
             .Create("WandererBackgroundSuggestedSkills", FLEX_BACK_BASE_GUID)
             .SetGuiPresentation("WandererBackgroundSuggestedSkills", Category.FlexibleBackgrounds)
             .AddToDB();

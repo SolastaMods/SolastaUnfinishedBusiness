@@ -44,12 +44,14 @@ namespace SolastaCommunityExpansion.Models
             }
 
             var ruleDefender = defender.RulesetCharacter;
+
             if (ruleDefender == null)
             {
                 yield break;
             }
 
             ruleDefender.InvokeMethod("EnumerateUsableSpells");
+
             var spells = ruleDefender.UsableSpells
                 .OfType<SpellWithCustomFeatures>()
                 .Where(s => s.GetTypedFeatures<IDamagedReactionSpell>().Any())
@@ -58,6 +60,7 @@ namespace SolastaCommunityExpansion.Models
             foreach (var spell in spells)
             {
                 var reactions = spell.GetTypedFeatures<IDamagedReactionSpell>();
+
                 if (reactions.Any(r => r.CanReact(attacker, defender, attackModifier, attackMode, rangedAttack,
                         advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget)))
                 {
@@ -70,6 +73,7 @@ namespace SolastaCommunityExpansion.Models
             GameLocationCharacter target)
         {
             var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
             if (actionManager != null)
             {
                 var ruleCaster = caster.RulesetCharacter;
@@ -85,11 +89,13 @@ namespace SolastaCommunityExpansion.Models
                             ruleset.InstantiateEffectSpell(ruleCaster, spellBook, spell, spellSlot, false),
                         IsReactionEffect = true
                     };
+
                     reactionParams.TargetCharacters.Add(target);
                     reactionParams.ActionModifiers.Add(new ActionModifier());
-                    int reactions = actionManager.PendingReactionRequestGroups.Count;
 
+                    var reactions = actionManager.PendingReactionRequestGroups.Count;
                     var reaction = new ReactionRequestCastDamageSpell(reactionParams, target, spellSlot == 0);
+
                     actionManager.InvokeMethod("AddInterruptRequest", reaction);
 
                     yield return WaitForReactions(actionManager, reactions);
