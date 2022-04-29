@@ -143,7 +143,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                     WarlockEldritchInvocationSetLevel2)
 
                 .AddFeaturesAtLevel(3,
-                    WarlockClassPactBoonSetBuilder.WarlockClassPactBoonSet)
+                    WarlockClassPactBoonSetBuilder.WarlockClassPactBoonSet,
+                    WarlockEldritchInvocationSetLevel3)
                 //WarlockEldritchInvocationSetLevel2,
                 //WarlockEldritchInvocationSetRemoval)
 
