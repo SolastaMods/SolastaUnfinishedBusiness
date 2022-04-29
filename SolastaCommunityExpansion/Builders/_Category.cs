@@ -20,6 +20,7 @@
         Equipment,
         Feat,
         Feature,
+        Feedback,
         FightingStyle,
         FlexibleBackgrounds,
         FlexibleRaces,

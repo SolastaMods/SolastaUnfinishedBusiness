@@ -6,7 +6,9 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public class SpellDefinitionBuilder : DefinitionBuilder<SpellDefinition, SpellDefinitionBuilder>
+    public abstract class SpellDefinitionBuilder<TDefinition, TBuilder> : DefinitionBuilder<TDefinition, TBuilder>
+        where TDefinition : SpellDefinition
+        where TBuilder : SpellDefinitionBuilder<TDefinition, TBuilder>
     {
         #region Constructors
         protected SpellDefinitionBuilder(string name, string guid) : base(name, guid)
@@ -19,12 +21,12 @@ namespace SolastaCommunityExpansion.Builders
             InitializeFields();
         }
 
-        protected SpellDefinitionBuilder(SpellDefinition original, string name, string guid) : base(original, name, guid)
+        protected SpellDefinitionBuilder(TDefinition original, string name, string guid) : base(original, name, guid)
         {
             InitializeFields();
         }
 
-        protected SpellDefinitionBuilder(SpellDefinition original, string name, Guid guidNamespace)
+        protected SpellDefinitionBuilder(TDefinition original, string name, Guid guidNamespace)
             : base(original, name, guidNamespace)
         {
             InitializeFields();
@@ -40,99 +42,123 @@ namespace SolastaCommunityExpansion.Builders
             Definition.SetImplemented(true);
         }
 
-        public SpellDefinitionBuilder SetSpellLevel(int spellLevel)
+        public TBuilder SetSpellLevel(int spellLevel)
         {
             Definition.SetSpellLevel(spellLevel);
-            return this;
+            return This();
         }
 
-        public SpellDefinitionBuilder SetRequiresConcentration(bool value)
+        public TBuilder SetRequiresConcentration(bool value)
         {
             Definition.SetRequiresConcentration(value);
-            return this;
+            return This();
         }
 
-        public SpellDefinitionBuilder SetSchoolOfMagic(SchoolOfMagicDefinition school)
+        public TBuilder SetSchoolOfMagic(SchoolOfMagicDefinition school)
         {
             Definition.SetSchoolOfMagic(school.Name);
-            return this;
+            return This();
         }
 
-        public SpellDefinitionBuilder SetSubSpells(params SpellDefinition[] subspells)
+        public TBuilder SetSubSpells(params TDefinition[] subspells)
         {
             return SetSubSpells(subspells.AsEnumerable());
         }
 
-        public SpellDefinitionBuilder SetSubSpells(IEnumerable<SpellDefinition> subspells)
+        public TBuilder SetSubSpells(IEnumerable<TDefinition> subspells)
         {
             Definition.SetSpellsBundle(true);
             Definition.SubspellsList.SetRange(subspells);
-            return this;
+            return This();
         }
 
-        public SpellDefinitionBuilder SetCastingTime(RuleDefinitions.ActivationTime castingTime)
+        public TBuilder SetCastingTime(RuleDefinitions.ActivationTime castingTime)
         {
             Definition.SetCastingTime(castingTime);
-            return this;
+            return This();
         }
 
-        public SpellDefinitionBuilder SetRitualCasting(RuleDefinitions.ActivationTime ritualCastingTime)
+        public TBuilder SetRitualCasting(RuleDefinitions.ActivationTime ritualCastingTime)
         {
             Definition.SetRitual(true);
             Definition.SetRitualCastingTime(ritualCastingTime);
-            return this;
+            return This();
         }
 
-        public SpellDefinitionBuilder SetUniqueInstance(bool unique = true)
+        public TBuilder SetUniqueInstance(bool unique = true)
         {
             Definition.SetUniqueInstance(unique);
-            return this;
+            return This();
         }
 
-        public SpellDefinitionBuilder SetVerboseComponent(bool verboseComponent)
+        public TBuilder SetVerboseComponent(bool verboseComponent)
         {
             Definition.SetVerboseComponent(verboseComponent);
-            return this;
+            return This();
         }
 
-        public SpellDefinitionBuilder SetSomaticComponent(bool somaticComponent)
+        public TBuilder SetSomaticComponent(bool somaticComponent)
         {
             Definition.SetSomaticComponent(somaticComponent);
-            return this;
+            return This();
         }
 
-        public SpellDefinitionBuilder SetMaterialComponent(RuleDefinitions.MaterialComponentType materialComponentType)
+        public TBuilder SetMaterialComponent(RuleDefinitions.MaterialComponentType materialComponentType)
         {
             Definition.SetMaterialComponentType(materialComponentType);
-            return this;
+            return This();
         }
 
-        public SpellDefinitionBuilder SetSpecificMaterialComponent(string specificMaterialComponentTag,
+        public TBuilder SetSpecificMaterialComponent(string specificMaterialComponentTag,
             int specificMaterialComponentCostGp, bool specificMaterialComponentConsumed)
         {
             Definition.SetMaterialComponentType(RuleDefinitions.MaterialComponentType.Specific);
             Definition.SetSpecificMaterialComponentTag(specificMaterialComponentTag);
             Definition.SetSpecificMaterialComponentCostGp(specificMaterialComponentCostGp);
             Definition.SetSpecificMaterialComponentConsumed(specificMaterialComponentConsumed);
-            return this;
+            return This();
         }
 
-        public SpellDefinitionBuilder SetEffectDescription(EffectDescription effectDescription)
+        public TBuilder SetEffectDescription(EffectDescription effectDescription)
         {
             Definition.SetEffectDescription(effectDescription);
-            return this;
+            return This();
         }
 
-        public SpellDefinitionBuilder SetAiParameters(SpellAIParameters aiParameters)
+        public TBuilder SetAiParameters(SpellAIParameters aiParameters)
         {
             Definition.SetAiParameters(aiParameters);
-            return this;
+            return This();
         }
 
-        public SpellDefinitionBuilder SetConcentrationAction(ActionDefinitions.ActionParameter concentrationAction)
+        public TBuilder SetConcentrationAction(ActionDefinitions.ActionParameter concentrationAction)
         {
             Definition.SetConcentrationAction(concentrationAction);
-            return this;
+            return This();
         }
+    }
+
+    public class SpellDefinitionBuilder : SpellDefinitionBuilder<SpellDefinition, SpellDefinitionBuilder>
+    {
+        #region Constructors
+
+        public SpellDefinitionBuilder(string name, string guid) : base(name, guid)
+        {
+        }
+
+        public SpellDefinitionBuilder(string name, Guid guidNamespace) : base(name, guidNamespace)
+        {
+        }
+
+        public SpellDefinitionBuilder(SpellDefinition original, string name, string guid) : base(original, name, guid)
+        {
+        }
+
+        public SpellDefinitionBuilder(SpellDefinition original, string name, Guid guidNamespace) : base(original, name,
+            guidNamespace)
+        {
+        }
+
+        #endregion Constructors
     }
 }
