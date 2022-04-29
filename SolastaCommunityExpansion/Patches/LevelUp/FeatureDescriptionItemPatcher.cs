@@ -20,7 +20,7 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
             if (featureDefinitionFeatureSet is FeatureDefinitionFeatureSetDynamic
                 && FeatureDescriptionItemPatcher.FeatureDescriptionItems.TryGetValue(featureDescriptionItem, out var tab))
             {
-                return tab.FeatureSet.Keys.ToList();
+                return tab.FeatureSet.ToList();
             }
 
             return featureDefinitionFeatureSet.FeatureSet;
@@ -79,10 +79,12 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
         internal const string ReplaceTag = "Replace";
         internal class FeatureDescriptionItemTab
         {
-            public Dictionary<FeatureDefinition, string> FeatureSet { get; set; } = new();
+            public Queue<FeatureDefinition> FeatureSet { get; set; } = new();
 
             public FeatureDefinition SelectedFeature;
         }
+
+        internal static bool IsClassSelectionStage { get; set; }
 
         internal static Dictionary<FeatureDescriptionItem, FeatureDescriptionItemTab> FeatureDescriptionItems { get; } = new();
 
@@ -148,11 +150,11 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
             foreach (var featureDescriptionItem in FeatureDescriptionItems
                 .Where(x => x.Key != __instance && x.Key.Feature == __instance.Feature))
             {
-                var choiceDropDown = featureDescriptionItem.Key.GetField<FeatureDescriptionItem, GuiDropdown>("choiceDropdown");
+                var choiceDropdown = featureDescriptionItem.Key.GetField<FeatureDescriptionItem, GuiDropdown>("choiceDropdown");
 
-                if (choiceDropDown.value == ___choiceDropdown.value)
+                if (choiceDropdown.value == ___choiceDropdown.value)
                 {
-                    choiceDropDown.value = (choiceDropDown.value + 1) % choiceDropDown.options.Count;
+                    ___choiceDropdown.value = (___choiceDropdown.value + 1) % ___choiceDropdown.options.Count;
                 }
             }
         }
@@ -181,6 +183,14 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
                 FeatureDefinition featureDefinition)
             {
                 if (featureDefinition is not FeatureDefinitionFeatureSetDynamic featureDefinitionFeatureSetDynamic)
+                {
+                    return;
+                }
+
+                var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
+                var heroBuildingData = characterBuildingService.CurrentLocalHeroCharacter?.GetHeroBuildingData();
+
+                if (heroBuildingData == null || (heroBuildingData.LevelingUp && FeatureDescriptionItemPatcher.IsClassSelectionStage))
                 {
                     return;
                 }

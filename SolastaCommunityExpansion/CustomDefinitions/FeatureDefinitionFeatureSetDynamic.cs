@@ -5,7 +5,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 {
     public class FeatureDefinitionFeatureSetDynamic : FeatureDefinitionFeatureSet
     {
-        public Func<FeatureDefinitionFeatureSet, Dictionary<FeatureDefinition, string>> DynamicFeatureSet { get; set; } =
+        public Func<FeatureDefinitionFeatureSet, Queue<FeatureDefinition>> DynamicFeatureSet { get; set; } =
             (x) => new();
     }
 }
