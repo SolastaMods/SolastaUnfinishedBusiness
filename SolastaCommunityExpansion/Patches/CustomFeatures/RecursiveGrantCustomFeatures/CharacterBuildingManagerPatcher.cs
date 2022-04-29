@@ -12,17 +12,22 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.RecursiveGrantCustomF
         /**
          * When a character is being granted features, this patch will apply the effect of custom features.
          */
-
-        internal static void Postfix(RulesetCharacterHero hero, List<FeatureDefinition> grantedFeatures, bool clearPrevious = true)
+        internal static void Postfix(RulesetCharacterHero hero, List<FeatureDefinition> grantedFeatures)
         {
-            if (!clearPrevious)
-            {
-                CustomFeaturesContext.RecursiveGrantCustomFeatures(hero, grantedFeatures);
-            }
-            else
-            {
-                CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, grantedFeatures);              
-            }
+            CustomFeaturesContext.RecursiveGrantCustomFeatures(hero, grantedFeatures);
+        }
+    }
+
+    [HarmonyPatch(typeof(CharacterBuildingManager), "ClearPrevious")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class CharacterBuildingManager_ClearPrevious
+    {
+        internal static void Prefix(RulesetCharacterHero hero, string tag)
+        {
+            if (string.IsNullOrEmpty(tag) || !hero.ActiveFeatures.ContainsKey(tag))
+                return;
+
+            CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, hero.ActiveFeatures[tag]);
         }
     }
 }
