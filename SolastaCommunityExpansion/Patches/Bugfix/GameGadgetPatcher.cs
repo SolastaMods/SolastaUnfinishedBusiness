@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿#if false
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaModApi.Extensions;
@@ -42,3 +43,4 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
         }
     }
 }
+#endif

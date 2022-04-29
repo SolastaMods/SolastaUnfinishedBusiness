@@ -409,8 +409,28 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
+        internal static void LoadRemoveIdentification()
+        {
+            if (Main.Settings.RemoveIdentifcationRequirements)
+            {
+                foreach (ItemDefinition item in DatabaseRepository.GetDatabase<ItemDefinition>())
+                {
+                    item.SetRequiresIdentification(false);
+                }
+            }
+
+            if (Main.Settings.RemoveAttunementRequirements)
+            {
+                foreach (ItemDefinition item in DatabaseRepository.GetDatabase<ItemDefinition>())
+                {
+                    item.SetRequiresAttunement(false);
+                }
+            }
+        }
+
         internal static void Load()
         {
+            LoadRemoveIdentification();
             LoadClothingGorimStock();
             SwitchSetBeltOfDwarvenKindBeardChances();
             SwitchCrownOfTheMagister();

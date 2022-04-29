@@ -94,7 +94,7 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        internal static void Load()
+        internal static void LateLoad()
         {
             if (!Main.Settings.EnableSaveByLocation)
             {

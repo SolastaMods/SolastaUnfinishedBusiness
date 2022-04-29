@@ -275,6 +275,7 @@ namespace SolastaCommunityExpansion.Models
             var languageSourceData = LocalizationManager.Sources[0];
             var currentLanguage = LocalizationManager.CurrentLanguageCode;
             var languageIndex = languageSourceData.GetLanguageIndexFromCode(currentLanguage);
+            var invalidSyntaxTerms = new List<string>();
 
             var allLines = baseDefinitions
                 .Select(d => new[] {
@@ -290,6 +291,11 @@ namespace SolastaCommunityExpansion.Models
                 .Where(d => !string.IsNullOrWhiteSpace(d.Key))
                 .Where(d =>
                 {
+                    if (!d.Key.Contains("/&"))
+                    {
+                        invalidSyntaxTerms.Add($"{d.Name}\t{d.Type}='{d.Key}'.");
+                        return false;
+                    }
                     var termData = languageSourceData.GetTermData(d.Key);
                     return string.IsNullOrWhiteSpace(termData?.Languages[languageIndex]);
                 })
@@ -297,6 +303,7 @@ namespace SolastaCommunityExpansion.Models
                 .Select(d => $"{d.Name}\t{d.Type}='{d.Key}'.");
 
             File.WriteAllLines(Path.Combine(DiagnosticsFolder, $"{baseFilename}-GuiPresentation-MissingTranslation-{currentLanguage}.txt"), allLines);
+            File.WriteAllLines(Path.Combine(DiagnosticsFolder, $"{baseFilename}-GuiPresentation-InvalidSyntaxTranslation-{currentLanguage}.txt"), invalidSyntaxTerms);
         }
 #endif
     }

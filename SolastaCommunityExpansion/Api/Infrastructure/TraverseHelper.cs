@@ -1,5 +1,6 @@
 ﻿using System;
 using HarmonyLib;
+using static System.Reflection.BindingFlags;
 
 namespace SolastaModApi.Infrastructure
 {
@@ -90,6 +91,13 @@ namespace SolastaModApi.Infrastructure
             }
 
             t.Property<V>(propertyName).Value = value;
+        }
+
+        public static object InvokeMethod<T>(this T obj, string methodName, params object[] args)
+        {
+            var type = typeof(T);
+            var method = type.GetMethod(methodName, NonPublic | Instance);
+            return method?.Invoke(obj, args);
         }
     }
 }

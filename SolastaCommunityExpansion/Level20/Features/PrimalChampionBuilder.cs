@@ -1,8 +1,9 @@
-﻿using SolastaCommunityExpansion.CustomDefinitions;
+﻿using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.CustomDefinitions;
 
 namespace SolastaCommunityExpansion.Level20.Features
 {
-    internal sealed class PrimalChampionBuilder : FeatureDefinitionCustomCodeBuilder<PrimalChampion, PrimalChampionBuilder>
+    internal sealed class PrimalChampionBuilder : FeatureDefinitionBuilder<PrimalChampion, PrimalChampionBuilder>
     {
         private const string PrimalChampionName = "ZSPrimalChampion";
         private const string PrimalChampionGuid = "118a5ea1-8a19-4bee-9db1-7a2464c8e7b5";
@@ -22,9 +23,9 @@ namespace SolastaCommunityExpansion.Level20.Features
             CreateAndAddToDB(PrimalChampionName, PrimalChampionGuid);
     }
 
-    internal sealed class PrimalChampion : FeatureDefinitionCustomCode
+    internal sealed class PrimalChampion : FeatureDefinition, IFeatureDefinitionCustomCode
     {
-        public override void ApplyFeature(RulesetCharacterHero hero)
+        public void ApplyFeature(RulesetCharacterHero hero)
         {
             ModifyAttributeAndMax(hero, AttributeDefinitions.Strength, 4);
             ModifyAttributeAndMax(hero, AttributeDefinitions.Constitution, 4);
@@ -32,7 +33,7 @@ namespace SolastaCommunityExpansion.Level20.Features
             hero.RefreshAll();
         }
 
-        public override void RemoveFeature(RulesetCharacterHero hero)
+        public void RemoveFeature(RulesetCharacterHero hero)
         {
             ModifyAttributeAndMax(hero, AttributeDefinitions.Strength, -4);
             ModifyAttributeAndMax(hero, AttributeDefinitions.Constitution, -4);

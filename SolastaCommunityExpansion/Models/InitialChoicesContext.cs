@@ -3,7 +3,10 @@ using System.Linq;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
+using SolastaModApi.Extensions;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionPointPools;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionSenses;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -14,6 +17,12 @@ namespace SolastaCommunityExpansion.Models
 
         internal static int PreviousTotalFeatsGrantedFistLevel { get; set; } = -1;
         internal static bool PreviousAlternateHuman { get; set; }
+
+        internal const int GAME_MAX_ATTRIBUTE = 15;
+        internal const int GAME_BUY_POINTS = 27;
+
+        internal const int MOD_MAX_ATTRIBUTE = 17;
+        internal const int MOD_BUY_POINTS = 35;
 
         internal static void Load()
         {
@@ -32,9 +41,69 @@ namespace SolastaCommunityExpansion.Models
                     .SetPool(HeroDefinitions.PointsPoolType.Feat, i)
                     .AddToDB();
             }
+
+            LoadVision();
         }
 
-        internal static void RefreshEvenLevelFeats()
+        internal static void LateLoad()
+        {
+            SwitchAsiAndFeat();
+            SwitchEpicArray();
+            SwitchEvenLevelFeats();
+            SwitchFirstLevelTotalFeats();
+        }
+
+        internal static void LoadVision()
+        {
+            if (Main.Settings.DisableSenseDarkVisionFromAllRaces)
+            {
+                foreach (var featureUnlocks in DatabaseRepository.GetDatabase<CharacterRaceDefinition>().Select(crd => crd.FeatureUnlocks))
+                {
+                    featureUnlocks.RemoveAll(x => x.FeatureDefinition.name == "SenseDarkvision");
+                    // Half-orcs have a different darkvisition.
+                    featureUnlocks.RemoveAll(x => x.FeatureDefinition.name == "SenseDarkvision12");
+                }
+            }
+
+            if (Main.Settings.DisableSenseSuperiorDarkVisionFromAllRaces)
+            {
+                foreach (CharacterRaceDefinition characterRaceDefinition in DatabaseRepository.GetDatabase<CharacterRaceDefinition>())
+                {
+                    characterRaceDefinition.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition.name == "SenseSuperiorDarkvision");
+                }
+            }
+
+            if (Main.Settings.IncreaseSenseNormalVision)
+            {
+                SenseNormalVision.SetSenseRange(120);
+            }
+        }
+
+        internal static void SwitchAsiAndFeat()
+        {
+            if (Main.Settings.EnablesAsiAndFeat)
+            {
+                FeatureSetAbilityScoreChoice.SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union);
+            }
+            else
+            {
+                FeatureSetAbilityScoreChoice.SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion);
+            }
+        }
+
+        internal static void SwitchEpicArray()
+        {
+            if (Main.Settings.EnableEpicArray)
+            {
+                AttributeDefinitions.PredeterminedRollScores = new int[] { 17, 15, 13, 12, 10, 8 };
+            }
+            else
+            {
+                AttributeDefinitions.PredeterminedRollScores = new int[] { 15, 14, 13, 12, 10, 8 };
+            }
+        }
+
+        internal static void SwitchEvenLevelFeats()
         {
             var levels = new int[] { 2, 6, 10, 14 };
             var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
@@ -60,7 +129,7 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        internal static void RefreshFirstLevelTotalFeats()
+        internal static void SwitchFirstLevelTotalFeats()
         {
             if (PreviousTotalFeatsGrantedFistLevel > -1)
             {

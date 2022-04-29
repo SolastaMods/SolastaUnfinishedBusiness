@@ -1,7 +1,6 @@
 ﻿using UnityModManagerNet;
 using ModKit;
 using static SolastaCommunityExpansion.Displays.BlueprintDisplay;
-using static SolastaCommunityExpansion.Displays.CampaignsAndLocationsDisplay;
 using static SolastaCommunityExpansion.Displays.CharacterDisplay;
 using static SolastaCommunityExpansion.Displays.CreditsDisplay;
 using static SolastaCommunityExpansion.Displays.DungeonMakerDisplay;
@@ -49,7 +48,6 @@ namespace SolastaCommunityExpansion
 
         public void OnGUI(UnityModManager.ModEntry modEntry) => DisplaySubMenu(ref gamePlaySelectedPane,
             new NamedAction("Rules", DisplayRules),
-            new NamedAction("Campaigns & Locations", DisplayCampaignsAndLocations),
             new NamedAction("Items, Crafting & Merchants", DisplayItemsAndCrafting),
             new NamedAction("Tools", DisplayTools));
     }

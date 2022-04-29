@@ -91,7 +91,7 @@ namespace SolastaCommunityExpansion.Models
 
             public override IEnumerator Execute(FunctorParametersDescription functorParameters, FunctorExecutionContext context)
             {
-                if (PlayerControllerContext.IsMultiplayer)
+                if (Global.IsMultiplayer)
                 {
                     yield break;             
                 }
