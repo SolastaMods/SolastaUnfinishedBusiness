@@ -14,10 +14,12 @@ namespace SolastaCommunityExpansion.Models
 
         private static FeatureDefinitionPower FeatureDefinitionPowerHelpAction { get; set; }
 
-        internal static void AddToDB()
+        internal static void Load()
         {
             LoadHelpPower();
         }
+
+        internal static void LateLoad() => Switch();
 
         internal static void Switch()
         {
@@ -77,6 +79,28 @@ namespace SolastaCommunityExpansion.Models
                     effectDescription,
                     true)
                 .AddToDB();
+        }
+
+        public static void ApplyPowerEffectForms(FeatureDefinitionPower power, RulesetCharacter source,
+            RulesetCharacter target, string logTag = null)
+        {
+            var ruleset = ServiceRepository.GetService<IRulesetImplementationService>();
+
+            if (logTag != null)
+            {
+                target.AdditionalDamageGenerated(source, target, RuleDefinitions.DieType.D1, 0, 0, logTag);
+            }
+            
+            var usablePower = UsablePowersProvider.Get(power, source);
+            var effectPower = ruleset.InstantiateEffectPower(source, usablePower, false);
+            var formsParams = new RulesetImplementationDefinitions.ApplyFormsParams();
+            formsParams.FillSourceAndTarget(source, target);
+            formsParams.FillFromActiveEffect(effectPower);
+            formsParams.FillSoloPowerSpecialParameters();
+            formsParams.effectSourceType = RuleDefinitions.EffectSourceType.Power;
+            ruleset.ApplyEffectForms(power.EffectDescription.EffectForms, formsParams);
+            ruleset.ClearDamageFormsByIndex();
+            ruleset.TerminateEffect(effectPower, false);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.Models
     {
         internal static HashSet<FeatDefinition> Feats { get; private set; } = new();
 
-        internal static void Load()
+        internal static void LateLoad()
         {
             var feats = new List<FeatDefinition>();
 
