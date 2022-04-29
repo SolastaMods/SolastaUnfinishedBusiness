@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
@@ -12,6 +13,11 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
 
         internal static void Prefix(InventoryShortcutsPanel __instance, int rank)
         {
+            if (Global.IsMultiplayer)
+            {
+                return;
+            }
+
             var isCtrlPressed = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
             var characterInventory = __instance.GuiCharacter.RulesetCharacterHero.CharacterInventory;
             var itemsConfigurations = characterInventory.WieldedItemsConfigurations;

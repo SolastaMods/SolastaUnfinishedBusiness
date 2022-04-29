@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
 {
@@ -9,6 +10,11 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
     {
         internal static void Prefix()
         {
+            if (Global.IsMultiplayer)
+            {
+                return;
+            }
+
             Models.InventoryManagementContext.ResetControls();
         }
     }

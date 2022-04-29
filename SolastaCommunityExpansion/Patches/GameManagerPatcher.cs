@@ -34,12 +34,10 @@ namespace SolastaCommunityExpansion.Patches
             CeContentPackContext.Load();
 
             AdditionalNamesContext.Load();
-            AsiAndFeatContext.Load();
             BugFixContext.Load();
             CharacterExportContext.Load();
             ConjurationsContext.Load();
             DmProEditorContext.Load();
-            EpicArrayContext.Load();
             FaceUnlockContext.Load();
 
             // Fighting Styles must be loaded before feats to allow feats to generate corresponding fighting style ones.
@@ -55,17 +53,14 @@ namespace SolastaCommunityExpansion.Patches
             PickPocketContext.Load();
 
             // Powers needs to be added to db before spells because of summoned creatures that have new powers defined here.
-            PowersContext.AddToDB();
+            PowersContext.Load();
 
             RemoveBugVisualModelsContext.Load();
-            RemoveIdentificationContext.Load();
             RespecContext.Load();
 
             // There are spells that rely on new monster definitions with powers loaded during the PowersContext. So spells should get added to db after powers.
-            SpellsContext.AddToDB();
+            SpellsContext.Load();
             SrdAndHouseRulesContext.Load();
-            TelemaCampaignContext.Load();
-            VisionContext.Load();
 
             // Races may rely on spells and powers being in the DB before they can properly load.
             RacesContext.Load();
@@ -75,6 +70,8 @@ namespace SolastaCommunityExpansion.Patches
 
             // Subclasses may rely on classes being loaded (as well as spells and powers) in order to properly refer back to the class.
             SubclassesContext.Load();
+            
+            PowerBundleContext.Load();
 
             // Multiclass blueprints should always load to avoid issues with heroes saves and after classes and subclasses
             MulticlassContext.Load();
@@ -82,23 +79,20 @@ namespace SolastaCommunityExpansion.Patches
             ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += (_) =>
             {
                 // Both are late initialized to allow feats and races from other mods
-                FlexibleRacesContext.Switch();
-                InitialChoicesContext.RefreshFirstLevelTotalFeats();
+                FlexibleRacesContext.LateLoad();
+                InitialChoicesContext.LateLoad();
 
                 // There are feats that need all character classes loaded before they can properly be setup.
-                FeatsContext.Load();
+                FeatsContext.LateLoad();
 
                 // Generally available powers need all classes in the db before they are initialized here.
-                PowersContext.Switch();
+                PowersContext.LateLoad();
 
                 // Spells context needs character classes (specifically spell lists) in the db in order to do it's work.
-                SpellsContext.Load();
-
-                // Monsters need spells
-                //MonsterContext.Load(); // Removing from CE
+                SpellsContext.LateLoad();
 
                 // Save by location initialization depends on services to be ready
-                SaveByLocationContext.Load();
+                SaveByLocationContext.LateLoad();
 
                 // Recache all gui collections
                 GuiWrapperContext.Recache();
