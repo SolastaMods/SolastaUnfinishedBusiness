@@ -282,7 +282,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                          true)
                     .AddToDB();
 
-                if (entry.Key == "Trickster'sEscape")
+                if (entry.Key == "TrickstersEscape")
                 {
                     EIPower.EffectDescription.TargetType = RuleDefinitions.TargetType.Self;
                 }
@@ -324,11 +324,16 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
             foreach (string entry in listofEIAttributeModifiers)
             {
-                var textEIAttributeModifiers = "DHEIAttributeModifiers" + entry;
+                var textEIAttributeModifiers = "EIAttributeModifiers" + entry;
+
+                var guiFeatureSetEldritchInvocations = new GuiPresentationBuilder(
+                    "Feature/&" + entry + "Title",
+                    "Feature/&" + entry + "Description")
+                    .Build();
 
                 var FeatureSetEldritchInvocations = FeatureDefinitionFeatureSetWithPreRequisitesBuilder
                     .Create(textEIAttributeModifiers, DefinitionBuilder.CENamespaceGuid)
-                    .SetGuiPresentation(Category.Feature)
+                    .SetGuiPresentation(guiFeatureSetEldritchInvocations)
                     .ClearFeatureSet()
                     .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                     .SetUniqueChoices(false)
