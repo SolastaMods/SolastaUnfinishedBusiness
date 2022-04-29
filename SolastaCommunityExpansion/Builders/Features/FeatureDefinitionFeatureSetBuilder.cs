@@ -149,7 +149,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
         #endregion
 
-        public FeatureDefinitionFeatureSetDynamicBuilder SetDynamicFeatureSetFunc(Func<FeatureDefinitionFeatureSet, Queue<FeatureDefinition>> func)
+        public FeatureDefinitionFeatureSetDynamicBuilder SetDynamicFeatureSetFunc(Func<FeatureDefinitionFeatureSet, List<FeatureDefinition>> func)
         {
             Definition.DynamicFeatureSet = func;
 

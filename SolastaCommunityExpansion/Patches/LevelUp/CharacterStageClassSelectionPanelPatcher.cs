@@ -17,7 +17,7 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
                 return;
             }
 
-            FeatureDescriptionItemPatcher.IsClassSelectionStage = true;
+            //FeatureDescriptionItemPatcher.IsClassSelectionStage = true;
             FeatureDescriptionItemPatcher.FeatureDescriptionItems.Clear();
         }
     }

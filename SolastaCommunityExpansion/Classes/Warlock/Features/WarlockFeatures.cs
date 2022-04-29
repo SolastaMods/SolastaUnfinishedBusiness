@@ -3,7 +3,6 @@ using System.Linq;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
-using SolastaCommunityExpansion.Models;
 using SolastaModApi.Extensions;
 using static SolastaCommunityExpansion.Builders.DefinitionBuilder;
 using static SolastaCommunityExpansion.Classes.Warlock.Features.EldritchInvocationsBuilder;
@@ -27,17 +26,11 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             .SetActivationTime(RuleDefinitions.ActivationTime.Minute1)
             .AddToDB();
 
-        private static Queue<FeatureDefinition> InvocationsFilteredFeatureSet(FeatureDefinitionFeatureSet featureDefinitionFeatureSet)
+        private static List<FeatureDefinition> InvocationsFilteredFeatureSet(FeatureDefinitionFeatureSet featureDefinitionFeatureSet)
         {
-            var result = new Queue<FeatureDefinition>();
-
-            foreach (var feature in featureDefinitionFeatureSet.FeatureSet
-                .Where(x => x is not IFeatureDefinitionWithPrerequisites feature || feature.Validators.All(y => y.Invoke())))
-            {
-                result.Enqueue(feature);
-            }
-
-            return result;
+            return featureDefinitionFeatureSet.FeatureSet
+                .Where(x => x is not IFeatureDefinitionWithPrerequisites feature || feature.Validators.All(y => y.Invoke()))
+                .ToList();
         }
 
         //private static Queue<FeatureDefinition> InvocationsTakenFeatureSet(FeatureDefinitionFeatureSet featureDefinitionFeatureSet)
