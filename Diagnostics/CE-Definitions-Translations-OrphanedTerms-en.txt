@@ -37,20 +37,10 @@ Feature/&AdditionalActionDualFlurryDescription	You may make an additional off-ha
 Feature/&AdditionalActionDualFlurryTitle	Dual Flurry!
 Feature/&AHSoulBladeEmpowerDamageBonusDescription	You are empowered and do a damage bonus equal to your proficiency on all your attacks
 Feature/&AlwaysBeardDescription	{0}% chances to grow a glorious beard!
-Feature/&AspectoftheMoonDescription	You no longer need to sleep and can keep watch, lowering the chances of attack and ensuring you are awake if camp is attacked
-Feature/&AspectoftheMoonTitle	Aspect of the Moon
-Feature/&BeguilingInfluenceDescription	You gain proficiency in the Deception and Persuasion skills
-Feature/&BeguilingInfluenceTitle	Beguiling Influence
-Feature/&BondoftheTalismanDescription	Teleport up to 5 cells away
-Feature/&BondoftheTalismanTitle	Teleport Talisman
 Feature/&ClassWarlockEldritchInvocationSetReplaceDescription	Replace an eldritch invocation
 Feature/&ClassWarlockEldritchInvocationSetReplaceTitle	Replaced Eldritch Invocation
 Feature/&DH_RiftCloakDescription	Your control of rift portals has increased to the point than you can now grant the protection of the rift to others. You can cast warding bond at will (without the sharing of damage)
 Feature/&DH_RiftCloakTitle	Rift Cloak
-Feature/&DHEldritchBlastGraspingHandBonusCantripDescription	When you hit a creature with your eldritch blast, you can move that creature in a straight line 10 feet closer to you
-Feature/&DHEldritchBlastGraspingHandBonusCantripTitle	Grasping Blast
-Feature/&DHEldritchBlastRepellingBlastBonusCantripDescription	When you hit a creature with eldritch blast, you can push the creature up to 10 feet away from you in a straight line
-Feature/&DHEldritchBlastRepellingBlastBonusCantripTitle	Repelling Blast
 Feature/&DomainBattleDomainlevel1FeaturesDescription	You learn the level 1 features of this domain
 Feature/&DomainBattleDomainlevel1FeaturesTitle	Battle Domain
 Feature/&DomainElementalColdDomainlevel1FeaturesDescription	You learn the level 1 features of this domain
@@ -71,12 +61,6 @@ Feature/&DomainOblivionDomainlevel1FeaturesDescription	You learn the level 1 fea
 Feature/&DomainOblivionDomainlevel1FeaturesTitle	Oblivion Domain
 Feature/&DomainSunDomainlevel1FeaturesDescription	You learn the level 1 features of this domain
 Feature/&DomainSunDomainlevel1FeaturesTitle	Sun Domain
-Feature/&EldritchMindDescription	You have advantage on Constitution saving throws that you make to maintain your concentration on a spell
-Feature/&EldritchMindTitle	Eldritch Mind
-Feature/&DelilsSightTitle	Devil's Sight
-Feature/&DelilsSightDescription	You can see normally in Darkness, both magical and nonmagical, to a distance of 120 feet.
-Feature/&EldritchSmiteDescription	Once per turn when you hit a creature with your pact weapon, you can expend a warlock spell slot to deal an extra 1d8 force damage to the target, plus another 1d8 per level of the spell slot,
-Feature/&EldritchSmiteTitle	Eldritch Smite
 Feature/&ElementalPactAirPlane	Air Plane
 Feature/&ElementalPactAstralPlane	Astral Plane
 Feature/&ElementalPactEarthPlane	Earth Plane
@@ -92,22 +76,10 @@ Feature/&ElementalPatronElementalFormEnhancedFormatDescription	When channeling t
 Feature/&ElementalPatronElementalFormEnhancedFormatTitle	Channeling {0}
 Feature/&ElementalPatronElementalFormFormatDescription	When channeling the {0}, you gain Resistance to {1} damage and apply Proficiency Bonus as damage of the same type to first hit each round. 
 Feature/&ElementalPatronElementalFormFormatTitle	{0}
-Feature/&EyesoftheRuneKeeperDescription	You can read all writing
-Feature/&EyesoftheRuneKeeperTitle	Eyes of the RuneKeeper
-Feature/&GiftoftheEver-LivingOnesDescription	Regains the maximum number of hit points possible from any healing
-Feature/&GiftoftheEver-LivingOnesTitle	Gift of the Ever-Living Ones
-Feature/&GiftoftheProtectorsDescription	Whenyou are reduced to 0 hit points but not killed outright, the creature magically drops to 1 hit point instead. Once this magic is triggered, you cant benefit from it until you finish a long rest
-Feature/&GiftoftheProtectorsTitle	Gift of the Protectors
 Feature/&HinderingBlastMagicAffinityDescription	when you hit a creature with your eldritch blast, you can reduce that creature's speed by 10 feet until the end of your next turn
 Feature/&HinderingBlastMagicAffinityTitle	Hindering Blast
-Feature/&ImprovedPactWeaponDescription	You can use any weapon as a spellcasting focus for your warlock spells .In addition, the weapon gains a +1 bonus to its attack and damage rolls
-Feature/&ImprovedPactWeaponTitle	Improved Pact Weapon
 Feature/&IndomitableResistanceTitle	Indomitable Resistance
 Feature/&InspiringSurgePowerTitleShort	Inspiring Surge
-Feature/&OneWithShadowsDescription	If you start your turn in natural darkness you gain invisibility. Moving, attacking or using any power or spell that isn't teleport or self-buff breaks invisibility
-Feature/&OneWithShadowsStrongerDescription	One With Shadows now works in dim light and magical darkness
-Feature/&OneWithShadowsStrongerTitle	Darker Shadows
-Feature/&OneWithShadowsTitle	One With Shadows
 Feature/&PowerAttackAttackModifierDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged
 Feature/&PowerAttackConditionDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged
 Feature/&PowerAttackPowerDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged
@@ -117,16 +89,12 @@ Feature/&PowerAttackTwoHandedPowerDescription	Take a -{0} to hit penalty to your
 Feature/&RallyingCryPowerTitleShort	Rallying Cry
 Feature/&SignofIllOmenTitle	Sign of Ill Omen
 Feature/&SpellAsInvocationAtWillDescription	Cast {0} at will
-Feature/&SpellAsInvocationOncePerDayDescription	Cast {0} once per day
-Feature/&ThirstingBladeDescription	You can attack with your weapon twice, instead of once, whenever you take the Attack action on your turn
-Feature/&ThirstingBladeTitle	Thirsting Blade
+Feature/&ThiefofFiveFates	Cast {0} once per day
 Feature/&Trickster'sEscapeTitle	Trickster's Escape
 Feature/&UrPriestDomainTheftDescription	You snatch the secrets that a god grants all of it's devout clerics. Choose a cleric domain: you gain the features that domain grants at 1st level
 Feature/&UrPriestDomainTheftTitle	Domain Theft
 Feature/&UrPriestExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. Cleric spells are added to the warlock spell list for you
 Feature/&UrPriestExpandedSpelllistAfinityTitle	UrPriest Spells
-Feature/&WitchSightDescription	You can sense or see invisibility up to 60 ft
-Feature/&WitchSightTitle	Witch Sight
 Feedback/&AdditionalDamageAgonizing_BlastFormat	Agonizing Blast
 Feedback/&AdditionalDamageAgonizing_BlastLine	When you cast a spell using force damage (eldritch blast), add your Charisma modifier to the damage it deals on a hit.
 Feedback/&AdditionalDamageAncientForestLifeSapFormat	Life Sap!
@@ -226,10 +194,6 @@ Spell/&DHCastSpellGuardianNagaDescription	Archmage Casting Ability
 Spell/&DHCastSpellGuardianNagaTitle	Archmage Casting Ability
 Spell/&DHCastSpellLichDescription	Lich Casting Ability
 Spell/&DHCastSpellLichTitle	Lich Casting Ability
-Spell/&DHEldritchBlastGraspingHandDescription	A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage. \n(when you hit a creature with your eldritch blast, you can move that creature in a straight line 10 feet closer to you.)
-Spell/&DHEldritchBlastGraspingHandTitle	Eldritch Blast (Grasping)
-Spell/&DHEldritchBlastRepellingBlastDescription	A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage.\n(When you hit a creature with eldritch blast, you can push the creature up to 10 feet away from you in a straight line.)
-Spell/&DHEldritchBlastRepellingBlastTitle	Eldritch Blast (Repelling)
 Spell/&HinderingBlastDescription	A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage.\n(when you hit a creature with your eldritch blast, you can reduce that creature's speed by 10 feet until the end of your next turn.)
 Spell/&HinderingBlastTitle	Eldritch Blast (Hindering)
 Spell/&IPConjureInvisibleStalkerTitle	Conjure Elemental (Invisible Stalker)

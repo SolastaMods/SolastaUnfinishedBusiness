@@ -1,8 +1,8 @@
 {
   "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFeatureSetWithPreRequisites, SolastaCommunityExpansion",
   "featureSet": [
-    "Definition:EldritchInvocationDevilsSight:a4d029fc-d687-5479-a17b-7502ad787ce9",
-    "Definition:SenseDarkvision24:a7a21553e478546448413923e8dd948e"
+    "Definition:CampAffinityElfTrance:02e0f7bc4afeb2b43ab60ec0a048f5ae",
+    "Definition:CampAffinityDomainOblivionPeacefulRest:82674c4f25c7fdb4a901085c44341f0a"
   ],
   "mode": "Union",
   "defaultSelection": 0,
@@ -12,8 +12,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&DHEIAttributeModifiersDevilsSightTitle",
-    "description": "Feature/&DHEIAttributeModifiersDevilsSightDescription",
+    "title": "Feature/&AspectoftheMoonTitle",
+    "description": "Feature/&AspectoftheMoonDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -33,7 +33,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2e471f30-f785-5c78-a328-9da5f22fc3eb",
+  "guid": "7a55fd85-c0ba-5fb8-b691-954b08b2da9e",
   "contentPack": 9999,
-  "name": "DHEIAttributeModifiersDevilsSight"
+  "name": "EldritchInvocationAspectoftheMoon"
 }

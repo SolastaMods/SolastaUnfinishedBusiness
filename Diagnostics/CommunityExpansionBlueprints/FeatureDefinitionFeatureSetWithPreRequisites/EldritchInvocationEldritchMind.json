@@ -1,7 +1,7 @@
 {
   "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFeatureSetWithPreRequisites, SolastaCommunityExpansion",
   "featureSet": [
-    "Definition:ProficiencyFeatManipulatorSkillOrExpertise:d0e0c050dbe9c4a4e9128966a168fe53"
+    "Definition:MagicAffinityFeatFlawlessConcentration:75bf6b2ab20de7640986f271f39b52c5"
   ],
   "mode": "Union",
   "defaultSelection": 0,
@@ -11,8 +11,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&DHEIAttributeModifiersBeguilingInfluenceTitle",
-    "description": "Feature/&DHEIAttributeModifiersBeguilingInfluenceDescription",
+    "title": "Feature/&EldritchMindTitle",
+    "description": "Feature/&EldritchMindDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b8ca345c-fb39-5c11-b736-3ee11d367d76",
+  "guid": "8902813f-af20-5421-8db2-31aff08daf06",
   "contentPack": 9999,
-  "name": "DHEIAttributeModifiersBeguilingInfluence"
+  "name": "EldritchInvocationEldritchMind"
 }

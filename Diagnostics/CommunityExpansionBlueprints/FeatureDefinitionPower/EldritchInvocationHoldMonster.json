@@ -2,22 +2,22 @@
   "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Touch",
-    "rangeParameter": 0,
+    "rangeType": "Distance",
+    "rangeParameter": 18,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Self",
+    "targetType": "IndividualsUnique",
     "itemSelectionType": "Equiped",
     "targetParameter": 1,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
-    "requiresTargetProximity": false,
-    "targetProximityDistance": 30,
+    "requiresTargetProximity": true,
+    "targetProximityDistance": 6,
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
     "targetFilteringMethod": "CharacterOnly",
-    "targetFilteringTag": 255,
+    "targetFilteringTag": "No",
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
     "slotTypes": [],
@@ -29,13 +29,13 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Ally",
-    "durationType": "Hour",
-    "durationParameter": 8,
+    "targetSide": "Enemy",
+    "durationType": "Minute",
+    "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
-    "hasSavingThrow": false,
+    "hasSavingThrow": true,
     "disableSavingThrowOnAllies": false,
-    "savingThrowAbility": "Dexterity",
+    "savingThrowAbility": "Wisdom",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
     "hasShoveRoll": false,
@@ -51,7 +51,9 @@
     "velocityCellsPerRound": 2,
     "velocityType": "AwayFromSourceOriginalPosition",
     "restrictedCreatureFamilies": [],
-    "immuneCreatureFamilies": [],
+    "immuneCreatureFamilies": [
+      "Undead"
+    ],
     "restrictedCharacterSizes": [],
     "hasLimitedEffectPool": false,
     "effectPoolAmount": 60,
@@ -62,18 +64,18 @@
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
-        "levelMultiplier": 1,
+        "levelMultiplier": 0,
         "createdByCharacter": true,
         "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "Negates",
         "dcModifier": 0,
-        "canSaveToCancel": false,
-        "saveOccurence": "StartOfTurn",
+        "canSaveToCancel": true,
+        "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionMagicallyArmored",
-          "conditionDefinition": "Definition:ConditionMagicallyArmored:96663ed9ef2b4d54c8f1ca1630527037",
+          "conditionDefinitionName": "",
+          "conditionDefinition": "Definition:ConditionParalyzed:a775cb208dcfe8244bc724c2af40b4fa",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -83,9 +85,9 @@
     ],
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
-      "effectIncrementMethod": "None",
+      "effectIncrementMethod": "PerAdditionalSlotLevel",
       "incrementMultiplier": 1,
-      "additionalTargetsPerIncrement": 0,
+      "additionalTargetsPerIncrement": 1,
       "additionalSubtargetsPerIncrement": 0,
       "additionalDicePerIncrement": 0,
       "additionalSpellLevelPerIncrement": 0,
@@ -106,19 +108,19 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "a6ca7038401125c4096926082f9acb33",
+        "m_AssetGUID": "b49442ce7dbb3b244a8bb7c4c31eb6fe",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "casterSelfParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "6a8b8119774067740a6895a72319a60d",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "casterQuickSpellParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "68726c9b0b4ffc7499d07d4b4c4f4ec1",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -130,7 +132,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "d8e73c164ff3dad4197a0e0830c6573e",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -238,19 +240,19 @@
       },
       "conditionStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "caa5b268544514144bbd03ec8b3e71e9",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "conditionParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "b8867e443cbc9024db3ffd55201414b1",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "3163bdff6012bd84f806925d036ee585",
+        "m_AssetGUID": "637c9a990c79eb249beaf07c80aae51a",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -305,12 +307,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&ArmorofShadowsTitle",
-    "description": "Cast Mage Armor at will",
+    "title": "Feature/&ChainsofCarceriTitle",
+    "description": "Cast Hold Monster at will",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "48258cb7b5be9e942a13ecf70cd8903a",
-      "m_SubObjectName": "MageArmor",
+      "m_AssetGUID": "95031a6775232b241b7505e61f5da208",
+      "m_SubObjectName": "HoldMonster",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -326,7 +328,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "31a1f1ef-f74e-5328-9f70-971b1cab7aec",
+  "guid": "2147fb2d-c6d1-5375-870a-882f34ad4bfc",
   "contentPack": 9999,
-  "name": "DHEldritchInvocationMageArmor"
+  "name": "EldritchInvocationHoldMonster"
 }

@@ -1,7 +1,7 @@
 {
   "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFeatureSetWithPreRequisites, SolastaCommunityExpansion",
   "featureSet": [
-    "Definition:SenseSeeInvisible12:e97d2cb0545b7e74b9c548f69778c7b4"
+    "Definition:AttributeModifierFighterExtraAttack:082bfabcdf5bf1f4b843526c71143716"
   ],
   "mode": "Union",
   "defaultSelection": 0,
@@ -11,8 +11,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&DHEIAttributeModifiersWitchSightTitle",
-    "description": "Feature/&DHEIAttributeModifiersWitchSightDescription",
+    "title": "Feature/&ThirstingBladeTitle",
+    "description": "Feature/&ThirstingBladeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "86f65c0a-1b15-53bd-856a-8694ce6eefba",
+  "guid": "5481d702-df6a-5e0c-8316-087e2959d115",
   "contentPack": 9999,
-  "name": "DHEIAttributeModifiersWitchSight"
+  "name": "EldritchInvocationThirstingBlade"
 }

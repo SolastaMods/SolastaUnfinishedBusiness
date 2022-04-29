@@ -1,7 +1,7 @@
 {
   "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFeatureSetWithPreRequisites, SolastaCommunityExpansion",
   "featureSet": [
-    "Definition:DamageAffinityHalfOrcRelentlessEndurance:883c6fa6fd742fa4cbb82666ffe6dfc8"
+    "Definition:ProficiencyFeatManipulatorSkillOrExpertise:d0e0c050dbe9c4a4e9128966a168fe53"
   ],
   "mode": "Union",
   "defaultSelection": 0,
@@ -11,8 +11,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&DHEIAttributeModifiersGiftoftheProtectorsTitle",
-    "description": "Feature/&DHEIAttributeModifiersGiftoftheProtectorsDescription",
+    "title": "Feature/&BeguilingInfluenceTitle",
+    "description": "Feature/&BeguilingInfluenceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d7581151-3b3b-5147-8527-31ff8faf9924",
+  "guid": "7f28c64c-e00f-5bb2-bb3f-e8dd4136e285",
   "contentPack": 9999,
-  "name": "DHEIAttributeModifiersGiftoftheProtectors"
+  "name": "EldritchInvocationBeguilingInfluence"
 }

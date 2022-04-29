@@ -1,18 +1,15 @@
 {
-  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFeatureSetWithPreRequisites, SolastaCommunityExpansion",
-  "featureSet": [
-    "Definition:PowerSorakShadowEscape:3bc12de245ffb7b4b99aad36ea777f24"
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionIgnoreDynamicVisionImpairment, SolastaCommunityExpansion",
+  "maxRange": 24.0,
+  "requiredFeatures": [],
+  "forbiddenFeatures": [
+    "Definition:CombatAffinityHeavilyObscured:37285cb4ed0361e45aadf367f6e8c421"
   ],
-  "mode": "Union",
-  "defaultSelection": 0,
-  "uniqueChoices": false,
-  "enumerateInDescription": false,
-  "hasRacialAffinity": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&DHEIAttributeModifiersBondoftheTalismanTitle",
-    "description": "Feature/&DHEIAttributeModifiersBondoftheTalismanDescription",
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -32,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a3c51192-41d7-550e-a36f-3efab490568f",
+  "guid": "c11ba253-1ff3-5939-b429-a93d829476e2",
   "contentPack": 9999,
-  "name": "DHEIAttributeModifiersBondoftheTalisman"
+  "name": "EldritchInvocationDevilsSightSet"
 }

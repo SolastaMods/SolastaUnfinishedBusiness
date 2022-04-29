@@ -2,26 +2,26 @@
   "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Distance",
-    "rangeParameter": 24,
+    "rangeType": "Self",
+    "rangeParameter": 0,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Cube",
+    "targetType": "Self",
     "itemSelectionType": "Equiped",
-    "targetParameter": 8,
+    "targetParameter": 12,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
-    "requiresTargetProximity": true,
-    "targetProximityDistance": 8,
-    "targetExcludeCaster": true,
+    "requiresTargetProximity": false,
+    "targetProximityDistance": 30,
+    "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
-    "targetFilteringMethod": "CharacterOnly",
+    "targetFilteringMethod": "AllCharacterAndGadgets",
     "targetFilteringTag": "No",
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
     "slotTypes": [],
-    "recurrentEffect": "No",
+    "recurrentEffect": "OnActivation, OnTurnStart",
     "retargetAfterDeath": false,
     "retargetActionType": "Bonus",
     "poolFilterDiceNumber": 5,
@@ -29,13 +29,13 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Enemy",
+    "targetSide": "Ally",
     "durationType": "Minute",
-    "durationParameter": 1,
+    "durationParameter": 10,
     "endOfEffect": "EndOfTurn",
-    "hasSavingThrow": true,
+    "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
-    "savingThrowAbility": "Wisdom",
+    "savingThrowAbility": "Dexterity",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
     "hasShoveRoll": false,
@@ -58,6 +58,30 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Divination",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "createdByCharacter": true,
+        "createdByCondition": false,
+        "hasSavingThrow": false,
+        "savingThrowAffinity": "None",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "EndOfTurn",
+        "divinationForm": {
+          "$type": "DivinationForm, Assembly-CSharp",
+          "divinationType": "RevealEntitiesBearingTags",
+          "creatureFamilies": [],
+          "revealedTags": [
+            "Magical"
+          ],
+          "rangeCells": 6
+        }
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
         "formType": "Condition",
         "addBonusMode": "None",
         "applyLevel": "No",
@@ -65,18 +89,18 @@
         "levelMultiplier": 1,
         "createdByCharacter": true,
         "createdByCondition": false,
-        "hasSavingThrow": true,
-        "savingThrowAffinity": "Negates",
+        "hasSavingThrow": false,
+        "savingThrowAffinity": "None",
         "dcModifier": 0,
-        "canSaveToCancel": true,
+        "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "",
-          "conditionDefinition": "Definition:ConditionSlowed:dfe3b89227acda343bcad5defd6afe0c",
+          "conditionDefinitionName": "ConditionDetectMagicSight",
+          "conditionDefinition": "Definition:ConditionDetectMagicSight:74773549c539393449a2da4f3b3c2fc8",
           "operation": "Add",
           "conditionsList": [],
-          "applyToSelf": false,
+          "applyToSelf": true,
           "forceOnSelf": false
         }
       }
@@ -87,7 +111,7 @@
       "incrementMultiplier": 1,
       "additionalTargetsPerIncrement": 0,
       "additionalSubtargetsPerIncrement": 0,
-      "additionalDicePerIncrement": 1,
+      "additionalDicePerIncrement": 0,
       "additionalSpellLevelPerIncrement": 0,
       "additionalSummonsPerIncrement": 0,
       "additionalHPPerIncrement": 0,
@@ -106,7 +130,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "2f58b35dbdc5ca5498d8e4f83f81b9c6",
+        "m_AssetGUID": "f4eb42f3760a1f44f8cebe66e99d6d6c",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -130,7 +154,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "50d38570ba2e7a64d887370cf4348691",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -154,7 +178,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "b5d2070b1c1d7ae42b33da971cf777ee",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -267,9 +291,9 @@
     },
     "effectAIParameters": {
       "$type": "EffectAIParameters, Assembly-CSharp",
-      "aoeScoreMultiplier": 1.5,
-      "cooldownForCaster": 2,
-      "cooldownForBattle": 1,
+      "aoeScoreMultiplier": 1.0,
+      "cooldownForCaster": 0,
+      "cooldownForBattle": 0,
       "dynamicCooldown": false
     },
     "animationMagicEffect": "Animation0"
@@ -284,7 +308,7 @@
   "castingSuccessComputation": "CasterLevel",
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
-  "rechargeRate": "LongRest",
+  "rechargeRate": "AtWill",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
@@ -305,12 +329,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&MiretheMindTitle",
-    "description": "Cast Slow once per day",
+    "title": "Feature/&EldritchSightTitle",
+    "description": "Cast Detect Magic at will",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "15b3b9ebce8c9534f8816eebc12179fe",
-      "m_SubObjectName": "Slow",
+      "m_AssetGUID": "41c47ba900048504486f4bce9a0468c1",
+      "m_SubObjectName": "DetectMagic",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -326,7 +350,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3fa3c649-2ada-5bee-926f-15434a36e09b",
+  "guid": "a86d2285-95da-518c-9c54-d866d8dd3864",
   "contentPack": 9999,
-  "name": "DHEldritchInvocationSlow"
+  "name": "EldritchInvocationDetectMagic"
 }

@@ -1,7 +1,7 @@
 {
   "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFeatureSetWithPreRequisites, SolastaCommunityExpansion",
   "featureSet": [
-    "Definition:HealingModifierBeaconOfHope:587a2c865f95e274c82289616b368765"
+    "Definition:OneWithShadowsLightAffinity:43ce8f93-4550-572c-a6f4-7ac89e193dbf"
   ],
   "mode": "Union",
   "defaultSelection": 0,
@@ -11,8 +11,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&DHEIAttributeModifiersGiftoftheEver-LivingOnesTitle",
-    "description": "Feature/&DHEIAttributeModifiersGiftoftheEver-LivingOnesDescription",
+    "title": "Feature/&OneWithShadowsTitle",
+    "description": "Feature/&OneWithShadowsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "45d279c4-05aa-53c9-b339-5b81d636d368",
+  "guid": "2706b71f-742b-57eb-aceb-66145b0f30eb",
   "contentPack": 9999,
-  "name": "DHEIAttributeModifiersGiftoftheEver-LivingOnes"
+  "name": "EldritchInvocationOneWithShadows"
 }

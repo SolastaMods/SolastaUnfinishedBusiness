@@ -1,8 +1,7 @@
 {
   "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFeatureSetWithPreRequisites, SolastaCommunityExpansion",
   "featureSet": [
-    "Definition:AttackModifierMagicWeapon:7a1aa2567ec34e849b50168e392d0c5d",
-    "Definition:MagicAffinitySpellBladeIntoTheFray:dcbc028742c7af3479f0c56e3146d286"
+    "Definition:SenseSeeInvisible12:e97d2cb0545b7e74b9c548f69778c7b4"
   ],
   "mode": "Union",
   "defaultSelection": 0,
@@ -12,8 +11,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&DHEIAttributeModifiersImprovedPactWeaponTitle",
-    "description": "Feature/&DHEIAttributeModifiersImprovedPactWeaponDescription",
+    "title": "Feature/&WitchSightTitle",
+    "description": "Feature/&WitchSightDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -33,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "fec50e3e-e195-51da-9bc6-06b71ca2dc66",
+  "guid": "aadd6354-b9a3-53d4-bdfe-24ba321f8da7",
   "contentPack": 9999,
-  "name": "DHEIAttributeModifiersImprovedPactWeapon"
+  "name": "EldritchInvocationWitchSight"
 }

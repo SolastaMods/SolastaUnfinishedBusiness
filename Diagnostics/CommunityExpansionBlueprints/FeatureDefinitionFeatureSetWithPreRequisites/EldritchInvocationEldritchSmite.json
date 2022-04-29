@@ -1,7 +1,7 @@
 {
   "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFeatureSetWithPreRequisites, SolastaCommunityExpansion",
   "featureSet": [
-    "Definition:AttributeModifierFighterExtraAttack:082bfabcdf5bf1f4b843526c71143716"
+    "Definition:AdditionalDamagePaladinDivineSmite:be26393f37ff52340bb25c89836d37f6"
   ],
   "mode": "Union",
   "defaultSelection": 0,
@@ -11,8 +11,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&DHEIAttributeModifiersThirstingBladeTitle",
-    "description": "Feature/&DHEIAttributeModifiersThirstingBladeDescription",
+    "title": "Feature/&EldritchSmiteTitle",
+    "description": "Feature/&EldritchSmiteDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "69314f6f-3b7a-512e-89dd-6f3373cda044",
+  "guid": "4d240cd4-e75c-5ebe-9eff-7bdc38b1c1f2",
   "contentPack": 9999,
-  "name": "DHEIAttributeModifiersThirstingBlade"
+  "name": "EldritchInvocationEldritchSmite"
 }

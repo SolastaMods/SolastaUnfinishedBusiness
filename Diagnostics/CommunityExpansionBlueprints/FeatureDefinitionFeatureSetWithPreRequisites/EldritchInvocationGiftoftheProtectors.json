@@ -1,7 +1,7 @@
 {
   "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFeatureSetWithPreRequisites, SolastaCommunityExpansion",
   "featureSet": [
-    "Definition:FeatureSetAllLanguages:ea2afb0e3cb5c9642b624d7bd4a436c9"
+    "Definition:DamageAffinityHalfOrcRelentlessEndurance:883c6fa6fd742fa4cbb82666ffe6dfc8"
   ],
   "mode": "Union",
   "defaultSelection": 0,
@@ -11,8 +11,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&DHEIAttributeModifiersEyesoftheRuneKeeperTitle",
-    "description": "Feature/&DHEIAttributeModifiersEyesoftheRuneKeeperDescription",
+    "title": "Feature/&GiftoftheProtectorsTitle",
+    "description": "Feature/&GiftoftheProtectorsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e4389549-877a-5a95-aa27-69d688254dc9",
+  "guid": "8832c669-f58b-512f-9d26-0d3e10cd5591",
   "contentPack": 9999,
-  "name": "DHEIAttributeModifiersEyesoftheRuneKeeper"
+  "name": "EldritchInvocationGiftoftheProtectors"
 }

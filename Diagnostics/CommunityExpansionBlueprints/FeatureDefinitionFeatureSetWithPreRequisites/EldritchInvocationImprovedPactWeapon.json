@@ -1,7 +1,8 @@
 {
   "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFeatureSetWithPreRequisites, SolastaCommunityExpansion",
   "featureSet": [
-    "Definition:MagicAffinityFeatFlawlessConcentration:75bf6b2ab20de7640986f271f39b52c5"
+    "Definition:AttackModifierMagicWeapon:7a1aa2567ec34e849b50168e392d0c5d",
+    "Definition:MagicAffinitySpellBladeIntoTheFray:dcbc028742c7af3479f0c56e3146d286"
   ],
   "mode": "Union",
   "defaultSelection": 0,
@@ -11,8 +12,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&DHEIAttributeModifiersEldritchMindTitle",
-    "description": "Feature/&DHEIAttributeModifiersEldritchMindDescription",
+    "title": "Feature/&ImprovedPactWeaponTitle",
+    "description": "Feature/&ImprovedPactWeaponDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -32,7 +33,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d3206821-bb1a-59e8-8884-de67844ee4d0",
+  "guid": "ee7da310-6625-52b9-8098-1340da878a30",
   "contentPack": 9999,
-  "name": "DHEIAttributeModifiersEldritchMind"
+  "name": "EldritchInvocationImprovedPactWeapon"
 }

@@ -3,20 +3,20 @@
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Distance",
-    "rangeParameter": 18,
+    "rangeParameter": 6,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "IndividualsUnique",
     "itemSelectionType": "Equiped",
-    "targetParameter": 1,
+    "targetParameter": 3,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
-    "requiresTargetProximity": true,
-    "targetProximityDistance": 6,
+    "requiresTargetProximity": false,
+    "targetProximityDistance": 30,
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
-    "targetFilteringMethod": "CharacterOnly",
+    "targetFilteringMethod": "AllCharacterAndGadgets",
     "targetFilteringTag": "No",
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
@@ -35,7 +35,7 @@
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": true,
     "disableSavingThrowOnAllies": false,
-    "savingThrowAbility": "Wisdom",
+    "savingThrowAbility": "Charisma",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
     "hasShoveRoll": false,
@@ -51,9 +51,7 @@
     "velocityCellsPerRound": 2,
     "velocityType": "AwayFromSourceOriginalPosition",
     "restrictedCreatureFamilies": [],
-    "immuneCreatureFamilies": [
-      "Undead"
-    ],
+    "immuneCreatureFamilies": [],
     "restrictedCharacterSizes": [],
     "hasLimitedEffectPool": false,
     "effectPoolAmount": 60,
@@ -64,18 +62,18 @@
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
-        "levelMultiplier": 0,
+        "levelMultiplier": 1,
         "createdByCharacter": true,
         "createdByCondition": false,
         "hasSavingThrow": true,
         "savingThrowAffinity": "Negates",
         "dcModifier": 0,
-        "canSaveToCancel": true,
+        "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "",
-          "conditionDefinition": "Definition:ConditionParalyzed:a775cb208dcfe8244bc724c2af40b4fa",
+          "conditionDefinitionName": "ConditionBaned",
+          "conditionDefinition": "Definition:ConditionBaned:5c3098b02cf041744b22475397b7d514",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -103,12 +101,12 @@
     "speedParameter": 10.0,
     "offsetImpactTimeBasedOnDistance": false,
     "offsetImpactTimeBasedOnDistanceFactor": 0.1,
-    "offsetImpactTimePerTarget": 0.0,
+    "offsetImpactTimePerTarget": 0.1,
     "effectParticleParameters": {
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "b49442ce7dbb3b244a8bb7c4c31eb6fe",
+        "m_AssetGUID": "f540d0a67ac604c479c483b5b0e5c3bb",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -132,7 +130,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "d8e73c164ff3dad4197a0e0830c6573e",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -240,19 +238,19 @@
       },
       "conditionStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "1f4269faf93934946b0baf061776d756",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "conditionParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "b8867e443cbc9024db3ffd55201414b1",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "637c9a990c79eb249beaf07c80aae51a",
+        "m_AssetGUID": "710595d3d2670d4418a2769ab48a6b07",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -270,8 +268,8 @@
     "effectAIParameters": {
       "$type": "EffectAIParameters, Assembly-CSharp",
       "aoeScoreMultiplier": 1.0,
-      "cooldownForCaster": 0,
-      "cooldownForBattle": 0,
+      "cooldownForCaster": 2,
+      "cooldownForBattle": 1,
       "dynamicCooldown": false
     },
     "animationMagicEffect": "Animation0"
@@ -286,7 +284,7 @@
   "castingSuccessComputation": "CasterLevel",
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
-  "rechargeRate": "AtWill",
+  "rechargeRate": "LongRest",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
@@ -307,12 +305,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&ChainsofCarceriTitle",
-    "description": "Cast Hold Monster at will",
+    "title": "Feature/&ThiefofFiveFatesTitle",
+    "description": "Feature/&SpellAsInvocationOncePerDayDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "95031a6775232b241b7505e61f5da208",
-      "m_SubObjectName": "HoldMonster",
+      "m_AssetGUID": "4055bc032261a0c44853f4f483238bd0",
+      "m_SubObjectName": "Bane",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -328,7 +326,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c380b05e-ca4a-52d5-bc7d-d3649d959fe9",
+  "guid": "9e3d3c15-8341-57fb-a6dc-f738eb87a95c",
   "contentPack": 9999,
-  "name": "DHEldritchInvocationHoldMonster"
+  "name": "EldritchInvocationBane"
 }

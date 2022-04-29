@@ -2,13 +2,13 @@
   "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Self",
+    "rangeType": "Touch",
     "rangeParameter": 0,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "Self",
     "itemSelectionType": "Equiped",
-    "targetParameter": 12,
+    "targetParameter": 1,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
@@ -16,12 +16,12 @@
     "targetProximityDistance": 30,
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
-    "targetFilteringMethod": "AllCharacterAndGadgets",
-    "targetFilteringTag": "No",
+    "targetFilteringMethod": "CharacterOnly",
+    "targetFilteringTag": 255,
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
     "slotTypes": [],
-    "recurrentEffect": "OnActivation, OnTurnStart",
+    "recurrentEffect": "No",
     "retargetAfterDeath": false,
     "retargetActionType": "Bonus",
     "poolFilterDiceNumber": 5,
@@ -30,8 +30,8 @@
     "targetConditionName": "",
     "targetConditionAsset": null,
     "targetSide": "Ally",
-    "durationType": "Minute",
-    "durationParameter": 10,
+    "durationType": "Hour",
+    "durationParameter": 8,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
@@ -58,30 +58,6 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Divination",
-        "addBonusMode": "None",
-        "applyLevel": "No",
-        "levelType": "ClassLevel",
-        "levelMultiplier": 1,
-        "createdByCharacter": true,
-        "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
-        "dcModifier": 0,
-        "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn",
-        "divinationForm": {
-          "$type": "DivinationForm, Assembly-CSharp",
-          "divinationType": "RevealEntitiesBearingTags",
-          "creatureFamilies": [],
-          "revealedTags": [
-            "Magical"
-          ],
-          "rangeCells": 6
-        }
-      },
-      {
-        "$type": "EffectForm, Assembly-CSharp",
         "formType": "Condition",
         "addBonusMode": "None",
         "applyLevel": "No",
@@ -93,14 +69,14 @@
         "savingThrowAffinity": "None",
         "dcModifier": 0,
         "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn",
+        "saveOccurence": "StartOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionDetectMagicSight",
-          "conditionDefinition": "Definition:ConditionDetectMagicSight:74773549c539393449a2da4f3b3c2fc8",
+          "conditionDefinitionName": "ConditionMagicallyArmored",
+          "conditionDefinition": "Definition:ConditionMagicallyArmored:96663ed9ef2b4d54c8f1ca1630527037",
           "operation": "Add",
           "conditionsList": [],
-          "applyToSelf": true,
+          "applyToSelf": false,
           "forceOnSelf": false
         }
       }
@@ -130,19 +106,19 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "f4eb42f3760a1f44f8cebe66e99d6d6c",
+        "m_AssetGUID": "a6ca7038401125c4096926082f9acb33",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "casterSelfParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "6a8b8119774067740a6895a72319a60d",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "casterQuickSpellParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "68726c9b0b4ffc7499d07d4b4c4f4ec1",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -154,7 +130,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "50d38570ba2e7a64d887370cf4348691",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -262,7 +238,7 @@
       },
       "conditionStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "caa5b268544514144bbd03ec8b3e71e9",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -274,7 +250,7 @@
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "3163bdff6012bd84f806925d036ee585",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -329,12 +305,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&EldritchSightTitle",
-    "description": "Cast Detect Magic at will",
+    "title": "Feature/&ArmorofShadowsTitle",
+    "description": "Cast Mage Armor at will",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "41c47ba900048504486f4bce9a0468c1",
-      "m_SubObjectName": "DetectMagic",
+      "m_AssetGUID": "48258cb7b5be9e942a13ecf70cd8903a",
+      "m_SubObjectName": "MageArmor",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -350,7 +326,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "bf1387de-a961-51b4-9434-53ef844bcffe",
+  "guid": "af6408de-f6a6-525d-9b25-2497af1890ab",
   "contentPack": 9999,
-  "name": "DHEldritchInvocationDetectMagic"
+  "name": "EldritchInvocationMageArmor"
 }

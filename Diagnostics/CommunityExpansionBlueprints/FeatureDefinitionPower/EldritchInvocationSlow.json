@@ -2,21 +2,21 @@
   "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Touch",
-    "rangeParameter": 0,
+    "rangeType": "Distance",
+    "rangeParameter": 24,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "IndividualsUnique",
+    "targetType": "Cube",
     "itemSelectionType": "Equiped",
-    "targetParameter": 1,
+    "targetParameter": 8,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
-    "requiresTargetProximity": false,
-    "targetProximityDistance": 30,
-    "targetExcludeCaster": false,
+    "requiresTargetProximity": true,
+    "targetProximityDistance": 8,
+    "targetExcludeCaster": true,
     "canBePlacedOnCharacter": true,
-    "targetFilteringMethod": "AllCharacterAndGadgets",
+    "targetFilteringMethod": "CharacterOnly",
     "targetFilteringTag": "No",
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
@@ -29,13 +29,13 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Ally",
-    "durationType": "Hour",
+    "targetSide": "Enemy",
+    "durationType": "Minute",
     "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
-    "hasSavingThrow": false,
+    "hasSavingThrow": true,
     "disableSavingThrowOnAllies": false,
-    "savingThrowAbility": "Dexterity",
+    "savingThrowAbility": "Wisdom",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
     "hasShoveRoll": false,
@@ -65,15 +65,15 @@
         "levelMultiplier": 1,
         "createdByCharacter": true,
         "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "Negates",
         "dcModifier": 0,
-        "canSaveToCancel": false,
+        "canSaveToCancel": true,
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionInvisible",
-          "conditionDefinition": "Definition:ConditionInvisible:6fff2284783105e4fa9793d4bf8afa3f",
+          "conditionDefinitionName": "",
+          "conditionDefinition": "Definition:ConditionSlowed:dfe3b89227acda343bcad5defd6afe0c",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -83,11 +83,11 @@
     ],
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
-      "effectIncrementMethod": "PerAdditionalSlotLevel",
+      "effectIncrementMethod": "None",
       "incrementMultiplier": 1,
-      "additionalTargetsPerIncrement": 1,
+      "additionalTargetsPerIncrement": 0,
       "additionalSubtargetsPerIncrement": 0,
-      "additionalDicePerIncrement": 0,
+      "additionalDicePerIncrement": 1,
       "additionalSpellLevelPerIncrement": 0,
       "additionalSummonsPerIncrement": 0,
       "additionalHPPerIncrement": 0,
@@ -106,13 +106,13 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "a56cb8792645db5478ef288ba5d692d6",
+        "m_AssetGUID": "2f58b35dbdc5ca5498d8e4f83f81b9c6",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "casterSelfParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "b47f2e2f5757dff47a392712be9c2925",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -154,7 +154,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "b5d2070b1c1d7ae42b33da971cf777ee",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -238,7 +238,7 @@
       },
       "conditionStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "18358f685aa889543b2d6d68c78f1b96",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -250,7 +250,7 @@
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "b04ebd84a933a19499efab399f1c25a6",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -267,10 +267,10 @@
     },
     "effectAIParameters": {
       "$type": "EffectAIParameters, Assembly-CSharp",
-      "aoeScoreMultiplier": 1.0,
-      "cooldownForCaster": 3,
-      "cooldownForBattle": 0,
-      "dynamicCooldown": true
+      "aoeScoreMultiplier": 1.5,
+      "cooldownForCaster": 2,
+      "cooldownForBattle": 1,
+      "dynamicCooldown": false
     },
     "animationMagicEffect": "Animation0"
   },
@@ -284,7 +284,7 @@
   "castingSuccessComputation": "CasterLevel",
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
-  "rechargeRate": "AtWill",
+  "rechargeRate": "LongRest",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
@@ -305,12 +305,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&ShroudofShadowTitle",
-    "description": "Cast Invisibility at will",
+    "title": "Feature/&MiretheMindTitle",
+    "description": "Feature/&SpellAsInvocationOncePerDayDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "75e87f6e6651cc040afcc690e549c073",
-      "m_SubObjectName": "Invisibility",
+      "m_AssetGUID": "15b3b9ebce8c9534f8816eebc12179fe",
+      "m_SubObjectName": "Slow",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -326,7 +326,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d506fcf5-6307-5600-803d-7481d9851d1a",
+  "guid": "49eba438-09e9-500d-8523-b90ef92d5a5c",
   "contentPack": 9999,
-  "name": "DHEldritchInvocationInvisibility"
+  "name": "EldritchInvocationSlow"
 }
