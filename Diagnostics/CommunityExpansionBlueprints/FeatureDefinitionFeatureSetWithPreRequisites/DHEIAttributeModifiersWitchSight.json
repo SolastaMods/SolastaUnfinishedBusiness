@@ -1,7 +1,7 @@
 {
   "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFeatureSetWithPreRequisites, SolastaCommunityExpansion",
   "featureSet": [
-    "Definition:MagicAffinityFeatFlawlessConcentration:75bf6b2ab20de7640986f271f39b52c5"
+    "Definition:SenseSeeInvisible12:e97d2cb0545b7e74b9c548f69778c7b4"
   ],
   "mode": "Union",
   "defaultSelection": 0,
@@ -11,8 +11,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&EldritchMindTitle",
-    "description": "Feature/&EldritchMindDescription",
+    "title": "Feature/&DHEIAttributeModifiersWitchSightTitle",
+    "description": "Feature/&DHEIAttributeModifiersWitchSightDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d946faf2-6a45-59f1-bbef-c12e447470bd",
+  "guid": "86f65c0a-1b15-53bd-856a-8694ce6eefba",
   "contentPack": 9999,
-  "name": "DHEIAttributeModifersEldritchMind"
+  "name": "DHEIAttributeModifiersWitchSight"
 }

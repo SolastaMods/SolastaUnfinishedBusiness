@@ -1,7 +1,7 @@
 {
   "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFeatureSetWithPreRequisites, SolastaCommunityExpansion",
   "featureSet": [
-    "Definition:AdditionalDamageAgonizingBlast:fd6945a0-1a24-53b9-97d9-9a19fd869895"
+    "Definition:HealingModifierBeaconOfHope:587a2c865f95e274c82289616b368765"
   ],
   "mode": "Union",
   "defaultSelection": 0,
@@ -11,8 +11,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AgonizingBlastFeatureSetTitle",
-    "description": "Feature/&AgonizingBlastFeatureSetDescription",
+    "title": "Feature/&DHEIAttributeModifiersGiftoftheEver-LivingOnesTitle",
+    "description": "Feature/&DHEIAttributeModifiersGiftoftheEver-LivingOnesDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "6d83380b-f696-5fdf-bcc6-0fdc7ac1d574",
+  "guid": "45d279c4-05aa-53c9-b339-5b81d636d368",
   "contentPack": 9999,
-  "name": "AgonizingBlastFeatureSet"
+  "name": "DHEIAttributeModifiersGiftoftheEver-LivingOnes"
 }

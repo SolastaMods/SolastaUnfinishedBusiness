@@ -1,18 +1,15 @@
 {
-  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFeatureSetWithPreRequisites, SolastaCommunityExpansion",
-  "featureSet": [
-    "Definition:AttributeModifierFighterExtraAttack:082bfabcdf5bf1f4b843526c71143716"
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.IgnoreDynamicVisionImpairment, SolastaCommunityExpansion",
+  "maxRange": 24.0,
+  "requiredFeatures": [],
+  "forbiddenFeatures": [
+    "Definition:CombatAffinityHeavilyObscured:37285cb4ed0361e45aadf367f6e8c421"
   ],
-  "mode": "Union",
-  "defaultSelection": 0,
-  "uniqueChoices": false,
-  "enumerateInDescription": false,
-  "hasRacialAffinity": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&ThirstingBladeTitle",
-    "description": "Feature/&ThirstingBladeDescription",
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -32,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c26debc7-fe9b-5037-a380-a1cfc4945428",
+  "guid": "a4d029fc-d687-5479-a17b-7502ad787ce9",
   "contentPack": 9999,
-  "name": "DHEIAttributeModifersThirstingBlade"
+  "name": "EldritchInvocationDevilsSight"
 }

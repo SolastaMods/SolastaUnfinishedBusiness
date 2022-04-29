@@ -1,7 +1,7 @@
 {
   "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFeatureSetWithPreRequisites, SolastaCommunityExpansion",
   "featureSet": [
-    "Definition:DamageAffinityHalfOrcRelentlessEndurance:883c6fa6fd742fa4cbb82666ffe6dfc8"
+    "Definition:FeatureSetAllLanguages:ea2afb0e3cb5c9642b624d7bd4a436c9"
   ],
   "mode": "Union",
   "defaultSelection": 0,
@@ -11,8 +11,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&GiftoftheProtectorsTitle",
-    "description": "Feature/&GiftoftheProtectorsDescription",
+    "title": "Feature/&DHEIAttributeModifiersEyesoftheRuneKeeperTitle",
+    "description": "Feature/&DHEIAttributeModifiersEyesoftheRuneKeeperDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "cb42a6ae-a375-597a-be50-5395cf3ab74f",
+  "guid": "e4389549-877a-5a95-aa27-69d688254dc9",
   "contentPack": 9999,
-  "name": "DHEIAttributeModifersGiftoftheProtectors"
+  "name": "DHEIAttributeModifiersEyesoftheRuneKeeper"
 }

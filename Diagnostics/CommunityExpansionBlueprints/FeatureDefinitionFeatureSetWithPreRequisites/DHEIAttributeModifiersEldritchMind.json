@@ -1,8 +1,7 @@
 {
   "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFeatureSetWithPreRequisites, SolastaCommunityExpansion",
   "featureSet": [
-    "Definition:CampAffinityElfTrance:02e0f7bc4afeb2b43ab60ec0a048f5ae",
-    "Definition:CampAffinityDomainOblivionPeacefulRest:82674c4f25c7fdb4a901085c44341f0a"
+    "Definition:MagicAffinityFeatFlawlessConcentration:75bf6b2ab20de7640986f271f39b52c5"
   ],
   "mode": "Union",
   "defaultSelection": 0,
@@ -12,8 +11,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AspectoftheMoonTitle",
-    "description": "Feature/&AspectoftheMoonDescription",
+    "title": "Feature/&DHEIAttributeModifiersEldritchMindTitle",
+    "description": "Feature/&DHEIAttributeModifiersEldritchMindDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -33,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d25c99c2-c975-52ca-ae68-9aecf48a3111",
+  "guid": "d3206821-bb1a-59e8-8884-de67844ee4d0",
   "contentPack": 9999,
-  "name": "DHEIAttributeModifersAspectoftheMoon"
+  "name": "DHEIAttributeModifiersEldritchMind"
 }

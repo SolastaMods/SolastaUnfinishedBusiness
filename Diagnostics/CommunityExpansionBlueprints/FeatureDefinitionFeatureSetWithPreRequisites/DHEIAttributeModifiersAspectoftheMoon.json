@@ -1,7 +1,8 @@
 {
   "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFeatureSetWithPreRequisites, SolastaCommunityExpansion",
   "featureSet": [
-    "Definition:OneWithShadowsLightAffinity:43ce8f93-4550-572c-a6f4-7ac89e193dbf"
+    "Definition:CampAffinityElfTrance:02e0f7bc4afeb2b43ab60ec0a048f5ae",
+    "Definition:CampAffinityDomainOblivionPeacefulRest:82674c4f25c7fdb4a901085c44341f0a"
   ],
   "mode": "Union",
   "defaultSelection": 0,
@@ -11,8 +12,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&OneWithShadowsTitle",
-    "description": "Feature/&OneWithShadowsDescription",
+    "title": "Feature/&DHEIAttributeModifiersAspectoftheMoonTitle",
+    "description": "Feature/&DHEIAttributeModifiersAspectoftheMoonDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -32,7 +33,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b8af4564-6fd3-5b6d-80ed-974c531e699e",
+  "guid": "0c4e818f-5907-5206-a12a-6918494a3432",
   "contentPack": 9999,
-  "name": "DHEIAttributeModifersOneWithShadows"
+  "name": "DHEIAttributeModifiersAspectoftheMoon"
 }

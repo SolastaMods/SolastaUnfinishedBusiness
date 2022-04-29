@@ -1,8 +1,7 @@
 {
   "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFeatureSetWithPreRequisites, SolastaCommunityExpansion",
   "featureSet": [
-    "Definition:AttackModifierMagicWeapon:7a1aa2567ec34e849b50168e392d0c5d",
-    "Definition:MagicAffinitySpellBladeIntoTheFray:dcbc028742c7af3479f0c56e3146d286"
+    "Definition:OneWithShadowsLightAffinityStrong:46d4145c-8eef-525c-b771-fe1679d65b84"
   ],
   "mode": "Union",
   "defaultSelection": 0,
@@ -12,8 +11,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&ImprovedPactWeaponTitle",
-    "description": "Feature/&ImprovedPactWeaponDescription",
+    "title": "Feature/&DHEIAttributeModifiersOneWithShadowsStrongerTitle",
+    "description": "Feature/&DHEIAttributeModifiersOneWithShadowsStrongerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -33,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "70fc406d-0103-50fc-8fbc-03290d0b8550",
+  "guid": "e52f847e-c2fb-5817-a894-fb8d02a292db",
   "contentPack": 9999,
-  "name": "DHEIAttributeModifersImprovedPactWeapon"
+  "name": "DHEIAttributeModifiersOneWithShadowsStronger"
 }

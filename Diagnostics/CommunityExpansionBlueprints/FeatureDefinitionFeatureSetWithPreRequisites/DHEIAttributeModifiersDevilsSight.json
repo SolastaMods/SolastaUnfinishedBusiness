@@ -1,7 +1,8 @@
 {
   "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFeatureSetWithPreRequisites, SolastaCommunityExpansion",
   "featureSet": [
-    "Definition:AdditionalDamageHinderingBlast:c9d9bc9f-6454-540b-ad75-8d4bf291eee8"
+    "Definition:EldritchInvocationDevilsSight:a4d029fc-d687-5479-a17b-7502ad787ce9",
+    "Definition:SenseDarkvision24:a7a21553e478546448413923e8dd948e"
   ],
   "mode": "Union",
   "defaultSelection": 0,
@@ -11,8 +12,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&HinderingBlastFeatureSetTitle",
-    "description": "Feature/&HinderingBlastFeatureSetDescription",
+    "title": "Feature/&DHEIAttributeModifiersDevilsSightTitle",
+    "description": "Feature/&DHEIAttributeModifiersDevilsSightDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -32,7 +33,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8ea2f2bf-a10a-54c1-9e2b-680b999f0040",
+  "guid": "2e471f30-f785-5c78-a328-9da5f22fc3eb",
   "contentPack": 9999,
-  "name": "HinderingBlastFeatureSet"
+  "name": "DHEIAttributeModifiersDevilsSight"
 }

@@ -1,7 +1,8 @@
 {
   "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFeatureSetWithPreRequisites, SolastaCommunityExpansion",
   "featureSet": [
-    "Definition:ProficiencyFeatManipulatorSkillOrExpertise:d0e0c050dbe9c4a4e9128966a168fe53"
+    "Definition:AttackModifierMagicWeapon:7a1aa2567ec34e849b50168e392d0c5d",
+    "Definition:MagicAffinitySpellBladeIntoTheFray:dcbc028742c7af3479f0c56e3146d286"
   ],
   "mode": "Union",
   "defaultSelection": 0,
@@ -11,8 +12,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&BeguilingInfluenceTitle",
-    "description": "Feature/&BeguilingInfluenceDescription",
+    "title": "Feature/&DHEIAttributeModifiersImprovedPactWeaponTitle",
+    "description": "Feature/&DHEIAttributeModifiersImprovedPactWeaponDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -32,7 +33,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "46ab7dfd-f65e-529f-b964-a01e750b9469",
+  "guid": "fec50e3e-e195-51da-9bc6-06b71ca2dc66",
   "contentPack": 9999,
-  "name": "DHEIAttributeModifersBeguilingInfluence"
+  "name": "DHEIAttributeModifiersImprovedPactWeapon"
 }

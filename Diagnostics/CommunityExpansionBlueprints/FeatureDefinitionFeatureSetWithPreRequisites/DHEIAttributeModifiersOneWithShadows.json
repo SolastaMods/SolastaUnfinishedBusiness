@@ -1,7 +1,7 @@
 {
   "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFeatureSetWithPreRequisites, SolastaCommunityExpansion",
   "featureSet": [
-    "Definition:OneWithShadowsLightAffinityStrong:46d4145c-8eef-525c-b771-fe1679d65b84"
+    "Definition:OneWithShadowsLightAffinity:43ce8f93-4550-572c-a6f4-7ac89e193dbf"
   ],
   "mode": "Union",
   "defaultSelection": 0,
@@ -11,8 +11,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&OneWithShadowsStrongerTitle",
-    "description": "Feature/&OneWithShadowsStrongerDescription",
+    "title": "Feature/&DHEIAttributeModifiersOneWithShadowsTitle",
+    "description": "Feature/&DHEIAttributeModifiersOneWithShadowsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d9d7eca6-b6f0-5fe4-b847-4f76b3192e9a",
+  "guid": "463355d0-bd35-5d70-b38c-c79bf83af3af",
   "contentPack": 9999,
-  "name": "DHEIAttributeModifersOneWithShadowsStronger"
+  "name": "DHEIAttributeModifiersOneWithShadows"
 }
