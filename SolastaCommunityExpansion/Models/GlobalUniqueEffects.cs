@@ -31,13 +31,18 @@ namespace SolastaCommunityExpansion.Models
         {
             var powers = new HashSet<FeatureDefinitionPower>();
             var spells = new HashSet<SpellDefinition>();
+
             foreach (var group in _groups.Where(e => e.Value.Item1.Contains(power)))
             {
                 foreach (var p in group.Value.Item1)
+                {
                     powers.Add(p);
+                }
 
                 foreach (var s in group.Value.Item2)
+                {
                     spells.Add(s);
+                }
             }
 
             return (powers, spells);
@@ -51,10 +56,14 @@ namespace SolastaCommunityExpansion.Models
             foreach (var group in _groups.Where(e => e.Value.Item2.Contains(spell)))
             {
                 foreach (var p in group.Value.Item1)
+                {
                     powers.Add(p);
+                }
 
                 foreach (var s in group.Value.Item2)
+                {
                     spells.Add(s);
+                }
             }
 
             return (powers, spells);

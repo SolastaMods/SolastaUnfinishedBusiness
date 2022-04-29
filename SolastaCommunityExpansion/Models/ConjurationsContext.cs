@@ -57,7 +57,6 @@ namespace SolastaCommunityExpansion.Models
 
             if (Main.Settings.EnableUpcastConjureElementalAndFey)
             {
-                CreateAdditionalSummons();
                 AddSummonsSubSpells();
             }
         }
@@ -104,99 +103,6 @@ namespace SolastaCommunityExpansion.Models
                 advancement.SetEffectIncrementMethod(EffectIncrementMethod.PerAdditionalSlotLevel);
                 advancement.SetAdditionalSpellLevelPerIncrement(1);
             }
-        }
-
-        internal static void CreateAdditionalSummons()
-        {
-            /*
-            // Fire
-            if (!DatabaseRepository.GetDatabase<MonsterDefinition>().TryGetElement(FireElementalCR6Name, out var _))
-            {
-                var builder = GetMonsterBuilder(FireElementalCR6Name,
-                    "Fire Elemental (CR6)", Fire_Elemental);
-
-                var definition = builder
-                    .SetHitDiceNumber(14)
-                    .SetHitPointsBonus(42)
-                    .SetStandardHitPoints(77 + 42)
-                    .SetAbilityScores(12, 17, 16, 6, 10, 7)
-                    .SetModelScale(0.75f)
-                    .SetChallengeRating(6)
-                    .SetInDungeonEditor(false)
-                    .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
-                    .AddToDB();
-
-                definition.AttackIterations.SetRange(CreateAttackIteration(definition.AttackIterations[0], "CE_CR6"));
-            }
-
-            // Air
-            if (!DatabaseRepository.GetDatabase<MonsterDefinition>().TryGetElement(AirElementalCR6Name, out var _))
-            {
-                var builder = GetMonsterBuilder(AirElementalCR6Name,
-                    "Air Elemental (CR6)", Air_Elemental);
-
-                var definition = builder
-                    .SetHitDiceNumber(14)
-                    .SetHitPointsBonus(28)
-                    .SetStandardHitPoints(77 + 28)
-                    .SetAbilityScores(16, 20, 14, 6, 10, 6)
-                    .SetModelScale(0.75f)
-                    .SetChallengeRating(6)
-                    .SetInDungeonEditor(false)
-                    .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
-                    .AddToDB();
-
-                definition.AttackIterations.SetRange(CreateAttackIteration(definition.AttackIterations[0], "CE_CR6"));
-            }
-
-            // Earth
-            if (!DatabaseRepository.GetDatabase<MonsterDefinition>().TryGetElement(EarthElementalCR6Name, out var _))
-            {
-                var builder = GetMonsterBuilder(EarthElementalCR6Name,
-                    "Earth Elemental (CR6)", Earth_Elemental);
-
-                var definition = builder
-                    .SetHitDiceNumber(14)
-                    .SetHitPointsBonus(60)
-                    .SetStandardHitPoints(77 + 60)
-                    .SetAbilityScores(22, 8, 20, 5, 10, 5)
-                    .SetModelScale(0.75f)
-                    .SetChallengeRating(6)
-                    .SetInDungeonEditor(false)
-                    .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
-                    .AddToDB();
-
-                definition.AttackIterations.SetRange(CreateAttackIteration(definition.AttackIterations[0], "CE_CR6"));
-            }
-            */
-
-            // Helpers
-
-            /*            MonsterBuilder GetMonsterBuilder(string name, string title, MonsterDefinition baseMonster)
-                        {
-                            return new MonsterBuilder(name, CreateGuid(name), title, baseMonster.GuiPresentation.Description, baseMonster);
-                        }
-
-                        MonsterAttackIteration CreateAttackIteration(MonsterAttackIteration attackIteration, string namePrefix, int attacks = 2)
-                        {
-                            // copy existing attack iteration and bump up ToHitBonus and DamageBonus by 1
-                            var attackDefinition = CreateAttackDefinition(attackIteration.MonsterAttackDefinition, namePrefix);
-
-                            return new MonsterAttackIteration(attackDefinition, attacks);
-                        }
-
-                        MonsterAttackDefinition CreateAttackDefinition(MonsterAttackDefinition attackDefinition, string namePrefix)
-                        {
-                            var name = $"{namePrefix}_{attackDefinition.Name}";
-
-                            var builder = new MonsterAttackDefinitionBuilder(name, CreateGuid(name), attackDefinition);
-
-                            builder.SetDamageBonusOfFirstDamageForm(4);
-                            builder.SetToHitBonus(7);
-
-                            return builder.AddToDB();
-                        }
-            */
         }
     }
 }
