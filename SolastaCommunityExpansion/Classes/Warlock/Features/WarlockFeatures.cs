@@ -93,7 +93,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             .AddFeatureSet(
                 EldritchInvocationsAttributeModifiers["OneWithShadowsStronger"],
                 EldritchInvocationsPowers["DreadfulWord"],
-                EldritchInvocationsPowers["Trickster'sEscape"]
+                EldritchInvocationsPowers["TrickstersEscape"]
             )
             .SetDynamicFeatureSetFunc(InvocationsFilteredFeatureSet)
             .AddToDB();
