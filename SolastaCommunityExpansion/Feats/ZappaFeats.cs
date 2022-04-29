@@ -507,7 +507,7 @@ namespace SolastaCommunityExpansion.Feats
 
         public MetamagicOptionDefinition MetamagicOption { get; set; }
 
-        public void ApplyFeature(RulesetCharacterHero hero)
+        public void ApplyFeature(RulesetCharacterHero hero, string tag)
         {
             if (!hero.MetamagicFeatures.ContainsKey(MetamagicOption))
             {
@@ -517,7 +517,7 @@ namespace SolastaCommunityExpansion.Feats
             }
         }
 
-        public void RemoveFeature(RulesetCharacterHero hero)
+        public void RemoveFeature(RulesetCharacterHero hero, string tag)
         {
             if (MetamagicTrained)
             {
