@@ -216,7 +216,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             // at will EI
             foreach (KeyValuePair<string, SpellDefinition> entry in dictionaryofEIPseudoCantrips)
             {
-                string textPseudoCantrips = "DHEldritchInvocation" + entry.Value.name;
+                string textPseudoCantrips = "EldritchInvocation" + entry.Value.name;
 
                 var guiPresentationEIPseudoCantrips = new GuiPresentationBuilder(
                     $"Feature/&{entry.Key}Title",
@@ -256,7 +256,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             // 1/day EI
             foreach (KeyValuePair<string, SpellDefinition> entry in dictionaryofEIPseudoSpells)
             {
-                string textPseudoSpells = "DHEldritchInvocation" + entry.Value.name;
+                string textPseudoSpells = "EldritchInvocation" + entry.Value.name;
 
                 var guiPresentationEIPseudoSpells = new GuiPresentationBuilder(
                     "Feature/&" + entry.Key + "Title",
@@ -324,7 +324,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
             foreach (string entry in listofEIAttributeModifiers)
             {
-                var textEIAttributeModifiers = "EIAttributeModifiers" + entry;
+                var textEIAttributeModifiers = "EldritchInvocation" + entry;
 
                 var guiFeatureSetEldritchInvocations = new GuiPresentationBuilder(
                     "Feature/&" + entry + "Title",
