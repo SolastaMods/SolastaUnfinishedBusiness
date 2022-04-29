@@ -33,46 +33,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .ToList();
         }
 
-        //private static Queue<FeatureDefinition> InvocationsTakenFeatureSet(FeatureDefinitionFeatureSet featureDefinitionFeatureSet)
-        //{
-        //    var result = new Queue<FeatureDefinition>();
-        //    var hero = Global.ActiveLevelUpHero;
-        //    var heroBuildingData = hero?.GetHeroBuildingData();
-
-        //    if (hero == null || heroBuildingData == null)
-        //    {
-        //        return result;
-        //    }
-
-        //    // -1 as we don't need to add the ones added on this level
-        //    for (var i = 0; i < hero.ActiveFeatures.Count - 1; i++)
-        //    {
-        //        var kvp = hero.ActiveFeatures.ElementAt(i);
-
-        //        foreach (var feature in kvp.Value
-        //            .Where(y => EldritchInvocationsBlasts.Values.Any(x => x == y)
-        //            || EldritchInvocationsAttributeModifiers.Values.Any(x => x == y)
-        //            || EldritchInvocationsPowers.Values.Any(x => x == y)))
-        //        {
-        //            result.Enqueue(feature);
-        //        }
-        //    }
-
-        //    return result;
-        //}
-
-        //#region WarlockEldritchInvocationSetRemoval
-        //private static FeatureDefinitionFeatureSetDynamic warlockEldritchInvocationSetRemoval;
-        //public static FeatureDefinitionFeatureSetDynamic WarlockEldritchInvocationSetRemoval => warlockEldritchInvocationSetRemoval ??= FeatureDefinitionFeatureSetDynamicBuilder
-        //    .Create("ClassWarlockEldritchInvocationSetReplace", CENamespaceGuid)
-        //    .SetGuiPresentation(Category.Feature)
-        //    .SetFeatureSet(WarlockEldritchInvocationSetLevel18.FeatureSet)
-        //    .SetDynamicFeatureSetFunc(InvocationsTakenFeatureSet)
-        //    .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
-        //    .SetUniqueChoices(false)
-        //    .AddToDB();
-        //#endregion
-
         #region WarlockEldritchInvocationSetLevel2
         private static FeatureDefinitionFeatureSetDynamic warlockEldritchInvocationSetLevel2;
         public static FeatureDefinitionFeatureSetDynamic WarlockEldritchInvocationSetLevel2 => warlockEldritchInvocationSetLevel2 ??= FeatureDefinitionFeatureSetDynamicBuilder
