@@ -168,6 +168,22 @@ namespace SolastaCommunityExpansion.Displays
 
             UI.Label("");
 
+            toggle = Main.Settings.OverrideMinMaxLevel;
+            if (UI.Toggle("Override the required min and max levels when starting new adventures", ref toggle))
+            {
+                Main.Settings.OverrideMinMaxLevel = toggle;
+            }
+
+            UI.Label("");
+
+            intValue = Main.Settings.OverridePartySize;
+            if (UI.Slider("Override the party size in custom adventures".white(), ref intValue, DungeonMakerContext.MIN_PARTY_SIZE, DungeonMakerContext.MAX_PARTY_SIZE, DungeonMakerContext.GAME_PARTY_SIZE, "", UI.AutoWidth()))
+            {
+                Main.Settings.OverridePartySize = intValue;
+            }
+
+            UI.Label("");
+
             intValue = Main.Settings.MultiplyTheExperienceGainedBy;
             if (UI.Slider("Multiply the experience gained by ".white() + "[%]".red(), ref intValue, 0, 200, 100, "", UI.Width(100)))
             {
