@@ -202,6 +202,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                 //    WarlockEldritchInvocationSetRemoval)
 
                 .AddFeaturesAtLevel(15,
+                    WarlockMysticArcanumSetLevel15,
                     WarlockEldritchInvocationSetLevel15)
                 //WarlockEldritchInvocationSetLevel15,
                 //WarlockEldritchInvocationSetRemoval)
