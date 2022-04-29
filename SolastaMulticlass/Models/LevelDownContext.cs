@@ -14,7 +14,7 @@ namespace SolastaMulticlass.Models
                 FunctorParametersDescription functorParameters,
                 FunctorExecutionContext context)
             {
-                if (SolastaCommunityExpansion.Models.PlayerControllerContext.IsMultiplayer)
+                if (SolastaCommunityExpansion.Models.Global.IsMultiplayer)
                 {
                     yield break;
                 }
@@ -333,7 +333,7 @@ namespace SolastaMulticlass.Models
                         }
                     }
                 }
-                else if (featureDefinition is FeatureDefinitionCustomCode featureDefinitionCustomCode)
+                else if (featureDefinition is IFeatureDefinitionCustomCode featureDefinitionCustomCode)
                 {
                     featureDefinitionCustomCode.RemoveFeature(hero);
                 }

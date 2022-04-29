@@ -1,8 +1,8 @@
-﻿using System;
-using SolastaModApi;
+﻿using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.Models;
 using static SolastaCommunityExpansion.Classes.Warlock.WarlockSpells;
 using static SolastaCommunityExpansion.Models.SpellsContext;
 
@@ -11,11 +11,14 @@ namespace SolastaCommunityExpansion.Spells
     internal static class AceHighSpells
     {
         private static SpellDefinition _pactMarkSpell;
+        private static SpellDefinition _hellishRebuke;
         internal static SpellDefinition PactMarkSpell => _pactMarkSpell ??= PactMarkSpellBuilder.CreateAndAddToDB();
+        internal static SpellDefinition HellishRebukeSpell => _hellishRebuke ??= BuildHellishRebuke();
 
         internal static void Register()
         {
             RegisterSpell(PactMarkSpell, 1, WarlockSpellList);
+            RegisterSpell(HellishRebukeSpell, 1, WarlockSpellList);
         }
 
         internal class PactMarkSpellBuilder : SpellDefinitionBuilder
@@ -130,61 +133,53 @@ namespace SolastaCommunityExpansion.Spells
             public static readonly FeatureDefinitionAdditionalDamage PactMarkAdditionalDamage = CreateAndAddToDB(PactMarkAdditionalDamageBuilderName);
         }
 
-        //internal class HellishRebukeSpellBuilder : BaseDefinitionBuilder<SpellDefinition>
-        //{
-        //    private const string HellishRebukeSpellName = "AHHellishRebukeSpell";
-        //    private static readonly string HellishRebukeSpellNameGuid = GuidHelper.Create(Settings.GUID, HellishRebukeSpellName).ToString();
-
-        //    protected HellishRebukeSpellBuilder(string name, string guid) : base(DatabaseHelper.SpellDefinitions.SacredFlame, name, guid)
-        //    {
-        //        Definition.GuiPresentation.Title = "Feat/&AHHellishRebukeSpellTitle";
-        //        Definition.GuiPresentation.Description = "Feat/&AHHellishRebukeSpellDescription";
-        //        Definition.SetSpellLevel(1);
-        //        Definition.SetSomaticComponent(true);
-        //        Definition.SetVerboseComponent(true);
-        //        Definition.SetCastingTime(RuleDefinitions.ActivationTime.Reaction);
-
-        //        //D10 damage
-        //        var damageForm = new DamageForm
-        //        {
-        //            DiceNumber = 2,
-        //            DamageType = "DamageFire",
-        //            DieType = RuleDefinitions.DieType.D10
-        //        };
-
-        //        var damageEffectForm = new EffectForm
-        //        {
-        //            HasSavingThrow = true,
-        //            FormType = EffectForm.EffectFormType.Damage,
-        //            SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.HalfDamage,
-        //            SaveOccurence = RuleDefinitions.TurnOccurenceType.EndOfTurn,
-        //            DamageForm = damageForm
-        //        };
-
-
-        //        //Additional die per spell level
-        //        var advancement = new EffectAdvancement();
-        //        advancement.SetEffectIncrementMethod(RuleDefinitions.EffectIncrementMethod.PerAdditionalSlotLevel);
-        //        advancement.SetAdditionalDicePerIncrement(1);
-
-        //        var effectDescription = Definition.EffectDescription;
-        //        effectDescription.SetRangeParameter(12);
-        //        effectDescription.EffectForms.Clear();
-        //        effectDescription.SetTargetParameter(1);
-        //        damageEffectForm.HasSavingThrow = true;
-        //        effectDescription.SavingThrowAbility = "Dexterity";
-        //        effectDescription.SetEffectAdvancement(advancement);
-        //        effectDescription.EffectForms.Add(damageEffectForm);
-
-        //        Definition.SetEffectDescription(effectDescription);
-        //    }
-
-        //    public static SpellDefinition CreateAndAddToDB(string name, string guid)
-        //    {
-        //        return new HellishRebukeSpellBuilder(name, guid).AddToDB();
-        //    }
-
-        //    public static SpellDefinition HellishRebukeSpell = CreateAndAddToDB(HellishRebukeSpellName, HellishRebukeSpellNameGuid);
-        //}
+        static SpellDefinition BuildHellishRebuke()
+        {
+            return SpellWithCustomFeaturesBuilder
+                .Create("AHHellishRebuke", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(Category.Spell,  Utils.CustomIcons.CreateAssetReferenceSprite("HellishRebuke", Properties.Resources.HellishRebuke, 128, 128))
+                .SetSpellLevel(1)
+                .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
+                .SetSomaticComponent(true)
+                .SetVerboseComponent(true)
+                .AddCustomFeature(CustomReactionsContext.AlwaysReactToDamaged)
+                .SetCastingTime(RuleDefinitions.ActivationTime.Reaction)
+                .SetEffectDescription(new EffectDescriptionBuilder()
+                    .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ScorchingRay)
+                    .SetTargetingData(
+                        RuleDefinitions.Side.Enemy,
+                        RuleDefinitions.RangeType.Distance,
+                        12,
+                        RuleDefinitions.TargetType.Individuals
+                    )
+                    .SetSavingThrowData(
+                        true,
+                        false,
+                        AttributeDefinitions.Dexterity,
+                        true,
+                        RuleDefinitions.EffectDifficultyClassComputation.SpellCastingFeature,
+                        AttributeDefinitions.Charisma
+                    )
+                    .SetEffectAdvancement(
+                        RuleDefinitions.EffectIncrementMethod.PerAdditionalSlotLevel,
+                        additionalDicePerIncrement: 1
+                    )
+                    .SetEffectForms(new EffectFormBuilder()
+                            .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(
+                                false,
+                                RuleDefinitions.DieType.D10,
+                                RuleDefinitions.DamageTypeFire,
+                                0,
+                                RuleDefinitions.DieType.D10,
+                                2,
+                                RuleDefinitions.HealFromInflictedDamage.Never
+                            )
+                            .Build()
+                    )
+                    .Build()
+                )
+                .AddToDB();
+        }
     }
 }
