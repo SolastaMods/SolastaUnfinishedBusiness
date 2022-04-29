@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using ModKit;
+using SolastaCommunityExpansion.Models;
 using SolastaModApi;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
@@ -43,6 +45,9 @@ namespace SolastaCommunityExpansion.CustomUI
         private AnimationCurve curve;
         private RectTransform levelButtonsTable;
         private GameObject levelButtonPrefab;
+        private GuiLabel stageTitleLabel;
+        private GuiLabel righrFeaturesLabel;
+        private GuiLabel rightFeaturesDescription;
 
         #endregion
 
@@ -61,6 +66,9 @@ namespace SolastaCommunityExpansion.CustomUI
             curve = spells.GetField<AnimationCurve>("curve");
             levelButtonsTable = spells.GetField<RectTransform>("levelButtonsTable");
             levelButtonPrefab = spells.GetField<GameObject>("levelButtonPrefab");
+            stageTitleLabel = spellsPanel.RectTransform.FindChildRecursive("ChoiceTitle").GetComponent<GuiLabel>();
+            righrFeaturesLabel = spellsPanel.RectTransform.FindChildRecursive("SpellsInfoTitle").GetComponent<GuiLabel>();
+            rightFeaturesDescription = spellsPanel.RectTransform.FindChildRecursive("ProficienciesIntroDescription").GetComponent<GuiLabel>();
         }
 
         private const float ScrollDuration = 0.3f;
@@ -141,6 +149,11 @@ namespace SolastaCommunityExpansion.CustomUI
         {
             Main.Log($"[ENDER] CUSTOM EnterStage '{this.StageDefinition}'");
 
+            //TODO: add proper localization
+            stageTitleLabel.TMP_Text.text = "Select Features";
+            righrFeaturesLabel.TMP_Text.text = "Features";
+            rightFeaturesDescription.TMP_Text.text = "Select features";
+            
             this.currentLearnStep = 0;
 
             this.CollectTags();
@@ -656,6 +669,11 @@ namespace SolastaCommunityExpansion.CustomUI
 
     internal static class SpellsByLevelGroupExtensions
     {
+        public static RectTransform GetSpellsTable(this SpellsByLevelGroup instance)
+        {
+            return instance.GetField<RectTransform>("spellsTable");
+        }
+
         public static void CustomFeatureBind(this SpellsByLevelGroup instance, FeatureDefinitionFeatureSet featureSet,
             List<FeatureDefinition> unlearned, string spellTag,
             bool canAcquireSpells,
@@ -664,24 +682,23 @@ namespace SolastaCommunityExpansion.CustomUI
             instance.name = $"Feature[{featureSet.Name}]";
 
             // instance.CommonBind( null, unlearn ? SpellBox.BindMode.Unlearn : SpellBox.BindMode.Learning, spellBoxChanged, new List<SpellDefinition>(), null, new List<SpellDefinition>(), new List<SpellDefinition>(), "");
-            var allSpells = featureSet.FeatureSet;
+            var allFeatures = featureSet.FeatureSet;
             //TODO: implement proper sorting
             //allSpells.Sort((IComparer<SpellDefinition>) instance);
 
-            var spellsTable = instance.GetField<RectTransform>("spellsTable");
+            var spellsTable = instance.GetSpellsTable();
             var spellPrefab = instance.GetField<GameObject>("spellPrefab");
 
-            while (spellsTable.childCount < allSpells.Count)
+            while (spellsTable.childCount < allFeatures.Count)
             {
                 Gui.GetPrefabFromPool(spellPrefab, spellsTable);
             }
 
             GridLayoutGroup component1 = spellsTable.GetComponent<GridLayoutGroup>();
-            component1.constraintCount = Mathf.Max(3, Mathf.CeilToInt(allSpells.Count / 4f));
-            IGuiWrapperService service = ServiceRepository.GetService<IGuiWrapperService>();
-            for (int index = 0; index < allSpells.Count; ++index)
+            component1.constraintCount = Mathf.Max(3, Mathf.CeilToInt(allFeatures.Count / 4f));
+            for (int index = 0; index < allFeatures.Count; ++index)
             {
-                var feature = allSpells[index];
+                var feature = allFeatures[index];
                 spellsTable.GetChild(index).gameObject.SetActive(true);
                 var box = spellsTable.GetChild(index).GetComponent<SpellBox>();
                 bool isUnlearned = unlearned != null && unlearned.Contains(feature);
@@ -692,7 +709,7 @@ namespace SolastaCommunityExpansion.CustomUI
             }
 
             //disable unneeded spell boxes
-            for (int count = allSpells.Count; count < spellsTable.childCount; ++count)
+            for (int count = allFeatures.Count; count < spellsTable.childCount; ++count)
                 spellsTable.GetChild(count).gameObject.SetActive(false);
 
             float x = (float)((double)component1.constraintCount * (double)component1.cellSize.x +
@@ -703,17 +720,71 @@ namespace SolastaCommunityExpansion.CustomUI
             instance.GetField<SlotStatusTable>("slotStatusTable")
                 .Bind(null, 1, null, false); //TODO: change spell level label
 
-            //TODO: implement refreshes
-            // if (unlearn)
-            //     instance.RefreshUnlearning(characterBuildingService, knownSpells, unlearnedSpells, spellTag, canAcquireSpells && spellLevel > 0);
-            // else
-            //     instance.RefreshLearning(characterBuildingService, knownSpells, unlearnedSpells, spellTag, canAcquireSpells);
+            if (unlearn)
+            {
+                instance.RefreshUnlearning(allFeatures, unlearned, spellTag, canAcquireSpells);
+            }
+            else
+            {
+                instance.RefreshLearning(allFeatures, unlearned, spellTag, canAcquireSpells);
+            }
+        }
+        
+        public static void RefreshLearning(this SpellsByLevelGroup instance,
+            //ICharacterBuildingService characterBuildingService,
+            List<FeatureDefinition> knownFeatures,
+            List<FeatureDefinition> unlearnedFetures,
+            string spellTag,
+            bool canAcquireFeatures)
+        {
+            // CharacterHeroBuildingData heroBuildingData = characterBuildingService.CurrentLocalHeroCharacter?.GetHeroBuildingData();
+            foreach (Transform transform in instance.GetSpellsTable())
+            {
+                if (transform.gameObject.activeSelf)
+                {
+                    SpellBox box = transform.GetComponent<SpellBox>();
+                    var boxFeature = box.GetFeature();
+                    bool selected = Global.ActiveLevelUpHeroHasFeature(boxFeature);
+                    bool isUnlearned = unlearnedFetures != null && unlearnedFetures.Contains(boxFeature);
+                    bool canLearn = knownFeatures.Contains(boxFeature) && !selected;
+
+                    var knownNames = String.Join(", ", knownFeatures.Select(f=>f.Name));
+                    Main.Log($"[ENDER] SB.refreshLearning '{boxFeature.Name}', canAcquireFeatures: {canAcquireFeatures}, selected: {selected}, known: [{knownNames}]");
+                    
+                    if (canAcquireFeatures)
+                        box.RefreshLearningInProgress(canLearn && !isUnlearned, selected);
+                    else
+                        box.RefreshLearningInactive((canLearn || selected) && !isUnlearned);
+                }
+            }
+        }
+        
+        public static void RefreshUnlearning(this SpellsByLevelGroup instance,
+            List<FeatureDefinition> knownFeatures,
+            List<FeatureDefinition> unlearnedSpells,
+            string spellTag,
+            bool canUnlearnSpells)
+        {
+            foreach (Transform transform in instance.GetSpellsTable())
+            {
+                if (transform.gameObject.activeSelf)
+                {
+                    SpellBox box = transform.GetComponent<SpellBox>();
+                    var boxFeature = box.GetFeature();
+                    bool isUnlearned = unlearnedSpells != null && unlearnedSpells.Contains(boxFeature);
+                    bool canUnlearn = knownFeatures.Contains(boxFeature) && !isUnlearned;
+                    if (canUnlearnSpells)
+                        box.RefreshUnlearnInProgress(canUnlearnSpells && canUnlearn, isUnlearned);
+                    else
+                        box.RefreshUnlearnInactive(isUnlearned);
+                }
+            }
         }
 
         public static void CustomUnbind(this SpellsByLevelGroup instance)
         {
             instance.SpellRepertoire = null;
-            var spellsTable = instance.GetField<RectTransform>("spellsTable");
+            var spellsTable = instance.GetSpellsTable();
             foreach (Component component in spellsTable)
                 component.GetComponent<SpellBox>().CustomUnbind();
             Gui.ReleaseChildrenToPool(spellsTable);
