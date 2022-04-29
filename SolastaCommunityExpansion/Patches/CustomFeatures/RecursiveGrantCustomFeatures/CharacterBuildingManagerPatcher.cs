@@ -12,9 +12,9 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.RecursiveGrantCustomF
         /**
          * When a character is being granted features, this patch will apply the effect of custom features.
          */
-        internal static void Postfix(RulesetCharacterHero hero, List<FeatureDefinition> grantedFeatures)
+        internal static void Postfix(RulesetCharacterHero hero, List<FeatureDefinition> grantedFeatures, string tag)
         {
-            CustomFeaturesContext.RecursiveGrantCustomFeatures(hero, grantedFeatures);
+            CustomFeaturesContext.RecursiveGrantCustomFeatures(hero, grantedFeatures, tag);
         }
     }
 
@@ -27,7 +27,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.RecursiveGrantCustomF
             if (string.IsNullOrEmpty(tag) || !hero.ActiveFeatures.ContainsKey(tag))
                 return;
 
-            CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, hero.ActiveFeatures[tag]);
+            CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, hero.ActiveFeatures[tag], tag);
         }
     }
 }
