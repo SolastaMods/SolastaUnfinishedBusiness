@@ -78,12 +78,9 @@ namespace SolastaCommunityExpansion.Feats
                 .AddToDB();
 
             // Brutal Thug
-            var additionalDamageRogueSneakAttackRemove = DatabaseRepository.GetDatabase<FeatureDefinition>().GetElement(AdditionalDamageRogueSneakAttack.Name + "Remove");
-
             var brutalThug = FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
                 .Create("FeatBrutalThug", ZappaFeatNamespace)
                 .SetFeatures(
-                    additionalDamageRogueSneakAttackRemove,
                     AdditionalDamageRoguishHoodlumNonFinesseSneakAttack,
                     ProficiencyFighterWeapon
                 )
