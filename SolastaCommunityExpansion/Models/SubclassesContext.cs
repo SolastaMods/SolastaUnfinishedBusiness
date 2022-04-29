@@ -49,7 +49,7 @@ namespace SolastaCommunityExpansion.Models
             LoadSubclass(new ConArtist());
             LoadSubclass(new LifeTransmuter());
             LoadSubclass(new MasterManipulator());
-            LoadSubclass(new Opportunist());
+            // LoadSubclass(new Opportunist());
             LoadSubclass(new PathOfTheLight());
             LoadSubclass(new SpellMaster());
             LoadSubclass(new SpellShield());
