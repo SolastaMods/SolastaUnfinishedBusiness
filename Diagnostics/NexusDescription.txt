@@ -17,7 +17,7 @@ This is now a standalone mod. Please uninstall any other mod from your mods fold
 [*][b]Burtsev-Alexey[/b]: deep copy algorithm
 [*][b]ChrisJohnDigital[/b]: head developer, crafting, faction relations, feats, fighting styles, items, subclasses, progression
 [*][b]Dreadmaker[/b]: Circle of the Forest Guardian subclass
-[*][b]DubhHerder[/b]: higher level spells, feats migration, bug models replacement, Warlock subclasses and invocations, Tinkerer Artillerist subclass
+[*][b]DubhHerder[/b]: 7th, 8th and 9th level spells, Crafty Feats migration, bug models replacement, additional high level monsters, class, subclasses
 [*][b]ElAntonious[/b]: Arcanist subclass, Torchbearer and Dual Flurry feats
 [*][b]Holic75[/b]: pact magic slots, Warlock class sprite, bolgrif and gnome races, acid claw, air blast burst of radiance, thunder strike, earth tremor and winter's breath spells
 [*][b]ImpPhil[/b]: adv/dis rules, conjurations control, auto-equip, location rotation in DM, monster's health, pause UI, sorting, stocks prices, no attunement, xp scaling, character export, save by location, combat camera, diagnostics, custom icons, refactor, screen map
@@ -90,25 +90,23 @@ All settings start disabled by default. On first start the mod will display an w
 [line]
 [img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/05-Gameplay-Rules.png?raw=true[/img]
 [line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/06-Gameplay-CampaignsLocations.png?raw=true[/img]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/06-Gameplay-ItemsCraftingMerchants.png?raw=true[/img]
 [line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/07-Gameplay-ItemsCraftingMerchants.png?raw=true[/img]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/07-Gameplay-Tools.png?raw=true[/img]
 [line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/08-Gameplay-Tools.png?raw=true[/img]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/08-Interface-DungeonMaker.png?raw=true[/img]
 [line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/09-Interface-DungeonMaker.png?raw=true[/img]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/09-Interface-GameUi.png?raw=true[/img]
 [line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/10-Interface-GameUi.png?raw=true[/img]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/10-Interface-KeyboardMouse.png?raw=true[/img]
 [line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/11-Interface-KeyboardMouse.png?raw=true[/img]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/11-Encounters-General.png?raw=true[/img]
 [line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/12-Encounters-General.png?raw=true[/img]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/12-Encounters-Bestiary.png?raw=true[/img]
 [line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/13-Encounters-Bestiary.png?raw=true[/img]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/13-Encounters-Pool.png?raw=true[/img]
 [line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/14-Encounters-Pool.png?raw=true[/img]
-[line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/15-CreditsDiagnostics-Credits.png?raw=true[/img]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/14-CreditsDiagnostics-Credits.png?raw=true[/img]
 [line]
 
 [size=3][b]Races[/b][/size]
@@ -124,7 +122,7 @@ All settings start disabled by default. On first start the mod will display an w
 [list=1]
 
 [*][b]Tinkerer[/b]: Tinkerers are inventors, alchemists, and more. They bridge the space between magic and technology
-[*][b]Warlock[/b]: Warlocks are seekers of the knowledge that lies hidden in the fabric of the multiverse. Through pacts made with mysterious beings of supernatural power, warlocks unlock magical effects both subtle and spectacular.
+[*][b]Warlock [Beta][/b]: Warlocks are seekers of the knowledge that lies hidden in the fabric of the multiverse. Through pacts made with mysterious beings of supernatural power, warlocks unlock magical effects both subtle and spectacular.
 [*][b]Witch[/b]: Afflicted by a sinister curse, witches can spin dark magic into Maledictions, which they use to debilitate foes. They are also accompanied by their familiars, loyal magical companions which they use to deal the killing blow.
 [/list]
 
@@ -145,6 +143,8 @@ All settings start disabled by default. On first start the mod will display an w
 [*][b]MoonLit Pact[/b]: Your patron is a spirit of the moon, an entity that embodies the cyclical nature of light and darkness. These spirits seek to maintain the power of the moon over the night sky while keeping profane powers that stalk the darkness at bay and task their warlocks with the same, granting them command over the powers of the moon and its effects.
 [*][b]Rift Walker Pact[/b]: Your patron is one of the rare beings who calls the void between worlds their home. They slip between the planes with ease and the knowledge you have gained from interacting with them allows you to harness lingering rift engeries to your benefit within solasta. You might be sometimes filled with a longing for the distant realm of your patron, a desire to wander between dimensions for the rest of your days, or watch for signs of another Rift event, either to prevent or encourage.
 [*][b]Toad King Pact[/b]: Fey, demon or abberation caused by the Cataclysm, the true nature of the Toad King is not known, but it is known that the Toad King rules a large area of swamps and marshes within the Badlands and offers power to those willing to serve.
+[*][b]Royal Knight[/b]: A knight who inspires greatness in others by committing brave deeds in battle. A lone knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
+[*][b]Thug[/b]: Thugs are sharp-minded combattants who seek the thrill of the fight and will make their enemies bite the dust by any means necessary. They benefit from an advanced martial training and learn to make use of their wit and brawn alike to triumph in battle.
 [/list]
 
 [size=3][b]Official Classes Subclasses[/b][/size]
@@ -158,11 +158,9 @@ All settings start disabled by default. On first start the mod will display an w
 [*][b]Master Manipulator[/b]: Master Manipulators excel at controlling the battlefield and preventing their enemies from being able to attack them.
 [*][b]Path of the Light[/b]: Barbarians who follow the Path of the Light illuminate the darkness and protect their allies from dangers that lurk within it.
 [*][b]Ranger Arcanist[/b]: The Ranger Arcanist melds their ranger skills with arcane abilities. Their weapons can afflict their opponents with the Arcanist's Mark, and have learned how to cast some Wizard spells as part of their Ranger spell repertoire.
-[*][b]Royal Knight[/b]: A knight who inspires greatness in others by committing brave deeds in battle. A lone knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
 [*][b]Spell Master[/b]: Spell masters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge.
 [*][b]Spell Shield[/b]: Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
 [*][b]The Tactician[/b]: The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed. They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes. Mod note - This class re-uses channel divinity for these features.
-[*][b]Thug[/b]: Thugs are sharp-minded combattants who seek the thrill of the fight and will make their enemies bite the dust by any means necessary. They benefit from an advanced martial training and learn to make use of their wit and brawn alike to triumph in battle.
 [/list]
 
 [size=3][b]Feats[/b][/size]
@@ -182,6 +180,7 @@ While you are not wearing any armor, your AC equals 10 + your Dexterity modifier
 [*][b]Chef (Constitution)[/b]: You gain +1 to Constitution. Spend 1 hour to cook a meal to heal yourself and your companions 1d8. Once a day you may spend an hour to cook treats that provide temporary HP when eaten.
 [*][b]Chef (Wisdom)[/b]: You gain +1 to Wisdom. Spend 1 hour to cook a meal to heal yourself and your companions. Once a day you may spend an hour to cook treats that provide temporary HP when eaten.
 [*][b]Dual Flurry[/b]: You are a master of fighting with paired weapons. On any turn where you hit twice with melee attacks while wielding a weapon in each hand, you may make an additional off-hand attack.
+[*][b]Fast Hands[/b]: You gain a Cunning Action and can use the Bonus Action granted by it to make a Dexterity (Sleight of Hand) check, use your thieves’ tools to Disarm a trap or open a lock, or take the Use an Object action.
 [*][b]Fey Teleportation (Charisma)[/b]: Increase Charisma attribute by 1. Gain the ability to Misty Step once per short rest and learn the spell. Gain proficiency in Tirmarian.
 [*][b]Fey Teleportation (Intelligence)[/b]: Increase Intelligence attribute by 1. Gain the ability to Misty Step once per short rest and learn the spell. Gain proficiency in Tirmarian.
 [*][b]Fey Teleportation (Wisdom)[/b]: Increase Wisdom attribute by 1. Gain the ability to Misty Step once per short rest and learn the spell. Gain proficiency in Tirmarian.
@@ -270,6 +269,7 @@ The spell creates more than one beam when you reach higher levels: two beams at 
 [*][b]Sound Burst[/b]: Create a burst of thundering sound, damaging everyone around you.
 [*][b]Find Familiar[/b]: You gain the service of a familiar.
 [*][b]Pact Mark[/b]: You place a mark form your pact onto a creature you can see within 90ft. It becomes vulnerable to you and takes an additional 1d6 damage whenever you hit it with an attack (physical or spell attack). This damage is the same type as the attack that hits.
+[*][b]Spell/&AHHellishRebukeTitle[/b]: Spell/&AHHellishRebukeDescription
 [*][b]Petal Storm[/b]: Choose an unoccupied 15-foot cube of air that you can see within range. An elemental force of swirling winds appears in the cube and lasts for the spell's duration. The cloud heavily obscures its area. Any creature that enters the storm for the first time on a turn or starts its turn there must make a Strength saving throw. On a failed save, the creature takes 3d4 slashing damage. As a bonus action, you can move the storm up to 30 feet in any direction.
 [*][b]Protect Threshold[/b]: Tracing arcane sigils along its boundary, you can ward a doorway, window, or other portal from entry. For the duration, an invisible eldritch creature stalks the warded portal. Any creature that attempts to pass through the portal must make a Wisdom saving throw or take 4d6 psychic damage, or half as much on a successful save.
 [*][b]Earth Tremor[/b]: You strike the ground and unleash a tremor of seismic force, hurling up earth, rock, and sand.
