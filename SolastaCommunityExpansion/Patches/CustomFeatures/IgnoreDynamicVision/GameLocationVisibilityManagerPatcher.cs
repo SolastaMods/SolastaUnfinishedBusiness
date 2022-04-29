@@ -28,7 +28,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.IgnoreDynamicVision
                 return;
             }
 
-            var features = rulesetCharacter.GetFeaturesByType<IgnoreDynamicVisionImpairment>();
+            var features = rulesetCharacter.GetFeaturesByType<FeatureDefinitionIgnoreDynamicVisionImpairment>();
             if (features.Empty()) { return; }
 
             float range = (positioning.GetGridPositionFromWorldPosition(origin) -

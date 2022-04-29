@@ -1,10 +1,10 @@
 ﻿namespace SolastaCommunityExpansion.CustomDefinitions
 {
-    public class RequestReactionToDamageWithSpell : ReactionRequestCastSpell
+    public class ReactionRequestCastDamageSpell : ReactionRequestCastSpell
     {
         private string attackerName { get; set; }
 
-        public RequestReactionToDamageWithSpell(
+        public ReactionRequestCastDamageSpell(
             CharacterActionParams actionParams,
             GameLocationCharacter attacker, bool isCanrip)
             : base("CastSpellInRetribution", actionParams)

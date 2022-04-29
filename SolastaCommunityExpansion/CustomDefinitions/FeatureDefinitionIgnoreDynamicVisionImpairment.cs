@@ -3,7 +3,7 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.CustomDefinitions
 {
-    public class IgnoreDynamicVisionImpairment : FeatureDefinition
+    public class FeatureDefinitionIgnoreDynamicVisionImpairment : FeatureDefinition
     {
         public float maxRange;
         public List<FeatureDefinition> requiredFeatures = new();

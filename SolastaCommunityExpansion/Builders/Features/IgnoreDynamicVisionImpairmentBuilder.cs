@@ -4,7 +4,7 @@ using SolastaCommunityExpansion.CustomDefinitions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public class IgnoreDynamicVisionImpairmentBuilder : FeatureDefinitionBuilder<IgnoreDynamicVisionImpairment,
+    public class IgnoreDynamicVisionImpairmentBuilder : FeatureDefinitionBuilder<FeatureDefinitionIgnoreDynamicVisionImpairment,
         IgnoreDynamicVisionImpairmentBuilder>
     {
         #region Constructors
@@ -17,12 +17,12 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        public IgnoreDynamicVisionImpairmentBuilder(IgnoreDynamicVisionImpairment original, string name,
+        public IgnoreDynamicVisionImpairmentBuilder(FeatureDefinitionIgnoreDynamicVisionImpairment original, string name,
             Guid namespaceGuid) : base(original, name, namespaceGuid)
         {
         }
 
-        public IgnoreDynamicVisionImpairmentBuilder(IgnoreDynamicVisionImpairment original, string name,
+        public IgnoreDynamicVisionImpairmentBuilder(FeatureDefinitionIgnoreDynamicVisionImpairment original, string name,
             string definitionGuid) : base(original, name, definitionGuid)
         {
         }
