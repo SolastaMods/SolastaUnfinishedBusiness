@@ -25,7 +25,7 @@ namespace SolastaCommunityExpansion.Level20.Features
 
     internal sealed class PrimalChampion : FeatureDefinition, IFeatureDefinitionCustomCode
     {
-        public void ApplyFeature(RulesetCharacterHero hero)
+        public void ApplyFeature(RulesetCharacterHero hero, string tag)
         {
             ModifyAttributeAndMax(hero, AttributeDefinitions.Strength, 4);
             ModifyAttributeAndMax(hero, AttributeDefinitions.Constitution, 4);
@@ -33,7 +33,7 @@ namespace SolastaCommunityExpansion.Level20.Features
             hero.RefreshAll();
         }
 
-        public void RemoveFeature(RulesetCharacterHero hero)
+        public void RemoveFeature(RulesetCharacterHero hero, string tag)
         {
             ModifyAttributeAndMax(hero, AttributeDefinitions.Strength, -4);
             ModifyAttributeAndMax(hero, AttributeDefinitions.Constitution, -4);

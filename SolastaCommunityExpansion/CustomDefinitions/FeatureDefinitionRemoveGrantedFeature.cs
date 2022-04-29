@@ -17,7 +17,7 @@
         public CharacterSubclassDefinition CharacterSubclass { get; set; }
         private string Tag => CharacterSubclass == null ? AttributeDefinitions.GetClassTag(CharacterClass, ClassLevel) : AttributeDefinitions.GetSubclassTag(CharacterClass, ClassLevel, CharacterSubclass);
 
-        public void ApplyFeature(RulesetCharacterHero hero)
+        public void ApplyFeature(RulesetCharacterHero hero, string tag)
         {
             var activeFeatures = hero.ActiveFeatures;
 
@@ -27,7 +27,7 @@
             }
         }
 
-        public void RemoveFeature(RulesetCharacterHero hero)
+        public void RemoveFeature(RulesetCharacterHero hero, string tag)
         {
             var activeFeatures = hero.ActiveFeatures;
 

@@ -8,17 +8,17 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class CustomFeaturesContext
     {
-        internal static void RecursiveGrantCustomFeatures(RulesetCharacterHero hero, List<FeatureDefinition> features)
+        internal static void RecursiveGrantCustomFeatures(RulesetCharacterHero hero, List<FeatureDefinition> features, string tag)
         {
             foreach (var grantedFeature in features)
             {
                 if (grantedFeature is FeatureDefinitionFeatureSet set && set.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                 {
-                    RecursiveGrantCustomFeatures(hero, set.FeatureSet);
+                    RecursiveGrantCustomFeatures(hero, set.FeatureSet, tag);
                 }
                 if (grantedFeature is IFeatureDefinitionCustomCode customFeature)
                 {
-                    customFeature.ApplyFeature(hero);
+                    customFeature.ApplyFeature(hero, tag);
                 }
                 if (grantedFeature is not FeatureDefinitionProficiency featureDefinitionProficiency)
                 {
@@ -32,17 +32,17 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        internal static void RecursiveRemoveCustomFeatures(RulesetCharacterHero hero, List<FeatureDefinition> features)
+        internal static void RecursiveRemoveCustomFeatures(RulesetCharacterHero hero, List<FeatureDefinition> features, string tag)
         {
             foreach (var grantedFeature in features)
             {
                 if (grantedFeature is FeatureDefinitionFeatureSet set && set.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                 {
-                    RecursiveRemoveCustomFeatures(hero, set.FeatureSet);
+                    RecursiveRemoveCustomFeatures(hero, set.FeatureSet, tag);
                 }
                 if (grantedFeature is IFeatureDefinitionCustomCode customFeature)
                 {
-                    customFeature.RemoveFeature(hero);
+                    customFeature.RemoveFeature(hero, tag);
                 }
                 if (grantedFeature is not FeatureDefinitionProficiency featureDefinitionProficiency)
                 {
