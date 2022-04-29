@@ -10,7 +10,7 @@
         "Definition:AnnoyingBee:d380ed36cd287394d8ddc88115fd8fa1",
         "Definition:ChillTouch:2dffe98ad497e4b418abc947f6077fb7",
         "Definition:DancingLights:ca63de70121df1b46ae3c1f8c183f941",
-        "Definition:DHEldritchBlast:e8267b9e-2d34-5ffd-ab0d-9a79caea538e",
+        "Definition:EldritchBlast:50536bd0-3c1c-57b7-b1ce-9eb7a653e5eb",
         "Definition:PoisonSpray:d3aec91794deb6646b41c246e57a1f1e",
         "Definition:TrueStrike:8adca77af0c221445af40629f3743ec8"
       ]
@@ -19,6 +19,8 @@
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 1,
       "spells": [
+        "Definition:AHHellishRebuke:e34502d5-2d88-5668-8e62-e5b9983667d6",
+        "Definition:AHPactMarkSpell:e59222d7-222b-571c-86df-47fff2c85cd9",
         "Definition:CharmPerson:9c98e5cba0f8b1649b3217a97cbc111b",
         "Definition:ComprehendLanguages:78c2b416e515641468aa1c384db23535",
         "Definition:ExpeditiousRetreat:3713ff85f9f53f2459ae8d7a976a24b8",

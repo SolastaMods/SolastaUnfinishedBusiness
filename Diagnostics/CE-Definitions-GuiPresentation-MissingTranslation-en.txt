@@ -1,4 +1,6 @@
-AttackWarlockImpSting	Description='MonsterAttack/&AttackWarlockImpStingDescription'.
-Debilitated	Title='Condition/&DebilitatedConditionTitle'.
-Debilitated	Description='Condition/&DebilitatedConditionDescription'.
+EldritchInvocationBane	Description='Feature/&SpellAsInvocationOncePerDayDescription'.
+EldritchInvocationConfusion	Description='Feature/&SpellAsInvocationOncePerDayDescription'.
+EldritchInvocationFreedomOfMovement	Title='Feature/&TrickstersEscapeTitle'.
+EldritchInvocationFreedomOfMovement	Description='Feature/&SpellAsInvocationOncePerDayDescription'.
+EldritchInvocationSlow	Description='Feature/&SpellAsInvocationOncePerDayDescription'.
 WardenArmorProficiencyMulticlass	Title='Feature/&WardenArmorProficiencyTitle'.

@@ -11,6 +11,7 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
     //
     // Dynamic Feature Sets Fetching
     //
+
     [HarmonyPatch(typeof(FeatureDescriptionItem), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class FeatureDescriptionItem_Bind
@@ -18,9 +19,9 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
         public static List<FeatureDefinition> FeatureSetDynamic(FeatureDefinitionFeatureSet featureDefinitionFeatureSet, FeatureDescriptionItem featureDescriptionItem)
         {
             if (featureDefinitionFeatureSet is FeatureDefinitionFeatureSetDynamic
-                && FeatureDescriptionItemPatcher.FeatureDescriptionItems.TryGetValue(featureDescriptionItem, out var tab))
+                && FeatureDescriptionItemPatcher.FeatureDescriptionItems.TryGetValue(featureDescriptionItem, out var featureSet))
             {
-                return tab.FeatureSet.Keys.ToList();
+                return featureSet;
             }
 
             return featureDefinitionFeatureSet.FeatureSet;
@@ -70,89 +71,22 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
         }
     }
 
-    //
-    // Dynamic Feature Sets Caching / Unique Feature Set Choices / Replace Features
-    //
-
     internal static class FeatureDescriptionItemPatcher
     {
-        internal const string ReplaceTag = "Replace";
-        internal class FeatureDescriptionItemTab
-        {
-            public Dictionary<FeatureDefinition, string> FeatureSet { get; set; } = new();
-
-            public FeatureDefinition SelectedFeature;
-        }
-
-        internal static Dictionary<FeatureDescriptionItem, FeatureDescriptionItemTab> FeatureDescriptionItems { get; } = new();
-
-        private static void RefreshDropdownOptions(FeatureDescriptionItem __instance)
-        {
-            var ___choiceDropdown = __instance.GetField<FeatureDescriptionItem, GuiDropdown>("choiceDropdown");
-            var featureSetNamePrefix = __instance.name.Replace(ReplaceTag, string.Empty);
-
-            if (!FeatureDescriptionItems.TryGetValue(__instance, out var tab))
-            {
-                return;
-            }
-
-            if (tab.SelectedFeature != null)
-            {
-                var optionToRemove = ___choiceDropdown.options.Find(x => x.text == tab.SelectedFeature.FormatTitle());
-
-                foreach (var featureDescriptionItem in FeatureDescriptionItems
-                    .Where(x => x.Key != __instance && x.Key.Feature.Name.StartsWith(featureSetNamePrefix)))
-                {
-                    var choiceDropDown = featureDescriptionItem.Key.GetField<FeatureDescriptionItem, GuiDropdown>("choiceDropdown");
-
-                    choiceDropDown.options.Remove(optionToRemove);
-                }
-            }
-
-            var selectedOption = ___choiceDropdown.options[___choiceDropdown.value];
-            GuiDropdown firstGuiDropdown = null;
-
-            foreach (var featureDescriptionItem in FeatureDescriptionItems
-                .Where(x => x.Key != __instance && x.Key.Feature.Name.StartsWith(featureSetNamePrefix)))
-            {
-                var choiceDropDown = featureDescriptionItem.Key.GetField<FeatureDescriptionItem, GuiDropdown>("choiceDropdown");
-
-                choiceDropDown.options.Add(selectedOption);
-                choiceDropDown.options.Sort((a,b) => a.text.CompareTo(b.text));
-                choiceDropDown.RefreshShownValue();
-
-                if (firstGuiDropdown == null)
-                {
-                    firstGuiDropdown = choiceDropDown;
-                }
-            }
-
-            // forces the first selection to be equals to the replaced one
-            if (firstGuiDropdown != null)
-            {
-                firstGuiDropdown.value = firstGuiDropdown.options.IndexOf(selectedOption);
-            }
-
-            tab.SelectedFeature = __instance.GetCurrentFeature();
-        }
+        internal static Dictionary<FeatureDescriptionItem, List<FeatureDefinition>> FeatureDescriptionItems { get; } = new();
 
         private static void KeepSelectionsUnique(FeatureDescriptionItem __instance)
         {
-            if (!Main.Settings.EnableEnforceUniqueFeatureSetChoices)
-            {
-                return;
-            }
-
             var ___choiceDropdown = __instance.GetField<FeatureDescriptionItem, GuiDropdown>("choiceDropdown");
 
             foreach (var featureDescriptionItem in FeatureDescriptionItems
                 .Where(x => x.Key != __instance && x.Key.Feature == __instance.Feature))
             {
-                var choiceDropDown = featureDescriptionItem.Key.GetField<FeatureDescriptionItem, GuiDropdown>("choiceDropdown");
+                var choiceDropdown = featureDescriptionItem.Key.GetField<FeatureDescriptionItem, GuiDropdown>("choiceDropdown");
 
-                if (choiceDropDown.value == ___choiceDropdown.value)
+                if (choiceDropdown.value == ___choiceDropdown.value)
                 {
-                    choiceDropDown.value = (choiceDropDown.value + 1) % choiceDropDown.options.Count;
+                    ___choiceDropdown.value = (___choiceDropdown.value + 1) % ___choiceDropdown.options.Count;
                 }
             }
         }
@@ -161,40 +95,33 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
         [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class FeatureDescriptionItem_Bind
         {
-            internal static void Prefix(
-                FeatureDescriptionItem __instance,
-                FeatureDefinition featureDefinition)
+            // supports dynamic feature sets
+            internal static void Prefix(FeatureDescriptionItem __instance, FeatureDefinition featureDefinition)
             {
-                if (featureDefinition is not FeatureDefinitionFeatureSetDynamic featureDefinitionFeatureSetDynamic)
+                List<FeatureDefinition> featureSet = null;
+
+                if (featureDefinition is FeatureDefinitionFeatureSetDynamic featureDefinitionFeatureSetDynamic)
                 {
-                    return;
+                    featureSet = featureDefinitionFeatureSetDynamic.DynamicFeatureSet.Invoke(featureDefinitionFeatureSetDynamic);
                 }
 
-                var tab = new FeatureDescriptionItemTab();
-                FeatureDescriptionItems.TryAdd(__instance, tab);
-
-                tab.FeatureSet = featureDefinitionFeatureSetDynamic.DynamicFeatureSet.Invoke(featureDefinitionFeatureSetDynamic);
+                if (featureDefinition is FeatureDefinitionFeatureSet)
+                {
+                    // need a TryAdd here to avoid issues with other level up screens
+                    FeatureDescriptionItems.TryAdd(__instance, featureSet);
+                }
             }
 
-            internal static void Postfix(
-                FeatureDescriptionItem __instance,
-                FeatureDefinition featureDefinition)
+            // enforce unique choices when more than one feature set is available
+            internal static void Postfix(FeatureDescriptionItem __instance)
             {
-                if (featureDefinition is not FeatureDefinitionFeatureSetDynamic featureDefinitionFeatureSetDynamic)
+                if (!Main.Settings.EnableEnforceUniqueFeatureSetChoices)
                 {
                     return;
                 }
 
-                if (featureDefinition.Name.EndsWith(ReplaceTag))
-                {
-                    __instance.ValueChanged += RefreshDropdownOptions;
-                    RefreshDropdownOptions(__instance);
-                }
-                else
-                {
-                    __instance.ValueChanged += KeepSelectionsUnique;
-                    KeepSelectionsUnique(__instance);
-                }
+                __instance.ValueChanged += KeepSelectionsUnique;
+                KeepSelectionsUnique(__instance);
             }
         }
     }

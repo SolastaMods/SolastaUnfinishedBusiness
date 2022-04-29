@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -40,24 +41,14 @@ namespace SolastaCommunityExpansion.Models
         {
             var hero = ActiveLevelUpHero;
 
-            if (hero == null)
-            {
-                return true;
-            }
-
-            return hero.ClassesAndSubclasses.Any(e => e.Value.Name == subclass);
+            return hero == null || hero.ClassesAndSubclasses.Any(e => e.Value.Name == subclass);
         }
 
         public static bool ActiveLevelUpHeroHasFeature(FeatureDefinition feature)
         {
             var hero = ActiveLevelUpHero;
 
-            if (hero == null)
-            {
-                return true;
-            }
-
-            return CustomFeaturesContext.FeaturesByType<FeatureDefinition>(hero).Any(f => f == feature);
+            return hero == null || hero.HasAnyFeature(feature);
         }
     }
 }

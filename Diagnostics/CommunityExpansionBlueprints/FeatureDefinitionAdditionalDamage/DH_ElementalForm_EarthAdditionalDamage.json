@@ -39,7 +39,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Elemental Damage: Earth Plane",
-    "description": "When channeling Earth Plane, deal additional Bludgeoning damage equal to your Proficiency Bonus on a first hit each round.",
+    "description": "When channeling Earth Plane, deal additional Bludgeoning damage equal to your Proficiency Bonus on a first hit each round",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

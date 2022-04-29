@@ -157,11 +157,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Find familiar title",
-    "description": "Summons a familiar from the list",
+    "title": "Power/&FindFamiliarBundlePowerTitle",
+    "description": "Power/&FindFamiliarBundlePowerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "4e913f30e9a45fe89e6c493d71c2b774",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

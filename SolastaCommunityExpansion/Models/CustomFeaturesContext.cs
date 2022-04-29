@@ -149,17 +149,6 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        public static List<T> FeaturesByType<T>(RulesetActor actor) where T : class
-        {
-            var list = new List<FeatureDefinition>();
-
-            actor.EnumerateFeaturesToBrowse<T>(list);
-
-            return list
-                .Select(s => s as T)
-                .ToList();
-        }
-
         public static EffectDescription ModifySpellEffect(EffectDescription original, RulesetEffectSpell spell)
         {
             //TODO: find a way to cache result, so it works faster - this method is called sveral times per spell cast
@@ -171,7 +160,7 @@ namespace SolastaCommunityExpansion.Models
                 result = baseDefinition.GetCustomEffect(caster);
             }
 
-            var modifiers = FeaturesByType<IModifySpellEffect>(caster);
+            var modifiers = caster.GetFeaturesByType<IModifySpellEffect>();
 
             if (!modifiers.Empty())
             {

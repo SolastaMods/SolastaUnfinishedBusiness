@@ -1,28 +1,5 @@
-﻿using System.Collections.Generic;
-
-namespace SolastaCommunityExpansion.CustomDefinitions
+﻿namespace SolastaCommunityExpansion.CustomDefinitions
 {
-    public interface IOnAttackEffect
-    {
-        void BeforeOnAttack(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackerAttackMode);
-
-        void AfterOnAttack(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackerAttackMode);
-    }
-
-    public delegate void OnAttackDelegate(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackerAttackMode);
-
     /**
      * Before using this, please consider if FeatureDefinitionAdditionalDamage can cover the desired use case.
      * This has much greater flexibility, so there are cases where it is appropriate, but when possible it is

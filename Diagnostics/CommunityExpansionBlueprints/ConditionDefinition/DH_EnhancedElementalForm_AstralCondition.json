@@ -120,7 +120,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Channeling Astral Plane",
-    "description": "Deal additional Psychic damage equal to your Proficiency Bonus on a first hit each round.",
+    "description": "Deal additional Psychic damage equal to your Proficiency Bonus on a first hit each round",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "762fc2db21c656b6b5423a25e61f3ed5",

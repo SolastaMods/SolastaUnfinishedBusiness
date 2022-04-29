@@ -89,7 +89,7 @@ namespace SolastaCommunityExpansion.Models
                     reactionParams.ActionModifiers.Add(new ActionModifier());
                     int reactions = actionManager.PendingReactionRequestGroups.Count;
 
-                    var reaction = new RequestReactionToDamageWithSpell(reactionParams, target, spellSlot == 0);
+                    var reaction = new ReactionRequestCastDamageSpell(reactionParams, target, spellSlot == 0);
                     actionManager.InvokeMethod("AddInterruptRequest", reaction);
 
                     yield return WaitForReactions(actionManager, reactions);

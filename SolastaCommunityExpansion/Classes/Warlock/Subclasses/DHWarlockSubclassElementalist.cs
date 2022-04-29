@@ -355,7 +355,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetGuiPresentation(Category.SpellList)
                 .ClearSpells()
                 .SetSpellsAtLevel(1, Thunderwave, FogCloud)
-                .SetSpellsAtLevel(2, SpikeGrowth, ScorchingRay)
+                .SetSpellsAtLevel(2, FlamingSphere, ScorchingRay)
                 .SetSpellsAtLevel(3, Fireball, LightningBolt)
                 .SetSpellsAtLevel(4, Stoneskin, IceStorm, ConjureMinorElementals)
                 .SetSpellsAtLevel(5, ConeOfCold, FlameStrike, ConjureElemental)

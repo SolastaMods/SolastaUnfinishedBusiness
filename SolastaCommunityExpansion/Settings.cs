@@ -53,6 +53,7 @@ namespace SolastaCommunityExpansion
         public bool AllowDynamicPowers { get; set; } = true;
         public bool BugFixButtonActivatorTriggerIssue { get; set; } = true;
         public bool BugFixConjuredUnitsTeleportWithParty { get; set; } = true;
+        public bool BugFixCorrectlyCalculateDamageOnMultipleHits { get; set; } = true;
         public bool BugFixDeityOfferingOnMulticlassHeroes { get; set; } = true;
         public bool BugFixDominateSpells { get; set; } = true;
         public bool BugFixExpandColorTables { get; set; } = true;
