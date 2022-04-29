@@ -44,20 +44,20 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             Book of ancient secrets - similar to MagicAffinityWizardRitualCasting or ritual casting feat
             */
             .SetFeatureSet(
-                EldritchInvocationsBlasts["AgonizingBlast"],
-                EldritchInvocationsBlasts["HinderingBlast"],
-                EldritchInvocationsBlasts["RepellingBlast"],
-                EldritchInvocationsBlasts["GraspingHand"],
-                EldritchInvocationsPowers["ArmorofShadows"],
-                EldritchInvocationsPowers["EldritchSight"],
-                EldritchInvocationsPowers["FiendishVigor"],
-                EldritchInvocationsPowers["ThiefofFiveFates"],
-                EldritchInvocationsAttributeModifiers["AspectoftheMoon"],
-                EldritchInvocationsAttributeModifiers["BeguilingInfluence"],
-                EldritchInvocationsAttributeModifiers["EldritchMind"],
-                EldritchInvocationsAttributeModifiers["DevilsSight"],
-                EldritchInvocationsAttributeModifiers["EyesoftheRuneKeeper"],
-                EldritchInvocationsAttributeModifiers["GiftoftheEver-LivingOnes"]
+                EldritchInvocations["AgonizingBlast"],
+                EldritchInvocations["HinderingBlast"],
+                EldritchInvocations["RepellingBlast"],
+                EldritchInvocations["GraspingHand"],
+                EldritchInvocations["ArmorofShadows"],
+                EldritchInvocations["EldritchSight"],
+                EldritchInvocations["FiendishVigor"],
+                EldritchInvocations["ThiefofFiveFates"],
+                EldritchInvocations["AspectoftheMoon"],
+                EldritchInvocations["BeguilingInfluence"],
+                EldritchInvocations["EldritchMind"],
+                EldritchInvocations["DevilsSight"],
+                EldritchInvocations["EyesoftheRuneKeeper"],
+                EldritchInvocations["GiftoftheEver-LivingOnes"]
             )
             .SetDynamicFeatureSetFunc(InvocationsFilteredFeatureSet)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
@@ -76,11 +76,11 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             Undying Servitude - summon a a skeleton or zombie
             */
             .AddFeatureSet(
-                EldritchInvocationsAttributeModifiers["OneWithShadows"],
-                EldritchInvocationsPowers["MiretheMind"],
-                EldritchInvocationsAttributeModifiers["EldritchSmite"],
-                EldritchInvocationsAttributeModifiers["ThirstingBlade"],
-                EldritchInvocationsAttributeModifiers["ImprovedPactWeapon"]
+                EldritchInvocations["OneWithShadows"],
+                EldritchInvocations["MiretheMind"],
+                EldritchInvocations["EldritchSmite"],
+                EldritchInvocations["ThirstingBlade"],
+                EldritchInvocations["ImprovedPactWeapon"]
             )
             .SetDynamicFeatureSetFunc(InvocationsFilteredFeatureSet)
             .AddToDB();
@@ -91,9 +91,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         public static FeatureDefinitionFeatureSetDynamic WarlockEldritchInvocationSetLevel7 => warlockEldritchInvocationSetLevel7 ??= FeatureDefinitionFeatureSetDynamicBuilder
             .Create(WarlockEldritchInvocationSetLevel5, "ClassWarlockEldritchInvocationSetLevel7", CENamespaceGuid)
             .AddFeatureSet(
-                EldritchInvocationsAttributeModifiers["OneWithShadowsStronger"],
-                EldritchInvocationsPowers["DreadfulWord"],
-                EldritchInvocationsPowers["TrickstersEscape"]
+                EldritchInvocations["OneWithShadowsStronger"],
+                EldritchInvocations["DreadfulWord"],
+                EldritchInvocations["TrickstersEscape"]
             )
             .SetDynamicFeatureSetFunc(InvocationsFilteredFeatureSet)
             .AddToDB();
@@ -104,9 +104,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         public static FeatureDefinitionFeatureSetDynamic WarlockEldritchInvocationSetLevel9 => warlockEldritchInvocationSetLevel9 ??= FeatureDefinitionFeatureSetDynamicBuilder
             .Create(WarlockEldritchInvocationSetLevel7, "ClassWarlockEldritchInvocationSetLevel9", CENamespaceGuid)
             .AddFeatureSet(
-                EldritchInvocationsPowers["AscendantStep"],
-                EldritchInvocationsPowers["OtherworldlyLeap"],
-                EldritchInvocationsAttributeModifiers["GiftoftheProtectors"]
+                EldritchInvocations["AscendantStep"],
+                EldritchInvocations["OtherworldlyLeap"],
+                EldritchInvocations["GiftoftheProtectors"]
             )
             .SetDynamicFeatureSetFunc(InvocationsFilteredFeatureSet)
             .AddToDB();
@@ -117,7 +117,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         public static FeatureDefinitionFeatureSetDynamic WarlockEldritchInvocationSetLevel12 => warlockEldritchInvocationSetLevel12 ??= FeatureDefinitionFeatureSetDynamicBuilder
             .Create(WarlockEldritchInvocationSetLevel9, "ClassWarlockEldritchInvocationSetLevel12", CENamespaceGuid)
             .AddFeatureSet(
-                EldritchInvocationsAttributeModifiers["BondoftheTalisman"]
+                EldritchInvocations["BondoftheTalisman"]
             )
             .SetDynamicFeatureSetFunc(InvocationsFilteredFeatureSet)
             .AddToDB();
@@ -132,9 +132,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 *EI that  more work
                 Master of Myriad Forms - would need to create the alter self spell then convert it
                 */
-                EldritchInvocationsPowers["ChainsofCarceri"],
-                EldritchInvocationsPowers["ShroudofShadow"],
-                EldritchInvocationsAttributeModifiers["WitchSight"]
+                EldritchInvocations["ChainsofCarceri"],
+                EldritchInvocations["ShroudofShadow"],
+                EldritchInvocations["WitchSight"]
             )
             .SetDynamicFeatureSetFunc(InvocationsFilteredFeatureSet)
             .AddToDB();

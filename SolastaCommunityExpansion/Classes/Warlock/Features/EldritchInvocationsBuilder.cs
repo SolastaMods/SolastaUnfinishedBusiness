@@ -10,15 +10,13 @@ using static SolastaModApi.DatabaseHelper;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Features
 {
-    public static class EldritchInvocationsBuilder
+    internal static class EldritchInvocationsBuilder
     {
-        public static SpellDefinition EldritchBlast { get; set; }
+        internal static SpellDefinition EldritchBlast { get; set; }
 
-        public static Dictionary<string, FeatureDefinitionFeatureSetWithPreRequisites> EldritchInvocationsAttributeModifiers { get; private set; } = new();
-        public static Dictionary<string, FeatureDefinition> EldritchInvocationsBlasts { get; private set; } = new();
-        public static Dictionary<string, FeatureDefinitionPower> EldritchInvocationsPowers { get; private set; } = new();
+        internal static Dictionary<string, FeatureDefinition> EldritchInvocations { get; private set; } = new();
 
-        public static void Build()
+        internal static void Build()
         {
             BuildEldritchBlastAndInvocations();
             BuildEldritchInvocationsSpellsToCantrips();
@@ -148,7 +146,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                     .SetValidators(() => Global.ActiveLevelUpHeroHasCantrip(EldritchBlast))
                     .AddToDB();
 
-                EldritchInvocationsBlasts.Add(name, bonusCantrip);
+                EldritchInvocations.Add(name, bonusCantrip);
             }
 
             MakeEldritchBlastVariant("RepellingBlast", pushForm);
@@ -164,7 +162,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .SetValidators(() => Global.ActiveLevelUpHeroHasCantrip(eldritchBlast))
                 .AddToDB();
 
-            EldritchInvocationsBlasts.Add(agonizingBlast.Name, agonizingBlast);
+            EldritchInvocations.Add(agonizingBlast.Name, agonizingBlast);
 
             var hinderingBlast = FeatureDefinitionFeatureSetWithPreRequisitesBuilder
                 .Create("HinderingBlast", DefinitionBuilder.CENamespaceGuid)
@@ -176,7 +174,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .SetValidators(() => Global.ActiveLevelUpHeroHasCantrip(eldritchBlast))
                 .AddToDB();
 
-            EldritchInvocationsBlasts.Add(hinderingBlast.Name, hinderingBlast);
+            EldritchInvocations.Add(hinderingBlast.Name, hinderingBlast);
         }
 
         private static void BuildEldritchInvocationsSpellsToCantrips()
@@ -252,7 +250,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                     EIPower.EffectDescription.TargetType = RuleDefinitions.TargetType.Self;
                 }
 
-                EldritchInvocationsPowers.Add(entry.Key, EIPower);
+                EldritchInvocations.Add(entry.Key, EIPower);
             }
 
             // 1/day EI
@@ -289,7 +287,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                     EIPower.EffectDescription.TargetType = RuleDefinitions.TargetType.Self;
                 }
 
-                EldritchInvocationsPowers.Add(entry.Key, EIPower);
+                EldritchInvocations.Add(entry.Key, EIPower);
             }
         }
 
@@ -336,22 +334,22 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                     .SetUniqueChoices(false)
                     .AddToDB();
 
-                EldritchInvocationsAttributeModifiers.Add(entry, FeatureSetEldritchInvocations);
+                EldritchInvocations.Add(entry, FeatureSetEldritchInvocations);
             }
 
-            EldritchInvocationsAttributeModifiers["AspectoftheMoon"].FeatureSet.Add(FeatureDefinitionCampAffinitys.CampAffinityElfTrance);
-            EldritchInvocationsAttributeModifiers["AspectoftheMoon"].FeatureSet.Add(FeatureDefinitionCampAffinitys.CampAffinityDomainOblivionPeacefulRest);
-            EldritchInvocationsAttributeModifiers["BeguilingInfluence"].FeatureSet.Add(FeatureDefinitionProficiencys.ProficiencyFeatManipulatorSkillOrExpertise);
-            EldritchInvocationsAttributeModifiers["EldritchMind"].FeatureSet.Add(FeatureDefinitionMagicAffinitys.MagicAffinityFeatFlawlessConcentration);
-            EldritchInvocationsAttributeModifiers["EyesoftheRuneKeeper"].FeatureSet.Add(FeatureDefinitionFeatureSets.FeatureSetAllLanguages);
-            EldritchInvocationsAttributeModifiers["GiftoftheEver-LivingOnes"].FeatureSet.Add(FeatureDefinitionHealingModifiers.HealingModifierBeaconOfHope);
-            EldritchInvocationsAttributeModifiers["ImprovedPactWeapon"].FeatureSet.Add(FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon);
-            EldritchInvocationsAttributeModifiers["ImprovedPactWeapon"].FeatureSet.Add(FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray);
-            EldritchInvocationsAttributeModifiers["EldritchSmite"].FeatureSet.Add(FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite);
-            EldritchInvocationsAttributeModifiers["ThirstingBlade"].FeatureSet.Add(FeatureDefinitionAttributeModifiers.AttributeModifierFighterExtraAttack);
-            EldritchInvocationsAttributeModifiers["GiftoftheProtectors"].FeatureSet.Add(FeatureDefinitionDamageAffinitys.DamageAffinityHalfOrcRelentlessEndurance);
-            EldritchInvocationsAttributeModifiers["BondoftheTalisman"].FeatureSet.Add(FeatureDefinitionPowers.PowerSorakShadowEscape);
-            EldritchInvocationsAttributeModifiers["WitchSight"].FeatureSet.Add(FeatureDefinitionSenses.SenseSeeInvisible12);
+            ((FeatureDefinitionFeatureSet)EldritchInvocations["AspectoftheMoon"]).FeatureSet.Add(FeatureDefinitionCampAffinitys.CampAffinityElfTrance);
+            ((FeatureDefinitionFeatureSet)EldritchInvocations["AspectoftheMoon"]).FeatureSet.Add(FeatureDefinitionCampAffinitys.CampAffinityDomainOblivionPeacefulRest);
+            ((FeatureDefinitionFeatureSet)EldritchInvocations["BeguilingInfluence"]).FeatureSet.Add(FeatureDefinitionProficiencys.ProficiencyFeatManipulatorSkillOrExpertise);
+            ((FeatureDefinitionFeatureSet)EldritchInvocations["EldritchMind"]).FeatureSet.Add(FeatureDefinitionMagicAffinitys.MagicAffinityFeatFlawlessConcentration);
+            ((FeatureDefinitionFeatureSet)EldritchInvocations["EyesoftheRuneKeeper"]).FeatureSet.Add(FeatureDefinitionFeatureSets.FeatureSetAllLanguages);
+            ((FeatureDefinitionFeatureSet)EldritchInvocations["GiftoftheEver-LivingOnes"]).FeatureSet.Add(FeatureDefinitionHealingModifiers.HealingModifierBeaconOfHope);
+            ((FeatureDefinitionFeatureSet)EldritchInvocations["ImprovedPactWeapon"]).FeatureSet.Add(FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon);
+            ((FeatureDefinitionFeatureSet)EldritchInvocations["ImprovedPactWeapon"]).FeatureSet.Add(FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray);
+            ((FeatureDefinitionFeatureSet)EldritchInvocations["EldritchSmite"]).FeatureSet.Add(FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite);
+            ((FeatureDefinitionFeatureSet)EldritchInvocations["ThirstingBlade"]).FeatureSet.Add(FeatureDefinitionAttributeModifiers.AttributeModifierFighterExtraAttack);
+            ((FeatureDefinitionFeatureSet)EldritchInvocations["GiftoftheProtectors"]).FeatureSet.Add(FeatureDefinitionDamageAffinitys.DamageAffinityHalfOrcRelentlessEndurance);
+            ((FeatureDefinitionFeatureSet)EldritchInvocations["BondoftheTalisman"]).FeatureSet.Add(FeatureDefinitionPowers.PowerSorakShadowEscape);
+            ((FeatureDefinitionFeatureSet)EldritchInvocations["WitchSight"]).FeatureSet.Add(FeatureDefinitionSenses.SenseSeeInvisible12);
 
             var shadowsInvisibiityConditionDefinition = ConditionDefinitionBuilder
                 .Create("WarlockConditionShadowsSpecial", DefinitionBuilder.CENamespaceGuid)
@@ -392,13 +390,13 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .AddLightingEffectAndCondition(Darkness)
                 .AddToDB();
 
-            EldritchInvocationsAttributeModifiers["OneWithShadows"].FeatureSet.Add(OneWithShadowsLightAffinity);
-            EldritchInvocationsAttributeModifiers["OneWithShadows"].Validators.SetRange(() => !Global.ActiveLevelUpHeroHasSubclass("MoonLit"));
+            ((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["OneWithShadows"]).FeatureSet.Add(OneWithShadowsLightAffinity);
+            ((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["OneWithShadows"]).Validators.SetRange(() => !Global.ActiveLevelUpHeroHasSubclass("MoonLit"));
 
-            EldritchInvocationsAttributeModifiers["OneWithShadowsStronger"].FeatureSet.Add(OneWithShadowsLightAffinityStrong);
-            EldritchInvocationsAttributeModifiers["OneWithShadowsStronger"].Validators.SetRange(() => Global.ActiveLevelUpHeroHasFeature(OneWithShadowsLightAffinity));
+            ((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["OneWithShadowsStronger"]).FeatureSet.Add(OneWithShadowsLightAffinityStrong);
+            ((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["OneWithShadowsStronger"]).Validators.SetRange(() => Global.ActiveLevelUpHeroHasFeature(OneWithShadowsLightAffinity));
 
-            EldritchInvocationsAttributeModifiers["DevilsSight"].FeatureSet
+            ((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["DevilsSight"]).FeatureSet
                 .AddRange(IgnoreDynamicVisionImpairmentBuilder
                     .Create("EldritchInvocationDevilsSight", DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentationNoContent()
