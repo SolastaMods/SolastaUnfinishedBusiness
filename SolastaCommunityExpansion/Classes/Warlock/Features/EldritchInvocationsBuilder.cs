@@ -97,7 +97,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
             var eldritchBlast = SpellWithCasterFeatureDependentEffectsBuilder
                 .Create(EldritchBlastName, DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(Category.Spell)
+                .SetGuiPresentation(Category.Spell, SpellDefinitions.MagicMissile.GuiPresentation.SpriteReference)
                 .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
                 .SetSpellLevel(0)
                 .SetCastingTime(RuleDefinitions.ActivationTime.Action)
