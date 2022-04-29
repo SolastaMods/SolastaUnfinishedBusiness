@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
@@ -26,17 +25,12 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             BuildEldritchInvocationsAttributeModifiers();
         }
 
-        private const string EldritchBlastName = "DHEldritchBlast";
+        private const string EldritchBlastName = "EldritchBlast";
 
         private static void BuildEldritchBlastAndInvocations()
         {
-            var eldritchBlastGui = new GuiPresentationBuilder(
-                    "Spell/&EldritchBlastTitle",
-                    "Spell/&EldritchBlastDescription",
-                    SpellDefinitions.MagicMissile.GuiPresentation.SpriteReference)
-                .Build();
-
-            var blastDamage = new EffectFormBuilder().SetDamageForm(
+            var blastDamage = new EffectFormBuilder()
+                .SetDamageForm(
                     false,
                     RuleDefinitions.DieType.D10,
                     RuleDefinitions.DamageTypeForce,
@@ -47,9 +41,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                     new List<RuleDefinitions.TrendInfo>())
                 .Build();
 
-            EffectDescription EldritchBlastEffect = new EffectDescriptionBuilder()
-            .AddEffectForm(blastDamage)
-            .SetTargetingData(
+            var eldritchBlastEffect = new EffectDescriptionBuilder()
+                .AddEffectForm(blastDamage)
+                .SetTargetingData(
                     RuleDefinitions.Side.Enemy,
                     RuleDefinitions.RangeType.RangeHit,
                     24,
@@ -57,42 +51,39 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                     1,
                     1,
                     ActionDefinitions.ItemSelectionType.None)
-            .SetEffectAdvancement(
-                RuleDefinitions.EffectIncrementMethod.CasterLevelTable,
-                5,
-                1,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                RuleDefinitions.AdvancementDuration.None
-                )
-            .SetParticleEffectParameters(SpellDefinitions.MagicMissile.EffectDescription.EffectParticleParameters)
-            .Build();
+                .SetEffectAdvancement(
+                    RuleDefinitions.EffectIncrementMethod.CasterLevelTable,
+                    5,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    RuleDefinitions.AdvancementDuration.None
+                    )
+                .SetParticleEffectParameters(SpellDefinitions.MagicMissile.EffectDescription.EffectParticleParameters)
+                .Build();
 
             var agonizingForm = new EffectFormBuilder(blastDamage)
                 .SetBonusMode(RuleDefinitions.AddBonusMode.AbilityBonus)
                 .Build();
 
             var hinderingForm = new EffectFormBuilder()
-                .SetConditionForm(
-                    ConditionDefinitions.ConditionHindered_By_Frost,
-                    ConditionForm.ConditionOperation.Add
-                )
+                .SetConditionForm(ConditionDefinitions.ConditionHindered_By_Frost, ConditionForm.ConditionOperation.Add)
                 .Build();
 
-            var agonizingBlastEffect = new EffectDescriptionBuilder(EldritchBlastEffect)
+            var agonizingBlastEffect = new EffectDescriptionBuilder(eldritchBlastEffect)
                 .SetEffectForms(agonizingForm)
                 .Build();
 
-            var hinderingBlastEffect = new EffectDescriptionBuilder(EldritchBlastEffect)
+            var hinderingBlastEffect = new EffectDescriptionBuilder(eldritchBlastEffect)
                 .AddEffectForm(hinderingForm)
                 .Build();
 
-            var hinderingAgonizingBlastEffect = new EffectDescriptionBuilder(EldritchBlastEffect)
+            var hinderingAgonizingBlastEffect = new EffectDescriptionBuilder(eldritchBlastEffect)
                 .SetEffectForms(agonizingForm, hinderingForm)
                 .Build();
 
@@ -108,25 +99,26 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
             var eldritchBlast = SpellWithCasterFeatureDependentEffectsBuilder
                 .Create(EldritchBlastName, DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(eldritchBlastGui)
+                .SetGuiPresentation(Category.Spell)
                 .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
                 .SetSpellLevel(0)
                 .SetCastingTime(RuleDefinitions.ActivationTime.Action)
                 .SetVerboseComponent(true)
                 .SetSomaticComponent(true)
-                .SetEffectDescription(EldritchBlastEffect)
+                .SetEffectDescription(eldritchBlastEffect)
                 .SetFeatureEffects(
-                    (new List<FeatureDefinition> { agonizingBlastFeature, hinderingBlastFeature }, hinderingAgonizingBlastEffect),
-                    (new List<FeatureDefinition> { agonizingBlastFeature }, agonizingBlastEffect),
-                    (new List<FeatureDefinition> { hinderingBlastFeature }, hinderingBlastEffect)
+                    (new() { agonizingBlastFeature, hinderingBlastFeature }, hinderingAgonizingBlastEffect),
+                    (new() { agonizingBlastFeature }, agonizingBlastEffect),
+                    (new() { hinderingBlastFeature }, hinderingBlastEffect)
                 )
-                .SetAiParameters(new SpellAIParameters())
+                .SetAiParameters(new())
                 .AddToDB();
             EldritchBlast = eldritchBlast;
 
             var pushForm = new EffectFormBuilder()
                 .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 2)
                 .Build();
+
             var pullForm = new EffectFormBuilder()
                 .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
                 .Build();
@@ -136,12 +128,12 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 string cantripName = EldritchBlastName + name;
 
                 EffectDescription effect = new EffectDescription();
-                effect.Copy(EldritchBlastEffect);
+                effect.Copy(eldritchBlastEffect);
 
                 var cantrip = SpellWithCasterFeatureDependentEffectsBuilder
                     .Create(eldritchBlast, cantripName, DefinitionBuilder.CENamespaceGuid)
-                    .SetGuiPresentation(Category.Spell, eldritchBlastGui.SpriteReference)
-                    .SetEffectDescription(CustomFeaturesContext.AddEffectForms(EldritchBlastEffect, forms))
+                    .SetGuiPresentation(Category.Spell, EldritchBlast.GuiPresentation.SpriteReference)
+                    .SetEffectDescription(CustomFeaturesContext.AddEffectForms(eldritchBlastEffect, forms))
                     .SetFeatureEffects(eldritchBlast.FeaturesEffectList
                         .Select(t => (t.Item1, CustomFeaturesContext.AddEffectForms(t.Item2, forms)))
                         .ToArray()
@@ -189,39 +181,39 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
         private static void BuildEldritchInvocationsSpellsToCantrips()
         {
-            Dictionary<string, SpellDefinition> dictionaryofEIPseudoCantrips = new();
-            Dictionary<string, SpellDefinition> dictionaryofEIPseudoSpells = new();
+            Dictionary<string, SpellDefinition> dictionaryofEIPseudoCantrips = new()
+            {
+                { "ArmorofShadows", SpellDefinitions.MageArmor }, // self
+                { "EldritchSight", SpellDefinitions.DetectMagic },
+                { "FiendishVigor", SpellDefinitions.FalseLife }, // self
+                { "AscendantStep", SpellDefinitions.Levitate }, // self
+                { "OtherworldlyLeap", SpellDefinitions.Jump }, // self
+                { "ChainsofCarceri", SpellDefinitions.HoldMonster },
+                { "ShroudofShadow", SpellDefinitions.Invisibility }
+            };
 
-            //at will
-            dictionaryofEIPseudoCantrips.Add("ArmorofShadows", SpellDefinitions.MageArmor);// self
-            dictionaryofEIPseudoCantrips.Add("EldritchSight", SpellDefinitions.DetectMagic);
-            dictionaryofEIPseudoCantrips.Add("FiendishVigor", SpellDefinitions.FalseLife);// self
-            dictionaryofEIPseudoCantrips.Add("AscendantStep", SpellDefinitions.Levitate);// self
-            dictionaryofEIPseudoCantrips.Add("OtherworldlyLeap", SpellDefinitions.Jump);// self
-            dictionaryofEIPseudoCantrips.Add("ChainsofCarceri", SpellDefinitions.HoldMonster);
-            dictionaryofEIPseudoCantrips.Add("ShroudofShadow", SpellDefinitions.Invisibility);
-            // 1/day
-            dictionaryofEIPseudoSpells.Add("ThiefofFiveFates", SpellDefinitions.Bane);
-            dictionaryofEIPseudoSpells.Add("MiretheMind", SpellDefinitions.Slow);
-            //cant do it this way as it uses subspells  dictionaryofEIPseudoSpells.Add("SignofIllOmen", SpellDefinitions.BestowCurse);
-            dictionaryofEIPseudoSpells.Add("DreadfulWord", SpellDefinitions.Confusion);
-            dictionaryofEIPseudoSpells.Add("Trickster'sEscape", SpellDefinitions.FreedomOfMovement);// self
+            Dictionary<string, SpellDefinition> dictionaryofEIPseudoSpells = new()
+            {
+                { "ThiefofFiveFates", SpellDefinitions.Bane },
+                { "MiretheMind", SpellDefinitions.Slow },
+                { "DreadfulWord", SpellDefinitions.Confusion },
+                { "TrickstersEscape", SpellDefinitions.FreedomOfMovement }
+            };
 
             // EI that arent valid for game right now
-            //{"BeastSpeech",         SpellDefinitions.},
-            //{"BookofAncientSecrets",SpellDefinitions.},
-            //{"MaskofManyFaces",     SpellDefinitions.},
-            //{"MistyVisions",        SpellDefinitions.},
-            //{"FarScribe",           SpellDefinitions.},
-            //{"GiftoftheDepths",     SpellDefinitions.},
-            //{"UndyingServitude",    SpellDefinitions.},
-            //{"BewitchingWhispers",  SpellDefinitions.},
-            //{"SculptorofFlesh",     SpellDefinitions.},
-            //{"WhispersoftheGrave",  SpellDefinitions.},
-            //{"MasterofMyriadForms", SpellDefinitions.},
-            // {"VisionsofDistantRealms",SpellDefinitions.},
-            // cant convert spellsbundle to power
-            //  dictionaryofEIPseudoSpells.Add("MinionsofChaos", SpellDefinitions.ConjureElemental);
+
+            //{"BeastSpeech",            SpellDefinitions.},
+            //{"BookofAncientSecrets",   SpellDefinitions.},
+            //{"MaskofManyFaces",        SpellDefinitions.},
+            //{"MistyVisions",           SpellDefinitions.},
+            //{"FarScribe",              SpellDefinitions.},
+            //{"GiftoftheDepths",        SpellDefinitions.},
+            //{"UndyingServitude",       SpellDefinitions.},
+            //{"BewitchingWhispers",     SpellDefinitions.},
+            //{"SculptorofFlesh",        SpellDefinitions.},
+            //{"WhispersoftheGrave",     SpellDefinitions.},
+            //{"MasterofMyriadForms",    SpellDefinitions.},
+            //{"VisionsofDistantRealms", SpellDefinitions.},
 
             // at will EI
             foreach (KeyValuePair<string, SpellDefinition> entry in dictionaryofEIPseudoCantrips)
@@ -229,29 +221,33 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 string textPseudoCantrips = "DHEldritchInvocation" + entry.Value.name;
 
                 var guiPresentationEIPseudoCantrips = new GuiPresentationBuilder(
-                    "Feature/&" + entry.Key + "Title",
-                    Gui.Format("Feature/&SpellAsInvocationAtWillDescription", entry.Value.FormatTitle()))
-                        .SetSpriteReference(entry.Value.GuiPresentation.SpriteReference)
-                        .Build();
+                    $"Feature/&{entry.Key}Title",
+                    Gui.Format(
+                        "Feature/&SpellAsInvocationAtWillDescription",
+                        entry.Value.FormatTitle()),
+                    entry.Value.GuiPresentation.SpriteReference).Build();
 
-                var EIPowerBuilder = FeatureDefinitionPowerBuilder
+                var EIPower = FeatureDefinitionPowerBuilder
                     .Create(textPseudoCantrips, DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation(guiPresentationEIPseudoCantrips)
                     .Configure(
-                     1,
-                     RuleDefinitions.UsesDetermination.Fixed,
-                     AttributeDefinitions.Charisma,
-                     entry.Value.ActivationTime,
-                     1,
-                     RuleDefinitions.RechargeRate.AtWill,
-                     false,
-                     false,
-                     AttributeDefinitions.Charisma,
-                     entry.Value.EffectDescription.DeepCopy(), // need to copy to avoid issues with the source spells
-                     true);
-                FeatureDefinitionPower EIPower = EIPowerBuilder.AddToDB();
+                         1,
+                         RuleDefinitions.UsesDetermination.Fixed,
+                         AttributeDefinitions.Charisma,
+                         entry.Value.ActivationTime,
+                         1,
+                         RuleDefinitions.RechargeRate.AtWill,
+                         false,
+                         false,
+                         AttributeDefinitions.Charisma,
+                         entry.Value.EffectDescription.DeepCopy(), // need to copy to avoid issues with the source spells
+                         true)
+                    .AddToDB();
 
-                if (entry.Key == "ArmorofShadows" || entry.Key == "FiendishVigor" || entry.Key == "AscendantStep" || entry.Key == "OtherworldlyLeap")
+                if (entry.Key == "ArmorofShadows"
+                    || entry.Key == "FiendishVigor"
+                    || entry.Key == "AscendantStep"
+                    || entry.Key == "OtherworldlyLeap")
                 {
                     EIPower.EffectDescription.TargetType = RuleDefinitions.TargetType.Self;
                 }
@@ -266,26 +262,27 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
                 var guiPresentationEIPseudoSpells = new GuiPresentationBuilder(
                     "Feature/&" + entry.Key + "Title",
-                    Gui.Format("Feature/&SpellAsInvocationOncePerDayDescription", entry.Value.FormatTitle()))
-                        .SetSpriteReference(entry.Value.GuiPresentation.SpriteReference)
-                        .Build();
+                    Gui.Format(
+                        "Feature/&SpellAsInvocationOncePerDayDescription",
+                        entry.Value.FormatTitle()),
+                    entry.Value.GuiPresentation.SpriteReference).Build();
 
-                var EIPowerBuilder = FeatureDefinitionPowerBuilder
+                var EIPower = FeatureDefinitionPowerBuilder
                     .Create(textPseudoSpells, DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation(guiPresentationEIPseudoSpells)
                     .Configure(
-                     1,
-                     RuleDefinitions.UsesDetermination.Fixed,
-                     AttributeDefinitions.Charisma,
-                     entry.Value.ActivationTime,
-                     1,
-                     RuleDefinitions.RechargeRate.LongRest,
-                     false,
-                     false,
-                     AttributeDefinitions.Charisma,
-                     entry.Value.EffectDescription.DeepCopy(), // need to copy to avoid issues with the source spells
-                     true);
-                FeatureDefinitionPower EIPower = EIPowerBuilder.AddToDB();
+                         1,
+                         RuleDefinitions.UsesDetermination.Fixed,
+                         AttributeDefinitions.Charisma,
+                         entry.Value.ActivationTime,
+                         1,
+                         RuleDefinitions.RechargeRate.LongRest,
+                         false,
+                         false,
+                         AttributeDefinitions.Charisma,
+                         entry.Value.EffectDescription.DeepCopy(), // need to copy to avoid issues with the source spells
+                         true)
+                    .AddToDB();
 
                 if (entry.Key == "Trickster'sEscape")
                 {
@@ -298,39 +295,37 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
         private static void BuildEldritchInvocationsAttributeModifiers()
         {
-            var listofEIAttributeModifiers = new List<String>
-                {
-                    "AspectoftheMoon",               // FeatureDefinitionCampAffinitys.CampAffinityElfTrance,FeatureDefinitionCampAffinitys.CampAffinityDomainOblivionPeacefulRest);
-                    "BeguilingInfluence",            // FeatureDefinitionProficiencys.ProficiencyFeatManipulatorSkillOrExpertise);
-                    "EldritchMind",                  // FeatureDefinitionMagicAffinitys.MagicAffinityFeatFlawlessConcentration);
-                    "EyesoftheRuneKeeper",           // FeatureDefinitionFeatureSets.FeatureSetAllLanguages);
-                    "GiftoftheEver-LivingOnes",      // FeatureDefinitionHealingModifiers.HealingModifierBeaconOfHope);
-                    "ImprovedPactWeapon",            // AttackModifierMagicWeapon + MagicAffinitySpellBladeIntoTheFray
-                    "EldritchSmite",                 // FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite);
-                    "ThirstingBlade",                // FeatureDefinitionAttributeModifiers.AttributeModifierFighterExtraAttack);
-                    "GiftoftheProtectors",           // FeatureDefinitionDamageAffinitys.DamageAffinityHalfOrcRelentlessEndurance);
-                    "BondoftheTalisman",             // FeatureDefinitionPowers.PowerSorakShadowEscape);
-                    "WitchSight",                    // FeatureDefinitionSenses.SenseSeeInvisible12;
-                    "OneWithShadows",
-                    "OneWithShadowsStronger",
-                    //"Lifedrinker",                 // similar to AdditionalDamageDomainOblivionStrikeOblivion +damageValueDetermination = RuleDefinitions.AdditionalDamageValueDetermination.SpellcastingBonus;
-                    "DevilsSight",                   // FeatureDefinitionSenses.SenseDarkvision24 or maybe similar to ConditionAffinityVeilImmunity needs to cover multiple darkness conditions ConditionDarkness ConditionVeil
-                    //"GazeofTwoMinds",              //
-                    //"InvestmentoftheChainMaster",  // multiple features through summoning affinity, could just reuse SummoningAffinityKindredSpiritBond for a similar but not direct copy of non srd EI
-                    //"RebukeoftheTalisman",         //
-                    //"VoiceoftheChainMaster",       //
-                    //"CloakofFlies",                //
-                    //"MaddeningHex",                //
-                    //"TombofLevistus",              //
-                    //"GhostlyGaze",                 //
-                    //"ProtectionoftheTalisman",     //
-                    //"RelentlessHex",               //
-                };
+            var listofEIAttributeModifiers = new List<string>
+            {
+                "AspectoftheMoon",               // FeatureDefinitionCampAffinitys.CampAffinityElfTrance,FeatureDefinitionCampAffinitys.CampAffinityDomainOblivionPeacefulRest);
+                "BeguilingInfluence",            // FeatureDefinitionProficiencys.ProficiencyFeatManipulatorSkillOrExpertise);
+                "EldritchMind",                  // FeatureDefinitionMagicAffinitys.MagicAffinityFeatFlawlessConcentration);
+                "EyesoftheRuneKeeper",           // FeatureDefinitionFeatureSets.FeatureSetAllLanguages);
+                "GiftoftheEver-LivingOnes",      // FeatureDefinitionHealingModifiers.HealingModifierBeaconOfHope);
+                "ImprovedPactWeapon",            // AttackModifierMagicWeapon + MagicAffinitySpellBladeIntoTheFray
+                "EldritchSmite",                 // FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite);
+                "ThirstingBlade",                // FeatureDefinitionAttributeModifiers.AttributeModifierFighterExtraAttack);
+                "GiftoftheProtectors",           // FeatureDefinitionDamageAffinitys.DamageAffinityHalfOrcRelentlessEndurance);
+                "BondoftheTalisman",             // FeatureDefinitionPowers.PowerSorakShadowEscape);
+                "WitchSight",                    // FeatureDefinitionSenses.SenseSeeInvisible12;
+                "OneWithShadows",
+                "OneWithShadowsStronger",
+                "DevilsSight",
+                //"Lifedrinker",                 // similar to AdditionalDamageDomainOblivionStrikeOblivion +damageValueDetermination = RuleDefinitions.AdditionalDamageValueDetermination.SpellcastingBonus;
+                //"GazeofTwoMinds",              //
+                //"InvestmentoftheChainMaster",  // multiple features through summoning affinity, could just reuse SummoningAffinityKindredSpiritBond for a similar but not direct copy of non srd EI
+                //"RebukeoftheTalisman",         //
+                //"VoiceoftheChainMaster",       //
+                //"CloakofFlies",                //
+                //"MaddeningHex",                //
+                //"TombofLevistus",              //
+                //"GhostlyGaze",                 //
+                //"ProtectionoftheTalisman",     //
+                //"RelentlessHex",               //
+            };
 
             foreach (string entry in listofEIAttributeModifiers)
             {
-                List<string> ListofEIAttributeModifiers = new();
-
                 var textEIAttributeModifiers = "DHEIAttributeModifiers" + entry;
 
                 var FeatureSetEldritchInvocations = FeatureDefinitionFeatureSetWithPreRequisitesBuilder
@@ -357,9 +352,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             EldritchInvocationsAttributeModifiers["GiftoftheProtectors"].FeatureSet.Add(FeatureDefinitionDamageAffinitys.DamageAffinityHalfOrcRelentlessEndurance);
             EldritchInvocationsAttributeModifiers["BondoftheTalisman"].FeatureSet.Add(FeatureDefinitionPowers.PowerSorakShadowEscape);
             EldritchInvocationsAttributeModifiers["WitchSight"].FeatureSet.Add(FeatureDefinitionSenses.SenseSeeInvisible12);
-         
+
             var shadowsInvisibiityConditionDefinition = ConditionDefinitionBuilder
-                .Create( "WarlockConditionShadowsSpecial", DefinitionBuilder.CENamespaceGuid)
+                .Create("WarlockConditionShadowsSpecial", DefinitionBuilder.CENamespaceGuid)
                 .SetSilent(Silent.WhenAddedOrRemoved)
                 .SetGuiPresentationNoContent()
                 .SetFeatures(DHWarlockSubclassMoonLitPatron.InvisibilityFeature)
@@ -389,7 +384,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .SetGuiPresentation(Category.Feature)
                 .AddLightingEffectAndCondition(Unlit)
                 .AddToDB();
-            
+
             FeatureDefinitionLightAffinity OneWithShadowsLightAffinityStrong = FeatureDefinitionLightAffinityBuilder
                 .Create("OneWithShadowsLightAffinityStrong", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Feature)
@@ -399,7 +394,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
             EldritchInvocationsAttributeModifiers["OneWithShadows"].FeatureSet.Add(OneWithShadowsLightAffinity);
             EldritchInvocationsAttributeModifiers["OneWithShadows"].Validators.SetRange(() => !Global.ActiveLevelUpHeroHasSubclass("MoonLit"));
-            
+
             EldritchInvocationsAttributeModifiers["OneWithShadowsStronger"].FeatureSet.Add(OneWithShadowsLightAffinityStrong);
             EldritchInvocationsAttributeModifiers["OneWithShadowsStronger"].Validators.SetRange(() => Global.ActiveLevelUpHeroHasFeature(OneWithShadowsLightAffinity));
 
@@ -416,10 +411,3 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         }
     }
 }
-
-
-
-
-
-
-
