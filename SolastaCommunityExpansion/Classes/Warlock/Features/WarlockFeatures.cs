@@ -65,12 +65,29 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             .AddToDB();
         #endregion
 
+        //
+        // Not official but compensates for lack of invocations replacement
+        //
+
+        #region WarlockEldritchInvocationSetLevel3
+        private static FeatureDefinitionFeatureSetDynamic warlockEldritchInvocationSetLevel3;
+        public static FeatureDefinitionFeatureSetDynamic WarlockEldritchInvocationSetLevel3 => warlockEldritchInvocationSetLevel3 ??= FeatureDefinitionFeatureSetDynamicBuilder
+            .Create(WarlockEldritchInvocationSetLevel2, "ClassWarlockEldritchInvocationSetLevel3", CENamespaceGuid)
+            .SetGuiPresentation("Feature/&ClassWarlockEldritchInvocationSetLevelTitle", "Feature/&ClassWarlockEldritchInvocationSetLevelDescription")
+            .SetFeatureSet(
+                EldritchInvocations["ImprovedPactWeapon"]
+            )
+            .SetDynamicFeatureSetFunc(InvocationsFilteredFeatureSet)
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
+            .SetUniqueChoices(true)
+            .AddToDB();
+        #endregion
+
         #region WarlockEldritchInvocationSetLevel5
         private static FeatureDefinitionFeatureSetDynamic warlockEldritchInvocationSetLevel5;
         public static FeatureDefinitionFeatureSetDynamic WarlockEldritchInvocationSetLevel5 => warlockEldritchInvocationSetLevel5 ??= FeatureDefinitionFeatureSetDynamicBuilder
-            .Create(WarlockEldritchInvocationSetLevel2, "ClassWarlockEldritchInvocationSetLevel5", CENamespaceGuid)
+            .Create(WarlockEldritchInvocationSetLevel3, "ClassWarlockEldritchInvocationSetLevel5", CENamespaceGuid)
             /*
-            EI that might need a bit more work
             Sign of Ill Omen - create a feature set that adds converted versions of the subspells
             Tomb of Levistus - add tempHP and then apply incapcitated or stunned status
             Undying Servitude - summon a a skeleton or zombie
@@ -79,8 +96,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 EldritchInvocations["OneWithShadows"],
                 EldritchInvocations["MiretheMind"],
                 EldritchInvocations["EldritchSmite"],
-                EldritchInvocations["ThirstingBlade"],
-                EldritchInvocations["ImprovedPactWeapon"]
+                EldritchInvocations["ThirstingBlade"]
             )
             .SetDynamicFeatureSetFunc(InvocationsFilteredFeatureSet)
             .AddToDB();
@@ -129,7 +145,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             .Create(WarlockEldritchInvocationSetLevel12, "ClassWarlockEldritchInvocationSetLevel15", CENamespaceGuid)
             .AddFeatureSet(
                 /*
-                *EI that  more work
                 Master of Myriad Forms - would need to create the alter self spell then convert it
                 */
                 EldritchInvocations["ChainsofCarceri"],
