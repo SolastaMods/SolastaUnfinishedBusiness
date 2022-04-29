@@ -25,7 +25,9 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.RecursiveGrantCustomF
         internal static void Prefix(RulesetCharacterHero hero, string tag)
         {
             if (string.IsNullOrEmpty(tag) || !hero.ActiveFeatures.ContainsKey(tag))
+            {
                 return;
+            }
 
             CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, hero.ActiveFeatures[tag], tag);
         }
@@ -39,8 +41,12 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.RecursiveGrantCustomF
         {
             var hero = heroBuildingData.HeroCharacter;
             var tag = AttributeDefinitions.TagRace;
+
             if (!hero.ActiveFeatures.ContainsKey(tag))
+            {
                 return;
+            }
+
             CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, hero.ActiveFeatures[tag], tag);
         }
     }
@@ -53,11 +59,14 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.RecursiveGrantCustomF
         {
             var heroBuildingData = hero.GetOrCreateHeroBuildingData();
             var classDefinition = hero.ClassesHistory[heroBuildingData.HeroCharacter.ClassesHistory.Count - 1];
-            int classesAndLevel = hero.ClassesAndLevels[classDefinition];
+            var classesAndLevel = hero.ClassesAndLevels[classDefinition];
             var tag = AttributeDefinitions.GetClassTag(classDefinition, classesAndLevel);
 
             if (!hero.ActiveFeatures.ContainsKey(tag))
+            {
                 return;
+            }
+
             CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, hero.ActiveFeatures[tag], tag);
         }
     }
@@ -72,7 +81,10 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.RecursiveGrantCustomF
             var tag = AttributeDefinitions.TagBackground;
 
             if (!hero.ActiveFeatures.ContainsKey(tag))
+            {
                 return;
+            }
+
             CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, hero.ActiveFeatures[tag], tag);
         }
     }
@@ -84,16 +96,27 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.RecursiveGrantCustomF
         internal static void Prefix(RulesetCharacterHero hero, bool onlyIfCurrentLevel = false)
         {
             var classDefinition = hero.ClassesHistory[hero.ClassesHistory.Count - 1];
-            int classLevel = hero.ClassesAndLevels[classDefinition];
-            int level = 0;
+            var classLevel = hero.ClassesAndLevels[classDefinition];
+            var level = 0;
+
             if (onlyIfCurrentLevel)
+            {
                 classDefinition.TryGetSubclassFeature(out _, out level);
+            }
+
             if (!hero.ClassesAndSubclasses.ContainsKey(classDefinition) || onlyIfCurrentLevel && classLevel > level)
+            {
                 return;
+            }
+
             var classesAndSubclass = hero.ClassesAndSubclasses[classDefinition];
-            string tag = AttributeDefinitions.GetSubclassTag(classDefinition, classLevel, classesAndSubclass);
+            var tag = AttributeDefinitions.GetSubclassTag(classDefinition, classLevel, classesAndSubclass);
+
             if (!hero.ActiveFeatures.ContainsKey(tag))
+            {
                 return;
+            }
+
             CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, hero.ActiveFeatures[tag], tag);
         }
     }
