@@ -45,13 +45,16 @@ namespace SolastaCommunityExpansion.Models
             return hero == null || hero.ClassesAndSubclasses.Any(e => e.Value.Name == subclass);
         }
 
-        public static bool ActiveLevelUpHeroHasFeature(FeatureDefinition feature)
+        public static bool ActiveLevelUpHeroHasFeature(FeatureDefinition feature, bool recursive = true)
         {
             var hero = ActiveLevelUpHero;
 
-            return hero == null
-                   || hero.HasAnyFeature(feature)
-                   || hero.GetHeroBuildingData().AllActiveFeatures.Contains(feature);
+            return hero == null || recursive
+                ? hero.HasAnyFeature(feature)
+                : hero.ActiveFeatures
+                    .SelectMany(x => x.Value)
+                    .Any(x => x == feature)
+                || hero.GetHeroBuildingData().AllActiveFeatures.Contains(feature);
         }
     }
 }

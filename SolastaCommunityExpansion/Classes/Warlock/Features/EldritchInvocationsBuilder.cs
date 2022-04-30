@@ -141,7 +141,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
                 .Build();
 
-            
             void MakeEldritchBlastVariant(string name, params EffectForm[] forms)
             {
                 string cantripName = EldritchBlastName + name;
@@ -320,7 +319,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 "BeguilingInfluence",            // FeatureDefinitionProficiencys.ProficiencyFeatManipulatorSkillOrExpertise);
                 "EldritchMind",                  // FeatureDefinitionMagicAffinitys.MagicAffinityFeatFlawlessConcentration);
                 "EyesoftheRuneKeeper",           // FeatureDefinitionFeatureSets.FeatureSetAllLanguages);
-                "GiftoftheEver-LivingOnes",      // FeatureDefinitionHealingModifiers.HealingModifierBeaconOfHope);
+                "GiftoftheEverLivingOnes",      // FeatureDefinitionHealingModifiers.HealingModifierBeaconOfHope);
                 "ImprovedPactWeapon",            // AttackModifierMagicWeapon + MagicAffinitySpellBladeIntoTheFray
                 "EldritchSmite",                 // FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite);
                 "ThirstingBlade",                // FeatureDefinitionAttributeModifiers.AttributeModifierFighterExtraAttack);
@@ -367,7 +366,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .Add(FeatureDefinitionCampAffinitys.CampAffinityElfTrance);
             ((FeatureDefinitionFeatureSet)EldritchInvocations["AspectoftheMoon"]).FeatureSet
                 .Add(FeatureDefinitionCampAffinitys.CampAffinityDomainOblivionPeacefulRest);
-            
+            //((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["AspectoftheMoon"]).Validators.SetRange(() =>
+            //    Global.ActiveLevelUpHeroHasFeature(DHPactOfTheTomeFeatureSetBuilder.DHPactOfTheTomeFeatureSet, recursive: false));
+
             ((FeatureDefinitionFeatureSet)EldritchInvocations["BeguilingInfluence"]).FeatureSet
                 .Add(FeatureDefinitionProficiencys.ProficiencyFeatManipulatorSkillOrExpertise);
             
@@ -379,7 +380,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             ((FeatureDefinitionFeatureSet)EldritchInvocations["EyesoftheRuneKeeper"]).FeatureSet
                 .Add(FeatureDefinitionFeatureSets.FeatureSetAllLanguages);
             
-            ((FeatureDefinitionFeatureSet)EldritchInvocations["GiftoftheEver-LivingOnes"]).FeatureSet
+            ((FeatureDefinitionFeatureSet)EldritchInvocations["GiftoftheEverLivingOnes"]).FeatureSet
                 .Add(FeatureDefinitionHealingModifiers.HealingModifierBeaconOfHope);
             ((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["GiftoftheEver-LivingOnes"]).Validators.SetRange(RequirePactOfTheChain);
 
@@ -400,7 +401,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
             ((FeatureDefinitionFeatureSet)EldritchInvocations["GiftoftheProtectors"]).FeatureSet
                 .Add(FeatureDefinitionDamageAffinitys.DamageAffinityHalfOrcRelentlessEndurance);
-            
+            ((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["GiftoftheProtectors"]).Validators.SetRange(RequirePactOfTheBlade);
+
             ((FeatureDefinitionFeatureSet)EldritchInvocations["BondoftheTalisman"]).FeatureSet
                 .Add(FeatureDefinitionPowers.PowerSorakShadowEscape);
             

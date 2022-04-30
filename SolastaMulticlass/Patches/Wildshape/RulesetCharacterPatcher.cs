@@ -64,12 +64,8 @@ namespace SolastaMulticlass.Patches.Wildshape
         {
             internal static void Postfix(RulesetCharacter __instance, RulesetUsablePower usablePower)
             {
-                if (usablePower.PowerDefinition != PowerBarbarianRageStart)
-                {
-                    return;
-                }
-
-                if (__instance.OriginalFormCharacter is RulesetCharacterHero hero && hero != __instance)
+                if (usablePower.PowerDefinition == PowerBarbarianRageStart
+                    && __instance.OriginalFormCharacter is RulesetCharacterHero hero && hero != __instance)
                 {
                     hero.SpendRagePoint();
                 }

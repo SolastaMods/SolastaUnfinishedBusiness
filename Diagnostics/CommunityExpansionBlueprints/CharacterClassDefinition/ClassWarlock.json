@@ -166,6 +166,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWarlockEldritchInvocationSetLevel3:3d78ae54-bdee-5123-a7f4-60d358540c76",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:WarlockClassPactBoonSet:0683d182-cb7e-5914-88ce-ed5148b7ee54",
       "level": 3
     },
@@ -217,6 +222,11 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ClassWarlockEldritchInvocationSetLevel15:81f03c5e-c4f4-514b-8315-2b06dfc229dd",
+      "level": 15
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWarlockMysticArcanumSetLevel15:56a460da-8126-560b-b494-53da73306ed6",
       "level": 15
     },
     {

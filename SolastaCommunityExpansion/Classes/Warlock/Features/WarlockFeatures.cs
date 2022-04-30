@@ -52,14 +52,14 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 EldritchInvocations["EldritchSight"],
                 EldritchInvocations["FiendishVigor"],
                 EldritchInvocations["ThiefofFiveFates"],
-                EldritchInvocations["AspectoftheMoon"],
                 EldritchInvocations["BeguilingInfluence"],
                 EldritchInvocations["DevilsSight"],
                 EldritchInvocations["EyesoftheRuneKeeper"]
             )
             .SetLevelFeatures(3,
                 EldritchInvocations["EldritchMind"],
-                EldritchInvocations["GiftoftheEver-LivingOnes"],
+                EldritchInvocations["AspectoftheMoon"],
+                EldritchInvocations["GiftoftheEverLivingOnes"],
                 EldritchInvocations["ImprovedPactWeapon"]
             )
             .SetLevelFeatures(5,

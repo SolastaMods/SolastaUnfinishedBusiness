@@ -18,10 +18,9 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
     {
         public static List<FeatureDefinition> FeatureSetDynamic(FeatureDefinitionFeatureSet featureDefinitionFeatureSet, FeatureDescriptionItem featureDescriptionItem)
         {
-            if (featureDefinitionFeatureSet is FeatureDefinitionFeatureSetDynamic
-                && FeatureDescriptionItemPatcher.FeatureDescriptionItems.TryGetValue(featureDescriptionItem, out var featureSet))
+            if (featureDefinitionFeatureSet is FeatureDefinitionFeatureSetDynamic featureDefinitionFeatureSetDynamic)
             {
-                return featureSet;
+                return featureDefinitionFeatureSetDynamic.DynamicFeatureSet.Invoke(featureDefinitionFeatureSet);
             }
 
             return featureDefinitionFeatureSet.FeatureSet;
@@ -73,55 +72,41 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
 
     internal static class FeatureDescriptionItemPatcher
     {
-        internal static Dictionary<FeatureDescriptionItem, List<FeatureDefinition>> FeatureDescriptionItems { get; } = new();
-
-        private static void KeepSelectionsUnique(FeatureDescriptionItem __instance)
-        {
-            var ___choiceDropdown = __instance.GetField<FeatureDescriptionItem, GuiDropdown>("choiceDropdown");
-
-            foreach (var featureDescriptionItem in FeatureDescriptionItems
-                .Where(x => x.Key != __instance && x.Key.Feature == __instance.Feature))
-            {
-                var choiceDropdown = featureDescriptionItem.Key.GetField<FeatureDescriptionItem, GuiDropdown>("choiceDropdown");
-
-                if (choiceDropdown.value == ___choiceDropdown.value)
-                {
-                    ___choiceDropdown.value = (___choiceDropdown.value + 1) % ___choiceDropdown.options.Count;
-                }
-            }
-        }
+        internal static HashSet<FeatureDescriptionItem> FeatureDescriptionItems { get; } = new();
 
         [HarmonyPatch(typeof(FeatureDescriptionItem), "Bind")]
         [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class FeatureDescriptionItem_Bind
         {
-            // supports dynamic feature sets
-            internal static void Prefix(FeatureDescriptionItem __instance, FeatureDefinition featureDefinition)
+            private static void KeepSelectionsUnique(FeatureDescriptionItem __instance)
             {
-                List<FeatureDefinition> featureSet = null;
+                var ___choiceDropdown = __instance.GetField<FeatureDescriptionItem, GuiDropdown>("choiceDropdown");
 
-                if (featureDefinition is FeatureDefinitionFeatureSetDynamic featureDefinitionFeatureSetDynamic)
+                foreach (var featureDescriptionItem in FeatureDescriptionItems
+                    .Where(x => x != __instance && x.Feature == __instance.Feature))
                 {
-                    featureSet = featureDefinitionFeatureSetDynamic.DynamicFeatureSet.Invoke(featureDefinitionFeatureSetDynamic);
-                }
+                    var choiceDropdown = featureDescriptionItem.GetField<FeatureDescriptionItem, GuiDropdown>("choiceDropdown");
 
-                if (featureDefinition is FeatureDefinitionFeatureSet)
-                {
-                    // need a TryAdd here to avoid issues with other level up screens
-                    FeatureDescriptionItems.TryAdd(__instance, featureSet);
+                    if (choiceDropdown.value == ___choiceDropdown.value)
+                    {
+                        ___choiceDropdown.value = (___choiceDropdown.value + 1) % ___choiceDropdown.options.Count;
+                    }
                 }
             }
 
-            // enforce unique choices when more than one feature set is available
+            // keep a tab of FeatureDescriptionItem and enforce unique choices when more than one feature set is available
             internal static void Postfix(FeatureDescriptionItem __instance)
             {
-                if (!Main.Settings.EnableEnforceUniqueFeatureSetChoices)
+                if (__instance.Feature is FeatureDefinitionFeatureSet && !FeatureDescriptionItems.Contains(__instance))
                 {
-                    return;
+                    FeatureDescriptionItems.Add(__instance);
                 }
 
-                __instance.ValueChanged += KeepSelectionsUnique;
-                KeepSelectionsUnique(__instance);
+                if (Main.Settings.EnableEnforceUniqueFeatureSetChoices)
+                {
+                    __instance.ValueChanged += KeepSelectionsUnique;
+                    KeepSelectionsUnique(__instance);
+                }
             }
         }
     }

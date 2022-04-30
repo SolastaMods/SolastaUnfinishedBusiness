@@ -306,7 +306,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&DreadfulWordTitle",
-    "description": "Feature/&SpellAsInvocationOncePerDayDescription",
+    "description": "Cast Confusion once until long rest",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "96392c3da40a6e7468ce64b28f9c771b",
