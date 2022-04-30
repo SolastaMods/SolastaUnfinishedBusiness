@@ -20,8 +20,8 @@
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 2,
       "spells": [
-        "Definition:ScorchingRay:2196d4d1af65ab8469bcb2b382014a58",
-        "Definition:SpikeGrowth:489c8aa040535444da10a267213ee7dc"
+        "Definition:FlamingSphere:3b54dc222148dc8499eb981f7383c71f",
+        "Definition:ScorchingRay:2196d4d1af65ab8469bcb2b382014a58"
       ]
     },
     {

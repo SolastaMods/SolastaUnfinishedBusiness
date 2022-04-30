@@ -306,7 +306,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&MiretheMindTitle",
-    "description": "Feature/&SpellAsInvocationOncePerDayDescription",
+    "description": "Cast Slow once until long rest",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "15b3b9ebce8c9534f8816eebc12179fe",
