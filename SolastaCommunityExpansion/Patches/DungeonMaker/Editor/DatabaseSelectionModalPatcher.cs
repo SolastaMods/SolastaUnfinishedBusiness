@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿#if false
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
@@ -51,3 +52,4 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.Editor
         }
     }
 }
+#endif
