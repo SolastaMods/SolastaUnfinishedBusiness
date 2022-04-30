@@ -107,7 +107,7 @@ namespace SolastaCommunityExpansion.Models
                                  Gui.GameLocation.LocationDefinition &&
                                  Gui.GameLocation.LocationDefinition.IsUserLocation;
 
-            if (PlayerControllerContext.IsMultiplayer)
+            if (Global.IsMultiplayer)
             {
                 Gui.GuiService.ShowMessage(
                     MessageModal.Severity.Informative1,

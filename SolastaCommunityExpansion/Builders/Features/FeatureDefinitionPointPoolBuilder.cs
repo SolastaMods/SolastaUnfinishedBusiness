@@ -5,7 +5,10 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public class FeatureDefinitionPointPoolBuilder : FeatureDefinitionBuilder<FeatureDefinitionPointPool, FeatureDefinitionPointPoolBuilder>
+    public abstract class
+        FeatureDefinitionPointPoolBuilder<TDefinition, TBuilder> : DefinitionBuilder<TDefinition, TBuilder>
+        where TDefinition : FeatureDefinitionPointPool
+        where TBuilder : FeatureDefinitionPointPoolBuilder<TDefinition, TBuilder>
     {
         #region Constructors
         protected FeatureDefinitionPointPoolBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
@@ -16,16 +19,18 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        protected FeatureDefinitionPointPoolBuilder(FeatureDefinitionPointPool original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        protected FeatureDefinitionPointPoolBuilder(TDefinition original, string name, Guid namespaceGuid) : base(
+            original, name, namespaceGuid)
         {
         }
 
-        protected FeatureDefinitionPointPoolBuilder(FeatureDefinitionPointPool original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        protected FeatureDefinitionPointPoolBuilder(TDefinition original, string name, string definitionGuid) : base(
+            original, name, definitionGuid)
         {
         }
         #endregion
 
-        public FeatureDefinitionPointPoolBuilder Configure(HeroDefinitions.PointsPoolType poolType, int poolAmount,
+        public TBuilder Configure(HeroDefinitions.PointsPoolType poolType, int poolAmount,
             bool uniqueChoices, params string[] choices)
         {
             Definition.SetPoolType(poolType);
@@ -34,32 +39,56 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetUniqueChoices(uniqueChoices);
             Definition.RestrictedChoices.Sort();
 
-            return this;
+            return This();
         }
 
-        public FeatureDefinitionPointPoolBuilder SetPool(HeroDefinitions.PointsPoolType poolType, int poolAmount)
+        public TBuilder SetPool(HeroDefinitions.PointsPoolType poolType, int poolAmount)
         {
             Definition.SetPoolType(poolType);
             Definition.SetPoolAmount(poolAmount);
-            return this;
+            return This();
         }
-
-        public FeatureDefinitionPointPoolBuilder RestrictChoices(params string[] choices)
+        
+        public TBuilder RestrictChoices(params string[] choices)
         {
             return RestrictChoices(choices.AsEnumerable());
         }
 
-        public FeatureDefinitionPointPoolBuilder RestrictChoices(IEnumerable<string> choices)
+        public TBuilder RestrictChoices(IEnumerable<string> choices)
         {
             Definition.RestrictedChoices.AddRange(choices);
             Definition.RestrictedChoices.Sort();
-            return this;
+            return This();
         }
 
-        public FeatureDefinitionPointPoolBuilder OnlyUniqueChoices()
+        public TBuilder OnlyUniqueChoices()
         {
             Definition.SetUniqueChoices(true);
-            return this;
+            return This();
         }
+    }
+
+    public class FeatureDefinitionPointPoolBuilder : FeatureDefinitionPointPoolBuilder<FeatureDefinitionPointPool,
+        FeatureDefinitionPointPoolBuilder>
+    {
+        #region Constructors
+        public FeatureDefinitionPointPoolBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        public FeatureDefinitionPointPoolBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        public FeatureDefinitionPointPoolBuilder(FeatureDefinitionPointPool original, string name, Guid namespaceGuid) :
+            base(original, name, namespaceGuid)
+        {
+        }
+
+        public FeatureDefinitionPointPoolBuilder(FeatureDefinitionPointPool original, string name,
+            string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+        #endregion
     }
 }

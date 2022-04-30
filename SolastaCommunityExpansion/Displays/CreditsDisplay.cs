@@ -48,7 +48,15 @@ namespace SolastaCommunityExpansion.Displays
                     if (!IsUnityExplorerEnabled)
                     {
                         IsUnityExplorerEnabled = true;
-                        UnityExplorer.ExplorerStandalone.CreateInstance();
+
+                        try
+                        {
+                            UnityExplorer.ExplorerStandalone.CreateInstance();
+                        }
+                        catch
+                        {
+
+                        }
                     }
                 }, UI.Width(200));
             }

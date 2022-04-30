@@ -9,7 +9,7 @@
     // Replace a class feature - We need to inform the feature to be removed, the level and the class
     // Replace a subclass feature - We need to inform the feature to be removed, the level, the class and the subclass
     //
-    public class FeatureDefinitionRemoveGrantedFeature : FeatureDefinitionCustomCode
+    public class FeatureDefinitionRemoveGrantedFeature : FeatureDefinition, IFeatureDefinitionCustomCode
     {
         public int ClassLevel { get; set; }
         public FeatureDefinition FeatureToRemove { get; set; }
@@ -17,7 +17,7 @@
         public CharacterSubclassDefinition CharacterSubclass { get; set; }
         private string Tag => CharacterSubclass == null ? AttributeDefinitions.GetClassTag(CharacterClass, ClassLevel) : AttributeDefinitions.GetSubclassTag(CharacterClass, ClassLevel, CharacterSubclass);
 
-        public override void ApplyFeature(RulesetCharacterHero hero)
+        public void ApplyFeature(RulesetCharacterHero hero, string tag)
         {
             var activeFeatures = hero.ActiveFeatures;
 
@@ -27,7 +27,7 @@
             }
         }
 
-        public override void RemoveFeature(RulesetCharacterHero hero)
+        public void RemoveFeature(RulesetCharacterHero hero, string tag)
         {
             var activeFeatures = hero.ActiveFeatures;
 

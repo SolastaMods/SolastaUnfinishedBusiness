@@ -251,11 +251,11 @@ namespace SolastaCommunityExpansion.Displays
             {
                 UI.Label("");
 
-                if (PlayerControllerContext.IsOffGame)
+                if (Global.IsOffGame)
                 {
                     UI.Label("Load a game to modify heroes AI...".bold().red(), UI.AutoWidth());
                 }
-                else if (PlayerControllerContext.IsMultiplayer)
+                else if (Global.IsMultiplayer)
                 {
                     UI.Label("You can only change controllers in a local session...".bold().red(), UI.AutoWidth());
                 }

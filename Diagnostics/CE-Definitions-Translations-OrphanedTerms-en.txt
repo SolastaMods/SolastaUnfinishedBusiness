@@ -4,14 +4,14 @@ Condition/&ConditionDualFlurryApplyDescription	You are building momentum...
 Condition/&ConditionDualFlurryApplyTitle	Dual Flurry!
 Condition/&ConditionDualFlurryGrantDescription	Your foes are reeling!
 Condition/&ConditionDualFlurryGrantTitle	Dual Flurry!
-Condition/&HalfLifeConditionDescription	You take necrotic energy into yourself and hang between life and death and are temporarily possessed by your own ghost, gaining flying, and the same condition immunities and damage resistenances as other ghosts.
+Condition/&HalfLifeConditionDescription	You take necrotic energy into yourself and hang between life and death and are temporarily possessed by your own ghost, gaining flying, and the same condition immunities and damage resistenances as other ghosts
 Condition/&HalfLifeConditionTitle	HalfLife
-Condition/&RuinedDescription	This creature's defence is reduced.
+Condition/&RuinedDescription	This creature's defence is reduced
 Condition/&RuinedTitle	Ruined
 CraftyFeats/&CraftyHerbalismKitDescription	Herbalism Kit proficiency or expertise
 Feat/&AddProtectorConstructCantripDescription	Adds Mending Construct and Dismiss Construct cantrips to increase your constructs flexibility
 Feat/&AddProtectorConstructCantripTitle	Bonus Construct Cantrips
-Feat/&ArtificerArtillerstImprovedCannonsDescription	The effect from your cannons increases. Additional damage from the fire, an additional target from the force, and additional temp HP from the shield.
+Feat/&ArtificerArtillerstImprovedCannonsDescription	The effect from your cannons increases. Additional damage from the fire, an additional target from the force, and additional temp HP from the shield
 Feat/&ArtificerArtillerstImprovedCannonsTitle	Improved Cannons
 Feat/&ArtilleryConstructDescription	Can damage or protect allies
 Feat/&ArtilleryConstructTitle	Artillery Construct
@@ -20,9 +20,9 @@ Feat/&ArtilleryConstructTitle_5	Artillery Construct
 Feat/&ConstructSelectingPoolDescription	Select the mode for your Construct
 Feat/&ConstructSelectingPoolTitle	Artillery Mode
 Feat/&FeatSavageAttackerReroll	Due to being a Savage Attacker {0} rerolls the {1} die from a {2} to a {3}
-Feat/&FightingStyleGeneralFeatDescription	You can select a fighting style.
+Feat/&FightingStyleGeneralFeatDescription	You can select a fighting style
 Feat/&FightingStyleGeneralFeatitle	Fighting Style
-Feat/&FlameArtilleryConstructDescription_3	Creates a cone of fire that deals 3D8 damage on a failed save.
+Feat/&FlameArtilleryConstructDescription_3	Creates a cone of fire that deals 3D8 damage on a failed save
 Feat/&ForceArtillery_2Description	3D8 Force damage and push target 5ft
 Feat/&ForceArtillery_2Title	Force Artillery (Improved)
 Feat/&ForceStrikePowerDescription	Ranged attack 1d6 force damage from your trusty sidekick
@@ -31,12 +31,12 @@ Feat/&IncreaseConstructSelectingDescription	You can now summon two Artillery Con
 Feat/&IncreaseConstructSelectingTitle	Reinforcements
 Feat/&ModeSwitchingPoolDescription	You can switch between modes once per day by creating and using temporary weapons
 Feat/&ModeSwitchingPoolTitle	Armor Mode
-Feat/&PowerAttackFeatDescription	You learned to trade accuracy to lander deadlier/harder blows. You can choose to take a -{0} penalty to your to hit in order to do more damage (+{0} damage for one handed weapons, +{1} damage for two handed weapons). Lasts for the whole turn once activated. Works with melee and ranged weapons.
+Feat/&PowerAttackFeatDescription	You learned to trade accuracy to lander deadlier/harder blows. You can choose to take a -{0} penalty to your to hit in order to do more damage (+{0} damage for one handed weapons, +{1} damage for two handed weapons). Lasts for the whole turn once activated. Works with melee and ranged weapons
 Feat/&TinkererConstructFamilyDescription	Created by Tinkerer
 Feat/&TinkererConstructFamilyTitle	Tinkerer Construct
-Feature/&AdditionalActionDualFlurryDescription	You may make an additional off-hand attack.
+Feature/&AdditionalActionDualFlurryDescription	You may make an additional off-hand attack
 Feature/&AdditionalActionDualFlurryTitle	Dual Flurry!
-Feature/&AHSoulBladeEmpowerDamageBonusDescription	You are empowered and do a damage bonus equal to your proficiency on all your attacks.
+Feature/&AHSoulBladeEmpowerDamageBonusDescription	You are empowered and do a damage bonus equal to your proficiency on all your attacks
 Feature/&AlwaysBeardDescription	{0}% chances to grow a glorious beard!
 Feature/&DH_RiftCloakDescription	Your control of rift portals has increased to the point than you can now grant the protection of the rift to others. You can cast warding bond at will (without the sharing of damage)
 Feature/&DH_RiftCloakTitle	Rift Cloak
@@ -64,20 +64,20 @@ Feature/&HinderingBlastMagicAffinityDescription	when you hit a creature with you
 Feature/&HinderingBlastMagicAffinityTitle	Hindering Blast
 Feature/&IndomitableResistanceTitle	Indomitable Resistance
 Feature/&InspiringSurgePowerTitleShort	Inspiring Surge
-Feature/&PowerAttackAttackModifierDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged.
-Feature/&PowerAttackConditionDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged.
-Feature/&PowerAttackPowerDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged.
-Feature/&PowerAttackTwoHandedAttackModifierDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes. Only to be used when attacking with two hands, melee or ranged.
-Feature/&PowerAttackTwoHandedConditionDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes. Only to be used when attacking with two hands, melee or ranged.
-Feature/&PowerAttackTwoHandedPowerDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes. Only to be used when attacking with two hands, melee or ranged.
+Feature/&PowerAttackAttackModifierDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged
+Feature/&PowerAttackConditionDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged
+Feature/&PowerAttackPowerDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged
+Feature/&PowerAttackTwoHandedAttackModifierDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes. Only to be used when attacking with two hands, melee or ranged
+Feature/&PowerAttackTwoHandedConditionDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes. Only to be used when attacking with two hands, melee or ranged
+Feature/&PowerAttackTwoHandedPowerDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes. Only to be used when attacking with two hands, melee or ranged
 Feature/&RallyingCryPowerTitleShort	Rallying Cry
 Feature/&SignofIllOmenTitle	Sign of Ill Omen
-Feature/&UrPriestDomainTheftDescription	You snatch the secrets that a god grants all of it's devout clerics. Choose a cleric domain: you gain the features that domain grants at 1st level.
+Feature/&UrPriestDomainTheftDescription	You snatch the secrets that a god grants all of it's devout clerics. Choose a cleric domain: you gain the features that domain grants at 1st level
 Feature/&UrPriestDomainTheftTitle	Domain Theft
 Feature/&UrPriestExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. Cleric spells are added to the warlock spell list for you
 Feature/&UrPriestExpandedSpelllistAfinityTitle	UrPriest Spells
 Feedback/&AdditionalDamageAgonizing_BlastFormat	Agonizing Blast
-Feedback/&AdditionalDamageAgonizing_BlastLine	When you cast a spell using force damage (eldritch blast), add your Charisma modifier to the damage it deals on a hit.
+Feedback/&AdditionalDamageAgonizing_BlastLine	When you cast a spell using force damage (eldritch blast), add your Charisma modifier to the damage it deals on a hit
 Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat	Additional Damage from Magically Powered Attacks
 Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine	Additional Damage from Magically Powered Attacks
 Feedback/&AdditionalDamageArcaneFirearmFormat	Blasting Enhancement!
@@ -87,7 +87,7 @@ Feedback/&AdditionalDamageArcanistMarkLine	Arcanist's Mark detonates and deals e
 Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeFormat	Illuminating Strike!
 Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeLine	Illuminating Strike deals extra damage to the target!
 Feedback/&AdditionalDamageBlindingWeaponStrikeFormat	Blinding Weapon
-Feedback/&AdditionalDamageBlindingWeaponStrikeLine	Additional damage and trying to apply Blindness from Blinding Weapon.
+Feedback/&AdditionalDamageBlindingWeaponStrikeLine	Additional damage and trying to apply Blindness from Blinding Weapon
 Feedback/&AdditionalDamageElementalDamageFormat	Elemental Damage
 Feedback/&AdditionalDamageElementalDamageLine	Elemental form grants additional damage
 Feedback/&AdditionalDamagePactMarkedFormat	Pact mark!
@@ -103,13 +103,13 @@ Feedback/&AdditionalDamageUpgradedConstructLine	The upgraded construct deals 1D8
 Feedback/&ExtraDamageDescription	Extra damage from Lighting Spear
 Feedback/&ExtraDamageTitle	Lightning Spear extra damage
 Format/&LevelAndExperienceFormat	Level: {0}\nExperience: {1}\n{2} points required to reach level {3}
-Format/&LevelAndExperienceMaxedFormat	Level: {0}\nExperience: {1}\nmax level reached.
-Message/&CharacterExportDuplicateNameErrorDescription	Export Cancelled:\n\nA hero with this name already exists in the pool.\nPlease try a different name.
-Message/&CharacterExportEmptyNameErrorDescription	Export Cancelled:\n\nPlease try a non empty name.
+Format/&LevelAndExperienceMaxedFormat	Level: {0}\nExperience: {1}\nmax level reached
+Message/&CharacterExportDuplicateNameErrorDescription	Export Cancelled:\n\nA hero with this name already exists in the pool.\nPlease try a different name
+Message/&CharacterExportEmptyNameErrorDescription	Export Cancelled:\n\nPlease try a non empty name
 Message/&CharacterExportModalContentDescription	Enter the hero name to export:
 Message/&CharacterExportModalTitleDescription	Character Export
 Message/&LevelDownConfirmationDescription	Level down this Hero?
-Message/&MessageModWelcomeDescription	The Community Expansion Mod is packed full of exciting features, but by default none are enabled. Press <color=yellow>Ctrl-F10</color> to open the Unity Mod Manager UI [UMM], then click on the settings icon next to 'Community Expansion' to open the settings pages.\n\n Explore the options and select the ones you like. The UMM UI will now open.
+Message/&MessageModWelcomeDescription	The Community Expansion Mod is packed full of exciting features, but by default none are enabled. Press <color=yellow>Ctrl-F10</color> to open the Unity Mod Manager UI [UMM], then click on the settings icon next to 'Community Expansion' to open the settings pages.\n\n Explore the options and select the ones you like. The UMM UI will now open
 Message/&MessageModWelcomeTitle	Community Expansion Mod
 Message/&SpawnCustomEncounterDescription	Spawn encounter at coordinates ({0}, {1})?
 Message/&SpawnCustomEncounterErrorDescription	Cannot spawn encounters on a multiplayer game. Yet...
@@ -120,14 +120,14 @@ Modifier/&RuinedDescription	-3 to Armor Class
 Modifier/&RuinedTitle	Ruined
 Power/&UrPriestControlUndeadDescription	As an action, you target one undead creature you can see within 30 feet of you. The target must make a Wisdom saving throw. On a failed save, the target must obey your commands
 Power/&UrPriestControlUndeadTitle	Control Undead
-Power/&UrPriestHalfLifeDescription	You take necrotic energy into yourself and hang between life and death and are temporarily possessed by your own ghost, gaining flying, and the same condition immunities and damage resistenances as other ghosts.
+Power/&UrPriestHalfLifeDescription	You take necrotic energy into yourself and hang between life and death and are temporarily possessed by your own ghost, gaining flying, and the same condition immunities and damage resistenances as other ghosts
 Power/&UrPriestHalfLifeTitle	Half Life
-Power/&UrPriestRadiantWardDescription	As an action, you gain a number of temporary hit points equal to twice your warlock level.
+Power/&UrPriestRadiantWardDescription	As an action, you gain a number of temporary hit points equal to twice your warlock level
 Power/&UrPriestRadiantWardTitle	Radiant Ward
-Power/&UrPriestSpellSiphonDescription	you learn how to tap into a greater source of magic in combination with your normal reserve of power. As an action, you can expend a Channel Divinity to regain an expended use of your 6th-level Mystic Arcanum.
+Power/&UrPriestSpellSiphonDescription	you learn how to tap into a greater source of magic in combination with your normal reserve of power. As an action, you can expend a Channel Divinity to regain an expended use of your 6th-level Mystic Arcanum
 Power/&UrPriestSpellSiphonTitle	Spell Siphon
-Reaction/&SpendPowerCounterStrikePowerDescription	Spend a gambit die and Counter Strike the enemy, if you hit, do an additional 1d6+2 bludgeoning damage.
-Reaction/&SpendPowerCounterStrikePowerReactDescription	Spend a gambit die and Counter Strike the enemy, if you hit, do an additional 1d6+2 bludgeoning damage.
+Reaction/&SpendPowerCounterStrikePowerDescription	Spend a gambit die and Counter Strike the enemy, if you hit, do an additional 1d6+2 bludgeoning damage
+Reaction/&SpendPowerCounterStrikePowerReactDescription	Spend a gambit die and Counter Strike the enemy, if you hit, do an additional 1d6+2 bludgeoning damage
 Reaction/&SpendPowerCounterStrikePowerReactTitle	Counter Strike
 Reaction/&SpendPowerCounterStrikePowerTitle	Counter Strike
 Reaction/&SpendPowerInspirePowerDescription	Spend a gambit die and inspire or your ally to give 1d6+2 temp hp
@@ -144,17 +144,17 @@ Screen/&CovenSpellHeader	Coven
 Screen/&CovenSpellTitle	Coven
 Screen/&EditorLocationSize3Title	Huge [MODDED]
 Screen/&EditorLocationSize4Title	Gargantuan [MODDED]
-Screen/&FeyTeleportSpellDescription	This Fey spell is always prepared.
+Screen/&FeyTeleportSpellDescription	This Fey spell is always prepared
 Screen/&FeyTeleportSpellTitle	Fey
-Screen/&ShadowTouchedSpellDescription	This Shadow spell is always prepared.
+Screen/&ShadowTouchedSpellDescription	This Shadow spell is always prepared
 Screen/&ShadowTouchedSpellTitle	Shadow
-Screen/&SpellSlotsUsedLongDescription	You have expended {0} long-rest slot(s) of this level.
-Screen/&SpellSlotsUsedShortDescription	You have expended {0} short-rest slot(s) of this level.
-Screen/&SpellSlotsUsedShortLongDescription	You have expended {0} short-rest slot(s) and {1} long-rest slot(s) of this level.
+Screen/&SpellSlotsUsedLongDescription	You have expended {0} long-rest slot(s) of this level
+Screen/&SpellSlotsUsedShortDescription	You have expended {0} short-rest slot(s) of this level
+Screen/&SpellSlotsUsedShortLongDescription	You have expended {0} short-rest slot(s) and {1} long-rest slot(s) of this level
 Screen/&WitchSpellDescription	Spell known as a Witch
 Screen/&WitchSpellHeader	Witch
 Screen/&WitchSpellTitle	Witch
-Spell/&DHAnimalShapesSpellDescription	Choose any number of willing creatures that you can see within range. You transform each target into the form of a Large or smaller beast with a challenge rating of 4 or lower.
+Spell/&DHAnimalShapesSpellDescription	Choose any number of willing creatures that you can see within range. You transform each target into the form of a Large or smaller beast with a challenge rating of 4 or lower
 Spell/&DHAnimalShapesSpellTitle	Animal shapes
 Spell/&DHCastSpellArchMageDescription	Archmage Casting Ability
 Spell/&DHCastSpellArchMageTitle	Archmage Casting Ability
@@ -176,39 +176,39 @@ Stage/&SubclassSelectionStagePatronDescription	A warlock is defined by a pact wi
 Stage/&SubclassSelectionStagePatronFeatures	Otherwordly Patrons Features
 Stage/&SubclassSelectionStagePatronHeader	Warlock Otherwordly Patrons
 Stage/&SubclassSelectionStagePatronTitle	Otherwordly Patrons
-Stage/&SubclassSelectionStageSpecialistDescription	Description There are a wide range of specialties in Tinkerers including making elixirs as a Potion Maker, making explosions as a Blaster, and wielding magical weaponry as a Weapon Smith.
+Stage/&SubclassSelectionStageSpecialistDescription	Description There are a wide range of specialties in Tinkerers including making elixirs as a Potion Maker, making explosions as a Blaster, and wielding magical weaponry as a Weapon Smith
 Stage/&SubclassSelectionStageSpecialistFeatures	Specialist Features
 Stage/&SubclassSelectionStageSpecialistHeader	Specializations
 Stage/&SubclassSelectionStageSpecialistNoneDescription	Specialist None Description
 Stage/&SubclassSelectionStageSpecialistTitle	Select Specialization
 Subclass/&ArtificerArtileristCannonsDescription	You create a set of cannons that you can activate in battle as a bonus action
 Subclass/&ArtificerArtileristCannonsTitle	Cannons
-Subclass/&AttackModifierImprovedArtificerBattleSmithWeaponDescription	You infuse your weapon with power. Your attacks count as Magical and you add +7 to your attack and damage rolls.
+Subclass/&AttackModifierImprovedArtificerBattleSmithWeaponDescription	You infuse your weapon with power. Your attacks count as Magical and you add +7 to your attack and damage rolls
 Subclass/&AttackModifierImprovedArtificerBattleSmithWeaponTitle	Improved Infuse Weapon
-Subclass/&BloodWitchDescription	Forbidden by most witch covens, blood magic centers on the use of dark spells and mortal hexes that draw from the spellcaster's very essence. It is fundamentally more perilous than other witch crafts, but its many risks come with copious rewards.
+Subclass/&BloodWitchDescription	Forbidden by most witch covens, blood magic centers on the use of dark spells and mortal hexes that draw from the spellcaster's very essence. It is fundamentally more perilous than other witch crafts, but its many risks come with copious rewards
 Subclass/&BloodWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known. \n\nLevel Spells\nLevel 1: Entangle, Goodberry\nLevel 2: Barkskin, Protection from Poison\nLevel 3: Conjure Animals, Create Food\nLevel 4: Giant Insect, Stoneskin\nLevel 5: Dispel Evil and Good, Insect Plague
 Subclass/&BloodWitchMagicTitle	Blood Magic
 Subclass/&BloodWitchTitle	Blood Witch
-Subclass/&MagicAffinityMasterManipulatorDC0Description	It is harder for opponents to resist your spells. The save DC increases by 0.
-Subclass/&MagicAffinityMasterManipulatorDC1Description	It is harder for opponents to resist your spells. The save DC increases by 1.
-Subclass/&MagicAffinityMasterManipulatorDC3Description	It is harder for opponents to resist your spells. The save DC increases by 3.
-Subclass/&MagicAffinityMasterManipulatorDC4Description	It is harder for opponents to resist your spells. The save DC increases by 4.
-Subclass/&MagicAffinityMasterManipulatorDC5Description	It is harder for opponents to resist your spells. The save DC increases by 5.
-Subclass/&MagicAffinityMasterManipulatorDCDescription	It is harder for opponents to resist your spells. The save DC increases by 3.
-Subclass/&MagicAffinityRoguishConArtistDC0Description	Your spell save DC increases by 0.
-Subclass/&MagicAffinityRoguishConArtistDC1Description	Your spell save DC increases by 1.
-Subclass/&MagicAffinityRoguishConArtistDC2Description	Your spell save DC increases by 2.
-Subclass/&MagicAffinityRoguishConArtistDC4Description	Your spell save DC increases by 4.
-Subclass/&MagicAffinityRoguishConArtistDC5Description	Your spell save DC increases by 5.
-Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedDescription	Unlimited times you can recover spell slots (in addition to Arcane Recovery).
+Subclass/&MagicAffinityMasterManipulatorDC0Description	It is harder for opponents to resist your spells. The save DC increases by 0
+Subclass/&MagicAffinityMasterManipulatorDC1Description	It is harder for opponents to resist your spells. The save DC increases by 1
+Subclass/&MagicAffinityMasterManipulatorDC3Description	It is harder for opponents to resist your spells. The save DC increases by 3
+Subclass/&MagicAffinityMasterManipulatorDC4Description	It is harder for opponents to resist your spells. The save DC increases by 4
+Subclass/&MagicAffinityMasterManipulatorDC5Description	It is harder for opponents to resist your spells. The save DC increases by 5
+Subclass/&MagicAffinityMasterManipulatorDCDescription	It is harder for opponents to resist your spells. The save DC increases by 3
+Subclass/&MagicAffinityRoguishConArtistDC0Description	Your spell save DC increases by 0
+Subclass/&MagicAffinityRoguishConArtistDC1Description	Your spell save DC increases by 1
+Subclass/&MagicAffinityRoguishConArtistDC2Description	Your spell save DC increases by 2
+Subclass/&MagicAffinityRoguishConArtistDC4Description	Your spell save DC increases by 4
+Subclass/&MagicAffinityRoguishConArtistDC5Description	Your spell save DC increases by 5
+Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedDescription	Unlimited times you can recover spell slots (in addition to Arcane Recovery)
 Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedTitle	Arcane Depth
-Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponDescription	You infuse your weapon with power. Your attacks count as Magical and you add your +7 to your attack and damage rolls. Note you can only have an infusion active once. Activating it a second time will cancel the first.
+Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponDescription	You infuse your weapon with power. Your attacks count as Magical and you add your +7 to your attack and damage rolls. Note you can only have an infusion active once. Activating it a second time will cancel the first
 Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponTitle	Improved Infuse Weapon
-Subclass/&PurpleWitchDescription	Purple magic holds sway over the domains of illusions and enchantments that take hold over people's minds, and anything that is not quite as it seems. Practitioners of this form of magic are puppet masters, shaping the apparent reality of those around them to their advantage.
+Subclass/&PurpleWitchDescription	Purple magic holds sway over the domains of illusions and enchantments that take hold over people's minds, and anything that is not quite as it seems. Practitioners of this form of magic are puppet masters, shaping the apparent reality of those around them to their advantage
 Subclass/&PurpleWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known. \n\nLevel Spells\nLevel 1: Entangle, Goodberry\nLevel 2: Barkskin, Protection from Poison\nLevel 3: Conjure Animals, Create Food\nLevel 4: Giant Insect, Stoneskin\nLevel 5: Dispel Evil and Good, Insect Plague
 Subclass/&PurpleWitchMagicTitle	Purple Magic
 Subclass/&PurpleWitchTitle	Purple Witch
-Subclass/&WarlockUrPriestDescription	While the vast majority of divine spellcasters gain their powers from a deity, there are those who despise the gods. Those who call themselves Ur-priests have learned to siphon off the divine energies granted by gods to their divine spellcasters, using it for their own needs without giving even lip-service to any god. As an Ur-priest, you differ from most warlocks, lacking a patron who grants you your power. Eldritch Invocations you uncover are warped forms of magic the gods might grant their patrons, while Pact Boons are likely divine artefacts you have managed to steal.
+Subclass/&WarlockUrPriestDescription	While the vast majority of divine spellcasters gain their powers from a deity, there are those who despise the gods. Those who call themselves Ur-priests have learned to siphon off the divine energies granted by gods to their divine spellcasters, using it for their own needs without giving even lip-service to any god. As an Ur-priest, you differ from most warlocks, lacking a patron who grants you your power. Eldritch Invocations you uncover are warped forms of magic the gods might grant their patrons, while Pact Boons are likely divine artefacts you have managed to steal
 Subclass/&WarlockUrPriestTitle	UrPriest Pact
 Tooltip/&FeatPrerequisiteHasStealthAttack	Has stealth attack
 Tooltip/&FeatPrerequisiteIsNotBarbarian	Isn't a Barbarian

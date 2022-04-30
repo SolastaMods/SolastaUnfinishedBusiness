@@ -299,7 +299,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&PowerAttackPowerTitle",
-    "description": "Take a -3 to hit penalty to your attack for the rest of the turn to do +3 damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged.",
+    "description": "Take a -3 to hit penalty to your attack for the rest of the turn to do +3 damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "728aea75c81bfe549bb0c942cbf174cf",

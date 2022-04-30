@@ -6,6 +6,7 @@ using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Classes.Witch.Subclasses;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.Level20;
+using SolastaCommunityExpansion.Models;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using static FeatureDefinitionAttributeModifier;
@@ -821,6 +822,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 effectForm.SetSummonForm(summonForm);
 
                 spell.EffectDescription.SetEffectForms(effectForm);
+                GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.Familiar, spell);
 
                 var preparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
                     .Create("WitchFamiliarAutoPreparedSpell", WITCH_BASE_GUID)

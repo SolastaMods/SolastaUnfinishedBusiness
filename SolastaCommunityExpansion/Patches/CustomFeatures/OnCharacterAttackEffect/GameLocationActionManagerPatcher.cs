@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.Models;
+using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffect
 {
@@ -17,14 +19,26 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
             CharacterAction action)
         {
             Main.Logger.Log(action.ActionDefinition.Name);
-            CustomFeaturesContext.CurrentAction = action;
+            Global.CurrentAction = action;
 
+            var features = action.ActingCharacter.RulesetCharacter.GetFeaturesByType<ICustomOnActionFeature>();
+
+            foreach (var feature in features)
+            {
+                feature.OnBeforeAction(action);
+            }
+            
             while (values.MoveNext())
             {
                 yield return values.Current;
             }
 
-            CustomFeaturesContext.CurrentAction = null;
+            foreach (var feature in features)
+            {
+                feature.OnAfterAction(action);
+            }
+
+            Global.CurrentAction = null;
         }
     }
 }

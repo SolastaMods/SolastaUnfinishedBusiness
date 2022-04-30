@@ -1,32 +1,5 @@
 ﻿namespace SolastaCommunityExpansion.CustomDefinitions
 {
-    public interface IOnAttackHitEffect
-    {
-        void BeforeOnAttackHit(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            int attackRoll,
-            int successDelta,
-            bool ranged);
-
-        void AfterOnAttackHit(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            int attackRoll,
-            int successDelta,
-            bool ranged);
-    }
-
-    public delegate void OnAttackHitDelegate(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            int attackRoll,
-            int successDelta,
-            bool ranged);
-
     /**
      * Before using this, please consider if FeatureDefinitionAdditionalDamage can cover the desired use case.
      * This has much greater flexibility, so there are cases where it is appropriate, but when possible it is
