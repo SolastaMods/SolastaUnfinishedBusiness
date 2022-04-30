@@ -9,7 +9,7 @@ AttributeModifier/&DHFeeblemindIntSpellTitle	Feeble intelligence
 BlueprintCategory/&FlatRoomsTitle	Flat Rooms
 Caption/&GadgetParametersCustomRemoveDescription	Remove:\n{0}
 Class/&ClassWarlockDescription	Warlocks are seekers of the knowledge that lies hidden in the fabric of the multiverse. Through pacts made with mysterious beings of supernatural power, warlocks unlock magical effects both subtle and spectacular
-Class/&ClassWarlockTitle	Warlock [Beta]
+Class/&ClassWarlockTitle	Warlock
 Class/&TinkererDescription	Tinkerers are inventors, alchemists, and more. They bridge the space between magic and technology
 Class/&TinkererTitle	Tinkerer
 Class/&WitchArmorProficiencyDescription	Light Armor
@@ -327,8 +327,18 @@ Equipment/&Enchanted_Warhammer_Power_Description	This enchanted weapon was forge
 Equipment/&Enchanted_Warhammer_Power_Title	Warhammer of Power
 Equipment/&Enchanted_Warhammer_Punisher_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. The combination of the best metal and Slavestone gave this axe incredible piercing power
 Equipment/&Enchanted_Warhammer_Punisher_Title	Punisher Warhammer
-Equipment/&HerbalBrewQuickeningTitle	Herbal Brew: Potion of Quickening
-Equipment/&HerbalBrewToxifyingTitle	Herbal Brew: Potion of Toxifying
+Equipment/&HerbalBrewDamageAffinityAcidResistanceDescription	Grants protection to Acid for 1 hour
+Equipment/&HerbalBrewDamageAffinityAcidResistanceTitle	Brew of Acid Protection
+Equipment/&HerbalBrewDamageAffinityLightningResistanceDescription	Grants protection to Lightning for 1 hour
+Equipment/&HerbalBrewDamageAffinityLightningResistanceTitle	Brew of Lightning Protection
+Equipment/&HerbalBrewDamageAffinityNecroticResistanceDescription	Grants protection to Necrotic for 1 hour
+Equipment/&HerbalBrewDamageAffinityNecroticResistanceTitle	Brew of Necrotic Protection
+Equipment/&HerbalBrewDamageAffinityPoisonResistanceDescription	Grants protection to Poison for 1 hour
+Equipment/&HerbalBrewDamageAffinityPoisonResistanceTitle	Brew of Poison Protection
+Equipment/&HerbalBrewDamageAffinityRadiantResistanceDescription	Grants protection to Radiant for 1 hour
+Equipment/&HerbalBrewDamageAffinityRadiantResistanceTitle	Brew of Radiant Protection
+Equipment/&HerbalBrewHealingTitle	Brew of Quickening
+Equipment/&HerbalBrewToxifyingTitle	Brew of Toxifying
 Equipment/&ImprovedLightningSpearDescription	Can now create advantage for allies and disadvantage for enemies with a single attack
 Equipment/&ImprovedLightningSpearTitle	Improved Lightning Spear
 Equipment/&ImprovedThunderPunchDescription	Can now pull enemies into melee range with a bonus action and inflict 1D8 thunder damage
@@ -559,7 +569,7 @@ Feat/&FightingStyleTwoWeaponTitle	Fighting Style: Two Weapon
 Feat/&FlameArtillery_2Description	3D8 fire damage (Cone)
 Feat/&FlameArtillery_2Title	Flame Artillery (Improved)
 Feat/&FlameArtilleryConstructDescription	Creates a cone of fire that deals 2D8 damage on a failed save
-Feat/&FlameArtilleryConstructDescription_3	Creates a cone of fire that deals 3D8 damage on a failed save
+Feat/&FlameArtilleryConstructDescription_3	Creates a cone of fire that deals 3D8 damage on a failed save.
 Feat/&FlameArtilleryConstructTitle	Flame Artillery Construct
 Feat/&FlameArtilleryConstructTitle_3	Flame Artillery Construct
 Feat/&FlameArtilleryConstructTitle_5	Flame Artillery Construct
@@ -569,7 +579,7 @@ Feat/&ForceArtillery_2Description	3D8 Force damage and push target 5ft
 Feat/&ForceArtillery_2Title	Force Artillery (Improved)
 Feat/&ForceArtilleryAdditionalDamageDescription	The upgraded construct deals 1D8 more damage per hit
 Feat/&ForceArtilleryConstructDescription	Deals 2D8 force damage and pushs enemy 5ft away from Construct
-Feat/&ForceArtilleryConstructDescription_3	Deals 3D8 force damage and pushs enemy 5ft away from Construct
+Feat/&ForceArtilleryConstructDescription_3	Deals 3D8 force damage and pushs enemy 5ft away from Construct.
 Feat/&ForceArtilleryConstructTitle	Force Artillery Construct
 Feat/&ForceArtilleryConstructTitle_3	Force Artillery Construct
 Feat/&ForceArtilleryConstructTitle_5	Force Artillery Construct
@@ -701,25 +711,25 @@ Feature/&AdditionalDamageFeatShadySneakAttackDescription	Once per turn, you can 
 Feature/&AdditionalDamageFeatShadySneakAttackTitle	Shady Sneak Attack
 Feature/&AdditionalDamageHinderingBlastDescription	When you hit a creature with your eldritch blast, you can reduce that creature's speed by 10 feet until the end of your next turn
 Feature/&AdditionalDamageHinderingBlastTitle	Hindering Blast
-Feature/&AgonizingBlastFeatureSetDescription	When you cast a spell using force damage (eldritch blast), add your Charisma modifier to the damage it deals on a hit
-Feature/&AgonizingBlastFeatureSetTitle	Agonizing Blast
+Feature/&AgonizingBlastDescription	Add your Charisma modifier to the damage of Eldritch Basts
+Feature/&AgonizingBlastTitle	Agonizing Blast
 Feature/&AHSoulBladeEmpowerDamageBonusDescription	You are empowered and do a damage bonus equal to your proficiency on all your attacks
 Feature/&AHSoulBladeEmpowerWeaponConditionDescription	You are empowered and do a damage bonus equal to your proficiency on all your attacks
 Feature/&AHSoulBladeEmpowerWeaponConditionTitle	Soul Empowered
 Feature/&AHSoulBladeEmpowerWeaponDamageBonusDescription	You are empowered and do a damage bonus equal to your proficiency on all your attacks
 Feature/&AHSoulBladeEmpowerWeaponDamageBonusTitle	Soul Empowered
 Feature/&AHSoulBladeSummonPactWeaponPowerDescription	Once per short rest you can summon forth a spiritual form of a weapon from your pact as a free action. As a bonus action you can direct the weapon as desired to attack your foes. The weapon moves up to 20ft each time before striking
-Feature/&AHSoulBladeSummonPactWeaponPowerTitle	Spiritual pact weapon
+Feature/&AHSoulBladeSummonPactWeaponPowerTitle	Spiritual Pact Weapon
 Feature/&AHWarlockClassPactBoonSetDescription	At 3rd level, your otherworldly patron bestows a gift upon you for your loyal service. You can choose between:
 Feature/&AHWarlockClassPactBoonSetTitle	Pact boon
 Feature/&AHWarlockClassPactOfTheBladeSetDescription	You become proficient with all weapons and your weapon attacks are considered magical
 Feature/&AHWarlockClassPactOfTheBladeSetTitle	Pact of the Blade
-Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerDescription	Once per short rest you can empower a weapon with the power of souls for one minute, your weapon lights up for 20ft of bright light and 20ft of dim light and you add your charisma to your to hit. Additionally all your attacks add your proficiency bonus in damage for the duration
+Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerDescription	Once per long rest you can empower a weapon with the power of souls. That weapon uses Charisma modifier for attack and damage rolls and counts as magical until long rest
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle	Soul Empower
 Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	The Soul blade lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you. \nLevel 1: Shield, False life\nLevel 2: Blur, Branding Smite \nLevel 3: Haste, Slow \nLevel 4: Phantasmal Killer, Black Tentacles \nLevel 5: Cone of Cold, Mind Twist
 Feature/&AHWarlockSoulBladePactExtendedSpellListTitle	Soulblade Spells
 Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Once per short rest you use the power of souls to defend yourself. Using a bonus action you gain temp hp equal to your level + charisma modifier
-Feature/&AHWarlockSoulBladePactSoulShieldPowerTitle	Soul shield
+Feature/&AHWarlockSoulBladePactSoulShieldPowerTitle	Soul Shield
 Feature/&AHWarlockSoulBladePactSpellListDescription	The Soul blade lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you. \nLevel 1: Shield, False life\nLevel 2: Blur, Branding Smite \nLevel 3: Haste, Slow \nLevel 4: Phantasmal Killer, Black Tentacles \nLevel 5: Cone of Cold, Mind Twist
 Feature/&AHWarlockSoulBladePactSpellListTitle	Soul blade expanded spell list
 Feature/&AlwaysBeardDescription	{0}% chances to grow a glorious beard!
@@ -771,6 +781,8 @@ Feature/&ClassWarlockArmorProficiencyDescription	Light Armor
 Feature/&ClassWarlockArmorProficiencyTitle	Warlock Armor Proficiencies
 Feature/&ClassWarlockEldritchInvocationSetLevelDescription	Add an eldritch invocation
 Feature/&ClassWarlockEldritchInvocationSetLevelTitle	Eldritch Invocation
+Feature/&ClassWarlockEldritchInvocationSetReplaceDescription	Replace an eldritch invocation
+Feature/&ClassWarlockEldritchInvocationSetReplaceTitle	Replaced Eldritch Invocation
 Feature/&ClassWarlockEldritchMasterDescription	you can draw on your inner reserve of mystical power while entreating your patron to regain expended spell slots. You can spend 1 minute entreating your patron for aid to regain all your expended spell slots from your Pact Magic feature. Once you regain spell slots with this feature, you must finish a long rest before you can do so again
 Feature/&ClassWarlockEldritchMasterTitle	Eldritch Master
 Feature/&ClassWarlockMysticArcanumSetDescription	Your patron bestows upon you a magical secret called an arcanum. You can cast your arcanum spell once without expending a spell slot. You must finish a long rest before you can do so again. At higher levels, you gain more warlock spells of your choice that can be cast in this way: one 6th-level spell at 11th level, one 7th-level spell at 13th level, one 8th-level spell at 15th level, and one 9th-level spell at 17th level
@@ -861,7 +873,22 @@ Feature/&EldritchSmiteDescription	Once per turn when you hit a creature with you
 Feature/&EldritchSmiteTitle	Eldritch Smite
 Feature/&ElementalistSpellsMagicAffinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: \n Level 1: Thunderwave, Fog Cloud \n Level 2: Flaming Sphere, Scorching Ray \n Level 3: Fireball, Lightning Bolt \n Level 4: Stoneskin, Icestorm \n Level 5: Cone of Cold, Flame Strike
 Feature/&ElementalistSpellsMagicAffinityTitle	Elementalist Spells
-Feature/&ElementalPatronFeatureSet_Level01Description	<size=17><color=#add8e6ff>Learn Elementalist Spells</color></size>\nLevel 1: Fog Cloud, Thunderwave\nLevel 2: Spike Growth, Scorching Ray\nLevel 3: Lightning Bolt, Fireball \nLevel 4: Stoneskin, Icestorm\nLevel 5: Cone of Cold, Flame Strike\n\n<size=17><color=#add8e6ff>Elemental Forms</color></size>\nYou can switch between elemental forms a number of times (equal to your Proficiency Bonus) per day by channeling elemental energy. You can resistence to the relevant damage and and once per turn, apply damage of the same type to your attacks. The forms last for 1 minute
+Feature/&ElementalPactAirPlane	Air Plane
+Feature/&ElementalPactAstralPlane	Astral Plane
+Feature/&ElementalPactEarthPlane	Earth Plane
+Feature/&ElementalPactEtherealPlane	Ethereal Plane
+Feature/&ElementalPactFirePlane	Fire Plane
+Feature/&ElementalPactIcePlane	Ice Plane
+Feature/&ElementalPactShadowPlane	Shadow Plane
+Feature/&ElementalPatronElementalConditionFormatDescription	Deal additional {1} damage equal to your Proficiency Bonus on a first hit each round
+Feature/&ElementalPatronElementalConditionFormatTitle	Channeling {0}
+Feature/&ElementalPatronElementalDamageFormatDescription	When channeling {0}, deal additional {1} damage equal to your Proficiency Bonus on a first hit each round
+Feature/&ElementalPatronElementalDamageFormatTitle	Elemental Damage: {0}
+Feature/&ElementalPatronElementalFormEnhancedFormatDescription	When channeling the {0}, you gain Immunity to {1} and apply Proficiency Bonus as damage of the same type to first hit each round
+Feature/&ElementalPatronElementalFormEnhancedFormatTitle	Channeling {0}
+Feature/&ElementalPatronElementalFormFormatDescription	When channeling the {0}, you gain Resistance to {1} damage and apply Proficiency Bonus as damage of the same type to first hit each round. 
+Feature/&ElementalPatronElementalFormFormatTitle	{0}
+Feature/&ElementalPatronFeatureSet_Level01Description	<size=17><color=#add8e6ff>Learn Elementalist Spells</color></size>\nLevel 1: Fog Cloud, Thunderwave\nLevel 2: Spike Growth, Scorching Ray\nLevel 3: Lightning Bolt, Fireball \nLevel 4: Stoneskin, Icestorm\nLevel 5: Cone of Cold, Flame Strike\n\n<size=17><color=#add8e6ff>Elemental Forms</color></size>\nYou can switch between elemental forms a number of times (equal to your Proficiency Bonus) per day by channeling elemental energy. You gain resistance to the relevant damage and once per turn, apply damage of the same type to your attacks. The forms last for 1 minute
 Feature/&ElementalPatronFeatureSet_Level01Title	Elementalist
 Feature/&ElementalPatronFeatureSet_Level06Description	<size=17><color=#add8e6ff>Elemental Knowledge</color></size>\nYou knowledge of elementals has increased to the point that you now gain advantage on ability checks towards elementals, and deal additional damage against elementals equal to your knowledge level. You can no longer be charmed or frightened by elementals
 Feature/&ElementalPatronFeatureSet_Level06Title	Elementalist
@@ -885,9 +912,9 @@ Feature/&ForceArtilleryModePowerDescription	Summons a construct that lasts 1 hou
 Feature/&ForceArtilleryModePowerTitle	Summon Force Artillery Construct
 Feature/&ForceArtilleryTitle	Force Artillery
 Feature/&GambitResourcePoolAddDescription	Adds an additional gambit die
-Feature/&GambitResourcePoolAddTitle	Additional Gambit die
+Feature/&GambitResourcePoolAddTitle	Additional Gambit die.
 Feature/&GambitResourcePoolDescription	Pool of gambit dice that can be spent on gambits. Starts with 4 they recharge on short rest
-Feature/&GambitResourcePoolTitle	Gambit dice pool
+Feature/&GambitResourcePoolTitle	Gambit dice pool.
 Feature/&GiftoftheEver-LivingOnesDescription	Regains the maximum number of hit points possible from any healing
 Feature/&GiftoftheEver-LivingOnesTitle	Gift of the Ever-Living Ones
 Feature/&GiftoftheProtectorsDescription	Whenyou are reduced to 0 hit points but not killed outright, the creature magically drops to 1 hit point instead. Once this magic is triggered, you cant benefit from it until you finish a long rest
@@ -896,9 +923,8 @@ Feature/&GnomeCunningFeatureDescription	You have advantage on all Intelligence, 
 Feature/&GnomeCunningFeatureTitle	Cunning
 Feature/&GnomeNaturalIllusionistDescription	You know the Annoying Bee cantrip. Intelligence is your spellcasting modifier for it
 Feature/&GnomeNaturalIllusionistTitle	Natural Magic
-Feature/&GraspingHandMagicAffinityDescription	when you hit a creature with your eldritch blast, you can move that creature in a straight line 10 feet closer to you
-Feature/&GraspingHandMagicAffinityTitle	Grasping Blast
-Feature/&HerbalBrewFeatureSetDescription	You gain proficiency with either the poisoner kit or herbalism kits if you don't already have it. \nWhen you finish a long rest, you can create herbal brews, each of which lasts until the next long rest. You create a total of brews equal to your proficiency bonus. For each brew, choose one of the following effects: \n<color=#add8e6ff>Fortifying Brew</color>: grants resistance to different damage types for 1 hour.\n<color=#add8e6ff>Quickening Brew</color>: provides 2d6 hit points.\n<color=#add8e6ff>Toxifying Brew</color>: acts as poison that can be applied to a weapon that lasts for 1 minute. If the hit lands the target takes 1d4 poison damage on each hit
+Feature/&HerbalBrewDescription	When you finish a long rest, you can create herbal brews, each of which lasts until the next long rest. You create a total of brews equal to your proficiency bonus. For each brew, choose one of the following effects: \n<color=#add8e6ff>Fortifying Brew</color>: grants resistance to different damage types for 1 hour.\n<color=#add8e6ff>Quickening Brew</color>: provides 2d4 hit points.\n<color=#add8e6ff>Toxifying Brew</color>: acts as poison that can be applied to a weapon that lasts for 1 minute. If the hit lands the target takes 1d4 poison damage on each hit
+Feature/&HerbalBrewFeatureSetDescription	You gain proficiency with either the poisoner kit or herbalism kits if you don't already have it. \nWhen you finish a long rest, you can create herbal brews, each of which lasts until the next long rest. You create a total of brews equal to your proficiency bonus. For each brew, choose one of the following effects: \n<color=#add8e6ff>Fortifying Brew</color>: grants resistance to different damage types for 1 hour.\n<color=#add8e6ff>Quickening Brew</color>: provides 2d4 hit points.\n<color=#add8e6ff>Toxifying Brew</color>: acts as poison that can be applied to a weapon that lasts for 1 minute. If the hit lands the target takes 1d4 poison damage on each hit
 Feature/&HerbalBrewFeatureSetTitle	Herbal Brewing
 Feature/&HinderingBlastDescription	When you hit a creature with your eldritch blast, you can reduce that creature's speed by 10 feet until the end of your next turn
 Feature/&HinderingBlastTitle	Hindering Blast
@@ -937,14 +963,20 @@ Feature/&MoonLitLightAffinityDescription	If you start your turn in natural darkn
 Feature/&MoonLitLightAffinityStrongDescription	Umbral Cloak now works in dim light and magical darkness
 Feature/&MoonLitLightAffinityStrongTitle	Improved Umbral Cloak
 Feature/&MoonLitLightAffinityTitle	Umbral Cloak
-Feature/&OneWithShadowsDescription	When you are in an area of dim light or darkness, you become invisible until you move or take an action or a reaction
+Feature/&OneWithShadowsDescription	If you start your turn in natural darkness you gain invisibility. Moving, attacking or using any power or spell that isn't teleport or self-buff breaks invisibility
+Feature/&OneWithShadowsLightAffinityDescription	If you start your turn in natural darkness you gain invisibility. Moving, atacking or using any power or spell that isn't teleport or self-buff breaks invisibility
+Feature/&OneWithShadowsLightAffinityStrongDescription	One With Shadows now works in dim light and magical darkness
+Feature/&OneWithShadowsLightAffinityStrongTitle	Darker Shadows
+Feature/&OneWithShadowsLightAffinityTitle	One With Shadows
+Feature/&OneWithShadowsStrongerDescription	One With Shadows now works in dim light and magical darkness
+Feature/&OneWithShadowsStrongerTitle	Darker Shadows
 Feature/&OneWithShadowsTitle	One With Shadows
-Feature/&OpportunistDebilitatingStrikeDescription Your sneak attack cause one of following conditions (Blinded/Bane/Bleeding/Stuned) to enemies if they fail a CON save vs 8 + your Dexerity + your proficiency
-Feature/&OpportunistDebilitatingStrikeTitle Debilitating Strike
-Feature/&OpportunistQuickStrikeDescription You have advatange when attack an enemies whose initiative is lower than yours. In addition you also have advantage when performing an attack of opportunity
-Feature/&OpportunistQuickStrikeTitle Quick Strike
+Feature/&OpportunistDebilitatingStrikeDescription	Your sneak attack cause one of following conditions (Blinded/Bane/Bleeding/Stuned) to enemies if they fail a CON save vs 8 + your Dexerity + your proficiency
+Feature/&OpportunistDebilitatingStrikeTitle	Debilitating Strike
+Feature/&OpportunistQuickStrikeDescription	You have advatange when attack an enemies whose initiative is lower than yours. In addition you also have advatange when perform an attack of opportunity
+Feature/&OpportunistQuickStrikeTitle	Quick Strike
 Feature/&OtherworldlyLeapTitle	Otherworldly Leap
-Feature/&OtherworldlyLeapTitle  Otherworldly Leap
+Feature/&OtherworldlyLeapTitle	Otherworldly Leap
 Feature/&PowerAttackAttackModifierDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged
 Feature/&PowerAttackAttackModifierTitle	One handed power attack
 Feature/&PowerAttackConditionDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged
@@ -973,6 +1005,10 @@ Feature/&ProficiencyRogueBlindSenseDescription	Starting at 14th level, if you ar
 Feature/&ProficiencyRogueBlindSenseTitle	Blindsense
 Feature/&ProficiencyRogueSlipperyMindDescription	By 15th level, you have acquired greater mental strength. You gain proficiency in Wisdom saving throws
 Feature/&ProficiencyRogueSlipperyMindTitle	Slippery Mind
+Feature/&ProficiencySoulBladeArmorDescription	Light Armor, Medium Armor and Shield
+Feature/&ProficiencySoulBladeArmorTitle	Soulblade Armor Proficiencies
+Feature/&ProficiencySoulBladeWeaponDescription	Simple Weapons, Martial Weapons
+Feature/&ProficiencySoulBladeWeaponTitle	Soulblade Weapon Proficiencies
 Feature/&RageDamageBonusAttackModifierDescription	Add +2 damage to your attacks while raging
 Feature/&RageDamageBonusAttackModifierTitle	Rage damage
 Feature/&RageFeatConditionDescription	While in a rage you gain the following: Advantage on Strength checks and Strength saving throws, a bonus to damage rolls of +2, and resistance to bludgeoning, piercing, and slashing damage
@@ -990,8 +1026,6 @@ Feature/&RangerFeralSensesDescription	You gain preternatural senses that help yo
 Feature/&RangerFeralSensesTitle	Feral Senses
 Feature/&RangerVanishActionDescription	Starting at 14th level, you can use the Hide action as a bonus action on your turn
 Feature/&RangerVanishActionTitle	Vanish
-Feature/&RepellingBlastMagicAffinityDescription	When you hit a creature with eldritch blast, you can push the creature up to 10 feet away from you in a straight line
-Feature/&RepellingBlastMagicAffinityTitle	Repelling Blast
 Feature/&RiftWalkerRestrainedImmunityTitle	Fleeting Step
 Feature/&RiftWalkerSpellsMagicAffinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: \n Level 1: Jump, Longstrider \n Level 2: Blur, Pass Without Trace \n Level 3: Haste, Slow \n Level 4: Freedom Of Movement, Greater Invisibility \n Level 5: Mind Twist, Dispel Evil And Good
 Feature/&RiftWalkerSpellsMagicAffinityTitle	Learn Rift Walker Spells
@@ -1005,6 +1039,9 @@ Feature/&SentinelModePowerDescription	Gain a limited number of TempHP based on l
 Feature/&SentinelModePowerTitle	Sentinel Mode
 Feature/&ShroudofShadowTitle	Shroud of Shadow
 Feature/&SignofIllOmenTitle	Sign of Ill Omen
+Feature/&SpellAsInvocationAtWillDescription	Cast {0} at will
+Feature/&SpellAsInvocationOncePerDayDescription	Cast {0} once until long rest
+Feature/&ThiefofFiveFates	Cast {0} once per day
 Feature/&TempHPShield_09ModePowerDescription	Summons a construct that lasts 1 hour. \nProtecting Dome: Grants 1D8 + 4 temporary HP to allies within 10ft. \nSelf-Destruct: deals 3D8 force damage on a failed save and destroys the unit
 Feature/&TempHPShield_09ModePowerTitle	Summon Protecting Dome Construct
 Feature/&TempHPShield_15ModePowerDescription	Summons a construct that lasts 1 hour. \nProtecting Dome: Grants 1D8 + 4 temporary HP to allies within 10ft. \nSelf-Destruct: deals 3D8 force damage on a failed save and destroys the unit. \n Half Cover Dome: Provides half cover to allies within 10ft
@@ -1041,10 +1078,14 @@ Feature/&UrPriestExpandedSpelllistAfinityDescription	You choose from an expanded
 Feature/&UrPriestExpandedSpelllistAfinityTitle	UrPriest Spells
 Feature/&WallofThornsFeatureSetDescription	Cast Wall of Thorns once a day
 Feature/&WallofThornsFeatureSetTitle	Forest Barrier
+Feature/&WitchSightDescription	You can sense or see invisibility up to 60 ft
+Feature/&WitchSightTitle	Witch Sight
 Feature/&ZSPowerPaladinCleansingTouchDescription	Remove spell effects by touching an ally. You can do this a number of times per day equal to your Charisma modifier
 Feature/&ZSPowerPaladinCleansingTouchTitle	Cleansing Touch
 Feedback/&AdditionalDamageAgonizing_BlastFormat	Agonizing Blast
-Feedback/&AdditionalDamageAgonizing_BlastLine	When you cast a spell using force damage (eldritch blast), add your Charisma modifier to the damage it deals on a hit
+Feedback/&AdditionalDamageAgonizing_BlastLine	When you cast a spell using force damage (eldritch blast), add your Charisma modifier to the damage it deals on a hit.
+Feedback/&AdditionalDamageAncientForestLifeSapFormat	Life Sap!
+Feedback/&AdditionalDamageAncientForestLifeSapLine	Life Sap deals extra damage and heals! 
 Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat	Additional Damage from Magically Powered Attacks
 Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine	Additional Damage from Magically Powered Attacks
 Feedback/&AdditionalDamageArcaneFirearmFormat	Blasting Enhancement!
@@ -1054,7 +1095,7 @@ Feedback/&AdditionalDamageArcanistMarkLine	Arcanist's Mark detonates and deals e
 Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeFormat	Illuminating Strike!
 Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeLine	Illuminating Strike deals extra damage to the target!
 Feedback/&AdditionalDamageBlindingWeaponStrikeFormat	Blinding Weapon
-Feedback/&AdditionalDamageBlindingWeaponStrikeLine	Additional damage and trying to apply Blindness from Blinding Weapon
+Feedback/&AdditionalDamageBlindingWeaponStrikeLine	Additional damage and trying to apply Blindness from Blinding Weapon.
 Feedback/&AdditionalDamageElementalDamageFormat	Elemental Damage
 Feedback/&AdditionalDamageElementalDamageLine	Elemental form grants additional damage
 Feedback/&AdditionalDamagePactMarkedFormat	Pact mark!
@@ -1113,7 +1154,7 @@ FlexibleRaces/&PointPoolAbilityScore3Title	Ability Score Increase
 FlexibleRaces/&PointPoolAbilityScore4Description	Use four boosts on ability scores in any combination of your choosing
 FlexibleRaces/&PointPoolAbilityScore4Title	Ability Score Increase
 Format/&LevelAndExperienceFormat	Level: {0}\nExperience: {1}\n{2} points required to reach level {3}
-Format/&LevelAndExperienceMaxedFormat	Level: {0}\nExperience: {1}\nmax level reached
+Format/&LevelAndExperienceMaxedFormat	Level: {0}\nExperience: {1}\nmax level reached.
 Item/&ForceArtilleryProjectileDescription	ForceArtilleryProjectile
 Item/&ForceArtilleryProjectileTitle	ForceArtilleryProjectile
 Language/&GnomishLanguageDescription	An old Solastan language, preserved by gnomes living in deep forests of Solasta, it has survived the Cataclysm
@@ -1136,28 +1177,37 @@ Modifier/&AttributeModifierRuinDescription	-3 to Armor Class
 Modifier/&AttributeModifierRuinTitle	Ruined
 Modifier/&DisorientDescription	-1d6 to attack rolls
 Modifier/&DisorientTitle	Disoriented
-Modifier/&RuinedDescription	-3 to Armor Class
-Modifier/&RuinedTitle	Ruined
 Monster/&DHCustomCouatlDescription	Couatls are benevolent serpentine beings of great intellect and insight. Their brilliantly colored wings and gentle manner speak to their celestial origins
 Monster/&DHCustomCouatlTitle	Couatl
 Monster/&OwlFamiliarDescription	Owl Familiar
 Monster/&OwlFamiliarTitle	Owl
 Monster/&PactOfChainCustomImpDescription	Imps are found throughout the Lower Planes, either running errands for their infernal masters, spying on rivals, or misleading and waylaying mortals. An imp will proudly serve an evil master of any kind, but it can't be relied on to carry out tasks with any speed or efficiency
 Monster/&PactOfChainCustomImpTitle	Imp (Pact of Chain)
-Monster/&PactOfChainCustomPseudodragonDescription	The elusive pseudodragon dwells in the quiet places of the world, making its home in the hollows of trees and small caves. With its red-brown scales, horns, and a maw filled with sharp teeth, a pseudodragon resembles a tiny red dragon but its disposition is playful
-Monster/&PactOfChainCustomPseudodragonTitle	Pseudodragon (Pact of Chain)
+Monster/&PactOfChainCustomPseudodragonDescription	The elusive pseudodragon dwells in the quiet places of the world, making its home in the hollows of trees and small caves. With its green scales, horns, and a maw filled with sharp teeth, a pseudodragon resembles a tiny green dragon but its disposition is playful
+Monster/&PactOfChainCustomPseudodragonTitle	Pseudodragon
 Monster/&PactOfChainCustomQuasitDescription	Quasits infest the Lower Planes. Physically weak, they keep to the shadows to plot mischief and wickedness. More powerful demons use quasits as spies and messengers when they aren't devouring them or pulling them apart to pass the time
 Monster/&PactOfChainCustomQuasitTitle	Quasit (Pact of Chain)
 Monster/&PactOfChainCustomSpriteDescription	Unlike pixies, sprites rarely indulge in frivolous merriment and fun. They are firm warriors, protectors, and judges, and their stern bent causes other fey to consider them overly dour and serious. However, fey that respect the sprites' territory find them staunch allies in times of trouble
 Monster/&PactOfChainCustomSpriteTitle	Sprite (Pact of Chain)
 Monster/&WitchOwlFamiliarDescription	Owl Familiar
 Monster/&WitchOwlFamiliarTitle	Owl
+MonsterAttack/&AttackWarlockDragonStingDescription	1d4 Piercing damage and target must succeed DC 11 Constitution save or become Poisoned
+MonsterAttack/&AttackWarlockDragonStingTitle	Poisonous Sting
+MonsterAttack/&AttackWarlockImpStingDescription	Poisonous Sting of an Imp
+MonsterAttack/&AttackWarlockImpStingTitle	Poisonous Sting
+MonsterAttack/&AttackWarlockQuasitStingTitle	Poisonous Sting
 MonsterAttack/&DH_Custom_CouatlBite_AttackDescription	Piercing damage, and the target must succeed on a DC 13 Constitution saving throw or be poisoned for 24 hours. Until this poison ends, the target is unconscious
 MonsterAttack/&DH_Custom_CouatlBite_AttackTitle	Bite
-Power/&AncientForestLifeSapDescription	When you hit an enemy with an attack roll spell up (PB times per day), You inflict your Cha Modifer in damage and heal half of that amount if under half of your hitpoints
+Power/&AncientForestLifeSapDescription	When you hit an enemy with attack spell while at half-health, you inflict double your Proficiency bonus in Necrotic damage and heal for half of damage dealt
 Power/&AncientForestLifeSapTitle	Life Sap
 Power/&AncientForestRootedPowerDescription	Arboreal tendrils grow from your feet and dig into the ground. Your speed becomes 0, and you gain advantage on any saving throws to push you, pull you, or knock you prone.You can cast entangle at will
 Power/&AncientForestRootedPowerTitle	Rooted
+Power/&DH_ElementalFormPoolDescription	You can switch between elemental forms a number of times (equal to your Proficiency Bonus) per day by channeling elemental energy. You gain resistance to the relevant damage and once per turn, apply Proficiency Bonus as damage of the same type first hit each round. The forms last for 1 minute
+Power/&DH_ElementalFormPoolEnhancedDescription	You can switch between elemental forms a number of times (equal to your Proficiency Bonus) per day by channeling elemental energy. You gain immunity to the relevant damage and apply Proficiency Bonus as damage of the same type to first hit each round. The forms last for 1 minute
+Power/&DH_ElementalFormPoolEnhancedTitle	Elemental Forms
+Power/&DH_ElementalFormPoolTitle	Elemental Forms
+Power/&FindFamiliarBundlePowerDescription	Summon familiar in the form of Pseudorgagon, Sprite, Imp or Quasit.
+Power/&FindFamiliarBundlePowerTitle	Find Familiar
 Power/&HelpActionDescription	You can aid a friendly creature in attacking a creature within 5 feet of you. You feint, distract the target, or in some other way team up to make your ally's attack more effective. If your ally attacks the target before your next turn, the first attack roll is made with advantage
 Power/&HelpActionTitle	Help
 Power/&MoonlitDanceoftheNightSkyDescription	You can cast Fly on 4 targets once per day
@@ -1167,7 +1217,11 @@ Power/&MoonlitDarkMoonTitle	Dark Moon
 Power/&MoonlitFullMoonDescription	You can cast Daylight (PB times per day)
 Power/&MoonlitFullMoonTitle	Full Moon
 Power/&MoonlitMoonTouchedDescription	You conjure the gravitational pull of the moon in a small area, causing creatures who fail a saving throw to float upwards
-Power/&MoonlitMoonTouchedTitle	Moon touched
+Power/&MoonlitMoonTouchedTitle	Moon Touched
+Power/&PactofChainFamiliarInvisibilityPowerDescription	The creature magically turns invisible until it attacks or casts a spell, or until its concentration ends (as if concentrating on a spell). Any equipment the creaure wears or carries is invisible with it
+Power/&PactofChainFamiliarInvisibilityPowerTitle	Invisibility
+Power/&PactofChainFamiliarScarePowerDescription	One creature of your choice within 20 ft. of it must succeed on a DC 10 Wisdom saving throw or be frightened for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success
+Power/&PactofChainFamiliarScarePowerTitle	Scare
 Power/&ToadKingCroakDescription	Emit a wave of sound that causes damage and pushes creatures and objects away
 Power/&ToadKingCroakTitle	Croak
 Power/&ToadKingGraspingTongueDescription	Pull enemies towards yourself
@@ -1265,6 +1319,8 @@ Sorceror/&ZSSorcerousRestorationDescription	Regain 4 sorcery points during a sho
 Sorceror/&ZSSorcerousRestorationTitle	Sorcerous Restoration
 Spell/&AcidClawsDescription	Make a deadly attack with your sharpened claws
 Spell/&AcidClawsTitle	Bloody Claws
+Spell/&AHHellishRebukeDescription	You point your finger, and the creature that damaged you is momentarily surrounded by hellish flames. The creature must make a Dexterity saving throw. It takes 2d10 fire damage on a failed save, or half as much damage on a successful one
+Spell/&AHHellishRebukeTitle	Hellish Rebuke
 Spell/&AHPactMarkAdditionalDamageDescription	An additional 1d6 damage on a pact marked creature
 Spell/&AHPactMarkAdditionalDamageTitle	Pact mark damage
 Spell/&AHPactMarkMarkedByPactConditionDescription	This creature has been marked by a pact and takes extra damage from the marker
@@ -1291,6 +1347,10 @@ Spell/&DHConjureCelestialSpellDescription	You summon a celestial of challenge ra
 Spell/&DHConjureCelestialSpellTitle	Conjure Celestial (Couatl)
 Spell/&DHDominateMonsterSpellDescription	You attempt to beguile a creature that you can see within range. It must succeed on a Wisdom saving throw or be charmed by you for the duration
 Spell/&DHDominateMonsterSpellTitle	Dominate Monster
+Spell/&EldritchBlastGraspingHandDescription	A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage. \n(when you hit a creature with your eldritch blast, you can move that creature in a straight line 10 feet closer to you.)
+Spell/&EldritchBlastGraspingHandTitle	Eldritch Blast (Grasping)
+Spell/&EldritchBlastRepellingBlastDescription	A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage.\n(When you hit a creature with eldritch blast, you can push the creature up to 10 feet away from you in a straight line.)
+Spell/&EldritchBlastRepellingBlastTitle	Eldritch Blast (Repelling)
 Spell/&DHFeeblemindSpellDescription	You blast the mind of a creature that you can see within range, attempting to shatter its intellect and personality. The target takes 4d6 psychic damage and must make an Intelligence saving throw.On a failed save, the creature's Intelligence and Charisma scores become 1. The creature can't cast spells, activate magic items, understand language, or communicate in any intelligible way
 Spell/&DHFeeblemindSpellTitle	Feeblemind
 Spell/&DHFingerOfDeathSpellDescription	The target must make a Constitution saving throw. It takes 7d8 + 30 necrotic damage on a failed save, or half as much damage on a successful one
@@ -1305,7 +1365,7 @@ Spell/&DHMassHealSpellDescription	A flood of healing energy flows from you into 
 Spell/&DHMassHealSpellTitle	Mass Heal
 Spell/&DHMazeSpellDescription	You banish a creature that you can see within range into a labyrinthine demiplane. The target remains there for the duration or until it escapes the maze. /nThe target can use its action to attempt to escape. When it does so, it makes a DC 20 Intelligence check
 Spell/&DHMazeSpellTitle	Maze
-Spell/&DHMeteorSwarmSingleTargetSpellDescription	Blazing orbs of fire plummet to the ground at a single point you can see within range. Each creature in a 40-foot-radius sphere centered on the point you choose must make a Dexterity saving throw. The sphere spreads around corners. A creature takes 20d6 fire damage and 20d6 bludgeoning damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one fiery burst is affected only once
+Spell/&DHMeteorSwarmSingleTargetSpellDescription	Blazing orbs of fire plummet to the ground at a single point you can see within range. Each creature in a 40-foot-radius sphere centered on the point you choose must make a Dexterity saving throw. The sphere spreads around corners. A creature takes 20d6 fire damage and 20d6 bludgeoning damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one fiery burst is affected only once.
 Spell/&DHMeteorSwarmSingleTargetSpellTitle	Meteor Swarm (Single Target)
 Spell/&DHMindBlankSpellDescription	Until the spell ends, one willing creature you touch is immune to psychic damage, any effect that would sense its emotions or read its thoughts, divination spells, and the charmed condition
 Spell/&DHMindBlankSpellTitle	Mind Blank
@@ -1352,8 +1412,6 @@ Spell/&PetalStormDescription	Choose an unoccupied 15-foot cube of air that you c
 Spell/&PetalStormTitle	Petal Storm
 Spell/&ProtectThresholdDescription	Tracing arcane sigils along its boundary, you can ward a doorway, window, or other portal from entry. For the duration, an invisible eldritch creature stalks the warded portal. Any creature that attempts to pass through the portal must make a Wisdom saving throw or take 4d6 psychic damage, or half as much on a successful save
 Spell/&ProtectThresholdTitle	Protect Threshold
-Spell/&RepellingBlastDescription	A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage.\n(When you hit a creature with eldritch blast, you can push the creature up to 10 feet away from you in a straight line.)
-Spell/&RepellingBlastTitle	Eldritch Blast (Repelling)
 Spell/&ThunderStrikeDescription	Create a burst of thundering sound, damaging everyone around you
 Spell/&ThunderStrikeTitle	Sound Burst
 Spell/&WinterBreathDescription	Create a blast of cold wind to chill your enemies and knock them prone
@@ -1543,8 +1601,8 @@ Subclass/&MagicAffinitySpellMasterScribingDescription	Scribing spells takes 1/4 
 Subclass/&MagicAffinitySpellMasterScribingTitle	Master Scriber
 Subclass/&ManipulatorMentalSavingThrowsDescription	Gain proficiency in saving throws with Constitution and Charisma
 Subclass/&ManipulatorMentalSavingThrowsTitle	Mental Resistance
-Subclass/&OpportunistDescription Opportunist are those who never let a chance to finish their enemis slides.They stab fast and stab where it matters. Not many faced them can escaped unscratched
-Subclass/&OpportunistTitle Opportunist
+Subclass/&OpportunistDescription	Opportunist are those who never let a chance to finish their enemis slides.They stab fast and stab where it matters. Not many faced them can escaped unscratched
+Subclass/&OpportunistTitle	Opportunist
 Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponDescription	You infuse your weapon with power. Your attacks count as Magical and you add your +7 to your attack and damage rolls. Note you can only have an infusion active once. Activating it a second time will cancel the first
 Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponTitle	Improved Infuse Weapon
 Subclass/&PowerArtificerBattleSmithInfuseWeaponDescription	You infuse your weapon with power. Your attacks count as Magical and you use your intelligence for attack and damage rolls until the next long rest
@@ -1631,7 +1689,7 @@ Subclass/&TraditionSpellMasterPreparedTitle	Be Prepared
 Subclass/&TraditionSpellMasterSpellResistanceDescription	Your training with magic gives you advantage on saving throws against spells
 Subclass/&TraditionSpellMasterSpellResistanceTitle	Spell Resistance
 Subclass/&TraditionSpellMasterTitle	Spell Master
-Subclass/&WarlockAncientForestDescription	You have forged a relationship with a powerful nature entity: Ancient Dryads, Archdruids , Manifestations of the Feywild bleeding into the material plane, Forgotten gods from a primal age. Your patron may wish for you to protect the natural world, travel to far off lands that it cannot, or it may have another motive that seems inscrutable to short-lived mortals
+Subclass/&WarlockAncientForestDescription	You have forged a relationship with a powerful nature entity: Ancient Dryads, Archdruids, Manifestations of the Feywild bleeding into the material plane, Forgotten gods from a primal age. Your patron may wish for you to protect the natural world, travel to far off lands that it cannot, or it may have another motive that seems inscrutable to short-lived mortals
 Subclass/&WarlockAncientForestTitle	Ancient Forest Pact
 Subclass/&WarlockMoonLitDescription	Your patron is a spirit of the moon, an entity that embodies the cyclical nature of light and darkness. These spirits seek to maintain the power of the moon over the night sky while keeping profane powers that stalk the darkness at bay and task their warlocks with the same, granting them command over the powers of the moon and its effects
 Subclass/&WarlockMoonLitTitle	MoonLit Pact
