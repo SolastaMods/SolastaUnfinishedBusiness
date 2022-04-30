@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using ModKit;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi.Extensions;
 using UnityEngine;
@@ -32,28 +33,92 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        internal static void RecursiveRemoveCustomFeatures(RulesetCharacterHero hero, List<FeatureDefinition> features, string tag)
+        internal static void RecursiveRemoveCustomFeatures(RulesetCharacterHero hero, List<FeatureDefinition> features,
+            string tag)
         {
             foreach (var grantedFeature in features)
             {
+                RemoveCustomFeature(hero, grantedFeature, tag);
                 if (grantedFeature is FeatureDefinitionFeatureSet set && set.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                 {
                     RecursiveRemoveCustomFeatures(hero, set.FeatureSet, tag);
                 }
-                if (grantedFeature is IFeatureDefinitionCustomCode customFeature)
-                {
-                    customFeature.RemoveFeature(hero, tag);
-                }
-                if (grantedFeature is not FeatureDefinitionProficiency featureDefinitionProficiency)
-                {
-                    continue;
-                }
-                if (featureDefinitionProficiency.ProficiencyType != RuleDefinitions.ProficiencyType.FightingStyle)
-                {
-                    continue;
-                }
-                featureDefinitionProficiency.Proficiencies.ForEach(prof => hero.TrainedFightingStyles.Remove(DatabaseRepository.GetDatabase<FightingStyleDefinition>().GetElement(prof, false)));
             }
+        }
+
+        private static void RemoveCustomFeature(RulesetCharacterHero hero, FeatureDefinition feature, string tag)
+        {
+
+            if (feature is IFeatureDefinitionCustomCode customFeature)
+            {
+                customFeature.RemoveFeature(hero, tag);
+            }
+
+            if (feature is not FeatureDefinitionProficiency featureDefinitionProficiency)
+            {
+                return;
+            }
+
+            if (featureDefinitionProficiency.ProficiencyType != RuleDefinitions.ProficiencyType.FightingStyle)
+            {
+                return;
+            }
+
+            featureDefinitionProficiency.Proficiencies.ForEach(prof =>
+                hero.TrainedFightingStyles.Remove(DatabaseRepository.GetDatabase<FightingStyleDefinition>()
+                    .GetElement(prof, false)));
+        }
+
+        public static void RecursiveRemoveFeatures(RulesetCharacterHero hero, List<FeatureDefinition> features,
+            string tag)
+        {
+            var activeFeatures = hero.ActiveFeatures;
+            var heroFeatures = activeFeatures.GetValueOrDefault(tag);
+            if (heroFeatures != null)
+            {
+                foreach (var removed in features)
+                    RemoveHeroFeatureFromList(hero, removed, heroFeatures, tag);
+            }
+        }
+
+        public static void RecursiveRemoveFeature(RulesetCharacterHero hero, FeatureDefinition removed,
+            string tag = null)
+        {
+            var activeFeatures = hero.ActiveFeatures;
+
+            if (tag != null)
+            {
+                var heroFeatures = activeFeatures.GetValueOrDefault(tag);
+                if (heroFeatures != null)
+                    RemoveHeroFeatureFromList(hero, removed, heroFeatures, tag);
+            }
+            else
+            {
+                foreach (var e in activeFeatures)
+                {
+                    if (RemoveHeroFeatureFromList(hero, removed, e.Value, e.Key))
+                        break;
+                }
+            }
+        }
+
+        private static bool RemoveHeroFeatureFromList(RulesetCharacterHero hero, FeatureDefinition feature, List<FeatureDefinition> removeFrom,
+            string tag)
+        {
+            if (removeFrom.Contains(feature))
+            {
+                removeFrom.Remove(feature);
+                RemoveCustomFeature(hero, feature, tag);
+                if (feature is FeatureDefinitionFeatureSet set &&
+                    set.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+                {
+                    RecursiveRemoveFeatures(hero, set.FeatureSet, tag);
+                }
+
+                return true;
+            }
+
+            return false;
         }
 
         internal static void RechargeLinkedPowers(RulesetCharacter character, RuleDefinitions.RestType restType)

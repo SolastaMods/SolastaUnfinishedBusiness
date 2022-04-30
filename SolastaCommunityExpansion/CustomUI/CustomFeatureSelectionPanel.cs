@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using ModKit;
-using SolastaCommunityExpansion.Models;
+using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
@@ -69,6 +69,9 @@ namespace SolastaCommunityExpansion.CustomUI
             stageTitleLabel = spellsPanel.RectTransform.FindChildRecursive("ChoiceTitle").GetComponent<GuiLabel>();
             righrFeaturesLabel = spellsPanel.RectTransform.FindChildRecursive("SpellsInfoTitle").GetComponent<GuiLabel>();
             rightFeaturesDescription = spellsPanel.RectTransform.FindChildRecursive("ProficienciesIntroDescription").GetComponent<GuiLabel>();
+
+            CharacterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
+            currentHero = spellsPanel.GetField<RulesetCharacterHero>("currentHero");
         }
 
         private const float ScrollDuration = 0.3f;
@@ -80,12 +83,17 @@ namespace SolastaCommunityExpansion.CustomUI
         public override string Description => "Custom Feature Panel Description";
         private bool IsFinalStep => this.currentLearnStep == this.allTags.Count;
 
+        private int gainedClassLevel;
+        private CharacterClassDefinition gainedClassDefinition;
+        private CharacterSubclassDefinition gainedSubclassDefinition;
+
         private int currentLearnStep;
         private List<FeaturePool> allTags = new ();
         private bool wasClicked;
 
         public class FeaturePool
         {
+            public string Name { get; set; }
             public string Tag { get; set; }
             public int Max { get; set; }
             public int Used { get; set; }
@@ -94,12 +102,10 @@ namespace SolastaCommunityExpansion.CustomUI
             public readonly List<FeatureDefinition> Learned = new();  
 
 
-            public FeatureDefinitionFeatureSet FeatureSet { get; set; }
+            public CustomFeatureDefinitionSet FeatureSet { get; set; }
         }
 
-        //TODO: get these from character builder
-        private List<FeatureDefinitionFeatureSet> featuresGroupsToSelect;
-        private List<FeatureDefinitionFeatureSet> FeaturesGroupsToSelect => featuresGroupsToSelect ??= GetDummyFeatures();
+        private readonly List<CustomFeatureDefinitionSet> grantedFeatures = new();
 
         private List<FeatureDefinitionFeatureSet> GetDummyFeatures()
         {
@@ -168,12 +174,8 @@ namespace SolastaCommunityExpansion.CustomUI
 
         public override void UpdateRelevance()
         {
-            RulesetCharacterHero hero = this.currentHero;
-            CharacterHeroBuildingData heroBuildingData = hero.GetHeroBuildingData();
-
-            //TODO: check if we have any custom features for selection
-
-            this.IsRelevant = true;
+            UpdateGrantedFeatures();
+            this.IsRelevant = !grantedFeatures.Empty();
         }
 
         public override void EnterStage()
@@ -281,7 +283,7 @@ namespace SolastaCommunityExpansion.CustomUI
             string lastTag = currentTag;
             if (this.IsFinalStep)
             {
-                lastTag = this.allTags[this.allTags.Count - 1].Tag;
+                lastTag = this.allTags[this.allTags.Count - 1].Name;
             }
 
             int requiredSpellGroups = 1;
@@ -420,8 +422,7 @@ namespace SolastaCommunityExpansion.CustomUI
 
         public void MoveToPreviousLearnStep(bool refresh = true, Action onDone = null)
         {
-            IHeroBuildingCommandService heroBuildingCommandService =
-                ServiceRepository.GetService<IHeroBuildingCommandService>();
+            var heroBuildingCommandService = ServiceRepository.GetService<IHeroBuildingCommandService>();
 
             if (this.currentLearnStep > 0)
             {
@@ -456,34 +457,82 @@ namespace SolastaCommunityExpansion.CustomUI
             return false;
         }
 
+        private void UpdateGanedClassDetals()
+        {
+            // Determine the last class and level
+            CharacterBuildingService.GetLastAssignedClassAndLevel(currentHero, out gainedClassDefinition, out gainedClassLevel);
+            if (gainedClassDefinition == null) { return; }
+            // Was there already a subclass?
+            gainedSubclassDefinition = null;
+            if (currentHero.ClassesAndSubclasses.ContainsKey(gainedClassDefinition))
+            {
+                gainedSubclassDefinition = currentHero.ClassesAndSubclasses[gainedClassDefinition];
+            }
+        }
+
+        private void UpdateGrantedFeatures()
+        {
+            UpdateGanedClassDetals();
+            
+            grantedFeatures.Clear();
+
+            if (gainedClassDefinition == null) { return; }
+
+            grantedFeatures.AddRange(gainedClassDefinition.FeatureUnlocks
+                .Where(f => f.Level == gainedClassLevel)
+                .Select(f => f.FeatureDefinition as CustomFeatureDefinitionSet)
+                .Where(f => f != null)
+            );
+
+            if (gainedSubclassDefinition != null)
+            {
+                grantedFeatures.AddRange(gainedSubclassDefinition.FeatureUnlocks
+                    .Where(f => f.Level == gainedClassLevel)
+                    .Select(f => f.FeatureDefinition as CustomFeatureDefinitionSet)
+                    .Where(f => f != null)
+                );
+            }
+        }
+
         private void CollectTags()
         {
+            UpdateGrantedFeatures();
+            
+            var poolTag = gainedSubclassDefinition == null 
+                ? AttributeDefinitions.GetClassTag(gainedClassDefinition, gainedClassLevel) 
+                : AttributeDefinitions.GetSubclassTag(gainedClassDefinition, gainedClassLevel, gainedSubclassDefinition);
+            
+            //TODO: handle unlean types
+            //TODO: sort features properly
+            
             allTags.Clear();
             Dictionary<string, FeaturePool> tags = new();
-            foreach (var featureSet in FeaturesGroupsToSelect)
+            foreach (var featureSet in grantedFeatures)
             {
-                var tagName = featureSet.Name;
-                if(!tags.ContainsKey(tagName))
+                var poolName = featureSet.Name;
+                if(!tags.ContainsKey(poolName))
                 {
                     var pool = new FeaturePool {
-                        Tag = tagName,
+                        Name = poolName,
+                        Tag = poolTag,
                         Max = 1, 
-                        Used = 0, //need to check if right
+                        Used = 0,
                         FeatureSet = featureSet
                     };
-                    tags.Add(tagName, pool);
+                    Main.Log($"CollectTags '{poolName}'[{poolTag}] features:{featureSet.FeatureSet.Count}");
+                    tags.Add(poolName, pool);
                     allTags.Add(pool);
                 }
                 else
                 {
-                    tags[tagName].Max++;
+                    tags[poolName].Max++;
                 }
             }
         }
 
         private FeaturePool GetPoolByTag(string tagName)
         {
-            return allTags.FirstOrDefault(p => p.Tag == tagName);
+            return allTags.FirstOrDefault(p => p.Name == tagName);
         }
 
         private void BuildLearnSteps()
@@ -536,8 +585,7 @@ namespace SolastaCommunityExpansion.CustomUI
                 this.ResetLearnings(i);
             }
 
-            IHeroBuildingCommandService heroBuildingCommandService =
-                ServiceRepository.GetService<IHeroBuildingCommandService>();
+            var heroBuildingCommandService = ServiceRepository.GetService<IHeroBuildingCommandService>();
             heroBuildingCommandService.AcknowledgePreviousCharacterBuildingCommandLocally(this.OnCancelStageDone);
         }
 
@@ -682,7 +730,7 @@ namespace SolastaCommunityExpansion.CustomUI
             LearnStepItem.ButtonActivatedHandler onResetActivated,
             LearnStepItem.ButtonActivatedHandler onAutoSelectActivated)
         {
-            instance.Tag = pool.Tag;
+            instance.Tag = pool.Name;
             instance.PoolType = HeroDefinitions.PointsPoolType.Irrelevant;
             instance.SetField("rank", rank);
             instance.SetField("ignoreAvailable", false);
@@ -761,11 +809,12 @@ namespace SolastaCommunityExpansion.CustomUI
             bool canAcquireFeatures,
             bool unlearn, SpellBox.SpellBoxChangedHandler spellBoxChanged)
         {
-            FeatureDefinitionFeatureSet featureSet = pool.FeatureSet;
+            var featureSet = pool.FeatureSet;
             instance.name = $"Feature[{featureSet.Name}]";
 
             // instance.CommonBind( null, unlearn ? SpellBox.BindMode.Unlearn : SpellBox.BindMode.Learning, spellBoxChanged, new List<SpellDefinition>(), null, new List<SpellDefinition>(), new List<SpellDefinition>(), "");
             var allFeatures = featureSet.FeatureSet;
+            Main.Log($"[ENDER] CustomFeatureBind {featureSet.Name}, features: {allFeatures.Count}");
             //TODO: implement proper sorting
             //allSpells.Sort((IComparer<SpellDefinition>) instance);
 
