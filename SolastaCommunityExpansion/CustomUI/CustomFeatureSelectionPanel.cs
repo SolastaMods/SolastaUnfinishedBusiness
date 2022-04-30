@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using ModKit;
+using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi;
+using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -837,7 +839,7 @@ namespace SolastaCommunityExpansion.CustomUI
                 SpellBox.BindMode bindMode = unlearn ? SpellBox.BindMode.Unlearn : SpellBox.BindMode.Learning;
 
                 // box.Bind(guiSpellDefinition1, null, false, null, isUnlearned, bindMode, spellBoxChanged);
-                box.CustomFeatureBind(feature, isUnlearned, bindMode, spellBoxChanged);
+                box.CustomFeatureBind(feature, featureSet, isUnlearned, bindMode, spellBoxChanged);
             }
 
             //disable unneeded spell boxes
@@ -930,7 +932,7 @@ namespace SolastaCommunityExpansion.CustomUI
             return Features.GetValueOrDefault(box);
         }
 
-        public static void CustomFeatureBind(this SpellBox instance, FeatureDefinition feature, bool unlearned,
+        public static void CustomFeatureBind(this SpellBox instance, FeatureDefinition feature, CustomFeatureDefinitionSet setFeature, bool unlearned,
             SpellBox.BindMode bindMode, SpellBox.SpellBoxChangedHandler spellBoxChanged)
         {
             Features.AddOrReplace(instance, feature);
@@ -949,7 +951,7 @@ namespace SolastaCommunityExpansion.CustomUI
             instance.SetField("autoPrepared", false);
             instance.SetField("unlearnedSpell", unlearned);
             image.color = Color.white;
-            SetupUI(instance.GetField<GuiLabel>("titleLabel"), image, instance.GetField<GuiTooltip>("tooltip"), feature);
+            SetupUI(instance.GetField<GuiLabel>("titleLabel"), image, instance.GetField<GuiTooltip>("tooltip"), feature, setFeature.GuiPresentation);
             instance.transform.localScale = new Vector3(1f, 1f, 1f);
 
             GuiModifier component =
@@ -983,9 +985,10 @@ namespace SolastaCommunityExpansion.CustomUI
                 imageComponent.gameObject.SetActive(false);
         }
 
-        public static void SetupUI(GuiLabel title, Image image, GuiTooltip tooltip, FeatureDefinition feature)
+        public static void SetupUI(GuiLabel title, Image image, GuiTooltip tooltip, FeatureDefinition feature,
+            GuiPresentation setPresentation)
         {
-            var guiPresentation = feature.GuiPresentation;
+            var presentation = new GuiPresentationBuilder(feature.GuiPresentation).Build();
             if (feature is FeatureDefinitionPower power)
             {
                 var gui = ServiceRepository.GetService<IGuiWrapperService>().GetGuiPowerDefinition(power.Name);
@@ -1006,8 +1009,13 @@ namespace SolastaCommunityExpansion.CustomUI
                 tooltip.DataProvider = null;
             }
 
-            title.Text = guiPresentation.Title;
-            SetupSprite(image, guiPresentation);
+            if (presentation.SpriteReference == null || presentation.SpriteReference == GuiPresentationBuilder.EmptySprite)
+            {
+                presentation.SetSpriteReference(setPresentation.SpriteReference);
+            }
+
+            title.Text = presentation.Title;
+            SetupSprite(image, presentation);
         }
 
         public static void CustomUnbind(this SpellBox instance)
