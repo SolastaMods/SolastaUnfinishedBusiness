@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using ModKit;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Models;
@@ -8,22 +9,74 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.CustomDefinitions
 {
-    public class CustomFeatureDefinitionSet : FeatureDefinition, IFeatureDefinitionCustomCode//TODO: do we actually need custom code?
+    public class CustomFeatureDefinitionSet : FeatureDefinition
     {
-        public List<FeatureDefinition> FeatureSet { get; set; } = new();
+        private bool _fullSetIsDirty = false;
+        private readonly List<FeatureDefinition> _allFeatureSet = new();
+        private Dictionary<int, List<FeatureDefinition>> FeaturesByLevel  = new();
+        public int TotalLevels => FeaturesByLevel.Count;
+        public List<int> AllLevels => FeaturesByLevel.Select(e=>e.Key).ToList();
 
-        public void ApplyFeature(RulesetCharacterHero hero, string tag)
+        public List<FeatureDefinition> AllFeatures
         {
-            //TODO: do nothing, since we will actually grant features in the levelup screen
-            // ServiceRepository.GetService<ICharacterBuildingService>()
-            //     .GrantFeatures(hero, FeatureSet, tag);
+            get
+            {
+                if (_fullSetIsDirty)
+                {
+                    _allFeatureSet.SetRange(FeaturesByLevel.SelectMany(e => e.Value));
+                    _fullSetIsDirty = false;
+                }
+
+                return _allFeatureSet;
+            }
         }
 
-        public void RemoveFeature(RulesetCharacterHero hero, string tag)
+        private List<FeatureDefinition> GetOrMakeLevelFeatures(int level)
         {
-            //TODO: do nothing, since we will actually remove features in the levelup screen
-            // CustomFeaturesContext.RecursiveRemoveFeatures(hero, FeatureSet, tag);
+            List<FeatureDefinition> levelFeatures;
+            if (!FeaturesByLevel.ContainsKey(level))
+            {
+                levelFeatures = new List<FeatureDefinition>();
+                FeaturesByLevel.Add(level, levelFeatures);
+            }
+            else
+            {
+                levelFeatures = FeaturesByLevel[level];
+            }
+
+            return levelFeatures;
         }
+
+        public void AddLevelFeatures(int level, params FeatureDefinition[] features)
+        {
+            GetOrMakeLevelFeatures(level).AddRange(features);
+            _fullSetIsDirty = true;
+        }
+        
+        public void AddLevelFeatures(int level, List<FeatureDefinition> features)
+        {
+            GetOrMakeLevelFeatures(level).AddRange(features);
+            _fullSetIsDirty = true;
+        }
+        
+        public void SetLevelFeatures(int level, params FeatureDefinition[] features)
+        {
+            GetOrMakeLevelFeatures(level).SetRange(features);
+            _fullSetIsDirty = true;
+        }
+        
+        public void SetLevelFeatures(int level, List<FeatureDefinition> features)
+        {
+            GetOrMakeLevelFeatures(level).SetRange(features);
+            _fullSetIsDirty = true;
+        }
+
+        public List<FeatureDefinition> GetLevelFeatures(int level)
+        {
+            //TODO: decide if we want to wrap this into new list, to be sure htis one is immutable
+            return FeaturesByLevel.GetValueOrDefault(level);
+        }
+
     }
 
     public class CustomFeatureDefinitionSetBuilder : FeatureDefinitionBuilder<CustomFeatureDefinitionSet,
@@ -45,15 +98,27 @@ namespace SolastaCommunityExpansion.CustomDefinitions
         {
         }
 
-        public CustomFeatureDefinitionSetBuilder SetFeatureSet(params FeatureDefinition[] features)
+        public CustomFeatureDefinitionSetBuilder AddLevelFeatures(int level, params FeatureDefinition[] features)
         {
-            Definition.FeatureSet.SetRange(features);
+            Definition.AddLevelFeatures(level, features);
+            return this;
+        }
+
+        public CustomFeatureDefinitionSetBuilder AddLevelFeatures(int level, List<FeatureDefinition> features)
+        {
+            Definition.AddLevelFeatures(level, features);
             return this;
         }
         
-        public CustomFeatureDefinitionSetBuilder SetFeatureSet(IEnumerable<FeatureDefinition> features)
+        public CustomFeatureDefinitionSetBuilder SetLevelFeatures(int level, params FeatureDefinition[] features)
         {
-            Definition.FeatureSet.SetRange(features);
+            Definition.SetLevelFeatures(level, features);
+            return this;
+        }
+
+        public CustomFeatureDefinitionSetBuilder SetLevelFeatures(int level, List<FeatureDefinition> features)
+        {
+            Definition.SetLevelFeatures(level, features);
             return this;
         }
     }
@@ -112,6 +177,5 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             Definition.FeatureToRemove = feature;
             return this;
         }
-        
     }
 }
