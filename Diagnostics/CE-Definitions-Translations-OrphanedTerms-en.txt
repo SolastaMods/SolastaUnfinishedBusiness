@@ -21,7 +21,7 @@ Feat/&ConstructSelectingPoolTitle	Artillery Mode
 Feat/&FeatSavageAttackerReroll	Due to being a Savage Attacker {0} rerolls the {1} die from a {2} to a {3}
 Feat/&FightingStyleGeneralFeatDescription	You can select a fighting style
 Feat/&FightingStyleGeneralFeatitle	Fighting Style
-Feat/&FlameArtilleryConstructDescription_3	Creates a cone of fire that deals 3D8 damage on a failed save.
+Feat/&FlameArtilleryConstructDescription_3	Creates a cone of fire that deals 3D8 damage on a failed save
 Feat/&ForceArtillery_2Description	3D8 Force damage and push target 5ft
 Feat/&ForceArtillery_2Title	Force Artillery (Improved)
 Feat/&ForceStrikePowerDescription	Ranged attack 1d6 force damage from your trusty sidekick
@@ -108,7 +108,7 @@ Feedback/&AdditionalDamageArcanistMarkLine	Arcanist's Mark detonates and deals e
 Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeFormat	Illuminating Strike!
 Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeLine	Illuminating Strike deals extra damage to the target!
 Feedback/&AdditionalDamageBlindingWeaponStrikeFormat	Blinding Weapon
-Feedback/&AdditionalDamageBlindingWeaponStrikeLine	Additional damage and trying to apply Blindness from Blinding Weapon.
+Feedback/&AdditionalDamageBlindingWeaponStrikeLine	Additional damage and trying to apply Blindness from Blinding Weapon
 Feedback/&AdditionalDamageElementalDamageFormat	Elemental Damage
 Feedback/&AdditionalDamageElementalDamageLine	Elemental form grants additional damage
 Feedback/&AdditionalDamagePactMarkedFormat	Pact mark!
