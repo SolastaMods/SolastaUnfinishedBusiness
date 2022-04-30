@@ -366,8 +366,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .Add(FeatureDefinitionCampAffinitys.CampAffinityElfTrance);
             ((FeatureDefinitionFeatureSet)EldritchInvocations["AspectoftheMoon"]).FeatureSet
                 .Add(FeatureDefinitionCampAffinitys.CampAffinityDomainOblivionPeacefulRest);
-            //((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["AspectoftheMoon"]).Validators.SetRange(() =>
-            //    Global.ActiveLevelUpHeroHasFeature(DHPactOfTheTomeFeatureSetBuilder.DHPactOfTheTomeFeatureSet, recursive: false));
+            ((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["AspectoftheMoon"]).Validators.SetRange(RequirePactOfTheTome);
 
             ((FeatureDefinitionFeatureSet)EldritchInvocations["BeguilingInfluence"]).FeatureSet
                 .Add(FeatureDefinitionProficiencys.ProficiencyFeatManipulatorSkillOrExpertise);
@@ -449,11 +448,18 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .AddToDB();
 
             ((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["OneWithShadows"]).FeatureSet.Add(OneWithShadowsLightAffinity);
-            ((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["OneWithShadows"]).Validators.SetRange(() => !Global.ActiveLevelUpHeroHasSubclass("MoonLit")?null:"Can't be moonlit warlock");
+            ((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["OneWithShadows"]).Validators.SetRange(
+                () => !Global.ActiveLevelUpHeroHasSubclass("MoonLit")
+                        ? null
+                        : "Requirement/&WarlockRequiresNoMoonLit"
+            );
 
             ((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["OneWithShadowsStronger"]).FeatureSet.Add(OneWithShadowsLightAffinityStrong);
-            ((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["OneWithShadowsStronger"]).Validators.SetRange(() => 
-                Global.ActiveLevelUpHeroHasFeature(OneWithShadowsLightAffinity)?null:"Requires One with Shadows");
+            ((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["OneWithShadowsStronger"]).Validators
+                .SetRange(() => Global.ActiveLevelUpHeroHasFeature(OneWithShadowsLightAffinity)
+                        ? null
+                        : "Requirement/&WarlockRequiresOneWithShadows"
+                );
 
             ((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["DevilsSight"]).FeatureSet
                 .AddRange(IgnoreDynamicVisionImpairmentBuilder
