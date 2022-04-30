@@ -381,7 +381,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             
             ((FeatureDefinitionFeatureSet)EldritchInvocations["GiftoftheEverLivingOnes"]).FeatureSet
                 .Add(FeatureDefinitionHealingModifiers.HealingModifierBeaconOfHope);
-            ((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["GiftoftheEver-LivingOnes"]).Validators.SetRange(RequirePactOfTheChain);
+            ((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["GiftoftheEverLivingOnes"]).Validators.SetRange(RequirePactOfTheChain);
 
             ((FeatureDefinitionFeatureSet)EldritchInvocations["ImprovedPactWeapon"]).FeatureSet
                 .Add(FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon);
