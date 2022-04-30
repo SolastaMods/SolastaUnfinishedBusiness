@@ -3,7 +3,7 @@
   "notificationTag": "ElementalDamage",
   "limitedUsage": "OncePerTurn",
   "triggerCondition": "AlwaysActive",
-  "requiredProperty": "MeleeWeapon",
+  "requiredProperty": "None",
   "attackModeOnly": false,
   "requiredTargetCondition": null,
   "requiredTargetSenseType": "Darkvision",
@@ -38,8 +38,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Elemental Damage : Shadow Plane",
-    "description": "When channeling the elemental Shadow Plane, additional Necrotic damage, equal to your Proficiency Bonus, is added to the total",
+    "title": "Elemental Damage: Shadow Plane",
+    "description": "When channeling Shadow Plane, deal additional Necrotic damage equal to your Proficiency Bonus on a first hit each round",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -59,7 +59,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ea4f3efd-1394-5a0c-8048-bc87ee5550fe",
+  "guid": "1293403b-ed47-5411-b02c-b7ddaadb158d",
   "contentPack": 9999,
-  "name": "DH_ElementalForm_ShadowadditionalDamage"
+  "name": "DH_ElementalForm_ShadowAdditionalDamage"
 }

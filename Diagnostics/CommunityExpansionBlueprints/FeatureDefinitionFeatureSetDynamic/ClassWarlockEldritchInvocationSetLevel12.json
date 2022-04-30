@@ -1,0 +1,63 @@
+{
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFeatureSetDynamic, SolastaCommunityExpansion",
+  "featureSet": [
+    "Definition:AgonizingBlast:ff999317-ee12-5d0e-b1e5-6f7d21fa7d18",
+    "Definition:EldritchInvocationMageArmor:af6408de-f6a6-525d-9b25-2497af1890ab",
+    "Definition:EldritchInvocationLevitate:f7005fc1-c45b-5b53-8444-dcc6f00df51d",
+    "Definition:EldritchInvocationAspectoftheMoon:7a55fd85-c0ba-5fb8-b691-954b08b2da9e",
+    "Definition:EldritchInvocationBeguilingInfluence:7f28c64c-e00f-5bb2-bb3f-e8dd4136e285",
+    "Definition:EldritchInvocationOneWithShadowsStronger:988cff74-bdb6-51a7-90a4-1c9d00bd1758",
+    "Definition:EldritchInvocationDevilsSight:a4d029fc-d687-5479-a17b-7502ad787ce9",
+    "Definition:EldritchInvocationConfusion:615697b4-2cac-5366-8de1-6d3ab30c2dfc",
+    "Definition:EldritchInvocationEldritchMind:8902813f-af20-5421-8db2-31aff08daf06",
+    "Definition:EldritchInvocationDetectMagic:a86d2285-95da-518c-9c54-d866d8dd3864",
+    "Definition:EldritchInvocationEldritchSmite:4d240cd4-e75c-5ebe-9eff-7bdc38b1c1f2",
+    "Definition:EldritchInvocationEyesoftheRuneKeeper:ea3a01a4-c636-5879-aee5-ba8a78667e25",
+    "Definition:EldritchInvocationFreedomOfMovement:1d57370a-e4a9-54c7-8d51-bc403dc8bf35",
+    "Definition:EldritchInvocationFalseLife:55f44659-b729-53ce-9ca8-084a11273a21",
+    "Definition:EldritchInvocationGiftoftheEver-LivingOnes:29d3131d-56e7-5229-8a22-27e096fc0727",
+    "Definition:EldritchInvocationGiftoftheProtectors:8832c669-f58b-512f-9d26-0d3e10cd5591",
+    "Definition:EldritchBlastGraspingHandBonusCantrip:a9369019-acb0-5154-a31b-9dfa1434f203",
+    "Definition:HinderingBlast:2b63b3b0-0c19-58b4-876e-bf4630e47100",
+    "Definition:EldritchInvocationImprovedPactWeapon:ee7da310-6625-52b9-8098-1340da878a30",
+    "Definition:EldritchInvocationSlow:49eba438-09e9-500d-8523-b90ef92d5a5c",
+    "Definition:EldritchInvocationOneWithShadows:2706b71f-742b-57eb-aceb-66145b0f30eb",
+    "Definition:EldritchInvocationJump:8b98561b-b26b-5b46-a236-31ff0388a8a2",
+    "Definition:EldritchBlastRepellingBlastBonusCantrip:f7873672-9677-55e7-8cc4-8c04d3e9006c",
+    "Definition:EldritchInvocationBondoftheTalisman:37052b1b-f9a5-5412-8620-108fbf677794",
+    "Definition:EldritchInvocationBane:9e3d3c15-8341-57fb-a6dc-f738eb87a95c",
+    "Definition:EldritchInvocationThirstingBlade:5481d702-df6a-5e0c-8316-087e2959d115"
+  ],
+  "mode": "Exclusion",
+  "defaultSelection": 0,
+  "uniqueChoices": true,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&ClassWarlockEldritchInvocationSetLevelTitle",
+    "description": "Feature/&ClassWarlockEldritchInvocationSetLevelDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "48a56b93-fee0-5d5d-9dba-99dff63f6681",
+  "contentPack": 9999,
+  "name": "ClassWarlockEldritchInvocationSetLevel12"
+}

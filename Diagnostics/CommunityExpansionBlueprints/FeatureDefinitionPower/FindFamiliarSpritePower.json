@@ -3,7 +3,7 @@
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Distance",
-    "rangeParameter": 1,
+    "rangeParameter": 2,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "Position",
@@ -73,14 +73,14 @@
         "summonForm": {
           "$type": "SummonForm, Assembly-CSharp",
           "summonType": "Creature",
-          "itemDefinition": "Definition::",
+          "itemDefinition": null,
           "trackItem": false,
           "monsterDefinitionName": "PactOfChainCustomSprite",
           "number": 1,
           "conditionDefinition": "Definition:ConditionFlyingBootsWinged:83fc6ceb7037bcb41b2fc67df5595685",
-          "persistOnConcentrationLoss": true,
+          "persistOnConcentrationLoss": false,
           "decisionPackage": null,
-          "effectProxyDefinitionName": ""
+          "effectProxyDefinitionName": null
         }
       }
     ],
@@ -308,13 +308,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&FindFamiliarSpriteDescription",
-    "description": "Spell/&FindFamiliarSpriteTitle",
+    "title": "Spell/&FindFamiliarSpriteTitle",
+    "description": "Spell/&FindFamiliarSpriteDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "ef04bbcc76713dc45bd995276e01dd7a",
+      "m_SubObjectName": "Dryad",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

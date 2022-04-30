@@ -3,11 +3,11 @@
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Distance",
-    "rangeParameter": 1,
+    "rangeParameter": 2,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "Position",
-    "itemSelectionType": "Equiped",
+    "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 1,
     "emissiveBorder": "None",
@@ -73,14 +73,14 @@
         "summonForm": {
           "$type": "SummonForm, Assembly-CSharp",
           "summonType": "Creature",
-          "itemDefinition": "Definition::",
+          "itemDefinition": null,
           "trackItem": false,
-          "monsterDefinitionName": "PactOfChainCustomPseudodragon",
+          "monsterDefinitionName": "PactOfChainDragon",
           "number": 1,
           "conditionDefinition": "Definition:ConditionFlyingBootsWinged:83fc6ceb7037bcb41b2fc67df5595685",
-          "persistOnConcentrationLoss": true,
+          "persistOnConcentrationLoss": false,
           "decisionPackage": null,
-          "effectProxyDefinitionName": ""
+          "effectProxyDefinitionName": null
         }
       }
     ],
@@ -308,13 +308,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&FindFamiliarPsuedodragonDescription",
-    "description": "Spell/&FindFamiliarPsuedodragonTitle",
+    "title": "Spell/&FindFamiliarPsuedodragonTitle",
+    "description": "Spell/&FindFamiliarPsuedodragonDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "c1725967e6fb36e4fa658a371a703e4b",
+      "m_SubObjectName": "CustomPortrait_Young_GreenDragon",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

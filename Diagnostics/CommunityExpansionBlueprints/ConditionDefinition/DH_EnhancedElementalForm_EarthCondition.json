@@ -4,8 +4,8 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:DamageAffinityBludgeoningResistance:956f9745b15c6904d87322861723d5c7",
-    "Definition:DH_ElementalForm_EarthadditionalDamage:19a27d3a-bd2b-56f3-bfc5-024b5e3ddc31"
+    "Definition:DamageAffinityBludgeoningImmunity:a260a40c93a840444894b813253ee9fb",
+    "Definition:DH_ElementalForm_EarthAdditionalDamage:cf6726dc-4b3d-5c47-aef8-9885c52c9ea0"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -119,11 +119,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Elemental Form : Earth Plane Condition",
-    "description": "When channeling the elemental  Earth Plane, you gain Immunity to Bludgeoning damage and once per turn, apply damage of the same type to your attack",
+    "title": "Channeling Earth Plane",
+    "description": "Deal additional Bludgeoning damage equal to your Proficiency Bonus on a first hit each round",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "762fc2db21c656b6b5423a25e61f3ed5",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
