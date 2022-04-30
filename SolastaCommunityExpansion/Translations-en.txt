@@ -888,7 +888,7 @@ Feature/&ElementalPatronElementalFormEnhancedFormatDescription	When channeling t
 Feature/&ElementalPatronElementalFormEnhancedFormatTitle	Channeling {0}
 Feature/&ElementalPatronElementalFormFormatDescription	When channeling the {0}, you gain Resistance to {1} damage and apply Proficiency Bonus as damage of the same type to first hit each round. 
 Feature/&ElementalPatronElementalFormFormatTitle	{0}
-Feature/&ElementalPatronFeatureSet_Level01Description	<size=17><color=#add8e6ff>Learn Elementalist Spells</color></size>\nLevel 1: Fog Cloud, Thunderwave\nLevel 2: Spike Growth, Scorching Ray\nLevel 3: Lightning Bolt, Fireball \nLevel 4: Stoneskin, Icestorm\nLevel 5: Cone of Cold, Flame Strike\n\n<size=17><color=#add8e6ff>Elemental Forms</color></size>\nYou can switch between elemental forms a number of times (equal to your Proficiency Bonus) per day by channeling elemental energy. You gain resistance to the relevant damage and once per turn, apply damage of the same type to your attacks. The forms last for 1 minute
+Feature/&ElementalPatronFeatureSet_Level01Description	<size=17><color=#add8e6ff>Elementalist Spells</color></size>\nLevel 1: Fog Cloud, Thunderwave\nLevel 2: Spike Growth, Scorching Ray\nLevel 3: Lightning Bolt, Fireball \nLevel 4: Stoneskin, Icestorm\nLevel 5: Cone of Cold, Flame Strike\n\n<size=17><color=#add8e6ff>Elemental Forms</color></size>\nYou can switch between elemental forms a number of times (equal to your Proficiency Bonus) per day by channeling elemental energy. You gain resistance to the relevant damage and once per turn, apply damage of the same type to your attacks. The forms last for 1 minute
 Feature/&ElementalPatronFeatureSet_Level01Title	Elementalist
 Feature/&ElementalPatronFeatureSet_Level06Description	<size=17><color=#add8e6ff>Elemental Knowledge</color></size>\nYou knowledge of elementals has increased to the point that you now gain advantage on ability checks towards elementals, and deal additional damage against elementals equal to your knowledge level. You can no longer be charmed or frightened by elementals
 Feature/&ElementalPatronFeatureSet_Level06Title	Elementalist
@@ -915,8 +915,8 @@ Feature/&GambitResourcePoolAddDescription	Adds an additional gambit die
 Feature/&GambitResourcePoolAddTitle	Additional Gambit die.
 Feature/&GambitResourcePoolDescription	Pool of gambit dice that can be spent on gambits. Starts with 4 they recharge on short rest
 Feature/&GambitResourcePoolTitle	Gambit dice pool.
-Feature/&GiftoftheEver-LivingOnesDescription	Regains the maximum number of hit points possible from any healing
-Feature/&GiftoftheEver-LivingOnesTitle	Gift of the Ever-Living Ones
+Feature/&GiftoftheEverLivingOnesDescription	Regains the maximum number of hit points possible from any healing
+Feature/&GiftoftheEverLivingOnesTitle	Gift of the Ever-Living Ones
 Feature/&GiftoftheProtectorsDescription	Whenyou are reduced to 0 hit points but not killed outright, the creature magically drops to 1 hit point instead. Once this magic is triggered, you cant benefit from it until you finish a long rest
 Feature/&GiftoftheProtectorsTitle	Gift of the Protectors
 Feature/&GnomeCunningFeatureDescription	You have advantage on all Intelligence, Wisdom, and Charisma saves against magic
@@ -958,7 +958,7 @@ Feature/&MiretheMindTitle	Mire the Mind
 Feature/&MoonLitDarknessImmunityDescription	You are Immune to the Darkness condition
 Feature/&MoonLitDarknessImmunityTitle	MoonLit Darkness
 Feature/&MoonLitExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: \n Level 1: Faerie Fire, Sleep \n Level 2: Moon Beam, See Invisibility \n Level 3: Daylight, Hypnotic Pattern \n Level 4: Greater Invisibility, Dominate Beast \n Level 5: Dominate Person, Flame Strike
-Feature/&MoonLitExpandedSpelllistAfinityTitle	MoonLit Spelllist
+Feature/&MoonLitExpandedSpelllistAfinityTitle	MoonLit Spells
 Feature/&MoonLitLightAffinityDescription	If you start your turn in natural darkness you gain invisibility. Moving, attacking or using any power or spell that isn't teleport or self-buff breaks invisibility
 Feature/&MoonLitLightAffinityStrongDescription	Umbral Cloak now works in dim light and magical darkness
 Feature/&MoonLitLightAffinityStrongTitle	Improved Umbral Cloak
@@ -1028,7 +1028,7 @@ Feature/&RangerVanishActionDescription	Starting at 14th level, you can use the H
 Feature/&RangerVanishActionTitle	Vanish
 Feature/&RiftWalkerRestrainedImmunityTitle	Fleeting Step
 Feature/&RiftWalkerSpellsMagicAffinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: \n Level 1: Jump, Longstrider \n Level 2: Blur, Pass Without Trace \n Level 3: Haste, Slow \n Level 4: Freedom Of Movement, Greater Invisibility \n Level 5: Mind Twist, Dispel Evil And Good
-Feature/&RiftWalkerSpellsMagicAffinityTitle	Learn Rift Walker Spells
+Feature/&RiftWalkerSpellsMagicAffinityTitle	Rift Walker Spells
 Feature/&RoyalEnvoyFeatureDescription	Add half of your proficiency bonus (round up) to any Charisma check you make that doesn't already use your proficiency bonus. In addition, you become proficient with Charisma saving throws
 Feature/&RoyalEnvoyFeatureTitle	Royal Envoy
 Feature/&SavingThrowTinkererProficiencyDescription	Proficiency in Constitution and Intelligence saving throws
