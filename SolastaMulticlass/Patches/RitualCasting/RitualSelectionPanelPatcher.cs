@@ -16,17 +16,12 @@ namespace SolastaMulticlass.Patches.RitualCasting
                 var enumerateUsableRitualSpellsMethod = typeof(RulesetCharacter).GetMethod("EnumerateUsableRitualSpells");
                 var myEnumerateUsableRitualSpellsMethod = typeof(RitualSelectionPanelBind).GetMethod("EnumerateUsableRitualSpells");
 
-                foreach (CodeInstruction instruction in instructions)
-                {
-                    if (instruction.Calls(enumerateUsableRitualSpellsMethod))
-                    {
-                        yield return new CodeInstruction(OpCodes.Call, myEnumerateUsableRitualSpellsMethod);
-                    }
-                    else
-                    {
-                        yield return instruction;
-                    }
-                }
+                var code = instructions.ToList();
+                var index = code.FindIndex(x => x.Calls(enumerateUsableRitualSpellsMethod));
+
+                code[index] = new CodeInstruction(OpCodes.Call, myEnumerateUsableRitualSpellsMethod);
+
+                return code;
             }
 
             public static void EnumerateUsableRitualSpells(

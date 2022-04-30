@@ -38,17 +38,12 @@ namespace SolastaMulticlass.Patches.LevelUp
                 var getLastAssignedClassAndLevelMethod = typeof(ICharacterBuildingService).GetMethod("GetLastAssignedClassAndLevel");
                 var customGetLastAssignedClassAndLevelMethod = typeof(CharacterStageLevelGainsPanelEnterStage).GetMethod("GetLastAssignedClassAndLevel");
 
-                foreach (var instruction in instructions)
-                {
-                    if (instruction.Calls(getLastAssignedClassAndLevelMethod))
-                    {
-                        yield return new CodeInstruction(OpCodes.Call, customGetLastAssignedClassAndLevelMethod);
-                    }
-                    else
-                    {
-                        yield return instruction;
-                    }
-                }
+                var code = instructions.ToList();
+                var index = code.FindIndex(x => x.Calls(getLastAssignedClassAndLevelMethod));
+
+                code[index] = new CodeInstruction(OpCodes.Call, customGetLastAssignedClassAndLevelMethod);
+
+                return code;
             }
         }
 
@@ -75,17 +70,12 @@ namespace SolastaMulticlass.Patches.LevelUp
                 var spellRepertoiresMethod = typeof(RulesetCharacter).GetMethod("get_SpellRepertoires");
                 var filteredSpellRepertoiresMethod = typeof(CharacterStageLevelGainsPanelRefreshSpellcastingFeatures).GetMethod("SpellRepertoires");
 
-                foreach (var instruction in instructions)
-                {
-                    if (instruction.Calls(spellRepertoiresMethod))
-                    {
-                        yield return new CodeInstruction(OpCodes.Call, filteredSpellRepertoiresMethod);
-                    }
-                    else
-                    {
-                        yield return instruction;
-                    }
-                }
+                var code = instructions.ToList();
+                var index = code.FindIndex(x => x.Calls(spellRepertoiresMethod));
+
+                code[index] = new CodeInstruction(OpCodes.Call, filteredSpellRepertoiresMethod);
+
+                return code;
             }
         }
     }
