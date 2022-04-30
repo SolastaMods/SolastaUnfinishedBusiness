@@ -28,11 +28,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
         private static List<FeatureDefinition> InvocationsFilteredFeatureSet(FeatureDefinitionFeatureSet featureDefinitionFeatureSet)
         {
-            var a = featureDefinitionFeatureSet.FeatureSet
+            return featureDefinitionFeatureSet.FeatureSet
                 .Where(x => x is not IFeatureDefinitionWithPrerequisites feature || feature.Validators.All(y => y.Invoke()))
                 .ToList();
-
-            return a;
         }
 
         #region WarlockEldritchInvocationSetLevel2
@@ -54,12 +52,10 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 EldritchInvocations["EldritchSight"],
                 EldritchInvocations["FiendishVigor"],
                 EldritchInvocations["ThiefofFiveFates"],
-                EldritchInvocations["AspectoftheMoon"],
                 EldritchInvocations["BeguilingInfluence"],
                 EldritchInvocations["EldritchMind"],
                 EldritchInvocations["DevilsSight"],
-                EldritchInvocations["EyesoftheRuneKeeper"],
-                EldritchInvocations["GiftoftheEver-LivingOnes"]
+                EldritchInvocations["EyesoftheRuneKeeper"]
             )
             .SetDynamicFeatureSetFunc(InvocationsFilteredFeatureSet)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
@@ -77,6 +73,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             .Create(WarlockEldritchInvocationSetLevel2, "ClassWarlockEldritchInvocationSetLevel3", CENamespaceGuid)
             .SetGuiPresentation("Feature/&ClassWarlockEldritchInvocationSetLevelTitle", "Feature/&ClassWarlockEldritchInvocationSetLevelDescription")
             .AddFeatureSet(
+                EldritchInvocations["AspectoftheMoon"],
+                EldritchInvocations["GiftoftheEverLivingOnes"],
                 EldritchInvocations["ImprovedPactWeapon"]
             )
             .SetDynamicFeatureSetFunc(InvocationsFilteredFeatureSet)
@@ -95,9 +93,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             Undying Servitude - summon a a skeleton or zombie
             */
             .AddFeatureSet(
-                EldritchInvocations["OneWithShadows"],
                 EldritchInvocations["MiretheMind"],
                 EldritchInvocations["EldritchSmite"],
+                EldritchInvocations["OneWithShadows"],
                 EldritchInvocations["ThirstingBlade"]
             )
             .SetDynamicFeatureSetFunc(InvocationsFilteredFeatureSet)
