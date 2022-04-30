@@ -87,8 +87,8 @@ namespace SolastaCommunityExpansion.CustomUI
 
         //TODO: add proper translation strings
         public override string Name => "CustomFeatureSelection";
-        public override string Title => "Custom Feature Panel Title";
-        public override string Description => "Custom Feature Panel Description";
+        public override string Title => "UI/&CustomFeatureSelectionStageTitle";
+        public override string Description => "UI/&CustomFeatureSelectionStageDescription";
         private bool IsFinalStep => this.currentLearnStep == this.allTags.Count;
 
         private int gainedClassLevel;
@@ -177,10 +177,9 @@ namespace SolastaCommunityExpansion.CustomUI
         {
             Main.Log($"[ENDER] CUSTOM EnterStage '{this.StageDefinition}'");
 
-            //TODO: add proper localization
-            stageTitleLabel.Text = "Select Features";
-            righrFeaturesLabel.Text = "Features";
-            rightFeaturesDescription.Text = "Select features";
+            stageTitleLabel.Text = "UI/&CustomFeatureSelectionStageTitle";
+            righrFeaturesLabel.Text = "UI/&CustomFeatureSelectionStageFeatures";
+            rightFeaturesDescription.Text = "UI/&CustomFeatureSelectionStageDescription";
             
             this.currentLearnStep = 0;
 
@@ -316,8 +315,8 @@ namespace SolastaCommunityExpansion.CustomUI
                     if (lowLevel)
                     {
                         levelError = featurePool.FeatureSet.RequireClassLevels
-                            ? Gui.Format("Requires Level {0} of {1}", $"{featureLevel}", gainedClassDefinition.GuiPresentation.Title)
-                            : Gui.Format("Requires Level {0}", $"{featureLevel}");
+                            ? Gui.Format("Requirement/&FeatureSelectionRequireClassLevel", $"{featureLevel}", gainedClassDefinition.GuiPresentation.Title)
+                            : Gui.Format("Requirement/&FeatureSelectionRequireCharacterLevel", $"{featureLevel}");
                     }
 
                     group.CustomFeatureBind(featurePool, featureLevel, levelError, new List<FeatureDefinition>(), group.Selected, this.IsUnlearnStep(this.currentLearnStep), this.OnFeatureSelected);

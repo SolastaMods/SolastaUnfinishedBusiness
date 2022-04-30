@@ -133,6 +133,16 @@ namespace SolastaCommunityExpansion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap EldritchInvocation {
+            get {
+                object obj = ResourceManager.GetObject("EldritchInvocation", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap ElementalForm {
             get {
                 object obj = ResourceManager.GetObject("ElementalForm", resourceCulture);

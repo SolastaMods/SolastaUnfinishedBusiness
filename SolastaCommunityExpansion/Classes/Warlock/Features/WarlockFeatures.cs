@@ -29,21 +29,21 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         private static List<FeatureDefinition> InvocationsFilteredFeatureSet(FeatureDefinitionFeatureSet featureDefinitionFeatureSet)
         {
             return featureDefinitionFeatureSet.FeatureSet
-                .Where(x => x is not IFeatureDefinitionWithPrerequisites feature || feature.Validators.All(y => y.Invoke()))
+                .Where(x => x is not IFeatureDefinitionWithPrerequisites feature || feature.Validators.All(y => y()==null))
                 .ToList();
         }
 
-        #region WarlockEldritchInvocationSetLevel2
-        private static FeatureDefinitionFeatureSetDynamic warlockEldritchInvocationSetLevel2;
-        public static FeatureDefinitionFeatureSetDynamic WarlockEldritchInvocationSetLevel2 => warlockEldritchInvocationSetLevel2 ??= FeatureDefinitionFeatureSetDynamicBuilder
-            .Create("ClassWarlockEldritchInvocationSetLevel2", CENamespaceGuid)
-            .SetGuiPresentation("Feature/&ClassWarlockEldritchInvocationSetLevelTitle", "Feature/&ClassWarlockEldritchInvocationSetLevelDescription")
-            /*
-            EI that might need a bit more work
-            Investment of the Chain Master - multiple features through summoning affinity
-            Book of ancient secrets - similar to MagicAffinityWizardRitualCasting or ritual casting feat
-            */
-            .SetFeatureSet(
+        #region WarlockEldritchInvocationSet
+        private static CustomFeatureDefinitionSet warlockEldritchInvocationSet;
+        public static CustomFeatureDefinitionSet WarlockEldritchInvocationSet => warlockEldritchInvocationSet ??= CustomFeatureDefinitionSetBuilder
+            .Create("WarlockEldritchInvocationSet", CENamespaceGuid)
+            .SetGuiPresentation(
+                "Feature/&ClassWarlockEldritchInvocationSetLevelTitle", 
+                "Feature/&ClassWarlockEldritchInvocationSetLevelDescription",
+                Utils.CustomIcons.CreateAssetReferenceSprite("EldritchInvocation", Properties.Resources.EldritchInvocation, 128, 128)
+            )
+            .SetRequireClassLevels(true)
+            .SetLevelFeatures(1,
                 EldritchInvocations["AgonizingBlast"],
                 EldritchInvocations["HinderingBlast"],
                 EldritchInvocations["RepellingBlast"],
@@ -54,96 +54,34 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 EldritchInvocations["ThiefofFiveFates"],
                 EldritchInvocations["AspectoftheMoon"],
                 EldritchInvocations["BeguilingInfluence"],
-                EldritchInvocations["EldritchMind"],
                 EldritchInvocations["DevilsSight"],
-                EldritchInvocations["EyesoftheRuneKeeper"],
-                EldritchInvocations["GiftoftheEver-LivingOnes"]
+                EldritchInvocations["EyesoftheRuneKeeper"]
             )
-            .SetDynamicFeatureSetFunc(InvocationsFilteredFeatureSet)
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
-            .SetUniqueChoices(true)
-            .AddToDB();
-        #endregion
-
-        //
-        // Not official but compensates for lack of invocations replacement
-        //
-
-        #region WarlockEldritchInvocationSetLevel3
-        private static FeatureDefinitionFeatureSetDynamic warlockEldritchInvocationSetLevel3;
-        public static FeatureDefinitionFeatureSetDynamic WarlockEldritchInvocationSetLevel3 => warlockEldritchInvocationSetLevel3 ??= FeatureDefinitionFeatureSetDynamicBuilder
-            .Create(WarlockEldritchInvocationSetLevel2, "ClassWarlockEldritchInvocationSetLevel3", CENamespaceGuid)
-            .SetGuiPresentation("Feature/&ClassWarlockEldritchInvocationSetLevelTitle", "Feature/&ClassWarlockEldritchInvocationSetLevelDescription")
-            .SetFeatureSet(
+            .SetLevelFeatures(3,
+                EldritchInvocations["EldritchMind"],
+                EldritchInvocations["GiftoftheEver-LivingOnes"],
                 EldritchInvocations["ImprovedPactWeapon"]
             )
-            .SetDynamicFeatureSetFunc(InvocationsFilteredFeatureSet)
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
-            .SetUniqueChoices(true)
-            .AddToDB();
-        #endregion
-
-        #region WarlockEldritchInvocationSetLevel5
-        private static FeatureDefinitionFeatureSetDynamic warlockEldritchInvocationSetLevel5;
-        public static FeatureDefinitionFeatureSetDynamic WarlockEldritchInvocationSetLevel5 => warlockEldritchInvocationSetLevel5 ??= FeatureDefinitionFeatureSetDynamicBuilder
-            .Create(WarlockEldritchInvocationSetLevel3, "ClassWarlockEldritchInvocationSetLevel5", CENamespaceGuid)
-            /*
-            Sign of Ill Omen - create a feature set that adds converted versions of the subspells
-            Tomb of Levistus - add tempHP and then apply incapcitated or stunned status
-            Undying Servitude - summon a a skeleton or zombie
-            */
-            .AddFeatureSet(
+            .SetLevelFeatures(5,
                 EldritchInvocations["OneWithShadows"],
                 EldritchInvocations["MiretheMind"],
                 EldritchInvocations["EldritchSmite"],
                 EldritchInvocations["ThirstingBlade"]
             )
-            .SetDynamicFeatureSetFunc(InvocationsFilteredFeatureSet)
-            .AddToDB();
-        #endregion
-
-        #region WarlockEldritchInvocationSetLevel7
-        private static FeatureDefinitionFeatureSetDynamic warlockEldritchInvocationSetLevel7;
-        public static FeatureDefinitionFeatureSetDynamic WarlockEldritchInvocationSetLevel7 => warlockEldritchInvocationSetLevel7 ??= FeatureDefinitionFeatureSetDynamicBuilder
-            .Create(WarlockEldritchInvocationSetLevel5, "ClassWarlockEldritchInvocationSetLevel7", CENamespaceGuid)
-            .AddFeatureSet(
+            .SetLevelFeatures(7,
                 EldritchInvocations["OneWithShadowsStronger"],
                 EldritchInvocations["DreadfulWord"],
                 EldritchInvocations["TrickstersEscape"]
             )
-            .SetDynamicFeatureSetFunc(InvocationsFilteredFeatureSet)
-            .AddToDB();
-        #endregion
-
-        #region WarlockEldritchInvocationSetLevel9
-        private static FeatureDefinitionFeatureSetDynamic warlockEldritchInvocationSetLevel9;
-        public static FeatureDefinitionFeatureSetDynamic WarlockEldritchInvocationSetLevel9 => warlockEldritchInvocationSetLevel9 ??= FeatureDefinitionFeatureSetDynamicBuilder
-            .Create(WarlockEldritchInvocationSetLevel7, "ClassWarlockEldritchInvocationSetLevel9", CENamespaceGuid)
-            .AddFeatureSet(
+            .SetLevelFeatures(9,
                 EldritchInvocations["AscendantStep"],
                 EldritchInvocations["OtherworldlyLeap"],
                 EldritchInvocations["GiftoftheProtectors"]
             )
-            .SetDynamicFeatureSetFunc(InvocationsFilteredFeatureSet)
-            .AddToDB();
-        #endregion
-
-        #region WarlockEldritchInvocationSetLevel12
-        private static FeatureDefinitionFeatureSetDynamic warlockEldritchInvocationSetLevel12;
-        public static FeatureDefinitionFeatureSetDynamic WarlockEldritchInvocationSetLevel12 => warlockEldritchInvocationSetLevel12 ??= FeatureDefinitionFeatureSetDynamicBuilder
-            .Create(WarlockEldritchInvocationSetLevel9, "ClassWarlockEldritchInvocationSetLevel12", CENamespaceGuid)
-            .AddFeatureSet(
+            .SetLevelFeatures(12,
                 EldritchInvocations["BondoftheTalisman"]
             )
-            .SetDynamicFeatureSetFunc(InvocationsFilteredFeatureSet)
-            .AddToDB();
-        #endregion
-
-        #region WarlockEldritchInvocationSetLevel15
-        private static FeatureDefinitionFeatureSetDynamic warlockEldritchInvocationSetLevel15;
-        public static FeatureDefinitionFeatureSetDynamic WarlockEldritchInvocationSetLevel15 => warlockEldritchInvocationSetLevel15 ??= FeatureDefinitionFeatureSetDynamicBuilder
-            .Create(WarlockEldritchInvocationSetLevel12, "ClassWarlockEldritchInvocationSetLevel15", CENamespaceGuid)
-            .AddFeatureSet(
+            .SetLevelFeatures(15,
                 /*
                 Master of Myriad Forms - would need to create the alter self spell then convert it
                 */
@@ -151,15 +89,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 EldritchInvocations["ShroudofShadow"],
                 EldritchInvocations["WitchSight"]
             )
-            .SetDynamicFeatureSetFunc(InvocationsFilteredFeatureSet)
-            .AddToDB();
-        #endregion
-
-        #region WarlockEldritchInvocationSetLevel18
-        private static FeatureDefinitionFeatureSetDynamic warlockEldritchInvocationSetLevel18;
-        public static FeatureDefinitionFeatureSetDynamic WarlockEldritchInvocationSetLevel18 => warlockEldritchInvocationSetLevel18 ??= FeatureDefinitionFeatureSetDynamicBuilder
-            .Create(WarlockEldritchInvocationSetLevel15, "ClassWarlockEldritchInvocationSetLevel18", CENamespaceGuid)
-            .SetDynamicFeatureSetFunc(InvocationsFilteredFeatureSet)
             .AddToDB();
         #endregion
 
