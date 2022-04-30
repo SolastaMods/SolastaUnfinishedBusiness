@@ -11,10 +11,11 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 {
     public class CustomFeatureDefinitionSet : FeatureDefinition
     {
-        private bool _fullSetIsDirty = false;
+        private bool _fullSetIsDirty;
         private readonly List<FeatureDefinition> _allFeatureSet = new();
         private Dictionary<int, List<FeatureDefinition>> FeaturesByLevel  = new();
-        public int TotalLevels => FeaturesByLevel.Count;
+        /**Are level requirements in character levels or class levels?*/
+        public bool RequireClassLevels { get; set; }
         public List<int> AllLevels => FeaturesByLevel.Select(e=>e.Key).ToList();
 
         public List<FeatureDefinition> AllFeatures
@@ -119,6 +120,12 @@ namespace SolastaCommunityExpansion.CustomDefinitions
         public CustomFeatureDefinitionSetBuilder SetLevelFeatures(int level, List<FeatureDefinition> features)
         {
             Definition.SetLevelFeatures(level, features);
+            return this;
+        }
+
+        public CustomFeatureDefinitionSetBuilder SetRequireClassLevels(bool value)
+        {
+            Definition.RequireClassLevels = value;
             return this;
         }
     }
