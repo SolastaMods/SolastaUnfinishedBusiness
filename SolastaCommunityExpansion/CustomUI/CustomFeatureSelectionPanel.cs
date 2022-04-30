@@ -23,11 +23,17 @@ namespace SolastaCommunityExpansion.CustomUI
         {
             if (_instance == null)
             {
-                var gameObject = Gui.GetPrefabFromPool(prefabs[8], parent);
+                //TODO: make calculatng which prefab is spell slection more robust
+                var gameObject = Gui.GetPrefabFromPool(prefabs[8], parent);//create copy of spell selection
 
                 var spells = gameObject.GetComponent<CharacterStageSpellSelectionPanel>();
                 _instance = gameObject.AddComponent<CustomFeatureSelectionPanel>();
                 _instance.Setup(gameObject, spells, prefabs);
+            }
+            else if(_instance.gameObject.transform.parent != parent)
+            {
+                _instance.gameObject.transform.SetParent(parent, false);
+                _instance.gameObject.SetActive(true);
             }
 
             return _instance;

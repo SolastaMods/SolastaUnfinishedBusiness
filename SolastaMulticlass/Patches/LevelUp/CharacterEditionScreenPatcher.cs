@@ -52,7 +52,7 @@ namespace SolastaMulticlass.Patches.LevelUp
                     { "FightingStyleSelection", ___stagePanelsByName["FightingStyleSelection"] },
                     { "ProficiencySelection", ___stagePanelsByName["ProficiencySelection"] },
                     { "", ___stagePanelsByName[""] },
-                    {"CustomStage", customFeatureSelection}
+                    {customFeatureSelection.Name, customFeatureSelection}
                 });
             }
         }
