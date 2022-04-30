@@ -676,11 +676,11 @@ Feat/&SubclassProficienciesDescription	You gain proficiency in smith's tools and
 Feat/&SubclassProficienciesTitle	Subclass Proficiencies
 Feat/&SummonArtificialServantDescription	The servant is friendly to you and your companions, and it obeys your commands
 Feat/&SummonArtificialServantTitle	Summon Artificial Servant
-Feat/&SummonArtilleryConstructDescription	The Blaster creates and commands an Artillery Construct in one of multiple modes. The construct's HP increases with it's summoners levels and can be summoned for free for 1 hour once per day. The construct can be resummoned via 1st level spell. The three modes are : \n<color=#add8e6ff>Protecting Dome Construct:</color>\nGrants 1D8 + 4 temporary HP to allies within 10ft \n<color=#add8e6ff>Flame Artillery Construct:</color>\nCreates a cone of fire that deals 2D8 damage on a failed Dex save\n<color=#add8e6ff>Force Artillery Construct:</color>\nDeals 2D8 force damage and pushs enemy 5ft away
+Feat/&SummonArtilleryConstructDescription	The Blaster creates and commands an Artillery Construct in one of multiple modes. The construct's HP increases with it's summoners levels and can be summoned for free for 1 hour once per day. The construct can be resummoned via 1st level spell. The three modes are: \n<color=#add8e6ff>Protecting Dome Construct:</color>\nGrants 1D8 + 4 temporary HP to allies within 10ft \n<color=#add8e6ff>Flame Artillery Construct:</color>\nCreates a cone of fire that deals 2D8 damage on a failed Dex save\n<color=#add8e6ff>Force Artillery Construct:</color>\nDeals 2D8 force damage and pushs enemy 5ft away
 Feat/&SummonArtilleryConstructlevel09Description	A new function has been added. The Artillery Construct can destroy itself dealing 3D8 force damage on a failed save. \nAddditionally both the Flame and Force Artillery damage rolls increase by 1D8 to a total of 3D8
-Feat/&SummonArtilleryConstructlevel09Title	Artillery Construct Upgrade : Self-Destruct
-Feat/&SummonArtilleryConstructlevel15Description	A new function has been added. The Artillery Construct now provides half cover to allies within 10ft \n<size=17><color=#add8e6ff>Artillery Construct Upgrade : Reinforcements</color></size>\nYou can now summon two Artillery Constructs. The constructs can be of the same or different modes
-Feat/&SummonArtilleryConstructlevel15Title	Artillery Construct Upgrade : Half Cover Dome
+Feat/&SummonArtilleryConstructlevel09Title	Artillery Construct Upgrade: Self-Destruct
+Feat/&SummonArtilleryConstructlevel15Description	A new function has been added. The Artillery Construct now provides half cover to allies within 10ft \n<size=17><color=#add8e6ff>Artillery Construct Upgrade: Reinforcements</color></size>\nYou can now summon two Artillery Constructs. The constructs can be of the same or different modes
+Feat/&SummonArtilleryConstructlevel15Title	Artillery Construct Upgrade: Half Cover Dome
 Feat/&SummonArtilleryConstructTitle	Summon Artillery Construct
 Feat/&SummonProtectorConstructDescription	Your very own Battle Buddy stands ready to defend you and attack enemies. The Protector Construct can Self-Repair 3 times a day and can impose disadvantage on attacks on allies
 Feat/&SummonProtectorConstructDescription_2	Summon Protector Construct Upgrade
@@ -897,18 +897,18 @@ Feature/&ElementalPatronFeatureSet_Level10Title	Elementalist
 Feature/&EyesoftheRuneKeeperDescription	You can read all writing
 Feature/&EyesoftheRuneKeeperTitle	Eyes of the RuneKeeper
 Feature/&FiendishVigorTitle	Fiendish Vigor
-Feature/&FlameArtillery_09ModePowerDescription	Summons a construct that lasts 1 hour. \nFlame Artillery : Creates a cone of fire that deals 3D8 damage on a failed save. \nSelf-Destruct : deals 3D8 force damage on a failed save and destroys the unit
+Feature/&FlameArtillery_09ModePowerDescription	Summons a construct that lasts 1 hour. \nFlame Artillery: Creates a cone of fire that deals 3D8 damage on a failed save. \nSelf-Destruct: deals 3D8 force damage on a failed save and destroys the unit
 Feature/&FlameArtillery_09ModePowerTitle	Summon Flame Artillery Construct
-Feature/&FlameArtillery_15ModePowerDescription	Summons a construct that lasts 1 hour. \nFlame Artillery : Creates a cone of fire that deals 3D8 damage on a failed save. \nSelf-Destruct : deals 3D8 force damage on a failed save and destroys the unit. \n Half Cover Dome : provides half cover to allies within 10ft
+Feature/&FlameArtillery_15ModePowerDescription	Summons a construct that lasts 1 hour. \nFlame Artillery: Creates a cone of fire that deals 3D8 damage on a failed save. \nSelf-Destruct: deals 3D8 force damage on a failed save and destroys the unit. \n Half Cover Dome: provides half cover to allies within 10ft
 Feature/&FlameArtillery_15ModePowerTitle	Summon Flame Artillery Construct
-Feature/&FlameArtilleryModePowerDescription	Summons a construct that lasts 1 hour. \nFlame Artillery : Creates a cone of fire that deals 2D8 damage on a failed save
+Feature/&FlameArtilleryModePowerDescription	Summons a construct that lasts 1 hour. \nFlame Artillery: Creates a cone of fire that deals 2D8 damage on a failed save
 Feature/&FlameArtilleryModePowerTitle	Summon Flame Artillery Construct
-Feature/&ForceArtillery_09ModePowerDescription	Summons a construct that lasts 1 hour. \nForce Artillery : Deals 3D8 force damage and pushs enemy 5ft away. \nSelf-Destruct : deals 3D8 force damage on a failed save and destroys the unit
+Feature/&ForceArtillery_09ModePowerDescription	Summons a construct that lasts 1 hour. \nForce Artillery: Deals 3D8 force damage and pushs enemy 5ft away. \nSelf-Destruct: deals 3D8 force damage on a failed save and destroys the unit
 Feature/&ForceArtillery_09ModePowerTitle	Summon Force Artillery Construct
-Feature/&ForceArtillery_15ModePowerDescription	Summons a construct that lasts 1 hour. \nForce Artillery : Deals 3D8 force damage and pushs enemy 5ft away. \nSelf-Destruct : deals 3D8 force damage on a failed save and destroys the unit. \n Half Cover Dome : provides half cover to allies within 10ft
+Feature/&ForceArtillery_15ModePowerDescription	Summons a construct that lasts 1 hour. \nForce Artillery: Deals 3D8 force damage and pushs enemy 5ft away. \nSelf-Destruct: deals 3D8 force damage on a failed save and destroys the unit. \n Half Cover Dome: provides half cover to allies within 10ft
 Feature/&ForceArtillery_15ModePowerTitle	Summon Force Artillery Construct
 Feature/&ForceArtilleryAdditionalDamageTitle	Upgraded damage
-Feature/&ForceArtilleryModePowerDescription	Summons a construct that lasts 1 hour. \nForce Artillery : Deals 2D8 force damage and pushs target 5ft away
+Feature/&ForceArtilleryModePowerDescription	Summons a construct that lasts 1 hour. \nForce Artillery: Deals 2D8 force damage and pushs target 5ft away
 Feature/&ForceArtilleryModePowerTitle	Summon Force Artillery Construct
 Feature/&ForceArtilleryTitle	Force Artillery
 Feature/&GambitResourcePoolAddDescription	Adds an additional gambit die
@@ -923,14 +923,14 @@ Feature/&GnomeCunningFeatureDescription	You have advantage on all Intelligence, 
 Feature/&GnomeCunningFeatureTitle	Cunning
 Feature/&GnomeNaturalIllusionistDescription	You know the Annoying Bee cantrip. Intelligence is your spellcasting modifier for it
 Feature/&GnomeNaturalIllusionistTitle	Natural Magic
-Feature/&HerbalBrewDescription	When you finish a long rest, you can create herbal brews, each of which lasts until the next long rest. You create a total of brews equal to your proficiency bonus. For each brew, choose one of the following effects: \n<color=#add8e6ff>Fortifying Brew</color> : grants resistance to different damage types for 1 hour.\n<color=#add8e6ff>Quickening Brew</color> : provides 2d4 hit points.\n<color=#add8e6ff>Toxifying Brew</color> : acts as poison that can be applied to a weapon that lasts for 1 minute. If the hit lands the target takes 1d4 poison damage on each hit
-Feature/&HerbalBrewFeatureSetDescription	You gain proficiency with either the poisoner kit or herbalism kits if you don't already have it. \nWhen you finish a long rest, you can create herbal brews, each of which lasts until the next long rest. You create a total of brews equal to your proficiency bonus. For each brew, choose one of the following effects: \n<color=#add8e6ff>Fortifying Brew</color> : grants resistance to different damage types for 1 hour.\n<color=#add8e6ff>Quickening Brew</color> : provides 2d4 hit points.\n<color=#add8e6ff>Toxifying Brew</color> : acts as poison that can be applied to a weapon that lasts for 1 minute. If the hit lands the target takes 1d4 poison damage on each hit
+Feature/&HerbalBrewDescription	When you finish a long rest, you can create herbal brews, each of which lasts until the next long rest. You create a total of brews equal to your proficiency bonus. For each brew, choose one of the following effects: \n<color=#add8e6ff>Fortifying Brew</color>: grants resistance to different damage types for 1 hour.\n<color=#add8e6ff>Quickening Brew</color>: provides 2d4 hit points.\n<color=#add8e6ff>Toxifying Brew</color>: acts as poison that can be applied to a weapon that lasts for 1 minute. If the hit lands the target takes 1d4 poison damage on each hit
+Feature/&HerbalBrewFeatureSetDescription	You gain proficiency with either the poisoner kit or herbalism kits if you don't already have it. \nWhen you finish a long rest, you can create herbal brews, each of which lasts until the next long rest. You create a total of brews equal to your proficiency bonus. For each brew, choose one of the following effects: \n<color=#add8e6ff>Fortifying Brew</color>: grants resistance to different damage types for 1 hour.\n<color=#add8e6ff>Quickening Brew</color>: provides 2d4 hit points.\n<color=#add8e6ff>Toxifying Brew</color>: acts as poison that can be applied to a weapon that lasts for 1 minute. If the hit lands the target takes 1d4 poison damage on each hit
 Feature/&HerbalBrewFeatureSetTitle	Herbal Brewing
 Feature/&HinderingBlastDescription	When you hit a creature with your eldritch blast, you can reduce that creature's speed by 10 feet until the end of your next turn
 Feature/&HinderingBlastTitle	Hindering Blast
 Feature/&HinderingBlastMagicAffinityDescription	when you hit a creature with your eldritch blast, you can reduce that creature's speed by 10 feet until the end of your next turn
 Feature/&HinderingBlastMagicAffinityTitle	Hindering Blast
-Feature/&ImprovedPactWeaponDescription	You can use any weapon as a spellcasting focus for your warlock spells .In addition, the weapon gains a +1 bonus to its attack and damage rolls
+Feature/&ImprovedPactWeaponDescription	You can use any weapon as a spellcasting focus for your warlock spells. In addition, the weapon gains a +1 bonus to its attack and damage rolls
 Feature/&ImprovedPactWeaponTitle	Improved Pact Weapon
 Feature/&ImprovedScoutModePowerDescription	Gain Improved Scout Mode features. Can now create advantage for allies and disadvantage for enemies with a single attack
 Feature/&ImprovedScoutModePowerTitle	Improved Scout Mode
@@ -1041,11 +1041,11 @@ Feature/&ShroudofShadowTitle	Shroud of Shadow
 Feature/&SignofIllOmenTitle	Sign of Ill Omen
 Feature/&SpellAsInvocationAtWillDescription	Cast {0} at will
 Feature/&ThiefofFiveFates	Cast {0} once per day
-Feature/&TempHPShield_09ModePowerDescription	Summons a construct that lasts 1 hour. \nProtecting Dome : Grants 1D8 + 4 temporary HP to allies within 10ft. \nSelf-Destruct : deals 3D8 force damage on a failed save and destroys the unit
+Feature/&TempHPShield_09ModePowerDescription	Summons a construct that lasts 1 hour. \nProtecting Dome: Grants 1D8 + 4 temporary HP to allies within 10ft. \nSelf-Destruct: deals 3D8 force damage on a failed save and destroys the unit
 Feature/&TempHPShield_09ModePowerTitle	Summon Protecting Dome Construct
-Feature/&TempHPShield_15ModePowerDescription	Summons a construct that lasts 1 hour. \nProtecting Dome : Grants 1D8 + 4 temporary HP to allies within 10ft. \nSelf-Destruct : deals 3D8 force damage on a failed save and destroys the unit. \n Half Cover Dome : Provides half cover to allies within 10ft
+Feature/&TempHPShield_15ModePowerDescription	Summons a construct that lasts 1 hour. \nProtecting Dome: Grants 1D8 + 4 temporary HP to allies within 10ft. \nSelf-Destruct: deals 3D8 force damage on a failed save and destroys the unit. \n Half Cover Dome: Provides half cover to allies within 10ft
 Feature/&TempHPShield_15ModePowerTitle	Summon Protecting Dome Construct
-Feature/&TempHPShieldModePowerDescription	Summons a construct that lasts 1 hour. \nProtecting Dome : Grants 1D8 + 4 temporary HP to allies within 10ft
+Feature/&TempHPShieldModePowerDescription	Summons a construct that lasts 1 hour. \nProtecting Dome: Grants 1D8 + 4 temporary HP to allies within 10ft
 Feature/&TempHPShieldModePowerTitle	Summon Protecting Dome Construct
 Feature/&TempHPShieldTitle	Protecting Dome
 Feature/&ThiefofFiveFatesTitle	Thief of Five Fates
