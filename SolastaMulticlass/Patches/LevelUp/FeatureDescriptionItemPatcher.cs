@@ -21,7 +21,6 @@ namespace SolastaMulticlass.Patches.LevelUp
 
                 //___choiceDropdown.enabled = false;
                 ___choiceDropdown.gameObject.SetActive(false);
-
             }
         }
     }

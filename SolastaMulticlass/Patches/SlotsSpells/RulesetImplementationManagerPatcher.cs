@@ -33,7 +33,7 @@ namespace SolastaMulticlass.Patches.SlotsSpells
                 if (spellSlotsForm.Type == SpellSlotsForm.EffectType.RecoverHalfLevelUp
                     && SharedSpellsContext.RecoverySlots.TryGetValue(formsParams.activeEffect.Name, out var invokerClass)
                     && invokerClass is CharacterClassDefinition characterClassDefinition)
-                {               
+                {
                     foreach (var spellRepertoire in substituteHero.SpellRepertoires)
                     {
                         var currentValue = 0;

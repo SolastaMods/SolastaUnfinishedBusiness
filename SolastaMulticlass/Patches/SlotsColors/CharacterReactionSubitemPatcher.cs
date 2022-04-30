@@ -1,5 +1,4 @@
 ﻿using HarmonyLib;
-using SolastaModApi.Infrastructure;
 using SolastaMulticlass.Models;
 using UnityEngine;
 
@@ -12,7 +11,7 @@ namespace SolastaMulticlass.Patches.SlotsColors
         internal static class CharacterReactionSubitemBind
         {
             public static void Postfix(
-                RulesetSpellRepertoire spellRepertoire, 
+                RulesetSpellRepertoire spellRepertoire,
                 int slotLevel,
                 RectTransform ___slotStatusTable)
             {

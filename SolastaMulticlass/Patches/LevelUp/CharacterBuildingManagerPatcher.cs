@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaCommunityExpansion;
 using SolastaMulticlass.Models;
@@ -289,9 +288,9 @@ namespace SolastaMulticlass.Patches.LevelUp
                     foreach (var featureDefinition in activeFeature.Value
                         .OfType<FeatureDefinitionCastSpell>())
                     {
-                            __result = featureDefinition;
+                        __result = featureDefinition;
 
-                            return false;
+                        return false;
                     }
                 }
 

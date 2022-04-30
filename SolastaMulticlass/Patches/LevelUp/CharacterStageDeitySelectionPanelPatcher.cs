@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using HarmonyLib;
+﻿using HarmonyLib;
 using SolastaMulticlass.Models;
 
 namespace SolastaMulticlass.Patches.LevelUp

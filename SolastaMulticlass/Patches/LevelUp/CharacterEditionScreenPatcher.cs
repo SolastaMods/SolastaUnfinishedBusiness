@@ -11,9 +11,11 @@ namespace SolastaMulticlass.Patches.LevelUp
         [HarmonyPatch(typeof(CharacterEditionScreen), "LoadStagePanels")]
         internal static class CharacterLevelUpScreenLoadStagePanels
         {
-            internal static void Postfix(CharacterEditionScreen __instance, Dictionary<string, CharacterStagePanel> ___stagePanelsByName)
+            internal static void Postfix(
+                CharacterEditionScreen __instance,
+                ref Dictionary<string, CharacterStagePanel> ___stagePanelsByName)
             {
-                if (__instance is not CharacterLevelUpScreen characterLevelUpScreen)
+                if (__instance is not CharacterLevelUpScreen)
                 {
                     return;
                 }
@@ -37,7 +39,7 @@ namespace SolastaMulticlass.Patches.LevelUp
                     }
                 }
 
-                characterLevelUpScreen.SetField("stagePanelsByName", newLevelUpSequence);
+                ___stagePanelsByName = newLevelUpSequence;
             }
         }
     }

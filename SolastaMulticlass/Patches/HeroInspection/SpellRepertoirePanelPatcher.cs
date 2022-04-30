@@ -35,9 +35,9 @@ namespace SolastaMulticlass.Patches.HeroInspection
                     classSpellLevel = SharedSpellsContext.GetClassSpellLevel(spellRepertoire);
                     slotLevel = SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire)
                         ? Math.Max(
-                            SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire), 
+                            SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire),
                             SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire))
-                        : classSpellLevel;        
+                        : classSpellLevel;
                 }
 
                 MulticlassGameUiContext.RebuildSlotsTable(

@@ -18,7 +18,6 @@ namespace SolastaMulticlass.Patches.RitualCasting
 
                 foreach (CodeInstruction instruction in instructions)
                 {
-
                     if (instruction.Calls(enumerateUsableRitualSpellsMethod))
                     {
                         yield return new CodeInstruction(OpCodes.Call, myEnumerateUsableRitualSpellsMethod);
