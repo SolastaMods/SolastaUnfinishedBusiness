@@ -39,10 +39,6 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void Load()
         {
-            // DEPRECATED: to be removed on a future version
-            _ = new RoyalKnight();
-            _ = new Thug();
-
             LoadSubclass(new ArcaneFighter());
             LoadSubclass(new Arcanist());
             LoadSubclass(new CircleOfTheForestGuardian());
