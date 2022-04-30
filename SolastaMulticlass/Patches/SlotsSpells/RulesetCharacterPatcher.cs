@@ -19,19 +19,15 @@ namespace SolastaMulticlass.Patches.SlotsSpells
                 var restoreAllSpellSlotsMethod = typeof(RulesetSpellRepertoire).GetMethod("RestoreAllSpellSlots");
                 var myRestoreAllSpellSlotsMethod = typeof(RulesetCharacterApplyRest).GetMethod("RestoreAllSpellSlots");
 
-                foreach (CodeInstruction instruction in instructions)
-                {
-                    if (instruction.Calls(restoreAllSpellSlotsMethod))
-                    {
-                        yield return new CodeInstruction(OpCodes.Ldarg_0); // rulesetCharacter
-                        yield return new CodeInstruction(OpCodes.Ldarg_1); // restType
-                        yield return new CodeInstruction(OpCodes.Call, myRestoreAllSpellSlotsMethod);
-                    }
-                    else
-                    {
-                        yield return instruction;
-                    }
-                }
+                var code = instructions.ToList();
+                var index = code.FindIndex(x => x.Calls(restoreAllSpellSlotsMethod));
+
+                // final sequence is ldarg_0, ldarg_1, call
+                code[index] = new CodeInstruction(OpCodes.Call, myRestoreAllSpellSlotsMethod);
+                code.Insert(index, new CodeInstruction(OpCodes.Ldarg_1)); // restType
+                code.Insert(index, new CodeInstruction(OpCodes.Ldarg_0)); // rulesetCharacter
+
+                return code;
             }
 
             public static void RestoreAllSpellSlots(RulesetSpellRepertoire __instance, RulesetCharacter rulesetCharacter, RuleDefinitions.RestType restType)
@@ -84,24 +80,20 @@ namespace SolastaMulticlass.Patches.SlotsSpells
                 var myComputeSpellSlotsMethod = typeof(RulesetCharacterRefreshSpellRepertoires).GetMethod("ComputeSpellSlots");
                 var finishRepertoiresRefreshMethod = typeof(RulesetCharacterRefreshSpellRepertoires).GetMethod("FinishRepertoiresRefresh");
 
-                foreach (var instruction in instructions)
-                {
-                    if (instruction.Calls(computeSpellSlotsMethod))
-                    {
-                        yield return new CodeInstruction(OpCodes.Pop); // featureDefinitions
-                        yield return new CodeInstruction(OpCodes.Call, myComputeSpellSlotsMethod);
-                    }
-                    else if (instruction.opcode == OpCodes.Brtrue_S)
-                    {
-                        yield return instruction;
-                        yield return new CodeInstruction(OpCodes.Ldarg_0);
-                        yield return new CodeInstruction(OpCodes.Call, finishRepertoiresRefreshMethod);
-                    }
-                    else
-                    {
-                        yield return instruction;
-                    }
-                }
+                var code = instructions.ToList();
+                var index = code.FindIndex(x => x.Calls(computeSpellSlotsMethod));
+
+                // final sequence is pop, call
+                code[index] = new CodeInstruction(OpCodes.Call, myComputeSpellSlotsMethod);
+                code.Insert(index, new CodeInstruction(OpCodes.Pop));
+
+                index = code.FindIndex(x => x.opcode == OpCodes.Brtrue_S);
+
+                // final sequence is original, ldarg_0, call
+                code.Insert(index, new CodeInstruction(OpCodes.Call, finishRepertoiresRefreshMethod));
+                code.Insert(index, new CodeInstruction(OpCodes.Ldarg_0));
+
+                return code;
             }
 
             public static void ComputeSpellSlots(RulesetSpellRepertoire spellRepertoire)

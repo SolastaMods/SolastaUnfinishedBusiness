@@ -18,25 +18,17 @@ namespace SolastaMulticlass.Patches.GameUi
 
             internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
             {
-                var bypass = 0;
                 var myLevelMethod = typeof(CharacterSelectionModalEnumeratePlates).GetMethod("MyLevels");
                 var levelsField = typeof(RulesetCharacterHero.Snapshot).GetField("Levels");
 
-                foreach (var instruction in instructions)
-                {
-                    if (bypass-- > 0)
-                    {
-                        continue;
-                    }
+                var code = instructions.ToList();
+                var index = code.FindIndex(x => x.LoadsField(levelsField));
 
-                    yield return instruction;
+                // final sequence is call, pop
+                code[index + 1] = new CodeInstruction(OpCodes.Call, myLevelMethod);
+                code[index + 2] = new CodeInstruction(OpCodes.Nop);
 
-                    if (instruction.LoadsField(levelsField))
-                    {
-                        yield return new CodeInstruction(OpCodes.Call, myLevelMethod);
-                        bypass = 2;
-                    }
-                }
+                return code;
             }
         }
     }
