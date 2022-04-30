@@ -8,7 +8,7 @@
   "ritual": true,
   "uniqueInstance": true,
   "castingTime": "Hours1",
-  "ritualCastingTime": "Hours1",
+  "ritualCastingTime": "Minute10",
   "requiresConcentration": false,
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",

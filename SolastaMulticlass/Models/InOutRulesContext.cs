@@ -15,7 +15,8 @@ namespace SolastaMulticlass.Models
             allowedClasses.Clear();
 
             // only allows to leave a class if it is a supported one with required In/Out attributes
-            if (!IsSupported(currentClass) || (Main.Settings.EnableMinInOutAttributes && !ApproveMultiClassInOut(hero, currentClass)))
+            if (!IsSupported(currentClass) 
+                || (Main.Settings.EnableMinInOutAttributes && !ApproveMultiClassInOut(hero, currentClass)))
             {
                 allowedClasses.Add(currentClass);
             }
@@ -25,7 +26,8 @@ namespace SolastaMulticlass.Models
             {
                 foreach (var characterClassDefinition in hero.ClassesAndLevels.Keys)
                 {
-                    if (!Main.Settings.EnableMinInOutAttributes || ApproveMultiClassInOut(hero, characterClassDefinition))
+                    if (!Main.Settings.EnableMinInOutAttributes 
+                        || ApproveMultiClassInOut(hero, characterClassDefinition))
                     {
                         allowedClasses.Add(characterClassDefinition);
                     }
@@ -37,7 +39,8 @@ namespace SolastaMulticlass.Models
             {
                 foreach (var classDefinition in DatabaseRepository.GetDatabase<CharacterClassDefinition>())
                 {
-                    if (IsSupported(classDefinition) && (!Main.Settings.EnableMinInOutAttributes || ApproveMultiClassInOut(hero, classDefinition)))
+                    if (IsSupported(classDefinition) 
+                        && (!Main.Settings.EnableMinInOutAttributes || ApproveMultiClassInOut(hero, classDefinition)))
                     {
                         allowedClasses.Add(classDefinition);
                     }

@@ -10,8 +10,7 @@
   "armorProficiencyCategory": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:AdditionalDamageRogueSneakAttackRemove:2efd04da-a069-50c4-be1e-44f2432d7404",
-    "Definition:KSRogueSubclassThugExploitVulnerabilities:d4f67d9f-f5db-54ff-b215-243ff983becb",
+    "Definition:AdditionalDamageRoguishHoodlumNonFinesseSneakAttack:5535efe6afb0e14468c2820183e9e94d",
     "Definition:ProficiencyFighterWeapon:b042ddec31ba7f04bbc4e0676716c76f"
   ],
   "guiPresentation": {

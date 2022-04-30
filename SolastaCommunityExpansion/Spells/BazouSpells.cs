@@ -1,6 +1,7 @@
 ﻿using System;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.Models;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -52,7 +53,7 @@ namespace SolastaCommunityExpansion.Spells
         internal static void Register()
         {
             RegisterSpell(EldritchOrb, 1, WitchSpellList, WarlockSpellList);
-            RegisterSpell(FindFamiliar, 1, WitchSpellList, SpellListWizard);
+            RegisterSpell(FindFamiliar, 1, WitchSpellList, SpellListWizard, WarlockSpellList);
             RegisterSpell(Frenzy, 1, WitchSpellList, WarlockSpellList, SpellListWizard, SpellListSorcerer);
             RegisterSpell(MinorLifesteal, 1, WitchSpellList, SpellListWizard);
             RegisterSpell(PetalStorm, 1, WitchSpellList, SpellListDruid);
@@ -164,7 +165,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetSpellLevel(1)
                 .SetCastingTime(RuleDefinitions.ActivationTime.Hours1)
                 // BUG: Unable to have 70 minutes ritual casting time... if set to 10 minutes, it really only takes 10 minutes, instead of 70
-                .SetRitualCasting(RuleDefinitions.ActivationTime.Hours1)
+                .SetRitualCasting(RuleDefinitions.ActivationTime.Minute10)
                 .AddToDB();
 
             spell.SetUniqueInstance(true);
@@ -187,6 +188,8 @@ namespace SolastaCommunityExpansion.Spells
 
             spell.EffectDescription.EffectForms.Add(effectForm);
 
+            GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.Familiar, spell);
+            
             return spell;
         }
 

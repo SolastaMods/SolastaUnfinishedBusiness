@@ -78,14 +78,10 @@ namespace SolastaCommunityExpansion.Feats
                 .AddToDB();
 
             // Brutal Thug
-            var additionalDamageRogueSneakAttackRemove = DatabaseRepository.GetDatabase<FeatureDefinition>().GetElement(AdditionalDamageRogueSneakAttack.Name + "Remove");
-            var polivalentSneakAttack = DatabaseRepository.GetDatabase<FeatureDefinition>().GetElement("KSRogueSubclassThugExploitVulnerabilities");
-            
             var brutalThug = FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
                 .Create("FeatBrutalThug", ZappaFeatNamespace)
                 .SetFeatures(
-                    additionalDamageRogueSneakAttackRemove,
-                    polivalentSneakAttack,
+                    AdditionalDamageRoguishHoodlumNonFinesseSneakAttack,
                     ProficiencyFighterWeapon
                 )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
@@ -145,6 +141,18 @@ namespace SolastaCommunityExpansion.Feats
                 )
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetGuiPresentation(Category.Feat)
+                .AddToDB();
+
+            // Fast Hands
+            var fastHands = FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
+                .Create("FeatFastHands", ZappaFeatNamespace)
+                .SetFeatures(
+                    ActionAffinityRogueCunningAction,
+                    ActionAffinityThiefFastHands
+                )
+                .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
+                .SetGuiPresentation(Category.Feat)
+                .SetValidators(ValidateMinCharLevel(4), ValidateNotClass(Rogue))
                 .AddToDB();
 
             // Fighting Surge (Dexterity)
@@ -414,6 +422,7 @@ namespace SolastaCommunityExpansion.Feats
                 brutalThug,
                 charismaticDefense,
                 charismaticPrecision,
+                fastHands,
                 fightingSurgeDexterity,
                 fightingSurgeStrength,
                 metamagicAdeptCareful,
@@ -431,7 +440,7 @@ namespace SolastaCommunityExpansion.Feats
         }
     }
     
-    internal sealed class FeatureDefinitionMetamagicOptionBuilder : FeatureDefinitionCustomCodeBuilder<FeatureDefinitionMetamagicOption, FeatureDefinitionMetamagicOptionBuilder>
+    internal sealed class FeatureDefinitionMetamagicOptionBuilder : FeatureDefinitionBuilder<FeatureDefinitionMetamagicOption, FeatureDefinitionMetamagicOptionBuilder>
     {
         private const string MetamagicLearnCarefulName = "MetamagicLearnCareful";
         private const string MetamagicLearnCarefulGuid = "820a900b-a5f6-47d7-8860-b0d0605722b0";
@@ -488,13 +497,13 @@ namespace SolastaCommunityExpansion.Feats
             CreateAndAddToDB(MetamagicLearnTwinnedName, MetamagicLearnTwinnedGuid, MetamagicTwinnedSpell);
     }
 
-    internal sealed class FeatureDefinitionMetamagicOption : FeatureDefinitionCustomCode
+    internal sealed class FeatureDefinitionMetamagicOption : FeatureDefinition, IFeatureDefinitionCustomCode
     {
         private bool MetamagicTrained { get; set; }
 
         public MetamagicOptionDefinition MetamagicOption { get; set; }
 
-        public override void ApplyFeature(RulesetCharacterHero hero)
+        public void ApplyFeature(RulesetCharacterHero hero, string tag)
         {
             if (!hero.MetamagicFeatures.ContainsKey(MetamagicOption))
             {
@@ -504,7 +513,7 @@ namespace SolastaCommunityExpansion.Feats
             }
         }
 
-        public override void RemoveFeature(RulesetCharacterHero hero)
+        public void RemoveFeature(RulesetCharacterHero hero, string tag)
         {
             if (MetamagicTrained)
             {

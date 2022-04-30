@@ -17,9 +17,9 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.EpicArrayAndPointBu
             {
                 if (Main.Settings.EnableEpicPoints)
                 {
-                    if (instruction.opcode == OpCodes.Ldc_I4_S && instruction.operand.ToString() == EpicArrayContext.GAME_BUY_POINTS.ToString())
+                    if (instruction.opcode == OpCodes.Ldc_I4_S && instruction.operand.ToString() == InitialChoicesContext.GAME_BUY_POINTS.ToString())
                     {
-                        yield return new CodeInstruction(OpCodes.Ldc_I4_S, EpicArrayContext.MOD_BUY_POINTS);
+                        yield return new CodeInstruction(OpCodes.Ldc_I4_S, InitialChoicesContext.MOD_BUY_POINTS);
                     }
                     else
                     {
@@ -45,17 +45,17 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.EpicArrayAndPointBu
             {
                 if (Main.Settings.EnableEpicPoints)
                 {
-                    if (instruction.opcode == OpCodes.Ldc_R4 && instruction.operand.ToString() == EpicArrayContext.GAME_BUY_POINTS.ToString())
+                    if (instruction.opcode == OpCodes.Ldc_R4 && instruction.operand.ToString() == InitialChoicesContext.GAME_BUY_POINTS.ToString())
                     {
-                        yield return new CodeInstruction(OpCodes.Ldc_R4, 1f * EpicArrayContext.MOD_BUY_POINTS);
+                        yield return new CodeInstruction(OpCodes.Ldc_R4, 1f * InitialChoicesContext.MOD_BUY_POINTS);
                     }
-                    else if (instruction.opcode == OpCodes.Ldc_I4_S && instruction.operand.ToString() == EpicArrayContext.GAME_BUY_POINTS.ToString())
+                    else if (instruction.opcode == OpCodes.Ldc_I4_S && instruction.operand.ToString() == InitialChoicesContext.GAME_BUY_POINTS.ToString())
                     {
-                        yield return new CodeInstruction(OpCodes.Ldc_I4_S, EpicArrayContext.MOD_BUY_POINTS);
+                        yield return new CodeInstruction(OpCodes.Ldc_I4_S, InitialChoicesContext.MOD_BUY_POINTS);
                     }
-                    else if (instruction.opcode == OpCodes.Ldc_I4_S && instruction.operand.ToString() == EpicArrayContext.GAME_MAX_ATTRIBUTE.ToString())
+                    else if (instruction.opcode == OpCodes.Ldc_I4_S && instruction.operand.ToString() == InitialChoicesContext.GAME_MAX_ATTRIBUTE.ToString())
                     {
-                        yield return new CodeInstruction(OpCodes.Ldc_I4_S, EpicArrayContext.MOD_MAX_ATTRIBUTE);
+                        yield return new CodeInstruction(OpCodes.Ldc_I4_S, InitialChoicesContext.MOD_MAX_ATTRIBUTE);
                     }
                     else
                     {

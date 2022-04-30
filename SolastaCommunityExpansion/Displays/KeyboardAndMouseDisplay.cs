@@ -15,6 +15,7 @@ namespace SolastaCommunityExpansion.Displays
             Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView &&
             Main.Settings.InvertAltBehaviorOnTooltips &&
             Main.Settings.EnableCtrlClickBypassMetamagicPanel &&
+            Main.Settings.EnableCtrlClickBypassSmiteReactionPanel &
             Main.Settings.EnableCtrlClickOnlySwapsMainHand;
 
         private static void UpdateSettings(bool flag)
@@ -29,6 +30,7 @@ namespace SolastaCommunityExpansion.Displays
             Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView = flag;
             Main.Settings.InvertAltBehaviorOnTooltips = flag;
             Main.Settings.EnableCtrlClickBypassMetamagicPanel = flag;
+            Main.Settings.EnableCtrlClickBypassSmiteReactionPanel = flag;
             Main.Settings.EnableCtrlClickOnlySwapsMainHand = flag;
         }
 
@@ -129,9 +131,16 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             toggle = Main.Settings.EnableCtrlClickBypassMetamagicPanel;
-            if (UI.Toggle("Enable " + "CTRL".cyan() + " click on spells to auto ignore " + "Sorcerer".orange() + " metamagic panel", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enable " + "CTRL".cyan() + " click on spells to ignore the " + "Sorcerer".orange() + " metamagic panel", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableCtrlClickBypassMetamagicPanel = toggle;
+                SelectAll = false;
+            }
+
+            toggle = Main.Settings.EnableCtrlClickBypassSmiteReactionPanel;
+            if (UI.Toggle("Enable " + "CTRL".cyan() + " click on attacks to ignore the " + "Paladin".orange() + " reaction panel", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableCtrlClickBypassSmiteReactionPanel = toggle;
                 SelectAll = false;
             }
 

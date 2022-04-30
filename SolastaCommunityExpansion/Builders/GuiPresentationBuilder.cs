@@ -45,6 +45,17 @@ namespace SolastaCommunityExpansion.Builders
             SetSpriteReference(sprite ?? EmptySprite);
         }
 
+        public GuiPresentationBuilder(GuiPresentation reference)
+            : this(reference.Title, reference.Description, reference.SpriteReference)
+        {
+        }
+        
+        public GuiPresentationBuilder SetTitle(string title)
+        {
+            guiPresentation.SetTitle(title);
+            return this;
+        }
+
         public GuiPresentationBuilder SetColor(Color color)
         {
             guiPresentation.SetColor(color);

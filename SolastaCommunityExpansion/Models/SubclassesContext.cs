@@ -39,18 +39,21 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void Load()
         {
-            LoadSubclass(new SpellShield());
-            LoadSubclass(new ConArtist());
-            LoadSubclass(new MasterManipulator());
-            LoadSubclass(new SpellMaster());
+            // DEPRECATED: to be removed on a future version
+            _ = new RoyalKnight();
+            _ = new Thug();
+
             LoadSubclass(new ArcaneFighter());
-            LoadSubclass(new LifeTransmuter());
             LoadSubclass(new Arcanist());
-            LoadSubclass(new Tactician());
-            _ = new RoyalKnight(); // LoadSubclass(new RoyalKnight());
-            LoadSubclass(new PathOfTheLight());
-            _ = new Thug(); // LoadSubclass(new Thug());
             LoadSubclass(new CircleOfTheForestGuardian());
+            LoadSubclass(new ConArtist());
+            LoadSubclass(new LifeTransmuter());
+            LoadSubclass(new MasterManipulator());
+            LoadSubclass(new Opportunist());
+            LoadSubclass(new PathOfTheLight());
+            LoadSubclass(new SpellMaster());
+            LoadSubclass(new SpellShield());
+            LoadSubclass(new Tactician());
 
             Subclasses = Subclasses.OrderBy(x => x.FormatTitle()).ToHashSet();
 
@@ -58,6 +61,11 @@ namespace SolastaCommunityExpansion.Models
             {
                 SortSubclassesFeatures();
             }
+
+            ArcaneFighter.UpdateEnchantWeapon();
+            ConArtist.UpdateSpellDCBoost();
+            MasterManipulator.UpdateSpellDCBoost();
+            SpellMaster.UpdateBonusRecovery();
         }
 
         private static void LoadSubclass(AbstractSubclass subclassBuilder)

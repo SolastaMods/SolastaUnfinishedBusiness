@@ -45,7 +45,7 @@ namespace SolastaCommunityExpansion.Displays
             if (UI.Toggle("Enable the alternate human " + "[+1 feat / +2 attribute choices / +1 skill]".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableAlternateHuman = toggle;
-                InitialChoicesContext.RefreshFirstLevelTotalFeats();
+                InitialChoicesContext.SwitchFirstLevelTotalFeats();
             }
 
             toggle = Main.Settings.EnableFlexibleBackgrounds;
@@ -74,7 +74,7 @@ namespace SolastaCommunityExpansion.Displays
             if (UI.Toggle("Enable an epic " + "[17,15,13,12,10,8]".italic().yellow() + " array instead of a standard " + "[15,14,13,12,10,8]".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableEpicArray = toggle;
-                EpicArrayContext.Load();
+                InitialChoicesContext.SwitchEpicArray();
             }
 
             UI.Label("");
@@ -83,7 +83,7 @@ namespace SolastaCommunityExpansion.Displays
             if (UI.Slider("Total feats granted at first level".white(), ref intValue, InitialChoicesContext.MIN_INITIAL_FEATS, InitialChoicesContext.MAX_INITIAL_FEATS, 0, "", UI.AutoWidth()))
             {
                 Main.Settings.TotalFeatsGrantedFistLevel = intValue;
-                InitialChoicesContext.RefreshFirstLevelTotalFeats();
+                InitialChoicesContext.SwitchFirstLevelTotalFeats();
             }
 
             UI.Label("");
@@ -96,7 +96,14 @@ namespace SolastaCommunityExpansion.Displays
             if (UI.Toggle("Enable both attribute scores increase and feats selection instead of an exclusive choice", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnablesAsiAndFeat = toggle;
-                AsiAndFeatContext.Switch(toggle);
+                InitialChoicesContext.SwitchAsiAndFeat();
+            }
+
+            toggle = Main.Settings.EnableFeatsAtEvenLevels;
+            if (UI.Toggle("Enable feats selection at levels 2, 6, 10 and 14", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableFeatsAtEvenLevels = toggle;
+                InitialChoicesContext.SwitchEvenLevelFeats();
             }
 
             toggle = Main.Settings.EnableLevel20;

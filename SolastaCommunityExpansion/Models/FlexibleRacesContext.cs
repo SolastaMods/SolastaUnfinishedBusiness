@@ -57,6 +57,8 @@ namespace SolastaCommunityExpansion.Models
             unlocks.RemoveAll(u => u.FeatureDefinition.GUID == toRemove.GUID);
         }
 
+        internal static void LateLoad() => Switch();
+
         internal static void Switch()
         {
             var enabled = Main.Settings.EnableFlexibleRaces;

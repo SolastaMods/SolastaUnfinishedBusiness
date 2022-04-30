@@ -186,7 +186,7 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        internal static void Load()
+        internal static void LateLoad()
         {
             // init collections
             foreach (var spellList in SpellLists.Values)
@@ -216,7 +216,7 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        internal static void AddToDB()
+        internal static void Load()
         {
             //BazouSpells.AddToDB();
             HolicSpells.AddToDB();
