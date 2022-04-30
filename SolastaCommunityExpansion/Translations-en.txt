@@ -448,6 +448,8 @@ Feat/&FeatChefWisIncrementDescription	+1 Wisdom
 Feat/&FeatChefWisIncrementTitle	Attribute Increase
 Feat/&FeatDexIncrementDescription	+1 Dexterity
 Feat/&FeatDexIncrementTitle	Attribute Increase
+Feat/&FeatFastHandsDescription	You gain a Cunning Action and can use the Bonus Action granted by it to make a Dexterity (Sleight of Hand) check, use your thieves’ tools to Disarm a trap or open a lock, or take the Use an Object action.
+Feat/&FeatFastHandsTitle	Fast Hands
 Feat/&FeatFeyTeleportationChaDescription	Increase Charisma attribute by 1. Gain the ability to Misty Step once per short rest and learn the spell. Gain proficiency in Tirmarian.
 Feat/&FeatFeyTeleportationChaTitle	Fey Teleportation (Charisma)
 Feat/&FeatFeyTeleportationIntDescription	Increase Intelligence attribute by 1. Gain the ability to Misty Step once per short rest and learn the spell. Gain proficiency in Tirmarian.
@@ -926,7 +928,12 @@ Feature/&MoonLitLightAffinityDescription	You can become invisible in dim light o
 Feature/&MoonLitLightAffinityTitle	Umbral Cloak
 Feature/&OneWithShadowsDescription	When you are in an area of dim light or darkness, you become invisible until you move or take an action or a reaction.
 Feature/&OneWithShadowsTitle	One With Shadows
+Feature/&OpportunistDebilitatingStrikeDescription Your sneak attack cause one of following conditions (Blinded/Bane/Bleeding/Stuned) to enemies if they fail a CON save vs 8 + your Dexerity + your proficiency.
+Feature/&OpportunistDebilitatingStrikeTitle Debilitating Strike
+Feature/&OpportunistQuickStrikeDescription You have advatange when attack an enemies whose initiative is lower than yours. In addition you also have advatange when perform an attack of opportunity.
+Feature/&OpportunistQuickStrikeTitle Quick Strike
 Feature/&OtherworldlyLeapTitle	Otherworldly Leap
+Feature/&OtherworldlyLeapTitle  Otherworldly Leap
 Feature/&PowerAttackAttackModifierDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged.
 Feature/&PowerAttackAttackModifierTitle	One handed power attack
 Feature/&PowerAttackConditionDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged.
@@ -1067,10 +1074,10 @@ FlexibleBackgrounds/&BackgroundSkillSelect2Description	Select 2 skill proficienc
 FlexibleBackgrounds/&BackgroundSkillSelect2Title	Skills
 FlexibleBackgrounds/&BackgroundSkillSelect3Description	Select 3 skill proficiencies
 FlexibleBackgrounds/&BackgroundSkillSelect3Title	Skills
-FlexibleBackgrounds/&BackgroundToolSelectDescription	Select a tool proficiency
-FlexibleBackgrounds/&BackgroundToolSelectTitle	Tool
 FlexibleBackgrounds/&BackgroundToolSelect2Description	Select 2 tool proficiencies
 FlexibleBackgrounds/&BackgroundToolSelect2Title	Tools
+FlexibleBackgrounds/&BackgroundToolSelectDescription	Select a tool proficiency
+FlexibleBackgrounds/&BackgroundToolSelectTitle	Tool
 FlexibleBackgrounds/&LawkeeperBackgroundSuggestedSkillsDescription	Perception and Intimidation
 FlexibleBackgrounds/&LawkeeperBackgroundSuggestedSkillsTitle	Suggested Skills
 FlexibleBackgrounds/&LowlifeBackgroundSuggestedSkillsDescription	Sleight of Hand, Stealth, and Deception
@@ -1513,6 +1520,8 @@ Subclass/&MagicAffinitySpellMasterScribingDescription	Scribing spells takes 1/4 
 Subclass/&MagicAffinitySpellMasterScribingTitle	Master Scriber
 Subclass/&ManipulatorMentalSavingThrowsDescription	Gain proficiency in saving throws with Constitution and Charisma.
 Subclass/&ManipulatorMentalSavingThrowsTitle	Mental Resistance
+Subclass/&OpportunistDescription Opportunist are those who never let a chance to finish their enemis slides.They stab fast and stab where it matters. Not many faced them can escaped unscratched.
+Subclass/&OpportunistTitle Opportunist
 Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponDescription	You infuse your weapon with power. Your attacks count as Magical and you add your +7 to your attack and damage rolls. Note you can only have an infusion active once. Activating it a second time will cancel the first.
 Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponTitle	Improved Infuse Weapon
 Subclass/&PowerArtificerBattleSmithInfuseWeaponDescription	You infuse your weapon with power. Your attacks count as Magical and you use your intelligence for attack and damage rolls until the next long rest
@@ -1626,5 +1635,3 @@ Tooltip/&Tag9000Title	Custom Effect
 Tooltip/&TagCommunityExpansionTitle	Community Expansion
 Tooltip/&TagMaledictionTitle	Malediction
 Tooltip/&TagOtherModContentTitle	From mod
-Feat/&FeatFastHandsDescription	You gain a Cunning Action and can use the Bonus Action granted by it to make a Dexterity (Sleight of Hand) check, use your thieves’ tools to Disarm a trap or open a lock, or take the Use an Object action.
-Feat/&FeatFastHandsTitle	Fast Hands
