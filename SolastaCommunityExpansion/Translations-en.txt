@@ -1040,6 +1040,7 @@ Feature/&SentinelModePowerTitle	Sentinel Mode
 Feature/&ShroudofShadowTitle	Shroud of Shadow
 Feature/&SignofIllOmenTitle	Sign of Ill Omen
 Feature/&SpellAsInvocationAtWillDescription	Cast {0} at will
+Feature/&SpellAsInvocationOncePerDayDescription	Cast {0} once until long rest
 Feature/&ThiefofFiveFates	Cast {0} once per day
 Feature/&TempHPShield_09ModePowerDescription	Summons a construct that lasts 1 hour. \nProtecting Dome: Grants 1D8 + 4 temporary HP to allies within 10ft. \nSelf-Destruct: deals 3D8 force damage on a failed save and destroys the unit
 Feature/&TempHPShield_09ModePowerTitle	Summon Protecting Dome Construct
