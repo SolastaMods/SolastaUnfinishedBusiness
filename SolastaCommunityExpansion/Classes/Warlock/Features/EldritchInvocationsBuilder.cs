@@ -352,16 +352,16 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             
             ((FeatureDefinitionFeatureSet)EldritchInvocations["EldritchMind"]).FeatureSet
                 .Add(FeatureDefinitionMagicAffinitys.MagicAffinityFeatFlawlessConcentration);
-            ((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["EldritchMind"]).Validators.SetRange(() =>
-                Global.ActiveLevelUpHeroHasFeature(DHPactOfTheTomeFeatureSetBuilder.DHPactOfTheTomeFeatureSet));
+            //((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["EldritchMind"]).Validators.SetRange(() =>
+            //    Global.ActiveLevelUpHeroHasFeature(DHPactOfTheTomeFeatureSetBuilder.DHPactOfTheTomeFeatureSet));
 
             ((FeatureDefinitionFeatureSet)EldritchInvocations["EyesoftheRuneKeeper"]).FeatureSet
                 .Add(FeatureDefinitionFeatureSets.FeatureSetAllLanguages);
             
             ((FeatureDefinitionFeatureSet)EldritchInvocations["GiftoftheEver-LivingOnes"]).FeatureSet
                 .Add(FeatureDefinitionHealingModifiers.HealingModifierBeaconOfHope);
-            ((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["GiftoftheEver-LivingOnes"]).Validators.SetRange(() =>
-               Global.ActiveLevelUpHeroHasFeature(DHWarlockClassPactOfTheChainFeatureSetBuilder.DHWarlockClassPactOfTheChainFeatureSet));
+            //((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["GiftoftheEver-LivingOnes"]).Validators.SetRange(() =>
+            //   Global.ActiveLevelUpHeroHasFeature(DHWarlockClassPactOfTheChainFeatureSetBuilder.DHWarlockClassPactOfTheChainFeatureSet));
 
             ((FeatureDefinitionFeatureSet)EldritchInvocations["ImprovedPactWeapon"]).FeatureSet
                 .Add(FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon);
@@ -376,13 +376,13 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
             ((FeatureDefinitionFeatureSet)EldritchInvocations["EldritchSmite"]).FeatureSet
                 .Add(FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite);
-            ((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["EldritchSmite"]).Validators.SetRange(() =>
-                Global.ActiveLevelUpHeroHasFeature(AHWarlockClassPactOfTheBladeSetBuilder.AHWarlockClassPactOfTheBladeSet));
+            //((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["EldritchSmite"]).Validators.SetRange(() =>
+            //    Global.ActiveLevelUpHeroHasFeature(AHWarlockClassPactOfTheBladeSetBuilder.AHWarlockClassPactOfTheBladeSet));
 
             ((FeatureDefinitionFeatureSet)EldritchInvocations["ThirstingBlade"]).FeatureSet
                 .Add(FeatureDefinitionAttributeModifiers.AttributeModifierFighterExtraAttack);
-            ((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["ThirstingBlade"]).Validators.SetRange(() =>
-                Global.ActiveLevelUpHeroHasFeature(AHWarlockClassPactOfTheBladeSetBuilder.AHWarlockClassPactOfTheBladeSet));
+            //((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["ThirstingBlade"]).Validators.SetRange(() =>
+            //    Global.ActiveLevelUpHeroHasFeature(AHWarlockClassPactOfTheBladeSetBuilder.AHWarlockClassPactOfTheBladeSet));
 
             ((FeatureDefinitionFeatureSet)EldritchInvocations["GiftoftheProtectors"]).FeatureSet
                 .Add(FeatureDefinitionDamageAffinitys.DamageAffinityHalfOrcRelentlessEndurance);
