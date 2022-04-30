@@ -34,7 +34,8 @@ namespace SolastaCommunityExpansion.Models
                 return true;
             }
 
-            return hero.SpellRepertoires.Any(x => x.KnownCantrips.Contains(spellDefinition));
+            return hero.SpellRepertoires.Any(x => x.KnownCantrips.Contains(spellDefinition))
+                   || hero.GetHeroBuildingData().AcquiredCantrips.Any(e => e.Value.Contains(spellDefinition));
         }
         
         public static bool ActiveLevelUpHeroHasSubclass(string subclass)
@@ -48,7 +49,9 @@ namespace SolastaCommunityExpansion.Models
         {
             var hero = ActiveLevelUpHero;
 
-            return hero == null || hero.HasAnyFeature(feature);
+            return hero == null
+                   || hero.HasAnyFeature(feature)
+                   || hero.GetHeroBuildingData().AllActiveFeatures.Contains(feature);
         }
     }
 }
