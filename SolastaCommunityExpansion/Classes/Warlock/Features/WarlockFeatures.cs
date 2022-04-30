@@ -28,9 +28,11 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
         private static List<FeatureDefinition> InvocationsFilteredFeatureSet(FeatureDefinitionFeatureSet featureDefinitionFeatureSet)
         {
-            return featureDefinitionFeatureSet.FeatureSet
+            var a = featureDefinitionFeatureSet.FeatureSet
                 .Where(x => x is not IFeatureDefinitionWithPrerequisites feature || feature.Validators.All(y => y.Invoke()))
                 .ToList();
+
+            return a;
         }
 
         #region WarlockEldritchInvocationSetLevel2
@@ -74,7 +76,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         public static FeatureDefinitionFeatureSetDynamic WarlockEldritchInvocationSetLevel3 => warlockEldritchInvocationSetLevel3 ??= FeatureDefinitionFeatureSetDynamicBuilder
             .Create(WarlockEldritchInvocationSetLevel2, "ClassWarlockEldritchInvocationSetLevel3", CENamespaceGuid)
             .SetGuiPresentation("Feature/&ClassWarlockEldritchInvocationSetLevelTitle", "Feature/&ClassWarlockEldritchInvocationSetLevelDescription")
-            .SetFeatureSet(
+            .AddFeatureSet(
                 EldritchInvocations["ImprovedPactWeapon"]
             )
             .SetDynamicFeatureSetFunc(InvocationsFilteredFeatureSet)

@@ -367,8 +367,12 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .Add(FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon);
             ((FeatureDefinitionFeatureSet)EldritchInvocations["ImprovedPactWeapon"]).FeatureSet
                 .Add(FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray);
-            ((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["ImprovedPactWeapon"]).Validators.SetRange(() =>
-                Global.ActiveLevelUpHeroHasFeature(AHWarlockClassPactOfTheBladeSetBuilder.AHWarlockClassPactOfTheBladeSet));
+            //
+            // TODO: Removing this for now to allow it to be picked at same level as Pact. Need a better solution
+            //
+
+            //((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["ImprovedPactWeapon"]).Validators.SetRange(() =>
+            //    Global.ActiveLevelUpHeroHasFeature(AHWarlockClassPactOfTheBladeSetBuilder.AHWarlockClassPactOfTheBladeSet));
 
             ((FeatureDefinitionFeatureSet)EldritchInvocations["EldritchSmite"]).FeatureSet
                 .Add(FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite);
