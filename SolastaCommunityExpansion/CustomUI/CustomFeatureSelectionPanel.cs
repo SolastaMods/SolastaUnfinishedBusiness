@@ -17,26 +17,30 @@ namespace SolastaCommunityExpansion.CustomUI
 {
     public class CustomFeatureSelectionPanel : CharacterStagePanel
     {
-        private static CustomFeatureSelectionPanel _instance;
+        private static readonly Dictionary<string, CustomFeatureSelectionPanel> _instances = new ();
 
-        public static CharacterStagePanel Get(GameObject[] prefabs, Transform parent)
+        public static CharacterStagePanel Get(GameObject[] prefabs, CharacterEditionScreen editor)
         {
-            if (_instance == null)
+            var container = editor.StagesPanelContainer;
+            var editorType = editor.gameObject.name;
+            var instance = _instances.GetValueOrDefault(editorType);
+            
+            if (instance == null)
             {
                 //TODO: make calculatng which prefab is spell slection more robust
-                var gameObject = Gui.GetPrefabFromPool(prefabs[8], parent);//create copy of spell selection
-
+                var gameObject = Gui.GetPrefabFromPool(prefabs[8], container);//create copy of spell selection
                 var spells = gameObject.GetComponent<CharacterStageSpellSelectionPanel>();
-                _instance = gameObject.AddComponent<CustomFeatureSelectionPanel>();
-                _instance.Setup(gameObject, spells, prefabs);
+                instance = gameObject.AddComponent<CustomFeatureSelectionPanel>();
+                instance.Setup(gameObject, spells, prefabs);
+                _instances.Add(editorType, instance);
             }
-            else if(_instance.gameObject.transform.parent != parent)
+            else if(instance.gameObject.transform.parent != container)
             {
-                _instance.gameObject.transform.SetParent(parent, false);
-                _instance.gameObject.SetActive(true);
+                instance.gameObject.transform.SetParent(container, false);
+                instance.gameObject.SetActive(true);
             }
 
-            return _instance;
+            return instance;
         }
 
         #region Fields from CharacterStageSpellSelectionPanel
@@ -62,7 +66,7 @@ namespace SolastaCommunityExpansion.CustomUI
         private void Setup(GameObject o, CharacterStageSpellSelectionPanel spells, GameObject[] prefabs)
         {
             spellsPanel = spells;
-            _instance.SetField("stageDefinition", spells.StageDefinition);
+            this.SetField("stageDefinition", spells.StageDefinition);
 
             spellsByLevelTable = spells.GetField<RectTransform>("spellsByLevelTable");
             spellsByLevelPrefab = spells.GetField<GameObject>("spellsByLevelPrefab");

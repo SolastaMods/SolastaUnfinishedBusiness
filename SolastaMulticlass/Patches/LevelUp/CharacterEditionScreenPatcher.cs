@@ -17,7 +17,7 @@ namespace SolastaMulticlass.Patches.LevelUp
             {
                 var characterCreationScreen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
                 var stagePanelPrefabs = characterCreationScreen.GetField<CharacterCreationScreen, GameObject[]>("stagePanelPrefabs");
-                var customFeatureSelection = CustomFeatureSelectionPanel.Get(stagePanelPrefabs, __instance.StagesPanelContainer);
+                var customFeatureSelection = CustomFeatureSelectionPanel.Get(stagePanelPrefabs, __instance);
                 if (__instance is not CharacterLevelUpScreen characterLevelUpScreen)
                 {
                     var newDict = new Dictionary<string, CharacterStagePanel>();
