@@ -31,6 +31,14 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
             {
                 Gui.ReleaseInstanceToPool(___table.GetChild(___table.childCount - 1).gameObject);
             }
+
+            for (var i = 0; i < ___table.childCount; i++)
+            {
+                var child = ___table.GetChild(i);
+                var rectTransform = child.GetComponent<RectTransform>();
+
+                rectTransform.sizeDelta = new Vector2(200, 34);
+            }
         }
     }
 }
