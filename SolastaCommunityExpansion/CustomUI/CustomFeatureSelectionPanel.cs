@@ -502,8 +502,12 @@ namespace SolastaCommunityExpansion.CustomUI
                 }
 
                 Main.Log($"[ENDER] GrantAcquiredFeatures tag: [{currentTag}] features: {features.Count}");
-
-                heroBuildingCommandService.GrantFeatures(currentHero, features, currentTag, true);
+                // GrantFeatures behaves weirdly - if it encounters spellcasting definition, it stops
+                // So we separate spellcasting from other features and then grant them in sequence
+                var spellcasting = features.Where(f => f is FeatureDefinitionCastSpell).ToList();
+                var other = features.Where(f => f is not FeatureDefinitionCastSpell).ToList();
+                heroBuildingCommandService.GrantFeatures(currentHero, spellcasting, currentTag, true);
+                heroBuildingCommandService.GrantFeatures(currentHero, other, currentTag, false);
             }
 
             heroBuildingCommandService.RefreshHero(currentHero);
