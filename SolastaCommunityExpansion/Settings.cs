@@ -72,6 +72,7 @@ namespace SolastaCommunityExpansion
         public bool EnablePowersBundlePatch { get; set; } = true;
         public bool EnableGlobalUniqueEffectsPatch { get; set; } = true;
         public bool EnableRacesScalePatch { get; set; } = true;
+        public bool EnableSameWidthFeatSelection { get; set;} = true;
         public bool EnableSortingClasses { get; set; } = true;
         public bool EnableSortingDeities { get; set; } = true;
         public bool EnableSortingDungeonMakerAssets { get; set; } = true;
