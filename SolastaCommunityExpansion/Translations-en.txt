@@ -1716,5 +1716,7 @@ Tooltip/&Tag9000Title	Custom Effect
 Tooltip/&TagCommunityExpansionTitle	Community Expansion
 Tooltip/&TagMaledictionTitle	Malediction
 Tooltip/&TagOtherModContentTitle	From mod
-Feat/&FeatAlchemistDescription	Learn to make experimental elixirs: Healing, Switfness, Resilience, Boldness, Fight
-Feat/&FeatAlchemistTitle	Alchemist
+Feat/&FeatMarksmanDescription	When a visible opponent 2 cells or more from you attacks you with a ranged weapon or a spell, you can use your reaction to take a shot after the triggering attack
+Feat/&FeatMarksmanTitle	Marksman
+Feat/&FeatDualWeaponDefenseDescription	When yielding 2 weapons your AC increases by 1
+Feat/&FeatDualWeaponDefenseTitle	Dual Weapon Defense

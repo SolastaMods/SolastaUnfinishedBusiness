@@ -23,21 +23,6 @@ namespace SolastaCommunityExpansion.Feats
 
         internal static void CreateFeats(List<FeatDefinition> feats)
         {
-            // Alchemist
-            var artificerAlchemistElixirSpellPrep = DatabaseRepository.GetDatabase<FeatureDefinition>()
-                .GetElement("ArtificerAlchemistElixirSpellPrep");
-
-            var alchemist = FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
-                .Create("FeatAlchemist", ZappaFeatNamespace)
-                .SetFeatures(
-                    artificerAlchemistElixirSpellPrep
-                )
-                .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
-                .SetGuiPresentation(Category.Feat)
-                .SetMustCastSpellsPrerequisite()
-                .SetValidators(ValidateMinCharLevel(4))
-                .AddToDB();
-
             // Arcane Defense
             var arcaneDefense = FeatDefinitionBuilder
                 .Create("FeatArcaneDefense", ZappaFeatNamespace)
@@ -158,6 +143,16 @@ namespace SolastaCommunityExpansion.Feats
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 
+            // Dual Weapon Defense
+            var dualWeaponDefense = FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
+                .Create("FeatDualWeaponDefense", ZappaFeatNamespace)
+                .SetFeatures(
+                    AttributeModifierSwiftBladeBladeDance
+                )
+                .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
+                .SetGuiPresentation(Category.Feat)
+                .AddToDB();
+
             // Fast Hands
             var fastHands = FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
                 .Create("FeatFastHands", ZappaFeatNamespace)
@@ -192,6 +187,16 @@ namespace SolastaCommunityExpansion.Feats
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
                 .SetGuiPresentation(Category.Feat)
                 .SetValidators(ValidateNotClass(Fighter))
+                .AddToDB();
+
+            // Marksman
+            var marksman = FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
+                .Create("FeatMarksman", ZappaFeatNamespace)
+                .SetFeatures(
+                    ActionAffinityMarksmanReactionShot
+                )
+                .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
+                .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 
             // Metamagic Sorcery Points Feature
@@ -432,15 +437,16 @@ namespace SolastaCommunityExpansion.Feats
             //
 
             feats.AddRange(
-                alchemist,
                 arcaneDefense,
                 arcanePrecision,
                 brutalThug,
                 charismaticDefense,
                 charismaticPrecision,
+                dualWeaponDefense,
                 fastHands,
                 fightingSurgeDexterity,
                 fightingSurgeStrength,
+                marksman,
                 metamagicAdeptCareful,
                 metamagicAdeptDistant,
                 metamagicAdeptEmpowered,
