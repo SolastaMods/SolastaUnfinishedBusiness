@@ -52,6 +52,7 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetSpellAttackModifierType(attackModifierType);
             Definition.SetSpellAttackModifier(attackModifier);
             Definition.SetRangeSpellNoProximityPenalty(noProximityPenalty);
+            Definition.SetSaveDCModifierType(attackModifierType);
             Definition.SetSaveDCModifier(dcModifier);
             Definition.SetCantripRetribution(cantripRetribution);
             Definition.SetForceHalfDamageOnCantrips(halfDamageCantrips);

@@ -17,7 +17,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
         private static FeatureDefinitionMagicAffinity DcIncreaseAffinity => _dcIncreaseAffinity ??= FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinityRoguishConArtistDC", SubclassNamespace)
             .SetGuiPresentation(GetSpellDCPresentation().Build())
-            .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.None, Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc, false, false, false)
+            .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.FlatValue, Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc, false, false, false)
             .AddToDB();
 
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
