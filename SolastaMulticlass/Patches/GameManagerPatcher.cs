@@ -13,7 +13,7 @@ namespace SolastaMulticlass.Patches
             LevelDownContext.Load(); // no dependencies
 
             ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += (_) =>
-            {   
+            {
                 CacheSpellsContext.Load(); // depends on all CE blueprints in databases
                 IntegrationContext.Load(); // depends on all CE blueprints in databases
                 PatchingContext.Load(); // depends on IntegrationContext

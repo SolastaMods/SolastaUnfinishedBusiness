@@ -15,9 +15,9 @@ namespace SolastaMulticlass.Patches.LevelDown
             private static bool HasInit { get; set; }
             private static int SelectedPlate { get; set; }
 
-            internal static void Postfix(CharactersPanel __instance, List<CharacterPlateToggle> ___characterPlates, int ___selectedPlate, Button ___exportPdfButton)
+            internal static void Postfix(List<CharacterPlateToggle> ___characterPlates, int ___selectedPlate, Button ___exportPdfButton)
             {
-                if (!Main.Settings.EnableRespec)
+                if (!Main.Settings.EnableRespec || !Main.Settings.EnableMulticlass)
                 {
                     return;
                 }

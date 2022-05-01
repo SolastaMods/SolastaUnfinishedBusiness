@@ -11,9 +11,9 @@ namespace SolastaMulticlass.Models
         internal const InputCommands.Id PLAIN_UP = (InputCommands.Id)22220005;
         internal const InputCommands.Id PLAIN_DOWN = (InputCommands.Id)22220006;
 
-        private static RulesetCharacterHero selectedHero { get; set; }
+        private static RulesetCharacterHero selectedHero;
 
-        private static int selectedClass { get; set; }
+        private static int selectedClass;
 
         internal static RulesetCharacterHero SelectedHero
         {

@@ -36,7 +36,7 @@ namespace SolastaMulticlass.Patches.SlotsSpells
 
             public static void RestoreAllSpellSlots(RulesetSpellRepertoire __instance, RulesetCharacter rulesetCharacter, RuleDefinitions.RestType restType)
             {
-                if (restType == RuleDefinitions.RestType.LongRest 
+                if (restType == RuleDefinitions.RestType.LongRest
                     || rulesetCharacter is not RulesetCharacterHero heroWithSpellRepertoire)
                 {
                     rulesetCharacter.RestoreAllSpellSlots();

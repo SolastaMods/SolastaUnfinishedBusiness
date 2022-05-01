@@ -3,118 +3,124 @@ using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
 
+//******************************************************************************************
+// BY DEFINITION, REFACTORING REQUIRES CONFIRMING EXTERNAL BEHAVIOUR DOES NOT CHANGE
+// "REFACTORING WITHOUT TESTS IS JUST CHANGING STUFF"
+//******************************************************************************************
+
 namespace SolastaMonsters.Monsters
 {
-    internal static class MonstersAttributes
+    public class MonstersAttributes
     {
-        public static MonsterAttackIteration BlackDragonBiteAttackIteration { get; private set; } = new();
-        public static MonsterAttackIteration BlueDragonBiteAttackIteration { get; private set; } = new();
-        public static MonsterAttackIteration GreenDragonBiteAttackIteration { get; private set; } = new();
-        public static MonsterAttackIteration RedDragonBiteAttackIteration { get; private set; } = new();
-        public static MonsterAttackIteration WhiteDragonBiteAttackIteration { get; private set; } = new();
-        public static MonsterAttackIteration DragonClawAttackIteration { get; private set; } = new();
-        public static MonsterAttackIteration DragonClawAttackIteration_2 { get; private set; } = new();
-        public static LegendaryActionDescription DragonlegendaryActionDescription { get; private set; } = new();
-        public static LegendaryActionDescription DragonlegendaryActionDescription_2 { get; private set; } = new();
-        public static MonsterSkillProficiency DragonmonsterSkillProficiency_1 { get; private set; } = new();
-        public static MonsterSkillProficiency DragonmonsterSkillProficiency_2 { get; private set; } = new();
-        public static MonsterSkillProficiency GreenDragonmonsterSkillProficiency_3 { get; private set; } = new();
-        public static MonsterSkillProficiency GreenDragonmonsterSkillProficiency_4 { get; private set; } = new();
-        public static MonsterSkillProficiency GreenDragonmonsterSkillProficiency_5 { get; private set; } = new();
 
-        public static MonsterSkillProficiency ArchmagemonsterSkillProficiency_1 { get; private set; } = new();
-        public static MonsterSkillProficiency ArchmagemonsterSkillProficiency_2 { get; private set; } = new();
+        public static MonsterAttackIteration BlackDragonBiteAttackIteration = new MonsterAttackIteration();
+        public static MonsterAttackIteration BlueDragonBiteAttackIteration = new MonsterAttackIteration();
+        public static MonsterAttackIteration GreenDragonBiteAttackIteration = new MonsterAttackIteration();
+        public static MonsterAttackIteration RedDragonBiteAttackIteration = new MonsterAttackIteration();
+        public static MonsterAttackIteration WhiteDragonBiteAttackIteration = new MonsterAttackIteration();
+        public static MonsterAttackIteration DragonClawAttackIteration = new MonsterAttackIteration();
+        public static MonsterAttackIteration DragonClawAttackIteration_2 = new MonsterAttackIteration();
+        public static LegendaryActionDescription DragonlegendaryActionDescription = new LegendaryActionDescription();
+        public static LegendaryActionDescription DragonlegendaryActionDescription_2 = new LegendaryActionDescription();
+        public static MonsterSkillProficiency DragonmonsterSkillProficiency_1 = new MonsterSkillProficiency();
+        public static MonsterSkillProficiency DragonmonsterSkillProficiency_2 = new MonsterSkillProficiency();
+        public static MonsterSkillProficiency GreenDragonmonsterSkillProficiency_3 = new MonsterSkillProficiency();
+        public static MonsterSkillProficiency GreenDragonmonsterSkillProficiency_4 = new MonsterSkillProficiency();
+        public static MonsterSkillProficiency GreenDragonmonsterSkillProficiency_5 = new MonsterSkillProficiency();
 
-        public static AssetReference BalorassetReference { get; private set; } = new();
-        public static MonsterAttackIteration BalorLongswordAttackIteration { get; private set; } = new();
-        public static MonsterAttackIteration BalorWhipAttackIteration { get; private set; } = new();
+        public static MonsterSkillProficiency ArchmagemonsterSkillProficiency_1 = new MonsterSkillProficiency();
+        public static MonsterSkillProficiency ArchmagemonsterSkillProficiency_2 = new MonsterSkillProficiency();
 
-        public static MonsterSkillProficiency DevamonsterSkillProficiency_1 { get; private set; } = new();
-        public static MonsterSkillProficiency DevamonsterSkillProficiency_2 { get; private set; } = new();
+        public static AssetReference BalorassetReference = new AssetReference();
+        public static MonsterAttackIteration BalorLongswordAttackIteration = new MonsterAttackIteration();
+        public static MonsterAttackIteration BalorWhipAttackIteration = new MonsterAttackIteration();
 
-        public static AssetReference DjinniassetReference { get; private set; } = new();
-        public static MonsterAttackIteration DjinniAttackIteration { get; private set; } = new();
-        public static MonsterAttackIteration DjinniAttackIteration_2 { get; private set; } = new();
+        public static MonsterSkillProficiency DevamonsterSkillProficiency_1 = new MonsterSkillProficiency();
+        public static MonsterSkillProficiency DevamonsterSkillProficiency_2 = new MonsterSkillProficiency();
 
-        public static AssetReference EfreetiassetReference { get; private set; } = new();
-        public static MonsterAttackIteration EfreetiAttackIteration { get; private set; } = new();
-        public static MonsterAttackIteration EfreetiAttackIteration_2 { get; private set; } = new();
+        public static AssetReference DjinniassetReference = new AssetReference();
+        public static MonsterAttackIteration DjinniAttackIteration = new MonsterAttackIteration();
+        public static MonsterAttackIteration DjinniAttackIteration_2 = new MonsterAttackIteration();
 
-        public static MonsterAttackIteration ErinyesAttackIteration { get; private set; } = new();
-        public static MonsterAttackIteration ErinyesAttackIteration_2 { get; private set; } = new();
+        public static AssetReference EfreetiassetReference = new AssetReference();
+        public static MonsterAttackIteration EfreetiAttackIteration = new MonsterAttackIteration();
+        public static MonsterAttackIteration EfreetiAttackIteration_2 = new MonsterAttackIteration();
 
-        public static MonsterAttackIteration NagaAttackIteration { get; private set; } = new();
-        public static MonsterAttackIteration NagaAttackIteration_2 { get; private set; } = new();
+        public static MonsterAttackIteration ErinyesAttackIteration = new MonsterAttackIteration();
+        public static MonsterAttackIteration ErinyesAttackIteration_2 = new MonsterAttackIteration();
 
-        public static MonsterAttackIteration HornedDevilForkAttackIteration { get; private set; } = new();
-        public static MonsterAttackIteration HornedDevilClawAttackIteration { get; private set; } = new();
-        public static MonsterAttackIteration HornedDevilTailAttackIteration { get; private set; } = new();
+        public static MonsterAttackIteration NagaAttackIteration = new MonsterAttackIteration();
+        public static MonsterAttackIteration NagaAttackIteration_2 = new MonsterAttackIteration();
 
-        public static MonsterAttackIteration IceDevilBiteAttackIteration { get; private set; } = new();
-        public static MonsterAttackIteration IceDevilClawAttackIteration { get; private set; } = new();
-        public static MonsterAttackIteration IceDevilTailAttackIteration { get; private set; } = new();
+        public static MonsterAttackIteration HornedDevilForkAttackIteration = new MonsterAttackIteration();
+        public static MonsterAttackIteration HornedDevilClawAttackIteration = new MonsterAttackIteration();
+        public static MonsterAttackIteration HornedDevilTailAttackIteration = new MonsterAttackIteration();
 
-        public static MonsterAttackIteration LichAttackIteration { get; private set; } = new();
-        public static LegendaryActionDescription LichlegendaryActionDescription_0 { get; private set; } = new();
-        public static LegendaryActionDescription LichlegendaryActionDescription_4 { get; private set; } = new();
-        public static LegendaryActionDescription LichlegendaryActionDescription { get; private set; } = new();
-        public static LegendaryActionDescription LichlegendaryActionDescription_2 { get; private set; } = new();
-        public static LegendaryActionDescription LichlegendaryActionDescription_3 { get; private set; } = new();
-        public static MonsterSkillProficiency LichmonsterSkillProficiency_1 { get; private set; } = new();
-        public static MonsterSkillProficiency LichmonsterSkillProficiency_2 { get; private set; } = new();
-        public static MonsterSkillProficiency LichmonsterSkillProficiency_3 { get; private set; } = new();
-        public static MonsterSkillProficiency LichmonsterSkillProficiency_4 { get; private set; } = new();
-        public static AssetReference LichassetReference { get; private set; } = new();
+        public static MonsterAttackIteration IceDevilBiteAttackIteration = new MonsterAttackIteration();
+        public static MonsterAttackIteration IceDevilClawAttackIteration = new MonsterAttackIteration();
+        public static MonsterAttackIteration IceDevilTailAttackIteration = new MonsterAttackIteration();
 
-        public static MonsterAttackIteration NalfeshneeBiteAttackIteration { get; private set; } = new();
-        public static MonsterAttackIteration NalfeshneeClawAttackIteration { get; private set; } = new();
+        public static MonsterAttackIteration LichAttackIteration = new MonsterAttackIteration();
+        public static LegendaryActionDescription LichlegendaryActionDescription_0 = new LegendaryActionDescription();
+        public static LegendaryActionDescription LichlegendaryActionDescription_4 = new LegendaryActionDescription();
+        public static LegendaryActionDescription LichlegendaryActionDescription = new LegendaryActionDescription();
+        public static LegendaryActionDescription LichlegendaryActionDescription_2 = new LegendaryActionDescription();
+        public static LegendaryActionDescription LichlegendaryActionDescription_3 = new LegendaryActionDescription();
+        public static MonsterSkillProficiency LichmonsterSkillProficiency_1 = new MonsterSkillProficiency();
+        public static MonsterSkillProficiency LichmonsterSkillProficiency_2 = new MonsterSkillProficiency();
+        public static MonsterSkillProficiency LichmonsterSkillProficiency_3 = new MonsterSkillProficiency();
+        public static MonsterSkillProficiency LichmonsterSkillProficiency_4 = new MonsterSkillProficiency();
+        public static AssetReference LichassetReference = new AssetReference();
 
-        public static MonsterAttackIteration PitFiendBiteAttackIteration { get; private set; } = new();
-        public static MonsterAttackIteration PitFiendClawAttackIteration { get; private set; } = new();
-        public static MonsterAttackIteration PitFiendTailAttackIteration { get; private set; } = new();
-        public static MonsterAttackIteration PitFiendWeaponAttackIteration { get; private set; } = new();
+        public static MonsterAttackIteration NalfeshneeBiteAttackIteration = new MonsterAttackIteration();
+        public static MonsterAttackIteration NalfeshneeClawAttackIteration = new MonsterAttackIteration();
 
-
-        public static MonsterAttackIteration PlanetarLongswordAttackIteration { get; private set; } = new();
-        public static MonsterSkillProficiency PlanetarmonsterSkillProficiency_1 { get; private set; } = new();
-
-        public static MonsterAttackIteration RocBiteAttackIteration { get; private set; } = new();
-        public static MonsterAttackIteration RocClawAttackIteration { get; private set; } = new();
-        public static MonsterSkillProficiency RocmonsterSkillProficiency_1 { get; private set; } = new();
-
-        public static MonsterAttackIteration SolarLongswordAttackIteration { get; private set; } = new();
-        public static MonsterAttackIteration SolarLongbowAttackIteration { get; private set; } = new();
-        public static LegendaryActionDescription SolarlegendaryActionDescription { get; private set; } = new();
-        public static LegendaryActionDescription SolarlegendaryActionDescription_2 { get; private set; } = new();
-        public static LegendaryActionDescription SolarlegendaryActionDescription_3 { get; private set; } = new();
-        public static MonsterSkillProficiency SolarmonsterSkillProficiency_1 { get; private set; } = new();
-
-        public static MonsterSkillProficiency StormGiantmonsterSkillProficiency_1 { get; private set; } = new();
-        public static MonsterSkillProficiency StormGiantmonsterSkillProficiency_2 { get; private set; } = new();
-        public static MonsterSkillProficiency StormGiantmonsterSkillProficiency_3 { get; private set; } = new();
-        public static MonsterSkillProficiency StormGiantmonsterSkillProficiency_4 { get; private set; } = new();
+        public static MonsterAttackIteration PitFiendBiteAttackIteration = new MonsterAttackIteration();
+        public static MonsterAttackIteration PitFiendClawAttackIteration = new MonsterAttackIteration();
+        public static MonsterAttackIteration PitFiendTailAttackIteration = new MonsterAttackIteration();
+        public static MonsterAttackIteration PitFiendWeaponAttackIteration = new MonsterAttackIteration();
 
 
-        public static LegendaryActionDescription VampirelegendaryActionDescription { get; private set; } = new();
-        public static LegendaryActionDescription VampirelegendaryActionDescription_2 { get; private set; } = new();
-        public static  LegendaryActionDescription VampirelegendaryActionDescription_3 { get; private set; } = new();
+        public static MonsterAttackIteration PlanetarLongswordAttackIteration = new MonsterAttackIteration();
+        public static MonsterSkillProficiency PlanetarmonsterSkillProficiency_1 = new MonsterSkillProficiency();
+
+        public static MonsterAttackIteration RocBiteAttackIteration = new MonsterAttackIteration();
+        public static MonsterAttackIteration RocClawAttackIteration = new MonsterAttackIteration();
+        public static MonsterSkillProficiency RocmonsterSkillProficiency_1 = new MonsterSkillProficiency();
+
+        public static MonsterAttackIteration SolarLongswordAttackIteration = new MonsterAttackIteration();
+        public static MonsterAttackIteration SolarLongbowAttackIteration = new MonsterAttackIteration();
+        public static LegendaryActionDescription SolarlegendaryActionDescription = new LegendaryActionDescription();
+        public static LegendaryActionDescription SolarlegendaryActionDescription_2 = new LegendaryActionDescription();
+        public static LegendaryActionDescription SolarlegendaryActionDescription_3 = new LegendaryActionDescription();
+        public static MonsterSkillProficiency SolarmonsterSkillProficiency_1 = new MonsterSkillProficiency();
+
+        public static MonsterSkillProficiency StormGiantmonsterSkillProficiency_1 = new MonsterSkillProficiency();
+        public static MonsterSkillProficiency StormGiantmonsterSkillProficiency_2 = new MonsterSkillProficiency();
+        public static MonsterSkillProficiency StormGiantmonsterSkillProficiency_3 = new MonsterSkillProficiency();
+        public static MonsterSkillProficiency StormGiantmonsterSkillProficiency_4 = new MonsterSkillProficiency();
+
+
+        public static LegendaryActionDescription VampirelegendaryActionDescription = new LegendaryActionDescription();
+        public static LegendaryActionDescription VampirelegendaryActionDescription_2 = new LegendaryActionDescription();
+        static public  LegendaryActionDescription VampirelegendaryActionDescription_3 = new LegendaryActionDescription();
         //public static LegendaryActionDescription VampirelegendaryActionDescription_4 = new LegendaryActionDescription();
-        public static MonsterSkillProficiency VampiremonsterSkillProficiency_1 { get; private set; } = new();
-        public static MonsterSkillProficiency VampiremonsterSkillProficiency_2 { get; private set; } = new();
+        public static MonsterSkillProficiency VampiremonsterSkillProficiency_1 = new MonsterSkillProficiency();
+        public static MonsterSkillProficiency VampiremonsterSkillProficiency_2 = new MonsterSkillProficiency();
 
-        public static AssetReference EmptyassetReference { get; private set; } = new();
-
-
-        public static MonsterAttackIteration TarrasqueBiteAttackIteration { get; private set; } =  new();
-        public static MonsterAttackIteration TarrasqueClawAttackIteration { get; private set; } =  new();
-        public static MonsterAttackIteration TarrasqueHornAttackIteration { get; private set; } =  new();
-        public static MonsterAttackIteration TarrasqueTailAttackIteration { get; private set; } = new();
+        public static AssetReference EmptyassetReference = new AssetReference();
 
 
-        public static LegendaryActionDescription TarrasquelegendaryActionDescription { get; private set; } = new();
-        public static LegendaryActionDescription TarrasquelegendaryActionDescription_2 { get; private set; } = new();
-        public static LegendaryActionDescription TarrasquelegendaryActionDescription_3 { get; private set; } = new();
-        public static LegendaryActionDescription TarrasquelegendaryActionDescription_4 { get; private set; } = new();
+        public static MonsterAttackIteration TarrasqueBiteAttackIteration  =  new MonsterAttackIteration();
+        public static MonsterAttackIteration TarrasqueClawAttackIteration  =  new MonsterAttackIteration();
+        public static MonsterAttackIteration TarrasqueHornAttackIteration  =  new MonsterAttackIteration();
+        public static MonsterAttackIteration TarrasqueTailAttackIteration = new MonsterAttackIteration();
+
+
+        public static LegendaryActionDescription TarrasquelegendaryActionDescription = new LegendaryActionDescription();
+        public static LegendaryActionDescription TarrasquelegendaryActionDescription_2 = new LegendaryActionDescription();
+        public static LegendaryActionDescription TarrasquelegendaryActionDescription_3 = new LegendaryActionDescription();
+        public static LegendaryActionDescription TarrasquelegendaryActionDescription_4 = new LegendaryActionDescription();
 
 
         public static void EnableInDungeonMaker()

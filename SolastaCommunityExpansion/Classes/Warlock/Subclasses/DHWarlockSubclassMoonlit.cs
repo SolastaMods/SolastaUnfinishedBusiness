@@ -382,8 +382,11 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             var action = characterAction.ActionDefinition;
 
             if (action.Name.StartsWith("Attack") || (action.Name.StartsWith("Cast") || action.Name.StartsWith("Power")))
-                if (!IsAllowedEffect(characterAction.ActionParams.RulesetEffect.EffectDescription))
+            {
+                var ruleEffect = characterAction.ActionParams.RulesetEffect;
+                if (ruleEffect == null || !IsAllowedEffect(ruleEffect.EffectDescription))
                     BecomeRevealed(hero);
+            }
         }
 
         public void ApplyFeature(RulesetCharacter hero)

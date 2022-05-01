@@ -4,12 +4,16 @@ using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
-
+//******************************************************************************************
+// BY DEFINITION, REFACTORING REQUIRES CONFIRMING EXTERNAL BEHAVIOUR DOES NOT CHANGE
+// "REFACTORING WITHOUT TESTS IS JUST CHANGING STUFF"
+//******************************************************************************************
 namespace SolastaMonsters.Monsters
 {
     internal static class MonstersHomebrew
     {
-        public static readonly List<Models.MonsterContext.CustomMonster> Definitions = new()
+
+        public static List<Models.MonsterContext.CustomMonster> Definitions = new List<Models.MonsterContext.CustomMonster>()
         {
             new Models.MonsterContext.CustomMonster()
             {
@@ -242,7 +246,7 @@ namespace SolastaMonsters.Monsters
                 /*
                 MonsterDefinitionBuilder NewMonster = new MonsterDefinitionBuilder(
                     Definitions[i].NewName,
-                    GuidHelper.Create(new System.Guid(MonsterContext.GUID), Definitions[i].NewName).ToString(),
+                    GuidHelper.Create(new System.Guid(Settings.GUID), Definitions[i].NewName).ToString(),
                     "Monster/&" + "DH_" + Definitions[i].NewTitle,
                     "Monster/&" + "DH_" + Definitions[i].NewDescription,
                     Definitions[i].BaseTemplateName);
@@ -257,7 +261,12 @@ namespace SolastaMonsters.Monsters
                             "Monster/&" + "DH_" + Definitions[i].NewDescription,
                             Definitions[i].BaseTemplateName.GuiPresentation.SpriteReference);
 
-                NewMonster.SetInDungeonEditor(true);
+                NewMonster.SetInDungeonEditor(false);
+                if (SolastaCommunityExpansion.Main.Settings.EnableExtraHighLevelMonsters)
+                {
+                    NewMonster.SetInDungeonEditor(SolastaCommunityExpansion.Main.Settings.EnableExtraHighLevelMonsters);
+                };
+
                 NewMonster.SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None);
                 NewMonster.SetSizeDefinition(Definitions[i].Size);
                 NewMonster.SetChallengeRating(Definitions[i].CR);
@@ -389,13 +398,13 @@ namespace SolastaMonsters.Monsters
                         legendaryActionDescription_2,
                         legendaryActionDescription_3
                     });
-                }
+                };
 
                 if (Definitions[i].MonsterName == "Earth Titan")
                 {
-                    //AssetReference assetReference = new AssetReference();
-                    //assetReference.SetField("m_AssetGUID", "aad57f1f96869a3409a5c064473c454d");
-                    //NewMonster.SetPrefabReference(assetReference);
+                   //AssetReference assetReference = new AssetReference();
+                   //assetReference.SetField("m_AssetGUID", "aad57f1f96869a3409a5c064473c454d");
+                   //NewMonster.SetPrefabReference(assetReference);
 
                     NewMonster.AddFeatures(new List<FeatureDefinition>
                     {
@@ -445,7 +454,7 @@ namespace SolastaMonsters.Monsters
 
                     NewMonster.SetUseCustomMaterials(true);
                     NewMonster.SetCustomMaterials(DatabaseHelper.MonsterPresentationDefinitions.Golem_Clay_Presentation.CustomMaterials);
-                }
+                };
 
                 if (Definitions[i].MonsterName == "Fire Titan")
                 {
@@ -486,7 +495,7 @@ namespace SolastaMonsters.Monsters
                         legendaryActionDescription_2,
                         legendaryActionDescription
                     });
-                }
+                };
 
                 if (Definitions[i].MonsterName == "Construct Titan")
                 {
@@ -515,7 +524,7 @@ namespace SolastaMonsters.Monsters
                     legendaryActionDescription2.SetFeatureDefinitionPower(NewMonsterPowers.DisintegratingBeam_Power);
                     legendaryActionDescription2.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.LegendaryLaetharCast_Debuff);
 
-                    NewMonster.AddLegendaryActionOptions(legendaryActionDescription, legendaryActionDescription2);
+                    NewMonster.AddLegendaryActionOptions(new List<LegendaryActionDescription> { legendaryActionDescription , legendaryActionDescription2 });
 
                     NewMonster.AddFeatures(new List<FeatureDefinition>
                     {
@@ -537,15 +546,13 @@ namespace SolastaMonsters.Monsters
 
                     // monster powres, AI and combat needs work, too repetitive at the moment as some powers/attacks are not triggering
                     NewMonster.SetInDungeonEditor(false);
-                }
+                };
 
                 NewMonster.SetNoExperienceGain(false);
                 NewMonster.SetHasMonsterPortraitBackground(true);
                 NewMonster.SetCanGeneratePortrait(true);
                 NewMonster.SetCustomShaderReference(Definitions[i].MonsterShaderReference.MonsterPresentation.CustomShaderReference);
                 NewMonster.SetHasPrefabVariants(false);
-
-                SolastaCommunityExpansion.Models.DungeonMakerContext.ModdedMonsters.Add(NewMonster.AddToDB());
             }
         }
     }

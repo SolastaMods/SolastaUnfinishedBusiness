@@ -1,19 +1,23 @@
 ﻿using SolastaModApi;
 using SolastaModApi.Extensions;
-using UnityEngine;
 using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Models;
+using UnityEngine;
 using SolastaMonsters.Models;
-
+//******************************************************************************************
+// BY DEFINITION, REFACTORING REQUIRES CONFIRMING EXTERNAL BEHAVIOUR DOES NOT CHANGE
+// "REFACTORING WITHOUT TESTS IS JUST CHANGING STUFF"
+//******************************************************************************************
 namespace SolastaMonsters.Monsters
 {
-    public static class NewMonsterSpells
+    public class NewMonsterSpells
     {
-        public static SpellDefinition DominateMonster_Spell  { get; private set; } = ScriptableObject.CreateInstance<SpellDefinition>();
-        public static SpellDefinition PowerWordKill_Spell  { get; private set; } = ScriptableObject.CreateInstance<SpellDefinition>();
-        public static SpellDefinition PowerWordStun_Spell  { get; private set; } = ScriptableObject.CreateInstance<SpellDefinition>();
-        public static SpellDefinition FingerOfDeath_Spell  { get; private set; } = ScriptableObject.CreateInstance<SpellDefinition>();
-        public static SpellDefinition ReverseGravity_Spell  { get; private set; } = ScriptableObject.CreateInstance<SpellDefinition>();
-        public static SpellDefinition TimeStop_Spell  { get; private set; } = ScriptableObject.CreateInstance<SpellDefinition>();
+        public static SpellDefinition DominateMonster_Spell = ScriptableObject.CreateInstance<SpellDefinition>();
+        public static SpellDefinition PowerWordKill_Spell = ScriptableObject.CreateInstance<SpellDefinition>();
+        public static SpellDefinition PowerWordStun_Spell = ScriptableObject.CreateInstance<SpellDefinition>();
+        public static SpellDefinition FingerOfDeath_Spell = ScriptableObject.CreateInstance<SpellDefinition>();
+        public static SpellDefinition ReverseGravity_Spell = ScriptableObject.CreateInstance<SpellDefinition>();
+        public static SpellDefinition TimeStop_Spell = ScriptableObject.CreateInstance<SpellDefinition>();
 
         internal static void Create()
         {

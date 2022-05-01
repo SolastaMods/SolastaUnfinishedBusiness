@@ -20,7 +20,7 @@ namespace SolastaMulticlass.Patches.Wildshape
                 RulesetCharacter shifter,
                 int requiredLevel)
             {
-                if (shifter is RulesetCharacterHero rulesetCharacterHero 
+                if (shifter is RulesetCharacterHero rulesetCharacterHero
                     && rulesetCharacterHero.ClassesAndLevels.TryGetValue(Druid, out var levels))
                 {
                     var isShapeOptionAvailable = requiredLevel <= levels;

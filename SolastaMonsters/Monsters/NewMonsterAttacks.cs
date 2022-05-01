@@ -3,50 +3,54 @@ using SolastaModApi.Extensions;
 using System.Collections.Generic;
 using UnityEngine;
 using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Models;
 using SolastaMonsters.Models;
-
+//******************************************************************************************
+// BY DEFINITION, REFACTORING REQUIRES CONFIRMING EXTERNAL BEHAVIOUR DOES NOT CHANGE
+// "REFACTORING WITHOUT TESTS IS JUST CHANGING STUFF"
+//******************************************************************************************
 namespace SolastaMonsters.Monsters
 {
-    public static class NewMonsterAttacks
+    public class NewMonsterAttacks
     {
-        public static MonsterAttackDefinition FireScimatar_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition LightningScimatar_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition HurlFlame_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition AirBlast_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition PoisonLongsword_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition PoisonLongbow_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition RadiantLongsword_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition RadiantLongbow_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition NagaBite_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition NagaSpit_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition Ice_Bite_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition Roc_Beak_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition Roc_Talons_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition Generic_Bite_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition PitFiend_Bite_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition PitFiend_Mace_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition Generic_Stronger_Bite_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition AncientDragon_Tail_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition Fork_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition HornedDevilTail_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition AncientDragon_Claw_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition Balor_Longsword_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition Balor_Whip_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition Lich_ParalyzingTouch_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition FireTitan_Slam_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition AirTitan_Slam_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition EarthTitan_Slam_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition ConstructTitan_Slam_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition ConstructTitan_ForceCannon_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition EarthTitan_Boulder_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition FireScimatar_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition LightningScimatar_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition HurlFlame_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition AirBlast_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition PoisonLongsword_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition PoisonLongbow_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition RadiantLongsword_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition RadiantLongbow_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition NagaBite_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition NagaSpit_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition Ice_Bite_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition Roc_Beak_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition Roc_Talons_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition Generic_Bite_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition PitFiend_Bite_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition PitFiend_Mace_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition Generic_Stronger_Bite_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition AncientDragon_Tail_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition Fork_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition HornedDevilTail_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition AncientDragon_Claw_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition Balor_Longsword_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition Balor_Whip_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition Lich_ParalyzingTouch_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition FireTitan_Slam_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition AirTitan_Slam_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition EarthTitan_Slam_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition ConstructTitan_Slam_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition ConstructTitan_ForceCannon_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition EarthTitan_Boulder_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
 
-        public static ConditionDefinition TarrasqueGrappledRestrainedCondition  { get; private set; } = ScriptableObject.CreateInstance<ConditionDefinition>();
-        public static MonsterAttackDefinition Tarrasque_Bite_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition Tarrasque_Claw_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition Tarrasque_Tail_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static MonsterAttackDefinition Tarrasque_Horn_Attack  { get; private set; } = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static Dictionary<string, MonsterAttackDefinition> DictionaryOfAncientDragonBites  { get; private set; } = new Dictionary<string, MonsterAttackDefinition>();
-        public static Dictionary<string, MonsterAttackDefinition> DictionaryOfGenericBitesWithExtraDamage  { get; private set; } = new Dictionary<string, MonsterAttackDefinition>();
+        public static ConditionDefinition TarrasqueGrappledRestrainedCondition = ScriptableObject.CreateInstance<ConditionDefinition>();
+        public static MonsterAttackDefinition Tarrasque_Bite_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition Tarrasque_Claw_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition Tarrasque_Tail_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static MonsterAttackDefinition Tarrasque_Horn_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
+        public static Dictionary<string, MonsterAttackDefinition> DictionaryOfAncientDragonBites = new Dictionary<string, MonsterAttackDefinition>();
+        public static Dictionary<string, MonsterAttackDefinition> DictionaryOfGenericBitesWithExtraDamage = new Dictionary<string, MonsterAttackDefinition>();
 
         internal static void Create()
         {
@@ -1459,7 +1463,6 @@ namespace SolastaMonsters.Monsters
                 .SetOrUpdateGuiPresentation(title, description)
                 .AddToDB();
         }
-
         public static ConditionDefinition BuildNewCondition(string name, ConditionDefinition baseCondition, string guid, string title, string description)
         {
             return ConditionDefinitionBuilder
@@ -1467,5 +1470,7 @@ namespace SolastaMonsters.Monsters
                 .SetOrUpdateGuiPresentation(title, description)
                 .AddToDB();
         }
+
     }
+
 }

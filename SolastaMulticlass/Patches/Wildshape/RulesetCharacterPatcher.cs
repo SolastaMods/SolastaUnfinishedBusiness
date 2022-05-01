@@ -6,7 +6,7 @@ namespace SolastaMulticlass.Patches.Wildshape
 {
     internal static class RulesetCharacterPatcher
     {
-        // ensures that the wildshape hero cannot cast any spells 
+        // ensures that the wildshape hero cannot cast any spells
         [HarmonyPatch(typeof(RulesetCharacter), "CanCastSpells")]
         internal static class RulesetCharacterCanCastSpells
         {
@@ -32,7 +32,7 @@ namespace SolastaMulticlass.Patches.Wildshape
             }
         }
 
-        // ensures that original character sorcery point pool is in sync with substitute 
+        // ensures that original character sorcery point pool is in sync with substitute
         [HarmonyPatch(typeof(RulesetCharacter), "CreateSorceryPoints")]
         internal static class RulesetCharacterCreateSorceryPoints
         {
