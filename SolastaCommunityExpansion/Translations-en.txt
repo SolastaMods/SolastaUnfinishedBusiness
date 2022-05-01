@@ -1716,3 +1716,5 @@ Tooltip/&Tag9000Title	Custom Effect
 Tooltip/&TagCommunityExpansionTitle	Community Expansion
 Tooltip/&TagMaledictionTitle	Malediction
 Tooltip/&TagOtherModContentTitle	From mod
+Feat/&FeatAlchemistDescription	Learn to make experimental elixirs: Healing, Switfness, Resilience, Boldness, Fight
+Feat/&FeatAlchemistTitle	Alchemist

@@ -23,6 +23,21 @@ namespace SolastaCommunityExpansion.Feats
 
         internal static void CreateFeats(List<FeatDefinition> feats)
         {
+            // Alchemist
+            var artificerAlchemistElixirSpellPrep = DatabaseRepository.GetDatabase<FeatureDefinition>()
+                .GetElement("ArtificerAlchemistElixirSpellPrep");
+
+            var alchemist = FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
+                .Create("FeatAlchemist", ZappaFeatNamespace)
+                .SetFeatures(
+                    artificerAlchemistElixirSpellPrep
+                )
+                .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
+                .SetGuiPresentation(Category.Feat)
+                .SetMustCastSpellsPrerequisite()
+                .SetValidators(ValidateMinCharLevel(4))
+                .AddToDB();
+
             // Arcane Defense
             var arcaneDefense = FeatDefinitionBuilder
                 .Create("FeatArcaneDefense", ZappaFeatNamespace)
@@ -417,6 +432,7 @@ namespace SolastaCommunityExpansion.Feats
             //
 
             feats.AddRange(
+                alchemist,
                 arcaneDefense,
                 arcanePrecision,
                 brutalThug,
