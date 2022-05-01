@@ -36,10 +36,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         #region WarlockEldritchInvocationSet
         private static CustomFeatureDefinitionSet warlockEldritchInvocationSet;
         public static CustomFeatureDefinitionSet WarlockEldritchInvocationSet => warlockEldritchInvocationSet ??= CustomFeatureDefinitionSetBuilder
-            .Create("WarlockEldritchInvocationSet", CENamespaceGuid)
-            .SetGuiPresentation(
-                "Feature/&ClassWarlockEldritchInvocationSetLevelTitle", 
-                "Feature/&ClassWarlockEldritchInvocationSetLevelDescription",
+            .Create("ClassWarlockEldritchInvocationSetLevel", CENamespaceGuid)
+            .SetGuiPresentation(Category.Feature,
                 Utils.CustomIcons.CreateAssetReferenceSprite("EldritchInvocation", Properties.Resources.EldritchInvocation, 128, 128)
             )
             .SetRequireClassLevels(true)
@@ -90,6 +88,15 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 EldritchInvocations["WitchSight"]
             )
             .AddToDB();
+        #endregion
+
+        #region WarlockEldritchInvocationReplacer
+        private static ReplaceCustomFeatureDefinitionSet warlockEldritchInvocationReplacer;
+        public static ReplaceCustomFeatureDefinitionSet WarlockEldritchInvocationReplacer => warlockEldritchInvocationReplacer ??= ReplaceCustomFeatureDefinitionSetBuilder
+                .Create("ClassWarlockEldritchInvocationSetReplace", CENamespaceGuid)
+                .SetGuiPresentation(Category.Feature)
+                .SetReplacedFeatureSet(WarlockEldritchInvocationSet)
+                .AddToDB();
         #endregion
 
         #region SupportCode
