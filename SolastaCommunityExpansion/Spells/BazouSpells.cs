@@ -362,6 +362,7 @@ namespace SolastaCommunityExpansion.Spells
             spell.EffectDescription.SetHasSavingThrow(true);
             spell.EffectDescription.SetSavingThrowAbility(AttributeDefinitions.Wisdom);
             spell.EffectDescription.SetRecurrentEffect(RuleDefinitions.RecurrentEffect.OnEnter);
+            spell.EffectDescription.SetDifficultyClassComputation(RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency);
 
             spell.EffectDescription.EffectAdvancement.SetAdditionalDicePerIncrement(1);
             spell.EffectDescription.EffectAdvancement.SetIncrementMultiplier(1);
