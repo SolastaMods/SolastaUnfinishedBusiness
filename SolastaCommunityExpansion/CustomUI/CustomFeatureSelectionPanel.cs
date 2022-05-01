@@ -1006,11 +1006,13 @@ namespace SolastaCommunityExpansion.CustomUI
                 {
                     SpellBox box = transform.GetComponent<SpellBox>();
                     var boxFeature = box.GetFeature();
-                    bool selected = learned.Contains(boxFeature);//Global.ActiveLevelUpHeroHasFeature(boxFeature);
+                    var alreadyHas = Global.ActiveLevelUpHeroHasFeature(boxFeature);
+                    bool selected = learned.Contains(boxFeature);
                     bool isUnlearned = unlearnedFetures != null && unlearnedFetures.Contains(boxFeature);
                     var errors = new List<string>();
                     bool canLearn =
                         !selected
+                        && !alreadyHas
                         && (boxFeature is not IFeatureDefinitionWithPrerequisites prerequisites
                             || CustomFeaturesContext.GetValidationErrors(prerequisites.Validators, out errors));
 
@@ -1023,7 +1025,7 @@ namespace SolastaCommunityExpansion.CustomUI
                     box.SetupUI(pool.FeatureSet.GuiPresentation, errors);
                     
                     if (canAcquireFeatures)
-                        box.RefreshLearningInProgress((canLearn || selected) && !isUnlearned, selected);
+                        box.CustomRefreshLearningInProgress((canLearn || selected) && !isUnlearned, selected, alreadyHas);
                     else
                         box.RefreshLearningInactive(selected && !isUnlearned);
                 }
@@ -1104,6 +1106,17 @@ namespace SolastaCommunityExpansion.CustomUI
             instance.SetField("canUnlearn", false);
 
             instance.name = feature.Name;
+        }
+
+        public static void CustomRefreshLearningInProgress(this SpellBox instance, bool canLearn, bool selected, bool known)
+        {
+            var auroPrepard = instance.GetField<bool>("autoPrepared");
+            instance.SetField("interactive", canLearn && !auroPrepard);
+            instance.SetField("canLearn", canLearn && !auroPrepard);
+            instance.SetField("selectedToLearn", selected);
+            instance.SetField("selectedToLearn", selected);
+            instance.SetField("known", known);//TODO: try to experimant with auto prepared tags to signify known features
+            instance.InvokeMethod("Refresh");
         }
 
         public static void SetupSprite(Image imageComponent, GuiPresentation presentation)
