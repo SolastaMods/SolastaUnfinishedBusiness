@@ -59,7 +59,7 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
             const int COLUMNS = 4;
             const int WIDTH = 224;
             const int HEIGHT = 34;
-            const int SPACING = 12;
+            const int SPACING = 6;
 
             if (Main.Settings.EnableSameWidthFeatSelection)
             {
@@ -73,7 +73,7 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
 
                     var x = i % COLUMNS;
                     var y = i / COLUMNS;
-                    var posX = x * (WIDTH + SPACING);
+                    var posX = x * (WIDTH + SPACING * 2);
                     var posY = -y * (HEIGHT + SPACING);
 
                     rect.anchoredPosition = new Vector2(posX, posY);
