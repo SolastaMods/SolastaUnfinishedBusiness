@@ -502,6 +502,7 @@ namespace SolastaCommunityExpansion.CustomUI
                 }
 
                 Main.Log($"[ENDER] GrantAcquiredFeatures tag: [{currentTag}] features: {features.Count}");
+                features.RemoveAll(f => f is CustomFeatureDefinitionSet);
                 // GrantFeatures behaves weirdly - if it encounters spellcasting definition, it stops
                 // So we separate spellcasting from other features and then grant them in sequence
                 var spellcasting = features.Where(f => f is FeatureDefinitionCastSpell).ToList();
