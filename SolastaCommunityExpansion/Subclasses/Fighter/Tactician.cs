@@ -165,7 +165,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                 1, true, true, AttributeDefinitions.Strength, newEffectDescription,
                 new GuiPresentationBuilder("Feature/&CounterStrikePowerTitle", "Feature/&CounterStrikePowerDescription")
                 .SetSpriteReference(FeatureDefinitionPowers.PowerDomainLawHolyRetribution.GuiPresentation.SpriteReference).Build(), false);
-            builder.SetReaction(RuleDefinitions.ReactionTriggerContext.HitByMelee, string.Empty);
+            builder.SetReaction(RuleDefinitions.ReactionTriggerContext.HitByMelee, "CounterStrike");
 
             return builder.AddToDB();
         }
