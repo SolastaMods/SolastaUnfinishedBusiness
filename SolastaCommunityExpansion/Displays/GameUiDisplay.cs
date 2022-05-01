@@ -64,6 +64,12 @@ namespace SolastaCommunityExpansion.Displays
                 Main.Settings.EnableAdditionalBackstoryDisplay = toggle;
             }
 
+            toggle = Main.Settings.EnableLogDialoguesToConsole;
+            if (UI.Toggle("Enable log dialogues to game console during narrative sequences", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableLogDialoguesToConsole = toggle;
+            }
+
             UI.Label("");
 
             toggle = Main.Settings.EnableAdditionalIconsOnLevelMap;
