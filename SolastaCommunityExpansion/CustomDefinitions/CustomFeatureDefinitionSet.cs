@@ -5,6 +5,9 @@ using ModKit;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Models;
+using SolastaModApi;
+using SolastaModApi.Diagnostics;
+using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.CustomDefinitions
@@ -54,7 +57,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             _fullSetIsDirty = true;
         }
         
-        public void AddLevelFeatures(int level, List<FeatureDefinition> features)
+        public void AddLevelFeatures(int level, IEnumerable<FeatureDefinition> features)
         {
             GetOrMakeLevelFeatures(level).AddRange(features);
             _fullSetIsDirty = true;
@@ -66,7 +69,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             _fullSetIsDirty = true;
         }
         
-        public void SetLevelFeatures(int level, List<FeatureDefinition> features)
+        public void SetLevelFeatures(int level, IEnumerable<FeatureDefinition> features)
         {
             GetOrMakeLevelFeatures(level).SetRange(features);
             _fullSetIsDirty = true;
@@ -141,9 +144,11 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 
         public void RemoveFeature(RulesetCharacterHero hero, string tag)
         {
+            ServiceRepository.GetService<ICharacterBuildingService>().GetLastAssignedClassAndLevel(hero, out var lastClass, out var classLevel);
             //technically we return feature not where we took it from
+            tag = AttributeDefinitions.GetClassTag(lastClass, classLevel - 1);
             ServiceRepository.GetService<ICharacterBuildingService>()
-                .GrantFeatures(hero, new List<FeatureDefinition> {FeatureToRemove}, tag);
+                .GrantFeatures(hero, new List<FeatureDefinition> {FeatureToRemove}, tag, false);
         }
     }
 
@@ -172,16 +177,82 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 
         #endregion
 
+        private static string WrapName(string name) { return $"{$"{name}Remover"}"; }
+
         public static FeatureDefinitionRemoverBuilder CreateFrom(FeatureDefinition feature)
         {
-            return Create($"{feature.Name}Remover", CENamespaceGuid)
-                .SetGuiPresentation(feature.GuiPresentation)//TODO: add 'removed' to the title in the character info screen
+            return Create(WrapName(feature.Name), CENamespaceGuid)
+                .SetGuiPresentation(
+                    feature.GuiPresentation.Title, 
+                    feature.GuiPresentation.Description,
+                    feature.GuiPresentation.SpriteReference
+                )
                 .SetFeatureToRemove(feature);
+        }
+
+        public static FeatureDefinitionRemover CreateOrGetFrom(FeatureDefinition feature)
+        {
+            var name = WrapName(feature.Name);
+            try
+            {
+                var result = DatabaseHelper.GetDefinition<FeatureDefinition>(name, null);
+                if (result != null && result is FeatureDefinitionRemover remover)
+                {
+                    return remover;
+                }
+            }
+            catch (SolastaModApiException)
+            {
+            }
+
+            return CreateFrom(feature).AddToDB();
         }
 
         public FeatureDefinitionRemoverBuilder SetFeatureToRemove(FeatureDefinition feature)
         {
             Definition.FeatureToRemove = feature;
+            return this;
+        }
+    }
+
+    public class ReplaceCustomFeatureDefinitionSet : CustomFeatureDefinitionSet
+    {
+        public CustomFeatureDefinitionSet ReplacedFeatureSet { get; private set; }
+
+        public void SetReplacedFeatureSet(CustomFeatureDefinitionSet featureSet)
+        {
+            ReplacedFeatureSet = featureSet;
+            GuiPresentation.SetSpriteReference(featureSet.GuiPresentation.SpriteReference);
+            foreach (var level in featureSet.AllLevels)
+            {
+                var features = featureSet.GetLevelFeatures(level);
+                var removers = features.Select(FeatureDefinitionRemoverBuilder.CreateOrGetFrom);
+                SetLevelFeatures(level, removers);
+            }
+        }
+    }
+
+    public class ReplaceCustomFeatureDefinitionSetBuilder : FeatureDefinitionBuilder<ReplaceCustomFeatureDefinitionSet, ReplaceCustomFeatureDefinitionSetBuilder>
+    {
+        public ReplaceCustomFeatureDefinitionSetBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        public ReplaceCustomFeatureDefinitionSetBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        public ReplaceCustomFeatureDefinitionSetBuilder(ReplaceCustomFeatureDefinitionSet original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        public ReplaceCustomFeatureDefinitionSetBuilder(ReplaceCustomFeatureDefinitionSet original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+
+        public ReplaceCustomFeatureDefinitionSetBuilder SetReplacedFeatureSet(CustomFeatureDefinitionSet featureSet)
+        {
+            Definition.SetReplacedFeatureSet(featureSet);
             return this;
         }
     }

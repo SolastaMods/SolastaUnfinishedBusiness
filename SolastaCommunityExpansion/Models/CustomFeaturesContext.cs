@@ -36,6 +36,7 @@ namespace SolastaCommunityExpansion.Models
         internal static void RecursiveRemoveCustomFeatures(RulesetCharacterHero hero, List<FeatureDefinition> features,
             string tag)
         {
+            features = new List<FeatureDefinition>(features);
             foreach (var grantedFeature in features)
             {
                 RemoveCustomFeature(hero, grantedFeature, tag);
