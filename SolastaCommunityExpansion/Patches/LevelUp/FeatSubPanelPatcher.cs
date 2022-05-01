@@ -59,20 +59,25 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
             const int COLUMNS = 4;
             const int WIDTH = 224;
             const int HEIGHT = 34;
-            const int SPACING = 6;
+            const int SPACING = 12;
 
             if (Main.Settings.EnableSameWidthFeatSelection)
             {
+                var rect = table.GetComponent<RectTransform>();
+
+                rect.sizeDelta = new Vector2(rect.sizeDelta.x, (table.childCount / COLUMNS + 1) * (HEIGHT + SPACING));
+
                 for (var i = 0; i < table.childCount; i++)
                 {
-                    var rectTransform = table.GetChild(i).GetComponent<RectTransform>();
+                    rect = table.GetChild(i).GetComponent<RectTransform>();
+
                     var x = i % COLUMNS;
                     var y = i / COLUMNS;
-                    var posX = x * (WIDTH + SPACING * 2);
+                    var posX = x * (WIDTH + SPACING);
                     var posY = -y * (HEIGHT + SPACING);
 
-                    rectTransform.anchoredPosition = new Vector2(posX, posY);
-                    rectTransform.sizeDelta = new Vector2(WIDTH, HEIGHT);
+                    rect.anchoredPosition = new Vector2(posX, posY);
+                    rect.sizeDelta = new Vector2(WIDTH, HEIGHT);
                 }
             }
 
