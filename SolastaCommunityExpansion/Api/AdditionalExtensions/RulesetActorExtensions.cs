@@ -48,14 +48,21 @@ namespace SolastaModApi.Extensions
         
         public static bool HasAllFeatures(this RulesetActor actor, params FeatureDefinition[] features)
         {
-            var all = FeaturesByType<FeatureDefinition>(actor);
-            return features.All(f => all.Contains(f));
+            return HasAllFeatures(actor, features.ToList());
         }
         
         public static bool HasAllFeatures(this RulesetActor actor, IEnumerable<FeatureDefinition> features)
         {
             var all = FeaturesByType<FeatureDefinition>(actor);
-            return features.All(f => all.Contains(f));
+            return FlattenFeatureList(features).All(f => all.Contains(f));
+        }
+
+        public static IEnumerable<FeatureDefinition> FlattenFeatureList(IEnumerable<FeatureDefinition> features)
+        {
+            //TODO: should we add CustomFeatureDefinitionSet flattening too?
+            return features.SelectMany(f => f is FeatureDefinitionFeatureSet set
+                ? FlattenFeatureList(set.FeatureSet)
+                : new List<FeatureDefinition>() {f});
         }
     }
 }

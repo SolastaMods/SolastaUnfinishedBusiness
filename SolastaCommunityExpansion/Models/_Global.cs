@@ -49,12 +49,19 @@ namespace SolastaCommunityExpansion.Models
         {
             var hero = ActiveLevelUpHero;
 
-            return hero == null || recursive
-                ? hero.HasAnyFeature(feature)
-                : hero.ActiveFeatures
-                    .SelectMany(x => x.Value)
-                    .Any(x => x == feature)
-                || hero.GetHeroBuildingData().AllActiveFeatures.Contains(feature);
+            if (feature is FeatureDefinitionFeatureSet set)
+            {
+                return hero != null && hero.HasAllFeatures(set.FeatureSet);
+            }
+            else
+            {
+                return hero == null || recursive
+                    ? hero.HasAnyFeature(feature)
+                    : hero.ActiveFeatures
+                          .SelectMany(x => x.Value)
+                          .Any(x => x == feature)
+                      || hero.GetHeroBuildingData().AllActiveFeatures.Contains(feature);
+            }
         }
     }
 }
