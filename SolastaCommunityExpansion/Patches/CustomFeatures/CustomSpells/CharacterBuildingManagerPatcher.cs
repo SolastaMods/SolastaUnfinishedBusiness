@@ -7,51 +7,98 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
 {
-    [HarmonyPatch(typeof(CharacterBuildingManager), "RegisterPoolStack")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class CharacterBuildingManager_RegisterPoolStack
+    internal static class CharacterBuildingManagePatcher
     {
-        internal static void Postfix(
-            CharacterHeroBuildingData heroBuildingData,
-            List<FeatureDefinition> features,
-            string tag)
+        internal static bool IsSpellBonus(IPointPoolMaxBonus mod)
         {
-            if (!Main.Settings.EnableCustomSpellsPatch)
-            {
-                return;
-            }
+            return mod.PoolType == HeroDefinitions.PointsPoolType.Cantrip
+                   || mod.PoolType == HeroDefinitions.PointsPoolType.Spell;
+        }
 
-            var hero = heroBuildingData.HeroCharacter;
-            var poolMods = hero.GetFeaturesByType<IPointPoolMaxBonus>();
-
-            heroBuildingData.HeroCharacter.BrowseFeaturesOfType<FeatureDefinition>(features, (feature, _) =>
+        [HarmonyPatch(typeof(CharacterBuildingManager), "RegisterPoolStack")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+        internal static class CharacterBuildingManager_RegisterPoolStack
+        {
+            internal static void Postfix(
+                CharacterHeroBuildingData heroBuildingData,
+                List<FeatureDefinition> features,
+                string tag)
             {
-                if (feature is IPointPoolMaxBonus bonus)
+                if (!Main.Settings.EnableCustomSpellsPatch)
                 {
-                    poolMods.Remove(bonus);
+                    return;
                 }
-            }, tag);
 
-            var values = new Dictionary<HeroDefinitions.PointsPoolType, int>();
+                var hero = heroBuildingData.HeroCharacter;
+                var poolMods = hero.GetFeaturesByType<IPointPoolMaxBonus>();
+                var spellMods = new List<IPointPoolMaxBonus>();
 
-            foreach (var mod in poolMods)
-            {
-                values.AddOrReplace(mod.PoolType, values.GetValueOrDefault(mod.PoolType) + mod.MaxPointsBonus);
-            }
+                poolMods.RemoveAll(IsSpellBonus);
 
-            foreach (var mod in values)
-            {
-                var poolType = mod.Key;
-                var value = mod.Value;
-
-                var poolStack = heroBuildingData.PointPoolStacks[poolType] ?? new PointPoolStack(poolType);
-
-                var pool = poolStack.ActivePools.GetValueOrDefault(tag);
-
-                if (pool != null)
+                heroBuildingData.HeroCharacter.BrowseFeaturesOfType<FeatureDefinition>(features, (feature, _) =>
                 {
-                    pool.MaxPoints += value;
-                    pool.RemainingPoints += value;
+                    if (feature is IPointPoolMaxBonus bonus)
+                    {
+                        poolMods.Remove(bonus);
+                        if (IsSpellBonus(bonus))
+                        {
+                            spellMods.Add(bonus);
+                        }
+                    }
+                }, tag);
+
+                var values = new Dictionary<HeroDefinitions.PointsPoolType, int>();
+
+                foreach (var mod in poolMods)
+                {
+                    values.AddOrReplace(mod.PoolType, values.GetValueOrDefault(mod.PoolType) + mod.MaxPointsBonus);
+                }
+
+                //remove spell bonuses ganed this level - they are added before this
+                foreach (var mod in spellMods)
+                {
+                    values.AddOrReplace(mod.PoolType, values.GetValueOrDefault(mod.PoolType) - mod.MaxPointsBonus);
+                }
+
+                foreach (var mod in values)
+                {
+                    var poolType = mod.Key;
+                    var value = mod.Value;
+
+                    var poolStack = heroBuildingData.PointPoolStacks[poolType] ?? new PointPoolStack(poolType);
+
+                    var pool = poolStack.ActivePools.GetValueOrDefault(tag);
+
+                    if (pool != null)
+                    {
+                        pool.MaxPoints += value;
+                        pool.RemainingPoints += value;
+                    }
+                }
+            }
+        }
+
+        [HarmonyPatch(typeof(CharacterBuildingManager), "ApplyFeatureCastSpell")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+        internal static class CharacterBuildingManager_ApplyFeatureCastSpell
+        {
+            internal static void Postfix(CharacterHeroBuildingData heroBuildingData)
+            {
+                var hero = heroBuildingData.HeroCharacter;
+                var poolMods = hero.GetFeaturesByType<IPointPoolMaxBonus>();
+
+                poolMods.RemoveAll(p => !IsSpellBonus(p));
+
+                foreach (var mod in poolMods)
+                {
+                    if (mod.PoolType == HeroDefinitions.PointsPoolType.Cantrip)
+                    {
+                        heroBuildingData.TempAcquiredCantripsNumber += mod.MaxPointsBonus;
+                    }
+                    else if (mod.PoolType == HeroDefinitions.PointsPoolType.Spell)
+                    {
+                        heroBuildingData.TempAcquiredSpellsNumber += mod.MaxPointsBonus;
+                    }
                 }
             }
         }
