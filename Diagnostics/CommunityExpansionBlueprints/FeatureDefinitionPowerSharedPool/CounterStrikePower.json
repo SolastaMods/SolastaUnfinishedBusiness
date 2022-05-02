@@ -275,7 +275,7 @@
   "triggeredBySpecialMove": false,
   "activationTime": "Reaction",
   "reactionContext": "HitByMelee",
-  "reactionName": "",
+  "reactionName": "CounterStrike",
   "hasCastingFailure": false,
   "castingSuccessComputation": "CasterLevel",
   "canUseInDialog": false,
