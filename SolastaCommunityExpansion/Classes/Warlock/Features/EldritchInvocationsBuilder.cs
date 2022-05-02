@@ -367,19 +367,30 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 EldritchInvocations.Add(entry, FeatureSetEldritchInvocations);
             }
 
-            ((FeatureDefinitionFeatureSet)EldritchInvocations["AspectoftheMoon"]).FeatureSet
-                .Add(FeatureDefinitionCampAffinitys.CampAffinityElfTrance);
-            ((FeatureDefinitionFeatureSet)EldritchInvocations["AspectoftheMoon"]).FeatureSet
-                .Add(FeatureDefinitionCampAffinitys.CampAffinityDomainOblivionPeacefulRest);
+            ((FeatureDefinitionFeatureSet)EldritchInvocations["AspectoftheMoon"]).FeatureSet.AddRange(
+                FeatureDefinitionCampAffinityBuilder.Create(FeatureDefinitionCampAffinitys.CampAffinityElfTrance,
+                        "ClassWarlockEldritchInvocationAspectoftheMoonTrance", DefinitionBuilder.CENamespaceGuid)
+                    .SetGuiPresentation(EldritchInvocations["AspectoftheMoon"].GuiPresentation)
+                    .AddToDB(),
+                FeatureDefinitionCampAffinityBuilder.Create(
+                        FeatureDefinitionCampAffinitys.CampAffinityDomainOblivionPeacefulRest,
+                        "ClassWarlockEldritchInvocationAspectoftheMoonRest", DefinitionBuilder.CENamespaceGuid)
+                    .SetGuiPresentation(EldritchInvocations["AspectoftheMoon"].GuiPresentation)
+                    .AddToDB()
+            );
             ((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["AspectoftheMoon"]).Validators.SetRange(RequirePactOfTheTome);
 
             ((FeatureDefinitionFeatureSet)EldritchInvocations["BeguilingInfluence"]).FeatureSet
-                .Add(FeatureDefinitionProficiencys.ProficiencyFeatManipulatorSkillOrExpertise);
+                .Add(FeatureDefinitionProficiencyBuilder
+                    .Create(FeatureDefinitionProficiencys.ProficiencyFeatManipulatorSkillOrExpertise,
+                        "ClassWarlockEldritchInvocationBeguilingInfluence", DefinitionBuilder.CENamespaceGuid)
+                    .SetGuiPresentation(EldritchInvocations["BeguilingInfluence"].GuiPresentation)
+                    .AddToDB());
             
             ((FeatureDefinitionFeatureSet)EldritchInvocations["EldritchMind"]).FeatureSet
                 .Add(FeatureDefinitionMagicAffinityBuilder
                     .Create("ClassWarlockEldritchInvocationEldritchMind", DefinitionBuilder.CENamespaceGuid)
-                    .SetGuiPresentation("Feature/&EldritchMindTitle", "Feature/&EldritchMindDescription")
+                    .SetGuiPresentation(EldritchInvocations["EldritchMind"].GuiPresentation)
                     .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage, 0)
                     .AddToDB());
             
