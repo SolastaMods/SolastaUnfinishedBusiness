@@ -372,7 +372,11 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .Add(FeatureDefinitionProficiencys.ProficiencyFeatManipulatorSkillOrExpertise);
             
             ((FeatureDefinitionFeatureSet)EldritchInvocations["EldritchMind"]).FeatureSet
-                .Add(FeatureDefinitionMagicAffinitys.MagicAffinityFeatFlawlessConcentration);
+                .Add(FeatureDefinitionMagicAffinityBuilder
+                    .Create("ClassWarlockEldritchInvocationEldritchMind", DefinitionBuilder.CENamespaceGuid)
+                    .SetGuiPresentation("Feature/&EldritchMindTitle", "Feature/&EldritchMindDescription")
+                    .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage, 0)
+                    .AddToDB());
             
             ((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["EldritchMind"]).Validators.SetRange(RequirePactOfTheTome);
 
