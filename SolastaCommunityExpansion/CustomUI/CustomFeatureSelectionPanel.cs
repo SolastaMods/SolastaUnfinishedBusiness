@@ -642,6 +642,7 @@ namespace SolastaCommunityExpansion.CustomUI
 
         public void MoveToNextLearnStep()
         {
+            Main.Log($"[ENDER] MoveToNextLearnStep");
             this.currentLearnStep++;
 
             this.LevelSelected(0);
@@ -796,7 +797,7 @@ namespace SolastaCommunityExpansion.CustomUI
                         learnStepItem.CustomBind(i, this.allPools[i], 
                             this.OnLearnBack, 
                             this.OnLearnReset,
-                             this.OnLearnAuto
+                             this.OnSkipRemaining
                         );
                     }
                     else
@@ -828,26 +829,26 @@ namespace SolastaCommunityExpansion.CustomUI
 
         public void OnLearnBack()
         {
-            Main.Log($"[ENDER] OnLearnBack");
             if (this.wasClicked)
             {
                 return;
             }
 
             this.wasClicked = true;
+            Main.Log($"[ENDER] OnLearnBack");
 
             this.MoveToPreviousLearnStep(true, this.ResetWasClickedFlag);
         }
 
         public void OnLearnReset()
         {
-            Main.Log($"[ENDER] OnLearnReset");
             if (this.wasClicked)
             {
                 return;
             }
 
             this.wasClicked = true;
+            Main.Log($"[ENDER] OnLearnReset");
 
             if (this.IsFinalStep)
             {
@@ -861,6 +862,23 @@ namespace SolastaCommunityExpansion.CustomUI
                     this.RefreshNow();
                     this.ResetWasClickedFlag();
                 });
+        }
+
+        public void OnSkipRemaining()
+        {
+            if (this.wasClicked)
+            {
+                return;
+            }
+
+            this.wasClicked = true;
+            
+            Main.Log($"[ENDER] OnSkipRemaining");
+            if (IsUnlearnStep(currentLearnStep))
+            {
+                MoveToNextLearnStep();
+            }
+            ResetWasClickedFlag();
         }
 
         private void ResetLearnings(int stepNumber, Action onDone = null)
@@ -910,30 +928,6 @@ namespace SolastaCommunityExpansion.CustomUI
             }
 
             this.spellsByLevelTable.anchoredPosition = new Vector2(finalX, 0);
-        }
-
-        #endregion
-
-
-        #region autoselect stuff
-
-        public override void AutotestAutoValidate() => this.OnLearnAuto();
-
-        public void OnLearnAuto()
-        {
-            if (this.wasClicked)
-            {
-                return;
-            }
-
-            this.wasClicked = true;
-
-            this.OnLearnAutoImpl();
-        }
-
-        private void OnLearnAutoImpl(System.Random rng = null)
-        {
-            //TODO: implement auto-selection of stuff
         }
 
         #endregion
