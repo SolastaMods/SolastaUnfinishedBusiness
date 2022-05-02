@@ -109,16 +109,29 @@ namespace SolastaCommunityExpansion.Models
             {
                 removeFrom.Remove(feature);
                 RemoveCustomFeature(hero, feature, tag);
-                if (feature is FeatureDefinitionFeatureSet set &&
-                    set.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-                {
-                    RecursiveRemoveFeatures(hero, set.FeatureSet, tag);
-                }
-
+                ProcessCustomRemoval(hero, feature, tag);
                 return true;
             }
 
             return false;
+        }
+
+        private static void ProcessCustomRemoval(RulesetCharacterHero hero, FeatureDefinition feature, string tag)
+        {
+            //TODO: add other potentially needed options, like auto-prepared spells, look for examples in LevelDownContext.RemoveFeatures
+            if (feature is FeatureDefinitionBonusCantrips bonusCantrips)
+            {
+                foreach (var cantrip in bonusCantrips.BonusCantrips)
+                {
+                    hero.SpellRepertoires.FirstOrDefault(r => r.KnownCantrips.Contains(cantrip))
+                        ?.KnownCantrips.Remove(cantrip);
+                }
+            }
+            else if (feature is FeatureDefinitionFeatureSet set 
+                     && set.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+            {
+                RecursiveRemoveFeatures(hero, set.FeatureSet, tag);
+            }
         }
 
         internal static void RechargeLinkedPowers(RulesetCharacter character, RuleDefinitions.RestType restType)
