@@ -139,7 +139,7 @@ namespace SolastaMulticlass.Models
         private static void RemoveFeatureDefinitionPointPool(RulesetCharacterHero hero, RulesetSpellRepertoire heroRepertoire, FeatureDefinitionPointPool featureDefinitionPointPool)
         {
             var poolAmount = featureDefinitionPointPool.PoolAmount;
-            HeroDefinitions.PointsPoolType.
+
             switch (featureDefinitionPointPool.PoolType)
             {
                 case HeroDefinitions.PointsPoolType.AbilityScore:
