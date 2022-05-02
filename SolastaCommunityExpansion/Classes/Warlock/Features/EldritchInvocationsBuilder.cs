@@ -6,12 +6,17 @@ using SolastaCommunityExpansion.Classes.Warlock.Subclasses;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi.Infrastructure;
+using UnityEngine.AddressableAssets;
 using static SolastaModApi.DatabaseHelper;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Features
 {
     internal static class EldritchInvocationsBuilder
     {
+
+        public static AssetReferenceSprite EldritchBLastIcon = Utils.CustomIcons.CreateAssetReferenceSprite("EldritchBlast", Properties.Resources.EldritchBlast, 128, 128);
+        public static AssetReferenceSprite EldritchBLastIconGrasp = Utils.CustomIcons.CreateAssetReferenceSprite("EldritchBlastGrasp", Properties.Resources.EldritchBlastGrasp, 128, 128);
+        public static AssetReferenceSprite EldritchBLastIconRepell = Utils.CustomIcons.CreateAssetReferenceSprite("EldritchBlastRepell", Properties.Resources.EldritchBlastRepell, 128, 128);
         internal static SpellDefinition EldritchBlast { get; set; }
 
         internal static Dictionary<string, FeatureDefinition> EldritchInvocations { get; private set; } = new();
@@ -117,7 +122,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
             var eldritchBlast = SpellWithCasterFeatureDependentEffectsBuilder
                 .Create(EldritchBlastName, DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(Category.Spell, SpellDefinitions.MagicMissile.GuiPresentation.SpriteReference)
+                .SetGuiPresentation(Category.Spell, EldritchBLastIcon)
                 .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
                 .SetSpellLevel(0)
                 .SetCastingTime(RuleDefinitions.ActivationTime.Action)
@@ -141,7 +146,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
                 .Build();
 
-            void MakeEldritchBlastVariant(string name, params EffectForm[] forms)
+            void MakeEldritchBlastVariant(string name, AssetReferenceSprite icon, params EffectForm[] forms)
             {
                 string cantripName = EldritchBlastName + name;
 
@@ -150,7 +155,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
                 var cantrip = SpellWithCasterFeatureDependentEffectsBuilder
                     .Create(eldritchBlast, cantripName, DefinitionBuilder.CENamespaceGuid)
-                    .SetGuiPresentation(Category.Spell, EldritchBlast.GuiPresentation.SpriteReference)
+                    .SetGuiPresentation(Category.Spell, icon)
                     .SetEffectDescription(CustomFeaturesContext.AddEffectForms(eldritchBlastEffect, forms))
                     .SetFeatureEffects(eldritchBlast.FeaturesEffectList
                         .Select(t => (t.Item1, CustomFeaturesContext.AddEffectForms(t.Item2, forms)))
@@ -160,7 +165,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
                 var bonusCantrip = FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder
                     .Create(cantripName + "BonusCantrip", DefinitionBuilder.CENamespaceGuid)
-                    .SetGuiPresentation(Category.Feature)
+                    .SetGuiPresentation(Category.Feature, icon)
                     .ClearBonusCantrips()
                     .AddBonusCantrip(cantrip)
                     .SetValidators(RequireEldritchBlast)
@@ -169,8 +174,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 EldritchInvocations.Add(name, bonusCantrip);
             }
 
-            MakeEldritchBlastVariant("RepellingBlast", pushForm);
-            MakeEldritchBlastVariant("GraspingHand", pullForm);
+            MakeEldritchBlastVariant("RepellingBlast", EldritchBLastIconRepell, pushForm);
+            MakeEldritchBlastVariant("GraspingHand", EldritchBLastIconGrasp, pullForm);
 
             var agonizingBlast = FeatureDefinitionFeatureSetWithPreRequisitesBuilder
                 .Create("AgonizingBlast", DefinitionBuilder.CENamespaceGuid)
