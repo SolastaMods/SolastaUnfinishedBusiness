@@ -1075,7 +1075,7 @@ Feature/&ToadKingJumpTitle	Jump
 Feature/&ToadKingPoisonConditionAffinityTitle	Immune to Poison Condition
 Feature/&ToadKingPoisonDamageAffinityTitle	Immune to Poison Damage
 Feature/&ToadKingStickyFeetTitle	Webbed Feet
-Feature/&Trickster'sEscapeTitle	Trickster's Escape
+Feature/&TrickstersEscapeTitle	Trickster's Escape
 Feature/&UrPriestDomainTheftDescription	You snatch the secrets that a god grants all of it's devout clerics. Choose a cleric domain: you gain the features that domain grants at 1st level
 Feature/&UrPriestDomainTheftTitle	Domain Theft
 Feature/&UrPriestExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. Cleric spells are added to the warlock spell list for you
