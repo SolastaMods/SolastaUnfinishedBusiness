@@ -252,7 +252,9 @@ namespace SolastaCommunityExpansion.Models
         public static EffectDescription ModifySpellEffectGui(EffectDescription original, GuiSpellDefinition spell)
         {
             var result = original;
-            var caster = Global.ActivePlayerCharacter?.RulesetCharacter;
+            var caster = Global.InspectedHero 
+                         ?? Global.ActiveLevelUpHero
+                         ?? Global.ActivePlayerCharacter?.RulesetCharacter;
 
             if (spell.SpellDefinition is ICustomMagicEffectBasedOnCaster baseDefinition && caster != null)
             {

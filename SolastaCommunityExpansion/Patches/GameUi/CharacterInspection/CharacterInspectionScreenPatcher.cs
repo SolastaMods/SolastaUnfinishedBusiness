@@ -18,4 +18,24 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
             Models.InventoryManagementContext.ResetControls();
         }
     }
+    
+    // set the inspection context for MC heroes
+    [HarmonyPatch(typeof(CharacterInspectionScreen), "Bind")]
+    internal static class CharacterInspectionScreenBind
+    {
+        internal static void Postfix(RulesetCharacterHero heroCharacter)
+        {
+            Global.InspectedHero = heroCharacter;
+        }
+    }
+
+    // reset the inspection context for MC heroes
+    [HarmonyPatch(typeof(CharacterInspectionScreen), "Unbind")]
+    internal static class CharacterInspectionScreenUnbind
+    {
+        internal static void Postfix()
+        {
+            Global.InspectedHero = null;
+        }
+    }
 }

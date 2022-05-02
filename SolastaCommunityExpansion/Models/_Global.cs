@@ -9,6 +9,8 @@ namespace SolastaCommunityExpansion.Models
     {
         // holds the active player character when in battle
         public static GameLocationCharacter ActivePlayerCharacter { get; set; }
+        
+        public static RulesetCharacter InspectedHero { get; set; }
 
         // holds the current action from any character on the map
         public static CharacterAction CurrentAction { get; set; }
