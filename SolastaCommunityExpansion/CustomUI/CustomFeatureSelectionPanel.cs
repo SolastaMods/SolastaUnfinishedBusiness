@@ -644,6 +644,10 @@ namespace SolastaCommunityExpansion.CustomUI
         {
             Main.Log($"[ENDER] MoveToNextLearnStep");
             this.currentLearnStep++;
+            while (!IsFinalStep && allPools[currentLearnStep].Remaining == 0)
+            {
+                this.currentLearnStep++;
+            }
 
             this.LevelSelected(0);
 
