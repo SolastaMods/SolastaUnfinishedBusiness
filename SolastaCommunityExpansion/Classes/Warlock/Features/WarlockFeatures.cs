@@ -93,7 +93,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         #region WarlockEldritchInvocationReplacer
         private static ReplaceCustomFeatureDefinitionSet warlockEldritchInvocationReplacer;
         public static ReplaceCustomFeatureDefinitionSet WarlockEldritchInvocationReplacer => warlockEldritchInvocationReplacer ??= ReplaceCustomFeatureDefinitionSetBuilder
-                .Create("ClassWarlockEldritchInvocationSetReplace", CENamespaceGuid)
+                .Create("ClassWarlockEldritchInvocationReplace", CENamespaceGuid)
                 .SetGuiPresentation(Category.Feature)
                 .SetReplacedFeatureSet(WarlockEldritchInvocationSet)
                 .AddToDB();

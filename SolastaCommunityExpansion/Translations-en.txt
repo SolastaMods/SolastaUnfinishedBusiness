@@ -785,8 +785,8 @@ Feature/&ClassWarlockArmorProficiencyDescription	Light Armor
 Feature/&ClassWarlockArmorProficiencyTitle	Warlock Armor Proficiencies
 Feature/&ClassWarlockEldritchInvocationSetLevelDescription	Add an eldritch invocation
 Feature/&ClassWarlockEldritchInvocationSetLevelTitle	Eldritch Invocation
-Feature/&ClassWarlockEldritchInvocationSetReplaceDescription	Replace an eldritch invocation
-Feature/&ClassWarlockEldritchInvocationSetReplaceTitle	Replace Invocation
+Feature/&ClassWarlockEldritchInvocationReplaceDescription	Select Eldritch Incovation to replace
+Feature/&ClassWarlockEldritchInvocationReplaceTitle	Replace Invocation
 Feature/&ClassWarlockEldritchMasterDescription	you can draw on your inner reserve of mystical power while entreating your patron to regain expended spell slots. You can spend 1 minute entreating your patron for aid to regain all your expended spell slots from your Pact Magic feature. Once you regain spell slots with this feature, you must finish a long rest before you can do so again
 Feature/&ClassWarlockEldritchMasterTitle	Eldritch Master
 Feature/&ClassWarlockMysticArcanumSetDescription	Your patron bestows upon you a magical secret called an arcanum. You can cast your arcanum spell once without expending a spell slot. You must finish a long rest before you can do so again. At higher levels, you gain more warlock spells of your choice that can be cast in this way: one 6th-level spell at 11th level, one 7th-level spell at 13th level, one 8th-level spell at 15th level, and one 9th-level spell at 17th level
