@@ -187,8 +187,6 @@ namespace SolastaCommunityExpansion.CustomUI
             IRuntimeService runtimeService = ServiceRepository.GetService<IRuntimeService>();
             runtimeService.RuntimeLoaded -= this.RuntimeLoaded;
 
-            // this.allCantrips.Clear();
-            // this.allSpells.Clear();
             yield return base.Unload();
         }
 
@@ -260,7 +258,10 @@ namespace SolastaCommunityExpansion.CustomUI
         protected override void OnEndHide()
         {
             Main.Log($"[ENDER] OnEndHide");
-            //TODO: clear all pools/learnings
+            
+            learnedFeatures.Clear();
+            allPools.Clear();
+            
             for (int i = 0; i < this.spellsByLevelTable.childCount; i++)
             {
                 Transform child = this.spellsByLevelTable.GetChild(i);
