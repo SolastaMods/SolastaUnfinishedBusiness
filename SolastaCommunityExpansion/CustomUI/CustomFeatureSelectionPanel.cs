@@ -1245,8 +1245,8 @@ namespace SolastaCommunityExpansion.CustomUI
             }
             else
             {
-                var dataProvider = new CutomRequirementsProvider(feature, gui);
-                dataProvider.SetErrors(errors);
+                var dataProvider = new CustomTooltipProvider(feature, gui);
+                dataProvider.SetPrerequisites(errors);
                 tooltip.TooltipClass = "FeatDefinition";
                 tooltip.Content = feature.GuiPresentation.Description;
                 tooltip.Context = Global.ActiveLevelUpHero;
@@ -1267,61 +1267,6 @@ namespace SolastaCommunityExpansion.CustomUI
         {
             Features.Remove(instance);
             instance.Unbind();
-        }
-    }
-
-    public class CutomRequirementsProvider : GuiBaseDefinitionWrapper, ISubTitleProvider, IPrerequisitesProvider, IImageProvider
-    {
-        private readonly GuiPresentation _guiPresentation;
-        private string _prerequisites;
-
-        public CutomRequirementsProvider(BaseDefinition baseDefinition, GuiPresentation guiPresentation) : base(baseDefinition)
-        {
-            _guiPresentation = guiPresentation;
-        }
-
-        public string Subtitle
-        {
-            get
-            {
-                switch (this.BaseDefinition)
-                {
-                    case FeatureDefinitionPower:
-                        return "UI/&CustomFeatureSelectionTooltipTypePower";
-                    case FeatureDefinitionBonusCantrips:
-                        return "UI/&CustomFeatureSelectionTooltipTypeCantrip";
-                    default:
-                        return "UI/&CustomFeatureSelectionTooltipTypeFeature";
-                }
-            }
-        }
-
-        public override void SetupSprite(Image image, object context = null)
-        {
-            if (image.sprite != null)
-            {
-                this.ReleaseSprite(image);
-                image.sprite = null;
-            }
-            if (_guiPresentation.SpriteReference != null && _guiPresentation.SpriteReference.RuntimeKeyIsValid())
-            {
-                image.gameObject.SetActive(true);
-                image.sprite = Gui.LoadAssetSync<Sprite>(_guiPresentation.SpriteReference);
-            }
-            else
-                image.gameObject.SetActive(false);
-        }
-
-        public void SetErrors(List<string> errors)
-        {
-            _prerequisites = errors == null || errors.Empty() 
-                ? null 
-                : Gui.Colorize(String.Join("\n", errors.Select(e => Gui.Localize(e))), Gui.ColorNegative);
-        }
-
-        public string EnumeratePrerequisites(RulesetCharacterHero hero)
-        {
-            return _prerequisites;
         }
     }
 }

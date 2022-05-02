@@ -1732,6 +1732,7 @@ Requirement/&FeatureSelectionRequireClassLevel	Level {0} of {1}
 Requirement/&FeatureSelectionRequireCharacterLevel	Level {0}
 UI/&CustomFeatureSelectionTooltipTypePower	Power
 UI/&CustomFeatureSelectionTooltipTypeCantrip	Cantrip
+UI/&CustomFeatureSelectionTooltipTypeProficiency	Proficiency
 UI/&CustomFeatureSelectionTooltipTypeFeature	Feature
 UI/&CustomFeatureSelectionStageTitle	Feature Selection
 UI/&CustomFeatureSelectionStageDescription	Select extra features from your class/subclass.
