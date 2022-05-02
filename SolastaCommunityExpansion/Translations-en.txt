@@ -1722,14 +1722,17 @@ Tooltip/&Tag9000Title	Custom Effect
 Tooltip/&TagCommunityExpansionTitle	Community Expansion
 Tooltip/&TagMaledictionTitle	Malediction
 Tooltip/&TagOtherModContentTitle	From mod
-Requirement/&WarlockMissingEldritchBlast	Requires Eldritch Blast cantrip.
-Requirement/&WarlockRequiresPactOfBlade	Requires Pact of the Blade.
-Requirement/&WarlockRequiresPactOfTome	Requires Pact of the Tome.
-Requirement/&WarlockRequiresPactOfChain	Requires Pact of the Chains.
-Requirement/&WarlockRequiresNoMoonLit	Can't have Moonlit Patron.
-Requirement/&WarlockRequiresOneWithShadows	Requires "One With Shadows" eldritch invocation.
-Requirement/&FeatureSelectionRequireClassLevel	Requires Level {0} of {1}
-Requirement/&FeatureSelectionRequireCharacterLevel	Requires Level {0}
+Requirement/&WarlockMissingEldritchBlast	Eldritch Blast cantrip
+Requirement/&WarlockRequiresPactOfBlade	Pact of the Blade
+Requirement/&WarlockRequiresPactOfTome	Pact of the Tome
+Requirement/&WarlockRequiresPactOfChain	Pact of the Chains
+Requirement/&WarlockRequiresNoMoonLit	Not Moonlit Patron
+Requirement/&WarlockRequiresOneWithShadows	"One With Shadows" eldritch invocation
+Requirement/&FeatureSelectionRequireClassLevel	Level {0} of {1}
+Requirement/&FeatureSelectionRequireCharacterLevel	Level {0}
+UI/&CustomFeatureSelectionTooltipTypePower	Power
+UI/&CustomFeatureSelectionTooltipTypeCantrip	Cantrip
+UI/&CustomFeatureSelectionTooltipTypeFeature	Feature
 UI/&CustomFeatureSelectionStageTitle	Feature Selection
 UI/&CustomFeatureSelectionStageDescription	Select extra features from your class/subclass.
 UI/&CustomFeatureSelectionStageFeatures	Features
