@@ -15,6 +15,20 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         public static FeatureDefinitionPower PactofChainFamiliarInvisibilityPower { get; private set; }
         public static FeatureDefinitionPower PactofChainFamiliarScarePower { get; private set; }
 
+        private static FeatureDefinition _help;
+        private static FeatureDefinition Help
+        {
+            get
+            {
+                if (_help == null && DatabaseRepository.GetDatabase<FeatureDefinition>().TryGetElement("HelpAction", out FeatureDefinition help))
+                {
+                    _help = help;
+                }
+
+                return _help;
+            }
+        }
+
         public static void buildPactofChainFamiliarInvisibilityPower()
         {
             SpellDefinition invisibilty = DatabaseHelper.SpellDefinitions.Invisibility;
@@ -230,7 +244,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             monster.MonsterPresentation.SetCustomMaterials(DatabaseHelper.MonsterPresentationDefinitions.Young_Green_Dragon_Presentation.CustomMaterials);
             monster.MonsterPresentation.SetHasMonsterPortraitBackground(true);
             monster.MonsterPresentation.SetCanGeneratePortrait(true);
-            
+
+            if (Help) { monster.Features.Add(Help); }
+
             return monster; 
         }
 
@@ -334,6 +350,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             //     .Young_Green_Dragon_Presentation.CustomMaterials);
             monster.MonsterPresentation.SetHasMonsterPortraitBackground(true);
             monster.MonsterPresentation.SetCanGeneratePortrait(true);
+            
+            if (Help) { monster.Features.Add(Help); }
             
             // monster.MonsterPresentation.SetOverrideCharacterShaderColors(true);
             // monster.MonsterPresentation.SetFirstCharacterShaderColor(DatabaseHelper.MonsterDefinitions.FeyBear.MonsterPresentation.GetField<Color>("firstCharacterShaderColor"));
@@ -451,6 +469,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             monster.MonsterPresentation.SetFemalePrefabReference(DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.GetField<AssetReference>("femalePrefabReference"));
 
             monster.MonsterPresentation.SetHasPrefabVariants(false);
+            
+            if (Help) { monster.Features.Add(Help); }
 
             return monster;
         }
@@ -557,6 +577,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             monster.MonsterPresentation.SetMalePrefabReference(DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.GetField<AssetReference>("malePrefabReference"));
             monster.MonsterPresentation.SetFemalePrefabReference(DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.GetField<AssetReference>("malePrefabReference"));
 
+            if (Help) { monster.Features.Add(Help); }
+            
             return monster;
         }
     }
