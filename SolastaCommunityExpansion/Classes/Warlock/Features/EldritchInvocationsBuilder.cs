@@ -415,7 +415,11 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             ((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["EldritchSmite"]).Validators.SetRange(RequirePactOfTheBlade);
 
             ((FeatureDefinitionFeatureSet)EldritchInvocations["ThirstingBlade"]).FeatureSet
-                .Add(FeatureDefinitionAttributeModifiers.AttributeModifierFighterExtraAttack);
+                .Add(FeatureDefinitionAttributeModifierBuilder
+                    .Create(FeatureDefinitionAttributeModifiers.AttributeModifierFighterExtraAttack, "ClassWarlockEldritchInvocationThirstingBlade", DefinitionBuilder.CENamespaceGuid)
+                    .SetGuiPresentation(EldritchInvocations["ThirstingBlade"].GuiPresentation)
+                    .AddToDB()
+                );
             ((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["ThirstingBlade"]).Validators.SetRange(RequirePactOfTheBlade);
 
             ((FeatureDefinitionFeatureSet)EldritchInvocations["GiftoftheProtectors"]).FeatureSet
