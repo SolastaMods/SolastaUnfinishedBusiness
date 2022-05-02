@@ -50,7 +50,7 @@
     "grantedConditionOnSave": null,
     "hasShoveRoll": false,
     "createdByCharacter": true,
-    "difficultyClassComputation": "SpellCastingFeature",
+    "difficultyClassComputation": "AbilityScoreAndProficiency",
     "savingThrowDifficultyAbility": "Wisdom",
     "fixedSavingThrowDifficultyClass": 15,
     "savingThrowAffinitiesBySense": [],

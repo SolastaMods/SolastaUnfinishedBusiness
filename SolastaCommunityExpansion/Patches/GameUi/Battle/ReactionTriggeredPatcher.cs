@@ -34,6 +34,22 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Battle
                 return false;
             }
 
+            //
+            // TODO: Create a FeatureBuilder with Validators to create a generic check here
+            //
+
+            //
+            // Tacticians heroes should only CounterStrike with melee weapons
+            //
+            if (request is ReactionRequestCounterAttackWithPower
+                && request.SuboptionTag == "CounterStrike"
+                && request.Character.RulesetCharacter is RulesetCharacterHero hero
+                && hero.IsWieldingRangedWeapon())
+            {
+                ServiceRepository.GetService<ICommandService>().ProcessReactionRequest(request, false);
+                return false;
+            }
+
             return true;
         }
     }

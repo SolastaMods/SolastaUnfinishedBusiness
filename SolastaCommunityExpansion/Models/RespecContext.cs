@@ -93,6 +93,12 @@ namespace SolastaCommunityExpansion.Models
             {
                 if (Global.IsMultiplayer)
                 {
+                    Gui.GuiService.ShowMessage(
+                        MessageModal.Severity.Informative1,
+                        "RestActivity/&ZSRespecTitle", "Message/&RespecMultiplayerAbortDescription",
+                        "Message/&MessageOkTitle", string.Empty,
+                        null, null);
+
                     yield break;             
                 }
 
