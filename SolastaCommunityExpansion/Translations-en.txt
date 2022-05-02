@@ -461,6 +461,8 @@ Feat/&FeatChefWisIncrementDescription	+1 Wisdom
 Feat/&FeatChefWisIncrementTitle	Attribute Increase
 Feat/&FeatDexIncrementDescription	+1 Dexterity
 Feat/&FeatDexIncrementTitle	Attribute Increase
+Feat/&FeatDualWeaponDefenseDescription	When yielding 2 weapons your AC increases by 1
+Feat/&FeatDualWeaponDefenseTitle	Dual Weapon Defense
 Feat/&FeatFastHandsDescription	You gain a Cunning Action and can use the Bonus Action granted by it to make a Dexterity (Sleight of Hand) check, use your thieves’ tools to Disarm a trap or open a lock, or take the Use an Object action
 Feat/&FeatFastHandsTitle	Fast Hands
 Feat/&FeatFeyTeleportationChaDescription	Increase Charisma attribute by 1. Gain the ability to Misty Step once per short rest and learn the spell. Gain proficiency in Tirmarian
@@ -483,6 +485,8 @@ Feat/&FeatLightArmorDescription	Gain proficiency with Light Armor and +1 Dexteri
 Feat/&FeatLightArmorProficiencyDescription	Gain proficiency with Light Armor
 Feat/&FeatLightArmorProficiencyTitle	Light Armor
 Feat/&FeatLightArmorTitle	Light Armor
+Feat/&FeatMarksmanDescription	When a visible opponent 2 cells or more from you attacks you with a ranged weapon or a spell, you can use your reaction to take a shot after the triggering attack
+Feat/&FeatMarksmanTitle	Marksman
 Feat/&FeatMediumArmorDexDescription	Gain proficiency with Medium Armor and Shields and +1 Dexterity
 Feat/&FeatMediumArmorDexTitle	Medium Armor (Dexterity)
 Feat/&FeatMediumArmorProficiencyDescription	Gain proficiency with Medium Armor and Shields
@@ -799,6 +803,8 @@ Feature/&ClassWarlockWeaponProficiencyDescription	Simple Weapons
 Feature/&ClassWarlockWeaponProficiencyTitle	Warlock Weapon Proficiencies
 Feature/&CounterStrikePowerDescription	Spend a gambit die and Counter Strike the enemy, if you hit, do an additional 1d6+2 bludgeoning damage
 Feature/&CounterStrikePowerTitle	Counter Strike
+Feature/&DevilsSightDescription	You can see normally in Darkness, both magical and nonmagical, to a distance of 120 feet.
+Feature/&DevilsSightTitle	Devil's Sight
 Feature/&DH_BlinkDescription	As a bonus action, you vanish from your current plane of existence, preventing all damage. At the start of your next turn, you return to the space you vanished from
 Feature/&DH_BlinkTitle	Blink
 Feature/&DH_FadeIntoTheVoidDescription	When you are reduced to 0 hit points but not killed outright, you drop to 1 hit point instead as you briefly fade into the void to lessen the damage. You can't use this feature again until you finish a long rest
@@ -815,10 +821,6 @@ Feature/&DHAncientForestBonusCantripDescription	Your patron shares secrets on th
 Feature/&DHAncientForestBonusCantripTitle	Ancient Forest Bonus Cantrips
 Feature/&DHConjureMinorElementalsBonusCantripDescription	Your control of elemental energies has increased to the point than you now have dominion over weaker elementals. You can cast conjure minor elemental at will
 Feature/&DHConjureMinorElementalsBonusCantripTitle	Elemental Minions
-Feature/&EldritchBlastGraspingHandBonusCantripDescription	When you hit a creature with your eldritch blast, you can move that creature in a straight line 10 feet closer to you
-Feature/&EldritchBlastGraspingHandBonusCantripTitle	Grasping Blast
-Feature/&EldritchBlastRepellingBlastBonusCantripDescription	When you hit a creature with eldritch blast, you can push the creature up to 10 feet away from you in a straight line
-Feature/&EldritchBlastRepellingBlastBonusCantripTitle	Repelling Blast
 Feature/&DHHolyAuraBlindingPowerDescription	When a fiend or an undead hits an affected creature with a melee attack, the aura flashes with brilliant light. The attacker must succeed on a Constitution saving throw or be blinded until the spell ends
 Feature/&DHHolyAuraBlindingPowerTitle	Holy Aura Retaliation
 Feature/&DHPactOfTheTomeFeatureSetDescription	Your patron gives you a grimoire called a Book of Shadows. When you gain this feature, choose three cantrips from any class's spell list. The cantrips do not need to be from the same spell list. While the book is on your person, you can cast those cantrips at will. They don't count against your number of cantrips known. Any cantrip you cast with this feature is considered a warlock cantrip for you
@@ -864,11 +866,13 @@ Feature/&DruidForestGuardianSylvanWarMagicDescription	You are used to wielding d
 Feature/&DruidForestGuardianSylvanWarMagicTitle	Sylvan War Magic
 Feature/&DualFlurryDescription	You are a master of fighting with paired weapons. On any turn where you hit twice with melee attacks while wielding a weapon in each hand, you may make an additional off-hand attack
 Feature/&DualFlurryTitle	Dual Flurry
+Feature/&EldritchBlastGraspingHandBonusCantripDescription	When you hit a creature with your eldritch blast, you can move that creature in a straight line 10 feet closer to you
+Feature/&EldritchBlastGraspingHandBonusCantripTitle	Grasping Blast
+Feature/&EldritchBlastRepellingBlastBonusCantripDescription	When you hit a creature with eldritch blast, you can push the creature up to 10 feet away from you in a straight line
+Feature/&EldritchBlastRepellingBlastBonusCantripTitle	Repelling Blast
 Feature/&EldritchMindDescription	You have advantage on Constitution saving throws that you make to maintain your concentration on a spell
 Feature/&EldritchMindTitle	Eldritch Mind
 Feature/&EldritchSightTitle	Eldritch Sight
-Feature/&DevilsSightTitle	Devil's Sight
-Feature/&DevilsSightDescription	You can see normally in Darkness, both magical and nonmagical, to a distance of 120 feet.
 Feature/&EldritchSmiteDescription	Once per turn when you hit a creature with your pact weapon, you can expend a warlock spell slot to deal an extra 1d8 force damage to the target, plus another 1d8 per level of the spell slot,
 Feature/&EldritchSmiteTitle	Eldritch Smite
 Feature/&ElementalistSpellsMagicAffinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: \n Level 1: Thunderwave, Fog Cloud \n Level 2: Flaming Sphere, Scorching Ray \n Level 3: Fireball, Lightning Bolt \n Level 4: Stoneskin, Icestorm \n Level 5: Cone of Cold, Flame Strike
@@ -927,9 +931,9 @@ Feature/&HerbalBrewDescription	When you finish a long rest, you can create herba
 Feature/&HerbalBrewFeatureSetDescription	You gain proficiency with either the poisoner kit or herbalism kits if you don't already have it. \nWhen you finish a long rest, you can create herbal brews, each of which lasts until the next long rest. You create a total of brews equal to your proficiency bonus. For each brew, choose one of the following effects: \n<color=#add8e6ff>Fortifying Brew</color>: grants resistance to different damage types for 1 hour.\n<color=#add8e6ff>Quickening Brew</color>: provides 2d4 hit points.\n<color=#add8e6ff>Toxifying Brew</color>: acts as poison that can be applied to a weapon that lasts for 1 minute. If the hit lands the target takes 1d4 poison damage on each hit
 Feature/&HerbalBrewFeatureSetTitle	Herbal Brewing
 Feature/&HinderingBlastDescription	When you hit a creature with your eldritch blast, you can reduce that creature's speed by 10 feet until the end of your next turn
-Feature/&HinderingBlastTitle	Hindering Blast
 Feature/&HinderingBlastMagicAffinityDescription	when you hit a creature with your eldritch blast, you can reduce that creature's speed by 10 feet until the end of your next turn
 Feature/&HinderingBlastMagicAffinityTitle	Hindering Blast
+Feature/&HinderingBlastTitle	Hindering Blast
 Feature/&ImprovedPactWeaponDescription	You can use any weapon as a spellcasting focus for your warlock spells. In addition, the weapon gains a +1 bonus to its attack and damage rolls
 Feature/&ImprovedPactWeaponTitle	Improved Pact Weapon
 Feature/&ImprovedScoutModePowerDescription	Gain Improved Scout Mode features. Can now create advantage for allies and disadvantage for enemies with a single attack
@@ -1041,7 +1045,6 @@ Feature/&ShroudofShadowTitle	Shroud of Shadow
 Feature/&SignofIllOmenTitle	Sign of Ill Omen
 Feature/&SpellAsInvocationAtWillDescription	Cast {0} at will
 Feature/&SpellAsInvocationOncePerDayDescription	Cast {0} once until long rest
-Feature/&ThiefofFiveFates	Cast {0} once per day
 Feature/&TempHPShield_09ModePowerDescription	Summons a construct that lasts 1 hour. \nProtecting Dome: Grants 1D8 + 4 temporary HP to allies within 10ft. \nSelf-Destruct: deals 3D8 force damage on a failed save and destroys the unit
 Feature/&TempHPShield_09ModePowerTitle	Summon Protecting Dome Construct
 Feature/&TempHPShield_15ModePowerDescription	Summons a construct that lasts 1 hour. \nProtecting Dome: Grants 1D8 + 4 temporary HP to allies within 10ft. \nSelf-Destruct: deals 3D8 force damage on a failed save and destroys the unit. \n Half Cover Dome: Provides half cover to allies within 10ft
@@ -1049,6 +1052,7 @@ Feature/&TempHPShield_15ModePowerTitle	Summon Protecting Dome Construct
 Feature/&TempHPShieldModePowerDescription	Summons a construct that lasts 1 hour. \nProtecting Dome: Grants 1D8 + 4 temporary HP to allies within 10ft
 Feature/&TempHPShieldModePowerTitle	Summon Protecting Dome Construct
 Feature/&TempHPShieldTitle	Protecting Dome
+Feature/&ThiefofFiveFates	Cast {0} once per day
 Feature/&ThiefofFiveFatesTitle	Thief of Five Fates
 Feature/&ThirstingBladeDescription	You can attack with your weapon twice, instead of once, whenever you take the Attack action on your turn
 Feature/&ThirstingBladeTitle	Thirsting Blade
@@ -1166,6 +1170,8 @@ Message/&CharacterExportEmptyNameErrorDescription	Export Cancelled:\n\nPlease tr
 Message/&CharacterExportModalContentDescription	Enter the hero name to export:
 Message/&CharacterExportModalTitleDescription	Character Export
 Message/&LevelDownConfirmationDescription	Level down this Hero?
+Message/&LevelDownMultiplayerAbortDescription	Cannot Level Down during a multiplayer session. Aborted
+Message/&RespecMultiplayerAbortDescription	Cannot Respec during a multiplayer session. Aborted
 Message/&MessageModWelcomeDescription	The Community Expansion Mod is packed full of exciting features, but by default none are enabled. Press <color=yellow>Ctrl-F10</color> to open the Unity Mod Manager UI [UMM], then click on the settings icon next to 'Community Expansion' to open the settings pages.\n\n Explore the options and select the ones you like. The UMM UI will now open
 Message/&MessageModWelcomeTitle	Community Expansion Mod
 Message/&SpawnCustomEncounterDescription	Spawn encounter at coordinates ({0}, {1})?
@@ -1347,10 +1353,6 @@ Spell/&DHConjureCelestialSpellDescription	You summon a celestial of challenge ra
 Spell/&DHConjureCelestialSpellTitle	Conjure Celestial (Couatl)
 Spell/&DHDominateMonsterSpellDescription	You attempt to beguile a creature that you can see within range. It must succeed on a Wisdom saving throw or be charmed by you for the duration
 Spell/&DHDominateMonsterSpellTitle	Dominate Monster
-Spell/&EldritchBlastGraspingHandDescription	A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage. \n(when you hit a creature with your eldritch blast, you can move that creature in a straight line 10 feet closer to you.)
-Spell/&EldritchBlastGraspingHandTitle	Eldritch Blast (Grasping)
-Spell/&EldritchBlastRepellingBlastDescription	A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage.\n(When you hit a creature with eldritch blast, you can push the creature up to 10 feet away from you in a straight line.)
-Spell/&EldritchBlastRepellingBlastTitle	Eldritch Blast (Repelling)
 Spell/&DHFeeblemindSpellDescription	You blast the mind of a creature that you can see within range, attempting to shatter its intellect and personality. The target takes 4d6 psychic damage and must make an Intelligence saving throw.On a failed save, the creature's Intelligence and Charisma scores become 1. The creature can't cast spells, activate magic items, understand language, or communicate in any intelligible way
 Spell/&DHFeeblemindSpellTitle	Feeblemind
 Spell/&DHFingerOfDeathSpellDescription	The target must make a Constitution saving throw. It takes 7d8 + 30 necrotic damage on a failed save, or half as much damage on a successful one
@@ -1388,6 +1390,10 @@ Spell/&DHWeirdSpellTitle	Weird
 Spell/&EarthTremorDescription	You strike the ground and unleash a tremor of seismic force, hurling up earth, rock, and sand
 Spell/&EarthTremorTitle	Earth Tremor
 Spell/&EldritchBlastDescription	A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage.\nThe spell creates more than one beam when you reach higher levels: two beams at 5th level, three beams at 11th level, and four beams at 17th level. You can direct the beams at the same target or at different ones. Make a separate attack roll for each beam
+Spell/&EldritchBlastGraspingHandDescription	A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage. \n(when you hit a creature with your eldritch blast, you can move that creature in a straight line 10 feet closer to you.)
+Spell/&EldritchBlastGraspingHandTitle	Eldritch Blast (Grasping)
+Spell/&EldritchBlastRepellingBlastDescription	A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage.\n(When you hit a creature with eldritch blast, you can push the creature up to 10 feet away from you in a straight line.)
+Spell/&EldritchBlastRepellingBlastTitle	Eldritch Blast (Repelling)
 Spell/&EldritchBlastTitle	Eldritch Blast
 Spell/&EldritchOrbDescription	You fling a ball of eldritch energy at a creature or object within range
 Spell/&EldritchOrbTitle	Eldritch Orb
@@ -1716,7 +1722,3 @@ Tooltip/&Tag9000Title	Custom Effect
 Tooltip/&TagCommunityExpansionTitle	Community Expansion
 Tooltip/&TagMaledictionTitle	Malediction
 Tooltip/&TagOtherModContentTitle	From mod
-Feat/&FeatMarksmanDescription	When a visible opponent 2 cells or more from you attacks you with a ranged weapon or a spell, you can use your reaction to take a shot after the triggering attack
-Feat/&FeatMarksmanTitle	Marksman
-Feat/&FeatDualWeaponDefenseDescription	When yielding 2 weapons your AC increases by 1
-Feat/&FeatDualWeaponDefenseTitle	Dual Weapon Defense

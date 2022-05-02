@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace SolastaCommunityExpansion.Models
 {
-    internal static class CustomFeaturesContext
+    public static class CustomFeaturesContext
     {
         internal static void RecursiveGrantCustomFeatures(RulesetCharacterHero hero, List<FeatureDefinition> features, string tag)
         {
@@ -32,7 +32,7 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        internal static void RecursiveRemoveCustomFeatures(RulesetCharacterHero hero, List<FeatureDefinition> features, string tag)
+        public static void RecursiveRemoveCustomFeatures(RulesetCharacterHero hero, List<FeatureDefinition> features, string tag)
         {
             foreach (var grantedFeature in features)
             {
