@@ -46,7 +46,7 @@ namespace SolastaCommunityExpansion.CustomUI
 
         #region Fields from CharacterStageSpellSelectionPanel
 
-        private CharacterStageSpellSelectionPanel spellsPanel; //TODO: do we need it?
+        private CharacterStageSpellSelectionPanel spellsPanel;
 
         private RectTransform spellsByLevelTable;
         private GameObject spellsByLevelPrefab;
@@ -90,7 +90,6 @@ namespace SolastaCommunityExpansion.CustomUI
         private const float ScrollDuration = 0.3f;
         private const float SpellsByLevelMargin = 10.0f;
 
-        //TODO: add proper translation strings
         public override string Name => "CustomFeatureSelection";
         public override string Title => "UI/&CustomFeatureSelectionStageTitle";
         public override string Description => "UI/&CustomFeatureSelectionStageDescription";
@@ -172,50 +171,6 @@ namespace SolastaCommunityExpansion.CustomUI
             this.spellsScrollRect.scrollSensitivity = -scrollSensitivity;
         }
 
-        public override IEnumerator Load()
-        {
-            Main.Log($"[ENDER] CUSTOM Load");
-
-            yield return base.Load();
-            IRuntimeService runtimeService = ServiceRepository.GetService<IRuntimeService>();
-            runtimeService.RuntimeLoaded += this.RuntimeLoaded;
-        }
-
-        public override IEnumerator Unload()
-        {
-            Main.Log($"[ENDER] CUSTOM Unload");
-
-            IRuntimeService runtimeService = ServiceRepository.GetService<IRuntimeService>();
-            runtimeService.RuntimeLoaded -= this.RuntimeLoaded;
-
-            yield return base.Unload();
-        }
-
-        private void RuntimeLoaded(Runtime runtime)
-        {
-            //TODO: collect any relevant info we need
-            // SpellDefinition[] allSpellDefinitions = DatabaseRepository.GetDatabase<SpellDefinition>().GetAllElements();
-            // this.allCantrips = new List<SpellDefinition>();
-            // this.allSpells = new Dictionary<int, List<SpellDefinition>>();
-            //
-            // foreach (SpellDefinition spellDefinition in allSpellDefinitions)
-            // {
-            //     if (spellDefinition.SpellLevel == 0)
-            //     {
-            //         this.allCantrips.Add(spellDefinition);
-            //     }
-            //     else
-            //     {
-            //         if (!this.allSpells.ContainsKey(spellDefinition.SpellLevel))
-            //         {
-            //             this.allSpells.Add(spellDefinition.SpellLevel, new List<SpellDefinition>());
-            //         }
-            //
-            //         this.allSpells[spellDefinition.SpellLevel].Add(spellDefinition);
-            //     }
-            // }
-        }
-
         public override void UpdateRelevance()
         {
             UpdateGrantedFeatures();
@@ -224,8 +179,6 @@ namespace SolastaCommunityExpansion.CustomUI
 
         public override void EnterStage()
         {
-            Main.Log($"[ENDER] CUSTOM EnterStage '{this.StageDefinition}'");
-
             stageTitleLabel.Text = "UI/&CustomFeatureSelectionStageTitle";
             righrFeaturesLabel.Text = "UI/&CustomFeatureSelectionStageFeatures";
             rightFeaturesDescription.Text = "UI/&CustomFeatureSelectionStageDescription";
@@ -258,8 +211,6 @@ namespace SolastaCommunityExpansion.CustomUI
 
         protected override void OnEndHide()
         {
-            Main.Log($"[ENDER] OnEndHide");
-            
             learnedFeatures.Clear();
             allPools.Clear();
             
@@ -461,7 +412,6 @@ namespace SolastaCommunityExpansion.CustomUI
             var feature = spellbox.GetFeature();
             var pool = allPools[currentLearnStep];
             var learned = GetOrMakeLearnedList(pool.Id);
-            Main.Log($"[ENDER] OnFeatureSelected '{feature.Name}', add: {!learned.Contains(feature)}");
 
             if (learned.Contains(feature))
             {
@@ -557,7 +507,6 @@ namespace SolastaCommunityExpansion.CustomUI
             var classFeatures = GetNormalActiveFeatures();
             var classTag = GetClassTag(gainedClass, gainedClassLevel);
 
-            Main.Log($"[ENDER] GrantAcquiredFeatures - cleaning, acquired: {acquiredFeatures.Count}, class: {classFeatures.Count}");
             command.ClearPrevious(currentHero, classTag);
             if (gainedSubclass != null)
             {
@@ -574,7 +523,6 @@ namespace SolastaCommunityExpansion.CustomUI
                     features = classFeatures;
                 }
 
-                Main.Log($"[ENDER] GrantAcquiredFeatures tag: [{currentTag}] features: {features.Count}");
                 features.RemoveAll(f => f is CustomFeatureDefinitionSet);
                 // GrantFeatures behaves weirdly - if it encounters spellcasting definition, it stops
                 // So we separate spellcasting from other features and then grant them in sequence
@@ -633,8 +581,7 @@ namespace SolastaCommunityExpansion.CustomUI
                 || (!allPools.Empty() && allPools[allPools.Count - 1].Remaining > 0)
             )
             {
-                //TODO: pick better text
-                failureString = Gui.Localize("Stage/&SpellSelectionStageFailLearnSpellsDescription");
+                failureString = Gui.Localize("UI/&CustomFeatureSelectionStageNotDone");
                 return false;
             }
 
@@ -644,7 +591,6 @@ namespace SolastaCommunityExpansion.CustomUI
 
         public void MoveToNextLearnStep()
         {
-            Main.Log($"[ENDER] MoveToNextLearnStep");
             this.currentLearnStep++;
             while (!IsFinalStep && allPools[currentLearnStep].Remaining == 0)
             {
@@ -823,7 +769,6 @@ namespace SolastaCommunityExpansion.CustomUI
 
         public override void CancelStage()
         {
-            Main.Log($"[ENDER] CancelStage");
             initialized = false;
             int stepNumber = this.currentLearnStep;
             while (this.IsFinalStep)
@@ -848,7 +793,6 @@ namespace SolastaCommunityExpansion.CustomUI
             }
 
             this.wasClicked = true;
-            Main.Log($"[ENDER] OnLearnBack");
 
             this.MoveToPreviousLearnStep(true, this.ResetWasClickedFlag);
         }
@@ -861,7 +805,6 @@ namespace SolastaCommunityExpansion.CustomUI
             }
 
             this.wasClicked = true;
-            Main.Log($"[ENDER] OnLearnReset");
 
             if (this.IsFinalStep)
             {
@@ -886,7 +829,6 @@ namespace SolastaCommunityExpansion.CustomUI
 
             this.wasClicked = true;
             
-            Main.Log($"[ENDER] OnSkipRemaining");
             if (IsUnlearnStep(currentLearnStep))
             {
                 allPools[currentLearnStep].Skipped = true;
@@ -898,7 +840,6 @@ namespace SolastaCommunityExpansion.CustomUI
         private void ResetLearnings(int stepNumber, Action onDone = null)
         {
             var pool = this.allPools[stepNumber];
-            Main.Log($"[ENDER] ResetLearnings step: {stepNumber}, pool: [{pool.Id.Tag}] {pool.Id.Name}");
             pool.Used = 0;
             pool.Skipped = false;
             GetOrMakeLearnedList(pool.Id).Clear();
@@ -983,8 +924,6 @@ namespace SolastaCommunityExpansion.CustomUI
             var autoButton = instance.GetField<Button>("autoButton");
             var resetButton = instance.GetField<Button>("resetButton");
             
-            // Main.Log($"Step.CustomRefresh used:{usedPoints}, max:{maxPoints}, status: {status}");
-            
             activeGroup.gameObject.SetActive(status == LearnStepItem.Status.InProgress);
             inactiveGroup.gameObject.SetActive( status !=  LearnStepItem.Status.InProgress);
             instance.GetField<Image>("activeBackground").gameObject.SetActive(status != LearnStepItem.Status.Locked);
@@ -1044,11 +983,8 @@ namespace SolastaCommunityExpansion.CustomUI
             instance.name = $"Feature[{featureSet.Name}]";
             instance.SpellLevel = featureLevel;
 
-            // instance.CommonBind( null, unlearn ? SpellBox.BindMode.Unlearn : SpellBox.BindMode.Learning, spellBoxChanged, new List<SpellDefinition>(), null, new List<SpellDefinition>(), new List<SpellDefinition>(), "");
             var allFeatures = featureSet.GetLevelFeatures(featureLevel);
-            // Main.Log($"[ENDER] CustomFeatureBind {featureSet.Name}, features: {allFeatures.Count}");
-            //TODO: implement proper sorting
-            //allSpells.Sort((IComparer<SpellDefinition>) instance);
+            allFeatures.Sort((a, b) => string.CompareOrdinal(a.FormatTitle(), b.FormatTitle()));
 
             var spellsTable = instance.GetSpellsTable();
             var spellPrefab = instance.GetField<GameObject>("spellPrefab");
@@ -1169,7 +1105,7 @@ namespace SolastaCommunityExpansion.CustomUI
             foreach (Component component in spellsTable)
                 component.GetComponent<SpellBox>().CustomUnbind();
             Gui.ReleaseChildrenToPool(spellsTable);
-            instance.GetField<SlotStatusTable>("slotStatusTable").Unbind(); //TODO: probably would need custom unbind  
+            instance.GetField<SlotStatusTable>("slotStatusTable").Unbind();  
         }
     }
 
@@ -1187,18 +1123,13 @@ namespace SolastaCommunityExpansion.CustomUI
         {
             Features.AddOrReplace(instance, feature);
 
-            //instance.GuiSpellDefinition = guiSpellDefinition;
-
-            //instance.Caster = null; //TODO: do we need to set it to null?
-            var image = instance.GetField<Image>("spellImage");
-
             instance.SetField("bindMode", bindMode);
             instance.SpellBoxChanged = spellBoxChanged;
             instance.SetField("hovered", false);
             instance.SetField("ritualSpell", false);
             instance.SetField("autoPrepared", false);
             instance.SetField("unlearnedSpell", unlearned);
-            image.color = Color.white;
+            instance.GetField<Image>("spellImage").color = Color.white;
             instance.transform.localScale = new Vector3(1f, 1f, 1f);
 
             GuiModifier component =
@@ -1251,17 +1182,14 @@ namespace SolastaCommunityExpansion.CustomUI
             FeatureDefinition feature = instance.GetFeature();
 
             var gui = new GuiPresentationBuilder(feature.GuiPresentation).Build();
-            //
-            // TODO: this isn't getting trigger in DEBUG. required?
-            //
-            //var hasErrors = !errors.Empty();
-
-            //if (!hasErrors && feature is FeatureDefinitionPower power)
-            //{
-            //    var powerGui = ServiceRepository.GetService<IGuiWrapperService>().GetGuiPowerDefinition(power.Name);
-            //    powerGui.SetupTooltip(tooltip);
-            //}
-            //else
+            var hasErrors = errors != null && !errors.Empty();
+            
+            if (!hasErrors && feature is FeatureDefinitionPower power)
+            {
+                var powerGui = ServiceRepository.GetService<IGuiWrapperService>().GetGuiPowerDefinition(power.Name);
+                powerGui.SetupTooltip(tooltip);
+            }
+            else
             {
                 var dataProvider = new CustomTooltipProvider(feature, gui);
                 dataProvider.SetPrerequisites(errors);

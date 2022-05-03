@@ -1737,3 +1737,4 @@ UI/&CustomFeatureSelectionTooltipTypeFeature	Feature
 UI/&CustomFeatureSelectionStageTitle	Feature Selection
 UI/&CustomFeatureSelectionStageDescription	Select extra features from your class/subclass.
 UI/&CustomFeatureSelectionStageFeatures	Features
+UI/&CustomFeatureSelectionStageNotDone	You must select all available features before proceeding.
