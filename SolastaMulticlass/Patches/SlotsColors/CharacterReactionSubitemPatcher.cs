@@ -17,14 +17,9 @@ namespace SolastaMulticlass.Patches.SlotsColors
             {
                 var heroWithSpellRepertoire = SharedSpellsContext.GetHero(spellRepertoire.CharacterName);
 
-                if (!SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire))
-                {
-                    return;
-                }
-
                 spellRepertoire.GetSlotsNumber(slotLevel, out var totalSlotsRemainingCount, out var totalSlotsCount);
 
-                MulticlassGameUiContext.PaintSlotsLightOrDarkGreen(
+                MulticlassGameUiContext.PaintPactSlots(
                     heroWithSpellRepertoire, totalSlotsCount, totalSlotsRemainingCount, slotLevel, ___slotStatusTable);
             }
         }
