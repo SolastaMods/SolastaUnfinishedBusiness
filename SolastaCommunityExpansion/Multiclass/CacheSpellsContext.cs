@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace SolastaMulticlass.Models
 {
-    internal static class CacheSpellsContext
+    public static class CacheSpellsContext
     {
-        internal static readonly Dictionary<CharacterClassDefinition, Dictionary<int, HashSet<SpellDefinition>>> ClassSpellList = new();
-        internal static readonly Dictionary<CharacterSubclassDefinition, Dictionary<int, HashSet<SpellDefinition>>> SubclassSpellList = new();
+        public static readonly Dictionary<CharacterClassDefinition, Dictionary<int, HashSet<SpellDefinition>>> ClassSpellList = new();
+        public static readonly Dictionary<CharacterSubclassDefinition, Dictionary<int, HashSet<SpellDefinition>>> SubclassSpellList = new();
 
         private static int GetLowestCasterLevelFromSpellLevel(BaseDefinition definition, int spellLevel)
         {
@@ -119,7 +119,7 @@ namespace SolastaMulticlass.Models
             }
         }
 
-        internal static void Load()
+        public static void Load()
         {
             foreach (var characterClassDefinition in DatabaseRepository.GetDatabase<CharacterClassDefinition>())
             {

@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using SolastaMulticlass.Models;
 using static SolastaCommunityExpansion.Models.RespecContext;
 
-namespace SolastaMulticlass.Models
+namespace SolastaCommunityExpansion.Models
 {
     internal static class LevelDownContext
     {
@@ -13,7 +14,7 @@ namespace SolastaMulticlass.Models
                 FunctorParametersDescription functorParameters,
                 FunctorExecutionContext context)
             {
-                if (SolastaCommunityExpansion.Models.Global.IsMultiplayer)
+                if (Global.IsMultiplayer)
                 {
                     Gui.GuiService.ShowMessage(
                         MessageModal.Severity.Informative1,
@@ -279,7 +280,7 @@ namespace SolastaMulticlass.Models
                 }
             }
 
-            SolastaCommunityExpansion.Models.CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, featuresToRemove, tag);
+            CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, featuresToRemove, tag);
         }
     }
 }

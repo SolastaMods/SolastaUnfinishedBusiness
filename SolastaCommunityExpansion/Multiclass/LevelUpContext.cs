@@ -6,7 +6,7 @@ using static SolastaMulticlass.Models.IntegrationContext;
 
 namespace SolastaMulticlass.Models
 {
-    internal static class LevelUpContext
+    public static class LevelUpContext
     {
         // keeps the multiclass level up context
         private class LevelUpData
@@ -21,21 +21,21 @@ namespace SolastaMulticlass.Models
         // keeps a tab on all heroes leveling up
         private static readonly Dictionary<RulesetCharacterHero, LevelUpData> LevelUpTab = new();
 
-        internal static RulesetCharacterHero GetHero(string name)
+        public static RulesetCharacterHero GetHero(string name)
             => LevelUpTab.FirstOrDefault(x => x.Key.Name == name).Key;
 
-        internal static void RegisterHero(RulesetCharacterHero rulesetCharacterHero)
+        public static void RegisterHero(RulesetCharacterHero rulesetCharacterHero)
             => LevelUpTab.TryAdd(rulesetCharacterHero, new LevelUpData());
  
-        internal static void UnregisterHero(RulesetCharacterHero rulesetCharacterHero)
+        public static void UnregisterHero(RulesetCharacterHero rulesetCharacterHero)
             => LevelUpTab.Remove(rulesetCharacterHero);
 
-        internal static CharacterClassDefinition GetSelectedClass(RulesetCharacterHero rulesetCharacterHero)
+        public static CharacterClassDefinition GetSelectedClass(RulesetCharacterHero rulesetCharacterHero)
             => LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData)
                 ? levelUpData.SelectedClass
                 : null;
 
-        internal static void SetSelectedClass(RulesetCharacterHero rulesetCharacterHero, CharacterClassDefinition characterClassDefinition)
+        public static void SetSelectedClass(RulesetCharacterHero rulesetCharacterHero, CharacterClassDefinition characterClassDefinition)
         {
             if (!LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData))
             {
@@ -124,12 +124,12 @@ namespace SolastaMulticlass.Models
             }
         }
 
-        internal static CharacterSubclassDefinition GetSelectedSubclass(RulesetCharacterHero rulesetCharacterHero)
+        public static CharacterSubclassDefinition GetSelectedSubclass(RulesetCharacterHero rulesetCharacterHero)
             => LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData)
                 ? levelUpData.SelectedSubclass
                 : null;
 
-        internal static void SetSelectedSubclass(RulesetCharacterHero rulesetCharacterHero, CharacterSubclassDefinition characterSubclassDefinition)
+        public static void SetSelectedSubclass(RulesetCharacterHero rulesetCharacterHero, CharacterSubclassDefinition characterSubclassDefinition)
         {
             if (!LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData))
             {
@@ -139,7 +139,7 @@ namespace SolastaMulticlass.Models
             levelUpData.SelectedSubclass = characterSubclassDefinition;
         }
 
-        internal static void SetIsClassSelectionStage(RulesetCharacterHero rulesetCharacterHero, bool isClassSelectionStage)
+        public static void SetIsClassSelectionStage(RulesetCharacterHero rulesetCharacterHero, bool isClassSelectionStage)
         {
             if (!LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData))
             {
@@ -149,7 +149,7 @@ namespace SolastaMulticlass.Models
             levelUpData.IsClassSelectionStage = isClassSelectionStage;
         }
 
-        internal static bool RequiresDeity(RulesetCharacterHero rulesetCharacterHero)
+        public static bool RequiresDeity(RulesetCharacterHero rulesetCharacterHero)
             => LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData)
                 && levelUpData.RequiresDeity;
 
@@ -167,18 +167,18 @@ namespace SolastaMulticlass.Models
             return 1;
         }
 
-        internal static bool IsClassSelectionStage(RulesetCharacterHero rulesetCharacterHero)
+        public static bool IsClassSelectionStage(RulesetCharacterHero rulesetCharacterHero)
             => LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData) && levelUpData.IsClassSelectionStage;
 
-        internal static bool IsLevelingUp(RulesetCharacterHero rulesetCharacterHero)
+        public static bool IsLevelingUp(RulesetCharacterHero rulesetCharacterHero)
             => LevelUpTab.TryGetValue(rulesetCharacterHero, out var _);
 
-        internal static bool IsMulticlass(RulesetCharacterHero rulesetCharacterHero)
+        public static bool IsMulticlass(RulesetCharacterHero rulesetCharacterHero)
             => LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData)
                 && (rulesetCharacterHero.ClassesAndLevels.Count > 1
                     || !rulesetCharacterHero.ClassesAndLevels.ContainsKey(levelUpData.SelectedClass));
 
-        internal static bool IsRepertoireFromSelectedClassSubclass(RulesetCharacterHero rulesetCharacterHero, RulesetSpellRepertoire rulesetSpellRepertoire)
+        public static bool IsRepertoireFromSelectedClassSubclass(RulesetCharacterHero rulesetCharacterHero, RulesetSpellRepertoire rulesetSpellRepertoire)
         {
             var selectedClass = GetSelectedClass(rulesetCharacterHero);
             var selectedSubclass = GetSelectedSubclass(rulesetCharacterHero);
@@ -190,7 +190,7 @@ namespace SolastaMulticlass.Models
                     && rulesetSpellRepertoire.SpellCastingSubclass == selectedSubclass);
         }
 
-        internal static bool IsSpellKnownBySelectedClassSubclass(RulesetCharacterHero rulesetCharacterHero, SpellDefinition spellDefinition)
+        public static bool IsSpellKnownBySelectedClassSubclass(RulesetCharacterHero rulesetCharacterHero, SpellDefinition spellDefinition)
         {
             var selectedClass = GetSelectedClass(rulesetCharacterHero);
             var selectedSubclass = GetSelectedSubclass(rulesetCharacterHero);
@@ -209,7 +209,7 @@ namespace SolastaMulticlass.Models
             return spellRepertoire.HasKnowledgeOfSpell(spellDefinition);
         }
 
-        internal static bool IsSpellOfferedBySelectedClassSubclass(RulesetCharacterHero rulesetCharacterHero, SpellDefinition spellDefinition, bool onlyCurrentLevel = false)
+        public static bool IsSpellOfferedBySelectedClassSubclass(RulesetCharacterHero rulesetCharacterHero, SpellDefinition spellDefinition, bool onlyCurrentLevel = false)
         {
             var classLevel = GetSelectedClassLevel(rulesetCharacterHero);
             var selectedClass = GetSelectedClass(rulesetCharacterHero);
@@ -250,7 +250,7 @@ namespace SolastaMulticlass.Models
             return false;
         }
 
-        internal static void GrantItemsIfRequired(RulesetCharacterHero rulesetCharacterHero)
+        public static void GrantItemsIfRequired(RulesetCharacterHero rulesetCharacterHero)
         {
             if (!LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData))
             {
@@ -263,7 +263,7 @@ namespace SolastaMulticlass.Models
             }
         }
 
-        internal static void UngrantItemsIfRequired(RulesetCharacterHero rulesetCharacterHero)
+        public static void UngrantItemsIfRequired(RulesetCharacterHero rulesetCharacterHero)
         {
             if (!LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData))
             {

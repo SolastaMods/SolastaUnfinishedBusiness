@@ -6,19 +6,18 @@ using UnityEngine.UI;
 
 namespace SolastaMulticlass.Models
 {
-    internal static class MulticlassGameUiContext
+    public static class MulticlassGameUiContext
     {
         private static Color LightGreenSlot = new(0f, 1f, 0f, 1f);
-        private static Color DarkGreenSlot = new(0f, 0.5f, 0f, 1f);
         private static Color WhiteSlot = new(1f, 1f, 1f, 1f);
         private static readonly float[] fontSizes = new float[] { 17f, 17f, 16f, 15f, 12.5f };
 
-        internal static float GetFontSize(int classesCount)
+        public static float GetFontSize(int classesCount)
         {
             return fontSizes[classesCount % 5];
         }
 
-        internal static void PaintSlotsLightOrDarkGreen(
+        public static void PaintPactSlots(
             RulesetCharacterHero heroWithSpellRepertoire,
             int totalSlotsCount,
             int totalSlotsRemainingCount,
@@ -57,10 +56,15 @@ namespace SolastaMulticlass.Models
                         component.Used.gameObject.SetActive(index >= totalSlotsRemainingCount - shortRestSlotsRemainingCount);
                         component.Available.gameObject.SetActive(index < totalSlotsRemainingCount - shortRestSlotsRemainingCount);
                     }
-                    else
+                    else if (slotLevel == warlockSpellLevel)
                     {
                         component.Used.gameObject.SetActive(index >= longRestSlotsCount + shortRestSlotsRemainingCount);
                         component.Available.gameObject.SetActive(index < longRestSlotsCount + shortRestSlotsRemainingCount);
+                    }
+                    else
+                    {
+                        component.Used.gameObject.SetActive(false);
+                        component.Available.gameObject.SetActive(false);
                     }
                 }
 
@@ -70,7 +74,7 @@ namespace SolastaMulticlass.Models
                 }
                 else
                 {
-                    component.Available.GetComponent<Image>().color = DarkGreenSlot;
+                    component.Available.GetComponent<Image>().color = WhiteSlot;
                 }
             }
 
@@ -105,7 +109,7 @@ namespace SolastaMulticlass.Models
             rectTransform.GetComponent<GuiTooltip>().Content = str;
         }
 
-        internal static void PaintSlotsWhite(RectTransform rectTransform)
+        public static void PaintSlotsWhite(RectTransform rectTransform)
         {
             for (var index = 0; index < rectTransform.childCount; ++index)
             {
@@ -116,7 +120,7 @@ namespace SolastaMulticlass.Models
             }
         }
 
-        internal static void RebuildSlotsTable(
+        public static void RebuildSlotsTable(
             GameObject ___levelButtonPrefab,
             RectTransform ___levelButtonsTable,
             RectTransform ___spellsByLevelTable,
@@ -165,7 +169,7 @@ namespace SolastaMulticlass.Models
             LayoutRebuilder.ForceRebuildLayoutImmediate(___spellsByLevelTable);
         }
 
-        internal static string GetAllClassesLabel(GuiCharacter character, char separator = '\n')
+        public static string GetAllClassesLabel(GuiCharacter character, char separator = '\n')
         {
             var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
             var builder = new StringBuilder();
@@ -202,7 +206,7 @@ namespace SolastaMulticlass.Models
             return builder.ToString().Remove(builder.Length - 1, 1);
         }
 
-        internal static string GetAllClassesHitDiceLabel(GuiCharacter character, out int dieTypeCount)
+        public static string GetAllClassesHitDiceLabel(GuiCharacter character, out int dieTypeCount)
         {
             Assert.IsNotNull(character, nameof(character));
 
@@ -234,7 +238,7 @@ namespace SolastaMulticlass.Models
             return builder.Remove(builder.Length - 1, 1).ToString();
         }
 
-        internal static string GetLevelAndExperienceTooltip(GuiCharacter character)
+        public static string GetLevelAndExperienceTooltip(GuiCharacter character)
         {
             var builder = new StringBuilder();
             var hero = character.RulesetCharacterHero;

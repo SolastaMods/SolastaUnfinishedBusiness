@@ -6,16 +6,16 @@ using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 
 namespace SolastaMulticlass.Models
 {
-    internal static class InspectionPanelContext
+    public static class InspectionPanelContext
     {
-        internal const InputCommands.Id PLAIN_UP = (InputCommands.Id)22220005;
-        internal const InputCommands.Id PLAIN_DOWN = (InputCommands.Id)22220006;
+        public const InputCommands.Id PLAIN_UP = (InputCommands.Id)22220005;
+        public const InputCommands.Id PLAIN_DOWN = (InputCommands.Id)22220006;
 
         private static RulesetCharacterHero selectedHero;
 
         private static int selectedClass;
 
-        internal static RulesetCharacterHero SelectedHero
+        public static RulesetCharacterHero SelectedHero
         {
             get => selectedHero;
             set
@@ -25,9 +25,9 @@ namespace SolastaMulticlass.Models
             }
         }
 
-        internal static CharacterClassDefinition SelectedClass => selectedHero?.ClassesAndLevels.Keys.ElementAt(selectedClass);
+        public static CharacterClassDefinition SelectedClass => selectedHero?.ClassesAndLevels.Keys.ElementAt(selectedClass);
 
-        internal static void Load()
+        public static void Load()
         {
             var inputService = ServiceRepository.GetService<IInputService>();
 
@@ -110,7 +110,7 @@ namespace SolastaMulticlass.Models
             return classBadges;
         }
 
-        internal static void PickNextHeroClass()
+        public static void PickNextHeroClass()
         {
             selectedClass = (selectedClass + 1) % selectedHero.ClassesAndLevels.Count;
         }
