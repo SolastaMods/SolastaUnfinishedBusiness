@@ -131,10 +131,11 @@ namespace SolastaCommunityExpansion.CustomUI
             public PoolId Id { get; }
             public int Max { get; set; }
             public int Used { get; set; }
-            public int Remaining => Max - Used;
+            public int Remaining => Skipped ? 0 : Max - Used;
             public CustomFeatureDefinitionSet FeatureSet { get; set; }
             public bool IsReplacer => FeatureSet is ReplaceCustomFeatureDefinitionSet;
             public FeaturePool(PoolId id) { Id = id; }
+            public bool Skipped;
         }
 
         public class PoolId
@@ -468,7 +469,9 @@ namespace SolastaCommunityExpansion.CustomUI
                 learned.Remove(feature);
                 if (pool.FeatureSet is ReplaceCustomFeatureDefinitionSet replacer)
                 {
-                    GetPoolById(new PoolId(replacer.ReplacedFeatureSet.Name, pool.Id.Tag)).Max--;
+                    var poolById = GetPoolById(new PoolId(replacer.ReplacedFeatureSet.Name, pool.Id.Tag));
+                    if (poolById != null)
+                        poolById.Max--;
                 }
             }
             else
@@ -477,7 +480,7 @@ namespace SolastaCommunityExpansion.CustomUI
                 learned.Add(feature);
                 if (pool.FeatureSet is ReplaceCustomFeatureDefinitionSet replacer)
                 {
-                    GetPoolById(new PoolId(replacer.ReplacedFeatureSet.Name, pool.Id.Tag)).Max++;
+                    GetOrAddPoolFeatureAndTag(replacer.ReplacedFeatureSet, pool.Id.Tag).Max++;
                 }
             }
 
@@ -739,8 +742,6 @@ namespace SolastaCommunityExpansion.CustomUI
         {
             UpdateGrantedFeatures();
             
-            //TODO: sort features properly - make sure replacers are above their regular pool
-            
             allPools.Clear();
             Dictionary<PoolId, FeaturePool> tags = new();
             foreach (var (poolTag, featureSet) in gainedCustomFeatures)
@@ -756,17 +757,6 @@ namespace SolastaCommunityExpansion.CustomUI
                 {
                     tags[poolId].Max++;
                 }
-
-                if (featureSet is ReplaceCustomFeatureDefinitionSet removerSet)
-                {
-                    poolId = new PoolId(removerSet.ReplacedFeatureSet.Name, poolTag);
-                    if(!tags.ContainsKey(poolId))
-                    {
-                        var pool = new FeaturePool(poolId) {Max = 0, Used = 0, FeatureSet = removerSet.ReplacedFeatureSet};
-                        tags.Add(poolId, pool);
-                        allPools.Add(pool);
-                    }
-                }
             }
 
             allPools.Sort(poolCompare);
@@ -777,6 +767,26 @@ namespace SolastaCommunityExpansion.CustomUI
         private FeaturePool GetPoolById(PoolId id)
         {
             return allPools.FirstOrDefault(p => p.Id.Equals(id));
+        }
+
+
+        private FeaturePool GetOrAddPoolFeatureAndTag(CustomFeatureDefinitionSet set, string featureTag)
+        {
+            return GetOrAddPoolById(new PoolId(set.Name, featureTag), set);
+        }
+
+        private FeaturePool GetOrAddPoolById(PoolId id, CustomFeatureDefinitionSet set)
+        {
+            var pool = GetPoolById(id);
+            if (pool == null)
+            {
+                pool = new FeaturePool(id) {FeatureSet = set, Max = 0, Used = 0};
+                allPools.Add(pool);
+                allPools.Sort(poolCompare);
+                BuildLearnSteps();
+            }
+
+            return pool;
         }
 
         private void BuildLearnSteps()
@@ -816,7 +826,7 @@ namespace SolastaCommunityExpansion.CustomUI
             Main.Log($"[ENDER] CancelStage");
             initialized = false;
             int stepNumber = this.currentLearnStep;
-            if (this.IsFinalStep)
+            while (this.IsFinalStep)
             {
                 stepNumber--;
             }
@@ -879,6 +889,7 @@ namespace SolastaCommunityExpansion.CustomUI
             Main.Log($"[ENDER] OnSkipRemaining");
             if (IsUnlearnStep(currentLearnStep))
             {
+                allPools[currentLearnStep].Skipped = true;
                 MoveToNextLearnStep();
             }
             ResetWasClickedFlag();
@@ -889,6 +900,7 @@ namespace SolastaCommunityExpansion.CustomUI
             var pool = this.allPools[stepNumber];
             Main.Log($"[ENDER] ResetLearnings step: {stepNumber}, pool: [{pool.Id.Tag}] {pool.Id.Name}");
             pool.Used = 0;
+            pool.Skipped = false;
             GetOrMakeLearnedList(pool.Id).Clear();
 
             GrantAcquiredFeatures(onDone);
