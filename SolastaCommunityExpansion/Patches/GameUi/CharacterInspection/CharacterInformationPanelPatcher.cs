@@ -115,4 +115,61 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
             return false;
         }
     }
+
+    // Switch positions of Class and Background descriptions, and switch description and features list in Class panel
+    [HarmonyPatch(typeof(CharacterInformationPanel), "Bind")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class CharacterInformationPanel_Bind
+    {
+        internal static void Postfix(CharacterInformationPanel __instance)
+        {
+            //TODO: add option in settings to enable this
+            var backGroup = __instance.transform.Find("BackgroundGroup")?.GetComponent<RectTransform>();
+            var classGroup = __instance.transform.Find("ClassGroup")?.GetComponent<RectTransform>();
+             
+            if (classGroup != null && backGroup != null)
+            {
+                backGroup.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 32, 662);
+                backGroup.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, 32, 458);
+                
+                classGroup.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 32, 662);
+                classGroup.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 32, 856);
+
+                //this is actualyy top-right one
+                var child = backGroup.Find("OrnamentBottomRight")?.GetComponent<RectTransform>();
+                if (child != null)
+                {
+                    child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 5, 50);
+                }
+                
+                child = backGroup.Find("BackgroundImageMask")?.GetComponent<RectTransform>();
+                if (child != null)
+                {
+                    child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 0, 218);
+                }
+                
+                child = backGroup.Find("BackgroundDescriptionGroup")?.GetComponent<RectTransform>();
+                if (child != null)
+                {
+                    child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, 65, 175);
+                }
+                
+                child = classGroup.Find("ClassFeaturesGroup")?.GetComponent<RectTransform>();
+                if (child != null)
+                {
+                    child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 20, 642);
+                    child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 260, 590);
+                }
+                
+                child = classGroup.Find("ClassDescriptionGroup")?.GetComponent<RectTransform>();
+                if (child != null)
+                {
+                    child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 0, 355);
+                    child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 0, 270);
+                }
+                
+                classGroup.FindChildRecursive("OrnamentBottomLeft")?.gameObject.SetActive(false);
+            }
+        }
+    }
 }
