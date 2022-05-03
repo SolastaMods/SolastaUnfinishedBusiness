@@ -11,16 +11,27 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
     [HarmonyPatch(typeof(CharacterEditionScreen), "LoadStagePanels")]
     internal static class CharacterLevelUpScreenLoadStagePanels
     {
+        internal static CustomFeatureSelectionPanel GetPanel(CharacterEditionScreen __instance)
+        {
+            var characterCreationScreen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
+            var stagePanelPrefabs = characterCreationScreen.GetField<CharacterCreationScreen, GameObject[]>("stagePanelPrefabs");
+            var container = __instance.StagesPanelContainer;
+            var gameObject = Gui.GetPrefabFromPool(stagePanelPrefabs[8], container);
+            var characterStageSpellSelectionPanel = gameObject.GetComponent<CharacterStageSpellSelectionPanel>();
+            var customFeatureSelection = gameObject.AddComponent<CustomFeatureSelectionPanel>();
+
+            customFeatureSelection.Setup(characterStageSpellSelectionPanel);
+
+            return customFeatureSelection;
+        }
+
         internal static void Postfix(
             CharacterEditionScreen __instance,
             ref Dictionary<string, CharacterStagePanel> ___stagePanelsByName)
         {
-            var characterCreationScreen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
-            var stagePanelPrefabs = characterCreationScreen.GetField<CharacterCreationScreen, GameObject[]>("stagePanelPrefabs");
-            var customFeatureSelection = CustomFeatureSelectionPanel.Get(stagePanelPrefabs, __instance);
-
             if (__instance is CharacterCreationScreen)
             {
+                var customFeatureSelection = GetPanel(__instance);
                 var last = ___stagePanelsByName.ElementAt(___stagePanelsByName.Count - 1);
 
                 ___stagePanelsByName.Remove(last.Key);
@@ -29,6 +40,8 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
             }
             else if (__instance is CharacterLevelUpScreen)
             {
+                var customFeatureSelection = GetPanel(__instance);
+
                 ___stagePanelsByName.Add(customFeatureSelection.Name, customFeatureSelection);
             }
         }
