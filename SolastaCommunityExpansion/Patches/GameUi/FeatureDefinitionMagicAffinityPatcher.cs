@@ -18,20 +18,19 @@ namespace SolastaCommunityExpansion.Patches.GameUi
         {
             internal static bool Prefix(FeatureDefinitionAutoPreparedSpells __instance, ref string __result)
             {
-                string empty1 = string.Empty;
+                string result = string.Empty;
                 foreach (var group in __instance.AutoPreparedSpellsGroups)
                 {
                     var spells = string.Join(", ", group.SpellsList.Select(s => s.FormatTitle()));
-                    string str = $"{FormatSpellLevel(group.ClassLevel)}\t{spells}";
-                    if (!string.IsNullOrEmpty(empty1))
-                        empty1 += "\n";
-                    empty1 += str;
+                    if (!string.IsNullOrEmpty(result))
+                        result += "\n";
+                    result += $"{FormatSpellLevel(group.ClassLevel)}\t{spells}";
                 }
 
                 var description = __instance.GuiPresentation.Description;
                 description = description == Gui.NoLocalization ? string.Empty : Gui.Localize(description);
 
-                __result = Gui.Format(description, empty1);
+                __result = Gui.Format(description, result);
                 return false;
             }
         }
