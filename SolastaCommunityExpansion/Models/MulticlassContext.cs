@@ -3,6 +3,7 @@ using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
+using SolastaMulticlass.Models;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionProficiencys;
 
 namespace SolastaCommunityExpansion.Models
@@ -63,6 +64,21 @@ namespace SolastaCommunityExpansion.Models
                     castSpellDefinition.ScribedSpells.Add(0);
                 }
             }
+        }
+
+        internal static void LateLoad()
+        {
+            if (!Main.Settings.EnableMulticlass)
+            {
+                return;
+            }
+
+            InspectionPanelContext.Load(); // no dependencies
+            LevelDownContext.Load(); // no dependencies
+            CacheSpellsContext.Load(); // depends on all CE blueprints in databases
+            IntegrationContext.Load(); // depends on all CE blueprints in databases
+            PatchingContext.Load(); // depends on IntegrationContext
+            SharedSpellsContext.Load(); // depends on IntegrationContext
         }
     }
 

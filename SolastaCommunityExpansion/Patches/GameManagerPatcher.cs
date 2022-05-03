@@ -91,6 +91,9 @@ namespace SolastaCommunityExpansion.Patches
                 // Spells context needs character classes (specifically spell lists) in the db in order to do it's work.
                 SpellsContext.LateLoad();
 
+                // Multiclass
+                MulticlassContext.LateLoad();
+
                 // Save by location initialization depends on services to be ready
                 SaveByLocationContext.LateLoad();
 

@@ -6,9 +6,9 @@ using UnityEngine;
 
 namespace SolastaMulticlass.Models
 {
-    internal static class InOutRulesContext
+    public static class InOutRulesContext
     {
-        internal static void EnumerateHeroAllowedClassDefinitions(RulesetCharacterHero hero, List<CharacterClassDefinition> allowedClasses, ref int selectedClass)
+        public static void EnumerateHeroAllowedClassDefinitions(RulesetCharacterHero hero, List<CharacterClassDefinition> allowedClasses, ref int selectedClass)
         {
             var currentClass = hero.ClassesHistory[hero.ClassesHistory.Count - 1];
 
@@ -91,7 +91,7 @@ namespace SolastaMulticlass.Models
         }
 
         [SuppressMessage("Convert switch statement to expression", "IDE0066")]
-        internal static bool ApproveMultiClassInOut(RulesetCharacterHero hero, CharacterClassDefinition classDefinition)
+        public static bool ApproveMultiClassInOut(RulesetCharacterHero hero, CharacterClassDefinition classDefinition)
         {
             if (classDefinition.GuiPresentation.Hidden)
             {
@@ -141,6 +141,6 @@ namespace SolastaMulticlass.Models
             }
         }
 
-        internal static bool IsSupported(CharacterClassDefinition classDefinition) => !classDefinition.GuiPresentation.Hidden;
+        public static bool IsSupported(CharacterClassDefinition classDefinition) => !classDefinition.GuiPresentation.Hidden;
     }
 }

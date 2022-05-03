@@ -1,6 +1,6 @@
 ﻿namespace SolastaMulticlass.Models
 {
-    internal static class IntegrationContext
+    public static class IntegrationContext
     {
         public const string CLASS_TINKERER = "ClassTinkerer";
         public const string CLASS_WARDEN = "ClassWarden";
@@ -11,24 +11,24 @@
 
         // Sentinel blueprints to avoid a bunch of null check in code
 
-        internal static CharacterClassDefinition DummyClass { get; private set; } = new()
+        public static CharacterClassDefinition DummyClass { get; private set; } = new()
         {
             name = "DummyClass"
         };
 
-        internal static CharacterSubclassDefinition DummySubclass { get; private set; } = new()
+        public static CharacterSubclassDefinition DummySubclass { get; private set; } = new()
         {
             name = "DummySubClass"
         };
 
-        internal static CharacterClassDefinition TinkererClass { get; private set; }
-        internal static CharacterClassDefinition WardenClass { get; private set; }
-        internal static CharacterClassDefinition WarlockClass { get; private set; }
-        internal static CharacterClassDefinition WitchClass { get; private set; }
-        internal static CharacterSubclassDefinition ConArtistSubclass { get; private set; }
-        internal static CharacterSubclassDefinition SpellShieldSubclass { get; private set; }
+        public static CharacterClassDefinition TinkererClass { get; private set; }
+        public static CharacterClassDefinition WardenClass { get; private set; }
+        public static CharacterClassDefinition WarlockClass { get; private set; }
+        public static CharacterClassDefinition WitchClass { get; private set; }
+        public static CharacterSubclassDefinition ConArtistSubclass { get; private set; }
+        public static CharacterSubclassDefinition SpellShieldSubclass { get; private set; }
 
-        internal static void Load()
+        public static void Load()
         {
             var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
             var dbCharacterSubclassDefinition = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>();
