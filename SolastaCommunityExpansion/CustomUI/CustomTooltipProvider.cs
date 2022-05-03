@@ -57,7 +57,7 @@ namespace SolastaCommunityExpansion.CustomUI
         public CustomTooltipProvider SetPrerequisites(List<string> missingRequirements)
         {
             _prerequisites = missingRequirements == null || missingRequirements.Empty() 
-                ? null 
+                ? string.Empty 
                 : Gui.Colorize(String.Join("\n", missingRequirements.Select(e => Gui.Localize(e))), Gui.ColorNegative);
 
             return this;

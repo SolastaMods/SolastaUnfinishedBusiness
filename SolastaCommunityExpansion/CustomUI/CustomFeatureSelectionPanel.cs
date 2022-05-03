@@ -1105,7 +1105,7 @@ namespace SolastaCommunityExpansion.CustomUI
                             || CustomFeaturesContext.GetValidationErrors(prerequisites.Validators, out errors));
 
 
-                    if (lowLevelError != null)
+                    if (!string.IsNullOrEmpty(lowLevelError))
                     {
                         errors.Add(lowLevelError);
                     }
@@ -1140,7 +1140,7 @@ namespace SolastaCommunityExpansion.CustomUI
                                           : boxFeature) 
                                       && !isUnlearned;
                     
-                    box.SetupUI(pool.FeatureSet.GuiPresentation, new() { string.Empty });
+                    box.SetupUI(pool.FeatureSet.GuiPresentation, null);
                     
                     if (canUnlearnSpells)
                         box.RefreshUnlearnInProgress(canUnlearn || isUnlearned, isUnlearned);
