@@ -394,8 +394,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                     .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage, 0)
                     .AddToDB());
             
-            ((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["EldritchMind"]).Validators.SetRange(RequirePactOfTheTome);
-
             ((FeatureDefinitionFeatureSet)EldritchInvocations["EyesoftheRuneKeeper"]).FeatureSet
                 .Add(FeatureDefinitionFeatureSets.FeatureSetAllLanguages);
             

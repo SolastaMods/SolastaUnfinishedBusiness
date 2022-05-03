@@ -47,6 +47,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 EldritchInvocations["RepellingBlast"],
                 EldritchInvocations["GraspingHand"],
                 EldritchInvocations["ArmorofShadows"],
+                EldritchInvocations["EldritchMind"],
                 EldritchInvocations["EldritchSight"],
                 EldritchInvocations["FiendishVigor"],
                 EldritchInvocations["ThiefofFiveFates"],
@@ -55,7 +56,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 EldritchInvocations["EyesoftheRuneKeeper"]
             )
             .SetLevelFeatures(3,
-                EldritchInvocations["EldritchMind"],
                 EldritchInvocations["AspectoftheMoon"],
                 EldritchInvocations["GiftoftheEverLivingOnes"],
                 EldritchInvocations["ImprovedPactWeapon"]
