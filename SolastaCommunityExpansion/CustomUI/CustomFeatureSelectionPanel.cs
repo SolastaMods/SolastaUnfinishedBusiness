@@ -770,13 +770,12 @@ namespace SolastaCommunityExpansion.CustomUI
         public override void CancelStage()
         {
             initialized = false;
-            int stepNumber = this.currentLearnStep;
             while (this.IsFinalStep)
             {
-                stepNumber--;
+                currentLearnStep--;
             }
 
-            for (int i = stepNumber; i >= 0; i--)
+            for (int i = currentLearnStep; i >= 0; i--)
             {
                 this.ResetLearnings(i);
             }
