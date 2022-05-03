@@ -359,7 +359,7 @@ Feat/&AddProtectorConstructCantripDescription	Adds Mending Construct and Dismiss
 Feat/&AddProtectorConstructCantripTitle	Bonus Construct Cantrips
 Feat/&AlchemistSubclassElixirsDescription	Learn to make experimental elixirs: Healing, Swiftness, Resilience, Boldness, Flight
 Feat/&AlchemistSubclassElixirsTitle	Experimental Elixirs
-Feat/&AlchemistSubclassSpellsDescription	Level 3: Healing Word, Inflict Wounds, Detect Poison, Disease\nLevel 5: Flaming Sphere, Acid Arrow, Ray of Enfeeblement\nLevel 9: Mass Healing Word, Vampiric Touch, Remove Curse, Slow\nLevel 13: Blight, Death Ward\nLevel 17: Cloud Kill, Raise Dead
+Feat/&AlchemistSubclassSpellsDescription	{0}
 Feat/&AlchemistSubclassSpellsTitle	Learn Potion Maker Spells
 Feat/&ArmorModePoolDescription	Allows you to switch between armor modes
 Feat/&ArmorModePoolTitle	Armor Mode
@@ -403,7 +403,7 @@ Feat/&ArtilleristProtectorCannon15Description	Emit positive energy as a bonus ac
 Feat/&ArtilleristProtectorCannon15Title	Arcane Shield
 Feat/&ArtilleristProtectorCannonDescription	Emit positive energy as a bonus action. Allies within 10 feet gain 1d8 + your Intelligence modifier temporary hit points
 Feat/&ArtilleristProtectorCannonTitle	Arcane Shield
-Feat/&ArtilleristSubclassSpellsDescription	Level 3: Shield, Thunderwave\nLevel 5: Scorching Ray, Shatter\nLevel 9: Fireball, Wind Wall\nLevel 13: Ice Storm, Wall of Fire\nLevel 17: Cone of Cold, Wall of Force
+Feat/&ArtilleristSubclassSpellsDescription	{0}
 Feat/&ArtilleristSubclassSpellsTitle	Learn Blaster Spells
 Feat/&ArtilleryConstructDescription	Can damage or protect allies
 Feat/&ArtilleryConstructLevel03AutopreparedSpellsDescription	Cantrips:Mending Construct, Dismiss Construct \nLevel 1: Resummon Artillery Construct
@@ -421,9 +421,9 @@ Feat/&AttackModifierArtificerBattleSmithJolt2Description	Your weapon attacks dea
 Feat/&AttackModifierArtificerBattleSmithJolt2Title	Improved Weapon Attack Jolt
 Feat/&AttackModifierArtificerBattleSmithJoltDescription	Your weapon attacks deal 3 additional damage
 Feat/&AttackModifierArtificerBattleSmithJoltTitle	Weapon Attack Jolt
-Feat/&AutoPreparedSpellsDescription	Level 3 Magic Missile, Thunderwave\nLevel 5 Blur, Shatter\nLevel 9 Lightning Bolt, Wind Wall, Wall of Fire
+Feat/&AutoPreparedSpellsDescription	{0}
 Feat/&AutoPreparedSpellsTitle	Learn Scout Sentinel spells
-Feat/&BattleSmithSubclassSpellsDescription	Level 3: Shield, Heroism, Hunter's Mark\nLevel 5: Branding Smite, Spiritual Weapon\nLevel 9: Remove Curse, Beacon of Hope\nLevel 13: Fire Shield, Death Ward Level\n17: Mass Cure Wounds, Wall of Force
+Feat/&BattleSmithSubclassSpellsDescription	{0}
 Feat/&BattleSmithSubclassSpellsTitle	Learn Weapon Smith Spells
 Feat/&CancelFlyingConditionDescription	End flying condtion to allow jumping and crawling
 Feat/&CancelFlyingConditionTitle	Cancel Fly
@@ -662,7 +662,7 @@ Feat/&ResummonArtilleryConstruct_15Title	Resummon Artillery Construct 3
 Feat/&ResummonArtilleryConstructDescription	This spell allows the tinkerer to resummon an Artillery Construct in one of multiple modes after the initial summons expires. The resummoned construct also lasts 1 hour
 Feat/&RetributionDescription	Construct damages 1D4 + Int when attacked
 Feat/&RetributionTitle	Retribution
-Feat/&ScoutSentinelFeatureSet_level03Description	<size=17><color=#add8e6ff>Learn Scout Sentinel Spells</color></size>\nLevel 3: Magic Missile, Thunderwave\nLevel 5: Blur, Shatter\nLevel 9: Lightning Bolt, Hypnotic Pattern \nLevel 13: Fire Shield, Greater Invisibility\nLevel 17: Dimension Door, Wind Wall, Wall of Fire\n\n<size=17><color=#add8e6ff>Multiple Armor Functions</color></size>\nYou can switch between function modes once per day by creating and using temporary weapons\n\n<size=17><color=#add8e6ff>Sentinel Mode</color></size>\nGain a limited number of temporary HP based on level. Impose disadvantage on enemies attacking allies\n\n<size=17><color=#add8e6ff>Scout Mode</color></size>\nGain increased movement, stealth advantage and a ranged attack which deals an extra die of damage once a turn.\n\n<size=17><color=#add8e6ff>Features</color></size>\nYou can use the armor's weapons as a spellcasting focus for your spells\nHeavy Armor does not have a strength requirement\nYou gain proficiency in smith's tools and heavy armor
+Feat/&ScoutSentinelFeatureSet_level03Description	<size=17><color=#add8e6ff>Multiple Armor Functions</color></size>\nYou can switch between function modes once per day by creating and using temporary weapons\n\n<size=17><color=#add8e6ff>Sentinel Mode</color></size>\nGain a limited number of temporary HP based on level. Impose disadvantage on enemies attacking allies\n\n<size=17><color=#add8e6ff>Scout Mode</color></size>\nGain increased movement, stealth advantage and a ranged attack which deals an extra die of damage once a turn.\n\n<size=17><color=#add8e6ff>Features</color></size>\nYou can use the armor's weapons as a spellcasting focus for your spells\nHeavy Armor does not have a strength requirement\nYou gain proficiency in smith's tools and heavy armor
 Feat/&ScoutSentinelFeatureSet_level03Title	Scout Sentinel
 Feat/&ScoutSentinelFeatureSet_level05Description	<size=17><color=#add8e6ff>Extra Attack</color></size>\nYou can attack one more time, per combat turn, when you use the attack or shove actions
 Feat/&ScoutSentinelFeatureSet_level05Title	Scout Sentinel
