@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SolastaCommunityExpansion.Models;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
@@ -11,21 +12,9 @@ namespace SolastaMulticlass.Models
         public const InputCommands.Id PLAIN_UP = (InputCommands.Id)22220005;
         public const InputCommands.Id PLAIN_DOWN = (InputCommands.Id)22220006;
 
-        private static RulesetCharacterHero selectedHero;
-
         private static int selectedClass;
 
-        public static RulesetCharacterHero SelectedHero
-        {
-            get => selectedHero;
-            set
-            {
-                selectedHero = value;
-                selectedClass = 0;
-            }
-        }
-
-        public static CharacterClassDefinition SelectedClass => selectedHero?.ClassesAndLevels.Keys.ElementAt(selectedClass);
+        public static CharacterClassDefinition SelectedClass => Global.InspectedHero?.ClassesAndLevels.Keys.ElementAt(selectedClass);
 
         public static void Load()
         {
@@ -45,14 +34,14 @@ namespace SolastaMulticlass.Models
 
             badgeDefinitions.Clear();
 
-            foreach (var classesAndSubclass in SelectedHero.ClassesAndSubclasses.Where(x => x.Key == SelectedClass))
+            foreach (var classesAndSubclass in Global.InspectedHero.ClassesAndSubclasses.Where(x => x.Key == SelectedClass))
             {
                 badgeDefinitions.Add(classesAndSubclass.Value);
             }
 
-            if (selectedHero?.DeityDefinition != null && (SelectedClass == Paladin || SelectedClass == Cleric))
+            if (Global.InspectedHero.DeityDefinition != null && (SelectedClass == Paladin || SelectedClass == Cleric))
             {
-                badgeDefinitions.Add(SelectedHero.DeityDefinition);
+                badgeDefinitions.Add(Global.InspectedHero.DeityDefinition);
             }
 
             foreach (var trainedFightingStyle in GetTrainedFightingStyles())
@@ -91,13 +80,13 @@ namespace SolastaMulticlass.Models
             var classLevelFightingStyle = new Dictionary<string, FightingStyleDefinition>();
             var classBadges = new HashSet<FightingStyleDefinition>();
 
-            foreach (var activeFeature in selectedHero.ActiveFeatures
+            foreach (var activeFeature in Global.InspectedHero.ActiveFeatures
                 .Where(x => x.Key.Contains(AttributeDefinitions.TagClass)))
             {
                 foreach (var featureDefinition in activeFeature.Value
                     .OfType<FeatureDefinitionFightingStyleChoice>())
                 {
-                    classLevelFightingStyle.Add(activeFeature.Key, selectedHero.TrainedFightingStyles[fightingStyleIdx++]);
+                    classLevelFightingStyle.Add(activeFeature.Key, Global.InspectedHero.TrainedFightingStyles[fightingStyleIdx++]);
                 }
             }
 
@@ -112,7 +101,7 @@ namespace SolastaMulticlass.Models
 
         public static void PickNextHeroClass()
         {
-            selectedClass = (selectedClass + 1) % selectedHero.ClassesAndLevels.Count;
+            selectedClass = (selectedClass + 1) % Global.InspectedHero.ClassesAndLevels.Count;
         }
     }
 }

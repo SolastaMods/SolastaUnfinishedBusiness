@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using SolastaCommunityExpansion.Models;
 using static FeatureDefinitionCastSpell;
 using static SolastaCommunityExpansion.Classes.Warlock.WarlockSpells;
 using static SolastaCommunityExpansion.Level20.SpellsHelper;
@@ -138,7 +139,7 @@ namespace SolastaMulticlass.Models
             }
 
             // finally falls back to inspection [when browsing hero in char pool]
-            return InspectionPanelContext.SelectedHero;
+            return Global.InspectedHero;
         }
 
         public static bool IsWarlock(CharacterClassDefinition characterClassDefinition) =>
