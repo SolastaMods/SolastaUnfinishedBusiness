@@ -12,7 +12,13 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
     {
         internal static bool Prefix(RulesetCharacterHero hero, bool onlyIfCurrentLevel)
         {
+            if (!Main.Settings.BugFixUnassignLastSubclass)
+            {
+                return true;
+            }
+
             ServiceRepository.GetService<ICharacterBuildingService>().UnassignLastSubclass(hero, onlyIfCurrentLevel);
+
             return false;
         }
     }

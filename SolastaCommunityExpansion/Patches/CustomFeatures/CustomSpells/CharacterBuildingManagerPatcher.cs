@@ -7,12 +7,12 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
 {
-    internal static class CharacterBuildingManagePatcher
+    internal static class CharacterBuildingManagerPatcher
     {
         internal static bool IsSpellBonus(IPointPoolMaxBonus mod)
         {
             return mod.PoolType == HeroDefinitions.PointsPoolType.Cantrip
-                   || mod.PoolType == HeroDefinitions.PointsPoolType.Spell;
+                || mod.PoolType == HeroDefinitions.PointsPoolType.Spell;
         }
 
         [HarmonyPatch(typeof(CharacterBuildingManager), "RegisterPoolStack")]

@@ -15,13 +15,14 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
                 return;
             }
 
-            Models.InventoryManagementContext.ResetControls();
+            InventoryManagementContext.ResetControls();
         }
     }
     
     // set the inspection context for MC heroes
     [HarmonyPatch(typeof(CharacterInspectionScreen), "Bind")]
-    internal static class CharacterInspectionScreenBind
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class CharacterInspectionScreen_Bind
     {
         internal static void Postfix(RulesetCharacterHero heroCharacter)
         {
@@ -31,7 +32,8 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
 
     // reset the inspection context for MC heroes
     [HarmonyPatch(typeof(CharacterInspectionScreen), "Unbind")]
-    internal static class CharacterInspectionScreenUnbind
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class CharacterInspectionScreen_Unbind
     {
         internal static void Postfix()
         {
