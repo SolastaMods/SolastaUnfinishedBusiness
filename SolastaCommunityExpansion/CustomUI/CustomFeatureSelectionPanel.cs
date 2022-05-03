@@ -1066,7 +1066,7 @@ namespace SolastaCommunityExpansion.CustomUI
                     if (canAcquireFeatures)
                         box.CustomRefreshLearningInProgress((canLearn || selected) && !isUnlearned, selected, alreadyHas);
                     else
-                        box.RefreshLearningInactive(selected && !isUnlearned);
+                        box.RefreshLearningInactive((selected || alreadyHas) && !isUnlearned);
                 }
             }
         }
