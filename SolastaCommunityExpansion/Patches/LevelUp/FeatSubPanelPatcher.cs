@@ -49,19 +49,20 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
             var code = instructions.ToList();
             var index = code.FindIndex(x => x.Calls(forceRebuildLayoutImmediateMethod));
 
-            code[index] = new CodeInstruction(OpCodes.Call, forceSameWidthMethod);
+            code[index] = new CodeInstruction(OpCodes.Ldarg_1);
+            code.Insert(index + 1, new CodeInstruction(OpCodes.Call, forceSameWidthMethod));
 
             return code;
         }
 
-        public static void ForceSameWidth(RectTransform table)
+        public static void ForceSameWidth(RectTransform table, bool active)
         {
             const int COLUMNS = 4;
             const int WIDTH = 224;
             const int HEIGHT = 34;
             const int SPACING = 6;
 
-            if (Main.Settings.EnableSameWidthFeatSelection)
+            if (active && Main.Settings.EnableSameWidthFeatSelection)
             {
                 var rect = table.GetComponent<RectTransform>();
 
