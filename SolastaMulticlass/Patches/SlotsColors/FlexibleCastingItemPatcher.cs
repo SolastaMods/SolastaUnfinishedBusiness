@@ -16,6 +16,7 @@ namespace SolastaMulticlass.Patches.SlotsColors
                 int slotLevel,
                 int remainingSlots,
                 int maxSlots,
+                bool createSlot,
                 RectTransform ___slotStatusTable)
             {
                 var flexibleCastingModal = __instance.GetComponentInParent<FlexibleCastingModal>();
@@ -26,8 +27,8 @@ namespace SolastaMulticlass.Patches.SlotsColors
                     return;
                 }
 
-                MulticlassGameUiContext.PaintSlotsLightOrDarkGreen(
-                    caster, maxSlots, remainingSlots, slotLevel, ___slotStatusTable, hasTooltip: false);
+                MulticlassGameUiContext.PaintPactSlots(
+                    caster, maxSlots, remainingSlots, slotLevel, ___slotStatusTable, true);
             }
         }
 
