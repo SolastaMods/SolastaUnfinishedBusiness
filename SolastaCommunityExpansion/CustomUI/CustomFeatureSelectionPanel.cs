@@ -905,7 +905,7 @@ namespace SolastaCommunityExpansion.CustomUI
             instance.SetField("rank", rank);
             instance.SetField("ignoreAvailable", pool.IsReplacer);
             instance.SetField("autoLearnAvailable", false);
-            string header = Gui.Localize(pool.FeatureSet.GuiPresentation.Title);//Gui.Localize($"CustomStage/&Step{pool.Tag}Title");
+            string header = pool.FeatureSet.FormatTitle();
             instance.GetField<GuiLabel>("headerLabelActive").Text = header;
             instance.GetField<GuiLabel>("headerLabelInactive").Text = header;
             instance.OnBackOneStepActivated = onBackOneStepActivated;
@@ -922,6 +922,7 @@ namespace SolastaCommunityExpansion.CustomUI
             var activeGroup = instance.GetField<RectTransform>("activeGroup");
             var inactiveGroup = instance.GetField<RectTransform>("inactiveGroup");
             var autoButton = instance.GetField<Button>("autoButton");
+            var ignoreButton = instance.GetField<Button>("ignoreButton");
             var resetButton = instance.GetField<Button>("resetButton");
             
             activeGroup.gameObject.SetActive(status == LearnStepItem.Status.InProgress);
@@ -930,19 +931,22 @@ namespace SolastaCommunityExpansion.CustomUI
             instance.GetField<Image>("inactiveBackground").gameObject.SetActive(status == LearnStepItem.Status.Locked);
             instance.GetField<Button>("backOneStepButton").gameObject.SetActive(status == LearnStepItem.Status.Previous);
             resetButton.gameObject.SetActive(status == LearnStepItem.Status.InProgress);
-            autoButton.gameObject.SetActive(status == LearnStepItem.Status.InProgress && !ignoreAvailable);
+            autoButton.gameObject.SetActive(false);
+            ignoreButton.gameObject.SetActive(ignoreAvailable);
             instance.GetField<Button>("ignoreButton").gameObject.SetActive(ignoreAvailable);
 
             if (status == LearnStepItem.Status.InProgress)
             {
                 instance.GetField<GuiLabel>("pointsLabelActive").Text = Gui.FormatCurrentOverMax(usedPoints, maxPoints);
                 instance.GetField<Image>("remainingPointsGaugeActive").fillAmount = (float) usedPoints /  maxPoints;
-                choiceLabel.Text = Gui.Localize(pool.FeatureSet.GuiPresentation.Description);////$"CustomStage/&Step{pool.Tag}Description";
+                choiceLabel.Text = pool.FeatureSet.FormatDescription();
                 LayoutRebuilder.ForceRebuildLayoutImmediate(choiceLabel.RectTransform);
-                activeGroup.sizeDelta = new Vector2(activeGroup.sizeDelta.x, (float) (choiceLabel.RectTransform.rect.height - choiceLabel.RectTransform.anchoredPosition.y + 12.0));
-                instance.RectTransform.sizeDelta = activeGroup.sizeDelta;
+                var sizeDelta = new Vector2(activeGroup.sizeDelta.x, (float) (choiceLabel.RectTransform.rect.height - choiceLabel.RectTransform.anchoredPosition.y + 12.0));
+                activeGroup.sizeDelta = sizeDelta;
+                instance.RectTransform.sizeDelta = sizeDelta;
                 resetButton.interactable = usedPoints < maxPoints;
-                autoButton.interactable = instance.GetField<bool>("autoLearnAvailable") && usedPoints > 0;
+                autoButton.interactable = false;
+                ignoreButton.interactable = ignoreAvailable && usedPoints < maxPoints;
             }
             else
             {
