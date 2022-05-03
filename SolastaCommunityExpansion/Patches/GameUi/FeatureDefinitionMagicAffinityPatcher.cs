@@ -33,7 +33,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi
                     spells.Remove(level);
                 }
             }
-            var spellList = string.Join("\n",
+            var spellList = "\n" +string.Join("\n",
                 spells.Select(e =>
                     $"{Gui.Colorize($"{(e.Key == 0 ? 0 : Gui.ToRoman(e.Key))}", Gui.ColorHighEmphasis)}\t{string.Join(", ", e.Value.Select(s => s.FormatTitle()))}"));
 
