@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +18,7 @@ namespace SolastaCommunityExpansion.CustomUI
 {
     public class CustomFeatureSelectionPanel : CharacterStagePanel
     {
-        private static readonly Dictionary<string, CustomFeatureSelectionPanel> _instances = new ();
+        private static readonly Dictionary<string, CustomFeatureSelectionPanel> _instances = new();
 
         public static CharacterStagePanel Get(GameObject[] prefabs, CharacterEditionScreen editor)
         {
@@ -28,14 +28,14 @@ namespace SolastaCommunityExpansion.CustomUI
             
             if (instance == null)
             {
-                //TODO: make calculatng which prefab is spell slection more robust
-                var gameObject = Gui.GetPrefabFromPool(prefabs[8], container);//create copy of spell selection
+                //TODO: make calculating which prefab is spell slection more robust
+                var gameObject = Gui.GetPrefabFromPool(prefabs[8], container); //create copy of spell selection
                 var spells = gameObject.GetComponent<CharacterStageSpellSelectionPanel>();
                 instance = gameObject.AddComponent<CustomFeatureSelectionPanel>();
                 instance.Setup(gameObject, spells, prefabs);
                 _instances.Add(editorType, instance);
             }
-            else if(instance.gameObject.transform.parent != container)
+            else if (instance.gameObject.transform.parent != container)
             {
                 instance.gameObject.transform.SetParent(container, false);
                 instance.gameObject.SetActive(true);
@@ -625,8 +625,6 @@ namespace SolastaCommunityExpansion.CustomUI
 
         public override bool CanProceedToNextStage(out string failureString)
         {
-            failureString = string.Empty;
-
             if (!this.IsFinalStep 
                 || !initialized 
                 || (!allPools.Empty() && allPools[allPools.Count - 1].Remaining > 0)
@@ -637,7 +635,7 @@ namespace SolastaCommunityExpansion.CustomUI
                 return false;
             }
 
-            failureString = "";
+            failureString = string.Empty;
             return true;
         }
 

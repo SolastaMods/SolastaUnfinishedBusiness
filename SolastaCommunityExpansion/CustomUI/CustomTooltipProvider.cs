@@ -22,24 +22,20 @@ namespace SolastaCommunityExpansion.CustomUI
 
         private string GetDefaultSubtitle()
         {
-            switch (this.BaseDefinition)
+            return BaseDefinition switch
             {
-                case FeatureDefinitionPower:
-                    return "UI/&CustomFeatureSelectionTooltipTypePower";
-                case FeatureDefinitionBonusCantrips:
-                    return "UI/&CustomFeatureSelectionTooltipTypeCantrip";
-                case FeatureDefinitionProficiency:
-                    return "UI/&CustomFeatureSelectionTooltipTypeProficiency";
-                default:
-                    return "UI/&CustomFeatureSelectionTooltipTypeFeature";
-            }
+                FeatureDefinitionPower => "UI/&CustomFeatureSelectionTooltipTypePower",
+                FeatureDefinitionBonusCantrips => "UI/&CustomFeatureSelectionTooltipTypeCantrip",
+                FeatureDefinitionProficiency => "UI/&CustomFeatureSelectionTooltipTypeProficiency",
+                _ => "UI/&CustomFeatureSelectionTooltipTypeFeature",
+            };
         }
 
         public override void SetupSprite(Image image, object context = null)
         {
             if (image.sprite != null)
             {
-                this.ReleaseSprite(image);
+                ReleaseSprite(image);
                 image.sprite = null;
             }
             if (_guiPresentation != null && _guiPresentation.SpriteReference != null && _guiPresentation.SpriteReference.RuntimeKeyIsValid())
@@ -48,18 +44,22 @@ namespace SolastaCommunityExpansion.CustomUI
                 image.sprite = Gui.LoadAssetSync<Sprite>(_guiPresentation.SpriteReference);
             }
             else
+            {
                 image.gameObject.SetActive(false);
+            }
         }
 
         public void SetPrerequisites(params string[] missingRequirements)
         {
             SetPrerequisites(missingRequirements.ToList());
         }
+
         public CustomTooltipProvider SetPrerequisites(List<string> missingRequirements)
         {
             _prerequisites = missingRequirements == null || missingRequirements.Empty() 
                 ? null 
                 : Gui.Colorize(String.Join("\n", missingRequirements.Select(e => Gui.Localize(e))), Gui.ColorNegative);
+
             return this;
         }
 
@@ -68,6 +68,7 @@ namespace SolastaCommunityExpansion.CustomUI
             _subtitle = string.IsNullOrEmpty(subtitle)
                 ? GetDefaultSubtitle()
                 : subtitle;
+
             return this;
         }
 
@@ -75,6 +76,5 @@ namespace SolastaCommunityExpansion.CustomUI
         {
             return _prerequisites;
         }
-
     }
 }

@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using HarmonyLib;
-using SolastaCommunityExpansion;
-using SolastaCommunityExpansion.CustomUI;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
 
