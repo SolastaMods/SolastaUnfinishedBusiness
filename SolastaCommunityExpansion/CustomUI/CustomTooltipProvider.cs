@@ -20,6 +20,8 @@ namespace SolastaCommunityExpansion.CustomUI
             _subtitle = GetDefaultSubtitle();
         }
 
+        public override string Description => BaseDefinition.FormatDescription();
+
         private string GetDefaultSubtitle()
         {
             return BaseDefinition switch
