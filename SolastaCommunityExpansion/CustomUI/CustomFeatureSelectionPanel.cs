@@ -360,7 +360,7 @@ namespace SolastaCommunityExpansion.CustomUI
                     
                     group.Selected = !IsFinalStep && !lowLevel;
 
-                    string levelError = null;
+                    string levelError = string.Empty;
                     if (lowLevel)
                     {
                         levelError = featurePool.FeatureSet.RequireClassLevels
@@ -1140,7 +1140,7 @@ namespace SolastaCommunityExpansion.CustomUI
                                           : boxFeature) 
                                       && !isUnlearned;
                     
-                    box.SetupUI(pool.FeatureSet.GuiPresentation);
+                    box.SetupUI(pool.FeatureSet.GuiPresentation, new() { string.Empty });
                     
                     if (canUnlearnSpells)
                         box.RefreshUnlearnInProgress(canUnlearn || isUnlearned, isUnlearned);
@@ -1231,7 +1231,7 @@ namespace SolastaCommunityExpansion.CustomUI
                 imageComponent.gameObject.SetActive(false);
         }
 
-        public static void SetupUI(this SpellBox instance, GuiPresentation setPresentation, List<string> errors = null)
+        public static void SetupUI(this SpellBox instance, GuiPresentation setPresentation, List<string> errors)
         {
             GuiLabel title = instance.GetField<GuiLabel>("titleLabel");
             Image image = instance.GetField<Image>("spellImage");
@@ -1239,14 +1239,17 @@ namespace SolastaCommunityExpansion.CustomUI
             FeatureDefinition feature = instance.GetFeature();
 
             var gui = new GuiPresentationBuilder(feature.GuiPresentation).Build();
-            var hasErrors = errors != null && !errors.Empty();
+            //
+            // TODO: this isn't getting trigger in DEBUG. required?
+            //
+            //var hasErrors = !errors.Empty();
 
-            if (!hasErrors && feature is FeatureDefinitionPower power)
-            {
-                var powerGui = ServiceRepository.GetService<IGuiWrapperService>().GetGuiPowerDefinition(power.Name);
-                powerGui.SetupTooltip(tooltip);
-            }
-            else
+            //if (!hasErrors && feature is FeatureDefinitionPower power)
+            //{
+            //    var powerGui = ServiceRepository.GetService<IGuiWrapperService>().GetGuiPowerDefinition(power.Name);
+            //    powerGui.SetupTooltip(tooltip);
+            //}
+            //else
             {
                 var dataProvider = new CustomTooltipProvider(feature, gui);
                 dataProvider.SetPrerequisites(errors);
