@@ -4,6 +4,7 @@ using HarmonyLib;
 using ModKit;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi.Extensions;
+using static FeatureDefinitionCastSpell;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
 {
@@ -82,8 +83,17 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
         [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class CharacterBuildingManager_ApplyFeatureCastSpell
         {
-            internal static void Postfix(CharacterHeroBuildingData heroBuildingData)
+            internal static void Postfix(CharacterHeroBuildingData heroBuildingData,
+                FeatureDefinition feature)
             {
+                if (feature is not FeatureDefinitionCastSpell spellCasting) { return;}
+
+                var castingOrigin = spellCasting.SpellCastingOrigin;
+                if (castingOrigin != CastingOrigin.Class && castingOrigin != CastingOrigin.Subclass)
+                {
+                    return;
+                }
+
                 var hero = heroBuildingData.HeroCharacter;
                 var poolMods = hero.GetFeaturesByType<IPointPoolMaxBonus>();
 
