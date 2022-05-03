@@ -151,8 +151,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock
 
                 .AddFeaturesAtLevel(4,
                     FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice,
-                    WarlockEldritchInvocationReplacer,
-                    WarlockEldritchInvocationSet
+                    WarlockEldritchInvocationReplacer
                 )
 
                 .AddFeaturesAtLevel(5,
