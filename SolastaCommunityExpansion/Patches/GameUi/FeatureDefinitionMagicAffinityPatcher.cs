@@ -33,11 +33,11 @@ namespace SolastaCommunityExpansion.Patches.GameUi
                     spells.Remove(level);
                 }
             }
-
             var spellList = string.Join("\n",
-                spells.Select(e => $"{Gui.ToRoman(e.Key)}\t{string.Join(", ", e.Value.Select(s => s.FormatTitle()))}"));
+                spells.Select(e =>
+                    $"{Gui.Colorize($"{(e.Key == 0 ? 0 : Gui.ToRoman(e.Key))}", Gui.ColorHighEmphasis)}\t{string.Join(", ", e.Value.Select(s => s.FormatTitle()))}"));
 
-            return Gui.Format(format, Gui.Format(Gui.Localize(description), spellList));
+            return Gui.Format(Gui.Localize(description), spellList);
         }
 
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
