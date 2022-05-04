@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
-using SolastaMulticlass.Models;
 using UnityEngine.UI;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
@@ -33,12 +32,11 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
         {
             Global.InspectedHero = heroCharacter;
 
-            CharacterInspectionScreen_HandleInput.CharacterTabActive = true;
-
+            // get more real state for the toggles on top
             if (Main.Settings.EnableMulticlass)
             {
-                // get more real state for the toggles on top
-                ___toggleGroup.transform.position = new UnityEngine.Vector3(___characterPlate.transform.position.x / 2f, ___toggleGroup.transform.position.y, 0);
+                ___toggleGroup.transform.position = 
+                    new UnityEngine.Vector3(___characterPlate.transform.position.x / 2f, ___toggleGroup.transform.position.y, 0);
             }
         }
     }
@@ -51,39 +49,6 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
         internal static void Postfix()
         {
             Global.InspectedHero = null;
-        }
-    }
-
-    // trap the hotkeys on inspection panel
-    [HarmonyPatch(typeof(CharacterInspectionScreen), "HandleInput")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class CharacterInspectionScreen_HandleInput
-    {
-        internal static bool CharacterTabActive { get; set; }
-
-        internal static void Postfix(InputCommands.Id command, ToggleGroup ___toggleGroup, CharacterInformationPanel ___characterInformationPanel)
-        {
-            switch (command)
-            {
-                case InspectionPanelContext.PLAIN_UP:
-                    if (!___characterInformationPanel.gameObject.activeSelf)
-                    {
-                        CharacterTabActive = !CharacterTabActive;
-                        ___toggleGroup.transform.GetChild(1).gameObject.SetActive(CharacterTabActive);
-                    }
-
-                    break;
-
-                case InspectionPanelContext.PLAIN_DOWN:
-                    InspectionPanelContext.PickNextHeroClass();
-
-                    if (___characterInformationPanel.gameObject.activeSelf)
-                    {
-                        ___characterInformationPanel.RefreshNow();
-                    }
-
-                    break;
-            }
         }
     }
 }

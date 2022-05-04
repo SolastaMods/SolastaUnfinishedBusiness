@@ -12,9 +12,9 @@ namespace SolastaMulticlass.Models
         public const InputCommands.Id PLAIN_UP = (InputCommands.Id)22220005;
         public const InputCommands.Id PLAIN_DOWN = (InputCommands.Id)22220006;
 
-        private static int selectedClass;
+        internal static int SelectedClassIndex { get; set; }
 
-        public static CharacterClassDefinition SelectedClass => Global.InspectedHero?.ClassesAndLevels.Keys.ElementAt(selectedClass);
+        public static CharacterClassDefinition SelectedClass => Global.InspectedHero?.ClassesAndLevels.Keys.ElementAt(SelectedClassIndex);
 
         public static void Load()
         {
@@ -97,11 +97,6 @@ namespace SolastaMulticlass.Models
             }
 
             return classBadges;
-        }
-
-        public static void PickNextHeroClass()
-        {
-            selectedClass = (selectedClass + 1) % Global.InspectedHero.ClassesAndLevels.Count;
         }
     }
 }

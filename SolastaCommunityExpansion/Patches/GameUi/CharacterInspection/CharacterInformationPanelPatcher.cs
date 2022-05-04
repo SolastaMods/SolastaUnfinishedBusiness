@@ -1,9 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.CustomUI;
+using SolastaCommunityExpansion.Models;
+using SolastaMulticlass.Models;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
 {
@@ -83,12 +87,15 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
                     GuiPowerDefinition guiPowerDefinition = ServiceRepository.GetService<IGuiWrapperService>()
                         .GetGuiPowerDefinition(feature.FeatureDefinition.Name);
                     tooltip.Content = guiPowerDefinition.Description;
+
+                    provider.SetSubtitle(guiPowerDefinition.Title);
                 }
                 else if (TryFindChoiceFeature(__instance, feature.FeatureDefinition, out var choiceFeature))
                 {
                     label.Text = Gui.Format("{1} ({0})", choiceFeature.FormatTitle(), 
                         feature.FeatureDefinition.FormatTitle());
                     tooltip.Content = feature.FeatureDefinition.FormatDescription();
+
                     provider.SetSubtitle(choiceFeature.GuiPresentation.Title);
                 }
                 else
@@ -99,7 +106,6 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
                 tooltip.TooltipClass = "FeatDefinition";
                 tooltip.DataProvider = provider;
                 tooltip.Context = __instance.InspectedCharacter?.RulesetCharacter;
-
                 tooltip.AnchorMode = tooltipAnchorMode;
 
                 if (!noLevel)
@@ -107,6 +113,10 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
                     var levelRequirement = Gui.Format(insufficientLevelFormat, feature.Level.ToString());
 
                     provider.SetPrerequisites(levelRequirement);
+                }
+                else
+                {
+                    provider.SetPrerequisites("");
                 }
 
                 ++index;
@@ -126,6 +136,17 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterInformationPanel_Bind
     {
+        private static Transform ClassSelector { get; set; } = null;
+
+        private static void LoadClassSelector(RectTransform backGroup, RectTransform classGroup)
+        {
+            var voice = backGroup.FindChildRecursive("Voice");
+
+            ClassSelector = Object.Instantiate(voice, classGroup.transform);
+            ClassSelector.FindChildRecursive("PlayAudio").gameObject.SetActive(false);
+            ClassSelector.FindChildRecursive("HeaderGroup").gameObject.SetActive(false);
+        }
+
         internal static void Postfix(CharacterInformationPanel __instance)
         {
             if (!Main.Settings.EnableEnhancedCharacterInspection)
@@ -172,6 +193,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
                 {
                     child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 20, 642);
                     child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 260, 590);
+                    child.sizeDelta = new Vector2(child.sizeDelta.x, child.sizeDelta.y - 100);
                 }
                 
                 child = classGroup.Find("ClassDescriptionGroup")?.GetComponent<RectTransform>();
@@ -181,8 +203,66 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
                     child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 0, 355);
                     child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 0, 270);
                 }
-                
+
                 classGroup.FindChildRecursive("OrnamentBottomLeft")?.gameObject.SetActive(false);
+
+                //
+                // setup class buttons for MC scenarios
+                //
+
+                var hero = Global.InspectedHero;
+                var classesTitles = hero.ClassesAndLevels.Select(x => x.Key.FormatTitle()).ToList();
+
+                if (hero == null || hero.ClassesAndLevels.Count == 1)
+                {
+                    if (ClassSelector != null)
+                    {
+                        ClassSelector.gameObject.SetActive(false);
+                    }
+
+                    InspectionPanelContext.SelectedClassIndex = 0;
+
+                    return;
+                }
+
+                if (ClassSelector == null)
+                {
+                    LoadClassSelector(backGroup, classGroup);
+                }
+
+                var labelsGroup = ClassSelector.FindChildRecursive("LabelsGroup");
+                var classesCount = classesTitles.Count;
+
+                for (var i = 0; i < classesCount; i++)
+                {
+                    var childToggle = labelsGroup.GetChild(i);
+                    var labelChoiceToggle = childToggle.GetComponent<LabelChoiceToggle>();
+                    var uiToggle = childToggle.GetComponent<Toggle>();
+
+                    labelChoiceToggle.Bind(i, classesTitles[i], (x) =>
+                    {
+                        var screen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
+
+                        if (uiToggle.isOn)
+                        {
+                            InspectionPanelContext.SelectedClassIndex = x;
+                            __instance.RefreshNow();
+
+                            for (var i = 0; i < classesCount; ++i)
+                            {
+                                if (i != x)
+                                {
+                                    labelsGroup.GetChild(i).GetComponent<LabelChoiceToggle>().Refresh(false, true);
+                                }
+                            }
+                        }
+                    });
+                }
+
+                for (var i = classesCount; i < 3; i++)
+                {
+                    labelsGroup.GetChild(i).gameObject.SetActive(false);
+                }
             }
         }
     }
