@@ -730,6 +730,8 @@ Feature/&AHWarlockClassPactOfTheBladeSetDescription	You become proficient with a
 Feature/&AHWarlockClassPactOfTheBladeSetTitle	Pact of the Blade
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerDescription	Once per long rest you can empower a weapon with the power of souls. That weapon uses Charisma modifier for attack and damage rolls and counts as magical until long rest
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle	Soul Empower
+Modifier/&AHWarlockSoulBladePactEmpowerWeaponModifierTitle	Soul Empowered
+Modifier/&AHWarlockSoulBladePactEmpowerWeaponModifierDescription	Weapon uses Charisma modifier for attack and damage rolls and counts as magical until long rest.
 Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	The Soul blade lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: {0}\n\n 
 Feature/&AHWarlockSoulBladePactExtendedSpellListTitle	Soulblade Spells
 Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Once per short rest you use the power of souls to defend yourself. Using a bonus action you gain temp hp equal to your level + charisma modifier
