@@ -59,7 +59,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             var attackMod = FeatureDefinitionAttackModifierBuilder
                 .Create("AHWarlockSoulBladePactEmpowerWeaponModifier", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Modifier, FeatureDefinitionPowers.PowerOathOfDevotionSacredWeapon.GuiPresentation.SpriteReference)
-                .SetAdditionalAttackTag(TagsDefinitions.Magical)
                 .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
                 .AddToDB();
             
