@@ -20,6 +20,11 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
         {
             internal static bool Prefix(FeatureDefinitionAutoPreparedSpells __instance, ref string __result)
             {
+                if (!Main.Settings.EnableEnhancedCharacterInspection)
+                {
+                    return true;
+                }
+
                 var result = string.Empty;
 
                 foreach (var group in __instance.AutoPreparedSpellsGroups)
@@ -83,6 +88,16 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
 
             internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
             {
+                if (!Main.Settings.EnableEnhancedCharacterInspection)
+                {
+                    foreach (var instruction in instructions)
+                    {
+                        yield return instruction;
+                    }
+
+                    yield break;
+                }
+
                 var formatMethod = typeof(Gui).GetMethod("Format", BindingFlags.Static | BindingFlags.Public);
                 var myFormatMethod = typeof(FeatureDefinitionMagicAffinity_FormatDescription).GetMethod("FormatSpellList");
                 var found = 0;

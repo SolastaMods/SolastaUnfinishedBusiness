@@ -3,7 +3,7 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 
-namespace SolastaMulticlass.Patches.GameUi
+namespace SolastaCommunityExpansion.Patches.GameUi.CharactersPool
 {
     internal static class CharacterSelectionModalPatcher
     {

@@ -20,6 +20,8 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
 
             rectTransform.sizeDelta = new Vector2(275, 32);
             ___sorceryPointsBox.localPosition = new Vector3(-920, 38, 0);
+
+            __instance.RefreshNow();
         }
     }
 }

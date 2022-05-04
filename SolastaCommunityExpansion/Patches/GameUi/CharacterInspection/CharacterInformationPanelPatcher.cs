@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.CustomUI;
 using SolastaCommunityExpansion.Models;
-using SolastaMulticlass.Models;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -256,6 +256,53 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
                 for (var i = classesCount; i < 3; i++)
                 {
                     labelsGroup.GetChild(i).gameObject.SetActive(false);
+                }
+            }
+        }
+    }
+
+    // overrides the selected class search term with the one determined by the hotkeys / enumerate class badges logic
+    [HarmonyPatch(typeof(CharacterInformationPanel), "Refresh")]
+    internal static class CharacterInformationPanelRefresh
+    {
+        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        {
+            if (!Main.Settings.EnableEnhancedCharacterInspection)
+            {
+                foreach (var instruction in instructions)
+                {
+                    yield return instruction;
+                }
+                
+                yield break;
+            }
+
+            var containsMethod = typeof(string).GetMethod("Contains");
+            var getSelectedClassSearchTermMethod = typeof(InspectionPanelContext).GetMethod("GetSelectedClassSearchTerm");
+            var enumerateClassBadgesMethod = typeof(CharacterInformationPanel).GetMethod("EnumerateClassBadges", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+            var myEnumerateClassBadgesMethod = typeof(InspectionPanelContext).GetMethod("EnumerateClassBadges");
+            var found = 0;
+
+            foreach (var instruction in instructions)
+            {
+                if (instruction.Calls(containsMethod))
+                {
+                    found++;
+
+                    if (found == 2 || found == 3)
+                    {
+                        yield return new CodeInstruction(OpCodes.Call, getSelectedClassSearchTermMethod);
+                    }
+
+                    yield return instruction;
+                }
+                else if (instruction.Calls(enumerateClassBadgesMethod))
+                {
+                    yield return new CodeInstruction(OpCodes.Call, myEnumerateClassBadgesMethod);
+                }
+                else
+                {
+                    yield return instruction;
                 }
             }
         }

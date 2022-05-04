@@ -1,43 +1,23 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.Text;
-using HarmonyLib;
+﻿using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
 {
-    [HarmonyPatch(typeof(GuiCharacter), "BackgroundDescription", MethodType.Getter)]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class GuiCharacter_BackgroundDescription_Getter
+    [HarmonyPatch(typeof(GuiCharacter), "MainClassDefinition", MethodType.Getter)]
+    internal static class GuiCharacterMainClassDefinitionGetter
     {
-        internal static void Postfix(GuiCharacter __instance, ref string __result)
+        internal static void Postfix(ref CharacterClassDefinition __result)
         {
-            if (!Main.Settings.EnableAdditionalBackstoryDisplay)
+            if (!Main.Settings.EnableEnhancedCharacterInspection)
             {
                 return;
             }
 
-            var hero = __instance.RulesetCharacterHero;
-
-            if (hero == null)
+            // NOTE: don't use SelectedClass??. which bypasses Unity object lifetime check
+            if (InspectionPanelContext.SelectedClass)
             {
-                return;
+                __result = InspectionPanelContext.SelectedClass;
             }
-
-            var additionalBackstory = hero.AdditionalBackstory;
-
-            if (string.IsNullOrEmpty(additionalBackstory))
-            {
-                return;
-            }
-
-            var builder = new StringBuilder();
-
-            builder.Append(__result);
-            builder.Append("\n\n<B>");
-            builder.Append(Gui.Format("Stage/&IdentityAdditionalBackstoryHeader"));
-            builder.Append("</B>\n\n");
-            builder.Append(additionalBackstory);
-
-            __result = builder.ToString();
         }
     }
 }
