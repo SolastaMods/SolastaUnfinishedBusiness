@@ -6,13 +6,13 @@ using UnityEngine.UI;
 
 namespace SolastaCommunityExpansion.CustomUI
 {
-    public class CustomTooltipProvider : GuiBaseDefinitionWrapper, ISubTitleProvider, IPrerequisitesProvider, IImageProvider
+    public class CustomTooltipProvider : GuiBaseDefinitionWrapper, ISubTitleProvider, IPrerequisitesProvider
     {
         private readonly GuiPresentation _guiPresentation;
-        private string _prerequisites;
+        private string _prerequisites = string.Empty;
         private string _subtitle;
 
-        public string Subtitle => _subtitle;
+        public string Subtitle => _subtitle ??= GetDefaultSubtitle(); //Just in case. This is actually set in constructor + check for null in the setter.
 
         public CustomTooltipProvider(BaseDefinition baseDefinition, GuiPresentation guiPresentation) : base(baseDefinition)
         {

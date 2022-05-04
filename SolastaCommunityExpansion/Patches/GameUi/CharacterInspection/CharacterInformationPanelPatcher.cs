@@ -87,8 +87,6 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
                     GuiPowerDefinition guiPowerDefinition = ServiceRepository.GetService<IGuiWrapperService>()
                         .GetGuiPowerDefinition(feature.FeatureDefinition.Name);
                     tooltip.Content = guiPowerDefinition.Description;
-
-                    provider.SetSubtitle(guiPowerDefinition.Title);
                 }
                 else if (TryFindChoiceFeature(__instance, feature.FeatureDefinition, out var choiceFeature))
                 {
@@ -113,10 +111,6 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
                     var levelRequirement = Gui.Format(insufficientLevelFormat, feature.Level.ToString());
 
                     provider.SetPrerequisites(levelRequirement);
-                }
-                else
-                {
-                    provider.SetPrerequisites("");
                 }
 
                 ++index;
