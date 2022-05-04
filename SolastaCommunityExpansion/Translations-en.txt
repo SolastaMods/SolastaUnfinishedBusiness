@@ -1206,9 +1206,10 @@ Power/&AncientForestLifeSapTitle	Life Sap
 Power/&AncientForestRootedPowerDescription	Arboreal tendrils grow from your feet and dig into the ground. Your speed becomes 0, and you gain advantage on any saving throws to push you, pull you, or knock you prone.You can cast entangle at will
 Power/&AncientForestRootedPowerTitle	Rooted
 Power/&DH_ElementalFormPoolTitle	Elemental Forms
-Power/&DH_ElementalFormPoolDescription	You can switch between elemental forms a number of times (equal to your Proficiency Bonus) per day by channeling elemental energy. You gain resistance to the relevant damage and once per turn, apply Proficiency Bonus as damage of the same type first hit each round. The forms last for 1 minute
-Power/&DH_ElementalFormPoolEnhancedTitle	Elemental Forms
-Power/&DH_ElementalFormPoolEnhancedDescription	You can switch between elemental forms a number of times (equal to your Proficiency Bonus) per day by channeling elemental energy. You gain immunity to the relevant damage and apply Proficiency Bonus as damage of the same type to first hit each round. The forms last for 1 minute
+Power/&DH_ElementalFormPoolDescription	You can switch between elemental forms a number of times (equal to your Proficiency Bonus) per day by channeling elemental energy. You gain resistance to the relevant damage and once per turn, apply Proficiency Bonus as damage of the same type to first spell damage each round. The forms last for 1 minute
+Power/&DH_ElementalFormPoolEnhancedTitle	Enhanced Elemental Forms
+Power/&DH_ElementalFormPoolEnhancedTitleShort	Elemental Forms
+Power/&DH_ElementalFormPoolEnhancedDescription	You can switch between enhanced elemental forms a number of times (equal to your Proficiency Bonus) per day by channeling elemental energy. You gain immunity to the relevant damage and apply Proficiency Bonus as damage of the same type to first spell damage each round. The forms last for 1 minute
 Power/&FindFamiliarBundlePowerDescription	Summon familiar in the form of Pseudorgagon, Sprite, Imp or Quasit.
 Power/&FindFamiliarBundlePowerTitle	Find Familiar
 Power/&HelpActionDescription	You can aid a friendly creature in attacking a creature within 5 feet of you. You feint, distract the target, or in some other way team up to make your ally's attack more effective. If your ally attacks the target before your next turn, the first attack roll is made with advantage

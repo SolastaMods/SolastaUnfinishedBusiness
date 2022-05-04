@@ -35,6 +35,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             EnhancedElementalFormPool = FeatureDefinitionPowerPoolBuilder
                 .Create("DH_ElementalFormPoolEnhanced", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Power,Utils.CustomIcons.CreateAssetReferenceSprite("ElementalFormEnhanced", Properties.Resources.ElementalFormEnhanced, 128, 64))
+                .SetShortTitle("Power/&DH_ElementalFormPoolEnhancedTitleShort")
                 .SetUsesProficiency()
                 .SetRechargeRate(RechargeRate.LongRest)
                 .SetActivation(ActivationTime.BonusAction, 1)
@@ -250,7 +251,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                     "ElementalDamage",
                     FeatureLimitedUsage.OncePerTurn,
                     AdditionalDamageValueDetermination.ProficiencyBonus,
-                    AdditionalDamageTriggerCondition.AlwaysActive,
+                    AdditionalDamageTriggerCondition.SpellDamagesTarget,
                     AdditionalDamageRequiredProperty.None,
                     false,
                     DieType.D4,
