@@ -3,20 +3,15 @@ using System.Linq;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
-using SolastaModApi.Extensions;
 using static SolastaCommunityExpansion.Builders.DefinitionBuilder;
 using static SolastaCommunityExpansion.Classes.Warlock.Features.EldritchInvocationsBuilder;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Features
 {
     internal static class WarlockFeatures
     {
-        internal static readonly FeatureDefinitionFeatureSet WarlockMysticArcanumSetLevel11 = CreateMysticArcanumSet(11, 6);
-        internal static readonly FeatureDefinitionFeatureSet WarlockMysticArcanumSetLevel13 = CreateMysticArcanumSet(13, 7, 6);
-        internal static readonly FeatureDefinitionFeatureSet WarlockMysticArcanumSetLevel15 = CreateMysticArcanumSet(15, 8, 7, 6);
-        internal static readonly FeatureDefinitionFeatureSet WarlockMysticArcanumSetLevel17 = CreateMysticArcanumSet(17, 9, 8, 7, 6);
+        internal static readonly CustomFeatureDefinitionSet WarlockMysticArcanumSet = CreateMysticArcanumSet((11, 6), (13, 7), (15, 8), (17, 9));
 
         private static FeatureDefinitionPower warlockEldritchMasterPower;
 
@@ -25,13 +20,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             .SetGuiPresentation(Category.Feature)
             .SetActivationTime(RuleDefinitions.ActivationTime.Minute1)
             .AddToDB();
-
-        private static List<FeatureDefinition> InvocationsFilteredFeatureSet(FeatureDefinitionFeatureSet featureDefinitionFeatureSet)
-        {
-            return featureDefinitionFeatureSet.FeatureSet
-                .Where(x => x is not IFeatureDefinitionWithPrerequisites feature || feature.Validators.All(y => y()==null))
-                .ToList();
-        }
 
         #region WarlockEldritchInvocationSet
         private static CustomFeatureDefinitionSet warlockEldritchInvocationSet;
@@ -100,7 +88,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         #endregion
 
         #region SupportCode
-        private static FeatureDefinitionPower CreateMysticArcanumPower(string baseName, SpellDefinition spell)
+        private static FeatureDefinition CreateMysticArcanumPower(string baseName, SpellDefinition spell)
         {
             return FeatureDefinitionPowerBuilder
                 .Create(baseName + spell.name, DefinitionBuilder.CENamespaceGuid)
@@ -125,14 +113,20 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             return levels.SelectMany(level => WarlockSpells.WarlockSpellList.SpellsByLevel[level].Spells);
         }
 
-        private static FeatureDefinitionFeatureSet CreateMysticArcanumSet(int setLevel, params int[] spellLevels)
+        private static CustomFeatureDefinitionSet CreateMysticArcanumSet(params (int, int)[] levels)
         {
-            return FeatureDefinitionFeatureSetBuilder
-                .Create(TerrainTypeAffinityRangerNaturalExplorerChoice, $"ClassWarlockMysticArcanumSetLevel{setLevel}", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation("ClassWarlockMysticArcanumSet", Category.Feature)
-                .SetFeatureSet(GetSpells(spellLevels).Select(spell => CreateMysticArcanumPower($"DH_MysticArcanum{setLevel}_", spell)))
-                .SetUniqueChoices(true)
-                .AddToDB();
+            var builder = CustomFeatureDefinitionSetBuilder
+                .Create($"ClassWarlockMysticArcanumSet", CENamespaceGuid)
+                .SetGuiPresentation(Category.Feature)
+                .SetRequireClassLevels(true);
+            
+            foreach (var (setLevel, spellLevel) in levels)
+            {
+                builder.SetLevelFeatures(setLevel, GetSpells(spellLevel)
+                    .Select(spell => CreateMysticArcanumPower($"DH_MysticArcanum{setLevel}_", spell)).ToList());
+            }
+
+            return builder.AddToDB();
         }
         #endregion
     }

@@ -183,7 +183,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                 )
 
                 .AddFeaturesAtLevel(11,
-                    WarlockMysticArcanumSetLevel11,
+                    WarlockMysticArcanumSet,
                     WarlockEldritchInvocationReplacer
                 )
 
@@ -194,7 +194,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                 )
 
                 .AddFeaturesAtLevel(13,
-                    WarlockMysticArcanumSetLevel13,
+                    WarlockMysticArcanumSet,
                     WarlockEldritchInvocationReplacer
                 )
 
@@ -203,7 +203,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                 )
 
                 .AddFeaturesAtLevel(15,
-                    WarlockMysticArcanumSetLevel15,
+                    WarlockMysticArcanumSet,
                     WarlockEldritchInvocationReplacer,
                     WarlockEldritchInvocationSet
                 )
@@ -214,7 +214,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                 )
 
                 .AddFeaturesAtLevel(17,
-                    WarlockMysticArcanumSetLevel17,
+                    WarlockMysticArcanumSet,
                     WarlockEldritchInvocationReplacer
                 )
 
