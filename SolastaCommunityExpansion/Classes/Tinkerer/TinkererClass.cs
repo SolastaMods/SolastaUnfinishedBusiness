@@ -42,7 +42,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             InfusionHelpers.ArmorOfMagicalStrength,
         };
 
-        private static readonly List<FeatureDefinition> Level6InfusionList = new(Level2InfusionList)
+        private static readonly List<FeatureDefinition> Level6InfusionList = new()
         {
             InfusionHelpers.ResistantArmor,
             InfusionHelpers.SpellRefuelingRing,
@@ -51,7 +51,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             InfusionHelpers.CloakOfElvenKind,
         };
 
-        private static readonly List<FeatureDefinition> Level10InfusionList = new(Level6InfusionList)
+        private static readonly List<FeatureDefinition> Level10InfusionList = new()
         {
             InfusionHelpers.BracesrOfArchery,
             InfusionHelpers.CloakOfProtection,
@@ -60,7 +60,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             InfusionHelpers.SlippersOfSpiderClimbing,
         };
 
-        private static readonly List<FeatureDefinition> Level14InfusionList = new(Level10InfusionList)
+        private static readonly List<FeatureDefinition> Level14InfusionList = new()
         {
             InfusionHelpers.AmuletOfHealth,
             InfusionHelpers.BeltOfGiantHillStrength,
@@ -201,6 +201,22 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 .SetSlotsPerLevel(1, FeatureDefinitionCastSpellBuilder.CasterProgression.HALF_CASTER)
                 .AddToDB();
 
+            var infusionChoice = CustomFeatureDefinitionSetBuilder
+                .Create("TinkererInfusionChoice", GuidNamespace)
+                .SetGuiPresentation(Category.Feature)
+                .SetRequireClassLevels(true)
+                .SetLevelFeatures(2, Level2InfusionList)
+                .SetLevelFeatures(6, Level6InfusionList)
+                .SetLevelFeatures(10, Level10InfusionList)
+                .SetLevelFeatures(14, Level14InfusionList)
+                .AddToDB();
+            
+            var infusionReplace = ReplaceCustomFeatureDefinitionSetBuilder
+                .Create("TinkererInfusionReplace", GuidNamespace)
+                .SetGuiPresentation(Category.Feature)
+                .SetReplacedFeatureSet(infusionChoice)
+                .AddToDB();
+
             artificerBuilder.AddFeatureAtLevel(1, featureSpellCasting);
 
             // ritual casting (1)
@@ -231,10 +247,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             GuiPresentationBuilder infusionChoiceGui = new GuiPresentationBuilder(
                 "Subclass/&TinkererInfusionChoiceTitle",
                 "Subclass/&TinkererInfusionChoiceDescription");
-            FeatureDefinitionFeatureSet level2Infusions = new FeatureHelpers.FeatureDefinitionFeatureSetBuilder("TinkererLevel2InfusionChoice", GuidNamespace,
-                Level2InfusionList, FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion, 0, false, false, infusionChoiceGui.Build())
-                .AddToDB();
-            artificerBuilder.AddFeatureAtLevel(2, level2Infusions, 4);
+            artificerBuilder.AddFeatureAtLevel(2, infusionChoice, 4);
+            artificerBuilder.AddFeatureAtLevel(3, infusionReplace);
 
             // Repeating Shot-- no point it seems
             // Returning Weapon-- not currently do-able
@@ -243,7 +257,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
             // ASI (4)
             artificerBuilder.AddFeatureAtLevel(4, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
-
+            artificerBuilder.AddFeatureAtLevel(4, infusionReplace);
+            artificerBuilder.AddFeatureAtLevel(5, infusionReplace);
             // Tool expertise (level 6)
             var toolExpertise = FeatureHelpers.BuildProficiency("ExpertiseToolsTinkerer",
                 RuleDefinitions.ProficiencyType.ToolOrExpertise,
@@ -262,11 +277,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 .AddToDB();
             artificerBuilder.AddFeatureAtLevel(6, InfusionPoolIncrease);
 
-            FeatureDefinitionFeatureSet level6Infusions = new FeatureHelpers.FeatureDefinitionFeatureSetBuilder("TinkererLevel6InfusionChoice",
-                GuidNamespace, Level6InfusionList,
-                FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion, 0, true, false, infusionChoiceGui.Build()
-                ).AddToDB();
-            artificerBuilder.AddFeatureAtLevel(6, level6Infusions, 2);
+            artificerBuilder.AddFeatureAtLevel(6, infusionChoice, 2);
+            artificerBuilder.AddFeatureAtLevel(6, infusionReplace);
+
             // Infusions
             // Repulsion Shield, +1 shield, reaction (charges) to push enemy away on hit, otherwise... unsure?
 
@@ -313,9 +326,13 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 .SetGuiPresentation(Category.Subclass)
                 .AddToDB();
             artificerBuilder.AddFeatureAtLevel(7, flashOfGenius);
-
+            artificerBuilder.AddFeatureAtLevel(7, infusionReplace);
             // ASI (8)
             artificerBuilder.AddFeatureAtLevel(8, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
+            artificerBuilder.AddFeatureAtLevel(8, infusionReplace);
+            
+            // 09
+            artificerBuilder.AddFeatureAtLevel(9, infusionReplace);
 
             // Magic Item Adept (10)
             GuiPresentationBuilder CraftingTinkererMagicItemAdeptPresentation = new GuiPresentationBuilder(
@@ -338,13 +355,10 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 .AddToDB();
             artificerBuilder.AddFeatureAtLevel(10, InfusionPoolIncrease10);
 
-            FeatureDefinitionFeatureSet level10Infusions = new FeatureHelpers.FeatureDefinitionFeatureSetBuilder("TinkererLevel10InfusionChoice",
-                GuidNamespace, Level10InfusionList,
-                FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion, 0, true, false, infusionChoiceGui.Build()
-                ).AddToDB();
             artificerBuilder.AddFeaturesAtLevel(10,
-                level10Infusions,
-                level10Infusions,
+                infusionChoice,
+                infusionChoice,
+                infusionReplace,
                 InfusionHelpers.ImprovedEnhancedDefense,
                 InfusionHelpers.ImprovedEnhancedFocus,
                 InfusionHelpers.ImprovedEnhancedWeapon);
@@ -362,8 +376,13 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 .SetGuiPresentation("PowerTinkererSpellStoringItem", Category.Subclass, FeatureDefinitionPowers.PowerDomainElementalDiscipleOfTheElementsLightning.GuiPresentation.SpriteReference)
                 .AddToDB();
             artificerBuilder.AddFeatureAtLevel(11, spellStoringItem);
+            artificerBuilder.AddFeatureAtLevel(11, infusionReplace);
 
             artificerBuilder.AddFeatureAtLevel(12, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
+            artificerBuilder.AddFeatureAtLevel(12, infusionReplace);
+            
+            // 13
+            artificerBuilder.AddFeatureAtLevel(13, infusionReplace);
 
             // 14- magic item savant another attunement slot and ignore requirements on magic items
             // also another infusion slot
@@ -374,16 +393,21 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 .AddToDB();
 
             artificerBuilder.AddFeatureAtLevel(14, InfusionPoolIncrease14);
-            FeatureDefinitionFeatureSet level14Infusions = new FeatureHelpers.FeatureDefinitionFeatureSetBuilder("TinkererLevel14InfusionChoice",
-                GuidNamespace, Level14InfusionList,
-                FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion, 0, true, false, infusionChoiceGui.Build()
-                ).AddToDB();
-            artificerBuilder.AddFeatureAtLevel(14, level14Infusions, 2);
+            artificerBuilder.AddFeatureAtLevel(14, infusionChoice, 2);
+            artificerBuilder.AddFeatureAtLevel(14, infusionReplace);
             // probably give several infusions another boost here
             // arcane propulsion armor
+            
+            // 15
+            artificerBuilder.AddFeatureAtLevel(15, infusionReplace);
 
+            // 16
             artificerBuilder.AddFeatureAtLevel(16, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
-
+            artificerBuilder.AddFeatureAtLevel(16, infusionReplace);
+            
+            // 17
+            artificerBuilder.AddFeatureAtLevel(17, infusionReplace);
+            
             // 18 - magic item master another attunement slot
             // also another infusion slot
             FeatureDefinitionPowerPoolModifier InfusionPoolIncrease18 = FeatureDefinitionPowerPoolModifierBuilder
@@ -393,9 +417,11 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 .AddToDB();
 
             artificerBuilder.AddFeatureAtLevel(18, InfusionPoolIncrease18);
-            artificerBuilder.AddFeatureAtLevel(18, level14Infusions, 2);
+            artificerBuilder.AddFeatureAtLevel(18, infusionChoice, 2);
+            artificerBuilder.AddFeatureAtLevel(18, infusionReplace);
 
             artificerBuilder.AddFeatureAtLevel(19, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
+            artificerBuilder.AddFeatureAtLevel(19, infusionReplace);
 
             GuiPresentationBuilder SoulOfArtificeGui = new GuiPresentationBuilder(
                 "Subclass/&PowerTinkererSoulOfArtificeSavesTitle",
@@ -403,6 +429,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             FeatureDefinitionSavingThrowAffinity soulOfArtificeSaves = FeatureHelpers.BuildSavingThrowAffinity("TinkererSoulOfArtificeSavingThrow", AbilityScores, RuleDefinitions.CharacterSavingThrowAffinity.None, FeatureDefinitionSavingThrowAffinity.ModifierType.AddDice, 3, RuleDefinitions.DieType.D4,
             false, SoulOfArtificeGui.Build());
             artificerBuilder.AddFeatureAtLevel(20, soulOfArtificeSaves);
+            artificerBuilder.AddFeatureAtLevel(20, infusionReplace);
 
             // 20 - soul of artifice, +1 to saving throws for each attuned item (probably just give +6)
             // also an ability that lets you drop to 1 instead of 0 as an reaction, supposed to end one of your infusions, but maybe just use some other resource?

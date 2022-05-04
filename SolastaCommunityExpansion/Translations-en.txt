@@ -1675,8 +1675,10 @@ Subclass/&TinkererFlashOfGeniusConditionDescription	Inspired by a flash of geniu
 Subclass/&TinkererFlashOfGeniusConditionTitle	Flash of Genius
 Subclass/&TinkererFlashOfGeniusPowerDescription	You can use your genius to inspire yourself and others on ability checks and saving throws
 Subclass/&TinkererFlashOfGeniusPowerTitle	Flash of Genius
-Subclass/&TinkererInfusionChoiceDescription	Select the infusions that you will have available to use. Note you can only have an infusion active once. Activating it a second time will cancel the first
-Subclass/&TinkererInfusionChoiceTitle	Infusion Choice
+Feature/&TinkererInfusionChoiceTitle	Infusion Choice
+Feature/&TinkererInfusionChoiceDescription	Select the infusions that you will have available to use. Note each infusion can be active only once. Activating it a second time will cancel the first.
+Feature/&TinkererInfusionReplaceTitle	Replace Infusion
+Feature/&TinkererInfusionReplaceDescription	Select the infusions to replace.
 Subclass/&TinkererMagicalTinkeringDescription	Gain the ability to do several minor effects (Dazzle, Sparkle, Shine)
 Subclass/&TinkererMagicalTinkeringTitle	Magical Tinkering
 Subclass/&TraditionArcaneFighterDescription	Channel your magic into weapon attacks
