@@ -49,6 +49,11 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
             TooltipDefinitions.AnchorMode tooltipAnchorMode,
             GameObject ___featurePrefab)
         {
+            if (!Main.Settings.EnableEnhancedCharacterInspection)
+            {
+                return true;
+            }
+
             while (table.childCount < features.Count)
             {
                 Gui.GetPrefabFromPool(___featurePrefab, table);

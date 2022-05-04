@@ -51,6 +51,7 @@ namespace SolastaCommunityExpansion
         //
 
         public bool AllowDynamicPowers { get; set; } = true;
+        public bool  BugFixBrowseFeatures { get; set; } = true;
         public bool BugFixButtonActivatorTriggerIssue { get; set; } = true;
         public bool BugFixConjuredUnitsTeleportWithParty { get; set; } = true;
         public bool BugFixCorrectlyCalculateDamageOnMultipleHits { get; set; } = true;
