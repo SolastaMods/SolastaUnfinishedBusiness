@@ -123,7 +123,11 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
     {
         internal static void Postfix(CharacterInformationPanel __instance)
         {
-            //TODO: add option in settings to enable this
+            if (!Main.Settings.EnableEnhancedCharacterInspection)
+            {
+                return;
+            }
+
             var backGroup = __instance.transform.Find("BackgroundGroup")?.GetComponent<RectTransform>();
             var classGroup = __instance.transform.Find("ClassGroup")?.GetComponent<RectTransform>();
              
@@ -137,24 +141,28 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
 
                 //this is actualyy top-right one
                 var child = backGroup.Find("OrnamentBottomRight")?.GetComponent<RectTransform>();
+
                 if (child != null)
                 {
                     child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 5, 50);
                 }
                 
                 child = backGroup.Find("BackgroundImageMask")?.GetComponent<RectTransform>();
+
                 if (child != null)
                 {
                     child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 0, 218);
                 }
                 
                 child = backGroup.Find("BackgroundDescriptionGroup")?.GetComponent<RectTransform>();
+
                 if (child != null)
                 {
                     child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, 65, 175);
                 }
                 
                 child = classGroup.Find("ClassFeaturesGroup")?.GetComponent<RectTransform>();
+
                 if (child != null)
                 {
                     child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 20, 642);
@@ -162,6 +170,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
                 }
                 
                 child = classGroup.Find("ClassDescriptionGroup")?.GetComponent<RectTransform>();
+
                 if (child != null)
                 {
                     child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 0, 355);

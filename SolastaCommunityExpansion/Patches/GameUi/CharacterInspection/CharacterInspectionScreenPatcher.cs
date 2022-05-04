@@ -26,8 +26,6 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterInspectionScreen_Bind
     {
-
-
         internal static void Postfix(
             RulesetCharacterHero heroCharacter,
             CharacterPlateDetailed ___characterPlate,

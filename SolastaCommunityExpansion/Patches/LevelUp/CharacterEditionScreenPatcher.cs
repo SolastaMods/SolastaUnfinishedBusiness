@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomUI;
@@ -9,6 +10,7 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
 {
     // add the class selection stage panel to the level up screen
     [HarmonyPatch(typeof(CharacterEditionScreen), "LoadStagePanels")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterLevelUpScreenLoadStagePanels
     {
         internal static CustomFeatureSelectionPanel GetPanel(CharacterEditionScreen __instance)
@@ -27,7 +29,7 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
 
         internal static void Postfix(
             CharacterEditionScreen __instance,
-            ref Dictionary<string, CharacterStagePanel> ___stagePanelsByName)
+            Dictionary<string, CharacterStagePanel> ___stagePanelsByName)
         {
             if (__instance is CharacterCreationScreen)
             {

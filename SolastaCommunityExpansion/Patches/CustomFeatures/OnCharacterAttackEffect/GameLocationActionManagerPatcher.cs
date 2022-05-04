@@ -5,7 +5,6 @@ using HarmonyLib;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffect
 {
@@ -61,14 +60,16 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                 {
                     var target = reactionParams.TargetCharacters.FirstOrDefault();
                     var mod = reactionParams.ActionModifiers.FirstOrDefault();
+
                     while (target != null && mod != null && reactionParams.TargetCharacters.Count < spelltargets)
                     {
                         reactionParams.TargetCharacters.Add(target);
-                        //Technically casts after frst might need to have diffeent mods, but not by much since we attacking same target.
+                        // Technically casts after first might need to have different mods, but not by much since we attacking same target.
                         reactionParams.ActionModifiers.Add(mod); 
                     }
                 }
             }
+
             return true;
         }
     }
