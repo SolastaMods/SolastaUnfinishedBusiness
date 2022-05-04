@@ -63,7 +63,7 @@ namespace SolastaCommunityExpansion.Spells
         private static SpellDefinition BuildEldritchOrb()
         {
             var spell = SpellDefinitionBuilder
-                .Create(Fireball, "EldritchOrb", BAZOU_SPELLS_BASE_GUID)
+                .Create(MagicMissile, "EldritchOrb", BAZOU_SPELLS_BASE_GUID)
                 .SetGuiPresentation(Category.Spell, Shine.GuiPresentation.SpriteReference)
                 .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
                 .SetMaterialComponent(RuleDefinitions.MaterialComponentType.None)

@@ -1392,7 +1392,7 @@ Spell/&EldritchBlastGraspingHandTitle	Eldritch Blast (Grasping)
 Spell/&EldritchBlastRepellingBlastDescription	A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage.\n(When you hit a creature with eldritch blast, you can push the creature up to 10 feet away from you in a straight line.)
 Spell/&EldritchBlastRepellingBlastTitle	Eldritch Blast (Repelling)
 Spell/&EldritchBlastTitle	Eldritch Blast
-Spell/&EldritchOrbDescription	You fling a ball of eldritch energy at a creature or object within range
+Spell/&EldritchOrbDescription	You fling a ball of eldritch energy at a creature or object within range and deal force damage in small radius.
 Spell/&EldritchOrbTitle	Eldritch Orb
 Spell/&FindFamiliarDescription	You gain the service of a familiar
 Spell/&FindFamiliarImpDescription	Summons your familiar in the form of an imp
