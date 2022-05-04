@@ -498,12 +498,7 @@ namespace SolastaCommunityExpansion.CustomUI
                 }
 
                 features.RemoveAll(f => f is CustomFeatureDefinitionSet);
-                // GrantFeatures behaves weirdly - if it encounters spellcasting definition, it stops
-                // So we separate spellcasting from other features and then grant them in sequence
-                var spellcasting = features.Where(f => f is FeatureDefinitionCastSpell).ToList();
-                var other = features.Where(f => f is not FeatureDefinitionCastSpell).ToList();
-                command.GrantFeatures(currentHero, spellcasting, currentTag, false);
-                command.GrantFeatures(currentHero, other, currentTag, false);
+                command.GrantFeatures(currentHero, features, currentTag, false);
             }
 
             command.RefreshHero(currentHero);
