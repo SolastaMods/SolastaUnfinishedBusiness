@@ -93,7 +93,6 @@ namespace SolastaCommunityExpansion
         //
 
         // Initial Choices
-        public bool AllowDisplayAllUnofficialContent { get; set; }
         public bool AddHelpActionToAllRaces { get; set; }
         public bool DisableSenseDarkVisionFromAllRaces { get; set; }
         public bool DisableSenseSuperiorDarkVisionFromAllRaces { get; set; }
@@ -180,7 +179,7 @@ namespace SolastaCommunityExpansion
         public bool MakeAllMagicStaveArcaneFoci { get; set; }
         public bool IncreaseSenseNormalVision { get; set; }
         public bool QuickCastLightCantripOnWornItemsFirst { get; set; }
-        //public bool UseHeightOneCylinderEffect { get; set; }
+        // public bool UseHeightOneCylinderEffect { get; set; }
         public bool AddPickpocketableLoot { get; set; }
         public bool AllowStackedMaterialComponent { get; set; }
         public bool ScaleMerchantPricesCorrectly { get; set; }
@@ -257,7 +256,6 @@ namespace SolastaCommunityExpansion
 
         // Campaigns and Locations
         public bool FollowCharactersOnTeleport { get; set; }
-        public bool EnableAdditionalBackstoryDisplay { get; set; }
         public bool EnableLogDialoguesToConsole { get; set; }
         public bool EnableAdditionalIconsOnLevelMap { get; set; }
         public bool MarkInvisibleTeleportersOnLevelMap { get; set; }

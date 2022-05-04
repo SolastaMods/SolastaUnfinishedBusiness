@@ -1,30 +1,21 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SolastaCommunityExpansion.Models;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 
-namespace SolastaMulticlass.Models
+namespace SolastaCommunityExpansion.Models
 {
     public static class InspectionPanelContext
     {
-        public const InputCommands.Id PLAIN_UP = (InputCommands.Id)22220005;
-        public const InputCommands.Id PLAIN_DOWN = (InputCommands.Id)22220006;
-
         internal static int SelectedClassIndex { get; set; }
 
         public static CharacterClassDefinition SelectedClass => Global.InspectedHero?.ClassesAndLevels.Keys.ElementAt(SelectedClassIndex);
 
-        public static void Load()
-        {
-            var inputService = ServiceRepository.GetService<IInputService>();
-
-            inputService.RegisterCommand(PLAIN_UP, 273, -1, -1, -1, -1, -1);
-            inputService.RegisterCommand(PLAIN_DOWN, 274, -1, -1, -1, -1, -1);
-        }
-
-        public static string GetSelectedClassSearchTerm(string original) => original + SelectedClass.Name;
+        public static string GetSelectedClassSearchTerm(string original) => original 
+            + SelectedClass == null 
+                ? string.Empty
+                : SelectedClass.Name;
 
         public static void EnumerateClassBadges(CharacterInformationPanel __instance)
         {
