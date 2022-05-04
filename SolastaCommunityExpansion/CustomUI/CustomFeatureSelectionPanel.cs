@@ -914,7 +914,6 @@ namespace SolastaCommunityExpansion.CustomUI
                 instance.RectTransform.sizeDelta = sizeDelta;
                 resetButton.interactable = usedPoints < maxPoints;
                 autoButton.interactable = false;
-                ignoreButton.interactable = ignoreAvailable && usedPoints < maxPoints;
             }
             else
             {
