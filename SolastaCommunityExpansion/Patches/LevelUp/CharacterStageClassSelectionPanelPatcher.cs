@@ -21,7 +21,7 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
         }
     }
 
-    // avoids a restart when enabling / disabling on the Mod UI panel
+    // avoids a restart when enabling / disabling classes on the Mod UI panel
     [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "OnBeginShow")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterStageClassSelectionPanel_OnBeginShow

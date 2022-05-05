@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 namespace SolastaCommunityExpansion.Patches.LevelUp
 {
+    // add more spacing in between subclasses badges
     [HarmonyPatch(typeof(CharacterStageSubclassSelectionPanel), "EnterStage")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterStageSubclassSelectionPanel_EnterStage
