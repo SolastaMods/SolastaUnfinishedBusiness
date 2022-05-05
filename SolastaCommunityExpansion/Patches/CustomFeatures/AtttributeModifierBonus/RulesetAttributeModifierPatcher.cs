@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.AtttributeModifierBonus
 {
+    // allows the metamagic feats to work correctly with a Sorcerer
     [HarmonyPatch(typeof(RulesetAttributeModifier), "ApplyOnValue")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetAttribute_Refresh
