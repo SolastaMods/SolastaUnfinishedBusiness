@@ -27,8 +27,6 @@ Class/&WitchFeatureSetBurnedCurseDescription	Almost all of your body has been sc
 Class/&WitchFeatureSetBurnedCurseTitle	Burned
 Class/&WitchFeatureSetLovelessCurseDescription	You are cursed to never find true love. Jaded and disaffected, not even magic can turn your heart; as a result, you are immune to being charmed
 Class/&WitchFeatureSetLovelessCurseTitle	Loveless
-Class/&WitchFeatureSetMaledictionsDescription	You can learn a number of powerful incantations, known as Maledictions, derived from the same insidious magic which cursed you
-Class/&WitchFeatureSetMaledictionsTitle	Maledictions
 Class/&WitchFeatureSetRitualCastingDescription	You can cast any witch spell you know as a ritual if that spell has the ritual tag
 Class/&WitchFeatureSetRitualCastingTitle	Witch Ritual Casting
 Class/&WitchFeatureSetVisionsCurseDescription	You are cursed to have terrible visions of the future, presaging the death of your friends, family, and yourself. However many of these visions are cruel deceptions, they are sometimes grimly accurate. You can add your Charisma modifier, in addition to your Dexterity modifier, to your initiative rolls
@@ -787,7 +785,7 @@ Feature/&ClassWarlockArmorProficiencyDescription	Light Armor
 Feature/&ClassWarlockArmorProficiencyTitle	Warlock Armor Proficiencies
 Feature/&ClassWarlockEldritchInvocationSetLevelDescription	Add an eldritch invocation
 Feature/&ClassWarlockEldritchInvocationSetLevelTitle	Eldritch Invocation
-Feature/&ClassWarlockEldritchInvocationReplaceDescription	Select Eldritch Incovation to replace
+Feature/&ClassWarlockEldritchInvocationReplaceDescription	Select Eldritch Invocation to replace
 Feature/&ClassWarlockEldritchInvocationReplaceTitle	Replace Invocation
 Feature/&ClassWarlockEldritchMasterDescription	you can draw on your inner reserve of mystical power while entreating your patron to regain expended spell slots. You can spend 1 minute entreating your patron for aid to regain all your expended spell slots from your Pact Magic feature. Once you regain spell slots with this feature, you must finish a long rest before you can do so again
 Feature/&ClassWarlockEldritchMasterTitle	Eldritch Master
@@ -1740,3 +1738,5 @@ UI/&CustomFeatureSelectionStageTitle	Feature Selection
 UI/&CustomFeatureSelectionStageDescription	Select extra features from your class/subclass.
 UI/&CustomFeatureSelectionStageFeatures	Features
 UI/&CustomFeatureSelectionStageNotDone	You must select all available features before proceeding.
+Feature/&WitchMaledictionChoiceDescription	You can learn a number of powerful incantations, known as Maledictions, derived from the same insidious magic which cursed you
+Feature/&WitchMaledictionChoiceTitle	Maledictions

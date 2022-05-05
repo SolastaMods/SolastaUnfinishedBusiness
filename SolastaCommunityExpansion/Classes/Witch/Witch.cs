@@ -37,7 +37,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
         private static FeatureDefinitionCastSpell FeatureDefinitionCastSpellWitch { get; set; }
         private static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetRitualCasting { get; set; }
         private static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetWitchCurses { get; set; }
-        private static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetMaledictions { get; set; }
+        private static CustomFeatureDefinitionSet FeatureDefinitionFeatureSetMaledictions { get; set; }
         private static FeatureDefinitionPower FeatureDefinitionPowerCackle { get; set; }
         private static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetWitchFamiliar { get; set; }
 
@@ -640,12 +640,13 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .SetEffectDescription(ruinEffectDescription)
                 .AddToDB();
 
-            FeatureDefinitionFeatureSetMaledictions = FeatureDefinitionFeatureSetBuilder
-                .Create(FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WitchFeatureSetMaledictions", WITCH_BASE_GUID)
-                .SetGuiPresentation(Category.Class)
-                .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
-                .SetUniqueChoices(true)
-                .SetFeatureSet(abate, apathy, charm, disorient, evileye, obfuscate, pox, ruin)
+            var maledictionsFeatures = new FeatureDefinition[] { abate, apathy, charm, disorient, evileye, obfuscate, pox, ruin };
+
+            FeatureDefinitionFeatureSetMaledictions = CustomFeatureDefinitionSetBuilder
+                .Create("WitchMaledictionChoice", WITCH_BASE_GUID)
+                .SetGuiPresentation(Category.Feature)
+                .SetRequireClassLevels(true)
+                .SetLevelFeatures(1, maledictionsFeatures)
                 .AddToDB();
         }
 
