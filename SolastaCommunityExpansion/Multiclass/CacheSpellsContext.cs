@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SolastaMulticlass.Models
 {
@@ -115,6 +116,18 @@ namespace SolastaMulticlass.Models
                     var spellList = featureDefinitionBonusCantrips.BonusCantrips;
 
                     RegisterSpell(definition, level, spellList, isSubClass);
+                }
+                else if (featureDefinition is FeatureDefinitionFeatureSet featureDefinitionFeatureSet)
+                {
+                    var level = featureUnlock.Level;
+                    var featureUnlockByLevels = new List<FeatureUnlockByLevel>();
+
+                    foreach (var feature in featureDefinitionFeatureSet.FeatureSet)
+                    {
+                        featureUnlockByLevels.Add(new FeatureUnlockByLevel(feature, level));
+                    }
+
+                    EnumerateSpells(definition, featureUnlockByLevels, isSubClass);
                 }
             }
         }
