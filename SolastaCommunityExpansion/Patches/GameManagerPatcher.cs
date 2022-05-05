@@ -57,6 +57,7 @@ namespace SolastaCommunityExpansion.Patches
 
             RemoveBugVisualModelsContext.Load();
             RespecContext.Load();
+            LevelDownContext.Load();
 
             // There are spells that rely on new monster definitions with powers loaded during the PowersContext. So spells should get added to db after powers.
             SpellsContext.Load();

@@ -73,7 +73,6 @@ namespace SolastaCommunityExpansion.Models
                 return;
             }
 
-            LevelDownContext.Load(); // no dependencies
             IntegrationContext.Load(); // depends on all CE blueprints in databases
             PatchingContext.Load(); // depends on IntegrationContext
             SharedSpellsContext.Load(); // depends on IntegrationContext
