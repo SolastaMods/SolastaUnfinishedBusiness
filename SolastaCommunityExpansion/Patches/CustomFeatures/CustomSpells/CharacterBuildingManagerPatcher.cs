@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using ModKit;
 using SolastaCommunityExpansion.CustomDefinitions;
@@ -32,7 +33,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
 
                 var hero = heroBuildingData.HeroCharacter;
                 var poolMods = hero.GetFeaturesByType<IPointPoolMaxBonus>();
-                var spellMods = new List<IPointPoolMaxBonus>();
 
                 poolMods.RemoveAll(IsSpellBonus);
 
@@ -41,10 +41,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
                     if (feature is IPointPoolMaxBonus bonus)
                     {
                         poolMods.Remove(bonus);
-                        if (IsSpellBonus(bonus))
-                        {
-                            spellMods.Add(bonus);
-                        }
                     }
                 }, tag);
 
@@ -53,12 +49,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
                 foreach (var mod in poolMods)
                 {
                     values.AddOrReplace(mod.PoolType, values.GetValueOrDefault(mod.PoolType) + mod.MaxPointsBonus);
-                }
-
-                //remove spell bonuses ganed this level - they are added before this
-                foreach (var mod in spellMods)
-                {
-                    values.AddOrReplace(mod.PoolType, values.GetValueOrDefault(mod.PoolType) - mod.MaxPointsBonus);
                 }
 
                 foreach (var mod in values)
@@ -95,7 +85,11 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
                 }
 
                 var hero = heroBuildingData.HeroCharacter;
-                var poolMods = hero.GetFeaturesByType<IPointPoolMaxBonus>();
+                
+                ServiceRepository.GetService<ICharacterBuildingService>()
+                    .GetLastAssignedClassAndLevel(hero, out var gainedClass, out _);
+                
+                var poolMods = hero.GetFeaturesByTypeAndTag<IPointPoolMaxBonus>(gainedClass.Name);
 
                 poolMods.RemoveAll(p => !IsSpellBonus(p));
 

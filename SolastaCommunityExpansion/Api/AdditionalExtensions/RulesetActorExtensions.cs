@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SolastaCommunityExpansion;
 
 namespace SolastaModApi.Extensions
 {
@@ -28,12 +29,23 @@ namespace SolastaModApi.Extensions
 
             return list
                 .Select(s => s as T)
+                .Where(f => f != null)
                 .ToList();
         }
         
         public static List<T> GetFeaturesByType<T>(this RulesetActor actor) where T : class
         {
             return FeaturesByType<T>(actor);
+        }
+
+        public static List<T> GetFeaturesByTypeAndTag<T>(this RulesetCharacterHero hero, string tag) where T : class
+        {
+            return hero.ActiveFeatures
+                .Where(e => e.Key.Contains(tag))
+                .SelectMany(e => e.Value)
+                .Select(f => f as T)
+                .Where(f => f != null)
+                .ToList();
         }
 
         public static bool HasAnyFeature(this RulesetActor actor, params FeatureDefinition[] features)
