@@ -12,6 +12,11 @@ namespace SolastaMulticlass.Patches.LevelUp
         {
             internal static void Prefix(SpellBox.BindMode bindMode, List<SpellDefinition> allSpells)
             {
+                if (bindMode == SpellBox.BindMode.Inspection || bindMode == SpellBox.BindMode.Preparation)
+                {
+                    return;
+                }
+
                 var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
 
                 var hero = characterBuildingService.CurrentLocalHeroCharacter;
@@ -21,19 +26,9 @@ namespace SolastaMulticlass.Patches.LevelUp
                     return;
                 }
 
-                if (!LevelUpContext.IsLevelingUp(hero))
-                {
-                    return;
-                }
+                var allowedSpells = LevelUpContext.GetAllowedSpells(hero);
 
-                if (bindMode == SpellBox.BindMode.Learning)
-                {
-                    allSpells.RemoveAll(s => !LevelUpContext.IsSpellOfferedBySelectedClassSubclass(hero, s));
-                }
-                else if (bindMode == SpellBox.BindMode.Unlearn)
-                {
-                    allSpells.RemoveAll(s => !LevelUpContext.IsSpellOfferedBySelectedClassSubclass(hero, s));
-                }
+                allSpells.RemoveAll(x => !allowedSpells.Contains(x));
             }
         }
     }
