@@ -137,9 +137,11 @@ namespace SolastaCommunityExpansion.Displays
                     }
 
                     UI.Label("");
+                    UI.Label(". " + "SHIFT".cyan() + " click on a spell consumes a spell slot instead of the default pact magic one");
+                    UI.Label("");
 
                     intValue = Main.Settings.MaxAllowedClasses;
-                    if (UI.Slider("Max allowed classes".white(), ref intValue, 1, 4, 3, "", UI.Width(50)))
+                    if (UI.Slider("Max allowed classes".white(), ref intValue, 1, 3, 3, "", UI.Width(50)))
                     {
                         Main.Settings.MaxAllowedClasses = intValue;
                     }
@@ -151,12 +153,6 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("Visuals:".yellow());
 
             UI.Label("");
-
-            toggle = Main.Settings.AllowExtraKeyboardCharactersInAllNames;
-            if (UI.Toggle("Allow extra keyboard characters in all name inputs (character, location, campaign, etc...)", ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.AllowExtraKeyboardCharactersInAllNames = toggle;
-            }
 
             toggle = Main.Settings.OfferAdditionalLoreFriendlyNames;
             if (UI.Toggle("Offer additional lore friendly names on character creation", ref toggle, UI.AutoWidth()))

@@ -51,6 +51,7 @@ namespace SolastaCommunityExpansion
         //
 
         public bool AllowDynamicPowers { get; set; } = true;
+        public bool  BugFixBrowseFeatures { get; set; } = true;
         public bool BugFixButtonActivatorTriggerIssue { get; set; } = true;
         public bool BugFixConjuredUnitsTeleportWithParty { get; set; } = true;
         public bool BugFixCorrectlyCalculateDamageOnMultipleHits { get; set; } = true;
@@ -60,6 +61,7 @@ namespace SolastaCommunityExpansion
         public bool BugFixHideReactionSpells { get; set; } = true;
         public bool BugFixNullRecipesOnGameSerialization { get; set; } = true;
         public bool BugFixSpellDurations { get; set; } = true;
+        public bool BugFixUnassignLastSubclass { get; set; } = true;
         public bool BugFixWieldedConfigurationSelector { get; set; } = true;
         public bool EnableCustomSpellsPatch { get; set; } = true;
         public bool EnableDungeonMakerPro { get; set; } = true;
@@ -80,6 +82,7 @@ namespace SolastaCommunityExpansion
         public bool EnableSortingFutureFeatures { get; set; } = true;
         public bool EnableSortingRaces { get; set; } = true;
         public bool EnableSortingSubclasses { get; set; } = true;
+        public bool EnableEnhancedCharacterInspection { get; set; } = true;
         public bool KeepCharactersPanelOpenAndHeroSelectedOnLevelUp { get; set; } = true;
         public bool KeepSpellsOpenSwitchingEquipment { get; set; } = true;
         public bool ShowAllAutoPreparedSpells { get; set; } = true;
@@ -90,7 +93,6 @@ namespace SolastaCommunityExpansion
         //
 
         // Initial Choices
-        public bool AllowDisplayAllUnofficialContent { get; set; }
         public bool AddHelpActionToAllRaces { get; set; }
         public bool DisableSenseDarkVisionFromAllRaces { get; set; }
         public bool DisableSenseSuperiorDarkVisionFromAllRaces { get; set; }
@@ -107,7 +109,6 @@ namespace SolastaCommunityExpansion
         public bool EnableLevel20 { get; set; }
 
         // Visuals
-        public bool AllowExtraKeyboardCharactersInAllNames { get; set; }
         public bool OfferAdditionalLoreFriendlyNames { get; set; }
         public bool UnlockAllNpcFaces { get; set; }
         public bool AllowUnmarkedSorcerers { get; set; }
@@ -177,7 +178,7 @@ namespace SolastaCommunityExpansion
         public bool MakeAllMagicStaveArcaneFoci { get; set; }
         public bool IncreaseSenseNormalVision { get; set; }
         public bool QuickCastLightCantripOnWornItemsFirst { get; set; }
-        //public bool UseHeightOneCylinderEffect { get; set; }
+        // public bool UseHeightOneCylinderEffect { get; set; }
         public bool AddPickpocketableLoot { get; set; }
         public bool AllowStackedMaterialComponent { get; set; }
         public bool ScaleMerchantPricesCorrectly { get; set; }
@@ -254,7 +255,6 @@ namespace SolastaCommunityExpansion
 
         // Campaigns and Locations
         public bool FollowCharactersOnTeleport { get; set; }
-        public bool EnableAdditionalBackstoryDisplay { get; set; }
         public bool EnableLogDialoguesToConsole { get; set; }
         public bool EnableAdditionalIconsOnLevelMap { get; set; }
         public bool MarkInvisibleTeleportersOnLevelMap { get; set; }

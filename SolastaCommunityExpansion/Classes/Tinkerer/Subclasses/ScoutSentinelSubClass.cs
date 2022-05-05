@@ -127,6 +127,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             return CharacterSubclassDefinitionBuilder
                 .Create(Name, Guid)
                 .SetGuiPresentation("ScoutSentinelTinkererSubclass", Category.Subclass, MartialMountaineer.GuiPresentation.SpriteReference)
+                .AddFeatureAtLevel(ScoutSentinelAutopreparedSpellsBuilder.SubclassAutopreparedSpells, 3)
                 .AddFeatureAtLevel(ScoutSentinelFeatureSet03Builder.ScoutSentinelFeatureSet03, 3)
                 .AddFeatureAtLevel(ScoutSentinelFeatureSet05Builder.ScoutSentinelFeatureSet05, 5)
                 .AddFeatureAtLevel(ScoutSentinelFeatureSet09Builder.ScoutSentinelFeatureSet09, 9)
@@ -152,7 +153,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             Definition.FeatureSet.Add(SubclassProficienciesBuilder.SubclassProficiencies);
             Definition.FeatureSet.Add(UseArmorWeaponsAsFocusBuilder.UseArmorWeaponsAsFocus);
             Definition.FeatureSet.Add(SubclassMovementAffinitiesBuilder.SubclassMovementAffinities);
-            Definition.FeatureSet.Add(ScoutSentinelAutopreparedSpellsBuilder.SubclassAutopreparedSpells);
+            // Definition.FeatureSet.Add(ScoutSentinelAutopreparedSpellsBuilder.SubclassAutopreparedSpells);
         }
 
         private static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)

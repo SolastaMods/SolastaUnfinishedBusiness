@@ -49,7 +49,7 @@ namespace SolastaCommunityExpansion.Feats
 
             hero.EnumerateFeaturesToBrowse<FeatureDefinitionDamageAffinity>(features);
 
-            var hasStealthAttack = hero.ClassesAndLevels.ContainsKey(Rogue) || features.Any(x => x.Name == "AdditionalDamageFeatShadySneakAttack");
+            var hasStealthAttack = features.Any(x => x.Name.Contains("SneakAttack"));
 
             if (hasStealthAttack)
             {

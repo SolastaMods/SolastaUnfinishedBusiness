@@ -120,38 +120,9 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
         #endregion
 
-        public FeatureDefinitionFeatureSetWithPreRequisitesBuilder SetValidators(params Func<bool>[] validators)
+        public FeatureDefinitionFeatureSetWithPreRequisitesBuilder SetValidators(params IFeatureDefinitionWithPrerequisites.Validate[] validators)
         {
             Definition.Validators.AddRange(validators);
-
-            return this;
-        }
-    }
-
-    public class FeatureDefinitionFeatureSetDynamicBuilder : FeatureDefinitionFeatureSetBuilder<FeatureDefinitionFeatureSetDynamic, FeatureDefinitionFeatureSetDynamicBuilder>
-    {
-        #region Constructors
-
-        protected FeatureDefinitionFeatureSetDynamicBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-        {
-        }
-
-        protected FeatureDefinitionFeatureSetDynamicBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected FeatureDefinitionFeatureSetDynamicBuilder(FeatureDefinitionFeatureSetDynamic original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
-        {
-        }
-
-        protected FeatureDefinitionFeatureSetDynamicBuilder(FeatureDefinitionFeatureSetDynamic original, string name, string definitionGuid) : base(original, name, definitionGuid)
-        {
-        }
-        #endregion
-
-        public FeatureDefinitionFeatureSetDynamicBuilder SetDynamicFeatureSetFunc(Func<FeatureDefinitionFeatureSet, List<FeatureDefinition>> func)
-        {
-            Definition.DynamicFeatureSet = func;
 
             return this;
         }

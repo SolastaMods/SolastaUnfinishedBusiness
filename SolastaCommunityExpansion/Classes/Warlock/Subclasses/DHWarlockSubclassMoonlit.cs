@@ -369,11 +369,12 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
         public void OnBeforeAction(CharacterAction characterAction)
         {
-            var hero = characterAction.ActingCharacter.RulesetCharacter;
-            var action = characterAction.ActionDefinition;
-
-            if (action == ExplorationMove || action == TacticalMove)
-                BecomeRevealed(hero);
+            // Let's try this invis without movement breaking it
+            // var hero = characterAction.ActingCharacter.RulesetCharacter;
+            // var action = characterAction.ActionDefinition;
+            //
+            // if (action == ExplorationMove || action == TacticalMove)
+            //     BecomeRevealed(hero);
         }
 
         public void OnAfterAction(CharacterAction characterAction)

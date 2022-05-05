@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using ModKit;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi.Extensions;
 using UnityEngine;
@@ -34,25 +35,102 @@ namespace SolastaCommunityExpansion.Models
 
         public static void RecursiveRemoveCustomFeatures(RulesetCharacterHero hero, List<FeatureDefinition> features, string tag)
         {
+            features = new List<FeatureDefinition>(features);
             foreach (var grantedFeature in features)
             {
+                RemoveCustomFeature(hero, grantedFeature, tag);
                 if (grantedFeature is FeatureDefinitionFeatureSet set && set.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                 {
                     RecursiveRemoveCustomFeatures(hero, set.FeatureSet, tag);
                 }
-                if (grantedFeature is IFeatureDefinitionCustomCode customFeature)
+            }
+        }
+
+        private static void RemoveCustomFeature(RulesetCharacterHero hero, FeatureDefinition feature, string tag)
+        {
+
+            if (feature is IFeatureDefinitionCustomCode customFeature)
+            {
+                customFeature.RemoveFeature(hero, tag);
+            }
+
+            if (feature is not FeatureDefinitionProficiency featureDefinitionProficiency)
+            {
+                return;
+            }
+
+            if (featureDefinitionProficiency.ProficiencyType != RuleDefinitions.ProficiencyType.FightingStyle)
+            {
+                return;
+            }
+
+            featureDefinitionProficiency.Proficiencies.ForEach(prof =>
+                hero.TrainedFightingStyles.Remove(DatabaseRepository.GetDatabase<FightingStyleDefinition>()
+                    .GetElement(prof, false)));
+        }
+
+        public static void RecursiveRemoveFeatures(RulesetCharacterHero hero, List<FeatureDefinition> features,
+            string tag)
+        {
+            var activeFeatures = hero.ActiveFeatures;
+            var heroFeatures = activeFeatures.GetValueOrDefault(tag);
+            if (heroFeatures != null)
+            {
+                foreach (var removed in features)
+                    RemoveHeroFeatureFromList(hero, removed, heroFeatures, tag);
+            }
+        }
+
+        public static void RecursiveRemoveFeature(RulesetCharacterHero hero, FeatureDefinition removed,
+            string tag = null)
+        {
+            var activeFeatures = hero.ActiveFeatures;
+
+            if (tag != null)
+            {
+                var heroFeatures = activeFeatures.GetValueOrDefault(tag);
+                if (heroFeatures != null)
+                    RemoveHeroFeatureFromList(hero, removed, heroFeatures, tag);
+            }
+            else
+            {
+                foreach (var e in activeFeatures)
                 {
-                    customFeature.RemoveFeature(hero, tag);
+                    if (RemoveHeroFeatureFromList(hero, removed, e.Value, e.Key))
+                        break;
                 }
-                if (grantedFeature is not FeatureDefinitionProficiency featureDefinitionProficiency)
+            }
+        }
+
+        private static bool RemoveHeroFeatureFromList(RulesetCharacterHero hero, FeatureDefinition feature, List<FeatureDefinition> removeFrom,
+            string tag)
+        {
+            if (removeFrom.Contains(feature))
+            {
+                removeFrom.Remove(feature);
+                RemoveCustomFeature(hero, feature, tag);
+                ProcessCustomRemoval(hero, feature, tag);
+                return true;
+            }
+
+            return false;
+        }
+
+        private static void ProcessCustomRemoval(RulesetCharacterHero hero, FeatureDefinition feature, string tag)
+        {
+            //TODO: add other potentially needed options, like auto-prepared spells, look for examples in LevelDownContext.RemoveFeatures
+            if (feature is FeatureDefinitionBonusCantrips bonusCantrips)
+            {
+                foreach (var cantrip in bonusCantrips.BonusCantrips)
                 {
-                    continue;
+                    hero.SpellRepertoires.FirstOrDefault(r => r.KnownCantrips.Contains(cantrip))
+                        ?.KnownCantrips.Remove(cantrip);
                 }
-                if (featureDefinitionProficiency.ProficiencyType != RuleDefinitions.ProficiencyType.FightingStyle)
-                {
-                    continue;
-                }
-                featureDefinitionProficiency.Proficiencies.ForEach(prof => hero.TrainedFightingStyles.Remove(DatabaseRepository.GetDatabase<FightingStyleDefinition>().GetElement(prof, false)));
+            }
+            else if (feature is FeatureDefinitionFeatureSet set 
+                     && set.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+            {
+                RecursiveRemoveFeatures(hero, set.FeatureSet, tag);
             }
         }
 
@@ -174,7 +252,9 @@ namespace SolastaCommunityExpansion.Models
         public static EffectDescription ModifySpellEffectGui(EffectDescription original, GuiSpellDefinition spell)
         {
             var result = original;
-            var caster = Global.ActivePlayerCharacter?.RulesetCharacter;
+            var caster = Global.InspectedHero 
+                         ?? Global.ActiveLevelUpHero
+                         ?? Global.ActivePlayerCharacter?.RulesetCharacter;
 
             if (spell.SpellDefinition is ICustomMagicEffectBasedOnCaster baseDefinition && caster != null)
             {
@@ -191,6 +271,16 @@ namespace SolastaCommunityExpansion.Models
             newEffect.EffectForms.AddRange(effectForms);
 
             return newEffect;
+        }
+
+        public static bool GetValidationErrors(
+            IEnumerable<IFeatureDefinitionWithPrerequisites.Validate> validators, out List<string> errors)
+        {
+            errors = validators
+                .Select(v => v())
+                .Where(v => v != null)
+                .ToList();
+            return errors.Empty();
         }
     }
 }

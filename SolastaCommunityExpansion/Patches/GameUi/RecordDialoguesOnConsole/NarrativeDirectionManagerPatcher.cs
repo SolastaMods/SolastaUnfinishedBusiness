@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using I2.Loc;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.RecordDialoguesOnConsole
 {
@@ -7,9 +8,9 @@ namespace SolastaCommunityExpansion.Patches.GameUi.RecordDialoguesOnConsole
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class NarrativeDirectionManager_StartDialogSequence
     {
-        internal static void Postfix(NarrativeDirectionManager __instance)
+        internal static void Postfix()
         {
-            if (!Main.Settings.EnableLogDialoguesToConsole)
+            if (!Main.Settings.EnableLogDialoguesToConsole || LocalizationManager.CurrentLanguageCode != "en")
             {
                 return;
             }

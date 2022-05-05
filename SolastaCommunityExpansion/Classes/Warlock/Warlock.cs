@@ -136,101 +136,102 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                     FeatureDefinitionProficiencyTool,
                     FeatureDefinitionSkillPoints,
                     FeatureDefinitionClassWarlockCastSpell,
-                    subclassChoices)
+                    subclassChoices
+                )
 
                 .AddFeaturesAtLevel(2,
-                    WarlockEldritchInvocationSetLevel2,
-                    WarlockEldritchInvocationSetLevel2)
+                    WarlockEldritchInvocationSet,
+                    WarlockEldritchInvocationSet
+                )
 
                 .AddFeaturesAtLevel(3,
                     WarlockClassPactBoonSetBuilder.WarlockClassPactBoonSet,
-                    WarlockEldritchInvocationSetLevel3)
-                //WarlockEldritchInvocationSetLevel2,
-                //WarlockEldritchInvocationSetRemoval)
+                    WarlockEldritchInvocationReplacer
+                )
 
                 .AddFeaturesAtLevel(4,
-                    FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
-                //WarlockEldritchInvocationSetLevel2,
-                //WarlockEldritchInvocationSetRemoval)
+                    FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice,
+                    WarlockEldritchInvocationReplacer
+                )
 
                 .AddFeaturesAtLevel(5,
-                    WarlockEldritchInvocationSetLevel5)
-                //WarlockEldritchInvocationSetLevel5,
-                //WarlockEldritchInvocationSetRemoval)
+                    WarlockEldritchInvocationReplacer,
+                    WarlockEldritchInvocationSet
+                )
 
-                //.AddFeaturesAtLevel(6,
-                //    WarlockEldritchInvocationSetLevel5,
-                //    WarlockEldritchInvocationSetRemoval)
+                .AddFeaturesAtLevel(6,
+                    WarlockEldritchInvocationReplacer
+                )
 
                 .AddFeaturesAtLevel(7,
-                    WarlockEldritchInvocationSetLevel7)
-                //WarlockEldritchInvocationSetLevel7,
-                //WarlockEldritchInvocationSetRemoval)
+                    WarlockEldritchInvocationReplacer,
+                    WarlockEldritchInvocationSet
+                )
 
                 .AddFeaturesAtLevel(8,
-                    FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
-                //WarlockEldritchInvocationSetLevel7,
-                //WarlockEldritchInvocationSetRemoval)
+                    FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice,
+                    WarlockEldritchInvocationReplacer
+                )
 
                 .AddFeaturesAtLevel(9,
-                    WarlockEldritchInvocationSetLevel9)
-                //WarlockEldritchInvocationSetLevel9,
-                //WarlockEldritchInvocationSetRemoval)
+                    WarlockEldritchInvocationReplacer,
+                    WarlockEldritchInvocationSet
+                )
 
-                //.AddFeaturesAtLevel(10,
-                //    WarlockEldritchInvocationSetLevel9,
-                //    WarlockEldritchInvocationSetRemoval)
+                .AddFeaturesAtLevel(10,
+                    WarlockEldritchInvocationReplacer
+                )
 
                 .AddFeaturesAtLevel(11,
-                    WarlockMysticArcanumSetLevel11)
-                //WarlockEldritchInvocationSetLevel9,
-                //WarlockEldritchInvocationSetRemoval)
+                    WarlockMysticArcanumSet,
+                    WarlockEldritchInvocationReplacer
+                )
 
                 .AddFeaturesAtLevel(12,
                     FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice,
-                    WarlockEldritchInvocationSetLevel12)
-                //WarlockEldritchInvocationSetLevel12,
-                //WarlockEldritchInvocationSetRemoval)
+                    WarlockEldritchInvocationReplacer,
+                    WarlockEldritchInvocationSet
+                )
 
                 .AddFeaturesAtLevel(13,
-                    WarlockMysticArcanumSetLevel13)
-                //WarlockEldritchInvocationSetLevel12,
-                //WarlockEldritchInvocationSetRemoval)
+                    WarlockMysticArcanumSet,
+                    WarlockEldritchInvocationReplacer
+                )
 
-                //.AddFeaturesAtLevel(14,
-                //    WarlockEldritchInvocationSetLevel12,
-                //    WarlockEldritchInvocationSetRemoval)
+                .AddFeaturesAtLevel(14,
+                    WarlockEldritchInvocationReplacer
+                )
 
                 .AddFeaturesAtLevel(15,
-                    WarlockMysticArcanumSetLevel15,
-                    WarlockEldritchInvocationSetLevel15)
-                //WarlockEldritchInvocationSetLevel15,
-                //WarlockEldritchInvocationSetRemoval)
+                    WarlockMysticArcanumSet,
+                    WarlockEldritchInvocationReplacer,
+                    WarlockEldritchInvocationSet
+                )
 
                 .AddFeaturesAtLevel(16,
-                    FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
-                //WarlockEldritchInvocationSetLevel15,
-                //WarlockEldritchInvocationSetRemoval)
+                    FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice,
+                    WarlockEldritchInvocationReplacer
+                )
 
                 .AddFeaturesAtLevel(17,
-                    WarlockMysticArcanumSetLevel17)
-                //WarlockEldritchInvocationSetLevel15,
-                //WarlockEldritchInvocationSetRemoval)
+                    WarlockMysticArcanumSet,
+                    WarlockEldritchInvocationReplacer
+                )
 
                 .AddFeaturesAtLevel(18,
-                    WarlockEldritchInvocationSetLevel18)
-                //WarlockEldritchInvocationSetLevel18,
-                //WarlockEldritchInvocationSetRemoval)
+                    WarlockEldritchInvocationReplacer,
+                    WarlockEldritchInvocationSet
+                )
 
                 .AddFeaturesAtLevel(19,
-                    FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
-                //WarlockEldritchInvocationSetLevel18,
-                //WarlockEldritchInvocationSetRemoval)
-
+                    FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice,
+                    WarlockEldritchInvocationReplacer
+                )
+                
                 .AddFeaturesAtLevel(20,
-                    WarlockEldritchMasterPower);
-                    //WarlockEldritchInvocationSetLevel18,
-                    //WarlockEldritchInvocationSetRemoval);
+                    WarlockEldritchMasterPower,
+                    WarlockEldritchInvocationReplacer
+                );
         }
 
         internal static CharacterClassDefinition BuildWarlockClass()

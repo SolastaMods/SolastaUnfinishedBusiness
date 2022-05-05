@@ -35,6 +35,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             EnhancedElementalFormPool = FeatureDefinitionPowerPoolBuilder
                 .Create("DH_ElementalFormPoolEnhanced", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Power,Utils.CustomIcons.CreateAssetReferenceSprite("ElementalFormEnhanced", Properties.Resources.ElementalFormEnhanced, 128, 64))
+                .SetShortTitle("Power/&DH_ElementalFormPoolEnhancedTitleShort")
                 .SetUsesProficiency()
                 .SetRechargeRate(RechargeRate.LongRest)
                 .SetActivation(ActivationTime.BonusAction, 1)
@@ -45,9 +46,10 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             BuildElementalForms();
             ElementalistSpells();
 
+            //Leaving this so that characters who took this subclass befre would load properly
             var FeatureSet_Level01 = FeatureDefinitionFeatureSetBuilder
                 .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, "ElementalPatronFeatureSet_Level01", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(Category.Feature)
+                .SetGuiPresentation("Feature/&ElementalPatronDummyFeatureSetTitle", Gui.NoLocalization)
                 .ClearFeatureSet()
                 .AddFeatureSet(ElementalFormPool)
                 .AddFeatureSet(ElementalistMagicAffinity)
@@ -81,10 +83,12 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
            "healBackCap": 10,
        */
 
+            //Leaving this so that characters who took this subclass befre would load properly
             var FeatureSet_Level10 = FeatureDefinitionFeatureSetBuilder.Create(
                 DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest,
                 "ElementalPatronFeatureSet_Level10", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(Category.Feature)
+                // .SetGuiPresentation(Category.Feature)
+                .SetGuiPresentation("Feature/&ElementalPatronDummyFeatureSetTitle", Gui.NoLocalization)
                 .ClearFeatureSet()
                 .AddFeatureSet(EnhancedElementalFormPool)
                 .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
@@ -96,9 +100,10 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
             return CharacterSubclassDefinitionBuilder.Create(Name, DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Subclass, DatabaseHelper.CharacterSubclassDefinitions.TraditionLoremaster.GuiPresentation.SpriteReference)
-                .AddFeatureAtLevel(FeatureSet_Level01, 1)
+                // .AddFeatureAtLevel(FeatureSet_Level01, 1)
+                .AddFeaturesAtLevel(1, ElementalistMagicAffinity, ElementalFormPool)
                 .AddFeatureAtLevel(FeatureSet_Level06, 6)
-                .AddFeatureAtLevel(FeatureSet_Level10, 10)
+                .AddFeatureAtLevel(EnhancedElementalFormPool, 10)
                 .AddFeatureAtLevel(MinorElementalBonusCantrip, 14)
                 .AddToDB();
         }
@@ -246,7 +251,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                     "ElementalDamage",
                     FeatureLimitedUsage.OncePerTurn,
                     AdditionalDamageValueDetermination.ProficiencyBonus,
-                    AdditionalDamageTriggerCondition.AlwaysActive,
+                    AdditionalDamageTriggerCondition.SpellDamagesTarget,
                     AdditionalDamageRequiredProperty.None,
                     false,
                     DieType.D4,
@@ -354,10 +359,11 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .Create(DatabaseHelper.SpellListDefinitions.SpellListPaladin, "ElementalistSpellsList", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.SpellList)
                 .ClearSpells()
-                .SetSpellsAtLevel(1, Thunderwave, FogCloud)
-                .SetSpellsAtLevel(2, FlamingSphere, ScorchingRay)
-                .SetSpellsAtLevel(3, Fireball, LightningBolt)
-                .SetSpellsAtLevel(4, Stoneskin, IceStorm, ConjureMinorElementals)
+                .SetSpellsAtLevel(0, FireBolt, RayOfFrost, ShockingGrasp)
+                .SetSpellsAtLevel(1, BurningHands, Thunderwave, FogCloud)
+                .SetSpellsAtLevel(2, FlamingSphere, ScorchingRay, HeatMetal)
+                .SetSpellsAtLevel(3, Fireball, LightningBolt, SleetStorm)
+                .SetSpellsAtLevel(4, Stoneskin, IceStorm, WallOfFire)
                 .SetSpellsAtLevel(5, ConeOfCold, FlameStrike, ConjureElemental)
                 .FinalizeSpells()
                 .AddToDB();

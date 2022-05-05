@@ -14,7 +14,8 @@ namespace SolastaCommunityExpansion.Classes.Witch.Subclasses
         {
             var preparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
                 .Create($"{color}MagicAutoPreparedSpell", namespaceGuid)
-                .SetGuiPresentationNoContent()
+                // .SetGuiPresentationNoContent()
+                .SetGuiPresentation($"Subclass/&{color}WitchMagicTitle", $"Subclass/&{color}WitchMagicDescription")
                 .SetPreparedSpellGroups(autoSpellLists)
                 .SetCastingClass(witchClass)
                 .SetAutoTag("Coven")
@@ -22,7 +23,8 @@ namespace SolastaCommunityExpansion.Classes.Witch.Subclasses
 
             var featureSet = FeatureDefinitionFeatureSetBuilder
                 .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetHumanLanguages, $"FeatureSet{color}WitchMagic", namespaceGuid)
-                .SetGuiPresentation($"{color}WitchMagic", Category.Subclass)
+                // .SetGuiPresentation($"{color}WitchMagic", Category.Subclass)
+                .SetGuiPresentation($"Subclass/&{color}WitchMagic", Gui.NoLocalization)
                 .SetFeatureSet(preparedSpells)
                 .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                 .SetUniqueChoices(true)
@@ -31,7 +33,7 @@ namespace SolastaCommunityExpansion.Classes.Witch.Subclasses
             return CharacterSubclassDefinitionBuilder
                 .Create($"{color}Witch", namespaceGuid)
                 .SetGuiPresentation(Category.Subclass, sprite)
-                .AddFeatureAtLevel(featureSet, 3)
+                .AddFeatureAtLevel(preparedSpells, 3)
                 .AddToDB();
         }
     }

@@ -56,6 +56,12 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             //     )
             //     .AddToDB();
 
+            var attackMod = FeatureDefinitionAttackModifierBuilder
+                .Create("AHWarlockSoulBladePactEmpowerWeaponModifier", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(Category.Modifier, FeatureDefinitionPowers.PowerOathOfDevotionSacredWeapon.GuiPresentation.SpriteReference)
+                .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
+                .AddToDB();
+            
             var empowerWeaponPower = FeatureDefinitionPowerBuilder
                 .Create("AHWarlockSoulBladePactEmpowerWeaponPower", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerOathOfDevotionSacredWeapon.GuiPresentation.SpriteReference)
@@ -78,7 +84,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                     .AddEffectForms(new EffectFormBuilder()
                         .SetItemPropertyForm(
                             ItemPropertyUsage.Unlimited,
-                            1, new FeatureUnlockByLevel(FeatureDefinitionAttackModifiers.AttackModifierShillelagh, 0)
+                            1, new FeatureUnlockByLevel(attackMod, 0)
                         )
                         .Build()
                     )

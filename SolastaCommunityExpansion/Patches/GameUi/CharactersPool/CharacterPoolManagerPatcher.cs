@@ -18,12 +18,6 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharactersPool
                     return;
                 }
 
-                if (Main.Settings.AllowExtraKeyboardCharactersInAllNames)
-                {
-                    heroCharacter.SurName = heroCharacter.SurName?.Trim();
-                    heroCharacter.Name = heroCharacter.Name?.Trim();
-                }
-
                 if (Main.Settings.KeepCharactersPanelOpenAndHeroSelectedOnLevelUp)
                 {
                     HeroName = heroCharacter.Name;

@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using I2.Loc;
 using ModKit.Utility;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.RecordDialoguesOnConsole
@@ -10,7 +11,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.RecordDialoguesOnConsole
     {
         internal static void Postfix(string speakerName, string textLine)
         {
-            if (!Main.Settings.EnableLogDialoguesToConsole)
+            if (!Main.Settings.EnableLogDialoguesToConsole || LocalizationManager.CurrentLanguageCode != "en")
             {
                 return;
             }
