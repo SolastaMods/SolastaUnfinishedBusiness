@@ -100,7 +100,7 @@ namespace SolastaCommunityExpansion.Displays
             }
 
             toggle = Main.Settings.EnableFeatsAtEvenLevels;
-            if (UI.Toggle("Enable feats selection at levels 2, 6, 10 and 14", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enable feats selection at class levels 2, 6, 10 and 14", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableFeatsAtEvenLevels = toggle;
                 InitialChoicesContext.SwitchEvenLevelFeats();
