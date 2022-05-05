@@ -32,7 +32,7 @@ namespace SolastaMulticlass.Patches.LevelUp
                 }
                 else if (bindMode == SpellBox.BindMode.Unlearn)
                 {
-                    allSpells.RemoveAll(s => !LevelUpContext.IsSpellOfferedBySelectedClassSubclass(hero, s) || !LevelUpContext.IsSpellKnownBySelectedClassSubclass(hero, s));
+                    allSpells.RemoveAll(s => !LevelUpContext.IsSpellOfferedBySelectedClassSubclass(hero, s));
                 }
             }
         }
