@@ -2,9 +2,6 @@
   "$type": "SpellDefinition, Assembly-CSharp",
   "spellsBundle": false,
   "subspellsList": [
-    "Definition:SpellDH_ElementalForm_Shadow:e03b1ad8-f12b-5114-826b-72058f514112",
-    "Definition:SpellDH_ElementalForm_Astral:1ae9c5ea-890d-55d6-8bb8-2ca12c901258",
-    "Definition:SpellDH_ElementalForm_Ethereal:6690fc53-c8b3-5359-9c83-100b93f05339",
     "Definition:SpellDH_ElementalForm_Fire:367ef372-b324-5ffd-aecd-c4550a55d761",
     "Definition:SpellDH_ElementalForm_Earth:2ada84ee-44af-573b-b8d9-31285d35711a",
     "Definition:SpellDH_ElementalForm_Ice:a8ebc1c0-1f61-5730-9c74-4f5ab504d83c",

@@ -109,8 +109,6 @@ Feature/&UrPriestExpandedSpelllistAfinityDescription	You choose from an expanded
 Feature/&UrPriestExpandedSpelllistAfinityTitle	UrPriest Spells
 Feedback/&AdditionalDamageAgonizing_BlastFormat	Agonizing Blast
 Feedback/&AdditionalDamageAgonizing_BlastLine	When you cast a spell using force damage (eldritch blast), add your Charisma modifier to the damage it deals on a hit.
-Feedback/&AdditionalDamageAncientForestLifeSapFormat	Life Sap!
-Feedback/&AdditionalDamageAncientForestLifeSapLine	Life Sap deals extra damage and heals! 
 Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat	Additional Damage from Magically Powered Attacks
 Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine	Additional Damage from Magically Powered Attacks
 Feedback/&AdditionalDamageArcaneFirearmFormat	Blasting Enhancement!
