@@ -109,7 +109,6 @@ namespace SolastaCommunityExpansion
         public bool EnableLevel20 { get; set; }
 
         // Visuals
-        public bool AllowExtraKeyboardCharactersInAllNames { get; set; }
         public bool OfferAdditionalLoreFriendlyNames { get; set; }
         public bool UnlockAllNpcFaces { get; set; }
         public bool AllowUnmarkedSorcerers { get; set; }

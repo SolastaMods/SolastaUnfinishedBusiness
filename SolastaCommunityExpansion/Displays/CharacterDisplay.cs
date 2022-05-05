@@ -154,12 +154,6 @@ namespace SolastaCommunityExpansion.Displays
 
             UI.Label("");
 
-            toggle = Main.Settings.AllowExtraKeyboardCharactersInAllNames;
-            if (UI.Toggle("Allow extra keyboard characters in all name inputs (character, location, campaign, etc...)", ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.AllowExtraKeyboardCharactersInAllNames = toggle;
-            }
-
             toggle = Main.Settings.OfferAdditionalLoreFriendlyNames;
             if (UI.Toggle("Offer additional lore friendly names on character creation", ref toggle, UI.AutoWidth()))
             {
