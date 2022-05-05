@@ -141,42 +141,42 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
         //Think about making smaller base pool of elements, with ability to expand via eldritch Invocations or Mysterium Arcana
         private static readonly Dictionary<string, ElementalFormConfig> ElementalFormCfg = new()
         {
-            {
-                "Shadow", new ElementalFormConfig
-                {
-                    // DamageName = "Necrotic",
-                    DamageType = DamageNecrotic,
-                    Resistance = DamageAffinityNecroticResistance,
-                    Immunity = DamageAffinityNecroticImmunity,
-                    Particles = DatabaseHelper.MonsterDefinitions.Sorr_Akkath_Shikkath.MonsterPresentation.GetField<AssetReference>("attachedParticlesReference"),
-                    Shaders = DatabaseHelper.MonsterDefinitions.Wraith.MonsterPresentation.CustomShaderReference ,
-                    // Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerDomainSunHeraldOfTheSun.GuiPresentation.SpriteReference,
-                }
-            },
-            {
-                "Astral", new ElementalFormConfig
-                {
-                    // DamageName = "Psychic",
-                    DamageType = DamagePsychic,
-                    Resistance = DamageAffinityPsychicResistance,
-                    Immunity = DamageAffinityPsychicImmunity,
-                    Particles = DatabaseHelper.MonsterDefinitions.WightLord.MonsterPresentation.GetField<AssetReference>("attachedParticlesReference"),// backup kindredspirits bear - spectral spider
-                    Shaders = DatabaseHelper.MonsterDefinitions.SpectralSpider.MonsterPresentation.CustomShaderReference,// backup kindredspirits bear - spectral spider,
-                    // Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerDomainInsightForeknowledge.GuiPresentation.SpriteReference,
-                }
-            },
-            {
-                "Ethereal", new ElementalFormConfig
-                {
-                    // DamageName = "ForceDamage",
-                    DamageType = DamageForce,
-                    Resistance = DamageAffinityForceDamageResistance,
-                    Immunity = DamageAffinityForceImmunity,
-                    Particles = DatabaseHelper.MonsterDefinitions.Ghost.MonsterPresentation.GetField<AssetReference>("attachedParticlesReference") ,  // backup fey bear - sorr boss,
-                    Shaders = DatabaseHelper.MonsterDefinitions.PhaseSpider.MonsterPresentation.CustomShaderReference,      // backup fey bear - sorr boss,
-                    // Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerOathOfDevotionAuraDevotion.GuiPresentation.SpriteReference,
-                }
-            },
+            // {
+            //     "Shadow", new ElementalFormConfig
+            //     {
+            //         // DamageName = "Necrotic",
+            //         DamageType = DamageNecrotic,
+            //         Resistance = DamageAffinityNecroticResistance,
+            //         Immunity = DamageAffinityNecroticImmunity,
+            //         Particles = DatabaseHelper.MonsterDefinitions.Sorr_Akkath_Shikkath.MonsterPresentation.GetField<AssetReference>("attachedParticlesReference"),
+            //         Shaders = DatabaseHelper.MonsterDefinitions.Wraith.MonsterPresentation.CustomShaderReference ,
+            //         // Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerDomainSunHeraldOfTheSun.GuiPresentation.SpriteReference,
+            //     }
+            // },
+            // {
+            //     "Astral", new ElementalFormConfig
+            //     {
+            //         // DamageName = "Psychic",
+            //         DamageType = DamagePsychic,
+            //         Resistance = DamageAffinityPsychicResistance,
+            //         Immunity = DamageAffinityPsychicImmunity,
+            //         Particles = DatabaseHelper.MonsterDefinitions.WightLord.MonsterPresentation.GetField<AssetReference>("attachedParticlesReference"),// backup kindredspirits bear - spectral spider
+            //         Shaders = DatabaseHelper.MonsterDefinitions.SpectralSpider.MonsterPresentation.CustomShaderReference,// backup kindredspirits bear - spectral spider,
+            //         // Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerDomainInsightForeknowledge.GuiPresentation.SpriteReference,
+            //     }
+            // },
+            // {
+            //     "Ethereal", new ElementalFormConfig
+            //     {
+            //         // DamageName = "ForceDamage",
+            //         DamageType = DamageForce,
+            //         Resistance = DamageAffinityForceDamageResistance,
+            //         Immunity = DamageAffinityForceImmunity,
+            //         Particles = DatabaseHelper.MonsterDefinitions.Ghost.MonsterPresentation.GetField<AssetReference>("attachedParticlesReference") ,  // backup fey bear - sorr boss,
+            //         Shaders = DatabaseHelper.MonsterDefinitions.PhaseSpider.MonsterPresentation.CustomShaderReference,      // backup fey bear - sorr boss,
+            //         // Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerOathOfDevotionAuraDevotion.GuiPresentation.SpriteReference,
+            //     }
+            // },
             {
                 "Fire", new ElementalFormConfig
                 {

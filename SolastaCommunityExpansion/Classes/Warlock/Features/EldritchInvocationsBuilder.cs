@@ -5,6 +5,7 @@ using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Classes.Warlock.Subclasses;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.Models;
+using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
 using static SolastaModApi.DatabaseHelper;
@@ -241,41 +242,45 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             // at will EI
             foreach (KeyValuePair<string, SpellDefinition> entry in dictionaryofEIPseudoCantrips)
             {
-                string textPseudoCantrips = "EldritchInvocation" + entry.Value.name;
+                var invocationName = entry.Key;
+                var baseSpell = entry.Value;
+                string textPseudoCantrips = "EldritchInvocation" + baseSpell.name;
 
                 var guiPresentationEIPseudoCantrips = new GuiPresentationBuilder(
-                    $"Feature/&{entry.Key}Title",
+                    $"Feature/&{invocationName}Title",
                     Gui.Format(
                         "Feature/&SpellAsInvocationAtWillDescription",
-                        entry.Value.FormatTitle()),
-                    entry.Value.GuiPresentation.SpriteReference).Build();
+                        baseSpell.FormatTitle()),
+                    baseSpell.GuiPresentation.SpriteReference).Build();
 
-                var EIPower = FeatureDefinitionPowerBuilder
-                    .Create(textPseudoCantrips, DefinitionBuilder.CENamespaceGuid)
-                    .SetGuiPresentation(guiPresentationEIPseudoCantrips)
-                    .Configure(
-                         1,
-                         RuleDefinitions.UsesDetermination.Fixed,
-                         AttributeDefinitions.Charisma,
-                         entry.Value.ActivationTime,
-                         1,
-                         RuleDefinitions.RechargeRate.AtWill,
-                         false,
-                         false,
-                         AttributeDefinitions.Charisma,
-                         entry.Value.EffectDescription.DeepCopy(), // need to copy to avoid issues with the source spells
-                         true)
+                var EICantrip = SpellDefinitionBuilder
+                    .Create(baseSpell, $"{textPseudoCantrips}Cantrip", DefinitionBuilder.CENamespaceGuid)
+                    .SetGuiPresentation($"Feature/&{invocationName}Title", baseSpell.GuiPresentation.Description, baseSpell.GuiPresentation.SpriteReference)
+                    .SetSpellLevel(0)
                     .AddToDB();
 
-                if (entry.Key == "ArmorofShadows"
-                    || entry.Key == "FiendishVigor"
-                    || entry.Key == "AscendantStep"
-                    || entry.Key == "OtherworldlyLeap")
+                var EIPower = FeatureDefinitionFreeBonusCantripsBuilder
+                    .Create(textPseudoCantrips, DefinitionBuilder.CENamespaceGuid)
+                    .SetGuiPresentation(guiPresentationEIPseudoCantrips)
+                    .SetBonusCantrips(EICantrip)
+                    .AddToDB();
+
+                var cantripEffect = EICantrip.EffectDescription;
+                if (invocationName == "ArmorofShadows"
+                    || invocationName == "FiendishVigor"
+                    || invocationName == "AscendantStep"
+                    || invocationName == "OtherworldlyLeap")
                 {
-                    EIPower.EffectDescription.TargetType = RuleDefinitions.TargetType.Self;
+                    cantripEffect.SetRangeType(RuleDefinitions.RangeType.Self);
+                    cantripEffect.TargetType = RuleDefinitions.TargetType.Self;
+                    cantripEffect.SetHasSavingThrow(false);
                 }
 
-                EldritchInvocations.Add(entry.Key, EIPower);
+                var effectAdvancement = new EffectAdvancement();
+                effectAdvancement.SetEffectIncrementMethod(RuleDefinitions.EffectIncrementMethod.None);
+                cantripEffect.SetEffectAdvancement(effectAdvancement);
+
+                EldritchInvocations.Add(invocationName, EIPower);
             }
 
             // 1/day EI
