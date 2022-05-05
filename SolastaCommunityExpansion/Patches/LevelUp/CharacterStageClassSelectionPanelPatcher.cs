@@ -31,11 +31,6 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
             var visibleClasses = DatabaseRepository.GetDatabase<CharacterClassDefinition>().Where(x => !x.GuiPresentation.Hidden);
 
             ___compatibleClasses.SetRange(visibleClasses.OrderBy(x => x.FormatTitle()));
-
-            if (Main.Settings.EnableEnforceUniqueFeatureSetChoices)
-            {
-                FeatureDescriptionItemPatcher.FeatureDescriptionItems.Clear();
-            }
         }
     }
 }
