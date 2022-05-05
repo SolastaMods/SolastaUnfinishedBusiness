@@ -21,6 +21,11 @@ namespace SolastaMulticlass.Patches.LevelUp
                     return;
                 }
 
+                if (!LevelUpContext.IsLevelingUp(hero))
+                {
+                    return;
+                }
+
                 if (bindMode == SpellBox.BindMode.Learning)
                 {
                     allSpells.RemoveAll(s => !LevelUpContext.IsSpellOfferedBySelectedClassSubclass(hero, s));
