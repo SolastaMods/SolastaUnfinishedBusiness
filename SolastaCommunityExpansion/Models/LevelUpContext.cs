@@ -2,7 +2,7 @@
 using System.Linq;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaModApi.DatabaseHelper.ItemDefinitions;
-using static SolastaMulticlass.Models.IntegrationContext;
+using static SolastaCommunityExpansion.Models.IntegrationContext;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -14,6 +14,7 @@ namespace SolastaCommunityExpansion.Models
             public CharacterClassDefinition SelectedClass;
             public CharacterSubclassDefinition SelectedSubclass;
             public bool IsClassSelectionStage { get; set; }
+            public bool IsLevelingUp { get; set; }
             public bool RequiresDeity { get; set; }
             public HashSet<ItemDefinition> GrantedItems { get; set; }
             public List<SpellDefinition> AllowedSpells { get; set; }
@@ -28,11 +29,13 @@ namespace SolastaCommunityExpansion.Models
         public static void RegisterHero(
             RulesetCharacterHero rulesetCharacterHero,
             CharacterClassDefinition lastClass,
-            CharacterSubclassDefinition lastSubclass)
+            CharacterSubclassDefinition lastSubclass,
+            bool levelingUp = false)
             => LevelUpTab.TryAdd(rulesetCharacterHero, new()
             {
                 SelectedClass = lastClass,
-                SelectedSubclass = lastSubclass
+                SelectedSubclass = lastSubclass,
+                IsLevelingUp = levelingUp
             });
  
         public static void UnregisterHero(RulesetCharacterHero rulesetCharacterHero)
@@ -179,10 +182,11 @@ namespace SolastaCommunityExpansion.Models
             => LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData) && levelUpData.IsClassSelectionStage;
 
         public static bool IsLevelingUp(RulesetCharacterHero rulesetCharacterHero)
-            => LevelUpTab.TryGetValue(rulesetCharacterHero, out var _);
+            => LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData) && levelUpData.IsLevelingUp;
 
         public static bool IsMulticlass(RulesetCharacterHero rulesetCharacterHero)
             => LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData)
+                && levelUpData.SelectedClass != null
                 && (rulesetCharacterHero.ClassesAndLevels.Count > 1
                     || !rulesetCharacterHero.ClassesAndLevels.ContainsKey(levelUpData.SelectedClass));
 

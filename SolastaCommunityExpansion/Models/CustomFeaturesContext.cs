@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using ModKit;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi.Extensions;
-using SolastaMulticlass.Models;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Models
@@ -43,6 +41,7 @@ namespace SolastaCommunityExpansion.Models
         {
             var selectedClass = LevelUpContext.GetSelectedClass(hero);
 
+            // this happens during character creation
             if (selectedClass == null)
             {
                 return;
@@ -138,7 +137,7 @@ namespace SolastaCommunityExpansion.Models
                 {
                     hero.SpellRepertoires.Remove(heroRepertoire);
                 }
-                else if (featureDefinition is FeatureDefinitionAutoPreparedSpells featureDefinitionAutoPreparedSpells && heroRepertoire != null)
+                if (featureDefinition is FeatureDefinitionAutoPreparedSpells featureDefinitionAutoPreparedSpells && heroRepertoire != null)
                 {
                     var spellsToRemove = featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups.FirstOrDefault(x => x.ClassLevel == classLevel)?.SpellsList.Count ?? 0;
 

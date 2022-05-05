@@ -92,6 +92,9 @@ namespace SolastaCommunityExpansion.Patches
                 // Spells context needs character classes (specifically spell lists) in the db in order to do it's work.
                 SpellsContext.LateLoad();
 
+                // Integration Context
+                IntegrationContext.LateLoad();
+
                 // Multiclass
                 MulticlassContext.LateLoad();
 

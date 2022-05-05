@@ -3,11 +3,11 @@ using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionProficiencys;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionPointPools;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
-using static SolastaMulticlass.Models.IntegrationContext;
-using SolastaCommunityExpansion.Models;
+using static SolastaCommunityExpansion.Models.IntegrationContext;
 
 namespace SolastaMulticlass.Models
 {

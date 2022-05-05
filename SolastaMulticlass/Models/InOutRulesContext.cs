@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using SolastaCommunityExpansion;
+using SolastaCommunityExpansion.Models;
 using UnityEngine;
 
 namespace SolastaMulticlass.Models

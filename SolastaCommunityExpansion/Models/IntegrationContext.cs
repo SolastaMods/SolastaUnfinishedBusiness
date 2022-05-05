@@ -1,4 +1,4 @@
-﻿namespace SolastaMulticlass.Models
+﻿namespace SolastaCommunityExpansion.Models
 {
     public static class IntegrationContext
     {
@@ -21,14 +21,14 @@
             name = "DummySubClass"
         };
 
-        public static CharacterClassDefinition TinkererClass { get; private set; }
-        public static CharacterClassDefinition WardenClass { get; private set; }
-        public static CharacterClassDefinition WarlockClass { get; private set; }
-        public static CharacterClassDefinition WitchClass { get; private set; }
-        public static CharacterSubclassDefinition ConArtistSubclass { get; private set; }
-        public static CharacterSubclassDefinition SpellShieldSubclass { get; private set; }
+        public static CharacterClassDefinition TinkererClass { get; private set; } = DummyClass;
+        public static CharacterClassDefinition WardenClass { get; private set; } = DummyClass;
+        public static CharacterClassDefinition WarlockClass { get; private set; } = DummyClass;
+        public static CharacterClassDefinition WitchClass { get; private set; } = DummyClass;
+        public static CharacterSubclassDefinition ConArtistSubclass { get; private set; } = DummySubclass;
+        public static CharacterSubclassDefinition SpellShieldSubclass { get; private set; } = DummySubclass;
 
-        public static void Load()
+        public static void LateLoad()
         {
             var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
             var dbCharacterSubclassDefinition = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>();

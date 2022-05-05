@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 using SolastaModApi.Infrastructure;
 using SolastaMulticlass.Models;
 using static SolastaCommunityExpansion.Level20.SpellsHelper;
