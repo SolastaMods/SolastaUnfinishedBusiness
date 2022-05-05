@@ -88,7 +88,8 @@
     "Definition:PactofChainFamiliarScarePower:dbd76931-f053-5337-a26b-c505d03807f6",
     "Definition:SavingThrowAffinitySpellResistance:d6341ebb2cb967949b4426e31e993b86",
     "Definition:SenseDarkvision24:a7a21553e478546448413923e8dd948e",
-    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945"
+    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+    "Definition:HelpAction:994ab51f-a81a-50fd-af24-45dfd078b637"
   ],
   "attackIterations": [
     {

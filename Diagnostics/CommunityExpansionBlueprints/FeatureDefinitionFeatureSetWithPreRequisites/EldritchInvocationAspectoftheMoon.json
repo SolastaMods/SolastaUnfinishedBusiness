@@ -1,8 +1,8 @@
 {
   "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFeatureSetWithPreRequisites, SolastaCommunityExpansion",
   "featureSet": [
-    "Definition:CampAffinityElfTrance:02e0f7bc4afeb2b43ab60ec0a048f5ae",
-    "Definition:CampAffinityDomainOblivionPeacefulRest:82674c4f25c7fdb4a901085c44341f0a"
+    "Definition:ClassWarlockEldritchInvocationAspectoftheMoonTrance:b5235c56-375e-5986-b8b1-edea823d16fd",
+    "Definition:ClassWarlockEldritchInvocationAspectoftheMoonRest:9293b4ae-7e45-5426-9037-b76c36002a9c"
   ],
   "mode": "Union",
   "defaultSelection": 0,

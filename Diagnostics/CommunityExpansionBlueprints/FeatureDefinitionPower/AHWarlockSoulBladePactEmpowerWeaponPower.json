@@ -75,7 +75,7 @@
           "featureBySlotLevel": [
             {
               "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-              "featureDefinition": "Definition:AttackModifierShillelagh:0dee4862758e39c4ca86faeafd1507a1",
+              "featureDefinition": "Definition:AHWarlockSoulBladePactEmpowerWeaponModifier:d1863552-00ba-57fa-9eb9-6fcb6299717d",
               "level": 0
             }
           ],

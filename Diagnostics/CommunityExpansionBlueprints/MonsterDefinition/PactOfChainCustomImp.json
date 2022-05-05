@@ -102,7 +102,8 @@
     "Definition:PactofChainFamiliarInvisibilityPower:64ab8210-621d-5180-8af8-a41c3759169f",
     "Definition:SavingThrowAffinitySpellResistance:d6341ebb2cb967949b4426e31e993b86",
     "Definition:SenseDarkvision24:a7a21553e478546448413923e8dd948e",
-    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945"
+    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+    "Definition:HelpAction:994ab51f-a81a-50fd-af24-45dfd078b637"
   ],
   "attackIterations": [
     {

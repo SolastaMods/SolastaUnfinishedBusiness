@@ -1,7 +1,7 @@
 {
   "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFeatureSetWithPreRequisites, SolastaCommunityExpansion",
   "featureSet": [
-    "Definition:ProficiencyFeatManipulatorSkillOrExpertise:d0e0c050dbe9c4a4e9128966a168fe53"
+    "Definition:ClassWarlockEldritchInvocationBeguilingInfluence:60d73d1a-b7c7-5a5e-b2ab-5ac9f9454630"
   ],
   "mode": "Union",
   "defaultSelection": 0,

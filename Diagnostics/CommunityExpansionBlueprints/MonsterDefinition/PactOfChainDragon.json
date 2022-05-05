@@ -116,7 +116,8 @@
     "Definition:SavingThrowAffinitySpellResistance:d6341ebb2cb967949b4426e31e993b86",
     "Definition:SenseBlindSight2:f6e92e044ad5c9945b1c01d9891bf49d",
     "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
-    "Definition:SenseSuperiorDarkvision:388ca3fa81ee8a84c831be14214fd1c0"
+    "Definition:SenseSuperiorDarkvision:388ca3fa81ee8a84c831be14214fd1c0",
+    "Definition:HelpAction:994ab51f-a81a-50fd-af24-45dfd078b637"
   ],
   "attackIterations": [
     {

@@ -2,7 +2,7 @@
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
   "notificationTag": "ElementalDamage",
   "limitedUsage": "OncePerTurn",
-  "triggerCondition": "AlwaysActive",
+  "triggerCondition": "SpellDamagesTarget",
   "requiredProperty": "None",
   "attackModeOnly": false,
   "requiredTargetCondition": null,

@@ -1,7 +1,7 @@
 {
   "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFeatureSetWithPreRequisites, SolastaCommunityExpansion",
   "featureSet": [
-    "Definition:AttributeModifierFighterExtraAttack:082bfabcdf5bf1f4b843526c71143716"
+    "Definition:ClassWarlockEldritchInvocationThirstingBlade:f527a146-4042-5405-869d-b2b971ab5e72"
   ],
   "mode": "Union",
   "defaultSelection": 0,

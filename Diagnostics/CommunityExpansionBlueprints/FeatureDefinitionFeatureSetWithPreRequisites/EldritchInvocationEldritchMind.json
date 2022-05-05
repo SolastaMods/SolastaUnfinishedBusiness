@@ -1,7 +1,7 @@
 {
   "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFeatureSetWithPreRequisites, SolastaCommunityExpansion",
   "featureSet": [
-    "Definition:MagicAffinityFeatFlawlessConcentration:75bf6b2ab20de7640986f271f39b52c5"
+    "Definition:ClassWarlockEldritchInvocationEldritchMind:d4d428a5-ee76-5f95-b3b3-e25fda475868"
   ],
   "mode": "Union",
   "defaultSelection": 0,

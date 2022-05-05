@@ -267,7 +267,7 @@ While you are not wearing any armor, your AC equals 10 + your Dexterity modifier
 [*][b]Burst of Radiance[/b]: Create a brilliant flash of shimmering light, damaging all enemies around you
 [*][b]Eldritch Blast[/b]: A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage.
 The spell creates more than one beam when you reach higher levels: two beams at 5th level, three beams at 11th level, and four beams at 17th level. You can direct the beams at the same target or at different ones. Make a separate attack roll for each beam
-[*][b]Eldritch Orb[/b]: You fling a ball of eldritch energy at a creature or object within range
+[*][b]Eldritch Orb[/b]: You fling a ball of eldritch energy at a creature or object within range and deal force damage in small radius.
 [*][b]Minor Lifesteal[/b]: You drain life energy from a hostile creature you can see within range. You then heal hit points equal to the amount of damage dealt. This spell has no effect on undead or constructs
 [*][b]Sound Burst[/b]: Create a burst of thundering sound, damaging everyone around you
 [*][b]Find Familiar[/b]: You gain the service of a familiar

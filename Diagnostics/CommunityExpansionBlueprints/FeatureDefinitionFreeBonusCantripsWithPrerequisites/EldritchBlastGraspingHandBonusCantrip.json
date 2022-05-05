@@ -10,7 +10,7 @@
     "description": "Feature/&EldritchBlastGraspingHandBonusCantripDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "f242ca7c15585bfd87105625ccfdb4ea",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

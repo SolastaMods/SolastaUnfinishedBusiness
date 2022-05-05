@@ -3,6 +3,11 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SubclassAutopreparedSpells:c5f03caa-7078-4da7-b166-00f292fcebfc",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ScoutSentinelFeatureSet_level03:a6560212-c665-49fd-94b7-378512e68edb",
       "level": 3
     },

@@ -322,9 +322,9 @@
     "description": "Spell/&EldritchBlastGraspingHandDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "b61663f56247d304aa297e5fe059e294",
-      "m_SubObjectName": "MagicMissile",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "f242ca7c15585bfd87105625ccfdb4ea",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
