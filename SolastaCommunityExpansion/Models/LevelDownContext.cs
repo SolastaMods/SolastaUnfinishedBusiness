@@ -86,9 +86,7 @@ namespace SolastaCommunityExpansion.Models
                 subclassTag = AttributeDefinitions.GetSubclassTag(characterClassDefinition, classLevel, characterSubclassDefinition);
             }
 
-            LevelUpContext.RegisterHero(hero);
-            LevelUpContext.SetSelectedClass(hero, characterClassDefinition);
-            LevelUpContext.SetSelectedSubclass(hero, characterSubclassDefinition);
+            LevelUpContext.RegisterHero(hero, characterClassDefinition, characterSubclassDefinition);
 
             UnlearnSpells(hero, indexLevel);
 

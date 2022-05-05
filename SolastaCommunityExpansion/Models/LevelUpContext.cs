@@ -4,7 +4,7 @@ using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaModApi.DatabaseHelper.ItemDefinitions;
 using static SolastaMulticlass.Models.IntegrationContext;
 
-namespace SolastaMulticlass.Models
+namespace SolastaCommunityExpansion.Models
 {
     public static class LevelUpContext
     {
@@ -25,8 +25,15 @@ namespace SolastaMulticlass.Models
         public static RulesetCharacterHero GetHero(string name)
             => LevelUpTab.FirstOrDefault(x => x.Key.Name == name).Key;
 
-        public static void RegisterHero(RulesetCharacterHero rulesetCharacterHero)
-            => LevelUpTab.TryAdd(rulesetCharacterHero, new LevelUpData());
+        public static void RegisterHero(
+            RulesetCharacterHero rulesetCharacterHero,
+            CharacterClassDefinition lastClass,
+            CharacterSubclassDefinition lastSubclass)
+            => LevelUpTab.TryAdd(rulesetCharacterHero, new()
+            {
+                SelectedClass = lastClass,
+                SelectedSubclass = lastSubclass
+            });
  
         public static void UnregisterHero(RulesetCharacterHero rulesetCharacterHero)
             => LevelUpTab.Remove(rulesetCharacterHero);

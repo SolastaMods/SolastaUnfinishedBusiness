@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using HarmonyLib;
-using SolastaMulticlass.Models;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaMulticlass.Patches.LevelUp
 {

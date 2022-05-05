@@ -3,7 +3,7 @@ using System.Linq;
 using System.Reflection;
 using HarmonyLib;
 using SolastaCommunityExpansion;
-using SolastaMulticlass.Models;
+using SolastaCommunityExpansion.Models;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 
 namespace SolastaMulticlass.Patches.LevelUp
@@ -13,26 +13,6 @@ namespace SolastaMulticlass.Patches.LevelUp
         //
         // context registration / unregistration patches
         //
-
-        // register the hero leveling up
-        [HarmonyPatch(typeof(CharacterBuildingManager), "LevelUpCharacter")]
-        internal static class CharacterBuildingManagerLevelUpCharacter
-        {
-            internal static void Prefix(RulesetCharacterHero hero)
-            {
-                LevelUpContext.RegisterHero(hero);
-            }
-        }
-
-        // unregister the hero leveling up
-        [HarmonyPatch(typeof(CharacterBuildingManager), "FinalizeCharacter")]
-        internal static class CharacterBuildingManagerFinalizeCharacter
-        {
-            internal static void Postfix(RulesetCharacterHero hero)
-            {
-                LevelUpContext.UnregisterHero(hero);
-            }
-        }
 
         // captures the desired class and ensures this doesn't get executed in the class panel level up screen
         [HarmonyPatch(typeof(CharacterBuildingManager), "AssignClassLevel")]

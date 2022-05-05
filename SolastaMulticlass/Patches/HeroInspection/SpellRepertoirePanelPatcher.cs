@@ -2,6 +2,7 @@
 using HarmonyLib;
 using SolastaMulticlass.Models;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace SolastaMulticlass.Patches.HeroInspection
 {
@@ -11,6 +12,55 @@ namespace SolastaMulticlass.Patches.HeroInspection
         [HarmonyPatch(typeof(SpellRepertoirePanel), "Bind")]
         internal static class SpellRepertoirePanelBind
         {
+            private static void RebuildSlotsTable(
+                GameObject ___levelButtonPrefab,
+                RectTransform ___levelButtonsTable,
+                RectTransform ___spellsByLevelTable,
+                SpellLevelButton.LevelSelectedHandler levelSelected,
+                int accountForCantrips,
+                int classSpellLevel,
+                int slotLevel)
+            {
+                while (___levelButtonsTable.childCount < classSpellLevel + accountForCantrips)
+                {
+                    Gui.GetPrefabFromPool(___levelButtonPrefab, ___levelButtonsTable);
+
+                    var index = ___levelButtonsTable.childCount - 1;
+                    var child = ___levelButtonsTable.GetChild(index);
+
+                    child.GetComponent<SpellLevelButton>().Bind(index, new SpellLevelButton.LevelSelectedHandler(levelSelected));
+                }
+
+                while (___levelButtonsTable.childCount > classSpellLevel + accountForCantrips)
+                {
+                    Gui.ReleaseInstanceToPool(___levelButtonsTable.GetChild(___levelButtonsTable.childCount - 1).gameObject);
+                }
+
+                LayoutRebuilder.ForceRebuildLayoutImmediate(___levelButtonsTable);
+
+                // patches the panel to display higher level spell slots from shared slots table but hide the spell panels if class level not there yet
+                for (var i = 0; i < ___spellsByLevelTable.childCount; i++)
+                {
+                    var spellsByLevel = ___spellsByLevelTable.GetChild(i);
+
+                    for (var j = 0; j < spellsByLevel.childCount; j++)
+                    {
+                        var transform = spellsByLevel.GetChild(j);
+
+                        if (transform.TryGetComponent(typeof(SlotStatusTable), out var _))
+                        {
+                            transform.gameObject.SetActive(i < slotLevel + accountForCantrips); // table header (with slots)
+                        }
+                        else
+                        {
+                            transform.gameObject.SetActive(i < classSpellLevel + accountForCantrips); // table content
+                        }
+                    }
+                }
+
+                LayoutRebuilder.ForceRebuildLayoutImmediate(___spellsByLevelTable);
+            }
+
             internal static void Postfix(
                 SpellRepertoirePanel __instance,
                 GameObject ___levelButtonPrefab,
@@ -40,7 +90,7 @@ namespace SolastaMulticlass.Patches.HeroInspection
                         : classSpellLevel;
                 }
 
-                MulticlassGameUiContext.RebuildSlotsTable(
+                RebuildSlotsTable(
                     ___levelButtonPrefab,
                     ___levelButtonsTable,
                     ___spellsByLevelTable,
