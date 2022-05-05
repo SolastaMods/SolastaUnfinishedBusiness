@@ -4,23 +4,6 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.CustomDefinitions
 {
-    public interface ICustomMagicEffectBasedOnCaster
-    {
-        EffectDescription GetCustomEffect(RulesetCharacter caster);
-    }
-
-    public interface IModifySpellEffect
-    {
-        EffectDescription ModifyEffect(RulesetEffectSpell spell, EffectDescription effect);
-    }
-
-    public interface ISpellWithCustomFeatures
-    {
-        List<object> CustomFeatures { get; }
-
-        public IEnumerable<T> GetTypedFeatures<T>() where T: class;
-    }
-
     public class SpellWithCustomFeatures : SpellDefinition, ISpellWithCustomFeatures
     {
         public List<object> CustomFeatures { get; } = new();
