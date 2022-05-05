@@ -10,23 +10,13 @@ namespace SolastaMulticlass.Patches.LevelUp
         [HarmonyPatch(typeof(SpellsByLevelGroup), "CommonBind")]
         internal static class SpellsByLevelGroupCommonBind
         {
-            internal static void Prefix(SpellsByLevelGroup __instance, SpellBox.BindMode bindMode, List<SpellDefinition> allSpells)
+            internal static void Prefix(SpellBox.BindMode bindMode, List<SpellDefinition> allSpells)
             {
-                if (__instance.SpellRepertoire == null)
-                {
-                    return;
-                }
+                var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
 
-                var hero = LevelUpContext.GetHero(__instance.SpellRepertoire.CharacterName);
+                var hero = characterBuildingService.CurrentLocalHeroCharacter;
 
                 if (hero == null)
-                {
-                    return;
-                }
-
-                var isMulticaster = SharedSpellsContext.IsMulticaster(hero);
-
-                if (!isMulticaster)
                 {
                     return;
                 }
