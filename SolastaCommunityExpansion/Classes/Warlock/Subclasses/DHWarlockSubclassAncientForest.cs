@@ -1,9 +1,12 @@
 ﻿using System.Collections.Generic;
+using ModKit;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Models;
+using SolastaCommunityExpansion.Utils;
 using SolastaModApi;
 using SolastaModApi.Extensions;
+using UnityEngine;
 using static RuleDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionDamageAffinitys;
@@ -78,42 +81,33 @@ Different Archfey, e.g. Winter-themed
              * 
              * */
 
-            var lifeSapDamageAndHeal = FeatureDefinitionPowerBuilder
-                .Create("AncientForestLifeSapDamageAndHeal", DefinitionBuilder.CENamespaceGuid)
-                .SetEffectDescription(new EffectDescriptionBuilder()
-                    .AddEffectForm(
-                        new EffectFormBuilder()
-                            .SetDamageForm(
-                                false,
-                                DieType.D1,
-                                DamageTypeNecrotic,
-                                0,
-                                DieType.D1,
-                                0,
-                                HealFromInflictedDamage.Half,
-                                new List<TrendInfo>()
-                            )
-                            .SetBonusMode(AddBonusMode.DoubleProficiency)
-                            .Build())
-                    .Build()
-                )
-                .AddToDB();
+            var lifeSapId = "AncientForestLifeSap";
             
             var lifeSapFeature = FeatureDefinitionOnMagicalAttackDamageEffectBuilder
-                .Create("AncientForestLifeSap", DefinitionBuilder.CENamespaceGuid)
+                .Create(lifeSapId, DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Power)
-                .SetOnMagicalAttackDamageDelegates(null, (attacker, defender, _, effect, _, _, _) =>
+                .SetOnMagicalAttackDamageDelegates(null, (attacker, _, _, effect, _, _, _) =>
                 {
                     var caster = attacker.RulesetCharacter;
-                    if (caster.MissingHitPoints >= caster.CurrentHitPoints &&
-                        effect.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage))
+                    if (caster.MissingHitPoints > 0 
+                        && effect.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage)
+                    )
                     {
-                        PowersContext.ApplyPowerEffectForms(
-                            lifeSapDamageAndHeal,
-                            caster,
-                            defender.RulesetCharacter,
-                            "AncientForestLifeSap"
-                        );
+                        var belowHalfHealth = caster.MissingHitPoints > caster.CurrentHitPoints;
+                        var used = attacker.UsedSpecialFeatures.GetValueOrDefault(lifeSapId);
+
+                        if (belowHalfHealth || used == 0)
+                        {
+                            attacker.UsedSpecialFeatures[lifeSapId] = used + 1;
+                            
+                            var level = caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+                            var healing = (used == 0 && belowHalfHealth) ? level : Mathf.CeilToInt(level / 2f);
+                            var cap = used == 0 ? HealingCap.MaximumHitPoints : HealingCap.HalfMaximumHitPoints;
+
+                            var ability = GuiPresentationBuilder.CreateTitleKey(lifeSapId, Category.Power);
+                            GameConsoleHelper.LogCharacterActivatesAbility(caster, ability);
+                            RulesetCharacter.Heal(healing, caster, caster, cap, caster.Guid);
+                        }
                     }
                 })
                 .AddToDB();

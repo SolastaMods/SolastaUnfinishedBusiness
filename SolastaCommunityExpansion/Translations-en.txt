@@ -1085,8 +1085,6 @@ Feature/&ZSPowerPaladinCleansingTouchDescription	Remove spell effects by touchin
 Feature/&ZSPowerPaladinCleansingTouchTitle	Cleansing Touch
 Feedback/&AdditionalDamageAgonizing_BlastFormat	Agonizing Blast
 Feedback/&AdditionalDamageAgonizing_BlastLine	When you cast a spell using force damage (eldritch blast), add your Charisma modifier to the damage it deals on a hit.
-Feedback/&AdditionalDamageAncientForestLifeSapFormat	Life Sap!
-Feedback/&AdditionalDamageAncientForestLifeSapLine	Life Sap deals extra damage and heals! 
 Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat	Additional Damage from Magically Powered Attacks
 Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine	Additional Damage from Magically Powered Attacks
 Feedback/&AdditionalDamageArcaneFirearmFormat	Blasting Enhancement!
@@ -1201,7 +1199,7 @@ MonsterAttack/&AttackWarlockImpStingTitle	Poisonous Sting
 MonsterAttack/&AttackWarlockQuasitStingTitle	Poisonous Sting
 MonsterAttack/&DH_Custom_CouatlBite_AttackDescription	Piercing damage, and the target must succeed on a DC 13 Constitution saving throw or be poisoned for 24 hours. Until this poison ends, the target is unconscious
 MonsterAttack/&DH_Custom_CouatlBite_AttackTitle	Bite
-Power/&AncientForestLifeSapDescription	When you hit an enemy with attack spell while at half-health, you inflict double your Proficiency bonus in Necrotic damage and heal for half of damage dealt
+Power/&AncientForestLifeSapDescription	When you damage enemy with spell you heal HP equal to half your level once per turn. If you are below half HP first target damaged this turn heals for level HP instead and next targets heal half level in HP but only up to half of max HP.
 Power/&AncientForestLifeSapTitle	Life Sap
 Power/&AncientForestRootedPowerDescription	Arboreal tendrils grow from your feet and dig into the ground. Your speed becomes 0, and you gain advantage on any saving throws to push you, pull you, or knock you prone.You can cast entangle at will
 Power/&AncientForestRootedPowerTitle	Rooted
