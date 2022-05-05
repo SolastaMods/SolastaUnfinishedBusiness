@@ -31,8 +31,8 @@ Class/&WitchFeatureSetRitualCastingDescription	You can cast any witch spell you 
 Class/&WitchFeatureSetRitualCastingTitle	Witch Ritual Casting
 Class/&WitchFeatureSetVisionsCurseDescription	You are cursed to have terrible visions of the future, presaging the death of your friends, family, and yourself. However many of these visions are cruel deceptions, they are sometimes grimly accurate. You can add your Charisma modifier, in addition to your Dexterity modifier, to your initiative rolls
 Class/&WitchFeatureSetVisionsCurseTitle	Visions
-Class/&WitchFeatureSetWitchCurseDescription	You are wracked by a terrible curse which infects your body and soul
-Class/&WitchFeatureSetWitchCurseTitle	Witch Curse
+Feature/&WitchCurseChoiceDescription	You are wracked by a terrible curse which infects your body and soul
+Feature/&WitchCurseChoiceTitle	Witch Curse
 Class/&WitchLovelessCharmImmunityDescription	Loveless Charm immunity
 Class/&WitchLovelessCharmImmunityTitle	Charm Immunity
 Class/&WitchMaledictionAbateDescription	As an action, choose one creature you can see within 60 feet of you to make a Charisma saving throw. On a failed save, the creature can't take reactions until the end of your next turn
