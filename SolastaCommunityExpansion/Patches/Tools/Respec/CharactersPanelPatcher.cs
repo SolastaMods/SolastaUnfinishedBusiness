@@ -18,7 +18,7 @@ namespace SolastaCommunityExpansion.Patches.Tools.Respec
 
         internal static void Postfix(List<CharacterPlateToggle> ___characterPlates, int ___selectedPlate, Button ___exportPdfButton)
         {
-            if (!Main.Settings.EnableRespec || !Main.Settings.EnableMulticlass)
+            if (!Main.Settings.EnableRespec)
             {
                 return;
             }

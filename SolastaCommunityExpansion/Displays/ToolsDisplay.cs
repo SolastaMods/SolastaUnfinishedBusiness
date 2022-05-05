@@ -36,7 +36,7 @@ namespace SolastaCommunityExpansion.Displays
             }
 
             toggle = Main.Settings.EnableRespec;
-            if (UI.Toggle("Enable the RESPEC after rest action " + "[Level Down as well if Multiclass is enabled]".italic().yellow(), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enable the RESPEC and Level Down after rest actions", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableRespec = toggle;
                 RespecContext.Switch();
