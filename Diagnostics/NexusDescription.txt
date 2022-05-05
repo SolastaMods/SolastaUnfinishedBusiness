@@ -11,27 +11,28 @@ This is now a standalone mod. Please uninstall any other mod from your mods fold
 
 [list]
 
-[*][b]AceHigh[/b]: Warlock class, multiclass idea, Tactician subclass, Power Attack and Reckless Fury feats, no identification
+[*][b]AceHigh[/b]: SoulBlade subclass, Tactician subclass, Power Attack and Reckless Fury feats, no identification
 [*][b]Bazou[/b]: Witch class
 [*][b]Boofat[/b]: alwaysAlt
 [*][b]Burtsev-Alexey[/b]: deep copy algorithm
 [*][b]ChrisJohnDigital[/b]: head developer, crafting, faction relations, feats, fighting styles, items, subclasses, progression
-[*][b]Dreadmaker[/b]: Circle of the Forest Guardian subclass
-[*][b]DubhHerder[/b]: 7th, 8th and 9th level spells, Crafty Feats migration, bug models replacement, additional high level monsters, class, subclasses
+[*][b]Dreadmaker[/b]: Forest Guardian subclass
+[*][b]DubhHerder[/b]: 7th, 8th and 9th level spells, Crafty Feats migration, bug models replacement, additional high level monsters, Warlock class, subclasses
 [*][b]ElAntonious[/b]: Arcanist subclass, Torchbearer and Dual Flurry feats
-[*][b]Holic75[/b]: pact magic slots, Warlock class sprite, bolgrif and gnome races, acid claw, air blast burst of radiance, thunder strike, earth tremor and winter's breath spells
+[*][b]Esker[/b]: Warlock class design, quality assurance
+[*][b]Holic75[/b]: SolastaModHelpers patches, SolastaExtraContent races, cantrips, spells, sprites
 [*][b]ImpPhil[/b]: adv/dis rules, conjurations control, auto-equip, location rotation in DM, monster's health, pause UI, sorting, stocks prices, no attunement, xp scaling, character export, save by location, combat camera, diagnostics, custom icons, refactor, screen map
-[*][b]Krisys[/b]: Thug subclass
+[*][b]Lyraele[/b]: Warlock class design, quality assurance
 [*][b]Narria[/b]: modKit creator, developer
 [*][b]Nd[/b]: Opportunist subclass
+[*][b]PraiseThyBus[/b]: quality assurance
 [*][b]RedOrca[/b]: Path of the Light subclass, Indomitable Might
-[*][b]Scarlex[/b]: Royal Knight subclass
 [*][b]SilverGriffon[/b]: PickPocket, lore friendly names, crafty feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants
 [*][b]Sinai-dev[/b]: Unity Explorer UI standalone
 [*][b]Spacehamster[/b]: dataminer
-[*][b]TPABOBAP[/b]: Warlock class
+[*][b]TPABOBAP[/b]: Warlock class design, improvements and refactor, Level Up improvements, Tinkerer improvements, Holic patches 
 [*][b]View619[/b]: Darkvision, Superior Dark Vision
-[*][b]Zappastuff[/b]: multiclass, level 20, respec, level down, encounters, dungeon maker editor & pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, integration, arcane defense/precision, brutal thug, charismatic defense/precision, fighting surge, metamagic, primal, shady and wise defense/precision feats, races and spells migration
+[*][b]Zappastuff[/b]: multiclass, level 20, respec, level down, encounters, dungeon maker editor & pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, integration, arcane defense/precision, brutal thug, charismatic defense/precision, fast hands, fighting surge, marksman, metamagic, primal, shady and wise defense/precision feats, races and spells migration, warlock pact magic, refactor
 [/list]
 
 [size=4][b]How to Install[/b][/size]

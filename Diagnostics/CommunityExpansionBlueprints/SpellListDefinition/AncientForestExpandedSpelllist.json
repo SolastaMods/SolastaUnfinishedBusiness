@@ -20,7 +20,7 @@
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 2,
       "spells": [
-        "Definition:Barkskin:fcb74f4deaec07b40814328a9d5aa5f6",
+        "Definition:ProtectionFromPoison:a7ceb55598ebbfd4cb4dfded0a7450f9",
         "Definition:SpikeGrowth:489c8aa040535444da10a267213ee7dc"
       ]
     },
@@ -28,8 +28,8 @@
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 3,
       "spells": [
-        "Definition:MassHealingWord:1b13f79192a474947a2c0138ded903b3",
-        "Definition:VampiricTouch:149a2d0a835fda54b99a710e0dabfd53"
+        "Definition:Revivify:16e7fb95186cf9b41806d15fbacd81af",
+        "Definition:StinkingCloud:b62f452e6a757124da5eef6ca9fd46e9"
       ]
     },
     {
@@ -37,7 +37,7 @@
       "level": 4,
       "spells": [
         "Definition:Blight:bd131ed580e31734abb8189ab7e17a10",
-        "Definition:IdentifyCreatures:8cf2f383cc3d0704e860b4fd6fc7659f"
+        "Definition:GiantInsect:752353d60e1c84c4cb0955798995a954"
       ]
     },
     {
@@ -45,7 +45,7 @@
       "level": 5,
       "spells": [
         "Definition:Contagion:13567fa6f3f984347b5b6c4347fac6e8",
-        "Definition:RaiseDead:d35f9eee1baf295468f1dd7c696a15ba"
+        "Definition:InsectPlague:f74938dd8dd25294b97663330c8e293e"
       ]
     },
     {
