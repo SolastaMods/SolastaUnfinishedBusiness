@@ -4,7 +4,7 @@ using SolastaModApi.Infrastructure;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace SolastaCommunityExpansion.Patches.LevelUp
+namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
 {
     // add more spacing in between subclasses badges
     [HarmonyPatch(typeof(CharacterStageSubclassSelectionPanel), "EnterStage")]

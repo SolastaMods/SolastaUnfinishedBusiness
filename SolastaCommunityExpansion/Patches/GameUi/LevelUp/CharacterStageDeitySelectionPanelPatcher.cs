@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.LevelUp
+namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
 {
     [HarmonyPatch(typeof(CharacterStageDeitySelectionPanel), "Compare", new System.Type[] { typeof(DeityDefinition), typeof(DeityDefinition) })]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

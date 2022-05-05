@@ -43,6 +43,11 @@ namespace SolastaCommunityExpansion.Models
         {
             var selectedClass = LevelUpContext.GetSelectedClass(hero);
 
+            if (selectedClass == null)
+            {
+                return;
+            }
+
             features = new List<FeatureDefinition>(features);
 
             RemoveFeatures(hero, selectedClass, tag, features);
