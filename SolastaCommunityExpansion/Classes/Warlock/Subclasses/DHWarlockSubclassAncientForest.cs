@@ -24,10 +24,10 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetGuiPresentationNoContent()
                 .ClearSpells()
                 .SetSpellsAtLevel(1, Goodberry, Entangle)
-                .SetSpellsAtLevel(2, Barkskin, SpikeGrowth)
-                .SetSpellsAtLevel(3, MassHealingWord, VampiricTouch)
-                .SetSpellsAtLevel(4, Blight, IdentifyCreatures)
-                .SetSpellsAtLevel(5, Contagion, RaiseDead)
+                .SetSpellsAtLevel(2, ProtectionFromPoison, SpikeGrowth)
+                .SetSpellsAtLevel(3, Revivify, StinkingCloud)
+                .SetSpellsAtLevel(4, Blight, GiantInsect)
+                .SetSpellsAtLevel(5, Contagion, InsectPlague)
                 .FinalizeSpells()
                 .AddToDB();
 

@@ -31,9 +31,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .ClearSpells()
                 .SetSpellsAtLevel(1, FaerieFire, Sleep)
                 .SetSpellsAtLevel(2, MoonBeam, SeeInvisibility)
-                .SetSpellsAtLevel(3, Daylight, HypnoticPattern)
-                .SetSpellsAtLevel(4, GreaterInvisibility, DominateBeast)
-                .SetSpellsAtLevel(5, DominatePerson, FlameStrike)
+                .SetSpellsAtLevel(3, Daylight, Slow)
+                .SetSpellsAtLevel(4, GreaterInvisibility, GuardianOfFaith)
+                .SetSpellsAtLevel(5, DominatePerson, MindTwist)
                 .FinalizeSpells()
                 .AddToDB();
 
