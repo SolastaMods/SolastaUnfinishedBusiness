@@ -1,12 +1,14 @@
-﻿using HarmonyLib;
+﻿using System.Diagnostics.CodeAnalysis;
+using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
-namespace SolastaMulticlass.Patches.GameUi
+namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
 {
     internal static class CharacterPlateDetailedPatcher
     {
         [HarmonyPatch(typeof(CharacterPlateDetailed), "OnPortraitShowed")]
-        internal static class CharacterPlateDetailedOnPortraitShowed
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+        internal static class CharacterPlateDetailed_OnPortraitShowed
         {
             internal static void Postfix(CharacterPlateDetailed __instance, GuiLabel ___classLabel)
             {
@@ -23,6 +25,11 @@ namespace SolastaMulticlass.Patches.GameUi
                 {
                     separator = '\\';
                     classesCount = guiCharacter.Snapshot.Classes.Length;
+                }
+
+                if (classesCount == 1)
+                {
+                    return;
                 }
 
                 ___classLabel.Text = MulticlassGameUiContext.GetAllClassesLabel(guiCharacter, separator) ?? ___classLabel.Text;
