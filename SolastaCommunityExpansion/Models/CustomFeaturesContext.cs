@@ -19,7 +19,7 @@ namespace SolastaCommunityExpansion.Models
 
                 if (grantedFeature is FeatureDefinitionFeatureSet set && set.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                 {
-                    RecursiveGrantCustomFeatures(hero, tag, set.FeatureSet);
+                    RecursiveGrantCustomFeatures(hero, tag, set.FeatureSet, handleCustomCode);
                 }
 
                 if (grantedFeature is not FeatureDefinitionProficiency featureDefinitionProficiency)
@@ -59,7 +59,7 @@ namespace SolastaCommunityExpansion.Models
 
                 if (grantedFeature is FeatureDefinitionFeatureSet set && set.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                 {
-                    RecursiveRemoveCustomFeatures(hero, tag, set.FeatureSet);
+                    RecursiveRemoveCustomFeatures(hero, tag, set.FeatureSet, handleCustomCode);
                 }
 
                 if (grantedFeature is not FeatureDefinitionProficiency featureDefinitionProficiency)
