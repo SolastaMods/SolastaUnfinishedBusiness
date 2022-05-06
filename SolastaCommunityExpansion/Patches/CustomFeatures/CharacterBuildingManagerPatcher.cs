@@ -71,6 +71,15 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
     {
         internal static void Postfix(RulesetCharacterHero hero, List<FeatureDefinition> grantedFeatures, string tag)
         {
+            var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
+            var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
+
+            // this is a MC scenario
+            if (isLevelingUp && isClassSelectionStage)
+            {
+                return;
+            }
+
             CustomFeaturesContext.RecursiveGrantCustomFeatures(hero, tag, grantedFeatures);
         }
     }
@@ -114,6 +123,15 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
     {
         internal static void Prefix(RulesetCharacterHero hero)
         {
+            var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
+            var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
+
+            // this is a MC scenario
+            if (isLevelingUp && isClassSelectionStage)
+            {
+                return;
+            }
+
             var heroBuildingData = hero.GetOrCreateHeroBuildingData();
             var classDefinition = hero.ClassesHistory[heroBuildingData.HeroCharacter.ClassesHistory.Count - 1];
             var classesAndLevel = hero.ClassesAndLevels[classDefinition];
