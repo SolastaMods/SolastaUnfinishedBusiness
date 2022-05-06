@@ -71,12 +71,12 @@ namespace SolastaCommunityExpansion.Models
 
                 if (grantedFeature is not FeatureDefinitionProficiency featureDefinitionProficiency)
                 {
-                    return;
+                    continue;
                 }
 
                 if (featureDefinitionProficiency.ProficiencyType != RuleDefinitions.ProficiencyType.FightingStyle)
                 {
-                    return;
+                    continue;
                 }
 
                 featureDefinitionProficiency.Proficiencies
@@ -85,7 +85,7 @@ namespace SolastaCommunityExpansion.Models
                             .Remove(DatabaseRepository.GetDatabase<FightingStyleDefinition>()
                                 .GetElement(prof, false)));
             }
-
+            RemoveFeatures(hero, selectedClass, tag, features);
             features.Clear();
             hero.RefreshAll();
         }
@@ -158,12 +158,8 @@ namespace SolastaCommunityExpansion.Models
                 }
                 else if (featureDefinition is FeatureDefinitionBonusCantrips featureDefinitionBonusCantrips && heroRepertoire != null)
                 {
-                    var spellsToRemove = featureDefinitionBonusCantrips.BonusCantrips.Count;
-
-                    while (spellsToRemove-- > 0)
-                    {
-                        heroRepertoire.KnownCantrips.RemoveAt(heroRepertoire.KnownCantrips.Count - 1);
-                    }
+                    //TODO: fix potential problem if several features grant same cantrip, but we only remove one of them
+                    heroRepertoire.KnownCantrips.RemoveAll(featureDefinitionBonusCantrips.BonusCantrips.Contains);
                 }
                 else if (featureDefinition is FeatureDefinitionFightingStyleChoice)
                 {
@@ -327,6 +323,16 @@ namespace SolastaCommunityExpansion.Models
                 .Where(v => v != null)
                 .ToList();
             return errors.Empty();
+        }
+
+        public static string UnCustomizeTag(string tag)
+        {
+            return tag.Replace("[Custom]", "");
+        }
+
+        public static string CustomizeTag(string tag)
+        {
+            return UnCustomizeTag(tag) + "[Custom]";
         }
     }
 }

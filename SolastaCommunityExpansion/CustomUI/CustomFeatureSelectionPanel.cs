@@ -482,26 +482,15 @@ namespace SolastaCommunityExpansion.CustomUI
         {
             var command = ServiceRepository.GetService<IHeroBuildingCommandService>();
             var acquiredFeatures = CollectAcquiredFeatures();
-            var classFeatures = GetNormalActiveFeatures();
-            var classTag = GetClassTag(gainedClass, gainedClassLevel);
-
-            command.ClearPrevious(currentHero, classTag);
-
-            if (gainedSubclass != null)
-            {
-                command.ClearPrevious(currentHero, GetSubclassTag(gainedClass, gainedClassLevel, gainedSubclass));
-            }
+            var classFeatures = GetNormalActiveFeatures();//TODO: remove custom feture sets from acitve features
+            
+            command.ClearPrevious(currentHero, GetCustomClassTag());
+            command.ClearPrevious(currentHero, GetCustomSubClassTag());// skips cleaning if tag in null or empty
             
             foreach (var e in acquiredFeatures)
             {
                 var currentTag = e.Key;
                 var features = e.Value;
-
-                if (currentTag == classTag)
-                {
-                    classFeatures.AddRange(features);
-                    features = classFeatures;
-                }
 
                 features.RemoveAll(f => f is CustomFeatureDefinitionSet);
                 command.GrantFeatures(currentHero, features, currentTag, false);
@@ -636,6 +625,18 @@ namespace SolastaCommunityExpansion.CustomUI
             }
         }
 
+        private string GetCustomClassTag()
+        {
+            return CustomFeaturesContext.CustomizeTag(GetClassTag(gainedClass, gainedClassLevel));
+        }
+        
+        private string GetCustomSubClassTag()
+        {
+            if (gainedSubclass == null)
+                return null;
+            return CustomFeaturesContext.CustomizeTag(GetSubclassTag(gainedClass, gainedClassLevel, gainedSubclass));
+        }
+
         private void UpdateGrantedFeatures()
         {
             UpdateGanedClassDetails();
@@ -644,7 +645,7 @@ namespace SolastaCommunityExpansion.CustomUI
 
             if (gainedClass == null) { return; }
 
-            var poolTag = GetClassTag(gainedClass, gainedClassLevel);
+            var poolTag = GetCustomClassTag();
 
             gainedCustomFeatures.AddRange(gainedClass.FeatureUnlocks
                 .Where(f => f.Level == gainedClassLevel)
@@ -653,9 +654,9 @@ namespace SolastaCommunityExpansion.CustomUI
                 .Select(f => (poolTag, f))
             );
 
-            if (gainedSubclass != null)
+            poolTag = GetCustomSubClassTag();
+            if (poolTag != null)
             {
-                poolTag =  GetSubclassTag(gainedClass, gainedClassLevel, gainedSubclass);
                 gainedCustomFeatures.AddRange(gainedSubclass.FeatureUnlocks
                     .Where(f => f.Level == gainedClassLevel)
                     .Select(f => f.FeatureDefinition as CustomFeatureDefinitionSet)
