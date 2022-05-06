@@ -781,6 +781,7 @@ Feature/&BolgrifPowerfulBuildTitle	Powerful Build
 Feature/&BondoftheTalismanDescription	Teleport up to 5 cells away
 Feature/&BondoftheTalismanTitle	Teleport Talisman
 Feature/&ChainsofCarceriTitle	Chains of Carceri
+Feature/&ChainsofCarceriDescription	Paralyzes a celestial, fiend or elemental unless it succeeds a WIS saving throw.
 Feature/&ClassWarlockArmorProficiencyDescription	Light Armor
 Feature/&ClassWarlockArmorProficiencyTitle	Warlock Armor Proficiencies
 Feature/&ClassWarlockEldritchInvocationSetLevelDescription	Add an eldritch invocation
