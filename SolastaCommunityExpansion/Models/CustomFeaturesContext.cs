@@ -62,6 +62,13 @@ namespace SolastaCommunityExpansion.Models
                     RecursiveRemoveCustomFeatures(hero, tag, set.FeatureSet, handleCustomCode);
                 }
 
+                if (grantedFeature is FeatureDefinitionPointPool featureDefinitionPointPool)
+                {
+                    var repertoire = LevelUpContext.GetSelectedClassOrSubclassRepertoire(hero);
+
+                    RemoveFeatureDefinitionPointPool(hero, repertoire, featureDefinitionPointPool);
+                }
+
                 if (grantedFeature is not FeatureDefinitionProficiency featureDefinitionProficiency)
                 {
                     return;
@@ -79,7 +86,6 @@ namespace SolastaCommunityExpansion.Models
                                 .GetElement(prof, false)));
             }
 
-            RemoveFeatures(hero, selectedClass, tag, features);
             features.Clear();
             hero.RefreshAll();
         }
@@ -166,10 +172,6 @@ namespace SolastaCommunityExpansion.Models
                 else if (featureDefinition is FeatureDefinitionSubclassChoice)
                 {
                     hero.ClassesAndSubclasses.Remove(characterClassDefinition);
-                }
-                else if (featureDefinition is FeatureDefinitionPointPool featureDefinitionPointPool)
-                {
-                    RemoveFeatureDefinitionPointPool(hero, heroRepertoire, featureDefinitionPointPool);
                 }
                 else if (featureDefinition is FeatureDefinitionFeatureSet featureDefinitionFeatureSet && featureDefinitionFeatureSet.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                 {
