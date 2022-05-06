@@ -2,7 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures.RecursiveGrantCustomFeatures
+namespace SolastaCommunityExpansion.Patches.CustomFeatures
 {
     [HarmonyPatch(typeof(RulesetCharacterHero), "TrainFeats")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.RecursiveGrantCustomF
         {
             foreach(var feat in feats)
             {
-                Models.CustomFeaturesContext.RecursiveGrantCustomFeatures(__instance, feat.Features, null);
+                Models.CustomFeaturesContext.RecursiveGrantCustomFeatures(__instance, null, feat.Features);
             }
         }
     }

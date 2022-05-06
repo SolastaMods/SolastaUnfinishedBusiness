@@ -3,54 +3,25 @@ using System.Linq;
 using System.Reflection;
 using HarmonyLib;
 using SolastaCommunityExpansion;
-using SolastaMulticlass.Models;
+using SolastaCommunityExpansion.Models;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 
 namespace SolastaMulticlass.Patches.LevelUp
 {
     internal static class CharacterBuildingManagerPatcher
     {
-        //
-        // context registration / unregistration patches
-        //
-
-        // register the hero leveling up
-        [HarmonyPatch(typeof(CharacterBuildingManager), "LevelUpCharacter")]
-        internal static class CharacterBuildingManagerLevelUpCharacter
-        {
-            internal static void Prefix(RulesetCharacterHero hero)
-            {
-                LevelUpContext.RegisterHero(hero);
-            }
-        }
-
-        // unregister the hero leveling up
-        [HarmonyPatch(typeof(CharacterBuildingManager), "FinalizeCharacter")]
-        internal static class CharacterBuildingManagerFinalizeCharacter
-        {
-            internal static void Postfix(RulesetCharacterHero hero)
-            {
-                LevelUpContext.UnregisterHero(hero);
-            }
-        }
-
         // captures the desired class and ensures this doesn't get executed in the class panel level up screen
         [HarmonyPatch(typeof(CharacterBuildingManager), "AssignClassLevel")]
         internal static class CharacterBuildingManagerAssignClassLevel
         {
-            internal static bool Prefix(RulesetCharacterHero hero, CharacterClassDefinition classDefinition)
+            internal static bool Prefix(RulesetCharacterHero hero)
             {
                 var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
                 var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
 
-                if (isLevelingUp)
+                if (isLevelingUp && !isClassSelectionStage)
                 {
-                    LevelUpContext.SetSelectedClass(hero, classDefinition);
-
-                    if (!isClassSelectionStage)
-                    {
-                        LevelUpContext.GrantItemsIfRequired(hero);
-                    }
+                    LevelUpContext.GrantItemsIfRequired(hero);
                 }
 
                 return !(isLevelingUp && isClassSelectionStage);
@@ -75,20 +46,6 @@ namespace SolastaMulticlass.Patches.LevelUp
             }
         }
 
-        // captures the desired sub class
-        [HarmonyPatch(typeof(CharacterBuildingManager), "AssignSubclass")]
-        internal static class CharacterBuildingManagerAssignSubclass
-        {
-            internal static void Prefix(RulesetCharacterHero hero, CharacterSubclassDefinition subclassDefinition)
-            {
-                LevelUpContext.SetSelectedSubclass(hero, subclassDefinition);
-            }
-        }
-
-        //
-        // don't grant features on class selection stage during level up
-        //
-
         // ensures this doesn't get executed in the class panel level up screen
         [HarmonyPatch(typeof(CharacterBuildingManager), "GrantFeatures")]
         internal static class CharacterBuildingManagerGrantFeatures
@@ -102,11 +59,7 @@ namespace SolastaMulticlass.Patches.LevelUp
             }
         }
 
-        //
-        // SPELLS
-        //
-
-        // ensures the level up process only presents / offers spells based on all different mod settings
+        // ensures the level up process only presents / offers spells from current class
         [HarmonyPatch(typeof(CharacterBuildingManager), "EnumerateKnownAndAcquiredSpells")]
         internal static class CharacterBuildingManagerEnumerateKnownAndAcquiredSpells
         {
@@ -231,7 +184,7 @@ namespace SolastaMulticlass.Patches.LevelUp
             }
         }
 
-        // removes any levels from the tag otherwise the spell offering panel gets lost and produces a null exception
+        // get the correct spell feature for the selected class
         [HarmonyPatch(typeof(CharacterBuildingManager), "GetSpellFeature")]
         internal static class CharacterBuildingManagerGetSpellFeature
         {
@@ -299,7 +252,7 @@ namespace SolastaMulticlass.Patches.LevelUp
             }
         }
 
-        // ensures the level up process only offers slots from the leveling up class
+        // ensure the level up process only offers slots from the leveling up class
         [HarmonyPatch(typeof(CharacterBuildingManager), "UpgradeSpellPointPools")]
         internal static class CharacterBuildingManagerUpgradeSpellPointPools
         {

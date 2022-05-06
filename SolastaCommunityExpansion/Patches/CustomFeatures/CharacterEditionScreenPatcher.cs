@@ -6,7 +6,7 @@ using SolastaCommunityExpansion.CustomUI;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.LevelUp
+namespace SolastaCommunityExpansion.Patches.CustomFeatures
 {
     // add the custom features selection stage panel to the creation and level up screen
     [HarmonyPatch(typeof(CharacterEditionScreen), "LoadStagePanels")]

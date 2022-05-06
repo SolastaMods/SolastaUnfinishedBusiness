@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaMulticlass.Models;
 using static SolastaCommunityExpansion.Models.RespecContext;
 
 namespace SolastaCommunityExpansion.Models
@@ -86,15 +85,14 @@ namespace SolastaCommunityExpansion.Models
                 subclassTag = AttributeDefinitions.GetSubclassTag(characterClassDefinition, classLevel, characterSubclassDefinition);
             }
 
-            LevelUpContext.RegisterHero(hero);
-            LevelUpContext.SetSelectedClass(hero, characterClassDefinition);
-            LevelUpContext.SetSelectedSubclass(hero, characterSubclassDefinition);
+            LevelUpContext.RegisterHero(hero, characterClassDefinition, characterSubclassDefinition);
 
             UnlearnSpells(hero, indexLevel);
 
-            if (hero.ActiveFeatures.ContainsKey(subclassTag))
+            if (hero.ActiveFeatures.ContainsKey(subclassTag) && subclassTag != classTag)
             {
-                RemoveFeatures(hero, characterClassDefinition, subclassTag, hero.ActiveFeatures[subclassTag]);
+                CustomFeaturesContext.RemoveFeatures(hero, characterClassDefinition, subclassTag, hero.ActiveFeatures[subclassTag]);
+                CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, subclassTag, hero.ActiveFeatures[subclassTag]);
 
                 hero.ActiveFeatures.Remove(subclassTag);
                 hero.ClearFeatureModifiers(subclassTag);
@@ -102,7 +100,8 @@ namespace SolastaCommunityExpansion.Models
 
             if (hero.ActiveFeatures.ContainsKey(classTag))
             {
-                RemoveFeatures(hero, characterClassDefinition, classTag, hero.ActiveFeatures[classTag]);
+                CustomFeaturesContext.RemoveFeatures(hero, characterClassDefinition, classTag, hero.ActiveFeatures[classTag]);
+                CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, classTag, hero.ActiveFeatures[classTag]);
 
                 hero.ActiveFeatures.Remove(classTag);
                 hero.ClearFeatureModifiers(classTag);
@@ -134,50 +133,6 @@ namespace SolastaCommunityExpansion.Models
             if (Gui.Game == null)
             {
                 ServiceRepository.GetService<ICharacterPoolService>().SaveCharacter(hero, true);
-            }
-        }
-
-        private static void RemoveFeatureDefinitionPointPool(RulesetCharacterHero hero, RulesetSpellRepertoire heroRepertoire, FeatureDefinitionPointPool featureDefinitionPointPool)
-        {
-            var poolAmount = featureDefinitionPointPool.PoolAmount;
-
-            switch (featureDefinitionPointPool.PoolType)
-            {
-                case HeroDefinitions.PointsPoolType.AbilityScore:
-                    // this is handled when attributes are refreshed
-                    break;
-
-                case HeroDefinitions.PointsPoolType.Cantrip:
-                    heroRepertoire?.KnownCantrips.RemoveRange(heroRepertoire.KnownCantrips.Count - poolAmount, poolAmount);
-                    break;
-
-                case HeroDefinitions.PointsPoolType.Spell:
-                    heroRepertoire?.KnownSpells.RemoveRange(heroRepertoire.KnownSpells.Count - poolAmount, poolAmount);
-                    break;
-
-                case HeroDefinitions.PointsPoolType.Expertise:
-                    hero.TrainedExpertises.RemoveRange(hero.TrainedExpertises.Count - poolAmount, poolAmount);
-                    break;
-
-                case HeroDefinitions.PointsPoolType.Feat:
-                    hero.TrainedFeats.RemoveRange(hero.TrainedFeats.Count - poolAmount, poolAmount);
-                    break;
-
-                case HeroDefinitions.PointsPoolType.Language:
-                    hero.TrainedLanguages.RemoveRange(hero.TrainedLanguages.Count - poolAmount, poolAmount);
-                    break;
-
-                case HeroDefinitions.PointsPoolType.Metamagic:
-                    hero.TrainedMetamagicOptions.RemoveRange(hero.TrainedMetamagicOptions.Count - poolAmount, poolAmount);
-                    break;
-
-                case HeroDefinitions.PointsPoolType.Skill:
-                    hero.TrainedSkills.RemoveRange(hero.TrainedSkills.Count - poolAmount, poolAmount);
-                    break;
-
-                case HeroDefinitions.PointsPoolType.Tool:
-                    hero.TrainedToolTypes.RemoveRange(hero.TrainedToolTypes.Count - poolAmount, poolAmount);
-                    break;
             }
         }
 
@@ -229,58 +184,6 @@ namespace SolastaCommunityExpansion.Models
 
                     break;
             }
-        }
-
-        private static void RemoveFeatures(RulesetCharacterHero hero, CharacterClassDefinition characterClassDefinition, string tag, List<FeatureDefinition> featuresToRemove)
-        {
-            var classLevel = hero.ClassesAndLevels[characterClassDefinition];
-            var heroRepertoire = hero.SpellRepertoires.FirstOrDefault(x => LevelUpContext.IsRepertoireFromSelectedClassSubclass(hero, x));
-
-            foreach (var featureDefinition in featuresToRemove)
-            {
-                var featureDefinitionTypeName = featureDefinition.GetType().Name;
-
-                if (featureDefinition is FeatureDefinitionCastSpell && heroRepertoire != null)
-                {
-                    hero.SpellRepertoires.Remove(heroRepertoire);
-                }
-                else if (featureDefinition is FeatureDefinitionAutoPreparedSpells featureDefinitionAutoPreparedSpells && heroRepertoire != null)
-                {
-                    var spellsToRemove = featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups.FirstOrDefault(x => x.ClassLevel == classLevel)?.SpellsList.Count ?? 0;
-
-                    while (spellsToRemove-- > 0)
-                    {
-                        heroRepertoire.AutoPreparedSpells.RemoveAt(heroRepertoire.AutoPreparedSpells.Count - 1);
-                    }
-                }
-                else if (featureDefinition is FeatureDefinitionBonusCantrips featureDefinitionBonusCantrips && heroRepertoire != null)
-                {
-                    var spellsToRemove = featureDefinitionBonusCantrips.BonusCantrips.Count;
-
-                    while (spellsToRemove-- > 0)
-                    {
-                        heroRepertoire.KnownCantrips.RemoveAt(heroRepertoire.KnownCantrips.Count - 1);
-                    }
-                }
-                else if (featureDefinition is FeatureDefinitionFightingStyleChoice)
-                {
-                    hero.TrainedFightingStyles.RemoveAt(hero.TrainedFightingStyles.Count - 1);
-                }
-                else if (featureDefinition is FeatureDefinitionSubclassChoice)
-                {
-                    hero.ClassesAndSubclasses.Remove(characterClassDefinition);
-                }
-                else if (featureDefinition is FeatureDefinitionPointPool featureDefinitionPointPool)
-                {
-                    RemoveFeatureDefinitionPointPool(hero, heroRepertoire, featureDefinitionPointPool);
-                }
-                else if (featureDefinition is FeatureDefinitionFeatureSet featureDefinitionFeatureSet && featureDefinitionFeatureSet.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-                {
-                    RemoveFeatures(hero, characterClassDefinition, tag, featureDefinitionFeatureSet.FeatureSet);
-                }
-            }
-
-            CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, featuresToRemove, tag);
         }
     }
 }

@@ -1,16 +1,18 @@
-﻿using HarmonyLib;
-using SolastaMulticlass.Models;
+﻿using System.Diagnostics.CodeAnalysis;
+using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 
-namespace SolastaMulticlass.Patches.GameUi
+namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
 {
     internal static class CharactersStatsPanelPatcher
     {
         [HarmonyPatch(typeof(CharacterStatsPanel), "Refresh")]
-        internal static class CharacterStatsPanelRefresh
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+        internal static class CharacterStatsPanel_Refresh
         {
             internal static void Postfix(CharacterStatBox ___hitDiceBox, GuiCharacter ___guiCharacter)
             {
-                if (___hitDiceBox.Activated)
+                if (___hitDiceBox.Activated && ___guiCharacter.RulesetCharacterHero.ClassesAndLevels.Count > 1)
                 {
                     ___hitDiceBox.ValueLabel.Text = MulticlassGameUiContext.GetAllClassesHitDiceLabel(___guiCharacter, out var dieTypeCount);
                     ___hitDiceBox.ValueLabel.TMP_Text.fontSize = MulticlassGameUiContext.GetFontSize(dieTypeCount);

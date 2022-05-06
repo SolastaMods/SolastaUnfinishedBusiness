@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using HarmonyLib;
-using SolastaMulticlass.Models;
+using SolastaCommunityExpansion.Models;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 
 namespace SolastaMulticlass.Patches.SlotsSpells

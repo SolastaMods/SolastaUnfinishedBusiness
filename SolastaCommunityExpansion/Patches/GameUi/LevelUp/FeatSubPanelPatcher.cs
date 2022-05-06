@@ -7,7 +7,7 @@ using SolastaModApi.Infrastructure;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace SolastaCommunityExpansion.Patches.LevelUp
+namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
 {
     // avoids a restart when enabling / disabling feats on the Mod UI panel
     [HarmonyPatch(typeof(FeatSubPanel), "Bind")]

@@ -1,20 +1,77 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures.RecursiveGrantCustomFeatures
+namespace SolastaCommunityExpansion.Patches.CustomFeatures
 {
+    // register the hero getting created
+    [HarmonyPatch(typeof(CharacterBuildingManager), "CreateNewCharacter")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class CharacterBuildingManager_CreateCharacter
+    {
+        internal static void Postfix(CharacterBuildingManager __instance)
+        {
+            LevelUpContext.RegisterHero(__instance.CurrentLocalHeroCharacter, null, null);
+        }
+    }
+
+    // register the hero leveling up
+    [HarmonyPatch(typeof(CharacterBuildingManager), "LevelUpCharacter")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class CharacterBuildingManager_LevelUpCharacter
+    {
+        internal static void Prefix(RulesetCharacterHero hero)
+        {
+            var lastClass = hero.ClassesHistory.Last();
+
+            hero.ClassesAndSubclasses.TryGetValue(lastClass, out var lastSubclass);
+
+            LevelUpContext.RegisterHero(hero, lastClass, lastSubclass, levelingUp: true);
+        }
+    }
+
+    // unregister the hero leveling up
+    [HarmonyPatch(typeof(CharacterBuildingManager), "FinalizeCharacter")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class CharacterBuildingManager_FinalizeCharacter
+    {
+        internal static void Postfix(RulesetCharacterHero hero)
+        {
+            LevelUpContext.UnregisterHero(hero);
+        }
+    }
+
+    // captures the desired class
+    [HarmonyPatch(typeof(CharacterBuildingManager), "AssignClassLevel")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class CharacterBuildingManager_AssignClassLevel
+    {
+        internal static void Prefix(RulesetCharacterHero hero, CharacterClassDefinition classDefinition)
+        {
+            LevelUpContext.SetSelectedClass(hero, classDefinition);
+        }
+    }
+
+    // captures the desired sub class
+    [HarmonyPatch(typeof(CharacterBuildingManager), "AssignSubclass")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class CharacterBuildingManager_AssignSubclass
+    {
+        internal static void Prefix(RulesetCharacterHero hero, CharacterSubclassDefinition subclassDefinition)
+        {
+            LevelUpContext.SetSelectedSubclass(hero, subclassDefinition);
+        }
+    }
+
     [HarmonyPatch(typeof(CharacterBuildingManager), "GrantFeatures")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterBuildingManager_GrantFeatures
     {
-        /**
-         * When a character is being granted features, this patch will apply the effect of custom features.
-         */
         internal static void Postfix(RulesetCharacterHero hero, List<FeatureDefinition> grantedFeatures, string tag)
         {
-            CustomFeaturesContext.RecursiveGrantCustomFeatures(hero, grantedFeatures, tag);
+            CustomFeaturesContext.RecursiveGrantCustomFeatures(hero, tag, grantedFeatures);
         }
     }
 
@@ -29,7 +86,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.RecursiveGrantCustomF
                 return;
             }
 
-            CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, hero.ActiveFeatures[tag], tag);
+            CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, hero.ActiveFeatures[tag]);
         }
     }
 
@@ -47,7 +104,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.RecursiveGrantCustomF
                 return;
             }
 
-            CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, hero.ActiveFeatures[tag], tag);
+            CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, hero.ActiveFeatures[tag]);
         }
     }
 
@@ -67,7 +124,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.RecursiveGrantCustomF
                 return;
             }
 
-            CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, hero.ActiveFeatures[tag], tag);
+            CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, hero.ActiveFeatures[tag]);
         }
     }
 
@@ -85,7 +142,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.RecursiveGrantCustomF
                 return;
             }
 
-            CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, hero.ActiveFeatures[tag], tag);
+            CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, hero.ActiveFeatures[tag]);
         }
     }
 
@@ -117,7 +174,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.RecursiveGrantCustomF
                 return;
             }
 
-            CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, hero.ActiveFeatures[tag], tag);
+            CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, hero.ActiveFeatures[tag]);
         }
     }
 }

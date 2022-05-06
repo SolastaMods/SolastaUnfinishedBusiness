@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿#if false
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 
@@ -37,3 +38,4 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.AtttributeModifierBon
         }
     }
 }
+#endif

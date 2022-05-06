@@ -2,6 +2,7 @@
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 using SolastaMulticlass.Models;
 using UnityEngine;
 

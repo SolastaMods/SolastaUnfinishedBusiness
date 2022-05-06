@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaCommunityExpansion.Models;
 using static FeatureDefinitionCastSpell;
 using static SolastaCommunityExpansion.Classes.Warlock.WarlockSpells;
 using static SolastaCommunityExpansion.Level20.SpellsHelper;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
-using static SolastaMulticlass.Models.IntegrationContext;
+using static SolastaCommunityExpansion.Models.IntegrationContext;
 
-namespace SolastaMulticlass.Models
+namespace SolastaCommunityExpansion.Models
 {
     public enum CasterType
     {

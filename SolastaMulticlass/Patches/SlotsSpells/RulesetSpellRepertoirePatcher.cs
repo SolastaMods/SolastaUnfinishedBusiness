@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 using SolastaModApi.Infrastructure;
-using SolastaMulticlass.Models;
 using UnityEngine;
 
 namespace SolastaMulticlass.Patches.SlotsSpells
@@ -235,7 +235,7 @@ namespace SolastaMulticlass.Patches.SlotsSpells
         {
             internal static void Postfix(RulesetSpellRepertoire __instance, ref int __result)
             {
-                // required to ensure we don't display auto prepared spells
+                // required to ensure we don't learn auto prepared spells from higher levels
                 if (SharedSpellsContext.DisableMaxSpellLevelOfSpellCastingLevelPatch)
                 {
                     return;
