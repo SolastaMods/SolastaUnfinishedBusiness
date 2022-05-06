@@ -6,7 +6,7 @@ namespace SolastaCommunityExpansion.Patches.Level20
     // handles all different scenarios to determine max spell level (must be a postfix)
     [HarmonyPatch(typeof(RulesetSpellRepertoire), "MaxSpellLevelOfSpellCastingLevel", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetSpellRepertoire_MaxSpellLevelOfSpellCastingLevelGetter
+    internal static class RulesetSpellRepertoire_MaxSpellLevelOfSpellCastingLevel_Getter
     {
         internal static void Postfix(RulesetSpellRepertoire __instance, ref int __result)
         {
