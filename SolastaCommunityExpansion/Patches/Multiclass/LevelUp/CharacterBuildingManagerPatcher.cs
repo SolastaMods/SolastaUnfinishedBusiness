@@ -13,8 +13,10 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterBuildingManager_AssignClassLevel
     {
-        internal static bool Prefix(RulesetCharacterHero hero)
+        internal static bool Prefix(RulesetCharacterHero hero, CharacterClassDefinition classDefinition)
         {
+            LevelUpContext.SetSelectedClass(hero, classDefinition);
+
             if (!Main.Settings.EnableMulticlass)
             {
                 return true;
@@ -39,13 +41,29 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
     {
         internal static bool Prefix(RulesetCharacterHero hero)
         {
+            var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
+            var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
+
+            //
+            // CUSTOM FEATURES BEHAVIOR
+            //
+            if (!isLevelingUp || !isClassSelectionStage)
+            {
+                var heroBuildingData = hero.GetOrCreateHeroBuildingData();
+                var classDefinition = hero.ClassesHistory[heroBuildingData.HeroCharacter.ClassesHistory.Count - 1];
+                var classesAndLevel = hero.ClassesAndLevels[classDefinition];
+                var tag = AttributeDefinitions.GetClassTag(classDefinition, classesAndLevel);
+
+                if (hero.ActiveFeatures.ContainsKey(tag))
+                {
+                    CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, hero.ActiveFeatures[tag]);
+                }
+            }
+
             if (!Main.Settings.EnableMulticlass)
             {
                 return true;
             }
-
-            var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
-            var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
 
             if (isLevelingUp && !isClassSelectionStage)
             {

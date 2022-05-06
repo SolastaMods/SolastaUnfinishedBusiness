@@ -43,6 +43,10 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
         }
     }
 
+    //
+    // this is now handled in MC as we cannot have both a bool prefix and a void prefix on same method
+    //
+#if false
     // captures the desired class
     [HarmonyPatch(typeof(CharacterBuildingManager), "AssignClassLevel")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -53,6 +57,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
             LevelUpContext.SetSelectedClass(hero, classDefinition);
         }
     }
+#endif
 
     // captures the desired sub class
     [HarmonyPatch(typeof(CharacterBuildingManager), "AssignSubclass")]
@@ -132,6 +137,10 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
         }
     }
 
+    //
+    // this is now handled in MC as we cannot have both a bool prefix and a void prefix on same method
+    //
+#if false
     [HarmonyPatch(typeof(CharacterBuildingManager), "UnassignLastClassLevel")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterBuildingManager_UnassignLastClassLevel
@@ -160,6 +169,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
             CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, hero.ActiveFeatures[tag]);
         }
     }
+#endif
 
     [HarmonyPatch(typeof(CharacterBuildingManager), "UnassignBackground")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
