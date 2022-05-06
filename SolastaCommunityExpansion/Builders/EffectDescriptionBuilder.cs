@@ -153,8 +153,12 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public EffectDescriptionBuilder SetTargetFiltering(RuleDefinitions.TargetFilteringMethod targetFilteringMethod, RuleDefinitions.TargetFilteringTag targetFilteringTag,
-            int poolFilterDiceNumber, RuleDefinitions.DieType poolFilterDieType)
+        public EffectDescriptionBuilder SetTargetFiltering(
+            RuleDefinitions.TargetFilteringMethod targetFilteringMethod, 
+            RuleDefinitions.TargetFilteringTag targetFilteringTag = RuleDefinitions.TargetFilteringTag.No,
+            int poolFilterDiceNumber = 0, 
+            RuleDefinitions.DieType poolFilterDieType = RuleDefinitions.DieType.D1
+        )
         {
             effect.SetTargetFilteringMethod(targetFilteringMethod);
             effect.SetTargetFilteringTag(targetFilteringTag);
@@ -263,7 +267,7 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public EffectDescriptionBuilder AddRestrictedCreatureFamilies(CharacterFamilyDefinition family)
+        public EffectDescriptionBuilder AddRestrictedCreatureFamily(CharacterFamilyDefinition family)
         {
             effect.RestrictedCreatureFamilies.Add(family.Name);
             return this;

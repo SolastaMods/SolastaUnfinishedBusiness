@@ -1059,8 +1059,8 @@ namespace SolastaCommunityExpansion.Spells
                     1,
                     1,
                     ActionDefinitions.ItemSelectionType.None)
-                .AddRestrictedCreatureFamilies(CharacterFamilyDefinitions.Fiend)
-                .AddRestrictedCreatureFamilies(CharacterFamilyDefinitions.Undead)
+                .AddRestrictedCreatureFamily(CharacterFamilyDefinitions.Fiend)
+                .AddRestrictedCreatureFamily(CharacterFamilyDefinitions.Undead)
                 .AddEffectForm(new EffectFormBuilder()
                     .SetConditionForm(
                         ConditionBlinded,

@@ -253,11 +253,25 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                         baseSpell.FormatTitle()),
                     baseSpell.GuiPresentation.SpriteReference).Build();
 
-                var EICantrip = SpellDefinitionBuilder
-                    .Create(baseSpell, $"{textPseudoCantrips}Cantrip", DefinitionBuilder.CENamespaceGuid)
-                    .SetGuiPresentation($"Feature/&{invocationName}Title", baseSpell.GuiPresentation.Description, baseSpell.GuiPresentation.SpriteReference)
-                    .SetSpellLevel(0)
-                    .AddToDB();
+                SpellDefinition EICantrip;
+                if (invocationName == "ChainsofCarceri")
+                {
+                    EICantrip = BuildChainsOfCarceriCantrip(textPseudoCantrips, invocationName, baseSpell);
+                }
+                else
+                {
+                    EICantrip = SpellDefinitionBuilder
+                        .Create(baseSpell, $"{textPseudoCantrips}Cantrip", DefinitionBuilder.CENamespaceGuid)
+                        .SetGuiPresentation(
+                            $"Feature/&{invocationName}Title", 
+                            baseSpell.GuiPresentation.Description,
+                            baseSpell.GuiPresentation.SpriteReference
+                        )
+                        .SetSpellLevel(0)
+                        .SetMaterialComponent(RuleDefinitions.MaterialComponentType.None)
+                        .AddToDB();
+                }
+
 
                 var EIPower = FeatureDefinitionFreeBonusCantripsBuilder
                     .Create(textPseudoCantrips, DefinitionBuilder.CENamespaceGuid)
@@ -319,6 +333,56 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
                 EldritchInvocations.Add(entry.Key, EIPower);
             }
+        }
+
+        private static SpellDefinition BuildChainsOfCarceriCantrip(string textPseudoCantrips, string invocationName, SpellDefinition baseSpell)
+        {
+            // Rules say it can't be applied to same taget more than once per long rest, for now unlimited applications seem fine.
+            return SpellDefinitionBuilder
+                .Create( $"{textPseudoCantrips}Cantrip", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(
+                    invocationName, 
+                    Category.Feature,
+                    baseSpell.GuiPresentation.SpriteReference
+                )
+                .SetSpellLevel(0)
+                .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
+                .SetMaterialComponent(RuleDefinitions.MaterialComponentType.None)
+                .SetSomaticComponent(true)
+                .SetVerboseComponent(true)
+                .SetRequiresConcentration(true)
+                .SetCastingTime(RuleDefinitions.ActivationTime.Action)
+                .SetEffectDescription(new EffectDescriptionBuilder()
+                    .SetTargetFiltering(RuleDefinitions.TargetFilteringMethod.CharacterOnly)
+                    .SetTargetingData(
+                        RuleDefinitions.Side.Enemy, 
+                        RuleDefinitions.RangeType.Distance, 
+                        18,
+                        RuleDefinitions.TargetType.Individuals
+                    )
+                    .AddRestrictedCreatureFamily(CharacterFamilyDefinitions.Celestial)
+                    .AddRestrictedCreatureFamily(CharacterFamilyDefinitions.Fiend)
+                    .AddRestrictedCreatureFamily(CharacterFamilyDefinitions.Elemental)
+                    .SetDurationData(RuleDefinitions.DurationType.Minute, 1)
+                    .SetSavingThrowData(
+                        true,
+                        true,
+                        AttributeDefinitions.Wisdom,
+                        true,
+                        RuleDefinitions.EffectDifficultyClassComputation.SpellCastingFeature,
+                        AttributeDefinitions.Wisdom
+                    )
+                    .SetEffectForms(new EffectFormBuilder()
+                        .SetConditionForm(
+                            ConditionDefinitions.ConditionParalyzed,
+                            ConditionForm.ConditionOperation.Add
+                        )
+                        .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.Negates)
+                        .Build()
+                    )
+                    .Build()
+                )
+                .AddToDB();
         }
 
         private static void BuildEldritchInvocationsAttributeModifiers()
