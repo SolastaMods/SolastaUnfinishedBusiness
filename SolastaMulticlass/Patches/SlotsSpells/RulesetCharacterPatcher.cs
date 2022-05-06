@@ -48,14 +48,14 @@ namespace SolastaMulticlass.Patches.SlotsSpells
                 var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
 
                 __instance.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots")
-                    .TryGetValue(SharedSpellsContext.PACT_MAGIC_SLOT_TAB_INDEX, out var slotsToRestore);
+                    .TryGetValue(SharedSpellsContext.MC_PACT_MAGIC_SLOT_TAB_INDEX, out var slotsToRestore);
 
                 foreach (var spellRepertoire in heroWithSpellRepertoire.SpellRepertoires
                     .Where(x => x.SpellCastingRace == null))
                 {
                     var usedSpellsSlots = spellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots");
 
-                    for (var i = SharedSpellsContext.PACT_MAGIC_SLOT_TAB_INDEX; i <= warlockSpellLevel; i++)
+                    for (var i = SharedSpellsContext.MC_PACT_MAGIC_SLOT_TAB_INDEX; i <= warlockSpellLevel; i++)
                     {
                         if (i == 0)
                         {

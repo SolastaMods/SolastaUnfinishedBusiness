@@ -37,7 +37,7 @@ namespace SolastaCommunityExpansion.Models
             {
                 var usedSpellsSlots = warlockSpellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots");
 
-                usedSpellsSlots.TryGetValue(SharedSpellsContext.PACT_MAGIC_SLOT_TAB_INDEX, out shortRestSlotsUsedCount);
+                usedSpellsSlots.TryGetValue(SharedSpellsContext.MC_PACT_MAGIC_SLOT_TAB_INDEX, out shortRestSlotsUsedCount);
             }
 
             var shortRestSlotsRemainingCount = shortRestSlotsCount - shortRestSlotsUsedCount;

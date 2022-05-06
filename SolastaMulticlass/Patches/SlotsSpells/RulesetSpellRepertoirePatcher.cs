@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
+using SolastaCommunityExpansion.Classes.Warlock;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
@@ -37,8 +38,8 @@ namespace SolastaMulticlass.Patches.SlotsSpells
                     return true;
                 }
 
-                // handles SC Warlock [using 1 here as this is the default tab for SC Warlocks]
-                ___spellsSlotCapacities.TryGetValue(1, out __result);
+                // handles SC Warlock
+                ___spellsSlotCapacities.TryGetValue(WarlockSpells.PACT_MAGIC_SLOT_TAB_INDEX, out __result);
 
                 return false;
             }
@@ -59,9 +60,9 @@ namespace SolastaMulticlass.Patches.SlotsSpells
                     return true;
                 }
 
-                // handles SC Warlock [using 1 here as this is the default tab for SC Warlocks]
-                ___spellsSlotCapacities.TryGetValue(1, out var max);
-                ___usedSpellsSlots.TryGetValue(1, out var used);
+                // handles SC Warlock
+                ___spellsSlotCapacities.TryGetValue(WarlockSpells.PACT_MAGIC_SLOT_TAB_INDEX, out var max);
+                ___usedSpellsSlots.TryGetValue(WarlockSpells.PACT_MAGIC_SLOT_TAB_INDEX, out var used);
                 __result = max - used;
 
                 return false;
@@ -85,14 +86,14 @@ namespace SolastaMulticlass.Patches.SlotsSpells
                     return true;
                 }
 
-                // handles SC Warlock [using 1 here as this is the default tab for SC Warlocks]
+                // handles SC Warlock
                 max = 0;
                 remaining = 0;
 
                 if (spellLevel <= __instance.MaxSpellLevelOfSpellCastingLevel)
                 {
-                    ___spellsSlotCapacities.TryGetValue(1, out max);
-                    ___usedSpellsSlots.TryGetValue(1, out var used);
+                    ___spellsSlotCapacities.TryGetValue(WarlockSpells.PACT_MAGIC_SLOT_TAB_INDEX, out max);
+                    ___usedSpellsSlots.TryGetValue(WarlockSpells.PACT_MAGIC_SLOT_TAB_INDEX, out var used);
                     remaining = max - used;
                 }
 
@@ -162,7 +163,7 @@ namespace SolastaMulticlass.Patches.SlotsSpells
                 var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
                 var usedSpellsSlots = rulesetSpellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots");
 
-                for (var i = SharedSpellsContext.PACT_MAGIC_SLOT_TAB_INDEX; i <= warlockSpellLevel; i++)
+                for (var i = SharedSpellsContext.MC_PACT_MAGIC_SLOT_TAB_INDEX; i <= warlockSpellLevel; i++)
                 {
                     if (i == 0)
                     {
@@ -183,7 +184,7 @@ namespace SolastaMulticlass.Patches.SlotsSpells
                 var warlockMaxSlots = SharedSpellsContext.GetWarlockMaxSlots(heroWithSpellRepertoire);
                 var usedSpellsSlotsWarlock = warlockSpellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots");
 
-                usedSpellsSlotsWarlock.TryGetValue(SharedSpellsContext.PACT_MAGIC_SLOT_TAB_INDEX, out var warlockUsedSlots);
+                usedSpellsSlotsWarlock.TryGetValue(SharedSpellsContext.MC_PACT_MAGIC_SLOT_TAB_INDEX, out var warlockUsedSlots);
                 warlockSpellRepertoire.GetSlotsNumber(slotLevel, out var sharedRemainingSlots, out var sharedMaxSlots);
 
                 var sharedUsedSlots = sharedMaxSlots - sharedRemainingSlots;
