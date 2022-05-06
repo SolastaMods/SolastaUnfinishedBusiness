@@ -78,6 +78,8 @@ namespace SolastaCommunityExpansion.Models
                             .Remove(DatabaseRepository.GetDatabase<FightingStyleDefinition>()
                                 .GetElement(prof, false)));
             }
+
+            hero.RefreshAll();
         }
 
         private static void RemoveFeatureDefinitionPointPool(RulesetCharacterHero hero, RulesetSpellRepertoire heroRepertoire, FeatureDefinitionPointPool featureDefinitionPointPool)
