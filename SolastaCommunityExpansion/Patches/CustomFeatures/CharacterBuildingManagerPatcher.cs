@@ -99,6 +99,21 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
         }
     }
 
+    [HarmonyPatch(typeof(CharacterBuildingManager), "UnacquireBonusCantrips")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class CharacterBuildingManager_UnacquireBonusCantrips
+    {
+        internal static void Prefix(CharacterHeroBuildingData heroBuildingData, ref string tag)
+        {
+            if (string.IsNullOrEmpty(tag))
+            {
+                return;
+            }
+            
+            tag = CustomFeaturesContext.UnCustomizeTag(tag);
+        }
+    }
+
     [HarmonyPatch(typeof(CharacterBuildingManager), "UnassignRace")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterBuildingManager_UnassignRace

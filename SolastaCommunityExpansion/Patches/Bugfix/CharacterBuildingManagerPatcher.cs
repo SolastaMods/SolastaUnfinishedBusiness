@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.BugFix
 {
@@ -19,17 +20,19 @@ namespace SolastaCommunityExpansion.Patches.BugFix
                 return true;
             }
 
+            var defaultTag = CustomFeaturesContext.UnCustomizeTag(tag);
+
             foreach (FeatureDefinition grantedFeature in grantedFeatures)
             {
                 switch (grantedFeature)
                 {
                     case FeatureDefinitionCastSpell spell:
-                        __instance.SetupSpellPointPools(heroBuildingData, spell, tag);
+                        __instance.SetupSpellPointPools(heroBuildingData, spell, defaultTag);
                         continue; // In original code this was 'return'
                     case FeatureDefinitionBonusCantrips cantrips:
                         foreach (var cantrip in cantrips.BonusCantrips)
                         {
-                            __instance.AcquireBonusCantrip(heroBuildingData, cantrip, tag);
+                            __instance.AcquireBonusCantrip(heroBuildingData, cantrip, defaultTag);
                         }
                         continue;
                     case FeatureDefinitionProficiency proficiency:
