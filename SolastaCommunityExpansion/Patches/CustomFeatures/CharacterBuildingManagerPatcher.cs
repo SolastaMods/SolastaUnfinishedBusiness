@@ -71,7 +71,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
     {
         internal static void Postfix(RulesetCharacterHero hero, List<FeatureDefinition> grantedFeatures, string tag)
         {
-            CustomFeaturesContext.RecursiveGrantCustomFeatures(hero, grantedFeatures, tag);
+            CustomFeaturesContext.RecursiveGrantCustomFeatures(hero, tag, grantedFeatures);
         }
     }
 
@@ -86,7 +86,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
                 return;
             }
 
-            CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, hero.ActiveFeatures[tag], tag);
+            CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, hero.ActiveFeatures[tag]);
         }
     }
 
@@ -104,7 +104,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
                 return;
             }
 
-            CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, hero.ActiveFeatures[tag], tag);
+            CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, hero.ActiveFeatures[tag]);
         }
     }
 
@@ -124,7 +124,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
                 return;
             }
 
-            CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, hero.ActiveFeatures[tag], tag);
+            CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, hero.ActiveFeatures[tag]);
         }
     }
 
@@ -142,7 +142,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
                 return;
             }
 
-            CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, hero.ActiveFeatures[tag], tag);
+            CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, hero.ActiveFeatures[tag]);
         }
     }
 
@@ -174,7 +174,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
                 return;
             }
 
-            CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, hero.ActiveFeatures[tag], tag);
+            CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, hero.ActiveFeatures[tag]);
         }
     }
 }

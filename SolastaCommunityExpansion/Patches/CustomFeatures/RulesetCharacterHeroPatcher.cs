@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
         {
             foreach(var feat in feats)
             {
-                Models.CustomFeaturesContext.RecursiveGrantCustomFeatures(__instance, feat.Features, null);
+                Models.CustomFeaturesContext.RecursiveGrantCustomFeatures(__instance, null, feat.Features);
             }
         }
     }

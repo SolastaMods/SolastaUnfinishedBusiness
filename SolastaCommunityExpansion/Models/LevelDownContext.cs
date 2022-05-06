@@ -91,7 +91,7 @@ namespace SolastaCommunityExpansion.Models
 
             if (hero.ActiveFeatures.ContainsKey(subclassTag))
             {
-                CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, hero.ActiveFeatures[subclassTag], subclassTag);
+                CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, subclassTag, hero.ActiveFeatures[subclassTag]);
 
                 hero.ActiveFeatures.Remove(subclassTag);
                 hero.ClearFeatureModifiers(subclassTag);
@@ -99,7 +99,7 @@ namespace SolastaCommunityExpansion.Models
 
             if (hero.ActiveFeatures.ContainsKey(classTag))
             {
-                CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, hero.ActiveFeatures[classTag], classTag);
+                CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, classTag, hero.ActiveFeatures[classTag]);
 
                 hero.ActiveFeatures.Remove(classTag);
                 hero.ClearFeatureModifiers(classTag);

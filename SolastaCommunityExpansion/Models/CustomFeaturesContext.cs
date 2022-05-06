@@ -8,13 +8,13 @@ namespace SolastaCommunityExpansion.Models
 {
     public static class CustomFeaturesContext
     {
-        internal static void RecursiveGrantCustomFeatures(RulesetCharacterHero hero, List<FeatureDefinition> features, string tag)
+        internal static void RecursiveGrantCustomFeatures(RulesetCharacterHero hero, string tag, List<FeatureDefinition> features)
         {
             foreach (var grantedFeature in features)
             {
                 if (grantedFeature is FeatureDefinitionFeatureSet set && set.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                 {
-                    RecursiveGrantCustomFeatures(hero, set.FeatureSet, tag);
+                    RecursiveGrantCustomFeatures(hero, tag, set.FeatureSet);
                 }
                 if (grantedFeature is IFeatureDefinitionCustomCode customFeature)
                 {
@@ -37,7 +37,12 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        public static void RecursiveRemoveCustomFeatures(RulesetCharacterHero hero, List<FeatureDefinition> features, string tag)
+        internal static void RecursiveRemoveCustomFeatures(RulesetCharacterHero hero, string tag, params FeatureDefinition[] features)
+        {
+            RecursiveRemoveCustomFeatures(hero, tag, features);
+        }
+
+        internal static void RecursiveRemoveCustomFeatures(RulesetCharacterHero hero, string tag, List<FeatureDefinition> features)
         {
             var selectedClass = LevelUpContext.GetSelectedClass(hero);
 
@@ -55,7 +60,7 @@ namespace SolastaCommunityExpansion.Models
             {
                 if (grantedFeature is FeatureDefinitionFeatureSet set && set.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                 {
-                    RecursiveRemoveCustomFeatures(hero, set.FeatureSet, tag);
+                    RecursiveRemoveCustomFeatures(hero, tag, set.FeatureSet);
                 }
                 else if (grantedFeature is IFeatureDefinitionCustomCode customFeature)
                 {
