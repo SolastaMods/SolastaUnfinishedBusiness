@@ -3,15 +3,14 @@ using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
-using SolastaCommunityExpansion.Models;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionProficiencys;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionPointPools;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaCommunityExpansion.Models.IntegrationContext;
 
-namespace SolastaMulticlass.Models
+namespace SolastaCommunityExpansion.Models
 {
-    internal static class PatchingContext
+    internal static class MulticlassPatchingContext
     {
         private const BindingFlags PrivateBinding = BindingFlags.Instance | BindingFlags.NonPublic;
 
@@ -191,7 +190,7 @@ namespace SolastaMulticlass.Models
             };
 
             var harmony = new Harmony("SolastaMulticlass");
-            var transpiler = typeof(PatchingContext).GetMethod("ClassLevelTranspiler");
+            var transpiler = typeof(MulticlassPatchingContext).GetMethod("ClassLevelTranspiler");
 
             foreach (var method in methods)
             {
@@ -223,7 +222,7 @@ namespace SolastaMulticlass.Models
             };
 
             var harmony = new Harmony("SolastaMulticlass");
-            var prefix = typeof(PatchingContext).GetMethod("ShouldEquipmentBeAssigned");
+            var prefix = typeof(MulticlassPatchingContext).GetMethod("ShouldEquipmentBeAssigned");
 
             foreach (var method in methods)
             {
@@ -277,7 +276,7 @@ namespace SolastaMulticlass.Models
             };
 
             var harmony = new Harmony("SolastaMulticlass");
-            var transpiler = typeof(PatchingContext).GetMethod("FeatureUnlocksTranspiler");
+            var transpiler = typeof(MulticlassPatchingContext).GetMethod("FeatureUnlocksTranspiler");
 
             foreach (var patch in patches)
             {
@@ -321,10 +320,10 @@ namespace SolastaMulticlass.Models
         public static IEnumerable<CodeInstruction> FeatureUnlocksTranspiler(IEnumerable<CodeInstruction> instructions)
         {
             var classFeatureUnlocksMethod = typeof(CharacterClassDefinition).GetMethod("get_FeatureUnlocks");
-            var classFilteredFeatureUnlocksMethod = typeof(PatchingContext).GetMethod("ClassFilteredFeatureUnlocks");
+            var classFilteredFeatureUnlocksMethod = typeof(MulticlassPatchingContext).GetMethod("ClassFilteredFeatureUnlocks");
 
             var subclassFeatureUnlocksMethod = typeof(CharacterSubclassDefinition).GetMethod("get_FeatureUnlocks");
-            var subclassFilteredFeatureUnlocksMethod = typeof(PatchingContext).GetMethod("SubclassFilteredFeatureUnlocks");
+            var subclassFilteredFeatureUnlocksMethod = typeof(MulticlassPatchingContext).GetMethod("SubclassFilteredFeatureUnlocks");
 
             foreach (var instruction in instructions)
             {

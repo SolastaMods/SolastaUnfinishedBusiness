@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 using SolastaModApi.Infrastructure;
-using SolastaMulticlass.Models;
 using UnityEngine;
 
 namespace SolastaMulticlass.Patches.SlotsSpells

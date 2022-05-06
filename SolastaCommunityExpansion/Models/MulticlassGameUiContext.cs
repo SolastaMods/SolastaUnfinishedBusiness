@@ -4,7 +4,7 @@ using SolastaModApi.Infrastructure;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace SolastaMulticlass.Models
+namespace SolastaCommunityExpansion.Models
 {
     public static class MulticlassGameUiContext
     {

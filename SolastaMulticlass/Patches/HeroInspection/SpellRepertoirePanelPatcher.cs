@@ -1,6 +1,6 @@
 ﻿using System;
 using HarmonyLib;
-using SolastaMulticlass.Models;
+using SolastaCommunityExpansion.Models;
 using UnityEngine;
 using UnityEngine.UI;
 

@@ -1,9 +1,7 @@
-﻿using System.Linq;
-using SolastaCommunityExpansion.Builders;
+﻿using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
-using SolastaMulticlass.Models;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionProficiencys;
 
 namespace SolastaCommunityExpansion.Models
@@ -73,7 +71,7 @@ namespace SolastaCommunityExpansion.Models
                 return;
             }
 
-            PatchingContext.Load(); // depends on IntegrationContext
+            MulticlassPatchingContext.Load(); // depends on IntegrationContext
             SharedSpellsContext.Load(); // depends on IntegrationContext
         }
     }
