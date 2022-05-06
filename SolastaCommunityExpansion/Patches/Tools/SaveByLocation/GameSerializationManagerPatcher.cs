@@ -2,7 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.SaveByLocation
+namespace SolastaCommunityExpansion.Patches.Tools.SaveByLocation
 {
     [HarmonyPatch(typeof(GameSerializationManager), "CanLoad", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

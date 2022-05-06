@@ -5,7 +5,7 @@ using SolastaModApi;
 using SolastaModApi.Extensions;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.PartySize.GameUi
+namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.PartySize.GameUi
 {
     // this patch tweaks the UI to allow less/more heroes to be selected on a campaign
     //

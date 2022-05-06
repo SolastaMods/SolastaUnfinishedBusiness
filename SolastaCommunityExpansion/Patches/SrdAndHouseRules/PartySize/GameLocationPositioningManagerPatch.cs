@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.PartySize
+namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.PartySize
 {
     // avoids a trace message when party greater than 4
     //

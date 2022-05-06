@@ -2,7 +2,7 @@
 using HarmonyLib;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.PartySize
+namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.PartySize
 {
     // this patch ensures all party members teleport to new locations
     //
