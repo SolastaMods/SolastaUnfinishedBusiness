@@ -112,45 +112,42 @@ namespace SolastaCommunityExpansion.Displays
                 Main.Settings.EnableLevel20 = toggle;
             }
 
-            if (Main.IsMulticlassInstalled)
-            {
-                UI.Label("");
+            UI.Label("");
 
-                toggle = Main.Settings.EnableMulticlass;
-                if (UI.Toggle("Enable Multiclass " + RequiresRestart, ref toggle, UI.AutoWidth()))
+            toggle = Main.Settings.EnableMulticlass;
+            if (UI.Toggle("Enable Multiclass " + RequiresRestart, ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableMulticlass = toggle;
+            }
+
+            if (Main.Settings.EnableMulticlass)
+            {
+                toggle = Main.Settings.EnableMinInOutAttributes;
+                if (UI.Toggle("+ Enforce ability scores minimum in & out pre-requisites".italic(), ref toggle, UI.AutoWidth()))
                 {
-                    Main.Settings.EnableMulticlass = toggle;
+                    Main.Settings.EnableMinInOutAttributes = toggle;
                 }
 
-                if (Main.Settings.EnableMulticlass)
+                toggle = Main.Settings.EnableRelearnSpells;
+                if (UI.Toggle("+ Can re-learn cantrips or spells from another selected class".italic(), ref toggle, UI.AutoWidth()))
                 {
-                    toggle = Main.Settings.EnableMinInOutAttributes;
-                    if (UI.Toggle("+ Enforce ability scores minimum in & out pre-requisites".italic(), ref toggle, UI.AutoWidth()))
-                    {
-                        Main.Settings.EnableMinInOutAttributes = toggle;
-                    }
+                    Main.Settings.EnableRelearnSpells = toggle;
+                }
 
-                    toggle = Main.Settings.EnableRelearnSpells;
-                    if (UI.Toggle("+ Can re-learn cantrips or spells from another selected class".italic(), ref toggle, UI.AutoWidth()))
-                    {
-                        Main.Settings.EnableRelearnSpells = toggle;
-                    }
+                toggle = Main.Settings.DisplayAllKnownSpellsDuringLevelUp;
+                if (UI.Toggle("+ Display all known spells from other classes during level up".italic(), ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.DisplayAllKnownSpellsDuringLevelUp = toggle;
+                }
 
-                    toggle = Main.Settings.DisplayAllKnownSpellsDuringLevelUp;
-                    if (UI.Toggle("+ Display all known spells from other classes during level up".italic(), ref toggle, UI.AutoWidth()))
-                    {
-                        Main.Settings.DisplayAllKnownSpellsDuringLevelUp = toggle;
-                    }
+                UI.Label("");
+                UI.Label(". " + "SHIFT".cyan() + " click on a spell consumes a spell slot instead of the default pact magic one");
+                UI.Label("");
 
-                    UI.Label("");
-                    UI.Label(". " + "SHIFT".cyan() + " click on a spell consumes a spell slot instead of the default pact magic one");
-                    UI.Label("");
-
-                    intValue = Main.Settings.MaxAllowedClasses;
-                    if (UI.Slider("Max allowed classes".white(), ref intValue, 1, 3, 3, "", UI.Width(50)))
-                    {
-                        Main.Settings.MaxAllowedClasses = intValue;
-                    }
+                intValue = Main.Settings.MaxAllowedClasses;
+                if (UI.Slider("Max allowed classes".white(), ref intValue, 1, 3, 3, "", UI.Width(50)))
+                {
+                    Main.Settings.MaxAllowedClasses = intValue;
                 }
             }
 
