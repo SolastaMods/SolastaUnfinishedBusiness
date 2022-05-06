@@ -83,7 +83,11 @@ namespace SolastaCommunityExpansion.CustomUI
         private readonly Comparison<FeaturePool> poolCompare = (a, b) =>
         {
             var r = String.CompareOrdinal(a.Id.Tag, b.Id.Tag);
-            if (r != 0) { return r; }
+
+            if (r != 0) 
+            { 
+                return r; 
+            }
 
             if (a.IsReplacer == b.IsReplacer)
             {
@@ -211,6 +215,7 @@ namespace SolastaCommunityExpansion.CustomUI
         protected override void Refresh()
         {
             int currentPoolIndex = 0;
+
             for (int i = 0; i < learnStepsTable.childCount; i++)
             {
                 Transform child = learnStepsTable.GetChild(i);
@@ -223,6 +228,7 @@ namespace SolastaCommunityExpansion.CustomUI
                 LearnStepItem stepItem = child.GetComponent<LearnStepItem>();
 
                 LearnStepItem.Status status;
+
                 if (i == currentLearnStep)
                 {
                     status = LearnStepItem.Status.InProgress;
@@ -250,10 +256,9 @@ namespace SolastaCommunityExpansion.CustomUI
             {
                 currentPoolIndex = allPools.Count - 1;
             }
-            PoolId currentPoolId = allPools[currentPoolIndex].Id;
-            var isUnlearnStep = IsUnlearnStep(currentPoolIndex);
 
-            
+            var currentPoolId = allPools[currentPoolIndex].Id;
+            var isUnlearnStep = IsUnlearnStep(currentPoolIndex);           
             var featurePool = GetPoolById(currentPoolId);
             var allLevels = featurePool.FeatureSet.AllLevels;
             int requiredGroups = allLevels.Count;
@@ -272,6 +277,7 @@ namespace SolastaCommunityExpansion.CustomUI
             {
                 Transform child = spellsByLevelTable.GetChild(i);
                 child.gameObject.SetActive(i < requiredGroups);
+
                 if (i < requiredGroups)
                 {
                     var group = child.GetComponent<SpellsByLevelGroup>();
@@ -394,8 +400,11 @@ namespace SolastaCommunityExpansion.CustomUI
                 if (pool.FeatureSet is ReplaceCustomFeatureDefinitionSet replacer)
                 {
                     var poolById = GetPoolById(new PoolId(replacer.ReplacedFeatureSet.Name, pool.Id.Tag));
+
                     if (poolById != null)
+                    {
                         poolById.Max--;
+                    }
                 }
             }
             else
@@ -633,7 +642,10 @@ namespace SolastaCommunityExpansion.CustomUI
         private string GetCustomSubClassTag()
         {
             if (gainedSubclass == null)
+            {
                 return null;
+            }
+
             return CustomFeaturesContext.CustomizeTag(GetSubclassTag(gainedClass, gainedClassLevel, gainedSubclass));
         }
 
@@ -643,7 +655,10 @@ namespace SolastaCommunityExpansion.CustomUI
             
             gainedCustomFeatures.Clear();
 
-            if (gainedClass == null) { return; }
+            if (gainedClass == null) 
+            { 
+                return;
+            }
 
             var poolTag = GetCustomClassTag();
 
@@ -655,6 +670,7 @@ namespace SolastaCommunityExpansion.CustomUI
             );
 
             poolTag = GetCustomSubClassTag();
+
             if (poolTag != null)
             {
                 gainedCustomFeatures.AddRange(gainedSubclass.FeatureUnlocks

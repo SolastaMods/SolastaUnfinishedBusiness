@@ -8,7 +8,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
     // creates different slots colors and pop up messages depending on slot types
     [HarmonyPatch(typeof(SlotStatusTable), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-
     internal static class SlotStatusTable_Bind
     {
         public static void Postfix(
@@ -34,7 +33,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
     // ensures slot colors are white before getting back to pool
     [HarmonyPatch(typeof(SlotStatusTable), "Unbind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-
     internal static class SlotStatusTable_Unbind
     {
         public static void Prefix(RectTransform ___table)

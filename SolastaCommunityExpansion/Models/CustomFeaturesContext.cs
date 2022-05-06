@@ -85,6 +85,7 @@ namespace SolastaCommunityExpansion.Models
                             .Remove(DatabaseRepository.GetDatabase<FightingStyleDefinition>()
                                 .GetElement(prof, false)));
             }
+
             RemoveFeatures(hero, selectedClass, tag, features);
             features.Clear();
             hero.RefreshAll();
