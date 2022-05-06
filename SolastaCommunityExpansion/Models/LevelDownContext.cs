@@ -70,6 +70,15 @@ namespace SolastaCommunityExpansion.Models
                 () => LevelDown(rulesetCharacterHero), null);
         }
 
+        private static void RemoveFeaturesByTag(RulesetCharacterHero hero, CharacterClassDefinition classDefinition, string tag)
+        {
+            CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, hero.ActiveFeatures[tag]);
+            CustomFeaturesContext.RemoveFeatures(hero, classDefinition, tag, hero.ActiveFeatures[tag]);
+
+            hero.ActiveFeatures.Remove(tag);
+            hero.ClearFeatureModifiers(tag);
+        }
+
         internal static void LevelDown(RulesetCharacterHero hero)
         {
             var indexLevel = hero.ClassesHistory.Count - 1;
@@ -77,6 +86,10 @@ namespace SolastaCommunityExpansion.Models
             var classLevel = hero.ClassesAndLevels[characterClassDefinition];
             var classTag = AttributeDefinitions.GetClassTag(characterClassDefinition, classLevel);
             var subclassTag = string.Empty;
+
+            var buildingService = ServiceRepository.GetService<ICharacterBuildingService>();
+
+            buildingService.LevelUpCharacter(hero, false);
 
             hero.ClassesAndSubclasses.TryGetValue(characterClassDefinition, out var characterSubclassDefinition);
 
@@ -90,21 +103,15 @@ namespace SolastaCommunityExpansion.Models
             UnlearnSpells(hero, indexLevel);
 
             if (hero.ActiveFeatures.ContainsKey(subclassTag) && subclassTag != classTag)
-            {             
-                CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, subclassTag, hero.ActiveFeatures[subclassTag]);
-                CustomFeaturesContext.RemoveFeatures(hero, characterClassDefinition, subclassTag, hero.ActiveFeatures[subclassTag]);
-
-                hero.ActiveFeatures.Remove(subclassTag);
-                hero.ClearFeatureModifiers(subclassTag);
+            {
+                RemoveFeaturesByTag(hero, characterClassDefinition, subclassTag);
+                RemoveFeaturesByTag(hero, characterClassDefinition, CustomFeaturesContext.CustomizeTag(subclassTag));
             }
 
             if (hero.ActiveFeatures.ContainsKey(classTag))
-            {               
-                CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, classTag, hero.ActiveFeatures[classTag]);
-                CustomFeaturesContext.RemoveFeatures(hero, characterClassDefinition, classTag, hero.ActiveFeatures[classTag]);
-
-                hero.ActiveFeatures.Remove(classTag);
-                hero.ClearFeatureModifiers(classTag);
+            {
+                RemoveFeaturesByTag(hero, characterClassDefinition, classTag);
+                RemoveFeaturesByTag(hero, characterClassDefinition, CustomFeaturesContext.CustomizeTag(classTag));
             }
 
             hero.RemoveClassLevel();
@@ -127,6 +134,8 @@ namespace SolastaCommunityExpansion.Models
             hero.RefreshTags();
             hero.RefreshUsableDeviceFunctions();
             hero.ComputeHitPoints(true);
+            
+            buildingService.FinalizeCharacter(hero);
 
             LevelUpContext.UnregisterHero(hero);
 
