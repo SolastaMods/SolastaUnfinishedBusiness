@@ -1233,9 +1233,15 @@ namespace SolastaCommunityExpansion.CustomUI
             
             if (!hasErrors && feature is FeatureDefinitionPower power)
             {
-                var powerGui = ServiceRepository.GetService<IGuiWrapperService>().GetGuiPowerDefinition(power.Name);
-
-                powerGui.SetupTooltip(tooltip);
+                ServiceRepository.GetService<IGuiWrapperService>()
+                    .GetGuiPowerDefinition(power.Name)
+                    .SetupTooltip(tooltip);
+            }
+            else if (!hasErrors && feature is FeatureDefinitionBonusCantrips cantrips && cantrips.BonusCantrips.Count == 1)
+            {
+                ServiceRepository.GetService<IGuiWrapperService>()
+                    .GetGuiSpellDefinition(cantrips.BonusCantrips[0].Name)
+                    .SetupTooltip(tooltip, Global.ActiveLevelUpHero);
             }
             else
             {
