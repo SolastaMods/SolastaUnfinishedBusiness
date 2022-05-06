@@ -79,6 +79,8 @@ namespace SolastaCommunityExpansion.Models
                                 .GetElement(prof, false)));
             }
 
+            RemoveFeatures(hero, selectedClass, tag, features);
+            features.Clear();
             hero.RefreshAll();
         }
 
