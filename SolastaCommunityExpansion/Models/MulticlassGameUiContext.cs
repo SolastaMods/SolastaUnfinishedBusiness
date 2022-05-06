@@ -127,7 +127,7 @@ namespace SolastaCommunityExpansion.Models
             var snapshot = character?.Snapshot;
             var hero = character?.RulesetCharacterHero;
 
-            if (snapshot != null)
+            if (snapshot != null && snapshot.Classes.Length > 1)
             {
                 foreach (var className in snapshot.Classes)
                 {

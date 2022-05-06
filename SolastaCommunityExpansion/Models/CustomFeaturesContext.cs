@@ -8,22 +8,25 @@ namespace SolastaCommunityExpansion.Models
 {
     public static class CustomFeaturesContext
     {
-        internal static void RecursiveGrantCustomFeatures(RulesetCharacterHero hero, string tag, List<FeatureDefinition> features)
+        internal static void RecursiveGrantCustomFeatures(RulesetCharacterHero hero, string tag, List<FeatureDefinition> features, bool handleCustomCode = true)
         {
             foreach (var grantedFeature in features)
             {
+                if (handleCustomCode && grantedFeature is IFeatureDefinitionCustomCode customFeature)
+                {
+                    customFeature.ApplyFeature(hero, tag);
+                }
+
                 if (grantedFeature is FeatureDefinitionFeatureSet set && set.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                 {
                     RecursiveGrantCustomFeatures(hero, tag, set.FeatureSet);
                 }
-                if (grantedFeature is IFeatureDefinitionCustomCode customFeature)
-                {
-                    customFeature.ApplyFeature(hero, tag);
-                }
+
                 if (grantedFeature is not FeatureDefinitionProficiency featureDefinitionProficiency)
                 {
                     continue;
                 }
+
                 if (featureDefinitionProficiency.ProficiencyType != RuleDefinitions.ProficiencyType.FightingStyle)
                 {
                     continue;
@@ -37,12 +40,7 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        internal static void RecursiveRemoveCustomFeatures(RulesetCharacterHero hero, string tag, params FeatureDefinition[] features)
-        {
-            RecursiveRemoveCustomFeatures(hero, tag, features);
-        }
-
-        internal static void RecursiveRemoveCustomFeatures(RulesetCharacterHero hero, string tag, List<FeatureDefinition> features)
+        internal static void RecursiveRemoveCustomFeatures(RulesetCharacterHero hero, string tag, List<FeatureDefinition> features, bool handleCustomCode = true)
         {
             var selectedClass = LevelUpContext.GetSelectedClass(hero);
 
@@ -52,19 +50,16 @@ namespace SolastaCommunityExpansion.Models
                 return;
             }
 
-            features = new List<FeatureDefinition>(features);
-
-            RemoveFeatures(hero, selectedClass, tag, features);
-
             foreach (var grantedFeature in features)
             {
+                if (handleCustomCode && grantedFeature is IFeatureDefinitionCustomCode customFeature)
+                {
+                    customFeature.RemoveFeature(hero, tag);
+                }
+
                 if (grantedFeature is FeatureDefinitionFeatureSet set && set.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                 {
                     RecursiveRemoveCustomFeatures(hero, tag, set.FeatureSet);
-                }
-                else if (grantedFeature is IFeatureDefinitionCustomCode customFeature)
-                {
-                    customFeature.RemoveFeature(hero, tag);
                 }
 
                 if (grantedFeature is not FeatureDefinitionProficiency featureDefinitionProficiency)
@@ -129,7 +124,7 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        private static void RemoveFeatures(RulesetCharacterHero hero, CharacterClassDefinition characterClassDefinition, string tag, List<FeatureDefinition> featuresToRemove)
+        internal static void RemoveFeatures(RulesetCharacterHero hero, CharacterClassDefinition characterClassDefinition, string tag, List<FeatureDefinition> featuresToRemove)
         {
             var classLevel = hero.ClassesAndLevels[characterClassDefinition];
             var heroRepertoire = hero.SpellRepertoires.FirstOrDefault(x => LevelUpContext.IsRepertoireFromSelectedClassSubclass(hero, x));

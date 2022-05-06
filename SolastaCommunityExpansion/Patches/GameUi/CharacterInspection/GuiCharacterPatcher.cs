@@ -29,12 +29,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
     {
         internal static void Postfix(GuiCharacter __instance, ref string __result)
         {
-            if (__instance.RulesetCharacterHero.ClassesAndLevels.Count == 1)
-            {
-                return;
-            }
-
-            __result = MulticlassGameUiContext.GetAllClassesLabel(__instance, '-');
+            __result = MulticlassGameUiContext.GetAllClassesLabel(__instance, '-') ?? __result;
         }
     }
 
@@ -44,12 +39,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
     {
         internal static void Postfix(GuiCharacter __instance, ref string __result)
         {
-            if (__instance.RulesetCharacterHero.ClassesAndLevels.Count == 1)
-            {
-                return;
-            }
-
-            __result = MulticlassGameUiContext.GetAllClassesLabel(__instance, '-');
+            __result = MulticlassGameUiContext.GetAllClassesLabel(__instance, '-') ?? __result;
         }
     }
 
@@ -60,12 +50,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
     {
         internal static void Postfix(GuiCharacter __instance, ref string __result)
         {
-            if (__instance.RulesetCharacterHero.ClassesAndLevels.Count == 1)
-            {
-                return;
-            }
-
-            __result = MulticlassGameUiContext.GetLevelAndExperienceTooltip(__instance);
+            __result = MulticlassGameUiContext.GetLevelAndExperienceTooltip(__instance) ?? __result;
         }
     }
 }

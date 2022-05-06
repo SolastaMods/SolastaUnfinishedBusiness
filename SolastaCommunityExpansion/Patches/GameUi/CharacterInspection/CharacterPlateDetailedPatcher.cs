@@ -27,11 +27,6 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
                     classesCount = guiCharacter.Snapshot.Classes.Length;
                 }
 
-                if (classesCount == 1)
-                {
-                    return;
-                }
-
                 ___classLabel.Text = MulticlassGameUiContext.GetAllClassesLabel(guiCharacter, separator) ?? ___classLabel.Text;
                 ___classLabel.TMP_Text.fontSize = MulticlassGameUiContext.GetFontSize(classesCount);
             }

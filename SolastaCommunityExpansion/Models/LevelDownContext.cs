@@ -89,8 +89,9 @@ namespace SolastaCommunityExpansion.Models
 
             UnlearnSpells(hero, indexLevel);
 
-            if (hero.ActiveFeatures.ContainsKey(subclassTag))
+            if (hero.ActiveFeatures.ContainsKey(subclassTag) && subclassTag != classTag)
             {
+                CustomFeaturesContext.RemoveFeatures(hero, characterClassDefinition, subclassTag, hero.ActiveFeatures[subclassTag]);
                 CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, subclassTag, hero.ActiveFeatures[subclassTag]);
 
                 hero.ActiveFeatures.Remove(subclassTag);
@@ -99,6 +100,7 @@ namespace SolastaCommunityExpansion.Models
 
             if (hero.ActiveFeatures.ContainsKey(classTag))
             {
+                CustomFeaturesContext.RemoveFeatures(hero, characterClassDefinition, classTag, hero.ActiveFeatures[classTag]);
                 CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, classTag, hero.ActiveFeatures[classTag]);
 
                 hero.ActiveFeatures.Remove(classTag);

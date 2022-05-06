@@ -139,7 +139,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 
         public void ApplyFeature(RulesetCharacterHero hero, string tag)
         {
-            CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, FeatureToRemove);
+            CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, new() { FeatureToRemove }, handleCustomCode: false);
         }
 
         public void RemoveFeature(RulesetCharacterHero hero, string tag)
