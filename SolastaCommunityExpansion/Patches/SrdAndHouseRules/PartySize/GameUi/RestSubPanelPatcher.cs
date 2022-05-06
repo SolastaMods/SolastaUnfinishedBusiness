@@ -4,7 +4,7 @@ using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.PartySize.GameUi
+namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.PartySize.GameUi
 {
     // this patch scales down the rest sub panel whenever the party size is bigger than 4
     //

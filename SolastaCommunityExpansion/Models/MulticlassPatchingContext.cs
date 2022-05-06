@@ -189,7 +189,7 @@ namespace SolastaCommunityExpansion.Models
                 typeof(CharacterBuildingManager).GetMethod("AutoAcquireSpells")
             };
 
-            var harmony = new Harmony("SolastaMulticlass");
+            var harmony = new Harmony("SolastaCommunityExpansion");
             var transpiler = typeof(MulticlassPatchingContext).GetMethod("ClassLevelTranspiler");
 
             foreach (var method in methods)
@@ -221,7 +221,7 @@ namespace SolastaCommunityExpansion.Models
                 typeof(CharacterBuildingManager).GetMethod("UnassignEquipment")
             };
 
-            var harmony = new Harmony("SolastaMulticlass");
+            var harmony = new Harmony("SolastaCommunityExpansion");
             var prefix = typeof(MulticlassPatchingContext).GetMethod("ShouldEquipmentBeAssigned");
 
             foreach (var method in methods)
@@ -275,7 +275,7 @@ namespace SolastaCommunityExpansion.Models
                 { typeof(RulesetCharacterHero).GetMethod("LookForFeatureOrigin", PrivateBinding), HeroContext.CharacterHero }
             };
 
-            var harmony = new Harmony("SolastaMulticlass");
+            var harmony = new Harmony("SolastaCommunityExpansion");
             var transpiler = typeof(MulticlassPatchingContext).GetMethod("FeatureUnlocksTranspiler");
 
             foreach (var patch in patches)

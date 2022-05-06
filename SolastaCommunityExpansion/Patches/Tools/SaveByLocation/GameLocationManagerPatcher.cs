@@ -2,7 +2,7 @@
 using HarmonyLib;
 using static SolastaCommunityExpansion.Models.SaveByLocationContext;
 
-namespace SolastaCommunityExpansion.Patches.SaveByLocation
+namespace SolastaCommunityExpansion.Patches.Tools.SaveByLocation
 {
     [HarmonyPatch(typeof(GameLocationManager), "LoadLocationAsync")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

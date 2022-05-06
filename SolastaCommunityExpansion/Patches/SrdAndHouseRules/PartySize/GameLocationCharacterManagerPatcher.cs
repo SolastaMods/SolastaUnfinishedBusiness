@@ -3,7 +3,7 @@ using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 using TA;
 
-namespace SolastaCommunityExpansion.Patches.PartySize
+namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.PartySize
 {
     // use this patch to recalculate the additional party members positions
     //
