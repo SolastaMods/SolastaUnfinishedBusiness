@@ -8,8 +8,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
     // Guarantee Warlock Spell Level will be used whenever possible on SC Warlocks
     [HarmonyPatch(typeof(SpellsByLevelBox), "OnActivateStandardBox")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-
-    internal static class SpellsByLevelBoxOnActivateStandardBox
+    internal static class SpellsByLevelBox_OnActivateStandardBox
     {
         public static bool Prefix(
             int index,

@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
     [HarmonyPatch(typeof(SlotStatusTable), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 
-    internal static class SlotStatusTableBind
+    internal static class SlotStatusTable_Bind
     {
         public static void Postfix(
             RulesetSpellRepertoire spellRepertoire,
@@ -35,7 +35,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
     [HarmonyPatch(typeof(SlotStatusTable), "Unbind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 
-    internal static class SlotStatusTableUnbind
+    internal static class SlotStatusTable_Unbind
     {
         public static void Prefix(RectTransform ___table)
         {

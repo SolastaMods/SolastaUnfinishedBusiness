@@ -3,7 +3,6 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
-using SolastaMulticlass.Models;
 
 namespace SolastaMulticlass.Patches.LevelUp
 {

@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
     // add the custom features selection stage panel to the creation and level up screen
     [HarmonyPatch(typeof(CharacterEditionScreen), "LoadStagePanels")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class CharacterLevelUpScreenLoadStagePanels
+    internal static class CharacterEditionScreen_LoadStagePanels
     {
         internal static CustomFeatureSelectionPanel GetPanel(CharacterEditionScreen __instance)
         {

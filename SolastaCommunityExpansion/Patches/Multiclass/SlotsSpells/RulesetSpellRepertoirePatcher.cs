@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.Classes.Warlock;
@@ -7,7 +8,7 @@ using SolastaCommunityExpansion.Models;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
 
-namespace SolastaMulticlass.Patches.SlotsSpells
+namespace SolastaCommunityExpansion.Patches.Multiclass.SlotsSpells
 {
     internal static class RulesetSpellRepertoirePatcher
     {
@@ -26,7 +27,8 @@ namespace SolastaMulticlass.Patches.SlotsSpells
 
         // ensures MC Warlocks are treated before SC ones
         [HarmonyPatch(typeof(RulesetSpellRepertoire), "GetMaxSlotsNumberOfAllLevels")]
-        internal static class RulesetSpellRepertoireGetMaxSlotsNumberOfAllLevels
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+        internal static class RulesetSpellRepertoire_GetMaxSlotsNumberOfAllLevels
         {
             internal static bool Prefix(
                 RulesetSpellRepertoire __instance,
@@ -47,7 +49,8 @@ namespace SolastaMulticlass.Patches.SlotsSpells
 
         // ensures MC Warlocks are treated before SC ones
         [HarmonyPatch(typeof(RulesetSpellRepertoire), "GetRemainingSlotsNumberOfAllLevels")]
-        internal static class RulesetSpellRepertoireGetRemainingSlotsNumberOfAllLevels
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+        internal static class RulesetSpellRepertoire_GetRemainingSlotsNumberOfAllLevels
         {
             internal static bool Prefix(
                 RulesetSpellRepertoire __instance,
@@ -71,7 +74,8 @@ namespace SolastaMulticlass.Patches.SlotsSpells
 
         // handles all different scenarios to determine slots numbers
         [HarmonyPatch(typeof(RulesetSpellRepertoire), "GetSlotsNumber")]
-        internal static class RulesetSpellRepertoireGetSlotsNumber
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+        internal static class RulesetSpellRepertoire_GetSlotsNumber
         {
             internal static bool Prefix(
                 RulesetSpellRepertoire __instance,
@@ -103,7 +107,8 @@ namespace SolastaMulticlass.Patches.SlotsSpells
 
         // handles all different scenarios of spell slots consumption (casts, smites, point buys)
         [HarmonyPatch(typeof(RulesetSpellRepertoire), "SpendSpellSlot")]
-        internal static class RulesetSpellRepertoireSpendSpellSlot
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+        internal static class RulesetSpellRepertoire_SpendSpellSlot
         {
             internal static bool Prefix(RulesetSpellRepertoire __instance, int slotLevel)
             {
@@ -232,7 +237,8 @@ namespace SolastaMulticlass.Patches.SlotsSpells
 
         // handles all different scenarios to determine max spell level
         [HarmonyPatch(typeof(RulesetSpellRepertoire), "MaxSpellLevelOfSpellCastingLevel", MethodType.Getter)]
-        internal static class RulesetSpellRepertoireMaxSpellLevelOfSpellCastingLevelGetter
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+        internal static class RulesetSpellRepertoire_MaxSpellLevelOfSpellCastingLevelGetter
         {
             internal static void Postfix(RulesetSpellRepertoire __instance, ref int __result)
             {
@@ -264,7 +270,8 @@ namespace SolastaMulticlass.Patches.SlotsSpells
 
         // handles Arcane Recovery granted spells on short rests
         [HarmonyPatch(typeof(RulesetSpellRepertoire), "RecoverMissingSlots")]
-        internal static class RulesetSpellRepertoireRecoverMissingSlots
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+        internal static class RulesetSpellRepertoire_RecoverMissingSlots
         {
             internal static bool Prefix(RulesetSpellRepertoire __instance, Dictionary<int, int> recoveredSlots)
             {

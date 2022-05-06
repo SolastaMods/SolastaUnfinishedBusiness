@@ -1,11 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using SolastaCommunityExpansion;
-using SolastaCommunityExpansion.Models;
 using UnityEngine;
 
-namespace SolastaMulticlass.Models
+namespace SolastaCommunityExpansion.Models
 {
     public static class InOutRulesContext
     {

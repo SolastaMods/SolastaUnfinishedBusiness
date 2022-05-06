@@ -3,7 +3,7 @@ using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 using UnityEngine;
 
-namespace SolastaMulticlass.Patches.SlotsColors
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
 {
 
     // creates different slots colors and pop up messages depending on slot types

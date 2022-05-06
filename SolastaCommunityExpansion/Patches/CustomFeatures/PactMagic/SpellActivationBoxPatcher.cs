@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
     [HarmonyPatch(typeof(SpellActivationBox), "BindSpell")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 
-    internal static class SpellActivationBoxBind
+    internal static class SpellActivationBox_Bind
     {
         public static void Postfix(RulesetSpellRepertoire spellRepertoire, bool ___hasUpcast, Button ___upcastButton)
         {
