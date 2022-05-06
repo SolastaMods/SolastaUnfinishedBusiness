@@ -4,6 +4,7 @@ using System.Reflection;
 using HarmonyLib;
 using SolastaCommunityExpansion;
 using SolastaCommunityExpansion.Models;
+using SolastaModApi.Infrastructure;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 
 namespace SolastaMulticlass.Patches.LevelUp
@@ -63,124 +64,46 @@ namespace SolastaMulticlass.Patches.LevelUp
         [HarmonyPatch(typeof(CharacterBuildingManager), "EnumerateKnownAndAcquiredSpells")]
         internal static class CharacterBuildingManagerEnumerateKnownAndAcquiredSpells
         {
-            internal static bool Prefix(
+            internal static void Postfix(
                 CharacterHeroBuildingData heroBuildingData,
-                string tagToIgnore,
-                ref List<SpellDefinition> __result)
+                List<SpellDefinition> __result)
             {
                 var hero = heroBuildingData.HeroCharacter;
                 var isMulticlass = LevelUpContext.IsMulticlass(hero);
 
                 if (!isMulticlass)
                 {
-                    return true;
+                    return;
                 }
 
-                var selectedClass = LevelUpContext.GetSelectedClass(hero);
-                var spellDefinitionList = new List<SpellDefinition>();
                 var allowedSpells = LevelUpContext.GetAllowedSpells(hero);
 
-                heroBuildingData.MatchingFeatures.Clear();
-
-                foreach (var spellRepertoire in hero.SpellRepertoires)
+                if (Main.Settings.EnableRelearnSpells)
                 {
-                    var isRepertoireFromSelectedClassSubclass = LevelUpContext.IsRepertoireFromSelectedClassSubclass(hero, spellRepertoire);
+                    var selectedRepertoire = LevelUpContext.GetSelectedClassOrSubclassRepertoire(hero);
 
-                    // PATCH: don't allow cantrips to be re-learned
-                    foreach (var spell in spellRepertoire.KnownCantrips)
+                    // only happens during character creation
+                    if (selectedRepertoire == null)
                     {
-                        if (isRepertoireFromSelectedClassSubclass
-                            || (!Main.Settings.EnableRelearnSpells && allowedSpells.Contains(spell)))
-                        {
-                            spellDefinitionList.TryAdd(spell);
-                        }
+                        __result.Clear();
                     }
-
-                    // PATCH: don't allow spells to be re-learned
-                    foreach (var spell in spellRepertoire.KnownSpells)
+                    // allow relearn any other spells but the ones learned by this repertoire
+                    else
                     {
-                        if (isRepertoireFromSelectedClassSubclass
-                            || (!Main.Settings.EnableRelearnSpells && allowedSpells.Contains(spell)))
-                        {
-                            spellDefinitionList.TryAdd(spell);
-                        }
-                    }
+                        var knownSpells = new List<SpellDefinition>();
 
-                    //
-                    // this if wasn't in original code
-                    //
+                        knownSpells.AddRange(selectedRepertoire.AutoPreparedSpells);
+                        knownSpells.AddRange(selectedRepertoire.KnownCantrips);
+                        knownSpells.AddRange(selectedRepertoire.KnownSpells);
+                        knownSpells.AddRange(selectedRepertoire.EnumerateAvailableScribedSpells());
 
-                    // PATCH: don't allow spells from whole lists to be re-learned
-                    if (spellRepertoire.SpellCastingFeature.SpellKnowledge == RuleDefinitions.SpellKnowledge.WholeList)
-                    {
-                        var classSpellLevel = spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
-
-                        for (var spellLevel = 1; spellLevel <= classSpellLevel; spellLevel++)
-                        {
-                            foreach (var spell in spellRepertoire.SpellCastingFeature.SpellListDefinition.GetSpellsOfLevel(spellLevel))
-                            {
-                                if (isRepertoireFromSelectedClassSubclass
-                                    || (!Main.Settings.EnableRelearnSpells && allowedSpells.Contains(spell)))
-                                {
-                                    spellDefinitionList.TryAdd(spell);
-                                }
-                            }
-                        }
+                        __result.SetRange(knownSpells);
                     }
                 }
-
-                //
-                // this is the modified code from EnumerateAvailableScribedSpells()
-                //
-
-                // PATCH: don't allow scribed spells to be re-learned
-                var foundSpellbooks = new List<RulesetItemSpellbook>();
-
-                hero.CharacterInventory.BrowseAllCarriedItems(foundSpellbooks);
-                foreach (var foundSpellbook in foundSpellbooks)
+                else
                 {
-                    foreach (var spell in foundSpellbook.ScribedSpells)
-                    {
-                        if (selectedClass == Wizard
-                            || (!Main.Settings.EnableRelearnSpells && allowedSpells.Contains(spell)))
-                        {
-                            spellDefinitionList.TryAdd(spell);
-                        }
-                    }
+                    __result.RemoveAll(x => !allowedSpells.Contains(x));
                 }
-
-                // GAME CODE FROM HERE
-
-                foreach (var bonusCantrip in heroBuildingData.BonusCantrips
-                    .Where(x => x.Key != tagToIgnore))
-                {
-                    foreach (var spellDefinition in bonusCantrip.Value)
-                    {
-                        spellDefinitionList.TryAdd(spellDefinition);
-                    }
-                }
-
-                foreach (var acquiredCantrip in heroBuildingData.AcquiredCantrips
-                    .Where(x => x.Key != tagToIgnore))
-                {
-                    foreach (var spellDefinition in acquiredCantrip.Value)
-                    {
-                        spellDefinitionList.TryAdd(spellDefinition);
-                    }
-                }
-
-                foreach (var acquiredSpell in heroBuildingData.AcquiredSpells
-                    .Where(x => x.Key != tagToIgnore))
-                {
-                    foreach (var spellDefinition in acquiredSpell.Value)
-                    {
-                        spellDefinitionList.TryAdd(spellDefinition);
-                    }
-                }
-
-                __result = spellDefinitionList;
-
-                return false;
             }
         }
 

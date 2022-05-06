@@ -136,6 +136,12 @@ namespace SolastaCommunityExpansion.Displays
                         Main.Settings.EnableRelearnSpells = toggle;
                     }
 
+                    toggle = Main.Settings.DisplayAllKnownSpellsDuringLevelUp;
+                    if (UI.Toggle("+ Display all known spells from other classes during level up".italic(), ref toggle, UI.AutoWidth()))
+                    {
+                        Main.Settings.DisplayAllKnownSpellsDuringLevelUp = toggle;
+                    }
+
                     UI.Label("");
                     UI.Label(". " + "SHIFT".cyan() + " click on a spell consumes a spell slot instead of the default pact magic one");
                     UI.Label("");

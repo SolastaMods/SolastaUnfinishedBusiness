@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using HarmonyLib;
+using SolastaCommunityExpansion;
 using SolastaCommunityExpansion.Models;
 
 namespace SolastaMulticlass.Patches.LevelUp
@@ -12,7 +13,8 @@ namespace SolastaMulticlass.Patches.LevelUp
         {
             internal static void Prefix(SpellBox.BindMode bindMode, List<SpellDefinition> allSpells)
             {
-                if (bindMode == SpellBox.BindMode.Inspection || bindMode == SpellBox.BindMode.Preparation)
+                if (Main.Settings.DisplayAllKnownSpellsDuringLevelUp || 
+                    bindMode == SpellBox.BindMode.Inspection || bindMode == SpellBox.BindMode.Preparation)
                 {
                     return;
                 }

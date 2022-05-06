@@ -150,6 +150,11 @@ namespace SolastaCommunityExpansion.Models
             levelUpData.SelectedSubclass = characterSubclassDefinition;
         }
 
+        public static RulesetSpellRepertoire GetSelectedClassOrSubclassRepertoire(RulesetCharacterHero rulesetCharacterHero)
+            => rulesetCharacterHero.SpellRepertoires.FirstOrDefault(x =>
+                (x.SpellCastingClass != null && x.SpellCastingClass == GetSelectedClass(rulesetCharacterHero))
+                || (x.SpellCastingSubclass != null && x.SpellCastingSubclass == GetSelectedSubclass(rulesetCharacterHero)));
+
         public static void SetIsClassSelectionStage(RulesetCharacterHero rulesetCharacterHero, bool isClassSelectionStage)
         {
             if (!LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData))
