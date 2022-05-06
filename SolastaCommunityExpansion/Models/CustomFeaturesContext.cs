@@ -176,6 +176,30 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
+        public static void ActuallyRemoveCharacterFeature(RulesetCharacterHero hero, FeatureDefinition feature)
+        {
+            if (feature is FeatureDefinitionFeatureSet set && set.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+            {
+                foreach (var f in set.FeatureSet)
+                {
+                    ActuallyRemoveCharacterFeature(hero, f);
+                }
+            }
+
+            foreach (var e in hero.ActiveFeatures)
+            {
+                var tag = e.Key;
+                var features = e.Value;
+
+                if (features.Contains(feature))
+                {
+                    RecursiveRemoveCustomFeatures(hero, tag, new List<FeatureDefinition> { feature }, handleCustomCode: false);
+                    features.Remove(feature);
+                    break;
+                }
+            }
+        }
+
         internal static void RechargeLinkedPowers(RulesetCharacter character, RuleDefinitions.RestType restType)
         {
             var pointPoolPowerDefinitions = new List<FeatureDefinitionPower>();
