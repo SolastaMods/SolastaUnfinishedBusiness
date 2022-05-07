@@ -161,6 +161,10 @@ namespace SolastaCommunityExpansion.Models
                 {
                     hero.ClassesAndSubclasses.Remove(characterClassDefinition);
                 }
+                else if (featureDefinition is FeatureDefinitionPointPool featureDefinitionPointPool)
+                {
+                    RemoveFeatureDefinitionPointPool(hero, heroRepertoire, featureDefinitionPointPool);
+                }
                 else if (featureDefinition is FeatureDefinitionFeatureSet featureDefinitionFeatureSet && featureDefinitionFeatureSet.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                 {
                     RemoveFeatures(hero, characterClassDefinition, tag, featureDefinitionFeatureSet.FeatureSet);
