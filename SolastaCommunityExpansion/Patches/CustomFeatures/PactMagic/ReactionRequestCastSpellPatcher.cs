@@ -1,5 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.Linq;
+﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
@@ -13,39 +13,44 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
         [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class ReactionRequestCastSpell_BuildSlotSubOptions
         {
-            public static void Postfix(ReactionRequestCastSpell __instance)
+            public static bool Prefix(ReactionRequestCastSpell __instance)
             {
                 var hero = __instance.Character.RulesetCharacter as RulesetCharacterHero;
-                if (hero == null) { return; }
-
-                var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
-                if (SharedSpellsContext.IsMulticaster(hero) || warlockSpellLevel == 0) { return; }
+                if (hero == null) { return true; }
 
                 var rulesetEffect = __instance.ReactionParams.RulesetEffect as RulesetEffectSpell;
-                if (rulesetEffect == null) { return; }
+                if (rulesetEffect == null) { return true; }
+                
+                var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
+                var isMulticaster = SharedSpellsContext.IsMulticaster(hero);
+                var hasPactMagic = warlockSpellLevel > 0;
 
+                __instance.SubOptionsAvailability.Clear();
+                var spellRepertoire = rulesetEffect.SpellRepertoire;
                 var minSpellLebvel = rulesetEffect.SpellDefinition.SpellLevel;
+                var maxRepertoireLevel = spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
+                var maxSpellLevel = Math.Max(maxRepertoireLevel, warlockSpellLevel);
                 var selected = false;
-                var optionsAvailability = __instance.SubOptionsAvailability;
-                var levels = optionsAvailability.Keys.ToList();
 
-                foreach (var spellLevel in levels)
+                for (int level = minSpellLebvel; level <= maxSpellLevel; ++level)
                 {
-                    if (spellLevel != warlockSpellLevel)
+                    spellRepertoire.GetSlotsNumber(level, out var remaining, out var max);
+                    if (max > 0 && (
+                            level <= maxRepertoireLevel
+                            && (isMulticaster || !hasPactMagic)
+                            || level == warlockSpellLevel
+                        ))
                     {
-                        optionsAvailability.Remove(spellLevel);
-                    }
-                    else if (!selected && optionsAvailability[spellLevel])
-                    {
-                        __instance.SelectSubOption(spellLevel - minSpellLebvel);
-                        selected = true;
+                        __instance.SubOptionsAvailability.Add(level, remaining > 0);
+                        if (!selected && remaining > 0)
+                        {
+                            selected = true;
+                            __instance.SelectSubOption(level - minSpellLebvel);
+                        }
                     }
                 }
 
-                if (!selected)
-                {
-                    __instance.SelectSubOption(optionsAvailability.Keys.Min() - minSpellLebvel);
-                }
+                return false;
             }
         }
     }
