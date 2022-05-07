@@ -89,23 +89,20 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
         }
     }
 
-    //
-    // TODO: this patch is causing collections to get off. Do we really need it as we cover on Unassign* patches?
-    //
-    //[HarmonyPatch(typeof(CharacterBuildingManager), "ClearPrevious")]
-    //[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    //internal static class CharacterBuildingManager_ClearPrevious
-    //{
-    //    internal static void Prefix(RulesetCharacterHero hero, string tag)
-    //    {
-    //        if (string.IsNullOrEmpty(tag) || !hero.ActiveFeatures.ContainsKey(tag))
-    //        {
-    //            return;
-    //        }
+    [HarmonyPatch(typeof(CharacterBuildingManager), "ClearPrevious")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class CharacterBuildingManager_ClearPrevious
+    {
+        internal static void Prefix(RulesetCharacterHero hero, string tag)
+        {
+            if (string.IsNullOrEmpty(tag) || !hero.ActiveFeatures.ContainsKey(tag))
+            {
+                return;
+            }
 
-    //        CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, hero.ActiveFeatures[tag]);
-    //    }
-    //}
+            CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, hero.ActiveFeatures[tag]);
+        }
+    }
 
     [HarmonyPatch(typeof(CharacterBuildingManager), "UnacquireBonusCantrips")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

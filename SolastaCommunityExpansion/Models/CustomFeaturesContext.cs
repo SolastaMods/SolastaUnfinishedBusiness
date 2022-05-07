@@ -62,13 +62,6 @@ namespace SolastaCommunityExpansion.Models
                     RecursiveRemoveCustomFeatures(hero, tag, set.FeatureSet, handleCustomCode);
                 }
 
-                if (grantedFeature is FeatureDefinitionPointPool featureDefinitionPointPool)
-                {
-                    var repertoire = LevelUpContext.GetSelectedClassOrSubclassRepertoire(hero);
-
-                    RemoveFeatureDefinitionPointPool(hero, repertoire, featureDefinitionPointPool);
-                }
-
                 if (grantedFeature is not FeatureDefinitionProficiency featureDefinitionProficiency)
                 {
                     continue;
@@ -86,8 +79,6 @@ namespace SolastaCommunityExpansion.Models
                                 .GetElement(prof, false)));
             }
 
-            RemoveFeatures(hero, selectedClass, tag, features);
-            features.Clear();
             hero.RefreshAll();
         }
 
@@ -195,6 +186,7 @@ namespace SolastaCommunityExpansion.Models
                 if (features.Contains(feature))
                 {
                     RecursiveRemoveCustomFeatures(hero, tag, new List<FeatureDefinition> { feature }, handleCustomCode: false);
+
                     features.Remove(feature);
                     break;
                 }
