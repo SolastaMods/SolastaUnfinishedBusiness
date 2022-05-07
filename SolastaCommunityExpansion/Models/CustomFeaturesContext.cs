@@ -178,6 +178,7 @@ namespace SolastaCommunityExpansion.Models
                 }
             }
 
+            var selectedClass = LevelUpContext.GetSelectedClass(hero);
             foreach (var e in hero.ActiveFeatures)
             {
                 var tag = e.Key;
@@ -185,8 +186,12 @@ namespace SolastaCommunityExpansion.Models
 
                 if (features.Contains(feature))
                 {
-                    RecursiveRemoveCustomFeatures(hero, tag, new List<FeatureDefinition> { feature }, handleCustomCode: false);
-
+                    var featuresToRemove = new List<FeatureDefinition> { feature };
+                    RecursiveRemoveCustomFeatures(hero, tag, featuresToRemove, handleCustomCode: false);
+                    if (selectedClass != null)
+                    {
+                        RemoveFeatures(hero, selectedClass, tag, featuresToRemove);
+                    }
                     features.Remove(feature);
                     break;
                 }
