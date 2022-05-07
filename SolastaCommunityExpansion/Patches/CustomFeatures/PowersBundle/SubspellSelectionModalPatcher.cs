@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
+using SolastaCommunityExpansion.Patches.SrdAndHouseRules.UpcastConjureElementalAndFey;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
 {
@@ -21,34 +22,57 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
             RulesetDeviceFunction ___rulesetDeviceFunction
             )
         {
-            if (!Main.Settings.EnablePowersBundlePatch)
+            if (Main.Settings.EnableUpcastConjureElementalAndFey
+                && SubspellSelectionModal_Bind.FilteredSubspells != null
+                && SubspellSelectionModal_Bind.FilteredSubspells.Count > 0)
             {
-                return true;
+                var subspells = SubspellSelectionModal_Bind.FilteredSubspells;
+
+                if (subspells.Count > index)
+                {
+                    ___spellCastEngaged?.Invoke(___spellRepertoire, SubspellSelectionModal_Bind.FilteredSubspells[index], ___slotLevel);
+
+                    // If a device had the summon function, implement here
+
+                    //else if (this.deviceFunctionEngaged != null)
+                    //    this.deviceFunctionEngaged(this.guiCharacter, this.rulesetItemDevice, this.rulesetDeviceFunction, 0, index);
+
+                    __instance.Hide();
+
+                    subspells.Clear();
+
+                    return false;
+                }
             }
 
-            var masterPower = PowerBundleContext.GetPower(___masterSpell);
-
-            if (masterPower == null)
+            if (Main.Settings.EnablePowersBundlePatch)
             {
-                return true;
+                var masterPower = PowerBundleContext.GetPower(___masterSpell);
+
+                if (masterPower != null)
+                {
+
+                    if (___spellCastEngaged != null)
+                    {
+                        ___spellCastEngaged(___spellRepertoire, ___spellRepertoire.KnownSpells[index], ___slotLevel);
+                    }
+                    else
+                    {
+                        ___deviceFunctionEngaged?.Invoke(
+                            ___guiCharacter,
+                            ___rulesetItemDevice,
+                            ___rulesetDeviceFunction,
+                            0, index
+                        );
+                    }
+
+                    __instance.Hide();
+
+                    return false;
+                }
             }
 
-            if (___spellCastEngaged != null)
-            {
-                ___spellCastEngaged(___spellRepertoire, ___spellRepertoire.KnownSpells[index], ___slotLevel);
-            }
-            else
-            {
-                ___deviceFunctionEngaged?.Invoke(
-                    ___guiCharacter,
-                    ___rulesetItemDevice,
-                    ___rulesetDeviceFunction,
-                    0, index
-                );
-            }
-
-            __instance.Hide();
-            return false;
+            return true;
         }
     }
 }
