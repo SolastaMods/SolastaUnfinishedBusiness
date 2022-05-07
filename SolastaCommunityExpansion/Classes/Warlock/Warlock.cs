@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Classes.Warlock.Features;
@@ -101,11 +100,10 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                 .SetSlotsPerLevel(WarlockSpells.WarlockCastingSlots)
                 .SetSlotsRecharge(RuleDefinitions.RechargeRate.ShortRest)
                 .SetSpellCastingAbility(AttributeDefinitions.Charisma)
-                .SetSpellCastingLevel(5)
+                .SetSpellCastingLevel(9)
                 .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Class)
                 .SetSpellList(WarlockSpells.WarlockSpellList)
                 .SetSpellKnowledge(RuleDefinitions.SpellKnowledge.Selection)
-                .SetSpellPreparationCount(RuleDefinitions.SpellPreparationCount.AbilityBonusPlusLevel)
                 .SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown);
 
             FeatureDefinitionClassWarlockCastSpell = classWarlockCastSpell.AddToDB();
@@ -113,25 +111,19 @@ namespace SolastaCommunityExpansion.Classes.Warlock
 
         private static void BuildProgression(CharacterClassDefinitionBuilder classWarlockBuilder)
         {
-            //
-            // building but not adding to avoid issues with gamers who already took this class
-            //
-            _ = DHWarlockSubclassAncientForestPatron.Build();
-
             FeatureDefinitionSubclassChoice subclassChoices = FeatureDefinitionSubclassChoiceBuilder
                 .Create("ClassWarlockSubclassChoice", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation("ClassWarlockPatron", Category.Subclass)
                 .SetSubclassSuffix("Patron")
                 .SetFilterByDeity(false)
                 .SetSubclasses(
-                    AHWarlockSubclassSoulBladePact.Subclass,
-                    // needs more work and verification,  find a better solution for the rest panel
-                    //DHWarlockSubclassAncientForestPatron.Build(),
+                    AHWarlockSubclassSoulBladePact.Build(),
+                    DHWarlockSubclassAncientForestPatron.Build(),
                     DHWarlockSubclassElementalPatron.Build(),
                     DHWarlockSubclassMoonLitPatron.Build(),
                     DHWarlockSubclassRiftWalkerPatron.Build(),
                     // needs more work and verification, autoprepared spells cant just be reused because they specific cleric class, battle domain divine Fortitude (wrath in code) also didnt work
-                    //DHWarlockSubclassUrPriestPatron.Build(),
+                    // DHWarlockSubclassUrPriestPatron.Build(),
                     DHWarlockSubclassToadKingPatron.Build()
                     )
                 .AddToDB();
@@ -144,29 +136,102 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                     FeatureDefinitionProficiencyTool,
                     FeatureDefinitionSkillPoints,
                     FeatureDefinitionClassWarlockCastSpell,
-                    subclassChoices)
-                .AddFeaturesAtLevel(2, WarlockEldritchInvocationSetLevel2)
-                .AddFeaturesAtLevel(2, WarlockEldritchInvocationSetLevel2)
-                .AddFeaturesAtLevel(3, WarlockClassPactBoonSetBuilder.WarlockClassPactBoonSet)
-                .AddFeaturesAtLevel(4, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
-                .AddFeaturesAtLevel(5, WarlockEldritchInvocationSetLevel5)
-                //level 6 - subclass feature
-                .AddFeatureAtLevel(7, WarlockEldritchInvocationSetLevel7)
-                .AddFeatureAtLevel(8, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
-                .AddFeatureAtLevel(9, WarlockEldritchInvocationSetLevel9)
-                //level 10 - subclass feature
-                .AddFeatureAtLevel(11, WarlockMysticArcanumSets.WarlockMysticArcanumSetLevel11)
-                .AddFeatureAtLevel(12, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
-                .AddFeatureAtLevel(12, WarlockEldritchInvocationSetLevel12)
-                .AddFeatureAtLevel(13, WarlockMysticArcanumSets.WarlockMysticArcanumSetLevel13)
-                //level 14 - subclass feature
-                .AddFeatureAtLevel(15, WarlockMysticArcanumSets.WarlockMysticArcanumSetLevel15)
-                .AddFeatureAtLevel(15, WarlockEldritchInvocationSetLevel15)
-                .AddFeatureAtLevel(16, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
-                .AddFeatureAtLevel(17, WarlockMysticArcanumSets.WarlockMysticArcanumSetLevel17)
-                .AddFeatureAtLevel(18, WarlockEldritchInvocationSetLevel18)
-                .AddFeatureAtLevel(19, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
-                .AddFeatureAtLevel(20, WarlockEldritchMasterPower);
+                    subclassChoices
+                )
+
+                .AddFeaturesAtLevel(2,
+                    WarlockEldritchInvocationSet,
+                    WarlockEldritchInvocationSet
+                )
+
+                .AddFeaturesAtLevel(3,
+                    WarlockClassPactBoonSetBuilder.WarlockClassPactBoonSet,
+                    WarlockEldritchInvocationReplacer
+                )
+
+                .AddFeaturesAtLevel(4,
+                    FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice,
+                    WarlockEldritchInvocationReplacer
+                )
+
+                .AddFeaturesAtLevel(5,
+                    WarlockEldritchInvocationReplacer,
+                    WarlockEldritchInvocationSet
+                )
+
+                .AddFeaturesAtLevel(6,
+                    WarlockEldritchInvocationReplacer
+                )
+
+                .AddFeaturesAtLevel(7,
+                    WarlockEldritchInvocationReplacer,
+                    WarlockEldritchInvocationSet
+                )
+
+                .AddFeaturesAtLevel(8,
+                    FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice,
+                    WarlockEldritchInvocationReplacer
+                )
+
+                .AddFeaturesAtLevel(9,
+                    WarlockEldritchInvocationReplacer,
+                    WarlockEldritchInvocationSet
+                )
+
+                .AddFeaturesAtLevel(10,
+                    WarlockEldritchInvocationReplacer
+                )
+
+                .AddFeaturesAtLevel(11,
+                    WarlockMysticArcanumSet,
+                    WarlockEldritchInvocationReplacer
+                )
+
+                .AddFeaturesAtLevel(12,
+                    FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice,
+                    WarlockEldritchInvocationReplacer,
+                    WarlockEldritchInvocationSet
+                )
+
+                .AddFeaturesAtLevel(13,
+                    WarlockMysticArcanumSet,
+                    WarlockEldritchInvocationReplacer
+                )
+
+                .AddFeaturesAtLevel(14,
+                    WarlockEldritchInvocationReplacer
+                )
+
+                .AddFeaturesAtLevel(15,
+                    WarlockMysticArcanumSet,
+                    WarlockEldritchInvocationReplacer,
+                    WarlockEldritchInvocationSet
+                )
+
+                .AddFeaturesAtLevel(16,
+                    FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice,
+                    WarlockEldritchInvocationReplacer
+                )
+
+                .AddFeaturesAtLevel(17,
+                    WarlockMysticArcanumSet,
+                    WarlockEldritchInvocationReplacer
+                )
+
+                .AddFeaturesAtLevel(18,
+                    WarlockEldritchInvocationReplacer,
+                    WarlockEldritchInvocationSet
+                )
+
+                .AddFeaturesAtLevel(19,
+                    FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice,
+                    WarlockEldritchInvocationReplacer
+                )
+                
+                .AddFeaturesAtLevel(20,
+                    WarlockEldritchMasterPower,
+                    WarlockEldritchInvocationReplacer
+                );
         }
 
         internal static CharacterClassDefinition BuildWarlockClass()

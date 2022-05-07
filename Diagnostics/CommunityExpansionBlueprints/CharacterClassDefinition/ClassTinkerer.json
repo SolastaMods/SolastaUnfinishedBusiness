@@ -167,22 +167,22 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:TinkererLevel2InfusionChoice:3120419f-9363-57b4-a4c8-8416184e4804",
+      "featureDefinition": "Definition:TinkererInfusionChoice:4dbf955c-2a87-58ac-9e0a-b8646378a768",
       "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:TinkererLevel2InfusionChoice:3120419f-9363-57b4-a4c8-8416184e4804",
+      "featureDefinition": "Definition:TinkererInfusionChoice:4dbf955c-2a87-58ac-9e0a-b8646378a768",
       "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:TinkererLevel2InfusionChoice:3120419f-9363-57b4-a4c8-8416184e4804",
+      "featureDefinition": "Definition:TinkererInfusionChoice:4dbf955c-2a87-58ac-9e0a-b8646378a768",
       "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:TinkererLevel2InfusionChoice:3120419f-9363-57b4-a4c8-8416184e4804",
+      "featureDefinition": "Definition:TinkererInfusionChoice:4dbf955c-2a87-58ac-9e0a-b8646378a768",
       "level": 2
     },
     {
@@ -197,6 +197,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:TinkererInfusionReplace:7a1d2ef1-0f14-5bb4-8cc1-2951c1c7c057",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:SubclassChoiceArtificerSpecialistArchetypes:d9377b60-5def-5aea-8c53-590647d09884",
       "level": 3
     },
@@ -207,17 +212,32 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:TinkererLevel6InfusionChoice:3e8ad160-b206-5d8b-992c-74e2c52edc49",
+      "featureDefinition": "Definition:TinkererInfusionReplace:7a1d2ef1-0f14-5bb4-8cc1-2951c1c7c057",
+      "level": 4
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:TinkererInfusionReplace:7a1d2ef1-0f14-5bb4-8cc1-2951c1c7c057",
+      "level": 5
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:TinkererInfusionChoice:4dbf955c-2a87-58ac-9e0a-b8646378a768",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:TinkererLevel6InfusionChoice:3e8ad160-b206-5d8b-992c-74e2c52edc49",
+      "featureDefinition": "Definition:TinkererInfusionChoice:4dbf955c-2a87-58ac-9e0a-b8646378a768",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AttributeModiferArtificerInfusionIncreaseHealingPool:3119dbc4-7c4e-5442-a814-335fd690d943",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:TinkererInfusionReplace:7a1d2ef1-0f14-5bb4-8cc1-2951c1c7c057",
       "level": 6
     },
     {
@@ -232,8 +252,23 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:TinkererInfusionReplace:7a1d2ef1-0f14-5bb4-8cc1-2951c1c7c057",
+      "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
       "level": 8
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:TinkererInfusionReplace:7a1d2ef1-0f14-5bb4-8cc1-2951c1c7c057",
+      "level": 8
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:TinkererInfusionReplace:7a1d2ef1-0f14-5bb4-8cc1-2951c1c7c057",
+      "level": 9
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
@@ -252,12 +287,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:TinkererLevel10InfusionChoice:2795e1ef-0e6d-5765-ba7a-dd1b6b2665a1",
+      "featureDefinition": "Definition:TinkererInfusionChoice:4dbf955c-2a87-58ac-9e0a-b8646378a768",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:TinkererLevel10InfusionChoice:2795e1ef-0e6d-5765-ba7a-dd1b6b2665a1",
+      "featureDefinition": "Definition:TinkererInfusionChoice:4dbf955c-2a87-58ac-9e0a-b8646378a768",
       "level": 10
     },
     {
@@ -272,6 +307,16 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:TinkererInfusionReplace:7a1d2ef1-0f14-5bb4-8cc1-2951c1c7c057",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:TinkererInfusionReplace:7a1d2ef1-0f14-5bb4-8cc1-2951c1c7c057",
+      "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:TinkererSpellStoringItem:a96e75c2-86ab-5062-a8b1-50f07d3884a1",
       "level": 11
     },
@@ -282,12 +327,22 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:TinkererLevel14InfusionChoice:279e37bf-da46-546a-b797-bc08f81db50a",
+      "featureDefinition": "Definition:TinkererInfusionReplace:7a1d2ef1-0f14-5bb4-8cc1-2951c1c7c057",
+      "level": 12
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:TinkererInfusionReplace:7a1d2ef1-0f14-5bb4-8cc1-2951c1c7c057",
+      "level": 13
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:TinkererInfusionChoice:4dbf955c-2a87-58ac-9e0a-b8646378a768",
       "level": 14
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:TinkererLevel14InfusionChoice:279e37bf-da46-546a-b797-bc08f81db50a",
+      "featureDefinition": "Definition:TinkererInfusionChoice:4dbf955c-2a87-58ac-9e0a-b8646378a768",
       "level": 14
     },
     {
@@ -297,17 +352,37 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:TinkererInfusionReplace:7a1d2ef1-0f14-5bb4-8cc1-2951c1c7c057",
+      "level": 14
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:TinkererInfusionReplace:7a1d2ef1-0f14-5bb4-8cc1-2951c1c7c057",
+      "level": 15
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
       "level": 16
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:TinkererLevel14InfusionChoice:279e37bf-da46-546a-b797-bc08f81db50a",
+      "featureDefinition": "Definition:TinkererInfusionReplace:7a1d2ef1-0f14-5bb4-8cc1-2951c1c7c057",
+      "level": 16
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:TinkererInfusionReplace:7a1d2ef1-0f14-5bb4-8cc1-2951c1c7c057",
+      "level": 17
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:TinkererInfusionChoice:4dbf955c-2a87-58ac-9e0a-b8646378a768",
       "level": 18
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:TinkererLevel14InfusionChoice:279e37bf-da46-546a-b797-bc08f81db50a",
+      "featureDefinition": "Definition:TinkererInfusionChoice:4dbf955c-2a87-58ac-9e0a-b8646378a768",
       "level": 18
     },
     {
@@ -317,8 +392,23 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:TinkererInfusionReplace:7a1d2ef1-0f14-5bb4-8cc1-2951c1c7c057",
+      "level": 18
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
       "level": 19
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:TinkererInfusionReplace:7a1d2ef1-0f14-5bb4-8cc1-2951c1c7c057",
+      "level": 19
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:TinkererInfusionReplace:7a1d2ef1-0f14-5bb4-8cc1-2951c1c7c057",
+      "level": 20
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",

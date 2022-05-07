@@ -16,12 +16,13 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.RitualAndAutoPrepared
          * prepared spells is used which works properly.
          */
         internal static void Prefix(
-            SpellsByLevelGroup __instance, 
+            SpellsByLevelGroup __instance,
+            SpellBox.BindMode bindMode,
             RulesetCharacter caster,
             ref List<SpellDefinition> allSpells, 
             ref List<SpellDefinition> auToPreparedSpells)
         {
-            if (!Main.Settings.ShowAllAutoPreparedSpells)
+            if (!Main.Settings.ShowAllAutoPreparedSpells || bindMode == SpellBox.BindMode.Inspection || bindMode == SpellBox.BindMode.Preparation)
             {
                 return;
             }

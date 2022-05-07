@@ -3,7 +3,7 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetGreenWitchMagic:507e2c9e-4343-52e9-99d7-b53bedab1d78",
+      "featureDefinition": "Definition:GreenMagicAutoPreparedSpell:6308a746-d075-55e7-ae6a-ee06d559a151",
       "level": 3
     }
   ],

@@ -8,12 +8,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:RiftWalkerSpellsMagicAffinity:3b445597-4773-5175-a546-7da0b2fed5fb",
+      "featureDefinition": "Definition:DH_RiftWalk:f282f345-ddc3-5d4f-9b05-4151caab7e26",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:DH_RiftWalk:f282f345-ddc3-5d4f-9b05-4151caab7e26",
+      "featureDefinition": "Definition:RiftWalkerSpellsMagicAffinity:3b445597-4773-5175-a546-7da0b2fed5fb",
       "level": 1
     },
     {

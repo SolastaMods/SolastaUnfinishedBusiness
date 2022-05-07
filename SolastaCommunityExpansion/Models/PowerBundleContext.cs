@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using ModKit;
 using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Utils;
 using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -190,15 +190,7 @@ namespace SolastaCommunityExpansion.Models
                     rules.ApplyEffectForms(power.EffectDescription.EffectForms, formsParams);
                     ruleChar.UpdateUsageForPowerPool(usablePower, power.CostPerUse);
 
-                    var console = Gui.Game.GameConsole;
-                    var characterName = ruleChar.DisplayName;
-                    var abilityName = string.IsNullOrEmpty(power.ShortTitleOverride) ? power.GuiPresentation.Title : power.ShortTitleOverride;
-                    var textFormat = $"Feedback/&{power.Name}UsedWhileTravellingFormat";
-
-                    var entry = new GameConsoleEntry(textFormat, console.GetField<ConsoleTableDefinition>("consoleTableDefinition"));
-                    entry.AddParameter(ConsoleStyleDuplet.ParameterType.Player, characterName);
-                    entry.AddParameter(ConsoleStyleDuplet.ParameterType.AttackSpellPower, abilityName);
-                    console.AddEntry(entry);
+                    GameConsoleHelper.LogCharacterUsedPower(ruleChar, power, $"Feedback/&{power.Name}UsedWhileTravellingFormat");
                 }
             }
 

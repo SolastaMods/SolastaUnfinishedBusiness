@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿#if false
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using HarmonyLib;
 using UnityEngine;
@@ -99,3 +100,4 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.Editor
         }
     }
 }
+#endif

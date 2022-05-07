@@ -1,7 +1,7 @@
 {
   "$type": "FeatureDefinitionMagicAffinity, Assembly-CSharp",
   "preparedSpellModifier": "None",
-  "saveDCModifierType": "None",
+  "saveDCModifierType": "FlatValue",
   "saveDCModifier": 2,
   "spellAttackModifierType": "None",
   "spellAttackModifier": 0,

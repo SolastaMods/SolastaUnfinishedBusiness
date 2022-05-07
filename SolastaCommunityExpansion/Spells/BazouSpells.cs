@@ -63,7 +63,7 @@ namespace SolastaCommunityExpansion.Spells
         private static SpellDefinition BuildEldritchOrb()
         {
             var spell = SpellDefinitionBuilder
-                .Create(Fireball, "EldritchOrb", BAZOU_SPELLS_BASE_GUID)
+                .Create(MagicMissile, "EldritchOrb", BAZOU_SPELLS_BASE_GUID)
                 .SetGuiPresentation(Category.Spell, Shine.GuiPresentation.SpriteReference)
                 .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
                 .SetMaterialComponent(RuleDefinitions.MaterialComponentType.None)
@@ -362,6 +362,7 @@ namespace SolastaCommunityExpansion.Spells
             spell.EffectDescription.SetHasSavingThrow(true);
             spell.EffectDescription.SetSavingThrowAbility(AttributeDefinitions.Wisdom);
             spell.EffectDescription.SetRecurrentEffect(RuleDefinitions.RecurrentEffect.OnEnter);
+            spell.EffectDescription.SetDifficultyClassComputation(RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency);
 
             spell.EffectDescription.EffectAdvancement.SetAdditionalDicePerIncrement(1);
             spell.EffectDescription.EffectAdvancement.SetIncrementMultiplier(1);

@@ -1,45 +1,49 @@
 ﻿using SolastaModApi;
 using SolastaModApi.Extensions;
 using System.Collections.Generic;
-using UnityEngine;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Models;
+using UnityEngine;
 using SolastaMonsters.Models;
-
+//******************************************************************************************
+// BY DEFINITION, REFACTORING REQUIRES CONFIRMING EXTERNAL BEHAVIOUR DOES NOT CHANGE
+// "REFACTORING WITHOUT TESTS IS JUST CHANGING STUFF"
+//******************************************************************************************
 namespace SolastaMonsters.Monsters
 {
-    public static class NewMonsterPowers
+    public class NewMonsterPowers
     {
-        public static FeatureDefinitionPower Generic_Lightning_Attack_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower Balor_FireAura_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower IncreasedGravityZone_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower Lich_DisruptLife_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower FireTitan_Aura_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower AirTitan_Lightning_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower AirTitan_Gale_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower AirTitan_LightningStorm_Attack_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower EarthTitan_Earthquake_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower IlluminatingCrystals_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower DisintegratingBeam_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower AtWillSelfBuff_Invisibility_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower AtWillAOE_Fireball_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower LimitedPerDayTargetDebuff_HoldMonster_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower LimitedPerDayAOE_WallOfFire_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower SummonCreature_Erinyes_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower ErinyesParry_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower SummonCreature_Nalfeshnee_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower SearingBurst_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower BlindingGaze_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower SummonCreature_Elemental_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower SummonCreature_Wolves_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower SummonCreature_LesserConstruct_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower AncientDragon_Wing_Power  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower TarrasqueSwallowPower  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        public static FeatureDefinitionPower VampireCharmPower  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower Generic_Lightning_Attack_Power = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower Balor_FireAura_Power = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower IncreasedGravityZone_Power = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower Lich_DisruptLife_Power = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower FireTitan_Aura_Power = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower AirTitan_Lightning_Power = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower AirTitan_Gale_Power = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower AirTitan_LightningStorm_Attack_Power = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower EarthTitan_Earthquake_Power = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower IlluminatingCrystals_Power = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower DisintegratingBeam_Power = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower AtWillSelfBuff_Invisibility_Power = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower AtWillAOE_Fireball_Power = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower LimitedPerDayTargetDebuff_HoldMonster_Power = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower LimitedPerDayAOE_WallOfFire_Power = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower SummonCreature_Erinyes_Power = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower ErinyesParry_Power = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower SummonCreature_Nalfeshnee_Power = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower SearingBurst_Power = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower BlindingGaze_Power = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower SummonCreature_Elemental_Power = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower SummonCreature_Wolves_Power = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower SummonCreature_LesserConstruct_Power = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower AncientDragon_Wing_Power = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower TarrasqueSwallowPower = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
+        public static FeatureDefinitionPower VampireCharmPower = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
 
-        public static Dictionary<string, FeatureDefinitionPower> DictionaryOfAncientDragonBreaths  { get; private set; } = new Dictionary<string, FeatureDefinitionPower>();
-        public static Dictionary<string, FeatureDefinitionPower> DictionaryOfGenericBreathsWithExtraDamage  { get; private set; } = new Dictionary<string, FeatureDefinitionPower>();
-        public static Dictionary<string, FeatureDefinitionPower> Dictionaryof_SummoningElementals  { get; private set; } = new Dictionary<string, FeatureDefinitionPower>();
+        public static Dictionary<string, FeatureDefinitionPower> DictionaryOfAncientDragonBreaths = new Dictionary<string, FeatureDefinitionPower>();
+        public static Dictionary<string, FeatureDefinitionPower> DictionaryOfGenericBreathsWithExtraDamage = new Dictionary<string, FeatureDefinitionPower>();
+        public static Dictionary<string, FeatureDefinitionPower> Dictionaryof_SummoningElementals = new Dictionary<string, FeatureDefinitionPower>();
 
 
         internal static void Create()

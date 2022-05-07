@@ -13,12 +13,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AncientForestAttributeModiferRegrowth:93eaee1d-a6c8-5f77-9c75-7ebf05e3e8e7",
+      "featureDefinition": "Definition:AncientForestAttributeModifierRegrowth:73b0b3cf-04dc-5bd4-9573-1af6ae75c261",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AncientForestAttributeModiferRegrowthMultiplier:ba38dbca-64fb-5d4f-89a1-2c45000d23a0",
+      "featureDefinition": "Definition:AncientForestAttributeModifierRegrowthMultiplier:50b518a2-a572-50d9-9b0a-6bf4190cf754",
       "level": 1
     },
     {
@@ -48,12 +48,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:WallofThornsFeatureSet:3b288475-2c9b-540d-a390-856adbd32685",
+      "featureDefinition": "Definition:AncientForestAttributeModifierBarkskin:d33152b9-57bc-5b82-88fe-06fad081d3fd",
       "level": 14
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierBarkskin:5a071f498c38a0042bc3dc3c3099e692",
+      "featureDefinition": "Definition:WallofThornsFeatureSet:3b288475-2c9b-540d-a390-856adbd32685",
       "level": 14
     }
   ],

@@ -36,8 +36,8 @@ namespace SolastaCommunityExpansion.Classes.Witch
         private static FeatureDefinitionPointPool FeatureDefinitionPointPoolTools { get; set; }
         private static FeatureDefinitionCastSpell FeatureDefinitionCastSpellWitch { get; set; }
         private static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetRitualCasting { get; set; }
-        private static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetWitchCurses { get; set; }
-        private static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetMaledictions { get; set; }
+        private static CustomFeatureDefinitionSet FeatureDefinitionFeatureSetWitchCurses { get; set; }
+        private static CustomFeatureDefinitionSet FeatureDefinitionFeatureSetMaledictions { get; set; }
         private static FeatureDefinitionPower FeatureDefinitionPowerCackle { get; set; }
         private static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetWitchFamiliar { get; set; }
 
@@ -256,7 +256,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
             var burnedCurse = FeatureDefinitionFeatureSetBuilder
                 .Create(FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WitchFeatureSetBurnedCurse", WITCH_BASE_GUID)
-                .SetGuiPresentation(Category.Class)
+                .SetGuiPresentation(Category.Class, ProduceFlame.GuiPresentation.SpriteReference)
                 .SetFeatureSet(burnedFireRes, burnedProduceFlame)
                 .AddToDB();
 
@@ -267,7 +267,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
             var lovelessCurse = FeatureDefinitionFeatureSetBuilder
                 .Create(FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WitchFeatureSetLovelessCurse", WITCH_BASE_GUID)
-                .SetGuiPresentation(Category.Class)
+                .SetGuiPresentation(Category.Class, CharmPerson.GuiPresentation.SpriteReference)
                 .SetFeatureSet(lovelessCharmImmunity)
                 .AddToDB();
 
@@ -279,18 +279,20 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .SetModifierAbilityScore(AttributeDefinitions.Charisma)
                 .AddToDB();
 
+
             var visionsCurse = FeatureDefinitionFeatureSetBuilder
                 .Create(FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WitchFeatureSetVisionsCurse", WITCH_BASE_GUID)
-                .SetGuiPresentation(Category.Class)
+                .SetGuiPresentation(Category.Class, Blindness.GuiPresentation.SpriteReference)
                 .SetFeatureSet(visionsInitiative)
                 .AddToDB();
 
-            FeatureDefinitionFeatureSetWitchCurses = FeatureDefinitionFeatureSetBuilder
-                .Create(FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WitchFeatureSetWitchCurse", WITCH_BASE_GUID)
-                .SetGuiPresentation(Category.Class)
-                .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
-                .SetUniqueChoices(true)
-                .SetFeatureSet(burnedCurse, lovelessCurse, visionsCurse)
+            var cursesFeatures = new FeatureDefinition[] { burnedCurse, lovelessCurse, visionsCurse };
+
+            FeatureDefinitionFeatureSetWitchCurses = CustomFeatureDefinitionSetBuilder
+                .Create("WitchCurseChoice", WITCH_BASE_GUID)
+                .SetGuiPresentation(Category.Feature)
+                .SetRequireClassLevels(true)
+                .SetLevelFeatures(1, cursesFeatures)
                 .AddToDB();
         }
 
@@ -640,12 +642,13 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .SetEffectDescription(ruinEffectDescription)
                 .AddToDB();
 
-            FeatureDefinitionFeatureSetMaledictions = FeatureDefinitionFeatureSetBuilder
-                .Create(FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WitchFeatureSetMaledictions", WITCH_BASE_GUID)
-                .SetGuiPresentation(Category.Class)
-                .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
-                .SetUniqueChoices(true)
-                .SetFeatureSet(abate, apathy, charm, disorient, evileye, obfuscate, pox, ruin)
+            var maledictionsFeatures = new FeatureDefinition[] { abate, apathy, charm, disorient, evileye, obfuscate, pox, ruin };
+
+            FeatureDefinitionFeatureSetMaledictions = CustomFeatureDefinitionSetBuilder
+                .Create("WitchMaledictionChoice", WITCH_BASE_GUID)
+                .SetGuiPresentation(Category.Feature)
+                .SetRequireClassLevels(true)
+                .SetLevelFeatures(1, maledictionsFeatures)
                 .AddToDB();
         }
 

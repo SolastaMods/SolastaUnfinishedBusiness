@@ -175,4 +175,16 @@
   <data name="WarlockChainSummon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WarlockChainSummon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="EldritchInvocation" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EldritchInvocation.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EldritchBlast" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EldritchBlast.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EldritchBlastGrasp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EldritchBlastGrasp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EldritchBlastRepell" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EldritchBlastRepell.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

@@ -4,14 +4,17 @@ using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
-
+using SolastaCommunityExpansion.Models;
+//******************************************************************************************
+// BY DEFINITION, REFACTORING REQUIRES CONFIRMING EXTERNAL BEHAVIOUR DOES NOT CHANGE
+// "REFACTORING WITHOUT TESTS IS JUST CHANGING STUFF"
+//******************************************************************************************
 namespace SolastaMonsters.Monsters
 {
-#pragma warning disable S101 // Types should be named in PascalCase
     internal static class MonstersSRD
-#pragma warning restore S101 // Types should be named in PascalCase
     {
-        public static readonly List<Models.MonsterContext.CustomMonster> Definitions = new()
+
+        public static List<Models.MonsterContext.CustomMonster> Definitions = new List<Models.MonsterContext.CustomMonster>()
         {
             new Models.MonsterContext.CustomMonster()
             {
@@ -1451,7 +1454,7 @@ namespace SolastaMonsters.Monsters
                 SpriteReference=DatabaseHelper.MonsterDefinitions.Divine_Avatar_Cleric.GuiPresentation.SpriteReference,
             }       ,
 
-
+/*
              new Models.MonsterContext.CustomMonster()
              {
                     MonsterName = "Storm Giant",
@@ -1514,7 +1517,7 @@ namespace SolastaMonsters.Monsters
                 AttachedParticlesReference=MonstersAttributes.EmptyassetReference,
                 SpriteReference=DatabaseHelper.MonsterDefinitions.Giant_Frost.GuiPresentation.SpriteReference,
              }      ,
-
+*/
             new Models.MonsterContext.CustomMonster()
             {
                MonsterName = "Tarrasque",
@@ -1686,7 +1689,7 @@ namespace SolastaMonsters.Monsters
                  * 
                  * MonsterDefinitionBuilder NewMonster = new MonsterDefinitionBuilder(
                     Definitions[i].NewName,
-                    GuidHelper.Create(new System.Guid(MonsterContext.GUID), Definitions[i].NewName).ToString(),
+                    GuidHelper.Create(new System.Guid(Settings.GUID), Definitions[i].NewName).ToString(),
                     "Monster/&" + "DH_" + Definitions[i].NewTitle,
                     "Monster/&" + "DH_" + Definitions[i].NewDescription,
                     Definitions[i].BaseTemplateName);
@@ -1701,7 +1704,13 @@ namespace SolastaMonsters.Monsters
                             "Monster/&" + "DH_" + Definitions[i].NewDescription, 
                             Definitions[i].BaseTemplateName.GuiPresentation.SpriteReference);
 
-                NewMonster.SetInDungeonEditor(true);
+
+                NewMonster.SetInDungeonEditor(false);
+                if (SolastaCommunityExpansion.Main.Settings.EnableExtraHighLevelMonsters)
+                {
+                    NewMonster.SetInDungeonEditor(true);
+                };
+
                 NewMonster.SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None);
                 NewMonster.SetSizeDefinition(Definitions[i].Size);
                 NewMonster.SetChallengeRating(Definitions[i].CR);
@@ -1864,7 +1873,6 @@ namespace SolastaMonsters.Monsters
 
                 // temporary fix until builder is changed
                 monster.CreatureTags.Clear();
-             SolastaCommunityExpansion.Models.DungeonMakerContext.ModdedMonsters.Add(monster);
             }
         }
     }

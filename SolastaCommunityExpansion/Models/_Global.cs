@@ -9,6 +9,9 @@ namespace SolastaCommunityExpansion.Models
     {
         // holds the active player character when in battle
         public static GameLocationCharacter ActivePlayerCharacter { get; set; }
+        
+        // inspected hero on both location and pool
+        public static RulesetCharacterHero InspectedHero { get; set; }
 
         // holds the current action from any character on the map
         public static CharacterAction CurrentAction { get; set; }
@@ -34,7 +37,8 @@ namespace SolastaCommunityExpansion.Models
                 return true;
             }
 
-            return hero.SpellRepertoires.Any(x => x.KnownCantrips.Contains(spellDefinition));
+            return hero.SpellRepertoires.Any(x => x.KnownCantrips.Contains(spellDefinition))
+                   || hero.GetHeroBuildingData().AcquiredCantrips.Any(e => e.Value.Contains(spellDefinition));
         }
         
         public static bool ActiveLevelUpHeroHasSubclass(string subclass)
@@ -44,11 +48,23 @@ namespace SolastaCommunityExpansion.Models
             return hero == null || hero.ClassesAndSubclasses.Any(e => e.Value.Name == subclass);
         }
 
-        public static bool ActiveLevelUpHeroHasFeature(FeatureDefinition feature)
+        public static bool ActiveLevelUpHeroHasFeature(FeatureDefinition feature, bool recursive = true)
         {
             var hero = ActiveLevelUpHero;
 
-            return hero == null || hero.HasAnyFeature(feature);
+            if (feature is FeatureDefinitionFeatureSet set)
+            {
+                return hero != null && hero.HasAllFeatures(set.FeatureSet);
+            }
+            else
+            {
+                return hero == null || recursive
+                    ? hero.HasAnyFeature(feature)
+                    : hero.ActiveFeatures
+                          .SelectMany(x => x.Value)
+                          .Any(x => x == feature)
+                      || hero.GetHeroBuildingData().AllActiveFeatures.Contains(feature);
+            }
         }
     }
 }

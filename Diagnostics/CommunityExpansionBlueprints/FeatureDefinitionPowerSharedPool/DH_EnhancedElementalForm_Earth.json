@@ -7,7 +7,7 @@
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "Self",
-    "itemSelectionType": "Equiped",
+    "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 1,
     "emissiveBorder": "None",
@@ -267,7 +267,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "BonusAction",
+  "activationTime": "NoCost",
   "reactionContext": "None",
   "reactionName": "",
   "hasCastingFailure": false,
@@ -295,13 +295,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Elemental Form : Earth Plane",
-    "description": "When channeling the elemental  Earth Plane, you gain Immunity to Bludgeoning damage and once per turn, apply damage of the same type to your attack",
+    "title": "Channeling Earth Plane",
+    "description": "When channeling the Earth Plane, you gain Immunity to Bludgeoning and apply Proficiency Bonus as damage of the same type to first hit each round",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "e5a2bfebebf72bb48a6206b4fc8aabee",
-      "m_SubObjectName": "DivineWrath",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
