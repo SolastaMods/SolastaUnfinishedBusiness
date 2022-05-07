@@ -115,14 +115,13 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
                 return;
             }
 
-            var allowedSpells = LevelUpContext.GetAllowedSpells(hero);
-            var knownSpells = LevelUpContext.GetKnownSpells(hero);
+            var _knownSpells = LevelUpContext.GetKnownSpells(hero);
 
-            __result.SetRange(knownSpells[true]);
+            __result.SetRange(_knownSpells[LevelUpContext.THIS_CLASS]);
 
             if (!Main.Settings.EnableRelearnSpells)
             {
-                __result.RemoveAll(x => knownSpells[false].Contains(x));
+                __result.AddRange(_knownSpells[LevelUpContext.OTHER_CLASSES]);
             }
         }
     }

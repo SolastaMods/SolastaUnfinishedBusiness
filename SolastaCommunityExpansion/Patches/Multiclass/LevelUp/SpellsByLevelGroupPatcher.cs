@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
+using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
 {
@@ -21,10 +22,10 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
             SpellsByLevelGroup __instance,
             SpellBox.BindMode bindMode,
             RulesetCharacter caster,
-            ref List<SpellDefinition> allSpells,
-            ref List<SpellDefinition> auToPreparedSpells)
+            List<SpellDefinition> allSpells,
+            List<SpellDefinition> auToPreparedSpells)
         {
-            if (!Main.Settings.ShowAllAutoPreparedSpells || bindMode == SpellBox.BindMode.Inspection || bindMode == SpellBox.BindMode.Preparation)
+            if (!Main.Settings.ShowAllAutoPreparedSpells)
             {
                 return;
             }
@@ -68,18 +69,17 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
             SpellsByLevelGroup __instance,
             SpellBox.BindMode bindMode,
             RulesetCharacter caster,
-            ref List<SpellDefinition> allSpells,
-            ref List<SpellDefinition> auToPreparedSpells)
+            List<SpellDefinition> allSpells,
+            List<SpellDefinition> auToPreparedSpells)
         {
-            CollectAllAutoPreparedSpells(__instance, bindMode, caster, ref allSpells, ref auToPreparedSpells);
-
-            if (!Main.Settings.EnableMulticlass)
+            if (bindMode == SpellBox.BindMode.Preparation)
             {
                 return;
             }
 
-            if (Main.Settings.DisplayAllKnownSpellsDuringLevelUp ||
-                bindMode == SpellBox.BindMode.Inspection || bindMode == SpellBox.BindMode.Preparation)
+            CollectAllAutoPreparedSpells(__instance, bindMode, caster, allSpells, auToPreparedSpells);
+
+            if (!Main.Settings.EnableMulticlass)
             {
                 return;
             }
@@ -93,11 +93,37 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
                 return;
             }
 
-            var allowedSpells = LevelUpContext.GetAllowedSpells(hero);
-            var thisClassPreparedSpells = LevelUpContext.GetAutoPreparedSpells(hero);
+            // avoids auto prepared spells from other classes to bleed in
+            var _autoPreparedSpells = LevelUpContext.GetAutoPreparedSpells(hero);
 
-            allSpells.RemoveAll(x => !allowedSpells.Contains(x));
-            auToPreparedSpells.RemoveAll(x => !thisClassPreparedSpells.Contains(x));
+            auToPreparedSpells.SetRange(_autoPreparedSpells[LevelUpContext.THIS_CLASS]);
+
+            if (!Main.Settings.EnableRelearnSpells)
+            {
+                auToPreparedSpells.AddRange(_autoPreparedSpells[LevelUpContext.OTHER_CLASSES]);
+            }
+
+            // spells in auto prepared list cannot be learned so use that to display spells from other classes
+            var allowedSpells = LevelUpContext.GetAllowedSpells(hero);
+
+            if (Main.Settings.DisplayAllKnownSpellsDuringLevelUp)
+            {
+                var _knownSpells = LevelUpContext.GetKnownSpells(hero);
+
+                auToPreparedSpells.AddRange(_knownSpells[LevelUpContext.OTHER_CLASSES]);
+
+                if (Main.Settings.EnableRelearnSpells)
+                {         
+                    var allowedSpellsToRelearn = _knownSpells[LevelUpContext.OTHER_CLASSES]
+                        .Where(x => allowedSpells.Contains(x));
+
+                    auToPreparedSpells.RemoveAll(x => allowedSpellsToRelearn.Contains(x));
+                }
+            }
+            else
+            {
+                allSpells.RemoveAll(x => !allowedSpells.Contains(x));
+            }
         }
     }
 }

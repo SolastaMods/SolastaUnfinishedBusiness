@@ -8,6 +8,9 @@ namespace SolastaCommunityExpansion.Models
 {
     public static class LevelUpContext
     {
+        public const bool THIS_CLASS = true;
+        public const bool OTHER_CLASSES = false;
+
         // keeps the multiclass level up context
         private class LevelUpData
         {
@@ -18,7 +21,7 @@ namespace SolastaCommunityExpansion.Models
             public bool RequiresDeity { get; set; }
             public HashSet<ItemDefinition> GrantedItems { get; set; }
             public List<SpellDefinition> AllowedSpells { get; set; }
-            public List<SpellDefinition> AutoPreparedSpells { get; set; }
+            public Dictionary<bool, List<SpellDefinition>> AutoPreparedSpells { get; set; }
             public Dictionary<bool, List<SpellDefinition>> KnownSpells { get; set; }
         }
 
@@ -273,19 +276,31 @@ namespace SolastaCommunityExpansion.Models
             };
         }
 
-        private static List<SpellDefinition> GetAutoPreparedSpellsFromFeatures(List<FeatureDefinition> featureDefinitions)
+        private static Dictionary<bool, List<SpellDefinition>> GetAllAutoPreparedSpells(RulesetCharacterHero hero)
         {
-            var result = new List<SpellDefinition>();
+            var selectedRepertoire = GetSelectedClassOrSubclassRepertoire(hero);
+            var thisClassAutoPreparedSpells = new List<SpellDefinition>();
+            var otherClassesAutoPreparedSpells = new List<SpellDefinition>();
 
-            foreach (var featureDefinition in featureDefinitions)
+            foreach (var spellRepertoire in hero.SpellRepertoires)
             {
-                if (featureDefinition is FeatureDefinitionAutoPreparedSpells featureDefinitionAutoPreparedSpells && featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups != null)
+                var thisClass = spellRepertoire == selectedRepertoire;
+
+                if (thisClass)
                 {
-                    result.AddRange(featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups.SelectMany(x => x.SpellsList));
+                    thisClassAutoPreparedSpells.AddRange(spellRepertoire.AutoPreparedSpells);
+                }
+                else
+                {
+                    otherClassesAutoPreparedSpells.AddRange(spellRepertoire.AutoPreparedSpells);
                 }
             }
 
-            return result;
+            return new()
+            {
+                { false, otherClassesAutoPreparedSpells },
+                { true, thisClassAutoPreparedSpells }
+            };
         }
 
         private static List<SpellDefinition> GetSpellsFromFeatures(List<FeatureDefinition> featureDefinitions)
@@ -306,6 +321,10 @@ namespace SolastaCommunityExpansion.Models
                 {
                     result.AddRange(featureDefinitionBonusCantrips.BonusCantrips);
                 }
+                else if (featureDefinition is FeatureDefinitionAutoPreparedSpells featureDefinitionAutoPreparedSpells && featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups != null)
+                {
+                    result.AddRange(featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups.SelectMany(x => x.SpellsList));
+                }
             }
 
             return result;
@@ -322,14 +341,15 @@ namespace SolastaCommunityExpansion.Models
             var thisClassCastingFeatures = rulesetCharacterHero.GetHeroBuildingData().AllActiveFeatures;
             var otherClassesCastingFeatures = rulesetCharacterHero.ActiveFeatures
                 .Where(x => !x.Key.Contains(selectedClassName))
-                .SelectMany(x => x.Value);
+                .SelectMany(x => x.Value)
+                .ToList();
 
             otherClassesCastingFeatures = FilterCastingFeatures(otherClassesCastingFeatures);
             thisClassCastingFeatures = FilterCastingFeatures(thisClassCastingFeatures);
             thisClassCastingFeatures.RemoveAll(x => otherClassesCastingFeatures.Contains(x));
 
             levelUpData.AllowedSpells = GetSpellsFromFeatures(thisClassCastingFeatures);
-            levelUpData.AutoPreparedSpells = GetAutoPreparedSpellsFromFeatures(thisClassCastingFeatures);
+            levelUpData.AutoPreparedSpells = GetAllAutoPreparedSpells(rulesetCharacterHero);
             levelUpData.KnownSpells = GetAllKnownSpells(rulesetCharacterHero);
         }
 
@@ -343,11 +363,15 @@ namespace SolastaCommunityExpansion.Models
             return levelUpData.AllowedSpells;
         }
 
-        public static List<SpellDefinition> GetAutoPreparedSpells(RulesetCharacterHero hero)
+        public static Dictionary<bool, List<SpellDefinition>> GetAutoPreparedSpells(RulesetCharacterHero hero)
         {
             if (!LevelUpTab.TryGetValue(hero, out var levelUpData))
             {
-                return new();
+                return new()
+                {
+                    { false, new() },
+                    { true, new() }
+                };
             }
 
             return levelUpData.AutoPreparedSpells;
