@@ -23,13 +23,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
 
             MulticlassGameUiContext.PaintPactSlots(
                 heroWithSpellRepertoire, totalSlotsCount, totalSlotsRemainingCount, slotLevel, ___slotStatusTable);
-
-            var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
-
-            if (!SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire) && warlockSpellLevel != slotLevel)
-            {
-                ___canvasGroup.gameObject.SetActive(false);
-            }
         }
     }
 

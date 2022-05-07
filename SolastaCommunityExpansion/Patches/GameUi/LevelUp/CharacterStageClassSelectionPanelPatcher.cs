@@ -1,8 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
+﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
 {
@@ -21,16 +18,4 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
         }
     }
 
-    // avoids a restart when enabling / disabling classes on the Mod UI panel
-    [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "OnBeginShow")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class CharacterStageClassSelectionPanel_OnBeginShow
-    {
-        internal static void Prefix(List<CharacterClassDefinition> ___compatibleClasses)
-        {
-            var visibleClasses = DatabaseRepository.GetDatabase<CharacterClassDefinition>().Where(x => !x.GuiPresentation.Hidden);
-
-            ___compatibleClasses.SetRange(visibleClasses.OrderBy(x => x.FormatTitle()));
-        }
-    }
 }

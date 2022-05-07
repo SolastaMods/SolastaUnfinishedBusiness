@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
+using SolastaModApi.Infrastructure;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
@@ -19,6 +21,11 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
             List<CharacterClassDefinition> ___compatibleClasses,
             ref int ___selectedClass)
         {
+            // avoids a restart when enabling / disabling classes on the Mod UI panel
+            var visibleClasses = DatabaseRepository.GetDatabase<CharacterClassDefinition>().Where(x => !x.GuiPresentation.Hidden);
+
+            ___compatibleClasses.SetRange(visibleClasses.OrderBy(x => x.FormatTitle()));
+            
             if (!Main.Settings.EnableMulticlass)
             {
                 return;
