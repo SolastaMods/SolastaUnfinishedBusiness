@@ -116,32 +116,13 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
             }
 
             var allowedSpells = LevelUpContext.GetAllowedSpells(hero);
+            var knownSpells = LevelUpContext.GetKnownSpells(hero);
 
-            if (Main.Settings.EnableRelearnSpells)
+            __result.SetRange(knownSpells[true]);
+
+            if (!Main.Settings.EnableRelearnSpells)
             {
-                var selectedRepertoire = LevelUpContext.GetSelectedClassOrSubclassRepertoire(hero);
-
-                // only happens during character creation
-                if (selectedRepertoire == null)
-                {
-                    __result.Clear();
-                }
-                // allow relearn any other spells but the ones learned by this repertoire
-                else
-                {
-                    var knownSpells = new List<SpellDefinition>();
-
-                    knownSpells.AddRange(selectedRepertoire.AutoPreparedSpells);
-                    knownSpells.AddRange(selectedRepertoire.KnownCantrips);
-                    knownSpells.AddRange(selectedRepertoire.KnownSpells);
-                    knownSpells.AddRange(selectedRepertoire.EnumerateAvailableScribedSpells());
-
-                    __result.SetRange(knownSpells);
-                }
-            }
-            else
-            {
-                __result.RemoveAll(x => !allowedSpells.Contains(x));
+                __result.RemoveAll(x => knownSpells[false].Contains(x));
             }
         }
     }

@@ -63,6 +63,7 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
             }
         }
 
+        // there is indeed a camel case typo on auto prepared spells parameter
         internal static void Prefix(
             SpellsByLevelGroup __instance,
             SpellBox.BindMode bindMode,
@@ -93,8 +94,10 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
             }
 
             var allowedSpells = LevelUpContext.GetAllowedSpells(hero);
+            var thisClassPreparedSpells = LevelUpContext.GetAutoPreparedSpells(hero);
 
             allSpells.RemoveAll(x => !allowedSpells.Contains(x));
+            auToPreparedSpells.RemoveAll(x => !thisClassPreparedSpells.Contains(x));
         }
     }
 }

@@ -18,6 +18,8 @@ namespace SolastaCommunityExpansion.Models
             public bool RequiresDeity { get; set; }
             public HashSet<ItemDefinition> GrantedItems { get; set; }
             public List<SpellDefinition> AllowedSpells { get; set; }
+            public List<SpellDefinition> AutoPreparedSpells { get; set; }
+            public Dictionary<bool, List<SpellDefinition>> KnownSpells { get; set; }
         }
 
         // keeps a tab on all heroes leveling up
@@ -238,6 +240,54 @@ namespace SolastaCommunityExpansion.Models
             return result;
         }
 
+        private static Dictionary<bool, List<SpellDefinition>> GetAllKnownSpells(RulesetCharacterHero hero)
+        {
+            var selectedRepertoire = GetSelectedClassOrSubclassRepertoire(hero);
+            var thisClassKnownSpells = new List<SpellDefinition>();
+            var otherClassesKnownSpells = new List<SpellDefinition>();
+
+            foreach (var spellRepertoire in hero.SpellRepertoires)
+            {
+                var thisClass = spellRepertoire == selectedRepertoire;
+
+                if (thisClass)
+                {
+                    thisClassKnownSpells.AddRange(spellRepertoire.AutoPreparedSpells);
+                    thisClassKnownSpells.AddRange(spellRepertoire.KnownCantrips);
+                    thisClassKnownSpells.AddRange(spellRepertoire.KnownSpells);
+                    thisClassKnownSpells.AddRange(spellRepertoire.EnumerateAvailableScribedSpells());
+                }
+                else
+                {
+                    otherClassesKnownSpells.AddRange(spellRepertoire.AutoPreparedSpells);
+                    otherClassesKnownSpells.AddRange(spellRepertoire.KnownCantrips);
+                    otherClassesKnownSpells.AddRange(spellRepertoire.KnownSpells);
+                    otherClassesKnownSpells.AddRange(spellRepertoire.EnumerateAvailableScribedSpells());
+                }
+            }
+
+            return new()
+            {
+                { false, otherClassesKnownSpells },
+                { true, thisClassKnownSpells }
+            };
+        }
+
+        private static List<SpellDefinition> GetAutoPreparedSpellsFromFeatures(List<FeatureDefinition> featureDefinitions)
+        {
+            var result = new List<SpellDefinition>();
+
+            foreach (var featureDefinition in featureDefinitions)
+            {
+                if (featureDefinition is FeatureDefinitionAutoPreparedSpells featureDefinitionAutoPreparedSpells && featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups != null)
+                {
+                    result.AddRange(featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups.SelectMany(x => x.SpellsList));
+                }
+            }
+
+            return result;
+        }
+
         private static List<SpellDefinition> GetSpellsFromFeatures(List<FeatureDefinition> featureDefinitions)
         {
             var result = new List<SpellDefinition>();
@@ -251,10 +301,6 @@ namespace SolastaCommunityExpansion.Models
                 else if (featureDefinition is FeatureDefinitionMagicAffinity featureDefinitionMagicAffinity && featureDefinitionMagicAffinity.ExtendedSpellList != null)
                 {
                     result.AddRange(featureDefinitionMagicAffinity.ExtendedSpellList.SpellsByLevel.SelectMany(x => x.Spells));
-                }
-                else if (featureDefinition is FeatureDefinitionAutoPreparedSpells featureDefinitionAutoPreparedSpells && featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups != null)
-                {
-                    result.AddRange(featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups.SelectMany(x => x.SpellsList));
                 }
                 else if (featureDefinition is FeatureDefinitionBonusCantrips featureDefinitionBonusCantrips && featureDefinitionBonusCantrips.BonusCantrips != null)
                 {
@@ -283,16 +329,42 @@ namespace SolastaCommunityExpansion.Models
             thisClassCastingFeatures.RemoveAll(x => otherClassesCastingFeatures.Contains(x));
 
             levelUpData.AllowedSpells = GetSpellsFromFeatures(thisClassCastingFeatures);
+            levelUpData.AutoPreparedSpells = GetAutoPreparedSpellsFromFeatures(thisClassCastingFeatures);
+            levelUpData.KnownSpells = GetAllKnownSpells(rulesetCharacterHero);
         }
 
         public static List<SpellDefinition> GetAllowedSpells(RulesetCharacterHero hero)
         {
             if (!LevelUpTab.TryGetValue(hero, out var levelUpData))
             {
-                return new List<SpellDefinition>();
+                return new();
             }
 
             return levelUpData.AllowedSpells;
+        }
+
+        public static List<SpellDefinition> GetAutoPreparedSpells(RulesetCharacterHero hero)
+        {
+            if (!LevelUpTab.TryGetValue(hero, out var levelUpData))
+            {
+                return new();
+            }
+
+            return levelUpData.AutoPreparedSpells;
+        }
+
+        public static Dictionary<bool, List<SpellDefinition>> GetKnownSpells(RulesetCharacterHero hero)
+        {
+            if (!LevelUpTab.TryGetValue(hero, out var levelUpData))
+            {
+                return new ()
+                {
+                    { false, new() },
+                    { true, new()}
+                };
+            }
+
+            return levelUpData.KnownSpells;
         }
 
         public static void GrantItemsIfRequired(RulesetCharacterHero rulesetCharacterHero)
