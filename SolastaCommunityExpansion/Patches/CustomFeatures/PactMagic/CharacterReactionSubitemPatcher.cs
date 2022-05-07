@@ -14,10 +14,14 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
         public static void Postfix(
             RulesetSpellRepertoire spellRepertoire,
             int slotLevel,
-            RectTransform ___slotStatusTable,
-            CanvasGroup ___canvasGroup)
+            RectTransform ___slotStatusTable)
         {
             var heroWithSpellRepertoire = SharedSpellsContext.GetHero(spellRepertoire.CharacterName);
+
+            if (heroWithSpellRepertoire is null)
+            {
+                return;
+            }
 
             spellRepertoire.GetSlotsNumber(slotLevel, out var totalSlotsRemainingCount, out var totalSlotsCount);
 

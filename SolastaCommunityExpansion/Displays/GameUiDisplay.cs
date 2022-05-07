@@ -57,15 +57,12 @@ namespace SolastaCommunityExpansion.Displays
                 Main.Settings.FollowCharactersOnTeleport = toggle;
             }
 
-            if (LocalizationManager.CurrentLanguageCode == "en")
-            {
-                UI.Label("");
+            UI.Label("");
 
-                toggle = Main.Settings.EnableLogDialoguesToConsole;
-                if (UI.Toggle("Enable log dialogues to game console during narrative sequences", ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.EnableLogDialoguesToConsole = toggle;
-                }
+            toggle = Main.Settings.EnableLogDialoguesToConsole;
+            if (UI.Toggle("Enable log dialogues to game console during narrative sequences", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableLogDialoguesToConsole = toggle;
             }
 
             UI.Label("");

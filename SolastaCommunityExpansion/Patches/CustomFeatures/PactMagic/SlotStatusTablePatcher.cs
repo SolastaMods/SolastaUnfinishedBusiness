@@ -23,6 +23,11 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
 
             var heroWithSpellRepertoire = SharedSpellsContext.GetHero(spellRepertoire.CharacterName);
 
+            if (heroWithSpellRepertoire is null)
+            {
+                return;
+            }
+
             spellRepertoire.GetSlotsNumber(spellLevel, out var totalSlotsRemainingCount, out var totalSlotsCount);
 
             MulticlassGameUiContext.PaintPactSlots(
