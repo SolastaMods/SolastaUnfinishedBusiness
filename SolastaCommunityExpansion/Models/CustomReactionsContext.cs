@@ -52,14 +52,15 @@ namespace SolastaCommunityExpansion.Models
 
             ruleDefender.InvokeMethod("EnumerateUsableSpells");
 
+            //TODO: refactor this a bit so custom features are not browsed twice
             var spells = ruleDefender.UsableSpells
                 .OfType<SpellWithCustomFeatures>()
-                .Where(s => s.GetTypedFeatures<IDamagedReactionSpell>().Any())
+                .Where(s => s.CustomFeatures.OfType<IDamagedReactionSpell>().Any())
                 .ToList();
 
             foreach (var spell in spells)
             {
-                var reactions = spell.GetTypedFeatures<IDamagedReactionSpell>();
+                var reactions = spell.CustomFeatures.OfType<IDamagedReactionSpell>().ToList();
 
                 if (reactions.Any(r => r.CanReact(attacker, defender, attackModifier, attackMode, rangedAttack,
                         advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget)))

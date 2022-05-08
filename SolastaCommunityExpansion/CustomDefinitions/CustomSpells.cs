@@ -4,14 +4,9 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.CustomDefinitions
 {
-    public class SpellWithCustomFeatures : SpellDefinition, ISpellWithCustomFeatures
+    public class SpellWithCustomFeatures : SpellDefinition, IDefinitionWithCustomFeatures
     {
         public List<object> CustomFeatures { get; } = new();
-
-        public IEnumerable<T> GetTypedFeatures<T>() where T : class
-        {
-            return CustomFeatures.Select(f => f as T);
-        }
     }
 
     public class SpellWithCasterFeatureDependentEffects : SpellWithCustomFeatures, ICustomMagicEffectBasedOnCaster

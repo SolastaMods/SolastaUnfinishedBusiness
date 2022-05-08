@@ -2,10 +2,8 @@
 
 namespace SolastaCommunityExpansion.CustomDefinitions
 {
-    public interface ISpellWithCustomFeatures
+    public interface IDefinitionWithCustomFeatures
     {
         List<object> CustomFeatures { get; }
-
-        public IEnumerable<T> GetTypedFeatures<T>() where T: class;
     }
 }
