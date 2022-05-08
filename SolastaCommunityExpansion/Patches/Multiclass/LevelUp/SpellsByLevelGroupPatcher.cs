@@ -99,14 +99,14 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
 
                 allSpells.RemoveAll(x => !otherClassesKnownSpells.Contains(x) && !allowedSpells.Contains(x));
 
-                otherClassesKnownSpells.ForEach(x => allSpells.Add(x));
+                otherClassesKnownSpells.ForEach(x => allSpells.TryAdd(x));
 
                 if (__instance.SpellLevel > 0)
                 {
                     foreach (var spell in otherClassesKnownSpells
                         .Where(x => !Main.Settings.EnableRelearnSpells || !allowedSpells.Contains(x)))
                     {
-                        auToPreparedSpells.Add(spell);
+                        auToPreparedSpells.TryAdd(spell);
                     }              
                 }
             }
