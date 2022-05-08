@@ -248,13 +248,11 @@ namespace SolastaCommunityExpansion.Spells
 
             var effectDescription = EffectDescriptionBuilder
                 .Create()
-                .SetEffectAdvancement(
-                    EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 1, 0, 0, 0, 0, 0, 0, AdvancementDuration.None)
+                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 1)
                 .SetSavingThrowData(true, true, AttributeDefinitions.Dexterity, false, EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Wisdom, 12, false)
                 .SetDurationData(DurationType.Minute, 1)
                 .SetParticleEffectParameters(ConeOfCold.EffectDescription.EffectParticleParameters)
-                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 1, 1, ItemSelectionType.None)
-                .SetTargetProximityData(false, 30)
+                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 3, 2)
                 .AddEffectForm(
                     EffectFormBuilder
                         .Create()
@@ -263,7 +261,7 @@ namespace SolastaCommunityExpansion.Spells
                 .AddEffectForm(
                     EffectFormBuilder
                         .Create()
-                        .SetDamageForm(false, DieType.D1, DamageTypeCold, 0, DieType.D8, 4, HealFromInflictedDamage.Never)
+                        .SetDamageForm(damageType: DamageTypeCold, dieType: DieType.D8, diceNumber: 4)
                         .HasSavingThrow(EffectSavingThrowType.HalfDamage).Build()
                 ).Build();
 
