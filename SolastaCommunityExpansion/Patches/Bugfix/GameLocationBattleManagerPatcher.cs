@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.Bugfix
 {
@@ -92,18 +93,17 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
 
                 if (provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.SpellcastingBonus || provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonusAndSpellcastingBonus)
                 {
-                    int num = 0;
+                    // use the correct spell repertoire for calculating spell bonus
 
-                    // under a MC scenario best I can do is use the max spell bonus modifier across all caster classes
+                    //int num = 0;
+                    int num = AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter.GetAttribute(Global.CastedSpellRepertoire.SpellCastingAbility).CurrentValue);
+
                     //foreach (RulesetSpellRepertoire spellRepertoire in attacker.RulesetCharacter.SpellRepertoires)
-                    foreach (RulesetSpellRepertoire spellRepertoire in attacker.RulesetCharacter.SpellRepertoires
-                        .Where(x => x.SpellCastingFeature.SpellCastingOrigin != FeatureDefinitionCastSpell.CastingOrigin.Class))
-                    {
-                        //num = AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter.GetAttribute(spellRepertoire.SpellCastingAbility).CurrentValue);
-                        //if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Class)
-                        //    break;
-                        num = Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter.GetAttribute(spellRepertoire.SpellCastingAbility).CurrentValue), num);
-                    }
+                    //{
+                    //    num = AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter.GetAttribute(spellRepertoire.SpellCastingAbility).CurrentValue);
+                    //    if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Class)
+                    //        break;
+                    //}
 
                     damageForm.BonusDamage += num;
                 }
