@@ -72,7 +72,7 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
             List<SpellDefinition> allSpells,
             List<SpellDefinition> auToPreparedSpells)
         {
-            if (bindMode == SpellBox.BindMode.Preparation)
+            if (bindMode == SpellBox.BindMode.Preparation || bindMode == SpellBox.BindMode.Inspection)
             {
                 return;
             }
@@ -94,35 +94,24 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
             }
 
             // avoids auto prepared spells from other classes to bleed in
-            var _autoPreparedSpells = LevelUpContext.GetAutoPreparedSpells(hero);
-
-            auToPreparedSpells.SetRange(_autoPreparedSpells[LevelUpContext.THIS_CLASS]);
-
-            if (!Main.Settings.EnableRelearnSpells)
-            {
-                auToPreparedSpells.AddRange(_autoPreparedSpells[LevelUpContext.OTHER_CLASSES]);
-            }
-
-            // spells in auto prepared list cannot be learned so use that to display spells from other classes
             var allowedSpells = LevelUpContext.GetAllowedSpells(hero);
 
+            auToPreparedSpells.RemoveAll(x => !allowedSpells.Contains(x));
+
+            // displays known spells from other classes
             if (Main.Settings.DisplayAllKnownSpellsDuringLevelUp)
             {
-                var _knownSpells = LevelUpContext.GetKnownSpells(hero);
+                var otherClassesKnownSpells = LevelUpContext.GetOtherClassesKnownSpells(hero)
+                    .Where(x => x.SpellLevel == __instance.SpellLevel).ToList();
 
-                auToPreparedSpells.AddRange(_knownSpells[LevelUpContext.OTHER_CLASSES]);
+                allSpells.RemoveAll(x => !otherClassesKnownSpells.Contains(x) && !allowedSpells.Contains(x));
 
-                if (Main.Settings.EnableRelearnSpells)
-                {         
-                    var allowedSpellsToRelearn = _knownSpells[LevelUpContext.OTHER_CLASSES]
-                        .Where(x => allowedSpells.Contains(x));
+                otherClassesKnownSpells.ForEach(x => allSpells.TryAdd(x));
 
-                    auToPreparedSpells.RemoveAll(x => allowedSpellsToRelearn.Contains(x));
+                if (__instance.SpellLevel > 0)
+                {
+                    otherClassesKnownSpells.ForEach(x => auToPreparedSpells.TryAdd(x));
                 }
-            }
-            else
-            {
-                allSpells.RemoveAll(x => !allowedSpells.Contains(x));
             }
         }
     }
