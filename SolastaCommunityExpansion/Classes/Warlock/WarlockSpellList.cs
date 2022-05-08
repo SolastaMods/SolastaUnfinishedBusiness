@@ -6,6 +6,7 @@ using static SolastaCommunityExpansion.Spells.SrdSpells;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 using static SolastaCommunityExpansion.Classes.Warlock.Features.EldritchInvocationsBuilder;
 using static FeatureDefinitionCastSpell;
+using static SolastaCommunityExpansion.Spells.EWSpells;
 
 namespace SolastaCommunityExpansion.Classes.Warlock
 {
@@ -43,7 +44,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock
             .Create(DatabaseHelper.SpellListDefinitions.SpellListWizard, "ClassWarlockSpellList", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.SpellList)
             .ClearSpells()
-            .SetSpellsAtLevel(0, EldritchBlast, AnnoyingBee, ChillTouch, DancingLights, PoisonSpray, TrueStrike)
+            .SetSpellsAtLevel(0, EldritchBlast, AnnoyingBee, ChillTouch, DancingLights, PoisonSpray, TrueStrike, SunlightBlade)
             .SetSpellsAtLevel(1, CharmPerson, ComprehendLanguages, ExpeditiousRetreat, ProtectionFromEvilGood, HellishRebukeSpell, PactMarkSpell)
             .SetSpellsAtLevel(2, Darkness, HoldPerson, Invisibility, MistyStep, RayOfEnfeeblement, Shatter, SpiderClimb)
             .SetSpellsAtLevel(3, Counterspell, DispelMagic, Fear, Fly, HypnoticPattern, RemoveCurse, Tongues, VampiricTouch)
