@@ -5,51 +5,6 @@ using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
 {
-    // Correcly set the spell tag
-    //[HarmonyPatch(typeof(SpellBox), "Bind")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class SpellActivationBox_Bind
-    {
-        public static void Prefix(
-
-            GuiSpellDefinition guiSpellDefinition,
-            ref bool autoPrepared,
-            ref string autoPreparedTag,
-            SpellBox.BindMode bindMode)
-        {
-            if (!Main.Settings.EnableMulticlass 
-                || bindMode == SpellBox.BindMode.Preparation
-                || bindMode == SpellBox.BindMode.Inspection)
-            {
-                return;
-            }
-
-            var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
-            var hero = characterBuildingService.CurrentLocalHeroCharacter;
-
-            if (hero == null)
-            {
-                return;
-            }
-
-            var allowedAutoPreparedSpells = LevelUpContext.GetAllowedAutoPreparedSpells(hero);
-
-            if (allowedAutoPreparedSpells.Contains(guiSpellDefinition.SpellDefinition))
-            {
-                return;
-            }
-
-            var otherClassesKnownSpells = LevelUpContext.GetOtherClassesKnownSpells(hero);
-
-            if (otherClassesKnownSpells.Contains(guiSpellDefinition.SpellDefinition))
-            {
-                autoPrepared = true;
-            }
-
-            autoPreparedTag = "Multiclass";
-        }
-    }
-
     [HarmonyPatch(typeof(SpellBox), "Refresh")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class SpellActivationBox_Refresh
