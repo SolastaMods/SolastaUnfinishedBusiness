@@ -17,7 +17,8 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
                 return true;
             }
 
-            ServiceRepository.GetService<ICharacterBuildingService>().UnassignLastSubclass(hero, onlyIfCurrentLevel);
+            ServiceRepository.GetService<ICharacterBuildingService>()
+                .UnassignLastSubclass(hero, onlyIfCurrentLevel);
 
             return false;
         }

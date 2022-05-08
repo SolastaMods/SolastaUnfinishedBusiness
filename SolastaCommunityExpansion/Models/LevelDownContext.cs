@@ -89,9 +89,9 @@ namespace SolastaCommunityExpansion.Models
             var classTag = AttributeDefinitions.GetClassTag(characterClassDefinition, classLevel);
             var subclassTag = string.Empty;
 
-            var buildingService = ServiceRepository.GetService<ICharacterBuildingService>();
+            var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
 
-            buildingService.LevelUpCharacter(hero, false);
+            characterBuildingService.LevelUpCharacter(hero, false);
 
             hero.ClassesAndSubclasses.TryGetValue(characterClassDefinition, out var characterSubclassDefinition);
 
@@ -116,8 +116,8 @@ namespace SolastaCommunityExpansion.Models
             hero.RemoveClassLevel();
             hero.RefreshAll();
             hero.ComputeHitPoints(true);
-            
-            buildingService.FinalizeCharacter(hero);
+
+            characterBuildingService.FinalizeCharacter(hero);
 
             LevelUpContext.UnregisterHero(hero);
 

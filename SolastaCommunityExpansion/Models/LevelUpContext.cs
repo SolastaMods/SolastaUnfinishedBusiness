@@ -20,10 +20,9 @@ namespace SolastaCommunityExpansion.Models
             public bool IsLevelingUp { get; set; }
             public bool RequiresDeity { get; set; }
             public HashSet<ItemDefinition> GrantedItems { get; set; }
-            public List<SpellDefinition> AllowedSpells { get; set; }
-            public List<SpellDefinition> AllowedAutoPreparedSpells { get; set; }
-            public List<SpellDefinition> KnownSpells { get; set; }
-            public List<SpellDefinition> OtherClassesKnownSpells { get; set; }
+            public HashSet<SpellDefinition> AllowedSpells { get; set; }
+            public HashSet<SpellDefinition> AllowedAutoPreparedSpells { get; set; }
+            public HashSet<SpellDefinition> OtherClassesKnownSpells { get; set; }
         }
 
         // keeps a tab on all heroes leveling up
@@ -213,7 +212,7 @@ namespace SolastaCommunityExpansion.Models
                     && rulesetSpellRepertoire.SpellCastingSubclass == selectedSubclass);
         }
 
-        private static List<SpellDefinition> CacheAllowedAutoPreparedSpells(IEnumerable<FeatureDefinition> featureDefinitions)
+        private static HashSet<SpellDefinition> CacheAllowedAutoPreparedSpells(IEnumerable<FeatureDefinition> featureDefinitions)
         {
             var allowedAutoPreparedSpells = new List<SpellDefinition>();
 
@@ -225,10 +224,10 @@ namespace SolastaCommunityExpansion.Models
                 }
             }
 
-            return allowedAutoPreparedSpells;
+            return allowedAutoPreparedSpells.ToHashSet();
         }
 
-        public static List<SpellDefinition> CacheAllowedSpells(IEnumerable<FeatureDefinition> featureDefinitions)
+        public static HashSet<SpellDefinition> CacheAllowedSpells(IEnumerable<FeatureDefinition> featureDefinitions)
         {
             var allowedSpells = new List<SpellDefinition>();
 
@@ -252,10 +251,10 @@ namespace SolastaCommunityExpansion.Models
                 }
             }
 
-            return allowedSpells;
+            return allowedSpells.ToHashSet();
         }
 
-        private static List<SpellDefinition> CacheOtherClassesKnownSpells(RulesetCharacterHero hero)
+        private static HashSet<SpellDefinition> CacheOtherClassesKnownSpells(RulesetCharacterHero hero)
         {
             var selectedRepertoire = GetSelectedClassOrSubclassRepertoire(hero);
             var otherClassesKnownSpells = new List<SpellDefinition>();
@@ -269,7 +268,7 @@ namespace SolastaCommunityExpansion.Models
                 otherClassesKnownSpells.AddRange(spellRepertoire.EnumerateAvailableScribedSpells());
             }
 
-            return otherClassesKnownSpells;
+            return otherClassesKnownSpells.ToHashSet();
         }
 
         public static void CacheSpells(RulesetCharacterHero rulesetCharacterHero)
@@ -305,7 +304,7 @@ namespace SolastaCommunityExpansion.Models
             levelUpData.AllowedSpells = CacheAllowedSpells(thisClassCastingFeatures);
         }
 
-        public static List<SpellDefinition> GetAllowedSpells(RulesetCharacterHero hero)
+        public static HashSet<SpellDefinition> GetAllowedSpells(RulesetCharacterHero hero)
         {
             if (!LevelUpTab.TryGetValue(hero, out var levelUpData))
             {
@@ -315,7 +314,7 @@ namespace SolastaCommunityExpansion.Models
             return levelUpData.AllowedSpells;
         }
 
-        public static List<SpellDefinition> GetAllowedAutoPreparedSpells(RulesetCharacterHero hero)
+        public static HashSet<SpellDefinition> GetAllowedAutoPreparedSpells(RulesetCharacterHero hero)
         {
             if (!LevelUpTab.TryGetValue(hero, out var levelUpData))
             {
@@ -325,7 +324,7 @@ namespace SolastaCommunityExpansion.Models
             return levelUpData.AllowedAutoPreparedSpells;
         }
 
-        public static List<SpellDefinition> GetOtherClassesKnownSpells(RulesetCharacterHero hero)
+        public static HashSet<SpellDefinition> GetOtherClassesKnownSpells(RulesetCharacterHero hero)
         {
             if (!LevelUpTab.TryGetValue(hero, out var levelUpData))
             {

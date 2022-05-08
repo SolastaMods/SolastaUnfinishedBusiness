@@ -67,8 +67,7 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
                 return;
             }
 
-            var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
-            var hero = characterBuildingService.CurrentLocalHeroCharacter;
+            var hero = Global.ActiveLevelUpHero;
 
             if (hero == null)
             {
@@ -97,16 +96,20 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
                 var otherClassesKnownSpells = LevelUpContext.GetOtherClassesKnownSpells(hero)
                     .Where(x => x.SpellLevel == __instance.SpellLevel).ToList();
 
-                allSpells.RemoveAll(x => !otherClassesKnownSpells.Contains(x) && !allowedSpells.Contains(x));
+                allSpells.RemoveAll(x => !allowedSpells.Contains(x) && !otherClassesKnownSpells.Contains(x));
 
-                otherClassesKnownSpells.ForEach(x => allSpells.TryAdd(x));
-
-                foreach (var spell in otherClassesKnownSpells
-                    .Where(x => !Main.Settings.EnableRelearnSpells || !allowedSpells.Contains(x)))
+                // try add to avoid dups
+                foreach (var spell in otherClassesKnownSpells)
                 {
-                    auToPreparedSpells.TryAdd(spell);
-                }              
+                    allSpells.TryAdd(spell);
+
+                    if (!Main.Settings.EnableRelearnSpells || !allowedSpells.Contains(spell))
+                    {
+                        auToPreparedSpells.TryAdd(spell);
+                    }
+                }
             }
+            // remove spells bleed from other classes
             else
             {
                 allSpells.RemoveAll(x => !allowedSpells.Contains(x));

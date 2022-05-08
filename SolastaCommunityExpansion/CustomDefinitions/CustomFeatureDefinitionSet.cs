@@ -144,7 +144,8 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 
         public void RemoveFeature(RulesetCharacterHero hero, string tag)
         {
-            ServiceRepository.GetService<ICharacterBuildingService>().GetLastAssignedClassAndLevel(hero, out var lastClass, out var classLevel);
+            ServiceRepository.GetService<ICharacterBuildingService>()
+                .GetLastAssignedClassAndLevel(hero, out var lastClass, out var classLevel);
             //technically we return feature not where we took it from
             tag = AttributeDefinitions.GetClassTag(lastClass, classLevel - 1);
             ServiceRepository.GetService<ICharacterBuildingService>()

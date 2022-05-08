@@ -5,21 +5,22 @@ using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
 {
+    // tag spells learned from other caster classes as Multiclass
     [HarmonyPatch(typeof(SpellBox), "Refresh")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class SpellActivationBox_Refresh
+    internal static class SpellBox_Refresh
     {
         public static void Postfix(SpellBox __instance, SpellBox.BindMode ___bindMode, RectTransform ___autoPreparedGroup, GuiLabel ___autoPreparedTitle, GuiTooltip ___autoPreparedTooltip)
         {
             if (!Main.Settings.EnableMulticlass
+                || __instance.GuiSpellDefinition == null
                 || ___bindMode == SpellBox.BindMode.Preparation
                 || ___bindMode == SpellBox.BindMode.Inspection)
             {
                 return;
             }
 
-            var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
-            var hero = characterBuildingService.CurrentLocalHeroCharacter;
+            var hero = Global.ActiveLevelUpHero;
 
             if (hero == null)
             {
@@ -37,8 +38,8 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
 
             if (otherClassesKnownSpells.Contains(__instance.SpellDefinition))
             {
-                ___autoPreparedTitle.Text = string.Format("Screen/&MulticlassSpellTitle");
-                ___autoPreparedTooltip.Content = string.Format("Screen/&MulticlassSpellDescription");
+                ___autoPreparedTitle.Text = "Screen/&MulticlassSpellTitle";
+                ___autoPreparedTooltip.Content = "Screen/&MulticlassSpellDescription";
                 ___autoPreparedGroup.gameObject.SetActive(true);
             }
         }
