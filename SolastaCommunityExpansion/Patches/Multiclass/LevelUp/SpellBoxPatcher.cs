@@ -27,6 +27,13 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
                 return;
             }
 
+            var isMulticlass = LevelUpContext.IsMulticlass(hero);
+
+            if (!isMulticlass)
+            {
+                return;
+            }
+
             var allowedAutoPreparedSpells = LevelUpContext.GetAllowedAutoPreparedSpells(hero);
 
             if (allowedAutoPreparedSpells.Contains(__instance.SpellDefinition))

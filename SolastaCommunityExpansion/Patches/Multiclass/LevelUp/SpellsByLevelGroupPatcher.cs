@@ -81,6 +81,13 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
                 return;
             }
 
+            var isMulticlass = LevelUpContext.IsMulticlass(hero);
+
+            if (!isMulticlass)
+            {
+                return;
+            }
+
             // avoids auto prepared spells from other classes to bleed in
             var allowedAutoPreparedSpells = LevelUpContext.GetAllowedAutoPreparedSpells(hero)
                 .Where(x => x.SpellLevel == __instance.SpellLevel).ToList();
