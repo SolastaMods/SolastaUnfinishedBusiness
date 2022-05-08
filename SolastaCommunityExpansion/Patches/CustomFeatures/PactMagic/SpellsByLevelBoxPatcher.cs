@@ -18,6 +18,10 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
             RulesetSpellRepertoire ___spellRepertoire,
             List<SpellActivationBox> ___activationBoxes)
         {
+            // PATCH HERE
+            Global.CastedSpell = ___spellsByIndex[index];
+            Global.CastedSpellRepertoire = ___spellRepertoire;
+
             if (___spellCastEngaged == null)
             {
                 return false;
@@ -49,6 +53,21 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
             }
 
             return false;
+        }
+    }
+
+    // Guarantee Warlock Spell Level will be used whenever possible on SC Warlocks
+    [HarmonyPatch(typeof(SpellsByLevelBox), "OnActivateAdvancedBox")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class SpellsByLevelBox_OnActivateAdvancedBox
+    {
+        public static void Prefix(
+            int index,
+            RulesetSpellRepertoire ___spellRepertoire,
+            Dictionary<int, SpellDefinition> ___spellsByIndex)
+        {
+            Global.CastedSpell = ___spellsByIndex[index];
+            Global.CastedSpellRepertoire = ___spellRepertoire;
         }
     }
 }

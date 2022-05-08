@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.RecordDialoguesOnConsole
     {
         internal static void Postfix()
         {
-            if (!Main.Settings.EnableLogDialoguesToConsole || LocalizationManager.CurrentLanguageCode != "en")
+            if (!Main.Settings.EnableLogDialoguesToConsole || LocalizationManager.CurrentLanguageCode == "de")
             {
                 return;
             }

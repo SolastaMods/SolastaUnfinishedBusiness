@@ -226,7 +226,7 @@ namespace SolastaCommunityExpansion.Models
                 {
                     equipedItem.AttunedToCharacter = string.Empty;
                     oldHero.CharacterInventory.DropItem(equipedItem);
-                    newHero.GrantItem(equipedItem.ItemDefinition, equipedItem.ItemDefinition.ForceEquip, equipedItem.StackCount);
+                    newHero.CharacterInventory.AutoEquipItem(equipedItem, false, new(), out _);
                 }
             }
 

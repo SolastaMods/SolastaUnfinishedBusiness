@@ -79,7 +79,7 @@ namespace SolastaCommunityExpansion.Models
                                 .GetElement(prof, false)));
             }
 
-            hero.RefreshAll();
+            hero.ClearFeatureModifiers(tag);
         }
 
         private static void RemoveFeatureDefinitionPointPool(RulesetCharacterHero hero, RulesetSpellRepertoire heroRepertoire, FeatureDefinitionPointPool featureDefinitionPointPool)
@@ -160,6 +160,10 @@ namespace SolastaCommunityExpansion.Models
                 else if (featureDefinition is FeatureDefinitionSubclassChoice)
                 {
                     hero.ClassesAndSubclasses.Remove(characterClassDefinition);
+                }
+                else if (featureDefinition is FeatureDefinitionPointPool featureDefinitionPointPool)
+                {
+                    RemoveFeatureDefinitionPointPool(hero, heroRepertoire, featureDefinitionPointPool);
                 }
                 else if (featureDefinition is FeatureDefinitionFeatureSet featureDefinitionFeatureSet && featureDefinitionFeatureSet.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                 {

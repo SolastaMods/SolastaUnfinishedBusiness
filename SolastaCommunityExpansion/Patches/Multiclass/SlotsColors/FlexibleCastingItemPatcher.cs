@@ -21,6 +21,11 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.SlotsColors
             var flexibleCastingModal = __instance.GetComponentInParent<FlexibleCastingModal>();
             var caster = flexibleCastingModal.GetField<FlexibleCastingModal, RulesetCharacter>("caster") as RulesetCharacterHero;
 
+            if (caster is null)
+            {
+                return;
+            }
+
             if (!SharedSpellsContext.IsMulticaster(caster))
             {
                 return;

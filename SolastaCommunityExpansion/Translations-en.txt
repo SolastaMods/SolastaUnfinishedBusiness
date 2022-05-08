@@ -1739,3 +1739,5 @@ UI/&CustomFeatureSelectionStageFeatures	Features
 UI/&CustomFeatureSelectionStageNotDone	You must select all available features before proceeding.
 Feature/&WitchMaledictionChoiceDescription	You can learn a number of powerful incantations, known as Maledictions, derived from the same insidious magic which cursed you
 Feature/&WitchMaledictionChoiceTitle	Maledictions
+Screen/&MulticlassSpellTitle	Multiclass
+Screen/&MulticlassSpellDescription	You know this spell from other repertoire

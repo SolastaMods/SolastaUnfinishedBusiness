@@ -18,7 +18,7 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
                     return;
                 }
 
-                LevelUpContext.CacheAllowedSpells(___currentHero);
+                LevelUpContext.CacheSpells(___currentHero);
             }
         }
     }

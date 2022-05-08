@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
+using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
 {
@@ -21,21 +22,12 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
             SpellsByLevelGroup __instance,
             SpellBox.BindMode bindMode,
             RulesetCharacter caster,
-            ref List<SpellDefinition> allSpells,
-            ref List<SpellDefinition> auToPreparedSpells)
+            List<SpellDefinition> allSpells,
+            List<SpellDefinition> auToPreparedSpells)
         {
-            if (!Main.Settings.ShowAllAutoPreparedSpells || bindMode == SpellBox.BindMode.Inspection || bindMode == SpellBox.BindMode.Preparation)
+            if (!Main.Settings.ShowAllAutoPreparedSpells)
             {
                 return;
-            }
-
-            // Wait what? Yes, during level up no caster is bound. This is techncially fine, but we need one to collect the spells.
-            if (caster == null)
-            {
-                // it looks like it's ok to use CurrentLocalHeroCharacter on this context as this is an UI only patch
-                var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
-
-                caster = characterBuildingService.CurrentLocalHeroCharacter;
             }
 
             // Collect all the auto prepared spells.
@@ -63,38 +55,65 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
             }
         }
 
+        // there is indeed a camel case typo on auto prepared spells parameter
         internal static void Prefix(
             SpellsByLevelGroup __instance,
             SpellBox.BindMode bindMode,
-            RulesetCharacter caster,
-            ref List<SpellDefinition> allSpells,
-            ref List<SpellDefinition> auToPreparedSpells)
+            List<SpellDefinition> allSpells,
+            List<SpellDefinition> auToPreparedSpells)
         {
-            CollectAllAutoPreparedSpells(__instance, bindMode, caster, ref allSpells, ref auToPreparedSpells);
-
-            if (!Main.Settings.EnableMulticlass)
+            if (bindMode == SpellBox.BindMode.Preparation || bindMode == SpellBox.BindMode.Inspection)
             {
                 return;
             }
 
-            if (Main.Settings.DisplayAllKnownSpellsDuringLevelUp ||
-                bindMode == SpellBox.BindMode.Inspection || bindMode == SpellBox.BindMode.Preparation)
-            {
-                return;
-            }
-
-            var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
-
-            var hero = characterBuildingService.CurrentLocalHeroCharacter;
+            var hero = Global.ActiveLevelUpHero;
 
             if (hero == null)
             {
                 return;
             }
 
-            var allowedSpells = LevelUpContext.GetAllowedSpells(hero);
+            CollectAllAutoPreparedSpells(__instance, bindMode, hero, allSpells, auToPreparedSpells);
 
-            allSpells.RemoveAll(x => !allowedSpells.Contains(x));
+            if (!Main.Settings.EnableMulticlass)
+            {
+                return;
+            }
+
+            // avoids auto prepared spells from other classes to bleed in
+            var allowedAutoPreparedSpells = LevelUpContext.GetAllowedAutoPreparedSpells(hero)
+                .Where(x => x.SpellLevel == __instance.SpellLevel).ToList();
+
+            auToPreparedSpells.SetRange(allowedAutoPreparedSpells);
+
+            // displays known spells from other classes
+            var allowedSpells = LevelUpContext.GetAllowedSpells(hero)
+                .Where(x => x.SpellLevel == __instance.SpellLevel).ToList();
+
+            if (Main.Settings.DisplayAllKnownSpellsDuringLevelUp)
+            {
+                var otherClassesKnownSpells = LevelUpContext.GetOtherClassesKnownSpells(hero)
+                    .Where(x => x.SpellLevel == __instance.SpellLevel).ToList();
+
+                allSpells.RemoveAll(x => !allowedSpells.Contains(x) && !otherClassesKnownSpells.Contains(x));
+
+                // try add to avoid dups
+                foreach (var spell in otherClassesKnownSpells)
+                {
+                    allSpells.TryAdd(spell);
+
+                    if (!Main.Settings.EnableRelearnSpells || !allowedSpells.Contains(spell))
+                    {
+                        auToPreparedSpells.TryAdd(spell);
+                    }
+                }
+            }
+            // remove spells bleed from other classes
+            else
+            {
+                allSpells.RemoveAll(x => !allowedSpells.Contains(x));
+            }
         }
     }
 }
