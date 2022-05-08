@@ -1,0 +1,71 @@
+﻿using System.Collections;
+using HarmonyLib;
+using SolastaCommunityExpansion.CustomDefinitions;
+using SolastaCommunityExpansion.Models;
+using SolastaModApi.Infrastructure;
+
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
+{
+    internal static class CharacterActionMagicEffectPatcher
+    {
+        //enable to perform automatic attacks after spell cast (like for sunlight blade cantrip) and chain effects
+        [HarmonyPatch(typeof(CharacterActionMagicEffect), "ExecuteImpl")]
+        internal static class CharacterActionMagicEffect_ExecuteImpl
+        {
+            internal static void Prefix(CharacterActionMagicEffect __instance)
+            {
+                BaseDefinition definition = __instance.InvokeMethod("GetBaseDefinition") as BaseDefinition;
+                //skip spell animation if this is "attack after cast" spell
+                if (CustomFeaturesContext.GetFirstCustomFeature<IPerformAttackAfterMagicEffectUse>(definition) != null)
+                {
+                    __instance.ActionParams.SetField("skipAnimationsAndVFX", true);
+                }
+            }
+
+
+            internal static IEnumerator Postfix(IEnumerator __result,
+                CharacterActionMagicEffect __instance)
+            {
+                while (__result.MoveNext())
+                {
+                    yield return __result.Current;
+                }
+
+                BaseDefinition definition = __instance.InvokeMethod("GetBaseDefinition") as BaseDefinition;
+
+                //TODO: add possibility to get attack via feature
+                //TODO: add possibility to process multiple attack features
+                var customFeature =
+                    CustomFeaturesContext.GetFirstCustomFeature<IPerformAttackAfterMagicEffectUse>(definition);
+                var getAttackAfterUse = customFeature?.PerformAttackAfterUse;
+
+                CharacterActionAttack attackAction = null; //can be useful in chained spell effects
+
+                if (getAttackAfterUse != null)
+                {
+                    var attackParams = getAttackAfterUse(__instance);
+                    if (attackParams != null)
+                    {
+                        attackAction = new CharacterActionAttack(attackParams);
+                        var enums = attackAction.Execute();
+                        while (enums.MoveNext())
+                        {
+                            yield return enums.Current;
+                        }
+                    }
+                }
+
+                //chained effects would be useful for EOrb
+                // var chain_action = (definition as NewFeatureDefinitions.IChainMagicEffect)?.getNextMagicEffect(__instance);
+                // if (chain_action != null)
+                // {
+                //     var enums = chain_action.Execute();
+                //     while (enums.MoveNext())
+                //     {
+                //         yield return enums.Current;
+                //     }
+                // }
+            }
+        }
+    }
+}
