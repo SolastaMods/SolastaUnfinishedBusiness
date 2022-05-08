@@ -21,6 +21,8 @@ namespace SolastaCommunityExpansion.Models
             public bool RequiresDeity { get; set; }
             public HashSet<ItemDefinition> GrantedItems { get; set; }
             public List<SpellDefinition> AllowedSpells { get; set; }
+            public List<SpellDefinition> AllowedAutoPreparedSpells { get; set; }
+            public List<SpellDefinition> KnownSpells { get; set; }
             public List<SpellDefinition> OtherClassesKnownSpells { get; set; }
         }
 
@@ -211,6 +213,21 @@ namespace SolastaCommunityExpansion.Models
                     && rulesetSpellRepertoire.SpellCastingSubclass == selectedSubclass);
         }
 
+        private static List<SpellDefinition> CacheAllowedAutoPreparedSpells(IEnumerable<FeatureDefinition> featureDefinitions)
+        {
+            var allowedAutoPreparedSpells = new List<SpellDefinition>();
+
+            foreach (var featureDefinition in featureDefinitions)
+            {
+                if (featureDefinition is FeatureDefinitionAutoPreparedSpells featureDefinitionAutoPreparedSpells && featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups != null)
+                {
+                    allowedAutoPreparedSpells.AddRange(featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups.SelectMany(x => x.SpellsList));
+                }
+            }
+
+            return allowedAutoPreparedSpells;
+        }
+
         private static List<SpellDefinition> CacheAllowedSpells(IEnumerable<FeatureDefinition> featureDefinitions)
         {
             var allowedSpells = new List<SpellDefinition>();
@@ -268,6 +285,7 @@ namespace SolastaCommunityExpansion.Models
                 .SelectMany(x => x.Value);
 
             levelUpData.AllowedSpells = CacheAllowedSpells(thisClassCastingFeatures);
+            levelUpData.AllowedAutoPreparedSpells = CacheAllowedAutoPreparedSpells(thisClassCastingFeatures);
             levelUpData.OtherClassesKnownSpells = CacheOtherClassesKnownSpells(rulesetCharacterHero);
         }
 
@@ -279,6 +297,16 @@ namespace SolastaCommunityExpansion.Models
             }
 
             return levelUpData.AllowedSpells;
+        }
+
+        public static List<SpellDefinition> GetAllowedAutoPreparedSpells(RulesetCharacterHero hero)
+        {
+            if (!LevelUpTab.TryGetValue(hero, out var levelUpData))
+            {
+                return new();
+            }
+
+            return levelUpData.AllowedAutoPreparedSpells;
         }
 
         public static List<SpellDefinition> GetOtherClassesKnownSpells(RulesetCharacterHero hero)

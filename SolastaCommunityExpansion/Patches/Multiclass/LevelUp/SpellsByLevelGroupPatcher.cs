@@ -30,15 +30,6 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
                 return;
             }
 
-            // Wait what? Yes, during level up no caster is bound. This is techncially fine, but we need one to collect the spells.
-            if (caster == null)
-            {
-                // it looks like it's ok to use CurrentLocalHeroCharacter on this context as this is an UI only patch
-                var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
-
-                caster = characterBuildingService.CurrentLocalHeroCharacter;
-            }
-
             // Collect all the auto prepared spells.
             // Also filter the prepped spells by level this group is displaying.
             caster.EnumerateFeaturesToBrowse<FeatureDefinitionAutoPreparedSpells>(caster.FeaturesToBrowse);
@@ -68,7 +59,6 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
         internal static void Prefix(
             SpellsByLevelGroup __instance,
             SpellBox.BindMode bindMode,
-            RulesetCharacter caster,
             List<SpellDefinition> allSpells,
             List<SpellDefinition> auToPreparedSpells)
         {
@@ -77,15 +67,7 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
                 return;
             }
 
-            CollectAllAutoPreparedSpells(__instance, bindMode, caster, allSpells, auToPreparedSpells);
-
-            if (!Main.Settings.EnableMulticlass)
-            {
-                return;
-            }
-
             var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
-
             var hero = characterBuildingService.CurrentLocalHeroCharacter;
 
             if (hero == null)
@@ -93,12 +75,23 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
                 return;
             }
 
-            // avoids auto prepared spells from other classes to bleed in
-            var allowedSpells = LevelUpContext.GetAllowedSpells(hero);
+            CollectAllAutoPreparedSpells(__instance, bindMode, hero, allSpells, auToPreparedSpells);
 
-            auToPreparedSpells.RemoveAll(x => !allowedSpells.Contains(x));
+            if (!Main.Settings.EnableMulticlass)
+            {
+                return;
+            }
+
+            // avoids auto prepared spells from other classes to bleed in
+            var allowedAutoPreparedSpells = LevelUpContext.GetAllowedAutoPreparedSpells(hero)
+                .Where(x => x.SpellLevel == __instance.SpellLevel).ToList();
+
+            auToPreparedSpells.SetRange(allowedAutoPreparedSpells);
 
             // displays known spells from other classes
+            var allowedSpells = LevelUpContext.GetAllowedSpells(hero)
+                .Where(x => x.SpellLevel == __instance.SpellLevel).ToList();
+
             if (Main.Settings.DisplayAllKnownSpellsDuringLevelUp)
             {
                 var otherClassesKnownSpells = LevelUpContext.GetOtherClassesKnownSpells(hero)
@@ -110,8 +103,16 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
 
                 if (__instance.SpellLevel > 0)
                 {
-                    otherClassesKnownSpells.ForEach(x => auToPreparedSpells.TryAdd(x));
+                    foreach (var spell in otherClassesKnownSpells
+                        .Where(x => !Main.Settings.EnableRelearnSpells || !allowedSpells.Contains(x)))
+                    {
+                        auToPreparedSpells.TryAdd(spell);
+                    }              
                 }
+            }
+            else
+            {
+                allSpells.RemoveAll(x => !allowedSpells.Contains(x));
             }
         }
     }
