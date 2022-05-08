@@ -32,13 +32,45 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
         }
     }
 
-    // unregister the hero leveling up
+    // unregister the hero leveling up and add all known spells to wholelist casters
     [HarmonyPatch(typeof(CharacterBuildingManager), "FinalizeCharacter")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterBuildingManager_FinalizeCharacter
     {
         internal static void Postfix(RulesetCharacterHero hero)
         {
+            var selectedClassRepertoire = LevelUpContext.GetSelectedClassOrSubclassRepertoire(hero);
+
+            if (selectedClassRepertoire == null
+                || selectedClassRepertoire.SpellCastingFeature.SpellKnowledge != RuleDefinitions.SpellKnowledge.WholeList)
+            {
+                LevelUpContext.UnregisterHero(hero);
+
+                return;
+            }
+
+            var spellCastingClass = selectedClassRepertoire.SpellCastingClass;
+
+            if (spellCastingClass == null)
+            {
+                LevelUpContext.UnregisterHero(hero);
+
+                return;
+            }
+
+            var castingLevel = SharedSpellsContext.GetClassSpellLevel(selectedClassRepertoire);
+            var knownSpells = LevelUpContext.GetAllowedSpells(hero);
+
+            if (knownSpells == null)
+            {
+                LevelUpContext.RecacheSpells(hero);
+
+                knownSpells = LevelUpContext.GetAllowedSpells(hero);
+            }
+
+            selectedClassRepertoire.KnownSpells.AddRange(knownSpells
+                .Where(x => x.SpellLevel == castingLevel));
+
             LevelUpContext.UnregisterHero(hero);
         }
     }

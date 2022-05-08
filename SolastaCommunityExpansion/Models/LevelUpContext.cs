@@ -228,7 +228,7 @@ namespace SolastaCommunityExpansion.Models
             return allowedAutoPreparedSpells;
         }
 
-        private static List<SpellDefinition> CacheAllowedSpells(IEnumerable<FeatureDefinition> featureDefinitions)
+        public static List<SpellDefinition> CacheAllowedSpells(IEnumerable<FeatureDefinition> featureDefinitions)
         {
             var allowedSpells = new List<SpellDefinition>();
 
@@ -287,6 +287,22 @@ namespace SolastaCommunityExpansion.Models
             levelUpData.AllowedSpells = CacheAllowedSpells(thisClassCastingFeatures);
             levelUpData.AllowedAutoPreparedSpells = CacheAllowedAutoPreparedSpells(thisClassCastingFeatures);
             levelUpData.OtherClassesKnownSpells = CacheOtherClassesKnownSpells(rulesetCharacterHero);
+        }
+
+        // supports character creation during boot up
+        public static void RecacheSpells(RulesetCharacterHero rulesetCharacterHero)
+        {
+            if (!LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData))
+            {
+                return;
+            }
+
+            var selectedClassName = levelUpData.SelectedClass.Name;
+            var thisClassCastingFeatures = rulesetCharacterHero.ActiveFeatures
+                .Where(x => x.Key.Contains(selectedClassName))
+                .SelectMany(x => x.Value);
+
+            levelUpData.AllowedSpells = CacheAllowedSpells(thisClassCastingFeatures);
         }
 
         public static List<SpellDefinition> GetAllowedSpells(RulesetCharacterHero hero)
