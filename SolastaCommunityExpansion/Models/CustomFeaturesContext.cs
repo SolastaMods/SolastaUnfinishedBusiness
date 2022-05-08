@@ -360,5 +360,24 @@ namespace SolastaCommunityExpansion.Models
         {
             return UnCustomizeTag(tag) + "[Custom]";
         }
+
+        /**Returns first custom feature it finds within this definition.*/
+        public static T GetFirstCustomFeature<T>(BaseDefinition definition) where T : class
+        {
+            if (definition == null) { return null; }
+
+            if (definition is T custom)
+            {
+                return custom;
+            }
+
+            if (definition is IDefinitionWithCustomFeatures container)
+            {
+                return container.CustomFeatures.OfType<T>().FirstOrDefault();
+            }
+
+            return null;
+        }
+        //TODO: add another method to get all custom features from definition
     }
 }
