@@ -32,6 +32,7 @@ namespace SolastaCommunityExpansion.Models
             { "Maul", "Maul" },
             { "Warhammer", "Warhammer" },
             { "Quarterstaff", "Quarterstaff" },
+            { "Rapier", "Rapier" },
             { "Spear", "Spear" },
             { "Scimitar", "Scimitar" },
             { "Shield_Wooden", "Shield [Wooden]" },
@@ -55,6 +56,7 @@ namespace SolastaCommunityExpansion.Models
             ItemRecipeGenerationHelper.AddRecipesForWeapons(QuarterstaffData.Items);
             ItemRecipeGenerationHelper.AddRecipesForWeapons(SpearData.Items);
             ItemRecipeGenerationHelper.AddRecipesForWeapons(ScimitarData.Items);
+            ItemRecipeGenerationHelper.AddRecipesForWeapons(RapierData.Items);
 
             ItemRecipeGenerationHelper.AddRecipesForArmor(ArmorAndShieldData.Items);
 
