@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using SolastaCommunityExpansion.ItemCrafting;
 using SolastaModApi;
 using SolastaModApi.Extensions;
@@ -32,6 +30,7 @@ namespace SolastaCommunityExpansion.Models
             { "Maul", "Maul" },
             { "Warhammer", "Warhammer" },
             { "Quarterstaff", "Quarterstaff" },
+            { "Rapier", "Rapier" },
             { "Spear", "Spear" },
             { "Scimitar", "Scimitar" },
             { "Shield_Wooden", "Shield [Wooden]" },
@@ -55,6 +54,7 @@ namespace SolastaCommunityExpansion.Models
             ItemRecipeGenerationHelper.AddRecipesForWeapons(QuarterstaffData.Items);
             ItemRecipeGenerationHelper.AddRecipesForWeapons(SpearData.Items);
             ItemRecipeGenerationHelper.AddRecipesForWeapons(ScimitarData.Items);
+            ItemRecipeGenerationHelper.AddRecipesForWeapons(RapierData.Items);
 
             ItemRecipeGenerationHelper.AddRecipesForArmor(ArmorAndShieldData.Items);
 
