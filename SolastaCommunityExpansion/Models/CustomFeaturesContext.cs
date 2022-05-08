@@ -79,7 +79,7 @@ namespace SolastaCommunityExpansion.Models
                                 .GetElement(prof, false)));
             }
 
-            hero.RefreshAll();
+            hero.ClearFeatureModifiers(tag);
         }
 
         private static void RemoveFeatureDefinitionPointPool(RulesetCharacterHero hero, RulesetSpellRepertoire heroRepertoire, FeatureDefinitionPointPool featureDefinitionPointPool)
