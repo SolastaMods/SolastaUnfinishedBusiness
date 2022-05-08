@@ -101,14 +101,11 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
 
                 otherClassesKnownSpells.ForEach(x => allSpells.TryAdd(x));
 
-                if (__instance.SpellLevel > 0)
+                foreach (var spell in otherClassesKnownSpells
+                    .Where(x => !Main.Settings.EnableRelearnSpells || !allowedSpells.Contains(x)))
                 {
-                    foreach (var spell in otherClassesKnownSpells
-                        .Where(x => !Main.Settings.EnableRelearnSpells || !allowedSpells.Contains(x)))
-                    {
-                        auToPreparedSpells.TryAdd(spell);
-                    }              
-                }
+                    auToPreparedSpells.TryAdd(spell);
+                }              
             }
             else
             {
