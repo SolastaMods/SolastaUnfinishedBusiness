@@ -72,11 +72,13 @@ namespace SolastaCommunityExpansion.Models
 
         private static void RemoveFeaturesByTag(RulesetCharacterHero hero, CharacterClassDefinition classDefinition, string tag)
         {
-            CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, hero.ActiveFeatures[tag]);
-            CustomFeaturesContext.RemoveFeatures(hero, classDefinition, tag, hero.ActiveFeatures[tag]);
+            if (hero.ActiveFeatures.ContainsKey(tag))
+            {
+                CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, hero.ActiveFeatures[tag]);
+                CustomFeaturesContext.RemoveFeatures(hero, classDefinition, tag, hero.ActiveFeatures[tag]);
 
-            hero.ActiveFeatures.Remove(tag);
-            hero.ClearFeatureModifiers(tag);
+                hero.ActiveFeatures.Remove(tag);
+            }
         }
 
         internal static void LevelDown(RulesetCharacterHero hero)
@@ -102,37 +104,17 @@ namespace SolastaCommunityExpansion.Models
 
             UnlearnSpells(hero, indexLevel);
 
-            if (hero.ActiveFeatures.ContainsKey(subclassTag) && subclassTag != classTag)
+            if (subclassTag != classTag)
             {
                 RemoveFeaturesByTag(hero, characterClassDefinition, subclassTag);
                 RemoveFeaturesByTag(hero, characterClassDefinition, CustomFeaturesContext.CustomizeTag(subclassTag));
             }
 
-            if (hero.ActiveFeatures.ContainsKey(classTag))
-            {
-                RemoveFeaturesByTag(hero, characterClassDefinition, classTag);
-                RemoveFeaturesByTag(hero, characterClassDefinition, CustomFeaturesContext.CustomizeTag(classTag));
-            }
+            RemoveFeaturesByTag(hero, characterClassDefinition, classTag);
+            RemoveFeaturesByTag(hero, characterClassDefinition, CustomFeaturesContext.CustomizeTag(classTag));
 
             hero.RemoveClassLevel();
-            hero.RefreshActiveFightingStyles();
-            hero.RefreshActiveItemFeatures();
-            hero.RefreshArmorClass();
-            hero.RefreshAttackModes();
-            hero.RefreshAttributeModifiersFromConditions();
-            hero.RefreshAttributeModifiersFromFeats();
-            hero.RefreshAttributes();
-            hero.RefreshClimbRules();
-            hero.RefreshConditionFlags();
-            hero.RefreshEncumberance();
-            hero.RefreshJumpRules();
-            hero.RefreshMoveModes();
-            hero.RefreshPersonalityFlags();
-            hero.RefreshPowers();
-            hero.RefreshProficiencies();
-            hero.RefreshSpellRepertoires();
-            hero.RefreshTags();
-            hero.RefreshUsableDeviceFunctions();
+            hero.RefreshAll();
             hero.ComputeHitPoints(true);
             
             buildingService.FinalizeCharacter(hero);
