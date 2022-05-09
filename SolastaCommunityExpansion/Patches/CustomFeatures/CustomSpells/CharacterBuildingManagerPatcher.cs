@@ -91,7 +91,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
                 
                 var poolMods = hero.GetFeaturesByTypeAndTag<IPointPoolMaxBonus>(gainedClass.Name);
 
-                poolMods.RemoveAll(p => !IsSpellBonus(p));
+                poolMods.RemoveAll(p => IsSpellBonus(p));
 
                 foreach (var mod in poolMods)
                 {
