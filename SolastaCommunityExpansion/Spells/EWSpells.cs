@@ -3,6 +3,11 @@ using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.Utils;
 using SolastaModApi;
+using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
+using UnityEngine;
+using UnityEngine.AddressableAssets;
+using static ConditionOperationDescription;
 using static SolastaCommunityExpansion.Classes.Warlock.WarlockSpells;
 using static SolastaCommunityExpansion.Models.SpellsContext;
 
@@ -21,6 +26,26 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildSunlightBlade()
         {
+            var highlight = new ConditionOperationDescription()
+                .SetHasSavingThrow(false)
+                .SetOperation(ConditionOperation.Add)
+                .SetConditionDefinition(ConditionDefinitionBuilder
+                    .Create(DatabaseHelper.ConditionDefinitions.ConditionHighlighted, "EWSunlightBladeHighlighted", DefinitionBuilder.CENamespaceGuid)
+                    .SetSpecialInterruptions(RuleDefinitions.ConditionInterruption.Attacked)
+                    .SetDuration(RuleDefinitions.DurationType.Round, 1)
+                    .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.StartOfTurn)
+                    .SetSpecialDuration(true)
+                    .AddToDB());
+            
+            var dimLight = new LightSourceForm()
+                .SetBrightRange(0)
+                .SetDimAdditionalRange(2)
+                .SetLightSourceType(RuleDefinitions.LightSourceType.Basic)
+                .SetColor(new Color(0.9f, 0.8f, 0.4f));
+
+            dimLight.SetGraphicsPrefabReference(DatabaseHelper.FeatureDefinitionAdditionalDamages
+                .AdditionalDamageBrandingSmite.LightSourceForm.GetField<AssetReference>("graphicsPrefabReference"));
+            
             return SpellWithCustomFeaturesBuilder
                 .Create("EWSunlightBlade", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Spell,
@@ -28,7 +53,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetSpellLevel(0)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
                 .SetSomaticComponent(true)
-                .SetVerboseComponent(true)
+                .SetVerboseComponent(false)
                 .AddCustomFeature(PerformAttackAfterMagicEffectUse.MeleeAttack)
                 .AddCustomFeature(CustomSpellEffectLevel.ByCasterLevel)
                 .SetCastingTime(RuleDefinitions.ActivationTime.Action)
@@ -57,15 +82,14 @@ namespace SolastaCommunityExpansion.Spells
                     .SetEffectForms(new EffectFormBuilder()
                         .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.None)
                         .SetConditionForm(ConditionDefinitionBuilder
-                                .Create("EWSunlightBladeHighlighted", DefinitionBuilder.CENamespaceGuid)
-                                .SetGuiPresentation(Category.Condition,
-                                    DatabaseHelper.SpellDefinitions.FlameBlade.GuiPresentation.SpriteReference)
+                                .Create("EWSunlightBladeDamage", DefinitionBuilder.CENamespaceGuid)
+                                .SetGuiPresentation(Category.Condition)
                                 .SetSpecialInterruptions(RuleDefinitions.ConditionInterruption.Attacks)
-                                .SetSilent(Silent.None)
+                                .SetSilent(Silent.WhenAddedOrRemoved)
                                 .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn)
                                 .SetDuration(RuleDefinitions.DurationType.Round, 1)
                                 .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
-                                    .Create("EWSunlightBladeHighlightedDamage", DefinitionBuilder.CENamespaceGuid)
+                                    .Create("EWSunlightBladeDamageBonus", DefinitionBuilder.CENamespaceGuid)
                                     .Configure(
                                         "SunlightBlade",
                                         RuleDefinitions.FeatureLimitedUsage.None,
@@ -76,10 +100,13 @@ namespace SolastaCommunityExpansion.Spells
                                         RuleDefinitions.DieType.D8,
                                         1,
                                         RuleDefinitions.AdditionalDamageType.Specific,
-                                        RuleDefinitions.DamageTypeFire,
+                                        RuleDefinitions.DamageTypeRadiant,
                                         RuleDefinitions.AdditionalDamageAdvancement.SlotLevel,
                                         DiceByRankMaker.MakeBySteps(start: 0, step: 5, increment: 1)
                                     )
+                                    .SetConditionOperations(highlight)
+                                    .SetAddLightSource(true)
+                                    .SetLightSourceForm(dimLight)
                                     .AddToDB()
                                 )
                                 .AddToDB(),
