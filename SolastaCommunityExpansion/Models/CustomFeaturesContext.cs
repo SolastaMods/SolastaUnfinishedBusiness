@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi.Extensions;
 using UnityEngine;
@@ -371,12 +372,19 @@ namespace SolastaCommunityExpansion.Models
                 return custom;
             }
 
+            T result = null;
+            
             if (definition is IDefinitionWithCustomFeatures container)
             {
-                return container.CustomFeatures.OfType<T>().FirstOrDefault();
+                result = container.CustomFeatures.OfType<T>().FirstOrDefault();
             }
 
-            return null;
+            if (result == null && definition is FeatureDefinition feature)
+            {
+                result = feature.GetCustomFeaturesOfType<T>()?.FirstOrDefault();
+            }
+
+            return result;
         }
         //TODO: add another method to get all custom features from definition
     }
