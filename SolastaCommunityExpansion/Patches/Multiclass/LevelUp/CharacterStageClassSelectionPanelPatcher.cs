@@ -54,6 +54,20 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
             }
         }
     }
+    
+    // reset IsClassSelectionStage for hero
+    [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "OnEndHide")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class CharacterStageClassSelectionPanel_OnEndHide
+    {
+        internal static void Prefix(RulesetCharacterHero ___currentHero)
+        {
+            if (___currentHero != null && LevelUpContext.IsLevelingUp(___currentHero))
+            {
+                LevelUpContext.SetIsClassSelectionStage(___currentHero, false);
+            }
+        }
+    }
 
     // hide the equipment panel group
     [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "Refresh")]
