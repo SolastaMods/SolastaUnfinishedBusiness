@@ -132,7 +132,7 @@ namespace SolastaCommunityExpansion.Models
             var classLevel = hero.ClassesAndLevels[characterClassDefinition];
             var heroRepertoire = hero.SpellRepertoires.FirstOrDefault(x => LevelUpContext.IsRepertoireFromSelectedClassSubclass(hero, x));
             var buildinData = hero.GetHeroBuildingData();
-            var spellTag = GetSpellLearningTag(hero);
+            var spellTag = GetSpellLearningTag(hero, tag);
 
             foreach (var featureDefinition in featuresToRemove)
             {
@@ -396,22 +396,26 @@ namespace SolastaCommunityExpansion.Models
         }
       
         //TODO: add another method to get all custom features from definition
-        public static string GetSpellLearningTag(RulesetCharacterHero hero)
+        public static string GetSpellLearningTag(RulesetCharacterHero hero, string tag)
         {
-            ServiceRepository.GetService<ICharacterBuildingService>()
-                .GetLastAssignedClassAndLevel(hero, out var lastClass, out var classLevel);
-
-            if (LevelDownContext.IsLevelDown)
+            if (tag != null 
+                && (tag.StartsWith(AttributeDefinitions.TagClass) || tag.StartsWith(AttributeDefinitions.TagSubclass)))
             {
-                classLevel -= 1;
-            }
-            
-            if (classLevel > 0)
-            {
-                return AttributeDefinitions.GetClassTag(lastClass, classLevel);
+                ServiceRepository.GetService<ICharacterBuildingService>()
+                    .GetLastAssignedClassAndLevel(hero, out var lastClass, out var classLevel);
+
+                if (LevelDownContext.IsLevelDown)
+                {
+                    classLevel -= 1;
+                }
+
+                if (classLevel > 0)
+                {
+                    return AttributeDefinitions.GetClassTag(lastClass, classLevel);
+                }
             }
 
-            return string.Empty;
+            return tag;
         }
     }
 }
