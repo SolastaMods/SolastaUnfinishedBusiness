@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaCommunityExpansion.Features;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Utils;
 using UnityModManagerNet;
@@ -100,6 +101,8 @@ namespace SolastaCommunityExpansion.Patches
 
                 // Save by location initialization depends on services to be ready
                 SaveByLocationContext.LateLoad();
+
+                HouseFeatureTweaks.LateLoad();
 
                 // Recache all gui collections
                 GuiWrapperContext.Recache();
