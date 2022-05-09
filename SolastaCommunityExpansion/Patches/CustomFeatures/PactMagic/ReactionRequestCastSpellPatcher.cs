@@ -21,33 +21,14 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
                 var rulesetEffect = __instance.ReactionParams.RulesetEffect as RulesetEffectSpell;
                 if (rulesetEffect == null) { return true; }
                 
-                var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
-                var isMulticaster = SharedSpellsContext.IsMulticaster(hero);
-                var hasPactMagic = warlockSpellLevel > 0;
-
                 __instance.SubOptionsAvailability.Clear();
                 var spellRepertoire = rulesetEffect.SpellRepertoire;
                 var minSpellLebvel = rulesetEffect.SpellDefinition.SpellLevel;
-                var maxRepertoireLevel = spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
-                var maxSpellLevel = Math.Max(maxRepertoireLevel, warlockSpellLevel);
-                var selected = false;
 
-                for (int level = minSpellLebvel; level <= maxSpellLevel; ++level)
+                var selected = MulticlassGameUiContext.AddAvailableSubLevels(__instance.SubOptionsAvailability, hero, spellRepertoire, minSpellLebvel);
+                if (selected >= 0)
                 {
-                    spellRepertoire.GetSlotsNumber(level, out var remaining, out var max);
-                    if (max > 0 && (
-                            level <= maxRepertoireLevel
-                            && (isMulticaster || !hasPactMagic)
-                            || level == warlockSpellLevel
-                        ))
-                    {
-                        __instance.SubOptionsAvailability.Add(level, remaining > 0);
-                        if (!selected && remaining > 0)
-                        {
-                            selected = true;
-                            __instance.SelectSubOption(level - minSpellLebvel);
-                        }
-                    }
+                    __instance.SelectSubOption(selected);
                 }
 
                 return false;
