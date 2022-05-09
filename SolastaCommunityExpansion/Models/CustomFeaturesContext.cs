@@ -130,11 +130,11 @@ namespace SolastaCommunityExpansion.Models
         {
             var classLevel = hero.ClassesAndLevels[characterClassDefinition];
             var heroRepertoire = hero.SpellRepertoires.FirstOrDefault(x => LevelUpContext.IsRepertoireFromSelectedClassSubclass(hero, x));
+            var buildinData = hero.GetHeroBuildingData();
+            var spellTag = GetSpellLearningTag(hero);
 
             foreach (var featureDefinition in featuresToRemove)
             {
-                var featureDefinitionTypeName = featureDefinition.GetType().Name;
-
                 if (featureDefinition is FeatureDefinitionCastSpell && heroRepertoire != null)
                 {
                     hero.SpellRepertoires.Remove(heroRepertoire);
@@ -152,6 +152,14 @@ namespace SolastaCommunityExpansion.Models
                 {
                     //TODO: fix potential problem if several features grant same cantrip, but we only remove one of them
                     heroRepertoire.KnownCantrips.RemoveAll(featureDefinitionBonusCantrips.BonusCantrips.Contains);
+                    if (buildinData != null)
+                    {
+                        if (buildinData.BonusCantrips.ContainsKey(spellTag))
+                        {
+                            buildinData.BonusCantrips[spellTag]
+                                .RemoveAll(featureDefinitionBonusCantrips.BonusCantrips.Contains);
+                        }
+                    }
                 }
                 else if (featureDefinition is FeatureDefinitionFightingStyleChoice)
                 {
@@ -359,6 +367,19 @@ namespace SolastaCommunityExpansion.Models
         public static string CustomizeTag(string tag)
         {
             return UnCustomizeTag(tag) + "[Custom]";
+        }
+
+        public static string GetSpellLearningTag(RulesetCharacterHero hero)
+        {
+            ServiceRepository.GetService<ICharacterBuildingService>()
+                .GetLastAssignedClassAndLevel(hero, out var lastClass, out var classLevel);
+
+            if (LevelDownContext.IsLevelDown)
+            {
+                classLevel -= 1;
+            }
+
+            return AttributeDefinitions.GetClassTag(lastClass, classLevel);
         }
     }
 }
