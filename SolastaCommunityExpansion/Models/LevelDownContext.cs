@@ -7,6 +7,8 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class LevelDownContext
     {
+        public static bool IsLevelDown { get; set; } = false;
+
         public class FunctorLevelDown : Functor
         {
             public override IEnumerator Execute(
@@ -89,6 +91,8 @@ namespace SolastaCommunityExpansion.Models
             var classTag = AttributeDefinitions.GetClassTag(characterClassDefinition, classLevel);
             var subclassTag = string.Empty;
 
+            IsLevelDown = true;
+
             var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
 
             characterBuildingService.LevelUpCharacter(hero, false);
@@ -125,6 +129,8 @@ namespace SolastaCommunityExpansion.Models
             {
                 ServiceRepository.GetService<ICharacterPoolService>().SaveCharacter(hero, true);
             }
+            
+            IsLevelDown = false;
         }
 
         private static void UnlearnSpells(RulesetCharacterHero hero, int indexLevel)

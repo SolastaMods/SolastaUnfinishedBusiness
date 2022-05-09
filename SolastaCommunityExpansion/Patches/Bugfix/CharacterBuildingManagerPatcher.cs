@@ -20,19 +20,19 @@ namespace SolastaCommunityExpansion.Patches.BugFix
                 return true;
             }
 
-            var defaultTag = CustomFeaturesContext.UnCustomizeTag(tag);
+            var spellTag = CustomFeaturesContext.GetSpellLearningTag(heroBuildingData.HeroCharacter);
 
             foreach (FeatureDefinition grantedFeature in grantedFeatures)
             {
                 switch (grantedFeature)
                 {
                     case FeatureDefinitionCastSpell spell:
-                        __instance.SetupSpellPointPools(heroBuildingData, spell, defaultTag);
+                        __instance.SetupSpellPointPools(heroBuildingData, spell, spellTag);
                         continue; // In original code this was 'return'
                     case FeatureDefinitionBonusCantrips cantrips:
                         foreach (var cantrip in cantrips.BonusCantrips)
                         {
-                            __instance.AcquireBonusCantrip(heroBuildingData, cantrip, defaultTag);
+                            __instance.AcquireBonusCantrip(heroBuildingData, cantrip, spellTag);
                         }
                         continue;
                     case FeatureDefinitionProficiency proficiency:
