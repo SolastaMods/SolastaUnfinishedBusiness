@@ -874,8 +874,16 @@ Feature/&EldritchBlastRepellingBlastBonusCantripTitle	Repelling Blast
 Feature/&EldritchMindDescription	You have advantage on Constitution saving throws that you make to maintain your concentration on a spell
 Feature/&EldritchMindTitle	Eldritch Mind
 Feature/&EldritchSightTitle	Eldritch Sight
-Feature/&EldritchSmiteDescription	Once per turn when you hit a creature with your pact weapon, you can expend a warlock spell slot to deal an extra 1d8 force damage to the target, plus another 1d8 per level of the spell slot,
+Feature/&EldritchSmiteDescription	Once per turn when you hit a creature with your pact weapon, you can expend a warlock spell slot to deal an extra 1d8 force damage to the target, plus another 1d8 per level of the spell slot.
 Feature/&EldritchSmiteTitle	Eldritch Smite
+Reaction/&SpendSpellSlotEldritchSmiteTitle	Eldritch Smite
+Reaction/&SpendSpellSlotEldritchSmiteDescription	{0} can spend spell slot to deal 1d8 + 1d8 force damage per slot level to the target.
+Reaction/&SpendSpellSlotEldritchSmiteReactTitle	Smite
+Reaction/&SpendSpellSlotEldritchSmiteReactDescription	Click to spend a spell slot and increase damage to the target.
+Reaction/&SubitemSelectEldritchSmiteTitle	Slot Level
+Reaction/&SubitemSelectEldritchSmiteDescription	Select a slot level to consume for your Eldritch Smite.
+Feedback/&AdditionalDamageEldritchSmiteFormat	Eldritch Smite!
+Feedback/&AdditionalDamageEldritchSmiteLine	{0} smites {1} (+{2})
 Feature/&ElementalistSpellsMagicAffinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: {0}\n\n  
 Feature/&ElementalistSpellsMagicAffinityTitle	Elementalist Spells
 Feature/&ElementalPactAirPlane	Air Plane

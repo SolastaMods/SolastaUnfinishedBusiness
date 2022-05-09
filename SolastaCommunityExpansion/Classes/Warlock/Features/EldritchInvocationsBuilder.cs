@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Classes.Warlock.Subclasses;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.Models;
+using SolastaCommunityExpansion.Utils;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
@@ -477,8 +479,26 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             
             ((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["ImprovedPactWeapon"]).Validators.SetRange(RequirePactOfTheBlade);
 
-            ((FeatureDefinitionFeatureSet)EldritchInvocations["EldritchSmite"]).FeatureSet
-                .Add(FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite);
+            var eldritchSmite = FeatureDefinitionAdditionalDamageBuilder
+                .Create("WarlockEldritchSmiteDamage", DefinitionBuilder.CENamespaceGuid)
+                .Configure("EldritchSmite",
+                    RuleDefinitions.FeatureLimitedUsage.OncePerTurn,
+                    RuleDefinitions.AdditionalDamageValueDetermination.Die,
+                    RuleDefinitions.AdditionalDamageTriggerCondition.SpendSpellSlot,
+                    RuleDefinitions.AdditionalDamageRequiredProperty.None,
+                    true,
+                    RuleDefinitions.DieType.D8,
+                    0,
+                    RuleDefinitions.AdditionalDamageType.Specific,
+                    RuleDefinitions.DamageTypeForce,
+                    RuleDefinitions.AdditionalDamageAdvancement.SlotLevel,
+                    DiceByRankMaker.MakeBySteps(start: 0, increment: 1, step: 0)
+                )
+                .AddToDB();
+
+            eldritchSmite.SetCustomFeatures(new WarlockClassHolder());
+            
+            ((FeatureDefinitionFeatureSet)EldritchInvocations["EldritchSmite"]).FeatureSet.Add(eldritchSmite);
             ((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["EldritchSmite"]).Validators.SetRange(RequirePactOfTheBlade);
 
             ((FeatureDefinitionFeatureSet)EldritchInvocations["ThirstingBlade"]).FeatureSet
@@ -563,5 +583,10 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                     FeatureDefinitionSenses.SenseDarkvision24
                 );
         }
+    }
+
+    internal class WarlockClassHolder : IClassHoldingFeature
+    {
+        public CharacterClassDefinition Class => Warlock.ClassWarlock;
     }
 }
