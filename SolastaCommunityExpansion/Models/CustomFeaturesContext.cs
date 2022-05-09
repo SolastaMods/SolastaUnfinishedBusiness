@@ -405,8 +405,13 @@ namespace SolastaCommunityExpansion.Models
             {
                 classLevel -= 1;
             }
+            
+            if (classLevel > 0)
+            {
+                return AttributeDefinitions.GetClassTag(lastClass, classLevel);
+            }
 
-            return AttributeDefinitions.GetClassTag(lastClass, classLevel);
+            return string.Empty;
         }
     }
 }
