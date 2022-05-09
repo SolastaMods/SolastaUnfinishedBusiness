@@ -20,7 +20,7 @@ namespace SolastaCommunityExpansion.Patches.BugFix
                 return true;
             }
 
-            var spellTag = CustomFeaturesContext.GetSpellLearningTag(heroBuildingData.HeroCharacter);
+            var spellTag = CustomFeaturesContext.GetSpellLearningTag(heroBuildingData.HeroCharacter, tag);
 
             foreach (FeatureDefinition grantedFeature in grantedFeatures)
             {
