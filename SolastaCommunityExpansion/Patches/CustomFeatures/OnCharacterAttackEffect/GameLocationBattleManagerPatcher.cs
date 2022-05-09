@@ -176,6 +176,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                     // Trigger method
                     bool validTrigger = false;
                     bool validUses = true;
+                    bool validProperty = true;
                     if (provider.LimitedUsage != RuleDefinitions.FeatureLimitedUsage.None)
                     {
                         if (provider.LimitedUsage == RuleDefinitions.FeatureLimitedUsage.OnceInMyturn && (attacker.UsedSpecialFeatures.ContainsKey(featureDefinition.Name) || (__instance.Battle != null && __instance.Battle.ActiveContender != attacker)))
@@ -205,6 +206,12 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                     CharacterActionParams reactionParams = null;
                     if (validUses)
                     {
+                        // Check required properties if needed
+                        validProperty = ValidateProperty();
+                    }
+
+                    if (validUses && validProperty)
+                    {
                         // Typical for Sneak Attack
                         if (provider.TriggerCondition == RuleDefinitions.AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly && attackMode != null)
                         {
@@ -219,7 +226,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                         //
                         //else if (provider.TriggerCondition == RuleDefinitions.AdditionalDamageTriggerCondition.SpendSpellSlot && attackModifier != null && attackModifier.Proximity == RuleDefinitions.AttackProximity.Melee)
                         else if (provider.TriggerCondition == RuleDefinitions.AdditionalDamageTriggerCondition.SpendSpellSlot
-                            && attackModifier != null && attackModifier.Proximity == RuleDefinitions.AttackProximity.Melee
+                            //TODO: make Divine Smite malee-only via properties
+                            //&& attackModifier != null && attackModifier.Proximity == RuleDefinitions.AttackProximity.Melee
                             && (!Main.Settings.EnableCtrlClickBypassSmiteReactionPanel || !isCtrlPressed))
                         {
                             // This is used to allow Divine Smite under Wildshape
@@ -384,6 +392,10 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                         }
                     }
 
+                    //Wrapped in no-formatting to simplify merges/changes from TA ------ START --------
+                    // @formatter:off
+                    bool ValidateProperty() {
+                    // ReSharper disable once VariableHidesOuterVariable
                     // Check required properties if needed
                     bool validProperty = true;
                     if (validTrigger && provider.RequiredProperty != RuleDefinitions.AdditionalDamageRequiredProperty.None && attackMode != null)
@@ -449,6 +461,10 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                         }
                     }
 
+                        return validProperty;
+                    }
+                    // @formatter:on
+                    //Wrapped in no-formatting to simplify merges/changes from TA ------ END --------
                     if (validTrigger && validProperty)
                     {
                         //__instance.ComputeAndNotifyAdditionalDamage(attacker, defender, provider, actualEffectForms, reactionParams, attackMode, criticalHit);
