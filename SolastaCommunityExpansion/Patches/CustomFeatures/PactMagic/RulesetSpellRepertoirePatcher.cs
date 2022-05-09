@@ -199,7 +199,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
 
                 var canConsumeShortRestSlot = warlockUsedSlots < warlockMaxSlots && slotLevel <= warlockSpellLevel;
                 var canConsumeLongRestSlot = sharedUsedSlots < sharedMaxSlots && slotLevel <= sharedSpellLevel;
-                var forceLongRestSlot = canConsumeLongRestSlot && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift));
+                var forceLongRestSlot = canConsumeLongRestSlot
+                    && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift) || sharedSpellLevel < warlockSpellLevel);
 
                 // uses short rest slots across all repertoires
                 if (canConsumeShortRestSlot && !forceLongRestSlot)
