@@ -398,7 +398,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                     // ReSharper disable once VariableHidesOuterVariable
                     // Check required properties if needed
                     bool validProperty = true;
-                    if (validTrigger && provider.RequiredProperty != RuleDefinitions.AdditionalDamageRequiredProperty.None && attackMode != null)
+                    if (/*validTrigger &&*/ provider.RequiredProperty != RuleDefinitions.AdditionalDamageRequiredProperty.None && attackMode != null)
                     {
                         bool finesse = false;
                         bool melee = false;
