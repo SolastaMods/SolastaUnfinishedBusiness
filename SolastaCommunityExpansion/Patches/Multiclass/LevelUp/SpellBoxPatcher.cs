@@ -14,6 +14,7 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
         public static void Postfix(SpellBox __instance, SpellBox.BindMode ___bindMode, RectTransform ___autoPreparedGroup, GuiLabel ___autoPreparedTitle, GuiTooltip ___autoPreparedTooltip)
         {
             if (!Main.Settings.EnableMulticlass
+                || __instance.GuiSpellDefinition == null
                 || ___bindMode == SpellBox.BindMode.Preparation
                 || ___bindMode == SpellBox.BindMode.Inspection)
             {
