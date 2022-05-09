@@ -15,6 +15,8 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
     {
         internal static bool Prefix(RulesetCharacterHero hero, CharacterClassDefinition classDefinition)
         {
+            LevelUpContext.SetSelectedClass(hero, classDefinition);
+
             if (!Main.Settings.EnableMulticlass)
             {
                 return true;
