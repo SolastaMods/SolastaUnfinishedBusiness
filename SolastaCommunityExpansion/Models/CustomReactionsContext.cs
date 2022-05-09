@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi.Infrastructure;
+using static ActionDefinitions;
+using static ActionDefinitions.ActionStatus;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -50,6 +52,12 @@ namespace SolastaCommunityExpansion.Models
                 yield break;
             }
 
+            if (defender.GetActionTypeStatus(ActionType.Reaction) != Available
+                || defender.GetActionStatus(Id.CastReaction, ActionScope.Battle, Available) != Available)
+            {
+                yield break;
+            }
+
             ruleDefender.InvokeMethod("EnumerateUsableSpells");
 
             //TODO: refactor this a bit so custom features are not browsed twice
@@ -83,7 +91,7 @@ namespace SolastaCommunityExpansion.Models
                 if (spellBook != null)
                 {
                     var ruleset = ServiceRepository.GetService<IRulesetImplementationService>();
-                    var reactionParams = new CharacterActionParams(caster, ActionDefinitions.Id.CastReaction)
+                    var reactionParams = new CharacterActionParams(caster, Id.CastReaction)
                     {
                         IntParameter = 0,
                         RulesetEffect =

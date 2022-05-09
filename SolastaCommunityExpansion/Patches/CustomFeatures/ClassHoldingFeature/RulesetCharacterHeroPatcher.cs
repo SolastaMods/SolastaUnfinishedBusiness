@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomDefinitions;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.ClassHoldingFeature
 {
@@ -13,15 +14,17 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.ClassHoldingFeature
             FeatureDefinition featureDefinition,
             ref CharacterClassDefinition __result)
         {
-            if (featureDefinition is not IClassHoldingFeature overrideClassHoldingFeature || overrideClassHoldingFeature.Class == null)
+            var classHolder = CustomFeaturesContext.GetFirstCustomFeature<IClassHoldingFeature>(featureDefinition);
+            
+            if (classHolder == null || classHolder.Class == null)
             {
                 return;
             }
 
             // Only override if the character actually has levels in the class, to prevent errors
-            if (__instance.ClassesAndLevels.TryGetValue(overrideClassHoldingFeature.Class, out int levelsInClass) && levelsInClass > 0)
+            if (__instance.ClassesAndLevels.TryGetValue(classHolder.Class, out int levelsInClass) && levelsInClass > 0)
             {
-                __result = overrideClassHoldingFeature.Class;
+                __result = classHolder.Class;
             }
         }
     }

@@ -6,8 +6,8 @@ using HarmonyLib;
 namespace SolastaCommunityExpansion.Patches.GameUi.CharactersPool
 {
     // ensures MC heroes are correctly offered on adventures with min/max caps on character level
-    [HarmonyPatch(typeof(CharacterSelectionModal), "EnumeratePlates")]
-    internal static class CharacterSelectionModalEnumeratePlates
+    [HarmonyPatch(typeof(CharacterFilteringGroup), "Compare")]
+    internal static class CharacterFilteringGroup_Compare
     {
         public static int MyLevels(int[] levels)
         {

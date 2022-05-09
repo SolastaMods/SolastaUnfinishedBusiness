@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
+using SolastaModApi.Infrastructure;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
@@ -16,6 +17,21 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
                 || __instance.GuiSpellDefinition == null
                 || ___bindMode == SpellBox.BindMode.Preparation
                 || ___bindMode == SpellBox.BindMode.Inspection)
+            {
+                return;
+            }
+
+            var characterLevelUpScreen = Gui.GuiService.GetScreen<CharacterLevelUpScreen>();
+
+            if (characterLevelUpScreen == null
+                || !characterLevelUpScreen.Visible)
+            {
+                return;
+            }
+
+            var currentStagePanel = characterLevelUpScreen.GetField<CharacterLevelUpScreen, CharacterStagePanel>("currentStagePanel");
+
+            if (currentStagePanel is not CharacterStageSpellSelectionPanel)
             {
                 return;
             }

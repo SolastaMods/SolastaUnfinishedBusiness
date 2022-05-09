@@ -32,7 +32,7 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.SlotsColors
             }
 
             MulticlassGameUiContext.PaintPactSlots(
-                caster, maxSlots, remainingSlots, slotLevel, ___slotStatusTable, true);
+                caster, maxSlots, remainingSlots, slotLevel, ___slotStatusTable);
         }
     }
 

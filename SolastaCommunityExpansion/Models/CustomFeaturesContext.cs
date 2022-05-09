@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi.Extensions;
 using UnityEngine;
@@ -130,11 +131,11 @@ namespace SolastaCommunityExpansion.Models
         {
             var classLevel = hero.ClassesAndLevels[characterClassDefinition];
             var heroRepertoire = hero.SpellRepertoires.FirstOrDefault(x => LevelUpContext.IsRepertoireFromSelectedClassSubclass(hero, x));
+            var buildinData = hero.GetHeroBuildingData();
+            var spellTag = GetSpellLearningTag(hero, tag);
 
             foreach (var featureDefinition in featuresToRemove)
             {
-                var featureDefinitionTypeName = featureDefinition.GetType().Name;
-
                 if (featureDefinition is FeatureDefinitionCastSpell && heroRepertoire != null)
                 {
                     hero.SpellRepertoires.Remove(heroRepertoire);
@@ -152,6 +153,14 @@ namespace SolastaCommunityExpansion.Models
                 {
                     //TODO: fix potential problem if several features grant same cantrip, but we only remove one of them
                     heroRepertoire.KnownCantrips.RemoveAll(featureDefinitionBonusCantrips.BonusCantrips.Contains);
+                    if (buildinData != null)
+                    {
+                        if (buildinData.BonusCantrips.ContainsKey(spellTag))
+                        {
+                            buildinData.BonusCantrips[spellTag]
+                                .RemoveAll(featureDefinitionBonusCantrips.BonusCantrips.Contains);
+                        }
+                    }
                 }
                 else if (featureDefinition is FeatureDefinitionFightingStyleChoice)
                 {
@@ -371,13 +380,42 @@ namespace SolastaCommunityExpansion.Models
                 return custom;
             }
 
+            T result = null;
+            
             if (definition is IDefinitionWithCustomFeatures container)
             {
-                return container.CustomFeatures.OfType<T>().FirstOrDefault();
+                result = container.CustomFeatures.OfType<T>().FirstOrDefault();
             }
 
-            return null;
+            if (result == null && definition is FeatureDefinition feature)
+            {
+                result = feature.GetCustomFeaturesOfType<T>()?.FirstOrDefault();
+            }
+
+            return result;
         }
+      
         //TODO: add another method to get all custom features from definition
+        public static string GetSpellLearningTag(RulesetCharacterHero hero, string tag)
+        {
+            if (tag != null 
+                && (tag.StartsWith(AttributeDefinitions.TagClass) || tag.StartsWith(AttributeDefinitions.TagSubclass)))
+            {
+                ServiceRepository.GetService<ICharacterBuildingService>()
+                    .GetLastAssignedClassAndLevel(hero, out var lastClass, out var classLevel);
+
+                if (LevelDownContext.IsLevelDown)
+                {
+                    classLevel -= 1;
+                }
+
+                if (classLevel > 0)
+                {
+                    return AttributeDefinitions.GetClassTag(lastClass, classLevel);
+                }
+            }
+
+            return tag;
+        }
     }
 }
