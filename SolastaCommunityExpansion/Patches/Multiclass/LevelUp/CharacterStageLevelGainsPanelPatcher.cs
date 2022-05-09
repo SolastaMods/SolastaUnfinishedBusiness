@@ -16,6 +16,8 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
         {
             if (LevelUpContext.IsLevelingUp(hero))
             {
+                LevelUpContext.SetIsClassSelectionStage(hero, false);
+
                 lastClassDefinition = LevelUpContext.GetSelectedClass(hero);
                 level = hero.ClassesHistory.Count;
             }
