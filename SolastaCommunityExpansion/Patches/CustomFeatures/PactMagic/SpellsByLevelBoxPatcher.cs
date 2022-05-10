@@ -33,11 +33,10 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
 
             // PATCH HERE
             if (SharedSpellsContext.IsWarlock(___spellRepertoire.SpellCastingClass)
-                && !SharedSpellsContext.IsMulticaster(hero)
                 && spellDefinition.SpellLevel > 0
                 && ___spellRepertoire.CanUpcastSpell(spellDefinition))
             {
-                spellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
+                spellLevel = ___spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
             }
             // END PATCH
 
