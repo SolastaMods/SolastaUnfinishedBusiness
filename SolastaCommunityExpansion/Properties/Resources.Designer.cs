@@ -243,6 +243,16 @@ namespace SolastaCommunityExpansion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap GreenFlameBlade {
+            get {
+                object obj = ResourceManager.GetObject("GreenFlameBlade", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap HellishRebuke {
             get {
                 object obj = ResourceManager.GetObject("HellishRebuke", resourceCulture);
