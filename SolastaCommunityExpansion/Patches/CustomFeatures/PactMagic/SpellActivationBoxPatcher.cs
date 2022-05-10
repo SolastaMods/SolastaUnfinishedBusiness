@@ -18,12 +18,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
             Button ___upcastButton,
             List<int> ___higherLevelSlots)
         {
-            if (spellDefinition.Name == "Bane")
-            {
-                var x = 0;
-                x++;
-            }
-
             var isWarlockSpell = SharedSpellsContext.IsWarlock(spellRepertoire.SpellCastingClass);
 
             if (___hasUpcast && isWarlockSpell)
