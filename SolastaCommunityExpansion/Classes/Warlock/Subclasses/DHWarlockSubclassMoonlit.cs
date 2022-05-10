@@ -55,17 +55,17 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             // don't get the annoying message on log
             Global.CharacterLabelEnabledConditions.Add(moonlitInvisibleCondition);
 
-            var Unlit = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
+            var unlit = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
             {
                 lightingState = LocationDefinitions.LightingState.Unlit,
                 condition = moonlitInvisibleCondition
             };
-            var Dim = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
+            var dim = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
             {
                 lightingState = LocationDefinitions.LightingState.Dim,
                 condition = moonlitInvisibleCondition
             };
-            var Darkness = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
+            var darkness = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
             {
                 lightingState = LocationDefinitions.LightingState.Darkness,
                 condition = moonlitInvisibleCondition
@@ -74,14 +74,14 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             FeatureDefinitionLightAffinity MoonLitLightAffinityWeak = FeatureDefinitionLightAffinityBuilder
                 .Create("MoonLitLightAffinity", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation("MoonLitLightAffinity", Category.Feature)
-                .AddLightingEffectAndCondition(Unlit)
+                .AddLightingEffectAndCondition(unlit)
                 .AddToDB();
             
             FeatureDefinitionLightAffinity MoonLitLightAffinityStrong = FeatureDefinitionLightAffinityBuilder
                 .Create("MoonLitLightAffinityStrong", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation("MoonLitLightAffinityStrong", Category.Feature)
-                .AddLightingEffectAndCondition(Dim)
-                .AddLightingEffectAndCondition(Darkness)
+                .AddLightingEffectAndCondition(dim)
+                .AddLightingEffectAndCondition(darkness)
                 .AddToDB();
 
             // should probably be expanded to include a magicaffinty that has immunity to darkness spells as well
@@ -94,7 +94,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
             FeatureDefinitionPower DarkMoon = FeatureDefinitionPowerBuilder
                 .Create("MoonlitDarkMoon", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(Category.Power)
+                .SetGuiPresentation(Category.Power, Darkness.GuiPresentation.SpriteReference)
                 .Configure(
                        1,
                        UsesDetermination.ProficiencyBonus,
@@ -105,13 +105,13 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                        false,
                        false,
                        AttributeDefinitions.Charisma,
-                       DatabaseHelper.SpellDefinitions.Darkness.EffectDescription.Copy().SetDuration(DurationType.Minute, 1),
+                       Darkness.EffectDescription.Copy().SetDuration(DurationType.Minute, 1),
                        true)
                 .AddToDB();
 
             FeatureDefinitionPower FullMoon = FeatureDefinitionPowerBuilder
                 .Create("MoonlitFullMoon", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(Category.Power)
+                .SetGuiPresentation(Category.Power, Daylight.GuiPresentation.SpriteReference)
                 .Configure(
                        1,
                        UsesDetermination.ProficiencyBonus,
