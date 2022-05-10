@@ -309,10 +309,11 @@ namespace SolastaCommunityExpansion.Models
             //TODO: find a way to cache result, so it works faster - this method is called sveral times per spell cast
             var result = original;
             var caster = spell.Caster;
-            
-            if (spell.SpellDefinition is ICustomMagicEffectBasedOnCaster baseDefinition && caster != null)
+
+            var baseDefinition = spell.SpellDefinition.GetFirstSubFeatureOfType<ICustomMagicEffectBasedOnCaster>();
+            if (baseDefinition != null && caster != null)
             {
-                result = baseDefinition.GetCustomEffect(caster);
+                result = baseDefinition.GetCustomEffect(caster) ?? original;
             }
 
             var modifiers = caster.GetFeaturesByType<IModifySpellEffect>();
@@ -333,9 +334,10 @@ namespace SolastaCommunityExpansion.Models
                          ?? Global.ActiveLevelUpHero
                          ?? Global.ActivePlayerCharacter?.RulesetCharacter;
 
-            if (spell.SpellDefinition is ICustomMagicEffectBasedOnCaster baseDefinition && caster != null)
+            var baseDefinition = spell.SpellDefinition.GetFirstSubFeatureOfType<ICustomMagicEffectBasedOnCaster>();
+            if (baseDefinition != null && caster != null)
             {
-                result = baseDefinition.GetCustomEffect(caster);
+                result = baseDefinition.GetCustomEffect(caster) ?? original;
             }
 
             return result;
