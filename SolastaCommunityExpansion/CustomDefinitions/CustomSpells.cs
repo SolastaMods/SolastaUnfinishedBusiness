@@ -4,12 +4,7 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.CustomDefinitions
 {
-    public class SpellWithCustomFeatures : SpellDefinition, IDefinitionWithCustomFeatures
-    {
-        public List<object> CustomFeatures { get; } = new();
-    }
-
-    public class SpellWithCasterFeatureDependentEffects : SpellWithCustomFeatures, ICustomMagicEffectBasedOnCaster
+    public class SpellWithCasterFeatureDependentEffects : SpellDefinition, ICustomMagicEffectBasedOnCaster
     {
         private readonly List<(List<FeatureDefinition>, EffectDescription)> _featuresEffectList = new();
 

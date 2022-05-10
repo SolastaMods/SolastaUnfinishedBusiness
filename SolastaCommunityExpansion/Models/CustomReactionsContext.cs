@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi.Infrastructure;
 using static ActionDefinitions;
@@ -60,16 +61,13 @@ namespace SolastaCommunityExpansion.Models
 
             ruleDefender.InvokeMethod("EnumerateUsableSpells");
 
-            //TODO: refactor this a bit so custom features are not browsed twice
             var spells = ruleDefender.UsableSpells
-                .OfType<SpellWithCustomFeatures>()
-                .Where(s => s.CustomFeatures.OfType<IDamagedReactionSpell>().Any())
+                .Select(s => (s, s.GetAllSubFeaturesOfType<IDamagedReactionSpell>()))
+                .Where(e => e.Item2 != null && !e.Item2.Empty())
                 .ToList();
 
-            foreach (var spell in spells)
+            foreach (var (spell, reactions) in spells)
             {
-                var reactions = spell.CustomFeatures.OfType<IDamagedReactionSpell>().ToList();
-
                 if (reactions.Any(r => r.CanReact(attacker, defender, attackModifier, attackMode, rangedAttack,
                         advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget)))
                 {

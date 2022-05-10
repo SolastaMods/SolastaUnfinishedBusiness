@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using HarmonyLib;
+using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.CustomDefinitions;
-using SolastaCommunityExpansion.Models;
 using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
@@ -16,7 +16,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
             {
                 BaseDefinition definition = __instance.InvokeMethod("GetBaseDefinition") as BaseDefinition;
                 //skip spell animation if this is "attack after cast" spell
-                if (CustomFeaturesContext.GetFirstCustomFeature<IPerformAttackAfterMagicEffectUse>(definition) != null)
+                if (definition.GetFirstSubFeatureOfType<IPerformAttackAfterMagicEffectUse>() != null)
                 {
                     __instance.ActionParams.SetField("skipAnimationsAndVFX", true);
                 }
@@ -35,8 +35,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
 
                 //TODO: add possibility to get attack via feature
                 //TODO: add possibility to process multiple attack features
-                var customFeature =
-                    CustomFeaturesContext.GetFirstCustomFeature<IPerformAttackAfterMagicEffectUse>(definition);
+                var customFeature = definition.GetFirstSubFeatureOfType<IPerformAttackAfterMagicEffectUse>();
                 var getAttackAfterUse = customFeature?.PerformAttackAfterUse;
 
                 CharacterActionAttack attackAction = null; //can be useful in chained spell effects

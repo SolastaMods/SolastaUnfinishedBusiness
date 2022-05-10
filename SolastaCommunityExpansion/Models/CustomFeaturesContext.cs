@@ -370,32 +370,6 @@ namespace SolastaCommunityExpansion.Models
             return UnCustomizeTag(tag) + "[Custom]";
         }
 
-        /**Returns first custom feature it finds within this definition.*/
-        public static T GetFirstCustomFeature<T>(BaseDefinition definition) where T : class
-        {
-            if (definition == null) { return null; }
-
-            if (definition is T custom)
-            {
-                return custom;
-            }
-
-            T result = null;
-            
-            if (definition is IDefinitionWithCustomFeatures container)
-            {
-                result = container.CustomFeatures.OfType<T>().FirstOrDefault();
-            }
-
-            if (result == null && definition is FeatureDefinition feature)
-            {
-                result = feature.GetCustomFeaturesOfType<T>()?.FirstOrDefault();
-            }
-
-            return result;
-        }
-      
-        //TODO: add another method to get all custom features from definition
         public static string GetSpellLearningTag(RulesetCharacterHero hero, string tag)
         {
             if (tag != null 

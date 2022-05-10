@@ -1,6 +1,6 @@
 ﻿using HarmonyLib;
+using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.CustomDefinitions;
-using SolastaCommunityExpansion.Models;
 using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
@@ -22,9 +22,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
 
                 var actionParams = __instance.GetField<CharacterActionParams>("actionParams");
 
-                var canBeUsedToAttack = CustomFeaturesContext
-                    .GetFirstCustomFeature<IPerformAttackAfterMagicEffectUse>(actionParams?.RulesetEffect
-                        ?.SourceDefinition)?.CanBeUsedToAttack;
+                var canBeUsedToAttack = actionParams?.RulesetEffect
+                    ?.SourceDefinition.GetFirstSubFeatureOfType<IPerformAttackAfterMagicEffectUse>()?.CanBeUsedToAttack;
                 if (canBeUsedToAttack != null &&
                     !canBeUsedToAttack(actionParams.GetField<GameLocationCharacter>("actingCharacter"), target))
                 {

@@ -46,7 +46,7 @@ namespace SolastaCommunityExpansion.Spells
             dimLight.SetGraphicsPrefabReference(DatabaseHelper.FeatureDefinitionAdditionalDamages
                 .AdditionalDamageBrandingSmite.LightSourceForm.GetField<AssetReference>("graphicsPrefabReference"));
             
-            return SpellWithCustomFeaturesBuilder
+            return SpellDefinitionBuilder
                 .Create("EWSunlightBlade", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Spell,
                     CustomIcons.CreateAssetReferenceSprite("SunlightBlade", Properties.Resources.SunlightBlade, 128, 128))
@@ -54,8 +54,10 @@ namespace SolastaCommunityExpansion.Spells
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
                 .SetSomaticComponent(true)
                 .SetVerboseComponent(false)
-                .AddCustomFeature(PerformAttackAfterMagicEffectUse.MeleeAttack)
-                .AddCustomFeature(CustomSpellEffectLevel.ByCasterLevel)
+                .SetCustomSubFeatures(
+                    PerformAttackAfterMagicEffectUse.MeleeAttack,
+                    CustomSpellEffectLevel.ByCasterLevel
+                )
                 .SetCastingTime(RuleDefinitions.ActivationTime.Action)
                 .SetEffectDescription(new EffectDescriptionBuilder()
                     .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ScorchingRay)

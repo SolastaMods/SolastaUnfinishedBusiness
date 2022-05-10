@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using HarmonyLib;
+using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.CustomDefinitions;
-using SolastaCommunityExpansion.Models;
 using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
@@ -36,8 +36,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
             )
             {
                 var activeSpell = __instance.ActiveSpell;
-                var effectLevelProvider = CustomFeaturesContext
-                    .GetFirstCustomFeature<ICustomSpellEffectLevel>(activeSpell.SpellDefinition);
+                var effectLevelProvider = activeSpell.SpellDefinition.GetFirstSubFeatureOfType<ICustomSpellEffectLevel>();
 
                 if (effectLevelProvider == null) { return true; }
 
