@@ -55,15 +55,17 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
                 }
 
                 //chained effects would be useful for EOrb
-                // var chain_action = (definition as NewFeatureDefinitions.IChainMagicEffect)?.getNextMagicEffect(__instance);
-                // if (chain_action != null)
-                // {
-                //     var enums = chain_action.Execute();
-                //     while (enums.MoveNext())
-                //     {
-                //         yield return enums.Current;
-                //     }
-                // }
+                var chainAction = definition.GetFirstSubFeatureOfType<IChainMagicEffect>()
+                    ?.GetNextMagicEffect(__instance, attackAction);
+                
+                if (chainAction != null)
+                {
+                    var enums = chainAction.Execute();
+                    while (enums.MoveNext())
+                    {
+                        yield return enums.Current;
+                    }
+                }
             }
         }
     }
