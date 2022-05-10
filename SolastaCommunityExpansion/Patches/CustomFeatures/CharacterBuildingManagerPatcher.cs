@@ -51,7 +51,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
 
             var spellCastingClass = selectedClassRepertoire.SpellCastingClass;
 
-            if (spellCastingClass == null)
+            if (spellCastingClass == null || spellCastingClass == IntegrationContext.TinkererClass)
             {
                 LevelUpContext.UnregisterHero(hero);
 
