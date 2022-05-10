@@ -197,13 +197,14 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
                 sharedMaxSlots -= warlockMaxSlots;
                 sharedUsedSlots -= warlockUsedSlots;
 
-                var canConsumeShortRestSlot = warlockUsedSlots < warlockMaxSlots && slotLevel <= warlockSpellLevel;
-                var canConsumeLongRestSlot = sharedUsedSlots < sharedMaxSlots && slotLevel <= sharedSpellLevel;
-                var forceLongRestSlot = canConsumeLongRestSlot
-                    && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift) || sharedSpellLevel < warlockSpellLevel);
+                var isShiftPressed = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+                var canConsumePactSlot = warlockUsedSlots < warlockMaxSlots && slotLevel <= warlockSpellLevel;
+                var canConsumeSpellSlot = sharedUsedSlots < sharedMaxSlots && slotLevel <= sharedSpellLevel;
+                var forcePactSlot = Global.CastedSpellRepertoire.SpellCastingClass == IntegrationContext.WarlockClass;
+                var forceSpellSlot = canConsumeSpellSlot && (isShiftPressed || (!forcePactSlot && sharedSpellLevel < warlockSpellLevel));
 
                 // uses short rest slots across all repertoires
-                if (canConsumeShortRestSlot && !forceLongRestSlot)
+                if (canConsumePactSlot && !forceSpellSlot)
                 {
                     foreach (var spellRepertoire in heroWithSpellRepertoire.SpellRepertoires)
                     {
