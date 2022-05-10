@@ -265,7 +265,11 @@ namespace SolastaCommunityExpansion.Models
                 otherClassesKnownSpells.AddRange(spellRepertoire.AutoPreparedSpells);
                 otherClassesKnownSpells.AddRange(spellRepertoire.KnownCantrips);
                 otherClassesKnownSpells.AddRange(spellRepertoire.KnownSpells);
-                otherClassesKnownSpells.AddRange(spellRepertoire.EnumerateAvailableScribedSpells());
+
+                if (spellRepertoire.SpellCastingClass == Wizard)
+                {
+                    otherClassesKnownSpells.AddRange(spellRepertoire.EnumerateAvailableScribedSpells());
+                }
             }
 
             return otherClassesKnownSpells.ToHashSet();
