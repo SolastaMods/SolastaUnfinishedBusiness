@@ -7,7 +7,7 @@ using UnityEngine.UI;
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
 {
     // Don't present the upcast menu on SC Warlock
-    [HarmonyPatch(typeof(SpellActivationBox), "BindSpell")]
+    //[HarmonyPatch(typeof(SpellActivationBox), "BindSpell")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class SpellActivationBox_Bind
     {
@@ -37,9 +37,9 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
 
                 ___hasUpcast = ___higherLevelSlots.Count > 0;
                 ___upcastButton.gameObject.SetActive(___hasUpcast);
-                ___upcastUpImage.gameObject.SetActive(___hasUpcast);
-                ___upcastPlusImage.gameObject.SetActive(___hasUpcast);
-                ___frame.gameObject.SetActive(___hasUpcast);
+                //___upcastUpImage.gameObject.SetActive(___hasUpcast);
+                //___upcastPlusImage.gameObject.SetActive(___hasUpcast);
+                //___frame.gameObject.SetActive(___hasUpcast);
             }
         }
     }
