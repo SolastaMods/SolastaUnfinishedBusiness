@@ -2,7 +2,6 @@
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
-using SolastaModApi.Infrastructure;
 using UnityEngine.UI;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
@@ -12,34 +11,19 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class SpellActivationBox_Bind
     {
-        internal static readonly List<int> HigherLevelSlots = new();
-
-        internal static void Prefix(RulesetSpellRepertoire spellRepertoire)
-        {
-            var isWarlockSpell = SharedSpellsContext.IsWarlock(spellRepertoire.SpellCastingClass);
-
-            HigherLevelSlots.Clear();
-
-            if (!isWarlockSpell)
-            {
-                return;
-            }
-
-            var heroWithSpellRepertoire = SharedSpellsContext.GetHero(spellRepertoire.CharacterName);
-            var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire);
-            var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
-
-            for (var i = warlockSpellLevel + 1; i <= sharedSpellLevel; i++)
-            {
-                HigherLevelSlots.Add(i);
-            }
-        }
-
-        public static void Postfix(
-            RulesetSpellRepertoire spellRepertoire,
+        internal static void Postfix(
+            RulesetSpellRepertoire spellRepertoire, 
+            SpellDefinition spellDefinition,
             bool ___hasUpcast, 
-            Button ___upcastButton)
+            Button ___upcastButton,
+            List<int> ___higherLevelSlots)
         {
+            if (spellDefinition.Name == "Bane")
+            {
+                var x = 0;
+                x++;
+            }
+
             var isWarlockSpell = SharedSpellsContext.IsWarlock(spellRepertoire.SpellCastingClass);
 
             if (___hasUpcast && isWarlockSpell)
@@ -49,19 +33,12 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
                 var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
 
                 ___upcastButton.gameObject.SetActive(sharedSpellLevel > warlockSpellLevel);
-            }
-        }
-    }
+                ___higherLevelSlots.Clear();
 
-    [HarmonyPatch(typeof(SlotAdvancementPanel), "Bind")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class SlotAdvancementPanel_Bind
-    {
-        public static void Prefix(List<int> higherLevelSlots)
-        {
-            if (SpellActivationBox_Bind.HigherLevelSlots.Count > 0)
-            {
-                higherLevelSlots.SetRange(SpellActivationBox_Bind.HigherLevelSlots);
+                for (var i = warlockSpellLevel + 1; i <= sharedSpellLevel; i++)
+                {
+                    ___higherLevelSlots.Add(i);
+                }
             }
         }
     }
