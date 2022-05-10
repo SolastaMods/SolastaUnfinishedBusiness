@@ -12,27 +12,34 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
     internal static class SpellActivationBox_Bind
     {
         internal static void Postfix(
-            RulesetSpellRepertoire spellRepertoire, 
-            SpellDefinition spellDefinition,
-            bool ___hasUpcast, 
+            RulesetSpellRepertoire spellRepertoire,
+            ref bool ___hasUpcast,
             Button ___upcastButton,
+            Image ___upcastUpImage,
+            Image ___upcastPlusImage,
+            Image ___frame,
             List<int> ___higherLevelSlots)
         {
             var isWarlockSpell = SharedSpellsContext.IsWarlock(spellRepertoire.SpellCastingClass);
 
-            if (___hasUpcast && isWarlockSpell)
+            if (isWarlockSpell)
             {
                 var heroWithSpellRepertoire = SharedSpellsContext.GetHero(spellRepertoire.CharacterName);
                 var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire);
                 var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
 
-                ___upcastButton.gameObject.SetActive(sharedSpellLevel > warlockSpellLevel);
                 ___higherLevelSlots.Clear();
-
+ 
                 for (var i = warlockSpellLevel + 1; i <= sharedSpellLevel; i++)
                 {
                     ___higherLevelSlots.Add(i);
                 }
+
+                ___hasUpcast = ___higherLevelSlots.Count > 0;
+                ___upcastButton.gameObject.SetActive(___hasUpcast);
+                ___upcastUpImage.gameObject.SetActive(___hasUpcast);
+                ___upcastPlusImage.gameObject.SetActive(___hasUpcast);
+                ___frame.gameObject.SetActive(___hasUpcast);
             }
         }
     }
