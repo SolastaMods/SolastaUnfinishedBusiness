@@ -34,7 +34,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions
         {
             if (effect == null) { return null; }
 
-            var actionParams = effect.GetField<CharacterActionParams>("actionParams");
+            var actionParams = effect.ActionParams;
             if (actionParams == null) { return null; }
 
             if (effect.Countered || effect.GetProperty<bool>("ExecutionFailed"))
@@ -43,14 +43,13 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             }
 
             var outcome = effect.GetProperty<RuleDefinitions.RollOutcome>("Outcome");
-            Main.Log2($"Outcome: {outcome}, save: {effect.SaveOutcome}", true);
             if (outcome < minOutcomeToAttack) { return null;}
 
             if (effect.SaveOutcome < minSaveOutcomeToAttack) { return null;}
 
             var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
-            var caster = actionParams.GetField<GameLocationCharacter>("actingCharacter");
-            var targets = actionParams.GetField<List<GameLocationCharacter>>("targetCharacters");
+            var caster = actionParams.ActingCharacter;
+            var targets = actionParams.TargetCharacters;
 
             if (caster == null || targets.Empty()) { return null; }
 
@@ -60,29 +59,26 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             var attackModifier = new ActionModifier();
             var eval = new BattleDefinitions.AttackEvaluationParams();
 
-            //TODO: option to limit attack to only first target, while effect can have multiple
-            targets = targets.Where(t =>
+            //TODO: option to limit attack to select target, while effect can have multiple
+            var target = targets.Where(t =>
                 {
                     //TODO: make options for range attacks
                     eval.FillForPhysicalReachAttack(caster, caster.LocationPosition, attackMode, t, t.LocationPosition,
                         attackModifier);
                     return battleService.CanAttack(eval);
                 })
-                .ToList();
+                .FirstOrDefault();
 
 
-            if (!targets.Empty())
+            if (target != null)
             {
                 var attackActionParams = new CharacterActionParams(caster, ActionDefinitions.Id.AttackFree)
                 {
                     AttackMode = attackMode
                 };
 
-                foreach (var target in targets)
-                {
-                    attackActionParams.TargetCharacters.Add(target);
-                    attackActionParams.ActionModifiers.Add(attackModifier);
-                }
+                attackActionParams.TargetCharacters.Add(target);
+                attackActionParams.ActionModifiers.Add(attackModifier);
 
                 return attackActionParams;
             }
