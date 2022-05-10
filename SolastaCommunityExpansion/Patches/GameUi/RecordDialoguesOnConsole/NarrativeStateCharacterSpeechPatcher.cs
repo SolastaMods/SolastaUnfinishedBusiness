@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.RecordDialoguesOnConsole
     {
         internal static void Postfix(string speakerName, string textLine)
         {
-            if (!Main.Settings.EnableLogDialoguesToConsole || LocalizationManager.CurrentLanguageCode == "de")
+            if (!Main.Settings.EnableLogDialoguesToConsole)
             {
                 return;
             }
