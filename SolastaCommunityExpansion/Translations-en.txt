@@ -1320,9 +1320,9 @@ Screen/&FeyTeleportSpellDescription	This Fey spell is always prepared
 Screen/&FeyTeleportSpellTitle	Fey
 Screen/&ShadowTouchedSpellDescription	This Shadow spell is always prepared
 Screen/&ShadowTouchedSpellTitle	Shadow
-Screen/&SpellSlotsUsedLongDescription	You have expended {0} long-rest slot(s) of this level
-Screen/&SpellSlotsUsedShortDescription	You have expended {0} short-rest slot(s) of this level
-Screen/&SpellSlotsUsedShortLongDescription	You have expended {0} short-rest slot(s) and {1} long-rest slot(s) of this level
+Screen/&SpellSlotsUsedLongDescription	You have expended {0} spell slot(s) at this level
+Screen/&SpellSlotsUsedShortDescription	You have expended {0} pact magic slot(s)
+Screen/&SpellSlotsUsedShortLongDescription	You have expended {0} pact magic slot(s) and {1} spell slot(s) at this level
 Screen/&WitchSpellDescription	Spell known as a Witch
 Screen/&WitchSpellHeader	Witch
 Screen/&WitchSpellTitle	Witch
