@@ -16,9 +16,10 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
             }
 
             // NOTE: don't use SelectedClass??. which bypasses Unity object lifetime check
-            if (InspectionPanelContext.SelectedClass)
+            var selectedClass = InspectionPanelContext.SelectedClass;
+            if (selectedClass)
             {
-                __result = InspectionPanelContext.SelectedClass;
+                __result = selectedClass;
             }
         }
     }
