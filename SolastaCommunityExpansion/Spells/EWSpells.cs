@@ -49,7 +49,7 @@ namespace SolastaCommunityExpansion.Spells
             return SpellWithCustomFeaturesBuilder
                 .Create("EWSunlightBlade", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Spell,
-                    DatabaseHelper.SpellDefinitions.FlameBlade.GuiPresentation.SpriteReference) //TODO: change to proper icon
+                    CustomIcons.CreateAssetReferenceSprite("SunlightBlade", Properties.Resources.SunlightBlade, 128, 128))
                 .SetSpellLevel(0)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
                 .SetSomaticComponent(true)
@@ -66,7 +66,7 @@ namespace SolastaCommunityExpansion.Spells
                         RuleDefinitions.TargetType.Individuals
                     )
                     .SetSavingThrowData(
-                        true,
+                        false,
                         false,
                         AttributeDefinitions.Dexterity,
                         true,
