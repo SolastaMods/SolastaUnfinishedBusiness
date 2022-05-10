@@ -157,7 +157,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
                 // handles MC Warlock
                 else
                 {
-                    SpendMulticasterWarlockSlots(warlockSpellRepertoire, heroWithSpellRepertoire, slotLevel);
+                    SpendMulticasterWarlockSlots(__instance, warlockSpellRepertoire, heroWithSpellRepertoire, slotLevel);
                 }
 
                 return false;
@@ -182,7 +182,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
                 rulesetSpellRepertoire.RepertoireRefreshed?.Invoke(rulesetSpellRepertoire);
             }
 
-            private static void SpendMulticasterWarlockSlots(RulesetSpellRepertoire warlockSpellRepertoire, RulesetCharacterHero heroWithSpellRepertoire, int slotLevel)
+            private static void SpendMulticasterWarlockSlots(RulesetSpellRepertoire __instance, RulesetSpellRepertoire warlockSpellRepertoire, RulesetCharacterHero heroWithSpellRepertoire, int slotLevel)
             {
                 var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire);
                 var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
@@ -200,7 +200,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
                 var isShiftPressed = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
                 var canConsumePactSlot = warlockUsedSlots < warlockMaxSlots && slotLevel <= warlockSpellLevel;
                 var canConsumeSpellSlot = sharedUsedSlots < sharedMaxSlots && slotLevel <= sharedSpellLevel;
-                var forcePactSlot = Global.CastedSpellRepertoire.SpellCastingClass == IntegrationContext.WarlockClass;
+                var forcePactSlot = __instance.SpellCastingClass == IntegrationContext.WarlockClass;
                 var forceSpellSlot = canConsumeSpellSlot && (isShiftPressed || (!forcePactSlot && sharedSpellLevel < warlockSpellLevel));
 
                 // uses short rest slots across all repertoires
