@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
@@ -10,48 +11,51 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class SpellsByLevelBox_OnActivateStandardBox
     {
-        public static bool Prefix(
+        internal static void Prefix(
             int index,
             SpellsByLevelBox.SpellCastEngagedHandler ___spellCastEngaged,
             Dictionary<int, SpellDefinition> ___spellsByIndex,
-            RulesetCharacter ___caster,
-            RulesetSpellRepertoire ___spellRepertoire,
-            List<SpellActivationBox> ___activationBoxes)
+            RulesetSpellRepertoire ___spellRepertoire)
         {
-            // PATCH HERE
-            Global.CastedSpell = ___spellsByIndex[index];
-            Global.CastedSpellRepertoire = ___spellRepertoire;
-
-            if (___spellCastEngaged == null)
+            if (___spellCastEngaged != null)
             {
-                return false;
+                Global.CastedSpell = ___spellsByIndex[index];
+                Global.CastedSpellRepertoire = ___spellRepertoire;
+            }
+        }
+
+        public static int MySpellLevel(SpellDefinition spellDefinition, RulesetSpellRepertoire rulesetSpellRepertoire)
+        {
+            var isWarlockSpell = SharedSpellsContext.IsWarlock(rulesetSpellRepertoire.SpellCastingClass);
+
+            if (isWarlockSpell)
+            {
+                var hero = SharedSpellsContext.GetHero(rulesetSpellRepertoire.CharacterName);
+                var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
+
+                return warlockSpellLevel;
             }
 
-            var spellDefinition = ___spellsByIndex[index];
-            var spellLevel = spellDefinition.SpellLevel;
-            var hero = ___caster as RulesetCharacterHero;
+            return spellDefinition.SpellLevel;
+        }
 
-            // PATCH HERE
-            if (SharedSpellsContext.IsWarlock(___spellRepertoire.SpellCastingClass)
-                && spellDefinition.SpellLevel > 0
-                && ___spellRepertoire.CanUpcastSpell(spellDefinition))
-            {
-                spellLevel = ___spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
-            }
-            // END PATCH
+        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        {
+            var spellLevelMethod = typeof(SpellDefinition).GetMethod("get_SpellLevel");
+            var mySpellLevelMethod = typeof(SpellsByLevelBox_OnActivateStandardBox).GetMethod("MySpellLevel");
 
-            if (spellDefinition.SpellsBundle)
+            foreach (CodeInstruction instruction in instructions)
             {
-                SubspellSelectionModal screen = Gui.GuiService.GetScreen<SubspellSelectionModal>();
-                screen.Bind(spellDefinition, ___caster, ___spellRepertoire, ___spellCastEngaged, spellLevel, ___activationBoxes[index].RectTransform);
-                screen.Show();
+                if (instruction.Calls(spellLevelMethod))
+                {
+                    yield return new CodeInstruction(OpCodes.Ldarg_0); // spellRepertoire
+                    yield return new CodeInstruction(OpCodes.Call, mySpellLevelMethod);
+                }
+                else
+                {
+                    yield return instruction;
+                }
             }
-            else
-            {
-                ___spellCastEngaged(___spellRepertoire, spellDefinition, spellLevel);
-            }
-
-            return false;
         }
     }
 
@@ -62,11 +66,15 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
     {
         public static void Prefix(
             int index,
-            RulesetSpellRepertoire ___spellRepertoire,
-            Dictionary<int, SpellDefinition> ___spellsByIndex)
+            SpellsByLevelBox.SpellCastEngagedHandler ___spellCastEngaged,
+            Dictionary<int, SpellDefinition> ___spellsByIndex,
+            RulesetSpellRepertoire ___spellRepertoire)
         {
-            Global.CastedSpell = ___spellsByIndex[index];
-            Global.CastedSpellRepertoire = ___spellRepertoire;
+            if (___spellCastEngaged != null)
+            {
+                Global.CastedSpell = ___spellsByIndex[index];
+                Global.CastedSpellRepertoire = ___spellRepertoire;
+            }
         }
     }
 }
