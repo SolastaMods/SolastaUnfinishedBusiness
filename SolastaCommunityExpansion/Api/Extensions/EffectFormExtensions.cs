@@ -127,10 +127,24 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetFilterId<T>(this T entity, System.Int32 value)
+            where T : EffectForm
+        {
+            entity.SetField("filterId", value);
+            return entity;
+        }
+
         public static T SetFormType<T>(this T entity, EffectForm.EffectFormType value)
             where T : EffectForm
         {
             entity.FormType = value;
+            return entity;
+        }
+
+        public static T SetHasFilterId<T>(this T entity, System.Boolean value)
+            where T : EffectForm
+        {
+            entity.SetField("hasFilterId", value);
             return entity;
         }
 

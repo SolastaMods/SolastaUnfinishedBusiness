@@ -154,8 +154,13 @@ namespace SolastaCommunityExpansion.Spells
                 "Fiend",
             };
 
-            public override void ApplyForm(RulesetImplementationDefinitions.ApplyFormsParams formsParams, bool retargeting, bool proxyOnly, bool forceSelfConditionOnly)
-            {
+            public override void ApplyForm(
+                RulesetImplementationDefinitions.ApplyFormsParams formsParams, 
+                bool retargeting, 
+                bool proxyOnly, 
+                bool forceSelfConditionOnly,               
+                RuleDefinitions.EffectApplication effectApplication = RuleDefinitions.EffectApplication.All,
+                List<EffectFormFilter> filters = null){
                 if (formsParams.saveOutcome == RuleDefinitions.RollOutcome.CriticalSuccess || formsParams.saveOutcome == RuleDefinitions.RollOutcome.Success)
                 {
                     return;

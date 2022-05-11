@@ -6,18 +6,7 @@
   "monsterOccurences": [
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
-      "monsterDefinition": null,
-      "number": 1,
-      "encounterPlacementDecision": "Definition:EncounterSpawn_Spread:4fbd444af01e4f94e8155bc494305192",
-      "creatureSex": "Male",
-      "presentationDefinitionIndex": 0,
-      "randomHumanoidPresentation": false,
-      "overrideFaction": false,
-      "factionName": ""
-    },
-    {
-      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
-      "monsterDefinition": null,
+      "monsterDefinition": "Definition:ShamblingMound_MonsterDefinition:946e3ee1b3a9c094f8d5654ba68b7a7b",
       "number": 1,
       "encounterPlacementDecision": "Definition:EncounterSpawn_Spread:4fbd444af01e4f94e8155bc494305192",
       "creatureSex": "Male",

@@ -61,7 +61,6 @@ namespace SolastaCommunityExpansion
         public bool BugFixHideReactionSpells { get; set; } = true;
         public bool BugFixNullRecipesOnGameSerialization { get; set; } = true;
         public bool BugFixSpellDurations { get; set; } = true;
-        public bool BugFixUnassignLastSubclass { get; set; } = true;
         public bool BugFixWieldedConfigurationSelector { get; set; } = true;
         public bool EnableCustomSpellsPatch { get; set; } = true;
         public bool EnableDungeonMakerPro { get; set; } = true;

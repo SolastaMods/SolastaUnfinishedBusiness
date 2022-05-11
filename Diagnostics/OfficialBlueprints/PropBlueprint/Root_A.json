@@ -1,7 +1,7 @@
 {
   "$type": "PropBlueprint, Assembly-CSharp",
-  "groundPlacement": true,
-  "groundLowPlacement": true,
+  "groundPlacement": false,
+  "groundLowPlacement": false,
   "groundHighPlacement": false,
   "wallPlacement": true,
   "openingPlacement": false,

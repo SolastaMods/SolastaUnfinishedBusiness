@@ -103,9 +103,7 @@
     {
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 7,
-      "spells": [
-        "Definition:Resurrection:f796a243f664c73409cca137f137f5f3"
-      ]
+      "spells": []
     }
   ],
   "guiPresentation": {

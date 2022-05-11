@@ -26,7 +26,7 @@
   "eyeMorphotype": "Eye_SorcererManaPainter",
   "bodyDecorationMorphotype": "BodyDecoration_SorcererManaPainter",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_SorcererManaPainter_00",
-  "scarsMorphotype": "",
+  "scarsMorphotype": "Scars_None",
   "mainClass": "Definition:Sorcerer:7214644869e323444b7817d1804eb985",
   "subClass": "Definition:SorcerousManaPainter:717e19ce0b5e1014db7dfd9517992e71",
   "deity": null,

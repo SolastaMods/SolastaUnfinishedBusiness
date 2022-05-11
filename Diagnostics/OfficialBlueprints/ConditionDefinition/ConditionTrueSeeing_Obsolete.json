@@ -41,7 +41,9 @@
         "valueIncrease": 0,
         "maximumIncrease": 0,
         "feastDurationHours": 0
-      }
+      },
+      "hasFilterId": false,
+      "filterId": 0
     }
   ],
   "cancellingConditions": [],

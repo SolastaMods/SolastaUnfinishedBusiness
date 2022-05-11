@@ -4,7 +4,7 @@
   "groundLowPlacement": false,
   "groundHighPlacement": false,
   "wallPlacement": false,
-  "openingPlacement": true,
+  "openingPlacement": false,
   "openingLowPlacement": false,
   "openingHighPlacement": false,
   "propPlacement": false,
@@ -70,6 +70,16 @@
       "prefabReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "2cbb095b0d91899479799326fcad0aa4",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "ValleyPalace",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "6a5495f381d7d4046abf534d2b793630",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       }

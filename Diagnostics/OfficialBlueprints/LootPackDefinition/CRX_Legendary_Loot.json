@@ -17,8 +17,8 @@
   "lootChallengeMode": "ByPartyLevel",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "LootPack/&1MagicArmorPlus1",
+    "hidden": true,
+    "title": "LootPack/&1LegendaryItem",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

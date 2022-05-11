@@ -13,11 +13,13 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomEffectForm
             RulesetImplementationDefinitions.ApplyFormsParams formsParams,
             bool retargeting = false,
             bool proxyOnly = false,
-            bool forceSelfConditionOnly = false)
+            bool forceSelfConditionOnly = false,
+            RuleDefinitions.EffectApplication effectApplication = RuleDefinitions.EffectApplication.All,
+            List<EffectFormFilter> filters = null)
         {
             foreach (CustomDefinitions.CustomEffectForm customEffect in effectForms.OfType<CustomDefinitions.CustomEffectForm>())
             {
-                customEffect.ApplyForm(formsParams, retargeting, proxyOnly, forceSelfConditionOnly);
+                customEffect.ApplyForm(formsParams, retargeting, proxyOnly, forceSelfConditionOnly, effectApplication, filters);
             }
         }
     }

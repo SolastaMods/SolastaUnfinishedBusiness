@@ -4,7 +4,7 @@
   "groundLowPlacement": false,
   "groundHighPlacement": false,
   "wallPlacement": true,
-  "openingPlacement": false,
+  "openingPlacement": true,
   "openingLowPlacement": false,
   "openingHighPlacement": false,
   "propPlacement": true,

@@ -26,7 +26,7 @@
   "eyeMorphotype": "Eye_Default",
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
-  "scarsMorphotype": "",
+  "scarsMorphotype": "Scars_None",
   "mainClass": "Definition:Rogue:8ae0dcdf1cf0a264c8198e0ca715eaf3",
   "subClass": "Definition:RoguishDarkweaver:925b9a2fac1dc674882aa606552c4730",
   "deity": null,

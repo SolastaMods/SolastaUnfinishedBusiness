@@ -48,7 +48,7 @@
   "audioRaceRTPCValue": 42.0,
   "challengeRating": 10.0,
   "noExperienceGain": false,
-  "droppedLootDefinition": null,
+  "droppedLootDefinition": "Definition:Ape_Giant_loot_drop:8fc7349ff11f68b4eaef7281ee050652",
   "stealableLootDefinition": null,
   "bestiaryLootOptions": [],
   "features": [

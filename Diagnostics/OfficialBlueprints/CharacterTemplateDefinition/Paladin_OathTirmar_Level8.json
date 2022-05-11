@@ -26,7 +26,7 @@
   "eyeMorphotype": "Eye_Default",
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
-  "scarsMorphotype": "",
+  "scarsMorphotype": "Scars_None",
   "mainClass": "Definition:Paladin:b2e60f3a15ee5de40a14cce2d16f02ba",
   "subClass": "Definition:OathOfTirmar:c14f1d650aaf1994eae74f2c6063bb63",
   "deity": "Definition:Einar:ba8feffc3aa81ea42bbf641959d7259b",

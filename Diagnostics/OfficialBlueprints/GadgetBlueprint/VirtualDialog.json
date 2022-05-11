@@ -15,6 +15,36 @@
       "floatDefaultValue": 0.0,
       "requiresNonEmpty": true,
       "gadgetExecutionFilter": ""
+    },
+    {
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "Param_DisplayOnce",
+      "type": "GenericBool",
+      "conditionalDisplay": false,
+      "conditionalParameter": "",
+      "conditionalMatch": true,
+      "intDefaultValue": 0,
+      "intMinValue": 0,
+      "intMaxValue": 0,
+      "boolDefaultValue": false,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": true,
+      "gadgetExecutionFilter": ""
+    },
+    {
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "Param_DefaultAsEnabled",
+      "type": "GenericBool",
+      "conditionalDisplay": false,
+      "conditionalParameter": "",
+      "conditionalMatch": true,
+      "intDefaultValue": 0,
+      "intMinValue": 0,
+      "intMaxValue": 0,
+      "boolDefaultValue": true,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": true,
+      "gadgetExecutionFilter": ""
     }
   ],
   "interactionNodes": [
@@ -28,7 +58,7 @@
       "orientation": "North"
     }
   ],
-  "canBeActivated": false,
+  "canBeActivated": true,
   "customizableDimensions": false,
   "minCustomizableDimensions": {
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"

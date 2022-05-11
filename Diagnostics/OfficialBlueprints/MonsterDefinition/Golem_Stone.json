@@ -29,7 +29,7 @@
   "maxLegendaryActionPoints": 3,
   "differentActionEachTurn": false,
   "legendaryActionOptions": [],
-  "defaultBattleDecisionPackage": "Definition:DefaultMeleeWithBackupRangeDecisions:36bb3688d84582249bf0f1c85064ad10",
+  "defaultBattleDecisionPackage": "Definition:StoneGolemDecisions:0e238f38976b8b849ad28cc2cd420bd9",
   "threatEvaluatorDefinition": null,
   "languages": [],
   "audioSwitches": [],
@@ -58,7 +58,8 @@
     "Definition:ConditionAffinityParalyzedmmunity:fb168e0f7aeed9c479746505d1df5da7",
     "Definition:ConditionAffinityPetrifiedImmunity:7661e50eda0f67540b4bf452c5764ba1",
     "Definition:ConditionAffinityPoisonImmunity:558b2de37dbf89341ab0ed6c445873a6",
-    "Definition:SavingThrowAffinitySpellResistance:d6341ebb2cb967949b4426e31e993b86"
+    "Definition:SavingThrowAffinitySpellResistance:d6341ebb2cb967949b4426e31e993b86",
+    "Definition:PowerStoneGolemSlow:ff783d4226814134ebd7897f26fe36a8"
   ],
   "attackIterations": [
     {

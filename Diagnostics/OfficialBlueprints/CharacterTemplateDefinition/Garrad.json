@@ -26,7 +26,7 @@
   "eyeMorphotype": "Eye_Default",
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
-  "scarsMorphotype": "",
+  "scarsMorphotype": "Scars_None",
   "mainClass": "Definition:Fighter:5d0445b8e44872d4c900ebe861ae4b6f",
   "subClass": "Definition:MartialMountaineer:97e6b322adf8ab24f850900f2c363e1f",
   "deity": null,

@@ -1,0 +1,141 @@
+{
+  "$type": "EffectProxyDefinition, Assembly-CSharp",
+  "canMove": false,
+  "canRotate": false,
+  "canMoveOnCharacters": false,
+  "canAttack": false,
+  "canTriggerPower": true,
+  "autoTerminateOnTriggerPower": true,
+  "actionId": "ProxyDelayedBlastFireball",
+  "freeActionId": "NoAction",
+  "attackMethod": "ReproduceDamageForms",
+  "firstAttackIsFree": false,
+  "constrainedToSpellArea": false,
+  "damageDie": "D8",
+  "damageDieNum": 1,
+  "damageType": "DamageRadiant",
+  "addAbilityToDamage": false,
+  "attackPower": "Definition:PowerDelayedBlastFireballDetonate:08dc9e99f425d3f40a99fc21e6867868",
+  "impactsPlacement": false,
+  "additionalFeatures": [],
+  "attackParticle": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "attackImpactParticle": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "addLightSource": false,
+  "lightSourceForm": {
+    "$type": "LightSourceForm, Assembly-CSharp",
+    "lightSourceType": "Basic",
+    "brightRange": 4,
+    "dimAdditionalRange": 4,
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "graphicsPrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "applyToSelf": false
+  },
+  "lightSourceOffset": {
+    "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "spellImmunityFromOutside": false,
+  "maxSpellLevelImmunity": 1,
+  "hasPresentation": true,
+  "prefabReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "ca4ce8d8a6f065449addb10d5546cf2f",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "isEmptyPresentation": false,
+  "modelScale": 1.0,
+  "showWorldLocationFeedbacks": false,
+  "hasPortrait": false,
+  "portraitSpriteReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "startEvent": {
+    "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": null,
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "stopEvent": {
+    "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": null,
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "soundEffectOnHitDescription": {
+    "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
+    "switchOnHit": {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "EffectProxy/&DelayedBlastFireballTitle",
+    "description": "EffectProxy/&DelayedBlastFireballDefinition",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "3e3ee87230f7e034ba9f11a757ada669",
+      "m_SubObjectName": "DelayedBlastFireball",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "5f36bcc886c9fc242a8c091a23362550",
+  "contentPack": "BaseGame",
+  "name": "ProxyDelayedBlastFireball"
+}
