@@ -81,13 +81,21 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.HeroInspection
             else
             {
                 var heroWithSpellRepertoire = __instance.GuiCharacter.RulesetCharacterHero;
+                var isWarlockRepertoire = SharedSpellsContext.IsWarlock(spellRepertoire.SpellCastingClass);
+                var isSharedcaster = SharedSpellsContext.IsSharedcaster(heroWithSpellRepertoire);
+                var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
+                var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire);
 
-                classSpellLevel = SharedSpellsContext.GetClassSpellLevel(spellRepertoire);
-                slotLevel = SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire)
-                    ? Math.Max(
-                        SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire),
-                        SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire))
-                    : classSpellLevel;
+                if (isWarlockRepertoire)
+                {
+                    classSpellLevel = warlockSpellLevel;
+                }
+                else
+                {
+                    classSpellLevel = sharedSpellLevel;
+                }
+
+                slotLevel = Math.Max(warlockSpellLevel, sharedSpellLevel);
             }
 
             RebuildSlotsTable(

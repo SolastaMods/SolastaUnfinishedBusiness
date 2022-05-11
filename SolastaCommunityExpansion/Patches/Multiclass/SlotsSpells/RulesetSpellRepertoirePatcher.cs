@@ -15,42 +15,19 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.SlotsSpells
     {
         internal static void Postfix(RulesetSpellRepertoire __instance, ref int __result)
         {
-            // required to ensure we don't learn auto prepared spells from higher levels
-            if (SharedSpellsContext.DisableMaxSpellLevelOfSpellCastingLevelPatch)
-            {
-                return;
-            }
-
-            //
-            // required to support level up from 19 to 20 on SC caster classes
-            //
-            if (Main.Settings.EnableLevel20)
-            {
-                var slotsPerLevel = __instance.SpellCastingFeature.SlotsPerLevels[__instance.SpellCastingLevel - 1];
-
-                __result = slotsPerLevel.Slots.IndexOf(0);
-            }
-
-            //
-            // handles MC scenarios
-            //
             var heroWithSpellRepertoire = SharedSpellsContext.GetHero(__instance.CharacterName);
 
-            if (heroWithSpellRepertoire == null)
+            if (heroWithSpellRepertoire == null
+                || LevelUpContext.IsLevelingUp(heroWithSpellRepertoire))
             {
+                __result = SharedSpellsContext.GetClassSpellLevel(__instance);
+
                 return;
             }
 
-            if (SharedSpellsContext.IsSharedcaster(heroWithSpellRepertoire))
-            {
-                __result = SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire);
-            }
-            else if (SharedSpellsContext.IsWarlock(__instance.SpellCastingClass))
-            {
-                __result = Math.Max(
-                    SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire),
-                    SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire));
-            }
+            __result = Math.Max(
+                SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire),
+                SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire));
         }
     }
 

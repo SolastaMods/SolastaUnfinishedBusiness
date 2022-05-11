@@ -129,8 +129,8 @@ namespace SolastaCommunityExpansion.Models
                 }
             }
 
-            // otherwise gets hero from level up context
-            var hero = LevelUpContext.GetHero(name);
+            // otherwise gets hero from level up
+            var hero = Global.ActiveLevelUpHero;
 
             if (hero != null)
             {
@@ -228,6 +228,14 @@ namespace SolastaCommunityExpansion.Models
 
         public static int GetSharedSpellLevel(RulesetCharacterHero rulesetCharacterHero)
         {
+            if (!IsSharedcaster(rulesetCharacterHero))
+            {
+                var repertoire = rulesetCharacterHero.SpellRepertoires
+                    .Find(x => x.SpellCastingFeature.SpellCastingOrigin != CastingOrigin.Race && x.SpellCastingClass != WarlockClass);
+
+                return GetClassSpellLevel(repertoire);
+            }
+
             var sharedCasterLevel = GetSharedCasterLevel(rulesetCharacterHero);
 
             if (sharedCasterLevel > 0)
@@ -238,15 +246,16 @@ namespace SolastaCommunityExpansion.Models
             return 0;
         }
 
-        public static bool DisableMaxSpellLevelOfSpellCastingLevelPatch { get; private set; }
-
         public static int GetClassSpellLevel(RulesetSpellRepertoire spellRepertoire)
         {
-            DisableMaxSpellLevelOfSpellCastingLevelPatch = true;
-            var classSpellLevel = spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
-            DisableMaxSpellLevelOfSpellCastingLevelPatch = false;
+            if (spellRepertoire != null && spellRepertoire.SpellCastingFeature.SlotsPerLevels != null)
+            {
+                var slotsPerLevel = spellRepertoire.SpellCastingFeature.SlotsPerLevels[spellRepertoire.SpellCastingLevel - 1];
 
-            return classSpellLevel;
+                return slotsPerLevel.Slots.IndexOf(0);
+            }
+
+            return 0;
         }
 
         public static void Load()

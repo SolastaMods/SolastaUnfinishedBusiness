@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
 
@@ -45,6 +46,16 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
             }
 
             ___stagePanelsByName = newLevelUpSequence;
+        }
+    }
+
+    [HarmonyPatch(typeof(CharacterEditionScreen), "DoAbort")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class CharacterLevelUpScreen_DoAbort
+    {
+        internal static void Prefix(RulesetCharacterHero ___currentHero)
+        {
+            LevelUpContext.UnregisterHero(___currentHero);
         }
     }
 }
