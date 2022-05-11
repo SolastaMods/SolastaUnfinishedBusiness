@@ -71,6 +71,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetAddAbilityToDamage<T>(this T entity, System.Boolean value)
+            where T : EffectProxyDefinition
+        {
+            entity.SetField("addAbilityToDamage", value);
+            return entity;
+        }
+
         public static T SetAdditionalFeatures<T>(this T entity,  params  FeatureDefinition [ ]  value)
             where T : EffectProxyDefinition
         {
@@ -120,6 +127,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetAutoTerminateOnTriggerPower<T>(this T entity, System.Boolean value)
+            where T : EffectProxyDefinition
+        {
+            entity.SetField("autoTerminateOnTriggerPower", value);
+            return entity;
+        }
+
         public static T SetCanAttack<T>(this T entity, System.Boolean value)
             where T : EffectProxyDefinition
         {
@@ -148,6 +162,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetCanTriggerPower<T>(this T entity, System.Boolean value)
+            where T : EffectProxyDefinition
+        {
+            entity.SetField("canTriggerPower", value);
+            return entity;
+        }
+
         public static T SetConstrainedToSpellArea<T>(this T entity, System.Boolean value)
             where T : EffectProxyDefinition
         {
@@ -159,6 +180,13 @@ namespace SolastaModApi.Extensions
             where T : EffectProxyDefinition
         {
             entity.SetField("damageDie", value);
+            return entity;
+        }
+
+        public static T SetDamageDieNum<T>(this T entity, System.Int32 value)
+            where T : EffectProxyDefinition
+        {
+            entity.SetField("damageDieNum", value);
             return entity;
         }
 

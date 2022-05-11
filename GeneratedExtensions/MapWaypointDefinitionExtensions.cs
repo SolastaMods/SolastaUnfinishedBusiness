@@ -46,7 +46,7 @@ namespace SolastaModApi.Extensions
         public static T SetAllowFastTravel<T>(this T entity, System.Boolean value)
             where T : MapWaypointDefinition
         {
-            entity.SetField("allowFastTravel", value);
+            entity.AllowFastTravel = value;
             return entity;
         }
 
@@ -74,14 +74,21 @@ namespace SolastaModApi.Extensions
         public static T SetLocationExit<T>(this T entity, System.Boolean value)
             where T : MapWaypointDefinition
         {
-            entity.SetField("locationExit", value);
+            entity.LocationExit = value;
             return entity;
         }
 
         public static T SetLongRestAvailable<T>(this T entity, System.Boolean value)
             where T : MapWaypointDefinition
         {
-            entity.SetField("longRestAvailable", value);
+            entity.LongRestAvailable = value;
+            return entity;
+        }
+
+        public static T SetUserDefinition<T>(this T entity, System.Boolean value)
+            where T : MapWaypointDefinition
+        {
+            entity.SetField("<UserDefinition>k__BackingField", value);
             return entity;
         }
     }
