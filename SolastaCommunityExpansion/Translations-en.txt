@@ -885,7 +885,7 @@ Reaction/&SubitemSelectEldritchSmiteDescription	Select a slot level to consume f
 Feedback/&AdditionalDamageEldritchSmiteFormat	Eldritch Smite!
 Feedback/&AdditionalDamageEldritchSmiteLine	{0} smites {1} (+{2})
 Spell/&EWSunlightBladeTitle	Sunlight Blade
-Spell/&EWSunlightBladeDescription	Make a melee attack with a weapon. On a hit, the target suffers the attack's normal effects, and is enveloped in glowing radiant energy, shedding dim light for the turn. Next attack against this creature while it is highlighted is done with advantage.\n At 5th level, the melee attack deals an extra 1d8 radiant damage to the target. The damage increases by another 1d8 at 11th level and 17th level.
+Spell/&EWSunlightBladeDescription	Make a melee attack with a weapon. On a hit, the target suffers the attack's normal effects, and is enveloped in glowing radiant energy, shedding dim light for the turn. Next attack against this creature while it is highlighted is done with advantage.\nAt 5th level, the melee attack deals an extra 1d8 radiant damage to the target. The damage increases by another 1d8 at 11th level and 17th level.
 Feedback/&AdditionalDamageSunlightBladeLine	{0} burns {1} with Sunlight Blade! (+{2})
 Feedback/&AdditionalDamageSunlightBladeFormat	Sunlight Blade!
 Condition/&EWSunlightBladeDamageTitle	Sunlight Blade's burn
