@@ -202,6 +202,11 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
                 // abort on a SC hero
                 if (hero == null || hero.ClassesAndLevels == null || hero.ClassesAndLevels.Count == 1)
                 {
+                    if (ClassSelector != null)
+                    {
+                        ClassSelector.gameObject.SetActive(false);
+                    }
+
                     return;
                 }
 
@@ -213,6 +218,10 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
                     ClassSelector.FindChildRecursive("PlayAudio").gameObject.SetActive(false);
                     ClassSelector.FindChildRecursive("HeaderGroup").gameObject.SetActive(false);
                 }
+                else
+                {
+                    ClassSelector.gameObject.SetActive(true);
+                }
 
                 var labelsGroup = ClassSelector.FindChildRecursive("LabelsGroup");
                 var classesTitles = hero.ClassesAndLevels.Select(x => x.Key.FormatTitle()).ToList();
@@ -223,6 +232,8 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
                     var childToggle = labelsGroup.GetChild(i);
                     var labelChoiceToggle = childToggle.GetComponent<LabelChoiceToggle>();
                     var uiToggle = childToggle.GetComponent<Toggle>();
+
+                    childToggle.gameObject.SetActive(true);
 
                     labelChoiceToggle.Bind(i, classesTitles[i], (x) =>
                     {
