@@ -494,9 +494,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                     RuleDefinitions.AdditionalDamageAdvancement.SlotLevel,
                     DiceByRankMaker.MakeBySteps(start: 0, increment: 1, step: 0)
                 )
+                .SetCustomSubFeatures(new WarlockClassHolder())
                 .AddToDB();
-
-            eldritchSmite.SetCustomFeatures(new WarlockClassHolder());
             
             ((FeatureDefinitionFeatureSet)EldritchInvocations["EldritchSmite"]).FeatureSet.Add(eldritchSmite);
             ((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["EldritchSmite"]).Validators.SetRange(RequirePactOfTheBlade);

@@ -884,6 +884,19 @@ Reaction/&SubitemSelectEldritchSmiteTitle	Slot Level
 Reaction/&SubitemSelectEldritchSmiteDescription	Select a slot level to consume for your Eldritch Smite.
 Feedback/&AdditionalDamageEldritchSmiteFormat	Eldritch Smite!
 Feedback/&AdditionalDamageEldritchSmiteLine	{0} smites {1} (+{2})
+Spell/&EWSunlightBladeTitle	Sunlight Blade
+Spell/&EWSunlightBladeDescription	Make a melee attack with a weapon. On a hit, the target suffers the attack's normal effects, and is enveloped in glowing radiant energy, shedding dim light for the turn. Next attack against this creature while it is highlighted is done with advantage.\nAt 5th level, the melee attack deals an extra 1d8 radiant damage to the target. The damage increases by another 1d8 at 11th level and 17th level.
+Feedback/&AdditionalDamageSunlightBladeLine	{0} burns {1} with Sunlight Blade! (+{2})
+Feedback/&AdditionalDamageSunlightBladeFormat	Sunlight Blade!
+Condition/&EWSunlightBladeDamageTitle	Sunlight Blade's burn
+Condition/&EWSunlightBladeDamageDescription Starting from level 5 attack triggered by this cantrip deals additional 1d8 radiant damage. The damage increases by 1d8 at 11th and 17th levels.
+Spell/&EWResonatingStrikeTitle	Resonating Strike
+Spell/&EWResonatingStrikeDescription	Select one creature within melee range of you and a different creature that you can see within 5 feet of main target. You make a melee attack with current weapon against first creature. On a hit, the target suffers the weapon attack's normal effects, and resonating sound leaps to second target, dealing thunder damage equal to your spellcasting ability modifier.\nAt 5th level, the melee attack deals extra 1d8 thunder damage to the target on a hit, and the thunder damage to the second creature increases to 1d8 + your spellcasting ability modifier. Both damage rolls increase by 1d8 at 11th and 17th levels.
+Feedback/&NotifyEffectResonatingStrikeLine	{0} resonates {1}!
+Feedback/&AdditionalDamageResonatingStrikeLine	{0} resonates {1}! (+{2})
+Feedback/&AdditionalDamageResonatingStrikeFormat	Resonating Strike!
+Condition/&EWResonatingStrikeDamageTitle	Resonance
+Condition/&EWResonatingStrikeDamageDescription Starting from level 5 attack triggered by this cantrip deals additional 1d8 thunder damage. The damage increases by 1d8 at 11th and 17th levels.
 Feature/&ElementalistSpellsMagicAffinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: {0}\n\n  
 Feature/&ElementalistSpellsMagicAffinityTitle	Elementalist Spells
 Feature/&ElementalPactAirPlane	Air Plane
