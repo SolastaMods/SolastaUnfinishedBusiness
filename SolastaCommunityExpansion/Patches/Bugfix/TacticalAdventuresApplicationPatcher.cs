@@ -3,20 +3,13 @@ using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches.BugFix
 {
-    [HarmonyPatch(typeof(TacticalAdventuresApplication), "IsGameModded")]
+    [HarmonyPatch(typeof(TacticalAdventuresApplication), "IsModded", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class TacticalAdventuresApplication_IsGameModded
+    internal static class TacticalAdventuresApplication_IsModded_Getter
     {
-        public static bool Prefix(
-            ref bool __result,
-            out bool ummExists,
-            out int ummActiveModsCount,
-            out bool solastaModApiExists)
+        public static bool Prefix(ref bool __result)
         {
             __result = false;
-            ummExists = false;
-            ummActiveModsCount = 0;
-            solastaModApiExists = false;
 
             return false;
         }
