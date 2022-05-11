@@ -243,9 +243,9 @@ namespace SolastaCommunityExpansion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap GreenFlameBlade {
+        public static System.Drawing.Bitmap ResonatingStrike {
             get {
-                object obj = ResourceManager.GetObject("GreenFlameBlade", resourceCulture);
+                object obj = ResourceManager.GetObject("ResonatingStrike", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -18,15 +18,15 @@ namespace SolastaCommunityExpansion.Spells
 {
     internal static class EWSpells
     {
-        private static SpellDefinition _sunlightBlade, _greenFlameBlade;
+        private static SpellDefinition _sunlightBlade, _resonatingStrike;
         internal static SpellDefinition SunlightBlade => _sunlightBlade ??= BuildSunlightBlade();
-        internal static SpellDefinition GreenFlameBlade => _greenFlameBlade ??= BuildGreenFlameBlade();
+        internal static SpellDefinition ResonatingStrike => _resonatingStrike ??= BuildResonatingStrike();
 
 
         internal static void Register()
         {
             RegisterSpell(SunlightBlade, 0, WarlockSpellList, SpellListWizard, SpellListSorcerer);
-            RegisterSpell(GreenFlameBlade, 0, WarlockSpellList, SpellListWizard, SpellListSorcerer);
+            RegisterSpell(ResonatingStrike, 0, WarlockSpellList, SpellListWizard, SpellListSorcerer);
         }
 
         private static SpellDefinition BuildSunlightBlade()
@@ -128,9 +128,9 @@ namespace SolastaCommunityExpansion.Spells
                 .AddToDB();
         }
 
-        private static SpellDefinition BuildGreenFlameBlade()
+        private static SpellDefinition BuildResonatingStrike()
         {
-            var flameHighLevel = new EffectDescriptionBuilder()
+            var resonanceHighLevel = new EffectDescriptionBuilder()
                 .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.AcidSplash)
                 .SetTargetFiltering(RuleDefinitions.TargetFilteringMethod.CharacterOnly)
                 .SetTargetingData(RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.Touch, 1,
@@ -150,8 +150,8 @@ namespace SolastaCommunityExpansion.Spells
                     incrementMultiplier: 5, additionalDicePerIncrement: 1)
                 .Build();
             
-            var flameLeap = SpellDefinitionBuilder
-                .Create("EWGreenFlameBladeFlame", DefinitionBuilder.CENamespaceGuid)
+            var resonanceLeap = SpellDefinitionBuilder
+                .Create("EWResonatingStrikeLeap", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentationNoContent()
                 .SetSpellLevel(1)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
@@ -159,7 +159,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetVerboseComponent(false)
                 .SetCustomSubFeatures(
                     new BonusSlotLevelsByClassLevel(),
-                    new UpgradeEffectFromLevel(flameHighLevel, 5)
+                    new UpgradeEffectFromLevel(resonanceHighLevel, 5)
                 )
                 .SetCastingTime(RuleDefinitions.ActivationTime.Action)
                 .SetEffectDescription(new EffectDescriptionBuilder()
@@ -182,9 +182,9 @@ namespace SolastaCommunityExpansion.Spells
 
             
             return SpellDefinitionBuilder
-                .Create("EWGreenFlameBlade", DefinitionBuilder.CENamespaceGuid)
+                .Create("EWResonatingStrike", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Spell,
-                    CustomIcons.CreateAssetReferenceSprite("GreenFlameBlade", Properties.Resources.GreenFlameBlade, 128, 128))//TODO: replace sprite with actual image
+                    CustomIcons.CreateAssetReferenceSprite("ResonatingStrike", Properties.Resources.ResonatingStrike, 128, 128))//TODO: replace sprite with actual image
                 .SetSpellLevel(0)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
                 .SetSomaticComponent(true)
@@ -192,7 +192,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetCustomSubFeatures(
                     PerformAttackAfterMagicEffectUse.MeleeAttack,
                     CustomSpellEffectLevel.ByCasterLevel,
-                    new ChainSpellEffectOnAttackHit(flameLeap, "GreenFlameBlade")
+                    new ChainSpellEffectOnAttackHit(resonanceLeap, "ResonatingStrike")
                 )
                 .SetCastingTime(RuleDefinitions.ActivationTime.Action)
                 .SetEffectDescription(new EffectDescriptionBuilder()
@@ -222,16 +222,16 @@ namespace SolastaCommunityExpansion.Spells
                     .SetEffectForms(new EffectFormBuilder()
                         .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.None)
                         .SetConditionForm(ConditionDefinitionBuilder
-                                .Create("EWGreenFlameBladeDamage", DefinitionBuilder.CENamespaceGuid)
+                                .Create("EWResonatingStrikeDamage", DefinitionBuilder.CENamespaceGuid)
                                 .SetGuiPresentation(Category.Condition)
                                 .SetSpecialInterruptions(RuleDefinitions.ConditionInterruption.Attacks)
                                 .SetSilent(Silent.WhenAddedOrRemoved)
                                 .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn)
                                 .SetDuration(RuleDefinitions.DurationType.Round, 1)
                                 .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
-                                    .Create("EWGreenFlameBladeDamageBonus", DefinitionBuilder.CENamespaceGuid)
+                                    .Create("EWResonatingStrikeDamageBonus", DefinitionBuilder.CENamespaceGuid)
                                     .Configure(
-                                        "GreenFlameBlade",
+                                        "ResonatingStrike",
                                         RuleDefinitions.FeatureLimitedUsage.None,
                                         RuleDefinitions.AdditionalDamageValueDetermination.Die,
                                         RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive,
