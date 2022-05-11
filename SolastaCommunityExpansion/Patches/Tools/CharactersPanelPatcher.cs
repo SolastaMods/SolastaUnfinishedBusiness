@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 namespace SolastaCommunityExpansion.Patches.Tools
 {
+    // enables the character checker button
     // enables the level down button on characters pool if hero above level 1
 
     [HarmonyPatch(typeof(CharactersPanel), "Refresh")]
