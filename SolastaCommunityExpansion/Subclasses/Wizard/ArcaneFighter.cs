@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
@@ -107,6 +108,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 .SetGuiPresentation("AttackModifierMeleeWizardArcaneWeapon", Category.Subclass, FeatureDefinitionPowers.PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference)
                 .Configure(0, RuleDefinitions.UsesDetermination.ProficiencyBonus, AttributeDefinitions.Intelligence, RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RechargeRate.LongRest, false, false,
                     AttributeDefinitions.Intelligence, effect, false /* unique instance */)
+                .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always)
                 .AddToDB();
         }
 
