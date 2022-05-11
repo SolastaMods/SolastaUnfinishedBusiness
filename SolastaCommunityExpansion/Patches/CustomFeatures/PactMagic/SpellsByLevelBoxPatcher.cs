@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
+using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
 {
@@ -24,8 +25,9 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
             }
         }
 
-        public static int MySpellLevel(SpellDefinition spellDefinition, RulesetSpellRepertoire rulesetSpellRepertoire)
+        public static int MySpellLevel(SpellDefinition spellDefinition, SpellsByLevelBox spellsByLevelBox)
         {
+            var rulesetSpellRepertoire = spellsByLevelBox.GetField<SpellsByLevelBox, RulesetSpellRepertoire>("spellRepertoire");
             var isWarlockSpell = SharedSpellsContext.IsWarlock(rulesetSpellRepertoire.SpellCastingClass);
 
             if (isWarlockSpell)
@@ -48,7 +50,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
             {
                 if (instruction.Calls(spellLevelMethod))
                 {
-                    yield return new CodeInstruction(OpCodes.Ldarg_0); // spellRepertoire
+                    yield return new CodeInstruction(OpCodes.Ldarg_0);
                     yield return new CodeInstruction(OpCodes.Call, mySpellLevelMethod);
                 }
                 else
