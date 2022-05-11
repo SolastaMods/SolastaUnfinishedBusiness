@@ -18,18 +18,11 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
         {
             var isWarlockSpell = SharedSpellsContext.IsWarlock(spellRepertoire.SpellCastingClass);
 
-            if (isWarlockSpell && caster is RulesetCharacterHero hero)
+            if (isWarlockSpell)
             {
-                var anyOtherRepertoire = hero.SpellRepertoires
-                    .Find(x => !SharedSpellsContext.IsWarlock(x.SpellCastingClass));
-
-                if (anyOtherRepertoire == null)
-                {
-                    return false;
-                }
-
-                var sharedSpellLevel = anyOtherRepertoire.MaxSpellLevelOfSpellCastingLevel;
-                var warlockSpellLevel = spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
+                var hero = caster as RulesetCharacterHero;
+                var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(hero);
+                var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
 
                 return sharedSpellLevel > warlockSpellLevel;
             }
