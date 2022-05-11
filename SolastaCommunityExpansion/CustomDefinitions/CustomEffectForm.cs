@@ -18,7 +18,9 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             RulesetImplementationDefinitions.ApplyFormsParams formsParams,
             bool retargeting,
             bool proxyOnly,
-            bool forceSelfConditionOnly);
+            bool forceSelfConditionOnly,
+            RuleDefinitions.EffectApplication effectApplication = RuleDefinitions.EffectApplication.All,
+            List<EffectFormFilter> filters = null);
 
         public abstract void FillTags(Dictionary<string, TagsDefinitions.Criticity> tagsMap);
     }
