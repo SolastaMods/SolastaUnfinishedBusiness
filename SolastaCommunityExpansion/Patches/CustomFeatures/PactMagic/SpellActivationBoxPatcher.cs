@@ -1,45 +1,59 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
-using UnityEngine.UI;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
 {
     // Don't present the upcast menu on SC Warlock
-    //[HarmonyPatch(typeof(SpellActivationBox), "BindSpell")]
+    [HarmonyPatch(typeof(SpellActivationBox), "BindSpell")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class SpellActivationBox_Bind
     {
-        internal static void Postfix(
-            RulesetSpellRepertoire spellRepertoire,
-            ref bool ___hasUpcast,
-            Button ___upcastButton,
-            Image ___upcastUpImage,
-            Image ___upcastPlusImage,
-            Image ___frame,
-            List<int> ___higherLevelSlots)
+        public static bool HasAdditionalSlotAdvancement(
+            EffectDescription effectDescription,
+            RulesetCharacter caster,
+            RulesetSpellRepertoire spellRepertoire)
         {
             var isWarlockSpell = SharedSpellsContext.IsWarlock(spellRepertoire.SpellCastingClass);
 
-            if (isWarlockSpell)
+            if (isWarlockSpell && caster is RulesetCharacterHero hero)
             {
-                var heroWithSpellRepertoire = SharedSpellsContext.GetHero(spellRepertoire.CharacterName);
-                var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire);
-                var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
+                var anyOtherRepertoire = hero.SpellRepertoires
+                    .Find(x => !SharedSpellsContext.IsWarlock(x.SpellCastingClass));
 
-                ___higherLevelSlots.Clear();
- 
-                for (var i = warlockSpellLevel + 1; i <= sharedSpellLevel; i++)
+                if (anyOtherRepertoire == null)
                 {
-                    ___higherLevelSlots.Add(i);
+                    return false;
                 }
 
-                ___hasUpcast = ___higherLevelSlots.Count > 0;
-                ___upcastButton.gameObject.SetActive(___hasUpcast);
-                //___upcastUpImage.gameObject.SetActive(___hasUpcast);
-                //___upcastPlusImage.gameObject.SetActive(___hasUpcast);
-                //___frame.gameObject.SetActive(___hasUpcast);
+                var sharedSpellLevel = anyOtherRepertoire.MaxSpellLevelOfSpellCastingLevel;
+                var warlockSpellLevel = spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
+
+                return sharedSpellLevel > warlockSpellLevel;
+            }
+
+            return effectDescription.HasAdditionalSlotAdvancement;
+        }
+
+        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        {
+            var hasAdditionalSlotAdvancementMethod = typeof(EffectDescription).GetMethod("get_HasAdditionalSlotAdvancement");
+            var myHasAdditionalSlotAdvancementMethod = typeof(SpellActivationBox_Bind).GetMethod("HasAdditionalSlotAdvancement");
+
+            foreach (CodeInstruction instruction in instructions)
+            {
+                if (instruction.Calls(hasAdditionalSlotAdvancementMethod))
+                {
+                    yield return new CodeInstruction(OpCodes.Ldarg_1); // caster
+                    yield return new CodeInstruction(OpCodes.Ldarg_2); // spellRepertoire
+                    yield return new CodeInstruction(OpCodes.Call, myHasAdditionalSlotAdvancementMethod);
+                }
+                else
+                {
+                    yield return instruction;
+                }
             }
         }
     }
