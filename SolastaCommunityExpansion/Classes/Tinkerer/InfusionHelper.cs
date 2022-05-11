@@ -4,6 +4,7 @@ using System.Linq;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Classes.Tinkerer.Subclasses;
+using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using UnityEngine;
@@ -381,7 +382,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 new FeatureUnlockByLevel(itemFeature, 0),
             }, RuleDefinitions.ItemPropertyUsage.Unlimited, 1).Build());
 
-            return BuildBasicInfusionPower(name, itemEffect.Build()).SetGuiPresentation(gui);
+            return BuildBasicInfusionPower(name, itemEffect.Build())
+                .SetGuiPresentation(gui)
+                .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always);
         }
 
         private static FeatureDefinitionPowerSharedPoolBuilder BuildItemConditionInfusion(ConditionDefinition condition, string name, GuiPresentation gui)
@@ -390,7 +393,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             conditionEffect.SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             conditionEffect.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Touch, 1, RuleDefinitions.TargetType.Individuals, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
             conditionEffect.AddEffectForm(new EffectFormBuilder().SetConditionForm(condition, ConditionForm.ConditionOperation.Add, false, false, new List<ConditionDefinition>()).Build());
-            return BuildBasicInfusionPower(name, conditionEffect.Build()).SetGuiPresentation(gui);
+            return BuildBasicInfusionPower(name, conditionEffect.Build())
+                .SetGuiPresentation(gui)
+                .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always);
         }
 
         private static FeatureDefinitionPower PowerMimicsItem(ItemDefinition item, string name)
@@ -403,7 +408,10 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             itemEffect.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Touch, 1, RuleDefinitions.TargetType.Individuals, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
             itemEffect.AddEffectForm(new EffectFormBuilder().SetConditionForm(itemCondition, ConditionForm.ConditionOperation.Add, false, false, new List<ConditionDefinition>()).Build());
 
-            return BuildBasicInfusionPower("Power" + name, itemEffect.Build()).SetGuiPresentation(item.GuiPresentation).AddToDB();
+            return BuildBasicInfusionPower("Power" + name, itemEffect.Build())
+                .SetGuiPresentation(item.GuiPresentation)
+                .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always)
+                .AddToDB();
         }
     }
 }
