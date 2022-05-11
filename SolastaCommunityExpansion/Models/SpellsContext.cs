@@ -205,6 +205,7 @@ namespace SolastaCommunityExpansion.Models
             BazouSpells.Register();
             HolicSpells.Register();
             SrdSpells.Register();
+            EWSpells.Register();
             HouseSpellTweaks.Register();
 
             // caches which spells are toggleable per spell list

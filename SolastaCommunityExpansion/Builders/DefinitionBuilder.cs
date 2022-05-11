@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using HarmonyLib;
+using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi;
 using SolastaModApi.Diagnostics;
@@ -619,6 +620,12 @@ namespace SolastaCommunityExpansion.Builders
 #endif
 
             return (TBuilder)this;
+        }
+
+        public TBuilder SetCustomSubFeatures(params object[] features)
+        {
+            Definition.SetCustomSubFeatures(features);
+            return This();
         }
     }
 }

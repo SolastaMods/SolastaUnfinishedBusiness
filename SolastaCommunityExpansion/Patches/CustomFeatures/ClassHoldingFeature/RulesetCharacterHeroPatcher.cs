@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.CustomDefinitions;
-using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.ClassHoldingFeature
 {
@@ -14,7 +14,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.ClassHoldingFeature
             FeatureDefinition featureDefinition,
             ref CharacterClassDefinition __result)
         {
-            var classHolder = CustomFeaturesContext.GetFirstCustomFeature<IClassHoldingFeature>(featureDefinition);
+            var classHolder = featureDefinition.GetFirstSubFeatureOfType<IClassHoldingFeature>();
             
             if (classHolder == null || classHolder.Class == null)
             {

@@ -42,7 +42,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
             return CharacterSubclassDefinitionBuilder
                 .Create("RangerArcanistRangerSubclass", RangerArcanistRangerSubclassGuid)
                 .SetGuiPresentation(Category.Subclass, RoguishShadowCaster.GuiPresentation.SpriteReference)
-                .AddFeatureAtLevel(ranger_arcanist_magic, 3)
+                .AddFeaturesAtLevel(3, ranger_arcanist_magic)
                 .AddFeatureAtLevel(arcanist_mark, 3)
                 .AddFeatureAtLevel(arcane_detonation, 3)
                 .AddFeatureAtLevel(arcane_pulse_action, 7)
@@ -62,11 +62,11 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
             .SetSpecialDuration(true)
             .AddToDB();
 
-        private static FeatureDefinitionFeatureSet CreateRangerArcanistMagic()
+        private static FeatureDefinition[] CreateRangerArcanistMagic()
         {
             var preparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
                 .Create("ArcanistAutoPreparedSpells", RA_BASE_GUID)
-                .SetGuiPresentationNoContent()
+                .SetGuiPresentation(Category.Feature)
                 .SetCastingClass(CharacterClassDefinitions.Ranger)
                 .SetPreparedSpellGroups(
                     BuildSpellGroup(2, Shield),
@@ -78,15 +78,18 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
 
             var arcanist_affinity = FeatureDefinitionMagicAffinityBuilder
                 .Create(MagicAffinityBattleMagic, "MagicAffinityRangerArcanist", RA_BASE_GUID)
-                .SetGuiPresentationNoContent()
+                .SetGuiPresentation(Category.Feature)
                 .AddToDB();
 
-            return FeatureDefinitionFeatureSetBuilder
+            //Not actually used anywhere, but leaving this just in case some old character would need it
+            FeatureDefinitionFeatureSetBuilder
                 .Create("RangerArcanistMagic", GuidHelper.Create(RA_BASE_GUID, "RangerArcanistManaTouchedGuardian").ToString()) // Oops, will have to live with this name being off)
                 .SetGuiPresentation(Category.Feature)
                 .SetFeatureSet(preparedSpells, arcanist_affinity)
                 .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                 .AddToDB();
+            
+            return new FeatureDefinition[] {preparedSpells,  arcanist_affinity};
         }
 
         private static FeatureDefinitionAdditionalDamage CreateArcanistMark()

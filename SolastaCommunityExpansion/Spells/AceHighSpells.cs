@@ -135,14 +135,14 @@ namespace SolastaCommunityExpansion.Spells
 
         static SpellDefinition BuildHellishRebuke()
         {
-            return SpellWithCustomFeaturesBuilder
+            return SpellDefinitionBuilder
                 .Create("AHHellishRebuke", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Spell,  Utils.CustomIcons.CreateAssetReferenceSprite("HellishRebuke", Properties.Resources.HellishRebuke, 128, 128))
                 .SetSpellLevel(1)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
                 .SetSomaticComponent(true)
                 .SetVerboseComponent(true)
-                .AddCustomFeature(CustomReactionsContext.AlwaysReactToDamaged)
+                .SetCustomSubFeatures(CustomReactionsContext.AlwaysReactToDamaged)
                 .SetCastingTime(RuleDefinitions.ActivationTime.Reaction)
                 .SetEffectDescription(new EffectDescriptionBuilder()
                     .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ScorchingRay)

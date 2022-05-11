@@ -6,6 +6,7 @@ using static SolastaCommunityExpansion.Spells.SrdSpells;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 using static SolastaCommunityExpansion.Classes.Warlock.Features.EldritchInvocationsBuilder;
 using static FeatureDefinitionCastSpell;
+using static SolastaCommunityExpansion.Spells.EWSpells;
 
 namespace SolastaCommunityExpansion.Classes.Warlock
 {
