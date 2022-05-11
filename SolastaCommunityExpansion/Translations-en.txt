@@ -1032,6 +1032,10 @@ Feature/&RallyingCryPowerTitle	Rallying Cry
 Feature/&RallyingCryPowerTitleShort	Rallying Cry
 Feature/&RangerArcanistMagicDescription	Starting at 3rd level, you learn an additional spell when you reach certain levels in this class. Each spell counts as a ranger spell for you, but it doesn't count against the number of ranger spells you know. The spells are: Level 3: Shield, Level 5: Misty Step, Level 9: Haste, Level 13: Dimension Door, and Level 17: Hold Monster. Additionally, you are proficient at casting spells in battle, and may cast spells that require a somatic component even if both of your hands are holding a weapon or shield
 Feature/&RangerArcanistMagicTitle	Ranger Arcanist Spellcasting
+Feature/&ArcanistAutoPreparedSpellsTitle	Ranger Arcanist Bonus Spells
+Feature/&ArcanistAutoPreparedSpellsDescription	You gain bonus spells that are considered ranger spells for you, they are always pepared and don't count against the number of ranger spells you know: \n{0}\n\n
+Feature/&MagicAffinityRangerArcanistTitle	Arcane Combat Training 
+Feature/&MagicAffinityRangerArcanistDescription	You are proficient at casting spells in battle, and may cast spells that require a somatic component even if both of your hands are holding a weapon or shield.
 Feature/&RangerFeralSensesDescription	You gain preternatural senses that help you fight creatures you can’t see. When you attack a creature you can’t see, your inability to see it doesn’t impose disadvantage on your attack rolls against it
 Feature/&RangerFeralSensesTitle	Feral Senses
 Feature/&RangerVanishActionDescription	Starting at 14th level, you can use the Hide action as a bonus action on your turn
