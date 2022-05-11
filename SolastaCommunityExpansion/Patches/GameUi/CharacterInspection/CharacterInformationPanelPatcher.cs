@@ -130,16 +130,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterInformationPanel_Bind
     {
-        private static Transform ClassSelector { get; set; } = null;
-
-        private static void LoadClassSelector(RectTransform backGroup, RectTransform classGroup)
-        {
-            var voice = backGroup.FindChildRecursive("Voice");
-
-            ClassSelector = Object.Instantiate(voice, classGroup.transform);
-            ClassSelector.FindChildRecursive("PlayAudio").gameObject.SetActive(false);
-            ClassSelector.FindChildRecursive("HeaderGroup").gameObject.SetActive(false);
-        }
+        internal static Transform ClassSelector { get; private set; }
 
         internal static void Postfix(CharacterInformationPanel __instance)
         {
@@ -204,27 +195,27 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
                 // setup class buttons for MC scenarios
                 //
 
+                InspectionPanelContext.SelectedClassIndex = 0;
+
                 var hero = Global.InspectedHero;
-                var classesTitles = hero.ClassesAndLevels.Select(x => x.Key.FormatTitle()).ToList();
 
-                if (hero == null || hero.ClassesAndLevels.Count == 1)
+                // abort on a SC hero
+                if (hero == null || hero.ClassesAndLevels == null || hero.ClassesAndLevels.Count == 1)
                 {
-                    if (ClassSelector != null)
-                    {
-                        ClassSelector.gameObject.SetActive(false);
-                    }
-
-                    InspectionPanelContext.SelectedClassIndex = 0;
-
                     return;
                 }
 
                 if (ClassSelector == null)
                 {
-                    LoadClassSelector(backGroup, classGroup);
+                    var voice = backGroup.FindChildRecursive("Voice");
+
+                    ClassSelector = Object.Instantiate(voice, classGroup.transform);
+                    ClassSelector.FindChildRecursive("PlayAudio").gameObject.SetActive(false);
+                    ClassSelector.FindChildRecursive("HeaderGroup").gameObject.SetActive(false);
                 }
 
                 var labelsGroup = ClassSelector.FindChildRecursive("LabelsGroup");
+                var classesTitles = hero.ClassesAndLevels.Select(x => x.Key.FormatTitle()).ToList();
                 var classesCount = classesTitles.Count;
 
                 for (var i = 0; i < classesCount; i++)
@@ -252,6 +243,8 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
                         }
                     });
                 }
+
+                labelsGroup.GetChild(0).GetComponent<Toggle>().isOn = true;
 
                 for (var i = classesCount; i < 3; i++)
                 {
