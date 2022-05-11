@@ -118,6 +118,10 @@ namespace SolastaCommunityExpansion.Displays
             if (UI.Toggle("Enable Multiclass " + RequiresRestart, ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableMulticlass = toggle;
+                Main.Settings.EnableMinInOutAttributes = toggle;
+                Main.Settings.EnableRelearnSpells = toggle;
+                Main.Settings.DisplayAllKnownSpellsDuringLevelUp = toggle;
+                Main.Settings.MaxAllowedClasses = MulticlassContext.MAX_CLASSES;
             }
 
             if (Main.Settings.EnableMulticlass)
@@ -129,7 +133,7 @@ namespace SolastaCommunityExpansion.Displays
                 }
 
                 toggle = Main.Settings.EnableRelearnSpells;
-                if (UI.Toggle("+ Can re-learn cantrips or spells from another selected class".italic(), ref toggle, UI.AutoWidth()))
+                if (UI.Toggle("+ Can select cantrips or spells already learned from other classes".italic(), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableRelearnSpells = toggle;
                 }
@@ -145,7 +149,7 @@ namespace SolastaCommunityExpansion.Displays
                 UI.Label("");
 
                 intValue = Main.Settings.MaxAllowedClasses;
-                if (UI.Slider("Max allowed classes".white(), ref intValue, 1, 3, 3, "", UI.Width(50)))
+                if (UI.Slider("Max allowed classes".white(), ref intValue, 1, MulticlassContext.MAX_CLASSES, MulticlassContext.MAX_CLASSES, "", UI.Width(50)))
                 {
                     Main.Settings.MaxAllowedClasses = intValue;
                 }

@@ -56,7 +56,7 @@ namespace SolastaCommunityExpansion.Feats
                     FeatureDefinitionMagicAffinityBuilder
                         .Create("MagicAffinityWarCasterFeat", OtherFeatNamespace)
                         .SetGuiPresentation("FeatWarCaster", Category.Feat)
-                        .SetCastingModifiers(2, RuleDefinitions.SpellParamsModifierType.FlatValue, 0, RuleDefinitions.SpellParamsModifierType.None, true, false, false)
+                        .SetCastingModifiers(2, RuleDefinitions.SpellParamsModifierType.FlatValue, 0, RuleDefinitions.SpellParamsModifierType.None, false, false, false)
                         .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage, 0)
                         .SetHandsFullCastingModifiers(true, true, true)
                         .AddToDB())

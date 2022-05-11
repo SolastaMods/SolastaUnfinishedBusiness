@@ -364,15 +364,14 @@ namespace SolastaCommunityExpansion.Models
             var dbFeatureDefinition = DatabaseRepository.GetDatabase<FeatureDefinition>();
             var filteredFeatureUnlockByLevels = selectedClass.FeatureUnlocks.ToList();
 
-            // remove any extra attacks except on fighter progression
-            var attacksNumber = rulesetCharacterHero.GetAttribute(AttributeDefinitions.AttacksNumber);
+            // remove any extra attacks except on classes that get them at 11 (fighter and swiftblade)
+            var attacksNumber = rulesetCharacterHero.GetAttribute(AttributeDefinitions.AttacksNumber).CurrentValue;
 
-            if (attacksNumber.ActiveModifiers.Count > 0)
+            if (attacksNumber > 1 && LevelUpContext.GetSelectedClassLevel(rulesetCharacterHero) < 11)
             {
                 filteredFeatureUnlockByLevels.RemoveAll(x =>
                     x.FeatureDefinition is FeatureDefinitionAttributeModifier featureDefinitionAttributeModifier
-                    && featureDefinitionAttributeModifier.ModifiedAttribute == AttributeDefinitions.AttacksNumber
-                    && !(selectedClass == Fighter && LevelUpContext.GetSelectedClassLevel(rulesetCharacterHero) >= 11));
+                    && featureDefinitionAttributeModifier.ModifiedAttribute == AttributeDefinitions.AttacksNumber);
             }
 
             foreach (var featureNameToReplace in FeaturesToReplace)
@@ -417,19 +416,17 @@ namespace SolastaCommunityExpansion.Models
                 return characterSublassDefinition.FeatureUnlocks;
             }
 
-            var attacksNumber = rulesetCharacterHero.GetAttribute(AttributeDefinitions.AttacksNumber);
-
-            if (attacksNumber.ActiveModifiers.Count == 0)
-            {
-                return characterSublassDefinition.FeatureUnlocks;
-            }
-
-            // remove any extra attacks from sub classes if the hero already has at least one
             var filteredFeatureUnlockByLevels = characterSublassDefinition.FeatureUnlocks.ToList();
 
-            filteredFeatureUnlockByLevels.RemoveAll(x =>
-                x.FeatureDefinition is FeatureDefinitionAttributeModifier featureDefinitionAttributeModifier
-                && featureDefinitionAttributeModifier.ModifiedAttribute == AttributeDefinitions.AttacksNumber);
+            // remove any extra attacks except on classes that get them at 11 (fighter and swiftblade)
+            var attacksNumber = rulesetCharacterHero.GetAttribute(AttributeDefinitions.AttacksNumber).CurrentValue;
+
+            if (attacksNumber > 1 && LevelUpContext.GetSelectedClassLevel(rulesetCharacterHero) < 11)
+            {
+                filteredFeatureUnlockByLevels.RemoveAll(x =>
+                    x.FeatureDefinition is FeatureDefinitionAttributeModifier featureDefinitionAttributeModifier
+                    && featureDefinitionAttributeModifier.ModifiedAttribute == AttributeDefinitions.AttacksNumber);
+            }
 
             return filteredFeatureUnlockByLevels;
         }

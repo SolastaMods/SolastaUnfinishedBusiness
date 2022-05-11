@@ -262,8 +262,13 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         public static FeatureDefinitionMagicAffinity BuildMagicAffinityModifiers(string name, int attackModifier, int dcModifier, GuiPresentation guiPresentation)
         {
-            return new FeatureDefinitionMagicAffinityBuilder(name, TinkererClass.GuidNamespace,
-                attackModifier, dcModifier, guiPresentation).AddToDB();
+            return FeatureDefinitionMagicAffinityBuilder
+                .Create(name, TinkererClass.GuidNamespace)
+                .SetCastingModifiers(
+                    attackModifier, RuleDefinitions.SpellParamsModifierType.FlatValue,
+                    dcModifier, RuleDefinitions.SpellParamsModifierType.FlatValue,
+                    false, false, false)
+                .AddToDB();
         }
 
         public static FeatureDefinitionPowerBuilder BuildSpellFormPower(string name, int usesPerRecharge,

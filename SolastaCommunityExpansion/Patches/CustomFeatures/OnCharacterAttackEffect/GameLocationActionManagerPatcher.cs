@@ -40,6 +40,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
             }
 
             Global.CurrentAction = null;
+            Global.CastedSpell = null;
+            Global.CastedSpellRepertoire = null;
         }
     }
     

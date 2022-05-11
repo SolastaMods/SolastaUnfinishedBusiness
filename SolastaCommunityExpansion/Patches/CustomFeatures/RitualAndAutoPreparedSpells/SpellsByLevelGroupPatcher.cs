@@ -34,10 +34,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.RitualAndAutoPrepared
             // Wait what? Yes, during level up no caster is bound. This is techncially fine, but we need one to collect the spells.
             if (caster == null)
             {
-                // it looks like it's ok to use CurrentLocalHeroCharacter on this context as this is an UI only patch
-                var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
-                
-                caster = characterBuildingService.CurrentLocalHeroCharacter;
+                caster = Global.ActiveLevelUpHero;
             }
 
             // Collect all the auto prepared spells.

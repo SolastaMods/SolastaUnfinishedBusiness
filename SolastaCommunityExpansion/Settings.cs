@@ -301,9 +301,9 @@ namespace SolastaCommunityExpansion
         //
 
         public bool EnableMulticlass { get; set; }
-        public bool EnableMinInOutAttributes { get; set; } = true;
+        public bool EnableMinInOutAttributes { get; set; }
         public bool EnableRelearnSpells { get; set; }
         public bool DisplayAllKnownSpellsDuringLevelUp { get; set; }
-        public int MaxAllowedClasses { get; set; } = 3;
+        public int MaxAllowedClasses { get; set; }
     }
 }

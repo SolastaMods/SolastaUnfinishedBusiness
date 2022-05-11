@@ -37,7 +37,7 @@ namespace SolastaCommunityExpansion.Displays
                 UI.Label($"{hero.Name} {hero.SurName}".orange().bold(), UI.Width(240));
                 UI.Label($"{hero.RaceDefinition.FormatTitle()} {hero.ClassesHistory[0].FormatTitle()}".white(), UI.Width(120));
 
-                var attributesLabel = showAttributes ? "" : "Atributes";
+                var attributesLabel = showAttributes ? "" : "Attributes";
 
                 UI.DisclosureToggle(attributesLabel, ref showAttributes, attributesLabel.Length * 12);
 

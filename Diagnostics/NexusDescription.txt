@@ -325,6 +325,7 @@ Regardless of its current hit points, a celestial, an elemental, a fey, or a fie
 [*][b]Quarterstaff[/b]: Quarterstaff of Acuteness, Stormblade Quarterstaff, Frostburn Quarterstaff, Lightbringer Quarterstaff, Dragonblade Quarterstaff, Warden Quarterstaff, Whiteburn Quarterstaff, Souldrinker Quarterstaff
 [*][b]Spear[/b]: Black Viper Spear, Doom Tipped Spear, Spear of Acuteness, Whiteburn Spear, Lightbringer Spear, Spear of Sharpness
 [*][b]Scimitar[/b]: Stormblade Scimitar, Frostburn Scimitar, Lightbringer Scimitar, Dragonblade Scimitar, Warden Scimitar, Whiteburn Scimitar, Souldrinker Scimitar
+[*][b]Rapier[/b]: Stormblade Rapier, Frostburn Rapier, Lightbringer Rapier, Dragonblade Rapier, Warden Rapier, Whiteburn Rapier, Souldrinker Rapier, Rapier of Power
 [*][b]Shield [Wooden][/b]: Wooden Shield of Sturdiness, Wooden Shield of Robustness, Wooden Shield of Survival, Wooden Shield of Flame Dancing, Wooden Shield of Frost Walking, Wooden Shield of Deflection
 [*][b]Shield[/b]: Shield of Sturdiness, Shield of Robustness, Shield of Survival, Shield of Flame Dancing, Shield of Frost Walking, Shield of Deflection
 [*][b]Hide Armor[/b]: Hide Armor of Sturdiness, Hide Armor of Robustness, Hide Armor of Survival, Hide Armor of Flame Dancing, Hide Armor of Frost Walking, Hide Armor of Deflection

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
@@ -118,6 +119,45 @@ namespace SolastaCommunityExpansion.Models
 
                 component.Available.GetComponent<Image>().color = WhiteSlot;
             }
+        }
+
+        /**Adds available slot level options to optionsAvailability and returns index of pre-picked option, or -1*/
+        public static int AddAvailableSubLevels(Dictionary<int, bool> optionsAvailability, RulesetCharacterHero hero,
+            RulesetSpellRepertoire spellRepertoire, int minSpellLebvel = 1)
+        {
+            var selectedSlot = -1;
+
+            var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
+            var shortRestSlotsCount = SharedSpellsContext.GetWarlockMaxSlots(hero);
+            var isMulticaster = SharedSpellsContext.IsMulticaster(hero);
+            var hasPactMagic = warlockSpellLevel > 0;
+
+            var maxRepertoireLevel = spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
+            var maxSpellLevel = Math.Max(maxRepertoireLevel, warlockSpellLevel);
+            var selected = false;
+
+            for (int level = minSpellLebvel; level <= maxSpellLevel; ++level)
+            {
+                spellRepertoire.GetSlotsNumber(level, out var remaining, out var max);
+                if (hasPactMagic && level != warlockSpellLevel)
+                    max -= shortRestSlotsCount;
+
+                if (max > 0 && (
+                        level <= maxRepertoireLevel
+                        && (isMulticaster || !hasPactMagic)
+                        || level == warlockSpellLevel
+                    ))
+                {
+                    optionsAvailability.Add(level, remaining > 0);
+                    if (!selected && remaining > 0)
+                    {
+                        selected = true;
+                        selectedSlot = level - minSpellLebvel;
+                    }
+                }
+            }
+
+            return selectedSlot;
         }
 
         public static string GetAllClassesLabel(GuiCharacter character, char separator = '\n')

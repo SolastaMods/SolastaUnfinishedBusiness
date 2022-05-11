@@ -63,35 +63,12 @@ namespace SolastaCommunityExpansion.Models
         {
             internal static bool IsRespecing { get; set; }
 
-            private static readonly List<RulesetItemSpellbook> rulesetItemSpellbooks = new();
-
-            internal static void DropSpellbooksIfRequired(RulesetCharacterHero rulesetCharacterHero)
-            {
-                rulesetCharacterHero.CharacterInventory.BrowseAllCarriedItems(rulesetItemSpellbooks);
-
-                if (rulesetCharacterHero.ClassesHistory[rulesetCharacterHero.ClassesHistory.Count - 1].Name == "Wizard")
-                {
-                    foreach (var rulesetItemSpellbook in rulesetItemSpellbooks)
-                    {
-                        rulesetCharacterHero.LoseItem(rulesetItemSpellbook, false);
-                    }
-                }
-            }
-
-            internal static void PickupSpellbooksIfRequired(RulesetCharacterHero rulesetCharacterHero)
-            {
-                if (rulesetCharacterHero.ClassesHistory[rulesetCharacterHero.ClassesHistory.Count - 1].Name == "Wizard")
-                {
-                    foreach (var rulesetItemSpellbook in rulesetItemSpellbooks)
-                    {
-                        rulesetCharacterHero.GrantItem(rulesetItemSpellbook, false);
-                    }
-                }
-            }
-
             public override IEnumerator Execute(FunctorParametersDescription functorParameters, FunctorExecutionContext context)
             {
-                if (Global.IsMultiplayer)
+                var gameLocationScreenExploration = Gui.GuiService.GetScreen<GameLocationScreenExploration>();
+                var gameLocationscreenExplorationVisible = gameLocationScreenExploration && gameLocationScreenExploration.Visible;
+
+                if (Global.IsMultiplayer || !gameLocationscreenExplorationVisible)
                 {
                     Gui.GuiService.ShowMessage(
                         MessageModal.Severity.Informative1,
@@ -102,56 +79,28 @@ namespace SolastaCommunityExpansion.Models
                     yield break;             
                 }
 
+                IsRespecing = true;
+
                 var guiConsoleScreen = Gui.GuiService.GetScreen<GuiConsoleScreen>();
-                var gameCampaignScreen = Gui.GuiService.GetScreen<GameCampaignScreen>();
-
-                var gameLocationScreenExploration = Gui.GuiService.GetScreen<GameLocationScreenExploration>();
-
-                var guiConsoleScreenVisible = guiConsoleScreen.Visible;
-                var gameCampaignScreenVisible = gameCampaignScreen.Visible;
-
-                // NOTE: don't use gameLocationScreenExploration?. which bypasses Unity object lifetime check
-                var gameLocationscreenExplorationVisible = gameLocationScreenExploration && gameLocationScreenExploration.Visible;
-
-                guiConsoleScreen.Hide(true);
-                gameCampaignScreen.Hide(true);
-
-                // NOTE: don't use gameLocationScreenExploration?. which bypasses Unity object lifetime check
-                if (gameLocationScreenExploration)
-                {
-                    gameLocationScreenExploration.Hide(true);
-                }
-
                 var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
                 var oldHero = functorParameters.RestingHero;
                 var newHero = characterBuildingService.CreateNewCharacter().HeroCharacter;
 
-                IsRespecing = true;
+                guiConsoleScreen.Hide(true);
+                gameLocationScreenExploration.Hide(true);
 
-                DropSpellbooksIfRequired(oldHero);
-
-                yield return StartCharacterCreationWizard(newHero);
+                yield return StartRespec(newHero);
 
                 if (IsRespecing)
                 {
                     FinalizeRespec(oldHero, newHero);
                 }
-                else
-                {
-                    PickupSpellbooksIfRequired(oldHero);
-                }
 
-                guiConsoleScreen.Show(guiConsoleScreenVisible);
-                gameCampaignScreen.Show(gameCampaignScreenVisible);
-
-                // NOTE: don't use gameLocationScreenExploration?. which bypasses Unity object lifetime check
-                if (gameLocationscreenExplorationVisible && gameLocationScreenExploration)
-                {
-                    gameLocationScreenExploration.Show(true);
-                }
+                guiConsoleScreen.Show();
+                gameLocationScreenExploration.Show();
             }
 
-            internal static IEnumerator StartCharacterCreationWizard(RulesetCharacterHero hero)
+            internal static IEnumerator StartRespec(RulesetCharacterHero hero)
             {
                 var characterCreationScreen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
                 var restModalScreen = Gui.GuiService.GetScreen<RestModal>();
@@ -167,7 +116,6 @@ namespace SolastaCommunityExpansion.Models
                     yield return null;
                 }
 
-                // if there is hero building data still then respec was aborted
                 IsRespecing = !hero.TryGetHeroBuildingData(out var _);
             }
 
@@ -178,24 +126,18 @@ namespace SolastaCommunityExpansion.Models
                 var experience = oldHero.GetAttribute(AttributeDefinitions.Experience);
                 var gameCampaignCharacters = Gui.GameCampaign.Party.CharactersList;
                 var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+                var worldLocationEntityFactoryService = ServiceRepository.GetService<IWorldLocationEntityFactoryService>();
+                var gameLocationCharacter = gameLocationCharacterService.PartyCharacters.Find(x => x.RulesetCharacter == oldHero);
 
                 newHero.SetGuid(guid);
                 newHero.Tags.AddRange(tags);
                 newHero.Attributes[AttributeDefinitions.Experience] = experience;
 
-                CopyInventoryOver(oldHero, newHero);
+                CopyInventoryOver(oldHero, newHero, gameLocationCharacter.LocationPosition);
 
                 gameCampaignCharacters.Find(x => x.RulesetCharacter == oldHero).RulesetCharacter = newHero;
 
                 UpdateRestPanelUi(gameCampaignCharacters);
-
-                if (gameLocationCharacterService == null)
-                {
-                    return;
-                }
-
-                var gameLocationCharacter = gameLocationCharacterService.PartyCharacters.Find(x => x.RulesetCharacter == oldHero);
-                var worldLocationEntityFactoryService = ServiceRepository.GetService<IWorldLocationEntityFactoryService>();
 
                 gameLocationCharacter.SetRuleset(newHero);
 
@@ -205,28 +147,27 @@ namespace SolastaCommunityExpansion.Models
                 }
 
                 gameLocationCharacterService.SetField("dirtyParty", true);
+                gameLocationCharacterService.RefreshAllCharacters();
 
                 IsRespecing = false;
             }
 
-            internal static void CopyInventoryOver(RulesetCharacterHero oldHero, RulesetCharacterHero newHero)
+            internal static void CopyInventoryOver(RulesetCharacterHero oldHero, RulesetCharacterHero newHero, TA.int3 position)
             {
+                var inventoryCommandService = ServiceRepository.GetService<IInventoryCommandService>();
                 var personalSlots = oldHero.CharacterInventory.PersonalContainer.InventorySlots;
+                var slotsByName = oldHero.CharacterInventory.InventorySlotsByName;
 
                 foreach (var equipedItem in personalSlots.Select(i => i.EquipedItem).Where(i => i != null))
                 {
                     equipedItem.AttunedToCharacter = string.Empty;
-                    oldHero.CharacterInventory.DropItem(equipedItem);
-                    newHero.GrantItem(equipedItem.ItemDefinition, equipedItem.ItemDefinition.ForceEquip, equipedItem.StackCount);
+                    inventoryCommandService.CreateItemAtPosition(equipedItem, position);
                 }
-
-                var slotsByName = oldHero.CharacterInventory.InventorySlotsByName;
 
                 foreach (var equipedItem in slotsByName.Select(s => s.Value.EquipedItem).Where(i => i != null))
                 {
                     equipedItem.AttunedToCharacter = string.Empty;
-                    oldHero.CharacterInventory.DropItem(equipedItem);
-                    newHero.GrantItem(equipedItem.ItemDefinition, equipedItem.ItemDefinition.ForceEquip, equipedItem.StackCount);
+                    inventoryCommandService.CreateItemAtPosition(equipedItem, position);
                 }
             }
 

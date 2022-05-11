@@ -874,8 +874,16 @@ Feature/&EldritchBlastRepellingBlastBonusCantripTitle	Repelling Blast
 Feature/&EldritchMindDescription	You have advantage on Constitution saving throws that you make to maintain your concentration on a spell
 Feature/&EldritchMindTitle	Eldritch Mind
 Feature/&EldritchSightTitle	Eldritch Sight
-Feature/&EldritchSmiteDescription	Once per turn when you hit a creature with your pact weapon, you can expend a warlock spell slot to deal an extra 1d8 force damage to the target, plus another 1d8 per level of the spell slot,
+Feature/&EldritchSmiteDescription	Once per turn when you hit a creature with your pact weapon, you can expend a warlock spell slot to deal an extra 1d8 force damage to the target, plus another 1d8 per level of the spell slot.
 Feature/&EldritchSmiteTitle	Eldritch Smite
+Reaction/&SpendSpellSlotEldritchSmiteTitle	Eldritch Smite
+Reaction/&SpendSpellSlotEldritchSmiteDescription	{0} can spend spell slot to deal 1d8 + 1d8 force damage per slot level to the target.
+Reaction/&SpendSpellSlotEldritchSmiteReactTitle	Smite
+Reaction/&SpendSpellSlotEldritchSmiteReactDescription	Click to spend a spell slot and increase damage to the target.
+Reaction/&SubitemSelectEldritchSmiteTitle	Slot Level
+Reaction/&SubitemSelectEldritchSmiteDescription	Select a slot level to consume for your Eldritch Smite.
+Feedback/&AdditionalDamageEldritchSmiteFormat	Eldritch Smite!
+Feedback/&AdditionalDamageEldritchSmiteLine	{0} smites {1} (+{2})
 Feature/&ElementalistSpellsMagicAffinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: {0}\n\n  
 Feature/&ElementalistSpellsMagicAffinityTitle	Elementalist Spells
 Feature/&ElementalPactAirPlane	Air Plane
@@ -1166,8 +1174,8 @@ Message/&CharacterExportEmptyNameErrorDescription	Export Cancelled:\n\nPlease tr
 Message/&CharacterExportModalContentDescription	Enter the hero name to export:
 Message/&CharacterExportModalTitleDescription	Character Export
 Message/&LevelDownConfirmationDescription	Level down this Hero?
-Message/&LevelDownMultiplayerAbortDescription	Cannot Level Down during a multiplayer session. Aborted
-Message/&RespecMultiplayerAbortDescription	Cannot Respec during a multiplayer session. Aborted
+Message/&LevelDownMultiplayerAbortDescription	Cannot Level Down during a multiplayer session
+Message/&RespecMultiplayerAbortDescription	Cannot Respec during a multiplayer session or on exploration map
 Message/&MessageModWelcomeDescription	The Community Expansion Mod is packed full of exciting features, but by default none are enabled. Press <color=yellow>Ctrl-F10</color> to open the Unity Mod Manager UI [UMM], then click on the settings icon next to 'Community Expansion' to open the settings pages.\n\n Explore the options and select the ones you like. The UMM UI will now open
 Message/&MessageModWelcomeTitle	Community Expansion Mod
 Message/&SpawnCustomEncounterDescription	Spawn encounter at coordinates ({0}, {1})?
@@ -1312,9 +1320,9 @@ Screen/&FeyTeleportSpellDescription	This Fey spell is always prepared
 Screen/&FeyTeleportSpellTitle	Fey
 Screen/&ShadowTouchedSpellDescription	This Shadow spell is always prepared
 Screen/&ShadowTouchedSpellTitle	Shadow
-Screen/&SpellSlotsUsedLongDescription	You have expended {0} long-rest slot(s) of this level
-Screen/&SpellSlotsUsedShortDescription	You have expended {0} short-rest slot(s) of this level
-Screen/&SpellSlotsUsedShortLongDescription	You have expended {0} short-rest slot(s) and {1} long-rest slot(s) of this level
+Screen/&SpellSlotsUsedLongDescription	You have expended {0} spell slot(s) at this level
+Screen/&SpellSlotsUsedShortDescription	You have expended {0} pact magic slot(s)
+Screen/&SpellSlotsUsedShortLongDescription	You have expended {0} pact magic slot(s) and {1} spell slot(s) at this level
 Screen/&WitchSpellDescription	Spell known as a Witch
 Screen/&WitchSpellHeader	Witch
 Screen/&WitchSpellTitle	Witch
@@ -1739,3 +1747,21 @@ UI/&CustomFeatureSelectionStageFeatures	Features
 UI/&CustomFeatureSelectionStageNotDone	You must select all available features before proceeding.
 Feature/&WitchMaledictionChoiceDescription	You can learn a number of powerful incantations, known as Maledictions, derived from the same insidious magic which cursed you
 Feature/&WitchMaledictionChoiceTitle	Maledictions
+Screen/&MulticlassSpellTitle	Multiclass
+Screen/&MulticlassSpellDescription	You know this spell from other repertoire
+Equipment/&Enchanted_Rapier_Dragonblade_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. It was designed by Lestoreth Steelarm to fight in the frozen North of the Empire.
+Equipment/&Enchanted_Rapier_Dragonblade_Title	Dragonblade Rapier
+Equipment/&Enchanted_Rapier_Frostburn_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. It was designed by Keliandir Moltenheart, who forged this weapon to fight salamanders after an exploration of the elemental planes went awry.
+Equipment/&Enchanted_Rapier_Frostburn_Title	Frostburn Rapier
+Equipment/&Enchanted_Rapier_Lightbringer_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
+Equipment/&Enchanted_Rapier_Lightbringer_Title	Lightbringer Rapier
+Equipment/&Enchanted_Rapier_Power_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. Some creatures only respect physical strengths. Manacalon arcanists created this Rapier to give champions of the Iron Legions the strength their elven bodies didn't provide.
+Equipment/&Enchanted_Rapier_Power_Title	Rapier of Power
+Equipment/&Enchanted_Rapier_Souldrinker_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
+Equipment/&Enchanted_Rapier_Souldrinker_Title	Souldrinker Rapier
+Equipment/&Enchanted_Rapier_Stormblade_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon � to devastating effect!
+Equipment/&Enchanted_Rapier_Stormblade_Title	Stormblade Rapier
+Equipment/&Enchanted_Rapier_Warden_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Ildurial Strongarm, a famous Manacalon bladesmith. The first such blade, the Manacalon Warden, was offered to the commander of the Euraidd.
+Equipment/&Enchanted_Rapier_Warden_Title	Warden Rapier
+Equipment/&Enchanted_Rapier_Whiteburn_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Whiteburn was created by the first Danantar to fight a troll invasion coming from the swamps to the south of his domain between the Sioltafin and the Scarafin.
+Equipment/&Enchanted_Rapier_Whiteburn_Title	Whiteburn Rapier

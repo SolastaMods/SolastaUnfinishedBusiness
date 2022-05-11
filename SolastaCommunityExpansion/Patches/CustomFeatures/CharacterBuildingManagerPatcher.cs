@@ -32,13 +32,45 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
         }
     }
 
-    // unregister the hero leveling up
+    // unregister the hero leveling up and add all known spells to wholelist casters
     [HarmonyPatch(typeof(CharacterBuildingManager), "FinalizeCharacter")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterBuildingManager_FinalizeCharacter
     {
         internal static void Postfix(RulesetCharacterHero hero)
         {
+            var selectedClassRepertoire = LevelUpContext.GetSelectedClassOrSubclassRepertoire(hero);
+
+            if (selectedClassRepertoire == null
+                || selectedClassRepertoire.SpellCastingFeature.SpellKnowledge != RuleDefinitions.SpellKnowledge.WholeList)
+            {
+                LevelUpContext.UnregisterHero(hero);
+
+                return;
+            }
+
+            var spellCastingClass = selectedClassRepertoire.SpellCastingClass;
+
+            if (spellCastingClass == null)
+            {
+                LevelUpContext.UnregisterHero(hero);
+
+                return;
+            }
+
+            var castingLevel = SharedSpellsContext.GetClassSpellLevel(selectedClassRepertoire);
+            var knownSpells = LevelUpContext.GetAllowedSpells(hero);
+
+            if (knownSpells == null)
+            {
+                LevelUpContext.RecacheSpells(hero);
+
+                knownSpells = LevelUpContext.GetAllowedSpells(hero);
+            }
+
+            selectedClassRepertoire.KnownSpells.AddRange(knownSpells
+                .Where(x => x.SpellLevel == castingLevel));
+
             LevelUpContext.UnregisterHero(hero);
         }
     }
@@ -93,14 +125,25 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterBuildingManager_ClearPrevious
     {
+        private static readonly List<FeatureDefinition> ToRemove = new();
         internal static void Prefix(RulesetCharacterHero hero, string tag)
         {
+            ToRemove.Clear();
             if (string.IsNullOrEmpty(tag) || !hero.ActiveFeatures.ContainsKey(tag))
             {
                 return;
             }
-
-            CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, hero.ActiveFeatures[tag]);
+            ToRemove.AddRange(hero.ActiveFeatures[tag]);
+        }
+        
+        internal static void Postfix(RulesetCharacterHero hero, string tag)
+        {
+            if (ToRemove.Empty())
+            {
+                return;
+            }
+            //TODO: check if other places where this is called require same prefx/postfix treatment
+            CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, ToRemove);
         }
     }
 

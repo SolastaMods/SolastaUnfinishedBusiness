@@ -10,12 +10,16 @@ namespace SolastaCommunityExpansion.Models
     {
         internal static int SelectedClassIndex { get; set; }
 
-        public static CharacterClassDefinition SelectedClass => Global.InspectedHero?.ClassesAndLevels.Keys.ElementAt(SelectedClassIndex);
+        public static CharacterClassDefinition SelectedClass => Global.InspectedHero?.ClassesAndLevels.Keys.ElementAtOrDefault(SelectedClassIndex);
 
-        public static string GetSelectedClassSearchTerm(string original) => original 
-            + SelectedClass == null 
-                ? string.Empty
-                : SelectedClass.Name;
+        public static string GetSelectedClassSearchTerm(string original)
+        {
+            var selectedClass = SelectedClass;
+            return original
+                   + (selectedClass == null
+                       ? string.Empty
+                       : selectedClass.Name);
+        }
 
         public static void EnumerateClassBadges(CharacterInformationPanel __instance)
         {

@@ -1,7 +1,7 @@
 {
   "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFeatureSetWithPreRequisites, SolastaCommunityExpansion",
   "featureSet": [
-    "Definition:AdditionalDamagePaladinDivineSmite:be26393f37ff52340bb25c89836d37f6"
+    "Definition:WarlockEldritchSmiteDamage:7c5af473-ff2c-5bdb-a229-4b2a350322b0"
   ],
   "mode": "Union",
   "defaultSelection": 0,

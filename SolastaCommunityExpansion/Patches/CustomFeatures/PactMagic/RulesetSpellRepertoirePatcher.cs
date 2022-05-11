@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaCommunityExpansion.Classes.Warlock;
 using SolastaCommunityExpansion.Models;
@@ -44,6 +45,46 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
                 ___spellsSlotCapacities.TryGetValue(WarlockSpells.PACT_MAGIC_SLOT_TAB_INDEX, out __result);
 
                 return false;
+            }
+        }
+
+        // ensures MC Warlocks get a proper list of upcast slots under a MC scenario
+        [HarmonyPatch(typeof(RulesetSpellRepertoire), "CanUpcastSpell")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+        internal static class RulesetSpellRepertoire_CanUpcastSpell
+        {
+            public static int MySpellLevel(SpellDefinition spellDefinition, RulesetSpellRepertoire rulesetSpellRepertoire)
+            {
+                var isWarlockSpell = SharedSpellsContext.IsWarlock(rulesetSpellRepertoire.SpellCastingClass);
+
+                if (isWarlockSpell)
+                {
+                    var hero = SharedSpellsContext.GetHero(rulesetSpellRepertoire.CharacterName);
+                    var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
+
+                    return warlockSpellLevel;
+                }
+
+                return spellDefinition.SpellLevel;
+            }
+
+            internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+            {
+                var spellLevelMethod = typeof(SpellDefinition).GetMethod("get_SpellLevel");
+                var mySpellLevelMethod = typeof(RulesetSpellRepertoire_CanUpcastSpell).GetMethod("MySpellLevel");
+
+                foreach (CodeInstruction instruction in instructions)
+                {
+                    if (instruction.Calls(spellLevelMethod))
+                    {
+                        yield return new CodeInstruction(OpCodes.Ldarg_0); // spellRepertoire
+                        yield return new CodeInstruction(OpCodes.Call, mySpellLevelMethod);
+                    }
+                    else
+                    {
+                        yield return instruction;
+                    }
+                }
             }
         }
 
@@ -157,7 +198,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
                 // handles MC Warlock
                 else
                 {
-                    SpendMulticasterWarlockSlots(warlockSpellRepertoire, heroWithSpellRepertoire, slotLevel);
+                    SpendMulticasterWarlockSlots(__instance, warlockSpellRepertoire, heroWithSpellRepertoire, slotLevel);
                 }
 
                 return false;
@@ -182,7 +223,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
                 rulesetSpellRepertoire.RepertoireRefreshed?.Invoke(rulesetSpellRepertoire);
             }
 
-            private static void SpendMulticasterWarlockSlots(RulesetSpellRepertoire warlockSpellRepertoire, RulesetCharacterHero heroWithSpellRepertoire, int slotLevel)
+            private static void SpendMulticasterWarlockSlots(RulesetSpellRepertoire __instance, RulesetSpellRepertoire warlockSpellRepertoire, RulesetCharacterHero heroWithSpellRepertoire, int slotLevel)
             {
                 var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire);
                 var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
@@ -197,12 +238,14 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
                 sharedMaxSlots -= warlockMaxSlots;
                 sharedUsedSlots -= warlockUsedSlots;
 
-                var canConsumeShortRestSlot = warlockUsedSlots < warlockMaxSlots && slotLevel <= warlockSpellLevel;
-                var canConsumeLongRestSlot = sharedUsedSlots < sharedMaxSlots && slotLevel <= sharedSpellLevel;
-                var forceLongRestSlot = canConsumeLongRestSlot && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift));
+                var isShiftPressed = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+                var canConsumePactSlot = warlockUsedSlots < warlockMaxSlots && slotLevel <= warlockSpellLevel;
+                var canConsumeSpellSlot = sharedUsedSlots < sharedMaxSlots && slotLevel <= sharedSpellLevel;
+                var forcePactSlot = __instance.SpellCastingClass == IntegrationContext.WarlockClass;
+                var forceSpellSlot = canConsumeSpellSlot && (isShiftPressed || (!forcePactSlot && sharedSpellLevel < warlockSpellLevel));
 
                 // uses short rest slots across all repertoires
-                if (canConsumeShortRestSlot && !forceLongRestSlot)
+                if (canConsumePactSlot && !forceSpellSlot)
                 {
                     foreach (var spellRepertoire in heroWithSpellRepertoire.SpellRepertoires)
                     {

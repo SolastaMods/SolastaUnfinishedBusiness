@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi.Extensions;
 using UnityEngine;
@@ -79,7 +80,7 @@ namespace SolastaCommunityExpansion.Models
                                 .GetElement(prof, false)));
             }
 
-            hero.RefreshAll();
+            hero.ClearFeatureModifiers(tag);
         }
 
         private static void RemoveFeatureDefinitionPointPool(RulesetCharacterHero hero, RulesetSpellRepertoire heroRepertoire, FeatureDefinitionPointPool featureDefinitionPointPool)
@@ -130,11 +131,11 @@ namespace SolastaCommunityExpansion.Models
         {
             var classLevel = hero.ClassesAndLevels[characterClassDefinition];
             var heroRepertoire = hero.SpellRepertoires.FirstOrDefault(x => LevelUpContext.IsRepertoireFromSelectedClassSubclass(hero, x));
+            var buildinData = hero.GetHeroBuildingData();
+            var spellTag = GetSpellLearningTag(hero, tag);
 
             foreach (var featureDefinition in featuresToRemove)
             {
-                var featureDefinitionTypeName = featureDefinition.GetType().Name;
-
                 if (featureDefinition is FeatureDefinitionCastSpell && heroRepertoire != null)
                 {
                     hero.SpellRepertoires.Remove(heroRepertoire);
@@ -152,6 +153,14 @@ namespace SolastaCommunityExpansion.Models
                 {
                     //TODO: fix potential problem if several features grant same cantrip, but we only remove one of them
                     heroRepertoire.KnownCantrips.RemoveAll(featureDefinitionBonusCantrips.BonusCantrips.Contains);
+                    if (buildinData != null)
+                    {
+                        if (buildinData.BonusCantrips.ContainsKey(spellTag))
+                        {
+                            buildinData.BonusCantrips[spellTag]
+                                .RemoveAll(featureDefinitionBonusCantrips.BonusCantrips.Contains);
+                        }
+                    }
                 }
                 else if (featureDefinition is FeatureDefinitionFightingStyleChoice)
                 {
@@ -359,6 +368,54 @@ namespace SolastaCommunityExpansion.Models
         public static string CustomizeTag(string tag)
         {
             return UnCustomizeTag(tag) + "[Custom]";
+        }
+
+        /**Returns first custom feature it finds within this definition.*/
+        public static T GetFirstCustomFeature<T>(BaseDefinition definition) where T : class
+        {
+            if (definition == null) { return null; }
+
+            if (definition is T custom)
+            {
+                return custom;
+            }
+
+            T result = null;
+            
+            if (definition is IDefinitionWithCustomFeatures container)
+            {
+                result = container.CustomFeatures.OfType<T>().FirstOrDefault();
+            }
+
+            if (result == null && definition is FeatureDefinition feature)
+            {
+                result = feature.GetCustomFeaturesOfType<T>()?.FirstOrDefault();
+            }
+
+            return result;
+        }
+      
+        //TODO: add another method to get all custom features from definition
+        public static string GetSpellLearningTag(RulesetCharacterHero hero, string tag)
+        {
+            if (tag != null 
+                && (tag.StartsWith(AttributeDefinitions.TagClass) || tag.StartsWith(AttributeDefinitions.TagSubclass)))
+            {
+                ServiceRepository.GetService<ICharacterBuildingService>()
+                    .GetLastAssignedClassAndLevel(hero, out var lastClass, out var classLevel);
+
+                if (LevelDownContext.IsLevelDown)
+                {
+                    classLevel -= 1;
+                }
+
+                if (classLevel > 0)
+                {
+                    return AttributeDefinitions.GetClassTag(lastClass, classLevel);
+                }
+            }
+
+            return tag;
         }
     }
 }
