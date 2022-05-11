@@ -31,8 +31,6 @@ Class/&WitchFeatureSetRitualCastingDescription	You can cast any witch spell you 
 Class/&WitchFeatureSetRitualCastingTitle	Witch Ritual Casting
 Class/&WitchFeatureSetVisionsCurseDescription	You are cursed to have terrible visions of the future, presaging the death of your friends, family, and yourself. However many of these visions are cruel deceptions, they are sometimes grimly accurate. You can add your Charisma modifier, in addition to your Dexterity modifier, to your initiative rolls
 Class/&WitchFeatureSetVisionsCurseTitle	Visions
-Feature/&WitchCurseChoiceDescription	You are wracked by a terrible curse which infects your body and soul
-Feature/&WitchCurseChoiceTitle	Witch Curse
 Class/&WitchLovelessCharmImmunityDescription	Loveless Charm immunity
 Class/&WitchLovelessCharmImmunityTitle	Charm Immunity
 Class/&WitchMaledictionAbateDescription	As an action, choose one creature you can see within 60 feet of you to make a Charisma saving throw. On a failed save, the creature can't take reactions until the end of your next turn
@@ -108,6 +106,10 @@ Condition/&DisorientDescription	This creature's accuracy is reduced
 Condition/&DisorientTitle	Disoriented
 Condition/&EvilEyeDescription	Evil eye condition
 Condition/&EvilEyeTitle	Evil Eye
+Condition/&EWResonatingStrikeDamageDescription Starting from level 5 attack triggered by this cantrip deals additional 1d8 thunder damage. The damage increases by 1d8 at 11th and 17th levels.
+Condition/&EWResonatingStrikeDamageTitle	Resonance
+Condition/&EWSunlightBladeDamageDescription Starting from level 5 attack triggered by this cantrip deals additional 1d8 radiant damage. The damage increases by 1d8 at 11th and 17th levels.
+Condition/&EWSunlightBladeDamageTitle	Sunlight Blade's burn
 Condition/&FrenziedDescription	This creature is frenzied and will attack the closest creature
 Condition/&FrenziedTitle	Frenzied
 Condition/&HalfLifeConditionDescription	You take necrotic energy into yourself and hang between life and death and are temporarily possessed by your own ghost, gaining flying, and the same condition immunities and damage resistenances as other ghosts
@@ -253,6 +255,22 @@ Equipment/&Enchanted_Quarterstaff_Warden_Description	This enchanted weapon was f
 Equipment/&Enchanted_Quarterstaff_Warden_Title	Warden Quarterstaff
 Equipment/&Enchanted_Quarterstaff_Whiteburn_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Whiteburn was created by the first Danantar to fight a troll invasion coming from the swamps to the south of his domain between the Sioltafin and the Scarafin
 Equipment/&Enchanted_Quarterstaff_Whiteburn_Title	Whiteburn Quarterstaff
+Equipment/&Enchanted_Rapier_Dragonblade_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. It was designed by Lestoreth Steelarm to fight in the frozen North of the Empire.
+Equipment/&Enchanted_Rapier_Dragonblade_Title	Dragonblade Rapier
+Equipment/&Enchanted_Rapier_Frostburn_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. It was designed by Keliandir Moltenheart, who forged this weapon to fight salamanders after an exploration of the elemental planes went awry.
+Equipment/&Enchanted_Rapier_Frostburn_Title	Frostburn Rapier
+Equipment/&Enchanted_Rapier_Lightbringer_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
+Equipment/&Enchanted_Rapier_Lightbringer_Title	Lightbringer Rapier
+Equipment/&Enchanted_Rapier_Power_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. Some creatures only respect physical strengths. Manacalon arcanists created this Rapier to give champions of the Iron Legions the strength their elven bodies didn't provide.
+Equipment/&Enchanted_Rapier_Power_Title	Rapier of Power
+Equipment/&Enchanted_Rapier_Souldrinker_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
+Equipment/&Enchanted_Rapier_Souldrinker_Title	Souldrinker Rapier
+Equipment/&Enchanted_Rapier_Stormblade_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon � to devastating effect!
+Equipment/&Enchanted_Rapier_Stormblade_Title	Stormblade Rapier
+Equipment/&Enchanted_Rapier_Warden_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Ildurial Strongarm, a famous Manacalon bladesmith. The first such blade, the Manacalon Warden, was offered to the commander of the Euraidd.
+Equipment/&Enchanted_Rapier_Warden_Title	Warden Rapier
+Equipment/&Enchanted_Rapier_Whiteburn_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Whiteburn was created by the first Danantar to fight a troll invasion coming from the swamps to the south of his domain between the Sioltafin and the Scarafin.
+Equipment/&Enchanted_Rapier_Whiteburn_Title	Whiteburn Rapier
 Equipment/&Enchanted_Scimitar_Dragonblade_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. It was designed by Lestoreth Steelarm to fight in the frozen North of the Empire
 Equipment/&Enchanted_Scimitar_Dragonblade_Title	Dragonblade Scimitar
 Equipment/&Enchanted_Scimitar_Frostburn_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. It was designed by Keliandir Moltenheart, who forged this weapon to fight salamanders after an exploration of the elemental planes went awry
@@ -728,8 +746,6 @@ Feature/&AHWarlockClassPactOfTheBladeSetDescription	You become proficient with a
 Feature/&AHWarlockClassPactOfTheBladeSetTitle	Pact of the Blade
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerDescription	Once per long rest you can empower a weapon with the power of souls. That weapon uses Charisma modifier for attack and damage rolls and counts as magical until long rest
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle	Soul Empower
-Modifier/&AHWarlockSoulBladePactEmpowerWeaponModifierTitle	Soul Empowered
-Modifier/&AHWarlockSoulBladePactEmpowerWeaponModifierDescription	Weapon uses Charisma modifier for attack and damage rolls and counts as magical until long rest.
 Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	The Soul blade lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: {0}\n\n 
 Feature/&AHWarlockSoulBladePactExtendedSpellListTitle	Soulblade Spells
 Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Once per short rest you use the power of souls to defend yourself. Using a bonus action you gain temp hp equal to your level + charisma modifier
@@ -749,6 +765,8 @@ Feature/&ArcaneDetonationUpgradeDescription	Starting at 11th level, the damage f
 Feature/&ArcaneDetonationUpgradeTitle	Greater Arcane Detonation
 Feature/&ArcanePulseDescription	Starting at 7th level, you can cause an eruption of arcane energy at a range of 30 feet. Hostile creatures within 15 feet of the point of impact take 4d8 damage and gain an Arcanist's Mark. You may use this ability a number of times equal to your wisdom modifier per long rest. At 15th level, the damage of your Arcane Pulse increases to 8d8
 Feature/&ArcanePulseTitle	Arcane Pulse
+Feature/&ArcanistAutoPreparedSpellsDescription	You gain bonus spells that are considered ranger spells for you, they are always pepared and don't count against the number of ranger spells you know: \n{0}\n\n
+Feature/&ArcanistAutoPreparedSpellsTitle	Ranger Arcanist Bonus Spells
 Feature/&ArcanistMarkDescription	Starting at 3rd level, you imbue your weapons with arcane power. Creatures that are hit by your attacks are afflicted by the Arcanist's Mark
 Feature/&ArcanistMarkTitle	Arcanist's Mark
 Feature/&ArmorofShadowsTitle	Armor of Shadows
@@ -780,14 +798,14 @@ Feature/&BolgrifPowerfulBuildDescription	You count your size as Large when deter
 Feature/&BolgrifPowerfulBuildTitle	Powerful Build
 Feature/&BondoftheTalismanDescription	Teleport up to 5 cells away
 Feature/&BondoftheTalismanTitle	Teleport Talisman
-Feature/&ChainsofCarceriTitle	Chains of Carceri
 Feature/&ChainsofCarceriDescription	Paralyzes a celestial, fiend or elemental unless it succeeds a WIS saving throw.
+Feature/&ChainsofCarceriTitle	Chains of Carceri
 Feature/&ClassWarlockArmorProficiencyDescription	Light Armor
 Feature/&ClassWarlockArmorProficiencyTitle	Warlock Armor Proficiencies
-Feature/&ClassWarlockEldritchInvocationSetLevelDescription	Add an eldritch invocation
-Feature/&ClassWarlockEldritchInvocationSetLevelTitle	Eldritch Invocation
 Feature/&ClassWarlockEldritchInvocationReplaceDescription	Select Eldritch Invocation to replace
 Feature/&ClassWarlockEldritchInvocationReplaceTitle	Replace Invocation
+Feature/&ClassWarlockEldritchInvocationSetLevelDescription	Add an eldritch invocation
+Feature/&ClassWarlockEldritchInvocationSetLevelTitle	Eldritch Invocation
 Feature/&ClassWarlockEldritchMasterDescription	you can draw on your inner reserve of mystical power while entreating your patron to regain expended spell slots. You can spend 1 minute entreating your patron for aid to regain all your expended spell slots from your Pact Magic feature. Once you regain spell slots with this feature, you must finish a long rest before you can do so again
 Feature/&ClassWarlockEldritchMasterTitle	Eldritch Master
 Feature/&ClassWarlockMysticArcanumSetDescription	Your patron bestows upon you a magical secret called an arcanum. You can cast your arcanum spell once without expending a spell slot. You must finish a long rest before you can do so again. At higher levels, you gain more warlock spells of your choice that can be cast in this way: one 6th-level spell at 11th level, one 7th-level spell at 13th level, one 8th-level spell at 15th level, and one 9th-level spell at 17th level
@@ -876,27 +894,6 @@ Feature/&EldritchMindTitle	Eldritch Mind
 Feature/&EldritchSightTitle	Eldritch Sight
 Feature/&EldritchSmiteDescription	Once per turn when you hit a creature with your pact weapon, you can expend a warlock spell slot to deal an extra 1d8 force damage to the target, plus another 1d8 per level of the spell slot.
 Feature/&EldritchSmiteTitle	Eldritch Smite
-Reaction/&SpendSpellSlotEldritchSmiteTitle	Eldritch Smite
-Reaction/&SpendSpellSlotEldritchSmiteDescription	{0} can spend spell slot to deal 1d8 + 1d8 force damage per slot level to the target.
-Reaction/&SpendSpellSlotEldritchSmiteReactTitle	Smite
-Reaction/&SpendSpellSlotEldritchSmiteReactDescription	Click to spend a spell slot and increase damage to the target.
-Reaction/&SubitemSelectEldritchSmiteTitle	Slot Level
-Reaction/&SubitemSelectEldritchSmiteDescription	Select a slot level to consume for your Eldritch Smite.
-Feedback/&AdditionalDamageEldritchSmiteFormat	Eldritch Smite!
-Feedback/&AdditionalDamageEldritchSmiteLine	{0} smites {1} (+{2})
-Spell/&EWSunlightBladeTitle	Sunlight Blade
-Spell/&EWSunlightBladeDescription	Make a melee attack with a weapon. On a hit, the target suffers the attack's normal effects, and is enveloped in glowing radiant energy, shedding dim light for the turn. Next attack against this creature while it is highlighted is done with advantage.\nAt 5th level, the melee attack deals an extra 1d8 radiant damage to the target. The damage increases by another 1d8 at 11th level and 17th level.
-Feedback/&AdditionalDamageSunlightBladeLine	{0} burns {1} with Sunlight Blade! (+{2})
-Feedback/&AdditionalDamageSunlightBladeFormat	Sunlight Blade!
-Condition/&EWSunlightBladeDamageTitle	Sunlight Blade's burn
-Condition/&EWSunlightBladeDamageDescription Starting from level 5 attack triggered by this cantrip deals additional 1d8 radiant damage. The damage increases by 1d8 at 11th and 17th levels.
-Spell/&EWResonatingStrikeTitle	Resonating Strike
-Spell/&EWResonatingStrikeDescription	Select one creature within melee range of you and a different creature that you can see within 5 feet of main target. You make a melee attack with current weapon against first creature. On a hit, the target suffers the weapon attack's normal effects, and resonating sound leaps to second target, dealing thunder damage equal to your spellcasting ability modifier.\nAt 5th level, the melee attack deals extra 1d8 thunder damage to the target on a hit, and the thunder damage to the second creature increases to 1d8 + your spellcasting ability modifier. Both damage rolls increase by 1d8 at 11th and 17th levels.
-Feedback/&NotifyEffectResonatingStrikeLine	{0} resonates {1}!
-Feedback/&AdditionalDamageResonatingStrikeLine	{0} resonates {1}! (+{2})
-Feedback/&AdditionalDamageResonatingStrikeFormat	Resonating Strike!
-Condition/&EWResonatingStrikeDamageTitle	Resonance
-Condition/&EWResonatingStrikeDamageDescription Starting from level 5 attack triggered by this cantrip deals additional 1d8 thunder damage. The damage increases by 1d8 at 11th and 17th levels.
 Feature/&ElementalistSpellsMagicAffinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: {0}\n\n  
 Feature/&ElementalistSpellsMagicAffinityTitle	Elementalist Spells
 Feature/&ElementalPactAirPlane	Air Plane
@@ -906,6 +903,7 @@ Feature/&ElementalPactEtherealPlane	Ethereal Plane
 Feature/&ElementalPactFirePlane	Fire Plane
 Feature/&ElementalPactIcePlane	Ice Plane
 Feature/&ElementalPactShadowPlane	Shadow Plane
+Feature/&ElementalPatronDummyFeatureSetTitle	Elementalist
 Feature/&ElementalPatronElementalConditionFormatDescription	Deal additional {1} damage equal to your Proficiency Bonus on a first hit each round
 Feature/&ElementalPatronElementalConditionFormatTitle	Channeling {0}
 Feature/&ElementalPatronElementalDamageFormatDescription	When channeling {0}, deal additional {1} damage equal to your Proficiency Bonus on a first hit each round
@@ -914,9 +912,8 @@ Feature/&ElementalPatronElementalFormEnhancedFormatDescription	When channeling t
 Feature/&ElementalPatronElementalFormEnhancedFormatTitle	Channeling {0}
 Feature/&ElementalPatronElementalFormFormatDescription	When channeling the {0}, you gain Resistance to {1} damage and apply Proficiency Bonus as damage of the same type to first hit each round. 
 Feature/&ElementalPatronElementalFormFormatTitle	{0}
-Feature/&ElementalPatronDummyFeatureSetTitle	Elementalist
-Feature/&ElementalPatronFeatureSet_Level06Title	Knowledge of Elementals
 Feature/&ElementalPatronFeatureSet_Level06Description	You knowledge of elementals has increased to the point that you now gain advantage on ability checks towards elementals, and deal additional damage against elementals equal to your knowledge level. You can no longer be charmed or frightened by elementals.
+Feature/&ElementalPatronFeatureSet_Level06Title	Knowledge of Elementals
 Feature/&EyesoftheRuneKeeperDescription	You can read all writing
 Feature/&EyesoftheRuneKeeperTitle	Eyes of the RuneKeeper
 Feature/&FiendishVigorTitle	Fiendish Vigor
@@ -964,19 +961,10 @@ Feature/&IndomitableResistanceAddTitle	Indomitable Resistance (increased)
 Feature/&IndomitableResistanceTitle	Indomitable Resistance
 Feature/&InspirePowerDescription	Spend a gambit die and inspire yourself or your ally to give 1d6+2 temp hp
 Feature/&InspirePowerTitle	Inspire
-Feature/&InspiringSurgePowerDescription	Grant an ally an additional main action for 1 round. Does not stack with Action Surge
-Feature/&InspiringSurgePowerTitle	Inspiring Surge
-Feature/&InspiringSurgePowerTitleShort	Inspiring Surge
 Feature/&KnockDownPowerDescription	Spend a gambit die and empower your attack to do an additional 1d6+2 bludgeoning damage and knock them down until the start of their next turn if they fail a Strength save vs. 8 + your Strength + proficiency
 Feature/&KnockDownPowerTitle	Knock down
-Feature/&KSRogueSubclassThugBrutalMethodsDescription	You can shove as a bonus action
-Feature/&KSRogueSubclassThugBrutalMethodsTitle	Brutal Methods
-Feature/&KSRogueSubclassThugExploitVulnerabilitiesSneakAttackDescription	You are able to use Sneak Attack with any kind of melee weapon, not restricted to finesse weapons.\n1d6 extra damage (+1d6 every 2 levels) to one creature you hit with the advantage, once per turn. No need for advantage if an active ally is next to the target
-Feature/&KSRogueSubclassThugExploitVulnerabilitiesSneakAttackTitle	Polyvalent Sneak Attack
-Feature/&KSRogueSubclassThugOvercomeCompetitionDescription	You have advantage on your Athletics (Strength) checks
-Feature/&KSRogueSubclassThugOvercomeCompetitionTitle	Overcome Competition
-Feature/&KSRogueSubclassThugProficienciesDescription	Proficient with medium armors and shields
-Feature/&KSRogueSubclassThugProficienciesTitle	Heavy Gear
+Feature/&MagicAffinityRangerArcanistDescription	You are proficient at casting spells in battle, and may cast spells that require a somatic component even if both of your hands are holding a weapon or shield.
+Feature/&MagicAffinityRangerArcanistTitle	Arcane Combat Training 
 Feature/&MiretheMindTitle	Mire the Mind
 Feature/&MoonLitDarknessImmunityDescription	You are Immune to the Darkness condition
 Feature/&MoonLitDarknessImmunityTitle	MoonLit Darkness
@@ -1040,15 +1028,8 @@ Feature/&RagePowerDescription	As a bonus action you enter a rage for one minute 
 Feature/&RagePowerTitle	Rage
 Feature/&RageStrengthSavingThrowAffinityDescription	You get advantage on strength saves while raging
 Feature/&RageStrengthSavingThrowAffinityTitle	Rage strength save advantage
-Feature/&RallyingCryPowerDescription	Replaces Second Wind with a power to restore 4x Fighter Levels hit points to one or more allies within 6 cells, up to their hit point maximum
-Feature/&RallyingCryPowerTitle	Rallying Cry
-Feature/&RallyingCryPowerTitleShort	Rallying Cry
 Feature/&RangerArcanistMagicDescription	Starting at 3rd level, you learn an additional spell when you reach certain levels in this class. Each spell counts as a ranger spell for you, but it doesn't count against the number of ranger spells you know. The spells are: Level 3: Shield, Level 5: Misty Step, Level 9: Haste, Level 13: Dimension Door, and Level 17: Hold Monster. Additionally, you are proficient at casting spells in battle, and may cast spells that require a somatic component even if both of your hands are holding a weapon or shield
 Feature/&RangerArcanistMagicTitle	Ranger Arcanist Spellcasting
-Feature/&ArcanistAutoPreparedSpellsTitle	Ranger Arcanist Bonus Spells
-Feature/&ArcanistAutoPreparedSpellsDescription	You gain bonus spells that are considered ranger spells for you, they are always pepared and don't count against the number of ranger spells you know: \n{0}\n\n
-Feature/&MagicAffinityRangerArcanistTitle	Arcane Combat Training 
-Feature/&MagicAffinityRangerArcanistDescription	You are proficient at casting spells in battle, and may cast spells that require a somatic component even if both of your hands are holding a weapon or shield.
 Feature/&RangerFeralSensesDescription	You gain preternatural senses that help you fight creatures you can’t see. When you attack a creature you can’t see, your inability to see it doesn’t impose disadvantage on your attack rolls against it
 Feature/&RangerFeralSensesTitle	Feral Senses
 Feature/&RangerVanishActionDescription	Starting at 14th level, you can use the Hide action as a bonus action on your turn
@@ -1056,8 +1037,6 @@ Feature/&RangerVanishActionTitle	Vanish
 Feature/&RiftWalkerRestrainedImmunityTitle	Fleeting Step
 Feature/&RiftWalkerSpellsMagicAffinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: {0}\n\n 
 Feature/&RiftWalkerSpellsMagicAffinityTitle	Rift Walker Spells
-Feature/&RoyalEnvoyFeatureDescription	Add half of your proficiency bonus (round up) to any Charisma check you make that doesn't already use your proficiency bonus. In addition, you become proficient with Charisma saving throws
-Feature/&RoyalEnvoyFeatureTitle	Royal Envoy
 Feature/&SavingThrowTinkererProficiencyDescription	Proficiency in Constitution and Intelligence saving throws
 Feature/&SavingThrowTinkererProficiencyTitle	Saving Throw Proficiency
 Feature/&ScoutModePowerDescription	Gain increased movement, stealth advantage and a ranged attack which deals an extra die of damage once a turn
@@ -1081,6 +1060,10 @@ Feature/&ThirstingBladeDescription	You can attack with your weapon twice, instea
 Feature/&ThirstingBladeTitle	Thirsting Blade
 Feature/&TinkererArmorProficiencyDescription	Proficiency with Light and Medium armors as well as shields
 Feature/&TinkererArmorProficiencyTitle	Tinkerer Armor Proficiency
+Feature/&TinkererInfusionChoiceDescription	Select the infusions that you will have available to use. Note each infusion can be active only once. Activating it a second time will cancel the first.
+Feature/&TinkererInfusionChoiceTitle	Infusion Choice
+Feature/&TinkererInfusionReplaceDescription	Select the infusions to replace.
+Feature/&TinkererInfusionReplaceTitle	Replace Infusion
 Feature/&TinkererSkillGainChoicesPluralDescription	Tinkerer skills are Arcana, History, Investigation, Medecine, Nature, Perception and Sleight of Hand
 Feature/&TinkererSkillPointsTitle	Tinkerer Skills
 Feature/&TinkererToolsExpertiseDescription	Gain expertise with many tools including Thieve's Tools, Scroll Kits, Poisoner's Kit, Herbalism Kit, and Enchanting Tools
@@ -1105,6 +1088,10 @@ Feature/&UrPriestExpandedSpelllistAfinityDescription	You choose from an expanded
 Feature/&UrPriestExpandedSpelllistAfinityTitle	UrPriest Spells
 Feature/&WallofThornsFeatureSetDescription	Cast Wall of Thorns once a day
 Feature/&WallofThornsFeatureSetTitle	Forest Barrier
+Feature/&WitchCurseChoiceDescription	You are wracked by a terrible curse which infects your body and soul
+Feature/&WitchCurseChoiceTitle	Witch Curse
+Feature/&WitchMaledictionChoiceDescription	You can learn a number of powerful incantations, known as Maledictions, derived from the same insidious magic which cursed you
+Feature/&WitchMaledictionChoiceTitle	Maledictions
 Feature/&WitchSightDescription	You can sense or see invisibility up to 60 ft
 Feature/&WitchSightTitle	Witch Sight
 Feature/&ZSPowerPaladinCleansingTouchDescription	Remove spell effects by touching an ally. You can do this a number of times per day equal to your Charisma modifier
@@ -1121,6 +1108,8 @@ Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeFormat	Illumi
 Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeLine	Illuminating Strike deals extra damage to the target!
 Feedback/&AdditionalDamageBlindingWeaponStrikeFormat	Blinding Weapon
 Feedback/&AdditionalDamageBlindingWeaponStrikeLine	Additional damage and trying to apply Blindness from Blinding Weapon.
+Feedback/&AdditionalDamageEldritchSmiteFormat	Eldritch Smite!
+Feedback/&AdditionalDamageEldritchSmiteLine	{0} smites {1} (+{2})
 Feedback/&AdditionalDamageElementalDamageFormat	Elemental Damage
 Feedback/&AdditionalDamageElementalDamageLine	Elemental form grants additional damage
 Feedback/&AdditionalDamagePactMarkedFormat	Pact mark!
@@ -1129,8 +1118,12 @@ Feedback/&AdditionalDamagePactSoulTakerFormat	Soul taker!
 Feedback/&AdditionalDamagePactSoulTakerLine	Soul taker does additional damage!
 Feedback/&AdditionalDamagePugilistFormat	Pugilist
 Feedback/&AdditionalDamagePugilistLine	Additional Unarmed Damage from Pugilist
+Feedback/&AdditionalDamageResonatingStrikeFormat	Resonating Strike!
+Feedback/&AdditionalDamageResonatingStrikeLine	{0} resonates {1}! (+{2})
 Feedback/&AdditionalDamageSoulEmpoweredFormat	Soul Empowered!
 Feedback/&AdditionalDamageSoulEmpoweredLine	Soul Empowered does additional damage!
+Feedback/&AdditionalDamageSunlightBladeFormat	Sunlight Blade!
+Feedback/&AdditionalDamageSunlightBladeLine	{0} burns {1} with Sunlight Blade! (+{2})
 Feedback/&AdditionalDamageUpgradedConstructFormat	Upgraded Damage
 Feedback/&AdditionalDamageUpgradedConstructLine	The upgraded construct deals 1D8 more damage per hit
 Feedback/&AncientForestHerbalBrewDamageAffinityAcidResistancePowerUsedWhileTravellingFormat	{0} creates {1}
@@ -1144,6 +1137,7 @@ Feedback/&ExtraDamageDescription	Extra damage from Lighting Spear
 Feedback/&ExtraDamageTitle	Lightning Spear extra damage
 Feedback/&LightningSpearAdditionalDamageDescription	lightning damage 1D6 extra once per turn
 Feedback/&LightningSpearAdditionalDamageTitle	Lightning Spear extra damage
+Feedback/&NotifyEffectResonatingStrikeLine	{0} resonates {1}!
 FightingStyle/&BlindFightingDescription	You have blindsight with a range of 10 feet
 FightingStyle/&BlindFightingTitle	Blind Fighting
 FightingStyle/&PugilistFightingDescription	While you are completely unarmed, your unarmed strikes deal an additional d8 of damage and you can punch with your offhand as a bonus action
@@ -1192,14 +1186,16 @@ Message/&CharacterExportModalContentDescription	Enter the hero name to export:
 Message/&CharacterExportModalTitleDescription	Character Export
 Message/&LevelDownConfirmationDescription	Level down this Hero?
 Message/&LevelDownMultiplayerAbortDescription	Cannot Level Down during a multiplayer session
-Message/&RespecMultiplayerAbortDescription	Cannot Respec during a multiplayer session or on exploration map
 Message/&MessageModWelcomeDescription	The Community Expansion Mod is packed full of exciting features, but by default none are enabled. Press <color=yellow>Ctrl-F10</color> to open the Unity Mod Manager UI [UMM], then click on the settings icon next to 'Community Expansion' to open the settings pages.\n\n Explore the options and select the ones you like. The UMM UI will now open
 Message/&MessageModWelcomeTitle	Community Expansion Mod
+Message/&RespecMultiplayerAbortDescription	Cannot Respec during a multiplayer session or on exploration map
 Message/&SpawnCustomEncounterDescription	Spawn encounter at coordinates ({0}, {1})?
 Message/&SpawnCustomEncounterErrorDescription	Cannot spawn encounters on a multiplayer game. Yet...
 Message/&SpawnCustomEncounterTitle	Encounter
 Message/&TeleportPartyDescription	Teleport party to coordinates ({0}, {1})?\nYou might break quests or maps if you teleport to an undiscovered place
 Message/&TeleportPartyTitle	Teleport
+Modifier/&AHWarlockSoulBladePactEmpowerWeaponModifierDescription	Weapon uses Charisma modifier for attack and damage rolls and counts as magical until long rest.
+Modifier/&AHWarlockSoulBladePactEmpowerWeaponModifierTitle	Soul Empowered
 Modifier/&AttributeModifierRuinDescription	-3 to Armor Class
 Modifier/&AttributeModifierRuinTitle	Ruined
 Modifier/&DisorientDescription	-1d6 to attack rolls
@@ -1229,11 +1225,11 @@ Power/&AncientForestLifeSapDescription	When you damage enemy with spell you heal
 Power/&AncientForestLifeSapTitle	Life Sap
 Power/&AncientForestRootedPowerDescription	Arboreal tendrils grow from your feet and dig into the ground. Your speed becomes 0, and you gain advantage on any saving throws to push you, pull you, or knock you prone.You can cast entangle at will
 Power/&AncientForestRootedPowerTitle	Rooted
-Power/&DH_ElementalFormPoolTitle	Elemental Forms
 Power/&DH_ElementalFormPoolDescription	You can switch between elemental forms a number of times (equal to your Proficiency Bonus) per day by channeling elemental energy. You gain resistance to the relevant damage and once per turn, apply Proficiency Bonus as damage of the same type to first spell damage each round. The forms last for 1 minute
+Power/&DH_ElementalFormPoolEnhancedDescription	You can switch between enhanced elemental forms a number of times (equal to your Proficiency Bonus) per day by channeling elemental energy. You gain immunity to the relevant damage and apply Proficiency Bonus as damage of the same type to first spell damage each round. The forms last for 1 minute
 Power/&DH_ElementalFormPoolEnhancedTitle	Enhanced Elemental Forms
 Power/&DH_ElementalFormPoolEnhancedTitleShort	Elemental Forms
-Power/&DH_ElementalFormPoolEnhancedDescription	You can switch between enhanced elemental forms a number of times (equal to your Proficiency Bonus) per day by channeling elemental energy. You gain immunity to the relevant damage and apply Proficiency Bonus as damage of the same type to first spell damage each round. The forms last for 1 minute
+Power/&DH_ElementalFormPoolTitle	Elemental Forms
 Power/&FindFamiliarBundlePowerDescription	Summon familiar in the form of Pseudorgagon, Sprite, Imp or Quasit.
 Power/&FindFamiliarBundlePowerTitle	Find Familiar
 Power/&HelpActionDescription	You can aid a friendly creature in attacking a creature within 5 feet of you. You feint, distract the target, or in some other way team up to make your ally's attack more effective. If your ally attacks the target before your next turn, the first attack roll is made with advantage
@@ -1300,11 +1296,25 @@ Reaction/&SpendPowerKnockDownPowerDescription	Spend a gambit die and empower you
 Reaction/&SpendPowerKnockDownPowerReactDescription	Spend a gambit die and empower your attack to do an additional 1d6+2 bludgeoning damage and knock them down until the start of their next turn if they fail a Strength save vs. 8 + your Strength + proficiency
 Reaction/&SpendPowerKnockDownPowerReactTitle	Knock down
 Reaction/&SpendPowerKnockDownPowerTitle	Knock down
+Reaction/&SpendSpellSlotEldritchSmiteDescription	{0} can spend spell slot to deal 1d8 + 1d8 force damage per slot level to the target.
+Reaction/&SpendSpellSlotEldritchSmiteReactDescription	Click to spend a spell slot and increase damage to the target.
+Reaction/&SpendSpellSlotEldritchSmiteReactTitle	Smite
+Reaction/&SpendSpellSlotEldritchSmiteTitle	Eldritch Smite
+Reaction/&SubitemSelectEldritchSmiteDescription	Select a slot level to consume for your Eldritch Smite.
+Reaction/&SubitemSelectEldritchSmiteTitle	Slot Level
 Reaction/&SubitemSelectSlotLevelTitle	Slot Level
 Reaction/CastSpellInRetributionDescription	{0} is attacking {1}! You can cast {2} in responce!
 Reaction/CastSpellInRetributionReactDescription	Click to cast {0}
 Reaction/CastSpellInRetributionReactTitle	Cast Spell
 Reaction/CastSpellInRetributionTitle	Cast Reaction Spell
+Requirement/&FeatureSelectionRequireCharacterLevel	Level {0}
+Requirement/&FeatureSelectionRequireClassLevel	Level {0} of {1}
+Requirement/&WarlockMissingEldritchBlast	Eldritch Blast cantrip
+Requirement/&WarlockRequiresNoMoonLit	Not Moonlit Patron
+Requirement/&WarlockRequiresOneWithShadows	"One With Shadows" eldritch invocation
+Requirement/&WarlockRequiresPactOfBlade	Pact of the Blade
+Requirement/&WarlockRequiresPactOfChain	Pact of the Chains
+Requirement/&WarlockRequiresPactOfTome	Pact of the Tome
 RestActivity/&ZSRespecDescription	Respec this Hero
 RestActivity/&ZSRespecTitle	Respec
 RestActivity/&ZSSorcerousRestorationDescription	Regain 4 sorcery points during a short rest
@@ -1335,6 +1345,8 @@ Screen/&EditorLocationSize3Title	Huge [MODDED]
 Screen/&EditorLocationSize4Title	Gargantuan [MODDED]
 Screen/&FeyTeleportSpellDescription	This Fey spell is always prepared
 Screen/&FeyTeleportSpellTitle	Fey
+Screen/&MulticlassSpellDescription	You know this spell from other repertoire
+Screen/&MulticlassSpellTitle	Multiclass
 Screen/&ShadowTouchedSpellDescription	This Shadow spell is always prepared
 Screen/&ShadowTouchedSpellTitle	Shadow
 Screen/&SpellSlotsUsedLongDescription	You have expended {0} spell slot(s) at this level
@@ -1419,6 +1431,10 @@ Spell/&EldritchBlastRepellingBlastTitle	Eldritch Blast (Repelling)
 Spell/&EldritchBlastTitle	Eldritch Blast
 Spell/&EldritchOrbDescription	You fling a ball of eldritch energy at a creature or object within range and deal force damage in small radius.
 Spell/&EldritchOrbTitle	Eldritch Orb
+Spell/&EWResonatingStrikeDescription	Select one creature within melee range of you and a different creature that you can see within 5 feet of main target. You make a melee attack with current weapon against first creature. On a hit, the target suffers the weapon attack's normal effects, and resonating sound leaps to second target, dealing thunder damage equal to your spellcasting ability modifier.\nAt 5th level, the melee attack deals extra 1d8 thunder damage to the target on a hit, and the thunder damage to the second creature increases to 1d8 + your spellcasting ability modifier. Both damage rolls increase by 1d8 at 11th and 17th levels.
+Spell/&EWResonatingStrikeTitle	Resonating Strike
+Spell/&EWSunlightBladeDescription	Make a melee attack with a weapon. On a hit, the target suffers the attack's normal effects, and is enveloped in glowing radiant energy, shedding dim light for the turn. Next attack against this creature while it is highlighted is done with advantage.\nAt 5th level, the melee attack deals an extra 1d8 radiant damage to the target. The damage increases by another 1d8 at 11th level and 17th level.
+Spell/&EWSunlightBladeTitle	Sunlight Blade
 Spell/&FindFamiliarDescription	You gain the service of a familiar
 Spell/&FindFamiliarImpDescription	Summons your familiar in the form of an imp
 Spell/&FindFamiliarImpTitle	Find Familiar (Imp)
@@ -1564,8 +1580,6 @@ Subclass/&DruidForestGuardianDruidSubclassDescription	Circle of the Forest Guard
 Subclass/&DruidForestGuardianDruidSubclassTitle	Circle of the Forest Guardian
 Subclass/&EquipmentModifierArtificerBagOfHolderDescription	Touch an bag and infuse an extra dimmensional space to help it hold more weight without encumbering you. Note you can only have an infusion active once. Activating it a second time will cancel the first
 Subclass/&EquipmentModifierArtificerBagOfHolderTitle	Bag of Holding
-Subclass/&FighterRoyalKnightDescription	A knight who inspires greatness in others by committing brave deeds in battle. A lone knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band
-Subclass/&FighterRoyalKnightTitle	Royal Knight
 Subclass/&FighterSpellShieldDescription	Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities
 Subclass/&FighterSpellShieldSpellcastingDescription	Cast wizard spells and cantrips from the Abjuration, Illusion, Transmutation, and Necromancy schools
 Subclass/&FighterSpellShieldSpellcastingTitle	Spellcasting
@@ -1590,8 +1604,6 @@ Subclass/&HealingPoolLifeTransmuterBonusExtraTitle	Additional Transmute Force
 Subclass/&HealingPoolLifeTransmuterBonusTitle	Additional Transmute Force
 Subclass/&HealingPoolLifeTransmuterListDescription	2 times per day enact your will on reality with special abilities
 Subclass/&HealingPoolLifeTransmuterListTitle	Transmute Force
-Subclass/&KSRogueSubclassThugDescription	Thugs are sharp-minded combattants who seek the thrill of the fight and will make their enemies bite the dust by any means necessary. They benefit from an advanced martial training and learn to make use of their wit and brawn alike to triumph in battle
-Subclass/&KSRogueSubclassThugTitle	Thug
 Subclass/&MagicAffinityAlchemicalSavantListDescription	When casting Acid Arrow and Flaming Sphere they behave as if cast 2 levels higher. Your cantrips are also boosted so even when the enemy saves they still take half damage
 Subclass/&MagicAffinityAlchemicalSavantListTitle	Elixir Savant Spells
 Subclass/&MagicAffinityAlchemistSpellRecoveryDescription	You can recover spell slots during a short rest twice per day
@@ -1697,10 +1709,6 @@ Subclass/&TinkererFlashOfGeniusConditionDescription	Inspired by a flash of geniu
 Subclass/&TinkererFlashOfGeniusConditionTitle	Flash of Genius
 Subclass/&TinkererFlashOfGeniusPowerDescription	You can use your genius to inspire yourself and others on ability checks and saving throws
 Subclass/&TinkererFlashOfGeniusPowerTitle	Flash of Genius
-Feature/&TinkererInfusionChoiceTitle	Infusion Choice
-Feature/&TinkererInfusionChoiceDescription	Select the infusions that you will have available to use. Note each infusion can be active only once. Activating it a second time will cancel the first.
-Feature/&TinkererInfusionReplaceTitle	Replace Infusion
-Feature/&TinkererInfusionReplaceDescription	Select the infusions to replace.
 Subclass/&TinkererMagicalTinkeringDescription	Gain the ability to do several minor effects (Dazzle, Sparkle, Shine)
 Subclass/&TinkererMagicalTinkeringTitle	Magical Tinkering
 Subclass/&TraditionArcaneFighterDescription	Channel your magic into weapon attacks
@@ -1746,39 +1754,11 @@ Tooltip/&Tag9000Title	Custom Effect
 Tooltip/&TagCommunityExpansionTitle	Community Expansion
 Tooltip/&TagMaledictionTitle	Malediction
 Tooltip/&TagOtherModContentTitle	From mod
-Requirement/&WarlockMissingEldritchBlast	Eldritch Blast cantrip
-Requirement/&WarlockRequiresPactOfBlade	Pact of the Blade
-Requirement/&WarlockRequiresPactOfTome	Pact of the Tome
-Requirement/&WarlockRequiresPactOfChain	Pact of the Chains
-Requirement/&WarlockRequiresNoMoonLit	Not Moonlit Patron
-Requirement/&WarlockRequiresOneWithShadows	"One With Shadows" eldritch invocation
-Requirement/&FeatureSelectionRequireClassLevel	Level {0} of {1}
-Requirement/&FeatureSelectionRequireCharacterLevel	Level {0}
-UI/&CustomFeatureSelectionTooltipTypePower	Power
-UI/&CustomFeatureSelectionTooltipTypeCantrip	Cantrip
-UI/&CustomFeatureSelectionTooltipTypeProficiency	Proficiency
-UI/&CustomFeatureSelectionTooltipTypeFeature	Feature
-UI/&CustomFeatureSelectionStageTitle	Feature Selection
 UI/&CustomFeatureSelectionStageDescription	Select extra features from your class/subclass.
 UI/&CustomFeatureSelectionStageFeatures	Features
 UI/&CustomFeatureSelectionStageNotDone	You must select all available features before proceeding.
-Feature/&WitchMaledictionChoiceDescription	You can learn a number of powerful incantations, known as Maledictions, derived from the same insidious magic which cursed you
-Feature/&WitchMaledictionChoiceTitle	Maledictions
-Screen/&MulticlassSpellTitle	Multiclass
-Screen/&MulticlassSpellDescription	You know this spell from other repertoire
-Equipment/&Enchanted_Rapier_Dragonblade_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. It was designed by Lestoreth Steelarm to fight in the frozen North of the Empire.
-Equipment/&Enchanted_Rapier_Dragonblade_Title	Dragonblade Rapier
-Equipment/&Enchanted_Rapier_Frostburn_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. It was designed by Keliandir Moltenheart, who forged this weapon to fight salamanders after an exploration of the elemental planes went awry.
-Equipment/&Enchanted_Rapier_Frostburn_Title	Frostburn Rapier
-Equipment/&Enchanted_Rapier_Lightbringer_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
-Equipment/&Enchanted_Rapier_Lightbringer_Title	Lightbringer Rapier
-Equipment/&Enchanted_Rapier_Power_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. Some creatures only respect physical strengths. Manacalon arcanists created this Rapier to give champions of the Iron Legions the strength their elven bodies didn't provide.
-Equipment/&Enchanted_Rapier_Power_Title	Rapier of Power
-Equipment/&Enchanted_Rapier_Souldrinker_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
-Equipment/&Enchanted_Rapier_Souldrinker_Title	Souldrinker Rapier
-Equipment/&Enchanted_Rapier_Stormblade_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon � to devastating effect!
-Equipment/&Enchanted_Rapier_Stormblade_Title	Stormblade Rapier
-Equipment/&Enchanted_Rapier_Warden_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Ildurial Strongarm, a famous Manacalon bladesmith. The first such blade, the Manacalon Warden, was offered to the commander of the Euraidd.
-Equipment/&Enchanted_Rapier_Warden_Title	Warden Rapier
-Equipment/&Enchanted_Rapier_Whiteburn_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Whiteburn was created by the first Danantar to fight a troll invasion coming from the swamps to the south of his domain between the Sioltafin and the Scarafin.
-Equipment/&Enchanted_Rapier_Whiteburn_Title	Whiteburn Rapier
+UI/&CustomFeatureSelectionStageTitle	Feature Selection
+UI/&CustomFeatureSelectionTooltipTypeCantrip	Cantrip
+UI/&CustomFeatureSelectionTooltipTypeFeature	Feature
+UI/&CustomFeatureSelectionTooltipTypePower	Power
+UI/&CustomFeatureSelectionTooltipTypeProficiency	Proficiency
