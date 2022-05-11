@@ -1,6 +1,7 @@
 ﻿using SolastaModApi.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.CustomDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionProficiencys;
 using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
@@ -66,6 +67,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .Create("AHWarlockSoulBladePactEmpowerWeaponPower", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerOathOfDevotionSacredWeapon.GuiPresentation.SpriteReference)
                 .SetShortTitleOverride("Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle")
+                .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always)
                 .SetRechargeRate(RechargeRate.LongRest)
                 .SetFixedUsesPerRecharge(1)
                 .SetCostPerUse(1)
