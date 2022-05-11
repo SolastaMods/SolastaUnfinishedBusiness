@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:ArcanistAutoPreparedSpells:ef85a838-7fb5-5133-bc27-78ccbe2af98a",
-    "Definition:MagicAffinityRangerArcanist:63372bfb-ca38-554c-a8ee-3476a34fc7b6"
+    "Definition:MagicAffinityRangerArcanist:63372bfb-ca38-554c-a8ee-3476a34fc7b6",
+    "Definition:ArcanistAutoPreparedSpells:ef85a838-7fb5-5133-bc27-78ccbe2af98a"
   ],
   "mode": "Union",
   "defaultSelection": 0,

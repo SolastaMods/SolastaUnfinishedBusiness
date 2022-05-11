@@ -67,6 +67,11 @@ Reaction/&SubitemSelectEldritchSmiteTitle	Slot Level
 Reaction/&SubitemSelectEldritchSmiteDescription	Select a slot level to consume for your Eldritch Smite.
 Feedback/&AdditionalDamageEldritchSmiteFormat	Eldritch Smite!
 Feedback/&AdditionalDamageEldritchSmiteLine	{0} smites {1} (+{2})
+Feedback/&AdditionalDamageSunlightBladeLine	{0} burns {1} with Sunlight Blade! (+{2})
+Feedback/&AdditionalDamageSunlightBladeFormat	Sunlight Blade!
+Feedback/&NotifyEffectResonatingStrikeLine	{0} resonates {1}!
+Feedback/&AdditionalDamageResonatingStrikeLine	{0} resonates {1}! (+{2})
+Feedback/&AdditionalDamageResonatingStrikeFormat	Resonating Strike!
 Feature/&ElementalPactAirPlane	Air Plane
 Feature/&ElementalPactAstralPlane	Astral Plane
 Feature/&ElementalPactEarthPlane	Earth Plane
