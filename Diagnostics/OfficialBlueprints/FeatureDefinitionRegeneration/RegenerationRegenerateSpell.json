@@ -1,0 +1,44 @@
+{
+  "$type": "FeatureDefinitionRegeneration, Assembly-CSharp",
+  "diceNumber": 1,
+  "dieType": "D1",
+  "bonus": 0,
+  "tickType": "Round",
+  "tickNumber": 1,
+  "preventingDamages": [],
+  "particlePrefab": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "f594e54f04bff7e45837b94968cb3b50",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Rules/&ConditionRegeneratingTitle",
+    "description": "Rules/&ConditionRegeneratingDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "54adf5b2b0d9e8c4eb3516d968dfe17f",
+  "contentPack": "BaseGame",
+  "name": "RegenerationRegenerateSpell"
+}

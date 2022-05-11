@@ -3,7 +3,8 @@
   "requiredSensesToPerceive": [
     "Blindsight",
     "DetectInvisibility",
-    "Truesight"
+    "Truesight",
+    "Tremorsense"
   ],
   "impairedSight": false,
   "characterFamilyRevealed": false,

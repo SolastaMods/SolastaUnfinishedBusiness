@@ -22,7 +22,7 @@
             {
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
               "optionType": "Weapon",
-              "itemReference": "Definition:Warhammer:642fede86cb34fd499fd36d0a3da9d1a",
+              "itemReference": "Definition:Spear:f188e2e2e3e6ab04ba786bcaca6e8bd9",
               "defaultChoice": "",
               "number": 1
             }

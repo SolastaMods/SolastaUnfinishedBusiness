@@ -19,7 +19,7 @@
   "defaultStackCount": 10,
   "costs": [
     0,
-    0,
+    25,
     0,
     0,
     5
@@ -76,7 +76,7 @@
       "durationType": "Instantaneous",
       "durationParameter": 1,
       "endOfEffect": "EndOfTurn",
-      "hasSavingThrow": false,
+      "hasSavingThrow": true,
       "disableSavingThrowOnAllies": false,
       "savingThrowAbility": "Dexterity",
       "ignoreCover": false,
@@ -85,7 +85,7 @@
       "createdByCharacter": false,
       "difficultyClassComputation": "FixedValue",
       "savingThrowDifficultyAbility": "Wisdom",
-      "fixedSavingThrowDifficultyClass": 15,
+      "fixedSavingThrowDifficultyClass": 12,
       "savingThrowAffinitiesBySense": [],
       "savingThrowAffinitiesByFamily": [],
       "advantageForEnemies": false,
@@ -98,6 +98,8 @@
       "restrictedCharacterSizes": [],
       "hasLimitedEffectPool": false,
       "effectPoolAmount": 60,
+      "effectApplication": "All",
+      "effectFormFilters": [],
       "effectForms": [
         {
           "$type": "EffectForm, Assembly-CSharp",
@@ -108,8 +110,8 @@
           "levelMultiplier": 1,
           "createdByCharacter": false,
           "createdByCondition": false,
-          "hasSavingThrow": false,
-          "savingThrowAffinity": "None",
+          "hasSavingThrow": true,
+          "savingThrowAffinity": "HalfDamage",
           "dcModifier": 0,
           "canSaveToCancel": false,
           "saveOccurence": "StartOfTurn",
@@ -127,9 +129,12 @@
             "specialDeathCondition": null,
             "ignoreFlyingCharacters": false,
             "ignoreCriticalDoubleDice": false
-          }
+          },
+          "hasFilterId": true,
+          "filterId": 0
         }
       ],
+      "specialFormsDescription": "",
       "effectAdvancement": {
         "$type": "EffectAdvancement, Assembly-CSharp",
         "effectIncrementMethod": "None",
@@ -459,18 +464,20 @@
     "sameBehavioursForMaleAndFemale": true,
     "maleBodyPartBehaviours": [],
     "femaleBodyPartBehaviours": [],
-    "itemFlags": [],
+    "itemFlags": [
+      "Definition:ItemFlag_Flaming:909eb0d56efb2164b96f5042b02f72c5"
+    ],
     "serializedVersion": 1
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Equipment/&FireArrowTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Equipment/&Flaming_Arrow_Title",
+    "description": "Equipment/&AlchemicalProjectile_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "2aed4c10add0c2b409806d1c8796856a",
-      "m_SubObjectName": "StandardArrow",
+      "m_AssetGUID": "d719bcb89d0052143a55602e490ba42c",
+      "m_SubObjectName": "Arrow_Flaming",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

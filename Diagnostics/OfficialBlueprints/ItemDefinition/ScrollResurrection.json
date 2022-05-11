@@ -63,7 +63,7 @@
         "durationType": "Hour",
         "canOverchargeSpell": false,
         "type": "Spell",
-        "spellDefinition": "Definition:Resurrection:f796a243f664c73409cca137f137f5f3",
+        "spellDefinition": null,
         "featureDefinitionPower": null
       }
     ],

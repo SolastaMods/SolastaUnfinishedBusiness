@@ -23,10 +23,10 @@
   "hairColorMorphotype": "HairColorBlond",
   "beardShapeMorphotype": "",
   "eyeColorMorphotype": "EyeColorBlack",
-  "eyeMorphotype": "",
-  "bodyDecorationMorphotype": "",
-  "bodyDecorationColorMorphotype": "",
-  "scarsMorphotype": "",
+  "eyeMorphotype": "Eye_Default",
+  "bodyDecorationMorphotype": "BodyDecoration_None",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "Scars_None",
   "mainClass": "Definition:Cleric:ae0f550f733a7e04aa225da694b2827c",
   "subClass": "Definition:DomainLife:67493523943f9dc45bd2d33f6de4ee91",
   "deity": "Definition:Arun:9fe6be99f689cc94683098b128c799d8",
@@ -83,6 +83,7 @@
   "knownClassSpells": [],
   "knownSubclassSpells": [],
   "preparedClassSpells": [
+    "Definition:SpiritualWeapon:2a304c1b2bfa7be4c9cf7c7e08268fd7",
     "Definition:Bane:2e60d6f650100a84f917bd5d0e69b356",
     "Definition:Bless:c2c3de28b2c1e294f9a604cdf03b9fd8",
     "Definition:CureWounds:c401c5cf11ac8274f98a0dc809ff5863",
@@ -117,7 +118,7 @@
     {
       "$type": "WieldedItemsConfiguration, Assembly-CSharp",
       "mainHandItemDefinition": "Definition:Mace:639725eb1a28ef242851668eb3d5b2e7",
-      "offHandItemDefinition": "Definition:Shield:28e1f623fc28c7242a89072ee116a1dc"
+      "offHandItemDefinition": null
     },
     {
       "$type": "WieldedItemsConfiguration, Assembly-CSharp",

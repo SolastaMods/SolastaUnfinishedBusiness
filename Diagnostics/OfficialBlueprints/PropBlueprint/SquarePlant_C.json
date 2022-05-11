@@ -8,13 +8,7 @@
   "openingLowPlacement": false,
   "openingHighPlacement": false,
   "propPlacement": false,
-  "lightSources": [
-    {
-      "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
-      "x": 0.0,
-      "y": 0.0
-    }
-  ],
+  "lightSources": [],
   "category": "Furniture",
   "dimensions": {
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
@@ -34,7 +28,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Prop/&StillTitle",
+    "title": "Prop/&SquarePlantTitle",
     "description": "",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

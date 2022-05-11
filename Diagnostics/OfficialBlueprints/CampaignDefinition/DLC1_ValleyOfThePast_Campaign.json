@@ -1756,7 +1756,20 @@
     "Definition:RecipeBasic_Arrows:6f5158a200a6dc047b3d8f85e0476019"
   ],
   "startingQuests": [
-    "Definition:DLC1_Scenario_Campaign:b2d5a840d78eef64b832f910d64b5394"
+    "Definition:DLC1_Scenario_Campaign:b2d5a840d78eef64b832f910d64b5394",
+    "Definition:Rebellion10_TalkToRenno_CompatibilityScenario:d587ef3ebd0bbb045a7ff8b179de8d43",
+    "Definition:DLC1_Lost_Valley_Quest_Giant_05_Rugan_CompatibilityScenario:6b7d517243afd64469b97f4ee213b850",
+    "Definition:DLC1_People08_Prisoners_CompatibilityScenario:7406fa0ef2643ad4281128cd7e0d5b1a",
+    "Definition:DLC1_Rebellion03_Charmer_CompatibilityScenario:e24d174c6a8b9e244b9f518e8a251daf",
+    "Definition:DLC1_Rebellion06_ReportToEllaria_Wait24h_CompatibilityScenario:c7e4a7e5ff42e85468848cdd15df2028",
+    "Definition:DLC1_Lost_Valley_GiveScepterIfAlreadyAfterDominionEnd:b34064b14708e0f47ae2a7c851e5e56b",
+    "Definition:DLC1_Lost_Valley_CityExit_CompatibilityScenario:b7ec267ac5e81014f9352fe4fcc5b6b7",
+    "Definition:DLC1_Rebellion03_Charmer_ForgeUnavailable_CompatibilityScenario:59683aa1c1081864b8a333bdbceda01c",
+    "Definition:DLC1_Lost_Valley_MarinDeadButNot_CompatibilityScenario:cf4ad3d0b4f345a4480805e57607c07a",
+    "Definition:DLC1_Orenetis09_SpawnPeriphanos_CompatibilityScenario:27bb425f7f3c5ef408a3367117dddec1",
+    "Definition:DLC1_People08_SiteneroDead_CompatibilityScenario:456d7ed66539b184c9a7bbc778ebaaac",
+    "Definition:DLC1_People08_SiteneroSpared_CompatibilityScenario:08cfde1990e414545bd53da674d15af5",
+    "Definition:DLC1_Forge07_FailRebellionQuests_CompatibilityScenario:f7140f46a694dda468cf7d23b16ae454"
   ],
   "journalStart": "Campaign/&DLC1_Journal_Start",
   "initialBestiaryContent": [

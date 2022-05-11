@@ -919,6 +919,20 @@
       "reassortRateValue": 1,
       "requiredFaction": "DLC1_Faction_Rebellion",
       "factionStatus": "Indifference"
+    },
+    {
+      "$type": "StockUnitDescription, Assembly-CSharp",
+      "initialized": true,
+      "itemDefinition": "Definition:ScrollGreaterRestoration:ddaf136902e301d4a808d6425df6eab0",
+      "stackCount": 1,
+      "initialAmount": 2,
+      "minAmount": 0,
+      "maxAmount": 2,
+      "reassortAmount": 1,
+      "reassortRateType": "Day",
+      "reassortRateValue": 1,
+      "requiredFaction": "DLC1_Faction_Rebellion",
+      "factionStatus": "Indifference"
     }
   ],
   "guiPresentation": {

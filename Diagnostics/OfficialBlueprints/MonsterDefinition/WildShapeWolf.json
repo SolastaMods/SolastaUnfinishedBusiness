@@ -80,9 +80,7 @@
     "Definition:MoveModeMove8:4c110104739c99e4d920529a058ab2e2",
     "Definition:AbilityCheckAffinityKeenHearing:4e042e049873e27469a28b7c8e9e1d72",
     "Definition:AbilityCheckAffinityKeenSmell:ad58749fe3130524781820bdc7f034df",
-    "Definition:CombatAffinityPackTactics:d220eabb22f6ae84f8aeea2c68077a93",
-    "Definition:MovementAffinityNoVault:0b6455d36a68ae84f864f99a3b2c3a34",
-    "Definition:MovementAffinityNoClimb:f65dd18ad2835b14e96502705a1b9544"
+    "Definition:CombatAffinityPackTactics:d220eabb22f6ae84f8aeea2c68077a93"
   ],
   "attackIterations": [
     {

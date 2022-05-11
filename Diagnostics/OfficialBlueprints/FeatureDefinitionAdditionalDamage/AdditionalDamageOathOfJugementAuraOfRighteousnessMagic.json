@@ -2,9 +2,9 @@
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
   "notificationTag": "AuraOfRighteousness",
   "limitedUsage": "None",
-  "triggerCondition": "AlwaysActive",
+  "triggerCondition": "SpellDamagesTarget",
   "requiredProperty": "None",
-  "attackModeOnly": true,
+  "attackModeOnly": false,
   "requiredTargetCondition": null,
   "requiredTargetSenseType": "Darkvision",
   "requiredTargetCreatureTag": "",
@@ -108,7 +108,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "OpenGameContent",
-  "guid": "adde342a8cceeaf4997d9bb9ddd1659b",
+  "guid": "bf1122a567c44ae489d571ea94ce046e",
   "contentPack": "LostValley",
-  "name": "AdditionalDamageOathOfJugementAuraOfRighteousness"
+  "name": "AdditionalDamageOathOfJugementAuraOfRighteousnessMagic"
 }

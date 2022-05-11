@@ -3,7 +3,7 @@
   "craftedItem": "Definition:Enchanted_HideArmor_Of_The_Vagrant:5bb45ab1f4a9b5c4ba36ab0538dea1e0",
   "stackCount": 1,
   "craftingHours": 16,
-  "craftingDC": 56,
+  "craftingDC": 16,
   "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
   "ingredients": [
     {

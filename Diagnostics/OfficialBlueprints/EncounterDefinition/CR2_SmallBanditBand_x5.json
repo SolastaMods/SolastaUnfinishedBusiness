@@ -1,7 +1,7 @@
 {
   "$type": "EncounterDefinition, Assembly-CSharp",
   "type": "Battle",
-  "challengeRating": 3,
+  "challengeRating": 4,
   "locationOverride": null,
   "monsterOccurences": [
     {

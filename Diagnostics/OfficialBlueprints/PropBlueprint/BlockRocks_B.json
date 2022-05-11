@@ -2,24 +2,24 @@
   "$type": "PropBlueprint, Assembly-CSharp",
   "groundPlacement": true,
   "groundLowPlacement": false,
-  "groundHighPlacement": true,
+  "groundHighPlacement": false,
   "wallPlacement": false,
-  "openingPlacement": true,
+  "openingPlacement": false,
   "openingLowPlacement": false,
   "openingHighPlacement": false,
   "propPlacement": false,
   "lightSources": [],
-  "category": "Furniture",
+  "category": "Obstacle",
   "dimensions": {
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
   },
   "prefabsByEnvironment": [
     {
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
-      "environment": "ValleyPalace",
+      "environment": "Jungle",
       "prefabReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "362e6d323b07ac642ba79f21e0dc3c84",
+        "m_AssetGUID": "0496eaa0ec0c33f48bb1e0fa188932c0",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       }
@@ -28,12 +28,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Prop/&TableTitle",
-    "description": "",
+    "title": "Prop/&BlockTitle",
+    "description": "Prop/&BlockDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "ab462e25cbfd664438ba0679358408cb",
-      "m_SubObjectName": "Statue",
+      "m_AssetGUID": "7cdb42d642bca60459f412212c92a21e",
+      "m_SubObjectName": "Column",
       "m_SubObjectType": ""
     },
     "color": {
@@ -44,12 +44,12 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 0,
+    "sortOrder": 5,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },
   "contentCopyright": "OpenGameContent",
-  "guid": "b0e29528af4b6f341b4335857be5959d",
+  "guid": "b2b4e764d9012ca4d922eec4112ace3a",
   "contentPack": "BaseGame",
-  "name": "Throne"
+  "name": "BlockRocks_B"
 }

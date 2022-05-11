@@ -40,7 +40,9 @@
         "dieType": "D1",
         "bonusHitPoints": 0,
         "applyToSelf": false
-      }
+      },
+      "hasFilterId": false,
+      "filterId": 0
     }
   ],
   "cancellingConditions": [],

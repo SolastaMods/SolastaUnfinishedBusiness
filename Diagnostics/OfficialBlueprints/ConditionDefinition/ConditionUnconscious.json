@@ -17,7 +17,9 @@
   "durationParameterDie": "D1",
   "durationParameter": 1,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [],
+  "specialInterruptions": [
+    "None"
+  ],
   "interruptionRequiresSavingThrow": false,
   "interruptionDamageThreshold": 0,
   "conditionTags": [],

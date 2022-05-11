@@ -16,7 +16,8 @@
   "durationParameter": 1,
   "turnOccurence": "EndOfTurn",
   "specialInterruptions": [
-    "RageStop"
+    "RageStop",
+    "NoAttackOrDamagedInTurn"
   ],
   "interruptionRequiresSavingThrow": false,
   "interruptionDamageThreshold": 0,
