@@ -159,7 +159,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetVerboseComponent(false)
                 .SetCustomSubFeatures(
                     CustomSpellEffectLevel.ByCasterLevel,
-                    new UpgradeEffectFromLvel(flameHighLevel, 5)
+                    new UpgradeEffectFromLevel(flameHighLevel, 5)
                 )
                 .SetCastingTime(RuleDefinitions.ActivationTime.Action)
                 .SetEffectDescription(new EffectDescriptionBuilder()
@@ -342,27 +342,6 @@ namespace SolastaCommunityExpansion.Spells
 
             var castSpell = new CharacterActionCastSpell(p);
             return castSpell;
-        }
-    }
-
-    internal class UpgradeEffectFromLvel : ICustomMagicEffectBasedOnCaster
-    {
-        private EffectDescription upgraded;
-        private int level;
-
-        public UpgradeEffectFromLvel(EffectDescription upgraded, int level)
-        {
-            this.upgraded = upgraded;
-            this.level = level;
-        }
-
-        public EffectDescription GetCustomEffect(RulesetCharacter caster)
-        {
-            var casterLevel = caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
-            if (casterLevel < level) { return null; }
-
-            return upgraded;
-
         }
     }
 }
