@@ -86,16 +86,18 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.HeroInspection
                 var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
                 var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire);
 
+                classSpellLevel = SharedSpellsContext.GetClassSpellLevel(spellRepertoire);
+
                 if (isWarlockRepertoire)
                 {
                     classSpellLevel = warlockSpellLevel;
                 }
-                else
+                else if (isSharedcaster)
                 {
                     classSpellLevel = sharedSpellLevel;
                 }
 
-                slotLevel = Math.Max(warlockSpellLevel, sharedSpellLevel);
+                slotLevel = Math.Max(Math.Max(classSpellLevel, warlockSpellLevel), sharedSpellLevel);
             }
 
             RebuildSlotsTable(
