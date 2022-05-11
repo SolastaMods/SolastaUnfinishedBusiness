@@ -7,7 +7,7 @@ namespace SolastaCommunityExpansion.Patches.BugFix
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class TacticalAdventuresApplication_IsGameModded
     {
-        public static void Prefix(
+        public static bool Prefix(
             ref bool __result,
             out bool ummExists,
             out int ummActiveModsCount,
@@ -17,6 +17,8 @@ namespace SolastaCommunityExpansion.Patches.BugFix
             ummExists = false;
             ummActiveModsCount = 0;
             solastaModApiExists = false;
+
+            return false;
         }
     }
 }
