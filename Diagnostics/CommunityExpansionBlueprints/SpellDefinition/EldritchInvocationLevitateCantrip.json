@@ -69,6 +69,8 @@
     ],
     "hasLimitedEffectPool": false,
     "effectPoolAmount": 60,
+    "effectApplication": "All",
+    "effectFormFilters": [],
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
@@ -92,7 +94,9 @@
           "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
-        }
+        },
+        "hasFilterId": false,
+        "filterId": 0
       },
       {
         "$type": "EffectForm, Assembly-CSharp",
@@ -112,7 +116,9 @@
           "$type": "MotionForm, Assembly-CSharp",
           "type": "Levitate",
           "distance": 4
-        }
+        },
+        "hasFilterId": false,
+        "filterId": 0
       },
       {
         "$type": "EffectForm, Assembly-CSharp",
@@ -136,9 +142,12 @@
           "conditionsList": [],
           "applyToSelf": true,
           "forceOnSelf": false
-        }
+        },
+        "hasFilterId": false,
+        "filterId": 0
       }
     ],
+    "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
       "effectIncrementMethod": "None",

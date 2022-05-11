@@ -55,6 +55,8 @@
     "restrictedCharacterSizes": [],
     "hasLimitedEffectPool": false,
     "effectPoolAmount": 60,
+    "effectApplication": "All",
+    "effectFormFilters": [],
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
@@ -78,9 +80,12 @@
           "conditionsList": [],
           "applyToSelf": true,
           "forceOnSelf": true
-        }
+        },
+        "hasFilterId": false,
+        "filterId": 0
       }
     ],
+    "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
       "effectIncrementMethod": "None",

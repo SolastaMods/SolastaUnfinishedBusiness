@@ -55,6 +55,8 @@
     "restrictedCharacterSizes": [],
     "hasLimitedEffectPool": false,
     "effectPoolAmount": 60,
+    "effectApplication": "All",
+    "effectFormFilters": [],
     "effectForms": [
       {
         "$type": "SolastaCommunityExpansion.Classes.Witch.Witch+CackleEffectForm, SolastaCommunityExpansion",
@@ -69,9 +71,12 @@
         "savingThrowAffinity": "None",
         "dcModifier": 0,
         "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn"
+        "saveOccurence": "EndOfTurn",
+        "hasFilterId": false,
+        "filterId": 0
       }
     ],
+    "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
       "effectIncrementMethod": "None",
