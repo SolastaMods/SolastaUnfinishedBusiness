@@ -151,9 +151,8 @@ namespace SolastaCommunityExpansion.Spells
             
             var flameLeap = SpellDefinitionBuilder
                 .Create("EWGreenFlameBladeFlame", DefinitionBuilder.CENamespaceGuid)
-                // .SetGuiPresentation(Category.Spell)
                 .SetGuiPresentationNoContent()
-                .SetSpellLevel(0)
+                .SetSpellLevel(1)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
                 .SetSomaticComponent(false)
                 .SetVerboseComponent(false)
@@ -274,7 +273,7 @@ namespace SolastaCommunityExpansion.Spells
 
             var spellEffect = baseEffect as CharacterActionCastSpell;
 
-            var repertore = spellEffect?.ActiveSpell.SpellRepertoire;
+            var repertoire = spellEffect?.ActiveSpell.SpellRepertoire;
 
             var actionParams = baseEffect.GetField<CharacterActionParams>("actionParams");
             if (actionParams == null) { return null; }
@@ -295,53 +294,17 @@ namespace SolastaCommunityExpansion.Spells
             if (caster == null || targets.Count < 2) { return null; }
             
             var rulesetCaster = caster.RulesetCharacter;
-            //baseEffect.ActionParams.MemberwiseClone
             var rules = ServiceRepository.GetService<IRulesetImplementationService>();
             var casterLevel = rulesetCaster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
 
-            // var spellEff = rules.InstantiateEffectSpell(rulesetCaster, repertore, spell, casterLevel, false);
-            //
-            // var formParams = new RulesetImplementationDefinitions.ApplyFormsParams();
-            // formParams.FillSourceAndTarget(rulesetCaster, targets[1].RulesetCharacter);
-            // formParams.FillSpecialParameters(
-            //     false,
-            //     0,
-            //     0,
-            //     0,
-            //     casterLevel,
-            //     actionParams.ActionModifiers[1],
-            //     RuleDefinitions.RollOutcome.Neutral,
-            //     0,
-            //     false,
-            //     0,
-            //     1,
-            //     null
-            // );
-            // formParams.FillFromActiveEffect(spellEff);
-            //
-            // rules.ApplyEffectForms(spell.EffectDescription.EffectForms, formParams);
-            
-            var p = new CharacterActionParams(caster, ActionDefinitions.Id.CastNoCost)
-            {
-                RulesetEffect = rules.InstantiateEffectSpell(
-                    rulesetCaster,
-                    repertore,
-                    spell,
-                    rulesetCaster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue,
-                    false
-                ),
-                AttackMode = actionParams.AttackMode,
-                SpellRepertoire = repertore,
-                SkipAnimationsAndVFX = true,
-                StringParameter = spell.Name
-            };
-            
-            
-            p.TargetCharacters.AddRange(targets.Skip(1));
-            p.ActionModifiers.AddRange(actionParams.ActionModifiers.Skip(1));
+            var effectSpell = rules.InstantiateEffectSpell(rulesetCaster, repertoire, spell, casterLevel + 1, false);
 
-            var castSpell = new CharacterActionCastSpell(p);
-            return castSpell;
+            for (int i = 1; i < targets.Count; i++)
+            {
+                effectSpell.ApplyEffectOnCharacter(targets[i].RulesetCharacter, true, targets[i].LocationPosition);
+            }
+
+            return null;
         }
     }
 }
