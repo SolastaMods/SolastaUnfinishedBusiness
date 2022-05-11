@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using SolastaModApi.Infrastructure;
 using static SolastaCommunityExpansion.CustomDefinitions.IPerformAttackAfterMagicEffectUse;
 
@@ -9,7 +8,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions
     {
         delegate CharacterActionParams GetAttackAfterUseHandler(CharacterActionMagicEffect actionMagicEffect);
 
-        delegate bool CanUseHandler(GameLocationCharacter caster, GameLocationCharacter target);
+        delegate bool CanUseHandler(CursorLocationSelectTarget targeting, GameLocationCharacter caster, GameLocationCharacter target);
 
         CanUseHandler CanBeUsedToAttack { get; set; }
         GetAttackAfterUseHandler PerformAttackAfterUse { get; set; }
@@ -86,12 +85,21 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             return null;
         }
 
-        private bool DefaultCanUseHandler(GameLocationCharacter caster, GameLocationCharacter target)
+        private bool DefaultCanUseHandler(CursorLocationSelectTarget targeting, GameLocationCharacter caster, GameLocationCharacter target)
         {
             var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
             if (attackMode == null)
             {
                 return false;
+            }
+
+            //TODO: implement setting to tell how many targets must meet weapon attack requirements
+            var maxTargets = targeting.GetField<int>("maxTargets");
+            var remainingTargets = targeting.GetField<int>("remainingTargets");
+            var selectedTargets = maxTargets - remainingTargets;
+            if (selectedTargets > 0)
+            {
+                return true;
             }
 
             var battleService = ServiceRepository.GetService<IGameLocationBattleService>();

@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
@@ -140,7 +141,7 @@ namespace SolastaCommunityExpansion.Spells
                         dieType: RuleDefinitions.DieType.D8,
                         diceNumber: 0,
                         bonusDamage: 0,
-                        damageType: RuleDefinitions.DamageTypeFire
+                        damageType: RuleDefinitions.DamageTypeThunder
                     )
                     .Build()
                 )
@@ -157,7 +158,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetSomaticComponent(false)
                 .SetVerboseComponent(false)
                 .SetCustomSubFeatures(
-                    CustomSpellEffectLevel.ByCasterLevel,
+                    new BonusSlotLevelsByClassLevel(),
                     new UpgradeEffectFromLevel(flameHighLevel, 5)
                 )
                 .SetCastingTime(RuleDefinitions.ActivationTime.Action)
@@ -171,7 +172,7 @@ namespace SolastaCommunityExpansion.Spells
                             dieType: RuleDefinitions.DieType.D1,
                             diceNumber: 0,
                             bonusDamage: 0,
-                            damageType: RuleDefinitions.DamageTypeFire
+                            damageType: RuleDefinitions.DamageTypeThunder
                         )
                         .Build()
                     )
@@ -191,15 +192,15 @@ namespace SolastaCommunityExpansion.Spells
                 .SetCustomSubFeatures(
                     PerformAttackAfterMagicEffectUse.MeleeAttack,
                     CustomSpellEffectLevel.ByCasterLevel,
-                    new ChainSpell(flameLeap)
+                    new ChainSpellEffectOnAttackHit(flameLeap, "GreenFlameBlade")
                 )
                 .SetCastingTime(RuleDefinitions.ActivationTime.Action)
                 .SetEffectDescription(new EffectDescriptionBuilder()
                     .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ScorchingRay)
                     .SetTargetingData(
                         RuleDefinitions.Side.Enemy,
-                        RuleDefinitions.RangeType.Touch,
-                        1,
+                        RuleDefinitions.RangeType.Distance,
+                        5,
                         RuleDefinitions.TargetType.IndividualsUnique,
                         2
                     )
@@ -239,7 +240,7 @@ namespace SolastaCommunityExpansion.Spells
                                         RuleDefinitions.DieType.D8,
                                         1,
                                         RuleDefinitions.AdditionalDamageType.Specific,
-                                        RuleDefinitions.DamageTypeFire,
+                                        RuleDefinitions.DamageTypeThunder,
                                         RuleDefinitions.AdditionalDamageAdvancement.SlotLevel,
                                         DiceByRankMaker.MakeBySteps(start: 0, step: 5, increment: 1)
                                     )
@@ -258,16 +259,20 @@ namespace SolastaCommunityExpansion.Spells
         }
     }
 
-    internal class ChainSpell : IChainMagicEffect
+    internal class ChainSpellEffectOnAttackHit : IChainMagicEffect
     {
-        public SpellDefinition spell;
+        private readonly SpellDefinition _spell;
+        private readonly string _notificationTag;
+        
 
-        public ChainSpell(SpellDefinition spell)
+        public ChainSpellEffectOnAttackHit(SpellDefinition spell, string notificationTag = null)
         {
-            this.spell = spell;
+            this._spell = spell;
+            this._notificationTag = notificationTag;
         }
 
-        public CharacterActionMagicEffect GetNextMagicEffect(CharacterActionMagicEffect baseEffect, CharacterActionAttack triggeredAttack)
+        public CharacterActionMagicEffect GetNextMagicEffect(CharacterActionMagicEffect baseEffect,
+            CharacterActionAttack triggeredAttack, RuleDefinitions.RollOutcome attackOutcome)
         {
             if (baseEffect == null) { return null; }
 
@@ -283,10 +288,11 @@ namespace SolastaCommunityExpansion.Spells
                 return null;
             }
 
-            var outcome = baseEffect.GetProperty<RuleDefinitions.RollOutcome>("Outcome");
-            //if (outcome < minOutcomeToAttack) { return null;}
-
-            //if (effect.SaveOutcome < minSaveOutcomeToAttack) { return null;}
+            if (attackOutcome != RuleDefinitions.RollOutcome.Success 
+                && attackOutcome == RuleDefinitions.RollOutcome.CriticalSuccess)
+            {
+                return null;
+            }
 
             var caster = actionParams.ActingCharacter;
             var targets = actionParams.TargetCharacters;
@@ -295,16 +301,40 @@ namespace SolastaCommunityExpansion.Spells
             
             var rulesetCaster = caster.RulesetCharacter;
             var rules = ServiceRepository.GetService<IRulesetImplementationService>();
-            var casterLevel = rulesetCaster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+            var bonusLevelProvider = _spell.GetFirstSubFeatureOfType<IBonusSlotLevels>();
+            var slotLevel = _spell.SpellLevel;
+            if (bonusLevelProvider != null)
+            {
+                slotLevel += bonusLevelProvider.GetBonusSlotLevels(rulesetCaster);
+            }
 
-            var effectSpell = rules.InstantiateEffectSpell(rulesetCaster, repertoire, spell, casterLevel + 1, false);
+            var effectSpell = rules.InstantiateEffectSpell(rulesetCaster, repertoire, _spell, slotLevel, false);
 
             for (int i = 1; i < targets.Count; i++)
             {
-                effectSpell.ApplyEffectOnCharacter(targets[i].RulesetCharacter, true, targets[i].LocationPosition);
+                var rulesetTarget = targets[i].RulesetCharacter;
+                if (!string.IsNullOrEmpty(_notificationTag))
+                {
+                    GameConsoleHelper.LogCharacterAffectsTarget(rulesetCaster, rulesetTarget, _notificationTag, true);
+                }
+
+                effectSpell.ApplyEffectOnCharacter(rulesetTarget, true, targets[i].LocationPosition);
             }
 
             return null;
+        }
+    }
+
+    interface IBonusSlotLevels
+    {
+        public int GetBonusSlotLevels(RulesetCharacter caster);
+    }
+
+    class BonusSlotLevelsByClassLevel: IBonusSlotLevels
+    {
+        public int GetBonusSlotLevels(RulesetCharacter caster)
+        {
+            return caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
         }
     }
 }

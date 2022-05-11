@@ -21,5 +21,19 @@ namespace SolastaCommunityExpansion.Utils
             entry.AddParameter(ConsoleStyleDuplet.ParameterType.AttackSpellPower, abilityName);
             console.AddEntry(entry);
         }
+        
+        public static void LogCharacterAffectsTarget(RulesetCharacter character, RulesetCharacter target, string notificationTag, bool indent = false)
+        {
+            var console = Gui.Game.GameConsole;
+            var text = $"Feedback/&NotifyEffect{notificationTag}Line";
+            var entry = new GameConsoleEntry(text, console.GetField<ConsoleTableDefinition>("consoleTableDefinition"))
+            {
+                Indent = indent
+            };
+
+            console.InvokeMethod("AddCharacterEntry", character, entry);
+            console.InvokeMethod("AddCharacterEntry",target, entry);
+            console.AddEntry(entry);
+        }
     }
 }

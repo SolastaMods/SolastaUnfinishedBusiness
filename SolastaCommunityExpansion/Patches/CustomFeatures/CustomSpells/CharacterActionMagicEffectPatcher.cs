@@ -38,25 +38,39 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
                 var customFeature = definition.GetFirstSubFeatureOfType<IPerformAttackAfterMagicEffectUse>();
                 var getAttackAfterUse = customFeature?.PerformAttackAfterUse;
 
-                CharacterActionAttack attackAction = null; //can be useful in chained spell effects
+                CharacterActionAttack attackAction = null;
+                RuleDefinitions.RollOutcome attackOutcome = RuleDefinitions.RollOutcome.Neutral;
 
                 if (getAttackAfterUse != null)
                 {
                     var attackParams = getAttackAfterUse(__instance);
                     if (attackParams != null)
                     {
+                        void AttackImpactStartHandler(
+                            GameLocationCharacter attacker,
+                            GameLocationCharacter defender,
+                            RuleDefinitions.RollOutcome outcome,
+                            CharacterActionParams actionParams,
+                            RulesetAttackMode attackMode,
+                            ActionModifier attackModifier)
+                        {
+                            attackOutcome = outcome;
+                        }
+
+                        attackParams.ActingCharacter.AttackImpactStart += AttackImpactStartHandler;
                         attackAction = new CharacterActionAttack(attackParams);
                         var enums = attackAction.Execute();
                         while (enums.MoveNext())
                         {
                             yield return enums.Current;
                         }
+                        attackParams.ActingCharacter.AttackImpactStart -= AttackImpactStartHandler;
                     }
                 }
 
                 //chained effects would be useful for EOrb
                 var chainAction = definition.GetFirstSubFeatureOfType<IChainMagicEffect>()
-                    ?.GetNextMagicEffect(__instance, attackAction);
+                    ?.GetNextMagicEffect(__instance, attackAction, attackOutcome);
                 
                 if (chainAction != null)
                 {

@@ -890,6 +890,13 @@ Feedback/&AdditionalDamageSunlightBladeLine	{0} burns {1} with Sunlight Blade! (
 Feedback/&AdditionalDamageSunlightBladeFormat	Sunlight Blade!
 Condition/&EWSunlightBladeDamageTitle	Sunlight Blade's burn
 Condition/&EWSunlightBladeDamageDescription Starting from level 5 attack triggered by this cantrip deals additional 1d8 radiant damage. The damage increases by 1d8 at 11th and 17th levels.
+Spell/&EWGreenFlameBladeTitle	Resonating Strike
+Spell/&EWGreenFlameBladeDescription	Select one creature within melee range of you and a different creature that you can see within 5 feet of main target. You make a melee attack with current weapon against first creature. On a hit, the target suffers the weapon attack's normal effects, and resonating sound leaps to second target, dealing thunder damage equal to your spellcasting ability modifier.\nAt 5th level, the melee attack deals extra 1d8 thunder damage to the target on a hit, and the thunder damage to the second creature increases to 1d8 + your spellcasting ability modifier. Both damage rolls increase by 1d8 at 11th and 17th levels.
+Feedback/&NotifyEffectGreenFlameBladeLine	{0} resonates {1}!
+Feedback/&AdditionalDamageGreenFlameBladeLine	{0} resonates {1}! (+{2})
+Feedback/&AdditionalDamageGreenFlameBladeFormat	Resonating Strike!
+Condition/&EWGreenFlameBladeDamageTitle	Resonance
+Condition/&EWGreenFlameBladeDamageDescription Starting from level 5 attack triggered by this cantrip deals additional 1d8 thunder damage. The damage increases by 1d8 at 11th and 17th levels.
 Feature/&ElementalistSpellsMagicAffinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: {0}\n\n  
 Feature/&ElementalistSpellsMagicAffinityTitle	Elementalist Spells
 Feature/&ElementalPactAirPlane	Air Plane
