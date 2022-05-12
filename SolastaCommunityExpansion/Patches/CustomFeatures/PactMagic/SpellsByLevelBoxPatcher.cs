@@ -30,7 +30,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
             var rulesetSpellRepertoire = spellsByLevelBox.GetField<SpellsByLevelBox, RulesetSpellRepertoire>("spellRepertoire");
             var isWarlockSpell = SharedSpellsContext.IsWarlock(rulesetSpellRepertoire.SpellCastingClass);
 
-            if (isWarlockSpell)
+            if (isWarlockSpell && spellDefinition.SpellLevel > 0)
             {
                 var hero = SharedSpellsContext.GetHero(rulesetSpellRepertoire.CharacterName);
                 var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
