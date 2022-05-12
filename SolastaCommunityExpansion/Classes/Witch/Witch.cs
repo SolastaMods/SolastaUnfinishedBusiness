@@ -36,8 +36,8 @@ namespace SolastaCommunityExpansion.Classes.Witch
         private static FeatureDefinitionPointPool FeatureDefinitionPointPoolTools { get; set; }
         private static FeatureDefinitionCastSpell FeatureDefinitionCastSpellWitch { get; set; }
         private static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetRitualCasting { get; set; }
-        private static CustomFeatureDefinitionSet FeatureDefinitionFeatureSetWitchCurses { get; set; }
-        private static CustomFeatureDefinitionSet FeatureDefinitionFeatureSetMaledictions { get; set; }
+        private static FeatureDefinitionFeatureSetCustom FeatureDefinitionFeatureSetWitchCurses { get; set; }
+        private static FeatureDefinitionFeatureSetCustom FeatureDefinitionFeatureSetMaledictions { get; set; }
         private static FeatureDefinitionPower FeatureDefinitionPowerCackle { get; set; }
         private static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetWitchFamiliar { get; set; }
 
@@ -288,7 +288,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
             var cursesFeatures = new FeatureDefinition[] { burnedCurse, lovelessCurse, visionsCurse };
 
-            FeatureDefinitionFeatureSetWitchCurses = CustomFeatureDefinitionSetBuilder
+            FeatureDefinitionFeatureSetWitchCurses = FeatureDefinitionFeatureSetCustomBuilder
                 .Create("WitchCurseChoice", WITCH_BASE_GUID)
                 .SetGuiPresentation(Category.Feature)
                 .SetRequireClassLevels(true)
@@ -644,7 +644,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
             var maledictionsFeatures = new FeatureDefinition[] { abate, apathy, charm, disorient, evileye, obfuscate, pox, ruin };
 
-            FeatureDefinitionFeatureSetMaledictions = CustomFeatureDefinitionSetBuilder
+            FeatureDefinitionFeatureSetMaledictions = FeatureDefinitionFeatureSetCustomBuilder
                 .Create("WitchMaledictionChoice", WITCH_BASE_GUID)
                 .SetGuiPresentation(Category.Feature)
                 .SetRequireClassLevels(true)

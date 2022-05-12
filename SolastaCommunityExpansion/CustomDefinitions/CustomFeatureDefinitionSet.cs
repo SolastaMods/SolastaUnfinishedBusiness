@@ -12,7 +12,7 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.CustomDefinitions
 {
-    public class CustomFeatureDefinitionSet : FeatureDefinition
+    public class FeatureDefinitionFeatureSetCustom : FeatureDefinition
     {
         private bool _fullSetIsDirty;
         private readonly List<FeatureDefinition> _allFeatureSet = new();
@@ -83,50 +83,50 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 
     }
 
-    public class CustomFeatureDefinitionSetBuilder : FeatureDefinitionBuilder<CustomFeatureDefinitionSet,
-        CustomFeatureDefinitionSetBuilder>
+    public class FeatureDefinitionFeatureSetCustomBuilder : FeatureDefinitionBuilder<FeatureDefinitionFeatureSetCustom,
+        FeatureDefinitionFeatureSetCustomBuilder>
     {
-        public CustomFeatureDefinitionSetBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        public FeatureDefinitionFeatureSetCustomBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
-        public CustomFeatureDefinitionSetBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        public FeatureDefinitionFeatureSetCustomBuilder(string name, string definitionGuid) : base(name, definitionGuid)
         {
         }
 
-        public CustomFeatureDefinitionSetBuilder(CustomFeatureDefinitionSet original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        public FeatureDefinitionFeatureSetCustomBuilder(FeatureDefinitionFeatureSetCustom original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
         {
         }
 
-        public CustomFeatureDefinitionSetBuilder(CustomFeatureDefinitionSet original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        public FeatureDefinitionFeatureSetCustomBuilder(FeatureDefinitionFeatureSetCustom original, string name, string definitionGuid) : base(original, name, definitionGuid)
         {
         }
 
-        public CustomFeatureDefinitionSetBuilder AddLevelFeatures(int level, params FeatureDefinition[] features)
+        public FeatureDefinitionFeatureSetCustomBuilder AddLevelFeatures(int level, params FeatureDefinition[] features)
         {
             Definition.AddLevelFeatures(level, features);
             return this;
         }
 
-        public CustomFeatureDefinitionSetBuilder AddLevelFeatures(int level, List<FeatureDefinition> features)
+        public FeatureDefinitionFeatureSetCustomBuilder AddLevelFeatures(int level, List<FeatureDefinition> features)
         {
             Definition.AddLevelFeatures(level, features);
             return this;
         }
         
-        public CustomFeatureDefinitionSetBuilder SetLevelFeatures(int level, params FeatureDefinition[] features)
+        public FeatureDefinitionFeatureSetCustomBuilder SetLevelFeatures(int level, params FeatureDefinition[] features)
         {
             Definition.SetLevelFeatures(level, features);
             return this;
         }
 
-        public CustomFeatureDefinitionSetBuilder SetLevelFeatures(int level, List<FeatureDefinition> features)
+        public FeatureDefinitionFeatureSetCustomBuilder SetLevelFeatures(int level, List<FeatureDefinition> features)
         {
             Definition.SetLevelFeatures(level, features);
             return this;
         }
 
-        public CustomFeatureDefinitionSetBuilder SetRequireClassLevels(bool value)
+        public FeatureDefinitionFeatureSetCustomBuilder SetRequireClassLevels(bool value)
         {
             Definition.RequireClassLevels = value;
             return this;
@@ -216,11 +216,11 @@ namespace SolastaCommunityExpansion.CustomDefinitions
         }
     }
 
-    public class ReplaceCustomFeatureDefinitionSet : CustomFeatureDefinitionSet
+    public class FeatureDefinitionFeatureSetReplaceCustom : FeatureDefinitionFeatureSetCustom
     {
-        public CustomFeatureDefinitionSet ReplacedFeatureSet { get; private set; }
+        public FeatureDefinitionFeatureSetCustom ReplacedFeatureSet { get; private set; }
 
-        public void SetReplacedFeatureSet(CustomFeatureDefinitionSet featureSet)
+        public void SetReplacedFeatureSet(FeatureDefinitionFeatureSetCustom featureSet)
         {
             ReplacedFeatureSet = featureSet;
             GuiPresentation.SetSpriteReference(featureSet.GuiPresentation.SpriteReference);
@@ -233,25 +233,25 @@ namespace SolastaCommunityExpansion.CustomDefinitions
         }
     }
 
-    public class ReplaceCustomFeatureDefinitionSetBuilder : FeatureDefinitionBuilder<ReplaceCustomFeatureDefinitionSet, ReplaceCustomFeatureDefinitionSetBuilder>
+    public class FeatureDefinitionFeatureSetReplaceCustomBuilder : FeatureDefinitionBuilder<FeatureDefinitionFeatureSetReplaceCustom, FeatureDefinitionFeatureSetReplaceCustomBuilder>
     {
-        public ReplaceCustomFeatureDefinitionSetBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        public FeatureDefinitionFeatureSetReplaceCustomBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
-        public ReplaceCustomFeatureDefinitionSetBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        public FeatureDefinitionFeatureSetReplaceCustomBuilder(string name, string definitionGuid) : base(name, definitionGuid)
         {
         }
 
-        public ReplaceCustomFeatureDefinitionSetBuilder(ReplaceCustomFeatureDefinitionSet original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        public FeatureDefinitionFeatureSetReplaceCustomBuilder(FeatureDefinitionFeatureSetReplaceCustom original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
         {
         }
 
-        public ReplaceCustomFeatureDefinitionSetBuilder(ReplaceCustomFeatureDefinitionSet original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        public FeatureDefinitionFeatureSetReplaceCustomBuilder(FeatureDefinitionFeatureSetReplaceCustom original, string name, string definitionGuid) : base(original, name, definitionGuid)
         {
         }
 
-        public ReplaceCustomFeatureDefinitionSetBuilder SetReplacedFeatureSet(CustomFeatureDefinitionSet featureSet)
+        public FeatureDefinitionFeatureSetReplaceCustomBuilder SetReplacedFeatureSet(FeatureDefinitionFeatureSetCustom featureSet)
         {
             Definition.SetReplacedFeatureSet(featureSet);
             return this;
