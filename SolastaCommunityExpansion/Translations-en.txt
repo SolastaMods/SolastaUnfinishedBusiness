@@ -369,6 +369,7 @@ Equipment/&ThunderPunchDescription	1D8 thunder damage and imposes disadvantage o
 Equipment/&ThunderPunchTitle	Thunder Punch
 Equipment/&WandIdentifyDescription	Text Casts the spell identify by expending one charge. The wand has 3 charges and regains 1d3 charges each dawn
 Equipment/&WandIdentifyTitle	Text Wand of Identify
+Failure/&FailureFlagTargetMeleeWeaponError	Can't perform melee attak on this target with current weapon
 Feat/&AddConstructCantripsDescription	Adds cantrips to heal and dismiss your constructs
 Feat/&AddConstructCantripsTitle	Construct Cantrips
 Feat/&AddProtectorConstructCantripDescription	Adds Mending Construct and Dismiss Construct cantrips to increase your constructs flexibility
@@ -1176,6 +1177,8 @@ Format/&LevelAndExperienceFormat	Level: {0}\nExperience: {1}\n{2} points require
 Format/&LevelAndExperienceMaxedFormat	Level: {0}\nExperience: {1}\nmax level reached.
 Item/&ForceArtilleryProjectileDescription	ForceArtilleryProjectile
 Item/&ForceArtilleryProjectileTitle	ForceArtilleryProjectile
+Language/&AbyssalDescription	Abyssal language was the form of primordial language which has been wrapped and twisted by the evil of the abyss
+Language/&AbyssalTitle	Abyssal
 Language/&GnomishLanguageDescription	An old Solastan language, preserved by gnomes living in deep forests of Solasta, it has survived the Cataclysm
 Language/&GnomishLanguageTitle	Gnomish
 MainMenu/&ExportPdfDescription	Level down this Hero
@@ -1762,4 +1765,3 @@ UI/&CustomFeatureSelectionTooltipTypeCantrip	Cantrip
 UI/&CustomFeatureSelectionTooltipTypeFeature	Feature
 UI/&CustomFeatureSelectionTooltipTypePower	Power
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Proficiency
-Failure/&FailureFlagTargetMeleeWeaponError	Can't perform melee attak on this target with current weapon
