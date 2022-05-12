@@ -1,13 +1,13 @@
 {
-  "$type": "SolastaCommunityExpansion.CustomDefinitions.ReplaceCustomFeatureDefinitionSet, SolastaCommunityExpansion",
+  "$type": "SolastaCommunityExpansion.Classes.Warlock.Subclasses.FeatureDefinitionMoonlitInvisibility, SolastaCommunityExpansion",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&ClassWarlockEldritchInvocationReplaceTitle",
-    "description": "Feature/&ClassWarlockEldritchInvocationReplaceDescription",
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "326ae1e5806154eaa95fa9af40781005",
+      "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "776987b0-b682-5396-88b9-a6835e9a82cb",
+  "guid": "fe1cc64a-0db4-596f-ae09-e0fc3c668f6a",
   "contentPack": 9999,
-  "name": "ClassWarlockEldritchInvocationReplace"
+  "name": "MoonlitCustomInvisibilityFeature"
 }

@@ -1,13 +1,13 @@
 {
-  "$type": "SolastaCommunityExpansion.CustomDefinitions.CustomFeatureDefinitionSet, SolastaCommunityExpansion",
+  "$type": "SolastaCommunityExpansion.Level20.Features.FeatureDefinitionIndomitableMight, SolastaCommunityExpansion",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&ClassWarlockEldritchInvocationSetLevelTitle",
-    "description": "Feature/&ClassWarlockEldritchInvocationSetLevelDescription",
+    "title": "Feature/&BarbarianIndomitableMightTitle",
+    "description": "Feature/&BarbarianIndomitableMightDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "326ae1e5806154eaa95fa9af40781005",
+      "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8470845a-596c-50c5-aadf-032e1d3665c3",
+  "guid": "2a0e9082-c81d-4d02-800a-92f04fbe85dc",
   "contentPack": 9999,
-  "name": "ClassWarlockEldritchInvocationSetLevel"
+  "name": "ZSBarbarianIndomitableMight"
 }
