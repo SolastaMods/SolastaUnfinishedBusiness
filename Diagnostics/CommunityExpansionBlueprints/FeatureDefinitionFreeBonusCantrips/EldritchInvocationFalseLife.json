@@ -1,0 +1,33 @@
+{
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFreeBonusCantrips, SolastaCommunityExpansion",
+  "bonusCantrips": [
+    "Definition:EldritchInvocationFalseLifeCantrip:15b81b75-3736-5d6e-b104-a4f0f252e6e2"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FiendishVigorTitle",
+    "description": "Cast False Life at will",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "9c9f5cea8cbef734cad03574eec0f8d4",
+      "m_SubObjectName": "FalseLife",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "55f44659-b729-53ce-9ca8-084a11273a21",
+  "contentPack": 9999,
+  "name": "EldritchInvocationFalseLife"
+}

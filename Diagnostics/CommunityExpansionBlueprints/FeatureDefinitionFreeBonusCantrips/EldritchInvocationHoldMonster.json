@@ -1,0 +1,33 @@
+{
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFreeBonusCantrips, SolastaCommunityExpansion",
+  "bonusCantrips": [
+    "Definition:EldritchInvocationHoldMonsterCantrip:0f7f0641-60ae-58b3-b858-f05dcad0bbc9"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&ChainsofCarceriTitle",
+    "description": "Cast Hold Monster at will",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "95031a6775232b241b7505e61f5da208",
+      "m_SubObjectName": "HoldMonster",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "2147fb2d-c6d1-5375-870a-882f34ad4bfc",
+  "contentPack": 9999,
+  "name": "EldritchInvocationHoldMonster"
+}

@@ -1,0 +1,40 @@
+{
+  "$type": "FeatureDefinitionLightAffinity, Assembly-CSharp",
+  "lightingEffectAndConditionList": [
+    {
+      "$type": "FeatureDefinitionLightAffinity+LightingEffectAndCondition, Assembly-CSharp",
+      "lightingState": "Bright",
+      "condition": "Definition:AncientForestPhotosynthesis:6ad9893b-ed72-5aec-ae57-0e4cac0a6e12",
+      "effect": null
+    }
+  ],
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&AncientForestLightAffinityTitle",
+    "description": "Feature/&AncientForestLightAffinityDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "e4032d23-83be-5107-8afc-5efdb6f81d3f",
+  "contentPack": 9999,
+  "name": "AncientForestLightAffinity"
+}

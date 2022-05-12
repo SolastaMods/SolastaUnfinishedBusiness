@@ -1,0 +1,33 @@
+{
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFreeBonusCantrips, SolastaCommunityExpansion",
+  "bonusCantrips": [
+    "Definition:EldritchInvocationInvisibilityCantrip:d64b5276-1afb-59ee-80bf-2e0015e89625"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&ShroudofShadowTitle",
+    "description": "Cast Invisibility at will",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "75e87f6e6651cc040afcc690e549c073",
+      "m_SubObjectName": "Invisibility",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "91a1e031-bd55-5cd2-8621-f4fcead6dd65",
+  "contentPack": 9999,
+  "name": "EldritchInvocationInvisibility"
+}
