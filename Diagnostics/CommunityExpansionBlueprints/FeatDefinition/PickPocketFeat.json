@@ -1,0 +1,43 @@
+{
+  "$type": "FeatDefinition, Assembly-CSharp",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": true,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Dexterity",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "knownFeatsPrerequisite": [],
+  "features": [
+    "Definition:AbilityCheckAffinityFeatPickPocket:30b1492a-053f-412e-b247-798fbc255038",
+    "Definition:ProficiencyFeatPickPocket:d8046b0c-2f93-4b47-b2dd-110234a4a848"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feat/&PickPocketFeatTitle",
+    "description": "Feat/&PickPocketFeatDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "947a31fc-4990-45a5-bcfd-6c478b4dff8a",
+  "contentPack": 9999,
+  "name": "PickPocketFeat"
+}

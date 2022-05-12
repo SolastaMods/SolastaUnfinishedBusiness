@@ -1,0 +1,44 @@
+{
+  "$type": "FeatDefinition, Assembly-CSharp",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Strength",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "knownFeatsPrerequisite": [],
+  "features": [
+    "Definition:AttributeModifierFeatCraftyInt:b23c3b73-7690-42ba-aa49-7ca3451daa05",
+    "Definition:CraftyHerbalismKit:9345e1fd-ec4c-4509-acb5-3f3257b25ec4",
+    "Definition:CraftyHerbalismKit:9345e1fd-ec4c-4509-acb5-3f3257b25ec4"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "CraftyFeats/&ApothecaryIntFeatTitle",
+    "description": "CraftyFeats/&ApothecaryIntFeatDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "ef387249-45e0-4899-aadd-44810f8aeb6d",
+  "contentPack": 9999,
+  "name": "ApothecaryInt"
+}

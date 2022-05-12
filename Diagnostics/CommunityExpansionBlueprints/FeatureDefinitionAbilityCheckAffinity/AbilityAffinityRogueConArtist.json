@@ -1,0 +1,75 @@
+{
+  "$type": "FeatureDefinitionAbilityCheckAffinity, Assembly-CSharp",
+  "useControllerAbilityChecks": false,
+  "affinityGroups": [
+    {
+      "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Charisma",
+      "proficiencyName": "Deception",
+      "affinity": "Advantage",
+      "abilityCheckModifierDiceNumber": 0,
+      "abilityCheckModifierDieType": "D8",
+      "abilityCheckContext": "None",
+      "lightingContext": "Irrelevant"
+    },
+    {
+      "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Charisma",
+      "proficiencyName": "Performance",
+      "affinity": "Advantage",
+      "abilityCheckModifierDiceNumber": 0,
+      "abilityCheckModifierDieType": "D8",
+      "abilityCheckContext": "None",
+      "lightingContext": "Irrelevant"
+    },
+    {
+      "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Charisma",
+      "proficiencyName": "Persuasion",
+      "affinity": "Advantage",
+      "abilityCheckModifierDiceNumber": 0,
+      "abilityCheckModifierDieType": "D8",
+      "abilityCheckContext": "None",
+      "lightingContext": "Irrelevant"
+    },
+    {
+      "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Dexterity",
+      "proficiencyName": "SleightOfHand",
+      "affinity": "Advantage",
+      "abilityCheckModifierDiceNumber": 0,
+      "abilityCheckModifierDieType": "D8",
+      "abilityCheckContext": "None",
+      "lightingContext": "Irrelevant"
+    }
+  ],
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&AbilityAffinityRogueConArtistTitle",
+    "description": "Subclass/&AbilityAffinityRogueConArtistDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "955c0ca4-3428-5bd8-8eee-be4ebdd85731",
+  "contentPack": 9999,
+  "name": "AbilityAffinityRogueConArtist"
+}
