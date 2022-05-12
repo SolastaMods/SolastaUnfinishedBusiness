@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.FightingStyles
 {
     internal class BlindFighting : AbstractFightingStyle
     {
-        private CustomizableFightingStyleDefinition instance;
+        private FightingStyleDefinitionCustomizable instance;
 
         internal override List<FeatureDefinitionFightingStyleChoice> GetChoiceLists()
         {

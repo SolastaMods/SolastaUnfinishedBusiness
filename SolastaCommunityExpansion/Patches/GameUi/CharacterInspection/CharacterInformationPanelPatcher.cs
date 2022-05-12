@@ -26,7 +26,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
             {
                 var featureDefinition = featureUnlock.FeatureDefinition;
 
-                if (featureDefinition is CustomFeatureDefinitionSet set && set.AllFeatures.Contains(subFeature))
+                if (featureDefinition is FeatureDefinitionFeatureSetCustom set && set.AllFeatures.Contains(subFeature))
                 {
                     choiceFeature = featureDefinition;
 

@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 {
     internal static class WarlockFeatures
     {
-        internal static readonly CustomFeatureDefinitionSet WarlockMysticArcanumSet = CreateMysticArcanumSet((11, 6), (13, 7), (15, 8), (17, 9));
+        internal static readonly FeatureDefinitionFeatureSetCustom WarlockMysticArcanumSet = CreateMysticArcanumSet((11, 6), (13, 7), (15, 8), (17, 9));
 
         private static FeatureDefinitionPower warlockEldritchMasterPower;
 
@@ -22,8 +22,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             .AddToDB();
 
         #region WarlockEldritchInvocationSet
-        private static CustomFeatureDefinitionSet warlockEldritchInvocationSet;
-        public static CustomFeatureDefinitionSet WarlockEldritchInvocationSet => warlockEldritchInvocationSet ??= CustomFeatureDefinitionSetBuilder
+        private static FeatureDefinitionFeatureSetCustom warlockEldritchInvocationSet;
+        public static FeatureDefinitionFeatureSetCustom WarlockEldritchInvocationSet => warlockEldritchInvocationSet ??= FeatureDefinitionFeatureSetCustomBuilder
             .Create("ClassWarlockEldritchInvocationSetLevel", CENamespaceGuid)
             .SetGuiPresentation(Category.Feature,
                 Utils.CustomIcons.CreateAssetReferenceSprite("EldritchInvocation", Properties.Resources.EldritchInvocation, 128, 128)
@@ -79,8 +79,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         #endregion
 
         #region WarlockEldritchInvocationReplacer
-        private static ReplaceCustomFeatureDefinitionSet warlockEldritchInvocationReplacer;
-        public static ReplaceCustomFeatureDefinitionSet WarlockEldritchInvocationReplacer => warlockEldritchInvocationReplacer ??= ReplaceCustomFeatureDefinitionSetBuilder
+        private static FeatureDefinitionFeatureSetReplaceCustom warlockEldritchInvocationReplacer;
+        public static FeatureDefinitionFeatureSetReplaceCustom WarlockEldritchInvocationReplacer => warlockEldritchInvocationReplacer ??= FeatureDefinitionFeatureSetReplaceCustomBuilder
                 .Create("ClassWarlockEldritchInvocationReplace", CENamespaceGuid)
                 .SetGuiPresentation(Category.Feature)
                 .SetReplacedFeatureSet(WarlockEldritchInvocationSet)
@@ -113,9 +113,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             return levels.SelectMany(level => WarlockSpells.WarlockSpellList.SpellsByLevel[level].Spells);
         }
 
-        private static CustomFeatureDefinitionSet CreateMysticArcanumSet(params (int, int)[] levels)
+        private static FeatureDefinitionFeatureSetCustom CreateMysticArcanumSet(params (int, int)[] levels)
         {
-            var builder = CustomFeatureDefinitionSetBuilder
+            var builder = FeatureDefinitionFeatureSetCustomBuilder
                 .Create($"ClassWarlockMysticArcanumSet", CENamespaceGuid)
                 .SetGuiPresentation(Category.Feature)
                 .SetRequireClassLevels(true);

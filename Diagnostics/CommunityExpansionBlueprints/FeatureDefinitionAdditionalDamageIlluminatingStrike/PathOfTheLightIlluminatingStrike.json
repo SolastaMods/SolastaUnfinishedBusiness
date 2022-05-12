@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaCommunityExpansion.Subclasses.Barbarian.PathOfTheLight+IlluminatingStrikeAdditionalDamage, SolastaCommunityExpansion",
+  "$type": "SolastaCommunityExpansion.Subclasses.Barbarian.PathOfTheLight+FeatureDefinitionAdditionalDamageIlluminatingStrike, SolastaCommunityExpansion",
   "notificationTag": "BarbarianPathOfTheLightIlluminatingStrike",
   "limitedUsage": "OnceInMyturn",
   "triggerCondition": "AlwaysActive",

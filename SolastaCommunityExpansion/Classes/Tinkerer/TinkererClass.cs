@@ -201,7 +201,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 .SetSlotsPerLevel(1, FeatureDefinitionCastSpellBuilder.CasterProgression.HALF_CASTER)
                 .AddToDB();
 
-            var infusionChoice = CustomFeatureDefinitionSetBuilder
+            var infusionChoice = FeatureDefinitionFeatureSetCustomBuilder
                 .Create("TinkererInfusionChoice", GuidNamespace)
                 .SetGuiPresentation(Category.Feature)
                 .SetRequireClassLevels(true)
@@ -211,7 +211,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 .SetLevelFeatures(14, Level14InfusionList)
                 .AddToDB();
             
-            var infusionReplace = ReplaceCustomFeatureDefinitionSetBuilder
+            var infusionReplace = FeatureDefinitionFeatureSetReplaceCustomBuilder
                 .Create("TinkererInfusionReplace", GuidNamespace)
                 .SetGuiPresentation(Category.Feature)
                 .SetReplacedFeatureSet(infusionChoice)

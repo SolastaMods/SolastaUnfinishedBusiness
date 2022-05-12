@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaCommunityExpansion.CustomDefinitions.SpellWithCasterFeatureDependentEffects, SolastaCommunityExpansion",
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.SpellDefinitionWithDependentEffects, SolastaCommunityExpansion",
   "spellsBundle": false,
   "subspellsList": [],
   "implemented": true,
@@ -116,7 +116,7 @@
         "saveOccurence": "EndOfTurn",
         "motionForm": {
           "$type": "MotionForm, Assembly-CSharp",
-          "type": "PushFromOrigin",
+          "type": "DragToOrigin",
           "distance": 2
         },
         "hasFilterId": false,
@@ -325,11 +325,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&EldritchBlastRepellingBlastTitle",
-    "description": "Spell/&EldritchBlastRepellingBlastDescription",
+    "title": "Spell/&EldritchBlastGraspingHandTitle",
+    "description": "Spell/&EldritchBlastGraspingHandDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "35490916765a5897bb889794adc7f7e3",
+      "m_AssetGUID": "f242ca7c15585bfd87105625ccfdb4ea",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -346,7 +346,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "919c97d2-986c-53e5-a614-237c6d10aeb5",
+  "guid": "2594bb21-6f12-5804-a455-cdb8634c042d",
   "contentPack": 9999,
-  "name": "EldritchBlastRepellingBlast"
+  "name": "EldritchBlastGraspingHand"
 }

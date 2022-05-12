@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaCommunityExpansion.Level20.Features.PrimalChampion, SolastaCommunityExpansion",
+  "$type": "SolastaCommunityExpansion.Level20.Features.FeatureDefinitionPrimalChampion, SolastaCommunityExpansion",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

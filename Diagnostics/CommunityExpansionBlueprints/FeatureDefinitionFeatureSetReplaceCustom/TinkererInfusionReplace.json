@@ -1,10 +1,10 @@
 {
-  "$type": "SolastaCommunityExpansion.Level20.Features.IndomitableMight, SolastaCommunityExpansion",
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFeatureSetReplaceCustom, SolastaCommunityExpansion",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&BarbarianIndomitableMightTitle",
-    "description": "Feature/&BarbarianIndomitableMightDescription",
+    "title": "Feature/&TinkererInfusionReplaceTitle",
+    "description": "Feature/&TinkererInfusionReplaceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2a0e9082-c81d-4d02-800a-92f04fbe85dc",
+  "guid": "7a1d2ef1-0f14-5bb4-8cc1-2951c1c7c057",
   "contentPack": 9999,
-  "name": "ZSBarbarianIndomitableMight"
+  "name": "TinkererInfusionReplace"
 }

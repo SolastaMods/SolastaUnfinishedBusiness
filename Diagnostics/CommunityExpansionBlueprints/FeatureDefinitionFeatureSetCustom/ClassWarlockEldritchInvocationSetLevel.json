@@ -1,13 +1,13 @@
 {
-  "$type": "SolastaCommunityExpansion.CustomDefinitions.ReplaceCustomFeatureDefinitionSet, SolastaCommunityExpansion",
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFeatureSetCustom, SolastaCommunityExpansion",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&TinkererInfusionReplaceTitle",
-    "description": "Feature/&TinkererInfusionReplaceDescription",
+    "title": "Feature/&ClassWarlockEldritchInvocationSetLevelTitle",
+    "description": "Feature/&ClassWarlockEldritchInvocationSetLevelDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "326ae1e5806154eaa95fa9af40781005",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7a1d2ef1-0f14-5bb4-8cc1-2951c1c7c057",
+  "guid": "8470845a-596c-50c5-aadf-032e1d3665c3",
   "contentPack": 9999,
-  "name": "TinkererInfusionReplace"
+  "name": "ClassWarlockEldritchInvocationSetLevel"
 }

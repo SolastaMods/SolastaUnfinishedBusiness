@@ -3,27 +3,27 @@ using SolastaCommunityExpansion.CustomDefinitions;
 
 namespace SolastaCommunityExpansion.Level20.Features
 {
-    internal sealed class PrimalChampionBuilder : FeatureDefinitionBuilder<PrimalChampion, PrimalChampionBuilder>
+    internal sealed class FeatureDefinitionPrimalChampionBuilder : FeatureDefinitionBuilder<FeatureDefinitionPrimalChampion, FeatureDefinitionPrimalChampionBuilder>
     {
         private const string PrimalChampionName = "ZSPrimalChampion";
         private const string PrimalChampionGuid = "118a5ea1-8a19-4bee-9db1-7a2464c8e7b5";
 
-        private PrimalChampionBuilder(string name, string guid) : base(name, guid)
+        private FeatureDefinitionPrimalChampionBuilder(string name, string guid) : base(name, guid)
         {
             Definition.GuiPresentation.Description = "Feature/&PrimalChampionDescription";
             Definition.GuiPresentation.Title = "Feature/&PrimalChampionTitle";
         }
 
-        private static PrimalChampion CreateAndAddToDB(string name, string guid)
+        private static FeatureDefinitionPrimalChampion CreateAndAddToDB(string name, string guid)
         {
-            return new PrimalChampionBuilder(name, guid).AddToDB();
+            return new FeatureDefinitionPrimalChampionBuilder(name, guid).AddToDB();
         }
 
-        internal static readonly PrimalChampion PrimalChampion =
+        internal static readonly FeatureDefinitionPrimalChampion FeatureDefinitionPrimalChampion =
             CreateAndAddToDB(PrimalChampionName, PrimalChampionGuid);
     }
 
-    internal sealed class PrimalChampion : FeatureDefinition, IFeatureDefinitionCustomCode
+    internal sealed class FeatureDefinitionPrimalChampion : FeatureDefinition, IFeatureDefinitionCustomCode
     {
         public void ApplyFeature(RulesetCharacterHero hero, string tag)
         {

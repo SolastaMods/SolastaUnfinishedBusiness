@@ -123,7 +123,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .SetGuiPresentation(Category.Feature)
                 .AddToDB();
 
-            var eldritchBlast = SpellWithCasterFeatureDependentEffectsBuilder
+            var eldritchBlast = SpellDefinitionWithDependentEffectsBuilder
                 .Create(EldritchBlastName, DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Spell, EldritchBLastIcon)
                 .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
@@ -156,7 +156,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 EffectDescription effect = new EffectDescription();
                 effect.Copy(eldritchBlastEffect);
 
-                var cantrip = SpellWithCasterFeatureDependentEffectsBuilder
+                var cantrip = SpellDefinitionWithDependentEffectsBuilder
                     .Create(eldritchBlast, cantripName, DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation(Category.Spell, icon)
                     .SetEffectDescription(CustomFeaturesContext.AddEffectForms(eldritchBlastEffect, forms))

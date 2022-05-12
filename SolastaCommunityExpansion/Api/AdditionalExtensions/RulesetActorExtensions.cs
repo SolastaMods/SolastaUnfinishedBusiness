@@ -71,7 +71,7 @@ namespace SolastaModApi.Extensions
 
         public static IEnumerable<FeatureDefinition> FlattenFeatureList(IEnumerable<FeatureDefinition> features)
         {
-            //TODO: should we add CustomFeatureDefinitionSet flattening too?
+            //TODO: should we add FeatureDefinitionFeatureSetCustom flattening too?
             return features.SelectMany(f => f is FeatureDefinitionFeatureSet set
                 ? FlattenFeatureList(set.FeatureSet)
                 : new List<FeatureDefinition>() {f});

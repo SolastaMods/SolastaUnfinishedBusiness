@@ -20,7 +20,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
     public static class DHWarlockSubclassMoonLitPatron
     {
         private static FeatureDefinition _invisFeature;
-        public static FeatureDefinition InvisibilityFeature => _invisFeature ??= MoonlitInvisibilityFeature.Build();
+        public static FeatureDefinition InvisibilityFeature => _invisFeature ??= FeatureDefinitionMoonlitInvisibility.Build();
 
         public static CharacterSubclassDefinition Build()
         {
@@ -267,7 +267,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
     }
 
-    internal class MoonlitInvisibilityFeature : FeatureDefinition, ICustomOnActionFeature, ICustomConditionFeature
+    internal class FeatureDefinitionMoonlitInvisibility : FeatureDefinition, ICustomOnActionFeature, ICustomConditionFeature
     {
         private static ConditionDefinition RevealedCondition { get; set; }
         private static ConditionDefinition InvisibilityCondition { get; set; }
@@ -279,7 +279,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
         {
             RevealedCondition = BuildRevealedCondition();
             InvisibilityCondition = BuildInvisibilityCondition();
-            return MoonlitInvisibilityFeatureBuilder
+            return FeatureDefinitionMoonlitInvisibilityBuilder
                 .Create("MoonlitCustomInvisibilityFeature", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentationNoContent()
                 .AddToDB();
@@ -401,25 +401,25 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             hero.RemoveAllConditionsOfCategory(CATEGORY_HIDDEN, false);
         }
 
-        private class MoonlitInvisibilityFeatureBuilder : FeatureDefinitionBuilder<MoonlitInvisibilityFeature,
-            MoonlitInvisibilityFeatureBuilder>
+        private class FeatureDefinitionMoonlitInvisibilityBuilder : FeatureDefinitionBuilder<FeatureDefinitionMoonlitInvisibility,
+            FeatureDefinitionMoonlitInvisibilityBuilder>
         {
             #region Constructors
-            public MoonlitInvisibilityFeatureBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+            public FeatureDefinitionMoonlitInvisibilityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
             {
             }
 
-            public MoonlitInvisibilityFeatureBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+            public FeatureDefinitionMoonlitInvisibilityBuilder(string name, string definitionGuid) : base(name, definitionGuid)
             {
             }
 
-            public MoonlitInvisibilityFeatureBuilder(MoonlitInvisibilityFeature original, string name,
+            public FeatureDefinitionMoonlitInvisibilityBuilder(FeatureDefinitionMoonlitInvisibility original, string name,
                 Guid namespaceGuid)
                 : base(original, name, namespaceGuid)
             {
             }
 
-            public MoonlitInvisibilityFeatureBuilder(MoonlitInvisibilityFeature original, string name,
+            public FeatureDefinitionMoonlitInvisibilityBuilder(FeatureDefinitionMoonlitInvisibility original, string name,
                 string definitionGuid) : base(original, name, definitionGuid)
             {
             }
