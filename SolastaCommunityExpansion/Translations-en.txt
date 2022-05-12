@@ -1465,7 +1465,7 @@ Spell/&PetalStormDescription	Choose an unoccupied 15-foot cube of air that you c
 Spell/&PetalStormTitle	Petal Storm
 Spell/&ProtectThresholdDescription	Tracing arcane sigils along its boundary, you can ward a doorway, window, or other portal from entry. For the duration, an invisible eldritch creature stalks the warded portal. Any creature that attempts to pass through the portal must make a Wisdom saving throw or take 4d6 psychic damage, or half as much on a successful save
 Spell/&ProtectThresholdTitle	Protect Threshold
-Spell/&RadiantMotesDescription  <b><i>Morwenna's Radiant Motes</i></b> unleashes a swarm of radiant projectiles that deal minor damage, but never miss. Targets radiate light for up to 1 minute. \n\n<i>"I got the inspiration from watching a Dwarf being overwhelmed by scorching badlands fireflies. Good times."  -Morwenna Leafheart</i>
+Spell/&RadiantMotesDescription  <b><i>Morwenna's Radiant Motes</i></b> unleashes a swarm of radiant projectiles that deal minor damage, but never miss. Targets may radiate light for up to 1 minute. \n\n<i>"I got the inspiration from watching a Dwarf being overwhelmed by scorching badlands fireflies. Good times."  -Morwenna Leafheart</i>
 Spell/&RadiantMotesTitle  Radiant Motes
 Spell/&ThunderStrikeDescription	Create a burst of thundering sound, damaging everyone around you
 Spell/&ThunderStrikeTitle	Sound Burst
