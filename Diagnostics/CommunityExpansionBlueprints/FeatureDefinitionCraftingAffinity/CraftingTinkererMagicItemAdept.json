@@ -1,0 +1,70 @@
+{
+  "$type": "FeatureDefinitionCraftingAffinity, Assembly-CSharp",
+  "affinityGroups": [
+    {
+      "$type": "FeatureDefinitionCraftingAffinity+CraftingAffinityGroup, Assembly-CSharp",
+      "tooltype": "Definition:ThievesToolsType:e66aec4e31070654080430e82b532bf8",
+      "durationMultiplier": 0.25,
+      "doubleProficiencyBonus": true
+    },
+    {
+      "$type": "FeatureDefinitionCraftingAffinity+CraftingAffinityGroup, Assembly-CSharp",
+      "tooltype": "Definition:ScrollKitType:33c029d33932a7a46a67d5279d181179",
+      "durationMultiplier": 0.25,
+      "doubleProficiencyBonus": true
+    },
+    {
+      "$type": "FeatureDefinitionCraftingAffinity+CraftingAffinityGroup, Assembly-CSharp",
+      "tooltype": "Definition:PoisonersKitType:2dd58398fc1262f45942184f61a81dd9",
+      "durationMultiplier": 0.25,
+      "doubleProficiencyBonus": true
+    },
+    {
+      "$type": "FeatureDefinitionCraftingAffinity+CraftingAffinityGroup, Assembly-CSharp",
+      "tooltype": "Definition:HerbalismKitType:f470a833c25f4ca4e810ff7c7ea51369",
+      "durationMultiplier": 0.25,
+      "doubleProficiencyBonus": true
+    },
+    {
+      "$type": "FeatureDefinitionCraftingAffinity+CraftingAffinityGroup, Assembly-CSharp",
+      "tooltype": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
+      "durationMultiplier": 0.25,
+      "doubleProficiencyBonus": true
+    },
+    {
+      "$type": "FeatureDefinitionCraftingAffinity+CraftingAffinityGroup, Assembly-CSharp",
+      "tooltype": "Definition:ArtisanToolSmithToolsType:b28d62b91f1361f4f8b0d45fc28dbd14",
+      "durationMultiplier": 0.25,
+      "doubleProficiencyBonus": true
+    }
+  ],
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&CraftingTinkererMagicItemAdeptTitle",
+    "description": "Subclass/&CraftingTinkererMagicItemAdeptDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "c4706d4e-3794-5cd6-92ce-c1afd810f954",
+  "contentPack": 9999,
+  "name": "CraftingTinkererMagicItemAdept"
+}
