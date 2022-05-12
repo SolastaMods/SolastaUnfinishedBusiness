@@ -1,0 +1,75 @@
+{
+  "$type": "FeatureDefinitionAutoPreparedSpells, Assembly-CSharp",
+  "autopreparedTag": "Coven",
+  "autoPreparedSpellsGroups": [
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 1,
+      "spellsList": [
+        "Definition:Entangle:0224dcb79ea69f34eb9a51546fc78d0d",
+        "Definition:Goodberry:6183e557cd5222e4eb6134ccbeb9db10"
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 3,
+      "spellsList": [
+        "Definition:Barkskin:fcb74f4deaec07b40814328a9d5aa5f6",
+        "Definition:ProtectionFromPoison:a7ceb55598ebbfd4cb4dfded0a7450f9"
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 5,
+      "spellsList": [
+        "Definition:ConjureAnimals:f0e0d1125df2d554eb10d3dde3a2050d",
+        "Definition:CreateFood:ec735d1c4c89e0a4eb77dd6422948d3b"
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 7,
+      "spellsList": [
+        "Definition:GiantInsect:752353d60e1c84c4cb0955798995a954",
+        "Definition:Stoneskin:9040c4fcd7301184f8772720f716a837"
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 9,
+      "spellsList": [
+        "Definition:DispelEvilAndGood:e901e74132f97ac458cc80e09da39c88",
+        "Definition:InsectPlague:f74938dd8dd25294b97663330c8e293e"
+      ]
+    }
+  ],
+  "spellcastingClass": "Definition:ClassWitch:dedb5cef-3036-5d46-92b7-d1fbbfa265f1",
+  "affinityRace": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&GreenWitchMagicTitle",
+    "description": "Subclass/&GreenWitchMagicDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "6308a746-d075-55e7-ae6a-ee06d559a151",
+  "contentPack": 9999,
+  "name": "GreenMagicAutoPreparedSpell"
+}
