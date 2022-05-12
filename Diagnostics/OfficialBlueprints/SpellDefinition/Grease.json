@@ -65,6 +65,8 @@
     "restrictedCharacterSizes": [],
     "hasLimitedEffectPool": false,
     "effectPoolAmount": 60,
+    "effectApplication": "All",
+    "effectFormFilters": [],
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
@@ -84,7 +86,9 @@
           "$type": "MotionForm, Assembly-CSharp",
           "type": "FallProne",
           "distance": 10
-        }
+        },
+        "hasFilterId": false,
+        "filterId": 0
       },
       {
         "$type": "EffectForm, Assembly-CSharp",
@@ -111,7 +115,9 @@
           "persistOnConcentrationLoss": false,
           "decisionPackage": null,
           "effectProxyDefinitionName": "ProxyGrease"
-        }
+        },
+        "hasFilterId": false,
+        "filterId": 0
       },
       {
         "$type": "EffectForm, Assembly-CSharp",
@@ -131,9 +137,12 @@
           "$type": "TopologyForm, Assembly-CSharp",
           "changeType": "DifficultThrough",
           "impactsFlyingCharacters": false
-        }
+        },
+        "hasFilterId": false,
+        "filterId": 0
       }
     ],
+    "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
       "effectIncrementMethod": "None",

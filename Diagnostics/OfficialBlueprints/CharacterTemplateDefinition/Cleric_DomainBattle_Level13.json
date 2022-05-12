@@ -101,6 +101,7 @@
   "knownClassSpells": [],
   "knownSubclassSpells": [],
   "preparedClassSpells": [
+    "Definition:SpiritualWeapon:2a304c1b2bfa7be4c9cf7c7e08268fd7",
     "Definition:Bane:2e60d6f650100a84f917bd5d0e69b356",
     "Definition:Bless:c2c3de28b2c1e294f9a604cdf03b9fd8",
     "Definition:CureWounds:c401c5cf11ac8274f98a0dc809ff5863",
@@ -119,7 +120,6 @@
     "Definition:HoldPerson:cbc582b44f08e7f4b8ea69077471bc64",
     "Definition:LesserRestoration:5da149e59ebb042419041382af919aea",
     "Definition:PrayerOfHealing:f560b05d2587f5e4894220356a589968",
-    "Definition:SpiritualWeapon:2a304c1b2bfa7be4c9cf7c7e08268fd7",
     "Definition:Silence:2bdf5914091beca4ab1da6383af0feac",
     "Definition:BeaconOfHope:5252b1be2462c8140ada004d265e277b",
     "Definition:BestowCurse:c7af146d2e243eb42910adbddec1d7d3",
@@ -147,8 +147,7 @@
     "Definition:Harm:78d4369a08495d74f9a681f5f508c477",
     "Definition:Heal:daa623d899a2bed43963b3bf60f731eb",
     "Definition:HeroesFeast:2df9af96f1ce6ee4aa3d1b9ecdb67b1f",
-    "Definition:TrueSeeing:16c9f67d4a89cbf47baad67ecadafaa5",
-    "Definition:Resurrection:f796a243f664c73409cca137f137f5f3"
+    "Definition:TrueSeeing:16c9f67d4a89cbf47baad67ecadafaa5"
   ],
   "preparedSubclassSpells": [],
   "sex": "Female",
@@ -159,7 +158,7 @@
     {
       "$type": "WieldedItemsConfiguration, Assembly-CSharp",
       "mainHandItemDefinition": "Definition:Mace:639725eb1a28ef242851668eb3d5b2e7",
-      "offHandItemDefinition": "Definition:Shield:28e1f623fc28c7242a89072ee116a1dc"
+      "offHandItemDefinition": null
     },
     {
       "$type": "WieldedItemsConfiguration, Assembly-CSharp",

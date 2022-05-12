@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using static SolastaCommunityExpansion.Level20.Features.IndomitableMightBuilder;
-using static SolastaCommunityExpansion.Level20.Features.PrimalChampionBuilder;
+using static SolastaCommunityExpansion.Level20.Features.FeatureDefinitionIndomitableMightBuilder;
+using static SolastaCommunityExpansion.Level20.Features.FeatureDefinitionPrimalChampionBuilder;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionFeatureSets;
@@ -15,9 +15,9 @@ namespace SolastaCommunityExpansion.Level20.Classes
                 // TODO 15: Persistent Rage
                 new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 16),
                 new FeatureUnlockByLevel(AttributeModifierBarbarianBrutalCriticalAdd, 17),
-                new FeatureUnlockByLevel(IndomitableMight, 18),
+                new FeatureUnlockByLevel(FeatureDefinitionIndomitableMight, 18),
                 new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19),
-                new FeatureUnlockByLevel(PrimalChampion, 20),
+                new FeatureUnlockByLevel(FeatureDefinitionPrimalChampion, 20),
             });
         }
     }

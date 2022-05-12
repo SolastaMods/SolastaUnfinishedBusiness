@@ -5,9 +5,9 @@
   "groundHighPlacement": true,
   "wallPlacement": false,
   "openingPlacement": true,
-  "openingLowPlacement": false,
-  "openingHighPlacement": false,
-  "propPlacement": false,
+  "openingLowPlacement": true,
+  "openingHighPlacement": true,
+  "propPlacement": true,
   "lightSources": [],
   "category": "Obstacle",
   "dimensions": {

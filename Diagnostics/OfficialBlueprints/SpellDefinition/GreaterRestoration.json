@@ -65,6 +65,8 @@
     "restrictedCharacterSizes": [],
     "hasLimitedEffectPool": false,
     "effectPoolAmount": 60,
+    "effectApplication": "All",
+    "effectFormFilters": [],
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
@@ -93,13 +95,17 @@
             "Definition:ConditionCharmed:b625b88863e83524ba652432379348a9",
             "Definition:ConditionCursed:ab888be75dd70924f8160897bd11cb91",
             "Definition:ConditionLifeDrained:ce10be38f182d7046bca13becd0e6bf6",
-            "Definition:ConditionPetrified:e45613adea09c0e4cb33633ffe469282"
+            "Definition:ConditionPetrified:e45613adea09c0e4cb33633ffe469282",
+            "Definition:ConditionLifeDrained_ClayGolem:bbb71c7f23cb9d742a443da0737775a4"
           ],
           "applyToSelf": false,
           "forceOnSelf": false
-        }
+        },
+        "hasFilterId": true,
+        "filterId": 0
       }
     ],
+    "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
       "effectIncrementMethod": "None",

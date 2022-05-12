@@ -109,8 +109,8 @@ namespace SolastaCommunityExpansion.CustomUI
             public int Max { get; set; }
             public int Used { get; set; }
             public int Remaining => Skipped ? 0 : Max - Used;
-            public CustomFeatureDefinitionSet FeatureSet { get; set; }
-            public bool IsReplacer => FeatureSet is ReplaceCustomFeatureDefinitionSet;
+            public FeatureDefinitionFeatureSetCustom FeatureSet { get; set; }
+            public bool IsReplacer => FeatureSet is FeatureDefinitionFeatureSetReplaceCustom;
             public FeaturePool(PoolId id) { Id = id; }
             public bool Skipped;
         }
@@ -142,7 +142,7 @@ namespace SolastaCommunityExpansion.CustomUI
             }
         }
 
-        private readonly List<(string, CustomFeatureDefinitionSet)> gainedCustomFeatures = new();
+        private readonly List<(string, FeatureDefinitionFeatureSetCustom)> gainedCustomFeatures = new();
 
         public override void SetScrollSensitivity(float scrollSensitivity)
         {
@@ -368,7 +368,7 @@ namespace SolastaCommunityExpansion.CustomUI
         {
             var replacerId = allPools.FirstOrDefault(p =>
                 p.Id.Tag == id.Tag
-                && p.FeatureSet is ReplaceCustomFeatureDefinitionSet r
+                && p.FeatureSet is FeatureDefinitionFeatureSetReplaceCustom r
                 && r.ReplacedFeatureSet.Name == id.Name
             )?.Id;
 
@@ -397,7 +397,7 @@ namespace SolastaCommunityExpansion.CustomUI
                 pool.Used--;
                 learned.Remove(feature);
 
-                if (pool.FeatureSet is ReplaceCustomFeatureDefinitionSet replacer)
+                if (pool.FeatureSet is FeatureDefinitionFeatureSetReplaceCustom replacer)
                 {
                     var poolById = GetPoolById(new PoolId(replacer.ReplacedFeatureSet.Name, pool.Id.Tag));
 
@@ -412,7 +412,7 @@ namespace SolastaCommunityExpansion.CustomUI
                 pool.Used++;
                 learned.Add(feature);
 
-                if (pool.FeatureSet is ReplaceCustomFeatureDefinitionSet replacer)
+                if (pool.FeatureSet is FeatureDefinitionFeatureSetReplaceCustom replacer)
                 {
                     GetOrAddPoolFeatureAndTag(replacer.ReplacedFeatureSet, pool.Id.Tag).Max++;
                 }
@@ -501,7 +501,7 @@ namespace SolastaCommunityExpansion.CustomUI
                 var currentTag = e.Key;
                 var features = e.Value;
 
-                features.RemoveAll(f => f is CustomFeatureDefinitionSet);
+                features.RemoveAll(f => f is FeatureDefinitionFeatureSetCustom);
                 command.GrantFeatures(currentHero, features, currentTag, false);
             }
 
@@ -664,7 +664,7 @@ namespace SolastaCommunityExpansion.CustomUI
 
             gainedCustomFeatures.AddRange(gainedClass.FeatureUnlocks
                 .Where(f => f.Level == gainedClassLevel)
-                .Select(f => f.FeatureDefinition as CustomFeatureDefinitionSet)
+                .Select(f => f.FeatureDefinition as FeatureDefinitionFeatureSetCustom)
                 .Where(f => f != null)
                 .Select(f => (poolTag, f))
             );
@@ -675,7 +675,7 @@ namespace SolastaCommunityExpansion.CustomUI
             {
                 gainedCustomFeatures.AddRange(gainedSubclass.FeatureUnlocks
                     .Where(f => f.Level == gainedClassLevel)
-                    .Select(f => f.FeatureDefinition as CustomFeatureDefinitionSet)
+                    .Select(f => f.FeatureDefinition as FeatureDefinitionFeatureSetCustom)
                     .Where(f => f != null)
                     .Select(f => (poolTag, f))
                 );
@@ -716,12 +716,12 @@ namespace SolastaCommunityExpansion.CustomUI
         }
 
 
-        private FeaturePool GetOrAddPoolFeatureAndTag(CustomFeatureDefinitionSet set, string featureTag)
+        private FeaturePool GetOrAddPoolFeatureAndTag(FeatureDefinitionFeatureSetCustom set, string featureTag)
         {
             return GetOrAddPoolById(new PoolId(set.Name, featureTag), set);
         }
 
-        private FeaturePool GetOrAddPoolById(PoolId id, CustomFeatureDefinitionSet set)
+        private FeaturePool GetOrAddPoolById(PoolId id, FeatureDefinitionFeatureSetCustom set)
         {
             var pool = GetPoolById(id);
 

@@ -43,6 +43,20 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(EffectDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class EffectDescriptionExtensions
     {
+        public static T AddEffectFormFilters<T>(this T entity,  params  EffectFormFilter [ ]  value)
+            where T : EffectDescription
+        {
+            AddEffectFormFilters(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T AddEffectFormFilters<T>(this T entity, IEnumerable<EffectFormFilter> value)
+            where T : EffectDescription
+        {
+            entity.EffectFormFilters.AddRange(value);
+            return entity;
+        }
+
         public static T AddEffectForms<T>(this T entity,  params  EffectForm [ ]  value)
             where T : EffectDescription
         {
@@ -152,6 +166,13 @@ namespace SolastaModApi.Extensions
             where T : EffectDescription
         {
             entity.SlotTypes.AddRange(value);
+            return entity;
+        }
+
+        public static T ClearEffectFormFilters<T>(this T entity)
+            where T : EffectDescription
+        {
+            entity.EffectFormFilters.Clear();
             return entity;
         }
 
@@ -292,6 +313,27 @@ namespace SolastaModApi.Extensions
             where T : EffectDescription
         {
             entity.SetField("effectAIParameters", value);
+            return entity;
+        }
+
+        public static T SetEffectApplication<T>(this T entity, RuleDefinitions.EffectApplication value)
+            where T : EffectDescription
+        {
+            entity.SetField("effectApplication", value);
+            return entity;
+        }
+
+        public static T SetEffectFormFilters<T>(this T entity,  params  EffectFormFilter [ ]  value)
+            where T : EffectDescription
+        {
+            SetEffectFormFilters(entity, value.AsEnumerable());
+            return entity;
+        }
+
+        public static T SetEffectFormFilters<T>(this T entity, IEnumerable<EffectFormFilter> value)
+            where T : EffectDescription
+        {
+            entity.EffectFormFilters.SetRange(value);
             return entity;
         }
 
@@ -607,6 +649,13 @@ namespace SolastaModApi.Extensions
             where T : EffectDescription
         {
             entity.SlotTypes.SetRange(value);
+            return entity;
+        }
+
+        public static T SetSpecialFormsDescription<T>(this T entity, System.String value)
+            where T : EffectDescription
+        {
+            entity.SetField("specialFormsDescription", value);
             return entity;
         }
 

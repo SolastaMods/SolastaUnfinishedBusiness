@@ -26,7 +26,7 @@
   "eyeMorphotype": "Eye_Default",
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
-  "scarsMorphotype": "",
+  "scarsMorphotype": "Scars_None",
   "mainClass": "Definition:Wizard:a279003a65f95a64eb58fcc71463c734",
   "subClass": "Definition:TraditionGreenmage:ca9d46f90b868fe43aaddd39c171ec5e",
   "deity": null,

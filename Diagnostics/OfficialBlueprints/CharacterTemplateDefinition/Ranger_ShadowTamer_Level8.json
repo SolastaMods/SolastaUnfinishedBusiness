@@ -26,7 +26,7 @@
   "eyeMorphotype": "Eye_Default",
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
-  "scarsMorphotype": "",
+  "scarsMorphotype": "Scars_None",
   "mainClass": "Definition:Ranger:d4cb9ea3b00ab6a4c9d3cd07aa199f40",
   "subClass": "Definition:RangerShadowTamer:d2f10edd7ced050418161755ee3db7a8",
   "deity": null,

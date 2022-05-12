@@ -51,7 +51,9 @@
         "specialDeathCondition": null,
         "ignoreFlyingCharacters": false,
         "ignoreCriticalDoubleDice": false
-      }
+      },
+      "hasFilterId": false,
+      "filterId": 0
     }
   ],
   "cancellingConditions": [],

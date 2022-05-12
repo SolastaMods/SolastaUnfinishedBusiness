@@ -44,7 +44,6 @@
     "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
     "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
     "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
-    "Definition:DamageAffinityFireImmunity:6f4ede3c34539284e941dd084eaf4429",
     "Definition:DamageAffinityPoisonImmunity:7f47b64e57ec7b247acaa220a510b131",
     "Definition:DamageAffinityPsychicImmunity:b52cfcbb789ae27428958d10a45529ac",
     "Definition:DamageAffinityBludgeoningImmunity_except_magical:78ea11738d3e10345a5d3bc71e1899e2",
@@ -60,7 +59,8 @@
     "Definition:ConditionAffinityPetrifiedImmunity:7661e50eda0f67540b4bf452c5764ba1",
     "Definition:ConditionAffinityPoisonImmunity:558b2de37dbf89341ab0ed6c445873a6",
     "Definition:SavingThrowAffinitySpellResistance:d6341ebb2cb967949b4426e31e993b86",
-    "Definition:PowerIronGolemBreath:47ee827598e33fc4584bf3b555785ce3"
+    "Definition:PowerIronGolemBreath:47ee827598e33fc4584bf3b555785ce3",
+    "Definition:DamageAffinityFireImmunityIronGolem:92e4007d8e5fd7548bedc8e76c997d4a"
   ],
   "attackIterations": [
     {

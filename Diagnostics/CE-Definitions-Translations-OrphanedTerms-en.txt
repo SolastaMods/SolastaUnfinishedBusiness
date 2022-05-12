@@ -59,14 +59,6 @@ Feature/&DomainOblivionDomainlevel1FeaturesDescription	You learn the level 1 fea
 Feature/&DomainOblivionDomainlevel1FeaturesTitle	Oblivion Domain
 Feature/&DomainSunDomainlevel1FeaturesDescription	You learn the level 1 features of this domain
 Feature/&DomainSunDomainlevel1FeaturesTitle	Sun Domain
-Reaction/&SpendSpellSlotEldritchSmiteTitle	Eldritch Smite
-Reaction/&SpendSpellSlotEldritchSmiteDescription	{0} can spend spell slot to deal 1d8 + 1d8 force damage per slot level to the target.
-Reaction/&SpendSpellSlotEldritchSmiteReactTitle	Smite
-Reaction/&SpendSpellSlotEldritchSmiteReactDescription	Click to spend a spell slot and increase damage to the target.
-Reaction/&SubitemSelectEldritchSmiteTitle	Slot Level
-Reaction/&SubitemSelectEldritchSmiteDescription	Select a slot level to consume for your Eldritch Smite.
-Feedback/&AdditionalDamageEldritchSmiteFormat	Eldritch Smite!
-Feedback/&AdditionalDamageEldritchSmiteLine	{0} smites {1} (+{2})
 Feature/&ElementalPactAirPlane	Air Plane
 Feature/&ElementalPactAstralPlane	Astral Plane
 Feature/&ElementalPactEarthPlane	Earth Plane
@@ -85,28 +77,12 @@ Feature/&ElementalPatronElementalFormFormatTitle	{0}
 Feature/&HinderingBlastMagicAffinityDescription	when you hit a creature with your eldritch blast, you can reduce that creature's speed by 10 feet until the end of your next turn
 Feature/&HinderingBlastMagicAffinityTitle	Hindering Blast
 Feature/&IndomitableResistanceTitle	Indomitable Resistance
-Feature/&InspiringSurgePowerDescription	Grant an ally an additional main action for 1 round. Does not stack with Action Surge
-Feature/&InspiringSurgePowerTitle	Inspiring Surge
-Feature/&InspiringSurgePowerTitleShort	Inspiring Surge
-Feature/&KSRogueSubclassThugBrutalMethodsDescription	You can shove as a bonus action
-Feature/&KSRogueSubclassThugBrutalMethodsTitle	Brutal Methods
-Feature/&KSRogueSubclassThugExploitVulnerabilitiesSneakAttackDescription	You are able to use Sneak Attack with any kind of melee weapon, not restricted to finesse weapons.\n1d6 extra damage (+1d6 every 2 levels) to one creature you hit with the advantage, once per turn. No need for advantage if an active ally is next to the target
-Feature/&KSRogueSubclassThugExploitVulnerabilitiesSneakAttackTitle	Polyvalent Sneak Attack
-Feature/&KSRogueSubclassThugOvercomeCompetitionDescription	You have advantage on your Athletics (Strength) checks
-Feature/&KSRogueSubclassThugOvercomeCompetitionTitle	Overcome Competition
-Feature/&KSRogueSubclassThugProficienciesDescription	Proficient with medium armors and shields
-Feature/&KSRogueSubclassThugProficienciesTitle	Heavy Gear
 Feature/&PowerAttackAttackModifierDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged
 Feature/&PowerAttackConditionDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged
 Feature/&PowerAttackPowerDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged
 Feature/&PowerAttackTwoHandedAttackModifierDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes. Only to be used when attacking with two hands, melee or ranged
 Feature/&PowerAttackTwoHandedConditionDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes. Only to be used when attacking with two hands, melee or ranged
 Feature/&PowerAttackTwoHandedPowerDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes. Only to be used when attacking with two hands, melee or ranged
-Feature/&RallyingCryPowerDescription	Replaces Second Wind with a power to restore 4x Fighter Levels hit points to one or more allies within 6 cells, up to their hit point maximum
-Feature/&RallyingCryPowerTitle	Rallying Cry
-Feature/&RallyingCryPowerTitleShort	Rallying Cry
-Feature/&RoyalEnvoyFeatureDescription	Add half of your proficiency bonus (round up) to any Charisma check you make that doesn't already use your proficiency bonus. In addition, you become proficient with Charisma saving throws
-Feature/&RoyalEnvoyFeatureTitle	Royal Envoy
 Feature/&SignofIllOmenTitle	Sign of Ill Omen
 Feature/&SpellAsInvocationAtWillDescription	Cast {0} at will
 Feature/&SpellAsInvocationOncePerDayDescription	Cast {0} once until long rest
@@ -127,6 +103,8 @@ Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeFormat	Illumi
 Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeLine	Illuminating Strike deals extra damage to the target!
 Feedback/&AdditionalDamageBlindingWeaponStrikeFormat	Blinding Weapon
 Feedback/&AdditionalDamageBlindingWeaponStrikeLine	Additional damage and trying to apply Blindness from Blinding Weapon.
+Feedback/&AdditionalDamageEldritchSmiteFormat	Eldritch Smite!
+Feedback/&AdditionalDamageEldritchSmiteLine	{0} smites {1} (+{2})
 Feedback/&AdditionalDamageElementalDamageFormat	Elemental Damage
 Feedback/&AdditionalDamageElementalDamageLine	Elemental form grants additional damage
 Feedback/&AdditionalDamagePactMarkedFormat	Pact mark!
@@ -135,8 +113,12 @@ Feedback/&AdditionalDamagePactSoulTakerFormat	Soul taker!
 Feedback/&AdditionalDamagePactSoulTakerLine	Soul taker does additional damage!
 Feedback/&AdditionalDamagePugilistFormat	Pugilist
 Feedback/&AdditionalDamagePugilistLine	Additional Unarmed Damage from Pugilist
+Feedback/&AdditionalDamageResonatingStrikeFormat	Resonating Strike!
+Feedback/&AdditionalDamageResonatingStrikeLine	{0} resonates {1}! (+{2})
 Feedback/&AdditionalDamageSoulEmpoweredFormat	Soul Empowered!
 Feedback/&AdditionalDamageSoulEmpoweredLine	Soul Empowered does additional damage!
+Feedback/&AdditionalDamageSunlightBladeFormat	Sunlight Blade!
+Feedback/&AdditionalDamageSunlightBladeLine	{0} burns {1} with Sunlight Blade! (+{2})
 Feedback/&AdditionalDamageUpgradedConstructFormat	Upgraded Damage
 Feedback/&AdditionalDamageUpgradedConstructLine	The upgraded construct deals 1D8 more damage per hit
 Feedback/&AncientForestHerbalBrewDamageAffinityAcidResistancePowerUsedWhileTravellingFormat	{0} creates {1}
@@ -148,6 +130,7 @@ Feedback/&AncientForestHerbalBrewHealingPowerUsedWhileTravellingFormat	{0} creat
 Feedback/&AncientForestHerbalBrewToxifyingPowerUsedWhileTravellingFormat	{0} creates {1}
 Feedback/&ExtraDamageDescription	Extra damage from Lighting Spear
 Feedback/&ExtraDamageTitle	Lightning Spear extra damage
+Feedback/&NotifyEffectResonatingStrikeLine	{0} resonates {1}!
 Format/&LevelAndExperienceFormat	Level: {0}\nExperience: {1}\n{2} points required to reach level {3}
 Format/&LevelAndExperienceMaxedFormat	Level: {0}\nExperience: {1}\nmax level reached.
 Message/&CharacterExportDuplicateNameErrorDescription	Export Cancelled:\n\nA hero with this name already exists in the pool.\nPlease try a different name
@@ -156,9 +139,9 @@ Message/&CharacterExportModalContentDescription	Enter the hero name to export:
 Message/&CharacterExportModalTitleDescription	Character Export
 Message/&LevelDownConfirmationDescription	Level down this Hero?
 Message/&LevelDownMultiplayerAbortDescription	Cannot Level Down during a multiplayer session
-Message/&RespecMultiplayerAbortDescription	Cannot Respec during a multiplayer session or on exploration map
 Message/&MessageModWelcomeDescription	The Community Expansion Mod is packed full of exciting features, but by default none are enabled. Press <color=yellow>Ctrl-F10</color> to open the Unity Mod Manager UI [UMM], then click on the settings icon next to 'Community Expansion' to open the settings pages.\n\n Explore the options and select the ones you like. The UMM UI will now open
 Message/&MessageModWelcomeTitle	Community Expansion Mod
+Message/&RespecMultiplayerAbortDescription	Cannot Respec during a multiplayer session or on exploration map
 Message/&SpawnCustomEncounterDescription	Spawn encounter at coordinates ({0}, {1})?
 Message/&SpawnCustomEncounterErrorDescription	Cannot spawn encounters on a multiplayer game. Yet...
 Message/&SpawnCustomEncounterTitle	Encounter
@@ -184,11 +167,25 @@ Reaction/&SpendPowerKnockDownPowerDescription	Spend a gambit die and empower you
 Reaction/&SpendPowerKnockDownPowerReactDescription	Spend a gambit die and empower your attack to do an additional 1d6+2 bludgeoning damage and knock them down until the start of their next turn if they fail a Strength save vs. 8 + your Strength + proficiency
 Reaction/&SpendPowerKnockDownPowerReactTitle	Knock down
 Reaction/&SpendPowerKnockDownPowerTitle	Knock down
+Reaction/&SpendSpellSlotEldritchSmiteDescription	{0} can spend spell slot to deal 1d8 + 1d8 force damage per slot level to the target.
+Reaction/&SpendSpellSlotEldritchSmiteReactDescription	Click to spend a spell slot and increase damage to the target.
+Reaction/&SpendSpellSlotEldritchSmiteReactTitle	Smite
+Reaction/&SpendSpellSlotEldritchSmiteTitle	Eldritch Smite
+Reaction/&SubitemSelectEldritchSmiteDescription	Select a slot level to consume for your Eldritch Smite.
+Reaction/&SubitemSelectEldritchSmiteTitle	Slot Level
 Reaction/&SubitemSelectSlotLevelTitle	Slot Level
 Reaction/CastSpellInRetributionDescription	{0} is attacking {1}! You can cast {2} in responce!
 Reaction/CastSpellInRetributionReactDescription	Click to cast {0}
 Reaction/CastSpellInRetributionReactTitle	Cast Spell
 Reaction/CastSpellInRetributionTitle	Cast Reaction Spell
+Requirement/&FeatureSelectionRequireCharacterLevel	Level {0}
+Requirement/&FeatureSelectionRequireClassLevel	Level {0} of {1}
+Requirement/&WarlockMissingEldritchBlast	Eldritch Blast cantrip
+Requirement/&WarlockRequiresNoMoonLit	Not Moonlit Patron
+Requirement/&WarlockRequiresOneWithShadows	"One With Shadows" eldritch invocation
+Requirement/&WarlockRequiresPactOfBlade	Pact of the Blade
+Requirement/&WarlockRequiresPactOfChain	Pact of the Chains
+Requirement/&WarlockRequiresPactOfTome	Pact of the Tome
 Rules/&CounterFormDismissCreatureFormat	Dismiss Tinkerer construct
 Rules/&LightningSpearPowerDescription	Lightning Damage 1D6 + 1D6
 Rules/&LightningSpearPowerTitle	Lightning Spear
@@ -199,6 +196,8 @@ Screen/&EditorLocationSize3Title	Huge [MODDED]
 Screen/&EditorLocationSize4Title	Gargantuan [MODDED]
 Screen/&FeyTeleportSpellDescription	This Fey spell is always prepared
 Screen/&FeyTeleportSpellTitle	Fey
+Screen/&MulticlassSpellDescription	You know this spell from other repertoire
+Screen/&MulticlassSpellTitle	Multiclass
 Screen/&ShadowTouchedSpellDescription	This Shadow spell is always prepared
 Screen/&ShadowTouchedSpellTitle	Shadow
 Screen/&SpellSlotsUsedLongDescription	You have expended {0} spell slot(s) at this level
@@ -242,10 +241,6 @@ Subclass/&BloodWitchDescription	Forbidden by most witch covens, blood magic cent
 Subclass/&BloodWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known:\n {0}\n\n 
 Subclass/&BloodWitchMagicTitle	Blood Magic
 Subclass/&BloodWitchTitle	Blood Witch
-Subclass/&FighterRoyalKnightDescription	A knight who inspires greatness in others by committing brave deeds in battle. A lone knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band
-Subclass/&FighterRoyalKnightTitle	Royal Knight
-Subclass/&KSRogueSubclassThugDescription	Thugs are sharp-minded combattants who seek the thrill of the fight and will make their enemies bite the dust by any means necessary. They benefit from an advanced martial training and learn to make use of their wit and brawn alike to triumph in battle
-Subclass/&KSRogueSubclassThugTitle	Thug
 Subclass/&MagicAffinityMasterManipulatorDC0Description	It is harder for opponents to resist your spells. The save DC increases by 0
 Subclass/&MagicAffinityMasterManipulatorDC1Description	It is harder for opponents to resist your spells. The save DC increases by 1
 Subclass/&MagicAffinityMasterManipulatorDC3Description	It is harder for opponents to resist your spells. The save DC increases by 3
@@ -276,21 +271,11 @@ Tooltip/&Tag9000Title	Custom Effect
 Tooltip/&TagCommunityExpansionTitle	Community Expansion
 Tooltip/&TagMaledictionTitle	Malediction
 Tooltip/&TagOtherModContentTitle	From mod
-Requirement/&WarlockMissingEldritchBlast	Eldritch Blast cantrip
-Requirement/&WarlockRequiresPactOfBlade	Pact of the Blade
-Requirement/&WarlockRequiresPactOfTome	Pact of the Tome
-Requirement/&WarlockRequiresPactOfChain	Pact of the Chains
-Requirement/&WarlockRequiresNoMoonLit	Not Moonlit Patron
-Requirement/&WarlockRequiresOneWithShadows	"One With Shadows" eldritch invocation
-Requirement/&FeatureSelectionRequireClassLevel	Level {0} of {1}
-Requirement/&FeatureSelectionRequireCharacterLevel	Level {0}
-UI/&CustomFeatureSelectionTooltipTypePower	Power
-UI/&CustomFeatureSelectionTooltipTypeCantrip	Cantrip
-UI/&CustomFeatureSelectionTooltipTypeProficiency	Proficiency
-UI/&CustomFeatureSelectionTooltipTypeFeature	Feature
-UI/&CustomFeatureSelectionStageTitle	Feature Selection
 UI/&CustomFeatureSelectionStageDescription	Select extra features from your class/subclass.
 UI/&CustomFeatureSelectionStageFeatures	Features
 UI/&CustomFeatureSelectionStageNotDone	You must select all available features before proceeding.
-Screen/&MulticlassSpellTitle	Multiclass
-Screen/&MulticlassSpellDescription	You know this spell from other repertoire
+UI/&CustomFeatureSelectionStageTitle	Feature Selection
+UI/&CustomFeatureSelectionTooltipTypeCantrip	Cantrip
+UI/&CustomFeatureSelectionTooltipTypeFeature	Feature
+UI/&CustomFeatureSelectionTooltipTypePower	Power
+UI/&CustomFeatureSelectionTooltipTypeProficiency	Proficiency

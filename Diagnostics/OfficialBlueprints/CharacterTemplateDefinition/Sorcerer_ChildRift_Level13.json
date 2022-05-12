@@ -26,7 +26,7 @@
   "eyeMorphotype": "Eye_SorcererChildOfTheRift",
   "bodyDecorationMorphotype": "BodyDecoration_SorcererChildOfTheRift",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
-  "scarsMorphotype": "",
+  "scarsMorphotype": "Scars_None",
   "mainClass": "Definition:Sorcerer:7214644869e323444b7817d1804eb985",
   "subClass": "Definition:SorcerousChildRift:a5f62682f02bbd24a9dd3dd8e98b5d00",
   "deity": null,

@@ -585,7 +585,7 @@ namespace SolastaModApi.Extensions
         public static T SetIsUnique<T>(this T entity, System.Boolean value)
             where T : MonsterDefinition
         {
-            entity.SetField("isUnique", value);
+            entity.IsUnique = value;
             return entity;
         }
 

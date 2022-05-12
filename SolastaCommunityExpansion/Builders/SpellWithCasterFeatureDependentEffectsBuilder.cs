@@ -5,29 +5,29 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public abstract class SpellWithCasterFeatureDependentEffectsBuilder<TDefinition, TBuilder> : SpellWithCustomFeaturesBuilder<
+    public abstract class SpellDefinitionWithDependentEffectsBuilder<TDefinition, TBuilder> : SpellDefinitionBuilder<
         TDefinition,
         TBuilder>
-        where TDefinition : SpellWithCasterFeatureDependentEffects
-        where TBuilder : SpellWithCustomFeaturesBuilder<TDefinition, TBuilder>
+        where TDefinition : SpellDefinitionWithDependentEffects
+        where TBuilder : SpellDefinitionBuilder<TDefinition, TBuilder>
     {
         #region Constructors
 
-        protected SpellWithCasterFeatureDependentEffectsBuilder(string name, string guid) : base(name, guid)
+        protected SpellDefinitionWithDependentEffectsBuilder(string name, string guid) : base(name, guid)
         {
         }
 
-        protected SpellWithCasterFeatureDependentEffectsBuilder(string name, Guid guidNamespace) : base(name,
+        protected SpellDefinitionWithDependentEffectsBuilder(string name, Guid guidNamespace) : base(name,
             guidNamespace)
         {
         }
 
-        protected SpellWithCasterFeatureDependentEffectsBuilder(TDefinition original, string name, string guid) : base(
+        protected SpellDefinitionWithDependentEffectsBuilder(TDefinition original, string name, string guid) : base(
             original, name, guid)
         {
         }
 
-        protected SpellWithCasterFeatureDependentEffectsBuilder(TDefinition original, string name, Guid guidNamespace) :
+        protected SpellDefinitionWithDependentEffectsBuilder(TDefinition original, string name, Guid guidNamespace) :
             base(original, name, guidNamespace)
         {
         }
@@ -53,26 +53,26 @@ namespace SolastaCommunityExpansion.Builders
         }
     }
 
-    public class SpellWithCasterFeatureDependentEffectsBuilder : SpellWithCasterFeatureDependentEffectsBuilder<
-        SpellWithCasterFeatureDependentEffects, SpellWithCasterFeatureDependentEffectsBuilder>
+    public class SpellDefinitionWithDependentEffectsBuilder : SpellDefinitionWithDependentEffectsBuilder<
+        SpellDefinitionWithDependentEffects, SpellDefinitionWithDependentEffectsBuilder>
     {
         #region Constructors
 
-        public SpellWithCasterFeatureDependentEffectsBuilder(string name, string guid) : base(name, guid)
+        public SpellDefinitionWithDependentEffectsBuilder(string name, string guid) : base(name, guid)
         {
         }
 
-        public SpellWithCasterFeatureDependentEffectsBuilder(string name, Guid guidNamespace) : base(name,
+        public SpellDefinitionWithDependentEffectsBuilder(string name, Guid guidNamespace) : base(name,
             guidNamespace)
         {
         }
 
-        public SpellWithCasterFeatureDependentEffectsBuilder(SpellWithCasterFeatureDependentEffects original,
+        public SpellDefinitionWithDependentEffectsBuilder(SpellDefinitionWithDependentEffects original,
             string name, string guid) : base(original, name, guid)
         {
         }
 
-        public SpellWithCasterFeatureDependentEffectsBuilder(SpellWithCasterFeatureDependentEffects original,
+        public SpellDefinitionWithDependentEffectsBuilder(SpellDefinitionWithDependentEffects original,
             string name, Guid guidNamespace) : base(original, name, guidNamespace)
         {
         }

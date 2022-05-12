@@ -309,10 +309,11 @@ namespace SolastaCommunityExpansion.Models
             //TODO: find a way to cache result, so it works faster - this method is called sveral times per spell cast
             var result = original;
             var caster = spell.Caster;
-            
-            if (spell.SpellDefinition is ICustomMagicEffectBasedOnCaster baseDefinition && caster != null)
+
+            var baseDefinition = spell.SpellDefinition.GetFirstSubFeatureOfType<ICustomMagicEffectBasedOnCaster>();
+            if (baseDefinition != null && caster != null)
             {
-                result = baseDefinition.GetCustomEffect(caster);
+                result = baseDefinition.GetCustomEffect(caster) ?? original;
             }
 
             var modifiers = caster.GetFeaturesByType<IModifySpellEffect>();
@@ -333,9 +334,10 @@ namespace SolastaCommunityExpansion.Models
                          ?? Global.ActiveLevelUpHero
                          ?? Global.ActivePlayerCharacter?.RulesetCharacter;
 
-            if (spell.SpellDefinition is ICustomMagicEffectBasedOnCaster baseDefinition && caster != null)
+            var baseDefinition = spell.SpellDefinition.GetFirstSubFeatureOfType<ICustomMagicEffectBasedOnCaster>();
+            if (baseDefinition != null && caster != null)
             {
-                result = baseDefinition.GetCustomEffect(caster);
+                result = baseDefinition.GetCustomEffect(caster) ?? original;
             }
 
             return result;
@@ -370,32 +372,6 @@ namespace SolastaCommunityExpansion.Models
             return UnCustomizeTag(tag) + "[Custom]";
         }
 
-        /**Returns first custom feature it finds within this definition.*/
-        public static T GetFirstCustomFeature<T>(BaseDefinition definition) where T : class
-        {
-            if (definition == null) { return null; }
-
-            if (definition is T custom)
-            {
-                return custom;
-            }
-
-            T result = null;
-            
-            if (definition is IDefinitionWithCustomFeatures container)
-            {
-                result = container.CustomFeatures.OfType<T>().FirstOrDefault();
-            }
-
-            if (result == null && definition is FeatureDefinition feature)
-            {
-                result = feature.GetCustomFeaturesOfType<T>()?.FirstOrDefault();
-            }
-
-            return result;
-        }
-      
-        //TODO: add another method to get all custom features from definition
         public static string GetSpellLearningTag(RulesetCharacterHero hero, string tag)
         {
             if (tag != null 

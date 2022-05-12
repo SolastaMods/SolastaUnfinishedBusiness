@@ -4,7 +4,8 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalDamageOathOfJugementAuraOfRighteousness:adde342a8cceeaf4997d9bb9ddd1659b"
+    "Definition:AdditionalDamageOathOfJugementAuraOfRighteousnessWeapon:adde342a8cceeaf4997d9bb9ddd1659b",
+    "Definition:AdditionalDamageOathOfJugementAuraOfRighteousnessMagic:bf1122a567c44ae489d571ea94ce046e"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,

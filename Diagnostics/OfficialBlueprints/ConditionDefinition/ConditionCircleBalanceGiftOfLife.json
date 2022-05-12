@@ -40,7 +40,9 @@
         "bonusHealing": 0,
         "variablePool": false,
         "healingCap": "MaximumHitPoints"
-      }
+      },
+      "hasFilterId": false,
+      "filterId": 0
     }
   ],
   "cancellingConditions": [],

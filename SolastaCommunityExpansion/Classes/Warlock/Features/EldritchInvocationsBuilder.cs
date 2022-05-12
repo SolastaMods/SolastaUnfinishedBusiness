@@ -123,7 +123,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .SetGuiPresentation(Category.Feature)
                 .AddToDB();
 
-            var eldritchBlast = SpellWithCasterFeatureDependentEffectsBuilder
+            var eldritchBlast = SpellDefinitionWithDependentEffectsBuilder
                 .Create(EldritchBlastName, DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Spell, EldritchBLastIcon)
                 .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
@@ -156,7 +156,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 EffectDescription effect = new EffectDescription();
                 effect.Copy(eldritchBlastEffect);
 
-                var cantrip = SpellWithCasterFeatureDependentEffectsBuilder
+                var cantrip = SpellDefinitionWithDependentEffectsBuilder
                     .Create(eldritchBlast, cantripName, DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation(Category.Spell, icon)
                     .SetEffectDescription(CustomFeaturesContext.AddEffectForms(eldritchBlastEffect, forms))
@@ -494,9 +494,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                     RuleDefinitions.AdditionalDamageAdvancement.SlotLevel,
                     DiceByRankMaker.MakeBySteps(start: 0, increment: 1, step: 0)
                 )
+                .SetCustomSubFeatures(new WarlockClassHolder())
                 .AddToDB();
-
-            eldritchSmite.SetCustomFeatures(new WarlockClassHolder());
             
             ((FeatureDefinitionFeatureSet)EldritchInvocations["EldritchSmite"]).FeatureSet.Add(eldritchSmite);
             ((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["EldritchSmite"]).Validators.SetRange(RequirePactOfTheBlade);

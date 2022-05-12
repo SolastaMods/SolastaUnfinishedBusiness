@@ -4,12 +4,7 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.CustomDefinitions
 {
-    public class SpellWithCustomFeatures : SpellDefinition, IDefinitionWithCustomFeatures
-    {
-        public List<object> CustomFeatures { get; } = new();
-    }
-
-    public class SpellWithCasterFeatureDependentEffects : SpellWithCustomFeatures, ICustomMagicEffectBasedOnCaster
+    public class SpellDefinitionWithDependentEffects : SpellDefinition, ICustomMagicEffectBasedOnCaster
     {
         private readonly List<(List<FeatureDefinition>, EffectDescription)> _featuresEffectList = new();
 
@@ -44,4 +39,24 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             return _spellModifier != null ? _spellModifier(spell, effect) : effect;
         }
     }
+    internal class UpgradeEffectFromLevel : ICustomMagicEffectBasedOnCaster
+    {
+        private readonly EffectDescription _upgraded;
+        private readonly int _level;
+
+        public UpgradeEffectFromLevel(EffectDescription upgraded, int level)
+        {
+            _upgraded = upgraded;
+            _level = level;
+        }
+
+        public EffectDescription GetCustomEffect(RulesetCharacter caster)
+        {
+            var casterLevel = caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+            if (casterLevel < _level) { return null; }
+
+            return _upgraded;
+        }
+    }
+    
 }

@@ -1,0 +1,51 @@
+{
+  "$type": "FeatureDefinitionDamageAffinity, Assembly-CSharp",
+  "ancestryDefinesDamageType": false,
+  "damageType": "DamageFire",
+  "savingThrowAdvantageType": "None",
+  "savingThrowModifier": 0,
+  "damageAffinityType": "Immunity",
+  "tagsIgnoringAffinity": [],
+  "situationalContext": "None",
+  "healsBack": true,
+  "healBackCap": 255,
+  "retaliateWhenHit": false,
+  "retaliateProximity": "Melee",
+  "retaliateRangeCells": 1,
+  "retaliatePower": null,
+  "knockOutAffinity": "None",
+  "knockOutOccurencesNumber": 1,
+  "knockOutRequiredCondition": null,
+  "knockOutDCAttribute": "RelentlessRageDC",
+  "knockOutAddDC": 5,
+  "instantDeathImmunity": false,
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "92e4007d8e5fd7548bedc8e76c997d4a",
+  "contentPack": "BaseGame",
+  "name": "DamageAffinityFireImmunityIronGolem"
+}
