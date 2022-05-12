@@ -1,0 +1,30 @@
+{
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionRemover, SolastaCommunityExpansion",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&DreadfulWordTitle",
+    "description": "Cast Confusion once until long rest",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "96392c3da40a6e7468ce64b28f9c771b",
+      "m_SubObjectName": "Confusion",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "5defbc08-5a60-5b0f-a406-11b800051dc9",
+  "contentPack": 9999,
+  "name": "EldritchInvocationConfusionRemover"
+}

@@ -1,0 +1,35 @@
+{
+  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
+  "proficiencyType": "FightingStyle",
+  "proficiencies": [
+    "PugilistFightingStlye"
+  ],
+  "forbiddenItemTags": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "FightingStyle/&PugilistFightingTitle",
+    "description": "FightingStyle/&PugilistFightingDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "aa99d934a7dfe064191c9a18e4822595",
+      "m_SubObjectName": "Barbarian_Path_Berserker",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "6c460551-9997-524d-9412-31ed93288e60",
+  "contentPack": 9999,
+  "name": "FeatPugilistFightingStlyeProficiency"
+}
