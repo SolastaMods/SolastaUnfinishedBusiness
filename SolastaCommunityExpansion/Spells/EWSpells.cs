@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using SolastaCommunityExpansion.Api.AdditionalExtensions;
+﻿using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
@@ -59,6 +58,8 @@ namespace SolastaCommunityExpansion.Spells
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
                 .SetSomaticComponent(true)
                 .SetVerboseComponent(false)
+                .SetMaterialComponent(RuleDefinitions.MaterialComponentType.Specific)
+                .SetSpecificMaterialComponent(TagsDefinitions.WeaponTagMelee, 0, false)
                 .SetCustomSubFeatures(
                     PerformAttackAfterMagicEffectUse.MeleeAttack,
                     CustomSpellEffectLevel.ByCasterLevel
@@ -189,6 +190,8 @@ namespace SolastaCommunityExpansion.Spells
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
                 .SetSomaticComponent(true)
                 .SetVerboseComponent(false)
+                .SetMaterialComponent(RuleDefinitions.MaterialComponentType.Specific)
+                .SetSpecificMaterialComponent(TagsDefinitions.WeaponTagMelee, 0, false)
                 .SetCustomSubFeatures(
                     PerformAttackAfterMagicEffectUse.MeleeAttack,
                     CustomSpellEffectLevel.ByCasterLevel,
