@@ -207,6 +207,7 @@ namespace SolastaCommunityExpansion.Models
             SrdSpells.Register();
             EWSpells.Register();
             HouseSpellTweaks.Register();
+            MorwennasSpellbook.Register();
 
             // caches which spells are toggleable per spell list
             Spells = Spells.OrderBy(x => x.SpellLevel).ThenBy(x => x.FormatTitle()).ToHashSet();
@@ -222,6 +223,7 @@ namespace SolastaCommunityExpansion.Models
             //BazouSpells.AddToDB();
             HolicSpells.AddToDB();
             SrdSpells.AddToDB();
+            MorwennasSpellbook.AddToDB();
         }
 
         internal static void RegisterSpell(
