@@ -106,9 +106,9 @@ Condition/&DisorientDescription	This creature's accuracy is reduced
 Condition/&DisorientTitle	Disoriented
 Condition/&EvilEyeDescription	Evil eye condition
 Condition/&EvilEyeTitle	Evil Eye
-Condition/&EWResonatingStrikeDamageDescription Starting from level 5 attack triggered by this cantrip deals additional 1d8 thunder damage. The damage increases by 1d8 at 11th and 17th levels.
+Condition/&EWResonatingStrikeDamageDescription Starting from level 5 attack triggered by this cantrip deals additional 1d8 thunder damage. The damage increases by 1d8 at 11th and 17th levels
 Condition/&EWResonatingStrikeDamageTitle	Resonance
-Condition/&EWSunlightBladeDamageDescription Starting from level 5 attack triggered by this cantrip deals additional 1d8 radiant damage. The damage increases by 1d8 at 11th and 17th levels.
+Condition/&EWSunlightBladeDamageDescription Starting from level 5 attack triggered by this cantrip deals additional 1d8 radiant damage. The damage increases by 1d8 at 11th and 17th levels
 Condition/&EWSunlightBladeDamageTitle	Sunlit Blade's burn
 Condition/&FrenziedDescription	This creature is frenzied and will attack the closest creature
 Condition/&FrenziedTitle	Frenzied
@@ -255,21 +255,21 @@ Equipment/&Enchanted_Quarterstaff_Warden_Description	This enchanted weapon was f
 Equipment/&Enchanted_Quarterstaff_Warden_Title	Warden Quarterstaff
 Equipment/&Enchanted_Quarterstaff_Whiteburn_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Whiteburn was created by the first Danantar to fight a troll invasion coming from the swamps to the south of his domain between the Sioltafin and the Scarafin
 Equipment/&Enchanted_Quarterstaff_Whiteburn_Title	Whiteburn Quarterstaff
-Equipment/&Enchanted_Rapier_Dragonblade_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. It was designed by Lestoreth Steelarm to fight in the frozen North of the Empire.
+Equipment/&Enchanted_Rapier_Dragonblade_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. It was designed by Lestoreth Steelarm to fight in the frozen North of the Empire
 Equipment/&Enchanted_Rapier_Dragonblade_Title	Dragonblade Rapier
-Equipment/&Enchanted_Rapier_Frostburn_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. It was designed by Keliandir Moltenheart, who forged this weapon to fight salamanders after an exploration of the elemental planes went awry.
+Equipment/&Enchanted_Rapier_Frostburn_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. It was designed by Keliandir Moltenheart, who forged this weapon to fight salamanders after an exploration of the elemental planes went awry
 Equipment/&Enchanted_Rapier_Frostburn_Title	Frostburn Rapier
-Equipment/&Enchanted_Rapier_Lightbringer_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
+Equipment/&Enchanted_Rapier_Lightbringer_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures
 Equipment/&Enchanted_Rapier_Lightbringer_Title	Lightbringer Rapier
-Equipment/&Enchanted_Rapier_Power_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. Some creatures only respect physical strengths. Manacalon arcanists created this Rapier to give champions of the Iron Legions the strength their elven bodies didn't provide.
+Equipment/&Enchanted_Rapier_Power_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. Some creatures only respect physical strengths. Manacalon arcanists created this Rapier to give champions of the Iron Legions the strength their elven bodies didn't provide
 Equipment/&Enchanted_Rapier_Power_Title	Rapier of Power
-Equipment/&Enchanted_Rapier_Souldrinker_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
+Equipment/&Enchanted_Rapier_Souldrinker_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade
 Equipment/&Enchanted_Rapier_Souldrinker_Title	Souldrinker Rapier
 Equipment/&Enchanted_Rapier_Stormblade_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon � to devastating effect!
 Equipment/&Enchanted_Rapier_Stormblade_Title	Stormblade Rapier
-Equipment/&Enchanted_Rapier_Warden_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Ildurial Strongarm, a famous Manacalon bladesmith. The first such blade, the Manacalon Warden, was offered to the commander of the Euraidd.
+Equipment/&Enchanted_Rapier_Warden_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Ildurial Strongarm, a famous Manacalon bladesmith. The first such blade, the Manacalon Warden, was offered to the commander of the Euraidd
 Equipment/&Enchanted_Rapier_Warden_Title	Warden Rapier
-Equipment/&Enchanted_Rapier_Whiteburn_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Whiteburn was created by the first Danantar to fight a troll invasion coming from the swamps to the south of his domain between the Sioltafin and the Scarafin.
+Equipment/&Enchanted_Rapier_Whiteburn_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Whiteburn was created by the first Danantar to fight a troll invasion coming from the swamps to the south of his domain between the Sioltafin and the Scarafin
 Equipment/&Enchanted_Rapier_Whiteburn_Title	Whiteburn Rapier
 Equipment/&Enchanted_Scimitar_Dragonblade_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. It was designed by Lestoreth Steelarm to fight in the frozen North of the Empire
 Equipment/&Enchanted_Scimitar_Dragonblade_Title	Dragonblade Scimitar
@@ -369,7 +369,7 @@ Equipment/&ThunderPunchDescription	1D8 thunder damage and imposes disadvantage o
 Equipment/&ThunderPunchTitle	Thunder Punch
 Equipment/&WandIdentifyDescription	Text Casts the spell identify by expending one charge. The wand has 3 charges and regains 1d3 charges each dawn
 Equipment/&WandIdentifyTitle	Text Wand of Identify
-Failure/&FailureFlagTargetMeleeWeaponError	Can't perform melee attak on this target with current weapon
+Failure/&FailureFlagTargetMeleeWeaponError	Can't perform melee attack on this target with current weapon
 Feat/&AddConstructCantripsDescription	Adds cantrips to heal and dismiss your constructs
 Feat/&AddConstructCantripsTitle	Construct Cantrips
 Feat/&AddProtectorConstructCantripDescription	Adds Mending Construct and Dismiss Construct cantrips to increase your constructs flexibility
@@ -590,7 +590,7 @@ Feat/&FightingStyleTwoWeaponTitle	Fighting Style: Two Weapon
 Feat/&FlameArtillery_2Description	3D8 fire damage (Cone)
 Feat/&FlameArtillery_2Title	Flame Artillery (Improved)
 Feat/&FlameArtilleryConstructDescription	Creates a cone of fire that deals 2D8 damage on a failed save
-Feat/&FlameArtilleryConstructDescription_3	Creates a cone of fire that deals 3D8 damage on a failed save.
+Feat/&FlameArtilleryConstructDescription_3	Creates a cone of fire that deals 3D8 damage on a failed save
 Feat/&FlameArtilleryConstructTitle	Flame Artillery Construct
 Feat/&FlameArtilleryConstructTitle_3	Flame Artillery Construct
 Feat/&FlameArtilleryConstructTitle_5	Flame Artillery Construct
@@ -600,7 +600,7 @@ Feat/&ForceArtillery_2Description	3D8 Force damage and push target 5ft
 Feat/&ForceArtillery_2Title	Force Artillery (Improved)
 Feat/&ForceArtilleryAdditionalDamageDescription	The upgraded construct deals 1D8 more damage per hit
 Feat/&ForceArtilleryConstructDescription	Deals 2D8 force damage and pushs enemy 5ft away from Construct
-Feat/&ForceArtilleryConstructDescription_3	Deals 3D8 force damage and pushs enemy 5ft away from Construct.
+Feat/&ForceArtilleryConstructDescription_3	Deals 3D8 force damage and pushs enemy 5ft away from Construct
 Feat/&ForceArtilleryConstructTitle	Force Artillery Construct
 Feat/&ForceArtilleryConstructTitle_3	Force Artillery Construct
 Feat/&ForceArtilleryConstructTitle_5	Force Artillery Construct
@@ -799,7 +799,7 @@ Feature/&BolgrifPowerfulBuildDescription	You count your size as Large when deter
 Feature/&BolgrifPowerfulBuildTitle	Powerful Build
 Feature/&BondoftheTalismanDescription	Teleport up to 5 cells away
 Feature/&BondoftheTalismanTitle	Teleport Talisman
-Feature/&ChainsofCarceriDescription	Paralyzes a celestial, fiend or elemental unless it succeeds a WIS saving throw.
+Feature/&ChainsofCarceriDescription	Paralyzes a celestial, fiend or elemental unless it succeeds a WIS saving throw
 Feature/&ChainsofCarceriTitle	Chains of Carceri
 Feature/&ClassWarlockArmorProficiencyDescription	Light Armor
 Feature/&ClassWarlockArmorProficiencyTitle	Warlock Armor Proficiencies
@@ -823,7 +823,7 @@ Feature/&ClassWarlockWeaponProficiencyDescription	Simple Weapons
 Feature/&ClassWarlockWeaponProficiencyTitle	Warlock Weapon Proficiencies
 Feature/&CounterStrikePowerDescription	Spend a gambit die and Counter Strike the enemy, if you hit, do an additional 1d6+2 bludgeoning damage
 Feature/&CounterStrikePowerTitle	Counter Strike
-Feature/&DevilsSightDescription	You can see normally in Darkness, both magical and nonmagical, to a distance of 120 feet.
+Feature/&DevilsSightDescription	You can see normally in Darkness, both magical and nonmagical, to a distance of 120 feet
 Feature/&DevilsSightTitle	Devil's Sight
 Feature/&DH_BlinkDescription	As a bonus action, you vanish from your current plane of existence, preventing all damage. At the start of your next turn, you return to the space you vanished from
 Feature/&DH_BlinkTitle	Blink
@@ -893,7 +893,7 @@ Feature/&EldritchBlastRepellingBlastBonusCantripTitle	Repelling Blast
 Feature/&EldritchMindDescription	You have advantage on Constitution saving throws that you make to maintain your concentration on a spell
 Feature/&EldritchMindTitle	Eldritch Mind
 Feature/&EldritchSightTitle	Eldritch Sight
-Feature/&EldritchSmiteDescription	Once per turn when you hit a creature with your pact weapon, you can expend a warlock spell slot to deal an extra 1d8 force damage to the target, plus another 1d8 per level of the spell slot.
+Feature/&EldritchSmiteDescription	Once per turn when you hit a creature with your pact weapon, you can expend a warlock spell slot to deal an extra 1d8 force damage to the target, plus another 1d8 per level of the spell slot
 Feature/&EldritchSmiteTitle	Eldritch Smite
 Feature/&ElementalistSpellsMagicAffinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: {0}\n\n  
 Feature/&ElementalistSpellsMagicAffinityTitle	Elementalist Spells
@@ -913,7 +913,7 @@ Feature/&ElementalPatronElementalFormEnhancedFormatDescription	When channeling t
 Feature/&ElementalPatronElementalFormEnhancedFormatTitle	Channeling {0}
 Feature/&ElementalPatronElementalFormFormatDescription	When channeling the {0}, you gain Resistance to {1} damage and apply Proficiency Bonus as damage of the same type to first hit each round. 
 Feature/&ElementalPatronElementalFormFormatTitle	{0}
-Feature/&ElementalPatronFeatureSet_Level06Description	You knowledge of elementals has increased to the point that you now gain advantage on ability checks towards elementals, and deal additional damage against elementals equal to your knowledge level. You can no longer be charmed or frightened by elementals.
+Feature/&ElementalPatronFeatureSet_Level06Description	You knowledge of elementals has increased to the point that you now gain advantage on ability checks towards elementals, and deal additional damage against elementals equal to your knowledge level. You can no longer be charmed or frightened by elementals
 Feature/&ElementalPatronFeatureSet_Level06Title	Knowledge of Elementals
 Feature/&EyesoftheRuneKeeperDescription	You can read all writing
 Feature/&EyesoftheRuneKeeperTitle	Eyes of the RuneKeeper
@@ -933,9 +933,9 @@ Feature/&ForceArtilleryModePowerDescription	Summons a construct that lasts 1 hou
 Feature/&ForceArtilleryModePowerTitle	Summon Force Artillery Construct
 Feature/&ForceArtilleryTitle	Force Artillery
 Feature/&GambitResourcePoolAddDescription	Adds an additional gambit die
-Feature/&GambitResourcePoolAddTitle	Additional Gambit die.
+Feature/&GambitResourcePoolAddTitle	Additional Gambit die
 Feature/&GambitResourcePoolDescription	Pool of gambit dice that can be spent on gambits. Starts with 4 they recharge on short rest
-Feature/&GambitResourcePoolTitle	Gambit dice pool.
+Feature/&GambitResourcePoolTitle	Gambit dice pool
 Feature/&GiftoftheEverLivingOnesDescription	Regains the maximum number of hit points possible from any healing
 Feature/&GiftoftheEverLivingOnesTitle	Gift of the Ever-Living Ones
 Feature/&GiftoftheProtectorsDescription	Whenyou are reduced to 0 hit points but not killed outright, the creature magically drops to 1 hit point instead. Once this magic is triggered, you cant benefit from it until you finish a long rest
@@ -964,7 +964,7 @@ Feature/&InspirePowerDescription	Spend a gambit die and inspire yourself or your
 Feature/&InspirePowerTitle	Inspire
 Feature/&KnockDownPowerDescription	Spend a gambit die and empower your attack to do an additional 1d6+2 bludgeoning damage and knock them down until the start of their next turn if they fail a Strength save vs. 8 + your Strength + proficiency
 Feature/&KnockDownPowerTitle	Knock down
-Feature/&MagicAffinityRangerArcanistDescription	You are proficient at casting spells in battle, and may cast spells that require a somatic component even if both of your hands are holding a weapon or shield.
+Feature/&MagicAffinityRangerArcanistDescription	You are proficient at casting spells in battle, and may cast spells that require a somatic component even if both of your hands are holding a weapon or shield
 Feature/&MagicAffinityRangerArcanistTitle	Arcane Combat Training 
 Feature/&MiretheMindTitle	Mire the Mind
 Feature/&MoonLitDarknessImmunityDescription	You are Immune to the Darkness condition
@@ -1061,9 +1061,9 @@ Feature/&ThirstingBladeDescription	You can attack with your weapon twice, instea
 Feature/&ThirstingBladeTitle	Thirsting Blade
 Feature/&TinkererArmorProficiencyDescription	Proficiency with Light and Medium armors as well as shields
 Feature/&TinkererArmorProficiencyTitle	Tinkerer Armor Proficiency
-Feature/&TinkererInfusionChoiceDescription	Select the infusions that you will have available to use. Note each infusion can be active only once. Activating it a second time will cancel the first.
+Feature/&TinkererInfusionChoiceDescription	Select the infusions that you will have available to use. Note each infusion can be active only once. Activating it a second time will cancel the first
 Feature/&TinkererInfusionChoiceTitle	Infusion Choice
-Feature/&TinkererInfusionReplaceDescription	Select the infusions to replace.
+Feature/&TinkererInfusionReplaceDescription	Select the infusions to replace
 Feature/&TinkererInfusionReplaceTitle	Replace Infusion
 Feature/&TinkererSkillGainChoicesPluralDescription	Tinkerer skills are Arcana, History, Investigation, Medecine, Nature, Perception and Sleight of Hand
 Feature/&TinkererSkillPointsTitle	Tinkerer Skills
@@ -1098,7 +1098,7 @@ Feature/&WitchSightTitle	Witch Sight
 Feature/&ZSPowerPaladinCleansingTouchDescription	Remove spell effects by touching an ally. You can do this a number of times per day equal to your Charisma modifier
 Feature/&ZSPowerPaladinCleansingTouchTitle	Cleansing Touch
 Feedback/&AdditionalDamageAgonizing_BlastFormat	Agonizing Blast
-Feedback/&AdditionalDamageAgonizing_BlastLine	When you cast a spell using force damage (eldritch blast), add your Charisma modifier to the damage it deals on a hit.
+Feedback/&AdditionalDamageAgonizing_BlastLine	When you cast a spell using force damage (eldritch blast), add your Charisma modifier to the damage it deals on a hit
 Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat	Additional Damage from Magically Powered Attacks
 Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine	Additional Damage from Magically Powered Attacks
 Feedback/&AdditionalDamageArcaneFirearmFormat	Blasting Enhancement!
@@ -1108,7 +1108,7 @@ Feedback/&AdditionalDamageArcanistMarkLine	Arcanist's Mark detonates and deals e
 Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeFormat	Illuminating Strike!
 Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeLine	Illuminating Strike deals extra damage to the target!
 Feedback/&AdditionalDamageBlindingWeaponStrikeFormat	Blinding Weapon
-Feedback/&AdditionalDamageBlindingWeaponStrikeLine	Additional damage and trying to apply Blindness from Blinding Weapon.
+Feedback/&AdditionalDamageBlindingWeaponStrikeLine	Additional damage and trying to apply Blindness from Blinding Weapon
 Feedback/&AdditionalDamageEldritchSmiteFormat	Eldritch Smite!
 Feedback/&AdditionalDamageEldritchSmiteLine	{0} smites {1} (+{2})
 Feedback/&AdditionalDamageElementalDamageFormat	Elemental Damage
@@ -1174,7 +1174,7 @@ FlexibleRaces/&PointPoolAbilityScore3Title	Ability Score Increase
 FlexibleRaces/&PointPoolAbilityScore4Description	Use four boosts on ability scores in any combination of your choosing
 FlexibleRaces/&PointPoolAbilityScore4Title	Ability Score Increase
 Format/&LevelAndExperienceFormat	Level: {0}\nExperience: {1}\n{2} points required to reach level {3}
-Format/&LevelAndExperienceMaxedFormat	Level: {0}\nExperience: {1}\nmax level reached.
+Format/&LevelAndExperienceMaxedFormat	Level: {0}\nExperience: {1}\nmax level reached
 Item/&ForceArtilleryProjectileDescription	ForceArtilleryProjectile
 Item/&ForceArtilleryProjectileTitle	ForceArtilleryProjectile
 Language/&AbyssalDescription	Abyssal language was the form of primordial language which has been wrapped and twisted by the evil of the abyss
@@ -1197,7 +1197,7 @@ Message/&SpawnCustomEncounterErrorDescription	Cannot spawn encounters on a multi
 Message/&SpawnCustomEncounterTitle	Encounter
 Message/&TeleportPartyDescription	Teleport party to coordinates ({0}, {1})?\nYou might break quests or maps if you teleport to an undiscovered place
 Message/&TeleportPartyTitle	Teleport
-Modifier/&AHWarlockSoulBladePactEmpowerWeaponModifierDescription	Weapon uses Charisma modifier for attack and damage rolls and counts as magical until long rest.
+Modifier/&AHWarlockSoulBladePactEmpowerWeaponModifierDescription	Weapon uses Charisma modifier for attack and damage rolls and counts as magical until long rest
 Modifier/&AHWarlockSoulBladePactEmpowerWeaponModifierTitle	Soul Empowered
 Modifier/&AttributeModifierRuinDescription	-3 to Armor Class
 Modifier/&AttributeModifierRuinTitle	Ruined
@@ -1224,7 +1224,7 @@ MonsterAttack/&AttackWarlockImpStingTitle	Poisonous Sting
 MonsterAttack/&AttackWarlockQuasitStingTitle	Poisonous Sting
 MonsterAttack/&DH_Custom_CouatlBite_AttackDescription	Piercing damage, and the target must succeed on a DC 13 Constitution saving throw or be poisoned for 24 hours. Until this poison ends, the target is unconscious
 MonsterAttack/&DH_Custom_CouatlBite_AttackTitle	Bite
-Power/&AncientForestLifeSapDescription	When you damage enemy with spell you heal HP equal to half your level once per turn. If you are below half HP first target damaged this turn heals for level HP instead and next targets heal half level in HP but only up to half of max HP.
+Power/&AncientForestLifeSapDescription	When you damage enemy with spell you heal HP equal to half your level once per turn. If you are below half HP first target damaged this turn heals for level HP instead and next targets heal half level in HP but only up to half of max HP
 Power/&AncientForestLifeSapTitle	Life Sap
 Power/&AncientForestRootedPowerDescription	Arboreal tendrils grow from your feet and dig into the ground. Your speed becomes 0, and you gain advantage on any saving throws to push you, pull you, or knock you prone.You can cast entangle at will
 Power/&AncientForestRootedPowerTitle	Rooted
@@ -1233,7 +1233,7 @@ Power/&DH_ElementalFormPoolEnhancedDescription	You can switch between enhanced e
 Power/&DH_ElementalFormPoolEnhancedTitle	Enhanced Elemental Forms
 Power/&DH_ElementalFormPoolEnhancedTitleShort	Elemental Forms
 Power/&DH_ElementalFormPoolTitle	Elemental Forms
-Power/&FindFamiliarBundlePowerDescription	Summon familiar in the form of Pseudorgagon, Sprite, Imp or Quasit.
+Power/&FindFamiliarBundlePowerDescription	Summon familiar in the form of Pseudorgagon, Sprite, Imp or Quasit
 Power/&FindFamiliarBundlePowerTitle	Find Familiar
 Power/&HelpActionDescription	You can aid a friendly creature in attacking a creature within 5 feet of you. You feint, distract the target, or in some other way team up to make your ally's attack more effective. If your ally attacks the target before your next turn, the first attack roll is made with advantage
 Power/&HelpActionTitle	Help
@@ -1299,11 +1299,11 @@ Reaction/&SpendPowerKnockDownPowerDescription	Spend a gambit die and empower you
 Reaction/&SpendPowerKnockDownPowerReactDescription	Spend a gambit die and empower your attack to do an additional 1d6+2 bludgeoning damage and knock them down until the start of their next turn if they fail a Strength save vs. 8 + your Strength + proficiency
 Reaction/&SpendPowerKnockDownPowerReactTitle	Knock down
 Reaction/&SpendPowerKnockDownPowerTitle	Knock down
-Reaction/&SpendSpellSlotEldritchSmiteDescription	{0} can spend spell slot to deal 1d8 + 1d8 force damage per slot level to the target.
-Reaction/&SpendSpellSlotEldritchSmiteReactDescription	Click to spend a spell slot and increase damage to the target.
+Reaction/&SpendSpellSlotEldritchSmiteDescription	{0} can spend spell slot to deal 1d8 + 1d8 force damage per slot level to the target
+Reaction/&SpendSpellSlotEldritchSmiteReactDescription	Click to spend a spell slot and increase damage to the target
 Reaction/&SpendSpellSlotEldritchSmiteReactTitle	Smite
 Reaction/&SpendSpellSlotEldritchSmiteTitle	Eldritch Smite
-Reaction/&SubitemSelectEldritchSmiteDescription	Select a slot level to consume for your Eldritch Smite.
+Reaction/&SubitemSelectEldritchSmiteDescription	Select a slot level to consume for your Eldritch Smite
 Reaction/&SubitemSelectEldritchSmiteTitle	Slot Level
 Reaction/&SubitemSelectSlotLevelTitle	Slot Level
 Reaction/CastSpellInRetributionDescription	{0} is attacking {1}! You can cast {2} in responce!
@@ -1404,7 +1404,7 @@ Spell/&DHMassHealSpellDescription	A flood of healing energy flows from you into 
 Spell/&DHMassHealSpellTitle	Mass Heal
 Spell/&DHMazeSpellDescription	You banish a creature that you can see within range into a labyrinthine demiplane. The target remains there for the duration or until it escapes the maze. /nThe target can use its action to attempt to escape. When it does so, it makes a DC 20 Intelligence check
 Spell/&DHMazeSpellTitle	Maze
-Spell/&DHMeteorSwarmSingleTargetSpellDescription	Blazing orbs of fire plummet to the ground at a single point you can see within range. Each creature in a 40-foot-radius sphere centered on the point you choose must make a Dexterity saving throw. The sphere spreads around corners. A creature takes 20d6 fire damage and 20d6 bludgeoning damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one fiery burst is affected only once.
+Spell/&DHMeteorSwarmSingleTargetSpellDescription	Blazing orbs of fire plummet to the ground at a single point you can see within range. Each creature in a 40-foot-radius sphere centered on the point you choose must make a Dexterity saving throw. The sphere spreads around corners. A creature takes 20d6 fire damage and 20d6 bludgeoning damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one fiery burst is affected only once
 Spell/&DHMeteorSwarmSingleTargetSpellTitle	Meteor Swarm (Single Target)
 Spell/&DHMindBlankSpellDescription	Until the spell ends, one willing creature you touch is immune to psychic damage, any effect that would sense its emotions or read its thoughts, divination spells, and the charmed condition
 Spell/&DHMindBlankSpellTitle	Mind Blank
@@ -1432,11 +1432,11 @@ Spell/&EldritchBlastGraspingHandTitle	Eldritch Blast (Grasping)
 Spell/&EldritchBlastRepellingBlastDescription	A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage.\n(When you hit a creature with eldritch blast, you can push the creature up to 10 feet away from you in a straight line.)
 Spell/&EldritchBlastRepellingBlastTitle	Eldritch Blast (Repelling)
 Spell/&EldritchBlastTitle	Eldritch Blast
-Spell/&EldritchOrbDescription	You fling a ball of eldritch energy at a creature or object within range and deal force damage in small radius.
+Spell/&EldritchOrbDescription	You fling a ball of eldritch energy at a creature or object within range and deal force damage in small radius
 Spell/&EldritchOrbTitle	Eldritch Orb
-Spell/&EWResonatingStrikeDescription	Select one creature within melee range of you and a different creature that you can see within 5 feet of main target. You make a melee attack with current weapon against first creature. On a hit, the target suffers the weapon attack's normal effects, and resonating sound leaps to second target, dealing thunder damage equal to your spellcasting ability modifier.\nAt 5th level, the melee attack deals extra 1d8 thunder damage to the target on a hit, and the thunder damage to the second creature increases to 1d8 + your spellcasting ability modifier. Both damage rolls increase by 1d8 at 11th and 17th levels.
+Spell/&EWResonatingStrikeDescription	Select one creature within melee range of you and a different creature that you can see within 5 feet of main target. You make a melee attack with current weapon against first creature. On a hit, the target suffers the weapon attack's normal effects, and resonating sound leaps to second target, dealing thunder damage equal to your spellcasting ability modifier.\nAt 5th level, the melee attack deals extra 1d8 thunder damage to the target on a hit, and the thunder damage to the second creature increases to 1d8 + your spellcasting ability modifier. Both damage rolls increase by 1d8 at 11th and 17th levels
 Spell/&EWResonatingStrikeTitle	Resonating Strike
-Spell/&EWSunlightBladeDescription	Make a melee attack with a weapon. On a hit, the target suffers the attack's normal effects, and is enveloped in glowing radiant energy, shedding dim light for the turn. Next attack against this creature while it is highlighted is done with advantage.\nAt 5th level, the melee attack deals an extra 1d8 radiant damage to the target. The damage increases by another 1d8 at 11th level and 17th level.
+Spell/&EWSunlightBladeDescription	Make a melee attack with a weapon. On a hit, the target suffers the attack's normal effects, and is enveloped in glowing radiant energy, shedding dim light for the turn. Next attack against this creature while it is highlighted is done with advantage.\nAt 5th level, the melee attack deals an extra 1d8 radiant damage to the target. The damage increases by another 1d8 at 11th level and 17th level
 Spell/&EWSunlightBladeTitle	Sunlit Blade
 Spell/&FindFamiliarDescription	You gain the service of a familiar
 Spell/&FindFamiliarImpDescription	Summons your familiar in the form of an imp
@@ -1757,9 +1757,9 @@ Tooltip/&Tag9000Title	Custom Effect
 Tooltip/&TagCommunityExpansionTitle	Community Expansion
 Tooltip/&TagMaledictionTitle	Malediction
 Tooltip/&TagOtherModContentTitle	From mod
-UI/&CustomFeatureSelectionStageDescription	Select extra features from your class/subclass.
+UI/&CustomFeatureSelectionStageDescription	Select extra features from your class/subclass
 UI/&CustomFeatureSelectionStageFeatures	Features
-UI/&CustomFeatureSelectionStageNotDone	You must select all available features before proceeding.
+UI/&CustomFeatureSelectionStageNotDone	You must select all available features before proceeding
 UI/&CustomFeatureSelectionStageTitle	Feature Selection
 UI/&CustomFeatureSelectionTooltipTypeCantrip	Cantrip
 UI/&CustomFeatureSelectionTooltipTypeFeature	Feature
