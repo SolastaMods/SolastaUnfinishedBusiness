@@ -1454,7 +1454,7 @@ Spell/&FrenzyDescription	With a gesture, you reduce a crowd to base instinct and
 Spell/&FrenzyTitle	Frenzy
 Spell/&HinderingBlastDescription	A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage.\n(when you hit a creature with your eldritch blast, you can reduce that creature's speed by 10 feet until the end of your next turn.)
 Spell/&HinderingBlastTitle	Eldritch Blast (Hindering)
-Spell/&IlluminatingSphereDescription  <b><i>Morwenna's Illuminating Sphere</i></b> causes light sources such as torches and mana lamps in the area of effect to light up. \n\n<i>"Don't worry, its highly unlikely to ignite torches or candles in packs or pockets any more."  -Morwenna Leafheart</i>
+Spell/&IlluminatingSphereDescription  <b><i>Morwenna's Illuminating Sphere</i></b> causes light sources such as torches and mana lamps in the area of effect to light up. \n\n<i>"Don't worry, its highly unlikely to ignite torches or candles in packs or pockets. Probably."  -Morwenna Leafheart</i>
 Spell/&IlluminatingSphereTitle  Illuminating Sphere
 Spell/&IPConjureInvisibleStalkerTitle	Conjure Elemental (Invisible Stalker)
 Spell/&MinorLifestealDescription	You drain life energy from a hostile creature you can see within range. You then heal hit points equal to the amount of damage dealt. This spell has no effect on undead or constructs
