@@ -1762,3 +1762,4 @@ UI/&CustomFeatureSelectionTooltipTypeCantrip	Cantrip
 UI/&CustomFeatureSelectionTooltipTypeFeature	Feature
 UI/&CustomFeatureSelectionTooltipTypePower	Power
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Proficiency
+Failure/&FailureFlagTargetMeleeWeaponError	Can't perform melee attak on this target with current weapon
