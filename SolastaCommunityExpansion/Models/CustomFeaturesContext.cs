@@ -374,24 +374,35 @@ namespace SolastaCommunityExpansion.Models
 
         public static string GetSpellLearningTag(RulesetCharacterHero hero, string tag)
         {
-            if (tag != null 
-                && (tag.StartsWith(AttributeDefinitions.TagClass) || tag.StartsWith(AttributeDefinitions.TagSubclass)))
+            if (tag == null)
             {
-                ServiceRepository.GetService<ICharacterBuildingService>()
-                    .GetLastAssignedClassAndLevel(hero, out var lastClass, out var classLevel);
-
-                if (LevelDownContext.IsLevelDown)
-                {
-                    classLevel -= 1;
-                }
-
-                if (classLevel > 0)
-                {
-                    return AttributeDefinitions.GetClassTag(lastClass, classLevel);
-                }
+                return null;
             }
 
-            return tag;
+            var isClassTag = tag.StartsWith(AttributeDefinitions.TagClass);
+            var isSubclassTag = tag.StartsWith(AttributeDefinitions.TagSubclass);
+
+            if (!isClassTag && !isSubclassTag)
+            {
+                return tag;
+            }
+
+            ServiceRepository.GetService<ICharacterBuildingService>()
+                .GetLastAssignedClassAndLevel(hero, out var lastClass, out var classLevel);
+
+            if (LevelDownContext.IsLevelDown)
+            {
+                classLevel -= 1;
+            }
+
+            if (classLevel <= 0)
+            {
+                return tag;
+            }
+
+            return (isSubclassTag && hero.ClassesAndSubclasses.ContainsKey(lastClass))
+                ? AttributeDefinitions.GetSubclassTag(lastClass, classLevel, hero.ClassesAndSubclasses[lastClass])
+                : AttributeDefinitions.GetClassTag(lastClass, classLevel);
         }
     }
 }
