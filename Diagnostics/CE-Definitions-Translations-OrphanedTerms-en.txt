@@ -8,6 +8,7 @@ Condition/&HalfLifeConditionDescription	You take necrotic energy into yourself a
 Condition/&HalfLifeConditionTitle	HalfLife
 Condition/&RuinedDescription	This creature's defence is reduced
 Condition/&RuinedTitle	Ruined
+Failure/&FailureFlagTargetMeleeWeaponError	Can't perform melee attak on this target with current weapon
 Feat/&AddProtectorConstructCantripDescription	Adds Mending Construct and Dismiss Construct cantrips to increase your constructs flexibility
 Feat/&AddProtectorConstructCantripTitle	Bonus Construct Cantrips
 Feat/&ArtificerArtillerstImprovedCannonsDescription	The effect from your cannons increases. Additional damage from the fire, an additional target from the force, and additional temp HP from the shield
@@ -117,8 +118,8 @@ Feedback/&AdditionalDamageResonatingStrikeFormat	Resonating Strike!
 Feedback/&AdditionalDamageResonatingStrikeLine	{0} resonates {1}! (+{2})
 Feedback/&AdditionalDamageSoulEmpoweredFormat	Soul Empowered!
 Feedback/&AdditionalDamageSoulEmpoweredLine	Soul Empowered does additional damage!
-Feedback/&AdditionalDamageSunlightBladeFormat	Sunlight Blade!
-Feedback/&AdditionalDamageSunlightBladeLine	{0} burns {1} with Sunlight Blade! (+{2})
+Feedback/&AdditionalDamageSunlightBladeFormat	Sunlit Blade!
+Feedback/&AdditionalDamageSunlightBladeLine	{0} burns {1} with Sunlit Blade! (+{2})
 Feedback/&AdditionalDamageUpgradedConstructFormat	Upgraded Damage
 Feedback/&AdditionalDamageUpgradedConstructLine	The upgraded construct deals 1D8 more damage per hit
 Feedback/&AncientForestHerbalBrewDamageAffinityAcidResistancePowerUsedWhileTravellingFormat	{0} creates {1}
@@ -133,6 +134,8 @@ Feedback/&ExtraDamageTitle	Lightning Spear extra damage
 Feedback/&NotifyEffectResonatingStrikeLine	{0} resonates {1}!
 Format/&LevelAndExperienceFormat	Level: {0}\nExperience: {1}\n{2} points required to reach level {3}
 Format/&LevelAndExperienceMaxedFormat	Level: {0}\nExperience: {1}\nmax level reached.
+Language/&AbyssalDescription	Abyssal language was the form of primordial language which has been wrapped and twisted by the evil of the abyss
+Language/&AbyssalTitle	Abyssal
 Message/&CharacterExportDuplicateNameErrorDescription	Export Cancelled:\n\nA hero with this name already exists in the pool.\nPlease try a different name
 Message/&CharacterExportEmptyNameErrorDescription	Export Cancelled:\n\nPlease try a non empty name
 Message/&CharacterExportModalContentDescription	Enter the hero name to export:

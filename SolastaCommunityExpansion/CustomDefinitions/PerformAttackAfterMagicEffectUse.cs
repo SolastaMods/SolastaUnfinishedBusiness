@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using SolastaModApi.Infrastructure;
 using static SolastaCommunityExpansion.CustomDefinitions.IPerformAttackAfterMagicEffectUse;
 
@@ -8,7 +9,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions
     {
         delegate CharacterActionParams GetAttackAfterUseHandler(CharacterActionMagicEffect actionMagicEffect);
 
-        delegate bool CanUseHandler(CursorLocationSelectTarget targeting, GameLocationCharacter caster, GameLocationCharacter target);
+        delegate bool CanUseHandler(CursorLocationSelectTarget targeting, GameLocationCharacter caster, GameLocationCharacter target, out string failure);
 
         CanUseHandler CanBeUsedToAttack { get; set; }
         GetAttackAfterUseHandler PerformAttackAfterUse { get; set; }
@@ -85,8 +86,9 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             return null;
         }
 
-        private bool DefaultCanUseHandler(CursorLocationSelectTarget targeting, GameLocationCharacter caster, GameLocationCharacter target)
+        private bool DefaultCanUseHandler(CursorLocationSelectTarget targeting, GameLocationCharacter caster, GameLocationCharacter target, out string failure)
         {
+            failure = String.Empty;
             var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
             if (attackMode == null)
             {
@@ -114,7 +116,13 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             evalParams.FillForPhysicalReachAttack(caster, caster.LocationPosition, attackMode, target,
                 target.LocationPosition, attackModifier);
 
-            return battleService.CanAttack(evalParams);
+            var canAttack = battleService.CanAttack(evalParams);
+            if (!canAttack)
+            {
+                failure = "Failure/&FailureFlagTargetMeleeWeaponError";
+            }
+
+            return canAttack;
         }
 
 
