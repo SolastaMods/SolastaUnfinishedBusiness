@@ -1152,7 +1152,7 @@ FightingStyle/&CripplingTitle	Crippling
 FightingStyle/&PugilistFightingDescription	While you are completely unarmed, your unarmed strikes deal an additional d8 of damage and you can punch with your offhand as a bonus action
 FightingStyle/&PugilistFightingTitle	Pugilist
 FightingStyle/&TitanFightingDescription	You increase your melee attack damage by +2
-FightingStyle/&TitanFightingTitle	Fighting Style: Titan Fighting
+FightingStyle/&TitanFightingTitle	Titan Fighting
 FlexibleBackgrounds/&AcademicBackgroundSuggestedSkillsDescription	Arcana, Nature, and Insight
 FlexibleBackgrounds/&AcademicBackgroundSuggestedSkillsTitle	Suggested Skills
 FlexibleBackgrounds/&AcolyteBackgroundSuggestedSkillsDescription	Religion, Nature, and Insight
