@@ -22,5 +22,19 @@ namespace SolastaModApi
 
             return definition;
         }
+
+        public static bool TryGetDefinition<T>(string key, string guid, out T definition) where T : BaseDefinition
+        {
+            var db = DatabaseRepository.GetDatabase<T>();
+
+            if (key == null || db == null)
+            {
+                definition = null;
+                return false;
+            }
+
+            definition = db.TryGetElement(key, guid);
+            return definition != null;
+        }
     }
 }
