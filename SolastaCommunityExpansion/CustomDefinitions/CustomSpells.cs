@@ -28,15 +28,15 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 
     public class SpellModifyingFeatureDefinition : FeatureDefinition, IModifySpellEffect
     {
-        public delegate EffectDescription ModifySpellEffectDelegate(RulesetEffectSpell spell, EffectDescription effect);
+        public delegate EffectDescription ModifySpellEffectDelegate(SpellDefinition spell, EffectDescription effect, RulesetCharacter caster);
 
         private ModifySpellEffectDelegate _spellModifier;
 
         public ModifySpellEffectDelegate SpellModifier { get => _spellModifier; set => _spellModifier = value; }
 
-        public EffectDescription ModifyEffect(RulesetEffectSpell spell, EffectDescription effect)
+        public EffectDescription ModifyEffect(SpellDefinition spell, EffectDescription effect, RulesetCharacter caster)
         {
-            return _spellModifier != null ? _spellModifier(spell, effect) : effect;
+            return _spellModifier != null ? _spellModifier(spell, effect, caster) : effect;
         }
     }
     internal class UpgradeEffectFromLevel : ICustomMagicEffectBasedOnCaster

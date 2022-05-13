@@ -306,11 +306,20 @@ namespace SolastaCommunityExpansion.Models
 
         public static EffectDescription ModifySpellEffect(EffectDescription original, RulesetEffectSpell spell)
         {
+            return ModifySpellEffect(original, spell.SpellDefinition, spell.Caster);
+        }
+
+        public static EffectDescription ModifySpellEffect(SpellDefinition spell, RulesetCharacter caster)
+        {
+            return ModifySpellEffect(spell.EffectDescription, spell, caster);
+        }
+
+        public static EffectDescription ModifySpellEffect(EffectDescription original, SpellDefinition spell, RulesetCharacter caster)
+        {
             //TODO: find a way to cache result, so it works faster - this method is called sveral times per spell cast
             var result = original;
-            var caster = spell.Caster;
 
-            var baseDefinition = spell.SpellDefinition.GetFirstSubFeatureOfType<ICustomMagicEffectBasedOnCaster>();
+            var baseDefinition = spell.GetFirstSubFeatureOfType<ICustomMagicEffectBasedOnCaster>();
             if (baseDefinition != null && caster != null)
             {
                 result = baseDefinition.GetCustomEffect(caster) ?? original;
@@ -320,7 +329,7 @@ namespace SolastaCommunityExpansion.Models
 
             if (!modifiers.Empty())
             {
-                result = modifiers.Aggregate(result.Copy(), (current, f) => f.ModifyEffect(spell, current));
+                result = modifiers.Aggregate(result.Copy(), (current, f) => f.ModifyEffect(spell, current, caster));
             }
 
             return result;

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
+using SolastaCommunityExpansion.Api.AdditionalExtensions;
+using SolastaCommunityExpansion.CustomDefinitions;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
 {
@@ -73,6 +76,26 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
                             failure = String.Empty;
                         }
                     }
+                }
+            }
+        }
+
+        //Modifies validity of ready cantrip action to include attack cantrips even if they don't have damage forms
+        [HarmonyPatch(typeof(RulesetCharacter), "IsValidReadyCantrip")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+        internal static class RulesetCharacter_IsValidReadyCantrip
+        {
+            internal static void Postfix(RulesetCharacter __instance, ref bool __result,
+                SpellDefinition cantrip)
+            {
+                if (!__result)
+                {
+                    var effect = CustomFeaturesContext.ModifySpellEffect(cantrip, __instance);
+                    var hasDamage = effect.HasFormOfType(EffectForm.EffectFormType.Damage);
+                    var hasAttack = cantrip.HasSubFeatureOfType<IPerformAttackAfterMagicEffectUse>();
+                    var notGadgets = effect.TargetFilteringMethod != RuleDefinitions.TargetFilteringMethod.GadgetOnly;
+                    var componentsValid = __instance.AreSpellComponentsValid(cantrip);
+                    __result = (hasDamage || hasAttack) && notGadgets && componentsValid;
                 }
             }
         }
