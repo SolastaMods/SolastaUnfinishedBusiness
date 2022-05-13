@@ -292,7 +292,7 @@ namespace SolastaCommunityExpansion.Spells
             }
 
             if (attackOutcome != RuleDefinitions.RollOutcome.Success 
-                && attackOutcome == RuleDefinitions.RollOutcome.CriticalSuccess)
+                && attackOutcome != RuleDefinitions.RollOutcome.CriticalSuccess)
             {
                 return null;
             }
@@ -323,6 +323,8 @@ namespace SolastaCommunityExpansion.Spells
 
                 effectSpell.ApplyEffectOnCharacter(rulesetTarget, true, targets[i].LocationPosition);
             }
+            
+            effectSpell.Terminate(true);
 
             return null;
         }
