@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.CustomUI;
 using SolastaModApi.Infrastructure;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions.RollContext;
@@ -65,6 +66,7 @@ namespace SolastaCommunityExpansion.Feats
                 .AddToDB();
 
             feats.AddRange(savageAttacker, tough, warCaster, improvedCritical);
+            ReactionRequestWarcaster.Initialize();
         }
 
         private static FeatureDefinitionDieRollModifier BuildDieRollModifier(string name,
