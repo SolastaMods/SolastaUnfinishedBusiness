@@ -8,7 +8,7 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class MulticlassContext
     {
-        internal const int MAX_CLASSES = 3;
+        internal const int MAX_CLASSES = 4;
         internal static void Load()
         {
             // ensure these are always referenced here for diagnostics dump
