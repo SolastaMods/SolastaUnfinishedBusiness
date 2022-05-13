@@ -16,7 +16,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
             {
                 BaseDefinition definition = __instance.InvokeMethod("GetBaseDefinition") as BaseDefinition;
                 //skip spell animation if this is "attack after cast" spell
-                if (definition.GetFirstSubFeatureOfType<IPerformAttackAfterMagicEffectUse>() != null)
+                if (definition.HasSubFeatureOfType<IPerformAttackAfterMagicEffectUse>())
                 {
                     __instance.ActionParams.SkipAnimationsAndVFX = true;
                 }
