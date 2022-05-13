@@ -1,4 +1,8 @@
-﻿using System;
+﻿//
+// TODO: looking for contributors to finish this class
+//
+#if false
+using System;
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
@@ -100,3 +104,4 @@ namespace SolastaCommunityExpansion.Classes.Warden.Subclasses
         }
     }
 }
+#endif

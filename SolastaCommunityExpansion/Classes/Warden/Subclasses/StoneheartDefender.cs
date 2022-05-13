@@ -1,4 +1,8 @@
-﻿using System;
+﻿//
+// TODO: looking for contributors to finish this class
+//
+#if false
+using System;
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
@@ -76,7 +80,13 @@ namespace SolastaCommunityExpansion.Classes.Warden.Subclasses
                     conditionAC = rootsOfRockACConditionDefinition;
                 }
             }
-            public override void ApplyForm(RulesetImplementationDefinitions.ApplyFormsParams formsParams, bool retargeting, bool proxyOnly, bool forceSelfConditionOnly)
+            public override void ApplyForm(
+                RulesetImplementationDefinitions.ApplyFormsParams formsParams, 
+                bool retargeting, 
+                bool proxyOnly, 
+                bool forceSelfConditionOnly,
+                RuleDefinitions.EffectApplication effectApplication = RuleDefinitions.EffectApplication.All,
+                List<EffectFormFilter> filters = null)
             {
                 if (formsParams.targetCharacter.Side == RuleDefinitions.Side.Enemy || formsParams.targetCharacter == formsParams.sourceCharacter){
                     ApplyCondition(formsParams, conditionRestricted, RuleDefinitions.DurationType.Round, 1);
@@ -166,7 +176,13 @@ namespace SolastaCommunityExpansion.Classes.Warden.Subclasses
                 conditionProne = earthshatterProneConditionDefinition;
 
             }
-            public override void ApplyForm(RulesetImplementationDefinitions.ApplyFormsParams formsParams, bool retargeting, bool proxyOnly, bool forceSelfConditionOnly)
+            public override void ApplyForm(
+                RulesetImplementationDefinitions.ApplyFormsParams formsParams, 
+                bool retargeting, 
+                bool proxyOnly, 
+                bool forceSelfConditionOnly,
+                RuleDefinitions.EffectApplication effectApplication = RuleDefinitions.EffectApplication.All,
+                List<EffectFormFilter> filters = null)
             {
                 
                 if (formsParams.targetCharacter.Side == RuleDefinitions.Side.Enemy || formsParams.targetCharacter == formsParams.sourceCharacter){
@@ -282,3 +298,4 @@ namespace SolastaCommunityExpansion.Classes.Warden.Subclasses
         }
     }
 }
+#endif

@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.FightingStyles
     internal class TitanFighting : AbstractFightingStyle
     {
         public readonly Guid TITAN_FIGHTING_BASE_GUID = new("3f7f25de-0ff9-4b63-b38d-8cd7f3a381fc");
-        private CustomizableFightingStyleDefinition instance;
+        private FightingStyleDefinitionCustomizable instance;
 
         internal override List<FeatureDefinitionFightingStyleChoice> GetChoiceLists()
         {

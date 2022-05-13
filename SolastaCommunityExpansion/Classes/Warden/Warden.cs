@@ -1,4 +1,8 @@
-﻿using System;
+﻿//
+// TODO: looking for contributors to finish this class
+//
+#if false
+using System;
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
@@ -313,7 +317,13 @@ namespace SolastaCommunityExpansion.Classes.Warden
                     conditionWardenResolve = wardenResolveConditionDefinition;
                 }
             }
-            public override void ApplyForm(RulesetImplementationDefinitions.ApplyFormsParams formsParams, bool retargeting, bool proxyOnly, bool forceSelfConditionOnly)
+            public override void ApplyForm(
+                RulesetImplementationDefinitions.ApplyFormsParams formsParams, 
+                bool retargeting,
+                bool proxyOnly,
+                bool forceSelfConditionOnly,
+                RuleDefinitions.EffectApplication effectApplication = RuleDefinitions.EffectApplication.All,
+                List<EffectFormFilter> filters = null)
             {
                 if (formsParams.sourceCharacter.CurrentHitPoints <= formsParams.sourceCharacter.MissingHitPoints)
                 {
@@ -713,3 +723,4 @@ namespace SolastaCommunityExpansion.Classes.Warden
         }
     }
 }
+#endif
