@@ -29,10 +29,14 @@ namespace SolastaCommunityExpansion.Models
         internal static void SwitchHelpPower()
         {
             var dbCharacterRaceDefinition = DatabaseRepository.GetDatabase<CharacterRaceDefinition>();
+            var subRaces = dbCharacterRaceDefinition
+                .SelectMany(x => x.SubRaces);
+            var races = dbCharacterRaceDefinition
+                .Where(x => !subRaces.Contains(x));
 
             if (Main.Settings.AddHelpActionToAllRaces)
             {
-                foreach (var characterRaceDefinition in dbCharacterRaceDefinition
+                foreach (var characterRaceDefinition in races
                     .Where(a => !a.FeatureUnlocks.Exists(x => x.Level == 1 && x.FeatureDefinition == FeatureDefinitionPowerHelpAction)))
                 {
                     characterRaceDefinition.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureDefinitionPowerHelpAction, 1));
@@ -40,7 +44,7 @@ namespace SolastaCommunityExpansion.Models
             }
             else
             {
-                foreach (var characterRaceDefinition in dbCharacterRaceDefinition
+                foreach (var characterRaceDefinition in races
                     .Where(a => a.FeatureUnlocks.Exists(x => x.Level == 1 && x.FeatureDefinition == FeatureDefinitionPowerHelpAction)))
                 {
                     characterRaceDefinition.FeatureUnlocks.RemoveAll(x => x.Level == 1 && x.FeatureDefinition == FeatureDefinitionPowerHelpAction);
@@ -90,7 +94,7 @@ namespace SolastaCommunityExpansion.Models
             {
                 target.AdditionalDamageGenerated(source, target, RuleDefinitions.DieType.D1, 0, 0, logTag);
             }
-            
+
             var usablePower = UsablePowersProvider.Get(power, source);
             var effectPower = ruleset.InstantiateEffectPower(source, usablePower, false);
             var formsParams = new RulesetImplementationDefinitions.ApplyFormsParams();

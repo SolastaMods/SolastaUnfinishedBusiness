@@ -1,38 +1,8 @@
-using SolastaModApi.Infrastructure;
-using AK.Wwise;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.AddressableAssets;
-using System;
-using System.Linq;
-using System.Text;
 using System.CodeDom.Compiler;
-using TA.AI;
-using TA;
 using System.Collections.Generic;
-using UnityEngine.Rendering.PostProcessing;
-using  static  ActionDefinitions ;
-using  static  TA . AI . DecisionPackageDefinition ;
-using  static  TA . AI . DecisionDefinition ;
-using  static  RuleDefinitions ;
-using  static  BanterDefinitions ;
-using  static  Gui ;
-using  static  GadgetDefinitions ;
-using  static  BestiaryDefinitions ;
-using  static  CursorDefinitions ;
-using  static  AnimationDefinitions ;
-using  static  FeatureDefinitionAutoPreparedSpells ;
-using  static  FeatureDefinitionCraftingAffinity ;
-using  static  CharacterClassDefinition ;
-using  static  CreditsGroupDefinition ;
-using  static  SoundbanksDefinition ;
-using  static  CampaignDefinition ;
-using  static  GraphicsCharacterDefinitions ;
-using  static  GameCampaignDefinitions ;
-using  static  FeatureDefinitionAbilityCheckAffinity ;
-using  static  TooltipDefinitions ;
-using  static  BaseBlueprint ;
-using  static  MorphotypeElementDefinition ;
+using System.Linq;
+using SolastaModApi.Infrastructure;
+using static RuleDefinitions;
 
 namespace SolastaModApi.Extensions
 {
@@ -43,7 +13,7 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(FeatureDefinitionProficiency)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class FeatureDefinitionProficiencyExtensions
     {
-        public static T AddForbiddenItemTags<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddForbiddenItemTags<T>(this T entity, params System.String[] value)
             where T : FeatureDefinitionProficiency
         {
             AddForbiddenItemTags(entity, value.AsEnumerable());
@@ -57,7 +27,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddProficiencies<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddProficiencies<T>(this T entity, params System.String[] value)
             where T : FeatureDefinitionProficiency
         {
             AddProficiencies(entity, value.AsEnumerable());
@@ -85,7 +55,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetForbiddenItemTags<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetForbiddenItemTags<T>(this T entity, params System.String[] value)
             where T : FeatureDefinitionProficiency
         {
             SetForbiddenItemTags(entity, value.AsEnumerable());
@@ -99,7 +69,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetProficiencies<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetProficiencies<T>(this T entity, params System.String[] value)
             where T : FeatureDefinitionProficiency
         {
             SetProficiencies(entity, value.AsEnumerable());

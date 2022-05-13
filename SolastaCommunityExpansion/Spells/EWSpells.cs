@@ -40,7 +40,7 @@ namespace SolastaCommunityExpansion.Spells
                     .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.StartOfTurn)
                     .SetSpecialDuration(true)
                     .AddToDB());
-            
+
             var dimLight = new LightSourceForm()
                 .SetBrightRange(0)
                 .SetDimAdditionalRange(2)
@@ -49,7 +49,7 @@ namespace SolastaCommunityExpansion.Spells
 
             dimLight.SetGraphicsPrefabReference(DatabaseHelper.FeatureDefinitionAdditionalDamages
                 .AdditionalDamageBrandingSmite.LightSourceForm.GetField<AssetReference>("graphicsPrefabReference"));
-            
+
             return SpellDefinitionBuilder
                 .Create("EWSunlightBlade", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Spell,
@@ -150,7 +150,7 @@ namespace SolastaCommunityExpansion.Spells
                     effectIncrementMethod: RuleDefinitions.EffectIncrementMethod.PerAdditionalSlotLevel,
                     incrementMultiplier: 5, additionalDicePerIncrement: 1)
                 .Build();
-            
+
             var resonanceLeap = SpellDefinitionBuilder
                 .Create("EWResonatingStrikeLeap", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentationNoContent()
@@ -166,7 +166,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetEffectDescription(new EffectDescriptionBuilder()
                     .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.AcidSplash)
                     .SetTargetFiltering(RuleDefinitions.TargetFilteringMethod.CharacterOnly)
-                    .SetTargetingData(RuleDefinitions.Side.Enemy,RuleDefinitions.RangeType.Touch,1, RuleDefinitions.TargetType.Individuals)
+                    .SetTargetingData(RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.Touch, 1, RuleDefinitions.TargetType.Individuals)
                     .SetEffectForms(new EffectFormBuilder()
                         .SetBonusMode(RuleDefinitions.AddBonusMode.AbilityBonus)
                         .SetDamageForm(
@@ -181,7 +181,7 @@ namespace SolastaCommunityExpansion.Spells
                 )
                 .AddToDB();
 
-            
+
             return SpellDefinitionBuilder
                 .Create("EWResonatingStrike", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Spell,
@@ -266,7 +266,7 @@ namespace SolastaCommunityExpansion.Spells
     {
         private readonly SpellDefinition _spell;
         private readonly string _notificationTag;
-        
+
 
         public ChainSpellEffectOnAttackHit(SpellDefinition spell, string notificationTag = null)
         {
@@ -291,8 +291,8 @@ namespace SolastaCommunityExpansion.Spells
                 return null;
             }
 
-            if (attackOutcome != RuleDefinitions.RollOutcome.Success 
-                && attackOutcome == RuleDefinitions.RollOutcome.CriticalSuccess)
+            if (attackOutcome != RuleDefinitions.RollOutcome.Success
+                && attackOutcome != RuleDefinitions.RollOutcome.CriticalSuccess)
             {
                 return null;
             }
@@ -301,7 +301,7 @@ namespace SolastaCommunityExpansion.Spells
             var targets = actionParams.TargetCharacters;
 
             if (caster == null || targets.Count < 2) { return null; }
-            
+
             var rulesetCaster = caster.RulesetCharacter;
             var rules = ServiceRepository.GetService<IRulesetImplementationService>();
             var bonusLevelProvider = _spell.GetFirstSubFeatureOfType<IBonusSlotLevels>();
@@ -324,6 +324,8 @@ namespace SolastaCommunityExpansion.Spells
                 effectSpell.ApplyEffectOnCharacter(rulesetTarget, true, targets[i].LocationPosition);
             }
 
+            effectSpell.Terminate(true);
+
             return null;
         }
     }
@@ -333,7 +335,7 @@ namespace SolastaCommunityExpansion.Spells
         public int GetBonusSlotLevels(RulesetCharacter caster);
     }
 
-    class BonusSlotLevelsByClassLevel: IBonusSlotLevels
+    class BonusSlotLevelsByClassLevel : IBonusSlotLevels
     {
         public int GetBonusSlotLevels(RulesetCharacter caster)
         {

@@ -1,38 +1,8 @@
-using SolastaModApi.Infrastructure;
-using AK.Wwise;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.AddressableAssets;
-using System;
-using System.Linq;
-using System.Text;
 using System.CodeDom.Compiler;
-using TA.AI;
-using TA;
 using System.Collections.Generic;
-using UnityEngine.Rendering.PostProcessing;
-using  static  ActionDefinitions ;
-using  static  TA . AI . DecisionPackageDefinition ;
-using  static  TA . AI . DecisionDefinition ;
-using  static  RuleDefinitions ;
-using  static  BanterDefinitions ;
-using  static  Gui ;
-using  static  GadgetDefinitions ;
-using  static  BestiaryDefinitions ;
-using  static  CursorDefinitions ;
-using  static  AnimationDefinitions ;
-using  static  FeatureDefinitionAutoPreparedSpells ;
-using  static  FeatureDefinitionCraftingAffinity ;
-using  static  CharacterClassDefinition ;
-using  static  CreditsGroupDefinition ;
-using  static  SoundbanksDefinition ;
-using  static  CampaignDefinition ;
-using  static  GraphicsCharacterDefinitions ;
-using  static  GameCampaignDefinitions ;
-using  static  FeatureDefinitionAbilityCheckAffinity ;
-using  static  TooltipDefinitions ;
-using  static  BaseBlueprint ;
-using  static  MorphotypeElementDefinition ;
+using System.Linq;
+using SolastaModApi.Infrastructure;
+using static RuleDefinitions;
 
 namespace SolastaModApi.Extensions
 {
@@ -43,7 +13,7 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(RulesetCharacter)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class RulesetCharacterExtensions
     {
-        public static T AddAllUsableDeviceFunctions<T>(this T entity,  params  RulesetDeviceFunction [ ]  value)
+        public static T AddAllUsableDeviceFunctions<T>(this T entity, params RulesetDeviceFunction[] value)
             where T : RulesetCharacter
         {
             AddAllUsableDeviceFunctions(entity, value.AsEnumerable());
@@ -57,7 +27,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddAttackModes<T>(this T entity,  params  RulesetAttackMode [ ]  value)
+        public static T AddAttackModes<T>(this T entity, params RulesetAttackMode[] value)
             where T : RulesetCharacter
         {
             AddAttackModes(entity, value.AsEnumerable());
@@ -71,7 +41,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddControlledEffectProxies<T>(this T entity,  params  RulesetCharacterEffectProxy [ ]  value)
+        public static T AddControlledEffectProxies<T>(this T entity, params RulesetCharacterEffectProxy[] value)
             where T : RulesetCharacter
         {
             AddControlledEffectProxies(entity, value.AsEnumerable());
@@ -85,7 +55,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddItems<T>(this T entity,  params  RulesetItem [ ]  value)
+        public static T AddItems<T>(this T entity, params RulesetItem[] value)
             where T : RulesetCharacter
         {
             AddItems(entity, value.AsEnumerable());
@@ -99,7 +69,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddLastReceivedDamageTypes<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddLastReceivedDamageTypes<T>(this T entity, params System.String[] value)
             where T : RulesetCharacter
         {
             AddLastReceivedDamageTypes(entity, value.AsEnumerable());
@@ -113,7 +83,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddMagicEffectsCache<T>(this T entity,  params  IMagicEffect [ ]  value)
+        public static T AddMagicEffectsCache<T>(this T entity, params IMagicEffect[] value)
             where T : RulesetCharacter
         {
             AddMagicEffectsCache(entity, value.AsEnumerable());
@@ -127,7 +97,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddPowersUsedByMe<T>(this T entity,  params  RulesetEffectPower [ ]  value)
+        public static T AddPowersUsedByMe<T>(this T entity, params RulesetEffectPower[] value)
             where T : RulesetCharacter
         {
             AddPowersUsedByMe(entity, value.AsEnumerable());
@@ -141,7 +111,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddRecoveredFeatures<T>(this T entity,  params  FeatureDefinition [ ]  value)
+        public static T AddRecoveredFeatures<T>(this T entity, params FeatureDefinition[] value)
             where T : RulesetCharacter
         {
             AddRecoveredFeatures(entity, value.AsEnumerable());
@@ -155,7 +125,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddRequiredSenseTypesToPerceive<T>(this T entity,  params  SenseMode . Type [ ]  value)
+        public static T AddRequiredSenseTypesToPerceive<T>(this T entity, params SenseMode.Type[] value)
             where T : RulesetCharacter
         {
             AddRequiredSenseTypesToPerceive(entity, value.AsEnumerable());
@@ -169,7 +139,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddReviveOptionsCache<T>(this T entity,  params  RuleDefinitions . ReviveOption [ ]  value)
+        public static T AddReviveOptionsCache<T>(this T entity, params RuleDefinitions.ReviveOption[] value)
             where T : RulesetCharacter
         {
             AddReviveOptionsCache(entity, value.AsEnumerable());
@@ -183,7 +153,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddSenseModes<T>(this T entity,  params  SenseMode [ ]  value)
+        public static T AddSenseModes<T>(this T entity, params SenseMode[] value)
             where T : RulesetCharacter
         {
             AddSenseModes(entity, value.AsEnumerable());
@@ -197,7 +167,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddSpellRepertoires<T>(this T entity,  params  RulesetSpellRepertoire [ ]  value)
+        public static T AddSpellRepertoires<T>(this T entity, params RulesetSpellRepertoire[] value)
             where T : RulesetCharacter
         {
             AddSpellRepertoires(entity, value.AsEnumerable());
@@ -211,7 +181,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddSpellsCastByMe<T>(this T entity,  params  RulesetEffectSpell [ ]  value)
+        public static T AddSpellsCastByMe<T>(this T entity, params RulesetEffectSpell[] value)
             where T : RulesetCharacter
         {
             AddSpellsCastByMe(entity, value.AsEnumerable());
@@ -225,7 +195,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddStealableItems<T>(this T entity,  params  RulesetItem [ ]  value)
+        public static T AddStealableItems<T>(this T entity, params RulesetItem[] value)
             where T : RulesetCharacter
         {
             AddStealableItems(entity, value.AsEnumerable());
@@ -239,7 +209,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddTags<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddTags<T>(this T entity, params System.String[] value)
             where T : RulesetCharacter
         {
             AddTags(entity, value.AsEnumerable());
@@ -253,7 +223,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddUsablePowers<T>(this T entity,  params  RulesetUsablePower [ ]  value)
+        public static T AddUsablePowers<T>(this T entity, params RulesetUsablePower[] value)
             where T : RulesetCharacter
         {
             AddUsablePowers(entity, value.AsEnumerable());
@@ -267,7 +237,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddUsableSpells<T>(this T entity,  params  SpellDefinition [ ]  value)
+        public static T AddUsableSpells<T>(this T entity, params SpellDefinition[] value)
             where T : RulesetCharacter
         {
             AddUsableSpells(entity, value.AsEnumerable());
@@ -508,7 +478,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetAllUsableDeviceFunctions<T>(this T entity,  params  RulesetDeviceFunction [ ]  value)
+        public static T SetAllUsableDeviceFunctions<T>(this T entity, params RulesetDeviceFunction[] value)
             where T : RulesetCharacter
         {
             SetAllUsableDeviceFunctions(entity, value.AsEnumerable());
@@ -522,7 +492,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetAttackModes<T>(this T entity,  params  RulesetAttackMode [ ]  value)
+        public static T SetAttackModes<T>(this T entity, params RulesetAttackMode[] value)
             where T : RulesetCharacter
         {
             SetAttackModes(entity, value.AsEnumerable());
@@ -676,7 +646,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetControlledEffectProxies<T>(this T entity,  params  RulesetCharacterEffectProxy [ ]  value)
+        public static T SetControlledEffectProxies<T>(this T entity, params RulesetCharacterEffectProxy[] value)
             where T : RulesetCharacter
         {
             SetControlledEffectProxies(entity, value.AsEnumerable());
@@ -970,7 +940,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetItems<T>(this T entity,  params  RulesetItem [ ]  value)
+        public static T SetItems<T>(this T entity, params RulesetItem[] value)
             where T : RulesetCharacter
         {
             SetItems(entity, value.AsEnumerable());
@@ -1019,7 +989,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetLastReceivedDamageTypes<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetLastReceivedDamageTypes<T>(this T entity, params System.String[] value)
             where T : RulesetCharacter
         {
             SetLastReceivedDamageTypes(entity, value.AsEnumerable());
@@ -1047,7 +1017,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetMagicEffectsCache<T>(this T entity,  params  IMagicEffect [ ]  value)
+        public static T SetMagicEffectsCache<T>(this T entity, params IMagicEffect[] value)
             where T : RulesetCharacter
         {
             SetMagicEffectsCache(entity, value.AsEnumerable());
@@ -1187,7 +1157,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetPowersUsedByMe<T>(this T entity,  params  RulesetEffectPower [ ]  value)
+        public static T SetPowersUsedByMe<T>(this T entity, params RulesetEffectPower[] value)
             where T : RulesetCharacter
         {
             SetPowersUsedByMe(entity, value.AsEnumerable());
@@ -1229,7 +1199,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetRecoveredFeatures<T>(this T entity,  params  FeatureDefinition [ ]  value)
+        public static T SetRecoveredFeatures<T>(this T entity, params FeatureDefinition[] value)
             where T : RulesetCharacter
         {
             SetRecoveredFeatures(entity, value.AsEnumerable());
@@ -1250,7 +1220,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetRequiredSenseTypesToPerceive<T>(this T entity,  params  SenseMode . Type [ ]  value)
+        public static T SetRequiredSenseTypesToPerceive<T>(this T entity, params SenseMode.Type[] value)
             where T : RulesetCharacter
         {
             SetRequiredSenseTypesToPerceive(entity, value.AsEnumerable());
@@ -1271,7 +1241,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetReviveOptionsCache<T>(this T entity,  params  RuleDefinitions . ReviveOption [ ]  value)
+        public static T SetReviveOptionsCache<T>(this T entity, params RuleDefinitions.ReviveOption[] value)
             where T : RulesetCharacter
         {
             SetReviveOptionsCache(entity, value.AsEnumerable());
@@ -1292,7 +1262,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSenseModes<T>(this T entity,  params  SenseMode [ ]  value)
+        public static T SetSenseModes<T>(this T entity, params SenseMode[] value)
             where T : RulesetCharacter
         {
             SetSenseModes(entity, value.AsEnumerable());
@@ -1383,7 +1353,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSpellRepertoires<T>(this T entity,  params  RulesetSpellRepertoire [ ]  value)
+        public static T SetSpellRepertoires<T>(this T entity, params RulesetSpellRepertoire[] value)
             where T : RulesetCharacter
         {
             SetSpellRepertoires(entity, value.AsEnumerable());
@@ -1404,7 +1374,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSpellsCastByMe<T>(this T entity,  params  RulesetEffectSpell [ ]  value)
+        public static T SetSpellsCastByMe<T>(this T entity, params RulesetEffectSpell[] value)
             where T : RulesetCharacter
         {
             SetSpellsCastByMe(entity, value.AsEnumerable());
@@ -1432,7 +1402,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetStealableItems<T>(this T entity,  params  RulesetItem [ ]  value)
+        public static T SetStealableItems<T>(this T entity, params RulesetItem[] value)
             where T : RulesetCharacter
         {
             SetStealableItems(entity, value.AsEnumerable());
@@ -1446,7 +1416,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetTags<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetTags<T>(this T entity, params System.String[] value)
             where T : RulesetCharacter
         {
             SetTags(entity, value.AsEnumerable());
@@ -1488,7 +1458,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetUsablePowers<T>(this T entity,  params  RulesetUsablePower [ ]  value)
+        public static T SetUsablePowers<T>(this T entity, params RulesetUsablePower[] value)
             where T : RulesetCharacter
         {
             SetUsablePowers(entity, value.AsEnumerable());
@@ -1502,7 +1472,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetUsableSpells<T>(this T entity,  params  SpellDefinition [ ]  value)
+        public static T SetUsableSpells<T>(this T entity, params SpellDefinition[] value)
             where T : RulesetCharacter
         {
             SetUsableSpells(entity, value.AsEnumerable());

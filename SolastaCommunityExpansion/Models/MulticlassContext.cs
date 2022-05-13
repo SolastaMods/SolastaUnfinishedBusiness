@@ -26,7 +26,7 @@ namespace SolastaCommunityExpansion.Models
             foreach (var spellListDefinition in spellListDefinitions)
             {
                 var spellsByLevel = spellListDefinition.SpellsByLevel;
-                
+
                 while (spellsByLevel.Count < Level20Context.MAX_SPELL_LEVEL + (spellListDefinition.HasCantrips ? 1 : 0))
                 {
                     spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet { Level = spellsByLevel.Count, Spells = new() });

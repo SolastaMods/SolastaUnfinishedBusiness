@@ -1,8 +1,8 @@
-﻿using SolastaModApi;
-using SolastaModApi.Extensions;
-using SolastaCommunityExpansion.Builders;
+﻿using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Models;
+using SolastaModApi;
+using SolastaModApi.Extensions;
 using static SolastaCommunityExpansion.Classes.Warlock.WarlockSpells;
 using static SolastaCommunityExpansion.Models.SpellsContext;
 
@@ -137,7 +137,7 @@ namespace SolastaCommunityExpansion.Spells
         {
             return SpellDefinitionBuilder
                 .Create("AHHellishRebuke", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(Category.Spell,  Utils.CustomIcons.CreateAssetReferenceSprite("HellishRebuke", Properties.Resources.HellishRebuke, 128, 128))
+                .SetGuiPresentation(Category.Spell, Utils.CustomIcons.CreateAssetReferenceSprite("HellishRebuke", Properties.Resources.HellishRebuke, 128, 128))
                 .SetSpellLevel(1)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
                 .SetSomaticComponent(true)

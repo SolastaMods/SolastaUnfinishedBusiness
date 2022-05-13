@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
@@ -232,8 +230,8 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
             {
                 LightSourceForm lightSourceForm = provider.LightSourceForm;
                 IGameLocationVisibilityService service = ServiceRepository.GetService<IGameLocationVisibilityService>();
-                float brightRange = (float)lightSourceForm.BrightRange;
-                float dimRangeCells = brightRange + (float)lightSourceForm.DimAdditionalRange;
+                float brightRange = lightSourceForm.BrightRange;
+                float dimRangeCells = brightRange + lightSourceForm.DimAdditionalRange;
                 defender.RulesetCharacter.PersonalLightSource = new RulesetLightSource(lightSourceForm.Color, brightRange, dimRangeCells, lightSourceForm.GraphicsPrefabAssetGUID, lightSourceForm.LightSourceType, featureDefinition.Name, defender.RulesetCharacter.Guid);
                 defender.RulesetCharacter.PersonalLightSource.Register(true);
                 GameLocationCharacter character = defender;
@@ -257,7 +255,7 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
                 if (attacker.UsedSpecialFeatures.ContainsKey(provider.Name))
                 {
                     attacker.UsedSpecialFeatures[provider.Name]++;
-                }                 
+                }
                 else
                 {
                     attacker.UsedSpecialFeatures[provider.Name] = 1;

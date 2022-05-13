@@ -5,11 +5,11 @@ using SolastaCommunityExpansion.Classes.Warlock.Features;
 using SolastaCommunityExpansion.Classes.Warlock.Subclasses;
 using SolastaModApi;
 using static EquipmentDefinitions;
+using static SolastaCommunityExpansion.Builders.EquipmentOptionsBuilder;
+using static SolastaCommunityExpansion.Classes.Warlock.Features.WarlockFeatures;
 using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaModApi.DatabaseHelper.ToolTypeDefinitions;
-using static SolastaCommunityExpansion.Builders.EquipmentOptionsBuilder;
-using static SolastaCommunityExpansion.Classes.Warlock.Features.WarlockFeatures;
 
 namespace SolastaCommunityExpansion.Classes.Warlock
 {
@@ -227,7 +227,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                     FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice,
                     WarlockEldritchInvocationReplacer
                 )
-                
+
                 .AddFeaturesAtLevel(20,
                     WarlockEldritchMasterPower,
                     WarlockEldritchInvocationReplacer

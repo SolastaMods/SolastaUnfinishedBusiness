@@ -17,7 +17,7 @@ namespace SolastaCommunityExpansion.Builders
         {
             effectForm = new EffectForm();
         }
-        
+
         public EffectFormBuilder(EffectForm reference)
         {
             effectForm = new EffectForm();
@@ -90,7 +90,7 @@ namespace SolastaCommunityExpansion.Builders
         {
             return SetConditionForm(condition, operation, false, false, condition);
         }
-        
+
         public EffectFormBuilder SetConditionForm(ConditionDefinition condition, ConditionForm.ConditionOperation operation, bool applyToSelf, bool forceOnSelf, params ConditionDefinition[] detrimentalConditions)
         {
             return SetConditionForm(condition, operation, applyToSelf, forceOnSelf, detrimentalConditions.AsEnumerable());
@@ -270,7 +270,7 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         public EffectFormBuilder SetSummonCreatureForm(int number, string monsterDefinitionName,
-            bool persistOnConcentrationLoss=false, ConditionDefinition condition=null, DecisionPackageDefinition decisionPackage = null)
+            bool persistOnConcentrationLoss = false, ConditionDefinition condition = null, DecisionPackageDefinition decisionPackage = null)
         {
             effectForm.FormType = EffectForm.EffectFormType.Summon;
             SummonForm summonForm = new SummonForm();
@@ -285,7 +285,7 @@ namespace SolastaCommunityExpansion.Builders
             effectForm.SetSummonForm(summonForm);
             return this;
         }
-        
+
         public EffectFormBuilder SetSummonItemForm(ItemDefinition item, int number)
         {
             effectForm.FormType = EffectForm.EffectFormType.Summon;

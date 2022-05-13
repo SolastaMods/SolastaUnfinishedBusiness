@@ -7,13 +7,12 @@ using SolastaCommunityExpansion.Models;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using static RuleDefinitions;
-using static SolastaModApi.DatabaseHelper.ActionDefinitions;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionMovementAffinitys;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionMoveModes;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionMovementAffinitys;
 using static SolastaModApi.DatabaseHelper.SpellListDefinitions;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionMoveModes;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 {
@@ -45,7 +44,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .AddToDB();
 
             var moonlitInvisibleCondition = ConditionDefinitionBuilder
-                .Create( "ConditionMoonlitSpecial", DefinitionBuilder.CENamespaceGuid)
+                .Create("ConditionMoonlitSpecial", DefinitionBuilder.CENamespaceGuid)
                 .SetSilent(Silent.WhenAddedOrRemoved)
                 .SetGuiPresentationNoContent()
                 .SetFeatures(InvisibilityFeature)
@@ -76,7 +75,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetGuiPresentation("MoonLitLightAffinity", Category.Feature)
                 .AddLightingEffectAndCondition(unlit)
                 .AddToDB();
-            
+
             FeatureDefinitionLightAffinity MoonLitLightAffinityStrong = FeatureDefinitionLightAffinityBuilder
                 .Create("MoonLitLightAffinityStrong", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation("MoonLitLightAffinityStrong", Category.Feature)
@@ -122,7 +121,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                        false,
                        false,
                        AttributeDefinitions.Charisma,
-                       Daylight.EffectDescription.Copy().SetDuration(DurationType.Minute,1),
+                       Daylight.EffectDescription.Copy().SetDuration(DurationType.Minute, 1),
                        true)
                 .AddToDB();
 
@@ -143,7 +142,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                        Fly.EffectDescription.Copy(),
                        true)
                 .AddToDB();
-            DanceoftheNightSky.EffectDescription.SetTargetParameter ( 4);
+            DanceoftheNightSky.EffectDescription.SetTargetParameter(4);
 
             ConditionDefinition MoonTouchedCondition = ConditionDefinitionBuilder
                 .Create(DatabaseHelper.ConditionDefinitions.ConditionLevitate, "MoonTouchedCondition", DefinitionBuilder.CENamespaceGuid)
@@ -251,7 +250,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetGuiPresentation("WarlockMoonLit", Category.Subclass, RangerShadowTamer.GuiPresentation.SpriteReference)
                 .AddFeatureAtLevel(MoonLitExpandedSpelllistAfinity, 1)
                 .AddFeatureAtLevel(SenseSuperiorDarkvision, 1)
-              //  .AddFeatureAtLevel(ConditionAffinityBlindnessImmunity, 1)
+                //  .AddFeatureAtLevel(ConditionAffinityBlindnessImmunity, 1)
                 .AddFeatureAtLevel(MoonLitDarknessImmunity, 1)
                 .AddFeatureAtLevel(MoonLitLightAffinityWeak, 2)
                 .AddFeatureAtLevel(MoonLitLightAffinityStrong, 6)
@@ -386,14 +385,18 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             {
                 var ruleEffect = characterAction.ActionParams.RulesetEffect;
                 if (ruleEffect == null || !IsAllowedEffect(ruleEffect.EffectDescription))
+                {
                     BecomeRevealed(hero);
+                }
             }
         }
 
         public void ApplyFeature(RulesetCharacter hero)
         {
             if (!hero.HasConditionOfType(RevealedCondition))
+            {
                 BecomeInvisible(hero);
+            }
         }
 
         public void RemoveFeature(RulesetCharacter hero)

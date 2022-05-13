@@ -201,7 +201,7 @@ namespace SolastaCommunityExpansion.Feats
 
             // Metamagic Sorcery Points Feature
             var attributeModifierSorcererSorceryPointsAdd2 = FeatureDefinitionAttributeModifierBuilder
-                .Create(AttributeModifierSorcererSorceryPointsBase, "AttributeModifierSorcererSorceryPointsBonus2", ZappaFeatNamespace)              
+                .Create(AttributeModifierSorcererSorceryPointsBase, "AttributeModifierSorcererSorceryPointsBonus2", ZappaFeatNamespace)
                 .SetGuiPresentationNoContent(true)
                 .SetModifier((FeatureDefinitionAttributeModifier.AttributeModifierOperation)ExtraAttributeModifierOperation.AdditiveAtEnd, AttributeDefinitions.SorceryPoints, 2)
                 .AddToDB();
@@ -311,7 +311,7 @@ namespace SolastaCommunityExpansion.Feats
                     AttributeModifierCreed_Of_Arun,
                     ActionAffinityBarbarianRage,
                     AttributeModifierBarbarianRagePointsAdd,
-                    AttributeModifierBarbarianRageDamageAdd, 
+                    AttributeModifierBarbarianRageDamageAdd,
                     AttributeModifierBarbarianRageDamageAdd, // not a dup. I use add to allow compatibility with Barb class. 2 adds for +2 damage
                     PowerBarbarianRageStart,
                     AttributeModifierBarbarianUnarmoredDefense
@@ -461,7 +461,7 @@ namespace SolastaCommunityExpansion.Feats
                 wisePrecision);
         }
     }
-    
+
     internal sealed class FeatureDefinitionMetamagicOptionBuilder : FeatureDefinitionBuilder<FeatureDefinitionMetamagicOption, FeatureDefinitionMetamagicOptionBuilder>
     {
         private const string MetamagicLearnCarefulName = "MetamagicLearnCareful";

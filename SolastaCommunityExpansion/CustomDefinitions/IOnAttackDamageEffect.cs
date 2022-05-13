@@ -6,14 +6,14 @@ namespace SolastaCommunityExpansion.CustomDefinitions
     {
         void BeforeOnAttackDamage(
             GameLocationCharacter attacker,
-            GameLocationCharacter defender, 
-            ActionModifier attackModifier, 
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
             RulesetAttackMode attackMode,
-            bool rangedAttack, 
-            RuleDefinitions.AdvantageType advantageType, 
+            bool rangedAttack,
+            RuleDefinitions.AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect, 
-            bool criticalHit, 
+            RulesetEffect rulesetEffect,
+            bool criticalHit,
             bool firstTarget);
 
         void AfterOnAttackDamage(

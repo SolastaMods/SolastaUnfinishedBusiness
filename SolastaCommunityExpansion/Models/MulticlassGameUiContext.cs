@@ -140,7 +140,9 @@ namespace SolastaCommunityExpansion.Models
             {
                 spellRepertoire.GetSlotsNumber(level, out var remaining, out var max);
                 if (hasPactMagic && level != warlockSpellLevel)
+                {
                     max -= shortRestSlotsCount;
+                }
 
                 if (max > 0 && (
                         level <= maxRepertoireLevel

@@ -1,11 +1,11 @@
-﻿using SolastaModApi.Extensions;
-using SolastaCommunityExpansion.Builders;
+﻿using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionProficiencys;
-using static SolastaModApi.DatabaseHelper;
-using static SolastaModApi.DatabaseHelper.SpellDefinitions;
+using SolastaModApi.Extensions;
 using static RuleDefinitions;
+using static SolastaModApi.DatabaseHelper;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionProficiencys;
+using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 {
@@ -62,7 +62,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetGuiPresentation(Category.Modifier, FeatureDefinitionPowers.PowerOathOfDevotionSacredWeapon.GuiPresentation.SpriteReference)
                 .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
                 .AddToDB();
-            
+
             var empowerWeaponPower = FeatureDefinitionPowerBuilder
                 .Create("AHWarlockSoulBladePactEmpowerWeaponPower", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerOathOfDevotionSacredWeapon.GuiPresentation.SpriteReference)
@@ -72,14 +72,14 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetFixedUsesPerRecharge(1)
                 .SetCostPerUse(1)
                 .SetActivationTime(ActivationTime.Action)
-                .SetAttackModifierAbility(true,true, AttributeDefinitions.Charisma)
+                .SetAttackModifierAbility(true, true, AttributeDefinitions.Charisma)
                 .SetEffectDescription(new EffectDescriptionBuilder()
                     .SetDurationData(DurationType.UntilLongRest)
-                    .SetTargetingData(Side.Ally, 
-                        RangeType.Self, 
-                        1, 
-                        TargetType.Item, 
-                        1, 
+                    .SetTargetingData(Side.Ally,
+                        RangeType.Self,
+                        1,
+                        TargetType.Item,
+                        1,
                         1,
                         ActionDefinitions.ItemSelectionType.Weapon
                     )

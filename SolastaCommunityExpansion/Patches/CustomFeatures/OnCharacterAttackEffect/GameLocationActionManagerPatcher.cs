@@ -28,7 +28,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
             {
                 feature.OnBeforeAction(action);
             }
-            
+
             while (values.MoveNext())
             {
                 yield return values.Current;
@@ -44,7 +44,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
             Global.CastedSpellRepertoire = null;
         }
     }
-    
+
     // Make cantrips that have more than 1 target hit same target more than once when used as readied action.
     // Only Eldritch Blast and its variants should be affected
     [HarmonyPatch(typeof(GameLocationActionManager), "ReactForReadiedAction")]
@@ -55,7 +55,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
         {
             // For some reason TA do not set reactionParams.ReadyActionType to ReadyActionType.Cantrip
             // So we manualy detect it as casting spell level 0
-            if (reactionParams.RulesetEffect is RulesetEffectSpell {SlotLevel: 0} spell)
+            if (reactionParams.RulesetEffect is RulesetEffectSpell { SlotLevel: 0 } spell)
             {
                 var spelltargets = spell.ComputeTargetParameter();
                 if (reactionParams.RulesetEffect.EffectDescription.IsSingleTarget && spelltargets > 1)
@@ -67,7 +67,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                     {
                         reactionParams.TargetCharacters.Add(target);
                         // Technically casts after first might need to have different mods, but not by much since we attacking same target.
-                        reactionParams.ActionModifiers.Add(mod); 
+                        reactionParams.ActionModifiers.Add(mod);
                     }
                 }
             }

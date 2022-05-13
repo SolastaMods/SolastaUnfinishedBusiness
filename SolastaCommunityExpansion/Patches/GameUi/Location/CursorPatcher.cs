@@ -23,7 +23,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Location
                     __instance is not CursorLocationExplorationDefault)
                 {
                     GuiScreen screen = Gui.CurrentLocationScreen;
-                    
+
                     // Don't use ?? on Unity objec
                     if (screen == null)
                     {

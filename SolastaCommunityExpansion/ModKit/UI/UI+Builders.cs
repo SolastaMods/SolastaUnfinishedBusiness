@@ -1,11 +1,13 @@
 ﻿// Copyright < 2021 > Narria (github user Cabarius) - License: MIT
-using UnityEngine;
 using System;
 using System.Linq;
+using UnityEngine;
 using GL = UnityEngine.GUILayout;
 
-namespace ModKit {
-    public static partial class UI {
+namespace ModKit
+{
+    public static partial class UI
+    {
         public static bool userHasHitReturn = false;
         public static string focusedControlName = null;
 
@@ -45,44 +47,58 @@ namespace ModKit {
                 });
         */
 
-        public static void If(bool value, params Action[] actions) {
-            if (value) {
-                foreach (var action in actions) {
+        public static void If(bool value, params Action[] actions)
+        {
+            if (value)
+            {
+                foreach (var action in actions)
+                {
                     action();
                 }
             }
         }
-        public static void Group(params Action[] actions) {
-            foreach (var action in actions) {
+        public static void Group(params Action[] actions)
+        {
+            foreach (var action in actions)
+            {
                 action();
             }
         }
-        public static void HStack(string title = null, int stride = 0, params Action[] actions) {
+        public static void HStack(string title = null, int stride = 0, params Action[] actions)
+        {
             var length = actions.Length;
             if (stride < 1) { stride = length; }
             if (IsNarrow)
+            {
                 stride = Math.Min(3, stride);
-            for (var ii = 0; ii < actions.Length; ii += stride) {
+            }
+
+            for (var ii = 0; ii < actions.Length; ii += stride)
+            {
                 var hasTitle = title != null;
                 BeginHorizontal();
-                if (hasTitle) {
+                if (hasTitle)
+                {
                     if (ii == 0) { Label(title.bold(), Width(150f)); }
                     else { Space(153); }
                 }
                 var filteredActions = actions.Skip(ii).Take(stride);
-                foreach (var action in filteredActions) {
+                foreach (var action in filteredActions)
+                {
                     action();
                 }
                 EndHorizontal();
             }
         }
-        public static void VStack(string title = null, params Action[] actions) {
+        public static void VStack(string title = null, params Action[] actions)
+        {
             BeginVertical();
             if (title != null) { Label(title); }
             Group(actions);
             EndVertical();
         }
-        public static void Section(string title, params Action[] actions) {
+        public static void Section(string title, params Action[] actions)
+        {
             Space(25);
             Label($"====== {title} ======".bold(), GL.ExpandWidth(true));
             Space(25);
@@ -90,9 +106,13 @@ namespace ModKit {
             Space(10);
         }
 
-        public static void TabBar(ref int selected, Action header = null, params NamedAction[] actions) {
+        public static void TabBar(ref int selected, Action header = null, params NamedAction[] actions)
+        {
             if (selected >= actions.Count())
+            {
                 selected = 0;
+            }
+
             var sel = selected;
             var titles = actions.Select((a, i) => i == sel ? a.name.orange().bold() : a.name);
             UI.SelectionGrid(ref selected, titles.ToArray(), titles.Count(), UI.ExpandWidth(true));

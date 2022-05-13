@@ -28,7 +28,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
             Definition.SetCarryingCapacityMultiplier(carryingCapacityMultiplier);
 
-            if(additionalCarryingCapacity != null)
+            if (additionalCarryingCapacity != null)
             {
                 Definition.SetAdditionalCarryingCapacity(additionalCarryingCapacity.Value);
             }

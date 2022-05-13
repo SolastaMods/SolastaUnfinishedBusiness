@@ -10,24 +10,50 @@ namespace SolastaCommunityExpansion.CustomDefinitions
         delegate CharacterActionParams GetAttackAfterUseHandler(CharacterActionMagicEffect actionMagicEffect);
 
         delegate bool CanUseHandler(CursorLocationSelectTarget targeting, GameLocationCharacter caster, GameLocationCharacter target, out string failure);
+        delegate bool CanAttackHandler(GameLocationCharacter caster, GameLocationCharacter target);
 
         CanUseHandler CanBeUsedToAttack { get; set; }
         GetAttackAfterUseHandler PerformAttackAfterUse { get; set; }
+        CanAttackHandler CanAttack { get; set; }
     }
 
     public class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagicEffectUse
     {
         public RuleDefinitions.RollOutcome minOutcomeToAttack = RuleDefinitions.RollOutcome.Success;
         public RuleDefinitions.RollOutcome minSaveOutcomeToAttack = RuleDefinitions.RollOutcome.Failure;
-        
+
         public CanUseHandler CanBeUsedToAttack { get; set; }
 
         public GetAttackAfterUseHandler PerformAttackAfterUse { get; set; }
+        public CanAttackHandler CanAttack { get; set; }
 
         public PerformAttackAfterMagicEffectUse()
         {
+            CanAttack = CanMeleeAttack;
             CanBeUsedToAttack = DefaultCanUseHandler;
             PerformAttackAfterUse = DefautlAttackHandler;
+        }
+
+        private bool CanMeleeAttack(GameLocationCharacter caster, GameLocationCharacter target)
+        {
+            var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+            if (attackMode == null)
+            {
+                return false;
+            }
+
+            var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
+            if (battleService == null)
+            {
+                return false;
+            }
+
+            var attackModifier = new ActionModifier();
+            var evalParams = new BattleDefinitions.AttackEvaluationParams();
+
+            evalParams.FillForPhysicalReachAttack(caster, caster.LocationPosition, attackMode, target, target.LocationPosition, attackModifier);
+
+            return battleService.CanAttack(evalParams);
         }
 
         private CharacterActionParams DefautlAttackHandler(CharacterActionMagicEffect effect)
@@ -43,11 +69,10 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             }
 
             var outcome = effect.GetProperty<RuleDefinitions.RollOutcome>("Outcome");
-            if (outcome < minOutcomeToAttack) { return null;}
+            if (outcome < minOutcomeToAttack) { return null; }
 
-            if (effect.SaveOutcome < minSaveOutcomeToAttack) { return null;}
+            if (effect.SaveOutcome < minSaveOutcomeToAttack) { return null; }
 
-            var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
             var caster = actionParams.ActingCharacter;
             var targets = actionParams.TargetCharacters;
 
@@ -57,18 +82,10 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             if (attackMode == null) { return null; }
 
             var attackModifier = new ActionModifier();
-            var eval = new BattleDefinitions.AttackEvaluationParams();
 
             //TODO: option to limit attack to select target, while effect can have multiple
-            var target = targets.Where(t =>
-                {
-                    //TODO: make options for range attacks
-                    eval.FillForPhysicalReachAttack(caster, caster.LocationPosition, attackMode, t, t.LocationPosition,
-                        attackModifier);
-                    return battleService.CanAttack(eval);
-                })
-                .FirstOrDefault();
-
+            var target = targets
+                .FirstOrDefault(t => CanMeleeAttack(caster, t));
 
             if (target != null)
             {
@@ -89,12 +106,6 @@ namespace SolastaCommunityExpansion.CustomDefinitions
         private bool DefaultCanUseHandler(CursorLocationSelectTarget targeting, GameLocationCharacter caster, GameLocationCharacter target, out string failure)
         {
             failure = String.Empty;
-            var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
-            if (attackMode == null)
-            {
-                return false;
-            }
-
             //TODO: implement setting to tell how many targets must meet weapon attack requirements
             var maxTargets = targeting.GetField<int>("maxTargets");
             var remainingTargets = targeting.GetField<int>("remainingTargets");
@@ -104,19 +115,8 @@ namespace SolastaCommunityExpansion.CustomDefinitions
                 return true;
             }
 
-            var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
-            if (battleService == null)
-            {
-                return false;
-            }
-
-            var attackModifier = new ActionModifier();
-            var evalParams = new BattleDefinitions.AttackEvaluationParams();
             //TODO: add option for ranged attacks
-            evalParams.FillForPhysicalReachAttack(caster, caster.LocationPosition, attackMode, target,
-                target.LocationPosition, attackModifier);
-
-            var canAttack = battleService.CanAttack(evalParams);
+            var canAttack = CanMeleeAttack(caster, target);
             if (!canAttack)
             {
                 failure = "Failure/&FailureFlagTargetMeleeWeaponError";

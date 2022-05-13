@@ -16,7 +16,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
             {
                 BaseDefinition definition = __instance.InvokeMethod("GetBaseDefinition") as BaseDefinition;
                 //skip spell animation if this is "attack after cast" spell
-                if (definition.GetFirstSubFeatureOfType<IPerformAttackAfterMagicEffectUse>() != null)
+                if (definition.HasSubFeatureOfType<IPerformAttackAfterMagicEffectUse>())
                 {
                     __instance.ActionParams.SkipAnimationsAndVFX = true;
                 }
@@ -71,7 +71,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
                 //chained effects would be useful for EOrb
                 var chainAction = definition.GetFirstSubFeatureOfType<IChainMagicEffect>()
                     ?.GetNextMagicEffect(__instance, attackAction, attackOutcome);
-                
+
                 if (chainAction != null)
                 {
                     var enums = chainAction.Execute();

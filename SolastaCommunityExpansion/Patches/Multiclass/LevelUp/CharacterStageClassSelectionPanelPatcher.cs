@@ -25,7 +25,7 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
             var visibleClasses = DatabaseRepository.GetDatabase<CharacterClassDefinition>().Where(x => !x.GuiPresentation.Hidden);
 
             ___compatibleClasses.SetRange(visibleClasses.OrderBy(x => x.FormatTitle()));
-            
+
             if (!Main.Settings.EnableMulticlass)
             {
                 return;
@@ -54,7 +54,7 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
             }
         }
     }
-    
+
     // reset IsClassSelectionStage for hero
     [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "OnEndHide")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

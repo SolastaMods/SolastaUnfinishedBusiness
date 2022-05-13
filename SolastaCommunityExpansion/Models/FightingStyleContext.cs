@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using SolastaCommunityExpansion.FightingStyles;
 
 namespace SolastaCommunityExpansion.Models
@@ -14,7 +13,9 @@ namespace SolastaCommunityExpansion.Models
         internal static void Load()
         {
             LoadStyle(new BlindFighting());
+            LoadStyle(new Crippling());
             LoadStyle(new Pugilist());
+            LoadStyle(new TitanFighting());
 
             FightingStyles = FightingStyles.OrderBy(x => x.FormatTitle()).ToHashSet();
         }

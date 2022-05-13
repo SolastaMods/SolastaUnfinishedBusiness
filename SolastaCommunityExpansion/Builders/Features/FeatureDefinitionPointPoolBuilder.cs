@@ -48,7 +48,7 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetPoolAmount(poolAmount);
             return This();
         }
-        
+
         public TBuilder RestrictChoices(params string[] choices)
         {
             return RestrictChoices(choices.AsEnumerable());

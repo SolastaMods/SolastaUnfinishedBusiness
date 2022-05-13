@@ -49,7 +49,7 @@ namespace SolastaCommunityExpansion.Feats
                 .SetOnAttackDamageDelegates(null, AfterOnAttackDamage)
                 .AddToDB();
         }
-        
+
         private static void AfterOnAttackDamage(GameLocationCharacter attacker,
                 GameLocationCharacter defender, ActionModifier attackModifier, RulesetAttackMode attackMode,
                 bool rangedAttack, RuleDefinitions.AdvantageType advantageType, List<EffectForm> actualEffectForms,

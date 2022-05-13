@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using SolastaCommunityExpansion.Feats;
 using SolastaModApi.Extensions;
 
@@ -43,7 +42,7 @@ namespace SolastaCommunityExpansion.Models
 
         private static void UpdateFeatsVisibility(FeatDefinition featDefinition)
         {
-            featDefinition.GuiPresentation.SetHidden(!Main.Settings.FeatEnabled.Contains(featDefinition.Name));  
+            featDefinition.GuiPresentation.SetHidden(!Main.Settings.FeatEnabled.Contains(featDefinition.Name));
         }
 
         internal static void Switch(FeatDefinition featDefinition, bool active)

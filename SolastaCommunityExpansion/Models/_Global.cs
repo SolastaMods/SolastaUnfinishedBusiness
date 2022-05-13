@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.Models
 
         // holds the active player character when in battle
         public static GameLocationCharacter ActivePlayerCharacter { get; set; }
-        
+
         // inspected hero on both location and pool
         public static RulesetCharacterHero InspectedHero { get; set; }
 
@@ -46,7 +46,7 @@ namespace SolastaCommunityExpansion.Models
             return hero.SpellRepertoires.Any(x => x.KnownCantrips.Contains(spellDefinition))
                    || hero.GetHeroBuildingData().AcquiredCantrips.Any(e => e.Value.Contains(spellDefinition));
         }
-        
+
         public static bool ActiveLevelUpHeroHasSubclass(string subclass)
         {
             var hero = ActiveLevelUpHero;

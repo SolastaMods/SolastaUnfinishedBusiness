@@ -108,8 +108,9 @@ namespace SolastaCommunityExpansion.Models
             // Get a copy of definitions so we can export the originals.
             // Note not copying the excluded definitions to save memory.
             TABaseDefinitionAndCopy = TABaseDefinitions
-                .ToDictionary(x => x, x => { 
-                    var copy = UnityEngine.Object.Instantiate(x); 
+                .ToDictionary(x => x, x =>
+                {
+                    var copy = UnityEngine.Object.Instantiate(x);
                     copy.name = x.Name;
                     return copy;
                 });
@@ -220,12 +221,12 @@ namespace SolastaCommunityExpansion.Models
                 {
                     var splitted = line.Split(new[] { '\t', ' ' }, 2);
 
-                    terms.Add(splitted[0], splitted[1]);              
+                    terms.Add(splitted[0], splitted[1]);
                 }
                 catch
                 {
                     continue;
-                }             
+                }
             }
 
             foreach (var definition in CEBaseDefinitions)

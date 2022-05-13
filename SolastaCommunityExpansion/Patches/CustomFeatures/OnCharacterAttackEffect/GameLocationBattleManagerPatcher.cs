@@ -394,72 +394,73 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
 
                     //Wrapped in no-formatting to simplify merges/changes from TA ------ START --------
                     // @formatter:off
-                    bool ValidateProperty() {
-                    // ReSharper disable once VariableHidesOuterVariable
-                    // Check required properties if needed
-                    bool validProperty = true;
-                    if (/*validTrigger &&*/ provider.RequiredProperty != RuleDefinitions.AdditionalDamageRequiredProperty.None && attackMode != null)
+                    bool ValidateProperty()
                     {
-                        bool finesse = false;
-                        bool melee = false;
-                        bool range = false;
-                        ItemDefinition itemDefinition = DatabaseRepository.GetDatabase<ItemDefinition>().GetElement(attackMode.SourceDefinition.Name, true);
-                        if (itemDefinition != null
-                            && itemDefinition.IsWeapon)
+                        // ReSharper disable once VariableHidesOuterVariable
+                        // Check required properties if needed
+                        bool validProperty = true;
+                        if (/*validTrigger &&*/ provider.RequiredProperty != RuleDefinitions.AdditionalDamageRequiredProperty.None && attackMode != null)
                         {
-                            WeaponTypeDefinition weaponTypeDefinition = DatabaseRepository.GetDatabase<WeaponTypeDefinition>().GetElement(itemDefinition.WeaponDescription.WeaponType);
-                            if (weaponTypeDefinition.WeaponProximity == RuleDefinitions.AttackProximity.Melee && !rangedAttack)
+                            bool finesse = false;
+                            bool melee = false;
+                            bool range = false;
+                            ItemDefinition itemDefinition = DatabaseRepository.GetDatabase<ItemDefinition>().GetElement(attackMode.SourceDefinition.Name, true);
+                            if (itemDefinition != null
+                                && itemDefinition.IsWeapon)
+                            {
+                                WeaponTypeDefinition weaponTypeDefinition = DatabaseRepository.GetDatabase<WeaponTypeDefinition>().GetElement(itemDefinition.WeaponDescription.WeaponType);
+                                if (weaponTypeDefinition.WeaponProximity == RuleDefinitions.AttackProximity.Melee && !rangedAttack)
+                                {
+                                    melee = true;
+
+                                    if (itemDefinition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagFinesse))
+                                    {
+                                        finesse = true;
+                                    }
+                                }
+                                else
+                                {
+                                    range = true;
+                                }
+                            }
+                            else if (attacker.RulesetCharacter.IsSubstitute)
                             {
                                 melee = true;
+                            }
 
-                                if (itemDefinition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagFinesse))
+                            if (provider.RequiredProperty == RuleDefinitions.AdditionalDamageRequiredProperty.FinesseOrRangeWeapon)
+                            {
+                                if (!finesse && !range)
                                 {
-                                    finesse = true;
+                                    validProperty = false;
+                                }
+                            }
+                            else if (provider.RequiredProperty == RuleDefinitions.AdditionalDamageRequiredProperty.RangeWeapon)
+                            {
+                                if (!range)
+                                {
+                                    validProperty = false;
+                                }
+                            }
+                            else if (provider.RequiredProperty == RuleDefinitions.AdditionalDamageRequiredProperty.MeleeWeapon)
+                            {
+                                if (!melee)
+                                {
+                                    validProperty = false;
+                                }
+                            }
+                            else if (provider.RequiredProperty == RuleDefinitions.AdditionalDamageRequiredProperty.MeleeStrengthWeapon)
+                            {
+                                if (!melee || attackMode.AbilityScore != AttributeDefinitions.Strength)
+                                {
+                                    validProperty = false;
                                 }
                             }
                             else
                             {
-                                range = true;
+                                Trace.LogAssertion($"RequiredProperty {provider.RequiredProperty} not implemented for {provider.TriggerCondition}.");
                             }
                         }
-                        else if (attacker.RulesetCharacter.IsSubstitute)
-                        {
-                            melee = true;
-                        }
-
-                        if (provider.RequiredProperty == RuleDefinitions.AdditionalDamageRequiredProperty.FinesseOrRangeWeapon)
-                        {
-                            if (!finesse && !range)
-                            {
-                                validProperty = false;
-                            }
-                        }
-                        else if (provider.RequiredProperty == RuleDefinitions.AdditionalDamageRequiredProperty.RangeWeapon)
-                        {
-                            if (!range)
-                            {
-                                validProperty = false;
-                            }
-                        }
-                        else if (provider.RequiredProperty == RuleDefinitions.AdditionalDamageRequiredProperty.MeleeWeapon)
-                        {
-                            if (!melee)
-                            {
-                                validProperty = false;
-                            }
-                        }
-                        else if (provider.RequiredProperty == RuleDefinitions.AdditionalDamageRequiredProperty.MeleeStrengthWeapon)
-                        {
-                            if (!melee || attackMode.AbilityScore != AttributeDefinitions.Strength)
-                            {
-                                validProperty = false;
-                            }
-                        }
-                        else
-                        {
-                            Trace.LogAssertion($"RequiredProperty {provider.RequiredProperty} not implemented for {provider.TriggerCondition}.");
-                        }
-                    }
 
                         return validProperty;
                     }

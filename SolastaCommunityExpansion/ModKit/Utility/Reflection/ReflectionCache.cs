@@ -9,8 +9,10 @@ using System.Collections;
 using System.Reflection;
 using System.Reflection.Emit;
 
-namespace ModKit.Utility {
-    public static partial class ReflectionCache {
+namespace ModKit.Utility
+{
+    public static partial class ReflectionCache
+    {
         private const BindingFlags ALL_FLAGS = BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic /*| BindingFlags.FlattenHierarchy*/;
 
         private static readonly Queue _cache = new();
@@ -26,15 +28,20 @@ namespace ModKit.Utility {
         //    _cache.Clear();
         //}
 
-        private static void EnqueueCache(object obj) {
+        private static void EnqueueCache(object obj)
+        {
             while (_cache.Count >= SizeLimit && _cache.Count > 0)
+            {
                 _cache.Dequeue();
+            }
+
             _cache.Enqueue(obj);
         }
 
         private static bool IsStatic(Type type) => type.IsAbstract && type.IsSealed;
 
-        private static TypeBuilder RequestTypeBuilder() {
+        private static TypeBuilder RequestTypeBuilder()
+        {
             AssemblyName asmName = new(nameof(ReflectionCache) + "." + Guid.NewGuid().ToString());
             var asmBuilder = AssemblyBuilder.DefineDynamicAssembly(asmName, AssemblyBuilderAccess.RunAndCollect);
             var moduleBuilder = asmBuilder.DefineDynamicModule("<Module>");

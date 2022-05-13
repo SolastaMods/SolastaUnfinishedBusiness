@@ -1,9 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace SolastaCommunityExpansion.CustomDefinitions
+﻿namespace SolastaCommunityExpansion.CustomDefinitions
 {
     public interface IModifySpellEffect
     {
-        EffectDescription ModifyEffect(RulesetEffectSpell spell, EffectDescription effect);
+        EffectDescription ModifyEffect(SpellDefinition spell, EffectDescription effect, RulesetCharacter caster);
     }
 }

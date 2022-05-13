@@ -47,7 +47,9 @@ namespace SolastaCommunityExpansion.Api.AdditionalExtensions
 
             var subFeatures = GetForKey(definition)?.OfType<T>();
             if (subFeatures != null)
+            {
                 results.AddRange(subFeatures);
+            }
 
             return results;
         }
@@ -62,6 +64,11 @@ namespace SolastaCommunityExpansion.Api.AdditionalExtensions
             }
 
             return GetForKey(definition)?.OfType<T>().FirstOrDefault();
+        }
+
+        public static bool HasSubFeatureOfType<T>(this BaseDefinition definition) where T : class
+        {
+            return definition.GetFirstSubFeatureOfType<T>() != null;
         }
     }
 }

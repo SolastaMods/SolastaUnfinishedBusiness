@@ -1,8 +1,8 @@
-﻿using HarmonyLib;
-using SolastaModApi.Infrastructure;
+﻿using System.Diagnostics.CodeAnalysis;
+using HarmonyLib;
 using SolastaCommunityExpansion.Models;
+using SolastaModApi.Infrastructure;
 using UnityEngine;
-using System.Diagnostics.CodeAnalysis;
 
 namespace SolastaCommunityExpansion.Patches.Multiclass.SlotsColors
 {

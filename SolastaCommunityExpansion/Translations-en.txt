@@ -84,6 +84,8 @@ Condition/&ConditionImprovedBarkWardDescription	The spirits of the forest cause 
 Condition/&ConditionImprovedBarkWardTitle	Improved Bark Ward
 Condition/&ConditionMarkedByArcanistDescription	Afflicted by Arcanist's Mark
 Condition/&ConditionMarkedByArcanistTitle	Arcanist's Mark
+Condition/&ConditionMuleDescription Your speed is not reduced by encumbrance or heavy armor. You can carry 20 additional pounds.
+Condition/&ConditionMuleTitle Mule
 Condition/&ConditionSuperiorBarkWardDescription	The spirits of the forest grant you poison immunity, and cause 3d8 piercing damage to melee attackers
 Condition/&ConditionSuperiorBarkWardTitle	Superior Bark Ward
 Condition/&DebilitatedConditionDescription	Debilitated condition
@@ -476,6 +478,8 @@ Feat/&FeatChefConIncrementDescription	+1 Constitution
 Feat/&FeatChefConIncrementTitle	Attribute Increase
 Feat/&FeatChefWisIncrementDescription	+1 Wisdom
 Feat/&FeatChefWisIncrementTitle	Attribute Increase
+Feat/&FeatCripplingDescription	Reduce the speed of your opponent on a melee attack hit to 10 until the end of the next turn
+Feat/&FeatCripplingTitle	Fighting Style: Crippling
 Feat/&FeatDexIncrementDescription	+1 Dexterity
 Feat/&FeatDexIncrementTitle	Attribute Increase
 Feat/&FeatDualWeaponDefenseDescription	When yielding 2 weapons your AC increases by 1
@@ -561,6 +565,8 @@ Feat/&FeatTelekineticWisPullTitle	Telekinetic Pull
 Feat/&FeatTelekineticWisPushDescription	Telekinetically shove a creature away from you
 Feat/&FeatTelekineticWisPushTitle	Telekinetic Push
 Feat/&FeatTelekineticWisTitle	Telekinetic (Wisdom)
+Feat/&FeatTitanFightingDescription	You increase your melee attack damage by +2
+Feat/&FeatTitanFightingTitle	Fighting Style: Titan Fighting
 Feat/&FeatToughDescription	Your hit point maximum increases by an amount equal to twice your level when you gain this feat. Whenever you gain a level thereafter, your hit point maximum increases by an additional 2 hit points
 Feat/&FeatToughTitle	Tough
 Feat/&FeatWarCasterDescription	You gain advantage on checks to maintain concentration. You gain the ability to perform the somatic component of spells even with full hands. You gain +2 on spell attack rolls
@@ -1141,8 +1147,12 @@ Feedback/&LightningSpearAdditionalDamageTitle	Lightning Spear extra damage
 Feedback/&NotifyEffectResonatingStrikeLine	{0} resonates {1}!
 FightingStyle/&BlindFightingDescription	You have blindsight with a range of 10 feet
 FightingStyle/&BlindFightingTitle	Blind Fighting
+FightingStyle/&CripplingDescription	Reduce the speed of your opponent on a melee attack hit to 10 until the end of the next turn
+FightingStyle/&CripplingTitle	Crippling
 FightingStyle/&PugilistFightingDescription	While you are completely unarmed, your unarmed strikes deal an additional d8 of damage and you can punch with your offhand as a bonus action
 FightingStyle/&PugilistFightingTitle	Pugilist
+FightingStyle/&TitanFightingDescription	You increase your melee attack damage by +2
+FightingStyle/&TitanFightingTitle	Titan Fighting
 FlexibleBackgrounds/&AcademicBackgroundSuggestedSkillsDescription	Arcana, Nature, and Insight
 FlexibleBackgrounds/&AcademicBackgroundSuggestedSkillsTitle	Suggested Skills
 FlexibleBackgrounds/&AcolyteBackgroundSuggestedSkillsDescription	Religion, Nature, and Insight
@@ -1452,13 +1462,19 @@ Spell/&FrenzyDescription	With a gesture, you reduce a crowd to base instinct and
 Spell/&FrenzyTitle	Frenzy
 Spell/&HinderingBlastDescription	A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage.\n(when you hit a creature with your eldritch blast, you can reduce that creature's speed by 10 feet until the end of your next turn.)
 Spell/&HinderingBlastTitle	Eldritch Blast (Hindering)
+Spell/&IlluminatingSphereDescription <b><i>Morwenna's Illuminating Sphere</i></b> causes light sources such as torches and mana lamps in the area of effect to light up. \n\n<i>"Don't worry, its highly unlikely to ignite torches or candles in packs or pockets. Probably."  -Morwenna Leafheart</i>
+Spell/&IlluminatingSphereTitle Illuminating Sphere
 Spell/&IPConjureInvisibleStalkerTitle	Conjure Elemental (Invisible Stalker)
 Spell/&MinorLifestealDescription	You drain life energy from a hostile creature you can see within range. You then heal hit points equal to the amount of damage dealt. This spell has no effect on undead or constructs
 Spell/&MinorLifestealTitle	Minor Lifesteal
+Spell/&MuleDescription The recipient of this spell is able to ignore the effects of heavy loads or armor on movement speed. They can also carry slightly more weight. \n\n<i>"If they have to come along, they might as well carry your stuff."  -Morwenna Leafheart</i>
+Spell/&MuleTitle Mule
 Spell/&PetalStormDescription	Choose an unoccupied 15-foot cube of air that you can see within range. An elemental force of swirling winds appears in the cube and lasts for the spell's duration. The cloud heavily obscures its area. Any creature that enters the storm for the first time on a turn or starts its turn there must make a Strength saving throw. On a failed save, the creature takes 3d4 slashing damage. As a bonus action, you can move the storm up to 30 feet in any direction
 Spell/&PetalStormTitle	Petal Storm
 Spell/&ProtectThresholdDescription	Tracing arcane sigils along its boundary, you can ward a doorway, window, or other portal from entry. For the duration, an invisible eldritch creature stalks the warded portal. Any creature that attempts to pass through the portal must make a Wisdom saving throw or take 4d6 psychic damage, or half as much on a successful save
 Spell/&ProtectThresholdTitle	Protect Threshold
+Spell/&RadiantMotesDescription <b><i>Morwenna's Radiant Motes</i></b> unleashes a swarm of radiant projectiles that deal minor damage, but never miss. Targets may radiate light for up to 1 minute. \n\n<i>"I got the inspiration from watching a Dwarf being overwhelmed by scorching badlands fireflies. Good times."  -Morwenna Leafheart</i>
+Spell/&RadiantMotesTitle Radiant Motes
 Spell/&ThunderStrikeDescription	Create a burst of thundering sound, damaging everyone around you
 Spell/&ThunderStrikeTitle	Sound Burst
 Spell/&WinterBreathDescription	Create a blast of cold wind to chill your enemies and knock them prone
@@ -1765,3 +1781,5 @@ UI/&CustomFeatureSelectionTooltipTypeCantrip	Cantrip
 UI/&CustomFeatureSelectionTooltipTypeFeature	Feature
 UI/&CustomFeatureSelectionTooltipTypePower	Power
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Proficiency
+Modifier/&CripplingAdditionalDamageTitle	Crippling
+Modifier/&CripplingAdditionalDamageDescription	Crippling Damage

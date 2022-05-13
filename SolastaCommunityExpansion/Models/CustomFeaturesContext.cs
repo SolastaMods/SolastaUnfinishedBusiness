@@ -34,7 +34,7 @@ namespace SolastaCommunityExpansion.Models
                 }
 
                 featureDefinitionProficiency.Proficiencies
-                    .ForEach(prof => 
+                    .ForEach(prof =>
                     hero.TrainedFightingStyles
                         .Add(DatabaseRepository.GetDatabase<FightingStyleDefinition>()
                             .GetElement(prof, false)));
@@ -306,11 +306,20 @@ namespace SolastaCommunityExpansion.Models
 
         public static EffectDescription ModifySpellEffect(EffectDescription original, RulesetEffectSpell spell)
         {
+            return ModifySpellEffect(original, spell.SpellDefinition, spell.Caster);
+        }
+
+        public static EffectDescription ModifySpellEffect(SpellDefinition spell, RulesetCharacter caster)
+        {
+            return ModifySpellEffect(spell.EffectDescription, spell, caster);
+        }
+
+        public static EffectDescription ModifySpellEffect(EffectDescription original, SpellDefinition spell, RulesetCharacter caster)
+        {
             //TODO: find a way to cache result, so it works faster - this method is called sveral times per spell cast
             var result = original;
-            var caster = spell.Caster;
 
-            var baseDefinition = spell.SpellDefinition.GetFirstSubFeatureOfType<ICustomMagicEffectBasedOnCaster>();
+            var baseDefinition = spell.GetFirstSubFeatureOfType<ICustomMagicEffectBasedOnCaster>();
             if (baseDefinition != null && caster != null)
             {
                 result = baseDefinition.GetCustomEffect(caster) ?? original;
@@ -320,7 +329,7 @@ namespace SolastaCommunityExpansion.Models
 
             if (!modifiers.Empty())
             {
-                result = modifiers.Aggregate(result.Copy(), (current, f) => f.ModifyEffect(spell, current));
+                result = modifiers.Aggregate(result.Copy(), (current, f) => f.ModifyEffect(spell, current, caster));
             }
 
             return result;
@@ -330,7 +339,7 @@ namespace SolastaCommunityExpansion.Models
         public static EffectDescription ModifySpellEffectGui(EffectDescription original, GuiSpellDefinition spell)
         {
             var result = original;
-            var caster = Global.InspectedHero 
+            var caster = Global.InspectedHero
                          ?? Global.ActiveLevelUpHero
                          ?? Global.ActivePlayerCharacter?.RulesetCharacter;
 
@@ -342,7 +351,7 @@ namespace SolastaCommunityExpansion.Models
 
             return result;
         }
-        
+
         public static EffectDescription AddEffectForms(EffectDescription baseEffect, params EffectForm[] effectForms)
         {
             var newEffect = baseEffect.Copy();
@@ -374,24 +383,35 @@ namespace SolastaCommunityExpansion.Models
 
         public static string GetSpellLearningTag(RulesetCharacterHero hero, string tag)
         {
-            if (tag != null 
-                && (tag.StartsWith(AttributeDefinitions.TagClass) || tag.StartsWith(AttributeDefinitions.TagSubclass)))
+            if (tag == null)
             {
-                ServiceRepository.GetService<ICharacterBuildingService>()
-                    .GetLastAssignedClassAndLevel(hero, out var lastClass, out var classLevel);
-
-                if (LevelDownContext.IsLevelDown)
-                {
-                    classLevel -= 1;
-                }
-
-                if (classLevel > 0)
-                {
-                    return AttributeDefinitions.GetClassTag(lastClass, classLevel);
-                }
+                return null;
             }
 
-            return tag;
+            var isClassTag = tag.StartsWith(AttributeDefinitions.TagClass);
+            var isSubclassTag = tag.StartsWith(AttributeDefinitions.TagSubclass);
+
+            if (!isClassTag && !isSubclassTag)
+            {
+                return tag;
+            }
+
+            ServiceRepository.GetService<ICharacterBuildingService>()
+                .GetLastAssignedClassAndLevel(hero, out var lastClass, out var classLevel);
+
+            if (LevelDownContext.IsLevelDown)
+            {
+                classLevel -= 1;
+            }
+
+            if (classLevel <= 0)
+            {
+                return tag;
+            }
+
+            return (isSubclassTag && hero.ClassesAndSubclasses.ContainsKey(lastClass))
+                ? AttributeDefinitions.GetSubclassTag(lastClass, classLevel, hero.ClassesAndSubclasses[lastClass])
+                : AttributeDefinitions.GetClassTag(lastClass, classLevel);
         }
     }
 }

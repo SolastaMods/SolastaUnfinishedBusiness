@@ -4,9 +4,9 @@ using System.Linq;
 using static FeatureDefinitionCastSpell;
 using static SolastaCommunityExpansion.Classes.Warlock.WarlockSpells;
 using static SolastaCommunityExpansion.Level20.SpellsHelper;
+using static SolastaCommunityExpansion.Models.IntegrationContext;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
-using static SolastaCommunityExpansion.Models.IntegrationContext;
 
 namespace SolastaCommunityExpansion.Models
 {

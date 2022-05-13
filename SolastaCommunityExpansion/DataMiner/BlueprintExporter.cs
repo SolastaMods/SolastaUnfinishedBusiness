@@ -1,10 +1,10 @@
 ﻿#if DEBUG
-using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Newtonsoft.Json;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.DataMiner
@@ -172,12 +172,12 @@ namespace SolastaCommunityExpansion.DataMiner
 
             BaseDefinition GetDefinitionCopy(BaseDefinition definition)
             {
-                if(baseDefinitionAndCopy == null)
+                if (baseDefinitionAndCopy == null)
                 {
                     return definition;
                 }
 
-                if(baseDefinitionAndCopy.TryGetValue(definition, out var copy))
+                if (baseDefinitionAndCopy.TryGetValue(definition, out var copy))
                 {
                     return copy;
                 }

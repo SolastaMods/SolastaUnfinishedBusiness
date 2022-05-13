@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 
             var hero = actionParams.ActingCharacter.RulesetCharacter as RulesetCharacterHero;
             var spellRepertoire = ReactionParams.SpellRepertoire;
-            
+
             var selected = MulticlassGameUiContext.AddAvailableSubLevels(SubOptionsAvailability, hero, spellRepertoire, 1);
             if (selected >= 0)
             {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using SolastaCommunityExpansion.Classes.Tinkerer;
+//using SolastaCommunityExpansion.Classes.Warden;
 using SolastaCommunityExpansion.Classes.Warlock;
 using SolastaCommunityExpansion.Classes.Witch;
 using SolastaModApi.Extensions;
@@ -36,6 +36,7 @@ namespace SolastaCommunityExpansion.Models
         {
             LoadClass(TinkererClass.BuildTinkererClass());
             LoadClass(Warlock.BuildWarlockClass());
+            //LoadClass(Warden.Instance);
             LoadClass(Witch.Instance);
 
             Classes = Classes.OrderBy(x => x.FormatTitle()).ToHashSet();

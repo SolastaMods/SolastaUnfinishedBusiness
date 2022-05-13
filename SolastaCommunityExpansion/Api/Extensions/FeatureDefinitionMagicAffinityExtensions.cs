@@ -1,38 +1,8 @@
-using SolastaModApi.Infrastructure;
-using AK.Wwise;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.AddressableAssets;
-using System;
-using System.Linq;
-using System.Text;
 using System.CodeDom.Compiler;
-using TA.AI;
-using TA;
 using System.Collections.Generic;
-using UnityEngine.Rendering.PostProcessing;
-using  static  ActionDefinitions ;
-using  static  TA . AI . DecisionPackageDefinition ;
-using  static  TA . AI . DecisionDefinition ;
-using  static  RuleDefinitions ;
-using  static  BanterDefinitions ;
-using  static  Gui ;
-using  static  GadgetDefinitions ;
-using  static  BestiaryDefinitions ;
-using  static  CursorDefinitions ;
-using  static  AnimationDefinitions ;
-using  static  FeatureDefinitionAutoPreparedSpells ;
-using  static  FeatureDefinitionCraftingAffinity ;
-using  static  CharacterClassDefinition ;
-using  static  CreditsGroupDefinition ;
-using  static  SoundbanksDefinition ;
-using  static  CampaignDefinition ;
-using  static  GraphicsCharacterDefinitions ;
-using  static  GameCampaignDefinitions ;
-using  static  FeatureDefinitionAbilityCheckAffinity ;
-using  static  TooltipDefinitions ;
-using  static  BaseBlueprint ;
-using  static  MorphotypeElementDefinition ;
+using System.Linq;
+using SolastaModApi.Infrastructure;
+using static RuleDefinitions;
 
 namespace SolastaModApi.Extensions
 {
@@ -43,7 +13,7 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(FeatureDefinitionMagicAffinity)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class FeatureDefinitionMagicAffinityExtensions
     {
-        public static T AddAdditionalSlots<T>(this T entity,  params  AdditionalSlotsDuplet [ ]  value)
+        public static T AddAdditionalSlots<T>(this T entity, params AdditionalSlotsDuplet[] value)
             where T : FeatureDefinitionMagicAffinity
         {
             AddAdditionalSlots(entity, value.AsEnumerable());
@@ -57,7 +27,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddDeviceTagsAutoIdentifying<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddDeviceTagsAutoIdentifying<T>(this T entity, params System.String[] value)
             where T : FeatureDefinitionMagicAffinity
         {
             AddDeviceTagsAutoIdentifying(entity, value.AsEnumerable());
@@ -71,7 +41,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddMetamagicOptions<T>(this T entity,  params  MetamagicOptionDefinition [ ]  value)
+        public static T AddMetamagicOptions<T>(this T entity, params MetamagicOptionDefinition[] value)
             where T : FeatureDefinitionMagicAffinity
         {
             AddMetamagicOptions(entity, value.AsEnumerable());
@@ -85,7 +55,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddSpellImmunities<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddSpellImmunities<T>(this T entity, params System.String[] value)
             where T : FeatureDefinitionMagicAffinity
         {
             AddSpellImmunities(entity, value.AsEnumerable());
@@ -99,7 +69,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddWarListSpells<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddWarListSpells<T>(this T entity, params System.String[] value)
             where T : FeatureDefinitionMagicAffinity
         {
             AddWarListSpells(entity, value.AsEnumerable());
@@ -162,7 +132,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetAdditionalSlots<T>(this T entity,  params  AdditionalSlotsDuplet [ ]  value)
+        public static T SetAdditionalSlots<T>(this T entity, params AdditionalSlotsDuplet[] value)
             where T : FeatureDefinitionMagicAffinity
         {
             SetAdditionalSlots(entity, value.AsEnumerable());
@@ -211,7 +181,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetDeviceTagsAutoIdentifying<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetDeviceTagsAutoIdentifying<T>(this T entity, params System.String[] value)
             where T : FeatureDefinitionMagicAffinity
         {
             SetDeviceTagsAutoIdentifying(entity, value.AsEnumerable());
@@ -267,7 +237,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetMetamagicOptions<T>(this T entity,  params  MetamagicOptionDefinition [ ]  value)
+        public static T SetMetamagicOptions<T>(this T entity, params MetamagicOptionDefinition[] value)
             where T : FeatureDefinitionMagicAffinity
         {
             SetMetamagicOptions(entity, value.AsEnumerable());
@@ -400,7 +370,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSpellImmunities<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetSpellImmunities<T>(this T entity, params System.String[] value)
             where T : FeatureDefinitionMagicAffinity
         {
             SetSpellImmunities(entity, value.AsEnumerable());
@@ -435,7 +405,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetWarListSpells<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetWarListSpells<T>(this T entity, params System.String[] value)
             where T : FeatureDefinitionMagicAffinity
         {
             SetWarListSpells(entity, value.AsEnumerable());

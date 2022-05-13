@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Reflection.Emit;
 using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches.BugFix

@@ -3,30 +3,47 @@ using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 
-namespace ModKit.Utility {
-    public static partial class ReflectionCache {
+namespace ModKit.Utility
+{
+    public static partial class ReflectionCache
+    {
         private static readonly DoubleDictionary<Type, string, WeakReference> _propertieCache = new();
 
-        private static CachedProperty<TProperty> GetPropertyCache<T, TProperty>(string name) {
+        private static CachedProperty<TProperty> GetPropertyCache<T, TProperty>(string name)
+        {
             object cache = null;
             if (_propertieCache.TryGetValue(typeof(T), name, out var weakRef))
+            {
                 cache = weakRef.Target;
-            if (cache == null) {
+            }
+
+            if (cache == null)
+            {
                 if (typeof(T).IsValueType)
+                {
                     cache = new CachedPropertyOfStruct<T, TProperty>(name);
+                }
                 else
+                {
                     cache = new CachedPropertyOfClass<T, TProperty>(name);
+                }
+
                 _propertieCache[typeof(T), name] = new WeakReference(cache);
                 EnqueueCache(cache);
             }
             return cache as CachedProperty<TProperty>;
         }
 
-        private static CachedProperty<TProperty> GetPropertyCache<TProperty>(Type type, string name) {
+        private static CachedProperty<TProperty> GetPropertyCache<TProperty>(Type type, string name)
+        {
             object cache = null;
             if (_propertieCache.TryGetValue(type, name, out var weakRef))
+            {
                 cache = weakRef.Target;
-            if (cache == null) {
+            }
+
+            if (cache == null)
+            {
                 cache =
                     IsStatic(type) ?
                     new CachedPropertyOfStatic<TProperty>(type, name) :
@@ -59,16 +76,22 @@ namespace ModKit.Utility {
 
         //public static void SetPropertyValue<TProperty>(this Type type, string name, TProperty value) => GetPropertyCache<TProperty>(type, name).Set(value);
 
-        private abstract class CachedProperty<TProperty> {
+        private abstract class CachedProperty<TProperty>
+        {
             public readonly PropertyInfo Info;
 
-            protected CachedProperty(Type type, string name) {
+            protected CachedProperty(Type type, string name)
+            {
                 Info = type.GetProperties(ALL_FLAGS).FirstOrDefault(item => item.Name == name);
 
                 if (Info == null || Info.PropertyType != typeof(TProperty))
+                {
                     throw new InvalidOperationException();
+                }
                 else if (Info.DeclaringType != type)
+                {
                     Info = Info.DeclaringType.GetProperties(ALL_FLAGS).FirstOrDefault(item => item.Name == name);
+                }
             }
 
             // for static property
@@ -77,8 +100,10 @@ namespace ModKit.Utility {
             // for static property
             public abstract void Set(TProperty value);
 
-            protected Delegate CreateGetter(Type delType, MethodInfo getter, bool isInstByRef) {
-                if (getter.IsStatic) {
+            protected Delegate CreateGetter(Type delType, MethodInfo getter, bool isInstByRef)
+            {
+                if (getter.IsStatic)
+                {
                     DynamicMethod method = new(
                     name: "get_" + Info.Name,
                     returnType: Info.PropertyType,
@@ -91,13 +116,16 @@ namespace ModKit.Utility {
                     il.Emit(OpCodes.Ret);
                     return method.CreateDelegate(delType);
                 }
-                else {
+                else
+                {
                     return Delegate.CreateDelegate(delType, getter);
                 }
             }
 
-            protected Delegate CreateSetter(Type delType, MethodInfo setter, bool isInstByRef) {
-                if (setter.IsStatic) {
+            protected Delegate CreateSetter(Type delType, MethodInfo setter, bool isInstByRef)
+            {
+                if (setter.IsStatic)
+                {
                     DynamicMethod method = new(
                     name: "set_" + Info.Name,
                     returnType: null,
@@ -112,13 +140,15 @@ namespace ModKit.Utility {
                     il.Emit(OpCodes.Ret);
                     return method.CreateDelegate(delType);
                 }
-                else {
+                else
+                {
                     return Delegate.CreateDelegate(delType, setter);
                 }
             }
         }
 
-        private class CachedPropertyOfStruct<T, TProperty> : CachedProperty<TProperty> {
+        private class CachedPropertyOfStruct<T, TProperty> : CachedProperty<TProperty>
+        {
             private delegate TProperty Getter(ref T instance);
             private delegate void Setter(ref T instance, TProperty value);
 
@@ -137,7 +167,8 @@ namespace ModKit.Utility {
             //public void Set(ref T instance, TProperty value) => (_setter ??= CreateSetter(typeof(Setter), Info.SetMethod, true) as Setter)(ref instance, value);
         }
 
-        private class CachedPropertyOfClass<T, TProperty> : CachedProperty<TProperty> {
+        private class CachedPropertyOfClass<T, TProperty> : CachedProperty<TProperty>
+        {
             private delegate TProperty Getter(T instance);
             private delegate void Setter(T instance, TProperty value);
 
@@ -156,14 +187,16 @@ namespace ModKit.Utility {
             //public void Set(T instance, TProperty value) => (_setter ??= CreateSetter(typeof(Setter), Info.SetMethod, false) as Setter)(instance, value);
         }
 
-        private class CachedPropertyOfStatic<TProperty> : CachedProperty<TProperty> {
+        private class CachedPropertyOfStatic<TProperty> : CachedProperty<TProperty>
+        {
             private delegate TProperty Getter();
             private delegate void Setter(TProperty value);
 
             private Getter _getter;
             private Setter _setter;
 
-            public CachedPropertyOfStatic(Type type, string name) : base(type, name) {
+            public CachedPropertyOfStatic(Type type, string name) : base(type, name)
+            {
                 //if (!IsStatic(type))
                 //    throw new InvalidOperationException();
             }

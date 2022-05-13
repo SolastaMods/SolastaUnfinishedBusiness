@@ -51,7 +51,7 @@ namespace SolastaCommunityExpansion
         //
 
         public bool AllowDynamicPowers { get; set; } = true;
-        public bool  BugFixBrowseFeatures { get; set; } = true;
+        public bool BugFixBrowseFeatures { get; set; } = true;
         public bool BugFixButtonActivatorTriggerIssue { get; set; } = true;
         public bool BugFixConjuredUnitsTeleportWithParty { get; set; } = true;
         public bool BugFixCorrectlyCalculateDamageOnMultipleHits { get; set; } = true;
@@ -74,7 +74,7 @@ namespace SolastaCommunityExpansion
         public bool EnablePowersBundlePatch { get; set; } = true;
         public bool EnableGlobalUniqueEffectsPatch { get; set; } = true;
         public bool EnableRacesScalePatch { get; set; } = true;
-        public bool EnableSameWidthFeatSelection { get; set;} = true;
+        public bool EnableSameWidthFeatSelection { get; set; } = true;
         public bool EnableSortingClasses { get; set; } = true;
         public bool EnableSortingDeities { get; set; } = true;
         public bool EnableSortingDungeonMakerAssets { get; set; } = true;

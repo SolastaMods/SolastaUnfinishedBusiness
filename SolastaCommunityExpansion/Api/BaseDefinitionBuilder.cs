@@ -11,7 +11,7 @@ namespace SolastaModApi
     [Obsolete("Use explicit builders. e.g. FightingStyleDefinitionBuilder")]
     public abstract class BaseDefinitionBuilder<TDefinition> : DefinitionBuilder<TDefinition> where TDefinition : BaseDefinition
     {
-        #region Constructors
+#region Constructors
 
         /// <summary>
         /// Create a new instance of TDefinition.  Automatically generate a guid from namespaceGuid plus name.
@@ -50,7 +50,7 @@ namespace SolastaModApi
         [Obsolete("Legacy support only.  Please use explicit builders for future development.")]
         protected BaseDefinitionBuilder(TDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid) { }
 
-        #endregion
+#endregion
     }
 }
 #endif

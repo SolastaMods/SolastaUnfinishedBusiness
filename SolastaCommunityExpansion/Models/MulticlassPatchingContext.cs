@@ -3,10 +3,10 @@ using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionProficiencys;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionPointPools;
-using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaCommunityExpansion.Models.IntegrationContext;
+using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionPointPools;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionProficiencys;
 
 namespace SolastaCommunityExpansion.Models
 {
