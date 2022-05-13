@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿#if false
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches.BugFix
@@ -15,3 +16,4 @@ namespace SolastaCommunityExpansion.Patches.BugFix
         }
     }
 }
+#endif
