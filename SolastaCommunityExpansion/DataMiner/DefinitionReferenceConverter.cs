@@ -1,6 +1,6 @@
 ﻿#if DEBUG
-using Newtonsoft.Json;
 using System;
+using Newtonsoft.Json;
 
 namespace SolastaCommunityExpansion.DataMiner
 {

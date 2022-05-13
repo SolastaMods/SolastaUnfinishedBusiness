@@ -62,7 +62,7 @@ namespace SolastaCommunityExpansion.Models
         private static readonly List<IResourceLocation> emptyList = new();
 
         public static SpriteResourceLocator Instance { get; } = new SpriteResourceLocator();
-        
+
         // These two properties don't seem to be used
         public string LocatorId => GetType().FullName;
         public IEnumerable<object> Keys => locationsCache.Keys;
@@ -114,7 +114,7 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        public SpriteResourceLocation(Sprite sprite, string name, string id) 
+        public SpriteResourceLocation(Sprite sprite, string name, string id)
             : base(name, id, typeof(SpriteResourceProvider).FullName, typeof(Sprite))
         {
             Sprite = sprite;

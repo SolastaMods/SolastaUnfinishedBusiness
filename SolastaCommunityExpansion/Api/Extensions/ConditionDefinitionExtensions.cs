@@ -1,38 +1,8 @@
-using SolastaModApi.Infrastructure;
-using AK.Wwise;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.AddressableAssets;
-using System;
-using System.Linq;
-using System.Text;
 using System.CodeDom.Compiler;
-using TA.AI;
-using TA;
 using System.Collections.Generic;
-using UnityEngine.Rendering.PostProcessing;
-using  static  ActionDefinitions ;
-using  static  TA . AI . DecisionPackageDefinition ;
-using  static  TA . AI . DecisionDefinition ;
-using  static  RuleDefinitions ;
-using  static  BanterDefinitions ;
-using  static  Gui ;
-using  static  GadgetDefinitions ;
-using  static  BestiaryDefinitions ;
-using  static  CursorDefinitions ;
-using  static  AnimationDefinitions ;
-using  static  FeatureDefinitionAutoPreparedSpells ;
-using  static  FeatureDefinitionCraftingAffinity ;
-using  static  CharacterClassDefinition ;
-using  static  CreditsGroupDefinition ;
-using  static  SoundbanksDefinition ;
-using  static  CampaignDefinition ;
-using  static  GraphicsCharacterDefinitions ;
-using  static  GameCampaignDefinitions ;
-using  static  FeatureDefinitionAbilityCheckAffinity ;
-using  static  TooltipDefinitions ;
-using  static  BaseBlueprint ;
-using  static  MorphotypeElementDefinition ;
+using System.Linq;
+using SolastaModApi.Infrastructure;
+using static RuleDefinitions;
 
 namespace SolastaModApi.Extensions
 {
@@ -43,7 +13,7 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(ConditionDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class ConditionDefinitionExtensions
     {
-        public static T AddCancellingConditions<T>(this T entity,  params  ConditionDefinition [ ]  value)
+        public static T AddCancellingConditions<T>(this T entity, params ConditionDefinition[] value)
             where T : ConditionDefinition
         {
             AddCancellingConditions(entity, value.AsEnumerable());
@@ -57,7 +27,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddConditionTags<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddConditionTags<T>(this T entity, params System.String[] value)
             where T : ConditionDefinition
         {
             AddConditionTags(entity, value.AsEnumerable());
@@ -71,7 +41,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddFeatures<T>(this T entity,  params  FeatureDefinition [ ]  value)
+        public static T AddFeatures<T>(this T entity, params FeatureDefinition[] value)
             where T : ConditionDefinition
         {
             AddFeatures(entity, value.AsEnumerable());
@@ -85,7 +55,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddRecurrentEffectForms<T>(this T entity,  params  EffectForm [ ]  value)
+        public static T AddRecurrentEffectForms<T>(this T entity, params EffectForm[] value)
             where T : ConditionDefinition
         {
             AddRecurrentEffectForms(entity, value.AsEnumerable());
@@ -99,7 +69,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddSpecialInterruptions<T>(this T entity,  params  RuleDefinitions . ConditionInterruption [ ]  value)
+        public static T AddSpecialInterruptions<T>(this T entity, params RuleDefinitions.ConditionInterruption[] value)
             where T : ConditionDefinition
         {
             AddSpecialInterruptions(entity, value.AsEnumerable());
@@ -266,7 +236,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetCancellingConditions<T>(this T entity,  params  ConditionDefinition [ ]  value)
+        public static T SetCancellingConditions<T>(this T entity, params ConditionDefinition[] value)
             where T : ConditionDefinition
         {
             SetCancellingConditions(entity, value.AsEnumerable());
@@ -315,7 +285,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetConditionTags<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetConditionTags<T>(this T entity, params System.String[] value)
             where T : ConditionDefinition
         {
             SetConditionTags(entity, value.AsEnumerable());
@@ -385,7 +355,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetFeatures<T>(this T entity,  params  FeatureDefinition [ ]  value)
+        public static T SetFeatures<T>(this T entity, params FeatureDefinition[] value)
             where T : ConditionDefinition
         {
             SetFeatures(entity, value.AsEnumerable());
@@ -497,7 +467,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetRecurrentEffectForms<T>(this T entity,  params  EffectForm [ ]  value)
+        public static T SetRecurrentEffectForms<T>(this T entity, params EffectForm[] value)
             where T : ConditionDefinition
         {
             SetRecurrentEffectForms(entity, value.AsEnumerable());
@@ -553,7 +523,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSpecialInterruptions<T>(this T entity,  params  RuleDefinitions . ConditionInterruption [ ]  value)
+        public static T SetSpecialInterruptions<T>(this T entity, params RuleDefinitions.ConditionInterruption[] value)
             where T : ConditionDefinition
         {
             SetSpecialInterruptions(entity, value.AsEnumerable());

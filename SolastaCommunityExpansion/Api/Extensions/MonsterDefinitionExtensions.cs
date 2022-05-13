@@ -1,38 +1,8 @@
-using SolastaModApi.Infrastructure;
-using AK.Wwise;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.AddressableAssets;
-using System;
-using System.Linq;
-using System.Text;
 using System.CodeDom.Compiler;
-using TA.AI;
-using TA;
 using System.Collections.Generic;
-using UnityEngine.Rendering.PostProcessing;
-using  static  ActionDefinitions ;
-using  static  TA . AI . DecisionPackageDefinition ;
-using  static  TA . AI . DecisionDefinition ;
-using  static  RuleDefinitions ;
-using  static  BanterDefinitions ;
-using  static  Gui ;
-using  static  GadgetDefinitions ;
-using  static  BestiaryDefinitions ;
-using  static  CursorDefinitions ;
-using  static  AnimationDefinitions ;
-using  static  FeatureDefinitionAutoPreparedSpells ;
-using  static  FeatureDefinitionCraftingAffinity ;
-using  static  CharacterClassDefinition ;
-using  static  CreditsGroupDefinition ;
-using  static  SoundbanksDefinition ;
-using  static  CampaignDefinition ;
-using  static  GraphicsCharacterDefinitions ;
-using  static  GameCampaignDefinitions ;
-using  static  FeatureDefinitionAbilityCheckAffinity ;
-using  static  TooltipDefinitions ;
-using  static  BaseBlueprint ;
-using  static  MorphotypeElementDefinition ;
+using System.Linq;
+using SolastaModApi.Infrastructure;
+using static RuleDefinitions;
 
 namespace SolastaModApi.Extensions
 {
@@ -43,7 +13,7 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(MonsterDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class MonsterDefinitionExtensions
     {
-        public static T AddAttackIterations<T>(this T entity,  params  MonsterAttackIteration [ ]  value)
+        public static T AddAttackIterations<T>(this T entity, params MonsterAttackIteration[] value)
             where T : MonsterDefinition
         {
             AddAttackIterations(entity, value.AsEnumerable());
@@ -57,7 +27,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddAudioSwitches<T>(this T entity,  params  AK . Wwise . Switch [ ]  value)
+        public static T AddAudioSwitches<T>(this T entity, params AK.Wwise.Switch[] value)
             where T : MonsterDefinition
         {
             AddAudioSwitches(entity, value.AsEnumerable());
@@ -71,7 +41,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddAudioSwitchesOnHands<T>(this T entity,  params  AK . Wwise . Switch [ ]  value)
+        public static T AddAudioSwitchesOnHands<T>(this T entity, params AK.Wwise.Switch[] value)
             where T : MonsterDefinition
         {
             AddAudioSwitchesOnHands(entity, value.AsEnumerable());
@@ -85,7 +55,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddBestiaryLootOptions<T>(this T entity,  params  ItemDefinition [ ]  value)
+        public static T AddBestiaryLootOptions<T>(this T entity, params ItemDefinition[] value)
             where T : MonsterDefinition
         {
             AddBestiaryLootOptions(entity, value.AsEnumerable());
@@ -99,7 +69,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddCreatureTags<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddCreatureTags<T>(this T entity, params System.String[] value)
             where T : MonsterDefinition
         {
             AddCreatureTags(entity, value.AsEnumerable());
@@ -113,7 +83,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddFeatures<T>(this T entity,  params  FeatureDefinition [ ]  value)
+        public static T AddFeatures<T>(this T entity, params FeatureDefinition[] value)
             where T : MonsterDefinition
         {
             AddFeatures(entity, value.AsEnumerable());
@@ -127,7 +97,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddLanguages<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddLanguages<T>(this T entity, params System.String[] value)
             where T : MonsterDefinition
         {
             AddLanguages(entity, value.AsEnumerable());
@@ -141,7 +111,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddLegendaryActionOptions<T>(this T entity,  params  LegendaryActionDescription [ ]  value)
+        public static T AddLegendaryActionOptions<T>(this T entity, params LegendaryActionDescription[] value)
             where T : MonsterDefinition
         {
             AddLegendaryActionOptions(entity, value.AsEnumerable());
@@ -155,7 +125,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddSavingThrowScores<T>(this T entity,  params  MonsterSavingThrowProficiency [ ]  value)
+        public static T AddSavingThrowScores<T>(this T entity, params MonsterSavingThrowProficiency[] value)
             where T : MonsterDefinition
         {
             AddSavingThrowScores(entity, value.AsEnumerable());
@@ -169,7 +139,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddSkillScores<T>(this T entity,  params  MonsterSkillProficiency [ ]  value)
+        public static T AddSkillScores<T>(this T entity, params MonsterSkillProficiency[] value)
             where T : MonsterDefinition
         {
             AddSkillScores(entity, value.AsEnumerable());
@@ -295,7 +265,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetAttackIterations<T>(this T entity,  params  MonsterAttackIteration [ ]  value)
+        public static T SetAttackIterations<T>(this T entity, params MonsterAttackIteration[] value)
             where T : MonsterDefinition
         {
             SetAttackIterations(entity, value.AsEnumerable());
@@ -316,7 +286,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetAudioSwitches<T>(this T entity,  params  AK . Wwise . Switch [ ]  value)
+        public static T SetAudioSwitches<T>(this T entity, params AK.Wwise.Switch[] value)
             where T : MonsterDefinition
         {
             SetAudioSwitches(entity, value.AsEnumerable());
@@ -330,7 +300,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetAudioSwitchesOnHands<T>(this T entity,  params  AK . Wwise . Switch [ ]  value)
+        public static T SetAudioSwitchesOnHands<T>(this T entity, params AK.Wwise.Switch[] value)
             where T : MonsterDefinition
         {
             SetAudioSwitchesOnHands(entity, value.AsEnumerable());
@@ -358,7 +328,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetBestiaryLootOptions<T>(this T entity,  params  ItemDefinition [ ]  value)
+        public static T SetBestiaryLootOptions<T>(this T entity, params ItemDefinition[] value)
             where T : MonsterDefinition
         {
             SetBestiaryLootOptions(entity, value.AsEnumerable());
@@ -400,7 +370,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetCreatureTags<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetCreatureTags<T>(this T entity, params System.String[] value)
             where T : MonsterDefinition
         {
             SetCreatureTags(entity, value.AsEnumerable());
@@ -456,7 +426,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetFeatures<T>(this T entity,  params  FeatureDefinition [ ]  value)
+        public static T SetFeatures<T>(this T entity, params FeatureDefinition[] value)
             where T : MonsterDefinition
         {
             SetFeatures(entity, value.AsEnumerable());
@@ -589,7 +559,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetLanguages<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetLanguages<T>(this T entity, params System.String[] value)
             where T : MonsterDefinition
         {
             SetLanguages(entity, value.AsEnumerable());
@@ -603,7 +573,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetLegendaryActionOptions<T>(this T entity,  params  LegendaryActionDescription [ ]  value)
+        public static T SetLegendaryActionOptions<T>(this T entity, params LegendaryActionDescription[] value)
             where T : MonsterDefinition
         {
             SetLegendaryActionOptions(entity, value.AsEnumerable());
@@ -680,7 +650,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSavingThrowScores<T>(this T entity,  params  MonsterSavingThrowProficiency [ ]  value)
+        public static T SetSavingThrowScores<T>(this T entity, params MonsterSavingThrowProficiency[] value)
             where T : MonsterDefinition
         {
             SetSavingThrowScores(entity, value.AsEnumerable());
@@ -701,7 +671,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSkillScores<T>(this T entity,  params  MonsterSkillProficiency [ ]  value)
+        public static T SetSkillScores<T>(this T entity, params MonsterSkillProficiency[] value)
             where T : MonsterDefinition
         {
             SetSkillScores(entity, value.AsEnumerable());

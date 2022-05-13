@@ -1,38 +1,8 @@
-using SolastaModApi.Infrastructure;
-using AK.Wwise;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.AddressableAssets;
-using System;
-using System.Linq;
-using System.Text;
 using System.CodeDom.Compiler;
-using TA.AI;
-using TA;
 using System.Collections.Generic;
-using UnityEngine.Rendering.PostProcessing;
-using  static  ActionDefinitions ;
-using  static  TA . AI . DecisionPackageDefinition ;
-using  static  TA . AI . DecisionDefinition ;
-using  static  RuleDefinitions ;
-using  static  BanterDefinitions ;
-using  static  Gui ;
-using  static  GadgetDefinitions ;
-using  static  BestiaryDefinitions ;
-using  static  CursorDefinitions ;
-using  static  AnimationDefinitions ;
-using  static  FeatureDefinitionAutoPreparedSpells ;
-using  static  FeatureDefinitionCraftingAffinity ;
-using  static  CharacterClassDefinition ;
-using  static  CreditsGroupDefinition ;
-using  static  SoundbanksDefinition ;
-using  static  CampaignDefinition ;
-using  static  GraphicsCharacterDefinitions ;
-using  static  GameCampaignDefinitions ;
-using  static  FeatureDefinitionAbilityCheckAffinity ;
-using  static  TooltipDefinitions ;
-using  static  BaseBlueprint ;
-using  static  MorphotypeElementDefinition ;
+using System.Linq;
+using SolastaModApi.Infrastructure;
+using static RuleDefinitions;
 
 namespace SolastaModApi.Extensions
 {
@@ -43,7 +13,7 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(FeatureDefinitionAdditionalDamage)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class FeatureDefinitionAdditionalDamageExtensions
     {
-        public static T AddConditionOperations<T>(this T entity,  params  ConditionOperationDescription [ ]  value)
+        public static T AddConditionOperations<T>(this T entity, params ConditionOperationDescription[] value)
             where T : FeatureDefinitionAdditionalDamage
         {
             AddConditionOperations(entity, value.AsEnumerable());
@@ -57,7 +27,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddDiceByRankTable<T>(this T entity,  params  DiceByRank [ ]  value)
+        public static T AddDiceByRankTable<T>(this T entity, params DiceByRank[] value)
             where T : FeatureDefinitionAdditionalDamage
         {
             AddDiceByRankTable(entity, value.AsEnumerable());
@@ -71,7 +41,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddFamiliesWithAdditionalDice<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddFamiliesWithAdditionalDice<T>(this T entity, params System.String[] value)
             where T : FeatureDefinitionAdditionalDamage
         {
             AddFamiliesWithAdditionalDice(entity, value.AsEnumerable());
@@ -148,7 +118,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetConditionOperations<T>(this T entity,  params  ConditionOperationDescription [ ]  value)
+        public static T SetConditionOperations<T>(this T entity, params ConditionOperationDescription[] value)
             where T : FeatureDefinitionAdditionalDamage
         {
             SetConditionOperations(entity, value.AsEnumerable());
@@ -204,7 +174,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetDiceByRankTable<T>(this T entity,  params  DiceByRank [ ]  value)
+        public static T SetDiceByRankTable<T>(this T entity, params DiceByRank[] value)
             where T : FeatureDefinitionAdditionalDamage
         {
             SetDiceByRankTable(entity, value.AsEnumerable());
@@ -225,7 +195,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetFamiliesWithAdditionalDice<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetFamiliesWithAdditionalDice<T>(this T entity, params System.String[] value)
             where T : FeatureDefinitionAdditionalDamage
         {
             SetFamiliesWithAdditionalDice(entity, value.AsEnumerable());

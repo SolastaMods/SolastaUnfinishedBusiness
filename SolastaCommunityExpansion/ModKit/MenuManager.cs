@@ -4,12 +4,14 @@ using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using ModKit.Utility;
 using UnityEngine;
 using UnityModManagerNet;
-using ModKit.Utility;
 
-namespace ModKit {
-    public interface IMenuPage {
+namespace ModKit
+{
+    public interface IMenuPage
+    {
         string Name { get; }
 
         int Priority { get; }
@@ -23,7 +25,8 @@ namespace ModKit {
 
     public interface IMenuBottomPage : IMenuPage { }
 
-    public class MenuManager : INotifyPropertyChanged {
+    public class MenuManager : INotifyPropertyChanged
+    {
         public event PropertyChangedEventHandler PropertyChanged;
 
         // This method is called by the Set accessor of each property.  
@@ -33,7 +36,8 @@ namespace ModKit {
 
         #region Fields
         private int _tabIndex;
-        public int tabIndex {
+        public int tabIndex
+        {
             get { return _tabIndex; }
             set { _tabIndex = value; NotifyPropertyChanged(); }
         }
@@ -46,17 +50,25 @@ namespace ModKit {
 
         #region Toggle
 
-        public void Enable(UnityModManager.ModEntry modEntry, Assembly _assembly) {
+        public void Enable(UnityModManager.ModEntry modEntry, Assembly _assembly)
+        {
             foreach (var type in _assembly.GetTypes()
-                .Where(type => !type.IsInterface && !type.IsAbstract && typeof(IMenuPage).IsAssignableFrom(type))) {
+                .Where(type => !type.IsInterface && !type.IsAbstract && typeof(IMenuPage).IsAssignableFrom(type)))
+            {
                 if (typeof(IMenuTopPage).IsAssignableFrom(type))
+                {
                     _topPages.Add(Activator.CreateInstance(type, true) as IMenuTopPage);
+                }
 
                 if (typeof(IMenuSelectablePage).IsAssignableFrom(type))
+                {
                     _selectablePages.Add(Activator.CreateInstance(type, true) as IMenuSelectablePage);
+                }
 
                 if (typeof(IMenuBottomPage).IsAssignableFrom(type))
+                {
                     _bottomPages.Add(Activator.CreateInstance(type, true) as IMenuBottomPage);
+                }
             }
 
             static int comparison(IMenuPage x, IMenuPage y) => x.Priority - y.Priority;
@@ -77,12 +89,16 @@ namespace ModKit {
 
         #endregion
 
-        private void OnGUI(UnityModManager.ModEntry modEntry) {
+        private void OnGUI(UnityModManager.ModEntry modEntry)
+        {
             var hasPriorPage = false;
-            try {
-                if (caughtException != null) {
+            try
+            {
+                if (caughtException != null)
+                {
                     GUILayout.Label("ERROR".Red().Bold() + $": caught exception {caughtException}");
-                    if (GUILayout.Button("Reset".Orange().Bold(), GUILayout.ExpandWidth(false))) {
+                    if (GUILayout.Button("Reset".Orange().Bold(), GUILayout.ExpandWidth(false)))
+                    {
                         caughtException = null;
                     }
                     return;
@@ -92,19 +108,29 @@ namespace ModKit {
                 UI.focusedControlName = GUI.GetNameOfFocusedControl();
 
 
-                if (_topPages.Count > 0) {
-                    foreach (var page in _topPages) {
+                if (_topPages.Count > 0)
+                {
+                    foreach (var page in _topPages)
+                    {
                         if (hasPriorPage)
+                        {
                             GUILayout.Space(10f);
+                        }
+
                         page.OnGUI(modEntry);
                         hasPriorPage = true;
                     }
                 }
 
-                if (_selectablePages.Count > 0) {
-                    if (_selectablePages.Count > 1) {
+                if (_selectablePages.Count > 0)
+                {
+                    if (_selectablePages.Count > 1)
+                    {
                         if (hasPriorPage)
+                        {
                             GUILayout.Space(10f);
+                        }
+
                         tabIndex = GUILayout.Toolbar(tabIndex, _selectablePages.Select(page => page.Name).ToArray());
 
                         GUILayout.Space(10f);
@@ -114,16 +140,22 @@ namespace ModKit {
                     hasPriorPage = true;
                 }
 
-                if (_bottomPages.Count > 0) {
-                    foreach (var page in _bottomPages) {
+                if (_bottomPages.Count > 0)
+                {
+                    foreach (var page in _bottomPages)
+                    {
                         if (hasPriorPage)
+                        {
                             GUILayout.Space(10f);
+                        }
+
                         page.OnGUI(modEntry);
                         hasPriorPage = true;
                     }
                 }
             }
-            catch (Exception e) {
+            catch (Exception e)
+            {
                 Console.Write($"{e}");
                 caughtException = e;
             }

@@ -1,38 +1,8 @@
-using SolastaModApi.Infrastructure;
-using AK.Wwise;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.AddressableAssets;
-using System;
-using System.Linq;
-using System.Text;
 using System.CodeDom.Compiler;
-using TA.AI;
-using TA;
 using System.Collections.Generic;
-using UnityEngine.Rendering.PostProcessing;
-using  static  ActionDefinitions ;
-using  static  TA . AI . DecisionPackageDefinition ;
-using  static  TA . AI . DecisionDefinition ;
-using  static  RuleDefinitions ;
-using  static  BanterDefinitions ;
-using  static  Gui ;
-using  static  GadgetDefinitions ;
-using  static  BestiaryDefinitions ;
-using  static  CursorDefinitions ;
-using  static  AnimationDefinitions ;
-using  static  FeatureDefinitionAutoPreparedSpells ;
-using  static  FeatureDefinitionCraftingAffinity ;
-using  static  CharacterClassDefinition ;
-using  static  CreditsGroupDefinition ;
-using  static  SoundbanksDefinition ;
-using  static  CampaignDefinition ;
-using  static  GraphicsCharacterDefinitions ;
-using  static  GameCampaignDefinitions ;
-using  static  FeatureDefinitionAbilityCheckAffinity ;
-using  static  TooltipDefinitions ;
-using  static  BaseBlueprint ;
-using  static  MorphotypeElementDefinition ;
+using System.Linq;
+using SolastaModApi.Infrastructure;
+using static RuleDefinitions;
 
 namespace SolastaModApi.Extensions
 {
@@ -43,7 +13,7 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(RacePresentation)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class RacePresentationExtensions
     {
-        public static T AddFemaleFaceShapeOptions<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddFemaleFaceShapeOptions<T>(this T entity, params System.String[] value)
             where T : RacePresentation
         {
             AddFemaleFaceShapeOptions(entity, value.AsEnumerable());
@@ -57,7 +27,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddFemaleHairShapeOptions<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddFemaleHairShapeOptions<T>(this T entity, params System.String[] value)
             where T : RacePresentation
         {
             AddFemaleHairShapeOptions(entity, value.AsEnumerable());
@@ -71,7 +41,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddFemaleNameOptions<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddFemaleNameOptions<T>(this T entity, params System.String[] value)
             where T : RacePresentation
         {
             AddFemaleNameOptions(entity, value.AsEnumerable());
@@ -85,7 +55,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddMaleBeardShapeOptions<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddMaleBeardShapeOptions<T>(this T entity, params System.String[] value)
             where T : RacePresentation
         {
             AddMaleBeardShapeOptions(entity, value.AsEnumerable());
@@ -99,7 +69,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddMaleFaceShapeOptions<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddMaleFaceShapeOptions<T>(this T entity, params System.String[] value)
             where T : RacePresentation
         {
             AddMaleFaceShapeOptions(entity, value.AsEnumerable());
@@ -113,7 +83,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddMaleHairShapeOptions<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddMaleHairShapeOptions<T>(this T entity, params System.String[] value)
             where T : RacePresentation
         {
             AddMaleHairShapeOptions(entity, value.AsEnumerable());
@@ -127,7 +97,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddMaleNameOptions<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddMaleNameOptions<T>(this T entity, params System.String[] value)
             where T : RacePresentation
         {
             AddMaleNameOptions(entity, value.AsEnumerable());
@@ -141,7 +111,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddOriginOptions<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddOriginOptions<T>(this T entity, params System.String[] value)
             where T : RacePresentation
         {
             AddOriginOptions(entity, value.AsEnumerable());
@@ -155,7 +125,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddSurNameOptions<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddSurNameOptions<T>(this T entity, params System.String[] value)
             where T : RacePresentation
         {
             AddSurNameOptions(entity, value.AsEnumerable());
@@ -253,7 +223,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetFemaleFaceShapeOptions<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetFemaleFaceShapeOptions<T>(this T entity, params System.String[] value)
             where T : RacePresentation
         {
             SetFemaleFaceShapeOptions(entity, value.AsEnumerable());
@@ -267,7 +237,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetFemaleHairShapeOptions<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetFemaleHairShapeOptions<T>(this T entity, params System.String[] value)
             where T : RacePresentation
         {
             SetFemaleHairShapeOptions(entity, value.AsEnumerable());
@@ -281,7 +251,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetFemaleNameOptions<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetFemaleNameOptions<T>(this T entity, params System.String[] value)
             where T : RacePresentation
         {
             SetFemaleNameOptions(entity, value.AsEnumerable());
@@ -309,7 +279,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetMaleBeardShapeOptions<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetMaleBeardShapeOptions<T>(this T entity, params System.String[] value)
             where T : RacePresentation
         {
             SetMaleBeardShapeOptions(entity, value.AsEnumerable());
@@ -323,7 +293,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetMaleFaceShapeOptions<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetMaleFaceShapeOptions<T>(this T entity, params System.String[] value)
             where T : RacePresentation
         {
             SetMaleFaceShapeOptions(entity, value.AsEnumerable());
@@ -337,7 +307,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetMaleHairShapeOptions<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetMaleHairShapeOptions<T>(this T entity, params System.String[] value)
             where T : RacePresentation
         {
             SetMaleHairShapeOptions(entity, value.AsEnumerable());
@@ -351,7 +321,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetMaleNameOptions<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetMaleNameOptions<T>(this T entity, params System.String[] value)
             where T : RacePresentation
         {
             SetMaleNameOptions(entity, value.AsEnumerable());
@@ -386,7 +356,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetOriginOptions<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetOriginOptions<T>(this T entity, params System.String[] value)
             where T : RacePresentation
         {
             SetOriginOptions(entity, value.AsEnumerable());
@@ -421,7 +391,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSurNameOptions<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetSurNameOptions<T>(this T entity, params System.String[] value)
             where T : RacePresentation
         {
             SetSurNameOptions(entity, value.AsEnumerable());

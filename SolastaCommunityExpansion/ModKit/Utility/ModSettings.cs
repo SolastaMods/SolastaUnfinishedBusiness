@@ -4,8 +4,10 @@
 //using static UnityModManagerNet.UnityModManager;
 //using System;
 
-namespace ModKit {
-    public interface IUpdatableSettings {
+namespace ModKit
+{
+    public interface IUpdatableSettings
+    {
         void AddMissingKeys(IUpdatableSettings from);
     }
 

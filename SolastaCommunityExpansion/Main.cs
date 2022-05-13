@@ -98,7 +98,7 @@ namespace SolastaCommunityExpansion
             {
                 var filename = Path.GetFileName(path);
 
-                if (filename.StartsWith(currentAssemblyName) 
+                if (filename.StartsWith(currentAssemblyName)
                     || (filename == MonstersFilename && !Settings.EnableExtraHighLevelMonsters)
                     || (filename == McFilename))
                 {

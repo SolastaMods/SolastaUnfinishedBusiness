@@ -10,31 +10,31 @@ using static SolastaModApi.DatabaseHelper.SpellListDefinitions;
 
 namespace SolastaCommunityExpansion.Spells
 {
-	public static class MorwennasSpellbook
-	{
-		internal static readonly Guid MORWENNA_BASE_GUID = new("56f97707-9af1-4761-987a-63b84ba18d46");
-		
-		public static readonly SpellDefinition IlluminatingSphere = BuildIlluminatingSphere();
-		public static readonly SpellDefinition RadiantMotes = BuildRadiantMotes();
-		public static readonly SpellDefinition Mule = BuildMule();
-		
-		internal static void AddToDB()
-		{
-			_ = IlluminatingSphere;
-			_ = RadiantMotes;
-			_ = Mule;
-		}
-		
-		internal static void Register()
-		{
-			//cantrip
-			RegisterSpell(IlluminatingSphere, 0, SpellListWizard);
-			
-			//level 1
-			RegisterSpell(RadiantMotes, 0, SpellListWizard);
-			RegisterSpell(Mule, 0, SpellListWizard);
+    public static class MorwennasSpellbook
+    {
+        internal static readonly Guid MORWENNA_BASE_GUID = new("56f97707-9af1-4761-987a-63b84ba18d46");
 
-		}
+        public static readonly SpellDefinition IlluminatingSphere = BuildIlluminatingSphere();
+        public static readonly SpellDefinition RadiantMotes = BuildRadiantMotes();
+        public static readonly SpellDefinition Mule = BuildMule();
+
+        internal static void AddToDB()
+        {
+            _ = IlluminatingSphere;
+            _ = RadiantMotes;
+            _ = Mule;
+        }
+
+        internal static void Register()
+        {
+            //cantrip
+            RegisterSpell(IlluminatingSphere, 0, SpellListWizard);
+
+            //level 1
+            RegisterSpell(RadiantMotes, 0, SpellListWizard);
+            RegisterSpell(Mule, 0, SpellListWizard);
+
+        }
 
         private static SpellDefinition BuildIlluminatingSphere()
         {
@@ -74,7 +74,7 @@ namespace SolastaCommunityExpansion.Spells
                     1, 2, 0, 0, 0, 0, 0, 0, 0,
                     RuleDefinitions.AdvancementDuration.None)
                 .Build();
-            
+
             var spell = SpellDefinitionBuilder
                 .Create(MagicMissile, name, MORWENNA_BASE_GUID)
                 .SetGuiPresentation(Category.Spell, Sparkle.GuiPresentation.SpriteReference)
@@ -82,7 +82,7 @@ namespace SolastaCommunityExpansion.Spells
                 .AddToDB();
 
             spell.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D1);
-            spell.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypeRadiant);          
+            spell.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypeRadiant);
 
             return spell;
         }

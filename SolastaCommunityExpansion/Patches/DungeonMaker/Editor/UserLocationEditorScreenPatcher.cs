@@ -48,7 +48,7 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.Editor
                     break;
             }
 
-            #region Local functions
+#region Local functions
             void Rotate(float rotationAngle)
             {
                 if (rotationAngle == 0f)
@@ -96,7 +96,7 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.Editor
 
                 rb?.Invoke(__instance, null);
             }
-            #endregion
+#endregion
         }
     }
 }

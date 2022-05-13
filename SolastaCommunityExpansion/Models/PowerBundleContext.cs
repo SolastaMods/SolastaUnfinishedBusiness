@@ -45,7 +45,7 @@ namespace SolastaCommunityExpansion.Models
             var bundle = new Bundle();
             bundle.SubPowers.AddRange(subPowers);
             bundle.TerminateAll = terminateAll;
-            
+
             Bundles.Add(masterPower, bundle);
 
             var masterSpell = RegisterPower(masterPower);
@@ -59,7 +59,7 @@ namespace SolastaCommunityExpansion.Models
             masterSpell.AddSubspellsList(subSpells);
         }
 
-        
+
         public static Bundle GetBundle(FeatureDefinitionPower master)
         {
             return master ? Bundles.GetValueOrDefault(master) : null;
@@ -69,7 +69,7 @@ namespace SolastaCommunityExpansion.Models
         {
             return GetBundle(GetPower(master));
         }
-        
+
         public static List<FeatureDefinitionPower> GetBundleSubPowers(FeatureDefinitionPower master)
         {
             return GetBundle(master)?.SubPowers;
@@ -176,9 +176,11 @@ namespace SolastaCommunityExpansion.Models
                     actionParams.RulesetEffect = rules.InstantiateEffectPower(fromActor.RulesetCharacter, usablePower, true);
                     actionParams.SkipAnimationsAndVFX = true;
                     ServiceRepository.GetService<ICommandService>()
-                        .ExecuteAction(actionParams,  functor.ActionExecuted, false);
+                        .ExecuteAction(actionParams, functor.ActionExecuted, false);
                     while (!functor.powerUsed)
+                    {
                         yield return null;
+                    }
                 }
                 else
                 {
@@ -186,7 +188,7 @@ namespace SolastaCommunityExpansion.Models
                     formsParams.FillSourceAndTarget(ruleChar, ruleChar);
                     formsParams.FillFromActiveEffect(rules.InstantiateEffectPower(ruleChar, usablePower, false));
                     formsParams.effectSourceType = RuleDefinitions.EffectSourceType.Power;
-                        
+
                     rules.ApplyEffectForms(power.EffectDescription.EffectForms, formsParams);
                     ruleChar.UpdateUsageForPowerPool(usablePower, power.CostPerUse);
 

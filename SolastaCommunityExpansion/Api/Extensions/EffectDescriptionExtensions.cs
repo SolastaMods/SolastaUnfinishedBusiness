@@ -1,38 +1,8 @@
-using SolastaModApi.Infrastructure;
-using AK.Wwise;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.AddressableAssets;
-using System;
-using System.Linq;
-using System.Text;
 using System.CodeDom.Compiler;
-using TA.AI;
-using TA;
 using System.Collections.Generic;
-using UnityEngine.Rendering.PostProcessing;
-using  static  ActionDefinitions ;
-using  static  TA . AI . DecisionPackageDefinition ;
-using  static  TA . AI . DecisionDefinition ;
-using  static  RuleDefinitions ;
-using  static  BanterDefinitions ;
-using  static  Gui ;
-using  static  GadgetDefinitions ;
-using  static  BestiaryDefinitions ;
-using  static  CursorDefinitions ;
-using  static  AnimationDefinitions ;
-using  static  FeatureDefinitionAutoPreparedSpells ;
-using  static  FeatureDefinitionCraftingAffinity ;
-using  static  CharacterClassDefinition ;
-using  static  CreditsGroupDefinition ;
-using  static  SoundbanksDefinition ;
-using  static  CampaignDefinition ;
-using  static  GraphicsCharacterDefinitions ;
-using  static  GameCampaignDefinitions ;
-using  static  FeatureDefinitionAbilityCheckAffinity ;
-using  static  TooltipDefinitions ;
-using  static  BaseBlueprint ;
-using  static  MorphotypeElementDefinition ;
+using System.Linq;
+using SolastaModApi.Infrastructure;
+using static RuleDefinitions;
 
 namespace SolastaModApi.Extensions
 {
@@ -43,7 +13,7 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(EffectDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class EffectDescriptionExtensions
     {
-        public static T AddEffectFormFilters<T>(this T entity,  params  EffectFormFilter [ ]  value)
+        public static T AddEffectFormFilters<T>(this T entity, params EffectFormFilter[] value)
             where T : EffectDescription
         {
             AddEffectFormFilters(entity, value.AsEnumerable());
@@ -57,7 +27,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddEffectForms<T>(this T entity,  params  EffectForm [ ]  value)
+        public static T AddEffectForms<T>(this T entity, params EffectForm[] value)
             where T : EffectDescription
         {
             AddEffectForms(entity, value.AsEnumerable());
@@ -71,7 +41,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddHitAffinitiesByTargetTag<T>(this T entity,  params  HitAffinityByTag [ ]  value)
+        public static T AddHitAffinitiesByTargetTag<T>(this T entity, params HitAffinityByTag[] value)
             where T : EffectDescription
         {
             AddHitAffinitiesByTargetTag(entity, value.AsEnumerable());
@@ -85,7 +55,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddImmuneCreatureFamilies<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddImmuneCreatureFamilies<T>(this T entity, params System.String[] value)
             where T : EffectDescription
         {
             AddImmuneCreatureFamilies(entity, value.AsEnumerable());
@@ -99,7 +69,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddRestrictedCharacterSizes<T>(this T entity,  params  RuleDefinitions . CreatureSize [ ]  value)
+        public static T AddRestrictedCharacterSizes<T>(this T entity, params RuleDefinitions.CreatureSize[] value)
             where T : EffectDescription
         {
             AddRestrictedCharacterSizes(entity, value.AsEnumerable());
@@ -113,7 +83,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddRestrictedCreatureFamilies<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddRestrictedCreatureFamilies<T>(this T entity, params System.String[] value)
             where T : EffectDescription
         {
             AddRestrictedCreatureFamilies(entity, value.AsEnumerable());
@@ -127,7 +97,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddSavingThrowAffinitiesByFamily<T>(this T entity,  params  SaveAffinityByFamilyDescription [ ]  value)
+        public static T AddSavingThrowAffinitiesByFamily<T>(this T entity, params SaveAffinityByFamilyDescription[] value)
             where T : EffectDescription
         {
             AddSavingThrowAffinitiesByFamily(entity, value.AsEnumerable());
@@ -141,7 +111,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddSavingThrowAffinitiesBySense<T>(this T entity,  params  SaveAffinityBySenseDescription [ ]  value)
+        public static T AddSavingThrowAffinitiesBySense<T>(this T entity, params SaveAffinityBySenseDescription[] value)
             where T : EffectDescription
         {
             AddSavingThrowAffinitiesBySense(entity, value.AsEnumerable());
@@ -155,7 +125,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddSlotTypes<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddSlotTypes<T>(this T entity, params System.String[] value)
             where T : EffectDescription
         {
             AddSlotTypes(entity, value.AsEnumerable());
@@ -323,7 +293,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetEffectFormFilters<T>(this T entity,  params  EffectFormFilter [ ]  value)
+        public static T SetEffectFormFilters<T>(this T entity, params EffectFormFilter[] value)
             where T : EffectDescription
         {
             SetEffectFormFilters(entity, value.AsEnumerable());
@@ -337,7 +307,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetEffectForms<T>(this T entity,  params  EffectForm [ ]  value)
+        public static T SetEffectForms<T>(this T entity, params EffectForm[] value)
             where T : EffectDescription
         {
             SetEffectForms(entity, value.AsEnumerable());
@@ -435,7 +405,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetHitAffinitiesByTargetTag<T>(this T entity,  params  HitAffinityByTag [ ]  value)
+        public static T SetHitAffinitiesByTargetTag<T>(this T entity, params HitAffinityByTag[] value)
             where T : EffectDescription
         {
             SetHitAffinitiesByTargetTag(entity, value.AsEnumerable());
@@ -456,7 +426,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetImmuneCreatureFamilies<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetImmuneCreatureFamilies<T>(this T entity, params System.String[] value)
             where T : EffectDescription
         {
             SetImmuneCreatureFamilies(entity, value.AsEnumerable());
@@ -554,7 +524,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetRestrictedCharacterSizes<T>(this T entity,  params  RuleDefinitions . CreatureSize [ ]  value)
+        public static T SetRestrictedCharacterSizes<T>(this T entity, params RuleDefinitions.CreatureSize[] value)
             where T : EffectDescription
         {
             SetRestrictedCharacterSizes(entity, value.AsEnumerable());
@@ -568,7 +538,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetRestrictedCreatureFamilies<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetRestrictedCreatureFamilies<T>(this T entity, params System.String[] value)
             where T : EffectDescription
         {
             SetRestrictedCreatureFamilies(entity, value.AsEnumerable());
@@ -603,7 +573,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSavingThrowAffinitiesByFamily<T>(this T entity,  params  SaveAffinityByFamilyDescription [ ]  value)
+        public static T SetSavingThrowAffinitiesByFamily<T>(this T entity, params SaveAffinityByFamilyDescription[] value)
             where T : EffectDescription
         {
             SetSavingThrowAffinitiesByFamily(entity, value.AsEnumerable());
@@ -617,7 +587,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSavingThrowAffinitiesBySense<T>(this T entity,  params  SaveAffinityBySenseDescription [ ]  value)
+        public static T SetSavingThrowAffinitiesBySense<T>(this T entity, params SaveAffinityBySenseDescription[] value)
             where T : EffectDescription
         {
             SetSavingThrowAffinitiesBySense(entity, value.AsEnumerable());
@@ -638,7 +608,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSlotTypes<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetSlotTypes<T>(this T entity, params System.String[] value)
             where T : EffectDescription
         {
             SetSlotTypes(entity, value.AsEnumerable());

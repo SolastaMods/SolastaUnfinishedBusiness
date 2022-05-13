@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using SolastaModApi;
 using SolastaCommunityExpansion.Builders;
-using SolastaCommunityExpansion.CustomDefinitions;
-using UnityEngine.AddressableAssets;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.Models;
+using SolastaModApi;
 using SolastaModApi.Infrastructure;
+using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaModApi.DatabaseHelper.DamageDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionDamageAffinitys;
@@ -31,17 +31,17 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetRechargeRate(RechargeRate.LongRest)
                 .SetActivation(ActivationTime.BonusAction, 1)
                 .AddToDB();
-            
+
             EnhancedElementalFormPool = FeatureDefinitionPowerPoolBuilder
                 .Create("DH_ElementalFormPoolEnhanced", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(Category.Power,Utils.CustomIcons.CreateAssetReferenceSprite("ElementalFormEnhanced", Properties.Resources.ElementalFormEnhanced, 128, 64))
+                .SetGuiPresentation(Category.Power, Utils.CustomIcons.CreateAssetReferenceSprite("ElementalFormEnhanced", Properties.Resources.ElementalFormEnhanced, 128, 64))
                 .SetShortTitle("Power/&DH_ElementalFormPoolEnhancedTitleShort")
                 .SetUsesProficiency()
                 .SetRechargeRate(RechargeRate.LongRest)
                 .SetActivation(ActivationTime.BonusAction, 1)
                 .SetOverriddenPower(ElementalFormPool)
                 .AddToDB();
-            
+
 
             BuildElementalForms();
             ElementalistSpells();
@@ -112,7 +112,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
         {
             var iconRegular = Utils.CustomIcons.CreateAssetReferenceSprite("ElementalFormIcon", Properties.Resources.ElementalFormIcon, 24, 24);
             var iconEnhanced = Utils.CustomIcons.CreateAssetReferenceSprite("ElementalFormIconEnhanced", Properties.Resources.ElementalFormIconEnhanced, 24, 24);
-            
+
             var regularPowers = new List<FeatureDefinitionPower>();
             var enhancedPowers = new List<FeatureDefinitionPower>();
 
@@ -239,12 +239,12 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             ).Build();
         }
 
-        public static (FeatureDefinitionPower,  FeatureDefinitionPower)
+        public static (FeatureDefinitionPower, FeatureDefinitionPower)
             BuildElementalForm(string text, ElementalFormConfig cfg, AssetReferenceSprite iconRegular,
                 AssetReferenceSprite iconEnhanced)
         {
             //Regular form
-            
+
             FeatureDefinitionAdditionalDamage additionalDamage = FeatureDefinitionAdditionalDamageBuilder
                 .Create($"DH_ElementalForm_{text}AdditionalDamage", DefinitionBuilder.CENamespaceGuid)
                 .Configure(
@@ -258,48 +258,48 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                     1,
                     AdditionalDamageType.Specific,
                     cfg.DamageType.Name,
-                    AdditionalDamageAdvancement.None, 
+                    AdditionalDamageAdvancement.None,
                     new List<DiceByRank>()
                 )
                 .SetGuiPresentation(GuiPresentation("ElementalDamage", text, cfg))
                 .AddToDB();
 
-                ConditionDefinition ElementalFormCondtion = ConditionDefinitionBuilder
-                    .Create($"DH_ElementalForm_{text}Condition", DefinitionBuilder.CENamespaceGuid)
-                    .SetGuiPresentation(GuiPresentation("ElementalCondition", text, cfg, iconRegular))
-                    .SetSilent(Silent.None)
-                    .SetDuration(DurationType.Minute, 1)
-                    .AddFeatures(cfg.Resistance, additionalDamage)
-                    .SetConditionParticleReference(cfg.Particles)
-                    .AddToDB();
+            ConditionDefinition ElementalFormCondtion = ConditionDefinitionBuilder
+                .Create($"DH_ElementalForm_{text}Condition", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(GuiPresentation("ElementalCondition", text, cfg, iconRegular))
+                .SetSilent(Silent.None)
+                .SetDuration(DurationType.Minute, 1)
+                .AddFeatures(cfg.Resistance, additionalDamage)
+                .SetConditionParticleReference(cfg.Particles)
+                .AddToDB();
 
-                FeatureDefinitionPowerSharedPool ElementalFormPower = new FeatureDefinitionPowerSharedPoolBuilder(
-                        "DH_ElementalForm_" + text,
-                        ElementalFormPool,
-                        RechargeRate.LongRest,
-                        ActivationTime.NoCost,
-                        1,
-                        false,
-                        false,
-                        AttributeDefinitions.Charisma,
-                        new EffectDescriptionBuilder()
-                            .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.EndOfTurn)
-                            .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
-                            .AddEffectForm(new EffectFormBuilder()
-                                .SetConditionForm(
-                                    ElementalFormCondtion,
-                                    ConditionForm.ConditionOperation.Add,
-                                    true,
-                                    true
-                                )
-                                .Build()
+            FeatureDefinitionPowerSharedPool ElementalFormPower = new FeatureDefinitionPowerSharedPoolBuilder(
+                    "DH_ElementalForm_" + text,
+                    ElementalFormPool,
+                    RechargeRate.LongRest,
+                    ActivationTime.NoCost,
+                    1,
+                    false,
+                    false,
+                    AttributeDefinitions.Charisma,
+                    new EffectDescriptionBuilder()
+                        .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.EndOfTurn)
+                        .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                        .AddEffectForm(new EffectFormBuilder()
+                            .SetConditionForm(
+                                ElementalFormCondtion,
+                                ConditionForm.ConditionOperation.Add,
+                                true,
+                                true
                             )
-                            .Build(),
-                        GuiPresentation("ElementalForm", text, cfg),
-                        true
-                    )
-                    .AddToDB();
-            
+                            .Build()
+                        )
+                        .Build(),
+                    GuiPresentation("ElementalForm", text, cfg),
+                    true
+                )
+                .AddToDB();
+
             //Enhanced form
 
             ConditionDefinition EnhancedElementalFormCondtion = ConditionDefinitionBuilder.Create(

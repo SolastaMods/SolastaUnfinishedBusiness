@@ -94,7 +94,7 @@ namespace SolastaCommunityExpansion.Models
             {
                 target.AdditionalDamageGenerated(source, target, RuleDefinitions.DieType.D1, 0, 0, logTag);
             }
-            
+
             var usablePower = UsablePowersProvider.Get(power, source);
             var effectPower = ruleset.InstantiateEffectPower(source, usablePower, false);
             var formsParams = new RulesetImplementationDefinitions.ApplyFormsParams();

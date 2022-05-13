@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.Utils
             var abilityName = string.IsNullOrEmpty(power.ShortTitleOverride) ? power.GuiPresentation.Title : power.ShortTitleOverride;
             LogCharacterActivatesAbility(character, abilityName, text);
         }
-        
+
         public static void LogCharacterActivatesAbility(RulesetCharacter character, string abilityName, string text = DefaultUseText)
         {
             var console = Gui.Game.GameConsole;
@@ -21,7 +21,7 @@ namespace SolastaCommunityExpansion.Utils
             entry.AddParameter(ConsoleStyleDuplet.ParameterType.AttackSpellPower, abilityName);
             console.AddEntry(entry);
         }
-        
+
         public static void LogCharacterAffectsTarget(RulesetCharacter character, RulesetCharacter target, string notificationTag, bool indent = false)
         {
             var console = Gui.Game.GameConsole;
@@ -32,7 +32,7 @@ namespace SolastaCommunityExpansion.Utils
             };
 
             console.InvokeMethod("AddCharacterEntry", character, entry);
-            console.InvokeMethod("AddCharacterEntry",target, entry);
+            console.InvokeMethod("AddCharacterEntry", target, entry);
             console.AddEntry(entry);
         }
     }

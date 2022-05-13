@@ -19,7 +19,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
             InventoryManagementContext.ResetControls();
         }
     }
-    
+
     // set the inspection context for MC heroes
     [HarmonyPatch(typeof(CharacterInspectionScreen), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -35,7 +35,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
             // get more real state for the toggles on top
             if (Main.Settings.EnableMulticlass)
             {
-                ___toggleGroup.transform.position = 
+                ___toggleGroup.transform.position =
                     new UnityEngine.Vector3(___characterPlate.transform.position.x / 2f, ___toggleGroup.transform.position.y, 0);
             }
         }

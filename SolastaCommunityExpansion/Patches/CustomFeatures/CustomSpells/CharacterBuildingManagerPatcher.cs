@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using HarmonyLib;
 using ModKit;
 using SolastaCommunityExpansion.CustomDefinitions;
@@ -76,7 +75,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
             internal static void Postfix(CharacterHeroBuildingData heroBuildingData,
                 FeatureDefinition feature)
             {
-                if (feature is not FeatureDefinitionCastSpell spellCasting) { return;}
+                if (feature is not FeatureDefinitionCastSpell spellCasting) { return; }
 
                 var castingOrigin = spellCasting.SpellCastingOrigin;
                 if (castingOrigin != CastingOrigin.Class && castingOrigin != CastingOrigin.Subclass)
@@ -85,10 +84,10 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
                 }
 
                 var hero = heroBuildingData.HeroCharacter;
-                
+
                 ServiceRepository.GetService<ICharacterBuildingService>()
                     .GetLastAssignedClassAndLevel(hero, out var gainedClass, out _);
-                
+
                 var poolMods = hero.GetFeaturesByTypeAndTag<IPointPoolMaxBonus>(gainedClass.Name);
 
                 poolMods.RemoveAll(p => IsSpellBonus(p));

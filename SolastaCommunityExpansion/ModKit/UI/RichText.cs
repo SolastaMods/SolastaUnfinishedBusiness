@@ -1,8 +1,10 @@
 ﻿// borrowed shamelessly and enhanced from Bag of Tricks https://www.nexusmods.com/pathfinderkingmaker/mods/26, which is under the MIT License
 using UnityEngine;
 
-namespace ModKit {
-    public static class RichText {
+namespace ModKit
+{
+    public static class RichText
+    {
         public static string ToHtmlString(this RGBA color) => $"{color:X}";
         public static string size(this string s, int size) => _ = $"<size={size}>{s}</size>";
         public static string mainCategory(this string s) => s.size(16).bold();

@@ -12,17 +12,37 @@ namespace SolastaModApi.Infrastructure
 
         public static bool IsPrimitive(this Type type)
         {
-            if (type == typeof(string)) return true;
+            if (type == typeof(string))
+            {
+                return true;
+            }
+
             return type.IsValueType && type.IsPrimitive;
         }
 
         private static object InternalCopy(object originalObject, IDictionary<object, object> visited)
         {
-            if (originalObject == null) return null;
+            if (originalObject == null)
+            {
+                return null;
+            }
+
             var typeToReflect = originalObject.GetType();
-            if (IsPrimitive(typeToReflect)) return originalObject;
-            if (visited.ContainsKey(originalObject)) return visited[originalObject];
-            if (typeof(Delegate).IsAssignableFrom(typeToReflect)) return null;
+            if (IsPrimitive(typeToReflect))
+            {
+                return originalObject;
+            }
+
+            if (visited.ContainsKey(originalObject))
+            {
+                return visited[originalObject];
+            }
+
+            if (typeof(Delegate).IsAssignableFrom(typeToReflect))
+            {
+                return null;
+            }
+
             var cloneObject = CloneMethod.Invoke(originalObject, null);
             if (typeToReflect.IsArray)
             {
@@ -58,8 +78,16 @@ namespace SolastaModApi.Infrastructure
         {
             foreach (FieldInfo fieldInfo in typeToReflect.GetFields(bindingFlags))
             {
-                if (filter != null && !filter(fieldInfo)) continue;
-                if (IsPrimitive(fieldInfo.FieldType)) continue;
+                if (filter != null && !filter(fieldInfo))
+                {
+                    continue;
+                }
+
+                if (IsPrimitive(fieldInfo.FieldType))
+                {
+                    continue;
+                }
+
                 var originalFieldValue = fieldInfo.GetValue(originalObject);
                 var clonedFieldValue = InternalCopy(originalFieldValue, visited);
                 fieldInfo.SetValue(cloneObject, clonedFieldValue);
@@ -91,7 +119,11 @@ namespace SolastaModApi.Infrastructure
 
         public override int GetHashCode(object obj)
         {
-            if (obj == null) return 0;
+            if (obj == null)
+            {
+                return 0;
+            }
+
             return obj.GetHashCode();
         }
     }

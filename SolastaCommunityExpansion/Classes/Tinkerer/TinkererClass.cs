@@ -210,7 +210,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 .SetLevelFeatures(10, Level10InfusionList)
                 .SetLevelFeatures(14, Level14InfusionList)
                 .AddToDB();
-            
+
             var infusionReplace = FeatureDefinitionFeatureSetReplaceCustomBuilder
                 .Create("TinkererInfusionReplace", GuidNamespace)
                 .SetGuiPresentation(Category.Feature)
@@ -330,7 +330,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             // ASI (8)
             artificerBuilder.AddFeatureAtLevel(8, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
             artificerBuilder.AddFeatureAtLevel(8, infusionReplace);
-            
+
             // 09
             artificerBuilder.AddFeatureAtLevel(9, infusionReplace);
 
@@ -380,7 +380,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
             artificerBuilder.AddFeatureAtLevel(12, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
             artificerBuilder.AddFeatureAtLevel(12, infusionReplace);
-            
+
             // 13
             artificerBuilder.AddFeatureAtLevel(13, infusionReplace);
 
@@ -397,17 +397,17 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             artificerBuilder.AddFeatureAtLevel(14, infusionReplace);
             // probably give several infusions another boost here
             // arcane propulsion armor
-            
+
             // 15
             artificerBuilder.AddFeatureAtLevel(15, infusionReplace);
 
             // 16
             artificerBuilder.AddFeatureAtLevel(16, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
             artificerBuilder.AddFeatureAtLevel(16, infusionReplace);
-            
+
             // 17
             artificerBuilder.AddFeatureAtLevel(17, infusionReplace);
-            
+
             // 18 - magic item master another attunement slot
             // also another infusion slot
             FeatureDefinitionPowerPoolModifier InfusionPoolIncrease18 = FeatureDefinitionPowerPoolModifierBuilder

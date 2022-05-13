@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using SolastaCommunityExpansion.Patches.Bugfix;
+﻿using SolastaCommunityExpansion.Patches.Bugfix;
 using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
@@ -23,8 +22,8 @@ namespace SolastaCommunityExpansion.Spells
             if (Main.Settings.BugFixSpellDurations)
             {
                 // Use our logic to calculate duration for DominatePerson/Beast/Monster
-                DominateBeast.EffectDescription.EffectAdvancement.SetAlteredDuration((RuleDefinitions.AdvancementDuration) AdvancementDurationEx.DominateBeast);
-                DominatePerson.EffectDescription.EffectAdvancement.SetAlteredDuration((RuleDefinitions.AdvancementDuration) AdvancementDurationEx.DominatePerson);
+                DominateBeast.EffectDescription.EffectAdvancement.SetAlteredDuration((RuleDefinitions.AdvancementDuration)AdvancementDurationEx.DominateBeast);
+                DominatePerson.EffectDescription.EffectAdvancement.SetAlteredDuration((RuleDefinitions.AdvancementDuration)AdvancementDurationEx.DominatePerson);
 
                 // Stops upcasting assigning non-SRD durations
                 ClearAlteredDuration(ProtectionFromEnergy);

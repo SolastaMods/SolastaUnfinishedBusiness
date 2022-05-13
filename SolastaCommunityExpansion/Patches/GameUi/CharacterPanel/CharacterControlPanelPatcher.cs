@@ -142,7 +142,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
             Global.ActivePlayerCharacter = gameCharacter;
         }
     }
-    
+
     [HarmonyPatch(typeof(CharacterControlPanel), "Unbind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterControlPanel_Unbind

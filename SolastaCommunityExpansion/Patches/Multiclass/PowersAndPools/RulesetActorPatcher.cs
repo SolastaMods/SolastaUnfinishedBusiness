@@ -53,7 +53,7 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.PowersAndPools
                 {
                     if (activeModifier.Operation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.MultiplyByCharacterLevel)
                     {
-                        activeModifier.Value = (float)characterLevel;
+                        activeModifier.Value = characterLevel;
                     }
                     else if (activeModifier.Operation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.MultiplyByClassLevel)
                     {

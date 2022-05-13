@@ -9,5 +9,5 @@
         public int MaxPointsBonus { get => PoolAmount; }
     }
 
-    
+
 }

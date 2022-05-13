@@ -10,7 +10,7 @@
         public static readonly ICustomSpellEffectLevel ByCasterLevel = new SpellEffectLevelFromCasterLevel();
     }
 
-    internal class SpellEffectLevelFromCasterLevel: ICustomSpellEffectLevel
+    internal class SpellEffectLevelFromCasterLevel : ICustomSpellEffectLevel
     {
         public int GetEffectLevel(RulesetActor caster)
         {

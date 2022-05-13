@@ -60,7 +60,7 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             toggle = Main.Settings.EnableDungeonMakerModdedContent;
-            if (UI.Toggle("Enable Dungeon Maker Pro " 
+            if (UI.Toggle("Enable Dungeon Maker Pro "
                 + RequiresRestart
                 + "\n\ninclude flat rooms, 150x150 & 200x200 dungeon sizes and no frills mixing assets from all environments"
                 + "\nyou must have at least one outdoor room if you pick an outdoor environment", ref toggle))

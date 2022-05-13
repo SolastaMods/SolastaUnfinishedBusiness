@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using SolastaCommunityExpansion.Classes.Tinkerer;
 //using SolastaCommunityExpansion.Classes.Warden;
 using SolastaCommunityExpansion.Classes.Warlock;

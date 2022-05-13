@@ -21,7 +21,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions
     {
         public RuleDefinitions.RollOutcome minOutcomeToAttack = RuleDefinitions.RollOutcome.Success;
         public RuleDefinitions.RollOutcome minSaveOutcomeToAttack = RuleDefinitions.RollOutcome.Failure;
-        
+
         public CanUseHandler CanBeUsedToAttack { get; set; }
 
         public GetAttackAfterUseHandler PerformAttackAfterUse { get; set; }
@@ -41,18 +41,18 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             {
                 return false;
             }
-            
+
             var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
             if (battleService == null)
             {
                 return false;
             }
-            
+
             var attackModifier = new ActionModifier();
             var evalParams = new BattleDefinitions.AttackEvaluationParams();
-            
+
             evalParams.FillForPhysicalReachAttack(caster, caster.LocationPosition, attackMode, target, target.LocationPosition, attackModifier);
-            
+
             return battleService.CanAttack(evalParams);
         }
 
@@ -69,9 +69,9 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             }
 
             var outcome = effect.GetProperty<RuleDefinitions.RollOutcome>("Outcome");
-            if (outcome < minOutcomeToAttack) { return null;}
+            if (outcome < minOutcomeToAttack) { return null; }
 
-            if (effect.SaveOutcome < minSaveOutcomeToAttack) { return null;}
+            if (effect.SaveOutcome < minSaveOutcomeToAttack) { return null; }
 
             var caster = actionParams.ActingCharacter;
             var targets = actionParams.TargetCharacters;

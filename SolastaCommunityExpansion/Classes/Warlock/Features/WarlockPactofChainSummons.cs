@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
-using SolastaCommunityExpansion.Builders;
-using SolastaCommunityExpansion.Builders.Features;
 using UnityEngine.AddressableAssets;
-using UnityEngine;
 using static RuleDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Features
@@ -60,7 +58,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .AddToDB();
 
         }
-        
+
         public static void buildPactofChainFamiliarScarePower()
         {
             SpellDefinition fear = DatabaseHelper.SpellDefinitions.Fear;
@@ -147,20 +145,20 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         public static MonsterDefinition buildCustomPseudodragon()
         {
             var baseMonster = DatabaseHelper.MonsterDefinitions.Young_GreenDragon;
-            
+
             var biteAttack = MonsterAttackDefinitionBuilder
                 .Create(DatabaseHelper.MonsterAttackDefinitions.Attack_Wolf_Bite, "AttackWarlockDragonBite", DefinitionBuilder.CENamespaceGuid)
                 .SetActionType(ActionDefinitions.ActionType.Main)
                 .SetToHitBonus(4)
                 .SetEffectDescription(new EffectDescriptionBuilder()
                     .SetEffectForms(new EffectFormBuilder()
-                        .SetDamageForm(dieType: DieType.D4, diceNumber: 1, bonusDamage:2, damageType:DamageTypePiercing)
+                        .SetDamageForm(dieType: DieType.D4, diceNumber: 1, bonusDamage: 2, damageType: DamageTypePiercing)
                         .Build()
                     )
                     .Build()
                 )
                 .AddToDB();
-            
+
             var stingAttack = MonsterAttackDefinitionBuilder
                 .Create(DatabaseHelper.MonsterAttackDefinitions.Attack_Badlands_Spider_Bite, "AttackWarlockDragonSting", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.MonsterAttack)
@@ -176,7 +174,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                         11
                     )
                     .SetEffectForms(new EffectFormBuilder()
-                        .SetDamageForm(dieType: DieType.D4, diceNumber: 1, bonusDamage:2, damageType:DamageTypePiercing)
+                        .SetDamageForm(dieType: DieType.D4, diceNumber: 1, bonusDamage: 2, damageType: DamageTypePiercing)
                         .Build(),
                         new EffectFormBuilder()
                             .HasSavingThrow(EffectSavingThrowType.Negates)
@@ -200,9 +198,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                     DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
                     DatabaseHelper.FeatureDefinitionSenses.SenseSuperiorDarkvision,
                     DatabaseHelper.FeatureDefinitionSenses.SenseBlindSight2,
-                    
+
                     //DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity
-                    
+
                     DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinitySpellResistance,
                     DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenSight,
                     DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenHearing
@@ -213,7 +211,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                     (DatabaseHelper.SkillDefinitions.Stealth.Name, 4)
                 )
                 .SetArmorClass(13)
-                .SetAbilityScores(6,15,13,10,12,10)
+                .SetAbilityScores(6, 15, 13, 10, 12, 10)
                 .SetStandardHitPoints(7)
                 .SetHitDice(DieType.D4, 2)
                 .SetHitPointsBonus(2)
@@ -236,8 +234,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .SetForceNoFlyAnimation(true)
                 .SetGroupAttacks(true)
                 .AddToDB();
-            
-            
+
+
             monster.MonsterPresentation.SetHasPrefabVariants(false);
             monster.MonsterPresentation.MonsterPresentationDefinitions.Empty();
             monster.MonsterPresentation.SetUseCustomMaterials(true);
@@ -247,7 +245,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
             if (Help) { monster.Features.Add(Help); }
 
-            return monster; 
+            return monster;
         }
 
         public static MonsterDefinition buildCustomSprite()
@@ -304,7 +302,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
             var monster = MonsterDefinitionBuilder
                 .Create(baseMonster, "PactOfChainCustomSprite", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation( Category.Monster, baseMonster.GuiPresentation.SpriteReference)
+                .SetGuiPresentation(Category.Monster, baseMonster.GuiPresentation.SpriteReference)
                 .SetFeatures(
                     DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly8,
                     DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove2,
@@ -350,9 +348,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             //     .Young_Green_Dragon_Presentation.CustomMaterials);
             monster.MonsterPresentation.SetHasMonsterPortraitBackground(true);
             monster.MonsterPresentation.SetCanGeneratePortrait(true);
-            
+
             if (Help) { monster.Features.Add(Help); }
-            
+
             // monster.MonsterPresentation.SetOverrideCharacterShaderColors(true);
             // monster.MonsterPresentation.SetFirstCharacterShaderColor(DatabaseHelper.MonsterDefinitions.FeyBear.MonsterPresentation.GetField<Color>("firstCharacterShaderColor"));
             // monster.MonsterPresentation.SetSecondCharacterShaderColor(DatabaseHelper.MonsterDefinitions.FeyBear.MonsterPresentation.GetField<Color>("secondCharacterShaderColor"));
@@ -373,54 +371,54 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
         public static MonsterDefinition buildCustomImp()
         {
-           var baseMonster = DatabaseHelper.MonsterDefinitions.Goblin;
+            var baseMonster = DatabaseHelper.MonsterDefinitions.Goblin;
 
-           var stingAttack = MonsterAttackDefinitionBuilder
-               .Create(DatabaseHelper.MonsterAttackDefinitions.Attack_Badlands_Spider_Bite, "AttackWarlockImpSting", DefinitionBuilder.CENamespaceGuid)
-               .SetGuiPresentation(Category.MonsterAttack)
-               .SetActionType(ActionDefinitions.ActionType.Main)
-               .SetToHitBonus(5)
-               .SetEffectDescription(new EffectDescriptionBuilder()
-                   .SetSavingThrowData(
-                       true,
-                       true,
-                       AttributeDefinitions.Constitution,
-                       false, EffectDifficultyClassComputation.FixedValue,
-                       null,
-                       11
-                   )
-                   .SetEffectForms(new EffectFormBuilder()
-                           .SetDamageForm(dieType: DieType.D4, diceNumber: 1, bonusDamage: 3, damageType: DamageTypePiercing)
-                           .Build(),
-                       new EffectFormBuilder()
-                           .SetDamageForm(dieType: DieType.D6, diceNumber: 3, damageType: DamageTypePoison)
-                           .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                           .Build()
-                   )
-                   .Build()
-               )
-               .AddToDB();
+            var stingAttack = MonsterAttackDefinitionBuilder
+                .Create(DatabaseHelper.MonsterAttackDefinitions.Attack_Badlands_Spider_Bite, "AttackWarlockImpSting", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(Category.MonsterAttack)
+                .SetActionType(ActionDefinitions.ActionType.Main)
+                .SetToHitBonus(5)
+                .SetEffectDescription(new EffectDescriptionBuilder()
+                    .SetSavingThrowData(
+                        true,
+                        true,
+                        AttributeDefinitions.Constitution,
+                        false, EffectDifficultyClassComputation.FixedValue,
+                        null,
+                        11
+                    )
+                    .SetEffectForms(new EffectFormBuilder()
+                            .SetDamageForm(dieType: DieType.D4, diceNumber: 1, bonusDamage: 3, damageType: DamageTypePiercing)
+                            .Build(),
+                        new EffectFormBuilder()
+                            .SetDamageForm(dieType: DieType.D6, diceNumber: 3, damageType: DamageTypePoison)
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .Build()
+                    )
+                    .Build()
+                )
+                .AddToDB();
 
 
             var monster = MonsterDefinitionBuilder
                 .Create(baseMonster, "PactOfChainCustomImp", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation( Category.Monster, baseMonster.GuiPresentation.SpriteReference)
+                .SetGuiPresentation(Category.Monster, baseMonster.GuiPresentation.SpriteReference)
                 .SetFeatures(
                     DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly8,
                     DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove4,
                     DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
                     DatabaseHelper.FeatureDefinitionSenses.SenseDarkvision24,
                     //Todo: add devil's sight - magical darkness doesn't affect vision
-                    
+
                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireImmunity,
                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity,
                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance,
                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPiercingResistanceExceptSilver,
                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinitySlashingResistanceExceptSilver,
                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityBludgeoningResistanceExceptSilver,
-                    
+
                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity,
-                    
+
                     DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinitySpellResistance,
 
                     //TODO: can we implement shapechange for monsters at all?
@@ -457,7 +455,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .SetForceNoFlyAnimation(true)
                 .SetGroupAttacks(false)
                 .AddToDB();
-            
+
             monster.MonsterPresentation.MonsterPresentationDefinitions.Empty();
             monster.MonsterPresentation.SetMonsterPresentationDefinitions(DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.MonsterPresentationDefinitions);
             monster.MonsterPresentation.SetUseCustomMaterials(true);
@@ -469,7 +467,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             monster.MonsterPresentation.SetFemalePrefabReference(DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.GetField<AssetReference>("femalePrefabReference"));
 
             monster.MonsterPresentation.SetHasPrefabVariants(false);
-            
+
             if (Help) { monster.Features.Add(Help); }
 
             return monster;
@@ -479,47 +477,47 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         {
             var baseMonster = DatabaseHelper.MonsterDefinitions.Goblin;
 
-           var clawAttack = MonsterAttackDefinitionBuilder
-               .Create(DatabaseHelper.MonsterAttackDefinitions.Attack_Zealot_Claw, "AttackWarlockImpClaw", DefinitionBuilder.CENamespaceGuid)
-               .SetActionType(ActionDefinitions.ActionType.Main)
-               .SetToHitBonus(4)
-               .SetEffectDescription(new EffectDescriptionBuilder()
-                   .SetSavingThrowData(
-                       true,
-                       true,
-                       AttributeDefinitions.Constitution,
-                       false, EffectDifficultyClassComputation.FixedValue,
-                       null,
-                       10
-                   )
-                   .SetEffectForms(new EffectFormBuilder()
-                           .SetDamageForm(dieType: DieType.D4, diceNumber: 1, bonusDamage: 3, damageType: DamageTypePiercing)
-                           .Build(),
-                       new EffectFormBuilder()
-                           .SetDamageForm(dieType: DieType.D4, diceNumber: 2, damageType: DamageTypePoison)
-                           .HasSavingThrow(EffectSavingThrowType.Negates)
-                           .Build(),
-                       new EffectFormBuilder()
-                           .HasSavingThrow(EffectSavingThrowType.Negates)
-                           .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
-                           .SetConditionForm(
-                               DatabaseHelper.ConditionDefinitions.ConditionPoisoned, //should be a minute duration
-                               ConditionForm.ConditionOperation.Add
-                           )
-                           .Build()
-                   )
-                   .Build()
-               )
-               .AddToDB();
+            var clawAttack = MonsterAttackDefinitionBuilder
+                .Create(DatabaseHelper.MonsterAttackDefinitions.Attack_Zealot_Claw, "AttackWarlockImpClaw", DefinitionBuilder.CENamespaceGuid)
+                .SetActionType(ActionDefinitions.ActionType.Main)
+                .SetToHitBonus(4)
+                .SetEffectDescription(new EffectDescriptionBuilder()
+                    .SetSavingThrowData(
+                        true,
+                        true,
+                        AttributeDefinitions.Constitution,
+                        false, EffectDifficultyClassComputation.FixedValue,
+                        null,
+                        10
+                    )
+                    .SetEffectForms(new EffectFormBuilder()
+                            .SetDamageForm(dieType: DieType.D4, diceNumber: 1, bonusDamage: 3, damageType: DamageTypePiercing)
+                            .Build(),
+                        new EffectFormBuilder()
+                            .SetDamageForm(dieType: DieType.D4, diceNumber: 2, damageType: DamageTypePoison)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build(),
+                        new EffectFormBuilder()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
+                            .SetConditionForm(
+                                DatabaseHelper.ConditionDefinitions.ConditionPoisoned, //should be a minute duration
+                                ConditionForm.ConditionOperation.Add
+                            )
+                            .Build()
+                    )
+                    .Build()
+                )
+                .AddToDB();
 
             var monster = MonsterDefinitionBuilder
                 .Create(baseMonster, "PactOfChainCustomQuasit", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation( Category.Monster, baseMonster.GuiPresentation.SpriteReference)
+                .SetGuiPresentation(Category.Monster, baseMonster.GuiPresentation.SpriteReference)
                 .SetFeatures(
                     DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove8,
                     DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
                     DatabaseHelper.FeatureDefinitionSenses.SenseDarkvision24,
-                    
+
                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireResistance,
                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityLightningResistance,
                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance,
@@ -527,9 +525,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinitySlashingResistance,
                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityBludgeoningResistance,
                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity,
-                    
+
                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity,
-                    
+
                     DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinitySpellResistance,
 
                     //TODO: can we implement shapechange for monsters at all?
@@ -564,9 +562,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .SetForceNoFlyAnimation(true)
                 .SetGroupAttacks(false)
                 .AddToDB();
-            
+
             monster.MonsterPresentation.SetHasPrefabVariants(false);
-            
+
             monster.MonsterPresentation.MonsterPresentationDefinitions.Empty();
             monster.MonsterPresentation.SetMonsterPresentationDefinitions(DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.MonsterPresentationDefinitions);
             monster.MonsterPresentation.SetUseCustomMaterials(true);
@@ -578,7 +576,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             monster.MonsterPresentation.SetFemalePrefabReference(DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.GetField<AssetReference>("malePrefabReference"));
 
             if (Help) { monster.Features.Add(Help); }
-            
+
             return monster;
         }
     }

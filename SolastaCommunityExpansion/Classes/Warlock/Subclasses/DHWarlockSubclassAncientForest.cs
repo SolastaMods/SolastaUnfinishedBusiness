@@ -8,13 +8,13 @@ using SolastaModApi;
 using SolastaModApi.Extensions;
 using UnityEngine;
 using static RuleDefinitions;
+using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionDamageAffinitys;
-using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
+using static SolastaModApi.DatabaseHelper.ItemDefinitions;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 using static SolastaModApi.DatabaseHelper.SpellListDefinitions;
-using static SolastaModApi.DatabaseHelper.ItemDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 {
@@ -82,14 +82,14 @@ Different Archfey, e.g. Winter-themed
              * */
 
             var lifeSapId = "AncientForestLifeSap";
-            
+
             var lifeSapFeature = FeatureDefinitionOnMagicalAttackDamageEffectBuilder
                 .Create(lifeSapId, DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Power)
                 .SetOnMagicalAttackDamageDelegates(null, (attacker, _, _, effect, _, _, _) =>
                 {
                     var caster = attacker.RulesetCharacter;
-                    if (caster.MissingHitPoints > 0 
+                    if (caster.MissingHitPoints > 0
                         && effect.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage)
                     )
                     {
@@ -99,7 +99,7 @@ Different Archfey, e.g. Winter-themed
                         if (belowHalfHealth || used == 0)
                         {
                             attacker.UsedSpecialFeatures[lifeSapId] = used + 1;
-                            
+
                             var level = caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
                             var healing = (used == 0 && belowHalfHealth) ? level : Mathf.CeilToInt(level / 2f);
                             var cap = used == 0 ? HealingCap.MaximumHitPoints : HealingCap.HalfMaximumHitPoints;
@@ -118,7 +118,7 @@ Different Archfey, e.g. Winter-themed
                 .AddToDB();
 
             var AncientForestBonusCantrip = FeatureDefinitionFreeBonusCantripsBuilder
-                .Create( "DHAncientForestBonusCantrip", DefinitionBuilder.CENamespaceGuid)
+                .Create("DHAncientForestBonusCantrip", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Feature)
                 .ClearBonusCantrips()
                 .AddBonusCantrip(Shillelagh)
@@ -137,7 +137,7 @@ Different Archfey, e.g. Winter-themed
                 .SetActivation(ActivationTime.Rest, 1)
                 .AddToDB();
 
-            PowerBundleContext.RegisterPowerBundle(herbalBrewPool, true, 
+            PowerBundleContext.RegisterPowerBundle(herbalBrewPool, true,
                 BuildHerbalBrew(herbalBrewPool, "Toxifying", Poison_Basic),
                 BuildHerbalBrew(herbalBrewPool, "Healing", PotionOfHealing),
                 BuildHerbalBrew(herbalBrewPool, DamageAffinityAcidResistance, PotionOfSpeed),
@@ -386,7 +386,7 @@ Different Archfey, e.g. Winter-themed
                 guiPresentation,
                 false
             ).AddToDB();
-        }    
+        }
         private static FeatureDefinitionPower BuildHerbalBrew(FeatureDefinitionPower pool,
             FeatureDefinitionDamageAffinity resType,
             ItemDefinition baseItem)
@@ -401,7 +401,7 @@ Different Archfey, e.g. Winter-themed
                 $"Equipment/&HerbalBrew{resTypeName}Description",
                 baseItem.GuiPresentation.SpriteReference
             ).Build();
-            
+
             ConditionDefinition resistanceCondition = ConditionDefinitionBuilder.Create(
                     $"AncientForestHerbalBrew{resTypeName}Condition", DefinitionBuilder.CENamespaceGuid)
                 .SetDuration(DurationType.Hour, 1)
@@ -409,7 +409,7 @@ Different Archfey, e.g. Winter-themed
                 .SetGuiPresentation(guiPresentation)
                 .AddFeatures(resType)
                 .AddToDB();
-            
+
             FeatureDefinitionPower potionFunction = FeatureDefinitionPowerBuilder
                 .Create($"AncientForestPotion{resTypeName}Function", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(new GuiPresentationBuilder(guiPresentation).SetTitle("Equipment/&FunctionPotionDrinkTitle").Build())

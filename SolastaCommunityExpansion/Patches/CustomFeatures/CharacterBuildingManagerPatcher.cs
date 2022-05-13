@@ -135,7 +135,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
             }
             ToRemove.AddRange(hero.ActiveFeatures[tag]);
         }
-        
+
         internal static void Postfix(RulesetCharacterHero hero, string tag)
         {
             if (ToRemove.Empty())
@@ -157,7 +157,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
             {
                 return;
             }
-            
+
             tag = CustomFeaturesContext.UnCustomizeTag(tag);
         }
     }

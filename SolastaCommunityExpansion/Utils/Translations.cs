@@ -1,5 +1,5 @@
-﻿using System.IO;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.IO;
 using I2.Loc;
 
 namespace SolastaCommunityExpansion.Utils

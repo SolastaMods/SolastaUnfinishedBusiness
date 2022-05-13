@@ -47,7 +47,10 @@ namespace SolastaCommunityExpansion.Patches.BugFix
                             continue;
                         }
                         else
+                        {
                             continue;
+                        }
+
                     case FeatureDefinitionFeatureSet featureSet:
                         if (featureSet.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                         {

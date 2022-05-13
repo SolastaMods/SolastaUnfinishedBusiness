@@ -33,7 +33,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.IgnoreDynamicVision
 
             float range = (positioning.GetGridPositionFromWorldPosition(origin) -
                            positioning.GetGridPositionFromWorldPosition(position)).magnitude;
-            
+
             __result = features.Any(f => f.CanIgnoreDynamicVisionImpairment(rulesetCharacter, range));
         }
     }

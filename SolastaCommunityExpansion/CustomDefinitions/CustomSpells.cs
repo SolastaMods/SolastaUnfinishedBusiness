@@ -58,5 +58,5 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             return _upgraded;
         }
     }
-    
+
 }
