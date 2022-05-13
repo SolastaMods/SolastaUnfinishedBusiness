@@ -1781,3 +1781,5 @@ UI/&CustomFeatureSelectionTooltipTypeCantrip	Cantrip
 UI/&CustomFeatureSelectionTooltipTypeFeature	Feature
 UI/&CustomFeatureSelectionTooltipTypePower	Power
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Proficiency
+Modifier/&CripplingAdditionalDamageTitle	Crippling
+Modifier/&CripplingAdditionalDamageDescription	Crippling Damage
