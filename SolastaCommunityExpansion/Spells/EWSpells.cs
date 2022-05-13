@@ -323,6 +323,8 @@ namespace SolastaCommunityExpansion.Spells
 
                 effectSpell.ApplyEffectOnCharacter(rulesetTarget, true, targets[i].LocationPosition);
             }
+            
+            effectSpell.Terminate(true);
 
             return null;
         }
