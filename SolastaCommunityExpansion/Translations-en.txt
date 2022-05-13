@@ -478,6 +478,8 @@ Feat/&FeatChefConIncrementDescription	+1 Constitution
 Feat/&FeatChefConIncrementTitle	Attribute Increase
 Feat/&FeatChefWisIncrementDescription	+1 Wisdom
 Feat/&FeatChefWisIncrementTitle	Attribute Increase
+Feat/&FeatCripplingDescription	Reduce the speed of your opponent on a melee attack hit to 10 until the end of the next turn
+Feat/&FeatCripplingTitle	Fighting Style: Crippling
 Feat/&FeatDexIncrementDescription	+1 Dexterity
 Feat/&FeatDexIncrementTitle	Attribute Increase
 Feat/&FeatDualWeaponDefenseDescription	When yielding 2 weapons your AC increases by 1
@@ -563,6 +565,8 @@ Feat/&FeatTelekineticWisPullTitle	Telekinetic Pull
 Feat/&FeatTelekineticWisPushDescription	Telekinetically shove a creature away from you
 Feat/&FeatTelekineticWisPushTitle	Telekinetic Push
 Feat/&FeatTelekineticWisTitle	Telekinetic (Wisdom)
+Feat/&FeatTitanFightingDescription	You increase your melee attack damage by +2
+Feat/&FeatTitanFightingTitle	Fighting Style: Titan Fighting
 Feat/&FeatToughDescription	Your hit point maximum increases by an amount equal to twice your level when you gain this feat. Whenever you gain a level thereafter, your hit point maximum increases by an additional 2 hit points
 Feat/&FeatToughTitle	Tough
 Feat/&FeatWarCasterDescription	You gain advantage on checks to maintain concentration. You gain the ability to perform the somatic component of spells even with full hands. You gain +2 on spell attack rolls
@@ -1143,8 +1147,12 @@ Feedback/&LightningSpearAdditionalDamageTitle	Lightning Spear extra damage
 Feedback/&NotifyEffectResonatingStrikeLine	{0} resonates {1}!
 FightingStyle/&BlindFightingDescription	You have blindsight with a range of 10 feet
 FightingStyle/&BlindFightingTitle	Blind Fighting
+FightingStyle/&CripplingDescription	Reduce the speed of your opponent on a melee attack hit to 10 until the end of the next turn
+FightingStyle/&CripplingTitle	Crippling
 FightingStyle/&PugilistFightingDescription	While you are completely unarmed, your unarmed strikes deal an additional d8 of damage and you can punch with your offhand as a bonus action
 FightingStyle/&PugilistFightingTitle	Pugilist
+FightingStyle/&TitanFightingDescription	You increase your melee attack damage by +2
+FightingStyle/&TitanFightingTitle	Fighting Style: Titan Fighting
 FlexibleBackgrounds/&AcademicBackgroundSuggestedSkillsDescription	Arcana, Nature, and Insight
 FlexibleBackgrounds/&AcademicBackgroundSuggestedSkillsTitle	Suggested Skills
 FlexibleBackgrounds/&AcolyteBackgroundSuggestedSkillsDescription	Religion, Nature, and Insight
