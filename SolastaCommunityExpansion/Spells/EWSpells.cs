@@ -292,7 +292,7 @@ namespace SolastaCommunityExpansion.Spells
             }
 
             if (attackOutcome != RuleDefinitions.RollOutcome.Success 
-                && attackOutcome == RuleDefinitions.RollOutcome.CriticalSuccess)
+                && attackOutcome != RuleDefinitions.RollOutcome.CriticalSuccess)
             {
                 return null;
             }
