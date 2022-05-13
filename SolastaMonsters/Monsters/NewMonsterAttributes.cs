@@ -2,53 +2,57 @@
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
-using UnityEngine;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Models;
+using UnityEngine;
 using SolastaMonsters.Models;
-
+//******************************************************************************************
+// BY DEFINITION, REFACTORING REQUIRES CONFIRMING EXTERNAL BEHAVIOUR DOES NOT CHANGE
+// "REFACTORING WITHOUT TESTS IS JUST CHANGING STUFF"
+//******************************************************************************************
 namespace SolastaMonsters.Monsters
 {
-    public static class NewMonsterAttributes
+    public class NewMonsterAttributes
     {
-        public static SpellListDefinition Archmage_spelllist { get; private set; } = ScriptableObject.CreateInstance<SpellListDefinition>();
-        public static FeatureDefinitionCastSpell CastSpell_ArchMage { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionCastSpell>();
-        public static SpellListDefinition GuardianNaga_spelllist { get; private set; } = ScriptableObject.CreateInstance<SpellListDefinition>();
-        public static FeatureDefinitionCastSpell CastSpell_GuardianNaga { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionCastSpell>();
-        public static SpellListDefinition Lich_spelllist { get; private set; } = ScriptableObject.CreateInstance<SpellListDefinition>();
-        public static FeatureDefinitionCastSpell CastSpell_Lich { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionCastSpell>();
+        public static SpellListDefinition Archmage_spelllist = ScriptableObject.CreateInstance<SpellListDefinition>();
+        public static FeatureDefinitionCastSpell CastSpell_ArchMage = ScriptableObject.CreateInstance<FeatureDefinitionCastSpell>();
+        public static SpellListDefinition GuardianNaga_spelllist = ScriptableObject.CreateInstance<SpellListDefinition>();
+        public static FeatureDefinitionCastSpell CastSpell_GuardianNaga = ScriptableObject.CreateInstance<FeatureDefinitionCastSpell>();
+        public static SpellListDefinition Lich_spelllist = ScriptableObject.CreateInstance<SpellListDefinition>();
+        public static FeatureDefinitionCastSpell CastSpell_Lich = ScriptableObject.CreateInstance<FeatureDefinitionCastSpell>();
 
-        public static FeatureDefinitionDamageAffinity FireTitan_Retaliate_DamageAffinity  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionDamageAffinity>();
-        public static FeatureDefinitionDamageAffinity Balor_Retaliate_DamageAffinity  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionDamageAffinity>();
-        public static FeatureDefinitionMagicAffinity AirTitan_SleetStorm_Immunity  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionMagicAffinity>();
-        public static FeatureDefinitionMagicAffinity TarrasqueReflectiveCarapace  { get; private set; } = ScriptableObject.CreateInstance<FeatureDefinitionMagicAffinity>();
+        public static FeatureDefinitionDamageAffinity FireTitan_Retaliate_DamageAffinity = ScriptableObject.CreateInstance<FeatureDefinitionDamageAffinity>();
+        public static FeatureDefinitionDamageAffinity Balor_Retaliate_DamageAffinity = ScriptableObject.CreateInstance<FeatureDefinitionDamageAffinity>();
+        public static FeatureDefinitionMagicAffinity AirTitan_SleetStorm_Immunity = ScriptableObject.CreateInstance<FeatureDefinitionMagicAffinity>();
+        public static FeatureDefinitionMagicAffinity TarrasqueReflectiveCarapace = ScriptableObject.CreateInstance<FeatureDefinitionMagicAffinity>();
 
-        public static TA.AI.DecisionPackageDefinition AncientDragon_CombatDecisions  { get; private set; } = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
-        public static TA.AI.DecisionPackageDefinition PitFiend_CombatDecisions  { get; private set; } = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
-        public static TA.AI.DecisionPackageDefinition Balor_CombatDecisions  { get; private set; } = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
-        public static TA.AI.DecisionPackageDefinition Nalfeshnee_CombatDecisions  { get; private set; } = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
-        public static TA.AI.DecisionPackageDefinition Solar_CombatDecisions  { get; private set; } = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
-        public static TA.AI.DecisionPackageDefinition HighLevelCaster_CombatDecisions  { get; private set; } = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
-        public static TA.AI.DecisionPackageDefinition Naga_CombatDecisions  { get; private set; } = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
-        public static TA.AI.DecisionPackageDefinition Vampire_CombatDecisions  { get; private set; } = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
-        public static TA.AI.DecisionPackageDefinition Titan_CombatDecisions  { get; private set; } = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
-        public static TA.AI.DecisionPackageDefinition ConstructTitan_CombatDecisions  { get; private set; } = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
-        public static TA.AI.DecisionPackageDefinition Tarrasque_CombatDecisions  { get; private set; } = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
-        public static TA.AI.DecisionDefinition TarrasqueSwallow_Decision  { get; private set; } = ScriptableObject.CreateInstance<TA.AI.DecisionDefinition>();
+        public static TA.AI.DecisionPackageDefinition AncientDragon_CombatDecisions = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
+        public static TA.AI.DecisionPackageDefinition PitFiend_CombatDecisions = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
+        public static TA.AI.DecisionPackageDefinition Balor_CombatDecisions = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
+        public static TA.AI.DecisionPackageDefinition Nalfeshnee_CombatDecisions = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
+        public static TA.AI.DecisionPackageDefinition Solar_CombatDecisions = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
+        public static TA.AI.DecisionPackageDefinition HighLevelCaster_CombatDecisions = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
+        public static TA.AI.DecisionPackageDefinition Naga_CombatDecisions = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
+        public static TA.AI.DecisionPackageDefinition Vampire_CombatDecisions = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
+        public static TA.AI.DecisionPackageDefinition Titan_CombatDecisions = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
+        public static TA.AI.DecisionPackageDefinition ConstructTitan_CombatDecisions = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
+        public static TA.AI.DecisionPackageDefinition Tarrasque_CombatDecisions = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
+        public static TA.AI.DecisionDefinition TarrasqueSwallow_Decision = ScriptableObject.CreateInstance<TA.AI.DecisionDefinition>();
 
-        public static TA.AI.DecisionDefinition AtWillAOE_Magic_Decision  { get; private set; } = ScriptableObject.CreateInstance<TA.AI.DecisionDefinition>();
-        public static TA.AI.DecisionDefinition AtWillSelfBuff_Magic_Decision  { get; private set; } = ScriptableObject.CreateInstance<TA.AI.DecisionDefinition>();
-        public static TA.AI.DecisionDefinition LimitedPerDayTargetDebuff_Magic_Decision  { get; private set; } = ScriptableObject.CreateInstance<TA.AI.DecisionDefinition>();
-        public static TA.AI.DecisionDefinition LimitedPerDayAOE_Magic_Decision  { get; private set; } = ScriptableObject.CreateInstance<TA.AI.DecisionDefinition>();
-        public static TA.AI.DecisionDefinition SummonCreature_Magic_Decision  { get; private set; } = ScriptableObject.CreateInstance<TA.AI.DecisionDefinition>();
-        public static TA.AI.DecisionDefinition CastMagic_Stoneskin_Decision  { get; private set; } = ScriptableObject.CreateInstance<TA.AI.DecisionDefinition>();
+        public static TA.AI.DecisionDefinition AtWillAOE_Magic_Decision = ScriptableObject.CreateInstance<TA.AI.DecisionDefinition>();
+        public static TA.AI.DecisionDefinition AtWillSelfBuff_Magic_Decision = ScriptableObject.CreateInstance<TA.AI.DecisionDefinition>();
+        public static TA.AI.DecisionDefinition LimitedPerDayTargetDebuff_Magic_Decision = ScriptableObject.CreateInstance<TA.AI.DecisionDefinition>();
+        public static TA.AI.DecisionDefinition LimitedPerDayAOE_Magic_Decision = ScriptableObject.CreateInstance<TA.AI.DecisionDefinition>();
+        public static TA.AI.DecisionDefinition SummonCreature_Magic_Decision = ScriptableObject.CreateInstance<TA.AI.DecisionDefinition>();
+        public static TA.AI.DecisionDefinition CastMagic_Stoneskin_Decision = ScriptableObject.CreateInstance<TA.AI.DecisionDefinition>();
 
-        public static Dictionary<string, string> Dictionaryof_Dragon_DamageAffinity  { get; private set; } = new Dictionary<string, string>();
+        public static Dictionary<string, string> Dictionaryof_Dragon_DamageAffinity = new Dictionary<string, string>();
 
 
-        public static List<string> ListofDamageTypes_Dragon  { get; private set; } = new List<string> { "DamageAcid", "DamagePoison", "DamageFire", "DamageCold", "DamageLightning" };
-        public static List<string> ListofDamageTypes_Physical  { get; private set; } = new List<string> { "DamageSlashing", "DamageBludgeoning", "DamagePiercing" };
-        public static List<string> ListofDamageTypes_Other  { get; private set; } = new List<string> { "DamageThunder", "DamagePsychic", "DamageForce", "DamageNecrotic", "DamageRadiant" };
+        public static List<string> ListofDamageTypes_Dragon = new List<string> { "DamageAcid", "DamagePoison", "DamageFire", "DamageCold", "DamageLightning" };
+        public static List<string> ListofDamageTypes_Physical = new List<string> { "DamageSlashing", "DamageBludgeoning", "DamagePiercing" };
+        public static List<string> ListofDamageTypes_Other = new List<string> { "DamageThunder", "DamagePsychic", "DamageForce", "DamageNecrotic", "DamageRadiant" };
 
 
         internal static void Create()
@@ -124,7 +128,7 @@ namespace SolastaMonsters.Monsters
                 {
                     TarrasqueReflectiveCarapace.SpellImmunities.Add(spell.Name);
                 }
-            }
+            };
 
         }
         public static void BuildNew_TarrasqueSwallow_Decision()

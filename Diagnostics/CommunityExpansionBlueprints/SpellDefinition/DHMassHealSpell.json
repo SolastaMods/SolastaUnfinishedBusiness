@@ -65,6 +65,8 @@
     "restrictedCharacterSizes": [],
     "hasLimitedEffectPool": false,
     "effectPoolAmount": 60,
+    "effectApplication": "All",
+    "effectFormFilters": [],
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
@@ -88,9 +90,12 @@
           "bonusHealing": 50,
           "variablePool": false,
           "healingCap": "MaximumHitPoints"
-        }
+        },
+        "hasFilterId": false,
+        "filterId": 0
       }
     ],
+    "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
       "effectIncrementMethod": "None",

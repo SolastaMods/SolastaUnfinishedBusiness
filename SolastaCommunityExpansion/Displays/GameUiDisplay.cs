@@ -1,4 +1,5 @@
 ﻿using System;
+using I2.Loc;
 using ModKit;
 using SolastaCommunityExpansion.Models;
 using static SolastaCommunityExpansion.Displays.Shared;
@@ -58,10 +59,10 @@ namespace SolastaCommunityExpansion.Displays
 
             UI.Label("");
 
-            toggle = Main.Settings.EnableAdditionalBackstoryDisplay;
-            if (UI.Toggle("Enable additional backstory display in the character inspection panel", ref toggle, UI.AutoWidth()))
+            toggle = Main.Settings.EnableLogDialoguesToConsole;
+            if (UI.Toggle("Enable log dialogues to game console during narrative sequences", ref toggle, UI.AutoWidth()))
             {
-                Main.Settings.EnableAdditionalBackstoryDisplay = toggle;
+                Main.Settings.EnableLogDialoguesToConsole = toggle;
             }
 
             UI.Label("");

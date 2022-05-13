@@ -6,8 +6,7 @@
     "Definition:SentinelModePower:410768a3-757f-48ee-8a2f-bffd963c0a5b",
     "Definition:SubclassProficiencies:1923caf6-672b-475a-bcdf-50d535ce65d1",
     "Definition:UseArmorWeaponsAsFocus:55a4d71f-2b9d-4df6-abf1-c0cc6682eb9d",
-    "Definition:SubclassMovementAffinities:14ef799a-edc6-4749-866b-9a6afc26d4fa",
-    "Definition:SubclassAutopreparedSpells:c5f03caa-7078-4da7-b166-00f292fcebfc"
+    "Definition:SubclassMovementAffinities:14ef799a-edc6-4749-866b-9a6afc26d4fa"
   ],
   "mode": "Union",
   "defaultSelection": 0,

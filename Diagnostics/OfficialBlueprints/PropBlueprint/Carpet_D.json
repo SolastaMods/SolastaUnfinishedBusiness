@@ -5,9 +5,9 @@
   "groundHighPlacement": true,
   "wallPlacement": false,
   "openingPlacement": true,
-  "openingLowPlacement": false,
-  "openingHighPlacement": false,
-  "propPlacement": true,
+  "openingLowPlacement": true,
+  "openingHighPlacement": true,
+  "propPlacement": false,
   "lightSources": [],
   "category": "Ornaments",
   "dimensions": {
@@ -30,6 +30,16 @@
       "prefabReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "bbbc31e72a4f2dd40b477f5282d28e53",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "CityValley",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "67ed89331e752be49b6117246df9e999",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       }

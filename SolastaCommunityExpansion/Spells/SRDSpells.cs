@@ -154,8 +154,13 @@ namespace SolastaCommunityExpansion.Spells
                 "Fiend",
             };
 
-            public override void ApplyForm(RulesetImplementationDefinitions.ApplyFormsParams formsParams, bool retargeting, bool proxyOnly, bool forceSelfConditionOnly)
-            {
+            public override void ApplyForm(
+                RulesetImplementationDefinitions.ApplyFormsParams formsParams, 
+                bool retargeting, 
+                bool proxyOnly, 
+                bool forceSelfConditionOnly,               
+                RuleDefinitions.EffectApplication effectApplication = RuleDefinitions.EffectApplication.All,
+                List<EffectFormFilter> filters = null){
                 if (formsParams.saveOutcome == RuleDefinitions.RollOutcome.CriticalSuccess || formsParams.saveOutcome == RuleDefinitions.RollOutcome.Success)
                 {
                     return;
@@ -1059,8 +1064,8 @@ namespace SolastaCommunityExpansion.Spells
                     1,
                     1,
                     ActionDefinitions.ItemSelectionType.None)
-                .AddRestrictedCreatureFamilies(CharacterFamilyDefinitions.Fiend)
-                .AddRestrictedCreatureFamilies(CharacterFamilyDefinitions.Undead)
+                .AddRestrictedCreatureFamily(CharacterFamilyDefinitions.Fiend)
+                .AddRestrictedCreatureFamily(CharacterFamilyDefinitions.Undead)
                 .AddEffectForm(new EffectFormBuilder()
                     .SetConditionForm(
                         ConditionBlinded,

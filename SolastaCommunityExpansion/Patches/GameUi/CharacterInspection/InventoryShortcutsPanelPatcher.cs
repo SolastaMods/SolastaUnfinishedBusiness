@@ -19,14 +19,15 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
             }
 
             var isCtrlPressed = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
-            var characterInventory = __instance.GuiCharacter.RulesetCharacterHero.CharacterInventory;
-            var itemsConfigurations = characterInventory.WieldedItemsConfigurations;
-            var currentRank = characterInventory.CurrentConfiguration;
 
             if (!Main.Settings.EnableCtrlClickOnlySwapsMainHand || !isCtrlPressed)
             {
                 return;
             }
+
+            var characterInventory = __instance.GuiCharacter.RulesetCharacterHero.CharacterInventory;
+            var itemsConfigurations = characterInventory.WieldedItemsConfigurations;
+            var currentRank = characterInventory.CurrentConfiguration;
 
             if (rank == LIGHT_SOURCE || currentRank == LIGHT_SOURCE)
             {

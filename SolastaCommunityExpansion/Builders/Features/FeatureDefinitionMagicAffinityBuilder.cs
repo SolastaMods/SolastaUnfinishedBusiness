@@ -47,11 +47,12 @@ namespace SolastaCommunityExpansion.Builders.Features
             return this;
         }
 
-        public FeatureDefinitionMagicAffinityBuilder SetCastingModifiers(int attackModifier, RuleDefinitions.SpellParamsModifierType attackModifierType, int dcModifier, bool noProximityPenalty, bool cantripRetribution, bool halfDamageCantrips)
+        public FeatureDefinitionMagicAffinityBuilder SetCastingModifiers(int attackModifier, RuleDefinitions.SpellParamsModifierType attackModifierType, int dcModifier, RuleDefinitions.SpellParamsModifierType dcModifierType, bool noProximityPenalty, bool cantripRetribution, bool halfDamageCantrips)
         {
             Definition.SetSpellAttackModifierType(attackModifierType);
             Definition.SetSpellAttackModifier(attackModifier);
             Definition.SetRangeSpellNoProximityPenalty(noProximityPenalty);
+            Definition.SetSaveDCModifierType(dcModifierType);
             Definition.SetSaveDCModifier(dcModifier);
             Definition.SetCantripRetribution(cantripRetribution);
             Definition.SetForceHalfDamageOnCantrips(halfDamageCantrips);

@@ -18,12 +18,12 @@
     "hitAffinitiesByTargetTag": [],
     "targetType": "Cone",
     "itemSelectionType": "None",
-    "targetParameter": 1,
-    "targetParameter2": 1,
+    "targetParameter": 3,
+    "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
-    "targetProximityDistance": 30,
+    "targetProximityDistance": 6,
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
     "targetFilteringMethod": "AllCharacterAndGadgets",
@@ -65,6 +65,8 @@
     "restrictedCharacterSizes": [],
     "hasLimitedEffectPool": false,
     "effectPoolAmount": 60,
+    "effectApplication": "All",
+    "effectFormFilters": [],
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
@@ -84,7 +86,9 @@
           "$type": "MotionForm, Assembly-CSharp",
           "type": "FallProne",
           "distance": 1
-        }
+        },
+        "hasFilterId": false,
+        "filterId": 0
       },
       {
         "$type": "EffectForm, Assembly-CSharp",
@@ -114,9 +118,12 @@
           "specialDeathCondition": null,
           "ignoreFlyingCharacters": false,
           "ignoreCriticalDoubleDice": false
-        }
+        },
+        "hasFilterId": false,
+        "filterId": 0
       }
     ],
+    "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
       "effectIncrementMethod": "PerAdditionalSlotLevel",

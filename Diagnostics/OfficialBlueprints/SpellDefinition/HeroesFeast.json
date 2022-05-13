@@ -65,6 +65,8 @@
     "restrictedCharacterSizes": [],
     "hasLimitedEffectPool": false,
     "effectPoolAmount": 60,
+    "effectApplication": "All",
+    "effectFormFilters": [],
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
@@ -87,7 +89,9 @@
           "valueIncrease": 2,
           "maximumIncrease": 2,
           "feastDurationHours": 1
-        }
+        },
+        "hasFilterId": false,
+        "filterId": 0
       },
       {
         "$type": "EffectForm, Assembly-CSharp",
@@ -114,7 +118,9 @@
           ],
           "applyToSelf": false,
           "forceOnSelf": false
-        }
+        },
+        "hasFilterId": false,
+        "filterId": 0
       },
       {
         "$type": "EffectForm, Assembly-CSharp",
@@ -138,9 +144,12 @@
           "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
-        }
+        },
+        "hasFilterId": false,
+        "filterId": 0
       }
     ],
+    "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
       "effectIncrementMethod": "None",

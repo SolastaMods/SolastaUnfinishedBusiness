@@ -55,6 +55,8 @@
     "restrictedCharacterSizes": [],
     "hasLimitedEffectPool": false,
     "effectPoolAmount": 60,
+    "effectApplication": "All",
+    "effectFormFilters": [],
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
@@ -76,9 +78,12 @@
           "maxSlotLevel": 0,
           "sorceryPointsGain": 0,
           "powerDefinition": "Definition:PowerSorcererHauntedSoulVengefulSpirits:d8ccc46795370df45a5e52364e95ec2e"
-        }
+        },
+        "hasFilterId": false,
+        "filterId": 0
       }
     ],
+    "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
       "effectIncrementMethod": "None",

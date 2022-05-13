@@ -4,19 +4,7 @@
     {
       "$type": "FeatureDefinitionLightAffinity+LightingEffectAndCondition, Assembly-CSharp",
       "lightingState": "Unlit",
-      "condition": "Definition:ConditionInvisible:6fff2284783105e4fa9793d4bf8afa3f",
-      "effect": null
-    },
-    {
-      "$type": "FeatureDefinitionLightAffinity+LightingEffectAndCondition, Assembly-CSharp",
-      "lightingState": "Dim",
-      "condition": "Definition:ConditionInvisible:6fff2284783105e4fa9793d4bf8afa3f",
-      "effect": null
-    },
-    {
-      "$type": "FeatureDefinitionLightAffinity+LightingEffectAndCondition, Assembly-CSharp",
-      "lightingState": "Darkness",
-      "condition": "Definition:ConditionInvisible:6fff2284783105e4fa9793d4bf8afa3f",
+      "condition": "Definition:ConditionMoonlitSpecial:def34906-02b4-5558-a73a-4f865c706a8d",
       "effect": null
     }
   ],

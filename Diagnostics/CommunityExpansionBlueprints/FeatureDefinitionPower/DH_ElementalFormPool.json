@@ -55,7 +55,10 @@
     "restrictedCharacterSizes": [],
     "hasLimitedEffectPool": false,
     "effectPoolAmount": 60,
+    "effectApplication": "All",
+    "effectFormFilters": [],
     "effectForms": [],
+    "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
       "effectIncrementMethod": "None",
@@ -127,7 +130,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "Permanent",
+  "activationTime": "BonusAction",
   "reactionContext": "None",
   "reactionName": "",
   "hasCastingFailure": false,
@@ -137,7 +140,7 @@
   "rechargeRate": "LongRest",
   "costPerUse": 1,
   "spellcastingFeature": null,
-  "usesDetermination": "AbilityBonusPlusFixed",
+  "usesDetermination": "ProficiencyBonus",
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Charisma",
   "fixedUsesPerRecharge": 1,
@@ -155,11 +158,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Power/&DH_ElementalFormPoolTitle",
+    "description": "Power/&DH_ElementalFormPoolDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "d77a84dd09175212809f72029255344a",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

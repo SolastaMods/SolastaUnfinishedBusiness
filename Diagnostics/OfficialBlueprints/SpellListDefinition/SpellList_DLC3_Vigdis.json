@@ -1,0 +1,105 @@
+{
+  "$type": "SpellListDefinition, Assembly-CSharp",
+  "hasCantrips": true,
+  "maxSpellLevel": 5,
+  "spellsByLevel": [
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 0,
+      "spells": [
+        "Definition:Light:c1d0bf7d6cd76e543a665bd1cb3aa01c",
+        "Definition:SacredFlame:e49182bcdd6632e428a185bd55ef8355",
+        "Definition:SpareTheDying:4f1e3d9c88278a94fbc457664ab8d6bf",
+        "Definition:RayOfFrost:637a3697f05a4614e8200abfa5daaaff",
+        "Definition:Shine:5581bdee6e264364cb9b10558010dddf"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 1,
+      "spells": [
+        "Definition:Bless:c2c3de28b2c1e294f9a604cdf03b9fd8",
+        "Definition:CureWounds:c401c5cf11ac8274f98a0dc809ff5863",
+        "Definition:DetectMagic:a00ea7ca05339cb42a49056d722b6680",
+        "Definition:GuidingBolt:97277a5063bcd6d48af24984618dc218",
+        "Definition:Heroism:05578696fa5d08c4cacde7fcaa7ef9cb",
+        "Definition:MagicMissile:2b2b43fb6eeb735479a21209286db382",
+        "Definition:HealingWord:0d615e01b2fdf5f42815342ea1e0a26f",
+        "Definition:ShieldOfFaith:eb2cf2e67b1a4fb458de58dcee2bd309"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 2,
+      "spells": [
+        "Definition:EnhanceAbility:08840275ddebe7f40abaa4bc145ee9f8",
+        "Definition:HoldPerson:cbc582b44f08e7f4b8ea69077471bc64",
+        "Definition:MistyStep:f4619f117544fe148aae6952202da5e3",
+        "Definition:PrayerOfHealing:f560b05d2587f5e4894220356a589968",
+        "Definition:AcidArrow:f37e9c53e7ea033458b5eba667a67f84",
+        "Definition:FlamingSphere:3b54dc222148dc8499eb981f7383c71f"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 3,
+      "spells": [
+        "Definition:Counterspell:699759f98dacad84fb2d7323e0788179",
+        "Definition:Revivify:16e7fb95186cf9b41806d15fbacd81af",
+        "Definition:CreateFood:ec735d1c4c89e0a4eb77dd6422948d3b",
+        "Definition:MassHealingWord:1b13f79192a474947a2c0138ded903b3",
+        "Definition:Haste:134efafc59c7c58438b711271fb2c785",
+        "Definition:Fireball:3f88bf59a445ce64aa23dfb935750535"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 4,
+      "spells": [
+        "Definition:PhantasmalKiller:d132436fd5250d34f973848ca4ac985f",
+        "Definition:Stoneskin:9040c4fcd7301184f8772720f716a837",
+        "Definition:GuardianOfFaith:9a2e9a322fd95a94197cfb894349d665",
+        "Definition:Banishment:5f6a4b43068dbdc448632b9d43022eb8"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 5,
+      "spells": [
+        "Definition:InsectPlague:f74938dd8dd25294b97663330c8e293e",
+        "Definition:HoldMonster:1c8a63324f25814408ca250ba5ec2d16",
+        "Definition:MassCureWounds:31c98fc81cea919499357f8b2cc26bee",
+        "Definition:RaiseDead:d35f9eee1baf295468f1dd7c696a15ba",
+        "Definition:FlameStrike:e165a70c93c4985449e51d32117c2ddf",
+        "Definition:DispelEvilAndGood:e901e74132f97ac458cc80e09da39c88"
+      ]
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "03f278de68da2de44a74e88136907a34",
+  "contentPack": "BaseGame",
+  "name": "SpellList_DLC3_Vigdis"
+}

@@ -16,7 +16,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
         #region DcIncreaseAffinity
         private static FeatureDefinitionMagicAffinity _dcIncreaseAffinity;
         private static FeatureDefinitionMagicAffinity DcIncreaseAffinity =>
-            _dcIncreaseAffinity ??= BuildMagicAffinityModifiers(0, RuleDefinitions.SpellParamsModifierType.None, Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc, "MagicAffinityMasterManipulatorDC", GetSpellDCPresentation().Build());
+            _dcIncreaseAffinity ??= BuildMagicAffinityModifiers(0, RuleDefinitions.SpellParamsModifierType.None, Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc, RuleDefinitions.SpellParamsModifierType.FlatValue, "MagicAffinityMasterManipulatorDC", GetSpellDCPresentation().Build());
         #endregion
 
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
@@ -91,12 +91,12 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             }
         }
 
-        private static FeatureDefinitionMagicAffinity BuildMagicAffinityModifiers(int attackModifier, RuleDefinitions.SpellParamsModifierType attackModifierType, int dcModifier, string name, GuiPresentation guiPresentation)
+        private static FeatureDefinitionMagicAffinity BuildMagicAffinityModifiers(int attackModifier, RuleDefinitions.SpellParamsModifierType attackModifierType, int dcModifier, RuleDefinitions.SpellParamsModifierType dcModifierType, string name, GuiPresentation guiPresentation)
         {
             return FeatureDefinitionMagicAffinityBuilder
                 .Create(name, SubclassNamespace)
                 .SetGuiPresentation(guiPresentation)
-                .SetCastingModifiers(attackModifier, attackModifierType, dcModifier, false, false, false)
+                .SetCastingModifiers(attackModifier, attackModifierType, dcModifier, dcModifierType, false, false, false)
                 .AddToDB();
         }
     }

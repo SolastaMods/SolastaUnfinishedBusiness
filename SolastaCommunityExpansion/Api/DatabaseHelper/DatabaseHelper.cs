@@ -62,6 +62,7 @@ namespace SolastaModApi
             public static ActionDefinition ProxyCallLightning { get; } = GetDefinition<ActionDefinition>("ProxyCallLightning", "fadbbdeab3da19b4394fc3ea29f2be1f");
             public static ActionDefinition ProxyCallLightningFree { get; } = GetDefinition<ActionDefinition>("ProxyCallLightningFree", "98e3ae6fa7387394c9cad3144fbfa12e");
             public static ActionDefinition ProxyDancingLights { get; } = GetDefinition<ActionDefinition>("ProxyDancingLights", "d30ea7588262e0f4da33af4951e29700");
+            public static ActionDefinition ProxyDelayedBlastFireball { get; } = GetDefinition<ActionDefinition>("ProxyDelayedBlastFireball", "f8c2f823c4b0a2d408326f4c704ae63d");
             public static ActionDefinition ProxyFlamingSphere { get; } = GetDefinition<ActionDefinition>("ProxyFlamingSphere", "9133f0ec62b8ca14bb390de0a8a24708");
             public static ActionDefinition ProxyMoonBeam { get; } = GetDefinition<ActionDefinition>("ProxyMoonBeam", "1ec6b50a1b39f944bbe39a1d3c96da86");
             public static ActionDefinition ProxySpiritualWeapon { get; } = GetDefinition<ActionDefinition>("ProxySpiritualWeapon", "9f4f3adf02db4374cbd111e283451bf0");
@@ -381,6 +382,7 @@ namespace SolastaModApi
             public static CharacterInteractionDefinition Speak_Merchant_Atima { get; } = GetDefinition<CharacterInteractionDefinition>("Speak_Merchant_Atima", "74ea2f19be00bd54aaf2acb5313aeb6d");
             public static CharacterInteractionDefinition Speak_Merchant_Bartender_Banter { get; } = GetDefinition<CharacterInteractionDefinition>("Speak_Merchant_Bartender_Banter", "1bdc62e8bb0818841846d6b5c333ecb3");
             public static CharacterInteractionDefinition Speak_Merchant_Circe { get; } = GetDefinition<CharacterInteractionDefinition>("Speak_Merchant_Circe", "0aae22c5e2d48fb43a96a799dab14436");
+            public static CharacterInteractionDefinition Speak_Merchant_DLC3_Lena { get; } = GetDefinition<CharacterInteractionDefinition>("Speak_Merchant_DLC3_Lena", "75829dc676e2b914cb00317719fa0af0");
             public static CharacterInteractionDefinition Speak_Merchant_Galar_Goldentongue { get; } = GetDefinition<CharacterInteractionDefinition>("Speak_Merchant_Galar_Goldentongue", "da77dab9632fc2b439437915c94ca2af");
             public static CharacterInteractionDefinition Speak_Merchant_GenericDM { get; } = GetDefinition<CharacterInteractionDefinition>("Speak_Merchant_GenericDM", "bf25a927044590a4b9ed6f4f371865e7");
             public static CharacterInteractionDefinition Speak_Merchant_Giant { get; } = GetDefinition<CharacterInteractionDefinition>("Speak_Merchant_Giant", "7a2111c04c693bf4c9bb7e71ede84528");
@@ -505,6 +507,7 @@ namespace SolastaModApi
             public static CharacterTemplateDefinition Cleric_DomainBattle_Level06 { get; } = GetDefinition<CharacterTemplateDefinition>("Cleric_DomainBattle_Level06", "cce6e00b669200047ba1fe9d6d7d31f4");
             public static CharacterTemplateDefinition Cleric_DomainBattle_Level10 { get; } = GetDefinition<CharacterTemplateDefinition>("Cleric_DomainBattle_Level10", "cc0570c1187521749b57526adde2bd77");
             public static CharacterTemplateDefinition Cleric_DomainBattle_Level13 { get; } = GetDefinition<CharacterTemplateDefinition>("Cleric_DomainBattle_Level13", "493276f02fcc8f34190fd3e0286340de");
+            public static CharacterTemplateDefinition Cleric_DomainBattle_Level16 { get; } = GetDefinition<CharacterTemplateDefinition>("Cleric_DomainBattle_Level16", "b981d688a199eae46a3accc4dc952766");
             public static CharacterTemplateDefinition Cleric_DomainInsight_Level08 { get; } = GetDefinition<CharacterTemplateDefinition>("Cleric_DomainInsight_Level08", "98f9d2ca9f78a1249a1779c896f374c3");
             public static CharacterTemplateDefinition Cleric_DomainLaw_Level08 { get; } = GetDefinition<CharacterTemplateDefinition>("Cleric_DomainLaw_Level08", "89f928ba42a559b41b8983355d107347");
             public static CharacterTemplateDefinition Cleric_DomainLife_Level08 { get; } = GetDefinition<CharacterTemplateDefinition>("Cleric_DomainLife_Level08", "d38a1b76d30e7a24d9364e854ae52700");
@@ -574,7 +577,8 @@ namespace SolastaModApi
             public static CharacterTemplateDefinition Vigdis { get; } = GetDefinition<CharacterTemplateDefinition>("Vigdis", "390b6aae31bc53c4ca7f2965d4084051");
             public static CharacterTemplateDefinition Violet { get; } = GetDefinition<CharacterTemplateDefinition>("Violet", "6c892d74e24cb9748ad1e549c9d1a4b5");
             public static CharacterTemplateDefinition Wizard_CourtMage_Level06 { get; } = GetDefinition<CharacterTemplateDefinition>("Wizard_CourtMage_Level06", "bc32e7d226d291243997240685fd0e2d");
-            public static CharacterTemplateDefinition Wizard_CourtMage_Level13 { get; } = GetDefinition<CharacterTemplateDefinition>("Wizard_CourtMage_Level13", "2504f938e002e5b45987639abff3f98f");
+            public static CharacterTemplateDefinition Wizard_CourtMage_Level13 { get; } = GetDefinition<CharacterTemplateDefinition>("Wizard_CourtMage_Level13", "b2d7212ef908c75459c1fb64ef3c6df6");
+            public static CharacterTemplateDefinition Wizard_CourtMage_Level16 { get; } = GetDefinition<CharacterTemplateDefinition>("Wizard_CourtMage_Level16", "2504f938e002e5b45987639abff3f98f");
             public static CharacterTemplateDefinition Wizard_GreenMage_Level06 { get; } = GetDefinition<CharacterTemplateDefinition>("Wizard_GreenMage_Level06", "4b7cdb448e3937c498528f9d31c1f90b");
             public static CharacterTemplateDefinition Wizard_GreenMage_Level10 { get; } = GetDefinition<CharacterTemplateDefinition>("Wizard_GreenMage_Level10", "63b5efb1b1db8364589a8f88fee163d3");
             public static CharacterTemplateDefinition Wizard_LoreMaster_Level10 { get; } = GetDefinition<CharacterTemplateDefinition>("Wizard_LoreMaster_Level10", "537ddd723e35ef14c9eee3825f3dff94");
@@ -611,6 +615,7 @@ namespace SolastaModApi
             public static ConditionDefinition ConditionBackFromTheDead4 { get; } = GetDefinition<ConditionDefinition>("ConditionBackFromTheDead4", "b36611383de562b439f146fe03f6fa70");
             public static ConditionDefinition ConditionBaned { get; } = GetDefinition<ConditionDefinition>("ConditionBaned", "5c3098b02cf041744b22475397b7d514");
             public static ConditionDefinition ConditionBanished { get; } = GetDefinition<ConditionDefinition>("ConditionBanished", "e618d09f3dc242e41b23ee9db638058a");
+            public static ConditionDefinition ConditionBanishedByPrismaticSpray { get; } = GetDefinition<ConditionDefinition>("ConditionBanishedByPrismaticSpray", "1d680ab820b56c544810c01d353a261e");
             public static ConditionDefinition ConditionBarkskin { get; } = GetDefinition<ConditionDefinition>("ConditionBarkskin", "bc47ad39bf39bd74eb6f0945720f7c9c");
             public static ConditionDefinition ConditionBeaconOfHope { get; } = GetDefinition<ConditionDefinition>("ConditionBeaconOfHope", "90075e365aad0d346972be54ccdf194b");
             public static ConditionDefinition ConditionBearsEndurance { get; } = GetDefinition<ConditionDefinition>("ConditionBearsEndurance", "263919c5264a83343bef824563214c1e");
@@ -625,6 +630,9 @@ namespace SolastaModApi
             public static ConditionDefinition ConditionBlinded_ArunsLight { get; } = GetDefinition<ConditionDefinition>("ConditionBlinded_ArunsLight", "d2d1df046e397ca4199567c11701ae28");
             public static ConditionDefinition ConditionBlinded_MummyLord_Dust { get; } = GetDefinition<ConditionDefinition>("ConditionBlinded_MummyLord_Dust", "e538f425db2f5e147b61a8c073dfad88");
             public static ConditionDefinition ConditionBlinded_Sunbeam { get; } = GetDefinition<ConditionDefinition>("ConditionBlinded_Sunbeam", "fcf5c55e4f66d574aab611a50e5d6d2b");
+            public static ConditionDefinition ConditionBlinded10minutes { get; } = GetDefinition<ConditionDefinition>("ConditionBlinded10minutes", "2c0626af1e543e640be3777fd14ebf7c");
+            public static ConditionDefinition ConditionBlinded1hour { get; } = GetDefinition<ConditionDefinition>("ConditionBlinded1hour", "425387853dc83f54e94c898a971df3dc");
+            public static ConditionDefinition ConditionBlindedByPrismaticSpray { get; } = GetDefinition<ConditionDefinition>("ConditionBlindedByPrismaticSpray", "463b35d9a3c2c564eb00e11e01900ab7");
             public static ConditionDefinition ConditionBlindedFieryPresence { get; } = GetDefinition<ConditionDefinition>("ConditionBlindedFieryPresence", "e2a4c660989e9184182b129d9601fa1e");
             public static ConditionDefinition ConditionBlurred { get; } = GetDefinition<ConditionDefinition>("ConditionBlurred", "b324ff10d315032429be409fd6c1c87f");
             public static ConditionDefinition ConditionBranded { get; } = GetDefinition<ConditionDefinition>("ConditionBranded", "bdc70071f0e49714486b6fddb9e679ee");
@@ -685,6 +693,9 @@ namespace SolastaModApi
             public static ConditionDefinition ConditionDazzled { get; } = GetDefinition<ConditionDefinition>("ConditionDazzled", "6e97e1a13de7570488ea71e2ae203d09");
             public static ConditionDefinition ConditionDead { get; } = GetDefinition<ConditionDefinition>("ConditionDead", "9ec3d42bf0e13a8469b604a8dca4c477");
             public static ConditionDefinition ConditionDeafened { get; } = GetDefinition<ConditionDefinition>("ConditionDeafened", "b517af0267ca3c649b542527e9a00f6c");
+            public static ConditionDefinition ConditionDeafened10minutes { get; } = GetDefinition<ConditionDefinition>("ConditionDeafened10minutes", "82f6abbe3cea35649a07e4cbc2dd2e4c");
+            public static ConditionDefinition ConditionDeafened1hour { get; } = GetDefinition<ConditionDefinition>("ConditionDeafened1hour", "3730cd2fcbf02434dba7e75c4b541067");
+            public static ConditionDefinition ConditionDeafened1minute { get; } = GetDefinition<ConditionDefinition>("ConditionDeafened1minute", "a5abd527c006b344c9fb33ed467c7e7a");
             public static ConditionDefinition ConditionDeathWarded { get; } = GetDefinition<ConditionDefinition>("ConditionDeathWarded", "84433ea329decfb499c3fb8f5100723b");
             public static ConditionDefinition ConditionDebugInvicible { get; } = GetDefinition<ConditionDefinition>("ConditionDebugInvicible", "46464adc88ac8384d82bd9e734938ea7");
             public static ConditionDefinition ConditionDebugSpawnGuest { get; } = GetDefinition<ConditionDefinition>("ConditionDebugSpawnGuest", "6c69052966969654d83df9b4fa690e97");
@@ -745,11 +756,13 @@ namespace SolastaModApi
             public static ConditionDefinition ConditionGiantStrengthFrost { get; } = GetDefinition<ConditionDefinition>("ConditionGiantStrengthFrost", "ae5ac73bbf4ca7c44880755011377122");
             public static ConditionDefinition ConditionGiantStrengthHill { get; } = GetDefinition<ConditionDefinition>("ConditionGiantStrengthHill", "95b48ab3f062f6d41bfbe4d2ac06b0b1");
             public static ConditionDefinition ConditionGrappled { get; } = GetDefinition<ConditionDefinition>("ConditionGrappled", "b9e3fa435129c33459a4847c9c551265");
+            public static ConditionDefinition ConditionGrappledCouatl { get; } = GetDefinition<ConditionDefinition>("ConditionGrappledCouatl", "17041dcc16eb8954299658cd966ca662");
             public static ConditionDefinition ConditionGrappledRestrainedRemorhaz { get; } = GetDefinition<ConditionDefinition>("ConditionGrappledRestrainedRemorhaz", "0dbd713b861cd5944bb71371f9c60ce8");
             public static ConditionDefinition ConditionGrappledRestrainedShamblingMound { get; } = GetDefinition<ConditionDefinition>("ConditionGrappledRestrainedShamblingMound", "f891a461e0c008d46a04a798957eee99");
             public static ConditionDefinition ConditionGuided { get; } = GetDefinition<ConditionDefinition>("ConditionGuided", "a34bdbae57211644895ad1998e52c9de");
             public static ConditionDefinition ConditionGuidingWinds { get; } = GetDefinition<ConditionDefinition>("ConditionGuidingWinds", "0cdf39fe965abd640a04b56246b2203e");
             public static ConditionDefinition ConditionHasted { get; } = GetDefinition<ConditionDefinition>("ConditionHasted", "71b371f2148274c4a8f2161188aaea6f");
+            public static ConditionDefinition ConditionHastedClayGolem { get; } = GetDefinition<ConditionDefinition>("ConditionHastedClayGolem", "fc4935af0cee0f840a3924f2033ad56b");
             public static ConditionDefinition ConditionHastedHyeronimus { get; } = GetDefinition<ConditionDefinition>("ConditionHastedHyeronimus", "c178d440840cf2249830111e4452bf93");
             public static ConditionDefinition ConditionHealthy { get; } = GetDefinition<ConditionDefinition>("ConditionHealthy", "046c04611840d1c4db6376f1b7c7dcf6");
             public static ConditionDefinition ConditionHeatMetal { get; } = GetDefinition<ConditionDefinition>("ConditionHeatMetal", "f7324945b02f50640ba3bacafc2176c0");
@@ -790,6 +803,7 @@ namespace SolastaModApi
             public static ConditionDefinition ConditionLethargic { get; } = GetDefinition<ConditionDefinition>("ConditionLethargic", "37044f32f596e1441a4f4954b84b32b3");
             public static ConditionDefinition ConditionLevitate { get; } = GetDefinition<ConditionDefinition>("ConditionLevitate", "49251c4ab697d8a42b8fe788f848ca33");
             public static ConditionDefinition ConditionLifeDrained { get; } = GetDefinition<ConditionDefinition>("ConditionLifeDrained", "ce10be38f182d7046bca13becd0e6bf6");
+            public static ConditionDefinition ConditionLifeDrained_ClayGolem { get; } = GetDefinition<ConditionDefinition>("ConditionLifeDrained_ClayGolem", "bbb71c7f23cb9d742a443da0737775a4");
             public static ConditionDefinition ConditionLifeDrainedSorcererChildRiftOffering { get; } = GetDefinition<ConditionDefinition>("ConditionLifeDrainedSorcererChildRiftOffering", "e94d3b9b1956e09438aa77ab039d14be");
             public static ConditionDefinition ConditionLightHypersensitive { get; } = GetDefinition<ConditionDefinition>("ConditionLightHypersensitive", "3bd94127fc524e740a38596a57d7cdc1");
             public static ConditionDefinition ConditionLightSensitive { get; } = GetDefinition<ConditionDefinition>("ConditionLightSensitive", "ca49770be06152b44aca3d6df2678a81");
@@ -828,6 +842,7 @@ namespace SolastaModApi
             public static ConditionDefinition ConditionPheromoned { get; } = GetDefinition<ConditionDefinition>("ConditionPheromoned", "cc5960636a706b042a1d63849f019150");
             public static ConditionDefinition ConditionPoisoned { get; } = GetDefinition<ConditionDefinition>("ConditionPoisoned", "185ea6cfd1e758448bf574c4055af482");
             public static ConditionDefinition ConditionPoisoned_BasicPoison { get; } = GetDefinition<ConditionDefinition>("ConditionPoisoned_BasicPoison", "d1d7b35d372e45341b0297761279f84a");
+            public static ConditionDefinition ConditionPoisonedCouatl { get; } = GetDefinition<ConditionDefinition>("ConditionPoisonedCouatl", "1802b9c300eae54418db4153ff8a6eb1");
             public static ConditionDefinition ConditionPoisonedDarkweaverPoisonous { get; } = GetDefinition<ConditionDefinition>("ConditionPoisonedDarkweaverPoisonous", "93f05657b286a9e4c95530b36256ed2c");
             public static ConditionDefinition ConditionPoisonedMaraikesTorpor { get; } = GetDefinition<ConditionDefinition>("ConditionPoisonedMaraikesTorpor", "f77a1a38bc99d14479fc084ea9efd7d3");
             public static ConditionDefinition ConditionPoisonedQueenSpiderBlood { get; } = GetDefinition<ConditionDefinition>("ConditionPoisonedQueenSpiderBlood", "1c647212482306544b1b81be64d0c137");
@@ -854,12 +869,14 @@ namespace SolastaModApi
             public static ConditionDefinition ConditionReassignEyebiteSickened { get; } = GetDefinition<ConditionDefinition>("ConditionReassignEyebiteSickened", "af067040a9127dc4ca6328b87cdf9181");
             public static ConditionDefinition ConditionReckless { get; } = GetDefinition<ConditionDefinition>("ConditionReckless", "ca768f4c0efaeff4f81f3e506e922304");
             public static ConditionDefinition ConditionRecklessVulnerability { get; } = GetDefinition<ConditionDefinition>("ConditionRecklessVulnerability", "de67a578e9db4a24eaad805fa22e9f7b");
+            public static ConditionDefinition ConditionRegenerating { get; } = GetDefinition<ConditionDefinition>("ConditionRegenerating", "e225c8f9c43d30e42b175cbf39efd28c");
             public static ConditionDefinition ConditionResisting { get; } = GetDefinition<ConditionDefinition>("ConditionResisting", "48c5209eeba85e540b854da022a316ac");
             public static ConditionDefinition ConditionRestrained { get; } = GetDefinition<ConditionDefinition>("ConditionRestrained", "ec9fa707d4174c54bbdecde60a860c2c");
             public static ConditionDefinition ConditionRestrainedByAnathema { get; } = GetDefinition<ConditionDefinition>("ConditionRestrainedByAnathema", "68d525a29941041468da84de5d4c4519");
             public static ConditionDefinition ConditionRestrainedByBlackTentacles { get; } = GetDefinition<ConditionDefinition>("ConditionRestrainedByBlackTentacles", "d136deb449b8acb42b19b20e65c4801b");
             public static ConditionDefinition ConditionRestrainedByEntangle { get; } = GetDefinition<ConditionDefinition>("ConditionRestrainedByEntangle", "ad689797ec339f14f9b1aedc95f90071");
             public static ConditionDefinition ConditionRestrainedByMagicalArrow { get; } = GetDefinition<ConditionDefinition>("ConditionRestrainedByMagicalArrow", "927ee44cbd732e14b9c785c897613297");
+            public static ConditionDefinition ConditionRestrainedByPrismaticSpray { get; } = GetDefinition<ConditionDefinition>("ConditionRestrainedByPrismaticSpray", "ee8d399a6f8e4c94a80955e46555988f");
             public static ConditionDefinition ConditionRestrainedByTheBurden { get; } = GetDefinition<ConditionDefinition>("ConditionRestrainedByTheBurden", "f9f22d22a7a6ad84b882698f0c65de1d");
             public static ConditionDefinition ConditionRestrainedByWeb { get; } = GetDefinition<ConditionDefinition>("ConditionRestrainedByWeb", "0a8efc601f1a64144905a95acf388a97");
             public static ConditionDefinition ConditionRestrainedByWeightOfJustice { get; } = GetDefinition<ConditionDefinition>("ConditionRestrainedByWeightOfJustice", "87d8f6b2414c45148b20ea0df049908e");
@@ -880,6 +897,7 @@ namespace SolastaModApi
             public static ConditionDefinition ConditionSilenced { get; } = GetDefinition<ConditionDefinition>("ConditionSilenced", "760d7f77ab62cb941b669ec458827067");
             public static ConditionDefinition ConditionSleetStorm { get; } = GetDefinition<ConditionDefinition>("ConditionSleetStorm", "5c7db68b5ff840a43ba0fe83b14648f0");
             public static ConditionDefinition ConditionSlowed { get; } = GetDefinition<ConditionDefinition>("ConditionSlowed", "dfe3b89227acda343bcad5defd6afe0c");
+            public static ConditionDefinition ConditionSlowedStoneGolem { get; } = GetDefinition<ConditionDefinition>("ConditionSlowedStoneGolem", "a59f34b5005838442a7cb6866499e0f1");
             public static ConditionDefinition ConditionSorcererChildRiftDeflection { get; } = GetDefinition<ConditionDefinition>("ConditionSorcererChildRiftDeflection", "cc02122da26e3214eb4b63d5cb55ce6d");
             public static ConditionDefinition ConditionSorcererDraconicElementalResistance { get; } = GetDefinition<ConditionDefinition>("ConditionSorcererDraconicElementalResistance", "37eb34368e5b7ce4284fb36cccbb0069");
             public static ConditionDefinition ConditionSpiderClimb { get; } = GetDefinition<ConditionDefinition>("ConditionSpiderClimb", "5a917a82060957048bc59b6623c6dd68");
@@ -898,6 +916,7 @@ namespace SolastaModApi
             public static ConditionDefinition ConditionStunned_MaulOfTheDestroyer { get; } = GetDefinition<ConditionDefinition>("ConditionStunned_MaulOfTheDestroyer", "48add59c1392c3441a70c95862fc5c60");
             public static ConditionDefinition ConditionStunned_MummyLord_BlasphemousWords { get; } = GetDefinition<ConditionDefinition>("ConditionStunned_MummyLord_BlasphemousWords", "94e239272cdf4f644b709c06aa2d1c31");
             public static ConditionDefinition ConditionStunned_MutantApeSlam { get; } = GetDefinition<ConditionDefinition>("ConditionStunned_MutantApeSlam", "0120f37b21830004da1291cf5b34be55");
+            public static ConditionDefinition ConditionStunned1hour { get; } = GetDefinition<ConditionDefinition>("ConditionStunned1hour", "3f5d5810c02129f47806d57e0c702a6c");
             public static ConditionDefinition ConditionStunnedConjuredDeath { get; } = GetDefinition<ConditionDefinition>("ConditionStunnedConjuredDeath", "a270f5d6fa09e63408c0e351a0b41e1e");
             public static ConditionDefinition ConditionSubstituteForm { get; } = GetDefinition<ConditionDefinition>("ConditionSubstituteForm", "d68c11ab71bf4d547b116d5071a728b5");
             public static ConditionDefinition ConditionSunbeam { get; } = GetDefinition<ConditionDefinition>("ConditionSunbeam", "e258514d7aafc7b4586ab6411a890c10");
@@ -1081,6 +1100,7 @@ namespace SolastaModApi
         }
         public static class EffectProxyDefinitions
         {
+            public static EffectProxyDefinition ProxyArcaneSword { get; } = GetDefinition<EffectProxyDefinition>("ProxyArcaneSword", "52051b8531d400d41b0739c25b28a561");
             public static EffectProxyDefinition ProxyBladeBarrier_Line { get; } = GetDefinition<EffectProxyDefinition>("ProxyBladeBarrier_Line", "35ba71d35e9b9af4a964c384d4f099c5");
             public static EffectProxyDefinition ProxyBladeBarrier_Ring { get; } = GetDefinition<EffectProxyDefinition>("ProxyBladeBarrier_Ring", "78e4b9ee3684fcc4ebbec4c2b565e74f");
             public static EffectProxyDefinition ProxyCallLightning { get; } = GetDefinition<EffectProxyDefinition>("ProxyCallLightning", "7b61d9f4d087efe4e834265097a3ff9e");
@@ -1088,6 +1108,7 @@ namespace SolastaModApi
             public static EffectProxyDefinition ProxyDancingLights { get; } = GetDefinition<EffectProxyDefinition>("ProxyDancingLights", "eda8c7b0f62081849b49d7559dc751e3");
             public static EffectProxyDefinition ProxyDarkness { get; } = GetDefinition<EffectProxyDefinition>("ProxyDarkness", "882c0644f8b8b3148abb46c899653365");
             public static EffectProxyDefinition ProxyDaylight { get; } = GetDefinition<EffectProxyDefinition>("ProxyDaylight", "150a75aa1fe03c04f902b0d40a304c39");
+            public static EffectProxyDefinition ProxyDelayedBlastFireball { get; } = GetDefinition<EffectProxyDefinition>("ProxyDelayedBlastFireball", "5f36bcc886c9fc242a8c091a23362550");
             public static EffectProxyDefinition ProxyEntangle { get; } = GetDefinition<EffectProxyDefinition>("ProxyEntangle", "d4d6f232e6c57534799a14e0bf68c8eb");
             public static EffectProxyDefinition ProxyFlamingSphere { get; } = GetDefinition<EffectProxyDefinition>("ProxyFlamingSphere", "97fdcd5c1721aab42b8d1084e50d6059");
             public static EffectProxyDefinition ProxyFogCloud { get; } = GetDefinition<EffectProxyDefinition>("ProxyFogCloud", "984581c50d31e3941b80f20938791f13");
@@ -1829,7 +1850,8 @@ namespace SolastaModApi
             public static FeatureDefinitionAdditionalDamage AdditionalDamageHalfOrcSavageAttacks { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageHalfOrcSavageAttacks", "7b00c67d27fadfb41b864b007e6e3454");
             public static FeatureDefinitionAdditionalDamage AdditionalDamageHunterColossusSlayer { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageHunterColossusSlayer", "bc95ea1bf4cec0b4aad97f4086c37f1b");
             public static FeatureDefinitionAdditionalDamage AdditionalDamageHuntersMark { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageHuntersMark", "fd4eb0830ac4d9f449bec3145cb0fe40");
-            public static FeatureDefinitionAdditionalDamage AdditionalDamageOathOfJugementAuraOfRighteousness { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageOathOfJugementAuraOfRighteousness", "adde342a8cceeaf4997d9bb9ddd1659b");
+            public static FeatureDefinitionAdditionalDamage AdditionalDamageOathOfJugementAuraOfRighteousnessMagic { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageOathOfJugementAuraOfRighteousnessMagic", "bf1122a567c44ae489d571ea94ce046e");
+            public static FeatureDefinitionAdditionalDamage AdditionalDamageOathOfJugementAuraOfRighteousnessWeapon { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageOathOfJugementAuraOfRighteousnessWeapon", "adde342a8cceeaf4997d9bb9ddd1659b");
             public static FeatureDefinitionAdditionalDamage AdditionalDamageOathOfJugementWeightOfJustice { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageOathOfJugementWeightOfJustice", "1923622890d3016429a9932cb316497b");
             public static FeatureDefinitionAdditionalDamage AdditionalDamageOathOfTirmarSmiteTheHiddenDarkvision { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageOathOfTirmarSmiteTheHiddenDarkvision", "be0b60397da143a449351695d8a944e5");
             public static FeatureDefinitionAdditionalDamage AdditionalDamageOathOfTirmarSmiteTheHiddenShapeChanger { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageOathOfTirmarSmiteTheHiddenShapeChanger", "2cd4ec71f4c3ac64f807238cc6a8110d");
@@ -2092,6 +2114,7 @@ namespace SolastaModApi
             public static FeatureDefinitionCastSpell CastSpell_DLC1_Forge_Druid { get; } = GetDefinition<FeatureDefinitionCastSpell>("CastSpell_DLC1_Forge_Druid", "dfec2482575129946b490ccc74b22543");
             public static FeatureDefinitionCastSpell CastSpell_DLC1_ManaScientist { get; } = GetDefinition<FeatureDefinitionCastSpell>("CastSpell_DLC1_ManaScientist", "a68a599c4ca3e9042ad8a588f188500b");
             public static FeatureDefinitionCastSpell CastSpell_DLC1_Mask_Cleric { get; } = GetDefinition<FeatureDefinitionCastSpell>("CastSpell_DLC1_Mask_Cleric", "3e81e5c1986fdb349865462e75b037e0");
+            public static FeatureDefinitionCastSpell CastSpell_DLC3_Vigdis { get; } = GetDefinition<FeatureDefinitionCastSpell>("CastSpell_DLC3_Vigdis", "cf833df47f362f947b1311458f89dd49");
             public static FeatureDefinitionCastSpell CastSpell_Swamp_Hag { get; } = GetDefinition<FeatureDefinitionCastSpell>("CastSpell_Swamp_Hag", "fedd28489a56397479ca209fd2584949");
             public static FeatureDefinitionCastSpell CastSpellAcolyte { get; } = GetDefinition<FeatureDefinitionCastSpell>("CastSpellAcolyte", "8d639295a14366e42ae33c10209e0820");
             public static FeatureDefinitionCastSpell CastSpellAdria { get; } = GetDefinition<FeatureDefinitionCastSpell>("CastSpellAdria", "ab2dedc970562614f8245f411a93bf48");
@@ -2270,6 +2293,7 @@ namespace SolastaModApi
         public static class FeatureDefinitionDamageAffinitys
         {
             public static FeatureDefinitionDamageAffinity DamageAffinityAcidImmunity { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityAcidImmunity", "2aee6491b5f11104ca5c7964578c54b0");
+            public static FeatureDefinitionDamageAffinity DamageAffinityAcidImmunityClayGolem { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityAcidImmunityClayGolem", "06cf97104bd383d408d2d5d678a8cd57");
             public static FeatureDefinitionDamageAffinity DamageAffinityAcidResistance { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityAcidResistance", "10a85b220b55a28479e26b695ba7392d");
             public static FeatureDefinitionDamageAffinity DamageAffinityBarbarianRelentlessRage { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityBarbarianRelentlessRage", "887d8d883e74f6243b905e2d080c8a97");
             public static FeatureDefinitionDamageAffinity DamageAffinityBludgeoningImmunity { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityBludgeoningImmunity", "a260a40c93a840444894b813253ee9fb");
@@ -2321,6 +2345,7 @@ namespace SolastaModApi
             public static FeatureDefinitionDamageAffinity DamageAffinityDwarfResilience { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityDwarfResilience", "33adf87f49e8adb4fb1a75f89972ec54");
             public static FeatureDefinitionDamageAffinity DamageAffinityDwarfResilience_BeltOfDwarvenKind { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityDwarfResilience_BeltOfDwarvenKind", "e65773e98f2278a4bbe114c3401d018a");
             public static FeatureDefinitionDamageAffinity DamageAffinityFireImmunity { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityFireImmunity", "6f4ede3c34539284e941dd084eaf4429");
+            public static FeatureDefinitionDamageAffinity DamageAffinityFireImmunityIronGolem { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityFireImmunityIronGolem", "92e4007d8e5fd7548bedc8e76c997d4a");
             public static FeatureDefinitionDamageAffinity DamageAffinityFireImmunityRemorhaz { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityFireImmunityRemorhaz", "dbe3707021af5194aa8e4c0630500d7a");
             public static FeatureDefinitionDamageAffinity DamageAffinityFireImmunityYoungRemorhaz { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityFireImmunityYoungRemorhaz", "2fec9e2d30c4a9445af31a34a3c9f8de");
             public static FeatureDefinitionDamageAffinity DamageAffinityFireResistance { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityFireResistance", "65d64edf05bfa284999522d4c5375d17");
@@ -2596,6 +2621,7 @@ namespace SolastaModApi
             public static FeatureDefinitionMoveMode MoveModeElfSylvanMoveSpeed { get; } = GetDefinition<FeatureDefinitionMoveMode>("MoveModeElfSylvanMoveSpeed", "fbc81596519eb0040a411d697eaef7a6");
             public static FeatureDefinitionMoveMode MoveModeFly10 { get; } = GetDefinition<FeatureDefinitionMoveMode>("MoveModeFly10", "983b70804daf71d42a2bc3e844c00987");
             public static FeatureDefinitionMoveMode MoveModeFly12 { get; } = GetDefinition<FeatureDefinitionMoveMode>("MoveModeFly12", "5e70172c8e2a40146b375001ab656a44");
+            public static FeatureDefinitionMoveMode MoveModeFly18 { get; } = GetDefinition<FeatureDefinitionMoveMode>("MoveModeFly18", "fef1de01000295f44b2b19afaae97a69");
             public static FeatureDefinitionMoveMode MoveModeFly2 { get; } = GetDefinition<FeatureDefinitionMoveMode>("MoveModeFly2", "0196408f7a256674d8272106dfa74a0a");
             public static FeatureDefinitionMoveMode MoveModeFly4 { get; } = GetDefinition<FeatureDefinitionMoveMode>("MoveModeFly4", "26430df9731e20f45958ef00a5e3bc7a");
             public static FeatureDefinitionMoveMode MoveModeFly6 { get; } = GetDefinition<FeatureDefinitionMoveMode>("MoveModeFly6", "017c6a5ac95be2841bea36b7dac041fe");
@@ -2669,6 +2695,7 @@ namespace SolastaModApi
             public static FeatureDefinitionPower PowerBuletteLeap { get; } = GetDefinition<FeatureDefinitionPower>("PowerBuletteLeap", "43cdc9869a4e4fbdbcb6eec5146d17c0");
             public static FeatureDefinitionPower PowerCallLightning { get; } = GetDefinition<FeatureDefinitionPower>("PowerCallLightning", "92db79af026a9ff498553e5328122ad2");
             public static FeatureDefinitionPower PowerCircleLandNaturalRecovery { get; } = GetDefinition<FeatureDefinitionPower>("PowerCircleLandNaturalRecovery", "62a2094b3dffdcb47b1a01c5fe242d07");
+            public static FeatureDefinitionPower PowerClayGolemHaste { get; } = GetDefinition<FeatureDefinitionPower>("PowerClayGolemHaste", "d01f1e891c6f0a6499d6e7a086dc2054");
             public static FeatureDefinitionPower PowerClericDivineInterventionCleric { get; } = GetDefinition<FeatureDefinitionPower>("PowerClericDivineInterventionCleric", "c774c974d5902a640a1e82a7608e8051");
             public static FeatureDefinitionPower PowerClericDivineInterventionPaladin { get; } = GetDefinition<FeatureDefinitionPower>("PowerClericDivineInterventionPaladin", "4f9a2e4ff332b204aae612753dada617");
             public static FeatureDefinitionPower PowerClericDivineInterventionWizard { get; } = GetDefinition<FeatureDefinitionPower>("PowerClericDivineInterventionWizard", "0b20466699780a74e801804f86af806b");
@@ -2679,6 +2706,7 @@ namespace SolastaModApi
             public static FeatureDefinitionPower PowerDefilerDarkness { get; } = GetDefinition<FeatureDefinitionPower>("PowerDefilerDarkness", "fd6fb44696a51b24e907474087d41bd7");
             public static FeatureDefinitionPower PowerDefilerEatFriends { get; } = GetDefinition<FeatureDefinitionPower>("PowerDefilerEatFriends", "741a5c664fb45ae45a361ff8274f4c68");
             public static FeatureDefinitionPower PowerDefilerMistyFormEscape { get; } = GetDefinition<FeatureDefinitionPower>("PowerDefilerMistyFormEscape", "327b24f39c0894a49be64a1a3c973c34");
+            public static FeatureDefinitionPower PowerDelayedBlastFireballDetonate { get; } = GetDefinition<FeatureDefinitionPower>("PowerDelayedBlastFireballDetonate", "08dc9e99f425d3f40a99fc21e6867868");
             public static FeatureDefinitionPower PowerDispelEvilBreakEnchantment { get; } = GetDefinition<FeatureDefinitionPower>("PowerDispelEvilBreakEnchantment", "3397ff2b50486164e96fa0a0143ec701");
             public static FeatureDefinitionPower PowerDispelEvilDismissal { get; } = GetDefinition<FeatureDefinitionPower>("PowerDispelEvilDismissal", "6a0e7c69812536c4ab4db51de64d36c2");
             public static FeatureDefinitionPower PowerDomainBattleDecisiveStrike { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainBattleDecisiveStrike", "0ebef581935f2844e95d4948aa67fd5d");
@@ -2833,6 +2861,7 @@ namespace SolastaModApi
             public static FeatureDefinitionPower PowerPaladinLayOnHands { get; } = GetDefinition<FeatureDefinitionPower>("PowerPaladinLayOnHands", "47bfdf553dbfbb440a66a9f2209d915e");
             public static FeatureDefinitionPower PowerPaladinNeutralizePoison { get; } = GetDefinition<FeatureDefinitionPower>("PowerPaladinNeutralizePoison", "2b4c99b243bee17409ecdf7c87018c2c");
             public static FeatureDefinitionPower PowerPathClawDraconicWrath { get; } = GetDefinition<FeatureDefinitionPower>("PowerPathClawDraconicWrath", "0a76ab75bc044644ba3ee986e6e93aec");
+            public static FeatureDefinitionPower PowerPhaseMarilithTeleport { get; } = GetDefinition<FeatureDefinitionPower>("PowerPhaseMarilithTeleport", "bd5e55fd2ab911844ad1373ba9ac67e7");
             public static FeatureDefinitionPower PowerPhaseSpiderTeleport { get; } = GetDefinition<FeatureDefinitionPower>("PowerPhaseSpiderTeleport", "ff1c690cac94db0469addb82ffe13e83");
             public static FeatureDefinitionPower PowerRangerHideInPlainSight { get; } = GetDefinition<FeatureDefinitionPower>("PowerRangerHideInPlainSight", "576cea4790608ce498f61719b998e727");
             public static FeatureDefinitionPower PowerRangerPrimevalAwareness { get; } = GetDefinition<FeatureDefinitionPower>("PowerRangerPrimevalAwareness", "c98ab4090bd327747b36250bf76b2a9a");
@@ -2869,6 +2898,7 @@ namespace SolastaModApi
             public static FeatureDefinitionPower PowerSpiderQueenEatFriends { get; } = GetDefinition<FeatureDefinitionPower>("PowerSpiderQueenEatFriends", "3c60bb7dfd57c0844955f11ec95e1d9e");
             public static FeatureDefinitionPower PowerSpiderQueenPoisonCloud { get; } = GetDefinition<FeatureDefinitionPower>("PowerSpiderQueenPoisonCloud", "4b289501be6698e4eb3a1609a009a0ec");
             public static FeatureDefinitionPower PowerStaffOfMetis { get; } = GetDefinition<FeatureDefinitionPower>("PowerStaffOfMetis", "a00bcafa2857e5f47afc681cc7f45d3c");
+            public static FeatureDefinitionPower PowerStoneGolemSlow { get; } = GetDefinition<FeatureDefinitionPower>("PowerStoneGolemSlow", "ff783d4226814134ebd7897f26fe36a8");
             public static FeatureDefinitionPower PowerStoneResilience { get; } = GetDefinition<FeatureDefinitionPower>("PowerStoneResilience", "cec01b06276dea84fa58285fb7cbbbda");
             public static FeatureDefinitionPower PowerSunbeam { get; } = GetDefinition<FeatureDefinitionPower>("PowerSunbeam", "ddb8f35f454801645a235ab236dee7c0");
             public static FeatureDefinitionPower PowerTraditionCourtMageImprovedSpellShield { get; } = GetDefinition<FeatureDefinitionPower>("PowerTraditionCourtMageImprovedSpellShield", "8167c2777077e1e4b97443e098076226");
@@ -3008,6 +3038,7 @@ namespace SolastaModApi
             public static FeatureDefinitionRegeneration RegenerationOni { get; } = GetDefinition<FeatureDefinitionRegeneration>("RegenerationOni", "cf7120b10bc7bcf45ba9dccf6b3b99ea");
             public static FeatureDefinitionRegeneration RegenerationProphetOfDarkness_Darkness { get; } = GetDefinition<FeatureDefinitionRegeneration>("RegenerationProphetOfDarkness_Darkness", "b2b461996afac374a91c3c49a187b2d0");
             public static FeatureDefinitionRegeneration RegenerationProphetOfDarkness_DimLight { get; } = GetDefinition<FeatureDefinitionRegeneration>("RegenerationProphetOfDarkness_DimLight", "ae2964ba575938c4398fbabad4a57454");
+            public static FeatureDefinitionRegeneration RegenerationRegenerateSpell { get; } = GetDefinition<FeatureDefinitionRegeneration>("RegenerationRegenerateSpell", "54adf5b2b0d9e8c4eb3516d968dfe17f");
             public static FeatureDefinitionRegeneration RegenerationRing { get; } = GetDefinition<FeatureDefinitionRegeneration>("RegenerationRing", "272a41bc93deb2c4ba93b55cf01b1bee");
             public static FeatureDefinitionRegeneration RegenerationTroll { get; } = GetDefinition<FeatureDefinitionRegeneration>("RegenerationTroll", "cfeea454e6de2b940a6132741a2fee41");
             public static FeatureDefinitionRegeneration RegenerationTroll_Mutant { get; } = GetDefinition<FeatureDefinitionRegeneration>("RegenerationTroll_Mutant", "a4104c23bbff6d44d89b371918af3cff");
@@ -3245,6 +3276,7 @@ namespace SolastaModApi
             public static GadgetBlueprint ManaLamp_B { get; } = GetDefinition<GadgetBlueprint>("ManaLamp_B", "ae66dd149bd0cbc46a65f8b4f1803651");
             public static GadgetBlueprint ManaLamp_C { get; } = GetDefinition<GadgetBlueprint>("ManaLamp_C", "880953e309d3e23448f390379f7297d0");
             public static GadgetBlueprint ManaLamp_D { get; } = GetDefinition<GadgetBlueprint>("ManaLamp_D", "97a46553532968541b3da936505c29ec");
+            public static GadgetBlueprint MapWaypoint { get; } = GetDefinition<GadgetBlueprint>("MapWaypoint", "aafc47a6a89b67a4785d623e9a982cb8");
             public static GadgetBlueprint Merchant { get; } = GetDefinition<GadgetBlueprint>("Merchant", "6ac8b820ed26a444bb59a59be1e0fc94");
             public static GadgetBlueprint MonsterG { get; } = GetDefinition<GadgetBlueprint>("MonsterG", "69172cffb42ed4644bab3e102dc812b0");
             public static GadgetBlueprint MonsterH { get; } = GetDefinition<GadgetBlueprint>("MonsterH", "07f76c0621f6ece42817fc95aa3c1c0e");
@@ -3307,6 +3339,7 @@ namespace SolastaModApi
             public static GadgetDefinition MagicLamp { get; } = GetDefinition<GadgetDefinition>("MagicLamp", "e33bc39217dbd3e4b808d1bae71a997e");
             public static GadgetDefinition MajorGate { get; } = GetDefinition<GadgetDefinition>("MajorGate", "3fd8cfdf8e341a542a2d48f08308ddc3");
             public static GadgetDefinition Mechanism { get; } = GetDefinition<GadgetDefinition>("Mechanism", "07725557ccaaf944898e9eff1133dfe8");
+            public static GadgetDefinition MinorGate { get; } = GetDefinition<GadgetDefinition>("MinorGate", "703a517c88d57844c9cbfc50cf1ff1b4");
             public static GadgetDefinition MoveableObject { get; } = GetDefinition<GadgetDefinition>("MoveableObject", "f7c5d0e4b15c9de439988a27816d99a0");
             public static GadgetDefinition Observable { get; } = GetDefinition<GadgetDefinition>("Observable", "57e09e1b5e0f9264ca29c52c0c9750af");
             public static GadgetDefinition QuickShop { get; } = GetDefinition<GadgetDefinition>("QuickShop", "8be0b9f8d8233204c8eff147e429f984");
@@ -3590,6 +3623,15 @@ namespace SolastaModApi
             public static HumanoidMonsterPresentationDefinition NPC_Presentation_DLC1_Town_Crier { get; } = GetDefinition<HumanoidMonsterPresentationDefinition>("NPC_Presentation_DLC1_Town_Crier", "09aec344d4d7ee244a39e4269224192a");
             public static HumanoidMonsterPresentationDefinition NPC_Presentation_DLC1_Valley_NPC_Samko_Flint { get; } = GetDefinition<HumanoidMonsterPresentationDefinition>("NPC_Presentation_DLC1_Valley_NPC_Samko_Flint", "13f9b7cbe6567394fa5a006acf0283c3");
             public static HumanoidMonsterPresentationDefinition NPC_Presentation_DLC1_Valley_NPC_Telerien_Purevoice { get; } = GetDefinition<HumanoidMonsterPresentationDefinition>("NPC_Presentation_DLC1_Valley_NPC_Telerien_Purevoice", "979e5e27124e318408bbec0219cfb7fc");
+            public static HumanoidMonsterPresentationDefinition NPC_Presentation_DLC3_Beryl { get; } = GetDefinition<HumanoidMonsterPresentationDefinition>("NPC_Presentation_DLC3_Beryl", "e7b18f725d6d8d24887e3082b5fb03ef");
+            public static HumanoidMonsterPresentationDefinition NPC_Presentation_DLC3_Daliat { get; } = GetDefinition<HumanoidMonsterPresentationDefinition>("NPC_Presentation_DLC3_Daliat", "7edefba409edb0a42b83c20e3bb4bc0f");
+            public static HumanoidMonsterPresentationDefinition NPC_Presentation_DLC3_Garrad { get; } = GetDefinition<HumanoidMonsterPresentationDefinition>("NPC_Presentation_DLC3_Garrad", "6558dcd2307719f4284204c4ae09ee5d");
+            public static HumanoidMonsterPresentationDefinition NPC_Presentation_DLC3_Lena { get; } = GetDefinition<HumanoidMonsterPresentationDefinition>("NPC_Presentation_DLC3_Lena", "207e2de02c0d7bd4f8438892c0f0e4b1");
+            public static HumanoidMonsterPresentationDefinition NPC_Presentation_DLC3_Lisbath { get; } = GetDefinition<HumanoidMonsterPresentationDefinition>("NPC_Presentation_DLC3_Lisbath", "d4bb05a51bcb81644bc6e15895de204f");
+            public static HumanoidMonsterPresentationDefinition NPC_Presentation_DLC3_Rhuad { get; } = GetDefinition<HumanoidMonsterPresentationDefinition>("NPC_Presentation_DLC3_Rhuad", "a6c0d45269bbc6c44897b34671c9ec7e");
+            public static HumanoidMonsterPresentationDefinition NPC_Presentation_DLC3_Robar { get; } = GetDefinition<HumanoidMonsterPresentationDefinition>("NPC_Presentation_DLC3_Robar", "dadb04b1444adc943afdcd1ffe83b053");
+            public static HumanoidMonsterPresentationDefinition NPC_Presentation_DLC3_Vigdis { get; } = GetDefinition<HumanoidMonsterPresentationDefinition>("NPC_Presentation_DLC3_Vigdis", "dd7c148c5798b4344ba983d366adba20");
+            public static HumanoidMonsterPresentationDefinition NPC_Presentation_DLC3_Violet { get; } = GetDefinition<HumanoidMonsterPresentationDefinition>("NPC_Presentation_DLC3_Violet", "e6d210fbb946d814e8b3eb2b8b51a606");
             public static HumanoidMonsterPresentationDefinition NPC_Presentation_Edvan_Danantar { get; } = GetDefinition<HumanoidMonsterPresentationDefinition>("NPC_Presentation_Edvan_Danantar", "113676ad427bf3941999806adc575c9e");
             public static HumanoidMonsterPresentationDefinition NPC_Presentation_Emperor_Laethar { get; } = GetDefinition<HumanoidMonsterPresentationDefinition>("NPC_Presentation_Emperor_Laethar", "d71074bc122854f4995965e3bbe63aa0");
             public static HumanoidMonsterPresentationDefinition NPC_Presentation_Emtan_Ghost { get; } = GetDefinition<HumanoidMonsterPresentationDefinition>("NPC_Presentation_Emtan_Ghost", "dc25835cf4091f44795493498e2eb79e");
@@ -5034,6 +5076,7 @@ namespace SolastaModApi
         }
         public static class LanguageDefinitions
         {
+            public static LanguageDefinition Language_Abyssal { get; } = GetDefinition<LanguageDefinition>("Language_Abyssal", "bcb748e7133fd5b4fb4db5671d9bd35c");
             public static LanguageDefinition Language_Common { get; } = GetDefinition<LanguageDefinition>("Language_Common", "72ba845f64817e54182eb43f0bafbaae");
             public static LanguageDefinition Language_Draconic { get; } = GetDefinition<LanguageDefinition>("Language_Draconic", "fa6330be7d12e5d49aff6c9d6a969ba5");
             public static LanguageDefinition Language_Druidic { get; } = GetDefinition<LanguageDefinition>("Language_Druidic", "064e28ae6fab4cf4aa65630b80c09625");
@@ -5109,6 +5152,21 @@ namespace SolastaModApi
             public static LocationDefinition DLC1_Valley_LocationDB { get; } = GetDefinition<LocationDefinition>("DLC1_Valley_LocationDB", "36e3b1088be066747b226e3c802254ac");
             public static LocationDefinition DLC1_Valley_Underground_Caves_LocationDB { get; } = GetDefinition<LocationDefinition>("DLC1_Valley_Underground_Caves_LocationDB", "1f17099dc24f2ba48a08a7d33ddcdaee");
             public static LocationDefinition DLC1_Valley_Underground_LocationDB { get; } = GetDefinition<LocationDefinition>("DLC1_Valley_Underground_LocationDB", "30c91a623a8615b45acacf710dff9f70");
+            public static LocationDefinition DLC3_Ambush_LocationDB { get; } = GetDefinition<LocationDefinition>("DLC3_Ambush_LocationDB", "12f8dc518b00db44eb22e7d9e9824a2b");
+            public static LocationDefinition DLC3_Einareum_LocationDB { get; } = GetDefinition<LocationDefinition>("DLC3_Einareum_LocationDB", "b23fff1e63b9325438581be6a84050f9");
+            public static LocationDefinition DLC3_ElvenSettlement_LocationDB { get; } = GetDefinition<LocationDefinition>("DLC3_ElvenSettlement_LocationDB", "4867814b0b448f44f98578744ad05280");
+            public static LocationDefinition DLC3_ElvenSettlementDragonLair_LocationDB { get; } = GetDefinition<LocationDefinition>("DLC3_ElvenSettlementDragonLair_LocationDB", "11a4bf821dfa82847a69465bc5d52f15");
+            public static LocationDefinition DLC3_ElvenSettlementRuins_LocationDB { get; } = GetDefinition<LocationDefinition>("DLC3_ElvenSettlementRuins_LocationDB", "0ca48ef6c08cf9b43ac13637cf3c801b");
+            public static LocationDefinition DLC3_Encounter_FrozenAqueduct_LocationDB { get; } = GetDefinition<LocationDefinition>("DLC3_Encounter_FrozenAqueduct_LocationDB", "dacbc3cfd212f844c900ccdcc0b2abee");
+            public static LocationDefinition DLC3_Encounter_Icehenge_LocationDB { get; } = GetDefinition<LocationDefinition>("DLC3_Encounter_Icehenge_LocationDB", "7aa2e2a7eb81c2148a2abbf9b20f7a00");
+            public static LocationDefinition DLC3_Encounter_LakeIsland_LocationDB { get; } = GetDefinition<LocationDefinition>("DLC3_Encounter_LakeIsland_LocationDB", "b645f1edaf251024c94ffecdefede048");
+            public static LocationDefinition DLC3_Encounter_SnowyHillock_LocationDB { get; } = GetDefinition<LocationDefinition>("DLC3_Encounter_SnowyHillock_LocationDB", "42a3cc67e6858db4794a7d64e2365793");
+            public static LocationDefinition DLC3_Encounter_TrapperHut_LocationDB { get; } = GetDefinition<LocationDefinition>("DLC3_Encounter_TrapperHut_LocationDB", "86c0cbd0238f3b242b32f7b7bf0098a5");
+            public static LocationDefinition DLC3_GallivanBorder_LocationDB { get; } = GetDefinition<LocationDefinition>("DLC3_GallivanBorder_LocationDB", "bb67d0f0bc4a6de48922e2d0f44d65fd");
+            public static LocationDefinition DLC3_Kaupaapunki_LocationDB { get; } = GetDefinition<LocationDefinition>("DLC3_Kaupaapunki_LocationDB", "d080d8fe44c3b0245b356fbf15a7bf0c");
+            public static LocationDefinition DLC3_Ruins_Telema_Scene_LocationDB { get; } = GetDefinition<LocationDefinition>("DLC3_Ruins_Telema_Scene_LocationDB", "3482f2cb2136cd54fab41f02ac4d64c1");
+            public static LocationDefinition DLC3_VioletsHouse_DB { get; } = GetDefinition<LocationDefinition>("DLC3_VioletsHouse_DB", "6a50f0cabb219c943b8f052541901db8");
+            public static LocationDefinition DLC3_White_City_LocationDB { get; } = GetDefinition<LocationDefinition>("DLC3_White_City_LocationDB", "cf3c5359a73b17d4fbb13ea577042d16");
             public static LocationDefinition Earcorn_LocationDB { get; } = GetDefinition<LocationDefinition>("Earcorn_LocationDB", "47777aba484e79246bd0a4cc0fa18100");
             public static LocationDefinition Encounter_Bridge_LocationDB { get; } = GetDefinition<LocationDefinition>("Encounter_Bridge_LocationDB", "2e6db98596aa6a34682f5c1a3cb98a3f");
             public static LocationDefinition Encounter_Cemetery_LocationDB { get; } = GetDefinition<LocationDefinition>("Encounter_Cemetery_LocationDB", "05ccd4e38ea7c3f4c9f7e6290bba0223");
@@ -5668,6 +5726,7 @@ namespace SolastaModApi
             public static LootPackDefinition Giant_Hill_loot_drop { get; } = GetDefinition<LootPackDefinition>("Giant_Hill_loot_drop", "ce00379a792fc774ba8f8421625170d4");
             public static LootPackDefinition Giant_Rugan_loot_drop { get; } = GetDefinition<LootPackDefinition>("Giant_Rugan_loot_drop", "1dc9f8487a5346d43b9a34dbdba59b2c");
             public static LootPackDefinition Giant_Stone_loot_drop { get; } = GetDefinition<LootPackDefinition>("Giant_Stone_loot_drop", "4866a5cf7dd3ac443afc599c4687c8c1");
+            public static LootPackDefinition Giant_Storm_loot_drop { get; } = GetDefinition<LootPackDefinition>("Giant_Storm_loot_drop", "1bc97902e97123f4b856c7ad5af8dda1");
             public static LootPackDefinition Giant_Trader_loot_drop { get; } = GetDefinition<LootPackDefinition>("Giant_Trader_loot_drop", "5ba51a08b21adc54a9d82483a4af564e");
             public static LootPackDefinition Goblin_Cutthroat_loot_drop { get; } = GetDefinition<LootPackDefinition>("Goblin_Cutthroat_loot_drop", "d7f3335642c193b4485744f8e271943e");
             public static LootPackDefinition Goblin_loot_drop { get; } = GetDefinition<LootPackDefinition>("Goblin_loot_drop", "e1798a35ed0332b4cbb3d2e9d14e5f3b");
@@ -5699,6 +5758,7 @@ namespace SolastaModApi
             public static LootPackDefinition Harvestable_SkarnRock_Loot_drop { get; } = GetDefinition<LootPackDefinition>("Harvestable_SkarnRock_Loot_drop", "9c08375e490935042a32a90fc9580a74");
             public static LootPackDefinition Harvestable_StormBriar_Loot_drop { get; } = GetDefinition<LootPackDefinition>("Harvestable_StormBriar_Loot_drop", "5946608279e85d34fafff60da36701aa");
             public static LootPackDefinition Harvestable_TrollBramble_Loot_drop { get; } = GetDefinition<LootPackDefinition>("Harvestable_TrollBramble_Loot_drop", "4210cb2ba7a84a44dbcaae88a28e45b4");
+            public static LootPackDefinition Hezrou_loot_drop { get; } = GetDefinition<LootPackDefinition>("Hezrou_loot_drop", "ee1de010b832aaf4bb25e34bca3c4b35");
             public static LootPackDefinition HighPriest_SorakInfiltrator_loot_drop { get; } = GetDefinition<LootPackDefinition>("HighPriest_SorakInfiltrator_loot_drop", "0c32ce63a12b34f43821367f16c4a496");
             public static LootPackDefinition Kill_loot_Helia_Fairblade { get; } = GetDefinition<LootPackDefinition>("Kill_loot_Helia_Fairblade", "31206517733b3b14da2a61b00f7d9b72");
             public static LootPackDefinition Kill_loot_Krim_Sunsail { get; } = GetDefinition<LootPackDefinition>("Kill_loot_Krim_Sunsail", "cd065a5c4e316d24781b8f50d5d7571f");
@@ -5745,6 +5805,7 @@ namespace SolastaModApi
             public static LootPackDefinition Loot_TempleOfMisaye_LockedChest { get; } = GetDefinition<LootPackDefinition>("Loot_TempleOfMisaye_LockedChest", "b36108fc2554c49478b65c03f3adb7aa");
             public static LootPackDefinition Loot_Test_Quest { get; } = GetDefinition<LootPackDefinition>("Loot_Test_Quest", "226774c3649c1914eaf33b53018d1d63");
             public static LootPackDefinition Lootpack_Gifts_From_Princess { get; } = GetDefinition<LootPackDefinition>("Lootpack_Gifts_From_Princess", "2db69165e5568ea46a7bb66e3d2c1311");
+            public static LootPackDefinition Marilith_loot_drop { get; } = GetDefinition<LootPackDefinition>("Marilith_loot_drop", "b33d06d0295178744a53d377f7ab95e8");
             public static LootPackDefinition Minotaur_Elite_loot_drop { get; } = GetDefinition<LootPackDefinition>("Minotaur_Elite_loot_drop", "e12b8853531ce2d4796c13d5a0af3f52");
             public static LootPackDefinition Minotaur_loot_drop { get; } = GetDefinition<LootPackDefinition>("Minotaur_loot_drop", "b1562ea2d3fc0794fb9a3fe6c937bf8c");
             public static LootPackDefinition Minotaur_Mutant_loot_drop { get; } = GetDefinition<LootPackDefinition>("Minotaur_Mutant_loot_drop", "4d3d5f455e6731543a0238504f161eda");
@@ -5941,6 +6002,7 @@ namespace SolastaModApi
             public static MapWaypointDefinition MapWaypointDefinition_CradleOfFire_Sandraven { get; } = GetDefinition<MapWaypointDefinition>("MapWaypointDefinition_CradleOfFire_Sandraven", "a12aeb6e20ac5894e983a1efd164abd0");
             public static MapWaypointDefinition MapWaypointDefinition_CradleOfFire_To_Crossroads { get; } = GetDefinition<MapWaypointDefinition>("MapWaypointDefinition_CradleOfFire_To_Crossroads", "63afdbd229f90574484d9563c2f73429");
             public static MapWaypointDefinition MapWaypointDefinition_Default_Exit { get; } = GetDefinition<MapWaypointDefinition>("MapWaypointDefinition_Default_Exit", "19d946c55363f044cbecda2f5424ad76");
+            public static MapWaypointDefinition MapWaypointDefinition_Default_Exit_1 { get; } = GetDefinition<MapWaypointDefinition>("MapWaypointDefinition_Default_Exit 1", "681c24e92ca8a6f49bb0d6975b64735b");
             public static MapWaypointDefinition MapWaypointDefinition_DLC1_BuriedCity_Crossroad { get; } = GetDefinition<MapWaypointDefinition>("MapWaypointDefinition_DLC1_BuriedCity_Crossroad", "54cafba81770cab46807c5d6f070259d");
             public static MapWaypointDefinition MapWaypointDefinition_DLC1_BuriedCity_DangerCorridor { get; } = GetDefinition<MapWaypointDefinition>("MapWaypointDefinition_DLC1_BuriedCity_DangerCorridor", "645033d76b9c88a448b8c9587e3dd12f");
             public static MapWaypointDefinition MapWaypointDefinition_DLC1_BuriedCity_Entrance { get; } = GetDefinition<MapWaypointDefinition>("MapWaypointDefinition_DLC1_BuriedCity_Entrance", "6d49427b660f51b42a02dd8325bcdbaf");
@@ -6034,6 +6096,9 @@ namespace SolastaModApi
             public static MapWaypointDefinition MapWaypointDefinition_DLC1_Valley_Warden_Quarters { get; } = GetDefinition<MapWaypointDefinition>("MapWaypointDefinition_DLC1_Valley_Warden_Quarters", "0530c2bac4c99a84ea161dfd27918d43");
             public static MapWaypointDefinition MapWaypointDefinition_DLC1_Valley_Waterfall_Entrance { get; } = GetDefinition<MapWaypointDefinition>("MapWaypointDefinition_DLC1_Valley_Waterfall_Entrance", "43b6524e0790a4144abfe77bedb262d7");
             public static MapWaypointDefinition MapWaypointDefinition_DLC1_Valley_WaterfallGrotto { get; } = GetDefinition<MapWaypointDefinition>("MapWaypointDefinition_DLC1_Valley_WaterfallGrotto", "a447aff6830517c4894d2c921fc859eb");
+            public static MapWaypointDefinition MapWaypointDefinition_GallivanBorder_1stFrontline { get; } = GetDefinition<MapWaypointDefinition>("MapWaypointDefinition_GallivanBorder_1stFrontline", "88329ac4bfa45b54a809f973e4140714");
+            public static MapWaypointDefinition MapWaypointDefinition_GallivanBorder_Entrance { get; } = GetDefinition<MapWaypointDefinition>("MapWaypointDefinition_GallivanBorder_Entrance", "2617520965159ed4282f1405187a5451");
+            public static MapWaypointDefinition MapWaypointDefinition_GallivanBorder_WarCamp { get; } = GetDefinition<MapWaypointDefinition>("MapWaypointDefinition_GallivanBorder_WarCamp", "447ce919303ab5e4b8dcbdc2fc601a44");
             public static MapWaypointDefinition MapWaypointDefinition_GENERIC_LONG_REST_AREA { get; } = GetDefinition<MapWaypointDefinition>("MapWaypointDefinition_GENERIC_LONG_REST_AREA", "4fbc65860bf33ba46a751c8687eea9e0");
             public static MapWaypointDefinition MapWaypointDefinition_LavaForest_Clearing { get; } = GetDefinition<MapWaypointDefinition>("MapWaypointDefinition_LavaForest_Clearing", "0fd539a3fb3a36244bc4ea79aa21ce05");
             public static MapWaypointDefinition MapWaypointDefinition_LavaForest_Forest { get; } = GetDefinition<MapWaypointDefinition>("MapWaypointDefinition_LavaForest_Forest", "9902f0c8083e38a459d8f77a99b0c431");
@@ -6102,6 +6167,7 @@ namespace SolastaModApi
             public static MerchantDefinition Store_Merchant_DLC1_Renno { get; } = GetDefinition<MerchantDefinition>("Store_Merchant_DLC1_Renno", "e15a6021235aab2479f848f79bfea84e");
             public static MerchantDefinition Store_Merchant_DLC1_Reya { get; } = GetDefinition<MerchantDefinition>("Store_Merchant_DLC1_Reya", "79df896d0065a924b95aff57118498fe");
             public static MerchantDefinition Store_Merchant_DLC1_Yasmin { get; } = GetDefinition<MerchantDefinition>("Store_Merchant_DLC1_Yasmin", "68b9727c11a395641acb81437aabe420");
+            public static MerchantDefinition Store_Merchant_DLC3_Lena { get; } = GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_Lena", "827989064afe3024ba32c3bf172cdd18");
             public static MerchantDefinition Store_Merchant_DM_Armorer { get; } = GetDefinition<MerchantDefinition>("Store_Merchant_DM_Armorer", "945bcde153bac7f46adb1b1c37968c5c");
             public static MerchantDefinition Store_Merchant_DM_Crafter { get; } = GetDefinition<MerchantDefinition>("Store_Merchant_DM_Crafter", "36f8a21ef7c4bac4ea12360449b068be");
             public static MerchantDefinition Store_Merchant_DM_GeneralStore { get; } = GetDefinition<MerchantDefinition>("Store_Merchant_DM_GeneralStore", "0554e8db771941742a5c31958f95a445");
@@ -6180,6 +6246,7 @@ namespace SolastaModApi
             public static MonsterAttackDefinition Attack_CityGuard_NewEmpire { get; } = GetDefinition<MonsterAttackDefinition>("Attack_CityGuard_NewEmpire", "9894202838f9610408153d39f1f64ba1");
             public static MonsterAttackDefinition Attack_Coparann_Crossbow { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Coparann_Crossbow", "19c3ded7567d4cb49a8e1a3fb60ddb21");
             public static MonsterAttackDefinition Attack_Coparann_Guard_Axe { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Coparann_Guard_Axe", "af307771b2ee5f349b6f36b0bbce14ba");
+            public static MonsterAttackDefinition Attack_Couatl_Bite { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Couatl_Bite", "aac923acbbdbc9345b947211ba67f9ce");
             public static MonsterAttackDefinition Attack_CultFanatic_Dagger { get; } = GetDefinition<MonsterAttackDefinition>("Attack_CultFanatic_Dagger", "3d0b98b061cc93648a55bd2f470f2da1");
             public static MonsterAttackDefinition Attack_Dagger_Aksha { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Dagger_Aksha", "4ce2dd8bda77e8f4fb32649d80fbeb7c");
             public static MonsterAttackDefinition Attack_Daliat_Dagger { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Daliat_Dagger", "1c826132a22a0bc4e9e563ce69c6b651");
@@ -6244,6 +6311,10 @@ namespace SolastaModApi
             public static MonsterAttackDefinition Attack_DLC1_Telerien_Scimitar { get; } = GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Telerien_Scimitar", "5cedb12dab54c8348b25d3b3ad59d189");
             public static MonsterAttackDefinition Attack_DLC1_Trainer_Dagger { get; } = GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Trainer_Dagger", "4382b89622a4c92469294e9742b8c420");
             public static MonsterAttackDefinition Attack_DLC1_Trainer_Staff { get; } = GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Trainer_Staff", "562a2e3694adc524b8c7365c94b520a1");
+            public static MonsterAttackDefinition Attack_DLC3_Garrad_Crossbow { get; } = GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Garrad_Crossbow", "1dfd43ff2333fff4fb3e4240c8745eba");
+            public static MonsterAttackDefinition Attack_DLC3_Garrad_Longsword { get; } = GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Garrad_Longsword", "9a55c63c68ec5fe46a2a5e393a95456f");
+            public static MonsterAttackDefinition Attack_DLC3_Vigdis_Crossbow { get; } = GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Vigdis_Crossbow", "e05cb53051307b24b8071fa072045266");
+            public static MonsterAttackDefinition Attack_DLC3_Vigdis_Hammer { get; } = GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Vigdis_Hammer", "b55716e9dd501fe499b6dcdf1b4db4c9");
             public static MonsterAttackDefinition Attack_EagleMatriarch_Talons { get; } = GetDefinition<MonsterAttackDefinition>("Attack_EagleMatriarch_Talons", "b535c4fc37512ba419f413748136fdec");
             public static MonsterAttackDefinition Attack_Earth_Elemental_Slam { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Earth_Elemental_Slam", "c9deeda1f3dded24b96cd620d03545b8");
             public static MonsterAttackDefinition Attack_Estalla_Claw { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Estalla_Claw", "1fe9ba0fb99688c4090042bb448114ec");
@@ -6287,6 +6358,8 @@ namespace SolastaModApi
             public static MonsterAttackDefinition Attack_Giant_Hill_Rock { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Giant_Hill_Rock", "db4d208a43fa18b42bdea74a61692098");
             public static MonsterAttackDefinition Attack_Giant_Stone_Club { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Giant_Stone_Club", "c66023c0538e8794e9bb4cfd48744ce5");
             public static MonsterAttackDefinition Attack_Giant_Stone_Rock { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Giant_Stone_Rock", "e8b8204ab11a5cb42b2dfde15bc6cf6f");
+            public static MonsterAttackDefinition Attack_Giant_Storm_Rock { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Giant_Storm_Rock", "6bed2ac8a6da71f46a8a2bfa846a40bd");
+            public static MonsterAttackDefinition Attack_Giant_Storm_Sword { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Giant_Storm_Sword", "6c307c0442cc16644ac9c9cab5eaaef1");
             public static MonsterAttackDefinition Attack_GiantBeetle_AcidSpray { get; } = GetDefinition<MonsterAttackDefinition>("Attack_GiantBeetle_AcidSpray", "8dbac0122cfe27941ad3a83af5d62a57");
             public static MonsterAttackDefinition Attack_GiantBeetle_Claw { get; } = GetDefinition<MonsterAttackDefinition>("Attack_GiantBeetle_Claw", "36fe3d59c1f1aeb4487cd1476db3f49f");
             public static MonsterAttackDefinition Attack_GiantCrow_Beak { get; } = GetDefinition<MonsterAttackDefinition>("Attack_GiantCrow_Beak", "3fecb9515f1fa8645b7ee6ac639b6bab");
@@ -6308,6 +6381,8 @@ namespace SolastaModApi
             public static MonsterAttackDefinition Attack_Gromnir_Stonefist_Hammer { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Gromnir_Stonefist_Hammer", "44e8fc1b400b767498be75adad94d47e");
             public static MonsterAttackDefinition Attack_Hasdrubal_Longbow { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Hasdrubal_Longbow", "56cb583f6d4635744978f1c9e510ea52");
             public static MonsterAttackDefinition Attack_Hasdrubal_Shortsword { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Hasdrubal_Shortsword", "754cd246d9ac282448c7a233dfa32f4f");
+            public static MonsterAttackDefinition Attack_Hezrou_Bite { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Hezrou_Bite", "bcf3cc398d2ac0645a13e4b80ef4c74c");
+            public static MonsterAttackDefinition Attack_Hezrou_Claw { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Hezrou_Claw", "9234088e40f201141b73b9f814df4fac");
             public static MonsterAttackDefinition Attack_HighPriest_Morningstar { get; } = GetDefinition<MonsterAttackDefinition>("Attack_HighPriest_Morningstar", "5be8ec56093c00b4b8b0fde7d93c6280");
             public static MonsterAttackDefinition Attack_Hyeronimus_Greatsword { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Hyeronimus_Greatsword", "1ccbfbf82b1d9b244a2b2d2689c141a1");
             public static MonsterAttackDefinition Attack_Hyeronimus_Javelin { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Hyeronimus_Javelin", "bc5c005ce7910a04fb899ea8f3750a9f");
@@ -6326,6 +6401,8 @@ namespace SolastaModApi
             public static MonsterAttackDefinition Attack_Lisbath_Sword { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Lisbath_Sword", "18bb7643ead63094687b201e6048f54b");
             public static MonsterAttackDefinition Attack_Mage_Dagger { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Mage_Dagger", "711167f70938ce846aa5be08bd918fbb");
             public static MonsterAttackDefinition Attack_Mardracht_Dagger { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Mardracht_Dagger", "83e78ab360260db4195bfd1985605b8c");
+            public static MonsterAttackDefinition Attack_Marilith_Longsword { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Marilith_Longsword", "0fae4c94b82cefc46b51b05274b5af26");
+            public static MonsterAttackDefinition Attack_Marilith_Tail { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Marilith_Tail", "c01ad393ee105a649bd70007f233e067");
             public static MonsterAttackDefinition Attack_Minotaur_Charged_Gore { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Minotaur_Charged_Gore", "8741490bff5c37141b722a584a81dc16");
             public static MonsterAttackDefinition Attack_Minotaur_Elite_Charged_Gore { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Minotaur_Elite_Charged_Gore", "d102834a687662c49984b6cd11889185");
             public static MonsterAttackDefinition Attack_Minotaur_Elite_Gore { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Minotaur_Elite_Gore", "7aa03bb5ae32ca84ea683c04120f9305");
@@ -6566,6 +6643,7 @@ namespace SolastaModApi
             public static MonsterDefinition Coparann_Guard_Sorak_Agent { get; } = GetDefinition<MonsterDefinition>("Coparann_Guard_Sorak_Agent", "63704954df0d2d149b2beb641b88ad99");
             public static MonsterDefinition Coparann_Guard_Sorak_Agent_Range { get; } = GetDefinition<MonsterDefinition>("Coparann_Guard_Sorak_Agent_Range", "63a72dc965774d54c8f2b6f17c1a10f3");
             public static MonsterDefinition Coparann_GuardCS { get; } = GetDefinition<MonsterDefinition>("Coparann_GuardCS", "f1b99fbe3ccfa3f43b465146eac1da1d");
+            public static MonsterDefinition Couatl { get; } = GetDefinition<MonsterDefinition>("Couatl", "eef70e597fde31347a179b303fc959c9");
             public static MonsterDefinition Council_Trooper { get; } = GetDefinition<MonsterDefinition>("Council_Trooper", "02d37cc4f5ffa724a82e611008425165");
             public static MonsterDefinition CrimsonSpider { get; } = GetDefinition<MonsterDefinition>("CrimsonSpider", "256560997418f9c49b616fb041299801");
             public static MonsterDefinition CrimsonSpiderling { get; } = GetDefinition<MonsterDefinition>("CrimsonSpiderling", "5664811e895cb564a8b469e9e2ea4a5f");
@@ -6693,6 +6771,12 @@ namespace SolastaModApi
             public static MonsterDefinition DLC1_People03_Bodyguard { get; } = GetDefinition<MonsterDefinition>("DLC1_People03_Bodyguard", "53ce7a4c2fafbfd4ea3ccb39789c3cd9");
             public static MonsterDefinition DLC1_Valley_NPC_Samko_Flint { get; } = GetDefinition<MonsterDefinition>("DLC1_Valley_NPC_Samko_Flint", "0e568911832fba1408a9a8c916ad7fc0");
             public static MonsterDefinition DLC1_Valley_NPC_Telerien_Purevoice { get; } = GetDefinition<MonsterDefinition>("DLC1_Valley_NPC_Telerien_Purevoice", "ab6ec8d5fbb6e844b98f2d77ae1db20d");
+            public static MonsterDefinition DLC3_Garrad_Miles { get; } = GetDefinition<MonsterDefinition>("DLC3_Garrad_Miles", "bec685a5453cbac43a15ca6aff56a3d4");
+            public static MonsterDefinition DLC3_HumanClansChief { get; } = GetDefinition<MonsterDefinition>("DLC3_HumanClansChief", "0b8484860c4039547b94662eba407d43");
+            public static MonsterDefinition DLC3_Lena_Switfhand { get; } = GetDefinition<MonsterDefinition>("DLC3_Lena_Switfhand", "96d65da0cb6e5e0459962ae9459a80b8");
+            public static MonsterDefinition DLC3_Rhuad_Switfhand { get; } = GetDefinition<MonsterDefinition>("DLC3_Rhuad_Switfhand", "2d3dd20d83a01614aaad454fcc00f584");
+            public static MonsterDefinition DLC3_Vigdis_Kaikonnen { get; } = GetDefinition<MonsterDefinition>("DLC3_Vigdis_Kaikonnen", "06f0ad03bac16064194b8d96622ee0b2");
+            public static MonsterDefinition DLC3_Violet_Goodcheer { get; } = GetDefinition<MonsterDefinition>("DLC3_Violet_Goodcheer", "1078931364e61774ea94ae84d4ccf7e0");
             public static MonsterDefinition Dryad { get; } = GetDefinition<MonsterDefinition>("Dryad", "b99f20041c6faef43bd42e4126e49aab");
             public static MonsterDefinition Dryad_Queen { get; } = GetDefinition<MonsterDefinition>("Dryad_Queen", "192a1dc3ef9baa540bbf135c77516386");
             public static MonsterDefinition Dryad_Ranged { get; } = GetDefinition<MonsterDefinition>("Dryad_Ranged", "9d1b5f0b74e014d4fb1bd641f76bb4cf");
@@ -6742,6 +6826,7 @@ namespace SolastaModApi
             public static MonsterDefinition Giant_Frost { get; } = GetDefinition<MonsterDefinition>("Giant_Frost", "24ce4946c0d776b44b6bf7370147ccb7");
             public static MonsterDefinition Giant_Hill { get; } = GetDefinition<MonsterDefinition>("Giant_Hill", "e0f8dfa38e5fbfb4ca1fd639c1477d5f");
             public static MonsterDefinition Giant_Stone { get; } = GetDefinition<MonsterDefinition>("Giant_Stone", "6ad1c3c7594ff4b4a881bd22aff7c300");
+            public static MonsterDefinition Giant_Storm { get; } = GetDefinition<MonsterDefinition>("Giant_Storm", "771dc5dcddcf7a24f827ef94fff5335f");
             public static MonsterDefinition Goblin { get; } = GetDefinition<MonsterDefinition>("Goblin", "6385eddb59bc18a4b8dd19bffdd279a8");
             public static MonsterDefinition Goblin_Cutthroat { get; } = GetDefinition<MonsterDefinition>("Goblin_Cutthroat", "9507651679bdc734b8348130868cefd2");
             public static MonsterDefinition Goblin_Cutthroat_Ranged { get; } = GetDefinition<MonsterDefinition>("Goblin_Cutthroat_Ranged", "795e553e8285d9e41bb9753aa116599c");
@@ -6759,6 +6844,7 @@ namespace SolastaModApi
             public static MonsterDefinition Hector { get; } = GetDefinition<MonsterDefinition>("Hector", "f533908ed535ebf47bb0d7255f0014a3");
             public static MonsterDefinition Heddlon_Surespell { get; } = GetDefinition<MonsterDefinition>("Heddlon_Surespell", "3ca98882d9577824dac2ee8e3cf7da5f");
             public static MonsterDefinition Hertha_Gormsdottir { get; } = GetDefinition<MonsterDefinition>("Hertha_Gormsdottir", "ec3ce2ec41c2bbe41b08ca4d8aa6e295");
+            public static MonsterDefinition Hezrou_MonsterDefinition { get; } = GetDefinition<MonsterDefinition>("Hezrou_MonsterDefinition", "d5104ae349827ee40b13732007b5d39f");
             public static MonsterDefinition HighPriest_SorakInfiltrator { get; } = GetDefinition<MonsterDefinition>("HighPriest_SorakInfiltrator", "f796ca845ab8c8343ae0c16813b21195");
             public static MonsterDefinition Hyeronimus_Bash { get; } = GetDefinition<MonsterDefinition>("Hyeronimus_Bash", "c048a17ca43cd26499e8375853ca035e");
             public static MonsterDefinition Idriel_Fairbrow { get; } = GetDefinition<MonsterDefinition>("Idriel_Fairbrow", "72910d5fa46e5ee4c907a7ff3723a39a");
@@ -6788,6 +6874,7 @@ namespace SolastaModApi
             public static MonsterDefinition Magister_NPC { get; } = GetDefinition<MonsterDefinition>("Magister_NPC", "4278290325d61eb458fe28d9d6604072");
             public static MonsterDefinition Magister_NPC_Ghost { get; } = GetDefinition<MonsterDefinition>("Magister_NPC_Ghost", "8df433557b4e3224a91a8145873ba14e");
             public static MonsterDefinition Maid_Coparann { get; } = GetDefinition<MonsterDefinition>("Maid_Coparann", "71db05024daa2c34cbe651068f3b6cef");
+            public static MonsterDefinition Marilith_MonsterDefinition { get; } = GetDefinition<MonsterDefinition>("Marilith_MonsterDefinition", "e45dadb48c1aadb4680ba8cd73a5419f");
             public static MonsterDefinition Master_Dackin { get; } = GetDefinition<MonsterDefinition>("Master_Dackin", "55ce37758f272de4cb8e3ba9fa55db28");
             public static MonsterDefinition Master_Mardracht { get; } = GetDefinition<MonsterDefinition>("Master_Mardracht", "c399e70b5f5ce9c4ab46100a71937320");
             public static MonsterDefinition Master_Mardracht_NPC_Dragon { get; } = GetDefinition<MonsterDefinition>("Master_Mardracht_NPC_Dragon", "92276a6f5314e4c40b0607ce5656a458");
@@ -7847,6 +7934,7 @@ namespace SolastaModApi
             public static NarrativeTreeDefinition DLC1_NarrativeTree_ThePeople_07_StartQuest { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_NarrativeTree_ThePeople_07_StartQuest", "ee91d59f541f6014f820774cdbe26a1a");
             public static NarrativeTreeDefinition DLC1_NarrativeTree_ThePeople_08_End { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_NarrativeTree_ThePeople_08_End", "b41bf88ba182fe64ebfcde77da74b931");
             public static NarrativeTreeDefinition DLC1_NarrativeTree_ThePeople_08_Start { get; } = GetDefinition<NarrativeTreeDefinition>("DLC1_NarrativeTree_ThePeople_08_Start", "24604560c870fc940801c282b279029e");
+            public static NarrativeTreeDefinition DLC3_Narrative_Ambush_CS_01_NightBridge_Intro { get; } = GetDefinition<NarrativeTreeDefinition>("DLC3_Narrative_Ambush_CS_01_NightBridge_Intro", "021ae9d45a5280d4cb4c9d700a5b9b2f");
             public static NarrativeTreeDefinition Earcorn_01_Arriving { get; } = GetDefinition<NarrativeTreeDefinition>("Earcorn_01_Arriving", "79989b7f1a0edd24a831f32c7bd057db");
             public static NarrativeTreeDefinition Earcorn_01_Arriving_WithMerton { get; } = GetDefinition<NarrativeTreeDefinition>("Earcorn_01_Arriving_WithMerton", "c9534fdc7a71eca4c984115417072c66");
             public static NarrativeTreeDefinition Earcorn_02_Footsteps { get; } = GetDefinition<NarrativeTreeDefinition>("Earcorn_02_Footsteps", "3671abf1e522deb41a1c57fa4b220c92");
@@ -8231,11 +8319,18 @@ namespace SolastaModApi
             public static PropBlueprint Bench_A { get; } = GetDefinition<PropBlueprint>("Bench_A", "31f6b5d1febdc214eac2b3572b1e5860");
             public static PropBlueprint Bench_B { get; } = GetDefinition<PropBlueprint>("Bench_B", "f08036055494c4c429185602e7176f45");
             public static PropBlueprint Bench_C { get; } = GetDefinition<PropBlueprint>("Bench_C", "d416bc7357e34884e9b92acd2fccdedd");
+            public static PropBlueprint Bench_Destroyed_A { get; } = GetDefinition<PropBlueprint>("Bench_Destroyed_A", "023e93c18efa94140a7e8a57abeede32");
+            public static PropBlueprint Bench_Destroyed_B { get; } = GetDefinition<PropBlueprint>("Bench_Destroyed_B", "704644666ad87b64aa1b67ef9748d200");
+            public static PropBlueprint Bench_Destroyed_C { get; } = GetDefinition<PropBlueprint>("Bench_Destroyed_C", "4aaae9296a682e3438362b02ea700d31");
+            public static PropBlueprint Bench_Destroyed_D { get; } = GetDefinition<PropBlueprint>("Bench_Destroyed_D", "69a0ca86da91ec24490696a667543f33");
             public static PropBlueprint BigColumn_Bottom { get; } = GetDefinition<PropBlueprint>("BigColumn_Bottom", "e00a70d434bf5c640bf4c8c94242e352");
             public static PropBlueprint Birdcage { get; } = GetDefinition<PropBlueprint>("Birdcage", "9cda86a538dc26642a03a9493296bc9e");
             public static PropBlueprint Block_A { get; } = GetDefinition<PropBlueprint>("Block_A", "cf7a83f12a794294cb5d18a333825c5a");
             public static PropBlueprint Block_B { get; } = GetDefinition<PropBlueprint>("Block_B", "3bdbd64a265c073478b5d207babc163a");
             public static PropBlueprint Block_D { get; } = GetDefinition<PropBlueprint>("Block_D", "41a584a4bda7ad243a8dc3e43d8bbeb7");
+            public static PropBlueprint BlockRocks_A { get; } = GetDefinition<PropBlueprint>("BlockRocks_A", "ff2293ae9e886fb468ca3cfca83daf5f");
+            public static PropBlueprint BlockRocks_B { get; } = GetDefinition<PropBlueprint>("BlockRocks_B", "b2b4e764d9012ca4d922eec4112ace3a");
+            public static PropBlueprint BlockRocks_C { get; } = GetDefinition<PropBlueprint>("BlockRocks_C", "09a4f5d14c72bf544b82b65e968af6fc");
             public static PropBlueprint Boat_A { get; } = GetDefinition<PropBlueprint>("Boat_A", "aaa820663a01e3b4ba807306cafa6424");
             public static PropBlueprint Boat_B { get; } = GetDefinition<PropBlueprint>("Boat_B", "fc57cf85f3f59f3429d10e74bc442969");
             public static PropBlueprint Bookshelf_A { get; } = GetDefinition<PropBlueprint>("Bookshelf_A", "1f9bcb763bcdce343a9bf6b140e7ac6d");
@@ -8355,8 +8450,14 @@ namespace SolastaModApi
             public static PropBlueprint Corpse_A { get; } = GetDefinition<PropBlueprint>("Corpse_A", "b313ccc2f26152f419e409eea576564e");
             public static PropBlueprint Corpse_B { get; } = GetDefinition<PropBlueprint>("Corpse_B", "de4d8ee2197f1ab40865d2172597c687");
             public static PropBlueprint Corpse_C { get; } = GetDefinition<PropBlueprint>("Corpse_C", "47b9efbd9020afc4686586a042ddfab3");
-            public static PropBlueprint Corpse_D { get; } = GetDefinition<PropBlueprint>("Corpse_D", "bc0df5085237bbd4788018aabf59e576");
+            public static PropBlueprint Corpse_Cleric_A { get; } = GetDefinition<PropBlueprint>("Corpse_Cleric_A", "9e4dff8362264e34c9b90a658d4b4e55");
+            public static PropBlueprint Corpse_D { get; } = GetDefinition<PropBlueprint>("Corpse_D", "5aeb36091cecf0e4792fe5f9002fc488");
+            public static PropBlueprint Corpse_E { get; } = GetDefinition<PropBlueprint>("Corpse_E", "f31b3b887a5c0474c8184fccbd722f16");
+            public static PropBlueprint Corpse_F { get; } = GetDefinition<PropBlueprint>("Corpse_F", "e4b1a9fde34053d40b65a96371186eac");
+            public static PropBlueprint Corpse_FullPlate_A { get; } = GetDefinition<PropBlueprint>("Corpse_FullPlate_A", "d6f43150b6bd8ed4b9a95d548def87ef");
             public static PropBlueprint Corpse_Pile_A { get; } = GetDefinition<PropBlueprint>("Corpse_Pile_A", "0be065597bb8f0345919cfc68eae3f84");
+            public static PropBlueprint Corpse_ScaleMail_A { get; } = GetDefinition<PropBlueprint>("Corpse_ScaleMail_A", "bbea549218d51e14faca687b3d18785c");
+            public static PropBlueprint Corpse_Sorcerer_A { get; } = GetDefinition<PropBlueprint>("Corpse_Sorcerer_A", "5ab2b68947f166e48a10db29a96cbd4d");
             public static PropBlueprint Couch_A { get; } = GetDefinition<PropBlueprint>("Couch_A", "f3a7662f5feac28409e764a3d2b4a82d");
             public static PropBlueprint Couch_B { get; } = GetDefinition<PropBlueprint>("Couch_B", "9b1dfd98e2ef6384485bb457b1bb260b");
             public static PropBlueprint Couch_C { get; } = GetDefinition<PropBlueprint>("Couch_C", "f7c7150c4764f094d8dfd20eb70e135b");
@@ -8483,6 +8584,8 @@ namespace SolastaModApi
             public static PropBlueprint House_M { get; } = GetDefinition<PropBlueprint>("House_M", "3dbcbd57b6b4c1a4ebf6ef2f7eeab6d4");
             public static PropBlueprint House_N { get; } = GetDefinition<PropBlueprint>("House_N", "b10b3b99cec5ff54b85c218461642a85");
             public static PropBlueprint House_O { get; } = GetDefinition<PropBlueprint>("House_O", "3882e3acb3fa42b49b298ab3cc11bde6");
+            public static PropBlueprint House_P { get; } = GetDefinition<PropBlueprint>("House_P", "0356093f4623af14ea4b0028997691ac");
+            public static PropBlueprint House_Q { get; } = GetDefinition<PropBlueprint>("House_Q", "07ec087836366c3428ee7f8804db8a4b");
             public static PropBlueprint Hut { get; } = GetDefinition<PropBlueprint>("Hut", "262e6ea65495c7a4fad4a2d34de8c596");
             public static PropBlueprint HutWitch { get; } = GetDefinition<PropBlueprint>("HutWitch", "a1f97e50285ecd44d92b6f2cb8347556");
             public static PropBlueprint Information_Board_A { get; } = GetDefinition<PropBlueprint>("Information_Board_A", "0d365330d2e009743a6bf45659be4376");
@@ -8540,6 +8643,8 @@ namespace SolastaModApi
             public static PropBlueprint Mushrooms_A { get; } = GetDefinition<PropBlueprint>("Mushrooms_A", "ff27bbca27740ba498b12249d3d4279c");
             public static PropBlueprint Mushrooms_B { get; } = GetDefinition<PropBlueprint>("Mushrooms_B", "c331e0aa93e50aa47bfa9a715f77a661");
             public static PropBlueprint NestGiant { get; } = GetDefinition<PropBlueprint>("NestGiant", "c1754ebc4c91efb4284777e9f43d428b");
+            public static PropBlueprint NestPeak_A { get; } = GetDefinition<PropBlueprint>("NestPeak_A", "cbd782e0566c9cb418e91e4b394ea9a6");
+            public static PropBlueprint NestPeak_B { get; } = GetDefinition<PropBlueprint>("NestPeak_B", "6b3db1f972751fb4ebad19ad598fce97");
             public static PropBlueprint NightStand_A { get; } = GetDefinition<PropBlueprint>("NightStand_A", "c0563e2069c119f48b672bfa9a91c380");
             public static PropBlueprint NightStand_B { get; } = GetDefinition<PropBlueprint>("NightStand_B", "2f98f766fb5fffb41a4dfc142f32ee38");
             public static PropBlueprint NightStand_C { get; } = GetDefinition<PropBlueprint>("NightStand_C", "5afbc49171573d044be9be4fa8421686");
@@ -8549,6 +8654,9 @@ namespace SolastaModApi
             public static PropBlueprint OldMine_Structure_C { get; } = GetDefinition<PropBlueprint>("OldMine_Structure_C", "b804343f3ac05ab488fa11c0825a5f0f");
             public static PropBlueprint OldMine_Structure_D { get; } = GetDefinition<PropBlueprint>("OldMine_Structure_D", "3cca96469cb631e4d9c252d13b6b9c6f");
             public static PropBlueprint OldMine_Structure_E { get; } = GetDefinition<PropBlueprint>("OldMine_Structure_E", "10b943bbe8149ad49a197a629def8042");
+            public static PropBlueprint Outpost_Ruin_A { get; } = GetDefinition<PropBlueprint>("Outpost_Ruin_A", "181bee7023b6cd14c8789d375ecd3ebe");
+            public static PropBlueprint Outpost_Ruin_B { get; } = GetDefinition<PropBlueprint>("Outpost_Ruin_B", "dabf2f97c7942d74bb5bc94542b27253");
+            public static PropBlueprint Outpost_Ruin_C { get; } = GetDefinition<PropBlueprint>("Outpost_Ruin_C", "1d301d1145b56c542add288c0fce07d4");
             public static PropBlueprint Paint_A { get; } = GetDefinition<PropBlueprint>("Paint_A", "6ae50a65fd794414f9b32b69b088fd01");
             public static PropBlueprint Paint_A_Covered { get; } = GetDefinition<PropBlueprint>("Paint_A_Covered", "57ff1e77f6f29574f871e00384712ba7");
             public static PropBlueprint Paint_B { get; } = GetDefinition<PropBlueprint>("Paint_B", "2e54e3ee97a5f4f4298283a9cbb4ff0d");
@@ -8588,6 +8696,8 @@ namespace SolastaModApi
             public static PropBlueprint Plant_C { get; } = GetDefinition<PropBlueprint>("Plant_C", "8ca427ce9986aa54f9a52641f4f54638");
             public static PropBlueprint Plant_D { get; } = GetDefinition<PropBlueprint>("Plant_D", "2e2ed550afd7a73489052d700058b1b8");
             public static PropBlueprint Plant_E { get; } = GetDefinition<PropBlueprint>("Plant_E", "7eaf9ed9f882d1948971ce6155bd5aef");
+            public static PropBlueprint PrisonFence_Destroyed_A { get; } = GetDefinition<PropBlueprint>("PrisonFence_Destroyed_A", "eb2b5e8ff5ffc934283cdf6b5e477a63");
+            public static PropBlueprint PrisonFence_Destroyed_B { get; } = GetDefinition<PropBlueprint>("PrisonFence_Destroyed_B", "4e43048861b4d0b4bae2727ef9c01cbc");
             public static PropBlueprint PrisonFence_Link { get; } = GetDefinition<PropBlueprint>("PrisonFence_Link", "5d5bfc9e614cf654786009735ee75638");
             public static PropBlueprint PrisonFence_Link_LowGround { get; } = GetDefinition<PropBlueprint>("PrisonFence_Link_LowGround", "67ed2131105b8fe4ca57ca1182c5f6c1");
             public static PropBlueprint PrisonFence_Straight_A { get; } = GetDefinition<PropBlueprint>("PrisonFence_Straight_A", "cdf33f977ec3df841b74f52101c5ed83");
@@ -8630,6 +8740,8 @@ namespace SolastaModApi
             public static PropBlueprint RuinedWall_D { get; } = GetDefinition<PropBlueprint>("RuinedWall_D", "3b0c7a5cda8f608438d60d5763f79ad7");
             public static PropBlueprint RuinedWall_E { get; } = GetDefinition<PropBlueprint>("RuinedWall_E", "21c04bd5730d44949baecaf4fe385ffa");
             public static PropBlueprint RuinedWall_F { get; } = GetDefinition<PropBlueprint>("RuinedWall_F", "6f816cfab5391054bb5119337107ada8");
+            public static PropBlueprint RuneGround_A { get; } = GetDefinition<PropBlueprint>("RuneGround_A", "836debe55e623a0408fc3ba2992ace70");
+            public static PropBlueprint RuneWall_A { get; } = GetDefinition<PropBlueprint>("RuneWall_A", "b15ad3bd355a410469fea78959bc89df");
             public static PropBlueprint Scaffolding_A { get; } = GetDefinition<PropBlueprint>("Scaffolding_A", "0c6f7bd6ed02d044680dee1eed0375a2");
             public static PropBlueprint Scaffolding_B { get; } = GetDefinition<PropBlueprint>("Scaffolding_B", "ec1fa212f4a09c84394ea8f90be968b1");
             public static PropBlueprint Scaffolding_C { get; } = GetDefinition<PropBlueprint>("Scaffolding_C", "83263d9423656e646a32f0cd994ec764");
@@ -8699,6 +8811,10 @@ namespace SolastaModApi
             public static PropBlueprint SpiderEggs_B { get; } = GetDefinition<PropBlueprint>("SpiderEggs_B", "accd404b277c9b743ad08c3abc35ade5");
             public static PropBlueprint SpiderEggs_C { get; } = GetDefinition<PropBlueprint>("SpiderEggs_C", "5a8b9edc854ef4b4185e9500096ec914");
             public static PropBlueprint SpiderEggs_D { get; } = GetDefinition<PropBlueprint>("SpiderEggs_D", "6d52b5a50cff51340a75b0bd4e1f1132");
+            public static PropBlueprint SpiderEggs_E { get; } = GetDefinition<PropBlueprint>("SpiderEggs_E", "0ac8d31b580adc64b89b75709b8d181f");
+            public static PropBlueprint SpiderEggs_F { get; } = GetDefinition<PropBlueprint>("SpiderEggs_F", "da8c55f862926484ba32ba5b660473a3");
+            public static PropBlueprint SpiderEggs_G { get; } = GetDefinition<PropBlueprint>("SpiderEggs_G", "64b09e306f8f7094e985c85dc4529baf");
+            public static PropBlueprint SpiderEggs_H { get; } = GetDefinition<PropBlueprint>("SpiderEggs_H", "517649f14ce845b43abf28f12a5a1458");
             public static PropBlueprint SpiderWebs_A { get; } = GetDefinition<PropBlueprint>("SpiderWebs_A", "bfd9ad26110574f4296ccbba45cd0f38");
             public static PropBlueprint SpiderWebs_B { get; } = GetDefinition<PropBlueprint>("SpiderWebs_B", "c843f456e54d1c24b901293a60d0e7e6");
             public static PropBlueprint SpiderWebs_C { get; } = GetDefinition<PropBlueprint>("SpiderWebs_C", "630ecc6094b97f749a961a8c2343199a");
@@ -8738,6 +8854,8 @@ namespace SolastaModApi
             public static PropBlueprint Stone_D { get; } = GetDefinition<PropBlueprint>("Stone_D", "a5c1b249d830e68448d416cea0c847ea");
             public static PropBlueprint Stone_E { get; } = GetDefinition<PropBlueprint>("Stone_E", "dd29f5cb6d226d44da78a578257a3c09");
             public static PropBlueprint Stone_F { get; } = GetDefinition<PropBlueprint>("Stone_F", "086d70cdab7dfa64c8d499e8a322748a");
+            public static PropBlueprint StoneStairs_A { get; } = GetDefinition<PropBlueprint>("StoneStairs_A", "72a63a4c20ecbbf4dbff4434ea0fba31");
+            public static PropBlueprint StoneStairs_B { get; } = GetDefinition<PropBlueprint>("StoneStairs_B", "aacbe98d58fa1394dab7f4037995f6d1");
             public static PropBlueprint Stool { get; } = GetDefinition<PropBlueprint>("Stool", "4ba5f469ba7952d4aa8c6d2090c84097");
             public static PropBlueprint Stove { get; } = GetDefinition<PropBlueprint>("Stove", "c06019aa17cc88444972072b3b1820bd");
             public static PropBlueprint Straw_A { get; } = GetDefinition<PropBlueprint>("Straw_A", "970ece4f3f8d2e940a67eaab68f42a23");
@@ -8763,6 +8881,9 @@ namespace SolastaModApi
             public static PropBlueprint Table_B { get; } = GetDefinition<PropBlueprint>("Table_B", "c01ef9b18ea404441af020b2b61df492");
             public static PropBlueprint Table_C { get; } = GetDefinition<PropBlueprint>("Table_C", "6c1b9dd4b0d3dbd4cbd1390d4dc1cfe4");
             public static PropBlueprint Table_D { get; } = GetDefinition<PropBlueprint>("Table_D", "ab2377722468dec4fa12c34333ab6e38");
+            public static PropBlueprint Table_E { get; } = GetDefinition<PropBlueprint>("Table_E", "2a876d540f96a7641869521359ae8b97");
+            public static PropBlueprint Table_F { get; } = GetDefinition<PropBlueprint>("Table_F", "af1c55ebe89de0044a0b146b13fca5a2");
+            public static PropBlueprint Table_G { get; } = GetDefinition<PropBlueprint>("Table_G", "a717f3185fc528646acd720b6dd7cd69");
             public static PropBlueprint TableTavern_A { get; } = GetDefinition<PropBlueprint>("TableTavern_A", "c694f9768fdbc714888e78851c0dd880");
             public static PropBlueprint TavernRail_Kit_A { get; } = GetDefinition<PropBlueprint>("TavernRail_Kit_A", "6e77812fae1c59e42a2c2160ed1040dd");
             public static PropBlueprint TavernRailEnd_Kit { get; } = GetDefinition<PropBlueprint>("TavernRailEnd_Kit", "e7ca3264e1d995540a0a55d954f5bcb6");
@@ -8777,7 +8898,10 @@ namespace SolastaModApi
             public static PropBlueprint Thicket_A { get; } = GetDefinition<PropBlueprint>("Thicket_A", "df963b7bd56854a4492cc4fcb0453eba");
             public static PropBlueprint Thicket_B { get; } = GetDefinition<PropBlueprint>("Thicket_B", "a2f115fd4452ab34ca66a09b64eb39fe");
             public static PropBlueprint Thicket_C { get; } = GetDefinition<PropBlueprint>("Thicket_C", "c1353666da159234aaaf31427c46e780");
-            public static PropBlueprint Throne { get; } = GetDefinition<PropBlueprint>("Throne", "b0e29528af4b6f341b4335857be5959d");
+            public static PropBlueprint Throne_A { get; } = GetDefinition<PropBlueprint>("Throne_A", "b0e29528af4b6f341b4335857be5959d");
+            public static PropBlueprint Throne_B { get; } = GetDefinition<PropBlueprint>("Throne_B", "38c3db26b7977324e9f6fe907a55b7a7");
+            public static PropBlueprint Throne_C { get; } = GetDefinition<PropBlueprint>("Throne_C", "2b8a27ec2660eeb438efce2211728f04");
+            public static PropBlueprint Throne_D { get; } = GetDefinition<PropBlueprint>("Throne_D", "27935c94897955547913d6f52422d505");
             public static PropBlueprint Tomb_A { get; } = GetDefinition<PropBlueprint>("Tomb_A", "66edd58df33b8354b87840f7c40e82a6");
             public static PropBlueprint Tomb_B { get; } = GetDefinition<PropBlueprint>("Tomb_B", "8913ab015a0454240952354b56b97553");
             public static PropBlueprint Tomb_C { get; } = GetDefinition<PropBlueprint>("Tomb_C", "a7a78d64b83663d4a923b22ce95ba118");
@@ -8872,6 +8996,7 @@ namespace SolastaModApi
         {
             public static QuestTreeDefinition Abjuration_Quest { get; } = GetDefinition<QuestTreeDefinition>("Abjuration_Quest", "54a381c157bd71c48960f77b9f44bc6f");
             public static QuestTreeDefinition Abjuration_Scenario { get; } = GetDefinition<QuestTreeDefinition>("Abjuration_Scenario", "859354d0d75246844927bbbbc5dbf9d5");
+            public static QuestTreeDefinition Abjuration_WizardTowerHall_CompatibilityScenario { get; } = GetDefinition<QuestTreeDefinition>("Abjuration_WizardTowerHall_CompatibilityScenario", "af45544a62994fc45b54c40cec5e1bf9");
             public static QuestTreeDefinition AcademicMasterDackinCompatibilityScenario { get; } = GetDefinition<QuestTreeDefinition>("AcademicMasterDackinCompatibilityScenario", "bf7408247ae491b4caeec2bf9d99f2d2");
             public static QuestTreeDefinition Aer_Elai_Final_Quest { get; } = GetDefinition<QuestTreeDefinition>("Aer_Elai_Final_Quest", "923c8f6f356f1b34cbed452700978cdd");
             public static QuestTreeDefinition Aer_Elai_Final_Scenario { get; } = GetDefinition<QuestTreeDefinition>("Aer_Elai_Final_Scenario", "c9a4ce85585898f4eb459439c4f69976");
@@ -8937,7 +9062,16 @@ namespace SolastaModApi
             public static QuestTreeDefinition Cradle_Of_Fire_Quest_SandRaven { get; } = GetDefinition<QuestTreeDefinition>("Cradle_Of_Fire_Quest_SandRaven", "d10ed624185aefb44a77863699a851b5");
             public static QuestTreeDefinition Cradle_Of_Fire_Scenario_Evocation { get; } = GetDefinition<QuestTreeDefinition>("Cradle_Of_Fire_Scenario_Evocation", "80e27c11f6e629945a44066c1e8e7d97");
             public static QuestTreeDefinition CrownCompatibilityScenario_EA_0_4_0 { get; } = GetDefinition<QuestTreeDefinition>("CrownCompatibilityScenario_EA_0.4.0", "c621e49ce011e254bb61d8688764edbf");
+            public static QuestTreeDefinition DLC1_Forge07_FailRebellionQuests_CompatibilityScenario { get; } = GetDefinition<QuestTreeDefinition>("DLC1_Forge07_FailRebellionQuests_CompatibilityScenario", "f7140f46a694dda468cf7d23b16ae454");
+            public static QuestTreeDefinition DLC1_Lost_Valley_CityExit_CompatibilityScenario { get; } = GetDefinition<QuestTreeDefinition>("DLC1_Lost_Valley_CityExit_CompatibilityScenario", "b7ec267ac5e81014f9352fe4fcc5b6b7");
+            public static QuestTreeDefinition DLC1_Lost_Valley_GiveScepterIfAlreadyAfterDominionEnd { get; } = GetDefinition<QuestTreeDefinition>("DLC1_Lost_Valley_GiveScepterIfAlreadyAfterDominionEnd", "b34064b14708e0f47ae2a7c851e5e56b");
+            public static QuestTreeDefinition DLC1_Lost_Valley_MarinDeadButNot_CompatibilityScenario { get; } = GetDefinition<QuestTreeDefinition>("DLC1_Lost_Valley_MarinDeadButNot_CompatibilityScenario", "cf4ad3d0b4f345a4480805e57607c07a");
+            public static QuestTreeDefinition DLC1_Lost_Valley_Quest_Giant_05_Rugan_CompatibilityScenario { get; } = GetDefinition<QuestTreeDefinition>("DLC1_Lost_Valley_Quest_Giant_05_Rugan_CompatibilityScenario", "6b7d517243afd64469b97f4ee213b850");
+            public static QuestTreeDefinition DLC1_Orenetis09_SpawnPeriphanos_CompatibilityScenario { get; } = GetDefinition<QuestTreeDefinition>("DLC1_Orenetis09_SpawnPeriphanos_CompatibilityScenario", "27bb425f7f3c5ef408a3367117dddec1");
             public static QuestTreeDefinition DLC1_Outpost_Control_Scenario { get; } = GetDefinition<QuestTreeDefinition>("DLC1_Outpost_Control_Scenario", "1c2c0e27ac11906478279a9c3bfcdbbe");
+            public static QuestTreeDefinition DLC1_People08_Prisoners_CompatibilityScenario { get; } = GetDefinition<QuestTreeDefinition>("DLC1_People08_Prisoners_CompatibilityScenario", "7406fa0ef2643ad4281128cd7e0d5b1a");
+            public static QuestTreeDefinition DLC1_People08_SiteneroDead_CompatibilityScenario { get; } = GetDefinition<QuestTreeDefinition>("DLC1_People08_SiteneroDead_CompatibilityScenario", "456d7ed66539b184c9a7bbc778ebaaac");
+            public static QuestTreeDefinition DLC1_People08_SiteneroSpared_CompatibilityScenario { get; } = GetDefinition<QuestTreeDefinition>("DLC1_People08_SiteneroSpared_CompatibilityScenario", "08cfde1990e414545bd53da674d15af5");
             public static QuestTreeDefinition DLC1_Quest_Backup_PLAN_B { get; } = GetDefinition<QuestTreeDefinition>("DLC1_Quest_Backup_PLAN_B", "35906febf9745fd4795a705aed73fe3c");
             public static QuestTreeDefinition DLC1_Quest_Backup_PLAN_C { get; } = GetDefinition<QuestTreeDefinition>("DLC1_Quest_Backup_PLAN_C", "1a6064b6ea1bc614e971c4090fbd924c");
             public static QuestTreeDefinition DLC1_Quest_Complex { get; } = GetDefinition<QuestTreeDefinition>("DLC1_Quest_Complex", "009630daccec1d34cb72ebdf68160a73");
@@ -8951,6 +9085,9 @@ namespace SolastaModApi
             public static QuestTreeDefinition DLC1_Quest_MysteriousPalace { get; } = GetDefinition<QuestTreeDefinition>("DLC1_Quest_MysteriousPalace", "19d7080d00134cd468dee949096d05b5");
             public static QuestTreeDefinition DLC1_Quest_Secondary_FindNestKey { get; } = GetDefinition<QuestTreeDefinition>("DLC1_Quest_Secondary_FindNestKey", "389da2b6e8b88f74cb8b94450e8aac13");
             public static QuestTreeDefinition DLC1_Quest_Valley { get; } = GetDefinition<QuestTreeDefinition>("DLC1_Quest_Valley", "73e17fa022bd87042865e93867b4e3b3");
+            public static QuestTreeDefinition DLC1_Rebellion03_Charmer_CompatibilityScenario { get; } = GetDefinition<QuestTreeDefinition>("DLC1_Rebellion03_Charmer_CompatibilityScenario", "e24d174c6a8b9e244b9f518e8a251daf");
+            public static QuestTreeDefinition DLC1_Rebellion03_Charmer_ForgeUnavailable_CompatibilityScenario { get; } = GetDefinition<QuestTreeDefinition>("DLC1_Rebellion03_Charmer_ForgeUnavailable_CompatibilityScenario", "59683aa1c1081864b8a333bdbceda01c");
+            public static QuestTreeDefinition DLC1_Rebellion06_ReportToEllaria_Wait24h_CompatibilityScenario { get; } = GetDefinition<QuestTreeDefinition>("DLC1_Rebellion06_ReportToEllaria_Wait24h_CompatibilityScenario", "c7e4a7e5ff42e85468848cdd15df2028");
             public static QuestTreeDefinition DLC1_Scenario_Buried_City { get; } = GetDefinition<QuestTreeDefinition>("DLC1_Scenario_Buried_City", "a85f30c2fb872b649b3cb068d52a75d6");
             public static QuestTreeDefinition DLC1_Scenario_Campaign { get; } = GetDefinition<QuestTreeDefinition>("DLC1_Scenario_Campaign", "b2d5a840d78eef64b832f910d64b5394");
             public static QuestTreeDefinition DLC1_Scenario_Campaign_Backup_PLAN { get; } = GetDefinition<QuestTreeDefinition>("DLC1_Scenario_Campaign_Backup_PLAN", "0ec7a32aa216a9f4c8db9d786543f4d4");
@@ -9101,6 +9238,9 @@ namespace SolastaModApi
             public static QuestTreeDefinition DLC1_SUB_Scenario_Valley_Mask_01 { get; } = GetDefinition<QuestTreeDefinition>("DLC1_SUB_Scenario_Valley_Mask_01", "466423b364fe32941bd49b05f535b7e5");
             public static QuestTreeDefinition DLC1_SUB_Scenario_Valley_Mask_02 { get; } = GetDefinition<QuestTreeDefinition>("DLC1_SUB_Scenario_Valley_Mask_02", "7be142e222434a34aba924fbd9e8620e");
             public static QuestTreeDefinition DLC1_SUB_Scenario_Valley_Mask_03 { get; } = GetDefinition<QuestTreeDefinition>("DLC1_SUB_Scenario_Valley_Mask_03", "2bc1aac9674f71c478b54d960c598294");
+            public static QuestTreeDefinition DLC3_GallivanBorder_Scenario { get; } = GetDefinition<QuestTreeDefinition>("DLC3_GallivanBorder_Scenario", "e72a2fc8b01573441852237a52f95ad1");
+            public static QuestTreeDefinition DLC3_Quest_HumanClans_01_Quest { get; } = GetDefinition<QuestTreeDefinition>("DLC3_Quest_HumanClans_01_Quest", "0715d4aa8970d73419e778b61f80e097");
+            public static QuestTreeDefinition DLC3_Quest_HumanClans_01_Scenario { get; } = GetDefinition<QuestTreeDefinition>("DLC3_Quest_HumanClans_01_Scenario", "c6da4de7a360d16489618f5d16c57bb4");
             public static QuestTreeDefinition EncounterLibrary_Scenario { get; } = GetDefinition<QuestTreeDefinition>("EncounterLibrary_Scenario", "2f4b7d610c3624b4eb5e4e1e2720a2c2");
             public static QuestTreeDefinition KillRazanCompatibilityScenario { get; } = GetDefinition<QuestTreeDefinition>("KillRazanCompatibilityScenario", "ffff9a0093f427840a038d8275ec4337");
             public static QuestTreeDefinition LegendaryQuest_Quest { get; } = GetDefinition<QuestTreeDefinition>("LegendaryQuest_Quest", "e8e41ca868d17204fbf841906e2d063c");
@@ -9150,6 +9290,7 @@ namespace SolastaModApi
             public static QuestTreeDefinition Quest_Background_Spy_Scenario { get; } = GetDefinition<QuestTreeDefinition>("Quest_Background_Spy_Scenario", "0fc0e6e549dd822479a5f1081aafd4ed");
             public static QuestTreeDefinition Quest_Background_Wanderer_Quest { get; } = GetDefinition<QuestTreeDefinition>("Quest_Background_Wanderer_Quest", "e19eae0d8d95fe44aba84ac0ac532b4f");
             public static QuestTreeDefinition Quest_Background_Wanderer_Scenario { get; } = GetDefinition<QuestTreeDefinition>("Quest_Background_Wanderer_Scenario", "e37dff61a5727ba4c8d79d8783038bb6");
+            public static QuestTreeDefinition Rebellion10_TalkToRenno_CompatibilityScenario { get; } = GetDefinition<QuestTreeDefinition>("Rebellion10_TalkToRenno_CompatibilityScenario", "d587ef3ebd0bbb045a7ff8b179de8d43");
             public static QuestTreeDefinition RodricHideoutEntranceCompatibilityScenario { get; } = GetDefinition<QuestTreeDefinition>("RodricHideoutEntranceCompatibilityScenario", "def29e1b4bfd2a340987f794dbf413f3");
             public static QuestTreeDefinition ScavengerCompatibilityScenario_EA_0_4_0 { get; } = GetDefinition<QuestTreeDefinition>("ScavengerCompatibilityScenario_EA_0.4.0", "b8eb90017694be944af07554dc427388");
             public static QuestTreeDefinition Secondary_KillRazan_Quest { get; } = GetDefinition<QuestTreeDefinition>("Secondary_KillRazan_Quest", "568dc0243d24485499fa351a98f6241a");
@@ -9829,7 +9970,6 @@ namespace SolastaModApi
             public static SpellDefinition RayOfFrost { get; } = GetDefinition<SpellDefinition>("RayOfFrost", "637a3697f05a4614e8200abfa5daaaff");
             public static SpellDefinition RemoveCurse { get; } = GetDefinition<SpellDefinition>("RemoveCurse", "ecabaf5104767c04b9a6549866fccfa0");
             public static SpellDefinition Resistance { get; } = GetDefinition<SpellDefinition>("Resistance", "384dce9da39ad4e4b82106fa7829c17c");
-            public static SpellDefinition Resurrection { get; } = GetDefinition<SpellDefinition>("Resurrection", "f796a243f664c73409cca137f137f5f3");
             public static SpellDefinition Revivify { get; } = GetDefinition<SpellDefinition>("Revivify", "16e7fb95186cf9b41806d15fbacd81af");
             public static SpellDefinition SacredFlame { get; } = GetDefinition<SpellDefinition>("SacredFlame", "e49182bcdd6632e428a185bd55ef8355");
             public static SpellDefinition SacredFlame_B { get; } = GetDefinition<SpellDefinition>("SacredFlame_B", "6e2fce5f13d308d4e9913485371243f8");
@@ -9881,6 +10021,7 @@ namespace SolastaModApi
             public static SpellListDefinition SpellList_DLC1_Dominion_Arcanist { get; } = GetDefinition<SpellListDefinition>("SpellList_DLC1_Dominion_Arcanist", "e950202750cf03346b0d2c8b4e6a8ed7");
             public static SpellListDefinition SpellList_DLC1_Forge_Druid { get; } = GetDefinition<SpellListDefinition>("SpellList_DLC1_Forge_Druid", "7298740ff49100f43b3279cc44c77f06");
             public static SpellListDefinition SpellList_DLC1_ManaScientist { get; } = GetDefinition<SpellListDefinition>("SpellList_DLC1_ManaScientist", "21c33a207bc700e4f8bcc8dbce26629f");
+            public static SpellListDefinition SpellList_DLC3_Vigdis { get; } = GetDefinition<SpellListDefinition>("SpellList_DLC3_Vigdis", "03f278de68da2de44a74e88136907a34");
             public static SpellListDefinition SpellListAcolyte { get; } = GetDefinition<SpellListDefinition>("SpellListAcolyte", "9964a66ce613d19499678d162a677958");
             public static SpellListDefinition SpellListAdria { get; } = GetDefinition<SpellListDefinition>("SpellListAdria", "53e0069ec0ad5494d82114a3fa52bf22");
             public static SpellListDefinition SpellListArrok { get; } = GetDefinition<SpellListDefinition>("SpellListArrok", "22bab6e37b010ca4d942582682c32888");
@@ -10064,6 +10205,7 @@ namespace SolastaModApi
             public static TA.AI.DecisionPackageDefinition BroodCombatDecisions { get; } = GetDefinition<TA.AI.DecisionPackageDefinition>("BroodCombatDecisions", "8beec440e823490458a7667a59e0b600");
             public static TA.AI.DecisionPackageDefinition BuletteCombatDecisions { get; } = GetDefinition<TA.AI.DecisionPackageDefinition>("BuletteCombatDecisions", "82635a83299943d99a1ad2e4dc745021");
             public static TA.AI.DecisionPackageDefinition CasterCombatDecisions { get; } = GetDefinition<TA.AI.DecisionPackageDefinition>("CasterCombatDecisions", "a8306539d792bbd408f6a6151b5b443a");
+            public static TA.AI.DecisionPackageDefinition ClayGolemDecisions { get; } = GetDefinition<TA.AI.DecisionPackageDefinition>("ClayGolemDecisions", "4f1b82dde8d453545bb30ace7a1aa4c3");
             public static TA.AI.DecisionPackageDefinition ClericCombatDecisions { get; } = GetDefinition<TA.AI.DecisionPackageDefinition>("ClericCombatDecisions", "d5ceea03da8e7be4c86e2c1e37dda354");
             public static TA.AI.DecisionPackageDefinition Confused_Attack { get; } = GetDefinition<TA.AI.DecisionPackageDefinition>("Confused_Attack", "6a5baea55ca7cb64bb3d4182a21e1c80");
             public static TA.AI.DecisionPackageDefinition Confused_Move { get; } = GetDefinition<TA.AI.DecisionPackageDefinition>("Confused_Move", "c9293092e66a5284f869f672459dcbed");
@@ -10167,6 +10309,7 @@ namespace SolastaModApi
             public static TA.AI.DecisionPackageDefinition SpiderCombatDecisions { get; } = GetDefinition<TA.AI.DecisionPackageDefinition>("SpiderCombatDecisions", "b3913200013ac2a4e8412c21e90e0e0f");
             public static TA.AI.DecisionPackageDefinition SpiderQueenCombatDecisions { get; } = GetDefinition<TA.AI.DecisionPackageDefinition>("SpiderQueenCombatDecisions", "dde53044e1938844cba6941c1efde4c7");
             public static TA.AI.DecisionPackageDefinition StaticDragonCombatDecisions { get; } = GetDefinition<TA.AI.DecisionPackageDefinition>("StaticDragonCombatDecisions", "c249bc054708f3440ad1ad97699537b2");
+            public static TA.AI.DecisionPackageDefinition StoneGolemDecisions { get; } = GetDefinition<TA.AI.DecisionPackageDefinition>("StoneGolemDecisions", "0e238f38976b8b849ad28cc2cd420bd9");
             public static TA.AI.DecisionPackageDefinition SwampHagCombatDecisions { get; } = GetDefinition<TA.AI.DecisionPackageDefinition>("SwampHagCombatDecisions", "5d91328282700194fb5d34d0e64dd0e9");
             public static TA.AI.DecisionPackageDefinition TurnUndead { get; } = GetDefinition<TA.AI.DecisionPackageDefinition>("TurnUndead", "6a2eeece52411df40a1d70734888a5fa");
             public static TA.AI.DecisionPackageDefinition WightCombatDecisions { get; } = GetDefinition<TA.AI.DecisionPackageDefinition>("WightCombatDecisions", "2784384873f468547a2261b4496b2d45");
@@ -10404,6 +10547,7 @@ namespace SolastaModApi
             public static TutorialStepDefinition Tutorial_T5_LocationMap_2 { get; } = GetDefinition<TutorialStepDefinition>("Tutorial_T5_LocationMap_2", "5b840a51ba79f8c4aaee6bfbf52236d3");
             public static TutorialStepDefinition Tutorial_T5_Merchants { get; } = GetDefinition<TutorialStepDefinition>("Tutorial_T5_Merchants", "2d51bed29bbe0bd4eac911c7df4e4e3c");
             public static TutorialStepDefinition Tutorial_T5_PartyStash { get; } = GetDefinition<TutorialStepDefinition>("Tutorial_T5_PartyStash", "2a38c6b2ec92b634fb64b5bfa86d9aee");
+            public static TutorialStepDefinition Tutorial_T5_PartyStash_DLC3 { get; } = GetDefinition<TutorialStepDefinition>("Tutorial_T5_PartyStash_DLC3", "fa6f14a07ffc1fa4a85d11032aae058c");
             public static TutorialStepDefinition Tutorial_T5_QuickShop { get; } = GetDefinition<TutorialStepDefinition>("Tutorial_T5_QuickShop", "8595de23741f69741945d209d33ca698");
             public static TutorialStepDefinition Tutorial_T6_CameraElevation { get; } = GetDefinition<TutorialStepDefinition>("Tutorial_T6_CameraElevation", "c2e760a4b9dfd8647adfdd8eeac20894");
             public static TutorialStepDefinition Tutorial_T6_CampaignMap { get; } = GetDefinition<TutorialStepDefinition>("Tutorial_T6_CampaignMap", "641e51124ec8aa841a11d5087600aced");

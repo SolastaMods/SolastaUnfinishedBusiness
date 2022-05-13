@@ -19,7 +19,6 @@ namespace SolastaCommunityExpansion
         internal static bool Enabled { get; set; }
         internal static bool IsDebugBuild = UnityEngine.Debug.isDebugBuild;
         internal static bool IsMonstersInstalled = File.Exists(Path.Combine(MOD_FOLDER, MonstersFilename));
-        internal static bool IsMulticlassInstalled = File.Exists(Path.Combine(MOD_FOLDER, McFilename));
 
         // need to be public for MC sidecar
         [Conditional("DEBUG")]
@@ -101,7 +100,7 @@ namespace SolastaCommunityExpansion
 
                 if (filename.StartsWith(currentAssemblyName) 
                     || (filename == MonstersFilename && !Settings.EnableExtraHighLevelMonsters)
-                    || (filename == McFilename && !Settings.EnableMulticlass))
+                    || (filename == McFilename))
                 {
                     continue;
                 }

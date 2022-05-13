@@ -4,34 +4,7 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.CustomDefinitions
 {
-    public interface ICustomMagicEffectBasedOnCaster
-    {
-        EffectDescription GetCustomEffect(RulesetCharacter caster);
-    }
-
-    public interface IModifySpellEffect
-    {
-        EffectDescription ModifyEffect(RulesetEffectSpell spell, EffectDescription effect);
-    }
-
-    public interface ISpellWithCustomFeatures
-    {
-        List<object> CustomFeatures { get; }
-
-        public IEnumerable<T> GetTypedFeatures<T>() where T: class;
-    }
-
-    public class SpellWithCustomFeatures : SpellDefinition, ISpellWithCustomFeatures
-    {
-        public List<object> CustomFeatures { get; } = new();
-
-        public IEnumerable<T> GetTypedFeatures<T>() where T : class
-        {
-            return CustomFeatures.Select(f => f as T);
-        }
-    }
-
-    public class SpellWithCasterFeatureDependentEffects : SpellWithCustomFeatures, ICustomMagicEffectBasedOnCaster
+    public class SpellDefinitionWithDependentEffects : SpellDefinition, ICustomMagicEffectBasedOnCaster
     {
         private readonly List<(List<FeatureDefinition>, EffectDescription)> _featuresEffectList = new();
 
@@ -66,4 +39,24 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             return _spellModifier != null ? _spellModifier(spell, effect) : effect;
         }
     }
+    internal class UpgradeEffectFromLevel : ICustomMagicEffectBasedOnCaster
+    {
+        private readonly EffectDescription _upgraded;
+        private readonly int _level;
+
+        public UpgradeEffectFromLevel(EffectDescription upgraded, int level)
+        {
+            _upgraded = upgraded;
+            _level = level;
+        }
+
+        public EffectDescription GetCustomEffect(RulesetCharacter caster)
+        {
+            var casterLevel = caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+            if (casterLevel < _level) { return null; }
+
+            return _upgraded;
+        }
+    }
+    
 }

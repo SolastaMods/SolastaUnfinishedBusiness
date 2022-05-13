@@ -1,0 +1,33 @@
+{
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFreeBonusCantripsWithPrerequisites, SolastaCommunityExpansion",
+  "bonusCantrips": [
+    "Definition:EldritchBlastRepellingBlast:919c97d2-986c-53e5-a614-237c6d10aeb5"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&EldritchBlastRepellingBlastBonusCantripTitle",
+    "description": "Feature/&EldritchBlastRepellingBlastBonusCantripDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "35490916765a5897bb889794adc7f7e3",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "f7873672-9677-55e7-8cc4-8c04d3e9006c",
+  "contentPack": 9999,
+  "name": "EldritchBlastRepellingBlastBonusCantrip"
+}

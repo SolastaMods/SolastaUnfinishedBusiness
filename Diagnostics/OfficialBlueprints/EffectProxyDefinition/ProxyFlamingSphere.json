@@ -4,13 +4,17 @@
   "canRotate": true,
   "canMoveOnCharacters": false,
   "canAttack": true,
+  "canTriggerPower": false,
+  "autoTerminateOnTriggerPower": false,
   "actionId": "ProxyFlamingSphere",
   "freeActionId": "NoAction",
   "attackMethod": "ReproduceDamageForms",
   "firstAttackIsFree": false,
   "constrainedToSpellArea": false,
   "damageDie": "D8",
+  "damageDieNum": 1,
   "damageType": "DamageRadiant",
+  "addAbilityToDamage": false,
   "attackPower": null,
   "impactsPlacement": false,
   "additionalFeatures": [
@@ -25,7 +29,7 @@
   },
   "attackImpactParticle": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "0337980aa6d17aa499baa006ca4dea96",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },

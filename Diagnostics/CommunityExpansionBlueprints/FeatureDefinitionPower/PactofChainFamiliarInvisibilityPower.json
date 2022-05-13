@@ -2,18 +2,18 @@
   "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Touch",
-    "rangeParameter": 0,
+    "rangeType": "Self",
+    "rangeParameter": 1,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "IndividualsUnique",
-    "itemSelectionType": "Equiped",
+    "targetType": "Self",
+    "itemSelectionType": "None",
     "targetParameter": 1,
-    "targetParameter2": 2,
+    "targetParameter2": 1,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
-    "targetProximityDistance": 30,
+    "targetProximityDistance": 6,
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
     "targetFilteringMethod": "AllCharacterAndGadgets",
@@ -30,8 +30,8 @@
     "targetConditionName": "",
     "targetConditionAsset": null,
     "targetSide": "Ally",
-    "durationType": "Hour",
-    "durationParameter": 1,
+    "durationType": "Permanent",
+    "durationParameter": 0,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
@@ -39,7 +39,7 @@
     "ignoreCover": false,
     "grantedConditionOnSave": null,
     "hasShoveRoll": false,
-    "createdByCharacter": true,
+    "createdByCharacter": false,
     "difficultyClassComputation": "SpellCastingFeature",
     "savingThrowDifficultyAbility": "Wisdom",
     "fixedSavingThrowDifficultyClass": 15,
@@ -55,6 +55,8 @@
     "restrictedCharacterSizes": [],
     "hasLimitedEffectPool": false,
     "effectPoolAmount": 60,
+    "effectApplication": "All",
+    "effectFormFilters": [],
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
@@ -63,7 +65,7 @@
         "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
-        "createdByCharacter": true,
+        "createdByCharacter": false,
         "createdByCondition": false,
         "hasSavingThrow": false,
         "savingThrowAffinity": "None",
@@ -72,20 +74,25 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionInvisible",
-          "conditionDefinition": "Definition:ConditionInvisible:6fff2284783105e4fa9793d4bf8afa3f",
+          "conditionDefinitionName": "PactofChainFamiliarInvisibilityCondition",
+          "conditionDefinition": "Definition:PactofChainFamiliarInvisibilityCondition:ff0c8b2c-d5ce-55f7-aa96-e0aecbdef096",
           "operation": "Add",
-          "conditionsList": [],
+          "conditionsList": [
+            "Definition:PactofChainFamiliarInvisibilityCondition:ff0c8b2c-d5ce-55f7-aa96-e0aecbdef096"
+          ],
           "applyToSelf": false,
           "forceOnSelf": false
-        }
+        },
+        "hasFilterId": false,
+        "filterId": 0
       }
     ],
+    "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
-      "effectIncrementMethod": "PerAdditionalSlotLevel",
+      "effectIncrementMethod": "None",
       "incrementMultiplier": 1,
-      "additionalTargetsPerIncrement": 1,
+      "additionalTargetsPerIncrement": 0,
       "additionalSubtargetsPerIncrement": 0,
       "additionalDicePerIncrement": 0,
       "additionalSpellLevelPerIncrement": 0,
@@ -106,13 +113,13 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "a56cb8792645db5478ef288ba5d692d6",
+        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "casterSelfParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "b47f2e2f5757dff47a392712be9c2925",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -228,7 +235,7 @@
       },
       "conditionStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "18358f685aa889543b2d6d68c78f1b96",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -240,7 +247,7 @@
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "b04ebd84a933a19499efab399f1c25a6",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -258,9 +265,9 @@
     "effectAIParameters": {
       "$type": "EffectAIParameters, Assembly-CSharp",
       "aoeScoreMultiplier": 1.0,
-      "cooldownForCaster": 3,
+      "cooldownForCaster": 0,
       "cooldownForBattle": 0,
-      "dynamicCooldown": true
+      "dynamicCooldown": false
     },
     "animationMagicEffect": "Animation0"
   },
@@ -275,18 +282,18 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "rechargeRate": "AtWill",
-  "costPerUse": 1,
+  "costPerUse": 0,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Charisma",
   "fixedUsesPerRecharge": 1,
-  "abilityScore": "Charisma",
+  "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
-  "uniqueInstance": true,
+  "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",
   "overriddenPower": null,
@@ -295,8 +302,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&InvisibilityTitle",
-    "description": "Spell/&InvisibilityDescription",
+    "title": "Power/&PactofChainFamiliarInvisibilityPowerTitle",
+    "description": "Power/&PactofChainFamiliarInvisibilityPowerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "75e87f6e6651cc040afcc690e549c073",

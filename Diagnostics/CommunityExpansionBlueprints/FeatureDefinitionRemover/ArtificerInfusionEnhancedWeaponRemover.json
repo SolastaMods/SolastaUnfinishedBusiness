@@ -1,0 +1,30 @@
+{
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionRemover, SolastaCommunityExpansion",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&AttackModifierArtificerEnhancedWeaponTitle",
+    "description": "Subclass/&AttackModifierArtificerEnhancedWeaponDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "255fdc99aafc8044fb31353f8a5e61e1",
+      "m_SubObjectName": "LightningBlade",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "3d538d10-0abe-5836-ba16-06c0616ce489",
+  "contentPack": 9999,
+  "name": "ArtificerInfusionEnhancedWeaponRemover"
+}

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SolastaCommunityExpansion;
 
 namespace SolastaModApi.Extensions
 {
@@ -28,12 +29,23 @@ namespace SolastaModApi.Extensions
 
             return list
                 .Select(s => s as T)
+                .Where(f => f != null)
                 .ToList();
         }
         
         public static List<T> GetFeaturesByType<T>(this RulesetActor actor) where T : class
         {
             return FeaturesByType<T>(actor);
+        }
+
+        public static List<T> GetFeaturesByTypeAndTag<T>(this RulesetCharacterHero hero, string tag) where T : class
+        {
+            return hero.ActiveFeatures
+                .Where(e => e.Key.Contains(tag))
+                .SelectMany(e => e.Value)
+                .Select(f => f as T)
+                .Where(f => f != null)
+                .ToList();
         }
 
         public static bool HasAnyFeature(this RulesetActor actor, params FeatureDefinition[] features)
@@ -48,14 +60,21 @@ namespace SolastaModApi.Extensions
         
         public static bool HasAllFeatures(this RulesetActor actor, params FeatureDefinition[] features)
         {
-            var all = FeaturesByType<FeatureDefinition>(actor);
-            return features.All(f => all.Contains(f));
+            return HasAllFeatures(actor, features.ToList());
         }
         
         public static bool HasAllFeatures(this RulesetActor actor, IEnumerable<FeatureDefinition> features)
         {
             var all = FeaturesByType<FeatureDefinition>(actor);
-            return features.All(f => all.Contains(f));
+            return FlattenFeatureList(features).All(f => all.Contains(f));
+        }
+
+        public static IEnumerable<FeatureDefinition> FlattenFeatureList(IEnumerable<FeatureDefinition> features)
+        {
+            //TODO: should we add FeatureDefinitionFeatureSetCustom flattening too?
+            return features.SelectMany(f => f is FeatureDefinitionFeatureSet set
+                ? FlattenFeatureList(set.FeatureSet)
+                : new List<FeatureDefinition>() {f});
         }
     }
 }

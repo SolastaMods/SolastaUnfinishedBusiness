@@ -128,9 +128,9 @@
         "b": 0.108490586,
         "a": 1.0
       },
-      "globalSunIntensity": 1.6,
+      "globalSunIntensity": 2.0,
       "sunDirection": -90.0,
-      "sunTilt": 0.01,
+      "sunTilt": 29.5,
       "moonLightColor": {
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.2733179,

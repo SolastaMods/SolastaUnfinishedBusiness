@@ -156,12 +156,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:WitchFeatureSetMaledictions:894fd263-01fa-56f1-a3ad-0c1f16d3c8d5",
+      "featureDefinition": "Definition:WitchMaledictionChoice:5a533036-e190-51c9-a2f6-41a98ec542d7",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:WitchFeatureSetMaledictions:894fd263-01fa-56f1-a3ad-0c1f16d3c8d5",
+      "featureDefinition": "Definition:WitchMaledictionChoice:5a533036-e190-51c9-a2f6-41a98ec542d7",
       "level": 1
     },
     {
@@ -171,7 +171,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:WitchFeatureSetWitchCurse:457b14bb-e726-563c-8311-514c1401cb41",
+      "featureDefinition": "Definition:WitchCurseChoice:c3db88af-d7e0-524c-b75e-76880164d312",
       "level": 1
     },
     {
@@ -216,7 +216,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:WitchFeatureSetMaledictions:894fd263-01fa-56f1-a3ad-0c1f16d3c8d5",
+      "featureDefinition": "Definition:WitchMaledictionChoice:5a533036-e190-51c9-a2f6-41a98ec542d7",
       "level": 2
     },
     {
@@ -231,7 +231,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:WitchFeatureSetMaledictions:894fd263-01fa-56f1-a3ad-0c1f16d3c8d5",
+      "featureDefinition": "Definition:WitchMaledictionChoice:5a533036-e190-51c9-a2f6-41a98ec542d7",
       "level": 5
     },
     {
@@ -241,7 +241,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:WitchFeatureSetMaledictions:894fd263-01fa-56f1-a3ad-0c1f16d3c8d5",
+      "featureDefinition": "Definition:WitchMaledictionChoice:5a533036-e190-51c9-a2f6-41a98ec542d7",
       "level": 9
     },
     {
@@ -251,7 +251,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:WitchFeatureSetMaledictions:894fd263-01fa-56f1-a3ad-0c1f16d3c8d5",
+      "featureDefinition": "Definition:WitchMaledictionChoice:5a533036-e190-51c9-a2f6-41a98ec542d7",
       "level": 13
     },
     {
@@ -261,7 +261,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:WitchFeatureSetMaledictions:894fd263-01fa-56f1-a3ad-0c1f16d3c8d5",
+      "featureDefinition": "Definition:WitchMaledictionChoice:5a533036-e190-51c9-a2f6-41a98ec542d7",
       "level": 17
     },
     {

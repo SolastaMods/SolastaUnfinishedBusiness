@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using SolastaModApi;
 using SolastaCommunityExpansion.Builders;
 using UnityEngine;
 using SolastaModApi.Extensions;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Features
 {
@@ -65,61 +67,71 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
             // maybe could be merged with the witchs find familiar
 
-            WarlockPactOfTheChainSummons.PactofChainFamiliarAuraOfSpellResistence();
+            //Warlock's familiar's don't scale but get one-time bonuses when Chain Master invocation is selected
+            // Definition.FeatureSet.Add(WarlockPactOfTheChainSummons.buildSummoningAffinity());
+            
             WarlockPactOfTheChainSummons.buildPactofChainFamiliarInvisibilityPower();
-            WarlockPactOfTheChainSummons.buildCustomPseudodragon();
-            WarlockPactOfTheChainSummons.buildCustomSprite();
-            WarlockPactOfTheChainSummons.buildCustomImp();
-            WarlockPactOfTheChainSummons.buildCustomQuasit();
+            WarlockPactOfTheChainSummons.buildPactofChainFamiliarScarePower();
+            var pseudodragon = WarlockPactOfTheChainSummons.buildCustomPseudodragon();
+            var sprite = WarlockPactOfTheChainSummons.buildCustomSprite();
+            var imp = WarlockPactOfTheChainSummons.buildCustomImp();
+            var quasit = WarlockPactOfTheChainSummons.buildCustomQuasit();
 
 
-            EffectDescriptionBuilder effectDescriptionPseudodragon = new EffectDescriptionBuilder();
-            effectDescriptionPseudodragon.SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
-            effectDescriptionPseudodragon.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
-            effectDescriptionPseudodragon.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, WarlockPactOfTheChainSummons.PactChainPseudodragon.name, DatabaseHelper.ConditionDefinitions.ConditionFlyingBootsWinged, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
-            effectDescriptionPseudodragon.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ConjureElementalAir.EffectDescription.EffectParticleParameters);
+            EffectDescriptionBuilder effectDescriptionPseudodragon = new EffectDescriptionBuilder()
+            .SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn)
+            .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 2, RuleDefinitions.TargetType.Position, 1, 1)
+            .AddEffectForm(new EffectFormBuilder()
+                .SetSummonCreatureForm(1, pseudodragon.name, false, DatabaseHelper.ConditionDefinitions.ConditionFlyingBootsWinged)
+                .Build()
+            )
+            .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ConjureElementalAir.EffectDescription.EffectParticleParameters);
 
             GuiPresentationBuilder FindFamiliarPsuedodragonGui = new GuiPresentationBuilder(
-                "Spell/&FindFamiliarPsuedodragonDescription",
-                "Spell/&FindFamiliarPsuedodragonTitle");
-            FindFamiliarPsuedodragonGui.SetSpriteReference(WarlockPactOfTheChainSummons.PactChainPseudodragon.GuiPresentation.SpriteReference);
+                "Spell/&FindFamiliarPsuedodragonTitle",
+                "Spell/&FindFamiliarPsuedodragonDescription");
+            FindFamiliarPsuedodragonGui.SetSpriteReference(pseudodragon.GuiPresentation.SpriteReference);
 
 
             EffectDescriptionBuilder effectDescriptionSprite = new EffectDescriptionBuilder();
             effectDescriptionSprite.SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
-            effectDescriptionSprite.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
-            effectDescriptionSprite.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, WarlockPactOfTheChainSummons.PactChainSprite.name, DatabaseHelper.ConditionDefinitions.ConditionFlyingBootsWinged, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
+            effectDescriptionSprite.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 2, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
+            effectDescriptionSprite.AddEffectForm(new EffectFormBuilder().SetSummonCreatureForm(1, sprite.name, false, DatabaseHelper.ConditionDefinitions.ConditionFlyingBootsWinged).Build());
             effectDescriptionSprite.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ConjureElementalAir.EffectDescription.EffectParticleParameters);
 
             GuiPresentationBuilder FindFamiliarSpriteGui = new GuiPresentationBuilder(
-                "Spell/&FindFamiliarSpriteDescription",
-                "Spell/&FindFamiliarSpriteTitle");
-            FindFamiliarSpriteGui.SetSpriteReference(WarlockPactOfTheChainSummons.PactChainSprite.GuiPresentation.SpriteReference);
+                "Spell/&FindFamiliarSpriteTitle",
+                "Spell/&FindFamiliarSpriteDescription");
+            FindFamiliarSpriteGui.SetSpriteReference(sprite.GuiPresentation.SpriteReference);
 
 
-            EffectDescriptionBuilder effectDescriptionImp = new EffectDescriptionBuilder();
-            effectDescriptionImp.SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
-            effectDescriptionImp.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
-            effectDescriptionImp.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, WarlockPactOfTheChainSummons.PactChainImp.name, DatabaseHelper.ConditionDefinitions.ConditionFlyingBootsWinged, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
-            effectDescriptionImp.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ConjureElementalAir.EffectDescription.EffectParticleParameters);
+            EffectDescriptionBuilder effectDescriptionImp = new EffectDescriptionBuilder()
+                .SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1,
+                    RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 2,
+                    RuleDefinitions.TargetType.Position,1, 1, ActionDefinitions.ItemSelectionType.Equiped)
+                .AddEffectForm(new EffectFormBuilder().SetSummonCreatureForm( 1, imp.name, false,
+                    DatabaseHelper.ConditionDefinitions.ConditionFlyingBootsWinged).Build())
+                .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ConjureElementalAir.EffectDescription
+                    .EffectParticleParameters);
 
 
             GuiPresentationBuilder FindFamiliarImpGui = new GuiPresentationBuilder(
-                "Spell/&FindFamiliarImpDescription",
-                "Spell/&FindFamiliarImpTitle");
-            FindFamiliarImpGui.SetSpriteReference(WarlockPactOfTheChainSummons.PactChainImp.GuiPresentation.SpriteReference);
+                "Spell/&FindFamiliarImpTitle",
+                "Spell/&FindFamiliarImpDescription");
+            FindFamiliarImpGui.SetSpriteReference(imp.GuiPresentation.SpriteReference);
 
             EffectDescriptionBuilder effectDescriptionQuasit = new EffectDescriptionBuilder();
             effectDescriptionQuasit.SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
-            effectDescriptionQuasit.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
-            effectDescriptionQuasit.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, WarlockPactOfTheChainSummons.PactChainQuasit.name, DatabaseHelper.ConditionDefinitions.ConditionFlyingBootsWinged, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
+            effectDescriptionQuasit.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 2, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
+            effectDescriptionQuasit.AddEffectForm(new EffectFormBuilder().SetSummonCreatureForm( 1, quasit.name).Build());
             effectDescriptionQuasit.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ConjureElementalAir.EffectDescription.EffectParticleParameters);
 
 
             GuiPresentationBuilder FindFamiliarQuasitGui = new GuiPresentationBuilder(
-                "Spell/&FindFamiliarQuasitDescription",
-                "Spell/&FindFamiliarQuasitTitle");
-            FindFamiliarQuasitGui.SetSpriteReference(WarlockPactOfTheChainSummons.PactChainQuasit.GuiPresentation.SpriteReference);
+                "Spell/&FindFamiliarQuasitTitle",
+                "Spell/&FindFamiliarQuasitDescription");
+            FindFamiliarQuasitGui.SetSpriteReference(quasit.GuiPresentation.SpriteReference);
 
 
             var FindFamiliarImpPowerBuilder = FeatureDefinitionPowerBuilder
@@ -190,10 +202,27 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                  true);
             FeatureDefinitionPower FindFamiliarQuasitPower = FindFamiliarQuasitPowerBuilder.AddToDB();
 
-            Definition.FeatureSet.Add(FindFamiliarPseudodragonPower);
-            Definition.FeatureSet.Add(FindFamiliarSpritePower);
-            Definition.FeatureSet.Add(FindFamiliarImpPower);
-            Definition.FeatureSet.Add(FindFamiliarQuasitPower);
+            FeatureDefinitionPower findFamiliarPowerBundle = FeatureDefinitionPowerPoolBuilder
+                .Create("FindFamiliarBundlePower", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(Category.Power, Utils.CustomIcons.CreateAssetReferenceSprite("WarlockChainSummon", Properties.Resources.WarlockChainSummon, 128, 64))
+                .SetActivation(RuleDefinitions.ActivationTime.Hours1, 1)
+                .AddToDB();
+
+
+            PowerBundleContext.RegisterPowerBundle(findFamiliarPowerBundle, false,
+                    FindFamiliarPseudodragonPower,
+                    FindFamiliarSpritePower,
+                    FindFamiliarImpPower,
+                    FindFamiliarQuasitPower
+                    );
+            Definition.FeatureSet.Add(findFamiliarPowerBundle);
+            
+            GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.Familiar,
+                FindFamiliarPseudodragonPower,
+                FindFamiliarSpritePower,
+                FindFamiliarImpPower,
+                FindFamiliarQuasitPower
+            );
 
             Definition.SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union);
         }
@@ -210,6 +239,13 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
     internal class DHPactOfTheTomeFeatureSetBuilder : FeatureDefinitionFeatureSetBuilder
     {
         private const string DHPactOfTheTomeFeatureSetName = "DHPactOfTheTomeFeatureSet";
+        
+        private static readonly FeatureDefinitionPointPool DHPactOfTheTomeBonusCantrips = FeatureDefinitionPointPoolWithBonusBuilder
+            .Create( "DHPactOfTheTomeBonusCantrips", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentationNoContent()
+            .SetPool(HeroDefinitions.PointsPoolType.Cantrip, 3)
+            .OnlyUniqueChoices()
+            .AddToDB();
 
         protected DHPactOfTheTomeFeatureSetBuilder(string name) : base(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, DefinitionBuilder.CENamespaceGuid)
         {
@@ -217,7 +253,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             Definition.GuiPresentation.Description = "Feature/&DHPactOfTheTomeFeatureSetDescription";
 
             Definition.FeatureSet.Clear();
-            Definition.FeatureSet.Add(DHPactOfTheTomeBonusCantripsBuilder.DHPactOfTheTomeBonusCantrips);
+            Definition.FeatureSet.Add(DHPactOfTheTomeBonusCantrips);
             Definition.FeatureSet.Add(DHPactOfTheTomeMagicAffinityBuilder.DHPactOfTheTomeMagicAffinity);
         }
 
@@ -227,28 +263,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         }
 
         internal static readonly FeatureDefinitionFeatureSet DHPactOfTheTomeFeatureSet = CreateAndAddToDB(DHPactOfTheTomeFeatureSetName);
-    }
-
-    internal class DHPactOfTheTomeBonusCantripsBuilder : FeatureDefinitionPointPoolBuilder
-    {
-        private const string PactOfTheTomeBonusCantripsName = "DHPactOfTheTomeBonusCantrips";
-
-        protected DHPactOfTheTomeBonusCantripsBuilder(string name) : base(DatabaseHelper.FeatureDefinitionPointPools.PointPoolCircleLandBonusCantrip, name, DefinitionBuilder.CENamespaceGuid)
-        {
-            Definition.GuiPresentation.Title = "Feature/&NoContentTitle";
-            Definition.GuiPresentation.Description = "Feature/&NoContentTitle";
-            Definition.RestrictedChoices.Clear();
-
-            Definition.SetPoolType(HeroDefinitions.PointsPoolType.Cantrip);
-            Definition.SetPoolAmount(4);
-        }
-
-        internal static FeatureDefinitionPointPool CreateAndAddToDB(string name)
-        {
-            return new DHPactOfTheTomeBonusCantripsBuilder(name).AddToDB();
-        }
-
-        internal static readonly FeatureDefinitionPointPool DHPactOfTheTomeBonusCantrips = CreateAndAddToDB(PactOfTheTomeBonusCantripsName);
     }
 
 

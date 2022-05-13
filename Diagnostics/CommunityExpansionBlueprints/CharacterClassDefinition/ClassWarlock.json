@@ -156,12 +156,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ClassWarlockEldritchInvocationSetLevel2:95f9ed72-ffa1-52d8-8a3f-ef94e1b7d81a",
+      "featureDefinition": "Definition:ClassWarlockEldritchInvocationSetLevel:8470845a-596c-50c5-aadf-032e1d3665c3",
       "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ClassWarlockEldritchInvocationSetLevel2:95f9ed72-ffa1-52d8-8a3f-ef94e1b7d81a",
+      "featureDefinition": "Definition:ClassWarlockEldritchInvocationSetLevel:8470845a-596c-50c5-aadf-032e1d3665c3",
       "level": 2
     },
     {
@@ -171,17 +171,42 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWarlockEldritchInvocationReplace:776987b0-b682-5396-88b9-a6835e9a82cb",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
       "level": 4
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ClassWarlockEldritchInvocationSetLevel5:8c6e6b04-341a-5952-bad1-67174e518ad3",
+      "featureDefinition": "Definition:ClassWarlockEldritchInvocationReplace:776987b0-b682-5396-88b9-a6835e9a82cb",
+      "level": 4
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWarlockEldritchInvocationSetLevel:8470845a-596c-50c5-aadf-032e1d3665c3",
       "level": 5
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ClassWarlockEldritchInvocationSetLevel7:52acc393-bcf9-56dd-a2a2-023853703d56",
+      "featureDefinition": "Definition:ClassWarlockEldritchInvocationReplace:776987b0-b682-5396-88b9-a6835e9a82cb",
+      "level": 5
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWarlockEldritchInvocationReplace:776987b0-b682-5396-88b9-a6835e9a82cb",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWarlockEldritchInvocationSetLevel:8470845a-596c-50c5-aadf-032e1d3665c3",
+      "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWarlockEldritchInvocationReplace:776987b0-b682-5396-88b9-a6835e9a82cb",
       "level": 7
     },
     {
@@ -191,12 +216,32 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ClassWarlockEldritchInvocationSetLevel9:5fff07f5-83fa-5842-8c09-b3eafa5c8fdd",
+      "featureDefinition": "Definition:ClassWarlockEldritchInvocationReplace:776987b0-b682-5396-88b9-a6835e9a82cb",
+      "level": 8
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWarlockEldritchInvocationSetLevel:8470845a-596c-50c5-aadf-032e1d3665c3",
       "level": 9
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ClassWarlockMysticArcanumSetLevel11:a03cfc9b-c0dd-5b03-aaa3-403a543885c7",
+      "featureDefinition": "Definition:ClassWarlockEldritchInvocationReplace:776987b0-b682-5396-88b9-a6835e9a82cb",
+      "level": 9
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWarlockEldritchInvocationReplace:776987b0-b682-5396-88b9-a6835e9a82cb",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWarlockMysticArcanumSet:a0b9465f-699e-54f2-bc6b-d015c3cf090c",
+      "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWarlockEldritchInvocationReplace:776987b0-b682-5396-88b9-a6835e9a82cb",
       "level": 11
     },
     {
@@ -206,22 +251,42 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ClassWarlockEldritchInvocationSetLevel12:48a56b93-fee0-5d5d-9dba-99dff63f6681",
+      "featureDefinition": "Definition:ClassWarlockEldritchInvocationSetLevel:8470845a-596c-50c5-aadf-032e1d3665c3",
       "level": 12
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ClassWarlockMysticArcanumSetLevel13:411adda1-f080-51e3-b970-d4d0aec54e91",
+      "featureDefinition": "Definition:ClassWarlockEldritchInvocationReplace:776987b0-b682-5396-88b9-a6835e9a82cb",
+      "level": 12
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWarlockMysticArcanumSet:a0b9465f-699e-54f2-bc6b-d015c3cf090c",
       "level": 13
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ClassWarlockEldritchInvocationSetLevel15:81f03c5e-c4f4-514b-8315-2b06dfc229dd",
+      "featureDefinition": "Definition:ClassWarlockEldritchInvocationReplace:776987b0-b682-5396-88b9-a6835e9a82cb",
+      "level": 13
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWarlockEldritchInvocationReplace:776987b0-b682-5396-88b9-a6835e9a82cb",
+      "level": 14
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWarlockEldritchInvocationSetLevel:8470845a-596c-50c5-aadf-032e1d3665c3",
       "level": 15
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ClassWarlockMysticArcanumSetLevel15:56a460da-8126-560b-b494-53da73306ed6",
+      "featureDefinition": "Definition:ClassWarlockMysticArcanumSet:a0b9465f-699e-54f2-bc6b-d015c3cf090c",
+      "level": 15
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWarlockEldritchInvocationReplace:776987b0-b682-5396-88b9-a6835e9a82cb",
       "level": 15
     },
     {
@@ -231,12 +296,27 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ClassWarlockMysticArcanumSetLevel17:25155ac2-842e-5b5a-aa35-b621293d6f0e",
+      "featureDefinition": "Definition:ClassWarlockEldritchInvocationReplace:776987b0-b682-5396-88b9-a6835e9a82cb",
+      "level": 16
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWarlockMysticArcanumSet:a0b9465f-699e-54f2-bc6b-d015c3cf090c",
       "level": 17
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ClassWarlockEldritchInvocationSetLevel18:10cb0ce4-aa65-53a5-9c4e-492872400b12",
+      "featureDefinition": "Definition:ClassWarlockEldritchInvocationReplace:776987b0-b682-5396-88b9-a6835e9a82cb",
+      "level": 17
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWarlockEldritchInvocationSetLevel:8470845a-596c-50c5-aadf-032e1d3665c3",
+      "level": 18
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWarlockEldritchInvocationReplace:776987b0-b682-5396-88b9-a6835e9a82cb",
       "level": 18
     },
     {
@@ -246,7 +326,17 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWarlockEldritchInvocationReplace:776987b0-b682-5396-88b9-a6835e9a82cb",
+      "level": 19
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ClassWarlockEldritchMaster:b1f22fd7-dc31-5849-8317-092d8c5bc2a2",
+      "level": 20
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWarlockEldritchInvocationReplace:776987b0-b682-5396-88b9-a6835e9a82cb",
       "level": 20
     }
   ],

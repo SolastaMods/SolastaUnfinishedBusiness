@@ -3,11 +3,13 @@
   "dungeonMakerPresence": "None",
   "overrideSpawnDecision": null,
   "characterFamily": "Fiend",
-  "creatureTags": [],
+  "creatureTags": [
+    "WarlockFamiliar"
+  ],
   "defaultFaction": "Party",
   "fullyControlledWhenAllied": true,
   "sizeDefinition": "Definition:Tiny:6561a80034010bd4da9142d87919eeb2",
-  "alignment": "NeutralGood",
+  "alignment": "ChaoticEvil",
   "armorClass": 13,
   "armor": "HideArmor",
   "hitDice": 3,
@@ -22,38 +24,7 @@
     10,
     10
   ],
-  "savingThrowScores": [
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Charisma",
-      "bonus": 0
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Constitution",
-      "bonus": 0
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Dexterity",
-      "bonus": 0
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Intelligence",
-      "bonus": 0
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Strength",
-      "bonus": 0
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Wisdom",
-      "bonus": 0
-    }
-  ],
+  "savingThrowScores": [],
   "skillScores": [
     {
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
@@ -66,7 +37,7 @@
   "maxLegendaryActionPoints": 3,
   "differentActionEachTurn": false,
   "legendaryActionOptions": [],
-  "defaultBattleDecisionPackage": "Definition:DragonCombatDecisions:2b0886bfdfbcbdd439dad800e901771e",
+  "defaultBattleDecisionPackage": "Definition:GoblinCombatDecisions:e047169bbe3285642952434f5383dca9",
   "threatEvaluatorDefinition": {
     "$type": "TA.AI.ThreatEvaluatorDefinition, Assembly-CSharp",
     "threatEvaluator": {
@@ -100,28 +71,31 @@
   "audioRaceRTPCValue": 10.0,
   "challengeRating": 1.0,
   "noExperienceGain": false,
-  "droppedLootDefinition": "Definition:Goblin_loot_drop:e1798a35ed0332b4cbb3d2e9d14e5f3b",
+  "droppedLootDefinition": null,
   "stealableLootDefinition": null,
   "bestiaryLootOptions": [],
   "features": [
-    "Definition:MoveModeMove8:4c110104739c99e4d920529a058ab2e2",
-    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
-    "Definition:SenseDarkvision24:a7a21553e478546448413923e8dd948e",
-    "Definition:DamageAffinityColdResistance:277b59ebffdc36946879acc4e946affd",
-    "Definition:DamageAffinityBludgeoningResistanceExceptSilver:66a78867749d2a04a842e246d3c0fcdd",
-    "Definition:DamageAffinityPiercingResistanceExceptSilver:fa71e37e58fbd56409bc84a157812537",
-    "Definition:DamageAffinitySlashingResistanceExceptSilver:225f3571dfe75434e9db0b3fe2088d18",
-    "Definition:DamageAffinityFireResistance:65d64edf05bfa284999522d4c5375d17",
-    "Definition:DamageAffinityPoisonImmunity:7f47b64e57ec7b247acaa220a510b131",
     "Definition:ConditionAffinityPoisonImmunity:558b2de37dbf89341ab0ed6c445873a6",
+    "Definition:DamageAffinityBludgeoningResistance:956f9745b15c6904d87322861723d5c7",
+    "Definition:DamageAffinityColdResistance:277b59ebffdc36946879acc4e946affd",
+    "Definition:DamageAffinityFireResistance:65d64edf05bfa284999522d4c5375d17",
+    "Definition:DamageAffinityLightningResistance:443d9129d7904f14b8d9977881f95c08",
+    "Definition:DamageAffinityPiercingResistance:b6c93ec66a0ec9747b5c02f9db3091ff",
+    "Definition:DamageAffinityPoisonImmunity:7f47b64e57ec7b247acaa220a510b131",
+    "Definition:DamageAffinitySlashingResistance:2345f12303c12854fad8b09556da53d6",
+    "Definition:MoveModeMove8:4c110104739c99e4d920529a058ab2e2",
     "Definition:PactofChainFamiliarInvisibilityPower:64ab8210-621d-5180-8af8-a41c3759169f",
-    "Definition:PactofChainFamiliarSpellResistencePower:7c093f2b-76c0-5998-9b2a-047ea74b8e9e"
+    "Definition:PactofChainFamiliarScarePower:dbd76931-f053-5337-a26b-c505d03807f6",
+    "Definition:SavingThrowAffinitySpellResistance:d6341ebb2cb967949b4426e31e993b86",
+    "Definition:SenseDarkvision24:a7a21553e478546448413923e8dd948e",
+    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+    "Definition:HelpAction:994ab51f-a81a-50fd-af24-45dfd078b637"
   ],
   "attackIterations": [
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
-      "monsterAttackDefinition": "Definition:Attack_PoisonousSnake_Bite:a1a664bd192e4054ba30e87affc0b045"
+      "monsterAttackDefinition": "Definition:AttackWarlockImpClaw:6f13e1b6-c53e-5581-a1c2-aacfb01ca8db"
     }
   ],
   "sneakStance": "Stealth",
@@ -137,7 +111,7 @@
   "forbidFastTravel": false,
   "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "None",
+  "bestiaryEntry": "Reference",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
@@ -220,14 +194,14 @@
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "maleModelScale": 0.3,
+    "maleModelScale": 0.55,
     "femalePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "7975f20f6399cf943994b1d04e22a8b6",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "femaleModelScale": 0.3,
+    "femaleModelScale": 0.55,
     "wieldedItemsScale": 1.0,
     "hideWieldedItemsWhenPassive": false,
     "hideDuringCutscene": false,
@@ -256,7 +230,7 @@
   },
   "forceCombatStartsAnimation": false,
   "hasLookAt": false,
-  "forceNoFlyAnimation": false,
+  "forceNoFlyAnimation": true,
   "followFloorAngle": false,
   "groupAttacks": false,
   "isUnique": false,
@@ -268,9 +242,9 @@
     "description": "Monster/&PactOfChainCustomQuasitDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "65747939e58251d43b973e9953c55a8e",
+      "m_SubObjectName": "CustomPortrait_Goblin",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

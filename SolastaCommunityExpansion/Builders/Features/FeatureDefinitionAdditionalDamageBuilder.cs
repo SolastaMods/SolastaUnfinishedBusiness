@@ -138,6 +138,18 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetDiceByRankTable(diceByRank.Select(d => DiceByRankBuilder.BuildDiceByRank(d.rank, d.dice)));
             return This();
         }
+
+        public TBuilder SetAddLightSource(bool addLightSource)
+        {
+            Definition.SetAddLightSource(addLightSource);
+            return This();
+        }
+        
+        public TBuilder SetLightSourceForm(LightSourceForm form)
+        {
+            Definition.SetLightSourceForm(form);
+            return This();
+        }
     }
 
     public class FeatureDefinitionAdditionalDamageBuilder : FeatureDefinitionAdditionalDamageBuilder<FeatureDefinitionAdditionalDamage, FeatureDefinitionAdditionalDamageBuilder>

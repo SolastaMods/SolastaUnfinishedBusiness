@@ -92,6 +92,10 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.UpcastConjureElemen
         }
     }
 
+    //
+    //  This is now handled at SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
+    //
+#if false
     [HarmonyPatch(typeof(SubspellSelectionModal), "OnActivate")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class SubspellSelectionModal_OnActivate
@@ -99,32 +103,31 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.UpcastConjureElemen
         public static bool Prefix(SubspellSelectionModal __instance, int index, int ___slotLevel,
             RulesetSpellRepertoire ___spellRepertoire, SpellsByLevelBox.SpellCastEngagedHandler ___spellCastEngaged)
         {
-            if (!Main.Settings.EnableUpcastConjureElementalAndFey ||
-                SubspellSelectionModal_Bind.FilteredSubspells == null ||
-                SubspellSelectionModal_Bind.FilteredSubspells.Count == 0)
+            if (Main.Settings.EnableUpcastConjureElementalAndFey 
+                && SubspellSelectionModal_Bind.FilteredSubspells != null
+                && SubspellSelectionModal_Bind.FilteredSubspells.Count > 0)
             {
-                return true;
-            }
+                var subspells = SubspellSelectionModal_Bind.FilteredSubspells;
 
-            var subspells = SubspellSelectionModal_Bind.FilteredSubspells;
+                if (subspells.Count > index)
+                {
+                    ___spellCastEngaged?.Invoke(___spellRepertoire, SubspellSelectionModal_Bind.FilteredSubspells[index], ___slotLevel);
 
-            if (subspells.Count > index)
-            {
-                ___spellCastEngaged?.Invoke(___spellRepertoire, SubspellSelectionModal_Bind.FilteredSubspells[index], ___slotLevel);
+                    // If a device had the summon function, implement here
 
-                // If a device had the summon function, implement here
+                    //else if (this.deviceFunctionEngaged != null)
+                    //    this.deviceFunctionEngaged(this.guiCharacter, this.rulesetItemDevice, this.rulesetDeviceFunction, 0, index);
 
-                //else if (this.deviceFunctionEngaged != null)
-                //    this.deviceFunctionEngaged(this.guiCharacter, this.rulesetItemDevice, this.rulesetDeviceFunction, 0, index);
+                    __instance.Hide();
 
-                __instance.Hide();
+                    subspells.Clear();
 
-                subspells.Clear();
-
-                return false;
+                    return false;
+                }
             }
 
             return true;
         }
     }
+#endif
 }

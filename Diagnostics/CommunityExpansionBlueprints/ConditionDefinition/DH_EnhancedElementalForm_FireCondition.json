@@ -5,7 +5,7 @@
   "conditionType": "Beneficial",
   "features": [
     "Definition:DamageAffinityFireImmunity:6f4ede3c34539284e941dd084eaf4429",
-    "Definition:DH_ElementalForm_FireadditionalDamage:3f3735e8-4038-580a-8154-481be48a13c7"
+    "Definition:DH_ElementalForm_FireAdditionalDamage:ed2f5022-d641-51a7-bc01-7741a40be0eb"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -119,11 +119,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Elemental Form : Fire Plane Condition",
-    "description": "When channeling the elemental  Fire Plane, you gain Immunity to Fire damage and once per turn, apply damage of the same type to your attack",
+    "title": "Channeling Fire Plane",
+    "description": "Deal additional Fire damage equal to your Proficiency Bonus on a first hit each round",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "762fc2db21c656b6b5423a25e61f3ed5",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

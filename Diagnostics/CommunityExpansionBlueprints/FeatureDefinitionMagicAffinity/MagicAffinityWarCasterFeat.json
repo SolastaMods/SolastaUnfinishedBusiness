@@ -19,7 +19,7 @@
   "somaticWithWeaponOrShield": true,
   "somaticWithWeapon": true,
   "canUseProficientWeaponAsFocus": true,
-  "rangeSpellNoProximityPenalty": true,
+  "rangeSpellNoProximityPenalty": false,
   "usesWarList": false,
   "warListSlotBonus": 1,
   "ritualCasting": "None",

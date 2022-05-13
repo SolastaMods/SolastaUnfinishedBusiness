@@ -55,6 +55,8 @@
     "restrictedCharacterSizes": [],
     "hasLimitedEffectPool": false,
     "effectPoolAmount": 60,
+    "effectApplication": "All",
+    "effectFormFilters": [],
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
@@ -81,7 +83,9 @@
           "persistOnConcentrationLoss": false,
           "decisionPackage": null,
           "effectProxyDefinitionName": "ProxyDaylight"
-        }
+        },
+        "hasFilterId": false,
+        "filterId": 0
       },
       {
         "$type": "EffectForm, Assembly-CSharp",
@@ -104,7 +108,9 @@
           "valueIncrease": 2,
           "maximumIncrease": 2,
           "feastDurationHours": 1
-        }
+        },
+        "hasFilterId": false,
+        "filterId": 0
       },
       {
         "$type": "EffectForm, Assembly-CSharp",
@@ -127,9 +133,12 @@
           "checkBaseDC": 10,
           "addSpellCastingAbility": false,
           "addProficiencyBonus": false
-        }
+        },
+        "hasFilterId": false,
+        "filterId": 0
       }
     ],
+    "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
       "effectIncrementMethod": "None",
@@ -348,9 +357,9 @@
     "description": "Power/&MoonlitFullMoonDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "fcde104743607a2498191c8b858d472d",
+      "m_SubObjectName": "Daylight",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

@@ -55,6 +55,12 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static GraphicsSettingsDefinition SetBillboardsCastShadows(this GraphicsSettingsDefinition entity, System.Boolean value)
+        {
+            entity.SetField("billboardsCastShadows", value);
+            return entity;
+        }
+
         public static GraphicsSettingsDefinition SetCampaignAuraQualitySettings(this GraphicsSettingsDefinition entity, Aura2API.AuraQualitySettings[] value)
         {
             entity.SetField("campaignAuraQualitySettings", value);
@@ -106,6 +112,12 @@ namespace SolastaModApi.Extensions
         public static GraphicsSettingsDefinition SetFadingFogOfWar(this GraphicsSettingsDefinition entity, System.Boolean value)
         {
             entity.FadingFogOfWar = value;
+            return entity;
+        }
+
+        public static GraphicsSettingsDefinition SetGrassCastShadows(this GraphicsSettingsDefinition entity, System.Boolean value)
+        {
+            entity.SetField("grassCastShadows", value);
             return entity;
         }
 
@@ -169,9 +181,27 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static GraphicsSettingsDefinition SetObjectsCastShadows(this GraphicsSettingsDefinition entity, System.Boolean value)
+        {
+            entity.SetField("objectsCastShadows", value);
+            return entity;
+        }
+
         public static GraphicsSettingsDefinition SetParticleRaycastBudget(this GraphicsSettingsDefinition entity, System.Int32 value)
         {
             entity.SetField("particleRaycastBudget", value);
+            return entity;
+        }
+
+        public static GraphicsSettingsDefinition SetPlantsCastShadows(this GraphicsSettingsDefinition entity, System.Boolean value)
+        {
+            entity.SetField("plantsCastShadows", value);
+            return entity;
+        }
+
+        public static GraphicsSettingsDefinition SetRecommendedGraphicsMemorySize(this GraphicsSettingsDefinition entity, System.Int32 value)
+        {
+            entity.SetField("recommendedGraphicsMemorySize", value);
             return entity;
         }
 

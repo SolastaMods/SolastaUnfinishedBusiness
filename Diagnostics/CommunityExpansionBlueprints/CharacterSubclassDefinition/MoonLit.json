@@ -19,7 +19,7 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:MoonLitLightAffinity:8c689719-51c6-56c2-904f-d5a3d52bd434",
-      "level": 1
+      "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
@@ -29,6 +29,11 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:MoonlitFullMoon:5921e2a3-771c-5cee-933d-33ac3b740c29",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MoonLitLightAffinityStrong:3ba6e0a6-3394-5dbe-afd1-caafe2dda029",
       "level": 6
     },
     {

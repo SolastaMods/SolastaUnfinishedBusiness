@@ -7,7 +7,7 @@
   "attackModeOnly": false,
   "requiredTargetCondition": null,
   "requiredTargetSenseType": "Darkvision",
-  "requiredTargetCreatureTag": "",
+  "requiredTargetCreatureTag": "Orc",
   "requiredCharacterFamily": "Definition:Elemental:b754ff5eb343ab94aa924cce75540520",
   "damageValueDetermination": "Die",
   "damageDieType": "D6",
@@ -118,8 +118,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/DLC1_AdditionalDamage_HolyWeapon_Title",
-    "description": "Feature/DLC1_AdditionalDamage_HolyWeapon_Description",
+    "title": "Feature/&DLC1_AdditionalDamage_HolyWeapon_Title",
+    "description": "Feature/&DLC1_AdditionalDamage_HolyWeapon_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

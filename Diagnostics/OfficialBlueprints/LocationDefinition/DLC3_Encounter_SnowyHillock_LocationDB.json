@@ -1,0 +1,214 @@
+{
+  "$type": "LocationDefinition, Assembly-CSharp",
+  "isUserLocation": false,
+  "alwaysHidden": false,
+  "registeredFactions": [],
+  "registeredVariables": [],
+  "sceneFilePath": "",
+  "sceneReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "audioState": {
+    "$type": "AK.Wwise.State, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": null,
+    "groupIdInternal": 0,
+    "groupGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    },
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "renderSettingsSceneProfile": {
+    "$type": "RenderSettingsSceneProfile, Assembly-CSharp",
+    "useSkybox": true,
+    "backgroundColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 1.0
+    },
+    "skyboxMaterial": null,
+    "ambientLight": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 1.0
+    },
+    "fog": false,
+    "fogColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "fogMode": "Exponential",
+    "fogDensity": 0.0638,
+    "excludeSkybox": false,
+    "auraBaseSettings": {
+      "$type": "Aura2API.AuraBaseSettings, Aura2_Core",
+      "useDensity": true,
+      "density": 0.251,
+      "useScattering": true,
+      "scattering": 0.5,
+      "useAmbientLighting": true,
+      "ambientLightingStrength": 1.0,
+      "useColor": false,
+      "color": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.0,
+        "g": 0.5,
+        "b": 0.5,
+        "a": 0.5
+      },
+      "colorStrength": 1.0,
+      "useTint": false,
+      "tint": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 1.0,
+        "g": 0.921568632,
+        "b": 0.0156862754,
+        "a": 1.0
+      },
+      "tintStrength": 1.0,
+      "useExtinction": false,
+      "extinction": 0.75,
+      "name": "DLC3_Encounter_SnowyHillock_AuraBaseParameters"
+    },
+    "userDungeonAuraVolumeDensity": 0.2,
+    "userDungeonAuraVolumeFogType": "Height",
+    "userDungeonAuraVolumeHeight": 3.0,
+    "userDungeonAuraVolumeNoise": false,
+    "userDungeonAuraVolumeNoiseScale": 3.0,
+    "dayCycleProfile": {
+      "$type": "GraphicsDayCycleProfile, Assembly-CSharp",
+      "noonColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.7912806,
+        "g": 0.8773585,
+        "b": 0.492479533,
+        "a": 1.0
+      },
+      "sunriseColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.7912806,
+        "g": 0.8773585,
+        "b": 0.492479533,
+        "a": 1.0
+      },
+      "sunsetColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.7912806,
+        "g": 0.8773585,
+        "b": 0.492479533,
+        "a": 1.0
+      },
+      "globalSunIntensity": 1.0,
+      "sunDirection": -90.0,
+      "sunTilt": 0.01,
+      "moonLightColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.8490566,
+        "g": 0.8490566,
+        "b": 0.8490566,
+        "a": 1.0
+      },
+      "moonLightFadeOffset": 0.1,
+      "moonLightFadeMinIntensity": 1.0,
+      "moonLightFadeDuration": 0.25,
+      "moonSpeedFactor": 1.0,
+      "moonBaseAngle": 0.0,
+      "globalMoonIntensity": 0.63,
+      "ambientSunriseColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.9764151,
+        "g": 0.987365246,
+        "b": 1.0,
+        "a": 1.0
+      },
+      "ambientNoonColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.8490566,
+        "g": 0.8490566,
+        "b": 0.8490566,
+        "a": 1.0
+      },
+      "ambientSunsetColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.8490566,
+        "g": 0.8490566,
+        "b": 0.8490566,
+        "a": 1.0
+      },
+      "ambientNightColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.8490566,
+        "g": 0.8490566,
+        "b": 0.8490566,
+        "a": 1.0
+      },
+      "ambientFadeDuration": 1.0,
+      "dayAtmosphereThickness": 1.48,
+      "nightAtmosphereThickness": 0.5,
+      "name": "AcidLake_Location_DayCycleProfile"
+    },
+    "name": "DLC3_Encounter_SnowyHillock_RenderSettings"
+  },
+  "locationPresentation": {
+    "$type": "LocationPresentation, Assembly-CSharp",
+    "unchartedTitle": "",
+    "unchartedDescription": "",
+    "knownTitle": "",
+    "knownDescription": "",
+    "exploredTitle": "",
+    "exploredDescription": ""
+  },
+  "challengeRating": 1,
+  "focusWhenRevealed": false,
+  "startsWithScavengerCamp": false,
+  "ignoredByScavengers": false,
+  "useDirectionalLightInCutscene": false,
+  "useNewSectorCullingAlgorithm": false,
+  "keepSectorCullingResultsWhenInactive": false,
+  "setCurrentCampaignNodeWhenLeaving": false,
+  "hasPriorityForTeleporter": false,
+  "canAttackNonHostileCharacters": false,
+  "forceNoEncounterPrespawn": false,
+  "disableTerrainShadows": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "b58688fc5b901ba47a5ee31b6879437e",
+      "m_SubObjectName": "DLC3_Encounter_LakeIsland",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "42a3cc67e6858db4794a7d64e2365793",
+  "contentPack": "PalaceOfIce",
+  "name": "DLC3_Encounter_SnowyHillock_LocationDB"
+}

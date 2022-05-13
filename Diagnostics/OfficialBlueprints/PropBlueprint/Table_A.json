@@ -5,9 +5,9 @@
   "groundHighPlacement": true,
   "wallPlacement": false,
   "openingPlacement": true,
-  "openingLowPlacement": false,
-  "openingHighPlacement": false,
-  "propPlacement": false,
+  "openingLowPlacement": true,
+  "openingHighPlacement": true,
+  "propPlacement": true,
   "lightSources": [],
   "category": "Furniture",
   "dimensions": {
@@ -80,6 +80,16 @@
       "prefabReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "5692a836621b4e342a3c12ecc44f3d20",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "CityValley",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "96758bd1bc400ee48a5f30193755d24e",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       }

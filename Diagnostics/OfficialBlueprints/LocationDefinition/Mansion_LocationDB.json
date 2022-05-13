@@ -93,12 +93,12 @@
         "a": 0.5
       },
       "colorStrength": 1.0,
-      "useTint": false,
+      "useTint": true,
       "tint": {
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-        "r": 1.0,
-        "g": 0.921568632,
-        "b": 0.0156862754,
+        "r": 0.999999,
+        "g": 0.9215677,
+        "b": 0.0156862568,
         "a": 1.0
       },
       "tintStrength": 1.0,

@@ -1101,6 +1101,20 @@
       "reassortRateValue": 1,
       "requiredFaction": "DLC1_Faction_Mask",
       "factionStatus": "Hatred"
+    },
+    {
+      "$type": "StockUnitDescription, Assembly-CSharp",
+      "initialized": true,
+      "itemDefinition": "Definition:DLC1_Ingredient_Sewing_Thread_Ball:a5b22c0ec44075f4182355567e8eeb95",
+      "stackCount": 1,
+      "initialAmount": 2,
+      "minAmount": 0,
+      "maxAmount": 2,
+      "reassortAmount": 0,
+      "reassortRateType": "Day",
+      "reassortRateValue": 1,
+      "requiredFaction": "DLC1_Faction_Mask",
+      "factionStatus": "Hatred"
     }
   ],
   "guiPresentation": {

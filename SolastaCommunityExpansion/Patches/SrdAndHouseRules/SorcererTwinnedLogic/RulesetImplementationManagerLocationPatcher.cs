@@ -13,9 +13,9 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SorcererTwinnedLogi
         {
             private static readonly string[] AllowedSpellsIfHeroBelowLevel5 = new string[]
             {
-                "EldritchBlastCantrip",
-                "RepellingEldritchBlastCantrip",
-                "WarlockRepellingBlastCantrip"
+                "EldritchBlast",
+                "EldritchBlastGraspingHand",
+                "EldritchBlastRepellingBlast"
             };
 
             private static readonly string[] AllowedSpellsIfNotUpcast = new string[]
@@ -39,73 +39,6 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SorcererTwinnedLogi
                 "HoldMonster"
             };
 
-            private static readonly string[] AlwaysAllowedSpells = new string[]
-            {
-                // cantrips
-                "AnnoyingBee",
-                "ChillTouch",
-                "Dazzle",
-                "FireBolt",
-                "PoisonSpray",
-                "RayOfFrost",
-                "ShadowDagger",
-                "ShockingGrasp",
-                "Guidance",
-                "Resistance",
-                "SacredFlame",
-                "SpareTheDying",
-                "Shine",
-
-                // level 1
-                "HideousLaughter",
-                "Jump",
-                "MageArmor",
-                "ProtectionFromEvilGood",
-                "HuntersMark",
-                "CureWounds",
-                "Heroism",
-                "ShieldOfFaith",
-                "GuidingBolt",
-                "HealingWord",
-                "InflictWounds",
-                "AnimalFriendship",
-                "VulnerabilityHexSpell",
-
-                // level 2
-                "AcidArrow",
-                "Darkvision",
-                "Levitate",
-                "RayOfEnfeeblement",
-                "SpiderClimb",
-                "Barkskin",
-                "LesserRestoration",
-                "ProtectionFromPoison",
-                "EnhanceAbility",
-
-                // level 3
-                "BestowCurse",
-                "DispelMagic",
-                "Haste",
-                "ProtectionFromEnergy",
-                "RemoveCurse",
-                "Tongues",
-                "Revivify",
-
-                // level 4
-                "Blight",
-                "GreaterInvisibility",
-                "PhantasmalKiller",
-                "Stoneskin",
-                "FreedomOfMovement",
-                "DeathWard",
-                "DominateBeast",
-
-                // level 5
-                "DominatePerson",
-                "GreaterRestoration",
-                "RaiseDead"
-            };
-
             internal static void Postfix(
                 ref bool __result,
                 RulesetEffectSpell rulesetEffectSpell,
@@ -120,28 +53,26 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SorcererTwinnedLogi
                     return;
                 }
 
-                var rulesetSpellRepertoire = rulesetEffectSpell.SpellRepertoire;
                 var spellDefinition = rulesetEffectSpell.SpellDefinition;
-                // NOTE: don't use spellDefinition?. which bypasses Unity object lifetime check
-                // NOTE: do we want an int? here?
-                int? spellLevel = spellDefinition ? spellDefinition.SpellLevel : null;
-                var slotLevel = rulesetEffectSpell.SlotLevel;
-                int classLevel;
 
-                if (spellDefinition != null && rulesetSpellRepertoire?.KnownCantrips.Contains(spellDefinition) == true)
+                if (Array.IndexOf(AllowedSpellsIfHeroBelowLevel5, spellDefinition) == -1
+                    && Array.IndexOf(AllowedSpellsIfNotUpcast, spellDefinition) == -1)
                 {
-                    classLevel = hero.ClassesHistory.Count;
-                }
-                else
-                {
-                    classLevel = rulesetEffectSpell.GetClassLevel(caster);
+                    return;
                 }
 
-                var isAlwaysAllowedSpell = Array.Exists(AlwaysAllowedSpells, x => x == spellDefinition.Name);
                 var isAllowedIfNotUpCastSpell = Array.Exists(AllowedSpellsIfNotUpcast, x => x == spellDefinition.Name);
                 var isAllowedIfHeroBelowLevel5Spell = Array.Exists(AllowedSpellsIfHeroBelowLevel5, x => x == spellDefinition.Name);
 
-                if (isAlwaysAllowedSpell || (isAllowedIfNotUpCastSpell && spellLevel == slotLevel) || (isAllowedIfHeroBelowLevel5Spell && classLevel < 5))
+                var spellLevel = spellDefinition.SpellLevel;
+                var slotLevel = rulesetEffectSpell.SlotLevel;
+
+                var rulesetSpellRepertoire = rulesetEffectSpell.SpellRepertoire;
+                var classLevel = rulesetSpellRepertoire.KnownCantrips.Contains(spellDefinition)
+                    ? hero.ClassesHistory.Count
+                    : rulesetEffectSpell.GetClassLevel(caster);
+
+                if ((isAllowedIfNotUpCastSpell && spellLevel == slotLevel) || (isAllowedIfHeroBelowLevel5Spell && classLevel < 5))
                 {
                     return;
                 }

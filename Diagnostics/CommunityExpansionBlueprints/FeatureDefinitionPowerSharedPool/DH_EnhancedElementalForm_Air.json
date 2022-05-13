@@ -7,7 +7,7 @@
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "Self",
-    "itemSelectionType": "Equiped",
+    "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 1,
     "emissiveBorder": "None",
@@ -55,6 +55,8 @@
     "restrictedCharacterSizes": [],
     "hasLimitedEffectPool": false,
     "effectPoolAmount": 60,
+    "effectApplication": "All",
+    "effectFormFilters": [],
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
@@ -78,9 +80,12 @@
           "conditionsList": [],
           "applyToSelf": true,
           "forceOnSelf": true
-        }
+        },
+        "hasFilterId": false,
+        "filterId": 0
       }
     ],
+    "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
       "effectIncrementMethod": "None",
@@ -267,7 +272,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "BonusAction",
+  "activationTime": "NoCost",
   "reactionContext": "None",
   "reactionName": "",
   "hasCastingFailure": false,
@@ -295,13 +300,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Elemental Form : Air Plane",
-    "description": "When channeling the elemental  Air Plane, you gain Immunity to Thunder damage and once per turn, apply damage of the same type to your attack",
+    "title": "Channeling Air Plane",
+    "description": "When channeling the Air Plane, you gain Immunity to Thunder and apply Proficiency Bonus as damage of the same type to first hit each round",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "190728041c6b0294b824f29597e11e19",
-      "m_SubObjectName": "HeraldElementsThunder",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

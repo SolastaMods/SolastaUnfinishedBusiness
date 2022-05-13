@@ -51,12 +51,14 @@ namespace SolastaCommunityExpansion
         //
 
         public bool AllowDynamicPowers { get; set; } = true;
+        public bool  BugFixBrowseFeatures { get; set; } = true;
         public bool BugFixButtonActivatorTriggerIssue { get; set; } = true;
         public bool BugFixConjuredUnitsTeleportWithParty { get; set; } = true;
         public bool BugFixCorrectlyCalculateDamageOnMultipleHits { get; set; } = true;
         public bool BugFixDeityOfferingOnMulticlassHeroes { get; set; } = true;
         public bool BugFixDominateSpells { get; set; } = true;
         public bool BugFixExpandColorTables { get; set; } = true;
+        public bool BugFixHeroKeepConditionsAcrossLocations { get; set; } = true;
         public bool BugFixHideReactionSpells { get; set; } = true;
         public bool BugFixNullRecipesOnGameSerialization { get; set; } = true;
         public bool BugFixSpellDurations { get; set; } = true;
@@ -72,6 +74,7 @@ namespace SolastaCommunityExpansion
         public bool EnablePowersBundlePatch { get; set; } = true;
         public bool EnableGlobalUniqueEffectsPatch { get; set; } = true;
         public bool EnableRacesScalePatch { get; set; } = true;
+        public bool EnableSameWidthFeatSelection { get; set;} = true;
         public bool EnableSortingClasses { get; set; } = true;
         public bool EnableSortingDeities { get; set; } = true;
         public bool EnableSortingDungeonMakerAssets { get; set; } = true;
@@ -79,6 +82,7 @@ namespace SolastaCommunityExpansion
         public bool EnableSortingFutureFeatures { get; set; } = true;
         public bool EnableSortingRaces { get; set; } = true;
         public bool EnableSortingSubclasses { get; set; } = true;
+        public bool EnableEnhancedCharacterInspection { get; set; } = true;
         public bool KeepCharactersPanelOpenAndHeroSelectedOnLevelUp { get; set; } = true;
         public bool KeepSpellsOpenSwitchingEquipment { get; set; } = true;
         public bool ShowAllAutoPreparedSpells { get; set; } = true;
@@ -89,7 +93,6 @@ namespace SolastaCommunityExpansion
         //
 
         // Initial Choices
-        public bool AllowDisplayAllUnofficialContent { get; set; }
         public bool AddHelpActionToAllRaces { get; set; }
         public bool DisableSenseDarkVisionFromAllRaces { get; set; }
         public bool DisableSenseSuperiorDarkVisionFromAllRaces { get; set; }
@@ -106,7 +109,6 @@ namespace SolastaCommunityExpansion
         public bool EnableLevel20 { get; set; }
 
         // Visuals
-        public bool AllowExtraKeyboardCharactersInAllNames { get; set; }
         public bool OfferAdditionalLoreFriendlyNames { get; set; }
         public bool UnlockAllNpcFaces { get; set; }
         public bool AllowUnmarkedSorcerers { get; set; }
@@ -176,7 +178,7 @@ namespace SolastaCommunityExpansion
         public bool MakeAllMagicStaveArcaneFoci { get; set; }
         public bool IncreaseSenseNormalVision { get; set; }
         public bool QuickCastLightCantripOnWornItemsFirst { get; set; }
-        //public bool UseHeightOneCylinderEffect { get; set; }
+        // public bool UseHeightOneCylinderEffect { get; set; }
         public bool AddPickpocketableLoot { get; set; }
         public bool AllowStackedMaterialComponent { get; set; }
         public bool ScaleMerchantPricesCorrectly { get; set; }
@@ -253,7 +255,7 @@ namespace SolastaCommunityExpansion
 
         // Campaigns and Locations
         public bool FollowCharactersOnTeleport { get; set; }
-        public bool EnableAdditionalBackstoryDisplay { get; set; }
+        public bool EnableLogDialoguesToConsole { get; set; }
         public bool EnableAdditionalIconsOnLevelMap { get; set; }
         public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
         public bool HideExitAndTeleporterGizmosIfNotDiscovered { get; set; }
@@ -299,8 +301,9 @@ namespace SolastaCommunityExpansion
         //
 
         public bool EnableMulticlass { get; set; }
-        public bool EnableMinInOutAttributes { get; set; } = true;
+        public bool EnableMinInOutAttributes { get; set; }
         public bool EnableRelearnSpells { get; set; }
-        public int MaxAllowedClasses { get; set; } = 3;
+        public bool DisplayAllKnownSpellsDuringLevelUp { get; set; }
+        public int MaxAllowedClasses { get; set; }
     }
 }

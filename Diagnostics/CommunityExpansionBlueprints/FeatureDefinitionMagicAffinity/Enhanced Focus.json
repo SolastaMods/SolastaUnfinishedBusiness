@@ -1,9 +1,9 @@
 {
   "$type": "FeatureDefinitionMagicAffinity, Assembly-CSharp",
   "preparedSpellModifier": "None",
-  "saveDCModifierType": "None",
+  "saveDCModifierType": "FlatValue",
   "saveDCModifier": 1,
-  "spellAttackModifierType": "None",
+  "spellAttackModifierType": "FlatValue",
   "spellAttackModifier": 1,
   "spellImmunities": [],
   "maxSpellLevelImmunity": -1,
@@ -43,14 +43,9 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&AttackModifierArtificerEnhancedFocusTitle",
-    "description": "Subclass/&AttackModifierArtificerEnhancedFocusDescription",
-    "spriteReference": {
-      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "7e8c5d4d891953345b54b82e51c6d884",
-      "m_SubObjectName": "ConditionPositive",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
-    },
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": null,
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,

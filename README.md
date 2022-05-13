@@ -12,7 +12,7 @@ Do you have a mod you want to see included here? We are happy to take new contri
 2. Commit your edits to your branch.
 3. Make sure to test your changes. This is a good opportunity to take screen shots so you can show off the changes.
 4. Make a pull request to merge your branch into `Dev`. You can help this process by sharing screen shots to show off the change as well as including an english description of what the change does.
-5. Wait for a review. We try to stay on top of this, but it's a hobby. If you haven't heard anything in 3 days you can message ChrisJohnDigital#9182 on Discord or email chris@chrisjohn.digital.
+5. Wait for a review. We try to stay on top of this, but it's a hobby.
 6. Once the review is done, the changes will get merged in to the `Dev` branch. The `Dev` branch will periodically be tested and merged in to `master` to build releases.
 
 # How to Compile
@@ -31,7 +31,6 @@ NOTE Unity Mod Manager and this mod template make use of [Harmony](https://go.mi
 # How to Debug
 
 1. Open Solasta game folder
-	* Rename Solasta.exe to Solasta.exe.original
 	* Rename UnityPlayer.dll to UnityPlayer.dll.original
 	* Add below entries to *Solasta_Data\boot.config*:
 		```

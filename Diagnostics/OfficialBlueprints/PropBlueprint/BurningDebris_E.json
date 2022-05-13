@@ -4,10 +4,10 @@
   "groundLowPlacement": true,
   "groundHighPlacement": true,
   "wallPlacement": false,
-  "openingPlacement": true,
-  "openingLowPlacement": true,
-  "openingHighPlacement": true,
-  "propPlacement": true,
+  "openingPlacement": false,
+  "openingLowPlacement": false,
+  "openingHighPlacement": false,
+  "propPlacement": false,
   "lightSources": [],
   "category": "Obstacle",
   "dimensions": {
@@ -30,6 +30,36 @@
       "prefabReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "7d7e8c097468b4f41a687442369558a9",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "Jungle",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "e9cd60fb9cc54b646a8de08dae0fc5bb",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "Swamp",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "b55c947da1bdd4a4e9c5b3404f63d82a",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "CityValley",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "1a8358d018011f34cac0ee6601ed7bfc",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       }

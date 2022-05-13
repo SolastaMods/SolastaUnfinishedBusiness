@@ -3,14 +3,14 @@
   "restStage": "AfterRest",
   "restType": "LongRest",
   "condition": "CanUsePower",
-  "functor": "UsePower",
-  "stringParameter": "AncientForestHerbalBrewToxifying",
+  "functor": "UseCustomRestPower",
+  "stringParameter": "DH_HerbalBrewPool",
   "checkConsciousness": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Equipment/&Poison_basicDescription",
-    "description": "Equipment/&HerbalBrewToxifyingTitle",
+    "title": "Feature/&HerbalBrewFeatureSetTitle",
+    "description": "Feature/&HerbalBrewDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

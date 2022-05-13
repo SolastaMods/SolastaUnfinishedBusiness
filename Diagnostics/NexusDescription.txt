@@ -11,25 +11,28 @@ This is now a standalone mod. Please uninstall any other mod from your mods fold
 
 [list]
 
-[*][b]AceHigh[/b]: Warlock class, multiclass idea, Tactician subclass, Power Attack and Reckless Fury feats, no identification
+[*][b]AceHigh[/b]: SoulBlade subclass, Tactician subclass, Power Attack and Reckless Fury feats, no identification
 [*][b]Bazou[/b]: Witch class
 [*][b]Boofat[/b]: alwaysAlt
 [*][b]Burtsev-Alexey[/b]: deep copy algorithm
 [*][b]ChrisJohnDigital[/b]: head developer, crafting, faction relations, feats, fighting styles, items, subclasses, progression
-[*][b]Dreadmaker[/b]: Circle of the Forest Guardian subclass
-[*][b]DubhHerder[/b]: 7th, 8th and 9th level spells, Crafty Feats migration, bug models replacement, additional high level monsters, class, subclasses
+[*][b]Dreadmaker[/b]: Forest Guardian subclass
+[*][b]DubhHerder[/b]: 7th, 8th and 9th level spells, Crafty Feats migration, bug models replacement, additional high level monsters, Warlock class, subclasses
 [*][b]ElAntonious[/b]: Arcanist subclass, Torchbearer and Dual Flurry feats
-[*][b]Holic75[/b]: pact magic slots, Warlock class sprite, bolgrif and gnome races, acid claw, air blast burst of radiance, thunder strike, earth tremor and winter's breath spells
+[*][b]Esker[/b]: Warlock class design, quality assurance
+[*][b]Holic75[/b]: SolastaModHelpers patches, SolastaExtraContent races, cantrips, spells, sprites
 [*][b]ImpPhil[/b]: adv/dis rules, conjurations control, auto-equip, location rotation in DM, monster's health, pause UI, sorting, stocks prices, no attunement, xp scaling, character export, save by location, combat camera, diagnostics, custom icons, refactor, screen map
-[*][b]Krisys[/b]: Thug subclass
+[*][b]Lyraele[/b]: Warlock class design, quality assurance
 [*][b]Narria[/b]: modKit creator, developer
+[*][b]Nd[/b]: Opportunist subclass
+[*][b]PraiseThyBus[/b]: quality assurance
 [*][b]RedOrca[/b]: Path of the Light subclass, Indomitable Might
-[*][b]Scarlex[/b]: Royal Knight subclass
 [*][b]SilverGriffon[/b]: PickPocket, lore friendly names, crafty feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants
 [*][b]Sinai-dev[/b]: Unity Explorer UI standalone
 [*][b]Spacehamster[/b]: dataminer
+[*][b]TPABOBAP[/b]: Warlock class design, improvements and refactor, Level Up improvements, Tinkerer improvements, Holic patches 
 [*][b]View619[/b]: Darkvision, Superior Dark Vision
-[*][b]Zappastuff[/b]: multiclass, level 20, respec, level down, encounters, dungeon maker editor & pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, integration, arcane defense/precision, brutal thug, charismatic defense/precision, fighting surge, metamagic, primal, shady and wise defense/precision feats, races and spells migration
+[*][b]Zappastuff[/b]: multiclass, level 20, respec, level down, encounters, dungeon maker editor & pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, integration, arcane defense/precision, brutal thug, charismatic defense/precision, fast hands, fighting surge, marksman, metamagic, primal, shady and wise defense/precision feats, races and spells migration, warlock pact magic, refactor
 [/list]
 
 [size=4][b]How to Install[/b][/size]
@@ -122,7 +125,7 @@ All settings start disabled by default. On first start the mod will display an w
 [list=1]
 
 [*][b]Tinkerer[/b]: Tinkerers are inventors, alchemists, and more. They bridge the space between magic and technology
-[*][b]Warlock [Beta][/b]: Warlocks are seekers of the knowledge that lies hidden in the fabric of the multiverse. Through pacts made with mysterious beings of supernatural power, warlocks unlock magical effects both subtle and spectacular
+[*][b]Warlock[/b]: Warlocks are seekers of the knowledge that lies hidden in the fabric of the multiverse. Through pacts made with mysterious beings of supernatural power, warlocks unlock magical effects both subtle and spectacular
 [*][b]Witch[/b]: Afflicted by a sinister curse, witches can spin dark magic into Maledictions, which they use to debilitate foes. They are also accompanied by their familiars, loyal magical companions which they use to deal the killing blow
 [/list]
 
@@ -137,14 +140,12 @@ All settings start disabled by default. On first start the mod will display an w
 [*][b]Blaster[/b]: You specialize in hurling projectiles and causing explosions
 [*][b]Weapon Smith[/b]: You specialize in using magical weapons in combat
 [*][b]Scout Sentinel[/b]: A Scout Sentinel tinkerer modifies armor to enhance it's fuction, provding enhanced protection and mobility
-[*][b]Ancient Forest Pact[/b]: You have forged a relationship with a powerful nature entity: Ancient Dryads, Archdruids , Manifestations of the Feywild bleeding into the material plane, Forgotten gods from a primal age. Your patron may wish for you to protect the natural world, travel to far off lands that it cannot, or it may have another motive that seems inscrutable to short-lived mortals
 [*][b]SoulBlade Pact[/b]: You have struck a bargain with a sentient weapon that you feed souls to in return for power
+[*][b]Ancient Forest Pact[/b]: You have forged a relationship with a powerful nature entity: Ancient Dryads, Archdruids, Manifestations of the Feywild bleeding into the material plane, Forgotten gods from a primal age. Your patron may wish for you to protect the natural world, travel to far off lands that it cannot, or it may have another motive that seems inscrutable to short-lived mortals
 [*][b]Elementalist Pact[/b]: You've been made a pact with and been changed by primordals present in the elemental badlands. The elemental chaos of the patron has suffused your soul, letting you use the power of diferent elemental types
 [*][b]MoonLit Pact[/b]: Your patron is a spirit of the moon, an entity that embodies the cyclical nature of light and darkness. These spirits seek to maintain the power of the moon over the night sky while keeping profane powers that stalk the darkness at bay and task their warlocks with the same, granting them command over the powers of the moon and its effects
 [*][b]Rift Walker Pact[/b]: Your patron is one of the rare beings who calls the void between worlds their home. They slip between the planes with ease and the knowledge you have gained from interacting with them allows you to harness lingering rift engeries to your benefit within solasta. You might be sometimes filled with a longing for the distant realm of your patron, a desire to wander between dimensions for the rest of your days, or watch for signs of another Rift event, either to prevent or encourage
 [*][b]Toad King Pact[/b]: Fey, demon or abberation caused by the Cataclysm, the true nature of the Toad King is not known, but it is known that the Toad King rules a large area of swamps and marshes within the Badlands and offers power to those willing to serve
-[*][b]Royal Knight[/b]: A knight who inspires greatness in others by committing brave deeds in battle. A lone knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band
-[*][b]Thug[/b]: Thugs are sharp-minded combattants who seek the thrill of the fight and will make their enemies bite the dust by any means necessary. They benefit from an advanced martial training and learn to make use of their wit and brawn alike to triumph in battle
 [/list]
 
 [size=3][b]Official Classes Subclasses[/b][/size]
@@ -181,6 +182,7 @@ While you are not wearing any armor, your AC equals 10 + your Dexterity modifier
 [*][b]Chef (Constitution)[/b]: You gain +1 to Constitution. Spend 1 hour to cook a meal to heal yourself and your companions 1d8. Once a day you may spend an hour to cook treats that provide temporary HP when eaten
 [*][b]Chef (Wisdom)[/b]: You gain +1 to Wisdom. Spend 1 hour to cook a meal to heal yourself and your companions. Once a day you may spend an hour to cook treats that provide temporary HP when eaten
 [*][b]Dual Flurry[/b]: You are a master of fighting with paired weapons. On any turn where you hit twice with melee attacks while wielding a weapon in each hand, you may make an additional off-hand attack
+[*][b]Dual Weapon Defense[/b]: When yielding 2 weapons your AC increases by 1
 [*][b]Fast Hands[/b]: You gain a Cunning Action and can use the Bonus Action granted by it to make a Dexterity (Sleight of Hand) check, use your thieves’ tools to Disarm a trap or open a lock, or take the Use an Object action
 [*][b]Fey Teleportation (Charisma)[/b]: Increase Charisma attribute by 1. Gain the ability to Misty Step once per short rest and learn the spell. Gain proficiency in Tirmarian
 [*][b]Fey Teleportation (Intelligence)[/b]: Increase Intelligence attribute by 1. Gain the ability to Misty Step once per short rest and learn the spell. Gain proficiency in Tirmarian
@@ -204,6 +206,7 @@ On your turn, you can take one additional action on top of your regular action a
 [*][b]Inspiring Leader[/b]: Spend 10 minutes to inspire up to 6 friendly creatures (which can include yourself) within 30 feet of you. Each creature gains temporary hit points equal to your level + your Charisma modifier. Useable once per short rest
 [*][b]Light Armor[/b]: Gain proficiency with Light Armor and +1 Dexterity
 [*][b]Manacalon Crafter[/b]: +1 Intelligence, Proficiency or Expertise with Manacalon Rosary and Arcana, Requires the ability to cast spells
+[*][b]Marksman[/b]: When a visible opponent 2 cells or more from you attacks you with a ranged weapon or a spell, you can use your reaction to take a shot after the triggering attack
 [*][b]Medium Armor (Dexterity)[/b]: Gain proficiency with Medium Armor and Shields and +1 Dexterity
 [*][b]Medium Armor (Strength)[/b]: Gain proficiency with Medium Armor and Shields and +1 Strength
 [*][b]Metamagic: Careful[/b]: Increase your Charisma by 1, to a maximum of 20.
@@ -265,12 +268,25 @@ While you are not wearing any armor, your AC equals 10 + your Dexterity modifier
 [*][b]Burst of Radiance[/b]: Create a brilliant flash of shimmering light, damaging all enemies around you
 [*][b]Eldritch Blast[/b]: A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage.
 The spell creates more than one beam when you reach higher levels: two beams at 5th level, three beams at 11th level, and four beams at 17th level. You can direct the beams at the same target or at different ones. Make a separate attack roll for each beam
-[*][b]Eldritch Orb[/b]: You fling a ball of eldritch energy at a creature or object within range
+[*][b]Eldritch Orb[/b]: You fling a ball of eldritch energy at a creature or object within range and deal force damage in small radius
+[*][b]Illuminating Sphere[/b]: <b><i>Morwenna's Illuminating Sphere</i></b> causes light sources such as torches and mana lamps in the area of effect to light up. 
+
+<i>"Don't worry, its highly unlikely to ignite torches or candles in packs or pockets. Probably."  -Morwenna Leafheart</i>
 [*][b]Minor Lifesteal[/b]: You drain life energy from a hostile creature you can see within range. You then heal hit points equal to the amount of damage dealt. This spell has no effect on undead or constructs
+[*][b]Resonating Strike[/b]: Select one creature within melee range of you and a different creature that you can see within 5 feet of main target. You make a melee attack with current weapon against first creature. On a hit, the target suffers the weapon attack's normal effects, and resonating sound leaps to second target, dealing thunder damage equal to your spellcasting ability modifier.
+At 5th level, the melee attack deals extra 1d8 thunder damage to the target on a hit, and the thunder damage to the second creature increases to 1d8 + your spellcasting ability modifier. Both damage rolls increase by 1d8 at 11th and 17th levels
 [*][b]Sound Burst[/b]: Create a burst of thundering sound, damaging everyone around you
+[*][b]Sunlit Blade[/b]: Make a melee attack with a weapon. On a hit, the target suffers the attack's normal effects, and is enveloped in glowing radiant energy, shedding dim light for the turn. Next attack against this creature while it is highlighted is done with advantage.
+At 5th level, the melee attack deals an extra 1d8 radiant damage to the target. The damage increases by another 1d8 at 11th level and 17th level
 [*][b]Find Familiar[/b]: You gain the service of a familiar
+[*][b]Hellish Rebuke[/b]: You point your finger, and the creature that damaged you is momentarily surrounded by hellish flames. The creature must make a Dexterity saving throw. It takes 2d10 fire damage on a failed save, or half as much damage on a successful one
+[*][b]Mule[/b]: The recipient of this spell is able to ignore the effects of heavy loads or armor on movement speed. They can also carry slightly more weight. 
+
+<i>"If they have to come along, they might as well carry your stuff."  -Morwenna Leafheart</i>
 [*][b]Pact Mark[/b]: You place a mark form your pact onto a creature you can see within 90ft. It becomes vulnerable to you and takes an additional 1d6 damage whenever you hit it with an attack (physical or spell attack). This damage is the same type as the attack that hits
-[*][b]Spell/&AHHellishRebukeTitle[/b]: Spell/&AHHellishRebukeDescription
+[*][b]Radiant Motes[/b]: <b><i>Morwenna's Radiant Motes</i></b> unleashes a swarm of radiant projectiles that deal minor damage, but never miss. Targets may radiate light for up to 1 minute. 
+
+<i>"I got the inspiration from watching a Dwarf being overwhelmed by scorching badlands fireflies. Good times."  -Morwenna Leafheart</i>
 [*][b]Petal Storm[/b]: Choose an unoccupied 15-foot cube of air that you can see within range. An elemental force of swirling winds appears in the cube and lasts for the spell's duration. The cloud heavily obscures its area. Any creature that enters the storm for the first time on a turn or starts its turn there must make a Strength saving throw. On a failed save, the creature takes 3d4 slashing damage. As a bonus action, you can move the storm up to 30 feet in any direction
 [*][b]Protect Threshold[/b]: Tracing arcane sigils along its boundary, you can ward a doorway, window, or other portal from entry. For the duration, an invisible eldritch creature stalks the warded portal. Any creature that attempts to pass through the portal must make a Wisdom saving throw or take 4d6 psychic damage, or half as much on a successful save
 [*][b]Earth Tremor[/b]: You strike the ground and unleash a tremor of seismic force, hurling up earth, rock, and sand
@@ -322,6 +338,7 @@ Regardless of its current hit points, a celestial, an elemental, a fey, or a fie
 [*][b]Quarterstaff[/b]: Quarterstaff of Acuteness, Stormblade Quarterstaff, Frostburn Quarterstaff, Lightbringer Quarterstaff, Dragonblade Quarterstaff, Warden Quarterstaff, Whiteburn Quarterstaff, Souldrinker Quarterstaff
 [*][b]Spear[/b]: Black Viper Spear, Doom Tipped Spear, Spear of Acuteness, Whiteburn Spear, Lightbringer Spear, Spear of Sharpness
 [*][b]Scimitar[/b]: Stormblade Scimitar, Frostburn Scimitar, Lightbringer Scimitar, Dragonblade Scimitar, Warden Scimitar, Whiteburn Scimitar, Souldrinker Scimitar
+[*][b]Rapier[/b]: Stormblade Rapier, Frostburn Rapier, Lightbringer Rapier, Dragonblade Rapier, Warden Rapier, Whiteburn Rapier, Souldrinker Rapier, Rapier of Power
 [*][b]Shield [Wooden][/b]: Wooden Shield of Sturdiness, Wooden Shield of Robustness, Wooden Shield of Survival, Wooden Shield of Flame Dancing, Wooden Shield of Frost Walking, Wooden Shield of Deflection
 [*][b]Shield[/b]: Shield of Sturdiness, Shield of Robustness, Shield of Survival, Shield of Flame Dancing, Shield of Frost Walking, Shield of Deflection
 [*][b]Hide Armor[/b]: Hide Armor of Sturdiness, Hide Armor of Robustness, Hide Armor of Survival, Hide Armor of Flame Dancing, Hide Armor of Frost Walking, Hide Armor of Deflection

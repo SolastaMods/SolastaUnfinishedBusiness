@@ -29,9 +29,14 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.RitualAndAutoPrepared
                 return;
             }
 
+            //
+            // ensures compatibility with MC heroes as MaxSpellLevelOfSpellCastingLevel will return the shared spell level
+            //
+            var maxSpellLevel = Models.SharedSpellsContext.GetClassSpellLevel(spellRepertoire);
+
             ritualSpells.AddRange(spellRepertoire.KnownSpells
                 .Where(s => s.Ritual)
-                .Where(s => spellRepertoire.MaxSpellLevelOfSpellCastingLevel >= s.SpellLevel));
+                .Where(s => maxSpellLevel >= s.SpellLevel));
 
             if (spellRepertoire.AutoPreparedSpells == null)
             {
@@ -40,7 +45,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.RitualAndAutoPrepared
 
             ritualSpells.AddRange(spellRepertoire.AutoPreparedSpells
                 .Where(s => s.Ritual)
-                .Where(s => spellRepertoire.MaxSpellLevelOfSpellCastingLevel >= s.SpellLevel));
+                .Where(s => maxSpellLevel >= s.SpellLevel));
         }
     }
 }

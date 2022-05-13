@@ -1,6 +1,7 @@
 ﻿using SolastaModApi.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.CustomDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionProficiencys;
 using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
@@ -10,9 +11,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 {
     public static class AHWarlockSubclassSoulBladePact
     {
-        public static CharacterSubclassDefinition Subclass { get; } = Build();
-
-        private static CharacterSubclassDefinition Build()
+        internal static CharacterSubclassDefinition Build()
         {
             var summonPactWeaponPower = FeatureDefinitionPowerBuilder
                 .Create(FeatureDefinitionPowers.PowerTraditionShockArcanistArcaneFury, "AHSoulBladeSummonPactWeaponPower", DefinitionBuilder.CENamespaceGuid)
@@ -39,21 +38,59 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetDuration(DurationType.Minute, 1)
                 .AddToDB();
 
+            //TODO: convert to separate power that adds damage and small dim glow for a minute PB times a day
+            // var empowerWeaponPower = FeatureDefinitionPowerBuilder
+            //     .Create(FeatureDefinitionPowers.PowerOathOfDevotionSacredWeapon, "AHWarlockSoulBladePactEmpowerWeaponPower", DefinitionBuilder.CENamespaceGuid)
+            //     .SetOrUpdateGuiPresentation(Category.Feature)
+            //     .SetShortTitleOverride("Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle")
+            //     .SetRechargeRate(RechargeRate.ShortRest)
+            //     .SetFixedUsesPerRecharge(1)
+            //     .SetCostPerUse(1)
+            //     .SetActivationTime(ActivationTime.BonusAction)
+            //     .SetEffectDescription(FeatureDefinitionPowers.PowerOathOfDevotionSacredWeapon.EffectDescription.Copy()
+            //         .SetDuration(DurationType.Minute, 1)
+            //         .SetEffectForms(EffectFormBuilder
+            //             .Create()
+            //             .SetConditionForm(weaponCondition, ConditionForm.ConditionOperation.Add, false, true)
+            //             .Build())
+            //         .AddEffectForms(FeatureDefinitionPowers.PowerOathOfDevotionSacredWeapon.EffectDescription.EffectForms)
+            //     )
+            //     .AddToDB();
+
+            var attackMod = FeatureDefinitionAttackModifierBuilder
+                .Create("AHWarlockSoulBladePactEmpowerWeaponModifier", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(Category.Modifier, FeatureDefinitionPowers.PowerOathOfDevotionSacredWeapon.GuiPresentation.SpriteReference)
+                .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
+                .AddToDB();
+            
             var empowerWeaponPower = FeatureDefinitionPowerBuilder
-                .Create(FeatureDefinitionPowers.PowerOathOfDevotionSacredWeapon, "AHWarlockSoulBladePactEmpowerWeaponPower", DefinitionBuilder.CENamespaceGuid)
-                .SetOrUpdateGuiPresentation(Category.Feature)
+                .Create("AHWarlockSoulBladePactEmpowerWeaponPower", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerOathOfDevotionSacredWeapon.GuiPresentation.SpriteReference)
                 .SetShortTitleOverride("Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle")
-                .SetRechargeRate(RechargeRate.ShortRest)
+                .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always)
+                .SetRechargeRate(RechargeRate.LongRest)
                 .SetFixedUsesPerRecharge(1)
                 .SetCostPerUse(1)
-                .SetActivationTime(ActivationTime.BonusAction)
-                .SetEffectDescription(FeatureDefinitionPowers.PowerOathOfDevotionSacredWeapon.EffectDescription.Copy()
-                    .SetDuration(DurationType.Minute, 1)
-                    .SetEffectForms(EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(weaponCondition, ConditionForm.ConditionOperation.Add, false, true)
-                        .Build())
-                    .AddEffectForms(FeatureDefinitionPowers.PowerOathOfDevotionSacredWeapon.EffectDescription.EffectForms)
+                .SetActivationTime(ActivationTime.Action)
+                .SetAttackModifierAbility(true,true, AttributeDefinitions.Charisma)
+                .SetEffectDescription(new EffectDescriptionBuilder()
+                    .SetDurationData(DurationType.UntilLongRest)
+                    .SetTargetingData(Side.Ally, 
+                        RangeType.Self, 
+                        1, 
+                        TargetType.Item, 
+                        1, 
+                        1,
+                        ActionDefinitions.ItemSelectionType.Weapon
+                    )
+                    .AddEffectForms(new EffectFormBuilder()
+                        .SetItemPropertyForm(
+                            ItemPropertyUsage.Unlimited,
+                            1, new FeatureUnlockByLevel(attackMod, 0)
+                        )
+                        .Build()
+                    )
+                    .Build()
                 )
                 .AddToDB();
 
@@ -94,12 +131,22 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetExtendedSpellList(spellList)
                 .AddToDB();
 
+            var proficiencySoulBladeArmor = FeatureDefinitionProficiencyBuilder
+                .Create(ProficiencyClericArmor, "ProficiencySoulBladeArmor", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(Category.Feature)
+                .AddToDB();
+
+            var proficiencySoulBladeWeapon = FeatureDefinitionProficiencyBuilder
+                .Create(ProficiencyFighterWeapon, "ProficiencySoulBladeWeapon", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(Category.Feature)
+                .AddToDB();
+
             return CharacterSubclassDefinitionBuilder
                 .Create("AHWarlockSubclassSoulBladePact", DefinitionBuilder.CENamespaceGuid)
                 .SetOrUpdateGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.OathOfTheMotherland.GuiPresentation.SpriteReference)
                 .AddFeatureAtLevel(extendedSpellList, 1) // Extra Soulblade spells
-                .AddFeatureAtLevel(ProficiencyFighterWeapon, 1) // Martial weapons
-                .AddFeatureAtLevel(ProficiencyClericArmor, 1) // Medium armor and shield
+                .AddFeatureAtLevel(proficiencySoulBladeArmor, 1) // Martial weapons
+                .AddFeatureAtLevel(proficiencySoulBladeWeapon, 1) // Medium armor and shield
                 .AddFeatureAtLevel(empowerWeaponPower, 1) //Feature to rival hexblade curse
                 .AddFeatureAtLevel(summonPactWeaponPower, 6)
                 .AddFeatureAtLevel(shieldPower, 10)

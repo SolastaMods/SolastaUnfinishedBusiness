@@ -4,10 +4,10 @@
   "groundLowPlacement": true,
   "groundHighPlacement": true,
   "wallPlacement": true,
-  "openingPlacement": true,
+  "openingPlacement": false,
   "openingLowPlacement": false,
   "openingHighPlacement": false,
-  "propPlacement": true,
+  "propPlacement": false,
   "lightSources": [],
   "category": "Obstacle",
   "dimensions": {
@@ -110,6 +110,16 @@
       "prefabReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "69ad3381945e56b40a309cbf9fd8af56",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "ValleyPalace",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "ffca293b051db02409174b62cc7894f7",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       }

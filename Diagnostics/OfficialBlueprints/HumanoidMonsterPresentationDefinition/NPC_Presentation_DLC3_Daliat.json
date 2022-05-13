@@ -1,0 +1,81 @@
+{
+  "$type": "HumanoidMonsterPresentationDefinition, Assembly-CSharp",
+  "raceDefinition": "Definition:Elf:143998b174becf84682ae849dfe9d757",
+  "subRaceDefinition": "Definition:ElfHigh:4e42d1b55900cff4ab62dbfbd88f9b24",
+  "sex": "Male",
+  "originMorphotype": "Origin_NonHuman",
+  "skinMorphotype": "FaceAndSkinPale",
+  "musculatureMorphotypeValue": 0.0,
+  "ageMorphotypeValue": 0.0,
+  "faceShapeMorphotype": "FaceShape_NPC_Daliat_Sunbird",
+  "hairShapeMorphotype": "HairShape_A",
+  "hairColorMorphotype": "HairColorCopper",
+  "beardShapeMorphotype": "",
+  "eyeMorphotype": "Eye_Default",
+  "eyeColorMorphotype": "EyeColorGolden",
+  "bodyDecorationMorphotype": "BodyDecoration_None",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "Scars_None",
+  "armorDefinition": "ClothesScavenger_B",
+  "helmetDefinition": "",
+  "tabardDefinition": "",
+  "showHelmet": true,
+  "firstColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.8773585,
+    "g": 0.0289694015,
+    "b": 0.0289694015,
+    "a": 1.0
+  },
+  "secondColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.8207547,
+    "g": 0.143244922,
+    "b": 0.143244922,
+    "a": 1.0
+  },
+  "thirdColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.764151,
+    "g": 0.140574962,
+    "b": 0.140574962,
+    "a": 1.0
+  },
+  "fourthColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
+    "a": 1.0
+  },
+  "overrideWieldedItems": false,
+  "itemDefinitionMainHand": null,
+  "itemDefinitionOffHand": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "af3cd3237308df1419dcab6531a56d34",
+      "m_SubObjectName": "CustomPortrait_NPC_Presentation_Daliat_Sunbird",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "7edefba409edb0a42b83c20e3bb4bc0f",
+  "contentPack": "BaseGame",
+  "name": "NPC_Presentation_DLC3_Daliat"
+}

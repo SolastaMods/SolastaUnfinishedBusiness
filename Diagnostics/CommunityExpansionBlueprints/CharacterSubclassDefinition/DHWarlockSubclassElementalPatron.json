@@ -3,7 +3,12 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ElementalPatronFeatureSet_Level01:966bb3e3-679b-52c3-b195-3fe1cae782af",
+      "featureDefinition": "Definition:DH_ElementalFormPool:b8270e0d-295a-5eba-8efe-0538cb0859c1",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ElementalistSpellsMagicAffinity:d833416d-a95e-509a-9024-06f9867c32f8",
       "level": 1
     },
     {
@@ -13,7 +18,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ElementalPatronFeatureSet_Level10:e811200d-aa23-50f1-8be2-19f44a85d994",
+      "featureDefinition": "Definition:DH_ElementalFormPoolEnhanced:caa5ca41-3b17-5141-8858-fe6b013efb88",
       "level": 10
     },
     {

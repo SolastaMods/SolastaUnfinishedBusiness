@@ -6,7 +6,7 @@
   "partySize": 4,
   "minStartLevel": 1,
   "maxStartLevel": 1,
-  "levelCap": 12,
+  "levelCap": 15,
   "predefinedParty": [],
   "calendar": "Definition:SolastanCalendar:59113df69a4ea89479030146cc95b63d",
   "startYear": 1024,
@@ -790,6 +790,14 @@
       "boolValue": false,
       "intValue": 0,
       "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "SleepAtInn-C",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
     }
   ],
   "knownRecipes": [
@@ -817,7 +825,8 @@
     "Definition:Compatibility_LockEvocationExit_1.0:bf95dffeba2779d459b53db1e2845941",
     "Definition:SpyPlantDocumentCompatibilityScenario:b49c3e7e0ee9e5b469e48136f137c6eb",
     "Definition:Compatibility_Legendary_Exit:ac3e73493cd8b58439ee67cbb6f0bf6c",
-    "Definition:ConjurationForestCompatibilityScenario:b045fbc800fbc9c4db4f2c07215ce1d6"
+    "Definition:ConjurationForestCompatibilityScenario:b045fbc800fbc9c4db4f2c07215ce1d6",
+    "Definition:Abjuration_WizardTowerHall_CompatibilityScenario:af45544a62994fc45b54c40cec5e1bf9"
   ],
   "journalStart": "Campaign/&CrownOfTheMagisterJournalStart",
   "initialBestiaryContent": [

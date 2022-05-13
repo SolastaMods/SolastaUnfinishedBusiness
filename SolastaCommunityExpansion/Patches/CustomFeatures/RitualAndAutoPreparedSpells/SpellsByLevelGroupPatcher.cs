@@ -1,4 +1,8 @@
-﻿using System.Collections.Generic;
+﻿//
+// This is now handled on MC Level Up patches
+//
+#if false
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
@@ -16,12 +20,13 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.RitualAndAutoPrepared
          * prepared spells is used which works properly.
          */
         internal static void Prefix(
-            SpellsByLevelGroup __instance, 
+            SpellsByLevelGroup __instance,
+            SpellBox.BindMode bindMode,
             RulesetCharacter caster,
             ref List<SpellDefinition> allSpells, 
             ref List<SpellDefinition> auToPreparedSpells)
         {
-            if (!Main.Settings.ShowAllAutoPreparedSpells)
+            if (!Main.Settings.ShowAllAutoPreparedSpells || bindMode == SpellBox.BindMode.Inspection || bindMode == SpellBox.BindMode.Preparation)
             {
                 return;
             }
@@ -29,10 +34,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.RitualAndAutoPrepared
             // Wait what? Yes, during level up no caster is bound. This is techncially fine, but we need one to collect the spells.
             if (caster == null)
             {
-                // it looks like it's ok to use CurrentLocalHeroCharacter on this context as this is an UI only patch
-                var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
-                
-                caster = characterBuildingService.CurrentLocalHeroCharacter;
+                caster = Global.ActiveLevelUpHero;
             }
 
             // Collect all the auto prepared spells.
@@ -61,3 +63,4 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.RitualAndAutoPrepared
         }
     }
 }
+#endif

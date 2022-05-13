@@ -4,7 +4,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 {
     public delegate bool IsActiveFightingStyleDelegate(RulesetCharacterHero character);
 
-    public class CustomizableFightingStyleDefinition : FightingStyleDefinition, ICustomFightingStyle
+    public class FightingStyleDefinitionCustomizable : FightingStyleDefinition, ICustomFightingStyle
     {
         private IsActiveFightingStyleDelegate isActive;
 
@@ -19,7 +19,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions
         }
     }
 
-    public class CustomizableFightingStyleBuilder : FightingStyleDefinitionBuilder<CustomizableFightingStyleDefinition, CustomizableFightingStyleBuilder>
+    public class CustomizableFightingStyleBuilder : FightingStyleDefinitionBuilder<FightingStyleDefinitionCustomizable, CustomizableFightingStyleBuilder>
     {
         protected CustomizableFightingStyleBuilder(string name, string guid) : base(name, guid)
         {

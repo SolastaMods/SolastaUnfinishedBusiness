@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using SolastaCommunityExpansion.Builders;
+﻿using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -9,13 +8,9 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class MulticlassContext
     {
+        internal const int MAX_CLASSES = 3;
         internal static void Load()
         {
-            if (!Main.IsMulticlassInstalled)
-            {
-                Main.Settings.EnableMulticlass = false;
-            }
-
             // ensure these are always referenced here for diagnostics dump
             _ = ArmorProficiencyMulticlassBuilder.BarbarianArmorProficiencyMulticlass;
             _ = ArmorProficiencyMulticlassBuilder.FighterArmorProficiencyMulticlass;
@@ -63,6 +58,17 @@ namespace SolastaCommunityExpansion.Models
                     castSpellDefinition.ScribedSpells.Add(0);
                 }
             }
+        }
+
+        internal static void LateLoad()
+        {
+            if (!Main.Settings.EnableMulticlass)
+            {
+                return;
+            }
+
+            MulticlassPatchingContext.Load(); // depends on IntegrationContext
+            SharedSpellsContext.Load(); // depends on IntegrationContext
         }
     }
 

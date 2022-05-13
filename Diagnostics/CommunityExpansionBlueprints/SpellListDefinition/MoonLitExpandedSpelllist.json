@@ -29,15 +29,15 @@
       "level": 3,
       "spells": [
         "Definition:Daylight:73762817061cfec47b824d2f3a9fc3f6",
-        "Definition:HypnoticPattern:363c0134112bc864b871f0fef729be6b"
+        "Definition:Slow:ee93dd5046aabe14e90ba99da310fbb4"
       ]
     },
     {
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 4,
       "spells": [
-        "Definition:DominateBeast:c3d07b9ef913f2d4ab8682c01ce7a3e1",
-        "Definition:GreaterInvisibility:463d00efd5590394ab707875f866dfe7"
+        "Definition:GreaterInvisibility:463d00efd5590394ab707875f866dfe7",
+        "Definition:GuardianOfFaith:9a2e9a322fd95a94197cfb894349d665"
       ]
     },
     {
@@ -45,7 +45,7 @@
       "level": 5,
       "spells": [
         "Definition:DominatePerson:89e34ee9a6361c040abb36971b697031",
-        "Definition:FlameStrike:e165a70c93c4985449e51d32117c2ddf"
+        "Definition:MindTwist:88c5c5e07eb13684998c75c11492fdd5"
       ]
     },
     {
@@ -72,8 +72,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&MoonLitExpandedSpelllistTitle",
-    "description": "Feature/&MoonLitExpandedSpelllistDescription",
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

@@ -15,7 +15,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
                 return;
             }
 
-            Models.InventoryManagementContext.RefreshControlsVisibility();
+            InventoryManagementContext.RefreshControlsVisibility();
         }
     }
 
@@ -33,7 +33,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
             // NOTE: don't use MainContainerPanel?. which bypasses Unity object lifetime check
             if (Main.Settings.EnableInventoryFilteringAndSorting && __instance.MainContainerPanel)
             {
-                Models.InventoryManagementContext.SortAndFilter(__instance.MainContainerPanel.Container);
+                InventoryManagementContext.SortAndFilter(__instance.MainContainerPanel.Container);
             }
         }
     }
@@ -52,7 +52,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
             if (__instance.MainContainerPanel)
             {
                 // NOTE: don't use MainContainerPanel?. which bypasses Unity object lifetime check
-                Models.InventoryManagementContext.Flush(__instance.MainContainerPanel.Container);
+                InventoryManagementContext.Flush(__instance.MainContainerPanel.Container);
             }
         }
     }

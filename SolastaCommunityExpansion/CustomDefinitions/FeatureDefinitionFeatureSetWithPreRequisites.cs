@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace SolastaCommunityExpansion.CustomDefinitions
 {
     public class FeatureDefinitionFeatureSetWithPreRequisites : FeatureDefinitionFeatureSet, IFeatureDefinitionWithPrerequisites
     {
-        public List<Func<bool>> Validators { get; set; } = null;
+        public List<IFeatureDefinitionWithPrerequisites.Validate> Validators { get; set; }
     }
 }

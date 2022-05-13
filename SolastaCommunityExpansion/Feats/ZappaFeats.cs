@@ -143,6 +143,16 @@ namespace SolastaCommunityExpansion.Feats
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 
+            // Dual Weapon Defense
+            var dualWeaponDefense = FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
+                .Create("FeatDualWeaponDefense", ZappaFeatNamespace)
+                .SetFeatures(
+                    AttributeModifierSwiftBladeBladeDance
+                )
+                .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
+                .SetGuiPresentation(Category.Feat)
+                .AddToDB();
+
             // Fast Hands
             var fastHands = FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
                 .Create("FeatFastHands", ZappaFeatNamespace)
@@ -177,6 +187,16 @@ namespace SolastaCommunityExpansion.Feats
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
                 .SetGuiPresentation(Category.Feat)
                 .SetValidators(ValidateNotClass(Fighter))
+                .AddToDB();
+
+            // Marksman
+            var marksman = FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
+                .Create("FeatMarksman", ZappaFeatNamespace)
+                .SetFeatures(
+                    ActionAffinityMarksmanReactionShot
+                )
+                .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
+                .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 
             // Metamagic Sorcery Points Feature
@@ -422,9 +442,11 @@ namespace SolastaCommunityExpansion.Feats
                 brutalThug,
                 charismaticDefense,
                 charismaticPrecision,
+                dualWeaponDefense,
                 fastHands,
                 fightingSurgeDexterity,
                 fightingSurgeStrength,
+                marksman,
                 metamagicAdeptCareful,
                 metamagicAdeptDistant,
                 metamagicAdeptEmpowered,
