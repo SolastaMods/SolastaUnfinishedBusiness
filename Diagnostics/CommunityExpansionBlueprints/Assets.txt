@@ -4515,6 +4515,7 @@ WorkTable_B~TownInterior~MOD	PropBlueprint	PropBlueprint	6c2ae8d3-df80-563d-a011
 WorkTable_B~ValleyPalace~MOD	PropBlueprint	PropBlueprint	14ec6876-cfba-5f32-8bd7-46e6f86d1816
 WorkTable_C~Stronghold~MOD	PropBlueprint	PropBlueprint	5178bcaf-f486-573f-a1f8-61fe682c6c2f
 WorkTable_C~TownInterior~MOD	PropBlueprint	PropBlueprint	b983ef2a-385b-56ca-94cd-72a52a212c50
+WarcasterReaction	ReactionDefinition	ReactionDefinition	23df1c39-8b0a-5144-b482-3234bb4ca99d
 RecipeEnchantingEnchanted_Club_Acuteness	RecipeDefinition	RecipeDefinition	18cc4751-8bb0-5105-a69c-bc51efe9705c
 RecipeEnchantingEnchanted_Club_Bearclaw	RecipeDefinition	RecipeDefinition	615c99c9-d493-5591-b82b-ce78454df4b5
 RecipeEnchantingEnchanted_Club_Lightbringer	RecipeDefinition	RecipeDefinition	66a1bc56-11e7-58bb-89ad-5cb59f582069

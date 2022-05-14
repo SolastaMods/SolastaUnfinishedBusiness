@@ -39,6 +39,7 @@ ItemDefinition
 LanguageDefinition
 MonsterAttackDefinition
 MonsterDefinition
+ReactionDefinition
 RecipeDefinition
 RestActivityDefinition
 SolastaCommunityExpansion.Classes.Warlock.Subclasses.FeatureDefinitionMoonlitInvisibility
