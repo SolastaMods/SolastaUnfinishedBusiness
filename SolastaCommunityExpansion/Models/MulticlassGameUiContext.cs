@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Models
     {
         private static Color LightGreenSlot = new(0f, 1f, 0f, 1f);
         private static Color WhiteSlot = new(1f, 1f, 1f, 1f);
-        private static readonly float[] fontSizes = new float[] { 17f, 17f, 16f, 15f, 14f, 14f, 14f };
+        private static readonly float[] fontSizes = new float[] { 17f, 17f, 16f, 14.75f, 13.5f, 13.5f, 13.5f };
 
         public static float GetFontSize(int classesCount)
         {
