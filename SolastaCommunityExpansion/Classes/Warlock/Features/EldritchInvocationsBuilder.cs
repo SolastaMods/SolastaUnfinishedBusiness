@@ -509,8 +509,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
             var giftoftheProtectorsDamageAffinity = FeatureDefinitionDamageAffinityBuilder
                 .Create(
-                    FeatureDefinitionDamageAffinitys.DamageAffinityHalfOrcRelentlessEndurance, 
-                    "DamageAffinityGiftoftheProtectorsRelentlessEndurance", 
+                    FeatureDefinitionDamageAffinitys.DamageAffinityHalfOrcRelentlessEndurance,
+                    "DamageAffinityGiftoftheProtectorsRelentlessEndurance",
                     DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Feature)
                 .AddToDB();
