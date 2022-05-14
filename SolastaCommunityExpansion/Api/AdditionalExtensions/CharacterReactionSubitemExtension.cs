@@ -54,7 +54,9 @@ namespace SolastaCommunityExpansion.Api.AdditionalExtensions
             // Hide all slots
             var slotStatusTable = instance.GetField<RectTransform>("slotStatusTable");
             for (int index = 0; index < slotStatusTable.childCount; ++index)
+            {
                 slotStatusTable.GetChild(index).gameObject.SetActive(false);
+            }
         }
 
         private static GuiTooltip GetOrMakeBackgroundTooltip(Transform root)

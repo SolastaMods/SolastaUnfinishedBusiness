@@ -224,7 +224,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
                     labelsGroup = ClassSelector.FindChildRecursive("LabelsGroup");
 
                     var firstButton = labelsGroup.GetChild(0);
-                    
+
                     for (var i = labelsGroup.childCount; i < MulticlassContext.MAX_CLASSES; i++)
                     {
                         Object.Instantiate(firstButton, firstButton.parent);
@@ -236,7 +236,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
 
                     labelsGroup = ClassSelector.FindChildRecursive("LabelsGroup");
                 }
-                
+
                 var classesTitles = hero.ClassesAndLevels.Select(x => x.Key.FormatTitle()).ToList();
                 var classesCount = classesTitles.Count;
 

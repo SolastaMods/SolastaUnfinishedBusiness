@@ -14,7 +14,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
             {
                 var toggle = __instance.GetField<Toggle>("toggle").GetComponent<RectTransform>();
                 toggle.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 34);
-                
+
                 var background = toggle.FindChildRecursive("Background");
                 if (background != null)
                 {

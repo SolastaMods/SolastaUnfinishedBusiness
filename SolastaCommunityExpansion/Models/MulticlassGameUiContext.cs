@@ -186,8 +186,9 @@ namespace SolastaCommunityExpansion.Models
                 var i = 0;
                 var classesCount = hero.ClassesAndLevels.Count;
                 var newLine = separator == '\n' || classesCount <= 4 ? 2 : 3;
-                var sortedClasses = from entry in hero.ClassesAndLevels 
-                    orderby entry.Value descending, entry.Key.FormatTitle() ascending select entry;
+                var sortedClasses = from entry in hero.ClassesAndLevels
+                                    orderby entry.Value descending, entry.Key.FormatTitle() ascending
+                                    select entry;
 
                 foreach (var kvp in sortedClasses)
                 {

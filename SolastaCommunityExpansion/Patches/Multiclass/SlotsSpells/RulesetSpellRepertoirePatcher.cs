@@ -21,7 +21,7 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.SlotsSpells
             {
                 return;
             }
-            
+
             if (LevelUpContext.IsLevelingUp(heroWithSpellRepertoire))
             {
                 __result = SharedSpellsContext.GetClassSpellLevel(__instance);

@@ -42,15 +42,15 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
                     var group = parent.GetChild(1).GetComponent<RectTransform>();
                     group.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 25);
                     group.localPosition = new Vector3(-100, 5);
-                 
+
                     toggle = asset.GetComponent<PersonalityFlagToggle>();
-                    
+
                     var guiLabel = toggle.GetField<GuiLabel>("titleLabel");
                     guiLabel.Text = "UI/&ForcePreferredCantripTitle";
-                    
+
                     var tooltip = toggle.GetField<GuiTooltip>("tooltip");
                     tooltip.Content = "UI/&ForcePreferredCantripDescription";
-                    
+
                     toggle.PersonalityFlagDefinition = DatabaseHelper.PersonalityFlagDefinitions.Authority;
                     toggle.PersonalityFlagSelected = (_, state) =>
                     {

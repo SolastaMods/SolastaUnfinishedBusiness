@@ -1,11 +1,4 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
-using System.IO;
-using HarmonyLib;
-using SolastaCommunityExpansion.Models;
-using SolastaModApi.Diagnostics;
-
-namespace SolastaCommunityExpansion.Patches.Diagnostic
+﻿namespace SolastaCommunityExpansion.Patches.Diagnostic
 {
 #if DEBUG
     internal static class ItemDefinitionVerification

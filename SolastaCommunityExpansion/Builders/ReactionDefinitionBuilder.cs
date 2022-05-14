@@ -2,7 +2,7 @@
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public class ReactionDefinitionBuilder: DefinitionBuilder<ReactionDefinition, ReactionDefinitionBuilder>
+    public class ReactionDefinitionBuilder : DefinitionBuilder<ReactionDefinition, ReactionDefinitionBuilder>
     {
         internal ReactionDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {

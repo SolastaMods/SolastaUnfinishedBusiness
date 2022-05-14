@@ -51,7 +51,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
                 //TODO: is there a better way to detect proper placament?
                 for (int i = 0; i < codes.Count; i++)
                 {
-                    if (i < 1) { continue;}
+                    if (i < 1) { continue; }
                     var code = codes[i];
                     if (code.opcode == OpCodes.Callvirt && code.operand.ToString().Contains("Contains"))
                     {
