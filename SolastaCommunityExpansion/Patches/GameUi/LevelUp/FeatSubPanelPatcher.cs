@@ -63,23 +63,38 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
             const int HEIGHT = 34;
             const int SPACING = 6;
 
+            var hero = Models.Global.ActiveLevelUpHero;
+            var buildingData = hero.GetHeroBuildingData();
+            var trainedFeats = buildingData.LevelupTrainedFeats.SelectMany(x => x.Value).ToList();
+
+            trainedFeats.AddRange(hero.TrainedFeats);
+
             if (active && Main.Settings.EnableSameWidthFeatSelection)
             {
+                var j = 0;
                 var rect = table.GetComponent<RectTransform>();
 
                 rect.sizeDelta = new Vector2(rect.sizeDelta.x, (table.childCount / COLUMNS + 1) * (HEIGHT + SPACING));
 
                 for (var i = 0; i < table.childCount; i++)
                 {
-                    rect = table.GetChild(i).GetComponent<RectTransform>();
+                    var child = table.GetChild(i);
 
-                    var x = i % COLUMNS;
-                    var y = i / COLUMNS;
-                    var posX = x * (WIDTH + SPACING * 2);
-                    var posY = -y * (HEIGHT + SPACING);
+                    var featItem = child.GetComponent<FeatItem>();
 
-                    rect.anchoredPosition = new Vector2(posX, posY);
-                    rect.sizeDelta = new Vector2(WIDTH, HEIGHT);
+                    if (!trainedFeats.Contains(featItem.GuiFeatDefinition.FeatDefinition))
+                    {
+                        var x = j % COLUMNS;
+                        var y = j / COLUMNS;
+                        var posX = x * (WIDTH + SPACING * 2);
+                        var posY = -y * (HEIGHT + SPACING);
+
+                        rect = child.GetComponent<RectTransform>();
+                        rect.anchoredPosition = new Vector2(posX, posY);
+                        rect.sizeDelta = new Vector2(WIDTH, HEIGHT);
+
+                        j++;
+                    }
                 }
             }
 
