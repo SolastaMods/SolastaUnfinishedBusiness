@@ -225,7 +225,10 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
 
                     var firstButton = labelsGroup.GetChild(0);
                     
-                    Object.Instantiate(firstButton, firstButton.parent);
+                    for (var i = labelsGroup.childCount; i < MulticlassContext.MAX_CLASSES; i++)
+                    {
+                        Object.Instantiate(firstButton, firstButton.parent);
+                    }
                 }
                 else
                 {
