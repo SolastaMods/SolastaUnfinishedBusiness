@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using static FeatureDefinitionFeatureSet;
 
 namespace SolastaModApi.Extensions
 {
@@ -42,9 +43,16 @@ namespace SolastaModApi.Extensions
             return hero.ActiveFeatures
                 .Where(e => e.Key.Contains(tag))
                 .SelectMany(e => e.Value)
-                .Select(f => f as T)
-                .Where(f => f != null)
+                .SelectMany(Unfold)
+                .OfType<T>()
                 .ToList();
+        }
+
+        private static IEnumerable<FeatureDefinition> Unfold(FeatureDefinition feature)
+        {
+            return (feature is FeatureDefinitionFeatureSet {Mode: FeatureSetMode.Union} set)
+                ? set.FeatureSet.SelectMany(Unfold)
+                : new[] {feature};
         }
 
         public static bool HasAnyFeature(this RulesetActor actor, params FeatureDefinition[] features)
