@@ -1,4 +1,4 @@
-﻿namespace SolastaCommunityExpansion.CustomDefinitions
+﻿namespace SolastaCommunityExpansion.CustomUI
 {
     public class ReactionRequestCastDamageSpell : ReactionRequestCastSpell
     {
