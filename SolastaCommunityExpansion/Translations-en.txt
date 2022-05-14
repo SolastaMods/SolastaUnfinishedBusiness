@@ -1792,3 +1792,5 @@ Reaction/&SpendPowerDH_RiftStrikeTitle	Rift Strike
 Reaction/&SpendPowerDH_RiftStrikeDescription	Once per day when damaged in melee, you can use you reaction to create a portal that banishes the attacker for 1 round from your plane of existence
 Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionTitle	Spell Shield
 Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionDescription	You can use your arcane powers to shield yourself as a reaction
+UI/&ForcePreferredCantripTitle	Force Preferred Cantrip
+UI/&ForcePreferredCantripDescription	If this toggled ON, then only preferred cantrip can trigger. If preferred cantrip is not selected, then first valid cantrip will trigger, regardless of this toggle.

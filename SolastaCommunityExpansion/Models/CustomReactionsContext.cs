@@ -14,6 +14,8 @@ namespace SolastaCommunityExpansion.Models
         private static IDamagedReactionSpell _alwayseact;
         public static IDamagedReactionSpell AlwaysReactToDamaged => _alwayseact ??= new AlwaysReactToDamagedImpl();
 
+        public static bool ForcePreferredCantrip = false;
+
         public interface IDamagedReactionSpell
         {
             bool CanReact(GameLocationCharacter attacker, GameLocationCharacter defender, ActionModifier attackModifier,
