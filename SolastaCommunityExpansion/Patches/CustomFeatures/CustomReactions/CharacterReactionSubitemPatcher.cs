@@ -45,44 +45,48 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
             Main.Log2($"CharacterReactionSubitem BindWarcaster slot: {slotLevel}, spells: [{string.Join(", ", spellRepertoire.KnownSpells.Select(s=>s.Name))}]", true);
             var slotStatusTable = instance.GetField<RectTransform>("slotStatusTable");
 
-            string title, description;
+            var label = instance.GetField<GuiLabel>("label");
+            var toggle = instance.GetField<Toggle>("toggle");
+            var background = toggle.transform.FindChildRecursive("Background");
+            GuiTooltip tooltip = null;
+            if (background != null)
+            {
+                tooltip = background.gameObject.AddComponent<GuiTooltip>();
+                tooltip.Anchor = null; //toggle.transform as RectTransform;
+                tooltip.AnchorMode = TooltipDefinitions.AnchorMode.LEFT_CENTER;
+                tooltip.Disabled = false;
+                tooltip.TooltipClass = "";
+            }
+            
+            string title;
             if (slotLevel == 0)
             {
                 title = "Attack";
-                description = string.Empty;
+                if (tooltip != null)
+                {
+                    tooltip.Content = "ATTACK!!!";
+                }
             }
             else
             {
                 var spell = spellRepertoire.KnownSpells[slotLevel - 1];
                 title = spell.GuiPresentation.Title;
-                description = "QEQEQE EERRR";//spell.GuiPresentation.Description;
+                if (tooltip != null)
+                {
+                    ServiceRepository.GetService<IGuiWrapperService>()
+                        .GetGuiSpellDefinition(spell.Name)
+                        .SetupTooltip(tooltip, null);
+                }
             }
 
-            var label = instance.GetField<GuiLabel>("label");
-            var toggle = instance.GetField<Toggle>("toggle");
-            var slotStatusPrefab = instance.GetField<GameObject>("slotStatusPrefab");
-            var tooltip = toggle.gameObject.AddComponent<GuiTooltip>();
-            
-
             label.Text = title;
-            var guiTooltip = slotStatusTable.GetComponent<GuiTooltip>();
-            guiTooltip.Content = description;
-            tooltip.Anchor = null;//toggle.transform as RectTransform;
-            tooltip.AnchorMode = guiTooltip.AnchorMode;
-            tooltip.Disabled = false;
-            tooltip.TooltipClass = "";
-            // tooltip.transform.SetParent(guiTooltip.transform.parent);
-            tooltip.Content = description;
-            tooltip.gameObject.SetActive(true);
-
             toggle.interactable = interactable;
             instance.GetField<CanvasGroup>("canvasGroup").interactable = interactable;
             
             instance.SubitemSelected = subitemSelected;
 
-            var tooltipSlots = 1;
             var toggleScale = 8.0f;
-            var labelScale = 0.8f;
+            var labelScale = 0.75f;
             var toggleTransform = toggle.transform;
             var labelTransform = label.transform;
             
@@ -94,37 +98,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
             oldScale.x /= toggleScale;
             labelTransform.localScale = oldScale;
             
-            while (slotStatusTable.childCount < tooltipSlots)
-                Gui.GetPrefabFromPool(slotStatusPrefab, slotStatusTable);
-
             for (int index = 0; index < slotStatusTable.childCount; ++index)
-            {
-                var child = slotStatusTable.GetChild(index);
-                var component = child.GetComponent<SlotStatus>();
-                component.Used.gameObject.SetActive(false);
-                component.Available.gameObject.SetActive(false);
-                
-                child.gameObject.SetActive(index < tooltipSlots);
-            }
+                slotStatusTable.GetChild(index).gameObject.SetActive(false);
         }
-
-        //tooltip tests
-        // [HarmonyPatch(typeof(GuiManager), "UpdateTooltip")]
-        // internal static class GuiManager_UpdateTooltip
-        // {
-        //     internal static void Prefic(GuiManager __instance)
-        //     {
-        //         var results = __instance.GetField<List<RaycastResult>>("results");
-        //         for (int index = 0; index < results.Count; ++index)
-        //         {
-        //             var item = results[index];
-        //             if (item.gameObject.name.Contains("Toggle"))
-        //             {
-        //                 var tt = item.gameObject.GetComponent<GuiTooltip>();
-        //                 Main.Log2($"{item.gameObject.name} - tt: '{tt?.Content}'");
-        //             }
-        //         }
-        //     }
-        // }
     }
 }
