@@ -133,6 +133,9 @@ namespace SolastaCommunityExpansion.Models
 
                 case RuleDefinitions.FighterClass:
                     return strength >= 13 || dexterity >= 13;
+                
+                case RuleDefinitions.MonkClass:
+                    return wisdom >= 13 && dexterity >= 13;
 
                 case RuleDefinitions.RangerClass:
                     return dexterity >= 13 && wisdom >= 13;
