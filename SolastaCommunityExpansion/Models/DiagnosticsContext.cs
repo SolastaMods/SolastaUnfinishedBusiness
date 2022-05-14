@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using HarmonyLib;
+#if DEBUG
 using I2.Loc;
 using SolastaCommunityExpansion.Builders;
-#if DEBUG
 using SolastaCommunityExpansion.DataMiner;
 #endif
 

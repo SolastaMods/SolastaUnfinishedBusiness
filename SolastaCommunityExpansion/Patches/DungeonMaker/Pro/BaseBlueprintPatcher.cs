@@ -38,8 +38,8 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.Pro
 
             if (environmentDefinition != null && prefabByEnvironmentDescription.Environment == environmentDefinition.Name)
             {
-                str1 += environmentName + "/";
-                str2 += "_" + environmentName;
+                str1 = "Gui/Bitmaps/Props-" + environmentName + "/";
+                str2 = str2 + "_" + environmentName;
             }
 
             __result = str1 + str2 + postfix;

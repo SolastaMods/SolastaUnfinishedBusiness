@@ -17,17 +17,21 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.SlotsSpells
         {
             var heroWithSpellRepertoire = SharedSpellsContext.GetHero(__instance.CharacterName);
 
-            if (heroWithSpellRepertoire == null
-                || LevelUpContext.IsLevelingUp(heroWithSpellRepertoire))
+            if (heroWithSpellRepertoire == null)
             {
-                __result = SharedSpellsContext.GetClassSpellLevel(__instance);
-
                 return;
             }
 
-            __result = Math.Max(
-                SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire),
-                SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire));
+            if (LevelUpContext.IsLevelingUp(heroWithSpellRepertoire))
+            {
+                __result = SharedSpellsContext.GetClassSpellLevel(__instance);
+            }
+            else
+            {
+                __result = Math.Max(
+                    SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire),
+                    SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire));
+            }
         }
     }
 

@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using SolastaCommunityExpansion.ItemCrafting;
 using SolastaModApi;
 using SolastaModApi.Extensions;
+#if DEBUG
+using System.Linq;
+using System.Text;
+#endif
 
 namespace SolastaCommunityExpansion.Models
 {

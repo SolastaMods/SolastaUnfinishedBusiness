@@ -99,5 +99,13 @@ namespace SolastaModApi.Infrastructure
             var method = type.GetMethod(methodName, NonPublic | Instance);
             return method?.Invoke(obj, args);
         }
+
+        public static bool InvokeMethodBool<T>(this T obj, string methodName, params object[] args)
+        {
+            var type = typeof(T);
+            var method = type.GetMethod(methodName, NonPublic | Instance);
+            var result = method?.Invoke(obj, args);
+            return result != null && (bool)result;
+        }
     }
 }

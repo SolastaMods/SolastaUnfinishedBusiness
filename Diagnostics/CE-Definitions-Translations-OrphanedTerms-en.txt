@@ -160,16 +160,24 @@ Power/&UrPriestRadiantWardDescription	As an action, you gain a number of tempora
 Power/&UrPriestRadiantWardTitle	Radiant Ward
 Power/&UrPriestSpellSiphonDescription	you learn how to tap into a greater source of magic in combination with your normal reserve of power. As an action, you can expend a Channel Divinity to regain an expended use of your 6th-level Mystic Arcanum
 Power/&UrPriestSpellSiphonTitle	Spell Siphon
+Reaction/&CastSpellInRetributionDescription	{0} is attacking {1}! You can cast {2} in responce!
+Reaction/&CastSpellInRetributionReactDescription	Click to cast {0}
+Reaction/&CastSpellInRetributionReactTitle	Cast Spell
+Reaction/&CastSpellInRetributionTitle	Cast Reaction Spell
 Reaction/&SpendPowerCounterStrikePowerDescription	Spend a gambit die and Counter Strike the enemy, if you hit, do an additional 1d6+2 bludgeoning damage
 Reaction/&SpendPowerCounterStrikePowerReactDescription	Spend a gambit die and Counter Strike the enemy, if you hit, do an additional 1d6+2 bludgeoning damage
 Reaction/&SpendPowerCounterStrikePowerReactTitle	Counter Strike
 Reaction/&SpendPowerCounterStrikePowerTitle	Counter Strike
+Reaction/&SpendPowerDH_RiftStrikeDescription	Once per day when damaged in melee, you can use you reaction to create a portal that banishes the attacker for 1 round from your plane of existence
+Reaction/&SpendPowerDH_RiftStrikeTitle	Rift Strike
 Reaction/&SpendPowerInspirePowerDescription	Spend a gambit die and inspire or your ally to give 1d6+2 temp hp
 Reaction/&SpendPowerInspirePowerTitle	Inspire
 Reaction/&SpendPowerKnockDownPowerDescription	Spend a gambit die and empower your attack to do an additional 1d6+2 bludgeoning damage and knock them down until the start of their next turn if they fail a Strength save vs. 8 + your Strength + proficiency
 Reaction/&SpendPowerKnockDownPowerReactDescription	Spend a gambit die and empower your attack to do an additional 1d6+2 bludgeoning damage and knock them down until the start of their next turn if they fail a Strength save vs. 8 + your Strength + proficiency
 Reaction/&SpendPowerKnockDownPowerReactTitle	Knock down
 Reaction/&SpendPowerKnockDownPowerTitle	Knock down
+Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionDescription	You can use your arcane powers to shield yourself as a reaction
+Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionTitle	Spell Shield
 Reaction/&SpendSpellSlotEldritchSmiteDescription	{0} can spend spell slot to deal 1d8 + 1d8 force damage per slot level to the target
 Reaction/&SpendSpellSlotEldritchSmiteReactDescription	Click to spend a spell slot and increase damage to the target
 Reaction/&SpendSpellSlotEldritchSmiteReactTitle	Smite
@@ -177,10 +185,9 @@ Reaction/&SpendSpellSlotEldritchSmiteTitle	Eldritch Smite
 Reaction/&SubitemSelectEldritchSmiteDescription	Select a slot level to consume for your Eldritch Smite
 Reaction/&SubitemSelectEldritchSmiteTitle	Slot Level
 Reaction/&SubitemSelectSlotLevelTitle	Slot Level
-Reaction/CastSpellInRetributionDescription	{0} is attacking {1}! You can cast {2} in responce!
-Reaction/CastSpellInRetributionReactDescription	Click to cast {0}
-Reaction/CastSpellInRetributionReactTitle	Cast Spell
-Reaction/CastSpellInRetributionTitle	Cast Reaction Spell
+Reaction/&SubitemSelectWarcasterTitle	Select action
+Reaction/&WarcasterAttackDescription	Attack target
+Reaction/&WarcasterAttackTitle	Attack
 Requirement/&FeatureSelectionRequireCharacterLevel	Level {0}
 Requirement/&FeatureSelectionRequireClassLevel	Level {0} of {1}
 Requirement/&WarlockMissingEldritchBlast	Eldritch Blast cantrip
@@ -282,3 +289,5 @@ UI/&CustomFeatureSelectionTooltipTypeCantrip	Cantrip
 UI/&CustomFeatureSelectionTooltipTypeFeature	Feature
 UI/&CustomFeatureSelectionTooltipTypePower	Power
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Proficiency
+UI/&ForcePreferredCantripDescription	If this toggled is ON only preferred cantrip can trigger. If the preferred cantrip isn't selected, then the first valid cantrip will trigger, regardless of this toggle
+UI/&ForcePreferredCantripTitle	Force Preferred Cantrip

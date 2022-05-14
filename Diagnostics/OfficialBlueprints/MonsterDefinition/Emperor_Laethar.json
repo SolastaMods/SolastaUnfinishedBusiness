@@ -138,7 +138,8 @@
     "Definition:DamageAffinityThunderResistance:510045c677352854ca27ebea37c85d02",
     "Definition:MoveModeMove8:4c110104739c99e4d920529a058ab2e2",
     "Definition:ConditionAffinityProneImmunity:abedf907fa238ce4c91865e7ab06c78d",
-    "Definition:ConditionAffinityHinderedByFrostImmunity:f0b82f8e00ab71b499cba40f950a034b"
+    "Definition:ConditionAffinityHinderedByFrostImmunity:f0b82f8e00ab71b499cba40f950a034b",
+    "Definition:SenseTruesight16:ea70a5054de732f4f8112f2ffca185a6"
   ],
   "attackIterations": [
     {

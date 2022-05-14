@@ -317,7 +317,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Spell/&CircleOfDeathTitle",
-    "description": "Spell/&CircleOfDeathDescription",
+    "description": "Power/&WightLordCircleofDeath_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "cad1a69fd7e99d44ea3366b73f1cc5c7",

@@ -507,8 +507,16 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 );
             ((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["ThirstingBlade"]).Validators.SetRange(RequirePactOfTheBlade);
 
+            var giftoftheProtectorsDamageAffinity = FeatureDefinitionDamageAffinityBuilder
+                .Create(
+                    FeatureDefinitionDamageAffinitys.DamageAffinityHalfOrcRelentlessEndurance,
+                    "DamageAffinityGiftoftheProtectorsRelentlessEndurance",
+                    DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(Category.Feature)
+                .AddToDB();
+
             ((FeatureDefinitionFeatureSet)EldritchInvocations["GiftoftheProtectors"]).FeatureSet
-                .Add(FeatureDefinitionDamageAffinitys.DamageAffinityHalfOrcRelentlessEndurance);
+                .Add(giftoftheProtectorsDamageAffinity);
             ((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["GiftoftheProtectors"]).Validators.SetRange(RequirePactOfTheBlade);
 
             ((FeatureDefinitionFeatureSet)EldritchInvocations["BondoftheTalisman"]).FeatureSet

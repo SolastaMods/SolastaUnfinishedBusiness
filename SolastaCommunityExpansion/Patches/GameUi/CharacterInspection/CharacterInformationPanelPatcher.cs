@@ -210,20 +210,33 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
                     return;
                 }
 
+                Transform labelsGroup;
+
                 if (ClassSelector == null)
                 {
                     var voice = backGroup.FindChildRecursive("Voice");
 
                     ClassSelector = Object.Instantiate(voice, classGroup.transform);
+                    ClassSelector.name = "Classes";
                     ClassSelector.FindChildRecursive("PlayAudio").gameObject.SetActive(false);
                     ClassSelector.FindChildRecursive("HeaderGroup").gameObject.SetActive(false);
+
+                    labelsGroup = ClassSelector.FindChildRecursive("LabelsGroup");
+
+                    var firstButton = labelsGroup.GetChild(0);
+
+                    for (var i = labelsGroup.childCount; i < MulticlassContext.MAX_CLASSES; i++)
+                    {
+                        Object.Instantiate(firstButton, firstButton.parent);
+                    }
                 }
                 else
                 {
                     ClassSelector.gameObject.SetActive(true);
+
+                    labelsGroup = ClassSelector.FindChildRecursive("LabelsGroup");
                 }
 
-                var labelsGroup = ClassSelector.FindChildRecursive("LabelsGroup");
                 var classesTitles = hero.ClassesAndLevels.Select(x => x.Key.FormatTitle()).ToList();
                 var classesCount = classesTitles.Count;
 
@@ -257,7 +270,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
 
                 labelsGroup.GetChild(0).GetComponent<Toggle>().isOn = true;
 
-                for (var i = classesCount; i < 3; i++)
+                for (var i = classesCount; i < MulticlassContext.MAX_CLASSES; i++)
                 {
                     labelsGroup.GetChild(i).gameObject.SetActive(false);
                 }

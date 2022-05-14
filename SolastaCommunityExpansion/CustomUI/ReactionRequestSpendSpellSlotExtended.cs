@@ -1,6 +1,6 @@
 ﻿using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.CustomDefinitions
+namespace SolastaCommunityExpansion.CustomUI
 {
     public class ReactionRequestSpendSpellSlotExtended : ReactionRequest
     {

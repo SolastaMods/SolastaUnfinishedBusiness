@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
@@ -11,11 +12,11 @@ namespace SolastaCommunityExpansion.Models
     {
         private static Color LightGreenSlot = new(0f, 1f, 0f, 1f);
         private static Color WhiteSlot = new(1f, 1f, 1f, 1f);
-        private static readonly float[] fontSizes = new float[] { 17f, 17f, 16f, 15f, 12.5f };
+        private static readonly float[] fontSizes = new float[] { 17f, 17f, 16f, 14.75f, 13.5f, 13.5f, 13.5f };
 
         public static float GetFontSize(int classesCount)
         {
-            return fontSizes[classesCount % 5];
+            return fontSizes[classesCount % (MulticlassContext.MAX_CLASSES + 1)];
         }
 
         public static void PaintPactSlots(
@@ -162,7 +163,7 @@ namespace SolastaCommunityExpansion.Models
             return selectedSlot;
         }
 
-        public static string GetAllClassesLabel(GuiCharacter character, char separator = '\n')
+        public static string GetAllClassesLabel(GuiCharacter character, char separator)
         {
             var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
             var builder = new StringBuilder();
@@ -182,13 +183,38 @@ namespace SolastaCommunityExpansion.Models
             }
             else if (hero != null && hero.ClassesAndLevels.Count > 1)
             {
-                foreach (var characterClassDefinition in hero.ClassesAndLevels.Keys)
+                var i = 0;
+                var classesCount = hero.ClassesAndLevels.Count;
+                var newLine = separator == '\n' || classesCount <= 4 ? 2 : 3;
+                var sortedClasses = from entry in hero.ClassesAndLevels
+                                    orderby entry.Value descending, entry.Key.FormatTitle() ascending
+                                    select entry;
+
+                foreach (var kvp in sortedClasses)
                 {
                     builder
-                        .Append(characterClassDefinition.FormatTitle())
+                        .Append(kvp.Key.FormatTitle())
                         .Append('/')
-                        .Append(hero.ClassesAndLevels[characterClassDefinition])
-                        .Append(separator);
+                        .Append(kvp.Value);
+
+                    if (classesCount <= 3)
+                    {
+                        builder
+                            .Append(separator);
+                    }
+                    else
+                    {
+                        builder
+                            .Append(' ');
+
+                        i++;
+
+                        if (i % newLine == 0)
+                        {
+                            builder
+                                .Append('\n');
+                        }
+                    }
                 }
             }
             else

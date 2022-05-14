@@ -4,7 +4,7 @@
   "saveDCModifierType": "None",
   "saveDCModifier": 0,
   "spellAttackModifierType": "FlatValue",
-  "spellAttackModifier": 2,
+  "spellAttackModifier": 0,
   "spellImmunities": [],
   "maxSpellLevelImmunity": -1,
   "concentrationAffinity": "Advantage",

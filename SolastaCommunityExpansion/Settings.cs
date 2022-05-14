@@ -61,6 +61,7 @@ namespace SolastaCommunityExpansion
         public bool BugFixHeroKeepConditionsAcrossLocations { get; set; } = true;
         public bool BugFixHideReactionSpells { get; set; } = true;
         public bool BugFixNullRecipesOnGameSerialization { get; set; } = true;
+        public bool BugFixPowerActivationTime { get; set; } = true;
         public bool BugFixSpellDurations { get; set; } = true;
         public bool BugFixWieldedConfigurationSelector { get; set; } = true;
         public bool EnableCustomSpellsPatch { get; set; } = true;

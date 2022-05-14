@@ -387,7 +387,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "MonsterAttack/&LifeDrainTitle",
-    "description": "Feature/&NoContentTitle",
+    "description": "Power/&WightLifeDrain_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

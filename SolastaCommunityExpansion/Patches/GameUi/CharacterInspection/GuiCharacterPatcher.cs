@@ -30,7 +30,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
     {
         internal static void Postfix(GuiCharacter __instance, ref string __result)
         {
-            __result = MulticlassGameUiContext.GetAllClassesLabel(__instance, '-') ?? __result;
+            __result = MulticlassGameUiContext.GetAllClassesLabel(__instance, ' ') ?? __result;
         }
     }
 
@@ -40,7 +40,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
     {
         internal static void Postfix(GuiCharacter __instance, ref string __result)
         {
-            __result = MulticlassGameUiContext.GetAllClassesLabel(__instance, '-') ?? __result;
+            __result = MulticlassGameUiContext.GetAllClassesLabel(__instance, ' ') ?? __result;
         }
     }
 

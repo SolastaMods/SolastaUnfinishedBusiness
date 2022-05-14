@@ -8,7 +8,7 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class MulticlassContext
     {
-        internal const int MAX_CLASSES = 3;
+        internal const int MAX_CLASSES = 6;
         internal static void Load()
         {
             // ensure these are always referenced here for diagnostics dump
@@ -62,12 +62,11 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void LateLoad()
         {
-            if (!Main.Settings.EnableMulticlass)
+            if (Main.Settings.EnableMulticlass)
             {
-                return;
+                MulticlassPatchingContext.Load(); // depends on IntegrationContext;
             }
 
-            MulticlassPatchingContext.Load(); // depends on IntegrationContext
             SharedSpellsContext.Load(); // depends on IntegrationContext
         }
     }

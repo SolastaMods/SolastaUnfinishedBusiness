@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if DEBUG
+using System;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using HarmonyLib;
@@ -7,7 +8,6 @@ using SolastaModApi.Diagnostics;
 
 namespace SolastaCommunityExpansion.Patches.Diagnostic
 {
-#if DEBUG
     internal static class ItemDefinitionVerification
     {
         [Flags]
@@ -221,5 +221,6 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
             }
         }
     }
-#endif
 }
+#endif
+

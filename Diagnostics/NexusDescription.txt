@@ -247,7 +247,9 @@ Once per turn, you can deal an extra 1d6 damage to one creature you hit with an 
 [*][b]Tough[/b]: Your hit point maximum increases by an amount equal to twice your level when you gain this feat. Whenever you gain a level thereafter, your hit point maximum increases by an additional 2 hit points
 [*][b]Toxicologist (Intelligence)[/b]: +1 Intelligence, Proficiency or Expertise with Poisoner's Kit and Nature
 [*][b]Toxicologist (Wisdom)[/b]: +1 Wisdom, Proficiency or Expertise with Poisoner's Kit and Medicine
-[*][b]War Caster[/b]: You gain advantage on checks to maintain concentration. You gain the ability to perform the somatic component of spells even with full hands. You gain +2 on spell attack rolls
+[*][b]War Caster[/b]: You gain advantage on checks to maintain concentration.
+You gain the ability to perform the somatic component of spells even with full hands.
+When a hostile creature's movement provokes an opportunity attack from you, you can use your reaction to cast a cantrip at the creature, rather than making an opportunity attack. The cantrip must have a casting time of 1 action or bonus action and must target only that creature.
 [*][b]Wise Defense[/b]: Increase your Wisdom by 1, to a maximum of 20.
 While you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Wisdom modifier
 [*][b]Wise Precision[/b]: When active on a weapon, it's attacks count as Magical and you use your wisdom for your attack and damage rolls. It has 1 minute duration and can be used twice before a long rest

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using SolastaCommunityExpansion.Api.AdditionalExtensions;
-using SolastaCommunityExpansion.CustomDefinitions;
+using SolastaCommunityExpansion.CustomUI;
 using SolastaModApi.Infrastructure;
 using static ActionDefinitions;
 using static ActionDefinitions.ActionStatus;
@@ -13,6 +13,8 @@ namespace SolastaCommunityExpansion.Models
     {
         private static IDamagedReactionSpell _alwayseact;
         public static IDamagedReactionSpell AlwaysReactToDamaged => _alwayseact ??= new AlwaysReactToDamagedImpl();
+
+        public static bool ForcePreferredCantrip = false;
 
         public interface IDamagedReactionSpell
         {

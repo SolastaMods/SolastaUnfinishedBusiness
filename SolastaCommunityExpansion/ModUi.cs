@@ -1,5 +1,5 @@
-﻿using UnityModManagerNet;
-using ModKit;
+﻿using ModKit;
+using UnityModManagerNet;
 using static SolastaCommunityExpansion.Displays.BlueprintDisplay;
 using static SolastaCommunityExpansion.Displays.CharacterDisplay;
 using static SolastaCommunityExpansion.Displays.CreditsDisplay;

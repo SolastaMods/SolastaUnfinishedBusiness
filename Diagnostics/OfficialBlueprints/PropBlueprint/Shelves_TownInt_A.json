@@ -1,13 +1,13 @@
 {
   "$type": "PropBlueprint, Assembly-CSharp",
-  "groundPlacement": false,
-  "groundLowPlacement": false,
-  "groundHighPlacement": false,
+  "groundPlacement": true,
+  "groundLowPlacement": true,
+  "groundHighPlacement": true,
   "wallPlacement": true,
   "openingPlacement": false,
   "openingLowPlacement": false,
   "openingHighPlacement": false,
-  "propPlacement": false,
+  "propPlacement": true,
   "lightSources": [],
   "category": "Furniture",
   "dimensions": {

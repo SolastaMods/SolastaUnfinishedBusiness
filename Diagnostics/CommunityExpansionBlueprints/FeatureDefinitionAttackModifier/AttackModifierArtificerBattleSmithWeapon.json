@@ -1,9 +1,9 @@
 {
   "$type": "FeatureDefinitionAttackModifier, Assembly-CSharp",
-  "attackRollModifierMethod": "None",
+  "attackRollModifierMethod": "FlatValue",
   "attackRollModifier": 0,
   "attackRollAbilityScore": "",
-  "damageRollModifierMethod": "None",
+  "damageRollModifierMethod": "FlatValue",
   "damageRollModifier": 0,
   "damageRollAbilityScore": "",
   "additionalDamageDice": 0,

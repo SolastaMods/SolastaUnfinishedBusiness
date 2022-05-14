@@ -1,7 +1,12 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.CustomDefinitions;
+using SolastaCommunityExpansion.Models;
 using SolastaModApi;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
@@ -29,6 +34,55 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
                         }
                     }
                 }
+            }
+        }
+
+        //Makes only preferred cantrip valid if it is selected and forced
+        [HarmonyPatch(typeof(GameLocationBattleManager), "CanPerformReadiedActionOnCharacter")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+        internal static class GameLocationBattleManager_CanPerformReadiedActionOnCharacter
+        {
+            internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+            {
+                var codes = instructions.ToList();
+                var customBindMethod = new Func<List<SpellDefinition>, SpellDefinition, bool>(CheckAndModifyCantrips).Method;
+
+                var containsIndex = -1;
+                //TODO: is there a better way to detect proper placament?
+                for (int i = 0; i < codes.Count; i++)
+                {
+                    if (i < 1) { continue; }
+                    var code = codes[i];
+                    if (code.opcode == OpCodes.Callvirt && code.operand.ToString().Contains("Contains"))
+                    {
+                        var prev = codes[i - 1];
+                        if (prev.opcode == OpCodes.Callvirt &&
+                            prev.operand.ToString().Contains("PreferredReadyCantrip"))
+                        {
+                            containsIndex = i;
+                            break;
+                        }
+
+                    }
+                }
+
+                if (containsIndex > 0)
+                {
+                    codes[containsIndex] = new CodeInstruction(OpCodes.Call, customBindMethod);
+                }
+
+                return codes.AsEnumerable();
+            }
+
+            private static bool CheckAndModifyCantrips(List<SpellDefinition> readied,
+                SpellDefinition preferred)
+            {
+                if (CustomReactionsContext.ForcePreferredCantrip)
+                {
+                    readied.RemoveAll(c => c != preferred);
+                    return !readied.Empty();
+                }
+                return readied.Contains(preferred);
             }
         }
     }

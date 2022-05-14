@@ -1,7 +1,7 @@
 {
   "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFeatureSetWithPreRequisites, SolastaCommunityExpansion",
   "featureSet": [
-    "Definition:DamageAffinityHalfOrcRelentlessEndurance:883c6fa6fd742fa4cbb82666ffe6dfc8"
+    "Definition:DamageAffinityGiftoftheProtectorsRelentlessEndurance:d3d979e1-56f8-5804-a946-04f9e7953cf0"
   ],
   "mode": "Union",
   "defaultSelection": 0,
