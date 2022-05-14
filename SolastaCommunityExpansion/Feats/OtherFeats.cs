@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.CustomUI;
 using SolastaModApi.Infrastructure;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions.RollContext;
@@ -56,7 +57,7 @@ namespace SolastaCommunityExpansion.Feats
                     FeatureDefinitionMagicAffinityBuilder
                         .Create("MagicAffinityWarCasterFeat", OtherFeatNamespace)
                         .SetGuiPresentation("FeatWarCaster", Category.Feat)
-                        .SetCastingModifiers(2, RuleDefinitions.SpellParamsModifierType.FlatValue, 0, RuleDefinitions.SpellParamsModifierType.None, false, false, false)
+                        .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.FlatValue, 0, RuleDefinitions.SpellParamsModifierType.None, false, false, false)
                         .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage, 0)
                         .SetHandsFullCastingModifiers(true, true, true)
                         .AddToDB())
@@ -65,6 +66,7 @@ namespace SolastaCommunityExpansion.Feats
                 .AddToDB();
 
             feats.AddRange(savageAttacker, tough, warCaster, improvedCritical);
+            ReactionRequestWarcaster.Initialize();
         }
 
         private static FeatureDefinitionDieRollModifier BuildDieRollModifier(string name,
