@@ -62,12 +62,11 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void LateLoad()
         {
-            if (!Main.Settings.EnableMulticlass)
+            if (Main.Settings.EnableMulticlass)
             {
-                return;
+                MulticlassPatchingContext.Load(); // depends on IntegrationContext;
             }
 
-            MulticlassPatchingContext.Load(); // depends on IntegrationContext
             SharedSpellsContext.Load(); // depends on IntegrationContext
         }
     }

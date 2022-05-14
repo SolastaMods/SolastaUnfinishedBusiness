@@ -33,11 +33,8 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
             Global.InspectedHero = heroCharacter;
 
             // get more real state for the toggles on top
-            if (Main.Settings.EnableMulticlass)
-            {
-                ___toggleGroup.transform.position =
-                    new UnityEngine.Vector3(___characterPlate.transform.position.x / 2f, ___toggleGroup.transform.position.y, 0);
-            }
+            ___toggleGroup.transform.position =
+                new UnityEngine.Vector3(___characterPlate.transform.position.x / 2f, ___toggleGroup.transform.position.y, 0);
         }
     }
 
