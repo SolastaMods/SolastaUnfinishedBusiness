@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
@@ -184,14 +185,16 @@ namespace SolastaCommunityExpansion.Models
             {
                 var i = 0;
                 var classesCount = hero.ClassesAndLevels.Count;
-                var newLine = separator == '\n' ? 2 : 3;
+                var newLine = separator == '\n' || classesCount <= 4 ? 2 : 3;
+                var sortedClasses = from entry in hero.ClassesAndLevels 
+                    orderby entry.Value descending, entry.Key.FormatTitle() ascending select entry;
 
-                foreach (var characterClassDefinition in hero.ClassesAndLevels.Keys)
+                foreach (var kvp in sortedClasses)
                 {
                     builder
-                        .Append(characterClassDefinition.FormatTitle())
+                        .Append(kvp.Key.FormatTitle())
                         .Append('/')
-                        .Append(hero.ClassesAndLevels[characterClassDefinition]);
+                        .Append(kvp.Value);
 
                     if (classesCount <= 3)
                     {
@@ -207,7 +210,8 @@ namespace SolastaCommunityExpansion.Models
 
                         if (i % newLine == 0)
                         {
-                            builder.Append('\n');
+                            builder
+                                .Append('\n');
                         }
                     }
                 }

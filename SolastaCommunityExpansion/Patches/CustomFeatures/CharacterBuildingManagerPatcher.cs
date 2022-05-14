@@ -39,6 +39,29 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
     {
         internal static void Postfix(RulesetCharacterHero hero)
         {
+            hero.SpellRepertoires.Sort((a, b) =>
+            {
+                if (a.SpellCastingRace != null)
+                {
+                    return -1;
+                }
+
+                if (b.SpellCastingRace != null)
+                {
+                    return 1;
+                }
+
+                var title1 = a.SpellCastingClass != null
+                    ? a.SpellCastingClass.FormatTitle()
+                    : a.SpellCastingSubclass.FormatTitle();
+
+                var title2 = b.SpellCastingClass != null
+                    ? b.SpellCastingClass.FormatTitle()
+                    : b.SpellCastingSubclass.FormatTitle();
+
+                return title1.CompareTo(title2);
+            });
+
             var selectedClassRepertoire = LevelUpContext.GetSelectedClassOrSubclassRepertoire(hero);
 
             if (selectedClassRepertoire == null
