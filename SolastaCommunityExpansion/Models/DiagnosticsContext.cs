@@ -5,6 +5,8 @@ using System.IO;
 using System.Linq;
 using HarmonyLib;
 #if DEBUG
+using I2.Loc;
+using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.DataMiner;
 #endif
 

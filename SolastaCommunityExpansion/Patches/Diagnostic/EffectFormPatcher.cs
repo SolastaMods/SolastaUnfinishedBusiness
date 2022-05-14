@@ -1,6 +1,14 @@
-﻿namespace SolastaCommunityExpansion.Patches.Diagnostic
+﻿#if DEBUG
+using System;
+using System.Diagnostics.CodeAnalysis;
+using System.IO;
+using HarmonyLib;
+using SolastaCommunityExpansion.Models;
+using SolastaModApi.Diagnostics;
+using static EffectForm.EffectFormType;
+
+namespace SolastaCommunityExpansion.Patches.Diagnostic
 {
-#if DEBUG
     // Only add these 16 patches EffectForm for debug builds for diagnostic purposes.
     internal static class EffectFormVerification
     {
@@ -233,5 +241,6 @@
             }
         }
     }
-#endif
 }
+#endif
+
