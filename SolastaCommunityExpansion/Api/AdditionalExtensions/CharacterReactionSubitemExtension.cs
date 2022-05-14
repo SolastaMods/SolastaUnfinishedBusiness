@@ -48,16 +48,8 @@ namespace SolastaCommunityExpansion.Api.AdditionalExtensions
 
             instance.SubitemSelected = subitemSelected;
 
-            var toggleScale = 8.0f;
-            var labelScale = 0.8f;
-
-            var oldScale = new Vector3(1, 1, 1);
-            oldScale.x *= toggleScale;
-            toggle.transform.localScale = oldScale;
-
-            oldScale = new Vector3(labelScale, labelScale, labelScale);
-            oldScale.x /= toggleScale;
-            label.transform.localScale = oldScale;
+            var rectTransform = toggle.GetComponent<RectTransform>();
+            rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 300);
 
             // Hide all slots
             var slotStatusTable = instance.GetField<RectTransform>("slotStatusTable");
