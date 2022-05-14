@@ -1783,3 +1783,8 @@ UI/&CustomFeatureSelectionTooltipTypePower	Power
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Proficiency
 Modifier/&CripplingAdditionalDamageTitle	Crippling
 Modifier/&CripplingAdditionalDamageDescription	Crippling Damage
+Reaction/&WarcasterReactionTitle	Warcaster's Opportunity
+Reaction/&WarcasterReactionDescription	{1} is leaving a threatened area. {0} can attack or cast cantrip in responce.
+Reaction/&SubitemSelectWarcasterTitle	Select action
+Reaction/&WarcasterAttackTitle	Attack
+Reaction/&WarcasterAttackDescription	Attack target

@@ -29,7 +29,6 @@ namespace SolastaCommunityExpansion.CustomUI
 
         void BuildSuboptions()
         {
-            Main.Log2($"WarcasterReaction BuildSuboptions", true);
             this.SubOptionsAvailability.Clear();
             this.SubOptionsAvailability.Add(0, true);
 
@@ -46,18 +45,11 @@ namespace SolastaCommunityExpansion.CustomUI
 
             actingCharacter.RulesetCharacter.EnumerateReadyAttackCantrips(cantrips);
 
-            Main.Log2(
-                $"WarcasterReaction BuildSuboptions found cantrips: [{string.Join(", ", cantrips.Select(c => c.Name))}]",
-                true);
-
-
             cantrips.RemoveAll(cantrip =>
             {
                 if (cantrip.ActivationTime != RuleDefinitions.ActivationTime.Action
                     && cantrip.ActivationTime != RuleDefinitions.ActivationTime.BonusAction)
                 {
-                    Main.Log2($"WarcasterReaction BuildSuboptions remove due to cast time: '{cantrip}'", true);
-
                     return true;
                 }
 
@@ -73,15 +65,7 @@ namespace SolastaCommunityExpansion.CustomUI
                     targetCharacters[0].LocationPosition,
                     actionModifier);
 
-                var canAttack = battleManager.InvokeMethodBool("IsValidAttackForReadiedAction", attackParams, false);
-
-                // GameLocationBattleManagerPatcher.GameLocationBattleManager_IsValidAttackForReadiedAction.Postfix(battleManager as GameLocationBattleManager, ref canAttack, attackParams, false);
-
-                Main.Log2($"WarcasterReaction BuildSuboptions '{cantrip.Name}' canAttack: {canAttack}", true);
-
-                // canAttack = true;
-
-                return !canAttack;
+                return !battleManager.InvokeMethodBool("IsValidAttackForReadiedAction", attackParams, false);
             });
 
             reactionParams.SpellRepertoire = new RulesetSpellRepertoire();
@@ -89,7 +73,6 @@ namespace SolastaCommunityExpansion.CustomUI
             var i = 1;
             foreach (var c in cantrips)
             {
-                Main.Log2($"WarcasterReaction BuildSuboptions adding '{c.Name}'", true);
                 reactionParams.SpellRepertoire.KnownSpells.Add(c);
                 this.SubOptionsAvailability.Add(i, true);
                 i++;

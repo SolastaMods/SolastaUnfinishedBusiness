@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
+using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.CustomUI;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
@@ -42,11 +43,9 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
                 CharacterReactionSubitem.SubitemSelectedHandler subitemSelected, ReactionRequest reactionRequest)
             {
                 Main.Log($"CustomBind ", true);
-                if (reactionRequest is ReactionRequestWarcaster)
+                if (reactionRequest is ReactionRequestWarcaster warcasterRequest)
                 {
-                    //TODO: implement custom bind extension and remove CharacterReactionSubitem patch (or simplify it)
-                    instance.Bind(reactionRequest.ReactionParams.SpellRepertoire, slotLevel,
-                        ReactionRequestWarcaster.Name, interactable, subitemSelected);
+                    instance.BindWarcaster(warcasterRequest, slotLevel, interactable, subitemSelected);
                 }
                 else
                 {
