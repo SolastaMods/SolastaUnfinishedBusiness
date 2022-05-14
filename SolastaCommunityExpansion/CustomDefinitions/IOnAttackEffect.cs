@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace SolastaCommunityExpansion.CustomDefinitions
+﻿namespace SolastaCommunityExpansion.CustomDefinitions
 {
     public interface IOnAttackEffect
     {

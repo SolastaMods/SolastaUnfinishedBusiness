@@ -76,7 +76,7 @@ namespace SolastaCommunityExpansion.Models
                         "Message/&MessageOkTitle", string.Empty,
                         null, null);
 
-                    yield break;             
+                    yield break;
                 }
 
                 IsRespecing = true;

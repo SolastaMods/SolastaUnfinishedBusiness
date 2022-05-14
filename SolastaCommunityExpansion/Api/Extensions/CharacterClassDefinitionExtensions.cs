@@ -1,38 +1,8 @@
-using SolastaModApi.Infrastructure;
-using AK.Wwise;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.AddressableAssets;
-using System;
-using System.Linq;
-using System.Text;
 using System.CodeDom.Compiler;
-using TA.AI;
-using TA;
 using System.Collections.Generic;
-using UnityEngine.Rendering.PostProcessing;
-using  static  ActionDefinitions ;
-using  static  TA . AI . DecisionPackageDefinition ;
-using  static  TA . AI . DecisionDefinition ;
-using  static  RuleDefinitions ;
-using  static  BanterDefinitions ;
-using  static  Gui ;
-using  static  GadgetDefinitions ;
-using  static  BestiaryDefinitions ;
-using  static  CursorDefinitions ;
-using  static  AnimationDefinitions ;
-using  static  FeatureDefinitionAutoPreparedSpells ;
-using  static  FeatureDefinitionCraftingAffinity ;
-using  static  CharacterClassDefinition ;
-using  static  CreditsGroupDefinition ;
-using  static  SoundbanksDefinition ;
-using  static  CampaignDefinition ;
-using  static  GraphicsCharacterDefinitions ;
-using  static  GameCampaignDefinitions ;
-using  static  FeatureDefinitionAbilityCheckAffinity ;
-using  static  TooltipDefinitions ;
-using  static  BaseBlueprint ;
-using  static  MorphotypeElementDefinition ;
+using System.Linq;
+using SolastaModApi.Infrastructure;
+using static RuleDefinitions;
 
 namespace SolastaModApi.Extensions
 {
@@ -43,7 +13,7 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(CharacterClassDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class CharacterClassDefinitionExtensions
     {
-        public static T AddAbilityScoresPriority<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddAbilityScoresPriority<T>(this T entity, params System.String[] value)
             where T : CharacterClassDefinition
         {
             AddAbilityScoresPriority(entity, value.AsEnumerable());
@@ -57,7 +27,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddEquipmentRows<T>(this T entity,  params  CharacterClassDefinition . HeroEquipmentRow [ ]  value)
+        public static T AddEquipmentRows<T>(this T entity, params CharacterClassDefinition.HeroEquipmentRow[] value)
             where T : CharacterClassDefinition
         {
             AddEquipmentRows(entity, value.AsEnumerable());
@@ -71,7 +41,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddExpertiseAutolearnPreference<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddExpertiseAutolearnPreference<T>(this T entity, params System.String[] value)
             where T : CharacterClassDefinition
         {
             AddExpertiseAutolearnPreference(entity, value.AsEnumerable());
@@ -85,7 +55,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddFeatAutolearnPreference<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddFeatAutolearnPreference<T>(this T entity, params System.String[] value)
             where T : CharacterClassDefinition
         {
             AddFeatAutolearnPreference(entity, value.AsEnumerable());
@@ -99,7 +69,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddFeatureUnlocks<T>(this T entity,  params  FeatureUnlockByLevel [ ]  value)
+        public static T AddFeatureUnlocks<T>(this T entity, params FeatureUnlockByLevel[] value)
             where T : CharacterClassDefinition
         {
             AddFeatureUnlocks(entity, value.AsEnumerable());
@@ -113,7 +83,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddMetamagicAutolearnPreference<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddMetamagicAutolearnPreference<T>(this T entity, params System.String[] value)
             where T : CharacterClassDefinition
         {
             AddMetamagicAutolearnPreference(entity, value.AsEnumerable());
@@ -127,7 +97,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddPersonalityFlagOccurences<T>(this T entity,  params  PersonalityFlagOccurence [ ]  value)
+        public static T AddPersonalityFlagOccurences<T>(this T entity, params PersonalityFlagOccurence[] value)
             where T : CharacterClassDefinition
         {
             AddPersonalityFlagOccurences(entity, value.AsEnumerable());
@@ -141,7 +111,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddSkillAutolearnPreference<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddSkillAutolearnPreference<T>(this T entity, params System.String[] value)
             where T : CharacterClassDefinition
         {
             AddSkillAutolearnPreference(entity, value.AsEnumerable());
@@ -155,7 +125,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddToolAutolearnPreference<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddToolAutolearnPreference<T>(this T entity, params System.String[] value)
             where T : CharacterClassDefinition
         {
             AddToolAutolearnPreference(entity, value.AsEnumerable());
@@ -232,7 +202,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetAbilityScoresPriority<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetAbilityScoresPriority<T>(this T entity, params System.String[] value)
             where T : CharacterClassDefinition
         {
             SetAbilityScoresPriority(entity, value.AsEnumerable());
@@ -267,7 +237,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetEquipmentRows<T>(this T entity,  params  CharacterClassDefinition . HeroEquipmentRow [ ]  value)
+        public static T SetEquipmentRows<T>(this T entity, params CharacterClassDefinition.HeroEquipmentRow[] value)
             where T : CharacterClassDefinition
         {
             SetEquipmentRows(entity, value.AsEnumerable());
@@ -281,7 +251,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetExpertiseAutolearnPreference<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetExpertiseAutolearnPreference<T>(this T entity, params System.String[] value)
             where T : CharacterClassDefinition
         {
             SetExpertiseAutolearnPreference(entity, value.AsEnumerable());
@@ -295,7 +265,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetFeatAutolearnPreference<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetFeatAutolearnPreference<T>(this T entity, params System.String[] value)
             where T : CharacterClassDefinition
         {
             SetFeatAutolearnPreference(entity, value.AsEnumerable());
@@ -309,7 +279,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetFeatureUnlocks<T>(this T entity,  params  FeatureUnlockByLevel [ ]  value)
+        public static T SetFeatureUnlocks<T>(this T entity, params FeatureUnlockByLevel[] value)
             where T : CharacterClassDefinition
         {
             SetFeatureUnlocks(entity, value.AsEnumerable());
@@ -337,7 +307,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetMetamagicAutolearnPreference<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetMetamagicAutolearnPreference<T>(this T entity, params System.String[] value)
             where T : CharacterClassDefinition
         {
             SetMetamagicAutolearnPreference(entity, value.AsEnumerable());
@@ -351,7 +321,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetPersonalityFlagOccurences<T>(this T entity,  params  PersonalityFlagOccurence [ ]  value)
+        public static T SetPersonalityFlagOccurences<T>(this T entity, params PersonalityFlagOccurence[] value)
             where T : CharacterClassDefinition
         {
             SetPersonalityFlagOccurences(entity, value.AsEnumerable());
@@ -372,7 +342,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSkillAutolearnPreference<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetSkillAutolearnPreference<T>(this T entity, params System.String[] value)
             where T : CharacterClassDefinition
         {
             SetSkillAutolearnPreference(entity, value.AsEnumerable());
@@ -386,7 +356,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetToolAutolearnPreference<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetToolAutolearnPreference<T>(this T entity, params System.String[] value)
             where T : CharacterClassDefinition
         {
             SetToolAutolearnPreference(entity, value.AsEnumerable());

@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Classes.Warlock.Subclasses;
@@ -43,7 +42,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             Global.ActiveLevelUpHeroHasFeature(DHWarlockClassPactOfTheChainFeatureSetBuilder.DHWarlockClassPactOfTheChainFeatureSet)
                 ? null
                 : "Requirement/&WarlockRequiresPactOfChain";
-        
+
         internal static void Build()
         {
             BuildEldritchBlastAndInvocations();
@@ -265,7 +264,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                     EICantrip = SpellDefinitionBuilder
                         .Create(baseSpell, $"{textPseudoCantrips}Cantrip", DefinitionBuilder.CENamespaceGuid)
                         .SetGuiPresentation(
-                            $"Feature/&{invocationName}Title", 
+                            $"Feature/&{invocationName}Title",
                             baseSpell.GuiPresentation.Description,
                             baseSpell.GuiPresentation.SpriteReference
                         )
@@ -341,9 +340,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         {
             // Rules say it can't be applied to same taget more than once per long rest, for now unlimited applications seem fine.
             return SpellDefinitionBuilder
-                .Create( $"{textPseudoCantrips}Cantrip", DefinitionBuilder.CENamespaceGuid)
+                .Create($"{textPseudoCantrips}Cantrip", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(
-                    invocationName, 
+                    invocationName,
                     Category.Feature,
                     baseSpell.GuiPresentation.SpriteReference
                 )
@@ -357,8 +356,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .SetEffectDescription(new EffectDescriptionBuilder()
                     .SetTargetFiltering(RuleDefinitions.TargetFilteringMethod.CharacterOnly)
                     .SetTargetingData(
-                        RuleDefinitions.Side.Enemy, 
-                        RuleDefinitions.RangeType.Distance, 
+                        RuleDefinitions.Side.Enemy,
+                        RuleDefinitions.RangeType.Distance,
                         18,
                         RuleDefinitions.TargetType.Individuals
                     )
@@ -457,17 +456,17 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                         "ClassWarlockEldritchInvocationBeguilingInfluence", DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation(EldritchInvocations["BeguilingInfluence"].GuiPresentation)
                     .AddToDB());
-            
+
             ((FeatureDefinitionFeatureSet)EldritchInvocations["EldritchMind"]).FeatureSet
                 .Add(FeatureDefinitionMagicAffinityBuilder
                     .Create("ClassWarlockEldritchInvocationEldritchMind", DefinitionBuilder.CENamespaceGuid)
                     .SetGuiPresentation(EldritchInvocations["EldritchMind"].GuiPresentation)
                     .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage, 0)
                     .AddToDB());
-            
+
             ((FeatureDefinitionFeatureSet)EldritchInvocations["EyesoftheRuneKeeper"]).FeatureSet
                 .Add(FeatureDefinitionFeatureSets.FeatureSetAllLanguages);
-            
+
             ((FeatureDefinitionFeatureSet)EldritchInvocations["GiftoftheEverLivingOnes"]).FeatureSet
                 .Add(FeatureDefinitionHealingModifiers.HealingModifierBeaconOfHope);
             ((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["GiftoftheEverLivingOnes"]).Validators.SetRange(RequirePactOfTheChain);
@@ -476,7 +475,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .Add(FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon);
             ((FeatureDefinitionFeatureSet)EldritchInvocations["ImprovedPactWeapon"]).FeatureSet
                 .Add(FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray);
-            
+
             ((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["ImprovedPactWeapon"]).Validators.SetRange(RequirePactOfTheBlade);
 
             var eldritchSmite = FeatureDefinitionAdditionalDamageBuilder
@@ -496,7 +495,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 )
                 .SetCustomSubFeatures(new WarlockClassHolder())
                 .AddToDB();
-            
+
             ((FeatureDefinitionFeatureSet)EldritchInvocations["EldritchSmite"]).FeatureSet.Add(eldritchSmite);
             ((FeatureDefinitionFeatureSetWithPreRequisites)EldritchInvocations["EldritchSmite"]).Validators.SetRange(RequirePactOfTheBlade);
 
@@ -514,7 +513,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
             ((FeatureDefinitionFeatureSet)EldritchInvocations["BondoftheTalisman"]).FeatureSet
                 .Add(FeatureDefinitionPowers.PowerSorakShadowEscape);
-            
+
             ((FeatureDefinitionFeatureSet)EldritchInvocations["WitchSight"]).FeatureSet
                 .Add(FeatureDefinitionSenses.SenseSeeInvisible12);
 

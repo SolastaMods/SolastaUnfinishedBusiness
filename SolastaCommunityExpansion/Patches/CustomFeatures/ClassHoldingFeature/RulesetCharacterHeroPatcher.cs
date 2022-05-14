@@ -15,7 +15,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.ClassHoldingFeature
             ref CharacterClassDefinition __result)
         {
             var classHolder = featureDefinition.GetFirstSubFeatureOfType<IClassHoldingFeature>();
-            
+
             if (classHolder == null || classHolder.Class == null)
             {
                 return;

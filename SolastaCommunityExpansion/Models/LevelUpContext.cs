@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using static SolastaCommunityExpansion.Models.IntegrationContext;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaModApi.DatabaseHelper.ItemDefinitions;
-using static SolastaCommunityExpansion.Models.IntegrationContext;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -42,7 +42,7 @@ namespace SolastaCommunityExpansion.Models
                 SelectedSubclass = lastSubclass,
                 IsLevelingUp = levelingUp
             });
- 
+
         public static void UnregisterHero(RulesetCharacterHero rulesetCharacterHero)
             => LevelUpTab.Remove(rulesetCharacterHero);
 
@@ -66,7 +66,7 @@ namespace SolastaCommunityExpansion.Models
             rulesetCharacterHero.ClassesAndSubclasses.TryGetValue(levelUpData.SelectedClass, out var subclass);
             levelUpData.SelectedSubclass = subclass;
 
-            levelUpData.RequiresDeity = 
+            levelUpData.RequiresDeity =
                 (levelUpData.SelectedClass == Cleric && !classesAndLevels.ContainsKey(Cleric))
                 || (levelUpData.SelectedClass == Paladin && rulesetCharacterHero.DeityDefinition == null);
 
@@ -120,7 +120,7 @@ namespace SolastaCommunityExpansion.Models
             {
                 levelUpData.GrantedItems.Add(ComponentPouch);
             }
-            
+
             // Druidic Focus
             required =
                 (levelUpData.SelectedClass == Druid) && !classesAndLevels.ContainsKey(Druid);

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using SolastaModApi;
-using SolastaCommunityExpansion.Builders;
-using UnityEngine;
-using SolastaModApi.Extensions;
+﻿using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Models;
+using SolastaModApi;
+using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Features
 {
@@ -69,7 +66,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
             //Warlock's familiar's don't scale but get one-time bonuses when Chain Master invocation is selected
             // Definition.FeatureSet.Add(WarlockPactOfTheChainSummons.buildSummoningAffinity());
-            
+
             WarlockPactOfTheChainSummons.buildPactofChainFamiliarInvisibilityPower();
             WarlockPactOfTheChainSummons.buildPactofChainFamiliarScarePower();
             var pseudodragon = WarlockPactOfTheChainSummons.buildCustomPseudodragon();
@@ -109,8 +106,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1,
                     RuleDefinitions.TurnOccurenceType.EndOfTurn)
                 .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 2,
-                    RuleDefinitions.TargetType.Position,1, 1, ActionDefinitions.ItemSelectionType.Equiped)
-                .AddEffectForm(new EffectFormBuilder().SetSummonCreatureForm( 1, imp.name, false,
+                    RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped)
+                .AddEffectForm(new EffectFormBuilder().SetSummonCreatureForm(1, imp.name, false,
                     DatabaseHelper.ConditionDefinitions.ConditionFlyingBootsWinged).Build())
                 .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ConjureElementalAir.EffectDescription
                     .EffectParticleParameters);
@@ -124,7 +121,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             EffectDescriptionBuilder effectDescriptionQuasit = new EffectDescriptionBuilder();
             effectDescriptionQuasit.SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             effectDescriptionQuasit.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 2, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
-            effectDescriptionQuasit.AddEffectForm(new EffectFormBuilder().SetSummonCreatureForm( 1, quasit.name).Build());
+            effectDescriptionQuasit.AddEffectForm(new EffectFormBuilder().SetSummonCreatureForm(1, quasit.name).Build());
             effectDescriptionQuasit.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ConjureElementalAir.EffectDescription.EffectParticleParameters);
 
 
@@ -216,7 +213,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                     FindFamiliarQuasitPower
                     );
             Definition.FeatureSet.Add(findFamiliarPowerBundle);
-            
+
             GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.Familiar,
                 FindFamiliarPseudodragonPower,
                 FindFamiliarSpritePower,
@@ -239,9 +236,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
     internal class DHPactOfTheTomeFeatureSetBuilder : FeatureDefinitionFeatureSetBuilder
     {
         private const string DHPactOfTheTomeFeatureSetName = "DHPactOfTheTomeFeatureSet";
-        
+
         private static readonly FeatureDefinitionPointPool DHPactOfTheTomeBonusCantrips = FeatureDefinitionPointPoolWithBonusBuilder
-            .Create( "DHPactOfTheTomeBonusCantrips", DefinitionBuilder.CENamespaceGuid)
+            .Create("DHPactOfTheTomeBonusCantrips", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentationNoContent()
             .SetPool(HeroDefinitions.PointsPoolType.Cantrip, 3)
             .OnlyUniqueChoices()

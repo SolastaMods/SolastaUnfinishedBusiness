@@ -1,38 +1,8 @@
-using SolastaModApi.Infrastructure;
-using AK.Wwise;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.AddressableAssets;
-using System;
-using System.Linq;
-using System.Text;
 using System.CodeDom.Compiler;
-using TA.AI;
-using TA;
 using System.Collections.Generic;
-using UnityEngine.Rendering.PostProcessing;
-using  static  ActionDefinitions ;
-using  static  TA . AI . DecisionPackageDefinition ;
-using  static  TA . AI . DecisionDefinition ;
-using  static  RuleDefinitions ;
-using  static  BanterDefinitions ;
-using  static  Gui ;
-using  static  GadgetDefinitions ;
-using  static  BestiaryDefinitions ;
-using  static  CursorDefinitions ;
-using  static  AnimationDefinitions ;
-using  static  FeatureDefinitionAutoPreparedSpells ;
-using  static  FeatureDefinitionCraftingAffinity ;
-using  static  CharacterClassDefinition ;
-using  static  CreditsGroupDefinition ;
-using  static  SoundbanksDefinition ;
-using  static  CampaignDefinition ;
-using  static  GraphicsCharacterDefinitions ;
-using  static  GameCampaignDefinitions ;
-using  static  FeatureDefinitionAbilityCheckAffinity ;
-using  static  TooltipDefinitions ;
-using  static  BaseBlueprint ;
-using  static  MorphotypeElementDefinition ;
+using System.Linq;
+using SolastaModApi.Infrastructure;
+using static RuleDefinitions;
 
 namespace SolastaModApi.Extensions
 {
@@ -43,7 +13,7 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(CampaignDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class CampaignDefinitionExtensions
     {
-        public static T AddAutoGameplayRoles<T>(this T entity,  params  CampaignDefinition . GameplayRoleFilter [ ]  value)
+        public static T AddAutoGameplayRoles<T>(this T entity, params CampaignDefinition.GameplayRoleFilter[] value)
             where T : CampaignDefinition
         {
             AddAutoGameplayRoles(entity, value.AsEnumerable());
@@ -57,7 +27,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddInitialBestiaryContent<T>(this T entity,  params  MonsterKnowledgeDescription [ ]  value)
+        public static T AddInitialBestiaryContent<T>(this T entity, params MonsterKnowledgeDescription[] value)
             where T : CampaignDefinition
         {
             AddInitialBestiaryContent(entity, value.AsEnumerable());
@@ -71,7 +41,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddIntroductionCaptions<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddIntroductionCaptions<T>(this T entity, params System.String[] value)
             where T : CampaignDefinition
         {
             AddIntroductionCaptions(entity, value.AsEnumerable());
@@ -85,7 +55,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddKnownRecipes<T>(this T entity,  params  RecipeDefinition [ ]  value)
+        public static T AddKnownRecipes<T>(this T entity, params RecipeDefinition[] value)
             where T : CampaignDefinition
         {
             AddKnownRecipes(entity, value.AsEnumerable());
@@ -99,7 +69,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddPredefinedParty<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddPredefinedParty<T>(this T entity, params System.String[] value)
             where T : CampaignDefinition
         {
             AddPredefinedParty(entity, value.AsEnumerable());
@@ -113,7 +83,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddRegisteredFactions<T>(this T entity,  params  CampaignDefinition . FactionRegistration [ ]  value)
+        public static T AddRegisteredFactions<T>(this T entity, params CampaignDefinition.FactionRegistration[] value)
             where T : CampaignDefinition
         {
             AddRegisteredFactions(entity, value.AsEnumerable());
@@ -127,7 +97,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddRegisteredVariables<T>(this T entity,  params  VariableRegistrationDescription [ ]  value)
+        public static T AddRegisteredVariables<T>(this T entity, params VariableRegistrationDescription[] value)
             where T : CampaignDefinition
         {
             AddRegisteredVariables(entity, value.AsEnumerable());
@@ -141,7 +111,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddSkipIntroRegisteredVariables<T>(this T entity,  params  VariableRegistrationDescription [ ]  value)
+        public static T AddSkipIntroRegisteredVariables<T>(this T entity, params VariableRegistrationDescription[] value)
             where T : CampaignDefinition
         {
             AddSkipIntroRegisteredVariables(entity, value.AsEnumerable());
@@ -155,7 +125,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddStartingQuests<T>(this T entity,  params  QuestTreeDefinition [ ]  value)
+        public static T AddStartingQuests<T>(this T entity, params QuestTreeDefinition[] value)
             where T : CampaignDefinition
         {
             AddStartingQuests(entity, value.AsEnumerable());
@@ -232,7 +202,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetAutoGameplayRoles<T>(this T entity,  params  CampaignDefinition . GameplayRoleFilter [ ]  value)
+        public static T SetAutoGameplayRoles<T>(this T entity, params CampaignDefinition.GameplayRoleFilter[] value)
             where T : CampaignDefinition
         {
             SetAutoGameplayRoles(entity, value.AsEnumerable());
@@ -288,7 +258,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetInitialBestiaryContent<T>(this T entity,  params  MonsterKnowledgeDescription [ ]  value)
+        public static T SetInitialBestiaryContent<T>(this T entity, params MonsterKnowledgeDescription[] value)
             where T : CampaignDefinition
         {
             SetInitialBestiaryContent(entity, value.AsEnumerable());
@@ -316,7 +286,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetIntroductionCaptions<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetIntroductionCaptions<T>(this T entity, params System.String[] value)
             where T : CampaignDefinition
         {
             SetIntroductionCaptions(entity, value.AsEnumerable());
@@ -351,7 +321,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetKnownRecipes<T>(this T entity,  params  RecipeDefinition [ ]  value)
+        public static T SetKnownRecipes<T>(this T entity, params RecipeDefinition[] value)
             where T : CampaignDefinition
         {
             SetKnownRecipes(entity, value.AsEnumerable());
@@ -414,7 +384,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetPredefinedParty<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetPredefinedParty<T>(this T entity, params System.String[] value)
             where T : CampaignDefinition
         {
             SetPredefinedParty(entity, value.AsEnumerable());
@@ -428,7 +398,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetRegisteredFactions<T>(this T entity,  params  CampaignDefinition . FactionRegistration [ ]  value)
+        public static T SetRegisteredFactions<T>(this T entity, params CampaignDefinition.FactionRegistration[] value)
             where T : CampaignDefinition
         {
             SetRegisteredFactions(entity, value.AsEnumerable());
@@ -442,7 +412,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetRegisteredVariables<T>(this T entity,  params  VariableRegistrationDescription [ ]  value)
+        public static T SetRegisteredVariables<T>(this T entity, params VariableRegistrationDescription[] value)
             where T : CampaignDefinition
         {
             SetRegisteredVariables(entity, value.AsEnumerable());
@@ -491,7 +461,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSkipIntroRegisteredVariables<T>(this T entity,  params  VariableRegistrationDescription [ ]  value)
+        public static T SetSkipIntroRegisteredVariables<T>(this T entity, params VariableRegistrationDescription[] value)
             where T : CampaignDefinition
         {
             SetSkipIntroRegisteredVariables(entity, value.AsEnumerable());
@@ -519,7 +489,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetStartingQuests<T>(this T entity,  params  QuestTreeDefinition [ ]  value)
+        public static T SetStartingQuests<T>(this T entity, params QuestTreeDefinition[] value)
             where T : CampaignDefinition
         {
             SetStartingQuests(entity, value.AsEnumerable());

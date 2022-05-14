@@ -144,7 +144,7 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetAddLightSource(addLightSource);
             return This();
         }
-        
+
         public TBuilder SetLightSourceForm(LightSourceForm form)
         {
             Definition.SetLightSourceForm(form);

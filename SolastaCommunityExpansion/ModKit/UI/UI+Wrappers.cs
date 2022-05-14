@@ -3,8 +3,10 @@ using UnityEngine;
 
 using GL = UnityEngine.GUILayout;
 
-namespace ModKit {
-    public static partial class UI {
+namespace ModKit
+{
+    public static partial class UI
+    {
 
         // GUILayout wrappers and extensions so other modules can use UI.MethodName()
         public static GUILayoutOption ExpandWidth(bool v) => GL.ExpandWidth(v);

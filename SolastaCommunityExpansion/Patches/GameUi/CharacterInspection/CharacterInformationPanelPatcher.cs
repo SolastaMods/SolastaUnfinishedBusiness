@@ -90,7 +90,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
                 }
                 else if (TryFindChoiceFeature(__instance, feature.FeatureDefinition, out var choiceFeature))
                 {
-                    label.Text = Gui.Format("{1} ({0})", choiceFeature.FormatTitle(), 
+                    label.Text = Gui.Format("{1} ({0})", choiceFeature.FormatTitle(),
                         feature.FeatureDefinition.FormatTitle());
                     tooltip.Content = feature.FeatureDefinition.FormatDescription();
 
@@ -141,12 +141,12 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
 
             var backGroup = __instance.transform.Find("BackgroundGroup")?.GetComponent<RectTransform>();
             var classGroup = __instance.transform.Find("ClassGroup")?.GetComponent<RectTransform>();
-             
+
             if (classGroup != null && backGroup != null)
             {
                 backGroup.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 32, 662);
                 backGroup.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, 32, 458);
-                
+
                 classGroup.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 32, 662);
                 classGroup.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 32, 856);
 
@@ -157,21 +157,21 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
                 {
                     child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 5, 50);
                 }
-                
+
                 child = backGroup.Find("BackgroundImageMask")?.GetComponent<RectTransform>();
 
                 if (child != null)
                 {
                     child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 0, 218);
                 }
-                
+
                 child = backGroup.Find("BackgroundDescriptionGroup")?.GetComponent<RectTransform>();
 
                 if (child != null)
                 {
                     child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, 65, 175);
                 }
-                
+
                 child = classGroup.Find("ClassFeaturesGroup")?.GetComponent<RectTransform>();
 
                 if (child != null)
@@ -180,7 +180,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
                     child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 260, 590);
                     child.sizeDelta = new Vector2(child.sizeDelta.x, child.sizeDelta.y - 100);
                 }
-                
+
                 child = classGroup.Find("ClassDescriptionGroup")?.GetComponent<RectTransform>();
 
                 if (child != null)
@@ -210,20 +210,33 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
                     return;
                 }
 
+                Transform labelsGroup;
+
                 if (ClassSelector == null)
                 {
                     var voice = backGroup.FindChildRecursive("Voice");
 
                     ClassSelector = Object.Instantiate(voice, classGroup.transform);
+                    ClassSelector.name = "Classes";
                     ClassSelector.FindChildRecursive("PlayAudio").gameObject.SetActive(false);
                     ClassSelector.FindChildRecursive("HeaderGroup").gameObject.SetActive(false);
+
+                    labelsGroup = ClassSelector.FindChildRecursive("LabelsGroup");
+
+                    var firstButton = labelsGroup.GetChild(0);
+                    
+                    for (var i = labelsGroup.childCount; i < MulticlassContext.MAX_CLASSES; i++)
+                    {
+                        Object.Instantiate(firstButton, firstButton.parent);
+                    }
                 }
                 else
                 {
                     ClassSelector.gameObject.SetActive(true);
-                }
 
-                var labelsGroup = ClassSelector.FindChildRecursive("LabelsGroup");
+                    labelsGroup = ClassSelector.FindChildRecursive("LabelsGroup");
+                }
+                
                 var classesTitles = hero.ClassesAndLevels.Select(x => x.Key.FormatTitle()).ToList();
                 var classesCount = classesTitles.Count;
 
@@ -257,7 +270,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
 
                 labelsGroup.GetChild(0).GetComponent<Toggle>().isOn = true;
 
-                for (var i = classesCount; i < 3; i++)
+                for (var i = classesCount; i < MulticlassContext.MAX_CLASSES; i++)
                 {
                     labelsGroup.GetChild(i).gameObject.SetActive(false);
                 }
@@ -277,7 +290,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
                 {
                     yield return instruction;
                 }
-                
+
                 yield break;
             }
 

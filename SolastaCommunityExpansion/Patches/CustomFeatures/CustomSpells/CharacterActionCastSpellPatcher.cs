@@ -65,7 +65,9 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
                 formsParams.targetSubstitute = __instance.ActionParams.TargetSubstitute;
                 var rangeType = activeSpell.EffectDescription.RangeType;
                 if (rangeType == RuleDefinitions.RangeType.MeleeHit || rangeType == RuleDefinitions.RangeType.RangeHit)
+                {
                     formsParams.attackOutcome = outcome;
+                }
 
                 var actualEffectForms = __instance.GetField<Dictionary<int, List<EffectForm>>>("actualEffectForms");
 

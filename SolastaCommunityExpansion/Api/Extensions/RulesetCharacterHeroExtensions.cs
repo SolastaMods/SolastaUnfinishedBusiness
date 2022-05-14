@@ -1,38 +1,8 @@
-using SolastaModApi.Infrastructure;
-using AK.Wwise;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.AddressableAssets;
-using System;
-using System.Linq;
-using System.Text;
 using System.CodeDom.Compiler;
-using TA.AI;
-using TA;
 using System.Collections.Generic;
-using UnityEngine.Rendering.PostProcessing;
-using  static  ActionDefinitions ;
-using  static  TA . AI . DecisionPackageDefinition ;
-using  static  TA . AI . DecisionDefinition ;
-using  static  RuleDefinitions ;
-using  static  BanterDefinitions ;
-using  static  Gui ;
-using  static  GadgetDefinitions ;
-using  static  BestiaryDefinitions ;
-using  static  CursorDefinitions ;
-using  static  AnimationDefinitions ;
-using  static  FeatureDefinitionAutoPreparedSpells ;
-using  static  FeatureDefinitionCraftingAffinity ;
-using  static  CharacterClassDefinition ;
-using  static  CreditsGroupDefinition ;
-using  static  SoundbanksDefinition ;
-using  static  CampaignDefinition ;
-using  static  GraphicsCharacterDefinitions ;
-using  static  GameCampaignDefinitions ;
-using  static  FeatureDefinitionAbilityCheckAffinity ;
-using  static  TooltipDefinitions ;
-using  static  BaseBlueprint ;
-using  static  MorphotypeElementDefinition ;
+using System.Linq;
+using SolastaModApi.Infrastructure;
+using static RuleDefinitions;
 
 namespace SolastaModApi.Extensions
 {
@@ -43,7 +13,7 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(RulesetCharacterHero)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class RulesetCharacterHeroExtensions
     {
-        public static T AddActiveFightingStyles<T>(this T entity,  params  FightingStyleDefinition [ ]  value)
+        public static T AddActiveFightingStyles<T>(this T entity, params FightingStyleDefinition[] value)
             where T : RulesetCharacterHero
         {
             AddActiveFightingStyles(entity, value.AsEnumerable());
@@ -57,7 +27,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddAfterRestActions<T>(this T entity,  params  RestActivityDefinition [ ]  value)
+        public static T AddAfterRestActions<T>(this T entity, params RestActivityDefinition[] value)
             where T : RulesetCharacterHero
         {
             AddAfterRestActions(entity, value.AsEnumerable());
@@ -71,7 +41,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddAlignmentOptionaPersonalityFlags<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddAlignmentOptionaPersonalityFlags<T>(this T entity, params System.String[] value)
             where T : RulesetCharacterHero
         {
             AddAlignmentOptionaPersonalityFlags(entity, value.AsEnumerable());
@@ -85,7 +55,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddArmorCategoryProficiencies<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddArmorCategoryProficiencies<T>(this T entity, params System.String[] value)
             where T : RulesetCharacterHero
         {
             AddArmorCategoryProficiencies(entity, value.AsEnumerable());
@@ -99,7 +69,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddArmorTypeProficiencies<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddArmorTypeProficiencies<T>(this T entity, params System.String[] value)
             where T : RulesetCharacterHero
         {
             AddArmorTypeProficiencies(entity, value.AsEnumerable());
@@ -113,7 +83,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddBackgroundOptionalPersonalityFlags<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddBackgroundOptionalPersonalityFlags<T>(this T entity, params System.String[] value)
             where T : RulesetCharacterHero
         {
             AddBackgroundOptionalPersonalityFlags(entity, value.AsEnumerable());
@@ -127,7 +97,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddClassesHistory<T>(this T entity,  params  CharacterClassDefinition [ ]  value)
+        public static T AddClassesHistory<T>(this T entity, params CharacterClassDefinition[] value)
             where T : RulesetCharacterHero
         {
             AddClassesHistory(entity, value.AsEnumerable());
@@ -141,7 +111,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddExpertiseProficiencies<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddExpertiseProficiencies<T>(this T entity, params System.String[] value)
             where T : RulesetCharacterHero
         {
             AddExpertiseProficiencies(entity, value.AsEnumerable());
@@ -155,7 +125,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddFeatProficiencies<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddFeatProficiencies<T>(this T entity, params System.String[] value)
             where T : RulesetCharacterHero
         {
             AddFeatProficiencies(entity, value.AsEnumerable());
@@ -169,7 +139,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddLanguageProficiencies<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddLanguageProficiencies<T>(this T entity, params System.String[] value)
             where T : RulesetCharacterHero
         {
             AddLanguageProficiencies(entity, value.AsEnumerable());
@@ -183,7 +153,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddMetamagicProficiencies<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddMetamagicProficiencies<T>(this T entity, params System.String[] value)
             where T : RulesetCharacterHero
         {
             AddMetamagicProficiencies(entity, value.AsEnumerable());
@@ -197,7 +167,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddSkillProficiencies<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddSkillProficiencies<T>(this T entity, params System.String[] value)
             where T : RulesetCharacterHero
         {
             AddSkillProficiencies(entity, value.AsEnumerable());
@@ -211,7 +181,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddToolTypeProficiencies<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddToolTypeProficiencies<T>(this T entity, params System.String[] value)
             where T : RulesetCharacterHero
         {
             AddToolTypeProficiencies(entity, value.AsEnumerable());
@@ -225,7 +195,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddTrainedExpertises<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddTrainedExpertises<T>(this T entity, params System.String[] value)
             where T : RulesetCharacterHero
         {
             AddTrainedExpertises(entity, value.AsEnumerable());
@@ -239,7 +209,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddTrainedFeats<T>(this T entity,  params  FeatDefinition [ ]  value)
+        public static T AddTrainedFeats<T>(this T entity, params FeatDefinition[] value)
             where T : RulesetCharacterHero
         {
             AddTrainedFeats(entity, value.AsEnumerable());
@@ -253,7 +223,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddTrainedFightingStyles<T>(this T entity,  params  FightingStyleDefinition [ ]  value)
+        public static T AddTrainedFightingStyles<T>(this T entity, params FightingStyleDefinition[] value)
             where T : RulesetCharacterHero
         {
             AddTrainedFightingStyles(entity, value.AsEnumerable());
@@ -267,7 +237,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddTrainedLanguages<T>(this T entity,  params  LanguageDefinition [ ]  value)
+        public static T AddTrainedLanguages<T>(this T entity, params LanguageDefinition[] value)
             where T : RulesetCharacterHero
         {
             AddTrainedLanguages(entity, value.AsEnumerable());
@@ -281,7 +251,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddTrainedMetamagicOptions<T>(this T entity,  params  MetamagicOptionDefinition [ ]  value)
+        public static T AddTrainedMetamagicOptions<T>(this T entity, params MetamagicOptionDefinition[] value)
             where T : RulesetCharacterHero
         {
             AddTrainedMetamagicOptions(entity, value.AsEnumerable());
@@ -295,7 +265,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddTrainedSkills<T>(this T entity,  params  SkillDefinition [ ]  value)
+        public static T AddTrainedSkills<T>(this T entity, params SkillDefinition[] value)
             where T : RulesetCharacterHero
         {
             AddTrainedSkills(entity, value.AsEnumerable());
@@ -309,7 +279,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddTrainedToolTypes<T>(this T entity,  params  ToolTypeDefinition [ ]  value)
+        public static T AddTrainedToolTypes<T>(this T entity, params ToolTypeDefinition[] value)
             where T : RulesetCharacterHero
         {
             AddTrainedToolTypes(entity, value.AsEnumerable());
@@ -323,7 +293,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddWeaponCategoryProficiencies<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddWeaponCategoryProficiencies<T>(this T entity, params System.String[] value)
             where T : RulesetCharacterHero
         {
             AddWeaponCategoryProficiencies(entity, value.AsEnumerable());
@@ -337,7 +307,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddWeaponTypeProficiencies<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddWeaponTypeProficiencies<T>(this T entity, params System.String[] value)
             where T : RulesetCharacterHero
         {
             AddWeaponTypeProficiencies(entity, value.AsEnumerable());
@@ -589,7 +559,7 @@ namespace SolastaModApi.Extensions
             return entity.GetField<System.Collections.Generic.List<FeatureDefinition>>("weaponModifiers");
         }
 
-        public static T SetActiveFightingStyles<T>(this T entity,  params  FightingStyleDefinition [ ]  value)
+        public static T SetActiveFightingStyles<T>(this T entity, params FightingStyleDefinition[] value)
             where T : RulesetCharacterHero
         {
             SetActiveFightingStyles(entity, value.AsEnumerable());
@@ -610,7 +580,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetAfterRestActions<T>(this T entity,  params  RestActivityDefinition [ ]  value)
+        public static T SetAfterRestActions<T>(this T entity, params RestActivityDefinition[] value)
             where T : RulesetCharacterHero
         {
             SetAfterRestActions(entity, value.AsEnumerable());
@@ -631,7 +601,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetAlignmentOptionaPersonalityFlags<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetAlignmentOptionaPersonalityFlags<T>(this T entity, params System.String[] value)
             where T : RulesetCharacterHero
         {
             SetAlignmentOptionaPersonalityFlags(entity, value.AsEnumerable());
@@ -645,7 +615,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetArmorCategoryProficiencies<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetArmorCategoryProficiencies<T>(this T entity, params System.String[] value)
             where T : RulesetCharacterHero
         {
             SetArmorCategoryProficiencies(entity, value.AsEnumerable());
@@ -659,7 +629,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetArmorTypeProficiencies<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetArmorTypeProficiencies<T>(this T entity, params System.String[] value)
             where T : RulesetCharacterHero
         {
             SetArmorTypeProficiencies(entity, value.AsEnumerable());
@@ -687,7 +657,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetBackgroundOptionalPersonalityFlags<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetBackgroundOptionalPersonalityFlags<T>(this T entity, params System.String[] value)
             where T : RulesetCharacterHero
         {
             SetBackgroundOptionalPersonalityFlags(entity, value.AsEnumerable());
@@ -743,7 +713,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetClassesHistory<T>(this T entity,  params  CharacterClassDefinition [ ]  value)
+        public static T SetClassesHistory<T>(this T entity, params CharacterClassDefinition[] value)
             where T : RulesetCharacterHero
         {
             SetClassesHistory(entity, value.AsEnumerable());
@@ -841,7 +811,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetExpertiseProficiencies<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetExpertiseProficiencies<T>(this T entity, params System.String[] value)
             where T : RulesetCharacterHero
         {
             SetExpertiseProficiencies(entity, value.AsEnumerable());
@@ -862,7 +832,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetFeatProficiencies<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetFeatProficiencies<T>(this T entity, params System.String[] value)
             where T : RulesetCharacterHero
         {
             SetFeatProficiencies(entity, value.AsEnumerable());
@@ -904,7 +874,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetLanguageProficiencies<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetLanguageProficiencies<T>(this T entity, params System.String[] value)
             where T : RulesetCharacterHero
         {
             SetLanguageProficiencies(entity, value.AsEnumerable());
@@ -925,7 +895,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetMetamagicProficiencies<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetMetamagicProficiencies<T>(this T entity, params System.String[] value)
             where T : RulesetCharacterHero
         {
             SetMetamagicProficiencies(entity, value.AsEnumerable());
@@ -1002,7 +972,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSkillProficiencies<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetSkillProficiencies<T>(this T entity, params System.String[] value)
             where T : RulesetCharacterHero
         {
             SetSkillProficiencies(entity, value.AsEnumerable());
@@ -1058,7 +1028,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetToolTypeProficiencies<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetToolTypeProficiencies<T>(this T entity, params System.String[] value)
             where T : RulesetCharacterHero
         {
             SetToolTypeProficiencies(entity, value.AsEnumerable());
@@ -1072,7 +1042,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetTrainedExpertises<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetTrainedExpertises<T>(this T entity, params System.String[] value)
             where T : RulesetCharacterHero
         {
             SetTrainedExpertises(entity, value.AsEnumerable());
@@ -1086,7 +1056,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetTrainedFeats<T>(this T entity,  params  FeatDefinition [ ]  value)
+        public static T SetTrainedFeats<T>(this T entity, params FeatDefinition[] value)
             where T : RulesetCharacterHero
         {
             SetTrainedFeats(entity, value.AsEnumerable());
@@ -1100,7 +1070,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetTrainedFightingStyles<T>(this T entity,  params  FightingStyleDefinition [ ]  value)
+        public static T SetTrainedFightingStyles<T>(this T entity, params FightingStyleDefinition[] value)
             where T : RulesetCharacterHero
         {
             SetTrainedFightingStyles(entity, value.AsEnumerable());
@@ -1114,7 +1084,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetTrainedLanguages<T>(this T entity,  params  LanguageDefinition [ ]  value)
+        public static T SetTrainedLanguages<T>(this T entity, params LanguageDefinition[] value)
             where T : RulesetCharacterHero
         {
             SetTrainedLanguages(entity, value.AsEnumerable());
@@ -1128,7 +1098,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetTrainedMetamagicOptions<T>(this T entity,  params  MetamagicOptionDefinition [ ]  value)
+        public static T SetTrainedMetamagicOptions<T>(this T entity, params MetamagicOptionDefinition[] value)
             where T : RulesetCharacterHero
         {
             SetTrainedMetamagicOptions(entity, value.AsEnumerable());
@@ -1142,7 +1112,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetTrainedSkills<T>(this T entity,  params  SkillDefinition [ ]  value)
+        public static T SetTrainedSkills<T>(this T entity, params SkillDefinition[] value)
             where T : RulesetCharacterHero
         {
             SetTrainedSkills(entity, value.AsEnumerable());
@@ -1156,7 +1126,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetTrainedToolTypes<T>(this T entity,  params  ToolTypeDefinition [ ]  value)
+        public static T SetTrainedToolTypes<T>(this T entity, params ToolTypeDefinition[] value)
             where T : RulesetCharacterHero
         {
             SetTrainedToolTypes(entity, value.AsEnumerable());
@@ -1205,7 +1175,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetWeaponCategoryProficiencies<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetWeaponCategoryProficiencies<T>(this T entity, params System.String[] value)
             where T : RulesetCharacterHero
         {
             SetWeaponCategoryProficiencies(entity, value.AsEnumerable());
@@ -1219,7 +1189,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetWeaponTypeProficiencies<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetWeaponTypeProficiencies<T>(this T entity, params System.String[] value)
             where T : RulesetCharacterHero
         {
             SetWeaponTypeProficiencies(entity, value.AsEnumerable());

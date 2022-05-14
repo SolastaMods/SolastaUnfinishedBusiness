@@ -18,7 +18,9 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
             {
                 allSubPowers.Add(power);
                 if (!Main.Settings.EnablePowersBundlePatch)
+                {
                     continue;
+                }
 
                 var bundles = PowerBundleContext.GetMasterPowersBySubPower(power);
 
@@ -26,7 +28,9 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
                 {
                     var bundle = PowerBundleContext.GetBundle(masterPower);
                     if (!bundle.TerminateAll)
+                    {
                         continue;
+                    }
 
                     foreach (var subPower in bundle.SubPowers)
                     {
@@ -36,11 +40,15 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
             }
 
             if (exclude != null)
+            {
                 allSubPowers.Remove(exclude);
+            }
 
             var toTerminate = character.PowersUsedByMe.Where(u => allSubPowers.Contains(u.PowerDefinition)).ToList();
             foreach (var power in toTerminate)
+            {
                 character.TerminatePower(power);
+            }
         }
 
         internal static void TerminateSpells(RulesetCharacter character, SpellDefinition exclude,
@@ -54,7 +62,9 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
                 foreach (var allElement in DatabaseRepository.GetDatabase<SpellDefinition>().GetAllElements())
                 {
                     if (!spell.IsSubSpellOf(allElement))
+                    {
                         continue;
+                    }
 
                     foreach (var subSpell in allElement.SubspellsList)
                     {
@@ -64,11 +74,15 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
             }
 
             if (exclude != null)
+            {
                 allSubSpells.Remove(exclude);
+            }
 
             var toTerminate = character.SpellsCastByMe.Where(c => allSubSpells.Contains(c.SpellDefinition)).ToList();
             foreach (var spell in toTerminate)
+            {
                 character.TerminateSpell(spell);
+            }
         }
     }
 
@@ -108,7 +122,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
             }
         }
     }
-    
+
     [HarmonyPatch(typeof(RulesetCharacter), "OnConditionAdded")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetActor_OnConditionAdded

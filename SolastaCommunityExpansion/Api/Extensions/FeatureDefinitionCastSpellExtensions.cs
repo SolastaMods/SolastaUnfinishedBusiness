@@ -1,38 +1,8 @@
-using SolastaModApi.Infrastructure;
-using AK.Wwise;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.AddressableAssets;
-using System;
-using System.Linq;
-using System.Text;
 using System.CodeDom.Compiler;
-using TA.AI;
-using TA;
 using System.Collections.Generic;
-using UnityEngine.Rendering.PostProcessing;
-using  static  ActionDefinitions ;
-using  static  TA . AI . DecisionPackageDefinition ;
-using  static  TA . AI . DecisionDefinition ;
-using  static  RuleDefinitions ;
-using  static  BanterDefinitions ;
-using  static  Gui ;
-using  static  GadgetDefinitions ;
-using  static  BestiaryDefinitions ;
-using  static  CursorDefinitions ;
-using  static  AnimationDefinitions ;
-using  static  FeatureDefinitionAutoPreparedSpells ;
-using  static  FeatureDefinitionCraftingAffinity ;
-using  static  CharacterClassDefinition ;
-using  static  CreditsGroupDefinition ;
-using  static  SoundbanksDefinition ;
-using  static  CampaignDefinition ;
-using  static  GraphicsCharacterDefinitions ;
-using  static  GameCampaignDefinitions ;
-using  static  FeatureDefinitionAbilityCheckAffinity ;
-using  static  TooltipDefinitions ;
-using  static  BaseBlueprint ;
-using  static  MorphotypeElementDefinition ;
+using System.Linq;
+using SolastaModApi.Infrastructure;
+using static RuleDefinitions;
 
 namespace SolastaModApi.Extensions
 {
@@ -43,7 +13,7 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(FeatureDefinitionCastSpell)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class FeatureDefinitionCastSpellExtensions
     {
-        public static T AddKnownCantrips<T>(this T entity,  params  System . Int32 [ ]  value)
+        public static T AddKnownCantrips<T>(this T entity, params System.Int32[] value)
             where T : FeatureDefinitionCastSpell
         {
             AddKnownCantrips(entity, value.AsEnumerable());
@@ -57,7 +27,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddKnownSpells<T>(this T entity,  params  System . Int32 [ ]  value)
+        public static T AddKnownSpells<T>(this T entity, params System.Int32[] value)
             where T : FeatureDefinitionCastSpell
         {
             AddKnownSpells(entity, value.AsEnumerable());
@@ -71,7 +41,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddReplacedSpells<T>(this T entity,  params  System . Int32 [ ]  value)
+        public static T AddReplacedSpells<T>(this T entity, params System.Int32[] value)
             where T : FeatureDefinitionCastSpell
         {
             AddReplacedSpells(entity, value.AsEnumerable());
@@ -85,7 +55,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddRestrictedSchools<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddRestrictedSchools<T>(this T entity, params System.String[] value)
             where T : FeatureDefinitionCastSpell
         {
             AddRestrictedSchools(entity, value.AsEnumerable());
@@ -99,7 +69,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddScribedSpells<T>(this T entity,  params  System . Int32 [ ]  value)
+        public static T AddScribedSpells<T>(this T entity, params System.Int32[] value)
             where T : FeatureDefinitionCastSpell
         {
             AddScribedSpells(entity, value.AsEnumerable());
@@ -113,7 +83,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddSlotsPerLevels<T>(this T entity,  params  FeatureDefinitionCastSpell . SlotsByLevelDuplet [ ]  value)
+        public static T AddSlotsPerLevels<T>(this T entity, params FeatureDefinitionCastSpell.SlotsByLevelDuplet[] value)
             where T : FeatureDefinitionCastSpell
         {
             AddSlotsPerLevels(entity, value.AsEnumerable());
@@ -176,7 +146,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetKnownCantrips<T>(this T entity,  params  System . Int32 [ ]  value)
+        public static T SetKnownCantrips<T>(this T entity, params System.Int32[] value)
             where T : FeatureDefinitionCastSpell
         {
             SetKnownCantrips(entity, value.AsEnumerable());
@@ -190,7 +160,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetKnownSpells<T>(this T entity,  params  System . Int32 [ ]  value)
+        public static T SetKnownSpells<T>(this T entity, params System.Int32[] value)
             where T : FeatureDefinitionCastSpell
         {
             SetKnownSpells(entity, value.AsEnumerable());
@@ -204,7 +174,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetReplacedSpells<T>(this T entity,  params  System . Int32 [ ]  value)
+        public static T SetReplacedSpells<T>(this T entity, params System.Int32[] value)
             where T : FeatureDefinitionCastSpell
         {
             SetReplacedSpells(entity, value.AsEnumerable());
@@ -218,7 +188,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetRestrictedSchools<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetRestrictedSchools<T>(this T entity, params System.String[] value)
             where T : FeatureDefinitionCastSpell
         {
             SetRestrictedSchools(entity, value.AsEnumerable());
@@ -232,7 +202,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetScribedSpells<T>(this T entity,  params  System . Int32 [ ]  value)
+        public static T SetScribedSpells<T>(this T entity, params System.Int32[] value)
             where T : FeatureDefinitionCastSpell
         {
             SetScribedSpells(entity, value.AsEnumerable());
@@ -246,7 +216,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSlotsPerLevels<T>(this T entity,  params  FeatureDefinitionCastSpell . SlotsByLevelDuplet [ ]  value)
+        public static T SetSlotsPerLevels<T>(this T entity, params FeatureDefinitionCastSpell.SlotsByLevelDuplet[] value)
             where T : FeatureDefinitionCastSpell
         {
             SetSlotsPerLevels(entity, value.AsEnumerable());

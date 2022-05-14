@@ -1,38 +1,8 @@
-using SolastaModApi.Infrastructure;
-using AK.Wwise;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.AddressableAssets;
-using System;
-using System.Linq;
-using System.Text;
 using System.CodeDom.Compiler;
-using TA.AI;
-using TA;
 using System.Collections.Generic;
-using UnityEngine.Rendering.PostProcessing;
-using  static  ActionDefinitions ;
-using  static  TA . AI . DecisionPackageDefinition ;
-using  static  TA . AI . DecisionDefinition ;
-using  static  RuleDefinitions ;
-using  static  BanterDefinitions ;
-using  static  Gui ;
-using  static  GadgetDefinitions ;
-using  static  BestiaryDefinitions ;
-using  static  CursorDefinitions ;
-using  static  AnimationDefinitions ;
-using  static  FeatureDefinitionAutoPreparedSpells ;
-using  static  FeatureDefinitionCraftingAffinity ;
-using  static  CharacterClassDefinition ;
-using  static  CreditsGroupDefinition ;
-using  static  SoundbanksDefinition ;
-using  static  CampaignDefinition ;
-using  static  GraphicsCharacterDefinitions ;
-using  static  GameCampaignDefinitions ;
-using  static  FeatureDefinitionAbilityCheckAffinity ;
-using  static  TooltipDefinitions ;
-using  static  BaseBlueprint ;
-using  static  MorphotypeElementDefinition ;
+using System.Linq;
+using SolastaModApi.Infrastructure;
+using static RuleDefinitions;
 
 namespace SolastaModApi.Extensions
 {
@@ -43,7 +13,7 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(CharacterRaceDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class CharacterRaceDefinitionExtensions
     {
-        public static T AddAudioSwitches<T>(this T entity,  params  AK . Wwise . Switch [ ]  value)
+        public static T AddAudioSwitches<T>(this T entity, params AK.Wwise.Switch[] value)
             where T : CharacterRaceDefinition
         {
             AddAudioSwitches(entity, value.AsEnumerable());
@@ -57,7 +27,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddFeatureUnlocks<T>(this T entity,  params  FeatureUnlockByLevel [ ]  value)
+        public static T AddFeatureUnlocks<T>(this T entity, params FeatureUnlockByLevel[] value)
             where T : CharacterRaceDefinition
         {
             AddFeatureUnlocks(entity, value.AsEnumerable());
@@ -71,7 +41,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddLanguageAutolearnPreference<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddLanguageAutolearnPreference<T>(this T entity, params System.String[] value)
             where T : CharacterRaceDefinition
         {
             AddLanguageAutolearnPreference(entity, value.AsEnumerable());
@@ -85,7 +55,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddPersonalityFlagOccurences<T>(this T entity,  params  PersonalityFlagOccurence [ ]  value)
+        public static T AddPersonalityFlagOccurences<T>(this T entity, params PersonalityFlagOccurence[] value)
             where T : CharacterRaceDefinition
         {
             AddPersonalityFlagOccurences(entity, value.AsEnumerable());
@@ -99,7 +69,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddSubRaces<T>(this T entity,  params  CharacterRaceDefinition [ ]  value)
+        public static T AddSubRaces<T>(this T entity, params CharacterRaceDefinition[] value)
             where T : CharacterRaceDefinition
         {
             AddSubRaces(entity, value.AsEnumerable());
@@ -155,7 +125,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetAudioSwitches<T>(this T entity,  params  AK . Wwise . Switch [ ]  value)
+        public static T SetAudioSwitches<T>(this T entity, params AK.Wwise.Switch[] value)
             where T : CharacterRaceDefinition
         {
             SetAudioSwitches(entity, value.AsEnumerable());
@@ -197,7 +167,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetFeatureUnlocks<T>(this T entity,  params  FeatureUnlockByLevel [ ]  value)
+        public static T SetFeatureUnlocks<T>(this T entity, params FeatureUnlockByLevel[] value)
             where T : CharacterRaceDefinition
         {
             SetFeatureUnlocks(entity, value.AsEnumerable());
@@ -218,7 +188,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetLanguageAutolearnPreference<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetLanguageAutolearnPreference<T>(this T entity, params System.String[] value)
             where T : CharacterRaceDefinition
         {
             SetLanguageAutolearnPreference(entity, value.AsEnumerable());
@@ -246,7 +216,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetPersonalityFlagOccurences<T>(this T entity,  params  PersonalityFlagOccurence [ ]  value)
+        public static T SetPersonalityFlagOccurences<T>(this T entity, params PersonalityFlagOccurence[] value)
             where T : CharacterRaceDefinition
         {
             SetPersonalityFlagOccurences(entity, value.AsEnumerable());
@@ -274,7 +244,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSubRaces<T>(this T entity,  params  CharacterRaceDefinition [ ]  value)
+        public static T SetSubRaces<T>(this T entity, params CharacterRaceDefinition[] value)
             where T : CharacterRaceDefinition
         {
             SetSubRaces(entity, value.AsEnumerable());

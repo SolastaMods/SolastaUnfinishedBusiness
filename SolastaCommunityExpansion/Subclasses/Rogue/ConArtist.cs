@@ -61,11 +61,11 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
             EffectDescriptionBuilder feintBuilder = EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(
-                    RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.Distance, 12, 
+                    RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.Distance, 12,
                     RuleDefinitions.TargetType.Individuals, 1, 0, ActionDefinitions.ItemSelectionType.None)
                 .SetDurationData(RuleDefinitions.DurationType.Round, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn)
                 .SetSavingThrowData(
-                    true, false, AttributeDefinitions.Wisdom, true, 
+                    true, false, AttributeDefinitions.Wisdom, true,
                     RuleDefinitions.EffectDifficultyClassComputation.SpellCastingFeature, AttributeDefinitions.Charisma,
                     15, false);
 

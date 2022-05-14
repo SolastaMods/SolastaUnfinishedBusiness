@@ -16,10 +16,10 @@ namespace SolastaCommunityExpansion.CustomDefinitions
     {
         private bool _fullSetIsDirty;
         private readonly List<FeatureDefinition> _allFeatureSet = new();
-        private Dictionary<int, List<FeatureDefinition>> FeaturesByLevel  = new();
+        private readonly Dictionary<int, List<FeatureDefinition>> FeaturesByLevel = new();
         /**Are level requirements in character levels or class levels?*/
         public bool RequireClassLevels { get; set; }
-        public List<int> AllLevels => FeaturesByLevel.Select(e=>e.Key).ToList();
+        public List<int> AllLevels => FeaturesByLevel.Select(e => e.Key).ToList();
 
         public List<FeatureDefinition> AllFeatures
         {
@@ -56,19 +56,19 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             GetOrMakeLevelFeatures(level).AddRange(features);
             _fullSetIsDirty = true;
         }
-        
+
         public void AddLevelFeatures(int level, IEnumerable<FeatureDefinition> features)
         {
             GetOrMakeLevelFeatures(level).AddRange(features);
             _fullSetIsDirty = true;
         }
-        
+
         public void SetLevelFeatures(int level, params FeatureDefinition[] features)
         {
             GetOrMakeLevelFeatures(level).SetRange(features);
             _fullSetIsDirty = true;
         }
-        
+
         public void SetLevelFeatures(int level, IEnumerable<FeatureDefinition> features)
         {
             GetOrMakeLevelFeatures(level).SetRange(features);
@@ -113,7 +113,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             Definition.AddLevelFeatures(level, features);
             return this;
         }
-        
+
         public FeatureDefinitionFeatureSetCustomBuilder SetLevelFeatures(int level, params FeatureDefinition[] features)
         {
             Definition.SetLevelFeatures(level, features);
@@ -149,11 +149,11 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             //technically we return feature not where we took it from
             tag = AttributeDefinitions.GetClassTag(lastClass, classLevel - 1);
             ServiceRepository.GetService<ICharacterBuildingService>()
-                .GrantFeatures(hero, new List<FeatureDefinition> {FeatureToRemove}, tag, false);
+                .GrantFeatures(hero, new List<FeatureDefinition> { FeatureToRemove }, tag, false);
         }
     }
 
-    public class FeatureDefinitionRemoverBuilder 
+    public class FeatureDefinitionRemoverBuilder
         : FeatureDefinitionBuilder<FeatureDefinitionRemover, FeatureDefinitionRemoverBuilder>
     {
         #region Constructors
@@ -184,7 +184,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions
         {
             return Create(WrapName(feature.Name), CENamespaceGuid)
                 .SetGuiPresentation(
-                    feature.GuiPresentation.Title, 
+                    feature.GuiPresentation.Title,
                     feature.GuiPresentation.Description,
                     feature.GuiPresentation.SpriteReference
                 )

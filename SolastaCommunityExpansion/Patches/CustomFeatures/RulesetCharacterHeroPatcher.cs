@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
     {
         internal static void Postfix(RulesetCharacterHero __instance, List<FeatDefinition> feats)
         {
-            foreach(var feat in feats)
+            foreach (var feat in feats)
             {
                 Models.CustomFeaturesContext.RecursiveGrantCustomFeatures(__instance, null, feat.Features);
             }

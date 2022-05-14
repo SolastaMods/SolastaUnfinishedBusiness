@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using SolastaCommunityExpansion.Spells;
 
 namespace SolastaCommunityExpansion.Models
@@ -8,7 +7,7 @@ namespace SolastaCommunityExpansion.Models
     internal static class SpellsContext
     {
         internal static HashSet<SpellDefinition> Spells { get; set; } = new();
-        
+
         internal sealed class SpellListContext
         {
             private List<string> SelectedSpells => Main.Settings.SpellListSpellEnabled[SpellList.Name];
@@ -27,7 +26,7 @@ namespace SolastaCommunityExpansion.Models
 
             public bool IsAllSetSelected => SelectedSpells.Count == AllSpells.Count;
 
-            public bool IsSuggestedSetSelected => SelectedSpells.Count == SuggestedSpells.Count 
+            public bool IsSuggestedSetSelected => SelectedSpells.Count == SuggestedSpells.Count
                 && SuggestedSpells.All(x => SelectedSpells.Contains(x.Name));
 
             public void CalculateAllSpells()
@@ -237,7 +236,7 @@ namespace SolastaCommunityExpansion.Models
             }
 
             Spells.Add(spellDefinition);
-  
+
             for (var i = 0; i < spellLists.Length; i++)
             {
                 var spellList = spellLists[i];

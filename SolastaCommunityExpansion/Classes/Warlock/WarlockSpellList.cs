@@ -1,12 +1,11 @@
-﻿using SolastaModApi;
+﻿using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
-using System.Collections.Generic;
+using SolastaModApi;
+using static FeatureDefinitionCastSpell;
+using static SolastaCommunityExpansion.Classes.Warlock.Features.EldritchInvocationsBuilder;
 using static SolastaCommunityExpansion.Spells.AceHighSpells;
 using static SolastaCommunityExpansion.Spells.SrdSpells;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
-using static SolastaCommunityExpansion.Classes.Warlock.Features.EldritchInvocationsBuilder;
-using static FeatureDefinitionCastSpell;
-using static SolastaCommunityExpansion.Spells.EWSpells;
 
 namespace SolastaCommunityExpansion.Classes.Warlock
 {

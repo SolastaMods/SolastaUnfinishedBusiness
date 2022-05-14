@@ -34,7 +34,7 @@ namespace SolastaCommunityExpansion.Models
                 }
 
                 featureDefinitionProficiency.Proficiencies
-                    .ForEach(prof => 
+                    .ForEach(prof =>
                     hero.TrainedFightingStyles
                         .Add(DatabaseRepository.GetDatabase<FightingStyleDefinition>()
                             .GetElement(prof, false)));
@@ -339,7 +339,7 @@ namespace SolastaCommunityExpansion.Models
         public static EffectDescription ModifySpellEffectGui(EffectDescription original, GuiSpellDefinition spell)
         {
             var result = original;
-            var caster = Global.InspectedHero 
+            var caster = Global.InspectedHero
                          ?? Global.ActiveLevelUpHero
                          ?? Global.ActivePlayerCharacter?.RulesetCharacter;
 
@@ -351,7 +351,7 @@ namespace SolastaCommunityExpansion.Models
 
             return result;
         }
-        
+
         public static EffectDescription AddEffectForms(EffectDescription baseEffect, params EffectForm[] effectForms)
         {
             var newEffect = baseEffect.Copy();

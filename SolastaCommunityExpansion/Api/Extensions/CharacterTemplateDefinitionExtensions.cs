@@ -1,38 +1,8 @@
-using SolastaModApi.Infrastructure;
-using AK.Wwise;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.AddressableAssets;
-using System;
-using System.Linq;
-using System.Text;
 using System.CodeDom.Compiler;
-using TA.AI;
-using TA;
 using System.Collections.Generic;
-using UnityEngine.Rendering.PostProcessing;
-using  static  ActionDefinitions ;
-using  static  TA . AI . DecisionPackageDefinition ;
-using  static  TA . AI . DecisionDefinition ;
-using  static  RuleDefinitions ;
-using  static  BanterDefinitions ;
-using  static  Gui ;
-using  static  GadgetDefinitions ;
-using  static  BestiaryDefinitions ;
-using  static  CursorDefinitions ;
-using  static  AnimationDefinitions ;
-using  static  FeatureDefinitionAutoPreparedSpells ;
-using  static  FeatureDefinitionCraftingAffinity ;
-using  static  CharacterClassDefinition ;
-using  static  CreditsGroupDefinition ;
-using  static  SoundbanksDefinition ;
-using  static  CampaignDefinition ;
-using  static  GraphicsCharacterDefinitions ;
-using  static  GameCampaignDefinitions ;
-using  static  FeatureDefinitionAbilityCheckAffinity ;
-using  static  TooltipDefinitions ;
-using  static  BaseBlueprint ;
-using  static  MorphotypeElementDefinition ;
+using System.Linq;
+using SolastaModApi.Infrastructure;
+using static RuleDefinitions;
 
 namespace SolastaModApi.Extensions
 {
@@ -43,7 +13,7 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(CharacterTemplateDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class CharacterTemplateDefinitionExtensions
     {
-        public static T AddEquipment<T>(this T entity,  params  ItemDefinition [ ]  value)
+        public static T AddEquipment<T>(this T entity, params ItemDefinition[] value)
             where T : CharacterTemplateDefinition
         {
             AddEquipment(entity, value.AsEnumerable());
@@ -57,7 +27,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddExpertisesOverride<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddExpertisesOverride<T>(this T entity, params System.String[] value)
             where T : CharacterTemplateDefinition
         {
             AddExpertisesOverride(entity, value.AsEnumerable());
@@ -71,7 +41,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddFeatsOverride<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddFeatsOverride<T>(this T entity, params System.String[] value)
             where T : CharacterTemplateDefinition
         {
             AddFeatsOverride(entity, value.AsEnumerable());
@@ -85,7 +55,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddKnownClassCantrips<T>(this T entity,  params  SpellDefinition [ ]  value)
+        public static T AddKnownClassCantrips<T>(this T entity, params SpellDefinition[] value)
             where T : CharacterTemplateDefinition
         {
             AddKnownClassCantrips(entity, value.AsEnumerable());
@@ -99,7 +69,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddKnownClassSpells<T>(this T entity,  params  SpellDefinition [ ]  value)
+        public static T AddKnownClassSpells<T>(this T entity, params SpellDefinition[] value)
             where T : CharacterTemplateDefinition
         {
             AddKnownClassSpells(entity, value.AsEnumerable());
@@ -113,7 +83,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddKnownRaceCantrips<T>(this T entity,  params  SpellDefinition [ ]  value)
+        public static T AddKnownRaceCantrips<T>(this T entity, params SpellDefinition[] value)
             where T : CharacterTemplateDefinition
         {
             AddKnownRaceCantrips(entity, value.AsEnumerable());
@@ -127,7 +97,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddKnownRaceSpells<T>(this T entity,  params  SpellDefinition [ ]  value)
+        public static T AddKnownRaceSpells<T>(this T entity, params SpellDefinition[] value)
             where T : CharacterTemplateDefinition
         {
             AddKnownRaceSpells(entity, value.AsEnumerable());
@@ -141,7 +111,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddKnownSubclassCantrips<T>(this T entity,  params  SpellDefinition [ ]  value)
+        public static T AddKnownSubclassCantrips<T>(this T entity, params SpellDefinition[] value)
             where T : CharacterTemplateDefinition
         {
             AddKnownSubclassCantrips(entity, value.AsEnumerable());
@@ -155,7 +125,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddKnownSubclassSpells<T>(this T entity,  params  SpellDefinition [ ]  value)
+        public static T AddKnownSubclassSpells<T>(this T entity, params SpellDefinition[] value)
             where T : CharacterTemplateDefinition
         {
             AddKnownSubclassSpells(entity, value.AsEnumerable());
@@ -169,7 +139,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddLanguagesOverride<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddLanguagesOverride<T>(this T entity, params System.String[] value)
             where T : CharacterTemplateDefinition
         {
             AddLanguagesOverride(entity, value.AsEnumerable());
@@ -183,7 +153,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddMetamagicOverride<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddMetamagicOverride<T>(this T entity, params System.String[] value)
             where T : CharacterTemplateDefinition
         {
             AddMetamagicOverride(entity, value.AsEnumerable());
@@ -197,7 +167,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddPreparedClassSpells<T>(this T entity,  params  SpellDefinition [ ]  value)
+        public static T AddPreparedClassSpells<T>(this T entity, params SpellDefinition[] value)
             where T : CharacterTemplateDefinition
         {
             AddPreparedClassSpells(entity, value.AsEnumerable());
@@ -211,7 +181,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddPreparedSubclassSpells<T>(this T entity,  params  SpellDefinition [ ]  value)
+        public static T AddPreparedSubclassSpells<T>(this T entity, params SpellDefinition[] value)
             where T : CharacterTemplateDefinition
         {
             AddPreparedSubclassSpells(entity, value.AsEnumerable());
@@ -225,7 +195,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddSkillsOverride<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddSkillsOverride<T>(this T entity, params System.String[] value)
             where T : CharacterTemplateDefinition
         {
             AddSkillsOverride(entity, value.AsEnumerable());
@@ -239,7 +209,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddToolsOverride<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddToolsOverride<T>(this T entity, params System.String[] value)
             where T : CharacterTemplateDefinition
         {
             AddToolsOverride(entity, value.AsEnumerable());
@@ -253,7 +223,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddWieldedItemsConfigurations<T>(this T entity,  params  WieldedItemsConfiguration [ ]  value)
+        public static T AddWieldedItemsConfigurations<T>(this T entity, params WieldedItemsConfiguration[] value)
             where T : CharacterTemplateDefinition
         {
             AddWieldedItemsConfigurations(entity, value.AsEnumerable());
@@ -491,7 +461,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetEquipment<T>(this T entity,  params  ItemDefinition [ ]  value)
+        public static T SetEquipment<T>(this T entity, params ItemDefinition[] value)
             where T : CharacterTemplateDefinition
         {
             SetEquipment(entity, value.AsEnumerable());
@@ -505,7 +475,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetExpertisesOverride<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetExpertisesOverride<T>(this T entity, params System.String[] value)
             where T : CharacterTemplateDefinition
         {
             SetExpertisesOverride(entity, value.AsEnumerable());
@@ -547,7 +517,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetFeatsOverride<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetFeatsOverride<T>(this T entity, params System.String[] value)
             where T : CharacterTemplateDefinition
         {
             SetFeatsOverride(entity, value.AsEnumerable());
@@ -589,7 +559,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetKnownClassCantrips<T>(this T entity,  params  SpellDefinition [ ]  value)
+        public static T SetKnownClassCantrips<T>(this T entity, params SpellDefinition[] value)
             where T : CharacterTemplateDefinition
         {
             SetKnownClassCantrips(entity, value.AsEnumerable());
@@ -603,7 +573,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetKnownClassSpells<T>(this T entity,  params  SpellDefinition [ ]  value)
+        public static T SetKnownClassSpells<T>(this T entity, params SpellDefinition[] value)
             where T : CharacterTemplateDefinition
         {
             SetKnownClassSpells(entity, value.AsEnumerable());
@@ -617,7 +587,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetKnownRaceCantrips<T>(this T entity,  params  SpellDefinition [ ]  value)
+        public static T SetKnownRaceCantrips<T>(this T entity, params SpellDefinition[] value)
             where T : CharacterTemplateDefinition
         {
             SetKnownRaceCantrips(entity, value.AsEnumerable());
@@ -631,7 +601,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetKnownRaceSpells<T>(this T entity,  params  SpellDefinition [ ]  value)
+        public static T SetKnownRaceSpells<T>(this T entity, params SpellDefinition[] value)
             where T : CharacterTemplateDefinition
         {
             SetKnownRaceSpells(entity, value.AsEnumerable());
@@ -645,7 +615,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetKnownSubclassCantrips<T>(this T entity,  params  SpellDefinition [ ]  value)
+        public static T SetKnownSubclassCantrips<T>(this T entity, params SpellDefinition[] value)
             where T : CharacterTemplateDefinition
         {
             SetKnownSubclassCantrips(entity, value.AsEnumerable());
@@ -659,7 +629,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetKnownSubclassSpells<T>(this T entity,  params  SpellDefinition [ ]  value)
+        public static T SetKnownSubclassSpells<T>(this T entity, params SpellDefinition[] value)
             where T : CharacterTemplateDefinition
         {
             SetKnownSubclassSpells(entity, value.AsEnumerable());
@@ -673,7 +643,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetLanguagesOverride<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetLanguagesOverride<T>(this T entity, params System.String[] value)
             where T : CharacterTemplateDefinition
         {
             SetLanguagesOverride(entity, value.AsEnumerable());
@@ -701,7 +671,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetMetamagicOverride<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetMetamagicOverride<T>(this T entity, params System.String[] value)
             where T : CharacterTemplateDefinition
         {
             SetMetamagicOverride(entity, value.AsEnumerable());
@@ -729,7 +699,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetPreparedClassSpells<T>(this T entity,  params  SpellDefinition [ ]  value)
+        public static T SetPreparedClassSpells<T>(this T entity, params SpellDefinition[] value)
             where T : CharacterTemplateDefinition
         {
             SetPreparedClassSpells(entity, value.AsEnumerable());
@@ -743,7 +713,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetPreparedSubclassSpells<T>(this T entity,  params  SpellDefinition [ ]  value)
+        public static T SetPreparedSubclassSpells<T>(this T entity, params SpellDefinition[] value)
             where T : CharacterTemplateDefinition
         {
             SetPreparedSubclassSpells(entity, value.AsEnumerable());
@@ -778,7 +748,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSkillsOverride<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetSkillsOverride<T>(this T entity, params System.String[] value)
             where T : CharacterTemplateDefinition
         {
             SetSkillsOverride(entity, value.AsEnumerable());
@@ -827,7 +797,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetToolsOverride<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetToolsOverride<T>(this T entity, params System.String[] value)
             where T : CharacterTemplateDefinition
         {
             SetToolsOverride(entity, value.AsEnumerable());
@@ -848,7 +818,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetWieldedItemsConfigurations<T>(this T entity,  params  WieldedItemsConfiguration [ ]  value)
+        public static T SetWieldedItemsConfigurations<T>(this T entity, params WieldedItemsConfiguration[] value)
             where T : CharacterTemplateDefinition
         {
             SetWieldedItemsConfigurations(entity, value.AsEnumerable());

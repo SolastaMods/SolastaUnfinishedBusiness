@@ -678,10 +678,10 @@ namespace SolastaCommunityExpansion.Classes.Witch
         private sealed class CackleEffectForm : CustomEffectForm
         {
             public override void ApplyForm(
-                RulesetImplementationDefinitions.ApplyFormsParams formsParams, 
-                bool retargeting, 
-                bool proxyOnly, 
-                bool forceSelfConditionOnly,               
+                RulesetImplementationDefinitions.ApplyFormsParams formsParams,
+                bool retargeting,
+                bool proxyOnly,
+                bool forceSelfConditionOnly,
                 EffectApplication effectApplication = EffectApplication.All,
                 List<EffectFormFilter> filters = null)
             {

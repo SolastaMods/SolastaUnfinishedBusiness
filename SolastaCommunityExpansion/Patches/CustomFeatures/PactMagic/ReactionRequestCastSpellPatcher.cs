@@ -1,11 +1,10 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
 {
-    
+
     //Removes low-level sub-option for spell reactions if caster is not-multiclassed warlock
     internal static class ReactionRequestCastSpellPatcher
     {
@@ -20,7 +19,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
 
                 var rulesetEffect = __instance.ReactionParams.RulesetEffect as RulesetEffectSpell;
                 if (rulesetEffect == null) { return true; }
-                
+
                 __instance.SubOptionsAvailability.Clear();
                 var spellRepertoire = rulesetEffect.SpellRepertoire;
                 var minSpellLebvel = rulesetEffect.SpellDefinition.SpellLevel;

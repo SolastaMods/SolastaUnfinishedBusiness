@@ -119,7 +119,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .Create($"ClassWarlockMysticArcanumSet", CENamespaceGuid)
                 .SetGuiPresentation(Category.Feature)
                 .SetRequireClassLevels(true);
-            
+
             foreach (var (setLevel, spellLevel) in levels)
             {
                 builder.SetLevelFeatures(setLevel, GetSpells(spellLevel)

@@ -129,7 +129,7 @@ namespace SolastaCommunityExpansion.Models
             {
                 ServiceRepository.GetService<ICharacterPoolService>().SaveCharacter(hero, true);
             }
-            
+
             IsLevelDown = false;
         }
 

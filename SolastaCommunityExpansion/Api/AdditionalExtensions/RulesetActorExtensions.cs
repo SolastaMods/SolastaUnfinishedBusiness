@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SolastaCommunityExpansion;
 
 namespace SolastaModApi.Extensions
 {
@@ -20,7 +19,7 @@ namespace SolastaModApi.Extensions
             actor.EnumerateFeaturesToBrowse<T>(features, featuresOrigin);
             return features.OfType<T>().ToList();
         }
-        
+
         private static List<T> FeaturesByType<T>(RulesetActor actor) where T : class
         {
             var list = new List<FeatureDefinition>();
@@ -32,7 +31,7 @@ namespace SolastaModApi.Extensions
                 .Where(f => f != null)
                 .ToList();
         }
-        
+
         public static List<T> GetFeaturesByType<T>(this RulesetActor actor) where T : class
         {
             return FeaturesByType<T>(actor);
@@ -57,12 +56,12 @@ namespace SolastaModApi.Extensions
         {
             return FeaturesByType<FeatureDefinition>(actor).Any(features.Contains);
         }
-        
+
         public static bool HasAllFeatures(this RulesetActor actor, params FeatureDefinition[] features)
         {
             return HasAllFeatures(actor, features.ToList());
         }
-        
+
         public static bool HasAllFeatures(this RulesetActor actor, IEnumerable<FeatureDefinition> features)
         {
             var all = FeaturesByType<FeatureDefinition>(actor);
@@ -74,7 +73,7 @@ namespace SolastaModApi.Extensions
             //TODO: should we add FeatureDefinitionFeatureSetCustom flattening too?
             return features.SelectMany(f => f is FeatureDefinitionFeatureSet set
                 ? FlattenFeatureList(set.FeatureSet)
-                : new List<FeatureDefinition>() {f});
+                : new List<FeatureDefinition>() { f });
         }
     }
 }

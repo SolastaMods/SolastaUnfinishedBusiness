@@ -1,38 +1,8 @@
-using SolastaModApi.Infrastructure;
-using AK.Wwise;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.AddressableAssets;
-using System;
-using System.Linq;
-using System.Text;
 using System.CodeDom.Compiler;
-using TA.AI;
-using TA;
 using System.Collections.Generic;
-using UnityEngine.Rendering.PostProcessing;
-using  static  ActionDefinitions ;
-using  static  TA . AI . DecisionPackageDefinition ;
-using  static  TA . AI . DecisionDefinition ;
-using  static  RuleDefinitions ;
-using  static  BanterDefinitions ;
-using  static  Gui ;
-using  static  GadgetDefinitions ;
-using  static  BestiaryDefinitions ;
-using  static  CursorDefinitions ;
-using  static  AnimationDefinitions ;
-using  static  FeatureDefinitionAutoPreparedSpells ;
-using  static  FeatureDefinitionCraftingAffinity ;
-using  static  CharacterClassDefinition ;
-using  static  CreditsGroupDefinition ;
-using  static  SoundbanksDefinition ;
-using  static  CampaignDefinition ;
-using  static  GraphicsCharacterDefinitions ;
-using  static  GameCampaignDefinitions ;
-using  static  FeatureDefinitionAbilityCheckAffinity ;
-using  static  TooltipDefinitions ;
-using  static  BaseBlueprint ;
-using  static  MorphotypeElementDefinition ;
+using System.Linq;
+using SolastaModApi.Infrastructure;
+using static RuleDefinitions;
 
 namespace SolastaModApi.Extensions
 {
@@ -43,7 +13,7 @@ namespace SolastaModApi.Extensions
     [TargetType(typeof(ItemDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class ItemDefinitionExtensions
     {
-        public static T AddActiveTags<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddActiveTags<T>(this T entity, params System.String[] value)
             where T : ItemDefinition
         {
             AddActiveTags(entity, value.AsEnumerable());
@@ -57,7 +27,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddInactiveTags<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddInactiveTags<T>(this T entity, params System.String[] value)
             where T : ItemDefinition
         {
             AddInactiveTags(entity, value.AsEnumerable());
@@ -71,7 +41,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddItemTags<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddItemTags<T>(this T entity, params System.String[] value)
             where T : ItemDefinition
         {
             AddItemTags(entity, value.AsEnumerable());
@@ -85,7 +55,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddPersonalityFlagOccurences<T>(this T entity,  params  PersonalityFlagOccurence [ ]  value)
+        public static T AddPersonalityFlagOccurences<T>(this T entity, params PersonalityFlagOccurence[] value)
             where T : ItemDefinition
         {
             AddPersonalityFlagOccurences(entity, value.AsEnumerable());
@@ -99,7 +69,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddRequiredAttunementClasses<T>(this T entity,  params  CharacterClassDefinition [ ]  value)
+        public static T AddRequiredAttunementClasses<T>(this T entity, params CharacterClassDefinition[] value)
             where T : ItemDefinition
         {
             AddRequiredAttunementClasses(entity, value.AsEnumerable());
@@ -113,7 +83,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddSlotsWhereActive<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddSlotsWhereActive<T>(this T entity, params System.String[] value)
             where T : ItemDefinition
         {
             AddSlotsWhereActive(entity, value.AsEnumerable());
@@ -127,7 +97,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddSlotTypes<T>(this T entity,  params  System . String [ ]  value)
+        public static T AddSlotTypes<T>(this T entity, params System.String[] value)
             where T : ItemDefinition
         {
             AddSlotTypes(entity, value.AsEnumerable());
@@ -141,7 +111,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddStaticProperties<T>(this T entity,  params  ItemPropertyDescription [ ]  value)
+        public static T AddStaticProperties<T>(this T entity, params ItemPropertyDescription[] value)
             where T : ItemDefinition
         {
             AddStaticProperties(entity, value.AsEnumerable());
@@ -225,7 +195,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetActiveTags<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetActiveTags<T>(this T entity, params System.String[] value)
             where T : ItemDefinition
         {
             SetActiveTags(entity, value.AsEnumerable());
@@ -330,7 +300,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetInactiveTags<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetInactiveTags<T>(this T entity, params System.String[] value)
             where T : ItemDefinition
         {
             SetInactiveTags(entity, value.AsEnumerable());
@@ -463,7 +433,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetItemTags<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetItemTags<T>(this T entity, params System.String[] value)
             where T : ItemDefinition
         {
             SetItemTags(entity, value.AsEnumerable());
@@ -498,7 +468,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetPersonalityFlagOccurences<T>(this T entity,  params  PersonalityFlagOccurence [ ]  value)
+        public static T SetPersonalityFlagOccurences<T>(this T entity, params PersonalityFlagOccurence[] value)
             where T : ItemDefinition
         {
             SetPersonalityFlagOccurences(entity, value.AsEnumerable());
@@ -512,7 +482,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetRequiredAttunementClasses<T>(this T entity,  params  CharacterClassDefinition [ ]  value)
+        public static T SetRequiredAttunementClasses<T>(this T entity, params CharacterClassDefinition[] value)
             where T : ItemDefinition
         {
             SetRequiredAttunementClasses(entity, value.AsEnumerable());
@@ -540,7 +510,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSlotsWhereActive<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetSlotsWhereActive<T>(this T entity, params System.String[] value)
             where T : ItemDefinition
         {
             SetSlotsWhereActive(entity, value.AsEnumerable());
@@ -554,7 +524,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSlotTypes<T>(this T entity,  params  System . String [ ]  value)
+        public static T SetSlotTypes<T>(this T entity, params System.String[] value)
             where T : ItemDefinition
         {
             SetSlotTypes(entity, value.AsEnumerable());
@@ -603,7 +573,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetStaticProperties<T>(this T entity,  params  ItemPropertyDescription [ ]  value)
+        public static T SetStaticProperties<T>(this T entity, params ItemPropertyDescription[] value)
             where T : ItemDefinition
         {
             SetStaticProperties(entity, value.AsEnumerable());

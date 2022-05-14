@@ -14,7 +14,7 @@ namespace SolastaCommunityExpansion.FightingStyles
 
         internal override List<FeatureDefinitionFightingStyleChoice> GetChoiceLists()
         {
-            return new List<FeatureDefinitionFightingStyleChoice>() {};
+            return new List<FeatureDefinitionFightingStyleChoice>() { };
         }
 
         internal override FightingStyleDefinition GetStyle()
@@ -29,7 +29,7 @@ namespace SolastaCommunityExpansion.FightingStyles
                 var additionalDamage = FeatureDefinitionAdditionalDamageBuilder
                     .Create(DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageBracersOfArchery, "ModifierTitanFighting", TITAN_FIGHTING_BASE_GUID)
                     // to extend with new condition? something like
-//                        .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.IsSizeLargeOrMore)
+                    //                        .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.IsSizeLargeOrMore)
                     .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive)
                     .SetRequiredProperty(RuleDefinitions.AdditionalDamageRequiredProperty.MeleeWeapon)
                     .SetDamageDice(RuleDefinitions.DieType.D1, 2)

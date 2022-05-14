@@ -49,7 +49,7 @@ namespace SolastaCommunityExpansion.Builders
             : this(reference.Title, reference.Description, reference.SpriteReference)
         {
         }
-        
+
         public GuiPresentationBuilder SetTitle(string title)
         {
             guiPresentation.SetTitle(title);

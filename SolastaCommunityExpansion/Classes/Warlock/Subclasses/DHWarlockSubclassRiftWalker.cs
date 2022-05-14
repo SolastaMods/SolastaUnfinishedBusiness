@@ -1,10 +1,10 @@
-﻿using SolastaModApi;
-using SolastaCommunityExpansion.Builders;
+﻿using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaModApi;
 using SolastaModApi.Extensions;
-using static SolastaModApi.DatabaseHelper.SpellDefinitions;
-using static SolastaCommunityExpansion.Builders.DefinitionBuilder;
 using SolastaModApi.Infrastructure;
+using static SolastaCommunityExpansion.Builders.DefinitionBuilder;
+using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 {
@@ -30,18 +30,18 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             RiftCloakBuilder();
             AtWillWardingBond();
 
-         return  CharacterSubclassDefinitionBuilder
-                .Create("DHWarlockSubclassRiftWalker", CENamespaceGuid)
-                .SetGuiPresentation(Category.Subclass, DatabaseHelper.CharacterSubclassDefinitions.PathMagebane.GuiPresentation.SpriteReference)
-                .AddFeatureAtLevel(RiftWalkerMagicAffinity, 1)
-                .AddFeatureAtLevel(RiftWalk, 1)
-                .AddFeatureAtLevel(RiftBlink, 1)
-                .AddFeatureAtLevel(RiftCloak, 6)
-                .AddFeatureAtLevel(RiftStrike, 6)
-                .AddFeatureAtLevel(RiftJump, 10)
-                .AddFeatureAtLevel(FadeIntoTheVoid, 10)
-                .AddFeatureAtLevel(WardingBondBonusCantrip, 14) //RiftCloak,14)
-                .AddToDB();
+            return CharacterSubclassDefinitionBuilder
+                   .Create("DHWarlockSubclassRiftWalker", CENamespaceGuid)
+                   .SetGuiPresentation(Category.Subclass, DatabaseHelper.CharacterSubclassDefinitions.PathMagebane.GuiPresentation.SpriteReference)
+                   .AddFeatureAtLevel(RiftWalkerMagicAffinity, 1)
+                   .AddFeatureAtLevel(RiftWalk, 1)
+                   .AddFeatureAtLevel(RiftBlink, 1)
+                   .AddFeatureAtLevel(RiftCloak, 6)
+                   .AddFeatureAtLevel(RiftStrike, 6)
+                   .AddFeatureAtLevel(RiftJump, 10)
+                   .AddFeatureAtLevel(FadeIntoTheVoid, 10)
+                   .AddFeatureAtLevel(WardingBondBonusCantrip, 14) //RiftCloak,14)
+                   .AddToDB();
         }
 
         public static void RiftStepBuilder()
@@ -156,7 +156,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
         public static void AtWillWardingBond()
         {
             WardingBondBonusCantrip = FeatureDefinitionFreeBonusCantripsBuilder
-                .Create( "DHWardingBondBonusCantrip", CENamespaceGuid)
+                .Create("DHWardingBondBonusCantrip", CENamespaceGuid)
                 .SetGuiPresentation(Category.Feature)
                 .ClearBonusCantrips()
                 .AddBonusCantrip(SpellDefinitionBuilder
@@ -182,7 +182,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
             RiftWalkerMagicAffinity = FeatureDefinitionMagicAffinityBuilder
                 .Create("RiftWalkerSpellsMagicAffinity", CENamespaceGuid)
-                .SetGuiPresentation(Category.Feature)               
+                .SetGuiPresentation(Category.Feature)
                 .SetExtendedSpellList(RiftWalkerSpellList)
                 .AddToDB();
         }

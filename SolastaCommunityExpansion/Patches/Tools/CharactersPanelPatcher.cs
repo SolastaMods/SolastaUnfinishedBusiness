@@ -18,8 +18,8 @@ namespace SolastaCommunityExpansion.Patches.Tools
         private static int SelectedPlate { get; set; }
 
         internal static void Postfix(
-            List<CharacterPlateToggle> ___characterPlates, 
-            int ___selectedPlate, 
+            List<CharacterPlateToggle> ___characterPlates,
+            int ___selectedPlate,
             Button ___exportPdfButton,
             Button ___characterCheckerButton)
         {

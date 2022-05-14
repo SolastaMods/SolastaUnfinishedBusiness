@@ -188,7 +188,7 @@ namespace SolastaCommunityExpansion.Utils
                 else
                 {
 #if DEBUG
-                    if(id != sprite.name)
+                    if (id != sprite.name)
                     {
                         throw new SolastaModApiException($"Unexpected: id={id}, sprite.name={sprite.name}.");
                     }

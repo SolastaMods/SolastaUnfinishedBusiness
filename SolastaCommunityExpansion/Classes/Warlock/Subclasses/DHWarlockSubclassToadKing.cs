@@ -111,7 +111,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                             .Build()
                        ,
                        true)
-                .AddToDB() ;
+                .AddToDB();
             Croak.GuiPresentation.SetSpriteReference(PowerWindShelteringBreeze.GuiPresentation.SpriteReference);
 
             FeatureDefinitionPower hallucinogenicToxinPower = FeatureDefinitionPowerBuilder
@@ -220,7 +220,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
             GraspingTongue.GuiPresentation.SetSpriteReference(PowerShadowTamerRopeGrapple.GuiPresentation.SpriteReference);
 
-            ConditionDefinition SwallowingToadCondition =  ConditionDefinitionBuilder
+            ConditionDefinition SwallowingToadCondition = ConditionDefinitionBuilder
                 .Create(ConditionSwallowingRemorhaz, "SwallowingToadCondition", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Condition)
                 .SetSpecialInterruptions(ConditionInterruption.Damaged)
@@ -231,7 +231,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .Create(ConditionSwallowedRemorhaz, "SwallowedByToadCondition", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Condition)
                 .ClearRecurrentEffectForms()
-                
+
                 .AddRecurrentEffectForm(
                         new EffectFormBuilder()
                             .SetDamageForm(
@@ -309,7 +309,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                                 false,
                                 new List<SaveAffinityBySenseDescription>())
                             .SetParticleEffectParameters(PowerRemorhazSwallow.EffectDescription.EffectParticleParameters)
-                            
+
                             .Build()
                        ,
                        true)

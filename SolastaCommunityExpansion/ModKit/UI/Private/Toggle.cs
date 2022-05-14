@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 
-namespace ModKit.Private {
-    public static partial class UI {
+namespace ModKit.Private
+{
+    public static partial class UI
+    {
 
         // Helper functionality.
 
@@ -11,7 +13,8 @@ namespace ModKit.Private {
         public static readonly GUIContent DisclosureOn = new(ModKit.UI.DisclosureGlyphOn);
         public static readonly GUIContent DisclosureOff = new(ModKit.UI.DisclosureGlyphOff);
         public static readonly GUIContent DisclosureEmpty = new(ModKit.UI.DisclosureGlyphEmpty);
-        private static GUIContent LabelContent(string text) {
+        private static GUIContent LabelContent(string text)
+        {
             _LabelContent.text = text;
             _LabelContent.image = null;
             _LabelContent.tooltip = null;
@@ -20,28 +23,34 @@ namespace ModKit.Private {
 
         private static readonly int s_ButtonHint = "MyGUI.Button".GetHashCode();
 
-        public static bool Toggle(Rect rect, GUIContent label, bool value, bool isEmpty, GUIContent on, GUIContent off, GUIStyle stateStyle, GUIStyle labelStyle) {
+        public static bool Toggle(Rect rect, GUIContent label, bool value, bool isEmpty, GUIContent on, GUIContent off, GUIStyle stateStyle, GUIStyle labelStyle)
+        {
             var controlID = GUIUtility.GetControlID(s_ButtonHint, FocusType.Passive, rect);
             var result = false;
-            switch (Event.current.GetTypeForControl(controlID)) {
+            switch (Event.current.GetTypeForControl(controlID))
+            {
                 case EventType.MouseDown:
-                    if (GUI.enabled && rect.Contains(Event.current.mousePosition)) {
+                    if (GUI.enabled && rect.Contains(Event.current.mousePosition))
+                    {
                         GUIUtility.hotControl = controlID;
                         Event.current.Use();
                     }
                     break;
 
                 case EventType.MouseDrag:
-                    if (GUIUtility.hotControl == controlID) {
+                    if (GUIUtility.hotControl == controlID)
+                    {
                         Event.current.Use();
                     }
                     break;
 
                 case EventType.MouseUp:
-                    if (GUIUtility.hotControl == controlID) {
+                    if (GUIUtility.hotControl == controlID)
+                    {
                         GUIUtility.hotControl = 0;
 
-                        if (rect.Contains(Event.current.mousePosition)) {
+                        if (rect.Contains(Event.current.mousePosition))
+                        {
                             result = true;
                             Event.current.Use();
                         }
@@ -49,15 +58,18 @@ namespace ModKit.Private {
                     break;
 
                 case EventType.KeyDown:
-                    if (GUIUtility.hotControl == controlID) {
-                        if (Event.current.keyCode == KeyCode.Escape) {
+                    if (GUIUtility.hotControl == controlID)
+                    {
+                        if (Event.current.keyCode == KeyCode.Escape)
+                        {
                             GUIUtility.hotControl = 0;
                             Event.current.Use();
                         }
                     }
                     break;
 
-                case EventType.Repaint: {
+                case EventType.Repaint:
+                    {
                         //bool leftAlign = stateStyle.alignment == TextAnchor.MiddleLeft
                         //                || stateStyle.alignment == TextAnchor.UpperLeft
                         //                || stateStyle.alignment == TextAnchor.LowerLeft
@@ -99,10 +111,12 @@ namespace ModKit.Private {
             return Toggle(rect, label, value, on, off, stateStyle, style);
         }
 #else
-        public static bool Toggle(GUIContent label, bool value, GUIContent on, GUIContent off, GUIStyle stateStyle, GUIStyle labelStyle, bool isEmpty = false, params GUILayoutOption[] options) {
+        public static bool Toggle(GUIContent label, bool value, GUIContent on, GUIContent off, GUIStyle stateStyle, GUIStyle labelStyle, bool isEmpty = false, params GUILayoutOption[] options)
+        {
             var state = value ? on : off;
             var sStyle = new GUIStyle(stateStyle);
-            var lStyle = new GUIStyle(labelStyle) {
+            var lStyle = new GUIStyle(labelStyle)
+            {
                 wordWrap = false
             };
             var stateSize = sStyle.CalcSize(state);

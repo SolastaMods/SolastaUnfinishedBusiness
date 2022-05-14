@@ -389,14 +389,14 @@ namespace SolastaCommunityExpansion.Builders
                 d => new MonsterAttackIteration(d, 1))
             );
         }
-        
+
         public MonsterDefinitionBuilder SetAttackIterations(params (MonsterAttackDefinition, int)[] monsterAttackIterations)
         {
             return SetAttackIterations(monsterAttackIterations.Select(
                 d => new MonsterAttackIteration(d.Item1, d.Item2)
             ));
         }
-        
+
         public MonsterDefinitionBuilder SetAttackIterations(params MonsterAttackIteration[] monsterAttackIterations)
         {
             return SetAttackIterations(monsterAttackIterations.AsEnumerable());
@@ -508,13 +508,13 @@ namespace SolastaCommunityExpansion.Builders
             Definition.MonsterPresentation.SetMaleModelScale(scale);
             return this;
         }
-        
+
         public MonsterDefinitionBuilder SetCreatureTags(params string[] tags)
         {
             Definition.SetCreatureTags(tags);
             return this;
         }
-        
+
         public MonsterDefinitionBuilder SetCreatureTags(IEnumerable<string> tags)
         {
             Definition.SetCreatureTags(tags);

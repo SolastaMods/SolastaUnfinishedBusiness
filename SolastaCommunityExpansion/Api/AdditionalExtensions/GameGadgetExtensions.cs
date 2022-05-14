@@ -99,10 +99,10 @@ namespace SolastaModApi.Extensions
     public enum ExtraAttributeModifierOperation
     {
         Set = 0,
-        Additive= 1,
-        Multiplicative= 2,
+        Additive = 1,
+        Multiplicative = 2,
         MultiplyByClassLevel = 3,
-        MultiplyByCharacterLevel= 4,
+        MultiplyByCharacterLevel = 4,
         Force = 5,
         AddAbilityScoreBonus = 6,
         ConditionAmount = 7,

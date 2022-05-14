@@ -76,17 +76,17 @@ namespace SolastaCommunityExpansion.CustomUI
         private CharacterSubclassDefinition gainedSubclass;
 
         private int currentLearnStep;
-        private List<FeaturePool> allPools = new ();
-        private Dictionary<PoolId, List<FeatureDefinition>> learnedFeatures = new ();
+        private readonly List<FeaturePool> allPools = new();
+        private readonly Dictionary<PoolId, List<FeatureDefinition>> learnedFeatures = new();
         private bool wasClicked;
 
         private readonly Comparison<FeaturePool> poolCompare = (a, b) =>
         {
             var r = String.CompareOrdinal(a.Id.Tag, b.Id.Tag);
 
-            if (r != 0) 
-            { 
-                return r; 
+            if (r != 0)
+            {
+                return r;
             }
 
             if (a.IsReplacer == b.IsReplacer)
@@ -123,7 +123,7 @@ namespace SolastaCommunityExpansion.CustomUI
                 Tag = tag;
             }
 
-            public string Name { get;}
+            public string Name { get; }
             public string Tag { get; }
 
             public override bool Equals(object obj)
@@ -159,7 +159,7 @@ namespace SolastaCommunityExpansion.CustomUI
         {
             stageTitleLabel.Text = "UI/&CustomFeatureSelectionStageTitle";
             righrFeaturesLabel.Text = "UI/&CustomFeatureSelectionStageFeatures";
-            rightFeaturesDescription.Text = "UI/&CustomFeatureSelectionStageDescription";       
+            rightFeaturesDescription.Text = "UI/&CustomFeatureSelectionStageDescription";
             currentLearnStep = 0;
             initialized = false;
             CollectTags();
@@ -188,7 +188,7 @@ namespace SolastaCommunityExpansion.CustomUI
         {
             learnedFeatures.Clear();
             allPools.Clear();
-            
+
             for (int i = 0; i < spellsByLevelTable.childCount; i++)
             {
                 Transform child = spellsByLevelTable.GetChild(i);
@@ -241,7 +241,7 @@ namespace SolastaCommunityExpansion.CustomUI
                 {
                     status = LearnStepItem.Status.Locked;
                 }
-                    
+
                 stepItem.CustomRefresh(status, allPools[i]);
 
                 if (status == LearnStepItem.Status.InProgress)
@@ -258,11 +258,11 @@ namespace SolastaCommunityExpansion.CustomUI
             }
 
             var currentPoolId = allPools[currentPoolIndex].Id;
-            var isUnlearnStep = IsUnlearnStep(currentPoolIndex);           
+            var isUnlearnStep = IsUnlearnStep(currentPoolIndex);
             var featurePool = GetPoolById(currentPoolId);
             var allLevels = featurePool.FeatureSet.AllLevels;
             int requiredGroups = allLevels.Count;
-            
+
             while (spellsByLevelTable.childCount < requiredGroups)
             {
                 Gui.GetPrefabFromPool(spellsByLevelPrefab, spellsByLevelTable);
@@ -272,7 +272,7 @@ namespace SolastaCommunityExpansion.CustomUI
             float lastWidth = 0;
             HorizontalLayoutGroup layout = spellsByLevelTable.GetComponent<HorizontalLayoutGroup>();
             layout.padding.left = (int)SpellsByLevelMargin;
-            
+
             for (int i = 0; i < spellsByLevelTable.childCount; i++)
             {
                 Transform child = spellsByLevelTable.GetChild(i);
@@ -286,7 +286,7 @@ namespace SolastaCommunityExpansion.CustomUI
                     var lowLevel = !isUnlearnStep && featureLevel > (featurePool.FeatureSet.RequireClassLevels
                         ? gainedClassLevel
                         : gainedCharacterLevel);
-                    
+
                     group.Selected = !IsFinalStep && !lowLevel;
 
                     string levelError = string.Empty;
@@ -299,18 +299,18 @@ namespace SolastaCommunityExpansion.CustomUI
 
                     List<FeatureDefinition> unlearnedFeatures = isUnlearnStep
                         ? GetOrMakeLearnedList(featurePool.Id)
-                            // .Select(f => f is FeatureDefinitionRemover r ? r.FeatureToRemove : f)
-                            // .ToList()
+                        // .Select(f => f is FeatureDefinitionRemover r ? r.FeatureToRemove : f)
+                        // .ToList()
                         : GetOrMakeUnlearnedList(featurePool.Id);
 
                     group.CustomFeatureBind(
-                        featurePool, 
-                        GetOrMakeLearnedList(featurePool.Id), 
+                        featurePool,
+                        GetOrMakeLearnedList(featurePool.Id),
                         featureLevel,
-                        levelError, 
+                        levelError,
                         unlearnedFeatures,
-                        group.Selected, 
-                        isUnlearnStep, 
+                        group.Selected,
+                        isUnlearnStep,
                         OnFeatureSelected
                     );
 
@@ -363,7 +363,7 @@ namespace SolastaCommunityExpansion.CustomUI
                 return learned;
             }
         }
-        
+
         private List<FeatureDefinition> GetOrMakeUnlearnedList(PoolId id)
         {
             var replacerId = allPools.FirstOrDefault(p =>
@@ -424,7 +424,7 @@ namespace SolastaCommunityExpansion.CustomUI
                 CommonData.CharacterStatsPanel.RefreshNow();
                 CommonData.AttackModesPanel?.RefreshNow();
                 CommonData.PersonalityMapPanel?.RefreshNow();
-                
+
                 OnPreRefresh();
                 RefreshNow();
 
@@ -440,7 +440,7 @@ namespace SolastaCommunityExpansion.CustomUI
         private Dictionary<string, List<FeatureDefinition>> CollectAcquiredFeatures()
         {
             var result = new Dictionary<string, List<FeatureDefinition>>();
-            
+
             foreach (var e in learnedFeatures)
             {
                 var poolTag = e.Key.Tag;
@@ -452,7 +452,7 @@ namespace SolastaCommunityExpansion.CustomUI
 
                 result[poolTag].AddRange(e.Value);
             }
-            
+
             return result;
         }
 
@@ -492,10 +492,10 @@ namespace SolastaCommunityExpansion.CustomUI
             var command = ServiceRepository.GetService<IHeroBuildingCommandService>();
             var acquiredFeatures = CollectAcquiredFeatures();
             var classFeatures = GetNormalActiveFeatures();//TODO: remove custom feture sets from acitve features
-            
+
             command.ClearPrevious(currentHero, GetCustomClassTag());
             command.ClearPrevious(currentHero, GetCustomSubClassTag());// skips cleaning if tag in null or empty
-            
+
             foreach (var e in acquiredFeatures)
             {
                 var currentTag = e.Key;
@@ -523,8 +523,8 @@ namespace SolastaCommunityExpansion.CustomUI
 
                 for (var i = 0; i < learned.Count;)
                 {
-                    List<string> q = new ();
-                    if (learned[i] is IFeatureDefinitionWithPrerequisites feature 
+                    List<string> q = new();
+                    if (learned[i] is IFeatureDefinitionWithPrerequisites feature
                         && !CustomFeaturesContext.GetValidationErrors(feature.Validators, out q))
                     {
                         dirty = true;
@@ -550,8 +550,8 @@ namespace SolastaCommunityExpansion.CustomUI
 
         public override bool CanProceedToNextStage(out string failureString)
         {
-            if (!IsFinalStep 
-                || !initialized 
+            if (!IsFinalStep
+                || !initialized
                 || (!allPools.Empty() && allPools[allPools.Count - 1].Remaining > 0)
             )
             {
@@ -619,9 +619,9 @@ namespace SolastaCommunityExpansion.CustomUI
             // Determine the last class and level
             CharacterBuildingService.GetLastAssignedClassAndLevel(currentHero, out gainedClass, out gainedClassLevel);
             gainedCharacterLevel = currentHero.GetAttribute(CharacterLevel).CurrentValue;
-            
-            if (gainedClass == null) 
-            { 
+
+            if (gainedClass == null)
+            {
                 return;
             }
 
@@ -638,7 +638,7 @@ namespace SolastaCommunityExpansion.CustomUI
         {
             return CustomFeaturesContext.CustomizeTag(GetClassTag(gainedClass, gainedClassLevel));
         }
-        
+
         private string GetCustomSubClassTag()
         {
             if (gainedSubclass == null)
@@ -652,11 +652,11 @@ namespace SolastaCommunityExpansion.CustomUI
         private void UpdateGrantedFeatures()
         {
             UpdateGanedClassDetails();
-            
+
             gainedCustomFeatures.Clear();
 
-            if (gainedClass == null) 
-            { 
+            if (gainedClass == null)
+            {
                 return;
             }
 
@@ -693,9 +693,9 @@ namespace SolastaCommunityExpansion.CustomUI
             {
                 var poolId = new PoolId(featureSet.Name, poolTag);
 
-                if(!tags.ContainsKey(poolId))
+                if (!tags.ContainsKey(poolId))
                 {
-                    var pool = new FeaturePool(poolId) {Max = 1, Used = 0, FeatureSet = featureSet};
+                    var pool = new FeaturePool(poolId) { Max = 1, Used = 0, FeatureSet = featureSet };
                     tags.Add(poolId, pool);
                     allPools.Add(pool);
                 }
@@ -727,7 +727,7 @@ namespace SolastaCommunityExpansion.CustomUI
 
             if (pool == null)
             {
-                pool = new FeaturePool(id) {FeatureSet = set, Max = 0, Used = 0};
+                pool = new FeaturePool(id) { FeatureSet = set, Max = 0, Used = 0 };
                 allPools.Add(pool);
                 allPools.Sort(poolCompare);
                 BuildLearnSteps();
@@ -755,8 +755,8 @@ namespace SolastaCommunityExpansion.CustomUI
                         var learnStepItem = child.GetComponent<LearnStepItem>();
 
                         child.gameObject.SetActive(true);
-                        learnStepItem.CustomBind(i, allPools[i], 
-                            OnLearnBack, 
+                        learnStepItem.CustomBind(i, allPools[i],
+                            OnLearnBack,
                             OnLearnReset,
                             OnSkipRemaining
                         );
@@ -830,7 +830,7 @@ namespace SolastaCommunityExpansion.CustomUI
             }
 
             wasClicked = true;
-            
+
             if (IsUnlearnStep(currentLearnStep))
             {
                 allPools[currentLearnStep].Skipped = true;
@@ -898,7 +898,7 @@ namespace SolastaCommunityExpansion.CustomUI
     internal static class LearnStepItemExtension
     {
         public static void CustomBind(
-            this LearnStepItem instance, 
+            this LearnStepItem instance,
             int rank,
             CustomFeatureSelectionPanel.FeaturePool pool,
             LearnStepItem.ButtonActivatedHandler onBackOneStepActivated,
@@ -921,8 +921,8 @@ namespace SolastaCommunityExpansion.CustomUI
         }
 
         public static void CustomRefresh(
-            this LearnStepItem instance, 
-            LearnStepItem.Status status, 
+            this LearnStepItem instance,
+            LearnStepItem.Status status,
             CustomFeatureSelectionPanel.FeaturePool pool)
         {
             int usedPoints = pool.Used;
@@ -934,9 +934,9 @@ namespace SolastaCommunityExpansion.CustomUI
             var autoButton = instance.GetField<Button>("autoButton");
             var ignoreButton = instance.GetField<Button>("ignoreButton");
             var resetButton = instance.GetField<Button>("resetButton");
-            
+
             activeGroup.gameObject.SetActive(status == LearnStepItem.Status.InProgress);
-            inactiveGroup.gameObject.SetActive( status !=  LearnStepItem.Status.InProgress);
+            inactiveGroup.gameObject.SetActive(status != LearnStepItem.Status.InProgress);
             instance.GetField<Image>("activeBackground").gameObject.SetActive(status != LearnStepItem.Status.Locked);
             instance.GetField<Image>("inactiveBackground").gameObject.SetActive(status == LearnStepItem.Status.Locked);
             instance.GetField<Button>("backOneStepButton").gameObject.SetActive(status == LearnStepItem.Status.Previous);
@@ -948,10 +948,10 @@ namespace SolastaCommunityExpansion.CustomUI
             if (status == LearnStepItem.Status.InProgress)
             {
                 instance.GetField<GuiLabel>("pointsLabelActive").Text = Gui.FormatCurrentOverMax(usedPoints, maxPoints);
-                instance.GetField<Image>("remainingPointsGaugeActive").fillAmount = (float) usedPoints /  maxPoints;
+                instance.GetField<Image>("remainingPointsGaugeActive").fillAmount = (float)usedPoints / maxPoints;
                 choiceLabel.Text = pool.FeatureSet.FormatDescription();
                 LayoutRebuilder.ForceRebuildLayoutImmediate(choiceLabel.RectTransform);
-                var sizeDelta = new Vector2(activeGroup.sizeDelta.x, (float) (choiceLabel.RectTransform.rect.height - choiceLabel.RectTransform.anchoredPosition.y + 12.0));
+                var sizeDelta = new Vector2(activeGroup.sizeDelta.x, (float)(choiceLabel.RectTransform.rect.height - choiceLabel.RectTransform.anchoredPosition.y + 12.0));
                 activeGroup.sizeDelta = sizeDelta;
                 instance.RectTransform.sizeDelta = sizeDelta;
                 resetButton.interactable = usedPoints < maxPoints;
@@ -960,7 +960,7 @@ namespace SolastaCommunityExpansion.CustomUI
             else
             {
                 instance.GetField<GuiLabel>("pointsLabelInactive").Text = Gui.FormatCurrentOverMax(usedPoints, maxPoints);
-                instance.GetField<Image>("remainingPointsGaugeInactive").fillAmount =  (float) usedPoints / maxPoints;
+                instance.GetField<Image>("remainingPointsGaugeInactive").fillAmount = (float)usedPoints / maxPoints;
                 instance.RectTransform.sizeDelta = inactiveGroup.sizeDelta;
                 instance.GetField<Button>("backOneStepButton").interactable = true;
             }
@@ -971,7 +971,7 @@ namespace SolastaCommunityExpansion.CustomUI
     {
         public static void CustomBind(
             this SpellLevelButton instance,
-            int level, 
+            int level,
             SpellLevelButton.LevelSelectedHandler levelSelected)
         {
             instance.Level = level;
@@ -991,11 +991,11 @@ namespace SolastaCommunityExpansion.CustomUI
             this SpellsByLevelGroup instance,
             CustomFeatureSelectionPanel.FeaturePool pool,
             List<FeatureDefinition> learned,
-            int featureLevel, 
+            int featureLevel,
             string lowLevelError,
             List<FeatureDefinition> unlearned,
             bool canAcquireFeatures,
-            bool unlearn, 
+            bool unlearn,
             SpellBox.SpellBoxChangedHandler spellBoxChanged)
         {
             var featureSet = pool.FeatureSet;
@@ -1037,8 +1037,8 @@ namespace SolastaCommunityExpansion.CustomUI
                 spellsTable.GetChild(count).gameObject.SetActive(false);
             }
 
-            float x = (float)((double)component1.constraintCount * (double)component1.cellSize.x +
-                              (double)(component1.constraintCount - 1) * (double)component1.spacing.x);
+            float x = (float)(component1.constraintCount * (double)component1.cellSize.x +
+                              (component1.constraintCount - 1) * (double)component1.spacing.x);
 
             spellsTable.sizeDelta = new Vector2(x, spellsTable.sizeDelta.y);
             instance.RectTransform.sizeDelta = new Vector2(x, instance.RectTransform.sizeDelta.y);
@@ -1055,10 +1055,10 @@ namespace SolastaCommunityExpansion.CustomUI
                 instance.RefreshLearning(pool, learned, lowLevelError, unlearned, canAcquireFeatures);
             }
         }
-        
+
         public static void RefreshLearning(
             this SpellsByLevelGroup instance,
-            CustomFeatureSelectionPanel.FeaturePool pool, 
+            CustomFeatureSelectionPanel.FeaturePool pool,
             List<FeatureDefinition> learned,
             string lowLevelError,
             List<FeatureDefinition> unlearnedFetures,
@@ -1087,7 +1087,7 @@ namespace SolastaCommunityExpansion.CustomUI
                     }
 
                     box.SetupUI(pool.FeatureSet.GuiPresentation, errors);
-                    
+
                     if (canAcquireFeatures)
                     {
                         box.CustomRefreshLearningInProgress((canLearn || selected) && !isUnlearned, selected, alreadyHas);
@@ -1099,7 +1099,7 @@ namespace SolastaCommunityExpansion.CustomUI
                 }
             }
         }
-        
+
         public static void RefreshUnlearning(
             this SpellsByLevelGroup instance,
             CustomFeatureSelectionPanel.FeaturePool pool,
@@ -1114,14 +1114,14 @@ namespace SolastaCommunityExpansion.CustomUI
                     var boxFeature = box.GetFeature();
                     var removerFeature = boxFeature as FeatureDefinitionRemover;
                     bool isUnlearned = unlearnedSpells != null && unlearnedSpells.Contains(boxFeature);
-                    bool canUnlearn = 
+                    bool canUnlearn =
                         Global.ActiveLevelUpHeroHasFeature(removerFeature != null
                             ? removerFeature.FeatureToRemove
-                            : boxFeature) 
+                            : boxFeature)
                         && !isUnlearned;
-                    
+
                     box.SetupUI(pool.FeatureSet.GuiPresentation, null);
-                    
+
                     if (canUnlearnSpells)
                     {
                         box.RefreshUnlearnInProgress(canUnlearn || isUnlearned, isUnlearned);
@@ -1146,7 +1146,7 @@ namespace SolastaCommunityExpansion.CustomUI
             }
 
             Gui.ReleaseChildrenToPool(spellsTable);
-            instance.GetField<SlotStatusTable>("slotStatusTable").Unbind();  
+            instance.GetField<SlotStatusTable>("slotStatusTable").Unbind();
         }
     }
 
@@ -1160,10 +1160,10 @@ namespace SolastaCommunityExpansion.CustomUI
         }
 
         public static void CustomFeatureBind(
-            this SpellBox instance, 
-            FeatureDefinition feature, 
+            this SpellBox instance,
+            FeatureDefinition feature,
             bool unlearned,
-            SpellBox.BindMode bindMode, 
+            SpellBox.BindMode bindMode,
             SpellBox.SpellBoxChangedHandler spellBoxChanged)
         {
             Features.AddOrReplace(instance, feature);
@@ -1230,7 +1230,7 @@ namespace SolastaCommunityExpansion.CustomUI
             var feature = instance.GetFeature();
             var gui = new GuiPresentationBuilder(feature.GuiPresentation).Build();
             var hasErrors = errors != null && !errors.Empty();
-            
+
             if (!hasErrors && feature is FeatureDefinitionPower power)
             {
                 ServiceRepository.GetService<IGuiWrapperService>()

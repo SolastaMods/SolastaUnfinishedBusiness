@@ -1,13 +1,14 @@
 ﻿// Copyright < 2021 > Narria (github user Cabarius) - License: MIT
-using HarmonyLib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 
-namespace ModKit {
-    public static class Utilties {
-        public static TValue GetValueOrDefault<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, TValue defaultValue = default) {
+namespace ModKit
+{
+    public static class Utilties
+    {
+        public static TValue GetValueOrDefault<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, TValue defaultValue = default)
+        {
             if (dictionary == null) { throw new ArgumentNullException(nameof(dictionary)); } // using C# 6
             if (key == null) { throw new ArgumentNullException(nameof(key)); } //  using C# 6
 
@@ -52,7 +53,8 @@ namespace ModKit {
         //    return null;
         //}
 
-        public static T SetPropValue<T>(this object obj, string name, T value) {
+        public static T SetPropValue<T>(this object obj, string name, T value)
+        {
             object retval = SetPropValue(obj, name, value);
             if (retval == null) { return default; }
             // throws InvalidCastException if types are incompatible
@@ -98,7 +100,8 @@ namespace ModKit {
 
         //    return string.Empty;
         //}
-        public static Dictionary<string, TEnum> NameToValueDictionary<TEnum>(this TEnum enumValue) where TEnum : struct {
+        public static Dictionary<string, TEnum> NameToValueDictionary<TEnum>(this TEnum enumValue) where TEnum : struct
+        {
             var enumType = enumValue.GetType();
             return Enum.GetValues(enumType)
                 .Cast<TEnum>()

@@ -71,7 +71,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
                 //chained effects would be useful for EOrb
                 var chainAction = definition.GetFirstSubFeatureOfType<IChainMagicEffect>()
                     ?.GetNextMagicEffect(__instance, attackAction, attackOutcome);
-                
+
                 if (chainAction != null)
                 {
                     var enums = chainAction.Execute();
