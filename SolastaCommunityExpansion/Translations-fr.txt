@@ -84,10 +84,8 @@ Condition/&ConditionImprovedBarkWardDescription	Les esprits de la forêt inflige
 Condition/&ConditionImprovedBarkWardTitle	Bark Ward amélioré
 Condition/&ConditionMarkedByArcanistDescription	Affligé par la Marque de l'Arcaniste
 Condition/&ConditionMarkedByArcanistTitle	Marque d'arcaniste
-Condition/&ConditionMuleDescription Your speed is not reduced by encumbrance or heavy armor. You can carry 20 additional pounds.
-	VIDER
-Condition/&ConditionMuleTitle Mule
-	VIDER
+Condition/&ConditionMuleDescription	Votre vitesse n'est pas réduite par l'encombrement ou l'armure lourde. Vous pouvez transporter 20 livres supplémentaires.
+Condition/&ConditionMuleTitle	Mule
 Condition/&ConditionSuperiorBarkWardDescription	Les esprits de la forêt vous confèrent une immunité contre le poison et infligent 3d8 dégâts perforants aux attaquants au corps à corps.
 Condition/&ConditionSuperiorBarkWardTitle	Quartier supérieur de l'écorce
 Condition/&DebilitatedConditionDescription	État affaibli
@@ -110,11 +108,9 @@ Condition/&DisorientDescription	La précision de cette créature est réduite
 Condition/&DisorientTitle	Désorienté
 Condition/&EvilEyeDescription	Mauvais œil
 Condition/&EvilEyeTitle	Mauvais œil
-Condition/&EWResonatingStrikeDamageDescription Starting from level 5 attack triggered by this cantrip deals additional 1d8 thunder damage. The damage increases by 1d8 at 11th and 17th levels
-	VIDER
+Condition/&EWResonatingStrikeDamageDescription	À partir du niveau 5, l'attaque déclenchée par ce sort mineur inflige 1d8 dégâts de tonnerre supplémentaires. Les dégâts augmentent de 1d8 aux niveaux 11 et 17
 Condition/&EWResonatingStrikeDamageTitle	Résonance
-Condition/&EWSunlightBladeDamageDescription Starting from level 5 attack triggered by this cantrip deals additional 1d8 radiant damage. The damage increases by 1d8 at 11th and 17th levels
-	VIDER
+Condition/&EWSunlightBladeDamageDescription	À partir du niveau 5, l'attaque déclenchée par ce sort mineur inflige 1d8 dégâts radiants supplémentaires. Les dégâts augmentent de 1d8 aux niveaux 11 et 17
 Condition/&EWSunlightBladeDamageTitle	Brûlure de la Lame ensoleillée
 Condition/&FrenziedDescription	Cette créature est frénétique et attaquera la créature la plus proche
 Condition/&FrenziedTitle	Frénétique
@@ -787,7 +783,7 @@ Feature/&ArtificerSpecialistArchetypesDescription	Dans quel domaine d'études vo
 Feature/&ArtificerSpecialistArchetypesTitle	Spécialisations de bricoleur
 Feature/&AscendantStepTitle	Étape ascendante
 Feature/&AspectoftheMoonDescription	Vous n'avez plus besoin de dormir et pouvez surveiller, ce qui réduit les risques d'attaque et vous assure que vous êtes éveillé si le camp est attaqué.
-Feature/&AspectoftheMoonTitle	Aspect de la Lune
+Feature/&AspectoftheMoonTitle	Aspect de la lune
 Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseDescription	Force +1
 Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseTitle	Augmentation d'attribut
 Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseDescription	Sagesse +2
@@ -833,6 +829,8 @@ Feature/&ClassWarlockWeaponProficiencyDescription	Armes simples
 Feature/&ClassWarlockWeaponProficiencyTitle	Maîtrise des armes du démoniste
 Feature/&CounterStrikePowerDescription	Dépensez un dé de gambit et contre-frappez l'ennemi, si vous touchez, infligez 1d6 + 2 dégâts contondants supplémentaires
 Feature/&CounterStrikePowerTitle	Counter Strike
+Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceDescription	Lorsque vous êtes réduit à 0 HP mais pas tué, vous pouvez tomber à 1 HP à la place
+Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceTitle	Endurance implacable
 Feature/&DevilsSightDescription	Vous pouvez voir normalement dans les ténèbres, à la fois magiques et non magiques, à une distance de 120 pieds
 Feature/&DevilsSightTitle	La vue du diable
 Feature/&DH_BlinkDescription	Par une action bonus, vous disparaissez de votre plan d'existence actuel, évitant tous les dégâts. Au début de votre prochain tour, vous retournez sur la case d'où vous avez disparu
@@ -917,7 +915,7 @@ Feature/&ElementalPactShadowPlane	Plan d'ombre
 Feature/&ElementalPatronDummyFeatureSetTitle	Elémentaliste
 Feature/&ElementalPatronElementalConditionFormatDescription	Infligez {1} dégâts supplémentaires égaux à votre bonus de compétence lors d'un premier coup à chaque tour
 Feature/&ElementalPatronElementalConditionFormatTitle	Canaliser {0}
-Feature/&ElementalPatronElementalDamageFormatDescription	Lorsque vous canalisez {0}, infligez {1} de dégâts supplémentaires égaux à votre bonus de compétence lors d'un premier coup à chaque tour
+Feature/&ElementalPatronElementalDamageFormatDescription	Lorsque vous canalisez {0}, infligez {1} de dégâts supplémentaires égaux à votre bonus de compétence lors d'un premier coup à chaque round
 Feature/&ElementalPatronElementalDamageFormatTitle	Dégâts élémentaires : {0}
 Feature/&ElementalPatronElementalFormEnhancedFormatDescription	Lorsque vous canalisez le {0}, vous gagnez l'immunité contre le {1} et appliquez le bonus de compétence sous forme de dégâts du même type au premier coup à chaque tour
 Feature/&ElementalPatronElementalFormEnhancedFormatTitle	Canaliser {0}
@@ -1477,25 +1475,19 @@ Spell/&FrenzyDescription	D'un geste, vous réduisez une foule à l'instinct de b
 Spell/&FrenzyTitle	Frénésie
 Spell/&HinderingBlastDescription	Un faisceau d'énergie crépitante se dirige vers une créature à portée. Effectuez une attaque avec un sort à distance contre la cible. En cas de coup, la cible subit 1d10 dégâts de force.\n(lorsque vous touchez une créature avec votre souffle eldritch, vous pouvez réduire la vitesse de cette créature de 3 mètres jusqu'à la fin de votre prochain tour.)
 Spell/&HinderingBlastTitle	Explosion Eldritch (Gênant)
-Spell/&IlluminatingSphereDescription <b><i>Morwenna's Illuminating Sphere</i></b> causes light sources such as torches and mana lamps in the area of effect to light up. \n\n<i>"Don't worry, its highly unlikely to ignite torches or candles in packs or pockets. Probably."  -Morwenna Leafheart</i>
-	VIDER
-Spell/&IlluminatingSphereTitle Illuminating Sphere
-	VIDER
+Spell/&IlluminatingSphereDescription	<b><i>La sphère illuminatrice de Morwenna</i></b> fait s'allumer des sources de lumière telles que des torches et des lampes à mana dans la zone d'effet.\n\n<i>"Ne vous inquiétez pas, il est très peu probable qu'il allume des torches ou des bougies dans des sacs ou des poches. Probablement." -Morwenna Leafheart</i>
+Spell/&IlluminatingSphereTitle	Sphère éclairante
 Spell/&IPConjureInvisibleStalkerTitle	Invocation d'élémentaire (traqueur invisible)
 Spell/&MinorLifestealDescription	Vous drainez l'énergie vitale d'une créature hostile que vous pouvez voir à portée. Vous soignez ensuite des points de vie égaux au nombre de dégâts infligés. Ce sort n'a aucun effet sur les morts-vivants ou les constructions
 Spell/&MinorLifestealTitle	Vol de vie mineur
-Spell/&MuleDescription The recipient of this spell is able to ignore the effects of heavy loads or armor on movement speed. They can also carry slightly more weight. \n\n<i>"If they have to come along, they might as well carry your stuff."  -Morwenna Leafheart</i>
-	VIDER
-Spell/&MuleTitle Mule
-	VIDER
+Spell/&MuleDescription	Le destinataire de ce sort est capable d'ignorer les effets des charges lourdes ou de l'armure sur la vitesse de déplacement. Ils peuvent également supporter un peu plus de poids.\n\n<i>"S'ils doivent venir, autant porter vos affaires." -Morwenna Leafheart</i>
+Spell/&MuleTitle	Mule
 Spell/&PetalStormDescription	Choisissez un cube d'air inoccupé de 15 pieds que vous pouvez voir à portée. Une force élémentaire de vents tourbillonnants apparaît dans le cube et dure pendant toute la durée du sort. Le nuage obscurcit fortement sa zone. Toute créature qui entre dans la tempête pour la première fois lors d'un tour ou qui y commence son tour doit effectuer un jet de sauvegarde de Force. En cas d'échec, la créature subit 3d4 dégâts tranchants. Par une action bonus, vous pouvez déplacer la tempête jusqu'à 9 mètres dans n'importe quelle direction
 Spell/&PetalStormTitle	Tempête de pétales
 Spell/&ProtectThresholdDescription	En traçant des sceaux arcaniques le long de sa limite, vous pouvez protéger une porte, une fenêtre ou un autre portail de l'entrée. Pendant toute la durée, une créature eldritch invisible traque le portail protégé. Toute créature qui tente de traverser le portail doit effectuer un jet de sauvegarde de Sagesse ou subir 4d6 dégâts psychiques, ou la moitié en cas de réussite.
 Spell/&ProtectThresholdTitle	Seuil de protection
-Spell/&RadiantMotesDescription <b><i>Morwenna's Radiant Motes</i></b> unleashes a swarm of radiant projectiles that deal minor damage, but never miss. Targets may radiate light for up to 1 minute. \n\n<i>"I got the inspiration from watching a Dwarf being overwhelmed by scorching badlands fireflies. Good times."  -Morwenna Leafheart</i>
-	VIDER
-Spell/&RadiantMotesTitle Radiant Motes
-	VIDER
+Spell/&RadiantMotesDescription	<b><i>Les particules radieuses de Morwenna</i></b> libèrent une nuée de projectiles radieux qui infligent des dégâts mineurs, mais ne manquent jamais. Les cibles peuvent émettre de la lumière jusqu'à 1 minute.\n\n<i>"J'ai trouvé l'inspiration en regardant un nain submergé par des lucioles brûlantes des badlands. Du bon temps." -Morwenna Leafheart</i>
+Spell/&RadiantMotesTitle	Particules radieuses
 Spell/&ThunderStrikeDescription	Créez une rafale de son tonitruant, endommageant tout le monde autour de vous
 Spell/&ThunderStrikeTitle	rafale sonore
 Spell/&WinterBreathDescription	Créez un souffle de vent froid pour refroidir vos ennemis et les renverser
@@ -1548,7 +1540,7 @@ Subclass/&AttackModifierArtificerBattleSmithWeaponDescription	Vos attaques compt
 Subclass/&AttackModifierArtificerBattleSmithWeaponTitle	Arme infusée
 Subclass/&AttackModifierArtificerBlindingWeaponDescription	Touchez une arme qui acquiert la capacité d'aveugler les cibles lorsqu'elle est touchée (contre une sauvegarde de Constitution). Notez que vous ne pouvez activer une perfusion qu'une seule fois. L'activer une seconde fois annulera la première
 Subclass/&AttackModifierArtificerBlindingWeaponTitle	Arme aveuglante
-Subclass/&AttackModifierArtificerEnhancedArmorDescription	Touchez Armor et il devient magique et fournit +1 AC. Notez que vous ne pouvez activer une perfusion qu'une seule fois. L'activer une seconde fois annulera la première
+Subclass/&AttackModifierArtificerEnhancedArmorDescription	Touchez Armor et il devient magique et fournit +1 CA. Notez que vous ne pouvez activer une perfusion qu'une seule fois. L'activer une seconde fois annulera la première
 Subclass/&AttackModifierArtificerEnhancedArmorTitle	Armure améliorée
 Subclass/&AttackModifierArtificerEnhancedFocusDescription	Touchez un focus et il devient magique et gagne +1 pour attaquer et épeler dc. Notez que vous ne pouvez activer une perfusion qu'une seule fois. L'activer une seconde fois annulera la première
 Subclass/&AttackModifierArtificerEnhancedFocusTitle	Mise au point améliorée
@@ -1782,7 +1774,7 @@ Subclass/&WeaponProfArtificerBattleSmithTitle	Entraînement aux armes
 Subclass/&WhiteWitchDescription	La magie blanche est fondamentalement bonne et bienveillante pour tous les êtres vivants. Les sorcières qui adoptent ce métier, malgré la malédiction haineuse qui les infecte, se consacrent souvent à la guérison et aux soins, dans le but d'améliorer le monde.
 Subclass/&WhiteWitchMagicDescription	Vous gagnez les sorts suivants. Ces sorts comptent pour vous comme des sorts de Sorcière et ne comptent pas dans votre nombre total de sorts connus :\n {0}
 Subclass/&WhiteWitchMagicTitle	Magie blanche
-Subclass/&WhiteWitchTitle	Sorcière Blanche
+Subclass/&WhiteWitchTitle	Sorcière blanche
 Subclass/&WitchSubclassPathDescription	Votre connaissance de la magie a culminé en rejoignant un Coven, un cercle inné de sorcières qui explorent un chemin spécifique de sorcellerie et de malédictions
 Subclass/&WitchSubclassPathTitle	Couvents de sorcières
 Tooltip/&FeatPrerequisiteHasStealthAttack	A une attaque furtive

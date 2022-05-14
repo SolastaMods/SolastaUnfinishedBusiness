@@ -84,10 +84,8 @@ Condition/&ConditionImprovedBarkWardDescription	Os espíritos da floresta causam
 Condition/&ConditionImprovedBarkWardTitle	Sentido de Latido Aprimorado
 Condition/&ConditionMarkedByArcanistDescription	Afligido pela Marca do Arcanista
 Condition/&ConditionMarkedByArcanistTitle	Marca do Arcanista
-Condition/&ConditionMuleDescription Your speed is not reduced by encumbrance or heavy armor. You can carry 20 additional pounds.
-	VAZIO
-Condition/&ConditionMuleTitle Mule
-	VAZIO
+Condition/&ConditionMuleDescription	Sua velocidade não é reduzida por sobrecarga ou armadura pesada. Você pode carregar 20 quilos adicionais.
+Condition/&ConditionMuleTitle	Mula
 Condition/&ConditionSuperiorBarkWardDescription	Os espíritos da floresta concedem imunidade a venenos e causam 3d8 de dano perfurante a atacantes corpo a corpo
 Condition/&ConditionSuperiorBarkWardTitle	Ala do Latido Superior
 Condition/&DebilitatedConditionDescription	Condição debilitada
@@ -110,11 +108,9 @@ Condition/&DisorientDescription	A precisão desta criatura é reduzida
 Condition/&DisorientTitle	Desorientado
 Condition/&EvilEyeDescription	Condição de mau-olhado
 Condition/&EvilEyeTitle	Mau-olhado
-Condition/&EWResonatingStrikeDamageDescription Starting from level 5 attack triggered by this cantrip deals additional 1d8 thunder damage. The damage increases by 1d8 at 11th and 17th levels
-	VAZIO
+Condition/&EWResonatingStrikeDamageDescription	A partir do nível 5, o ataque desencadeado por este truque causa 1d8 de dano trovejante adicional. O dano aumenta em 1d8 no 11º e 17º níveis
 Condition/&EWResonatingStrikeDamageTitle	Ressonância
-Condition/&EWSunlightBladeDamageDescription Starting from level 5 attack triggered by this cantrip deals additional 1d8 radiant damage. The damage increases by 1d8 at 11th and 17th levels
-	VAZIO
+Condition/&EWSunlightBladeDamageDescription	A partir do nível 5, o ataque desencadeado por este truque causa 1d8 de dano radiante adicional. O dano aumenta em 1d8 no 11º e 17º níveis
 Condition/&EWSunlightBladeDamageTitle	Queimadura de Sunlit Blade
 Condition/&FrenziedDescription	Esta criatura está frenética e atacará a criatura mais próxima
 Condition/&FrenziedTitle	Frenético
@@ -591,7 +587,7 @@ Feat/&FightingStyleDuelingDescription	Quando você está empunhando uma arma cor
 Feat/&FightingStyleDuelingTitle	Estilo de luta: Duelo
 Feat/&FightingStyleGeneralFeatDescription	Você pode selecionar um estilo de luta
 Feat/&FightingStyleGeneralFeatitle	Estilo de luta
-Feat/&FightingStyleGreatWeaponDescription	Quando você rola um 1 ou 2 em um dado de dano para um ataque que você faz com uma arma corpo a corpo que você está empunhando com as duas mãos, você pode rolar o dado novamente. Você deve usar a nova rolagem, mesmo que seja 1 ou 2. A arma deve ter a propriedade de duas mãos ou versátil para que você ganhe esse benefício
+Feat/&FightingStyleGreatWeaponDescription	Quando você rola um 1 ou 2 em um dado de dano para um ataque que você faz com uma arma corpo a corpo que você está empunhando com as duas mãos, você pode rolar o dado novamente. Você deve usar a nova rolagem, mesmo que seja 1 ou 2. A arma deve ter a propriedade de duas mãos ou versátil para que você ganhe este benefício
 Feat/&FightingStyleGreatWeaponTitle	Estilo de luta: Grande arma
 Feat/&FightingStyleProtectionDescription	Quando uma criatura que você pode ver ataca um alvo diferente de você que está a até 1,5 metro de você, você pode usar sua reação para impor desvantagem na jogada de ataque. Você deve estar empunhando um escudo
 Feat/&FightingStyleProtectionTitle	Estilo de luta: Proteção
@@ -833,6 +829,8 @@ Feature/&ClassWarlockWeaponProficiencyDescription	Armas Simples
 Feature/&ClassWarlockWeaponProficiencyTitle	Proficiências com Armas de Bruxo
 Feature/&CounterStrikePowerDescription	Gaste um dado de jogada e faça um Counter Strike no inimigo, se você acertar, cause 1d6+2 de dano de concussão adicional
 Feature/&CounterStrikePowerTitle	Contra-ataque
+Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceDescription	Quando você é reduzido a 0 HP, mas não morto, você pode cair para 1 HP em vez disso
+Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceTitle	Resistência implacável
 Feature/&DevilsSightDescription	Você pode ver normalmente na Escuridão, tanto mágica quanto não mágica, a uma distância de 36 metros.
 Feature/&DevilsSightTitle	Visão do Diabo
 Feature/&DH_BlinkDescription	Como uma ação bônus, você desaparece do seu plano de existência atual, prevenindo todo o dano. No início do seu próximo turno, você retorna ao espaço de onde desapareceu
@@ -1477,25 +1475,19 @@ Spell/&FrenzyDescription	Com um gesto, você reduz uma multidão ao instinto bá
 Spell/&FrenzyTitle	Frenesi
 Spell/&HinderingBlastDescription	Um raio de energia crepitante atinge uma criatura dentro do alcance. Faça um ataque mágico à distância contra o alvo. Em um acerto, o alvo sofre 1d10 de dano de força.\n(quando você atinge uma criatura com sua rajada mística, você pode reduzir o deslocamento daquela criatura em 3 metros até o final do seu próximo turno.)
 Spell/&HinderingBlastTitle	Explosão Eldritch (impedindo)
-Spell/&IlluminatingSphereDescription <b><i>Morwenna's Illuminating Sphere</i></b> causes light sources such as torches and mana lamps in the area of effect to light up. \n\n<i>"Don't worry, its highly unlikely to ignite torches or candles in packs or pockets. Probably."  -Morwenna Leafheart</i>
-	VAZIO
-Spell/&IlluminatingSphereTitle Illuminating Sphere
-	VAZIO
+Spell/&IlluminatingSphereDescription	<b><i>Esfera Iluminadora de Morwenna</i></b> faz com que fontes de luz como tochas e lâmpadas de mana na área de efeito acendam.\n\n<i>"Não se preocupe, é altamente improvável acender tochas ou velas em pacotes ou bolsos. Provavelmente." -Morwenna Coração de Folha</i>
+Spell/&IlluminatingSphereTitle	Esfera Iluminadora
 Spell/&IPConjureInvisibleStalkerTitle	Conjurar Elemental (Perseguidor Invisível)
 Spell/&MinorLifestealDescription	Você drena energia vital de uma criatura hostil que você pode ver dentro do alcance. Você então cura pontos de vida iguais à quantidade de dano causado. Esta magia não tem efeito em mortos-vivos ou constructos
 Spell/&MinorLifestealTitle	Roubo de Vida Menor
-Spell/&MuleDescription The recipient of this spell is able to ignore the effects of heavy loads or armor on movement speed. They can also carry slightly more weight. \n\n<i>"If they have to come along, they might as well carry your stuff."  -Morwenna Leafheart</i>
-	VAZIO
-Spell/&MuleTitle Mule
-	VAZIO
+Spell/&MuleDescription	O destinatário deste feitiço é capaz de ignorar os efeitos de cargas pesadas ou armaduras na velocidade de movimento. Eles também podem carregar um pouco mais de peso.\n\n<i>"Se eles tiverem que vir, eles também podem levar suas coisas." -Morwenna Coração de Folha</i>
+Spell/&MuleTitle	Mula
 Spell/&PetalStormDescription	Escolha um cubo de ar desocupado de 4,5 metros que você possa ver dentro do alcance. Uma força elemental de ventos rodopiantes aparece no cubo e dura pela duração do feitiço. A nuvem obscurece fortemente sua área. Qualquer criatura que entre na tempestade pela primeira vez em um turno ou comece seu turno lá deve fazer um teste de resistência de Força. Se falhar na resistência, a criatura sofre 3d4 de dano cortante. Como uma ação bônus, você pode mover a tempestade até 9 metros em qualquer direção
 Spell/&PetalStormTitle	Tempestade de Pétalas
 Spell/&ProtectThresholdDescription	Traçando sigilos arcanos ao longo de seu limite, você pode proteger uma porta, janela ou outro portal da entrada. Pela duração, uma criatura mística invisível espreita o portal protegido. Qualquer criatura que tente passar pelo portal deve fazer um teste de resistência de Sabedoria ou sofrerá 4d6 de dano psíquico, ou metade disso em um teste bem sucedido.
 Spell/&ProtectThresholdTitle	Limite de proteção
-Spell/&RadiantMotesDescription <b><i>Morwenna's Radiant Motes</i></b> unleashes a swarm of radiant projectiles that deal minor damage, but never miss. Targets may radiate light for up to 1 minute. \n\n<i>"I got the inspiration from watching a Dwarf being overwhelmed by scorching badlands fireflies. Good times."  -Morwenna Leafheart</i>
-	VAZIO
-Spell/&RadiantMotesTitle Radiant Motes
-	VAZIO
+Spell/&RadiantMotesDescription	<b><i>As Partículas Radiantes de Morwenna</i></b> liberam um enxame de projéteis radiantes que causam danos menores, mas nunca erram. Os alvos podem irradiar luz por até 1 minuto.\n\n<i>"Eu me inspirei ao ver um anão sendo dominado por vaga-lumes escaldantes do ermo. Bons tempos." -Morwenna Coração de Folha</i>
+Spell/&RadiantMotesTitle	Partículas Radiantes
 Spell/&ThunderStrikeDescription	Crie uma explosão de som trovejante, danificando todos ao seu redor
 Spell/&ThunderStrikeTitle	Explosão de som
 Spell/&WinterBreathDescription	Crie uma rajada de vento frio para esfriar seus inimigos e derrubá-los
