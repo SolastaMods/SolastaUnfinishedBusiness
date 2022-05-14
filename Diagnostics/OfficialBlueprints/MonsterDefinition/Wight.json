@@ -40,7 +40,7 @@
   "maxLegendaryActionPoints": 3,
   "differentActionEachTurn": false,
   "legendaryActionOptions": [],
-  "defaultBattleDecisionPackage": "Definition:DefaultMeleeWithBackupRangeDecisions:36bb3688d84582249bf0f1c85064ad10",
+  "defaultBattleDecisionPackage": "Definition:WightCombatDecisions:2784384873f468547a2261b4496b2d45",
   "threatEvaluatorDefinition": {
     "$type": "TA.AI.ThreatEvaluatorDefinition, Assembly-CSharp",
     "threatEvaluator": {
@@ -140,7 +140,8 @@
     "Definition:LightAffinityLightSensitivity:736fe1855ea505349ae72578eea585f1",
     "Definition:ConditionAffinityPoisonImmunity:558b2de37dbf89341ab0ed6c445873a6",
     "Definition:ConditionAffinityExhaustionImmunity:9e9405220f0bbc24ca6cafa5fb2d6858",
-    "Definition:DamageAffinityPoisonImmunity:7f47b64e57ec7b247acaa220a510b131"
+    "Definition:DamageAffinityPoisonImmunity:7f47b64e57ec7b247acaa220a510b131",
+    "Definition:PowerWight_DrainLife:68f06a01a429b44439781babeeb93fec"
   ],
   "attackIterations": [
     {
@@ -150,13 +151,8 @@
     },
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
-      "number": 1,
+      "number": 2,
       "monsterAttackDefinition": "Definition:Attack_Wight_Longbow:342b40e13db0dff48ac341d3bf83f7e4"
-    },
-    {
-      "$type": "MonsterAttackIteration, Assembly-CSharp",
-      "number": 1,
-      "monsterAttackDefinition": "Definition:Attack_Wight_LifeDrain:b17ac4098e29a304ea646bcea2e242f8"
     }
   ],
   "sneakStance": "Stealth",

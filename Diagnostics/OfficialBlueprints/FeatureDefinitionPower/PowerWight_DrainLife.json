@@ -1,24 +1,12 @@
 {
-  "$type": "MonsterAttackDefinition, Assembly-CSharp",
-  "displayedInEditor": true,
-  "methodName": "",
-  "actionType": "Main",
-  "toHitBonus": 4,
-  "afterChargeOnly": false,
-  "limitedUse": false,
-  "maxUses": -1,
-  "proximity": "Melee",
-  "reachRange": 1,
-  "closeRange": 2,
-  "maxRange": 4,
-  "magical": false,
+  "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Self",
-    "rangeParameter": 0,
+    "rangeType": "MeleeHit",
+    "rangeParameter": 20,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Self",
+    "targetType": "IndividualsUnique",
     "itemSelectionType": "Equiped",
     "targetParameter": 1,
     "targetParameter2": 2,
@@ -28,7 +16,7 @@
     "targetProximityDistance": 30,
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
-    "targetFilteringMethod": "AllCharacterAndGadgets",
+    "targetFilteringMethod": "CharacterOnly",
     "targetFilteringTag": "No",
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
@@ -42,16 +30,16 @@
     "targetConditionName": "",
     "targetConditionAsset": null,
     "targetSide": "Enemy",
-    "durationType": "UntilLongRest",
+    "durationType": "Instantaneous",
     "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": true,
-    "disableSavingThrowOnAllies": false,
+    "disableSavingThrowOnAllies": true,
     "savingThrowAbility": "Constitution",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
     "hasShoveRoll": false,
-    "createdByCharacter": false,
+    "createdByCharacter": true,
     "difficultyClassComputation": "FixedValue",
     "savingThrowDifficultyAbility": "Wisdom",
     "fixedSavingThrowDifficultyClass": 13,
@@ -76,8 +64,8 @@
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
-        "levelMultiplier": 0,
-        "createdByCharacter": false,
+        "levelMultiplier": 1,
+        "createdByCharacter": true,
         "createdByCondition": false,
         "hasSavingThrow": true,
         "savingThrowAffinity": "None",
@@ -89,7 +77,7 @@
           "versatile": false,
           "diceNumber": 1,
           "dieType": "D6",
-          "versatileDieType": "D1",
+          "versatileDieType": "D10",
           "bonusDamage": 2,
           "damageType": "DamageNecrotic",
           "healFromInflictedDamage": "Never",
@@ -108,8 +96,8 @@
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
-        "levelMultiplier": 0,
-        "createdByCharacter": false,
+        "levelMultiplier": 1,
+        "createdByCharacter": true,
         "createdByCondition": false,
         "hasSavingThrow": true,
         "savingThrowAffinity": "Negates",
@@ -118,7 +106,7 @@
         "saveOccurence": "StartOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "",
+          "conditionDefinitionName": "ConditionBlessed",
           "conditionDefinition": "Definition:ConditionLifeDrained:ce10be38f182d7046bca13becd0e6bf6",
           "operation": "Add",
           "conditionsList": [],
@@ -132,7 +120,7 @@
     "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
-      "effectIncrementMethod": "None",
+      "effectIncrementMethod": "CasterLevelTable",
       "incrementMultiplier": 1,
       "additionalTargetsPerIncrement": 0,
       "additionalSubtargetsPerIncrement": 0,
@@ -155,7 +143,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "dd3228622b469624eafe8835f8014546",
+        "m_AssetGUID": "149e326fc8149de479345089d140ab14",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -179,7 +167,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "79487333216ce6e449c3c421a46e3ca7",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -203,7 +191,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "d357e2d316b7add4da20340d01a43d1d",
+        "m_AssetGUID": "ad2bd082ed04339499d5b34895a4aa27",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -323,66 +311,34 @@
     },
     "animationMagicEffect": "Animation0"
   },
-  "projectile": "Arrow",
-  "projectileBone": "Prop1",
-  "itemDefinitionMainHand": null,
-  "itemDefinitionOffHand": null,
-  "useAnimationTag": false,
-  "animationTag": "NoWeapon",
-  "chargePrepareParticle": {
-    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
-  },
-  "chargeStartParticle": {
-    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
-  },
-  "chargeLoopParticle": {
-    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
-  },
-  "chargeEndParticle": {
-    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
-  },
-  "soundEffectOnHitDescription": {
-    "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
-    "switchOnHit": {
-      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
-      "WwiseObjectReference": {
-        "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
-        "WwiseSwitchGroupReference": {
-          "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
-          "objectName": "Switch_Damage",
-          "id": 1103537035,
-          "guid": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A",
-          "name": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A"
-        },
-        "objectName": "Spell",
-        "id": 523506649,
-        "guid": "225A6C3B-22D3-4B63-9E92-62510CD541D1",
-        "name": "225A6C3B-22D3-4B63-9E92-62510CD541D1"
-      },
-      "groupIdInternal": 0,
-      "groupGuidInternal": {
-        "$type": "System.Byte[], mscorlib",
-        "$value": ""
-      },
-      "idInternal": 0,
-      "valueGuidInternal": {
-        "$type": "System.Byte[], mscorlib",
-        "$value": ""
-      }
-    }
-  },
+  "delegatedToAction": false,
+  "surrogateToSpell": null,
+  "triggeredBySpecialMove": false,
+  "activationTime": "Action",
+  "reactionContext": "None",
+  "reactionName": "",
+  "hasCastingFailure": false,
+  "castingSuccessComputation": "CasterLevel",
+  "canUseInDialog": false,
+  "disableIfConditionIsOwned": null,
+  "rechargeRate": "AtWill",
+  "costPerUse": 1,
+  "spellcastingFeature": null,
+  "usesDetermination": "Fixed",
+  "abilityScoreDetermination": "Explicit",
+  "usesAbilityScoreName": "Charisma",
+  "fixedUsesPerRecharge": 1,
+  "abilityScore": "Strength",
+  "attackHitComputation": "Fixed",
+  "fixedAttackHit": 4,
+  "abilityScoreBonusToAttack": false,
+  "proficiencyBonusToAttack": false,
+  "uniqueInstance": false,
+  "showCasting": true,
+  "shortTitleOverride": "",
+  "overriddenPower": null,
+  "includeBaseDescription": false,
+  "magical": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -390,9 +346,9 @@
     "description": "Power/&WightLifeDrain_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
+      "m_AssetGUID": "cad1a69fd7e99d44ea3366b73f1cc5c7",
+      "m_SubObjectName": "GenericPower",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -407,7 +363,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "OpenGameContent",
-  "guid": "b17ac4098e29a304ea646bcea2e242f8",
+  "guid": "68f06a01a429b44439781babeeb93fec",
   "contentPack": "BaseGame",
-  "name": "Attack_Wight_LifeDrain"
+  "name": "PowerWight_DrainLife"
 }

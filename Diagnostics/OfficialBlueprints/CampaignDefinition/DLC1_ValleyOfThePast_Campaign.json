@@ -1769,7 +1769,9 @@
     "Definition:DLC1_Orenetis09_SpawnPeriphanos_CompatibilityScenario:27bb425f7f3c5ef408a3367117dddec1",
     "Definition:DLC1_People08_SiteneroDead_CompatibilityScenario:456d7ed66539b184c9a7bbc778ebaaac",
     "Definition:DLC1_People08_SiteneroSpared_CompatibilityScenario:08cfde1990e414545bd53da674d15af5",
-    "Definition:DLC1_Forge07_FailRebellionQuests_CompatibilityScenario:f7140f46a694dda468cf7d23b16ae454"
+    "Definition:DLC1_Forge07_FailRebellionQuests_CompatibilityScenario:f7140f46a694dda468cf7d23b16ae454",
+    "Definition:DLC1_Orenetis06_KareliaCSbroken:6fec1ac11ee63fd4daa58e473280eb2f",
+    "Definition:DLC1_People08_ReportToRose_CompatibilityScenario:3810b2e5faab4d6438262145793d7c73"
   ],
   "journalStart": "Campaign/&DLC1_Journal_Start",
   "initialBestiaryContent": [
