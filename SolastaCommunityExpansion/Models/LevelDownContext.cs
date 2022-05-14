@@ -159,18 +159,23 @@ namespace SolastaCommunityExpansion.Models
 
                     hero.CharacterInventory.BrowseAllCarriedItems(rulesetItemSpellbooks);
 
-                    if (rulesetItemSpellbooks.Count > 0)
+                    var spellbookIndex = rulesetItemSpellbooks.Count - 1;
+
+                    while (scribbedSpellsToRemove > 0 && spellbookIndex >= 0)
                     {
-                        var rulesetItemSpellbook = rulesetItemSpellbooks[0];
+                        var rulesetItemSpellbook = rulesetItemSpellbooks[spellbookIndex];
 
                         while (scribbedSpellsToRemove-- > 0)
                         {
                             rulesetItemSpellbook.ScribedSpells.RemoveAt(rulesetItemSpellbook.ScribedSpells.Count - 1);
                         }
+
+                        spellbookIndex--;
                     }
 
                     break;
 
+                case RuleDefinitions.SpellKnowledge.WholeList: // this is required after patch that adds WholeList to repertoire
                 case RuleDefinitions.SpellKnowledge.Selection:
                     var spellsToRemove = heroRepertoire.SpellCastingFeature.KnownSpells[indexLevel] - heroRepertoire.SpellCastingFeature.KnownSpells[indexLevel - 1];
 
