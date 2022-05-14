@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using SolastaCommunityExpansion.CustomDefinitions;
+using SolastaCommunityExpansion.CustomUI;
 using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.Battle
