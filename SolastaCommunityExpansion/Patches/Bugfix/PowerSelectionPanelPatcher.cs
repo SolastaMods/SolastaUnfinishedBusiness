@@ -17,6 +17,12 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
             internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
             {
                 var codes = instructions.ToList();
+
+                if (!Main.Settings.BugFixPowerActivationTime)
+                {
+                    return codes;
+                }
+
                 var customMethod =
                     new Func<List<FeatureDefinition>, FeatureDefinitionPower, bool>(CustomCheck).Method;
 
@@ -28,7 +34,7 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
                     codes[bindIndex] = new CodeInstruction(OpCodes.Call, customMethod);
                 }
 
-                return codes.AsEnumerable();
+                return codes;
             }
 
             //Replaces 'overridenPowers.Contains(power)' check by adding check to see if this power's activation time is present in ActionDefinitions.CastingTimeToActionDefinition
