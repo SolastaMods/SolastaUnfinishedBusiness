@@ -19,7 +19,7 @@
         {
             var spellName = (this.ReactionParams.RulesetEffect as RulesetEffectSpell)?.SpellDefinition.GuiPresentation
                 .Title;
-            return Gui.Format(Gui.Localize("Reaction/CastSpellInRetributionDescription"), this.attackerName,
+            return Gui.Format(Gui.Localize("Reaction/&CastSpellInRetributionDescription"), this.attackerName,
                 this.Character.Name,
                 spellName);
         }
@@ -28,17 +28,17 @@
         {
             var spellName = (this.ReactionParams.RulesetEffect as RulesetEffectSpell)?.SpellDefinition.GuiPresentation
                 .Title;
-            return Gui.Format(Gui.Localize("Reaction/CastSpellInRetributionReactDescription"), spellName);
+            return Gui.Format(Gui.Localize("Reaction/&CastSpellInRetributionReactDescription"), spellName);
         }
 
         public override string FormatTitle()
         {
-            return Gui.Localize("Reaction/CastSpellInRetributionTitle");
+            return Gui.Localize("Reaction/&CastSpellInRetributionTitle");
         }
 
         public override string FormatReactTitle()
         {
-            return Gui.Localize("Reaction/CastSpellInRetributionReactTitle");
+            return Gui.Localize("Reaction/&CastSpellInRetributionReactTitle");
         }
     }
 }

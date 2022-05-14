@@ -1316,10 +1316,10 @@ Reaction/&SpendSpellSlotEldritchSmiteTitle	Eldritch Smite
 Reaction/&SubitemSelectEldritchSmiteDescription	Select a slot level to consume for your Eldritch Smite
 Reaction/&SubitemSelectEldritchSmiteTitle	Slot Level
 Reaction/&SubitemSelectSlotLevelTitle	Slot Level
-Reaction/CastSpellInRetributionDescription	{0} is attacking {1}! You can cast {2} in responce!
-Reaction/CastSpellInRetributionReactDescription	Click to cast {0}
-Reaction/CastSpellInRetributionReactTitle	Cast Spell
-Reaction/CastSpellInRetributionTitle	Cast Reaction Spell
+Reaction/&CastSpellInRetributionDescription	{0} is attacking {1}! You can cast {2} in responce!
+Reaction/&CastSpellInRetributionReactDescription	Click to cast {0}
+Reaction/&CastSpellInRetributionReactTitle	Cast Spell
+Reaction/&CastSpellInRetributionTitle	Cast Reaction Spell
 Requirement/&FeatureSelectionRequireCharacterLevel	Level {0}
 Requirement/&FeatureSelectionRequireClassLevel	Level {0} of {1}
 Requirement/&WarlockMissingEldritchBlast	Eldritch Blast cantrip
@@ -1788,3 +1788,7 @@ Reaction/&WarcasterReactionDescription	{1} is leaving a threatened area. {0} can
 Reaction/&SubitemSelectWarcasterTitle	Select action
 Reaction/&WarcasterAttackTitle	Attack
 Reaction/&WarcasterAttackDescription	Attack target
+Reaction/&SpendPowerDH_RiftStrikeTitle	Rift Strike
+Reaction/&SpendPowerDH_RiftStrikeDescription	Once per day when damaged in melee, you can use you reaction to create a portal that banishes the attacker for 1 round from your plane of existence
+Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionTitle	Spell Shield
+Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionDescription	You can use your arcane powers to shield yourself as a reaction
