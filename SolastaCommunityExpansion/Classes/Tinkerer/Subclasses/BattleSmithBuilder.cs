@@ -116,6 +116,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             {
                 Definition.SetAbilityScoreReplacement(abilityReplacement);
                 Definition.SetAdditionalAttackTag(additionalAttackTag);
+                Definition.SetAttackRollModifierMethod(AttackModifierMethod.FlatValue);
+                Definition.SetDamageRollModifierMethod(AttackModifierMethod.FlatValue);
             }
         }
     }
