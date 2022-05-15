@@ -54,7 +54,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
                 {
                     values.AddOrReplace(mod.PoolType, values.GetValueOrDefault(mod.PoolType) + mod.MaxPointsBonus);
                 }
-                
+
                 //Remove spell/cantrip pool modifiers gained on this level
                 foreach (var mod in spellMods)
                 {
