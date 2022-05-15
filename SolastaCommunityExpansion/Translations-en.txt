@@ -1802,3 +1802,5 @@ Feature/&MonkWeaponProficiencyTitle	Monk Weapon Proficiencies
 Feature/&MonkSkillPointsTitle	Monk Skills
 Feature/&MonkUnarmoredDefenseTitle	Unarmored Defense
 Feature/&MonkUnarmoredDefenseDescription	While you are wearing no armor and not wielding a shield, your AC equals 10 + your Dexterity modifier + your Wisdom modifier.
+Feature/&MonkMartialArtsTitle	Martial Arts
+Feature/&MonkMartialArtsDescription	You gain the following benefits while you are unarmed or wielding only monk weapons and you aren't wearing armor or wielding a shield:\n - You can use Dexterity instead of Strength for the attack and damage rolls of your unarmed strikes and monk weapons.\n - You can roll a d4 in place of the normal damage of your unarmed strike or monk weapon. This die changes as you gain monk levels.\n - When you use the Attack action with an unarmed strike or a monk weapon on your turn, you can make one unarmed strike as a bonus action.

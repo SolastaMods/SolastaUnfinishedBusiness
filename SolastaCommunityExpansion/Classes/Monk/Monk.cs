@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.Features;
 using SolastaModApi;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaModApi.DatabaseHelper;
@@ -170,6 +171,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
                 #region Level 01
 
+                //TODO: make sure it doesn't work with shields
                 //TODO: make sure it doesn't stack with other `ability bonus to AC` features
                 .AddFeatureAtLevel(1, FeatureDefinitionAttributeModifierBuilder
                     .Create("MonkUnarmoredDefense", GUID)
@@ -179,12 +181,49 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     .SetModifierAbilityScore(AttributeDefinitions.Wisdom)
                     .SetSituationalContext(RuleDefinitions.SituationalContext.NotWearingArmorOrMageArmor)
                     .AddToDB())
+                .AddFeatureAtLevel(1, FeatureDefinitionFeatureSetBuilder
+                    .Create("MonkMartialArts", GUID)
+                    .SetGuiPresentation(Category.Feature)
+                    .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+                    .SetFeatureSet(
+                        FeatureDefinitionBuilder.Create("MonkDexWeapons", GUID)
+                            .SetCustomSubFeatures(new CanUseAttributeForWeapon(AttributeDefinitions.Dexterity,
+                                IsMonkWeapon, CharacterValidators.NoArmor, CharacterValidators.NoShield,
+                                UsingOnlyMonkWeapons))
+                            .AddToDB()
+                    )
+                    .AddToDB())
 
                 #endregion
 
                 .AddToDB();
 
             return Class;
+        }
+
+        private static bool IsMonkWeapon(RulesetAttackMode attackMode, RulesetItem weapon)
+        {
+            return IsMonkWeapon(weapon);
+        }
+
+        private static bool IsMonkWeapon(RulesetItem weapon)
+        {
+            //fists
+            if (weapon == null)
+            {
+                return true;
+            }
+
+            return MonkWeapons.Contains(weapon.ItemDefinition.WeaponDescription.WeaponTypeDefinition);
+        }
+
+        private static bool UsingOnlyMonkWeapons(RulesetCharacter character)
+        {
+            var inventorySlotsByName = character.CharacterInventory.InventorySlotsByName;
+            var mainHand = inventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem;
+            var offHand = inventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem;
+
+            return IsMonkWeapon(mainHand) && IsMonkWeapon(offHand);
         }
     }
 }
