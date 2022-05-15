@@ -27,14 +27,14 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.ConditionRemovedOnSou
                 return;
             }
 
-            foreach (GameLocationCharacter contender in battleService.Battle.AllContenders
+            foreach (var contender in battleService.Battle.AllContenders
                 .Where(x => x != null && x.Valid && x.RulesetActor != null))
             {
                 var conditionsToRemove = new List<RulesetCondition>();
 
-                foreach (KeyValuePair<string, List<RulesetCondition>> keyValuePair in contender.RulesetActor.ConditionsByCategory)
+                foreach (var keyValuePair in contender.RulesetActor.ConditionsByCategory)
                 {
-                    foreach (RulesetCondition rulesetCondition in keyValuePair.Value)
+                    foreach (var rulesetCondition in keyValuePair.Value)
                     {
                         if (rulesetCondition.SourceGuid == __instance.Guid && rulesetCondition.ConditionDefinition is IConditionRemovedOnSourceTurnStart)
                         {
@@ -43,7 +43,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.ConditionRemovedOnSou
                     }
                 }
 
-                foreach (RulesetCondition conditionToRemove in conditionsToRemove)
+                foreach (var conditionToRemove in conditionsToRemove)
                 {
                     contender.RulesetActor.RemoveCondition(conditionToRemove);
                 }

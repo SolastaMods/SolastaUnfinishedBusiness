@@ -138,7 +138,7 @@ namespace SolastaCommunityExpansion.Models
 
                 gameLocationCharacter.SetRuleset(newHero);
 
-                if (worldLocationEntityFactoryService.TryFindWorldCharacter(gameLocationCharacter, out WorldLocationCharacter worldLocationCharacter))
+                if (worldLocationEntityFactoryService.TryFindWorldCharacter(gameLocationCharacter, out var worldLocationCharacter))
                 {
                     worldLocationCharacter.GraphicsCharacter.RulesetCharacter = newHero;
                 }
@@ -174,10 +174,10 @@ namespace SolastaCommunityExpansion.Models
                 var restAfterPanel = restModalScreen.GetField<RestModal, RestAfterPanel>("restAfterPanel");
                 var characterPlatesTable = restAfterPanel.GetField<RestAfterPanel, RectTransform>("characterPlatesTable");
 
-                for (int index = 0; index < characterPlatesTable.childCount; ++index)
+                for (var index = 0; index < characterPlatesTable.childCount; ++index)
                 {
-                    Transform child = characterPlatesTable.GetChild(index);
-                    CharacterPlateGame component = child.GetComponent<CharacterPlateGame>();
+                    var child = characterPlatesTable.GetChild(index);
+                    var component = child.GetComponent<CharacterPlateGame>();
 
                     component.Unbind();
 

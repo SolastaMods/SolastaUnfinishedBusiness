@@ -153,7 +153,7 @@ namespace SolastaCommunityExpansion.Models
             FunctorParametersDescription functorParameters,
             FunctorExecutionContext context)
         {
-            FunctorUseCustomRestPower functor = this;
+            var functor = this;
             var power = PowerBundleContext.GetPower(functorParameters.StringParameter);
             if (power == null)
             {

@@ -39,7 +39,7 @@ namespace SolastaCommunityExpansion.Patches.BugFix
             var bindMethod = typeof(InventorySlotBox).GetMethod("Bind");
             var myBindMethod = typeof(WieldedConfigurationSelector_Bind).GetMethod("MyBind");
 
-            foreach (CodeInstruction instruction in instructions)
+            foreach (var instruction in instructions)
             {
                 if (instruction.Calls(bindMethod))
                 {

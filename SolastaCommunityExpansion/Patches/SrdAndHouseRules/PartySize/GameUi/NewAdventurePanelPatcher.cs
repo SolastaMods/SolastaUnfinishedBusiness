@@ -21,7 +21,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.PartySize.GameUi
             DatabaseHelper.CampaignDefinitions.UserCampaign.SetPartySize(Main.Settings.OverridePartySize);
 
             // adds new character plates if required
-            for (int i = DungeonMakerContext.GAME_PARTY_SIZE; i < Main.Settings.OverridePartySize; i++)
+            for (var i = DungeonMakerContext.GAME_PARTY_SIZE; i < Main.Settings.OverridePartySize; i++)
             {
                 var firstChild = ___characterSessionPlatesTable.GetChild(0);
 

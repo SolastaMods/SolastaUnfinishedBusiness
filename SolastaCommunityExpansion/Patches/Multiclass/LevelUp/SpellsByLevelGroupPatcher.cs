@@ -36,9 +36,9 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
 
             foreach (var autoPreparedSpells in caster.FeaturesToBrowse.OfType<FeatureDefinitionAutoPreparedSpells>())
             {
-                foreach (FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup preparedSpellsGroup in autoPreparedSpells.AutoPreparedSpellsGroups)
+                foreach (var preparedSpellsGroup in autoPreparedSpells.AutoPreparedSpellsGroups)
                 {
-                    foreach (SpellDefinition spell in preparedSpellsGroup.SpellsList)
+                    foreach (var spell in preparedSpellsGroup.SpellsList)
                     {
                         var flag = !auToPreparedSpells.Contains(spell) && __instance.SpellLevel == spell.SpellLevel;
 

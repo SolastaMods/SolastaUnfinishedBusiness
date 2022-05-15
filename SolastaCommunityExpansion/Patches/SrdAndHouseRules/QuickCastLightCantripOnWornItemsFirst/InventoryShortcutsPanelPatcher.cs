@@ -21,7 +21,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.QuickCastLightCantr
             var characterInventory = rulesetCharacterHero.CharacterInventory;
 
             // Head
-            RulesetInventorySlot rulesetInventorySlot1 = characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeHead];
+            var rulesetInventorySlot1 = characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeHead];
             if (rulesetInventorySlot1.EquipedItem != null)
             {
                 targetItem = rulesetInventorySlot1.EquipedItem;
@@ -29,7 +29,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.QuickCastLightCantr
             }
 
             // Neck
-            RulesetInventorySlot rulesetInventorySlot2 = characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeNeck];
+            var rulesetInventorySlot2 = characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeNeck];
             if (rulesetInventorySlot1.EquipedItem != null)
             {
                 targetItem = rulesetInventorySlot2.EquipedItem;
@@ -37,7 +37,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.QuickCastLightCantr
             }
 
             // Torso
-            RulesetInventorySlot rulesetInventorySlote = characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso];
+            var rulesetInventorySlote = characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso];
             if (rulesetInventorySlot2.EquipedItem != null)
             {
                 targetItem = rulesetInventorySlote.EquipedItem;
@@ -54,7 +54,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.QuickCastLightCantr
             var tryFindTargetWieldedItemMethod = typeof(RulesetCharacter).GetMethod("TryFindTargetWieldedItem");
             var myTryFindTargetWieldedItemMethod = typeof(InventoryShortcutsPanel_OnCastLightCb).GetMethod("MyTryFindTargetWieldedItem");
 
-            foreach (CodeInstruction instruction in instructions)
+            foreach (var instruction in instructions)
             {
                 if (instruction.Calls(tryFindTargetWieldedItemMethod))
                 {

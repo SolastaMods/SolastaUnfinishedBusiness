@@ -23,7 +23,7 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
 
             var alteredDuration = (AdvancementDurationEx)__instance.EffectAdvancement.AlteredDuration;
 
-            int result = alteredDuration switch
+            var result = alteredDuration switch
             {
                 // TA DominateBeast and DominatePerson use AdvancementDuration.Minutes_1_10_480_1440_Infinite
                 // which is only computed correctly for BestowCurse.

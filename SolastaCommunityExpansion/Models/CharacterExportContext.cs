@@ -18,11 +18,11 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void Load()
         {
-            MessageModal messageModal = Gui.GuiService.GetScreen<MessageModal>();
-            TMP_Text contentText = messageModal.transform.FindChildRecursive("Content").GetComponent<TMP_Text>();
+            var messageModal = Gui.GuiService.GetScreen<MessageModal>();
+            var contentText = messageModal.transform.FindChildRecursive("Content").GetComponent<TMP_Text>();
 
-            CharacterCreationScreen characterCreationScreen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
-            TMP_InputField firstNameInputField = characterCreationScreen.transform.FindChildRecursive("FirstNameInputField").GetComponent<TMP_InputField>();
+            var characterCreationScreen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
+            var firstNameInputField = characterCreationScreen.transform.FindChildRecursive("FirstNameInputField").GetComponent<TMP_InputField>();
 
             InputField = UnityEngine.Object.Instantiate(firstNameInputField, contentText.transform.parent.parent);
 
@@ -40,7 +40,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void ExportInspectedCharacter(RulesetCharacterHero hero)
         {
-            MessageModal messageModal = Gui.GuiService.GetScreen<MessageModal>();
+            var messageModal = Gui.GuiService.GetScreen<MessageModal>();
 
             InputModalVisible = true;
 
@@ -55,11 +55,11 @@ namespace SolastaCommunityExpansion.Models
 
             void messageValidated()
             {
-                string newFirstName = InputField.text;
-                string newSurname = string.Empty;
-                bool hasSurname = hero.RaceDefinition.RacePresentation.HasSurName;
+                var newFirstName = InputField.text;
+                var newSurname = string.Empty;
+                var hasSurname = hero.RaceDefinition.RacePresentation.HasSurName;
 
-                HashSet<string> usedNames = Directory
+                var usedNames = Directory
                     .EnumerateFiles(TacticalAdventuresApplication.GameCharactersDirectory, "*.chr")
                     .Select(f => Path.GetFileNameWithoutExtension(f))
                     .ToHashSet(StringComparer.OrdinalIgnoreCase);

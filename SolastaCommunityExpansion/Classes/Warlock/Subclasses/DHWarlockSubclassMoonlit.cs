@@ -24,7 +24,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
         public static CharacterSubclassDefinition Build()
         {
 
-            SpellListDefinition MoonLitExpandedSpelllist = SpellListDefinitionBuilder
+            var MoonLitExpandedSpelllist = SpellListDefinitionBuilder
                 .Create(SpellListPaladin, "MoonLitExpandedSpelllist", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentationNoContent()
                 .ClearSpells()
@@ -37,7 +37,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .AddToDB();
 
 
-            FeatureDefinitionMagicAffinity MoonLitExpandedSpelllistAfinity = FeatureDefinitionMagicAffinityBuilder
+            var MoonLitExpandedSpelllistAfinity = FeatureDefinitionMagicAffinityBuilder
                 .Create("MoonLitExpandedSpelllistAfinity", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation("MoonLitExpandedSpelllistAfinity", Category.Feature)
                 .SetExtendedSpellList(MoonLitExpandedSpelllist)
@@ -70,13 +70,13 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 condition = moonlitInvisibleCondition
             };
 
-            FeatureDefinitionLightAffinity MoonLitLightAffinityWeak = FeatureDefinitionLightAffinityBuilder
+            var MoonLitLightAffinityWeak = FeatureDefinitionLightAffinityBuilder
                 .Create("MoonLitLightAffinity", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation("MoonLitLightAffinity", Category.Feature)
                 .AddLightingEffectAndCondition(unlit)
                 .AddToDB();
 
-            FeatureDefinitionLightAffinity MoonLitLightAffinityStrong = FeatureDefinitionLightAffinityBuilder
+            var MoonLitLightAffinityStrong = FeatureDefinitionLightAffinityBuilder
                 .Create("MoonLitLightAffinityStrong", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation("MoonLitLightAffinityStrong", Category.Feature)
                 .AddLightingEffectAndCondition(dim)
@@ -84,14 +84,14 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .AddToDB();
 
             // should probably be expanded to include a magicaffinty that has immunity to darkness spells as well
-            FeatureDefinitionConditionAffinity MoonLitDarknessImmunity = FeatureDefinitionConditionAffinityBuilder
+            var MoonLitDarknessImmunity = FeatureDefinitionConditionAffinityBuilder
                 .Create("MoonLitDarknessImmunity", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation("MoonLitDarknessImmunity", Category.Feature)
                 .SetConditionAffinityType(ConditionAffinityType.Immunity)
                 .SetConditionType(DatabaseHelper.ConditionDefinitions.ConditionDarkness)
                 .AddToDB();
 
-            FeatureDefinitionPower DarkMoon = FeatureDefinitionPowerBuilder
+            var DarkMoon = FeatureDefinitionPowerBuilder
                 .Create("MoonlitDarkMoon", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Power, Darkness.GuiPresentation.SpriteReference)
                 .Configure(
@@ -108,7 +108,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                        true)
                 .AddToDB();
 
-            FeatureDefinitionPower FullMoon = FeatureDefinitionPowerBuilder
+            var FullMoon = FeatureDefinitionPowerBuilder
                 .Create("MoonlitFullMoon", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Power, Daylight.GuiPresentation.SpriteReference)
                 .Configure(
@@ -126,7 +126,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .AddToDB();
 
 
-            FeatureDefinitionPower DanceoftheNightSky = FeatureDefinitionPowerBuilder
+            var DanceoftheNightSky = FeatureDefinitionPowerBuilder
                 .Create("MoonlitDanceoftheNightSky", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Power)
                 .Configure(
@@ -144,7 +144,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .AddToDB();
             DanceoftheNightSky.EffectDescription.SetTargetParameter(4);
 
-            ConditionDefinition MoonTouchedCondition = ConditionDefinitionBuilder
+            var MoonTouchedCondition = ConditionDefinitionBuilder
                 .Create(DatabaseHelper.ConditionDefinitions.ConditionLevitate, "MoonTouchedCondition", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Condition)
                 .SetConditionType(ConditionType.Neutral)
@@ -152,7 +152,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetFeatures(MovementAffinityConditionLevitate)
                 .AddToDB();
 
-            FeatureDefinitionPower MoonTouched = FeatureDefinitionPowerBuilder
+            var MoonTouched = FeatureDefinitionPowerBuilder
                 .Create("MoonlitMoonTouched", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Power)
                 .Configure(
@@ -211,12 +211,12 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
 
 
-            SpellDefinition AtWillMoonbeam = SpellDefinitionBuilder
+            var AtWillMoonbeam = SpellDefinitionBuilder
                 .Create(MoonBeam, "MoonlitAtWillMoonbeam", DefinitionBuilder.CENamespaceGuid)
                 .SetSpellLevel(0)
                 .AddToDB();
 
-            SpellDefinition AtWillFaerieFire = SpellDefinitionBuilder
+            var AtWillFaerieFire = SpellDefinitionBuilder
                 .Create(FaerieFire, "MoonlitAtWillFaerieFire", DefinitionBuilder.CENamespaceGuid)
                 .SetSpellLevel(0)
                 .AddToDB();
@@ -381,7 +381,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             var hero = characterAction.ActingCharacter.RulesetCharacter;
             var action = characterAction.ActionDefinition;
 
-            if (action.Name.StartsWith("Attack") || (action.Name.StartsWith("Cast") || action.Name.StartsWith("Power")))
+            if (action.Name.StartsWith("Attack") || action.Name.StartsWith("Cast") || action.Name.StartsWith("Power"))
             {
                 var ruleEffect = characterAction.ActionParams.RulesetEffect;
                 if (ruleEffect == null || !IsAllowedEffect(ruleEffect.EffectDescription))

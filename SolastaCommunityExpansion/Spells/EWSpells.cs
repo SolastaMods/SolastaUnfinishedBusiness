@@ -313,7 +313,7 @@ namespace SolastaCommunityExpansion.Spells
 
             var effectSpell = rules.InstantiateEffectSpell(rulesetCaster, repertoire, _spell, slotLevel, false);
 
-            for (int i = 1; i < targets.Count; i++)
+            for (var i = 1; i < targets.Count; i++)
             {
                 var rulesetTarget = targets[i].RulesetCharacter;
                 if (!string.IsNullOrEmpty(_notificationTag))

@@ -41,7 +41,7 @@ namespace SolastaCommunityExpansion.Builders
         private void EnsureSpellListsConfigured()
         {
             // should be levels 0..9 in that order
-            for (int level = 0; level < 10; level++)
+            for (var level = 0; level < 10; level++)
             {
                 if (Definition.SpellsByLevel.Count < level + 1)
                 {

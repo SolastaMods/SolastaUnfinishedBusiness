@@ -30,12 +30,12 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
         {
             var visibleRaces = DatabaseRepository.GetDatabase<CharacterRaceDefinition>().Where(x => !x.GuiPresentation.Hidden);
             var visibleSubRaces = visibleRaces.SelectMany(x => x.SubRaces);
-            var visibleMainRaces = visibleRaces.Where(x => !visibleSubRaces.Contains((x)));
+            var visibleMainRaces = visibleRaces.Where(x => !visibleSubRaces.Contains(x));
 
             ___eligibleRaces.SetRange(visibleMainRaces.OrderBy(x => x.FormatTitle()));
             ___selectedSubRace.Clear();
 
-            for (int key = 0; key < visibleMainRaces.Count(); ++key)
+            for (var key = 0; key < visibleMainRaces.Count(); ++key)
             {
                 ___selectedSubRace[key] = 0;
             }

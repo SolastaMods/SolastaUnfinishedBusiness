@@ -76,7 +76,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.UpcastConjureElemen
             var subspellsListMethod = typeof(SpellDefinition).GetMethod("get_SubspellsList");
             var mySubspellsListMethod = typeof(SubspellSelectionModal_Bind).GetMethod("MySubspellsList");
 
-            foreach (CodeInstruction instruction in instructions)
+            foreach (var instruction in instructions)
             {
                 if (instruction.Calls(subspellsListMethod))
                 {

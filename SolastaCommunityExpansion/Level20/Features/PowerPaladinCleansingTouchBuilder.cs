@@ -18,7 +18,7 @@ namespace SolastaCommunityExpansion.Level20.Features
             Definition.SetActivationTime(RuleDefinitions.ActivationTime.Action);
             Definition.SetCostPerUse(1);
             Definition.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
-            EffectDescriptionBuilder cleansingTouch = new EffectDescriptionBuilder();
+            var cleansingTouch = new EffectDescriptionBuilder();
             cleansingTouch.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Touch, 1, RuleDefinitions.TargetType.Individuals, 1, 1, ActionDefinitions.ItemSelectionType.None);
             cleansingTouch.SetDurationData(RuleDefinitions.DurationType.Instantaneous, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             cleansingTouch.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.DispelMagic.EffectDescription.EffectParticleParameters);
@@ -26,7 +26,7 @@ namespace SolastaCommunityExpansion.Level20.Features
             cleansingTouch.AddEffectForm(new EffectFormBuilder().CreatedByCharacter().SetCounterForm(CounterForm.CounterType.DissipateSpells, 9, 10, true, true).Build());
             cleansingTouch.AddEffectForm(new EffectFormBuilder().CreatedByCharacter().SetAlterationForm(AlterationForm.Type.DissipateSpell).Build());
             Definition.SetEffectDescription(cleansingTouch.Build());
-            GuiPresentationBuilder cleansingGui = new GuiPresentationBuilder("Feature/&ZSPowerPaladinCleansingTouchTitle", "Feature/&ZSPowerPaladinCleansingTouchDescription");
+            var cleansingGui = new GuiPresentationBuilder("Feature/&ZSPowerPaladinCleansingTouchTitle", "Feature/&ZSPowerPaladinCleansingTouchDescription");
             cleansingGui.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerPaladinLayOnHands.GuiPresentation.SpriteReference);
             Definition.SetGuiPresentation(cleansingGui.Build());
         }

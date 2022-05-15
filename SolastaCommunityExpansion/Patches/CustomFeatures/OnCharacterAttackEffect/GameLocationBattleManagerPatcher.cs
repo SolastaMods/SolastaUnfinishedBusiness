@@ -163,9 +163,9 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                     }
                 }
 
-                foreach (FeatureDefinition featureDefinition in ___featuresToBrowseReaction)
+                foreach (var featureDefinition in ___featuresToBrowseReaction)
                 {
-                    IAdditionalDamageProvider provider = featureDefinition as IAdditionalDamageProvider;
+                    var provider = featureDefinition as IAdditionalDamageProvider;
 
                     // Some additional damage only work with attack modes (Hunter's Mark)
                     if (provider.AttackModeOnly && attackMode == null)
@@ -174,9 +174,9 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                     }
 
                     // Trigger method
-                    bool validTrigger = false;
-                    bool validUses = true;
-                    bool validProperty = true;
+                    var validTrigger = false;
+                    var validUses = true;
+                    var validProperty = true;
                     if (provider.LimitedUsage != RuleDefinitions.FeatureLimitedUsage.None)
                     {
                         if (provider.LimitedUsage == RuleDefinitions.FeatureLimitedUsage.OnceInMyturn && (attacker.UsedSpecialFeatures.ContainsKey(featureDefinition.Name) || (__instance.Battle != null && __instance.Battle.ActiveContender != attacker)))
@@ -190,7 +190,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                         else if (attacker.UsedSpecialFeatures.Count > 0)
                         {
                             // Check if there is not already a used feature with the same tag (special sneak attack for Rogue Hoodlum / COTM-18228
-                            foreach (KeyValuePair<string, int> kvp in attacker.UsedSpecialFeatures)
+                            foreach (var kvp in attacker.UsedSpecialFeatures)
                             {
                                 if (DatabaseRepository.GetDatabase<FeatureDefinitionAdditionalDamage>().TryGetElement(kvp.Key, out var previousFeature))
                                 {
@@ -236,16 +236,16 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                             // patch here
                             //
                             //RulesetCharacterHero rulesetCharacter = attacker.RulesetCharacter as RulesetCharacterHero;
-                            RulesetCharacterHero hero = attacker.RulesetCharacter as RulesetCharacterHero
+                            var hero = attacker.RulesetCharacter as RulesetCharacterHero
                                 ?? attacker.RulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
-                            CharacterClassDefinition classDefinition = hero.FindClassHoldingFeature(featureDefinition);
+                            var classDefinition = hero.FindClassHoldingFeature(featureDefinition);
                             RulesetSpellRepertoire selectedSpellRepertoire = null;
-                            foreach (RulesetSpellRepertoire spellRepertoire in hero.SpellRepertoires)
+                            foreach (var spellRepertoire in hero.SpellRepertoires)
                             {
                                 if (spellRepertoire.SpellCastingClass == classDefinition)
                                 {
-                                    bool atLeastOneSpellSlotAvailable = false;
-                                    for (int spellLevel = 1; spellLevel <= spellRepertoire.MaxSpellLevelOfSpellCastingLevel; spellLevel++)
+                                    var atLeastOneSpellSlotAvailable = false;
+                                    for (var spellLevel = 1; spellLevel <= spellRepertoire.MaxSpellLevelOfSpellCastingLevel; spellLevel++)
                                     {
                                         spellRepertoire.GetSlotsNumber(spellLevel, out var remaining, out var max);
                                         if (remaining > 0)
@@ -262,9 +262,9 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                                         reactionParams.IntParameter = 1;
                                         reactionParams.StringParameter = provider.NotificationTag;
                                         reactionParams.SpellRepertoire = selectedSpellRepertoire;
-                                        IGameLocationActionService actionService = ServiceRepository.GetService<IGameLocationActionService>();
+                                        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 
-                                        int previousReactionCount = actionService.PendingReactionRequestGroups.Count;
+                                        var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
                                         actionService.ReactToSpendSpellSlot(reactionParams);
 
                                         //yield return __instance.WaitForReactions(attacker, actionService, previousReactionCount);
@@ -321,11 +321,11 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                         {
                             if (attacker.LocationPosition.y > defender.LocationPosition.y)
                             {
-                                ItemDefinition itemDefinition = DatabaseRepository.GetDatabase<ItemDefinition>().GetElement(attackMode.SourceDefinition.Name, true);
+                                var itemDefinition = DatabaseRepository.GetDatabase<ItemDefinition>().GetElement(attackMode.SourceDefinition.Name, true);
                                 if (itemDefinition != null
                                     && itemDefinition.IsWeapon)
                                 {
-                                    WeaponTypeDefinition weaponTypeDefinition = DatabaseRepository.GetDatabase<WeaponTypeDefinition>().GetElement(itemDefinition.WeaponDescription.WeaponType);
+                                    var weaponTypeDefinition = DatabaseRepository.GetDatabase<WeaponTypeDefinition>().GetElement(itemDefinition.WeaponDescription.WeaponType);
                                     if (weaponTypeDefinition.WeaponProximity == RuleDefinitions.AttackProximity.Range)
                                     {
                                         validTrigger = true;
@@ -398,17 +398,17 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                     {
                         // ReSharper disable once VariableHidesOuterVariable
                         // Check required properties if needed
-                        bool validProperty = true;
+                        var validProperty = true;
                         if (/*validTrigger &&*/ provider.RequiredProperty != RuleDefinitions.AdditionalDamageRequiredProperty.None && attackMode != null)
                         {
-                            bool finesse = false;
-                            bool melee = false;
-                            bool range = false;
-                            ItemDefinition itemDefinition = DatabaseRepository.GetDatabase<ItemDefinition>().GetElement(attackMode.SourceDefinition.Name, true);
+                            var finesse = false;
+                            var melee = false;
+                            var range = false;
+                            var itemDefinition = DatabaseRepository.GetDatabase<ItemDefinition>().GetElement(attackMode.SourceDefinition.Name, true);
                             if (itemDefinition != null
                                 && itemDefinition.IsWeapon)
                             {
-                                WeaponTypeDefinition weaponTypeDefinition = DatabaseRepository.GetDatabase<WeaponTypeDefinition>().GetElement(itemDefinition.WeaponDescription.WeaponType);
+                                var weaponTypeDefinition = DatabaseRepository.GetDatabase<WeaponTypeDefinition>().GetElement(itemDefinition.WeaponDescription.WeaponType);
                                 if (weaponTypeDefinition.WeaponProximity == RuleDefinitions.AttackProximity.Melee && !rangedAttack)
                                 {
                                     melee = true;
@@ -478,14 +478,14 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                 // Can the attacker trigger a power on performing a hit? Example use: Decisive Strike of the Battle domain
                 if (attacker.RulesetCharacter.UsablePowers.Count > 0)
                 {
-                    foreach (RulesetUsablePower usablePower in attacker.RulesetCharacter.UsablePowers)
+                    foreach (var usablePower in attacker.RulesetCharacter.UsablePowers)
                     {
                         if (!attacker.RulesetCharacter.IsPowerOverriden(usablePower)
                             && attacker.RulesetCharacter.GetRemainingUsesOfPower(usablePower) > 0
                             && ((usablePower.PowerDefinition.ActivationTime == RuleDefinitions.ActivationTime.OnAttackHit && attackMode != null)
                                 || (usablePower.PowerDefinition.ActivationTime == RuleDefinitions.ActivationTime.OnAttackHitWithBow && attackMode != null && attacker.RulesetCharacter.IsWieldingBow())))
                         {
-                            CharacterActionParams reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower);
+                            var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower);
                             reactionParams.StringParameter = usablePower.PowerDefinition.Name;
 
                             // Remove trailing numbers for advanced powers
@@ -495,13 +495,13 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                                 reactionParams.StringParameter = reactionParams.StringParameter.Trim(digitsToTrim);
                             }
 
-                            IRulesetImplementationService rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
+                            var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
                             reactionParams.RulesetEffect = rulesetImplementationService.InstantiateEffectPower(attacker.RulesetCharacter, usablePower, false);
                             reactionParams.TargetCharacters.Add(defender);
                             reactionParams.IsReactionEffect = true;
 
-                            IGameLocationActionService actionService = ServiceRepository.GetService<IGameLocationActionService>();
-                            int previousReactionCount = actionService.PendingReactionRequestGroups.Count;
+                            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+                            var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
                             actionService.ReactToSpendPower(reactionParams);
 
                             //yield return __instance.WaitForReactions(attacker, actionService, previousReactionCount);
@@ -512,14 +512,14 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                                 || (usablePower.PowerDefinition.ActivationTime == RuleDefinitions.ActivationTime.OnSneakAttackHit && ___triggeredAdditionalDamageTags.Contains(TagsDefinitions.AdditionalDamageSneakAttackTag))))
                         {
                             // This case is for the Rogue Hoodlum
-                            CharacterActionParams actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower);
+                            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower);
                             actionParams.StringParameter = usablePower.PowerDefinition.Name;
 
-                            IRulesetImplementationService rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
+                            var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
                             actionParams.RulesetEffect = rulesetImplementationService.InstantiateEffectPower(attacker.RulesetCharacter, usablePower, false);
                             actionParams.TargetCharacters.Add(defender);
 
-                            IGameLocationActionService actionService = ServiceRepository.GetService<IGameLocationActionService>();
+                            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
                             actionService.ExecuteAction(actionParams, null, true);
                         }
                     }
@@ -528,12 +528,12 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                 // Can I reduce the damage quantity of this attackMode?
                 if (attackMode != null && attackMode.Ranged && defender.GetActionStatus(ActionDefinitions.Id.DeflectMissile, ActionDefinitions.ActionScope.Battle, ActionDefinitions.ActionStatus.Available) == ActionDefinitions.ActionStatus.Available)
                 {
-                    CharacterActionParams reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.DeflectMissile);
+                    var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.DeflectMissile);
                     reactionParams.ActionModifiers.Add(attackModifier);
                     reactionParams.TargetCharacters.Add(attacker);
-                    IGameLocationActionService actionService = ServiceRepository.GetService<IGameLocationActionService>();
+                    var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 
-                    int previousReactionCount = actionService.PendingReactionRequestGroups.Count;
+                    var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
                     actionService.ReactToDeflectMissile(reactionParams);
 
                     //yield return __instance.WaitForReactions(attacker, actionService, previousReactionCount);
@@ -548,12 +548,12 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                     if (defender.GetActionStatus(ActionDefinitions.Id.UncannyDodge, ActionDefinitions.ActionScope.Battle, ActionDefinitions.ActionStatus.Available) == ActionDefinitions.ActionStatus.Available
                         && defender.PerceivedFoes.Contains(attacker))
                     {
-                        CharacterActionParams reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.UncannyDodge);
+                        var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.UncannyDodge);
                         reactionParams.ActionModifiers.Add(attackModifier);
                         reactionParams.TargetCharacters.Add(attacker);
-                        IGameLocationActionService actionService = ServiceRepository.GetService<IGameLocationActionService>();
+                        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 
-                        int previousReactionCount = actionService.PendingReactionRequestGroups.Count;
+                        var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
                         actionService.ReactToUncannyDodge(reactionParams);
 
                         //yield return __instance.WaitForReactions(attacker, actionService, previousReactionCount);
@@ -564,12 +564,12 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                         && defender.PerceivedFoes.Contains(attacker)
                         && rangedAttack)
                     {
-                        CharacterActionParams reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.LeafScales);
+                        var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.LeafScales);
                         reactionParams.ActionModifiers.Add(attackModifier);
                         reactionParams.TargetCharacters.Add(attacker);
-                        IGameLocationActionService actionService = ServiceRepository.GetService<IGameLocationActionService>();
+                        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 
-                        int previousReactionCount = actionService.PendingReactionRequestGroups.Count;
+                        var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
                         actionService.ReactToLeafScales(reactionParams);
 
                         //yield return __instance.WaitForReactions(attacker, actionService, previousReactionCount);
@@ -598,17 +598,17 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                                         defender.RulesetCharacter.DamageRetaliated?.Invoke(defender.RulesetCharacter, attacker.RulesetCharacter, provider);
 
                                         // Build the params
-                                        CharacterActionParams retaliateParams = new CharacterActionParams(defender, ActionDefinitions.Id.SpendPower, attacker);
-                                        RulesetUsablePower dummyUsablePower = new RulesetUsablePower(provider.RetaliatePower, null, null);
+                                        var retaliateParams = new CharacterActionParams(defender, ActionDefinitions.Id.SpendPower, attacker);
+                                        var dummyUsablePower = new RulesetUsablePower(provider.RetaliatePower, null, null);
 
                                         // Build the active effect
-                                        IRulesetImplementationService rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
+                                        var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
                                         retaliateParams.RulesetEffect = rulesetImplementationService.InstantiateEffectPower(defender.RulesetCharacter, dummyUsablePower, false);
                                         retaliateParams.StringParameter = provider.RetaliatePower.Name;
                                         retaliateParams.IsReactionEffect = true;
 
                                         // Start the action
-                                        IGameLocationActionService gameLocationActionService = ServiceRepository.GetService<IGameLocationActionService>();
+                                        var gameLocationActionService = ServiceRepository.GetService<IGameLocationActionService>();
                                         gameLocationActionService.ExecuteInstantSingleAction(retaliateParams);
                                     }
                                 }

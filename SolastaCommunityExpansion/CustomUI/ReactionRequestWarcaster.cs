@@ -54,7 +54,7 @@ namespace SolastaCommunityExpansion.CustomUI
                 }
 
                 var attackParams = new BattleDefinitions.AttackEvaluationParams();
-                ActionModifier actionModifier = new ActionModifier();
+                var actionModifier = new ActionModifier();
                 var targetCharacters = reactionParams.TargetCharacters;
 
                 attackParams.FillForMagic(actingCharacter,
@@ -129,7 +129,7 @@ namespace SolastaCommunityExpansion.CustomUI
                 reactionParams.ActionDefinition = ServiceRepository.GetService<IGameLocationActionService>()
                     .AllActionDefinitions[ActionDefinitions.Id.CastReaction];
                 var spell = reactionParams.SpellRepertoire.KnownSpells[option - 1];
-                IRulesetImplementationService rulesService =
+                var rulesService =
                     ServiceRepository.GetService<IRulesetImplementationService>();
                 var rulesetCharacter = actingCharacter.RulesetCharacter;
                 rulesetCharacter.CanCastSpell(spell, true, out var spellRepertoire);
@@ -172,7 +172,7 @@ namespace SolastaCommunityExpansion.CustomUI
         {
             get
             {
-                GameLocationCharacter targetCharacter = this.ReactionParams.TargetCharacters[0];
+                var targetCharacter = this.ReactionParams.TargetCharacters[0];
                 return ServiceRepository.GetService<IGameLocationCharacterService>().ValidCharacters
                     .Contains(targetCharacter) && !targetCharacter.RulesetCharacter.IsDeadOrDyingOrUnconscious;
             }
@@ -180,8 +180,8 @@ namespace SolastaCommunityExpansion.CustomUI
 
         public override string FormatDescription()
         {
-            GuiCharacter caster = new GuiCharacter(this.Character);
-            GuiCharacter target = new GuiCharacter(this.ReactionParams.TargetCharacters[0]);
+            var caster = new GuiCharacter(this.Character);
+            var target = new GuiCharacter(this.ReactionParams.TargetCharacters[0]);
             return Gui.Format(base.FormatDescription(), caster.Name, target.Name, "");
         }
 

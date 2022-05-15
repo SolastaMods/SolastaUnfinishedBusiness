@@ -18,11 +18,11 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.PowersAndPools
 
         public static int GetClassOrCharacterLevel(int characterLevel, RulesetCharacter rulesetCharacter, string attribute)
         {
-            if (rules.TryGetValue(attribute, out CharacterClassDefinition characterClass))
+            if (rules.TryGetValue(attribute, out var characterClass))
             {
                 var hero = rulesetCharacter as RulesetCharacterHero ?? rulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
 
-                if (hero != null && hero.ClassesAndLevels.TryGetValue(characterClass, out int classLevel))
+                if (hero != null && hero.ClassesAndLevels.TryGetValue(characterClass, out var classLevel))
                 {
                     return classLevel;
                 }
@@ -49,7 +49,7 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.PowersAndPools
 
             foreach (var attribute in __instance.Attributes)
             {
-                foreach (RulesetAttributeModifier activeModifier in attribute.Value.ActiveModifiers)
+                foreach (var activeModifier in attribute.Value.ActiveModifiers)
                 {
                     if (activeModifier.Operation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.MultiplyByCharacterLevel)
                     {

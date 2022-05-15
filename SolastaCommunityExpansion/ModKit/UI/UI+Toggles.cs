@@ -219,11 +219,11 @@ namespace ModKit
             {
                 if (exclusive)
                 {
-                    bitfield = (newBit ? 1 << offset : 0);
+                    bitfield = newBit ? 1 << offset : 0;
                 }
                 else
                 {
-                    bitfield ^= (1 << offset);
+                    bitfield ^= 1 << offset;
                 }
             }
             If(newBit, actions);

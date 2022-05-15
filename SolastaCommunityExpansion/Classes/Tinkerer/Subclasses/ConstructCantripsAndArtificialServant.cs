@@ -74,14 +74,14 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             Definition.EffectDescription.SetTargetParameter(1);
             Definition.EffectDescription.SetRangeType(RuleDefinitions.RangeType.Touch);
 
-            HealingForm mendingconstruct = new HealingForm
+            var mendingconstruct = new HealingForm
             {
                 BonusHealing = 0,
                 DieType = RuleDefinitions.DieType.D6,
                 DiceNumber = 2
             };
 
-            EffectForm effect = new EffectForm
+            var effect = new EffectForm
             {
                 FormType = EffectForm.EffectFormType.Healing
             };
@@ -128,10 +128,10 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             Definition.SetMaterialComponentType(RuleDefinitions.MaterialComponentType.None);
             Definition.SetVerboseComponent(false);
 
-            CounterForm dismissConstruct = new CounterForm();
+            var dismissConstruct = new CounterForm();
             dismissConstruct.SetType(CounterForm.CounterType.DismissCreature);
 
-            EffectForm effect = new EffectForm
+            var effect = new EffectForm
             {
                 FormType = EffectForm.EffectFormType.Counter
             };
@@ -139,7 +139,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             effect.HasSavingThrow = false;
             effect.SetCreatedByCharacter(true);
 
-            EffectDescription effectDescription = new EffectDescription();
+            var effectDescription = new EffectDescription();
             effectDescription.Copy(Definition.EffectDescription);
             effectDescription.EffectForms.Clear();
             effectDescription.HasSavingThrow = false;
@@ -269,7 +269,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             Definition.GuiPresentation.Title = "Feat/&ArtificialServantAttackTitle";
             Definition.GuiPresentation.Description = "Feat/&ArtificialServantAttackDescription";
 
-            EffectForm damageEffect = new EffectForm
+            var damageEffect = new EffectForm
             {
                 AddBonusMode = RuleDefinitions.AddBonusMode.AbilityBonus,
                 DamageForm = new DamageForm
@@ -285,7 +285,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             damageEffect.DamageForm.DamageType = "DamageForce";
 
             //Add to our new effect
-            EffectDescription newEffectDescription = new EffectDescription();
+            var newEffectDescription = new EffectDescription();
             newEffectDescription.Copy(Definition.EffectDescription);
             newEffectDescription.EffectForms.Clear();
             newEffectDescription.EffectForms.Add(damageEffect);
@@ -324,14 +324,14 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             Definition.GuiPresentation.Description = "Feat/&CancelFlyingConditionDescription";
             Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.ExpeditiousRetreat.GuiPresentation.SpriteReference);
 
-            ConditionForm Condition = new ConditionForm();
+            var Condition = new ConditionForm();
             Condition.SetApplyToSelf(false);
             Condition.SetForceOnSelf(false);
             Condition.Operation = ConditionForm.ConditionOperation.Remove;
             Condition.SetConditionDefinitionName(DatabaseHelper.ConditionDefinitions.ConditionFlyingBootsWinged.Name);
             Condition.ConditionDefinition = DatabaseHelper.ConditionDefinitions.ConditionFlyingBootsWinged;
 
-            EffectForm effect = new EffectForm();
+            var effect = new EffectForm();
             effect.SetApplyLevel(EffectForm.LevelApplianceType.No);
             effect.SetLevelMultiplier(1);
             effect.SetLevelType(RuleDefinitions.LevelSourceType.None);
@@ -340,7 +340,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             effect.ConditionForm = Condition;
             effect.SetCanSaveToCancel(false);
 
-            EffectDescription effectDescription = new EffectDescription();
+            var effectDescription = new EffectDescription();
             effectDescription.Copy(Definition.EffectDescription);
             effectDescription.SetTargetType(RuleDefinitions.TargetType.Self);
             effectDescription.SetTargetSide(RuleDefinitions.Side.Ally);

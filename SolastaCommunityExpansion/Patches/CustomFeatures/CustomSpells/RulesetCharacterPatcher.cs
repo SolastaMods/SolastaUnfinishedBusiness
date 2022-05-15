@@ -64,12 +64,12 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
                     List<RulesetItem> items = new();
                     __instance.CharacterInventory.EnumerateAllItems(items);
                     var tagsMap = new Dictionary<string, TagsDefinitions.Criticity>();
-                    foreach (RulesetItem rulesetItem in items)
+                    foreach (var rulesetItem in items)
                     {
                         tagsMap.Clear();
                         rulesetItem.FillTags(tagsMap, __instance, true);
                         var itemItemDefinition = rulesetItem.ItemDefinition;
-                        int costInGold = EquipmentDefinitions.GetApproximateCostInGold(itemItemDefinition.Costs);
+                        var costInGold = EquipmentDefinitions.GetApproximateCostInGold(itemItemDefinition.Costs);
                         if (tagsMap.Keys.Contains(materialTag) && costInGold >= requiredCost)
                         {
                             __result = true;

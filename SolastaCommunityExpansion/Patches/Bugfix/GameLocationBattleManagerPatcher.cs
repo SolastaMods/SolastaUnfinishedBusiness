@@ -21,23 +21,23 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
             // GAME CODE FROM HERE
             //
 
-            DamageForm damageForm = DamageForm.Get();
-            FeatureDefinition featureDefinition = provider as FeatureDefinition;
+            var damageForm = DamageForm.Get();
+            var featureDefinition = provider as FeatureDefinition;
 
             if (provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.Die)
             {
-                int num = provider.DamageDiceNumber;
+                var num = provider.DamageDiceNumber;
 
                 if (provider.DamageAdvancement == RuleDefinitions.AdditionalDamageAdvancement.ClassLevel)
                 {
                     // game code doesn't consider heroes in wildshape form
                     //RulesetCharacterHero rulesetCharacter = attacker.RulesetCharacter as RulesetCharacterHero;
-                    RulesetCharacterHero rulesetCharacter = attacker.RulesetCharacter as RulesetCharacterHero ?? attacker.RulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
-                    CharacterClassDefinition classHoldingFeature = rulesetCharacter.FindClassHoldingFeature(featureDefinition);
+                    var rulesetCharacter = attacker.RulesetCharacter as RulesetCharacterHero ?? attacker.RulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
+                    var classHoldingFeature = rulesetCharacter.FindClassHoldingFeature(featureDefinition);
 
                     if (classHoldingFeature != null)
                     {
-                        int classesAndLevel = rulesetCharacter.ClassesAndLevels[classHoldingFeature];
+                        var classesAndLevel = rulesetCharacter.ClassesAndLevels[classHoldingFeature];
                         num = provider.GetDiceOfRank(classesAndLevel);
                     }
                 }
@@ -49,7 +49,7 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
                     }
                     else
                     {
-                        RulesetCondition conditionHoldingFeature = attacker.RulesetCharacter.FindFirstConditionHoldingFeature(provider as FeatureDefinition);
+                        var conditionHoldingFeature = attacker.RulesetCharacter.FindFirstConditionHoldingFeature(provider as FeatureDefinition);
                         if (conditionHoldingFeature != null)
                         {
                             num = provider.GetDiceOfRank(conditionHoldingFeature.EffectLevel);
@@ -76,7 +76,7 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
             }
             // game code doesn't consider heroes in wildshape form
             //else if (attacker.RulesetCharacter is RulesetCharacterHero && (provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonus || provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.SpellcastingBonus || (provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonusAndSpellcastingBonus || provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.RageDamage)))
-            else if ((attacker.RulesetCharacter is RulesetCharacterHero || attacker.RulesetCharacter.OriginalFormCharacter is RulesetCharacterHero) && (provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonus || provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.SpellcastingBonus || (provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonusAndSpellcastingBonus || provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.RageDamage)))
+            else if ((attacker.RulesetCharacter is RulesetCharacterHero || attacker.RulesetCharacter.OriginalFormCharacter is RulesetCharacterHero) && (provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonus || provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.SpellcastingBonus || provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonusAndSpellcastingBonus || provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.RageDamage))
             {
                 damageForm.DieType = RuleDefinitions.DieType.D1;
                 damageForm.DiceNumber = 0;
@@ -94,7 +94,7 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
                     // use the correct spell repertoire for calculating spell bonus
 
                     //int num = 0;
-                    int num = AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter.GetAttribute(Global.CastedSpellRepertoire.SpellCastingAbility).CurrentValue);
+                    var num = AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter.GetAttribute(Global.CastedSpellRepertoire.SpellCastingAbility).CurrentValue);
 
                     //foreach (RulesetSpellRepertoire spellRepertoire in attacker.RulesetCharacter.SpellRepertoires)
                     //{
@@ -113,7 +113,7 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
             }
             else if (provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonusOfSource)
             {
-                RulesetCondition conditionHoldingFeature = attacker.RulesetCharacter.FindFirstConditionHoldingFeature(provider as FeatureDefinition);
+                var conditionHoldingFeature = attacker.RulesetCharacter.FindFirstConditionHoldingFeature(provider as FeatureDefinition);
 
                 if (conditionHoldingFeature != null && RulesetEntity.TryGetEntity(conditionHoldingFeature.SourceGuid, out RulesetCharacter entity))
                 {
@@ -132,16 +132,16 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
             }
             else if (provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.BrutalCriticalDice)
             {
-                bool flag = attackMode != null && attackMode.UseVersatileDamage;
-                DamageForm firstDamageForm = EffectForm.GetFirstDamageForm(actualEffectForms);
+                var flag = attackMode != null && attackMode.UseVersatileDamage;
+                var firstDamageForm = EffectForm.GetFirstDamageForm(actualEffectForms);
                 damageForm.DieType = flag ? firstDamageForm.VersatileDieType : firstDamageForm.DieType;
                 damageForm.DiceNumber = attacker.RulesetCharacter.TryGetAttributeValue("BrutalCriticalDice");
                 damageForm.BonusDamage = 0;
             }
             else if (provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
             {
-                bool flag = attackMode != null && attackMode.UseVersatileDamage;
-                DamageForm firstDamageForm = EffectForm.GetFirstDamageForm(actualEffectForms);
+                var flag = attackMode != null && attackMode.UseVersatileDamage;
+                var firstDamageForm = EffectForm.GetFirstDamageForm(actualEffectForms);
                 damageForm.DieType = flag ? firstDamageForm.VersatileDieType : firstDamageForm.DieType;
                 damageForm.DiceNumber = 1;
                 damageForm.BonusDamage = 0;
@@ -177,12 +177,12 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
                         break;
                 }
 
-                EffectForm fromDamageForm = EffectForm.GetFromDamageForm(damageForm);
+                var fromDamageForm = EffectForm.GetFromDamageForm(damageForm);
 
                 if (provider.HasSavingThrow)
                 {
                     fromDamageForm.SavingThrowAffinity = provider.DamageSaveAffinity;
-                    int savingThrowDc = ServiceRepository.GetService<IRulesetImplementationService>().ComputeSavingThrowDC(attacker.RulesetCharacter, provider);
+                    var savingThrowDc = ServiceRepository.GetService<IRulesetImplementationService>().ComputeSavingThrowDC(attacker.RulesetCharacter, provider);
                     fromDamageForm.OverrideSavingThrowInfo = new OverrideSavingThrowInfo(provider.SavingThrowAbility, savingThrowDc, provider.Name, RuleDefinitions.FeatureSourceType.ExplicitFeature);
                 }
 
@@ -190,7 +190,7 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
 
                 if (attacker.RulesetCharacter.AdditionalDamageGenerated != null)
                 {
-                    int diceNumber = damageForm.DiceNumber;
+                    var diceNumber = damageForm.DiceNumber;
 
                     if ((uint)damageForm.DieType > 0U & criticalHit && !damageForm.IgnoreCriticalDoubleDice)
                     {
@@ -203,9 +203,9 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
 
             if (provider.ConditionOperations.Count > 0)
             {
-                foreach (ConditionOperationDescription conditionOperation in provider.ConditionOperations)
+                foreach (var conditionOperation in provider.ConditionOperations)
                 {
-                    EffectForm effectForm = new EffectForm()
+                    var effectForm = new EffectForm()
                     {
                         FormType = EffectForm.EffectFormType.Condition,
                         ConditionForm = new ConditionForm()
@@ -219,7 +219,7 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
                     if (conditionOperation.Operation == ConditionOperationDescription.ConditionOperation.Add && provider.HasSavingThrow)
                     {
                         effectForm.SavingThrowAffinity = conditionOperation.SaveAffinity;
-                        int savingThrowDc = ServiceRepository.GetService<IRulesetImplementationService>().ComputeSavingThrowDC(attacker.RulesetCharacter, provider);
+                        var savingThrowDc = ServiceRepository.GetService<IRulesetImplementationService>().ComputeSavingThrowDC(attacker.RulesetCharacter, provider);
                         effectForm.OverrideSavingThrowInfo = new OverrideSavingThrowInfo(provider.SavingThrowAbility, savingThrowDc, provider.Name, RuleDefinitions.FeatureSourceType.ExplicitFeature);
                     }
 
@@ -228,16 +228,16 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
             }
             if (provider.AddLightSource && defender.RulesetCharacter != null && defender.RulesetCharacter.PersonalLightSource == null)
             {
-                LightSourceForm lightSourceForm = provider.LightSourceForm;
-                IGameLocationVisibilityService service = ServiceRepository.GetService<IGameLocationVisibilityService>();
+                var lightSourceForm = provider.LightSourceForm;
+                var service = ServiceRepository.GetService<IGameLocationVisibilityService>();
                 float brightRange = lightSourceForm.BrightRange;
-                float dimRangeCells = brightRange + lightSourceForm.DimAdditionalRange;
+                var dimRangeCells = brightRange + lightSourceForm.DimAdditionalRange;
                 defender.RulesetCharacter.PersonalLightSource = new RulesetLightSource(lightSourceForm.Color, brightRange, dimRangeCells, lightSourceForm.GraphicsPrefabAssetGUID, lightSourceForm.LightSourceType, featureDefinition.Name, defender.RulesetCharacter.Guid);
                 defender.RulesetCharacter.PersonalLightSource.Register(true);
-                GameLocationCharacter character = defender;
-                RulesetLightSource personalLightSource = defender.RulesetCharacter.PersonalLightSource;
+                var character = defender;
+                var personalLightSource = defender.RulesetCharacter.PersonalLightSource;
                 service.AddCharacterLightSource(character, personalLightSource);
-                RulesetCondition conditionHoldingFeature = attacker.RulesetCharacter.FindFirstConditionHoldingFeature(provider as FeatureDefinition);
+                var conditionHoldingFeature = attacker.RulesetCharacter.FindFirstConditionHoldingFeature(provider as FeatureDefinition);
                 if (conditionHoldingFeature != null)
                 {
                     attacker.RulesetCharacter.FindEffectTrackingCondition(conditionHoldingFeature).TrackLightSource(defender.RulesetCharacter, defender.Guid, string.Empty, defender.RulesetCharacter.PersonalLightSource);

@@ -113,9 +113,9 @@ namespace SolastaCommunityExpansion.Builders
 
             var deviceFunction = Berry_Ration.UsableDeviceDescription.DeviceFunctions[0];
 
-            foreach (FeatureDefinitionPower power in functions)
+            foreach (var power in functions)
             {
-                DeviceFunctionDescription functionDescription =
+                var functionDescription =
                     deviceFunction.Copy().SetType(DeviceFunctionDescription.FunctionType.Power).SetFeatureDefinitionPower(power);
                 Definition.UsableDeviceDescription.DeviceFunctions.Add(functionDescription);
             }

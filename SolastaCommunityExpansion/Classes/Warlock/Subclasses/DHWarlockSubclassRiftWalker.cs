@@ -168,7 +168,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
         public static void RiftWalkerSpells()
         {
-            SpellListDefinition RiftWalkerSpellList = SpellListDefinitionBuilder
+            var RiftWalkerSpellList = SpellListDefinitionBuilder
                    .Create(DatabaseHelper.SpellListDefinitions.SpellListPaladin, "RiftWalkerSpellsList", CENamespaceGuid)
                    .SetGuiPresentation("RiftWalkerSpellsList", Category.SpellList)
                    .ClearSpells()

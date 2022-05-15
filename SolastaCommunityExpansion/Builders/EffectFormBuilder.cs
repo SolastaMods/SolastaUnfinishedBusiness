@@ -68,7 +68,7 @@ namespace SolastaCommunityExpansion.Builders
         public EffectFormBuilder SetAlterationForm(AlterationForm.Type alterationType)
         {
             effectForm.FormType = EffectForm.EffectFormType.Alteration;
-            AlterationForm alterationForm = new AlterationForm();
+            var alterationForm = new AlterationForm();
             alterationForm.SetAlterationType(alterationType);
             effectForm.SetAlterationForm(alterationForm);
             return this;
@@ -77,7 +77,7 @@ namespace SolastaCommunityExpansion.Builders
         public EffectFormBuilder SetAlterationAbilityScore(string abilityScore, int valueIncrease, int maximumIncrease)
         {
             effectForm.FormType = EffectForm.EffectFormType.Alteration;
-            AlterationForm alterationForm = new AlterationForm();
+            var alterationForm = new AlterationForm();
             alterationForm.SetAlterationType(AlterationForm.Type.AbilityScoreIncrease);
             alterationForm.SetAbilityScore(abilityScore);
             alterationForm.SetValueIncrease(valueIncrease);
@@ -99,7 +99,7 @@ namespace SolastaCommunityExpansion.Builders
         public EffectFormBuilder SetConditionForm(ConditionDefinition condition, ConditionForm.ConditionOperation operation, bool applyToSelf, bool forceOnSelf, IEnumerable<ConditionDefinition> detrimentalConditions)
         {
             effectForm.FormType = EffectForm.EffectFormType.Condition;
-            ConditionForm conditionForm = new ConditionForm
+            var conditionForm = new ConditionForm
             {
                 Operation = operation,
                 ConditionDefinition = condition
@@ -115,7 +115,7 @@ namespace SolastaCommunityExpansion.Builders
         public EffectFormBuilder SetCounterForm(CounterForm.CounterType type, int automaticSpellLevel, int checkBaseDC, bool addSpellCastingAbility, bool addProficiencyBonus)
         {
             effectForm.FormType = EffectForm.EffectFormType.Counter;
-            CounterForm counterForm = new CounterForm();
+            var counterForm = new CounterForm();
             counterForm.SetType(type);
             counterForm.SetAutomaticSpellLevel(automaticSpellLevel);
             counterForm.SetCheckBaseDC(checkBaseDC);
@@ -138,7 +138,7 @@ namespace SolastaCommunityExpansion.Builders
             IEnumerable<TrendInfo> damageBonusTrends)
         {
             effectForm.FormType = EffectForm.EffectFormType.Damage;
-            DamageForm damageForm = new DamageForm();
+            var damageForm = new DamageForm();
             damageForm.SetVersatile(versatile);
             damageForm.VersatileDieType = versatileDieType;
             damageForm.BonusDamage = bonusDamage;
@@ -155,7 +155,7 @@ namespace SolastaCommunityExpansion.Builders
             IEnumerable<string> revealedTags, int rangeCells)
         {
             effectForm.FormType = EffectForm.EffectFormType.Divination;
-            DivinationForm divinationForm = new DivinationForm();
+            var divinationForm = new DivinationForm();
             divinationForm.SetDivinationType(divinationType);
             divinationForm.CreatureFamilies.SetRange(creatureFamilies);
             divinationForm.RevealedTags.SetRange(revealedTags);
@@ -170,7 +170,7 @@ namespace SolastaCommunityExpansion.Builders
         {
             effectForm.FormType = EffectForm.EffectFormType.Healing;
 
-            HealingForm healingForm = new HealingForm
+            var healingForm = new HealingForm
             {
                 HealingComputation = healingComputation,
                 BonusHealing = bonusHitPoints,
@@ -191,7 +191,7 @@ namespace SolastaCommunityExpansion.Builders
         public EffectFormBuilder SetItemPropertyForm(IEnumerable<FeatureUnlockByLevel> featureBySlotLevel, ItemPropertyUsage usageLimitation, int useAmount)
         {
             effectForm.FormType = EffectForm.EffectFormType.ItemProperty;
-            ItemPropertyForm itemForm = new ItemPropertyForm();
+            var itemForm = new ItemPropertyForm();
             itemForm.SetUsageLimitation(usageLimitation);
             itemForm.SetUseAmount(useAmount);
             itemForm.FeatureBySlotLevel.SetRange(featureBySlotLevel);
@@ -203,7 +203,7 @@ namespace SolastaCommunityExpansion.Builders
             Color color, AssetReference graphicsPrefabReference)
         {
             effectForm.FormType = EffectForm.EffectFormType.LightSource;
-            LightSourceForm lightSourceForm = new LightSourceForm();
+            var lightSourceForm = new LightSourceForm();
             lightSourceForm.SetLightSourceType(lightSourceType);
             lightSourceForm.SetBrightRange(brightRange);
             lightSourceForm.SetDimAdditionalRange(dimAdditionalRange);
@@ -216,7 +216,7 @@ namespace SolastaCommunityExpansion.Builders
         public EffectFormBuilder SetMotionForm(MotionForm.MotionType motionType, int motionDistance)
         {
             effectForm.FormType = EffectForm.EffectFormType.Motion;
-            MotionForm motionForm = new MotionForm();
+            var motionForm = new MotionForm();
             motionForm.SetType(motionType);
             motionForm.SetDistance(motionDistance);
             effectForm.SetMotionForm(motionForm);
@@ -233,7 +233,7 @@ namespace SolastaCommunityExpansion.Builders
             IEnumerable<ConditionDefinition> removedConditions)
         {
             effectForm.FormType = EffectForm.EffectFormType.Revive;
-            ReviveForm reviveForm = new ReviveForm();
+            var reviveForm = new ReviveForm();
             reviveForm.SetMaxSecondsSinceDeath(secondsSinceDeath);
             reviveForm.SetReviveHitPoints(reviveHitPoints);
             reviveForm.RemovedConditions.SetRange(removedConditions);
@@ -245,7 +245,7 @@ namespace SolastaCommunityExpansion.Builders
         public EffectFormBuilder SetSpellForm(int maxSlotLevel)
         {
             effectForm.FormType = EffectForm.EffectFormType.SpellSlots;
-            SpellSlotsForm spellSlotsForm = new SpellSlotsForm();
+            var spellSlotsForm = new SpellSlotsForm();
             spellSlotsForm.SetType(SpellSlotsForm.EffectType.RecoverHalfLevelUp);
             spellSlotsForm.SetMaxSlotLevel(maxSlotLevel);
             effectForm.SetSpellSlotsForm(spellSlotsForm);
@@ -256,7 +256,7 @@ namespace SolastaCommunityExpansion.Builders
             bool persistOnConcentrationLoss, DecisionPackageDefinition decisionPackage, EffectProxyDefinition effectProxyDefinition)
         {
             effectForm.FormType = EffectForm.EffectFormType.Summon;
-            SummonForm summonForm = new SummonForm();
+            var summonForm = new SummonForm();
             summonForm.SetSummonType(summonType);
             summonForm.SetItemDefinition(item);
             summonForm.SetNumber(number);
@@ -273,7 +273,7 @@ namespace SolastaCommunityExpansion.Builders
             bool persistOnConcentrationLoss = false, ConditionDefinition condition = null, DecisionPackageDefinition decisionPackage = null)
         {
             effectForm.FormType = EffectForm.EffectFormType.Summon;
-            SummonForm summonForm = new SummonForm();
+            var summonForm = new SummonForm();
             summonForm.SetSummonType(SummonForm.Type.Creature);
             summonForm.SetItemDefinition(null);
             summonForm.SetNumber(number);
@@ -289,7 +289,7 @@ namespace SolastaCommunityExpansion.Builders
         public EffectFormBuilder SetSummonItemForm(ItemDefinition item, int number)
         {
             effectForm.FormType = EffectForm.EffectFormType.Summon;
-            SummonForm summonForm = new SummonForm();
+            var summonForm = new SummonForm();
             summonForm.SetSummonType(SummonForm.Type.InventoryItem);
             summonForm.SetItemDefinition(item);
             summonForm.SetNumber(number);
@@ -305,7 +305,7 @@ namespace SolastaCommunityExpansion.Builders
         public EffectFormBuilder SetTempHPForm(int bonusHitPoints, RuleDefinitions.DieType dieType, int diceNumber)
         {
             effectForm.FormType = EffectForm.EffectFormType.TemporaryHitPoints;
-            TemporaryHitPointsForm tempHPForm = new TemporaryHitPointsForm
+            var tempHPForm = new TemporaryHitPointsForm
             {
                 BonusHitPoints = bonusHitPoints,
                 DieType = dieType,
@@ -318,7 +318,7 @@ namespace SolastaCommunityExpansion.Builders
         public EffectFormBuilder SetTopologyForm(TopologyForm.Type changeType, bool impactsFlyingCharacters)
         {
             effectForm.FormType = EffectForm.EffectFormType.Topology;
-            TopologyForm topologyForm = new TopologyForm();
+            var topologyForm = new TopologyForm();
             topologyForm.SetChangeType(changeType);
             topologyForm.SetImpactsFlyingCharacters(impactsFlyingCharacters);
             effectForm.SetTopologyForm(topologyForm);

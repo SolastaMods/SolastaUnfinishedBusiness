@@ -19,7 +19,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
                 return;
             }
 
-            bool foundActivePanel = false;
+            var foundActivePanel = false;
 
             if (__instance.Visible && __instance.SpellSelectionPanel != null && __instance.SpellSelectionPanel.Visible)
             {

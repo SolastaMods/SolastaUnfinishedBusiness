@@ -51,7 +51,7 @@ namespace SolastaCommunityExpansion.Builders
 
         public RecipeDefinitionBuilder AddIngredient(ItemDefinition ingredient)
         {
-            IngredientOccurenceDescription description = new IngredientOccurenceDescription();
+            var description = new IngredientOccurenceDescription();
             description.SetItemDefinition(ingredient);
             description.SetAmount(1);
             Definition.Ingredients.Add(description);
@@ -60,7 +60,7 @@ namespace SolastaCommunityExpansion.Builders
 
         public RecipeDefinitionBuilder AddIngredient(ItemDefinition ingredient, int amount)
         {
-            IngredientOccurenceDescription description = new IngredientOccurenceDescription();
+            var description = new IngredientOccurenceDescription();
             description.SetItemDefinition(ingredient);
             description.SetAmount(amount);
             Definition.Ingredients.Add(description);

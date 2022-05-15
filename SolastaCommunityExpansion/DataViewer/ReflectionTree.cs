@@ -105,7 +105,7 @@ namespace SolastaCommunityExpansion.DataViewer
         {
             get
             {
-                int count = 1;
+                var count = 1;
                 if (IsBaseType)
                 {
                     return count;
@@ -170,8 +170,8 @@ namespace SolastaCommunityExpansion.DataViewer
         public abstract int? InstanceID { get; }
         public static IEnumerable<FieldInfo> GetFields(Type type)
         {
-            HashSet<string> names = new HashSet<string>();
-            foreach (FieldInfo field in (Nullable.GetUnderlyingType(type) ?? type).GetFields(ALL_FLAGS))
+            var names = new HashSet<string>();
+            foreach (var field in (Nullable.GetUnderlyingType(type) ?? type).GetFields(ALL_FLAGS))
             {
                 if (!field.IsStatic &&
                     !field.IsDefined(typeof(CompilerGeneratedAttribute), false) &&  // ignore backing field
@@ -183,8 +183,8 @@ namespace SolastaCommunityExpansion.DataViewer
         }
         public static IEnumerable<PropertyInfo> GetProperties(Type type)
         {
-            HashSet<string> names = new HashSet<string>();
-            foreach (PropertyInfo property in (Nullable.GetUnderlyingType(type) ?? type).GetProperties(ALL_FLAGS))
+            var names = new HashSet<string>();
+            foreach (var property in (Nullable.GetUnderlyingType(type) ?? type).GetProperties(ALL_FLAGS))
             {
                 if (property.GetMethod != null &&
                     !property.GetMethod.IsStatic &&
@@ -261,7 +261,7 @@ namespace SolastaCommunityExpansion.DataViewer
                     _value = value;
                     if (!Type.IsValueType || IsNullable)
                     {
-                        Type oldType = _instType;
+                        var oldType = _instType;
                         _instType = value?.GetType();
                         if (_instType != oldType)
                         {
@@ -383,12 +383,12 @@ namespace SolastaCommunityExpansion.DataViewer
                 return;
             }
 
-            Type nodeType = typeof(ComponentNode);
-            int i = 0;
+            var nodeType = typeof(ComponentNode);
+            var i = 0;
 
             if (Value is GameObject gameObject)
             {
-                foreach (Component item in gameObject.GetComponents<Component>())
+                foreach (var item in gameObject.GetComponents<Component>())
                 {
                     _componentNodes.Add(FindOrCreateChildForValue(nodeType, this, "<component_" + i + ">", item));
                     i++;
@@ -415,13 +415,13 @@ namespace SolastaCommunityExpansion.DataViewer
                 return;
             }
 
-            IEnumerable<Type> itemTypes = InstType.GetInterfaces()
+            var itemTypes = InstType.GetInterfaces()
                 .Where(item => item.IsGenericType && item.GetGenericTypeDefinition() == typeof(IEnumerable<>))
                 .Select(item => item.GetGenericArguments()[0]);
-            Type itemType = itemTypes.Count() == 1 ? itemTypes.First() : typeof(object);
-            Type nodeType = typeof(ItemNode<>).MakeGenericType(itemType);
-            int i = 0;
-            foreach (object item in Value as IEnumerable)
+            var itemType = itemTypes.Count() == 1 ? itemTypes.First() : typeof(object);
+            var nodeType = typeof(ItemNode<>).MakeGenericType(itemType);
+            var i = 0;
+            foreach (var item in Value as IEnumerable)
             {
                 _itemNodes.Add(FindOrCreateChildForValue(nodeType, this, "<item_" + i + ">", item));
                 i++;
@@ -446,7 +446,7 @@ namespace SolastaCommunityExpansion.DataViewer
                 return;
             }
 
-            Type nodeType = InstType.IsValueType ? !IsNullable ? typeof(FieldOfStructNode<,,>) : typeof(FieldOfNullableNode<,,>) : typeof(FieldOfClassNode<,,>);
+            var nodeType = InstType.IsValueType ? !IsNullable ? typeof(FieldOfStructNode<,,>) : typeof(FieldOfNullableNode<,,>) : typeof(FieldOfClassNode<,,>);
 
             _fieldNodes = GetFields(InstType).Select(child => FindOrCreateChildForValue(nodeType.MakeGenericType(Type, InstType, child.FieldType), this, child.Name)).ToList();
             _fieldNodes.Sort((x, y) => x.Name.CompareTo(y.Name));
@@ -470,7 +470,7 @@ namespace SolastaCommunityExpansion.DataViewer
                 return;
             }
 
-            Type nodeType = InstType.IsValueType ? !IsNullable ? typeof(PropertyOfStructNode<,,>) : typeof(PropertyOfNullableNode<,,>) : typeof(PropertyOfClassNode<,,>);
+            var nodeType = InstType.IsValueType ? !IsNullable ? typeof(PropertyOfStructNode<,,>) : typeof(PropertyOfNullableNode<,,>) : typeof(PropertyOfClassNode<,,>);
 
             _propertyNodes = GetProperties(InstType).Select(child => FindOrCreateChildForValue(nodeType.MakeGenericType(Type, InstType, child.PropertyType), this, child.Name)).ToList();
 
@@ -487,7 +487,7 @@ namespace SolastaCommunityExpansion.DataViewer
 
                 if (_fieldNodes != null)
                 {
-                    foreach (Node child in _fieldNodes)
+                    foreach (var child in _fieldNodes)
                     {
                         child.SetDirty();
                     }
@@ -495,7 +495,7 @@ namespace SolastaCommunityExpansion.DataViewer
 
                 if (_propertyNodes != null)
                 {
-                    foreach (Node child in _propertyNodes)
+                    foreach (var child in _propertyNodes)
                     {
                         child.SetDirty();
                     }
@@ -543,7 +543,7 @@ namespace SolastaCommunityExpansion.DataViewer
         }
         public override Node GetParent()
         {
-            if (_parentNode.TryGetTarget(out Node parent))
+            if (_parentNode.TryGetTarget(out var parent))
             {
                 return parent;
             }
@@ -560,7 +560,7 @@ namespace SolastaCommunityExpansion.DataViewer
         }
         public override Node GetParent()
         {
-            if (_parentNode.TryGetTarget(out Node parent))
+            if (_parentNode.TryGetTarget(out var parent))
             {
                 return parent;
             }
@@ -591,7 +591,7 @@ namespace SolastaCommunityExpansion.DataViewer
         }
         public override Node GetParent()
         {
-            if (_parentNode.TryGetTarget(out GenericNode<TParent> parent))
+            if (_parentNode.TryGetTarget(out var parent))
             {
                 return parent;
             }
@@ -606,7 +606,7 @@ namespace SolastaCommunityExpansion.DataViewer
         protected ChildOfStructNode(GenericNode<TParent> parentNode, string name, NodeType nodeType) : base(parentNode, name, nodeType) { }
         protected bool TryGetParentValue(out TParentInst value)
         {
-            if (_parentNode.TryGetTarget(out GenericNode<TParent> parent) && parent.InstType == typeof(TParentInst))
+            if (_parentNode.TryGetTarget(out var parent) && parent.InstType == typeof(TParentInst))
             {
                 value = _forceCast(parent.Value);
                 return true;
@@ -623,9 +623,9 @@ namespace SolastaCommunityExpansion.DataViewer
         protected ChildOfNullableNode(GenericNode<TParent> parentNode, string name, NodeType nodeType) : base(parentNode, name, nodeType) { }
         protected bool TryGetParentValue(out TUnderlying value)
         {
-            if (_parentNode.TryGetTarget(out GenericNode<TParent> parent))
+            if (_parentNode.TryGetTarget(out var parent))
             {
-                TUnderlying? parentValue = _forceCast(parent.Value);
+                var parentValue = _forceCast(parent.Value);
                 if (parentValue.HasValue)
                 {
                     value = parentValue.Value;
@@ -643,7 +643,7 @@ namespace SolastaCommunityExpansion.DataViewer
         protected ChildOfClassNode(GenericNode<TParent> parentNode, string name, NodeType nodeType) : base(parentNode, name, nodeType) { }
         protected bool TryGetParentValue(out TParentInst value)
         {
-            if (_parentNode.TryGetTarget(out GenericNode<TParent> parent) && (value = parent.Value as TParentInst) != null)
+            if (_parentNode.TryGetTarget(out var parent) && (value = parent.Value as TParentInst) != null)
             {
                 return true;
             }
@@ -658,7 +658,7 @@ namespace SolastaCommunityExpansion.DataViewer
         protected FieldOfStructNode(GenericNode<TParent> parentNode, string name) : base(parentNode, name, NodeType.Field) { }
         protected override void UpdateValueImpl()
         {
-            if (TryGetParentValue(out TParentInst parentValue))
+            if (TryGetParentValue(out var parentValue))
             {
                 _isException = false;
                 Value = parentValue.GetFieldValue<TParentInst, TNode>(Name);
@@ -677,7 +677,7 @@ namespace SolastaCommunityExpansion.DataViewer
         protected PropertyOfStructNode(GenericNode<TParent> parentNode, string name) : base(parentNode, name, NodeType.Property) { }
         protected override void UpdateValueImpl()
         {
-            if (TryGetParentValue(out TParentInst parentValue))
+            if (TryGetParentValue(out var parentValue))
             {
                 try
                 {
@@ -704,7 +704,7 @@ namespace SolastaCommunityExpansion.DataViewer
         protected FieldOfNullableNode(GenericNode<TParent> parentNode, string name) : base(parentNode, name, NodeType.Field) { }
         protected override void UpdateValueImpl()
         {
-            if (TryGetParentValue(out TUnderlying parentValue))
+            if (TryGetParentValue(out var parentValue))
             {
                 _isException = false;
                 Value = parentValue.GetFieldValue<TUnderlying, TNode>(Name);
@@ -723,7 +723,7 @@ namespace SolastaCommunityExpansion.DataViewer
         protected PropertyOfNullableNode(GenericNode<TParent> parentNode, string name) : base(parentNode, name, NodeType.Property) { }
         protected override void UpdateValueImpl()
         {
-            if (TryGetParentValue(out TUnderlying parentValue))
+            if (TryGetParentValue(out var parentValue))
             {
                 try
                 {
@@ -750,7 +750,7 @@ namespace SolastaCommunityExpansion.DataViewer
         protected FieldOfClassNode(GenericNode<TParent> parentNode, string name) : base(parentNode, name, NodeType.Field) { }
         protected override void UpdateValueImpl()
         {
-            if (TryGetParentValue(out TParentInst parentValue))
+            if (TryGetParentValue(out var parentValue))
             {
                 _isException = false;
                 Value = parentValue.GetFieldValue<TParentInst, TNode>(Name);
@@ -769,7 +769,7 @@ namespace SolastaCommunityExpansion.DataViewer
         protected PropertyOfClassNode(GenericNode<TParent> parentNode, string name) : base(parentNode, name, NodeType.Property) { }
         protected override void UpdateValueImpl()
         {
-            if (TryGetParentValue(out TParentInst parentValue))
+            if (TryGetParentValue(out var parentValue))
             {
                 try
                 {

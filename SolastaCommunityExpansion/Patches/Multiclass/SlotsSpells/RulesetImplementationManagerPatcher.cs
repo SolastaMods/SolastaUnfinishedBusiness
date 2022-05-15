@@ -55,7 +55,7 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.SlotsSpells
 
                     if (currentValue > 0)
                     {
-                        var slotsCapital = currentValue % 2 + currentValue / 2;
+                        var slotsCapital = (currentValue % 2) + (currentValue / 2);
 
                         Gui.GuiService.GetScreen<SlotRecoveryModal>()
                             .ShowSlotRecovery(substituteHero, formsParams.activeEffect.SourceDefinition.Name, spellRepertoire, slotsCapital, spellSlotsForm.MaxSlotLevel);
@@ -85,13 +85,13 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.SlotsSpells
             {
                 var spellRepertoire = substituteHero.SpellRepertoires.Find(sr => sr.SpellCastingClass == Sorcerer);
                 var currentValue = substituteHero.ClassesAndLevels[Sorcerer];
-                var sorceryPointsGain = currentValue % 2 + currentValue / 2;
+                var sorceryPointsGain = (currentValue % 2) + (currentValue / 2);
 
                 formsParams.sourceCharacter.GainSorceryPoints(sorceryPointsGain);
             }
             else if (spellSlotsForm.Type == SpellSlotsForm.EffectType.RechargePower && formsParams.targetCharacter is RulesetCharacter)
             {
-                foreach (RulesetUsablePower usablePower in substituteHero.UsablePowers)
+                foreach (var usablePower in substituteHero.UsablePowers)
                 {
                     if (usablePower.PowerDefinition == spellSlotsForm.PowerDefinition)
                     {

@@ -37,7 +37,7 @@ namespace SolastaCommunityExpansion.Models
             var destinationPath = Path.Combine(backupDirectory, compliantTitle) + "." + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss");
             var backupFiles = Directory.EnumerateFiles(backupDirectory, compliantTitle + "*").OrderBy(f => f).ToList();
 
-            for (int i = 0; i <= backupFiles.Count - Main.Settings.MaxBackupFilesPerLocationCampaign; i++)
+            for (var i = 0; i <= backupFiles.Count - Main.Settings.MaxBackupFilesPerLocationCampaign; i++)
             {
                 File.Delete(backupFiles[i]);
             }

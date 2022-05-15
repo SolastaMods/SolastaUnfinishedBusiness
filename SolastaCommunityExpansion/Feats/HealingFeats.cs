@@ -18,11 +18,11 @@ namespace SolastaCommunityExpansion.Feats
             var inspiringLeaderPresentation = GuiPresentationBuilder.Build(
                 "InspiringLeader", Category.Feat, PowerOathOfTirmarGoldenSpeech.GuiPresentation.SpriteReference);
 
-            EffectDescription inspiringEffect = BuildEffectDescriptionTempHPForm(RuleDefinitions.RangeType.Distance, 10,
+            var inspiringEffect = BuildEffectDescriptionTempHPForm(RuleDefinitions.RangeType.Distance, 10,
                 RuleDefinitions.TargetType.Individuals, 6, RuleDefinitions.DurationType.Permanent, 0, RuleDefinitions.TurnOccurenceType.EndOfTurn,
                 EffectForm.LevelApplianceType.AddBonus, RuleDefinitions.LevelSourceType.CharacterLevel, true, 0, RuleDefinitions.DieType.D1, 0, 1);
 
-            FeatureDefinitionPower inspiringPower = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
+            var inspiringPower = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
                 AttributeDefinitions.Charisma, RuleDefinitions.ActivationTime.Minute10, 1, RuleDefinitions.RechargeRate.ShortRest,
                 false, false, AttributeDefinitions.Charisma, inspiringEffect,
                 "PowerInspiringLeaderFeat", inspiringLeaderPresentation);
@@ -40,11 +40,11 @@ namespace SolastaCommunityExpansion.Feats
             var medKitPresentation = GuiPresentationBuilder.Build(
                 "HealerUseMedicine", Category.Feat, PowerFunctionGoodberryHealingOther.GuiPresentation.SpriteReference);
 
-            EffectDescription medKitEffect = BuildEffectDescriptionHealingForm(RuleDefinitions.RangeType.Touch, 1,
+            var medKitEffect = BuildEffectDescriptionHealingForm(RuleDefinitions.RangeType.Touch, 1,
                 RuleDefinitions.TargetType.Individuals, 1, RuleDefinitions.DurationType.Permanent, 0, RuleDefinitions.TurnOccurenceType.EndOfTurn,
                 EffectForm.LevelApplianceType.AddBonus, RuleDefinitions.LevelSourceType.CharacterLevel, false, 4, RuleDefinitions.DieType.D6, 1, 1);
 
-            FeatureDefinitionPower medKitPower = BuildPowerFromEffectDescription(0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed,
+            var medKitPower = BuildPowerFromEffectDescription(0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed,
                 AttributeDefinitions.Wisdom, RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.ShortRest,
                 false, false, AttributeDefinitions.Wisdom, medKitEffect,
                 "PowerMedKitHealerFeat", medKitPresentation);
@@ -52,11 +52,11 @@ namespace SolastaCommunityExpansion.Feats
             var resuscitatePresentation = GuiPresentationBuilder.Build(
                 "HealerResuscitate", Category.Feat, PowerDomainLifePreserveLife.GuiPresentation.SpriteReference);
 
-            EffectDescription resuscitateEffect = BuildEffectDescriptionReviveForm(RuleDefinitions.RangeType.Touch, 1,
+            var resuscitateEffect = BuildEffectDescriptionReviveForm(RuleDefinitions.RangeType.Touch, 1,
                 RuleDefinitions.TargetType.Individuals, 1, RuleDefinitions.DurationType.Permanent, 0, RuleDefinitions.TurnOccurenceType.EndOfTurn,
                 12 /* seconds since death */);
 
-            FeatureDefinitionPower resuscitatePower = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
+            var resuscitatePower = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
                 AttributeDefinitions.Wisdom, RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.LongRest,
                 false, false, AttributeDefinitions.Wisdom, resuscitateEffect,
                 "PowerResuscitateHealerFeat", resuscitatePresentation);
@@ -64,7 +64,7 @@ namespace SolastaCommunityExpansion.Feats
             var stabilizePresentation = GuiPresentationBuilder.Build(
                 "HealerStabilize", Category.Feat, PowerDomainLifePreserveLife.GuiPresentation.SpriteReference);
 
-            FeatureDefinitionPower stabilizePower = BuildPowerFromEffectDescription(0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed,
+            var stabilizePower = BuildPowerFromEffectDescription(0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed,
                 AttributeDefinitions.Wisdom, RuleDefinitions.ActivationTime.Action, 1, RuleDefinitions.RechargeRate.ShortRest,
                 false, false, AttributeDefinitions.Wisdom, DatabaseHelper.SpellDefinitions.SpareTheDying.EffectDescription,
                 "PowerStabilizeHealerFeat", stabilizePresentation);
@@ -88,10 +88,10 @@ namespace SolastaCommunityExpansion.Feats
             var treatEatPresentation = GuiPresentationBuilder.Build(
                 "ProfChefTreatAction", Category.Feat, PowerFunctionGoodberryHealing.GuiPresentation.SpriteReference);
 
-            EffectDescription treatEffect = BuildEffectDescriptionTempHPForm(RuleDefinitions.RangeType.Self, 1,
+            var treatEffect = BuildEffectDescriptionTempHPForm(RuleDefinitions.RangeType.Self, 1,
                 RuleDefinitions.TargetType.Self, 1, RuleDefinitions.DurationType.Permanent, 0, RuleDefinitions.TurnOccurenceType.EndOfTurn,
                 EffectForm.LevelApplianceType.No, RuleDefinitions.LevelSourceType.CharacterLevel, false, 5, RuleDefinitions.DieType.D1, 0, 1);
-            FeatureDefinitionPower treatPower = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Wisdom,
+            var treatPower = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Wisdom,
                 RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RechargeRate.None, false, false, AttributeDefinitions.Wisdom,
                 treatEffect, "ChefTreatEatPower", treatEatPresentation);
 
@@ -103,7 +103,7 @@ namespace SolastaCommunityExpansion.Feats
                 .AddToDB();
 
             // make summon effect description
-            EffectDescription cookTreatsEffect = BuildEffectDescriptionSummonForm(RuleDefinitions.RangeType.Self, 1,
+            var cookTreatsEffect = BuildEffectDescriptionSummonForm(RuleDefinitions.RangeType.Self, 1,
                 RuleDefinitions.TargetType.Self, 1, RuleDefinitions.DurationType.Permanent, 0, RuleDefinitions.TurnOccurenceType.EndOfTurn,
                 treat, 5);
 
@@ -111,7 +111,7 @@ namespace SolastaCommunityExpansion.Feats
             var treatCookPresentation = GuiPresentationBuilder.Build(
                 "ProfChefTreatCook", Category.Feat, PowerFunctionGoodberryHealingOther.GuiPresentation.SpriteReference);
 
-            FeatureDefinitionPower cookTreatsPower = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
+            var cookTreatsPower = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
                 AttributeDefinitions.Wisdom, RuleDefinitions.ActivationTime.Hours1, 1, RuleDefinitions.RechargeRate.LongRest,
                 false, false, AttributeDefinitions.Wisdom, cookTreatsEffect,
                 "FeatChefCookTreats", treatCookPresentation);
@@ -120,10 +120,10 @@ namespace SolastaCommunityExpansion.Feats
             var shortRestFeastPresentation = GuiPresentationBuilder.Build(
                 "ChefShortRestFeast", Category.Feat, PowerFunctionGoodberryHealingOther.GuiPresentation.SpriteReference);
 
-            EffectDescription shortRestFeastEffect = BuildEffectDescriptionHealingForm(RuleDefinitions.RangeType.Distance, 10,
+            var shortRestFeastEffect = BuildEffectDescriptionHealingForm(RuleDefinitions.RangeType.Distance, 10,
                 RuleDefinitions.TargetType.Individuals, 4, RuleDefinitions.DurationType.Permanent, 0, RuleDefinitions.TurnOccurenceType.EndOfTurn,
                 EffectForm.LevelApplianceType.No, RuleDefinitions.LevelSourceType.CharacterLevel, false, 0, RuleDefinitions.DieType.D8, 1, 1);
-            FeatureDefinitionPower shortRestFeast = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
+            var shortRestFeast = BuildPowerFromEffectDescription(1, RuleDefinitions.UsesDetermination.Fixed,
                 AttributeDefinitions.Wisdom, RuleDefinitions.ActivationTime.Hours1, 1, RuleDefinitions.RechargeRate.ShortRest,
                 false, false, AttributeDefinitions.Wisdom, shortRestFeastEffect,
                 "FeatChefShortRestFeast", shortRestFeastPresentation);
@@ -174,12 +174,12 @@ namespace SolastaCommunityExpansion.Feats
             EffectForm.LevelApplianceType applyLevel, RuleDefinitions.LevelSourceType levelType, bool applyAbilityBonus,
             int bonusHitPoints, RuleDefinitions.DieType dieType, int diceNumber, int levelMultiplier)
         {
-            EffectDescriptionBuilder effectDescriptionBuilder = new EffectDescriptionBuilder();
+            var effectDescriptionBuilder = new EffectDescriptionBuilder();
             effectDescriptionBuilder.SetTargetingData(RuleDefinitions.Side.Ally, rangeType, rangeParameter, targetType, targetParameter, 0, ActionDefinitions.ItemSelectionType.None);
             effectDescriptionBuilder.SetCreatedByCharacter();
             effectDescriptionBuilder.SetDurationData(durationType, durationParameter, endOfEffect);
 
-            EffectFormBuilder effectFormBuilder = new EffectFormBuilder();
+            var effectFormBuilder = new EffectFormBuilder();
             effectFormBuilder.SetTempHPForm(bonusHitPoints, dieType, diceNumber);
             effectFormBuilder.SetLevelAdvancement(applyLevel, levelType, levelMultiplier);
             if (applyAbilityBonus)
@@ -192,7 +192,7 @@ namespace SolastaCommunityExpansion.Feats
             effectDescriptionBuilder.SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None, 1,
                 0, 0, 0, 0, 0, 0, 0, 0, RuleDefinitions.AdvancementDuration.None);
 
-            EffectParticleParameters particleParams = new EffectParticleParameters();
+            var particleParams = new EffectParticleParameters();
             particleParams.Copy(DatabaseHelper.SpellDefinitions.MagicWeapon.EffectDescription.EffectParticleParameters);
             effectDescriptionBuilder.SetParticleEffectParameters(particleParams);
 
@@ -205,12 +205,12 @@ namespace SolastaCommunityExpansion.Feats
             EffectForm.LevelApplianceType applyLevel, RuleDefinitions.LevelSourceType levelType, bool applyAbilityBonus,
             int bonusHitPoints, RuleDefinitions.DieType dieType, int diceNumber, int levelMultiplier)
         {
-            EffectDescriptionBuilder effectDescriptionBuilder = new EffectDescriptionBuilder();
+            var effectDescriptionBuilder = new EffectDescriptionBuilder();
             effectDescriptionBuilder.SetTargetingData(RuleDefinitions.Side.Ally, rangeType, rangeParameter, targetType, targetParameter, 0, ActionDefinitions.ItemSelectionType.None);
             effectDescriptionBuilder.SetCreatedByCharacter();
             effectDescriptionBuilder.SetDurationData(durationType, durationParameter, endOfEffect);
 
-            EffectFormBuilder effectFormBuilder = new EffectFormBuilder();
+            var effectFormBuilder = new EffectFormBuilder();
             effectFormBuilder.SetHealingForm(RuleDefinitions.HealingComputation.Dice, bonusHitPoints, dieType, diceNumber, false, RuleDefinitions.HealingCap.MaximumHitPoints);
             effectFormBuilder.SetLevelAdvancement(applyLevel, levelType, levelMultiplier);
             if (applyAbilityBonus)
@@ -223,7 +223,7 @@ namespace SolastaCommunityExpansion.Feats
             effectDescriptionBuilder.SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None, 1,
                 0, 0, 0, 0, 0, 0, 0, 0, RuleDefinitions.AdvancementDuration.None);
 
-            EffectParticleParameters particleParams = new EffectParticleParameters();
+            var particleParams = new EffectParticleParameters();
             particleParams.Copy(DatabaseHelper.SpellDefinitions.MagicWeapon.EffectDescription.EffectParticleParameters);
             effectDescriptionBuilder.SetParticleEffectParameters(particleParams);
 
@@ -235,14 +235,14 @@ namespace SolastaCommunityExpansion.Feats
             RuleDefinitions.DurationType durationType, int durationParameter, RuleDefinitions.TurnOccurenceType endOfEffect,
             int secondsSinceDeath)
         {
-            EffectDescriptionBuilder effectDescriptionBuilder = new EffectDescriptionBuilder();
+            var effectDescriptionBuilder = new EffectDescriptionBuilder();
             effectDescriptionBuilder.SetTargetingData(RuleDefinitions.Side.Ally, rangeType, rangeParameter, targetType, targetParameter, 0, ActionDefinitions.ItemSelectionType.None);
             effectDescriptionBuilder.SetTargetFiltering(RuleDefinitions.TargetFilteringMethod.CharacterOnly, RuleDefinitions.TargetFilteringTag.No, 5, RuleDefinitions.DieType.D8);
             effectDescriptionBuilder.SetCreatedByCharacter();
             effectDescriptionBuilder.SetDurationData(durationType, durationParameter, endOfEffect);
             effectDescriptionBuilder.SetRequiredCondition(DatabaseHelper.ConditionDefinitions.ConditionDead);
 
-            EffectFormBuilder effectFormBuilder = new EffectFormBuilder();
+            var effectFormBuilder = new EffectFormBuilder();
             effectFormBuilder.SetReviveForm(secondsSinceDeath, RuleDefinitions.ReviveHitPoints.One, new List<ConditionDefinition>());
 
             effectFormBuilder.CreatedByCharacter();
@@ -251,7 +251,7 @@ namespace SolastaCommunityExpansion.Feats
             effectDescriptionBuilder.SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None, 1,
                 0, 0, 0, 0, 0, 0, 0, 0, RuleDefinitions.AdvancementDuration.None);
 
-            EffectParticleParameters particleParams = new EffectParticleParameters();
+            var particleParams = new EffectParticleParameters();
             particleParams.Copy(DatabaseHelper.SpellDefinitions.MagicWeapon.EffectDescription.EffectParticleParameters);
             effectDescriptionBuilder.SetParticleEffectParameters(particleParams);
 
@@ -263,12 +263,12 @@ namespace SolastaCommunityExpansion.Feats
             RuleDefinitions.DurationType durationType, int durationParameter, RuleDefinitions.TurnOccurenceType endOfEffect,
             ItemDefinition item, int number)
         {
-            EffectDescriptionBuilder effectDescriptionBuilder = new EffectDescriptionBuilder();
+            var effectDescriptionBuilder = new EffectDescriptionBuilder();
             effectDescriptionBuilder.SetTargetingData(RuleDefinitions.Side.Ally, rangeType, rangeParameter, targetType, targetParameter, 0, ActionDefinitions.ItemSelectionType.None);
             effectDescriptionBuilder.SetCreatedByCharacter();
             effectDescriptionBuilder.SetDurationData(durationType, durationParameter, endOfEffect);
 
-            EffectFormBuilder effectFormBuilder = new EffectFormBuilder();
+            var effectFormBuilder = new EffectFormBuilder();
             effectFormBuilder.SetSummonForm(SummonForm.Type.InventoryItem, item, number, "", null, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>());
 
             effectFormBuilder.CreatedByCharacter();
@@ -277,7 +277,7 @@ namespace SolastaCommunityExpansion.Feats
             effectDescriptionBuilder.SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None, 1,
                 0, 0, 0, 0, 0, 0, 0, 0, RuleDefinitions.AdvancementDuration.None);
 
-            EffectParticleParameters particleParams = new EffectParticleParameters();
+            var particleParams = new EffectParticleParameters();
             particleParams.Copy(DatabaseHelper.SpellDefinitions.MagicWeapon.EffectDescription.EffectParticleParameters);
             effectDescriptionBuilder.SetParticleEffectParameters(particleParams);
 

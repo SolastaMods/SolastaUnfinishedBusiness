@@ -28,7 +28,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
         public static FeatureDefinitionPowerSharedPool Build(string name, string guid)
         {
             //Create the damage form - TODO make it do the same damage as the wielded weapon?  This doesn't seem possible
-            EffectForm damageEffect = new EffectForm
+            var damageEffect = new EffectForm
             {
                 DamageForm = new DamageForm
                 {
@@ -41,7 +41,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             };
 
             //Create the prone effect - Weirdly enough the motion form seems to also automatically apply the prone condition
-            EffectForm proneMotionEffect = new EffectForm
+            var proneMotionEffect = new EffectForm
             {
                 FormType = EffectForm.EffectFormType.Motion
             };
@@ -52,7 +52,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             proneMotionEffect.SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
 
             //Add to our new effect
-            EffectDescription newEffectDescription =
+            var newEffectDescription =
                 FeatureDefinitionPowers.PowerFighterActionSurge.EffectDescription.Copy();
             newEffectDescription.SetEffectForms(damageEffect, proneMotionEffect);
             newEffectDescription.SetSavingThrowDifficultyAbility("Strength");
@@ -61,7 +61,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             newEffectDescription.HasSavingThrow = true;
             newEffectDescription.DurationType = RuleDefinitions.DurationType.Round;
 
-            FeatureDefinitionPowerSharedPoolBuilder builder = new FeatureDefinitionPowerSharedPoolBuilder(name, guid,
+            var builder = new FeatureDefinitionPowerSharedPoolBuilder(name, guid,
                 TacticianFighterSubclassBuilder.GambitResourcePool, RuleDefinitions.RechargeRate.ShortRest, RuleDefinitions.ActivationTime.OnAttackHit,
                 1, true, true, AttributeDefinitions.Strength, newEffectDescription,
                 new GuiPresentationBuilder("Feature/&KnockDownPowerTitle", "Feature/&KnockDownPowerDescription")
@@ -84,7 +84,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
         public static FeatureDefinitionPowerSharedPool Build(string name, string guid)
         {
             //Create the temp hp form
-            EffectForm healingEffect = new EffectForm
+            var healingEffect = new EffectForm
             {
                 FormType = EffectForm.EffectFormType.TemporaryHitPoints
             };
@@ -104,7 +104,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             //blessEffect.ConditionForm.ConditionDefinition = DatabaseHelper.ConditionDefinitions.ConditionBlessed;
 
             //Add to our new effect
-            EffectDescription newEffectDescription = new EffectDescription();
+            var newEffectDescription = new EffectDescription();
             newEffectDescription.Copy(FeatureDefinitionPowers.PowerDomainLifePreserveLife.EffectDescription);
             newEffectDescription.EffectForms.Clear();
             newEffectDescription.EffectForms.Add(healingEffect);
@@ -117,7 +117,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             newEffectDescription.SetCanBePlacedOnCharacter(true);
             newEffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
 
-            FeatureDefinitionPowerSharedPoolBuilder builder = new FeatureDefinitionPowerSharedPoolBuilder(name, guid,
+            var builder = new FeatureDefinitionPowerSharedPoolBuilder(name, guid,
                 TacticianFighterSubclassBuilder.GambitResourcePool, RuleDefinitions.RechargeRate.ShortRest, RuleDefinitions.ActivationTime.BonusAction,
                 1, true, true, AttributeDefinitions.Strength, newEffectDescription,
                 new GuiPresentationBuilder("Feature/&InspirePowerTitle", "Feature/&InspirePowerDescription")
@@ -142,7 +142,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
         public static FeatureDefinitionPowerSharedPool Build(string name, string guid)
         {
             //Create the damage form - TODO make it do the same damage as the wielded weapon (seems impossible with current tools, would need to use the AdditionalDamage feature but I'm not sure how to combine that with this to make it a reaction ability).
-            EffectForm damageEffect = new EffectForm
+            var damageEffect = new EffectForm
             {
                 DamageForm = new DamageForm
                 {
@@ -155,12 +155,12 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             };
 
             //Add to our new effect
-            EffectDescription newEffectDescription = new EffectDescription();
+            var newEffectDescription = new EffectDescription();
             newEffectDescription.Copy(FeatureDefinitionPowers.PowerDomainLawHolyRetribution.EffectDescription);
             newEffectDescription.EffectForms.Clear();
             newEffectDescription.EffectForms.Add(damageEffect);
 
-            FeatureDefinitionPowerSharedPoolBuilder builder = new FeatureDefinitionPowerSharedPoolBuilder(name, guid,
+            var builder = new FeatureDefinitionPowerSharedPoolBuilder(name, guid,
                 TacticianFighterSubclassBuilder.GambitResourcePool, RuleDefinitions.RechargeRate.ShortRest, RuleDefinitions.ActivationTime.Reaction,
                 1, true, true, AttributeDefinitions.Strength, newEffectDescription,
                 new GuiPresentationBuilder("Feature/&CounterStrikePowerTitle", "Feature/&CounterStrikePowerDescription")

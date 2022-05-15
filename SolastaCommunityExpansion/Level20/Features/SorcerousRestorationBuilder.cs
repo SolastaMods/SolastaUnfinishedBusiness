@@ -18,17 +18,17 @@ namespace SolastaCommunityExpansion.Level20.Features
             Definition.SetActivationTime(RuleDefinitions.ActivationTime.Rest);
             Definition.SetCostPerUse(1);
             Definition.SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
-            EffectDescriptionBuilder restoration = new EffectDescriptionBuilder();
+            var restoration = new EffectDescriptionBuilder();
             restoration.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1, RuleDefinitions.TargetType.Self, 1, 1, ActionDefinitions.ItemSelectionType.None);
             restoration.SetParticleEffectParameters(DatabaseHelper.FeatureDefinitionPowers.PowerWizardArcaneRecovery.EffectDescription.EffectParticleParameters);
 
-            EffectForm restoreForm = new EffectFormBuilder().CreatedByCharacter().SetSpellForm(9).Build();
+            var restoreForm = new EffectFormBuilder().CreatedByCharacter().SetSpellForm(9).Build();
             restoreForm.SpellSlotsForm.SetType(SpellSlotsForm.EffectType.GainSorceryPoints);
             restoreForm.SpellSlotsForm.SetSorceryPointsGain(4);
             restoration.AddEffectForm(restoreForm);
             Definition.SetEffectDescription(restoration.Build());
 
-            GuiPresentationBuilder gui = new GuiPresentationBuilder(
+            var gui = new GuiPresentationBuilder(
                "Sorceror/&ZSSorcerousRestorationTitle",
                "Sorceror/&ZSSorcerousRestorationDescription");
             gui.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerWizardArcaneRecovery.GuiPresentation.SpriteReference);

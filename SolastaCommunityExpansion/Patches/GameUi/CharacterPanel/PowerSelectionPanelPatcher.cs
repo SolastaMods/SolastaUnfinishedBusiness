@@ -23,15 +23,15 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
                 {
                     return;
                 }
-                List<UsablePowerBox> powerBoxes = __instance.GetField<List<UsablePowerBox>>("usablePowerBoxes");
-                RectTransform powersTable = __instance.GetField<RectTransform>("powersTable");
+                var powerBoxes = __instance.GetField<List<UsablePowerBox>>("usablePowerBoxes");
+                var powersTable = __instance.GetField<RectTransform>("powersTable");
                 if (powerBoxes.Count > 14)
                 {
                     if (thirdRow == null)
                     {
                         thirdRow = Object.Instantiate(powersTable);
                     }
-                    int toStayCount = powersTable.childCount * 2 / 3;
+                    var toStayCount = powersTable.childCount * 2 / 3;
                     MovePowersToRow(powersTable, thirdRow, toStayCount, 200);
                 }
                 if (powerBoxes.Count > 7)
@@ -40,7 +40,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
                     {
                         secondRow = Object.Instantiate(powersTable);
                     }
-                    int toStayCount = powersTable.childCount / 2;
+                    var toStayCount = powersTable.childCount / 2;
                     MovePowersToRow(powersTable, secondRow, toStayCount, 80);
                 }
 
@@ -55,9 +55,9 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
                 newRow.SetParent(powersTable.parent.transform, true);
                 newRow.localScale = powersTable.localScale;
                 newRow.transform.position = new Vector3(powersTable.transform.position.x, powersTable.transform.position.y + yOffset, powersTable.transform.position.z);
-                for (int i = powersTable.childCount - 1; i > toStayCount; i--)
+                for (var i = powersTable.childCount - 1; i > toStayCount; i--)
                 {
-                    Transform child = powersTable.GetChild(i);
+                    var child = powersTable.GetChild(i);
                     child.SetParent(newRow, false);
                     child.localScale = powersTable.GetChild(0).localScale;
                 }

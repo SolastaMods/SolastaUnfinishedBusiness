@@ -50,7 +50,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
 
             // The player isn't recharging the shared pool features, just the pool.
             // Hide the features that use the pool from the UI.
-            foreach (FeatureDefinition feature in __instance.RecoveredFeatures.Where(f => f is IPowerSharedPool).ToArray())
+            foreach (var feature in __instance.RecoveredFeatures.Where(f => f is IPowerSharedPool).ToArray())
             {
                 __instance.RecoveredFeatures.Remove(feature);
             }

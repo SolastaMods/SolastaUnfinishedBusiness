@@ -33,7 +33,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
 
             __instance.SetField("index", index);
 
-            GuiPowerDefinition guiPowerDefinition = ServiceRepository.GetService<IGuiWrapperService>().GetGuiPowerDefinition(power.Name);
+            var guiPowerDefinition = ServiceRepository.GetService<IGuiWrapperService>().GetGuiPowerDefinition(power.Name);
             ___spellTitle.Text = guiPowerDefinition.Title;
 
             //add info about remaining spell slots if powers consume them

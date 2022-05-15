@@ -170,7 +170,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
         private static void BuildSpells()
         {
             // Build our spellCast object containing previously created spell list
-            List<SlotsByLevelDuplet> witchCastingSlots = new List<SlotsByLevelDuplet>{
+            var witchCastingSlots = new List<SlotsByLevelDuplet>{
                 new () { Slots = new () {2,0,0,0,0,0,0,0,0,0}, Level = 01 },
                 new () { Slots = new () {3,0,0,0,0,0,0,0,0,0}, Level = 02 },
                 new () { Slots = new () {4,2,0,0,0,0,0,0,0,0}, Level = 03 },
@@ -685,11 +685,11 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 EffectApplication effectApplication = EffectApplication.All,
                 List<EffectFormFilter> filters = null)
             {
-                List<RulesetCondition> conditions = formsParams.targetCharacter.AllConditions;
+                var conditions = formsParams.targetCharacter.AllConditions;
 
                 var activeMaledictions = conditions.Where(i => i.ConditionDefinition.ConditionTags.Contains("Malediction")).ToList();
 
-                foreach (RulesetCondition malediction in activeMaledictions)
+                foreach (var malediction in activeMaledictions)
                 {
                     // Remove the condition in order to refresh it
                     formsParams.targetCharacter.RemoveCondition(malediction);
@@ -706,9 +706,9 @@ namespace SolastaCommunityExpansion.Classes.Witch
             private static void ApplyCondition(RulesetImplementationDefinitions.ApplyFormsParams formsParams, ConditionDefinition condition, RuleDefinitions.DurationType durationType, int durationParam)
             {
                 // Prepare params for inflicting conditions
-                ulong sourceGuid = formsParams.sourceCharacter != null ? formsParams.sourceCharacter.Guid : 0L;
-                string sourceFaction = formsParams.sourceCharacter != null ? formsParams.sourceCharacter.CurrentFaction.Name : string.Empty;
-                string effectDefinitionName = string.Empty;
+                var sourceGuid = formsParams.sourceCharacter != null ? formsParams.sourceCharacter.Guid : 0L;
+                var sourceFaction = formsParams.sourceCharacter != null ? formsParams.sourceCharacter.CurrentFaction.Name : string.Empty;
+                var effectDefinitionName = string.Empty;
 
                 if (formsParams.attackMode != null)
                 {
@@ -719,7 +719,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                     effectDefinitionName = formsParams.activeEffect.SourceDefinition.Name;
                 }
 
-                int sourceAbilityBonus = (formsParams.activeEffect?.ComputeSourceAbilityBonus(formsParams.sourceCharacter)) ?? 0;
+                var sourceAbilityBonus = (formsParams.activeEffect?.ComputeSourceAbilityBonus(formsParams.sourceCharacter)) ?? 0;
 
                 formsParams.targetCharacter.InflictCondition(condition.Name, durationType, durationParam, TurnOccurenceType.EndOfTurn, "11Effect", sourceGuid, sourceFaction, formsParams.effectLevel, effectDefinitionName, 0, sourceAbilityBonus);
             }
@@ -793,7 +793,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
                         .SetDefaultFaction("Party")
                         .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None);
 
-                if (DatabaseRepository.GetDatabase<FeatureDefinition>().TryGetElement("HelpAction", out FeatureDefinition help))
+                if (DatabaseRepository.GetDatabase<FeatureDefinition>().TryGetElement("HelpAction", out var help))
                 {
                     witchFamiliarMonsterBuilder.AddFeatures(help);
                 }
@@ -911,7 +911,7 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
             void BuildProgression()
             {
-                if (DatabaseRepository.GetDatabase<FeatureDefinition>().TryGetElement("HelpAction", out FeatureDefinition help))
+                if (DatabaseRepository.GetDatabase<FeatureDefinition>().TryGetElement("HelpAction", out var help))
                 {
                     classBuilder.AddFeatureAtLevel(1, help);
                 }

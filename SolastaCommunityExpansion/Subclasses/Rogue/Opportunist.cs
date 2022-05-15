@@ -32,7 +32,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
             }
 
             // grant advatage if attacker is performing an opportunity attack or has higher inititative.
-            if (attacker.LastInitiative > defender.LastInitiative || attackerAttackMode.ActionType == ActionDefinitions.ActionType.Reaction && attacker.GetActionStatus(ActionDefinitions.Id.AttackOpportunity, ActionDefinitions.ActionScope.Battle) == ActionDefinitions.ActionStatus.Available)
+            if (attacker.LastInitiative > defender.LastInitiative || (attackerAttackMode.ActionType == ActionDefinitions.ActionType.Reaction && attacker.GetActionStatus(ActionDefinitions.Id.AttackOpportunity, ActionDefinitions.ActionScope.Battle) == ActionDefinitions.ActionStatus.Available))
             {
                 attackModifier.AttackAdvantageTrends.Add(new RuleDefinitions.TrendInfo(1, RuleDefinitions.FeatureSourceType.CharacterFeature, "QuickStrike", attacker));
             }
@@ -69,7 +69,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
                 .SetOnAttackDelegates(QuickStrikeOnAttackDelegate, null)
                 .AddToDB();
 
-            EffectDescriptionBuilder debilitatingStrikeEffectBuilder = new EffectDescriptionBuilder()
+            var debilitatingStrikeEffectBuilder = new EffectDescriptionBuilder()
                     .SetDurationData(
                         durationType: RuleDefinitions.DurationType.Round,
                         durationParameter: 1,

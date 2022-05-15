@@ -28,7 +28,7 @@ namespace SolastaCommunityExpansion.Models
 
         private static bool IsDynamicFlatRoom(UserRoom userRoom)
         {
-            return IsFlatRoom(userRoom) && int.TryParse(userRoom.RoomBlueprint.name.Substring(FLAT_ROOM_TAG.Length, 2), out int _);
+            return IsFlatRoom(userRoom) && int.TryParse(userRoom.RoomBlueprint.name.Substring(FLAT_ROOM_TAG.Length, 2), out var _);
         }
 
         public static void GetTemplateVegetationMaskArea(WorldLocation worldLocation)
@@ -123,7 +123,7 @@ namespace SolastaCommunityExpansion.Models
         {
             static void DisableWalls(Transform transform)
             {
-                for (int i = 0; i < transform.childCount; i++)
+                for (var i = 0; i < transform.childCount; i++)
                 {
                     DisableWalls(transform.GetChild(i));
                 }
@@ -151,7 +151,7 @@ namespace SolastaCommunityExpansion.Models
 
             DisableWalls(roomTransform);
 
-            if (int.TryParse(userRoom.RoomBlueprint.name.Substring(FLAT_ROOM_TAG.Length, 2), out int multiplier))
+            if (int.TryParse(userRoom.RoomBlueprint.name.Substring(FLAT_ROOM_TAG.Length, 2), out var multiplier))
             {
                 var rnd = new System.Random();
 

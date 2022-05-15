@@ -10,14 +10,14 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomFightingStyle
     {
         internal static void Postfix(RulesetCharacterHero __instance)
         {
-            foreach (FightingStyleDefinition fightingStyleDefinition in __instance.TrainedFightingStyles)
+            foreach (var fightingStyleDefinition in __instance.TrainedFightingStyles)
             {
                 if (fightingStyleDefinition is not ICustomFightingStyle customFightingStyle)
                 {
                     continue;
                 }
 
-                bool isActive = customFightingStyle.IsActive(__instance);
+                var isActive = customFightingStyle.IsActive(__instance);
                 // We don't know what normal fighting style condition was used or if it was met.
                 // The simplest thing to do is just make sure the active state of this fighting style is handled properly.
                 if (isActive)

@@ -46,7 +46,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
             var spellLevelMethod = typeof(SpellDefinition).GetMethod("get_SpellLevel");
             var mySpellLevelMethod = typeof(SpellsByLevelBox_OnActivateStandardBox).GetMethod("MySpellLevel");
 
-            foreach (CodeInstruction instruction in instructions)
+            foreach (var instruction in instructions)
             {
                 if (instruction.Calls(spellLevelMethod))
                 {

@@ -91,7 +91,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.ChangeAbilityCheck
             var rollDieMethod = typeof(RulesetActor).GetMethod("RollDie");
             var extendedRollDieMethod = typeof(RulesetCharacter_ResolveContestCheck).GetMethod("ExtendedRollDie");
 
-            foreach (CodeInstruction instruction in instructions)
+            foreach (var instruction in instructions)
             {
                 if (instruction.Calls(rollDieMethod))
                 {

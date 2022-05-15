@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.StartOfTurnRecharge
     {
         internal static void Postfix(RulesetCharacter __instance)
         {
-            foreach (RulesetUsablePower usablePower in __instance.UsablePowers)
+            foreach (var usablePower in __instance.UsablePowers)
             {
                 if (usablePower?.PowerDefinition is IStartOfTurnRecharge startOfTurnRecharge && usablePower.RemainingUses < usablePower.MaxUses)
                 {

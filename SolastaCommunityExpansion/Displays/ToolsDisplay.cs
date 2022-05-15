@@ -69,14 +69,14 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("Faction Relations:".yellow());
             UI.Label("");
 
-            bool flip = true;
+            var flip = true;
             var gameCampaign = Gui.GameCampaign;
             var gameFactionService = ServiceRepository.GetService<IGameFactionService>();
 
             // NOTE: don't use gameCampaign?. which bypasses Unity object lifetime check
             if (gameFactionService != null && gameCampaign != null && gameCampaign.CampaignDefinitionName != "UserCampaign")
             {
-                foreach (FactionDefinition faction in gameFactionService.RegisteredFactions)
+                foreach (var faction in gameFactionService.RegisteredFactions)
                 {
                     if (faction.BuiltIn)
                     {
@@ -90,7 +90,7 @@ namespace SolastaCommunityExpansion.Displays
                         continue;
                     }
 
-                    string title = faction.FormatTitle();
+                    var title = faction.FormatTitle();
 
                     if (flip)
                     {

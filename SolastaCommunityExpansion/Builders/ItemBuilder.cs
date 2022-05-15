@@ -20,9 +20,9 @@ namespace SolastaCommunityExpansion.Builders
 
         public static ItemDefinition BuildNewMagicWeapon(ItemDefinition original, string name, Guid collectionGuid, ItemDefinition magicalExample)
         {
-            string itemName = "Enchanted_" + original.Name + "_" + name;
+            var itemName = "Enchanted_" + original.Name + "_" + name;
 
-            ItemDefinitionBuilder builder = ItemDefinitionBuilder
+            var builder = ItemDefinitionBuilder
                 .Create(original, itemName, collectionGuid)
                 .SetOrUpdateGuiPresentation(itemName + "_", Category.Equipment)
                 // Set is magical
@@ -41,7 +41,7 @@ namespace SolastaCommunityExpansion.Builders
             // If example enchated has multiple forms, copy over extra forms
             if (magicalExample.WeaponDescription.EffectDescription.EffectForms.Count > 1)
             {
-                for (int i = 1; i < magicalExample.WeaponDescription.EffectDescription.EffectForms.Count; i++)
+                for (var i = 1; i < magicalExample.WeaponDescription.EffectDescription.EffectForms.Count; i++)
                 {
                     builder.AddWeaponEffect(magicalExample.WeaponDescription.EffectDescription.EffectForms[i]);
                 }
@@ -52,9 +52,9 @@ namespace SolastaCommunityExpansion.Builders
 
         public static ItemDefinition BuildNewMagicArmor(ItemDefinition original, Guid collectionGuid, string name, ItemDefinition magicalExample)
         {
-            string itemName = "Enchanted_" + original.Name + "_" + name;
+            var itemName = "Enchanted_" + original.Name + "_" + name;
 
-            ItemDefinitionBuilder builder = ItemDefinitionBuilder
+            var builder = ItemDefinitionBuilder
                 .Create(original, itemName, collectionGuid)
                 .SetOrUpdateGuiPresentation(itemName + "_", Category.Equipment)
                 // Set is magical

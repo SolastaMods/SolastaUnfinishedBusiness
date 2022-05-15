@@ -47,7 +47,7 @@ namespace SolastaCommunityExpansion.Feats
                 Definition.SetShortTitleOverride("Feature/&PowerAttackPowerTitle");
 
                 //Create the power attack effect
-                EffectForm powerAttackEffect = new EffectForm
+                var powerAttackEffect = new EffectForm
                 {
                     ConditionForm = new ConditionForm(),
                     FormType = EffectForm.EffectFormType.Condition
@@ -56,7 +56,7 @@ namespace SolastaCommunityExpansion.Feats
                 powerAttackEffect.ConditionForm.ConditionDefinition = PowerAttackConditionBuilder.PowerAttackCondition;
 
                 //Add to our new effect
-                EffectDescription newEffectDescription = new EffectDescription();
+                var newEffectDescription = new EffectDescription();
                 newEffectDescription.Copy(Definition.EffectDescription);
                 newEffectDescription.EffectForms.Clear();
                 newEffectDescription.EffectForms.Add(powerAttackEffect);
@@ -93,7 +93,7 @@ namespace SolastaCommunityExpansion.Feats
                 Definition.SetShortTitleOverride("Feature/&PowerAttackTwoHandedPowerTitle");
 
                 //Create the power attack effect
-                EffectForm powerAttackEffect = new EffectForm
+                var powerAttackEffect = new EffectForm
                 {
                     ConditionForm = new ConditionForm(),
                     FormType = EffectForm.EffectFormType.Condition
@@ -102,7 +102,7 @@ namespace SolastaCommunityExpansion.Feats
                 powerAttackEffect.ConditionForm.ConditionDefinition = PowerAttackTwoHandedConditionBuilder.PowerAttackTwoHandedCondition;
 
                 //Add to our new effect
-                EffectDescription newEffectDescription = new EffectDescription();
+                var newEffectDescription = new EffectDescription();
                 newEffectDescription.Copy(Definition.EffectDescription);
                 newEffectDescription.EffectForms.Clear();
                 newEffectDescription.EffectForms.Add(powerAttackEffect);
@@ -294,7 +294,7 @@ namespace SolastaCommunityExpansion.Feats
                 Definition.SetShortTitleOverride("Feature/&RagePowerTitle");
 
                 //Create the power attack effect
-                EffectForm rageEffect = new EffectForm
+                var rageEffect = new EffectForm
                 {
                     ConditionForm = new ConditionForm
                     {
@@ -305,7 +305,7 @@ namespace SolastaCommunityExpansion.Feats
                 };
 
                 //Add to our new effect
-                EffectDescription newEffectDescription = new EffectDescription();
+                var newEffectDescription = new EffectDescription();
                 newEffectDescription.Copy(Definition.EffectDescription);
                 newEffectDescription.EffectForms.Clear();
                 newEffectDescription.EffectForms.Add(rageEffect);

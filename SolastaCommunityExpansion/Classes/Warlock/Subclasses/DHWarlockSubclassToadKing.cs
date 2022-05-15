@@ -21,7 +21,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
         public static CharacterSubclassDefinition Build()
         {
 
-            SpellListDefinition ToadKingExpandedSpelllist = SpellListDefinitionBuilder
+            var ToadKingExpandedSpelllist = SpellListDefinitionBuilder
                 .Create(SpellListPaladin, "ToadKingExpandedSpelllist", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation("ToadKingExpandedSpelllist", Category.Feature)
                 .SetGuiPresentationNoContent()
@@ -34,34 +34,34 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .FinalizeSpells()
                 .AddToDB();
 
-            FeatureDefinitionMagicAffinity ToadKingExpandedSpelllistAfinity = FeatureDefinitionMagicAffinityBuilder
+            var ToadKingExpandedSpelllistAfinity = FeatureDefinitionMagicAffinityBuilder
                 .Create("ToadKingExpandedSpelllistAfinity", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation("ToadKingExpandedSpelllistAfinity", Category.Feature)
                 .SetExtendedSpellList(ToadKingExpandedSpelllist)
                 .AddToDB();
 
-            FeatureDefinitionConditionAffinity ToadKingConditionAffinityPoisonImmunity = FeatureDefinitionConditionAffinityBuilder
+            var ToadKingConditionAffinityPoisonImmunity = FeatureDefinitionConditionAffinityBuilder
                  .Create(ConditionAffinityPoisonImmunity, "ToadKingConditionAffinityPoisonImmunity", DefinitionBuilder.CENamespaceGuid)
                  .AddToDB();
             ToadKingConditionAffinityPoisonImmunity.GuiPresentation.SetTitle("Feature/&ToadKingPoisonConditionAffinityTitle");
 
-            FeatureDefinitionMovementAffinity ToadKingMovementAffinityJump = FeatureDefinitionMovementAffinityBuilder
+            var ToadKingMovementAffinityJump = FeatureDefinitionMovementAffinityBuilder
                 .Create(MovementAffinityJump, "ToadKingMovementAffinityJump", DefinitionBuilder.CENamespaceGuid)
                 .AddToDB();
             ToadKingMovementAffinityJump.GuiPresentation.SetTitle("Feature/&ToadKingJumpTitle");
 
-            FeatureDefinitionMovementAffinity ToadKingMovementAffinitySpiderClimb = FeatureDefinitionMovementAffinityBuilder
+            var ToadKingMovementAffinitySpiderClimb = FeatureDefinitionMovementAffinityBuilder
                  .Create(MovementAffinitySpiderClimb, "ToadKingMovementAffinitySpiderClimb", DefinitionBuilder.CENamespaceGuid)
                  .AddToDB();
             ToadKingMovementAffinitySpiderClimb.GuiPresentation.SetTitle("Feature/&ToadKingStickyFeetTitle");
 
-            FeatureDefinitionDamageAffinity ToadKingDamageAffinityPoisonImmunity = FeatureDefinitionDamageAffinityBuilder
+            var ToadKingDamageAffinityPoisonImmunity = FeatureDefinitionDamageAffinityBuilder
                  .Create(DamageAffinityPoisonImmunity, "ToadKingDamageAffinityPoisonImmunity", DefinitionBuilder.CENamespaceGuid)
                  .AddToDB();
             ToadKingDamageAffinityPoisonImmunity.GuiPresentation.SetTitle("Feature/&ToadKingPoisonDamageAffinityTitle");
 
 
-            FeatureDefinitionPower Croak = FeatureDefinitionPowerBuilder
+            var Croak = FeatureDefinitionPowerBuilder
                 .Create("ToadKingCroak", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Power)
                 .Configure(
@@ -114,7 +114,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .AddToDB();
             Croak.GuiPresentation.SetSpriteReference(PowerWindShelteringBreeze.GuiPresentation.SpriteReference);
 
-            FeatureDefinitionPower hallucinogenicToxinPower = FeatureDefinitionPowerBuilder
+            var hallucinogenicToxinPower = FeatureDefinitionPowerBuilder
                 .Create("ToadKingHallucinogenicToxinPower", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Power)
                 .Configure(
@@ -163,7 +163,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                        true)
                 .AddToDB();
 
-            FeatureDefinitionDamageAffinity hallucinogenicToxinAffinity = FeatureDefinitionDamageAffinityBuilder
+            var hallucinogenicToxinAffinity = FeatureDefinitionDamageAffinityBuilder
                 .Create(DamageAffinityPoisonResistance, "ToadKingHallucinogenicToxinAffinty", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Feature)
                 .SetDamageType(DamageTypePoison)
@@ -172,7 +172,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .AddToDB();
 
 
-            FeatureDefinitionPower GraspingTongue = FeatureDefinitionPowerBuilder
+            var GraspingTongue = FeatureDefinitionPowerBuilder
                 .Create("ToadKingGraspingTongue", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Power)
                 .Configure(
@@ -220,14 +220,14 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
             GraspingTongue.GuiPresentation.SetSpriteReference(PowerShadowTamerRopeGrapple.GuiPresentation.SpriteReference);
 
-            ConditionDefinition SwallowingToadCondition = ConditionDefinitionBuilder
+            var SwallowingToadCondition = ConditionDefinitionBuilder
                 .Create(ConditionSwallowingRemorhaz, "SwallowingToadCondition", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Condition)
                 .SetSpecialInterruptions(ConditionInterruption.Damaged)
                 .SetInterruptionDamageThreshold(15)
                 .AddToDB();
 
-            ConditionDefinition SwallowedByToadCondition = ConditionDefinitionBuilder
+            var SwallowedByToadCondition = ConditionDefinitionBuilder
                 .Create(ConditionSwallowedRemorhaz, "SwallowedByToadCondition", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Condition)
                 .ClearRecurrentEffectForms()
@@ -247,12 +247,12 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                             )
                 .AddToDB();
 
-            FeatureDefinitionPower ApplyPoison = FeatureDefinitionPowerBuilder
+            var ApplyPoison = FeatureDefinitionPowerBuilder
                 .Create(PowerFunctionApplyPoison_Basic, "ToadKingBasicToxin", DefinitionBuilder.CENamespaceGuid)
                 .AddToDB();
             ApplyPoison.GuiPresentation.SetTitle("Feature/&ToadKingBasicToxinTitle");
 
-            FeatureDefinitionPower Swallow = FeatureDefinitionPowerBuilder
+            var Swallow = FeatureDefinitionPowerBuilder
                 .Create("ToadKingSwallow", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Power)
                 .Configure(

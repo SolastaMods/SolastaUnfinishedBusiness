@@ -1,7 +1,6 @@
 ﻿using System;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
@@ -41,26 +40,26 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 .AddToDB();
 
             // Add tranmsuter stone like abilities.
-            FeatureDefinitionPower transmuteForce = FeatureDefinitionPowerPoolBuilder
+            var transmuteForce = FeatureDefinitionPowerPoolBuilder
                 .Create("AttributeModiferTransmuterHealingPool", SubclassNamespace)
                 .Configure(2, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, RuleDefinitions.RechargeRate.LongRest)
                 .SetGuiPresentation("HealingPoolLifeTransmuterList", Category.Subclass)
                 .AddToDB();
 
             // Make a power that grants darkvision
-            ConditionDefinition superiorDarkvision = BuildCondition(RuleDefinitions.DurationType.UntilLongRest,
+            var superiorDarkvision = BuildCondition(RuleDefinitions.DurationType.UntilLongRest,
                     1, "ConditionPowerTransmuteDarkvision", FeatureDefinitionSenses.SenseSuperiorDarkvision)
                 .SetGuiPresentation("PowerTransmuteDarkvision", Category.Subclass, ConditionDefinitions.ConditionDarkvision.GuiPresentation.SpriteReference)
                 .AddToDB();
 
-            FeatureDefinitionPowerSharedPool powerDarkvision = BuildActionTransmuteConditionPower(transmuteForce, RuleDefinitions.RechargeRate.LongRest,
+            var powerDarkvision = BuildActionTransmuteConditionPower(transmuteForce, RuleDefinitions.RechargeRate.LongRest,
                     RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RangeType.Touch, 2,
                     RuleDefinitions.TargetType.Individuals, ActionDefinitions.ItemSelectionType.None, RuleDefinitions.DurationType.UntilLongRest, 1,
                     RuleDefinitions.TurnOccurenceType.EndOfTurn, AttributeDefinitions.Intelligence, superiorDarkvision, "PowerTransmuteDarkvision")
                 .SetGuiPresentation(Category.Subclass, FeatureDefinitionPowers.PowerDomainBattleDivineWrath.GuiPresentation.SpriteReference)
                 .AddToDB();
 
-            ConditionDefinition poisonResistance = BuildCondition(
+            var poisonResistance = BuildCondition(
                 RuleDefinitions.DurationType.UntilLongRest,
                     1, "ConditionPowerTransmutePoison",
                     FeatureDefinitionDamageAffinitys.DamageAffinityPoisonResistance,
@@ -74,7 +73,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 .AddToDB();
 
             // Make a power that gives resistance to an elemental damage
-            FeatureDefinitionPowerSharedPool powerPoison = BuildActionTransmuteConditionPower(
+            var powerPoison = BuildActionTransmuteConditionPower(
                     transmuteForce, RuleDefinitions.RechargeRate.LongRest,
                     RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RangeType.Touch, 2,
                     RuleDefinitions.TargetType.Individuals, ActionDefinitions.ItemSelectionType.None, RuleDefinitions.DurationType.UntilLongRest, 1,
@@ -83,32 +82,32 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 .AddToDB();
 
             // Make a power that gives proficiency to constitution saves
-            ConditionDefinition constitutionProf = BuildCondition(RuleDefinitions.DurationType.UntilLongRest,
+            var constitutionProf = BuildCondition(RuleDefinitions.DurationType.UntilLongRest,
                     1, "ConditionPowerTransmuteConstitution", FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfArun)
                 .SetGuiPresentation("ConditionTransmuteConstitutionSave", Category.Subclass, ConditionDefinitions.ConditionBearsEndurance.GuiPresentation.SpriteReference)
                 .AddToDB();
 
-            FeatureDefinitionPowerSharedPool powerConstitution = BuildActionTransmuteConditionPower(transmuteForce, RuleDefinitions.RechargeRate.LongRest,
+            var powerConstitution = BuildActionTransmuteConditionPower(transmuteForce, RuleDefinitions.RechargeRate.LongRest,
                     RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RangeType.Touch, 2,
                     RuleDefinitions.TargetType.Individuals, ActionDefinitions.ItemSelectionType.None, RuleDefinitions.DurationType.UntilLongRest, 1,
                     RuleDefinitions.TurnOccurenceType.EndOfTurn, AttributeDefinitions.Intelligence, constitutionProf, "PowerTransmuteConstitution")
                 .SetGuiPresentation(Category.Subclass, FeatureDefinitionPowers.PowerPaladinAuraOfCourage.GuiPresentation.SpriteReference)
                 .AddToDB();
 
-            FeatureDefinitionPowerPoolModifier transmuteForceExtra = FeatureDefinitionPowerPoolModifierBuilder
+            var transmuteForceExtra = FeatureDefinitionPowerPoolModifierBuilder
                 .Create("AttributeModiferTransmuterHealingPoolExtra", SubclassNamespace)
                 .Configure(2, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, transmuteForce)
                 .SetGuiPresentation("HealingPoolLifeTransmuterBonus", Category.Subclass)
                 .AddToDB();
 
-            FeatureDefinitionPowerSharedPool powerFly = BuildActionTransmuteConditionPower(transmuteForce, RuleDefinitions.RechargeRate.LongRest,
+            var powerFly = BuildActionTransmuteConditionPower(transmuteForce, RuleDefinitions.RechargeRate.LongRest,
                     RuleDefinitions.ActivationTime.BonusAction, 1, RuleDefinitions.RangeType.Touch, 2,
                     RuleDefinitions.TargetType.IndividualsUnique, ActionDefinitions.ItemSelectionType.None, RuleDefinitions.DurationType.UntilLongRest, 1,
                     RuleDefinitions.TurnOccurenceType.EndOfTurn, AttributeDefinitions.Intelligence, ConditionDefinitions.ConditionFlying12, "PowerTransmuteFly")
                 .SetGuiPresentation(Category.Subclass, Fly.GuiPresentation.SpriteReference)
                 .AddToDB();
 
-            FeatureDefinitionPowerSharedPool powerHeal = FeatureDefinitionPowerSharedPoolBuilder
+            var powerHeal = FeatureDefinitionPowerSharedPoolBuilder
                 .Create("PowerTransmuteHeal", SubclassNamespace)
                 .Configure(transmuteForce, RuleDefinitions.RechargeRate.LongRest, RuleDefinitions.ActivationTime.BonusAction,
                     1, false, false, AttributeDefinitions.Intelligence,
@@ -116,7 +115,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 .SetGuiPresentation(Category.Subclass, MassHealingWord.GuiPresentation.SpriteReference)
                 .AddToDB();
 
-            FeatureDefinitionPowerSharedPool powerRevive = FeatureDefinitionPowerSharedPoolBuilder
+            var powerRevive = FeatureDefinitionPowerSharedPoolBuilder
                 .Create("PowerTransmuteRevive", SubclassNamespace)
                 .Configure(transmuteForce, RuleDefinitions.RechargeRate.LongRest,
                     RuleDefinitions.ActivationTime.BonusAction, 1, false, false, AttributeDefinitions.Intelligence,
@@ -124,7 +123,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 .SetGuiPresentation(Category.Subclass, Revivify.GuiPresentation.SpriteReference)
                 .AddToDB();
 
-            FeatureDefinitionPowerPoolModifier transmuteForceExtraBonus = FeatureDefinitionPowerPoolModifierBuilder
+            var transmuteForceExtraBonus = FeatureDefinitionPowerPoolModifierBuilder
                 .Create("AttributeModiferTransmuterHealingPoolBonus", SubclassNamespace)
                 .Configure(4, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, transmuteForce)
                 .SetGuiPresentation("HealingPoolLifeTransmuterBonusExtra", Category.Subclass)

@@ -102,7 +102,7 @@ namespace SolastaCommunityExpansion.Displays
             {
                 var searchText = _searchText.ToLower();
 
-                if (_bpFields.TryGetValue(_bpChildNames[_searchIndex], out FieldInfo f))
+                if (_bpFields.TryGetValue(_bpChildNames[_searchIndex], out var f))
                 {
                     _treeView.SetRoot(_filteredBPs.Where(bp =>
                     {
@@ -116,7 +116,7 @@ namespace SolastaCommunityExpansion.Displays
                         }
                     }).ToList());
                 }
-                else if (_bpProperties.TryGetValue(_bpChildNames[_searchIndex], out PropertyInfo p))
+                else if (_bpProperties.TryGetValue(_bpChildNames[_searchIndex], out var p))
                 {
                     _treeView.SetRoot(_filteredBPs.Where(bp =>
                     {
@@ -156,12 +156,12 @@ namespace SolastaCommunityExpansion.Displays
 
                 using (new GUILayout.HorizontalScope())
                 {
-                    bool isDirty = false;
+                    var isDirty = false;
                     // Blueprint Picker
                     using (new GUILayout.VerticalScope())
                     {
                         // Header and Search Field
-                        bool blueprintListIsDirty = false;
+                        var blueprintListIsDirty = false;
                         GUIHelper.Div();
                         using (new GUILayout.HorizontalScope(GUILayout.Width(450)))
                         {
@@ -230,7 +230,7 @@ namespace SolastaCommunityExpansion.Displays
                             // selection
                             GUIHelper.Div();
                             const float availableWidth = 960f - 550;
-                            int xCols = (int)Math.Ceiling(availableWidth / 300);
+                            var xCols = (int)Math.Ceiling(availableWidth / 300);
                             GUIHelper.SelectionGrid(ref _searchIndex, _bpChildNames, xCols, () => isDirty = true, _buttonStyle, GUILayout.Width(availableWidth));
                         }
                         // Do the search

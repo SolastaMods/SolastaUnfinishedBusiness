@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi;
 using SolastaModApi.Infrastructure;
@@ -245,7 +244,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
         {
             //Regular form
 
-            FeatureDefinitionAdditionalDamage additionalDamage = FeatureDefinitionAdditionalDamageBuilder
+            var additionalDamage = FeatureDefinitionAdditionalDamageBuilder
                 .Create($"DH_ElementalForm_{text}AdditionalDamage", DefinitionBuilder.CENamespaceGuid)
                 .Configure(
                     "ElementalDamage",
@@ -264,7 +263,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetGuiPresentation(GuiPresentation("ElementalDamage", text, cfg))
                 .AddToDB();
 
-            ConditionDefinition ElementalFormCondtion = ConditionDefinitionBuilder
+            var ElementalFormCondtion = ConditionDefinitionBuilder
                 .Create($"DH_ElementalForm_{text}Condition", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(GuiPresentation("ElementalCondition", text, cfg, iconRegular))
                 .SetSilent(Silent.None)
@@ -273,7 +272,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .SetConditionParticleReference(cfg.Particles)
                 .AddToDB();
 
-            FeatureDefinitionPowerSharedPool ElementalFormPower = new FeatureDefinitionPowerSharedPoolBuilder(
+            var ElementalFormPower = new FeatureDefinitionPowerSharedPoolBuilder(
                     "DH_ElementalForm_" + text,
                     ElementalFormPool,
                     RechargeRate.LongRest,
@@ -302,7 +301,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
             //Enhanced form
 
-            ConditionDefinition EnhancedElementalFormCondtion = ConditionDefinitionBuilder.Create(
+            var EnhancedElementalFormCondtion = ConditionDefinitionBuilder.Create(
                     $"DH_EnhancedElementalForm_{text}Condition", DefinitionBuilder.CENamespaceGuid)
                 .SetDuration(DurationType.Minute, 1)
                 .SetGuiPresentation(GuiPresentation("ElementalCondition", text, cfg, iconEnhanced))
@@ -341,7 +340,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
         public static void AtWillConjureMinorElementals()
         {
-            SpellDefinitionBuilder AtWillConjureMinorElementalsBuilder = SpellDefinitionBuilder
+            var AtWillConjureMinorElementalsBuilder = SpellDefinitionBuilder
                     .Create(ConjureMinorElementals, "DHAtWillConjureMinorElementals", DefinitionBuilder.CENamespaceGuid);
             AtWillConjureMinorElementalsBuilder.SetSpellLevel(0);
 
@@ -355,7 +354,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
         public static void ElementalistSpells()
         {
-            SpellListDefinition ElementalistSpellList = SpellListDefinitionBuilder
+            var ElementalistSpellList = SpellListDefinitionBuilder
                 .Create(DatabaseHelper.SpellListDefinitions.SpellListPaladin, "ElementalistSpellsList", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.SpellList)
                 .ClearSpells()

@@ -32,12 +32,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 
         private static FeatureDefinitionPowerSharedPool CreateTempHPShield03ModePower()
         {
-            GuiPresentationBuilder guiPresentationTempHPShield03 = new GuiPresentationBuilder(
+            var guiPresentationTempHPShield03 = new GuiPresentationBuilder(
                 "Feature/&TempHPShieldModePowerTitle",
                 "Feature/&TempHPShieldModePowerDescription");
             guiPresentationTempHPShield03.SetSpriteReference(Aid.GuiPresentation.SpriteReference);
 
-            EffectDescriptionBuilder effectTempHPShieldmode03 = new EffectDescriptionBuilder();
+            var effectTempHPShieldmode03 = new EffectDescriptionBuilder();
             effectTempHPShieldmode03.SetDurationData(RuleDefinitions.DurationType.Hour, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             effectTempHPShieldmode03.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
             effectTempHPShieldmode03.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, TempHPShieldConstructBuilder.TempHPShieldConstruct.name, null, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
@@ -61,12 +61,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 
         private static FeatureDefinitionPowerSharedPool CreateFlameArtillery03ModePower()
         {
-            GuiPresentationBuilder guiPresentationFlameArtillery03 = new GuiPresentationBuilder(
+            var guiPresentationFlameArtillery03 = new GuiPresentationBuilder(
                "Feature/&FlameArtilleryModePowerTitle",
                "Feature/&FlameArtilleryModePowerDescription");
             guiPresentationFlameArtillery03.SetSpriteReference(BurningHands.GuiPresentation.SpriteReference);
 
-            EffectDescriptionBuilder effectFlameArtillerymode03 = new EffectDescriptionBuilder();
+            var effectFlameArtillerymode03 = new EffectDescriptionBuilder();
             effectFlameArtillerymode03.SetDurationData(RuleDefinitions.DurationType.Hour, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             effectFlameArtillerymode03.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
             effectFlameArtillerymode03.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, FlameArtilleryConstructBuilder.FlameArtilleryConstruct.name, null, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
@@ -89,12 +89,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 
         private static FeatureDefinitionPowerSharedPool CreateForceArtillery03ModePower()
         {
-            GuiPresentationBuilder guiPresentationForceArtillery03 = new GuiPresentationBuilder(
+            var guiPresentationForceArtillery03 = new GuiPresentationBuilder(
                 "Feature/&ForceArtilleryModePowerTitle",
                 "Feature/&ForceArtilleryModePowerDescription");
             guiPresentationForceArtillery03.SetSpriteReference(MagicMissile.GuiPresentation.SpriteReference);
 
-            EffectDescriptionBuilder effectForceArtillerymode03 = new EffectDescriptionBuilder();
+            var effectForceArtillerymode03 = new EffectDescriptionBuilder();
             effectForceArtillerymode03.SetDurationData(RuleDefinitions.DurationType.Hour, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             effectForceArtillerymode03.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
             effectForceArtillerymode03.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, ForceArtilleryConstructBuilder.ForceArtilleryConstruct.name, null, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
@@ -168,12 +168,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 
         private static FeatureDefinitionPowerSharedPool CreateFlameArtillery09ModePower()
         {
-            GuiPresentationBuilder guiPresentationFlameArtillery09 = new GuiPresentationBuilder(
+            var guiPresentationFlameArtillery09 = new GuiPresentationBuilder(
                 "Feature/&FlameArtillery_09ModePowerTitle",
                 "Feature/&FlameArtillery_09ModePowerDescription");
             guiPresentationFlameArtillery09.SetSpriteReference(BurningHands.GuiPresentation.SpriteReference);
 
-            EffectDescriptionBuilder effectFlameArtillerymode09 = new EffectDescriptionBuilder();
+            var effectFlameArtillerymode09 = new EffectDescriptionBuilder();
             effectFlameArtillerymode09.SetDurationData(RuleDefinitions.DurationType.Hour, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             effectFlameArtillerymode09.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
             effectFlameArtillerymode09.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, FlameArtilleryConstruct9Builder.FlameArtilleryConstruct9.name, null, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
@@ -200,12 +200,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 
         private static FeatureDefinitionPowerSharedPool CreateForceArtillery09ModePower()
         {
-            GuiPresentationBuilder guiPresentationForceArtillery09 = new GuiPresentationBuilder(
+            var guiPresentationForceArtillery09 = new GuiPresentationBuilder(
                 "Feature/&ForceArtillery_09ModePowerTitle",
                 "Feature/&ForceArtillery_09ModePowerDescription");
             guiPresentationForceArtillery09.SetSpriteReference(MagicMissile.GuiPresentation.SpriteReference);
 
-            EffectDescriptionBuilder effectForceArtillerymode09 = new EffectDescriptionBuilder();
+            var effectForceArtillerymode09 = new EffectDescriptionBuilder();
             effectForceArtillerymode09.SetDurationData(RuleDefinitions.DurationType.Hour, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             effectForceArtillerymode09.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
             effectForceArtillerymode09.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, ForceArtilleryConstruct9Builder.ForceArtilleryConstruct9.name, null, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
@@ -233,12 +233,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 
         private static FeatureDefinitionPowerSharedPool CreateTempHPShield09ModePower()
         {
-            GuiPresentationBuilder guiPresentationTempHPShield09 = new GuiPresentationBuilder(
+            var guiPresentationTempHPShield09 = new GuiPresentationBuilder(
                 "Feature/&TempHPShield_09ModePowerTitle",
                 "Feature/&TempHPShield_09ModePowerDescription");
             guiPresentationTempHPShield09.SetSpriteReference(Aid.GuiPresentation.SpriteReference);
 
-            EffectDescriptionBuilder effectTempHPShieldmode09 = new EffectDescriptionBuilder();
+            var effectTempHPShieldmode09 = new EffectDescriptionBuilder();
             effectTempHPShieldmode09.SetDurationData(RuleDefinitions.DurationType.Hour, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             effectTempHPShieldmode09.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
             effectTempHPShieldmode09.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, TempHPShieldConstruct9Builder.TempHPShieldConstruct9.name, null, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
@@ -302,12 +302,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 
         private static FeatureDefinitionPowerSharedPool CreateFlameArtillery15ModePower()
         {
-            GuiPresentationBuilder guiPresentationFlameArtillery15 = new GuiPresentationBuilder(
+            var guiPresentationFlameArtillery15 = new GuiPresentationBuilder(
                 "Feature/&FlameArtillery_15ModePowerTitle",
                 "Feature/&FlameArtillery_15ModePowerDescription");
             guiPresentationFlameArtillery15.SetSpriteReference(BurningHands.GuiPresentation.SpriteReference);
 
-            EffectDescriptionBuilder effectFlameArtillerymode15 = new EffectDescriptionBuilder();
+            var effectFlameArtillerymode15 = new EffectDescriptionBuilder();
             effectFlameArtillerymode15.SetDurationData(RuleDefinitions.DurationType.Hour, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             effectFlameArtillerymode15.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
             effectFlameArtillerymode15.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, FlameArtilleryConstruct15Builder.FlameArtilleryConstruct15.name, null, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
@@ -334,12 +334,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 
         private static FeatureDefinitionPowerSharedPool CreateForceArtillery15ModePower()
         {
-            GuiPresentationBuilder guiPresentationForceArtillery15 = new GuiPresentationBuilder(
+            var guiPresentationForceArtillery15 = new GuiPresentationBuilder(
                 "Feature/&ForceArtillery_15ModePowerTitle",
                 "Feature/&ForceArtillery_15ModePowerDescription");
             guiPresentationForceArtillery15.SetSpriteReference(MagicMissile.GuiPresentation.SpriteReference);
 
-            EffectDescriptionBuilder effectForceArtillerymode15 = new EffectDescriptionBuilder();
+            var effectForceArtillerymode15 = new EffectDescriptionBuilder();
             effectForceArtillerymode15.SetDurationData(RuleDefinitions.DurationType.Hour, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             effectForceArtillerymode15.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
             effectForceArtillerymode15.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, ForceArtilleryConstruct15Builder.ForceArtilleryConstruct15.name, null, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
@@ -367,12 +367,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 
         private static FeatureDefinitionPowerSharedPool CreateTempHPShield15ModePower()
         {
-            GuiPresentationBuilder guiPresentationTempHPShield15 = new GuiPresentationBuilder(
+            var guiPresentationTempHPShield15 = new GuiPresentationBuilder(
                 "Feature/&TempHPShield_15ModePowerTitle",
                 "Feature/&TempHPShield_15ModePowerDescription");
             guiPresentationTempHPShield15.SetSpriteReference(Aid.GuiPresentation.SpriteReference);
 
-            EffectDescriptionBuilder effectTempHPShieldmode15 = new EffectDescriptionBuilder();
+            var effectTempHPShieldmode15 = new EffectDescriptionBuilder();
             effectTempHPShieldmode15.SetDurationData(RuleDefinitions.DurationType.Hour, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             effectTempHPShieldmode15.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
             effectTempHPShieldmode15.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, TempHPShieldConstruct15Builder.TempHPShieldConstruct15.name, null, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
@@ -402,7 +402,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             Definition.GuiPresentation.Title = "Feat/&SummonArtilleryConstructlevel15Title";
             Definition.GuiPresentation.Description = "Feat/&SummonArtilleryConstructlevel15Description";
 
-            FeatureDefinitionPowerPoolModifier artilleryPoolIncrease = FeatureDefinitionPowerPoolModifierBuilder
+            var artilleryPoolIncrease = FeatureDefinitionPowerPoolModifierBuilder
                 .Create("AttributeModiferArtilleryPoolIncrease", TinkererClass.GuidNamespace)
                 .Configure(1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, ArtilleryConstructlevel03FeatureSetBuilder.ArtilleryModePool)
                 .SetGuiPresentation("HArtilleryIncrease", Category.Subclass)
@@ -444,7 +444,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 
             // SelfDestructionConditionBuilder.SelfDestructionCondition
 
-            EffectForm SelfDestructConditionEffect = new EffectForm
+            var SelfDestructConditionEffect = new EffectForm
             {
                 ConditionForm = new ConditionForm(),
                 FormType = EffectForm.EffectFormType.Condition
@@ -458,7 +458,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             //
             // SelfDestruct.SetType (CounterForm.CounterType.DismissCreature);
 
-            DamageForm ExplosionDamage = new DamageForm
+            var ExplosionDamage = new DamageForm
             {
                 DieType = RuleDefinitions.DieType.D8,
                 DiceNumber = 3,
@@ -466,7 +466,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
                 BonusDamage = 0
             };
 
-            EffectForm ExplosionEffect = new EffectForm
+            var ExplosionEffect = new EffectForm
             {
                 FormType = EffectForm.EffectFormType.Damage,
                 DamageForm = ExplosionDamage
@@ -479,7 +479,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             ExplosionEffect.SetLevelType(RuleDefinitions.LevelSourceType.EffectLevel);
             ExplosionEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
 
-            EffectDescription newEffectDescription = new EffectDescription();
+            var newEffectDescription = new EffectDescription();
             newEffectDescription.Copy(Definition.EffectDescription);
             newEffectDescription.EffectForms.Clear();
             newEffectDescription.EffectAdvancement.Clear();
@@ -531,12 +531,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 
             Definition.Features.Clear();
 
-            KillForm SelfDestruct = new KillForm();
+            var SelfDestruct = new KillForm();
             SelfDestruct.SetChallengeRating(10);
             SelfDestruct.SetHitPoints(200);
             SelfDestruct.SetKillCondition(RuleDefinitions.KillCondition.Always);
 
-            EffectForm KillEffect = new EffectForm
+            var KillEffect = new EffectForm
             {
                 FormType = EffectForm.EffectFormType.Kill
             };
@@ -579,7 +579,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             Definition.GuiPresentation.Description = "Feat/&HalfCoverShieldDescription";
             Definition.GuiPresentation.SetSpriteReference(Shield.GuiPresentation.SpriteReference);
 
-            EffectForm halfCoverShield = new EffectForm
+            var halfCoverShield = new EffectForm
             {
                 ConditionForm = new ConditionForm(),
                 FormType = EffectForm.EffectFormType.Condition

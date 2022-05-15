@@ -19,7 +19,7 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.SlotsSpells
             var restoreAllSpellSlotsMethod = typeof(RulesetSpellRepertoire).GetMethod("RestoreAllSpellSlots");
             var myRestoreAllSpellSlotsMethod = typeof(RulesetCharacter_ApplyRest).GetMethod("RestoreAllSpellSlots");
 
-            foreach (CodeInstruction instruction in instructions)
+            foreach (var instruction in instructions)
             {
                 if (instruction.Calls(restoreAllSpellSlotsMethod))
                 {

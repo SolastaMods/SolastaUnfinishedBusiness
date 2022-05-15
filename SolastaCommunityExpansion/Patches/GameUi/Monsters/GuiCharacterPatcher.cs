@@ -71,7 +71,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Monsters
                 return;
             }
 
-            bool dirty = __instance.UpdateHealthStatus();
+            var dirty = __instance.UpdateHealthStatus();
 
             // capture current state of dirty flag for use in Postfix
             __state = ___healthLabelDirty || dirty;

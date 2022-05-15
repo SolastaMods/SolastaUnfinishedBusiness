@@ -39,10 +39,10 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.SummonFormExtraOrigin
                 case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceClassLevel:
                     var sourceCharacter = (RulesetCharacterHero)formsParams.sourceCharacter;
                     // Find a better place to put this in?
-                    string classType = addedCondition.AdditionalDamageType;
-                    if (DatabaseRepository.GetDatabase<CharacterClassDefinition>().TryGetElement(classType, out CharacterClassDefinition characterClassDefinition)
+                    var classType = addedCondition.AdditionalDamageType;
+                    if (DatabaseRepository.GetDatabase<CharacterClassDefinition>().TryGetElement(classType, out var characterClassDefinition)
                         && sourceCharacter.ClassesAndLevels != null
-                        && sourceCharacter.ClassesAndLevels.TryGetValue(characterClassDefinition, out int classLevel))
+                        && sourceCharacter.ClassesAndLevels.TryGetValue(characterClassDefinition, out var classLevel))
                     {
                         sourceAmount = classLevel;
                     }
@@ -59,7 +59,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.SummonFormExtraOrigin
             var inflictConditionMethod = typeof(RulesetActor).GetMethod("InflictCondition");
             var extendInflictConditionMethod = typeof(RulesetImplementationManagerLocation_ApplySummonForm).GetMethod("ExtendInflictCondition");
 
-            foreach (CodeInstruction instruction in instructions)
+            foreach (var instruction in instructions)
             {
                 if (instruction.Calls(inflictConditionMethod) && ++found == 3)
                 {

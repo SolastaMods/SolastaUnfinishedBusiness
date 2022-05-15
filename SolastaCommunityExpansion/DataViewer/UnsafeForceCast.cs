@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.DataViewer
         {
             Func<TInput, TOutput> cache = default;
 
-            if (_cache.TryGetValue(typeof(TInput), typeof(TOutput), out WeakReference weakRef))
+            if (_cache.TryGetValue(typeof(TInput), typeof(TOutput), out var weakRef))
             {
                 cache = weakRef.Target as Func<TInput, TOutput>;
             }

@@ -65,7 +65,7 @@ namespace SolastaCommunityExpansion.Feats
             var condition = attacker.RulesetCharacter.HasConditionOfType(ConditionDualFlurryApplyBuilder.GetOrAdd().Name) ?
                 ConditionDualFlurryGrantBuilder.GetOrAdd() : ConditionDualFlurryApplyBuilder.GetOrAdd();
 
-            RulesetCondition active_condition = RulesetCondition.CreateActiveCondition(attacker.RulesetCharacter.Guid,
+            var active_condition = RulesetCondition.CreateActiveCondition(attacker.RulesetCharacter.Guid,
                                                                                        condition, RuleDefinitions.DurationType.Round, 0,
                                                                                        RuleDefinitions.TurnOccurenceType.EndOfTurn,
                                                                                        attacker.RulesetCharacter.Guid,
@@ -218,7 +218,7 @@ namespace SolastaCommunityExpansion.Feats
             {
                 return false;
             }
-            RulesetItem off_item = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem;
+            var off_item = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem;
 
             return off_item != null && off_item.ItemDefinition != null && off_item.ItemDefinition.IsLightSourceItem;
         }

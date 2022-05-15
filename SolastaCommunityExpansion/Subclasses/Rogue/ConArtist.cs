@@ -33,7 +33,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
         internal ConArtist()
         {
             // Make Con Artist subclass
-            FeatureDefinitionAbilityCheckAffinity abilityAffinity = FeatureDefinitionAbilityCheckAffinityBuilder
+            var abilityAffinity = FeatureDefinitionAbilityCheckAffinityBuilder
                 .Create("AbilityAffinityRogueConArtist", SubclassNamespace)
                 .SetGuiPresentation(Category.Subclass)
                 .BuildAndSetAffinityGroups(
@@ -44,7 +44,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
                     (AttributeDefinitions.Charisma, SkillDefinitions.Performance))
                 .AddToDB();
 
-            FeatureDefinitionCastSpellBuilder spellCasting = FeatureDefinitionCastSpellBuilder
+            var spellCasting = FeatureDefinitionCastSpellBuilder
                 .Create("CastSpellConArtist", SubclassNamespace)
                 .SetGuiPresentation("RoguishConArtistSpellcasting", Category.Subclass)
                 .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Subclass)
@@ -58,7 +58,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
                 .SetKnownSpells(4, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER)
                 .SetSlotsPerLevel(3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER);
 
-            EffectDescriptionBuilder feintBuilder = EffectDescriptionBuilder
+            var feintBuilder = EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(
                     RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.Distance, 12,
@@ -84,7 +84,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
                         condition, ConditionForm.ConditionOperation.Add, false, false)
                     .Build());
 
-            FeatureDefinitionPower feint = FeatureDefinitionPowerBuilder
+            var feint = FeatureDefinitionPowerBuilder
                 .Create("RoguishConArtistFeint", SubclassNamespace)
                 .SetGuiPresentation(Category.Subclass)
                 .Configure(
@@ -93,7 +93,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
                     false, false, AttributeDefinitions.Charisma, feintBuilder.Build(), false /* unique instance */)
                 .AddToDB();
 
-            FeatureDefinitionProficiency proficiency = FeatureDefinitionProficiencyBuilder
+            var proficiency = FeatureDefinitionProficiencyBuilder
                 .Create("RoguishConArtistMentalSavingThrows", SubclassNamespace)
                 .SetGuiPresentation(Category.Subclass)
                 .SetProficiencies(RuleDefinitions.ProficiencyType.SavingThrow, AttributeDefinitions.Charisma, AttributeDefinitions.Wisdom)

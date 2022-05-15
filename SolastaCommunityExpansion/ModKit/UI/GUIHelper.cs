@@ -284,7 +284,7 @@ namespace ModKit.Utility
                 divStyle.fixedWidth = 0;
             }
 
-            GUILayout.Space((1f * height) / 2f);
+            GUILayout.Space(1f * height / 2f);
             GUILayout.Box(GUIContent.none, divStyle);
             GUILayout.Space(height / 2f);
         }

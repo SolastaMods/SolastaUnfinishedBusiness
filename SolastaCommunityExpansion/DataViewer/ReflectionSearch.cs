@@ -126,9 +126,9 @@ namespace SolastaCommunityExpansion.DataViewer
             var breadth = todo.Count;
             foreach (var node in todo)
             {
-                bool foundMatch = false;
+                var foundMatch = false;
                 var instanceID = node.InstanceID;
-                bool alreadyVisted = false;
+                var alreadyVisted = false;
                 if (instanceID is int instID)
                 {
                     if (VisitedInstanceIDs.Contains(instID))

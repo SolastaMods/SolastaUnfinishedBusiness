@@ -62,7 +62,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.StackedMaterialComp
                 return true;
             }
 
-            SpellDefinition spellDefinition = activeSpell.SpellDefinition;
+            var spellDefinition = activeSpell.SpellDefinition;
             if (spellDefinition.MaterialComponentType != RuleDefinitions.MaterialComponentType.Specific
                 || !spellDefinition.SpecificMaterialComponentConsumed
                 || string.IsNullOrEmpty(spellDefinition.SpecificMaterialComponentTag)
@@ -117,7 +117,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.StackedMaterialComp
 
             if (componentConsumed != null)
             {
-                for (int i = 0; i < itemToUse.StackCountRequired; i++)
+                for (var i = 0; i < itemToUse.StackCountRequired; i++)
                 {
                     componentConsumed(__instance, spellDefinition, itemToUse.RulesetItem);
                 }

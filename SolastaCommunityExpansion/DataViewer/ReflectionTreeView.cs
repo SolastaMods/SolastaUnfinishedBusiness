@@ -86,7 +86,7 @@ namespace SolastaCommunityExpansion.DataViewer
                 _valueStyle = new GUIStyle(GUI.skin.box) { alignment = TextAnchor.MiddleLeft, stretchHeight = true };
             }
 
-            int startIndexUBound = Math.Max(0, _nodesCount - MaxRows);
+            var startIndexUBound = Math.Max(0, _nodesCount - MaxRows);
 
             // mouse wheel & fix scroll position
             if (Event.current.type == EventType.Layout)
@@ -142,7 +142,7 @@ namespace SolastaCommunityExpansion.DataViewer
                         ReflectionSearch.Shared.StartSearch(_tree.RootNode, searchText, updateCounts, _searchResults);
                     }, UI.Width(250));
                     GUILayout.Space(10f);
-                    bool isSearching = ReflectionSearch.Shared.IsSearching;
+                    var isSearching = ReflectionSearch.Shared.IsSearching;
                     UI.ActionButton(isSearching ? "Stop" : "Search", () =>
                     {
                         if (isSearching)
@@ -262,7 +262,7 @@ namespace SolastaCommunityExpansion.DataViewer
                         _buttonStyle, GUILayout.ExpandWidth(false), GUILayout.MinWidth(TitleMinWidth));
 
                     // value
-                    Color originalColor = GUI.contentColor;
+                    var originalColor = GUI.contentColor;
                     GUI.contentColor = node.IsException ? Color.red : node.IsNull ? Color.grey : originalColor;
                     GUILayout.TextArea(node.ValueText.MarkedSubstring(searchText));
                     GUI.contentColor = originalColor;
@@ -278,7 +278,7 @@ namespace SolastaCommunityExpansion.DataViewer
         private void DrawNode(Node node, int depth, bool collapse)
         {
 #pragma warning disable CS0618 // Type or member is obsolete
-            ToggleState expanded = node.Expanded;
+            var expanded = node.Expanded;
             if (depth >= _skipLevels && !(collapse && depth > 0))
             {
                 if (!node.hasChildren)

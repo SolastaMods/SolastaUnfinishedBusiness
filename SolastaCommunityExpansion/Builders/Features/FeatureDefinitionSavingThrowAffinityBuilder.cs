@@ -41,7 +41,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
             // TODO: this isn't a set, it's an Add
 
-            foreach (string ability in abilityScores)
+            foreach (var ability in abilityScores)
             {
                 var group = new SavingThrowAffinityGroup
                 {

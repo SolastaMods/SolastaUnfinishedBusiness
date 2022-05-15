@@ -30,9 +30,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 
         private static EffectForm CreateEffectItem()
         {
-            ItemPropertyForm itemPropertyForm = new ItemPropertyForm();
+            var itemPropertyForm = new ItemPropertyForm();
             itemPropertyForm.FeatureBySlotLevel.Add(new FeatureUnlockByLevel(IntToAttackAndDamageBuilder.IntToAttackAndDamage, 0));
-            EffectForm effectItem = new EffectForm
+            var effectItem = new EffectForm
             {
                 FormType = EffectForm.EffectFormType.ItemProperty
             };
@@ -42,13 +42,13 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 
         private static FeatureDefinitionPowerSharedPool CreateScoutModePower()
         {
-            GuiPresentation guiPresentationScout = new GuiPresentation();
+            var guiPresentationScout = new GuiPresentation();
             guiPresentationScout.SetDescription("Feature/&ScoutModePowerDescription");
             guiPresentationScout.SetTitle("Feature/&ScoutModePowerTitle");
             guiPresentationScout.SetSpriteReference(ShadowArmor.GuiPresentation.SpriteReference);
             guiPresentationScout.SetSortOrder(1);
 
-            EffectDescription effectScoutMode = new EffectDescription();
+            var effectScoutMode = new EffectDescription();
             effectScoutMode.Copy(ProduceFlameHold.EffectDescription);
             effectScoutMode.SlotTypes.Clear();
             effectScoutMode.SlotTypes.AddRange("MainHandSlot", "OffHandSlot");
@@ -79,7 +79,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 
         private static FeatureDefinitionPowerSharedPool CreateSentinelModePower()
         {
-            EffectDescription effectsentinelmode = new EffectDescription();
+            var effectsentinelmode = new EffectDescription();
             effectsentinelmode.Copy(ProduceFlameHold.EffectDescription);
             effectsentinelmode.SlotTypes.Clear();
             effectsentinelmode.SlotTypes.AddRange("MainHandSlot", "OffHandSlot");
@@ -91,7 +91,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             effectsentinelmode.EffectForms[0].SummonForm.SetNumber(1);
             effectsentinelmode.EffectForms.Add(CreateEffectItem());
 
-            GuiPresentation guiPresentationSentinel = new GuiPresentation();
+            var guiPresentationSentinel = new GuiPresentation();
             guiPresentationSentinel.SetDescription("Feature/&SentinelModePowerDescription");
             guiPresentationSentinel.SetTitle("Feature/&SentinelModePowerTitle");
             guiPresentationSentinel.SetSpriteReference(MageArmor.GuiPresentation.SpriteReference);
@@ -196,7 +196,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             Definition.GuiPresentation.Title = "Feat/&ScoutSentinelFeatureSet_level09Title";
             Definition.GuiPresentation.Description = "Feat/&ScoutSentinelFeatureSet_level09Description";
 
-            FeatureDefinitionPowerPoolModifier ExtraInfusionSlots = FeatureDefinitionPowerPoolModifierBuilder
+            var ExtraInfusionSlots = FeatureDefinitionPowerPoolModifierBuilder
                 .Create("ExtraInfusionSlots", "350902fd-cf99-48e4-8edc-115c82886bdb")
                 .Configure(2, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, TinkererClass.InfusionPool)
                 .SetGuiPresentation(Category.Feat, null, 1)
@@ -226,20 +226,20 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 
             Definition.FeatureSet.Clear();
 
-            GuiPresentation guiPresentationImprovedSentinel = new GuiPresentation();
+            var guiPresentationImprovedSentinel = new GuiPresentation();
             guiPresentationImprovedSentinel.SetDescription("Feature/&ImprovedSentinelModePowerDescription");
             guiPresentationImprovedSentinel.SetTitle("Feature/&ImprovedSentinelModePowerTitle");
             guiPresentationImprovedSentinel.SetSpriteReference(MageArmor.GuiPresentation.SpriteReference);
 
-            ItemPropertyForm itemPropertyForm = new ItemPropertyForm();
+            var itemPropertyForm = new ItemPropertyForm();
             itemPropertyForm.FeatureBySlotLevel.Add(new FeatureUnlockByLevel(IntToAttackAndDamageBuilder.IntToAttackAndDamage, 0));
-            EffectForm effectItem = new EffectForm
+            var effectItem = new EffectForm
             {
                 FormType = EffectForm.EffectFormType.ItemProperty
             };
             effectItem.SetItemPropertyForm(itemPropertyForm);
 
-            EffectDescription effectImprovedSentinelmode = new EffectDescription();
+            var effectImprovedSentinelmode = new EffectDescription();
             effectImprovedSentinelmode.Copy(ProduceFlameHold.EffectDescription);
             effectImprovedSentinelmode.SlotTypes.Clear();
             effectImprovedSentinelmode.SlotTypes.AddRange("MainHandSlot", "OffHandSlot");
@@ -251,7 +251,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             effectImprovedSentinelmode.EffectForms[0].SummonForm.SetNumber(1);
             effectImprovedSentinelmode.EffectForms.Add(effectItem);
 
-            FeatureDefinitionPowerSharedPoolBuilder Improvedsentinelmodepowerbuilder = new FeatureDefinitionPowerSharedPoolBuilder
+            var Improvedsentinelmodepowerbuilder = new FeatureDefinitionPowerSharedPoolBuilder
                 (
                  "ImprovedSentinelModePower"                                         // string name
                  , "b216988a-5905-47fd-9359-093cd77d41f9"                    // string guid
@@ -266,17 +266,17 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
                  , guiPresentationImprovedSentinel                                   // GuiPresentation guiPresentation
                  , true                                                      // bool uniqueInstanc
                 );
-            FeatureDefinitionPowerSharedPool Improvedsentinelmodepower = Improvedsentinelmodepowerbuilder.AddToDB();
+            var Improvedsentinelmodepower = Improvedsentinelmodepowerbuilder.AddToDB();
 
             Improvedsentinelmodepower.SetOverriddenPower(ScoutSentinelTinkererSubclassBuilder.SentinelModePower);
 
-            GuiPresentation guiPresentationImprovedScout = new GuiPresentation();
+            var guiPresentationImprovedScout = new GuiPresentation();
             guiPresentationImprovedScout.SetDescription("Feature/&ImprovedScoutModePowerDescription");
             guiPresentationImprovedScout.SetTitle("Feature/&ImprovedScoutModePowerTitle");
             guiPresentationImprovedScout.SetSpriteReference(ShadowArmor.GuiPresentation.SpriteReference);
             guiPresentationImprovedScout.SetSortOrder(1);
 
-            EffectDescription effectImprovedScoutMode = new EffectDescription();
+            var effectImprovedScoutMode = new EffectDescription();
             effectImprovedScoutMode.Copy(ProduceFlameHold.EffectDescription);
             effectImprovedScoutMode.SlotTypes.Clear();
             effectImprovedScoutMode.SlotTypes.AddRange("MainHandSlot", "OffHandSlot");
@@ -288,7 +288,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             effectImprovedScoutMode.EffectForms[0].SummonForm.SetNumber(1);
             effectImprovedScoutMode.EffectForms.Add(effectItem);
 
-            FeatureDefinitionPowerSharedPoolBuilder Improvedscoutmodepowerbuilder = new FeatureDefinitionPowerSharedPoolBuilder
+            var Improvedscoutmodepowerbuilder = new FeatureDefinitionPowerSharedPoolBuilder
                  (
                   "ImprovedScoutModePower"                                            // string name
                   , "89ec2647-5560-4e82-aa7b-59a8489de492"                    // string guid
@@ -303,7 +303,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
                   , guiPresentationImprovedScout                                      // GuiPresentation guiPresentation
                   , true                                                      // bool uniqueInstanc
                  );
-            FeatureDefinitionPowerSharedPool Improvedscoutmodepower = Improvedscoutmodepowerbuilder.AddToDB();
+            var Improvedscoutmodepower = Improvedscoutmodepowerbuilder.AddToDB();
 
             Improvedscoutmodepower.SetOverriddenPower(ScoutSentinelTinkererSubclassBuilder.ScoutModePower);
 
@@ -345,7 +345,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
                 BuildSpellGroup(17, DimensionDoor, WallOfFire, WindWall));
 
             // todo: refactor so the Tinkerer class can easily get passed in to BuildAndAddSubclass and into the auto prepared spells builder instead of using a getter.
-            CharacterClassDefinition tinkerer = DatabaseRepository.GetDatabase<CharacterClassDefinition>().TryGetElement("ClassTinkerer", GuidHelper.Create(TinkererClass.GuidNamespace, "ClassTinkerer").ToString());
+            var tinkerer = DatabaseRepository.GetDatabase<CharacterClassDefinition>().TryGetElement("ClassTinkerer", GuidHelper.Create(TinkererClass.GuidNamespace, "ClassTinkerer").ToString());
             Definition.SetSpellcastingClass(tinkerer);
         }
 
@@ -481,7 +481,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 
             Definition.SetInDungeonEditor(true);
 
-            EffectForm damageEffect = new EffectForm
+            var damageEffect = new EffectForm
             {
                 DamageForm = new DamageForm
                 {
@@ -493,7 +493,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
                 AddBonusMode = RuleDefinitions.AddBonusMode.AbilityBonus
             };
 
-            EffectForm ThunderStruckEffect = new EffectForm
+            var ThunderStruckEffect = new EffectForm
             {
                 ConditionForm = new ConditionForm(),
                 FormType = EffectForm.EffectFormType.Condition
@@ -501,7 +501,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             ThunderStruckEffect.ConditionForm.Operation = ConditionForm.ConditionOperation.Add;
             ThunderStruckEffect.ConditionForm.ConditionDefinition = ThunderStruckConditionBuilder.ThunderStruck;
 
-            EffectForm balancingeffect = new EffectForm
+            var balancingeffect = new EffectForm
             {
                 ConditionForm = new ConditionForm(),
                 FormType = EffectForm.EffectFormType.Condition
@@ -510,7 +510,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             balancingeffect.ConditionForm.ConditionDefinition = ThunderStruckBalancingAdvantageConditionBuilder.ThunderStruckBalancingAdvantage;
 
             //Add to our new effect
-            EffectDescription newEffectDescription = new EffectDescription();
+            var newEffectDescription = new EffectDescription();
             newEffectDescription.Copy(Definition.WeaponDescription.EffectDescription);
             newEffectDescription.EffectForms.Clear();
             newEffectDescription.EffectForms.Add(damageEffect);
@@ -528,7 +528,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 
             newEffectDescription.SetEffectParticleParameters(Shatter.EffectDescription.EffectParticleParameters);
 
-            WeaponDescription ThunderPunch = new WeaponDescription();
+            var ThunderPunch = new WeaponDescription();
             ThunderPunch.SetWeaponType("UnarmedStrikeType");
             ThunderPunch.SetReachRange(1);
             ThunderPunch.SetMaxRange(1);
@@ -537,12 +537,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             ThunderPunch.SetEffectDescription(newEffectDescription);
             ThunderPunch.WeaponTags.Add("ScoutSentinelWeapon");
 
-            ItemPropertyDescription usingBonusActionItemPower = (ItemPropertyDescription)FormatterServices.GetUninitializedObject(typeof(ItemPropertyDescription));
+            var usingBonusActionItemPower = (ItemPropertyDescription)FormatterServices.GetUninitializedObject(typeof(ItemPropertyDescription));
             usingBonusActionItemPower.SetFeatureDefinition(UsingitemPowerBuilder.UsingitemPower);
             usingBonusActionItemPower.SetType(ItemPropertyDescription.PropertyType.Feature);
             usingBonusActionItemPower.SetKnowledgeAffinity(EquipmentDefinitions.KnowledgeAffinity.InactiveAndHidden);
 
-            DeviceFunctionDescription deviceFunctionDescription = new DeviceFunctionDescription(DatabaseHelper.ItemDefinitions.PotionOfComprehendLanguages.UsableDeviceDescription.DeviceFunctions[0]);
+            var deviceFunctionDescription = new DeviceFunctionDescription(DatabaseHelper.ItemDefinitions.PotionOfComprehendLanguages.UsableDeviceDescription.DeviceFunctions[0]);
             deviceFunctionDescription.SetCanOverchargeSpell(false);
             deviceFunctionDescription.SetDurationType(RuleDefinitions.DurationType.UntilLongRest);
             deviceFunctionDescription.SetFeatureDefinitionPower(ThunderShieldBuilder.ThunderShield);
@@ -552,7 +552,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             deviceFunctionDescription.SetUseAffinity(DeviceFunctionDescription.FunctionUseAffinity.IterationPerRecharge);
             deviceFunctionDescription.SetUseAmount(6);
 
-            UsableDeviceDescription usableDeviceDescription = new UsableDeviceDescription();
+            var usableDeviceDescription = new UsableDeviceDescription();
             usableDeviceDescription.SetUsage(EquipmentDefinitions.ItemUsage.ByFunction);
             usableDeviceDescription.SetChargesCapitalNumber(5);
             usableDeviceDescription.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
@@ -567,7 +567,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             Definition.SlotTypes.AddRange(new List<string> { "MainHandSlot", "OffHandSlot", "GlovesSlot", "UtilitySlot" });
             Definition.SlotsWhereActive.AddRange(new List<string> { "MainHandSlot", "OffHandSlot", "GlovesSlot", "UtilitySlot" });
 
-            FocusItemDescription focusItemDescription = new FocusItemDescription();
+            var focusItemDescription = new FocusItemDescription();
             focusItemDescription.SetShownAsFocus(true);
             focusItemDescription.SetFocusType(EquipmentDefinitions.FocusType.Arcane);
 
@@ -620,7 +620,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             Definition.SetActivationTime(RuleDefinitions.ActivationTime.BonusAction);
             Definition.SetShortTitleOverride("Feat/&ThunderShieldTitle");
 
-            EffectForm healingEffect = new EffectForm
+            var healingEffect = new EffectForm
             {
                 FormType = EffectForm.EffectFormType.TemporaryHitPoints
             };
@@ -638,7 +638,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             healingEffect.SetLevelMultiplier(1);
 
             //Add to our new effect
-            EffectDescription newEffectDescription = new EffectDescription();
+            var newEffectDescription = new EffectDescription();
             newEffectDescription.Copy(Definition.EffectDescription);
             newEffectDescription.EffectForms.Clear();
             newEffectDescription.EffectForms.Add(healingEffect);
@@ -685,7 +685,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             Definition.SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
 
             // Fx
-            AssetReference assetReference = new AssetReference();
+            var assetReference = new AssetReference();
             assetReference.SetField("m_AssetGUID", "3e25fca5d3585174f9b7e20aca6ef3d9");
             Definition.SetConditionStartParticleReference(assetReference);
             Definition.SetConditionParticleReference(assetReference);
@@ -806,7 +806,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 
             Definition.SetInDungeonEditor(true);
 
-            EffectForm damageEffect = new EffectForm
+            var damageEffect = new EffectForm
             {
                 DamageForm = new DamageForm
                 {
@@ -818,7 +818,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
                 AddBonusMode = RuleDefinitions.AddBonusMode.AbilityBonus
             };
 
-            EffectDescription newEffectDescription = new EffectDescription();
+            var newEffectDescription = new EffectDescription();
             newEffectDescription.Copy(Definition.WeaponDescription.EffectDescription);
             newEffectDescription.EffectForms.Clear();
             newEffectDescription.EffectForms.Add(damageEffect);
@@ -835,7 +835,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 
             newEffectDescription.SetEffectParticleParameters(LightningBolt.EffectDescription.EffectParticleParameters);
 
-            WeaponDescription LightningSpear = new WeaponDescription();
+            var LightningSpear = new WeaponDescription();
             LightningSpear.SetWeaponType("DartType");
             LightningSpear.SetReachRange(1);
             LightningSpear.SetMaxRange(60);
@@ -844,17 +844,17 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             LightningSpear.SetEffectDescription(newEffectDescription);
             LightningSpear.WeaponTags.Add("ScoutSentinelWeapon");
 
-            ItemPropertyDescription LightningSpearAdditionalDamage = (ItemPropertyDescription)FormatterServices.GetUninitializedObject(typeof(ItemPropertyDescription));
+            var LightningSpearAdditionalDamage = (ItemPropertyDescription)FormatterServices.GetUninitializedObject(typeof(ItemPropertyDescription));
             LightningSpearAdditionalDamage.SetFeatureDefinition(LightningSpearAdditionalDamageBuilder.LightningSpearAdditionalDamage);
             LightningSpearAdditionalDamage.SetType(ItemPropertyDescription.PropertyType.Feature);
             LightningSpearAdditionalDamage.SetKnowledgeAffinity(EquipmentDefinitions.KnowledgeAffinity.InactiveAndHidden);
 
-            ItemPropertyDescription LightningCloakStealth = (ItemPropertyDescription)FormatterServices.GetUninitializedObject(typeof(ItemPropertyDescription));
+            var LightningCloakStealth = (ItemPropertyDescription)FormatterServices.GetUninitializedObject(typeof(ItemPropertyDescription));
             LightningCloakStealth.SetFeatureDefinition(LightningCloakAbilityCheckAffinityBuilder.LightningCloakAbilityCheckAffinity);
             LightningCloakStealth.SetType(ItemPropertyDescription.PropertyType.Feature);
             LightningCloakStealth.SetKnowledgeAffinity(EquipmentDefinitions.KnowledgeAffinity.InactiveAndHidden);
 
-            ItemPropertyDescription LightningCloakMovement = (ItemPropertyDescription)FormatterServices.GetUninitializedObject(typeof(ItemPropertyDescription));
+            var LightningCloakMovement = (ItemPropertyDescription)FormatterServices.GetUninitializedObject(typeof(ItemPropertyDescription));
             LightningCloakMovement.SetFeatureDefinition(LightningCloakMovementAffinitiesBuilder.LightningCloakMovementAffinities);
             LightningCloakMovement.SetType(ItemPropertyDescription.PropertyType.Feature);
             LightningCloakMovement.SetKnowledgeAffinity(EquipmentDefinitions.KnowledgeAffinity.InactiveAndHidden);
@@ -862,7 +862,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             Definition.SlotTypes.AddRange(new List<string> { "MainHandSlot", "OffHandSlot", "GlovesSlot", "UtilitySlot" });
             Definition.SlotsWhereActive.AddRange(new List<string> { "MainHandSlot", "OffHandSlot", "GlovesSlot", "UtilitySlot" });
 
-            FocusItemDescription focusItemDescription = new FocusItemDescription();
+            var focusItemDescription = new FocusItemDescription();
             focusItemDescription.SetShownAsFocus(true);
             focusItemDescription.SetFocusType(EquipmentDefinitions.FocusType.Arcane);
 
@@ -953,7 +953,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 
         private LightningCloakAbilityCheckAffinityBuilder(string name, string guid) : base(name, guid)
         {
-            FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup DampeningField = new FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup
+            var DampeningField = new FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup
             {
                 abilityScoreName = "Dexterity",
                 proficiencyName = "Stealth",
@@ -986,7 +986,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             Definition.GuiPresentation.Description = "Equipment/&ImprovedThunderPunchDescription";
             Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.ItemDefinitions.GauntletsOfOgrePower.GuiPresentation.SpriteReference);
 
-            DeviceFunctionDescription grapplefunction = new DeviceFunctionDescription(DatabaseHelper.ItemDefinitions.PotionOfComprehendLanguages.UsableDeviceDescription.DeviceFunctions[0]);
+            var grapplefunction = new DeviceFunctionDescription(DatabaseHelper.ItemDefinitions.PotionOfComprehendLanguages.UsableDeviceDescription.DeviceFunctions[0]);
             grapplefunction.SetCanOverchargeSpell(false);
             grapplefunction.SetDurationType(RuleDefinitions.DurationType.UntilLongRest);
             grapplefunction.SetFeatureDefinitionPower(GauntletsGrappleBuilder.GauntletsGrapple);
@@ -1026,7 +1026,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             Definition.SetShortTitleOverride("Feat/&GauntletsGrappleTitle");
             Definition.SetReactionContext(RuleDefinitions.ReactionTriggerContext.HitByMelee);
 
-            EffectForm motionEffect = new EffectForm
+            var motionEffect = new EffectForm
             {
                 FormType = EffectForm.EffectFormType.Motion
             };
@@ -1041,7 +1041,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             motionEffect.SetLevelMultiplier(1);
             motionEffect.SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
 
-            EffectForm damageEffect = new EffectForm
+            var damageEffect = new EffectForm
             {
                 DamageForm = new DamageForm
                 {
@@ -1053,7 +1053,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
                 AddBonusMode = RuleDefinitions.AddBonusMode.AbilityBonus
             };
 
-            EffectDescription newEffectDescription = new EffectDescription();
+            var newEffectDescription = new EffectDescription();
             newEffectDescription.Copy(Definition.EffectDescription);
             newEffectDescription.EffectForms.Clear();
             newEffectDescription.EffectForms.Add(motionEffect);
@@ -1103,7 +1103,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             Definition.SetInDungeonEditor(true);
 
             //next attack advantage // condition true strike or guiding bolt
-            EffectForm NextAttackAdvantage = new EffectForm
+            var NextAttackAdvantage = new EffectForm
             {
                 ConditionForm = new ConditionForm(),
                 FormType = EffectForm.EffectFormType.Condition
@@ -1112,7 +1112,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             NextAttackAdvantage.ConditionForm.ConditionDefinition = AdvantageAttackOnEnemyBuilder.AdvantageAttackOnEnemy;
 
             // combat affinity cursed on attack roll
-            EffectForm EnemyAttackDisadvantageEffect = new EffectForm
+            var EnemyAttackDisadvantageEffect = new EffectForm
             {
                 ConditionForm = new ConditionForm(),
                 FormType = EffectForm.EffectFormType.Condition
@@ -1121,7 +1121,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             EnemyAttackDisadvantageEffect.ConditionForm.ConditionDefinition = DisadvantageOnAttackByEnemyBuilder.DisadvantageOnAttackByEnemy;
 
             //extra damage on attack
-            EffectForm ExtraAttackEffect = new EffectForm
+            var ExtraAttackEffect = new EffectForm
             {
                 ConditionForm = new ConditionForm(),
                 FormType = EffectForm.EffectFormType.Condition
@@ -1130,10 +1130,10 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             ExtraAttackEffect.ConditionForm.ConditionDefinition = ExtraDamageOnAttackConditionBuilder.ExtraDamageOnAttackCondition;
 
             // target illuminated
-            LightSourceForm lightSourceForm = new LightSourceForm();
+            var lightSourceForm = new LightSourceForm();
             lightSourceForm.Copy(Shine.EffectDescription.EffectForms[0].LightSourceForm);
 
-            EffectForm MagicalLightSourceEffect = new EffectForm();
+            var MagicalLightSourceEffect = new EffectForm();
             MagicalLightSourceEffect.SetLevelMultiplier(1);
             MagicalLightSourceEffect.SetLevelType(RuleDefinitions.LevelSourceType.CharacterLevel);
             MagicalLightSourceEffect.HasSavingThrow = false;

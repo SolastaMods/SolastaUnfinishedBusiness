@@ -51,7 +51,7 @@ namespace SolastaCommunityExpansion.Displays
 
         private static void ResetTree()
         {
-            Func<object> getTarget = TARGET_LIST[targetNames[Main.Settings.SelectedRawDataType]];
+            var getTarget = TARGET_LIST[targetNames[Main.Settings.SelectedRawDataType]];
 
             if (getTarget == null)
             {

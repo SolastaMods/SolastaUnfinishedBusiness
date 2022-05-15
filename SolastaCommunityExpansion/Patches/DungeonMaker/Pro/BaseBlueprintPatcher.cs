@@ -34,7 +34,7 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.Pro
             var environmentName = a[1];
             var str1 = "Gui/Bitmaps/Blueprints/Props/";
             var str2 = "User_Props_" + propName;
-            var postfix = (perspective ? "_Pers" : "_Top");
+            var postfix = perspective ? "_Pers" : "_Top";
 
             if (environmentDefinition != null && prefabByEnvironmentDescription.Environment == environmentDefinition.Name)
             {

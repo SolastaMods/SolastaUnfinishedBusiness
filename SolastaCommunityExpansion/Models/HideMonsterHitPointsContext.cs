@@ -14,7 +14,7 @@ namespace SolastaCommunityExpansion.Models
             var rb = typeof(GuiCharacter).GetMethod("HasHealthUpdated", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
 #pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
 
-            bool retval = false;
+            var retval = false;
 
             if (rb != null)
             {

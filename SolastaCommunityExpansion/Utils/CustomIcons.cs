@@ -60,9 +60,9 @@ namespace SolastaCommunityExpansion.Utils
                 RenderTextureReadWrite.Linear);
 
             UnityGraphics.Blit(source, renderTex);
-            RenderTexture previous = RenderTexture.active;
+            var previous = RenderTexture.active;
             RenderTexture.active = renderTex;
-            Texture2D readableText = new Texture2D(source.width, source.height);
+            var readableText = new Texture2D(source.width, source.height);
             readableText.ReadPixels(new Rect(0, 0, renderTex.width, renderTex.height), 0, 0);
             readableText.Apply();
             RenderTexture.active = previous;
@@ -96,17 +96,17 @@ namespace SolastaCommunityExpansion.Utils
         //stacks horizontaly images from files from left to right, resizes resulting image to final scale and stores it to a file
         internal static void CombineImages(IEnumerable<string> files, (int, int) finalScale, string finalImageFilename)
         {
-            List<Bitmap> images = new List<Bitmap>();
+            var images = new List<Bitmap>();
 
             try
             {
-                int width = 0;
-                int height = 0;
+                var width = 0;
+                var height = 0;
 
-                foreach (string image in files)
+                foreach (var image in files)
                 {
                     //create a Bitmap from the file and add it to the list
-                    Bitmap bitmap = new Bitmap(image);
+                    var bitmap = new Bitmap(image);
 
                     //update the size of the final bitmap
                     width += bitmap.Width;
@@ -119,15 +119,15 @@ namespace SolastaCommunityExpansion.Utils
                 using var finalImage = new Bitmap(width, height);
 
                 //get a graphics object from the image so we can draw on it
-                using (Graphics g = Graphics.FromImage(finalImage))
+                using (var g = Graphics.FromImage(finalImage))
                 {
                     //set background color
                     g.Clear(System.Drawing.Color.Black);
 
                     //go through each image and draw it on the final image
-                    int offset = 0;
+                    var offset = 0;
 
-                    foreach (Bitmap image in images)
+                    foreach (var image in images)
                     {
                         g.DrawImage(image, new Rectangle(offset, 0, image.Width, image.Height));
                         offset += image.Width;
@@ -158,7 +158,7 @@ namespace SolastaCommunityExpansion.Utils
             var sourceRegion = new Rectangle(0, 0, innerImageScale.Item1, innerImageScale.Item2);
             var destinationRegion = new Rectangle(innerImagePosition.Item1, innerImagePosition.Item2, innerImageScale.Item1, innerImageScale.Item2);
 
-            using (Graphics g = Graphics.FromImage(baseImage))
+            using (var g = Graphics.FromImage(baseImage))
             {
                 g.DrawImage(innerImage, destinationRegion, sourceRegion, GraphicsUnit.Pixel);
             }

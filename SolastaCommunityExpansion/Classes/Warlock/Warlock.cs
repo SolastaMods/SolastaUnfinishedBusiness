@@ -111,7 +111,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock
 
         private static void BuildProgression(CharacterClassDefinitionBuilder classWarlockBuilder)
         {
-            FeatureDefinitionSubclassChoice subclassChoices = FeatureDefinitionSubclassChoiceBuilder
+            var subclassChoices = FeatureDefinitionSubclassChoiceBuilder
                 .Create("ClassWarlockSubclassChoice", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation("ClassWarlockPatron", Category.Subclass)
                 .SetSubclassSuffix("Patron")
@@ -287,7 +287,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                 ItemDefinitions.WizardClothes_Alternate
             };
 
-            foreach (ItemDefinition item in itemlist)
+            foreach (var item in itemlist)
             {
                 item.RequiredAttunementClasses.Add(ClassWarlock);
             }

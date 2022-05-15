@@ -62,7 +62,7 @@ namespace SolastaCommunityExpansion.Models
 
             ItemRecipeGenerationHelper.AddRecipesForArmor(ArmorAndShieldData.Items);
 
-            foreach (string key in RecipeBooks.Keys)
+            foreach (var key in RecipeBooks.Keys)
             {
                 UpdateCraftingItemsInDMState(key);
                 UpdateCraftingRecipesInDMState(key);
@@ -71,9 +71,9 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void UpdateRecipeCost()
         {
-            foreach (List<ItemDefinition> items in RecipeBooks.Values)
+            foreach (var items in RecipeBooks.Values)
             {
-                foreach (ItemDefinition item in items)
+                foreach (var item in items)
                 {
                     item.SetCosts(new[] { 0, Main.Settings.RecipeCost, 0, 0, 0 });
                 }
@@ -84,7 +84,7 @@ namespace SolastaCommunityExpansion.Models
         {
             if (Main.Settings.CraftingInStore.Contains(key))
             {
-                foreach (ItemDefinition item in RecipeBooks[key])
+                foreach (var item in RecipeBooks[key])
                 {
                     ItemRecipeGenerationHelper.StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Circe, item);
                     ItemRecipeGenerationHelper.StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore, item);
@@ -99,8 +99,8 @@ namespace SolastaCommunityExpansion.Models
                 // Don't touch the in dungeon state of base game items.
                 return;
             }
-            bool available = Main.Settings.CraftingItemsInDM.Contains(key);
-            foreach (ItemDefinition recipeBookDefinition in RecipeBooks[key])
+            var available = Main.Settings.CraftingItemsInDM.Contains(key);
+            foreach (var recipeBookDefinition in RecipeBooks[key])
             {
                 recipeBookDefinition.DocumentDescription.RecipeDefinition.CraftedItem.SetInDungeonEditor(available);
             }
@@ -108,8 +108,8 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void UpdateCraftingRecipesInDMState(string key)
         {
-            bool available = Main.Settings.CraftingRecipesInDM.Contains(key);
-            foreach (ItemDefinition recipeBookDefinition in RecipeBooks[key])
+            var available = Main.Settings.CraftingRecipesInDM.Contains(key);
+            foreach (var recipeBookDefinition in RecipeBooks[key])
             {
                 recipeBookDefinition.SetInDungeonEditor(available);
             }
@@ -117,12 +117,12 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void LearnRecipes(string key)
         {
-            IGameLoreService gameLoreService = ServiceRepository.GetService<IGameLoreService>();
+            var gameLoreService = ServiceRepository.GetService<IGameLoreService>();
             if (gameLoreService == null)
             {
                 return;
             }
-            foreach (ItemDefinition recipeBookDefinition in RecipeBooks[key])
+            foreach (var recipeBookDefinition in RecipeBooks[key])
             {
                 gameLoreService.LearnRecipe(recipeBookDefinition.DocumentDescription.RecipeDefinition, false);
             }
@@ -133,7 +133,7 @@ namespace SolastaCommunityExpansion.Models
         {
             var outString = new StringBuilder();
 
-            foreach (string key in RecipeBooks.Keys)
+            foreach (var key in RecipeBooks.Keys)
             {
                 outString.Append("\n[*][b]");
                 outString.Append(RecipeTitles[key]);

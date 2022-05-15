@@ -48,7 +48,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             Definition.GuiPresentation.Description = "Feat/&ProtectorConstructLevel3AutopreparedSpellsDescription";
 
 #pragma warning disable S1481, IDE0059 // Unused local variables should be removed
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup autoPreparedSpellsGroup = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
+            var autoPreparedSpellsGroup = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
             {
                 ClassLevel = 1,
                 SpellsList = new List<SpellDefinition> { SummonProtectorSpellConstructBuilder.SummonProtectorConstruct }
@@ -144,7 +144,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             Definition.SetHasCastingFailure(false);
             Definition.SetUniqueInstance(true);
 
-            EffectDescriptionBuilder ProtectorConstructEffect = new EffectDescriptionBuilder();
+            var ProtectorConstructEffect = new EffectDescriptionBuilder();
             ProtectorConstructEffect.SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             ProtectorConstructEffect.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
             ProtectorConstructEffect.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature, ScriptableObject.CreateInstance<ItemDefinition>(), 1, ProtectorConstructBuilder.ProtectorConstruct.name, null, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
@@ -260,13 +260,13 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             Definition.GuiPresentation.Description = "Feat/&ProtectorConstructLevel15AutopreparedSpellsDescription";
 
 #pragma warning disable S1481, IDE0059 // Unused local variables should be removed
-            FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup autoPreparedSpellsGroup = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
+            var autoPreparedSpellsGroup = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
             {
                 ClassLevel = 1,
-                SpellsList = (new List<SpellDefinition>
+                SpellsList = new List<SpellDefinition>
             {
                 SummonProtectorSpellConstructUpgradeBuilder.SummonProtectorConstructUpgrade
-            })
+            }
             };
 #pragma warning restore S1481, IDE0059 // Unused local variables should be removed
         }
@@ -418,7 +418,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             Definition.GuiPresentation.Title = "Feat/&ProtectorConstructAttackTitle";
             Definition.GuiPresentation.Description = "Feat/&ProtectorConstructAttackDescription";
 
-            EffectForm damageEffect = new EffectForm
+            var damageEffect = new EffectForm
             {
                 AddBonusMode = RuleDefinitions.AddBonusMode.AbilityBonus,
                 DamageForm = new DamageForm
@@ -434,7 +434,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
                 }
             };
 
-            EffectDescription newEffectDescription = new EffectDescription();
+            var newEffectDescription = new EffectDescription();
             newEffectDescription.Copy(Definition.EffectDescription);
             newEffectDescription.EffectForms.Clear();
             newEffectDescription.EffectForms.Add(damageEffect);
@@ -480,14 +480,14 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             Definition.SetFixedUsesPerRecharge(3);
             Definition.SetCostPerUse(1);
 
-            HealingForm selfrepair = new HealingForm
+            var selfrepair = new HealingForm
             {
                 BonusHealing = 4,
                 DieType = RuleDefinitions.DieType.D8,
                 DiceNumber = 2
             };
 
-            EffectForm effect = new EffectForm
+            var effect = new EffectForm
             {
                 FormType = EffectForm.EffectFormType.Healing
             };

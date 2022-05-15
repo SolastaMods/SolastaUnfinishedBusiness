@@ -24,14 +24,14 @@ namespace SolastaModApi.Testing
                     .Where(t => t.MemberType == MemberTypes.NestedType)
                     .OrderBy(t => t.Name);
 
-                int totalGettersSucceeded = 0;
+                var totalGettersSucceeded = 0;
 
                 foreach (var dbHelperType in dbHelperTypes)
                 {
                     var propertyGetters = dbHelperType
                         .GetProperties(BindingFlags.Static | BindingFlags.Public | BindingFlags.GetProperty);
 
-                    int gettersSucceeded = 0;
+                    var gettersSucceeded = 0;
 
                     foreach (var getter in propertyGetters)
                     {
@@ -85,7 +85,7 @@ namespace SolastaModApi.Testing
                     .OrderBy(t => t.Type.Name)
                     .ToList();
 
-                int totalMethodsSucceeded = 0;
+                var totalMethodsSucceeded = 0;
 
                 foreach (var extension in extensions)
                 {
@@ -117,7 +117,7 @@ namespace SolastaModApi.Testing
                                     .GetMethods(BindingFlags.Static | BindingFlags.Public)
                                     .Where(m => m.Name.StartsWith("Set"));
 
-                                int methodsSucceeded = 0;
+                                var methodsSucceeded = 0;
 
                                 foreach (var setter in setters)
                                 {
@@ -197,7 +197,7 @@ namespace SolastaModApi.Testing
 
             // Lacking a standard unit testing framework, just cobble some stuff together.
 
-            int failures = 0;
+            var failures = 0;
 
             if (!CheckSetFieldSucceeds(definition, "actionId", ActionDefinitions.Id.ActionSurge)) { failures++; }
             if (!CheckSetFieldSucceeds(definition, "addLightSource", true)) { failures++; }
@@ -227,7 +227,7 @@ namespace SolastaModApi.Testing
                 where T : class
                 where V : IEquatable<V>
             {
-                bool success = true;
+                var success = true;
 
                 try
                 {
@@ -260,7 +260,7 @@ namespace SolastaModApi.Testing
                 where T : class
                 where V : IEquatable<V>
             {
-                bool success = false;
+                var success = false;
 
                 try
                 {
@@ -278,7 +278,7 @@ namespace SolastaModApi.Testing
 
             bool CheckSetFieldSucceeds<T, V>(T entity, string fieldName, V value) where T : class
             {
-                bool success = false;
+                var success = false;
 
                 try
                 {
@@ -296,7 +296,7 @@ namespace SolastaModApi.Testing
 
             bool CheckSetFieldThrows<T, V>(T entity, string fieldName, V value) where T : class
             {
-                bool success = false;
+                var success = false;
 
                 try
                 {
@@ -317,7 +317,7 @@ namespace SolastaModApi.Testing
                 where T : class
                 where V : IEquatable<V>
             {
-                bool success = true;
+                var success = true;
 
                 try
                 {
@@ -350,7 +350,7 @@ namespace SolastaModApi.Testing
                 where T : class
                 where V : IEquatable<V>
             {
-                bool success = false;
+                var success = false;
 
                 try
                 {

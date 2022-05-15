@@ -50,9 +50,9 @@ namespace SolastaModApi.Extensions
 
         private static IEnumerable<FeatureDefinition> Unfold(FeatureDefinition feature)
         {
-            return (feature is FeatureDefinitionFeatureSet {Mode: FeatureSetMode.Union} set)
+            return (feature is FeatureDefinitionFeatureSet { Mode: FeatureSetMode.Union } set)
                 ? set.FeatureSet.SelectMany(Unfold)
-                : new[] {feature};
+                : new[] { feature };
         }
 
         public static bool HasAnyFeature(this RulesetActor actor, params FeatureDefinition[] features)

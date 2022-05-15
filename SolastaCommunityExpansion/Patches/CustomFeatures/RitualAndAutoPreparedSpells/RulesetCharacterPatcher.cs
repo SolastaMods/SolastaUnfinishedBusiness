@@ -15,7 +15,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.RitualAndAutoPrepared
                 return true;
             }
 
-            CharacterClassDefinition spellcastingClass = spellRepertoire.SpellCastingClass;
+            var spellcastingClass = spellRepertoire.SpellCastingClass;
             if (spellRepertoire.SpellCastingSubclass != null)
             {
                 spellcastingClass = GetClassForSubclass(spellRepertoire.SpellCastingSubclass);
@@ -23,12 +23,12 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.RitualAndAutoPrepared
 
             spellRepertoire.AutoPreparedSpells.Clear();
             __instance.EnumerateFeaturesToBrowse<FeatureDefinitionAutoPreparedSpells>(__instance.FeaturesToBrowse);
-            foreach (FeatureDefinition featureDefinition in __instance.FeaturesToBrowse)
+            foreach (var featureDefinition in __instance.FeaturesToBrowse)
             {
-                FeatureDefinitionAutoPreparedSpells autoPreparedSpells = featureDefinition as FeatureDefinitionAutoPreparedSpells;
+                var autoPreparedSpells = featureDefinition as FeatureDefinitionAutoPreparedSpells;
                 if (autoPreparedSpells.SpellcastingClass == spellcastingClass)
                 {
-                    foreach (FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup preparedSpellsGroup in autoPreparedSpells.AutoPreparedSpellsGroups)
+                    foreach (var preparedSpellsGroup in autoPreparedSpells.AutoPreparedSpellsGroups)
                     {
                         if (preparedSpellsGroup.ClassLevel <= GetSpellcastingLevel(__instance, spellRepertoire))
                         {
