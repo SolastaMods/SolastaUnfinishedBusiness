@@ -143,7 +143,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 // Saves
                 .AddFeatureAtLevel(1, FeatureDefinitionProficiencyBuilder
                     .Create("MonkSavingThrowProficiency", GUID)
-                    .SetGuiPresentation(Category.Feature, "Feature/&SavingThrowProficiencyDescription")
+                    .SetGuiPresentation("SavingThrowProficiency", Category.Feature)
                     .SetProficiencies(RuleDefinitions.ProficiencyType.SavingThrow,
                         AttributeDefinitions.Strength,
                         AttributeDefinitions.Dexterity)
