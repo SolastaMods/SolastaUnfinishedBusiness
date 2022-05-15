@@ -3,7 +3,7 @@ using HarmonyLib;
 using SolastaCommunityExpansion.Features;
 using SolastaModApi.Extensions;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures.ChangeAbilityCheck;
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.AttackModifcations;
 
 internal static class RulesetChracterHeroPatcher
 {
