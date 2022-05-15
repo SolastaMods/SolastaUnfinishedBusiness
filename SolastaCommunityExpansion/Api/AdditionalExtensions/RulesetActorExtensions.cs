@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using static FeatureDefinitionFeatureSet;
 
 namespace SolastaModApi.Extensions
@@ -82,6 +83,13 @@ namespace SolastaModApi.Extensions
             return features.SelectMany(f => f is FeatureDefinitionFeatureSet set
                 ? FlattenFeatureList(set.FeatureSet)
                 : new List<FeatureDefinition>() { f });
+        }
+
+        public static List<T> GetSubFeaturesByType<T>(this RulesetActor actor) where T : class
+        {
+            return FeaturesByType<FeatureDefinition>(actor)
+                .SelectMany(f => f.GetAllSubFeaturesOfType<T>())
+                .ToList();
         }
     }
 }
