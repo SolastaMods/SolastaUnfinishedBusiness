@@ -63,14 +63,20 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
             const int HEIGHT = 34;
             const int SPACING = 6;
 
-            var hero = Models.Global.ActiveLevelUpHero;
-            var buildingData = hero.GetHeroBuildingData();
-            var trainedFeats = buildingData.LevelupTrainedFeats.SelectMany(x => x.Value).ToList();
-
-            trainedFeats.AddRange(hero.TrainedFeats);
-
             if (active && Main.Settings.EnableSameWidthFeatSelection)
             {
+                var hero = Models.Global.ActiveLevelUpHero;
+                var buildingData = hero.GetHeroBuildingData();
+
+                if (buildingData == null)
+                {
+                    return;
+                }
+
+                var trainedFeats = buildingData.LevelupTrainedFeats.SelectMany(x => x.Value).ToList();
+
+                trainedFeats.AddRange(hero.TrainedFeats);
+
                 var j = 0;
                 var rect = table.GetComponent<RectTransform>();
 
