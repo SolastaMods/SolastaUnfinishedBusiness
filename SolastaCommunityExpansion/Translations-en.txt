@@ -1800,3 +1800,5 @@ Class/&MonkTitle	Monk
 Class/&MonkDescription	Monks are united in their ability to magically harness the energy that flows in their bodies. Whether channeled as a striking display of combat prowess or a subtler focus of defensive ability and speed, this energy infuses all that a monk does.
 Feature/&MonkWeaponProficiencyTitle	Monk Weapon Proficiencies
 Feature/&MonkSkillPointsTitle	Monk Skills
+Feature/&MonkUnarmoredDefenseTitle	Unarmored Defense
+Feature/&MonkUnarmoredDefenseDescription	While you are wearing no armor and not wielding a shield, your AC equals 10 + your Dexterity modifier + your Wisdom modifier.

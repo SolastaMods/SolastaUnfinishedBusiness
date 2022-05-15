@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
+using static FeatureDefinitionAttributeModifier;
 using static SolastaModApi.DatabaseHelper;
 
 namespace SolastaCommunityExpansion.Classes.Monk
@@ -163,6 +164,20 @@ namespace SolastaCommunityExpansion.Classes.Monk
                         SkillDefinitions.Religion,
                         SkillDefinitions.Stealth
                     )
+                    .AddToDB())
+
+                #endregion
+
+                #region Level 01
+
+                //TODO: make sure it doesn't stack with other `ability bonus to AC` features
+                .AddFeatureAtLevel(1, FeatureDefinitionAttributeModifierBuilder
+                    .Create("MonkUnarmoredDefense", GUID)
+                    .SetGuiPresentation(Category.Feature)
+                    .SetModifiedAttribute(AttributeDefinitions.ArmorClass)
+                    .SetModifierType2(AttributeModifierOperation.AddAbilityScoreBonus)
+                    .SetModifierAbilityScore(AttributeDefinitions.Wisdom)
+                    .SetSituationalContext(RuleDefinitions.SituationalContext.NotWearingArmorOrMageArmor)
                     .AddToDB())
 
                 #endregion
