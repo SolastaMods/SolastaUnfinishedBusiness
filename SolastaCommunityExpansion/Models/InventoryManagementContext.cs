@@ -28,6 +28,8 @@ namespace SolastaCommunityExpansion.Models
 
         private static GuiDropdown SortGuiDropdown { get; set; }
 
+        private static System.Action SelectionChanged { get; set; }
+
         internal static void Load()
         {
             var characterInspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
@@ -56,7 +58,7 @@ namespace SolastaCommunityExpansion.Models
             // on any control change we need to unbind / bind the entire panel to refresh all the additional items gizmos
             //
 
-            void SelectionChanged()
+            SelectionChanged = () =>
             {
                 var container = containerPanel.Container;
                 var inspectedCharacter = containerPanel.InspectedCharacter;
@@ -67,7 +69,8 @@ namespace SolastaCommunityExpansion.Models
                 Flush(container);
                 SortAndFilter(container);
                 containerPanel.Bind(container, inspectedCharacter, dropAreaClicked, visibleSlotsRefreshed);
-            }
+                containerPanel.RefreshNow();
+            };
 
             // changes the reorder button label and refactor the listener
 
@@ -168,6 +171,11 @@ namespace SolastaCommunityExpansion.Models
             FilterGuiDropdown.gameObject.SetActive(active);
             BySortGroup.gameObject.SetActive(active);
             SortGuiDropdown.gameObject.SetActive(active);
+
+            if (active)
+            {
+                SelectionChanged();
+            }
         }
 
         private static void Sort(List<RulesetItem> items)
