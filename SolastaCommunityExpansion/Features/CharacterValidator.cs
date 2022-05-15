@@ -3,43 +3,24 @@ using System.Linq;
 
 namespace SolastaCommunityExpansion.Features;
 
-public interface ICharacterValidator
+public delegate bool CharacterValidator(RulesetCharacter character);
+
+public static class CharacterValidators
 {
-    bool IsValid(RulesetCharacter character);
-}
+    public static readonly CharacterValidator NoArmor = character => !character.IsWearingArmor();
 
-public class CharacterValidator : ICharacterValidator
-{
-    private readonly Validator validator;
-
-    public static readonly ICharacterValidator NoArmor =
-        new CharacterValidator(character => !character.IsWearingArmor());
-    
-    public static readonly ICharacterValidator NoShield =
-        new CharacterValidator(character => !character.IsWearingShield());
-
-    public CharacterValidator(Validator validator)
-    {
-        this.validator = validator;
-    }
-
-    public bool IsValid(RulesetCharacter character)
-    {
-        return validator == null || validator(character);
-    }
-
-    public delegate bool Validator(RulesetCharacter character);
+    public static readonly CharacterValidator NoShield = character => !character.IsWearingShield();
 }
 
 internal static class RulesetCharacterExension
 {
-    public static bool IsValid<T>(this RulesetCharacter instance, params T[] validators) where T : ICharacterValidator
+    public static bool IsValid(this RulesetCharacter instance, params CharacterValidator[] validators)
     {
-        return validators.All(v => v.IsValid(instance));
+        return validators.All(v => v(instance));
     }
 
-    public static bool IsValid<T>(this RulesetCharacter instance, IEnumerable<T> validators) where T : ICharacterValidator
+    public static bool IsValid(this RulesetCharacter instance, IEnumerable<CharacterValidator> validators)
     {
-        return validators == null || validators.All(v => v.IsValid(instance));
+        return validators == null || validators.All(v => v(instance));
     }
 }

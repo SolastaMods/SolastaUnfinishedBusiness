@@ -7,12 +7,12 @@ interface ICanUseAttributeForWeapon
 
 public class CanUseAttributeForWeapon : ICanUseAttributeForWeapon
 {
-    private readonly ICharacterValidator[] _validators;
+    private readonly CharacterValidator[] _validators;
     private readonly string attribute;
     private readonly GetWeaponValidityHandler isWeaponValid;
 
     public CanUseAttributeForWeapon(string attribute, GetWeaponValidityHandler isWeaponValid,
-        params ICharacterValidator[] validators)
+        params CharacterValidator[] validators)
     {
         this.attribute = attribute;
         this.isWeaponValid = isWeaponValid;
