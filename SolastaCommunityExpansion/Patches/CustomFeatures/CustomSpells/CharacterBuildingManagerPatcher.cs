@@ -32,6 +32,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
 
                 var hero = heroBuildingData.HeroCharacter;
                 var poolMods = hero.GetFeaturesByType<IPointPoolMaxBonus>();
+                var spellMods = new List<IPointPoolMaxBonus>();
 
                 poolMods.RemoveAll(IsSpellBonus);
 
@@ -40,6 +41,10 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
                     if (feature is IPointPoolMaxBonus bonus)
                     {
                         poolMods.Remove(bonus);
+                        if (IsSpellBonus(bonus))
+                        {
+                            spellMods.Add(bonus);
+                        }
                     }
                 }, tag);
 
@@ -48,6 +53,12 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
                 foreach (var mod in poolMods)
                 {
                     values.AddOrReplace(mod.PoolType, values.GetValueOrDefault(mod.PoolType) + mod.MaxPointsBonus);
+                }
+                
+                //Remove spell/cantrip pool modifiers gained on this level
+                foreach (var mod in spellMods)
+                {
+                    values.AddOrReplace(mod.PoolType, values.GetValueOrDefault(mod.PoolType) - mod.MaxPointsBonus);
                 }
 
                 foreach (var mod in values)
