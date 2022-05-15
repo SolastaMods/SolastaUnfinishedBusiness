@@ -270,7 +270,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
                 classDefinition.TryGetSubclassFeature(out _, out level);
             }
 
-            if (!hero.ClassesAndSubclasses.ContainsKey(classDefinition) || onlyIfCurrentLevel && classLevel > level)
+            if (!hero.ClassesAndSubclasses.ContainsKey(classDefinition) || (onlyIfCurrentLevel && classLevel > level))
             {
                 return;
             }

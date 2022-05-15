@@ -57,7 +57,7 @@ namespace SolastaCommunityExpansion.Displays
                                 _modID = null;
                                 RefreshPatchInfoOfAllMods();
                             }
-                            foreach (KeyValuePair<string, string> pair in _modIdsToColor)
+                            foreach (var pair in _modIdsToColor)
                             {
                                 if (GUILayout.Button(pair.Key.Color(pair.Value).bold(), _buttonStyle))
                                 {
@@ -102,10 +102,10 @@ namespace SolastaCommunityExpansion.Displays
                     }
                     UI.Space(25);
                     UI.Label($"Patches Found: {methodBases.Count().ToString().cyan()}".orange());
-                    int index = 1;
+                    var index = 1;
                     foreach (var method in methodBases)
                     {
-                        string typeStr = method.DeclaringType.FullName;
+                        var typeStr = method.DeclaringType.FullName;
                         var methodComponents = method.ToString().Split();
                         var returnTypeStr = methodComponents[0];
                         var methodName = methodComponents[1];
@@ -142,9 +142,9 @@ namespace SolastaCommunityExpansion.Displays
                                 UI.Space(50);
                                 using (new GUILayout.VerticalScope())
                                 {
-                                    foreach (Patch patch in patches)
+                                    foreach (var patch in patches)
                                     {
-                                        bool enabled = enabledPatches.Contains(patch);
+                                        var enabled = enabledPatches.Contains(patch);
                                         if (ModKit.Private.UI.CheckBox("", enabled, false))
                                         {
                                             EnablePatchForMethod(!enabled, patch, method);
@@ -153,7 +153,7 @@ namespace SolastaCommunityExpansion.Displays
                                 }
                                 using (new GUILayout.VerticalScope())
                                 {
-                                    foreach (Patch patch in patches)
+                                    foreach (var patch in patches)
                                     {
                                         GUILayout.Label(patch.PatchMethod.Name, GUI.skin.label);
                                     }
@@ -161,7 +161,7 @@ namespace SolastaCommunityExpansion.Displays
                                 UI.Space(10);
                                 using (new GUILayout.VerticalScope())
                                 {
-                                    foreach (Patch patch in patches)
+                                    foreach (var patch in patches)
                                     {
                                         GUILayout.Label(patch.owner.Color(_modIdsToColor[patch.owner]).bold(), GUI.skin.label);
                                     }
@@ -169,7 +169,7 @@ namespace SolastaCommunityExpansion.Displays
                                 UI.Space(10);
                                 using (new GUILayout.VerticalScope())
                                 {
-                                    foreach (Patch patch in patches)
+                                    foreach (var patch in patches)
                                     {
                                         GUILayout.Label(patch.priority.ToString(), GUI.skin.label);
                                     }
@@ -177,7 +177,7 @@ namespace SolastaCommunityExpansion.Displays
                                 UI.Space(10);
                                 using (new GUILayout.VerticalScope())
                                 {
-                                    foreach (Patch patch in patches)
+                                    foreach (var patch in patches)
                                     {
                                         GUILayout.Label(patch.PatchMethod.DeclaringType.DeclaringType?.Name ?? "---", GUI.skin.label);
                                     }
@@ -185,7 +185,7 @@ namespace SolastaCommunityExpansion.Displays
                                 UI.Space(10);
                                 using (new GUILayout.VerticalScope())
                                 {
-                                    foreach (Patch patch in patches)
+                                    foreach (var patch in patches)
                                     {
                                         GUILayout.TextArea(patch.PatchMethod.DeclaringType.Name, GUI.skin.textField);
                                     }
@@ -243,7 +243,7 @@ namespace SolastaCommunityExpansion.Displays
                 return patchInfo.Prefixes.Concat(patchInfo.Transpilers).Concat(patchInfo.Postfixes);
             });
             var owners = patches.Select(patchInfo => patchInfo.owner).Distinct().OrderBy(owner => owner);
-            float hue = 0.0f;
+            var hue = 0.0f;
             foreach (var owner in owners)
             {
                 if (!_modIdsToColor.ContainsKey(owner))
@@ -262,7 +262,7 @@ namespace SolastaCommunityExpansion.Displays
         private static void RefreshPatchInfoOfAllMods()
         {
             _patches = new Dictionary<MethodBase, List<Patch>>();
-            foreach (MethodBase method in Harmony.GetAllPatchedMethods())
+            foreach (var method in Harmony.GetAllPatchedMethods())
             {
                 _patches.Add(method, GetSortedPatches(method).ToList());
             }
@@ -271,9 +271,9 @@ namespace SolastaCommunityExpansion.Displays
         private static void RefreshPatchInfoOfSelected()
         {
             _patches = new Dictionary<MethodBase, List<Patch>>();
-            foreach (MethodBase method in Harmony.GetAllPatchedMethods())
+            foreach (var method in Harmony.GetAllPatchedMethods())
             {
-                IEnumerable<Patch> patches =
+                var patches =
                     GetSortedPatches(method).Where(patch => patch.owner == _modID);
                 if (patches.Any())
                 {
@@ -285,9 +285,9 @@ namespace SolastaCommunityExpansion.Displays
         private static void RefreshPatchInfoOfPotentialConflict()
         {
             _patches = new Dictionary<MethodBase, List<Patch>>();
-            foreach (MethodBase method in Harmony.GetAllPatchedMethods())
+            foreach (var method in Harmony.GetAllPatchedMethods())
             {
-                IEnumerable<Patch> patches = GetSortedPatches(method);
+                var patches = GetSortedPatches(method);
                 var owners = patches.Select(patch => patch.owner).Distinct().ToHashSet();
                 if (owners.Count > 1 && (_modID == null || owners.Contains(_modID)))
                 {

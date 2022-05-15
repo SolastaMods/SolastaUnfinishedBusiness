@@ -49,7 +49,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
 
                 var containsIndex = -1;
                 //TODO: is there a better way to detect proper placament?
-                for (int i = 0; i < codes.Count; i++)
+                for (var i = 0; i < codes.Count; i++)
                 {
                     if (i < 1) { continue; }
                     var code = codes[i];

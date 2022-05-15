@@ -28,25 +28,25 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
         {
             // Make Melee Wizard subclass
 
-            FeatureDefinitionProficiency weaponProf = FeatureDefinitionProficiencyBuilder
+            var weaponProf = FeatureDefinitionProficiencyBuilder
                 .Create("ProficiencyWeaponArcaneFighter", SubclassNamespace)
                 .SetGuiPresentation("WeaponProfArcaneFighter", Category.Subclass)
                 .SetProficiencies(RuleDefinitions.ProficiencyType.Weapon, EquipmentDefinitions.SimpleWeaponCategory, EquipmentDefinitions.MartialWeaponCategory)
                 .AddToDB();
 
-            FeatureDefinitionMagicAffinity concentrationAffinity = FeatureDefinitionMagicAffinityBuilder
+            var concentrationAffinity = FeatureDefinitionMagicAffinityBuilder
                .Create("MagicAffinityMeleeWizardConcentration", SubclassNamespace)
                .SetGuiPresentation(Category.Subclass)
                .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage, -1)
                .AddToDB();
 
-            FeatureDefinitionAttributeModifier extraAttack = FeatureDefinitionAttributeModifierBuilder
+            var extraAttack = FeatureDefinitionAttributeModifierBuilder
                 .Create("AttributeModifierMeleeWizardExtraAttack", SubclassNamespace)
                 .SetGuiPresentation(Category.Subclass)
                 .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, AttributeDefinitions.AttacksNumber, 1)
                 .AddToDB();
 
-            FeatureDefinitionAdditionalAction bonusSpell = FeatureDefinitionAdditionalActionBuilder
+            var bonusSpell = FeatureDefinitionAdditionalActionBuilder
                 .Create("ArcaneFighterAdditionalAction", SubclassNamespace)
                 .SetGuiPresentation(Category.Subclass)
                 .SetActionType(ActionDefinitions.ActionType.Main)
@@ -55,7 +55,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 .SetTriggerCondition(RuleDefinitions.AdditionalActionTriggerCondition.HasDownedAnEnemy)
                 .AddToDB();
 
-            FeatureDefinitionAdditionalDamage bonusWeaponDamage = FeatureDefinitionAdditionalDamageBuilder
+            var bonusWeaponDamage = FeatureDefinitionAdditionalDamageBuilder
                 .Create("ArcaneFighterBonusWeaponDamage", SubclassNamespace)
                 .Configure(
                     "ArcaneFighterBonusWeaponDamage",

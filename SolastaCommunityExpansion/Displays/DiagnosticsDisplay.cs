@@ -32,9 +32,9 @@ namespace SolastaCommunityExpansion.Displays
             string exportTaLabel;
             string exportTaLabel2;
             string exportCeLabel;
-            float percentageCompleteTa = BlueprintExporter.CurrentExports[DiagnosticsContext.TA].percentageComplete;
-            float percentageCompleteTa2 = BlueprintExporter.CurrentExports[DiagnosticsContext.TA2].percentageComplete;
-            float percentageCompleteCe = BlueprintExporter.CurrentExports[DiagnosticsContext.CE].percentageComplete;
+            var percentageCompleteTa = BlueprintExporter.CurrentExports[DiagnosticsContext.TA].percentageComplete;
+            var percentageCompleteTa2 = BlueprintExporter.CurrentExports[DiagnosticsContext.TA2].percentageComplete;
+            var percentageCompleteCe = BlueprintExporter.CurrentExports[DiagnosticsContext.CE].percentageComplete;
 
             if (percentageCompleteTa == 0)
             {
@@ -111,7 +111,7 @@ namespace SolastaCommunityExpansion.Displays
 
             UI.Label("");
 
-            bool logVariantMisuse = Main.Settings.DebugLogVariantMisuse;
+            var logVariantMisuse = Main.Settings.DebugLogVariantMisuse;
 
             if (UI.Toggle("Log misuse of EffectForm and ItemDefinition " + Shared.RequiresRestart, ref logVariantMisuse))
             {

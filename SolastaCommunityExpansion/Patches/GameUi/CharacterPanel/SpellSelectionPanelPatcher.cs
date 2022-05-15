@@ -24,12 +24,12 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
                     return;
                 }
 
-                List<SpellRepertoireLine> spellRepertoireLines = __instance.GetField<List<SpellRepertoireLine>>("spellRepertoireLines");
-                SpellRepertoireLine spellRepertoireSecondaryLine = __instance.GetField<SpellRepertoireLine>("spellRepertoireSecondaryLine");
-                RectTransform spellRepertoireLinesTable = __instance.GetField<RectTransform>("spellRepertoireLinesTable");
-                SlotAdvancementPanel slotAdvancementPanel = __instance.GetField<SlotAdvancementPanel>("slotAdvancementPanel");
+                var spellRepertoireLines = __instance.GetField<List<SpellRepertoireLine>>("spellRepertoireLines");
+                var spellRepertoireSecondaryLine = __instance.GetField<SpellRepertoireLine>("spellRepertoireSecondaryLine");
+                var spellRepertoireLinesTable = __instance.GetField<RectTransform>("spellRepertoireLinesTable");
+                var slotAdvancementPanel = __instance.GetField<SlotAdvancementPanel>("slotAdvancementPanel");
 
-                foreach (SpellRepertoireLine spellRepertoireLine in spellRepertoireLines)
+                foreach (var spellRepertoireLine in spellRepertoireLines)
                 {
                     spellRepertoireLine.Unbind();
                 }
@@ -42,7 +42,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
                 if (spellRepertoireLinesTable.parent.GetComponent<VerticalLayoutGroup>() == null)
                 {
                     GameObject spellLineHolder = new();
-                    VerticalLayoutGroup vertGroup = spellLineHolder.AddComponent<VerticalLayoutGroup>();
+                    var vertGroup = spellLineHolder.AddComponent<VerticalLayoutGroup>();
 
                     vertGroup.spacing = 10;
                     spellLineHolder.AddComponent<ContentSizeFitter>();
@@ -54,18 +54,18 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
 
                 var spellRepertoires = __instance.Caster.RulesetCharacter.SpellRepertoires;
 
-                bool needNewLine = true;
-                int lineIndex = 0;
-                int indexOfLine = 0;
-                int spellLevelsOnLine = 0;
-                RectTransform curTable = spellRepertoireLinesTable;
+                var needNewLine = true;
+                var lineIndex = 0;
+                var indexOfLine = 0;
+                var spellLevelsOnLine = 0;
+                var curTable = spellRepertoireLinesTable;
 
-                for (int repertoireIndex = 0; repertoireIndex < spellRepertoires.Count; repertoireIndex++)
+                for (var repertoireIndex = 0; repertoireIndex < spellRepertoires.Count; repertoireIndex++)
                 {
-                    RulesetSpellRepertoire rulesetSpellRepertoire = spellRepertoires[repertoireIndex];
-                    int startLevel = 0;
+                    var rulesetSpellRepertoire = spellRepertoires[repertoireIndex];
+                    var startLevel = 0;
 
-                    for (int level = startLevel; level <= rulesetSpellRepertoire.MaxSpellLevelOfSpellCastingLevel; level++)
+                    for (var level = startLevel; level <= rulesetSpellRepertoire.MaxSpellLevelOfSpellCastingLevel; level++)
                     {
                         if (IsLevelActive(rulesetSpellRepertoire, level, actionType))
                         {
@@ -102,7 +102,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
             {
                 if (needNewLine)
                 {
-                    RectTransform previousTable = spellRepertoireLinesTable;
+                    var previousTable = spellRepertoireLinesTable;
                     LayoutRebuilder.ForceRebuildLayoutImmediate(previousTable);
 
                     if (lineIndex > 0)
@@ -118,7 +118,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
                     }
                 }
 
-                SpellRepertoireLine curLine = SetUpNewLine(indexOfLine, spellRepertoireLinesTable, spellRepertoireLines, __instance);
+                var curLine = SetUpNewLine(indexOfLine, spellRepertoireLinesTable, spellRepertoireLines, __instance);
                 curLine.Bind(caster.RulesetCharacter, rulesetSpellRepertoire, spellRepertoires.Count > 1, spellCastEngaged, slotAdvancementPanel, actionType, cantripOnly, startLevel, level);
                 return spellRepertoireLinesTable;
             }
@@ -138,14 +138,14 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
                 }
 
                 newLine.SetActive(true);
-                SpellRepertoireLine component = newLine.GetComponent<SpellRepertoireLine>();
+                var component = newLine.GetComponent<SpellRepertoireLine>();
                 spellRepertoireLines.Add(component);
                 return component;
             }
 
             private static bool IsLevelActive(RulesetSpellRepertoire spellRepertoire, int level, ActionDefinitions.ActionType actionType)
             {
-                RuleDefinitions.ActivationTime spellActivationTime = RuleDefinitions.ActivationTime.Action;
+                var spellActivationTime = RuleDefinitions.ActivationTime.Action;
                 switch (actionType)
                 {
                     case ActionDefinitions.ActionType.Bonus:
@@ -173,7 +173,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
                         return true;
                     }
 
-                    foreach (SpellDefinition cantrip in spellRepertoire.KnownCantrips)
+                    foreach (var cantrip in spellRepertoire.KnownCantrips)
                     {
                         if (cantrip.ActivationTime == spellActivationTime)
                         {
@@ -215,7 +215,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
                     return;
                 }
 
-                foreach (RectTransform spellTable in spellLineTables)
+                foreach (var spellTable in spellLineTables)
                 {
                     if (spellTable != null && spellTable.gameObject.activeSelf && spellTable.childCount > 0)
                     {

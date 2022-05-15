@@ -193,7 +193,7 @@ namespace SolastaCommunityExpansion.Models
                 return;
             }
 
-            foreach (ItemDefinition item in DatabaseRepository.GetDatabase<ItemDefinition>().Where(
+            foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>().Where(
                 x => x.ArmorDescription.ArmorType == "ClothesType" && !x.Magical && !x.SlotsWhereActive.Contains("TabardSlot") && x != ClothesCommon_Tattoo && x != ClothesWizard_B))
             {
                 var stockClothing = new StockUnitDescription();
@@ -332,7 +332,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void SwitchMagicStaffFoci()
         {
-            foreach (ItemDefinition item in DatabaseRepository.GetDatabase<ItemDefinition>()
+            foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>()
                 .Where(x => x.IsWeapon) // WeaponDescription could be null
                 .Where(x => x.WeaponDescription.WeaponType == EquipmentDefinitions.WeaponTypeQuarterstaff)
                 .Where(x => x.Magical && !x.Name.Contains("OfHealing")))
@@ -367,7 +367,7 @@ namespace SolastaCommunityExpansion.Models
                 return;
             }
 
-            foreach (StockUnitDescription stock in Store_Merchant_Arcaneum_Heddlon_Surespell.StockUnitDescriptions)
+            foreach (var stock in Store_Merchant_Arcaneum_Heddlon_Surespell.StockUnitDescriptions)
             {
                 stock.SetReassortAmount(1);
             }
@@ -380,7 +380,7 @@ namespace SolastaCommunityExpansion.Models
                 return;
             }
 
-            foreach (StockUnitDescription stock in Store_Merchant_CircleOfDanantar_Joriel_Foxeye.StockUnitDescriptions)
+            foreach (var stock in Store_Merchant_CircleOfDanantar_Joriel_Foxeye.StockUnitDescriptions)
             {
                 stock.SetReassortAmount(1);
             }
@@ -393,7 +393,7 @@ namespace SolastaCommunityExpansion.Models
                 return;
             }
 
-            foreach (StockUnitDescription stock in Store_Merchant_TowerOfKnowledge_Maddy_Greenisle.StockUnitDescriptions)
+            foreach (var stock in Store_Merchant_TowerOfKnowledge_Maddy_Greenisle.StockUnitDescriptions)
             {
                 stock.SetReassortAmount(1);
             }
@@ -413,7 +413,7 @@ namespace SolastaCommunityExpansion.Models
         {
             if (Main.Settings.RemoveIdentifcationRequirements)
             {
-                foreach (ItemDefinition item in DatabaseRepository.GetDatabase<ItemDefinition>())
+                foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>())
                 {
                     item.SetRequiresIdentification(false);
                 }
@@ -421,7 +421,7 @@ namespace SolastaCommunityExpansion.Models
 
             if (Main.Settings.RemoveAttunementRequirements)
             {
-                foreach (ItemDefinition item in DatabaseRepository.GetDatabase<ItemDefinition>())
+                foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>())
                 {
                     item.SetRequiresAttunement(false);
                 }

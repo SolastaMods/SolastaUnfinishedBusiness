@@ -59,7 +59,7 @@ namespace SolastaCommunityExpansion.FightingStyles
         {
             if (instance == null)
             {
-                EffectDescriptionBuilder offhandEffect = new EffectDescriptionBuilder();
+                var offhandEffect = new EffectDescriptionBuilder();
                 offhandEffect.SetTargetingData(RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.MeleeHit, 1, RuleDefinitions.TargetType.Individuals,
                     1, 1, ActionDefinitions.ItemSelectionType.None);
                 offhandEffect.AddEffectForm(new EffectFormBuilder().CreatedByCharacter().SetBonusMode(RuleDefinitions.AddBonusMode.AbilityBonus)
@@ -68,7 +68,7 @@ namespace SolastaCommunityExpansion.FightingStyles
 
                 var gui = GuiPresentationBuilder.Build("PugilistFighting", Category.FightingStyle, PathBerserker.GuiPresentation.SpriteReference);
 
-                FeatureDefinitionPower offhandAttack = FeatureDefinitionPowerBuilder
+                var offhandAttack = FeatureDefinitionPowerBuilder
                     .Create("PowerPugilistOffhandAttack", "a97a1c9c-232b-42ae-8003-30d244e958b3")
                     .SetGuiPresentation(gui)
                     .Configure(
@@ -98,8 +98,8 @@ namespace SolastaCommunityExpansion.FightingStyles
 
         private static bool IsValid(RulesetCharacterHero character)
         {
-            RulesetInventorySlot mainHand = character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand];
-            RulesetInventorySlot offHand = character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand];
+            var mainHand = character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand];
+            var offHand = character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand];
             return mainHand.EquipedItem == null && (offHand.EquipedItem == null || offHand.EquipedItem.ItemDefinition.IsLightSourceItem);
         }
     }

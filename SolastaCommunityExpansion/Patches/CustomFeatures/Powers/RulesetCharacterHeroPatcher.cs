@@ -31,18 +31,18 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
             // Grant powers when we do a refresh all. This allows powers from things like fighting styles and conditions.
             // This is similar to grant powers, but doesn't use grant powers because grant powers also resets all powers
             // to max available uses.
-            List<RulesetUsablePower> curPowers = new List<RulesetUsablePower>();
-            bool newPower = false;
+            var curPowers = new List<RulesetUsablePower>();
+            var newPower = false;
             hero.EnumerateFeaturesToBrowse<FeatureDefinitionPower>(hero.FeaturesToBrowse, null);
 
-            foreach (FeatureDefinitionPower featureDefinitionPower in hero.FeaturesToBrowse.Cast<FeatureDefinitionPower>())
+            foreach (var featureDefinitionPower in hero.FeaturesToBrowse.Cast<FeatureDefinitionPower>())
             {
                 if ((featureDefinitionPower as IConditionalPower)?.IsActive(hero) == false)
                 {
                     continue;
                 }
 
-                RulesetUsablePower rulesetUsablePower = hero.UsablePowers.Find(up => up.PowerDefinition == featureDefinitionPower);
+                var rulesetUsablePower = hero.UsablePowers.Find(up => up.PowerDefinition == featureDefinitionPower);
 
                 if (rulesetUsablePower != null)
                 {
@@ -52,7 +52,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
                 else
                 {
                     // If the character didn't already have the power, create the RulesetUsablePower and add it.
-                    RulesetUsablePower power = BuildUsablePower(hero, featureDefinitionPower);
+                    var power = BuildUsablePower(hero, featureDefinitionPower);
                     // If this new power is part of a shared pool, get it properly initialized for usage.
                     if (featureDefinitionPower is IPowerSharedPool)
 
@@ -83,7 +83,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
             CharacterRaceDefinition originRace;
             CharacterClassDefinition originClass;
             (originRace, originClass, _) = LookForFeatureOrigin(hero, featureDefinitionPower);
-            RulesetUsablePower rulesetUsablePower = new RulesetUsablePower(featureDefinitionPower, originRace, originClass);
+            var rulesetUsablePower = new RulesetUsablePower(featureDefinitionPower, originRace, originClass);
 
             if (featureDefinitionPower.RechargeRate == RuleDefinitions.RechargeRate.ChannelDivinity)
             {

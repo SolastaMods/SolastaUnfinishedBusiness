@@ -72,7 +72,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
                 var spellLevelMethod = typeof(SpellDefinition).GetMethod("get_SpellLevel");
                 var mySpellLevelMethod = typeof(RulesetSpellRepertoire_CanUpcastSpell).GetMethod("MySpellLevel");
 
-                foreach (CodeInstruction instruction in instructions)
+                foreach (var instruction in instructions)
                 {
                     if (instruction.Calls(spellLevelMethod))
                     {

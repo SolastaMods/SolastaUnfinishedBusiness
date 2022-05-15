@@ -29,7 +29,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Tooltip
 
             var guiWrapperService = ServiceRepository.GetService<IGuiWrapperService>();
 
-            foreach (ContentFragmentDescription contentFragmentDescription in item.DocumentDescription.ContentFragments
+            foreach (var contentFragmentDescription in item.DocumentDescription.ContentFragments
                 .Where(x => x.Type == ContentFragmentDescription.FragmentType.Body))
             {
                 var guiRecipeDefinition = guiWrapperService.GetGuiRecipeDefinition(item.DocumentDescription.RecipeDefinition.Name);

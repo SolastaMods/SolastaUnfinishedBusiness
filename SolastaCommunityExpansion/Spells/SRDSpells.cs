@@ -175,7 +175,7 @@ namespace SolastaCommunityExpansion.Spells
                     return;
                 }
 
-                int curHP = formsParams.targetCharacter.CurrentHitPoints;
+                var curHP = formsParams.targetCharacter.CurrentHitPoints;
 
                 if (curHP <= 20)
                 {
@@ -217,9 +217,9 @@ namespace SolastaCommunityExpansion.Spells
             private static void ApplyCondition(RulesetImplementationDefinitions.ApplyFormsParams formsParams, ConditionDefinition condition, RuleDefinitions.DurationType durationType, int durationParam)
             {
                 // Prepare params for inflicting conditions
-                ulong sourceGuid = formsParams.sourceCharacter != null ? formsParams.sourceCharacter.Guid : 0L;
-                string sourceFaction = formsParams.sourceCharacter != null ? formsParams.sourceCharacter.CurrentFaction.Name : string.Empty;
-                string effectDefinitionName = string.Empty;
+                var sourceGuid = formsParams.sourceCharacter != null ? formsParams.sourceCharacter.Guid : 0L;
+                var sourceFaction = formsParams.sourceCharacter != null ? formsParams.sourceCharacter.CurrentFaction.Name : string.Empty;
+                var effectDefinitionName = string.Empty;
 
                 if (formsParams.attackMode != null)
                 {
@@ -230,7 +230,7 @@ namespace SolastaCommunityExpansion.Spells
                     effectDefinitionName = formsParams.activeEffect.SourceDefinition.Name;
                 }
 
-                int sourceAbilityBonus = (formsParams.activeEffect?.ComputeSourceAbilityBonus(formsParams.sourceCharacter)) ?? 0;
+                var sourceAbilityBonus = (formsParams.activeEffect?.ComputeSourceAbilityBonus(formsParams.sourceCharacter)) ?? 0;
 
                 formsParams.targetCharacter.InflictCondition(condition.Name, durationType, durationParam, RuleDefinitions.TurnOccurenceType.EndOfTurn, "11Effect", sourceGuid, sourceFaction, formsParams.effectLevel, effectDefinitionName, 0, sourceAbilityBonus);
             }
@@ -244,7 +244,7 @@ namespace SolastaCommunityExpansion.Spells
         {
             const string text = "DHFingerOfDeathSpell";
 
-            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
+            var effectDescription = new EffectDescriptionBuilder()
                 .SetDurationData(
                     RuleDefinitions.DurationType.Instantaneous,
                     1,
@@ -347,7 +347,7 @@ namespace SolastaCommunityExpansion.Spells
         {
             const string text = "DHReverseGravitySpell";
 
-            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
+            var effectDescription = new EffectDescriptionBuilder()
                 .SetDurationData(
                      RuleDefinitions.DurationType.Minute,
                      1,
@@ -428,7 +428,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildConjureCelestial()
         {
-            SpellListDefinition couatlSpellList = SpellListDefinitionBuilder
+            var couatlSpellList = SpellListDefinitionBuilder
                 .Create(SpellListDefinitions.SpellListCleric, "DHCouatlSpellList", DhBaseGuid)
                 .SetGuiPresentationNoContent()
                 .ClearSpells()
@@ -438,7 +438,7 @@ namespace SolastaCommunityExpansion.Spells
                 .FinalizeSpells()
                 .AddToDB();
 
-            FeatureDefinitionCastSpell castSpellCouatl = FeatureDefinitionCastSpellBuilder
+            var castSpellCouatl = FeatureDefinitionCastSpellBuilder
                 .Create("DHCastSpellCouatl", DhBaseGuid)
                 .SetGuiPresentationNoContent()
                 .SetSpellCastingOrigin(CastingOrigin.Monster)
@@ -485,7 +485,7 @@ namespace SolastaCommunityExpansion.Spells
             });
 
             const string CustomCouatlName = "CustomCouatl";
-            CharacterSizeDefinition Size = CharacterSizeDefinitions.Medium;
+            var Size = CharacterSizeDefinitions.Medium;
             const string Alignment = "LawfulGood";
             const int ArmorClass = 19;
             const int HitDice = 13;
@@ -508,7 +508,7 @@ namespace SolastaCommunityExpansion.Spells
             const bool LegendaryCreature = false;
             const string Type = "Celestial";
 
-            List<MonsterSkillProficiency> SkillScores = new List<MonsterSkillProficiency>();
+            var SkillScores = new List<MonsterSkillProficiency>();
 
             var CouatlBite_Attack = MonsterAttackDefinitionBuilder
                 .Create(MonsterAttackDefinitions.Attack_TigerDrake_Bite, "DH_Custom_CouatlBite_Attack", DhBaseGuid)
@@ -522,12 +522,12 @@ namespace SolastaCommunityExpansion.Spells
             CouatlBite_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(5);
             CouatlBite_Attack.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypePiercing);
 
-            ConditionForm conditionForm = new ConditionForm();
+            var conditionForm = new ConditionForm();
             conditionForm.SetConditionDefinition(DatabaseHelper.ConditionDefinitions.ConditionPoisoned);
             conditionForm.SetConditionDefinitionName(DatabaseHelper.ConditionDefinitions.ConditionPoisoned.name);
             conditionForm.SetOperation(ConditionForm.ConditionOperation.Add);
 
-            EffectForm extraPoisonEffect = new EffectForm();
+            var extraPoisonEffect = new EffectForm();
             extraPoisonEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
             extraPoisonEffect.SetLevelMultiplier(1);
             extraPoisonEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
@@ -537,12 +537,12 @@ namespace SolastaCommunityExpansion.Spells
             extraPoisonEffect.SetHasSavingThrow(true);
             extraPoisonEffect.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
 
-            ConditionForm sleepForm = new ConditionForm();
+            var sleepForm = new ConditionForm();
             sleepForm.SetConditionDefinition(DatabaseHelper.ConditionDefinitions.ConditionMagicallyAsleep);
             sleepForm.SetConditionDefinitionName(DatabaseHelper.ConditionDefinitions.ConditionAsleep.name);
             sleepForm.SetOperation(ConditionForm.ConditionOperation.Add);
 
-            EffectForm extraSleepEffect = new EffectForm();
+            var extraSleepEffect = new EffectForm();
             extraSleepEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
             extraSleepEffect.SetLevelMultiplier(1);
             extraSleepEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
@@ -561,20 +561,20 @@ namespace SolastaCommunityExpansion.Spells
             CouatlBite_Attack.EffectDescription.SetDurationParameter(24);
             CouatlBite_Attack.EffectDescription.SetDurationType(RuleDefinitions.DurationType.Hour);
 
-            List<MonsterAttackIteration> AttackIterations = new List<MonsterAttackIteration>
+            var AttackIterations = new List<MonsterAttackIteration>
             {
                 Tiger_Drake.AttackIterations[0],
                 new MonsterAttackIteration(CouatlBite_Attack, 1)
             };
 
-            List<LegendaryActionDescription> LegendaryActionOptions = new List<LegendaryActionDescription>();
+            var LegendaryActionOptions = new List<LegendaryActionDescription>();
 
             const bool GroupAttacks = false;
 
             const bool PhantomDistortion = true;
             // AttachedParticlesReference = "0286006526f6f9c4fa61ed8ead4f72cc"
-            AssetReference attachedParticlesReference = FeyBear.MonsterPresentation.GetField<AssetReference>("attachedParticlesReference");
-            AssetReferenceSprite spriteReference = KindredSpiritViper.GuiPresentation.SpriteReference;
+            var attachedParticlesReference = FeyBear.MonsterPresentation.GetField<AssetReference>("attachedParticlesReference");
+            var spriteReference = KindredSpiritViper.GuiPresentation.SpriteReference;
 
             MonsterDefinitionBuilder
                 .Create(KindredSpiritViper, CustomCouatlName, "fc38ed74-3e2f-4960-86cc-3120d638410b")
@@ -636,7 +636,7 @@ namespace SolastaCommunityExpansion.Spells
                 .ClearCreatureTags()
                 .AddToDB();
 
-            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
+            var effectDescription = new EffectDescriptionBuilder()
                 .SetDurationData(RuleDefinitions.DurationType.Minute, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn)
                 .SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Distance, 18, RuleDefinitions.TargetType.Position, 1, 1, 0)
                 .AddEffectForm(new EffectFormBuilder()
@@ -749,7 +749,7 @@ namespace SolastaCommunityExpansion.Spells
         */
         private static SpellDefinition BuildDominateMonster()
         {
-            EffectDescription effectDescription = new EffectDescription();
+            var effectDescription = new EffectDescription();
 
             effectDescription.Copy(DominatePerson.EffectDescription);
             effectDescription.RestrictedCreatureFamilies.Clear();
@@ -771,7 +771,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildFeeblemind()
         {
-            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
+            var effectDescription = new EffectDescriptionBuilder()
                 .SetDurationData(
                     RuleDefinitions.DurationType.Dispelled,
                     1,
@@ -945,7 +945,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildHolyAura()
         {
-            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
+            var effectDescription = new EffectDescriptionBuilder()
                 .SetDurationData(
                     RuleDefinitions.DurationType.Minute,
                     1,
@@ -1052,7 +1052,7 @@ namespace SolastaCommunityExpansion.Spells
                 Definition.GuiPresentation.Title = TitleString;
                 Definition.GuiPresentation.Description = DescriptionString;
 
-                EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
+                var effectDescription = new EffectDescriptionBuilder()
                 .SetDurationData(
                     RuleDefinitions.DurationType.Minute,
                     1,
@@ -1144,7 +1144,7 @@ namespace SolastaCommunityExpansion.Spells
 
                         effectDescription.Build();
             */
-            EffectDescription neweffectDescription = new EffectDescription();
+            var neweffectDescription = new EffectDescription();
 
             neweffectDescription.Copy(FogCloud.EffectDescription);
 
@@ -1181,7 +1181,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildMaze()
         {
-            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
+            var effectDescription = new EffectDescriptionBuilder()
             .SetDurationData(
                 RuleDefinitions.DurationType.Minute,
                 10,
@@ -1233,7 +1233,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildMindBlank()
         {
-            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder();
+            var effectDescription = new EffectDescriptionBuilder();
             effectDescription.SetDurationData(
                 RuleDefinitions.DurationType.Hour,
                 24,
@@ -1299,14 +1299,14 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildPowerWordStun()
         {
-            ConditionForm conditionForm = new ConditionForm()
+            var conditionForm = new ConditionForm()
                 .SetApplyToSelf(false)
                 .SetForceOnSelf(false)
                 .SetOperation(ConditionForm.ConditionOperation.Add)
                 .SetConditionDefinitionName(ConditionStunned.Name)
                 .SetConditionDefinition(ConditionStunned);
 
-            EffectForm effectForm = new EffectForm()
+            var effectForm = new EffectForm()
                 .SetApplyLevel(EffectForm.LevelApplianceType.No)
                 .SetLevelMultiplier(1)
                 .SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel)
@@ -1316,7 +1316,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetCanSaveToCancel(true)
                 .SetSaveOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
 
-            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
+            var effectDescription = new EffectDescriptionBuilder()
                 .SetDurationData(
                     RuleDefinitions.DurationType.Dispelled,
                     1,
@@ -1361,7 +1361,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildSunBurst()
         {
-            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
+            var effectDescription = new EffectDescriptionBuilder()
                 .SetDurationData(
                     RuleDefinitions.DurationType.Minute,
                     1,
@@ -1407,15 +1407,15 @@ namespace SolastaCommunityExpansion.Spells
                     .CanSaveToCancel(RuleDefinitions.TurnOccurenceType.EndOfTurn)
                     .Build());
 
-            EffectDescription effect = effectDescription.Build();
+            var effect = effectDescription.Build();
 
             effect.EffectParticleParameters.SetImpactParticleReference(new AssetReference("96018e15e8eba4b40a9a5bd637d7ae91"));
 
-            SaveAffinityByFamilyDescription SaveAffinityByFamilyDescription = new SaveAffinityByFamilyDescription()
+            var SaveAffinityByFamilyDescription = new SaveAffinityByFamilyDescription()
                 .SetAdvantageType(RuleDefinitions.AdvantageType.Disadvantage)
                 .SetFamily(CharacterFamilyDefinitions.Ooze.name);
 
-            SaveAffinityByFamilyDescription SaveAffinityByFamilyDescriptionUndead = new SaveAffinityByFamilyDescription()
+            var SaveAffinityByFamilyDescriptionUndead = new SaveAffinityByFamilyDescription()
                 .SetAdvantageType(RuleDefinitions.AdvantageType.Disadvantage)
                 .SetFamily(CharacterFamilyDefinitions.Undead.name);
 
@@ -1436,7 +1436,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildForesight()
         {
-            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
+            var effectDescription = new EffectDescriptionBuilder()
                 .SetDurationData(
                     RuleDefinitions.DurationType.Hour,
                     8,
@@ -1505,7 +1505,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildMassHeal()
         {
-            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
+            var effectDescription = new EffectDescriptionBuilder()
                 .SetDurationData(
                     RuleDefinitions.DurationType.Instantaneous,
                     1,
@@ -1543,7 +1543,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildMeteorSwarmSingleTarget()
         {
-            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
+            var effectDescription = new EffectDescriptionBuilder()
                 .SetDurationData(
                     RuleDefinitions.DurationType.Instantaneous,
                     1,
@@ -1607,7 +1607,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildPowerWordHeal()
         {
-            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
+            var effectDescription = new EffectDescriptionBuilder()
             .SetDurationData(
                 RuleDefinitions.DurationType.Instantaneous,
                 1,
@@ -1666,11 +1666,11 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildPowerWordKill()
         {
-            KillForm killForm = new KillForm()
+            var killForm = new KillForm()
                 .SetKillCondition(RuleDefinitions.KillCondition.UnderHitPoints)
                 .SetHitPoints(100);
 
-            EffectForm effectForm = new EffectForm()
+            var effectForm = new EffectForm()
                 .SetApplyLevel(EffectForm.LevelApplianceType.No)
                 .SetLevelMultiplier(1)
                 .SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel)
@@ -1678,7 +1678,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetFormType(EffectForm.EffectFormType.Kill)
                 .SetKillForm(killForm);
 
-            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
+            var effectDescription = new EffectDescriptionBuilder()
             .SetDurationData(
                 RuleDefinitions.DurationType.Instantaneous,
                 1,
@@ -1708,7 +1708,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildShapechange()
         {
-            ShapeChangeForm shapeChangeForm = new ShapeChangeForm()
+            var shapeChangeForm = new ShapeChangeForm()
                 .SetKeepMentalAbilityScores(true)
                 .SetShapeChangeType(ShapeChangeForm.Type.FreeListSelection)
                 .SetSpecialSubstituteCondition(ConditionWildShapeSubstituteForm);
@@ -1727,7 +1727,7 @@ namespace SolastaCommunityExpansion.Spells
                 new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(Sorr_Akkath_Shikkath)
             );
 
-            EffectForm effectForm = new EffectForm()
+            var effectForm = new EffectForm()
                 .SetAddBonusMode(RuleDefinitions.AddBonusMode.None)
                 .SetApplyLevel(EffectForm.LevelApplianceType.No)
                 .SetCanSaveToCancel(false)
@@ -1735,7 +1735,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetFormType(EffectForm.EffectFormType.ShapeChange)
                 .SetShapeChangeForm(shapeChangeForm);
 
-            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
+            var effectDescription = new EffectDescriptionBuilder()
                 .SetDurationData(
                     RuleDefinitions.DurationType.Hour,
                     1,
@@ -1768,7 +1768,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildTimeStop()
         {
-            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
+            var effectDescription = new EffectDescriptionBuilder()
             .SetDurationData(
                 RuleDefinitions.DurationType.Round,
                 3,
@@ -1832,7 +1832,7 @@ namespace SolastaCommunityExpansion.Spells
 
         private static SpellDefinition BuildWeird()
         {
-            EffectDescriptionBuilder effectDescription = new EffectDescriptionBuilder()
+            var effectDescription = new EffectDescriptionBuilder()
                 .SetDurationData(
                     RuleDefinitions.DurationType.Minute,
                     1,

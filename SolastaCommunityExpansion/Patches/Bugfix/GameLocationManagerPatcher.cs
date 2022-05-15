@@ -29,8 +29,8 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
                 var isSummon = rulesetCharacter.ConditionsByCategory.Any(c => c.Value.Any(cc =>
                     cc.ConditionDefinition == DatabaseHelper.ConditionDefinitions.ConditionConjuredCreature));
 
-                var isKindredSpirit = (rulesetCharacter is RulesetCharacterMonster monster
-                                       && monster.MonsterDefinition.CreatureTags.Contains("KindredSpirit"));
+                var isKindredSpirit = rulesetCharacter is RulesetCharacterMonster monster
+                                       && monster.MonsterDefinition.CreatureTags.Contains("KindredSpirit");
 
                 if (isSummon && !isKindredSpirit)
                 {

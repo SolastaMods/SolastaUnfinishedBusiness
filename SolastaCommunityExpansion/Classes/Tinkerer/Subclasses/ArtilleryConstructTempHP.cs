@@ -25,7 +25,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             Definition.SetActivationTime(RuleDefinitions.ActivationTime.Action);
             Definition.SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
 
-            TemporaryHitPointsForm tempHPShield = new TemporaryHitPointsForm
+            var tempHPShield = new TemporaryHitPointsForm
             {
                 DieType = RuleDefinitions.DieType.D8,
                 DiceNumber = 1,
@@ -33,7 +33,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
                 BonusHitPoints = 4
             };
 
-            EffectForm effect = new EffectForm
+            var effect = new EffectForm
             {
                 FormType = EffectForm.EffectFormType.TemporaryHitPoints
             };

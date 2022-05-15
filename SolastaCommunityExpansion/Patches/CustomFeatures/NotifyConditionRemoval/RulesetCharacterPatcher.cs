@@ -15,7 +15,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.NotifyConditionRemova
         {
             foreach (var keyValuePair in __instance.ConditionsByCategory)
             {
-                foreach (RulesetCondition rulesetCondition in keyValuePair.Value)
+                foreach (var rulesetCondition in keyValuePair.Value)
                 {
                     if (rulesetCondition?.ConditionDefinition is INotifyConditionRemoval notifiedDefinition)
                     {

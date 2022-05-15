@@ -37,22 +37,22 @@ namespace SolastaCommunityExpansion.Models
 
                 // replacement monster and model references
 
-                MonsterDefinition brownBear = DatabaseHelper.MonsterDefinitions.BrownBear;
-                AssetReference bearPrefab = new AssetReference("cc36634f504fa7049a4499a91749d7d5");
+                var brownBear = DatabaseHelper.MonsterDefinitions.BrownBear;
+                var bearPrefab = new AssetReference("cc36634f504fa7049a4499a91749d7d5");
 
-                MonsterDefinition wolf = DatabaseHelper.MonsterDefinitions.Wolf;
-                AssetReference wolfPrefab = new AssetReference("6e02c9bcfb5122042a533e7732182b1d");
+                var wolf = DatabaseHelper.MonsterDefinitions.Wolf;
+                var wolfPrefab = new AssetReference("6e02c9bcfb5122042a533e7732182b1d");
 
-                MonsterDefinition ape = DatabaseHelper.MonsterDefinitions.Ape_MonsterDefinition;
-                AssetReference apePrefab = new AssetReference("8f4589a9a294b444785fab045256a713");
+                var ape = DatabaseHelper.MonsterDefinitions.Ape_MonsterDefinition;
+                var apePrefab = new AssetReference("8f4589a9a294b444785fab045256a713");
 
-                MonsterDefinition[] listofAllMonsters = DatabaseRepository.GetDatabase<MonsterDefinition>().GetAllElements();
+                var listofAllMonsters = DatabaseRepository.GetDatabase<MonsterDefinition>().GetAllElements();
 
                 // check every monster for targeted prefab guid references
-                foreach (MonsterDefinition monster in listofAllMonsters)
+                foreach (var monster in listofAllMonsters)
                 {
                     // get monster asset reference for prefab guid comparison
-                    AssetReference value = monster.MonsterPresentation.GetFieldValue<MonsterPresentation, AssetReference>("malePrefabReference");
+                    var value = monster.MonsterPresentation.GetFieldValue<MonsterPresentation, AssetReference>("malePrefabReference");
 
                     // swap bears for spiders
                     if (value.AssetGUID == assetReference_spider_1 || value.AssetGUID == assetReference_spider_2 || value.AssetGUID == assetReference_spider_3)

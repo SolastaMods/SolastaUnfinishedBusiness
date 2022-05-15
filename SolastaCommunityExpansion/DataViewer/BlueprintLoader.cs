@@ -46,8 +46,8 @@ namespace SolastaCommunityExpansion.DataViewer
         {
             // safe access to the database
             var databases = (Dictionary<Type, object>)AccessTools.Field(typeof(DatabaseRepository), "databases").GetValue(null);
-            int loaded = 0;
-            int total = databases.Count;
+            var loaded = 0;
+            var total = databases.Count;
 
             // iterate over all DBs / BPs and collect them
             var blueprints = new List<BaseDefinition>();
@@ -56,7 +56,7 @@ namespace SolastaCommunityExpansion.DataViewer
                 yield return null;
                 loaded++;
                 var items = 0;
-                foreach (BaseDefinition baseDefinition in db.OrderBy(def => def.Name))
+                foreach (var baseDefinition in db.OrderBy(def => def.Name))
                 {
                     blueprints.Add(baseDefinition);
                     UpdateProgress(loaded, total);

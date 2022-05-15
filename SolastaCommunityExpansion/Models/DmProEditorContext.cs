@@ -222,7 +222,7 @@ namespace SolastaCommunityExpansion.Models
                     newPropBlueprint.SetCategory(categoryName);
                     newPropBlueprint.PrefabsByEnvironment.Clear();
 
-                    foreach (EnvironmentDefinition environmentDefinition in dbEnvironmentDefinition)
+                    foreach (var environmentDefinition in dbEnvironmentDefinition)
                     {
                         var myPrefabByEnvironment = new BaseBlueprint.PrefabByEnvironmentDescription();
 

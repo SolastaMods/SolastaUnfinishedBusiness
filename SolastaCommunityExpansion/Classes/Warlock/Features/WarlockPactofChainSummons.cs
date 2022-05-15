@@ -18,7 +18,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         {
             get
             {
-                if (_help == null && DatabaseRepository.GetDatabase<FeatureDefinition>().TryGetElement("HelpAction", out FeatureDefinition help))
+                if (_help == null && DatabaseRepository.GetDatabase<FeatureDefinition>().TryGetElement("HelpAction", out var help))
                 {
                     _help = help;
                 }
@@ -29,8 +29,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
         public static void buildPactofChainFamiliarInvisibilityPower()
         {
-            SpellDefinition invisibilty = DatabaseHelper.SpellDefinitions.Invisibility;
-            EffectDescription effectDescription = new EffectDescription();
+            var invisibilty = DatabaseHelper.SpellDefinitions.Invisibility;
+            var effectDescription = new EffectDescription();
             effectDescription.Copy(invisibilty.EffectDescription);
 
             PactofChainFamiliarInvisibilityPower = FeatureDefinitionPowerBuilder
@@ -61,7 +61,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
         public static void buildPactofChainFamiliarScarePower()
         {
-            SpellDefinition fear = DatabaseHelper.SpellDefinitions.Fear;
+            var fear = DatabaseHelper.SpellDefinitions.Fear;
 
             PactofChainFamiliarScarePower = FeatureDefinitionPowerBuilder
                 .Create("PactofChainFamiliarScarePower", DefinitionBuilder.CENamespaceGuid)

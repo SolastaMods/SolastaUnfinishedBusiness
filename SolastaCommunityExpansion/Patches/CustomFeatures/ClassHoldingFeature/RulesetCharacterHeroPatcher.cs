@@ -22,7 +22,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.ClassHoldingFeature
             }
 
             // Only override if the character actually has levels in the class, to prevent errors
-            if (__instance.ClassesAndLevels.TryGetValue(classHolder.Class, out int levelsInClass) && levelsInClass > 0)
+            if (__instance.ClassesAndLevels.TryGetValue(classHolder.Class, out var levelsInClass) && levelsInClass > 0)
             {
                 __result = classHolder.Class;
             }

@@ -150,7 +150,7 @@ namespace SolastaCommunityExpansion.DataMiner
                     // of the whole object.
                     var serializer = JsonSerializer.Create(JsonUtil.CreateSettings(PreserveReferencesHandling.None));
 
-                    using StreamWriter sw = new StreamWriter(fullname);
+                    using var sw = new StreamWriter(fullname);
                     using JsonWriter writer = new JsonTextWriter(sw);
 
                     var def = exportOriginalCopy ? GetDefinitionCopy(definition) : definition;

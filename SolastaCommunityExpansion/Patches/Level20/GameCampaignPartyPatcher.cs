@@ -16,11 +16,11 @@ namespace SolastaCommunityExpansion.Patches.Level20
             {
                 foreach (var character in __instance.CharactersList.Select(cl => cl.RulesetCharacter))
                 {
-                    RulesetAttribute characterLevelAttribute = character.GetAttribute(AttributeDefinitions.CharacterLevel);
+                    var characterLevelAttribute = character.GetAttribute(AttributeDefinitions.CharacterLevel);
                     characterLevelAttribute.MaxValue = MOD_MAX_LEVEL;
                     characterLevelAttribute.Refresh();
 
-                    RulesetAttribute experienceAttribute = character.GetAttribute(AttributeDefinitions.Experience);
+                    var experienceAttribute = character.GetAttribute(AttributeDefinitions.Experience);
                     experienceAttribute.MaxValue = MAX_CHARACTER_EXPERIENCE;
                     experienceAttribute.Refresh();
                 }

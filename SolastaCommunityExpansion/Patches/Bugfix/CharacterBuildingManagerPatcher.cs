@@ -22,7 +22,7 @@ namespace SolastaCommunityExpansion.Patches.BugFix
 
             var spellTag = CustomFeaturesContext.GetSpellLearningTag(heroBuildingData.HeroCharacter, tag);
 
-            foreach (FeatureDefinition grantedFeature in grantedFeatures)
+            foreach (var grantedFeature in grantedFeatures)
             {
                 switch (grantedFeature)
                 {

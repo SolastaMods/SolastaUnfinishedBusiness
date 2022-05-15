@@ -132,13 +132,13 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                 return;
             }
 
-            if (!conditionSource.ClassesAndLevels.TryGetValue(CharacterClassDefinitions.Barbarian, out int levelsInClass))
+            if (!conditionSource.ClassesAndLevels.TryGetValue(CharacterClassDefinitions.Barbarian, out var levelsInClass))
             {
                 // Character doesn't have levels in class
                 return;
             }
 
-            if (!LightsProtectionAmountHealedByClassLevel.TryGetValue(levelsInClass, out int amountHealed))
+            if (!LightsProtectionAmountHealedByClassLevel.TryGetValue(levelsInClass, out var amountHealed))
             {
                 // Character doesn't heal at the current level
                 return;
@@ -397,7 +397,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                         ConditionDefinition = illuminatedCondition
                     });
 
-                foreach (ConditionDefinition invisibleCondition in InvisibleConditions)
+                foreach (var invisibleCondition in InvisibleConditions)
                 {
                     Definition.ConditionOperations.Add(
                         new ConditionOperationDescription
@@ -415,7 +415,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
 
             private static LightSourceForm CreateIlluminatedLightSource()
             {
-                EffectForm faerieFireLightSource = SpellDefinitions.FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
+                var faerieFireLightSource = SpellDefinitions.FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
 
                 var lightSourceForm = new LightSourceForm();
                 lightSourceForm.Copy(faerieFireLightSource.LightSourceForm);
@@ -549,7 +549,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                     SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates
                 };
 
-                EffectForm faerieFireLightSource = SpellDefinitions.FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
+                var faerieFireLightSource = SpellDefinitions.FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
 
                 var lightSourceForm = faerieFireLightSource.LightSourceForm
                     .Copy()

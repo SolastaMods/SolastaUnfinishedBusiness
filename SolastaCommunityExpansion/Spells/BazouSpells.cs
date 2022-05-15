@@ -149,7 +149,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetDefaultFaction("Party")
                 .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None);
 
-            if (DatabaseRepository.GetDatabase<FeatureDefinition>().TryGetElement("HelpAction", out FeatureDefinition help))
+            if (DatabaseRepository.GetDatabase<FeatureDefinition>().TryGetElement("HelpAction", out var help))
             {
                 familiarMonsterBuilder.AddFeatures(help);
             }

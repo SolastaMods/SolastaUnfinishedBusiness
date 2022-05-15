@@ -32,7 +32,7 @@ namespace SolastaCommunityExpansion.Displays
             Action additionalRendering = null) where T : BaseDefinition
         {
             bool toggle;
-            bool selectAll = selectedDefinitions.Count == registeredDefinitions.Count;
+            var selectAll = selectedDefinitions.Count == registeredDefinitions.Count;
 
             UI.Label("");
 

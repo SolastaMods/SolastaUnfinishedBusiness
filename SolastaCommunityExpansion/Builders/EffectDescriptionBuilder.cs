@@ -14,7 +14,7 @@ namespace SolastaCommunityExpansion.Builders
         {
             effect = new EffectDescription();
 
-            EffectAdvancement effectAdvancement = new EffectAdvancement();
+            var effectAdvancement = new EffectAdvancement();
             effectAdvancement.SetIncrementMultiplier(1);
             effect.SetEffectAdvancement(effectAdvancement);
 
@@ -65,7 +65,7 @@ namespace SolastaCommunityExpansion.Builders
 
         public EffectDescriptionBuilder SetEffectAIParameters(float aoeScoreMultiplier, int cooldownForCaster, int cooldownForBattle, bool dynamicCooldown)
         {
-            EffectAIParameters aiParams = new EffectAIParameters();
+            var aiParams = new EffectAIParameters();
             aiParams.SetAoeScoreMultiplier(aoeScoreMultiplier);
             aiParams.SetCooldownForCaster(cooldownForCaster);
             aiParams.SetCooldownForBattle(cooldownForBattle);
@@ -78,7 +78,7 @@ namespace SolastaCommunityExpansion.Builders
             int additionalDicePerIncrement = 0, int additionalSpellLevelPerIncrement = 0, int additionalSummonsPerIncrement = 0, int additionalHPPerIncrement = 0, int additionalTempHPPerIncrement = 0,
             int additionalTargetCellsPerIncrement = 0, int additionalItemBonus = 0, RuleDefinitions.AdvancementDuration alteredDuration = RuleDefinitions.AdvancementDuration.None)
         {
-            EffectAdvancement effectAdvancement = new EffectAdvancement();
+            var effectAdvancement = new EffectAdvancement();
             effectAdvancement.SetEffectIncrementMethod(effectIncrementMethod);
             effectAdvancement.SetIncrementMultiplier(incrementMultiplier);
             effectAdvancement.SetAdditionalTargetsPerIncrement(additionalTargetsPerIncrement);
@@ -126,7 +126,7 @@ namespace SolastaCommunityExpansion.Builders
 
         public EffectDescriptionBuilder AddHitAffinity(string tag, RuleDefinitions.AdvantageType advantageType)
         {
-            HitAffinityByTag hitAffinity = new HitAffinityByTag();
+            var hitAffinity = new HitAffinityByTag();
 
             hitAffinity.SetTag(tag);
             hitAffinity.SetAdvantageType(advantageType);

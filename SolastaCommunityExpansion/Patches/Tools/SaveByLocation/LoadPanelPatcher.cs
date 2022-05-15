@@ -105,7 +105,7 @@ namespace SolastaCommunityExpansion.Patches.Tools.SaveByLocation
                 .Where(opt => opt.LocationType == selectedCampaign.LocationType)
                 .FirstOrDefault(o => o.CampaignOrLocation == selectedCampaign.CampaignOrLocationName);
 
-            int newValue = option?.Index ?? 0;
+            var newValue = option?.Index ?? 0;
 
             if (guiDropdown.value == newValue)
             {

@@ -79,7 +79,7 @@ namespace SolastaCommunityExpansion.Displays
                         UI.Space(30);
                         UI.Label("Inventory".bold().cyan());
                     }
-                    foreach (RulesetInventorySlot slot in inventory)
+                    foreach (var slot in inventory)
                     {
                         if (slot.EquipedItem != null)
                         {
@@ -154,7 +154,7 @@ namespace SolastaCommunityExpansion.Displays
                         UI.Space(30);
                         UI.Label("Features".bold().cyan());
                     }
-                    foreach (FeatureDefinition feature in monsterDefinition.Features)
+                    foreach (var feature in monsterDefinition.Features)
                     {
                         using (UI.HorizontalScope())
                         {
@@ -182,7 +182,7 @@ namespace SolastaCommunityExpansion.Displays
                         UI.Space(30);
                         UI.Label("Attacks".bold().cyan());
                     }
-                    foreach (MonsterAttackIteration attackIteration in monsterDefinition.AttackIterations)
+                    foreach (var attackIteration in monsterDefinition.AttackIterations)
                     {
                         using (UI.HorizontalScope())
                         {
@@ -262,10 +262,10 @@ namespace SolastaCommunityExpansion.Displays
                     var playerCharacters = PlayerControllerContext.PlayerCharacters;
                     var playerCharactersChoices = PlayerControllerContext.PlayerCharactersChoices;
 
-                    for (int i = 0; i < playerCharacters.Count; i++)
+                    for (var i = 0; i < playerCharacters.Count; i++)
                     {
                         // Prevent captured closure 
-                        int index = i;
+                        var index = i;
 
                         UI.HStack(playerCharacters[index].Name, 1, () =>
                         {
@@ -295,10 +295,10 @@ namespace SolastaCommunityExpansion.Displays
             }
             else
             {
-                for (int index = 0; index < EncountersSpawnContext.EncounterCharacters.Count; index++)
+                for (var index = 0; index < EncountersSpawnContext.EncounterCharacters.Count; index++)
                 {
                     // Prevent captured closure 
-                    int index2 = index;
+                    var index2 = index;
 
                     if (EncountersSpawnContext.EncounterCharacters[index2] is RulesetCharacterMonster rulesetCharacterMonster)
                     {

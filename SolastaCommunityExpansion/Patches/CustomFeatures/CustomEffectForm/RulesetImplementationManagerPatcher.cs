@@ -17,7 +17,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomEffectForm
             RuleDefinitions.EffectApplication effectApplication = RuleDefinitions.EffectApplication.All,
             List<EffectFormFilter> filters = null)
         {
-            foreach (CustomDefinitions.CustomEffectForm customEffect in effectForms.OfType<CustomDefinitions.CustomEffectForm>())
+            foreach (var customEffect in effectForms.OfType<CustomDefinitions.CustomEffectForm>())
             {
                 customEffect.ApplyForm(formsParams, retargeting, proxyOnly, forceSelfConditionOnly, effectApplication, filters);
             }

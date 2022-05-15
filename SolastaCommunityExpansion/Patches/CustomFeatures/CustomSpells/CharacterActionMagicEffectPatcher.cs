@@ -14,7 +14,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
         {
             internal static void Prefix(CharacterActionMagicEffect __instance)
             {
-                BaseDefinition definition = __instance.InvokeMethod("GetBaseDefinition") as BaseDefinition;
+                var definition = __instance.InvokeMethod("GetBaseDefinition") as BaseDefinition;
                 //skip spell animation if this is "attack after cast" spell
                 if (definition.HasSubFeatureOfType<IPerformAttackAfterMagicEffectUse>())
                 {
@@ -31,7 +31,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
                     yield return __result.Current;
                 }
 
-                BaseDefinition definition = __instance.InvokeMethod("GetBaseDefinition") as BaseDefinition;
+                var definition = __instance.InvokeMethod("GetBaseDefinition") as BaseDefinition;
 
                 //TODO: add possibility to get attack via feature
                 //TODO: add possibility to process multiple attack features
@@ -39,7 +39,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
                 var getAttackAfterUse = customFeature?.PerformAttackAfterUse;
 
                 CharacterActionAttack attackAction = null;
-                RuleDefinitions.RollOutcome attackOutcome = RuleDefinitions.RollOutcome.Neutral;
+                var attackOutcome = RuleDefinitions.RollOutcome.Neutral;
 
                 if (getAttackAfterUse != null)
                 {

@@ -150,9 +150,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
             void MakeEldritchBlastVariant(string name, AssetReferenceSprite icon, params EffectForm[] forms)
             {
-                string cantripName = EldritchBlastName + name;
+                var cantripName = EldritchBlastName + name;
 
-                EffectDescription effect = new EffectDescription();
+                var effect = new EffectDescription();
                 effect.Copy(eldritchBlastEffect);
 
                 var cantrip = SpellDefinitionWithDependentEffectsBuilder
@@ -241,11 +241,11 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             //{"VisionsofDistantRealms", SpellDefinitions.},
 
             // at will EI
-            foreach (KeyValuePair<string, SpellDefinition> entry in dictionaryofEIPseudoCantrips)
+            foreach (var entry in dictionaryofEIPseudoCantrips)
             {
                 var invocationName = entry.Key;
                 var baseSpell = entry.Value;
-                string textPseudoCantrips = "EldritchInvocation" + baseSpell.name;
+                var textPseudoCantrips = "EldritchInvocation" + baseSpell.name;
 
                 var guiPresentationEIPseudoCantrips = new GuiPresentationBuilder(
                     $"Feature/&{invocationName}Title",
@@ -299,9 +299,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             }
 
             // 1/day EI
-            foreach (KeyValuePair<string, SpellDefinition> entry in dictionaryofEIPseudoSpells)
+            foreach (var entry in dictionaryofEIPseudoSpells)
             {
-                string textPseudoSpells = "EldritchInvocation" + entry.Value.name;
+                var textPseudoSpells = "EldritchInvocation" + entry.Value.name;
 
                 var guiPresentationEIPseudoSpells = new GuiPresentationBuilder(
                     "Feature/&" + entry.Key + "Title",
@@ -417,7 +417,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 //"RelentlessHex",               //
             };
 
-            foreach (string entry in listofEIAttributeModifiers)
+            foreach (var entry in listofEIAttributeModifiers)
             {
                 var textEIAttributeModifiers = "EldritchInvocation" + entry;
 
@@ -551,13 +551,13 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 condition = shadowsInvisibiityConditionDefinition
             };
 
-            FeatureDefinitionLightAffinity OneWithShadowsLightAffinity = FeatureDefinitionLightAffinityBuilder
+            var OneWithShadowsLightAffinity = FeatureDefinitionLightAffinityBuilder
                 .Create("OneWithShadowsLightAffinity", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Feature)
                 .AddLightingEffectAndCondition(Unlit)
                 .AddToDB();
 
-            FeatureDefinitionLightAffinity OneWithShadowsLightAffinityStrong = FeatureDefinitionLightAffinityBuilder
+            var OneWithShadowsLightAffinityStrong = FeatureDefinitionLightAffinityBuilder
                 .Create("OneWithShadowsLightAffinityStrong", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Feature)
                 .AddLightingEffectAndCondition(Dim)

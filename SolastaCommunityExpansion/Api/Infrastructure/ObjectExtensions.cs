@@ -49,7 +49,7 @@ namespace SolastaModApi.Infrastructure
                 var arrayType = typeToReflect.GetElementType();
                 if (IsPrimitive(arrayType))
                 {
-                    Array clonedArray = (Array)cloneObject;
+                    var clonedArray = (Array)cloneObject;
                     clonedArray.ForEach((array, indices) => array.SetValue(InternalCopy(clonedArray.GetValue(indices), visited), indices));
                 }
 
@@ -76,7 +76,7 @@ namespace SolastaModApi.Infrastructure
             BindingFlags bindingFlags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.FlattenHierarchy, Func<FieldInfo, bool> filter = null)
 #pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
         {
-            foreach (FieldInfo fieldInfo in typeToReflect.GetFields(bindingFlags))
+            foreach (var fieldInfo in typeToReflect.GetFields(bindingFlags))
             {
                 if (filter != null && !filter(fieldInfo))
                 {

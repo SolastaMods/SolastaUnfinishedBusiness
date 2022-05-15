@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders.Features;
 
 namespace SolastaCommunityExpansion.CustomDefinitions
@@ -20,9 +19,9 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 
         public void ComputeAttackModifier(RulesetCharacter myself, RulesetCharacter defender, RulesetAttackMode attackMode, ActionModifier attackModifier, RuleDefinitions.FeatureOrigin featureOrigin)
         {
-            foreach (KeyValuePair<string, List<RulesetCondition>> keyValuePair in myself.ConditionsByCategory)
+            foreach (var keyValuePair in myself.ConditionsByCategory)
             {
-                foreach (RulesetCondition rulesetCondition in keyValuePair.Value)
+                foreach (var rulesetCondition in keyValuePair.Value)
                 {
                     if (rulesetCondition.ConditionDefinition.IsSubtypeOf(ConditionName) && rulesetCondition.SourceGuid != defender.Guid)
                     {

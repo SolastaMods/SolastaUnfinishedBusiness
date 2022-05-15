@@ -6,7 +6,7 @@ namespace SolastaCommunityExpansion.Builders
     {
         public static DiceByRank BuildDiceByRank(int rank, int dice)
         {
-            DiceByRank diceByRank = new DiceByRank();
+            var diceByRank = new DiceByRank();
             diceByRank.SetRank(rank);
             diceByRank.SetDiceNumber(dice);
             return diceByRank;

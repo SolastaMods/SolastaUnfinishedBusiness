@@ -105,7 +105,7 @@ namespace SolastaCommunityExpansion.Models
 
             void ToggleZoomCamera()
             {
-                ICameraService cameraService = ServiceRepository.GetService<ICameraService>();
+                var cameraService = ServiceRepository.GetService<ICameraService>();
 
                 if (cameraService != null)
                 {
@@ -214,8 +214,8 @@ namespace SolastaCommunityExpansion.Models
             {
                 var gameLocationService = ServiceRepository.GetService<IGameLocationService>();
 
-                int x = (int)gameLocationService.GameLocation.LastCameraPosition.x;
-                int z = (int)gameLocationService.GameLocation.LastCameraPosition.z;
+                var x = (int)gameLocationService.GameLocation.LastCameraPosition.x;
+                var z = (int)gameLocationService.GameLocation.LastCameraPosition.z;
 
                 return new int3(x, 0, z);
             }

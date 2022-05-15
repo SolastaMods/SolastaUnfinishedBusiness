@@ -16,9 +16,9 @@ namespace SolastaCommunityExpansion.Utils
         public static List<DiceByRank> MakeBySteps(int start = 0, int increment = 1, int step = 0)
         {
             var result = new List<DiceByRank>();
-            for (int i = 0; i < 20; i++)
+            for (var i = 0; i < 20; i++)
             {
-                result.Add(new DiceByRank().SetRank(i).SetDices(start + ((i + 1) / (step + 1)) * increment));
+                result.Add(new DiceByRank().SetRank(i).SetDices(start + ((i + 1) / (step + 1) * increment)));
             }
 
             return result;

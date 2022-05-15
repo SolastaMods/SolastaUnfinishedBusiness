@@ -260,11 +260,11 @@ Web
             Definition.SetProjectile(ForceArtilleryProjectileBuilder.ForceArtilleryProjectile.name);
             Definition.SetProjectileBone(AnimationDefinitions.BoneType.Chest);
 
-            MotionForm motionForm = new MotionForm();
+            var motionForm = new MotionForm();
             motionForm.SetType(MotionForm.MotionType.PushFromOrigin);
             motionForm.SetDistance(1);
 
-            EffectForm effectmotion = new EffectForm
+            var effectmotion = new EffectForm
             {
                 FormType = EffectForm.EffectFormType.Motion
             };
@@ -276,7 +276,7 @@ Web
             effectmotion.SetLevelType(RuleDefinitions.LevelSourceType.EffectLevel);
             effectmotion.SetApplyLevel(EffectForm.LevelApplianceType.No);
 
-            DamageForm forceArtilleryAttack = new DamageForm
+            var forceArtilleryAttack = new DamageForm
             {
                 DieType = RuleDefinitions.DieType.D8,
                 DiceNumber = 2,
@@ -284,7 +284,7 @@ Web
                 BonusDamage = 0
             };
 
-            EffectForm effect = new EffectForm
+            var effect = new EffectForm
             {
                 FormType = EffectForm.EffectFormType.Damage,
                 DamageForm = forceArtilleryAttack
@@ -310,7 +310,7 @@ Web
 
             Definition.EffectDescription.SetRangeType(RuleDefinitions.RangeType.RangeHit);
 
-            EffectParticleParameters effectParticleParameters = new EffectParticleParameters();
+            var effectParticleParameters = new EffectParticleParameters();
             effectParticleParameters.Copy(DatabaseHelper.SpellDefinitions.MagicMissile.EffectDescription.EffectParticleParameters);
             Definition.EffectDescription.SetEffectParticleParameters(effectParticleParameters);
         }
@@ -361,7 +361,7 @@ Web
             Definition.GuiPresentation.Description = "Item/&ForceArtilleryProjectileDescription";
             Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.MagicMissile.GuiPresentation.SpriteReference);
 
-            EffectParticleParameters effectParticleParameters = new EffectParticleParameters();
+            var effectParticleParameters = new EffectParticleParameters();
             effectParticleParameters.Copy(DatabaseHelper.SpellDefinitions.MagicMissile.EffectDescription.EffectParticleParameters);
             Definition.AmmunitionDescription.EffectDescription.SetEffectParticleParameters(effectParticleParameters);
         }

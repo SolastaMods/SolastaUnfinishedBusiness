@@ -86,7 +86,7 @@ namespace ModKit
                         editState = (null, null);
                     }
                     if (GL.Button("✔".green(), GUI.skin.box, AutoWidth())
-                        || userHasHitReturn && focusedControlName == label)
+                        || (userHasHitReturn && focusedControlName == label))
                     {
                         label = editState.Item2;
                         changed = true;
@@ -459,7 +459,7 @@ namespace ModKit
             using (VerticalScope(Width(200)))
             {
                 Space((sliderTop + 4).point());
-                logNewValue = (float)(GL.HorizontalSlider(logValue, logMin, logMax, Width(200)));
+                logNewValue = (float)GL.HorizontalSlider(logValue, logMin, logMax, Width(200));
                 Space(sliderBottom.point());
             }
             var newValue = (float)Math.Round(Math.Pow(10, logNewValue / 100f) - offset, places);

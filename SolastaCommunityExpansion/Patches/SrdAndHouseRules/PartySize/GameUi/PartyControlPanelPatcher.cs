@@ -20,7 +20,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.PartySize.GameUi
 
             if (partyCount > DungeonMakerContext.GAME_PARTY_SIZE)
             {
-                float scale = (float)Math.Pow(DungeonMakerContext.PARTY_CONTROL_PANEL_DEFAULT_SCALE, partyCount - DungeonMakerContext.GAME_PARTY_SIZE);
+                var scale = (float)Math.Pow(DungeonMakerContext.PARTY_CONTROL_PANEL_DEFAULT_SCALE, partyCount - DungeonMakerContext.GAME_PARTY_SIZE);
 
                 ___partyPlatesTable.localScale = new Vector3(scale, scale, scale);
                 ___guestPlatesTable.localScale = new Vector3(scale, scale, scale);

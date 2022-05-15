@@ -17,7 +17,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.PartySize
         {
             var partyCharacters = __instance.PartyCharacters;
 
-            for (int idx = DungeonMakerContext.GAME_PARTY_SIZE; idx < partyCharacters.Count; idx++)
+            for (var idx = DungeonMakerContext.GAME_PARTY_SIZE; idx < partyCharacters.Count; idx++)
             {
                 var position = partyCharacters[idx % DungeonMakerContext.GAME_PARTY_SIZE].LocationPosition;
 

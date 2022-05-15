@@ -75,7 +75,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             var quasit = WarlockPactOfTheChainSummons.buildCustomQuasit();
 
 
-            EffectDescriptionBuilder effectDescriptionPseudodragon = new EffectDescriptionBuilder()
+            var effectDescriptionPseudodragon = new EffectDescriptionBuilder()
             .SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn)
             .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 2, RuleDefinitions.TargetType.Position, 1, 1)
             .AddEffectForm(new EffectFormBuilder()
@@ -84,25 +84,25 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             )
             .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ConjureElementalAir.EffectDescription.EffectParticleParameters);
 
-            GuiPresentationBuilder FindFamiliarPsuedodragonGui = new GuiPresentationBuilder(
+            var FindFamiliarPsuedodragonGui = new GuiPresentationBuilder(
                 "Spell/&FindFamiliarPsuedodragonTitle",
                 "Spell/&FindFamiliarPsuedodragonDescription");
             FindFamiliarPsuedodragonGui.SetSpriteReference(pseudodragon.GuiPresentation.SpriteReference);
 
 
-            EffectDescriptionBuilder effectDescriptionSprite = new EffectDescriptionBuilder();
+            var effectDescriptionSprite = new EffectDescriptionBuilder();
             effectDescriptionSprite.SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             effectDescriptionSprite.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 2, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
             effectDescriptionSprite.AddEffectForm(new EffectFormBuilder().SetSummonCreatureForm(1, sprite.name, false, DatabaseHelper.ConditionDefinitions.ConditionFlyingBootsWinged).Build());
             effectDescriptionSprite.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ConjureElementalAir.EffectDescription.EffectParticleParameters);
 
-            GuiPresentationBuilder FindFamiliarSpriteGui = new GuiPresentationBuilder(
+            var FindFamiliarSpriteGui = new GuiPresentationBuilder(
                 "Spell/&FindFamiliarSpriteTitle",
                 "Spell/&FindFamiliarSpriteDescription");
             FindFamiliarSpriteGui.SetSpriteReference(sprite.GuiPresentation.SpriteReference);
 
 
-            EffectDescriptionBuilder effectDescriptionImp = new EffectDescriptionBuilder()
+            var effectDescriptionImp = new EffectDescriptionBuilder()
                 .SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1,
                     RuleDefinitions.TurnOccurenceType.EndOfTurn)
                 .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 2,
@@ -113,19 +113,19 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                     .EffectParticleParameters);
 
 
-            GuiPresentationBuilder FindFamiliarImpGui = new GuiPresentationBuilder(
+            var FindFamiliarImpGui = new GuiPresentationBuilder(
                 "Spell/&FindFamiliarImpTitle",
                 "Spell/&FindFamiliarImpDescription");
             FindFamiliarImpGui.SetSpriteReference(imp.GuiPresentation.SpriteReference);
 
-            EffectDescriptionBuilder effectDescriptionQuasit = new EffectDescriptionBuilder();
+            var effectDescriptionQuasit = new EffectDescriptionBuilder();
             effectDescriptionQuasit.SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             effectDescriptionQuasit.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 2, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
             effectDescriptionQuasit.AddEffectForm(new EffectFormBuilder().SetSummonCreatureForm(1, quasit.name).Build());
             effectDescriptionQuasit.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ConjureElementalAir.EffectDescription.EffectParticleParameters);
 
 
-            GuiPresentationBuilder FindFamiliarQuasitGui = new GuiPresentationBuilder(
+            var FindFamiliarQuasitGui = new GuiPresentationBuilder(
                 "Spell/&FindFamiliarQuasitTitle",
                 "Spell/&FindFamiliarQuasitDescription");
             FindFamiliarQuasitGui.SetSpriteReference(quasit.GuiPresentation.SpriteReference);
@@ -146,7 +146,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                  AttributeDefinitions.Charisma,
                  effectDescriptionImp.Build(),
                  true);
-            FeatureDefinitionPower FindFamiliarImpPower = FindFamiliarImpPowerBuilder.AddToDB();
+            var FindFamiliarImpPower = FindFamiliarImpPowerBuilder.AddToDB();
 
             var FindFamiliarPseudodragonPowerBuilder = FeatureDefinitionPowerBuilder
                 .Create("FindFamiliarPseudodragonPower", DefinitionBuilder.CENamespaceGuid)
@@ -163,7 +163,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                  AttributeDefinitions.Charisma,
                  effectDescriptionPseudodragon.Build(),
                  true);
-            FeatureDefinitionPower FindFamiliarPseudodragonPower = FindFamiliarPseudodragonPowerBuilder.AddToDB();
+            var FindFamiliarPseudodragonPower = FindFamiliarPseudodragonPowerBuilder.AddToDB();
 
             var FindFamiliarSpritePowerBuilder = FeatureDefinitionPowerBuilder
                 .Create("FindFamiliarSpritePower", DefinitionBuilder.CENamespaceGuid)
@@ -180,7 +180,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                  AttributeDefinitions.Charisma,
                  effectDescriptionSprite.Build(),
                  true);
-            FeatureDefinitionPower FindFamiliarSpritePower = FindFamiliarSpritePowerBuilder.AddToDB();
+            var FindFamiliarSpritePower = FindFamiliarSpritePowerBuilder.AddToDB();
 
             var FindFamiliarQuasitPowerBuilder = FeatureDefinitionPowerBuilder
                 .Create("FindFamiliarQuasitPower", DefinitionBuilder.CENamespaceGuid)
@@ -197,9 +197,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                  AttributeDefinitions.Charisma,
                  effectDescriptionQuasit.Build(),
                  true);
-            FeatureDefinitionPower FindFamiliarQuasitPower = FindFamiliarQuasitPowerBuilder.AddToDB();
+            var FindFamiliarQuasitPower = FindFamiliarQuasitPowerBuilder.AddToDB();
 
-            FeatureDefinitionPower findFamiliarPowerBundle = FeatureDefinitionPowerPoolBuilder
+            var findFamiliarPowerBundle = FeatureDefinitionPowerPoolBuilder
                 .Create("FindFamiliarBundlePower", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Power, Utils.CustomIcons.CreateAssetReferenceSprite("WarlockChainSummon", Properties.Resources.WarlockChainSummon, 128, 64))
                 .SetActivation(RuleDefinitions.ActivationTime.Hours1, 1)

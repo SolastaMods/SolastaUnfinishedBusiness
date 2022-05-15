@@ -131,7 +131,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         private void SetKnownCantripsZero()
         {
             Definition.KnownCantrips.Clear();
-            for (int level = 1; level < 21; level++)
+            for (var level = 1; level < 21; level++)
             {
                 Definition.KnownCantrips.Add(0);
             }
@@ -151,8 +151,8 @@ namespace SolastaCommunityExpansion.Builders.Features
         public FeatureDefinitionCastSpellBuilder SetKnownCantrips(int startingAmount, int startingLevel, CasterProgression progression)
         {
             Definition.KnownCantrips.Clear();
-            int level = 1;
-            int numCantrips = 0;
+            var level = 1;
+            var numCantrips = 0;
             for (; level < startingLevel; level++)
             {
                 Definition.KnownCantrips.Add(numCantrips);
@@ -212,7 +212,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         private void SetScribedZero()
         {
             Definition.ScribedSpells.Clear();
-            for (int level = 1; level < 21; level++)
+            for (var level = 1; level < 21; level++)
             {
                 Definition.ScribedSpells.Add(0);
             }
@@ -221,7 +221,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         public FeatureDefinitionCastSpellBuilder SetScribedSpells(int startingLevel, int initialAmount, int perLevelAfterFirst)
         {
             Definition.ScribedSpells.Clear();
-            int level = 1;
+            var level = 1;
             for (; level < startingLevel; level++)
             {
                 Definition.ScribedSpells.Add(0);
@@ -238,7 +238,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         private void SetKnownZero()
         {
             Definition.KnownSpells.Clear();
-            for (int level = 1; level < 21; level++)
+            for (var level = 1; level < 21; level++)
             {
                 Definition.KnownSpells.Add(0);
             }
@@ -261,7 +261,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         public FeatureDefinitionCastSpellBuilder SetKnownSpells(int startingAmount, int startingLevel, CasterProgression progression)
         {
             Definition.KnownSpells.Clear();
-            int level = 1;
+            var level = 1;
             for (; level < startingLevel; level++)
             {
                 Definition.KnownSpells.Add(0);
@@ -300,7 +300,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         public FeatureDefinitionCastSpellBuilder SetReplacedZero()
         {
             Definition.ReplacedSpells.Clear();
-            for (int level = 1; level < 21; level++)
+            for (var level = 1; level < 21; level++)
             {
                 Definition.ReplacedSpells.Add(0);
             }
@@ -311,7 +311,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
             Definition.ReplacedSpells.Clear();
             Definition.ReplacedSpells.Add(0);
-            for (int level = 2; level < 21; level++)
+            for (var level = 2; level < 21; level++)
             {
                 Definition.ReplacedSpells.Add(1);
             }
@@ -367,10 +367,10 @@ namespace SolastaCommunityExpansion.Builders.Features
 
         public FeatureDefinitionCastSpellBuilder SetSlotsPerLevel(int startingLevel, CasterProgression progression)
         {
-            int level = 1;
+            var level = 1;
             for (; level < startingLevel; level++)
             {
-                FeatureDefinitionCastSpell.SlotsByLevelDuplet slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
+                var slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
                 {
                     Level = level,
                     Slots = SlotsByCasterLevel[0]
@@ -382,7 +382,7 @@ namespace SolastaCommunityExpansion.Builders.Features
                 case CasterProgression.FULL_CASTER:
                     for (; level < 21; level++)
                     {
-                        FeatureDefinitionCastSpell.SlotsByLevelDuplet slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
+                        var slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
                         {
                             Level = level,
                             Slots = SlotsByCasterLevel[level - startingLevel + 1]
@@ -393,7 +393,7 @@ namespace SolastaCommunityExpansion.Builders.Features
                 case CasterProgression.HALF_CASTER:
                     for (; level < 21; level++)
                     {
-                        FeatureDefinitionCastSpell.SlotsByLevelDuplet slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
+                        var slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
                         {
                             Level = level,
                             Slots = SlotsByCasterLevel[((level - startingLevel) / 2) + 1]
@@ -404,7 +404,7 @@ namespace SolastaCommunityExpansion.Builders.Features
                 case CasterProgression.THIRD_CASTER:
                     for (; level < 21; level++)
                     {
-                        FeatureDefinitionCastSpell.SlotsByLevelDuplet slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
+                        var slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
                         {
                             Level = level,
                             Slots = SlotsByCasterLevel[((level - startingLevel + 2) / 3) + 1]

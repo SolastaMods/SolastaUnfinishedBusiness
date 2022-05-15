@@ -87,9 +87,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 FeatureDefinitionSavingThrowAffinity.ModifierType modifierType, int diceNumber, RuleDefinitions.DieType dieType,
                 bool againstMagic, GuiPresentation guiPresentation) : base(name, guidNamespace)
             {
-                foreach (string ability in abilityScores)
+                foreach (var ability in abilityScores)
                 {
-                    FeatureDefinitionSavingThrowAffinity.SavingThrowAffinityGroup group = new FeatureDefinitionSavingThrowAffinity.SavingThrowAffinityGroup
+                    var group = new FeatureDefinitionSavingThrowAffinity.SavingThrowAffinityGroup
                     {
                         savingThrowModifierType = modifierType,
                         savingThrowModifierDiceNumber = diceNumber,
@@ -121,9 +121,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 int diceNumber, RuleDefinitions.DieType dieType, RuleDefinitions.CharacterAbilityCheckAffinity affinityType,
                 GuiPresentation guiPresentation) : base(name, guidNameapce)
             {
-                foreach (Tuple<string, string> abilityProficiency in abilityProficiencyPairs)
+                foreach (var abilityProficiency in abilityProficiencyPairs)
                 {
-                    FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup group = new FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup
+                    var group = new FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup
                     {
                         abilityScoreName = abilityProficiency.Item1
                     };
@@ -145,9 +145,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             public FeatureDefinitionCraftingAffinityBuilder(string name, Guid guidNamespace, IEnumerable<ToolTypeDefinition> toolTypes,
                 float durationMultiplier, bool doubleProficiencyBonus, GuiPresentation guiPresentation) : base(name, guidNamespace)
             {
-                foreach (ToolTypeDefinition tool in toolTypes)
+                foreach (var tool in toolTypes)
                 {
-                    FeatureDefinitionCraftingAffinity.CraftingAffinityGroup group = new FeatureDefinitionCraftingAffinity.CraftingAffinityGroup
+                    var group = new FeatureDefinitionCraftingAffinity.CraftingAffinityGroup
                     {
                         tooltype = tool,
                         durationMultiplier = durationMultiplier,
@@ -274,16 +274,16 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
         public static FeatureDefinitionPowerBuilder BuildSpellFormPower(string name, int usesPerRecharge,
             RuleDefinitions.UsesDetermination usesDetermination, RuleDefinitions.ActivationTime activationTime, int costPerUse, RuleDefinitions.RechargeRate recharge)
         {
-            EffectDescriptionBuilder effectDescriptionBuilder = new EffectDescriptionBuilder();
+            var effectDescriptionBuilder = new EffectDescriptionBuilder();
             effectDescriptionBuilder.SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Self, 0, 0, 0, 0, ActionDefinitions.ItemSelectionType.None);
             effectDescriptionBuilder.SetCreatedByCharacter();
 
-            EffectFormBuilder effectFormBuilder = new EffectFormBuilder();
+            var effectFormBuilder = new EffectFormBuilder();
             effectFormBuilder.SetSpellForm(9);
             effectDescriptionBuilder.AddEffectForm(effectFormBuilder.Build());
             effectDescriptionBuilder.SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None, 1, 0, 0, 0, 0, 0, 0, 0, 0, RuleDefinitions.AdvancementDuration.None);
 
-            EffectParticleParameters particleParams = new EffectParticleParameters();
+            var particleParams = new EffectParticleParameters();
             particleParams.Copy(DatabaseHelper.FeatureDefinitionPowers.PowerWizardArcaneRecovery.EffectDescription.EffectParticleParameters);
             effectDescriptionBuilder.SetParticleEffectParameters(particleParams);
 

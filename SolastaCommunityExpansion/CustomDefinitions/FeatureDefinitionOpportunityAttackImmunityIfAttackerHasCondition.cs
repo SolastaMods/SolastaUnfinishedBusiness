@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders.Features;
 
 namespace SolastaCommunityExpansion.CustomDefinitions
@@ -35,9 +34,9 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 
         public bool IsImmuneToOpportunityAttack(RulesetCharacter myself, RulesetCharacter attacker)
         {
-            foreach (KeyValuePair<string, List<RulesetCondition>> keyValuePair in attacker.ConditionsByCategory)
+            foreach (var keyValuePair in attacker.ConditionsByCategory)
             {
-                foreach (RulesetCondition rulesetCondition in keyValuePair.Value)
+                foreach (var rulesetCondition in keyValuePair.Value)
                 {
                     if (rulesetCondition.SourceGuid == myself.Guid && rulesetCondition.ConditionDefinition.IsSubtypeOf(ConditionName))
                     {

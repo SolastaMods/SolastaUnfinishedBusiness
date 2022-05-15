@@ -11,17 +11,17 @@ namespace SolastaCommunityExpansion.ItemCrafting
     {
         public static void AddRecipesForArmor(ItemCollection itemCollection)
         {
-            foreach (ItemDefinition baseItem in itemCollection.BaseWeapons)
+            foreach (var baseItem in itemCollection.BaseWeapons)
             {
-                foreach (ItemCollection.MagicItemDataHolder itemData in itemCollection.MagicToCopy)
+                foreach (var itemData in itemCollection.MagicToCopy)
                 {
                     // Generate new items
-                    ItemDefinition newItem = ItemBuilder.BuildNewMagicArmor(baseItem, itemCollection.BaseGuid, itemData.Name, itemData.Item);
+                    var newItem = ItemBuilder.BuildNewMagicArmor(baseItem, itemCollection.BaseGuid, itemData.Name, itemData.Item);
                     // Generate recipes for items
-                    string recipeName = "RecipeEnchanting" + newItem.Name;
-                    RecipeDefinitionBuilder builder = RecipeDefinitionBuilder.Create(recipeName, itemCollection.BaseGuid);
+                    var recipeName = "RecipeEnchanting" + newItem.Name;
+                    var builder = RecipeDefinitionBuilder.Create(recipeName, itemCollection.BaseGuid);
                     builder.AddIngredient(baseItem);
-                    foreach (IngredientOccurenceDescription ingredient in itemData.Recipe.Ingredients)
+                    foreach (var ingredient in itemData.Recipe.Ingredients)
                     {
                         if (itemCollection.PossiblePrimedItemsToReplace.Contains(ingredient.ItemDefinition))
                         {
@@ -32,9 +32,9 @@ namespace SolastaCommunityExpansion.ItemCrafting
                     builder.SetCraftedItem(newItem, itemCollection.NumProduced);
                     builder.SetCraftingCheckData(itemData.Recipe.CraftingHours, itemData.Recipe.CraftingDC, itemData.Recipe.ToolType);
                     builder.SetGuiPresentation(newItem.GuiPresentation);
-                    RecipeDefinition newRecipe = builder.AddToDB();
+                    var newRecipe = builder.AddToDB();
                     // Stock item Recipes
-                    ItemDefinition craftingManual = ItemBuilder.BuilderCopyFromItemSetRecipe(DatabaseHelper.ItemDefinitions.CraftingManual_Enchant_EmpressGarb, "CraftingManual_" + newRecipe.Name, itemCollection.BaseGuid,
+                    var craftingManual = ItemBuilder.BuilderCopyFromItemSetRecipe(DatabaseHelper.ItemDefinitions.CraftingManual_Enchant_EmpressGarb, "CraftingManual_" + newRecipe.Name, itemCollection.BaseGuid,
                     newRecipe, Main.Settings.RecipeCost, DatabaseHelper.ItemDefinitions.CraftingManual_Enchant_EmpressGarb.GuiPresentation);
 
                     if (!Models.ItemCraftingContext.RecipeBooks.ContainsKey(baseItem.Name))
@@ -54,17 +54,17 @@ namespace SolastaCommunityExpansion.ItemCrafting
 
         public static void AddRecipesForWeapons(ItemCollection itemCollection)
         {
-            foreach (ItemDefinition baseItem in itemCollection.BaseWeapons)
+            foreach (var baseItem in itemCollection.BaseWeapons)
             {
-                foreach (ItemCollection.MagicItemDataHolder itemData in itemCollection.MagicToCopy)
+                foreach (var itemData in itemCollection.MagicToCopy)
                 {
                     // Generate new items
-                    ItemDefinition newItem = ItemBuilder.BuildNewMagicWeapon(baseItem, itemData.Name, itemCollection.BaseGuid, itemData.Item);
+                    var newItem = ItemBuilder.BuildNewMagicWeapon(baseItem, itemData.Name, itemCollection.BaseGuid, itemData.Item);
                     // Generate recipes for items
-                    string recipeName = "RecipeEnchanting" + newItem.Name;
-                    RecipeDefinitionBuilder builder = RecipeDefinitionBuilder.Create(recipeName, itemCollection.BaseGuid);
+                    var recipeName = "RecipeEnchanting" + newItem.Name;
+                    var builder = RecipeDefinitionBuilder.Create(recipeName, itemCollection.BaseGuid);
                     builder.AddIngredient(baseItem);
-                    foreach (IngredientOccurenceDescription ingredient in itemData.Recipe.Ingredients)
+                    foreach (var ingredient in itemData.Recipe.Ingredients)
                     {
                         if (itemCollection.PossiblePrimedItemsToReplace.Contains(ingredient.ItemDefinition))
                         {
@@ -75,9 +75,9 @@ namespace SolastaCommunityExpansion.ItemCrafting
                     builder.SetCraftedItem(newItem, itemCollection.NumProduced);
                     builder.SetCraftingCheckData(itemData.Recipe.CraftingHours, itemData.Recipe.CraftingDC, itemData.Recipe.ToolType);
                     builder.SetGuiPresentation(newItem.GuiPresentation);
-                    RecipeDefinition newRecipe = builder.AddToDB();
+                    var newRecipe = builder.AddToDB();
                     // Stock item Recipes
-                    ItemDefinition craftingManual = ItemBuilder.BuilderCopyFromItemSetRecipe(DatabaseHelper.ItemDefinitions.CraftingManual_Enchant_Longbow_Of_Accuracy, "CraftingManual_" + newRecipe.Name, itemCollection.BaseGuid,
+                    var craftingManual = ItemBuilder.BuilderCopyFromItemSetRecipe(DatabaseHelper.ItemDefinitions.CraftingManual_Enchant_Longbow_Of_Accuracy, "CraftingManual_" + newRecipe.Name, itemCollection.BaseGuid,
                     newRecipe, Main.Settings.RecipeCost, DatabaseHelper.ItemDefinitions.CraftingManualRemedy.GuiPresentation);
 
                     if (!Models.ItemCraftingContext.RecipeBooks.ContainsKey(baseItem.Name))
@@ -97,7 +97,7 @@ namespace SolastaCommunityExpansion.ItemCrafting
 
         public static void StockItem(MerchantDefinition merchant, ItemDefinition item)
         {
-            StockUnitDescription stockUnit = new StockUnitDescription();
+            var stockUnit = new StockUnitDescription();
             stockUnit.SetItemDefinition(item);
             stockUnit.SetInitialAmount(1);
             stockUnit.SetInitialized(true);
@@ -112,9 +112,9 @@ namespace SolastaCommunityExpansion.ItemCrafting
 
         public static void AddIngredientEnchanting()
         {
-            Guid baseGuid = new Guid("80a5106e-5cb7-4fdd-8f96-b94f3aafd4dd");
+            var baseGuid = new Guid("80a5106e-5cb7-4fdd-8f96-b94f3aafd4dd");
 
-            Dictionary<ItemDefinition, ItemDefinition> EnchantedToIngredient = new Dictionary<ItemDefinition, ItemDefinition>()
+            var EnchantedToIngredient = new Dictionary<ItemDefinition, ItemDefinition>()
             {
                 {DatabaseHelper.ItemDefinitions.Ingredient_Enchant_MithralStone, DatabaseHelper.ItemDefinitions._300_GP_Opal },
                 {DatabaseHelper.ItemDefinitions.Ingredient_Enchant_Crystal_Of_Winter, DatabaseHelper.ItemDefinitions._100_GP_Pearl },
@@ -135,11 +135,11 @@ namespace SolastaCommunityExpansion.ItemCrafting
                 {DatabaseHelper.ItemDefinitions.Ingredient_Enchant_Heartstone, DatabaseHelper.ItemDefinitions._300_GP_Opal },
                 {DatabaseHelper.ItemDefinitions.Ingredient_Enchant_SpiderQueen_Venom, DatabaseHelper.ItemDefinitions.Ingredient_BadlandsSpiderVenomGland },
             };
-            List<RecipeDefinition> recipes = new List<RecipeDefinition>();
-            foreach (ItemDefinition item in EnchantedToIngredient.Keys)
+            var recipes = new List<RecipeDefinition>();
+            foreach (var item in EnchantedToIngredient.Keys)
             {
-                string recipeName = "RecipeEnchanting" + item.Name;
-                RecipeDefinitionBuilder builder = RecipeDefinitionBuilder.Create(recipeName, baseGuid);
+                var recipeName = "RecipeEnchanting" + item.Name;
+                var builder = RecipeDefinitionBuilder.Create(recipeName, baseGuid);
                 builder.AddIngredient(EnchantedToIngredient[item]);
                 builder.SetCraftedItem(item);
                 builder.SetCraftingCheckData(16, 16, DatabaseHelper.ToolTypeDefinitions.EnchantingToolType);
@@ -150,9 +150,9 @@ namespace SolastaCommunityExpansion.ItemCrafting
             const string groupKey = "EnchantingIngredients";
             Models.ItemCraftingContext.RecipeBooks.Add(groupKey, new List<ItemDefinition>());
 
-            foreach (RecipeDefinition recipe in recipes)
+            foreach (var recipe in recipes)
             {
-                ItemDefinition craftingManual = ItemBuilder.BuilderCopyFromItemSetRecipe(DatabaseHelper.ItemDefinitions.CraftingManualRemedy, "CraftingManual_" + recipe.Name, baseGuid,
+                var craftingManual = ItemBuilder.BuilderCopyFromItemSetRecipe(DatabaseHelper.ItemDefinitions.CraftingManualRemedy, "CraftingManual_" + recipe.Name, baseGuid,
                     recipe, Main.Settings.RecipeCost, DatabaseHelper.ItemDefinitions.CraftingManualRemedy.GuiPresentation);
 
                 Models.ItemCraftingContext.RecipeBooks[groupKey].Add(craftingManual);
@@ -167,9 +167,9 @@ namespace SolastaCommunityExpansion.ItemCrafting
 
         public static void AddPrimingRecipes()
         {
-            Guid baseGuid = new Guid("cad103e4-6226-4ba0-a9ed-2fee8886f6b9");
+            var baseGuid = new Guid("cad103e4-6226-4ba0-a9ed-2fee8886f6b9");
 
-            Dictionary<ItemDefinition, ItemDefinition> primedToBase = new Dictionary<ItemDefinition, ItemDefinition>()
+            var primedToBase = new Dictionary<ItemDefinition, ItemDefinition>()
             {
                 {DatabaseHelper.ItemDefinitions.Primed_Battleaxe, DatabaseHelper.ItemDefinitions.Battleaxe},
                 {DatabaseHelper.ItemDefinitions.Primed_Breastplate, DatabaseHelper.ItemDefinitions.Breastplate},
@@ -199,14 +199,14 @@ namespace SolastaCommunityExpansion.ItemCrafting
                 {DatabaseHelper.ItemDefinitions.Primed_StuddedLeather, DatabaseHelper.ItemDefinitions.StuddedLeather},
                 {DatabaseHelper.ItemDefinitions.Primed_Warhammer, DatabaseHelper.ItemDefinitions.Warhammer},
             };
-            IEnumerable<RecipeDefinition> recipes = primedToBase.Keys.Select(item => CreatePrimingRecipe(baseGuid, primedToBase[item], item));
+            var recipes = primedToBase.Keys.Select(item => CreatePrimingRecipe(baseGuid, primedToBase[item], item));
 
             const string groupKey = "PrimedItems";
             Models.ItemCraftingContext.RecipeBooks.Add(groupKey, new List<ItemDefinition>());
 
-            foreach (RecipeDefinition recipe in recipes)
+            foreach (var recipe in recipes)
             {
-                ItemDefinition craftingManual = ItemBuilder.BuilderCopyFromItemSetRecipe(DatabaseHelper.ItemDefinitions.CraftingManual_Enchant_Longsword_Warden, "CraftingManual_" + recipe.Name, baseGuid,
+                var craftingManual = ItemBuilder.BuilderCopyFromItemSetRecipe(DatabaseHelper.ItemDefinitions.CraftingManual_Enchant_Longsword_Warden, "CraftingManual_" + recipe.Name, baseGuid,
                     recipe, Main.Settings.RecipeCost, DatabaseHelper.ItemDefinitions.CraftingManual_Enchant_Longsword_Warden.GuiPresentation);
 
                 Models.ItemCraftingContext.RecipeBooks[groupKey].Add(craftingManual);
@@ -221,19 +221,19 @@ namespace SolastaCommunityExpansion.ItemCrafting
 
         public static void AddFactionItems()
         {
-            Guid baseGuid = new Guid("80a5106e-5cb7-4fdd-8f96-b94f3aafd4dd");
+            var baseGuid = new Guid("80a5106e-5cb7-4fdd-8f96-b94f3aafd4dd");
 
-            Dictionary<ItemDefinition, ItemDefinition> ForgeryToIngredient = new Dictionary<ItemDefinition, ItemDefinition>()
+            var ForgeryToIngredient = new Dictionary<ItemDefinition, ItemDefinition>()
             {
                 {DatabaseHelper.ItemDefinitions.CAERLEM_TirmarianHolySymbol, DatabaseHelper.ItemDefinitions.Art_Item_50_GP_JadePendant},
                 {DatabaseHelper.ItemDefinitions.BONEKEEP_MagicRune, DatabaseHelper.ItemDefinitions.Art_Item_25_GP_EngraveBoneDice},
                 {DatabaseHelper.ItemDefinitions.CaerLem_Gate_Plaque, DatabaseHelper.ItemDefinitions.Art_Item_25_GP_SilverChalice},
             };
-            List<RecipeDefinition> recipes = new List<RecipeDefinition>();
-            foreach (ItemDefinition item in ForgeryToIngredient.Keys)
+            var recipes = new List<RecipeDefinition>();
+            foreach (var item in ForgeryToIngredient.Keys)
             {
-                string recipeName = "RecipeForgery" + item.Name;
-                RecipeDefinitionBuilder builder = RecipeDefinitionBuilder.Create(recipeName, baseGuid);
+                var recipeName = "RecipeForgery" + item.Name;
+                var builder = RecipeDefinitionBuilder.Create(recipeName, baseGuid);
                 builder.AddIngredient(ForgeryToIngredient[item]);
                 builder.SetCraftedItem(item);
                 builder.SetCraftingCheckData(16, 16, DatabaseHelper.ToolTypeDefinitions.ArtisanToolSmithToolsType);
@@ -241,7 +241,7 @@ namespace SolastaCommunityExpansion.ItemCrafting
                 recipes.Add(builder.AddToDB());
             }
 
-            Dictionary<ItemDefinition, ItemDefinition> ScrollForgeries = new Dictionary<ItemDefinition, ItemDefinition>()
+            var ScrollForgeries = new Dictionary<ItemDefinition, ItemDefinition>()
             {
                 {DatabaseHelper.ItemDefinitions.BONEKEEP_AkshasJournal, DatabaseHelper.ItemDefinitions.Ingredient_AngryViolet},
                 {DatabaseHelper.ItemDefinitions.ABJURATION_TOWER_Manifest, DatabaseHelper.ItemDefinitions.Ingredient_ManacalonOrchid},
@@ -251,10 +251,10 @@ namespace SolastaCommunityExpansion.ItemCrafting
                 {DatabaseHelper.ItemDefinitions.ABJURATION_TOWER_ElvenWars, DatabaseHelper.ItemDefinitions.Ingredient_BloodDaffodil},
                 {DatabaseHelper.ItemDefinitions.CAERLEM_Daliat_Document, DatabaseHelper.ItemDefinitions.Ingredient_Skarn},
             };
-            foreach (ItemDefinition item in ScrollForgeries.Keys)
+            foreach (var item in ScrollForgeries.Keys)
             {
-                string recipeName = "RecipeForgery" + item.Name;
-                RecipeDefinitionBuilder builder = RecipeDefinitionBuilder.Create(recipeName, baseGuid);
+                var recipeName = "RecipeForgery" + item.Name;
+                var builder = RecipeDefinitionBuilder.Create(recipeName, baseGuid);
                 builder.AddIngredient(ScrollForgeries[item]);
                 builder.SetCraftedItem(item);
                 builder.SetCraftingCheckData(16, 16, DatabaseHelper.ToolTypeDefinitions.ScrollKitType);
@@ -265,9 +265,9 @@ namespace SolastaCommunityExpansion.ItemCrafting
             const string groupKey = "RelicForgeries";
             Models.ItemCraftingContext.RecipeBooks.Add(groupKey, new List<ItemDefinition>());
 
-            foreach (RecipeDefinition recipe in recipes)
+            foreach (var recipe in recipes)
             {
-                ItemDefinition craftingManual = ItemBuilder.BuilderCopyFromItemSetRecipe(DatabaseHelper.ItemDefinitions.CraftingManualRemedy, "CraftingManual_" + recipe.Name, baseGuid,
+                var craftingManual = ItemBuilder.BuilderCopyFromItemSetRecipe(DatabaseHelper.ItemDefinitions.CraftingManualRemedy, "CraftingManual_" + recipe.Name, baseGuid,
                     recipe, Main.Settings.RecipeCost, DatabaseHelper.ItemDefinitions.CraftingManualRemedy.GuiPresentation);
 
                 Models.ItemCraftingContext.RecipeBooks[groupKey].Add(craftingManual);
@@ -282,8 +282,8 @@ namespace SolastaCommunityExpansion.ItemCrafting
 
         private static RecipeDefinition CreatePrimingRecipe(Guid baseGuid, ItemDefinition baseItem, ItemDefinition primed)
         {
-            string recipeName = "RecipePriming" + baseItem.Name;
-            RecipeDefinitionBuilder builder = RecipeDefinitionBuilder.Create(recipeName, baseGuid);
+            var recipeName = "RecipePriming" + baseItem.Name;
+            var builder = RecipeDefinitionBuilder.Create(recipeName, baseGuid);
             builder.AddIngredient(baseItem);
             builder.SetCraftedItem(primed);
             builder.SetCraftingCheckData(8, 15, DatabaseHelper.ToolTypeDefinitions.EnchantingToolType);

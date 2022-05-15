@@ -27,7 +27,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.ScaleMerchantPrices
             }
 
             // convert to copper
-            int cp =
+            var cp =
                 (1000 * baseCosts[0]) + // platinum
                 (100 * baseCosts[1]) + // gold
                 (50 * baseCosts[2]) + // electrum?
@@ -44,7 +44,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.ScaleMerchantPrices
             }
 
             // scaled as gold
-            double scaledGold = scaledCopper / 100.0;
+            var scaledGold = scaledCopper / 100.0;
 
             if (scaledGold > 10)
             {
@@ -58,7 +58,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.ScaleMerchantPrices
             }
 
             // convert back to cp
-            int scaledAndRoundedCopper = (int)(scaledGold * 100);
+            var scaledAndRoundedCopper = (int)(scaledGold * 100);
 
             // convert back to 5 digit array
             scaledCosts[4] = scaledAndRoundedCopper % 10;
@@ -156,7 +156,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.ScaleMerchantPrices
             }
 
             // The resulting rounding position will be negative for rounding at whole numbers, and positive for decimal places.
-            roundingPosition = significantDigits - 1 - (int)(Math.Floor(Math.Log10(Math.Abs(value))));
+            roundingPosition = significantDigits - 1 - (int)Math.Floor(Math.Log10(Math.Abs(value)));
 
             // try to use a rounding position directly, if no scale is needed.
             // this is because the scale mutliplication after the rounding can introduce error, although 

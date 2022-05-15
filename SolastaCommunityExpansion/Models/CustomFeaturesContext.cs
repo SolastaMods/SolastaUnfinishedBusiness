@@ -267,7 +267,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal static int GetMaxUsesForPool(RulesetUsablePower poolPower, RulesetCharacter character)
         {
-            int totalPoolSize = poolPower.MaxUses;
+            var totalPoolSize = poolPower.MaxUses;
 
             foreach (var modifierPower in character.UsablePowers)
             {

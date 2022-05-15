@@ -229,7 +229,7 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
             var selectedSubclass = LevelUpContext.GetSelectedSubclass(hero);
             var selectedClassLevel = LevelUpContext.GetSelectedClassLevel(hero);
 
-            foreach (RulesetSpellRepertoire spellRepertoire in hero.SpellRepertoires)
+            foreach (var spellRepertoire in hero.SpellRepertoires)
             {
                 var poolName = string.Empty;
                 var maxPoints = 0;

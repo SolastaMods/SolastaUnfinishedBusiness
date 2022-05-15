@@ -43,7 +43,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.ExperienceMultiply
 #endif
 
                 // Level up essential for Caer_Cyflen_Quest_AfterTutorial.
-                bool levelupRequired = gameQuestService?.ActiveQuests?.Any(x => x.QuestTreeDefinition == Caer_Cyflen_Quest_AfterTutorial) == true;
+                var levelupRequired = gameQuestService?.ActiveQuests?.Any(x => x.QuestTreeDefinition == Caer_Cyflen_Quest_AfterTutorial) == true;
 
                 if (levelupRequired)
                 {

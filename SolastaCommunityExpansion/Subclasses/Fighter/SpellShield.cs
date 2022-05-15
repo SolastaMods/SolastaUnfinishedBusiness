@@ -23,7 +23,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
 
         internal SpellShield()
         {
-            FeatureDefinitionMagicAffinity magicAffinity = FeatureDefinitionMagicAffinityBuilder
+            var magicAffinity = FeatureDefinitionMagicAffinityBuilder
                 .Create("MagicAffinityFighterSpellShield", SubclassNamespace)
                 .SetGuiPresentation(Category.Subclass)
                 .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage, 0)
@@ -31,7 +31,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                 .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.None, 0, RuleDefinitions.SpellParamsModifierType.FlatValue, true, false, false)
                 .AddToDB();
 
-            FeatureDefinitionCastSpellBuilder spellCasting = FeatureDefinitionCastSpellBuilder
+            var spellCasting = FeatureDefinitionCastSpellBuilder
                 .Create("CastSpellSpellShield", SubclassNamespace)
                 .SetGuiPresentation("FighterSpellShieldSpellcasting", Category.Subclass)
                 .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Subclass)
@@ -48,7 +48,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                 .SetKnownSpells(4, 3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER)
                 .SetSlotsPerLevel(3, FeatureDefinitionCastSpellBuilder.CasterProgression.THIRD_CASTER);
 
-            FeatureDefinitionSavingThrowAffinity spellShieldResistance = FeatureDefinitionSavingThrowAffinityBuilder
+            var spellShieldResistance = FeatureDefinitionSavingThrowAffinityBuilder
                 .Create("SpellShieldSpellResistance", SubclassNamespace)
                 .SetGuiPresentation("FighterSpellShieldSpellResistance", Category.Subclass)
                 .SetAffinities(RuleDefinitions.CharacterSavingThrowAffinity.Advantage, true,
@@ -62,7 +62,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
 
             // or maybe some boost to the spell shield spells?
 
-            FeatureDefinitionAdditionalAction bonusSpell = FeatureDefinitionAdditionalActionBuilder
+            var bonusSpell = FeatureDefinitionAdditionalActionBuilder
                 .Create("SpellShieldAdditionalAction", SubclassNamespace)
                 .SetGuiPresentation(Category.Subclass)
                 .SetActionType(ActionDefinitions.ActionType.Main)
@@ -71,7 +71,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                 .SetTriggerCondition(RuleDefinitions.AdditionalActionTriggerCondition.HasDownedAnEnemy)
                 .AddToDB();
 
-            ConditionDefinition deflectionCondition = ConditionDefinitionBuilder
+            var deflectionCondition = ConditionDefinitionBuilder
                 .Create("ConditionSpellShieldArcaneDeflection", SubclassNamespace)
                 .SetGuiPresentation(Category.Subclass)
                 .AddFeatures(FeatureDefinitionAttributeModifierBuilder
@@ -94,7 +94,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                     .Build())
                 .Build();
 
-            FeatureDefinitionPower arcaneDeflectionPower = FeatureDefinitionPowerBuilder
+            var arcaneDeflectionPower = FeatureDefinitionPowerBuilder
                 .Create("PowerSpellShieldArcaneDeflection", SubclassNamespace)
                 .SetGuiPresentation(Category.Subclass, ConditionShielded.GuiPresentation.SpriteReference)
                 .Configure(

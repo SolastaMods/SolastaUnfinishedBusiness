@@ -63,7 +63,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
                 Gui.GetPrefabFromPool(___featurePrefab, table);
             }
 
-            int index = 0;
+            var index = 0;
 
             foreach (var feature in features)
             {
@@ -84,7 +84,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
 
                 if (feature.FeatureDefinition is FeatureDefinitionPower)
                 {
-                    GuiPowerDefinition guiPowerDefinition = ServiceRepository.GetService<IGuiWrapperService>()
+                    var guiPowerDefinition = ServiceRepository.GetService<IGuiWrapperService>()
                         .GetGuiPowerDefinition(feature.FeatureDefinition.Name);
                     tooltip.Content = guiPowerDefinition.Description;
                 }
@@ -116,7 +116,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
                 ++index;
             }
 
-            for (int count = features.Count; count < table.childCount; ++count)
+            for (var count = features.Count; count < table.childCount; ++count)
             {
                 table.GetChild(count).gameObject.SetActive(false);
             }

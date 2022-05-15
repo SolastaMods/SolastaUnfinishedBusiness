@@ -35,7 +35,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.ScreenMap
 
                     if (gameGadget.Revealed) // Not checking for Enabled here unlike game code
                     {
-                        MapGadgetItem.ItemType itemType = (MapGadgetItem.ItemType)int.MinValue;
+                        var itemType = (MapGadgetItem.ItemType)int.MinValue;
 
                         if (gameGadget.UniqueNameId.StartsWith("Camp"))
                         {

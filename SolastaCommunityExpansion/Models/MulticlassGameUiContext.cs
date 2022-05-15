@@ -137,7 +137,7 @@ namespace SolastaCommunityExpansion.Models
             var maxSpellLevel = Math.Max(maxRepertoireLevel, warlockSpellLevel);
             var selected = false;
 
-            for (int level = minSpellLebvel; level <= maxSpellLevel; ++level)
+            for (var level = minSpellLebvel; level <= maxSpellLevel; ++level)
             {
                 spellRepertoire.GetSlotsNumber(level, out var remaining, out var max);
                 if (hasPactMagic && level != warlockSpellLevel)
@@ -146,8 +146,8 @@ namespace SolastaCommunityExpansion.Models
                 }
 
                 if (max > 0 && (
-                        level <= maxRepertoireLevel
-                        && (isMulticaster || !hasPactMagic)
+                        (level <= maxRepertoireLevel
+                        && (isMulticaster || !hasPactMagic))
                         || level == warlockSpellLevel
                     ))
                 {

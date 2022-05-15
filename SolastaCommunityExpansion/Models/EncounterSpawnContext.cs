@@ -79,7 +79,7 @@ namespace SolastaCommunityExpansion.Models
                     {
                         var filename = characterPoolService.BuildCharacterFilename(name.Substring(0, name.Length - 4));
 
-                        characterPoolService.LoadCharacter(filename, out RulesetCharacterHero hero, out RulesetCharacterHero.Snapshot _);
+                        characterPoolService.LoadCharacter(filename, out var hero, out var _);
                         Heroes.Add(hero);
                     }
 
@@ -135,8 +135,8 @@ namespace SolastaCommunityExpansion.Models
         {
             var gameLocationService = ServiceRepository.GetService<IGameLocationService>();
 
-            int x = (int)gameLocationService.GameLocation.LastCameraPosition.x;
-            int z = (int)gameLocationService.GameLocation.LastCameraPosition.z;
+            var x = (int)gameLocationService.GameLocation.LastCameraPosition.x;
+            var z = (int)gameLocationService.GameLocation.LastCameraPosition.z;
 
             return new int3(x, 0, z);
         }

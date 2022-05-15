@@ -50,13 +50,13 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 .SetGuiPresentation("MagicAffinityMasterManipulatorList", Category.Subclass)
                 .AddToDB();
 
-            FeatureDefinitionProficiency proficiency = FeatureDefinitionProficiencyBuilder
+            var proficiency = FeatureDefinitionProficiencyBuilder
                 .Create("ManipulatorMentalSavingThrows", SubclassNamespace)
                 .SetGuiPresentation(Category.Subclass)
                 .SetProficiencies(RuleDefinitions.ProficiencyType.SavingThrow, AttributeDefinitions.Charisma, AttributeDefinitions.Constitution)
                 .AddToDB();
 
-            FeatureDefinitionPower powerDominate = FeatureDefinitionPowerBuilder
+            var powerDominate = FeatureDefinitionPowerBuilder
                 .Create("PowerManipulatorDominatePerson", SubclassNamespace)
                 .SetGuiPresentation(Category.Subclass, DominatePerson.GuiPresentation.SpriteReference)
                 .Configure(0,

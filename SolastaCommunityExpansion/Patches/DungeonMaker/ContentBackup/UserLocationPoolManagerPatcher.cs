@@ -19,7 +19,7 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.ContentBackup
             var deleteMethod = typeof(File).GetMethod("Delete");
             var backupAndDeleteMethod = typeof(Models.DungeonMakerContext).GetMethod("BackupAndDelete");
 
-            foreach (CodeInstruction instruction in instructions)
+            foreach (var instruction in instructions)
             {
                 if (instruction.Calls(deleteMethod))
                 {

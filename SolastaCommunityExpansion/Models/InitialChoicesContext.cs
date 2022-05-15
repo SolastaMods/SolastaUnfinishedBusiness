@@ -66,7 +66,7 @@ namespace SolastaCommunityExpansion.Models
 
             if (Main.Settings.DisableSenseSuperiorDarkVisionFromAllRaces)
             {
-                foreach (CharacterRaceDefinition characterRaceDefinition in DatabaseRepository.GetDatabase<CharacterRaceDefinition>())
+                foreach (var characterRaceDefinition in DatabaseRepository.GetDatabase<CharacterRaceDefinition>())
                 {
                     characterRaceDefinition.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition.name == "SenseSuperiorDarkvision");
                 }
@@ -159,7 +159,7 @@ namespace SolastaCommunityExpansion.Models
                 featureUnlockByLevelNonHuman = new FeatureUnlockByLevel(DatabaseHelper.FeatureDefinitionPointPools.PointPoolBonusFeat, 1);
 
                 name = "PointPool2BonusFeats";
-                if (alternateHuman && featureDefinitionPointPoolDb.TryGetElement(name, out FeatureDefinitionPointPool pointPool2BonusFeats))
+                if (alternateHuman && featureDefinitionPointPoolDb.TryGetElement(name, out var pointPool2BonusFeats))
                 {
                     featureUnlockByLevelHuman = new FeatureUnlockByLevel(pointPool2BonusFeats, 1);
                 }
@@ -167,13 +167,13 @@ namespace SolastaCommunityExpansion.Models
             else if (initialFeats > 1)
             {
                 name = $"PointPool{initialFeats}BonusFeats";
-                if (featureDefinitionPointPoolDb.TryGetElement(name, out FeatureDefinitionPointPool featureDefinitionPointPool))
+                if (featureDefinitionPointPoolDb.TryGetElement(name, out var featureDefinitionPointPool))
                 {
                     featureUnlockByLevelNonHuman = new FeatureUnlockByLevel(featureDefinitionPointPool, 1);
                 }
 
                 name = $"PointPool{initialFeats + 1}BonusFeats";
-                if (alternateHuman && featureDefinitionPointPoolDb.TryGetElement(name, out FeatureDefinitionPointPool pointPoolXBonusFeats))
+                if (alternateHuman && featureDefinitionPointPoolDb.TryGetElement(name, out var pointPoolXBonusFeats))
                 {
                     featureUnlockByLevelHuman = new FeatureUnlockByLevel(pointPoolXBonusFeats, 1);
                 }
@@ -184,7 +184,7 @@ namespace SolastaCommunityExpansion.Models
         {
             var human = DatabaseHelper.CharacterRaceDefinitions.Human;
 
-            BuildFeatureUnlocks(initialFeats, alternateHuman, out FeatureUnlockByLevel featureUnlockByLevelNonHuman, out FeatureUnlockByLevel featureUnlockByLevelHuman);
+            BuildFeatureUnlocks(initialFeats, alternateHuman, out var featureUnlockByLevelNonHuman, out var featureUnlockByLevelHuman);
 
             foreach (var characterRaceDefinition in DatabaseRepository.GetDatabase<CharacterRaceDefinition>().GetAllElements())
             {
@@ -197,10 +197,10 @@ namespace SolastaCommunityExpansion.Models
                             human.FeatureUnlocks.Add(featureUnlockByLevelHuman);
                         }
 
-                        FeatureUnlockByLevel pointPoolAbilityScoreImprovement = new FeatureUnlockByLevel(DatabaseHelper.FeatureDefinitionPointPools.PointPoolAbilityScoreImprovement, 1);
+                        var pointPoolAbilityScoreImprovement = new FeatureUnlockByLevel(DatabaseHelper.FeatureDefinitionPointPools.PointPoolAbilityScoreImprovement, 1);
                         human.FeatureUnlocks.Add(pointPoolAbilityScoreImprovement);
 
-                        FeatureUnlockByLevel pointPoolHumanSkillPool = new FeatureUnlockByLevel(DatabaseHelper.FeatureDefinitionPointPools.PointPoolHumanSkillPool, 1);
+                        var pointPoolHumanSkillPool = new FeatureUnlockByLevel(DatabaseHelper.FeatureDefinitionPointPools.PointPoolHumanSkillPool, 1);
                         human.FeatureUnlocks.Add(pointPoolHumanSkillPool);
 
                         Remove(human, DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierHumanAbilityScoreIncrease);
@@ -220,7 +220,7 @@ namespace SolastaCommunityExpansion.Models
         {
             var human = DatabaseHelper.CharacterRaceDefinitions.Human;
 
-            BuildFeatureUnlocks(initialFeats, alternateHuman, out FeatureUnlockByLevel featureUnlockByLevelNonHuman, out FeatureUnlockByLevel featureUnlockByLevelHuman);
+            BuildFeatureUnlocks(initialFeats, alternateHuman, out var featureUnlockByLevelNonHuman, out var featureUnlockByLevelHuman);
 
             foreach (var characterRaceDefinition in DatabaseRepository.GetDatabase<CharacterRaceDefinition>().GetAllElements())
             {
@@ -235,7 +235,7 @@ namespace SolastaCommunityExpansion.Models
                         Remove(human, DatabaseHelper.FeatureDefinitionPointPools.PointPoolAbilityScoreImprovement);
                         Remove(human, DatabaseHelper.FeatureDefinitionPointPools.PointPoolHumanSkillPool);
 
-                        FeatureUnlockByLevel humanAttributeIncrease = new FeatureUnlockByLevel(DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierHumanAbilityScoreIncrease, 1);
+                        var humanAttributeIncrease = new FeatureUnlockByLevel(DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierHumanAbilityScoreIncrease, 1);
                         human.FeatureUnlocks.Add(humanAttributeIncrease);
                     }
                     else

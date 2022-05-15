@@ -22,7 +22,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
 
             if (__instance.RulesetCharacter != null)
             {
-                foreach (RulesetUsablePower rulesetUsablePower in __instance.RulesetCharacter.UsablePowers)
+                foreach (var rulesetUsablePower in __instance.RulesetCharacter.UsablePowers)
                 {
                     if (__instance.RulesetCharacter.GetRemainingUsesOfPower(rulesetUsablePower) > 0 &&
                         !(!accountDelegatedPowers && rulesetUsablePower.PowerDefinition.DelegatedToAction) &&

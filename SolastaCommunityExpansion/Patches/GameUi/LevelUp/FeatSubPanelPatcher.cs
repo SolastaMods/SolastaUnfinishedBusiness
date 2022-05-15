@@ -80,7 +80,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
                 var j = 0;
                 var rect = table.GetComponent<RectTransform>();
 
-                rect.sizeDelta = new Vector2(rect.sizeDelta.x, (table.childCount / COLUMNS + 1) * (HEIGHT + SPACING));
+                rect.sizeDelta = new Vector2(rect.sizeDelta.x, ((table.childCount / COLUMNS) + 1) * (HEIGHT + SPACING));
 
                 for (var i = 0; i < table.childCount; i++)
                 {
@@ -92,7 +92,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
                     {
                         var x = j % COLUMNS;
                         var y = j / COLUMNS;
-                        var posX = x * (WIDTH + SPACING * 2);
+                        var posX = x * (WIDTH + (SPACING * 2));
                         var posY = -y * (HEIGHT + SPACING);
 
                         rect = child.GetComponent<RectTransform>();

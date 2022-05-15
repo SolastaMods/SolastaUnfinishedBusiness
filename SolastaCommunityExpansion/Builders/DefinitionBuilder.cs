@@ -548,7 +548,7 @@ namespace SolastaCommunityExpansion.Builders
                 throw new SolastaModApiException($"No constructor found on {typeof(TBuilder).Name} with argument types {string.Join(",", parameterTypes.Select(t => t.Name))}");
             }
 
-            TBuilder builder = (TBuilder)ctor.Invoke(parameters);
+            var builder = (TBuilder)ctor.Invoke(parameters);
 
             if (builder.DisableStandardCreateMethods)
             {

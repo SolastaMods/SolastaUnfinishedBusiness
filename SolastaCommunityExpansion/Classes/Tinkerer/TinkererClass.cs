@@ -70,7 +70,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         public static CharacterClassDefinition BuildTinkererClass()
         {
-            CharacterClassDefinitionBuilder artificerBuilder = CharacterClassDefinitionBuilder
+            var artificerBuilder = CharacterClassDefinitionBuilder
                 .Create("ClassTinkerer", GuidNamespace)
                 .SetHitDice(RuleDefinitions.DieType.D8)
                 .AddPersonality(PersonalityFlagDefinitions.GpSpellcaster, 2)
@@ -127,14 +127,14 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             // Complicated stuff
 
             // Starting equipment.
-            List<HeroEquipmentOption> simpleWeaponList = new List<HeroEquipmentOption>();
-            HeroEquipmentOption simpleWeaponOption = EquipmentOptionsBuilder.Option(ItemDefinitions.Mace, EquipmentDefinitions.OptionWeaponSimpleChoice, 1);
+            var simpleWeaponList = new List<HeroEquipmentOption>();
+            var simpleWeaponOption = EquipmentOptionsBuilder.Option(ItemDefinitions.Mace, EquipmentDefinitions.OptionWeaponSimpleChoice, 1);
             simpleWeaponList.Add(simpleWeaponOption);
             simpleWeaponList.Add(simpleWeaponOption);
             artificerBuilder.AddEquipmentRow(simpleWeaponList);
 
-            List<HeroEquipmentOption> lightArmor = new List<HeroEquipmentOption>();
-            List<HeroEquipmentOption> mediumArmor = new List<HeroEquipmentOption>();
+            var lightArmor = new List<HeroEquipmentOption>();
+            var mediumArmor = new List<HeroEquipmentOption>();
             lightArmor.Add(EquipmentOptionsBuilder.Option(ItemDefinitions.StuddedLeather, EquipmentDefinitions.OptionArmor, 1));
             mediumArmor.Add(EquipmentOptionsBuilder.Option(ItemDefinitions.ScaleMail, EquipmentDefinitions.OptionArmor, 1));
             artificerBuilder.AddEquipmentRow(lightArmor, mediumArmor);
@@ -244,7 +244,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
             // Infusions -- Focus, Weapon, Mind Sharpener, Armor of Magical Strength are given in subclasses
             // Defense
-            GuiPresentationBuilder infusionChoiceGui = new GuiPresentationBuilder(
+            var infusionChoiceGui = new GuiPresentationBuilder(
                 "Subclass/&TinkererInfusionChoiceTitle",
                 "Subclass/&TinkererInfusionChoiceDescription");
             artificerBuilder.AddFeatureAtLevel(2, infusionChoice, 4);
@@ -270,7 +270,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
             artificerBuilder.AddFeatureAtLevel(6, toolExpertise);
 
-            FeatureDefinitionPowerPoolModifier InfusionPoolIncrease = FeatureDefinitionPowerPoolModifierBuilder
+            var InfusionPoolIncrease = FeatureDefinitionPowerPoolModifierBuilder
                 .Create("AttributeModiferArtificerInfusionIncreaseHealingPool", GuidNamespace)
                 .Configure(1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, InfusionPool)
                 .SetGuiPresentation("HealingPoolArtificerInfusionsIncrease", Category.Subclass)
@@ -286,12 +286,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             // gloves of thievery-- should be do-able to add the skill bonuses -- all (maybe don't implement
             // Boots of the Winding Path-- probably not going to happen
 
-            GuiPresentationBuilder noContent = new GuiPresentationBuilder("Feature/&NoContentTitle", "Feature/&NoContentTitle");
-            FeatureDefinitionSavingThrowAffinity geniusSaves = FeatureHelpers.BuildSavingThrowAffinity("TinkererFlashOfGeniusSavingThrow",
+            var noContent = new GuiPresentationBuilder("Feature/&NoContentTitle", "Feature/&NoContentTitle");
+            var geniusSaves = FeatureHelpers.BuildSavingThrowAffinity("TinkererFlashOfGeniusSavingThrow",
                 AbilityScores, RuleDefinitions.CharacterSavingThrowAffinity.None, FeatureDefinitionSavingThrowAffinity.ModifierType.AddDice, 1, RuleDefinitions.DieType.D4,
             false, noContent.Build());
 
-            FeatureDefinitionAbilityCheckAffinity geniusAbility = FeatureHelpers.BuildAbilityAffinity("TinkererFlashOfGeniusAbilityCheck", new List<Tuple<string, string>>()
+            var geniusAbility = FeatureHelpers.BuildAbilityAffinity("TinkererFlashOfGeniusAbilityCheck", new List<Tuple<string, string>>()
             {
                 Tuple.Create(AttributeDefinitions.Strength, ""),
                 Tuple.Create(AttributeDefinitions.Dexterity, ""),
@@ -302,14 +302,14 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             }, 1, RuleDefinitions.DieType.D4,
             RuleDefinitions.CharacterAbilityCheckAffinity.None, noContent.Build());
 
-            GuiPresentationBuilder flashOfGeniusConditionPresentation = new GuiPresentationBuilder(
+            var flashOfGeniusConditionPresentation = new GuiPresentationBuilder(
                 "Subclass/&TinkererFlashOfGeniusConditionTitle",
                 "Subclass/&TinkererFlashOfGeniusConditionDescription");
-            ConditionDefinition flashCondition = FeatureHelpers.BuildCondition("TinkererFlashOfGeniusCondition",
+            var flashCondition = FeatureHelpers.BuildCondition("TinkererFlashOfGeniusCondition",
                 RuleDefinitions.DurationType.Hour, 1, true, flashOfGeniusConditionPresentation.Build(),
                 geniusSaves, geniusAbility);
 
-            EffectDescriptionBuilder flashEffect = new EffectDescriptionBuilder();
+            var flashEffect = new EffectDescriptionBuilder();
             flashEffect.AddEffectForm(new EffectFormBuilder().SetConditionForm(flashCondition, ConditionForm.ConditionOperation.Add, true, false, new List<ConditionDefinition>()).Build());
             flashEffect.AddEffectForm(new EffectFormBuilder().SetConditionForm(flashCondition, ConditionForm.ConditionOperation.Add, false, false, new List<ConditionDefinition>()).Build());
             flashEffect.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 6, RuleDefinitions.TargetType.Sphere, 6, 6, ActionDefinitions.ItemSelectionType.None);
@@ -319,7 +319,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             flashEffect.SetDurationData(RuleDefinitions.DurationType.Permanent, 0, RuleDefinitions.TurnOccurenceType.StartOfTurn);
             flashEffect.SetParticleEffectParameters(SpellDefinitions.Bless.EffectDescription.EffectParticleParameters);
 
-            FeatureDefinitionPower flashOfGenius = new FeatureHelpers
+            var flashOfGenius = new FeatureHelpers
                 .FeatureDefinitionPowerBuilder("TinkererFlashOfGeniusPower", GuidNamespace,
                     -1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, RuleDefinitions.ActivationTime.PermanentUnlessIncapacitated,
                     -1, RuleDefinitions.RechargeRate.AtWill, false, false, AttributeDefinitions.Intelligence, flashEffect.Build())
@@ -335,10 +335,10 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             artificerBuilder.AddFeatureAtLevel(9, infusionReplace);
 
             // Magic Item Adept (10)
-            GuiPresentationBuilder CraftingTinkererMagicItemAdeptPresentation = new GuiPresentationBuilder(
+            var CraftingTinkererMagicItemAdeptPresentation = new GuiPresentationBuilder(
                 "Subclass/&CraftingTinkererMagicItemAdeptTitle",
                 "Subclass/&CraftingTinkererMagicItemAdeptDescription");
-            FeatureDefinitionCraftingAffinity craftingAffinity = new FeatureHelpers.FeatureDefinitionCraftingAffinityBuilder("CraftingTinkererMagicItemAdept", GuidNamespace,
+            var craftingAffinity = new FeatureHelpers.FeatureDefinitionCraftingAffinityBuilder("CraftingTinkererMagicItemAdept", GuidNamespace,
                 new List<ToolTypeDefinition>()
                 {
                     ToolTypeDefinitions.ThievesToolsType, ToolTypeDefinitions.ScrollKitType,
@@ -348,7 +348,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             artificerBuilder.AddFeatureAtLevel(10, craftingAffinity);
             // boost to infusions (many of the +1s become +2s)
 
-            FeatureDefinitionPowerPoolModifier InfusionPoolIncrease10 = FeatureDefinitionPowerPoolModifierBuilder
+            var InfusionPoolIncrease10 = FeatureDefinitionPowerPoolModifierBuilder
                 .Create("AttributeModiferArtificerInfusionIncreaseHealingPool10", GuidNamespace)
                 .Configure(1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, InfusionPool)
                 .SetGuiPresentation("HealingPoolArtificerInfusionsIncrease", Category.Subclass)
@@ -366,11 +366,11 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             // winged boots-- probably not- it's a real complicated item
 
             // 11 spell storing item- no clue what to do
-            EffectDescriptionBuilder spellEffect = new EffectDescriptionBuilder();
+            var spellEffect = new EffectDescriptionBuilder();
             spellEffect.SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
             spellEffect.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1, RuleDefinitions.TargetType.Self, 1, 1, ActionDefinitions.ItemSelectionType.None);
             spellEffect.AddEffectForm(new EffectFormBuilder().SetSpellForm(9).Build());
-            FeatureDefinitionPower spellStoringItem = new FeatureHelpers.FeatureDefinitionPowerBuilder("TinkererSpellStoringItem", GuidNamespace,
+            var spellStoringItem = new FeatureHelpers.FeatureDefinitionPowerBuilder("TinkererSpellStoringItem", GuidNamespace,
                 0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence, RuleDefinitions.ActivationTime.BonusAction,
                 1, RuleDefinitions.RechargeRate.LongRest, false, false, AttributeDefinitions.Intelligence, spellEffect.Build())
                 .SetGuiPresentation("PowerTinkererSpellStoringItem", Category.Subclass, FeatureDefinitionPowers.PowerDomainElementalDiscipleOfTheElementsLightning.GuiPresentation.SpriteReference)
@@ -386,7 +386,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
             // 14- magic item savant another attunement slot and ignore requirements on magic items
             // also another infusion slot
-            FeatureDefinitionPowerPoolModifier InfusionPoolIncrease14 = FeatureDefinitionPowerPoolModifierBuilder
+            var InfusionPoolIncrease14 = FeatureDefinitionPowerPoolModifierBuilder
                 .Create("AttributeModiferArtificerInfusionIncreaseHealingPool14", GuidNamespace)
                 .SetGuiPresentation("HealingPoolArtificerInfusionsIncrease", Category.Subclass)
                 .Configure(1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, InfusionPool)
@@ -410,7 +410,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
             // 18 - magic item master another attunement slot
             // also another infusion slot
-            FeatureDefinitionPowerPoolModifier InfusionPoolIncrease18 = FeatureDefinitionPowerPoolModifierBuilder
+            var InfusionPoolIncrease18 = FeatureDefinitionPowerPoolModifierBuilder
                 .Create("AttributeModiferArtificerInfusionIncreaseHealingPool18", GuidNamespace)
                 .Configure(1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence, InfusionPool)
                 .SetGuiPresentation("HealingPoolArtificerInfusionsIncrease", Category.Subclass)
@@ -423,10 +423,10 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             artificerBuilder.AddFeatureAtLevel(19, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
             artificerBuilder.AddFeatureAtLevel(19, infusionReplace);
 
-            GuiPresentationBuilder SoulOfArtificeGui = new GuiPresentationBuilder(
+            var SoulOfArtificeGui = new GuiPresentationBuilder(
                 "Subclass/&PowerTinkererSoulOfArtificeSavesTitle",
                 "Subclass/&PowerTinkererSoulOfArtificeSavesDescription");
-            FeatureDefinitionSavingThrowAffinity soulOfArtificeSaves = FeatureHelpers.BuildSavingThrowAffinity("TinkererSoulOfArtificeSavingThrow", AbilityScores, RuleDefinitions.CharacterSavingThrowAffinity.None, FeatureDefinitionSavingThrowAffinity.ModifierType.AddDice, 3, RuleDefinitions.DieType.D4,
+            var soulOfArtificeSaves = FeatureHelpers.BuildSavingThrowAffinity("TinkererSoulOfArtificeSavingThrow", AbilityScores, RuleDefinitions.CharacterSavingThrowAffinity.None, FeatureDefinitionSavingThrowAffinity.ModifierType.AddDice, 3, RuleDefinitions.DieType.D4,
             false, SoulOfArtificeGui.Build());
             artificerBuilder.AddFeatureAtLevel(20, soulOfArtificeSaves);
             artificerBuilder.AddFeatureAtLevel(20, infusionReplace);
@@ -434,7 +434,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
             // 20 - soul of artifice, +1 to saving throws for each attuned item (probably just give +6)
             // also an ability that lets you drop to 1 instead of 0 as an reaction, supposed to end one of your infusions, but maybe just use some other resource?
 
-            CharacterClassDefinition tinkerer = artificerBuilder.AddToDB();
+            var tinkerer = artificerBuilder.AddToDB();
 
             // Subclasses
             var subclasses = FeatureDefinitionSubclassChoiceBuilder
