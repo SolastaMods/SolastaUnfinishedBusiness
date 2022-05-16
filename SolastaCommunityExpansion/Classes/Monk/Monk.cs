@@ -32,13 +32,14 @@ namespace SolastaCommunityExpansion.Classes.Monk
             WeaponTypeDefinitions.UnarmedStrikeType
         };
 
-        private static FeatureDefinition _unarmoredMovement, _unarmoredMovementBonus, _kiPowers;
+        private static FeatureDefinition _unarmoredMovement, _unarmoredMovementBonus;
         private static ConditionalMovementModifier _movementBonusApplier;
         private static FeatureDefinition UnarmoredMovement => _unarmoredMovement ??= BuildUnarmoredMovement();
-        private static FeatureDefinition KiPowers => _kiPowers ??= BuildKiFeatureSet();
 
         private static ConditionDefinition attackedWithMonkWeaponCondition;
         private static CharacterValidator attackedWithMonkWeapon;
+        private static FeatureDefinitionPower kiPool;
+        private static FeatureDefinition martialArts, flurryOfBlows, patientDefense;
 
         private static FeatureDefinition UnarmoredMovementBonus =>
             _unarmoredMovementBonus ??= BuildUnarmoredMovementBonus();
@@ -54,6 +55,9 @@ namespace SolastaCommunityExpansion.Classes.Monk
             {
                 throw new ArgumentException("Trying to build Monk class additional time.");
             }
+            
+            BuildMartialArts();
+            BuildKiFeatureSet();
 
             Class = CharacterClassDefinitionBuilder
                 .Create(ClassName, GUID)
@@ -199,9 +203,14 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     .SetModifierAbilityScore(AttributeDefinitions.Wisdom)
                     .SetSituationalContext(SituationalContext.NotWearingArmorOrMageArmor)
                     .AddToDB())
-                .AddFeatureAtLevel(1, BuildMartialArts())
+                .AddFeatureAtLevel(1, martialArts)
                 .AddFeatureAtLevel(1, UnarmoredMovement)
-                .AddFeatureAtLevel(2, KiPowers)
+
+                #region Level 02
+
+                .AddFeaturesAtLevel(2, kiPool, flurryOfBlows, patientDefense)
+
+                #endregion
 
                 #endregion
 
@@ -282,7 +291,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
             return Class;
         }
 
-        private static FeatureDefinition BuildMartialArts()
+        private static void BuildMartialArts()
         {
             attackedWithMonkWeaponCondition = ConditionDefinitionBuilder
                 .Create("MonkAttackedWithMonkWeapon", GUID)
@@ -298,7 +307,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .SetConditionForm(attackedWithMonkWeaponCondition, ConditionForm.ConditionOperation.Add, true, false)
                 .Build();
 
-            return FeatureDefinitionBuilder
+            martialArts =  FeatureDefinitionBuilder
                 .Create("MonkMartialArts", GUID)
                 .SetGuiPresentation(Category.Feature)
                 .SetCustomSubFeatures(
@@ -358,9 +367,10 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .AddToDB();
         }
 
-        private static FeatureDefinition BuildKiFeatureSet()
+        //TODO: rework into feature set with generated description?
+        private static void BuildKiFeatureSet()
         {
-            var kiPool = FeatureDefinitionPowerBuilder
+            kiPool = FeatureDefinitionPowerBuilder
                 .Create("MonkKiPool", GUID)
                 .SetGuiPresentationNoContent(true)
                 .SetUsesFixed(2)
@@ -376,7 +386,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
                 .AddToDB();
 
-            var flurryOfBlows = FeatureDefinitionPowerSharedPoolBuilder
+            flurryOfBlows = FeatureDefinitionPowerSharedPoolBuilder
                 .Create("MonkFlurryOfBlows", GUID)
                 .SetGuiPresentation(Category.Power)//TODO: add icon
                 .SetSharedPool(kiPool)
@@ -403,12 +413,37 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     .Build())
                 .AddToDB();
 
-
-            return FeatureDefinitionFeatureSetBuilder
-                .Create("MonkKiPowersSet", GUID)
-                .SetGuiPresentation(Category.Feature)
-                .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-                .SetFeatureSet(kiPool, flurryOfBlows)
+            //TODO: add validator that will show only in combat
+            //TODO: rework to give same status as dodging does, but directly, without requiring using dodge action
+            patientDefense = FeatureDefinitionPowerSharedPoolBuilder
+                .Create("MonkPatientDefense", GUID)
+                .SetGuiPresentation(Category.Power)
+                .SetSharedPool(kiPool)
+                .SetActivationTime(ActivationTime.BonusAction)
+                .SetCostPerUse(1)
+                .SetRechargeRate(RechargeRate.ShortRest)
+                .SetShowCasting(false)
+                .SetCustomSubFeatures(new PowerUseValidity(CharacterValidators.NoShield, CharacterValidators.NoArmor))
+                .SetEffectDescription(new EffectDescriptionBuilder()
+                    .AddEffectForm(new EffectFormBuilder()
+                        .SetConditionForm(ConditionDefinitionBuilder
+                                .Create("MonkPatientDefenseCondition", GUID)
+                                .SetGuiPresentationNoContent(true)
+                                .SetSilent(Silent.WhenAddedOrRemoved)
+                                .SetDuration(DurationType.Round, 0)
+                                .SetSpecialDuration(true)
+                                .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
+                                .SetFeatures(FeatureDefinitionAdditionalActionBuilder
+                                    .Create("MonkPatientDefenseFeature", GUID)
+                                    .SetGuiPresentationNoContent(true)
+                                    .SetActionType(ActionDefinitions.ActionType.Main)
+                                    .SetRestrictedActions(ActionDefinitions.Id.Dodge)
+                                    .SetAuthorizedActions(ActionDefinitions.Id.Dodge)
+                                    .AddToDB())
+                                .AddToDB(),
+                            ConditionForm.ConditionOperation.Add, true, true)
+                        .Build())
+                    .Build())
                 .AddToDB();
         }
 
