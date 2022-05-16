@@ -263,6 +263,7 @@ namespace SolastaCommunityExpansion
 
         // Inventory and Items
         public bool EnableInventoryFilteringAndSorting { get; set; }
+        public bool EnableInventoryTaintNonProficientItemsRed { get; set; }
         public bool EnableInvisibleCrownOfTheMagister { get; set; }
         public string EmpressGarbAppearance { get; set; } = "Normal";
 

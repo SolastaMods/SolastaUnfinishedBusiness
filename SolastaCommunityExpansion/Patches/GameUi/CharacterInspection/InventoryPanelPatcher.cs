@@ -16,6 +16,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
             }
 
             InventoryManagementContext.RefreshControlsVisibility();
+            InventoryManagementContext.SelectionChanged();
         }
     }
 

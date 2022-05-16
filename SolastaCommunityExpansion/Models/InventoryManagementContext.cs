@@ -28,7 +28,7 @@ namespace SolastaCommunityExpansion.Models
 
         private static GuiDropdown SortGuiDropdown { get; set; }
 
-        private static System.Action SelectionChanged { get; set; }
+        internal static System.Action SelectionChanged { get; set; }
 
         internal static void Load()
         {
@@ -171,11 +171,6 @@ namespace SolastaCommunityExpansion.Models
             FilterGuiDropdown.gameObject.SetActive(active);
             BySortGroup.gameObject.SetActive(active);
             SortGuiDropdown.gameObject.SetActive(active);
-
-            if (active)
-            {
-                SelectionChanged();
-            }
         }
 
         private static void Sort(List<RulesetItem> items)
