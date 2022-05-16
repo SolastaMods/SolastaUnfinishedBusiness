@@ -22,12 +22,13 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
             {
                 if (rulesetCharacter != null)
                 {
+                    __result = false;
                     foreach (var rulesetUsablePower in rulesetCharacter.UsablePowers)
                     {
-                        if (!CanUsePower(rulesetCharacter, rulesetUsablePower))
+                        if (CanUsePower(rulesetCharacter, rulesetUsablePower))
                         {
-                            __result = false;
-                            break;
+                            __result = true;
+                            return;
                         }
                     }
                 }
