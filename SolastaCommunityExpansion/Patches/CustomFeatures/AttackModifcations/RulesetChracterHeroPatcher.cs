@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.Features;
 using SolastaModApi.Extensions;
@@ -14,11 +15,37 @@ internal static class RulesetChracterHeroPatcher
     {
         internal static void Prefix(RulesetCharacterHero __instance, RulesetAttackMode attackMode, RulesetItem weapon)
         {
+            var attributeModifiers = __instance.GetSubFeaturesByType<IModifyAttackAttributeForWeapon>();
+
+            foreach (var modifier in attributeModifiers)
+            {
+                modifier.ModifyAttribute(__instance, attackMode, weapon);
+            }
+        }
+    }
+
+    // Allows changing damage and other stats of an attack mode
+    [HarmonyPatch(typeof(RulesetCharacterHero), "RefreshAttackMode")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RulesetCharacterHero_RefreshAttackMode
+    {
+        internal static void Postfix(RulesetCharacterHero __instance,
+            ref RulesetAttackMode __result,
+            ActionDefinitions.ActionType actionType,
+            ItemDefinition itemDefinition,
+            WeaponDescription weaponDescription,
+            bool freeOffHand,
+            bool canAddAbilityDamageBonus,
+            string slotName,
+            List<IAttackModificationProvider> attackModifiers,
+            Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin,
+            RulesetItem weapon = null)
+        {
             var attributeModifiers = __instance.GetSubFeaturesByType<IModifyAttackModeForWeapon>();
 
             foreach (var modifier in attributeModifiers)
             {
-                modifier.Apply(__instance, attackMode, weapon);
+                modifier.ModifyAttackMode(__instance, __result, weapon);
             }
         }
     }
