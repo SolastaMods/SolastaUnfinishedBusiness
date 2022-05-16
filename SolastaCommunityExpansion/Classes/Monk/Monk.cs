@@ -206,6 +206,12 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
                 #endregion
 
+                #region Level 05
+
+                .AddFeatureAtLevel(5, BuildMartialDiceProgression(5))
+
+                #endregion
+
                 #region Level 06
 
                 .AddFeatureAtLevel(6, BuildUnarmoredMovementImprovement(6))
@@ -224,6 +230,12 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
                 #endregion
 
+                #region Level 11
+
+                .AddFeatureAtLevel(11, BuildMartialDiceProgression(11))
+
+                #endregion
+
                 #region Level 12
 
                 .AddFeatureAtLevel(12, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
@@ -239,6 +251,12 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 #region Level 16
 
                 .AddFeatureAtLevel(16, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
+
+                #endregion
+
+                #region Level 17
+
+                .AddFeatureAtLevel(17, BuildMartialDiceProgression(17))
 
                 #endregion
 
@@ -322,6 +340,14 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .Create($"MonkUnarmoredMovementBonus{level:D2}", GUID)
                 .SetGuiPresentation("MonkUnarmoredMovementBonus", Category.Feature)
                 .SetCustomSubFeatures(MovementBonusApplier)
+                .AddToDB();
+        }
+
+        private static FeatureDefinition BuildMartialDiceProgression(int level)
+        {
+            return FeatureDefinitionBuilder
+                .Create($"MonkMartialDiceProgression{level:D2}", GUID)
+                .SetGuiPresentation(Category.Feature)
                 .AddToDB();
         }
 
