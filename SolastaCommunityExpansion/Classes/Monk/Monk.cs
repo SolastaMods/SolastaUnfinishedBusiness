@@ -183,21 +183,44 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     .SetModifierAbilityScore(AttributeDefinitions.Wisdom)
                     .SetSituationalContext(SituationalContext.NotWearingArmorOrMageArmor)
                     .AddToDB())
-                .AddFeatureAtLevel(1, FeatureDefinitionBuilder
-                    .Create("MonkMartialArts", GUID)
-                    .SetGuiPresentation(Category.Feature)
-                    .SetCustomSubFeatures(
-                        new CanUseAttributeForWeapon(AttributeDefinitions.Dexterity, IsMonkWeapon, 
-                            CharacterValidators.NoArmor, CharacterValidators.NoShield, UsingOnlyMonkWeapons),
-                        new UpgradeWeaponDice(GetMartialDice, IsMonkWeapon, 
-                            CharacterValidators.NoArmor, CharacterValidators.NoShield, UsingOnlyMonkWeapons))
-                    .AddToDB())
+                .AddFeatureAtLevel(1, BuildMartialArts())
 
                 #endregion
 
                 .AddToDB();
 
             return Class;
+        }
+
+        private static FeatureDefinition BuildMartialArts()
+        {
+            var attackedWithMonkWeaponCondition = ConditionDefinitionBuilder
+                .Create("MonkAttackedWithMonkWeapon", GUID)
+                .SetGuiPresentationNoContent(true)
+                .SetSilent(Silent.WhenAddedOrRemoved)
+                .SetDuration(DurationType.Round, 1)
+                .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
+                .AddToDB();
+
+            var attackedWithMonkWeaponEffect = new EffectFormBuilder()
+                .SetConditionForm(attackedWithMonkWeaponCondition, ConditionForm.ConditionOperation.Add, true, false)
+                .Build();
+
+            return FeatureDefinitionBuilder
+                .Create("MonkMartialArts", GUID)
+                .SetGuiPresentation(Category.Feature)
+                .SetCustomSubFeatures(
+                    //TODO: add one big sub-feature that implements all these parts to improve performance
+                    new CanUseAttributeForWeapon(AttributeDefinitions.Dexterity, IsMonkWeapon,
+                        CharacterValidators.NoArmor, CharacterValidators.NoShield, UsingOnlyMonkWeapons),
+                    new UpgradeWeaponDice(GetMartialDice, IsMonkWeapon,
+                        CharacterValidators.NoArmor, CharacterValidators.NoShield, UsingOnlyMonkWeapons),
+                    new AddEffectFormToWeaponAttack(attackedWithMonkWeaponEffect, IsMonkWeapon),
+                    new AddBonusUnarmedAttack(CharacterValidators.HasAnyOfConditions(attackedWithMonkWeaponCondition),
+                        UsingOnlyMonkWeapons, CharacterValidators.NoShield, CharacterValidators.NoArmor,
+                        CharacterValidators.EmptyOffhand) //Forcing empty offhand only because it isn't really shown if character already has bonus attack
+                )
+                .AddToDB();
         }
 
         private static bool IsMonkWeapon(RulesetAttackMode attackMode, RulesetItem weapon)
