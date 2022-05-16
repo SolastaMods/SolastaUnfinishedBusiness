@@ -11,6 +11,9 @@ public static class CharacterValidators
 
     public static readonly CharacterValidator NoShield = character => !character.IsWearingShield();
 
+    public static readonly CharacterValidator EmptyOffhand = character =>
+        character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem == null;
+
     public static CharacterValidator HasAnyOfConditions(params ConditionDefinition[] conditions)
     {
         return character => conditions.Any(c => character.HasConditionOfType(c.Name));
