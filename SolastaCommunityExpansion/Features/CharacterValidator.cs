@@ -14,6 +14,9 @@ public static class CharacterValidators
     public static readonly CharacterValidator EmptyOffhand = character =>
         character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem == null;
 
+    public static readonly CharacterValidator UsedAllMainAttacks = character =>
+        character.ExecutedAttacks >= character.GetAttribute(AttributeDefinitions.AttacksNumber).CurrentValue;
+
     public static CharacterValidator HasAnyOfConditions(params ConditionDefinition[] conditions)
     {
         return character => conditions.Any(c => character.HasConditionOfType(c.Name));
