@@ -1,4 +1,5 @@
-﻿using SolastaCommunityExpansion.Models;
+﻿using System.Linq;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.CustomUI
 {
@@ -22,11 +23,11 @@ namespace SolastaCommunityExpansion.CustomUI
             _guiCharacter = new GuiCharacter(Character);
         }
 
-        public override int SelectedSubOption => ReactionParams.IntParameter - 1;
+        public override int SelectedSubOption => SubOptionsAvailability.Keys.ToList().Find(v => v == ReactionParams.IntParameter);
 
         public override string SuboptionTag => ReactionParams.StringParameter;
 
-        public override void SelectSubOption(int option) => ReactionParams.IntParameter = option + 1;
+        public override void SelectSubOption(int option) => ReactionParams.IntParameter = SubOptionsAvailability.Keys.ToList()[option];
 
         public override string FormatTitle() => Gui.Localize(string.Format(
             DatabaseRepository.GetDatabase<ReactionDefinition>().GetElement(DefinitionName).GuiPresentation.Title,
