@@ -13,6 +13,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
     public static class Monk
     {
         public const string ClassName = MonkClass;
+        public const string WeaponTag = "MonkWeapon";
         public static readonly Guid GUID = new("1478A002-D107-4E34-93A3-CEA260DA25C9");
         public static CharacterClassDefinition Class { get; private set; }
 
@@ -204,7 +205,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
             return IsMonkWeapon(weapon);
         }
 
-        private static bool IsMonkWeapon(RulesetItem weapon)
+        public static bool IsMonkWeapon(RulesetItem weapon)
         {
             //fists
             if (weapon == null)
