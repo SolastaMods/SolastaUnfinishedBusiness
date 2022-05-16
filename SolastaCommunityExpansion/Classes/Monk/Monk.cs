@@ -35,9 +35,13 @@ namespace SolastaCommunityExpansion.Classes.Monk
         private static FeatureDefinition _unarmoredMovement, _unarmoredMovementBonus;
         private static ConditionalMovementModifier _movementBonusApplier;
         private static FeatureDefinition UnarmoredMovement => _unarmoredMovement ??= BuildUnarmoredMovement();
-        private static FeatureDefinition UnarmoredMovementBonus => _unarmoredMovementBonus ??= BuildUnarmoredMovementBonus();
-        private static ConditionalMovementModifier MovementBonusApplier => _movementBonusApplier ??= new ConditionalMovementModifier(UnarmoredMovementBonus,
-            CharacterValidators.NoArmor, CharacterValidators.NoShield);
+
+        private static FeatureDefinition UnarmoredMovementBonus =>
+            _unarmoredMovementBonus ??= BuildUnarmoredMovementBonus();
+
+        private static ConditionalMovementModifier MovementBonusApplier => _movementBonusApplier ??=
+            new ConditionalMovementModifier(UnarmoredMovementBonus,
+                CharacterValidators.NoArmor, CharacterValidators.NoShield);
 
 
         public static CharacterClassDefinition BuildClass()
@@ -196,9 +200,21 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
                 #endregion
 
+                #region Level 04
+
+                .AddFeatureAtLevel(4, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
+
+                #endregion
+
                 #region Level 06
 
                 .AddFeatureAtLevel(6, BuildUnarmoredMovementImprovement(6))
+
+                #endregion
+
+                #region Level 08
+
+                .AddFeatureAtLevel(8, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
 
                 #endregion
 
@@ -208,15 +224,33 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
                 #endregion
 
+                #region Level 12
+
+                .AddFeatureAtLevel(12, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
+
+                #endregion
+
                 #region Level 14
 
                 .AddFeatureAtLevel(14, BuildUnarmoredMovementImprovement(14))
 
                 #endregion
 
+                #region Level 16
+
+                .AddFeatureAtLevel(16, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
+
+                #endregion
+
                 #region Level 18
 
                 .AddFeatureAtLevel(18, BuildUnarmoredMovementImprovement(18))
+
+                #endregion
+
+                #region Level 19
+
+                .AddFeatureAtLevel(19, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
 
                 #endregion
 
@@ -251,7 +285,8 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     new AddEffectFormToWeaponAttack(attackedWithMonkWeaponEffect, IsMonkWeapon),
                     new AddBonusUnarmedAttack(CharacterValidators.HasAnyOfConditions(attackedWithMonkWeaponCondition),
                         UsingOnlyMonkWeapons, CharacterValidators.NoShield, CharacterValidators.NoArmor,
-                        CharacterValidators.EmptyOffhand) //Forcing empty offhand only because it isn't really shown if character already has bonus attack
+                        CharacterValidators
+                            .EmptyOffhand) //Forcing empty offhand only because it isn't really shown if character already has bonus attack
                 )
                 .AddToDB();
         }
@@ -280,12 +315,12 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .SetBaseSpeedAdditiveModifier(1)
                 .AddToDB();
         }
-        
+
         private static FeatureDefinition BuildUnarmoredMovementImprovement(int level)
         {
             return FeatureDefinitionBuilder
                 .Create($"MonkUnarmoredMovementBonus{level:D2}", GUID)
-                .SetGuiPresentation("MonkUnarmoredMovementBonus",  Category.Feature)
+                .SetGuiPresentation("MonkUnarmoredMovementBonus", Category.Feature)
                 .SetCustomSubFeatures(MovementBonusApplier)
                 .AddToDB();
         }
@@ -314,7 +349,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
             return IsMonkWeapon(mainHand) && IsMonkWeapon(offHand);
         }
-        
+
         private static (DieType, int) GetMartialDice(RulesetCharacter character, RulesetItem weapon)
         {
             //TODO: maybe instead of level requirements count number of Martial Arts Dice upgrade features hero has
@@ -322,7 +357,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
             {
                 return (DieType.D1, 0);
             }
-            
+
             var level = hero.ClassesAndLevels[Class];
 
             if (level >= 17)
