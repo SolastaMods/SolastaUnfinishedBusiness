@@ -5,13 +5,14 @@ using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Features;
 using SolastaModApi;
 using static FeatureDefinitionAttributeModifier;
+using static RuleDefinitions;
 using static SolastaModApi.DatabaseHelper;
 
 namespace SolastaCommunityExpansion.Classes.Monk
 {
     public static class Monk
     {
-        public const string ClassName = RuleDefinitions.MonkClass;
+        public const string ClassName = MonkClass;
         public static readonly Guid GUID = new("1478A002-D107-4E34-93A3-CEA260DA25C9");
         public static CharacterClassDefinition Class { get; private set; }
 
@@ -80,7 +81,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
                 .SetBattleAI(DecisionPackageDefinitions.DefaultMeleeWithBackupRangeDecisions)
                 .SetIngredientGatheringOdds(CharacterClassDefinitions.Fighter.IngredientGatheringOdds)
-                .SetHitDice(RuleDefinitions.DieType.D8)
+                .SetHitDice(DieType.D8)
 
                 #region Equipment
 
@@ -137,7 +138,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .AddFeatureAtLevel(1, FeatureDefinitionProficiencyBuilder
                     .Create("MonkWeaponProficiency", GUID)
                     .SetGuiPresentation(Category.Feature, "Feature/&WeaponTrainingShortDescription")
-                    .SetProficiencies(RuleDefinitions.ProficiencyType.Weapon,
+                    .SetProficiencies(ProficiencyType.Weapon,
                         WeaponCategoryDefinitions.SimpleWeaponCategory.Name,
                         WeaponTypeDefinitions.ShortswordType.Name)
                     .AddToDB())
@@ -146,7 +147,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .AddFeatureAtLevel(1, FeatureDefinitionProficiencyBuilder
                     .Create("MonkSavingThrowProficiency", GUID)
                     .SetGuiPresentation("SavingThrowProficiency", Category.Feature)
-                    .SetProficiencies(RuleDefinitions.ProficiencyType.SavingThrow,
+                    .SetProficiencies(ProficiencyType.SavingThrow,
                         AttributeDefinitions.Strength,
                         AttributeDefinitions.Dexterity)
                     .AddToDB())
@@ -179,19 +180,16 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     .SetModifiedAttribute(AttributeDefinitions.ArmorClass)
                     .SetModifierType2(AttributeModifierOperation.AddAbilityScoreBonus)
                     .SetModifierAbilityScore(AttributeDefinitions.Wisdom)
-                    .SetSituationalContext(RuleDefinitions.SituationalContext.NotWearingArmorOrMageArmor)
+                    .SetSituationalContext(SituationalContext.NotWearingArmorOrMageArmor)
                     .AddToDB())
-                .AddFeatureAtLevel(1, FeatureDefinitionFeatureSetBuilder
+                .AddFeatureAtLevel(1, FeatureDefinitionBuilder
                     .Create("MonkMartialArts", GUID)
                     .SetGuiPresentation(Category.Feature)
-                    .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-                    .SetFeatureSet(
-                        FeatureDefinitionBuilder.Create("MonkDexWeapons", GUID)
-                            .SetCustomSubFeatures(new CanUseAttributeForWeapon(AttributeDefinitions.Dexterity,
-                                IsMonkWeapon, CharacterValidators.NoArmor, CharacterValidators.NoShield,
-                                UsingOnlyMonkWeapons))
-                            .AddToDB()
-                    )
+                    .SetCustomSubFeatures(
+                        new CanUseAttributeForWeapon(AttributeDefinitions.Dexterity, IsMonkWeapon, 
+                            CharacterValidators.NoArmor, CharacterValidators.NoShield, UsingOnlyMonkWeapons),
+                        new UpgradeWeaponDice(GetMartialDice, IsMonkWeapon, 
+                            CharacterValidators.NoArmor, CharacterValidators.NoShield, UsingOnlyMonkWeapons))
                     .AddToDB())
 
                 #endregion
@@ -224,6 +222,32 @@ namespace SolastaCommunityExpansion.Classes.Monk
             var offHand = inventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem;
 
             return IsMonkWeapon(mainHand) && IsMonkWeapon(offHand);
+        }
+        
+        private static (DieType, int) GetMartialDice(RulesetCharacter character, RulesetItem weapon)
+        {
+            //TODO: maybe instead of level requirements count number of Martial Arts Dice upgrade features hero has
+            if (character is not RulesetCharacterHero hero || !hero.ClassesAndLevels.ContainsKey(Class))
+            {
+                return (DieType.D1, 0);
+            }
+            
+            var level = hero.ClassesAndLevels[Class];
+
+            if (level >= 17)
+            {
+                return (DieType.D10, 1);
+            }
+            else if (level >= 11)
+            {
+                return (DieType.D8, 1);
+            }
+            else if (level >= 5)
+            {
+                return (DieType.D6, 1);
+            }
+
+            return (DieType.D4, 1);
         }
     }
 }
