@@ -32,9 +32,10 @@ namespace SolastaCommunityExpansion.Classes.Monk
             WeaponTypeDefinitions.UnarmedStrikeType
         };
 
-        private static FeatureDefinition _unarmoredMovement, _unarmoredMovementBonus;
+        private static FeatureDefinition _unarmoredMovement, _unarmoredMovementBonus, _kiPowers;
         private static ConditionalMovementModifier _movementBonusApplier;
         private static FeatureDefinition UnarmoredMovement => _unarmoredMovement ??= BuildUnarmoredMovement();
+        private static FeatureDefinition KiPowers => _kiPowers ??= BuildKiFeatureSet();
 
         private static FeatureDefinition UnarmoredMovementBonus =>
             _unarmoredMovementBonus ??= BuildUnarmoredMovementBonus();
@@ -197,6 +198,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     .AddToDB())
                 .AddFeatureAtLevel(1, BuildMartialArts())
                 .AddFeatureAtLevel(1, UnarmoredMovement)
+                .AddFeatureAtLevel(2, KiPowers)
 
                 #endregion
 
@@ -301,7 +303,8 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     new UpgradeWeaponDice(GetMartialDice, IsMonkWeapon,
                         CharacterValidators.NoArmor, CharacterValidators.NoShield, UsingOnlyMonkWeapons),
                     new AddEffectFormToWeaponAttack(attackedWithMonkWeaponEffect, IsMonkWeapon),
-                    new AddBonusUnarmedAttack(CharacterValidators.HasAnyOfConditions(attackedWithMonkWeaponCondition),
+                    new AddBonusUnarmedAttack(ActionDefinitions.ActionType.Bonus,
+                        CharacterValidators.HasAnyOfConditions(attackedWithMonkWeaponCondition),
                         UsingOnlyMonkWeapons, CharacterValidators.NoShield, CharacterValidators.NoArmor,
                         CharacterValidators
                             .EmptyOffhand) //Forcing empty offhand only because it isn't really shown if character already has bonus attack
@@ -348,6 +351,58 @@ namespace SolastaCommunityExpansion.Classes.Monk
             return FeatureDefinitionBuilder
                 .Create($"MonkMartialDiceProgression{level:D2}", GUID)
                 .SetGuiPresentation(Category.Feature)
+                .AddToDB();
+        }
+
+        private static FeatureDefinition BuildKiFeatureSet()
+        {
+            var kiPool = FeatureDefinitionPowerBuilder
+                .Create("MonkKiPool", GUID)
+                .SetGuiPresentationNoContent(true)
+                .SetUsesFixed(2)
+                .SetRechargeRate(RechargeRate.ShortRest)
+                .AddToDB();
+
+            var extraFlurryAttacks = FeatureDefinitionAdditionalActionBuilder
+                .Create("MonkFlurryOfBlowsExtraAttacks", GUID)
+                .SetCustomSubFeatures(new AddBonusUnarmedAttack(ActionDefinitions.ActionType.Main, 2, true,
+                    CharacterValidators.NoArmor, CharacterValidators.NoShield, CharacterValidators.EmptyOffhand))
+                .SetMaxAttacksNumber(2)
+                .SetActionType(ActionDefinitions.ActionType.Main)
+                .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
+                .AddToDB();
+
+            //TODO: make it only available after attacks
+            var flurryOfBlows = FeatureDefinitionPowerSharedPoolBuilder
+                .Create("MonkFlurryOfBlows", GUID)
+                .SetGuiPresentation(Category.Power)//TODO: add icon
+                .SetSharedPool(kiPool)
+                .SetActivationTime(ActivationTime.BonusAction)
+                .SetCostPerUse(1)
+                .SetRechargeRate(RechargeRate.ShortRest)
+                .SetShowCasting(false)
+                .SetEffectDescription(new EffectDescriptionBuilder()
+                    .AddEffectForm(new EffectFormBuilder()
+                        .SetConditionForm(ConditionDefinitionBuilder
+                                .Create("MonkFlurryOfBlowsCondition", GUID)
+                                .SetGuiPresentationNoContent(true)
+                                .SetSilent(Silent.WhenAddedOrRemoved)
+                                .SetDuration(DurationType.Round, 0)
+                                .SetSpecialDuration(true)
+                                .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
+                                .SetFeatures(extraFlurryAttacks)
+                                .AddToDB(),
+                            ConditionForm.ConditionOperation.Add, true, true)
+                        .Build())
+                    .Build())
+                .AddToDB();
+
+
+            return FeatureDefinitionFeatureSetBuilder
+                .Create("MonkKiPowersSet", GUID)
+                .SetGuiPresentation(Category.Feature)
+                .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+                .SetFeatureSet(kiPool, flurryOfBlows)
                 .AddToDB();
         }
 
