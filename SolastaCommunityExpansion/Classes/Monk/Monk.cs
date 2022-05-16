@@ -37,6 +37,9 @@ namespace SolastaCommunityExpansion.Classes.Monk
         private static FeatureDefinition UnarmoredMovement => _unarmoredMovement ??= BuildUnarmoredMovement();
         private static FeatureDefinition KiPowers => _kiPowers ??= BuildKiFeatureSet();
 
+        private static ConditionDefinition attackedWithMonkWeaponCondition;
+        private static CharacterValidator attackedWithMonkWeapon;
+
         private static FeatureDefinition UnarmoredMovementBonus =>
             _unarmoredMovementBonus ??= BuildUnarmoredMovementBonus();
 
@@ -281,13 +284,15 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
         private static FeatureDefinition BuildMartialArts()
         {
-            var attackedWithMonkWeaponCondition = ConditionDefinitionBuilder
+            attackedWithMonkWeaponCondition = ConditionDefinitionBuilder
                 .Create("MonkAttackedWithMonkWeapon", GUID)
                 .SetGuiPresentationNoContent(true)
                 .SetSilent(Silent.WhenAddedOrRemoved)
                 .SetDuration(DurationType.Round, 1)
                 .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
                 .AddToDB();
+
+            attackedWithMonkWeapon = CharacterValidators.HasAnyOfConditions(attackedWithMonkWeaponCondition);
 
             var attackedWithMonkWeaponEffect = new EffectFormBuilder()
                 .SetConditionForm(attackedWithMonkWeaponCondition, ConditionForm.ConditionOperation.Add, true, false)
@@ -304,10 +309,9 @@ namespace SolastaCommunityExpansion.Classes.Monk
                         CharacterValidators.NoArmor, CharacterValidators.NoShield, UsingOnlyMonkWeapons),
                     new AddEffectFormToWeaponAttack(attackedWithMonkWeaponEffect, IsMonkWeapon),
                     new AddBonusUnarmedAttack(ActionDefinitions.ActionType.Bonus,
-                        CharacterValidators.HasAnyOfConditions(attackedWithMonkWeaponCondition),
-                        UsingOnlyMonkWeapons, CharacterValidators.NoShield, CharacterValidators.NoArmor,
-                        CharacterValidators
-                            .EmptyOffhand) //Forcing empty offhand only because it isn't really shown if character already has bonus attack
+                        attackedWithMonkWeapon, UsingOnlyMonkWeapons, 
+                        CharacterValidators.NoShield, CharacterValidators.NoArmor,
+                        CharacterValidators.EmptyOffhand) //Forcing empty offhand only because it isn't really shown if character already has bonus attack
                 )
                 .AddToDB();
         }
@@ -372,7 +376,6 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
                 .AddToDB();
 
-            //TODO: make it only available after attacks
             var flurryOfBlows = FeatureDefinitionPowerSharedPoolBuilder
                 .Create("MonkFlurryOfBlows", GUID)
                 .SetGuiPresentation(Category.Power)//TODO: add icon
@@ -381,6 +384,9 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .SetCostPerUse(1)
                 .SetRechargeRate(RechargeRate.ShortRest)
                 .SetShowCasting(false)
+                .SetCustomSubFeatures(new PowerUseValidity(attackedWithMonkWeapon, 
+                    CharacterValidators.NoShield, CharacterValidators.NoArmor, CharacterValidators.EmptyOffhand,
+                    CharacterValidators.UsedAllMainAttacks))
                 .SetEffectDescription(new EffectDescriptionBuilder()
                     .AddEffectForm(new EffectFormBuilder()
                         .SetConditionForm(ConditionDefinitionBuilder
