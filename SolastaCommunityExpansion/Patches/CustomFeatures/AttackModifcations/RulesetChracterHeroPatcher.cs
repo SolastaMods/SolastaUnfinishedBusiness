@@ -49,4 +49,32 @@ internal static class RulesetChracterHeroPatcher
             }
         }
     }
+
+    // Allows adding extra attack modes
+    [HarmonyPatch(typeof(RulesetCharacterHero), "RefreshAttackModes")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RulesetCharacterHero_RefreshAttackModes
+    {
+        private static bool _callRefresh;
+
+        internal static void Prefix(RulesetCharacterHero __instance, ref bool callRefresh)
+        {
+            _callRefresh = callRefresh;
+            callRefresh = false;
+        }
+
+        internal static void Postfix(RulesetCharacterHero __instance, bool callRefresh = false)
+        {
+            var providers = __instance.GetSubFeaturesByType<IAddExtraAttack>();
+
+            foreach (var provider in providers)
+            {
+                provider.TryAddExtraAttack(__instance);
+            }
+
+            if (!_callRefresh || __instance.CharacterRefreshed == null)
+                return;
+            __instance.CharacterRefreshed(__instance);
+        }
+    }
 }
