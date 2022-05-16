@@ -19,7 +19,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
         //TODO: maybe instead of a list make dynamic weapon checker that will tell if weapon is a monk one?
         // Monk weapons are unarmed, shortswords and any simple melee weapons that don't have the two-handed or heavy property.
-        public static readonly List<WeaponTypeDefinition> MonkWeapons = new()
+        private static readonly List<WeaponTypeDefinition> MonkWeapons = new()
         {
             WeaponTypeDefinitions.ShortswordType,
             WeaponTypeDefinitions.ClubType,
@@ -31,6 +31,14 @@ namespace SolastaCommunityExpansion.Classes.Monk
             WeaponTypeDefinitions.SpearType,
             WeaponTypeDefinitions.UnarmedStrikeType
         };
+
+        private static FeatureDefinition _unarmoredMovement, _unarmoredMovementBonus;
+        private static ConditionalMovementModifier _movementBonusApplier;
+        private static FeatureDefinition UnarmoredMovement => _unarmoredMovement ??= BuildUnarmoredMovement();
+        private static FeatureDefinition UnarmoredMovementBonus => _unarmoredMovementBonus ??= BuildUnarmoredMovementBonus();
+        private static ConditionalMovementModifier MovementBonusApplier => _movementBonusApplier ??= new ConditionalMovementModifier(UnarmoredMovementBonus,
+            CharacterValidators.NoArmor, CharacterValidators.NoShield);
+
 
         public static CharacterClassDefinition BuildClass()
         {
@@ -184,6 +192,31 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     .SetSituationalContext(SituationalContext.NotWearingArmorOrMageArmor)
                     .AddToDB())
                 .AddFeatureAtLevel(1, BuildMartialArts())
+                .AddFeatureAtLevel(1, UnarmoredMovement)
+
+                #endregion
+
+                #region Level 06
+
+                .AddFeatureAtLevel(6, BuildUnarmoredMovementImprovement(6))
+
+                #endregion
+
+                #region Level 10
+
+                .AddFeatureAtLevel(10, BuildUnarmoredMovementImprovement(10))
+
+                #endregion
+
+                #region Level 14
+
+                .AddFeatureAtLevel(14, BuildUnarmoredMovementImprovement(14))
+
+                #endregion
+
+                #region Level 18
+
+                .AddFeatureAtLevel(18, BuildUnarmoredMovementImprovement(18))
 
                 #endregion
 
@@ -220,6 +253,40 @@ namespace SolastaCommunityExpansion.Classes.Monk
                         UsingOnlyMonkWeapons, CharacterValidators.NoShield, CharacterValidators.NoArmor,
                         CharacterValidators.EmptyOffhand) //Forcing empty offhand only because it isn't really shown if character already has bonus attack
                 )
+                .AddToDB();
+        }
+
+        private static FeatureDefinition BuildUnarmoredMovement()
+        {
+            var feature = FeatureDefinitionMovementAffinityBuilder
+                .Create("MonkUnarmoredMovementModifier", GUID)
+                .SetGuiPresentationNoContent(true)
+                .SetBaseSpeedAdditiveModifier(2)
+                .AddToDB();
+
+            return FeatureDefinitionBuilder
+                .Create("MonkUnarmoredMovement", GUID)
+                .SetGuiPresentation(Category.Feature)
+                .SetCustomSubFeatures(new ConditionalMovementModifier(feature,
+                    CharacterValidators.NoArmor, CharacterValidators.NoShield))
+                .AddToDB();
+        }
+
+        private static FeatureDefinition BuildUnarmoredMovementBonus()
+        {
+            return FeatureDefinitionMovementAffinityBuilder
+                .Create("MonkUnarmoredMovementBonusModifier", GUID)
+                .SetGuiPresentationNoContent(true)
+                .SetBaseSpeedAdditiveModifier(1)
+                .AddToDB();
+        }
+        
+        private static FeatureDefinition BuildUnarmoredMovementImprovement(int level)
+        {
+            return FeatureDefinitionBuilder
+                .Create($"MonkUnarmoredMovementBonus{level:D2}", GUID)
+                .SetGuiPresentation("MonkUnarmoredMovementBonus",  Category.Feature)
+                .SetCustomSubFeatures(MovementBonusApplier)
                 .AddToDB();
         }
 
