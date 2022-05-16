@@ -1,4 +1,6 @@
-﻿namespace SolastaCommunityExpansion.Features;
+﻿using SolastaCommunityExpansion.Api.AdditionalExtensions;
+
+namespace SolastaCommunityExpansion.Features;
 
 public delegate bool IsWeaponValidHandler(RulesetAttackMode attackMode, RulesetItem weapon);
 
