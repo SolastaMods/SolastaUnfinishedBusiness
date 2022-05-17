@@ -18,7 +18,7 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
 
             if (hero.ClassesAndLevels.TryGetValue(selectedClass, out var levels))
             {
-                achievementLevel = levels;
+                achievementLevel = levels + 1;
             }
         }
     }
