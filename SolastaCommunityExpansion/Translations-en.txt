@@ -1842,3 +1842,5 @@ Reaction/&SpendPowerMonkStunningStrikeTitle	Stunning Strike
 Reaction/&SpendPowerMonkStunningStrikeDescription	{0} has hit opponent and can spend 1 ki point to attempt to stun.
 Reaction/&SpendPowerMonkStunningStrikeReactTitle	Spend ki
 Reaction/&SpendPowerMonkStunningStrikeReactDescription	Spend ki to attampt to stun opponent.
+Feature/&MonkKiEmpoweredStrikesTitle	Ki-Empowered Strikes
+Feature/&MonkKiEmpoweredStrikesDescription	Your unarmed strikes count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.

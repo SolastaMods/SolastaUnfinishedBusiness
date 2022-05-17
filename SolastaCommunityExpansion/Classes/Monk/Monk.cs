@@ -257,6 +257,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
                 .AddFeaturesAtLevel(6,
                     BuildUnarmoredMovementImprovement(),
+                    BuildKiEmpoweredStrikes(),
                     BuildKiPoolIncrease()
                 )
 
@@ -679,6 +680,20 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .SetModifierType2(AttributeModifierOperation.Additive)
                 .SetModifierValue(1)
                 .AddToDB();
+        }
+        
+        private static FeatureDefinition BuildKiEmpoweredStrikes()
+        {
+            return FeatureDefinitionBuilder
+                .Create("MonkKiEmpoweredStrikes", GUID)
+                .SetGuiPresentation(Category.Feature)
+                .SetCustomSubFeatures(new AddTagToWeaponAttack(TagsDefinitions.Magical, IsUnarmedWeapon))
+                .AddToDB();
+        }
+
+        private static bool IsUnarmedWeapon(RulesetAttackMode attackMode, RulesetItem weapon)
+        {
+            return weapon == null;
         }
 
         private static bool IsMonkWeapon(RulesetAttackMode attackMode, RulesetItem weapon)
