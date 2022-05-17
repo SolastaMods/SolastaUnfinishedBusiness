@@ -370,6 +370,12 @@ namespace SolastaCommunityExpansion.Classes.Monk
         //TODO: rework into feature set with generated description?
         private static void BuildKiFeatureSet()
         {
+            var inBattleNoShieldOrArmor = new PowerUseValidity(
+                CharacterValidators.InBattle,
+                CharacterValidators.NoShield,
+                CharacterValidators.NoArmor
+            );
+            
             kiPool = FeatureDefinitionPowerBuilder
                 .Create("MonkKiPool", GUID)
                 .SetGuiPresentationNoContent(true)
@@ -413,7 +419,6 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     .Build())
                 .AddToDB();
 
-            //TODO: add validator that will show only in combat
             var dodging = ConditionDefinitions.ConditionDodging;
             patientDefense = FeatureDefinitionPowerSharedPoolBuilder
                 .Create("MonkPatientDefense", GUID)
@@ -423,7 +428,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .SetCostPerUse(1)
                 .SetRechargeRate(RechargeRate.ShortRest)
                 .SetShowCasting(false)
-                .SetCustomSubFeatures(new PowerUseValidity(CharacterValidators.NoShield, CharacterValidators.NoArmor))
+                .SetCustomSubFeatures(inBattleNoShieldOrArmor)
                 .SetEffectDescription(new EffectDescriptionBuilder()
                     .AddEffectForm(new EffectFormBuilder()
                         .CreatedByCharacter()
@@ -444,7 +449,6 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     .Build())
                 .AddToDB();
             
-            //TODO: add validator that will show only in combat
             stepOfTheWind = FeatureDefinitionPowerSharedPoolBuilder
                 .Create("MonkStepOfTheWind", GUID)
                 .SetGuiPresentation(Category.Power)
@@ -453,7 +457,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .SetCostPerUse(1)
                 .SetRechargeRate(RechargeRate.ShortRest)
                 .SetShowCasting(false)
-                .SetCustomSubFeatures(new PowerUseValidity(CharacterValidators.NoShield, CharacterValidators.NoArmor))
+                .SetCustomSubFeatures(inBattleNoShieldOrArmor)
                 .SetEffectDescription(new EffectDescriptionBuilder()
                     .AddEffectForm(new EffectFormBuilder()
                         .SetConditionForm(ConditionDefinitionBuilder

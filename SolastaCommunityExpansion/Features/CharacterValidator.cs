@@ -17,6 +17,9 @@ public static class CharacterValidators
     public static readonly CharacterValidator UsedAllMainAttacks = character =>
         character.ExecutedAttacks >= character.GetAttribute(AttributeDefinitions.AttacksNumber).CurrentValue;
 
+    public static readonly CharacterValidator InBattle = _ =>
+        ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress;
+
     public static CharacterValidator HasAnyOfConditions(params ConditionDefinition[] conditions)
     {
         return character => conditions.Any(c => character.HasConditionOfType(c.Name));
