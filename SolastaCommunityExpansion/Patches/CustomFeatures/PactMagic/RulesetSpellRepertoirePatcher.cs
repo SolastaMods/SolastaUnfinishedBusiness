@@ -21,10 +21,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
                 || !SharedSpellsContext.IsWarlock(__instance.SpellCastingClass);
         }
 
-        //
-        // the following 4 patches also exist in CE. The ones in CE get disabled in favor of these
-        //
-
         // ensures MC Warlocks are treated before SC ones
         [HarmonyPatch(typeof(RulesetSpellRepertoire), "GetMaxSlotsNumberOfAllLevels")]
         [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -41,7 +37,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
                 }
 
                 // handles SC Warlock
-                ___spellsSlotCapacities.TryGetValue(WarlockSpells.PACT_MAGIC_SLOT_TAB_INDEX, out __result);
+                ___spellsSlotCapacities.TryGetValue(1, out __result);
 
                 return false;
             }
@@ -104,8 +100,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
                 }
 
                 // handles SC Warlock
-                ___spellsSlotCapacities.TryGetValue(WarlockSpells.PACT_MAGIC_SLOT_TAB_INDEX, out var max);
-                ___usedSpellsSlots.TryGetValue(WarlockSpells.PACT_MAGIC_SLOT_TAB_INDEX, out var used);
+                ___spellsSlotCapacities.TryGetValue(1, out var max);
+                ___usedSpellsSlots.TryGetValue(1, out var used);
                 __result = max - used;
 
                 return false;
@@ -136,8 +132,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
 
                 if (spellLevel <= __instance.MaxSpellLevelOfSpellCastingLevel)
                 {
-                    ___spellsSlotCapacities.TryGetValue(WarlockSpells.PACT_MAGIC_SLOT_TAB_INDEX, out max);
-                    ___usedSpellsSlots.TryGetValue(WarlockSpells.PACT_MAGIC_SLOT_TAB_INDEX, out var used);
+                    ___spellsSlotCapacities.TryGetValue(1, out max);
+                    ___usedSpellsSlots.TryGetValue(1, out var used);
                     remaining = max - used;
                 }
 
@@ -208,7 +204,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
                 var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
                 var usedSpellsSlots = rulesetSpellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots");
 
-                for (var i = SharedSpellsContext.MC_PACT_MAGIC_SLOT_TAB_INDEX; i <= warlockSpellLevel; i++)
+                for (var i = WarlockSpells.PACT_MAGIC_SLOT_TAB_INDEX; i <= warlockSpellLevel; i++)
                 {
                     if (i == 0)
                     {
@@ -226,22 +222,25 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
             {
                 var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire);
                 var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
-                var warlockMaxSlots = SharedSpellsContext.GetWarlockMaxSlots(heroWithSpellRepertoire);
-                var usedSpellsSlotsWarlock = warlockSpellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots");
 
-                usedSpellsSlotsWarlock.TryGetValue(SharedSpellsContext.MC_PACT_MAGIC_SLOT_TAB_INDEX, out var warlockUsedSlots);
+                __instance.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots")
+                    .TryGetValue(WarlockSpells.PACT_MAGIC_SLOT_TAB_INDEX, out var usedPactSlots);
+
+                var pactMaxSlots = SharedSpellsContext.GetWarlockMaxSlots(heroWithSpellRepertoire);
+                var pactRemainingSlots = pactMaxSlots - usedPactSlots;
+
                 warlockSpellRepertoire.GetSlotsNumber(slotLevel, out var sharedRemainingSlots, out var sharedMaxSlots);
 
-                var sharedUsedSlots = sharedMaxSlots - sharedRemainingSlots;
-
-                sharedMaxSlots -= warlockMaxSlots;
-                sharedUsedSlots -= warlockUsedSlots;
+                sharedMaxSlots -= pactMaxSlots;
+                sharedRemainingSlots -= pactRemainingSlots;
 
                 var isShiftPressed = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
-                var canConsumePactSlot = warlockUsedSlots < warlockMaxSlots && slotLevel <= warlockSpellLevel;
-                var canConsumeSpellSlot = sharedUsedSlots < sharedMaxSlots && slotLevel <= sharedSpellLevel;
+
+                var canConsumePactSlot = pactRemainingSlots > 0 && slotLevel <= warlockSpellLevel;
+                var canConsumeSpellSlot = sharedRemainingSlots > 0 && slotLevel <= sharedSpellLevel;
+
                 var forcePactSlot = __instance.SpellCastingClass == IntegrationContext.WarlockClass;
-                var forceSpellSlot = canConsumeSpellSlot && (isShiftPressed || (!forcePactSlot && sharedSpellLevel < warlockSpellLevel));
+                var forceSpellSlot = canConsumeSpellSlot && (isShiftPressed || (!forcePactSlot && sharedSpellLevel <= warlockSpellLevel));
 
                 // uses short rest slots across all repertoires
                 if (canConsumePactSlot && !forceSpellSlot)

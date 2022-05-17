@@ -265,7 +265,5 @@ namespace SolastaCommunityExpansion.Models
             SubclassCasterType.Add(ConArtistSubclass, CasterType.OneThird);
             SubclassCasterType.Add(SpellShieldSubclass, CasterType.OneThird);
         }
-
-        public const int MC_PACT_MAGIC_SLOT_TAB_INDEX = -1;
     }
 }

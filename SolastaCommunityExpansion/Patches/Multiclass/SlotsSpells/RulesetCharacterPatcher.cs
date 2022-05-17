@@ -4,6 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
+using SolastaCommunityExpansion.Classes.Warlock;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi.Infrastructure;
 using static SolastaCommunityExpansion.Level20.SpellsHelper;
@@ -47,14 +48,14 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.SlotsSpells
             var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
 
             __instance.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots")
-                .TryGetValue(SharedSpellsContext.MC_PACT_MAGIC_SLOT_TAB_INDEX, out var slotsToRestore);
+                .TryGetValue(WarlockSpells.PACT_MAGIC_SLOT_TAB_INDEX, out var slotsToRestore);
 
             foreach (var spellRepertoire in heroWithSpellRepertoire.SpellRepertoires
                 .Where(x => x.SpellCastingRace == null))
             {
                 var usedSpellsSlots = spellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots");
 
-                for (var i = SharedSpellsContext.MC_PACT_MAGIC_SLOT_TAB_INDEX; i <= warlockSpellLevel; i++)
+                for (var i = WarlockSpells.PACT_MAGIC_SLOT_TAB_INDEX; i <= warlockSpellLevel; i++)
                 {
                     if (i == 0)
                     {
