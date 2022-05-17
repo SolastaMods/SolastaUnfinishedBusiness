@@ -13,11 +13,20 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
         {
             internal static bool Prefix(GameLocationActionManager __instance, CharacterActionParams reactionParams)
             {
-                var affinitys = reactionParams?.ActingCharacter?.RulesetCharacter
-                    .GetFeaturesByType<FeatureDefinitionMagicAffinity>();
-                if (affinitys != null && affinitys.Any(a => a.Name == "MagicAffinityWarCasterFeat"))
+                var rulesetCharacter = reactionParams?.ActingCharacter?.RulesetCharacter;
+
+                // should not trigger if a wildshape form
+                if (rulesetCharacter is not RulesetCharacterHero rulesetCharacterHero)
+                {
+                    return true;
+                }
+
+                var affinities = rulesetCharacterHero.GetFeaturesByType<FeatureDefinitionMagicAffinity>();
+
+                if (affinities != null && affinities.Any(a => a.Name == "MagicAffinityWarCasterFeat"))
                 {
                     __instance.InvokeMethod("AddInterruptRequest", new ReactionRequestWarcaster(reactionParams));
+
                     return false;
                 }
 
