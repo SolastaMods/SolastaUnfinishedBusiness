@@ -5,6 +5,7 @@ namespace SolastaCommunityExpansion.Features;
 public interface ICustomMissileDeflection
 {
     public int GetDamageReduction(RulesetCharacter target, RulesetCharacter attacker);
+    string FormatDescription(RulesetCharacter target, RulesetCharacter attacker, string def);
 }
 
 public class CustomMissileDeflection : ICustomMissileDeflection
@@ -17,6 +18,7 @@ public class CustomMissileDeflection : ICustomMissileDeflection
     public int characterLevelMult = 0;
     public int classLevelMult = 0;
     public string characterClass = null;
+    public string descriptionTag = null;
 
 
     public int GetDamageReduction(RulesetCharacter target, RulesetCharacter attacker)
@@ -57,5 +59,18 @@ public class CustomMissileDeflection : ICustomMissileDeflection
 
 
         return reduction;
+    }
+
+    public string FormatDescription(RulesetCharacter target, RulesetCharacter attacker, string def)
+    {
+        if (string.IsNullOrEmpty(descriptionTag))
+        {
+            return def;
+        }
+
+        var guiDefender = new GuiCharacter(target);
+        var guiAttacker = new GuiCharacter(attacker);
+        var format = Gui.Localize($"Reaction/&CustomDeflectMissile{descriptionTag}Title");
+        return string.Format(format, guiAttacker.Name, guiDefender.Name);
     }
 }
