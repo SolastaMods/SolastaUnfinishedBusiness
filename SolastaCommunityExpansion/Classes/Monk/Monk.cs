@@ -228,6 +228,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
                 .AddFeaturesAtLevel(4,
                     FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice,
+                    BuildSlowFall(),
                     BuildKiPoolIncrease()
                 )
 
@@ -604,6 +605,27 @@ namespace SolastaCommunityExpansion.Classes.Monk
             deflectMissile.AllowedActionTypes = new[] {true, true, true, true, true, true};
 
             return deflectMissile;
+        }
+
+        private static FeatureDefinition BuildSlowFall()
+        {
+            //TODO: should we hide it frm power menu?
+            return FeatureDefinitionPowerBuilder
+                .Create("MonkSlowFall", GUID)
+                .SetGuiPresentation(Category.Power)
+                .SetActivationTime(ActivationTime.Reaction)
+                .SetRechargeRate(RechargeRate.AtWill)
+                .SetCostPerUse(0)
+                .SetEffectDescription(new EffectDescriptionBuilder(SpellDefinitions.FeatherFall.EffectDescription)
+                    .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetEffectForms(new EffectFormBuilder()
+                        .SetConditionForm(ConditionDefinitions.ConditionFeatherFalling,
+                            ConditionForm.ConditionOperation.Add)
+                        .Build())
+                    .Build())
+                .AddToDB();
         }
 
         private static bool IsMonkWeapon(RulesetAttackMode attackMode, RulesetItem weapon)

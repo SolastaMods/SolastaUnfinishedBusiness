@@ -1828,3 +1828,9 @@ Condition/&MonkStepOfTheWindConditionDescription	You can take the Disengage or D
 Feature/&MonkDeflectMissileTitle	Deflect Missiles
 Feature/&MonkDeflectMissileDescription	You can use your reaction to deflect the missile when you are hit by a ranged weapon attack. When you do so, the damage you take from the attack is reduced by 1d10 + your Dexterity modifier + your monk level.
 Reaction/&CustomDeflectMissileMonkTitle	{0} is attacking {1}, who can react to reduce the incoming damage by 1D10 + DEX modifier + Monk level.
+Power/&MonkSlowFallTitle	Slow Fall
+Power/&MonkSlowFallDescription	You can use your reaction when you fall to prevent any falling damage.
+Reaction/&UseMonkSlowFallTitle	Slow Fall
+Reaction/&UseMonkSlowFallDescription	{0} is falling and can use reaction to prevent falling damage.
+Reaction/&UseMonkSlowFallReactTitle	React
+Reaction/&UseMonkSlowFallReactDescription	Use reaction to prevent damage.
