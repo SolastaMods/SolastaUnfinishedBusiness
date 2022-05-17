@@ -206,6 +206,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
 
                 for (var i = WarlockSpells.PACT_MAGIC_SLOT_TAB_INDEX; i <= warlockSpellLevel; i++)
                 {
+                    // don't mess with cantrips
                     if (i == 0)
                     {
                         continue;
@@ -223,10 +224,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
                 var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire);
                 var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
 
-                __instance.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots")
-                    .TryGetValue(WarlockSpells.PACT_MAGIC_SLOT_TAB_INDEX, out var usedPactSlots);
-
                 var pactMaxSlots = SharedSpellsContext.GetWarlockMaxSlots(heroWithSpellRepertoire);
+                var usedPactSlots = SharedSpellsContext.GetWarlockUsedSlots(heroWithSpellRepertoire);
                 var pactRemainingSlots = pactMaxSlots - usedPactSlots;
 
                 warlockSpellRepertoire.GetSlotsNumber(slotLevel, out var sharedRemainingSlots, out var sharedMaxSlots);

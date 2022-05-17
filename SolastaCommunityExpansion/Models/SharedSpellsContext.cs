@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using SolastaCommunityExpansion.Classes.Warlock;
+using SolastaModApi.Infrastructure;
 using static FeatureDefinitionCastSpell;
 using static SolastaCommunityExpansion.Classes.Warlock.WarlockSpells;
 using static SolastaCommunityExpansion.Level20.SpellsHelper;
@@ -195,6 +197,21 @@ namespace SolastaCommunityExpansion.Models
             if (warlockLevel > 0)
             {
                 return WarlockCastingSlots[warlockLevel - 1].Slots[0];
+            }
+
+            return 0;
+        }
+
+        public static int GetWarlockUsedSlots(RulesetCharacterHero rulesetCharacterHero)
+        {
+            var repertoire = GetWarlockSpellRepertoire(rulesetCharacterHero);
+
+            if (repertoire != null)
+            {
+                repertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots")
+                    .TryGetValue(PACT_MAGIC_SLOT_TAB_INDEX, out var warlockUsedSlots);
+
+                return warlockUsedSlots;
             }
 
             return 0;

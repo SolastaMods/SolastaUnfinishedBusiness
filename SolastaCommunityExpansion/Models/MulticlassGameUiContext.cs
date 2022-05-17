@@ -38,10 +38,7 @@ namespace SolastaCommunityExpansion.Models
             if (warlockSpellRepertoire != null)
             {
                 pactSlotsCount = SharedSpellsContext.GetWarlockMaxSlots(heroWithSpellRepertoire);
-
-                warlockSpellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots")
-                    .TryGetValue(WarlockSpells.PACT_MAGIC_SLOT_TAB_INDEX, out pactSlotsUsedCount);
-
+                pactSlotsUsedCount = SharedSpellsContext.GetWarlockUsedSlots(heroWithSpellRepertoire);
                 pactSlotsRemainingCount = pactSlotsCount - pactSlotsUsedCount;
             }
 
