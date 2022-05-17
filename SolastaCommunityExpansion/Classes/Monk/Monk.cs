@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Features;
+using SolastaCommunityExpansion.Utils;
 using SolastaModApi;
+using UnityEngine.AddressableAssets;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaModApi.DatabaseHelper;
@@ -32,6 +34,12 @@ namespace SolastaCommunityExpansion.Classes.Monk
             WeaponTypeDefinitions.UnarmedStrikeType
         };
 
+        private static AssetReferenceSprite _monkPictogram;
+
+        private static AssetReferenceSprite MonkPictogram => _monkPictogram ??=
+            CustomIcons.CreateAssetReferenceSprite("MonkPictogram", Properties.Resources.MonkPictogram, 128, 128);
+        
+        
         private static FeatureDefinition _unarmoredMovement, _unarmoredMovementBonus;
         private static ConditionalMovementModifier _movementBonusApplier;
         private static FeatureDefinition UnarmoredMovement => _unarmoredMovement ??= BuildUnarmoredMovement();
@@ -67,7 +75,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
                 .SetGuiPresentation(Category.Class,
                     CharacterClassDefinitions.Barbarian.GuiPresentation.SpriteReference) //TODO: add images
-                .SetPictogram(CharacterClassDefinitions.Barbarian.ClassPictogramReference) //TODO: add class pictogram
+                .SetPictogram(MonkPictogram)
                 //.AddPersonality() //TODO: Add personality flags
                 .SetAnimationId(AnimationDefinitions.ClassAnimationId.Fighter)
 
