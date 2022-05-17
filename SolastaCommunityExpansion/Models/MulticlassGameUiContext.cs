@@ -124,7 +124,7 @@ namespace SolastaCommunityExpansion.Models
 
         /**Adds available slot level options to optionsAvailability and returns index of pre-picked option, or -1*/
         public static int AddAvailableSubLevels(Dictionary<int, bool> optionsAvailability, RulesetCharacterHero hero,
-            RulesetSpellRepertoire spellRepertoire, int minSpellLebvel = 1)
+            RulesetSpellRepertoire spellRepertoire, int minSpellLevel = 1, int maxSpellLevel = 0)
         {
             var selectedSlot = -1;
 
@@ -133,11 +133,15 @@ namespace SolastaCommunityExpansion.Models
             var isMulticaster = SharedSpellsContext.IsMulticaster(hero);
             var hasPactMagic = warlockSpellLevel > 0;
 
-            var maxRepertoireLevel = spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
-            var maxSpellLevel = Math.Max(maxRepertoireLevel, warlockSpellLevel);
+            var maxRepertoireLevel = spellRepertoire.MaxSpellLevelOfSpellCastingLevel;            
             var selected = false;
 
-            for (var level = minSpellLebvel; level <= maxSpellLevel; ++level)
+            if (maxSpellLevel == 0)
+            {
+                maxSpellLevel = Math.Max(maxRepertoireLevel, warlockSpellLevel);
+            }
+
+            for (var level = minSpellLevel; level <= maxSpellLevel; ++level)
             {
                 spellRepertoire.GetSlotsNumber(level, out var remaining, out var max);
                 if (hasPactMagic && level != warlockSpellLevel)
@@ -155,7 +159,7 @@ namespace SolastaCommunityExpansion.Models
                     if (!selected && remaining > 0)
                     {
                         selected = true;
-                        selectedSlot = level - minSpellLebvel;
+                        selectedSlot = level - minSpellLevel;
                     }
                 }
             }

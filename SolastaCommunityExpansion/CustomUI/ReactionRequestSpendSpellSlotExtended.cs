@@ -14,8 +14,19 @@ namespace SolastaCommunityExpansion.CustomUI
 
             var hero = actionParams.ActingCharacter.RulesetCharacter as RulesetCharacterHero;
             var spellRepertoire = ReactionParams.SpellRepertoire;
+            int selected;
 
-            var selected = MulticlassGameUiContext.AddAvailableSubLevels(SubOptionsAvailability, hero, spellRepertoire, 1);
+            if (actionParams.StringParameter == "EldritchSmite")
+            {
+                var minLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
+
+                selected = MulticlassGameUiContext.AddAvailableSubLevels(SubOptionsAvailability, hero, spellRepertoire, minLevel, minLevel);
+            }
+            else
+            {
+                selected = MulticlassGameUiContext.AddAvailableSubLevels(SubOptionsAvailability, hero, spellRepertoire, 1);
+            }
+
             if (selected >= 0)
             {
                 SelectSubOption(selected);
@@ -27,25 +38,25 @@ namespace SolastaCommunityExpansion.CustomUI
 
         public override string SuboptionTag => ReactionParams.StringParameter;
 
-        public override void SelectSubOption(int option) => ReactionParams.IntParameter = SubOptionsAvailability.Keys.ToList()[option];
-
-        public override string FormatTitle() => Gui.Localize(string.Format(
-            DatabaseRepository.GetDatabase<ReactionDefinition>().GetElement(DefinitionName).GuiPresentation.Title,
-            ReactionParams.StringParameter));
-
         public override string FormatDescription() => Gui.Format(
             string.Format(
                 DatabaseRepository.GetDatabase<ReactionDefinition>().GetElement(DefinitionName).GuiPresentation
                     .Description, ReactionParams.StringParameter), _guiCharacter.Name);
+
+        public override string FormatReactDescription() => Gui.Format(
+            string.Format(
+                DatabaseRepository.GetDatabase<ReactionDefinition>().GetElement(DefinitionName).ReactDescription,
+                ReactionParams.StringParameter), _guiCharacter.Name);
 
         public override string FormatReactTitle() => Gui.Format(
             string.Format(
                 DatabaseRepository.GetDatabase<ReactionDefinition>().GetElement(DefinitionName).ReactTitle,
                 ReactionParams.StringParameter), _guiCharacter.Name);
 
-        public override string FormatReactDescription() => Gui.Format(
-            string.Format(
-                DatabaseRepository.GetDatabase<ReactionDefinition>().GetElement(DefinitionName).ReactDescription,
-                ReactionParams.StringParameter), _guiCharacter.Name);
+        public override string FormatTitle() => Gui.Localize(string.Format(
+            DatabaseRepository.GetDatabase<ReactionDefinition>().GetElement(DefinitionName).GuiPresentation.Title,
+            ReactionParams.StringParameter));
+
+        public override void SelectSubOption(int option) => ReactionParams.IntParameter = SubOptionsAvailability.Keys.ToList()[option];
     }
 }
