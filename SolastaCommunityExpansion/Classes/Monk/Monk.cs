@@ -217,7 +217,10 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
                 #region Level 03
 
-                .AddFeaturesAtLevel(3, BuildKiPoolIncrease())
+                .AddFeaturesAtLevel(3,
+                    BuildKiPoolIncrease(),
+                    BuildDeflectMissile()
+                )
 
                 #endregion
 
@@ -586,6 +589,21 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .SetGuiPresentationNoContent(true)
                 .Configure(1, UsesDetermination.Fixed, "", kiPool)
                 .AddToDB();
+        }
+
+        private static FeatureDefinition BuildDeflectMissile()
+        {
+            var deflectMissile = FeatureDefinitionActionAffinityBuilder
+                .Create("MonkDeflectMissile", GUID)
+                .SetGuiPresentation(Category.Feature)
+                .SetAuthorizedActions(ActionDefinitions.Id.DeflectMissile)
+                .SetCustomSubFeatures(new CustomMissileDeflection()
+                    {characterClass = ClassName, classLevelMult = 1, descriptionTag = "Monk"})
+                .AddToDB();
+
+            deflectMissile.AllowedActionTypes = new[] {true, true, true, true, true, true};
+
+            return deflectMissile;
         }
 
         private static bool IsMonkWeapon(RulesetAttackMode attackMode, RulesetItem weapon)
