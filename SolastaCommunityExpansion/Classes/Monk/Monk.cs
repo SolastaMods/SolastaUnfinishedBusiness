@@ -39,7 +39,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
         private static ConditionDefinition attackedWithMonkWeaponCondition;
         private static CharacterValidator attackedWithMonkWeapon;
         private static FeatureDefinitionPower kiPool;
-        private static FeatureDefinition ki, martialArts, flurryOfBlows, patientDefense, stepOfTheWind;
+        private static FeatureDefinition ki, martialArts, flurryOfBlows, patientDefense, stepOfTheWind, stunningStrike;
         private static int kiPoolIncreases, martailArtsDiceProgression, unarmoredMovementProgression;
 
         private static FeatureDefinition UnarmoredMovementBonus =>
@@ -238,6 +238,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
                 .AddFeaturesAtLevel(5,
                     BuildMartialDiceProgression(),
+                    stunningStrike,
                     BuildExtraAttack(),
                     BuildKiPoolIncrease()
                 )
@@ -582,6 +583,37 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .SetCustomSubFeatures(CustomSetDescription.Marker)
                 .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                 .SetFeatureSet(kiPool, flurryOfBlows, patientDefense, stepOfTheWind)
+                .AddToDB();
+
+            stunningStrike = FeatureDefinitionPowerSharedPoolBuilder
+                .Create("MonkStunningStrike", GUID)
+                .SetGuiPresentation(Category.Power)
+                .SetSharedPool(kiPool)
+                .SetActivationTime(ActivationTime.OnAttackHit)
+                .SetRechargeRate(RechargeRate.ShortRest)
+                .SetCostPerUse(1)
+                .SetCustomSubFeatures(new ReactionAttackModeRestriction(
+                    ReactionAttackModeRestriction.MeleeOnly,
+                    ReactionAttackModeRestriction.TargenHasNoCondition(ConditionDefinitions.ConditionStunned)
+                ))
+                .SetEffectDescription(new EffectDescriptionBuilder()
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 1, TargetType.Individuals)
+                    .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
+                    .SetSavingThrowData(
+                        true,
+                        true,
+                        AttributeDefinitions.Constitution,
+                        true,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        AttributeDefinitions.Wisdom
+                    )
+                    .SetEffectForms(new EffectFormBuilder()
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .SetLevelAdvancement(EffectForm.LevelApplianceType.No, LevelSourceType.ClassLevel, 1)
+                        .SetConditionForm(ConditionDefinitions.ConditionStunned, ConditionForm.ConditionOperation.Add)
+                        .Build())
+                    .Build())
                 .AddToDB();
         }
 

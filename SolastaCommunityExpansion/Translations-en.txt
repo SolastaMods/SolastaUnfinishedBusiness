@@ -1836,3 +1836,9 @@ Reaction/&UseMonkSlowFallReactTitle	React
 Reaction/&UseMonkSlowFallReactDescription	Use reaction to prevent damage.
 Feature/&MonkExtraAttackTitle	Extra Attack
 Feature/&MonkExtraAttackDescription	You can attack twice, instead of once, whenever you take the Attack action on your turn.
+Power/&MonkStunningStrikeTitle	Stunning Strike
+Power/&MonkStunningStrikeDescription	You can interfere with the flow of ki in an opponent's body. When you hit another creature that is not stunned with a melee weapon attack, you can spend 1 ki point to attempt a stunning strike. The target must succeed on a Constitution saving throw or be stunned until the end of your next turn.
+Reaction/&SpendPowerMonkStunningStrikeTitle	Stunning Strike
+Reaction/&SpendPowerMonkStunningStrikeDescription	{0} has hit opponent and can spend 1 ki point to attempt to stun.
+Reaction/&SpendPowerMonkStunningStrikeReactTitle	Spend ki
+Reaction/&SpendPowerMonkStunningStrikeReactDescription	Spend ki to attampt to stun opponent.
