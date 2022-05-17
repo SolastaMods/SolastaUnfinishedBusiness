@@ -497,7 +497,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                     foreach (var usablePower in attacker.RulesetCharacter.UsablePowers)
                     {
                         var validator = usablePower.PowerDefinition.GetFirstSubFeatureOfType<IReactionAttackModeRestriction>();
-                        if (validator != null && !validator.ValidRactionMode(attackMode, attacker.RulesetCharacter, defender.RulesetCharacter))
+                        if (validator != null && !validator.ValidReactionMode(attackMode, attacker.RulesetCharacter, defender.RulesetCharacter))
                         {
                             continue;
                         }

@@ -1,19 +1,34 @@
-﻿namespace SolastaCommunityExpansion.Features;
+﻿using System.Linq;
+
+namespace SolastaCommunityExpansion.Features;
 
 public interface IReactionAttackModeRestriction
 {
-    bool ValidRactionMode(RulesetAttackMode attackMode, RulesetCharacter character, RulesetCharacter target);
+    bool ValidReactionMode(RulesetAttackMode attackMode, RulesetCharacter character, RulesetCharacter target);
 }
 
-public static class ReactionAttackModeRestriction
+public delegate bool ValidReactionModeHandler(RulesetAttackMode attackMode, RulesetCharacter character,
+    RulesetCharacter target);
+
+public class ReactionAttackModeRestriction : IReactionAttackModeRestriction
 {
-    public static readonly IReactionAttackModeRestriction MeleeOnly = new MeleeOnlyImpl();
-    
-    private class MeleeOnlyImpl: IReactionAttackModeRestriction
+    private readonly ValidReactionModeHandler[] validators;
+
+    public static readonly ValidReactionModeHandler MeleeOnly = (mode, _, _) =>
+        mode.Reach && !mode.Ranged && !mode.Thrown;
+
+    public static ValidReactionModeHandler TargenHasNoCondition(ConditionDefinition condition)
     {
-        public bool ValidRactionMode(RulesetAttackMode attackMode, RulesetCharacter character, RulesetCharacter target)
-        {
-            return !attackMode.Ranged && attackMode.Reach;
-        }
+        return (_, _, target) => !target.HasConditionOfType(condition.Name);
+    }
+
+    public ReactionAttackModeRestriction(params  ValidReactionModeHandler[] validators)
+    {
+        this.validators = validators;
+    }
+
+    public bool ValidReactionMode(RulesetAttackMode attackMode, RulesetCharacter character, RulesetCharacter target)
+    {
+        return validators.All(v => v(attackMode, character, target));
     }
 }
