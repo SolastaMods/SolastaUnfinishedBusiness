@@ -1823,3 +1823,5 @@ Power/&MonkPatientDefenseTitle	Patient Defense
 Power/&MonkPatientDefenseDescription	You can spend 1 ki point as a bonus action to take the Dodge action. Only availabe if you are not wearing armor or shield.
 Power/&MonkStepOfTheWindTitle	Step Of The Wind
 Power/&MonkStepOfTheWindDescription	You can spend 1 ki point to take the Disengage or Dash action as a bonus action on your turn, and your jump distance is doubled for the turn. Only availabe if you are not wearing armor or shield.
+Condition/&MonkStepOfTheWindConditionTitle	Step Of The Wind
+Condition/&MonkStepOfTheWindConditionDescription	You can take the Disengage or Dash action as a bonus action and your jump distance is doubled for the turn.
