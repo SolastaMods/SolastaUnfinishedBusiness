@@ -92,3 +92,32 @@ public class UpgradeWeaponDice : IModifyAttackModeForWeapon
         }
     }
 }
+
+public class AddTagToWeaponAttack : IModifyAttackModeForWeapon
+{
+    private readonly CharacterValidator[] _validators;
+    private readonly IsWeaponValidHandler isWeaponValid;
+    private readonly string tag;
+
+    public AddTagToWeaponAttack(string tag, IsWeaponValidHandler isWeaponValid, params CharacterValidator[] validators)
+    {
+        this.isWeaponValid = isWeaponValid;
+        this.tag = tag;
+        _validators = validators;
+    }
+
+    public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
+    {
+        if (!character.IsValid(_validators))
+        {
+            return;
+        }
+
+        if (!isWeaponValid(attackMode, weapon))
+        {
+            return;
+        }
+
+        attackMode.AddAttackTagAsNeeded(tag);
+    }
+}
