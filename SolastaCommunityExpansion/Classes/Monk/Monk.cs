@@ -238,6 +238,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
                 .AddFeaturesAtLevel(5,
                     BuildMartialDiceProgression(),
+                    BuildExtraAttack(),
                     BuildKiPoolIncrease()
                 )
 
@@ -471,6 +472,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .SetRechargeRate(RechargeRate.ShortRest)
                 .AddToDB();
 
+            //TODO: experiment with granting 2 bonus actions that can be spent on main/offhand attack, instead of granting main attack with 2 attacks
             var extraFlurryAttacks = FeatureDefinitionAdditionalActionBuilder
                 .Create("MonkFlurryOfBlowsExtraAttacks", GUID)
                 .SetCustomSubFeatures(new AddBonusUnarmedAttack(ActionDefinitions.ActionType.Main, 2, true,
@@ -625,6 +627,17 @@ namespace SolastaCommunityExpansion.Classes.Monk
                             ConditionForm.ConditionOperation.Add)
                         .Build())
                     .Build())
+                .AddToDB();
+        }
+        
+        private static FeatureDefinition BuildExtraAttack()
+        {
+            return FeatureDefinitionAttributeModifierBuilder
+                .Create("MonkExtraAttack", GUID)
+                .SetGuiPresentation(Category.Feature)
+                .SetModifiedAttribute(AttributeDefinitions.AttacksNumber)
+                .SetModifierType2(AttributeModifierOperation.Additive)
+                .SetModifierValue(1)
                 .AddToDB();
         }
 
