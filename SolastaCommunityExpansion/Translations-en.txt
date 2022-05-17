@@ -1815,3 +1815,11 @@ Feature/&MonkMartialDiceProgression11Description	You can roll <color=#57BCF4>D8<
 Feature/&MonkMartialDiceProgression17Title	Martial Arts Die Increase (D10)
 Feature/&MonkMartialDiceProgression17Description	You can roll <color=#57BCF4>D10</color> in place of the normal damage of your unarmed strike or monk weapon.
 Tooltip/&TagMonkWeaponTitle	Monk
+Feature/&MonkKiTitle	Ki
+Feature/&MonkKiDescription	Your training allows you to harness the mystic energy of ki. You gain ki points equal to your monk level. When you spend a ki point, it is unavailable until you finish a short or long rest, at the end of which you draw all of your expended ki back into yourself. You can spend these points to fuel various ki features. You start knowing three such features:
+Power/&MonkFlurryOfBlowsTitle	Flurry of Blows
+Power/&MonkFlurryOfBlowsDescription	After spending action to attack with monk weapon you can spend 1 ki point as a bonus action to do 2 unamed strikes. Only availabe if you are not wearing armor or shield.
+Power/&MonkPatientDefenseTitle	Patient Defense
+Power/&MonkPatientDefenseDescription	You can spend 1 ki point as a bonus action to take the Dodge action. Only availabe if you are not wearing armor or shield.
+Power/&MonkStepOfTheWindTitle	Step Of The Wind
+Power/&MonkStepOfTheWindDescription	You can spend 1 ki point to take the Disengage or Dash action as a bonus action on your turn, and your jump distance is doubled for the turn. Only availabe if you are not wearing armor or shield.

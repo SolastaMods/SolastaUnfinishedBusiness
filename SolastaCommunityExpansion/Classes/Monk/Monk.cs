@@ -39,7 +39,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
         private static ConditionDefinition attackedWithMonkWeaponCondition;
         private static CharacterValidator attackedWithMonkWeapon;
         private static FeatureDefinitionPower kiPool;
-        private static FeatureDefinition martialArts, flurryOfBlows, patientDefense, stepOfTheWind;
+        private static FeatureDefinition ki, martialArts, flurryOfBlows, patientDefense, stepOfTheWind;
 
         private static FeatureDefinition UnarmoredMovementBonus =>
             _unarmoredMovementBonus ??= BuildUnarmoredMovementBonus();
@@ -208,7 +208,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
                 #region Level 02
 
-                .AddFeaturesAtLevel(2, kiPool, flurryOfBlows, patientDefense, stepOfTheWind)
+                .AddFeaturesAtLevel(2, ki)
 
                 #endregion
 
@@ -481,6 +481,15 @@ namespace SolastaCommunityExpansion.Classes.Monk
                         .Build())
                     .Build())
                 .AddToDB();
+
+            ki = FeatureDefinitionFeatureSetBuilder
+                .Create("MonkKi", GUID)
+                .SetGuiPresentation(Category.Feature)
+                .SetCustomSubFeatures(CustomSetDescription.Marker)
+                .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+                .SetFeatureSet(kiPool, flurryOfBlows, patientDefense, stepOfTheWind)
+                .AddToDB();
+            
         }
 
         private static bool IsMonkWeapon(RulesetAttackMode attackMode, RulesetItem weapon)
