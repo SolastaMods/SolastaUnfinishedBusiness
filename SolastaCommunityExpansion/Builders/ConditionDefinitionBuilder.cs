@@ -205,6 +205,12 @@ namespace SolastaCommunityExpansion.Builders
             return This();
         }
 
+        public TBuilder SetConditionParticleReferenceFrom(ConditionDefinition reference)
+        {
+            Definition.SetConditionParticleReference(reference.GetField<AssetReference>("conditionParticleReference"));
+            return This();
+        }
+        
         public TBuilder AddRecurrentEffectForm(EffectForm effect)
         {
             Definition.RecurrentEffectForms.Add(effect);

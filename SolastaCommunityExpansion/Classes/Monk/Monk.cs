@@ -39,7 +39,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
         private static ConditionDefinition attackedWithMonkWeaponCondition;
         private static CharacterValidator attackedWithMonkWeapon;
         private static FeatureDefinitionPower kiPool;
-        private static FeatureDefinition martialArts, flurryOfBlows, patientDefense;
+        private static FeatureDefinition martialArts, flurryOfBlows, patientDefense, stepOfTheWind;
 
         private static FeatureDefinition UnarmoredMovementBonus =>
             _unarmoredMovementBonus ??= BuildUnarmoredMovementBonus();
@@ -208,7 +208,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
                 #region Level 02
 
-                .AddFeaturesAtLevel(2, kiPool, flurryOfBlows, patientDefense)
+                .AddFeaturesAtLevel(2, kiPool, flurryOfBlows, patientDefense, stepOfTheWind)
 
                 #endregion
 
@@ -414,7 +414,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .AddToDB();
 
             //TODO: add validator that will show only in combat
-            //TODO: rework to give same status as dodging does, but directly, without requiring using dodge action
+            var dodging = ConditionDefinitions.ConditionDodging;
             patientDefense = FeatureDefinitionPowerSharedPoolBuilder
                 .Create("MonkPatientDefense", GUID)
                 .SetGuiPresentation(Category.Power)
@@ -426,20 +426,52 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .SetCustomSubFeatures(new PowerUseValidity(CharacterValidators.NoShield, CharacterValidators.NoArmor))
                 .SetEffectDescription(new EffectDescriptionBuilder()
                     .AddEffectForm(new EffectFormBuilder()
+                        .CreatedByCharacter()
                         .SetConditionForm(ConditionDefinitionBuilder
                                 .Create("MonkPatientDefenseCondition", GUID)
-                                .SetGuiPresentationNoContent(true)
-                                .SetSilent(Silent.WhenAddedOrRemoved)
+                                .SetGuiPresentation("ConditionDodging", Category.Rules, dodging.GuiPresentation.SpriteReference)
+                                .SetConditionParticleReferenceFrom(dodging)
+                                .SetSilent(Silent.None)
+                                .SetDuration(DurationType.Round, 0)
+                                .SetSpecialDuration(true)
+                                .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
+                                .SetFeatures(
+                                    FeatureDefinitionCombatAffinitys.CombatAffinityDodging,
+                                    FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityConditionDodging
+                                ).AddToDB(),
+                            ConditionForm.ConditionOperation.Add, true, false)
+                        .Build())
+                    .Build())
+                .AddToDB();
+            
+            //TODO: add validator that will show only in combat
+            stepOfTheWind = FeatureDefinitionPowerSharedPoolBuilder
+                .Create("MonkStepOfTheWind", GUID)
+                .SetGuiPresentation(Category.Power)
+                .SetSharedPool(kiPool)
+                .SetActivationTime(ActivationTime.BonusAction)
+                .SetCostPerUse(1)
+                .SetRechargeRate(RechargeRate.ShortRest)
+                .SetShowCasting(false)
+                .SetCustomSubFeatures(new PowerUseValidity(CharacterValidators.NoShield, CharacterValidators.NoArmor))
+                .SetEffectDescription(new EffectDescriptionBuilder()
+                    .AddEffectForm(new EffectFormBuilder()
+                        .SetConditionForm(ConditionDefinitionBuilder
+                                .Create("MonkStepOfTheWindCondition", GUID)
+                                .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionJump.GuiPresentation.SpriteReference)
+                                .SetSilent(Silent.None)
+                                .SetPossessive(true)
                                 .SetDuration(DurationType.Round, 0)
                                 .SetSpecialDuration(true)
                                 .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
                                 .SetFeatures(FeatureDefinitionAdditionalActionBuilder
-                                    .Create("MonkPatientDefenseFeature", GUID)
+                                    .Create("MonkStepOfTheWindFeature", GUID)
                                     .SetGuiPresentationNoContent(true)
-                                    .SetActionType(ActionDefinitions.ActionType.Main)
-                                    .SetRestrictedActions(ActionDefinitions.Id.Dodge)
-                                    .SetAuthorizedActions(ActionDefinitions.Id.Dodge)
-                                    .AddToDB())
+                                    .SetActionType(ActionDefinitions.ActionType.Bonus)
+                                    .SetRestrictedActions(ActionDefinitions.Id.DashBonus, ActionDefinitions.Id.DisengageBonus)
+                                    .SetAuthorizedActions(ActionDefinitions.Id.DashBonus, ActionDefinitions.Id.DisengageBonus)
+                                    .AddToDB(),
+                                    FeatureDefinitionMovementAffinitys.MovementAffinityJump)
                                 .AddToDB(),
                             ConditionForm.ConditionOperation.Add, true, true)
                         .Build())
