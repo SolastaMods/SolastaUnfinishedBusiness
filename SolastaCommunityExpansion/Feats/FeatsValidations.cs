@@ -46,7 +46,7 @@ namespace SolastaCommunityExpansion.Feats
         {
             var features = new List<FeatureDefinition>();
 
-            hero.EnumerateFeaturesToBrowse<FeatureDefinitionDamageAffinity>(features);
+            hero.EnumerateFeaturesToBrowse<FeatureDefinitionAdditionalDamage>(features);
 
             var hasStealthAttack = features.Any(x => x.Name.Contains("SneakAttack"));
 
