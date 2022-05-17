@@ -294,6 +294,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
                 .AddFeaturesAtLevel(10,
                     BuildUnarmoredMovementImprovement(),
+                    BuildPurityOfBody(),
                     BuildKiPoolIncrease()
                 )
 
@@ -710,6 +711,19 @@ namespace SolastaCommunityExpansion.Classes.Monk
                         )
                         .Build())
                     .Build())
+                .AddToDB();
+        }
+
+        private static FeatureDefinition BuildPurityOfBody()
+        {
+            return FeatureDefinitionFeatureSetBuilder
+                .Create("MonkPurityOfBody", GUID)
+                .SetGuiPresentation(Category.Feature)
+                .SetFeatureSet(
+                    FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity,
+                    FeatureDefinitionConditionAffinitys.ConditionAffinityDiseaseImmunity,
+                    FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity
+                )
                 .AddToDB();
         }
 
