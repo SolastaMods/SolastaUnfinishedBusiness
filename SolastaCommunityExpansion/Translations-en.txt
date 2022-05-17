@@ -1844,3 +1844,5 @@ Reaction/&SpendPowerMonkStunningStrikeReactTitle	Spend ki
 Reaction/&SpendPowerMonkStunningStrikeReactDescription	Spend ki to attampt to stun opponent.
 Feature/&MonkKiEmpoweredStrikesTitle	Ki-Empowered Strikes
 Feature/&MonkKiEmpoweredStrikesDescription	Your unarmed strikes count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.
+Power/&MonkKiStillnessOfMindTitle	Stillness of Mind
+Power/&MonkKiStillnessOfMindDescription	You can use your action to end one effect on yourself that is causing you to be charmed or frightened.

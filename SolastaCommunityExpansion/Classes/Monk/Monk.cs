@@ -266,6 +266,8 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 #region Level 07
 
                 .AddFeaturesAtLevel(7,
+                    FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityRogueEvasion,
+                    BuildStillnessOfMind(),
                     BuildKiPoolIncrease()
                 )
 
@@ -688,6 +690,26 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .Create("MonkKiEmpoweredStrikes", GUID)
                 .SetGuiPresentation(Category.Feature)
                 .SetCustomSubFeatures(new AddTagToWeaponAttack(TagsDefinitions.Magical, IsUnarmedWeapon))
+                .AddToDB();
+        }
+
+        private static FeatureDefinition BuildStillnessOfMind()
+        {
+            return FeatureDefinitionPowerBuilder
+                .Create("MonkKiStillnessOfMind", GUID)
+                .SetGuiPresentation(Category.Power)
+                .SetActivationTime(ActivationTime.Action)
+                .SetCostPerUse(0)
+                .SetEffectDescription(new EffectDescriptionBuilder()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetEffectForms(new EffectFormBuilder()
+                        .SetConditionForm(null, ConditionForm.ConditionOperation.RemoveDetrimentalRandom, true, false,
+                            ConditionDefinitions.ConditionCharmed,
+                            ConditionDefinitions.ConditionFrightened
+                        )
+                        .Build())
+                    .Build())
                 .AddToDB();
         }
 
