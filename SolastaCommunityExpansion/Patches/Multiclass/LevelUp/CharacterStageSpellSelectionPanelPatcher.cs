@@ -13,11 +13,6 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
         {
             public static void Prefix(RulesetCharacterHero ___currentHero)
             {
-                if (!Main.Settings.EnableMulticlass)
-                {
-                    return;
-                }
-
                 LevelUpContext.CacheSpells(___currentHero);
             }
         }

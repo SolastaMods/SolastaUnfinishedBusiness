@@ -12,11 +12,6 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
     {
         internal static bool Prefix(RulesetCharacterHero __instance, CharacterClassDefinition classDefinition, List<int> ___hitPointsGainHistory)
         {
-            if (!Main.Settings.EnableMulticlass)
-            {
-                return true;
-            }
-
             if (!LevelUpContext.IsLevelingUp(__instance))
             {
                 return true;

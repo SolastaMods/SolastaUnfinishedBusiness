@@ -12,11 +12,6 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
         {
             internal static void Postfix(RulesetCharacterHero ___currentHero, ref bool ___isRelevant)
             {
-                if (!Main.Settings.EnableMulticlass)
-                {
-                    return;
-                }
-
                 if (LevelUpContext.IsLevelingUp(___currentHero))
                 {
                     ___isRelevant = LevelUpContext.RequiresDeity(___currentHero);
