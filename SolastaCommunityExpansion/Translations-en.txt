@@ -1808,12 +1808,12 @@ Feature/&MonkUnarmoredMovementTitle	Unarmored Movement
 Feature/&MonkUnarmoredMovementDescription	Your speed increases by 10 feet while you are not wearing armor or wielding a shield. This bonus increases when you reach certain monk levels.
 Feature/&MonkUnarmoredMovementBonusTitle	Unarmored Movement Improvement
 Feature/&MonkUnarmoredMovementBonusDescription	Movement bonus increases by 5 feet.
-Feature/&MonkMartialDiceProgression05Title	Martial Arts Die Increase (D6)
-Feature/&MonkMartialDiceProgression05Description	You can roll <color=#57BCF4>D6</color> in place of the normal damage of your unarmed strike or monk weapon.
-Feature/&MonkMartialDiceProgression11Title	Martial Arts Die Increase (D8)
-Feature/&MonkMartialDiceProgression11Description	You can roll <color=#57BCF4>D8</color> in place of the normal damage of your unarmed strike or monk weapon.
-Feature/&MonkMartialDiceProgression17Title	Martial Arts Die Increase (D10)
-Feature/&MonkMartialDiceProgression17Description	You can roll <color=#57BCF4>D10</color> in place of the normal damage of your unarmed strike or monk weapon.
+Feature/&MonkMartialDiceProgression00Title	Martial Arts Die Increase (D6)
+Feature/&MonkMartialDiceProgression00Description	You can roll <color=#57BCF4>D6</color> in place of the normal damage of your unarmed strike or monk weapon.
+Feature/&MonkMartialDiceProgression01Title	Martial Arts Die Increase (D8)
+Feature/&MonkMartialDiceProgression01Description	You can roll <color=#57BCF4>D8</color> in place of the normal damage of your unarmed strike or monk weapon.
+Feature/&MonkMartialDiceProgression02Title	Martial Arts Die Increase (D10)
+Feature/&MonkMartialDiceProgression02Description	You can roll <color=#57BCF4>D10</color> in place of the normal damage of your unarmed strike or monk weapon.
 Tooltip/&TagMonkWeaponTitle	Monk
 Feature/&MonkKiTitle	Ki
 Feature/&MonkKiDescription	Your training allows you to harness the mystic energy of ki. You gain ki points equal to your monk level. When you spend a ki point, it is unavailable until you finish a short or long rest, at the end of which you draw all of your expended ki back into yourself. You can spend these points to fuel various ki features. You start knowing three such features:
