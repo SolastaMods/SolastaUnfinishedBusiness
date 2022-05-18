@@ -304,6 +304,47 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
+        internal static int GetRemainingPowerUses(this RulesetCharacter character, RulesetUsablePower usablePower)
+        {
+            if (usablePower.PowerDefinition is not IPowerSharedPool sharedPoolPower)
+            {
+                return usablePower.RemainingUses;
+            }
+
+            return GetRemainingPowerPoolUses(character, sharedPoolPower);
+        }
+
+        internal static int GetRemainingPowerUses(this RulesetCharacter character, FeatureDefinitionPower power)
+        {
+            if (power is IPowerSharedPool poolPower)
+            {
+                return GetRemainingPowerPoolUses(character, poolPower);
+            }
+
+            var usablePower = character.UsablePowers.FirstOrDefault(u => u.PowerDefinition == power);
+            if (usablePower == null)
+            {
+                return 0;
+            }
+
+            return usablePower.RemainingUses;
+        }
+
+        internal static int GetRemainingPowerPoolUses(this RulesetCharacter character, IPowerSharedPool sharedPoolPower)
+        {
+            var pointPoolPower = sharedPoolPower.GetUsagePoolPower();
+
+            foreach (var poolPower in character.UsablePowers)
+            {
+                if (poolPower.PowerDefinition == pointPoolPower)
+                {
+                    return poolPower.RemainingUses;
+                }
+            }
+
+            return 0;
+        }
+
         public static EffectDescription ModifySpellEffect(EffectDescription original, RulesetEffectSpell spell)
         {
             return ModifySpellEffect(original, spell.SpellDefinition, spell.Caster);
