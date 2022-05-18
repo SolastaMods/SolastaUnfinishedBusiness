@@ -6,6 +6,8 @@ using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
+using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
 
 namespace SolastaCommunityExpansion.FightingStyles
 {
@@ -16,7 +18,10 @@ namespace SolastaCommunityExpansion.FightingStyles
 
         internal override List<FeatureDefinitionFightingStyleChoice> GetChoiceLists()
         {
-            return new List<FeatureDefinitionFightingStyleChoice>() { };
+            return new List<FeatureDefinitionFightingStyleChoice>() {
+                FightingStyleChampionAdditional,
+                FightingStyleFighter,
+                FightingStyleRanger,};
         }
 
         internal override FightingStyleDefinition GetStyle()
