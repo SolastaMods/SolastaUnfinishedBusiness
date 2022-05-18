@@ -74,14 +74,20 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
             var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
             var selectedClass = LevelUpContext.GetSelectedClass(hero);
 
-            if (isLevelingUp
-                && hero.ClassesAndLevels.TryGetValue(selectedClass, out var levels)
-                && featureUnlockByLevel.Level != (levels + 1))
+            if (isLevelingUp)
             {
-                return int.MaxValue;
+                if (hero.ClassesAndLevels.TryGetValue(selectedClass, out var levels)
+                    && featureUnlockByLevel.Level != (levels + 1))
+                {
+                    return int.MaxValue;
+                }
+                else
+                {
+                    return featureUnlockByLevel.Level - 1;
+                }
             }
 
-            return featureUnlockByLevel.Level - 1;
+            return featureUnlockByLevel.Level;
         }
 
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)

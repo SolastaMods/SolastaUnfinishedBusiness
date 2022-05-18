@@ -21,6 +21,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.RitualAndAutoPrepared
             }
 
             var spellRepertoire = __instance.SpellRepertoires
+                .Where(r => r.SpellCastingFeature.SpellCastingOrigin != FeatureDefinitionCastSpell.CastingOrigin.Race)
                 .Where(r => r.SpellCastingFeature.SpellReadyness == RuleDefinitions.SpellReadyness.AllKnown)
                 .FirstOrDefault(r => r.SpellCastingFeature.SpellKnowledge == RuleDefinitions.SpellKnowledge.Selection);
 

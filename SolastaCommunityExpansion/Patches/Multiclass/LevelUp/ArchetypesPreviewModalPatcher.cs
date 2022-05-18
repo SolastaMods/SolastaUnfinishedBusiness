@@ -17,7 +17,8 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
             var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
             var selectedClass = LevelUpContext.GetSelectedClass(hero);
 
-            if (isLevelingUp && hero.ClassesAndLevels.TryGetValue(selectedClass, out var levels)
+            if (isLevelingUp 
+                && hero.ClassesAndLevels.TryGetValue(selectedClass, out var levels)
                 && featureUnlockByLevel.Level <= levels + 1)
             {
                 return int.MaxValue;
