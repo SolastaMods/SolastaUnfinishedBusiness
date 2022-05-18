@@ -6,6 +6,7 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.CustomUI;
+using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
 {
@@ -35,6 +36,16 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
                 return codes.AsEnumerable();
             }
 
+            internal static void Postfix(CharacterReactionItem __instance)
+            {
+                var size = __instance.ReactionRequest is ReactionRequestWarcaster
+                    ? 400
+                    : 290;
+                
+                __instance.GetComponent<RectTransform>()
+                    .SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, size);
+            }
+
             private static void CustomBind(CharacterReactionSubitem instance,
                 RulesetSpellRepertoire spellRepertoire,
                 int slotLevel,
@@ -42,7 +53,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
                 bool interactable,
                 CharacterReactionSubitem.SubitemSelectedHandler subitemSelected, ReactionRequest reactionRequest)
             {
-                Main.Log($"CustomBind ", true);
                 if (reactionRequest is ReactionRequestWarcaster warcasterRequest)
                 {
                     instance.BindWarcaster(warcasterRequest, slotLevel, interactable, subitemSelected);
