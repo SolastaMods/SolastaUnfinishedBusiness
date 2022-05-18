@@ -4,33 +4,33 @@ using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi;
+using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
+using static SolastaModApi.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
 
 namespace SolastaCommunityExpansion.FightingStyles
 {
     internal class TitanFighting : AbstractFightingStyle
     {
-        public readonly Guid TITAN_FIGHTING_BASE_GUID = new("3f7f25de-0ff9-4b63-b38d-8cd7f3a381fc");
+        internal const int IsSizeLargeOrMore = 1000;
+
+        private readonly Guid TITAN_FIGHTING_BASE_GUID = new("3f7f25de-0ff9-4b63-b38d-8cd7f3a381fc");
         private FightingStyleDefinitionCustomizable instance;
 
         internal override List<FeatureDefinitionFightingStyleChoice> GetChoiceLists()
         {
-            return new List<FeatureDefinitionFightingStyleChoice>() { };
+            return new List<FeatureDefinitionFightingStyleChoice>() {
+                FightingStyleChampionAdditional,
+                FightingStyleFighter,
+                FightingStylePaladin};
         }
 
         internal override FightingStyleDefinition GetStyle()
         {
             if (instance == null)
             {
-
-                // This seems to be in HandleCharacterAttackDamage in GameLocationBattleManager.cs
-                // Perhaps adding a new TriggerConditionAdditionalDamage to check for enemy size (Large or more)?
-                // This feels like deja vu with doing some patchwork in a very long function
-                // For now, give a flat +2 melee dmg
                 var additionalDamage = FeatureDefinitionAdditionalDamageBuilder
                     .Create(DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageBracersOfArchery, "ModifierTitanFighting", TITAN_FIGHTING_BASE_GUID)
-                    // to extend with new condition? something like
-                    //                        .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.IsSizeLargeOrMore)
-                    .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive)
+                    .SetTriggerCondition((RuleDefinitions.AdditionalDamageTriggerCondition)IsSizeLargeOrMore)
                     .SetRequiredProperty(RuleDefinitions.AdditionalDamageRequiredProperty.MeleeWeapon)
                     .SetDamageDice(RuleDefinitions.DieType.D1, 2)
                     .AddToDB();

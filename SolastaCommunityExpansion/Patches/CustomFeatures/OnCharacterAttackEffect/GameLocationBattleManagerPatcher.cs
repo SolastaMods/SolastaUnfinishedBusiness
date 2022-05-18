@@ -7,6 +7,7 @@ using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi.Extensions;
 using UnityEngine;
+using static SolastaModApi.DatabaseHelper.CharacterSizeDefinitions;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffect
 {
@@ -400,6 +401,19 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                         else if (provider.TriggerCondition == RuleDefinitions.AdditionalDamageTriggerCondition.Raging)
                         {
                             if (attacker.RulesetCharacter.HasConditionOfType(RuleDefinitions.ConditionRaging))
+                            {
+                                validTrigger = true;
+                            }
+                        }
+                        // supports titan fighting style
+                        //
+                        // patch here
+                        //
+                        else if (provider.TriggerCondition == (RuleDefinitions.AdditionalDamageTriggerCondition)FightingStyles.TitanFighting.IsSizeLargeOrMore)
+                        {
+                            if (defender.RulesetCharacter.SizeDefinition == Large
+                                || defender.RulesetCharacter.SizeDefinition == Huge
+                                || defender.RulesetCharacter.SizeDefinition == Gargantuan)
                             {
                                 validTrigger = true;
                             }
