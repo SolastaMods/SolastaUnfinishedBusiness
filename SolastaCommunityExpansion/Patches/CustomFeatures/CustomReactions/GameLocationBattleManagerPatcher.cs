@@ -48,18 +48,8 @@ internal static class GameLocationBattleManagerPatcher
             foreach (var feature in features)
             {
                 var power = feature.GetPowerToRerollFailedSave(rulesetDefender, saveOutcome);
-                if (power == null)
-                {
-                    continue;
-                }
-
-                if (rulesetDefender.GetRemainingPowerUses(power) <= power.CostPerUse)
-                {
-                    continue;
-                }
-
-                var validators = power.GetAllSubFeaturesOfType<IPowerUseValidity>();
-                if (validators.Any(v => !v.CanUsePower(rulesetDefender)))
+                
+                if(!rulesetDefender.CanUsePower(power))
                 {
                     continue;
                 }
