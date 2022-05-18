@@ -327,6 +327,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 #region Level 13
 
                 .AddFeaturesAtLevel(13,
+                    BuildTongueOfSunAndMoon(),
                     BuildKiPoolIncrease()
                 )
 
@@ -747,6 +748,15 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     FeatureDefinitionConditionAffinitys.ConditionAffinityDiseaseImmunity,
                     FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity
                 )
+                .AddToDB();
+        }
+
+        private static FeatureDefinition BuildTongueOfSunAndMoon()
+        {
+            return FeatureDefinitionFeatureSetBuilder
+                .Create("MonkTongueOfSunAndMoon", GUID)
+                .SetGuiPresentation(Category.Feature)
+                .SetFeatureSet(FeatureDefinitionFeatureSets.FeatureSetAllLanguagesButCode.FeatureSet.ToArray())
                 .AddToDB();
         }
 

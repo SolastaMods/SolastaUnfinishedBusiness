@@ -1850,3 +1850,5 @@ Feature/&MonkPurityOfBodyTitle	Purity of Body
 Feature/&MonkPurityOfBodyDescription	Your mastery of the ki flowing through you makes you immune to disease and poison.
 Feature/&MonkUnarmoredMovementVerticalSurfaceTitle	Unarmored Movement: Climbing
 Feature/&MonkUnarmoredMovementVerticalSurfaceDescription	While you are unarmored and not wielding a shield you can move on walls like a spider. Ability is temporarily lost if you preform any action that is not movement, or when it is not your turn in combat.
+Feature/&MonkTongueOfSunAndMoonTitle	Tongue of the Sun and Moon
+Feature/&MonkTongueOfSunAndMoonDescription	You learn to touch the ki of other minds so that you understand all spoken languages. Moreover, any creature that can understand a language can understand what you say.
