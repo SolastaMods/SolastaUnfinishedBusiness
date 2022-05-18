@@ -308,7 +308,7 @@ namespace SolastaCommunityExpansion.Models
         {
             if (usablePower.PowerDefinition is not IPowerSharedPool sharedPoolPower)
             {
-                return usablePower.RemainingUses;
+                return usablePower.RemainingUses / usablePower.PowerDefinition.CostPerUse;
             }
 
             return GetRemainingPowerPoolUses(character, sharedPoolPower);
@@ -318,7 +318,7 @@ namespace SolastaCommunityExpansion.Models
         {
             if (power is IPowerSharedPool poolPower)
             {
-                return GetRemainingPowerPoolUses(character, poolPower);
+                return GetRemainingPowerPoolUses(character, poolPower) / power.CostPerUse;
             }
 
             var usablePower = character.UsablePowers.FirstOrDefault(u => u.PowerDefinition == power);
@@ -327,7 +327,7 @@ namespace SolastaCommunityExpansion.Models
                 return 0;
             }
 
-            return usablePower.RemainingUses;
+            return usablePower.RemainingUses / power.CostPerUse;
         }
 
         internal static int GetRemainingPowerPoolUses(this RulesetCharacter character, IPowerSharedPool sharedPoolPower)

@@ -25,7 +25,7 @@ internal static class RulesetCharacterExension
             return false;
         }
 
-        if (instance.GetRemainingPowerUses(power) <= power.CostPerUse)
+        if (instance.GetRemainingPowerUses(power) <= 0)
         {
             return false;
         }
