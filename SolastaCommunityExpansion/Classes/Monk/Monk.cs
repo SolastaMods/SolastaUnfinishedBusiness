@@ -337,6 +337,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
                 .AddFeaturesAtLevel(14,
                     BuildUnarmoredMovementImprovement(),
+                    BuildDiamondSoul(),
                     BuildKiPoolIncrease()
                 )
 
@@ -748,6 +749,28 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     FeatureDefinitionConditionAffinitys.ConditionAffinityDiseaseImmunity,
                     FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity
                 )
+                .AddToDB();
+        }
+
+        private static FeatureDefinition BuildDiamondSoul()
+        {
+            return FeatureDefinitionProficiencyBuilder
+                .Create("MonkDiamondSoul", GUID)
+                .SetGuiPresentation(Category.Feature)
+                .SetProficiencies(ProficiencyType.SavingThrow,
+                    AttributeDefinitions.Strength,
+                    AttributeDefinitions.Dexterity,
+                    AttributeDefinitions.Constitution,
+                    AttributeDefinitions.Intelligence,
+                    AttributeDefinitions.Wisdom,
+                    AttributeDefinitions.Charisma
+                )
+                .SetCustomSubFeatures(new CustomRerollFailedSave(FeatureDefinitionPowerSharedPoolBuilder
+                    .Create("MonkDiamondSoulPower", GUID)
+                    .SetGuiPresentation(Category.Power)
+                    .SetSharedPool(kiPool)
+                    .SetCostPerUse(1)
+                    .AddToDB(), "DiamondSoul"))
                 .AddToDB();
         }
 

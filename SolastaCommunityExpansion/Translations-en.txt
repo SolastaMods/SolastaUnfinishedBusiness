@@ -1852,3 +1852,11 @@ Feature/&MonkUnarmoredMovementVerticalSurfaceTitle	Unarmored Movement: Climbing
 Feature/&MonkUnarmoredMovementVerticalSurfaceDescription	While you are unarmored and not wielding a shield you can move on walls like a spider. Ability is temporarily lost if you preform any action that is not movement, or when it is not your turn in combat.
 Feature/&MonkTongueOfSunAndMoonTitle	Tongue of the Sun and Moon
 Feature/&MonkTongueOfSunAndMoonDescription	You learn to touch the ki of other minds so that you understand all spoken languages. Moreover, any creature that can understand a language can understand what you say.
+Feature/&MonkDiamondSoulTitle	Diamond Soul
+Feature/&MonkDiamondSoulDescription	Your mastery of ki grants you proficiency in all saving throws.\nAdditionally, whenever you make a saving throw and fail, you can spend 1 ki point to reroll it and take the second result.
+Power/&MonkDiamondSoulPowerTitle	Diamond Soul
+Power/&MonkDiamondSoulPowerDescription	Whenever you make a saving throw and fail, you can spend 1 ki point to reroll it and take the second result.
+Reaction/&SpendPowerDiamondSoulTitle	Diamond Soul
+Reaction/&SpendPowerDiamondSoulDescription	{0} has failed a save and can spend 1 ki to reroll it.
+Reaction/&SpendPowerDiamondSoulReactTitle	Reroll
+Reaction/&SpendPowerDiamondSoulReactDescription	Spend ki to reroll failed save.
