@@ -279,6 +279,23 @@ namespace SolastaCommunityExpansion.Models
 
             return totalPoolSize;
         }
+        
+        internal static void UpdateUsageForPower(this RulesetCharacter character, FeatureDefinitionPower power, int poolUsage)
+        {
+            foreach (var poolPower in character.UsablePowers)
+            {
+                if (poolPower.PowerDefinition == power)
+                {
+                    var maxUses = GetMaxUsesForPool(poolPower, character);
+                    var remainingUses = Mathf.Clamp(poolPower.RemainingUses - poolUsage, 0, maxUses);
+
+                    poolPower.SetRemainingUses(remainingUses);
+                    AssignUsesToSharedPowersForPool(character, poolPower, remainingUses, maxUses);
+
+                    return;
+                }
+            }
+        }
 
         internal static void UpdateUsageForPowerPool(this RulesetCharacter character, RulesetUsablePower modifiedPower, int poolUsage)
         {

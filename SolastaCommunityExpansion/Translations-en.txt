@@ -1864,3 +1864,5 @@ Power/&MonkEmptyBodyTitle	Empty Body
 Power/&MonkEmptyBodyDescription	You can use your action to spend 4 ki points to become invisible for 1 minute. During that time, you also have resistance to all damage but force damage.
 Condition/&MonkEmptyBodyConditionTitle	Empty Body
 Condition/&MonkEmptyBodyConditionDescription	You have resistance to all damage but force damage.
+Feature/&MonkPerfectSelfTitle	Perfect Self
+Feature/&MonkPerfectSelfDescription	When you start battle and have no ki points remaining, you regain 4 ki points.

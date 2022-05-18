@@ -5,6 +5,7 @@ using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.Features;
+using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Utils;
 using SolastaModApi;
 using UnityEngine.AddressableAssets;
@@ -391,6 +392,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 #region Level 20
 
                 .AddFeaturesAtLevel(20,
+                    BuildPerfectSelf(),
                     BuildKiPoolIncrease()
                 )
 
@@ -838,6 +840,15 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     .Build())
                 .AddToDB();
         }
+        
+        private static FeatureDefinition BuildPerfectSelf()
+        {
+            return FeatureDefinitionBuilder
+                .Create("MonkPerfectSelf", GUID)
+                .SetGuiPresentation(Category.Feature)
+                .SetCustomSubFeatures(new PerfectSelf())
+                .AddToDB();
+        }
 
         private static bool IsUnarmedWeapon(RulesetAttackMode attackMode, RulesetItem weapon)
         {
@@ -1014,6 +1025,24 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 if (character != null && character.HasConditionOfCategory(CATEGORY))
                 {
                     character.RemoveAllConditionsOfCategory(CATEGORY);
+                }
+            }
+        }
+        
+        private class PerfectSelf: ICharacterBattlStartedListener
+        {
+            public void OnChracterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
+            {
+                var character = locationCharacter.RulesetCharacter;
+                if (character == null)
+                {
+                    return;
+                }
+
+                if (character.GetRemainingPowerUses(kiPool) == 0)
+                {
+                    character.UpdateUsageForPower(kiPool, -4);
+                    GameConsoleHelper.LogCharacterActivatesAbility(character, "Feature/&MonkPerfectSelfTitle");
                 }
             }
         }
