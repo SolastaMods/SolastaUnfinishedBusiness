@@ -1331,8 +1331,8 @@ Reaction/&SubitemSelectSlotLevelTitle	Slot Level
 Reaction/&SubitemSelectWarcasterTitle	Select action
 Reaction/&WarcasterAttackDescription	Attack target
 Reaction/&WarcasterAttackTitle	Attack
-Reaction/&WarcasterReactionDescription	{1} is leaving a threatened area. {0} can attack or cast cantrip in responce.
-Reaction/&WarcasterReactionTitle	Warcaster's Opportunity
+Reaction/&WarcasterReactionDescription	{0} is leaving an area threatened by one or more characters.
+Reaction/&WarcasterReactionTitle	Attack of Opportunity
 Requirement/&FeatureSelectionRequireCharacterLevel	Level {0}
 Requirement/&FeatureSelectionRequireClassLevel	Level {0} of {1}
 Requirement/&WarlockMissingEldritchBlast	Eldritch Blast cantrip

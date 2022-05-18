@@ -42,7 +42,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
                 bool interactable,
                 CharacterReactionSubitem.SubitemSelectedHandler subitemSelected, ReactionRequest reactionRequest)
             {
-                Main.Log($"CustomBind ", true);
                 if (reactionRequest is ReactionRequestWarcaster warcasterRequest)
                 {
                     instance.BindWarcaster(warcasterRequest, slotLevel, interactable, subitemSelected);

@@ -2,6 +2,7 @@
 using System.Linq;
 using SolastaCommunityExpansion.Builders;
 using SolastaModApi;
+using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.CustomUI
@@ -14,7 +15,7 @@ namespace SolastaCommunityExpansion.CustomUI
         public static void Initialize()
         {
             ReactWarcasterDefinition = ReactionDefinitionBuilder
-                .Create(DatabaseHelper.ReactionDefinitions.OpportunityAttack, ReactionRequestWarcaster.Name,
+                .Create(DatabaseHelper.ReactionDefinitions.OpportunityAttack, Name,
                     DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Reaction)
                 .AddToDB();
@@ -24,26 +25,39 @@ namespace SolastaCommunityExpansion.CustomUI
             : base(Name, reactionParams)
         {
             BuildSuboptions();
-            this.ReactionParams.StringParameter2 = "Warcaster";
+            ReactionParams.StringParameter2 = "Warcaster";
         }
 
         void BuildSuboptions()
         {
-            this.SubOptionsAvailability.Clear();
-            this.SubOptionsAvailability.Add(0, true);
+            SubOptionsAvailability.Clear();
+            SubOptionsAvailability.Add(0, true);
 
             var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
             if (battleManager == null)
             {
-                this.SelectSubOption(0);
+                SelectSubOption(0);
+                return;
+            }
+            var reactionParams = ReactionParams;
+            var actingCharacter = reactionParams.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+            
+            // should not trigger if a wildshape form
+            if (rulesetCharacter is not RulesetCharacterHero)
+            {
+                return;
+            }
+
+            //TODO: find better way to detect warcaster
+            var affinities = rulesetCharacter.GetFeaturesByType<FeatureDefinitionMagicAffinity>();
+            if (affinities == null || affinities.All(a => a.Name != "MagicAffinityWarCasterFeat"))
+            {
                 return;
             }
 
             var cantrips = new List<SpellDefinition>();
-            var reactionParams = this.ReactionParams;
-            var actingCharacter = reactionParams.ActingCharacter;
-
-            actingCharacter.RulesetCharacter.EnumerateReadyAttackCantrips(cantrips);
+            rulesetCharacter.EnumerateReadyAttackCantrips(cantrips);
 
             cantrips.RemoveAll(cantrip =>
             {
@@ -74,11 +88,11 @@ namespace SolastaCommunityExpansion.CustomUI
             foreach (var c in cantrips)
             {
                 reactionParams.SpellRepertoire.KnownSpells.Add(c);
-                this.SubOptionsAvailability.Add(i, true);
+                SubOptionsAvailability.Add(i, true);
                 i++;
             }
 
-            this.SelectSubOption(0);
+            SelectSubOption(0);
         }
 
         public override int SelectedSubOption
@@ -98,8 +112,8 @@ namespace SolastaCommunityExpansion.CustomUI
 
         public override void SelectSubOption(int option)
         {
-            this.ReactionParams.RulesetEffect?.Terminate(false);
-            var reactionParams = this.ReactionParams;
+            ReactionParams.RulesetEffect?.Terminate(false);
+            var reactionParams = ReactionParams;
 
             var targetCharacters = reactionParams.TargetCharacters;
 
@@ -150,18 +164,6 @@ namespace SolastaCommunityExpansion.CustomUI
                         reactionParams.ActionModifiers.Add(mod);
                     }
                 }
-
-                // for (int i = 0; i < spelltargets; i++)
-                // {
-                //     var attackParams = new BattleDefinitions.AttackEvaluationParams();
-                //     var actionModifier = new ActionModifier();
-                //     attackParams.FillForMagic(actingCharacter,
-                //         actingCharacter.LocationPosition,
-                //         this.ReactionParams.RulesetEffect.EffectDescription, spell.Name,
-                //         reactionParams.TargetCharacters[0],
-                //         reactionParams.TargetCharacters[0].LocationPosition, actionModifier);
-                //     reactionParams.ActionModifiers[i] = actionModifier;
-                // }
             }
         }
 
@@ -172,7 +174,7 @@ namespace SolastaCommunityExpansion.CustomUI
         {
             get
             {
-                var targetCharacter = this.ReactionParams.TargetCharacters[0];
+                var targetCharacter = ReactionParams.TargetCharacters[0];
                 return ServiceRepository.GetService<IGameLocationCharacterService>().ValidCharacters
                     .Contains(targetCharacter) && !targetCharacter.RulesetCharacter.IsDeadOrDyingOrUnconscious;
             }
@@ -180,9 +182,8 @@ namespace SolastaCommunityExpansion.CustomUI
 
         public override string FormatDescription()
         {
-            var caster = new GuiCharacter(this.Character);
-            var target = new GuiCharacter(this.ReactionParams.TargetCharacters[0]);
-            return Gui.Format(base.FormatDescription(), caster.Name, target.Name, "");
+            var target = new GuiCharacter(ReactionParams.TargetCharacters[0]);
+            return Gui.Format(base.FormatDescription(), target.Name);
         }
 
         public override string FormatReactDescription() => Gui.Format(base.FormatReactDescription(), "");
@@ -190,7 +191,7 @@ namespace SolastaCommunityExpansion.CustomUI
         public override void OnSetInvalid()
         {
             base.OnSetInvalid();
-            this.ReactionParams.RulesetEffect?.Terminate(false);
+            ReactionParams.RulesetEffect?.Terminate(false);
         }
     }
 }
