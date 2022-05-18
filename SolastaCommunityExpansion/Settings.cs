@@ -80,6 +80,7 @@ namespace SolastaCommunityExpansion
         public bool EnableSortingDeities { get; set; } = true;
         public bool EnableSortingDungeonMakerAssets { get; set; } = true;
         public bool EnableSortingFeats { get; set; } = true;
+        public bool EnableSortingFightingStyles { get; set; } = true;
         public bool EnableSortingFutureFeatures { get; set; } = true;
         public bool EnableSortingRaces { get; set; } = true;
         public bool EnableSortingSubclasses { get; set; } = true;
