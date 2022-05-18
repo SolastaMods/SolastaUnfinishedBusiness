@@ -1860,3 +1860,7 @@ Reaction/&SpendPowerDiamondSoulTitle	Diamond Soul
 Reaction/&SpendPowerDiamondSoulDescription	{0} has failed a save and can spend 1 ki to reroll it.
 Reaction/&SpendPowerDiamondSoulReactTitle	Reroll
 Reaction/&SpendPowerDiamondSoulReactDescription	Spend ki to reroll failed save.
+Power/&MonkEmptyBodyTitle	Empty Body
+Power/&MonkEmptyBodyDescription	You can use your action to spend 4 ki points to become invisible for 1 minute. During that time, you also have resistance to all damage but force damage.
+Condition/&MonkEmptyBodyConditionTitle	Empty Body
+Condition/&MonkEmptyBodyConditionDescription	You have resistance to all damage but force damage.

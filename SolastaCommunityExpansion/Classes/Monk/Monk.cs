@@ -373,6 +373,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
                 .AddFeaturesAtLevel(18,
                     BuildUnarmoredMovementImprovement(),
+                    BuildEmptyBody(),
                     BuildKiPoolIncrease()
                 )
 
@@ -780,6 +781,61 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .Create("MonkTongueOfSunAndMoon", GUID)
                 .SetGuiPresentation(Category.Feature)
                 .SetFeatureSet(FeatureDefinitionFeatureSets.FeatureSetAllLanguagesButCode.FeatureSet.ToArray())
+                .AddToDB();
+        }
+
+        private static FeatureDefinition BuildEmptyBody()
+        {
+            return FeatureDefinitionPowerSharedPoolBuilder
+                .Create("MonkEmptyBody", GUID)
+                .SetGuiPresentation(Category.Power)
+                .SetSharedPool(kiPool)
+                .SetCostPerUse(4)
+                .SetActivationTime(ActivationTime.Action)
+                .SetRechargeRate(RechargeRate.ShortRest)
+                .SetEffectDescription(new EffectDescriptionBuilder()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetEffectForms(
+                        new EffectFormBuilder()
+                            .SetConditionForm(ConditionDefinitions.ConditionInvisibleGreater, ConditionForm.ConditionOperation.Add)
+                            .Build(),
+                        new EffectFormBuilder()
+                            .SetConditionForm(ConditionDefinitionBuilder
+                                .Create("MonkEmptyBodyCondition", GUID)
+                                .SetGuiPresentation(Category.Condition,
+                                    ConditionDefinitions.ConditionShielded.GuiPresentation.SpriteReference)
+                                .AddFeatures(
+                                    FeatureDefinitionDamageAffinitys.DamageAffinityAcidResistance,
+                                    FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance,
+                                    FeatureDefinitionDamageAffinitys.DamageAffinityFireResistance,
+                                    FeatureDefinitionDamageAffinitys.DamageAffinityLightningResistance,
+                                    FeatureDefinitionDamageAffinitys.DamageAffinityNecroticResistance,
+                                    FeatureDefinitionDamageAffinitys.DamageAffinityPoisonResistance,
+                                    FeatureDefinitionDamageAffinitys.DamageAffinityPsychicResistance,
+                                    FeatureDefinitionDamageAffinitys.DamageAffinityRadiantResistance,
+                                    FeatureDefinitionDamageAffinitys.DamageAffinityThunderResistance,
+                                    FeatureDefinitionDamageAffinityBuilder
+                                        .Create("MonkEmptyBodyBludgeoningResistance", GUID)
+                                        .SetDamageType(DamageTypeBludgeoning)
+                                        .SetDamageAffinityType(DamageAffinityType.Resistance)
+                                        .AddToDB(),
+                                    FeatureDefinitionDamageAffinityBuilder
+                                        .Create("MonkEmptyBodyPiercingResistance", GUID)
+                                        .SetDamageType(DamageTypePiercing)
+                                        .SetDamageAffinityType(DamageAffinityType.Resistance)
+                                        .AddToDB(),
+                                    FeatureDefinitionDamageAffinityBuilder
+                                        .Create("MonkEmptyBodySlashingResistance", GUID)
+                                        .SetDamageType(DamageTypeSlashing)
+                                        .SetDamageAffinityType(DamageAffinityType.Resistance)
+                                        .AddToDB()
+                                )
+                                .SetPossessive(true)
+                                .AddToDB(), ConditionForm.ConditionOperation.Add)
+                            .Build()
+                    )
+                    .Build())
                 .AddToDB();
         }
 
