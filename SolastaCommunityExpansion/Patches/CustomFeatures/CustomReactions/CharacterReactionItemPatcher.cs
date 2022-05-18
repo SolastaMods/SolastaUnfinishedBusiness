@@ -41,7 +41,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
                 var size = __instance.ReactionRequest is ReactionRequestWarcaster
                     ? 400
                     : 290;
-                
+
                 __instance.GetComponent<RectTransform>()
                     .SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, size);
             }

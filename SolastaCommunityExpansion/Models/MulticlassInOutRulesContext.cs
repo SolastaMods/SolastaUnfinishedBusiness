@@ -48,14 +48,14 @@ namespace SolastaCommunityExpansion.Models
 
             allowedClasses.Sort((a, b) =>
             {
-                hero.ClassesAndLevels.TryGetValue(a, out int aLevels);
-                hero.ClassesAndLevels.TryGetValue(b, out int bLevels);
+                hero.ClassesAndLevels.TryGetValue(a, out var aLevels);
+                hero.ClassesAndLevels.TryGetValue(b, out var bLevels);
 
                 if (aLevels == bLevels)
                 {
                     return a.FormatTitle().CompareTo(b.FormatTitle());
                 }
-                
+
                 return bLevels.CompareTo(aLevels);
             });
 

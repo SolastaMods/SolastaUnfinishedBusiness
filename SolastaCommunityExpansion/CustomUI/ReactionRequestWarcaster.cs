@@ -42,7 +42,7 @@ namespace SolastaCommunityExpansion.CustomUI
             var reactionParams = ReactionParams;
             var actingCharacter = reactionParams.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
-            
+
             // should not trigger if a wildshape form
             if (rulesetCharacter is not RulesetCharacterHero)
             {

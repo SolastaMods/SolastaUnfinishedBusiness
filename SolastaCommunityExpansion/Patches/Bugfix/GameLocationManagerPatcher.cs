@@ -5,7 +5,6 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.CustomDefinitions;
-using SolastaModApi;
 
 namespace SolastaCommunityExpansion.Patches.Bugfix
 {

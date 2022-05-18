@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using SolastaCommunityExpansion.Classes.Warlock;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
 using UnityEngine.UI;
@@ -34,7 +33,7 @@ namespace SolastaCommunityExpansion.Models
             var pactSlotsCount = 0;
             var pactSlotsRemainingCount = 0;
             var pactSlotsUsedCount = 0;
-            
+
             if (warlockSpellRepertoire != null)
             {
                 pactSlotsCount = SharedSpellsContext.GetWarlockMaxSlots(heroWithSpellRepertoire);
@@ -132,7 +131,7 @@ namespace SolastaCommunityExpansion.Models
             var isMulticaster = SharedSpellsContext.IsMulticaster(hero);
             var hasPactMagic = warlockSpellLevel > 0;
 
-            var maxRepertoireLevel = spellRepertoire.MaxSpellLevelOfSpellCastingLevel;            
+            var maxRepertoireLevel = spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
             var selected = false;
 
             if (maxSpellLevel == 0)
