@@ -13,6 +13,7 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
     [HarmonyPatch(typeof(GameLocationManager), "StopCharacterEffectsIfRelevant")]
     internal static class GameLocationManager_StopCharacterEffectsIfRelevant
     {
+#if false //Disabling force unsummon part since it looks like it is needed
         internal static void Prefix(GameLocationManager __instance, bool willEnterChainedLocation)
         {
             if (willEnterChainedLocation) { return; }
@@ -38,6 +39,7 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
                 }
             }
         }
+#endif
 
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
