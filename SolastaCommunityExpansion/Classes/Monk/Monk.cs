@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.Features;
 using SolastaCommunityExpansion.Utils;
 using SolastaModApi;
@@ -50,6 +52,8 @@ namespace SolastaCommunityExpansion.Classes.Monk
         private static FeatureDefinition ki, martialArts, flurryOfBlows, patientDefense, stepOfTheWind, stunningStrike;
         private static int kiPoolIncreases, martailArtsDiceProgression, unarmoredMovementProgression;
 
+        private static ConditionDefinition MonkClimbingCondition;
+
         private static FeatureDefinition UnarmoredMovementBonus =>
             _unarmoredMovementBonus ??= BuildUnarmoredMovementBonus();
 
@@ -65,6 +69,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 throw new ArgumentException("Trying to build Monk class additional time.");
             }
 
+            BuildClimbingCondition();
             BuildMartialArts();
             BuildKiFeatureSet();
 
@@ -285,6 +290,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 #region Level 09
 
                 .AddFeaturesAtLevel(9,
+                    BuildUnarmoredMovementVerticalSurface(),
                     BuildKiPoolIncrease()
                 )
 
@@ -461,6 +467,23 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .AddToDB();
         }
 
+        private static FeatureDefinition BuildUnarmoredMovementVerticalSurface()
+        {
+            return FeatureDefinitionBuilder
+                .Create("MonkUnarmoredMovementVerticalSurface", GUID)
+                .SetGuiPresentation(Category.Feature)
+                .SetCustomSubFeatures(new MonkClimbing())
+                .AddToDB();
+        }
+
+        private static void BuildClimbingCondition()
+        {
+            MonkClimbingCondition = ConditionDefinitionBuilder
+                .Create(ConditionDefinitions.ConditionSpiderClimb, "MonkClimbingCondition", GUID)
+                .SetSilent(Silent.WhenAddedOrRemoved)
+                .AddToDB();
+        }
+        
         private static FeatureDefinition BuildMartialDiceProgression()
         {
             return FeatureDefinitionBuilder
@@ -781,6 +804,129 @@ namespace SolastaCommunityExpansion.Classes.Monk
             }
 
             return (DieType.D4, 1);
+        }
+
+        private class MonkClimbing : ICustomOnActionFeature, ICharacterTurnStartListener, ICharacterTurnEndListener,
+            IHeroRefreshedListener, ICharacterBattlStartedListener, ICharacterBattlEndedListener
+        {
+            private static readonly string CATEGORY = "MonkClimbing";
+            private static readonly HashSet<string> Forbidden = new();
+
+            private static readonly CharacterValidator[] validators = new[]
+            {
+                CharacterValidators.NoArmor,
+                CharacterValidators.NoShield
+            };
+
+            public void OnBeforeAction(CharacterAction characterAction)
+            {
+                if (characterAction.ActionId != ActionDefinitions.Id.TacticalMove
+                    && characterAction.ActionId != ActionDefinitions.Id.ExplorationMove)
+                {
+                    var character = characterAction.ActingCharacter.RulesetCharacter;
+                    ForbidClimbing(character);
+                    LoseClimbing(character);
+                }
+            }
+
+            public void OnAfterAction(CharacterAction characterAction)
+            {
+                var character = characterAction.ActingCharacter.RulesetCharacter;
+                AllowClimbing(character);
+                TryBecomeClimbing(character);
+            }
+            
+            public void OnChracterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
+            {
+                ForbidClimbing(locationCharacter.RulesetCharacter);
+            }
+
+            public void OnChracterBattleEnded(GameLocationCharacter locationCharacter)
+            {
+                AllowClimbing(locationCharacter.RulesetCharacter);
+            }
+
+            public void OnChracterTurnStarted(GameLocationCharacter locationCharacter)
+            {
+                var character = locationCharacter.RulesetCharacter;
+                AllowClimbing(character);
+                TryBecomeClimbing(character);
+            }
+
+            public void OnChracterTurnEnded(GameLocationCharacter locationCharacter)
+            {
+                var character = locationCharacter.RulesetCharacter;
+                ForbidClimbing(character);
+                LoseClimbing(character);
+            }
+
+            public void OnHeroRefreshed(RulesetCharacter character)
+            {
+                TryBecomeClimbing(character);
+            }
+
+            private static bool Validate(RulesetCharacter character)
+            {
+                if (character == null)
+                {
+                    return false;
+                }
+
+                if (Forbidden.Contains(CharacterId(character)) 
+                    || !character.IsValid(validators))
+                {
+                    LoseClimbing(character);
+                    return false;
+                }
+
+                return true;
+            }
+
+            private static void TryBecomeClimbing(RulesetCharacter character)
+            {
+                if (!Validate(character))
+                {
+                    return;
+                }
+
+                if (character == null || character.HasConditionOfCategory(CATEGORY))
+                {
+                    return;
+                }
+                
+                character.AddConditionOfCategory(CATEGORY, RulesetCondition.CreateActiveCondition(character.Guid,
+                    MonkClimbingCondition, DurationType.Permanent,
+                    1,
+                    TurnOccurenceType.StartOfTurn,
+                    character.Guid,
+                    character.CurrentFaction.Name
+                ), true);
+            }
+
+            private static void ForbidClimbing(RulesetCharacter character)
+            {
+                if (character != null)
+                    Forbidden.Add(CharacterId(character));
+            }
+            
+            private static void AllowClimbing(RulesetCharacter character)
+            {
+                if (character != null)
+                    Forbidden.Remove(CharacterId(character));
+            }
+
+            private static string CharacterId(RulesetCharacter character)
+            {
+                return $"{character.Name}:{character.Guid}";
+            }
+
+            private static void LoseClimbing(RulesetCharacter character)
+            {
+                if (character != null && character.HasConditionOfCategory(CATEGORY))
+                {
+                    character.RemoveAllConditionsOfCategory(CATEGORY);
+                }
+            }
         }
     }
 }
