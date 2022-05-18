@@ -18,7 +18,7 @@ internal static class RulesetItemPatcher
         {
             if (Monk.IsMonkWeapon(__instance))
             {
-                tagsMap.Add(Monk.WeaponTag, TagsDefinitions.Criticity.Normal);
+                tagsMap.TryAdd(Monk.WeaponTag, TagsDefinitions.Criticity.Normal);
             }
         }
     }
