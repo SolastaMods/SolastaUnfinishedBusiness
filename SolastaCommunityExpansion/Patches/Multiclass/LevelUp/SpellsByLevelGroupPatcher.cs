@@ -76,11 +76,6 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
 
             CollectAllAutoPreparedSpells(__instance, bindMode, hero, allSpells, auToPreparedSpells);
 
-            if (!Main.Settings.EnableMulticlass)
-            {
-                return;
-            }
-
             var isMulticlass = LevelUpContext.IsMulticlass(hero);
 
             if (!isMulticlass)

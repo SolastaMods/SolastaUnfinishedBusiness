@@ -27,25 +27,23 @@ namespace SolastaCommunityExpansion.Models
             RectTransform rectTransform,
             bool hasTooltip = false)
         {
-            var shortRestSlotsCount = SharedSpellsContext.GetWarlockMaxSlots(heroWithSpellRepertoire);
-            var longRestSlotsCount = totalSlotsCount - shortRestSlotsCount;
-
-            var shortRestSlotsUsedCount = 0;
-
             var warlockSpellRepertoire = SharedSpellsContext.GetWarlockSpellRepertoire(heroWithSpellRepertoire);
             var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
 
+            var pactSlotsCount = 0;
+            var pactSlotsRemainingCount = 0;
+            var pactSlotsUsedCount = 0;
+
             if (warlockSpellRepertoire != null)
             {
-                var usedSpellsSlots = warlockSpellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots");
-
-                usedSpellsSlots.TryGetValue(SharedSpellsContext.MC_PACT_MAGIC_SLOT_TAB_INDEX, out shortRestSlotsUsedCount);
+                pactSlotsCount = SharedSpellsContext.GetWarlockMaxSlots(heroWithSpellRepertoire);
+                pactSlotsUsedCount = SharedSpellsContext.GetWarlockUsedSlots(heroWithSpellRepertoire);
+                pactSlotsRemainingCount = pactSlotsCount - pactSlotsUsedCount;
             }
 
-            var shortRestSlotsRemainingCount = shortRestSlotsCount - shortRestSlotsUsedCount;
-            var longRestSlotsRemainingCount = totalSlotsRemainingCount - shortRestSlotsRemainingCount;
-
-            var longRestSlotsUsedCount = longRestSlotsCount - longRestSlotsRemainingCount;
+            var spellSlotsCount = totalSlotsCount - pactSlotsCount;
+            var spellSlotsRemainingCount = totalSlotsRemainingCount - pactSlotsRemainingCount;
+            var spellSlotsUsedCount = spellSlotsCount - spellSlotsRemainingCount;
 
             for (var index = 0; index < rectTransform.childCount; ++index)
             {
@@ -53,15 +51,15 @@ namespace SolastaCommunityExpansion.Models
 
                 if (slotLevel <= warlockSpellLevel)
                 {
-                    if (index < longRestSlotsCount)
+                    if (index < spellSlotsCount)
                     {
-                        component.Used.gameObject.SetActive(index >= totalSlotsRemainingCount - shortRestSlotsRemainingCount);
-                        component.Available.gameObject.SetActive(index < totalSlotsRemainingCount - shortRestSlotsRemainingCount);
+                        component.Used.gameObject.SetActive(index >= totalSlotsRemainingCount - pactSlotsRemainingCount);
+                        component.Available.gameObject.SetActive(index < totalSlotsRemainingCount - pactSlotsRemainingCount);
                     }
                     else if (slotLevel == warlockSpellLevel)
                     {
-                        component.Used.gameObject.SetActive(index >= longRestSlotsCount + shortRestSlotsRemainingCount);
-                        component.Available.gameObject.SetActive(index < longRestSlotsCount + shortRestSlotsRemainingCount);
+                        component.Used.gameObject.SetActive(index >= spellSlotsCount + pactSlotsRemainingCount);
+                        component.Available.gameObject.SetActive(index < spellSlotsCount + pactSlotsRemainingCount);
                     }
                     else
                     {
@@ -70,7 +68,7 @@ namespace SolastaCommunityExpansion.Models
                     }
                 }
 
-                if (index >= longRestSlotsCount && slotLevel <= warlockSpellLevel)
+                if (index >= spellSlotsCount && slotLevel <= warlockSpellLevel)
                 {
                     component.Available.GetComponent<Image>().color = LightGreenSlot;
                 }
@@ -95,17 +93,17 @@ namespace SolastaCommunityExpansion.Models
             {
                 str = "Screen/&SpellSlotsUsedNoneDescription";
             }
-            else if (shortRestSlotsRemainingCount == shortRestSlotsCount)
+            else if (pactSlotsRemainingCount == pactSlotsCount)
             {
-                str = Gui.Format("Screen/&SpellSlotsUsedLongDescription", longRestSlotsUsedCount.ToString());
+                str = Gui.Format("Screen/&SpellSlotsUsedLongDescription", spellSlotsUsedCount.ToString());
             }
-            else if (longRestSlotsRemainingCount == longRestSlotsCount)
+            else if (spellSlotsRemainingCount == spellSlotsCount)
             {
-                str = Gui.Format("Screen/&SpellSlotsUsedShortDescription", shortRestSlotsUsedCount.ToString());
+                str = Gui.Format("Screen/&SpellSlotsUsedShortDescription", pactSlotsUsedCount.ToString());
             }
             else
             {
-                str = Gui.Format("Screen/&SpellSlotsUsedShortLongDescription", shortRestSlotsUsedCount.ToString(), longRestSlotsUsedCount.ToString());
+                str = Gui.Format("Screen/&SpellSlotsUsedShortLongDescription", pactSlotsUsedCount.ToString(), spellSlotsUsedCount.ToString());
             }
 
             rectTransform.GetComponent<GuiTooltip>().Content = str;
@@ -124,25 +122,30 @@ namespace SolastaCommunityExpansion.Models
 
         /**Adds available slot level options to optionsAvailability and returns index of pre-picked option, or -1*/
         public static int AddAvailableSubLevels(Dictionary<int, bool> optionsAvailability, RulesetCharacterHero hero,
-            RulesetSpellRepertoire spellRepertoire, int minSpellLebvel = 1)
+            RulesetSpellRepertoire spellRepertoire, int minSpellLevel = 1, int maxSpellLevel = 0)
         {
             var selectedSlot = -1;
 
             var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
-            var shortRestSlotsCount = SharedSpellsContext.GetWarlockMaxSlots(hero);
+            var pactMagicSlotsCount = SharedSpellsContext.GetWarlockMaxSlots(hero);
             var isMulticaster = SharedSpellsContext.IsMulticaster(hero);
             var hasPactMagic = warlockSpellLevel > 0;
 
             var maxRepertoireLevel = spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
-            var maxSpellLevel = Math.Max(maxRepertoireLevel, warlockSpellLevel);
             var selected = false;
 
-            for (var level = minSpellLebvel; level <= maxSpellLevel; ++level)
+            if (maxSpellLevel == 0)
+            {
+                maxSpellLevel = Math.Max(maxRepertoireLevel, warlockSpellLevel);
+            }
+
+            for (var level = minSpellLevel; level <= maxSpellLevel; ++level)
             {
                 spellRepertoire.GetSlotsNumber(level, out var remaining, out var max);
+
                 if (hasPactMagic && level != warlockSpellLevel)
                 {
-                    max -= shortRestSlotsCount;
+                    max -= pactMagicSlotsCount;
                 }
 
                 if (max > 0 && (
@@ -155,7 +158,7 @@ namespace SolastaCommunityExpansion.Models
                     if (!selected && remaining > 0)
                     {
                         selected = true;
-                        selectedSlot = level - minSpellLebvel;
+                        selectedSlot = level - minSpellLevel;
                     }
                 }
             }

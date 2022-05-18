@@ -49,7 +49,7 @@ namespace SolastaCommunityExpansion.Api.AdditionalExtensions
             instance.SubitemSelected = subitemSelected;
 
             var rectTransform = toggle.GetComponent<RectTransform>();
-            rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 300);
+            rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 250);
 
             // Hide all slots
             var slotStatusTable = instance.GetField<RectTransform>("slotStatusTable");

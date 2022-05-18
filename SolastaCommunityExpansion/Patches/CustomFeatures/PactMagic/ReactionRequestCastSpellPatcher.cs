@@ -14,17 +14,23 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
         {
             public static bool Prefix(ReactionRequestCastSpell __instance)
             {
-                var hero = __instance.Character.RulesetCharacter as RulesetCharacterHero;
-                if (hero == null) { return true; }
+                if (__instance.Character.RulesetCharacter is not RulesetCharacterHero hero)
+                {
+                    return true;
+                }
 
-                var rulesetEffect = __instance.ReactionParams.RulesetEffect as RulesetEffectSpell;
-                if (rulesetEffect == null) { return true; }
+                if (__instance.ReactionParams.RulesetEffect is not RulesetEffectSpell rulesetEffect)
+                {
+                    return true;
+                }
 
                 __instance.SubOptionsAvailability.Clear();
+
                 var spellRepertoire = rulesetEffect.SpellRepertoire;
                 var minSpellLebvel = rulesetEffect.SpellDefinition.SpellLevel;
+                var selected = MulticlassGameUiContext
+                    .AddAvailableSubLevels(__instance.SubOptionsAvailability, hero, spellRepertoire, minSpellLebvel);
 
-                var selected = MulticlassGameUiContext.AddAvailableSubLevels(__instance.SubOptionsAvailability, hero, spellRepertoire, minSpellLebvel);
                 if (selected >= 0)
                 {
                     __instance.SelectSubOption(selected);

@@ -16,11 +16,6 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
         {
             LevelUpContext.SetSelectedClass(hero, classDefinition);
 
-            if (!Main.Settings.EnableMulticlass)
-            {
-                return true;
-            }
-
             var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
             var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
 
@@ -59,11 +54,6 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
                 }
             }
 
-            if (!Main.Settings.EnableMulticlass)
-            {
-                return true;
-            }
-
             if (isLevelingUp && !isClassSelectionStage)
             {
                 LevelUpContext.UngrantItemsIfRequired(hero);
@@ -80,11 +70,6 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
     {
         internal static bool Prefix(RulesetCharacterHero hero)
         {
-            if (!Main.Settings.EnableMulticlass)
-            {
-                return true;
-            }
-
             var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
             var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
 
@@ -101,11 +86,6 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
             CharacterHeroBuildingData heroBuildingData,
             List<SpellDefinition> __result)
         {
-            if (!Main.Settings.EnableMulticlass)
-            {
-                return;
-            }
-
             var hero = heroBuildingData.HeroCharacter;
             var isMulticlass = LevelUpContext.IsMulticlass(hero);
 
@@ -139,11 +119,6 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
             string tag,
             ref FeatureDefinitionCastSpell __result)
         {
-            if (!Main.Settings.EnableMulticlass)
-            {
-                return true;
-            }
-
             var hero = heroBuildingData.HeroCharacter;
             var isMulticlass = LevelUpContext.IsMulticlass(hero);
 
@@ -212,11 +187,6 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
             CharacterBuildingManager __instance,
             CharacterHeroBuildingData heroBuildingData)
         {
-            if (!Main.Settings.EnableMulticlass)
-            {
-                return true;
-            }
-
             var hero = heroBuildingData.HeroCharacter;
             var isMulticlass = LevelUpContext.IsMulticlass(hero);
 

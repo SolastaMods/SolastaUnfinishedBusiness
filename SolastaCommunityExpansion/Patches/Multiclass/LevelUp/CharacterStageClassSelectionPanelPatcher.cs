@@ -22,22 +22,17 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
             ref int ___selectedClass)
         {
             // avoids a restart when enabling / disabling classes on the Mod UI panel
-            var visibleClasses = DatabaseRepository.GetDatabase<CharacterClassDefinition>().Where(x => !x.GuiPresentation.Hidden);
-
-            ___compatibleClasses.SetRange(visibleClasses.OrderBy(x => x.FormatTitle()));
-
-            if (!Main.Settings.EnableMulticlass)
-            {
-                return;
-            }
-
             if (!LevelUpContext.IsLevelingUp(___currentHero))
             {
+                var visibleClasses = DatabaseRepository.GetDatabase<CharacterClassDefinition>()
+                    .Where(x => !x.GuiPresentation.Hidden);
+
+                ___compatibleClasses.SetRange(visibleClasses.OrderBy(x => x.FormatTitle()));
                 return;
             }
 
             LevelUpContext.SetIsClassSelectionStage(___currentHero, true);
-            InOutRulesContext.EnumerateHeroAllowedClassDefinitions(___currentHero, ___compatibleClasses, ref ___selectedClass);
+            MulticlassInOutRulesContext.EnumerateHeroAllowedClassDefinitions(___currentHero, ___compatibleClasses, ref ___selectedClass);
 
             var commonData = __instance.CommonData;
 
@@ -69,6 +64,48 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
         }
     }
 
+    // hide the features list for already acquired classes
+    [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "FillClassFeatures")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class CharacterStageClassSelectionPanel_FillClassFeatures
+    {
+        public static int Level(FeatureUnlockByLevel featureUnlockByLevel, RulesetCharacterHero hero)
+        {
+            var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
+            var selectedClass = LevelUpContext.GetSelectedClass(hero);
+
+            if (isLevelingUp
+                && hero.ClassesAndLevels.TryGetValue(selectedClass, out var levels)
+                && featureUnlockByLevel.Level != (levels + 1))
+            {
+                return int.MaxValue;
+            }
+
+            return featureUnlockByLevel.Level - 1;
+        }
+
+        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        {
+            var levelMethod = typeof(FeatureUnlockByLevel).GetMethod("get_Level");
+            var myLevelMethod = typeof(CharacterStageClassSelectionPanel_FillClassFeatures).GetMethod("Level");
+            var currentHeroField = typeof(CharacterStageClassSelectionPanel).GetField("currentHero", BindingFlags.Instance | BindingFlags.NonPublic);
+
+            foreach (var instruction in instructions)
+            {
+                if (instruction.Calls(levelMethod))
+                {
+                    yield return new CodeInstruction(OpCodes.Ldarg_0);
+                    yield return new CodeInstruction(OpCodes.Ldfld, currentHeroField);
+                    yield return new CodeInstruction(OpCodes.Call, myLevelMethod);
+                }
+                else
+                {
+                    yield return instruction;
+                }
+            }
+        }
+    }
+
     // hide the equipment panel group
     [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "Refresh")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -78,16 +115,6 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
 
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
-            if (!Main.Settings.EnableMulticlass)
-            {
-                foreach (var instruction in instructions)
-                {
-                    yield return instruction;
-                };
-
-                yield break;
-            }
-
             var setActiveFound = 0;
             var setActiveMethod = typeof(GameObject).GetMethod("SetActive");
             var mySetActiveMethod = typeof(CharacterStageClassSelectionPanel_Refresh).GetMethod("SetActive");

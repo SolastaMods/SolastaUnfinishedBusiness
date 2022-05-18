@@ -15,10 +15,17 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
             return itemMenuModal.GuiCharacter.RulesetCharacterHero.ClassesHistory.Exists(x => x.RequiresDeity);
         }
 
+        public static int MaxSpellLevelOfSpellCastingLevel(RulesetSpellRepertoire repertoire)
+        {
+            return Models.SharedSpellsContext.GetClassSpellLevel(repertoire);
+        }
+
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var requiresDeityMethod = typeof(CharacterClassDefinition).GetMethod("get_RequiresDeity");
             var myRequiresDeityMethod = typeof(ItemMenuModal_SetupFromItem).GetMethod("RequiresDeity");
+            var maxSpellLevelOfSpellCastingLevelMethod = typeof(RulesetSpellRepertoire).GetMethod("get_MaxSpellLevelOfSpellCastingLevel");
+            var myMaxSpellLevelOfSpellCastingLevelMethod = typeof(ItemMenuModal_SetupFromItem).GetMethod("MaxSpellLevelOfSpellCastingLevel");
 
             foreach (var instruction in instructions)
             {
@@ -27,6 +34,10 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
                     yield return new CodeInstruction(OpCodes.Pop);
                     yield return new CodeInstruction(OpCodes.Ldarg_0);
                     yield return new CodeInstruction(OpCodes.Call, myRequiresDeityMethod);
+                }
+                else if (instruction.Calls(maxSpellLevelOfSpellCastingLevelMethod))
+                {
+                    yield return new CodeInstruction(OpCodes.Call, myMaxSpellLevelOfSpellCastingLevelMethod);
                 }
                 else
                 {

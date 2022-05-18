@@ -118,10 +118,34 @@ namespace SolastaCommunityExpansion.Models
             RemoveFeaturesByTag(hero, characterClassDefinition, CustomFeaturesContext.CustomizeTag(classTag));
 
             hero.RemoveClassLevel();
-            hero.RefreshAll();
+
+            // supports MC level down scenarios
+            characterClassDefinition = hero.ClassesHistory.Last();
+            hero.ClassesAndSubclasses.TryGetValue(characterClassDefinition, out characterSubclassDefinition);
+            LevelUpContext.SetSelectedClass(hero, characterClassDefinition);
+            LevelUpContext.SetSelectedSubclass(hero, characterSubclassDefinition);
+
+            hero.RefreshActiveFightingStyles();
+            hero.RefreshActiveItemFeatures();
+            hero.RefreshArmorClass();
+            hero.RefreshAttackModes();
+            hero.RefreshAttributeModifiersFromConditions();
+            hero.RefreshAttributeModifiersFromFeats();
+            hero.RefreshAttributes();
+            hero.RefreshClimbRules();
+            hero.RefreshConditionFlags();
+            hero.RefreshEncumberance();
+            hero.RefreshJumpRules();
+            hero.RefreshMoveModes();
+            hero.RefreshPersonalityFlags();
+            hero.RefreshPowers();
+            hero.RefreshProficiencies();
+            hero.RefreshSpellRepertoires();
+            hero.RefreshTags();
+            hero.RefreshUsableDeviceFunctions();
             hero.ComputeHitPoints(true);
 
-            characterBuildingService.FinalizeCharacter(hero);
+            characterBuildingService.ReleaseCharacter(hero, true);
 
             LevelUpContext.UnregisterHero(hero);
 
@@ -142,6 +166,7 @@ namespace SolastaCommunityExpansion.Models
                 return;
             }
 
+            int spellsToRemove;
             var cantripsToRemove = heroRepertoire.SpellCastingFeature.KnownCantrips[indexLevel] - heroRepertoire.SpellCastingFeature.KnownCantrips[indexLevel - 1];
 
             heroRepertoire.PreparedSpells.Clear();
@@ -176,8 +201,17 @@ namespace SolastaCommunityExpansion.Models
                     break;
 
                 case RuleDefinitions.SpellKnowledge.WholeList: // this is required after patch that adds WholeList to repertoire
+                    var levels = hero.ClassesAndLevels[heroRepertoire.SpellCastingClass];
+
+                    if (levels % 2 > 0)
+                    {
+                        heroRepertoire.KnownSpells.RemoveAll(x => x.SpellLevel == (levels + 1) / 2);
+                    }
+
+                    break;
+
                 case RuleDefinitions.SpellKnowledge.Selection:
-                    var spellsToRemove = heroRepertoire.SpellCastingFeature.KnownSpells[indexLevel] - heroRepertoire.SpellCastingFeature.KnownSpells[indexLevel - 1];
+                    spellsToRemove = heroRepertoire.SpellCastingFeature.KnownSpells[indexLevel] - heroRepertoire.SpellCastingFeature.KnownSpells[indexLevel - 1];
 
                     while (spellsToRemove-- > 0)
                     {

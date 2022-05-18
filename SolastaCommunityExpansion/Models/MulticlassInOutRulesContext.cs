@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace SolastaCommunityExpansion.Models
 {
-    public static class InOutRulesContext
+    public static class MulticlassInOutRulesContext
     {
         public static void EnumerateHeroAllowedClassDefinitions(RulesetCharacterHero hero, List<CharacterClassDefinition> allowedClasses, ref int selectedClass)
         {
@@ -46,7 +46,19 @@ namespace SolastaCommunityExpansion.Models
                 }
             }
 
-            allowedClasses.Sort((a, b) => a.FormatTitle().CompareTo(b.FormatTitle()));
+            allowedClasses.Sort((a, b) =>
+            {
+                hero.ClassesAndLevels.TryGetValue(a, out var aLevels);
+                hero.ClassesAndLevels.TryGetValue(b, out var bLevels);
+
+                if (aLevels == bLevels)
+                {
+                    return a.FormatTitle().CompareTo(b.FormatTitle());
+                }
+
+                return bLevels.CompareTo(aLevels);
+            });
+
             selectedClass = allowedClasses.IndexOf(hero.ClassesHistory[hero.ClassesHistory.Count - 1]);
         }
 

@@ -81,6 +81,13 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
                 return;
             }
 
+            var levels = hero.ClassesAndLevels[spellCastingClass];
+
+            if (levels % 2 == 0)
+            {
+                return;
+            }
+
             var castingLevel = SharedSpellsContext.GetClassSpellLevel(selectedClassRepertoire);
             var knownSpells = LevelUpContext.GetAllowedSpells(hero);
 

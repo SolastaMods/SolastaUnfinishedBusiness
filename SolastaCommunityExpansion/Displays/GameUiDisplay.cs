@@ -104,7 +104,17 @@ namespace SolastaCommunityExpansion.Displays
             if (UI.Toggle("Enable inventory filtering and sorting", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableInventoryFilteringAndSorting = toggle;
+                Main.Settings.EnableInventoryTaintNonProficientItemsRed = toggle;
                 InventoryManagementContext.RefreshControlsVisibility();
+            }
+
+            if (Main.Settings.EnableInventoryFilteringAndSorting)
+            {
+                toggle = Main.Settings.EnableInventoryTaintNonProficientItemsRed;
+                if (UI.Toggle("+ Taint in red any item the hero isn't proficient with".italic(), ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.EnableInventoryTaintNonProficientItemsRed = toggle;
+                }
             }
 
             toggle = Main.Settings.EnableInvisibleCrownOfTheMagister;

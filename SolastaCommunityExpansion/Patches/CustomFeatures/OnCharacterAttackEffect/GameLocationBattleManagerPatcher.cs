@@ -248,6 +248,20 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                                     for (var spellLevel = 1; spellLevel <= spellRepertoire.MaxSpellLevelOfSpellCastingLevel; spellLevel++)
                                     {
                                         spellRepertoire.GetSlotsNumber(spellLevel, out var remaining, out var max);
+                                        // handle EldritchSmite case that can only consume pact slots
+                                        //
+                                        // patch here
+                                        //
+                                        if (featureDefinition is FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage
+                                            && featureDefinitionAdditionalDamage.NotificationTag == "EldritchSmite")
+                                        {
+                                            var pactMagicMaxSlots = SharedSpellsContext.GetWarlockMaxSlots(hero);
+                                            var pactMagicUsedSlots = SharedSpellsContext.GetWarlockUsedSlots(hero);
+
+                                            remaining = pactMagicMaxSlots - pactMagicUsedSlots;
+                                        }
+                                        // end patch
+
                                         if (remaining > 0)
                                         {
                                             selectedSpellRepertoire = spellRepertoire;

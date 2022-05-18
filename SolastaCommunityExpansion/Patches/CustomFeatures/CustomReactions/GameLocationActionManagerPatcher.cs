@@ -1,7 +1,5 @@
-﻿using System.Linq;
-using HarmonyLib;
+﻿using HarmonyLib;
 using SolastaCommunityExpansion.CustomUI;
-using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
@@ -13,15 +11,9 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
         {
             internal static bool Prefix(GameLocationActionManager __instance, CharacterActionParams reactionParams)
             {
-                var affinitys = reactionParams?.ActingCharacter?.RulesetCharacter
-                    .GetFeaturesByType<FeatureDefinitionMagicAffinity>();
-                if (affinitys != null && affinitys.Any(a => a.Name == "MagicAffinityWarCasterFeat"))
-                {
-                    __instance.InvokeMethod("AddInterruptRequest", new ReactionRequestWarcaster(reactionParams));
-                    return false;
-                }
+                __instance.InvokeMethod("AddInterruptRequest", new ReactionRequestWarcaster(reactionParams));
 
-                return true;
+                return false;
             }
         }
     }

@@ -36,15 +36,11 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var code = instructions.ToList();
+            var getLastAssignedClassAndLevelMethod = typeof(ICharacterBuildingService).GetMethod("GetLastAssignedClassAndLevel");
+            var customGetLastAssignedClassAndLevelMethod = typeof(CharacterStageLevelGainsPanel_EnterStage).GetMethod("GetLastAssignedClassAndLevel");
+            var index = code.FindIndex(x => x.Calls(getLastAssignedClassAndLevelMethod));
 
-            if (Main.Settings.EnableMulticlass)
-            {
-                var getLastAssignedClassAndLevelMethod = typeof(ICharacterBuildingService).GetMethod("GetLastAssignedClassAndLevel");
-                var customGetLastAssignedClassAndLevelMethod = typeof(CharacterStageLevelGainsPanel_EnterStage).GetMethod("GetLastAssignedClassAndLevel");
-                var index = code.FindIndex(x => x.Calls(getLastAssignedClassAndLevelMethod));
-
-                code[index] = new CodeInstruction(OpCodes.Call, customGetLastAssignedClassAndLevelMethod);
-            }
+            code[index] = new CodeInstruction(OpCodes.Call, customGetLastAssignedClassAndLevelMethod);
 
             return code;
         }
@@ -70,15 +66,11 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var code = instructions.ToList();
+            var spellRepertoiresMethod = typeof(RulesetCharacter).GetMethod("get_SpellRepertoires");
+            var filteredSpellRepertoiresMethod = typeof(CharacterStageLevelGainsPanel_RefreshSpellcastingFeatures).GetMethod("SpellRepertoires");
+            var index = code.FindIndex(x => x.Calls(spellRepertoiresMethod));
 
-            if (Main.Settings.EnableMulticlass)
-            {
-                var spellRepertoiresMethod = typeof(RulesetCharacter).GetMethod("get_SpellRepertoires");
-                var filteredSpellRepertoiresMethod = typeof(CharacterStageLevelGainsPanel_RefreshSpellcastingFeatures).GetMethod("SpellRepertoires");
-                var index = code.FindIndex(x => x.Calls(spellRepertoiresMethod));
-
-                code[index] = new CodeInstruction(OpCodes.Call, filteredSpellRepertoiresMethod);
-            }
+            code[index] = new CodeInstruction(OpCodes.Call, filteredSpellRepertoiresMethod);
 
             return code;
         }
