@@ -77,4 +77,23 @@ internal static class RulesetChracterHeroPatcher
             __instance.CharacterRefreshed(__instance);
         }
     }
+    
+    // Support for `IHeroRefreshedListener`
+    [HarmonyPatch(typeof(RulesetCharacterHero), "RefreshAll")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RulesetCharacterHero_RefreshAll
+    {
+        internal static void Prefix(RulesetCharacterHero __instance)
+        {
+            var listeners = __instance.GetSubFeaturesByType<IHeroRefreshedListener>();
+            if (listeners == null)
+            {
+                return;
+            }
+            foreach (var listener in listeners)
+            {
+                listener.OnHeroRefreshed(__instance);
+            }
+        }
+    }
 }
