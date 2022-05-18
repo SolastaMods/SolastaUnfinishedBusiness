@@ -565,7 +565,7 @@ Feat/&FeatTelekineticWisPullTitle	Telekinetic Pull
 Feat/&FeatTelekineticWisPushDescription	Telekinetically shove a creature away from you
 Feat/&FeatTelekineticWisPushTitle	Telekinetic Push
 Feat/&FeatTelekineticWisTitle	Telekinetic (Wisdom)
-Feat/&FeatTitanFightingDescription	You add a +2 force damage against creatures of size large or bigger
+Feat/&FeatTitanFightingDescription	You gain a +2 hit against creatures of size large or bigger
 Feat/&FeatTitanFightingTitle	Fighting Style: Titan Fighting
 Feat/&FeatToughDescription	Your hit point maximum increases by an amount equal to twice your level when you gain this feat. Whenever you gain a level thereafter, your hit point maximum increases by an additional 2 hit points
 Feat/&FeatToughTitle	Tough
@@ -1153,7 +1153,7 @@ FightingStyle/&CripplingDescription	Reduce the speed of your opponent on a melee
 FightingStyle/&CripplingTitle	Crippling
 FightingStyle/&PugilistFightingDescription	While you are completely unarmed, your unarmed strikes deal an additional d8 of damage and you can punch with your offhand as a bonus action
 FightingStyle/&PugilistFightingTitle	Pugilist
-FightingStyle/&TitanFightingDescription	You increase your melee attack damage by +2
+FightingStyle/&TitanFightingDescription	You gain a +2 hit against creatures of size large or bigger
 FightingStyle/&TitanFightingTitle	Titan Fighting
 FlexibleBackgrounds/&AcademicBackgroundSuggestedSkillsDescription	Arcana, Nature, and Insight
 FlexibleBackgrounds/&AcademicBackgroundSuggestedSkillsTitle	Suggested Skills

@@ -565,7 +565,7 @@ Feat/&FeatTelekineticWisPullTitle	Puxada Telecinética
 Feat/&FeatTelekineticWisPushDescription	Empurre telecineticamente uma criatura para longe de você
 Feat/&FeatTelekineticWisPushTitle	Empurrão Telecinético
 Feat/&FeatTelekineticWisTitle	Telecinética (Sabedoria)
-Feat/&FeatTitanFightingDescription	Você adiciona +2 de dano de força contra criaturas de tamanho grande ou maior
+Feat/&FeatTitanFightingDescription	Você ganha +2 de acerto contra criaturas de tamanho grande ou maior
 Feat/&FeatTitanFightingTitle	Estilo de luta: Titan Fighting
 Feat/&FeatToughDescription	Seu máximo de pontos de vida aumenta em uma quantidade igual ao dobro do seu nível quando você ganha este talento. Sempre que você ganha um nível depois disso, seu máximo de pontos de vida aumenta em 2 pontos de vida adicionais
 Feat/&FeatToughTitle	Resistente
@@ -1153,7 +1153,7 @@ FightingStyle/&CripplingDescription	Reduza a velocidade do seu oponente em um at
 FightingStyle/&CripplingTitle	Aleijante
 FightingStyle/&PugilistFightingDescription	Enquanto você está completamente desarmado, seus ataques desarmados causam um d8 adicional de dano e você pode socar com sua mão secundária como uma ação bônus
 FightingStyle/&PugilistFightingTitle	Pugilista
-FightingStyle/&TitanFightingDescription	Você aumenta seu dano de ataque corpo a corpo em +2
+FightingStyle/&TitanFightingDescription	Você ganha +2 de acerto contra criaturas de tamanho grande ou maior
 FightingStyle/&TitanFightingTitle	Luta de Titãs
 FlexibleBackgrounds/&AcademicBackgroundSuggestedSkillsDescription	Arcano, Natureza e Insight
 FlexibleBackgrounds/&AcademicBackgroundSuggestedSkillsTitle	Habilidades sugeridas
