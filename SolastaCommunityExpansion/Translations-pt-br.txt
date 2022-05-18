@@ -565,7 +565,7 @@ Feat/&FeatTelekineticWisPullTitle	Puxada Telecinética
 Feat/&FeatTelekineticWisPushDescription	Empurre telecineticamente uma criatura para longe de você
 Feat/&FeatTelekineticWisPushTitle	Empurrão Telecinético
 Feat/&FeatTelekineticWisTitle	Telecinética (Sabedoria)
-Feat/&FeatTitanFightingDescription	Você aumenta seu dano de ataque corpo a corpo em +2 contra criaturas de tamanho grande ou maior
+Feat/&FeatTitanFightingDescription	Você adiciona +2 de dano de força contra criaturas de tamanho grande ou maior
 Feat/&FeatTitanFightingTitle	Estilo de luta: Titan Fighting
 Feat/&FeatToughDescription	Seu máximo de pontos de vida aumenta em uma quantidade igual ao dobro do seu nível quando você ganha este talento. Sempre que você ganha um nível depois disso, seu máximo de pontos de vida aumenta em 2 pontos de vida adicionais
 Feat/&FeatToughTitle	Resistente

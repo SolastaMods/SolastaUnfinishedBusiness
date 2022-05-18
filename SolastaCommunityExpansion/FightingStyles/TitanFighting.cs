@@ -32,6 +32,9 @@ namespace SolastaCommunityExpansion.FightingStyles
                     .Create(DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageBracersOfArchery, "ModifierTitanFighting", TITAN_FIGHTING_BASE_GUID)
                     .SetTriggerCondition((RuleDefinitions.AdditionalDamageTriggerCondition)IsSizeLargeOrMore)
                     .SetRequiredProperty(RuleDefinitions.AdditionalDamageRequiredProperty.MeleeWeapon)
+                    .SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage.None)
+                    .SetAdditionalDamageType(RuleDefinitions.AdditionalDamageType.Specific)
+                    .SetSpecificDamageType(RuleDefinitions.DamageTypeForce)
                     .SetDamageDice(RuleDefinitions.DieType.D1, 2)
                     .AddToDB();
 

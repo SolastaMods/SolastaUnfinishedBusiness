@@ -565,7 +565,7 @@ Feat/&FeatTelekineticWisPullTitle	Tir télékinésique
 Feat/&FeatTelekineticWisPushDescription	Repousse télékinétiquement une créature loin de vous
 Feat/&FeatTelekineticWisPushTitle	Poussée télékinétique
 Feat/&FeatTelekineticWisTitle	Télékinésie (Sagesse)
-Feat/&FeatTitanFightingDescription	You increase your melee attack damage by +2 against creatures of size large or bigger
+Feat/&FeatTitanFightingDescription	Vous ajoutez +2 dégâts de force contre les créatures de taille grande ou plus
 Feat/&FeatTitanFightingTitle	Style de combat : Combat contre les Titans
 Feat/&FeatToughDescription	Votre maximum de points de vie augmente d'un montant égal à deux fois votre niveau lorsque vous obtenez ce don. Chaque fois que vous gagnez un niveau par la suite, votre maximum de points de vie augmente de 2 points de vie supplémentaires
 Feat/&FeatToughTitle	Difficile
