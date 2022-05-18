@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
 {
@@ -10,10 +11,12 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
     {
         internal static void Prefix(ref int achievementLevel)
         {
-            var hero = Models.Global.ActiveLevelUpHero;
-            var selectedClass = Models.LevelUpContext.GetSelectedClass(hero);
+            var hero = Global.ActiveLevelUpHero;
+            var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
+            var selectedClass = LevelUpContext.GetSelectedClass(hero);
 
-            if (hero.ClassesAndLevels.TryGetValue(selectedClass, out var levels))
+            if (isLevelingUp
+                && hero.ClassesAndLevels.TryGetValue(selectedClass, out var levels))
             {
                 achievementLevel = levels + 1;
             }
