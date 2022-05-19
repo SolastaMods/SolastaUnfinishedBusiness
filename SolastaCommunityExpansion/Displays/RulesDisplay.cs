@@ -9,13 +9,10 @@ namespace SolastaCommunityExpansion.Displays
     {
         internal static void DisplayRules()
         {
-            int intValue;
             bool toggle;
 
             UI.Label("");
-
             UI.Label("SRD:".yellow());
-
             UI.Label("");
 
             toggle = Main.Settings.UseOfficialAdvantageDisadvantageRules;
@@ -86,9 +83,7 @@ namespace SolastaCommunityExpansion.Displays
             }
 
             UI.Label("");
-
             UI.Label("House:".yellow());
-
             UI.Label("");
 
             toggle = Main.Settings.AllowAnyClassToWearSylvanArmor;
@@ -134,14 +129,6 @@ namespace SolastaCommunityExpansion.Displays
                 Main.Settings.QuickCastLightCantripOnWornItemsFirst = toggle;
             }
 
-            //toggle = Main.Settings.UseHeightOneCylinderEffect;
-            //if (UI.Toggle("Display a height 1 cylinder effect when casting " + "Black Tentacles, Entangle, Grease ".orange() +
-            //    " (square cylinder), ".yellow() + "Spike Growth".orange() + " (round cylinder).".yellow(), ref toggle, UI.AutoWidth()))
-            //{
-            //    Main.Settings.UseHeightOneCylinderEffect = toggle;
-            //    HouseSpellTweaks.UseHeightOneCylinderEffect();
-            //}
-
             UI.Label("");
 
             toggle = Main.Settings.AddPickpocketableLoot;
@@ -164,30 +151,6 @@ namespace SolastaCommunityExpansion.Displays
             if (UI.Toggle("Scale merchant prices correctly / exactly", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.ScaleMerchantPricesCorrectly = toggle;
-            }
-
-            UI.Label("");
-
-            toggle = Main.Settings.OverrideMinMaxLevel;
-            if (UI.Toggle("Override the required min and max levels when starting new adventures", ref toggle))
-            {
-                Main.Settings.OverrideMinMaxLevel = toggle;
-            }
-
-            UI.Label("");
-
-            intValue = Main.Settings.OverridePartySize;
-            if (UI.Slider("Override the party size in custom adventures".white(), ref intValue, DungeonMakerContext.MIN_PARTY_SIZE, DungeonMakerContext.MAX_PARTY_SIZE, DungeonMakerContext.GAME_PARTY_SIZE, "", UI.AutoWidth()))
-            {
-                Main.Settings.OverridePartySize = intValue;
-            }
-
-            UI.Label("");
-
-            intValue = Main.Settings.MultiplyTheExperienceGainedBy;
-            if (UI.Slider("Multiply the experience gained by ".white() + "[%]".red(), ref intValue, 0, 200, 100, "", UI.Width(100)))
-            {
-                Main.Settings.MultiplyTheExperienceGainedBy = intValue;
             }
 
             UI.Label("");

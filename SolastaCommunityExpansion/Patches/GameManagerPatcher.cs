@@ -73,6 +73,7 @@ namespace SolastaCommunityExpansion.Patches
             // Subclasses may rely on classes being loaded (as well as spells and powers) in order to properly refer back to the class.
             SubclassesContext.Load();
 
+            //
             PowerBundleContext.Load();
 
             // Multiclass blueprints should always load to avoid issues with heroes saves and after classes and subclasses
@@ -80,9 +81,8 @@ namespace SolastaCommunityExpansion.Patches
 
             ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += (_) =>
             {
-                // Both are late initialized to allow feats and races from other mods
+                // Late initialized to allow feats and races from other mods
                 FlexibleRacesContext.LateLoad();
-                InitialChoicesContext.LateLoad();
 
                 // There are feats that need all character classes loaded before they can properly be setup.
                 FeatsContext.LateLoad();
@@ -102,6 +102,7 @@ namespace SolastaCommunityExpansion.Patches
                 // Save by location initialization depends on services to be ready
                 SaveByLocationContext.LateLoad();
 
+                //
                 HouseFeatureTweaks.LateLoad();
 
                 // Recache all gui collections

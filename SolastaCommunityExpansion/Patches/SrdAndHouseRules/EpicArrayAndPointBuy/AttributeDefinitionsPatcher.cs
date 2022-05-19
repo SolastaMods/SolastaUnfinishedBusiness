@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.EpicArrayAndPointBu
     {
         internal static void Postfix(int previousValue, ref int __result)
         {
-            if (Main.Settings.EnableEpicPoints)
+            if (Main.Settings.EnableEpicPointsAndArray)
             {
                 if (Array.IndexOf(new[] { 15, 16 }, previousValue) != -1)
                 {

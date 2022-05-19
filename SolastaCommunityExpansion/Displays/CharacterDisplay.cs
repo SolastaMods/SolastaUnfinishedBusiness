@@ -52,25 +52,16 @@ namespace SolastaCommunityExpansion.Displays
             }
 
             toggle = Main.Settings.EnableFlexibleRaces;
-            if (UI.Toggle("Enable flexible races " + "[assign ability score points instead of the racial defaults]".italic().yellow() + "\ni.e.: High Elf has 3 points to assign instead of +2 Dex / +1 Int".italic(), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enable flexible races " + "[assign ability score points instead of the racial defaults]".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableFlexibleRaces = toggle;
                 FlexibleRacesContext.Switch();
             }
 
-            UI.Label("");
-
-            toggle = Main.Settings.EnableEpicPoints;
-            if (UI.Toggle("Enable an epic 35 points buy system " + RequiresRestart, ref toggle, UI.AutoWidth()))
+            toggle = Main.Settings.EnableEpicPointsAndArray;
+            if (UI.Toggle("Enable an epic 35 points buy system and array " + "[17,15,13,12,10,8] ".italic().yellow() + RequiresRestart, ref toggle, UI.AutoWidth()))
             {
-                Main.Settings.EnableEpicPoints = toggle;
-            }
-
-            toggle = Main.Settings.EnableEpicArray;
-            if (UI.Toggle("Enable an epic " + "[17,15,13,12,10,8]".italic().yellow() + " array instead of a standard " + "[15,14,13,12,10,8]".italic().yellow(), ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnableEpicArray = toggle;
-                InitialChoicesContext.SwitchEpicArray();
+                Main.Settings.EnableEpicPointsAndArray = toggle;
             }
 
             UI.Label("");
@@ -80,24 +71,6 @@ namespace SolastaCommunityExpansion.Displays
             {
                 Main.Settings.TotalFeatsGrantedFistLevel = intValue;
                 InitialChoicesContext.SwitchFirstLevelTotalFeats();
-            }
-
-            UI.Label("");
-            UI.Label("Progression:".yellow());
-            UI.Label("");
-
-            toggle = Main.Settings.EnablesAsiAndFeat;
-            if (UI.Toggle("Enable both attribute scores increase and feats selection instead of an exclusive choice", ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnablesAsiAndFeat = toggle;
-                InitialChoicesContext.SwitchAsiAndFeat();
-            }
-
-            toggle = Main.Settings.EnableFeatsAtEvenLevels;
-            if (UI.Toggle("Enable feats selection at class levels 2, 6, 10 and 14", ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnableFeatsAtEvenLevels = toggle;
-                InitialChoicesContext.SwitchEvenLevelFeats();
             }
 
             UI.Label("");
@@ -131,8 +104,32 @@ namespace SolastaCommunityExpansion.Displays
             }
 
             UI.Label("");
+            UI.Label("Progression:".yellow());
+            UI.Label("");
+
+            toggle = Main.Settings.EnablesAsiAndFeat;
+            if (UI.Toggle("Enable both attribute scores increase and feats selection instead of an exclusive choice", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnablesAsiAndFeat = toggle;
+                InitialChoicesContext.SwitchAsiAndFeat();
+            }
+
+            toggle = Main.Settings.EnableFeatsAtEvenLevels;
+            if (UI.Toggle("Enable feats selection at class levels 2, 6, 10 and 14", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableFeatsAtEvenLevels = toggle;
+                InitialChoicesContext.SwitchEvenLevelFeats();
+            }
+
+            UI.Label("");
             UI.Label("Visuals:".yellow());
             UI.Label("");
+
+            toggle = Main.Settings.AllowUnmarkedSorcerers;
+            if (UI.Toggle("Allow unmarked " + "Sorcerers".orange(), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.AllowUnmarkedSorcerers = toggle;
+            }
 
             toggle = Main.Settings.OfferAdditionalLoreFriendlyNames;
             if (UI.Toggle("Offer additional lore friendly names on character creation", ref toggle, UI.AutoWidth()))
@@ -146,12 +143,6 @@ namespace SolastaCommunityExpansion.Displays
             if (UI.Toggle("Unlock all NPC faces", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.UnlockAllNpcFaces = toggle;
-            }
-
-            toggle = Main.Settings.AllowUnmarkedSorcerers;
-            if (UI.Toggle("Allow unmarked " + "Sorcerers".orange(), ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.AllowUnmarkedSorcerers = toggle;
             }
 
             toggle = Main.Settings.UnlockMarkAndTatoosForAllCharacters;

@@ -15,7 +15,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.EpicArrayAndPointBu
         {
             foreach (var instruction in instructions)
             {
-                if (Main.Settings.EnableEpicPoints)
+                if (Main.Settings.EnableEpicPointsAndArray)
                 {
                     if (instruction.opcode == OpCodes.Ldc_I4_S && instruction.operand.ToString() == InitialChoicesContext.GAME_BUY_POINTS.ToString())
                     {
@@ -43,7 +43,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.EpicArrayAndPointBu
         {
             foreach (var instruction in instructions)
             {
-                if (Main.Settings.EnableEpicPoints)
+                if (Main.Settings.EnableEpicPointsAndArray)
                 {
                     if (instruction.opcode == OpCodes.Ldc_R4 && instruction.operand.ToString() == InitialChoicesContext.GAME_BUY_POINTS.ToString())
                     {
