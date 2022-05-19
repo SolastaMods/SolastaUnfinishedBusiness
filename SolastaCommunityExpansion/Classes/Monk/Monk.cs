@@ -466,8 +466,9 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     new AddBonusUnarmedAttack(ActionDefinitions.ActionType.Bonus,
                         attackedWithMonkWeapon, UsingOnlyMonkWeapons,
                         CharacterValidators.NoShield, CharacterValidators.NoArmor,
-                        CharacterValidators
-                            .EmptyOffhand) //Forcing empty offhand only because it isn't really shown if character already has bonus attack
+                        //Forcing empty offhand only because it isn't really shown if character already has bonus attack
+                        //TODO: make action panel able to show multiple actions of a type
+                        CharacterValidators.EmptyOffhand) 
                 )
                 .AddToDB();
         }
@@ -531,7 +532,6 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .AddToDB();
         }
 
-        //TODO: rework into feature set with generated description?
         private static void BuildKiFeatureSet()
         {
             var inBattleNoShieldOrArmor = new PowerUseValidity(
