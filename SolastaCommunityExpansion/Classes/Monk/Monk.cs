@@ -7,6 +7,7 @@ using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.CustomUI;
 using SolastaCommunityExpansion.Features;
 using SolastaCommunityExpansion.Models;
+using SolastaCommunityExpansion.Properties;
 using SolastaCommunityExpansion.Utils;
 using SolastaModApi;
 using UnityEngine.AddressableAssets;
@@ -50,31 +51,31 @@ namespace SolastaCommunityExpansion.Classes.Monk
             _monkEmptyBodyIcon;
 
         private static AssetReferenceSprite MonkPictogram => _monkPictogram ??=
-            CreateAssetReferenceSprite("MonkPictogram", Properties.Resources.MonkPictogram, 128, 128);
+            CreateAssetReferenceSprite("MonkPictogram", Resources.MonkPictogram, 128, 128);
 
         private static AssetReferenceSprite MonkKiIcon => _monkKiIcon ??=
-            CreateAssetReferenceSprite("MonkKiIcon", Properties.Resources.MonkKiIcon, 64, 64);
+            CreateAssetReferenceSprite("MonkKiIcon", Resources.MonkKiIcon, 64, 64);
 
         private static AssetReferenceSprite MonkFlurryOfBlowsIcon => _monkFlurryOfBlowsIcon ??=
-            CreateAssetReferenceSprite("MonkFlurryOfBlows", Properties.Resources.MonkFlurryOfBlows, 128, 64);
+            CreateAssetReferenceSprite("MonkFlurryOfBlows", Resources.MonkFlurryOfBlows, 128, 64);
 
         private static AssetReferenceSprite MonkStunningStrikeIcon => _monkStunningStrikeIcon ??=
-            CreateAssetReferenceSprite("MonkStunningStrike", Properties.Resources.MonkStunningStrike, 128, 64);
+            CreateAssetReferenceSprite("MonkStunningStrike", Resources.MonkStunningStrike, 128, 64);
 
         private static AssetReferenceSprite MonkPatientDefenseIcon => _monkPatientDefenseIcon ??=
-            CreateAssetReferenceSprite("MonkPatientDefense", Properties.Resources.MonkPatientDefense, 128, 64);
+            CreateAssetReferenceSprite("MonkPatientDefense", Resources.MonkPatientDefense, 128, 64);
 
         private static AssetReferenceSprite MonkStepOfTheWindIcon => _monkStepOfTheWindIcon ??=
-            CreateAssetReferenceSprite("MonkStepOfTheWind", Properties.Resources.MonkStepOfTheWind, 128, 64);
+            CreateAssetReferenceSprite("MonkStepOfTheWind", Resources.MonkStepOfTheWind, 128, 64);
 
         private static AssetReferenceSprite MonkStillnessOfMindIcon => _monkStillnessOfMindIcon ??=
-            CreateAssetReferenceSprite("MonkStillnessOfMind", Properties.Resources.MonkStillnessOfMind, 128, 64);
+            CreateAssetReferenceSprite("MonkStillnessOfMind", Resources.MonkStillnessOfMind, 128, 64);
 
         private static AssetReferenceSprite MonkSlowFallIcon => _monkSlowFallIcon ??=
-            CreateAssetReferenceSprite("MonkSlowFall", Properties.Resources.MonkSlowFall, 128, 64);
+            CreateAssetReferenceSprite("MonkSlowFall", Resources.MonkSlowFall, 128, 64);
 
         private static AssetReferenceSprite MonkEmptyBodyIcon => _monkEmptyBodyIcon ??=
-            CreateAssetReferenceSprite("MonkEmptyBodypng", Properties.Resources.MonkEmptyBodypng, 128, 64);
+            CreateAssetReferenceSprite("MonkEmptyBodypng", Resources.MonkEmptyBodypng, 128, 64);
 
 
         private static FeatureDefinition _unarmoredMovement, _unarmoredMovementBonus;
