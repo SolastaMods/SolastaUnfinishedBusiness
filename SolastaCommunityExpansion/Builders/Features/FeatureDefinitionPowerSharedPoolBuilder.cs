@@ -42,6 +42,13 @@ namespace SolastaCommunityExpansion.Builders.Features
 
             return This();
         }
+        
+        public FeatureDefinitionPowerSharedPoolBuilder SetSharedPool(FeatureDefinitionPower poolPower)
+        {
+            Preconditions.IsNotNull(poolPower, $"FeatureDefinitionPowerSharedPoolBuilder[{Definition.Name}] poolPower is null.");
+            Definition.SharedPool = poolPower;
+            return this;
+        }
 
         public FeatureDefinitionPowerSharedPoolBuilder(string name, string guid,
             FeatureDefinitionPower poolPower,

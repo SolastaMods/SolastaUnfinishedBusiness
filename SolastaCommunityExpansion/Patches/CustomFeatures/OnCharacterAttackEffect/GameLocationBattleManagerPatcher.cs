@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using HarmonyLib;
+using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.CustomDefinitions;
+using SolastaCommunityExpansion.Features;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi.Extensions;
 using UnityEngine;
@@ -494,6 +496,12 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                 {
                     foreach (var usablePower in attacker.RulesetCharacter.UsablePowers)
                     {
+                        var validator = usablePower.PowerDefinition.GetFirstSubFeatureOfType<IReactionAttackModeRestriction>();
+                        if (validator != null && !validator.ValidReactionMode(attackMode, attacker.RulesetCharacter, defender.RulesetCharacter))
+                        {
+                            continue;
+                        }
+
                         if (!attacker.RulesetCharacter.IsPowerOverriden(usablePower)
                             && attacker.RulesetCharacter.GetRemainingUsesOfPower(usablePower) > 0
                             && ((usablePower.PowerDefinition.ActivationTime == RuleDefinitions.ActivationTime.OnAttackHit && attackMode != null)

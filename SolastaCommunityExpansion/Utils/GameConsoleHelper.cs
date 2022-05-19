@@ -5,18 +5,21 @@ namespace SolastaCommunityExpansion.Utils
     public static class GameConsoleHelper
     {
         private const string DefaultUseText = "Feedback/&ActivatePowerLine";
-        public static void LogCharacterUsedPower(RulesetCharacter character, FeatureDefinitionPower power, string text = DefaultUseText)
+        public static void LogCharacterUsedPower(RulesetCharacter character, FeatureDefinitionPower power, string text = DefaultUseText, bool indent = false)
         {
             var abilityName = string.IsNullOrEmpty(power.ShortTitleOverride) ? power.GuiPresentation.Title : power.ShortTitleOverride;
-            LogCharacterActivatesAbility(character, abilityName, text);
+            LogCharacterActivatesAbility(character, abilityName, text, indent);
         }
 
-        public static void LogCharacterActivatesAbility(RulesetCharacter character, string abilityName, string text = DefaultUseText)
+        public static void LogCharacterActivatesAbility(RulesetCharacter character, string abilityName, string text = DefaultUseText, bool indent = false)
         {
             var console = Gui.Game.GameConsole;
             var characterName = character is RulesetCharacterHero hero ? hero.DisplayName : character.Name;
 
-            var entry = new GameConsoleEntry(text, console.GetField<ConsoleTableDefinition>("consoleTableDefinition"));
+            var entry = new GameConsoleEntry(text, console.GetField<ConsoleTableDefinition>("consoleTableDefinition"))
+            {
+                Indent = indent
+            };
             entry.AddParameter(ConsoleStyleDuplet.ParameterType.Player, characterName);
             entry.AddParameter(ConsoleStyleDuplet.ParameterType.AttackSpellPower, abilityName);
             console.AddEntry(entry);

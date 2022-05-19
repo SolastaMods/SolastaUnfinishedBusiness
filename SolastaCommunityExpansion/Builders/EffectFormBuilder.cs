@@ -104,7 +104,10 @@ namespace SolastaCommunityExpansion.Builders
                 Operation = operation,
                 ConditionDefinition = condition
             };
-            conditionForm.SetConditionDefinitionName(condition.Name);
+            if (condition != null)
+            {
+                conditionForm.SetConditionDefinitionName(condition.Name);
+            }
             conditionForm.SetApplyToSelf(applyToSelf);
             conditionForm.SetForceOnSelf(forceOnSelf);
             conditionForm.ConditionsList.SetRange(detrimentalConditions.ToList());

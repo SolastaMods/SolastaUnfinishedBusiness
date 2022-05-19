@@ -243,9 +243,9 @@ namespace SolastaCommunityExpansion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap ResonatingStrike {
+        public static System.Drawing.Bitmap HellishRebuke {
             get {
-                object obj = ResourceManager.GetObject("ResonatingStrike", resourceCulture);
+                object obj = ResourceManager.GetObject("HellishRebuke", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -253,9 +253,99 @@ namespace SolastaCommunityExpansion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap HellishRebuke {
+        public static System.Drawing.Bitmap MonkEmptyBodypng {
             get {
-                object obj = ResourceManager.GetObject("HellishRebuke", resourceCulture);
+                object obj = ResourceManager.GetObject("MonkEmptyBodypng", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap MonkFlurryOfBlows {
+            get {
+                object obj = ResourceManager.GetObject("MonkFlurryOfBlows", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap MonkKiIcon {
+            get {
+                object obj = ResourceManager.GetObject("MonkKiIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap MonkPatientDefense {
+            get {
+                object obj = ResourceManager.GetObject("MonkPatientDefense", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap MonkPictogram {
+            get {
+                object obj = ResourceManager.GetObject("MonkPictogram", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap MonkSlowFall {
+            get {
+                object obj = ResourceManager.GetObject("MonkSlowFall", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap MonkStepOfTheWind {
+            get {
+                object obj = ResourceManager.GetObject("MonkStepOfTheWind", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap MonkStillnessOfMind {
+            get {
+                object obj = ResourceManager.GetObject("MonkStillnessOfMind", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap MonkStunningStrike {
+            get {
+                object obj = ResourceManager.GetObject("MonkStunningStrike", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap ResonatingStrike {
+            get {
+                object obj = ResourceManager.GetObject("ResonatingStrike", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

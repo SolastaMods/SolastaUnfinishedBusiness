@@ -1796,3 +1796,74 @@ UI/&CustomFeatureSelectionTooltipTypePower	Power
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Proficiency
 UI/&ForcePreferredCantripDescription	If this toggled is ON only preferred cantrip can trigger. If the preferred cantrip isn't selected, then the first valid cantrip will trigger, regardless of this toggle
 UI/&ForcePreferredCantripTitle	Force Preferred Cantrip
+Class/&MonkTitle	Monk
+Class/&MonkDescription	Monks are united in their ability to magically harness the energy that flows in their bodies. Whether channeled as a striking display of combat prowess or a subtler focus of defensive ability and speed, this energy infuses all that a monk does.
+Feature/&MonkWeaponProficiencyTitle	Monk Weapon Proficiencies
+Feature/&MonkSkillPointsTitle	Monk Skills
+Feature/&MonkUnarmoredDefenseTitle	Unarmored Defense
+Feature/&MonkUnarmoredDefenseDescription	While you are wearing no armor and not wielding a shield, your AC equals 10 + your Dexterity modifier + your Wisdom modifier.
+Feature/&MonkMartialArtsTitle	Martial Arts
+Feature/&MonkMartialArtsDescription	You gain the following benefits while you are unarmed or wielding only monk weapons and you aren't wearing armor or wielding a shield:\n - You can use Dexterity instead of Strength for the attack and damage rolls of your unarmed strikes and monk weapons.\n - You can roll a d4 in place of the normal damage of your unarmed strike or monk weapon. This die changes as you gain monk levels.\n - When you use the Attack action with an unarmed strike or a monk weapon on your turn, you can make one unarmed strike as a bonus action.
+Feature/&MonkUnarmoredMovementTitle	Unarmored Movement
+Feature/&MonkUnarmoredMovementDescription	Your speed increases by 10 feet while you are not wearing armor or wielding a shield. This bonus increases when you reach certain monk levels.
+Feature/&MonkUnarmoredMovementBonusTitle	Unarmored Movement Improvement
+Feature/&MonkUnarmoredMovementBonusDescription	Movement bonus increases by 5 feet.
+Feature/&MonkMartialDiceProgression00Title	Martial Arts Die Increase (D6)
+Feature/&MonkMartialDiceProgression00Description	You can roll <color=#57BCF4>D6</color> in place of the normal damage of your unarmed strike or monk weapon.
+Feature/&MonkMartialDiceProgression01Title	Martial Arts Die Increase (D8)
+Feature/&MonkMartialDiceProgression01Description	You can roll <color=#57BCF4>D8</color> in place of the normal damage of your unarmed strike or monk weapon.
+Feature/&MonkMartialDiceProgression02Title	Martial Arts Die Increase (D10)
+Feature/&MonkMartialDiceProgression02Description	You can roll <color=#57BCF4>D10</color> in place of the normal damage of your unarmed strike or monk weapon.
+Tooltip/&TagMonkWeaponTitle	Monk
+Feature/&MonkKiTitle	Ki
+Feature/&MonkKiDescription	Your training allows you to harness the mystic energy of ki. You gain ki points equal to your monk level. When you spend a ki point, it is unavailable until you finish a short or long rest, at the end of which you draw all of your expended ki back into yourself. You can spend these points to fuel various ki features. You start knowing three such features:
+Power/&MonkFlurryOfBlowsTitle	Flurry of Blows
+Power/&MonkFlurryOfBlowsDescription	After spending action to attack with monk weapon you can spend 1 ki point as a bonus action to do 2 unamed strikes. Only availabe if you are not wearing armor or shield.
+Power/&MonkPatientDefenseTitle	Patient Defense
+Power/&MonkPatientDefenseDescription	You can spend 1 ki point as a bonus action to take the Dodge action. Only availabe if you are not wearing armor or shield.
+Power/&MonkStepOfTheWindTitle	Step Of The Wind
+Power/&MonkStepOfTheWindDescription	You can spend 1 ki point to take the Disengage or Dash action as a bonus action on your turn, and your jump distance is doubled for the turn. Only availabe if you are not wearing armor or shield.
+Condition/&MonkStepOfTheWindConditionTitle	Step Of The Wind
+Condition/&MonkStepOfTheWindConditionDescription	You can take the Disengage or Dash action as a bonus action and your jump distance is doubled for the turn.
+Feature/&MonkDeflectMissileTitle	Deflect Missiles
+Feature/&MonkDeflectMissileDescription	You can use your reaction to deflect the missile when you are hit by a ranged weapon attack. When you do so, the damage you take from the attack is reduced by 1d10 + your Dexterity modifier + your monk level.
+Reaction/&CustomDeflectMissileMonkTitle	{0} is attacking {1}, who can react to reduce the incoming damage by 1D10 + DEX modifier + Monk level.
+Power/&MonkSlowFallTitle	Slow Fall
+Power/&MonkSlowFallDescription	You can use your reaction when you fall to prevent any falling damage.
+Reaction/&UseMonkSlowFallTitle	Slow Fall
+Reaction/&UseMonkSlowFallDescription	{0} is falling and can use reaction to prevent falling damage.
+Reaction/&UseMonkSlowFallReactTitle	React
+Reaction/&UseMonkSlowFallReactDescription	Use reaction to prevent damage.
+Feature/&MonkExtraAttackTitle	Extra Attack
+Feature/&MonkExtraAttackDescription	You can attack twice, instead of once, whenever you take the Attack action on your turn.
+Power/&MonkStunningStrikeTitle	Stunning Strike
+Power/&MonkStunningStrikeDescription	You can interfere with the flow of ki in an opponent's body. When you hit another creature that is not stunned with a melee weapon attack, you can spend 1 ki point to attempt a stunning strike. The target must succeed on a Constitution saving throw or be stunned until the end of your next turn.
+Reaction/&SpendPowerMonkStunningStrikeTitle	Stunning Strike
+Reaction/&SpendPowerMonkStunningStrikeDescription	{0} has hit opponent and can spend 1 ki point to attempt to stun.
+Reaction/&SpendPowerMonkStunningStrikeReactTitle	Spend ki
+Reaction/&SpendPowerMonkStunningStrikeReactDescription	Spend ki to attampt to stun opponent.
+Feature/&MonkKiEmpoweredStrikesTitle	Ki-Empowered Strikes
+Feature/&MonkKiEmpoweredStrikesDescription	Your unarmed strikes count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.
+Power/&MonkKiStillnessOfMindTitle	Stillness of Mind
+Power/&MonkKiStillnessOfMindDescription	You can use your action to end one effect on yourself that is causing you to be charmed or frightened.
+Feature/&MonkPurityOfBodyTitle	Purity of Body
+Feature/&MonkPurityOfBodyDescription	Your mastery of the ki flowing through you makes you immune to disease and poison.
+Feature/&MonkUnarmoredMovementVerticalSurfaceTitle	Unarmored Movement: Climbing
+Feature/&MonkUnarmoredMovementVerticalSurfaceDescription	While you are unarmored and not wielding a shield you can move on walls like a spider. Ability is temporarily lost if you preform any action that is not movement, or when it is not your turn in combat.
+Feature/&MonkTongueOfSunAndMoonTitle	Tongue of the Sun and Moon
+Feature/&MonkTongueOfSunAndMoonDescription	You learn to touch the ki of other minds so that you understand all spoken languages. Moreover, any creature that can understand a language can understand what you say.
+Feature/&MonkDiamondSoulTitle	Diamond Soul
+Feature/&MonkDiamondSoulDescription	Your mastery of ki grants you proficiency in all saving throws.\nAdditionally, whenever you make a saving throw and fail, you can spend 1 ki point to reroll it and take the second result.
+Power/&MonkDiamondSoulPowerTitle	Diamond Soul
+Power/&MonkDiamondSoulPowerDescription	Whenever you make a saving throw and fail, you can spend 1 ki point to reroll it and take the second result.
+Reaction/&SpendPowerDiamondSoulTitle	Diamond Soul
+Reaction/&SpendPowerDiamondSoulDescription	{0} has failed a save and can spend 1 ki to reroll it.
+Reaction/&SpendPowerDiamondSoulReactTitle	Reroll
+Reaction/&SpendPowerDiamondSoulReactDescription	Spend ki to reroll failed save.
+Power/&MonkEmptyBodyTitle	Empty Body
+Power/&MonkEmptyBodyDescription	You can use your action to spend 4 ki points to become invisible for 1 minute. During that time, you also have resistance to all damage but force damage.
+Condition/&MonkEmptyBodyConditionTitle	Empty Body
+Condition/&MonkEmptyBodyConditionDescription	You have resistance to all damage but force damage.
+Feature/&MonkPerfectSelfTitle	Perfect Self
+Feature/&MonkPerfectSelfDescription	When you start battle and have no ki points remaining, you regain 4 ki points.
+Tooltip/&CustomPortraitPoolMonkKiPool	You can harness the mystic energy of ki. Your access to this energy is represented by a number of ki points. Maximum amount is equal to your monk level. All spent points are regained on short or long rest. You can spend these points to fuel various ki features.

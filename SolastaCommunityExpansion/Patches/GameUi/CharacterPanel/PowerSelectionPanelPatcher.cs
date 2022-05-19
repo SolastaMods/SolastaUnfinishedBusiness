@@ -1,9 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using System.Reflection.Emit;
 using HarmonyLib;
+using SolastaCommunityExpansion.Api.AdditionalExtensions;
+using SolastaCommunityExpansion.Features;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
 using UnityEngine.UI;
+using Object = UnityEngine.Object;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
 {
@@ -17,6 +23,40 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
         [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class PowerSelectionPanel_Bind
         {
+            internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+            {
+                var codes = instructions.ToList();
+                var power_canceled_handler = codes.FindIndex(x =>
+                    x.opcode == OpCodes.Call && x.operand.ToString().Contains("PowerCancelled"));
+            
+                var removePowersMethod = new Action<PowerSelectionPanel, RulesetCharacter>(RemoveInvalidPowers).Method;
+            
+                codes.InsertRange(power_canceled_handler + 1,
+                    new List<CodeInstruction>
+                    {
+                        new(OpCodes.Ldarg_0),
+                        new(OpCodes.Ldarg_1),
+                        new(OpCodes.Call, removePowersMethod)
+                    }
+                );
+                return codes.AsEnumerable();
+            }
+            
+            private static void RemoveInvalidPowers(PowerSelectionPanel panel, RulesetCharacter character)
+            {
+                var relevantPowers = panel.GetField<List<RulesetUsablePower>>("relevantPowers");
+            
+                for (var i = relevantPowers.Count - 1; i >= 0; i--)
+                {
+                    var power = relevantPowers[i];
+                    var validator = power.PowerDefinition.GetFirstSubFeatureOfType<IPowerUseValidity>();
+                    if (validator != null && !validator.CanUsePower(character))
+                    {
+                        relevantPowers.RemoveAt(i);
+                    }
+                }
+            }
+            
             internal static void Postfix(PowerSelectionPanel __instance)
             {
                 if (!Main.Settings.EnableMultiLinePowerPanel)
