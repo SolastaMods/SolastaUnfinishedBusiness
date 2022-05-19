@@ -1796,3 +1796,74 @@ UI/&CustomFeatureSelectionTooltipTypePower	Pouvoir
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Compétence
 UI/&ForcePreferredCantripDescription	Si cette option est activée, seul le cantrip préféré peut se déclencher. Si le sort mineur préféré n'est pas sélectionné, le premier sort mineur valide se déclenchera, quelle que soit cette bascule
 UI/&ForcePreferredCantripTitle	Forcer le sort mineur préféré
+Class/&MonkTitle	Moine
+Class/&MonkDescription	Les moines sont unis dans leur capacité à exploiter comme par magie l'énergie qui circule dans leur corps. Qu'elle soit canalisée comme une démonstration saisissante de prouesses au combat ou comme un objectif plus subtil de capacité défensive et de vitesse, cette énergie imprègne tout ce qu'un moine fait.
+Feature/&MonkWeaponProficiencyTitle	Maîtrise des armes du moine
+Feature/&MonkSkillPointsTitle	Compétences de moine
+Feature/&MonkUnarmoredDefenseTitle	Défense non blindée
+Feature/&MonkUnarmoredDefenseDescription	Tant que vous ne portez pas d'armure et que vous ne brandissez pas de bouclier, votre CA est égale à 10 + votre modificateur de Dextérité + votre modificateur de Sagesse.
+Feature/&MonkMartialArtsTitle	Arts martiaux
+Feature/&MonkMartialArtsDescription	Vous bénéficiez des avantages suivants tant que vous n'êtes pas armé ou que vous ne portez que des armes de moine et que vous ne portez pas d'armure ni de bouclier :\n - Vous pouvez utiliser la Dextérité au lieu de la Force pour les jets d'attaque et de dégâts de vos frappes à mains nues et des armes de moine.\n - Vous pouvez lancer un d4 à la place des dégâts normaux de votre attaque à mains nues ou de votre arme de moine. Ce dé change à mesure que vous gagnez des niveaux de moine.\n - Lorsque vous utilisez l'action Attaquer avec une frappe à mains nues ou une arme de moine à votre tour, vous pouvez effectuer une frappe à mains nues en tant qu'action bonus.
+Feature/&MonkUnarmoredMovementTitle	Mouvement non blindé
+Feature/&MonkUnarmoredMovementDescription	Votre vitesse augmente de 3 mètres tant que vous ne portez pas d'armure ou ne brandissez pas de bouclier. Ce bonus augmente lorsque vous atteignez certains niveaux de moine.
+Feature/&MonkUnarmoredMovementBonusTitle	Amélioration du mouvement sans armure
+Feature/&MonkUnarmoredMovementBonusDescription	Le bonus de déplacement augmente de 1,50 mètre.
+Feature/&MonkMartialDiceProgression00Title	Augmentation du dé d'arts martiaux (D6)
+Feature/&MonkMartialDiceProgression00Description	Vous pouvez lancer <color=#57BCF4>D6</color> à la place des dégâts normaux de votre attaque à mains nues ou de votre arme de moine.
+Feature/&MonkMartialDiceProgression01Title	Augmentation du dé d'arts martiaux (D8)
+Feature/&MonkMartialDiceProgression01Description	Vous pouvez lancer <color=#57BCF4>D8</color> à la place des dégâts normaux de votre frappe à mains nues ou de votre arme de moine.
+Feature/&MonkMartialDiceProgression02Title	Augmentation du dé d'arts martiaux (D10)
+Feature/&MonkMartialDiceProgression02Description	Vous pouvez lancer <color=#57BCF4>D10</color> à la place des dégâts normaux de votre attaque à mains nues ou de votre arme de moine.
+Tooltip/&TagMonkWeaponTitle	Moine
+Feature/&MonkKiTitle	Ki
+Feature/&MonkKiDescription	Votre entraînement vous permet d'exploiter l'énergie mystique du ki. Vous gagnez des points ki égaux à votre niveau de moine. Lorsque vous dépensez un point de ki, il n'est pas disponible jusqu'à ce que vous terminiez un repos court ou long, à la fin duquel vous récupérez tout votre ki dépensé. Vous pouvez dépenser ces points pour alimenter diverses fonctionnalités ki. Vous commencez à connaître trois de ces fonctionnalités :
+Power/&MonkFlurryOfBlowsTitle	Rafale de coups
+Power/&MonkFlurryOfBlowsDescription	Après avoir dépensé une action pour attaquer avec une arme de moine, vous pouvez dépenser 1 point de ki en tant qu'action bonus pour effectuer 2 frappes sans nom. Uniquement disponible si vous ne portez pas d'armure ou de bouclier.
+Power/&MonkPatientDefenseTitle	Défense des patients
+Power/&MonkPatientDefenseDescription	Vous pouvez dépenser 1 point de ki en tant qu'action bonus pour effectuer l'action Esquiver. Uniquement disponible si vous ne portez pas d'armure ou de bouclier.
+Power/&MonkStepOfTheWindTitle	Pas du vent
+Power/&MonkStepOfTheWindDescription	Vous pouvez dépenser 1 point de ki pour effectuer l'action Désengager ou Foncer en tant qu'action bonus à votre tour, et votre distance de saut est doublée pour le tour. Uniquement disponible si vous ne portez pas d'armure ou de bouclier.
+Condition/&MonkStepOfTheWindConditionTitle	Pas du vent
+Condition/&MonkStepOfTheWindConditionDescription	Vous pouvez effectuer l'action Désengager ou Foncer en tant qu'action bonus et votre distance de saut est doublée pour le tour.
+Feature/&MonkDeflectMissileTitle	Dévier les missiles
+Feature/&MonkDeflectMissileDescription	Vous pouvez utiliser votre réaction pour dévier le missile lorsque vous êtes touché par une attaque à distance. Lorsque vous le faites, les dégâts que vous subissez de l'attaque sont réduits de 1d10 + votre modificateur de Dextérité + votre niveau de moine.
+Reaction/&CustomDeflectMissileMonkTitle	{0} attaque {1}, qui peut réagir pour réduire les dégâts subis de 1D10 + modificateur DEX + niveau de Moine.
+Power/&MonkSlowFallTitle	Chute lente
+Power/&MonkSlowFallDescription	Vous pouvez utiliser votre réaction lorsque vous tombez pour éviter tout dommage de chute.
+Reaction/&UseMonkSlowFallTitle	Chute lente
+Reaction/&UseMonkSlowFallDescription	{0} tombe et peut utiliser la réaction pour éviter les dégâts de chute.
+Reaction/&UseMonkSlowFallReactTitle	Réagir
+Reaction/&UseMonkSlowFallReactDescription	Utilisez la réaction pour éviter les dommages.
+Feature/&MonkExtraAttackTitle	Attaque supplémentaire
+Feature/&MonkExtraAttackDescription	Vous pouvez attaquer deux fois, au lieu d'une, chaque fois que vous effectuez l'action Attaquer à votre tour.
+Power/&MonkStunningStrikeTitle	Frappe étourdissante
+Power/&MonkStunningStrikeDescription	Vous pouvez interférer avec le flux de ki dans le corps d'un adversaire. Lorsque vous touchez une autre créature qui n'est pas étourdie par une attaque au corps à corps avec une arme, vous pouvez dépenser 1 point de ki pour tenter un coup étourdissant. La cible doit réussir un jet de sauvegarde de Constitution ou être étourdie jusqu'à la fin de votre prochain tour.
+Reaction/&SpendPowerMonkStunningStrikeTitle	Frappe étourdissante
+Reaction/&SpendPowerMonkStunningStrikeDescription	{0} a touché son adversaire et peut dépenser 1 point de ki pour tenter de l'étourdir.
+Reaction/&SpendPowerMonkStunningStrikeReactTitle	Dépenser du ki
+Reaction/&SpendPowerMonkStunningStrikeReactDescription	Dépensez du ki pour tenter d'étourdir l'adversaire.
+Feature/&MonkKiEmpoweredStrikesTitle	Frappes renforcées par le Ki
+Feature/&MonkKiEmpoweredStrikesDescription	Vos frappes à mains nues comptent comme magiques dans le but de surmonter la résistance et l'immunité aux attaques et aux dégâts non magiques.
+Power/&MonkKiStillnessOfMindTitle	Silence d'esprit
+Power/&MonkKiStillnessOfMindDescription	Vous pouvez utiliser votre action pour mettre fin à un effet sur vous-même qui vous charme ou vous effraie.
+Feature/&MonkPurityOfBodyTitle	Pureté du corps
+Feature/&MonkPurityOfBodyDescription	Votre maîtrise du ki qui vous traverse vous rend immunisé contre les maladies et les poisons.
+Feature/&MonkUnarmoredMovementVerticalSurfaceTitle	Mouvement sans armure : Escalade
+Feature/&MonkUnarmoredMovementVerticalSurfaceDescription	Tant que vous n'êtes pas armé et que vous ne brandissez pas de bouclier, vous pouvez vous déplacer sur les murs comme une araignée. La capacité est temporairement perdue si vous effectuez une action qui n'est pas un mouvement, ou lorsque ce n'est pas votre tour de combat.
+Feature/&MonkTongueOfSunAndMoonTitle	Langue du Soleil et de la Lune
+Feature/&MonkTongueOfSunAndMoonDescription	Vous apprenez à toucher le ki des autres esprits afin de comprendre toutes les langues parlées. De plus, toute créature qui peut comprendre une langue peut comprendre ce que vous dites.
+Feature/&MonkDiamondSoulTitle	Âme de diamant
+Feature/&MonkDiamondSoulDescription	Votre maîtrise du ki vous confère la maîtrise de tous les jets de sauvegarde.\nDe plus, chaque fois que vous faites un jet de sauvegarde et que vous échouez, vous pouvez dépenser 1 point de ki pour le relancer et prendre le deuxième résultat.
+Power/&MonkDiamondSoulPowerTitle	Âme de diamant
+Power/&MonkDiamondSoulPowerDescription	Chaque fois que vous faites un jet de sauvegarde et que vous échouez, vous pouvez dépenser 1 point de ki pour le relancer et prendre le deuxième résultat.
+Reaction/&SpendPowerDiamondSoulTitle	Âme de diamant
+Reaction/&SpendPowerDiamondSoulDescription	{0} a raté une sauvegarde et peut dépenser 1 ki pour la relancer.
+Reaction/&SpendPowerDiamondSoulReactTitle	Relancer
+Reaction/&SpendPowerDiamondSoulReactDescription	Dépensez du ki pour relancer la sauvegarde ratée.
+Power/&MonkEmptyBodyTitle	Corps vide
+Power/&MonkEmptyBodyDescription	Vous pouvez utiliser votre action pour dépenser 4 points de ki pour devenir invisible pendant 1 minute. Pendant ce temps, vous avez également une résistance à tous les dégâts, sauf les dégâts de force.
+Condition/&MonkEmptyBodyConditionTitle	Corps vide
+Condition/&MonkEmptyBodyConditionDescription	Vous avez la résistance à tous les dégâts sauf les dégâts de force.
+Feature/&MonkPerfectSelfTitle	Soi parfait
+Feature/&MonkPerfectSelfDescription	Lorsque vous commencez la bataille et qu'il ne vous reste plus de points de ki, vous regagnez 4 points de ki.
+Tooltip/&CustomPortraitPoolMonkKiPool	Vous pouvez exploiter l'énergie mystique du ki. Votre accès à cette énergie est représenté par un certain nombre de points ki. Le montant maximum est égal à votre niveau de moine. Tous les points dépensés sont récupérés sur un repos court ou long. Vous pouvez dépenser ces points pour alimenter diverses fonctionnalités ki.
