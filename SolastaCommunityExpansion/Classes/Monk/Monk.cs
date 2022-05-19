@@ -105,6 +105,35 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 throw new ArgumentException("Trying to build Monk class additional time.");
             }
 
+            // // Experiments with handwraps
+            // var handwraps = ItemDefinitionBuilder
+            //     .Create("MonkHandwraps", GUID)
+            //     .SetGold(1)
+            //     .SetGuiPresentation(Category.Item, ItemDefinitions.UnarmedStrikeBase.GuiPresentation.SpriteReference)
+            //     .AddToDB();
+            //
+            // handwraps.SetSlotTypes(SlotTypeDefinitions.MainHandSlot.Name, SlotTypeDefinitions.ContainerSlot.Name);
+            // handwraps.SetSlotsWhereActive(SlotTypeDefinitions.MainHandSlot.Name);
+            //
+            // var presentation = new ItemPresentation(ItemDefinitions.UnarmedStrikeBase.ItemPresentation);
+            // presentation.ItemFlags.Clear();
+            // presentation.SetAssetReference(new AssetReference());
+            //
+            // var property = new ItemPropertyDescription(ItemDefinitions.GreataxePlus1.StaticProperties[0]);
+            // handwraps.SetStaticProperties(property);
+            //
+            // handwraps.SetItemPresentation(presentation);
+            // handwraps.SetIsWeapon(true);
+            // var description = handwraps.WeaponDescription;
+            // description.SetEffectDescription(new EffectDescriptionBuilder()
+            //     .SetEffectForms(new EffectFormBuilder()
+            //         .SetDamageForm(damageType: DamageTypeBludgeoning, diceNumber: 1, dieType: DieType.D1)
+            //         .SetBonusMode(AddBonusMode.AbilityBonus)
+            //         .Build())
+            //     .Build());
+            // description.SetReachRange(2);
+            // description.SetWeaponType(WeaponTypeDefinitions.UnarmedStrikeType.Name);
+
             BuildClimbingCondition();
             BuildMartialArts();
             BuildKiFeatureSet();
