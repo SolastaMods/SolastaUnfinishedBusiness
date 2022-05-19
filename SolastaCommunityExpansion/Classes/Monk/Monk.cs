@@ -12,6 +12,7 @@ using SolastaModApi;
 using UnityEngine.AddressableAssets;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
+using static SolastaCommunityExpansion.Utils.CustomIcons;
 using static SolastaModApi.DatabaseHelper;
 
 namespace SolastaCommunityExpansion.Classes.Monk
@@ -38,15 +39,44 @@ namespace SolastaCommunityExpansion.Classes.Monk
             WeaponTypeDefinitions.UnarmedStrikeType
         };
 
-        private static AssetReferenceSprite _monkPictogram, _monkKiIcon;
+        private static AssetReferenceSprite _monkPictogram,
+            _monkKiIcon,
+            _monkFlurryOfBlowsIcon,
+            _monkStunningStrikeIcon,
+            _monkPatientDefenseIcon,
+            _monkStepOfTheWindIcon,
+            _monkStillnessOfMindIcon,
+            _monkSlowFallIcon,
+            _monkEmptyBodyIcon;
 
         private static AssetReferenceSprite MonkPictogram => _monkPictogram ??=
-            CustomIcons.CreateAssetReferenceSprite("MonkPictogram", Properties.Resources.MonkPictogram, 128, 128);
-        
+            CreateAssetReferenceSprite("MonkPictogram", Properties.Resources.MonkPictogram, 128, 128);
+
         private static AssetReferenceSprite MonkKiIcon => _monkKiIcon ??=
-            CustomIcons.CreateAssetReferenceSprite("MonkKiIcon", Properties.Resources.MonkKiIcon, 64, 64);
-        
-        
+            CreateAssetReferenceSprite("MonkKiIcon", Properties.Resources.MonkKiIcon, 64, 64);
+
+        private static AssetReferenceSprite MonkFlurryOfBlowsIcon => _monkFlurryOfBlowsIcon ??=
+            CreateAssetReferenceSprite("MonkFlurryOfBlows", Properties.Resources.MonkFlurryOfBlows, 128, 64);
+
+        private static AssetReferenceSprite MonkStunningStrikeIcon => _monkStunningStrikeIcon ??=
+            CreateAssetReferenceSprite("MonkStunningStrike", Properties.Resources.MonkStunningStrike, 128, 64);
+
+        private static AssetReferenceSprite MonkPatientDefenseIcon => _monkPatientDefenseIcon ??=
+            CreateAssetReferenceSprite("MonkPatientDefense", Properties.Resources.MonkPatientDefense, 128, 64);
+
+        private static AssetReferenceSprite MonkStepOfTheWindIcon => _monkStepOfTheWindIcon ??=
+            CreateAssetReferenceSprite("MonkStepOfTheWind", Properties.Resources.MonkStepOfTheWind, 128, 64);
+
+        private static AssetReferenceSprite MonkStillnessOfMindIcon => _monkStillnessOfMindIcon ??=
+            CreateAssetReferenceSprite("MonkStillnessOfMind", Properties.Resources.MonkStillnessOfMind, 128, 64);
+
+        private static AssetReferenceSprite MonkSlowFallIcon => _monkSlowFallIcon ??=
+            CreateAssetReferenceSprite("MonkFlurryOfBlows", Properties.Resources.MonkSlowFall, 128, 64);
+
+        private static AssetReferenceSprite MonkEmptyBodyIcon => _monkEmptyBodyIcon ??=
+            CreateAssetReferenceSprite("MonkEmptyBodypng", Properties.Resources.MonkEmptyBodypng, 128, 64);
+
+
         private static FeatureDefinition _unarmoredMovement, _unarmoredMovementBonus;
         private static ConditionalMovementModifier _movementBonusApplier;
         private static FeatureDefinition UnarmoredMovement => _unarmoredMovement ??= BuildUnarmoredMovement();
@@ -492,7 +522,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .SetSilent(Silent.WhenAddedOrRemoved)
                 .AddToDB();
         }
-        
+
         private static FeatureDefinition BuildMartialDiceProgression()
         {
             return FeatureDefinitionBuilder
@@ -527,7 +557,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .SetActionType(ActionDefinitions.ActionType.Bonus)
                 .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
                 .AddToDB();
-            
+
             var extraFlurryAttack2 = FeatureDefinitionAdditionalActionBuilder
                 .Create("MonkFlurryOfBlowsExtraAttacks2", GUID)
                 .SetGuiPresentationNoContent(true)
@@ -537,7 +567,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
             flurryOfBlows = FeatureDefinitionPowerSharedPoolBuilder
                 .Create("MonkFlurryOfBlows", GUID)
-                .SetGuiPresentation(Category.Power) //TODO: add icon
+                .SetGuiPresentation(Category.Power, MonkFlurryOfBlowsIcon)
                 .SetSharedPool(kiPool)
                 .SetActivationTime(ActivationTime.BonusAction)
                 .SetCostPerUse(1)
@@ -565,7 +595,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
             var dodging = ConditionDefinitions.ConditionDodging;
             patientDefense = FeatureDefinitionPowerSharedPoolBuilder
                 .Create("MonkPatientDefense", GUID)
-                .SetGuiPresentation(Category.Power)
+                .SetGuiPresentation(Category.Power, MonkPatientDefenseIcon)
                 .SetSharedPool(kiPool)
                 .SetActivationTime(ActivationTime.BonusAction)
                 .SetCostPerUse(1)
@@ -595,7 +625,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
             stepOfTheWind = FeatureDefinitionPowerSharedPoolBuilder
                 .Create("MonkStepOfTheWind", GUID)
-                .SetGuiPresentation(Category.Power)
+                .SetGuiPresentation(Category.Power, MonkStepOfTheWindIcon)
                 .SetSharedPool(kiPool)
                 .SetActivationTime(ActivationTime.BonusAction)
                 .SetCostPerUse(1)
@@ -639,7 +669,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
             stunningStrike = FeatureDefinitionPowerSharedPoolBuilder
                 .Create("MonkStunningStrike", GUID)
-                .SetGuiPresentation(Category.Power)
+                .SetGuiPresentation(Category.Power, MonkStunningStrikeIcon)
                 .SetSharedPool(kiPool)
                 .SetActivationTime(ActivationTime.OnAttackHit)
                 .SetRechargeRate(RechargeRate.ShortRest)
@@ -695,10 +725,10 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
         private static FeatureDefinition BuildSlowFall()
         {
-            //TODO: should we hide it frm power menu?
+            //TODO: should we hide it from power menu?
             return FeatureDefinitionPowerBuilder
                 .Create("MonkSlowFall", GUID)
-                .SetGuiPresentation(Category.Power)
+                .SetGuiPresentation(Category.Power, MonkSlowFallIcon)
                 .SetActivationTime(ActivationTime.Reaction)
                 .SetRechargeRate(RechargeRate.AtWill)
                 .SetCostPerUse(0)
@@ -713,7 +743,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     .Build())
                 .AddToDB();
         }
-        
+
         private static FeatureDefinition BuildExtraAttack()
         {
             return FeatureDefinitionAttributeModifierBuilder
@@ -724,7 +754,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .SetModifierValue(1)
                 .AddToDB();
         }
-        
+
         private static FeatureDefinition BuildKiEmpoweredStrikes()
         {
             return FeatureDefinitionBuilder
@@ -738,7 +768,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
         {
             return FeatureDefinitionPowerBuilder
                 .Create("MonkKiStillnessOfMind", GUID)
-                .SetGuiPresentation(Category.Power)
+                .SetGuiPresentation(Category.Power, MonkStillnessOfMindIcon)
                 .SetActivationTime(ActivationTime.Action)
                 .SetCostPerUse(0)
                 .SetEffectDescription(new EffectDescriptionBuilder()
@@ -802,7 +832,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
         {
             return FeatureDefinitionPowerSharedPoolBuilder
                 .Create("MonkEmptyBody", GUID)
-                .SetGuiPresentation(Category.Power)
+                .SetGuiPresentation(Category.Power, MonkEmptyBodyIcon)
                 .SetSharedPool(kiPool)
                 .SetCostPerUse(4)
                 .SetActivationTime(ActivationTime.Action)
@@ -812,7 +842,8 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     .SetDurationData(DurationType.Minute, 1)
                     .SetEffectForms(
                         new EffectFormBuilder()
-                            .SetConditionForm(ConditionDefinitions.ConditionInvisibleGreater, ConditionForm.ConditionOperation.Add)
+                            .SetConditionForm(ConditionDefinitions.ConditionInvisibleGreater,
+                                ConditionForm.ConditionOperation.Add)
                             .Build(),
                         new EffectFormBuilder()
                             .SetConditionForm(ConditionDefinitionBuilder
@@ -852,7 +883,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     .Build())
                 .AddToDB();
         }
-        
+
         private static FeatureDefinition BuildPerfectSelf()
         {
             return FeatureDefinitionBuilder
@@ -947,7 +978,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 AllowClimbing(character);
                 TryBecomeClimbing(character);
             }
-            
+
             public void OnChracterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
             {
                 ForbidClimbing(locationCharacter.RulesetCharacter);
@@ -984,7 +1015,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     return false;
                 }
 
-                if (Forbidden.Contains(CharacterId(character)) 
+                if (Forbidden.Contains(CharacterId(character))
                     || !character.IsValid(validators))
                 {
                     LoseClimbing(character);
@@ -1005,7 +1036,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 {
                     return;
                 }
-                
+
                 character.AddConditionOfCategory(CATEGORY, RulesetCondition.CreateActiveCondition(character.Guid,
                     MonkClimbingCondition, DurationType.Permanent,
                     1,
@@ -1020,7 +1051,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 if (character != null)
                     Forbidden.Add(CharacterId(character));
             }
-            
+
             private static void AllowClimbing(RulesetCharacter character)
             {
                 if (character != null)
@@ -1040,8 +1071,8 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 }
             }
         }
-        
-        private class PerfectSelf: ICharacterBattlStartedListener
+
+        private class PerfectSelf : ICharacterBattlStartedListener
         {
             public void OnChracterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
             {
