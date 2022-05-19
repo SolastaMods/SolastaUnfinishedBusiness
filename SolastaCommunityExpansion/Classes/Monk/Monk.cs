@@ -40,7 +40,8 @@ namespace SolastaCommunityExpansion.Classes.Monk
             WeaponTypeDefinitions.UnarmedStrikeType
         };
 
-        private static AssetReferenceSprite _monkPictogram,
+        private static AssetReferenceSprite _monkClassSprite,
+            _monkPictogram,
             _monkKiIcon,
             _monkFlurryOfBlowsIcon,
             _monkStunningStrikeIcon,
@@ -49,6 +50,9 @@ namespace SolastaCommunityExpansion.Classes.Monk
             _monkStillnessOfMindIcon,
             _monkSlowFallIcon,
             _monkEmptyBodyIcon;
+
+        private static AssetReferenceSprite MonkClassSprite => _monkClassSprite ??=
+            CreateAssetReferenceSprite("MonkClass", Resources.MonkEmptyBody, 1024, 576);
 
         private static AssetReferenceSprite MonkPictogram => _monkPictogram ??=
             CreateAssetReferenceSprite("MonkPictogram", Resources.MonkPictogram, 128, 128);
@@ -75,7 +79,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
             CreateAssetReferenceSprite("MonkSlowFall", Resources.MonkSlowFall, 128, 64);
 
         private static AssetReferenceSprite MonkEmptyBodyIcon => _monkEmptyBodyIcon ??=
-            CreateAssetReferenceSprite("MonkEmptyBodypng", Resources.MonkEmptyBodypng, 128, 64);
+            CreateAssetReferenceSprite("MonkEmptyBody", Resources.MonkEmptyBody, 128, 64);
 
 
         private static FeatureDefinition _unarmoredMovement, _unarmoredMovementBonus;
@@ -143,8 +147,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
                 #region Presentation
 
-                .SetGuiPresentation(Category.Class,
-                    CharacterClassDefinitions.Barbarian.GuiPresentation.SpriteReference) //TODO: add images
+                .SetGuiPresentation(Category.Class, MonkClass)
                 .SetPictogram(MonkPictogram)
                 //.AddPersonality() //TODO: Add personality flags
                 .SetAnimationId(AnimationDefinitions.ClassAnimationId.Fighter)

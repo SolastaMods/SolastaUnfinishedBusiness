@@ -249,13 +249,23 @@ namespace SolastaCommunityExpansion.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap MonkEmptyBodypng {
+        public static System.Drawing.Bitmap MonkClass {
             get {
-                object obj = ResourceManager.GetObject("MonkEmptyBodypng", resourceCulture);
+                object obj = ResourceManager.GetObject("MonkClass", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap MonkEmptyBody {
+            get {
+                object obj = ResourceManager.GetObject("MonkEmptyBody", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
