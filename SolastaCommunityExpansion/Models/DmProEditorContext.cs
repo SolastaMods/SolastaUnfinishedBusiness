@@ -41,7 +41,7 @@ namespace SolastaCommunityExpansion.Models
 
             if (result == 0)
             {
-                result = left.FormatTitle().CompareTo(right.FormatTitle());
+                result = left.name.CompareTo(right.name);
 
                 if (result == 0)
                 {
