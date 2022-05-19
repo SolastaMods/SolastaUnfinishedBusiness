@@ -519,14 +519,20 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
             kiPool.SetCustomSubFeatures(new CustomPortraitPoolPower(kiPool, icon: MonkKiIcon));
 
-            //TODO: experiment with granting 2 bonus actions that can be spent on main/offhand attack, instead of granting main attack with 2 attacks
-            var extraFlurryAttacks = FeatureDefinitionAdditionalActionBuilder
-                .Create("MonkFlurryOfBlowsExtraAttacks", GUID)
-                .SetCustomSubFeatures(new AddBonusUnarmedAttack(ActionDefinitions.ActionType.Main, 2, true,
+            var extraFlurryAttack1 = FeatureDefinitionAdditionalActionBuilder
+                .Create("MonkFlurryOfBlowsExtraAttacks1", GUID)
+                .SetGuiPresentationNoContent(true)
+                .SetCustomSubFeatures(new AddBonusUnarmedAttack(ActionDefinitions.ActionType.Bonus, 1, true,
                     CharacterValidators.NoArmor, CharacterValidators.NoShield, CharacterValidators.EmptyOffhand))
-                .SetMaxAttacksNumber(2)
-                .SetActionType(ActionDefinitions.ActionType.Main)
-                .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
+                .SetActionType(ActionDefinitions.ActionType.Bonus)
+                .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
+                .AddToDB();
+            
+            var extraFlurryAttack2 = FeatureDefinitionAdditionalActionBuilder
+                .Create("MonkFlurryOfBlowsExtraAttacks2", GUID)
+                .SetGuiPresentationNoContent(true)
+                .SetActionType(ActionDefinitions.ActionType.Bonus)
+                .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
                 .AddToDB();
 
             flurryOfBlows = FeatureDefinitionPowerSharedPoolBuilder
@@ -549,7 +555,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                                 .SetDuration(DurationType.Round, 0)
                                 .SetSpecialDuration(true)
                                 .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
-                                .SetFeatures(extraFlurryAttacks)
+                                .SetFeatures(extraFlurryAttack1, extraFlurryAttack2)
                                 .AddToDB(),
                             ConditionForm.ConditionOperation.Add, true, true)
                         .Build())
