@@ -71,17 +71,6 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
             UI.Label("");
             UI.Label("");
-
-            if (Main.IsMonstersInstalled)
-            {
-                toggle = Main.Settings.EnableExtraHighLevelMonsters;
-                if (UI.Toggle("Enable additional high level monsters (+20 CR) for tier 3 and 4 campaigns " + RequiresRestart, ref toggle))
-                {
-                    Main.Settings.EnableExtraHighLevelMonsters = toggle;
-                }
-
-                UI.Label("");
-            }
         }
     }
 }
