@@ -43,29 +43,40 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
             }
             else if (__instance is CharacterLevelUpScreen)
             {
-                var characterCreationScreen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
-                var stagePanelPrefabs = characterCreationScreen.GetField<CharacterCreationScreen, GameObject[]>("stagePanelPrefabs");
-                var classSelectionPanel = Gui.GetPrefabFromPool(stagePanelPrefabs[1], __instance.StagesPanelContainer).GetComponent<CharacterStagePanel>();
-                var deitySelectionPanel = Gui.GetPrefabFromPool(stagePanelPrefabs[2], __instance.StagesPanelContainer).GetComponent<CharacterStagePanel>();
-                var customFeatureSelectionPanel = GetPanel(__instance);
-                var newLevelUpSequence = new Dictionary<string, CharacterStagePanel>
+                var customFeatureSelection = GetPanel(__instance);
+
+                ___stagePanelsByName.Add(customFeatureSelection.Name, customFeatureSelection);
+            }
+
+            //
+            // MULTICLASS
+            //
+
+            if (__instance is not CharacterLevelUpScreen)
+            {
+                return;
+            }
+
+            var characterCreationScreen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
+            var stagePanelPrefabs = characterCreationScreen.GetField<CharacterCreationScreen, GameObject[]>("stagePanelPrefabs");
+            var classSelectionPanel = Gui.GetPrefabFromPool(stagePanelPrefabs[1], __instance.StagesPanelContainer).GetComponent<CharacterStagePanel>();
+            var deitySelectionPanel = Gui.GetPrefabFromPool(stagePanelPrefabs[2], __instance.StagesPanelContainer).GetComponent<CharacterStagePanel>();
+            var newLevelUpSequence = new Dictionary<string, CharacterStagePanel>
                 {
                     { "ClassSelection", classSelectionPanel }
                 };
 
-                foreach (var stagePanel in ___stagePanelsByName)
+            foreach (var stagePanel in ___stagePanelsByName)
+            {
+                newLevelUpSequence.Add(stagePanel.Key, stagePanel.Value);
+
+                if (stagePanel.Key == "LevelGains")
                 {
-                    newLevelUpSequence.Add(stagePanel.Key, stagePanel.Value);
-
-                    if (stagePanel.Key == "LevelGains")
-                    {
-                        newLevelUpSequence.Add("DeitySelection", deitySelectionPanel);
-                    }
+                    newLevelUpSequence.Add("DeitySelection", deitySelectionPanel);
                 }
-
-                ___stagePanelsByName.Add(customFeatureSelectionPanel.Name, customFeatureSelectionPanel);
-                ___stagePanelsByName = newLevelUpSequence;
             }
+
+            ___stagePanelsByName = newLevelUpSequence;
         }
     }
 
