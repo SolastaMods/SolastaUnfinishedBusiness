@@ -553,7 +553,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .Create("MonkFlurryOfBlowsExtraAttacks1", GUID)
                 .SetGuiPresentationNoContent(true)
                 .SetCustomSubFeatures(new AddBonusUnarmedAttack(ActionDefinitions.ActionType.Bonus, 1, true,
-                    CharacterValidators.NoArmor, CharacterValidators.NoShield, CharacterValidators.EmptyOffhand))
+                    CharacterValidators.NoArmor, CharacterValidators.NoShield))
                 .SetActionType(ActionDefinitions.ActionType.Bonus)
                 .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
                 .AddToDB();
@@ -574,8 +574,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .SetRechargeRate(RechargeRate.ShortRest)
                 .SetShowCasting(false)
                 .SetCustomSubFeatures(new PowerUseValidity(attackedWithMonkWeapon,
-                    CharacterValidators.NoShield, CharacterValidators.NoArmor, CharacterValidators.EmptyOffhand,
-                    CharacterValidators.UsedAllMainAttacks))
+                    CharacterValidators.NoShield, CharacterValidators.NoArmor))
                 .SetEffectDescription(new EffectDescriptionBuilder()
                     .AddEffectForm(new EffectFormBuilder()
                         .SetConditionForm(ConditionDefinitionBuilder
