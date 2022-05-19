@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
+using SolastaCommunityExpansion.Features;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using static SolastaCommunityExpansion.Feats.FeatsValidations;
@@ -31,6 +32,7 @@ namespace SolastaCommunityExpansion.Feats
                     FeatureDefinitionAttributeModifierBuilder
                         .Create(AttributeModifierBarbarianUnarmoredDefense, "AttributeModifierFeatArcaneDefenseAdd", ZappaFeatNamespace)
                         .SetGuiPresentationNoContent()
+                        .SetCustomSubFeatures(ExclusiveArmorClassBonus.MARKER)
                         .SetSituationalContext(RuleDefinitions.SituationalContext.NotWearingArmorOrMageArmor)
                         .SetModifierAbilityScore(AttributeDefinitions.Intelligence)
                         .AddToDB()
@@ -97,6 +99,7 @@ namespace SolastaCommunityExpansion.Feats
                     FeatureDefinitionAttributeModifierBuilder
                         .Create(AttributeModifierBarbarianUnarmoredDefense, "AttributeModifierFeatCharismaticDefenseAdd", ZappaFeatNamespace)
                         .SetGuiPresentationNoContent()
+                        .SetCustomSubFeatures(ExclusiveArmorClassBonus.MARKER)
                         .SetSituationalContext(RuleDefinitions.SituationalContext.NotWearingArmorOrMageArmor)
                         .SetModifierAbilityScore(AttributeDefinitions.Charisma)
                         .AddToDB()
@@ -387,6 +390,7 @@ namespace SolastaCommunityExpansion.Feats
                     FeatureDefinitionAttributeModifierBuilder
                         .Create(AttributeModifierBarbarianUnarmoredDefense, "AttributeModifierFeatWiseDefenseAdd", ZappaFeatNamespace)
                         .SetGuiPresentationNoContent()
+                        .SetCustomSubFeatures(ExclusiveArmorClassBonus.MARKER)
                         .SetSituationalContext(RuleDefinitions.SituationalContext.NotWearingArmorOrMageArmor)
                         .SetModifierAbilityScore(AttributeDefinitions.Wisdom)
                         .AddToDB()

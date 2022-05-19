@@ -247,6 +247,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .AddFeatureAtLevel(1, FeatureDefinitionAttributeModifierBuilder
                     .Create("MonkUnarmoredDefense", GUID)
                     .SetGuiPresentation(Category.Feature)
+                    .SetCustomSubFeatures(ExclusiveArmorClassBonus.MARKER)
                     .SetModifiedAttribute(AttributeDefinitions.ArmorClass)
                     .SetModifierType2(AttributeModifierOperation.AddAbilityScoreBonus)
                     .SetModifierAbilityScore(AttributeDefinitions.Wisdom)
