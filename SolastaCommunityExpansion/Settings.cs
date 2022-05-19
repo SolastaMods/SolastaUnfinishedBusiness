@@ -21,6 +21,7 @@ namespace SolastaCommunityExpansion
         //
 
         public bool DisplayWelcomeMessage { get; set; } = true;
+        public bool EnableBetaContent { get; set; }
 
         //
         // Blueprints Viewer UI

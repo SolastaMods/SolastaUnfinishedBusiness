@@ -2,6 +2,7 @@
 using System.IO;
 using ModKit;
 using static SolastaCommunityExpansion.Displays.PatchesDisplay;
+using static SolastaCommunityExpansion.Displays.Shared;
 
 namespace SolastaCommunityExpansion.Displays
 {
@@ -62,6 +63,14 @@ namespace SolastaCommunityExpansion.Displays
                         }
                     }
                 }, UI.Width(200));
+            }
+
+            UI.Label("");
+
+            bool toggle = Main.Settings.EnableBetaContent;
+            if (UI.Toggle("Enable beta content " + "[keep in mind your heroes or saves might break on future updates] ".yellow().italic() + RequiresRestart, ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableBetaContent = toggle;
             }
 
             UI.Label("");

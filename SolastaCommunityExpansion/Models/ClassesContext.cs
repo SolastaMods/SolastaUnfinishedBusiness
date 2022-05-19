@@ -37,9 +37,13 @@ namespace SolastaCommunityExpansion.Models
         {
             LoadClass(TinkererClass.BuildTinkererClass());
             LoadClass(Warlock.BuildWarlockClass());
-            //LoadClass(Warden.Instance);
             LoadClass(Witch.Instance);
-            LoadClass(Monk.BuildClass());
+            
+            if (Main.Settings.EnableBetaContent)
+            {
+                LoadClass(Monk.BuildClass());
+                //LoadClass(Warden.Instance);
+            }
 
             Classes = Classes.OrderBy(x => x.FormatTitle()).ToHashSet();
 
