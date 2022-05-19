@@ -1,4 +1,6 @@
-﻿namespace SolastaCommunityExpansion.Models
+﻿using UnityEngine;
+
+namespace SolastaCommunityExpansion.Models
 {
     public static class IntegrationContext
     {
@@ -11,16 +13,8 @@
 
         // Sentinel blueprints to avoid a bunch of null check in code
 
-        public static CharacterClassDefinition DummyClass { get; private set; } = new()
-        {
-            name = "DummyClass"
-        };
-
-        public static CharacterSubclassDefinition DummySubclass { get; private set; } = new()
-        {
-            name = "DummySubClass"
-        };
-
+        public static CharacterClassDefinition DummyClass { get; } = (CharacterClassDefinition)ScriptableObject.CreateInstance("CharacterClassDefinition");
+        public static CharacterSubclassDefinition DummySubclass { get; } = (CharacterSubclassDefinition)ScriptableObject.CreateInstance("CharacterSubclassDefinition");
         public static CharacterClassDefinition TinkererClass { get; private set; } = DummyClass;
         public static CharacterClassDefinition WardenClass { get; private set; } = DummyClass;
         public static CharacterClassDefinition WarlockClass { get; private set; } = DummyClass;
