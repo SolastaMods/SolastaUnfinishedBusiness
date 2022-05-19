@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomUI;
+using SolastaCommunityExpansion.Models;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
 
@@ -29,7 +30,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
 
         internal static void Postfix(
             CharacterEditionScreen __instance,
-            Dictionary<string, CharacterStagePanel> ___stagePanelsByName)
+            ref Dictionary<string, CharacterStagePanel> ___stagePanelsByName)
         {
             if (__instance is CharacterCreationScreen)
             {
@@ -42,10 +43,39 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
             }
             else if (__instance is CharacterLevelUpScreen)
             {
-                var customFeatureSelection = GetPanel(__instance);
+                var characterCreationScreen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
+                var stagePanelPrefabs = characterCreationScreen.GetField<CharacterCreationScreen, GameObject[]>("stagePanelPrefabs");
+                var classSelectionPanel = Gui.GetPrefabFromPool(stagePanelPrefabs[1], __instance.StagesPanelContainer).GetComponent<CharacterStagePanel>();
+                var deitySelectionPanel = Gui.GetPrefabFromPool(stagePanelPrefabs[2], __instance.StagesPanelContainer).GetComponent<CharacterStagePanel>();
+                var customFeatureSelectionPanel = GetPanel(__instance);
+                var newLevelUpSequence = new Dictionary<string, CharacterStagePanel>
+                {
+                    { "ClassSelection", classSelectionPanel }
+                };
 
-                ___stagePanelsByName.Add(customFeatureSelection.Name, customFeatureSelection);
+                foreach (var stagePanel in ___stagePanelsByName)
+                {
+                    newLevelUpSequence.Add(stagePanel.Key, stagePanel.Value);
+
+                    if (stagePanel.Key == "LevelGains")
+                    {
+                        newLevelUpSequence.Add("DeitySelection", deitySelectionPanel);
+                    }
+                }
+
+                ___stagePanelsByName.Add(customFeatureSelectionPanel.Name, customFeatureSelectionPanel);
+                ___stagePanelsByName = newLevelUpSequence;
             }
+        }
+    }
+
+    [HarmonyPatch(typeof(CharacterEditionScreen), "DoAbort")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class CharacterEditionScreen_DoAbort
+    {
+        internal static void Prefix(RulesetCharacterHero ___currentHero)
+        {
+            LevelUpContext.UnregisterHero(___currentHero);
         }
     }
 }

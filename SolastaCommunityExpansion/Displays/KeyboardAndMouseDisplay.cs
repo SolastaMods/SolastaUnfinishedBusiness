@@ -153,6 +153,8 @@ namespace SolastaCommunityExpansion.Displays
             #endregion
 
             UI.Label("");
+            UI.Label(". " + "SHIFT".cyan() + " click on a spell consumes a spell slot instead of the default pact magic one");
+            UI.Label("");
         }
     }
 }

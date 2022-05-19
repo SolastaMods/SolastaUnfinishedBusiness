@@ -18,12 +18,6 @@ namespace SolastaCommunityExpansion.Displays
 
             UI.Label("");
             UI.Label($". You can individually assign each spell to any spell list or simply select the suggested set");
-
-            if (!Main.Settings.EnableLevel20)
-            {
-                UI.Label(". Level 20 feature isn't enabled under Character > General. Spells above level 6 won't be offered in game");
-            }
-
             UI.Label("");
 
             intValue = SpellLevelFilter;
