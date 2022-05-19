@@ -71,7 +71,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
             CreateAssetReferenceSprite("MonkStillnessOfMind", Properties.Resources.MonkStillnessOfMind, 128, 64);
 
         private static AssetReferenceSprite MonkSlowFallIcon => _monkSlowFallIcon ??=
-            CreateAssetReferenceSprite("MonkFlurryOfBlows", Properties.Resources.MonkSlowFall, 128, 64);
+            CreateAssetReferenceSprite("MonkSlowFall", Properties.Resources.MonkSlowFall, 128, 64);
 
         private static AssetReferenceSprite MonkEmptyBodyIcon => _monkEmptyBodyIcon ??=
             CreateAssetReferenceSprite("MonkEmptyBodypng", Properties.Resources.MonkEmptyBodypng, 128, 64);
