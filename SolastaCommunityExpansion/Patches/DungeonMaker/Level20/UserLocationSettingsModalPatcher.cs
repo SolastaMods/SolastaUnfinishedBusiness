@@ -18,8 +18,8 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.Level20
             if (Main.Settings.AllowDungeonsMaxLevel20)
             {
                 code
-                    .FindAll(x => x.opcode == OpCodes.Ldc_I4_S && Convert.ToInt32(x.operand) == GAME_MAX_LEVEL)
-                    .ForEach(x => x.operand = MOD_MAX_LEVEL);
+                    .FindAll(x => x.opcode == OpCodes.Ldc_I4_S && Convert.ToInt32(x.operand) == GAME_MAX_LEVEL + 1)
+                    .ForEach(x => x.operand = Main.Settings.MaxAllowedLevels);
             }
 
             return code;
@@ -37,8 +37,8 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.Level20
             if (Main.Settings.AllowDungeonsMaxLevel20)
             {
                 code
-                    .FindAll(x => x.opcode == OpCodes.Ldc_I4_S && Convert.ToInt32(x.operand) == GAME_MAX_LEVEL)
-                    .ForEach(x => x.operand = MOD_MAX_LEVEL);
+                    .FindAll(x => x.opcode == OpCodes.Ldc_I4_S && Convert.ToInt32(x.operand) == GAME_MAX_LEVEL + 1)
+                    .ForEach(x => x.operand = Main.Settings.MaxAllowedLevels);
             }
 
             return code;

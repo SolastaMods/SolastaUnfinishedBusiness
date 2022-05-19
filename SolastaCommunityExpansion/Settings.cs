@@ -106,12 +106,13 @@ namespace SolastaCommunityExpansion
         // Progression
         public bool EnablesAsiAndFeat { get; set; }
         public bool EnableFeatsAtEvenLevels { get; set; }
+        public int MaxAllowedLevels { get; set; } = Models.Level20Context.GAME_MAX_LEVEL;
 
         // Multiclass
         public bool EnableMinInOutAttributes { get; set; } = true;
         public bool EnableRelearnSpells { get; set; } = true;
         public bool DisplayAllKnownSpellsDuringLevelUp { get; set; } = true;
-        public int MaxAllowedClasses { get; set; } = 4;
+        public int MaxAllowedClasses { get; set; } = 1;
 
         // Visuals
         public bool OfferAdditionalLoreFriendlyNames { get; set; }

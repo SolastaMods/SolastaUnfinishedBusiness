@@ -98,7 +98,7 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             intValue = Main.Settings.MaxAllowedClasses;
-            if (UI.Slider("Max allowed classes".white(), ref intValue, 1, MulticlassContext.MAX_CLASSES, MulticlassContext.MAX_CLASSES, "", UI.Width(50)))
+            if (UI.Slider("Max allowed classes ".white() + RequiresRestart, ref intValue, 1, MulticlassContext.MAX_CLASSES, MulticlassContext.MAX_CLASSES, "", UI.Width(50)))
             {
                 Main.Settings.MaxAllowedClasses = intValue;
             }
@@ -119,6 +119,14 @@ namespace SolastaCommunityExpansion.Displays
             {
                 Main.Settings.EnableFeatsAtEvenLevels = toggle;
                 InitialChoicesContext.SwitchEvenLevelFeats();
+            }
+
+            UI.Label("");
+
+            intValue = Main.Settings.MaxAllowedLevels;
+            if (UI.Slider("Max allowed levels ".white() + RequiresRestart, ref intValue, Level20Context.GAME_MAX_LEVEL, Level20Context.MOD_MAX_LEVEL, Level20Context.GAME_MAX_LEVEL, "", UI.Width(50)))
+            {
+                Main.Settings.MaxAllowedLevels = intValue;
             }
 
             UI.Label("");

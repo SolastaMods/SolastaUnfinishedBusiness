@@ -9,11 +9,12 @@ namespace SolastaCommunityExpansion.Patches.Level20
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class HeroDefinitions_MaxHeroExperience
     {
-        internal static bool Prefix(ref int __result)
+        internal static void Prefix(ref int levelCap)
         {
-            __result = MAX_CHARACTER_EXPERIENCE;
-
-            return false;
+            if (levelCap == 20)
+            {
+                levelCap = 19;
+            }
         }
     }
 }
