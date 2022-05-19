@@ -12,23 +12,18 @@ namespace SolastaCommunityExpansion.Patches.Level20
     {
         internal static bool Prefix(GameCampaignParty __instance)
         {
-            if (Main.Settings.EnableLevel20)
+            foreach (var character in __instance.CharactersList.Select(cl => cl.RulesetCharacter))
             {
-                foreach (var character in __instance.CharactersList.Select(cl => cl.RulesetCharacter))
-                {
-                    var characterLevelAttribute = character.GetAttribute(AttributeDefinitions.CharacterLevel);
-                    characterLevelAttribute.MaxValue = MOD_MAX_LEVEL;
-                    characterLevelAttribute.Refresh();
+                var characterLevelAttribute = character.GetAttribute(AttributeDefinitions.CharacterLevel);
+                characterLevelAttribute.MaxValue = MOD_MAX_LEVEL;
+                characterLevelAttribute.Refresh();
 
-                    var experienceAttribute = character.GetAttribute(AttributeDefinitions.Experience);
-                    experienceAttribute.MaxValue = MAX_CHARACTER_EXPERIENCE;
-                    experienceAttribute.Refresh();
-                }
-
-                return false;
+                var experienceAttribute = character.GetAttribute(AttributeDefinitions.Experience);
+                experienceAttribute.MaxValue = MAX_CHARACTER_EXPERIENCE;
+                experienceAttribute.Refresh();
             }
 
-            return true;
+            return false;
         }
     }
 }

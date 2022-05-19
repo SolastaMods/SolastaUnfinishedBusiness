@@ -12,11 +12,7 @@ namespace SolastaCommunityExpansion.Displays
             bool toggle;
 
             UI.Label("");
-
             UI.Label("Initial choices:".yellow());
-
-            UI.Label("");
-            UI.Label(". All these settings only apply when creating a new hero as they get embed in the hero save file");
             UI.Label("");
 
             toggle = Main.Settings.AddHelpActionToAllRaces;
@@ -87,9 +83,7 @@ namespace SolastaCommunityExpansion.Displays
             }
 
             UI.Label("");
-
             UI.Label("Progression:".yellow());
-
             UI.Label("");
 
             toggle = Main.Settings.EnablesAsiAndFeat;
@@ -106,59 +100,38 @@ namespace SolastaCommunityExpansion.Displays
                 InitialChoicesContext.SwitchEvenLevelFeats();
             }
 
-            toggle = Main.Settings.EnableLevel20;
-            if (UI.Toggle("Enable Level 20 " + RequiresRestart, ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnableLevel20 = toggle;
-            }
-
+            UI.Label("");
+            UI.Label("Multiclass:".yellow());
             UI.Label("");
 
-            toggle = Main.Settings.EnableMulticlass;
-            if (UI.Toggle("Enable Multiclass " + RequiresRestart, ref toggle, UI.AutoWidth()))
+            toggle = Main.Settings.EnableMinInOutAttributes;
+            if (UI.Toggle("+ Enforce ability scores minimum in & out pre-requisites".italic(), ref toggle, UI.AutoWidth()))
             {
-                Main.Settings.EnableMulticlass = toggle;
                 Main.Settings.EnableMinInOutAttributes = toggle;
-                Main.Settings.EnableRelearnSpells = toggle;
-                Main.Settings.DisplayAllKnownSpellsDuringLevelUp = toggle;
-                Main.Settings.MaxAllowedClasses = MulticlassContext.MAX_CLASSES;
             }
 
-            if (Main.Settings.EnableMulticlass)
+            toggle = Main.Settings.EnableRelearnSpells;
+            if (UI.Toggle("+ Can select cantrips or spells already learned from other classes".italic(), ref toggle, UI.AutoWidth()))
             {
-                toggle = Main.Settings.EnableMinInOutAttributes;
-                if (UI.Toggle("+ Enforce ability scores minimum in & out pre-requisites".italic(), ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.EnableMinInOutAttributes = toggle;
-                }
+                Main.Settings.EnableRelearnSpells = toggle;
+            }
 
-                toggle = Main.Settings.EnableRelearnSpells;
-                if (UI.Toggle("+ Can select cantrips or spells already learned from other classes".italic(), ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.EnableRelearnSpells = toggle;
-                }
-
-                toggle = Main.Settings.DisplayAllKnownSpellsDuringLevelUp;
-                if (UI.Toggle("+ Display all known spells from other classes during level up".italic(), ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.DisplayAllKnownSpellsDuringLevelUp = toggle;
-                }
-
-                UI.Label("");
-                UI.Label(". " + "SHIFT".cyan() + " click on a spell consumes a spell slot instead of the default pact magic one");
-                UI.Label("");
-
-                intValue = Main.Settings.MaxAllowedClasses;
-                if (UI.Slider("Max allowed classes".white(), ref intValue, 1, MulticlassContext.MAX_CLASSES, MulticlassContext.MAX_CLASSES, "", UI.Width(50)))
-                {
-                    Main.Settings.MaxAllowedClasses = intValue;
-                }
+            toggle = Main.Settings.DisplayAllKnownSpellsDuringLevelUp;
+            if (UI.Toggle("+ Display all known spells from other classes during level up".italic(), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.DisplayAllKnownSpellsDuringLevelUp = toggle;
             }
 
             UI.Label("");
 
-            UI.Label("Visuals:".yellow());
+            intValue = Main.Settings.MaxAllowedClasses;
+            if (UI.Slider("Max allowed classes".white(), ref intValue, 1, MulticlassContext.MAX_CLASSES, MulticlassContext.MAX_CLASSES, "", UI.Width(50)))
+            {
+                Main.Settings.MaxAllowedClasses = intValue;
+            }
 
+            UI.Label("");
+            UI.Label("Visuals:".yellow());
             UI.Label("");
 
             toggle = Main.Settings.OfferAdditionalLoreFriendlyNames;

@@ -108,7 +108,12 @@ namespace SolastaCommunityExpansion
         // Progression
         public bool EnablesAsiAndFeat { get; set; }
         public bool EnableFeatsAtEvenLevels { get; set; }
-        public bool EnableLevel20 { get; set; }
+
+        // Multiclass
+        public bool EnableMinInOutAttributes { get; set; }
+        public bool EnableRelearnSpells { get; set; }
+        public bool DisplayAllKnownSpellsDuringLevelUp { get; set; }
+        public int MaxAllowedClasses { get; set; }
 
         // Visuals
         public bool OfferAdditionalLoreFriendlyNames { get; set; }
@@ -298,15 +303,5 @@ namespace SolastaCommunityExpansion
 
         public bool EnableEnemiesControlledByPlayer { get; set; }
         public bool EnableHeroesControlledByComputer { get; set; }
-
-        //
-        // Multiclass
-        //
-
-        public bool EnableMulticlass { get; set; }
-        public bool EnableMinInOutAttributes { get; set; }
-        public bool EnableRelearnSpells { get; set; }
-        public bool DisplayAllKnownSpellsDuringLevelUp { get; set; }
-        public int MaxAllowedClasses { get; set; }
     }
 }
