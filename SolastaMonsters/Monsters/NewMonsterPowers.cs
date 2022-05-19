@@ -1,11 +1,10 @@
-﻿using SolastaModApi;
-using SolastaModApi.Extensions;
-using System.Collections.Generic;
+﻿using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaCommunityExpansion.Builders;
-using SolastaCommunityExpansion.Models;
-using UnityEngine;
+using SolastaModApi;
+using SolastaModApi.Extensions;
 using SolastaMonsters.Models;
+using System.Collections.Generic;
+using UnityEngine;
 //******************************************************************************************
 // BY DEFINITION, REFACTORING REQUIRES CONFIRMING EXTERNAL BEHAVIOUR DOES NOT CHANGE
 // "REFACTORING WITHOUT TESTS IS JUST CHANGING STUFF"
@@ -41,9 +40,9 @@ namespace SolastaMonsters.Monsters
         public static FeatureDefinitionPower TarrasqueSwallowPower = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
         public static FeatureDefinitionPower VampireCharmPower = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
 
-        public static Dictionary<string, FeatureDefinitionPower> DictionaryOfAncientDragonBreaths = new Dictionary<string, FeatureDefinitionPower>();
-        public static Dictionary<string, FeatureDefinitionPower> DictionaryOfGenericBreathsWithExtraDamage = new Dictionary<string, FeatureDefinitionPower>();
-        public static Dictionary<string, FeatureDefinitionPower> Dictionaryof_SummoningElementals = new Dictionary<string, FeatureDefinitionPower>();
+        public static Dictionary<string, FeatureDefinitionPower> DictionaryOfAncientDragonBreaths = new();
+        public static Dictionary<string, FeatureDefinitionPower> DictionaryOfGenericBreathsWithExtraDamage = new();
+        public static Dictionary<string, FeatureDefinitionPower> Dictionaryof_SummoningElementals = new();
 
 
         internal static void Create()
@@ -108,7 +107,7 @@ namespace SolastaMonsters.Monsters
 
 
             TarrasqueSwallowPower = BuildNewPower(
-                    text + "DH_Custom" ,
+                    text + "DH_Custom",
                    DatabaseHelper.FeatureDefinitionPowers.PowerRemorhazSwallow,
                    GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                   "MonsterPower/&DH_" + text + "_Title",
@@ -160,7 +159,7 @@ namespace SolastaMonsters.Monsters
                    "MonsterPower/&DH_" + text + "_Description"
                     );
 
-            EffectDescription effectDescription = new EffectDescription();
+            EffectDescription effectDescription = new();
             effectDescription.Copy(DatabaseHelper.SpellDefinitions.HypnoticPattern.EffectDescription);
             effectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
             effectDescription.SetTargetSide(RuleDefinitions.Side.Enemy);
@@ -237,7 +236,7 @@ namespace SolastaMonsters.Monsters
 
 
 
-            Dictionary<string, int> dictionaryofAncientDragonBreathExtraDamageDiceNumbers = new Dictionary<string, int>
+            Dictionary<string, int> dictionaryofAncientDragonBreathExtraDamageDiceNumbers = new()
             {
                 { "Ancient Black Dragon", 15 },
                 { "Ancient Blue Dragon", 16 },
@@ -246,7 +245,7 @@ namespace SolastaMonsters.Monsters
                 { "Ancient White Dragon", 16 }
             };
 
-            Dictionary<string, RuleDefinitions.DieType> dictionaryofAncientDragonBreathExtraDamageDiceType = new Dictionary<string, RuleDefinitions.DieType>
+            Dictionary<string, RuleDefinitions.DieType> dictionaryofAncientDragonBreathExtraDamageDiceType = new()
             {
                 { "Ancient Black Dragon", RuleDefinitions.DieType.D8 },
                 { "Ancient Blue Dragon", RuleDefinitions.DieType.D10 },
@@ -255,7 +254,7 @@ namespace SolastaMonsters.Monsters
                 { "Ancient White Dragon", RuleDefinitions.DieType.D8 }
             };
 
-            Dictionary<string, RuleDefinitions.TargetType> dictionaryofAncientDragonBreathShape = new Dictionary<string, RuleDefinitions.TargetType>
+            Dictionary<string, RuleDefinitions.TargetType> dictionaryofAncientDragonBreathShape = new()
             {
                 { "Ancient Black Dragon", RuleDefinitions.TargetType.Line },
                 { "Ancient Blue Dragon", RuleDefinitions.TargetType.Line },
@@ -264,7 +263,7 @@ namespace SolastaMonsters.Monsters
                 { "Ancient White Dragon", RuleDefinitions.TargetType.Cone }
             };
 
-            Dictionary<string, EffectParticleParameters> dictionaryofAncientDragonBreathEffectparticles = new Dictionary<string, EffectParticleParameters>
+            Dictionary<string, EffectParticleParameters> dictionaryofAncientDragonBreathEffectparticles = new()
             {
                 { "Ancient Black Dragon", DatabaseHelper.FeatureDefinitionPowers.PowerDragonBreath_Acid.EffectDescription.EffectParticleParameters },
                 { "Ancient Blue Dragon", DatabaseHelper.SpellDefinitions.LightningBolt.EffectDescription.EffectParticleParameters },
@@ -382,7 +381,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewSummonCreature_Elemental_Power()
         {
 
-            Dictionary<SpellDefinition, int> dictionaryelementals = new Dictionary<SpellDefinition, int>
+            Dictionary<SpellDefinition, int> dictionaryelementals = new()
             {
                 { DatabaseHelper.SpellDefinitions.ConjureElementalAir, 1 },
                 { DatabaseHelper.SpellDefinitions.ConjureElementalEarth, 1 },
@@ -443,14 +442,14 @@ namespace SolastaMonsters.Monsters
             SearingBurst_Power.EffectDescription.EffectForms[0].SetHasSavingThrow(true);
             SearingBurst_Power.EffectDescription.EffectForms[0].SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.HalfDamage);
 
-            DamageForm damageForm = new DamageForm();
+            DamageForm damageForm = new();
             damageForm.SetDiceNumber(4);
             damageForm.SetDieType(RuleDefinitions.DieType.D6);
             damageForm.SetBonusDamage(0);
             damageForm.SetDamageType(RuleDefinitions.DamageTypeRadiant);
 
 
-            EffectForm extraDamageEffect = new EffectForm();
+            EffectForm extraDamageEffect = new();
             extraDamageEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
             extraDamageEffect.SetLevelMultiplier(1);
             extraDamageEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
@@ -693,11 +692,11 @@ namespace SolastaMonsters.Monsters
             AirTitan_Gale_Power.EffectDescription.SetDifficultyClassComputation(RuleDefinitions.EffectDifficultyClassComputation.FixedValue);
             AirTitan_Gale_Power.EffectDescription.SetFixedSavingThrowDifficultyClass(17);
 
-            MotionForm motionForm = new MotionForm();
+            MotionForm motionForm = new();
             motionForm.SetType(MotionForm.MotionType.FallProne);
             motionForm.SetDistance(6);
 
-            EffectForm effectForm = new EffectForm();
+            EffectForm effectForm = new();
             effectForm.SetApplyLevel(EffectForm.LevelApplianceType.No);
             effectForm.SetLevelMultiplier(1);
             effectForm.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
@@ -710,11 +709,11 @@ namespace SolastaMonsters.Monsters
 
             AirTitan_Gale_Power.EffectDescription.EffectForms.Add(effectForm);
 
-            MotionForm motionForm_2 = new MotionForm();
+            MotionForm motionForm_2 = new();
             motionForm_2.SetType(MotionForm.MotionType.PushFromOrigin);
             motionForm_2.SetDistance(6);
 
-            EffectForm effectForm_2 = new EffectForm();
+            EffectForm effectForm_2 = new();
             effectForm_2.SetApplyLevel(EffectForm.LevelApplianceType.No);
             effectForm_2.SetLevelMultiplier(1);
             effectForm_2.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
@@ -854,7 +853,7 @@ namespace SolastaMonsters.Monsters
                    "MonsterPower/&DH_" + text + "_Description"
                     );
 
-            EffectDescription effectDescription = new EffectDescription();
+            EffectDescription effectDescription = new();
             effectDescription.Copy(DatabaseHelper.SpellDefinitions.FaerieFire.EffectDescription);
             IlluminatingCrystals_Power.SetEffectDescription(effectDescription);
             IlluminatingCrystals_Power.EffectDescription.SetTargetExcludeCaster(true);
@@ -881,7 +880,7 @@ namespace SolastaMonsters.Monsters
                    "MonsterPower/&DH_" + text + "_Description"
                     );
 
-            EffectDescription effectDescription = new EffectDescription();
+            EffectDescription effectDescription = new();
             effectDescription.Copy(DatabaseHelper.SpellDefinitions.Disintegrate.EffectDescription);
             DisintegratingBeam_Power.SetEffectDescription(effectDescription);
             DisintegratingBeam_Power.EffectDescription.SetEffectParticleParameters(DatabaseHelper.SpellDefinitions.LightningBolt.EffectDescription.EffectParticleParameters);
@@ -916,7 +915,7 @@ namespace SolastaMonsters.Monsters
                    "MonsterPower/&DH_" + text + "_Description"
                     );
 
-            EffectDescription effectDescription = new EffectDescription();
+            EffectDescription effectDescription = new();
             effectDescription.Copy(DatabaseHelper.FeatureDefinitionPowers.PowerFireOspreyBlast.EffectDescription);
             IncreasedGravityZone_Power.SetEffectDescription(effectDescription);
             IncreasedGravityZone_Power.SetActivationTime(RuleDefinitions.ActivationTime.BonusAction);
@@ -935,11 +934,11 @@ namespace SolastaMonsters.Monsters
             IncreasedGravityZone_Power.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(6);
             IncreasedGravityZone_Power.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D10);
 
-            MotionForm motionForm = new MotionForm();
+            MotionForm motionForm = new();
             motionForm.SetType(MotionForm.MotionType.FallProne);
             motionForm.SetDistance(6);
 
-            EffectForm effectForm = new EffectForm();
+            EffectForm effectForm = new();
             effectForm.SetApplyLevel(EffectForm.LevelApplianceType.No);
             effectForm.SetLevelMultiplier(1);
             effectForm.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
@@ -949,14 +948,14 @@ namespace SolastaMonsters.Monsters
 
             IncreasedGravityZone_Power.EffectDescription.EffectForms.Add(effectForm);
 
-            ConditionForm Condition = new ConditionForm();
+            ConditionForm Condition = new();
             Condition.SetApplyToSelf(false);
             Condition.SetForceOnSelf(false);
             Condition.Operation = ConditionForm.ConditionOperation.Add;
             Condition.SetConditionDefinitionName(DatabaseHelper.ConditionDefinitions.ConditionRestrained.Name);
             Condition.ConditionDefinition = DatabaseHelper.ConditionDefinitions.ConditionRestrained;
 
-            EffectForm effect = new EffectForm();
+            EffectForm effect = new();
             effect.SetApplyLevel(EffectForm.LevelApplianceType.No);
             effect.SetLevelMultiplier(1);
             effect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
@@ -1015,11 +1014,11 @@ namespace SolastaMonsters.Monsters
             EarthTitan_Earthquake_Power.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypeBludgeoning);
             EarthTitan_Earthquake_Power.EffectDescription.EffectForms[0].SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.HalfDamage);
 
-            MotionForm motionForm = new MotionForm();
+            MotionForm motionForm = new();
             motionForm.SetType(MotionForm.MotionType.FallProne);
             motionForm.SetDistance(6);
 
-            EffectForm effectForm = new EffectForm();
+            EffectForm effectForm = new();
             effectForm.SetApplyLevel(EffectForm.LevelApplianceType.No);
             effectForm.SetLevelMultiplier(1);
             effectForm.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);

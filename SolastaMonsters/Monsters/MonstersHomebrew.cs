@@ -1,5 +1,5 @@
-﻿using SolastaModApi;
-using SolastaCommunityExpansion.Builders;
+﻿using SolastaCommunityExpansion.Builders;
+using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ namespace SolastaMonsters.Monsters
     internal static class MonstersHomebrew
     {
 
-        public static List<Models.MonsterContext.CustomMonster> Definitions = new List<Models.MonsterContext.CustomMonster>()
+        public static List<Models.MonsterContext.CustomMonster> Definitions = new()
         {
             new Models.MonsterContext.CustomMonster()
             {
@@ -294,27 +294,27 @@ namespace SolastaMonsters.Monsters
 
                 NewMonster.SetDefaultBattleDecisionPackage(NewMonsterAttributes.Titan_CombatDecisions);
 
-                MonsterSavingThrowProficiency Str_save = new MonsterSavingThrowProficiency();
+                MonsterSavingThrowProficiency Str_save = new();
                 Str_save.SetField("abilityScoreName", "Strength");
                 Str_save.SetField("bonus", Definitions[i].SavingThrowStrength);
 
-                MonsterSavingThrowProficiency Dex_save = new MonsterSavingThrowProficiency();
+                MonsterSavingThrowProficiency Dex_save = new();
                 Dex_save.SetField("abilityScoreName", "Dexterity");
                 Dex_save.SetField("bonus", Definitions[i].SavingThrowDexterity);
 
-                MonsterSavingThrowProficiency Con_save = new MonsterSavingThrowProficiency();
+                MonsterSavingThrowProficiency Con_save = new();
                 Con_save.SetField("abilityScoreName", "Constitution");
                 Con_save.SetField("bonus", Definitions[i].SavingThrowConstitution);
 
-                MonsterSavingThrowProficiency Int_save = new MonsterSavingThrowProficiency();
+                MonsterSavingThrowProficiency Int_save = new();
                 Int_save.SetField("abilityScoreName", "Intelligence");
                 Int_save.SetField("bonus", Definitions[i].SavingThrowIntelligence);
 
-                MonsterSavingThrowProficiency Wis_save = new MonsterSavingThrowProficiency();
+                MonsterSavingThrowProficiency Wis_save = new();
                 Wis_save.SetField("abilityScoreName", "Wisdom");
                 Wis_save.SetField("bonus", Definitions[i].SavingThrowWisdom);
 
-                MonsterSavingThrowProficiency Cha_save = new MonsterSavingThrowProficiency();
+                MonsterSavingThrowProficiency Cha_save = new();
                 Cha_save.SetField("abilityScoreName", "Charisma");
                 Cha_save.SetField("bonus", Definitions[i].SavingThrowCharisma);
 
@@ -353,7 +353,7 @@ namespace SolastaMonsters.Monsters
                     //AssetReference assetReference = new AssetReference();
                     //assetReference.SetField("m_AssetGUID", "3f4ea7931d5f6ba4e96caace01b265b7");
                     //NewMonster.SetPrefabReference(assetReference);
-                    AssetReference assetReference = new AssetReference();
+                    AssetReference assetReference = new();
                     assetReference.SetField("m_AssetGUID", "b1bd642eab224bd4bbbf5ce48c869a9e");
                     NewMonster.SetPrefabReference(assetReference);
 
@@ -366,26 +366,26 @@ namespace SolastaMonsters.Monsters
                         NewMonsterPowers.AirTitan_LightningStorm_Attack_Power
                     });
 
-                    MonsterAttackIteration AttackIteration = new MonsterAttackIteration();
+                    MonsterAttackIteration AttackIteration = new();
                     AttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.AirTitan_Slam_Attack);
                     AttackIteration.SetField("number", 2);
 
                     NewMonster.ClearAttackIterations();
                     NewMonster.AddAttackIterations(new List<MonsterAttackIteration> { AttackIteration });
 
-                    LegendaryActionDescription legendaryActionDescription = new LegendaryActionDescription();
+                    LegendaryActionDescription legendaryActionDescription = new();
                     legendaryActionDescription.SetCost(1);
                     legendaryActionDescription.SetSubaction(LegendaryActionDescription.SubactionType.Power);
                     legendaryActionDescription.SetFeatureDefinitionPower(NewMonsterPowers.AirTitan_Lightning_Power);
                     legendaryActionDescription.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.LegendaryDragonAttack);
 
-                    LegendaryActionDescription legendaryActionDescription_2 = new LegendaryActionDescription();
+                    LegendaryActionDescription legendaryActionDescription_2 = new();
                     legendaryActionDescription_2.SetCost(1);
                     legendaryActionDescription_2.SetSubaction(LegendaryActionDescription.SubactionType.Spell);
                     legendaryActionDescription_2.SetSpellDefinition(DatabaseHelper.SpellDefinitions.SleetStorm);
                     legendaryActionDescription_2.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.LegendaryAoE_Debuff);
 
-                    LegendaryActionDescription legendaryActionDescription_3 = new LegendaryActionDescription();
+                    LegendaryActionDescription legendaryActionDescription_3 = new();
                     legendaryActionDescription_3.SetCost(2);
                     legendaryActionDescription_3.SetSubaction(LegendaryActionDescription.SubactionType.Power);
                     legendaryActionDescription_3.SetFeatureDefinitionPower(NewMonsterPowers.AirTitan_Gale_Power);
@@ -402,9 +402,9 @@ namespace SolastaMonsters.Monsters
 
                 if (Definitions[i].MonsterName == "Earth Titan")
                 {
-                   //AssetReference assetReference = new AssetReference();
-                   //assetReference.SetField("m_AssetGUID", "aad57f1f96869a3409a5c064473c454d");
-                   //NewMonster.SetPrefabReference(assetReference);
+                    //AssetReference assetReference = new AssetReference();
+                    //assetReference.SetField("m_AssetGUID", "aad57f1f96869a3409a5c064473c454d");
+                    //NewMonster.SetPrefabReference(assetReference);
 
                     NewMonster.AddFeatures(new List<FeatureDefinition>
                     {
@@ -413,30 +413,30 @@ namespace SolastaMonsters.Monsters
                         NewMonsterPowers.EarthTitan_Earthquake_Power
                     });
 
-                    MonsterAttackIteration AttackIteration = new MonsterAttackIteration();
+                    MonsterAttackIteration AttackIteration = new();
                     AttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.EarthTitan_Boulder_Attack);
                     AttackIteration.SetField("number", 2);
 
-                    MonsterAttackIteration AttackIteration_2 = new MonsterAttackIteration();
+                    MonsterAttackIteration AttackIteration_2 = new();
                     AttackIteration_2.SetField("monsterAttackDefinition", NewMonsterAttacks.EarthTitan_Slam_Attack);
                     AttackIteration_2.SetField("number", 2);
 
                     NewMonster.ClearAttackIterations();
                     NewMonster.AddAttackIterations(new List<MonsterAttackIteration> { AttackIteration, AttackIteration_2 });
 
-                    LegendaryActionDescription legendaryActionDescription_1 = new LegendaryActionDescription();
+                    LegendaryActionDescription legendaryActionDescription_1 = new();
                     legendaryActionDescription_1.SetCost(1);
                     legendaryActionDescription_1.SetSubaction(LegendaryActionDescription.SubactionType.Power);
                     legendaryActionDescription_1.SetFeatureDefinitionPower(NewMonsterPowers.IlluminatingCrystals_Power);
                     legendaryActionDescription_1.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.LegendaryAoE_Debuff);
 
-                    LegendaryActionDescription legendaryActionDescription_2 = new LegendaryActionDescription();
+                    LegendaryActionDescription legendaryActionDescription_2 = new();
                     legendaryActionDescription_2.SetCost(1);
                     legendaryActionDescription_2.SetSubaction(LegendaryActionDescription.SubactionType.MonsterAttack);
                     legendaryActionDescription_2.SetMonsterAttackDefinition(NewMonsterAttacks.EarthTitan_Boulder_Attack);
                     legendaryActionDescription_2.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.LegendaryDragonAttack);
 
-                    LegendaryActionDescription legendaryActionDescription_3 = new LegendaryActionDescription();
+                    LegendaryActionDescription legendaryActionDescription_3 = new();
                     legendaryActionDescription_3.SetCost(2);
                     legendaryActionDescription_3.SetSubaction(LegendaryActionDescription.SubactionType.Power);
                     legendaryActionDescription_3.SetFeatureDefinitionPower(NewMonsterPowers.EarthTitan_Earthquake_Power);
@@ -448,7 +448,7 @@ namespace SolastaMonsters.Monsters
                         legendaryActionDescription_3
                     });
 
-                    AssetReference assetReference = new AssetReference();
+                    AssetReference assetReference = new();
                     assetReference.SetField("m_AssetGUID", "0ff0b1c4180816e468ec3dcab4b18c35");
                     NewMonster.SetPrefabReference(assetReference);
 
@@ -458,7 +458,7 @@ namespace SolastaMonsters.Monsters
 
                 if (Definitions[i].MonsterName == "Fire Titan")
                 {
-                    AssetReference assetReference = new AssetReference();
+                    AssetReference assetReference = new();
                     assetReference.SetField("m_AssetGUID", "0829dcc3d2af9764582f0c4f3b70c914");
 
                     NewMonster.SetPrefabReference(assetReference);
@@ -471,20 +471,20 @@ namespace SolastaMonsters.Monsters
                         NewMonsterPowers.FireTitan_Aura_Power
                     });
 
-                    MonsterAttackIteration AttackIteration = new MonsterAttackIteration();
+                    MonsterAttackIteration AttackIteration = new();
                     AttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.FireTitan_Slam_Attack);
                     AttackIteration.SetField("number", 3);
 
                     NewMonster.ClearAttackIterations();
                     NewMonster.AddAttackIterations(new List<MonsterAttackIteration> { AttackIteration });
 
-                    LegendaryActionDescription legendaryActionDescription_2 = new LegendaryActionDescription();
+                    LegendaryActionDescription legendaryActionDescription_2 = new();
                     legendaryActionDescription_2.SetCost(1);
                     legendaryActionDescription_2.SetSubaction(LegendaryActionDescription.SubactionType.Spell);
                     legendaryActionDescription_2.SetSpellDefinition(DatabaseHelper.SpellDefinitions.WallOfFireRing_Outer);
                     legendaryActionDescription_2.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.LegendaryAoE_DpS);
 
-                    LegendaryActionDescription legendaryActionDescription = new LegendaryActionDescription();
+                    LegendaryActionDescription legendaryActionDescription = new();
                     legendaryActionDescription.SetCost(1);
                     legendaryActionDescription.SetSubaction(LegendaryActionDescription.SubactionType.Power);
                     legendaryActionDescription.SetFeatureDefinitionPower(NewMonsterPowers.AtWillAOE_Fireball_Power);
@@ -499,11 +499,11 @@ namespace SolastaMonsters.Monsters
 
                 if (Definitions[i].MonsterName == "Construct Titan")
                 {
-                    MonsterAttackIteration AttackIteration = new MonsterAttackIteration();
+                    MonsterAttackIteration AttackIteration = new();
                     AttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.ConstructTitan_Slam_Attack);
                     AttackIteration.SetField("number", 1);
 
-                    MonsterAttackIteration AttackIteration_2 = new MonsterAttackIteration();
+                    MonsterAttackIteration AttackIteration_2 = new();
                     AttackIteration_2.SetField("monsterAttackDefinition", NewMonsterAttacks.ConstructTitan_ForceCannon_Attack);
                     AttackIteration_2.SetField("number", 2);
 
@@ -512,19 +512,19 @@ namespace SolastaMonsters.Monsters
                     NewMonster.SetGroupAttacks(true);
                     NewMonster.ClearLegendaryActionOptions();
 
-                    LegendaryActionDescription legendaryActionDescription = new LegendaryActionDescription();
+                    LegendaryActionDescription legendaryActionDescription = new();
                     legendaryActionDescription.SetCost(1);
                     legendaryActionDescription.SetSubaction(LegendaryActionDescription.SubactionType.MonsterAttack);
                     legendaryActionDescription.SetMonsterAttackDefinition(NewMonsterAttacks.ConstructTitan_ForceCannon_Attack);
                     legendaryActionDescription.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.LegendaryMummyLordAttack_Default);
 
-                    LegendaryActionDescription legendaryActionDescription2 = new LegendaryActionDescription();
+                    LegendaryActionDescription legendaryActionDescription2 = new();
                     legendaryActionDescription2.SetCost(2);
                     legendaryActionDescription2.SetSubaction(LegendaryActionDescription.SubactionType.Power);
                     legendaryActionDescription2.SetFeatureDefinitionPower(NewMonsterPowers.DisintegratingBeam_Power);
                     legendaryActionDescription2.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.LegendaryLaetharCast_Debuff);
 
-                    NewMonster.AddLegendaryActionOptions(new List<LegendaryActionDescription> { legendaryActionDescription , legendaryActionDescription2 });
+                    NewMonster.AddLegendaryActionOptions(new List<LegendaryActionDescription> { legendaryActionDescription, legendaryActionDescription2 });
 
                     NewMonster.AddFeatures(new List<FeatureDefinition>
                     {
@@ -533,7 +533,7 @@ namespace SolastaMonsters.Monsters
                     });
 
 
-                    AssetReference assetReference = new AssetReference();
+                    AssetReference assetReference = new();
                     assetReference.SetField("m_AssetGUID", "0ff0b1c4180816e468ec3dcab4b18c35");
                     NewMonster.SetPrefabReference(assetReference);
 

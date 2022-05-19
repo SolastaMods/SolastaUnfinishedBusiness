@@ -1,12 +1,11 @@
-﻿using SolastaModApi;
+﻿using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Builders.Features;
+using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
-using System.Collections.Generic;
-using SolastaCommunityExpansion.Builders.Features;
-using SolastaCommunityExpansion.Builders;
-using SolastaCommunityExpansion.Models;
-using UnityEngine;
 using SolastaMonsters.Models;
+using System.Collections.Generic;
+using UnityEngine;
 //******************************************************************************************
 // BY DEFINITION, REFACTORING REQUIRES CONFIRMING EXTERNAL BEHAVIOUR DOES NOT CHANGE
 // "REFACTORING WITHOUT TESTS IS JUST CHANGING STUFF"
@@ -47,12 +46,12 @@ namespace SolastaMonsters.Monsters
         public static TA.AI.DecisionDefinition SummonCreature_Magic_Decision = ScriptableObject.CreateInstance<TA.AI.DecisionDefinition>();
         public static TA.AI.DecisionDefinition CastMagic_Stoneskin_Decision = ScriptableObject.CreateInstance<TA.AI.DecisionDefinition>();
 
-        public static Dictionary<string, string> Dictionaryof_Dragon_DamageAffinity = new Dictionary<string, string>();
+        public static Dictionary<string, string> Dictionaryof_Dragon_DamageAffinity = new();
 
 
-        public static List<string> ListofDamageTypes_Dragon = new List<string> { "DamageAcid", "DamagePoison", "DamageFire", "DamageCold", "DamageLightning" };
-        public static List<string> ListofDamageTypes_Physical = new List<string> { "DamageSlashing", "DamageBludgeoning", "DamagePiercing" };
-        public static List<string> ListofDamageTypes_Other = new List<string> { "DamageThunder", "DamagePsychic", "DamageForce", "DamageNecrotic", "DamageRadiant" };
+        public static List<string> ListofDamageTypes_Dragon = new() { "DamageAcid", "DamagePoison", "DamageFire", "DamageCold", "DamageLightning" };
+        public static List<string> ListofDamageTypes_Physical = new() { "DamageSlashing", "DamageBludgeoning", "DamagePiercing" };
+        public static List<string> ListofDamageTypes_Other = new() { "DamageThunder", "DamagePsychic", "DamageForce", "DamageNecrotic", "DamageRadiant" };
 
 
         internal static void Create()
@@ -124,7 +123,7 @@ namespace SolastaMonsters.Monsters
 
             foreach (SpellDefinition spell in listofAllSpells)
             {
-                if (spell.EffectDescription.TargetType == RuleDefinitions.TargetType.Line|| spell.EffectDescription.RangeType == RuleDefinitions.RangeType.RangeHit)
+                if (spell.EffectDescription.TargetType == RuleDefinitions.TargetType.Line || spell.EffectDescription.RangeType == RuleDefinitions.RangeType.RangeHit)
                 {
                     TarrasqueReflectiveCarapace.SpellImmunities.Add(spell.Name);
                 }
@@ -147,7 +146,7 @@ namespace SolastaMonsters.Monsters
 
             TarrasqueSwallow_Decision.Decision.SetStringParameter("TarrasqueSwallow");
         }
-   
+
         public static void BuildNew_Tarrasque_CombatDecisions()
         {
             string text = "Tarrasque_CombatDecisions";
@@ -165,38 +164,38 @@ namespace SolastaMonsters.Monsters
 
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_0 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_0 = new();
             weightedDecisionDescription_0.SetDecision(DatabaseHelper.DecisionDefinitions.LongRangePathToEnemy_Dash);
             weightedDecisionDescription_0.SetWeight(5f);
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_2 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_2 = new();
             weightedDecisionDescription_2.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_DPS_SingleTarget);
             weightedDecisionDescription_2.SetWeight(4.5f);
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_1 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_1 = new();
             weightedDecisionDescription_1.SetDecision(DatabaseHelper.DecisionDefinitions.MeleeAttack_Default);
             weightedDecisionDescription_1.SetWeight(4f);
 
             //
-           TA.AI.WeightedDecisionDescription weightedDecisionDescription_4 = new TA.AI.WeightedDecisionDescription();
-           weightedDecisionDescription_4.SetDecision(TarrasqueSwallow_Decision);
-           weightedDecisionDescription_4.SetWeight(4.5f);
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_4 = new();
+            weightedDecisionDescription_4.SetDecision(TarrasqueSwallow_Decision);
+            weightedDecisionDescription_4.SetWeight(4.5f);
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_3 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_3 = new();
             weightedDecisionDescription_3.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_FrightfulPresence_Dragon);
             weightedDecisionDescription_3.SetWeight(3f);
 
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_5 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_5 = new();
             weightedDecisionDescription_5.SetDecision(DatabaseHelper.DecisionDefinitions.Move_Aggressive_Remorhaz);
             weightedDecisionDescription_5.SetWeight(2.0f);
 
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_7 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_7 = new();
             weightedDecisionDescription_7.SetDecision(DatabaseHelper.DecisionDefinitions.Emote_Angry);
             weightedDecisionDescription_7.SetWeight(0.1f);
 
@@ -211,7 +210,7 @@ namespace SolastaMonsters.Monsters
                                                                     weightedDecisionDescription_4,
                                                                     weightedDecisionDescription_3,
                                                                     weightedDecisionDescription_5,
-                                                             //       weightedDecisionDescription_6,
+                                                                    //       weightedDecisionDescription_6,
                                                                     weightedDecisionDescription_7
                                                                     );
         }
@@ -329,7 +328,7 @@ namespace SolastaMonsters.Monsters
                       );
 
 
-            SpellListDefinition.SpellsByLevelDuplet LichSpell_Cantrips = new SpellListDefinition.SpellsByLevelDuplet
+            SpellListDefinition.SpellsByLevelDuplet LichSpell_Cantrips = new()
             {
                 Spells = new List<SpellDefinition>()
             };
@@ -338,7 +337,7 @@ namespace SolastaMonsters.Monsters
             // LichSpell_Cantrips.Spells.Add(DatabaseHelper.SpellDefinitions.ChillTouch);
 
 
-            SpellListDefinition.SpellsByLevelDuplet LichSpell_level_1 = new SpellListDefinition.SpellsByLevelDuplet
+            SpellListDefinition.SpellsByLevelDuplet LichSpell_level_1 = new()
             {
                 Spells = new List<SpellDefinition>(),
                 Level = 1
@@ -348,7 +347,7 @@ namespace SolastaMonsters.Monsters
             LichSpell_level_1.Spells.Add(DatabaseHelper.SpellDefinitions.Shield);
             LichSpell_level_1.Spells.Add(DatabaseHelper.SpellDefinitions.Thunderwave);
 
-            SpellListDefinition.SpellsByLevelDuplet LichSpell_level_2 = new SpellListDefinition.SpellsByLevelDuplet
+            SpellListDefinition.SpellsByLevelDuplet LichSpell_level_2 = new()
             {
                 Spells = new List<SpellDefinition>(),
                 Level = 2
@@ -358,7 +357,7 @@ namespace SolastaMonsters.Monsters
             LichSpell_level_2.Spells.Add(DatabaseHelper.SpellDefinitions.Blur);
 
 
-            SpellListDefinition.SpellsByLevelDuplet LichSpell_level_3 = new SpellListDefinition.SpellsByLevelDuplet
+            SpellListDefinition.SpellsByLevelDuplet LichSpell_level_3 = new()
             {
                 Spells = new List<SpellDefinition>(),
                 Level = 3
@@ -369,7 +368,7 @@ namespace SolastaMonsters.Monsters
             LichSpell_level_3.Spells.Add(DatabaseHelper.SpellDefinitions.Fireball);
 
 
-            SpellListDefinition.SpellsByLevelDuplet LichSpell_level_4 = new SpellListDefinition.SpellsByLevelDuplet
+            SpellListDefinition.SpellsByLevelDuplet LichSpell_level_4 = new()
             {
                 Spells = new List<SpellDefinition>(),
                 Level = 4
@@ -377,7 +376,7 @@ namespace SolastaMonsters.Monsters
             LichSpell_level_4.Spells.Add(DatabaseHelper.SpellDefinitions.Blight);
             LichSpell_level_4.Spells.Add(DatabaseHelper.SpellDefinitions.DimensionDoor);
 
-            SpellListDefinition.SpellsByLevelDuplet LichSpell_level_5 = new SpellListDefinition.SpellsByLevelDuplet
+            SpellListDefinition.SpellsByLevelDuplet LichSpell_level_5 = new()
             {
                 Spells = new List<SpellDefinition>(),
                 Level = 5
@@ -385,7 +384,7 @@ namespace SolastaMonsters.Monsters
             LichSpell_level_5.Spells.Add(DatabaseHelper.SpellDefinitions.CloudKill);
             LichSpell_level_5.Spells.Add(DatabaseHelper.SpellDefinitions.ConeOfCold);
 
-            SpellListDefinition.SpellsByLevelDuplet LichSpell_level_6 = new SpellListDefinition.SpellsByLevelDuplet
+            SpellListDefinition.SpellsByLevelDuplet LichSpell_level_6 = new()
             {
                 Spells = new List<SpellDefinition>(),
                 Level = 6
@@ -393,7 +392,7 @@ namespace SolastaMonsters.Monsters
             LichSpell_level_6.Spells.Add(DatabaseHelper.SpellDefinitions.Disintegrate);
             LichSpell_level_6.Spells.Add(DatabaseHelper.SpellDefinitions.GlobeOfInvulnerability);
 
-            SpellListDefinition.SpellsByLevelDuplet LichSpell_level_7 = new SpellListDefinition.SpellsByLevelDuplet
+            SpellListDefinition.SpellsByLevelDuplet LichSpell_level_7 = new()
             {
                 Spells = new List<SpellDefinition>(),
                 Level = 7
@@ -402,14 +401,14 @@ namespace SolastaMonsters.Monsters
             LichSpell_level_7.Spells.Add(NewMonsterSpells.PowerWordStun_Spell);
             LichSpell_level_7.Spells.Add(NewMonsterSpells.PowerWordKill_Spell);
 
-            SpellListDefinition.SpellsByLevelDuplet LichSpell_level_8 = new SpellListDefinition.SpellsByLevelDuplet
+            SpellListDefinition.SpellsByLevelDuplet LichSpell_level_8 = new()
             {
                 Spells = new List<SpellDefinition>(),
                 Level = 8
             };
             LichSpell_level_8.Spells.Add(NewMonsterSpells.PowerWordStun_Spell);
 
-            SpellListDefinition.SpellsByLevelDuplet LichSpell_level_9 = new SpellListDefinition.SpellsByLevelDuplet
+            SpellListDefinition.SpellsByLevelDuplet LichSpell_level_9 = new()
             {
                 Spells = new List<SpellDefinition>(),
                 Level = 9
@@ -567,7 +566,7 @@ namespace SolastaMonsters.Monsters
                       );
 
 
-            SpellListDefinition.SpellsByLevelDuplet ArchmageSpell_Cantrips = new SpellListDefinition.SpellsByLevelDuplet
+            SpellListDefinition.SpellsByLevelDuplet ArchmageSpell_Cantrips = new()
             {
                 Spells = new List<SpellDefinition>()
             };
@@ -575,7 +574,7 @@ namespace SolastaMonsters.Monsters
             ArchmageSpell_Cantrips.Spells.Add(DatabaseHelper.SpellDefinitions.ShockingGrasp);
 
 
-            SpellListDefinition.SpellsByLevelDuplet ArchmageSpell_level_1 = new SpellListDefinition.SpellsByLevelDuplet
+            SpellListDefinition.SpellsByLevelDuplet ArchmageSpell_level_1 = new()
             {
                 Spells = new List<SpellDefinition>(),
                 Level = 1
@@ -583,7 +582,7 @@ namespace SolastaMonsters.Monsters
             ArchmageSpell_level_1.Spells.Add(DatabaseHelper.SpellDefinitions.MagicMissile);
             ArchmageSpell_level_1.Spells.Add(DatabaseHelper.SpellDefinitions.Thunderwave);
 
-            SpellListDefinition.SpellsByLevelDuplet ArchmageSpell_level_2 = new SpellListDefinition.SpellsByLevelDuplet
+            SpellListDefinition.SpellsByLevelDuplet ArchmageSpell_level_2 = new()
             {
                 Spells = new List<SpellDefinition>(),
                 Level = 2
@@ -592,7 +591,7 @@ namespace SolastaMonsters.Monsters
             ArchmageSpell_level_2.Spells.Add(DatabaseHelper.SpellDefinitions.MistyStep);
 
 
-            SpellListDefinition.SpellsByLevelDuplet ArchmageSpell_level_3 = new SpellListDefinition.SpellsByLevelDuplet
+            SpellListDefinition.SpellsByLevelDuplet ArchmageSpell_level_3 = new()
             {
                 Spells = new List<SpellDefinition>(),
                 Level = 3
@@ -602,7 +601,7 @@ namespace SolastaMonsters.Monsters
             ArchmageSpell_level_3.Spells.Add(DatabaseHelper.SpellDefinitions.LightningBolt);
 
 
-            SpellListDefinition.SpellsByLevelDuplet ArchmageSpell_level_4 = new SpellListDefinition.SpellsByLevelDuplet
+            SpellListDefinition.SpellsByLevelDuplet ArchmageSpell_level_4 = new()
             {
                 Spells = new List<SpellDefinition>(),
                 Level = 4
@@ -610,7 +609,7 @@ namespace SolastaMonsters.Monsters
             ArchmageSpell_level_4.Spells.Add(DatabaseHelper.SpellDefinitions.Banishment);
             ArchmageSpell_level_4.Spells.Add(DatabaseHelper.SpellDefinitions.FireShield);
 
-            SpellListDefinition.SpellsByLevelDuplet ArchmageSpell_level_5 = new SpellListDefinition.SpellsByLevelDuplet
+            SpellListDefinition.SpellsByLevelDuplet ArchmageSpell_level_5 = new()
             {
                 Spells = new List<SpellDefinition>(),
                 Level = 5
@@ -619,14 +618,14 @@ namespace SolastaMonsters.Monsters
             ArchmageSpell_level_5.Spells.Add(DatabaseHelper.SpellDefinitions.ConeOfCold);
             //ArchmageSpell_level_5.Spells.Add(DatabaseHelper.SpellDefinitions.WallOfForce);
 
-            SpellListDefinition.SpellsByLevelDuplet ArchmageSpell_level_6 = new SpellListDefinition.SpellsByLevelDuplet
+            SpellListDefinition.SpellsByLevelDuplet ArchmageSpell_level_6 = new()
             {
                 Spells = new List<SpellDefinition>(),
                 Level = 6
             };
             ArchmageSpell_level_6.Spells.Add(DatabaseHelper.SpellDefinitions.GlobeOfInvulnerability);
 
-            SpellListDefinition.SpellsByLevelDuplet ArchmageSpell_level_7 = new SpellListDefinition.SpellsByLevelDuplet
+            SpellListDefinition.SpellsByLevelDuplet ArchmageSpell_level_7 = new()
             {
                 Spells = new List<SpellDefinition>(),
                 Level = 7
@@ -635,14 +634,14 @@ namespace SolastaMonsters.Monsters
             ArchmageSpell_level_7.Spells.Add(NewMonsterSpells.PowerWordStun_Spell);
             ArchmageSpell_level_7.Spells.Add(NewMonsterSpells.TimeStop_Spell);
 
-            SpellListDefinition.SpellsByLevelDuplet ArchmageSpell_level_8 = new SpellListDefinition.SpellsByLevelDuplet
+            SpellListDefinition.SpellsByLevelDuplet ArchmageSpell_level_8 = new()
             {
                 Spells = new List<SpellDefinition>(),
                 Level = 8
             };
             ArchmageSpell_level_8.Spells.Add(NewMonsterSpells.PowerWordStun_Spell);
 
-            SpellListDefinition.SpellsByLevelDuplet ArchmageSpell_level_9 = new SpellListDefinition.SpellsByLevelDuplet
+            SpellListDefinition.SpellsByLevelDuplet ArchmageSpell_level_9 = new()
             {
                 Spells = new List<SpellDefinition>(),
                 Level = 9
@@ -792,14 +791,14 @@ namespace SolastaMonsters.Monsters
                       );
 
 
-            SpellListDefinition.SpellsByLevelDuplet GuardianNagaSpell_Cantrips = new SpellListDefinition.SpellsByLevelDuplet
+            SpellListDefinition.SpellsByLevelDuplet GuardianNagaSpell_Cantrips = new()
             {
                 Spells = new List<SpellDefinition>()
             };
             GuardianNagaSpell_Cantrips.Spells.Add(DatabaseHelper.SpellDefinitions.SacredFlame);
 
 
-            SpellListDefinition.SpellsByLevelDuplet GuardianNagaSpell_level_1 = new SpellListDefinition.SpellsByLevelDuplet
+            SpellListDefinition.SpellsByLevelDuplet GuardianNagaSpell_level_1 = new()
             {
                 Spells = new List<SpellDefinition>(),
                 Level = 1
@@ -808,7 +807,7 @@ namespace SolastaMonsters.Monsters
             //GuardianNagaSpell_level_1.Spells.Add(DatabaseHelper.SpellDefinitions.Command);
             GuardianNagaSpell_level_1.Spells.Add(DatabaseHelper.SpellDefinitions.ShieldOfFaith);
 
-            SpellListDefinition.SpellsByLevelDuplet GuardianNagaSpell_level_2 = new SpellListDefinition.SpellsByLevelDuplet
+            SpellListDefinition.SpellsByLevelDuplet GuardianNagaSpell_level_2 = new()
             {
                 Spells = new List<SpellDefinition>(),
                 Level = 2
@@ -817,7 +816,7 @@ namespace SolastaMonsters.Monsters
             GuardianNagaSpell_level_2.Spells.Add(DatabaseHelper.SpellDefinitions.HoldPerson);
 
 
-            SpellListDefinition.SpellsByLevelDuplet GuardianNagaSpell_level_3 = new SpellListDefinition.SpellsByLevelDuplet
+            SpellListDefinition.SpellsByLevelDuplet GuardianNagaSpell_level_3 = new()
             {
                 Spells = new List<SpellDefinition>(),
                 Level = 3
@@ -825,7 +824,7 @@ namespace SolastaMonsters.Monsters
             GuardianNagaSpell_level_3.Spells.Add(DatabaseHelper.SpellDefinitions.BestowCurse);
 
 
-            SpellListDefinition.SpellsByLevelDuplet GuardianNagaSpell_level_4 = new SpellListDefinition.SpellsByLevelDuplet
+            SpellListDefinition.SpellsByLevelDuplet GuardianNagaSpell_level_4 = new()
             {
                 Spells = new List<SpellDefinition>(),
                 Level = 4
@@ -833,7 +832,7 @@ namespace SolastaMonsters.Monsters
             GuardianNagaSpell_level_4.Spells.Add(DatabaseHelper.SpellDefinitions.Banishment);
             GuardianNagaSpell_level_4.Spells.Add(DatabaseHelper.SpellDefinitions.FreedomOfMovement);
 
-            SpellListDefinition.SpellsByLevelDuplet GuardianNagaSpell_level_5 = new SpellListDefinition.SpellsByLevelDuplet
+            SpellListDefinition.SpellsByLevelDuplet GuardianNagaSpell_level_5 = new()
             {
                 Spells = new List<SpellDefinition>(),
                 Level = 5
@@ -841,7 +840,7 @@ namespace SolastaMonsters.Monsters
             GuardianNagaSpell_level_5.Spells.Add(DatabaseHelper.SpellDefinitions.FlameStrike);
             GuardianNagaSpell_level_5.Spells.Add(DatabaseHelper.SpellDefinitions.Contagion);
 
-            SpellListDefinition.SpellsByLevelDuplet GuardianNagaSpell_level_6 = new SpellListDefinition.SpellsByLevelDuplet
+            SpellListDefinition.SpellsByLevelDuplet GuardianNagaSpell_level_6 = new()
             {
                 Spells = new List<SpellDefinition>(),
                 Level = 6
@@ -998,11 +997,11 @@ namespace SolastaMonsters.Monsters
             AncientDragon_CombatDecisions.Package.WeightedDecisions.Clear();
 
 
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription = new();
             weightedDecisionDescription.SetDecision(DatabaseHelper.DecisionDefinitions.Move_SoftRetreat_Flying);
             weightedDecisionDescription.SetWeight(3);
 
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_2 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_2 = new();
             weightedDecisionDescription_2.SetDecision(DatabaseHelper.DecisionDefinitions.Move_Burrow_Aggressive_Small);
             weightedDecisionDescription_2.SetWeight(3);
 
@@ -1035,7 +1034,7 @@ namespace SolastaMonsters.Monsters
                    "MonsterPower/&DH_" + text + "_Description"
                     );
 
-            SummonCreature_Magic_Decision.Decision.SetEnumParameter(((int)RuleDefinitions.MagicType.SummonsCreature));
+            SummonCreature_Magic_Decision.Decision.SetEnumParameter((int)RuleDefinitions.MagicType.SummonsCreature);
 
             SummonCreature_Magic_Decision.Decision.SetStringParameter("SummonCreature");
         }
@@ -1134,28 +1133,28 @@ namespace SolastaMonsters.Monsters
             Solar_CombatDecisions.Package.WeightedDecisions.Clear();
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription = new();
             weightedDecisionDescription.SetDecision(DatabaseHelper.DecisionDefinitions.RangedAttack_Default);
             weightedDecisionDescription.SetWeight(4.5f);
 
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_0 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_0 = new();
             weightedDecisionDescription_0.SetDecision(DatabaseHelper.DecisionDefinitions.MeleeAttack_Default);
             weightedDecisionDescription_0.SetWeight(1.5f);
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_1 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_1 = new();
             weightedDecisionDescription_1.SetDecision(AtWillSelfBuff_Magic_Decision);
             weightedDecisionDescription_1.SetWeight(2.5f);
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_2 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_2 = new();
             weightedDecisionDescription_2.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_SelfBuff_WithRandom);
             weightedDecisionDescription_2.SetWeight(2.5f);
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_3 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_3 = new();
             weightedDecisionDescription_3.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_Debuff_AoE);
             weightedDecisionDescription_3.SetWeight(2.5f);
 
@@ -1190,27 +1189,27 @@ namespace SolastaMonsters.Monsters
             HighLevelCaster_CombatDecisions.Package.WeightedDecisions.Clear();
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_0 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_0 = new();
             weightedDecisionDescription_0.SetDecision(CastMagic_Stoneskin_Decision);
             weightedDecisionDescription_0.SetWeight(4);
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_1 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_1 = new();
             weightedDecisionDescription_1.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_Fly_Self);
             weightedDecisionDescription_1.SetWeight(4);
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_2 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_2 = new();
             weightedDecisionDescription_2.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_SelfBuff_WithRandom);
             weightedDecisionDescription_2.SetWeight(4);
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_5 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_5 = new();
             weightedDecisionDescription_5.SetDecision(DatabaseHelper.DecisionDefinitions.Move_Ranged);
             weightedDecisionDescription_5.SetWeight(3.0f);
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_8 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_8 = new();
             weightedDecisionDescription_8.SetDecision(DatabaseHelper.DecisionDefinitions.Move_SoftRetreat_Flying);
             weightedDecisionDescription_8.SetWeight(1.5f);
 
@@ -1241,44 +1240,44 @@ namespace SolastaMonsters.Monsters
 
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_0 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_0 = new();
             weightedDecisionDescription_0.SetDecision(DatabaseHelper.DecisionDefinitions.LongRangePathToEnemy_DashAvoidLight);
             weightedDecisionDescription_0.SetWeight(5f);
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_1 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_1 = new();
             weightedDecisionDescription_1.SetDecision(DatabaseHelper.DecisionDefinitions.MeleeAttack_Default);
             weightedDecisionDescription_1.SetWeight(4f);
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_2 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_2 = new();
             weightedDecisionDescription_2.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_Defiler_Darkness);
             weightedDecisionDescription_2.SetWeight(4f);
             weightedDecisionDescription_2.SetCooldown(3);
 
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_3 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_3 = new();
             weightedDecisionDescription_3.SetDecision(SummonCreature_Magic_Decision);
             weightedDecisionDescription_3.SetWeight(4f);
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_4 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_4 = new();
             weightedDecisionDescription_4.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_Defiler_Teleport);
             weightedDecisionDescription_4.SetWeight(3.0f);
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_5 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_5 = new();
             weightedDecisionDescription_5.SetDecision(DatabaseHelper.DecisionDefinitions.Move_AggressiveLightSensitive_Defiler);
             weightedDecisionDescription_5.SetWeight(2.0f);
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_6 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_6 = new();
             weightedDecisionDescription_6.SetDecision(DatabaseHelper.DecisionDefinitions.RangedAttack_Default);
             weightedDecisionDescription_6.SetWeight(1.0f);
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_7 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_7 = new();
             weightedDecisionDescription_7.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_Defiler_Teleport_Fallback);
             weightedDecisionDescription_7.SetWeight(0.1f);
 
@@ -1322,46 +1321,46 @@ namespace SolastaMonsters.Monsters
 
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_0 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_0 = new();
             weightedDecisionDescription_0.SetDecision(DatabaseHelper.DecisionDefinitions.LongRangePathToEnemy_Dash);
             weightedDecisionDescription_0.SetWeight(5f);
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_1 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_1 = new();
             weightedDecisionDescription_1.SetDecision(LimitedPerDayAOE_Magic_Decision);
             weightedDecisionDescription_1.SetWeight(4f);
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_2 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_2 = new();
             weightedDecisionDescription_2.SetDecision(AtWillAOE_Magic_Decision);
             weightedDecisionDescription_2.SetWeight(3.5f);
 
 
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_3 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_3 = new();
             weightedDecisionDescription_3.SetDecision(SummonCreature_Magic_Decision);
             weightedDecisionDescription_3.SetWeight(3.5f);
             weightedDecisionDescription_3.SetDynamicCooldown(true);
             weightedDecisionDescription_3.SetCooldown(3);
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_4 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_4 = new();
             weightedDecisionDescription_4.SetDecision(DatabaseHelper.DecisionDefinitions.MeleeAttack_Default);
             weightedDecisionDescription_4.SetWeight(3.0f);
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_5 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_5 = new();
             weightedDecisionDescription_5.SetDecision(DatabaseHelper.DecisionDefinitions.Move_AggressiveSingleTargetAndSpread);
             weightedDecisionDescription_5.SetWeight(2.0f);
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_6 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_6 = new();
             weightedDecisionDescription_6.SetDecision(DatabaseHelper.DecisionDefinitions.RangedAttack_Default);
             weightedDecisionDescription_6.SetWeight(1.0f);
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_7 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_7 = new();
             weightedDecisionDescription_7.SetDecision(DatabaseHelper.DecisionDefinitions.Emote_Angry);
             weightedDecisionDescription_7.SetWeight(1.0f);
 
@@ -1404,46 +1403,46 @@ namespace SolastaMonsters.Monsters
 
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_0 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_0 = new();
             weightedDecisionDescription_0.SetDecision(DatabaseHelper.DecisionDefinitions.LongRangePathToEnemy_Dash);
             weightedDecisionDescription_0.SetWeight(5f);
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_1 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_1 = new();
             weightedDecisionDescription_1.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_DPS_AoE_DragonBreath);
             weightedDecisionDescription_1.SetWeight(4f);
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_2 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_2 = new();
             weightedDecisionDescription_2.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_FrightfulPresence_Dragon);
             weightedDecisionDescription_2.SetWeight(3.5f);
 
 
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_3 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_3 = new();
             weightedDecisionDescription_3.SetDecision(AtWillAOE_Magic_Decision);
             weightedDecisionDescription_3.SetWeight(3.5f);
             weightedDecisionDescription_3.SetDynamicCooldown(true);
             weightedDecisionDescription_3.SetCooldown(3);
-        
+
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_4 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_4 = new();
             weightedDecisionDescription_4.SetDecision(DatabaseHelper.DecisionDefinitions.MeleeAttack_Default);
             weightedDecisionDescription_4.SetWeight(3.0f);
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_5 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_5 = new();
             weightedDecisionDescription_5.SetDecision(DatabaseHelper.DecisionDefinitions.Move_AggressiveSingleTargetAndSpread);
             weightedDecisionDescription_5.SetWeight(2.0f);
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_6 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_6 = new();
             weightedDecisionDescription_6.SetDecision(DatabaseHelper.DecisionDefinitions.RangedAttack_Default);
             weightedDecisionDescription_6.SetWeight(3.0f);
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_7 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_7 = new();
             weightedDecisionDescription_7.SetDecision(DatabaseHelper.DecisionDefinitions.Emote_Angry);
             weightedDecisionDescription_7.SetWeight(1.0f);
 
@@ -1480,42 +1479,42 @@ namespace SolastaMonsters.Monsters
 
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_1 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_1 = new();
             weightedDecisionDescription_1.SetDecision(DatabaseHelper.DecisionDefinitions.MeleeAttack_Default);
             weightedDecisionDescription_1.SetWeight(4.5f);
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_2 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_2 = new();
             weightedDecisionDescription_2.SetDecision(DatabaseHelper.DecisionDefinitions.RangedAttack_Default);
             weightedDecisionDescription_2.SetWeight(4.5f);
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_4 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_4 = new();
             weightedDecisionDescription_4.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_SelfHeal);
             weightedDecisionDescription_4.SetWeight(4.5f);
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_3 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_3 = new();
             weightedDecisionDescription_3.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_SelfBuff);
             weightedDecisionDescription_3.SetWeight(3.5f);
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_5 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_5 = new();
             weightedDecisionDescription_5.SetDecision(DatabaseHelper.DecisionDefinitions.Move_Ranged);
             weightedDecisionDescription_5.SetWeight(3.0f);
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_6 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_6 = new();
             weightedDecisionDescription_6.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_DPS_SingleTarget);
             weightedDecisionDescription_6.SetWeight(2.5f);
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_7 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_7 = new();
             weightedDecisionDescription_7.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_Debuff_SingleTarget);
             weightedDecisionDescription_7.SetWeight(2.5f);
 
             //
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_8 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_8 = new();
             weightedDecisionDescription_8.SetDecision(DatabaseHelper.DecisionDefinitions.Move_SoftRetreat_Flying);
             weightedDecisionDescription_8.SetWeight(1.5f);
 
@@ -1550,28 +1549,28 @@ namespace SolastaMonsters.Monsters
             PitFiend_CombatDecisions.Package.WeightedDecisions.Clear();
 
             // summon creature 1/day
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription = new();
             weightedDecisionDescription.SetDecision(SummonCreature_Magic_Decision);
             weightedDecisionDescription.SetWeight(4.5f);
 
 
             // frightful presence roll 5 or 6
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_0 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_0 = new();
             weightedDecisionDescription_0.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_FrightfulPresence_Dragon);
             weightedDecisionDescription_0.SetWeight(4.5f);
 
             // wall of fire 3/day
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_1 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_1 = new();
             weightedDecisionDescription_1.SetDecision(LimitedPerDayTargetDebuff_Magic_Decision);
             weightedDecisionDescription_1.SetWeight(3.0f);
 
             // hold person 3/day
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_2 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_2 = new();
             weightedDecisionDescription_2.SetDecision(LimitedPerDayAOE_Magic_Decision);
             weightedDecisionDescription_2.SetWeight(3.0f);
 
             // at will fireballs
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription_3 = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_3 = new();
             weightedDecisionDescription_3.SetDecision(AtWillAOE_Magic_Decision);
             weightedDecisionDescription_3.SetWeight(3.0f);
 
@@ -1608,7 +1607,7 @@ namespace SolastaMonsters.Monsters
             Balor_CombatDecisions.Package.WeightedDecisions.Clear();
 
             // summon creature 1/day
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription = new();
             weightedDecisionDescription.SetDecision(SummonCreature_Magic_Decision);
             weightedDecisionDescription.SetWeight(4.5f);
 
@@ -1645,7 +1644,7 @@ namespace SolastaMonsters.Monsters
             Nalfeshnee_CombatDecisions.Package.WeightedDecisions.Clear();
 
             // frightful presence roll 5 or 6
-            TA.AI.WeightedDecisionDescription weightedDecisionDescription = new TA.AI.WeightedDecisionDescription();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription = new();
             weightedDecisionDescription.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_FrightfulPresence_Dragon);
             weightedDecisionDescription.SetWeight(4.5f);
 

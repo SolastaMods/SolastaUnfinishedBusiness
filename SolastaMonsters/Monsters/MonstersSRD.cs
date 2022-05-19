@@ -1,10 +1,9 @@
-﻿using SolastaModApi;
-using SolastaCommunityExpansion.Builders;
+﻿using SolastaCommunityExpansion.Builders;
+using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
-using SolastaCommunityExpansion.Models;
 //******************************************************************************************
 // BY DEFINITION, REFACTORING REQUIRES CONFIRMING EXTERNAL BEHAVIOUR DOES NOT CHANGE
 // "REFACTORING WITHOUT TESTS IS JUST CHANGING STUFF"
@@ -14,7 +13,7 @@ namespace SolastaMonsters.Monsters
     internal static class MonstersSRD
     {
 
-        public static List<Models.MonsterContext.CustomMonster> Definitions = new List<Models.MonsterContext.CustomMonster>()
+        public static List<Models.MonsterContext.CustomMonster> Definitions = new()
         {
             new Models.MonsterContext.CustomMonster()
             {
@@ -582,7 +581,7 @@ namespace SolastaMonsters.Monsters
                     MonstersAttributes.DevamonsterSkillProficiency_1,
                     MonstersAttributes.DevamonsterSkillProficiency_2
                 },
-                AttackIterations=(DatabaseHelper.MonsterDefinitions.Divine_Avatar.AttackIterations)
+                AttackIterations=DatabaseHelper.MonsterDefinitions.Divine_Avatar.AttackIterations
                 ,
                 LegendaryActionOptions=new List<LegendaryActionDescription> ()
                 {
@@ -1697,11 +1696,11 @@ namespace SolastaMonsters.Monsters
 
                 MonsterDefinitionBuilder NewMonster = MonsterDefinitionBuilder
                         .Create(
-                            Definitions[i].BaseTemplateName, Definitions[i].NewName, 
+                            Definitions[i].BaseTemplateName, Definitions[i].NewName,
                             DefinitionBuilder.CENamespaceGuid)
                         .SetGuiPresentation(
-                            "Monster/&" + "DH_" + Definitions[i].NewTitle, 
-                            "Monster/&" + "DH_" + Definitions[i].NewDescription, 
+                            "Monster/&" + "DH_" + Definitions[i].NewTitle,
+                            "Monster/&" + "DH_" + Definitions[i].NewDescription,
                             Definitions[i].BaseTemplateName.GuiPresentation.SpriteReference);
 
 
@@ -1738,27 +1737,27 @@ namespace SolastaMonsters.Monsters
 
                 NewMonster.SetDefaultBattleDecisionPackage(NewMonsterAttributes.Titan_CombatDecisions);
 
-                MonsterSavingThrowProficiency Str_save = new MonsterSavingThrowProficiency();
+                MonsterSavingThrowProficiency Str_save = new();
                 Str_save.SetField("abilityScoreName", "Strength");
                 Str_save.SetField("bonus", Definitions[i].SavingThrowStrength);
 
-                MonsterSavingThrowProficiency Dex_save = new MonsterSavingThrowProficiency();
+                MonsterSavingThrowProficiency Dex_save = new();
                 Dex_save.SetField("abilityScoreName", "Dexterity");
                 Dex_save.SetField("bonus", Definitions[i].SavingThrowDexterity);
 
-                MonsterSavingThrowProficiency Con_save = new MonsterSavingThrowProficiency();
+                MonsterSavingThrowProficiency Con_save = new();
                 Con_save.SetField("abilityScoreName", "Constitution");
                 Con_save.SetField("bonus", Definitions[i].SavingThrowConstitution);
 
-                MonsterSavingThrowProficiency Int_save = new MonsterSavingThrowProficiency();
+                MonsterSavingThrowProficiency Int_save = new();
                 Int_save.SetField("abilityScoreName", "Intelligence");
                 Int_save.SetField("bonus", Definitions[i].SavingThrowIntelligence);
 
-                MonsterSavingThrowProficiency Wis_save = new MonsterSavingThrowProficiency();
+                MonsterSavingThrowProficiency Wis_save = new();
                 Wis_save.SetField("abilityScoreName", "Wisdom");
                 Wis_save.SetField("bonus", Definitions[i].SavingThrowWisdom);
 
-                MonsterSavingThrowProficiency Cha_save = new MonsterSavingThrowProficiency();
+                MonsterSavingThrowProficiency Cha_save = new();
                 Cha_save.SetField("abilityScoreName", "Charisma");
                 Cha_save.SetField("bonus", Definitions[i].SavingThrowCharisma);
 
@@ -1855,7 +1854,7 @@ namespace SolastaMonsters.Monsters
                 }
                 if (Definitions[i].MonsterName == "Lich")
                 {
-                    AssetReference assetReference = new AssetReference();
+                    AssetReference assetReference = new();
                     assetReference.SetField("m_AssetGUID", "cab8992a98c1d3749bc0a50d53fcc378");
 
 
@@ -1869,7 +1868,7 @@ namespace SolastaMonsters.Monsters
                     // monster powres, AI and combat needs work, too repetitive at the moment as some powers/attacks are not triggering
                     NewMonster.SetInDungeonEditor(false);
                 }
-                MonsterDefinition monster= NewMonster.AddToDB();
+                MonsterDefinition monster = NewMonster.AddToDB();
 
                 // temporary fix until builder is changed
                 monster.CreatureTags.Clear();

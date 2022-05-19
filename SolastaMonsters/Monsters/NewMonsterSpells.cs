@@ -1,9 +1,8 @@
-﻿using SolastaModApi;
+﻿using SolastaCommunityExpansion.Builders;
+using SolastaModApi;
 using SolastaModApi.Extensions;
-using SolastaCommunityExpansion.Builders;
-using SolastaCommunityExpansion.Models;
-using UnityEngine;
 using SolastaMonsters.Models;
+using UnityEngine;
 //******************************************************************************************
 // BY DEFINITION, REFACTORING REQUIRES CONFIRMING EXTERNAL BEHAVIOUR DOES NOT CHANGE
 // "REFACTORING WITHOUT TESTS IS JUST CHANGING STUFF"
@@ -45,11 +44,11 @@ namespace SolastaMonsters.Monsters
 
             ReverseGravity_Condition.SetTurnOccurence(RuleDefinitions.TurnOccurenceType.StartOfTurn);
 
-            MotionForm motionForm = new MotionForm();
+            MotionForm motionForm = new();
             motionForm.SetDistance(10);
             motionForm.SetType(MotionForm.MotionType.Levitate);
 
-            EffectForm FallingEffect = new EffectForm();
+            EffectForm FallingEffect = new();
             FallingEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
             FallingEffect.SetLevelMultiplier(1);
             FallingEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
@@ -75,13 +74,13 @@ namespace SolastaMonsters.Monsters
 
 
 
-            DamageForm damageForm = new DamageForm();
+            DamageForm damageForm = new();
             damageForm.SetDiceNumber(6);
             damageForm.SetDieType(RuleDefinitions.DieType.D6);
             damageForm.SetBonusDamage(0);
             damageForm.SetDamageType(RuleDefinitions.DamageTypeForce);
 
-            EffectForm damageEffect = new EffectForm();
+            EffectForm damageEffect = new();
             damageEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
             damageEffect.SetLevelMultiplier(1);
             damageEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
@@ -185,11 +184,11 @@ namespace SolastaMonsters.Monsters
             PowerWordKill_Spell.EffectDescription.SetHasSavingThrow(false);
             PowerWordKill_Spell.EffectDescription.EffectForms.Clear();
 
-            KillForm killForm = new KillForm();
+            KillForm killForm = new();
             killForm.SetKillCondition(RuleDefinitions.KillCondition.UnderHitPoints);
             killForm.SetHitPoints(100);
 
-            EffectForm effectForm = new EffectForm();
+            EffectForm effectForm = new();
             effectForm.SetApplyLevel(EffectForm.LevelApplianceType.No);
             effectForm.SetLevelMultiplier(1);
             effectForm.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
@@ -224,7 +223,7 @@ namespace SolastaMonsters.Monsters
             PowerWordStun_Spell.EffectDescription.SetHasSavingThrow(false);
             PowerWordStun_Spell.EffectDescription.EffectForms.Clear();
 
-            ConditionForm conditionForm = new ConditionForm();
+            ConditionForm conditionForm = new();
             conditionForm.SetApplyToSelf(false);
             conditionForm.SetForceOnSelf(false);
             conditionForm.Operation = ConditionForm.ConditionOperation.Add;
@@ -233,7 +232,7 @@ namespace SolastaMonsters.Monsters
 
 
 
-            EffectForm effectForm = new EffectForm();
+            EffectForm effectForm = new();
             effectForm.SetApplyLevel(EffectForm.LevelApplianceType.No);
             effectForm.SetLevelMultiplier(1);
             effectForm.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
@@ -290,7 +289,7 @@ namespace SolastaMonsters.Monsters
 
             TimeStop_Spell.SetSpellLevel(9);
 
-            ConditionForm conditionForm = new ConditionForm();
+            ConditionForm conditionForm = new();
             conditionForm.SetApplyToSelf(false);
             conditionForm.SetForceOnSelf(false);
             conditionForm.Operation = ConditionForm.ConditionOperation.Add;
@@ -299,7 +298,7 @@ namespace SolastaMonsters.Monsters
 
 
 
-            EffectForm effectForm = new EffectForm();
+            EffectForm effectForm = new();
             effectForm.SetApplyLevel(EffectForm.LevelApplianceType.No);
             effectForm.SetLevelMultiplier(1);
             effectForm.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);

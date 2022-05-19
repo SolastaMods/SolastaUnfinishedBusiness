@@ -1,10 +1,9 @@
-﻿using SolastaModApi;
+﻿using SolastaCommunityExpansion.Builders;
+using SolastaModApi;
 using SolastaModApi.Extensions;
+using SolastaMonsters.Models;
 using System.Collections.Generic;
 using UnityEngine;
-using SolastaCommunityExpansion.Builders;
-using SolastaCommunityExpansion.Models;
-using SolastaMonsters.Models;
 //******************************************************************************************
 // BY DEFINITION, REFACTORING REQUIRES CONFIRMING EXTERNAL BEHAVIOUR DOES NOT CHANGE
 // "REFACTORING WITHOUT TESTS IS JUST CHANGING STUFF"
@@ -49,8 +48,8 @@ namespace SolastaMonsters.Monsters
         public static MonsterAttackDefinition Tarrasque_Claw_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
         public static MonsterAttackDefinition Tarrasque_Tail_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
         public static MonsterAttackDefinition Tarrasque_Horn_Attack = ScriptableObject.CreateInstance<MonsterAttackDefinition>();
-        public static Dictionary<string, MonsterAttackDefinition> DictionaryOfAncientDragonBites = new Dictionary<string, MonsterAttackDefinition>();
-        public static Dictionary<string, MonsterAttackDefinition> DictionaryOfGenericBitesWithExtraDamage = new Dictionary<string, MonsterAttackDefinition>();
+        public static Dictionary<string, MonsterAttackDefinition> DictionaryOfAncientDragonBites = new();
+        public static Dictionary<string, MonsterAttackDefinition> DictionaryOfGenericBitesWithExtraDamage = new();
 
         internal static void Create()
         {
@@ -137,11 +136,11 @@ namespace SolastaMonsters.Monsters
 
 
 
-            MotionForm motionForm = new MotionForm();
+            MotionForm motionForm = new();
             motionForm.SetDistance(10);
             motionForm.SetType(MotionForm.MotionType.Levitate);
 
-            EffectForm FallingEffect = new EffectForm();
+            EffectForm FallingEffect = new();
             FallingEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
             FallingEffect.SetLevelMultiplier(1);
             FallingEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
@@ -240,14 +239,14 @@ namespace SolastaMonsters.Monsters
             NagaBite_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(4);
             NagaBite_Attack.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypePiercing);
 
-            DamageForm damageForm = new DamageForm();
+            DamageForm damageForm = new();
             damageForm.SetDiceNumber(10);
             damageForm.SetDieType(RuleDefinitions.DieType.D8);
             damageForm.SetBonusDamage(0);
             damageForm.SetDamageType(RuleDefinitions.DamageTypePoison);
 
 
-            EffectForm extraDamageEffect = new EffectForm();
+            EffectForm extraDamageEffect = new();
             extraDamageEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
             extraDamageEffect.SetLevelMultiplier(1);
             extraDamageEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
@@ -319,14 +318,14 @@ namespace SolastaMonsters.Monsters
                       );
 
 
-            ConditionForm TailCondition = new ConditionForm();
+            ConditionForm TailCondition = new();
             TailCondition.SetApplyToSelf(false);
             TailCondition.SetForceOnSelf(false);
             TailCondition.Operation = ConditionForm.ConditionOperation.Add;
             TailCondition.SetConditionDefinitionName(BleedingWound_Condition.Name);
             TailCondition.ConditionDefinition = BleedingWound_Condition;
 
-            EffectForm TailEffect = new EffectForm();
+            EffectForm TailEffect = new();
             TailEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
             TailEffect.SetLevelMultiplier(1);
             TailEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
@@ -374,13 +373,13 @@ namespace SolastaMonsters.Monsters
             PoisonLongsword_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(4);
             PoisonLongsword_Attack.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypeSlashing);
 
-            DamageForm damageForm = new DamageForm();
+            DamageForm damageForm = new();
             damageForm.SetDiceNumber(3);
             damageForm.SetDieType(RuleDefinitions.DieType.D8);
             damageForm.SetBonusDamage(0);
             damageForm.SetDamageType(RuleDefinitions.DamageTypePoison);
 
-            EffectForm extraDamageEffect = new EffectForm();
+            EffectForm extraDamageEffect = new();
             extraDamageEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
             extraDamageEffect.SetLevelMultiplier(1);
             extraDamageEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
@@ -412,13 +411,13 @@ namespace SolastaMonsters.Monsters
             PoisonLongbow_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(3);
             PoisonLongbow_Attack.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypePiercing);
 
-            DamageForm damageForm = new DamageForm();
+            DamageForm damageForm = new();
             damageForm.SetDiceNumber(3);
             damageForm.SetDieType(RuleDefinitions.DieType.D8);
             damageForm.SetBonusDamage(0);
             damageForm.SetDamageType(RuleDefinitions.DamageTypePoison);
 
-            EffectForm extraDamageEffect = new EffectForm();
+            EffectForm extraDamageEffect = new();
             extraDamageEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
             extraDamageEffect.SetLevelMultiplier(1);
             extraDamageEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
@@ -426,14 +425,14 @@ namespace SolastaMonsters.Monsters
             extraDamageEffect.FormType = EffectForm.EffectFormType.Damage;
             extraDamageEffect.SetDamageForm(damageForm);
 
-            ConditionForm PoisonLongbowCondition = new ConditionForm();
+            ConditionForm PoisonLongbowCondition = new();
             PoisonLongbowCondition.SetApplyToSelf(false);
             PoisonLongbowCondition.SetForceOnSelf(false);
             PoisonLongbowCondition.Operation = ConditionForm.ConditionOperation.Add;
             PoisonLongbowCondition.SetConditionDefinitionName(DatabaseHelper.ConditionDefinitions.ConditionPoisoned.Name);
             PoisonLongbowCondition.ConditionDefinition = DatabaseHelper.ConditionDefinitions.ConditionPoisoned;
 
-            EffectForm PoisonLongbowEffect = new EffectForm();
+            EffectForm PoisonLongbowEffect = new();
             PoisonLongbowEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
             PoisonLongbowEffect.SetLevelMultiplier(1);
             PoisonLongbowEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
@@ -502,13 +501,13 @@ namespace SolastaMonsters.Monsters
             RadiantLongbow_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(8);
             RadiantLongbow_Attack.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypePiercing);
 
-            DamageForm damageForm = new DamageForm();
+            DamageForm damageForm = new();
             damageForm.SetDiceNumber(6);
             damageForm.SetDieType(RuleDefinitions.DieType.D8);
             damageForm.SetBonusDamage(0);
             damageForm.SetDamageType(RuleDefinitions.DamageTypeRadiant);
 
-            EffectForm extraDamageEffect = new EffectForm();
+            EffectForm extraDamageEffect = new();
             extraDamageEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
             extraDamageEffect.SetLevelMultiplier(1);
             extraDamageEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
@@ -516,11 +515,11 @@ namespace SolastaMonsters.Monsters
             extraDamageEffect.FormType = EffectForm.EffectFormType.Damage;
             extraDamageEffect.SetDamageForm(damageForm);
 
-            KillForm killForm = new KillForm();
+            KillForm killForm = new();
             killForm.SetKillCondition(RuleDefinitions.KillCondition.UnderHitPoints);
             killForm.SetHitPoints(100);
 
-            EffectForm killEffect = new EffectForm();
+            EffectForm killEffect = new();
             killEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
             killEffect.SetLevelMultiplier(1);
             killEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
@@ -563,11 +562,11 @@ namespace SolastaMonsters.Monsters
             AirBlast_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
             AirBlast_Attack.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypeThunder);
 
-            MotionForm motion = new MotionForm();
+            MotionForm motion = new();
             motion.SetDistance(2);
             motion.SetType(MotionForm.MotionType.PushFromOrigin);
 
-            EffectForm motionEffect = new EffectForm
+            EffectForm motionEffect = new()
             {
                 FormType = EffectForm.EffectFormType.Motion
             };
@@ -619,13 +618,13 @@ namespace SolastaMonsters.Monsters
             FireScimatar_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(6);
             FireScimatar_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
 
-            DamageForm damageForm = new DamageForm();
+            DamageForm damageForm = new();
             damageForm.SetDiceNumber(2);
             damageForm.SetDieType(RuleDefinitions.DieType.D6);
             damageForm.SetBonusDamage(0);
             damageForm.SetDamageType(RuleDefinitions.DamageTypeFire);
 
-            EffectForm extraFireDamageEffect = new EffectForm();
+            EffectForm extraFireDamageEffect = new();
             extraFireDamageEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
             extraFireDamageEffect.SetLevelMultiplier(1);
             extraFireDamageEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
@@ -657,13 +656,13 @@ namespace SolastaMonsters.Monsters
             LightningScimatar_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(6);
             LightningScimatar_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
 
-            DamageForm damageForm = new DamageForm();
+            DamageForm damageForm = new();
             damageForm.SetDiceNumber(2);
             damageForm.SetDieType(RuleDefinitions.DieType.D6);
             damageForm.SetBonusDamage(0);
             damageForm.SetDamageType(RuleDefinitions.DamageTypeLightning);
 
-            EffectForm extraFireDamageEffect = new EffectForm();
+            EffectForm extraFireDamageEffect = new();
             extraFireDamageEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
             extraFireDamageEffect.SetLevelMultiplier(1);
             extraFireDamageEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
@@ -756,7 +755,7 @@ namespace SolastaMonsters.Monsters
 
 
 
-            Dictionary<string, int> dictionaryofAncientDragonBiteExtraDamageDiceNumbers = new Dictionary<string, int>
+            Dictionary<string, int> dictionaryofAncientDragonBiteExtraDamageDiceNumbers = new()
             {
                 { "Ancient Black Dragon", 2 },
                 { "Ancient Blue Dragon", 2 },
@@ -765,7 +764,7 @@ namespace SolastaMonsters.Monsters
                 { "Ancient White Dragon", 2 }
             };
 
-            Dictionary<string, RuleDefinitions.DieType> dictionaryofAncientDragonBiteExtraDamageDiceType = new Dictionary<string, RuleDefinitions.DieType>
+            Dictionary<string, RuleDefinitions.DieType> dictionaryofAncientDragonBiteExtraDamageDiceType = new()
             {
                 { "Ancient Black Dragon", RuleDefinitions.DieType.D8 },
                 { "Ancient Blue Dragon", RuleDefinitions.DieType.D10 },
@@ -774,7 +773,7 @@ namespace SolastaMonsters.Monsters
                 { "Ancient White Dragon", RuleDefinitions.DieType.D8 }
             };
 
-            Dictionary<string, EffectParticleParameters> dictionaryofAncientDragonBiteEffectparticles = new Dictionary<string, EffectParticleParameters>
+            Dictionary<string, EffectParticleParameters> dictionaryofAncientDragonBiteEffectparticles = new()
             {
                 { "Ancient Black Dragon", DatabaseHelper.MonsterAttackDefinitions.Attack_Black_Dragon_Bite.EffectDescription.EffectParticleParameters },
                 { "Ancient Blue Dragon", DatabaseHelper.MonsterAttackDefinitions.Attack_ZealotShockingAntenna.EffectDescription.EffectParticleParameters },
@@ -879,14 +878,14 @@ namespace SolastaMonsters.Monsters
                      "MonsterAttack/&DH_" + text + "_Description"
                       );
 
-            ConditionForm PitFiendBiteCondition = new ConditionForm();
+            ConditionForm PitFiendBiteCondition = new();
             PitFiendBiteCondition.SetApplyToSelf(false);
             PitFiendBiteCondition.SetForceOnSelf(false);
             PitFiendBiteCondition.Operation = ConditionForm.ConditionOperation.Add;
             PitFiendBiteCondition.SetConditionDefinitionName(PitFiend_Bite_Condition.Name);
             PitFiendBiteCondition.ConditionDefinition = PitFiend_Bite_Condition;
 
-            EffectForm PitFiendBiteEffect = new EffectForm();
+            EffectForm PitFiendBiteEffect = new();
             PitFiendBiteEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
             PitFiendBiteEffect.SetLevelMultiplier(1);
             PitFiendBiteEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
@@ -993,11 +992,11 @@ namespace SolastaMonsters.Monsters
             Balor_Whip_Attack.EffectDescription.EffectForms[1].DamageForm.SetBonusDamage(0);
             Balor_Whip_Attack.EffectDescription.EffectForms[1].DamageForm.SetDamageType(RuleDefinitions.DamageTypeFire);
 
-            MotionForm motionForm = new MotionForm();
+            MotionForm motionForm = new();
             motionForm.SetDistance(5);
             motionForm.SetType(MotionForm.MotionType.DragToOrigin);
 
-            EffectForm effectForm = new EffectForm();
+            EffectForm effectForm = new();
             effectForm.SetApplyLevel(EffectForm.LevelApplianceType.No);
             effectForm.SetLevelMultiplier(1);
             effectForm.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
@@ -1070,13 +1069,13 @@ namespace SolastaMonsters.Monsters
             FireTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(5);
             FireTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypeBludgeoning);
 
-            DamageForm damageForm = new DamageForm();
+            DamageForm damageForm = new();
             damageForm.SetDiceNumber(10);
             damageForm.SetDieType(RuleDefinitions.DieType.D6);
             damageForm.SetBonusDamage(0);
             damageForm.SetDamageType(RuleDefinitions.DamageTypeFire);
 
-            EffectForm extraFireDamageEffect = new EffectForm();
+            EffectForm extraFireDamageEffect = new();
             extraFireDamageEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
             extraFireDamageEffect.SetLevelMultiplier(1);
             extraFireDamageEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
@@ -1111,13 +1110,13 @@ namespace SolastaMonsters.Monsters
             AirTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(6);
             AirTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypeBludgeoning);
 
-            DamageForm damageForm = new DamageForm();
+            DamageForm damageForm = new();
             damageForm.SetDiceNumber(4);
             damageForm.SetDieType(RuleDefinitions.DieType.D6);
             damageForm.SetBonusDamage(0);
             damageForm.SetDamageType(RuleDefinitions.DamageTypeThunder);
 
-            EffectForm extraDamageEffect = new EffectForm();
+            EffectForm extraDamageEffect = new();
             extraDamageEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
             extraDamageEffect.SetLevelMultiplier(1);
             extraDamageEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
@@ -1178,11 +1177,11 @@ namespace SolastaMonsters.Monsters
             ConstructTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(8);
             ConstructTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypeBludgeoning);
 
-            MotionForm motionForm = new MotionForm();
+            MotionForm motionForm = new();
             motionForm.SetType(MotionForm.MotionType.PushFromOrigin);
             motionForm.SetDistance(4);
 
-            EffectForm effectForm = new EffectForm();
+            EffectForm effectForm = new();
             effectForm.SetApplyLevel(EffectForm.LevelApplianceType.No);
             effectForm.SetLevelMultiplier(1);
             effectForm.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
@@ -1262,11 +1261,11 @@ namespace SolastaMonsters.Monsters
 
             EarthTitan_Boulder_Attack.SetItemDefinitionMainHand(null);
 
-            MotionForm motionForm = new MotionForm();
+            MotionForm motionForm = new();
             motionForm.SetType(MotionForm.MotionType.FallProne);
             motionForm.SetDistance(6);
 
-            EffectForm effectForm = new EffectForm();
+            EffectForm effectForm = new();
             effectForm.SetApplyLevel(EffectForm.LevelApplianceType.No);
             effectForm.SetLevelMultiplier(1);
             effectForm.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
@@ -1291,15 +1290,15 @@ namespace SolastaMonsters.Monsters
             string text = "Tarrasque_Bite";
 
 
-             TarrasqueGrappledRestrainedCondition = NewMonsterAttacks.BuildNewCondition(
-                       "DH_Custom_" + text + "condition",
-                       DatabaseHelper.ConditionDefinitions.ConditionGrappledRestrainedRemorhaz,
-                       GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text + "condition").ToString(),
-                      "MonsterAttack/&DH_" + text +  "Condition" + "_Title",
-                       "MonsterAttack/&DH_" + text + "Condition" + "_Description"
-                        );
+            TarrasqueGrappledRestrainedCondition = NewMonsterAttacks.BuildNewCondition(
+                      "DH_Custom_" + text + "condition",
+                      DatabaseHelper.ConditionDefinitions.ConditionGrappledRestrainedRemorhaz,
+                      GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text + "condition").ToString(),
+                     "MonsterAttack/&DH_" + text + "Condition" + "_Title",
+                      "MonsterAttack/&DH_" + text + "Condition" + "_Description"
+                       );
 
-          //  TarrasqueGrappledRestrainedCondition.features.Add(DatabaseHelper.FeatureDefinitionActionAffinitys.ActionAffinityBlackTentacles);
+            //  TarrasqueGrappledRestrainedCondition.features.Add(DatabaseHelper.FeatureDefinitionActionAffinitys.ActionAffinityBlackTentacles);
 
             Tarrasque_Bite_Attack = BuildNewAttack(
                      "DH_Custom_" + text,
@@ -1327,7 +1326,7 @@ namespace SolastaMonsters.Monsters
             Tarrasque_Bite_Attack.EffectDescription.EffectForms.RemoveAt(1);
 
 
-           // Tarrasque_Bite_Attack.EffectDescription.EffectParticleParameters.Copy(DatabaseHelper.MonsterAttackDefinitions.Attack_BrownBear_Bite.EffectDescription.EffectParticleParameters);
+            // Tarrasque_Bite_Attack.EffectDescription.EffectParticleParameters.Copy(DatabaseHelper.MonsterAttackDefinitions.Attack_BrownBear_Bite.EffectDescription.EffectParticleParameters);
 
         }
         public static void BuildNewTarrasque_Claw_Attack()
@@ -1398,10 +1397,10 @@ namespace SolastaMonsters.Monsters
             Tarrasque_Tail_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(10);
             Tarrasque_Tail_Attack.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypeBludgeoning);
 
-            MotionForm motionForm = new MotionForm();
+            MotionForm motionForm = new();
             motionForm.SetType(MotionForm.MotionType.FallProne);
 
-            EffectForm effectForm = new EffectForm();
+            EffectForm effectForm = new();
             effectForm.SetApplyLevel(EffectForm.LevelApplianceType.No);
             effectForm.SetLevelMultiplier(1);
             effectForm.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);

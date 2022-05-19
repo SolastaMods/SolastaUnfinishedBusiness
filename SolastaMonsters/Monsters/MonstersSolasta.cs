@@ -11,7 +11,7 @@ namespace SolastaMonsters.Monsters
     {
         public static void EnableInDungeonMaker()
         {
-            List<MonsterDefinition> listofExistingMonsters = new List<MonsterDefinition>
+            List<MonsterDefinition> listofExistingMonsters = new()
             {
                 DatabaseHelper.MonsterDefinitions.Emperor_Laethar,					// CR 10
 				DatabaseHelper.MonsterDefinitions.BlackDragon_MasterOfNecromancy,	// CR 14
