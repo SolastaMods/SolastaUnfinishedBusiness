@@ -4,6 +4,7 @@ using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
+using SolastaCommunityExpansion.CustomUI;
 using SolastaCommunityExpansion.Features;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Utils;
@@ -37,10 +38,13 @@ namespace SolastaCommunityExpansion.Classes.Monk
             WeaponTypeDefinitions.UnarmedStrikeType
         };
 
-        private static AssetReferenceSprite _monkPictogram;
+        private static AssetReferenceSprite _monkPictogram, _monkKiIcon;
 
         private static AssetReferenceSprite MonkPictogram => _monkPictogram ??=
             CustomIcons.CreateAssetReferenceSprite("MonkPictogram", Properties.Resources.MonkPictogram, 128, 128);
+        
+        private static AssetReferenceSprite MonkKiIcon => _monkKiIcon ??=
+            CustomIcons.CreateAssetReferenceSprite("MonkKiIcon", Properties.Resources.MonkKiIcon, 64, 64);
         
         
         private static FeatureDefinition _unarmoredMovement, _unarmoredMovementBonus;
@@ -512,6 +516,8 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .SetUsesFixed(2)
                 .SetRechargeRate(RechargeRate.ShortRest)
                 .AddToDB();
+
+            kiPool.SetCustomSubFeatures(new CustomPortraitPoolPower(kiPool, icon: MonkKiIcon));
 
             //TODO: experiment with granting 2 bonus actions that can be spent on main/offhand attack, instead of granting main attack with 2 attacks
             var extraFlurryAttacks = FeatureDefinitionAdditionalActionBuilder

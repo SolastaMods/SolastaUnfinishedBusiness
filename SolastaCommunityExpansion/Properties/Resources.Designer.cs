@@ -253,6 +253,16 @@ namespace SolastaCommunityExpansion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap MonkKiIcon {
+            get {
+                object obj = ResourceManager.GetObject("MonkKiIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap MonkPictogram {
             get {
                 object obj = ResourceManager.GetObject("MonkPictogram", resourceCulture);

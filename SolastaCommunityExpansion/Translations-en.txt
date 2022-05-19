@@ -1866,3 +1866,4 @@ Condition/&MonkEmptyBodyConditionTitle	Empty Body
 Condition/&MonkEmptyBodyConditionDescription	You have resistance to all damage but force damage.
 Feature/&MonkPerfectSelfTitle	Perfect Self
 Feature/&MonkPerfectSelfDescription	When you start battle and have no ki points remaining, you regain 4 ki points.
+Tooltip/&CustomPortraitPoolMonkKiPool	You can harness the mystic energy of ki. Your access to this energy is represented by a number of ki points. Maximum amount is equal to your monk level. All spent points are regained on short or long rest. You can spend these points to fuel various ki features.
