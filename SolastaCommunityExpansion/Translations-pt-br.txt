@@ -1331,8 +1331,8 @@ Reaction/&SubitemSelectSlotLevelTitle	Nível do slot
 Reaction/&SubitemSelectWarcasterTitle	Selecione a ação
 Reaction/&WarcasterAttackDescription	Alvo de ataque
 Reaction/&WarcasterAttackTitle	Ataque
-Reaction/&WarcasterReactionDescription	{1} está deixando uma área ameaçada. {0} pode atacar ou lançar truques em resposta.
-Reaction/&WarcasterReactionTitle	Oportunidade do Warcaster
+Reaction/&WarcasterReactionDescription	{0} está deixando uma área ameaçada por 1 ou mais personagens
+Reaction/&WarcasterReactionTitle	Ataque de Oportunidade
 Requirement/&FeatureSelectionRequireCharacterLevel	Nível {0}
 Requirement/&FeatureSelectionRequireClassLevel	Nível {0} de {1}
 Requirement/&WarlockMissingEldritchBlast	Truque Explosão Mística

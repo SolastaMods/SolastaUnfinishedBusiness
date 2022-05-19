@@ -1331,8 +1331,8 @@ Reaction/&SubitemSelectSlotLevelTitle	Niveau d'emplacement
 Reaction/&SubitemSelectWarcasterTitle	Sélectionnez l'action
 Reaction/&WarcasterAttackDescription	Cible d'attaque
 Reaction/&WarcasterAttackTitle	Attaque
-Reaction/&WarcasterReactionDescription	{1} quitte une zone menacée. {0} peut attaquer ou lancer cantrip en réponse.
-Reaction/&WarcasterReactionTitle	Opportunité de Warcaster
+Reaction/&WarcasterReactionDescription	{0} quitte une zone menacée
+Reaction/&WarcasterReactionTitle	Attaque de Opportunité
 Requirement/&FeatureSelectionRequireCharacterLevel	Niveau {0}
 Requirement/&FeatureSelectionRequireClassLevel	Niveau {0} sur {1}
 Requirement/&WarlockMissingEldritchBlast	Sort mineur Explosion occulte

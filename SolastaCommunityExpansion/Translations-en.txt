@@ -1331,7 +1331,7 @@ Reaction/&SubitemSelectSlotLevelTitle	Slot Level
 Reaction/&SubitemSelectWarcasterTitle	Select action
 Reaction/&WarcasterAttackDescription	Attack target
 Reaction/&WarcasterAttackTitle	Attack
-Reaction/&WarcasterReactionDescription	{0} is leaving an area threatened by one or more characters.
+Reaction/&WarcasterReactionDescription	{0} is leaving an area threatened by one or more characters
 Reaction/&WarcasterReactionTitle	Attack of Opportunity
 Requirement/&FeatureSelectionRequireCharacterLevel	Level {0}
 Requirement/&FeatureSelectionRequireClassLevel	Level {0} of {1}
