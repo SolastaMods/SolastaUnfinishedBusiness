@@ -52,7 +52,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
             // MULTICLASS
             //
 
-            if (__instance is not CharacterLevelUpScreen)
+            if (Main.Settings.MaxAllowedClasses == 1 || __instance is not CharacterLevelUpScreen)
             {
                 return;
             }
