@@ -105,7 +105,6 @@ internal static class RulesetAttributePatcher
             string tag,
             FeatureDefinitionAttributeModifier feature)
         {
-            Main.Log2($"CustomBuild '{feature.Name}'");
             var modifier = RulesetAttributeModifier.BuildAttributeModifier(operationType, modifierValue, tag);
             if (feature.HasSubFeatureOfType<ExclusiveArmorClassBonus>())
             {
