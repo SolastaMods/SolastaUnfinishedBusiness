@@ -2,7 +2,7 @@
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
+namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
 {
     // replaces the hard coded experience
     [HarmonyPatch(typeof(HigherLevelFeaturesModal), "Bind")]

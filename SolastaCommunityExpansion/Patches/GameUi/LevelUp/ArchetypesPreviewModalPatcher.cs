@@ -4,7 +4,7 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
+namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
 {
     // filter features already taken on subclass display
     [HarmonyPatch(typeof(ArchetypesPreviewModal), "Refresh")]
@@ -17,7 +17,7 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
             var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
             var selectedClass = LevelUpContext.GetSelectedClass(hero);
 
-            if (isLevelingUp 
+            if (isLevelingUp
                 && hero.ClassesAndLevels.TryGetValue(selectedClass, out var levels)
                 && featureUnlockByLevel.Level <= levels + 1)
             {
@@ -53,8 +53,8 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
     {
         internal static void Prefix(ref List<string> subclasses)
         {
-            var hero = Models.Global.ActiveLevelUpHero;
-            var selectedClass = Models.LevelUpContext.GetSelectedClass(hero);
+            var hero = Global.ActiveLevelUpHero;
+            var selectedClass = LevelUpContext.GetSelectedClass(hero);
 
             if (hero.ClassesAndSubclasses.TryGetValue(selectedClass, out var characterSubclassDefinition))
             {
