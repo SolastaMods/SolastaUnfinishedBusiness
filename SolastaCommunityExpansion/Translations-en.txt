@@ -1887,3 +1887,7 @@ Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactTitle	Apply
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactDescription	Apply selected technique.
 Power/&ClassMonkWholenessOfBodyTitle	Wholeness of Body
 Power/&ClassMonkWholenessOfBodyDescription	As an action, you can regain hit points equal to three times your monk level. You must finish a long rest before you can use this feature again.
+Power/&ClassMonkTanquilityTitle	Tranquility
+Power/&ClassMonkTanquilityDescription	Once per short rest as a free action you can enter state of tranquility, calming your emotions and focusing on what's around you. While in this state you gain advantage on saving throws against spells and enemies get disadvantage when attacking you. Tranquility lasts until next rest or until you attack or cast a spell.
+Condition/&ClassMonkTanquilityConditionTitle	Tranquility
+Condition/&ClassMonkTanquilityConditionDescription	You have advantage on saving throws against spells and enemies have disadvantage attackning you. Removed when you attack or cast spell. 

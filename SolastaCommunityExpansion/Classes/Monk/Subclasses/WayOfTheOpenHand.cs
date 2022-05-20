@@ -16,6 +16,7 @@ public static class WayOfTheOpenHand
             .SetOrUpdateGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.DomainLife.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(BuildOpenHandTechnique(), 3)
             .AddFeatureAtLevel(BuildWholenessOfBody(), 6)
+            .AddFeatureAtLevel(BuildTanquility(), 11)
             .AddToDB();
     }
 
@@ -112,11 +113,6 @@ public static class WayOfTheOpenHand
         PowerBundleContext.RegisterPowerBundle(technique, true, prone, push, distract);
 
         return technique;
-        // return FeatureDefinitionFeatureSetBuilder
-        //     .Create("ClassMonkOpenHandTechniqueBUNDLE", Monk.GUID)
-        //     .SetGuiPresentation(Category.Feature)
-        //     .SetFeatureSet(prone, push, distract)
-        //     .AddToDB();
     }
 
     private static FeatureDefinition BuildWholenessOfBody()
@@ -139,5 +135,35 @@ public static class WayOfTheOpenHand
                     .Build())
                 .Build())
             .AddToDB();
+    }
+
+    private static FeatureDefinition BuildTanquility()
+    {
+        var tranquility = FeatureDefinitionPowerBuilder
+            .Create("ClassMonkTanquility", Monk.GUID)
+            .SetGuiPresentation(Category.Power)
+            .SetActivationTime(ActivationTime.NoCost)
+            .SetCostPerUse(1)
+            .SetFixedUsesPerRecharge(1)
+            .SetRechargeRate(RechargeRate.ShortRest)
+            .SetEffectDescription(new EffectDescriptionBuilder()
+                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                .SetDurationData(DurationType.UntilAnyRest)
+                .SetEffectForms(new EffectFormBuilder()
+                    .SetConditionForm(ConditionDefinitionBuilder
+                        .Create("ClassMonkTanquilityCondition", Monk.GUID)
+                        .SetGuiPresentation(Category.Condition,
+                            ConditionDefinitions.ConditionBlurred.GuiPresentation.SpriteReference)
+                        .SetDuration(DurationType.UntilAnyRest)
+                        .SetSpecialInterruptions(ConditionInterruption.Attacks, ConditionInterruption.CastSpell)
+                        .SetFeatures(
+                            FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityMagebaneRejectMagic,
+                            FeatureDefinitionCombatAffinitys.CombatAffinityDodging)
+                        .AddToDB(), ConditionForm.ConditionOperation.Add, true, false)
+                    .Build())
+                .Build())
+            .AddToDB();
+
+        return tranquility;
     }
 }
