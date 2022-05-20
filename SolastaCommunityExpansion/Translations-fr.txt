@@ -1796,10 +1796,10 @@ UI/&CustomFeatureSelectionTooltipTypePower	Pouvoir
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Compétence
 UI/&ForcePreferredCantripDescription	Si cette option est activée, seul le cantrip préféré peut se déclencher. Si le sort mineur préféré n'est pas sélectionné, le premier sort mineur valide se déclenchera, quelle que soit cette bascule
 UI/&ForcePreferredCantripTitle	Forcer le sort mineur préféré
-Class/&MonkTitle	Moine
-Class/&MonkDescription	Les moines sont unis dans leur capacité à exploiter comme par magie l'énergie qui circule dans leur corps. Qu'elle soit canalisée comme une démonstration saisissante de prouesses au combat ou comme un objectif plus subtil de capacité défensive et de vitesse, cette énergie imprègne tout ce qu'un moine fait.
-Feature/&MonkWeaponProficiencyTitle	Maîtrise des armes du moine
-Feature/&MonkSkillPointsTitle	Compétences de moine
+Class/&ClassMonkTitle	Moine
+Class/&ClassMonkDescription	Les moines sont unis dans leur capacité à exploiter comme par magie l'énergie qui circule dans leur corps. Qu'elle soit canalisée comme une démonstration saisissante de prouesses au combat ou comme un objectif plus subtil de capacité défensive et de vitesse, cette énergie imprègne tout ce qu'un moine fait.
+Feature/&ClassMonkWeaponProficiencyTitle	Maîtrise des armes du moine
+Feature/&ClassMonkSkillProficiencyTitle	Compétences de moine
 Feature/&MonkUnarmoredDefenseTitle	Défense non blindée
 Feature/&MonkUnarmoredDefenseDescription	Tant que vous ne portez pas d'armure et que vous ne brandissez pas de bouclier, votre CA est égale à 10 + votre modificateur de Dextérité + votre modificateur de Sagesse.
 Feature/&MonkMartialArtsTitle	Arts martiaux

@@ -20,7 +20,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
 {
     public static class Monk
     {
-        public const string ClassName = MonkClass;
+        public const string ClassName = "ClassMonk";
         public const string WeaponTag = "MonkWeapon";
         public static readonly Guid GUID = new("1478A002-D107-4E34-93A3-CEA260DA25C9");
         public static CharacterClassDefinition Class { get; private set; }
@@ -52,7 +52,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
             _monkEmptyBodyIcon;
 
         private static AssetReferenceSprite MonkClassSprite => _monkClassSprite ??=
-            CreateAssetReferenceSprite("MonkClass", Resources.MonkEmptyBody, 1024, 576);
+            CreateAssetReferenceSprite("Monk", Resources.Monk, 1024, 576);
 
         private static AssetReferenceSprite MonkPictogram => _monkPictogram ??=
             CreateAssetReferenceSprite("MonkPictogram", Resources.MonkPictogram, 128, 128);
@@ -147,7 +147,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
                 #region Presentation
 
-                .SetGuiPresentation(Category.Class, MonkClass)
+                .SetGuiPresentation(Category.Class, MonkClassSprite)
                 .SetPictogram(MonkPictogram)
                 //.AddPersonality() //TODO: Add personality flags
                 .SetAnimationId(AnimationDefinitions.ClassAnimationId.Fighter)
@@ -239,7 +239,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
                 // Weapons
                 .AddFeatureAtLevel(1, FeatureDefinitionProficiencyBuilder
-                    .Create("MonkWeaponProficiency", GUID)
+                    .Create("ClassMonkWeaponProficiency", GUID)
                     .SetGuiPresentation(Category.Feature, "Feature/&WeaponTrainingShortDescription")
                     .SetProficiencies(ProficiencyType.Weapon,
                         WeaponCategoryDefinitions.SimpleWeaponCategory.Name,
@@ -248,7 +248,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
                 // Saves
                 .AddFeatureAtLevel(1, FeatureDefinitionProficiencyBuilder
-                    .Create("MonkSavingThrowProficiency", GUID)
+                    .Create("ClassMonkSavingThrowProficiency", GUID)
                     .SetGuiPresentation("SavingThrowProficiency", Category.Feature)
                     .SetProficiencies(ProficiencyType.SavingThrow,
                         AttributeDefinitions.Strength,
@@ -257,7 +257,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
                 // Skill points
                 .AddFeatureAtLevel(1, FeatureDefinitionPointPoolBuilder
-                    .Create("MonkSkillPoints", GUID)
+                    .Create("ClassMonkSkillProficiency", GUID)
                     .SetGuiPresentation(Category.Feature, "Feature/&SkillGainChoicesPluralDescription")
                     .SetPool(HeroDefinitions.PointsPoolType.Skill, 2)
                     .OnlyUniqueChoices()

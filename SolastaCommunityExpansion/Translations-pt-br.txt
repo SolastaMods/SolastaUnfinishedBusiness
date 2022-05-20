@@ -1796,10 +1796,10 @@ UI/&CustomFeatureSelectionTooltipTypePower	Poder
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Competência
 UI/&ForcePreferredCantripDescription	Se esta opção estiver LIGADA, apenas o truque preferido pode ser acionado. Se o truque preferido não for selecionado, o primeiro truque válido será acionado, independentemente dessa alternância
 UI/&ForcePreferredCantripTitle	Forçar Truque Preferido
-Class/&MonkTitle	Monge
-Class/&MonkDescription	Os monges estão unidos em sua capacidade de aproveitar magicamente a energia que flui em seus corpos. Seja canalizada como uma demonstração impressionante de proeza de combate ou um foco mais sutil de habilidade defensiva e velocidade, essa energia infunde tudo o que um monge faz.
-Feature/&MonkWeaponProficiencyTitle	Proficiência com Armas de Monge
-Feature/&MonkSkillPointsTitle	Habilidades de monge
+Class/&ClassMonkTitle	Monge
+Class/&ClassMonkDescription	Os monges estão unidos em sua capacidade de aproveitar magicamente a energia que flui em seus corpos. Seja canalizada como uma demonstração impressionante de proeza de combate ou um foco mais sutil de habilidade defensiva e velocidade, essa energia infunde tudo o que um monge faz.
+Feature/&ClassMonkWeaponProficiencyTitle	Proficiência com Armas de Monge
+Feature/&ClassMonkSkillProficiencyTitle	Habilidades de monge
 Feature/&MonkUnarmoredDefenseTitle	Defesa não blindada
 Feature/&MonkUnarmoredDefenseDescription	Enquanto você não estiver usando armadura e não empunhando um escudo, sua CA é igual a 10 + seu modificador de Destreza + seu modificador de Sabedoria.
 Feature/&MonkMartialArtsTitle	Artes marciais

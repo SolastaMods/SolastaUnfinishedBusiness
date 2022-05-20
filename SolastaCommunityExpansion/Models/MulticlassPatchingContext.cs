@@ -35,6 +35,13 @@ namespace SolastaCommunityExpansion.Models
             //    dbFeatureDefinitionProficiency.GetElement("ProficiencyWardenArmor"), 
             //    ArmorProficiencyMulticlassBuilder.WardenArmorProficiencyMulticlass);
 
+            FeaturesToExclude.Add(MonkClass, new()
+            {
+                dbFeatureDefinitionPointPool.GetElement("ClassMonkSkillProficiency"),
+                dbFeatureDefinitionProficiency.GetElement("ClassMonkWeaponProficiency"),
+                dbFeatureDefinitionProficiency.GetElement("ClassMonkSavingThrowProficiency")
+            });
+
             FeaturesToExclude.Add(TinkererClass, new()
             {
                 dbFeatureDefinitionPointPool.GetElement("PointPoolTinkererSkillPoints"),
