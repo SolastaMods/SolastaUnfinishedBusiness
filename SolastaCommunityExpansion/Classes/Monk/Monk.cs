@@ -615,7 +615,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                                 .Create("ClassMonkFlurryOfBlowsCondition", GUID)
                                 .SetGuiPresentationNoContent(true)
                                 .SetSilent(Silent.WhenAddedOrRemoved)
-                                .SetDuration(DurationType.Round, 0)
+                                .SetDuration(DurationType.Round, 0, false)
                                 .SetSpecialDuration(true)
                                 .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
                                 .SetFeatures(extraFlurryAttack1, extraFlurryAttack2)
@@ -644,7 +644,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                                     dodging.GuiPresentation.SpriteReference)
                                 .SetConditionParticleReferenceFrom(dodging)
                                 .SetSilent(Silent.None)
-                                .SetDuration(DurationType.Round, 0)
+                                .SetDuration(DurationType.Round, 0, false)
                                 .SetSpecialDuration(true)
                                 .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
                                 .SetFeatures(
@@ -673,7 +673,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                                     ConditionDefinitions.ConditionJump.GuiPresentation.SpriteReference)
                                 .SetSilent(Silent.None)
                                 .SetPossessive(true)
-                                .SetDuration(DurationType.Round, 0)
+                                .SetDuration(DurationType.Round, 0, false)
                                 .SetSpecialDuration(true)
                                 .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
                                 .SetFeatures(FeatureDefinitionAdditionalActionBuilder
