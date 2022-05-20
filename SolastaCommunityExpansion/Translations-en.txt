@@ -1871,3 +1871,17 @@ Subclass/&ClassMonkTraditionTitle	Monastic Traditions
 Subclass/&ClassMonkTraditionWayOfTheOpenHandTitle	Way of the Open Hand
 Subclass/&ClassMonkTraditionWayOfTheOpenHandDescription	[update after features implemented]\nMonks of the Way of the Open Hand are the ultimate masters of martial arts combat, whether armed or unarmed. They learn techniques to push and trip their opponents, manipulate ki to heal damage to their bodies, and practice advanced meditation that can protect them from harm.
 Reaction/&SubitemSelectPowerBundleTitle	Options
+Power/&ClassMonkOpenHandProneTitle	Knock Down
+Power/&ClassMonkOpenHandProneDescription	Target must succeed Dexterity saving throw or be knocked prone.
+Power/&ClassMonkOpenHandPushTitle	Push Away
+Power/&ClassMonkOpenHandPushDescription	Target must succeed Strength saving throw or be pushed 15 feet away from you.
+Power/&ClassMonkOpenHandDistractTitle	Distract
+Power/&ClassMonkOpenHandDistractDescription	Target can't take reactions until end of your next turn.
+Condition/&ClassMonkOpenHandDistractConditionTitle	Distracted
+Condition/&ClassMonkOpenHandDistractConditionDescription	Cannot make reactions.
+Power/&ClassMonkOpenHandTechniqueTitle	Open Hand Technique
+Power/&ClassMonkOpenHandTechniqueDescription	 You can manipulate your enemy's ki when you harness your own. Whenever you hit a creature with one of the attacks granted by your Flurry of Blows, you can impose one of the following effects on that target:\n - It must succeed on a Dexterity saving throw or be knocked prone.\n - It must make a Strength saving throw. If it fails, you can push it up to 15 feet away from you.\n - It can't take reactions until the end of your next turn.
+Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueTitle	Open Hand Technique
+Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueDescription	{0} hit a creature with one of the attacks granted by Flurry of Blows, and can impose one of the following effects on that target:
+Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactTitle	Apply
+Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactDescription	Apply selected technique.
