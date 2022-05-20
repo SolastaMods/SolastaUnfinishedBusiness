@@ -20,6 +20,11 @@ public class CanUseAttributeForWeapon : IModifyAttackAttributeForWeapon
 
     public void ModifyAttribute(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
     {
+        if (attackMode == null)
+        {
+            return;
+        }
+
         if (!character.IsValid(_validators))
         {
             return;
@@ -55,6 +60,11 @@ public class UpgradeWeaponDice : IModifyAttackModeForWeapon
 
     public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
     {
+        if (attackMode == null)
+        {
+            return;
+        }
+        
         if (!character.IsValid(_validators))
         {
             return;
@@ -108,6 +118,11 @@ public class AddTagToWeaponAttack : IModifyAttackModeForWeapon
 
     public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
     {
+        if (attackMode == null)
+        {
+            return;
+        }
+        
         if (!character.IsValid(_validators))
         {
             return;
