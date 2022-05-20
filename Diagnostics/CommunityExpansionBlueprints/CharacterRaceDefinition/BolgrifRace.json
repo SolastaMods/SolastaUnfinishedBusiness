@@ -47,6 +47,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:BolgrifInvisibilityPower:36dcb055-372c-4abf-83b7-4405475d9295",
       "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PointPoolBonusFeat:c3eef96a911e20a40ab0e8a61c7463e1",
+      "level": 1
     }
   ],
   "subRaces": [],

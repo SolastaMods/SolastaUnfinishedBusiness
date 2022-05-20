@@ -175,6 +175,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkSubclassChoice:8a44e685-f083-5ce9-ad06-7464f20005c9",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ClassMonkKiPoolIncrease00:c45609ea-a6eb-5683-b736-338a4f1e391f",
       "level": 3
     },
