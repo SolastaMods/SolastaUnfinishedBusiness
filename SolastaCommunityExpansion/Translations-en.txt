@@ -84,7 +84,7 @@ Condition/&ConditionImprovedBarkWardDescription	The spirits of the forest cause 
 Condition/&ConditionImprovedBarkWardTitle	Improved Bark Ward
 Condition/&ConditionMarkedByArcanistDescription	Afflicted by Arcanist's Mark
 Condition/&ConditionMarkedByArcanistTitle	Arcanist's Mark
-Condition/&ConditionMuleDescription	Your speed is not reduced by encumbrance or heavy armor. You can carry 20 additional pounds.
+Condition/&ConditionMuleDescription	Your speed is not reduced by encumbrance or heavy armor. You can carry 20 additional pounds
 Condition/&ConditionMuleTitle	Mule
 Condition/&ConditionSuperiorBarkWardDescription	The spirits of the forest grant you poison immunity, and cause 3d8 piercing damage to melee attackers
 Condition/&ConditionSuperiorBarkWardTitle	Superior Bark Ward
@@ -569,7 +569,7 @@ Feat/&FeatTitanFightingDescription	You gain a +2 hit against creatures of size l
 Feat/&FeatTitanFightingTitle	Fighting Style: Titan Fighting
 Feat/&FeatToughDescription	Your hit point maximum increases by an amount equal to twice your level when you gain this feat. Whenever you gain a level thereafter, your hit point maximum increases by an additional 2 hit points
 Feat/&FeatToughTitle	Tough
-Feat/&FeatWarCasterDescription	You gain advantage on checks to maintain concentration.\nYou gain the ability to perform the somatic component of spells even with full hands.\nWhen a hostile creature's movement provokes an opportunity attack from you, you can use your reaction to cast a cantrip at the creature, rather than making an opportunity attack. The cantrip must have a casting time of 1 action or bonus action and must target only that creature.
+Feat/&FeatWarCasterDescription	You gain advantage on checks to maintain concentration.\nYou gain the ability to perform the somatic component of spells even with full hands.\nWhen a hostile creature's movement provokes an opportunity attack from you, you can use your reaction to cast a cantrip at the creature, rather than making an opportunity attack. The cantrip must have a casting time of 1 action or bonus action and must target only that creature
 Feat/&FeatWarCasterTitle	War Caster
 Feat/&FeatWiseDefenseDescription	Increase your Wisdom by 1, to a maximum of 20.\nWhile you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Wisdom modifier
 Feat/&FeatWiseDefenseTitle	Wise Defense
@@ -1797,109 +1797,111 @@ UI/&CustomFeatureSelectionTooltipTypeProficiency	Proficiency
 UI/&ForcePreferredCantripDescription	If this toggled is ON only preferred cantrip can trigger. If the preferred cantrip isn't selected, then the first valid cantrip will trigger, regardless of this toggle
 UI/&ForcePreferredCantripTitle	Force Preferred Cantrip
 Class/&ClassMonkTitle	Monk [beta]
-Class/&ClassMonkDescription	Monks are united in their ability to magically harness the energy that flows in their bodies. Whether channeled as a striking display of combat prowess or a subtler focus of defensive ability and speed, this energy infuses all that a monk does.
+Class/&ClassMonkDescription	Monks are united in their ability to magically harness the energy that flows in their bodies. Whether channeled as a striking display of combat prowess or a subtler focus of defensive ability and speed, this energy infuses all that a monk does
 Feature/&ClassMonkWeaponProficiencyTitle	Monk Weapon Proficiencies
 Feature/&ClassMonkSkillProficiencyTitle	Monk Skills
 Feature/&ClassMonkUnarmoredDefenseTitle	Unarmored Defense
-Feature/&ClassMonkUnarmoredDefenseDescription	While you are wearing no armor and not wielding a shield, your AC equals 10 + your Dexterity modifier + your Wisdom modifier.
+Feature/&ClassMonkUnarmoredDefenseDescription	While you are wearing no armor and not wielding a shield, your AC equals 10 + your Dexterity modifier + your Wisdom modifier
 Feature/&ClassMonkMartialArtsTitle	Martial Arts
-Feature/&ClassMonkMartialArtsDescription	You gain the following benefits while you are unarmed or wielding only monk weapons and you aren't wearing armor or wielding a shield:\n - You can use Dexterity instead of Strength for the attack and damage rolls of your unarmed strikes and monk weapons.\n - You can roll a d4 in place of the normal damage of your unarmed strike or monk weapon. This die changes as you gain monk levels.\n - When you use the Attack action with an unarmed strike or a monk weapon on your turn, you can make one unarmed strike as a bonus action.
+Feature/&ClassMonkMartialArtsDescription	You gain the following benefits while you are unarmed or wielding only monk weapons and you aren't wearing armor or wielding a shield:\n - You can use Dexterity instead of Strength for the attack and damage rolls of your unarmed strikes and monk weapons.\n - You can roll a d4 in place of the normal damage of your unarmed strike or monk weapon. This die changes as you gain monk levels.\n - When you use the Attack action with an unarmed strike or a monk weapon on your turn, you can make one unarmed strike as a bonus action
 Feature/&ClassMonkUnarmoredMovementTitle	Unarmored Movement
-Feature/&ClassMonkUnarmoredMovementDescription	Your speed increases by 10 feet while you are not wearing armor or wielding a shield. This bonus increases when you reach certain monk levels.
+Feature/&ClassMonkUnarmoredMovementDescription	Your speed increases by 10 feet while you are not wearing armor or wielding a shield. This bonus increases when you reach certain monk levels
 Feature/&ClassMonkUnarmoredMovementBonusTitle	Unarmored Movement Improvement
-Feature/&ClassMonkUnarmoredMovementBonusDescription	Movement bonus increases by 5 feet.
+Feature/&ClassMonkUnarmoredMovementBonusDescription	Movement bonus increases by 5 feet
 Feature/&ClassMonkMartialDiceProgression00Title	Martial Arts Die Increase (D6)
-Feature/&ClassMonkMartialDiceProgression00Description	You can roll <color=#57BCF4>D6</color> in place of the normal damage of your unarmed strike or monk weapon.
+Feature/&ClassMonkMartialDiceProgression00Description	You can roll <color=#57BCF4>D6</color> in place of the normal damage of your unarmed strike or monk weapon
 Feature/&ClassMonkMartialDiceProgression01Title	Martial Arts Die Increase (D8)
-Feature/&ClassMonkMartialDiceProgression01Description	You can roll <color=#57BCF4>D8</color> in place of the normal damage of your unarmed strike or monk weapon.
+Feature/&ClassMonkMartialDiceProgression01Description	You can roll <color=#57BCF4>D8</color> in place of the normal damage of your unarmed strike or monk weapon
 Feature/&ClassMonkMartialDiceProgression02Title	Martial Arts Die Increase (D10)
-Feature/&ClassMonkMartialDiceProgression02Description	You can roll <color=#57BCF4>D10</color> in place of the normal damage of your unarmed strike or monk weapon.
+Feature/&ClassMonkMartialDiceProgression02Description	You can roll <color=#57BCF4>D10</color> in place of the normal damage of your unarmed strike or monk weapon
 Tooltip/&TagMonkWeaponTitle	Monk
 Feature/&ClassMonkKiTitle	Ki
 Feature/&ClassMonkKiDescription	Your training allows you to harness the mystic energy of ki. You gain ki points equal to your monk level. When you spend a ki point, it is unavailable until you finish a short or long rest, at the end of which you draw all of your expended ki back into yourself. You can spend these points to fuel various ki features. You start knowing three such features:
 Power/&ClassMonkFlurryOfBlowsTitle	Flurry of Blows
-Power/&ClassMonkFlurryOfBlowsDescription	After spending action to attack with monk weapon you can spend 1 ki point as a bonus action to do 2 unamed strikes. Only availabe if you are not wearing armor or shield.
+Power/&ClassMonkFlurryOfBlowsDescription	After spending action to attack with monk weapon you can spend 1 ki point as a bonus action to do 2 unamed strikes. Only availabe if you are not wearing armor or shield
 Power/&ClassMonkPatientDefenseTitle	Patient Defense
-Power/&ClassMonkPatientDefenseDescription	You can spend 1 ki point as a bonus action to take the Dodge action. Only availabe if you are not wearing armor or shield.
+Power/&ClassMonkPatientDefenseDescription	You can spend 1 ki point as a bonus action to take the Dodge action. Only availabe if you are not wearing armor or shield
 Power/&ClassMonkStepOfTheWindTitle	Step Of The Wind
-Power/&ClassMonkStepOfTheWindDescription	You can spend 1 ki point to take the Disengage or Dash action as a bonus action on your turn, and your jump distance is doubled for the turn. Only availabe if you are not wearing armor or shield.
+Power/&ClassMonkStepOfTheWindDescription	You can spend 1 ki point to take the Disengage or Dash action as a bonus action on your turn, and your jump distance is doubled for the turn. Only availabe if you are not wearing armor or shield
 Condition/&ClassMonkStepOfTheWindConditionTitle	Step Of The Wind
-Condition/&ClassMonkStepOfTheWindConditionDescription	You can take the Disengage or Dash action as a bonus action and your jump distance is doubled for the turn.
+Condition/&ClassMonkStepOfTheWindConditionDescription	You can take the Disengage or Dash action as a bonus action and your jump distance is doubled for the turn
 Feature/&ClassMonkDeflectMissileTitle	Deflect Missiles
-Feature/&ClassMonkDeflectMissileDescription	You can use your reaction to deflect the missile when you are hit by a ranged weapon attack. When you do so, the damage you take from the attack is reduced by 1d10 + your Dexterity modifier + your monk level.
-Reaction/&CustomDeflectMissileClassMonkTitle	{0} is attacking {1}, who can react to reduce the incoming damage by 1D10 + DEX modifier + Monk level.
+Feature/&ClassMonkDeflectMissileDescription	You can use your reaction to deflect the missile when you are hit by a ranged weapon attack. When you do so, the damage you take from the attack is reduced by 1d10 + your Dexterity modifier + your monk level
+Reaction/&CustomDeflectMissileClassMonkTitle	{0} is attacking {1}, who can react to reduce the incoming damage by 1D10 + DEX modifier + Monk level
 Power/&ClassMonkSlowFallTitle	Slow Fall
-Power/&ClassMonkSlowFallDescription	You can use your reaction when you fall to prevent any falling damage.
+Power/&ClassMonkSlowFallDescription	You can use your reaction when you fall to prevent any falling damage
 Reaction/&UseClassMonkSlowFallTitle	Slow Fall
-Reaction/&UseClassMonkSlowFallDescription	{0} is falling and can use reaction to prevent falling damage.
+Reaction/&UseClassMonkSlowFallDescription	{0} is falling and can use reaction to prevent falling damage
 Reaction/&UseClassMonkSlowFallReactTitle	React
-Reaction/&UseClassMonkSlowFallReactDescription	Use reaction to prevent damage.
+Reaction/&UseClassMonkSlowFallReactDescription	Use reaction to prevent damage
 Feature/&ClassMonkExtraAttackTitle	Extra Attack
-Feature/&ClassMonkExtraAttackDescription	You can attack twice, instead of once, whenever you take the Attack action on your turn.
+Feature/&ClassMonkExtraAttackDescription	You can attack twice, instead of once, whenever you take the Attack action on your turn
 Power/&ClassMonkStunningStrikeTitle	Stunning Strike
-Power/&ClassMonkStunningStrikeDescription	You can interfere with the flow of ki in an opponent's body. When you hit another creature that is not stunned with a melee weapon attack, you can spend 1 ki point to attempt a stunning strike. The target must succeed on a Constitution saving throw or be stunned until the end of your next turn.
+Power/&ClassMonkStunningStrikeDescription	You can interfere with the flow of ki in an opponent's body. When you hit another creature that is not stunned with a melee weapon attack, you can spend 1 ki point to attempt a stunning strike. The target must succeed on a Constitution saving throw or be stunned until the end of your next turn
 Reaction/&SpendPowerClassMonkStunningStrikeTitle	Stunning Strike
-Reaction/&SpendPowerClassMonkStunningStrikeDescription	{0} has hit opponent and can spend 1 ki point to attempt to stun.
+Reaction/&SpendPowerClassMonkStunningStrikeDescription	{0} has hit opponent and can spend 1 ki point to attempt to stun
 Reaction/&SpendPowerClassMonkStunningStrikeReactTitle	Spend ki
-Reaction/&SpendPowerClassMonkStunningStrikeReactDescription	Spend ki to attempt to stun opponent.
+Reaction/&SpendPowerClassMonkStunningStrikeReactDescription	Spend ki to attempt to stun opponent
 Feature/&ClassMonkKiEmpoweredStrikesTitle	Ki-Empowered Strikes
-Feature/&ClassMonkKiEmpoweredStrikesDescription	Your unarmed strikes count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.
+Feature/&ClassMonkKiEmpoweredStrikesDescription	Your unarmed strikes count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage
 Power/&ClassMonkKiStillnessOfMindTitle	Stillness of Mind
-Power/&ClassMonkKiStillnessOfMindDescription	You can use your action to end one effect on yourself that is causing you to be charmed or frightened.
+Power/&ClassMonkKiStillnessOfMindDescription	You can use your action to end one effect on yourself that is causing you to be charmed or frightened
 Feature/&ClassMonkPurityOfBodyTitle	Purity of Body
-Feature/&ClassMonkPurityOfBodyDescription	Your mastery of the ki flowing through you makes you immune to disease and poison.
+Feature/&ClassMonkPurityOfBodyDescription	Your mastery of the ki flowing through you makes you immune to disease and poison
 Feature/&ClassMonkUnarmoredMovementVerticalSurfaceTitle	Unarmored Movement: Climbing
-Feature/&ClassMonkUnarmoredMovementVerticalSurfaceDescription	While you are unarmored and not wielding a shield you can move on walls like a spider. Ability is temporarily lost if you preform any action that is not movement, or when it is not your turn in combat.
+Feature/&ClassMonkUnarmoredMovementVerticalSurfaceDescription	While you are unarmored and not wielding a shield you can move on walls like a spider. Ability is temporarily lost if you preform any action that is not movement, or when it is not your turn in combat
 Feature/&ClassMonkTongueOfSunAndMoonTitle	Tongue of the Sun and Moon
-Feature/&ClassMonkTongueOfSunAndMoonDescription	You learn to touch the ki of other minds so that you understand all spoken languages. Moreover, any creature that can understand a language can understand what you say.
+Feature/&ClassMonkTongueOfSunAndMoonDescription	You learn to touch the ki of other minds so that you understand all spoken languages. Moreover, any creature that can understand a language can understand what you say
 Feature/&ClassMonkDiamondSoulTitle	Diamond Soul
-Feature/&ClassMonkDiamondSoulDescription	Your mastery of ki grants you proficiency in all saving throws.\nAdditionally, whenever you make a saving throw and fail, you can spend 1 ki point to reroll it and take the second result.
+Feature/&ClassMonkDiamondSoulDescription	Your mastery of ki grants you proficiency in all saving throws.\nAdditionally, whenever you make a saving throw and fail, you can spend 1 ki point to reroll it and take the second result
 Power/&ClassMonkDiamondSoulPowerTitle	Diamond Soul
-Power/&ClassMonkDiamondSoulPowerDescription	Whenever you make a saving throw and fail, you can spend 1 ki point to reroll it and take the second result.
+Power/&ClassMonkDiamondSoulPowerDescription	Whenever you make a saving throw and fail, you can spend 1 ki point to reroll it and take the second result
 Reaction/&SpendPowerDiamondSoulTitle	Diamond Soul
-Reaction/&SpendPowerDiamondSoulDescription	{0} has failed a save and can spend 1 ki to reroll it.
+Reaction/&SpendPowerDiamondSoulDescription	{0} has failed a save and can spend 1 ki to reroll it
 Reaction/&SpendPowerDiamondSoulReactTitle	Reroll
-Reaction/&SpendPowerDiamondSoulReactDescription	Spend ki to reroll failed save.
+Reaction/&SpendPowerDiamondSoulReactDescription	Spend ki to reroll failed save
 Power/&ClassMonkEmptyBodyTitle	Empty Body
-Power/&ClassMonkEmptyBodyDescription	You can use your action to spend 4 ki points to become invisible for 1 minute. During that time, you also have resistance to all damage but force damage.
+Power/&ClassMonkEmptyBodyDescription	You can use your action to spend 4 ki points to become invisible for 1 minute. During that time, you also have resistance to all damage but force damage
 Condition/&ClassMonkEmptyBodyConditionTitle	Empty Body
-Condition/&ClassMonkEmptyBodyConditionDescription	You have resistance to all damage but force damage.
+Condition/&ClassMonkEmptyBodyConditionDescription	You have resistance to all damage but force damage
 Feature/&ClassMonkPerfectSelfTitle	Perfect Self
-Feature/&ClassMonkPerfectSelfDescription	When you start battle and have no ki points remaining, you regain 4 ki points.
-Tooltip/&CustomPortraitPoolClassMonkKiPool	You can harness the mystic energy of ki. Your access to this energy is represented by a number of ki points. Maximum amount is equal to your monk level. All spent points are regained on short or long rest. You can spend these points to fuel various ki features.
+Feature/&ClassMonkPerfectSelfDescription	When you start battle and have no ki points remaining, you regain 4 ki points
+Tooltip/&CustomPortraitPoolClassMonkKiPool	You can harness the mystic energy of ki. Your access to this energy is represented by a number of ki points. Maximum amount is equal to your monk level. All spent points are regained on short or long rest. You can spend these points to fuel various ki features
 Subclass/&ClassMonkTraditionTitle	Monastic Traditions
 Subclass/&ClassMonkTraditionDescription	At 3rd level you choose spiritual way you follow towards enlightenment. It will shape how you manipulate ki.  
-Stage/&SubclassSelectionStageClassMonkTraditionDescription	This stage selects the character's monastic tradition.
+Stage/&SubclassSelectionStageClassMonkTraditionDescription	This stage selects the character's monastic tradition
 Stage/&SubclassSelectionStageClassMonkTraditionFeatures	Monastic Tradition Features
 Stage/&SubclassSelectionStageClassMonkTraditionHeader	Select a Monastic Tradition
-Stage/&SubclassSelectionStageClassMonkTraditionNoneDescription	You must select a monastic tradition.
+Stage/&SubclassSelectionStageClassMonkTraditionNoneDescription	You must select a monastic tradition
 Stage/&SubclassSelectionStageClassMonkTraditionTitle	Monastic\nTradition
 Subclass/&ClassMonkTraditionWayOfTheOpenHandTitle	Way of the Open Hand
-Subclass/&ClassMonkTraditionWayOfTheOpenHandDescription	[update after features implemented]\nMonks of the Way of the Open Hand are the ultimate masters of martial arts combat, whether armed or unarmed. They learn techniques to push and trip their opponents, manipulate ki to heal damage to their bodies, and practice advanced meditation that can protect them from harm.
+Subclass/&ClassMonkTraditionWayOfTheOpenHandDescription	[update after features implemented]\nMonks of the Way of the Open Hand are the ultimate masters of martial arts combat, whether armed or unarmed. They learn techniques to push and trip their opponents, manipulate ki to heal damage to their bodies, and practice advanced meditation that can protect them from harm
 Reaction/&SubitemSelectPowerBundleTitle	Options
 Power/&ClassMonkOpenHandProneTitle	Knock Down
-Power/&ClassMonkOpenHandProneDescription	Target must succeed Dexterity saving throw or be knocked prone.
+Power/&ClassMonkOpenHandProneDescription	Target must succeed Dexterity saving throw or be knocked prone
 Power/&ClassMonkOpenHandPushTitle	Push Away
-Power/&ClassMonkOpenHandPushDescription	Target must succeed Strength saving throw or be pushed 15 feet away from you.
+Power/&ClassMonkOpenHandPushDescription	Target must succeed Strength saving throw or be pushed 15 feet away from you
 Power/&ClassMonkOpenHandDistractTitle	Distract
-Power/&ClassMonkOpenHandDistractDescription	Target can't take reactions until end of your next turn.
+Power/&ClassMonkOpenHandDistractDescription	Target can't take reactions until end of your next turn
 Condition/&ClassMonkOpenHandDistractConditionTitle	Distracted
-Condition/&ClassMonkOpenHandDistractConditionDescription	Cannot make reactions.
+Condition/&ClassMonkOpenHandDistractConditionDescription	Cannot make reactions
 Power/&ClassMonkOpenHandTechniqueTitle	Open Hand Technique
-Power/&ClassMonkOpenHandTechniqueDescription	 You can manipulate your enemy's ki when you harness your own. Whenever you hit a creature with one of the attacks granted by your Flurry of Blows, you can impose one of the following effects on that target:\n - It must succeed on a Dexterity saving throw or be knocked prone.\n - It must make a Strength saving throw. If it fails, you can push it up to 15 feet away from you.\n - It can't take reactions until the end of your next turn.
+Power/&ClassMonkOpenHandTechniqueDescription	 You can manipulate your enemy's ki when you harness your own. Whenever you hit a creature with one of the attacks granted by your Flurry of Blows, you can impose one of the following effects on that target:\n - It must succeed on a Dexterity saving throw or be knocked prone.\n - It must make a Strength saving throw. If it fails, you can push it up to 15 feet away from you.\n - It can't take reactions until the end of your next turn
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueTitle	Open Hand Technique
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueDescription	{0} hit a creature with one of the attacks granted by Flurry of Blows, and can impose one of the following effects on that target:
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactTitle	Apply
-Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactDescription	Apply selected technique.
+Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactDescription	Apply selected technique
 Power/&ClassMonkWholenessOfBodyTitle	Wholeness of Body
-Power/&ClassMonkWholenessOfBodyDescription	As an action, you can regain hit points equal to three times your monk level. You must finish a long rest before you can use this feature again.
+Power/&ClassMonkWholenessOfBodyDescription	As an action, you can regain hit points equal to three times your monk level. You must finish a long rest before you can use this feature again
 Power/&ClassMonkTanquilityTitle	Tranquility
-Power/&ClassMonkTanquilityDescription	Once per short rest as a free action you can enter state of tranquility, calming your emotions and focusing on what's around you. While in this state you gain advantage on saving throws against spells and enemies get disadvantage when attacking you. Tranquility lasts until next rest or until you attack or cast a spell.
+Power/&ClassMonkTanquilityDescription	Once per short rest as a free action you can enter state of tranquility, calming your emotions and focusing on what's around you. While in this state you gain advantage on saving throws against spells and enemies get disadvantage when attacking you. Tranquility lasts until next rest or until you attack or cast a spell
 Condition/&ClassMonkTanquilityConditionTitle	Tranquility
 Condition/&ClassMonkTanquilityConditionDescription	You have advantage on saving throws against spells and enemies have disadvantage attackning you. Removed when you attack or cast spell. 
 Power/&ClassMonkQuiveringPalmTitle	Quivering Palm
-Power/&ClassMonkQuiveringPalmDescription	When you hit a creature with an unarmed strike, you can spend 3 ki points to start imperceptible vibrations that force creature to make a Constitution saving throw. If it fails, it is reduced to 0 hit points. If it succeeds, it takes 10d10 necrotic damage.
+Power/&ClassMonkQuiveringPalmDescription	When you hit a creature with an unarmed strike, you can spend 3 ki points to start imperceptible vibrations that force creature to make a Constitution saving throw. If it fails, it is reduced to 0 hit points. If it succeeds, it takes 10d10 necrotic damage
 Reaction/&SpendPowerClassMonkQuiveringPalmTitle	Quivering Palm
-Reaction/&SpendPowerClassMonkQuiveringPalmDescription	{0} has hit opponent with unarmed attack and can spend 3 ki point to attempt to kill it.
+Reaction/&SpendPowerClassMonkQuiveringPalmDescription	{0} has hit opponent with unarmed attack and can spend 3 ki point to attempt to kill it
 Reaction/&SpendPowerClassMonkQuiveringPalmReactTitle	Spend ki
-Reaction/&SpendPowerClassMonkQuiveringPalmReactDescription	Spend ki to attempt to kill opponent.
+Reaction/&SpendPowerClassMonkQuiveringPalmReactDescription	Spend ki to attempt to kill opponent
+Feedback/&AdditionalDamageLightningSpearFormat	Lightning Spear!
+Feedback/&AdditionalDamageLightningSpearLine	{0} strikes {1} with Lightning Spear! (+{2})
