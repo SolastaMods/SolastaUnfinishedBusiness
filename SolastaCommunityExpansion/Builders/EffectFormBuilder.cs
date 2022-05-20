@@ -153,6 +153,17 @@ namespace SolastaCommunityExpansion.Builders
             effectForm.DamageForm = damageForm;
             return this;
         }
+        
+        public EffectFormBuilder SetKillForm(KillCondition condition, float challengeRating = 0, int hitPoints = 0)
+        {
+            effectForm.FormType = EffectForm.EffectFormType.Kill;
+            var killForm = new KillForm();
+            killForm.SetKillCondition(condition);
+            killForm.SetChallengeRating(challengeRating);
+            killForm.SetHitPoints(hitPoints);
+            effectForm.SetKillForm(killForm);
+            return this;
+        }
 
         public EffectFormBuilder SetDivinationForm(DivinationForm.Type divinationType, IEnumerable<CharacterFamilyDefinition> creatureFamilies,
             IEnumerable<string> revealedTags, int rangeCells)
