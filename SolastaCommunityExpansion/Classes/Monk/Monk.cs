@@ -303,7 +303,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
             .AddFeatureAtLevel(3, FeatureDefinitionSubclassChoiceBuilder
                 .Create("ClassMonkSubclassChoice", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation("ClassMonkTradition", Category.Subclass)
-                .SetSubclassSuffix("MonkWay")
+                .SetSubclassSuffix("ClassMonkTradition")
                 .SetFilterByDeity(false)
                 .SetSubclasses(
                     WayOfTheOpenHand.Build()
