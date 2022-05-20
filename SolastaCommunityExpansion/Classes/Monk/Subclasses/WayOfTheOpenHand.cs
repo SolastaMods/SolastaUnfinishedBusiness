@@ -15,6 +15,7 @@ public static class WayOfTheOpenHand
             .Create("ClassMonkTraditionWayOfTheOpenHand", DefinitionBuilder.CENamespaceGuid)
             .SetOrUpdateGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.DomainLife.GuiPresentation.SpriteReference)
             .AddFeatureAtLevel(BuildOpenHandTechnique(), 3)
+            .AddFeatureAtLevel(BuildWholenessOfBody(), 6)
             .AddToDB();
     }
 
@@ -116,5 +117,27 @@ public static class WayOfTheOpenHand
         //     .SetGuiPresentation(Category.Feature)
         //     .SetFeatureSet(prone, push, distract)
         //     .AddToDB();
+    }
+
+    private static FeatureDefinition BuildWholenessOfBody()
+    {
+        return FeatureDefinitionPowerBuilder
+            .Create("ClassMonkWholenessOfBody", Monk.GUID)
+            .SetGuiPresentation(Category.Power, FeatureDefinitionPowers.PowerPaladinLayOnHands.GuiPresentation.SpriteReference)
+            .SetRechargeRate(RechargeRate.LongRest)
+            .SetUsesFixed(1)
+            .SetCostPerUse(1)
+            .SetActivationTime(ActivationTime.Action)
+            .SetEffectDescription(new EffectDescriptionBuilder()
+                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                .SetDurationData(DurationType.Instantaneous)
+                .SetEffectForms(new EffectFormBuilder()
+                    //TODO: for some reason TA haven't implemented `MultiplyDice` advancement type for healing
+                    //TODO: power tooltip doesn't show actual value or even advancement type, can we fix this?
+                    .SetLevelAdvancement(EffectForm.LevelApplianceType.MultiplyBonus, LevelSourceType.ClassLevel)
+                    .SetHealingForm(HealingComputation.Dice, 3, DieType.D1, 0, false, HealingCap.MaximumHitPoints)
+                    .Build())
+                .Build())
+            .AddToDB();
     }
 }

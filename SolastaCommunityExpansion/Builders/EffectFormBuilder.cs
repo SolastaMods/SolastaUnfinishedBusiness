@@ -57,7 +57,7 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         public EffectFormBuilder SetLevelAdvancement(EffectForm.LevelApplianceType applyLevel,
-            LevelSourceType levelType, int levelMultiplier)
+            LevelSourceType levelType, int levelMultiplier = 1)
         {
             effectForm.SetApplyLevel(applyLevel);
             effectForm.SetLevelType(levelType);

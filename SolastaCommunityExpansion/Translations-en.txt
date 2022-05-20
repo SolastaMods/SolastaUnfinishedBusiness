@@ -1885,3 +1885,5 @@ Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueTitle	Open Hand Technique
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueDescription	{0} hit a creature with one of the attacks granted by Flurry of Blows, and can impose one of the following effects on that target:
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactTitle	Apply
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactDescription	Apply selected technique.
+Power/&ClassMonkWholenessOfBodyTitle	Wholeness of Body
+Power/&ClassMonkWholenessOfBodyDescription	As an action, you can regain hit points equal to three times your monk level. You must finish a long rest before you can use this feature again.
