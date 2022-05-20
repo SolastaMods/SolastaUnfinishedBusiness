@@ -484,7 +484,7 @@ Feat/&FeatDexIncrementDescription	+1 Dexterity
 Feat/&FeatDexIncrementTitle	Attribute Increase
 Feat/&FeatDualWeaponDefenseDescription	When yielding 2 weapons your AC increases by 1
 Feat/&FeatDualWeaponDefenseTitle	Dual Weapon Defense
-Feat/&FeatFastHandsDescription	You gain a Cunning Action and can use the Bonus Action granted by it to make a Dexterity (Sleight of Hand) check, use your thieves’ tools to Disarm a trap or open a lock, or take the Use an Object action
+Feat/&FeatFastHandsDescription	You gain a Cunning Action and can use the Bonus Action granted by it to make a Dexterity (Sleight of Hand) check, use your thieves' tools to Disarm a trap or open a lock, or take the Use an Object action
 Feat/&FeatFastHandsTitle	Fast Hands
 Feat/&FeatFeyTeleportationChaDescription	Increase Charisma attribute by 1. Gain the ability to Misty Step once per short rest and learn the spell. Gain proficiency in Tirmarian
 Feat/&FeatFeyTeleportationChaTitle	Fey Teleportation (Charisma)
@@ -1039,7 +1039,7 @@ Feature/&RageStrengthSavingThrowAffinityDescription	You get advantage on strengt
 Feature/&RageStrengthSavingThrowAffinityTitle	Rage strength save advantage
 Feature/&RangerArcanistMagicDescription	Starting at 3rd level, you learn an additional spell when you reach certain levels in this class. Each spell counts as a ranger spell for you, but it doesn't count against the number of ranger spells you know. The spells are: Level 3: Shield, Level 5: Misty Step, Level 9: Haste, Level 13: Dimension Door, and Level 17: Hold Monster. Additionally, you are proficient at casting spells in battle, and may cast spells that require a somatic component even if both of your hands are holding a weapon or shield
 Feature/&RangerArcanistMagicTitle	Ranger Arcanist Spellcasting
-Feature/&RangerFeralSensesDescription	You gain preternatural senses that help you fight creatures you can’t see. When you attack a creature you can’t see, your inability to see it doesn’t impose disadvantage on your attack rolls against it
+Feature/&RangerFeralSensesDescription	You gain preternatural senses that help you fight creatures you can't see. When you attack a creature you can't see, your inability to see it doesn't impose disadvantage on your attack rolls against it
 Feature/&RangerFeralSensesTitle	Feral Senses
 Feature/&RangerVanishActionDescription	Starting at 14th level, you can use the Hide action as a bonus action on your turn
 Feature/&RangerVanishActionTitle	Vanish
@@ -1399,7 +1399,7 @@ Spell/&AirBlastDescription	Fire a blast of focused air at your target
 Spell/&AirBlastTitle	Air Blast
 Spell/&BurstOfRadianceDescription	Create a brilliant flash of shimmering light, damaging all enemies around you
 Spell/&BurstOfRadianceTitle	Burst of Radiance
-Spell/&CJDivineWordDescription	You utter a divine word, imbued with the power that shaped the world at the dawn of creation. Choose any number of creatures you can see within range. Each creature that can hear you must make a Charisma saving throw. On a failed save, a creature suffers an effect based on its current hit points:\n50 hit points or fewer: deafened for 1 minute\n40 hit points or fewer: deafened and blinded for 10 minutes\n30 hit points or fewer: blinded, deafened, and stunned for 1 hour\n20 hit points or fewer: killed instantly\nRegardless of its current hit points, a celestial, an elemental, a fey, or a fiend that fails its save is forced back to its plane of origin (if it isn’t there already) and can’t return to your current plane for 24 hours by any means short of a wish spell.\n
+Spell/&CJDivineWordDescription	You utter a divine word, imbued with the power that shaped the world at the dawn of creation. Choose any number of creatures you can see within range. Each creature that can hear you must make a Charisma saving throw. On a failed save, a creature suffers an effect based on its current hit points:\n50 hit points or fewer: deafened for 1 minute\n40 hit points or fewer: deafened and blinded for 10 minutes\n30 hit points or fewer: blinded, deafened, and stunned for 1 hour\n20 hit points or fewer: killed instantly\nRegardless of its current hit points, a celestial, an elemental, a fey, or a fiend that fails its save is forced back to its plane of origin (if it isn't there already) and can't return to your current plane for 24 hours by any means short of a wish spell.\n
 Spell/&CJDivineWordTitle	Divine Word
 Spell/&DHAnimalShapesSpellDescription	Choose any number of willing creatures that you can see within range. You transform each target into the form of a Large or smaller beast with a challenge rating of 4 or lower
 Spell/&DHAnimalShapesSpellTitle	Animal shapes
@@ -1841,7 +1841,7 @@ Power/&ClassMonkStunningStrikeDescription	You can interfere with the flow of ki 
 Reaction/&SpendPowerClassMonkStunningStrikeTitle	Stunning Strike
 Reaction/&SpendPowerClassMonkStunningStrikeDescription	{0} has hit opponent and can spend 1 ki point to attempt to stun.
 Reaction/&SpendPowerClassMonkStunningStrikeReactTitle	Spend ki
-Reaction/&SpendPowerClassMonkStunningStrikeReactDescription	Spend ki to attampt to stun opponent.
+Reaction/&SpendPowerClassMonkStunningStrikeReactDescription	Spend ki to attempt to stun opponent.
 Feature/&ClassMonkKiEmpoweredStrikesTitle	Ki-Empowered Strikes
 Feature/&ClassMonkKiEmpoweredStrikesDescription	Your unarmed strikes count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.
 Power/&ClassMonkKiStillnessOfMindTitle	Stillness of Mind
@@ -1867,3 +1867,39 @@ Condition/&ClassMonkEmptyBodyConditionDescription	You have resistance to all dam
 Feature/&ClassMonkPerfectSelfTitle	Perfect Self
 Feature/&ClassMonkPerfectSelfDescription	When you start battle and have no ki points remaining, you regain 4 ki points.
 Tooltip/&CustomPortraitPoolClassMonkKiPool	You can harness the mystic energy of ki. Your access to this energy is represented by a number of ki points. Maximum amount is equal to your monk level. All spent points are regained on short or long rest. You can spend these points to fuel various ki features.
+Subclass/&ClassMonkTraditionTitle	Monastic Traditions
+Subclass/&ClassMonkTraditionDescription	At 3rd level you choose spiritual way you follow towards enlightenment. It will shape how you manipulate ki.  
+Stage/&SubclassSelectionStageClassMonkTraditionDescription	This stage selects the character's monastic tradition.
+Stage/&SubclassSelectionStageClassMonkTraditionFeatures	Monastic Tradition Features
+Stage/&SubclassSelectionStageClassMonkTraditionHeader	Select a Monastic Tradition
+Stage/&SubclassSelectionStageClassMonkTraditionNoneDescription	You must select a monastic tradition.
+Stage/&SubclassSelectionStageClassMonkTraditionTitle	Monastic\nTradition
+Subclass/&ClassMonkTraditionWayOfTheOpenHandTitle	Way of the Open Hand
+Subclass/&ClassMonkTraditionWayOfTheOpenHandDescription	[update after features implemented]\nMonks of the Way of the Open Hand are the ultimate masters of martial arts combat, whether armed or unarmed. They learn techniques to push and trip their opponents, manipulate ki to heal damage to their bodies, and practice advanced meditation that can protect them from harm.
+Reaction/&SubitemSelectPowerBundleTitle	Options
+Power/&ClassMonkOpenHandProneTitle	Knock Down
+Power/&ClassMonkOpenHandProneDescription	Target must succeed Dexterity saving throw or be knocked prone.
+Power/&ClassMonkOpenHandPushTitle	Push Away
+Power/&ClassMonkOpenHandPushDescription	Target must succeed Strength saving throw or be pushed 15 feet away from you.
+Power/&ClassMonkOpenHandDistractTitle	Distract
+Power/&ClassMonkOpenHandDistractDescription	Target can't take reactions until end of your next turn.
+Condition/&ClassMonkOpenHandDistractConditionTitle	Distracted
+Condition/&ClassMonkOpenHandDistractConditionDescription	Cannot make reactions.
+Power/&ClassMonkOpenHandTechniqueTitle	Open Hand Technique
+Power/&ClassMonkOpenHandTechniqueDescription	 You can manipulate your enemy's ki when you harness your own. Whenever you hit a creature with one of the attacks granted by your Flurry of Blows, you can impose one of the following effects on that target:\n - It must succeed on a Dexterity saving throw or be knocked prone.\n - It must make a Strength saving throw. If it fails, you can push it up to 15 feet away from you.\n - It can't take reactions until the end of your next turn.
+Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueTitle	Open Hand Technique
+Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueDescription	{0} hit a creature with one of the attacks granted by Flurry of Blows, and can impose one of the following effects on that target:
+Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactTitle	Apply
+Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactDescription	Apply selected technique.
+Power/&ClassMonkWholenessOfBodyTitle	Wholeness of Body
+Power/&ClassMonkWholenessOfBodyDescription	As an action, you can regain hit points equal to three times your monk level. You must finish a long rest before you can use this feature again.
+Power/&ClassMonkTanquilityTitle	Tranquility
+Power/&ClassMonkTanquilityDescription	Once per short rest as a free action you can enter state of tranquility, calming your emotions and focusing on what's around you. While in this state you gain advantage on saving throws against spells and enemies get disadvantage when attacking you. Tranquility lasts until next rest or until you attack or cast a spell.
+Condition/&ClassMonkTanquilityConditionTitle	Tranquility
+Condition/&ClassMonkTanquilityConditionDescription	You have advantage on saving throws against spells and enemies have disadvantage attackning you. Removed when you attack or cast spell. 
+Power/&ClassMonkQuiveringPalmTitle	Quivering Palm
+Power/&ClassMonkQuiveringPalmDescription	When you hit a creature with an unarmed strike, you can spend 3 ki points to start imperceptible vibrations that force creature to make a Constitution saving throw. If it fails, it is reduced to 0 hit points. If it succeeds, it takes 10d10 necrotic damage.
+Reaction/&SpendPowerClassMonkQuiveringPalmTitle	Quivering Palm
+Reaction/&SpendPowerClassMonkQuiveringPalmDescription	{0} has hit opponent with unarmed attack and can spend 3 ki point to attempt to kill it.
+Reaction/&SpendPowerClassMonkQuiveringPalmReactTitle	Spend ki
+Reaction/&SpendPowerClassMonkQuiveringPalmReactDescription	Spend ki to attempt to kill opponent.

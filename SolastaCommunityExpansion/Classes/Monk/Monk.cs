@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.Classes.Monk.Subclasses;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.CustomUI;
 using SolastaCommunityExpansion.Features;
@@ -24,6 +25,8 @@ namespace SolastaCommunityExpansion.Classes.Monk
         public const string WeaponTag = "MonkWeapon";
         public static readonly Guid GUID = new("1478A002-D107-4E34-93A3-CEA260DA25C9");
         public static CharacterClassDefinition Class { get; private set; }
+
+        public static FeatureDefinitionPower KiPool => kiPool;
 
         //TODO: maybe instead of a list make dynamic weapon checker that will tell if weapon is a monk one?
         // Monk weapons are unarmed, shortswords and any simple melee weapons that don't have the two-handed or heavy property.
@@ -294,6 +297,20 @@ namespace SolastaCommunityExpansion.Classes.Monk
             #region Level 02
 
                 .AddFeaturesAtLevel(2, ki)
+
+            #endregion
+
+            #region Subclasses
+
+            .AddFeatureAtLevel(3, FeatureDefinitionSubclassChoiceBuilder
+                .Create("ClassMonkSubclassChoice", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation("ClassMonkTradition", Category.Subclass)
+                .SetSubclassSuffix("ClassMonkTradition")
+                .SetFilterByDeity(false)
+                .SetSubclasses(
+                    WayOfTheOpenHand.Build()
+                )
+                .AddToDB())
 
             #endregion
 
@@ -926,9 +943,15 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .AddToDB();
         }
 
-        private static bool IsUnarmedWeapon(RulesetAttackMode attackMode, RulesetItem weapon)
+        public static bool IsUnarmedWeapon(RulesetAttackMode attackMode, RulesetItem weapon)
         {
-            return weapon == null;
+            var item = attackMode?.SourceDefinition as ItemDefinition;
+            if (item != null)
+            {
+                return item.WeaponDescription?.WeaponTypeDefinition == WeaponTypeDefinitions.UnarmedStrikeType;
+            }
+
+            return false;
         }
 
         private static bool IsMonkWeapon(RulesetAttackMode attackMode, RulesetItem weapon)

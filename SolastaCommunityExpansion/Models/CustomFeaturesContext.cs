@@ -325,7 +325,9 @@ namespace SolastaCommunityExpansion.Models
         {
             if (usablePower.PowerDefinition is not IPowerSharedPool sharedPoolPower)
             {
-                return usablePower.RemainingUses / usablePower.PowerDefinition.CostPerUse;
+                return usablePower.PowerDefinition.CostPerUse == 0
+                    ? int.MaxValue
+                    : usablePower.RemainingUses / usablePower.PowerDefinition.CostPerUse;
             }
 
             return GetRemainingPowerPoolUses(character, sharedPoolPower);
@@ -333,6 +335,11 @@ namespace SolastaCommunityExpansion.Models
 
         internal static int GetRemainingPowerUses(this RulesetCharacter character, FeatureDefinitionPower power)
         {
+            if (power.CostPerUse == 0)
+            {
+                return int.MaxValue;
+            }
+
             if (power is IPowerSharedPool poolPower)
             {
                 return GetRemainingPowerPoolUses(character, poolPower) / power.CostPerUse;
