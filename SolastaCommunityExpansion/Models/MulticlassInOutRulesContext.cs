@@ -123,6 +123,7 @@ namespace SolastaCommunityExpansion.Models
                     return strength >= 13;
 
                 case RuleDefinitions.SorcererClass:
+                case RuleDefinitions.WarlockClass:
                 case IntegrationContext.CLASS_WARLOCK:
                 case IntegrationContext.CLASS_WITCH:
                     return charisma >= 13;
@@ -133,8 +134,9 @@ namespace SolastaCommunityExpansion.Models
 
                 case RuleDefinitions.FighterClass:
                     return strength >= 13 || dexterity >= 13;
-                
+
                 case RuleDefinitions.MonkClass:
+                case IntegrationContext.CLASS_MONK:
                     return wisdom >= 13 && dexterity >= 13;
 
                 case RuleDefinitions.RangerClass:
