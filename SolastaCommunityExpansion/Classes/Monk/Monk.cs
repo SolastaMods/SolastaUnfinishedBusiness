@@ -26,6 +26,8 @@ namespace SolastaCommunityExpansion.Classes.Monk
         public static readonly Guid GUID = new("1478A002-D107-4E34-93A3-CEA260DA25C9");
         public static CharacterClassDefinition Class { get; private set; }
 
+        public static FeatureDefinitionPower KiPool => kiPool;
+
         //TODO: maybe instead of a list make dynamic weapon checker that will tell if weapon is a monk one?
         // Monk weapons are unarmed, shortswords and any simple melee weapons that don't have the two-handed or heavy property.
         private static readonly List<WeaponTypeDefinition> MonkWeapons = new()

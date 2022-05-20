@@ -17,6 +17,7 @@ public static class WayOfTheOpenHand
             .AddFeatureAtLevel(BuildOpenHandTechnique(), 3)
             .AddFeatureAtLevel(BuildWholenessOfBody(), 6)
             .AddFeatureAtLevel(BuildTanquility(), 11)
+            .AddFeatureAtLevel(BuildQuiveringPalm(), 17)
             .AddToDB();
     }
 
@@ -165,5 +166,38 @@ public static class WayOfTheOpenHand
             .AddToDB();
 
         return tranquility;
+    }
+    
+    private static FeatureDefinition BuildQuiveringPalm()
+    {
+        return FeatureDefinitionPowerSharedPoolBuilder
+            .Create("ClassMonkQuiveringPalm", Monk.GUID)
+            .SetGuiPresentation(Category.Power)
+            .SetActivationTime(ActivationTime.OnAttackHit)
+            .SetSharedPool(Monk.KiPool)
+            .SetCostPerUse(3)
+            .SetFixedUsesPerRecharge(3)
+            .SetRechargeRate(RechargeRate.ShortRest)
+            .SetCustomSubFeatures(new ReactionAttackModeRestriction((mode, _, _) => Monk.IsUnarmedWeapon(mode, null)))
+            .SetEffectDescription(new EffectDescriptionBuilder()
+                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
+                .SetDurationData(DurationType.Instantaneous)
+                .SetSavingThrowData(true,
+                    true,
+                    AttributeDefinitions.Constitution,
+                    true, EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                    AttributeDefinitions.Wisdom
+                )
+                .SetEffectForms(
+                    new EffectFormBuilder()
+                        .SetKillForm(KillCondition.Always)
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .Build(),
+                    new EffectFormBuilder()
+                        .SetDamageForm(diceNumber: 10, dieType: DieType.D10, damageType: DamageTypeNecrotic)
+                        .HasSavingThrow(EffectSavingThrowType.None)
+                        .Build())
+                .Build())
+            .AddToDB();
     }
 }

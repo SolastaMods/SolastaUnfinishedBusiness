@@ -1841,7 +1841,7 @@ Power/&ClassMonkStunningStrikeDescription	You can interfere with the flow of ki 
 Reaction/&SpendPowerClassMonkStunningStrikeTitle	Stunning Strike
 Reaction/&SpendPowerClassMonkStunningStrikeDescription	{0} has hit opponent and can spend 1 ki point to attempt to stun.
 Reaction/&SpendPowerClassMonkStunningStrikeReactTitle	Spend ki
-Reaction/&SpendPowerClassMonkStunningStrikeReactDescription	Spend ki to attampt to stun opponent.
+Reaction/&SpendPowerClassMonkStunningStrikeReactDescription	Spend ki to attempt to stun opponent.
 Feature/&ClassMonkKiEmpoweredStrikesTitle	Ki-Empowered Strikes
 Feature/&ClassMonkKiEmpoweredStrikesDescription	Your unarmed strikes count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.
 Power/&ClassMonkKiStillnessOfMindTitle	Stillness of Mind
@@ -1897,3 +1897,9 @@ Power/&ClassMonkTanquilityTitle	Tranquility
 Power/&ClassMonkTanquilityDescription	Once per short rest as a free action you can enter state of tranquility, calming your emotions and focusing on what's around you. While in this state you gain advantage on saving throws against spells and enemies get disadvantage when attacking you. Tranquility lasts until next rest or until you attack or cast a spell.
 Condition/&ClassMonkTanquilityConditionTitle	Tranquility
 Condition/&ClassMonkTanquilityConditionDescription	You have advantage on saving throws against spells and enemies have disadvantage attackning you. Removed when you attack or cast spell. 
+Power/&ClassMonkQuiveringPalmTitle	Quivering Palm
+Power/&ClassMonkQuiveringPalmDescription	When you hit a creature with an unarmed strike, you can spend 3 ki points to start imperceptible vibrations that force creature to make a Constitution saving throw. If it fails, it is reduced to 0 hit points. If it succeeds, it takes 10d10 necrotic damage.
+Reaction/&SpendPowerClassMonkQuiveringPalmTitle	Quivering Palm
+Reaction/&SpendPowerClassMonkQuiveringPalmDescription	{0} has hit opponent with unarmed attack and can spend 3 ki point to attempt to kill it.
+Reaction/&SpendPowerClassMonkQuiveringPalmReactTitle	Spend ki
+Reaction/&SpendPowerClassMonkQuiveringPalmReactDescription	Spend ki to attempt to kill opponent.
