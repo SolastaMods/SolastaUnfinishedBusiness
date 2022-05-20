@@ -291,3 +291,18 @@ UI/&CustomFeatureSelectionTooltipTypePower	Power
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Proficiency
 UI/&ForcePreferredCantripDescription	If this toggled is ON only preferred cantrip can trigger. If the preferred cantrip isn't selected, then the first valid cantrip will trigger, regardless of this toggle
 UI/&ForcePreferredCantripTitle	Force Preferred Cantrip
+Tooltip/&TagMonkWeaponTitle	Monk
+Reaction/&CustomDeflectMissileMonkTitle	{0} is attacking {1}, who can react to reduce the incoming damage by 1D10 + DEX modifier + Monk level.
+Reaction/&UseMonkSlowFallTitle	Slow Fall
+Reaction/&UseMonkSlowFallDescription	{0} is falling and can use reaction to prevent falling damage.
+Reaction/&UseMonkSlowFallReactTitle	React
+Reaction/&UseMonkSlowFallReactDescription	Use reaction to prevent damage.
+Reaction/&SpendPowerMonkStunningStrikeTitle	Stunning Strike
+Reaction/&SpendPowerMonkStunningStrikeDescription	{0} has hit opponent and can spend 1 ki point to attempt to stun.
+Reaction/&SpendPowerMonkStunningStrikeReactTitle	Spend ki
+Reaction/&SpendPowerMonkStunningStrikeReactDescription	Spend ki to attampt to stun opponent.
+Reaction/&SpendPowerDiamondSoulTitle	Diamond Soul
+Reaction/&SpendPowerDiamondSoulDescription	{0} has failed a save and can spend 1 ki to reroll it.
+Reaction/&SpendPowerDiamondSoulReactTitle	Reroll
+Reaction/&SpendPowerDiamondSoulReactDescription	Spend ki to reroll failed save.
+Tooltip/&CustomPortraitPoolMonkKiPool	You can harness the mystic energy of ki. Your access to this energy is represented by a number of ki points. Maximum amount is equal to your monk level. All spent points are regained on short or long rest. You can spend these points to fuel various ki features.
