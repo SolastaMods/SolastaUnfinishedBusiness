@@ -23,7 +23,7 @@ public static class CharacterValidators
     {
         return character => conditions.Any(c => character.HasConditionOfType(c.Name));
     }
-    
+
     public static CharacterValidator HasAnyOfConditions(params string[] conditions)
     {
         return character => conditions.Any(character.HasConditionOfType);

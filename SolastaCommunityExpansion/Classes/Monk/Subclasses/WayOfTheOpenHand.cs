@@ -24,7 +24,7 @@ public static class WayOfTheOpenHand
     private static FeatureDefinition BuildOpenHandTechnique()
     {
         var hasFlurry = CharacterValidators.HasAnyOfConditions("ClassMonkFlurryOfBlowsCondition");
-        
+
         var technique = FeatureDefinitionPowerBuilder
             .Create("ClassMonkOpenHandTechnique", Monk.GUID)
             .SetGuiPresentation(Category.Power)
@@ -36,7 +36,7 @@ public static class WayOfTheOpenHand
                 (_, character, _) => hasFlurry(character)
             ))
             .AddToDB();
-        
+
         var prone = FeatureDefinitionPowerSharedPoolBuilder
             .Create("ClassMonkOpenHandProne", Monk.GUID)
             .SetGuiPresentation(Category.Power)
@@ -61,7 +61,7 @@ public static class WayOfTheOpenHand
                     .Build())
                 .Build())
             .AddToDB();
-        
+
         var push = FeatureDefinitionPowerSharedPoolBuilder
             .Create("ClassMonkOpenHandPush", Monk.GUID)
             .SetGuiPresentation(Category.Power)
@@ -86,7 +86,7 @@ public static class WayOfTheOpenHand
                     .Build())
                 .Build())
             .AddToDB();
-        
+
         var distract = FeatureDefinitionPowerSharedPoolBuilder
             .Create("ClassMonkOpenHandDistract", Monk.GUID)
             .SetGuiPresentation(Category.Power)
@@ -167,7 +167,7 @@ public static class WayOfTheOpenHand
 
         return tranquility;
     }
-    
+
     private static FeatureDefinition BuildQuiveringPalm()
     {
         return FeatureDefinitionPowerSharedPoolBuilder

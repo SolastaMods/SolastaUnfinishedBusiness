@@ -17,14 +17,14 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
             return false;
         }
     }
-    
+
     [HarmonyPatch(typeof(GameLocationActionManager), "ReactToSpendPower")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameLocationActionManager_ReactToSpendPower
     {
         internal static bool Prefix(GameLocationActionManager __instance, CharacterActionParams reactionParams)
         {
-            if (reactionParams.RulesetEffect is RulesetEffectPower powerEffect 
+            if (reactionParams.RulesetEffect is RulesetEffectPower powerEffect
                 && powerEffect.PowerDefinition.IsBundlePower())
             {
                 __instance.InvokeMethod("AddInterruptRequest", new ReactionRequestSpendBundlePower(reactionParams));

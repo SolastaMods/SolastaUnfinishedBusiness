@@ -47,30 +47,33 @@ namespace SolastaCommunityExpansion.Models
             switch (effectDescription.DifficultyClassComputation)
             {
                 case EffectDifficultyClassComputation.SpellCastingFeature:
-                {
-                    var rulesetSpellRepertoire = (RulesetSpellRepertoire) null;
-                    foreach (var spellRepertoire in actor.SpellRepertoires)
                     {
-                        if (spellRepertoire.SpellCastingClass != null)
+                        var rulesetSpellRepertoire = (RulesetSpellRepertoire)null;
+                        foreach (var spellRepertoire in actor.SpellRepertoires)
                         {
-                            rulesetSpellRepertoire = spellRepertoire;
-                            break;
+                            if (spellRepertoire.SpellCastingClass != null)
+                            {
+                                rulesetSpellRepertoire = spellRepertoire;
+                                break;
+                            }
+
+                            if (spellRepertoire.SpellCastingSubclass != null)
+                            {
+                                rulesetSpellRepertoire = spellRepertoire;
+                                break;
+                            }
                         }
 
-                        if (spellRepertoire.SpellCastingSubclass != null)
+                        if (rulesetSpellRepertoire != null)
                         {
-                            rulesetSpellRepertoire = spellRepertoire;
-                            break;
+                            usablePower.SaveDC = rulesetSpellRepertoire.SaveDC;
                         }
+
+                        break;
                     }
-
-                    if (rulesetSpellRepertoire != null)
-                        usablePower.SaveDC = rulesetSpellRepertoire.SaveDC;
-                    break;
-                }
                 case EffectDifficultyClassComputation.AbilityScoreAndProficiency:
                     var attributeValue = actor.TryGetAttributeValue(effectDescription.SavingThrowDifficultyAbility);
-                    var proficiencyBonus = actor.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus); 
+                    var proficiencyBonus = actor.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
                     usablePower.SaveDC = ComputeAbilityScoreBasedDC(attributeValue, proficiencyBonus);
                     break;
                 case EffectDifficultyClassComputation.FixedValue:

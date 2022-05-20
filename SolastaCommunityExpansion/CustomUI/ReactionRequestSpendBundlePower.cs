@@ -20,7 +20,7 @@ public class ReactionRequestSpendBundlePower : ReactionRequest
         target = reactionParams.TargetCharacters[0];
         modifier = reactionParams.ActionModifiers.ElementAtOrDefault(0) ?? new ActionModifier();
         guiCharacter = new GuiCharacter(reactionParams.ActingCharacter);
-        masterPower = ((RulesetEffectPower) reactionParams.RulesetEffect).PowerDefinition;
+        masterPower = ((RulesetEffectPower)reactionParams.RulesetEffect).PowerDefinition;
         BuildSuboptions();
     }
 

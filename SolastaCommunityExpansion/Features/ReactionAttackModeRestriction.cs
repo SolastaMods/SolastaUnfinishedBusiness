@@ -15,7 +15,7 @@ public class ReactionAttackModeRestriction : IReactionAttackModeRestriction
     private readonly ValidReactionModeHandler[] validators;
 
     public static readonly ValidReactionModeHandler MeleeOnly = (mode, _, _) =>
-        mode is {Reach: true, Ranged: false, Thrown: false};
+        mode is { Reach: true, Ranged: false, Thrown: false };
 
     public static ValidReactionModeHandler TargenHasNoCondition(ConditionDefinition condition)
     {

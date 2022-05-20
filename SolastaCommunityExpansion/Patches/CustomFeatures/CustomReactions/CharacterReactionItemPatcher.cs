@@ -58,7 +58,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
             {
                 instance.BindWarcaster(warcasterRequest, slotLevel, interactable, subitemSelected);
             }
-            else  if (reactionRequest is ReactionRequestSpendBundlePower bundlePoweRequest)
+            else if (reactionRequest is ReactionRequestSpendBundlePower bundlePoweRequest)
             {
                 instance.BindPowerBunble(bundlePoweRequest, slotLevel, interactable, subitemSelected);
             }

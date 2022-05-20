@@ -64,7 +64,7 @@ public class UpgradeWeaponDice : IModifyAttackModeForWeapon
         {
             return;
         }
-        
+
         if (!character.IsValid(_validators))
         {
             return;
@@ -122,7 +122,7 @@ public class AddTagToWeaponAttack : IModifyAttackModeForWeapon
         {
             return;
         }
-        
+
         if (!character.IsValid(_validators))
         {
             return;

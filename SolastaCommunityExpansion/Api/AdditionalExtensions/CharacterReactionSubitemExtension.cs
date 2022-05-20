@@ -59,7 +59,7 @@ namespace SolastaCommunityExpansion.Api.AdditionalExtensions
                 slotStatusTable.GetChild(index).gameObject.SetActive(false);
             }
         }
-        
+
         public static void BindPowerBunble(this CharacterReactionSubitem instance,
             ReactionRequestSpendBundlePower reactionRequest,
             int slotLevel,

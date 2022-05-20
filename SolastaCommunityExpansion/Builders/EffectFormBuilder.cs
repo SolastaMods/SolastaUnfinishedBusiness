@@ -153,7 +153,7 @@ namespace SolastaCommunityExpansion.Builders
             effectForm.DamageForm = damageForm;
             return this;
         }
-        
+
         public EffectFormBuilder SetKillForm(KillCondition condition, float challengeRating = 0, int hitPoints = 0)
         {
             effectForm.FormType = EffectForm.EffectFormType.Kill;
