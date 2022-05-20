@@ -374,14 +374,23 @@ namespace SolastaCommunityExpansion.Models
         {
             var firstClass = rulesetCharacterHero.ClassesHistory[0];
             var selectedClass = LevelUpContext.GetSelectedClass(rulesetCharacterHero) ?? characterClassDefinition;
+            var selectedSubClass = LevelUpContext.GetSelectedSubclass(rulesetCharacterHero);
+            var filteredFeatureUnlockByLevels = selectedClass.FeatureUnlocks.ToList();
+
+            //
+            // supports a better MC UI offering
+            //
+            if (LevelUpContext.IsLevelingUp(rulesetCharacterHero)
+                && LevelUpContext.IsClassSelectionStage(rulesetCharacterHero)
+                && selectedSubClass != null)
+            {
+                filteredFeatureUnlockByLevels.AddRange(SubclassFilteredFeatureUnlocks(selectedSubClass, rulesetCharacterHero));
+            }
 
             if (!LevelUpContext.IsMulticlass(rulesetCharacterHero) || firstClass == selectedClass)
             {
                 return characterClassDefinition.FeatureUnlocks;
             }
-
-            var dbFeatureDefinition = DatabaseRepository.GetDatabase<FeatureDefinition>();
-            var filteredFeatureUnlockByLevels = selectedClass.FeatureUnlocks.ToList();
 
             // remove any extra attacks except on classes that get them at 11 (fighter and swiftblade)
             var attacksNumber = rulesetCharacterHero.GetAttribute(AttributeDefinitions.AttacksNumber).CurrentValue;
