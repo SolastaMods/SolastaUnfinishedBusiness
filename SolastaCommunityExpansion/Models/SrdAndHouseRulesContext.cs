@@ -58,7 +58,7 @@ namespace SolastaCommunityExpansion.Models
                 spell.SetTargetParameter(3);
             }
         }
-        
+
         internal static void ApplyBarbarianUnarmoredDefenseNotStacking()
         {
             DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierBarbarianUnarmoredDefense

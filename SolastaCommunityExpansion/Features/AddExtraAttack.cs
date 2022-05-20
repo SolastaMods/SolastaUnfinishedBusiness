@@ -23,8 +23,8 @@ public class AddBonusUnarmedAttack : IAddExtraAttack
         this.clearSameType = clearSameType;
         this.validators = validators;
     }
-    
-    public AddBonusUnarmedAttack(ActionDefinitions.ActionType actionType, params CharacterValidator[] validators) : this(actionType, 1,false, validators)
+
+    public AddBonusUnarmedAttack(ActionDefinitions.ActionType actionType, params CharacterValidator[] validators) : this(actionType, 1, false, validators)
     {
     }
 
@@ -57,7 +57,7 @@ public class AddBonusUnarmedAttack : IAddExtraAttack
             null
         );
         attackMode.AttacksNumber = attacksNumber;
-        
+
         attackModes.Add(attackMode);
     }
 }

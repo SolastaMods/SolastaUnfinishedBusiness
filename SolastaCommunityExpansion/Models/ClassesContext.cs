@@ -38,7 +38,7 @@ namespace SolastaCommunityExpansion.Models
             LoadClass(TinkererClass.BuildTinkererClass());
             LoadClass(Warlock.BuildWarlockClass());
             LoadClass(Witch.Instance);
-            
+
             if (Main.Settings.EnableBetaContent)
             {
                 LoadClass(Monk.BuildClass());

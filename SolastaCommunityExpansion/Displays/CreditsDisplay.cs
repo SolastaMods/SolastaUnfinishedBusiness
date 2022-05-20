@@ -67,7 +67,7 @@ namespace SolastaCommunityExpansion.Displays
 
             UI.Label("");
 
-            bool toggle = Main.Settings.EnableBetaContent;
+            var toggle = Main.Settings.EnableBetaContent;
             if (UI.Toggle("Enable beta content " + "[keep in mind your heroes or saves might break on future updates] ".yellow().italic() + RequiresRestart, ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableBetaContent = toggle;

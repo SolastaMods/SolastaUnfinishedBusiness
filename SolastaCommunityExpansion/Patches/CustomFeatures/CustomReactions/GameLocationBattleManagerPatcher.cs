@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.Features;
@@ -33,7 +32,7 @@ internal static class GameLocationBattleManagerPatcher
             }
 
             var saveOutcome = action.SaveOutcome;
-            
+
             if (!IsFailed(saveOutcome))
             {
                 yield break;
@@ -48,8 +47,8 @@ internal static class GameLocationBattleManagerPatcher
             foreach (var feature in features)
             {
                 var power = feature.GetPowerToRerollFailedSave(rulesetDefender, saveOutcome);
-                
-                if(!rulesetDefender.CanUsePower(power))
+
+                if (!rulesetDefender.CanUsePower(power))
                 {
                     continue;
                 }
@@ -61,7 +60,7 @@ internal static class GameLocationBattleManagerPatcher
                     StringParameter = feature.ReactionName,
                     RulesetEffect = rulesService.InstantiateEffectPower(rulesetDefender, usablePower, false)
                 };
-                
+
                 var count = actionService.PendingReactionRequestGroups.Count;
                 actionService.ReactToSpendPower(reactionParams);
 
@@ -70,18 +69,17 @@ internal static class GameLocationBattleManagerPatcher
                 if (reactionParams.ReactionValidated)
                 {
                     GameConsoleHelper.LogCharacterUsedPower(rulesetDefender, power, indent: true);
-                    int saveOutcomeDelta;
                     action.RolledSaveThrow = actionParams.RulesetEffect == null
                         ? actionParams.AttackMode.TryRollSavingThrow(attacker.RulesetCharacter,
                             defender.RulesetActor, saveModifier,
                             actionParams.AttackMode.EffectDescription.EffectForms, out saveOutcome,
-                            out saveOutcomeDelta)
+                            out var saveOutcomeDelta)
                         : actionParams.RulesetEffect.TryRollSavingThrow(attacker.RulesetCharacter, attacker.Side,
                             defender.RulesetActor, saveModifier, hasHitVisual, out saveOutcome, out saveOutcomeDelta);
                     action.SaveOutcome = saveOutcome;
                     action.SaveOutcomeDelta = saveOutcomeDelta;
                 }
-                
+
                 if (!IsFailed(saveOutcome))
                 {
                     yield break;

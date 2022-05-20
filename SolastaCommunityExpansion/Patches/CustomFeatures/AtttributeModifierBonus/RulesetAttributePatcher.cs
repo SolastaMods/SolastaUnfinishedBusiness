@@ -34,11 +34,17 @@ internal static class RulesetAttributePatcher
             foreach (var modifier in activeModifiers)
             {
                 if (modifier.Operation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.Force)
+                {
                     minModValue = Mathf.RoundToInt(modifier.Value);
+                }
                 else if (modifier.Tags.Contains(ExclusiveArmorClassBonus.TAG))
+                {
                     exclusives.Add(modifier);
+                }
                 else
+                {
                     currentValue = modifier.ApplyOnValue(currentValue);
+                }
             }
 
             if (!exclusives.Empty())
@@ -65,11 +71,7 @@ internal static class RulesetAttributePatcher
             __instance.SetField("currentValue", currentValue);
             __instance.SetField("upToDate", true);
 
-            var attributeRefreshed = __instance.AttributeRefreshed;
-            if (attributeRefreshed != null)
-            {
-                attributeRefreshed();
-            }
+            __instance.AttributeRefreshed?.Invoke();
 
             return false;
         }

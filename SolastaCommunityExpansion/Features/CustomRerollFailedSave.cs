@@ -6,7 +6,7 @@ public interface IUsePowerToRerollFailedSave
     FeatureDefinitionPower GetPowerToRerollFailedSave(RulesetCharacter character, RuleDefinitions.RollOutcome saveOutcome);
 }
 
-public class CustomRerollFailedSave: IUsePowerToRerollFailedSave
+public class CustomRerollFailedSave : IUsePowerToRerollFailedSave
 {
     private readonly FeatureDefinitionPower power;
 

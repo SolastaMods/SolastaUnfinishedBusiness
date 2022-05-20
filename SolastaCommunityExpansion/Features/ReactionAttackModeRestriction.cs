@@ -22,7 +22,7 @@ public class ReactionAttackModeRestriction : IReactionAttackModeRestriction
         return (_, _, target) => !target.HasConditionOfType(condition.Name);
     }
 
-    public ReactionAttackModeRestriction(params  ValidReactionModeHandler[] validators)
+    public ReactionAttackModeRestriction(params ValidReactionModeHandler[] validators)
     {
         this.validators = validators;
     }

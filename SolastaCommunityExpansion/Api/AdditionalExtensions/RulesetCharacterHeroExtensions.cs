@@ -20,6 +20,6 @@ public static class RulesetCharacterHeroExtensions
         var attackMode = instance.InvokeMethod("RefreshAttackMode", actionType, itemDefinition, weaponDescription,
             freeOffHand, canAddAbilityDamageBonus, slotName, attackModifiers, featuresOrigin, weapon);
 
-        return (RulesetAttackMode) attackMode;
+        return (RulesetAttackMode)attackMode;
     }
 }

@@ -210,7 +210,7 @@ namespace SolastaCommunityExpansion.Builders
             Definition.SetConditionParticleReference(reference.GetField<AssetReference>("conditionParticleReference"));
             return This();
         }
-        
+
         public TBuilder AddRecurrentEffectForm(EffectForm effect)
         {
             Definition.RecurrentEffectForms.Add(effect);

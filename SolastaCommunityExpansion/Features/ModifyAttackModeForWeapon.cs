@@ -64,10 +64,10 @@ public class UpgradeWeaponDice : IModifyAttackModeForWeapon
         {
             return;
         }
-        
+
         var effectDescription = attackMode?.EffectDescription;
         var damage = effectDescription?.FindFirstDamageForm();
-        
+
         if (damage == null)
         {
             return;

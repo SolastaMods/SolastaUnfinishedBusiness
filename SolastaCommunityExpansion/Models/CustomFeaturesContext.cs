@@ -279,7 +279,7 @@ namespace SolastaCommunityExpansion.Models
 
             return totalPoolSize;
         }
-        
+
         internal static void UpdateUsageForPower(this RulesetCharacter character, FeatureDefinitionPower power, int poolUsage)
         {
             foreach (var poolPower in character.UsablePowers)

@@ -28,9 +28,9 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
                 var codes = instructions.ToList();
                 var power_canceled_handler = codes.FindIndex(x =>
                     x.opcode == OpCodes.Call && x.operand.ToString().Contains("PowerCancelled"));
-            
+
                 var removePowersMethod = new Action<PowerSelectionPanel, RulesetCharacter>(RemoveInvalidPowers).Method;
-            
+
                 codes.InsertRange(power_canceled_handler + 1,
                     new List<CodeInstruction>
                     {
@@ -41,11 +41,11 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
                 );
                 return codes.AsEnumerable();
             }
-            
+
             private static void RemoveInvalidPowers(PowerSelectionPanel panel, RulesetCharacter character)
             {
                 var relevantPowers = panel.GetField<List<RulesetUsablePower>>("relevantPowers");
-            
+
                 for (var i = relevantPowers.Count - 1; i >= 0; i--)
                 {
                     var power = relevantPowers[i];
@@ -56,7 +56,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
                     }
                 }
             }
-            
+
             internal static void Postfix(PowerSelectionPanel __instance)
             {
                 if (!Main.Settings.EnableMultiLinePowerPanel)

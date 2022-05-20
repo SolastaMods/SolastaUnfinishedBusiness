@@ -122,7 +122,9 @@ internal static class CharacterActionFreeFallPatcher
                 actionService.ReactToUsePower(reactionParams, "" /*usable_power.PowerDefinition.Name*/);
 
                 while (previousReactionCount < actionService.PendingReactionRequestGroups.Count)
+                {
                     yield return null;
+                }
             }
         }
     }

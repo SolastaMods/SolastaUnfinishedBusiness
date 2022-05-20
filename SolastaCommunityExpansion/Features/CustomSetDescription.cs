@@ -2,7 +2,7 @@
 
 public class CustomSetDescription
 {
-    public static readonly CustomSetDescription Marker = new CustomSetDescription();
+    public static readonly CustomSetDescription Marker = new();
 
     private CustomSetDescription()
     {

@@ -55,10 +55,10 @@ internal static class CharacterActionDeflectMissilePatcher
             rulesCharacter.EnumerateFeaturesToBrowse<FeatureDefinitionActionAffinity>(rulesCharacter.FeaturesToBrowse);
 
 
-            var feature = (FeatureDefinition) null;
+            var feature = (FeatureDefinition)null;
             foreach (var featureDefinition in rulesCharacter.FeaturesToBrowse)
             {
-                var definitionActionAffinity = (FeatureDefinitionActionAffinity) featureDefinition;
+                var definitionActionAffinity = (FeatureDefinitionActionAffinity)featureDefinition;
                 if (definitionActionAffinity.AuthorizedActions.Contains(ActionDefinitions.Id.DeflectMissile))
                 {
                     feature = definitionActionAffinity;

@@ -15,7 +15,7 @@ namespace SolastaCommunityExpansion.Patches.Level20
         {
             var code = new List<CodeInstruction>(instructions);
 
-            code.Find(x => x.opcode.Name == "ldc.i4.s" 
+            code.Find(x => x.opcode.Name == "ldc.i4.s"
                 && Convert.ToInt32(x.operand) == GAME_MAX_LEVEL)
                     .operand = Main.Settings.MaxAllowedLevels;
 

@@ -26,7 +26,9 @@ namespace SolastaCommunityExpansion
             {
                 var game = Gui.Game;
                 if (game != null)
+                {
                     game.GameConsole?.LogSimpleLine(msg);
+                }
             }
         }
 
