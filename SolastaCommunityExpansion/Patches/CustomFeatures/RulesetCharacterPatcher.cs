@@ -4,9 +4,7 @@ using HarmonyLib;
 using SolastaCommunityExpansion.Features;
 using SolastaModApi.Extensions;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures;
-
-internal static class RulesetCharacterPatcher
+namespace SolastaCommunityExpansion.Patches.CustomFeatures
 {
     [HarmonyPatch(typeof(RulesetCharacter), "GetMovementModifiers")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

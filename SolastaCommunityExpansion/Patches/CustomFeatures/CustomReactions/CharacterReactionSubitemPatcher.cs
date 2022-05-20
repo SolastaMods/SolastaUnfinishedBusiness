@@ -1,27 +1,26 @@
-﻿using HarmonyLib;
+﻿using System.Diagnostics.CodeAnalysis;
+using HarmonyLib;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
 {
-    internal static class CharacterReactionSubitemPatcher
+    [HarmonyPatch(typeof(CharacterReactionSubitem), "Unbind")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class CharacterReactionSubitem_Unbind
     {
-        [HarmonyPatch(typeof(CharacterReactionSubitem), "Unbind")]
-        internal static class CharacterReactionSubitem_Unbind
+        internal static void Prefix(CharacterReactionSubitem __instance)
         {
-            internal static void Prefix(CharacterReactionSubitem __instance)
-            {
-                var toggle = __instance.GetField<Toggle>("toggle").GetComponent<RectTransform>();
-                toggle.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 34);
+            var toggle = __instance.GetField<Toggle>("toggle").GetComponent<RectTransform>();
+            toggle.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 34);
 
-                var background = toggle.FindChildRecursive("Background");
-                if (background != null)
+            var background = toggle.FindChildRecursive("Background");
+            if (background != null)
+            {
+                if (background.TryGetComponent<GuiTooltip>(out var tooltip))
                 {
-                    if (background.TryGetComponent<GuiTooltip>(out var tooltip))
-                    {
-                        tooltip.Disabled = true;
-                    }
+                    tooltip.Disabled = true;
                 }
             }
         }

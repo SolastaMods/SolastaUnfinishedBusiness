@@ -1,21 +1,22 @@
 ﻿using System.Collections;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions;
-
-internal static class CharacterActionFreeFallPatcher
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
 {
-    //allow character fall handler to account for custom fall prevention powers (and not only feather fall and boots)
+    // allow character fall handler to account for custom fall prevention powers (and not only feather fall and boots)
     [HarmonyPatch(typeof(CharacterActionFreeFall), "HandleCharacterFall")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterActionFreeFall_HandleCharacterFall
     {
-        internal static IEnumerator Postfix(IEnumerator __result,
+        internal static IEnumerator Postfix(
+            IEnumerator values,
             CharacterActionFreeFall __instance)
         {
-            while (__result.MoveNext())
+            while (values.MoveNext())
             {
-                yield return __result.Current;
+                yield return values.Current;
             }
 
             var extraEvents = Process(__instance);
@@ -47,6 +48,7 @@ internal static class CharacterActionFreeFallPatcher
                     }
 
                     var conditionForm = form.ConditionForm;
+
                     if (conditionForm.Operation != ConditionForm.ConditionOperation.Add)
                     {
                         continue;
@@ -91,6 +93,7 @@ internal static class CharacterActionFreeFallPatcher
             foreach (var partyCharacter in characterService.PartyCharacters)
             {
                 var rulesetPartyMember = partyCharacter.RulesetCharacter;
+
                 if (rulesetPartyMember.IsDeadOrDyingOrUnconscious)
                 {
                     continue;
@@ -103,6 +106,7 @@ internal static class CharacterActionFreeFallPatcher
                 }
 
                 var usablePower = GetReactionPowerToPreventFall(rulesetPartyMember, rulesetFallingCharacter);
+
                 if (usablePower == null)
                 {
                     continue;

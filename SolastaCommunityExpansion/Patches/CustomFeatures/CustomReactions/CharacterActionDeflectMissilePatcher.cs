@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.Features;
@@ -6,18 +7,12 @@ using SolastaModApi.Extensions;
 using static GameLocationCharacterEventSystem;
 using static RuleDefinitions;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions;
-
-internal static class CharacterActionDeflectMissilePatcher
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
 {
     [HarmonyPatch(typeof(CharacterActionDeflectMissile), "ExecuteImpl")]
-    internal static class ReadyActionSelectionPanel_Bind
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class CharacterActionDeflectMissile_ExecuteImpl
     {
-        internal static bool Prefix(CharacterActionDeflectMissile __instance)
-        {
-            return false;
-        }
-
         internal static IEnumerator Postfix(IEnumerator values, CharacterActionDeflectMissile __instance)
         {
             var actionParams = __instance.ActionParams;
@@ -34,7 +29,6 @@ internal static class CharacterActionDeflectMissilePatcher
             actingCharacter.DeflectAttack(actionParams.TargetCharacters[0]);
 
             var reductionAmount = 0;
-
             var customDeflector = rulesCharacter.GetSubFeaturesByType<ICustomMissileDeflection>().FirstOrDefault();
 
             if (customDeflector == null)
@@ -43,6 +37,7 @@ internal static class CharacterActionDeflectMissilePatcher
                 reductionAmount += RollDie(actionDefinition.DieType, AdvantageType.None, out _, out _);
 
                 var attribute = rulesCharacter.GetAttribute(actionDefinition.AbilityScore);
+
                 reductionAmount += AttributeDefinitions.ComputeAbilityScoreModifier(attribute.CurrentValue);
             }
             else
@@ -54,14 +49,16 @@ internal static class CharacterActionDeflectMissilePatcher
 
             rulesCharacter.EnumerateFeaturesToBrowse<FeatureDefinitionActionAffinity>(rulesCharacter.FeaturesToBrowse);
 
-
             var feature = (FeatureDefinition)null;
+
             foreach (var featureDefinition in rulesCharacter.FeaturesToBrowse)
             {
                 var definitionActionAffinity = (FeatureDefinitionActionAffinity)featureDefinition;
+
                 if (definitionActionAffinity.AuthorizedActions.Contains(ActionDefinitions.Id.DeflectMissile))
                 {
                     feature = definitionActionAffinity;
+
                     break;
                 }
             }
@@ -72,8 +69,11 @@ internal static class CharacterActionDeflectMissilePatcher
             }
 
             yield return actingCharacter.WaitForHitAnimation();
+
             actingCharacter.TurnTowards(attacker);
+
             yield return actingCharacter.EventSystem.UpdateMotionsAndWaitForEvent(Event.RotationEnd);
         }
     }
 }
+

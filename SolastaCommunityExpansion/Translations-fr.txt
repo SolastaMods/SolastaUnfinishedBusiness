@@ -1475,18 +1475,18 @@ Spell/&FrenzyDescription	D'un geste, vous réduisez une foule à l'instinct de b
 Spell/&FrenzyTitle	Frénésie
 Spell/&HinderingBlastDescription	Un faisceau d'énergie crépitante se dirige vers une créature à portée. Effectuez une attaque avec un sort à distance contre la cible. En cas de coup, la cible subit 1d10 dégâts de force.\n(lorsque vous touchez une créature avec votre souffle eldritch, vous pouvez réduire la vitesse de cette créature de 3 mètres jusqu'à la fin de votre prochain tour.)
 Spell/&HinderingBlastTitle	Explosion Eldritch (Gênant)
-Spell/&IlluminatingSphereDescription	<b><i>La sphère illuminatrice de Morwenna</i></b> fait s'allumer des sources de lumière telles que des torches et des lampes à mana dans la zone d'effet.\n\n<i>"Ne vous inquiétez pas, il est très peu probable qu'il allume des torches ou des bougies dans des sacs ou des poches. Probablement." -Morwenna Leafheart</i>
+Spell/&IlluminatingSphereDescription	Fait s'allumer des sources de lumière telles que des torches et des lampes à mana dans la zone d'effet
 Spell/&IlluminatingSphereTitle	Sphère éclairante
 Spell/&IPConjureInvisibleStalkerTitle	Invocation d'élémentaire (traqueur invisible)
 Spell/&MinorLifestealDescription	Vous drainez l'énergie vitale d'une créature hostile que vous pouvez voir à portée. Vous soignez ensuite des points de vie égaux au nombre de dégâts infligés. Ce sort n'a aucun effet sur les morts-vivants ou les constructions
 Spell/&MinorLifestealTitle	Vol de vie mineur
-Spell/&MuleDescription	Le destinataire de ce sort est capable d'ignorer les effets des charges lourdes ou de l'armure sur la vitesse de déplacement. Ils peuvent également supporter un peu plus de poids.\n\n<i>"S'ils doivent venir, autant porter vos affaires." -Morwenna Leafheart</i>
+Spell/&MuleDescription	Le destinataire de ce sort est capable d'ignorer les effets des charges lourdes ou de l'armure sur la vitesse de déplacement. Ils peuvent également supporter un peu plus de poids
 Spell/&MuleTitle	Mule
 Spell/&PetalStormDescription	Choisissez un cube d'air inoccupé de 15 pieds que vous pouvez voir à portée. Une force élémentaire de vents tourbillonnants apparaît dans le cube et dure pendant toute la durée du sort. Le nuage obscurcit fortement sa zone. Toute créature qui entre dans la tempête pour la première fois lors d'un tour ou qui y commence son tour doit effectuer un jet de sauvegarde de Force. En cas d'échec, la créature subit 3d4 dégâts tranchants. Par une action bonus, vous pouvez déplacer la tempête jusqu'à 9 mètres dans n'importe quelle direction
 Spell/&PetalStormTitle	Tempête de pétales
 Spell/&ProtectThresholdDescription	En traçant des sceaux arcaniques le long de sa limite, vous pouvez protéger une porte, une fenêtre ou un autre portail de l'entrée. Pendant toute la durée, une créature eldritch invisible traque le portail protégé. Toute créature qui tente de traverser le portail doit effectuer un jet de sauvegarde de Sagesse ou subir 4d6 dégâts psychiques, ou la moitié en cas de réussite.
 Spell/&ProtectThresholdTitle	Seuil de protection
-Spell/&RadiantMotesDescription	<b><i>Les particules radieuses de Morwenna</i></b> libèrent une nuée de projectiles radieux qui infligent des dégâts mineurs, mais ne manquent jamais. Les cibles peuvent émettre de la lumière jusqu'à 1 minute.\n\n<i>"J'ai trouvé l'inspiration en regardant un nain submergé par des lucioles brûlantes des badlands. Du bon temps." -Morwenna Leafheart</i>
+Spell/&RadiantMotesDescription	Libèrent une nuée de projectiles radieux qui infligent des dégâts mineurs, mais ne manquent jamais. Les cibles peuvent émettre de la lumière jusqu'à 1 minute
 Spell/&RadiantMotesTitle	Particules radieuses
 Spell/&ThunderStrikeDescription	Créez une rafale de son tonitruant, endommageant tout le monde autour de vous
 Spell/&ThunderStrikeTitle	rafale sonore

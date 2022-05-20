@@ -1,14 +1,14 @@
-﻿using System.Linq;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.Features;
 using SolastaModApi.Extensions;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions;
-
-internal static class ReactionRequestDeflectMissilePatcher
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
 {
     [HarmonyPatch(typeof(ReactionRequestDeflectMissile), "FormatDescription")]
-    internal static class ReadyActionSelectionPanel_Bind
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class ReactionRequestDeflectMissile_FormatDescription
     {
         internal static void Postfix(ReactionRequestDeflectMissile __instance, ref string __result)
         {

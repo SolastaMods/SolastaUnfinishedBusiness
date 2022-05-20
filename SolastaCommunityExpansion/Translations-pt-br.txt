@@ -1475,18 +1475,18 @@ Spell/&FrenzyDescription	Com um gesto, você reduz uma multidão ao instinto bá
 Spell/&FrenzyTitle	Frenesi
 Spell/&HinderingBlastDescription	Um raio de energia crepitante atinge uma criatura dentro do alcance. Faça um ataque mágico à distância contra o alvo. Em um acerto, o alvo sofre 1d10 de dano de força.\n(quando você atinge uma criatura com sua rajada mística, você pode reduzir o deslocamento daquela criatura em 3 metros até o final do seu próximo turno.)
 Spell/&HinderingBlastTitle	Explosão Eldritch (impedindo)
-Spell/&IlluminatingSphereDescription	<b><i>Esfera Iluminadora de Morwenna</i></b> faz com que fontes de luz como tochas e lâmpadas de mana na área de efeito acendam.\n\n<i>"Não se preocupe, é altamente improvável acender tochas ou velas em pacotes ou bolsos. Provavelmente." -Morwenna Coração de Folha</i>
+Spell/&IlluminatingSphereDescription	Faz com que fontes de luz como tochas e lâmpadas de mana na área de efeito acendam
 Spell/&IlluminatingSphereTitle	Esfera Iluminadora
 Spell/&IPConjureInvisibleStalkerTitle	Conjurar Elemental (Perseguidor Invisível)
 Spell/&MinorLifestealDescription	Você drena energia vital de uma criatura hostil que você pode ver dentro do alcance. Você então cura pontos de vida iguais à quantidade de dano causado. Esta magia não tem efeito em mortos-vivos ou constructos
 Spell/&MinorLifestealTitle	Roubo de Vida Menor
-Spell/&MuleDescription	O destinatário deste feitiço é capaz de ignorar os efeitos de cargas pesadas ou armaduras na velocidade de movimento. Eles também podem carregar um pouco mais de peso.\n\n<i>"Se eles tiverem que vir, eles também podem levar suas coisas." -Morwenna Coração de Folha</i>
+Spell/&MuleDescription	O destinatário deste feitiço é capaz de ignorar os efeitos de cargas pesadas ou armaduras na velocidade de movimento. Eles também podem carregar um pouco mais de peso
 Spell/&MuleTitle	Mula
 Spell/&PetalStormDescription	Escolha um cubo de ar desocupado de 4,5 metros que você possa ver dentro do alcance. Uma força elemental de ventos rodopiantes aparece no cubo e dura pela duração do feitiço. A nuvem obscurece fortemente sua área. Qualquer criatura que entre na tempestade pela primeira vez em um turno ou comece seu turno lá deve fazer um teste de resistência de Força. Se falhar na resistência, a criatura sofre 3d4 de dano cortante. Como uma ação bônus, você pode mover a tempestade até 9 metros em qualquer direção
 Spell/&PetalStormTitle	Tempestade de Pétalas
 Spell/&ProtectThresholdDescription	Traçando sigilos arcanos ao longo de seu limite, você pode proteger uma porta, janela ou outro portal da entrada. Pela duração, uma criatura mística invisível espreita o portal protegido. Qualquer criatura que tente passar pelo portal deve fazer um teste de resistência de Sabedoria ou sofrerá 4d6 de dano psíquico, ou metade disso em um teste bem sucedido.
 Spell/&ProtectThresholdTitle	Limite de proteção
-Spell/&RadiantMotesDescription	<b><i>As Partículas Radiantes de Morwenna</i></b> liberam um enxame de projéteis radiantes que causam danos menores, mas nunca erram. Os alvos podem irradiar luz por até 1 minuto.\n\n<i>"Eu me inspirei ao ver um anão sendo dominado por vaga-lumes escaldantes do ermo. Bons tempos." -Morwenna Coração de Folha</i>
+Spell/&RadiantMotesDescription	Liberam um enxame de projéteis radiantes que causam danos menores, mas nunca erram. Os alvos podem irradiar luz por até 1 minuto
 Spell/&RadiantMotesTitle	Partículas Radiantes
 Spell/&ThunderStrikeDescription	Crie uma explosão de som trovejante, danificando todos ao seu redor
 Spell/&ThunderStrikeTitle	Explosão de som

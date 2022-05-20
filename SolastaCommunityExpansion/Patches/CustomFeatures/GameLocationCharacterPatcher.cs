@@ -1,13 +1,13 @@
-﻿using HarmonyLib;
+﻿using System.Diagnostics.CodeAnalysis;
+using HarmonyLib;
 using SolastaCommunityExpansion.Features;
 using SolastaModApi.Extensions;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures;
-
-internal static class GameLocationCharacterPatcher
+namespace SolastaCommunityExpansion.Patches.CustomFeatures
 {
     [HarmonyPatch(typeof(GameLocationCharacter), "StartBattleTurn")]
-    internal static class GameLocationCharacter_StartBattleTurn_Patch
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class GameLocationCharacter_StartBattleTurn
     {
         internal static void Postfix(GameLocationCharacter __instance)
         {
@@ -33,7 +33,8 @@ internal static class GameLocationCharacterPatcher
 
 
     [HarmonyPatch(typeof(GameLocationCharacter), "EndBattleTurn")]
-    internal static class GameLocationCharacter_EndBattleTurn_Patch
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class GameLocationCharacter_EndBattleTurn
     {
         internal static void Postfix(GameLocationCharacter __instance)
         {
@@ -58,6 +59,7 @@ internal static class GameLocationCharacterPatcher
     }
 
     [HarmonyPatch(typeof(GameLocationCharacter), "StartBattle")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameLocationCharacter_StartBattle
     {
         internal static void Postfix(GameLocationCharacter __instance, bool surprise)
@@ -83,6 +85,7 @@ internal static class GameLocationCharacterPatcher
     }
 
     [HarmonyPatch(typeof(GameLocationCharacter), "EndBattle")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameLocationCharacter_EndBattle
     {
         internal static void Postfix(GameLocationCharacter __instance)

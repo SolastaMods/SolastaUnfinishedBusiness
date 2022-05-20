@@ -1475,18 +1475,18 @@ Spell/&FrenzyDescription	With a gesture, you reduce a crowd to base instinct and
 Spell/&FrenzyTitle	Frenzy
 Spell/&HinderingBlastDescription	A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage.\n(when you hit a creature with your eldritch blast, you can reduce that creature's speed by 10 feet until the end of your next turn.)
 Spell/&HinderingBlastTitle	Eldritch Blast (Hindering)
-Spell/&IlluminatingSphereDescription	<b><i>Morwenna's Illuminating Sphere</i></b> causes light sources such as torches and mana lamps in the area of effect to light up. \n\n<i>"Don't worry, its highly unlikely to ignite torches or candles in packs or pockets. Probably."  -Morwenna Leafheart</i>
+Spell/&IlluminatingSphereDescription	Causes light sources such as torches and mana lamps in the area of effect to light up
 Spell/&IlluminatingSphereTitle	Illuminating Sphere
 Spell/&IPConjureInvisibleStalkerTitle	Conjure Elemental (Invisible Stalker)
 Spell/&MinorLifestealDescription	You drain life energy from a hostile creature you can see within range. You then heal hit points equal to the amount of damage dealt. This spell has no effect on undead or constructs
 Spell/&MinorLifestealTitle	Minor Lifesteal
-Spell/&MuleDescription	The recipient of this spell is able to ignore the effects of heavy loads or armor on movement speed. They can also carry slightly more weight. \n\n<i>"If they have to come along, they might as well carry your stuff."  -Morwenna Leafheart</i>
+Spell/&MuleDescription	The recipient of this spell is able to ignore the effects of heavy loads or armor on movement speed. They can also carry slightly more weight
 Spell/&MuleTitle	Mule
 Spell/&PetalStormDescription	Choose an unoccupied 15-foot cube of air that you can see within range. An elemental force of swirling winds appears in the cube and lasts for the spell's duration. The cloud heavily obscures its area. Any creature that enters the storm for the first time on a turn or starts its turn there must make a Strength saving throw. On a failed save, the creature takes 3d4 slashing damage. As a bonus action, you can move the storm up to 30 feet in any direction
 Spell/&PetalStormTitle	Petal Storm
 Spell/&ProtectThresholdDescription	Tracing arcane sigils along its boundary, you can ward a doorway, window, or other portal from entry. For the duration, an invisible eldritch creature stalks the warded portal. Any creature that attempts to pass through the portal must make a Wisdom saving throw or take 4d6 psychic damage, or half as much on a successful save
 Spell/&ProtectThresholdTitle	Protect Threshold
-Spell/&RadiantMotesDescription	<b><i>Morwenna's Radiant Motes</i></b> unleashes a swarm of radiant projectiles that deal minor damage, but never miss. Targets may radiate light for up to 1 minute. \n\n<i>"I got the inspiration from watching a Dwarf being overwhelmed by scorching badlands fireflies. Good times."  -Morwenna Leafheart</i>
+Spell/&RadiantMotesDescription	Unleashes a swarm of radiant projectiles that deal minor damage, but never miss. Targets may radiate light for up to 1 minute
 Spell/&RadiantMotesTitle	Radiant Motes
 Spell/&ThunderStrikeDescription	Create a burst of thundering sound, damaging everyone around you
 Spell/&ThunderStrikeTitle	Sound Burst

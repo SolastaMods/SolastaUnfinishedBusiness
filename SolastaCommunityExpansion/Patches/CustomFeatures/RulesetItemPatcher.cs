@@ -3,9 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.Classes.Monk;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures;
-
-internal static class RulesetItemPatcher
+namespace SolastaCommunityExpansion.Patches.CustomFeatures
 {
     [HarmonyPatch(typeof(RulesetItem), "FillTags")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

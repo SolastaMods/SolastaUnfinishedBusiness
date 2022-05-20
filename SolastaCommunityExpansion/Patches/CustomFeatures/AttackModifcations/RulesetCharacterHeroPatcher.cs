@@ -6,7 +6,7 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.AttackModifcations;
 
-internal static class RulesetChracterHeroPatcher
+internal static class RulesetCharacterHeroPatcher
 {
     // Allows changing what attribute is used for weapon's attack and damage rolls
     [HarmonyPatch(typeof(RulesetCharacterHero), "ComputeAttackModeAbilityScoreReplacement")]
