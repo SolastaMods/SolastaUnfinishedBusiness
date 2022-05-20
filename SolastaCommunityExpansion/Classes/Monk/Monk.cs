@@ -111,7 +111,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
             // // Experiments with handwraps
             // var handwraps = ItemDefinitionBuilder
-            //     .Create("MonkHandwraps", GUID)
+            //     .Create("ClassMonkHandwraps", GUID)
             //     .SetGold(1)
             //     .SetGuiPresentation(Category.Item, ItemDefinitions.UnarmedStrikeBase.GuiPresentation.SpriteReference)
             //     .AddToDB();
@@ -278,7 +278,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 //TODO: make sure it doesn't work with shields
                 //TODO: make sure it doesn't stack with other `ability bonus to AC` features
                 .AddFeatureAtLevel(1, FeatureDefinitionAttributeModifierBuilder
-                    .Create("MonkUnarmoredDefense", GUID)
+                    .Create("ClassMonkUnarmoredDefense", GUID)
                     .SetGuiPresentation(Category.Feature)
                     .SetCustomSubFeatures(ExclusiveArmorClassBonus.MARKER)
                     .SetModifiedAttribute(AttributeDefinitions.ArmorClass)
@@ -474,7 +474,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
         private static void BuildMartialArts()
         {
             attackedWithMonkWeaponCondition = ConditionDefinitionBuilder
-                .Create("MonkAttackedWithMonkWeapon", GUID)
+                .Create("ClassMonkAttackedWithMonkWeapon", GUID)
                 .SetGuiPresentationNoContent(true)
                 .SetSilent(Silent.WhenAddedOrRemoved)
                 .SetDuration(DurationType.Round, 1)
@@ -488,7 +488,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .Build();
 
             martialArts = FeatureDefinitionBuilder
-                .Create("MonkMartialArts", GUID)
+                .Create("ClassMonkMartialArts", GUID)
                 .SetGuiPresentation(Category.Feature)
                 .SetCustomSubFeatures(
                     //TODO: add one big sub-feature that implements all these parts to improve performance
@@ -510,13 +510,13 @@ namespace SolastaCommunityExpansion.Classes.Monk
         private static FeatureDefinition BuildUnarmoredMovement()
         {
             var feature = FeatureDefinitionMovementAffinityBuilder
-                .Create("MonkUnarmoredMovementModifier", GUID)
+                .Create("ClassMonkUnarmoredMovementModifier", GUID)
                 .SetGuiPresentationNoContent(true)
                 .SetBaseSpeedAdditiveModifier(2)
                 .AddToDB();
 
             return FeatureDefinitionBuilder
-                .Create("MonkUnarmoredMovement", GUID)
+                .Create("ClassMonkUnarmoredMovement", GUID)
                 .SetGuiPresentation(Category.Feature)
                 .SetCustomSubFeatures(new ConditionalMovementModifier(feature,
                     CharacterValidators.NoArmor, CharacterValidators.NoShield))
@@ -526,7 +526,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
         private static FeatureDefinition BuildUnarmoredMovementBonus()
         {
             return FeatureDefinitionMovementAffinityBuilder
-                .Create("MonkUnarmoredMovementBonusModifier", GUID)
+                .Create("ClassMonkUnarmoredMovementBonusModifier", GUID)
                 .SetGuiPresentationNoContent(true)
                 .SetBaseSpeedAdditiveModifier(1)
                 .AddToDB();
@@ -535,8 +535,8 @@ namespace SolastaCommunityExpansion.Classes.Monk
         private static FeatureDefinition BuildUnarmoredMovementImprovement()
         {
             return FeatureDefinitionBuilder
-                .Create($"MonkUnarmoredMovementBonus{unarmoredMovementProgression++:D2}", GUID)
-                .SetGuiPresentation("MonkUnarmoredMovementBonus", Category.Feature)
+                .Create($"ClassMonkUnarmoredMovementBonus{unarmoredMovementProgression++:D2}", GUID)
+                .SetGuiPresentation("ClassMonkUnarmoredMovementBonus", Category.Feature)
                 .SetCustomSubFeatures(MovementBonusApplier)
                 .AddToDB();
         }
@@ -544,7 +544,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
         private static FeatureDefinition BuildUnarmoredMovementVerticalSurface()
         {
             return FeatureDefinitionBuilder
-                .Create("MonkUnarmoredMovementVerticalSurface", GUID)
+                .Create("ClassMonkUnarmoredMovementVerticalSurface", GUID)
                 .SetGuiPresentation(Category.Feature)
                 .SetCustomSubFeatures(new MonkClimbing())
                 .AddToDB();
@@ -553,7 +553,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
         private static void BuildClimbingCondition()
         {
             MonkClimbingCondition = ConditionDefinitionBuilder
-                .Create(ConditionDefinitions.ConditionSpiderClimb, "MonkClimbingCondition", GUID)
+                .Create(ConditionDefinitions.ConditionSpiderClimb, "ClassMonkClimbingCondition", GUID)
                 .SetSilent(Silent.WhenAddedOrRemoved)
                 .AddToDB();
         }
@@ -561,7 +561,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
         private static FeatureDefinition BuildMartialDiceProgression()
         {
             return FeatureDefinitionBuilder
-                .Create($"MonkMartialDiceProgression{martailArtsDiceProgression++:D2}", GUID)
+                .Create($"ClassMonkMartialDiceProgression{martailArtsDiceProgression++:D2}", GUID)
                 .SetGuiPresentation(Category.Feature)
                 .AddToDB();
         }
@@ -575,7 +575,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
             );
 
             kiPool = FeatureDefinitionPowerBuilder
-                .Create("MonkKiPool", GUID)
+                .Create("ClassMonkKiPool", GUID)
                 .SetGuiPresentationNoContent(true)
                 .SetUsesFixed(2)
                 .SetRechargeRate(RechargeRate.ShortRest)
@@ -584,7 +584,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
             kiPool.SetCustomSubFeatures(new CustomPortraitPoolPower(kiPool, icon: MonkKiIcon));
 
             var extraFlurryAttack1 = FeatureDefinitionAdditionalActionBuilder
-                .Create("MonkFlurryOfBlowsExtraAttacks1", GUID)
+                .Create("ClassMonkFlurryOfBlowsExtraAttacks1", GUID)
                 .SetGuiPresentationNoContent(true)
                 .SetCustomSubFeatures(new AddBonusUnarmedAttack(ActionDefinitions.ActionType.Bonus, 1, true,
                     CharacterValidators.NoArmor, CharacterValidators.NoShield))
@@ -593,14 +593,14 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .AddToDB();
 
             var extraFlurryAttack2 = FeatureDefinitionAdditionalActionBuilder
-                .Create("MonkFlurryOfBlowsExtraAttacks2", GUID)
+                .Create("ClassMonkFlurryOfBlowsExtraAttacks2", GUID)
                 .SetGuiPresentationNoContent(true)
                 .SetActionType(ActionDefinitions.ActionType.Bonus)
                 .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
                 .AddToDB();
 
             flurryOfBlows = FeatureDefinitionPowerSharedPoolBuilder
-                .Create("MonkFlurryOfBlows", GUID)
+                .Create("ClassMonkFlurryOfBlows", GUID)
                 .SetGuiPresentation(Category.Power, MonkFlurryOfBlowsIcon)
                 .SetSharedPool(kiPool)
                 .SetActivationTime(ActivationTime.BonusAction)
@@ -612,7 +612,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .SetEffectDescription(new EffectDescriptionBuilder()
                     .AddEffectForm(new EffectFormBuilder()
                         .SetConditionForm(ConditionDefinitionBuilder
-                                .Create("MonkFlurryOfBlowsCondition", GUID)
+                                .Create("ClassMonkFlurryOfBlowsCondition", GUID)
                                 .SetGuiPresentationNoContent(true)
                                 .SetSilent(Silent.WhenAddedOrRemoved)
                                 .SetDuration(DurationType.Round, 0)
@@ -627,7 +627,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
             var dodging = ConditionDefinitions.ConditionDodging;
             patientDefense = FeatureDefinitionPowerSharedPoolBuilder
-                .Create("MonkPatientDefense", GUID)
+                .Create("ClassMonkPatientDefense", GUID)
                 .SetGuiPresentation(Category.Power, MonkPatientDefenseIcon)
                 .SetSharedPool(kiPool)
                 .SetActivationTime(ActivationTime.BonusAction)
@@ -639,7 +639,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     .AddEffectForm(new EffectFormBuilder()
                         .CreatedByCharacter()
                         .SetConditionForm(ConditionDefinitionBuilder
-                                .Create("MonkPatientDefenseCondition", GUID)
+                                .Create("ClassMonkPatientDefenseCondition", GUID)
                                 .SetGuiPresentation("ConditionDodging", Category.Rules,
                                     dodging.GuiPresentation.SpriteReference)
                                 .SetConditionParticleReferenceFrom(dodging)
@@ -657,7 +657,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .AddToDB();
 
             stepOfTheWind = FeatureDefinitionPowerSharedPoolBuilder
-                .Create("MonkStepOfTheWind", GUID)
+                .Create("ClassMonkStepOfTheWind", GUID)
                 .SetGuiPresentation(Category.Power, MonkStepOfTheWindIcon)
                 .SetSharedPool(kiPool)
                 .SetActivationTime(ActivationTime.BonusAction)
@@ -668,7 +668,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .SetEffectDescription(new EffectDescriptionBuilder()
                     .AddEffectForm(new EffectFormBuilder()
                         .SetConditionForm(ConditionDefinitionBuilder
-                                .Create("MonkStepOfTheWindCondition", GUID)
+                                .Create("ClassMonkStepOfTheWindCondition", GUID)
                                 .SetGuiPresentation(Category.Condition,
                                     ConditionDefinitions.ConditionJump.GuiPresentation.SpriteReference)
                                 .SetSilent(Silent.None)
@@ -677,7 +677,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                                 .SetSpecialDuration(true)
                                 .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
                                 .SetFeatures(FeatureDefinitionAdditionalActionBuilder
-                                        .Create("MonkStepOfTheWindFeature", GUID)
+                                        .Create("ClassMonkStepOfTheWindFeature", GUID)
                                         .SetGuiPresentationNoContent(true)
                                         .SetActionType(ActionDefinitions.ActionType.Bonus)
                                         .SetRestrictedActions(ActionDefinitions.Id.DashBonus,
@@ -693,7 +693,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .AddToDB();
 
             ki = FeatureDefinitionFeatureSetBuilder
-                .Create("MonkKi", GUID)
+                .Create("ClassMonkKi", GUID)
                 .SetGuiPresentation(Category.Feature)
                 .SetCustomSubFeatures(CustomSetDescription.Marker)
                 .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
@@ -701,7 +701,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .AddToDB();
 
             stunningStrike = FeatureDefinitionPowerSharedPoolBuilder
-                .Create("MonkStunningStrike", GUID)
+                .Create("ClassMonkStunningStrike", GUID)
                 .SetGuiPresentation(Category.Power, MonkStunningStrikeIcon)
                 .SetSharedPool(kiPool)
                 .SetActivationTime(ActivationTime.OnAttackHit)
@@ -735,7 +735,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
         private static FeatureDefinition BuildKiPoolIncrease()
         {
             return FeatureDefinitionPowerPoolModifierBuilder
-                .Create($"MonkKiPoolIncrease{kiPoolIncreases++:D2}", GUID)
+                .Create($"ClassMonkKiPoolIncrease{kiPoolIncreases++:D2}", GUID)
                 .SetGuiPresentationNoContent(true)
                 .Configure(1, UsesDetermination.Fixed, "", kiPool)
                 .AddToDB();
@@ -744,7 +744,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
         private static FeatureDefinition BuildDeflectMissile()
         {
             var deflectMissile = FeatureDefinitionActionAffinityBuilder
-                .Create("MonkDeflectMissile", GUID)
+                .Create("ClassMonkDeflectMissile", GUID)
                 .SetGuiPresentation(Category.Feature)
                 .SetAuthorizedActions(ActionDefinitions.Id.DeflectMissile)
                 .SetCustomSubFeatures(new CustomMissileDeflection()
@@ -760,7 +760,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
         {
             //TODO: should we hide it from power menu?
             return FeatureDefinitionPowerBuilder
-                .Create("MonkSlowFall", GUID)
+                .Create("ClassMonkSlowFall", GUID)
                 .SetGuiPresentation(Category.Power, MonkSlowFallIcon)
                 .SetActivationTime(ActivationTime.Reaction)
                 .SetRechargeRate(RechargeRate.AtWill)
@@ -780,7 +780,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
         private static FeatureDefinition BuildExtraAttack()
         {
             return FeatureDefinitionAttributeModifierBuilder
-                .Create("MonkExtraAttack", GUID)
+                .Create("ClassMonkExtraAttack", GUID)
                 .SetGuiPresentation(Category.Feature)
                 .SetModifiedAttribute(AttributeDefinitions.AttacksNumber)
                 .SetModifierType2(AttributeModifierOperation.Additive)
@@ -791,7 +791,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
         private static FeatureDefinition BuildKiEmpoweredStrikes()
         {
             return FeatureDefinitionBuilder
-                .Create("MonkKiEmpoweredStrikes", GUID)
+                .Create("ClassMonkKiEmpoweredStrikes", GUID)
                 .SetGuiPresentation(Category.Feature)
                 .SetCustomSubFeatures(new AddTagToWeaponAttack(TagsDefinitions.Magical, IsUnarmedWeapon))
                 .AddToDB();
@@ -800,7 +800,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
         private static FeatureDefinition BuildStillnessOfMind()
         {
             return FeatureDefinitionPowerBuilder
-                .Create("MonkKiStillnessOfMind", GUID)
+                .Create("ClassMonkKiStillnessOfMind", GUID)
                 .SetGuiPresentation(Category.Power, MonkStillnessOfMindIcon)
                 .SetActivationTime(ActivationTime.Action)
                 .SetCostPerUse(0)
@@ -820,7 +820,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
         private static FeatureDefinition BuildPurityOfBody()
         {
             return FeatureDefinitionFeatureSetBuilder
-                .Create("MonkPurityOfBody", GUID)
+                .Create("ClassMonkPurityOfBody", GUID)
                 .SetGuiPresentation(Category.Feature)
                 .SetFeatureSet(
                     FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity,
@@ -833,7 +833,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
         private static FeatureDefinition BuildDiamondSoul()
         {
             return FeatureDefinitionProficiencyBuilder
-                .Create("MonkDiamondSoul", GUID)
+                .Create("ClassMonkDiamondSoul", GUID)
                 .SetGuiPresentation(Category.Feature)
                 .SetProficiencies(ProficiencyType.SavingThrow,
                     AttributeDefinitions.Strength,
@@ -844,7 +844,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     AttributeDefinitions.Charisma
                 )
                 .SetCustomSubFeatures(new CustomRerollFailedSave(FeatureDefinitionPowerSharedPoolBuilder
-                    .Create("MonkDiamondSoulPower", GUID)
+                    .Create("ClassMonkDiamondSoulPower", GUID)
                     .SetGuiPresentation(Category.Power)
                     .SetSharedPool(kiPool)
                     .SetCostPerUse(1)
@@ -855,7 +855,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
         private static FeatureDefinition BuildTongueOfSunAndMoon()
         {
             return FeatureDefinitionFeatureSetBuilder
-                .Create("MonkTongueOfSunAndMoon", GUID)
+                .Create("ClassMonkTongueOfSunAndMoon", GUID)
                 .SetGuiPresentation(Category.Feature)
                 .SetFeatureSet(FeatureDefinitionFeatureSets.FeatureSetAllLanguagesButCode.FeatureSet.ToArray())
                 .AddToDB();
@@ -864,7 +864,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
         private static FeatureDefinition BuildEmptyBody()
         {
             return FeatureDefinitionPowerSharedPoolBuilder
-                .Create("MonkEmptyBody", GUID)
+                .Create("ClassMonkEmptyBody", GUID)
                 .SetGuiPresentation(Category.Power, MonkEmptyBodyIcon)
                 .SetSharedPool(kiPool)
                 .SetCostPerUse(4)
@@ -880,7 +880,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                             .Build(),
                         new EffectFormBuilder()
                             .SetConditionForm(ConditionDefinitionBuilder
-                                .Create("MonkEmptyBodyCondition", GUID)
+                                .Create("ClassMonkEmptyBodyCondition", GUID)
                                 .SetGuiPresentation(Category.Condition,
                                     ConditionDefinitions.ConditionShielded.GuiPresentation.SpriteReference)
                                 .AddFeatures(
@@ -894,17 +894,17 @@ namespace SolastaCommunityExpansion.Classes.Monk
                                     FeatureDefinitionDamageAffinitys.DamageAffinityRadiantResistance,
                                     FeatureDefinitionDamageAffinitys.DamageAffinityThunderResistance,
                                     FeatureDefinitionDamageAffinityBuilder
-                                        .Create("MonkEmptyBodyBludgeoningResistance", GUID)
+                                        .Create("ClassMonkEmptyBodyBludgeoningResistance", GUID)
                                         .SetDamageType(DamageTypeBludgeoning)
                                         .SetDamageAffinityType(DamageAffinityType.Resistance)
                                         .AddToDB(),
                                     FeatureDefinitionDamageAffinityBuilder
-                                        .Create("MonkEmptyBodyPiercingResistance", GUID)
+                                        .Create("ClassMonkEmptyBodyPiercingResistance", GUID)
                                         .SetDamageType(DamageTypePiercing)
                                         .SetDamageAffinityType(DamageAffinityType.Resistance)
                                         .AddToDB(),
                                     FeatureDefinitionDamageAffinityBuilder
-                                        .Create("MonkEmptyBodySlashingResistance", GUID)
+                                        .Create("ClassMonkEmptyBodySlashingResistance", GUID)
                                         .SetDamageType(DamageTypeSlashing)
                                         .SetDamageAffinityType(DamageAffinityType.Resistance)
                                         .AddToDB()
@@ -920,7 +920,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
         private static FeatureDefinition BuildPerfectSelf()
         {
             return FeatureDefinitionBuilder
-                .Create("MonkPerfectSelf", GUID)
+                .Create("ClassMonkPerfectSelf", GUID)
                 .SetGuiPresentation(Category.Feature)
                 .SetCustomSubFeatures(new PerfectSelf())
                 .AddToDB();
