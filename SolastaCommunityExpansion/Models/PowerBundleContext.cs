@@ -5,6 +5,7 @@ using System.Linq;
 using ModKit;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Utils;
+using SolastaModApi;
 using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Models
@@ -159,8 +160,10 @@ namespace SolastaCommunityExpansion.Models
             FunctorExecutionContext context)
         {
             var functor = this;
-            var power = PowerBundleContext.GetPower(functorParameters.StringParameter);
-            if (power == null)
+            var powerName = functorParameters.StringParameter;
+            var power = PowerBundleContext.GetPower(powerName);
+
+            if (power == null && !DatabaseHelper.TryGetDefinition(powerName, null, out power))
             {
                 yield break;
             }
