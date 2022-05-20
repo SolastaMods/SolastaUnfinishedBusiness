@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.Classes.Monk.Subclasses;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.CustomUI;
 using SolastaCommunityExpansion.Features;
@@ -294,6 +295,20 @@ namespace SolastaCommunityExpansion.Classes.Monk
             #region Level 02
 
                 .AddFeaturesAtLevel(2, ki)
+
+            #endregion
+
+            #region Subclasses
+
+            .AddFeatureAtLevel(3, FeatureDefinitionSubclassChoiceBuilder
+                .Create("ClassMonkSubclassChoice", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation("ClassMonkTradition", Category.Subclass)
+                .SetSubclassSuffix("MonkWay")
+                .SetFilterByDeity(false)
+                .SetSubclasses(
+                    WayOfTheOpenHand.Build()
+                )
+                .AddToDB())
 
             #endregion
 
