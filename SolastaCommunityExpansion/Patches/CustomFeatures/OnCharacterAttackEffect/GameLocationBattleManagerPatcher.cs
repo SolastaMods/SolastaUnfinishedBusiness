@@ -520,6 +520,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                             var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
                             reactionParams.RulesetEffect = rulesetImplementationService.InstantiateEffectPower(attacker.RulesetCharacter, usablePower, false);
                             reactionParams.TargetCharacters.Add(defender);
+                            reactionParams.ActionModifiers.Add(new ActionModifier());
                             reactionParams.IsReactionEffect = true;
 
                             var actionService = ServiceRepository.GetService<IGameLocationActionService>();

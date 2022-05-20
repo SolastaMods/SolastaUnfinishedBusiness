@@ -38,7 +38,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
 
         internal static void Postfix(CharacterReactionItem __instance)
         {
-            var size = __instance.ReactionRequest is ReactionRequestWarcaster
+            var request = __instance.ReactionRequest;
+            var size = request is ReactionRequestWarcaster || request is ReactionRequestSpendBundlePower
                 ? 400
                 : 290;
 
@@ -56,6 +57,10 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
             if (reactionRequest is ReactionRequestWarcaster warcasterRequest)
             {
                 instance.BindWarcaster(warcasterRequest, slotLevel, interactable, subitemSelected);
+            }
+            else  if (reactionRequest is ReactionRequestSpendBundlePower bundlePoweRequest)
+            {
+                instance.BindPowerBunble(bundlePoweRequest, slotLevel, interactable, subitemSelected);
             }
             else
             {
