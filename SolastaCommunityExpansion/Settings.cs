@@ -258,6 +258,7 @@ namespace SolastaCommunityExpansion
         public bool DontFollowCharacterInBattle { get; set; }
         public int DontFollowMargin { get; set; } = 5;
         public bool AutoPauseOnVictory { get; set; }
+        public float FasterTimeModifier { get; set; }
 
         // Campaigns and Locations
         public bool FollowCharactersOnTeleport { get; set; }
