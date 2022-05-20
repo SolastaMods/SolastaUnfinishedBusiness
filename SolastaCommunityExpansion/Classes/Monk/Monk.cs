@@ -941,9 +941,15 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .AddToDB();
         }
 
-        private static bool IsUnarmedWeapon(RulesetAttackMode attackMode, RulesetItem weapon)
+        public static bool IsUnarmedWeapon(RulesetAttackMode attackMode, RulesetItem weapon)
         {
-            return weapon == null;
+            var item = attackMode?.SourceDefinition as ItemDefinition;
+            if (item != null)
+            {
+                return item.WeaponDescription?.WeaponTypeDefinition == WeaponTypeDefinitions.UnarmedStrikeType;
+            }
+
+            return false;
         }
 
         private static bool IsMonkWeapon(RulesetAttackMode attackMode, RulesetItem weapon)
