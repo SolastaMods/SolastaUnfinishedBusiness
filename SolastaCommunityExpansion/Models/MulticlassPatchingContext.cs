@@ -35,12 +35,24 @@ namespace SolastaCommunityExpansion.Models
             //    dbFeatureDefinitionProficiency.GetElement("ProficiencyWardenArmor"), 
             //    ArmorProficiencyMulticlassBuilder.WardenArmorProficiencyMulticlass);
 
+#if DEBUG // simplify diagnostics creation while in beta
             FeaturesToExclude.Add(MonkClass, new()
+                {
+                    dbFeatureDefinitionPointPool.GetElement("ClassMonkSkillProficiency"),
+                    dbFeatureDefinitionProficiency.GetElement("ClassMonkWeaponProficiency"),
+                    dbFeatureDefinitionProficiency.GetElement("ClassMonkSavingThrowProficiency")
+                });
+#else
+            if (Main.Settings.EnableBetaContent)
             {
-                dbFeatureDefinitionPointPool.GetElement("ClassMonkSkillProficiency"),
-                dbFeatureDefinitionProficiency.GetElement("ClassMonkWeaponProficiency"),
-                dbFeatureDefinitionProficiency.GetElement("ClassMonkSavingThrowProficiency")
-            });
+                FeaturesToExclude.Add(MonkClass, new()
+                {
+                    dbFeatureDefinitionPointPool.GetElement("ClassMonkSkillProficiency"),
+                    dbFeatureDefinitionProficiency.GetElement("ClassMonkWeaponProficiency"),
+                    dbFeatureDefinitionProficiency.GetElement("ClassMonkSavingThrowProficiency")
+                });
+            }
+#endif
 
             FeaturesToExclude.Add(TinkererClass, new()
             {
