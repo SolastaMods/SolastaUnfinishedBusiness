@@ -79,6 +79,12 @@ namespace SolastaCommunityExpansion.Patches
             // Multiclass blueprints should always load to avoid issues with heroes saves and after classes and subclasses
             MulticlassContext.Load();
 
+            if (Main.Settings.EnableExtraHighLevelMonsters)
+            {
+                Translations.LoadTranslations("monsters");
+                SolastaMonsters.Models.MonsterContext.Load();
+            }
+
             ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += (_) =>
             {
                 // Late initialized to allow feats and races from other mods
