@@ -1827,21 +1827,21 @@ Condition/&ClassMonkStepOfTheWindConditionTitle	Step Of The Wind
 Condition/&ClassMonkStepOfTheWindConditionDescription	You can take the Disengage or Dash action as a bonus action and your jump distance is doubled for the turn.
 Feature/&ClassMonkDeflectMissileTitle	Deflect Missiles
 Feature/&ClassMonkDeflectMissileDescription	You can use your reaction to deflect the missile when you are hit by a ranged weapon attack. When you do so, the damage you take from the attack is reduced by 1d10 + your Dexterity modifier + your monk level.
-Reaction/&CustomDeflectMissileMonkTitle	{0} is attacking {1}, who can react to reduce the incoming damage by 1D10 + DEX modifier + Monk level.
+Reaction/&CustomDeflectMissileClassMonkTitle	{0} is attacking {1}, who can react to reduce the incoming damage by 1D10 + DEX modifier + Monk level.
 Power/&ClassMonkSlowFallTitle	Slow Fall
 Power/&ClassMonkSlowFallDescription	You can use your reaction when you fall to prevent any falling damage.
-Reaction/&UseMonkSlowFallTitle	Slow Fall
-Reaction/&UseMonkSlowFallDescription	{0} is falling and can use reaction to prevent falling damage.
-Reaction/&UseMonkSlowFallReactTitle	React
-Reaction/&UseMonkSlowFallReactDescription	Use reaction to prevent damage.
+Reaction/&UseClassMonkSlowFallTitle	Slow Fall
+Reaction/&UseClassMonkSlowFallDescription	{0} is falling and can use reaction to prevent falling damage.
+Reaction/&UseClassMonkSlowFallReactTitle	React
+Reaction/&UseClassMonkSlowFallReactDescription	Use reaction to prevent damage.
 Feature/&ClassMonkExtraAttackTitle	Extra Attack
 Feature/&ClassMonkExtraAttackDescription	You can attack twice, instead of once, whenever you take the Attack action on your turn.
 Power/&ClassMonkStunningStrikeTitle	Stunning Strike
 Power/&ClassMonkStunningStrikeDescription	You can interfere with the flow of ki in an opponent's body. When you hit another creature that is not stunned with a melee weapon attack, you can spend 1 ki point to attempt a stunning strike. The target must succeed on a Constitution saving throw or be stunned until the end of your next turn.
-Reaction/&SpendPowerMonkStunningStrikeTitle	Stunning Strike
-Reaction/&SpendPowerMonkStunningStrikeDescription	{0} has hit opponent and can spend 1 ki point to attempt to stun.
-Reaction/&SpendPowerMonkStunningStrikeReactTitle	Spend ki
-Reaction/&SpendPowerMonkStunningStrikeReactDescription	Spend ki to attampt to stun opponent.
+Reaction/&SpendPowerClassMonkStunningStrikeTitle	Stunning Strike
+Reaction/&SpendPowerClassMonkStunningStrikeDescription	{0} has hit opponent and can spend 1 ki point to attempt to stun.
+Reaction/&SpendPowerClassMonkStunningStrikeReactTitle	Spend ki
+Reaction/&SpendPowerClassMonkStunningStrikeReactDescription	Spend ki to attampt to stun opponent.
 Feature/&ClassMonkKiEmpoweredStrikesTitle	Ki-Empowered Strikes
 Feature/&ClassMonkKiEmpoweredStrikesDescription	Your unarmed strikes count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.
 Power/&ClassMonkKiStillnessOfMindTitle	Stillness of Mind
@@ -1866,4 +1866,4 @@ Condition/&ClassMonkEmptyBodyConditionTitle	Empty Body
 Condition/&ClassMonkEmptyBodyConditionDescription	You have resistance to all damage but force damage.
 Feature/&ClassMonkPerfectSelfTitle	Perfect Self
 Feature/&ClassMonkPerfectSelfDescription	When you start battle and have no ki points remaining, you regain 4 ki points.
-Tooltip/&CustomPortraitPoolMonkKiPool	You can harness the mystic energy of ki. Your access to this energy is represented by a number of ki points. Maximum amount is equal to your monk level. All spent points are regained on short or long rest. You can spend these points to fuel various ki features.
+Tooltip/&CustomPortraitPoolClassMonkKiPool	You can harness the mystic energy of ki. Your access to this energy is represented by a number of ki points. Maximum amount is equal to your monk level. All spent points are regained on short or long rest. You can spend these points to fuel various ki features.
