@@ -150,10 +150,10 @@ namespace SolastaCommunityExpansion.Builders
         /// The Title is generated as "{category}/&amp;{name}Title".<br/>
         /// The Description is generated as "{category}/&amp;{name}Description".<br/>
         /// </summary>
-        public static TBuilder SetGuiPresentation<TBuilder>(this TBuilder builder, string name, Category category, AssetReferenceSprite sprite = null, int sortOrder = 0)
+        public static TBuilder SetGuiPresentation<TBuilder>(this TBuilder builder, string name, Category category, AssetReferenceSprite sprite = null, int sortOrder = 0, bool? hidden = null)
             where TBuilder : IDefinitionBuilder
         {
-            return SetGuiPresentation(builder, GuiPresentationBuilder.Build(null, name, category, sprite, sortOrder));
+            return SetGuiPresentation(builder, GuiPresentationBuilder.Build(null, name, category, sprite, sortOrder, hidden));
         }
 
         /// <summary>
@@ -173,12 +173,12 @@ namespace SolastaCommunityExpansion.Builders
         /// The Description is generated as "{category}/&amp;{builder.Definition.Name}Description".<br/>
         /// </summary>
         /// <typeparam name="TBuilder"></typeparam>
-        public static TBuilder SetGuiPresentation<TBuilder>(this TBuilder builder, Category category, AssetReferenceSprite sprite = null, int sortOrder = 0)
+        public static TBuilder SetGuiPresentation<TBuilder>(this TBuilder builder, Category category, AssetReferenceSprite sprite = null, int sortOrder = 0, bool? hidden = null)
             where TBuilder : IDefinitionBuilder
         {
             var definitionName = builder.Name;
 
-            return SetGuiPresentation(builder, GuiPresentationBuilder.Build(null, definitionName, category, sprite, sortOrder));
+            return SetGuiPresentation(builder, GuiPresentationBuilder.Build(null, definitionName, category, sprite, sortOrder, hidden));
         }
 
         /// <summary>
