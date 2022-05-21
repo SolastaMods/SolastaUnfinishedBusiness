@@ -1,7 +1,8 @@
-﻿namespace SolastaCommunityExpansion.CustomInterfaces;
-
-public interface IUsePowerToRerollFailedSave
+﻿namespace SolastaCommunityExpansion.CustomInterfaces
 {
-    string ReactionName { get; }
-    FeatureDefinitionPower GetPowerToRerollFailedSave(RulesetCharacter character, RuleDefinitions.RollOutcome saveOutcome);
+    public interface IUsePowerToRerollFailedSave
+    {
+        string ReactionName { get; }
+        FeatureDefinitionPower GetPowerToRerollFailedSave(RulesetCharacter character, RuleDefinitions.RollOutcome saveOutcome);
+    }
 }

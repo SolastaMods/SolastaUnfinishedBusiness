@@ -2,9 +2,7 @@
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomUI;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel;
-
-internal static class CharacterActionItemFormPatcher
+namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
 {
     // Applies skpping of attack modes when item form refreshes, so UI would display proper attack mode data
     [HarmonyPatch(typeof(CharacterActionItemForm), "Refresh")]

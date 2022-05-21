@@ -3,9 +3,7 @@ using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi.Infrastructure;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.Tooltip;
-
-internal static class TooltipFeaturePowerParametersPatcher
+namespace SolastaCommunityExpansion.Patches.GameUi.Tooltip
 {
     [HarmonyPatch(typeof(TooltipFeaturePowerParameters), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

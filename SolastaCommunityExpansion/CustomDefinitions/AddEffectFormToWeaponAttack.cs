@@ -3,34 +3,37 @@ using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi.Extensions;
 
-namespace SolastaCommunityExpansion.CustomDefinitions;
-
-public class AddEffectFormToWeaponAttack : IModifyAttackModeForWeapon
+namespace SolastaCommunityExpansion.CustomDefinitions
 {
-    private readonly EffectForm effect;
-    private readonly IsWeaponValidHandler isWeaponValid;
-    private readonly CharacterValidator[] validators;
-
-    public AddEffectFormToWeaponAttack(EffectForm effect, IsWeaponValidHandler isWeaponValid,
-        params CharacterValidator[] validators)
+    public class AddEffectFormToWeaponAttack : IModifyAttackModeForWeapon
     {
-        this.effect = effect;
-        this.isWeaponValid = isWeaponValid;
-        this.validators = validators;
-    }
+        private readonly EffectForm effect;
+        private readonly IsWeaponValidHandler isWeaponValid;
+        private readonly CharacterValidator[] validators;
 
-    public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
-    {
-        if (!character.IsValid(validators))
+        public AddEffectFormToWeaponAttack(EffectForm effect, IsWeaponValidHandler isWeaponValid,
+            params CharacterValidator[] validators)
         {
-            return;
+            this.effect = effect;
+            this.isWeaponValid = isWeaponValid;
+            this.validators = validators;
         }
 
-        if (!isWeaponValid(attackMode, weapon))
+        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
         {
-            return;
-        }
+            if (!character.IsValid(validators))
+            {
+                return;
+            }
 
-        attackMode.EffectDescription.AddEffectForms(effect.Copy());
+            if (!isWeaponValid(attackMode, weapon))
+            {
+                return;
+            }
+
+            attackMode.EffectDescription.AddEffectForms(effect.Copy());
+        }
     }
 }
+
+

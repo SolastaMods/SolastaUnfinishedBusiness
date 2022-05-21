@@ -4,9 +4,7 @@ using HarmonyLib;
 using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.CustomDefinitions;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp;
-
-internal static class FeatureDefinitionFeatureSetPatcher
+namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
 {
     [HarmonyPatch(typeof(FeatureDefinitionFeatureSet), "FormatDescription")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

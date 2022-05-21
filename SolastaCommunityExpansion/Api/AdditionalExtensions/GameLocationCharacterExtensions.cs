@@ -1,35 +1,37 @@
 ﻿using System.Collections.Generic;
 
-namespace SolastaCommunityExpansion.Api.AdditionalExtensions;
-
-public static class GameLocationCharacterExtensions
+namespace SolastaCommunityExpansion.Api.AdditionalExtensions
 {
-    private static readonly Dictionary<string, int> SkipAttackModes = new();
-
-
-    private static string Key(GameLocationCharacter instance)
+    public static class GameLocationCharacterExtensions
     {
-        return $"{instance.Name}:{instance.Guid}";
-    }
+        private static readonly Dictionary<string, int> SkipAttackModes = new();
 
-    public static void SetSkipAttackModes(this GameLocationCharacter instance, int skip)
-    {
-        SkipAttackModes.AddOrReplace(Key(instance), skip);
-    }
 
-    public static void RemoveSkipAttackModes(this GameLocationCharacter instance)
-    {
-        SkipAttackModes.Remove(Key(instance));
-    }
-
-    public static int GetSkipAttackModes(this GameLocationCharacter instance)
-    {
-        var key = Key(instance);
-        if (SkipAttackModes.ContainsKey(key))
+        private static string Key(GameLocationCharacter instance)
         {
-            return SkipAttackModes[key];
+            return $"{instance.Name}:{instance.Guid}";
         }
 
-        return 0;
+        public static void SetSkipAttackModes(this GameLocationCharacter instance, int skip)
+        {
+            SkipAttackModes.AddOrReplace(Key(instance), skip);
+        }
+
+        public static void RemoveSkipAttackModes(this GameLocationCharacter instance)
+        {
+            SkipAttackModes.Remove(Key(instance));
+        }
+
+        public static int GetSkipAttackModes(this GameLocationCharacter instance)
+        {
+            var key = Key(instance);
+            if (SkipAttackModes.ContainsKey(key))
+            {
+                return SkipAttackModes[key];
+            }
+
+            return 0;
+        }
     }
 }
+

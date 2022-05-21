@@ -5,9 +5,7 @@ using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel;
-
-internal static class ActiveCharacterPanelPatcher
+namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
 {
     [HarmonyPatch(typeof(ActiveCharacterPanel), "Refresh")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

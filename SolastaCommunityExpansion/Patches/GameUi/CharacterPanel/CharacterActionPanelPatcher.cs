@@ -7,9 +7,7 @@ using SolastaModApi;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel;
-
-internal static class CharacterActionPanelPatcher
+namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
 {
     // Adds extra items to the action panel if character has more than 1 attack mode available for action type of this panel
     [HarmonyPatch(typeof(CharacterActionPanel), "RefreshActions")]

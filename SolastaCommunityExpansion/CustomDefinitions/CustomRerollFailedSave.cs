@@ -1,21 +1,23 @@
 ﻿using SolastaCommunityExpansion.CustomInterfaces;
 
-namespace SolastaCommunityExpansion.CustomDefinitions;
-
-public class CustomRerollFailedSave : IUsePowerToRerollFailedSave
+namespace SolastaCommunityExpansion.CustomDefinitions
 {
-    private readonly FeatureDefinitionPower power;
-
-    public CustomRerollFailedSave(FeatureDefinitionPower power, string reactionName = null)
+    public class CustomRerollFailedSave : IUsePowerToRerollFailedSave
     {
-        this.power = power;
-        ReactionName = string.IsNullOrEmpty(reactionName) ? power.Name : reactionName;
-    }
+        private readonly FeatureDefinitionPower power;
 
-    public string ReactionName { get; }
+        public CustomRerollFailedSave(FeatureDefinitionPower power, string reactionName = null)
+        {
+            this.power = power;
+            ReactionName = string.IsNullOrEmpty(reactionName) ? power.Name : reactionName;
+        }
 
-    public FeatureDefinitionPower GetPowerToRerollFailedSave(RulesetCharacter character, RuleDefinitions.RollOutcome saveOutcome)
-    {
-        return power;
+        public string ReactionName { get; }
+
+        public FeatureDefinitionPower GetPowerToRerollFailedSave(RulesetCharacter character, RuleDefinitions.RollOutcome saveOutcome)
+        {
+            return power;
+        }
     }
 }
+

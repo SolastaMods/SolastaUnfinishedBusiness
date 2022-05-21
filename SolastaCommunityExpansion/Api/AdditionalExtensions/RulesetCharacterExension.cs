@@ -3,42 +3,45 @@ using System.Linq;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.Api.AdditionalExtensions;
-
-internal static class RulesetCharacterExension
+namespace SolastaCommunityExpansion.Api.AdditionalExtensions
 {
-    public static bool IsValid(this RulesetCharacter instance, params CharacterValidator[] validators)
+    internal static class RulesetCharacterExension
     {
-        return validators.All(v => v(instance));
-    }
-
-    public static bool IsValid(this RulesetCharacter instance, IEnumerable<CharacterValidator> validators)
-    {
-        return validators == null || validators.All(v => v(instance));
-    }
-
-    /**Checks if power has enough uses and that all validators are OK*/
-    public static bool CanUsePower(this RulesetCharacter instance, FeatureDefinitionPower power)
-    {
-        if (power == null)
+        public static bool IsValid(this RulesetCharacter instance, params CharacterValidator[] validators)
         {
-            return false;
+            return validators.All(v => v(instance));
         }
 
-        if (instance.GetRemainingPowerUses(power) <= 0)
+        public static bool IsValid(this RulesetCharacter instance, IEnumerable<CharacterValidator> validators)
         {
-            return false;
+            return validators == null || validators.All(v => v(instance));
         }
 
-        return power.GetAllSubFeaturesOfType<IPowerUseValidity>()
-            .All(v => v.CanUsePower(instance));
-    }
+        /**Checks if power has enough uses and that all validators are OK*/
+        public static bool CanUsePower(this RulesetCharacter instance, FeatureDefinitionPower power)
+        {
+            if (power == null)
+            {
+                return false;
+            }
 
-    public static List<RulesetAttackMode> GetAttackModesByActionType(this RulesetCharacter instance,
-        ActionDefinitions.ActionType actionType)
-    {
-        return instance.AttackModes
-            .Where(a => !a.AfterChargeOnly && a.ActionType == actionType)
-            .ToList();
+            if (instance.GetRemainingPowerUses(power) <= 0)
+            {
+                return false;
+            }
+
+            return power.GetAllSubFeaturesOfType<IPowerUseValidity>()
+                .All(v => v.CanUsePower(instance));
+        }
+
+        public static List<RulesetAttackMode> GetAttackModesByActionType(this RulesetCharacter instance,
+            ActionDefinitions.ActionType actionType)
+        {
+            return instance.AttackModes
+                .Where(a => !a.AfterChargeOnly && a.ActionType == actionType)
+                .ToList();
+        }
     }
 }
+
+

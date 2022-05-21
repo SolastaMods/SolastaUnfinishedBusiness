@@ -8,9 +8,7 @@ using SolastaCommunityExpansion.Utils;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions;
-
-internal static class GameLocationBattleManagerPatcher
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
 {
     [HarmonyPatch(typeof(GameLocationBattleManager), "HandleFailedSavingThrow")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

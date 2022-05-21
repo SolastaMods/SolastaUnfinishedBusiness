@@ -3,24 +3,27 @@ using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.CustomDefinitions;
-
-public class ConditionalMovementModifier : IConditionalMovementModifier
+namespace SolastaCommunityExpansion.CustomDefinitions
 {
-    private readonly FeatureDefinition modifier;
-    private readonly CharacterValidator[] validators;
-
-    public ConditionalMovementModifier(FeatureDefinition modifier, params CharacterValidator[] validators)
+    public class ConditionalMovementModifier : IConditionalMovementModifier
     {
-        this.modifier = modifier;
-        this.validators = validators;
-    }
+        private readonly FeatureDefinition modifier;
+        private readonly CharacterValidator[] validators;
 
-    public void AddModifiers(RulesetCharacter character, List<FeatureDefinition> modifiers)
-    {
-        if (character.IsValid(validators))
+        public ConditionalMovementModifier(FeatureDefinition modifier, params CharacterValidator[] validators)
         {
-            modifiers.Add(modifier);
+            this.modifier = modifier;
+            this.validators = validators;
+        }
+
+        public void AddModifiers(RulesetCharacter character, List<FeatureDefinition> modifiers)
+        {
+            if (character.IsValid(validators))
+            {
+                modifiers.Add(modifier);
+            }
         }
     }
 }
+
+

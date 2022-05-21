@@ -1,9 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.Tooltip;
-
-internal static class UsablePowerBoxPatcher
+namespace SolastaCommunityExpansion.Patches.GameUi.Tooltip
 {
     [HarmonyPatch(typeof(UsablePowerBox), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

@@ -1,10 +1,11 @@
-﻿namespace SolastaCommunityExpansion.CustomDefinitions;
-
-public class CustomSetDescription
+﻿namespace SolastaCommunityExpansion.CustomDefinitions
 {
-    public static readonly CustomSetDescription Marker = new();
-
-    private CustomSetDescription()
+    public class CustomSetDescription
     {
+        public static readonly CustomSetDescription Marker = new();
+
+        private CustomSetDescription()
+        {
+        }
     }
 }

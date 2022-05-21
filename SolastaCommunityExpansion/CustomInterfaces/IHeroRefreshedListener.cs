@@ -1,6 +1,8 @@
-﻿namespace SolastaCommunityExpansion.CustomInterfaces;
-
-public interface IHeroRefreshedListener
+﻿namespace SolastaCommunityExpansion.CustomInterfaces
 {
-    void OnHeroRefreshed(RulesetCharacter character);
+    public interface IHeroRefreshedListener
+    {
+        void OnHeroRefreshed(RulesetCharacter character);
+    }
 }
+

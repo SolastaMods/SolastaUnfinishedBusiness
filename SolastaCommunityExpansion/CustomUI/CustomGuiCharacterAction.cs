@@ -1,23 +1,24 @@
 ﻿using SolastaCommunityExpansion.Api.AdditionalExtensions;
 
-namespace SolastaCommunityExpansion.CustomUI;
-
-public class CustomGuiCharacterAction : GuiCharacterAction
+namespace SolastaCommunityExpansion.CustomUI
 {
-    private readonly int attackModesToSkip;
-
-    public CustomGuiCharacterAction(ActionDefinitions.Id actionId, int attackModesToSkip) : base(actionId)
+    public class CustomGuiCharacterAction : GuiCharacterAction
     {
-        this.attackModesToSkip = attackModesToSkip;
-    }
+        private readonly int attackModesToSkip;
 
-    public void ApplySkip()
-    {
-        ActingCharacter.SetSkipAttackModes(attackModesToSkip);
-    }
+        public CustomGuiCharacterAction(ActionDefinitions.Id actionId, int attackModesToSkip) : base(actionId)
+        {
+            this.attackModesToSkip = attackModesToSkip;
+        }
 
-    public void RemoveSkip()
-    {
-        ActingCharacter.RemoveSkipAttackModes();
+        public void ApplySkip()
+        {
+            ActingCharacter.SetSkipAttackModes(attackModesToSkip);
+        }
+
+        public void RemoveSkip()
+        {
+            ActingCharacter.RemoveSkipAttackModes();
+        }
     }
 }

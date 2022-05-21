@@ -1,6 +1,7 @@
-namespace SolastaCommunityExpansion.CustomInterfaces;
-
-interface IModifyAttackModeForWeapon
+namespace SolastaCommunityExpansion.CustomInterfaces
 {
-    void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon);
+    interface IModifyAttackModeForWeapon
+    {
+        void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon);
+    }
 }
