@@ -90,6 +90,9 @@ namespace SolastaCommunityExpansion.Patches
                 FlexibleRacesContext.LateLoad();
                 InitialChoicesContext.LateLoad();
 
+                // There are feats that need all character classes loaded before they can properly be setup.
+                FeatsContext.LateLoad();
+
                 // Generally available powers need all classes in the db before they are initialized here.
                 PowersContext.LateLoad();
 
