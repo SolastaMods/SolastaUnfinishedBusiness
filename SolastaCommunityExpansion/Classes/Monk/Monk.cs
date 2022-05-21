@@ -593,7 +593,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
             kiPool = FeatureDefinitionPowerBuilder
                 .Create("ClassMonkKiPool", GUID)
-                .SetGuiPresentationNoContent(true)
+                .SetGuiPresentation(Category.Power, hidden: true)
                 .SetUsesFixed(2)
                 .SetRechargeRate(RechargeRate.ShortRest)
                 .AddToDB();
