@@ -518,7 +518,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     //TODO: add an option in mod setting to include or exclude this unarmed attack, plus maybe add checks that you have weapon in main hand, so no double options
                     // new AddBonusUnarmedAttack(ActionDefinitions.ActionType.Main, 
                     //     CharacterValidators.NoArmor, CharacterValidators.NoShield),
-                    new AddBonusUnarmedAttack(ActionDefinitions.ActionType.Bonus, UsingOnlyMonkWeapons, 
+                    new AddBonusUnarmedAttack(ActionDefinitions.ActionType.Bonus, UsingOnlyMonkWeapons,
                         attackedWithMonkWeapon, CharacterValidators.NoShield, CharacterValidators.NoArmor)
                 )
                 .AddToDB();

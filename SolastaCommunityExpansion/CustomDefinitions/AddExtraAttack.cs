@@ -12,7 +12,7 @@ public class AddBonusUnarmedAttack : IAddExtraAttack
     private readonly int attacksNumber;
     private readonly bool clearSameType;
     private readonly CharacterValidator[] validators;
-    private readonly List<string> additionalTags = new ();
+    private readonly List<string> additionalTags = new();
 
     public AddBonusUnarmedAttack(ActionDefinitions.ActionType actionType, int attacksNumber, bool clearSameType, params CharacterValidator[] validators)
     {

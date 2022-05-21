@@ -56,7 +56,7 @@ public class CusomPortraitPointPool : MonoBehaviour
             var obj = Instantiate(prefab, parent, false);
             obj.name = name;
             pool = obj.AddComponent<CusomPortraitPointPool>();
-            
+
             pool.Setup(provider, character);
         }
 
@@ -74,7 +74,7 @@ public class CusomPortraitPointPool : MonoBehaviour
             image.SetupSprite(provider.Icon);
         }
     }
-    
+
     private void UpdateState(ICusomPortraitPointPoolProvider provider, RulesetCharacter character)
     {
         gameObject.SetActive(true); //Do we need ability to set to inactive on update?

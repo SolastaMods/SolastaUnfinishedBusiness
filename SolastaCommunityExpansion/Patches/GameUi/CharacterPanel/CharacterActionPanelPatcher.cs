@@ -166,8 +166,8 @@ internal static class CharacterActionPanelPatcher
                 currentItemForm.GetField<DynamicItemPropertiesEnumerator>("dynamicItemPropertiesEnumerator");
             enumerator.Unbind();
 
-            
-            
+
+
             var itemDefinition = DatabaseHelper.ItemDefinitions.UnarmedStrikeBase;
             enumerator.Bind(new RulesetItem(itemDefinition));
         }

@@ -59,14 +59,14 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
                 __instance.RecoveredFeatures.Remove(feature);
             }
         }
-        
+
         // Makes powers that have their max usage extended by pool modifiers show up correctly during rest
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var codes = instructions.ToList();
             var maxUses =
                 new Func<RulesetUsablePower, RulesetCharacter, int>(CustomFeaturesContext.GetMaxUsesForPool).Method;
-            
+
             var bind = typeof(RulesetUsablePower).GetMethod("get_MaxUses", BindingFlags.Public | BindingFlags.Instance);
 
             var bindIndex = codes.FindIndex(x => x.Calls(bind));
@@ -79,6 +79,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
 
             return codes.AsEnumerable();
         }
-        
+
     }
 }
