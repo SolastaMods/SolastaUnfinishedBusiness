@@ -8,6 +8,8 @@ AttributeModifier/&DHFeeblemindIntSpellDescription	Le score d'intelligence est �
 AttributeModifier/&DHFeeblemindIntSpellTitle	Intelligence faible
 BlueprintCategory/&FlatRoomsTitle	Chambres à plat
 Caption/&GadgetParametersCustomRemoveDescription	Éliminer:\n{0}
+Class/&ClassMonkDescription	Les moines sont unis dans leur capacité à exploiter comme par magie l'énergie qui circule dans leur corps. Qu'elle soit canalisée comme une démonstration saisissante de prouesses au combat ou comme un objectif plus subtil de capacité défensive et de vitesse, cette énergie imprègne tout ce qu'un moine fait.
+Class/&ClassMonkTitle	Moine [bêta]
 Class/&ClassWarlockDescription	Les sorciers sont des chercheurs de la connaissance cachée dans le tissu du multivers. Grâce à des pactes conclus avec des êtres mystérieux au pouvoir surnaturel, les sorciers débloquent des effets magiques à la fois subtils et spectaculaires
 Class/&ClassWarlockTitle	démoniste
 Class/&TinkererDescription	Les bricoleurs sont des inventeurs, des alchimistes, etc. Ils comblent l'espace entre la magie et la technologie
@@ -74,6 +76,14 @@ Condition/&ApathyDescription	État d'apathie
 Condition/&ApathyTitle	Apathie
 Condition/&CharmDescription	État de charme
 Condition/&CharmTitle	Charme
+Condition/&ClassMonkEmptyBodyConditionDescription	Vous avez une résistance à tous les dégâts mais aux dégâts de force
+Condition/&ClassMonkEmptyBodyConditionTitle	Corps vide
+Condition/&ClassMonkOpenHandDistractConditionDescription	Ne peut pas faire de réactions
+Condition/&ClassMonkOpenHandDistractConditionTitle	Distraits
+Condition/&ClassMonkStepOfTheWindConditionDescription	Vous pouvez effectuer l'action Désengager ou Foncer en tant qu'action bonus et votre distance de saut est doublée pour le tour
+Condition/&ClassMonkStepOfTheWindConditionTitle	Pas du vent
+Condition/&ClassMonkTanquilityConditionDescription	Vous avez un avantage aux jets de sauvegarde contre les sorts et les ennemis ont un désavantage en vous attaquant. Supprimé lorsque vous attaquez ou lancez un sort.
+Condition/&ClassMonkTanquilityConditionTitle	Tranquillité
 Condition/&ConditionBarkWardDescription	Protégé par les esprits de la forêt
 Condition/&ConditionBarkWardTitle	Bark Ward
 Condition/&ConditionDualFlurryApplyDescription	Vous créez une dynamique...
@@ -126,7 +136,7 @@ Condition/&RuinDescription	État de ruine
 Condition/&RuinedDescription	La défense de cette créature est réduite
 Condition/&RuinedTitle	Ruiné
 Condition/&RuinTitle	Se ruiner
-Condition/&SwallowedByToadConditionDescription	Subit 3D6 dégâts d'acide par tour. Se termine si le sorcier crapaud subit 15 dégâts ou plus en une seule attaque
+Condition/&SwallowedByToadConditionDescription	Subit 3D6 dégâts d'acide par round. Se termine si le sorcier crapaud subit 15 dégâts ou plus en une seule attaque
 Condition/&SwallowedByToadConditionTitle	Avalé par le crapaud
 Condition/&SwallowingToadConditionDescription	Se termine si le sorcier crapaud subit 15 dégâts ou plus en une seule attaque
 Condition/&SwallowingToadConditionTitle	Crapaud avaleur
@@ -783,7 +793,7 @@ Feature/&ArtificerSpecialistArchetypesDescription	Dans quel domaine d'études vo
 Feature/&ArtificerSpecialistArchetypesTitle	Spécialisations de bricoleur
 Feature/&AscendantStepTitle	Étape ascendante
 Feature/&AspectoftheMoonDescription	Vous n'avez plus besoin de dormir et pouvez surveiller, ce qui réduit les risques d'attaque et vous assure que vous êtes éveillé si le camp est attaqué.
-Feature/&AspectoftheMoonTitle	Aspect de la Lune
+Feature/&AspectoftheMoonTitle	Aspect de la lune
 Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseDescription	Force +1
 Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseTitle	Augmentation d'attribut
 Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseDescription	Sagesse +2
@@ -807,6 +817,40 @@ Feature/&BondoftheTalismanDescription	Téléportation jusqu'à 5 cellules
 Feature/&BondoftheTalismanTitle	Talisman de téléportation
 Feature/&ChainsofCarceriDescription	Paralyse un céleste, un fiélon ou un élémental à moins qu'il ne réussisse un jet de sauvegarde WIS
 Feature/&ChainsofCarceriTitle	Chaînes de Carceri
+Feature/&ClassMonkDeflectMissileDescription	Vous pouvez utiliser votre réaction pour dévier le missile lorsque vous êtes touché par une attaque à distance. Lorsque vous le faites, les dégâts que vous subissez de l'attaque sont réduits de 1d10 + votre modificateur de Dextérité + votre niveau de moine
+Feature/&ClassMonkDeflectMissileTitle	Dévier les missiles
+Feature/&ClassMonkDiamondSoulDescription	Votre maîtrise du ki vous confère la maîtrise de tous les jets de sauvegarde.\nDe plus, chaque fois que vous faites un jet de sauvegarde et que vous échouez, vous pouvez dépenser 1 point de ki pour le relancer et prendre le deuxième résultat.
+Feature/&ClassMonkDiamondSoulTitle	Âme de diamant
+Feature/&ClassMonkExtraAttackDescription	Vous pouvez attaquer deux fois, au lieu d'une, chaque fois que vous effectuez l'action Attaquer à votre tour
+Feature/&ClassMonkExtraAttackTitle	Attaque supplémentaire
+Feature/&ClassMonkKiDescription	Votre entraînement vous permet d'exploiter l'énergie mystique du ki. Vous gagnez des points ki égaux à votre niveau de moine. Lorsque vous dépensez un point de ki, il n'est pas disponible jusqu'à ce que vous terminiez un repos court ou long, à la fin duquel vous récupérez tout votre ki dépensé. Vous pouvez dépenser ces points pour alimenter diverses fonctionnalités ki. Vous commencez à connaître trois de ces fonctionnalités :
+Feature/&ClassMonkKiEmpoweredStrikesDescription	Vos frappes à mains nues comptent comme magiques dans le but de surmonter la résistance et l'immunité aux attaques et dégâts non magiques
+Feature/&ClassMonkKiEmpoweredStrikesTitle	Frappes renforcées par le Ki
+Feature/&ClassMonkKiTitle	Ki
+Feature/&ClassMonkMartialArtsDescription	Vous bénéficiez des avantages suivants tant que vous n'êtes pas armé ou que vous ne portez que des armes de moine et que vous ne portez pas d'armure ni de bouclier :\n - Vous pouvez utiliser la Dextérité au lieu de la Force pour les jets d'attaque et de dégâts de vos frappes à mains nues et des armes de moine.\n - Vous pouvez lancer un d4 à la place des dégâts normaux de votre attaque à mains nues ou de votre arme de moine. Ce dé change à mesure que vous gagnez des niveaux de moine.\n - Lorsque vous utilisez l'action Attaquer avec une frappe à mains nues ou une arme de moine à votre tour, vous pouvez effectuer une frappe à mains nues en tant qu'action bonus
+Feature/&ClassMonkMartialArtsTitle	Arts martiaux
+Feature/&ClassMonkMartialDiceProgression00Description	Vous pouvez lancer <color=#57BCF4>D6</color> à la place des dégâts normaux de votre frappe à mains nues ou de votre arme de moine
+Feature/&ClassMonkMartialDiceProgression00Title	Augmentation du dé d'arts martiaux (D6)
+Feature/&ClassMonkMartialDiceProgression01Description	Vous pouvez lancer <color=#57BCF4>D8</color> à la place des dégâts normaux de votre frappe à mains nues ou de votre arme de moine
+Feature/&ClassMonkMartialDiceProgression01Title	Augmentation du dé d'arts martiaux (D8)
+Feature/&ClassMonkMartialDiceProgression02Description	Vous pouvez lancer <color=#57BCF4>D10</color> à la place des dégâts normaux de votre frappe à mains nues ou de votre arme de moine
+Feature/&ClassMonkMartialDiceProgression02Title	Augmentation du dé d'arts martiaux (D10)
+Feature/&ClassMonkPerfectSelfDescription	Lorsque vous commencez la bataille et qu'il ne vous reste plus de points de ki, vous regagnez 4 points de ki
+Feature/&ClassMonkPerfectSelfTitle	Soi parfait
+Feature/&ClassMonkPurityOfBodyDescription	Votre maîtrise du ki qui vous traverse vous rend immunisé contre les maladies et les poisons
+Feature/&ClassMonkPurityOfBodyTitle	Pureté du corps
+Feature/&ClassMonkSkillProficiencyTitle	Compétences de moine
+Feature/&ClassMonkTongueOfSunAndMoonDescription	Vous apprenez à toucher le ki des autres esprits afin de comprendre toutes les langues parlées. De plus, toute créature qui peut comprendre une langue peut comprendre ce que vous dites
+Feature/&ClassMonkTongueOfSunAndMoonTitle	Langue du Soleil et de la Lune
+Feature/&ClassMonkUnarmoredDefenseDescription	Tant que vous ne portez pas d'armure et que vous ne brandissez pas de bouclier, votre CA est égale à 10 + votre modificateur de Dextérité + votre modificateur de Sagesse
+Feature/&ClassMonkUnarmoredDefenseTitle	Défense non blindée
+Feature/&ClassMonkUnarmoredMovementBonusDescription	Le bonus de mouvement augmente de 5 pieds
+Feature/&ClassMonkUnarmoredMovementBonusTitle	Amélioration du mouvement sans armure
+Feature/&ClassMonkUnarmoredMovementDescription	Votre vitesse augmente de 3 mètres tant que vous ne portez pas d'armure ou ne brandissez pas de bouclier. Ce bonus augmente lorsque vous atteignez certains niveaux de moine
+Feature/&ClassMonkUnarmoredMovementTitle	Mouvement non blindé
+Feature/&ClassMonkUnarmoredMovementVerticalSurfaceDescription	Tant que vous n'êtes pas armé et que vous ne brandissez pas de bouclier, vous pouvez vous déplacer sur les murs comme une araignée. La capacité est temporairement perdue si vous effectuez une action qui n'est pas un mouvement, ou lorsque ce n'est pas votre tour de combat
+Feature/&ClassMonkUnarmoredMovementVerticalSurfaceTitle	Mouvement sans armure : Escalade
+Feature/&ClassMonkWeaponProficiencyTitle	Maîtrise des armes du moine
 Feature/&ClassWarlockArmorProficiencyDescription	Armure légère
 Feature/&ClassWarlockArmorProficiencyTitle	Compétences d'armure de démoniste
 Feature/&ClassWarlockEldritchInvocationReplaceDescription	Sélectionnez Eldritch Invocation pour remplacer
@@ -820,7 +864,7 @@ Feature/&ClassWarlockMysticArcanumSetTitle	Arcane Mystique
 Feature/&ClassWarlockSavingThrowProficiencyDescription	Sagesse, charisme
 Feature/&ClassWarlockSavingThrowProficiencyTitle	Compétences en jets de sauvegarde
 Feature/&ClassWarlockSkillProficiencyDescription	Choisissez 2 de ces compétences : Arcanes, Tromperie, Histoire, Intimidation, Enquête, Nature et Religion
-Feature/&ClassWarlockSkillProficiencyTitle	Compétences de démoniste
+Feature/&ClassWarlockSkillProficiencyTitle	Compétences de Démoniste
 Feature/&ClassWarlockSpellcastingDescription	Vos recherches sur les arcanes et la magie que vous a conférée votre mécène vous ont donné de la facilité avec les sorts
 Feature/&ClassWarlockSpellcastingTitle	Magie du pacte de démoniste
 Feature/&ClassWarlockToolsProficiencyDescription	Vous avez été formé pour préparer des remèdes à base de plantes et utiliser un équipement enchanteur
@@ -906,7 +950,7 @@ Feature/&EldritchSmiteTitle	Châtiment occulte
 Feature/&ElementalistSpellsMagicAffinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de sorcier. Les sorts suivants sont ajoutés à la liste des sorts de sorcier pour vous : {0}
 Feature/&ElementalistSpellsMagicAffinityTitle	Sorts d'élémentaliste
 Feature/&ElementalPactAirPlane	Avion
-Feature/&ElementalPactAstralPlane	Plan Astral
+Feature/&ElementalPactAstralPlane	Plan astral
 Feature/&ElementalPactEarthPlane	Plan de la Terre
 Feature/&ElementalPactEtherealPlane	Plan éthéré
 Feature/&ElementalPactFirePlane	Avion de pompiers
@@ -1121,6 +1165,8 @@ Feedback/&AdditionalDamageEldritchSmiteFormat	Châtiment Eldritch !
 Feedback/&AdditionalDamageEldritchSmiteLine	{0} châtie {1} (+{2})
 Feedback/&AdditionalDamageElementalDamageFormat	Dégâts élémentaires
 Feedback/&AdditionalDamageElementalDamageLine	La forme élémentaire inflige des dégâts supplémentaires
+Feedback/&AdditionalDamageLightningSpearFormat	Lance éclair !
+Feedback/&AdditionalDamageLightningSpearLine	{0} frappe {1} avec Lightning Spear ! (+{2})
 Feedback/&AdditionalDamagePactMarkedFormat	Marque de pacte !
 Feedback/&AdditionalDamagePactMarkedLine	La marque du pacte inflige des dégâts supplémentaires !
 Feedback/&AdditionalDamagePactSoulTakerFormat	Preneur d'âme !
@@ -1242,6 +1288,38 @@ Power/&AncientForestLifeSapDescription	Lorsque vous infligez des dégâts à un 
 Power/&AncientForestLifeSapTitle	Sève de vie
 Power/&AncientForestRootedPowerDescription	Des vrilles arboricoles poussent à partir de vos pieds et s'enfoncent dans le sol. Votre vitesse passe à 0 et vous gagnez un avantage sur tous les jets de sauvegarde pour vous pousser, vous tirer ou vous renverser. Vous pouvez lancer enchevêtrement à volonté.
 Power/&AncientForestRootedPowerTitle	Enraciné
+Power/&ClassMonkDiamondSoulPowerDescription	Chaque fois que vous faites un jet de sauvegarde et que vous échouez, vous pouvez dépenser 1 point de ki pour le relancer et prendre le deuxième résultat
+Power/&ClassMonkDiamondSoulPowerTitle	Âme de diamant
+Power/&ClassMonkEmptyBodyDescription	Vous pouvez utiliser votre action pour dépenser 4 points de ki pour devenir invisible pendant 1 minute. Pendant ce temps, vous avez également une résistance à tous les dégâts mais aux dégâts de force
+Power/&ClassMonkEmptyBodyTitle	Corps vide
+Power/&ClassMonkFlurryOfBlowsDescription	Après avoir dépensé une action pour attaquer avec une arme de moine, vous pouvez dépenser 1 point de ki en tant qu'action bonus pour effectuer 2 frappes sans nom. Uniquement disponible si vous ne portez pas d'armure ou de bouclier
+Power/&ClassMonkFlurryOfBlowsTitle	Rafale de coups
+Power/&ClassMonkKiPoolDescription	Vous pouvez exploiter l'énergie mystique du ki. Votre accès à cette énergie est représenté par un certain nombre de points ki. Le montant maximum est égal à votre niveau de moine. Tous les points dépensés sont récupérés sur un repos court ou long. Vous pouvez dépenser ces points pour alimenter diverses fonctionnalités ki
+Power/&ClassMonkKiPoolTitle	Points Ki
+Power/&ClassMonkKiStillnessOfMindDescription	Vous pouvez utiliser votre action pour mettre fin à un effet sur vous-même qui vous charme ou vous effraie
+Power/&ClassMonkKiStillnessOfMindTitle	Silence d'esprit
+Power/&ClassMonkOpenHandDistractDescription	La cible ne peut pas réagir avant la fin de votre prochain tour
+Power/&ClassMonkOpenHandDistractTitle	Distraire
+Power/&ClassMonkOpenHandProneDescription	La cible doit réussir un jet de sauvegarde de Dextérité ou être projetée à terre
+Power/&ClassMonkOpenHandProneTitle	Abattre
+Power/&ClassMonkOpenHandPushDescription	La cible doit réussir un jet de sauvegarde de Force ou être repoussée à 15 pieds de vous
+Power/&ClassMonkOpenHandPushTitle	Repousser
+Power/&ClassMonkOpenHandTechniqueDescription	Vous pouvez manipuler le ki de votre ennemi lorsque vous exploitez le vôtre. À chaque fois que vous touchez une créature avec l'une des attaques conférées par votre Déluge de coups, vous pouvez imposer l'un des effets suivants à cette cible :\n - Il doit réussir un jet de sauvegarde de Dextérité ou être mis à terre.\n - Il doit effectuer un jet de sauvegarde de Force. S'il échoue, vous pouvez le pousser jusqu'à 15 pieds de vous.\n - Il ne peut pas prendre de réactions avant la fin de votre prochain tour
+Power/&ClassMonkOpenHandTechniqueTitle	Technique à main ouverte
+Power/&ClassMonkPatientDefenseDescription	Vous pouvez dépenser 1 point de ki en tant qu'action bonus pour effectuer l'action Esquiver. Uniquement disponible si vous ne portez pas d'armure ou de bouclier
+Power/&ClassMonkPatientDefenseTitle	Défense des patients
+Power/&ClassMonkQuiveringPalmDescription	Lorsque vous touchez une créature avec un coup à mains nues, vous pouvez dépenser 3 points de ki pour déclencher des vibrations imperceptibles qui forcent la créature à effectuer un jet de sauvegarde de Constitution. En cas d'échec, il est réduit à 0 point de vie. S'il réussit, il subit 10d10 dégâts nécrotiques
+Power/&ClassMonkQuiveringPalmTitle	Paume tremblante
+Power/&ClassMonkSlowFallDescription	Vous pouvez utiliser votre réaction lorsque vous tombez pour éviter tout dommage de chute
+Power/&ClassMonkSlowFallTitle	Chute lente
+Power/&ClassMonkStepOfTheWindDescription	Vous pouvez dépenser 1 point de ki pour effectuer l'action Désengager ou Foncer en tant qu'action bonus à votre tour, et votre distance de saut est doublée pour le tour. Uniquement disponible si vous ne portez pas d'armure ou de bouclier
+Power/&ClassMonkStepOfTheWindTitle	Pas du vent
+Power/&ClassMonkStunningStrikeDescription	Vous pouvez interférer avec le flux de ki dans le corps d'un adversaire. Lorsque vous touchez une autre créature qui n'est pas étourdie par une attaque au corps à corps avec une arme, vous pouvez dépenser 1 point de ki pour tenter un coup étourdissant. La cible doit réussir un jet de sauvegarde de Constitution ou être étourdie jusqu'à la fin de votre prochain tour
+Power/&ClassMonkStunningStrikeTitle	Frappe étourdissante
+Power/&ClassMonkTanquilityDescription	Une fois par repos court, en tant qu'action libre, vous pouvez entrer dans un état de tranquillité, calmer vos émotions et vous concentrer sur ce qui vous entoure. Tant que vous êtes dans cet état, vous bénéficiez d'un avantage aux jets de sauvegarde contre les sorts et les ennemis sont désavantagés lorsqu'ils vous attaquent. La tranquillité dure jusqu'au prochain repos ou jusqu'à ce que vous attaquiez ou lanciez un sort
+Power/&ClassMonkTanquilityTitle	Tranquillité
+Power/&ClassMonkWholenessOfBodyDescription	Par une action, vous pouvez regagner des points de vie égaux à trois fois votre niveau de moine. Vous devez terminer un repos long avant de pouvoir utiliser à nouveau cette fonctionnalité
+Power/&ClassMonkWholenessOfBodyTitle	Intégralité du corps
 Power/&DH_ElementalFormPoolDescription	Vous pouvez basculer entre les formes élémentaires un certain nombre de fois (égal à votre bonus de compétence) par jour en canalisant l'énergie élémentaire. Vous gagnez une résistance aux dégâts concernés et une fois par tour, appliquez le bonus de maîtrise sous forme de dégâts du même type aux premiers dégâts de sort à chaque tour. Les formulaires durent 1 minute
 Power/&DH_ElementalFormPoolEnhancedDescription	Vous pouvez basculer entre les formes élémentaires améliorées un certain nombre de fois (égal à votre bonus de compétence) par jour en canalisant l'énergie élémentaire. Vous gagnez l'immunité contre les dégâts concernés et appliquez le bonus de compétence en tant que dégâts du même type aux premiers dégâts de sort à chaque tour. Les formulaires durent 1 minute
 Power/&DH_ElementalFormPoolEnhancedTitle	Formes élémentaires améliorées
@@ -1307,12 +1385,29 @@ Reaction/&CastSpellInRetributionDescription	{0} attaque {1} ! Vous pouvez lance
 Reaction/&CastSpellInRetributionReactDescription	Cliquez pour caster {0}
 Reaction/&CastSpellInRetributionReactTitle	Lancer un sort
 Reaction/&CastSpellInRetributionTitle	Lancer un sort de réaction
+Reaction/&CustomDeflectMissileClassMonkTitle	{0} attaque {1}, qui peut réagir pour réduire les dégâts subis de 1D10 + modificateur DEX + niveau de Moine
+Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueDescription	{0} touche une créature avec l'une des attaques conférées par Déluge de coups et peut imposer l'un des effets suivants à cette cible :
+Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactDescription	Appliquer la technique sélectionnée
+Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactTitle	Appliquer
+Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueTitle	Technique à main ouverte
+Reaction/&SpendPowerClassMonkQuiveringPalmDescription	{0} a touché l'adversaire avec une attaque à mains nues et peut dépenser 3 points de ki pour tenter de le tuer
+Reaction/&SpendPowerClassMonkQuiveringPalmReactDescription	Dépense du ki pour tenter de tuer l'adversaire
+Reaction/&SpendPowerClassMonkQuiveringPalmReactTitle	Dépenser du ki
+Reaction/&SpendPowerClassMonkQuiveringPalmTitle	Paume tremblante
+Reaction/&SpendPowerClassMonkStunningStrikeDescription	{0} a touché l'adversaire et peut dépenser 1 point de ki pour tenter d'étourdir
+Reaction/&SpendPowerClassMonkStunningStrikeReactDescription	Dépense du ki pour tenter d'étourdir l'adversaire
+Reaction/&SpendPowerClassMonkStunningStrikeReactTitle	Dépenser du ki
+Reaction/&SpendPowerClassMonkStunningStrikeTitle	Frappe étourdissante
 Reaction/&SpendPowerCounterStrikePowerDescription	Dépensez un dé de gambit et contre-frappez l'ennemi, si vous touchez, infligez 1d6 + 2 dégâts contondants supplémentaires
 Reaction/&SpendPowerCounterStrikePowerReactDescription	Dépensez un dé de gambit et contre-frappez l'ennemi, si vous touchez, infligez 1d6 + 2 dégâts contondants supplémentaires
 Reaction/&SpendPowerCounterStrikePowerReactTitle	Counter Strike
 Reaction/&SpendPowerCounterStrikePowerTitle	Counter Strike
 Reaction/&SpendPowerDH_RiftStrikeDescription	Une fois par jour lorsqu'il est endommagé au corps à corps, vous pouvez utiliser votre réaction pour créer un portail qui bannit l'attaquant pendant 1 round de votre plan d'existence
 Reaction/&SpendPowerDH_RiftStrikeTitle	Frappe de faille
+Reaction/&SpendPowerDiamondSoulDescription	{0} a échoué à une sauvegarde et peut dépenser 1 ki pour le relancer
+Reaction/&SpendPowerDiamondSoulReactDescription	Dépensez du ki pour relancer la sauvegarde ratée
+Reaction/&SpendPowerDiamondSoulReactTitle	Relancer
+Reaction/&SpendPowerDiamondSoulTitle	Âme de diamant
 Reaction/&SpendPowerInspirePowerDescription	Passez un dé de gambit et inspirez ou votre allié pour donner 1d6 + 2 PV temporaires
 Reaction/&SpendPowerInspirePowerTitle	Inspirer
 Reaction/&SpendPowerKnockDownPowerDescription	Dépensez un dé de gambit et renforcez votre attaque pour infliger 1d6 + 2 dégâts contondants supplémentaires et renversez-les jusqu'au début de leur prochain tour s'ils échouent à une sauvegarde de Force contre 8 + votre Force + compétence
@@ -1327,8 +1422,13 @@ Reaction/&SpendSpellSlotEldritchSmiteReactTitle	Châtiment
 Reaction/&SpendSpellSlotEldritchSmiteTitle	Châtiment occulte
 Reaction/&SubitemSelectEldritchSmiteDescription	Sélectionnez un niveau d'emplacement à consommer pour votre Eldritch Smite
 Reaction/&SubitemSelectEldritchSmiteTitle	Niveau d'emplacement
+Reaction/&SubitemSelectPowerBundleTitle	Choix
 Reaction/&SubitemSelectSlotLevelTitle	Niveau d'emplacement
 Reaction/&SubitemSelectWarcasterTitle	Sélectionnez l'action
+Reaction/&UseClassMonkSlowFallDescription	{0} tombe et peut utiliser la réaction pour éviter les dégâts de chute
+Reaction/&UseClassMonkSlowFallReactDescription	Utilisez la réaction pour éviter les dommages
+Reaction/&UseClassMonkSlowFallReactTitle	Réagir
+Reaction/&UseClassMonkSlowFallTitle	Chute lente
 Reaction/&WarcasterAttackDescription	Cible d'attaque
 Reaction/&WarcasterAttackTitle	Attaque
 Reaction/&WarcasterReactionDescription	{0} quitte une zone menacée par un ou plusieurs personnages
@@ -1503,6 +1603,11 @@ SpellList/&RiftWalkerSpellsListTitle	Liste de sorts de Rift Walker
 SpellList/&SpellListTinkererDescription	Liste de sorts du bricoleur
 SpellList/&SpellListTinkererTitle	Liste de sorts du bricoleur
 Stage/&IdentityMorphotypeEyeHeader	Style des yeux
+Stage/&SubclassSelectionStageClassMonkTraditionDescription	Cette étape sélectionne la tradition monastique du personnage
+Stage/&SubclassSelectionStageClassMonkTraditionFeatures	Caractéristiques de la tradition monastique
+Stage/&SubclassSelectionStageClassMonkTraditionHeader	Sélectionnez une tradition monastique
+Stage/&SubclassSelectionStageClassMonkTraditionNoneDescription	Vous devez sélectionner une tradition monastique
+Stage/&SubclassSelectionStageClassMonkTraditionTitle	Monastique\nTradition
 Stage/&SubclassSelectionStageCovenDescription	Couvent
 Stage/&SubclassSelectionStageCovenFeaturesDescription	Couvent
 Stage/&SubclassSelectionStageCovenFeaturesHeader	Caractéristiques du Coven
@@ -1540,7 +1645,7 @@ Subclass/&AttackModifierArtificerBattleSmithWeaponDescription	Vos attaques compt
 Subclass/&AttackModifierArtificerBattleSmithWeaponTitle	Arme infusée
 Subclass/&AttackModifierArtificerBlindingWeaponDescription	Touchez une arme qui acquiert la capacité d'aveugler les cibles lorsqu'elle est touchée (contre une sauvegarde de Constitution). Notez que vous ne pouvez activer une perfusion qu'une seule fois. L'activer une seconde fois annulera la première
 Subclass/&AttackModifierArtificerBlindingWeaponTitle	Arme aveuglante
-Subclass/&AttackModifierArtificerEnhancedArmorDescription	Touchez Armor et il devient magique et fournit +1 CA. Notez que vous ne pouvez activer une perfusion qu'une seule fois. L'activer une seconde fois annulera la première
+Subclass/&AttackModifierArtificerEnhancedArmorDescription	Touchez Armor et il devient magique et fournit +1 AC. Notez que vous ne pouvez activer une perfusion qu'une seule fois. L'activer une seconde fois annulera la première
 Subclass/&AttackModifierArtificerEnhancedArmorTitle	Armure améliorée
 Subclass/&AttackModifierArtificerEnhancedFocusDescription	Touchez un focus et il devient magique et gagne +1 pour attaquer et épeler dc. Notez que vous ne pouvez activer une perfusion qu'une seule fois. L'activer une seconde fois annulera la première
 Subclass/&AttackModifierArtificerEnhancedFocusTitle	Mise au point améliorée
@@ -1592,6 +1697,10 @@ Subclass/&CancelCancelElixirResilienceDescription	Mettre fin à la condition de 
 Subclass/&CancelCancelElixirResilienceTitle	Annuler la résilience
 Subclass/&CancelCancelElixirSwiftnessDescription	Mettre fin à la condition Rapidité de l'élixir Potion Maker
 Subclass/&CancelCancelElixirSwiftnessTitle	Annuler la rapidité
+Subclass/&ClassMonkTraditionDescription	Au niveau 3, vous choisissez la voie spirituelle que vous suivez vers l'illumination. Cela façonnera la façon dont vous manipulez le ki.
+Subclass/&ClassMonkTraditionTitle	Traditions monastiques
+Subclass/&ClassMonkTraditionWayOfTheOpenHandDescription	[mise à jour après l'implémentation des fonctionnalités]\nLes Moines de la Voie de la Main Ouverte sont les maîtres ultimes du combat des arts martiaux, qu'ils soient armés ou non. Ils apprennent des techniques pour pousser et faire trébucher leurs adversaires, manipuler le ki pour soigner les dommages causés à leur corps et pratiquer une méditation avancée qui peut les protéger du mal.
+Subclass/&ClassMonkTraditionWayOfTheOpenHandTitle	Voie de la main ouverte
 Subclass/&ClassWarlockPatronDescription	Un sorcier est défini par un pacte avec un être d'un autre monde. Parfois, la relation entre le sorcier et le mécène ressemble à celle d'un clerc et d'une divinité, bien que les êtres qui servent de mécènes ne soient pas des dieux.
 Subclass/&ClassWarlockPatronTitle	Patron d'un autre mot
 Subclass/&ConditionResistantArmorTitle	Armure résistante
@@ -1760,7 +1869,7 @@ Subclass/&TraditionSpellMasterSpellResistanceDescription	Votre entraînement à 
 Subclass/&TraditionSpellMasterSpellResistanceTitle	Résistance aux sorts
 Subclass/&TraditionSpellMasterTitle	Maître des sorts
 Subclass/&WarlockAncientForestDescription	Vous avez forgé une relation avec une entité naturelle puissante : Dryades antiques, Archidruides, Manifestations de la Feywild saignant dans le plan matériel, Dieux oubliés d'un âge primitif. Votre patron peut souhaiter que vous protégiez le monde naturel, voyagez dans des terres lointaines qu'il ne peut pas, ou il peut avoir un autre motif qui semble impénétrable aux mortels de courte durée.
-Subclass/&WarlockAncientForestTitle	Pacte de la forêt antique
+Subclass/&WarlockAncientForestTitle	Pacte de la forêt ancienne
 Subclass/&WarlockMoonLitDescription	Votre patron est un esprit de la lune, une entité qui incarne la nature cyclique de la lumière et des ténèbres. Ces esprits cherchent à maintenir le pouvoir de la lune sur le ciel nocturne tout en gardant à distance les pouvoirs profanes qui traquent les ténèbres et chargent leurs sorciers de la même manière, leur accordant le contrôle des pouvoirs de la lune et de ses effets.
 Subclass/&WarlockMoonLitTitle	Pacte au clair de lune
 Subclass/&WarlockToadKingDescription	Fey, démon ou aberration causée par le cataclysme, la vraie nature du roi crapaud n'est pas connue, mais on sait que le roi crapaud règne sur une vaste zone de marécages et de marais dans les Badlands et offre du pouvoir à ceux qui veulent servir.
@@ -1777,6 +1886,7 @@ Subclass/&WhiteWitchMagicTitle	Magie blanche
 Subclass/&WhiteWitchTitle	Sorcière Blanche
 Subclass/&WitchSubclassPathDescription	Votre connaissance de la magie a culminé en rejoignant un Coven, un cercle inné de sorcières qui explorent un chemin spécifique de sorcellerie et de malédictions
 Subclass/&WitchSubclassPathTitle	Couvents de sorcières
+Tooltip/&CustomPortraitPoolClassMonkKiPool	Vous pouvez exploiter l'énergie mystique du ki. Votre accès à cette énergie est représenté par un certain nombre de points ki. Le montant maximum est égal à votre niveau de moine. Tous les points dépensés sont récupérés sur un repos court ou long. Vous pouvez dépenser ces points pour alimenter diverses fonctionnalités ki
 Tooltip/&FeatPrerequisiteHasStealthAttack	A une attaque furtive
 Tooltip/&FeatPrerequisiteIsNotBarbarian	n'est pas un barbare
 Tooltip/&FeatPrerequisiteIsNotFighter	N'est pas un combattant
@@ -1785,123 +1895,15 @@ Tooltip/&FeatPrerequisiteLevelFormat	Niveau de personnage minimum {0}
 Tooltip/&Tag9000Title	Effet personnalisé
 Tooltip/&TagCommunityExpansionTitle	Expansion de la communauté
 Tooltip/&TagMaledictionTitle	Bon sang
+Tooltip/&TagMonkWeaponTitle	Moine
 Tooltip/&TagOtherModContentTitle	À partir du module
 UI/&CustomFeatureSelectionStageDescription	Sélectionnez des fonctionnalités supplémentaires dans votre classe/sous-classe
 UI/&CustomFeatureSelectionStageFeatures	Caractéristiques
 UI/&CustomFeatureSelectionStageNotDone	Vous devez sélectionner toutes les fonctionnalités disponibles avant de continuer
 UI/&CustomFeatureSelectionStageTitle	Sélection de fonctionnalité
-UI/&CustomFeatureSelectionTooltipTypeCantrip	Cantrip
+UI/&CustomFeatureSelectionTooltipTypeCantrip	cantrip
 UI/&CustomFeatureSelectionTooltipTypeFeature	Fonctionnalité
 UI/&CustomFeatureSelectionTooltipTypePower	Pouvoir
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Compétence
 UI/&ForcePreferredCantripDescription	Si cette option est activée, seul le cantrip préféré peut se déclencher. Si le sort mineur préféré n'est pas sélectionné, le premier sort mineur valide se déclenchera, quelle que soit cette bascule
 UI/&ForcePreferredCantripTitle	Forcer le sort mineur préféré
-Class/&ClassMonkTitle	Moine [bêta]
-Class/&ClassMonkDescription	Les moines sont unis dans leur capacité à exploiter comme par magie l'énergie qui circule dans leur corps. Qu'elle soit canalisée comme une démonstration saisissante de prouesses au combat ou comme un objectif plus subtil de capacité défensive et de vitesse, cette énergie imprègne tout ce qu'un moine fait.
-Feature/&ClassMonkWeaponProficiencyTitle	Maîtrise des armes du moine
-Feature/&ClassMonkSkillProficiencyTitle	Compétences de moine
-Feature/&ClassMonkUnarmoredDefenseTitle	Défense non blindée
-Feature/&ClassMonkUnarmoredDefenseDescription	Tant que vous ne portez pas d'armure et que vous ne brandissez pas de bouclier, votre CA est égale à 10 + votre modificateur de Dextérité + votre modificateur de Sagesse
-Feature/&ClassMonkMartialArtsTitle	Arts martiaux
-Feature/&ClassMonkMartialArtsDescription	Vous bénéficiez des avantages suivants tant que vous n'êtes pas armé ou que vous ne portez que des armes de moine et que vous ne portez pas d'armure ni de bouclier :\n - Vous pouvez utiliser la Dextérité au lieu de la Force pour les jets d'attaque et de dégâts de vos frappes à mains nues et des armes de moine.\n - Vous pouvez lancer un d4 à la place des dégâts normaux de votre attaque à mains nues ou de votre arme de moine. Ce dé change à mesure que vous gagnez des niveaux de moine.\n - Lorsque vous utilisez l'action Attaquer avec une frappe à mains nues ou une arme de moine à votre tour, vous pouvez effectuer une frappe à mains nues en tant qu'action bonus
-Feature/&ClassMonkUnarmoredMovementTitle	Mouvement non blindé
-Feature/&ClassMonkUnarmoredMovementDescription	Votre vitesse augmente de 3 mètres tant que vous ne portez pas d'armure ou ne brandissez pas de bouclier. Ce bonus augmente lorsque vous atteignez certains niveaux de moine
-Feature/&ClassMonkUnarmoredMovementBonusTitle	Amélioration du mouvement sans armure
-Feature/&ClassMonkUnarmoredMovementBonusDescription	Le bonus de mouvement augmente de 5 pieds
-Feature/&ClassMonkMartialDiceProgression00Title	Augmentation du dé d'arts martiaux (D6)
-Feature/&ClassMonkMartialDiceProgression00Description	Vous pouvez lancer <color=#57BCF4>D6</color> à la place des dégâts normaux de votre frappe à mains nues ou de votre arme de moine
-Feature/&ClassMonkMartialDiceProgression01Title	Augmentation du dé d'arts martiaux (D8)
-Feature/&ClassMonkMartialDiceProgression01Description	Vous pouvez lancer <color=#57BCF4>D8</color> à la place des dégâts normaux de votre frappe à mains nues ou de votre arme de moine
-Feature/&ClassMonkMartialDiceProgression02Title	Augmentation du dé d'arts martiaux (D10)
-Feature/&ClassMonkMartialDiceProgression02Description	Vous pouvez lancer <color=#57BCF4>D10</color> à la place des dégâts normaux de votre frappe à mains nues ou de votre arme de moine
-Tooltip/&TagMonkWeaponTitle	Moine
-Feature/&ClassMonkKiTitle	Ki
-Feature/&ClassMonkKiDescription	Votre entraînement vous permet d'exploiter l'énergie mystique du ki. Vous gagnez des points ki égaux à votre niveau de moine. Lorsque vous dépensez un point de ki, il n'est pas disponible jusqu'à ce que vous terminiez un repos court ou long, à la fin duquel vous récupérez tout votre ki dépensé. Vous pouvez dépenser ces points pour alimenter diverses fonctionnalités ki. Vous commencez à connaître trois de ces fonctionnalités :
-Power/&ClassMonkFlurryOfBlowsTitle	Rafale de coups
-Power/&ClassMonkFlurryOfBlowsDescription	Après avoir dépensé une action pour attaquer avec une arme de moine, vous pouvez dépenser 1 point de ki en tant qu'action bonus pour effectuer 2 frappes sans nom. Uniquement disponible si vous ne portez pas d'armure ou de bouclier
-Power/&ClassMonkPatientDefenseTitle	Défense des patients
-Power/&ClassMonkPatientDefenseDescription	Vous pouvez dépenser 1 point de ki en tant qu'action bonus pour effectuer l'action Esquiver. Uniquement disponible si vous ne portez pas d'armure ou de bouclier
-Power/&ClassMonkStepOfTheWindTitle	Pas du vent
-Power/&ClassMonkStepOfTheWindDescription	Vous pouvez dépenser 1 point de ki pour effectuer l'action Désengager ou Foncer en tant qu'action bonus à votre tour, et votre distance de saut est doublée pour le tour. Uniquement disponible si vous ne portez pas d'armure ou de bouclier
-Condition/&ClassMonkStepOfTheWindConditionTitle	Pas du vent
-Condition/&ClassMonkStepOfTheWindConditionDescription	Vous pouvez effectuer l'action Désengager ou Foncer en tant qu'action bonus et votre distance de saut est doublée pour le tour
-Feature/&ClassMonkDeflectMissileTitle	Dévier les missiles
-Feature/&ClassMonkDeflectMissileDescription	Vous pouvez utiliser votre réaction pour dévier le missile lorsque vous êtes touché par une attaque à distance. Lorsque vous le faites, les dégâts que vous subissez de l'attaque sont réduits de 1d10 + votre modificateur de Dextérité + votre niveau de moine
-Reaction/&CustomDeflectMissileClassMonkTitle	{0} attaque {1}, qui peut réagir pour réduire les dégâts subis de 1D10 + modificateur DEX + niveau de Moine
-Power/&ClassMonkSlowFallTitle	Chute lente
-Power/&ClassMonkSlowFallDescription	Vous pouvez utiliser votre réaction lorsque vous tombez pour éviter tout dommage de chute
-Reaction/&UseClassMonkSlowFallTitle	Chute lente
-Reaction/&UseClassMonkSlowFallDescription	{0} tombe et peut utiliser la réaction pour éviter les dégâts de chute
-Reaction/&UseClassMonkSlowFallReactTitle	Réagir
-Reaction/&UseClassMonkSlowFallReactDescription	Utilisez la réaction pour éviter les dommages
-Feature/&ClassMonkExtraAttackTitle	Attaque supplémentaire
-Feature/&ClassMonkExtraAttackDescription	Vous pouvez attaquer deux fois, au lieu d'une, chaque fois que vous effectuez l'action Attaquer à votre tour
-Power/&ClassMonkStunningStrikeTitle	Frappe étourdissante
-Power/&ClassMonkStunningStrikeDescription	Vous pouvez interférer avec le flux de ki dans le corps d'un adversaire. Lorsque vous touchez une autre créature qui n'est pas étourdie par une attaque au corps à corps avec une arme, vous pouvez dépenser 1 point de ki pour tenter un coup étourdissant. La cible doit réussir un jet de sauvegarde de Constitution ou être étourdie jusqu'à la fin de votre prochain tour
-Reaction/&SpendPowerClassMonkStunningStrikeTitle	Frappe étourdissante
-Reaction/&SpendPowerClassMonkStunningStrikeDescription	{0} a touché l'adversaire et peut dépenser 1 point de ki pour tenter d'étourdir
-Reaction/&SpendPowerClassMonkStunningStrikeReactTitle	Dépenser du ki
-Reaction/&SpendPowerClassMonkStunningStrikeReactDescription	Dépense du ki pour tenter d'étourdir l'adversaire
-Feature/&ClassMonkKiEmpoweredStrikesTitle	Frappes renforcées par le Ki
-Feature/&ClassMonkKiEmpoweredStrikesDescription	Vos frappes à mains nues comptent comme magiques dans le but de surmonter la résistance et l'immunité aux attaques et dégâts non magiques
-Power/&ClassMonkKiStillnessOfMindTitle	Silence d'esprit
-Power/&ClassMonkKiStillnessOfMindDescription	Vous pouvez utiliser votre action pour mettre fin à un effet sur vous-même qui vous charme ou vous effraie
-Feature/&ClassMonkPurityOfBodyTitle	Pureté du corps
-Feature/&ClassMonkPurityOfBodyDescription	Votre maîtrise du ki qui vous traverse vous rend immunisé contre les maladies et les poisons
-Feature/&ClassMonkUnarmoredMovementVerticalSurfaceTitle	Mouvement sans armure : Escalade
-Feature/&ClassMonkUnarmoredMovementVerticalSurfaceDescription	Tant que vous n'êtes pas armé et que vous ne brandissez pas de bouclier, vous pouvez vous déplacer sur les murs comme une araignée. La capacité est temporairement perdue si vous effectuez une action qui n'est pas un mouvement, ou lorsque ce n'est pas votre tour de combat
-Feature/&ClassMonkTongueOfSunAndMoonTitle	Langue du Soleil et de la Lune
-Feature/&ClassMonkTongueOfSunAndMoonDescription	Vous apprenez à toucher le ki des autres esprits afin de comprendre toutes les langues parlées. De plus, toute créature qui peut comprendre une langue peut comprendre ce que vous dites
-Feature/&ClassMonkDiamondSoulTitle	Âme de diamant
-Feature/&ClassMonkDiamondSoulDescription	Votre maîtrise du ki vous confère la maîtrise de tous les jets de sauvegarde.\nDe plus, chaque fois que vous faites un jet de sauvegarde et que vous échouez, vous pouvez dépenser 1 point de ki pour le relancer et prendre le deuxième résultat.
-Power/&ClassMonkDiamondSoulPowerTitle	Âme de diamant
-Power/&ClassMonkDiamondSoulPowerDescription	Chaque fois que vous faites un jet de sauvegarde et que vous échouez, vous pouvez dépenser 1 point de ki pour le relancer et prendre le deuxième résultat
-Reaction/&SpendPowerDiamondSoulTitle	Âme de diamant
-Reaction/&SpendPowerDiamondSoulDescription	{0} a échoué à une sauvegarde et peut dépenser 1 ki pour le relancer
-Reaction/&SpendPowerDiamondSoulReactTitle	Relancer
-Reaction/&SpendPowerDiamondSoulReactDescription	Dépensez du ki pour relancer la sauvegarde ratée
-Power/&ClassMonkEmptyBodyTitle	Corps vide
-Power/&ClassMonkEmptyBodyDescription	Vous pouvez utiliser votre action pour dépenser 4 points de ki pour devenir invisible pendant 1 minute. Pendant ce temps, vous avez également une résistance à tous les dégâts mais aux dégâts de force
-Condition/&ClassMonkEmptyBodyConditionTitle	Corps vide
-Condition/&ClassMonkEmptyBodyConditionDescription	Vous avez une résistance à tous les dégâts mais aux dégâts de force
-Feature/&ClassMonkPerfectSelfTitle	Soi parfait
-Feature/&ClassMonkPerfectSelfDescription	Lorsque vous commencez la bataille et qu'il ne vous reste plus de points de ki, vous regagnez 4 points de ki
-Tooltip/&CustomPortraitPoolClassMonkKiPool	Vous pouvez exploiter l'énergie mystique du ki. Votre accès à cette énergie est représenté par un certain nombre de points ki. Le montant maximum est égal à votre niveau de moine. Tous les points dépensés sont récupérés sur un repos court ou long. Vous pouvez dépenser ces points pour alimenter diverses fonctionnalités ki
-Subclass/&ClassMonkTraditionTitle	Traditions monastiques
-Subclass/&ClassMonkTraditionDescription	Au niveau 3, vous choisissez la voie spirituelle que vous suivez vers l'illumination. Cela façonnera la façon dont vous manipulez le ki.
-Stage/&SubclassSelectionStageClassMonkTraditionDescription	Cette étape sélectionne la tradition monastique du personnage
-Stage/&SubclassSelectionStageClassMonkTraditionFeatures	Caractéristiques de la tradition monastique
-Stage/&SubclassSelectionStageClassMonkTraditionHeader	Sélectionnez une tradition monastique
-Stage/&SubclassSelectionStageClassMonkTraditionNoneDescription	Vous devez sélectionner une tradition monastique
-Stage/&SubclassSelectionStageClassMonkTraditionTitle	Monastique\nTradition
-Subclass/&ClassMonkTraditionWayOfTheOpenHandTitle	Voie de la main ouverte
-Subclass/&ClassMonkTraditionWayOfTheOpenHandDescription	[mise à jour après l'implémentation des fonctionnalités]\nLes Moines de la Voie de la Main Ouverte sont les maîtres ultimes du combat des arts martiaux, qu'ils soient armés ou non. Ils apprennent des techniques pour pousser et faire trébucher leurs adversaires, manipuler le ki pour soigner les dommages causés à leur corps et pratiquer une méditation avancée qui peut les protéger du mal.
-Reaction/&SubitemSelectPowerBundleTitle	Choix
-Power/&ClassMonkOpenHandProneTitle	Abattre
-Power/&ClassMonkOpenHandProneDescription	La cible doit réussir un jet de sauvegarde de Dextérité ou être projetée à terre
-Power/&ClassMonkOpenHandPushTitle	Repousser
-Power/&ClassMonkOpenHandPushDescription	La cible doit réussir un jet de sauvegarde de Force ou être repoussée à 15 pieds de vous
-Power/&ClassMonkOpenHandDistractTitle	Distraire
-Power/&ClassMonkOpenHandDistractDescription	La cible ne peut pas réagir avant la fin de votre prochain tour
-Condition/&ClassMonkOpenHandDistractConditionTitle	Distraits
-Condition/&ClassMonkOpenHandDistractConditionDescription	Ne peut pas faire de réactions
-Power/&ClassMonkOpenHandTechniqueTitle	Technique à main ouverte
-Power/&ClassMonkOpenHandTechniqueDescription	Vous pouvez manipuler le ki de votre ennemi lorsque vous exploitez le vôtre. À chaque fois que vous touchez une créature avec l'une des attaques conférées par votre Déluge de coups, vous pouvez imposer l'un des effets suivants à cette cible :\n - Il doit réussir un jet de sauvegarde de Dextérité ou être mis à terre.\n - Il doit effectuer un jet de sauvegarde de Force. S'il échoue, vous pouvez le pousser jusqu'à 15 pieds de vous.\n - Il ne peut pas prendre de réactions avant la fin de votre prochain tour
-Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueTitle	Technique à main ouverte
-Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueDescription	{0} touche une créature avec l'une des attaques conférées par Déluge de coups et peut imposer l'un des effets suivants à cette cible :
-Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactTitle	Appliquer
-Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactDescription	Appliquer la technique sélectionnée
-Power/&ClassMonkWholenessOfBodyTitle	Intégralité du corps
-Power/&ClassMonkWholenessOfBodyDescription	Par une action, vous pouvez regagner des points de vie égaux à trois fois votre niveau de moine. Vous devez terminer un repos long avant de pouvoir utiliser à nouveau cette fonctionnalité
-Power/&ClassMonkTanquilityTitle	Tranquillité
-Power/&ClassMonkTanquilityDescription	Une fois par repos court, en tant qu'action libre, vous pouvez entrer dans un état de tranquillité, calmer vos émotions et vous concentrer sur ce qui vous entoure. Tant que vous êtes dans cet état, vous bénéficiez d'un avantage aux jets de sauvegarde contre les sorts et les ennemis sont désavantagés lorsqu'ils vous attaquent. La tranquillité dure jusqu'au prochain repos ou jusqu'à ce que vous attaquiez ou lanciez un sort
-Condition/&ClassMonkTanquilityConditionTitle	Tranquillité
-Condition/&ClassMonkTanquilityConditionDescription	Vous avez un avantage aux jets de sauvegarde contre les sorts et les ennemis ont un désavantage en vous attaquant. Supprimé lorsque vous attaquez ou lancez un sort.
-Power/&ClassMonkQuiveringPalmTitle	Paume tremblante
-Power/&ClassMonkQuiveringPalmDescription	Lorsque vous touchez une créature avec un coup à mains nues, vous pouvez dépenser 3 points de ki pour déclencher des vibrations imperceptibles qui forcent la créature à effectuer un jet de sauvegarde de Constitution. En cas d'échec, il est réduit à 0 point de vie. S'il réussit, il subit 10d10 dégâts nécrotiques
-Reaction/&SpendPowerClassMonkQuiveringPalmTitle	Paume tremblante
-Reaction/&SpendPowerClassMonkQuiveringPalmDescription	{0} a touché l'adversaire avec une attaque à mains nues et peut dépenser 3 points de ki pour tenter de le tuer
-Reaction/&SpendPowerClassMonkQuiveringPalmReactTitle	Dépenser du ki
-Reaction/&SpendPowerClassMonkQuiveringPalmReactDescription	Dépense du ki pour tenter de tuer l'adversaire
-Feedback/&AdditionalDamageLightningSpearFormat	Lance de Foudre!
-Feedback/&AdditionalDamageLightningSpearLine	{0} frappe {1} avec Lance de Foudre! (+{2})
