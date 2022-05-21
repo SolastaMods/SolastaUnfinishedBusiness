@@ -76,9 +76,37 @@ internal static class CharacterActionPanelPatcher
                 actionItems.Add(component);
             }
 
+            var tmp = new List<(Transform, int, ActionDefinitions.Id)>();
+            for (var i = 0; i < startIndex + newItems; i++)
+            {
+                var child = actionsTable.RectTransform.GetChild(i);
+                tmp.Add((child, i, GetId(child)));
+            }
+
+            tmp.Sort((a, b) =>
+            {
+                if (a.Item3 == b.Item3)
+                {
+                    return a.Item2.CompareTo(b.Item2);
+                }
+
+                return a.Item3.CompareTo(b.Item3);
+            });
+
+            for (var i = 0; i < tmp.Count; i++)
+            {
+                var (child, _, _) = tmp[i];
+                child.SetSiblingIndex(i);
+            }
+
             actionsTable.DispatchChildren(76f);
             __instance.RectTransform
                 .SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 0.0f, actionsTable.RectTransform.rect.width);
+        }
+
+        private static ActionDefinitions.Id GetId(Transform transform)
+        {
+            return transform.GetComponent<CharacterActionItem>().CurrentItemForm.GuiCharacterAction.ActionId;
         }
 
         private static void CustomBindItem(CharacterActionItem item, CharacterActionPanel panel,
