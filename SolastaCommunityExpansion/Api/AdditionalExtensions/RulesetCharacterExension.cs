@@ -33,4 +33,12 @@ internal static class RulesetCharacterExension
         return power.GetAllSubFeaturesOfType<IPowerUseValidity>()
             .All(v => v.CanUsePower(instance));
     }
+
+    public static List<RulesetAttackMode> GetAttackModesByActionType(this RulesetCharacter instance,
+        ActionDefinitions.ActionType actionType)
+    {
+        return instance.AttackModes
+            .Where(a => !a.AfterChargeOnly && a.ActionType == actionType)
+            .ToList();
+    }
 }
