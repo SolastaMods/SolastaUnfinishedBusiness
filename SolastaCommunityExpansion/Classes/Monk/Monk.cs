@@ -23,6 +23,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
     {
         public const string ClassName = "ClassMonk";
         public const string WeaponTag = "MonkWeapon";
+        public const string FlurryTag = "MonkFlurryAttack";
         public static readonly Guid GUID = new("1478A002-D107-4E34-93A3-CEA260DA25C9");
         public static CharacterClassDefinition Class { get; private set; }
 
@@ -496,6 +497,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .SetSilent(Silent.WhenAddedOrRemoved)
                 .SetDuration(DurationType.Round, 1)
                 .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
+                .SetSpecialInterruptions(ConditionInterruption.BattleEnd, ConditionInterruption.AnyBattleTurnEnd)
                 .AddToDB();
 
             attackedWithMonkWeapon = CharacterValidators.HasAnyOfConditions(attackedWithMonkWeaponCondition);
@@ -508,18 +510,16 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .Create("ClassMonkMartialArts", GUID)
                 .SetGuiPresentation(Category.Feature)
                 .SetCustomSubFeatures(
-                    //TODO: add one big sub-feature that implements all these parts to improve performance
                     new CanUseAttributeForWeapon(AttributeDefinitions.Dexterity, IsMonkWeapon,
-                        CharacterValidators.NoArmor, CharacterValidators.NoShield, UsingOnlyMonkWeapons),
+                        CharacterValidators.NoArmor, CharacterValidators.NoShield),
                     new UpgradeWeaponDice(GetMartialDice, IsMonkWeapon,
-                        CharacterValidators.NoArmor, CharacterValidators.NoShield, UsingOnlyMonkWeapons),
+                        CharacterValidators.NoArmor, CharacterValidators.NoShield),
                     new AddEffectFormToWeaponAttack(attackedWithMonkWeaponEffect, IsMonkWeapon),
-                    new AddBonusUnarmedAttack(ActionDefinitions.ActionType.Bonus,
-                        attackedWithMonkWeapon, UsingOnlyMonkWeapons,
-                        CharacterValidators.NoShield, CharacterValidators.NoArmor,
-                        //Forcing empty offhand only because it isn't really shown if character already has bonus attack
-                        //TODO: make action panel able to show multiple actions of a type
-                        CharacterValidators.EmptyOffhand)
+                    //TODO: add an option in mod setting to include or exclude this unarmed attack, plus maybe add checks that you have weapon in main hand, so no double options
+                    // new AddBonusUnarmedAttack(ActionDefinitions.ActionType.Main, 
+                    //     CharacterValidators.NoArmor, CharacterValidators.NoShield),
+                    new AddBonusUnarmedAttack(ActionDefinitions.ActionType.Bonus, UsingOnlyMonkWeapons, 
+                        attackedWithMonkWeapon, CharacterValidators.NoShield, CharacterValidators.NoArmor)
                 )
                 .AddToDB();
         }
@@ -604,7 +604,8 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .Create("ClassMonkFlurryOfBlowsExtraAttacks1", GUID)
                 .SetGuiPresentationNoContent(true)
                 .SetCustomSubFeatures(new AddBonusUnarmedAttack(ActionDefinitions.ActionType.Bonus, 1, true,
-                    CharacterValidators.NoArmor, CharacterValidators.NoShield))
+                    CharacterValidators.NoArmor, CharacterValidators.NoShield)
+                    .SetTags(FlurryTag))
                 .SetActionType(ActionDefinitions.ActionType.Bonus)
                 .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
                 .AddToDB();
@@ -635,6 +636,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                                 .SetDuration(DurationType.Round, 0, false)
                                 .SetSpecialDuration(true)
                                 .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
+                                .SetSpecialInterruptions(ConditionInterruption.BattleEnd, ConditionInterruption.AnyBattleTurnEnd)
                                 .SetFeatures(extraFlurryAttack1, extraFlurryAttack2)
                                 .AddToDB(),
                             ConditionForm.ConditionOperation.Add, true, true)

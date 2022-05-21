@@ -23,8 +23,6 @@ public static class WayOfTheOpenHand
 
     private static FeatureDefinition BuildOpenHandTechnique()
     {
-        var hasFlurry = CharacterValidators.HasAnyOfConditions("ClassMonkFlurryOfBlowsCondition");
-
         var technique = FeatureDefinitionPowerBuilder
             .Create("ClassMonkOpenHandTechnique", Monk.GUID)
             .SetGuiPresentation(Category.Power)
@@ -32,8 +30,7 @@ public static class WayOfTheOpenHand
             .SetRechargeRate(RechargeRate.AtWill)
             .SetCostPerUse(0)
             .SetCustomSubFeatures(new ReactionAttackModeRestriction(
-                ReactionAttackModeRestriction.MeleeOnly,
-                (_, character, _) => hasFlurry(character)
+                (mode, _, _) => mode.AttackTags.Contains(Monk.FlurryTag)
             ))
             .AddToDB();
 
