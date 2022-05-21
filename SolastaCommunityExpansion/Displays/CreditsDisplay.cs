@@ -19,27 +19,27 @@ namespace SolastaCommunityExpansion.Displays
         internal static readonly Dictionary<string, string> CreditsTable = new()
         {
             { "AceHigh", "SoulBlade subclass, Tactician subclass, Power Attack and Reckless Fury feats, no identification" },
-            { "Bazou", "Witch class" },
+            { "Bazou", "Witch class, Fighting Styles" },
             { "Boofat", "alwaysAlt" },
             { "Burtsev-Alexey", "deep copy algorithm" },
-            { "ChrisJohnDigital", "head developer, crafting, faction relations, feats, fighting styles, items, subclasses, progression" },
+            { "ChrisJohnDigital", "Tinkerer class, crafting, faction relations, feats, fighting styles, items, subclasses, progression" },
             { "Dreadmaker", "Forest Guardian subclass" },
-            { "DubhHerder", "7th, 8th and 9th level spells, Crafty Feats migration, bug models replacement, additional high level monsters, Warlock class, subclasses" },
+            { "DubhHerder", "7th, 8th and 9th level spells, Crafty Feats migration, bug models replacement, additional high level monsters, Warlock class and subclasses" },
             { "ElAntonious", "Arcanist subclass, Torchbearer and Dual Flurry feats" },
             { "Esker", "Warlock class design, quality assurance" },
-            { "Holic75", "SolastaModHelpers patches, SolastaExtraContent races, cantrips, spells, sprites" },
-            { "ImpPhil", "adv/dis rules, conjurations control, auto-equip, location rotation in DM, monster's health, pause UI, sorting, stocks prices, no attunement, xp scaling, character export, save by location, combat camera, diagnostics, custom icons, refactor, screen map" },
+            { "Holic75", "SolastaModHelpers and SolastaExtraContent" },
+            { "ImpPhil", "adv/dis rules, conjurations control, auto-equip, monster's health, pause UI, sorting, stocks prices, no attunement, xp scaling, character export, save by location, combat camera, diagnostics, custom icons, refactor, screen map" },
             { "Lyraele", "Warlock class design, quality assurance" },
             { "Narria", "modKit creator, developer" },
             { "Nd", "Opportunist subclass" },
             { "PraiseThyBus", "quality assurance" },
             { "RedOrca", "Path of the Light subclass, Indomitable Might" },
-            { "SilverGriffon", "PickPocket, lore friendly names, crafty feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants" },
+            { "SilverGriffon", "PickPocket, lore friendly names, crafty feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants, spells" },
             { "Sinai-dev", "Unity Explorer UI standalone" },
             { "Spacehamster", "dataminer" },
-            { "TPABOBAP", "Warlock class design, improvements and refactor, Level Up improvements, Tinkerer improvements, Holic patches " },
+            { "TPABOBAP", "Monk class, Warlock improvements, Tinkerer improvements, Level Up improvements, Holic75's code integration" },
             { "View619", "Darkvision, Superior Dark Vision" },
-            { "Zappastuff", "multiclass, level 20, respec, level down, encounters, dungeon maker editor & pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, integration, arcane defense/precision, brutal thug, charismatic defense/precision, fast hands, fighting surge, marksman, metamagic, primal, shady and wise defense/precision feats, races and spells migration, warlock pact magic, refactor" }
+            { "Zappastuff", "multiclass, level 20, respec, level down, encounters, dungeon maker pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, feats, pact magic, Holic75's code integration" }
         };
 
         internal static void DisplayCredits()
