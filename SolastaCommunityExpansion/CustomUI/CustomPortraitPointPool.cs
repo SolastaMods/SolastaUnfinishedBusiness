@@ -56,6 +56,8 @@ public class CusomPortraitPointPool : MonoBehaviour
             var obj = Instantiate(prefab, parent, false);
             obj.name = name;
             pool = obj.AddComponent<CusomPortraitPointPool>();
+            
+            pool.Setup(provider, character);
         }
 
         pool.UpdateState(provider, character);
@@ -63,15 +65,19 @@ public class CusomPortraitPointPool : MonoBehaviour
         return pool;
     }
 
-    private void UpdateState(ICusomPortraitPointPoolProvider provider, RulesetCharacter character)
+    private void Setup(ICusomPortraitPointPoolProvider provider, RulesetCharacter character)
     {
-        gameObject.SetActive(true); //Do we need ability to set to inactive on update?
-
         var image = transform.Find("SorceryPointsImage").GetComponent<Image>();
         if (image != null)
         {
+            image.sprite = null;
             image.SetupSprite(provider.Icon);
         }
+    }
+    
+    private void UpdateState(ICusomPortraitPointPoolProvider provider, RulesetCharacter character)
+    {
+        gameObject.SetActive(true); //Do we need ability to set to inactive on update?
 
         var label = transform.Find("SorceyPointsLabel")?.GetComponent<GuiLabel>();
         if (label != null)
