@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using ModKit;
+using SolastaCommunityExpansion.Builders;
 using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Models
@@ -31,6 +33,45 @@ namespace SolastaCommunityExpansion.Models
             UnleashGadgetsOnAllEnvironments();
             UnleashPropsOnAllEnvironments();
             UnleashRoomsOnAllEnvironments();
+            UnlockItems();
+            UnlockTraps();
+        }
+
+        private static void UnlockItems()
+        {
+            var itemDefinitions = DatabaseRepository.GetDatabase<ItemDefinition>();
+
+            foreach (ItemDefinition itemDefinition in itemDefinitions)
+            {
+                itemDefinition.SetInDungeonEditor(true);
+            }
+        }
+
+        private static void UnlockTraps()
+        {
+            var environmentEffectDefinitions = DatabaseRepository.GetDatabase<EnvironmentEffectDefinition>();
+
+            foreach (EnvironmentEffectDefinition environmentEffectDefinition in environmentEffectDefinitions)
+            {
+                var description = environmentEffectDefinition.FormatDescription();
+                var title = environmentEffectDefinition.FormatTitle();
+
+                if (title == "")
+                {
+                    title = environmentEffectDefinition.name.Replace("_", " ");
+
+                    environmentEffectDefinition.GuiPresentation.SetTitle(title);
+                }
+
+                if (description == "")
+                {
+                    description = environmentEffectDefinition.name.Replace("_", " ");
+
+                    environmentEffectDefinition.GuiPresentation.SetDescription(description);
+                }
+
+                environmentEffectDefinition.SetField("inDungeonEditor", true);
+            }
         }
 
         internal static int Compare(BaseBlueprint left, BaseBlueprint right)
