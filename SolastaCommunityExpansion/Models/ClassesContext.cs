@@ -50,7 +50,10 @@ namespace SolastaCommunityExpansion.Models
 #endif
 
             Classes = Classes.OrderBy(x => x.FormatTitle()).ToHashSet();
+        }
 
+        internal static void LateLoad()
+        {
             if (Main.Settings.EnableSortingFutureFeatures)
             {
                 SortClassesFeatures();

@@ -88,9 +88,7 @@ namespace SolastaCommunityExpansion.Patches
             {
                 // Late initialized to allow feats and races from other mods
                 FlexibleRacesContext.LateLoad();
-
-                // There are feats that need all character classes loaded before they can properly be setup.
-                FeatsContext.LateLoad();
+                InitialChoicesContext.LateLoad();
 
                 // Generally available powers need all classes in the db before they are initialized here.
                 PowersContext.LateLoad();
@@ -101,14 +99,17 @@ namespace SolastaCommunityExpansion.Patches
                 // Integration Context
                 IntegrationContext.LateLoad();
 
+                // Divine Smite fixes
+                HouseFeatureContext.LateLoad();
+
                 // Multiclass
                 MulticlassContext.LateLoad();
 
+                // Classes Features Sorting
+                ClassesContext.LateLoad();
+
                 // Save by location initialization depends on services to be ready
                 SaveByLocationContext.LateLoad();
-
-                //
-                HouseFeatureContext.LateLoad();
 
                 // Recache all gui collections
                 GuiWrapperContext.Recache();

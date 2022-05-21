@@ -43,6 +43,10 @@ namespace SolastaCommunityExpansion.Models
 
             LoadEpicArray();
             LoadVision();
+        }
+
+        internal static void LateLoad()
+        {
             SwitchAsiAndFeat();
             SwitchEvenLevelFeats();
             SwitchFirstLevelTotalFeats();
