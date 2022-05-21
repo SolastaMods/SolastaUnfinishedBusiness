@@ -1866,7 +1866,7 @@ Condition/&ClassMonkEmptyBodyConditionTitle	Empty Body
 Condition/&ClassMonkEmptyBodyConditionDescription	You have resistance to all damage but force damage
 Feature/&ClassMonkPerfectSelfTitle	Perfect Self
 Feature/&ClassMonkPerfectSelfDescription	When you start battle and have no ki points remaining, you regain 4 ki points
-Tooltip/&CustomPortraitPoolClassMonkKiPool	You can harness the mystic energy of ki. Your access to this energy is represented by a number of ki points. Maximum amount is equal to your monk level. All spent points are regained on short or long rest. You can spend these points to fuel various ki features
+Tooltip/&CustomPortraitPoolClassMonkKiPool	You can harness the mystic energy of ki. Your access to this energy is represented by a number of ki points. Maximum amount is equal to your monk level. All spent points are regained on short or long rest. You can spend these points to fuel various ki features.
 Subclass/&ClassMonkTraditionTitle	Monastic Traditions
 Subclass/&ClassMonkTraditionDescription	At 3rd level you choose spiritual way you follow towards enlightenment. It will shape how you manipulate ki.  
 Stage/&SubclassSelectionStageClassMonkTraditionDescription	This stage selects the character's monastic tradition
@@ -1905,3 +1905,5 @@ Reaction/&SpendPowerClassMonkQuiveringPalmReactTitle	Spend ki
 Reaction/&SpendPowerClassMonkQuiveringPalmReactDescription	Spend ki to attempt to kill opponent
 Feedback/&AdditionalDamageLightningSpearFormat	Lightning Spear!
 Feedback/&AdditionalDamageLightningSpearLine	{0} strikes {1} with Lightning Spear! (+{2})
+Power/&ClassMonkKiPoolTitle	Ki Points
+Power/&ClassMonkKiPoolDescription	You can harness the mystic energy of ki. Your access to this energy is represented by a number of ki points. Maximum amount is equal to your monk level. All spent points are regained on short or long rest. You can spend these points to fuel various ki features.
