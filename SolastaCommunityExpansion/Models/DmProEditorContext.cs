@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using ModKit;
-using SolastaCommunityExpansion.Builders;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
@@ -41,7 +40,7 @@ namespace SolastaCommunityExpansion.Models
         {
             var itemDefinitions = DatabaseRepository.GetDatabase<ItemDefinition>();
 
-            foreach (ItemDefinition itemDefinition in itemDefinitions)
+            foreach (var itemDefinition in itemDefinitions)
             {
                 itemDefinition.SetInDungeonEditor(true);
             }
@@ -51,7 +50,7 @@ namespace SolastaCommunityExpansion.Models
         {
             var environmentEffectDefinitions = DatabaseRepository.GetDatabase<EnvironmentEffectDefinition>();
 
-            foreach (EnvironmentEffectDefinition environmentEffectDefinition in environmentEffectDefinitions)
+            foreach (var environmentEffectDefinition in environmentEffectDefinitions)
             {
                 var description = environmentEffectDefinition.FormatDescription();
                 var title = environmentEffectDefinition.FormatTitle();

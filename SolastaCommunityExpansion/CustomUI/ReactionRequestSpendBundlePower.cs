@@ -3,7 +3,7 @@ using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.CustomUI 
+namespace SolastaCommunityExpansion.CustomUI
 {
     public class ReactionRequestSpendBundlePower : ReactionRequest
     {

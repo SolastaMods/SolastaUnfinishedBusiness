@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace SolastaCommunityExpansion.Models 
+namespace SolastaCommunityExpansion.Models
 {
     public delegate bool CharacterValidator(RulesetCharacter character);
 
