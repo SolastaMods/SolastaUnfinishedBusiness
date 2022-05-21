@@ -81,13 +81,13 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
                 {
                     return int.MaxValue;
                 }
-                else if (levels == 1)
+                else if (levels == 0)
                 {
-                    return featureUnlockByLevel.Level - 1;
+                    return featureUnlockByLevel.Level;
                 }
                 else
                 {
-                    return featureUnlockByLevel.Level;
+                    return featureUnlockByLevel.Level - 1;
                 }
             }
 
