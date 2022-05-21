@@ -11,10 +11,14 @@ internal static class UsablePowerBoxPatcher
     {
         internal static void Postfix(UsablePowerBox __instance)
         {
-            var panel = __instance.GetComponentInParent<CharacterControlPanelExploration>();
+            CharacterControlPanel panel = __instance.GetComponentInParent<CharacterControlPanelExploration>();
             if (panel == null)
             {
-                return;
+                panel = __instance.GetComponentInParent<CharacterControlPanelBattle>();
+                if (panel == null)
+                {
+                    return;
+                }
             }
 
             __instance.GuiTooltip.Context = panel.GuiCharacter?.RulesetCharacter;
