@@ -73,7 +73,7 @@ namespace SolastaCommunityExpansion
                 Menu = new MenuManager();
                 Menu.Enable(modEntry, assembly);
 
-                // LoadSidecars(assembly.GetName().Name);
+                LoadSidecars(assembly.GetName().Name);
             }
             catch (Exception ex)
             {
