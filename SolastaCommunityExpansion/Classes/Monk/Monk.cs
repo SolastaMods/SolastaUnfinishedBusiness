@@ -496,6 +496,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .SetSilent(Silent.WhenAddedOrRemoved)
                 .SetDuration(DurationType.Round, 1)
                 .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
+                .SetSpecialInterruptions(ConditionInterruption.BattleEnd, ConditionInterruption.AnyBattleTurnEnd)
                 .AddToDB();
 
             attackedWithMonkWeapon = CharacterValidators.HasAnyOfConditions(attackedWithMonkWeaponCondition);
@@ -635,6 +636,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                                 .SetDuration(DurationType.Round, 0, false)
                                 .SetSpecialDuration(true)
                                 .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
+                                .SetSpecialInterruptions(ConditionInterruption.BattleEnd, ConditionInterruption.AnyBattleTurnEnd)
                                 .SetFeatures(extraFlurryAttack1, extraFlurryAttack2)
                                 .AddToDB(),
                             ConditionForm.ConditionOperation.Add, true, true)
