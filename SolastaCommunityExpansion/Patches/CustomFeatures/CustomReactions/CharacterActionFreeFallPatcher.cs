@@ -77,7 +77,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
             return powers.FirstOrDefault();
         }
 
-
         private static IEnumerator Process(CharacterActionFreeFall __instance)
         {
             var fallingCharacter = __instance.ActingCharacter;

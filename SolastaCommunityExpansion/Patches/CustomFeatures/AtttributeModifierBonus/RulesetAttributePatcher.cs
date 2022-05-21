@@ -9,9 +9,7 @@ using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures.AtttributeModifierBonus;
-
-internal static class RulesetAttributePatcher
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.AtttributeModifierBonus
 {
     // non stacked AC
     [HarmonyPatch(typeof(RulesetAttribute), "Refresh")]

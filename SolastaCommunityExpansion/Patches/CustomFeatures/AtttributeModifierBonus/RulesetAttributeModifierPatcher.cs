@@ -8,7 +8,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.AtttributeModifierBon
     // allows the metamagic feats to work correctly with a Sorcerer
     [HarmonyPatch(typeof(RulesetAttributeModifier), "ApplyOnValue")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetAttribute_Refresh
+    internal static class RulesetAttributeModifier_ApplyOnValue
     {
         internal static void Postfix(RulesetAttributeModifier __instance, ref int __result, int originValue)
         {
