@@ -1,5 +1,5 @@
 ﻿using SolastaCommunityExpansion.Api.AdditionalExtensions;
-using SolastaCommunityExpansion.Features;
+using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;

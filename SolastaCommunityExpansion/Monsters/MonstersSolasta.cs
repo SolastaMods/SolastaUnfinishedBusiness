@@ -1,6 +1,6 @@
-﻿using SolastaModApi;
+﻿using System.Collections.Generic;
+using SolastaModApi;
 using SolastaModApi.Extensions;
-using System.Collections.Generic;
 //******************************************************************************************
 // BY DEFINITION, REFACTORING REQUIRES CONFIRMING EXTERNAL BEHAVIOUR DOES NOT CHANGE
 // "REFACTORING WITHOUT TESTS IS JUST CHANGING STUFF"
@@ -31,7 +31,7 @@ namespace SolastaMonsters.Monsters
             if (SolastaCommunityExpansion.Main.Settings.EnableExtraHighLevelMonsters)
             {
 
-                foreach (MonsterDefinition monster in listofExistingMonsters)
+                foreach (var monster in listofExistingMonsters)
                 {
                     if (monster.DungeonMakerPresence == MonsterDefinition.DungeonMaker.None)
                     {

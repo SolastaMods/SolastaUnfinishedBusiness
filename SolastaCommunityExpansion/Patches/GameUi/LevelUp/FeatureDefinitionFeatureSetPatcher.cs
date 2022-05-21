@@ -2,7 +2,7 @@
 using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.Api.AdditionalExtensions;
-using SolastaCommunityExpansion.Features;
+using SolastaCommunityExpansion.CustomDefinitions;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp;
 

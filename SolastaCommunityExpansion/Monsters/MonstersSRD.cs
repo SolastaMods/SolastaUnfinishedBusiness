@@ -1,8 +1,8 @@
-﻿using SolastaCommunityExpansion.Builders;
+﻿using System.Collections.Generic;
+using SolastaCommunityExpansion.Builders;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
-using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
 //******************************************************************************************
 // BY DEFINITION, REFACTORING REQUIRES CONFIRMING EXTERNAL BEHAVIOUR DOES NOT CHANGE
@@ -1681,7 +1681,7 @@ namespace SolastaMonsters.Monsters
 
         public static void EnableInDungeonMaker()
         {
-            for (int i = 0; i < Definitions.Count; i++)
+            for (var i = 0; i < Definitions.Count; i++)
             {
 
                 /* original version that worked just fine
@@ -1694,7 +1694,7 @@ namespace SolastaMonsters.Monsters
                     Definitions[i].BaseTemplateName);
                 */
 
-                MonsterDefinitionBuilder NewMonster = MonsterDefinitionBuilder
+                var NewMonster = MonsterDefinitionBuilder
                         .Create(
                             Definitions[i].BaseTemplateName, Definitions[i].NewName,
                             DefinitionBuilder.CENamespaceGuid)
@@ -1868,7 +1868,7 @@ namespace SolastaMonsters.Monsters
                     // monster powres, AI and combat needs work, too repetitive at the moment as some powers/attacks are not triggering
                     NewMonster.SetInDungeonEditor(false);
                 }
-                MonsterDefinition monster = NewMonster.AddToDB();
+                var monster = NewMonster.AddToDB();
 
                 // temporary fix until builder is changed
                 monster.CreatureTags.Clear();

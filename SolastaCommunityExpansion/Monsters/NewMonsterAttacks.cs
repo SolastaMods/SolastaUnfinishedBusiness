@@ -1,8 +1,8 @@
-﻿using SolastaCommunityExpansion.Builders;
+﻿using System.Collections.Generic;
+using SolastaCommunityExpansion.Builders;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaMonsters.Models;
-using System.Collections.Generic;
 using UnityEngine;
 //******************************************************************************************
 // BY DEFINITION, REFACTORING REQUIRES CONFIRMING EXTERNAL BEHAVIOUR DOES NOT CHANGE
@@ -94,7 +94,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewRoc_Beak_Attack()
         {
 
-            string text = "Roc_Beak_Attack";
+            var text = "Roc_Beak_Attack";
 
 
             Roc_Beak_Attack = BuildNewAttack(
@@ -116,7 +116,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewRoc_Talons_Attack()
         {
 
-            string text = "Roc_Talons_Attack";
+            var text = "Roc_Talons_Attack";
 
 
             Roc_Talons_Attack = BuildNewAttack(
@@ -160,7 +160,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewIce_Bite_Attack()
         {
 
-            string text = "Ice_Bite_Attack";
+            var text = "Ice_Bite_Attack";
 
 
             Ice_Bite_Attack = BuildNewAttack(
@@ -183,7 +183,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewNagaSpit_Attack()
         {
 
-            string text = "NagaSpit_Attack";
+            var text = "NagaSpit_Attack";
 
 
             NagaSpit_Attack = BuildNewAttack(
@@ -216,7 +216,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewNagaBite_Attack()
         {
 
-            string text = "NagaBite_Attack";
+            var text = "NagaBite_Attack";
 
 
             NagaBite_Attack = BuildNewAttack(
@@ -268,7 +268,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewFork_Attack()
         {
 
-            string text = "Fork_Attack";
+            var text = "Fork_Attack";
 
 
             Fork_Attack = BuildNewAttack(
@@ -294,9 +294,9 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewHornedDevilTail_Attack()
         {
 
-            string text = "HornedDevilTail_Attack";
+            var text = "HornedDevilTail_Attack";
 
-            ConditionDefinition BleedingWound_Condition = BuildNewCondition(
+            var BleedingWound_Condition = BuildNewCondition(
                          "DH_Custom_" + text + "condition",
                          DatabaseHelper.ConditionDefinitions.ConditionBleeding,
                          GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text + "condition").ToString(),
@@ -356,7 +356,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewPoisonLongsword_Attack()
         {
 
-            string text = "PoisonLongsword_Attack";
+            var text = "PoisonLongsword_Attack";
 
 
             PoisonLongsword_Attack = BuildNewAttack(
@@ -394,7 +394,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewPoisonLongbow_Attack()
         {
 
-            string text = "PoisonLongbow_Attack";
+            var text = "PoisonLongbow_Attack";
 
 
             PoisonLongbow_Attack = BuildNewAttack(
@@ -458,7 +458,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewRadiantLongsword_Attack()
         {
 
-            string text = "RadiantLongsword_Attack";
+            var text = "RadiantLongsword_Attack";
 
 
             RadiantLongsword_Attack = BuildNewAttack(
@@ -484,7 +484,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewRadiantLongbow_Attack()
         {
 
-            string text = "RadiantLongbow_Attack";
+            var text = "RadiantLongbow_Attack";
 
 
             RadiantLongbow_Attack = BuildNewAttack(
@@ -545,7 +545,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewAirBlast_Attack()
         {
 
-            string text = "AirBlast_Attack";
+            var text = "AirBlast_Attack";
 
 
             AirBlast_Attack = BuildNewAttack(
@@ -581,7 +581,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewHurlFlame_Attack()
         {
 
-            string text = "HurlFlame_Attack";
+            var text = "HurlFlame_Attack";
 
 
             HurlFlame_Attack = BuildNewAttack(
@@ -602,7 +602,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewFireScimatar_Attack()
         {
 
-            string text = "FireScimatar_Attack";
+            var text = "FireScimatar_Attack";
 
 
             FireScimatar_Attack = BuildNewAttack(
@@ -640,7 +640,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewLightningScimatar_Attack()
         {
 
-            string text = "LightningScimatar_Attack";
+            var text = "LightningScimatar_Attack";
 
 
             LightningScimatar_Attack = BuildNewAttack(
@@ -679,7 +679,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewGeneric_Bite_Attack()
         {
             // generic bite attack without extra damage for CR 10-15 monsters
-            string text = "Generic_Bite_Attack_No_ExtraDamage";
+            var text = "Generic_Bite_Attack_No_ExtraDamage";
 
 
             Generic_Bite_Attack = BuildNewAttack(
@@ -699,7 +699,7 @@ namespace SolastaMonsters.Monsters
         {
 
             // generic bite attack without extra damage for high level CR monsters
-            string text_1 = "Generic_Stronger_Bite_Attack_No_ExtraDamage";
+            var text_1 = "Generic_Stronger_Bite_Attack_No_ExtraDamage";
 
 
             Generic_Stronger_Bite_Attack = BuildNewAttack(
@@ -725,7 +725,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewGeneric_Claw_Attack()
         {
             // correct dice numbers/type for ancient dragon claw
-            string text = "Generic_Claw_Attack";
+            var text = "Generic_Claw_Attack";
 
 
             AncientDragon_Claw_Attack = BuildNewAttack(
@@ -783,13 +783,13 @@ namespace SolastaMonsters.Monsters
             };
 
 
-            foreach (KeyValuePair<string, string> entry in NewMonsterAttributes.Dictionaryof_Dragon_DamageAffinity)
+            foreach (var entry in NewMonsterAttributes.Dictionaryof_Dragon_DamageAffinity)
             {
 
-                string text = entry.Value + "_Bite_Attack";
+                var text = entry.Value + "_Bite_Attack";
                 text = text.Replace(" ", "");
 
-                MonsterAttackDefinition Dragon_Bite_Attack = BuildNewAttack(
+                var Dragon_Bite_Attack = BuildNewAttack(
                        "DH_Custom_" + text,
                        DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Bite,
                        GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
@@ -831,7 +831,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewAncientDragon_Tail_Attack()
         {
             // correct dice numbers/type for ancient dragon tail
-            string text = "AncientDragon_Tail_Attack";
+            var text = "AncientDragon_Tail_Attack";
 
 
             AncientDragon_Tail_Attack = BuildNewAttack(
@@ -856,9 +856,9 @@ namespace SolastaMonsters.Monsters
 
         public static void BuildNewPitFiend_Bite_Attack()
         {
-            string text = "PitFiend_Bite_Attack";
+            var text = "PitFiend_Bite_Attack";
 
-            ConditionDefinition PitFiend_Bite_Condition = BuildNewCondition(
+            var PitFiend_Bite_Condition = BuildNewCondition(
                      "DH_Custom_" + text + "condition",
                      DatabaseHelper.ConditionDefinitions.ConditionPoisoned_BasicPoison,
                      GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text + "condition").ToString(),
@@ -909,7 +909,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNew_PitFiend_Mace_Attack()
         {
 
-            string text = "PitFiend_Mace_Attack";
+            var text = "PitFiend_Mace_Attack";
 
 
             PitFiend_Mace_Attack = BuildNewAttack(
@@ -938,7 +938,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewBalor_Longsword_Attack()
         {
 
-            string text = "Balor_Longsword_Attack";
+            var text = "Balor_Longsword_Attack";
 
 
             Balor_Longsword_Attack = BuildNewAttack(
@@ -968,7 +968,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewBalor_Whip_Attack()
         {
 
-            string text = "Balor_Whip_Attack";
+            var text = "Balor_Whip_Attack";
 
 
             Balor_Whip_Attack = BuildNewAttack(
@@ -1019,7 +1019,7 @@ namespace SolastaMonsters.Monsters
 
         public static void BuildNewLich_ParalyzingTouch_Attack()
         {
-            string text = "Lich_ParalyzingTouch_Attack";
+            var text = "Lich_ParalyzingTouch_Attack";
 
 
 
@@ -1050,7 +1050,7 @@ namespace SolastaMonsters.Monsters
 
         public static void BuildNewFireTitan_Slam_Attack()
         {
-            string text = "FireTitan_Slam_Attack";
+            var text = "FireTitan_Slam_Attack";
 
 
 
@@ -1091,7 +1091,7 @@ namespace SolastaMonsters.Monsters
 
         public static void BuildNewAirTitan_Slam_Attack()
         {
-            string text = "AirTitan_Slam_Attack";
+            var text = "AirTitan_Slam_Attack";
 
 
 
@@ -1133,7 +1133,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewEarthTitan_Slam_Attack()
         {
 
-            string text = "EarthTitan_Slam_Attack";
+            var text = "EarthTitan_Slam_Attack";
 
 
             EarthTitan_Slam_Attack = BuildNewAttack(
@@ -1159,7 +1159,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewConstructTitan_Slam_Attack()
         {
 
-            string text = "ConstructTitan_Slam_Attack";
+            var text = "ConstructTitan_Slam_Attack";
 
 
             ConstructTitan_Slam_Attack = BuildNewAttack(
@@ -1199,7 +1199,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewConstructTitan_ForceCannon_Attack()
         {
 
-            string text = "ConstructTitan_ForceCannon_Attack";
+            var text = "ConstructTitan_ForceCannon_Attack";
 
 
             ConstructTitan_ForceCannon_Attack = BuildNewAttack(
@@ -1241,7 +1241,7 @@ namespace SolastaMonsters.Monsters
 
         public static void BuildNewEarthTitan_Boulder_Attack()
         {
-            string text = "EarthTitan_Boulder_Attack";
+            var text = "EarthTitan_Boulder_Attack";
 
 
             EarthTitan_Boulder_Attack = BuildNewAttack(
@@ -1287,7 +1287,7 @@ namespace SolastaMonsters.Monsters
             Hit: 36 (4d12 + 10) piercing damage. If the target is a creature, it is grappled (escape DC 20). Until this grapple ends, the target is restrained, and the tarrasque can't bite another target.
             */
 
-            string text = "Tarrasque_Bite";
+            var text = "Tarrasque_Bite";
 
 
             TarrasqueGrappledRestrainedCondition = NewMonsterAttacks.BuildNewCondition(
@@ -1340,7 +1340,7 @@ namespace SolastaMonsters.Monsters
                one target.
                Hit: 28 (4d8 + 10) slashing damage.
             */
-            string text = "Tarrasque_Claw";
+            var text = "Tarrasque_Claw";
 
 
             Tarrasque_Claw_Attack = BuildNewAttack(
@@ -1373,7 +1373,7 @@ namespace SolastaMonsters.Monsters
                 Hit: 24 (4d6 + 10) bludgeoning damage.
                 If the target is a creature, it must succeed on a DC 20 Strength saving throw or be knocked prone.
             */
-            string text = "Tarrasque_Tail";
+            var text = "Tarrasque_Tail";
 
 
             Tarrasque_Tail_Attack = BuildNewAttack(
@@ -1430,7 +1430,7 @@ namespace SolastaMonsters.Monsters
             one target.
             Hit: 32 (4d10 + 10) piercing damage.
             */
-            string text = "Tarrasque_Horn";
+            var text = "Tarrasque_Horn";
 
 
             Tarrasque_Horn_Attack = BuildNewAttack(

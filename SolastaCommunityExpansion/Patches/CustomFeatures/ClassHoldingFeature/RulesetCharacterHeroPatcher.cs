@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.Api.AdditionalExtensions;
-using SolastaCommunityExpansion.CustomDefinitions;
+using SolastaCommunityExpansion.CustomInterfaces;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.ClassHoldingFeature
 {

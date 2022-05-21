@@ -1,4 +1,6 @@
-﻿namespace SolastaCommunityExpansion.CustomDefinitions
+﻿using SolastaCommunityExpansion.CustomInterfaces;
+
+namespace SolastaCommunityExpansion.CustomDefinitions
 {
     /**
      * Before using this, please consider if FeatureDefinitionAdditionalDamage can cover the desired use case.

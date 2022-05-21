@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using SolastaCommunityExpansion.Api.AdditionalExtensions;
-using SolastaCommunityExpansion.Features;
+using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.CustomUI;

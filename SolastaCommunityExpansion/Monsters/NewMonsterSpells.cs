@@ -31,9 +31,9 @@ namespace SolastaMonsters.Monsters
 
         public static void BuildNewReverseGravity_Spell()
         {
-            string text = "ReverseGravity_Spell";
+            var text = "ReverseGravity_Spell";
 
-            ConditionDefinition ReverseGravity_Condition = BuildNewCondition(
+            var ReverseGravity_Condition = BuildNewCondition(
                      "DH_Custom_" + text + "condition",
                      DatabaseHelper.ConditionDefinitions.ConditionLevitate,
                      GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text + "condition").ToString(),
@@ -116,7 +116,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewDominateMonster_Spell()
         {
             // control Powers aren't used by monsters in solasta
-            string text = "DominateMonster_Spell";
+            var text = "DominateMonster_Spell";
 
 
             DominateMonster_Spell = BuildNewSpell(
@@ -139,7 +139,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewFingerOfDeath_Spell()
         {
 
-            string text = "FingerOfDeath_Spell";
+            var text = "FingerOfDeath_Spell";
 
 
             FingerOfDeath_Spell = BuildNewSpell(
@@ -166,7 +166,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNew_PowerWordKill_Spell()
         {
 
-            string text = "PowerWordKill_Spell";
+            var text = "PowerWordKill_Spell";
 
 
             PowerWordKill_Spell = BuildNewSpell(
@@ -206,7 +206,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNew_PowerWordStun_Spell()
         {
 
-            string text = "PowerWordStun_Spell";
+            var text = "PowerWordStun_Spell";
 
 
             PowerWordStun_Spell = BuildNewSpell(
@@ -261,9 +261,9 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewTimeStop_Spell()
         {
 
-            string text = "TimeStop_Spell";
+            var text = "TimeStop_Spell";
 
-            ConditionDefinition TimeStopped_Condition = BuildNewCondition(
+            var TimeStopped_Condition = BuildNewCondition(
                  "DH_Custom_" + text + "condition",
                  DatabaseHelper.ConditionDefinitions.ConditionIncapacitated,
                  GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text + "condition").ToString(),

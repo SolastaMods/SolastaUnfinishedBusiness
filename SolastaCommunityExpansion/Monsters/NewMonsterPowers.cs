@@ -1,9 +1,9 @@
-﻿using SolastaCommunityExpansion.Builders;
+﻿using System.Collections.Generic;
+using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaMonsters.Models;
-using System.Collections.Generic;
 using UnityEngine;
 //******************************************************************************************
 // BY DEFINITION, REFACTORING REQUIRES CONFIRMING EXTERNAL BEHAVIOUR DOES NOT CHANGE
@@ -78,10 +78,10 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewTarrasqueSwallowPower()
         {
 
-            string text = "TarrasqueSwallowPower";
+            var text = "TarrasqueSwallowPower";
 
 
-            ConditionDefinition TarrasqueSwallowingCondition = NewMonsterAttacks.BuildNewCondition(
+            var TarrasqueSwallowingCondition = NewMonsterAttacks.BuildNewCondition(
                          "DH_Custom_TarrasqueSwallowingcondition",
                          DatabaseHelper.ConditionDefinitions.ConditionSwallowingRemorhaz,
                          GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_TarrasqueSwallowingcondition").ToString(),
@@ -95,7 +95,7 @@ namespace SolastaMonsters.Monsters
 
 
 
-            ConditionDefinition TarrasqueSwallowedCondition = NewMonsterAttacks.BuildNewCondition(
+            var TarrasqueSwallowedCondition = NewMonsterAttacks.BuildNewCondition(
                          "DH_Custom_TarrasqueSwallowedcondition",
                          DatabaseHelper.ConditionDefinitions.ConditionSwallowedRemorhaz,
                          GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_TarrasqueSwallowedcondition").ToString(),
@@ -130,7 +130,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewErinyesParry_Power()
         {
 
-            string text = "ErinyesParry_Power";
+            var text = "ErinyesParry_Power";
 
 
             ErinyesParry_Power = BuildNewPower(
@@ -148,7 +148,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewVampireCharmPower()
         {
 
-            string text = "VampireCharmPower";
+            var text = "VampireCharmPower";
 
 
             VampireCharmPower = BuildNewPower(
@@ -173,7 +173,7 @@ namespace SolastaMonsters.Monsters
         {
 
             // for storm giant
-            string text = "Generic_Lightning_Attack";
+            var text = "Generic_Lightning_Attack";
 
             /*
                      //   FeatureDefinitionPower Generic_Lightning_Attack_Power = Helpers.GenericPowerBuilder<FeatureDefinitionPower>
@@ -273,13 +273,13 @@ namespace SolastaMonsters.Monsters
             };
 
 
-            foreach (KeyValuePair<string, string> entry in NewMonsterAttributes.Dictionaryof_Dragon_DamageAffinity)
+            foreach (var entry in NewMonsterAttributes.Dictionaryof_Dragon_DamageAffinity)
             {
 
-                string text = entry.Value;
+                var text = entry.Value;
                 text = text.Replace(" ", "");
 
-                FeatureDefinitionPower Dragon_Breath_Power = BuildNewPower(
+                var Dragon_Breath_Power = BuildNewPower(
                        "PowerDragonBreath_DH_Custom_" + text,
                        DatabaseHelper.FeatureDefinitionPowers.PowerDragonBreath_Fire,
                        GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
@@ -311,7 +311,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewBalor_FireAura_Power()
         {
 
-            string text = "Balor_FireAura_Power";
+            var text = "Balor_FireAura_Power";
 
 
             Balor_FireAura_Power = BuildNewPower(
@@ -335,7 +335,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewLich_DisruptLife_Power()
         {
 
-            string text = "Lich_DisruptLife_Power";
+            var text = "Lich_DisruptLife_Power";
 
 
             Lich_DisruptLife_Power = BuildNewPower(
@@ -363,7 +363,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewAncientDragon_Wing_Power()
         {
 
-            string text = "AncientDragon_Wing_Power";
+            var text = "AncientDragon_Wing_Power";
 
 
             AncientDragon_Wing_Power = BuildNewPower(
@@ -392,10 +392,10 @@ namespace SolastaMonsters.Monsters
             };
 
 
-            foreach (KeyValuePair<SpellDefinition, int> entry in dictionaryelementals)
+            foreach (var entry in dictionaryelementals)
 
             {
-                string text = "SummonCreature_" + entry.Key.EffectDescription.EffectForms[0].SummonForm.MonsterDefinitionName + "_Power";
+                var text = "SummonCreature_" + entry.Key.EffectDescription.EffectForms[0].SummonForm.MonsterDefinitionName + "_Power";
 
                 SummonCreature_Elemental_Power = BuildNewPower(
                     text,
@@ -421,7 +421,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewSearingBurst_Power()
         {
 
-            string text = "SearingBurst_Power";
+            var text = "SearingBurst_Power";
 
 
             SearingBurst_Power = BuildNewPower(
@@ -469,7 +469,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewBlindingGaze_Power()
         {
 
-            string text = "BlindingGaze_Power";
+            var text = "BlindingGaze_Power";
 
 
             BlindingGaze_Power = BuildNewPower(
@@ -492,7 +492,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewAtWillSelfBuff_Invisibility_Power()
         {
 
-            string text = "AtWillSelfBuff_Invisibility_Power";
+            var text = "AtWillSelfBuff_Invisibility_Power";
 
 
             AtWillSelfBuff_Invisibility_Power = BuildNewPower(
@@ -513,7 +513,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewAtWillAOE_Fireball_Power()
         {
 
-            string text = "AtWillAOE_Fireball_Power";
+            var text = "AtWillAOE_Fireball_Power";
 
 
             AtWillAOE_Fireball_Power = BuildNewPower(
@@ -537,7 +537,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewLimitedPerDayTargetDebuff_HoldMonster_Power()
         {
 
-            string text = "LimitedPerDayTargetDebuff_HoldMonster_Power";
+            var text = "LimitedPerDayTargetDebuff_HoldMonster_Power";
 
 
             LimitedPerDayTargetDebuff_HoldMonster_Power = BuildNewPower(
@@ -566,7 +566,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewLimitedPerDayAOE_WallOfFire_Power()
         {
 
-            string text = "LimitedPerDayAOE_WallOfFire_Power";
+            var text = "LimitedPerDayAOE_WallOfFire_Power";
 
             LimitedPerDayAOE_WallOfFire_Power = BuildNewPower(
                    text,
@@ -593,7 +593,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewSummonCreature_Erinyes_Power()
         {
 
-            string text = "SummonCreature_Erinyes_Power";
+            var text = "SummonCreature_Erinyes_Power";
 
             SummonCreature_Erinyes_Power = BuildNewPower(
                    text,
@@ -617,7 +617,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewSummonCreature_Nalfeshnee_Power()
         {
 
-            string text = "SummonCreature_Nalfeshnee_Power";
+            var text = "SummonCreature_Nalfeshnee_Power";
 
             SummonCreature_Nalfeshnee_Power = BuildNewPower(
                    text,
@@ -642,7 +642,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewSummonCreature_Wolves_Power()
         {
 
-            string text = "SummonCreature_Wolves_Power";
+            var text = "SummonCreature_Wolves_Power";
 
             SummonCreature_Wolves_Power = BuildNewPower(
                    text,
@@ -669,7 +669,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewAirTitan_Gale_Power()
         {
 
-            string text = "AirTitan_Gale_Power";
+            var text = "AirTitan_Gale_Power";
 
 
             AirTitan_Gale_Power = BuildNewPower(
@@ -730,7 +730,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewFireTitan_Aura_Power()
         {
 
-            string text = "FireTitan_Aura_Power";
+            var text = "FireTitan_Aura_Power";
 
 
             FireTitan_Aura_Power = BuildNewPower(
@@ -756,7 +756,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewAirTitan_Lightning_Power()
         {
 
-            string text = "AirTitan_Lightning_Power";
+            var text = "AirTitan_Lightning_Power";
 
 
             AirTitan_Lightning_Power = BuildNewPower(
@@ -788,7 +788,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewAirTitan_LightningStorm_Attack()
         {
 
-            string text = "AirTitan_LightningStorm";
+            var text = "AirTitan_LightningStorm";
             /*
                         AirTitan_LightningStorm_Attack_Power = Helpers.GenericPowerBuilder<FeatureDefinitionPower>
                                .createPower(
@@ -842,7 +842,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewIlluminatingCrystals_Power()
         {
 
-            string text = "IlluminatingCrystals_Power";
+            var text = "IlluminatingCrystals_Power";
 
 
             IlluminatingCrystals_Power = BuildNewPower(
@@ -869,7 +869,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewDisintegratingBeam_Power()
         {
 
-            string text = "DisintegratingBeam_Power";
+            var text = "DisintegratingBeam_Power";
 
 
             DisintegratingBeam_Power = BuildNewPower(
@@ -904,7 +904,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewIncreasedGravityZone_Attack()
         {
 
-            string text = "IncreasedGravityZone_Attack";
+            var text = "IncreasedGravityZone_Attack";
 
 
             IncreasedGravityZone_Power = BuildNewPower(
@@ -971,7 +971,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewSummonCreature_LesserConstruct_Power()
         {
 
-            string text = "SummonCreature_LesserConstruct_Power";
+            var text = "SummonCreature_LesserConstruct_Power";
 
             SummonCreature_LesserConstruct_Power = BuildNewPower(
                    text,
@@ -996,7 +996,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewEarthTitan_Earthquake_Power()
         {
 
-            string text = "EarthTitan_Earthquake_Power";
+            var text = "EarthTitan_Earthquake_Power";
 
 
             EarthTitan_Earthquake_Power = BuildNewPower(

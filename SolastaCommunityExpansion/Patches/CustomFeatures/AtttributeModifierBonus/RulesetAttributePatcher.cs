@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaCommunityExpansion.Api.AdditionalExtensions;
-using SolastaCommunityExpansion.Features;
+using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
 

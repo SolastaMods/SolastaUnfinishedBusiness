@@ -1,10 +1,10 @@
-﻿using SolastaCommunityExpansion.Builders;
+﻿using System.Collections.Generic;
+using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using SolastaMonsters.Models;
-using System.Collections.Generic;
 using UnityEngine;
 //******************************************************************************************
 // BY DEFINITION, REFACTORING REQUIRES CONFIRMING EXTERNAL BEHAVIOUR DOES NOT CHANGE
@@ -102,7 +102,7 @@ namespace SolastaMonsters.Monsters
         }
         public static void BuildNewTarrasqueReflectiveCarapace()
         {
-            string text = "TarrasqueReflectiveCarapace_Immunity";
+            var text = "TarrasqueReflectiveCarapace_Immunity";
 
 
             TarrasqueReflectiveCarapace = BuildNewMagicAffinity(
@@ -119,9 +119,9 @@ namespace SolastaMonsters.Monsters
 
             TarrasqueReflectiveCarapace.SpellImmunities.Add(DatabaseHelper.SpellDefinitions.MagicMissile.Name);
 
-            SpellDefinition[] listofAllSpells = DatabaseRepository.GetDatabase<SpellDefinition>().GetAllElements();
+            var listofAllSpells = DatabaseRepository.GetDatabase<SpellDefinition>().GetAllElements();
 
-            foreach (SpellDefinition spell in listofAllSpells)
+            foreach (var spell in listofAllSpells)
             {
                 if (spell.EffectDescription.TargetType == RuleDefinitions.TargetType.Line || spell.EffectDescription.RangeType == RuleDefinitions.RangeType.RangeHit)
                 {
@@ -132,7 +132,7 @@ namespace SolastaMonsters.Monsters
         }
         public static void BuildNew_TarrasqueSwallow_Decision()
         {
-            string text = "TarrasqueSwallow_Decision";
+            var text = "TarrasqueSwallow_Decision";
 
 
             TarrasqueSwallow_Decision = BuildNewDecisionDefinition(
@@ -149,7 +149,7 @@ namespace SolastaMonsters.Monsters
 
         public static void BuildNew_Tarrasque_CombatDecisions()
         {
-            string text = "Tarrasque_CombatDecisions";
+            var text = "Tarrasque_CombatDecisions";
 
 
             Tarrasque_CombatDecisions = BuildNewDecisionPackageDefinition(
@@ -218,10 +218,10 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewBalor_Retaliate_DamageAffinity()
         {
 
-            string Power_text = "Balor_Retaliate_Power";
+            var Power_text = "Balor_Retaliate_Power";
 
 
-            FeatureDefinitionPower Balor_Retaliate_Power = NewMonsterPowers.BuildNewPower(
+            var Balor_Retaliate_Power = NewMonsterPowers.BuildNewPower(
                     "DH_Custom_" + Power_text,
                     DatabaseHelper.FeatureDefinitionPowers.PowerRemorhazRetaliate,
                     GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + Power_text).ToString(),
@@ -237,7 +237,7 @@ namespace SolastaMonsters.Monsters
             Balor_Retaliate_Power.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypeFire);
 
 
-            string text = "Balor_Retaliate_DamageAffinity";
+            var text = "Balor_Retaliate_DamageAffinity";
 
 
             Balor_Retaliate_DamageAffinity = BuildNewDamageAffinity(
@@ -317,7 +317,7 @@ namespace SolastaMonsters.Monsters
 
             */
 
-            string text = "Lich_Spelllist";
+            var text = "Lich_Spelllist";
 
             Lich_spelllist = BuildNewSpelllist(
                       text,
@@ -438,7 +438,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewCastSpell_Lich()
         {
 
-            string text = "CastSpell_Lich";
+            var text = "CastSpell_Lich";
 
 
 
@@ -555,7 +555,7 @@ namespace SolastaMonsters.Monsters
                ArchMage_spelllist.SetHasCantrips(true);
             */
 
-            string text = "ArchMage_Spelllist";
+            var text = "ArchMage_Spelllist";
 
             Archmage_spelllist = BuildNewSpelllist(
                       text,
@@ -671,7 +671,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewCastSpell_ArchMage()
         {
 
-            string text = "CastSpell_ArchMage";
+            var text = "CastSpell_ArchMage";
 
 
 
@@ -780,7 +780,7 @@ namespace SolastaMonsters.Monsters
                         */
 
 
-            string text = "GuardianNaga_Spelllist";
+            var text = "GuardianNaga_Spelllist";
 
             GuardianNaga_spelllist = BuildNewSpelllist(
                       text,
@@ -865,7 +865,7 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewCastSpell_GuardianNaga()
         {
 
-            string text = "CastSpell_GuardianNaga";
+            var text = "CastSpell_GuardianNaga";
 
 
 
@@ -926,7 +926,7 @@ namespace SolastaMonsters.Monsters
 
         public static void BuildNew_AirTitan_SleetStorm_Immunity_MagicAffinity()
         {
-            string text = "SleetStorm_Immunity";
+            var text = "SleetStorm_Immunity";
 
 
             AirTitan_SleetStorm_Immunity = BuildNewMagicAffinity(
@@ -944,10 +944,10 @@ namespace SolastaMonsters.Monsters
         public static void BuildNewFireTitan_Retaliate_DamageAffinity()
         {
 
-            string Power_text = "FireTitan_Retaliate_Power";
+            var Power_text = "FireTitan_Retaliate_Power";
 
 
-            FeatureDefinitionPower FireTitan_Retaliate_Power = NewMonsterPowers.BuildNewPower(
+            var FireTitan_Retaliate_Power = NewMonsterPowers.BuildNewPower(
                     "DH_Custom_" + Power_text,
                     DatabaseHelper.FeatureDefinitionPowers.PowerRemorhazRetaliate,
                     GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + Power_text).ToString(),
@@ -964,7 +964,7 @@ namespace SolastaMonsters.Monsters
 
 
 
-            string text = "FireTitan_Retaliate_DamageAffinity";
+            var text = "FireTitan_Retaliate_DamageAffinity";
 
 
             FireTitan_Retaliate_DamageAffinity = BuildNewDamageAffinity(
@@ -983,7 +983,7 @@ namespace SolastaMonsters.Monsters
 
         public static void BuildNew_AncientDragon_CombatDecisions()
         {
-            string text = "AncientDragon_CombatDecisions";
+            var text = "AncientDragon_CombatDecisions";
 
 
             AncientDragon_CombatDecisions = BuildNewDecisionPackageDefinition(
@@ -1023,7 +1023,7 @@ namespace SolastaMonsters.Monsters
         }
         public static void BuildNew_SummonCreature_Magic_Decision()
         {
-            string text = "SummonCreature_Magic_Decision";
+            var text = "SummonCreature_Magic_Decision";
 
 
             SummonCreature_Magic_Decision = BuildNewDecisionDefinition(
@@ -1040,7 +1040,7 @@ namespace SolastaMonsters.Monsters
         }
         public static void BuildNew_AtWillAOE_Magic_Decision()
         {
-            string text = "AtWillAOE_Magic_Decision";
+            var text = "AtWillAOE_Magic_Decision";
 
 
             AtWillAOE_Magic_Decision = BuildNewDecisionDefinition(
@@ -1056,7 +1056,7 @@ namespace SolastaMonsters.Monsters
         }
         public static void BuildNew_CastMagic_StoneSkin_Decision()
         {
-            string text = "CastMagic_StoneSkin_Decision";
+            var text = "CastMagic_StoneSkin_Decision";
 
 
             CastMagic_Stoneskin_Decision = BuildNewDecisionDefinition(
@@ -1072,7 +1072,7 @@ namespace SolastaMonsters.Monsters
         }
         public static void BuildNew_LimitedPerDayAOE_Magic_Decision()
         {
-            string text = "LimitedPerDayAOE_Magic_Decision";
+            var text = "LimitedPerDayAOE_Magic_Decision";
 
 
             LimitedPerDayAOE_Magic_Decision = BuildNewDecisionDefinition(
@@ -1087,7 +1087,7 @@ namespace SolastaMonsters.Monsters
         }
         public static void BuildNew_AtWillSelfBuff_Magic_Decision()
         {
-            string text = "AtWillSelfBuff_Magic_Decision";
+            var text = "AtWillSelfBuff_Magic_Decision";
 
 
             AtWillSelfBuff_Magic_Decision = BuildNewDecisionDefinition(
@@ -1103,7 +1103,7 @@ namespace SolastaMonsters.Monsters
         }
         public static void BuildNew_LimitedPerDayTargetDebuffMagic_Decision()
         {
-            string text = "LimitedPerDayTargetDebuff_Magic_Decision";
+            var text = "LimitedPerDayTargetDebuff_Magic_Decision";
 
 
             LimitedPerDayTargetDebuff_Magic_Decision = BuildNewDecisionDefinition(
@@ -1119,7 +1119,7 @@ namespace SolastaMonsters.Monsters
 
         public static void BuildNew_Solar_CombatDecisions()
         {
-            string text = "Solar_CombatDecisions";
+            var text = "Solar_CombatDecisions";
 
 
             Solar_CombatDecisions = BuildNewDecisionPackageDefinition(
@@ -1175,7 +1175,7 @@ namespace SolastaMonsters.Monsters
 
         public static void BuildNew_HighLevelCaster_CombatDecisions()
         {
-            string text = "HighLevelCaster_CombatDecisions";
+            var text = "HighLevelCaster_CombatDecisions";
 
 
             HighLevelCaster_CombatDecisions = BuildNewDecisionPackageDefinition(
@@ -1225,7 +1225,7 @@ namespace SolastaMonsters.Monsters
         }
         public static void BuildNew_Vampire_CombatDecisions()
         {
-            string text = "Vampire_CombatDecisions";
+            var text = "Vampire_CombatDecisions";
 
 
             Vampire_CombatDecisions = BuildNewDecisionPackageDefinition(
@@ -1299,7 +1299,7 @@ namespace SolastaMonsters.Monsters
 
         public static void BuildNew_Titan_CombatDecisions()
         {
-            string text = "Titan_CombatDecisions";
+            var text = "Titan_CombatDecisions";
 
 
             Titan_CombatDecisions = BuildNewDecisionPackageDefinition(
@@ -1381,7 +1381,7 @@ namespace SolastaMonsters.Monsters
         }
         public static void BuildNew_ConstructTitan_CombatDecisions()
         {
-            string text = "ConstructTitan_CombatDecisions";
+            var text = "ConstructTitan_CombatDecisions";
 
 
             ConstructTitan_CombatDecisions = BuildNewDecisionPackageDefinition(
@@ -1464,7 +1464,7 @@ namespace SolastaMonsters.Monsters
 
         public static void BuildNew_Naga_CombatDecisions()
         {
-            string text = "Naga_CombatDecisions";
+            var text = "Naga_CombatDecisions";
 
 
             Naga_CombatDecisions = BuildNewDecisionPackageDefinition(
@@ -1535,7 +1535,7 @@ namespace SolastaMonsters.Monsters
 
         public static void BuildNew_PitFiend_CombatDecisions()
         {
-            string text = "PitFiend_CombatDecisions";
+            var text = "PitFiend_CombatDecisions";
 
 
             PitFiend_CombatDecisions = BuildNewDecisionPackageDefinition(
@@ -1593,7 +1593,7 @@ namespace SolastaMonsters.Monsters
 
         public static void BuildNew_Balor_CombatDecisions()
         {
-            string text = "Balor_CombatDecisions";
+            var text = "Balor_CombatDecisions";
 
 
             Balor_CombatDecisions = BuildNewDecisionPackageDefinition(
@@ -1630,7 +1630,7 @@ namespace SolastaMonsters.Monsters
 
         public static void BuildNew_Nalfeshnee_CombatDecisions()
         {
-            string text = "Nalfeshnee_CombatDecisions";
+            var text = "Nalfeshnee_CombatDecisions";
 
 
             Nalfeshnee_CombatDecisions = BuildNewDecisionPackageDefinition(

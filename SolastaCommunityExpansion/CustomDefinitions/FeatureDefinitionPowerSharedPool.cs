@@ -1,4 +1,6 @@
-﻿namespace SolastaCommunityExpansion.CustomDefinitions
+﻿using SolastaCommunityExpansion.CustomInterfaces;
+
+namespace SolastaCommunityExpansion.CustomDefinitions
 {
     /**
      * Features using a shared pool should have UsesDetermination == Fixed.

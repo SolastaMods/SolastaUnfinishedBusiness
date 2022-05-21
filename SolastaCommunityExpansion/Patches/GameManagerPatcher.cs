@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using SolastaCommunityExpansion.Features;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Utils;
 using UnityModManagerNet;
@@ -109,7 +108,7 @@ namespace SolastaCommunityExpansion.Patches
                 SaveByLocationContext.LateLoad();
 
                 //
-                HouseFeatureTweaks.LateLoad();
+                HouseFeatureContext.LateLoad();
 
                 // Recache all gui collections
                 GuiWrapperContext.Recache();
