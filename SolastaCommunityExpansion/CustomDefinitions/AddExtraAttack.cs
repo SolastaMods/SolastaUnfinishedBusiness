@@ -39,7 +39,15 @@ public class AddBonusUnarmedAttack : IAddExtraAttack
         var attackModes = hero.AttackModes;
         if (clearSameType)
         {
-            attackModes.RemoveAll(m => m.ActionType == actionType);
+            for (var i = attackModes.Count - 1; i > 0; i--)
+            {
+                var mode = attackModes[i];
+                if (mode.ActionType == actionType)
+                {
+                    RulesetAttackMode.AttackModesPool.Return(mode);
+                    attackModes.RemoveAt(i);
+                }
+            }
         }
 
         var attackMode = hero.RefreshAttackModePublic(
