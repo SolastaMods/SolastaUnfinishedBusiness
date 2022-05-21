@@ -78,19 +78,19 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             toggle = Main.Settings.EnableMinInOutAttributes;
-            if (UI.Toggle("+ Enforce ability scores minimum in & out pre-requisites".italic(), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enforce ability scores minimum in & out pre-requisites", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableMinInOutAttributes = toggle;
             }
 
             toggle = Main.Settings.EnableRelearnSpells;
-            if (UI.Toggle("+ Can select cantrips or spells already learned from other classes".italic(), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Can select cantrips or spells already learned from other classes", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableRelearnSpells = toggle;
             }
 
             toggle = Main.Settings.DisplayAllKnownSpellsDuringLevelUp;
-            if (UI.Toggle("+ Display all known spells from other classes during level up".italic(), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Display all known spells from other classes during level up", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.DisplayAllKnownSpellsDuringLevelUp = toggle;
             }
@@ -108,7 +108,7 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             toggle = Main.Settings.EnablesAsiAndFeat;
-            if (UI.Toggle("Enable both attribute scores increase and feats selection instead of an exclusive choice", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enable both attribute scores increase and feat selection " + "[instead of an exclusive choice]".yellow().italic(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnablesAsiAndFeat = toggle;
                 InitialChoicesContext.SwitchAsiAndFeat();

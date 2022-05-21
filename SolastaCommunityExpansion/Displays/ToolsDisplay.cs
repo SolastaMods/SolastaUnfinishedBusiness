@@ -48,10 +48,21 @@ namespace SolastaCommunityExpansion.Displays
                 Main.Settings.EnableCheatMenu = toggle;
             }
 
+            UI.Label("");
+            UI.Label("Adventure:".yellow());
+            UI.Label("");
+
+
             toggle = Main.Settings.NoExperienceOnLevelUp;
             if (UI.Toggle("No experience is required to Level Up", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.NoExperienceOnLevelUp = toggle;
+            }
+
+            toggle = Main.Settings.OverrideMinMaxLevel;
+            if (UI.Toggle("Override the required min and max levels when starting new adventures", ref toggle))
+            {
+                Main.Settings.OverrideMinMaxLevel = toggle;
             }
 
             UI.Label("");
@@ -61,18 +72,6 @@ namespace SolastaCommunityExpansion.Displays
             {
                 Main.Settings.MultiplyTheExperienceGainedBy = intValue;
             }
-
-            UI.Label("");
-            UI.Label("Adventures:".yellow());
-            UI.Label("");
-
-            toggle = Main.Settings.OverrideMinMaxLevel;
-            if (UI.Toggle("Override the required min and max levels when starting new adventures", ref toggle))
-            {
-                Main.Settings.OverrideMinMaxLevel = toggle;
-            }
-
-            UI.Label("");
 
             intValue = Main.Settings.OverridePartySize;
             if (UI.Slider("Override the party size in custom adventures".white(), ref intValue, DungeonMakerContext.MIN_PARTY_SIZE, DungeonMakerContext.MAX_PARTY_SIZE, DungeonMakerContext.GAME_PARTY_SIZE, "", UI.AutoWidth()))

@@ -46,13 +46,10 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             floatValue = Main.Settings.FasterTimeModifier;
-            if (UI.Slider("Game time modifier when pressing space bar".white(), ref floatValue, 1.5f, 10f, 1.5f, 1, "x", UI.AutoWidth()))
+            if (UI.Slider("Game time modifier when pressing space bar".white(), ref floatValue, 1.5f, 10f, 1.5f, 1, "X", UI.AutoWidth()))
             {
                 Main.Settings.FasterTimeModifier = floatValue;
             }
-
-            UI.Label("");
-
             #endregion
 
             #region Campaign
