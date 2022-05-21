@@ -13,7 +13,10 @@
   "durationParameterDie": "D4",
   "durationParameter": 1,
   "turnOccurence": "StartOfTurn",
-  "specialInterruptions": [],
+  "specialInterruptions": [
+    "BattleEnd",
+    "AnyBattleTurnEnd"
+  ],
   "interruptionRequiresSavingThrow": false,
   "interruptionDamageThreshold": 0,
   "conditionTags": [],
