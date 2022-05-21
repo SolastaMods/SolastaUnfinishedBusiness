@@ -23,6 +23,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
     {
         public const string ClassName = "ClassMonk";
         public const string WeaponTag = "MonkWeapon";
+        public const string FlurryTag = "MonkFlurryAttack";
         public static readonly Guid GUID = new("1478A002-D107-4E34-93A3-CEA260DA25C9");
         public static CharacterClassDefinition Class { get; private set; }
 
@@ -603,7 +604,8 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .Create("ClassMonkFlurryOfBlowsExtraAttacks1", GUID)
                 .SetGuiPresentationNoContent(true)
                 .SetCustomSubFeatures(new AddBonusUnarmedAttack(ActionDefinitions.ActionType.Bonus, 1, true,
-                    CharacterValidators.NoArmor, CharacterValidators.NoShield))
+                    CharacterValidators.NoArmor, CharacterValidators.NoShield)
+                    .SetTags(FlurryTag))
                 .SetActionType(ActionDefinitions.ActionType.Bonus)
                 .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
                 .AddToDB();
