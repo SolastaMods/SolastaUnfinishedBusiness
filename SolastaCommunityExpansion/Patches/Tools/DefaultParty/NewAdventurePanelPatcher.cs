@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.Patches.Tools.DefaultParty
     {
         internal static void Postfix(RectTransform ___characterSessionPlatesTable)
         {
-            if (Models.Global.IsMultiplayer)
+            if (!Main.Settings.EnableTogglesToOverwriteDefaultTestParty || Models.Global.IsMultiplayer)
             {
                 return;
             }
