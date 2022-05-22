@@ -112,6 +112,30 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
         
+        public ItemDefinitionBuilder SetItemPresentation(ItemPresentation presentation)
+        {
+            Definition.SetItemPresentation(presentation);
+            return this;
+        }
+        
+        public ItemDefinitionBuilder SetItemRarity(RuleDefinitions.ItemRarity rarity)
+        {
+            Definition.SetItemRarity(rarity);
+            return this;
+        }
+        
+        public ItemDefinitionBuilder SetRequiresIdentification(bool value)
+        {
+            Definition.SetRequiresIdentification(value);
+            return this;
+        }
+        
+        public ItemDefinitionBuilder SetRequiresAttunement(bool value)
+        {
+            Definition.SetRequiresAttunement(value);
+            return this;
+        }
+        
         public ItemDefinitionBuilder SetStaticProperties(IEnumerable<ItemPropertyDescription> staticProperties)
         {
             Definition.StaticProperties.SetRange(staticProperties);
