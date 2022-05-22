@@ -229,7 +229,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                         else if (provider.TriggerCondition == RuleDefinitions.AdditionalDamageTriggerCondition.SpendSpellSlot
                             //TODO: make Divine Smite malee-only via properties
                             //&& attackModifier != null && attackModifier.Proximity == RuleDefinitions.AttackProximity.Melee
-                            && (!Main.Settings.EnableCtrlClickBypassSmiteReactionPanel || !isCtrlPressed))
+                            && (!Main.Settings.EnableCtrlClickBypassSmiteReactionPanel || !isCtrlPressed || criticalHit))
                         {
                             // This is used to allow Divine Smite under Wildshape
                             // Look for the spellcasting feature holding the smite
