@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.Classes.Monk;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -100,7 +101,9 @@ namespace SolastaCommunityExpansion.FightingStyles
         {
             var mainHand = character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand];
             var offHand = character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand];
-            return mainHand.EquipedItem == null && (offHand.EquipedItem == null || offHand.EquipedItem.ItemDefinition.IsLightSourceItem);
+            
+            return Monk.IsUnarmedWeapon(mainHand.EquipedItem) &&
+                   (Monk.IsUnarmedWeapon(offHand.EquipedItem) || offHand.EquipedItem.ItemDefinition.IsLightSourceItem);
         }
     }
 }
