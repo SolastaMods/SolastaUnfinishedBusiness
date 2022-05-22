@@ -24,12 +24,13 @@ namespace SolastaCommunityExpansion.Models
     {
         public static Dictionary<string, BaseDefinition> RecoverySlots { get; } = new()
         {
-            { "TinkererSpellStoringItem", TinkererClass },
-            { "ArtificerInfusionSpellRefuelingRing", TinkererClass },
-            { "PowerAlchemistSpellBonusRecovery", TinkererClass },
             { "PowerCircleLandNaturalRecovery", Druid },
             { "PowerWizardArcaneRecovery", Wizard },
-            { "PowerSpellMasterBonusRecovery", Wizard }
+            { "PowerSpellMasterBonusRecovery", Wizard },
+            // added during load
+            //{ "TinkererSpellStoringItem", TinkererClass },
+            //{ "ArtificerInfusionSpellRefuelingRing", TinkererClass },
+            //{ "PowerAlchemistSpellBonusRecovery", TinkererClass },
         };
 
         public static Dictionary<CharacterClassDefinition, CasterType> ClassCasterType { get; } = new()
@@ -280,6 +281,9 @@ namespace SolastaCommunityExpansion.Models
             ClassCasterType.Add(WitchClass, CasterType.Full);
             SubclassCasterType.Add(ConArtistSubclass, CasterType.OneThird);
             SubclassCasterType.Add(SpellShieldSubclass, CasterType.OneThird);
+            RecoverySlots.Add("TinkererSpellStoringItem", TinkererClass);
+            RecoverySlots.Add("ArtificerInfusionSpellRefuelingRing", TinkererClass);
+            RecoverySlots.Add("PowerAlchemistSpellBonusRecovery", TinkererClass);
         }
     }
 }
