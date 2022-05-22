@@ -84,7 +84,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
             //Not actually used anywhere, but leaving this just in case some old character would need it
             FeatureDefinitionFeatureSetBuilder
                 .Create("RangerArcanistMagic", GuidHelper.Create(RA_BASE_GUID, "RangerArcanistManaTouchedGuardian").ToString()) // Oops, will have to live with this name being off)
-                .SetGuiPresentation(Category.Feature)
+                .SetGuiPresentationNoContent(true)
                 .SetFeatureSet(preparedSpells, arcanist_affinity)
                 .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                 .AddToDB();

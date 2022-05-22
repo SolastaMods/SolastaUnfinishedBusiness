@@ -767,8 +767,6 @@ Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	The Soul blade lets 
 Feature/&AHWarlockSoulBladePactExtendedSpellListTitle	Soulblade Spells
 Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Once per short rest you use the power of souls to defend yourself. Using a bonus action you gain temp hp equal to your level + charisma modifier
 Feature/&AHWarlockSoulBladePactSoulShieldPowerTitle	Soul Shield
-Feature/&AHWarlockSoulBladePactSpellListDescription	The Soul blade lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you. \nLevel 1: Shield, False life\nLevel 2: Blur, Branding Smite \nLevel 3: Haste, Slow \nLevel 4: Phantasmal Killer, Black Tentacles \nLevel 5: Cone of Cold, Mind Twist
-Feature/&AHWarlockSoulBladePactSpellListTitle	Soul blade expanded spell list
 Feature/&AlwaysBeardDescription	{0}% chances to grow a glorious beard!
 Feature/&AncientForestExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: {0}\n\n 
 Feature/&AncientForestExpandedSpelllistAfinityTitle	Ancient Forest Spells
@@ -928,7 +926,7 @@ Feature/&DruidForestGuardianExtraAttackDescription	Starting at 6th level, you ca
 Feature/&DruidForestGuardianExtraAttackTitle	Extra Attack
 Feature/&DruidForestGuardianImprovedBarkWardDescription	Your Bark Ward now grows thorns, which damages melee attackers. Enemies who successfully hit you with a melee attack suffer 2d8 piercing damage
 Feature/&DruidForestGuardianImprovedBarkWardTitle	Improved Bark Ward
-Feature/&DruidForestGuardianMagicDescription	Starting at the 2nd level when you choose this circle, you gain access to an expanded spell list that is always prepared:\nLevel 2: Shield, Fog Cloud\nLevel 3: Blur, Flame Blade\nLevel 5: Protection From Energy, Dispel Magic\nLevel 7: Flame Shield, Death Ward\nLevel 9: Hold Monster, Greater Restoration
+Feature/&DruidForestGuardianMagicDescription	Starting at the 2nd level when you choose this circle, you gain access to an expanded spell list that is always prepared:\n{0}\n\n
 Feature/&DruidForestGuardianMagicTitle	Circle Spells
 Feature/&DruidForestGuardianSuperiorBarkWardDescription	Your Bark Ward ability now reflects 3d8 piercing damage onto melee attackers. Additionally, Bark Ward now grants you immunity to poison while it's active
 Feature/&DruidForestGuardianSuperiorBarkWardTitle	Superior Bark Ward
@@ -1081,8 +1079,6 @@ Feature/&RagePowerDescription	As a bonus action you enter a rage for one minute 
 Feature/&RagePowerTitle	Rage
 Feature/&RageStrengthSavingThrowAffinityDescription	You get advantage on strength saves while raging
 Feature/&RageStrengthSavingThrowAffinityTitle	Rage strength save advantage
-Feature/&RangerArcanistMagicDescription	Starting at 3rd level, you learn an additional spell when you reach certain levels in this class. Each spell counts as a ranger spell for you, but it doesn't count against the number of ranger spells you know. The spells are: Level 3: Shield, Level 5: Misty Step, Level 9: Haste, Level 13: Dimension Door, and Level 17: Hold Monster. Additionally, you are proficient at casting spells in battle, and may cast spells that require a somatic component even if both of your hands are holding a weapon or shield
-Feature/&RangerArcanistMagicTitle	Ranger Arcanist Spellcasting
 Feature/&RangerFeralSensesDescription	You gain preternatural senses that help you fight creatures you can't see. When you attack a creature you can't see, your inability to see it doesn't impose disadvantage on your attack rolls against it
 Feature/&RangerFeralSensesTitle	Feral Senses
 Feature/&RangerVanishActionDescription	Starting at 14th level, you can use the Hide action as a bonus action on your turn
