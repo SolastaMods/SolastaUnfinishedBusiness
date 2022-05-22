@@ -40,6 +40,7 @@ namespace SolastaCommunityExpansion.Models
             { "Shield_Wooden", "Shield [Wooden]" },
             { "Shield", "Shield" },
             { "HideArmor", "Hide Armor" },
+            { "LeatherDruid", "Leather Druid" },
             { "StuddedLeather", "Studded Leather" },
         };
 
