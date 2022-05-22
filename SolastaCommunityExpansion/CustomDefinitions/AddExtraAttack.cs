@@ -43,7 +43,12 @@ namespace SolastaCommunityExpansion.CustomDefinitions
                 return;
             }
 
-            var strikeDefinition = hero.UnarmedStrikeDefinition;
+            var mainHandItem = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
+                .EquipedItem;
+
+            var strikeDefinition = mainHandItem != null && Monk.IsUnarmedWeapon(mainHandItem)
+                ? mainHandItem.ItemDefinition
+                : hero.UnarmedStrikeDefinition;
 
             var attackModifiers = hero.GetField<List<IAttackModificationProvider>>("attackModifiers");
 
