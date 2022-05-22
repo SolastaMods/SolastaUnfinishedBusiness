@@ -23,12 +23,6 @@ namespace SolastaCommunityExpansion.Displays
                 Main.Settings.AllowDungeonsMaxLevel20 = toggle;
             }
 
-            toggle = Main.Settings.EnableTogglesToOverwriteDefaultTestParty;
-            if (UI.Toggle("Enable toggles on character pool to select different test heroes instead of the default TA party", ref toggle))
-            {
-                Main.Settings.EnableTogglesToOverwriteDefaultTestParty = toggle;
-            }
-
             UI.Label("");
 
             toggle = Main.Settings.AllowGadgetsAndPropsToBePlacedAnywhere;

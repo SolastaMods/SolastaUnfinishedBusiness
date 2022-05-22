@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.Patches.Tools.DefaultParty
         {
             var heroes = ServiceRepository.GetService<ICharacterPoolService>().Pool.Keys.ToList();
 
-            Main.Settings.TestPartyHeroes.RemoveAll(x => !heroes.Contains(x));
+            Main.Settings.DefaultPartyHeroes.RemoveAll(x => !heroes.Contains(x));
         }
     }
 }

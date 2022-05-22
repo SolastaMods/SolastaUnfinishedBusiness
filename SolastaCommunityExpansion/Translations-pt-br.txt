@@ -1892,8 +1892,8 @@ Tooltip/&Tag9000Title	Efeito personalizado
 Tooltip/&TagCommunityExpansionTitle	Expansão da comunidade
 Tooltip/&TagMaledictionTitle	Caramba
 Tooltip/&TagMonkWeaponTitle	Monge
-Tooltip/&TagOtherModContentTitle	Do modo
-ToolTip/&CheckBoxDefaultPartyTitle	Marque esta caixa para substituir a parte padrão ao testar locais personalizados. Você pode selecionar até 4 heróis em uma base de primeiro a entrar / primeiro a sair
+Tooltip/&TagOtherModContentTitle	Do mod
+ToolTip/&CheckBoxDefaultPartyTitle	Marque esta caixa para definir seu grupo padrão ao iniciar novas aventuras de testar locais personalizados. Você pode selecionar até {0} heróis por ordem de chegada/primeira saída
 UI/&CustomFeatureSelectionStageDescription	Selecione recursos extras de sua classe/subclasse
 UI/&CustomFeatureSelectionStageFeatures	Recursos
 UI/&CustomFeatureSelectionStageNotDone	Você deve selecionar todos os recursos disponíveis antes de continuar

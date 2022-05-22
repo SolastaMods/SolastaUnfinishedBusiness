@@ -17,9 +17,9 @@ namespace SolastaCommunityExpansion.Patches.Tools.DefaultParty
             string filename,
             bool notify)
         {
-            if (Main.Settings.EnableTogglesToOverwriteDefaultTestParty && slotIndex < Main.Settings.TestPartyHeroes.Count)
+            if (Main.Settings.EnableTogglesToOverwriteDefaultTestParty && slotIndex < Main.Settings.DefaultPartyHeroes.Count)
             {
-                session.AssignCharacterToPlayer(playerIndex, slotIndex, Main.Settings.TestPartyHeroes.ElementAt(slotIndex), notify);
+                session.AssignCharacterToPlayer(playerIndex, slotIndex, Main.Settings.DefaultPartyHeroes.ElementAt(slotIndex), notify);
             }
             else
             {
@@ -27,16 +27,45 @@ namespace SolastaCommunityExpansion.Patches.Tools.DefaultParty
             }
         }
 
+        public static List<string> PredefinedParty(CampaignDefinition campaignDefinition)
+        {
+            if (campaignDefinition.PredefinedParty == null || campaignDefinition.PredefinedParty.Count == 0)
+            {
+                return campaignDefinition.PredefinedParty;
+            }
+
+            var max = Main.Settings.OverridePartySize;
+            var result = campaignDefinition.PredefinedParty.ToList();
+
+            while (result.Count > max)
+            {
+                result.RemoveAt(0);
+            }
+
+            while (result.Count < max)
+            {
+                result.Add(result[result.Count % 4]);
+            }
+
+            return result;
+        }
+
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var assignCharacterToPlayerMethod = typeof(Session).GetMethod("AssignCharacterToPlayer");
             var myAssignCharacterToPlayerMethod = typeof(SessionState_Setup_Begin).GetMethod("AssignCharacterToPlayer");
+            var predefinedPartyMethod = typeof(CampaignDefinition).GetMethod("get_PredefinedParty");
+            var myPredefinedPartyMethod = typeof(SessionState_Setup_Begin).GetMethod("PredefinedParty");
 
             foreach (var instruction in instructions)
             {
                 if (instruction.Calls(assignCharacterToPlayerMethod))
                 {
                     yield return new CodeInstruction(OpCodes.Call, myAssignCharacterToPlayerMethod);
+                }
+                else if (instruction.Calls(predefinedPartyMethod))
+                {
+                    yield return new CodeInstruction(OpCodes.Call, myPredefinedPartyMethod);
                 }
                 else
                 {

@@ -31,32 +31,39 @@ namespace SolastaCommunityExpansion.Patches.Tools.DefaultParty
             checkBox.gameObject.SetActive(true);
 
             tooltip.AnchorMode = TooltipDefinitions.AnchorMode.LEFT_CENTER;
-            tooltip.Content = "ToolTip/&CheckBoxDefaultPartyTitle";
+            tooltip.Content = Gui.Format("ToolTip/&CheckBoxDefaultPartyTitle", Main.Settings.OverridePartySize.ToString());
             tooltip.gameObject.SetActive(true);
 
             checkBoxRect.anchoredPosition = new Vector2(160, 40);
 
+            void Rebase()
+            {
+                while (Main.Settings.DefaultPartyHeroes.Count > Main.Settings.OverridePartySize)
+                {
+                    var heroToDelete = Main.Settings.DefaultPartyHeroes.ElementAt(0);
+
+                    parent.parent.FindChildRecursive(heroToDelete)
+                        .GetComponent<Toggle>().isOn = false;
+                }
+            }
+
             checkBoxToggle.onValueChanged = new Toggle.ToggleEvent();
-            checkBoxToggle.isOn = Main.Settings.TestPartyHeroes.Contains(name);
+            checkBoxToggle.isOn = Main.Settings.DefaultPartyHeroes.Contains(name);
             checkBoxToggle.onValueChanged.AddListener(delegate
             {
                 if (checkBoxToggle.isOn)
                 {
-                    Main.Settings.TestPartyHeroes.Add(name);
+                    Main.Settings.DefaultPartyHeroes.Add(name);
 
-                    if (Main.Settings.TestPartyHeroes.Count > 4)
-                    {
-                        var heroToDelete = Main.Settings.TestPartyHeroes.ElementAt(0);
-
-                        parent.parent.FindChildRecursive(heroToDelete)
-                            .GetComponent<Toggle>().isOn = false;
-                    }
+                    Rebase();
                 }
                 else
                 {
-                    Main.Settings.TestPartyHeroes.Remove(name);
+                    Main.Settings.DefaultPartyHeroes.Remove(name);
                 }
             });
+
+            Rebase();
         }
     }
 }
