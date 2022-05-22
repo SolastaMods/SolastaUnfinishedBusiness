@@ -1,31 +1,27 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.CharactersPool
 {
-    internal static class CharacterPoolManagerPatcher
+    [HarmonyPatch(typeof(CharacterPoolManager), "SaveCharacter")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class CharacterPoolManager_SaveCharacter
     {
-        internal static string HeroName { get; set; }
-
-        [HarmonyPatch(typeof(CharacterPoolManager), "SaveCharacter")]
-        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-        internal static class CharacterPoolManager_SaveCharacter
+        public static void Prefix(RulesetCharacterHero heroCharacter, [HarmonyArgument("addToPool")] bool _ = false)
         {
-            public static void Prefix(RulesetCharacterHero heroCharacter, [HarmonyArgument("addToPool")] bool _ = false)
+            if (heroCharacter == null)
             {
-                if (heroCharacter == null)
-                {
-                    return;
-                }
+                return;
+            }
 
-                if (Main.Settings.KeepCharactersPanelOpenAndHeroSelectedOnLevelUp)
-                {
-                    HeroName = heroCharacter.Name;
-                }
-                else
-                {
-                    HeroName = null;
-                }
+            if (Main.Settings.KeepCharactersPanelOpenAndHeroSelectedOnLevelUp)
+            {
+                Global.LastLevelUpHeroName = heroCharacter.Name;
+            }
+            else
+            {
+                Global.LastLevelUpHeroName = null;
             }
         }
     }

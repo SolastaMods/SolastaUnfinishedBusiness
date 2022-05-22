@@ -11,10 +11,6 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class DmProRendererContext
     {
-        //
-        // all public methods on this class are referenced from WorldLocationPatcher transpiler. keep them public
-        //
-
         private const int MARGIN = 25;
         private const int FLAT_ROOM_SIZE = 12;
         private const string FLAT_ROOM_TAG = "Flat";

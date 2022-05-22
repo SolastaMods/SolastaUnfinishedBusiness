@@ -5,7 +5,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Battle
 {
     [HarmonyPatch(typeof(BattleState_Victory), "Update")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class BattleState_VictoryUpdatePatcher
+    internal static class BattleState_Victory_Update
     {
         public static void Postfix()
         {

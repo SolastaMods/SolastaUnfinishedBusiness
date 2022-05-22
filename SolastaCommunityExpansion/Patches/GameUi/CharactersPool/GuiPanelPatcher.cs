@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.CharactersPool
 {
@@ -12,7 +13,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharactersPool
     {
         internal static void Postfix(GuiPanel __instance)
         {
-            if (__instance is MainMenuScreen mainMenuScreen && CharacterPoolManagerPatcher.HeroName != null)
+            if (__instance is MainMenuScreen mainMenuScreen && Global.LastLevelUpHeroName != null)
             {
                 var charactersPanel = AccessTools.Field(mainMenuScreen.GetType(), "charactersPanel").GetValue(mainMenuScreen) as CharactersPanel;
 
