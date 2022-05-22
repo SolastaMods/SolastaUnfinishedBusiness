@@ -75,6 +75,43 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
+        public ItemDefinitionBuilder SetSlotTypes(params string[] slotTypes)
+        {
+            Definition.SetSlotTypes(slotTypes);
+            return this;
+        }
+        
+        public ItemDefinitionBuilder SetSlotTypes(params SlotTypeDefinition[] slotTypes)
+        {
+            Definition.SetSlotTypes(slotTypes.Select(t => t.Name));
+            return this;
+        }
+
+        public ItemDefinitionBuilder SetSlotsWhereActive(params string[] slotTypes)
+        {
+            Definition.SetSlotsWhereActive(slotTypes);
+            return this;
+        }
+        
+        public ItemDefinitionBuilder SetSlotsWhereActive(params SlotTypeDefinition[] slotTypes)
+        {
+            Definition.SetSlotsWhereActive(slotTypes.Select(t => t.Name));
+            return this;
+        }
+        
+        public ItemDefinitionBuilder SetStaticProperties(params ItemPropertyDescription[] staticProperties)
+        {
+            Definition.StaticProperties.SetRange(staticProperties);
+            return this;
+        }
+        
+        public ItemDefinitionBuilder SetWeaponDescription(WeaponDescription weapon)
+        {
+            Definition.SetIsWeapon(true);
+            Definition.SetWeaponDescription(weapon);
+            return this;
+        }
+        
         public ItemDefinitionBuilder SetStaticProperties(IEnumerable<ItemPropertyDescription> staticProperties)
         {
             Definition.StaticProperties.SetRange(staticProperties);
