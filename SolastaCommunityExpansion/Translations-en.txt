@@ -928,7 +928,7 @@ Feature/&DruidForestGuardianExtraAttackDescription	Starting at 6th level, you ca
 Feature/&DruidForestGuardianExtraAttackTitle	Extra Attack
 Feature/&DruidForestGuardianImprovedBarkWardDescription	Your Bark Ward now grows thorns, which damages melee attackers. Enemies who successfully hit you with a melee attack suffer 2d8 piercing damage
 Feature/&DruidForestGuardianImprovedBarkWardTitle	Improved Bark Ward
-Feature/&DruidForestGuardianMagicDescription	Starting at the 2nd level when you choose this circle, you gain access to an expanded spell list that is always prepared:\nLevel 2: Shield, Fog Cloud\nLevel 3: Blur, Flame Blade\nLevel 5: Protection From Energy, Dispel Magic\nLevel 7: Flame Shield, Death Ward\nLevel 9: Hold Monster, Greater Restoration
+Feature/&DruidForestGuardianMagicDescription	Starting at the 2nd level when you choose this circle, you gain access to an expanded spell list that is always prepared:\n{0}\n\n
 Feature/&DruidForestGuardianMagicTitle	Circle Spells
 Feature/&DruidForestGuardianSuperiorBarkWardDescription	Your Bark Ward ability now reflects 3d8 piercing damage onto melee attackers. Additionally, Bark Ward now grants you immunity to poison while it's active
 Feature/&DruidForestGuardianSuperiorBarkWardTitle	Superior Bark Ward
