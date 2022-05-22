@@ -115,7 +115,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
             var spellList = SpellListDefinitionBuilder
                 .Create(SpellListDefinitions.SpellListPaladin, "AHWarlockSoulBladePactSpellList", DefinitionBuilder.CENamespaceGuid)
-                .SetOrUpdateGuiPresentation(Category.Feature)
+                .SetGuiPresentationNoContent(true)
                 .ClearSpells()
                 .SetSpellsAtLevel(1, Shield, FalseLife)
                 .SetSpellsAtLevel(2, Blur, BrandingSmite)
