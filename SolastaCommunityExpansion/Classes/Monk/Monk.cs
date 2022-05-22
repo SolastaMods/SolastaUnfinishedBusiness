@@ -979,7 +979,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 return true;
             }
 
-            return MonkWeapons.Contains(weapon.ItemDefinition.WeaponDescription.WeaponTypeDefinition);
+            return MonkWeapons.Contains(weapon.ItemDefinition.WeaponDescription?.WeaponTypeDefinition);
         }
 
         private static bool UsingOnlyMonkWeapons(RulesetCharacter character)
