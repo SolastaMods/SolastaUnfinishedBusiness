@@ -1893,6 +1893,7 @@ Tooltip/&TagCommunityExpansionTitle	Расширение сообщества
 Tooltip/&TagMaledictionTitle	Черт
 Tooltip/&TagMonkWeaponTitle	Монах
 Tooltip/&TagOtherModContentTitle	Из мода
+ToolTip/&CheckBoxDefaultPartyTitle	Установите этот флажок, чтобы перезаписать группу по умолчанию при тестировании пользовательских местоположений. Вы можете выбрать до 4 героев в порядке очереди
 UI/&CustomFeatureSelectionStageDescription	Выберите дополнительные функции из вашего класса/подкласса
 UI/&CustomFeatureSelectionStageFeatures	Функции
 UI/&CustomFeatureSelectionStageNotDone	Вы должны выбрать все доступные функции, прежде чем продолжить

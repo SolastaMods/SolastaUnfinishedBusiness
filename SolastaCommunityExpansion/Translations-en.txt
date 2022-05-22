@@ -1893,6 +1893,7 @@ Tooltip/&TagCommunityExpansionTitle	Community Expansion
 Tooltip/&TagMaledictionTitle	Malediction
 Tooltip/&TagMonkWeaponTitle	Monk
 Tooltip/&TagOtherModContentTitle	From mod
+ToolTip/&CheckBoxDefaultPartyTitle	Check this box to overwrite the default party when testing custom locations. You can select up to 4 heroes in a first-in / first-out basis
 UI/&CustomFeatureSelectionStageDescription	Select extra features from your class/subclass
 UI/&CustomFeatureSelectionStageFeatures	Features
 UI/&CustomFeatureSelectionStageNotDone	You must select all available features before proceeding

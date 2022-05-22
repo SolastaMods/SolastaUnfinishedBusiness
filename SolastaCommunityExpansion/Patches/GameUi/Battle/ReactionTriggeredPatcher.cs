@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Battle
         {
             var isCtrlPressed = Input.GetKey(KeyCode.RightControl) || Input.GetKey(KeyCode.LeftControl);
 
-            if (Main.Settings.EnableCtrlClickBypassAttackReactionPanel 
+            if (Main.Settings.EnableCtrlClickBypassAttackReactionPanel
                 && isCtrlPressed
                 && (!Main.Settings.EnableIgnoreCtrlClickOnCriticalHit || !Global.CriticalHit))
             {

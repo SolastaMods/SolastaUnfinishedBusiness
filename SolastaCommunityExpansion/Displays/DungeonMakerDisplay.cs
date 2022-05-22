@@ -14,13 +14,19 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("Basic:".yellow());
             UI.Label("");
 
-            UI.Label(". These 4 settings won't require the player to have this mod installed");
+            UI.Label(". These settings won't require the player to have this mod installed");
             UI.Label("");
 
             toggle = Main.Settings.AllowDungeonsMaxLevel20;
             if (UI.Toggle("Allow dungeons with max level 20 " + RequiresRestart, ref toggle))
             {
                 Main.Settings.AllowDungeonsMaxLevel20 = toggle;
+            }
+
+            toggle = Main.Settings.EnableTogglesToOverwriteDefaultTestParty;
+            if (UI.Toggle("Enable toggles on character pool to select different test heroes instead of the default TA party", ref toggle))
+            {
+                Main.Settings.EnableTogglesToOverwriteDefaultTestParty = toggle;
             }
 
             UI.Label("");

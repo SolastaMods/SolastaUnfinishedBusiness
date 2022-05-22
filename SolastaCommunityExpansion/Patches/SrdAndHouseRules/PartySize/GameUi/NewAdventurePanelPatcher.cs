@@ -17,6 +17,8 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.PartySize.GameUi
     {
         internal static void Prefix(RectTransform ___characterSessionPlatesTable)
         {
+            Global.IsNewAdventurePanelInContext = true;
+
             // overrides campaign party size
             DatabaseHelper.CampaignDefinitions.UserCampaign.SetPartySize(Main.Settings.OverridePartySize);
 
@@ -39,6 +41,16 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.PartySize.GameUi
             {
                 ___characterSessionPlatesTable.localScale = new Vector3(1, 1, 1);
             }
+        }
+    }
+
+    [HarmonyPatch(typeof(NewAdventurePanel), "OnBeginHide")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class NewAdventurePanel_OnBeginHide
+    {
+        internal static void Prefix()
+        {
+            Global.IsNewAdventurePanelInContext = false;
         }
     }
 }

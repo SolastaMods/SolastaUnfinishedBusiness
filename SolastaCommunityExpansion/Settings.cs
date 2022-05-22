@@ -244,6 +244,8 @@ namespace SolastaCommunityExpansion
         //
 
         public bool AllowDungeonsMaxLevel20 { get; set; }
+        public bool EnableTogglesToOverwriteDefaultTestParty { get; set; }
+        public List<string> TestPartyHeroes = new();
         public bool AllowGadgetsAndPropsToBePlacedAnywhere { get; set; }
         public bool UnleashNpcAsEnemy { get; set; }
         public bool UnleashEnemyAsNpc { get; set; }

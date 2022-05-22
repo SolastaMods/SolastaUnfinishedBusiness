@@ -1893,6 +1893,7 @@ Tooltip/&TagCommunityExpansionTitle	Expansion de la communauté
 Tooltip/&TagMaledictionTitle	Bon sang
 Tooltip/&TagMonkWeaponTitle	Moine
 Tooltip/&TagOtherModContentTitle	À partir du module
+ToolTip/&CheckBoxDefaultPartyTitle	Cochez cette case pour remplacer la partie par défaut lors du test des emplacements personnalisés. Vous pouvez sélectionner jusqu'à 4 héros selon le principe du premier entré / premier sorti
 UI/&CustomFeatureSelectionStageDescription	Sélectionnez des fonctionnalités supplémentaires dans votre classe/sous-classe
 UI/&CustomFeatureSelectionStageFeatures	Caractéristiques
 UI/&CustomFeatureSelectionStageNotDone	Vous devez sélectionner toutes les fonctionnalités disponibles avant de continuer
