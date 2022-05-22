@@ -1,0 +1,103 @@
+{
+  "$type": "SpellListDefinition, Assembly-CSharp",
+  "hasCantrips": true,
+  "maxSpellLevel": 7,
+  "spellsByLevel": [
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 0,
+      "spells": [
+        "Definition:FireBolt:fac7c06d87f301d4ca3798b4c18d86c8",
+        "Definition:RayOfFrost:637a3697f05a4614e8200abfa5daaaff"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 1,
+      "spells": [
+        "Definition:DetectMagic:a00ea7ca05339cb42a49056d722b6680",
+        "Definition:MagicMissile:2b2b43fb6eeb735479a21209286db382",
+        "Definition:Shield:f69bd9c9375fc074a90043c42f9868fe",
+        "Definition:Thunderwave:6c670662de0366842bca44119e9104da"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 2,
+      "spells": [
+        "Definition:Invisibility:191eaa38bdc35ea429f843cc00e7e559",
+        "Definition:AcidArrow:f37e9c53e7ea033458b5eba667a67f84",
+        "Definition:Blur:277b11af157a3c84292024790e6173b3"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 3,
+      "spells": [
+        "Definition:Counterspell:699759f98dacad84fb2d7323e0788179",
+        "Definition:DispelMagic:296e789b353c0324b804bee2c16a419a",
+        "Definition:Fireball:3f88bf59a445ce64aa23dfb935750535"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 4,
+      "spells": [
+        "Definition:Blight:bd131ed580e31734abb8189ab7e17a10",
+        "Definition:DimensionDoor:c85120485a4cc914eb81b7b75e9e7bbc"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 5,
+      "spells": [
+        "Definition:CloudKill:264bc71496ff9db4682be867a130a0a4",
+        "Definition:ConeOfCold:4014172b09c7b0347911d81077d7ba0c"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 6,
+      "spells": [
+        "Definition:Disintegrate:d57e7732a47d3fa4791776a5b99733a1",
+        "Definition:GlobeOfInvulnerability:eb567aec38beff84d87040cb9a006177"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 7,
+      "spells": [
+        "Definition::",
+        "Definition::",
+        "Definition::"
+      ]
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "SpellList/&SpellListWizardTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "5b9c4eaf-d258-581c-a8e9-2d89dd643b1a",
+  "contentPack": 9999,
+  "name": "Lich_Spelllist"
+}

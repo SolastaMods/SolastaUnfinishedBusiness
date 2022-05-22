@@ -767,8 +767,6 @@ Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	La lame Soul vous pe
 Feature/&AHWarlockSoulBladePactExtendedSpellListTitle	Sorts d'âmelame
 Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Une fois par repos court, vous utilisez le pouvoir des âmes pour vous défendre. En utilisant une action bonus, vous gagnez des PV temporaires égaux à votre niveau + modificateur de charisme
 Feature/&AHWarlockSoulBladePactSoulShieldPowerTitle	Bouclier d'âme
-Feature/&AHWarlockSoulBladePactSpellListDescription	La lame Soul vous permet de choisir parmi une liste étendue de sorts lorsque vous apprenez un sort de démoniste. Les sorts suivants sont ajoutés à la liste des sorts de démoniste pour vous.\nNiveau 1 : Bouclier, Fausse vie\nNiveau 2 : Flou, Branding Smite\nNiveau 3 : Hâte, Lent\nNiveau 4 : Tueur Phantasmal, Tentacules Noirs\nNiveau 5 : Cône de froid, Mind Twist
-Feature/&AHWarlockSoulBladePactSpellListTitle	Liste de sorts étendue de la lame d'âme
 Feature/&AlwaysBeardDescription	{0} % de chances de faire pousser une magnifique barbe !
 Feature/&AncientForestExpandedSpelllistAfinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de sorcier. Les sorts suivants sont ajoutés à la liste des sorts de sorcier pour vous : {0}
 Feature/&AncientForestExpandedSpelllistAfinityTitle	Sorts de la forêt ancienne
@@ -928,7 +926,7 @@ Feature/&DruidForestGuardianExtraAttackDescription	À partir du niveau 6, vous p
 Feature/&DruidForestGuardianExtraAttackTitle	Attaque supplémentaire
 Feature/&DruidForestGuardianImprovedBarkWardDescription	Votre Bark Ward pousse maintenant des épines, ce qui endommage les attaquants de mêlée. Les ennemis qui réussissent à vous toucher avec une attaque au corps à corps subissent 2d8 dégâts perforants
 Feature/&DruidForestGuardianImprovedBarkWardTitle	Bark Ward amélioré
-Feature/&DruidForestGuardianMagicDescription	À partir du niveau 2, lorsque vous choisissez ce cercle, vous accédez à une liste de sorts étendue qui est toujours préparée :\nNiveau 2 : Bouclier, Nuage de brouillard\nNiveau 3 : Flou, Lame de feu\nNiveau 5 : Protection contre l'énergie, dissipation de la magie\nNiveau 7 : Bouclier de flammes, Death Ward\nNiveau 9 : Tenez le monstre, restauration supérieure
+Feature/&DruidForestGuardianMagicDescription	À partir du 2e niveau, lorsque vous choisissez ce cercle, vous accédez à une liste de sorts étendue qui est toujours préparée :\n{0}\n\n
 Feature/&DruidForestGuardianMagicTitle	Sorts de cercle
 Feature/&DruidForestGuardianSuperiorBarkWardDescription	Votre compétence Bark Ward renvoie désormais 3d8 dégâts perforants sur les attaquants au corps à corps. De plus, Bark Ward vous accorde désormais une immunité contre le poison tant qu'il est actif
 Feature/&DruidForestGuardianSuperiorBarkWardTitle	Quartier supérieur de l'écorce
@@ -1081,8 +1079,6 @@ Feature/&RagePowerDescription	En tant qu'action bonus, vous entrez dans une rage
 Feature/&RagePowerTitle	Rage
 Feature/&RageStrengthSavingThrowAffinityDescription	Vous obtenez un avantage sur les sauvegardes de force tout en faisant rage
 Feature/&RageStrengthSavingThrowAffinityTitle	Avantage de sauvegarde de la force de la rage
-Feature/&RangerArcanistMagicDescription	À partir du niveau 3, vous apprenez un sort supplémentaire lorsque vous atteignez certains niveaux dans cette classe. Chaque sort compte pour vous comme un sort de rôdeur, mais il ne compte pas dans le nombre de sorts de rôdeur que vous connaissez. Les sorts sont : Niveau 3 : Bouclier, Niveau 5 : Pas Brumeux, Niveau 9 : Hâte, Niveau 13 : Porte Dimensionnelle et Niveau 17 : Tenir Monstre. De plus, vous êtes compétent pour lancer des sorts au combat et pouvez lancer des sorts qui nécessitent une composante somatique même si vos deux mains tiennent une arme ou un bouclier.
-Feature/&RangerArcanistMagicTitle	Rôdeur arcaniste lanceur de sorts
 Feature/&RangerFeralSensesDescription	Vous gagnez des sens surnaturels qui vous aident à combattre des créatures que vous ne pouvez pas voir. Lorsque vous attaquez une créature que vous ne pouvez pas voir, votre incapacité à la voir n'impose pas de désavantage à vos jets d'attaque contre elle.
 Feature/&RangerFeralSensesTitle	Sens sauvages
 Feature/&RangerVanishActionDescription	À partir du niveau 14, vous pouvez utiliser l'action Cacher comme une action bonus à votre tour
@@ -1897,6 +1893,7 @@ Tooltip/&TagCommunityExpansionTitle	Expansion de la communauté
 Tooltip/&TagMaledictionTitle	Bon sang
 Tooltip/&TagMonkWeaponTitle	Moine
 Tooltip/&TagOtherModContentTitle	À partir du module
+ToolTip/&CheckBoxDefaultPartyTitle	Cochez cette case pour définir votre groupe par défaut lorsque vous démarrez de nouvelles aventures de test d'emplacements personnalisés. Vous pouvez sélectionner jusqu'à {0} héros selon le principe du premier entré / premier sorti
 UI/&CustomFeatureSelectionStageDescription	Sélectionnez des fonctionnalités supplémentaires dans votre classe/sous-classe
 UI/&CustomFeatureSelectionStageFeatures	Caractéristiques
 UI/&CustomFeatureSelectionStageNotDone	Vous devez sélectionner toutes les fonctionnalités disponibles avant de continuer

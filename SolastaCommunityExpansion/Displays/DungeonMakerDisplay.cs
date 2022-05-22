@@ -14,7 +14,7 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("Basic:".yellow());
             UI.Label("");
 
-            UI.Label(". These 4 settings won't require the player to have this mod installed");
+            UI.Label(". These settings won't require the player to have this mod installed");
             UI.Label("");
 
             toggle = Main.Settings.AllowDungeonsMaxLevel20;

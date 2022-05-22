@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 using UnityEngine.UI;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.CharactersPool
@@ -21,11 +22,11 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharactersPool
         internal static void Postfix(CharactersPanel __instance,
             ScrollRect ___charactersScrollview, List<CharacterPlateToggle> ___characterPlates, float __state)
         {
-            if (CharacterPoolManagerPatcher.HeroName != null)
+            if (Global.LastLevelUpHeroName != null)
             {
-                __instance.OnSelectPlate(___characterPlates.Find(x => x.GuiCharacter.Name == CharacterPoolManagerPatcher.HeroName));
+                __instance.OnSelectPlate(___characterPlates.Find(x => x.GuiCharacter.Name == Global.LastLevelUpHeroName));
 
-                CharacterPoolManagerPatcher.HeroName = null;
+                Global.LastLevelUpHeroName = null;
 
                 Main.Log($"setting position to {__state}");
 

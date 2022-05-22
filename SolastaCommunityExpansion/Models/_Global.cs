@@ -7,6 +7,12 @@ namespace SolastaCommunityExpansion.Models
     // keep public for sidecars
     public static class Global
     {
+        // is new adventure panel in context
+        public static bool IsNewAdventurePanelInContext { get; set; }
+
+        // last level up hero name
+        public static string LastLevelUpHeroName { get; set; }
+
         // level up hero
         public static RulesetCharacterHero ActiveLevelUpHero => ServiceRepository.GetService<ICharacterBuildingService>()?.CurrentLocalHeroCharacter;
 

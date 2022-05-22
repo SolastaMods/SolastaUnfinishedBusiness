@@ -1,0 +1,99 @@
+{
+  "$type": "SpellListDefinition, Assembly-CSharp",
+  "hasCantrips": true,
+  "maxSpellLevel": 7,
+  "spellsByLevel": [
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 0,
+      "spells": [
+        "Definition:FireBolt:fac7c06d87f301d4ca3798b4c18d86c8",
+        "Definition:ShockingGrasp:0bcfc5c29da450c4bb0f27df027616eb"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 1,
+      "spells": [
+        "Definition:MagicMissile:2b2b43fb6eeb735479a21209286db382",
+        "Definition:Thunderwave:6c670662de0366842bca44119e9104da"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 2,
+      "spells": [
+        "Definition:Blur:277b11af157a3c84292024790e6173b3",
+        "Definition:MistyStep:f4619f117544fe148aae6952202da5e3"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 3,
+      "spells": [
+        "Definition:Counterspell:699759f98dacad84fb2d7323e0788179",
+        "Definition:Fly:6c13f5461f5047645a8c165cc0f43f83",
+        "Definition:LightningBolt:f6e4a759d9257fe429523d7f3e8d9eb3"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 4,
+      "spells": [
+        "Definition:Banishment:5f6a4b43068dbdc448632b9d43022eb8",
+        "Definition:FireShield:bd4acac8d77f8e6459eaf8d5eebae6f3"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 5,
+      "spells": [
+        "Definition:CloudKill:264bc71496ff9db4682be867a130a0a4",
+        "Definition:ConeOfCold:4014172b09c7b0347911d81077d7ba0c"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 6,
+      "spells": [
+        "Definition:GlobeOfInvulnerability:eb567aec38beff84d87040cb9a006177"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 7,
+      "spells": [
+        "Definition::",
+        "Definition::",
+        "Definition::"
+      ]
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "SpellList/&SpellListWizardTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "b13a394c-c277-5537-831a-43d6dde2bde3",
+  "contentPack": 9999,
+  "name": "ArchMage_Spelllist"
+}

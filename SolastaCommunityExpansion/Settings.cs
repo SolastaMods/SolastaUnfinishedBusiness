@@ -188,9 +188,6 @@ namespace SolastaCommunityExpansion
         public bool AddPickpocketableLoot { get; set; }
         public bool AllowStackedMaterialComponent { get; set; }
         public bool ScaleMerchantPricesCorrectly { get; set; }
-        public int MultiplyTheExperienceGainedBy { get; set; } = 100;
-        public bool OverrideMinMaxLevel { get; set; }
-        public int OverridePartySize { get; set; } = Models.DungeonMakerContext.GAME_PARTY_SIZE;
 
         //
         // Gameplay - Items, Crafting & Merchants
@@ -226,7 +223,12 @@ namespace SolastaCommunityExpansion
         public bool EnableCharacterChecker { get; set; }
         public bool EnableRespec { get; set; }
         public bool EnableCheatMenu { get; set; }
+        public bool OverrideMinMaxLevel { get; set; }
+        public bool EnableTogglesToOverwriteDefaultTestParty { get; set; }
+        public List<string> DefaultPartyHeroes = new();
         public bool NoExperienceOnLevelUp { get; set; }
+        public int OverridePartySize { get; set; } = Models.DungeonMakerContext.GAME_PARTY_SIZE;
+        public int MultiplyTheExperienceGainedBy { get; set; } = 100;
         public int MaxBackupFilesPerLocationCampaign { get; set; } = 10;
 
         // Debug

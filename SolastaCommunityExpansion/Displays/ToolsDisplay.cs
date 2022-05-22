@@ -30,9 +30,16 @@ namespace SolastaCommunityExpansion.Displays
             }
 
             toggle = Main.Settings.EnableCharacterChecker;
-            if (UI.Toggle("Enable the character checker button on the character pool", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enable the character checker screen", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableCharacterChecker = toggle;
+            }
+
+
+            toggle = Main.Settings.EnableCheatMenu;
+            if (UI.Toggle("Enable the cheats menu", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableCheatMenu = toggle;
             }
 
             toggle = Main.Settings.EnableRespec;
@@ -42,16 +49,17 @@ namespace SolastaCommunityExpansion.Displays
                 RespecContext.Switch();
             }
 
-            toggle = Main.Settings.EnableCheatMenu;
-            if (UI.Toggle("Enable the cheats menu", ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnableCheatMenu = toggle;
-            }
 
             UI.Label("");
             UI.Label("Adventure:".yellow());
             UI.Label("");
 
+
+            toggle = Main.Settings.EnableTogglesToOverwriteDefaultTestParty;
+            if (UI.Toggle("Enable toggles on character pool to set your default play and test party", ref toggle))
+            {
+                Main.Settings.EnableTogglesToOverwriteDefaultTestParty = toggle;
+            }
 
             toggle = Main.Settings.NoExperienceOnLevelUp;
             if (UI.Toggle("No experience is required to Level Up", ref toggle, UI.AutoWidth()))

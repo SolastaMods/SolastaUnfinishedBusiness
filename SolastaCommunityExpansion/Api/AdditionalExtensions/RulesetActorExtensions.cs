@@ -26,7 +26,7 @@ namespace SolastaModApi.Extensions
         {
             var list = new List<FeatureDefinition>();
 
-            actor.EnumerateFeaturesToBrowse<T>(list);
+            actor?.EnumerateFeaturesToBrowse<T>(list);
 
             return list
                 .Select(s => s as T)

@@ -19,12 +19,14 @@ namespace SolastaCommunityExpansion.ItemCrafting
                             DatabaseHelper.ItemDefinitions.Shield_Wooden,
                             DatabaseHelper.ItemDefinitions.Shield,
                             DatabaseHelper.ItemDefinitions.HideArmor,
+                            DatabaseHelper.ItemDefinitions.LeatherDruid,
                             DatabaseHelper.ItemDefinitions.StuddedLeather,
                         },
                 PossiblePrimedItemsToReplace = new List<ItemDefinition>()
                         {
                             DatabaseHelper.ItemDefinitions.Primed_HalfPlate,
                             DatabaseHelper.ItemDefinitions.Primed_Leather_Armor,
+                            DatabaseHelper.ItemDefinitions.Primed_LeatherDruid,
                             DatabaseHelper.ItemDefinitions.Primed_ScaleMail,
                             DatabaseHelper.ItemDefinitions.Primed_Breastplate,
                         },
