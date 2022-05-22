@@ -767,8 +767,6 @@ Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	A lâmina da alma pe
 Feature/&AHWarlockSoulBladePactExtendedSpellListTitle	Feitiços de lâmina da alma
 Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Uma vez por descanso curto você usa o poder das almas para se defender. Usando uma ação bônus você ganha HP temporário igual ao seu nível + modificador de carisma
 Feature/&AHWarlockSoulBladePactSoulShieldPowerTitle	Escudo da Alma
-Feature/&AHWarlockSoulBladePactSpellListDescription	A lâmina da alma permite que você escolha de uma lista expandida de feitiços quando você aprende um feitiço de feiticeiro. As seguintes magias são adicionadas à lista de magias de bruxo para você.\nNível 1: Escudo, Vida Falsa\nNível 2: Desfoque, Golpe de Marca\nNível 3: Rapidez, Lento\nNível 4: Assassino Fantasma, Tentáculos Negros\nNível 5: Cone de Frio, Torção da Mente
-Feature/&AHWarlockSoulBladePactSpellListTitle	Lista de feitiços expandida da lâmina da alma
 Feature/&AlwaysBeardDescription	{0}% de chances de crescer uma barba gloriosa!
 Feature/&AncientForestExpandedSpelllistAfinityDescription	Você escolhe a partir de uma lista expandida de magias quando aprende uma magia de bruxo. Os seguintes feitiços são adicionados à lista de feitiços de bruxo para você: {0}
 Feature/&AncientForestExpandedSpelllistAfinityTitle	Feitiços da Floresta Antiga
@@ -928,7 +926,7 @@ Feature/&DruidForestGuardianExtraAttackDescription	A partir do 6º nível, você
 Feature/&DruidForestGuardianExtraAttackTitle	Ataque Extra
 Feature/&DruidForestGuardianImprovedBarkWardDescription	Seu Bark Ward agora cresce espinhos, que danificam os atacantes corpo a corpo. Inimigos que acertarem você com sucesso com um ataque corpo a corpo sofrem 2d8 de dano perfurante
 Feature/&DruidForestGuardianImprovedBarkWardTitle	Sentido de Latido Aprimorado
-Feature/&DruidForestGuardianMagicDescription	A partir do 2º nível ao escolher este círculo, você ganha acesso a uma lista de feitiços expandida que está sempre preparada:\nNível 2: Escudo, Nuvem de Névoa\nNível 3: Borrão, Lâmina Flamejante\nNível 5: Proteção contra energia, dissipar magia\nNível 7: Flame Shield, Death Ward\nNível 9: Hold Monster, Greater Restoration
+Feature/&DruidForestGuardianMagicDescription	A partir do 2º nível ao escolher este círculo, você ganha acesso a uma lista de feitiços expandida que está sempre preparada:\n{0}\n\n
 Feature/&DruidForestGuardianMagicTitle	Feitiços de Círculo
 Feature/&DruidForestGuardianSuperiorBarkWardDescription	Sua habilidade Bark Ward agora reflete 3d8 de dano perfurante em atacantes corpo a corpo. Além disso, Bark Ward agora concede imunidade a veneno enquanto estiver ativo
 Feature/&DruidForestGuardianSuperiorBarkWardTitle	Ala do Latido Superior
@@ -1081,8 +1079,6 @@ Feature/&RagePowerDescription	Como uma ação bônus, você entra em fúria por 
 Feature/&RagePowerTitle	Fúria
 Feature/&RageStrengthSavingThrowAffinityDescription	Você obtém vantagem em economias de força enquanto está em fúria
 Feature/&RageStrengthSavingThrowAffinityTitle	Vantagem de economia de força de raiva
-Feature/&RangerArcanistMagicDescription	A partir do 3º nível, você aprende uma magia adicional quando atinge certos níveis nesta classe. Cada feitiço conta como um feitiço de patrulheiro para você, mas não conta para o número de feitiços de patrulheiro que você conhece. Os feitiços são: Level 3: Shield, Level 5: Misty Step, Level 9: Haste, Level 13: Dimension Door e Level 17: Hold Monster. Além disso, você é proficiente em lançar feitiços em batalha e pode lançar feitiços que exijam um componente somático, mesmo que ambas as mãos estejam segurando uma arma ou escudo.
-Feature/&RangerArcanistMagicTitle	Feitiço Arcanista Ranger
 Feature/&RangerFeralSensesDescription	Você ganha sentidos sobrenaturais que o ajudam a lutar contra criaturas que você não pode ver. Quando você ataca uma criatura que não pode ver, sua incapacidade de vê-la não impõe desvantagem em suas jogadas de ataque contra ela
 Feature/&RangerFeralSensesTitle	Sentidos Ferais
 Feature/&RangerVanishActionDescription	A partir do 14º nível, você pode usar a ação Esconder-se como uma ação bônus no seu turno.
