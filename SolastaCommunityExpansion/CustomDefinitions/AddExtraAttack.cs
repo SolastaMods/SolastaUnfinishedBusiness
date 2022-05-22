@@ -75,7 +75,14 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             attackMode.AttacksNumber = attacksNumber;
             attackMode.AttackTags.AddRange(additionalTags);
 
-            attackModes.Add(attackMode);
+            if (attackModes.Any(m => attackMode.IsComparableForNetwork(m)))
+            {
+                RulesetAttackMode.AttackModesPool.Return(attackMode);
+            }
+            else
+            {
+                attackModes.Add(attackMode);
+            }
         }
     }
 }
