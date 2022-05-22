@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.Battle
@@ -12,11 +13,12 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Battle
         {
             var isCtrlPressed = Input.GetKey(KeyCode.RightControl) || Input.GetKey(KeyCode.LeftControl);
 
-            if (request is ReactionRequestSpendSpellSlot
-                && Main.Settings.EnableCtrlClickBypassSmiteReactionPanel
-                && isCtrlPressed)
+            if (Main.Settings.EnableCtrlClickBypassAttackReactionPanel 
+                && isCtrlPressed
+                && (!Main.Settings.EnableIgnoreCtrlClickOnCriticalHit || !Global.CriticalHit))
             {
                 ServiceRepository.GetService<ICommandService>().ProcessReactionRequest(request, false);
+
                 return false;
             }
 
