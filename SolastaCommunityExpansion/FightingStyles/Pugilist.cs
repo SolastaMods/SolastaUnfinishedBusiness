@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaCommunityExpansion.Classes.Monk;
 using SolastaCommunityExpansion.CustomDefinitions;
+using SolastaCommunityExpansion.Models;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
+using static ActionDefinitions;
 using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 
@@ -69,6 +70,7 @@ namespace SolastaCommunityExpansion.FightingStyles
 
                 var gui = GuiPresentationBuilder.Build("PugilistFighting", Category.FightingStyle, PathBerserker.GuiPresentation.SpriteReference);
 
+                //Leaving this so characters that might already have it won't become corrupted
                 var offhandAttack = FeatureDefinitionPowerBuilder
                     .Create("PowerPugilistOffhandAttack", "a97a1c9c-232b-42ae-8003-30d244e958b3")
                     .SetGuiPresentation(gui)
@@ -83,12 +85,13 @@ namespace SolastaCommunityExpansion.FightingStyles
                         RuleDefinitions.AdditionalDamageValueDetermination.Die, RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive, RuleDefinitions.AdditionalDamageRequiredProperty.MeleeWeapon,
                         true, RuleDefinitions.DieType.D8, 1, RuleDefinitions.AdditionalDamageType.SameAsBaseDamage, "", RuleDefinitions.AdditionalDamageAdvancement.None, new List<DiceByRank>(),
                         false, AttributeDefinitions.Constitution, 15, RuleDefinitions.EffectSavingThrowType.None, new List<ConditionOperationDescription>(), gui)
-                    .AddToDB();
+                        .SetCustomSubFeatures(new AddExtraUnarmedAttack(ActionType.Bonus))
+                        .AddToDB();
 
 
                 instance = CustomizableFightingStyleBuilder
                     .Create("PugilistFightingStlye", "b14f91dc-8706-498b-a9a0-d583b7b00d09")
-                    .SetFeatures(pugilistAdditionalDamage, offhandAttack)
+                    .SetFeatures(pugilistAdditionalDamage)
                     .SetGuiPresentation(gui)
                     .SetIsActive(IsValid)
                     .AddToDB();
@@ -99,11 +102,7 @@ namespace SolastaCommunityExpansion.FightingStyles
 
         private static bool IsValid(RulesetCharacterHero character)
         {
-            var mainHand = character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand];
-            var offHand = character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand];
-            
-            return Monk.IsUnarmedWeapon(mainHand.EquipedItem) &&
-                   (Monk.IsUnarmedWeapon(offHand.EquipedItem) || offHand.EquipedItem.ItemDefinition.IsLightSourceItem);
+            return CharacterValidators.FullyUnarmed(character);
         }
     }
 }

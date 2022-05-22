@@ -489,7 +489,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     //TODO: add an option in mod setting to include or exclude this unarmed attack, plus maybe add checks that you have weapon in main hand, so no double options
                     // new AddBonusUnarmedAttack(ActionDefinitions.ActionType.Main, 
                     //     CharacterValidators.NoArmor, CharacterValidators.NoShield),
-                    new AddBonusUnarmedAttack(ActionDefinitions.ActionType.Bonus, UsingOnlyMonkWeapons,
+                    new AddExtraUnarmedAttack(ActionDefinitions.ActionType.Bonus, UsingOnlyMonkWeapons,
                         attackedWithMonkWeapon, CharacterValidators.NoShield, CharacterValidators.NoArmor)
                 )
                 .AddToDB();
@@ -574,7 +574,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
             var extraFlurryAttack1 = FeatureDefinitionAdditionalActionBuilder
                 .Create("ClassMonkFlurryOfBlowsExtraAttacks1", GUID)
                 .SetGuiPresentationNoContent(true)
-                .SetCustomSubFeatures(new AddBonusUnarmedAttack(ActionDefinitions.ActionType.Bonus, 1, true,
+                .SetCustomSubFeatures(new AddExtraUnarmedAttack(ActionDefinitions.ActionType.Bonus, 1, true,
                     CharacterValidators.NoArmor, CharacterValidators.NoShield)
                     .SetTags(FlurryTag))
                 .SetActionType(ActionDefinitions.ActionType.Bonus)
