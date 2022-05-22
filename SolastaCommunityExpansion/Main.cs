@@ -12,13 +12,9 @@ namespace SolastaCommunityExpansion
 {
     public static class Main
     {
-        private const string MonstersFilename = "SolastaMonsters.dll";
-        private const string McFilename = "SolastaMulticlass.dll";
-
         internal static string MOD_FOLDER { get; private set; } = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
         internal static bool Enabled { get; set; }
         internal static bool IsDebugBuild = UnityEngine.Debug.isDebugBuild;
-        internal static bool IsMonstersInstalled = File.Exists(Path.Combine(MOD_FOLDER, MonstersFilename));
 
         // need to be public for MC sidecar
         [Conditional("DEBUG")]
@@ -28,7 +24,11 @@ namespace SolastaCommunityExpansion
 
             if (console)
             {
-                Gui.Game.GameConsole?.LogSimpleLine(msg);
+                var game = Gui.Game;
+                if (game != null)
+                {
+                    game.GameConsole?.LogSimpleLine(msg);
+                }
             }
         }
 
@@ -98,9 +98,7 @@ namespace SolastaCommunityExpansion
             {
                 var filename = Path.GetFileName(path);
 
-                if (filename.StartsWith(currentAssemblyName)
-                    || (filename == MonstersFilename && !Settings.EnableExtraHighLevelMonsters)
-                    || (filename == McFilename))
+                if (filename.StartsWith(currentAssemblyName))
                 {
                     continue;
                 }

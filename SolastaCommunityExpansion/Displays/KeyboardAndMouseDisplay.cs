@@ -15,7 +15,7 @@ namespace SolastaCommunityExpansion.Displays
             Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView &&
             Main.Settings.InvertAltBehaviorOnTooltips &&
             Main.Settings.EnableCtrlClickBypassMetamagicPanel &&
-            Main.Settings.EnableCtrlClickBypassSmiteReactionPanel &
+            Main.Settings.EnableCtrlClickBypassAttackReactionPanel &
             Main.Settings.EnableCtrlClickOnlySwapsMainHand;
 
         private static void UpdateSettings(bool flag)
@@ -30,7 +30,8 @@ namespace SolastaCommunityExpansion.Displays
             Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView = flag;
             Main.Settings.InvertAltBehaviorOnTooltips = flag;
             Main.Settings.EnableCtrlClickBypassMetamagicPanel = flag;
-            Main.Settings.EnableCtrlClickBypassSmiteReactionPanel = flag;
+            Main.Settings.EnableCtrlClickBypassAttackReactionPanel = flag;
+            Main.Settings.EnableIgnoreCtrlClickOnCriticalHit = flag;
             Main.Settings.EnableCtrlClickOnlySwapsMainHand = flag;
         }
 
@@ -137,11 +138,21 @@ namespace SolastaCommunityExpansion.Displays
                 SelectAll = false;
             }
 
-            toggle = Main.Settings.EnableCtrlClickBypassSmiteReactionPanel;
-            if (UI.Toggle("Enable " + "CTRL".cyan() + " click on attacks to ignore the " + "Paladin".orange() + " reaction panel", ref toggle, UI.AutoWidth()))
+            toggle = Main.Settings.EnableCtrlClickBypassAttackReactionPanel;
+            if (UI.Toggle("Enable " + "CTRL".cyan() + " click on attacks to ignore any reaction panel", ref toggle, UI.AutoWidth()))
             {
-                Main.Settings.EnableCtrlClickBypassSmiteReactionPanel = toggle;
+                Main.Settings.EnableCtrlClickBypassAttackReactionPanel = toggle;
+                Main.Settings.EnableIgnoreCtrlClickOnCriticalHit = toggle;
                 SelectAll = false;
+            }
+
+            if (Main.Settings.EnableCtrlClickBypassAttackReactionPanel)
+            {
+                toggle = Main.Settings.EnableIgnoreCtrlClickOnCriticalHit;
+                if (UI.Toggle("+ only bypass if not a critical hit".italic(), ref toggle, UI.AutoWidth()))
+                {
+                    Main.Settings.EnableIgnoreCtrlClickOnCriticalHit = toggle;
+                }
             }
 
             toggle = Main.Settings.EnableCtrlClickOnlySwapsMainHand;
@@ -152,6 +163,8 @@ namespace SolastaCommunityExpansion.Displays
             }
             #endregion
 
+            UI.Label("");
+            UI.Label(". " + "SHIFT".cyan() + " click on a spell consumes a spell slot instead of the default pact magic one");
             UI.Label("");
         }
     }

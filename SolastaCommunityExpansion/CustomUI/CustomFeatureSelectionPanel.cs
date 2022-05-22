@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using ModKit;
+using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.CustomDefinitions;
+using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -1203,25 +1205,6 @@ namespace SolastaCommunityExpansion.CustomUI
             instance.InvokeMethod("Refresh");
         }
 
-        public static void SetupSprite(Image imageComponent, GuiPresentation presentation)
-        {
-            if (imageComponent.sprite != null)
-            {
-                Gui.ReleaseAddressableAsset(imageComponent.sprite);
-                imageComponent.sprite = null;
-            }
-
-            if (presentation.SpriteReference != null && presentation.SpriteReference.RuntimeKeyIsValid())
-            {
-                imageComponent.gameObject.SetActive(true);
-                imageComponent.sprite = Gui.LoadAssetSync<Sprite>(presentation.SpriteReference);
-            }
-            else
-            {
-                imageComponent.gameObject.SetActive(false);
-            }
-        }
-
         public static void SetupUI(this SpellBox instance, GuiPresentation setPresentation, List<string> errors)
         {
             var title = instance.GetField<GuiLabel>("titleLabel");
@@ -1260,7 +1243,7 @@ namespace SolastaCommunityExpansion.CustomUI
             }
 
             title.Text = gui.Title;
-            SetupSprite(image, gui);
+            image.SetupSprite(gui, true);
         }
 
         public static void CustomUnbind(this SpellBox instance)

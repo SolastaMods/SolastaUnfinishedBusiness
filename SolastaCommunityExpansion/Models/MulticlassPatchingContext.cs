@@ -35,6 +35,25 @@ namespace SolastaCommunityExpansion.Models
             //    dbFeatureDefinitionProficiency.GetElement("ProficiencyWardenArmor"), 
             //    ArmorProficiencyMulticlassBuilder.WardenArmorProficiencyMulticlass);
 
+#if DEBUG // simplify diagnostics creation while in beta
+            FeaturesToExclude.Add(MonkClass, new()
+                {
+                    dbFeatureDefinitionPointPool.GetElement("ClassMonkSkillProficiency"),
+                    dbFeatureDefinitionProficiency.GetElement("ClassMonkWeaponProficiency"),
+                    dbFeatureDefinitionProficiency.GetElement("ClassMonkSavingThrowProficiency")
+                });
+#else
+            if (Main.Settings.EnableBetaContent)
+            {
+                FeaturesToExclude.Add(MonkClass, new()
+                {
+                    dbFeatureDefinitionPointPool.GetElement("ClassMonkSkillProficiency"),
+                    dbFeatureDefinitionProficiency.GetElement("ClassMonkWeaponProficiency"),
+                    dbFeatureDefinitionProficiency.GetElement("ClassMonkSavingThrowProficiency")
+                });
+            }
+#endif
+
             FeaturesToExclude.Add(TinkererClass, new()
             {
                 dbFeatureDefinitionPointPool.GetElement("PointPoolTinkererSkillPoints"),
@@ -355,14 +374,23 @@ namespace SolastaCommunityExpansion.Models
         {
             var firstClass = rulesetCharacterHero.ClassesHistory[0];
             var selectedClass = LevelUpContext.GetSelectedClass(rulesetCharacterHero) ?? characterClassDefinition;
+            var selectedSubClass = LevelUpContext.GetSelectedSubclass(rulesetCharacterHero);
+            var filteredFeatureUnlockByLevels = selectedClass.FeatureUnlocks.ToList();
+
+            //
+            // supports a better MC UI offering
+            //
+            if (LevelUpContext.IsLevelingUp(rulesetCharacterHero)
+                && LevelUpContext.IsClassSelectionStage(rulesetCharacterHero)
+                && selectedSubClass != null)
+            {
+                filteredFeatureUnlockByLevels.AddRange(SubclassFilteredFeatureUnlocks(selectedSubClass, rulesetCharacterHero));
+            }
 
             if (!LevelUpContext.IsMulticlass(rulesetCharacterHero) || firstClass == selectedClass)
             {
                 return characterClassDefinition.FeatureUnlocks;
             }
-
-            var dbFeatureDefinition = DatabaseRepository.GetDatabase<FeatureDefinition>();
-            var filteredFeatureUnlockByLevels = selectedClass.FeatureUnlocks.ToList();
 
             // remove any extra attacks except on classes that get them at 11 (fighter and swiftblade)
             var attacksNumber = rulesetCharacterHero.GetAttribute(AttributeDefinitions.AttacksNumber).CurrentValue;

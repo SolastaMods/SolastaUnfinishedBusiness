@@ -1,5 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaCommunityExpansion.Api.AdditionalExtensions;
+using SolastaCommunityExpansion.CustomInterfaces;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
 {
@@ -15,16 +17,31 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
         // But only not during a battle.
         internal static void Postfix(GameLocationCharacter __instance, ActionDefinitions.ActionType actionType, ref bool __result, bool accountDelegatedPowers)
         {
+            var rulesetCharacter = __instance.RulesetCharacter;
             if (__result)
             {
+                if (rulesetCharacter != null)
+                {
+                    __result = false;
+                    foreach (var rulesetUsablePower in rulesetCharacter.UsablePowers)
+                    {
+                        if (CanUsePower(rulesetCharacter, rulesetUsablePower))
+                        {
+                            __result = true;
+                            return;
+                        }
+                    }
+                }
+
                 return;
             }
 
-            if (__instance.RulesetCharacter != null)
+            if (rulesetCharacter != null)
             {
-                foreach (var rulesetUsablePower in __instance.RulesetCharacter.UsablePowers)
+                foreach (var rulesetUsablePower in rulesetCharacter.UsablePowers)
                 {
-                    if (__instance.RulesetCharacter.GetRemainingUsesOfPower(rulesetUsablePower) > 0 &&
+                    if (rulesetCharacter.GetRemainingUsesOfPower(rulesetUsablePower) > 0 &&
+                        CanUsePower(rulesetCharacter, rulesetUsablePower) &&
                         !(!accountDelegatedPowers && rulesetUsablePower.PowerDefinition.DelegatedToAction) &&
                         !ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress &&
                         actionType == ActionDefinitions.ActionType.Main &&
@@ -39,6 +56,12 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
                     }
                 }
             }
+        }
+
+        private static bool CanUsePower(RulesetCharacter character, RulesetUsablePower usablePower)
+        {
+            var validator = usablePower.PowerDefinition.GetFirstSubFeatureOfType<IPowerUseValidity>();
+            return validator == null || validator.CanUsePower(character);
         }
     }
 }

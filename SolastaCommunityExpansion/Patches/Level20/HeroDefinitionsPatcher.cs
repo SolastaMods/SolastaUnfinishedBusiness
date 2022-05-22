@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using static SolastaCommunityExpansion.Models.Level20Context;
 
 namespace SolastaCommunityExpansion.Patches.Level20
 {
@@ -9,16 +8,12 @@ namespace SolastaCommunityExpansion.Patches.Level20
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class HeroDefinitions_MaxHeroExperience
     {
-        internal static bool Prefix(ref int __result)
+        internal static void Prefix(ref int levelCap)
         {
-            if (Main.Settings.EnableLevel20)
+            if (levelCap == 20)
             {
-                __result = MAX_CHARACTER_EXPERIENCE;
-
-                return false;
+                levelCap = 19;
             }
-
-            return true;
         }
     }
 }

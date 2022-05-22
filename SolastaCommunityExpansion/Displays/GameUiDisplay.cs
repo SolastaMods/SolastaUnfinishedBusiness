@@ -11,6 +11,7 @@ namespace SolastaCommunityExpansion.Displays
         {
             bool toggle;
             int intValue;
+            float floatValue;
 
             #region Battle
             UI.Label("");
@@ -40,6 +41,14 @@ namespace SolastaCommunityExpansion.Displays
             if (UI.Toggle("Pause the UI when victorious in battle", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.AutoPauseOnVictory = toggle;
+            }
+
+            UI.Label("");
+
+            floatValue = Main.Settings.FasterTimeModifier;
+            if (UI.Slider("Game time modifier when pressing space bar".white(), ref floatValue, 1.5f, 10f, 1.5f, 1, "X", UI.AutoWidth()))
+            {
+                Main.Settings.FasterTimeModifier = floatValue;
             }
             #endregion
 

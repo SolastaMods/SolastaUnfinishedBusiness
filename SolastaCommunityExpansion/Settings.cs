@@ -21,6 +21,7 @@ namespace SolastaCommunityExpansion
         //
 
         public bool DisplayWelcomeMessage { get; set; } = true;
+        public bool EnableBetaContent { get; set; }
 
         //
         // Blueprints Viewer UI
@@ -43,7 +44,7 @@ namespace SolastaCommunityExpansion
         public bool DisplayFeatsToggle { get; set; } = true;
         public bool DisplayFightingStylesToggle { get; set; } = true;
         public SerializableDictionary<string, bool> DisplaySpellListsToggle { get; set; } = new();
-        public bool DisplayCraftingToggle { get; set; } = true;
+        public bool DisplayCraftingToggle { get; set; }
         public bool DisplayMerchantsToggle { get; set; } = true;
 
         //
@@ -66,8 +67,6 @@ namespace SolastaCommunityExpansion
         public bool BugFixWieldedConfigurationSelector { get; set; } = true;
         public bool EnableCustomSpellsPatch { get; set; } = true;
         public bool EnableDungeonMakerPro { get; set; } = true;
-        public bool EnableDungeonMakerRotationHotkeys { get; set; } = true;
-        public bool EnableEnforceUniqueFeatureSetChoices { get; set; } = true;
         public bool EnableFirstLevelCasterFeats { get; set; } = true;
         public bool EnableMoveSorceryPointsBox { get; set; } = true;
         public bool EnableMultiLinePowerPanel { get; set; } = true;
@@ -101,14 +100,19 @@ namespace SolastaCommunityExpansion
         public bool EnableAlternateHuman { get; set; }
         public bool EnableFlexibleBackgrounds { get; set; }
         public bool EnableFlexibleRaces { get; set; }
-        public bool EnableEpicPoints { get; set; }
-        public bool EnableEpicArray { get; set; }
+        public bool EnableEpicPointsAndArray { get; set; }
         public int TotalFeatsGrantedFistLevel { get; set; }
 
         // Progression
         public bool EnablesAsiAndFeat { get; set; }
         public bool EnableFeatsAtEvenLevels { get; set; }
-        public bool EnableLevel20 { get; set; }
+        public int MaxAllowedLevels { get; set; } = Models.Level20Context.GAME_MAX_LEVEL;
+
+        // Multiclass
+        public bool EnableMinInOutAttributes { get; set; } = true;
+        public bool EnableRelearnSpells { get; set; } = true;
+        public bool DisplayAllKnownSpellsDuringLevelUp { get; set; } = true;
+        public int MaxAllowedClasses { get; set; } = 1;
 
         // Visuals
         public bool OfferAdditionalLoreFriendlyNames { get; set; }
@@ -254,6 +258,7 @@ namespace SolastaCommunityExpansion
         public bool DontFollowCharacterInBattle { get; set; }
         public int DontFollowMargin { get; set; } = 5;
         public bool AutoPauseOnVictory { get; set; }
+        public float FasterTimeModifier { get; set; }
 
         // Campaigns and Locations
         public bool FollowCharactersOnTeleport { get; set; }
@@ -289,7 +294,8 @@ namespace SolastaCommunityExpansion
         public bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }
         public bool InvertAltBehaviorOnTooltips { get; set; }
         public bool EnableCtrlClickBypassMetamagicPanel { get; set; }
-        public bool EnableCtrlClickBypassSmiteReactionPanel { get; set; }
+        public bool EnableCtrlClickBypassAttackReactionPanel { get; set; }
+        public bool EnableIgnoreCtrlClickOnCriticalHit { get; set; }
         public bool EnableCtrlClickOnlySwapsMainHand { get; set; }
 
         //
@@ -298,15 +304,5 @@ namespace SolastaCommunityExpansion
 
         public bool EnableEnemiesControlledByPlayer { get; set; }
         public bool EnableHeroesControlledByComputer { get; set; }
-
-        //
-        // Multiclass
-        //
-
-        public bool EnableMulticlass { get; set; }
-        public bool EnableMinInOutAttributes { get; set; }
-        public bool EnableRelearnSpells { get; set; }
-        public bool DisplayAllKnownSpellsDuringLevelUp { get; set; }
-        public int MaxAllowedClasses { get; set; }
     }
 }

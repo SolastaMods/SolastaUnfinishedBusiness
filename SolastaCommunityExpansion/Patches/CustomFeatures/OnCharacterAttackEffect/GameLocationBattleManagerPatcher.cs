@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using HarmonyLib;
-using SolastaCommunityExpansion.CustomDefinitions;
+using SolastaCommunityExpansion.Api.AdditionalExtensions;
+using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi.Extensions;
 using UnityEngine;
@@ -123,6 +124,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
 
             var rulesetCharacter = attacker.RulesetCharacter;
 
+            Global.CriticalHit = criticalHit;
+
             //
             // custom behavior before damage
             //
@@ -224,11 +227,10 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                         //
                         // patch here
                         //
+                        // melee only is now controlled via properties
+                        //
                         //else if (provider.TriggerCondition == RuleDefinitions.AdditionalDamageTriggerCondition.SpendSpellSlot && attackModifier != null && attackModifier.Proximity == RuleDefinitions.AttackProximity.Melee)
-                        else if (provider.TriggerCondition == RuleDefinitions.AdditionalDamageTriggerCondition.SpendSpellSlot
-                            //TODO: make Divine Smite malee-only via properties
-                            //&& attackModifier != null && attackModifier.Proximity == RuleDefinitions.AttackProximity.Melee
-                            && (!Main.Settings.EnableCtrlClickBypassSmiteReactionPanel || !isCtrlPressed))
+                        else if (provider.TriggerCondition == RuleDefinitions.AdditionalDamageTriggerCondition.SpendSpellSlot)
                         {
                             // This is used to allow Divine Smite under Wildshape
                             // Look for the spellcasting feature holding the smite
@@ -494,6 +496,12 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                 {
                     foreach (var usablePower in attacker.RulesetCharacter.UsablePowers)
                     {
+                        var validator = usablePower.PowerDefinition.GetFirstSubFeatureOfType<IReactionAttackModeRestriction>();
+                        if (validator != null && !validator.ValidReactionMode(attackMode, attacker.RulesetCharacter, defender.RulesetCharacter))
+                        {
+                            continue;
+                        }
+
                         if (!attacker.RulesetCharacter.IsPowerOverriden(usablePower)
                             && attacker.RulesetCharacter.GetRemainingUsesOfPower(usablePower) > 0
                             && ((usablePower.PowerDefinition.ActivationTime == RuleDefinitions.ActivationTime.OnAttackHit && attackMode != null)
@@ -512,6 +520,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                             var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
                             reactionParams.RulesetEffect = rulesetImplementationService.InstantiateEffectPower(attacker.RulesetCharacter, usablePower, false);
                             reactionParams.TargetCharacters.Add(defender);
+                            reactionParams.ActionModifiers.Add(new ActionModifier());
                             reactionParams.IsReactionEffect = true;
 
                             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
@@ -648,6 +657,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
             }
 
             yield return CustomReactionsContext.TryReactingToDamageWithSpell(attacker, defender, attackModifier, attackMode, rangedAttack, advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget);
+
+            Global.CriticalHit = false;
         }
     }
 
@@ -671,6 +682,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
         {
             Main.Logger.Log("HandleCharacterMagicalAttackDamage");
 
+            Global.CriticalHit = criticalHit;
+
             var rulesetCharacter = attacker.RulesetCharacter;
 
             if (rulesetCharacter != null)
@@ -693,6 +706,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                     feature.AfterOnMagicalAttackDamage(attacker, defender, magicModifier, rulesetEffect, actualEffectForms, firstTarget, criticalHit);
                 }
             }
+
+            Global.CriticalHit = false;
         }
     }
 }

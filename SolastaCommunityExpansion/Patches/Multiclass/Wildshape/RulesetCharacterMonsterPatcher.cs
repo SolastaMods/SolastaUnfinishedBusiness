@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using SolastaModApi.Infrastructure;
@@ -41,19 +42,6 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.Wildshape
             {
                 __instance.SpendRagePoint();
             }
-
-            // adds additional AC from ability score bonus (stacking here to be consistent with CE feats)
-            var modifier = 0;
-
-            foreach (var feature in hero.ActiveFeatures
-                .SelectMany(x => x.Value)
-                .OfType<FeatureDefinitionAttributeModifier>()
-                .Where(x => x.ModifiedAttribute == AttributeDefinitions.ArmorClass && x.ModifierType == FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddAbilityScoreBonus))
-            {
-                modifier += AttributeDefinitions.ComputeAbilityScoreModifier(__instance.GetAttribute(feature.ModifierAbilityScore).CurrentValue);
-            }
-
-            __instance.GetAttribute(AttributeDefinitions.ArmorClass).BaseValue += modifier;
         }
     }
 }

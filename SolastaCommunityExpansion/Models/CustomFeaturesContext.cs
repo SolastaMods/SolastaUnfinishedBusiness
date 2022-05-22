@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using SolastaCommunityExpansion.Api.AdditionalExtensions;
-using SolastaCommunityExpansion.CustomDefinitions;
+using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaModApi.Extensions;
 using UnityEngine;
 
@@ -280,6 +280,23 @@ namespace SolastaCommunityExpansion.Models
             return totalPoolSize;
         }
 
+        internal static void UpdateUsageForPower(this RulesetCharacter character, FeatureDefinitionPower power, int poolUsage)
+        {
+            foreach (var poolPower in character.UsablePowers)
+            {
+                if (poolPower.PowerDefinition == power)
+                {
+                    var maxUses = GetMaxUsesForPool(poolPower, character);
+                    var remainingUses = Mathf.Clamp(poolPower.RemainingUses - poolUsage, 0, maxUses);
+
+                    poolPower.SetRemainingUses(remainingUses);
+                    AssignUsesToSharedPowersForPool(character, poolPower, remainingUses, maxUses);
+
+                    return;
+                }
+            }
+        }
+
         internal static void UpdateUsageForPowerPool(this RulesetCharacter character, RulesetUsablePower modifiedPower, int poolUsage)
         {
             if (modifiedPower.PowerDefinition is not IPowerSharedPool sharedPoolPower)
@@ -302,6 +319,54 @@ namespace SolastaCommunityExpansion.Models
                     return;
                 }
             }
+        }
+
+        internal static int GetRemainingPowerUses(this RulesetCharacter character, RulesetUsablePower usablePower)
+        {
+            if (usablePower.PowerDefinition is not IPowerSharedPool sharedPoolPower)
+            {
+                return usablePower.PowerDefinition.CostPerUse == 0
+                    ? int.MaxValue
+                    : usablePower.RemainingUses / usablePower.PowerDefinition.CostPerUse;
+            }
+
+            return GetRemainingPowerPoolUses(character, sharedPoolPower);
+        }
+
+        internal static int GetRemainingPowerUses(this RulesetCharacter character, FeatureDefinitionPower power)
+        {
+            if (power.CostPerUse == 0)
+            {
+                return int.MaxValue;
+            }
+
+            if (power is IPowerSharedPool poolPower)
+            {
+                return GetRemainingPowerPoolUses(character, poolPower) / power.CostPerUse;
+            }
+
+            var usablePower = character.UsablePowers.FirstOrDefault(u => u.PowerDefinition == power);
+            if (usablePower == null)
+            {
+                return 0;
+            }
+
+            return usablePower.RemainingUses / power.CostPerUse;
+        }
+
+        internal static int GetRemainingPowerPoolUses(this RulesetCharacter character, IPowerSharedPool sharedPoolPower)
+        {
+            var pointPoolPower = sharedPoolPower.GetUsagePoolPower();
+
+            foreach (var poolPower in character.UsablePowers)
+            {
+                if (poolPower.PowerDefinition == pointPoolPower)
+                {
+                    return poolPower.RemainingUses;
+                }
+            }
+
+            return 0;
         }
 
         public static EffectDescription ModifySpellEffect(EffectDescription original, RulesetEffectSpell spell)

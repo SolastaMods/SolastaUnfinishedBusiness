@@ -3,8 +3,8 @@
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
     <TargetFramework>net472</TargetFramework>
-    <AssemblyVersion>1.3.55.1</AssemblyVersion>
-    <FileVersion>1.3.55.1</FileVersion>
+    <AssemblyVersion>1.3.55.3</AssemblyVersion>
+    <FileVersion>1.3.55.3</FileVersion>
     <Description></Description>
     <PackageProjectUrl>https://github.com/SolastaMods/SolastaCommunityExpansion</PackageProjectUrl>
     <RepositoryUrl>https://github.com/SolastaMods/SolastaCommunityExpansion</RepositoryUrl>
@@ -223,6 +223,21 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="translations-pt-br.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="translations-ru.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="monsters-en.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="monsters-fr.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="monsters-pt-br.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="monsters-ru.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="names-en.txt">

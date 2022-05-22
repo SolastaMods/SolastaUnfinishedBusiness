@@ -12,11 +12,7 @@ namespace SolastaCommunityExpansion.Displays
             bool toggle;
 
             UI.Label("");
-
             UI.Label("Initial choices:".yellow());
-
-            UI.Label("");
-            UI.Label(". All these settings only apply when creating a new hero as they get embed in the hero save file");
             UI.Label("");
 
             toggle = Main.Settings.AddHelpActionToAllRaces;
@@ -56,25 +52,16 @@ namespace SolastaCommunityExpansion.Displays
             }
 
             toggle = Main.Settings.EnableFlexibleRaces;
-            if (UI.Toggle("Enable flexible races " + "[assign ability score points instead of the racial defaults]".italic().yellow() + "\ni.e.: High Elf has 3 points to assign instead of +2 Dex / +1 Int".italic(), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enable flexible races " + "[assign ability score points instead of the racial defaults]".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableFlexibleRaces = toggle;
                 FlexibleRacesContext.Switch();
             }
 
-            UI.Label("");
-
-            toggle = Main.Settings.EnableEpicPoints;
-            if (UI.Toggle("Enable an epic 35 points buy system " + RequiresRestart, ref toggle, UI.AutoWidth()))
+            toggle = Main.Settings.EnableEpicPointsAndArray;
+            if (UI.Toggle("Enable an epic 35 points buy system and array " + "[17,15,13,12,10,8] ".italic().yellow() + RequiresRestart, ref toggle, UI.AutoWidth()))
             {
-                Main.Settings.EnableEpicPoints = toggle;
-            }
-
-            toggle = Main.Settings.EnableEpicArray;
-            if (UI.Toggle("Enable an epic " + "[17,15,13,12,10,8]".italic().yellow() + " array instead of a standard " + "[15,14,13,12,10,8]".italic().yellow(), ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnableEpicArray = toggle;
-                InitialChoicesContext.SwitchEpicArray();
+                Main.Settings.EnableEpicPointsAndArray = toggle;
             }
 
             UI.Label("");
@@ -87,13 +74,41 @@ namespace SolastaCommunityExpansion.Displays
             }
 
             UI.Label("");
+            UI.Label("Multiclass:".yellow());
+            UI.Label("");
 
-            UI.Label("Progression:".yellow());
+            toggle = Main.Settings.EnableMinInOutAttributes;
+            if (UI.Toggle("Enforce ability scores minimum in & out pre-requisites", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableMinInOutAttributes = toggle;
+            }
+
+            toggle = Main.Settings.EnableRelearnSpells;
+            if (UI.Toggle("Can select cantrips or spells already learned from other classes", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableRelearnSpells = toggle;
+            }
+
+            toggle = Main.Settings.DisplayAllKnownSpellsDuringLevelUp;
+            if (UI.Toggle("Display all known spells from other classes during level up", ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.DisplayAllKnownSpellsDuringLevelUp = toggle;
+            }
 
             UI.Label("");
 
+            intValue = Main.Settings.MaxAllowedClasses;
+            if (UI.Slider("Max allowed classes ".white() + RequiresRestart, ref intValue, 1, MulticlassContext.MAX_CLASSES, MulticlassContext.MAX_CLASSES, "", UI.Width(50)))
+            {
+                Main.Settings.MaxAllowedClasses = intValue;
+            }
+
+            UI.Label("");
+            UI.Label("Progression:".yellow());
+            UI.Label("");
+
             toggle = Main.Settings.EnablesAsiAndFeat;
-            if (UI.Toggle("Enable both attribute scores increase and feats selection instead of an exclusive choice", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Enable both attribute scores increase and feat selection " + "[instead of an exclusive choice]".yellow().italic(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnablesAsiAndFeat = toggle;
                 InitialChoicesContext.SwitchAsiAndFeat();
@@ -106,60 +121,23 @@ namespace SolastaCommunityExpansion.Displays
                 InitialChoicesContext.SwitchEvenLevelFeats();
             }
 
-            toggle = Main.Settings.EnableLevel20;
-            if (UI.Toggle("Enable Level 20 " + RequiresRestart, ref toggle, UI.AutoWidth()))
+            UI.Label("");
+
+            intValue = Main.Settings.MaxAllowedLevels;
+            if (UI.Slider("Max allowed levels ".white() + RequiresRestart, ref intValue, Level20Context.GAME_MAX_LEVEL, Level20Context.MOD_MAX_LEVEL, Level20Context.GAME_MAX_LEVEL, "", UI.Width(50)))
             {
-                Main.Settings.EnableLevel20 = toggle;
+                Main.Settings.MaxAllowedLevels = intValue;
             }
 
             UI.Label("");
-
-            toggle = Main.Settings.EnableMulticlass;
-            if (UI.Toggle("Enable Multiclass " + RequiresRestart, ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnableMulticlass = toggle;
-                Main.Settings.EnableMinInOutAttributes = toggle;
-                Main.Settings.EnableRelearnSpells = toggle;
-                Main.Settings.DisplayAllKnownSpellsDuringLevelUp = toggle;
-                Main.Settings.MaxAllowedClasses = MulticlassContext.MAX_CLASSES;
-            }
-
-            if (Main.Settings.EnableMulticlass)
-            {
-                toggle = Main.Settings.EnableMinInOutAttributes;
-                if (UI.Toggle("+ Enforce ability scores minimum in & out pre-requisites".italic(), ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.EnableMinInOutAttributes = toggle;
-                }
-
-                toggle = Main.Settings.EnableRelearnSpells;
-                if (UI.Toggle("+ Can select cantrips or spells already learned from other classes".italic(), ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.EnableRelearnSpells = toggle;
-                }
-
-                toggle = Main.Settings.DisplayAllKnownSpellsDuringLevelUp;
-                if (UI.Toggle("+ Display all known spells from other classes during level up".italic(), ref toggle, UI.AutoWidth()))
-                {
-                    Main.Settings.DisplayAllKnownSpellsDuringLevelUp = toggle;
-                }
-
-                UI.Label("");
-                UI.Label(". " + "SHIFT".cyan() + " click on a spell consumes a spell slot instead of the default pact magic one");
-                UI.Label("");
-
-                intValue = Main.Settings.MaxAllowedClasses;
-                if (UI.Slider("Max allowed classes".white(), ref intValue, 1, MulticlassContext.MAX_CLASSES, MulticlassContext.MAX_CLASSES, "", UI.Width(50)))
-                {
-                    Main.Settings.MaxAllowedClasses = intValue;
-                }
-            }
-
-            UI.Label("");
-
             UI.Label("Visuals:".yellow());
-
             UI.Label("");
+
+            toggle = Main.Settings.AllowUnmarkedSorcerers;
+            if (UI.Toggle("Allow unmarked " + "Sorcerers".orange(), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.AllowUnmarkedSorcerers = toggle;
+            }
 
             toggle = Main.Settings.OfferAdditionalLoreFriendlyNames;
             if (UI.Toggle("Offer additional lore friendly names on character creation", ref toggle, UI.AutoWidth()))
@@ -173,12 +151,6 @@ namespace SolastaCommunityExpansion.Displays
             if (UI.Toggle("Unlock all NPC faces", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.UnlockAllNpcFaces = toggle;
-            }
-
-            toggle = Main.Settings.AllowUnmarkedSorcerers;
-            if (UI.Toggle("Allow unmarked " + "Sorcerers".orange(), ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.AllowUnmarkedSorcerers = toggle;
             }
 
             toggle = Main.Settings.UnlockMarkAndTatoosForAllCharacters;

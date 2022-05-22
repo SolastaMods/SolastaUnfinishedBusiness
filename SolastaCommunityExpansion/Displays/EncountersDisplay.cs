@@ -104,7 +104,7 @@ namespace SolastaCommunityExpansion.Displays
                 UI.Label($"{monsterDefinition.FormatTitle()}".orange().bold(), UI.Width(240));
                 UI.Label($"{SplitCamelCase(monsterDefinition.Alignment)}".white(), UI.Width(120));
 
-                var attributesLabel = showAttributes ? "" : "Atributes";
+                var attributesLabel = showAttributes ? "" : "Attributes";
 
                 UI.DisclosureToggle(attributesLabel, ref showAttributes, attributesLabel.Length * 12);
 

@@ -1,4 +1,7 @@
-﻿using SolastaModApi.Extensions;
+﻿using SolastaCommunityExpansion.Api.AdditionalExtensions;
+using SolastaCommunityExpansion.CustomDefinitions;
+using SolastaModApi;
+using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionActionAffinitys;
 
@@ -10,6 +13,7 @@ namespace SolastaCommunityExpansion.Models
         {
             AllowTargetingSelectionWhenCastingChainLightningSpell();
             ApplyConditionBlindedShouldNotAllowOpportunityAttack();
+            ApplyBarbarianUnarmoredDefenseNotStacking();
         }
 
         internal static void ApplyConditionBlindedShouldNotAllowOpportunityAttack()
@@ -53,6 +57,12 @@ namespace SolastaCommunityExpansion.Models
                 spell.TargetType = RuleDefinitions.TargetType.ArcFromIndividual;
                 spell.SetTargetParameter(3);
             }
+        }
+
+        internal static void ApplyBarbarianUnarmoredDefenseNotStacking()
+        {
+            DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierBarbarianUnarmoredDefense
+                .SetCustomSubFeatures(ExclusiveArmorClassBonus.MARKER);
         }
     }
 }

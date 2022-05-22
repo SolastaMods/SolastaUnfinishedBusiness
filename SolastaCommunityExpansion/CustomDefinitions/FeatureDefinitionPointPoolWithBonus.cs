@@ -1,4 +1,6 @@
-﻿namespace SolastaCommunityExpansion.CustomDefinitions
+﻿using SolastaCommunityExpansion.CustomInterfaces;
+
+namespace SolastaCommunityExpansion.CustomDefinitions
 {
     /**
      * FeatureDefinitionPointPool but it will add bonus points to the pool, so next levels these selections won't count.

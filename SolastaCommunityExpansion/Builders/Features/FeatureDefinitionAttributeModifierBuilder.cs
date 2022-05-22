@@ -39,6 +39,24 @@ namespace SolastaCommunityExpansion.Builders.Features
             return this;
         }
 
+        public FeatureDefinitionAttributeModifierBuilder SetModifierValue(int amount)
+        {
+            Definition.SetModifierValue(amount);
+            return this;
+        }
+
+        public FeatureDefinitionAttributeModifierBuilder SetModifiedAttribute(string attribute)
+        {
+            Definition.SetModifiedAttribute(attribute);
+            return this;
+        }
+
+        public FeatureDefinitionAttributeModifierBuilder SetModifierType2(AttributeModifierOperation modifierType)
+        {
+            Definition.SetModifierType2(modifierType);
+            return this;
+        }
+
         public FeatureDefinitionAttributeModifierBuilder SetSituationalContext(RuleDefinitions.SituationalContext situationalContext)
         {
             Definition.SetSituationalContext(situationalContext);

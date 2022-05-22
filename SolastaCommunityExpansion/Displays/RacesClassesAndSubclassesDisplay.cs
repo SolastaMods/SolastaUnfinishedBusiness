@@ -27,19 +27,19 @@ namespace SolastaCommunityExpansion.Displays
             }
 
             UI.Label("");
-            toggle = Main.Settings.EnableUnlimitedArcaneRecoveryOnWizardSpellMaster;
-            if (UI.Toggle("Enable unlimited ".white() + "Arcane Recovery".orange() + " on " + "Wizard".orange() + " Spell Master\n".white() + "Must be enabled when the ability has available uses or before character creation.".italic().yellow(), ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnableUnlimitedArcaneRecoveryOnWizardSpellMaster = toggle;
-                SpellMaster.UpdateBonusRecovery();
-            }
 
-            UI.Label("");
             toggle = Main.Settings.EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter;
             if (UI.Toggle("Enable short rest recharge of ".white() + "Arcane Weapon".orange() + " on " + "Wizard".orange() + " Arcane Fighter\n".white(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter = toggle;
                 ArcaneFighter.UpdateEnchantWeapon();
+            }
+
+            toggle = Main.Settings.EnableUnlimitedArcaneRecoveryOnWizardSpellMaster;
+            if (UI.Toggle("Enable unlimited ".white() + "Arcane Recovery".orange() + " on " + "Wizard".orange() + " Spell Master\n".white() + "Must be enabled when the ability has available uses or before character creation.".italic().yellow(), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableUnlimitedArcaneRecoveryOnWizardSpellMaster = toggle;
+                SpellMaster.UpdateBonusRecovery();
             }
 
             UI.Label("");

@@ -5,11 +5,12 @@ using System.Linq;
 using ModKit;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Utils;
+using SolastaModApi;
 using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Models
 {
-    public class PowerBundleContext
+    public static class PowerBundleContext
     {
         internal const string UseCustomRestPowerFunctorName = "UseCustomRestPower";
         private static readonly Guid GuidNamespace = new("d99cec61-31b8-42a3-a5d6-082369fadaaf");
@@ -70,7 +71,12 @@ namespace SolastaCommunityExpansion.Models
             return GetBundle(GetPower(master));
         }
 
-        public static List<FeatureDefinitionPower> GetBundleSubPowers(FeatureDefinitionPower master)
+        public static bool IsBundlePower(this FeatureDefinitionPower power)
+        {
+            return Bundles.ContainsKey(power);
+        }
+
+        public static List<FeatureDefinitionPower> GetBundleSubPowers(this FeatureDefinitionPower master)
         {
             return GetBundle(master)?.SubPowers;
         }
@@ -154,8 +160,10 @@ namespace SolastaCommunityExpansion.Models
             FunctorExecutionContext context)
         {
             var functor = this;
-            var power = PowerBundleContext.GetPower(functorParameters.StringParameter);
-            if (power == null)
+            var powerName = functorParameters.StringParameter;
+            var power = PowerBundleContext.GetPower(powerName);
+
+            if (power == null && !DatabaseHelper.TryGetDefinition(powerName, null, out power))
             {
                 yield break;
             }

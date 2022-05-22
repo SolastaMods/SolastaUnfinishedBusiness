@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SolastaCommunityExpansion.Classes.Monk;
 using SolastaCommunityExpansion.Classes.Tinkerer;
 //using SolastaCommunityExpansion.Classes.Warden;
 using SolastaCommunityExpansion.Classes.Warlock;
@@ -36,11 +37,23 @@ namespace SolastaCommunityExpansion.Models
         {
             LoadClass(TinkererClass.BuildTinkererClass());
             LoadClass(Warlock.BuildWarlockClass());
-            //LoadClass(Warden.Instance);
             LoadClass(Witch.Instance);
 
-            Classes = Classes.OrderBy(x => x.FormatTitle()).ToHashSet();
+#if DEBUG // simplify diagnostics creation while in beta
+            LoadClass(Monk.BuildClass());
+#else
+            if (Main.Settings.EnableBetaContent)
+            {
+                LoadClass(Monk.BuildClass());
+                //LoadClass(Warden.Instance);
+            }
+#endif
 
+            Classes = Classes.OrderBy(x => x.FormatTitle()).ToHashSet();
+        }
+
+        internal static void LateLoad()
+        {
             if (Main.Settings.EnableSortingFutureFeatures)
             {
                 SortClassesFeatures();

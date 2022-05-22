@@ -1,4 +1,6 @@
-﻿namespace SolastaCommunityExpansion.CustomDefinitions
+﻿using SolastaCommunityExpansion.CustomInterfaces;
+
+namespace SolastaCommunityExpansion.CustomDefinitions
 {
     public delegate bool IsActiveConditionalPowerDelegate(RulesetCharacterHero character);
 

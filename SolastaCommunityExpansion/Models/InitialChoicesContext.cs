@@ -41,16 +41,27 @@ namespace SolastaCommunityExpansion.Models
                     .AddToDB();
             }
 
+            LoadEpicArray();
             LoadVision();
-
-            SwitchEvenLevelFeats();
-            SwitchFirstLevelTotalFeats();
         }
 
         internal static void LateLoad()
         {
             SwitchAsiAndFeat();
-            SwitchEpicArray();
+            SwitchEvenLevelFeats();
+            SwitchFirstLevelTotalFeats();
+        }
+
+        internal static void LoadEpicArray()
+        {
+            if (Main.Settings.EnableEpicPointsAndArray)
+            {
+                AttributeDefinitions.PredeterminedRollScores = new int[] { 17, 15, 13, 12, 10, 8 };
+            }
+            else
+            {
+                AttributeDefinitions.PredeterminedRollScores = new int[] { 15, 14, 13, 12, 10, 8 };
+            }
         }
 
         internal static void LoadVision()
@@ -88,18 +99,6 @@ namespace SolastaCommunityExpansion.Models
             else
             {
                 FeatureSetAbilityScoreChoice.SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion);
-            }
-        }
-
-        internal static void SwitchEpicArray()
-        {
-            if (Main.Settings.EnableEpicArray)
-            {
-                AttributeDefinitions.PredeterminedRollScores = new int[] { 17, 15, 13, 12, 10, 8 };
-            }
-            else
-            {
-                AttributeDefinitions.PredeterminedRollScores = new int[] { 15, 14, 13, 12, 10, 8 };
             }
         }
 

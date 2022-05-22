@@ -24,6 +24,8 @@ namespace SolastaCommunityExpansion.Models
 
         // holds the the casting repertoire
         public static RulesetSpellRepertoire CastedSpellRepertoire { get; set; }
+        // last attack was a critical hit
+        public static bool CriticalHit { get; set; }
 
         // holds a collection of conditions that should display on char panel even if set to silent
         public static HashSet<ConditionDefinition> CharacterLabelEnabledConditions { get; } = new();

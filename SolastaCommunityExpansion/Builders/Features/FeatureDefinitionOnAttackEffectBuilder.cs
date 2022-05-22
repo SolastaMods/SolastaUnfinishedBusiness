@@ -1,5 +1,6 @@
 ﻿using System;
 using SolastaCommunityExpansion.CustomDefinitions;
+using SolastaCommunityExpansion.CustomInterfaces;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {

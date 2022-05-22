@@ -57,7 +57,7 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         public EffectFormBuilder SetLevelAdvancement(EffectForm.LevelApplianceType applyLevel,
-            LevelSourceType levelType, int levelMultiplier)
+            LevelSourceType levelType, int levelMultiplier = 1)
         {
             effectForm.SetApplyLevel(applyLevel);
             effectForm.SetLevelType(levelType);
@@ -104,7 +104,10 @@ namespace SolastaCommunityExpansion.Builders
                 Operation = operation,
                 ConditionDefinition = condition
             };
-            conditionForm.SetConditionDefinitionName(condition.Name);
+            if (condition != null)
+            {
+                conditionForm.SetConditionDefinitionName(condition.Name);
+            }
             conditionForm.SetApplyToSelf(applyToSelf);
             conditionForm.SetForceOnSelf(forceOnSelf);
             conditionForm.ConditionsList.SetRange(detrimentalConditions.ToList());
@@ -148,6 +151,17 @@ namespace SolastaCommunityExpansion.Builders
             damageForm.SetHealFromInflictedDamage(healFromInflictedDamage);
             damageForm.DamageBonusTrends.SetRange(damageBonusTrends);
             effectForm.DamageForm = damageForm;
+            return this;
+        }
+
+        public EffectFormBuilder SetKillForm(KillCondition condition, float challengeRating = 0, int hitPoints = 0)
+        {
+            effectForm.FormType = EffectForm.EffectFormType.Kill;
+            var killForm = new KillForm();
+            killForm.SetKillCondition(condition);
+            killForm.SetChallengeRating(challengeRating);
+            killForm.SetHitPoints(hitPoints);
+            effectForm.SetKillForm(killForm);
             return this;
         }
 

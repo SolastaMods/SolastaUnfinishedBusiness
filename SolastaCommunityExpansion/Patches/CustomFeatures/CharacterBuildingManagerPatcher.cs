@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Reflection;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
@@ -32,13 +33,16 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
         }
     }
 
-    // unregister the hero leveling up and add all known spells to wholelist casters
+    // sort spell repertoires, add all known spells to wholelist casters and unregister the hero leveling up
     [HarmonyPatch(typeof(CharacterBuildingManager), "FinalizeCharacter")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterBuildingManager_FinalizeCharacter
     {
         internal static void Postfix(RulesetCharacterHero hero)
         {
+            //
+            // keep spell repertoires sorted by class title but ancestry one is always kept first
+            //
             hero.SpellRepertoires.Sort((a, b) =>
             {
                 if (a.SpellCastingRace != null)
@@ -62,6 +66,9 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
                 return title1.CompareTo(title2);
             });
 
+            //
+            // Add wholelist caster spells to KnownSpells collection to improve the MC spell selection UI
+            //
             var selectedClassRepertoire = LevelUpContext.GetSelectedClassOrSubclassRepertoire(hero);
 
             if (selectedClassRepertoire == null
@@ -101,25 +108,33 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
             selectedClassRepertoire.KnownSpells.AddRange(knownSpells
                 .Where(x => x.SpellLevel == castingLevel));
 
+            //
+            // finally get rid of the hero context
+            //
             LevelUpContext.UnregisterHero(hero);
         }
     }
 
-    //
-    // this is now handled in MC as we cannot have both a bool prefix and a void prefix on same method
-    //
-#if false
-    // captures the desired class
+    // captures the desired class and ensures this doesn't get executed in the class panel level up screen
     [HarmonyPatch(typeof(CharacterBuildingManager), "AssignClassLevel")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterBuildingManager_AssignClassLevel
     {
-        internal static void Prefix(RulesetCharacterHero hero, CharacterClassDefinition classDefinition)
+        internal static bool Prefix(RulesetCharacterHero hero, CharacterClassDefinition classDefinition)
         {
             LevelUpContext.SetSelectedClass(hero, classDefinition);
+
+            var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
+            var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
+
+            if (isLevelingUp && !isClassSelectionStage)
+            {
+                LevelUpContext.GrantItemsIfRequired(hero);
+            }
+
+            return !(isLevelingUp && isClassSelectionStage);
         }
     }
-#endif
 
     // captures the desired sub class
     [HarmonyPatch(typeof(CharacterBuildingManager), "AssignSubclass")]
@@ -132,10 +147,19 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
         }
     }
 
+    // ensures this doesn't get executed under a specific MC scenario and only recursive grant features if not in that scenario
     [HarmonyPatch(typeof(CharacterBuildingManager), "GrantFeatures")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterBuildingManager_GrantFeatures
     {
+        internal static bool Prefix(RulesetCharacterHero hero)
+        {
+            var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
+            var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
+
+            return !(isLevelingUp && isClassSelectionStage);
+        }
+
         internal static void Postfix(RulesetCharacterHero hero, List<FeatureDefinition> grantedFeatures, string tag)
         {
             var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
@@ -151,6 +175,10 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
         }
     }
 
+    //
+    // These patches ensure that any custom features undo any required work
+    //
+
     [HarmonyPatch(typeof(CharacterBuildingManager), "ClearPrevious")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterBuildingManager_ClearPrevious
@@ -159,10 +187,12 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
         internal static void Prefix(RulesetCharacterHero hero, string tag)
         {
             ToRemove.Clear();
+
             if (string.IsNullOrEmpty(tag) || !hero.ActiveFeatures.ContainsKey(tag))
             {
                 return;
             }
+
             ToRemove.AddRange(hero.ActiveFeatures[tag]);
         }
 
@@ -172,6 +202,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
             {
                 return;
             }
+
             //TODO: check if other places where this is called require same prefx/postfix treatment
             CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, ToRemove);
         }
@@ -210,40 +241,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
         }
     }
 
-    //
-    // this is now handled in MC as we cannot have both a bool prefix and a void prefix on same method
-    //
-#if false
-    [HarmonyPatch(typeof(CharacterBuildingManager), "UnassignLastClassLevel")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class CharacterBuildingManager_UnassignLastClassLevel
-    {
-        internal static void Prefix(RulesetCharacterHero hero)
-        {
-            var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
-            var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
-
-            // this is a MC scenario
-            if (isLevelingUp && isClassSelectionStage)
-            {
-                return;
-            }
-
-            var heroBuildingData = hero.GetOrCreateHeroBuildingData();
-            var classDefinition = hero.ClassesHistory[heroBuildingData.HeroCharacter.ClassesHistory.Count - 1];
-            var classesAndLevel = hero.ClassesAndLevels[classDefinition];
-            var tag = AttributeDefinitions.GetClassTag(classDefinition, classesAndLevel);
-
-            if (!hero.ActiveFeatures.ContainsKey(tag))
-            {
-                return;
-            }
-
-            CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, hero.ActiveFeatures[tag]);
-        }
-    }
-#endif
-
     [HarmonyPatch(typeof(CharacterBuildingManager), "UnassignBackground")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterBuildingManager_UnassignBackground
@@ -259,6 +256,41 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
             }
 
             CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, hero.ActiveFeatures[tag]);
+        }
+    }
+
+    // ensures this doesn't get executed in the class panel level up screen
+    [HarmonyPatch(typeof(CharacterBuildingManager), "UnassignLastClassLevel")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class CharacterBuildingManager_UnassignLastClassLevel
+    {
+        internal static bool Prefix(RulesetCharacterHero hero)
+        {
+            var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
+            var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
+
+            //
+            // CUSTOM FEATURES BEHAVIOR
+            //
+            if (!isLevelingUp || !isClassSelectionStage)
+            {
+                var heroBuildingData = hero.GetOrCreateHeroBuildingData();
+                var classDefinition = hero.ClassesHistory[heroBuildingData.HeroCharacter.ClassesHistory.Count - 1];
+                var classesAndLevel = hero.ClassesAndLevels[classDefinition];
+                var tag = AttributeDefinitions.GetClassTag(classDefinition, classesAndLevel);
+
+                if (hero.ActiveFeatures.ContainsKey(tag))
+                {
+                    CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, hero.ActiveFeatures[tag]);
+                }
+            }
+
+            if (isLevelingUp && !isClassSelectionStage)
+            {
+                LevelUpContext.UngrantItemsIfRequired(hero);
+            }
+
+            return !(isLevelingUp && isClassSelectionStage);
         }
     }
 
@@ -291,6 +323,187 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
             }
 
             CustomFeaturesContext.RecursiveRemoveCustomFeatures(hero, tag, hero.ActiveFeatures[tag]);
+        }
+    }
+
+    //
+    // these patches support MC shared casters
+    //
+
+    // ensures the level up process only presents / offers spells from current class
+    [HarmonyPatch(typeof(CharacterBuildingManager), "EnumerateKnownAndAcquiredSpells")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class CharacterBuildingManager_EnumerateKnownAndAcquiredSpells
+    {
+        internal static void Postfix(
+            CharacterHeroBuildingData heroBuildingData,
+            List<SpellDefinition> __result)
+        {
+            var hero = heroBuildingData.HeroCharacter;
+            var isMulticlass = LevelUpContext.IsMulticlass(hero);
+
+            if (!isMulticlass)
+            {
+                return;
+            }
+
+            if (Main.Settings.EnableRelearnSpells)
+            {
+                var otherClassesKnownSpells = LevelUpContext.GetOtherClassesKnownSpells(hero);
+
+                __result.RemoveAll(x => otherClassesKnownSpells.Contains(x));
+            }
+            else
+            {
+                var allowedSpells = LevelUpContext.GetAllowedSpells(hero);
+
+                __result.RemoveAll(x => !allowedSpells.Contains(x));
+            }
+        }
+    }
+
+    // get the correct spell feature for the selected class
+    [HarmonyPatch(typeof(CharacterBuildingManager), "GetSpellFeature")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class CharacterBuildingManager_GetSpellFeature
+    {
+        internal static bool Prefix(
+            CharacterHeroBuildingData heroBuildingData,
+            string tag,
+            ref FeatureDefinitionCastSpell __result)
+        {
+            var hero = heroBuildingData.HeroCharacter;
+            var isMulticlass = LevelUpContext.IsMulticlass(hero);
+
+            if (!isMulticlass)
+            {
+                return true;
+            }
+
+            var selectedClass = LevelUpContext.GetSelectedClass(hero);
+            var selectedSubclass = LevelUpContext.GetSelectedSubclass(hero);
+
+            var localTag = tag;
+
+            __result = null;
+
+            if (localTag.StartsWith(AttributeDefinitions.TagClass))
+            {
+                localTag = AttributeDefinitions.TagClass + selectedClass.Name;
+            }
+            else if (localTag.StartsWith(AttributeDefinitions.TagSubclass))
+            {
+                localTag = AttributeDefinitions.TagSubclass + selectedClass.Name;
+            }
+
+            // PATCH
+            foreach (var activeFeature in hero.ActiveFeatures.Where(x => x.Key.StartsWith(localTag)))
+            {
+                foreach (var featureDefinition in activeFeature.Value
+                    .OfType<FeatureDefinitionCastSpell>())
+                {
+                    __result = featureDefinition;
+
+                    return false;
+                }
+            }
+
+            if (!localTag.StartsWith(AttributeDefinitions.TagSubclass))
+            {
+                return false;
+            }
+
+            localTag = AttributeDefinitions.TagClass + selectedClass.Name;
+
+            // PATCH
+            foreach (var activeFeature in hero.ActiveFeatures.Where(x => x.Key.StartsWith(localTag)))
+            {
+                foreach (var featureDefinition in activeFeature.Value
+                    .OfType<FeatureDefinitionCastSpell>())
+                {
+                    __result = featureDefinition;
+
+                    return false;
+                }
+            }
+
+            return false;
+        }
+    }
+
+    // ensure the level up process only offers slots from the leveling up class
+    [HarmonyPatch(typeof(CharacterBuildingManager), "UpgradeSpellPointPools")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class CharacterBuildingManager_UpgradeSpellPointPools
+    {
+        internal static bool Prefix(
+            CharacterBuildingManager __instance,
+            CharacterHeroBuildingData heroBuildingData)
+        {
+            var hero = heroBuildingData.HeroCharacter;
+            var isMulticlass = LevelUpContext.IsMulticlass(hero);
+
+            if (!isMulticlass)
+            {
+                return true;
+            }
+
+            var selectedClass = LevelUpContext.GetSelectedClass(hero);
+            var selectedSubclass = LevelUpContext.GetSelectedSubclass(hero);
+            var selectedClassLevel = LevelUpContext.GetSelectedClassLevel(hero);
+
+            foreach (var spellRepertoire in hero.SpellRepertoires)
+            {
+                var poolName = string.Empty;
+                var maxPoints = 0;
+
+                if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Class)
+                {
+                    // PATCH: short circuit if the feature is for another class (change from native code)
+                    if (spellRepertoire.SpellCastingClass != selectedClass)
+                    {
+                        continue;
+                    }
+
+                    poolName = AttributeDefinitions.GetClassTag(selectedClass, selectedClassLevel);
+                }
+                else if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Subclass)
+                {
+                    // PATCH: short circuit if the feature is for another subclass (change from native code)
+                    if (spellRepertoire.SpellCastingSubclass != selectedSubclass)
+                    {
+                        continue;
+                    }
+
+                    poolName = AttributeDefinitions.GetSubclassTag(selectedClass, selectedClassLevel, selectedSubclass);
+                }
+                else if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Race)
+                {
+                    poolName = AttributeDefinitions.TagRace;
+                }
+
+                if (__instance.HasAnyActivePoolOfType(heroBuildingData, HeroDefinitions.PointsPoolType.Cantrip)
+                    && heroBuildingData.PointPoolStacks[HeroDefinitions.PointsPoolType.Cantrip].ActivePools.ContainsKey(poolName))
+                {
+                    maxPoints = heroBuildingData.PointPoolStacks[HeroDefinitions.PointsPoolType.Cantrip].ActivePools[poolName].MaxPoints;
+                }
+
+                heroBuildingData.TempAcquiredCantripsNumber = 0;
+                heroBuildingData.TempAcquiredSpellsNumber = 0;
+                heroBuildingData.TempUnlearnedSpellsNumber = 0;
+
+                var characterBuildingManagerType = typeof(CharacterBuildingManager);
+                var applyFeatureCastSpellMethod = characterBuildingManagerType.GetMethod("ApplyFeatureCastSpell", BindingFlags.NonPublic | BindingFlags.Instance);
+                var setPointPoolMethod = characterBuildingManagerType.GetMethod("SetPointPool", BindingFlags.NonPublic | BindingFlags.Instance);
+
+                applyFeatureCastSpellMethod.Invoke(__instance, new object[] { heroBuildingData, spellRepertoire.SpellCastingFeature });
+
+                setPointPoolMethod.Invoke(__instance, new object[] { heroBuildingData, HeroDefinitions.PointsPoolType.Cantrip, poolName, heroBuildingData.TempAcquiredCantripsNumber + maxPoints });
+                setPointPoolMethod.Invoke(__instance, new object[] { heroBuildingData, HeroDefinitions.PointsPoolType.Spell, poolName, heroBuildingData.TempAcquiredSpellsNumber });
+                setPointPoolMethod.Invoke(__instance, new object[] { heroBuildingData, HeroDefinitions.PointsPoolType.SpellUnlearn, poolName, heroBuildingData.TempUnlearnedSpellsNumber });
+            }
+
+            return false;
         }
     }
 }

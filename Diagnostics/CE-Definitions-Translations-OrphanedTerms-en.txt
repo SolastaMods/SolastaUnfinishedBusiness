@@ -108,6 +108,8 @@ Feedback/&AdditionalDamageEldritchSmiteFormat	Eldritch Smite!
 Feedback/&AdditionalDamageEldritchSmiteLine	{0} smites {1} (+{2})
 Feedback/&AdditionalDamageElementalDamageFormat	Elemental Damage
 Feedback/&AdditionalDamageElementalDamageLine	Elemental form grants additional damage
+Feedback/&AdditionalDamageLightningSpearFormat	Lightning Spear!
+Feedback/&AdditionalDamageLightningSpearLine	{0} strikes {1} with Lightning Spear! (+{2})
 Feedback/&AdditionalDamagePactMarkedFormat	Pact mark!
 Feedback/&AdditionalDamagePactMarkedLine	Pact mark does additional damage!
 Feedback/&AdditionalDamagePactSoulTakerFormat	Soul taker!
@@ -164,12 +166,29 @@ Reaction/&CastSpellInRetributionDescription	{0} is attacking {1}! You can cast {
 Reaction/&CastSpellInRetributionReactDescription	Click to cast {0}
 Reaction/&CastSpellInRetributionReactTitle	Cast Spell
 Reaction/&CastSpellInRetributionTitle	Cast Reaction Spell
+Reaction/&CustomDeflectMissileClassMonkTitle	{0} is attacking {1}, who can react to reduce the incoming damage by 1D10 + DEX modifier + Monk level
+Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueDescription	{0} hit a creature with one of the attacks granted by Flurry of Blows, and can impose one of the following effects on that target:
+Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactDescription	Apply selected technique
+Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactTitle	Apply
+Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueTitle	Open Hand Technique
+Reaction/&SpendPowerClassMonkQuiveringPalmDescription	{0} has hit opponent with unarmed attack and can spend 3 ki point to attempt to kill it
+Reaction/&SpendPowerClassMonkQuiveringPalmReactDescription	Spend ki to attempt to kill opponent
+Reaction/&SpendPowerClassMonkQuiveringPalmReactTitle	Spend ki
+Reaction/&SpendPowerClassMonkQuiveringPalmTitle	Quivering Palm
+Reaction/&SpendPowerClassMonkStunningStrikeDescription	{0} has hit opponent and can spend 1 ki point to attempt to stun
+Reaction/&SpendPowerClassMonkStunningStrikeReactDescription	Spend ki to attempt to stun opponent
+Reaction/&SpendPowerClassMonkStunningStrikeReactTitle	Spend ki
+Reaction/&SpendPowerClassMonkStunningStrikeTitle	Stunning Strike
 Reaction/&SpendPowerCounterStrikePowerDescription	Spend a gambit die and Counter Strike the enemy, if you hit, do an additional 1d6+2 bludgeoning damage
 Reaction/&SpendPowerCounterStrikePowerReactDescription	Spend a gambit die and Counter Strike the enemy, if you hit, do an additional 1d6+2 bludgeoning damage
 Reaction/&SpendPowerCounterStrikePowerReactTitle	Counter Strike
 Reaction/&SpendPowerCounterStrikePowerTitle	Counter Strike
 Reaction/&SpendPowerDH_RiftStrikeDescription	Once per day when damaged in melee, you can use you reaction to create a portal that banishes the attacker for 1 round from your plane of existence
 Reaction/&SpendPowerDH_RiftStrikeTitle	Rift Strike
+Reaction/&SpendPowerDiamondSoulDescription	{0} has failed a save and can spend 1 ki to reroll it
+Reaction/&SpendPowerDiamondSoulReactDescription	Spend ki to reroll failed save
+Reaction/&SpendPowerDiamondSoulReactTitle	Reroll
+Reaction/&SpendPowerDiamondSoulTitle	Diamond Soul
 Reaction/&SpendPowerInspirePowerDescription	Spend a gambit die and inspire or your ally to give 1d6+2 temp hp
 Reaction/&SpendPowerInspirePowerTitle	Inspire
 Reaction/&SpendPowerKnockDownPowerDescription	Spend a gambit die and empower your attack to do an additional 1d6+2 bludgeoning damage and knock them down until the start of their next turn if they fail a Strength save vs. 8 + your Strength + proficiency
@@ -184,8 +203,13 @@ Reaction/&SpendSpellSlotEldritchSmiteReactTitle	Smite
 Reaction/&SpendSpellSlotEldritchSmiteTitle	Eldritch Smite
 Reaction/&SubitemSelectEldritchSmiteDescription	Select a slot level to consume for your Eldritch Smite
 Reaction/&SubitemSelectEldritchSmiteTitle	Slot Level
+Reaction/&SubitemSelectPowerBundleTitle	Options
 Reaction/&SubitemSelectSlotLevelTitle	Slot Level
 Reaction/&SubitemSelectWarcasterTitle	Select action
+Reaction/&UseClassMonkSlowFallDescription	{0} is falling and can use reaction to prevent falling damage
+Reaction/&UseClassMonkSlowFallReactDescription	Use reaction to prevent damage
+Reaction/&UseClassMonkSlowFallReactTitle	React
+Reaction/&UseClassMonkSlowFallTitle	Slow Fall
 Reaction/&WarcasterAttackDescription	Attack target
 Reaction/&WarcasterAttackTitle	Attack
 Requirement/&FeatureSelectionRequireCharacterLevel	Level {0}
@@ -228,6 +252,11 @@ Spell/&HinderingBlastDescription	A beam of crackling energy streaks toward a cre
 Spell/&HinderingBlastTitle	Eldritch Blast (Hindering)
 Spell/&IPConjureInvisibleStalkerTitle	Conjure Elemental (Invisible Stalker)
 Stage/&IdentityMorphotypeEyeHeader	Eye Style
+Stage/&SubclassSelectionStageClassMonkTraditionDescription	This stage selects the character's monastic tradition
+Stage/&SubclassSelectionStageClassMonkTraditionFeatures	Monastic Tradition Features
+Stage/&SubclassSelectionStageClassMonkTraditionHeader	Select a Monastic Tradition
+Stage/&SubclassSelectionStageClassMonkTraditionNoneDescription	You must select a monastic tradition
+Stage/&SubclassSelectionStageClassMonkTraditionTitle	Monastic\nTradition
 Stage/&SubclassSelectionStageCovenDescription	Coven
 Stage/&SubclassSelectionStageCovenFeaturesDescription	Coven
 Stage/&SubclassSelectionStageCovenFeaturesHeader	Coven Features
@@ -272,6 +301,7 @@ Subclass/&PurpleWitchMagicTitle	Purple Magic
 Subclass/&PurpleWitchTitle	Purple Witch
 Subclass/&WarlockUrPriestDescription	While the vast majority of divine spellcasters gain their powers from a deity, there are those who despise the gods. Those who call themselves Ur-priests have learned to siphon off the divine energies granted by gods to their divine spellcasters, using it for their own needs without giving even lip-service to any god. As an Ur-priest, you differ from most warlocks, lacking a patron who grants you your power. Eldritch Invocations you uncover are warped forms of magic the gods might grant their patrons, while Pact Boons are likely divine artefacts you have managed to steal
 Subclass/&WarlockUrPriestTitle	UrPriest Pact
+Tooltip/&CustomPortraitPoolClassMonkKiPool	You can harness the mystic energy of ki. Your access to this energy is represented by a number of ki points. Maximum amount is equal to your monk level. All spent points are regained on short or long rest. You can spend these points to fuel various ki features
 Tooltip/&FeatPrerequisiteHasStealthAttack	Has stealth attack
 Tooltip/&FeatPrerequisiteIsNotBarbarian	Isn't a Barbarian
 Tooltip/&FeatPrerequisiteIsNotFighter	Isn't a Fighter
@@ -280,6 +310,7 @@ Tooltip/&FeatPrerequisiteLevelFormat	Min Character Level {0}
 Tooltip/&Tag9000Title	Custom Effect
 Tooltip/&TagCommunityExpansionTitle	Community Expansion
 Tooltip/&TagMaledictionTitle	Malediction
+Tooltip/&TagMonkWeaponTitle	Monk
 Tooltip/&TagOtherModContentTitle	From mod
 UI/&CustomFeatureSelectionStageDescription	Select extra features from your class/subclass
 UI/&CustomFeatureSelectionStageFeatures	Features

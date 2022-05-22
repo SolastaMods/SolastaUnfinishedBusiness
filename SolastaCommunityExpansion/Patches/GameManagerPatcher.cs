@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using SolastaCommunityExpansion.Features;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Utils;
 using UnityModManagerNet;
@@ -73,14 +72,21 @@ namespace SolastaCommunityExpansion.Patches
             // Subclasses may rely on classes being loaded (as well as spells and powers) in order to properly refer back to the class.
             SubclassesContext.Load();
 
+            //
             PowerBundleContext.Load();
 
             // Multiclass blueprints should always load to avoid issues with heroes saves and after classes and subclasses
             MulticlassContext.Load();
 
+            if (Main.Settings.EnableExtraHighLevelMonsters)
+            {
+                Translations.LoadTranslations("monsters");
+                SolastaMonsters.Models.MonsterContext.Load();
+            }
+
             ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += (_) =>
             {
-                // Both are late initialized to allow feats and races from other mods
+                // Late initialized to allow feats and races from other mods
                 FlexibleRacesContext.LateLoad();
                 InitialChoicesContext.LateLoad();
 
@@ -96,13 +102,17 @@ namespace SolastaCommunityExpansion.Patches
                 // Integration Context
                 IntegrationContext.LateLoad();
 
+                // Divine Smite fixes
+                HouseFeatureContext.LateLoad();
+
                 // Multiclass
                 MulticlassContext.LateLoad();
 
+                // Classes Features Sorting
+                ClassesContext.LateLoad();
+
                 // Save by location initialization depends on services to be ready
                 SaveByLocationContext.LateLoad();
-
-                HouseFeatureTweaks.LateLoad();
 
                 // Recache all gui collections
                 GuiWrapperContext.Recache();
