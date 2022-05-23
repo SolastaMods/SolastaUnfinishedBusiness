@@ -47,6 +47,10 @@ namespace SolastaCommunityExpansion.Patches.Tools.DefaultParty
 
         internal static void Postfix(RectTransform ___charactersTable)
         {
+            var characterPoolService = ServiceRepository.GetService<ICharacterPoolService>();
+
+            Main.Settings.DefaultPartyHeroes.RemoveAll(x => !characterPoolService.ContainsCharacter(x));
+
             for (var i = 0; i < ___charactersTable.childCount; i++)
             {
                 var character = ___charactersTable.GetChild(i);
