@@ -24,7 +24,7 @@ public static class HandwrapWeaponContext
 
         HandwrapsOfForce = BuildHandwraps("HandwrapsOfForce", 2000, true, Rare, WeaponPlus1);
         HandwrapsOfForce.WeaponDescription.EffectDescription.AddEffectForms(new EffectFormBuilder()
-            .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D8,
+            .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D4,
                 damageType: RuleDefinitions.DamageTypeForce)
             .Build());
 
@@ -33,6 +33,7 @@ public static class HandwrapWeaponContext
         HandwrapsOfPulling.SetIsUsableDevice(true);
         HandwrapsOfPulling.SetUsableDeviceDescription(new UsableDeviceDescriptionBuilder()
             .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
+            .SetSaveDC(-1)
             .AddFunctions(new DeviceFunctionDescriptionBuilder()
                 .SetPower(FeatureDefinitionPowerBuilder
                     .Create("PowerFunctionHandwrapsOfPulling", Monk.GUID)
@@ -44,6 +45,13 @@ public static class HandwrapWeaponContext
                         .SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Distance, 3,
                             RuleDefinitions.TargetType.Individuals)
                         .ExcludeCaster()
+                        .SetSavingThrowData(
+                            true,
+                            true,
+                            AttributeDefinitions.Strength,
+                            false,
+                            RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                            AttributeDefinitions.Wisdom)
                         .SetParticleEffectParameters(FeatureDefinitionPowers.PowerShadowTamerRopeGrapple
                             .EffectDescription.EffectParticleParameters)
                         .SetDurationData(RuleDefinitions.DurationType.Instantaneous)
