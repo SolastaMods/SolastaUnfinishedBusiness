@@ -66,8 +66,8 @@ public class StockUnitDescriptionBuilder
         _factionStatus = status.Name;
         return this;
     }
-    
-    
+
+
     public StockUnitDescriptionBuilder SetFaction(string faction, string status)
     {
         _requiredFaction = faction;

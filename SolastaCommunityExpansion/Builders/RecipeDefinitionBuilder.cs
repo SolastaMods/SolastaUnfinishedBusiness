@@ -66,7 +66,7 @@ namespace SolastaCommunityExpansion.Builders
             Definition.Ingredients.Add(description);
             return this;
         }
-        
+
         public RecipeDefinitionBuilder AddIngredients(params ItemDefinition[] ingredients)
         {
             foreach (var ingredient in ingredients)

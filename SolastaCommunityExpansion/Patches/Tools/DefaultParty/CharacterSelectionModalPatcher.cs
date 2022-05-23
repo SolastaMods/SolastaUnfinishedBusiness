@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using HarmonyLib;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,7 +19,7 @@ namespace SolastaCommunityExpansion.Patches.Tools.DefaultParty
                 if (checkBoxToggle)
                 {
                     checkBoxToggle.gameObject.SetActive(false);
-                } 
+                }
             }
         }
     }

@@ -1,7 +1,6 @@
 ﻿using System;
 using SolastaModApi;
 using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders;
 
@@ -31,7 +30,7 @@ public class DeviceFunctionDescriptionBuilder
         description.SetFeatureDefinitionPower(power);
         return this;
     }
-    
+
     public DeviceFunctionDescriptionBuilder SetSpell(SpellDefinition spell, bool canOverchargeSpell = false)
     {
         description.SetType(DeviceFunctionDescription.FunctionType.Spell);
@@ -42,12 +41,12 @@ public class DeviceFunctionDescriptionBuilder
 
     private void Validate()
     {
-        if (description.Type == DeviceFunctionDescription.FunctionType.Power 
+        if (description.Type == DeviceFunctionDescription.FunctionType.Power
             && description.FeatureDefinitionPower == null)
         {
             throw new ArgumentException("DeviceFunctionDescriptionBuilder empty FeatureDefinitionPower!");
         }
-        if (description.Type == DeviceFunctionDescription.FunctionType.Spell 
+        if (description.Type == DeviceFunctionDescription.FunctionType.Spell
             && description.SpellDefinition == null)
         {
             throw new ArgumentException("DeviceFunctionDescriptionBuilder empty SpellDefinition!");

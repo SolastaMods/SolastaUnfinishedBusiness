@@ -922,12 +922,12 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
             return weapon == null;
         }
-        
+
         public static bool IsUnarmedWeapon(RulesetAttackMode attackMode)
         {
             return IsUnarmedWeapon(attackMode, null);
         }
-        
+
         public static bool IsUnarmedWeapon(RulesetItem weapon)
         {
             return IsUnarmedWeapon(null, weapon);
@@ -940,14 +940,14 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
         public static bool IsMonkWeapon(RulesetAttackMode attackMode)
         {
-            if (attackMode is not {SourceDefinition: ItemDefinition item})
+            if (attackMode is not { SourceDefinition: ItemDefinition item })
             {
                 return false;
             }
 
             return MonkWeapons.Contains(item.WeaponDescription?.WeaponTypeDefinition);
         }
-        
+
         public static bool IsMonkWeapon(RulesetItem weapon)
         {
             //fists

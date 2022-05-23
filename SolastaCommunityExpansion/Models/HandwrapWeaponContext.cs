@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Models;
 public static class HandwrapWeaponContext
 {
     public static ItemDefinition HandwrapsPlus1, HandwrapsPlus2, HandwrapsOfForce, HandwrapsOfPulling;
-    private static List<ItemDefinition> CraftingManuals = new();
+    private static readonly List<ItemDefinition> CraftingManuals = new();
 
     private static StockUnitDescriptionBuilder _stockBuilder;
     private static StockUnitDescriptionBuilder StockBuilder => _stockBuilder ??= BuildStockBuilder();
@@ -123,13 +123,13 @@ public static class HandwrapWeaponContext
     {
         CraftingManuals.Add(BuildManual(BuildRecipe(HandwrapsPlus1, 24, 10,
             ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness)));
-        
+
         CraftingManuals.Add(BuildManual(BuildRecipe(HandwrapsPlus2, 48, 16,
             ItemDefinitions.Ingredient_Enchant_Blood_Gem)));
-        
+
         CraftingManuals.Add(BuildManual(BuildRecipe(HandwrapsOfForce, 48, 16,
             ItemDefinitions.Ingredient_Enchant_Soul_Gem)));
-        
+
         CraftingManuals.Add(BuildManual(BuildRecipe(HandwrapsOfPulling, 48, 16,
             ItemDefinitions.Ingredient_Enchant_Slavestone)));
     }
@@ -169,7 +169,7 @@ public static class HandwrapWeaponContext
             MerchantDefinitions.Store_Merchant_CircleOfDanantar_Joriel_Foxeye, //Caer Cyflen
             //TODO: find magic weapon merchants in Lost Valley
         };
-        
+
         foreach (var merchant in merchants)
         {
             StockItem(merchant, HandwrapsPlus1, FactionStatusDefinitions.Alliance);
@@ -212,7 +212,7 @@ public static class HandwrapWeaponContext
     {
         //Generic +1, weight 2-3
         //TreasureTableDefinitions.RandomTreasureTableC_MagicWeapons_01
-        
+
         //Generic +2, weight 2-3
         //TreasureTableDefinitions.RandomTreasureTableD1_Weapons_02
     }

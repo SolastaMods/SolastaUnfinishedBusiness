@@ -21,7 +21,7 @@ namespace SolastaCommunityExpansion.Patches.Tools.DefaultParty
                 if (child)
                 {
                     child.GetComponentInChildren<Toggle>().isOn = false;
-                }                
+                }
             }
         }
 
@@ -75,7 +75,7 @@ namespace SolastaCommunityExpansion.Patches.Tools.DefaultParty
                     {
                         Main.Settings.DefaultPartyHeroes.Remove(character.name);
                     }
-                });  
+                });
             }
 
             Rebase(___charactersTable);
