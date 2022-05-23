@@ -345,6 +345,18 @@ Equipment/&Enchanted_StuddedLeather_Sturdiness_Description	Cette armure enchant�
 Equipment/&Enchanted_StuddedLeather_Sturdiness_Title	Cuir clouté de robustesse
 Equipment/&Enchanted_StuddedLeather_Survival_Description	Cette armure enchantée a été créée en utilisant les anciennes connaissances des maîtres armuriers de Manacalon. Ildurial Stronghand a forgé la première de ces armures pour la garde personnelle de l'Empereur
 Equipment/&Enchanted_StuddedLeather_Survival_Title	Cuir de survie clouté
+Equipment/&Enchanted_LeatherDruid_Deflection_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard
+Equipment/&Enchanted_LeatherDruid_Deflection_Title	Druid Leather of Deflection
+Equipment/&Enchanted_LeatherDruid_FlameDancing_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard
+Equipment/&Enchanted_LeatherDruid_FlameDancing_Title	Druid Leather of Flame Dancing
+Equipment/&Enchanted_LeatherDruid_FrostWalking_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard
+Equipment/&Enchanted_LeatherDruid_FrostWalking_Title	Druid Leather of Frost Walking
+Equipment/&Enchanted_LeatherDruid_Robustness_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard
+Equipment/&Enchanted_LeatherDruid_Robustness_Title	Druid Leather of Robustness
+Equipment/&Enchanted_LeatherDruid_Sturdiness_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard
+Equipment/&Enchanted_LeatherDruid_Sturdiness_Title	Druid Leather of Sturdiness
+Equipment/&Enchanted_LeatherDruid_Survival_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard
+Equipment/&Enchanted_LeatherDruid_Survival_Title	Druid Leather of Survival
 Equipment/&Enchanted_Warhammer_Acuteness_Description	Cette arme enchantée a été créée en utilisant les anciennes connaissances des maîtres forgerons de Manacalon. Sa conception était l'une des premières œuvres d'Elgador Keenspirit, Magesmith of the Arcaneum
 Equipment/&Enchanted_Warhammer_Acuteness_Title	Marteau de guerre d'acuité
 Equipment/&Enchanted_Warhammer_Bearclaw_Description	Cette arme enchantée a été forgée en utilisant les anciennes connaissances des maîtres forgerons de Manacalon. Les pointes acérées de la griffe de l'ours déchiquetent l'armure pour infliger des dégâts supplémentaires - comme prévu par Ildurial Stronghand, qui a conçu la première arme de ce type
