@@ -1917,3 +1917,21 @@ UI/&CustomFeatureSelectionTooltipTypePower	Power
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Proficiency
 UI/&ForcePreferredCantripDescription	If this toggled is ON only preferred cantrip can trigger. If the preferred cantrip isn't selected, then the first valid cantrip will trigger, regardless of this toggle
 UI/&ForcePreferredCantripTitle	Force Preferred Cantrip
+Item/&Handwraps+1Title	Handwraps +1
+Item/&Handwraps+1TitleUnidentifiedTitle	Good Quality Handwraps
+Item/&Handwraps+1TitleUnidentifiedDescription	Finely crafted handwraps
+Item/&CraftingManualRecipeEnchantHandwraps+1Title	Enchant Handwraps +1
+Item/&Handwraps+2Title	Handwraps +2
+Item/&Handwraps+2TitleUnidentifiedTitle	Maginificent Handwraps
+Item/&Handwraps+2TitleUnidentifiedDescription	Finely crafted handwraps
+Item/&CraftingManualRecipeEnchantHandwraps+2Title	Enchant Handwraps +2
+Item/&HandwrapsOfForceTitle	Forceful Handwraps
+Item/&HandwrapsOfForceTitleUnidentifiedTitle	Maginificent Handwraps
+Item/&HandwrapsOfForceTitleUnidentifiedDescription	Finely crafted handwraps
+Item/&CraftingManualRecipeEnchantHandwrapsOfForceTitle	Enchant Forceful Handwraps
+Item/&HandwrapsOfPullingTitle	Handwraps Of Pulling
+Item/&HandwrapsOfPullingTitleUnidentifiedTitle	Maginificent Handwraps
+Item/&HandwrapsOfPullingTitleUnidentifiedDescription	Finely crafted handwraps
+Item/&CraftingManualRecipeEnchantHandwrapsOfPullingTitle	Enchant Handwraps Of Pulling
+Power/&PowerFunctionHandwrapsOfPullingTitle	Reel In
+Power/&PowerFunctionHandwrapsOfPullingDescription	As a bonus action you can pull creature within 15 feet closer to you.

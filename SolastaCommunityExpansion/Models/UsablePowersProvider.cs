@@ -34,7 +34,7 @@ namespace SolastaCommunityExpansion.Models
             return result;
         }
 
-        private static void UpdateSaveDC(RulesetCharacter actor, RulesetUsablePower usablePower)
+        public static void UpdateSaveDC(RulesetCharacter actor, RulesetUsablePower usablePower)
         {
             var power = usablePower.PowerDefinition;
             var effectDescription = power.EffectDescription;

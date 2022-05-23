@@ -75,6 +75,79 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
+        public ItemDefinitionBuilder SetMerchantCategory(MerchantCategoryDefinition category)
+        {
+            Definition.SetMerchantCategory(category.Name);
+            return this;
+        }
+
+        public ItemDefinitionBuilder SetItemTags(params string[] tags)
+        {
+            Definition.ItemTags.SetRange(tags);
+            return this;
+        }
+
+        public ItemDefinitionBuilder SetSlotTypes(params string[] slotTypes)
+        {
+            Definition.SetSlotTypes(slotTypes);
+            return this;
+        }
+        
+        public ItemDefinitionBuilder SetSlotTypes(params SlotTypeDefinition[] slotTypes)
+        {
+            Definition.SetSlotTypes(slotTypes.Select(t => t.Name));
+            return this;
+        }
+
+        public ItemDefinitionBuilder SetSlotsWhereActive(params string[] slotTypes)
+        {
+            Definition.SetSlotsWhereActive(slotTypes);
+            return this;
+        }
+        
+        public ItemDefinitionBuilder SetSlotsWhereActive(params SlotTypeDefinition[] slotTypes)
+        {
+            Definition.SetSlotsWhereActive(slotTypes.Select(t => t.Name));
+            return this;
+        }
+        
+        public ItemDefinitionBuilder SetStaticProperties(params ItemPropertyDescription[] staticProperties)
+        {
+            Definition.StaticProperties.SetRange(staticProperties);
+            return this;
+        }
+        
+        public ItemDefinitionBuilder SetWeaponDescription(WeaponDescription weapon)
+        {
+            Definition.SetIsWeapon(true);
+            Definition.SetWeaponDescription(weapon);
+            return this;
+        }
+        
+        public ItemDefinitionBuilder SetItemPresentation(ItemPresentation presentation)
+        {
+            Definition.SetItemPresentation(presentation);
+            return this;
+        }
+        
+        public ItemDefinitionBuilder SetItemRarity(RuleDefinitions.ItemRarity rarity)
+        {
+            Definition.SetItemRarity(rarity);
+            return this;
+        }
+        
+        public ItemDefinitionBuilder SetRequiresIdentification(bool value)
+        {
+            Definition.SetRequiresIdentification(value);
+            return this;
+        }
+        
+        public ItemDefinitionBuilder SetRequiresAttunement(bool value)
+        {
+            Definition.SetRequiresAttunement(value);
+            return this;
+        }
+        
         public ItemDefinitionBuilder SetStaticProperties(IEnumerable<ItemPropertyDescription> staticProperties)
         {
             Definition.StaticProperties.SetRange(staticProperties);

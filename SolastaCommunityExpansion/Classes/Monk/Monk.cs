@@ -113,35 +113,6 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 throw new ArgumentException("Trying to build Monk class additional time.");
             }
 
-            // // Experiments with handwraps
-            // var handwraps = ItemDefinitionBuilder
-            //     .Create("ClassMonkHandwraps", GUID)
-            //     .SetGold(1)
-            //     .SetGuiPresentation(Category.Item, ItemDefinitions.UnarmedStrikeBase.GuiPresentation.SpriteReference)
-            //     .AddToDB();
-            //
-            // handwraps.SetSlotTypes(SlotTypeDefinitions.MainHandSlot.Name, SlotTypeDefinitions.ContainerSlot.Name);
-            // handwraps.SetSlotsWhereActive(SlotTypeDefinitions.MainHandSlot.Name);
-            //
-            // var presentation = new ItemPresentation(ItemDefinitions.UnarmedStrikeBase.ItemPresentation);
-            // presentation.ItemFlags.Clear();
-            // presentation.SetAssetReference(new AssetReference());
-            //
-            // var property = new ItemPropertyDescription(ItemDefinitions.GreataxePlus1.StaticProperties[0]);
-            // handwraps.SetStaticProperties(property);
-            //
-            // handwraps.SetItemPresentation(presentation);
-            // handwraps.SetIsWeapon(true);
-            // var description = handwraps.WeaponDescription;
-            // description.SetEffectDescription(new EffectDescriptionBuilder()
-            //     .SetEffectForms(new EffectFormBuilder()
-            //         .SetDamageForm(damageType: DamageTypeBludgeoning, diceNumber: 1, dieType: DieType.D1)
-            //         .SetBonusMode(AddBonusMode.AbilityBonus)
-            //         .Build())
-            //     .Build());
-            // description.SetReachRange(2);
-            // description.SetWeaponType(WeaponTypeDefinitions.UnarmedStrikeType.Name);
-
             BuildClimbingCondition();
             BuildMartialArts();
             BuildKiFeatureSet();
@@ -502,10 +473,6 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
             attackedWithMonkWeapon = CharacterValidators.HasAnyOfConditions(attackedWithMonkWeaponCondition);
 
-            var attackedWithMonkWeaponEffect = new EffectFormBuilder()
-                .SetConditionForm(attackedWithMonkWeaponCondition, ConditionForm.ConditionOperation.Add, true, false)
-                .Build();
-
             martialArts = FeatureDefinitionBuilder
                 .Create("ClassMonkMartialArts", GUID)
                 .SetGuiPresentation(Category.Feature)
@@ -514,11 +481,11 @@ namespace SolastaCommunityExpansion.Classes.Monk
                         CharacterValidators.NoArmor, CharacterValidators.NoShield),
                     new UpgradeWeaponDice(GetMartialDice, IsMonkWeapon,
                         CharacterValidators.NoArmor, CharacterValidators.NoShield),
-                    new AddEffectFormToWeaponAttack(attackedWithMonkWeaponEffect, IsMonkWeapon),
+                    new ApplyMonkWeaponStatusOnAttack(),
                     //TODO: add an option in mod setting to include or exclude this unarmed attack, plus maybe add checks that you have weapon in main hand, so no double options
                     // new AddBonusUnarmedAttack(ActionDefinitions.ActionType.Main, 
                     //     CharacterValidators.NoArmor, CharacterValidators.NoShield),
-                    new AddBonusUnarmedAttack(ActionDefinitions.ActionType.Bonus, UsingOnlyMonkWeapons,
+                    new AddExtraUnarmedAttack(ActionDefinitions.ActionType.Bonus, UsingOnlyMonkWeapons,
                         attackedWithMonkWeapon, CharacterValidators.NoShield, CharacterValidators.NoArmor)
                 )
                 .AddToDB();
@@ -603,7 +570,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
             var extraFlurryAttack1 = FeatureDefinitionAdditionalActionBuilder
                 .Create("ClassMonkFlurryOfBlowsExtraAttacks1", GUID)
                 .SetGuiPresentationNoContent(true)
-                .SetCustomSubFeatures(new AddBonusUnarmedAttack(ActionDefinitions.ActionType.Bonus, 1, true,
+                .SetCustomSubFeatures(new AddExtraUnarmedAttack(ActionDefinitions.ActionType.Bonus, 1, true,
                     CharacterValidators.NoArmor, CharacterValidators.NoShield)
                     .SetTags(FlurryTag))
                 .SetActionType(ActionDefinitions.ActionType.Bonus)
@@ -945,22 +912,42 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .AddToDB();
         }
 
-        public static bool IsUnarmedWeapon(RulesetAttackMode attackMode, RulesetItem weapon)
+        private static bool IsUnarmedWeapon(RulesetAttackMode attackMode, RulesetItem weapon)
         {
-            var item = attackMode?.SourceDefinition as ItemDefinition;
+            var item = attackMode?.SourceDefinition as ItemDefinition ?? weapon?.ItemDefinition;
             if (item != null)
             {
                 return item.WeaponDescription?.WeaponTypeDefinition == WeaponTypeDefinitions.UnarmedStrikeType;
             }
 
-            return false;
+            return weapon == null;
+        }
+        
+        public static bool IsUnarmedWeapon(RulesetAttackMode attackMode)
+        {
+            return IsUnarmedWeapon(attackMode, null);
+        }
+        
+        public static bool IsUnarmedWeapon(RulesetItem weapon)
+        {
+            return IsUnarmedWeapon(null, weapon);
         }
 
         private static bool IsMonkWeapon(RulesetAttackMode attackMode, RulesetItem weapon)
         {
-            return IsMonkWeapon(weapon);
+            return IsMonkWeapon(attackMode) || IsMonkWeapon(weapon);
         }
 
+        public static bool IsMonkWeapon(RulesetAttackMode attackMode)
+        {
+            if (attackMode is not {SourceDefinition: ItemDefinition item})
+            {
+                return false;
+            }
+
+            return MonkWeapons.Contains(item.WeaponDescription?.WeaponTypeDefinition);
+        }
+        
         public static bool IsMonkWeapon(RulesetItem weapon)
         {
             //fists
@@ -969,7 +956,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 return true;
             }
 
-            return MonkWeapons.Contains(weapon.ItemDefinition.WeaponDescription.WeaponTypeDefinition);
+            return MonkWeapons.Contains(weapon.ItemDefinition.WeaponDescription?.WeaponTypeDefinition);
         }
 
         private static bool UsingOnlyMonkWeapons(RulesetCharacter character)
@@ -1149,6 +1136,40 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     character.UpdateUsageForPower(kiPool, -4);
                     GameConsoleHelper.LogCharacterActivatesAbility(character, "Feature/&MonkPerfectSelfTitle");
                 }
+            }
+        }
+
+        private class ApplyMonkWeaponStatusOnAttack : IOnAttackEffect
+        {
+            public void BeforeOnAttack(GameLocationCharacter attacker, GameLocationCharacter defender,
+                ActionModifier attackModifier,
+                RulesetAttackMode attackerAttackMode)
+            {
+            }
+
+            public void AfterOnAttack(GameLocationCharacter attacker, GameLocationCharacter defender,
+                ActionModifier attackModifier,
+                RulesetAttackMode attackerAttackMode)
+            {
+                var character = attacker.RulesetCharacter;
+                if (character == null)
+                {
+                    return;
+                }
+
+                if (!IsMonkWeapon(attackerAttackMode))
+                {
+                    return;
+                }
+
+                character.AddConditionOfCategory(AttributeDefinitions.TagCombat,
+                    RulesetCondition.CreateActiveCondition(character.Guid,
+                        attackedWithMonkWeaponCondition, DurationType.Round,
+                        1,
+                        TurnOccurenceType.StartOfTurn,
+                        character.Guid,
+                        character.CurrentFaction.Name
+                    ));
             }
         }
     }
