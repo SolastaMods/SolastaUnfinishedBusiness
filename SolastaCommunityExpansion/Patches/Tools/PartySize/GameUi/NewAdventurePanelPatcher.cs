@@ -5,7 +5,7 @@ using SolastaModApi;
 using SolastaModApi.Extensions;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.PartySize.GameUi
+namespace SolastaCommunityExpansion.Patches.Tools.PartySize.GameUi
 {
     // this patch tweaks the UI to allow less/more heroes to be selected on a campaign
     //
@@ -17,6 +17,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.PartySize.GameUi
     {
         internal static void Prefix(RectTransform ___characterSessionPlatesTable)
         {
+            Tools.DefaultParty.NewAdventurePanel_Refresh.ShouldAssignDefaultParty = true;
             Global.IsNewAdventurePanelInContext = true;
 
             // overrides campaign party size

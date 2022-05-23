@@ -4,7 +4,7 @@ using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.PartySize.GameUi
+namespace SolastaCommunityExpansion.Patches.Tools.PartySize.GameUi
 {
     // this patch scales down the revive party control panel whenever the party size is bigger than 4
     //
