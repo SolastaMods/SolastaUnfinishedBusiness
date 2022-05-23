@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace SolastaCommunityExpansion.Patches.Tools.DefaultParty
 {
@@ -8,11 +10,18 @@ namespace SolastaCommunityExpansion.Patches.Tools.DefaultParty
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterSelectionModal_EnumeratePlates
     {
-        internal static void Prefix()
+        internal static void Postfix(RectTransform ___charactersTable)
         {
-            var heroes = ServiceRepository.GetService<ICharacterPoolService>().Pool.Keys.ToList();
+            for (var i = 0; i < ___charactersTable.childCount; i++)
+            {
+                var character = ___charactersTable.GetChild(i);
+                var checkBoxToggle = character.GetComponentInChildren<Toggle>();
 
-            Main.Settings.DefaultPartyHeroes.RemoveAll(x => !heroes.Contains(x));
+                if (checkBoxToggle)
+                {
+                    checkBoxToggle.gameObject.SetActive(false);
+                } 
+            }
         }
     }
 }

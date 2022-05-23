@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.Tools.DefaultParty
@@ -8,13 +9,18 @@ namespace SolastaCommunityExpansion.Patches.Tools.DefaultParty
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class NewAdventurePanel_Refresh
     {
-        internal static void Postfix(RectTransform ___characterSessionPlatesTable)
+        internal static bool ShouldAssignDefaultParty { get; set; }
+
+        internal static void Postfix(NewAdventurePanel __instance, RectTransform ___characterSessionPlatesTable)
         {
-            if (!Main.Settings.EnableTogglesToOverwriteDefaultTestParty || Models.Global.IsMultiplayer)
+            if (!Main.Settings.EnableTogglesToOverwriteDefaultTestParty
+                || !ShouldAssignDefaultParty
+                || Global.IsMultiplayer)
             {
                 return;
             }
 
+            var characterPoolService = ServiceRepository.GetService<ICharacterPoolService>();
             var max = System.Math.Min(Main.Settings.DefaultPartyHeroes.Count, ___characterSessionPlatesTable.childCount);
 
             for (var i = 0; i < max; i++)
@@ -23,9 +29,15 @@ namespace SolastaCommunityExpansion.Patches.Tools.DefaultParty
 
                 if (characterPlateSession.gameObject.activeSelf)
                 {
-                    characterPlateSession.BindCharacter(Main.Settings.DefaultPartyHeroes[i], false);
+                    var heroname = Main.Settings.DefaultPartyHeroes[i];
+                    var filename = characterPoolService.BuildCharacterFilename(heroname);
+
+                    characterPlateSession.BindCharacter(filename, false);
+                    __instance.AutotestSelectCharacter(i, heroname);
                 }
             }
+
+            ShouldAssignDefaultParty = false;
         }
     }
 }
