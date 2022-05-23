@@ -19,12 +19,12 @@ namespace SolastaCommunityExpansion.Patches.Tools.DefaultParty
         {
             if (Main.Settings.EnableTogglesToOverwriteDefaultTestParty && slotIndex < Main.Settings.DefaultPartyHeroes.Count)
             {
-                session.AssignCharacterToPlayer(playerIndex, slotIndex, Main.Settings.DefaultPartyHeroes.ElementAt(slotIndex), notify);
+                var characterPoolService = ServiceRepository.GetService<ICharacterPoolService>();
+
+                filename = characterPoolService.BuildCharacterFilename(Main.Settings.DefaultPartyHeroes.ElementAt(slotIndex));
             }
-            else
-            {
-                session.AssignCharacterToPlayer(playerIndex, slotIndex, filename, notify);
-            }
+
+            session.AssignCharacterToPlayer(playerIndex, slotIndex, filename, notify);
         }
 
         public static List<string> PredefinedParty(CampaignDefinition campaignDefinition)
