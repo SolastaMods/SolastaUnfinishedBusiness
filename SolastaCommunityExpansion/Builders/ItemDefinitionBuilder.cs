@@ -75,6 +75,12 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
+        public ItemDefinitionBuilder SetMerchantCategory(MerchantCategoryDefinition category)
+        {
+            Definition.SetMerchantCategory(category.Name);
+            return this;
+        }
+
         public ItemDefinitionBuilder SetSlotTypes(params string[] slotTypes)
         {
             Definition.SetSlotTypes(slotTypes);

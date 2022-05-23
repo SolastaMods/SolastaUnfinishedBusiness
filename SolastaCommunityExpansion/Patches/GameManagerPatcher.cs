@@ -47,6 +47,15 @@ namespace SolastaCommunityExpansion.Patches
             InitialChoicesContext.Load();
             GameUiContext.Load();
             InventoryManagementContext.Load();
+
+#if DEBUG // simplify diagnostics creation while in beta
+            HandwrapWeaponContext.Load();
+#else
+            if (Main.Settings.EnableBetaContent)
+            {
+                HandwrapWeaponContext.Load();
+            }
+#endif
             ItemCraftingContext.Load();
             ItemOptionsContext.Load();
             Level20Context.Load();
