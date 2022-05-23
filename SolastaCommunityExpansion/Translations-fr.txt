@@ -1903,6 +1903,7 @@ Tooltip/&FeatPrerequisiteLevelFormat	Niveau de personnage minimum {0}
 Tooltip/&Tag9000Title	Effet personnalisé
 Tooltip/&TagCommunityExpansionTitle	Expansion de la communauté
 Tooltip/&TagMaledictionTitle	Bon sang
+Tooltip/&TagScoutSentinelWeaponTitle	Scout Sentinel
 Tooltip/&TagMonkWeaponTitle	Moine
 Tooltip/&TagOtherModContentTitle	À partir du module
 ToolTip/&CheckBoxDefaultPartyTitle	Cochez cette case pour définir votre groupe par défaut lorsque vous démarrez de nouvelles aventures de test d'emplacements personnalisés. Vous pouvez sélectionner jusqu'à {0} héros selon le principe du premier entré / premier sorti

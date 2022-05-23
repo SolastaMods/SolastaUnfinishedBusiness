@@ -1903,6 +1903,7 @@ Tooltip/&FeatPrerequisiteLevelFormat	Минимальный уровень пе�
 Tooltip/&Tag9000Title	Пользовательский эффект
 Tooltip/&TagCommunityExpansionTitle	Расширение сообщества
 Tooltip/&TagMaledictionTitle	Черт
+Tooltip/&TagScoutSentinelWeaponTitle	Scout Sentinel
 Tooltip/&TagMonkWeaponTitle	Монах
 Tooltip/&TagOtherModContentTitle	Из мода
 ToolTip/&CheckBoxDefaultPartyTitle	Установите этот флажок, чтобы установить группу по умолчанию, когда вы начинаете новые приключения по тестированию пользовательских локаций. Вы можете выбрать до {0} героев в порядке очереди.

@@ -1903,6 +1903,7 @@ Tooltip/&FeatPrerequisiteLevelFormat	Min Character Level {0}
 Tooltip/&Tag9000Title	Custom Effect
 Tooltip/&TagCommunityExpansionTitle	Community Expansion
 Tooltip/&TagMaledictionTitle	Malediction
+Tooltip/&TagScoutSentinelWeaponTitle	Scout Sentinel
 Tooltip/&TagMonkWeaponTitle	Monk
 Tooltip/&TagOtherModContentTitle	From mod
 ToolTip/&CheckBoxDefaultPartyTitle	Check this box to set your default party when starting new advendures or testing custom locations. You can select up to {0} heroes in a first-in / first-out basis
