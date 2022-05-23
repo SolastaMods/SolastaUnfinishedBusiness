@@ -81,6 +81,12 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
+        public ItemDefinitionBuilder SetItemTags(params string[] tags)
+        {
+            Definition.ItemTags.SetRange(tags);
+            return this;
+        }
+
         public ItemDefinitionBuilder SetSlotTypes(params string[] slotTypes)
         {
             Definition.SetSlotTypes(slotTypes);
