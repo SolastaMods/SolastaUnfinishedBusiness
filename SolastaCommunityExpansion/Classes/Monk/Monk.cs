@@ -473,10 +473,6 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
             attackedWithMonkWeapon = CharacterValidators.HasAnyOfConditions(attackedWithMonkWeaponCondition);
 
-            var attackedWithMonkWeaponEffect = new EffectFormBuilder()
-                .SetConditionForm(attackedWithMonkWeaponCondition, ConditionForm.ConditionOperation.Add, true, false)
-                .Build();
-
             martialArts = FeatureDefinitionBuilder
                 .Create("ClassMonkMartialArts", GUID)
                 .SetGuiPresentation(Category.Feature)
@@ -485,7 +481,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                         CharacterValidators.NoArmor, CharacterValidators.NoShield),
                     new UpgradeWeaponDice(GetMartialDice, IsMonkWeapon,
                         CharacterValidators.NoArmor, CharacterValidators.NoShield),
-                    new AddEffectFormToWeaponAttack(attackedWithMonkWeaponEffect, IsMonkWeapon),
+                    new ApplyMonkWeaponStatusOnAttack(),
                     //TODO: add an option in mod setting to include or exclude this unarmed attack, plus maybe add checks that you have weapon in main hand, so no double options
                     // new AddBonusUnarmedAttack(ActionDefinitions.ActionType.Main, 
                     //     CharacterValidators.NoArmor, CharacterValidators.NoShield),
@@ -939,9 +935,19 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
         private static bool IsMonkWeapon(RulesetAttackMode attackMode, RulesetItem weapon)
         {
-            return IsMonkWeapon(weapon);
+            return IsMonkWeapon(attackMode) || IsMonkWeapon(weapon);
         }
 
+        public static bool IsMonkWeapon(RulesetAttackMode attackMode)
+        {
+            if (attackMode is not {SourceDefinition: ItemDefinition item})
+            {
+                return false;
+            }
+
+            return MonkWeapons.Contains(item.WeaponDescription?.WeaponTypeDefinition);
+        }
+        
         public static bool IsMonkWeapon(RulesetItem weapon)
         {
             //fists
@@ -1130,6 +1136,40 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     character.UpdateUsageForPower(kiPool, -4);
                     GameConsoleHelper.LogCharacterActivatesAbility(character, "Feature/&MonkPerfectSelfTitle");
                 }
+            }
+        }
+
+        private class ApplyMonkWeaponStatusOnAttack : IOnAttackEffect
+        {
+            public void BeforeOnAttack(GameLocationCharacter attacker, GameLocationCharacter defender,
+                ActionModifier attackModifier,
+                RulesetAttackMode attackerAttackMode)
+            {
+            }
+
+            public void AfterOnAttack(GameLocationCharacter attacker, GameLocationCharacter defender,
+                ActionModifier attackModifier,
+                RulesetAttackMode attackerAttackMode)
+            {
+                var character = attacker.RulesetCharacter;
+                if (character == null)
+                {
+                    return;
+                }
+
+                if (!IsMonkWeapon(attackerAttackMode))
+                {
+                    return;
+                }
+
+                character.AddConditionOfCategory(AttributeDefinitions.TagCombat,
+                    RulesetCondition.CreateActiveCondition(character.Guid,
+                        attackedWithMonkWeaponCondition, DurationType.Round,
+                        1,
+                        TurnOccurenceType.StartOfTurn,
+                        character.Guid,
+                        character.CurrentFaction.Name
+                    ));
             }
         }
     }
