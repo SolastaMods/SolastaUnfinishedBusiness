@@ -244,16 +244,23 @@ namespace SolastaCommunityExpansion.Feats
             {
                 var triggerCondition = "PowerAttackTriggerCondition";
                 var attackCondition = PowerAttackConditionBuilder.PowerAttackCondition.Name;
+                var toRemove = new List<RulesetCondition>();
                 foreach (var pair in character.ConditionsByCategory)
                 {
-                    foreach (var rulesetCondition in pair.Value.ToList())
+                    foreach (var rulesetCondition in pair.Value)
                     {
                         if (rulesetCondition.Name == triggerCondition || rulesetCondition.Name == attackCondition)
                         {
-                            character.RemoveCondition(rulesetCondition);
+                            toRemove.Add(rulesetCondition);
                         }
                     }
                 }
+                
+                foreach (var rulesetCondition in toRemove)
+                {
+                    character.RemoveCondition(rulesetCondition);
+                }
+                
                 character.AddConditionOfCategory(AttributeDefinitions.TagEffect, RulesetCondition.CreateActiveCondition(character.Guid,
                     PowerAttackConditionBuilder.PowerAttackCondition, RuleDefinitions.DurationType.Round,
                     0,
