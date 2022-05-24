@@ -61,6 +61,7 @@ namespace SolastaCommunityExpansion
         public bool BugFixExpandColorTables { get; set; } = true;
         public bool BugFixHeroKeepConditionsAcrossLocations { get; set; } = true;
         public bool BugFixHideReactionSpells { get; set; } = true;
+        public bool BugFixLeakedMetamagicPanel { get; set; } = true;
         public bool BugFixNullRecipesOnGameSerialization { get; set; } = true;
         public bool BugFixPowerActivationTime { get; set; } = true;
         public bool BugFixSpellDurations { get; set; } = true;
