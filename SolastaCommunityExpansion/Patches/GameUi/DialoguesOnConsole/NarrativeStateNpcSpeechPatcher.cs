@@ -3,7 +3,7 @@ using HarmonyLib;
 using I2.Loc;
 using ModKit.Utility;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.RecordDialoguesOnConsole
+namespace SolastaCommunityExpansion.Patches.GameUi.DialoguesOnConsole
 {
     [HarmonyPatch(typeof(NarrativeStateNpcSpeech), "RecordSpeechLine")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.RecordDialoguesOnConsole
     {
         internal static void Postfix(string speakerName, string textLine)
         {
-            if (!Main.Settings.EnableLogDialoguesToConsole || LocalizationManager.CurrentLanguageCode == "de")
+            if (!Main.Settings.EnableLogDialoguesToConsole)
             {
                 return;
             }

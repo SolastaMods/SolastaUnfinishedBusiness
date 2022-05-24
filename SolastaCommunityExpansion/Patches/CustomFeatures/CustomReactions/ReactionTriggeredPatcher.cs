@@ -3,7 +3,7 @@ using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.Battle
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
 {
     [HarmonyPatch(typeof(ReactionModal), "ReactionTriggered")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
