@@ -68,6 +68,12 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
+        public ItemDefinitionBuilder SetInDungeonEditor(bool inDungeonEditor)
+        {
+            Definition.SetInDungeonEditor(inDungeonEditor);
+            return this;
+        }
+
         public ItemDefinitionBuilder MakeMagical()
         {
             Definition.ItemTags.Remove("Standard");
