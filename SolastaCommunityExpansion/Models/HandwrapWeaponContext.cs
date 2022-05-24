@@ -24,7 +24,7 @@ public static class HandwrapWeaponContext
         HandwrapsPlus2 = BuildHandwraps("Handwraps+2", 1500, true, Rare, WeaponPlus2);
 
 
-        HandwrapsOfForce = BuildHandwraps("HandwrapsOfForce", 2000, true, Rare, WeaponPlus1);
+        HandwrapsOfForce = BuildHandwraps("HandwrapsOfForce", 2000, true, Rare, ForceImpactVFX, WeaponPlus1);
         HandwrapsOfForce.WeaponDescription.EffectDescription.AddEffectForms(new EffectFormBuilder()
             .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D4,
                 damageType: RuleDefinitions.DamageTypeForce)
