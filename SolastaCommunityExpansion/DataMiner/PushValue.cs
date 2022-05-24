@@ -17,7 +17,7 @@ namespace SolastaCommunityExpansion.DataMiner
             setValue(value);
         }
 
-#region IDisposable Members
+        #region IDisposable Members
 
         protected override void Dispose(bool disposing)
         {
@@ -25,7 +25,7 @@ namespace SolastaCommunityExpansion.DataMiner
             setValue = null;
         }
 
-#endregion
+        #endregion
     }
 }
 #endif

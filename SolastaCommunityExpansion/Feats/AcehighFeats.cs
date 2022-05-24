@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
@@ -228,7 +227,7 @@ namespace SolastaCommunityExpansion.Feats
                     .Build())
                 .AddToDB();
         }
-        
+
         public class PowerAttackConcentrationProvider : ICusomConcentrationProvider
         {
             public string Name => "PowerAttack";
@@ -255,12 +254,12 @@ namespace SolastaCommunityExpansion.Feats
                         }
                     }
                 }
-                
+
                 foreach (var rulesetCondition in toRemove)
                 {
                     character.RemoveCondition(rulesetCondition);
                 }
-                
+
                 character.AddConditionOfCategory(AttributeDefinitions.TagEffect, RulesetCondition.CreateActiveCondition(character.Guid,
                     PowerAttackConditionBuilder.PowerAttackCondition, RuleDefinitions.DurationType.Round,
                     0,
@@ -270,7 +269,7 @@ namespace SolastaCommunityExpansion.Feats
                 ));
             }
         }
-        
+
         private class ModifyAttackPower : IModifyAttackModeForWeapon
         {
             public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
@@ -287,7 +286,7 @@ namespace SolastaCommunityExpansion.Feats
                     return;
                 }
 
-                if (attackMode is not {Reach: true, Ranged: false, Thrown: false})
+                if (attackMode is not { Reach: true, Ranged: false, Thrown: false })
                 {
                     return;
                 }
@@ -295,7 +294,7 @@ namespace SolastaCommunityExpansion.Feats
                 var proficiency = character.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
                 var toHit = -proficiency;
                 var toDamage = proficiency;
-                
+
                 if (attackMode.UseVersatileDamage
                     || IsTwoHanded(attackMode.SourceDefinition as ItemDefinition)
                     || IsTwoHanded(weapon?.ItemDefinition))

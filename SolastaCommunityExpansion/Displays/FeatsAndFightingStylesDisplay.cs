@@ -1,5 +1,4 @@
 ﻿using ModKit;
-using SolastaCommunityExpansion.Feats;
 using SolastaCommunityExpansion.Models;
 using static SolastaCommunityExpansion.Displays.Shared;
 

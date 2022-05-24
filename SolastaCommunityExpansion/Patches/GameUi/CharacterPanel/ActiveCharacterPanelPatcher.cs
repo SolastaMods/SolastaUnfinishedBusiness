@@ -39,7 +39,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
             {
                 CusomPortraitPointPool.Setup(provider, character, poolPrefab, layout);
             }
-            
+
             var concentrations = character.GetSubFeaturesByType<ICusomConcentrationProvider>();
             foreach (var provider in concentrations)
             {

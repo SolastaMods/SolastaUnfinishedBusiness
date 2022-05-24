@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using I2.Loc;
 using ModKit.Utility;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.DialoguesOnConsole
