@@ -228,7 +228,7 @@ You learn the Quickned metamagic and gain 2 sorcery points
 [*][b]Metamagic: Twinned[/b]: Increase your Charisma by 1, to a maximum of 20.
 You learn the Twinned metamagic and gain 2 sorcery points
 [*][b]Pickpocket[/b]: You gain proficiency with Sleight Of Hand, or expertise if already proficient. You also have advantage on Sleight of Hand Dexterity checks
-[*][b]Power attack[/b]: You learned to trade accuracy to lander deadlier/harder blows. You can choose to take a -3 penalty to your to hit in order to do more damage (+3 damage for one handed weapons, +6 damage for two handed weapons). Lasts for the whole turn once activated. Works with melee and ranged weapons
+[*][b]Power attack[/b]: You learned to trade accuracy to land deadlier blows. You can choose to take a -Proficiency Bonus penalty to your to hit in order to do more damage (+Proficiency Bonus damage for one handed weapons, double that for two handed and versatile weapons). Works only with melee weapons.
 [*][b]Primal Rage (Constitution)[/b]: Increase your Constitution by 1, to a maximum of 20.
 You can enter a rage as a bonus action as defined in the Barbarian's rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way you must finish a long rest before using this feature again.
 While you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Constitution modifier

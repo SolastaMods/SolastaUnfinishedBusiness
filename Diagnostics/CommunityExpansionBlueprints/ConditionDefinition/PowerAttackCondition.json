@@ -20,7 +20,9 @@
   "interruptionDamageThreshold": 0,
   "conditionTags": [],
   "recurrentEffectForms": [],
-  "cancellingConditions": [],
+  "cancellingConditions": [
+    "Definition:PowerAttackCondition:c125b7b9-e668-4c6f-a742-63c065ad2292"
+  ],
   "additionalDamageWhenHit": false,
   "additionalDamageType": "",
   "additionalDamageQuantity": "AbilityBonus",
@@ -218,8 +220,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerAttackConditionTitle",
-    "description": "Take a -3 to hit penalty to your attack for the rest of the turn to do +3 damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged",
+    "title": "Feature/&PowerAttackTitle",
+    "description": "Feature/&PowerAttackDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "df79a8d92a082eb40a000919a6f5b27a",

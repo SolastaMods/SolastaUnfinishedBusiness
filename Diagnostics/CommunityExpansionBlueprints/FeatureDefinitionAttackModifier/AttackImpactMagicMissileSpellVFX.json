@@ -1,10 +1,10 @@
 {
   "$type": "FeatureDefinitionAttackModifier, Assembly-CSharp",
-  "attackRollModifierMethod": "FlatValue",
-  "attackRollModifier": -3,
+  "attackRollModifierMethod": "None",
+  "attackRollModifier": 0,
   "attackRollAbilityScore": "",
   "damageRollModifierMethod": "None",
-  "damageRollModifier": 3,
+  "damageRollModifier": 0,
   "damageRollAbilityScore": "",
   "additionalDamageDice": 0,
   "canDualWieldNonLight": false,
@@ -19,7 +19,7 @@
   "replacedDieType": "D8",
   "impactParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "9f1fe10e6ef8c9c43b6b2ef91b2ad38a",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -28,14 +28,9 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerAttackAttackModifierTitle",
-    "description": "Take a -3 to hit penalty to your attack for the rest of the turn to do +3 damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged",
-    "spriteReference": {
-      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
-    },
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": null,
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
@@ -49,7 +44,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "87286627-3e62-459d-8781-ceac1c3462e6",
+  "guid": "91d9a0c0-0d9f-5a60-aafc-b42b0d7766a7",
   "contentPack": 9999,
-  "name": "PowerAttackAttackModifier"
+  "name": "AttackImpactMagicMissileSpellVFX"
 }

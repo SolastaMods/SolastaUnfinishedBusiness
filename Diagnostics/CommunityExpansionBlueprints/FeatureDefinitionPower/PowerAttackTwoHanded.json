@@ -299,9 +299,9 @@
   "magical": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Feature/&PowerAttackTwoHandedPowerTitle",
-    "description": "Take a -3 to hit penalty to your attack for the rest of the turn to do +6 damage when you land your strikes. Only to be used when attacking with two hands, melee or ranged",
+    "description": "Feature/&PowerAttackTwoHandedPowerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "255fdc99aafc8044fb31353f8a5e61e1",

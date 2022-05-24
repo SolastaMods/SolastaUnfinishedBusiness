@@ -31,7 +31,6 @@ Feat/&IncreaseConstructSelectingDescription	You can now summon two Artillery Con
 Feat/&IncreaseConstructSelectingTitle	Reinforcements
 Feat/&ModeSwitchingPoolDescription	You can switch between modes once per day by creating and using temporary weapons
 Feat/&ModeSwitchingPoolTitle	Armor Mode
-Feat/&PowerAttackFeatDescription	You learned to trade accuracy to lander deadlier/harder blows. You can choose to take a -{0} penalty to your to hit in order to do more damage (+{0} damage for one handed weapons, +{1} damage for two handed weapons). Lasts for the whole turn once activated. Works with melee and ranged weapons
 Feat/&TinkererConstructFamilyDescription	Created by Tinkerer
 Feat/&TinkererConstructFamilyTitle	Tinkerer Construct
 Feature/&AdditionalActionDualFlurryDescription	You may make an additional off-hand attack
@@ -79,12 +78,6 @@ Feature/&EmptyString
 Feature/&HinderingBlastMagicAffinityDescription	when you hit a creature with your eldritch blast, you can reduce that creature's speed by 10 feet until the end of your next turn
 Feature/&HinderingBlastMagicAffinityTitle	Hindering Blast
 Feature/&IndomitableResistanceTitle	Indomitable Resistance
-Feature/&PowerAttackAttackModifierDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged
-Feature/&PowerAttackConditionDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged
-Feature/&PowerAttackPowerDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged
-Feature/&PowerAttackTwoHandedAttackModifierDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes. Only to be used when attacking with two hands, melee or ranged
-Feature/&PowerAttackTwoHandedConditionDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes. Only to be used when attacking with two hands, melee or ranged
-Feature/&PowerAttackTwoHandedPowerDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes. Only to be used when attacking with two hands, melee or ranged
 Feature/&SignofIllOmenTitle	Sign of Ill Omen
 Feature/&SpellAsInvocationAtWillDescription	Cast {0} at will
 Feature/&SpellAsInvocationOncePerDayDescription	Cast {0} once until long rest
@@ -333,3 +326,4 @@ UI/&CustomFeatureSelectionTooltipTypePower	Power
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Proficiency
 UI/&ForcePreferredCantripDescription	If this toggled is ON only preferred cantrip can trigger. If the preferred cantrip isn't selected, then the first valid cantrip will trigger, regardless of this toggle
 UI/&ForcePreferredCantripTitle	Force Preferred Cantrip
+Tooltip/&PowerAttackConcentration	Disable Power Attack.\nEffect will last until start of your next turn.
