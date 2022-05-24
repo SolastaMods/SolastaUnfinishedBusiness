@@ -266,6 +266,11 @@ namespace SolastaCommunityExpansion.Feats
         
         private class ModifyAttackPower : IModifyAttackModeForWeapon
         {
+            private static FeatureDefinitionPower _powerAttack;
+
+            private static FeatureDefinitionPower PowerAttack => _powerAttack ??=
+                DatabaseHelper.GetDefinition<FeatureDefinitionPower>("PowerAttack", null);
+            
             public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
             {
                 if (attackMode == null)
@@ -297,7 +302,12 @@ namespace SolastaCommunityExpansion.Feats
                 }
 
                 attackMode.ToHitBonus += toHit;
+                attackMode.ToHitBonusTrends.Add(new RuleDefinitions.TrendInfo(toHit,
+                    RuleDefinitions.FeatureSourceType.Power, "PowerAttack", PowerAttack));
+
                 damage.BonusDamage += toDamage;
+                damage.DamageBonusTrends.Add(new RuleDefinitions.TrendInfo(toDamage,
+                    RuleDefinitions.FeatureSourceType.Power, "PowerAttack", PowerAttack));
             }
 
             private static bool IsTwoHanded(ItemDefinition weapon)
