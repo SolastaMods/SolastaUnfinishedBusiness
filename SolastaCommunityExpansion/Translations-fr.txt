@@ -20,7 +20,7 @@ Class/&WitchBurnedFireResistanceDescription	Résistance au feu brûlé
 Class/&WitchBurnedFireResistanceTitle	Résistance au feu
 Class/&WitchBurnedProduceFlameDescription	Puissance de la flamme des produits brûlés
 Class/&WitchBurnedProduceFlameTitle	Produire de la flamme
-Class/&WitchCacklePowerDescription	Vous pouvez utiliser votre action bonus pour caqueter. La durée de votre Malédiction est prolongée de 1 round pour chaque créature affectée dans un rayon de 18 mètres autour de vous.\nToutes les sorcières ne rient pas de manière maniaque lorsqu'elles ricanent, mais tous les ricanements nécessitent une composante verbale, comme un sort. Celles-ci vont des malédictions et des insultes banales au murmure de langues mortes et au parler à l'envers
+Class/&WitchCacklePowerDescription	Vous pouvez utiliser votre action bonus pour caqueter. La durée de votre Malédiction est prolongée de 1 round pour chaque créature affectée dans un rayon de 18 mètres autour de vous.\nToutes les sorcières ne rient pas de façon maniaque lorsqu'elles ricanent, mais tous les ricanements nécessitent une composante verbale, comme un sort. Celles-ci vont des malédictions et des insultes banales au murmure de langues mortes et au parler à l'envers
 Class/&WitchCacklePowerTitle	Caqueter
 Class/&WitchDescription	Affligées par une sinistre malédiction, les sorcières peuvent transformer la magie noire en malédictions, qu'elles utilisent pour affaiblir leurs ennemis. Ils sont également accompagnés de leurs familiers, fidèles compagnons magiques qu'ils utilisent pour porter le coup fatal
 Class/&WitchFamiliarPowerDescription	Vous apprenez le sort Witch Familiar, c'est-à-dire un sort Find Familiar amélioré, et pouvez le lancer comme un rituel sans composants matériels. Le sort ne compte pas dans votre nombre de sorts connus. Le sort améliore Find Familiar des manières suivantes :\n• Votre familier joue son tour immédiatement avant ou après votre tour à chaque tour (au choix).\n• Une fois par tour, en tant qu'action ou action bonus, vous pouvez ordonner mentalement à votre familier d'utiliser sa réaction pour effectuer une attaque.\n• Lorsque vous lancez un sort, vous pouvez le délivrer à travers votre familier comme s'il avait lancé le sort, même si le sort n'a pas de portée de contact.\n• Votre familier peut utiliser votre bonus d'attaque des sorts pour ses jets d'attaque.\n• Votre familier ajoute votre bonus de compétence à sa classe d'armure, ses jets de sauvegarde et ses jets de dégâts.\n• Vous ajoutez deux fois votre niveau de sorcière aux points de vie maximum de votre familier
@@ -136,7 +136,7 @@ Condition/&RuinDescription	État de ruine
 Condition/&RuinedDescription	La défense de cette créature est réduite
 Condition/&RuinedTitle	Ruiné
 Condition/&RuinTitle	Se ruiner
-Condition/&SwallowedByToadConditionDescription	Subit 3D6 dégâts d'acide par round. Se termine si le sorcier crapaud subit 15 dégâts ou plus en une seule attaque
+Condition/&SwallowedByToadConditionDescription	Subit 3D6 dégâts d'acide par tour. Se termine si le sorcier crapaud subit 15 dégâts ou plus en une seule attaque
 Condition/&SwallowedByToadConditionTitle	Avalé par le crapaud
 Condition/&SwallowingToadConditionDescription	Se termine si le sorcier crapaud subit 15 dégâts ou plus en une seule attaque
 Condition/&SwallowingToadConditionTitle	Crapaud avaleur
@@ -231,6 +231,18 @@ Equipment/&Enchanted_Javelin_Sharpness_Description	Cette arme enchantée a été
 Equipment/&Enchanted_Javelin_Sharpness_Title	Javelot de netteté
 Equipment/&Enchanted_Javelin_Souldrinker_Description	Cette arme enchantée a été créée en utilisant les anciennes connaissances des maîtres forgerons de Manacalon. Un favori des agents Silent Whisper, cette arme a été conçue par Cylordir Redblade
 Equipment/&Enchanted_Javelin_Souldrinker_Title	Javelot buveur d'âme
+Equipment/&Enchanted_LeatherDruid_Deflection_Description	Cette armure enchantée a été créée en utilisant les anciennes connaissances des maîtres armuriers de Manacalon. Ildurial Stronghand a forgé la première de ces armures pour la garde personnelle de l'Empereur
+Equipment/&Enchanted_LeatherDruid_Deflection_Title	Cuir de druide de déviation
+Equipment/&Enchanted_LeatherDruid_FlameDancing_Description	Cette armure enchantée a été créée en utilisant les anciennes connaissances des maîtres armuriers de Manacalon. Ildurial Stronghand a forgé la première de ces armures pour la garde personnelle de l'Empereur
+Equipment/&Enchanted_LeatherDruid_FlameDancing_Title	Cuir de druide de danse des flammes
+Equipment/&Enchanted_LeatherDruid_FrostWalking_Description	Cette armure enchantée a été créée en utilisant les anciennes connaissances des maîtres armuriers de Manacalon. Ildurial Stronghand a forgé la première de ces armures pour la garde personnelle de l'Empereur
+Equipment/&Enchanted_LeatherDruid_FrostWalking_Title	Cuir de druide de givre marchant
+Equipment/&Enchanted_LeatherDruid_Robustness_Description	Cette armure enchantée a été créée en utilisant les anciennes connaissances des maîtres armuriers de Manacalon. Ildurial Stronghand a forgé la première de ces armures pour la garde personnelle de l'Empereur
+Equipment/&Enchanted_LeatherDruid_Robustness_Title	Cuir de druide de robustesse
+Equipment/&Enchanted_LeatherDruid_Sturdiness_Description	Cette armure enchantée a été créée en utilisant les anciennes connaissances des maîtres armuriers de Manacalon. Ildurial Stronghand a forgé la première de ces armures pour la garde personnelle de l'Empereur
+Equipment/&Enchanted_LeatherDruid_Sturdiness_Title	Cuir de druide de robustesse
+Equipment/&Enchanted_LeatherDruid_Survival_Description	Cette armure enchantée a été créée en utilisant les anciennes connaissances des maîtres armuriers de Manacalon. Ildurial Stronghand a forgé la première de ces armures pour la garde personnelle de l'Empereur
+Equipment/&Enchanted_LeatherDruid_Survival_Title	Cuir de druide de survie
 Equipment/&Enchanted_LightCrossbow_Accuracy_Description	Cette arme enchantée a été forgée en utilisant les anciennes connaissances des maîtres archers de Colthannin. Sa conception originale portait le sceau de Defineth Sharpsight, un enchanteur elfe sylvestre renommé
 Equipment/&Enchanted_LightCrossbow_Accuracy_Title	Arbalète légère de précision
 Equipment/&Enchanted_LightCrossbow_Lightbringer_Description	Cette arme enchantée a été forgée en utilisant les anciennes connaissances des maîtres archers de Colthannin. Il a été conçu par Elgador Keenspirit, Magesmith of the Arcaneum pour soutenir le combat contre les créatures mort-vivantes
@@ -345,18 +357,6 @@ Equipment/&Enchanted_StuddedLeather_Sturdiness_Description	Cette armure enchant�
 Equipment/&Enchanted_StuddedLeather_Sturdiness_Title	Cuir clouté de robustesse
 Equipment/&Enchanted_StuddedLeather_Survival_Description	Cette armure enchantée a été créée en utilisant les anciennes connaissances des maîtres armuriers de Manacalon. Ildurial Stronghand a forgé la première de ces armures pour la garde personnelle de l'Empereur
 Equipment/&Enchanted_StuddedLeather_Survival_Title	Cuir de survie clouté
-Equipment/&Enchanted_LeatherDruid_Deflection_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard
-Equipment/&Enchanted_LeatherDruid_Deflection_Title	Druid Leather of Deflection
-Equipment/&Enchanted_LeatherDruid_FlameDancing_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard
-Equipment/&Enchanted_LeatherDruid_FlameDancing_Title	Druid Leather of Flame Dancing
-Equipment/&Enchanted_LeatherDruid_FrostWalking_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard
-Equipment/&Enchanted_LeatherDruid_FrostWalking_Title	Druid Leather of Frost Walking
-Equipment/&Enchanted_LeatherDruid_Robustness_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard
-Equipment/&Enchanted_LeatherDruid_Robustness_Title	Druid Leather of Robustness
-Equipment/&Enchanted_LeatherDruid_Sturdiness_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard
-Equipment/&Enchanted_LeatherDruid_Sturdiness_Title	Druid Leather of Sturdiness
-Equipment/&Enchanted_LeatherDruid_Survival_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard
-Equipment/&Enchanted_LeatherDruid_Survival_Title	Druid Leather of Survival
 Equipment/&Enchanted_Warhammer_Acuteness_Description	Cette arme enchantée a été créée en utilisant les anciennes connaissances des maîtres forgerons de Manacalon. Sa conception était l'une des premières œuvres d'Elgador Keenspirit, Magesmith of the Arcaneum
 Equipment/&Enchanted_Warhammer_Acuteness_Title	Marteau de guerre d'acuité
 Equipment/&Enchanted_Warhammer_Bearclaw_Description	Cette arme enchantée a été forgée en utilisant les anciennes connaissances des maîtres forgerons de Manacalon. Les pointes acérées de la griffe de l'ours déchiquetent l'armure pour infliger des dégâts supplémentaires - comme prévu par Ildurial Stronghand, qui a conçu la première arme de ce type
@@ -874,7 +874,7 @@ Feature/&ClassWarlockMysticArcanumSetTitle	Arcane Mystique
 Feature/&ClassWarlockSavingThrowProficiencyDescription	Sagesse, charisme
 Feature/&ClassWarlockSavingThrowProficiencyTitle	Compétences en jets de sauvegarde
 Feature/&ClassWarlockSkillProficiencyDescription	Choisissez 2 de ces compétences : Arcanes, Tromperie, Histoire, Intimidation, Enquête, Nature et Religion
-Feature/&ClassWarlockSkillProficiencyTitle	Compétences de Démoniste
+Feature/&ClassWarlockSkillProficiencyTitle	Compétences de démoniste
 Feature/&ClassWarlockSpellcastingDescription	Vos recherches sur les arcanes et la magie que vous a conférée votre mécène vous ont donné de la facilité avec les sorts
 Feature/&ClassWarlockSpellcastingTitle	Magie du pacte de démoniste
 Feature/&ClassWarlockToolsProficiencyDescription	Vous avez été formé pour préparer des remèdes à base de plantes et utiliser un équipement enchanteur
@@ -938,7 +938,7 @@ Feature/&DruidForestGuardianExtraAttackDescription	À partir du niveau 6, vous p
 Feature/&DruidForestGuardianExtraAttackTitle	Attaque supplémentaire
 Feature/&DruidForestGuardianImprovedBarkWardDescription	Votre Bark Ward pousse maintenant des épines, ce qui endommage les attaquants de mêlée. Les ennemis qui réussissent à vous toucher avec une attaque au corps à corps subissent 2d8 dégâts perforants
 Feature/&DruidForestGuardianImprovedBarkWardTitle	Bark Ward amélioré
-Feature/&DruidForestGuardianMagicDescription	À partir du 2e niveau, lorsque vous choisissez ce cercle, vous accédez à une liste de sorts étendue qui est toujours préparée :\n{0}\n\n
+Feature/&DruidForestGuardianMagicDescription	À partir du niveau 2, lorsque vous choisissez ce cercle, vous accédez à une liste de sorts étendue qui est toujours préparée :\n{0}
 Feature/&DruidForestGuardianMagicTitle	Sorts de cercle
 Feature/&DruidForestGuardianSuperiorBarkWardDescription	Votre compétence Bark Ward renvoie désormais 3d8 dégâts perforants sur les attaquants au corps à corps. De plus, Bark Ward vous accorde désormais une immunité contre le poison tant qu'il est actif
 Feature/&DruidForestGuardianSuperiorBarkWardTitle	Quartier supérieur de l'écorce
@@ -952,15 +952,15 @@ Feature/&EldritchBlastGraspingHandBonusCantripDescription	Lorsque vous touchez u
 Feature/&EldritchBlastGraspingHandBonusCantripTitle	Explosion saisissante
 Feature/&EldritchBlastRepellingBlastBonusCantripDescription	Lorsque vous touchez une créature avec un souffle eldritch, vous pouvez pousser la créature jusqu'à 10 pieds de vous en ligne droite
 Feature/&EldritchBlastRepellingBlastBonusCantripTitle	Explosion répulsive
-Feature/&EldritchMindDescription	Vous avez l'avantage sur les jets de sauvegarde de Constitution que vous effectuez pour maintenir votre concentration sur un sort
+Feature/&EldritchMindDescription	Vous avez un avantage sur les jets de sauvegarde de Constitution que vous effectuez pour maintenir votre concentration sur un sort
 Feature/&EldritchMindTitle	Esprit Eldritch
 Feature/&EldritchSightTitle	Vue occulte
-Feature/&EldritchSmiteDescription	Une fois par tour, lorsque vous touchez une créature avec votre arme de pacte, vous pouvez dépenser un emplacement de sort de sorcier pour infliger 1d8 dégâts de force supplémentaires à la cible, plus 1d8 supplémentaires par niveau de l'emplacement de sort.
+Feature/&EldritchSmiteDescription	Une fois par tour, lorsque vous touchez une créature avec votre arme du pacte, vous pouvez dépenser un emplacement de sort de sorcier pour infliger 1d8 dégâts de force supplémentaires à la cible, plus 1d8 supplémentaires par niveau de l'emplacement de sort.
 Feature/&EldritchSmiteTitle	Châtiment occulte
 Feature/&ElementalistSpellsMagicAffinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de sorcier. Les sorts suivants sont ajoutés à la liste des sorts de sorcier pour vous : {0}
 Feature/&ElementalistSpellsMagicAffinityTitle	Sorts d'élémentaliste
 Feature/&ElementalPactAirPlane	Avion
-Feature/&ElementalPactAstralPlane	Plan astral
+Feature/&ElementalPactAstralPlane	Plan Astral
 Feature/&ElementalPactEarthPlane	Plan de la Terre
 Feature/&ElementalPactEtherealPlane	Plan éthéré
 Feature/&ElementalPactFirePlane	Avion de pompiers
@@ -969,7 +969,7 @@ Feature/&ElementalPactShadowPlane	Plan d'ombre
 Feature/&ElementalPatronDummyFeatureSetTitle	Elémentaliste
 Feature/&ElementalPatronElementalConditionFormatDescription	Infligez {1} dégâts supplémentaires égaux à votre bonus de compétence lors d'un premier coup à chaque tour
 Feature/&ElementalPatronElementalConditionFormatTitle	Canaliser {0}
-Feature/&ElementalPatronElementalDamageFormatDescription	Lorsque vous canalisez {0}, infligez {1} de dégâts supplémentaires égaux à votre bonus de compétence lors d'un premier coup à chaque tour
+Feature/&ElementalPatronElementalDamageFormatDescription	Lorsque vous canalisez {0}, infligez {1} de dégâts supplémentaires égaux à votre bonus de compétence lors d'un premier coup à chaque round
 Feature/&ElementalPatronElementalDamageFormatTitle	Dégâts élémentaires : {0}
 Feature/&ElementalPatronElementalFormEnhancedFormatDescription	Lorsque vous canalisez le {0}, vous gagnez l'immunité contre le {1} et appliquez le bonus de compétence sous forme de dégâts du même type au premier coup à chaque tour
 Feature/&ElementalPatronElementalFormEnhancedFormatTitle	Canaliser {0}
@@ -977,6 +977,7 @@ Feature/&ElementalPatronElementalFormFormatDescription	Lorsque vous canalisez le
 Feature/&ElementalPatronElementalFormFormatTitle	{0}
 Feature/&ElementalPatronFeatureSet_Level06Description	Votre connaissance des élémentaires a augmenté au point que vous bénéficiez désormais d'un avantage sur les tests de capacité envers les élémentaires et que vous infligez des dégâts supplémentaires contre les élémentaires égaux à votre niveau de connaissances. Vous ne pouvez plus être charmé ou effrayé par les élémentaires
 Feature/&ElementalPatronFeatureSet_Level06Title	Connaissance des Elémentaires
+Feature/&EmptyString	VIDER
 Feature/&EyesoftheRuneKeeperDescription	Vous pouvez lire tous les écrits
 Feature/&EyesoftheRuneKeeperTitle	Les yeux du gardien des runes
 Feature/&FiendishVigorTitle	Vigueur diabolique
@@ -1000,14 +1001,14 @@ Feature/&GambitResourcePoolDescription	Pool de dés de gambit pouvant être dép
 Feature/&GambitResourcePoolTitle	Pool de dés Gambit
 Feature/&GiftoftheEverLivingOnesDescription	Récupère le nombre maximum de points de vie possible grâce à n'importe quel soin
 Feature/&GiftoftheEverLivingOnesTitle	Don des éternels
-Feature/&GiftoftheProtectorsDescription	Lorsque vous êtes réduit à 0 points de vie mais que vous n'êtes pas tué sur le coup, la créature tombe magiquement à 1 point de vie à la place. Une fois cette magie déclenchée, vous ne pouvez plus en bénéficier tant que vous n'avez pas terminé un repos long
+Feature/&GiftoftheProtectorsDescription	Lorsque vous êtes réduit à 0 points de vie mais que vous n'êtes pas tué sur le coup, la créature tombe comme par magie à 1 point de vie à la place. Une fois cette magie déclenchée, vous ne pouvez plus en bénéficier tant que vous n'avez pas terminé un repos long
 Feature/&GiftoftheProtectorsTitle	Don des Protecteurs
 Feature/&GnomeCunningFeatureDescription	Vous avez un avantage sur toutes les sauvegardes d'Intelligence, de Sagesse et de Charisme contre la magie.
 Feature/&GnomeCunningFeatureTitle	Rusé
 Feature/&GnomeNaturalIllusionistDescription	Vous connaissez le sort mineur Annoying Bee. L'intelligence est votre modificateur d'incantation pour cela
 Feature/&GnomeNaturalIllusionistTitle	Magie Naturelle
-Feature/&HerbalBrewDescription	Lorsque vous terminez un repos long, vous pouvez créer des breuvages à base de plantes, dont chacun dure jusqu'au prochain repos long. Vous créez un total d'infusions égal à votre bonus de compétence. Pour chaque infusion, choisissez l'un des effets suivants :\n<color=#add8e6ff>Infusion fortifiante</color> : confère une résistance à différents types de dégâts pendant 1 heure.\n<color=#add8e6ff>Quickening Brew</color> : fournit 2d4 points de vie.\n<color=#add8e6ff>Infusion toxifiante</color> : agit comme un poison qui peut être appliqué sur une arme pendant 1 minute. Si le coup touche, la cible subit 1d4 dégâts de poison à chaque coup
-Feature/&HerbalBrewFeatureSetDescription	Vous gagnez en compétence avec le kit d'empoisonnement ou les kits d'herboristerie si vous ne l'avez pas déjà.\nLorsque vous terminez un repos long, vous pouvez créer des breuvages à base de plantes, dont chacun dure jusqu'au prochain repos long. Vous créez un total d'infusions égal à votre bonus de compétence. Pour chaque infusion, choisissez l'un des effets suivants :\n<color=#add8e6ff>Infusion fortifiante</color> : confère une résistance à différents types de dégâts pendant 1 heure.\n<color=#add8e6ff>Quickening Brew</color> : fournit 2d4 points de vie.\n<color=#add8e6ff>Infusion toxifiante</color> : agit comme un poison qui peut être appliqué sur une arme pendant 1 minute. Si le coup touche, la cible subit 1d4 dégâts de poison à chaque coup
+Feature/&HerbalBrewDescription	Lorsque vous terminez un repos long, vous pouvez créer des breuvages à base de plantes, dont chacun dure jusqu'au prochain repos long. Vous créez un total d'infusions égal à votre bonus de compétence. Pour chaque infusion, choisissez l'un des effets suivants :\n<color=#add8e6ff>Infusion fortifiante</color> : confère une résistance à différents types de dégâts pendant 1 heure.\n<color=#add8e6ff>Quickening Brew</color> : fournit 2d4 points de vie.\n<color=#add8e6ff>Infusion toxifiante</color> : agit comme un poison qui peut être appliqué sur une arme pendant 1 minute. Si le coup touche, la cible subit 1d4 dégâts de poison à chaque coup
+Feature/&HerbalBrewFeatureSetDescription	Vous gagnez en compétence avec le kit d'empoisonnement ou les kits d'herboristerie si vous ne l'avez pas déjà.\nLorsque vous terminez un repos long, vous pouvez créer des breuvages à base de plantes, dont chacun dure jusqu'au prochain repos long. Vous créez un total d'infusions égal à votre bonus de compétence. Pour chaque infusion, choisissez l'un des effets suivants :\n<color=#add8e6ff>Infusion fortifiante</color> : confère une résistance à différents types de dégâts pendant 1 heure.\n<color=#add8e6ff>Quickening Brew</color> : fournit 2d4 points de vie.\n<color=#add8e6ff>Infusion toxifiante</color> : agit comme un poison qui peut être appliqué sur une arme pendant 1 minute. Si le coup touche, la cible subit 1d4 dégâts de poison à chaque coup
 Feature/&HerbalBrewFeatureSetTitle	Brassage aux herbes
 Feature/&HinderingBlastDescription	Lorsque vous touchez une créature avec votre souffle eldritch, vous pouvez réduire la vitesse de cette créature de 3 mètres jusqu'à la fin de votre prochain tour.
 Feature/&HinderingBlastMagicAffinityDescription	lorsque vous touchez une créature avec votre souffle eldritch, vous pouvez réduire la vitesse de cette créature de 3 mètres jusqu'à la fin de votre prochain tour
@@ -1241,11 +1242,27 @@ FlexibleRaces/&PointPoolAbilityScore4Description	Utilisez quatre boosts sur les 
 FlexibleRaces/&PointPoolAbilityScore4Title	Augmentation du score de capacité
 Format/&LevelAndExperienceFormat	Niveau : {0}\nExpérience : {1}\n{2} points requis pour atteindre le niveau {3}
 Format/&LevelAndExperienceMaxedFormat	Niveau : {0}\nExpérience : {1}\nniveau maximum atteint
+Item/&CraftingManualRecipeEnchantHandwraps+1Title	Enchantement de bandages +1
+Item/&CraftingManualRecipeEnchantHandwraps+2Title	Enchantement de bandages +2
+Item/&CraftingManualRecipeEnchantHandwrapsOfForceTitle	Enchantement de bandages puissants
+Item/&CraftingManualRecipeEnchantHandwrapsOfPullingTitle	Enchantement de bandages de traction
 Item/&ForceArtilleryProjectileDescription	ForceArtillerieProjectile
 Item/&ForceArtilleryProjectileTitle	ForceArtillerieProjectile
+Item/&Handwraps+1Title	Protège-mains +1
+Item/&Handwraps+1TitleUnidentifiedDescription	Bandages pour les mains finement travaillés
+Item/&Handwraps+1TitleUnidentifiedTitle	Bandages de bonne qualité
+Item/&Handwraps+2Title	Protège-mains +2
+Item/&Handwraps+2TitleUnidentifiedDescription	Bandages pour les mains finement travaillés
+Item/&Handwraps+2TitleUnidentifiedTitle	Protège-mains magnifiques
+Item/&HandwrapsOfForceTitle	Protège-mains puissants
+Item/&HandwrapsOfForceTitleUnidentifiedDescription	Bandages pour les mains finement travaillés
+Item/&HandwrapsOfForceTitleUnidentifiedTitle	Protège-mains magnifiques
+Item/&HandwrapsOfPullingTitle	Protège-mains de traction
+Item/&HandwrapsOfPullingTitleUnidentifiedDescription	Bandages pour les mains finement travaillés
+Item/&HandwrapsOfPullingTitleUnidentifiedTitle	Protège-mains magnifiques
 Language/&AbyssalDescription	La langue abyssale était la forme de la langue primordiale qui a été enveloppée et tordue par le mal de l'abîme
 Language/&AbyssalTitle	Abyssal
-Language/&GnomishLanguageDescription	Une ancienne langue solastane, préservée par les gnomes vivant dans les forêts profondes de Solasta, elle a survécu au cataclysme
+Language/&GnomishLanguageDescription	Ancienne langue solastane, préservée par les gnomes vivant dans les forêts profondes de Solasta, elle a survécu au cataclysme
 Language/&GnomishLanguageTitle	gnome
 MainMenu/&ExportPdfDescription	Nivelez ce héros
 MainMenu/&ExportPdfTitle	Descendre d'un niveau
@@ -1324,7 +1341,7 @@ Power/&ClassMonkStepOfTheWindDescription	Vous pouvez dépenser 1 point de ki pou
 Power/&ClassMonkStepOfTheWindTitle	Pas du vent
 Power/&ClassMonkStunningStrikeDescription	Vous pouvez interférer avec le flux de ki dans le corps d'un adversaire. Lorsque vous touchez une autre créature qui n'est pas étourdie par une attaque au corps à corps avec une arme, vous pouvez dépenser 1 point de ki pour tenter un coup étourdissant. La cible doit réussir un jet de sauvegarde de Constitution ou être étourdie jusqu'à la fin de votre prochain tour
 Power/&ClassMonkStunningStrikeTitle	Frappe étourdissante
-Power/&ClassMonkTanquilityDescription	Une fois par repos court, en tant qu'action libre, vous pouvez entrer dans un état de tranquillité, calmer vos émotions et vous concentrer sur ce qui vous entoure. Tant que vous êtes dans cet état, vous bénéficiez d'un avantage aux jets de sauvegarde contre les sorts et les ennemis sont désavantagés lorsqu'ils vous attaquent. La tranquillité dure jusqu'au prochain repos ou jusqu'à ce que vous attaquiez ou lanciez un sort
+Power/&ClassMonkTanquilityDescription	Une fois par repos court, en tant qu'action libre, vous pouvez entrer dans un état de tranquillité, calmer vos émotions et vous concentrer sur ce qui vous entoure. Tant que vous êtes dans cet état, vous bénéficiez d'un avantage sur les jets de sauvegarde contre les sorts et les ennemis sont désavantagés lorsqu'ils vous attaquent. La tranquillité dure jusqu'au prochain repos ou jusqu'à ce que vous attaquiez ou lanciez un sort
 Power/&ClassMonkTanquilityTitle	Tranquillité
 Power/&ClassMonkWholenessOfBodyDescription	Par une action, vous pouvez regagner des points de vie égaux à trois fois votre niveau de moine. Vous devez terminer un repos long avant de pouvoir utiliser à nouveau cette fonctionnalité
 Power/&ClassMonkWholenessOfBodyTitle	Intégralité du corps
@@ -1349,6 +1366,8 @@ Power/&PactofChainFamiliarInvisibilityPowerDescription	La créature devient magi
 Power/&PactofChainFamiliarInvisibilityPowerTitle	Invisibilité
 Power/&PactofChainFamiliarScarePowerDescription	Une créature de votre choix située dans un rayon de 6 mètres doit réussir un jet de sauvegarde de Sagesse DD 10 ou être effrayée pendant 1 minute. La cible peut répéter le jet de sauvegarde à la fin de chacun de ses tours, mettant fin à l'effet sur elle-même en cas de réussite
 Power/&PactofChainFamiliarScarePowerTitle	Effrayer
+Power/&PowerFunctionHandwrapsOfPullingDescription	Par une action bonus, vous pouvez rapprocher de vous une créature dans un rayon de 4,50 mètres.
+Power/&PowerFunctionHandwrapsOfPullingTitle	Ramener
 Power/&ToadKingCroakDescription	Émet une onde sonore qui cause des dégâts et repousse les créatures et les objets
 Power/&ToadKingCroakTitle	Crever
 Power/&ToadKingGraspingTongueDescription	Attirez les ennemis vers vous
@@ -1517,7 +1536,7 @@ Spell/&DHCastSpellGuardianNagaDescription	Capacité d'incantation d'archimage
 Spell/&DHCastSpellGuardianNagaTitle	Capacité d'incantation d'archimage
 Spell/&DHCastSpellLichDescription	Capacité de lancer de liche
 Spell/&DHCastSpellLichTitle	Capacité de lancer de liche
-Spell/&DHConjureCelestialSpellDescription	Vous invoquez un céleste de niveau de défi 4 ou inférieur, qui apparaît dans un espace inoccupé que vous pouvez voir à portée. Le céleste disparaît lorsqu'il tombe à 0 point de vie ou lorsque le sort se termine. Le céleste est amical avec vous et vos compagnons pendant toute la durée
+Spell/&DHConjureCelestialSpellDescription	Vous invoquez un céleste de niveau de défi 4 ou inférieur, qui apparaît dans un espace inoccupé que vous pouvez voir à portée. Le céleste disparaît lorsqu'il tombe à 0 points de vie ou lorsque le sort se termine. Le céleste est amical avec vous et vos compagnons pendant toute la durée
 Spell/&DHConjureCelestialSpellTitle	Conjuration céleste (Couatl)
 Spell/&DHDominateMonsterSpellDescription	Vous tentez de séduire une créature que vous pouvez voir à portée. Il doit réussir un jet de sauvegarde de Sagesse ou être charmé par vous pour la durée
 Spell/&DHDominateMonsterSpellTitle	Dominer le monstre
@@ -1529,9 +1548,9 @@ Spell/&DHForesightSpellDescription	Vous touchez une créature consentante et lui
 Spell/&DHForesightSpellTitle	Prévoyance
 Spell/&DHHolyAuraSpellDescription	La lumière divine s'éloigne de vous et fusionne en un doux éclat dans un rayon de 9 mètres autour de vous. Les créatures de votre choix dans ce rayon lorsque vous lancez ce sort émettent une faible lumière dans un rayon de 1,50 mètre et ont un avantage à tous les jets de sauvegarde, et les autres créatures ont un désavantage aux jets d'attaque contre elles jusqu'à la fin du sort.
 Spell/&DHHolyAuraSpellTitle	Aura sacrée
-Spell/&DHIncendiaryCloudSpellDescription	Un nuage de fumée tourbillonnant traversé de braises chauffées à blanc apparaît dans une sphère de 6 mètres de rayon centrée sur un point à portée. Le nuage se propage dans les coins et est fortement obscurci. Il dure pendant toute la durée ou jusqu'à ce qu'un vent de vitesse modérée ou supérieure (au moins 10 milles à l'heure) le disperse. Lorsque le nuage apparaît, chaque créature qui s'y trouve doit effectuer un jet de sauvegarde de Dextérité. Une créature subit 10d8 dégâts de feu en cas d'échec, ou la moitié de ces dégâts en cas de réussite. Une créature doit également effectuer ce jet de sauvegarde lorsqu'elle entre dans la zone du sort pour la première fois lors d'un tour ou qu'elle y termine son tour. Le nuage s'éloigne directement de 3 mètres de vous dans une direction que vous choisissez au début de chacun de vos tours.
+Spell/&DHIncendiaryCloudSpellDescription	Un nuage de fumée tourbillonnant traversé de braises incandescentes apparaît dans une sphère de 6 mètres de rayon centrée sur un point à portée. Le nuage se propage dans les coins et est fortement obscurci. Il dure pendant la durée ou jusqu'à ce qu'un vent de vitesse modérée ou supérieure (au moins 16 km/h) le disperse. Lorsque le nuage apparaît, chaque créature qui s'y trouve doit effectuer un jet de sauvegarde de Dextérité. Une créature subit 10d8 dégâts de feu en cas d'échec, ou la moitié de ces dégâts en cas de réussite. Une créature doit également effectuer ce jet de sauvegarde lorsqu'elle entre dans la zone du sort pour la première fois lors d'un tour ou qu'elle y termine son tour. Le nuage s'éloigne directement de 3 mètres de vous dans une direction que vous choisissez au début de chacun de vos tours.
 Spell/&DHIncendiaryCloudSpellTitle	Nuage incendiaire
-Spell/&DHMassHealSpellDescription	Un flot d'énergie de guérison s'écoule de vous vers les créatures blessées qui vous entourent. Vous restaurez jusqu'à 700 points de vie, répartis comme vous le souhaitez parmi n'importe quel nombre de créatures que vous pouvez voir à portée. Les créatures soignées par ce sort sont également guéries de toutes les maladies et de tout effet les rendant aveugles ou assourdis. Ce sort n'a aucun effet sur les morts-vivants ou les constructions
+Spell/&DHMassHealSpellDescription	Un flot d'énergie de guérison s'écoule de vous vers les créatures blessées qui vous entourent. Vous restaurez jusqu'à 700 points de vie, répartis comme vous le souhaitez parmi un nombre quelconque de créatures que vous pouvez voir à portée. Les créatures soignées par ce sort sont également guéries de toutes les maladies et de tout effet les rendant aveugles ou assourdis. Ce sort n'a aucun effet sur les morts-vivants ou les constructions
 Spell/&DHMassHealSpellTitle	Guérison de masse
 Spell/&DHMazeSpellDescription	Vous bannissez une créature que vous pouvez voir à portée dans un demi-plan labyrinthique. La cible y reste pendant toute la durée ou jusqu'à ce qu'elle sorte du labyrinthe. /nLa cible peut utiliser son action pour tenter de s'échapper. Lorsqu'il le fait, il effectue un test d'Intelligence DD 20
 Spell/&DHMazeSpellTitle	Labyrinthe
@@ -1653,7 +1672,7 @@ Subclass/&AttackModifierArtificerBattleSmithWeaponDescription	Vos attaques compt
 Subclass/&AttackModifierArtificerBattleSmithWeaponTitle	Arme infusée
 Subclass/&AttackModifierArtificerBlindingWeaponDescription	Touchez une arme qui acquiert la capacité d'aveugler les cibles lorsqu'elle est touchée (contre une sauvegarde de Constitution). Notez que vous ne pouvez activer une perfusion qu'une seule fois. L'activer une seconde fois annulera la première
 Subclass/&AttackModifierArtificerBlindingWeaponTitle	Arme aveuglante
-Subclass/&AttackModifierArtificerEnhancedArmorDescription	Touchez Armor et il devient magique et fournit +1 AC. Notez que vous ne pouvez activer une perfusion qu'une seule fois. L'activer une seconde fois annulera la première
+Subclass/&AttackModifierArtificerEnhancedArmorDescription	Touchez Armor et il devient magique et fournit +1 CA. Notez que vous ne pouvez activer une perfusion qu'une seule fois. L'activer une seconde fois annulera la première
 Subclass/&AttackModifierArtificerEnhancedArmorTitle	Armure améliorée
 Subclass/&AttackModifierArtificerEnhancedFocusDescription	Touchez un focus et il devient magique et gagne +1 pour attaquer et épeler dc. Notez que vous ne pouvez activer une perfusion qu'une seule fois. L'activer une seconde fois annulera la première
 Subclass/&AttackModifierArtificerEnhancedFocusTitle	Mise au point améliorée
@@ -1856,7 +1875,7 @@ Subclass/&TactitionFighterSubclassDescription	Le Tacticien utilise ses connaissa
 Subclass/&TactitionFighterSubclassTitle	Le Tacticien
 Subclass/&TinkererFlashOfGeniusConditionDescription	Inspiré par un éclair de génie pour avoir un bonus sur les tests de capacité et les jets de sauvegarde
 Subclass/&TinkererFlashOfGeniusConditionTitle	Éclair de génie
-Subclass/&TinkererFlashOfGeniusPowerDescription	Vous pouvez utiliser votre génie pour vous inspirer et inspirer les autres lors des tests de capacité et des jets de sauvegarde
+Subclass/&TinkererFlashOfGeniusPowerDescription	Vous pouvez utiliser votre génie pour vous inspirer et inspirer les autres lors des tests de capacité et des jets de sauvegarde.
 Subclass/&TinkererFlashOfGeniusPowerTitle	Éclair de génie
 Subclass/&TinkererMagicalTinkeringDescription	Gagnez la capacité de faire plusieurs effets mineurs (Dazzle, Sparkle, Shine)
 Subclass/&TinkererMagicalTinkeringTitle	Bricolage magique
@@ -1882,7 +1901,7 @@ Subclass/&WarlockMoonLitDescription	Votre patron est un esprit de la lune, une e
 Subclass/&WarlockMoonLitTitle	Pacte au clair de lune
 Subclass/&WarlockToadKingDescription	Fey, démon ou aberration causée par le cataclysme, la vraie nature du roi crapaud n'est pas connue, mais on sait que le roi crapaud règne sur une vaste zone de marécages et de marais dans les Badlands et offre du pouvoir à ceux qui veulent servir.
 Subclass/&WarlockToadKingTitle	Pacte du roi crapaud
-Subclass/&WarlockUrPriestDescription	Alors que la grande majorité des lanceurs de sorts divins tirent leurs pouvoirs d'une divinité, il y a ceux qui méprisent les dieux. Ceux qui se font appeler Ur-prêtres ont appris à siphonner les énergies divines accordées par les dieux à leurs lanceurs de sorts divins, en les utilisant pour leurs propres besoins sans même faire semblant d'être du bout des lèvres. En tant que prêtre d'Ur, vous êtes différent de la plupart des sorciers, car il vous manque un patron qui vous accorde votre pouvoir. Les invocations occultes que vous découvrez sont des formes de magie déformées que les dieux pourraient accorder à leurs patrons, tandis que les avantages du pacte sont probablement des artefacts divins que vous avez réussi à voler.
+Subclass/&WarlockUrPriestDescription	Alors que la grande majorité des lanceurs de sorts divins tirent leurs pouvoirs d'une divinité, il y a ceux qui méprisent les dieux. Ceux qui se font appeler Ur-prêtres ont appris à siphonner les énergies divines accordées par les dieux à leurs lanceurs de sorts divins, en les utilisant pour leurs propres besoins sans même faire semblant d'être du bout des lèvres. En tant que prêtre d'Ur, vous êtes différent de la plupart des sorciers, car il vous manque un patron qui vous accorde votre pouvoir. Les invocations occultes que vous découvrez sont des formes déformées de magie que les dieux pourraient accorder à leurs patrons, tandis que les avantages du pacte sont probablement des artefacts divins que vous avez réussi à voler.
 Subclass/&WarlockUrPriestTitle	Pacte d'UrPrêtre
 Subclass/&WeaponProfArcaneFighterDescription	L'expérience au combat a donné à l'Arcane Fighter une formation aux armes simples et martiales
 Subclass/&WeaponProfArcaneFighterTitle	Entraînement aux armes
@@ -1891,9 +1910,10 @@ Subclass/&WeaponProfArtificerBattleSmithTitle	Entraînement aux armes
 Subclass/&WhiteWitchDescription	La magie blanche est fondamentalement bonne et bienveillante pour tous les êtres vivants. Les sorcières qui adoptent ce métier, malgré la malédiction haineuse qui les infecte, se consacrent souvent à la guérison et aux soins, dans le but d'améliorer le monde.
 Subclass/&WhiteWitchMagicDescription	Vous gagnez les sorts suivants. Ces sorts comptent pour vous comme des sorts de Sorcière et ne comptent pas dans votre nombre total de sorts connus :\n {0}
 Subclass/&WhiteWitchMagicTitle	Magie blanche
-Subclass/&WhiteWitchTitle	Sorcière Blanche
+Subclass/&WhiteWitchTitle	Sorcière blanche
 Subclass/&WitchSubclassPathDescription	Votre connaissance de la magie a culminé en rejoignant un Coven, un cercle inné de sorcières qui explorent un chemin spécifique de sorcellerie et de malédictions
 Subclass/&WitchSubclassPathTitle	Couvents de sorcières
+ToolTip/&CheckBoxDefaultPartyTitle	Cochez cette case pour définir votre groupe par défaut lorsque vous démarrez de nouvelles aventures ou testez des emplacements personnalisés. Vous pouvez sélectionner jusqu'à {0} héros selon le principe du premier entré / premier sorti
 Tooltip/&CustomPortraitPoolClassMonkKiPool	Vous pouvez exploiter l'énergie mystique du ki. Votre accès à cette énergie est représenté par un certain nombre de points ki. Le montant maximum est égal à votre niveau de moine. Tous les points dépensés sont récupérés sur un repos court ou long. Vous pouvez dépenser ces points pour alimenter diverses fonctionnalités ki
 Tooltip/&FeatPrerequisiteHasStealthAttack	A une attaque furtive
 Tooltip/&FeatPrerequisiteIsNotBarbarian	n'est pas un barbare
@@ -1903,15 +1923,14 @@ Tooltip/&FeatPrerequisiteLevelFormat	Niveau de personnage minimum {0}
 Tooltip/&Tag9000Title	Effet personnalisé
 Tooltip/&TagCommunityExpansionTitle	Expansion de la communauté
 Tooltip/&TagMaledictionTitle	Bon sang
-Tooltip/&TagScoutSentinelWeaponTitle	Scout Sentinel
 Tooltip/&TagMonkWeaponTitle	Moine
 Tooltip/&TagOtherModContentTitle	À partir du module
-ToolTip/&CheckBoxDefaultPartyTitle	Cochez cette case pour définir votre groupe par défaut lorsque vous démarrez de nouvelles aventures de test d'emplacements personnalisés. Vous pouvez sélectionner jusqu'à {0} héros selon le principe du premier entré / premier sorti
+Tooltip/&TagScoutSentinelWeaponTitle	Sentinelle éclaireuse
 UI/&CustomFeatureSelectionStageDescription	Sélectionnez des fonctionnalités supplémentaires dans votre classe/sous-classe
 UI/&CustomFeatureSelectionStageFeatures	Caractéristiques
 UI/&CustomFeatureSelectionStageNotDone	Vous devez sélectionner toutes les fonctionnalités disponibles avant de continuer
 UI/&CustomFeatureSelectionStageTitle	Sélection de fonctionnalité
-UI/&CustomFeatureSelectionTooltipTypeCantrip	cantrip
+UI/&CustomFeatureSelectionTooltipTypeCantrip	Cantrip
 UI/&CustomFeatureSelectionTooltipTypeFeature	Fonctionnalité
 UI/&CustomFeatureSelectionTooltipTypePower	Pouvoir
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Compétence
