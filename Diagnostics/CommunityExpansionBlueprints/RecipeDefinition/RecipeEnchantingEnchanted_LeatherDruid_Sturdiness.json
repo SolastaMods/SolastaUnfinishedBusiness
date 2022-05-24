@@ -1,0 +1,48 @@
+{
+  "$type": "RecipeDefinition, Assembly-CSharp",
+  "craftedItem": "Definition:Enchanted_LeatherDruid_Sturdiness:2724d8a6-652f-574a-b7ea-8a3270eed490",
+  "stackCount": 1,
+  "craftingHours": 48,
+  "craftingDC": 16,
+  "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
+  "ingredients": [
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:LeatherDruid:35cc1b0e7bc264d42a1ab5eb4329166a"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_Enchant_Oil_Of_Acuteness:ad0a6236d6ce53344b534dd9c1cdcc00"
+    }
+  ],
+  "spellDefinition": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&Enchanted_LeatherDruid_Sturdiness_Title",
+    "description": "Equipment/&Enchanted_LeatherDruid_Sturdiness_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "03f240d193ed634429bece83e31ae758",
+      "m_SubObjectName": "Druid_Leather_Armor",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "731cd70e-47fc-5f39-921f-a2d6151c1723",
+  "contentPack": 9999,
+  "name": "RecipeEnchantingEnchanted_LeatherDruid_Sturdiness"
+}

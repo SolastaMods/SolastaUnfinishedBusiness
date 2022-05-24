@@ -124,8 +124,8 @@ All settings start disabled by default. On first start the mod will display an w
 
 [list=1]
 
-[*][b]Artificer[/b]: Artificers are inventors, alchemists, and more. They bridge the space between magic and technology
-[*][b]Monk [/b]: Monks are united in their ability to magically harness the energy that flows in their bodies. Whether channeled as a striking display of combat prowess or a subtler focus of defensive ability and speed, this energy infuses all that a monk does
+[*][b]Monk [beta][/b]: Monks are united in their ability to magically harness the energy that flows in their bodies. Whether channeled as a striking display of combat prowess or a subtler focus of defensive ability and speed, this energy infuses all that a monk does
+[*][b]Tinkerer[/b]: Tinkerers are inventors, alchemists, and more. They bridge the space between magic and technology
 [*][b]Warlock[/b]: Warlocks are seekers of the knowledge that lies hidden in the fabric of the multiverse. Through pacts made with mysterious beings of supernatural power, warlocks unlock magical effects both subtle and spectacular
 [*][b]Witch[/b]: Afflicted by a sinister curse, witches can spin dark magic into Maledictions, which they use to debilitate foes. They are also accompanied by their familiars, loyal magical companions which they use to deal the killing blow
 [/list]
@@ -140,7 +140,7 @@ All settings start disabled by default. On first start the mod will display an w
 [*][b]Potion Maker[/b]: You specialize in potions, buffs, healing, and spell casting
 [*][b]Blaster[/b]: You specialize in hurling projectiles and causing explosions
 [*][b]Weapon Smith[/b]: You specialize in using magical weapons in combat
-[*][b]Scout Sentinel[/b]: A Scout Sentinel artificer modifies armor to enhance it's fuction, provding enhanced protection and mobility
+[*][b]Scout Sentinel[/b]: A Scout Sentinel tinkerer modifies armor to enhance it's fuction, provding enhanced protection and mobility
 [*][b]SoulBlade Pact[/b]: You have struck a bargain with a sentient weapon that you feed souls to in return for power
 [*][b]Ancient Forest Pact[/b]: You have forged a relationship with a powerful nature entity: Ancient Dryads, Archdruids, Manifestations of the Feywild bleeding into the material plane, Forgotten gods from a primal age. Your patron may wish for you to protect the natural world, travel to far off lands that it cannot, or it may have another motive that seems inscrutable to short-lived mortals
 [*][b]Elementalist Pact[/b]: You've been made a pact with and been changed by primordals present in the elemental badlands. The elemental chaos of the patron has suffused your soul, letting you use the power of diferent elemental types
@@ -345,6 +345,7 @@ Regardless of its current hit points, a celestial, an elemental, a fey, or a fie
 [*][b]Shield [Wooden][/b]: Wooden Shield of Sturdiness, Wooden Shield of Robustness, Wooden Shield of Survival, Wooden Shield of Flame Dancing, Wooden Shield of Frost Walking, Wooden Shield of Deflection
 [*][b]Shield[/b]: Shield of Sturdiness, Shield of Robustness, Shield of Survival, Shield of Flame Dancing, Shield of Frost Walking, Shield of Deflection
 [*][b]Hide Armor[/b]: Hide Armor of Sturdiness, Hide Armor of Robustness, Hide Armor of Survival, Hide Armor of Flame Dancing, Hide Armor of Frost Walking, Hide Armor of Deflection
+[*][b]Leather Druid[/b]: Druid Leather of Sturdiness, Druid Leather of Robustness, Druid Leather of Survival, Druid Leather of Flame Dancing, Druid Leather of Frost Walking, Druid Leather of Deflection
 [*][b]Studded Leather[/b]: Studded Leather of Sturdiness, Studded Leather of Robustness, Studded Leather of Survival, Studded Leather of Flame Dancing, Studded Leather of Frost Walking, Studded Leather of Deflection
 [/list]
 
