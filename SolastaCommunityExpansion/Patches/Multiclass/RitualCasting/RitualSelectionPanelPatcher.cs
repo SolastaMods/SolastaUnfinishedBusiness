@@ -62,6 +62,11 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.RitualCasting
                         x.SpellCastingClass == spellCastingClass
                         && x.SpellCastingSubclass == spellCastingSubclass);
 
+                if (spellRepertoire == null)
+                {
+                    continue;
+                }
+
                 var maxSpellLevel = Models.SharedSpellsContext.GetClassSpellLevel(spellRepertoire);
 
                 if (featureDefinitionMagicAffinity.RitualCasting == RuleDefinitions.RitualCasting.Prepared
