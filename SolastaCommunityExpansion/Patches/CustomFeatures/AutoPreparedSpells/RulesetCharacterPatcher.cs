@@ -2,7 +2,7 @@
 using System.Linq;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures.RitualAndAutoPreparedSpells
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.AutoPreparedSpells
 {
     [HarmonyPatch(typeof(RulesetCharacter), "ComputeAutopreparedSpells")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

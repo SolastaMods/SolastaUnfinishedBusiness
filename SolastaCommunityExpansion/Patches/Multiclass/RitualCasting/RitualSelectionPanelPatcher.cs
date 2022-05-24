@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
+using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Patches.Multiclass.RitualCasting
 {
@@ -26,26 +27,93 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.RitualCasting
 
         public static void EnumerateUsableRitualSpells(
             RulesetCharacter rulesetCharacter,
-            RuleDefinitions.RitualCasting _,
+            RuleDefinitions.RitualCasting ritualType,
             List<SpellDefinition> ritualSpells)
         {
-            rulesetCharacter.EnumerateFeaturesToBrowse<FeatureDefinitionMagicAffinity>(rulesetCharacter.FeaturesToBrowse);
+            if (rulesetCharacter is not RulesetCharacterHero)
+            {
+                rulesetCharacter.EnumerateUsableRitualSpells(ritualType, ritualSpells);
 
-            var ritualSpellsCache = new List<SpellDefinition>();
+                return;
+            }
 
             ritualSpells.Clear();
 
-            foreach (var featureDefinitionMagicAffinity in rulesetCharacter.FeaturesToBrowse
-                .OfType<FeatureDefinitionMagicAffinity>()
-                .Where(f => f.RitualCasting != RuleDefinitions.RitualCasting.None))
-            {
-                rulesetCharacter.EnumerateUsableRitualSpells(featureDefinitionMagicAffinity.RitualCasting, ritualSpellsCache);
+            rulesetCharacter.EnumerateFeaturesToBrowse<FeatureDefinitionMagicAffinity>(rulesetCharacter.FeaturesToBrowse);
 
-                foreach (var ritualSpell in ritualSpellsCache)
+            foreach (FeatureDefinitionMagicAffinity featureDefinitionMagicAffinity in rulesetCharacter.FeaturesToBrowse)
+            {
+                var spellCastingClass = DatabaseRepository.GetDatabase<CharacterClassDefinition>()
+                    .FirstOrDefault(x =>
+                        x.FeatureUnlocks.Any(x =>
+                            x.FeatureDefinition == featureDefinitionMagicAffinity
+                            || x.FeatureDefinition is FeatureDefinitionFeatureSet featureSet
+                            && featureSet.FeatureSet.Contains(featureDefinitionMagicAffinity)));
+
+                var spellCastingSubclass = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
+                    .FirstOrDefault(x =>
+                        x.FeatureUnlocks.Any(x =>
+                            x.FeatureDefinition == featureDefinitionMagicAffinity
+                            || x.FeatureDefinition is FeatureDefinitionFeatureSet featureSet
+                            && featureSet.FeatureSet.Contains(featureDefinitionMagicAffinity)));
+
+                var spellRepertoire = rulesetCharacter.SpellRepertoires
+                    .FirstOrDefault(x =>
+                        x.SpellCastingClass == spellCastingClass
+                        && x.SpellCastingSubclass == spellCastingSubclass);
+
+                var maxSpellLevel = Models.SharedSpellsContext.GetClassSpellLevel(spellRepertoire);
+
+                if (featureDefinitionMagicAffinity.RitualCasting == RuleDefinitions.RitualCasting.Prepared
+                    && spellRepertoire.SpellCastingFeature.SpellReadyness == RuleDefinitions.SpellReadyness.Prepared
+                    && spellRepertoire.SpellCastingFeature.SpellKnowledge == RuleDefinitions.SpellKnowledge.WholeList)
                 {
-                    ritualSpells.TryAdd(ritualSpell);
+                    var spells = spellRepertoire.PreparedSpells
+                        .Where(s => s.Ritual)
+                        .Where(s => maxSpellLevel >= s.SpellLevel);
+
+                    ritualSpells.AddRange(spells);
+                }
+                else if (featureDefinitionMagicAffinity.RitualCasting == RuleDefinitions.RitualCasting.Spellbook
+                        && spellRepertoire.SpellCastingFeature.SpellKnowledge == RuleDefinitions.SpellKnowledge.Spellbook)
+                {
+                    rulesetCharacter.CharacterInventory.EnumerateAllItems(rulesetCharacter.Items);
+
+                    var spells = rulesetCharacter.Items
+                        .OfType<RulesetItemSpellbook>()
+                        .SelectMany(x => x.ScribedSpells)
+                        .Where(s => s.Ritual)
+                        .Where(s => maxSpellLevel >= s.SpellLevel);
+
+                    rulesetCharacter.Items.Clear();
+
+                    ritualSpells.AddRange(spells);
+                }
+                //
+                // Special case for Witch
+                //
+                else if (featureDefinitionMagicAffinity.RitualCasting == (RuleDefinitions.RitualCasting)ExtraRitualCasting.Known)
+                {
+                    var spells = spellRepertoire.KnownSpells
+                        .Where(s => s.Ritual)
+                        .Where(s => maxSpellLevel >= s.SpellLevel);
+
+                    ritualSpells.AddRange(spells);
+
+                    if (spellRepertoire.AutoPreparedSpells == null)
+                    {
+                        return;
+                    }
+
+                    spells = spellRepertoire.AutoPreparedSpells
+                        .Where(s => s.Ritual)
+                        .Where(s => maxSpellLevel >= s.SpellLevel);
+
+                    ritualSpells.AddRange(spells);
                 }
             }
+
+            rulesetCharacter.FeaturesToBrowse.Clear();
         }
     }
 }
