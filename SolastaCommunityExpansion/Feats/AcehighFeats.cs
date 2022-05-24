@@ -1,81 +1,24 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.CustomInterfaces;
+using SolastaCommunityExpansion.CustomUI;
+using SolastaCommunityExpansion.Utils;
 using SolastaModApi;
 using SolastaModApi.Extensions;
+using UnityEngine.AddressableAssets;
 using static FeatureDefinitionSavingThrowAffinity;
 
 namespace SolastaCommunityExpansion.Feats
 {
     internal static class AcehighFeats
     {
-        private static bool initialized;
-
         public static void CreateFeats(List<FeatDefinition> feats)
         {
             feats.Add(PowerAttackFeatBuilder.PowerAttackFeat);
             feats.Add(RecklessFuryFeatBuilder.RecklessFuryFeat);
-
-            initialized = true;
-        }
-
-        public static void UpdatePowerAttackModifier()
-        {
-            if (!initialized)
-            {
-                return;
-            }
-
-            PowerAttackOneHandedAttackModifierBuilder.PowerAttackAttackModifier.SetAttackRollModifier(-Main.Settings.FeatPowerAttackModifier);
-            PowerAttackOneHandedAttackModifierBuilder.PowerAttackAttackModifier.SetDamageRollModifier(Main.Settings.FeatPowerAttackModifier);
-            PowerAttackTwoHandedAttackModifierBuilder.PowerAttackTwoHandedAttackModifier.SetAttackRollModifier(-Main.Settings.FeatPowerAttackModifier);
-            PowerAttackTwoHandedAttackModifierBuilder.PowerAttackTwoHandedAttackModifier.SetDamageRollModifier(2 * Main.Settings.FeatPowerAttackModifier);
-        }
-
-        internal sealed class PowerAttackPowerBuilder : FeatureDefinitionPowerBuilder
-        {
-            private const string PowerAttackPowerName = "PowerAttack";
-            private const string PowerAttackPowerNameGuid = "0a3e6a7d-4628-4189-b91d-d7146d774bb6";
-
-            private PowerAttackPowerBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionPowers.PowerDomainLifePreserveLife, name, guid)
-            {
-                Definition.GuiPresentation.Title = "Feature/&PowerAttackPowerTitle";
-                Definition.GuiPresentation.Description = Gui.Format("Feature/&PowerAttackPowerDescription", Main.Settings.FeatPowerAttackModifier.ToString());
-
-                Definition.SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
-                Definition.SetActivationTime(RuleDefinitions.ActivationTime.NoCost);
-                Definition.SetShortTitleOverride("Feature/&PowerAttackPowerTitle");
-
-                //Create the power attack effect
-                var powerAttackEffect = new EffectForm
-                {
-                    ConditionForm = new ConditionForm(),
-                    FormType = EffectForm.EffectFormType.Condition
-                };
-                powerAttackEffect.ConditionForm.Operation = ConditionForm.ConditionOperation.Add;
-                powerAttackEffect.ConditionForm.ConditionDefinition = PowerAttackConditionBuilder.PowerAttackCondition;
-
-                //Add to our new effect
-                var newEffectDescription = new EffectDescription();
-                newEffectDescription.Copy(Definition.EffectDescription);
-                newEffectDescription.EffectForms.Clear();
-                newEffectDescription.EffectForms.Add(powerAttackEffect);
-                newEffectDescription.HasSavingThrow = false;
-                newEffectDescription.DurationType = RuleDefinitions.DurationType.Round;
-                newEffectDescription.DurationParameter = 0;
-                newEffectDescription.SetTargetSide(RuleDefinitions.Side.Ally);
-                newEffectDescription.SetTargetType(RuleDefinitions.TargetType.Self);
-                newEffectDescription.SetCanBePlacedOnCharacter(true);
-
-                Definition.SetEffectDescription(newEffectDescription);
-            }
-
-            private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
-            {
-                return new PowerAttackPowerBuilder(name, guid).AddToDB();
-            }
-
-            public static readonly FeatureDefinitionPower PowerAttackPower = CreateAndAddToDB(PowerAttackPowerName, PowerAttackPowerNameGuid);
         }
 
         internal sealed class PowerAttackTwoHandedPowerBuilder : FeatureDefinitionPowerBuilder
@@ -86,7 +29,8 @@ namespace SolastaCommunityExpansion.Feats
             private PowerAttackTwoHandedPowerBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalLightningBlade, name, guid)
             {
                 Definition.GuiPresentation.Title = "Feature/&PowerAttackTwoHandedPowerTitle";
-                Definition.GuiPresentation.Description = Gui.Format("Feature/&PowerAttackTwoHandedPowerDescription", Main.Settings.FeatPowerAttackModifier.ToString(), (Main.Settings.FeatPowerAttackModifier * 2).ToString());
+                Definition.GuiPresentation.Description = Gui.Format("Feature/&PowerAttackTwoHandedPowerDescription", "1", "2");
+                Definition.GuiPresentation.SetHidden(true);
 
                 Definition.SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
                 Definition.SetActivationTime(RuleDefinitions.ActivationTime.NoCost);
@@ -124,30 +68,25 @@ namespace SolastaCommunityExpansion.Feats
             public static readonly FeatureDefinitionPower PowerAttackTwoHandedPower = CreateAndAddToDB(PowerAttackTwoHandedPowerName, PowerAttackTwoHandedPowerNameGuid);
         }
 
-        internal sealed class PowerAttackOneHandedAttackModifierBuilder : FeatureDefinitionAttackModifierBuilder
+        internal sealed class PowerAttackOneHandedAttackModifierBuilder : FeatureDefinitionBuilder
         {
             private const string PowerAttackAttackModifierName = "PowerAttackAttackModifier";
             private const string PowerAttackAttackModifierNameGuid = "87286627-3e62-459d-8781-ceac1c3462e6";
 
-            private PowerAttackOneHandedAttackModifierBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionAttackModifiers.AttackModifierFightingStyleArchery, name, guid)
+            private PowerAttackOneHandedAttackModifierBuilder(string name, string guid) : base(name, guid)
             {
-                Definition.GuiPresentation.Title = "Feature/&PowerAttackAttackModifierTitle";
-                Definition.GuiPresentation.Description = Gui.Format("Feature/&PowerAttackAttackModifierDescription", Main.Settings.FeatPowerAttackModifier.ToString());
+                Definition.GuiPresentation.Title = "Feature/&PowerAttackTitle";
+                Definition.GuiPresentation.Description = "Feature/&PowerAttackDescription";
 
-                //Ideally this would be proficiency but there isn't a nice way to subtract proficiency.
-                //To do this properly you could likely make multiple versions of this that get replaced at proficiency level ups but it's a bit of a pain, so going with -3 for now.
-                //Originally I made an implemenation that used FeatureDefinitionAdditionalDamage and was going to restrict to melee weapons etc. but really power attack should be avaiable for any build as you choose.
-                //The FeatureDefinitionAdditionalDamage was limited in the sense that you couldn't check for things like the 'TwoHanded' or 'Heavy' properties of a weapon so it wasn't worth using really.
-                Definition.SetAttackRollModifier(-Main.Settings.FeatPowerAttackModifier);
-                Definition.SetDamageRollModifier(Main.Settings.FeatPowerAttackModifier);
+                Definition.SetCustomSubFeatures(new ModifyAttackPower());
             }
 
-            private static FeatureDefinitionAttackModifier CreateAndAddToDB(string name, string guid)
+            private static FeatureDefinition CreateAndAddToDB(string name, string guid)
             {
                 return new PowerAttackOneHandedAttackModifierBuilder(name, guid).AddToDB();
             }
 
-            public static readonly FeatureDefinitionAttackModifier PowerAttackAttackModifier
+            public static readonly FeatureDefinition PowerAttackAttackModifier
                 = CreateAndAddToDB(PowerAttackAttackModifierName, PowerAttackAttackModifierNameGuid);
         }
 
@@ -158,15 +97,16 @@ namespace SolastaCommunityExpansion.Feats
 
             private PowerAttackTwoHandedAttackModifierBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionAttackModifiers.AttackModifierFightingStyleArchery, name, guid)
             {
-                Definition.GuiPresentation.Title = "Feature/&PowerAttackTwoHandedAttackModifierTitle";
-                Definition.GuiPresentation.Description = Gui.Format("Feature/&PowerAttackTwoHandedAttackModifierDescription", Main.Settings.FeatPowerAttackModifier.ToString(), (Main.Settings.FeatPowerAttackModifier * 2).ToString());
+                Definition.GuiPresentation.Title = Gui.NoLocalization;
+                Definition.GuiPresentation.Description = Gui.NoLocalization;
+                Definition.GuiPresentation.SetHidden(true);
 
                 //Ideally this would be proficiency but there isn't a nice way to subtract proficiency.
                 //To do this properly you could likely make multiple versions of this that get replaced at proficiency level ups but it's a bit of a pain, so going with -3 for now.
                 //Originally I made an implemenation that used FeatureDefinitionAdditionalDamage and was going to restrict to melee weapons etc. but really power attack should be avaiable for any build as you choose.
                 //The FeatureDefinitionAdditionalDamage was limited in the sense that you couldn't check for things like the 'TwoHanded' or 'Heavy' properties of a weapon so it wasn't worth using really.
-                Definition.SetAttackRollModifier(-Main.Settings.FeatPowerAttackModifier);
-                Definition.SetDamageRollModifier(2 * Main.Settings.FeatPowerAttackModifier);
+                Definition.SetAttackRollModifier(-1);
+                Definition.SetDamageRollModifier(2);
             }
 
             private static FeatureDefinitionAttackModifier CreateAndAddToDB(string name, string guid)
@@ -184,8 +124,8 @@ namespace SolastaCommunityExpansion.Feats
 
             private PowerAttackConditionBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionHeraldOfBattle, name, guid)
             {
-                Definition.GuiPresentation.Title = "Feature/&PowerAttackConditionTitle";
-                Definition.GuiPresentation.Description = Gui.Format("Feature/&PowerAttackConditionDescription", Main.Settings.FeatPowerAttackModifier.ToString());
+                Definition.GuiPresentation.Title = "Feature/&PowerAttackTitle";
+                Definition.GuiPresentation.Description = "Feature/&PowerAttackDescription";
 
                 Definition.SetAllowMultipleInstances(false);
                 Definition.Features.Clear();
@@ -193,6 +133,7 @@ namespace SolastaCommunityExpansion.Feats
 
                 Definition.SetDurationType(RuleDefinitions.DurationType.Round);
                 Definition.SetDurationParameter(0);
+                Definition.SetCancellingConditions(Definition);
             }
 
             private static ConditionDefinition CreateAndAddToDB(string name, string guid)
@@ -210,8 +151,9 @@ namespace SolastaCommunityExpansion.Feats
 
             private PowerAttackTwoHandedConditionBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionHeraldOfBattle, name, guid)
             {
-                Definition.GuiPresentation.Title = "Feature/&PowerAttackTwoHandedConditionTitle";
-                Definition.GuiPresentation.Description = Gui.Format("Feature/&PowerAttackTwoHandedConditionDescription", Main.Settings.FeatPowerAttackModifier.ToString(), (Main.Settings.FeatPowerAttackModifier * 2).ToString());
+                Definition.GuiPresentation.Title = Gui.NoLocalization;
+                Definition.GuiPresentation.Description = Gui.NoLocalization;
+                Definition.GuiPresentation.SetHidden(true);
 
                 Definition.SetAllowMultipleInstances(false);
                 Definition.Features.Clear();
@@ -237,10 +179,10 @@ namespace SolastaCommunityExpansion.Feats
             private PowerAttackFeatBuilder(string name, string guid) : base(DatabaseHelper.FeatDefinitions.FollowUpStrike, name, guid)
             {
                 Definition.GuiPresentation.Title = "Feat/&PowerAttackFeatTitle";
-                Definition.GuiPresentation.Description = Gui.Format("Feat/&PowerAttackFeatDescription", Main.Settings.FeatPowerAttackModifier.ToString(), (Main.Settings.FeatPowerAttackModifier * 2).ToString());
+                Definition.GuiPresentation.Description = "Feat/&PowerAttackFeatDescription";
 
                 Definition.Features.Clear();
-                Definition.Features.Add(PowerAttackPowerBuilder.PowerAttackPower);
+                Definition.Features.Add(BuildPowerAttackPower());
                 Definition.Features.Add(PowerAttackTwoHandedPowerBuilder.PowerAttackTwoHandedPower);
                 Definition.SetMinimalAbilityScorePrerequisite(false);
             }
@@ -251,6 +193,128 @@ namespace SolastaCommunityExpansion.Feats
             }
 
             public static readonly FeatDefinition PowerAttackFeat = CreateAndAddToDB(PowerAttackFeatName, PowerAttackFeatNameGuid);
+        }
+
+        private static FeatureDefinition BuildPowerAttackPower()
+        {
+            return FeatureDefinitionPowerBuilder
+                .Create("PowerAttack", "0a3e6a7d-4628-4189-b91d-d7146d774bb6")
+                .SetGuiPresentation("PowerAttackFeat", Category.Feat,
+                    CustomIcons.CreateAssetReferenceSprite("PowerAttackIcon",
+                        Properties.Resources.PowerAttackIcon, 128, 64))
+                .SetActivationTime(RuleDefinitions.ActivationTime.NoCost)
+                .SetUsesFixed(1)
+                .SetCostPerUse(0)
+                .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
+                .SetEffectDescription(new EffectDescriptionBuilder()
+                    .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1, RuleDefinitions.TargetType.Self)
+                    .SetDurationData(RuleDefinitions.DurationType.Permanent)
+                    .SetEffectForms(new EffectFormBuilder()
+                        .SetConditionForm(ConditionDefinitionBuilder
+                            .Create("PowerAttackTriggerCondition", DefinitionBuilder.CENamespaceGuid)
+                            .SetGuiPresentationNoContent(true)
+                            .SetSilent(Silent.WhenAddedOrRemoved)
+                            .SetDuration(RuleDefinitions.DurationType.Permanent)
+                            .SetFeatures(FeatureDefinitionBuilder
+                                .Create("PowerAttackTriggerFeature", DefinitionBuilder.CENamespaceGuid)
+                                .SetGuiPresentationNoContent(true)
+                                .SetCustomSubFeatures(new PowerAttackConcentrationProvider())
+                                .AddToDB())
+                            .AddToDB(), ConditionForm.ConditionOperation.Add)
+                        .Build(),
+                        new EffectFormBuilder()
+                            .SetConditionForm(PowerAttackConditionBuilder.PowerAttackCondition, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
+                .AddToDB();
+        }
+        
+        public class PowerAttackConcentrationProvider : ICusomConcentrationProvider
+        {
+            public string Name => "PowerAttack";
+            public string Tooltip => "Tooltip/&PowerAttackConcentration";
+
+            private static AssetReferenceSprite _icon;
+
+            public AssetReferenceSprite Icon => _icon ??=
+                CustomIcons.CreateAssetReferenceSprite("PowerAttackConcentrationIcon",
+                    Properties.Resources.PowerAttackConcentrationIcon, 64, 64);
+
+            public void Stop(RulesetCharacter character)
+            {
+                var triggerCondition = "PowerAttackTriggerCondition";
+                var attackCondition = PowerAttackConditionBuilder.PowerAttackCondition.Name;
+                foreach (var pair in character.ConditionsByCategory)
+                {
+                    foreach (var rulesetCondition in pair.Value.ToList())
+                    {
+                        if (rulesetCondition.Name == triggerCondition || rulesetCondition.Name == attackCondition)
+                        {
+                            character.RemoveCondition(rulesetCondition);
+                        }
+                    }
+                }
+                character.AddConditionOfCategory(AttributeDefinitions.TagEffect, RulesetCondition.CreateActiveCondition(character.Guid,
+                    PowerAttackConditionBuilder.PowerAttackCondition, RuleDefinitions.DurationType.Round,
+                    0,
+                    RuleDefinitions.TurnOccurenceType.StartOfTurn,
+                    character.Guid,
+                    character.CurrentFaction.Name
+                ));
+            }
+        }
+        
+        private class ModifyAttackPower : IModifyAttackModeForWeapon
+        {
+            public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
+            {
+                if (attackMode == null)
+                {
+                    return;
+                }
+
+                var damage = attackMode.EffectDescription?.FindFirstDamageForm();
+
+                if (damage == null)
+                {
+                    return;
+                }
+
+                if (attackMode is not {Reach: true, Ranged: false, Thrown: false})
+                {
+                    return;
+                }
+
+                var proficiency = character.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
+                var toHit = -proficiency;
+                var toDamage = proficiency;
+                
+                if (attackMode.UseVersatileDamage
+                    || IsTwoHanded(attackMode.SourceDefinition as ItemDefinition)
+                    || IsTwoHanded(weapon?.ItemDefinition))
+                {
+                    toDamage *= 2;
+                }
+
+                attackMode.ToHitBonus += toHit;
+                damage.BonusDamage += toDamage;
+            }
+
+            private static bool IsTwoHanded(ItemDefinition weapon)
+            {
+                if (weapon == null)
+                {
+                    return false;
+                }
+
+                var description = weapon.WeaponDescription;
+                if (description == null)
+                {
+                    return false;
+                }
+
+                return description.WeaponTags.Contains(TagsDefinitions.WeaponTagTwoHanded);
+            }
         }
 
         internal sealed class RecklessFuryFeatBuilder : FeatDefinitionBuilder

@@ -142,7 +142,6 @@ namespace SolastaCommunityExpansion
         // Characters - Feats
         //
 
-        public int FeatPowerAttackModifier { get; set; } = 3;
         public int FeatSliderPosition { get; set; } = 4;
         public List<string> FeatEnabled { get; } = new();
 
