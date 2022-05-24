@@ -47,15 +47,15 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.RitualCasting
                     .FirstOrDefault(x =>
                         x.FeatureUnlocks.Any(x =>
                             x.FeatureDefinition == featureDefinitionMagicAffinity
-                            || x.FeatureDefinition is FeatureDefinitionFeatureSet featureSet
-                            && featureSet.FeatureSet.Contains(featureDefinitionMagicAffinity)));
+                            || (x.FeatureDefinition is FeatureDefinitionFeatureSet featureSet
+                            && featureSet.FeatureSet.Contains(featureDefinitionMagicAffinity))));
 
                 var spellCastingSubclass = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
                     .FirstOrDefault(x =>
                         x.FeatureUnlocks.Any(x =>
                             x.FeatureDefinition == featureDefinitionMagicAffinity
-                            || x.FeatureDefinition is FeatureDefinitionFeatureSet featureSet
-                            && featureSet.FeatureSet.Contains(featureDefinitionMagicAffinity)));
+                            || (x.FeatureDefinition is FeatureDefinitionFeatureSet featureSet
+                            && featureSet.FeatureSet.Contains(featureDefinitionMagicAffinity))));
 
                 var spellRepertoire = rulesetCharacter.SpellRepertoires
                     .FirstOrDefault(x =>
