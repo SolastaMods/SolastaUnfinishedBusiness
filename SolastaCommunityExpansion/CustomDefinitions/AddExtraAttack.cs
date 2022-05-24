@@ -46,7 +46,8 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             var mainHandItem = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
                 .EquipedItem;
 
-            var strikeDefinition = mainHandItem != null && Monk.IsUnarmedWeapon(mainHandItem)
+            var isUnarmedWeapon = mainHandItem != null && Monk.IsUnarmedWeapon(mainHandItem);
+            var strikeDefinition = isUnarmedWeapon
                 ? mainHandItem.ItemDefinition
                 : hero.UnarmedStrikeDefinition;
 
@@ -72,10 +73,10 @@ namespace SolastaCommunityExpansion.CustomDefinitions
                 strikeDefinition.WeaponDescription,
                 false,
                 true,
-                EquipmentDefinitions.SlotTypeOffHand,
+                EquipmentDefinitions.SlotTypeMainHand,
                 attackModifiers,
                 hero.FeaturesOrigin,
-                null
+                isUnarmedWeapon ? mainHandItem : null
             );
             attackMode.AttacksNumber = attacksNumber;
             attackMode.AttackTags.AddRange(additionalTags);
