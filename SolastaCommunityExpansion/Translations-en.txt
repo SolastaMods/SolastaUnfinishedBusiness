@@ -669,7 +669,7 @@ Feat/&PowerAlchemistHealElixirsDescription	Once per day you can cast Heal
 Feat/&PowerAlchemistHealElixirsTitle	Heal
 Feat/&PowerAlchemistRestorativeElixirsDescription	You can cast Lesser Rotation without expending a spell slot. You can do this a number of times per long rest equal to your intelligence modifier
 Feat/&PowerAlchemistRestorativeElixirsTitle	Restorative Elixirs
-Feat/&PowerAttackFeatDescription	You learned to trade accuracy to lander deadlier/harder blows. You can choose to take a -{0} penalty to your to hit in order to do more damage (+{0} damage for one handed weapons, +{1} damage for two handed weapons). Lasts for the whole turn once activated. Works with melee and ranged weapons
+Feat/&PowerAttackFeatDescription	You learned to trade accuracy to land deadlier blows. You can choose to take a -Proficiency Bonus penalty to your to hit in order to do more damage (+Proficiency Bonus damage for one handed weapons, double that for two handed and versatile weapons). Works only with melee weapons.
 Feat/&PowerAttackFeatTitle	Power attack
 Feat/&PowerFalseLifeFromFeatDescription	Bolstering yourself with a necromantic facsimile of life, you gain 1d4+4 Temporary Hit Points for the Duration
 Feat/&PowerFalseLifeFromFeatTitle	False Life
@@ -1052,18 +1052,8 @@ Feature/&OpportunistQuickStrikeDescription	You have advatange when attack an ene
 Feature/&OpportunistQuickStrikeTitle	Quick Strike
 Feature/&OtherworldlyLeapTitle	Otherworldly Leap
 Feature/&OtherworldlyLeapTitle	Otherworldly Leap
-Feature/&PowerAttackAttackModifierDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged
-Feature/&PowerAttackAttackModifierTitle	One handed power attack
-Feature/&PowerAttackConditionDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged
-Feature/&PowerAttackConditionTitle	One handed power attack
-Feature/&PowerAttackPowerDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged
-Feature/&PowerAttackPowerTitle	One handed power attack
-Feature/&PowerAttackTwoHandedAttackModifierDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes. Only to be used when attacking with two hands, melee or ranged
-Feature/&PowerAttackTwoHandedAttackModifierTitle	Two Handed power attack
-Feature/&PowerAttackTwoHandedConditionDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes. Only to be used when attacking with two hands, melee or ranged
-Feature/&PowerAttackTwoHandedConditionTitle	Two Handed power attack
-Feature/&PowerAttackTwoHandedPowerDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes. Only to be used when attacking with two hands, melee or ranged
-Feature/&PowerAttackTwoHandedPowerTitle	Two Handed power attack
+Feature/&PowerAttackTitle	Power attack
+Feature/&PowerAttackDescription	Take a -Proficiency Bonus to hit penalty to your attack for the rest of the turn to do +Proficiency Bonus damage when you land your strikes. Two-Handed and Versatile weapons get bonus damage doubled. Works only with melee weapons.
 Feature/&PowerPaladinAuraOfCourage18Description	Grant a saving throw bonus to allies withing 30ft
 Feature/&PowerPaladinAuraOfCourage18Title	Improved Aura of Courage
 Feature/&PowerPaladinAuraOfProtection18Description	You and your allies within 30ft cannot be frightened
@@ -1936,3 +1926,4 @@ UI/&CustomFeatureSelectionTooltipTypePower	Power
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Proficiency
 UI/&ForcePreferredCantripDescription	If this toggled is ON only preferred cantrip can trigger. If the preferred cantrip isn't selected, then the first valid cantrip will trigger, regardless of this toggle
 UI/&ForcePreferredCantripTitle	Force Preferred Cantrip
+Tooltip/&PowerAttackConcentration	Disable Power Attack.\nEffect will last until start of your next turn.
