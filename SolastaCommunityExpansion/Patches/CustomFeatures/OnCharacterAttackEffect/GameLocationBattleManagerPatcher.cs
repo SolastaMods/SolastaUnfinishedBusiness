@@ -443,6 +443,12 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                             {
                                 melee = true;
                             }
+                            //CUSTOM CODE ---- START
+                            //Count shield bashing as melee
+                            if (!melee && ShieldStrikeContext.IsShield(attackMode.SourceDefinition as ItemDefinition)) {
+                                melee = true;
+                            }
+                            //CUSTOM CODE ---- END
 
                             if (provider.RequiredProperty == RuleDefinitions.AdditionalDamageRequiredProperty.FinesseOrRangeWeapon)
                             {
