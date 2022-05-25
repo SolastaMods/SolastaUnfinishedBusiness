@@ -74,7 +74,7 @@ namespace SolastaCommunityExpansion.FightingStyles
         {
             public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
             {
-                if (!Monk.IsUnarmedWeapon(attackMode))
+                if (!WeaponValidators.IsUnarmedWeapon(attackMode))
                 {
                     return;
                 }
