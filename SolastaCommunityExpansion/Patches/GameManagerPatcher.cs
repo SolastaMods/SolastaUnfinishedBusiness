@@ -56,6 +56,7 @@ namespace SolastaCommunityExpansion.Patches
                 HandwrapWeaponContext.Load();
             }
 #endif
+            ShieldStrikeContext.Load();
             ItemCraftingContext.Load();
             ItemOptionsContext.Load();
             Level20Context.Load();

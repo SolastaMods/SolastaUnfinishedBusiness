@@ -12,18 +12,6 @@ public static class WeaponValidators
     public static readonly IsWeaponValidHandler IsLight = (mode, weapon) =>
         HasActiveTag(mode, weapon, TagsDefinitions.WeaponTagLight);
 
-    public static readonly IsWeaponValidHandler IsShield = (_, offHandItem) =>
-    {
-        if (offHandItem == null || !offHandItem.ItemDefinition.IsArmor)
-        {
-            return false;
-        }
-
-        var armorDescription = offHandItem.ItemDefinition.ArmorDescription;
-        
-        return armorDescription.ArmorType == DatabaseHelper.ArmorTypeDefinitions.ShieldType.Name;
-    };
-
     public static bool IsUnarmedWeapon(RulesetAttackMode attackMode, RulesetItem weapon)
     {
         var item = attackMode?.SourceDefinition as ItemDefinition ?? weapon?.ItemDefinition;
