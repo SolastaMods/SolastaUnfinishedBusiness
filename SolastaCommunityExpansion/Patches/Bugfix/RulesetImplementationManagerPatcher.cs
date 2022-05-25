@@ -1,9 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.Bugfix;
-
-internal static class RulesetImplementationManagerPatcher
+namespace SolastaCommunityExpansion.Patches.Bugfix
 {
     // Call parts of the stuff `RulesetImplementationManagerLocation` does for `RulesetImplementationManagerCampaign`
     // This makes light and item effects correctly terminate when resting during world travel
@@ -12,9 +10,13 @@ internal static class RulesetImplementationManagerPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetImplementationManager_TerminateEffect
     {
-        internal static void Postfix(RulesetImplementationManager __instance, RulesetEffect activeEffect,
-            bool showGraphics = true)
+        internal static void Postfix(RulesetImplementationManager __instance, RulesetEffect activeEffect)
         {
+            if (!Main.Settings.BugFixCorrectlyTerminateEffectsOnWorldTravel)
+            {
+                return;
+            }
+
             if (__instance is not RulesetImplementationManagerCampaign)
             {
                 return;
