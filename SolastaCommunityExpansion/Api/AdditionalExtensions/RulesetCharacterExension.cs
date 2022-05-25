@@ -2,6 +2,7 @@
 using System.Linq;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
+using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Api.AdditionalExtensions
 {
@@ -40,6 +41,12 @@ namespace SolastaCommunityExpansion.Api.AdditionalExtensions
             return instance.AttackModes
                 .Where(a => !a.AfterChargeOnly && a.ActionType == actionType)
                 .ToList();
+        }
+
+        public static bool CanAddAbilityBonusToOffhand(this RulesetCharacter instance)
+        {
+            return instance.GetSubFeaturesByType<IAttackModificationProvider>()
+                .Any(p => p.CanAddAbilityBonusToSecondary);
         }
     }
 }
