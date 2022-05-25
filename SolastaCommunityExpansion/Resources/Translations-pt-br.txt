@@ -20,12 +20,12 @@ Class/&WitchBurnedFireResistanceDescription	Resistência ao fogo queimado
 Class/&WitchBurnedFireResistanceTitle	Resistência ao fogo
 Class/&WitchBurnedProduceFlameDescription	Queimado Produzir Poder de Chama
 Class/&WitchBurnedProduceFlameTitle	Produzir Chama
-Class/&WitchCacklePowerDescription	Você pode usar sua ação bônus para gargalhar. A duração de sua Maldição se estende por 1 rodada para cada criatura afetada a até 18 metros de você.\nNem todas as bruxas riem loucamente quando cacarejam, mas todas as gargalhadas requerem um componente verbal, como um feitiço. Estes variam de maldições e insultos mundanos, ao murmúrio de línguas mortas e falar de trás para frente
+Class/&WitchCacklePowerDescription	Você pode usar sua ação bônus para gargalhar. A duração de sua Maldição se estende por 1 rodada para cada criatura afetada a até 18 metros de você.\nNem todas as bruxas riem loucamente quando cacarejam, mas todas as gargalhadas requerem um componente verbal, como um feitiço. Estes variam de maldições e insultos mundanos, ao murmúrio de línguas mortas e falar de trás para frente.
 Class/&WitchCacklePowerTitle	Cacarejo
-Class/&WitchDescription	Afligidas por uma maldição sinistra, as bruxas podem transformar magia negra em Maldições, que elas usam para debilitar os inimigos. Eles também são acompanhados por seus familiares, companheiros mágicos leais que eles usam para desferir o golpe mortal
+Class/&WitchDescription	Afligidas por uma maldição sinistra, as bruxas podem transformar magia negra em Maldições, que elas usam para debilitar os inimigos. Eles também são acompanhados por seus familiares, companheiros mágicos leais que eles usam para desferir o golpe mortal.
 Class/&WitchFamiliarPowerDescription	Você aprende o feitiço Witch Familiar, ou seja, um feitiço Find Familiar melhorado, e pode lançá-lo como um ritual sem componentes materiais. A magia não conta para o seu número de magias conhecidas. O feitiço melhora Encontrar Familiar das seguintes maneiras:\n• Seu familiar tem seu turno imediatamente antes ou depois do seu turno a cada rodada (sua escolha).\n• Uma vez por turno como uma ação ou ação bônus, você pode comandar mentalmente seu familiar para usar sua reação para fazer um ataque.\n• Quando você conjura um feitiço, você pode lançá-lo através de seu familiar como se ele tivesse conjurado o feitiço, mesmo que o feitiço não tenha alcance de toque.\n• Seu familiar pode usar seu bônus de ataque mágico para suas jogadas de ataque.\n• Seu familiar adiciona seu bônus de proficiência à sua Classe de Armadura, testes de resistência e jogadas de dano.\n• Você adiciona o dobro do seu nível de bruxa aos pontos de vida máximos do seu familiar
 Class/&WitchFamiliarPowerTitle	Familiar
-Class/&WitchFeatureSetBurnedCurseDescription	Quase todo o seu corpo foi queimado por chamas arcanas, deixando-o com cicatrizes negras marcantes e brasas de magia que queimam sob a pele. Como resultado, você tem resistência a dano de fogo e conhece o truque Produzir Chama, que não conta no seu número total de truques conhecidos
+Class/&WitchFeatureSetBurnedCurseDescription	Quase todo o seu corpo foi queimado por chamas arcanas, deixando-o com cicatrizes negras marcantes e brasas de magia que queimam sob a pele. Como resultado, você tem resistência a dano de fogo e conhece o truque Produzir Chama, que não conta no seu número total de truques conhecidos.
 Class/&WitchFeatureSetBurnedCurseTitle	Queimado
 Class/&WitchFeatureSetLovelessCurseDescription	Você está amaldiçoado a nunca encontrar o amor verdadeiro. Cansado e insatisfeito, nem mesmo a magia pode transformar seu coração; como resultado, você é imune a ser enfeitiçado
 Class/&WitchFeatureSetLovelessCurseTitle	sem amor
@@ -37,19 +37,19 @@ Class/&WitchLovelessCharmImmunityDescription	Imunidade a Charme sem Amor
 Class/&WitchLovelessCharmImmunityTitle	Imunidade a Feitiços
 Class/&WitchMaledictionAbateDescription	Com uma ação, escolha uma criatura que você possa ver a até 18 metros de você para fazer um teste de resistência de Carisma. Em uma falha na resistência, a criatura não pode realizar reações até o final do seu próximo turno
 Class/&WitchMaledictionAbateTitle	Pegue a maldição
-Class/&WitchMaledictionApathyDescription	Com uma ação, escolha uma criatura que você possa ver a até 18 metros de você para fazer um teste de resistência de Carisma. Se falhar na resistência, até o final do seu próximo turno, a criatura se torna indiferente a uma criatura de sua escolha à qual ela é hostil. Esta indiferença termina se o alvo for atacado ou ferido por uma magia da criatura à qual é indiferente
+Class/&WitchMaledictionApathyDescription	Com uma ação, escolha uma criatura que você possa ver a até 18 metros de você para fazer um teste de resistência de Carisma. Se falhar na resistência, até o final do seu próximo turno, a criatura se torna indiferente a uma criatura de sua escolha à qual ela é hostil. Esta indiferença termina se o alvo for atacado ou ferido por uma magia da criatura à qual é indiferente.
 Class/&WitchMaledictionApathyTitle	Maldição da Apatia
-Class/&WitchMaledictionCharmDescription	Com uma ação, escolha uma criatura que você possa ver a até 18 metros para fazer um teste de resistência de Sabedoria. Se falhar na resistência, a criatura fica enfeitiçada por você até o final do seu próximo turno
+Class/&WitchMaledictionCharmDescription	Com uma ação, escolha uma criatura que você possa ver a até 18 metros para fazer um teste de resistência de Sabedoria. Se falhar na resistência, a criatura fica enfeitiçada por você até o final do seu próximo turno.
 Class/&WitchMaledictionCharmTitle	Amuleto Maldição
-Class/&WitchMaledictionDisorientDescription	Com uma ação, escolha uma criatura que você possa ver a até 18 metros para fazer um teste de resistência de Constituição. Em uma falha na resistência, sempre que este alvo fizer uma jogada de ataque antes do final do seu próximo turno, ele deve rolar um d6 e subtrair o número rolado da jogada de ataque
+Class/&WitchMaledictionDisorientDescription	Com uma ação, escolha uma criatura que você possa ver a até 18 metros para fazer um teste de resistência de Constituição. Em uma falha na resistência, sempre que este alvo fizer uma jogada de ataque antes do final do seu próximo turno, ele deve rolar um d6 e subtrair o número rolado da jogada de ataque.
 Class/&WitchMaledictionDisorientTitle	Maldição Desorientar
-Class/&WitchMaledictionEvilEyeDescription	Com uma ação, escolha uma criatura que você possa ver que possa vê-lo a até 18 metros para fazer um teste de resistência de Sabedoria. Se falhar na resistência, a criatura fica com medo de você até o final do seu próximo turno
+Class/&WitchMaledictionEvilEyeDescription	Com uma ação, escolha uma criatura que você possa ver que possa vê-lo a até 18 metros para fazer um teste de resistência de Sabedoria. Se falhar na resistência, a criatura fica com medo de você até o final do seu próximo turno.
 Class/&WitchMaledictionEvilEyeTitle	Maldição do mau-olhado
 Class/&WitchMaledictionObfuscateDescription	Com uma ação, você cria uma esfera de neblina de 6 metros de raio centrada em você. A esfera se espalha pelos cantos e sua área é fortemente obscurecida. Este efeito dura até o final do seu próximo turno ou até que um vento de velocidade moderada ou maior (pelo menos 10 milhas por hora) o disperse
 Class/&WitchMaledictionObfuscateTitle	Ofuscar Maldição
 Class/&WitchMaledictionPoxDescription	Com uma ação, escolha uma criatura que você possa ver a até 1,5 metro para fazer um teste de resistência de Constituição. Se falhar na resistência, a criatura fica envenenada até o final do seu próximo turno
 Class/&WitchMaledictionPoxTitle	Maldição da varíola
-Class/&WitchMaledictionRuinDescription	Com uma ação, escolha uma criatura que você possa ver a até 18 metros para fazer um teste de resistência de Constituição. Se falhar na resistência, a Classe de Armadura da criatura diminui em 3, para um mínimo de 10, até o final do seu próximo turno
+Class/&WitchMaledictionRuinDescription	Com uma ação, escolha uma criatura que você possa ver a até 18 metros para fazer um teste de resistência de Constituição. Se falhar na resistência, a Classe de Armadura da criatura diminui em 3, para um mínimo de 10, até o final do seu próximo turno.
 Class/&WitchMaledictionRuinTitle	Arruinar Maldição
 Class/&WitchRitualCastingMagicAffinityDescription	Afinidade de Conjuração de Rituais
 Class/&WitchRitualCastingMagicAffinityTitle	Fundição Ritual
@@ -70,7 +70,7 @@ Condition/&AbateDescription	Condição de redução
 Condition/&AbateTitle	Abater
 Condition/&AncientForestPhotosynthesisDescription	Você pode absorver energia da luz solar. Enquanto você estiver sob luz direta, você ganha 2 HP por rodada
 Condition/&AncientForestPhotosynthesisTitle	Fotossíntese
-Condition/&AncientForestRootedConditionDescription	Gavinhas arbóreas crescem de seus pés e cavam no chão. Seu deslocamento se torna 0 e você ganha vantagem em qualquer teste de resistência para empurrá-lo, puxá-lo ou derrubá-lo
+Condition/&AncientForestRootedConditionDescription	Gavinhas arbóreas crescem de seus pés e cavam no chão. Seu deslocamento se torna 0 e você ganha vantagem em qualquer teste de resistência para empurrá-lo, puxá-lo ou derrubá-lo.
 Condition/&AncientForestRootedConditionTitle	Enraizado
 Condition/&ApathyDescription	Condição de apatia
 Condition/&ApathyTitle	Apatia
@@ -82,7 +82,7 @@ Condition/&ClassMonkOpenHandDistractConditionDescription	Não pode fazer reaçõ
 Condition/&ClassMonkOpenHandDistractConditionTitle	Distraído
 Condition/&ClassMonkStepOfTheWindConditionDescription	Você pode realizar a ação Desengajar ou Correr como uma ação bônus e sua distância de salto é dobrada no turno
 Condition/&ClassMonkStepOfTheWindConditionTitle	Passo do vento
-Condition/&ClassMonkTanquilityConditionDescription	Você tem vantagem nos testes de resistência contra feitiços e os inimigos têm desvantagem em atacá-lo. Removido quando você ataca ou lança feitiço
+Condition/&ClassMonkTanquilityConditionDescription	Você tem vantagem nos testes de resistência contra feitiços e os inimigos têm desvantagem em atacá-lo. Removido quando você ataca ou lança feitiço.
 Condition/&ClassMonkTanquilityConditionTitle	Tranqüilidade
 Condition/&ConditionBarkWardDescription	Protegido pelos espíritos da floresta
 Condition/&ConditionBarkWardTitle	Ala de Latidos
@@ -187,7 +187,7 @@ Equipment/&Enchanted_Club_Punisher_Description	Esta arma encantada foi criada us
 Equipment/&Enchanted_Club_Punisher_Title	Clube do Justiceiro
 Equipment/&Enchanted_Dart_Acuteness_Description	Esta arma encantada foi criada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Seu design foi um dos primeiros trabalhos de Elgador Keenspirit, Magesmith of the Arcaneum
 Equipment/&Enchanted_Dart_Acuteness_Title	Dardo da Agudeza
-Equipment/&Enchanted_Dart_Frostburn_Description	Esta arma encantada foi criada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Foi projetado por Keliandir Moltenheart, que forjou esta arma para combater salamandras depois que uma exploração dos planos elementais deu errado
+Equipment/&Enchanted_Dart_Frostburn_Description	Esta arma encantada foi criada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Foi projetado por Keliandir Moltenheart, que forjou esta arma para combater salamandras depois que uma exploração dos planos elementais deu errado.
 Equipment/&Enchanted_Dart_Frostburn_Title	Dardo Frostburn
 Equipment/&Enchanted_Dart_Sharpness_Description	Esta arma encantada foi criada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Seu design foi um dos primeiros trabalhos de Elgador Keenspirit, Magesmith of the Arcaneum
 Equipment/&Enchanted_Dart_Sharpness_Title	Dardo de Nitidez
@@ -195,13 +195,13 @@ Equipment/&Enchanted_Dart_Souldrinker_Description	Esta arma encantada foi criada
 Equipment/&Enchanted_Dart_Souldrinker_Title	Dardo Bebedor de Almas
 Equipment/&Enchanted_Handaxe_Acuteness_Description	Esta arma encantada foi criada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Seu design foi um dos primeiros trabalhos de Elgador Keenspirit, Magesmith of the Arcaneum
 Equipment/&Enchanted_Handaxe_Acuteness_Title	Machado de Agudeza
-Equipment/&Enchanted_Handaxe_Frostburn_Description	Esta arma encantada foi criada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Foi projetado por Keliandir Moltenheart, que forjou esta arma para combater salamandras depois que uma exploração dos planos elementais deu errado
+Equipment/&Enchanted_Handaxe_Frostburn_Description	Esta arma encantada foi criada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Foi projetado por Keliandir Moltenheart, que forjou esta arma para combater salamandras depois que uma exploração dos planos elementais deu errado.
 Equipment/&Enchanted_Handaxe_Frostburn_Title	Machadinha Queimadura de Gelo
 Equipment/&Enchanted_Handaxe_Sharpness_Description	Esta arma encantada foi criada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Seu design foi um dos primeiros trabalhos de Elgador Keenspirit, Magesmith of the Arcaneum
 Equipment/&Enchanted_Handaxe_Sharpness_Title	Machado de Nitidez
 Equipment/&Enchanted_Handaxe_Souldrinker_Description	Esta arma encantada foi criada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Um favorito dos agentes Silent Whisper, esta arma foi projetada por Cylordir Redblade
 Equipment/&Enchanted_Handaxe_Souldrinker_Title	Machado Bebedor de Almas
-Equipment/&Enchanted_HeavyCrossbow_Accuracy_Description	Esta arma encantada foi forjada usando o antigo conhecimento dos mestres arqueiros de Colthannin. Seu design original trazia o selo de Defineth Sharpsight, um renomado feiticeiro elfo silvestre
+Equipment/&Enchanted_HeavyCrossbow_Accuracy_Description	Esta arma encantada foi forjada usando o antigo conhecimento dos mestres arqueiros de Colthannin. Seu design original trazia o selo de Defineth Sharpsight, um renomado feiticeiro elfo silvestre.
 Equipment/&Enchanted_HeavyCrossbow_Accuracy_Title	Besta Pesada de Precisão
 Equipment/&Enchanted_HeavyCrossbow_Lightbringer_Description	Esta arma encantada foi forjada usando o antigo conhecimento dos mestres arqueiros de Colthannin. Ele foi projetado por Elgador Keenspirit, Magesmith of the Arcaneum para apoiar o combate contra criaturas mortas-vivas
 Equipment/&Enchanted_HeavyCrossbow_Lightbringer_Title	Besta Pesada Lightbringer
@@ -225,7 +225,7 @@ Equipment/&Enchanted_HideArmor_Survival_Description	Esta armadura encantada foi 
 Equipment/&Enchanted_HideArmor_Survival_Title	Esconder Armadura de Sobrevivência
 Equipment/&Enchanted_Javelin_Acuteness_Description	Esta arma encantada foi criada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Seu design foi um dos primeiros trabalhos de Elgador Keenspirit, Magesmith of the Arcaneum
 Equipment/&Enchanted_Javelin_Acuteness_Title	Lança de agudeza
-Equipment/&Enchanted_Javelin_Frostburn_Description	Esta arma encantada foi criada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Foi projetado por Keliandir Moltenheart, que forjou esta arma para combater salamandras depois que uma exploração dos planos elementais deu errado
+Equipment/&Enchanted_Javelin_Frostburn_Description	Esta arma encantada foi criada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Foi projetado por Keliandir Moltenheart, que forjou esta arma para combater salamandras depois que uma exploração dos planos elementais deu errado.
 Equipment/&Enchanted_Javelin_Frostburn_Title	Lança Queimadura de Gelo
 Equipment/&Enchanted_Javelin_Sharpness_Description	Esta arma encantada foi criada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Seu design foi um dos primeiros trabalhos de Elgador Keenspirit, Magesmith of the Arcaneum
 Equipment/&Enchanted_Javelin_Sharpness_Title	Dardo de Nitidez
@@ -243,7 +243,7 @@ Equipment/&Enchanted_LeatherDruid_Sturdiness_Description	Esta armadura encantada
 Equipment/&Enchanted_LeatherDruid_Sturdiness_Title	Couro Druida da Robustez
 Equipment/&Enchanted_LeatherDruid_Survival_Description	Esta armadura encantada foi criada usando o antigo conhecimento dos mestres armeiros de Manacalon. Ildurial Stronghand forjou a primeira dessas armaduras para a guarda pessoal do Imperador
 Equipment/&Enchanted_LeatherDruid_Survival_Title	Couro Druida da Sobrevivência
-Equipment/&Enchanted_LightCrossbow_Accuracy_Description	Esta arma encantada foi forjada usando o antigo conhecimento dos mestres arqueiros de Colthannin. Seu design original trazia o selo de Defineth Sharpsight, um renomado feiticeiro elfo silvestre
+Equipment/&Enchanted_LightCrossbow_Accuracy_Description	Esta arma encantada foi forjada usando o antigo conhecimento dos mestres arqueiros de Colthannin. Seu design original trazia o selo de Defineth Sharpsight, um renomado feiticeiro elfo silvestre.
 Equipment/&Enchanted_LightCrossbow_Accuracy_Title	Besta Leve de Precisão
 Equipment/&Enchanted_LightCrossbow_Lightbringer_Description	Esta arma encantada foi forjada usando o antigo conhecimento dos mestres arqueiros de Colthannin. Ele foi projetado por Elgador Keenspirit, Magesmith of the Arcaneum para apoiar o combate contra criaturas mortas-vivas
 Equipment/&Enchanted_LightCrossbow_Lightbringer_Title	Besta Leve Lightbringer
@@ -267,7 +267,7 @@ Equipment/&Enchanted_Quarterstaff_Acuteness_Description	Esta arma encantada foi 
 Equipment/&Enchanted_Quarterstaff_Acuteness_Title	Cajado de Agudeza
 Equipment/&Enchanted_Quarterstaff_Dragonblade_Description	Esta arma encantada foi criada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Foi projetado por Lestoreth Steelarm para lutar no norte congelado do Império
 Equipment/&Enchanted_Quarterstaff_Dragonblade_Title	Cajado da Lâmina do Dragão
-Equipment/&Enchanted_Quarterstaff_Frostburn_Description	Esta arma encantada foi criada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Foi projetado por Keliandir Moltenheart, que forjou esta arma para combater salamandras depois que uma exploração dos planos elementais deu errado
+Equipment/&Enchanted_Quarterstaff_Frostburn_Description	Esta arma encantada foi criada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Foi projetado por Keliandir Moltenheart, que forjou esta arma para combater salamandras depois que uma exploração dos planos elementais deu errado.
 Equipment/&Enchanted_Quarterstaff_Frostburn_Title	Cajado do Queimadura de Gelo
 Equipment/&Enchanted_Quarterstaff_Lightbringer_Description	Esta arma encantada foi forjada usando o antigo conhecimento dos mestres ferreiros de Colthannin. Ele foi projetado por Elgador Keenspirit, Magesmith of the Arcaneum para apoiar o combate contra criaturas mortas-vivas
 Equipment/&Enchanted_Quarterstaff_Lightbringer_Title	Cajado do Portador da Luz
@@ -281,7 +281,7 @@ Equipment/&Enchanted_Quarterstaff_Whiteburn_Description	Esta arma encantada foi 
 Equipment/&Enchanted_Quarterstaff_Whiteburn_Title	Cajado de Whiteburn
 Equipment/&Enchanted_Rapier_Dragonblade_Description	Esta arma encantada foi criada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Foi projetado por Lestoreth Steelarm para lutar no norte congelado do Império
 Equipment/&Enchanted_Rapier_Dragonblade_Title	Espada de Dragão
-Equipment/&Enchanted_Rapier_Frostburn_Description	Esta arma encantada foi criada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Foi projetado por Keliandir Moltenheart, que forjou esta arma para combater salamandras depois que uma exploração dos planos elementais deu errado
+Equipment/&Enchanted_Rapier_Frostburn_Description	Esta arma encantada foi criada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Foi projetado por Keliandir Moltenheart, que forjou esta arma para combater salamandras depois que uma exploração dos planos elementais deu errado.
 Equipment/&Enchanted_Rapier_Frostburn_Title	Rapier Frostburn
 Equipment/&Enchanted_Rapier_Lightbringer_Description	Esta arma encantada foi forjada usando o antigo conhecimento dos mestres ferreiros de Colthannin. Ele foi projetado por Elgador Keenspirit, Magesmith of the Arcaneum para apoiar o combate contra criaturas mortas-vivas
 Equipment/&Enchanted_Rapier_Lightbringer_Title	Rapier Lightbringer
@@ -297,7 +297,7 @@ Equipment/&Enchanted_Rapier_Whiteburn_Description	Esta arma encantada foi criada
 Equipment/&Enchanted_Rapier_Whiteburn_Title	Rapier Whiteburn
 Equipment/&Enchanted_Scimitar_Dragonblade_Description	Esta arma encantada foi criada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Foi projetado por Lestoreth Steelarm para lutar no norte congelado do Império
 Equipment/&Enchanted_Scimitar_Dragonblade_Title	Cimitarra Lâmina do Dragão
-Equipment/&Enchanted_Scimitar_Frostburn_Description	Esta arma encantada foi criada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Foi projetado por Keliandir Moltenheart, que forjou esta arma para combater salamandras depois que uma exploração dos planos elementais deu errado
+Equipment/&Enchanted_Scimitar_Frostburn_Description	Esta arma encantada foi criada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Foi projetado por Keliandir Moltenheart, que forjou esta arma para combater salamandras depois que uma exploração dos planos elementais deu errado.
 Equipment/&Enchanted_Scimitar_Frostburn_Title	Cimitarra Queimadura de Gelo
 Equipment/&Enchanted_Scimitar_Lightbringer_Description	Esta arma encantada foi forjada usando o antigo conhecimento dos mestres ferreiros de Colthannin. Ele foi projetado por Elgador Keenspirit, Magesmith of the Arcaneum para apoiar o combate contra criaturas mortas-vivas
 Equipment/&Enchanted_Scimitar_Lightbringer_Title	Cimitarra Portadora da Luz
@@ -335,7 +335,7 @@ Equipment/&Enchanted_Shield_Wooden_Survival_Description	Esta armadura encantada 
 Equipment/&Enchanted_Shield_Wooden_Survival_Title	Escudo de Sobrevivência de Madeira
 Equipment/&Enchanted_Spear_Acuteness_Description	Esta arma encantada foi criada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Seu design foi um dos primeiros trabalhos de Elgador Keenspirit, Magesmith of the Arcaneum
 Equipment/&Enchanted_Spear_Acuteness_Title	Lança da Agudeza
-Equipment/&Enchanted_Spear_BlackViper_Description	Esta arma encantada foi forjada usando o antigo conhecimento dos mestres ferreiros de Manacalon, usando uma lança e o veneno de uma aranha lendária das profundezas de Solasta. O designer da lâmina foi Grigg Blackheart, um notório ferreiro halfling de Marsh que trabalhava nas forjas de Aer Elai
+Equipment/&Enchanted_Spear_BlackViper_Description	Esta arma encantada foi forjada usando o antigo conhecimento dos mestres ferreiros de Manacalon, usando uma lança e o veneno de uma aranha lendária das profundezas de Solasta. O designer da lâmina foi Grigg Blackheart, um notório ferreiro halfling de Marsh que trabalhava nas forjas de Aer Elai.
 Equipment/&Enchanted_Spear_BlackViper_Title	Lança da Víbora Negra
 Equipment/&Enchanted_Spear_Doomblade_Description	Esta arma encantada foi forjada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Kenaloth Darkmind concebeu as Doomblades como uma ferramenta de punição para aqueles que resistiram à magia do Império
 Equipment/&Enchanted_Spear_Doomblade_Title	Lança com Ponta da Perdição
@@ -554,7 +554,7 @@ Feat/&FeatPrimalConstitutionDescription	Aumente sua Constituição em 1, até um
 Feat/&FeatPrimalConstitutionTitle	Fúria Primal (Constituição)
 Feat/&FeatPrimalStrengthDescription	Aumente sua Força em 1, até um máximo de 20.\nVocê pode inserir uma fúria como uma ação bônus conforme definido na característica de classe de fúria do Bárbaro com +1 de dano de fúria que pode acumular com a fúria do Bárbaro. Uma vez que você se enfureça dessa maneira, você deve terminar um descanso longo antes de usar esse recurso novamente.\nEnquanto você não estiver usando nenhuma armadura, sua CA é igual a 10 + seu modificador de Destreza + seu modificador de Constituição
 Feat/&FeatPrimalStrengthTitle	Fúria Primal (Força)
-Feat/&FeatPugilistFightingStlyeDescription	Enquanto você está completamente desarmado, seus ataques desarmados causam um d8 adicional de dano e você pode socar com sua mão secundária como uma ação bônus
+Feat/&FeatPugilistFightingStlyeDescription	Seus ataques desarmados causam um d4 adicional de dano e você pode socar com sua mão secundária como uma ação bônus
 Feat/&FeatPugilistFightingStlyeTitle	Estilo de luta: Pugilista
 Feat/&FeatSavageAttackerDescription	Rerrole os dados de dano de arma e feitiço quando rolam 1 (não rola novamente todas as fontes de dano, por exemplo, exclui Ataque Furtivo e Golpear)
 Feat/&FeatSavageAttackerReroll	Por ser um Atacante Selvagem, {0} rola novamente o dado {1} de um {2} para um {3}
@@ -758,7 +758,7 @@ Feature/&AdditionalDamageAgonizingBlastDescription	Você adiciona seu modificado
 Feature/&AdditionalDamageAgonizingBlastTitle	Explosão Agonizante
 Feature/&AdditionalDamageFeatShadySneakAttackDescription	Uma vez por turno, você pode causar 1d6 de dano extra a uma criatura que você acertar com um ataque que atenda ao Ataque Furtivo do Ladino. No 7º nível este dano aumenta para 2d6 e no 14º nível para 3d6. Isso pode acumular com o Sneak Attack do Rogue
 Feature/&AdditionalDamageFeatShadySneakAttackTitle	Ataque sorrateiro
-Feature/&AdditionalDamageHinderingBlastDescription	Quando você atinge uma criatura com sua explosão mística, você pode reduzir o deslocamento dessa criatura em 3 metros até o final do seu próximo turno
+Feature/&AdditionalDamageHinderingBlastDescription	Quando você atinge uma criatura com sua explosão mística, você pode reduzir o deslocamento dessa criatura em 3 metros até o final do seu próximo turno.
 Feature/&AdditionalDamageHinderingBlastTitle	Impedindo Explosão
 Feature/&AgonizingBlastDescription	Adicione seu modificador de Carisma ao dano de Eldritch Basts
 Feature/&AgonizingBlastTitle	Explosão Agonizante
@@ -775,7 +775,7 @@ Feature/&AHWarlockClassPactOfTheBladeSetDescription	Você se torna proficiente c
 Feature/&AHWarlockClassPactOfTheBladeSetTitle	Pacto da Lâmina
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerDescription	Uma vez por descanso longo você pode fortalecer uma arma com o poder das almas. Essa arma usa o modificador de Carisma para jogadas de ataque e dano e conta como mágica até um descanso longo
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle	Capacitação da alma
-Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	A lâmina da alma permite que você escolha de uma lista expandida de feitiços quando você aprende um feitiço de feiticeiro. Os seguintes feitiços são adicionados à lista de feitiços de bruxo para você: {0}
+Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	A lâmina da alma permite que você escolha de uma lista expandida de feitiços quando você aprende um feitiço de feiticeiro. As seguintes magias são adicionadas à lista de magias de bruxo para você: {0}
 Feature/&AHWarlockSoulBladePactExtendedSpellListTitle	Feitiços de lâmina da alma
 Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Uma vez por descanso curto você usa o poder das almas para se defender. Usando uma ação bônus você ganha HP temporário igual ao seu nível + modificador de carisma
 Feature/&AHWarlockSoulBladePactSoulShieldPowerTitle	Escudo da Alma
@@ -812,7 +812,7 @@ Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseDescription	Destreza +1
 Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseTitle	Aumento do Atributo do Gnomo da Floresta
 Feature/&AttributeModifierGnomeAbilityScoreIncreaseDescription	Inteligência +2
 Feature/&AttributeModifierGnomeAbilityScoreIncreaseTitle	Aumento de atributo do gnomo
-Feature/&BarbarianIndomitableMightDescription	Se seu total para um teste de Força for menor que seu valor de Força, você pode usar esse valor no lugar do total
+Feature/&BarbarianIndomitableMightDescription	Se seu total para um teste de Força for menor que seu valor de Força, você pode usar esse valor no lugar do total.
 Feature/&BarbarianIndomitableMightTitle	Força Indomável
 Feature/&BardSkillsTitle	Habilidades de Bardo
 Feature/&BeguilingInfluenceDescription	Você ganha proficiência nas perícias Enganação e Persuasão
@@ -829,7 +829,7 @@ Feature/&ChainsofCarceriDescription	Paralisa um celestial, demônio ou elemental
 Feature/&ChainsofCarceriTitle	Correntes de Carceri
 Feature/&ClassMonkDeflectMissileDescription	Você pode usar sua reação para desviar o míssil quando for atingido por um ataque de arma à distância. Quando você faz isso, o dano que você recebe do ataque é reduzido em 1d10 + seu modificador de Destreza + seu nível de monge
 Feature/&ClassMonkDeflectMissileTitle	Desviar mísseis
-Feature/&ClassMonkDiamondSoulDescription	Seu domínio do ki lhe concede proficiência em todos os testes de resistência.\nAlém disso, sempre que você fizer um teste de resistência e falhar, você pode gastar 1 ponto de ki para rerrolá-lo e obter o segundo resultado
+Feature/&ClassMonkDiamondSoulDescription	Seu domínio do ki lhe concede proficiência em todos os testes de resistência.\nAlém disso, sempre que você fizer um teste de resistência e falhar, você pode gastar 1 ponto de ki para rerrolá-lo e obter o segundo resultado.
 Feature/&ClassMonkDiamondSoulTitle	Alma de diamante
 Feature/&ClassMonkExtraAttackDescription	Você pode atacar duas vezes, em vez de uma vez, sempre que realizar a ação Atacar no seu turno
 Feature/&ClassMonkExtraAttackTitle	Ataque Extra
@@ -862,7 +862,7 @@ Feature/&ClassMonkUnarmoredMovementVerticalSurfaceDescription	Enquanto você est
 Feature/&ClassMonkUnarmoredMovementVerticalSurfaceTitle	Movimento sem armadura: Escalada
 Feature/&ClassMonkWeaponProficiencyTitle	Proficiência com Armas de Monge
 Feature/&ClassWarlockArmorProficiencyDescription	Armadura leve
-Feature/&ClassWarlockArmorProficiencyTitle	Proficiências em Armadura de Bruxo
+Feature/&ClassWarlockArmorProficiencyTitle	Proficiência em Armadura de Bruxo
 Feature/&ClassWarlockEldritchInvocationReplaceDescription	Selecione Invocação Eldritch para substituir
 Feature/&ClassWarlockEldritchInvocationReplaceTitle	Substituir invocação
 Feature/&ClassWarlockEldritchInvocationSetLevelDescription	Adicionar uma invocação eldritch
@@ -885,7 +885,7 @@ Feature/&CounterStrikePowerDescription	Gaste um dado de jogada e faça um Counte
 Feature/&CounterStrikePowerTitle	Contra-ataque
 Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceDescription	Quando você é reduzido a 0 HP, mas não morto, você pode cair para 1 HP em vez disso
 Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceTitle	Resistência implacável
-Feature/&DevilsSightDescription	Você pode ver normalmente na Escuridão, tanto mágica quanto não mágica, a uma distância de 36 metros
+Feature/&DevilsSightDescription	Você pode ver normalmente na Escuridão, tanto mágica quanto não mágica, a uma distância de 36 metros.
 Feature/&DevilsSightTitle	Visão do Diabo
 Feature/&DH_BlinkDescription	Como uma ação bônus, você desaparece do seu plano de existência atual, prevenindo todo o dano. No início do seu próximo turno, você retorna ao espaço de onde desapareceu
 Feature/&DH_BlinkTitle	Piscar
@@ -934,7 +934,7 @@ Feature/&DomainSunDomainlevel1FeaturesTitle	Domínio Sol
 Feature/&DreadfulWordTitle	Palavra terrível
 Feature/&DruidForestGuardianBarkWardDescription	Você ganha a habilidade de invocar um Bark Ward para protegê-lo. Como uma ação bônus, você pode gastar um uso de sua Forma Selvagem para ganhar 4 pontos de vida temporários para cada nível que você possui nesta classe. Esses pontos de vida temporários duram 10 minutos ou até você usar sua Forma Selvagem novamente
 Feature/&DruidForestGuardianBarkWardTitle	Ala de Latidos
-Feature/&DruidForestGuardianExtraAttackDescription	A partir do 6º nível, você pode atacar duas vezes, em vez de uma, sempre que realizar a ação Atacar no seu turno
+Feature/&DruidForestGuardianExtraAttackDescription	A partir do 6º nível, você pode atacar duas vezes, em vez de uma, sempre que realizar a ação Atacar no seu turno.
 Feature/&DruidForestGuardianExtraAttackTitle	Ataque Extra
 Feature/&DruidForestGuardianImprovedBarkWardDescription	Seu Bark Ward agora cresce espinhos, que danificam os atacantes corpo a corpo. Inimigos que acertarem você com sucesso com um ataque corpo a corpo sofrem 2d8 de dano perfurante
 Feature/&DruidForestGuardianImprovedBarkWardTitle	Sentido de Latido Aprimorado
@@ -944,7 +944,7 @@ Feature/&DruidForestGuardianSuperiorBarkWardDescription	Sua habilidade Bark Ward
 Feature/&DruidForestGuardianSuperiorBarkWardTitle	Ala do Latido Superior
 Feature/&DruidForestGuardianSylvanDurabilityDescription	Os Guardiões da Floresta naturalmente ganham a resiliência de um poderoso carvalho. No 2º nível, seu máximo de pontos de vida aumenta em 2 e aumenta em 1 sempre que você ganha um nível nesta classe
 Feature/&DruidForestGuardianSylvanDurabilityTitle	Durabilidade Sylvan
-Feature/&DruidForestGuardianSylvanWarMagicDescription	Você está acostumado a manejar a magia druídica em harmonia com a proeza marcial. No 2º nível, você pode conjurar magias que exijam um componente somático mesmo que suas duas mãos estejam segurando uma arma ou escudo
+Feature/&DruidForestGuardianSylvanWarMagicDescription	Você está acostumado a manejar a magia druídica em harmonia com a proeza marcial. No 2º nível, você pode conjurar magias que exijam um componente somático mesmo que suas duas mãos estejam segurando uma arma ou escudo.
 Feature/&DruidForestGuardianSylvanWarMagicTitle	Magia de Guerra Silvestre
 Feature/&DualFlurryDescription	Você é um mestre da luta com armas emparelhadas. Em qualquer turno em que você acertar duas vezes com ataques corpo a corpo enquanto empunha uma arma em cada mão, você pode fazer um ataque adicional com a mão inábil
 Feature/&DualFlurryTitle	Dupla rajada
@@ -973,7 +973,7 @@ Feature/&ElementalPatronElementalDamageFormatDescription	Ao canalizar {0}, cause
 Feature/&ElementalPatronElementalDamageFormatTitle	Dano Elementar: {0}
 Feature/&ElementalPatronElementalFormEnhancedFormatDescription	Ao canalizar o {0}, você ganha Imunidade a {1} e aplica Bônus de Proficiência como dano do mesmo tipo para acertar primeiro a cada rodada
 Feature/&ElementalPatronElementalFormEnhancedFormatTitle	Canalizando {0}
-Feature/&ElementalPatronElementalFormFormatDescription	Ao canalizar o {0}, você ganha Resistência a {1} dano e aplica Bônus de Proficiência como dano do mesmo tipo para acertar primeiro a cada rodada
+Feature/&ElementalPatronElementalFormFormatDescription	Ao canalizar o {0}, você ganha Resistência a {1} dano e aplica Bônus de Proficiência como dano do mesmo tipo para acertar primeiro a cada rodada.
 Feature/&ElementalPatronElementalFormFormatTitle	{0}
 Feature/&ElementalPatronFeatureSet_Level06Description	Seu conhecimento sobre elementais aumentou a ponto de você agora ganhar vantagem em testes de habilidade contra elementais e causar dano adicional contra elementais igual ao seu nível de conhecimento. Você não pode mais ser enfeitiçado ou assustado por elementais
 Feature/&ElementalPatronFeatureSet_Level06Title	Conhecimento dos elementais
@@ -1010,8 +1010,8 @@ Feature/&GnomeNaturalIllusionistTitle	Magia Natural
 Feature/&HerbalBrewDescription	Quando você termina um descanso longo, você pode criar infusões de ervas, cada uma das quais dura até o próximo descanso longo. Você cria um total de infusões igual ao seu bônus de proficiência. Para cada bebida, escolha um dos seguintes efeitos:\n<color=#add8e6ff>Fortifying Brew</color>: concede resistência a diferentes tipos de dano por 1 hora.\n<color=#add8e6ff>Aceleração da Cerveja</color>: fornece 2d4 pontos de vida.\n<color=#add8e6ff>Cerveja Toxificante</color>: atua como veneno que pode ser aplicado a uma arma que dura 1 minuto. Se o acerto acertar, o alvo sofre 1d4 de dano de veneno em cada acerto
 Feature/&HerbalBrewFeatureSetDescription	Você ganha proficiência com o kit de envenenador ou kits de herbalismo, se ainda não o tiver.\nQuando você termina um descanso longo, você pode criar infusões de ervas, cada uma das quais dura até o próximo descanso longo. Você cria um total de infusões igual ao seu bônus de proficiência. Para cada bebida, escolha um dos seguintes efeitos:\n<color=#add8e6ff>Fortifying Brew</color>: concede resistência a diferentes tipos de dano por 1 hora.\n<color=#add8e6ff>Aceleração da Cerveja</color>: fornece 2d4 pontos de vida.\n<color=#add8e6ff>Cerveja Toxificante</color>: atua como veneno que pode ser aplicado a uma arma que dura 1 minuto. Se o acerto acertar, o alvo sofre 1d4 de dano de veneno em cada acerto
 Feature/&HerbalBrewFeatureSetTitle	Cerveja de Ervas
-Feature/&HinderingBlastDescription	Quando você atinge uma criatura com sua explosão mística, você pode reduzir o deslocamento dessa criatura em 3 metros até o final do seu próximo turno
-Feature/&HinderingBlastMagicAffinityDescription	quando você atinge uma criatura com sua rajada mística, você pode reduzir o deslocamento daquela criatura em 3 metros até o final do seu próximo turno
+Feature/&HinderingBlastDescription	Quando você atinge uma criatura com sua explosão mística, você pode reduzir o deslocamento dessa criatura em 3 metros até o final do seu próximo turno.
+Feature/&HinderingBlastMagicAffinityDescription	quando você atinge uma criatura com sua rajada mística, você pode reduzir o deslocamento daquela criatura em 3 metros até o final do seu próximo turno.
 Feature/&HinderingBlastMagicAffinityTitle	Impedindo Explosão
 Feature/&HinderingBlastTitle	Impedindo Explosão
 Feature/&ImprovedPactWeaponDescription	Você pode usar qualquer arma como foco de conjuração para seus feitiços de bruxo. Além disso, a arma ganha um bônus de +1 em suas jogadas de ataque e dano
@@ -1065,7 +1065,7 @@ Feature/&ProficiencyBolgrifLanguagesDescription	Comum, Élfico e Gigante
 Feature/&ProficiencyBolgrifLanguagesTitle	Linguagem
 Feature/&ProficiencyGnomishLanguagesDescription	Comum, Gnômico
 Feature/&ProficiencyGnomishLanguagesTitle	línguas
-Feature/&ProficiencyRogueBlindSenseDescription	A partir do 14º nível, se você for capaz de ouvir, estará ciente da localização de qualquer criatura oculta ou invisível a até 3 metros de você
+Feature/&ProficiencyRogueBlindSenseDescription	A partir do 14º nível, se você for capaz de ouvir, estará ciente da localização de qualquer criatura oculta ou invisível a até 3 metros de você.
 Feature/&ProficiencyRogueBlindSenseTitle	Blindsense
 Feature/&ProficiencyRogueSlipperyMindDescription	No 15º nível, você adquiriu maior força mental. Você ganha proficiência em testes de resistência de Sabedoria
 Feature/&ProficiencyRogueSlipperyMindTitle	Mente Escorregadia
@@ -1083,7 +1083,7 @@ Feature/&RageStrengthSavingThrowAffinityDescription	Você obtém vantagem em eco
 Feature/&RageStrengthSavingThrowAffinityTitle	Vantagem de economia de força de raiva
 Feature/&RangerFeralSensesDescription	Você ganha sentidos sobrenaturais que o ajudam a lutar contra criaturas que você não pode ver. Quando você ataca uma criatura que não pode ver, sua incapacidade de vê-la não impõe desvantagem em suas jogadas de ataque contra ela
 Feature/&RangerFeralSensesTitle	Sentidos Ferais
-Feature/&RangerVanishActionDescription	A partir do 14º nível, você pode usar a ação Esconder-se como uma ação bônus no seu turno
+Feature/&RangerVanishActionDescription	A partir do 14º nível, você pode usar a ação Esconder-se como uma ação bônus no seu turno.
 Feature/&RangerVanishActionTitle	Desaparecer
 Feature/&RiftWalkerRestrainedImmunityTitle	Passo fugaz
 Feature/&RiftWalkerSpellsMagicAffinityDescription	Você escolhe a partir de uma lista expandida de magias quando aprende uma magia de bruxo. Os seguintes feitiços são adicionados à lista de feitiços de bruxo para você: {0}
@@ -1169,8 +1169,6 @@ Feedback/&AdditionalDamagePactMarkedFormat	Marca do pacto!
 Feedback/&AdditionalDamagePactMarkedLine	A marca do pacto causa dano adicional!
 Feedback/&AdditionalDamagePactSoulTakerFormat	Tomador de almas!
 Feedback/&AdditionalDamagePactSoulTakerLine	Soul taker causa dano adicional!
-Feedback/&AdditionalDamagePugilistFormat	Pugilista
-Feedback/&AdditionalDamagePugilistLine	Dano Desarmado Adicional do Pugilista
 Feedback/&AdditionalDamageResonatingStrikeFormat	Golpe Ressonante!
 Feedback/&AdditionalDamageResonatingStrikeLine	{0} ressoa {1}! (+{2})
 Feedback/&AdditionalDamageSoulEmpoweredFormat	Alma empoderada!
@@ -1195,7 +1193,7 @@ FightingStyle/&BlindFightingDescription	Você tem visão às cegas com alcance d
 FightingStyle/&BlindFightingTitle	Luta às cegas
 FightingStyle/&CripplingDescription	Reduza a velocidade do seu oponente em um ataque corpo a corpo para 10 até o final do próximo turno
 FightingStyle/&CripplingTitle	Aleijante
-FightingStyle/&PugilistFightingDescription	Enquanto você está completamente desarmado, seus ataques desarmados causam um d8 adicional de dano e você pode socar com sua mão secundária como uma ação bônus
+FightingStyle/&PugilistFightingDescription	Seus ataques desarmados causam um d4 adicional de dano e você pode socar com sua mão secundária como uma ação bônus
 FightingStyle/&PugilistFightingTitle	Pugilista
 FightingStyle/&TitanFightingDescription	Você ganha +2 de acerto contra criaturas de tamanho grande ou maior
 FightingStyle/&TitanFightingTitle	Luta de Titãs
@@ -1243,7 +1241,7 @@ Item/&ForceArtilleryProjectileDescription	ForceArtilleryProjectile
 Item/&ForceArtilleryProjectileTitle	ForceArtilleryProjectile
 Item/&Handwraps+1Title	Bandagens +1
 Item/&Handwraps+1TitleUnidentifiedDescription	Alças finamente trabalhadas
-Item/&Handwraps+1TitleUnidentifiedTitle	Almofadas de mão de boa qualidade
+Item/&Handwraps+1TitleUnidentifiedTitle	Boa Qualidade Handwraps
 Item/&Handwraps+2Title	Alças +2
 Item/&Handwraps+2TitleUnidentifiedDescription	Alças finamente trabalhadas
 Item/&Handwraps+2TitleUnidentifiedTitle	Algemas Magníficas
@@ -1291,7 +1289,7 @@ Monster/&PactOfChainCustomPseudodragonDescription	O indescritível pseudodragão
 Monster/&PactOfChainCustomPseudodragonTitle	Pseudodragão
 Monster/&PactOfChainCustomQuasitDescription	Quasits infestam os Planos Inferiores. Fisicamente fracos, eles ficam nas sombras para tramar travessuras e maldades. Demônios mais poderosos usam quasits como espiões e mensageiros quando não os estão devorando ou separando-os para passar o tempo
 Monster/&PactOfChainCustomQuasitTitle	Quasit (Pacto da Cadeia)
-Monster/&PactOfChainCustomSpriteDescription	Ao contrário dos duendes, os sprites raramente se entregam a alegria e diversão frívolas. Eles são guerreiros, protetores e juízes firmes, e sua inclinação severa faz com que outros feéricos os considerem excessivamente severos e sérios. No entanto, fadas que respeitam o território dos sprites os encontram aliados firmes em tempos de dificuldade
+Monster/&PactOfChainCustomSpriteDescription	Ao contrário dos duendes, os sprites raramente se entregam a alegria e diversão frívolas. Eles são guerreiros, protetores e juízes firmes, e sua inclinação severa faz com que outros feéricos os considerem excessivamente severos e sérios. No entanto, fadas que respeitam o território dos sprites os encontram aliados firmes em tempos de dificuldade.
 Monster/&PactOfChainCustomSpriteTitle	Sprite (Pacto da Corrente)
 Monster/&WitchOwlFamiliarDescription	Coruja Familiar
 Monster/&WitchOwlFamiliarTitle	Coruja
@@ -1304,7 +1302,7 @@ MonsterAttack/&DH_Custom_CouatlBite_AttackDescription	Dano perfurante e o alvo d
 MonsterAttack/&DH_Custom_CouatlBite_AttackTitle	Mordida
 Power/&AncientForestLifeSapDescription	Quando você danifica o inimigo com feitiço, você cura HP igual à metade do seu nível uma vez por turno. Se você estiver com menos da metade do HP, o primeiro alvo danificado neste turno curará o HP do nível e os próximos alvos curarão metade do nível do HP, mas apenas até metade do HP máximo
 Power/&AncientForestLifeSapTitle	Seiva da Vida
-Power/&AncientForestRootedPowerDescription	Gavinhas arbóreas crescem de seus pés e cavam no chão. Seu deslocamento se torna 0 e você ganha vantagem em qualquer teste de resistência para empurrá-lo, puxá-lo ou derrubá-lo
+Power/&AncientForestRootedPowerDescription	Gavinhas arbóreas crescem de seus pés e cavam no chão. Seu deslocamento se torna 0 e você ganha vantagem em qualquer teste de resistência para empurrá-lo, puxá-lo ou derrubá-lo.
 Power/&AncientForestRootedPowerTitle	Enraizado
 Power/&ClassMonkDiamondSoulPowerDescription	Sempre que você fizer um teste de resistência e falhar, você pode gastar 1 ponto de ki para rerrolá-lo e obter o segundo resultado
 Power/&ClassMonkDiamondSoulPowerTitle	Alma de diamante
@@ -1314,7 +1312,7 @@ Power/&ClassMonkFlurryOfBlowsDescription	Depois de gastar ação para atacar com
 Power/&ClassMonkFlurryOfBlowsTitle	Rajada de Golpes
 Power/&ClassMonkKiPoolDescription	Você pode aproveitar a energia mística do ki. Seu acesso a essa energia é representado por vários pontos de ki. A quantidade máxima é igual ao seu nível de monge. Todos os pontos gastos são recuperados em descanso curto ou longo. Você pode gastar esses pontos para alimentar vários recursos de ki
 Power/&ClassMonkKiPoolTitle	Pontos Ki
-Power/&ClassMonkKiStillnessOfMindDescription	Você pode usar sua ação para acabar com um efeito em si mesmo que está deixando você encantado ou assustado
+Power/&ClassMonkKiStillnessOfMindDescription	Você pode usar sua ação para acabar com um efeito em si mesmo que está deixando você encantado ou assustado.
 Power/&ClassMonkKiStillnessOfMindTitle	Tranquilidade da mente
 Power/&ClassMonkOpenHandDistractDescription	O alvo não pode realizar reações até o final do seu próximo turno
 Power/&ClassMonkOpenHandDistractTitle	Distrair
@@ -1332,7 +1330,7 @@ Power/&ClassMonkSlowFallDescription	Você pode usar sua reação quando cair par
 Power/&ClassMonkSlowFallTitle	Queda Lenta
 Power/&ClassMonkStepOfTheWindDescription	Você pode gastar 1 ponto de ki para realizar a ação Desengajar ou Correr como uma ação bônus em seu turno, e sua distância de salto é dobrada no turno. Disponível apenas se você não estiver usando armadura ou escudo
 Power/&ClassMonkStepOfTheWindTitle	Passo do vento
-Power/&ClassMonkStunningStrikeDescription	Você pode interferir no fluxo de ki no corpo de um oponente. Quando você atinge outra criatura que não está atordoada com um ataque de arma corpo a corpo, você pode gastar 1 ponto de ki para tentar um golpe atordoante. O alvo deve ser bem sucedido em um teste de resistência de Constituição ou ficará atordoado até o final do seu próximo turno
+Power/&ClassMonkStunningStrikeDescription	Você pode interferir no fluxo de ki no corpo de um oponente. Quando você atinge outra criatura que não está atordoada com um ataque de arma corpo a corpo, você pode gastar 1 ponto de ki para tentar um golpe atordoante. O alvo deve ser bem sucedido em um teste de resistência de Constituição ou ficará atordoado até o final do seu próximo turno.
 Power/&ClassMonkStunningStrikeTitle	Golpe Impressionante
 Power/&ClassMonkTanquilityDescription	Uma vez por descanso curto como uma ação livre, você pode entrar em estado de tranquilidade, acalmando suas emoções e concentrando-se no que está ao seu redor. Enquanto neste estado você ganha vantagem nos testes de resistência contra feitiços e os inimigos ficam em desvantagem ao atacá-lo. A tranquilidade dura até o próximo descanso ou até você atacar ou lançar um feitiço
 Power/&ClassMonkTanquilityTitle	Tranqüilidade
@@ -1381,7 +1379,7 @@ Race/&BolgrifRaceDescription	Bolgrifs são meio-gigantes que vivem nas terras al
 Race/&BolgrifRaceTitle	Bolgrif
 Race/&GnomeRaceDescription	Um zumbido constante de atividade movimentada permeia as tocas e bairros onde os gnomos formam suas comunidades unidas. Sons mais altos pontuam o zumbido: um ranger de engrenagens rangendo aqui, uma pequena explosão ali, um grito de surpresa ou triunfo e, especialmente, gargalhadas. Os gnomos se deliciam com a vida, aproveitando cada momento de invenção, exploração, investigação, criação e jogo
 Race/&GnomeRaceTitle	Gnomo
-Race/&PointPoolSelect10FeatsDescription	Selecione 10 talentos adicionais para seu personagem
+Race/&PointPoolSelect10FeatsDescription	Selecione 10 talentos adicionais para o seu personagem
 Race/&PointPoolSelect10FeatsTitle	10 Talentos Bônus
 Race/&PointPoolSelect11FeatsDescription	Selecione 11 talentos adicionais para seu personagem
 Race/&PointPoolSelect11FeatsTitle	11 Talentos Bônus
@@ -1424,7 +1422,7 @@ Reaction/&SpendPowerCounterStrikePowerReactTitle	Contra-ataque
 Reaction/&SpendPowerCounterStrikePowerTitle	Contra-ataque
 Reaction/&SpendPowerDH_RiftStrikeDescription	Uma vez por dia, quando danificado em combate corpo a corpo, você pode usar sua reação para criar um portal que bane o atacante por 1 rodada do seu plano de existência
 Reaction/&SpendPowerDH_RiftStrikeTitle	Rift Strike
-Reaction/&SpendPowerDiamondSoulDescription	{0} falhou no salvamento e pode gastar 1 ki para rerrolá-lo
+Reaction/&SpendPowerDiamondSoulDescription	{0} falhou em um salvamento e pode gastar 1 ki para rerrolá-lo
 Reaction/&SpendPowerDiamondSoulReactDescription	Gastar ki para refazer o salvamento falhou
 Reaction/&SpendPowerDiamondSoulReactTitle	Role novamente
 Reaction/&SpendPowerDiamondSoulTitle	Alma de diamante
@@ -1519,7 +1517,7 @@ Spell/&AirBlastDescription	Dispare uma rajada de ar focado em seu alvo
 Spell/&AirBlastTitle	Jato de ar
 Spell/&BurstOfRadianceDescription	Crie um flash brilhante de luz cintilante, danificando todos os inimigos ao seu redor
 Spell/&BurstOfRadianceTitle	Explosão de Radiância
-Spell/&CJDivineWordDescription	Você pronuncia uma palavra divina, imbuída do poder que moldou o mundo no início da criação. Escolha qualquer número de criaturas que você possa ver dentro do alcance. Cada criatura que pode ouvir você deve fazer um teste de resistência de Carisma. Em uma falha na resistência, uma criatura sofre um efeito baseado em seus pontos de vida atuais:\n50 pontos de vida ou menos: surdo por 1 minuto\n40 pontos de vida ou menos: surdo e cego por 10 minutos\n30 pontos de vida ou menos: cego, surdo e atordoado por 1 hora\n20 pontos de vida ou menos: morto instantaneamente\nIndependentemente de seus pontos de vida atuais, um celestial, um elemental, uma fada ou um demônio que falhe no teste de resistência é forçado a voltar ao seu plano de origem (se já não estiver lá) e não pode retornar ao seu plano atual por 24 horas por qualquer meio que não seja um feitiço de desejo
+Spell/&CJDivineWordDescription	Você pronuncia uma palavra divina, imbuída do poder que moldou o mundo no início da criação. Escolha qualquer número de criaturas que você possa ver dentro do alcance. Cada criatura que pode ouvir você deve fazer um teste de resistência de Carisma. Em uma falha na resistência, uma criatura sofre um efeito baseado em seus pontos de vida atuais:\n50 pontos de vida ou menos: surdo por 1 minuto\n40 pontos de vida ou menos: surdo e cego por 10 minutos\n30 pontos de vida ou menos: cego, surdo e atordoado por 1 hora\n20 pontos de vida ou menos: morto instantaneamente\nIndependentemente de seus pontos de vida atuais, um celestial, um elemental, uma fada ou um demônio que falhe no teste de resistência é forçado a voltar ao seu plano de origem (se já não estiver lá) e não pode retornar ao seu plano atual por 24 horas por qualquer meio que não seja um feitiço de desejo.
 Spell/&CJDivineWordTitle	Palavra Divina
 Spell/&DHAnimalShapesSpellDescription	Escolha qualquer número de criaturas voluntárias que você possa ver dentro do alcance. Você transforma cada alvo na forma de uma besta Grande ou menor com nível de desafio de 4 ou menor
 Spell/&DHAnimalShapesSpellTitle	Formas de animais
@@ -1533,7 +1531,7 @@ Spell/&DHConjureCelestialSpellDescription	Você invoca um celestial de nível de
 Spell/&DHConjureCelestialSpellTitle	Conjurar Celestial (Couatl)
 Spell/&DHDominateMonsterSpellDescription	Você tenta seduzir uma criatura que você pode ver dentro do alcance. Ele deve ser bem sucedido em um teste de resistência de Sabedoria ou ficará enfeitiçado por você pela duração
 Spell/&DHDominateMonsterSpellTitle	Dominar Monstro
-Spell/&DHFeeblemindSpellDescription	Você explode a mente de uma criatura que você pode ver dentro do alcance, tentando destruir seu intelecto e personalidade. O alvo sofre 4d6 de dano psíquico e deve fazer um teste de resistência de Inteligência. Em uma falha, os valores de Inteligência e Carisma da criatura se tornam 1. A criatura não pode lançar feitiços, ativar itens mágicos, entender linguagem ou se comunicar de qualquer maneira inteligível
+Spell/&DHFeeblemindSpellDescription	Você explode a mente de uma criatura que você pode ver dentro do alcance, tentando destruir seu intelecto e personalidade. O alvo sofre 4d6 de dano psíquico e deve fazer um teste de resistência de Inteligência. Em uma falha, os valores de Inteligência e Carisma da criatura se tornam 1. A criatura não pode lançar feitiços, ativar itens mágicos, entender linguagem ou se comunicar de qualquer maneira inteligível.
 Spell/&DHFeeblemindSpellTitle	Mente fraca
 Spell/&DHFingerOfDeathSpellDescription	O alvo deve fazer um teste de resistência de Constituição. Leva 7d8 + 30 de dano necrótico em uma falha na resistência, ou metade do dano em um sucesso
 Spell/&DHFingerOfDeathSpellTitle	Dedo da Morte (Sem Zumbi)
@@ -1541,7 +1539,7 @@ Spell/&DHForesightSpellDescription	Você toca uma criatura voluntária e concede
 Spell/&DHForesightSpellTitle	Previsão
 Spell/&DHHolyAuraSpellDescription	A luz divina desaparece de você e se aglutina em um brilho suave em um raio de 9 metros ao seu redor. Criaturas de sua escolha nesse raio quando você conjura esta magia emitem penumbra em um raio de 1,5 metro e têm vantagem em todos os testes de resistência, e outras criaturas têm desvantagem nas jogadas de ataque contra elas até que a magia termine
 Spell/&DHHolyAuraSpellTitle	Aura Sagrada
-Spell/&DHIncendiaryCloudSpellDescription	Uma nuvem rodopiante de fumaça atravessada por brasas incandescentes aparece em uma esfera de 6 metros de raio centrada em um ponto dentro do alcance. A nuvem se espalha pelos cantos e é fortemente obscurecida. Ela dura pela duração ou até que um vento de velocidade moderada ou maior (pelo menos 10 milhas por hora) a disperse. Quando a nuvem aparece, cada criatura nela deve fazer um teste de resistência de Destreza. Uma criatura sofre 10d8 de dano de fogo se falhar na resistência, ou metade desse dano se obtiver sucesso. Uma criatura também deve fazer este teste de resistência quando entrar na área da magia pela primeira vez em um turno ou terminar seu turno lá. A nuvem se move 3 metros diretamente para longe de você em uma direção que você escolher no início de cada um de seus turnos
+Spell/&DHIncendiaryCloudSpellDescription	Uma nuvem rodopiante de fumaça atravessada por brasas incandescentes aparece em uma esfera de 6 metros de raio centrada em um ponto dentro do alcance. A nuvem se espalha pelos cantos e é fortemente obscurecida. Ela dura pela duração ou até que um vento de velocidade moderada ou maior (pelo menos 10 milhas por hora) a disperse. Quando a nuvem aparece, cada criatura nela deve fazer um teste de resistência de Destreza. Uma criatura sofre 10d8 de dano de fogo se falhar na resistência, ou metade desse dano se obtiver sucesso. Uma criatura também deve fazer este teste de resistência quando entrar na área da magia pela primeira vez em um turno ou terminar seu turno lá. A nuvem se move 3 metros diretamente para longe de você em uma direção que você escolher no início de cada um de seus turnos.
 Spell/&DHIncendiaryCloudSpellTitle	Nuvem Incendiária
 Spell/&DHMassHealSpellDescription	Uma enxurrada de energia curativa flui de você para as criaturas feridas ao seu redor. Você restaura até 700 pontos de vida, divididos conforme sua escolha entre qualquer número de criaturas que você possa ver dentro do alcance. Criaturas curadas por este feitiço também são curadas de todas as doenças e qualquer efeito que as deixe cegas ou surdas. Esta magia não tem efeito em mortos-vivos ou constructos
 Spell/&DHMassHealSpellTitle	Cura em massa
@@ -1549,7 +1547,7 @@ Spell/&DHMazeSpellDescription	Você bane uma criatura que você pode ver dentro 
 Spell/&DHMazeSpellTitle	Labirinto
 Spell/&DHMeteorSwarmSingleTargetSpellDescription	Orbes flamejantes de fogo caem no chão em um único ponto que você pode ver dentro do alcance. Cada criatura em uma esfera de 12 metros de raio centrada no ponto que você escolher deve fazer um teste de resistência de Destreza. A esfera se espalha em torno dos cantos. Uma criatura sofre 20d6 de dano de fogo e 20d6 de dano de concussão se falhar na resistência, ou metade desse dano se obtiver sucesso. Uma criatura na área de mais de uma explosão de fogo é afetada apenas uma vez
 Spell/&DHMeteorSwarmSingleTargetSpellTitle	Enxame de Meteoros (Alvo Único)
-Spell/&DHMindBlankSpellDescription	Até que a magia termine, uma criatura voluntária que você tocar é imune a dano psíquico, qualquer efeito que sinta suas emoções ou leia seus pensamentos, magias de adivinhação e a condição enfeitiçada
+Spell/&DHMindBlankSpellDescription	Até que a magia termine, uma criatura voluntária que você tocar é imune a dano psíquico, qualquer efeito que sinta suas emoções ou leia seus pensamentos, magias de adivinhação e a condição enfeitiçada.
 Spell/&DHMindBlankSpellTitle	Mente em branco
 Spell/&DHPowerWordHealSpellDescription	Uma onda de energia curativa inunda a criatura que você toca. O alvo recupera todos os seus pontos de vida. Se a criatura estiver enfeitiçada, assustada, paralisada ou atordoada, a condição termina. Se a criatura estiver caída, ela pode usar sua reação para se levantar. Esta magia não tem efeito em mortos-vivos ou constructos
 Spell/&DHPowerWordHealSpellTitle	Palavra de Poder Cura
@@ -1591,7 +1589,7 @@ Spell/&FindFamiliarQuasitTitle	Encontrar Familiar (Quasit)
 Spell/&FindFamiliarSpriteDescription	Invoca seu familiar na forma de um Sprite
 Spell/&FindFamiliarSpriteTitle	Encontrar Familiar (Sprite)
 Spell/&FindFamiliarTitle	Encontrar familiar
-Spell/&FrenzyDescription	Com um gesto, você reduz uma multidão ao instinto básico e à violência. Escolha um ponto que você possa ver dentro do alcance. Cada criatura a até 6 metros desse ponto deve fazer um teste de resistência de Sabedoria. Em uma falha na resistência, uma criatura fica frenética pela duração. Quando uma criatura está em frenesi, ela saca uma arma corpo a corpo, se tiver uma. Uma criatura frenética deve usar sua ação no início de seu turno para atacar uma criatura ao seu alcance. Ele usa uma arma corpo a corpo, se tiver, ou uma arma improvisada ou ataque desarmado, se não tiver. Se vários alvos estiverem ao alcance da criatura, ela escolhe seu alvo aleatoriamente. Se não houver nenhum alvo ao alcance da criatura, ela ataca a si mesma, contra sua própria CA, causando dano normalmente em um acerto. No final de seu turno, uma criatura frenética pode repetir seu teste de resistência, terminando o efeito sobre ela antes de um sucesso
+Spell/&FrenzyDescription	Com um gesto, você reduz uma multidão ao instinto básico e à violência. Escolha um ponto que você possa ver dentro do alcance. Cada criatura a até 6 metros desse ponto deve fazer um teste de resistência de Sabedoria. Em uma falha na resistência, uma criatura fica frenética pela duração. Quando uma criatura está em frenesi, ela saca uma arma corpo a corpo, se tiver uma. Uma criatura frenética deve usar sua ação no início de seu turno para atacar uma criatura ao seu alcance. Ele usa uma arma corpo a corpo, se tiver, ou uma arma improvisada ou ataque desarmado, se não tiver. Se vários alvos estiverem ao alcance da criatura, ela escolhe seu alvo aleatoriamente. Se não houver nenhum alvo ao alcance da criatura, ela ataca a si mesma, contra sua própria CA, causando dano normalmente em um acerto. No final de seu turno, uma criatura frenética pode repetir seu teste de resistência, terminando o efeito sobre ela antes de um sucesso.
 Spell/&FrenzyTitle	Frenesi
 Spell/&HinderingBlastDescription	Um raio de energia crepitante atinge uma criatura dentro do alcance. Faça um ataque mágico à distância contra o alvo. Em um acerto, o alvo sofre 1d10 de dano de força.\n(quando você atinge uma criatura com sua rajada mística, você pode reduzir o deslocamento daquela criatura em 3 metros até o final do seu próximo turno.)
 Spell/&HinderingBlastTitle	Explosão Eldritch (impedindo)
@@ -1604,7 +1602,7 @@ Spell/&MuleDescription	O destinatário deste feitiço é capaz de ignorar os efe
 Spell/&MuleTitle	Mula
 Spell/&PetalStormDescription	Escolha um cubo de ar desocupado de 4,5 metros que você possa ver dentro do alcance. Uma força elemental de ventos rodopiantes aparece no cubo e dura pela duração do feitiço. A nuvem obscurece fortemente sua área. Qualquer criatura que entre na tempestade pela primeira vez em um turno ou comece seu turno lá deve fazer um teste de resistência de Força. Se falhar na resistência, a criatura sofre 3d4 de dano cortante. Como uma ação bônus, você pode mover a tempestade até 9 metros em qualquer direção
 Spell/&PetalStormTitle	Tempestade de Pétalas
-Spell/&ProtectThresholdDescription	Traçando sigilos arcanos ao longo de seu limite, você pode proteger uma porta, janela ou outro portal da entrada. Pela duração, uma criatura mística invisível espreita o portal protegido. Qualquer criatura que tente passar pelo portal deve fazer um teste de resistência de Sabedoria ou sofrerá 4d6 de dano psíquico, ou metade disso em um teste bem sucedido
+Spell/&ProtectThresholdDescription	Traçando sigilos arcanos ao longo de seu limite, você pode proteger uma porta, janela ou outro portal da entrada. Pela duração, uma criatura mística invisível espreita o portal protegido. Qualquer criatura que tente passar pelo portal deve fazer um teste de resistência de Sabedoria ou sofrerá 4d6 de dano psíquico, ou metade disso em um teste bem sucedido.
 Spell/&ProtectThresholdTitle	Limite de proteção
 Spell/&RadiantMotesDescription	Libera um enxame de projéteis radiantes que causam danos menores, mas nunca erram. Os alvos podem irradiar luz por até 1 minuto
 Spell/&RadiantMotesTitle	Partículas Radiantes
@@ -1634,7 +1632,7 @@ Stage/&SubclassSelectionStageCovenFeaturesHeader	Recursos do Coven
 Stage/&SubclassSelectionStageCovenFeaturesTitle	Multidão
 Stage/&SubclassSelectionStageCovenHeader	Selecione um Coven
 Stage/&SubclassSelectionStageCovenTitle	Multidão
-Stage/&SubclassSelectionStagePatronDescription	Um bruxo é definido por um pacto com um ser de outro mundo. Às vezes, a relação entre feiticeiro e patrono é como a de um clérigo e uma divindade, embora os seres que servem como patronos não sejam deuses
+Stage/&SubclassSelectionStagePatronDescription	Um bruxo é definido por um pacto com um ser de outro mundo. Às vezes, a relação entre feiticeiro e patrono é como a de um clérigo e uma divindade, embora os seres que servem como patronos não sejam deuses.
 Stage/&SubclassSelectionStagePatronFeatures	Recursos de Patronos do Outro Mundo
 Stage/&SubclassSelectionStagePatronHeader	Patronos do outro mundo bruxo
 Stage/&SubclassSelectionStagePatronTitle	Patronos do Outro Mundo
@@ -1717,11 +1715,11 @@ Subclass/&CancelCancelElixirResilienceDescription	Encerre a condição de Resili
 Subclass/&CancelCancelElixirResilienceTitle	Cancelar resiliência
 Subclass/&CancelCancelElixirSwiftnessDescription	Acabe com a condição de Rapidez do Elixir do Criador de Poções
 Subclass/&CancelCancelElixirSwiftnessTitle	Cancelar Rapidez
-Subclass/&ClassMonkTraditionDescription	No 3º nível, você escolhe o caminho espiritual para seguir em direção à iluminação. Ele irá moldar como você manipula o ki
+Subclass/&ClassMonkTraditionDescription	No 3º nível, você escolhe o caminho espiritual para seguir em direção à iluminação. Ele irá moldar como você manipula o ki.
 Subclass/&ClassMonkTraditionTitle	Tradições Monásticas
-Subclass/&ClassMonkTraditionWayOfTheOpenHandDescription	[atualização após a implementação dos recursos]\nMonges do Caminho da Mão Aberta são os maiores mestres do combate de artes marciais, armados ou desarmados. Eles aprendem técnicas para empurrar e derrubar seus oponentes, manipular o ki para curar danos em seus corpos e praticar meditação avançada que pode protegê-los de danos
+Subclass/&ClassMonkTraditionWayOfTheOpenHandDescription	[atualização após a implementação dos recursos]\nMonges do Caminho da Mão Aberta são os maiores mestres do combate de artes marciais, armados ou desarmados. Eles aprendem técnicas para empurrar e derrubar seus oponentes, manipular o ki para curar danos em seus corpos e praticar meditação avançada que pode protegê-los de danos.
 Subclass/&ClassMonkTraditionWayOfTheOpenHandTitle	Caminho da mão aberta
-Subclass/&ClassWarlockPatronDescription	Um bruxo é definido por um pacto com um ser de outro mundo. Às vezes, a relação entre feiticeiro e patrono é como a de um clérigo e uma divindade, embora os seres que servem como patronos não sejam deuses
+Subclass/&ClassWarlockPatronDescription	Um bruxo é definido por um pacto com um ser de outro mundo. Às vezes, a relação entre feiticeiro e patrono é como a de um clérigo e uma divindade, embora os seres que servem como patronos não sejam deuses.
 Subclass/&ClassWarlockPatronTitle	Patrono de outro mundo
 Subclass/&ConditionResistantArmorTitle	Armadura Resistente
 Subclass/&ConditionResistnatArmorDescription	Sua armadura é resistente a dano de ácido, frio, fogo, força, raio, necrótico, veneno, psíquico, radiante e trovão
@@ -1737,7 +1735,7 @@ Subclass/&DHWarlockSubclassElementalPatronDescription	Você fez um pacto e foi m
 Subclass/&DHWarlockSubclassElementalPatronTitle	Pacto Elementalista
 Subclass/&DHWarlockSubclassRiftWalkerDescription	Seu patrono é um dos raros seres que chama o vazio entre os mundos de sua casa. Eles deslizam entre os planos com facilidade e o conhecimento que você adquiriu ao interagir com eles permite que você aproveite as energias remanescentes da fenda em seu benefício dentro da solasta. Você pode às vezes sentir saudade do reino distante de seu patrono, um desejo de vagar entre as dimensões pelo resto de seus dias ou observar sinais de outro evento de Fenda, seja para prevenir ou encorajar
 Subclass/&DHWarlockSubclassRiftWalkerTitle	Pacto do Caminhante do Rift
-Subclass/&DruidForestGuardianDruidSubclassDescription	Círculo do Guardião da Floresta Druidas juram proteger as florestas e tudo o que nelas habita. Habilidosos no uso da magia de Abjuração e combate marcial, os membros deste círculo druídico são oponentes temíveis no campo de batalha
+Subclass/&DruidForestGuardianDruidSubclassDescription	Círculo do Guardião da Floresta Druidas juram proteger as florestas e tudo o que nelas habita. Habilidosos no uso da magia de Abjuração e combate marcial, os membros deste círculo druídico são oponentes temíveis no campo de batalha.
 Subclass/&DruidForestGuardianDruidSubclassTitle	Círculo do Guardião da Floresta
 Subclass/&EquipmentModifierArtificerBagOfHolderDescription	Toque em uma bolsa e infunda um espaço dimensional extra para ajudá-la a suportar mais peso sem sobrecarregar você. Observe que você só pode ter uma infusão ativa uma vez. Ativá-lo uma segunda vez cancelará a primeira
 Subclass/&EquipmentModifierArtificerBagOfHolderTitle	Saco de Segurar
@@ -1747,7 +1745,7 @@ Subclass/&FighterSpellShieldSpellcastingTitle	Feitiço
 Subclass/&FighterSpellShieldSpellResistanceDescription	Sua experiência com feitiços e magia de Abjuração em particular o tornou resistente a feitiços lançados contra você
 Subclass/&FighterSpellShieldSpellResistanceTitle	Resistência à Magia
 Subclass/&FighterSpellShieldTitle	Escudo de Feitiço
-Subclass/&GreenWitchDescription	Plantas, natureza e coisas que crescem são o domínio da magia verde. Normalmente um tipo de arcana defendido por druidas, algumas bruxas têm um vínculo estreito com os poderes da magia verde e podem persuadir plantas e animais a sua vontade
+Subclass/&GreenWitchDescription	Plantas, natureza e coisas que crescem são o domínio da magia verde. Normalmente um tipo de arcana defendido por druidas, algumas bruxas têm um vínculo estreito com os poderes da magia verde e podem persuadir plantas e animais a sua vontade.
 Subclass/&GreenWitchMagicDescription	Você ganha as seguintes magias. Esses feitiços contam como feitiços de Bruxa para você e não contam para o número total de feitiços conhecidos:\n{0}
 Subclass/&GreenWitchMagicTitle	Magia Verde
 Subclass/&GreenWitchTitle	Bruxa Verde
@@ -1888,11 +1886,11 @@ Subclass/&TraditionSpellMasterPreparedTitle	Esteja preparado
 Subclass/&TraditionSpellMasterSpellResistanceDescription	Seu treinamento com magia lhe dá vantagem em testes de resistência contra feitiços
 Subclass/&TraditionSpellMasterSpellResistanceTitle	Resistência à Magia
 Subclass/&TraditionSpellMasterTitle	Mestre de Feitiços
-Subclass/&WarlockAncientForestDescription	Você forjou um relacionamento com uma poderosa entidade da natureza: Dríades Antigas, Arquidruidas, Manifestações da Faéria sangrando no plano material, deuses esquecidos de uma era primitiva. Seu patrono pode desejar que você proteja o mundo natural, viaje para terras distantes que ele não pode, ou pode ter outro motivo que parece inescrutável para mortais de vida curta
+Subclass/&WarlockAncientForestDescription	Você forjou um relacionamento com uma poderosa entidade da natureza: Dríades Antigas, Arquidruidas, Manifestações da Faéria sangrando no plano material, deuses esquecidos de uma era primitiva. Seu patrono pode desejar que você proteja o mundo natural, viaje para terras distantes que ele não pode, ou pode ter outro motivo que parece inescrutável para mortais de vida curta.
 Subclass/&WarlockAncientForestTitle	Pacto da Floresta Antiga
-Subclass/&WarlockMoonLitDescription	Seu patrono é um espírito da lua, uma entidade que incorpora a natureza cíclica da luz e da escuridão. Esses espíritos procuram manter o poder da lua sobre o céu noturno enquanto mantêm os poderes profanos que perseguem a escuridão e encarregam seus feiticeiros com o mesmo, concedendo-lhes o comando sobre os poderes da lua e seus efeitos
+Subclass/&WarlockMoonLitDescription	Seu patrono é um espírito da lua, uma entidade que incorpora a natureza cíclica da luz e da escuridão. Esses espíritos procuram manter o poder da lua sobre o céu noturno enquanto mantêm os poderes profanos que perseguem a escuridão e encarregam seus feiticeiros com o mesmo, concedendo-lhes o comando sobre os poderes da lua e seus efeitos.
 Subclass/&WarlockMoonLitTitle	Pacto MoonLit
-Subclass/&WarlockToadKingDescription	Fey, demônio ou aberração causada pelo Cataclismo, a verdadeira natureza do Toad King não é conhecida, mas sabe-se que o Toad King governa uma grande área de pântanos e pântanos dentro das Badlands e oferece poder para aqueles dispostos a servir
+Subclass/&WarlockToadKingDescription	Fey, demônio ou aberração causada pelo Cataclismo, a verdadeira natureza do Toad King não é conhecida, mas sabe-se que o Toad King governa uma grande área de pântanos e pântanos dentro das Badlands e oferece poder para aqueles dispostos a servir.
 Subclass/&WarlockToadKingTitle	Pacto Rei Sapo
 Subclass/&WarlockUrPriestDescription	Enquanto a grande maioria dos conjuradores divinos obtêm seus poderes de uma divindade, há aqueles que desprezam os deuses. Aqueles que se chamam Ur-sacerdotes aprenderam a sugar as energias divinas concedidas pelos deuses aos seus conjuradores divinos, usando-as para suas próprias necessidades sem dar nem mesmo palavrões a nenhum deus. Como um Ur-sacerdote, você difere da maioria dos feiticeiros, sem um patrono que lhe conceda seu poder. Invocações sobrenaturais que você descobre são formas distorcidas de magia que os deuses podem conceder a seus patronos, enquanto as Dádivas do Pacto são provavelmente artefatos divinos que você conseguiu roubar
 Subclass/&WarlockUrPriestTitle	Pacto UrPriest
@@ -1900,7 +1898,7 @@ Subclass/&WeaponProfArcaneFighterDescription	A experiência em combate deu ao Ar
 Subclass/&WeaponProfArcaneFighterTitle	Treinamento de Armas
 Subclass/&WeaponProfArtificerBattleSmithDescription	A experiência em combate deu ao Weapon Smith treinamento em Armas Marciais
 Subclass/&WeaponProfArtificerBattleSmithTitle	Treinamento de Armas
-Subclass/&WhiteWitchDescription	A magia branca é fundamentalmente boa e benevolente para todas as coisas vivas. As bruxas que adotam esse ofício, apesar da odiosa maldição que as infecta, muitas vezes se dedicam à cura e ao cuidado, com a intenção de melhorar o mundo
+Subclass/&WhiteWitchDescription	A magia branca é fundamentalmente boa e benevolente para todas as coisas vivas. As bruxas que adotam esse ofício, apesar da odiosa maldição que as infecta, muitas vezes se dedicam à cura e ao cuidado, com a intenção de melhorar o mundo.
 Subclass/&WhiteWitchMagicDescription	Você ganha as seguintes magias. Esses feitiços contam como feitiços de Bruxa para você e não contam para o número total de feitiços conhecidos:\n {0}
 Subclass/&WhiteWitchMagicTitle	Magia branca
 Subclass/&WhiteWitchTitle	bruxa branca
@@ -1930,3 +1928,5 @@ UI/&CustomFeatureSelectionTooltipTypeProficiency	Competência
 UI/&ForcePreferredCantripDescription	Se esta opção estiver LIGADA, apenas o truque preferido pode ser acionado. Se o truque preferido não for selecionado, o primeiro truque válido será acionado, independentemente dessa alternância
 UI/&ForcePreferredCantripTitle	Forçar Truque Preferido
 Tooltip/&PowerAttackConcentration	Desative o Ataque Poderoso.\nO efeito durará até o início do seu próximo turno
+Feat/&FeatShieldExpertTitle	Especialista em escudos
+Feat/&FeatShieldExpertDescription	Você treinou no uso de um escudo como arma. Para você, torna-se uma arma corpo a corpo com a qual você é proficiente, causando 1d4 de dano de concussão.\nVocê ganha vantagem em tentativas de empurrão enquanto empunha um escudo.
