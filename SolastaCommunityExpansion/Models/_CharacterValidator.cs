@@ -10,6 +10,7 @@ namespace SolastaCommunityExpansion.Models
         public static readonly CharacterValidator NoArmor = character => !character.IsWearingArmor();
 
         public static readonly CharacterValidator NoShield = character => !character.IsWearingShield();
+        public static readonly CharacterValidator HasShield = character => character.IsWearingShield();
 
         public static readonly CharacterValidator EmptyOffhand = character =>
             character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem == null;
