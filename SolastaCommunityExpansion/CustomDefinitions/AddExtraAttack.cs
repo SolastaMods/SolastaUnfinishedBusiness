@@ -104,17 +104,6 @@ namespace SolastaCommunityExpansion.CustomDefinitions
                 return;
             }
 
-            var mainHandItem = inventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
-                .EquipedItem;
-
-            if (mainHandItem != null
-                && !WeaponValidators.IsLight(null, mainHandItem)
-                && !hero.CanDualWieldNonLight)
-            {
-                //TODO: allow if shield is light, in case there's new item or spell/power/feature to make item light
-                return;
-            }
-
             var attackModes = hero.AttackModes;
             var attackModifiers = hero.GetField<List<IAttackModificationProvider>>("attackModifiers");
 
