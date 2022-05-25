@@ -25,19 +25,24 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
                     return true;
                 }
 
-                var result = string.Empty;
+                var spells = new Dictionary<int, List<SpellDefinition>>();
 
                 foreach (var group in __instance.AutoPreparedSpellsGroups)
                 {
-                    var spells = string.Join(", ", group.SpellsList.Select(s => s.FormatTitle()));
-
-                    if (!string.IsNullOrEmpty(result))
+                    foreach (var spell in group.SpellsList)
                     {
-                        result += "\n";
-                    }
+                        var spellLevel = spell.SpellLevel;
+                        if (!spells.ContainsKey(spellLevel))
+                        {
+                            spells.Add(spellLevel, new List<SpellDefinition>());
+                        }
 
-                    result += $"{FormatSpellLevel(group.ClassLevel)}\t{spells}";
+                        spells[spellLevel].Add(spell);
+                    }
                 }
+
+                var result = string.Join("\n", spells.Select(e =>
+                    $"{FormatSpellLevel(e.Key)}\t{string.Join(", ", e.Value.Select(s => s.FormatTitle()))}"));
 
                 var description = __instance.GuiPresentation.Description;
 
