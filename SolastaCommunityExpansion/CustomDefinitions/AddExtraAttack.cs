@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using SolastaCommunityExpansion.Api.AdditionalExtensions;
-using SolastaCommunityExpansion.Classes.Monk;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi.Infrastructure;
@@ -80,6 +79,56 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             );
             attackMode.AttacksNumber = attacksNumber;
             attackMode.AttackTags.AddRange(additionalTags);
+
+            if (attackModes.Any(m => attackMode.IsComparableForNetwork(m)))
+            {
+                RulesetAttackMode.AttackModesPool.Return(attackMode);
+            }
+            else
+            {
+                attackModes.Add(attackMode);
+            }
+        }
+    }
+
+    public class AddBonusShieldAttack : IAddExtraAttack
+    {
+        public void TryAddExtraAttack(RulesetCharacterHero hero)
+        {
+            var inventorySlotsByName = hero.CharacterInventory.InventorySlotsByName;
+            var offHandItem = inventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand]
+                .EquipedItem;
+
+            if (!ShieldStrikeContext.IsShield(offHandItem))
+            {
+                return;
+            }
+
+            var mainHandItem = inventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
+                .EquipedItem;
+
+            if (mainHandItem != null
+                && !WeaponValidators.IsLight(null, mainHandItem)
+                && !hero.CanDualWieldNonLight)
+            {
+                //TODO: allow if shield is light, in case there's new item or spell/power/feature to make item light
+                return;
+            }
+
+            var attackModes = hero.AttackModes;
+            var attackModifiers = hero.GetField<List<IAttackModificationProvider>>("attackModifiers");
+
+            var attackMode = hero.RefreshAttackModePublic(
+                ActionDefinitions.ActionType.Bonus,
+                offHandItem.ItemDefinition,
+                ShieldStrikeContext.ShieldWeaponDescription,
+                false,
+                hero.CanAddAbilityBonusToOffhand(),
+                EquipmentDefinitions.SlotTypeOffHand,
+                attackModifiers,
+                hero.FeaturesOrigin,
+                offHandItem
+            );
 
             if (attackModes.Any(m => attackMode.IsComparableForNetwork(m)))
             {
