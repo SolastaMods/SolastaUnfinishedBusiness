@@ -1,4 +1,5 @@
-﻿using SolastaModApi;
+﻿using System.Collections.Generic;
+using SolastaModApi;
 
 namespace SolastaCommunityExpansion.Models;
 
@@ -6,7 +7,22 @@ public delegate bool IsWeaponValidHandler(RulesetAttackMode attackMode, RulesetI
 
 public static class WeaponValidators
 {
-    public static IsWeaponValidHandler IsUnarmed = IsUnarmedWeapon;
+    public static readonly IsWeaponValidHandler IsUnarmed = IsUnarmedWeapon;
+
+    public static readonly IsWeaponValidHandler IsLight = (mode, weapon) =>
+        HasActiveTag(mode, weapon, TagsDefinitions.WeaponTagLight);
+
+    public static readonly IsWeaponValidHandler IsShield = (_, offHandItem) =>
+    {
+        if (offHandItem == null || !offHandItem.ItemDefinition.IsArmor)
+        {
+            return false;
+        }
+
+        var armorDescription = offHandItem.ItemDefinition.ArmorDescription;
+        
+        return armorDescription.ArmorType == DatabaseHelper.ArmorTypeDefinitions.ShieldType.Name;
+    };
 
     public static bool IsUnarmedWeapon(RulesetAttackMode attackMode, RulesetItem weapon)
     {
@@ -28,5 +44,45 @@ public static class WeaponValidators
     public static bool IsUnarmedWeapon(RulesetItem weapon)
     {
         return IsUnarmedWeapon(null, weapon);
+    }
+
+    private static bool HasActiveTag(RulesetAttackMode mode, RulesetItem weapon, string tag)
+    {
+        var hasTag = false;
+        if (mode != null)
+        {
+            hasTag = mode.AttackTags.Contains(tag);
+            if (!hasTag)
+            {
+                var tags = GetWeaponTags(mode.SourceDefinition as ItemDefinition);
+                if (tags != null && tags.Contains(tag))
+                {
+                    hasTag = true;
+                }
+            }
+
+            return hasTag;
+        }
+
+        if (weapon != null)
+        {
+            var tags = GetWeaponTags(weapon.ItemDefinition);
+            if (tags != null && tags.Contains(tag))
+            {
+                hasTag = true;
+            }
+        }
+
+        return hasTag;
+    }
+
+    private static List<string> GetWeaponTags(ItemDefinition item)
+    {
+        if (item != null)
+        {
+            return item.WeaponDescription?.WeaponTags;
+        }
+
+        return null;
     }
 }
