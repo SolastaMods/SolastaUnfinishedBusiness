@@ -1,5 +1,4 @@
 ﻿using ModKit;
-using SolastaCommunityExpansion.Feats;
 using SolastaCommunityExpansion.Models;
 using static SolastaCommunityExpansion.Displays.Shared;
 
@@ -10,7 +9,6 @@ namespace SolastaCommunityExpansion.Displays
         internal static void DisplayGeneral()
         {
             bool toggle;
-            int intValue;
 
             UI.Label("");
 
@@ -23,15 +21,6 @@ namespace SolastaCommunityExpansion.Displays
             if (!Main.Settings.DisplayFeatFightingStyleToggle)
             {
                 return;
-            }
-
-            UI.Label("");
-
-            intValue = Main.Settings.FeatPowerAttackModifier;
-            if (UI.Slider("Power Attack".orange() + " modifier ".white() + RequiresRestart, ref intValue, 1, 6, 3, ""))
-            {
-                Main.Settings.FeatPowerAttackModifier = intValue;
-                AcehighFeats.UpdatePowerAttackModifier();
             }
         }
 

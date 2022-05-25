@@ -22,7 +22,7 @@
   "rangeSpellNoProximityPenalty": false,
   "usesWarList": false,
   "warListSlotBonus": 1,
-  "ritualCasting": "None",
+  "ritualCasting": "Prepared",
   "scribeAdvantageType": "None",
   "scribeDurationMultiplier": 1.0,
   "scribeCostMultiplier": 1.0,

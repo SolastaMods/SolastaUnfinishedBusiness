@@ -456,7 +456,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 
         private static FeatureDefinitionMagicAffinity BuildMagicAffinityHandsFull(string name, GuiPresentation guiPresentation)
         {
-            return new FeatureHelpers.FeatureDefinitionMagicAffinityBuilder(name, GuidNamespace, guiPresentation).AddToDB();
+            return new FeatureHelpers.FeatureDefinitionMagicAffinityBuilder(name, GuidNamespace, guiPresentation)
+                .SetRitualCasting(RuleDefinitions.RitualCasting.Prepared)
+                .AddToDB();
         }
     }
 }

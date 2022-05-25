@@ -1,5 +1,6 @@
 ﻿using System;
 using SolastaModApi.Extensions;
+using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
@@ -24,9 +25,15 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
         #endregion
 
-        public FeatureDefinitionAttackModifierBuilder Configure(RuleDefinitions.AttackModifierMethod attackRollModifierMethod,
-            int attackRollModifier, string attackRollAbilityScore, RuleDefinitions.AttackModifierMethod damageRollModifierMethod,
-            int damageRollModifier, string damageRollAbilityScore, bool canAddAbilityBonusToSecondary, string additionalAttackTag)
+        public FeatureDefinitionAttackModifierBuilder Configure(
+            RuleDefinitions.AttackModifierMethod attackRollModifierMethod = RuleDefinitions.AttackModifierMethod.None,
+            int attackRollModifier = 0,
+            string attackRollAbilityScore = "",
+            RuleDefinitions.AttackModifierMethod damageRollModifierMethod = RuleDefinitions.AttackModifierMethod.None,
+            int damageRollModifier = 0,
+            string damageRollAbilityScore = "",
+            bool canAddAbilityBonusToSecondary = false,
+            string additionalAttackTag = "")
         {
             Definition.SetAttackRollModifierMethod(attackRollModifierMethod);
             Definition.SetAttackRollModifier(attackRollModifier);
@@ -50,6 +57,13 @@ namespace SolastaCommunityExpansion.Builders.Features
         public FeatureDefinitionAttackModifierBuilder SetAdditionalAttackTag(string tag)
         {
             Definition.SetAdditionalAttackTag(tag);
+
+            return This();
+        }
+
+        public FeatureDefinitionAttackModifierBuilder SetImpactParticleReference(AssetReference asset)
+        {
+            Definition.SetImpactParticleReference(asset);
 
             return This();
         }

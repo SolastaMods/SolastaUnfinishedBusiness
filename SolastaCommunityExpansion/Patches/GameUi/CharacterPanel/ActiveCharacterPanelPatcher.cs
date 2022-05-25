@@ -19,24 +19,31 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
                 return;
             }
 
-            var prefab = __instance.GetField<RectTransform>("sorceryPointsBox").gameObject;
+            var poolPrefab = __instance.GetField<RectTransform>("sorceryPointsBox").gameObject;
+            var concentrationPrefab = __instance.GetField<RectTransform>("concentrationGroup").gameObject;
             var layout = __instance.transform.Find("RightLayout");
 
-            //Hide all custom
+            // Hide all custom controls
             for (var i = 0; i < layout.childCount; i++)
             {
                 var child = layout.GetChild(i);
-                if (child.name.StartsWith("CustomPool("))
+                if (child.name.StartsWith("CustomPool(") || child.name.StartsWith("CustomConcentration("))
                 {
                     child.gameObject.SetActive(false);
                 }
             }
 
-            //display elevant custom
+            // setup/update relevant custom controls
             var pools = character.GetSubFeaturesByType<ICusomPortraitPointPoolProvider>();
             foreach (var provider in pools)
             {
-                CusomPortraitPointPool.Setup(provider, character, prefab, layout);
+                CusomPortraitPointPool.Setup(provider, character, poolPrefab, layout);
+            }
+
+            var concentrations = character.GetSubFeaturesByType<ICusomConcentrationProvider>();
+            foreach (var provider in concentrations)
+            {
+                CustomConcentrationControl.Setup(provider, character, concentrationPrefab, layout);
             }
         }
     }

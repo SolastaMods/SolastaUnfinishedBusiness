@@ -231,6 +231,18 @@ Equipment/&Enchanted_Javelin_Sharpness_Description	This enchanted weapon was cre
 Equipment/&Enchanted_Javelin_Sharpness_Title	Javelin of Sharpness
 Equipment/&Enchanted_Javelin_Souldrinker_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade
 Equipment/&Enchanted_Javelin_Souldrinker_Title	Souldrinker Javelin
+Equipment/&Enchanted_LeatherDruid_Deflection_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard
+Equipment/&Enchanted_LeatherDruid_Deflection_Title	Druid Leather of Deflection
+Equipment/&Enchanted_LeatherDruid_FlameDancing_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard
+Equipment/&Enchanted_LeatherDruid_FlameDancing_Title	Druid Leather of Flame Dancing
+Equipment/&Enchanted_LeatherDruid_FrostWalking_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard
+Equipment/&Enchanted_LeatherDruid_FrostWalking_Title	Druid Leather of Frost Walking
+Equipment/&Enchanted_LeatherDruid_Robustness_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard
+Equipment/&Enchanted_LeatherDruid_Robustness_Title	Druid Leather of Robustness
+Equipment/&Enchanted_LeatherDruid_Sturdiness_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard
+Equipment/&Enchanted_LeatherDruid_Sturdiness_Title	Druid Leather of Sturdiness
+Equipment/&Enchanted_LeatherDruid_Survival_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard
+Equipment/&Enchanted_LeatherDruid_Survival_Title	Druid Leather of Survival
 Equipment/&Enchanted_LightCrossbow_Accuracy_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. Its original design bore the sigil of Defineth Sharpsight, a renowned sylvan elf enchanter
 Equipment/&Enchanted_LightCrossbow_Accuracy_Title	Light Crossbow of Accuracy
 Equipment/&Enchanted_LightCrossbow_Lightbringer_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures
@@ -345,18 +357,6 @@ Equipment/&Enchanted_StuddedLeather_Sturdiness_Description	This enchanted armor 
 Equipment/&Enchanted_StuddedLeather_Sturdiness_Title	Studded Leather of Sturdiness
 Equipment/&Enchanted_StuddedLeather_Survival_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard
 Equipment/&Enchanted_StuddedLeather_Survival_Title	Studded Leather of Survival
-Equipment/&Enchanted_LeatherDruid_Deflection_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard
-Equipment/&Enchanted_LeatherDruid_Deflection_Title	Druid Leather of Deflection
-Equipment/&Enchanted_LeatherDruid_FlameDancing_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard
-Equipment/&Enchanted_LeatherDruid_FlameDancing_Title	Druid Leather of Flame Dancing
-Equipment/&Enchanted_LeatherDruid_FrostWalking_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard
-Equipment/&Enchanted_LeatherDruid_FrostWalking_Title	Druid Leather of Frost Walking
-Equipment/&Enchanted_LeatherDruid_Robustness_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard
-Equipment/&Enchanted_LeatherDruid_Robustness_Title	Druid Leather of Robustness
-Equipment/&Enchanted_LeatherDruid_Sturdiness_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard
-Equipment/&Enchanted_LeatherDruid_Sturdiness_Title	Druid Leather of Sturdiness
-Equipment/&Enchanted_LeatherDruid_Survival_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard
-Equipment/&Enchanted_LeatherDruid_Survival_Title	Druid Leather of Survival
 Equipment/&Enchanted_Warhammer_Acuteness_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum
 Equipment/&Enchanted_Warhammer_Acuteness_Title	Warhammer of Acuteness
 Equipment/&Enchanted_Warhammer_Bearclaw_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. The sharp spikes of the bear's claw shred armor to inflict additional damage � just as expected by Ildurial Stronghand, who designed the first weapon of this kind
@@ -669,7 +669,7 @@ Feat/&PowerAlchemistHealElixirsDescription	Once per day you can cast Heal
 Feat/&PowerAlchemistHealElixirsTitle	Heal
 Feat/&PowerAlchemistRestorativeElixirsDescription	You can cast Lesser Rotation without expending a spell slot. You can do this a number of times per long rest equal to your intelligence modifier
 Feat/&PowerAlchemistRestorativeElixirsTitle	Restorative Elixirs
-Feat/&PowerAttackFeatDescription	You learned to trade accuracy to lander deadlier/harder blows. You can choose to take a -{0} penalty to your to hit in order to do more damage (+{0} damage for one handed weapons, +{1} damage for two handed weapons). Lasts for the whole turn once activated. Works with melee and ranged weapons
+Feat/&PowerAttackFeatDescription	You learned to trade accuracy to land deadlier blows. You can choose to take a -Proficiency Bonus penalty to your to hit in order to do more damage (+Proficiency Bonus damage for one handed weapons, double that for two handed and versatile weapons). Works only with melee weapons
 Feat/&PowerAttackFeatTitle	Power attack
 Feat/&PowerFalseLifeFromFeatDescription	Bolstering yourself with a necromantic facsimile of life, you gain 1d4+4 Temporary Hit Points for the Duration
 Feat/&PowerFalseLifeFromFeatTitle	False Life
@@ -977,6 +977,7 @@ Feature/&ElementalPatronElementalFormFormatDescription	When channeling the {0}, 
 Feature/&ElementalPatronElementalFormFormatTitle	{0}
 Feature/&ElementalPatronFeatureSet_Level06Description	You knowledge of elementals has increased to the point that you now gain advantage on ability checks towards elementals, and deal additional damage against elementals equal to your knowledge level. You can no longer be charmed or frightened by elementals
 Feature/&ElementalPatronFeatureSet_Level06Title	Knowledge of Elementals
+Feature/&EmptyString	
 Feature/&EyesoftheRuneKeeperDescription	You can read all writing
 Feature/&EyesoftheRuneKeeperTitle	Eyes of the RuneKeeper
 Feature/&FiendishVigorTitle	Fiendish Vigor
@@ -1050,19 +1051,8 @@ Feature/&OpportunistDebilitatingStrikeTitle	Debilitating Strike
 Feature/&OpportunistQuickStrikeDescription	You have advatange when attack an enemies whose initiative is lower than yours. In addition you also have advatange when perform an attack of opportunity
 Feature/&OpportunistQuickStrikeTitle	Quick Strike
 Feature/&OtherworldlyLeapTitle	Otherworldly Leap
-Feature/&OtherworldlyLeapTitle	Otherworldly Leap
-Feature/&PowerAttackAttackModifierDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged
-Feature/&PowerAttackAttackModifierTitle	One handed power attack
-Feature/&PowerAttackConditionDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged
-Feature/&PowerAttackConditionTitle	One handed power attack
-Feature/&PowerAttackPowerDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{0} damage when you land your strikes. Only to be used when attacking with a one handed non-light weapon, melee or ranged
-Feature/&PowerAttackPowerTitle	One handed power attack
-Feature/&PowerAttackTwoHandedAttackModifierDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes. Only to be used when attacking with two hands, melee or ranged
-Feature/&PowerAttackTwoHandedAttackModifierTitle	Two Handed power attack
-Feature/&PowerAttackTwoHandedConditionDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes. Only to be used when attacking with two hands, melee or ranged
-Feature/&PowerAttackTwoHandedConditionTitle	Two Handed power attack
-Feature/&PowerAttackTwoHandedPowerDescription	Take a -{0} to hit penalty to your attack for the rest of the turn to do +{1} damage when you land your strikes. Only to be used when attacking with two hands, melee or ranged
-Feature/&PowerAttackTwoHandedPowerTitle	Two Handed power attack
+Feature/&PowerAttackTitle	Power attack
+Feature/&PowerAttackDescription	Take a -Proficiency Bonus to hit penalty to your attack for the rest of the turn to do +Proficiency Bonus damage when you land your strikes. Two-Handed and Versatile weapons get bonus damage doubled. Works only with melee weapons
 Feature/&PowerPaladinAuraOfCourage18Description	Grant a saving throw bonus to allies withing 30ft
 Feature/&PowerPaladinAuraOfCourage18Title	Improved Aura of Courage
 Feature/&PowerPaladinAuraOfProtection18Description	You and your allies within 30ft cannot be frightened
@@ -1241,8 +1231,28 @@ FlexibleRaces/&PointPoolAbilityScore4Description	Use four boosts on ability scor
 FlexibleRaces/&PointPoolAbilityScore4Title	Ability Score Increase
 Format/&LevelAndExperienceFormat	Level: {0}\nExperience: {1}\n{2} points required to reach level {3}
 Format/&LevelAndExperienceMaxedFormat	Level: {0}\nExperience: {1}\nmax level reached
+Item/&CraftingManualRecipeEnchantHandwraps+1Title	Enchant Handwraps +1
+Item/&CraftingManualRecipeEnchantHandwraps+2Title	Enchant Handwraps +2
+Item/&CraftingManualRecipeEnchantHandwrapsOfForceTitle	Enchant Forceful Handwraps
+Item/&CraftingManualRecipeEnchantHandwrapsOfPullingTitle	Enchant Handwraps Of Pulling
+Item/&CraftingManualRecipeEnchantHandwraps+1Description	Enchant Handwraps +1
+Item/&CraftingManualRecipeEnchantHandwraps+2Description	Enchant Handwraps +2
+Item/&CraftingManualRecipeEnchantHandwrapsOfForceDescription	Enchant Forceful Handwraps
+Item/&CraftingManualRecipeEnchantHandwrapsOfPullingDescription	Enchant Handwraps Of Pulling
 Item/&ForceArtilleryProjectileDescription	ForceArtilleryProjectile
 Item/&ForceArtilleryProjectileTitle	ForceArtilleryProjectile
+Item/&Handwraps+1Title	Handwraps +1
+Item/&Handwraps+1TitleUnidentifiedDescription	Finely crafted handwraps
+Item/&Handwraps+1TitleUnidentifiedTitle	Good Quality Handwraps
+Item/&Handwraps+2Title	Handwraps +2
+Item/&Handwraps+2TitleUnidentifiedDescription	Finely crafted handwraps
+Item/&Handwraps+2TitleUnidentifiedTitle	Maginificent Handwraps
+Item/&HandwrapsOfForceTitle	Forceful Handwraps
+Item/&HandwrapsOfForceTitleUnidentifiedDescription	Finely crafted handwraps
+Item/&HandwrapsOfForceTitleUnidentifiedTitle	Maginificent Handwraps
+Item/&HandwrapsOfPullingTitle	Handwraps Of Pulling
+Item/&HandwrapsOfPullingTitleUnidentifiedDescription	Finely crafted handwraps
+Item/&HandwrapsOfPullingTitleUnidentifiedTitle	Maginificent Handwraps
 Language/&AbyssalDescription	Abyssal language was the form of primordial language which has been wrapped and twisted by the evil of the abyss
 Language/&AbyssalTitle	Abyssal
 Language/&GnomishLanguageDescription	An old Solastan language, preserved by gnomes living in deep forests of Solasta, it has survived the Cataclysm
@@ -1349,6 +1359,8 @@ Power/&PactofChainFamiliarInvisibilityPowerDescription	The creature magically tu
 Power/&PactofChainFamiliarInvisibilityPowerTitle	Invisibility
 Power/&PactofChainFamiliarScarePowerDescription	One creature of your choice within 20 ft. of it must succeed on a DC 10 Wisdom saving throw or be frightened for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success
 Power/&PactofChainFamiliarScarePowerTitle	Scare
+Power/&PowerFunctionHandwrapsOfPullingDescription	As a bonus action you can pull creature within 15 feet closer to you
+Power/&PowerFunctionHandwrapsOfPullingTitle	Reel In
 Power/&ToadKingCroakDescription	Emit a wave of sound that causes damage and pushes creatures and objects away
 Power/&ToadKingCroakTitle	Croak
 Power/&ToadKingGraspingTongueDescription	Pull enemies towards yourself
@@ -1852,7 +1864,7 @@ Subclass/&ScoutSentinelTinkererSubclassDescription	A Scout Sentinel tinkerer mod
 Subclass/&ScoutSentinelTinkererSubclassTitle	Scout Sentinel
 Subclass/&SpellShieldAdditionalActionDescription	You can cast a spell after defeating an enemy with your weapon attacks
 Subclass/&SpellShieldAdditionalActionTitle	Spell Fighting
-Subclass/&TactitionFighterSubclassDescription	The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed. They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes. Mod note - This class re-uses channel divinity for these features
+Subclass/&TactitionFighterSubclassDescription	The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed. They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes
 Subclass/&TactitionFighterSubclassTitle	The Tactician
 Subclass/&TinkererFlashOfGeniusConditionDescription	Inspired by a flash of genius to have a bonus on ability checks and saving throws
 Subclass/&TinkererFlashOfGeniusConditionTitle	Flash of Genius
@@ -1894,6 +1906,7 @@ Subclass/&WhiteWitchMagicTitle	White Magic
 Subclass/&WhiteWitchTitle	White Witch
 Subclass/&WitchSubclassPathDescription	Your knowledge of magic has culminated in joining a Coven, an innate circle of Witches who delve down a specific path of witchdom and curses
 Subclass/&WitchSubclassPathTitle	Witch Covens
+ToolTip/&CheckBoxDefaultPartyTitle	Check this box to set your default party when starting new advendures or testing custom locations. You can select up to {0} heroes in a first-in / first-out basis
 Tooltip/&CustomPortraitPoolClassMonkKiPool	You can harness the mystic energy of ki. Your access to this energy is represented by a number of ki points. Maximum amount is equal to your monk level. All spent points are regained on short or long rest. You can spend these points to fuel various ki features
 Tooltip/&FeatPrerequisiteHasStealthAttack	Has stealth attack
 Tooltip/&FeatPrerequisiteIsNotBarbarian	Isn't a Barbarian
@@ -1905,7 +1918,7 @@ Tooltip/&TagCommunityExpansionTitle	Community Expansion
 Tooltip/&TagMaledictionTitle	Malediction
 Tooltip/&TagMonkWeaponTitle	Monk
 Tooltip/&TagOtherModContentTitle	From mod
-ToolTip/&CheckBoxDefaultPartyTitle	Check this box to set your default party when starting new advendures or testing custom locations. You can select up to {0} heroes in a first-in / first-out basis
+Tooltip/&TagScoutSentinelWeaponTitle	Scout Sentinel
 UI/&CustomFeatureSelectionStageDescription	Select extra features from your class/subclass
 UI/&CustomFeatureSelectionStageFeatures	Features
 UI/&CustomFeatureSelectionStageNotDone	You must select all available features before proceeding
@@ -1916,3 +1929,4 @@ UI/&CustomFeatureSelectionTooltipTypePower	Power
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Proficiency
 UI/&ForcePreferredCantripDescription	If this toggled is ON only preferred cantrip can trigger. If the preferred cantrip isn't selected, then the first valid cantrip will trigger, regardless of this toggle
 UI/&ForcePreferredCantripTitle	Force Preferred Cantrip
+Tooltip/&PowerAttackConcentration	Disable Power Attack.\nEffect will last until start of your next turn

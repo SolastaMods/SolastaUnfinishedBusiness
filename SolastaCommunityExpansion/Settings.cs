@@ -53,14 +53,16 @@ namespace SolastaCommunityExpansion
 
         public bool AllowDynamicPowers { get; set; } = true;
         public bool BugFixBrowseFeatures { get; set; } = true;
-        public bool BugFixButtonActivatorTriggerIssue { get; set; } = true;
+        //public bool BugFixButtonActivatorTriggerIssue { get; set; } = true;
         public bool BugFixConjuredUnitsTeleportWithParty { get; set; } = true;
         public bool BugFixCorrectlyCalculateDamageOnMultipleHits { get; set; } = true;
+        public bool BugFixCorrectlyTerminateEffectsOnWorldTravel { get; set; } = true;
         public bool BugFixDeityOfferingOnMulticlassHeroes { get; set; } = true;
         public bool BugFixDominateSpells { get; set; } = true;
         public bool BugFixExpandColorTables { get; set; } = true;
         public bool BugFixHeroKeepConditionsAcrossLocations { get; set; } = true;
         public bool BugFixHideReactionSpells { get; set; } = true;
+        public bool BugFixLeakedMetamagicPanel { get; set; } = true;
         public bool BugFixNullRecipesOnGameSerialization { get; set; } = true;
         public bool BugFixPowerActivationTime { get; set; } = true;
         public bool BugFixSpellDurations { get; set; } = true;
@@ -142,7 +144,6 @@ namespace SolastaCommunityExpansion
         // Characters - Feats
         //
 
-        public int FeatPowerAttackModifier { get; set; } = 3;
         public int FeatSliderPosition { get; set; } = 4;
         public List<string> FeatEnabled { get; } = new();
 

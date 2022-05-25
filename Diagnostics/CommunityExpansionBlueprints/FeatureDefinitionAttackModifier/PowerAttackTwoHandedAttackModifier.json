@@ -1,10 +1,10 @@
 {
   "$type": "FeatureDefinitionAttackModifier, Assembly-CSharp",
   "attackRollModifierMethod": "FlatValue",
-  "attackRollModifier": -3,
+  "attackRollModifier": -1,
   "attackRollAbilityScore": "",
   "damageRollModifierMethod": "None",
-  "damageRollModifier": 6,
+  "damageRollModifier": 2,
   "damageRollAbilityScore": "",
   "additionalDamageDice": 0,
   "canDualWieldNonLight": false,
@@ -27,9 +27,9 @@
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&PowerAttackTwoHandedAttackModifierTitle",
-    "description": "Take a -3 to hit penalty to your attack for the rest of the turn to do +6 damage when you land your strikes. Only to be used when attacking with two hands, melee or ranged",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

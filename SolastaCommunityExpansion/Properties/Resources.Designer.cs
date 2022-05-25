@@ -353,6 +353,26 @@ namespace SolastaCommunityExpansion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap PowerAttackConcentrationIcon {
+            get {
+                object obj = ResourceManager.GetObject("PowerAttackConcentrationIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap PowerAttackIcon {
+            get {
+                object obj = ResourceManager.GetObject("PowerAttackIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap ResonatingStrike {
             get {
                 object obj = ResourceManager.GetObject("ResonatingStrike", resourceCulture);

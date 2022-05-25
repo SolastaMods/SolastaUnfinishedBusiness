@@ -217,9 +217,9 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&PowerAttackTwoHandedConditionTitle",
-    "description": "Take a -3 to hit penalty to your attack for the rest of the turn to do +6 damage when you land your strikes. Only to be used when attacking with two hands, melee or ranged",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "df79a8d92a082eb40a000919a6f5b27a",

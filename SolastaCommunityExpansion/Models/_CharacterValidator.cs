@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using SolastaCommunityExpansion.Classes.Monk;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -12,6 +13,13 @@ namespace SolastaCommunityExpansion.Models
 
         public static readonly CharacterValidator EmptyOffhand = character =>
             character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem == null;
+
+        public static readonly CharacterValidator FullyUnarmed = character =>
+        {
+            var slotsByName = character.CharacterInventory.InventorySlotsByName;
+            return Monk.IsUnarmedWeapon(slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem)
+                   && Monk.IsUnarmedWeapon(slotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem);
+        };
 
         public static readonly CharacterValidator UsedAllMainAttacks = character =>
             character.ExecutedAttacks >= character.GetAttribute(AttributeDefinitions.AttacksNumber).CurrentValue;

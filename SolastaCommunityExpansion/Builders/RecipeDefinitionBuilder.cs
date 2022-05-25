@@ -67,6 +67,15 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
+        public RecipeDefinitionBuilder AddIngredients(params ItemDefinition[] ingredients)
+        {
+            foreach (var ingredient in ingredients)
+            {
+                AddIngredient(ingredient);
+            }
+            return this;
+        }
+
         public RecipeDefinitionBuilder SetSpellDefinition(SpellDefinition spellDefinition)
         {
             Definition.SetSpellDefinition(spellDefinition);

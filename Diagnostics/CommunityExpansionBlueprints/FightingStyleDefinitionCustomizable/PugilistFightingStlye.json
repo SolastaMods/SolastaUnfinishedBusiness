@@ -1,8 +1,7 @@
 {
   "$type": "SolastaCommunityExpansion.CustomDefinitions.FightingStyleDefinitionCustomizable, SolastaCommunityExpansion",
   "features": [
-    "Definition:AdditionalDamagePugilist:36d24b2e-8ef4-4037-a82f-05e63d56f3d2",
-    "Definition:PowerPugilistOffhandAttack:a97a1c9c-232b-42ae-8003-30d244e958b3"
+    "Definition:AdditionalDamagePugilist:36d24b2e-8ef4-4037-a82f-05e63d56f3d2"
   ],
   "condition": "RangedWeaponAttack",
   "guiPresentation": {

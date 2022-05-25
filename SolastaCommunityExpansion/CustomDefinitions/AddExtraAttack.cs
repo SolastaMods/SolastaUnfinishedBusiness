@@ -1,12 +1,14 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using SolastaCommunityExpansion.Api.AdditionalExtensions;
+using SolastaCommunityExpansion.Classes.Monk;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.CustomDefinitions
 {
-    public class AddBonusUnarmedAttack : IAddExtraAttack
+    public class AddExtraUnarmedAttack : IAddExtraAttack
     {
         private readonly ActionDefinitions.ActionType actionType;
         private readonly int attacksNumber;
@@ -14,7 +16,8 @@ namespace SolastaCommunityExpansion.CustomDefinitions
         private readonly CharacterValidator[] validators;
         private readonly List<string> additionalTags = new();
 
-        public AddBonusUnarmedAttack(ActionDefinitions.ActionType actionType, int attacksNumber, bool clearSameType, params CharacterValidator[] validators)
+        public AddExtraUnarmedAttack(ActionDefinitions.ActionType actionType, int attacksNumber, bool clearSameType,
+            params CharacterValidator[] validators)
         {
             this.actionType = actionType;
             this.attacksNumber = attacksNumber;
@@ -22,11 +25,12 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             this.validators = validators;
         }
 
-        public AddBonusUnarmedAttack(ActionDefinitions.ActionType actionType, params CharacterValidator[] validators) : this(actionType, 1, false, validators)
+        public AddExtraUnarmedAttack(ActionDefinitions.ActionType actionType, params CharacterValidator[] validators) :
+            this(actionType, 1, false, validators)
         {
         }
 
-        public AddBonusUnarmedAttack SetTags(params string[] tags)
+        public AddExtraUnarmedAttack SetTags(params string[] tags)
         {
             additionalTags.AddRange(tags);
             return this;
@@ -39,7 +43,13 @@ namespace SolastaCommunityExpansion.CustomDefinitions
                 return;
             }
 
-            var strikeDefinition = hero.UnarmedStrikeDefinition;
+            var mainHandItem = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
+                .EquipedItem;
+
+            var isUnarmedWeapon = mainHandItem != null && Monk.IsUnarmedWeapon(mainHandItem);
+            var strikeDefinition = isUnarmedWeapon
+                ? mainHandItem.ItemDefinition
+                : hero.UnarmedStrikeDefinition;
 
             var attackModifiers = hero.GetField<List<IAttackModificationProvider>>("attackModifiers");
 
@@ -63,17 +73,22 @@ namespace SolastaCommunityExpansion.CustomDefinitions
                 strikeDefinition.WeaponDescription,
                 false,
                 true,
-                EquipmentDefinitions.SlotTypeOffHand,
+                EquipmentDefinitions.SlotTypeMainHand,
                 attackModifiers,
                 hero.FeaturesOrigin,
-                null
+                isUnarmedWeapon ? mainHandItem : null
             );
             attackMode.AttacksNumber = attacksNumber;
             attackMode.AttackTags.AddRange(additionalTags);
 
-            attackModes.Add(attackMode);
+            if (attackModes.Any(m => attackMode.IsComparableForNetwork(m)))
+            {
+                RulesetAttackMode.AttackModesPool.Return(attackMode);
+            }
+            else
+            {
+                attackModes.Add(attackMode);
+            }
         }
     }
 }
-
-

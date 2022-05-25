@@ -11,27 +11,13 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.RitualCasting
     {
         internal static bool Prefix(RulesetCharacter __instance, ref bool __result, List<SpellDefinition> ___usableSpells)
         {
-            var canCast = false;
-
-            __instance.EnumerateFeaturesToBrowse<FeatureDefinitionMagicAffinity>(__instance.FeaturesToBrowse);
-
-            foreach (var featureDefinition in __instance.FeaturesToBrowse)
+            if (__instance is not RulesetCharacterHero)
             {
-                if (featureDefinition is FeatureDefinitionMagicAffinity featureDefinitionMagicAffinity && featureDefinitionMagicAffinity.RitualCasting != RuleDefinitions.RitualCasting.None)
-                {
-                    var ritualType = featureDefinitionMagicAffinity.RitualCasting;
-
-                    __instance.EnumerateUsableRitualSpells(ritualType, ___usableSpells);
-
-                    if (___usableSpells.Count > 0)
-                    {
-                        canCast = true;
-                        break;
-                    }
-                }
+                return true;
             }
 
-            __result = canCast;
+            RitualSelectionPanel_Bind.EnumerateUsableRitualSpells(__instance, RuleDefinitions.RitualCasting.None, ___usableSpells);
+            __result = ___usableSpells.Count > 0;
 
             return false;
         }

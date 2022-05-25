@@ -32,7 +32,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
 
             if (rulesetCharacter != null)
             {
-                foreach (var feature in rulesetCharacter.EnumerateFeaturesToBrowse<IOnAttackEffect>())
+                foreach (var feature in rulesetCharacter.GetSubFeaturesByType<IOnAttackEffect>())
                 {
                     feature.BeforeOnAttack(attacker, defender, attackModifier, attackerAttackMode);
                 }
@@ -45,7 +45,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
 
             if (rulesetCharacter != null)
             {
-                foreach (var feature in rulesetCharacter.EnumerateFeaturesToBrowse<IOnAttackEffect>())
+                foreach (var feature in rulesetCharacter.GetSubFeaturesByType<IOnAttackEffect>())
                 {
                     feature.AfterOnAttack(attacker, defender, attackModifier, attackerAttackMode);
                 }
