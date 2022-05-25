@@ -81,17 +81,14 @@ namespace SolastaCommunityExpansion.Patches
             // Subclasses may rely on classes being loaded (as well as spells and powers) in order to properly refer back to the class.
             SubclassesContext.Load();
 
-            //
-            PowerBundleContext.Load();
-
             // Multiclass blueprints should always load to avoid issues with heroes saves and after classes and subclasses
             MulticlassContext.Load();
 
-            if (Main.Settings.EnableExtraHighLevelMonsters)
-            {
-                Translations.LoadTranslations("monsters");
-                SolastaMonsters.Models.MonsterContext.Load();
-            }
+            // Custom High Level Monsters
+            SolastaMonsters.Models.MonsterContext.Load();
+
+            // Only a functor registration
+            PowerBundleContext.Load();
 
             ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += (_) =>
             {

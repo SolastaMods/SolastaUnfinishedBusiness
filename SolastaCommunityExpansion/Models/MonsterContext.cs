@@ -50,6 +50,13 @@ namespace SolastaMonsters.Models
 
         public static void Load()
         {
+            if (!SolastaCommunityExpansion.Main.Settings.EnableExtraHighLevelMonsters)
+            {
+                return;
+            }
+
+            SolastaCommunityExpansion.Utils.Translations.LoadTranslations("monsters");
+
             //following order of new blueprint creation should be maintained
             Monsters.NewMonsterAttributes.Create();
             Monsters.NewMonsterAttacks.Create();
