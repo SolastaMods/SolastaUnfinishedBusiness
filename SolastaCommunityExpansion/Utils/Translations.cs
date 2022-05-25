@@ -41,11 +41,8 @@ namespace SolastaCommunityExpansion.Utils
         {
             var languageSourceData = LocalizationManager.Sources[0];
             var languageIndex = languageSourceData.GetLanguageIndex(LocalizationManager.CurrentLanguage);
-            var languageCode = ("frpt-BRruzh-CN".Contains(LocalizationManager.CurrentLanguageCode)
-                ? LocalizationManager.CurrentLanguageCode
-                : "en")
-                .Replace("-", "_");
-            var payload = (string)typeof(Resources).GetProperty(category + "_" + languageCode).GetValue(null);
+            var languageCode = LocalizationManager.CurrentLanguageCode.Replace("-", "_");
+            var payload = (string)typeof(Resources).GetProperty(category + '_' + languageCode).GetValue(null);
             var lines = new List<string>(payload.Split(new[] { Environment.NewLine }, StringSplitOptions.None));
 
             foreach (var line in lines)
