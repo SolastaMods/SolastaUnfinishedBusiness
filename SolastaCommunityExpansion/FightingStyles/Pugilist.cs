@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaCommunityExpansion.Classes.Monk;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.CustomInterfaces;
+using SolastaCommunityExpansion.Models;
 using static ActionDefinitions;
 using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
@@ -53,10 +53,16 @@ namespace SolastaCommunityExpansion.FightingStyles
                     .SetShowCasting(false)
                     .AddToDB();
 
-                var pugilistAdditionalDamage = FeatureDefinitionBuilder
+                var pugilistAdditionalDamage = FeatureDefinitionActionAffinityBuilder
                     .Create("AdditionalDamagePugilist", "36d24b2e-8ef4-4037-a82f-05e63d56f3d2")
                     .SetGuiPresentation(gui)
-                    .SetCustomSubFeatures(new AddExtraUnarmedAttack(ActionType.Bonus), new AdditionalUnarmedDice())
+                    .SetDefaultAllowedActonTypes()
+                    .SetAuthorizedActions(Id.ShoveBonus)
+                    .SetCustomSubFeatures(
+                        new AddExtraUnarmedAttack(ActionType.Bonus),
+                        new AdditionalUnarmedDice(), 
+                        new FeatureApplicationValidator(CharacterValidators.HasUnarmedHand)
+                    )
                     .AddToDB();
 
 
@@ -74,7 +80,7 @@ namespace SolastaCommunityExpansion.FightingStyles
         {
             public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
             {
-                if (!Monk.IsUnarmedWeapon(attackMode))
+                if (!WeaponValidators.IsUnarmedWeapon(attackMode))
                 {
                     return;
                 }
