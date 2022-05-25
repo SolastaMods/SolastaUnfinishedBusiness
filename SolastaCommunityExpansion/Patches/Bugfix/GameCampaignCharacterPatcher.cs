@@ -13,12 +13,18 @@ internal static class GameCampaignCharacterPatcher
     {
         internal static bool Prefix(GameCampaignCharacter __instance, RuleDefinitions.RestType restType)
         {
-            var character = __instance.RulesetCharacter;
-            if (character == null)
+            if (!Main.Settings.BugFixCorrectlyTerminateEffectsOnWorldTravel)
             {
                 return true;
             }
-            character.RefreshEffectsForRest(restType);
+
+            if (__instance.RulesetCharacter is not RulesetCharacterHero hero)
+            {
+                return true;
+            }
+
+            hero.RefreshEffectsForRest(restType);
+
             return false;
         }
     }
