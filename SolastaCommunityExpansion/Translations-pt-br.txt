@@ -1864,7 +1864,7 @@ Subclass/&ScoutSentinelTinkererSubclassDescription	Um funileiro Scout Sentinel m
 Subclass/&ScoutSentinelTinkererSubclassTitle	Sentinela Escoteira
 Subclass/&SpellShieldAdditionalActionDescription	Você pode lançar um feitiço depois de derrotar um inimigo com seus ataques de arma
 Subclass/&SpellShieldAdditionalActionTitle	Combate a Feitiços
-Subclass/&TactitionFighterSubclassDescription	O Estrategista usa seu conhecimento e poder no campo de batalha para realizar diferentes jogadas conforme necessário. Eles podem derrubar inimigos, inspirar seus aliados e entrar em contra-ataques mortais contra seus inimigos. Nota do mod - Esta classe reutiliza a divindade do canal para esses recursos
+Subclass/&TactitionFighterSubclassDescription	O Estrategista usa seu conhecimento e poder no campo de batalha para realizar diferentes jogadas conforme necessário. Eles podem derrubar inimigos, inspirar seus aliados e entrar em contra-ataques mortais contra seus inimigos
 Subclass/&TactitionFighterSubclassTitle	O Estrategista
 Subclass/&TinkererFlashOfGeniusConditionDescription	Inspirado por um lampejo de gênio para ter um bônus em testes de habilidade e testes de resistência
 Subclass/&TinkererFlashOfGeniusConditionTitle	Flash de Gênio

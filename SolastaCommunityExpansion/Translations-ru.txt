@@ -1864,7 +1864,7 @@ Subclass/&ScoutSentinelTinkererSubclassDescription	Наладчик Scout Sentin
 Subclass/&ScoutSentinelTinkererSubclassTitle	Разведчик-страж
 Subclass/&SpellShieldAdditionalActionDescription	Вы можете произнести заклинание после победы над врагом с помощью атак оружием
 Subclass/&SpellShieldAdditionalActionTitle	Борьба с заклинаниями
-Subclass/&TactitionFighterSubclassDescription	Тактик использует свои знания и мощь на поле боя, чтобы выполнять различные гамбиты по мере необходимости. Они могут сбивать врагов с ног, вдохновлять своих союзников и наносить смертельные контрудары по врагам. Примечание мода. Этот класс повторно использует божественность канала для этих функций
+Subclass/&TactitionFighterSubclassDescription	Тактик использует свои знания и мощь на поле боя, чтобы выполнять различные гамбиты по мере необходимости. Они могут сбивать врагов с ног, вдохновлять своих союзников и наносить смертельные контрудары по врагам
 Subclass/&TactitionFighterSubclassTitle	Тактик
 Subclass/&TinkererFlashOfGeniusConditionDescription	Вдохновленный вспышкой гения, чтобы получить бонус к проверкам характеристик и спасброскам
 Subclass/&TinkererFlashOfGeniusConditionTitle	Вспышка гениальности

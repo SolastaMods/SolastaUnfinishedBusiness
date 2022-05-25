@@ -1864,7 +1864,7 @@ Subclass/&ScoutSentinelTinkererSubclassDescription	Un bricoleur Scout Sentinel m
 Subclass/&ScoutSentinelTinkererSubclassTitle	Sentinelle éclaireuse
 Subclass/&SpellShieldAdditionalActionDescription	Vous pouvez lancer un sort après avoir vaincu un ennemi avec vos attaques d'armes
 Subclass/&SpellShieldAdditionalActionTitle	Combat de sorts
-Subclass/&TactitionFighterSubclassDescription	Le Tacticien utilise ses connaissances et sa puissance sur le champ de bataille pour effectuer différents gambits selon les besoins. Ils peuvent renverser leurs ennemis, inspirer leurs alliés et lancer des contre-attaques mortelles contre leurs ennemis. Note de mod - Cette classe réutilise la divinité du canal pour ces fonctionnalités
+Subclass/&TactitionFighterSubclassDescription	Le Tacticien utilise ses connaissances et sa puissance sur le champ de bataille pour effectuer différents gambits selon les besoins. Ils peuvent renverser leurs ennemis, inspirer leurs alliés et lancer des contre-attaques mortelles contre leurs ennemis
 Subclass/&TactitionFighterSubclassTitle	Le Tacticien
 Subclass/&TinkererFlashOfGeniusConditionDescription	Inspiré par un éclair de génie pour avoir un bonus sur les tests de capacité et les jets de sauvegarde
 Subclass/&TinkererFlashOfGeniusConditionTitle	Éclair de génie

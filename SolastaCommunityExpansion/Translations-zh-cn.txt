@@ -1864,7 +1864,7 @@ Subclass/&ScoutSentinelTinkererSubclassDescription	侦察哨兵奇械师改进�
 Subclass/&ScoutSentinelTinkererSubclassTitle	侦察哨兵
 Subclass/&SpellShieldAdditionalActionDescription	你可以在用武器攻击击败敌人后施展法术
 Subclass/&SpellShieldAdditionalActionTitle	施法作战
-Subclass/&TactitionFighterSubclassDescription	战术家利用他们在战场上的知识和力量，在需要时进行不同的赌博。他们可以击倒敌人，激励他们的盟友并对他们的敌人进行致命的反击。【Mod说明：这个职业是通过再利用“引导神力”来实现的】
+Subclass/&TactitionFighterSubclassDescription	战术家利用他们在战场上的知识和力量，在需要时进行不同的赌博。他们可以击倒敌人，激励他们的盟友并对他们的敌人进行致命的反击
 Subclass/&TactitionFighterSubclassTitle	战术家
 Subclass/&TinkererFlashOfGeniusConditionDescription	受到灵光乍现的启发，在属性能力和豁免检定上有优势
 Subclass/&TinkererFlashOfGeniusConditionTitle	灵光乍现
