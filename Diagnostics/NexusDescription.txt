@@ -25,6 +25,7 @@ This is now a standalone mod. Please uninstall any other mod from your mods fold
 [*][b]Lyraele[/b]: Warlock class design, quality assurance
 [*][b]Narria[/b]: modKit creator, developer
 [*][b]Nd[/b]: Opportunist subclass
+[*][b]Nyowwww[/b]: Chinese tranlations
 [*][b]PraiseThyBus[/b]: quality assurance
 [*][b]RedOrca[/b]: Path of the Light subclass, Indomitable Might
 [*][b]SilverGriffon[/b]: PickPocket, lore friendly names, crafty feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants, spells
@@ -165,7 +166,7 @@ Monks of the Way of the Open Hand are the ultimate masters of martial arts comba
 [*][b]Ranger Arcanist[/b]: The Ranger Arcanist melds their ranger skills with arcane abilities. Their weapons can afflict their opponents with the Arcanist's Mark, and have learned how to cast some Wizard spells as part of their Ranger spell repertoire
 [*][b]Spell Master[/b]: Spell masters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge
 [*][b]Spell Shield[/b]: Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities
-[*][b]The Tactician[/b]: The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed. They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes. Mod note - This class re-uses channel divinity for these features
+[*][b]The Tactician[/b]: The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed. They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes
 [/list]
 
 [size=3][b]Feats[/b][/size]
@@ -197,7 +198,7 @@ While you are not wearing any armor, your AC equals 10 + your Dexterity modifier
 [*][b]Fighting Style: Dueling[/b]: When you are wielding a melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon
 [*][b]Fighting Style: Great Weapon[/b]: When you roll a 1 or 2 on a damage die for an attack you make with a melee weapon that you are wielding with two hands, you can reroll the die. You must use the new roll, even if it is a 1 or a 2. The weapon must have the two-handed or versatile property for you to gain this benefit
 [*][b]Fighting Style: Protection[/b]: When a creature you can see attacks a target other than you that is within 5 feet of you, you can use your reaction to impose disadvantage on the attack roll. You must be wielding a shield
-[*][b]Fighting Style: Pugilist[/b]: While you are completely unarmed, your unarmed strikes deal an additional d8 of damage and you can punch with your offhand as a bonus action
+[*][b]Fighting Style: Pugilist[/b]: Your unarmed strikes deal an additional d4 of damage and you can punch with your offhand as a bonus action
 [*][b]Fighting Style: Titan Fighting[/b]: You gain a +2 hit against creatures of size large or bigger
 [*][b]Fighting Style: Two Weapon[/b]: When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack
 [*][b]Fighting Surge (Dexterity)[/b]: Increase your Dexterity by 1, to a maximum of 20.
@@ -228,7 +229,7 @@ You learn the Quickned metamagic and gain 2 sorcery points
 [*][b]Metamagic: Twinned[/b]: Increase your Charisma by 1, to a maximum of 20.
 You learn the Twinned metamagic and gain 2 sorcery points
 [*][b]Pickpocket[/b]: You gain proficiency with Sleight Of Hand, or expertise if already proficient. You also have advantage on Sleight of Hand Dexterity checks
-[*][b]Power attack[/b]: You learned to trade accuracy to land deadlier blows. You can choose to take a -Proficiency Bonus penalty to your to hit in order to do more damage (+Proficiency Bonus damage for one handed weapons, double that for two handed and versatile weapons). Works only with melee weapons.
+[*][b]Power attack[/b]: You learned to trade accuracy to land deadlier blows. You can choose to take a -Proficiency Bonus penalty to your to hit in order to do more damage (+Proficiency Bonus damage for one handed weapons, double that for two handed and versatile weapons). Works only with melee weapons
 [*][b]Primal Rage (Constitution)[/b]: Increase your Constitution by 1, to a maximum of 20.
 You can enter a rage as a bonus action as defined in the Barbarian's rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way you must finish a long rest before using this feature again.
 While you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Constitution modifier
@@ -243,6 +244,8 @@ While you are not wearing any armor, your AC equals 10 + your Dexterity modifier
 [*][b]Shadow Touched (Wisdom)[/b]: Increase Wisdom attribute by 1. Gain the ability to cast Invisibility, Inflict Wounds, and False Life once per long rest and learn the spells
 [*][b]Shady[/b]: Increase your Dexterity by 1, to a maximum of 20.
 Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack that meets Rogue's Sneak Attack. At 12th level this damage increases to 2d6 and at 20th level to 4d6. This can stack with Rogue's Sneak Attack
+[*][b]Shield Expert[/b]: You have trained in the use of a shield as a weapon. For you it becomes a melee weapon that you are proficient with, doing 1d4 bludgeoning damage.
+You gain advantage on shove attempts while weilding a shield.
 [*][b]Telekinetic (Charisma)[/b]: Increase Charisma attribute by 1. Gain a bonus action ability to shove or pull creatures
 [*][b]Telekinetic (Intelligence)[/b]: Increase Intelligence attribute by 1. Gain a bonus action ability to shove or pull creatures
 [*][b]Telekinetic (Wisdom)[/b]: Increase Wisdom attribute by 1. Gain a bonus action ability to shove or pull creatures
@@ -264,7 +267,7 @@ While you are not wearing any armor, your AC equals 10 + your Dexterity modifier
 
 [*][b]Blind Fighting[/b]: You have blindsight with a range of 10 feet
 [*][b]Crippling[/b]: Reduce the speed of your opponent on a melee attack hit to 10 until the end of the next turn
-[*][b]Pugilist[/b]: While you are completely unarmed, your unarmed strikes deal an additional d8 of damage and you can punch with your offhand as a bonus action
+[*][b]Pugilist[/b]: Your unarmed strikes deal an additional d4 of damage and you can punch with your offhand as a bonus action
 [*][b]Titan Fighting[/b]: You gain a +2 hit against creatures of size large or bigger
 [/list]
 

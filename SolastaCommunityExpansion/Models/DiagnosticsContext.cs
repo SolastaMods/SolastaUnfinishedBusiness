@@ -8,6 +8,7 @@ using HarmonyLib;
 using I2.Loc;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.DataMiner;
+using SolastaCommunityExpansion.Properties;
 #endif
 
 namespace SolastaCommunityExpansion.Models
@@ -213,9 +214,10 @@ namespace SolastaCommunityExpansion.Models
         internal static void CheckOrphanedTerms(string outputFile)
         {
             var terms = new Dictionary<string, string>();
-            var sourceFile = Path.Combine(Main.MOD_FOLDER, "Translations-en.txt");
+            var payload = Resources.Translations_en;
+            var lines = new List<string>(payload.Split(new[] { Environment.NewLine }, StringSplitOptions.None));
 
-            foreach (var line in File.ReadLines(sourceFile))
+            foreach (var line in lines)
             {
                 try
                 {

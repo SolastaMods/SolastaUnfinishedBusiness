@@ -108,8 +108,6 @@ Feedback/&AdditionalDamagePactMarkedFormat	Pact mark!
 Feedback/&AdditionalDamagePactMarkedLine	Pact mark does additional damage!
 Feedback/&AdditionalDamagePactSoulTakerFormat	Soul taker!
 Feedback/&AdditionalDamagePactSoulTakerLine	Soul taker does additional damage!
-Feedback/&AdditionalDamagePugilistFormat	Pugilist
-Feedback/&AdditionalDamagePugilistLine	Additional Unarmed Damage from Pugilist
 Feedback/&AdditionalDamageResonatingStrikeFormat	Resonating Strike!
 Feedback/&AdditionalDamageResonatingStrikeLine	{0} resonates {1}! (+{2})
 Feedback/&AdditionalDamageSoulEmpoweredFormat	Soul Empowered!
@@ -326,4 +324,4 @@ UI/&CustomFeatureSelectionTooltipTypePower	Power
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Proficiency
 UI/&ForcePreferredCantripDescription	If this toggled is ON only preferred cantrip can trigger. If the preferred cantrip isn't selected, then the first valid cantrip will trigger, regardless of this toggle
 UI/&ForcePreferredCantripTitle	Force Preferred Cantrip
-Tooltip/&PowerAttackConcentration	Disable Power Attack.\nEffect will last until start of your next turn.
+Tooltip/&PowerAttackConcentration	Disable Power Attack.\nEffect will last until start of your next turn

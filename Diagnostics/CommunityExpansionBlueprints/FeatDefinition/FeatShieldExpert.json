@@ -1,0 +1,43 @@
+{
+  "$type": "FeatDefinition, Assembly-CSharp",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Strength",
+  "armorProficiencyPrerequisite": true,
+  "armorProficiencyCategory": "ShieldCategory",
+  "knownFeatsPrerequisite": [],
+  "features": [
+    "Definition:ShieldExpertAttack:d7b98665-57ad-5ca0-bc61-f78e3a604ea2",
+    "Definition:ShieldExpertShove:e01c8f38-6a03-5286-9a30-fbba4aabe8b5"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feat/&FeatShieldExpertTitle",
+    "description": "Feat/&FeatShieldExpertDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "439d3216-d764-5322-acd1-e6de960f9530",
+  "contentPack": 9999,
+  "name": "FeatShieldExpert"
+}

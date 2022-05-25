@@ -1,7 +1,3 @@
-CraftingManualRecipeEnchantHandwraps+1	Description='Item/&CraftingManualRecipeEnchantHandwraps+1Description'.
-CraftingManualRecipeEnchantHandwraps+2	Description='Item/&CraftingManualRecipeEnchantHandwraps+2Description'.
-CraftingManualRecipeEnchantHandwrapsOfForce	Description='Item/&CraftingManualRecipeEnchantHandwrapsOfForceDescription'.
-CraftingManualRecipeEnchantHandwrapsOfPulling	Description='Item/&CraftingManualRecipeEnchantHandwrapsOfPullingDescription'.
 DH_Custom_AirTitan_Slam_Attack	Description='MonsterAttack/&DH_AirTitan_Slam_Attack_Description'.
 DH_Custom_AncientDragon_CombatDecisions	Title='MonsterPower/&DH_AncientDragon_CombatDecisions_Title'.
 DH_Custom_AncientDragon_CombatDecisions	Description='MonsterPower/&DH_AncientDragon_CombatDecisions_Description'.
@@ -60,8 +56,6 @@ GuardianNaga_Spelllist	Title='Feature/&GuardianNagaSpellListTitle'.
 GuardianNaga_Spelllist	Description='Feature/&GuardianNagaSpellListDescription'.
 LimitedPerDayAOE_AirTitan_LightningStormDH_Custom_Power	Title='Feature/&DH_AirTitan_LightningStorm_Custom_Power_Title'.
 LimitedPerDayAOE_AirTitan_LightningStormDH_Custom_Power	Description='Feature/&DH_AirTitan_LightningStorm_Custom_Power_Description'.
-PowerAttackTwoHanded	Title='Feature/&PowerAttackTwoHandedPowerTitle'.
-PowerAttackTwoHanded	Description='Feature/&PowerAttackTwoHandedPowerDescription'.
 SummonCreature_LesserConstruct_Power	Title='MonsterPower/&DH_SummonCreature_LesserConstruct_Power_Title'.
 SummonCreature_LesserConstruct_Power	Description='MonsterPower/&DH_SummonCreature_LesserConstruct_Power_Description'.
 WardenArmorProficiencyMulticlass	Title='Feature/&WardenArmorProficiencyTitle'.
