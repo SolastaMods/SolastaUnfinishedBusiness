@@ -32,6 +32,7 @@ namespace SolastaCommunityExpansion.Displays
             { "Lyraele", "Warlock class design, quality assurance" },
             { "Narria", "modKit creator, developer" },
             { "Nd", "Opportunist subclass" },
+            { "Nyowwww" , "Chinese tranlations"},
             { "PraiseThyBus", "quality assurance" },
             { "RedOrca", "Path of the Light subclass, Indomitable Might" },
             { "SilverGriffon", "PickPocket, lore friendly names, crafty feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants, spells" },
