@@ -37,7 +37,7 @@ namespace SolastaCommunityExpansion.Utils
 
         public static void LoadTranslations(string category)
         {
-            var modLanguages = "frpt-brru";
+            var modLanguages = "frpt-BRruzh-CN";
             var path = Path.Combine(Main.MOD_FOLDER, $"{category}-{LocalizationManager.CurrentLanguageCode}.txt");
 
             if (!File.Exists(path) || !modLanguages.Contains(LocalizationManager.CurrentLanguageCode))

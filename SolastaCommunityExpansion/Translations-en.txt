@@ -669,7 +669,7 @@ Feat/&PowerAlchemistHealElixirsDescription	Once per day you can cast Heal
 Feat/&PowerAlchemistHealElixirsTitle	Heal
 Feat/&PowerAlchemistRestorativeElixirsDescription	You can cast Lesser Rotation without expending a spell slot. You can do this a number of times per long rest equal to your intelligence modifier
 Feat/&PowerAlchemistRestorativeElixirsTitle	Restorative Elixirs
-Feat/&PowerAttackFeatDescription	You learned to trade accuracy to land deadlier blows. You can choose to take a -Proficiency Bonus penalty to your to hit in order to do more damage (+Proficiency Bonus damage for one handed weapons, double that for two handed and versatile weapons). Works only with melee weapons.
+Feat/&PowerAttackFeatDescription	You learned to trade accuracy to land deadlier blows. You can choose to take a -Proficiency Bonus penalty to your to hit in order to do more damage (+Proficiency Bonus damage for one handed weapons, double that for two handed and versatile weapons). Works only with melee weapons
 Feat/&PowerAttackFeatTitle	Power attack
 Feat/&PowerFalseLifeFromFeatDescription	Bolstering yourself with a necromantic facsimile of life, you gain 1d4+4 Temporary Hit Points for the Duration
 Feat/&PowerFalseLifeFromFeatTitle	False Life
@@ -1051,9 +1051,8 @@ Feature/&OpportunistDebilitatingStrikeTitle	Debilitating Strike
 Feature/&OpportunistQuickStrikeDescription	You have advatange when attack an enemies whose initiative is lower than yours. In addition you also have advatange when perform an attack of opportunity
 Feature/&OpportunistQuickStrikeTitle	Quick Strike
 Feature/&OtherworldlyLeapTitle	Otherworldly Leap
-Feature/&OtherworldlyLeapTitle	Otherworldly Leap
 Feature/&PowerAttackTitle	Power attack
-Feature/&PowerAttackDescription	Take a -Proficiency Bonus to hit penalty to your attack for the rest of the turn to do +Proficiency Bonus damage when you land your strikes. Two-Handed and Versatile weapons get bonus damage doubled. Works only with melee weapons.
+Feature/&PowerAttackDescription	Take a -Proficiency Bonus to hit penalty to your attack for the rest of the turn to do +Proficiency Bonus damage when you land your strikes. Two-Handed and Versatile weapons get bonus damage doubled. Works only with melee weapons
 Feature/&PowerPaladinAuraOfCourage18Description	Grant a saving throw bonus to allies withing 30ft
 Feature/&PowerPaladinAuraOfCourage18Title	Improved Aura of Courage
 Feature/&PowerPaladinAuraOfProtection18Description	You and your allies within 30ft cannot be frightened
@@ -1930,4 +1929,4 @@ UI/&CustomFeatureSelectionTooltipTypePower	Power
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Proficiency
 UI/&ForcePreferredCantripDescription	If this toggled is ON only preferred cantrip can trigger. If the preferred cantrip isn't selected, then the first valid cantrip will trigger, regardless of this toggle
 UI/&ForcePreferredCantripTitle	Force Preferred Cantrip
-Tooltip/&PowerAttackConcentration	Disable Power Attack.\nEffect will last until start of your next turn.
+Tooltip/&PowerAttackConcentration	Disable Power Attack.\nEffect will last until start of your next turn
