@@ -1236,6 +1236,10 @@ Item/&CraftingManualRecipeEnchantHandwraps+1Title	Enchant Handwraps +1
 Item/&CraftingManualRecipeEnchantHandwraps+2Title	Enchant Handwraps +2
 Item/&CraftingManualRecipeEnchantHandwrapsOfForceTitle	Enchant Forceful Handwraps
 Item/&CraftingManualRecipeEnchantHandwrapsOfPullingTitle	Enchant Handwraps Of Pulling
+Item/&CraftingManualRecipeEnchantHandwraps+1Description	Enchant Handwraps +1
+Item/&CraftingManualRecipeEnchantHandwraps+2Description	Enchant Handwraps +2
+Item/&CraftingManualRecipeEnchantHandwrapsOfForceDescription	Enchant Forceful Handwraps
+Item/&CraftingManualRecipeEnchantHandwrapsOfPullingDescription	Enchant Handwraps Of Pulling
 Item/&ForceArtilleryProjectileDescription	ForceArtilleryProjectile
 Item/&ForceArtilleryProjectileTitle	ForceArtilleryProjectile
 Item/&Handwraps+1Title	Handwraps +1
