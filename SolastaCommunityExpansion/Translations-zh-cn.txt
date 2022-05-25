@@ -1051,7 +1051,6 @@ Feature/&OpportunistDebilitatingStrikeTitle 衰弱打击
 Feature/&OpportunistQuickStrikeDescription 在攻击先攻权低于你的敌人时，你有优势。此外，你在进行机会攻击时也有优势
 Feature/&OpportunistQuickStrikeTitle 迅捷打击
 Feature/&OtherworldlyLeapTitle	异世飞跃
-Feature/&OtherworldlyLeapTitle  异世飞跃
 Feature/&PowerAttackTitle	猛力攻击
 Feature/&PowerAttackDescription	选择降低等同于你的熟练加值的攻击骰，以造成更大的伤害（单手武器为熟练加值，双手武器为双倍熟练加值）。仅适用于近战武器
 Feature/&PowerPaladinAuraOfCourage18Description	对30英尺范围内的盟友给予豁免加值
