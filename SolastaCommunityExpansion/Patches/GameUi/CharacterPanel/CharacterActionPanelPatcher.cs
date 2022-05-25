@@ -54,14 +54,32 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
                 return;
             }
 
-            while (actionsTable.RectTransform.childCount < startIndex + newItems)
+            var index = 0;
+            var tableRectTransform = actionsTable.RectTransform;
+            for (var i = 0; i < tableRectTransform.childCount; i++)
             {
-                Gui.GetPrefabFromPool(itemPrefab, actionsTable.RectTransform);
+                var child = tableRectTransform.GetChild(i);
+                if (!child.gameObject.activeSelf)
+                {
+                    continue;
+                }
+
+                var component = child.GetComponent<CharacterActionItem>();
+                if (component.CurrentItemForm.GuiCharacterAction.ActionId == actionId)
+                {
+                    index = i + 1;
+                    break;
+                }
+            }
+
+            while (tableRectTransform.childCount < startIndex + newItems)
+            {
+                Gui.GetPrefabFromPool(itemPrefab, tableRectTransform);
             }
 
             for (var i = 0; i < newItems; i++)
             {
-                var child = actionsTable.RectTransform.GetChild(i + startIndex);
+                var child = tableRectTransform.GetChild(i + startIndex);
                 child.gameObject.SetActive(true);
 
                 var component = child.GetComponent<CharacterActionItem>();
@@ -72,39 +90,12 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
                 CustomBindItem(component, __instance, guiCharacterAction);
                 component.Refresh();
                 actionItems.Add(component);
-            }
-
-            var tmp = new List<(Transform, int, ActionDefinitions.Id)>();
-            for (var i = 0; i < startIndex + newItems; i++)
-            {
-                var child = actionsTable.RectTransform.GetChild(i);
-                tmp.Add((child, i, GetId(child)));
-            }
-
-            tmp.Sort((a, b) =>
-            {
-                if (a.Item3 == b.Item3)
-                {
-                    return a.Item2.CompareTo(b.Item2);
-                }
-
-                return a.Item3.CompareTo(b.Item3);
-            });
-
-            for (var i = 0; i < tmp.Count; i++)
-            {
-                var (child, _, _) = tmp[i];
-                child.SetSiblingIndex(i);
+                child.SetSiblingIndex(index);
             }
 
             actionsTable.DispatchChildren(76f);
             __instance.RectTransform
-                .SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 0.0f, actionsTable.RectTransform.rect.width);
-        }
-
-        private static ActionDefinitions.Id GetId(Transform transform)
-        {
-            return transform.GetComponent<CharacterActionItem>().CurrentItemForm.GuiCharacterAction.ActionId;
+                .SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 0.0f, tableRectTransform.rect.width);
         }
 
         private static void CustomBindItem(CharacterActionItem item, CharacterActionPanel panel,
@@ -163,7 +154,6 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
             var enumerator =
                 currentItemForm.GetField<DynamicItemPropertiesEnumerator>("dynamicItemPropertiesEnumerator");
             enumerator.Unbind();
-
 
 
             var itemDefinition = DatabaseHelper.ItemDefinitions.UnarmedStrikeBase;
