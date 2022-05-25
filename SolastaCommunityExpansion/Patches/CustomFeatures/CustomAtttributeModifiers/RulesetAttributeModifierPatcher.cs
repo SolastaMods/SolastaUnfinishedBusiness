@@ -3,7 +3,7 @@ using HarmonyLib;
 using SolastaModApi.Extensions;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures.AtttributeModifierBonus
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomAtttributeModifiers
 {
     // allows the metamagic feats to work correctly with a Sorcerer
     [HarmonyPatch(typeof(RulesetAttributeModifier), "ApplyOnValue")]

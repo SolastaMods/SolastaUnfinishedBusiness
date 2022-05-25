@@ -4,7 +4,7 @@ using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomInterfaces;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures.ConditionRemovedOnSourceTurnStart
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomAttacks
 {
     //
     // IConditionRemovedOnSourceTurnStart

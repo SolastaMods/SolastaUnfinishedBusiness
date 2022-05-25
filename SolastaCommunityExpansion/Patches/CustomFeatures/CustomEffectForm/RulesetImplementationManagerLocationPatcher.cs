@@ -4,7 +4,7 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaModApi.Extensions;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures.SummonFormExtraOriginOfAmount
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomEffectForm
 {
     [HarmonyPatch(typeof(RulesetImplementationManagerLocation), "ApplySummonForm")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

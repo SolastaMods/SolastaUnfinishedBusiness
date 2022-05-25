@@ -5,7 +5,7 @@ using System.Reflection;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures
+namespace SolastaCommunityExpansion.Patches.LevelUp
 {
     // register the hero getting created
     [HarmonyPatch(typeof(CharacterBuildingManager), "CreateNewCharacter")]
@@ -309,7 +309,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
                 classDefinition.TryGetSubclassFeature(out _, out level);
             }
 
-            if (!hero.ClassesAndSubclasses.ContainsKey(classDefinition) || (onlyIfCurrentLevel && classLevel > level))
+            if (!hero.ClassesAndSubclasses.ContainsKey(classDefinition) || onlyIfCurrentLevel && classLevel > level)
             {
                 return;
             }

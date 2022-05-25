@@ -4,7 +4,7 @@ using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaModApi.Extensions;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomAttacks
 {
     [HarmonyPatch(typeof(GameLocationCharacter), "StartBattleTurn")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -136,17 +136,17 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures
                 foreach (var attackMode in __instance.RulesetCharacter.AttackModes)
                 {
                     if (!attackMode.AfterChargeOnly &&
-                        ((attackMode.ActionType == ActionDefinitions.ActionType.Main &&
+                        (attackMode.ActionType == ActionDefinitions.ActionType.Main &&
                          (actionId == ActionDefinitions.Id.AttackMain ||
                           actionId == ActionDefinitions.Id.AttackReadied ||
                           actionId == ActionDefinitions.Id.Volley ||
-                          actionId == ActionDefinitions.Id.WhirlwindAttack)) ||
-                         (attackMode.ActionType == ActionDefinitions.ActionType.Bonus &&
-                         actionId == ActionDefinitions.Id.AttackOff) ||
-                         (attackMode.ActionType == ActionDefinitions.ActionType.Reaction &&
-                         actionId == ActionDefinitions.Id.AttackOpportunity) ||
-                         (attackMode.ActionType == ActionDefinitions.ActionType.Reaction &&
-                         actionId == ActionDefinitions.Id.ReactionShot)))
+                          actionId == ActionDefinitions.Id.WhirlwindAttack) ||
+                         attackMode.ActionType == ActionDefinitions.ActionType.Bonus &&
+                         actionId == ActionDefinitions.Id.AttackOff ||
+                         attackMode.ActionType == ActionDefinitions.ActionType.Reaction &&
+                         actionId == ActionDefinitions.Id.AttackOpportunity ||
+                         attackMode.ActionType == ActionDefinitions.ActionType.Reaction &&
+                         actionId == ActionDefinitions.Id.ReactionShot))
                     {
                         // The only difference is this condition
                         if (skipped == skip)

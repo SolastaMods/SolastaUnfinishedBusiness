@@ -6,7 +6,7 @@ using HarmonyLib;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaModApi.Extensions;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures.ChangeAbilityCheck
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomAbilityChecks
 {
     //
     // IChangeAbilityCheck

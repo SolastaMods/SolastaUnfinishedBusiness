@@ -4,14 +4,32 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
+using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi.Extensions;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures.FirstLevelCasterFeats
+namespace SolastaCommunityExpansion.Patches.LevelUp
 {
     [HarmonyPatch(typeof(GuiFeatDefinition), "IsFeatMacthingPrerequisites")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GuiFeatDefinition_IsFeatMatchingPrerequisites
     {
+        internal static void Postfix(
+            ref bool __result,
+            FeatDefinition feat,
+            RulesetCharacterHero hero,
+            ref string prerequisiteOutput)
+        {
+            if (feat is not FeatDefinitionWithPrerequisites featDefinitionWithPrerequisites || featDefinitionWithPrerequisites.Validators.Count == 0)
+            {
+                return;
+            }
+
+            var (result, output) = featDefinitionWithPrerequisites.Validate(featDefinitionWithPrerequisites, hero);
+
+            __result = __result && result;
+            prerequisiteOutput += "\n" + output;
+        }
+
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var codes = instructions.ToList();
