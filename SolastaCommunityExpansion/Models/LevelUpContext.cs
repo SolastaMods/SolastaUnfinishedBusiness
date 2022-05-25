@@ -36,12 +36,23 @@ namespace SolastaCommunityExpansion.Models
             CharacterClassDefinition lastClass,
             CharacterSubclassDefinition lastSubclass,
             bool levelingUp = false)
-            => LevelUpTab.TryAdd(rulesetCharacterHero, new()
+        {
+            LevelUpTab.TryAdd(rulesetCharacterHero, new()
             {
                 SelectedClass = lastClass,
                 SelectedSubclass = lastSubclass,
                 IsLevelingUp = levelingUp
             });
+
+            //
+            // allows heroes created with other level limits to be rebased during level up
+            //
+            rulesetCharacterHero.GetAttribute(AttributeDefinitions.CharacterLevel).MaxValue = HeroDefinitions.MaxHeroExperience();
+            rulesetCharacterHero.GetAttribute(AttributeDefinitions.CharacterLevel).MaxValue = System.Math.Max(
+                Main.Settings.MaxAllowedLevels,
+                rulesetCharacterHero.GetAttribute(AttributeDefinitions.CharacterLevel).MaxValue);
+        }
+
 
         public static void UnregisterHero(RulesetCharacterHero rulesetCharacterHero)
             => LevelUpTab.Remove(rulesetCharacterHero);
