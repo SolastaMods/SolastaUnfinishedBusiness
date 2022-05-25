@@ -62,4 +62,41 @@ internal static class GameLocationCharacterPatcher
             });
         }
     }
+    
+    // Removes check that makes `ShoveBonus` unavailable if character has no shield
+    [HarmonyPatch(typeof(GameLocationCharacter), "GetActionStatus")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class GameLocationCharacter_GetActionStatus
+    {
+        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        {
+            var codes = instructions.ToList();
+            var customMethod = new Func<RulesetActor, bool>(CustomMethod).Method;
+
+            var bindIndex = codes.FindIndex(x =>
+            {
+                if (x.operand == null)
+                {
+                    return false;
+                }
+
+                var operand = x.operand.ToString();
+                return operand.Contains("IsWearingShield");
+            });
+
+            if (bindIndex > 0)
+            {
+                codes[bindIndex] = new CodeInstruction(OpCodes.Call, customMethod);
+            }
+
+            return codes.AsEnumerable();
+        }
+
+        private static bool CustomMethod(RulesetActor actor)
+        {
+            return true;
+        }
+
+    }
+    
 }
