@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using SolastaCommunityExpansion.Classes.Monk;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -21,7 +20,7 @@ namespace SolastaCommunityExpansion.Models
             return WeaponValidators.IsUnarmedWeapon(slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem)
                    && WeaponValidators.IsUnarmedWeapon(slotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem);
         };
-        
+
         public static readonly CharacterValidator HasUnarmedHand = character =>
         {
             var slotsByName = character.CharacterInventory.InventorySlotsByName;

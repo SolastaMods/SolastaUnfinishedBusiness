@@ -445,7 +445,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                             }
                             //CUSTOM CODE ---- START
                             //Count shield bashing as melee
-                            if (!melee && ShieldStrikeContext.IsShield(attackMode.SourceDefinition as ItemDefinition)) {
+                            if (!melee && ShieldStrikeContext.IsShield(attackMode.SourceDefinition as ItemDefinition))
+                            {
                                 melee = true;
                             }
                             //CUSTOM CODE ---- END

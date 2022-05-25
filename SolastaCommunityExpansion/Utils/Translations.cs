@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using I2.Loc;
 using SolastaCommunityExpansion.Properties;
-using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Utils
 {

@@ -40,7 +40,7 @@ namespace SolastaCommunityExpansion.Builders.Features
 
         public FeatureDefinitionActionAffinityBuilder SetDefaultAllowedActonTypes()
         {
-            Definition.AllowedActionTypes = new[] {true, true, true, true, true, true};
+            Definition.AllowedActionTypes = new[] { true, true, true, true, true, true };
             return This();
         }
     }

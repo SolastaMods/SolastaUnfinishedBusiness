@@ -18,7 +18,9 @@ public static class ShieldStrikeContext
     public static void Load()
     {
         if (_shieldWeaponType == null)
+        {
             _shieldWeaponType = BuildShieldWeaponType();
+        }
     }
 
     public static bool IsShield(RulesetItem item)

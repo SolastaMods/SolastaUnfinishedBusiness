@@ -60,7 +60,7 @@ namespace SolastaCommunityExpansion.FightingStyles
                     .SetAuthorizedActions(Id.ShoveBonus)
                     .SetCustomSubFeatures(
                         new AddExtraUnarmedAttack(ActionType.Bonus),
-                        new AdditionalUnarmedDice(), 
+                        new AdditionalUnarmedDice(),
                         new FeatureApplicationValidator(CharacterValidators.HasUnarmedHand)
                     )
                     .AddToDB();

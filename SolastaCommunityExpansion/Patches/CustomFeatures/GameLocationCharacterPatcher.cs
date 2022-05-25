@@ -62,7 +62,7 @@ internal static class GameLocationCharacterPatcher
             });
         }
     }
-    
+
     // Removes check that makes `ShoveBonus` unavailable if character has no shield
     [HarmonyPatch(typeof(GameLocationCharacter), "GetActionStatus")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -98,5 +98,5 @@ internal static class GameLocationCharacterPatcher
         }
 
     }
-    
+
 }
