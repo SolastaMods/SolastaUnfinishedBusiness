@@ -20,6 +20,13 @@ namespace SolastaCommunityExpansion.Models
             return WeaponValidators.IsUnarmedWeapon(slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem)
                    && WeaponValidators.IsUnarmedWeapon(slotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem);
         };
+        
+        public static readonly CharacterValidator HasUnarmedHand = character =>
+        {
+            var slotsByName = character.CharacterInventory.InventorySlotsByName;
+            return WeaponValidators.IsUnarmedWeapon(slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem)
+                   || WeaponValidators.IsUnarmedWeapon(slotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem);
+        };
 
         public static readonly CharacterValidator UsedAllMainAttacks = character =>
             character.ExecutedAttacks >= character.GetAttribute(AttributeDefinitions.AttacksNumber).CurrentValue;
