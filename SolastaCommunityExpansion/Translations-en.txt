@@ -554,7 +554,7 @@ Feat/&FeatPrimalConstitutionDescription	Increase your Constitution by 1, to a ma
 Feat/&FeatPrimalConstitutionTitle	Primal Rage (Constitution)
 Feat/&FeatPrimalStrengthDescription	Increase your Strength by 1, to a maximum of 20.\nYou can enter a rage as a bonus action as defined in the Barbarian's rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way you must finish a long rest before using this feature again.\nWhile you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Constitution modifier
 Feat/&FeatPrimalStrengthTitle	Primal Rage (Strength)
-Feat/&FeatPugilistFightingStlyeDescription	While you are completely unarmed, your unarmed strikes deal an additional d8 of damage and you can punch with your offhand as a bonus action
+Feat/&FeatPugilistFightingStlyeDescription	Your unarmed strikes deal an additional d4 of damage and you can punch with your offhand as a bonus action
 Feat/&FeatPugilistFightingStlyeTitle	Fighting Style: Pugilist
 Feat/&FeatSavageAttackerDescription	Reroll weapon and spell damage dice when they roll a 1 (does not reroll all damage sources, for example excludes Sneak Attack and Smite)
 Feat/&FeatSavageAttackerReroll	Due to being a Savage Attacker {0} rerolls the {1} die from a {2} to a {3}
@@ -1169,8 +1169,6 @@ Feedback/&AdditionalDamagePactMarkedFormat	Pact mark!
 Feedback/&AdditionalDamagePactMarkedLine	Pact mark does additional damage!
 Feedback/&AdditionalDamagePactSoulTakerFormat	Soul taker!
 Feedback/&AdditionalDamagePactSoulTakerLine	Soul taker does additional damage!
-Feedback/&AdditionalDamagePugilistFormat	Pugilist
-Feedback/&AdditionalDamagePugilistLine	Additional Unarmed Damage from Pugilist
 Feedback/&AdditionalDamageResonatingStrikeFormat	Resonating Strike!
 Feedback/&AdditionalDamageResonatingStrikeLine	{0} resonates {1}! (+{2})
 Feedback/&AdditionalDamageSoulEmpoweredFormat	Soul Empowered!
@@ -1195,7 +1193,7 @@ FightingStyle/&BlindFightingDescription	You have blindsight with a range of 10 f
 FightingStyle/&BlindFightingTitle	Blind Fighting
 FightingStyle/&CripplingDescription	Reduce the speed of your opponent on a melee attack hit to 10 until the end of the next turn
 FightingStyle/&CripplingTitle	Crippling
-FightingStyle/&PugilistFightingDescription	While you are completely unarmed, your unarmed strikes deal an additional d8 of damage and you can punch with your offhand as a bonus action
+FightingStyle/&PugilistFightingDescription	Your unarmed strikes deal an additional d4 of damage and you can punch with your offhand as a bonus action
 FightingStyle/&PugilistFightingTitle	Pugilist
 FightingStyle/&TitanFightingDescription	You gain a +2 hit against creatures of size large or bigger
 FightingStyle/&TitanFightingTitle	Titan Fighting
