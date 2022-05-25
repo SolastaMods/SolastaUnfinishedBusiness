@@ -27,13 +27,13 @@ namespace SolastaCommunityExpansion.Feats
 
             private PowerAttackTwoHandedPowerBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalLightningBlade, name, guid)
             {
-                Definition.GuiPresentation.Title = "Feature/&PowerAttackTwoHandedPowerTitle";
-                Definition.GuiPresentation.Description = Gui.Format("Feature/&PowerAttackTwoHandedPowerDescription", "1", "2");
+                Definition.GuiPresentation.Title = Gui.NoLocalization;
+                Definition.GuiPresentation.Description = Gui.NoLocalization;
                 Definition.GuiPresentation.SetHidden(true);
 
                 Definition.SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
                 Definition.SetActivationTime(RuleDefinitions.ActivationTime.NoCost);
-                Definition.SetShortTitleOverride("Feature/&PowerAttackTwoHandedPowerTitle");
+                Definition.SetShortTitleOverride("Feature/&PowerAttackTitle");
 
                 //Create the power attack effect
                 var powerAttackEffect = new EffectForm
