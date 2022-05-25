@@ -1928,3 +1928,5 @@ UI/&CustomFeatureSelectionTooltipTypeProficiency	Proficiency
 UI/&ForcePreferredCantripDescription	If this toggled is ON only preferred cantrip can trigger. If the preferred cantrip isn't selected, then the first valid cantrip will trigger, regardless of this toggle
 UI/&ForcePreferredCantripTitle	Force Preferred Cantrip
 Tooltip/&PowerAttackConcentration	Disable Power Attack.\nEffect will last until start of your next turn
+Feat/&FeatShieldExpertTitle	Shield Expert
+Feat/&FeatShieldExpertDescription	You have trained in the use of a shield as a weapon. For you it becomes a melee weapon that you are proficient with, doing 1d4 bludgeoning damage.\nYou gain advantage on shove attempts while weilding a shield.

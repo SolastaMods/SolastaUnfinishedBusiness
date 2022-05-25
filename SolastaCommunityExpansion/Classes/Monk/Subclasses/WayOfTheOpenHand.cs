@@ -175,7 +175,7 @@ public static class WayOfTheOpenHand
             .SetCostPerUse(3)
             .SetFixedUsesPerRecharge(3)
             .SetRechargeRate(RechargeRate.ShortRest)
-            .SetCustomSubFeatures(new ReactionAttackModeRestriction((mode, _, _) => Monk.IsUnarmedWeapon(mode)))
+            .SetCustomSubFeatures(new ReactionAttackModeRestriction((mode, _, _) => WeaponValidators.IsUnarmedWeapon(mode)))
             .SetEffectDescription(new EffectDescriptionBuilder()
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                 .SetDurationData(DurationType.Instantaneous)

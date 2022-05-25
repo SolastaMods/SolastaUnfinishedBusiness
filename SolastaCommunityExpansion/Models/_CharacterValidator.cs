@@ -17,8 +17,8 @@ namespace SolastaCommunityExpansion.Models
         public static readonly CharacterValidator FullyUnarmed = character =>
         {
             var slotsByName = character.CharacterInventory.InventorySlotsByName;
-            return Monk.IsUnarmedWeapon(slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem)
-                   && Monk.IsUnarmedWeapon(slotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem);
+            return WeaponValidators.IsUnarmedWeapon(slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem)
+                   && WeaponValidators.IsUnarmedWeapon(slotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem);
         };
 
         public static readonly CharacterValidator UsedAllMainAttacks = character =>

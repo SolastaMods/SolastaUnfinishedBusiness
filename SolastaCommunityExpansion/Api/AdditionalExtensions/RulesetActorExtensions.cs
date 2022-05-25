@@ -91,5 +91,12 @@ namespace SolastaModApi.Extensions
                 .SelectMany(f => f.GetAllSubFeaturesOfType<T>())
                 .ToList();
         }
+        
+        public static bool HasSubFeatureOfType<T>(this RulesetActor actor) where T : class
+        {
+            return FeaturesByType<FeatureDefinition>(actor)
+                .SelectMany(f => f.GetAllSubFeaturesOfType<T>())
+                .FirstOrDefault() != null;
+        }
     }
 }
