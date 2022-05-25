@@ -4,6 +4,7 @@ using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi.Infrastructure;
+using static RuleDefinitions;
 
 namespace SolastaCommunityExpansion.CustomDefinitions
 {
@@ -118,6 +119,40 @@ namespace SolastaCommunityExpansion.CustomDefinitions
                 hero.FeaturesOrigin,
                 offHandItem
             );
+
+            var features = new List<FeatureDefinition>();
+
+            var bonus = 0;
+            offHandItem.EnumerateFeaturesToBrowse<FeatureDefinitionAttributeModifier>(features);
+            foreach (var modifier in features.OfType<FeatureDefinitionAttributeModifier>())
+            {
+                if (modifier.ModifiedAttribute != AttributeDefinitions.ArmorClass)
+                {
+                    continue;
+                }
+
+                if (modifier.ModifierType != FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive)
+                {
+                    continue;
+                }
+
+                bonus += modifier.ModifierValue;
+            }
+
+            if (bonus != 0)
+            {
+                var damage = attackMode.EffectDescription?.FindFirstDamageForm();
+                var trendInfo = new TrendInfo(bonus, FeatureSourceType.Equipment, offHandItem.Name, null);
+
+                attackMode.ToHitBonus += bonus;
+                attackMode.ToHitBonusTrends.Add(trendInfo);
+
+                if (damage != null)
+                {
+                    damage.BonusDamage += bonus;
+                    damage.DamageBonusTrends.Add(trendInfo);
+                }
+            }
 
             if (attackModes.Any(m => attackMode.IsComparableForNetwork(m)))
             {
