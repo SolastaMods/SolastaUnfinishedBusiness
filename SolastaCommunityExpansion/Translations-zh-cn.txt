@@ -554,7 +554,7 @@ Feat/&FeatPrimalConstitutionDescription	体质+1，最高20点\n你能以附赠�
 Feat/&FeatPrimalConstitutionTitle	原初狂怒（体质）
 Feat/&FeatPrimalStrengthDescription	力量+1，最高20点\n你能以附赠动作进入类似于野蛮人的狂暴状态，可以与野蛮人的狂暴叠加并使其伤害+1。每长休1次\n当你未穿戴盔甲时，你的AC等于10+敏捷修正值+体质修正值
 Feat/&FeatPrimalStrengthTitle	原初狂怒（力量）
-Feat/&FeatPugilistFightingStlyeDescription	当你不装备任何武器时，你的徒手攻击造成额外的1d8点伤害，你可以用附赠动作进行副手攻击
+Feat/&FeatPugilistFightingStlyeDescription	你的徒手攻击造成额外的1d4点伤害，你可以用附赠动作进行副手攻击
 Feat/&FeatPugilistFightingStlyeTitle	战斗风格：搏击
 Feat/&FeatSavageAttackerDescription	当投出1时重投武器和法术的伤害骰(不重投所有伤害源，例如偷袭和重击)
 Feat/&FeatSavageAttackerReroll	因为野性袭击者的效果 {0} 重投 {1} 伤害骰，数值由 {2} 变为 {3}
@@ -1169,8 +1169,6 @@ Feedback/&AdditionalDamagePactMarkedFormat	契约印记
 Feedback/&AdditionalDamagePactMarkedLine	契约印记造成额外伤害
 Feedback/&AdditionalDamagePactSoulTakerFormat	灵魂夺取
 Feedback/&AdditionalDamagePactSoulTakerLine	灵魂夺取造成额外伤害
-Feedback/&AdditionalDamagePugilistFormat	搏击
-Feedback/&AdditionalDamagePugilistLine	搏击造成额外徒手伤害
 Feedback/&AdditionalDamageResonatingStrikeFormat	共鸣斩！
 Feedback/&AdditionalDamageResonatingStrikeLine	{0}共鸣斩{1}！ (+{2})
 Feedback/&AdditionalDamageSoulEmpoweredFormat	魂力赋能
@@ -1195,7 +1193,7 @@ FightingStyle/&BlindFightingDescription	你获得10英尺范围的盲感
 FightingStyle/&BlindFightingTitle	盲斗
 FightingStyle/&CripplingDescription	将你近战范围内的对手的速度降低到10，直到下一回合结束
 FightingStyle/&CripplingTitle	致残
-FightingStyle/&PugilistFightingDescription	当你不装备任何武器时，你的徒手攻击造成额外的1d8点伤害，你可以用附赠动作进行副手攻击
+FightingStyle/&PugilistFightingDescription	你的徒手攻击造成额外的1d4点伤害，你可以用附赠动作进行副手攻击
 FightingStyle/&PugilistFightingTitle	搏击
 FightingStyle/&TitanFightingDescription	你对大体型或大体型以上的生物伤害+2
 FightingStyle/&TitanFightingTitle	泰坦战技
@@ -1930,3 +1928,5 @@ UI/&CustomFeatureSelectionTooltipTypeProficiency	熟练度
 UI/&ForcePreferredCantripDescription	如果该选项开启，只有首选的戏法可以触发。如果未选择首选戏法，那么第一个有效的戏法将被触发，此时将无视该选项开关状态
 UI/&ForcePreferredCantripTitle	默认首选戏法
 Tooltip/&PowerAttackConcentration	禁用猛力攻击\n持续至你下一回合开始
+Feat/&FeatShieldExpertTitle	盾牌专家
+Feat/&FeatShieldExpertDescription	你受训将盾牌作为武器使用。盾牌成为你熟练的近战武器，造成1d4点钝击伤害。\n在手持盾牌时，你在推撞上获得优势
