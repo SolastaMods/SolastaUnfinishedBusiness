@@ -351,6 +351,97 @@ namespace SolastaCommunityExpansion.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Monster/&amp;DH_Custom_AirTitan_Description	When summoned, these elder elementals manifest as beings of apocalyptic capability, entities whose mere existence promises destruction.
+        ///Monster/&amp;DH_Custom_AirTitan_Title	&lt;color=#ff0000ff&gt;Primordial Air Titan&lt;/color&gt;
+        ///Monster/&amp;DH_Custom_AncientBlackDragon_Description	The most evil-tempered and vile of the chromatic dragons, black dragons collect the wreckage and treasures of fallen peoples. These dragons loathe seeing the weak prosper and revel in the collapse of huma [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Monsters_en {
+            get {
+                return ResourceManager.GetString("Monsters-en", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Monster/&amp;DH_Custom_AirTitan_Description	Lorsqu&apos;ils sont invoqués, ces élémentaux anciens se manifestent comme des êtres aux capacités apocalyptiques, des entités dont la simple existence promet la destruction.
+        ///Monster/&amp;DH_Custom_AirTitan_Title	&lt;color=#ff0000ff&gt;Titan Primordial de l&apos;Air&lt;/color&gt;
+        ///Monster/&amp;DH_Custom_AncientBlackDragon_Description	Le plus méchant et le plus vil des dragons chromatiques, les dragons noirs collectent les débris et les trésors des peuples déchus. Ces dragons détestent voir les fa [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Monsters_fr {
+            get {
+                return ResourceManager.GetString("Monsters-fr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Monster/&amp;DH_Custom_AirTitan_Description	Quando convocados, esses elementais anciões se manifestam como seres de capacidade apocalíptica, entidades cuja mera existência promete destruição.
+        ///Monster/&amp;DH_Custom_AirTitan_Title	&lt;color=#ff0000ff&gt;Titã do Ar Primordial&lt;/color&gt;
+        ///Monster/&amp;DH_Custom_AncientBlackDragon_Description	O mais mal-humorado e vil dos dragões cromáticos, os dragões negros coletam os destroços e tesouros dos povos caídos. Esses dragões detestam ver os fracos prosperarem e se deleitam com o cola [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Monsters_pt_br {
+            get {
+                return ResourceManager.GetString("Monsters-pt-br", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Monster/&amp;DH_Custom_AirTitan_Description	При вызове эти старшие элементали проявляются как существа с апокалиптическими способностями, существа, само существование которых обещает разрушение.
+        ///Monster/&amp;DH_Custom_AirTitan_Title	&lt;color=#ff0000ff&gt;Изначальный воздушный титан&lt;/color&gt;
+        ///Monster/&amp;DH_Custom_AncientBlackDragon_Description	Самые злобные и мерзкие из цветных драконов, черные драконы собирают обломки и сокровища павших народов. Эти драконы ненавидят процветание слабых и наслаждаются крахом гуманоидных ко [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Monsters_ru {
+            get {
+                return ResourceManager.GetString("Monsters-ru", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Monster/&amp;DH_Custom_AirTitan_Description	当被召唤时，这些年长的元素聚现为具有灭世能力的生物，它们的存在就会带来毁灭
+        ///Monster/&amp;DH_Custom_AirTitan_Title	&lt;color=#ff0000ff&gt;原初空气泰坦&lt;/color&gt;
+        ///Monster/&amp;DH_Custom_AncientBlackDragon_Description	作为色彩龙中最暴躁卑劣的种类，黑龙会将倒毙者的残骸连同其财宝一同收集起来。黑龙们厌恶眼见弱者的兴盛，并乐见类人生物王国崩溃。恶臭的沼泽，以及覆亡王国曾经耸立的废墟瓦砾会是他们理想的家园
+        ///Monster/&amp;DH_Custom_AncientBlackDragon_Title	&lt;color=#ff0000ff&gt;远古黑龙&lt;/color&gt;
+        ///Monster/&amp;DH_Custom_AncientBlueDragon_Description	自负且极具领土意识的蓝龙翱翔于沙漠的天空之上，时常捕食商队并在沙漠边际的旷野狩猎畜群和定居者。这种龙也会出现在干燥的草原，灼热的荒漠以及多岩的海岸，他们会守卫自己的领地而对抗所有潜在的对手，特别是 [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Monsters_zh_cn {
+            get {
+                return ResourceManager.GetString("Monsters-zh-cn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DwarfFemale	Dearma
+        ///DwarfFemale	Jenrin
+        ///DwarfFemale	Nisleen
+        ///DwarfFemale	Misnan
+        ///DwarfFemale	Jenndora
+        ///DwarfFemale	Renmera
+        ///DwarfFemale	Nasnyl
+        ///DwarfFemale	Brallesyl
+        ///DwarfFemale	Torthiel
+        ///DwarfFemale	Myrnera
+        ///DwarfFemale	Bretri
+        ///DwarfFemale	Abagtha
+        ///DwarfFemale	Bera
+        ///DwarfFemale	Birsha
+        ///DwarfFemale	Clauda
+        ///DwarfFemale	Dabareh
+        ///DwarfFemale	Demelza
+        ///DwarfFemale	Dodai
+        ///DwarfFemale	Dura
+        ///DwarfFemale	Gath
+        ///DwarfFemale	Hadar
+        ///DwarfFemale	Hagar
+        ///DwarfFemale	Halah
+        ///DwarfFemale	Hanan
+        ///DwarfFemale	Iddo
+        ///DwarfFemale	 [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Names_en {
+            get {
+                return ResourceManager.GetString("Names-en", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap PowerAttackConcentrationIcon {
@@ -397,6 +488,85 @@ namespace SolastaCommunityExpansion.Properties {
             get {
                 object obj = ResourceManager.GetObject("Teleport", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ActionAffinity/&amp;DHFeeblemindSpellDescription	Unable to cast spells
+        ///ActionAffinity/&amp;DHFeeblemindSpellTitle	Feeble spellcasting
+        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	AC is set to 16
+        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinTitle	Barkskin
+        ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	Charisma score equals 1
+        ///AttributeModifier/&amp;DHFeeblemindChaSpellTitle	Feeble Charisma
+        ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	Intelligence score equals 1
+        ///Attribu [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Translations_en {
+            get {
+                return ResourceManager.GetString("Translations-en", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ActionAffinity/&amp;DHFeeblemindSpellDescription	Impossible de lancer des sorts
+        ///ActionAffinity/&amp;DHFeeblemindSpellTitle	Lancement de sorts faible
+        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	AC est réglé sur 16
+        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinTitle	Écorce
+        ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	Le score de charisme est égal à 1
+        ///AttributeModifier/&amp;DHFeeblemindChaSpellTitle	Charisme faible
+        ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	Le score  [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Translations_fr {
+            get {
+                return ResourceManager.GetString("Translations-fr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ActionAffinity/&amp;DHFeeblemindSpellDescription	Incapaz de lançar feitiços
+        ///ActionAffinity/&amp;DHFeeblemindSpellTitle	Feitiço fraco
+        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	AC está definido para 16
+        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinTitle	Barkskin
+        ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	A pontuação de carisma é igual a 1
+        ///AttributeModifier/&amp;DHFeeblemindChaSpellTitle	Carisma fraco
+        ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	A pontuação de inte [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Translations_pt_br {
+            get {
+                return ResourceManager.GetString("Translations-pt-br", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ActionAffinity/&amp;DHFeeblemindSpellDescription	Невозможно использовать заклинания
+        ///ActionAffinity/&amp;DHFeeblemindSpellTitle	Слабое колдовство
+        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	AC установлен на 16
+        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinTitle	Дубовая кожа
+        ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	Показатель харизмы равен 1
+        ///AttributeModifier/&amp;DHFeeblemindChaSpellTitle	Слабая харизма
+        ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	Интеллект равен [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Translations_ru {
+            get {
+                return ResourceManager.GetString("Translations-ru", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ActionAffinity/&amp;DHFeeblemindSpellDescription	无法施法
+        ///ActionAffinity/&amp;DHFeeblemindSpellTitle	施法能力衰减
+        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	AC设为16
+        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinTitle	树肤术
+        ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	魅力值为1
+        ///AttributeModifier/&amp;DHFeeblemindChaSpellTitle	魅力衰减
+        ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	智力值为1
+        ///AttributeModifier/&amp;DHFeeblemindIntSpellTitle	智力衰减
+        ///BlueprintCategory/&amp;FlatRoomsTitle	平房
+        ///Caption/&amp;Gadg [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Translations_zh_cn {
+            get {
+                return ResourceManager.GetString("Translations-zh-cn", resourceCulture);
             }
         }
         

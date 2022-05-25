@@ -1,6 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using I2.Loc;
+using SolastaCommunityExpansion.Properties;
+using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Utils
 {
@@ -37,18 +40,16 @@ namespace SolastaCommunityExpansion.Utils
 
         public static void LoadTranslations(string category)
         {
-            var modLanguages = "frpt-BRruzh-CN";
-            var path = Path.Combine(Main.MOD_FOLDER, $"{category}-{LocalizationManager.CurrentLanguageCode}.txt");
-
-            if (!File.Exists(path) || !modLanguages.Contains(LocalizationManager.CurrentLanguageCode))
-            {
-                path = Path.Combine(Main.MOD_FOLDER, $"{category}-en.txt");
-            }
-
             var languageSourceData = LocalizationManager.Sources[0];
             var languageIndex = languageSourceData.GetLanguageIndex(LocalizationManager.CurrentLanguage);
+            var languageCode = ("frpt-BRruzh-CN".Contains(LocalizationManager.CurrentLanguageCode)
+                ? LocalizationManager.CurrentLanguageCode
+                : "en")
+                .Replace("-", "_");
+            var payload = (string)typeof(Resources).GetProperty(category + "_" + languageCode).GetValue(null);
+            var lines = new List<string>(payload.Split(new[] { Environment.NewLine }, StringSplitOptions.None));
 
-            foreach (var line in File.ReadLines(path))
+            foreach (var line in lines)
             {
                 string term;
                 string text;

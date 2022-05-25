@@ -229,4 +229,37 @@
   <data name="PowerAttackIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PowerAttackIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Monsters-en" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Monsters-en.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Monsters-fr" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Monsters-fr.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Monsters-pt-br" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Monsters-pt-br.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Monsters-ru" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Monsters-ru.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Monsters-zh-cn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Monsters-zh-cn.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Translations-en" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Translations-en.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Translations-fr" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Translations-fr.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Translations-pt-br" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Translations-pt-br.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Translations-ru" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Translations-ru.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Translations-zh-cn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Translations-zh-cn.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Names-en" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Names-en.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
 </root>

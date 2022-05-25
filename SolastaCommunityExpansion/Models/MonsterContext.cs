@@ -55,7 +55,7 @@ namespace SolastaMonsters.Models
                 return;
             }
 
-            SolastaCommunityExpansion.Utils.Translations.LoadTranslations("monsters");
+            SolastaCommunityExpansion.Utils.Translations.LoadTranslations("Monsters");
 
             //following order of new blueprint creation should be maintained
             Monsters.NewMonsterAttributes.Create();

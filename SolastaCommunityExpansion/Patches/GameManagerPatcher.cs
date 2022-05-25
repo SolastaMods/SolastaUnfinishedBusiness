@@ -23,7 +23,7 @@ namespace SolastaCommunityExpansion.Patches
             ItemDefinitionVerification.Load();
             EffectFormVerification.Load();
 #endif
-            Translations.LoadTranslations("translations");
+            Translations.LoadTranslations("Translations");
 
             ResourceLocatorContext.Load();
 
