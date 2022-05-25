@@ -46,7 +46,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             var mainHandItem = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
                 .EquipedItem;
 
-            var isUnarmedWeapon = mainHandItem != null && Monk.IsUnarmedWeapon(mainHandItem);
+            var isUnarmedWeapon = mainHandItem != null && WeaponValidators.IsUnarmedWeapon(mainHandItem);
             var strikeDefinition = isUnarmedWeapon
                 ? mainHandItem.ItemDefinition
                 : hero.UnarmedStrikeDefinition;

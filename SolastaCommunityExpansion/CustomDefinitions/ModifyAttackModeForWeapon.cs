@@ -4,7 +4,6 @@ using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.CustomDefinitions
 {
-    public delegate bool IsWeaponValidHandler(RulesetAttackMode attackMode, RulesetItem weapon);
 
     public class CanUseAttributeForWeapon : IModifyAttackAttributeForWeapon
     {

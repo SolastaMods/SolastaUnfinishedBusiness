@@ -779,7 +779,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
             return FeatureDefinitionBuilder
                 .Create("ClassMonkKiEmpoweredStrikes", GUID)
                 .SetGuiPresentation(Category.Feature)
-                .SetCustomSubFeatures(new AddTagToWeaponAttack(TagsDefinitions.Magical, IsUnarmedWeapon))
+                .SetCustomSubFeatures(new AddTagToWeaponAttack(TagsDefinitions.Magical, WeaponValidators.IsUnarmedWeapon))
                 .AddToDB();
         }
 
@@ -910,27 +910,6 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .SetGuiPresentation(Category.Feature)
                 .SetCustomSubFeatures(new PerfectSelf())
                 .AddToDB();
-        }
-
-        private static bool IsUnarmedWeapon(RulesetAttackMode attackMode, RulesetItem weapon)
-        {
-            var item = attackMode?.SourceDefinition as ItemDefinition ?? weapon?.ItemDefinition;
-            if (item != null)
-            {
-                return item.WeaponDescription?.WeaponTypeDefinition == WeaponTypeDefinitions.UnarmedStrikeType;
-            }
-
-            return weapon == null;
-        }
-
-        public static bool IsUnarmedWeapon(RulesetAttackMode attackMode)
-        {
-            return IsUnarmedWeapon(attackMode, null);
-        }
-
-        public static bool IsUnarmedWeapon(RulesetItem weapon)
-        {
-            return IsUnarmedWeapon(null, weapon);
         }
 
         private static bool IsMonkWeapon(RulesetAttackMode attackMode, RulesetItem weapon)
